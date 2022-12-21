@@ -17,4 +17,4 @@ fn main() {
 Rust terminology:
 
 * `&str` an immutable reference to a string slice.
-* `String` a mutable string buffer
+* `String` a mutable string buffer.
