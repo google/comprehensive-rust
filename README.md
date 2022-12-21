@@ -5,6 +5,8 @@ course developed by the Android team. The course covers all aspects of Rust,
 from basic syntax to generics and error handling. It also includes
 Android-specific content on the last day.
 
+Read the course at **https://google.github.io/comprehensive-rust/**.
+
 ## Building
 
 The course is built using [mdBook](https://github.com/rust-lang/mdBook) and its
