@@ -1,6 +1,6 @@
 # Static and Constant Variables
 
-Global state is managed with static and constant variables
+Global state is managed with static and constant variables.
 
 ## `const`
 
