@@ -1,6 +1,6 @@
 # Using Cargo
 
-When you start reading about Rust, you will soon meet Cargo, the standard tool
+When you start reading about Rust, you will soon meet [Cargo](https://doc.rust-lang.org/cargo/), the standard tool
 used in the Rust ecosystem to build and run Rust applications. Here we want to
 give a brief overview of what Cargo is and how it fits into the wider ecosystem
 and how it fits into this training.
