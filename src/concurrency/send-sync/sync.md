@@ -3,7 +3,7 @@
 > A type `T` is [`Sync`][1] if it is safe to access a `T` value from multiple
 > threads at the same time.
 
-More precisely, the definitions is
+More precisely, the definition is:
 
 > `T` is `Sync` if and only if `&T` is `Send`
 
