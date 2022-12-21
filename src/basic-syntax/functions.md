@@ -1,6 +1,6 @@
 # Functions
 
-A Rust version of the famous FizzBuzz interview question:
+A Rust version of the famous [FizzBuzz](https://en.wikipedia.org/wiki/Fizz_buzz) interview question:
 
 ```rust,editable
 fn main() {
