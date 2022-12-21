@@ -1,0 +1,11 @@
+rust_binary {
+    name: "hello_rust_logs",
+    crate_name: "hello_rust_logs",
+    srcs: ["src/main.rs"],
+    rustlibs: [
+        "liblog_rust",
+        "liblogger",
+    ],
+    prefer_rlib: true,
+    host_supported: true,
+}

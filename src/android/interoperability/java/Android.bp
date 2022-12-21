@@ -1,0 +1,17 @@
+// ANCHOR: libhello_jni
+rust_ffi_shared {
+    name: "libhello_jni",
+    crate_name: "hello_jni",
+    srcs: ["src/lib.rs"],
+    rustlibs: ["libjni"],
+}
+// ANCHOR_END: libhello_jni
+
+// ANCHOR: helloworld_jni
+java_binary {
+    name: "helloworld_jni",
+    srcs: ["HelloWorld.java"],
+    main_class: "HelloWorld",
+    required: ["libhello_jni"],
+}
+// ANCHOR_END: helloworld_jni

@@ -1,0 +1,16 @@
+rust_binary {
+    name: "hello_rust_with_dep",
+    crate_name: "hello_rust_with_dep",
+    srcs: ["src/main.rs"],
+    rustlibs: [
+        "libgreetings",
+        "libtextwrap",
+    ],
+    prefer_rlib: true,
+}
+
+rust_library {
+    name: "libgreetings",
+    crate_name: "greetings",
+    srcs: ["src/lib.rs"],
+}

@@ -1,0 +1,36 @@
+// ANCHOR: libbirthday
+cc_library {
+    name: "libbirthday",
+    srcs: ["libbirthday.c"],
+}
+// ANCHOR_END: libbirthday
+
+// ANCHOR: libbirthday_bindgen
+rust_bindgen {
+    name: "libbirthday_bindgen",
+    crate_name: "birthday_bindgen",
+    wrapper_src: "libbirthday_wrapper.h",
+    source_stem: "bindings",
+    static_libs: ["libbirthday"],
+}
+// ANCHOR_END: libbirthday_bindgen
+
+// ANCHOR: libbirthday_bindgen_test
+rust_test {
+    name: "libbirthday_bindgen_test",
+    srcs: [":libbirthday_bindgen"],
+    crate_name: "libbirthday_bindgen_test",
+    test_suites: ["general-tests"],
+    auto_gen_config: true,
+    clippy_lints: "none", // Generated file, skip linting
+    lints: "none",
+}
+// ANCHOR_END: libbirthday_bindgen_test
+
+// ANCHOR: print_birthday_card
+rust_binary {
+    name: "print_birthday_card",
+    srcs: ["main.rs"],
+    rustlibs: ["libbirthday_bindgen"],
+}
+// ANCHOR_END: print_birthday_card

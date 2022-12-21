@@ -1,0 +1,38 @@
+// ANCHOR: libbirthdayservice
+rust_library {
+    name: "libbirthdayservice",
+    srcs: ["src/lib.rs"],
+    crate_name: "birthdayservice",
+    rustlibs: [
+        "com.example.birthdayservice-rust",
+        "libbinder_rs",
+    ],
+}
+// ANCHOR_END: libbirthdayservice
+
+// ANCHOR: birthday_server
+rust_binary {
+    name: "birthday_server",
+    crate_name: "birthday_server",
+    srcs: ["src/server.rs"],
+    rustlibs: [
+        "com.example.birthdayservice-rust",
+        "libbinder_rs",
+        "libbirthdayservice",
+    ],
+    prefer_rlib: true,
+}
+// ANCHOR_END: birthday_server
+
+// ANCHOR: birthday_client
+rust_binary {
+    name: "birthday_client",
+    crate_name: "birthday_client",
+    srcs: ["src/client.rs"],
+    rustlibs: [
+        "com.example.birthdayservice-rust",
+        "libbinder_rs",
+    ],
+    prefer_rlib: true,
+}
+// ANCHOR_END: birthday_client
