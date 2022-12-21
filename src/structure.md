@@ -15,8 +15,9 @@ days:
 ## Format
 
 The course is interactive and your questions will drive our exploration of Rust!
+You may ask questions are start discussions by filing issues [here](https://github.com/google/comprehensive-rust/issues). 
 
-* Please ask quesitons when you get then, don't save them to the end.
+* Please ask questions when you get them, don't save them to the end.
 * Discussions are very much encouraged!
 * We will likely talk about things ahead of the slides.
   * The slides are just a support and we are free to skip them as we like.
