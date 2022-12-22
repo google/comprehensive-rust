@@ -1,7 +1,8 @@
 # Test Modules
 
-Unit tests are often put in a nested module (run tests on the
-[Playground](https://play.rust-lang.org/)):
+Unit tests are often put in a nested module. If you run the code below, tests
+are not executed, so you’ll need to run tests on the
+[Playground](https://play.rust-lang.org/).
 
 ```rust,editable
 fn helper(a: &str, b: &str) -> String {

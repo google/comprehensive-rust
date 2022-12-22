@@ -46,8 +46,7 @@ a function `transpose` which will transpose a matrix (turn rows into columns):
 
 Hard-code both functions to operate on 3 × 3 matrices.
 
-Copy the code below to <https://play.rust-lang.org/> and implement the
-functions:
+Implement the functions:
 
 ```rust,should_panic
 // TODO: remove this when you're done with your implementation.

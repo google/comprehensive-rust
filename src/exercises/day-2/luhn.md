@@ -16,8 +16,7 @@ following to validate the credit card number:
 
 * The credit card number is valid if the sum is ends with `0`.
 
-Copy the following code to <https://play.rust-lang.org/> and implement the
-function:
+Implement the function:
 
 
 ```rust

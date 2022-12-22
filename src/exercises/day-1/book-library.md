@@ -14,8 +14,8 @@ fn main() {
 }
 ```
 
-Use this to create a library application. Copy the code below to
-<https://play.rust-lang.org/> and update the types to make it compile:
+Use this to create a library application. Update the types to make the code
+below compile:
 
 ```rust,should_panic
 // TODO: remove this when you're done with your implementation.

@@ -5,8 +5,8 @@ server is configured with a number of _path prefixes_ which are matched against
 _request paths_. The path prefixes can contain a wildcard character which
 matches a full segment. See the unit tests below.
 
-Copy the following code to <https://play.rust-lang.org/> and make the tests
-pass. Try avoiding allocating a `Vec` for your intermediate results:
+Edit the following code and make the tests pass. Try avoiding allocating a
+`Vec` for your intermediate results:
 
 
 ```rust

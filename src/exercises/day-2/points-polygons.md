@@ -1,8 +1,7 @@
 # Polygon Struct
 
-We will create a `Polygon` struct which contain some points. Copy the code below
-to <https://play.rust-lang.org/> and fill in the missing methods to make the
-tests pass:
+We will create a `Polygon` struct which contain some points. Fill in the
+missing methods to make the tests pass:
 
 ```rust
 // TODO: remove this when you're done with your implementation.

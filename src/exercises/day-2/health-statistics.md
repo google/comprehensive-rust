@@ -2,8 +2,7 @@
 
 {{#include ../../../third_party/rust-on-exercism/health-statistics.md}}
 
-Copy the code below to <https://play.rust-lang.org/> and fill in the missing
-methods:
+Fill in the missing methods in the code below:
 
 ```rust,should_panic
 // TODO: remove this when you're done with your implementation.

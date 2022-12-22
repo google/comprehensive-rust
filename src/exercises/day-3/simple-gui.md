@@ -12,8 +12,8 @@ We will have a number of widgets in our library:
 
 The widgets will implement a `Widget` trait, see below.
 
-Copy the code below to <https://play.rust-lang.org/>, fill in the missing
-`draw_into` methods so that you implement the `Widget` trait:
+Fill in the missing `draw_into` methods in the code below so that you
+implement the `Widget` trait:
 
 ```rust,should_panic
 // TODO: remove this when you're done with your implementation.
