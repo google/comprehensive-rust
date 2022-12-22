@@ -23,8 +23,9 @@ Implementing these traits is how a type expresses that it can be converted into
 another type.
 
 The standard library has an implementation of `From<i8> for i16`, which means
-that we can convert an `i8` to an `i16` by calling the `into()` method on the
-`i8`.
+that we can convert a variable `x` of type `i8` to an `i16` by calling 
+`i16::from(x)`. Or, simpler, with `x.into()`, because `From<i8> for i16`
+implementation automatically create an implementation of `Into<i16> for i8`.
 
 1. Execute the above program and look at the compiler error.
 
