@@ -22,7 +22,7 @@ You use this trait like this:
 ```rust,editable
 fn main() {
     let v: Vec<i8> = vec![10, 20, 30];
-    let mut iter = v.iter();
+    let mut iter = v.into_iter();
 
     println!("v[0]: {:?}", iter.next());
     println!("v[1]: {:?}", iter.next());
@@ -36,7 +36,7 @@ What is the type returned by the iterator? Test your answer here:
 ```rust,editable,compile_fail
 fn main() {
     let v: Vec<i8> = vec![10, 20, 30];
-    let mut iter = v.iter();
+    let mut iter = v.into_iter();
 
     let v0: Option<..> = iter.next();
     println!("v0: {v0:?}");
