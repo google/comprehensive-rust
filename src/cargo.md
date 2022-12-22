@@ -8,7 +8,7 @@ and how it fits into this training.
 On Debian/Ubuntu, you can install Cargo and the Rust source with
 
 ```shell
-$ sudo apt install cargo rust-src
+sudo apt install cargo rust-src
 ```
 
 This will allow [rust-analyzer][1] to jump to the definitions. We suggest using
