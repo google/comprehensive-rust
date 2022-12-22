@@ -128,3 +128,10 @@ $ adb sync  # requires adb root && adb remount
 $ adb shell /system/bin/helloworld_jni
 # ANCHOR_END: helloworld_jni
 EOF
+
+run_example <<EOF
+# ANCHOR: helloworld_jna
+$ m helloworld_jna
+$ adb sync  # requires adb root && adb remount
+$ adb shell /system/bin/helloworld_jna
+# ANCHOR_END: helloworld_jna
