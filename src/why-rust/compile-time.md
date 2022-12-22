@@ -3,7 +3,7 @@
 Static memory management at compile time:
 
 * No uninitialized variables.
-* No memory leaks[^leaks].
+* *Mostly* no memory leaks[^leaks].
 * No double-frees.
 * No use-after-free.
 * No `NULL` pointers.
