@@ -1,6 +1,6 @@
 # `Vec`
 
-[`Vec`][1] is the standard resizeable heap-allocated buffer:
+[`Vec`][1] is the standard resizable heap-allocated buffer:
 
 ```rust,editable
 fn main() {
