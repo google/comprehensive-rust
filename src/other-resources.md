@@ -3,7 +3,7 @@
 The Rust community has created a wealth of high-quality and free resources
 online.
 
-## Offical Documentation
+## Official Documentation
 
 The Rust project hosts many resources. These cover Rust in general:
 
