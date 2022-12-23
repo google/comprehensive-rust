@@ -1,6 +1,6 @@
 # Lifetimes in Function Calls
 
-In addition to borrow its arguments, a function can return a borrowed value:
+In addition to borrowing its arguments, a function can return a borrowed value:
 
 ```rust,editable
 #[derive(Debug)]
