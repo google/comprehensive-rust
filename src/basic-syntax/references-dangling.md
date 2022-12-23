@@ -13,7 +13,7 @@ fn main() {
 }
 ```
 
-* A reference is said to "borrow" the value is refers to.
+* A reference is said to "borrow" the value it refers to.
 * Rust is tracking the lifetimes of all references to ensure they live long
   enough.
 * We will talk more about borrowing when we get to ownership.
