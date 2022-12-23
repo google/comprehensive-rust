@@ -14,5 +14,9 @@ $ sudo apt install cargo rust-src
 This will allow [rust-analyzer][1] to jump to the definitions. We suggest using
 [VS Code][2] to edit the code (but any LSP compatible editor works).
 
+As a sidenote: if you have the access/capability to do so, it's recommended to
+install Rust's tooling via [rustup](https://rustup.rs/) since it's better integrated with the
+rest of the ecosystem.
+
 [1]: https://rust-analyzer.github.io/
 [2]: https://code.visualstudio.com/
