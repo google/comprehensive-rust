@@ -11,8 +11,6 @@ use anyhow::{Context, Result};
 
 #[derive(Error, Debug)]
 enum ReadUsernameError {
-    #[error("Could not read: {0}")]
-    IoError(#[from] io::Error),
     #[error("Found no username in {0}")]
     EmptyUsername(String),
 }
