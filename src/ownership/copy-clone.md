@@ -1,6 +1,6 @@
 # Copying and Cloning
 
-While move semantics is the default, certain types are copied by default:
+While move semantics are the default, certain types are copied by default:
 
 ```rust,editable
 fn main() {
