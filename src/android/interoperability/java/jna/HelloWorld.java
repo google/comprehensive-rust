@@ -20,12 +20,13 @@ import com.sun.jna.Native;
 public class HelloWorld {
 
     public static void main(String[] args) {
-        RustExample example = Native.load("rust_library.so", RustExample.class);
-        String output = example.hello("Alice");
-        System.out.println(output);
+        RustExample example = Native.load("rust_library.dll", RustExample.class);
+        var buf = ByteBuffer.allocate(100);
+        example.hello(1, buf.array());
+        System.out.println(Native.toString(buf.array()));
     }
 
     interface RustExample extends Library {
-        String hello(String name);
+        String hello(Integer input, byte[] output_string);
     }
 }
