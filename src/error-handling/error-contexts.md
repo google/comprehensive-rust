@@ -1,7 +1,8 @@
 # Adding Context to Errors
 
 The widely used [anyhow](https://docs.rs/anyhow/) crate can help you add
-contextual information to your errors:
+contextual information to your errors and allows you to have fewer
+custom error types:
 
 ```rust,editable,compile_fail
 use std::{fs, io};
