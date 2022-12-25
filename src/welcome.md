@@ -17,6 +17,10 @@ On Day 4, we will cover Android-specific things such as:
 * AIDL servers and clients.
 * Interoperability with C, C++, and Java.
 
+It is important to note that this course does not cover Android **application** 
+development in Rust, and that the Android-specific parts are specifically about
+writing code for Android itself, the operating system. 
+
 ## Non-Goals
 
 Rust is a large language and we won't be able to cover all of it in a few days.
