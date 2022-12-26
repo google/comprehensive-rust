@@ -4,8 +4,8 @@ You use `rust_library` to create a new Rust library for Android.
 
 Here we declare a dependency on two libraries:
 
-* `libgreeting`, which we define below,
-* `libtextwrap`, which is a crate already vendored in
+- `libgreeting`, which we define below,
+- `libtextwrap`, which is a crate already vendored in
   [`external/rust/crates/`][crates].
 
 [crates]: https://cs.android.com/android/platform/superproject/+/master:external/rust/crates/

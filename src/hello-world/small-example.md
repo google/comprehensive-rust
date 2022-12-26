@@ -17,4 +17,3 @@ fn main() {              // Program entry point
     println!();
 }
 ```
-

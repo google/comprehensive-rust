@@ -12,5 +12,5 @@ fn main() {
 }
 ```
 
-* Slices borrow data from the sliced type.
-* Question: What happens if you modify `a[3]`?
+- Slices borrow data from the sliced type.
+- Question: What happens if you modify `a[3]`?

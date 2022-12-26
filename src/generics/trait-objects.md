@@ -82,5 +82,4 @@ fn main() {
     println!("{:?}", numbers(-5).collect::<Vec<_>>());
     println!("{:?}", numbers(5).collect::<Vec<_>>());
 }
-
 ```

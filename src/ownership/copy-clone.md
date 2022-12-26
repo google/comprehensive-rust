@@ -27,5 +27,5 @@ fn main() {
 }
 ```
 
-* After the assignment, both `p1` and `p2` own their own data.
-* We can also use `p1.clone()` to explicitly copy the data.
+- After the assignment, both `p1` and `p2` own their own data.
+- We can also use `p1.clone()` to explicitly copy the data.

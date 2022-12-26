@@ -27,4 +27,4 @@ fn main() {
 }
 ```
 
-* We will look much more at methods in today's exercise and in tomorrow's class.
+- We will look much more at methods in today's exercise and in tomorrow's class.

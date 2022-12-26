@@ -7,8 +7,8 @@ fn main() {
 }
 ```
 
-* The heap data from `s1` is reused for `s2`.
-* When `s1` goes out of scope, nothing happens (it has been moved from).
+- The heap data from `s1` is reused for `s2`.
+- When `s1` goes out of scope, nothing happens (it has been moved from).
 
 Before move to `s2`:
 

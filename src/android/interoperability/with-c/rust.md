@@ -34,7 +34,6 @@ _interoperability/rust/analyze/Android.bp_
 {{#include rust/analyze/Android.bp}}
 ```
 
-
 Build, push, and run the binary on your device:
 
 ```shell

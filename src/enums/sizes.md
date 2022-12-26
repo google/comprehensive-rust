@@ -22,4 +22,4 @@ fn main() {
 }
 ```
 
-* See the [Rust Reference](https://doc.rust-lang.org/reference/type-layout.html).
+- For more information, see the [Rust Reference](https://doc.rust-lang.org/reference/type-layout.html).

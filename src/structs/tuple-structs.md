@@ -29,5 +29,4 @@ fn main() {
     let force = compute_thruster_force();
     set_thruster_force(force);
 }
-
 ```

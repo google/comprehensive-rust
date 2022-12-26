@@ -2,6 +2,6 @@
 
 In these exercises, we will explore two parts of Rust:
 
-* Implicit conversions between types.
+- Implicit conversions between types.
 
-* Arrays and `for` loops.
+- Arrays and `for` loops.

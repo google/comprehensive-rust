@@ -9,6 +9,6 @@ fn main() {
 }
 ```
 
-* Panics are for unrecoverable and unexpected errors.
-  * Panics are symptoms of bugs in the program.
-* Use non-panicking APIs (such as `Vec::get`) if crashing is not acceptable.
+- Panics are for unrecoverable and unexpected errors.
+  - Panics are symptoms of bugs in the program.
+- Use non-panicking APIs (such as `Vec::get`) if crashing is not acceptable.

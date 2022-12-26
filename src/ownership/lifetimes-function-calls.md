@@ -18,8 +18,8 @@ fn main() {
 }
 ```
 
-* `'a` is a generic parameter, it is inferred by the compiler.
-* Lifetimes start with `'` and `'a` is a typical default name.
-* Read `&'a Point` as "a borrowed `Point` which is valid for at least the
+- `'a` is a generic parameter, it is inferred by the compiler.
+- Lifetimes start with `'` and `'a` is a typical default name.
+- Read `&'a Point` as "a borrowed `Point` which is valid for at least the
   lifetime `a`".
-  * The _at least_ part is important when parameters are in different scopes.
+  - The _at least_ part is important when parameters are in different scopes.

@@ -23,5 +23,5 @@ mod tests {
 }
 ```
 
-* This lets you unit test private helpers.
-* The `#[cfg(test)]` attribute is only active when you run `cargo test`.
+- This lets you unit test private helpers.
+- The `#[cfg(test)]` attribute is only active when you run `cargo test`.

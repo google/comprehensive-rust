@@ -1,16 +1,16 @@
 # Summary
 
 [Welcome to Comprehensive Rust 🦀](welcome.md)
+
 - [Using Cargo](cargo.md)
   - [Rust Ecosystem](cargo/rust-ecosystem.md)
   - [Code Samples](cargo/code-samples.md)
   - [Running Cargo Locally](cargo/running-locally.md)
 - [Course Structure](structure.md)
 
-
 # Day 1: Morning
 
-----
+---
 
 - [Welcome](welcome-day-1.md)
   - [What is Rust?](welcome-day-1/what-is-rust.md)
@@ -63,10 +63,9 @@
   - [Designing a Library](exercises/day-1/book-library.md)
   - [Iterators and Ownership](exercises/day-1/iterators-and-ownership.md)
 
-
 # Day 2: Morning
 
-----
+---
 
 - [Welcome](welcome-day-2.md)
 - [Structs](structs.md)
@@ -116,10 +115,9 @@
   - [Luhn Algorithm](exercises/day-2/luhn.md)
   - [Strings and Iterators](exercises/day-2/strings-iterators.md)
 
-
 # Day 3: Morning
 
-----
+---
 
 - [Welcome](welcome-day-3.md)
 - [Traits](traits.md)
@@ -166,10 +164,9 @@
 - [Exercises](exercises/day-3/afternoon.md)
   - [Safe FFI Wrapper](exercises/day-3/safe-ffi-wrapper.md)
 
-
 # Day 4: Morning
 
-----
+---
 
 - [Welcome](welcome-day-4.md)
 - [Concurrency](concurrency.md)
@@ -192,7 +189,7 @@
 
 # Day 4: Afternoon
 
-----
+---
 
 - [Android](android.md)
   - [Setup](android/setup.md)
@@ -221,11 +218,11 @@
 - [Other Resources](other-resources.md)
 - [Credits](credits.md)
 
-----
+---
 
 # Solutions
 
-----
+---
 
 - [Solutions](exercises/solutions.md)
   - [Day 1 Morning](exercises/day-1/solutions-morning.md)

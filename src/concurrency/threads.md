@@ -21,6 +21,6 @@ fn main() {
 }
 ```
 
-* Threads are all daemon threads, the main thread does not wait for them.
-* Thread panics are independent of each other.
-  * Panics can carry a payload, which can be unpacked with `downcast_ref`.
+- Threads are all daemon threads, the main thread does not wait for them.
+- Thread panics are independent of each other.
+  - Panics can carry a payload, which can be unpacked with `downcast_ref`.

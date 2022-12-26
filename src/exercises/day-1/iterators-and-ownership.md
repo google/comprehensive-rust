@@ -62,13 +62,13 @@ pub trait IntoIterator {
 The syntax here means that every implementation of `IntoIterator` must
 declare two types:
 
-* `Item`: the type we iterate over, such as `i8`,
-* `IntoIter`: the `Iterator` type returned by the `into_iter` method.
+- `Item`: the type we iterate over, such as `i8`,
+- `IntoIter`: the `Iterator` type returned by the `into_iter` method.
 
 Note that `IntoIter` and `Item` are linked: the iterator must have the same
 `Item` type, which means that it returns `Option<Item>`
 
-Like before, what  is the type returned by the iterator?
+Like before, what is the type returned by the iterator?
 
 ```rust,editable,compile_fail
 fn main() {
@@ -102,9 +102,6 @@ fn main() {
 
 What is the type of `word` in each loop?
 
-Experiment with the code above and then consult the documentation for [`impl
-IntoIterator for
-&Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-2)
-and [`impl IntoIterator for
-Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-1)
+Experiment with the code above and then consult the documentation for [`impl IntoIterator for &Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-2)
+and [`impl IntoIterator for Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-1)
 to check your answers.

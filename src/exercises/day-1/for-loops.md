@@ -70,6 +70,5 @@ Could you use `&[i32]` slices instead of hard-coded 3 × 3 matrices for your
 argument and return types? Something like `&[&[i32]]` for a two-dimensional
 slice-of-slices. Why or why not?
 
-
 See the [`ndarray` crate](https://docs.rs/ndarray/) for a production quality
 implementation.

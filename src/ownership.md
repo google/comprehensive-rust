@@ -15,6 +15,6 @@ fn main() {
 }
 ```
 
-* At the end of the scope, the variable is _dropped_ and the data is freed.
-* A destructor can run here to free up resources.
-* We say that the variable _owns_ the value.
+- At the end of the scope, the variable is _dropped_ and the data is freed.
+- A destructor can run here to free up resources.
+- We say that the variable _owns_ the value.

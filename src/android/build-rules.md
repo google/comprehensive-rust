@@ -3,7 +3,7 @@
 The Android build system (Soong) supports Rust via a number of modules:
 
 | Module Type       | Description                                                                                        |
-|-------------------|----------------------------------------------------------------------------------------------------|
+| ----------------- | -------------------------------------------------------------------------------------------------- |
 | `rust_binary`     | Produces a Rust binary.                                                                            |
 | `rust_library`    | Produces a Rust library, and provides both `rlib` and `dylib` variants.                            |
 | `rust_ffi`        | Produces a Rust C library usable by `cc` modules, and provides both static and shared variants.    |

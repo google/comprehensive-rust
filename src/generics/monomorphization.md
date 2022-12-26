@@ -9,7 +9,7 @@ fn main() {
 }
 ```
 
-behaves as if you wrote
+behaves as if you wrote:
 
 ```rust,editable
 enum Option_i32 {

@@ -24,4 +24,3 @@ fn main() {
     peter.say_hello();
 }
 ```
-

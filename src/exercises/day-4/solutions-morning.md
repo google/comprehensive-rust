@@ -7,4 +7,3 @@
 ```rust
 {{#include dining-philosophers.rs}}
 ```
-

@@ -16,5 +16,5 @@ fn main() {
 }
 ```
 
-* `impl Trait` cannot be used with the `::<>` turbo fish syntax.
-* `impl Trait` allows you to work with types which you cannot name.
+- `impl Trait` cannot be used with the `::<>` turbo fish syntax.
+- `impl Trait` allows you to work with types which you cannot name.

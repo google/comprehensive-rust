@@ -5,10 +5,10 @@ trait objects.
 
 We will have a number of widgets in our library:
 
-* `Window`: has a `title` and contains other widgets.
-* `Button`: has a `label` and a callback function which is invoked when the
+- `Window`: has a `title` and contains other widgets.
+- `Button`: has a `label` and a callback function which is invoked when the
   button is pressed.
-* `Label`: has a `label`.
+- `Label`: has a `label`.
 
 The widgets will implement a `Widget` trait, see below.
 

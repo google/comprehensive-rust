@@ -19,40 +19,40 @@ of the examples in this training:
 
 2. Use `cargo new exercise` to create a new `exercise/` directory for your code:
 
-    ```shell
-    $ cargo new exercise
-         Created binary (application) `exercise` package
-    ```
+   ```shell
+   $ cargo new exercise
+        Created binary (application) `exercise` package
+   ```
 
 3. Navigate into `exercise/` and use `cargo run` to build and run your binary:
 
-    ```shell
-    $ cd exercise
-    $ cargo run
-       Compiling exercise v0.1.0 (/home/mgeisler/tmp/exercise)
-        Finished dev [unoptimized + debuginfo] target(s) in 0.75s
-         Running `target/debug/exercise`
-    Hello, world!
-    ```
+   ```shell
+   $ cd exercise
+   $ cargo run
+      Compiling exercise v0.1.0 (/home/mgeisler/tmp/exercise)
+       Finished dev [unoptimized + debuginfo] target(s) in 0.75s
+        Running `target/debug/exercise`
+   Hello, world!
+   ```
 
 4. Replace the boiler-plate code in `src/main.rs` with your own code. For
    example, using the example on the previous page, make `src/main.rs` look like
 
-    ```rust
-    fn main() {
-        println!("Edit me!");
-    }
-    ```
+   ```rust
+   fn main() {
+       println!("Edit me!");
+   }
+   ```
 
 5. Use `cargo run` to build and run your updated binary:
 
-    ```shell
-    $ cargo run
-       Compiling exercise v0.1.0 (/home/mgeisler/tmp/exercise)
-        Finished dev [unoptimized + debuginfo] target(s) in 0.24s
-         Running `target/debug/exercise`
-    Edit me!
-    ```
+   ```shell
+   $ cargo run
+      Compiling exercise v0.1.0 (/home/mgeisler/tmp/exercise)
+       Finished dev [unoptimized + debuginfo] target(s) in 0.24s
+        Running `target/debug/exercise`
+   Edit me!
+   ```
 
 6. Use `cargo check` to quickly check your project for errors, use `cargo build`
    to compile it without running it. You will find the output in `target/debug/`

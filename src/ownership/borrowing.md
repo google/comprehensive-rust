@@ -19,5 +19,5 @@ fn main() {
 }
 ```
 
-* The `add` function _borrows_ two points and returns a new point.
-* The caller retains ownership of the inputs.
+- The `add` function _borrows_ two points and returns a new point.
+- The caller retains ownership of the inputs.

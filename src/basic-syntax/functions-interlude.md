@@ -2,12 +2,12 @@
 
 Overloading is not supported:
 
-* Each function has a single implementation:
-  * Always takes a fixed number of parameters.
-  * Always takes a single set of parameter types.
-* Default values are not supported:
-  * All call sites have the same number of arguments.
-  * Macros are sometimes used as an alternative.
+- Each function has a single implementation:
+  - Always takes a fixed number of parameters.
+  - Always takes a single set of parameter types.
+- Default values are not supported:
+  - All call sites have the same number of arguments.
+  - Macros are sometimes used as an alternative.
 
 However, function parameters can be generic:
 

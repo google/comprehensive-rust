@@ -11,8 +11,8 @@ fn main() {
 }
 ```
 
-* The assignment of `s1` to `s2` transfers ownership.
-* The data was _moved_ from `s1` and `s1` is no longer accessible.
-* When `s1` goes out of scope, nothing happens: it has no ownership.
-* When `s2` goes out of scope, the string data is freed.
-* There is always _exactly_ one variable binding which owns a value.
+- The assignment of `s1` to `s2` transfers ownership.
+- The data was _moved_ from `s1` and `s1` is no longer accessible.
+- When `s1` goes out of scope, nothing happens: it has no ownership.
+- When `s2` goes out of scope, the string data is freed.
+- There is always _exactly_ one variable binding which owns a value.

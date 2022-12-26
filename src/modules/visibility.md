@@ -2,8 +2,8 @@
 
 Module are a privacy boundary:
 
-* Module items are private by default (hides implementation details).
-* Parent and sibling items are always visible.
+- Module items are private by default (hides implementation details).
+- Parent and sibling items are always visible.
 
 ```rust,editable
 mod outer {
