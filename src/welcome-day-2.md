@@ -4,7 +4,7 @@ Now that we have seen a fair amount of Rust, we will continue with:
 
 * Structs, enums, methods.
 
-* Pattern matching: destructering enums, structs, and arrays.
+* Pattern matching: destructuring enums, structs, and arrays.
 
 * Control flow constructs: `if`, `if let`, `while`, `while let`, `break`, and
   `continue`.
