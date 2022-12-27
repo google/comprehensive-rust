@@ -14,3 +14,14 @@ Rust is a new programming language which had its 1.0 release in 2015:
   * mobile phones,
   * desktops,
   * servers.
+
+
+<details>
+
+Rust fits in the same area as C++:
+
+* High flexibility.
+* High level of control.
+* Can be scaled down to very constrained devices like mobile phones.
+
+</details>

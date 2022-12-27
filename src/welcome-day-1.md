@@ -10,3 +10,20 @@ today:
   management, and garbage collection.
 
 * Ownership: move semantics, copying and cloning, borrowing, and lifetimes.
+
+<details>
+
+The idea for the first day is to show _just enough_ of Rust to be able to speak
+about the famous borrow checker. The way Rust handles memory is a major feature
+and we should show students this right away.
+
+If you're teaching this in a classroom, this is a good place to go over the
+schedule. We suggest splitting the day into two parts (following the slides):
+
+* Morning: 9:00 to 12:00,
+* Afternoon: 13:00 to 16:00.
+
+You can of course adjust this as necessary. Please make sure to include breaks,
+we recommend a break every hour!
+
+</details>
