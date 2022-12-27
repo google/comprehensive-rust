@@ -37,5 +37,5 @@ These types are not thread-safe and cannot be moved to other threads:
 
 * `Rc<T>`: each `Rc<T>` has a reference to an `RcBox<T>`, which contains a
   non-atomic reference count.
-* `*const T`, `*mut T`: Rust that there are special lifetime considerations for the
-  pointer.
+* `*const T`, `*mut T`: Rust assumes raw pointers may have special
+  concurrency considerations.
