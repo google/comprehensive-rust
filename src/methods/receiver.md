@@ -13,3 +13,5 @@ are other possible receivers for a method:
   transmitted.
 * No receiver: this becomes a static method on the struct. Typically used to
   create constructors which are called `new` by convention.
+
+There are even more types, e.g., `Box<Self>`.
