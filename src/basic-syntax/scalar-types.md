@@ -7,12 +7,12 @@
 | Floating point numbers | `f32`, `f64`                               | `3.14`, `-10.0e20`, `2f32`    |
 | Strings                | `&str`                                     | `"foo"`, `r#"\\"#`            |
 | Unicode scalar values  | `char`                                     | `'a'`, `'α'`, `'∞'`           |
-| Byte strings           | `&[u8]`                                    | `b"abc"`, `br#" " "#`           |
+| Byte strings           | `&[u8]`                                    | `b"abc"`, `br#" " "#`         |
 | Booleans               | `bool`                                     | `true`, `false`               |
 
 The types have widths as follows:
 
-* `iN`, `uN`, and `fN` are _n_ bits wide,
+* `iN`, `uN`, and `fN` are _N_ bits wide,
 * `isize` and `usize` are the width of a pointer,
 * `char` is 32 bit wide,
 * `bool` is 8 bit wide.
