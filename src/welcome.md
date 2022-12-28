@@ -67,3 +67,6 @@ Rust는 정적타입 언어이며, 강좌에서는 C와 C++과 비교, 대조를
 만일 당신이 동적 타입 언어(Python이나 JavaScript)로 프로그래밍 하는 방법을 알고 있다면 잘 따라올 수 있을 것입니다. 
 > If you know how to program in a dynamically typed language such as Python or
 > JavaScript, then you will be able to follow along just fine too.
+
+----
+## Next : [Using Cargo](src/cargo.md)
