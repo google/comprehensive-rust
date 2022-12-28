@@ -55,3 +55,12 @@ $ mdbook serve
 
 > For questions or comments, please contact [Martin Geisler](mailto:mgeisler@google.com) or start a [discussion on GitHub](https://github.com/google/comprehensive-rust/discussions). We would love to hear from you.
 
+
+## 역자주
+스터디 겸 해서 저장소 fork후 번역을 시작했습니다.
+src 폴더 내에 md들을 구글 블로그 순서대로 번역 예정인데... 양이.... 
+## history
+2022-12-28
+- 시작, readme.md 1차 번역
+
+
