@@ -16,7 +16,9 @@ fn main() {
 ```
 
 If you need to mutate the data inside an `Rc`, you will need to wrap the data in
-a type such as [`Cell` or `RefCell`][2].
+a type such as [`Cell` or `RefCell`][2]. See [`Arc`][3] if you are in a multi-threaded
+context.
 
 [1]: https://doc.rust-lang.org/std/rc/struct.Rc.html
 [2]: https://doc.rust-lang.org/std/cell/index.html
+[3]: ../concurrency/shared_state/arc.md
