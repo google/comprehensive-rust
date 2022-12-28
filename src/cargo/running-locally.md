@@ -64,3 +64,11 @@ of the examples in this training:
    dependencies for you.
 
 [1]: https://doc.rust-lang.org/book/ch01-01-installation.html
+
+
+---
+
+
+Prev: [Code Samples in This Training](code-samples.md)
+
+Next: [Course Structure](../structure.md)
