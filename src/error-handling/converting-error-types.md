@@ -1,12 +1,12 @@
 # Converting Error Types
 
-The actual expansion of `?` is a little more complicated than previously indicated:
+The effective expansion of `?` is a little more complicated than previously indicated:
 
 ```rust,ignore
 expression?
 ```
 
-actually becomes
+works the same as
 
 ```rust,ignore
 match expression {
