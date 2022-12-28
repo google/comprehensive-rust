@@ -84,8 +84,8 @@ impl Polygon {
     }
 
     pub fn length(&self) -> f64 {
-        if self.points.len() < 3 {
-            return f64::NAN;
+        if self.points.is_empty() {
+            return 0.0;
         }
 
         let mut result = 0.0;
