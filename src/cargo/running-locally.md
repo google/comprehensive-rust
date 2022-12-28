@@ -1,6 +1,6 @@
 # Running Code Locally with Cargo
 
-만약 당신이 로컬 시스템에서 코드를 실행해보려면 먼저 Rust를 설치해야 합니다. 
+만약 당신이 로컬 시스템에서 코드를 실행해보려면 먼저 러스트를 설치해야 합니다. 
 [Rust Book][1]의 지침에 따라 `rustc`와 `cargo`를 함께 설치 하세요
 설치 후 아래 커맨드를 통해 각 생태계 툴의 버전을 확인 할 수 있습니다. 
 > If you want to experiment with the code on your own system, then you will need
