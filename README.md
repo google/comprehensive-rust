@@ -58,9 +58,14 @@ $ mdbook serve
 
 ## 역자주
 스터디 겸 해서 저장소 fork후 번역을 시작했습니다.
+
 src 폴더 내에 md들을 구글 블로그 순서대로 번역 예정인데... 양이.... 
+
+순서는 [Welcome to Comprehensive Rust 🦀](src/welcome.md)부터 시작합니다. 
+
 ## history
-2022-12-28
-- 시작, readme.md 1차 번역
+2022-12-28: 시작
+- readme.md 1차 완료
+- Welcome to Comprehensive Rust 🦀 1차 완료
 
 
