@@ -84,8 +84,8 @@ impl Polygon {
     }
 
     pub fn length(&self) -> f64 {
-        if self.points.is_empty() {
-            return 0.0;
+        if self.points.len() < 3 {
+            return f64::NAN;
         }
 
         let mut result = 0.0;
@@ -207,6 +207,7 @@ mod tests {
     fn test_shape_circumferences() {
         let mut poly = Polygon::new();
         poly.add_point(Point::new(12, 13));
+        poly.add_point(Point::new(17, 11));
         poly.add_point(Point::new(16, 16));
         let shapes = vec![
             Shape::from(poly),
@@ -217,7 +218,7 @@ mod tests {
             .map(Shape::circumference)
             .map(round_two_digits)
             .collect::<Vec<_>>();
-        assert_eq!(circumferences, vec![10.0, 31.42]);
+        assert_eq!(circumferences, vec![15.48, 31.42]);
     }
 }
 // ANCHOR_END: unit-tests
