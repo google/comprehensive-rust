@@ -21,18 +21,9 @@ fn main() {
 }
 ```
 코드 블록에 포커스를 두고 <kbd>Ctrl-Enter</kbd>를 눌러 실행해 볼 수 있습니다. 
-
 > You can use <kbd>Ctrl-Enter</kbd> to execute the code when focus is in the text box.
 
 ---
 역주:
 - 저런 블록들은 [과정 사이트](https://google.github.io/comprehensive-rust/cargo/code-samples.html)에서 실행됩니다. 
 - 소스단(md)에선 실행안됩니다(..)
-
-Prev: [The Rust Ecosystem](rust-ecosystem.md)
-
-Next: [Running Code Locally with Cargo](running-locally.md)
-
-
-
-

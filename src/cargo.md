@@ -27,11 +27,3 @@ $ sudo apt install cargo rust-src
 [1]: https://rust-analyzer.github.io/
 [2]: https://code.visualstudio.com/
 
----
-
-역주: 
-- 마지막 문단 좀 미묘...
-
-Prev : [Welcome to Comprehensive Rust 🦀](welcome.md)
- 
-Next: [The Rust Ecosystem](cargo/rust-ecosystem.md)

@@ -23,9 +23,3 @@ Rust의 생태계는 여러가지 도구들로 구성되어 있으며, 그 중 �
 >   library. You can have multiple versions of Rust installed at once and `rustup`
 >   will let you switch between them as needed.
 
----
-
-
-Prev : [Using Cargo](../cargo.md)
-
-Next: [Code Samples in This Training](code-samples.md)
