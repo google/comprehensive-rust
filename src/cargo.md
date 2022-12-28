@@ -32,6 +32,6 @@ $ sudo apt install cargo rust-src
 역주: 
 - 마지막 문단 좀 미묘...
 
-Prev : [Using Cargo](src/cargo.md)
+Prev : [Welcome to Comprehensive Rust 🦀](src/welcome.md)
  
 Next: [The Rust Ecosystem](src/cargo/rust-ecosystem.md)
