@@ -13,3 +13,7 @@ are other possible receivers for a method:
   transmitted.
 * No receiver: this becomes a static method on the struct. Typically used to
   create constructors which are called `new` by convention.
+
+Beyond variants on `self`, there are also
+[special wrapper types](https://doc.rust-lang.org/reference/special-types-and-traits.html)
+allowed to be receiver types, such as `Box<Self>`.
