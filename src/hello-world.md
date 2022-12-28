@@ -15,4 +15,4 @@ What you see:
 * Blocks are delimited by curly braces like in C and C++.
 * The `main` function is the entry point of the program.
 * Rust has hygienic macros, `println!` is an example of this.
-* Rust strings can contain Unicode characters, such as emoji.
+* Rust strings are UTF-8 encoded and can contain any Unicode character.
