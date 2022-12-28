@@ -65,7 +65,8 @@ src 폴더 내에 md들을 구글 블로그 순서대로 번역 예정인데... 
 
 ## history
 2022-12-28: 시작
-- readme.md 1차 완료
-- Welcome to Comprehensive Rust 🦀 1차 완료
-- 1. Using Cargo 파트 완료. 
+- 1차 완료
+    - readme.md 
+    - Welcome to Comprehensive Rust 🦀 
+    - 1. Using Cargo 파트
 
