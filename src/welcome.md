@@ -70,4 +70,4 @@ Rust는 정적타입 언어이며, 강좌에서는 C와 C++과 비교, 대조를
 
 ----
 
-Next : [Using Cargo](src/cargo.md)
+Next : [Using Cargo](cargo.md)
