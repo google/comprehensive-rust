@@ -19,7 +19,7 @@ $ sudo apt install cargo rust-src
 > This will allow [rust-analyzer][1] to jump to the definitions. We suggest using
 > [VS Code][2] to edit the code (but any LSP compatible editor works).
 
-참고로, 만약 가능하다면 [rustup](https://rustup.rs/)을 통한 설치가 Rust 생태계와 더 잘 통합되므로 이쪽이 더 좋을 수 있습니다. 
+참고로, 만약 가능하다면 [rustup](https://rustup.rs/)과 같은 Rust 생태계 툴을 통한 설치를 추천드립니다. 
 > As a sidenote: if you have the access/capability to do so, it's recommended to
 > install Rust's tooling via [rustup](https://rustup.rs/) since it's better integrated with the
 > rest of the ecosystem.
