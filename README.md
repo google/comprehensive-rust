@@ -55,7 +55,7 @@ $ mdbook serve
 
 > For questions or comments, please contact [Martin Geisler](mailto:mgeisler@google.com) or start a [discussion on GitHub](https://github.com/google/comprehensive-rust/discussions). We would love to hear from you.
 
-
+---
 ## 역자주
 스터디 겸 해서 저장소 fork후 번역을 시작했습니다.
 
