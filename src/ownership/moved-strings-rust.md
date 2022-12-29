@@ -7,27 +7,31 @@ fn main() {
 }
 ```
 
-* The heap data from `s1` is reused for `s2`.
-* When `s1` goes out of scope, nothing happens (it has been moved from).
+* `s1`의 힙 데이터는 `s2`에서 재사용 됩니다. 
+* `s1`의 스코프가 종료되면 아무일도 일어나지 않습니다.(이미 이동되었습니다.)
+> * The heap data from `s1` is reused for `s2`.
+> * When `s1` goes out of scope, nothing happens (it has been moved from).
 
-Before move to `s2`:
+`s2`이동 전 메모리:
+> Before move to `s2`:
 
 ```bob
  Stack                             Heap
 .- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - -.
 :                           :     :                           :
 :    s1                     :     :                           :
-:   +-----------+-------+   :     :   +----+----+----+----+   :
-:   | ptr       |   o---+---+-----+-->| R  | u  | s  | t  |   :
-:   | len       |     4 |   :     :   +----+----+----+----+   :
-:   | capacity  |     4 |   :     :                           :
-:   +-----------+-------+   :     :                           :
+:   +----------------+---+  :     :   +----+----+----+----+   :
+:   | 포인터 ptr     | o-+--+-----+-->| R  | u  | s  | t  |   :
+:   | 길이 len       | 4 |  :     :   +----+----+----+----+   :
+:   | 크기 capacity  | 4 |  :     :                           :
+:   +----------------+---+  :     :                           :
 :                           :     `- - - - - - - - - - - - - -'
 :                           :
 `- - - - - - - - - - - - - -'
 ```
 
-After move to `s2`:
+`s2`이동 후 메모리:
+> After move to `s2`:
 
 ```bob
  Stack                             Heap
@@ -49,3 +53,7 @@ After move to `s2`:
 :                           :
 `- - - - - - - - - - - - - -'
 ```
+
+---
+역주
+- 이동 후 메모리 그림에서 s1에서 힙으로 연결이 지워졌다고 이해해도 무방은 합니다. 컴파일러가 확인하기 위해 접근 불가 처리 한 것으로 보이긴 합니다만...
