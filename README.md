@@ -61,12 +61,9 @@ $ mdbook serve
 
 src 폴더 내에 md들을 구글 블로그 순서대로 번역 예정인데... 양이.... 
 
-순서는 [Welcome to Comprehensive Rust 🦀](src/welcome.md)부터 시작합니다. 
+순서는 [Welcome to Comprehensive Rust 🦀](src/welcome.md)부터 시작하는데 해당 문서의 mdbook을 serve해서 보는걸 추천합니다.(next prev 이동 편의)
 
 ## history
-2022-12-28: 시작
-- 1차 완료
-    - readme.md 
-    - Welcome to Comprehensive Rust 🦀 
-    - 1. Using Cargo 파트
-
+- 1차 완료 파트
+    - 2022-12-28: 시작 ~ 5.1
+    - 2022-12-28: ~ 6.4

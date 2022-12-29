@@ -1,6 +1,7 @@
 # Slices
 
-A slice gives you a view into a larger collection:
+슬라이스를 사용하면 큰 컬렉션의 부분만 확인할 수 있습니다. 
+> A slice gives you a view into a larger collection:
 
 ```rust,editable
 fn main() {
@@ -12,5 +13,7 @@ fn main() {
 }
 ```
 
+* 슬라이스는 슬라이스 타입으로부터 데이터를 '빌려'옵니다. 
+* 질문: `a[3]`으로 수정하면 무슨 일이 있어날까요?
 * Slices borrow data from the sliced type.
 * Question: What happens if you modify `a[3]`?
