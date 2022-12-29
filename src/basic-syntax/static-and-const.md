@@ -1,10 +1,12 @@
 # Static and Constant Variables
 
-Global state is managed with static and constant variables.
+전역 상태(state) 정적 변수와 상수로 관리됩니다.
+> Global state is managed with static and constant variables.
 
 ## `const`
 
-You can declare compile-time constants:
+컴파일 시점의 상수를 선언할 수 있습니다.
+> You can declare compile-time constants:
 
 ```rust,editable
 const DIGEST_SIZE: usize = 3;
@@ -25,8 +27,8 @@ fn main() {
 ```
 
 ## `static`
-
-You can also declare static variables:
+마찬가지로 정적 변수도 선언할 수 있습니다.
+> You can also declare static variables:
 
 ```rust,editable
 static BANNER: &str = "Welcome to RustOS 3.14";
@@ -35,5 +37,5 @@ fn main() {
     println!("{BANNER}");
 }
 ```
-
-We will look at mutating static data in the chapter on Unsafe Rust.
+가변 정적 데이터에 대해서는 안전하지 않은 러스트 파트에서 살펴봅니다.
+> We will look at mutating static data in the chapter on Unsafe Rust.

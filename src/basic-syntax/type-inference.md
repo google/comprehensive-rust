@@ -1,6 +1,7 @@
 # Type Inference
 
-Rust will look at how the variable is _used_ to determine the type:
+러스트는 변수가 어떻게 사용되는지 확인하여 타입 추론을 제공합니다. 
+> Rust will look at how the variable is _used_ to determine the type:
 
 ```rust,editable
 fn takes_u32(x: u32) {
