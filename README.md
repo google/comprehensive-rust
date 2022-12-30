@@ -10,8 +10,8 @@ course developed by the Android team. The course covers all aspects of Rust,
 from basic syntax to generics and error handling. It also includes
 Android-specific content on the last day.
 
-아래 코스를 방문해 보세요 
-**https://google.github.io/comprehensive-rust/**.
+(원본)사이트를 방문해 보세요 **https://google.github.io/comprehensive-rust/**.
+** 원문병기 번역본은 **https://keispace.github.io/comprehensive-rust-kr/**
 > Read the course at **https://google.github.io/comprehensive-rust/**.
 
 ## Building

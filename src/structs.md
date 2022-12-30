@@ -1,6 +1,7 @@
 # Structs
 
-Like C and C++, Rust has support for custom structs:
+C/C++과 마찬가지로 러스트는 커스텀 구조체를 지원합니다:
+> Like C and C++, Rust has support for custom structs:
 
 ```rust,editable
 struct Person {

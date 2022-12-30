@@ -1,7 +1,8 @@
 # Methods
 
-Rust allows you to associate functions with your new types. You do this with an
-`impl` block:
+러스트에서 선언된 타입에 대해 `impl`블록에 함수를 선언하여 메서드를 연결할 수 있습니다:
+> Rust allows you to associate functions with your new types. You do this with an
+> `impl` block:
 
 ```rust,editable
 #[derive(Debug)]

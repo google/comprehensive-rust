@@ -2,8 +2,9 @@
 
 {{#include ../../../third_party/rust-on-exercism/health-statistics.md}}
 
-Copy the code below to <https://play.rust-lang.org/> and fill in the missing
-methods:
+아래 코드를 <https://play.rust-lang.org/>에 복사해서 빠진 메서드를 구현하시면 됩니다: 
+> Copy the code below to <https://play.rust-lang.org/> and fill in the missing
+> methods:
 
 ```rust,should_panic
 // TODO: remove this when you're done with your implementation.
@@ -30,3 +31,8 @@ fn test_set_age() {
     assert_eq!(bob.age(), 33);
 }
 ```
+
+---
+역주
+- 딱히 난이도가 없는 문제라 힌트는 없습니다. 
+- 플레이그라운드 기준 warning이 좀 있는데 테스트나 실행은 정상이네요
