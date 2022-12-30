@@ -2,16 +2,18 @@
 
 Let us see `Arc` and `Mutex` in action:
 
-```rust,editable,compile_fail
+```rust,editable
 use std::thread;
-// use std::sync::{Arc, Mutex};
+use std::sync::{Arc, Mutex};
 
 fn main() {
-    let mut v = vec![10, 20, 30];
-    let handle = thread::spawn(|| {
-        v.push(10);
+    // Using an Arc to share among threads, data inside is protected by a Mutex
+    let v = Arc::new(Mutex::new(vec![10, 20, 30]));
+    let vc = v.clone();
+    let handle = thread::spawn(move || {
+        vc.lock().unwrap().push(10);
     });
-    v.push(1000);
+    v.lock().unwrap().push(1000);
 
     handle.join().unwrap();
     println!("v: {v:?}");
