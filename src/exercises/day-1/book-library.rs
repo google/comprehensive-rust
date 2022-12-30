@@ -97,6 +97,8 @@ impl Library {
 
 // ANCHOR: main
 fn main() {
+    // 소스쪽 주석들을 제거하고 누락된 메서드를 구현하세요.
+    // 메서드 정의도 수정되어야 합니다.(self가 포함되도록)
     // This shows the desired behavior. Uncomment the code below and
     // implement the missing methods. You will need to update the
     // method signatures, including the "self" parameter!
