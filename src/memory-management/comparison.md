@@ -25,7 +25,7 @@ Here is a rough comparison of the memory management techniques.
   * Memory leaks.
 * Automatic like Java:
   * Garbage collection pauses.
-  * Destructors delayed.
+  * Destructor delays.
 * Scope-based like C++:
   * Complex, opt-in by programmer.
   * Potential for use-after-free.
