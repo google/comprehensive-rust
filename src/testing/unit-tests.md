@@ -17,12 +17,12 @@ fn test_empty() {
 
 #[test]
 fn test_single_word() {
-    assert_eq!(first_word("Hello"), Some("Hello"));
+    assert_eq!(first_word("Hello"), "Hello");
 }
 
 #[test]
 fn test_multiple_words() {
-    assert_eq!(first_word("Hello World"), Some("Hello"));
+    assert_eq!(first_word("Hello World"), "Hello");
 }
 ```
 
