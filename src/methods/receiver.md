@@ -9,7 +9,7 @@ are other possible receivers for a method:
   reference. The object can be used again afterwards.
 * `self`: takes ownership of the object and moves it away from the caller. The
   method becomes the owner of the object. The object will be dropped (deallocated)
-  when the method returns, unless it’s ownership is explicitly
+  when the method returns, unless its ownership is explicitly
   transmitted.
 * No receiver: this becomes a static method on the struct. Typically used to
   create constructors which are called `new` by convention.
