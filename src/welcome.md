@@ -26,7 +26,7 @@ writing code for Android itself, the operating system.
 Rust is a large language and we won't be able to cover all of it in a few days.
 Some non-goals of this course are:
 
-* Learn how to use async Rust --- we'll only talk a bit about async Rust when
+* Learn how to use async Rust --- we'll only mention async Rust when
   covering traditional concurrency primitives. Please see [Asynchronous
   Programming in Rust](https://rust-lang.github.io/async-book/) instead for
   details on this topic.
