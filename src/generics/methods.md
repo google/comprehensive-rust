@@ -1,6 +1,7 @@
 # Generic Methods
 
-You can declare a generic type on your `impl` block:
+`impl` 블록에서도 제너릭 타입을 선언할 수 있습니다:
+> You can declare a generic type on your `impl` block:
 
 ```rust,editable
 #[derive(Debug)]

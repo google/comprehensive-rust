@@ -1,6 +1,7 @@
 # Trait Objects
 
-We've seen how a function can take arguments which implement a trait:
+트레이트를 구현할 때 인수를 취하는 방법:
+> We've seen how a function can take arguments which implement a trait:
 
 ```rust,editable
 use std::fmt::Display;
@@ -14,8 +15,8 @@ fn main() {
     print("Hello");
 }
 ```
-
-However, how can we store a collection of mixed types which implement `Display`?
+아래와 같이 여러가지 타입을 혼합하여 인수로 받려면 어떻게 해야 합니까?
+> However, how can we store a collection of mixed types which implement `Display`?
 
 ```rust,editable,compile_fail
 fn main() {
@@ -23,7 +24,8 @@ fn main() {
 }
 ```
 
-For this, we need _trait objects_:
+이를 위해서 _트레이트 객체_가 필요합니다:
+> For this, we need _trait objects_:
 
 ```rust,editable
 use std::fmt::Display;
@@ -36,7 +38,8 @@ fn main() {
 }
 ```
 
-Memory layout after allocating `xs`:
+`xs`가 할당될때 메모리 레이아웃:
+> Memory layout after allocating `xs`:
 
 ```bob
  Stack                             Heap
@@ -66,8 +69,9 @@ Memory layout after allocating `xs`:
                                   '- - - - - - - - - - - - - - - - - - - - - - - -'
 ```
 
-Similarly, you need a trait object if you want to return different values
-implementing a trait:
+마찬가지로 트레이트를 구현한 다른 값을 반환할 때도 트레이트 객체가 필요합니다:
+> Similarly, you need a trait object if you want to return different values
+> implementing a trait:
 
 ```rust,editable
 fn numbers(n: i32) -> Box<dyn Iterator<Item=i32>> {

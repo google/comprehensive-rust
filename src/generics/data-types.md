@@ -1,6 +1,7 @@
 # Generic Data Types
 
-You can use generics to abstract over the concrete field type:
+제너릭을 사용하여 구체적인 타입을 추상화할 수 있습니다:
+> You can use generics to abstract over the concrete field type:
 
 ```rust,editable
 #[derive(Debug)]
