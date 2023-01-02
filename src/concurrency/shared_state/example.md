@@ -1,19 +1,28 @@
 # Example
 
-Let us see `Arc` and `Mutex` in action:
+Let's see `Arc` and `Mutex` in action:
 
-```rust,editable,compile_fail
+```rust,editable
+use std::sync::{Arc, Mutex};
 use std::thread;
-// use std::sync::{Arc, Mutex};
 
 fn main() {
-    let mut v = vec![10, 20, 30];
-    let handle = thread::spawn(|| {
-        v.push(10);
-    });
-    v.push(1000);
+    let v = Arc::new(Mutex::new(vec![1, 2, 3]));
 
-    handle.join().unwrap();
+    thread::scope(|scope| {
+        for i in 4..=10 {
+            // v and v_clone reference the same Mutex. v_clone will be Sent to
+            // the thread spawned below thereby giving all threads access to the
+            // same Mutex<Vec<i32>> without introducing any ownership ambiguity.
+            let v_clone = v.clone();
+            scope.spawn(move || {
+                let mut v = v_clone.lock().unwrap();
+                v.push(i);
+            });
+        }
+    });
+
     println!("v: {v:?}");
 }
+
 ```
