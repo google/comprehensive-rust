@@ -1,6 +1,7 @@
 # The `Drop` Trait
 
-Values which implement `Drop` can specify code to run when they go out of scope:
+`Drop`트레이트는 값이 스코프 밖으로 나갈때 실행하는 코드를 작성할 수 있습니다:
+> Values which implement `Drop` can specify code to run when they go out of scope:
 
 ```rust,editable
 struct Droppable {

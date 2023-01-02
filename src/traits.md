@@ -1,6 +1,6 @@
 # Traits
-
-Rust lets you abstract over types with traits. They're similar to interfaces:
+러스트는 인터페이스 처럼 트레이트가 있는 타입을 추상화 할 수 있습니다: 
+> Rust lets you abstract over types with traits. They're similar to interfaces:
 
 ```rust,editable
 trait Greet {
@@ -10,8 +10,9 @@ trait Greet {
 struct Dog {
     name: String,
 }
-
-struct Cat;  // No name, cats won't respond to it anyway.
+// name 없음. 고양이는 어쨋든 반응하지 않습니다...
+// No name, cats won't respond to it anyway.
+struct Cat;  
 
 impl Greet for Dog {
     fn say_hello(&self) {

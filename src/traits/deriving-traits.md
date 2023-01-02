@@ -1,6 +1,7 @@
 # Deriving Traits
 
-You can let the compiler derive a number of traits:
+컴차일러가 여러가지 트레이트를 파생(derive)하도록 할 수 있습니다:
+> You can let the compiler derive a number of traits:
 
 ```rust,editable
 #[derive(Debug, Clone, PartialEq, Eq, Default)]

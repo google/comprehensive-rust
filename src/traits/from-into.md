@@ -1,6 +1,7 @@
 # `From` and `Into`
 
-Types implement `From` and `Into` to facilitate type conversions:
+타입은 용이한 형변환을 위해 `From`과 `Into`를 구현합니다:
+> Types implement `From` and `Into` to facilitate type conversions:
 
 ```rust,editable
 fn main() {
@@ -11,8 +12,8 @@ fn main() {
     println!("{s}, {addr}, {one}, {bigger}");
 }
 ```
-
-`Into` is automatically implemented when `From` is implemented:
+`From`이 구현되면 `Into` 역시 자동으로 구현됩니다:
+> `Into` is automatically implemented when `From` is implemented:
 
 ```rust,editable
 fn main() {

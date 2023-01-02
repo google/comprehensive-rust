@@ -1,6 +1,6 @@
 # Iterators
-
-You can implement the `Iterator` trait on your own types:
+`Iterator`를 커스텀 타입에 구현할 수 있습니다: 
+> You can implement the `Iterator` trait on your own types:
 
 ```rust,editable
 struct Fibonacci {
@@ -26,3 +26,5 @@ fn main() {
     }
 }
 ```
+역주
+- 이터레이터 트레이트의 next()를 오버로딩한 예제
