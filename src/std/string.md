@@ -1,6 +1,7 @@
 # String
 
-[`String`][1] is the standard heap-allocated growable UTF-8 string buffer:
+[`String`][1]은 힙에 할당된 확장가능한 표준 UTF-8 문자열 버퍼입니다.
+> [`String`][1] is the standard heap-allocated growable UTF-8 string buffer:
 
 ```rust,editable
 fn main() {
@@ -15,8 +16,10 @@ fn main() {
 }
 ```
 
-`String` implements [`Deref<Target = str>`][2], which means that you can call all
-`str` methods on a `String`.
+`String`은 [`Deref<Target = str>`][2]을 구현합니다.
+이는 , `String`에서 모든 `str`관련 메서드를 호출 할 수 있다는 의미 입니다.
+> `String` implements [`Deref<Target = str>`][2], which means that you can call all
+> `str` methods on a `String`.
 
 [1]: https://doc.rust-lang.org/std/string/struct.String.html
 [2]: https://doc.rust-lang.org/std/string/struct.String.html#deref-methods-str
