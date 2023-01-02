@@ -33,10 +33,6 @@ Some non-goals of this course are:
 * Learn how to develop macros, please see [Chapter 19.5 in the Rust
   Book](https://doc.rust-lang.org/book/ch19-06-macros.html) and [Rust by
   Example](https://doc.rust-lang.org/rust-by-example/macros.html) instead.
-* Learn the details of how to write unsafe Rust. We will talk about unsafe Rust
-  on Day 3, but we do not cover the subtle details. Please see [Chapter 19.1 in
-  the Rust Book](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html) and
-  the [Rustonomicon](https://doc.rust-lang.org/nomicon/) instead.
 
 ## Assumptions
 

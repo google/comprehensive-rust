@@ -36,4 +36,4 @@ fn main() {
 }
 ```
 
-We will look at mutating static data in the chapter on Unsafe Rust.
+We will look at mutating static data in the [chapter on Unsafe Rust](../unsafe.md).
