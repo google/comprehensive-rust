@@ -1,6 +1,7 @@
 # `while` expressions
 
-The `while` keyword works very similar to other languages:
+`while` 역시 다른 언어와 동일한 사용법을 갖습니다:
+> The `while` keyword works very similar to other languages:
 
 ```rust,editable
 fn main() {

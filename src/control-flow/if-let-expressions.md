@@ -1,6 +1,7 @@
 # `if let` expressions
 
-If you want to match a value against a pattern, you can use `if let`:
+`if let`문을 사용하면 값을 패턴매칭에 사용할 수 있습니다:
+> If you want to match a value against a pattern, you can use `if let`:
 
 ```rust,editable
 fn main() {
@@ -13,5 +14,6 @@ fn main() {
 }
 ```
 
-See [pattern matching](../pattern-matching.md) for more details on patterns in
+러스트의 [패턴매칭](../pattern-matching.md)을 참조하세요
+> See [pattern matching](../pattern-matching.md) for more details on patterns in
 Rust.
