@@ -1,5 +1,6 @@
 # Bounded Channels
 
+경계가 있는 동기 채널은 `send`가 주 스레드를 차단하도록 만듭니다:
 Bounded and synchronous channels make `send` block the current thread:
 
 ```rust,editable

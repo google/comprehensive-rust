@@ -1,6 +1,7 @@
 # Unbounded Channels
 
-You get an unbounded and asynchronous channel with `mpsc::channel()`:
+`mpsc::channel()`함수는 무제한, 비동기 채널을 생성합니다: 
+> You get an unbounded and asynchronous channel with `mpsc::channel()`:
 
 ```rust,editable
 use std::sync::mpsc;

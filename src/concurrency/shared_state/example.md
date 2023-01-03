@@ -1,6 +1,8 @@
 # Example
 
-Let us see `Arc` and `Mutex` in action:
+
+`Arc`와 `Mutex`의 동작을 살펴봅니다:
+> Let us see `Arc` and `Mutex` in action:
 
 ```rust,editable,compile_fail
 use std::thread;
@@ -17,3 +19,7 @@ fn main() {
     println!("v: {v:?}");
 }
 ```
+
+---
+역주
+- 위 코드를 동작하게 수정해보세요.

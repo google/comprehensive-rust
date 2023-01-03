@@ -1,6 +1,7 @@
 # Scoped Threads
 
-Normal threads cannot borrow from their environment:
+일반 스레드는 그들의 환경(주 스레드)에서 빌릴수 없습니다:
+> Normal threads cannot borrow from their environment:
 
 ```rust,editable,compile_fail
 use std::thread;
@@ -14,6 +15,7 @@ fn main() {
 }
 ```
 
+하지만, [scoped thread][1]에서는 가능합니다:
 However, you can use a [scoped thread][1] for this:
 
 ```rust,editable

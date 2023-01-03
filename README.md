@@ -58,10 +58,10 @@ $ mdbook serve
 ---
 ## 역자주
 스터디 겸 해서 저장소 fork후 번역을 시작했습니다.
+mdbook search 기능이 한국어를 지원하지 않아서 찾아봤는데 아직 러스트 실력이 미천해서 mdbook에서 한국어 지원하도록 PR 보낼 수가 없네요(...) 그래서 검색용 영어와 병기해서 번역 합니다.
 
-src 폴더 내에 md들을 구글 블로그 순서대로 번역 예정인데... 양이.... 
 
-순서는 [Welcome to Comprehensive Rust 🦀](src/welcome.md)부터 시작하는데 해당 문서의 mdbook을 serve해서 보는걸 추천합니다.(next prev 이동 편의)
+순서는 [Welcome to Comprehensive Rust 🦀](src/welcome.md)부터 시작하는데 해당 문서의 mdbook을 serve해서 보시거나 본 페이지 [인터넷북](https://keispace.github.io/comprehensive-rust-kr)에서 보시길 추천합니다.(next prev 이동 편의)
 
 ## history
 - 1차 완료 파트
@@ -69,4 +69,5 @@ src 폴더 내에 md들을 구글 블로그 순서대로 번역 예정인데... 
     - 2022-12-28: ~ 6.4
     - 2022-12-29: ~ 10.5
     - 2022-12-30: ~ 18.1
-    = 2023-01-02: ~ 25(day3 morning)
+    - 2023-01-02: ~ 25(day3 morning)
+    - 2023-01-03: ~ 31.4
