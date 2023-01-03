@@ -15,25 +15,20 @@
 // ANCHOR: prefix_matches
 pub fn prefix_matches(prefix: &str, request_path: &str) -> bool {
     // ANCHOR_END: prefix_matches
-    let mut prefixes = prefix
-        .split('/')
-        .map(|p| Some(p))
-        .chain(std::iter::once(None));
-    let mut request_paths = request_path
+    let prefixes = prefix.split('/');
+    let request_paths = request_path
         .split('/')
         .map(|p| Some(p))
         .chain(std::iter::once(None));
 
-    for (prefix, request_path) in prefixes.by_ref().zip(&mut request_paths) {
-        match (prefix, request_path) {
-            (Some(prefix), Some(request_path)) => {
+    for (prefix, request_path) in prefixes.zip(request_paths) {
+        match request_path {
+            Some(request_path) => {
                 if (prefix != "*") && (prefix != request_path) {
                     return false;
                 }
             }
-            (Some(_), None) => return false,
-            (None, None) => break,
-            (None, Some(_)) => break,
+            None => return false,
         }
     }
     true
