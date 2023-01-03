@@ -1,4 +1,4 @@
-name: Build and Test
+name: Test
 
 on:
   pull_request:
@@ -6,8 +6,11 @@ on:
     branches:
       - main
 
+env:
+  CARGO_TERM_COLOR: always
+
 jobs:
-  build:
+  mdbook:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,3 +27,15 @@ jobs:
 
       - name: Test code snippets
         run: mdbook test
+
+  cargo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Rust cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Test Rust code
+        run: cargo test
