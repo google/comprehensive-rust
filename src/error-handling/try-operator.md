@@ -1,7 +1,8 @@
 # Propagating Errors with `?`
 
-The try-operator `?` is used to return errors to the caller. It lets you turn
-the common
+시도(시행)연산자 `?`는 호출자에게 오류를 반환할 때 사용합니다. 
+> The try-operator `?` is used to return errors to the caller. It lets you turn
+> the common
 
 ```rust,ignore
 match some_expression {
@@ -10,13 +11,15 @@ match some_expression {
 }
 ```
 
-into the much simpler
+훨씬 간단한 방식으로
+> into the much simpler
 
 ```rust,ignore
 some_expression?
 ```
 
-We can use this to simplify our error handing code:
+이를 사용하면 오류를 처리할 수 단순화 할 수 있습니다:
+> We can use this to simplify our error handing code:
 
 ```rust,editable
 use std::fs;

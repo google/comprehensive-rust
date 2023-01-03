@@ -1,6 +1,7 @@
 # Dereferencing Raw Pointers
 
-Creating pointers is safe, but dereferencing them requires `unsafe`:
+포인트 생성은 안전합니다. 하지만 해제는 `unsafe`가 필요합니다:
+> Creating pointers is safe, but dereferencing them requires `unsafe`:
 
 ```rust,editable
 fn main() {
@@ -11,6 +12,7 @@ fn main() {
 
     unsafe {
         println!("r1 is: {}", *r1);
+        // 만약 r1이 동시 쓰기가 되면 데이터 레이스가 발생합니다!
         *r1 = 10;  // Data race if r1 is being written concurrently!
         println!("r2 is: {}", *r2);
     }

@@ -1,12 +1,14 @@
 # Converting Error Types
 
-The actual expansion of `?` is a little more complicated than previously indicated:
+`?`의 실제 적용은 좀 더 복잡하긴 합니다:
+> The actual expansion of `?` is a little more complicated than previously indicated:
 
 ```rust,ignore
 expression?
 ```
 
-actually becomes
+위 표현은 실제로는 이렇습니다
+> actually becomes
 
 ```rust,ignore
 match expression {
@@ -15,8 +17,9 @@ match expression {
 }
 ```
 
-The `From::from` call here means we attempt to convert the error type to the
-type returned by the function:
+`From::from` 호출은 오류타입을 함수에서 반환하는 타입으로 변환합니다: 
+> The `From::from` call here means we attempt to convert the error type to the
+> type returned by the function:
 
 ```rust,editable
 use std::{fs, io};

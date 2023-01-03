@@ -1,7 +1,8 @@
 # Adding Context to Errors
 
-The widely used [anyhow](https://docs.rs/anyhow/) crate can help you add
-contextual information to your errors:
+[anyhow](https://docs.rs/anyhow/) 크레이트는 오류에 대한 상황정보를 추가하기 위해 널리 사용됩니다: 
+> The widely used [anyhow](https://docs.rs/anyhow/) crate can help you add
+> contextual information to your errors:
 
 ```rust,editable,compile_fail
 use std::{fs, io};
