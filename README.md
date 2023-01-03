@@ -7,6 +7,19 @@ Android-specific content on the last day.
 
 Read the course at **https://google.github.io/comprehensive-rust/**.
 
+## Course Format and Target Audience
+
+The course is used internally at Google when teaching Rust to experienced
+software engineers. They typically have a background in C++ or Java.
+
+The course is taught in a classroom setting and we hope it will be useful for
+others who want to teach Rust to their team. The course will be less useful for
+self-study since you miss out on the discussions happening in the classroom. You
+don't see the questions and answers and you don't see the compiler errors we
+trigger when going through the code samples. We hope to improve on this via
+[speaker notes](https://github.com/google/comprehensive-rust/issues/53) and by
+[publishing videos](https://github.com/google/comprehensive-rust/issues/52).
+
 ## Building
 
 The course is built using [mdBook](https://github.com/rust-lang/mdBook) and its
