@@ -1,6 +1,6 @@
 # Deriving Error Enums
 
-The [thiserror](https://docs.rs/thiserror/) crate is a popular way to crate an
+The [thiserror](https://docs.rs/thiserror/) crate is a popular way to create an
 error enum like we did on the previous page:
 
 ```rust,editable,compile_fail
