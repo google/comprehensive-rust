@@ -1,6 +1,6 @@
 # Modules
 
-We have seen how `impl` blocks lets us namespace functions to a type.
+We have seen how `impl` blocks let us namespace functions to a type.
 
 Similarly, `mod` lets us namespace types and functions:
 
