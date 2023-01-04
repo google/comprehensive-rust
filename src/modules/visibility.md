@@ -1,6 +1,6 @@
 # Visibility
 
-Module are a privacy boundary:
+Modules are a privacy boundary:
 
 * Module items are private by default (hides implementation details).
 * Parent and sibling items are always visible.
