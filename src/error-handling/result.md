@@ -1,6 +1,6 @@
 # Structured Error Handling with `Result`
 
-We have already see the `Result` enum. This is used pervasively when errors are
+We have already seen the `Result` enum. This is used pervasively when errors are
 expected as part of normal operation:
 
 ```rust
