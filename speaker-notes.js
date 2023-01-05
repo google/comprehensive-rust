@@ -61,7 +61,7 @@
   // Get the state of the speaker note window: "inline-open", "inline-closed",
   // or "popup".
   function getState() {
-    return window.localStorage["speakerNotes"] || "inline-open";
+    return window.localStorage["speakerNotes"] || "inline-closed";
   }
 
   // Set the state of the speaker note window. Call applyState as needed
