@@ -54,7 +54,7 @@ fn main() {}
 <summary>힌트- 포인트 연산 함수, shape from 함수</summary>
 
 ```rust
-impl std::ops::Add f요r Point {
+impl std::ops::Add for Point {
     type Output = Self;
 
     fn add(self, other: Self) -> Self::Output {
