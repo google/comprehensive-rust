@@ -16,10 +16,10 @@ fn main() {
     println!("b: {b}");
 }
 ```
-`Rc`내부의 데이터를 변경해야 하는 경우, 데이터를 [`Cell` 또는 `RefCell`][2]로 래핑해야합니다.
-멀티스레드인 경우 [`Arc`][3] 참조
-> If you need to mutate the data inside an `Rc`, you will need to wrap the data in
-> a type such as [`Cell` or `RefCell`][2]. See [`Arc`][3] if you are in a multi-threaded context.
+
+If you need to mutate the data inside an `Rc`, you will need to wrap the data in
+a type such as [`Cell` or `RefCell`][2]. See [`Arc`][3] if you are in a multi-threaded
+context.
 
 [1]: https://doc.rust-lang.org/std/rc/struct.Rc.html
 [2]: https://doc.rust-lang.org/std/cell/index.html

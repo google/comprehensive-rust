@@ -8,20 +8,20 @@
 * 러스트는 다양한 [플랫홈과 아키텍쳐](https://doc.rust-lang.org/nightly/rustc/platform-support.html)를 지원합니다.
   * x86, ARM, WebAssembly, ...
   * Linux, Mac, Windows, ...
-* 러스트는 다양한 장치에서 사용됩니다. 
-  * 펌웨어 및 부트로더
-  * 스마트 디스플레이
-  * 휴대폰
-  * 데스크탑
-  * 서버 
-> * Rust is a statically compiled language in a similar role as C++
->   * `rustc` uses LLVM as its backend.
-> * Rust supports many [platforms and architectures](https://doc.rust-lang.org/nightly/rustc/platform-support.html):
->   * x86, ARM, WebAssembly, ...
->   * Linux, Mac, Windows, ...
-> * Rust is used for a wide range of devices:
->   * firmware and boot loaders,
->   * smart displays,
->   * mobile phones,
->   * desktops,
->   * servers.
+* Rust is used for a wide range of devices:
+  * firmware and boot loaders,
+  * smart displays,
+  * mobile phones,
+  * desktops,
+  * servers.
+
+
+<details>
+
+Rust fits in the same area as C++:
+
+* High flexibility.
+* High level of control.
+* Can be scaled down to very constrained devices like mobile phones.
+
+</details>

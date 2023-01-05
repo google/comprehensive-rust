@@ -37,5 +37,5 @@ fn main() {
     println!("{BANNER}");
 }
 ```
-가변 정적 데이터에 대해서는 안전하지 않은 [러스트 파트](../unsafe.md)에서 살펴봅니다.
-> We will look at mutating static data in the [chapter on Unsafe Rust](../unsafe.md).
+
+We will look at mutating static data in the [chapter on Unsafe Rust](../unsafe.md).

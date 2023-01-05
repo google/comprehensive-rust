@@ -16,24 +16,17 @@ Android-specific content on the last day.
 
 ## Course Format and Target Audience
 
-본 과정은 경험이 풍부한 C/C++이나 자바와 같은 소프트웨어 엔지니어에게 러스트를 가르칠 목적으로 구글 내부에서 사용됩니다.  
+The course is used internally at Google when teaching Rust to experienced
+software engineers. They typically have a background in C++ or Java.
 
-이 과정은 교실과 같은 환경에서 진행되며 우리는 러스트를 그들의 팀에게 가르치려는 다른 사람들에게 유용하기를 바랍니다. 
-이 과정은 강의실에서 일어나는 토론이 빠져있기 때문에 조금은 덜 유용할 수 있습니다. 
-이 과정 가운데 질문이나 답변, 코드샘플의 컴파일 에러와 같은 것들을 확인할 수 없기 때문에 아래 참고 자료를 활용하여 좀 더 (당신의 강의를) 개선하기를 희망합니다.
-* [speaker notes](https://github.com/google/comprehensive-rust/issues/53) 
-* [publishing videos](https://github.com/google/comprehensive-rust/issues/52)
-> The course is used internally at Google when teaching Rust to experienced
-> software engineers. They typically have a background in C++ or Java.
-> 
-> The course is taught in a classroom setting and we hope it will be useful for
-> others who want to teach Rust to their team. The course will be less useful for
-> self-study since you miss out on the discussions happening in the classroom. You
-> don't see the questions and answers and you don't see the compiler errors we
-> trigger when going through the code samples. We hope to improve on this via
-> [speaker notes](https://github.com/google/comprehensive-rust/issues/53) and by
-> [publishing videos](https://github.com/google/comprehensive-rust/issues/52).
-> 
+The course is taught in a classroom setting and we hope it will be useful for
+others who want to teach Rust to their team. The course will be less useful for
+self-study since you miss out on the discussions happening in the classroom. You
+don't see the questions and answers and you don't see the compiler errors we
+trigger when going through the code samples. We hope to improve on this via
+[speaker notes](https://github.com/google/comprehensive-rust/issues/53) and by
+[publishing videos](https://github.com/google/comprehensive-rust/issues/52).
+
 ## Building
 
 

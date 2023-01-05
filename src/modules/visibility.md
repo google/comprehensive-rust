@@ -1,8 +1,6 @@
 # Visibility
 
-모듈의 기본 접근자는 private 입니다:
-* 모듈의 항목은 기본적으로 private 입니다.(구현에서 숨겨짐)
-* 부모와 이웃 항목에서는 접근 가능합니다.
+Modules are a privacy boundary:
 
 > Modules are a privacy boundary:
 > * Module items are private by default (hides implementation details).

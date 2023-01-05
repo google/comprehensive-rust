@@ -38,17 +38,13 @@
 > Rust is a large language and we won't be able to cover all of it in a few days.
 > Some non-goals of this course are:
 
-* 비동기적 러스트 사용법 --- 간단하게 언급정도는 하겠지만 좀 더 자세한 내용은 [Asynchronous
-  Programming in Rust](https://rust-lang.github.io/async-book/)를 참조해주세요
-> * Learn how to use async Rust --- we'll only mention about async Rust when
->   covering traditional concurrency primitives. Please see [Asynchronous
->   Programming in Rust](https://rust-lang.github.io/async-book/) instead for
->   details on this topic.
-
-* 매크로를 개발하는 방법. [Chapter 19.5 in the Rust Book](https://doc.rust-lang.org/book/ch19-06-macros.html)와 [Rust by Example](https://doc.rust-lang.org/rust-by-example/macros.html)를 참조하세요
-> * Learn how to develop macros, please see [Chapter 19.5 in the Rust
->   Book](https://doc.rust-lang.org/book/ch19-06-macros.html) and [Rust by
->   Example](https://doc.rust-lang.org/rust-by-example/macros.html) instead.
+* Learn how to use async Rust --- we'll only mention async Rust when
+  covering traditional concurrency primitives. Please see [Asynchronous
+  Programming in Rust](https://rust-lang.github.io/async-book/) instead for
+  details on this topic.
+* Learn how to develop macros, please see [Chapter 19.5 in the Rust
+  Book](https://doc.rust-lang.org/book/ch19-06-macros.html) and [Rust by
+  Example](https://doc.rust-lang.org/rust-by-example/macros.html) instead.
 
 ## Assumptions
 

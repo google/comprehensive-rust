@@ -15,7 +15,7 @@
 // ANCHOR: prefix_matches
 pub fn prefix_matches(prefix: &str, request_path: &str) -> bool {
     // ANCHOR_END: prefix_matches
-    let mut prefixes = prefix.split('/');
+    let prefixes = prefix.split('/');
     let request_paths = request_path
         .split('/')
         .map(|p| Some(p))

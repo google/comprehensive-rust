@@ -11,9 +11,21 @@
 > * Memory management: stack vs heap, manual memory management, scope-based memory
   management, and garbage collection.
 
-* 소유권: 시멘틱 이동, 복사와 복제, 빌림, 수명주기(라이프사이클)
-> * Ownership: move semantics, copying and cloning, borrowing, and lifetimes.
+* Ownership: move semantics, copying and cloning, borrowing, and lifetimes.
 
+<details>
 
----
-역주: 번역시 도리어 이해가 안될 수 있어서 음차와 혼용했습니다. 개인 번역이라 혼동이 있을 수 있지만 원문 병기이므로 뭐...
+The idea for the first day is to show _just enough_ of Rust to be able to speak
+about the famous borrow checker. The way Rust handles memory is a major feature
+and we should show students this right away.
+
+If you're teaching this in a classroom, this is a good place to go over the
+schedule. We suggest splitting the day into two parts (following the slides):
+
+* Morning: 9:00 to 12:00,
+* Afternoon: 13:00 to 16:00.
+
+You can of course adjust this as necessary. Please make sure to include breaks,
+we recommend a break every hour!
+
+</details>
