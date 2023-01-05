@@ -13,18 +13,26 @@
 * `union` 필드 접근
 * `extern`함수를 포함한 `unsafe` 함수 호출
 * `unsafe` 트레이트 구현
+
+위 기능에 대해 간략히 살펴보겠습니다. 자세한 내용은 
+[Chapter 19.1 in the Rust Book](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html)
+와 [Rustonomicon](https://doc.rust-lang.org/nomicon/)를 참조하세요
 > The Rust language has two parts:
 > 
 > * **Safe Rust:** memory safe, no undefined behavior possible.
 > * **Unsafe Rust:** can trigger undefined behavior if preconditions are violated.
 > 
 > We will be seeing mostly safe Rust in this course, but it's important to know
-> what unsafe Rust is.
+> what Unsafe Rust is.
 >
 > Unsafe Rust gives you access to five new capabilities:
 > 
 > * Dereference raw pointers.
 > * Access or modify mutable static variables.
 > * Access `union` fields.
-> * Call `unsafe` functions, including `extern` functions
+> * Call `unsafe` functions, including `extern` functions.
 > * Implement `unsafe` traits.
+> 
+> We will briefly cover these capabilities next. For full details, please see
+> [Chapter 19.1 in the Rust Book](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html)
+> and the [Rustonomicon](https://doc.rust-lang.org/nomicon/).

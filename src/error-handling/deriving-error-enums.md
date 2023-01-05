@@ -2,7 +2,7 @@
 
 [thiserror](https://docs.rs/thiserror/) 크레이트는 전페이지에서 처럼 
 오류 enum을 만드는 일반적인 방법입니다.
-> The [thiserror](https://docs.rs/thiserror/) crate is a popular way to crate an
+> The [thiserror](https://docs.rs/thiserror/) crate is a popular way to create an
 > error enum like we did on the previous page:
 
 ```rust,editable,compile_fail

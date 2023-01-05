@@ -40,7 +40,7 @@
 
 * 비동기적 러스트 사용법 --- 간단하게 언급정도는 하겠지만 좀 더 자세한 내용은 [Asynchronous
   Programming in Rust](https://rust-lang.github.io/async-book/)를 참조해주세요
-> * Learn how to use async Rust --- we'll only talk a bit about async Rust when
+> * Learn how to use async Rust --- we'll only mention about async Rust when
 >   covering traditional concurrency primitives. Please see [Asynchronous
 >   Programming in Rust](https://rust-lang.github.io/async-book/) instead for
 >   details on this topic.
@@ -49,14 +49,6 @@
 > * Learn how to develop macros, please see [Chapter 19.5 in the Rust
 >   Book](https://doc.rust-lang.org/book/ch19-06-macros.html) and [Rust by
 >   Example](https://doc.rust-lang.org/rust-by-example/macros.html) instead.
-
-* 안전하지 않은(unsafe) 러스트 사용법. 3일차에 언급할테지만 세부사항은 다루지 않을 것입니다. 
-  [Chapter 19.1 in the Rust Book](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html) 와
-  [Rustonomicon](https://doc.rust-lang.org/nomicon/)를 참조하세요
-> * Learn the details of how to write unsafe Rust. We will talk about unsafe Rust
->   on Day 3, but we do not cover the subtle details. Please see [Chapter 19.1 in
->   the Rust Book](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html) and
->   the [Rustonomicon](https://doc.rust-lang.org/nomicon/) instead.
 
 ## Assumptions
 

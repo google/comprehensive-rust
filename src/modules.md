@@ -3,7 +3,7 @@
 `impl`블록이 네임스페이스 함수에서 타입으로 사용되는 방법과 유사하게 
 
 `mod` 역시 네임스페이스 타입과 함수를 제공합니다: 
-> We have seen how `impl` blocks lets us namespace functions to a type.
+> We have seen how `impl` blocks let us namespace functions to a type.
 > Similarly, `mod` lets us namespace types and functions:
 
 ```rust,editable

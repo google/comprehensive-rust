@@ -16,13 +16,14 @@ fn main() {
 * C/C++과 마찬가지로 중괄호`{}`로 블록을 표시합니다. 
 * `main` 함수는 프로그램 진입점입니다. 
 * 러스트는 위생적인 매크로를 가지고 있습니다. `println!`는 그 예시입니다. 
-* 러스트의 문자열은 이모지와 같은 유니코드 문자를 포함할 수 있습니다.
+* 러스트의 문자열은 UTF-8로 인코딩되며 이모지와 같은 유니코드 문자를 포함할 수 있습니다.
 > What you see:
 > * Functions are introduced with `fn`.
 > * Blocks are delimited by curly braces like in C and C++.
 > * The `main` function is the entry point of the program.
 > * Rust has hygienic macros, `println!` is an example of this.
-> * Rust strings can contain Unicode characters, such as emoji.
+> * Rust strings are UTF-8 encoded and can contain any Unicode character.
+
 
 ---
 역주

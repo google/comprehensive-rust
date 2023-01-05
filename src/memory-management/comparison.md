@@ -53,7 +53,7 @@
 >   * Memory leaks.
 > * Automatic like Java:
 >   * Garbage collection pauses.
->   * Destructors delays.
+>   * Destructor delays.
 > * Scope-based like C++:
 >   * Complex, opt-in by programmer.
 >   * Potential for use-after-free.
