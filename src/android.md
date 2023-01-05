@@ -5,8 +5,3 @@
 > you can write new operating system services in Rust, as well as extending
 > existing services.
 
----
-역주
-
-4일차 오후 강의는 안드로이드 OS에 대한 부분입니다. 아직 여기까지 닿을 실력이 안되서 
-4일차 오후(33,34 챕터) 번역 스킵합니다(여기 볼 정도면 굳이 번역이...)
