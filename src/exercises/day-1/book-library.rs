@@ -96,10 +96,10 @@ impl Library {
 }
 
 // ANCHOR: main
+// This shows the desired behavior. Uncomment the code below and
+// implement the missing methods. You will need to update the
+// method signatures, including the "self" parameter!
 fn main() {
-    // This shows the desired behavior. Uncomment the code below and
-    // implement the missing methods. You will need to update the
-    // method signatures, including the "self" parameter!
     let library = Library::new();
 
     //println!("Our library is empty: {}", library.is_empty());
