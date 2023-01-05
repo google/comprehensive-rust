@@ -9,10 +9,6 @@
 ```
 ### Bonus question
 
-A two-dimensional slice-of-slices would be fine for argument if you do something like
+It honestly doesn't work so well. It might seem that we could use a slice-of-slices (`&[&[i32]]`) as the input type to transpose and thus make our function handle any size of matrix. However, this quickly breaks down: the return type cannot be `&[&[i32]]` since it needs to own the data you return.
 
-```rust
-{{#include for-loops-bonus.rs}}
-```
-
-However, it won't work very well for a return type. Since the `transpose` function need to allocate new data to hold the output value, it will go out of scope at the end of `transpose` so you need to return the data itself instead of its reference.
+You can attempt to use something like `Vec<Vec<i32>>`, but this doesn't work very well either: it's hard to convert from `Vec<Vec<i32>>` to `&[&[i32]]` so now you cannot easily use `pretty_print` either.
