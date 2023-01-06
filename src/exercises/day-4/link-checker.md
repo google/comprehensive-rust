@@ -11,7 +11,7 @@ Cargo project and `reqwest` it as a dependency with:
 ```shell
 $ cargo new link-checker
 $ cd link-checker
-$ cargo add --features blocking reqwest
+$ cargo add --features blocking,rustls-tls reqwest
 ```
 
 > If `cargo add` fails with `error: no such subcommand`, then please edit the
@@ -33,7 +33,7 @@ The `cargo add` calls will update the `Cargo.toml` file to look like this:
 
 ```toml
 [dependencies]
-reqwest = { version = "0.11.12", features = ["blocking"] }
+reqwest = { version = "0.11.12", features = ["blocking", "rustls-tls"] }
 scraper = "0.13.0"
 thiserror = "1.0.37"
 ```
@@ -63,9 +63,6 @@ Run the code in `src/main.rs` with
 ```shell
 $ cargo run
 ```
-
-> If `cargo run` fails with an error mentioning OpenSSL, ensure that you have
-> the OpenSSL headers installed by running `sudo apt install libssl-dev`.
 
 ## Tasks
 
