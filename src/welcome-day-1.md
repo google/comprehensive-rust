@@ -13,6 +13,19 @@ today:
 
 <details>
 
+Please remind the students that:
+
+* They should ask questions when they get them, don't save them to the end.
+* The class is meant to be interactive and discussions are very much encouraged!
+  * As an instructor, you should try to keep the discussions relevant, i.e.,
+    keep the related to how Rust does things vs some other language. It can be
+    hard to find the right balance, but err on the side of allowing discussions
+    since they engage people much more than one-way communication.
+* The questions will likely mean that we about things ahead of the slides.
+  * This is perfectly okay! Repetition is an important part of leaning. Remember
+    that the slides are just a support and you are free to skip them as you
+    like.
+
 The idea for the first day is to show _just enough_ of Rust to be able to speak
 about the famous borrow checker. The way Rust handles memory is a major feature
 and we should show students this right away.
