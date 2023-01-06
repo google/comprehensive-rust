@@ -115,6 +115,18 @@
     summary.append(popOut);
   }
 
+  // Create headers on the print page.
+  function setupPrintPage() {
+    for (const notes of document.querySelectorAll("details")) {
+      notes.open = true;
+      let summary = document.createElement("summary");
+      notes.insertBefore(summary, notes.firstChild);
+      let h4 = document.createElement("h4");
+      h4.append("Speaker Notes");
+      summary.append(h4);
+    }
+  }
+
   // Create controls for a speaker note window.
   function setupSpeakerNotes() {
     // Show the notes inline again when the window is closed.
@@ -215,6 +227,11 @@
       markDefunct();
       break;
     default:
+      if (window.location.pathname == "/print.html") {
+        setupPrintPage();
+        return;
+      }
+
       // We are on a regular page. We force the state to "inline-open" if this
       // looks like a direct link to the speaker notes.
       if (window.location.hash == "#speaker-notes") {
