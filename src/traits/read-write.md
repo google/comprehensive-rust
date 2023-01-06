@@ -31,7 +31,7 @@ fn log<W: Write>(writer: &mut W, msg: &str) -> Result<()> {
 }
 
 fn main() -> Result<()> {
-    let mut buffer = Vec::with_capacity(1024);
+    let mut buffer = Vec::new();
     log(&mut buffer, "Hello")?;
     log(&mut buffer, "World")?;
     println!("Logged: {:?}", buffer);
