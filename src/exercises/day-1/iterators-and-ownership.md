@@ -104,7 +104,7 @@ What is the type of `word` in each loop?
 
 Experiment with the code above and then consult the documentation for [`impl
 IntoIterator for
-&Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-2)
+&Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-for-%26%27a%20Vec%3CT%2C%20A%3E)
 and [`impl IntoIterator for
-Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-1)
+Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-for-%26%27a%20Vec%3CT%2C%20A%3E)
 to check your answers.
