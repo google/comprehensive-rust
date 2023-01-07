@@ -42,3 +42,11 @@ explain or contrast the Rust approach.
 
 If you know how to program in a dynamically typed language such as Python or
 JavaScript, then you will be able to follow along just fine too.
+
+<details>
+
+This is an example of a _speaker note_. We will use these to add additional
+information to the slides. This could be key points which the instructor should
+cover as well as answers to typical questions which come up in class.
+
+</details>
