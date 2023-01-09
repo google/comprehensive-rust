@@ -36,14 +36,20 @@ Arrays:
 *We can use literals to assign values to arrays.
 
 *Demonstrate out of bounds errors by setting n to different values 
-    e.g. a[n+15] = 11 // index out of bounds error since len is 10
+
+```
+a[n+15] = 11 // index out of bounds error since len is 10
+```
 
 *Efficient way to check n is in bounds:
-    assert!(n+20 < a.len()); // panics
+
+```
+assert!(n+20 < a.len()); // panics
+```
 
 *In the main function, the print statement contains the debug implementation {a :?}.
 
-*Adding #, eg {a:#?}, invokes a "pretty printing" format, which can be easier to read.
+*Adding `#`, eg `{a:#?}`, invokes a "pretty printing" format, which can be easier to read.
 
 Tuples:
 
