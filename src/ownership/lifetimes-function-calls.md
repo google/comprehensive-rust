@@ -28,7 +28,7 @@ fn main() {
 
 In the above example, try the following:
 
-* Move the declaration of `p2` and `p3` into a a new scope (`{ ... }`). You have to declare `p3` as `let p3: &Point;`, in `main`'s scope before that new block. Note how this does not compile since `p3` outlives `p2`.
+* Move the declaration of `p2` and `p3` into a a new scope (`{ ... }`). You have to declare `p3` as `let p3: &Point;`, in `main`'s scope before that new block, and in the block assign to `p3` without the `let` (just `p3 = left_most(...)`). Note how this does not compile since `p3` outlives `p2`.
 * Reset the workspace and change the function signature to `fn left_most<'a, 'b>(p1: &'a Point, p2: &'a Point) -> &'b Point`. This will not compile because the relationship between the lifetimes `'a` and `'b` is unclear.
 
 </details>
