@@ -39,3 +39,40 @@ jobs:
 
       - name: Test Rust code
         run: cargo test
+
+  translations:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        language:
+          - da
+    env:
+      MDBOOK_BOOK__LANGUAGE: ${{ matrix.language }}
+      MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE: po/${{ matrix.language }}.po
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Rust cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Install Gettext
+        run: sudo apt install gettext
+
+      - name: Install mdbook
+        run: cargo install mdbook --version 0.4.25
+
+      - name: Install mdbook-svgbob
+        run: cargo install mdbook-svgbob --version 0.2.1
+
+      - name: Install i18n-helpers
+        run: cargo install --path i18n-helpers --locked
+
+      - name: Test ${{ matrix.language }} translation
+        run: msgfmt --statistics -o /dev/null po/${{ matrix.language }}.po
+
+      - name: Build course with ${{ matrix.language }} translation
+        run: mdbook build
+
+      - name: Test code snippets with ${{ matrix.language }} translation
+        run: mdbook test
