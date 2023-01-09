@@ -12,7 +12,7 @@ fn left_most<'a>(p1: &'a Point, p2: &'a Point) -> &'a Point {
 
 fn main() {
     let p1: Point = Point(10, 10);
-    let p2: Point = Point(20, 20);  // Put into different scope
+    let p2: Point = Point(20, 20);
     let p3: &Point = left_most(&p1, &p2);
     println!("left-most point: {:?}", p3);
 }
@@ -23,3 +23,12 @@ fn main() {
 * Read `&'a Point` as "a borrowed `Point` which is valid for at least the
   lifetime `a`".
   * The _at least_ part is important when parameters are in different scopes.
+
+<details>
+
+In the above example, try the following:
+
+* Move the declaration of `p2` and `p3` into a a new scope (`{ ... }`). You have to declare `p3` as `let p3: &Point;`, in `main`'s scope before that new block. Note how this does not compile since `p3` outlives `p2`.
+* Reset the workspace and change the function signature to `fn left_most<'a, 'b>(p1: &'a Point, p2: &'a Point) -> &'b Point`. This will not compile because the relationship between the lifetimes `'a` and `'b` is unclear.
+
+</details>
