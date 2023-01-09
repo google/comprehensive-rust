@@ -40,7 +40,7 @@ Copying and cloning are not the same thing:
 
 In the above example, try the following:
 
-* Try printing `p1` twice after the move. What do you expect to happen?
+* Try printing `p1` again after the move. What do you expect to happen?
 * What happens when you add a `String` field to `struct Point`?
 * Does it work when you remove `Copy` from the `derive` attribute?
 * After removing `Copy`, can you still print `p1` after the move?
