@@ -16,3 +16,4 @@ Some differences from C++:
 * We must dereference `ref_x` when assigning to it, similar to C pointers,
 * Rust will auto-dereference in some cases, in particular when invoking
   methods (try `count_ones`).
+* References that are declared as `mut` can be bound to different values over their lifetime.
