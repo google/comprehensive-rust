@@ -15,3 +15,32 @@ The Rust ecosystem consists of a number of tools, of which the main ones are:
   In addition, `rustup` can also download documentation for the standard
   library. You can have multiple versions of Rust installed at once and `rustup`
   will let you switch between them as needed.
+
+<details>
+
+Key points:
+
+* Rust has a rapid release schedule with a new release coming out
+  every six weeks. New releases maintain backwards compatibility with
+  old releases --- plus they enable new functionality.
+
+* There are three release channels: "stable", "beta", and "nightly".
+
+* New features are being tested on "nightly", "beta" is what becomes
+  "stable" every six weeks.
+
+* Rust also has [editions]: the current edition is Rust 2021. Previous
+  editions were Rust 2015 and Rust 2018.
+
+  * The editions are allowed to make backwards incompatible changes to
+    the language.
+
+  * To prevent breaking code, editions are opt-in: you select the
+    edition for your crate via the `Cargo.toml` file.
+
+  * To avoid splitting the ecosystem, Rust compilers can mix code
+    written for different editions.
+
+[editions]: https://doc.rust-lang.org/edition-guide/
+
+</details>
