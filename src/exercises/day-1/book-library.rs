@@ -100,7 +100,7 @@ impl Library {
 // implement the missing methods. You will need to update the
 // method signatures, including the "self" parameter!
 fn main() {
-    let library = Library::new();
+    let mut library = Library::new();
 
     //println!("Our library is empty: {}", library.is_empty());
     //
