@@ -38,7 +38,7 @@ fn main() {
 }
 ```
 
-As noted in the [Rust RFC Book][1], these are not inlined upon use and have an actual associated memory location.  This is useful for unsafe and embedded code, and have a `'static` lifetime[^lifetime].
+As noted in the [Rust RFC Book][1], these are not inlined upon use and have an actual associated memory location.  This is useful for unsafe and embedded code, and have a `'static` lifetime.
 
 
 We will look at mutating static data in the [chapter on Unsafe Rust](../unsafe.md).
