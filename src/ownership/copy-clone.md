@@ -40,8 +40,8 @@ Copying and cloning are not the same thing:
 
 In the above example, try the following:
 
-* What happens when you add a `String` field to `struct Point`?
-* Does it work when you remove `Copy` from the `derive` attribute?
-* After removing `Copy`, can you still print `p1` after the move?
+* Add a `String` field to `struct Point`. It will not compile because `String` is not a `Copy` type.
+* Remove `Copy` from the `derive` attribute. The compiler error is now in the `println!` for  `p1`.
+* Show that it works if you then clone `p1`.
 
 </details>
