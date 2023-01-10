@@ -11,15 +11,7 @@ and how it fits into this training.
 
 You can follow the instructions to install cargo and rust compiler, among other standard ecosystem tools with the [rustup][3] tool, which is maintained by the Rust Foundation.
 
-On Unix-like systems you can curl down the install script and pipe it into your shell like so:
-
-```shell
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
-
-On windows there is a `rustup-init.exe` available on the website.
-
-Rustup also installs itself as an additional command line utility that you can use to install toolchains, setup cross compilation, etc.
+Along with cargo and rustc, Rustup will install itself as a command line utility that you can use to install/switch toolchains, setup cross compilation, etc.
 
 ### Package Managers
 
