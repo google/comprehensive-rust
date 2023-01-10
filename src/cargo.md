@@ -34,7 +34,7 @@ $ sudo apt install cargo rust-src
 This will allow [rust-analyzer][1] to jump to the definitions. We suggest using
 [VS Code][2] to edit the code (but any LSP compatible editor works).
 
-Some folks also like to use the [Jetbrains][4] family of IDEs, which do their own analysis but have their own tradeoffs. If you prefer them, you can install the [Rust Plugin][5]. Please take note that as of writing debugging only works on the CLion version of the Jetbrains IDEA suite.
+Some folks also like to use the [Jetbrains][4] family of IDEs, which do their own analysis but have their own tradeoffs. If you prefer them, you can install the [Rust Plugin][5]. Please take note that as of January 2023 debugging only works on the CLion version of the Jetbrains IDEA suite.
 
 [1]: https://rust-analyzer.github.io/
 [2]: https://code.visualstudio.com/
