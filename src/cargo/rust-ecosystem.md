@@ -45,13 +45,23 @@ Key points:
 
   * It might be worth alluding that Cargo itself is an extremely powerful and comprehensive tool.  It is capable of many advanced features including but not limited to: 
       * Project/package structure
-      * [workspaces](https://doc.rust*lang.org/cargo/reference/workspaces.html)
+      * [workspaces]
       * Dev Dependencies and Runtime Dependency management/caching
-      * [build scripting](https://doc.rust-lang.org/cargo/reference/build-scripts.html)
-      * [global installation](https://doc.rust-lang.org/cargo/commands/cargo-install.html)
-      * It is also extensible with sub command plugins as well (such as [cargo clippy](https://github.com/rust-lang/rust-clippy) or [cargo binstall](https://github.com/cargo-bins/cargo-binstall))
-  * Read more from the [official Cargo Book](https://doc.rust-lang.org/cargo/)
+      * [build scripting]
+      * [global installation]
+      * It is also extensible with sub command plugins as well (such as [cargo clippy]).
+  * Read more from the [official Cargo Book]
 
 [editions]: https://doc.rust-lang.org/edition-guide/
+
+[workspaces]: https://doc.rust-lang.org/cargo/reference/workspaces.html
+
+[build scripting]: https://doc.rust-lang.org/cargo/reference/build-scripts.html
+
+[global installation]: https://doc.rust-lang.org/cargo/commands/cargo-install.html
+
+[cargo clippy]: https://github.com/rust-lang/rust-clippy
+
+[official Cargo Book]: https://doc.rust-lang.org/cargo/
 
 </details>
