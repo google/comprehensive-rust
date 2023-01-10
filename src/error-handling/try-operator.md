@@ -41,6 +41,6 @@ fn read_username(path: &str) -> Result<String, io::Error> {
 fn main() {
     //fs::write("config.dat", "alice").unwrap();
     let username = read_username("config.dat");
-    println!("username: {username:?}");
+    println!("username or error: {username:?}");
 }
 ```

@@ -46,6 +46,6 @@ fn read_username(path: &str) -> Result<String, ReadUsernameError> {
 fn main() {
     //fs::write("config.dat", "").unwrap();
     let username = read_username("config.dat");
-    println!("username: {username:?}");
+    println!("username or error: {username:?}");
 }
 ```
