@@ -3,12 +3,12 @@
 The Rust ecosystem consists of a number of tools, of which the main ones are:
 
 * `rustc`: the Rust compiler which turns `.rs` files into binaries and other
-  intermediate formats.
+  intermediate formats[^rustc].
 
 * `cargo`: the Rust dependency manager and build tool. Cargo knows how to
   download dependencies hosted on <https://crates.io> and it will pass them to
   `rustc` when building your project. Cargo also comes with a built-in test
-  runner which is used to execute unit tests.
+  runner which is used to execute unit tests[^cargo].
 
 * `rustup`: the Rust toolchain installer and updater. This tool is used to
   install and update `rustc` and `cargo` when new versions of Rust is released.
@@ -41,6 +41,27 @@ Key points:
   * To avoid splitting the ecosystem, Rust compilers can mix code
     written for different editions.
 
+  * Mention that it is quite rare to ever use the compiler directly not through `cargo` (most users never do).
+
+  * It might be worth alluding that Cargo itself is an extremely powerful and comprehensive tool.  It is capable of many advanced features including but not limited to: 
+      * Project/package structure
+      * [workspaces]
+      * Dev Dependencies and Runtime Dependency management/caching
+      * [build scripting]
+      * [global installation]
+      * It is also extensible with sub command plugins as well (such as [cargo clippy]).
+  * Read more from the [official Cargo Book]
+
 [editions]: https://doc.rust-lang.org/edition-guide/
+
+[workspaces]: https://doc.rust-lang.org/cargo/reference/workspaces.html
+
+[build scripting]: https://doc.rust-lang.org/cargo/reference/build-scripts.html
+
+[global installation]: https://doc.rust-lang.org/cargo/commands/cargo-install.html
+
+[cargo clippy]: https://github.com/rust-lang/rust-clippy
+
+[official Cargo Book]: https://doc.rust-lang.org/cargo/
 
 </details>
