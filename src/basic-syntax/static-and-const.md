@@ -24,6 +24,8 @@ fn main() {
 }
 ```
 
+According the the [Rust RFC Book][1] these are inlined upon use.
+
 ## `static`
 
 You can also declare static variables:
@@ -36,4 +38,23 @@ fn main() {
 }
 ```
 
+As noted in the [Rust RFC Book][1], these are not inlined upon use and have an actual associated memory location.  This is useful for unsafe and embedded code, and have a `'static` lifetime[^lifetime].
+
+
 We will look at mutating static data in the [chapter on Unsafe Rust](../unsafe.md).
+
+## Runtime evaluated constants
+
+Sometimes you want a global constant that isn't constructable at compile time, such as a global HashMap or complex structure.  This is done with crates like [OnceCell](https://crates.io/crates/once_cell) or [lazy_static](https://crates.io/crates/lazy_static).
+
+[1]: https://rust-lang.github.io/rfcs/0246-const-vs-static.html
+
+[^lifetime]: We'll discuss lifetimes later today in the section on ownership
+
+<details>
+
+* If the target audience is well versed in C++, it might be helpful to mention that `const` behaves semantically similar to C++'s `constexpr`
+* `static`, on the other hand, is much more similar to a `const` or mutable global variable.
+* It isn't super common that one would need a runtime evaluated constant, but it is helpful and safer than using a static.
+
+</details>
