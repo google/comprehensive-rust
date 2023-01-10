@@ -43,14 +43,6 @@ As noted in the [Rust RFC Book][1], these are not inlined upon use and have an a
 
 We will look at mutating static data in the [chapter on Unsafe Rust](../unsafe.md).
 
-## Runtime evaluated constants
-
-Sometimes you want a global constant that isn't constructable at compile time, such as a global HashMap or complex structure.  This is done with crates like [OnceCell](https://crates.io/crates/once_cell) or [lazy_static](https://crates.io/crates/lazy_static).
-
-[1]: https://rust-lang.github.io/rfcs/0246-const-vs-static.html
-
-[^lifetime]: We'll discuss lifetimes later today in the section on ownership
-
 <details>
 
 * Mention that `const` behaves semantically similar to C++'s `constexpr`.
