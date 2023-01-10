@@ -11,3 +11,10 @@ fn main() {
     // println!("x: {x}");
 }
 ```
+
+<details>
+
+* It might be worth pointing out quickly that due to type inference the `i32` is optional
+* Note that since `println!` is a macro, x is not moved, even using the function like syntax of `println!("x: {}", x)`
+
+</details>
