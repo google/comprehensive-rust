@@ -19,3 +19,11 @@ fn main() {
     println!("b: {b}");
 }
 ```
+
+<details>
+
+* The above code does not compile because `a` is borrowed as mutable (through `c`) and as immutable (through `b`) at the same time.
+* Move the `println!` statement for `b` before the scope that introduces `c` to make the code compile.
+* After that change, the compiler realizes that `b` is only ever used before the new mutable borrow of `a` through `c`. This is a feature of the borrow checker called "non-lexical lifetimes".
+
+</details>
