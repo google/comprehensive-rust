@@ -43,6 +43,6 @@ In the above example, try the following:
 
 * Add a `String` field to `struct Point`. It will not compile because `String` is not a `Copy` type.
 * Remove `Copy` from the `derive` attribute. The compiler error is now in the `println!` for  `p1`.
-* Show that it works if you then clone `p1`.
+* Show that it works if you clone `p1` instead.
 
 </details>
