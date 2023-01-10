@@ -15,7 +15,7 @@ fn main() {
 
     let s3 = String::from("🇨🇭");
     println!("s3: len = {}, number of chars = {}", s3.len(),
-             s3.chars().collect::<std::vec::Vec<_>>().len());
+             s3.chars().count());
 }
 ```
 
