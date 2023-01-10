@@ -44,6 +44,49 @@ jobs:
         run: cargo test
         working-directory: i18n-helpers
 
+  i18n-helpers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Rust cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Install Gettext
+        run: sudo apt install gettext
+
+      - name: Install mdbook
+        run: cargo install mdbook --version 0.4.25
+
+      - name: Install mdbook-svgbob
+        run: cargo install mdbook-svgbob --version 0.2.1
+
+      - name: Install i18n-helpers
+        run: cargo install --path i18n-helpers --locked
+
+      - name: Generate po/messages.pot
+        run: mdbook build -d po
+        env:
+          MDBOOK_OUTPUT: '{"xgettext": {"pot-file": "messages.pot"}}'
+
+      - name: Test messages.pot
+        run: msgfmt --statistics -o /dev/null po/messages.pot
+
+      - name: Expand includes without translation
+        run: mdbook build -d expanded
+        env:
+          MDBOOK_OUTPUT: '{"markdown": {}}'
+
+      - name: Expand includes with no-op translation
+        run: mdbook build -d no-op
+        env:
+          MDBOOK_OUTPUT: '{"markdown": {}}'
+          MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE: po/messages.pot
+
+      - name: Compare no translation to no-op translation
+        run: diff -r expanded no-op
+
   translations:
     runs-on: ubuntu-latest
     strategy:
