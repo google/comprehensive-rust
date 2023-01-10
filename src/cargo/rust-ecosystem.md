@@ -41,10 +41,17 @@ Key points:
   * To avoid splitting the ecosystem, Rust compilers can mix code
     written for different editions.
 
+  * Mention that it is quite rare to ever use the compiler directly not through `cargo` (most users never do).
+
+  * It might be worth alluding that Cargo itself is an extremely powerful and comprehensive tool.  It is capable of many advanced features including but not limited to: 
+      * Project/package structure
+      * [workspaces](https://doc.rust*lang.org/cargo/reference/workspaces.html)
+      * Dev Dependencies and Runtime Dependency management/caching
+      * [build scripting](https://doc.rust-lang.org/cargo/reference/build-scripts.html)
+      * [global installation](https://doc.rust-lang.org/cargo/commands/cargo-install.html)
+      * It is also extensible with sub command plugins as well (such as [cargo clippy](https://github.com/rust-lang/rust-clippy) or [cargo binstall](https://github.com/cargo-bins/cargo-binstall))
+  * Read more from the [official Cargo Book](https://doc.rust-lang.org/cargo/)
+
 [editions]: https://doc.rust-lang.org/edition-guide/
 
 </details>
-
-[^rustc]: Please note, it is quite rare to ever use the compiler directly not through `cargo`.
-
-[^cargo]: Cargo itself is a powerful and comprehensive tool capable of many advanced features including but not limited to: Project structure, [workspaces](https://doc.rust*lang.org/cargo/reference/workspaces.html), dev dependencies, [build scripting](https://doc.rust-lang.org/cargo/reference/build-scripts.html), [binary installation](https://doc.rust-lang.org/cargo/commands/cargo-install.html), etc. It is extensible with sub command plugins as well (such as [cargo clippy](https://github.com/rust-lang/rust-clippy) or [cargo binstall](https://github.com/cargo-bins/cargo-binstall)). Read more from the [official Cargo Book](https://doc.rust-lang.org/cargo/)
