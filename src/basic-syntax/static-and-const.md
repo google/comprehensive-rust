@@ -24,6 +24,8 @@ fn main() {
 }
 ```
 
+According the the [Rust RFC Book][1] these are inlined upon use.
+
 ## `static`
 
 You can also declare static variables:
@@ -36,4 +38,15 @@ fn main() {
 }
 ```
 
+As noted in the [Rust RFC Book][1], these are not inlined upon use and have an actual associated memory location.  This is useful for unsafe and embedded code, and have a `'static` lifetime.
+
+
 We will look at mutating static data in the [chapter on Unsafe Rust](../unsafe.md).
+
+<details>
+
+* Mention that `const` behaves semantically similar to C++'s `constexpr`.
+* `static`, on the other hand, is much more similar to a `const` or mutable global variable in C++.
+* It isn't super common that one would need a runtime evaluated constant, but it is helpful and safer than using a static.
+
+</details>
