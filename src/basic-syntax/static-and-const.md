@@ -53,7 +53,7 @@ Sometimes you want a global constant that isn't constructable at compile time, s
 
 <details>
 
-* If the target audience is well versed in C++, it might be helpful to mention that `const` behaves semantically similar to C++'s `constexpr`
+* Mention that `const` behaves semantically similar to C++'s `constexpr`.
 * `static`, on the other hand, is much more similar to a `const` or mutable global variable.
 * It isn't super common that one would need a runtime evaluated constant, but it is helpful and safer than using a static.
 
