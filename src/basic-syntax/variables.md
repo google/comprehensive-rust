@@ -11,3 +11,10 @@ fn main() {
     // println!("x: {x}");
 }
 ```
+
+<details>
+
+* Due to type inference the `i32` is optional. We will gradually show the types less and less as the type progresses.
+* Note that since `println!` is a macro, `x` is not moved, even using the function like syntax of `println!("x: {}", x)`
+
+</details>
