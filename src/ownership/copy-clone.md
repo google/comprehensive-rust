@@ -35,6 +35,7 @@ fn main() {
 Copying and cloning are not the same thing:
 
 * Copying refers to bitwise copies of memory regions and does not work on arbitrary objects.
+* Copying does not allow for custom logic (unlike copy constructors in C++).
 * Cloning is a more general operation and also allows for custom behavior by implementing the `Clone` trait.
 * Copying does not work on types that implement the `Drop` trait.
 
