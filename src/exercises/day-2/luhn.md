@@ -14,7 +14,7 @@ following to validate the credit card number:
 
 * Sum all the undoubled and doubled digits.
 
-* The credit card number is valid if the sum is ends with `0`.
+* The credit card number is valid if the sum ends with `0`.
 
 Copy the following code to <https://play.rust-lang.org/> and implement the
 function:
