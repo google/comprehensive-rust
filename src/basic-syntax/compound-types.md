@@ -31,7 +31,7 @@ Key points:
     
 Arrays:
     
-*Arrays have elements of the same type, T, and length, N, which is fixed. 
+*Arrays have elements of the same type, `T`, and length, `N`, which is a compile-time constant. 
 
 *We can use literals to assign values to arrays.
 
