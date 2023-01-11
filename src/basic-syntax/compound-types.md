@@ -47,7 +47,7 @@ a[n+15] = 11 // index out of bounds error since len is 10
 assert!(n+20 < a.len()); // panics
 ```
 
-*In the main function, the print statement contains the debug implementation {a :?}.
+*In the main function, the print statement asks for the debug implementation with the `?` format parameter: `{a}` gives default output, `{a:?}` gives debug output.
 
 *Adding `#`, eg `{a:#?}`, invokes a "pretty printing" format, which can be easier to read.
 
