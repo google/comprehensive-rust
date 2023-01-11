@@ -1,7 +1,8 @@
 # Course Structure
 
-The course is fast paced and we will cover a lot of ground over the next 3--4
-days:
+> This page is for the course instructor.
+
+The course is fast paced and covers a lot of ground:
 
 * Day 1: Basic Rust, ownership and the borrow checker.
 * Day 2: Compound data types,  pattern matching, the standard library.
@@ -14,9 +15,5 @@ days:
 
 ## Format
 
-The course is interactive and your questions will drive our exploration of Rust!
-
-* Please ask questions when you get them, don't save them to the end.
-* Discussions are very much encouraged!
-* We will likely talk about things ahead of the slides.
-  * The slides are just a support and we are free to skip them as we like.
+The course is meant to be very interactive and we recommend letting the
+questions drive the exploration of Rust!
