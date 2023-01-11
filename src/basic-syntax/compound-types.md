@@ -35,19 +35,7 @@ Arrays:
 
 *We can use literals to assign values to arrays.
 
-*Demonstrate out of bounds errors by setting n to different values 
-
-```
-a[n+15] = 11 // index out of bounds error since len is 10
-```
-
-*Efficient way to check n is in bounds:
-
-```
-assert!(n+20 < a.len()); // panics
-```
-
-*In the main function, the print statement asks for the debug implementation with the `?` format parameter: `{a}` gives default output, `{a:?}` gives debug output.
+*In the main function, the print statement asks for the debug implementation with the `?` format parameter: `{a}` gives the default output, `{a:?}` gives the debug output.
 
 *Adding `#`, eg `{a:#?}`, invokes a "pretty printing" format, which can be easier to read.
 
