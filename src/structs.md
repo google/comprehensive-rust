@@ -20,7 +20,7 @@ fn main() {
 
 <details>
 
-* The top is how we define a struct, in the main function creating a struct, and then at the bottom we are accessing the fields.
+* At the top of this program we define a struct, in the main function we create a struct, and then at the bottom we access the fields.
 * Structs work similar as they do in other languages, but note there is also no typedef keyword or inheritance between structs. Also note there are no functions. The implementation is separate.
 * We can access the structs fields with the dot notation 
 * Using short-hand syntax, we can initiate the fields with similar-named variables.  [define age variable on it’s own line] 
