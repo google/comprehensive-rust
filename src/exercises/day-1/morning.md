@@ -19,6 +19,10 @@ A few things to consider while solving the exercises:
 The code snippets are not editable on purpose: the inline code snippets lose
 their state if you navigate away from the page.
 
+After looking at the exercises, you can look at the [solutions] provided.
+
+[solutions]: solutions-morning.md
+
 [Using Cargo]: ../../cargo.md
 
 </details>
