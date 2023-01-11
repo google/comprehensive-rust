@@ -12,3 +12,14 @@ fn main() {
     println!("idx: {idx:?}");
 }
 ```
+
+<details>
+
+* `Option` and `Result` are widely used not just in the standard library.
+* `Option<&T>` has zero space overhead compared to `&T`.
+* `Result` is the standard type to implement error handling as we will see on Day 3.
+* `binary_search` returns `Result<usize, usize`.
+  * If found, `Result::Ok` holds the index where the element is found.
+  * Otherwise, `Result::Err` contains the index where such an element should be inserted.
+
+</details>
