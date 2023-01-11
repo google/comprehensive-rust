@@ -22,3 +22,11 @@ context.
 [1]: https://doc.rust-lang.org/std/rc/struct.Rc.html
 [2]: https://doc.rust-lang.org/std/cell/index.html
 [3]: ../concurrency/shared_state/arc.md
+
+<details>
+
+* Like C++'s `std::shared_ptr`.
+* `clone` is cheap: creates a pointer to the same allocation and increases the reference count.
+* `make_mut` actually clones the inner value if necessary ("clone-on-write") and returns a mutable reference.
+
+</details>

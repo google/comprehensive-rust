@@ -28,3 +28,10 @@ from `T` directly on a `Box<T>`][2].
 
 [1]: https://doc.rust-lang.org/std/boxed/struct.Box.html
 [2]: https://doc.rust-lang.org/std/ops/trait.Deref.html#more-on-deref-coercion
+
+<details>
+
+* `Box` is like `std::unique_ptr` in C++.
+* In the above example, you can even leave out the `*` in the `println!` statement thanks to `Deref`.
+
+</details>
