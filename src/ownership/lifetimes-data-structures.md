@@ -20,3 +20,11 @@ fn main() {
 }
 ```
 
+<details>
+
+* In the above example, the annotation on `Highlight` enforces that the data underlying the contained `&str` lives at least as long as any instance of `Highlight` that uses that data.
+* If `text` is consumed before the end of the lifetime of `fox` (or `dog`), the borrow checker throws an error.
+* Data structures with borrowed data force users to hold on to the original data structure. This can be useful for creating lightweight views, but generally make them somewhat harder to use.
+* When appropriate, consider creating data structures that own data directly.
+
+</details>
