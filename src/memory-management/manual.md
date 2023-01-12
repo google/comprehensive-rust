@@ -2,6 +2,8 @@
 
 You allocate and deallocate heap memory yourself.
 
+If not done with care, this can lead to crashes, bugs, security vulnerabilities, and memory leaks.
+
 ## C Example
 
 You must call `free` on every pointer you allocate with `malloc`:
