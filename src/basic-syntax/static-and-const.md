@@ -50,3 +50,5 @@ We will look at mutating static data in the [chapter on Unsafe Rust](../unsafe.m
 * It isn't super common that one would need a runtime evaluated constant, but it is helpful and safer than using a static.
 
 </details>
+
+[1]: https://rust-lang.github.io/rfcs/0246-const-vs-static.html
