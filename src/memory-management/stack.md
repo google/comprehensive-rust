@@ -27,9 +27,9 @@ fn main() {
 
 * Mention that a `String` is backed by a `Vec`, so it has a capacity and length and can grow if mutable via reallocation on the heap.
 
-* If students ask about it, you can mention that the underlying memory is heap allocated using the [System Allocator] and custom allocators can be implemented using the [Allocator Api]
+* If students ask about it, you can mention that the underlying memory is heap allocated using the [System Allocator] and custom allocators can be implemented using the [Allocator API]
 
 </details>
 
 [System Allocator]: https://doc.rust-lang.org/std/alloc/struct.System.html
-[Allocator Api]: https://doc.rust-lang.org/std/alloc/index.html
+[Allocator API]: https://doc.rust-lang.org/std/alloc/index.html
