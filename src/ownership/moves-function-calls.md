@@ -14,3 +14,12 @@ fn main() {
     // say_hello(name);
 }
 ```
+
+<details>
+
+* With the first call to `say_hello`, `main` gives up ownership of `name`. Afterwards, `name` cannot be used anymore within `main`.
+* `main` can retain ownership if it passes `name` as a reference (`&name`) and if `say_hello` accepts a reference as a parameter.
+* Alternatively, `main` can pass a clone of `name` in the first call (`name.clone()`).
+* Rust makes it harder than C++ to inadvertently create copies by making move semantics the default, and by forcing programmers to make clones explicit.
+
+</details>
