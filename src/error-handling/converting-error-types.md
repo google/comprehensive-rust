@@ -49,3 +49,12 @@ fn main() {
     println!("username or error: {username:?}");
 }
 ```
+
+<details>
+
+Key points:
+
+* The `username` variable can be either `Ok(string)` or `Err(error)`.
+* Use the `fs::write` call to test out the different scenarios: no file, empty file, file with username.
+
+</details>
