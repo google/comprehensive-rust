@@ -78,9 +78,9 @@
     popIn.setAttribute("title", "Close speaker notes");
     popIn.setAttribute("aria-label", "Close speaker notes");
     popIn.classList.add("icon-button");
-    let i = document.createElement("i");
-    i.classList.add("fa", "fa-window-close-o");
-    popIn.append(i);
+    let popInIcon = document.createElement("i");
+    popInIcon.classList.add("fa", "fa-window-close-o");
+    popIn.append(popInIcon);
     popIn.addEventListener("click", (event) => {
       setState("inline-open");
       applyState();
@@ -108,10 +108,20 @@
     // Create pop-out button.
     let popOutLocation = new URL(window.location.href);
     popOutLocation.hash = "#speaker-notes-open";
-    let popOut = document.createElement("a");
-    popOut.setAttribute("href", popOutLocation.href);
-    popOut.setAttribute("target", "speakerNotes");
-    popOut.classList.add("fa", "fa-external-link");
+    let popOut = document.createElement("button");
+    popOut.classList.add("icon-button", "pop-out");
+    popOut.addEventListener("click", (event) => {
+      let popup = window.open(popOutLocation.href, "speakerNotes", "popup");
+      if (popup) {
+        setState("popup");
+        applyState();
+      } else {
+        window.alert("Could not open popup, please check your popup blocker settings.");
+      }
+    })
+    let popOutIcon = document.createElement("i");
+    popOutIcon.classList.add("fa", "fa-external-link");
+    popOut.append(popOutIcon);
     summary.append(popOut);
   }
 
@@ -129,11 +139,6 @@
 
   // Create controls for a speaker note window.
   function setupSpeakerNotes() {
-    // Show the notes inline again when the window is closed.
-    window.addEventListener("pagehide", (event) => {
-      setState("inline-open");
-    });
-
     // Hide sidebar and buttons.
     document.querySelector("html").classList.remove("sidebar-visible");
     document.querySelector("html").classList.add("sidebar-hidden");
@@ -215,9 +220,7 @@
   // We encode the kind of page in the location hash:
   switch (window.location.hash) {
     case "#speaker-notes-open":
-      // We are on a page in the speaker notes. We need to re-establish the
-      // popup state so that the main window will hide the notes.
-      setState("popup");
+      // We are on a page in the speaker notes.
       setupSpeakerNotes();
       break;
     case "#speaker-notes-defunct":
