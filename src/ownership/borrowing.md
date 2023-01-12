@@ -25,7 +25,7 @@ fn main() {
 <details>
 
 Notes on stack returns:
-* Demonstrate that the return from `add` is cheap because the compiler can eliminate the copy operation. Change the above code to print stack addresses and run it on the [Playground](https://play.rust-lang.org/). In the "DEBUG" optimization level, the addresses should change, while the stay the same when changning to the "RELEASE" setting:
+* Demonstrate that the return from `add` is cheap because the compiler can eliminate the copy operation. Change the above code to print stack addresses and run it on the [Playground](https://play.rust-lang.org/). In the "DEBUG" optimization level, the addresses should change, while the stay the same when changing to the "RELEASE" setting:
 
   ```rust,editable
   #[derive(Debug)]
