@@ -21,7 +21,7 @@ fn main() {
 
 * If the slice starts at index 0, Rust’s range syntax means we can drop the starting index. 
     
-* The same is true for the last index, so `let s: &[i32] = &a[2..len];` or `let s: &[i32] = &a[2..];` are equal.
+* The same is true for the last index, so `&a[2..a.len()]` and `&a[2..]` are equal.
 
 * We set `s` as a reference of `i32`s. Notice that the type of `s` no longer has an array length. This avoids type errors when performing computations on slices of different sizes.
  
