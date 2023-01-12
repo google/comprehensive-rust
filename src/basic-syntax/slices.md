@@ -23,7 +23,7 @@ fn main() {
     
 * The same is true for the last index, so `&a[2..a.len()]` and `&a[2..]` are equal.
 
-* We set `s` as a reference of `i32`s. Notice that the type of `s` no longer has an array length. This avoids type errors when performing computations on slices of different sizes.
+* `s` is a reference to a slice of `i32`s. Notice that the type of `s` no longer mentions the array length. This allows us to performing computations on slices of different sizes.
  
 * Slices always borrow from another object. In this example, `a` has to remain 'alive' so we can take a slice from it. 
 
