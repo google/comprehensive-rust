@@ -25,6 +25,6 @@ fn main() {
 * In the above example, the annotation on `Highlight` enforces that the data underlying the contained `&str` lives at least as long as any instance of `Highlight` that uses that data.
 * If `text` is consumed before the end of the lifetime of `fox` (or `dog`), the borrow checker throws an error.
 * Types with borrowed data force users to hold on to the original data. This can be useful for creating lightweight views, but it generally makes them somewhat harder to use.
-* When appropriate, consider creating data structures that own data directly.
+* When possible, make data structures own their data directly.
 
 </details>
