@@ -98,7 +98,8 @@ impl Library {
 // ANCHOR: main
 // This shows the desired behavior. Uncomment the code below and
 // implement the missing methods. You will need to update the
-// method signatures, including the "self" parameter!
+// method signatures, including the "self" parameter! You may
+// also need to update the variable bindings within main.
 fn main() {
     let library = Library::new();
 
