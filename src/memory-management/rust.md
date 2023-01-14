@@ -3,7 +3,7 @@
 Memory management in Rust is a mix:
 
 * Safe and correct like Java, but without a garbage collector.
-* Depending on which abstraction (or combonation of abstractions) you choose, can be a single unique pointer, reference counted, or atomically reference counted.
+* Depending on which abstraction (or combination of abstractions) you choose, can be a single unique pointer, reference counted, or atomically reference counted.
 * Scope-based like C++, but the compiler enforces full adherence.
 * A Rust user can choose the right abstraction for the situation, some even have no cost at runtime like C.
 
