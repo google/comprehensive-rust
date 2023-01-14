@@ -18,7 +18,7 @@ Please remind the students that:
 * They should ask questions when they get them, don't save them to the end.
 * The class is meant to be interactive and discussions are very much encouraged!
   * As an instructor, you should try to keep the discussions relevant, i.e.,
-    keep it related to how Rust does things vs some other language. It can be
+    keep them related to how Rust does things vs some other language. It can be
     hard to find the right balance, but err on the side of allowing discussions
     since they engage people much more than one-way communication.
 * The questions will likely mean that we are about to see things ahead in the slides.
