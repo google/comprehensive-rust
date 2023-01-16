@@ -23,7 +23,7 @@ fn read_username(path: &str) -> Result<String> {
         .read_to_string(&mut username)
         .context("Failed to read")?;
     if username.is_empty() {
-        return Err(ReadUsernameError::EmptyUsername(String::from(path)))?;
+        return Err(ReadUsernameError::EmptyUsername(String::from(path)).into());
     }
     Ok(username)
 }
