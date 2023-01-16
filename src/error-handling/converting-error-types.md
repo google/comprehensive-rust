@@ -19,13 +19,26 @@ The `From::from` call here means we attempt to convert the error type to the
 type returned by the function:
 
 ```rust,editable
+use std::error::Error;
 use std::{fs, io};
 use std::io::Read;
+use std::fmt::{self, Display, Formatter};
 
 #[derive(Debug)]
 enum ReadUsernameError {
     IoError(io::Error),
     EmptyUsername(String),
+}
+
+impl Error for ReadUsernameError {}
+
+impl Display for ReadUsernameError {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        match self {
+            Self::IoError(e) => write!(f, "IO error: {}", e),
+            Self::EmptyUsername(filename) => write!(f, "Found no username in {}", filename),
+        }
+    }
 }
 
 impl From<io::Error> for ReadUsernameError {
