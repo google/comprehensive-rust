@@ -33,9 +33,10 @@ fn main() {
 <details>
 
 * `anyhow::Result<V>` is a type alias for `Result<V, anyhow::Error>`.
-* `anyhow::Error` is generic and it can hold any `Error` implementation without changing the type signature.
+* `anyhow::Error` is essentially a wrapper around `Box<dyn Error>`. As such it's again generally not
+  a good choice for the public API of a library, but is widely used in applications.
 * Actual error type inside of it can be extracted for examination if necessary.
-* Functionality provided by `anyhow::Result<T>` may be familiar to Go developers, as it provides similar usage patterns and ergonomics
-  of `(T, error)` from Go. 
+* Functionality provided by `anyhow::Result<T>` may be familiar to Go developers, as it provides
+  similar usage patterns and ergonomics to `(T, error)` from Go.
 
 </details>
