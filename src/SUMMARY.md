@@ -129,6 +129,7 @@
   - [Default Methods](traits/default-methods.md)
   - [Important Traits](traits/important-traits.md)
     - [`Iterator`](traits/iterator.md)
+    - [`FromIterator`](traits/from-iterator.md)
     - [`From` and `Into`](traits/from-into.md)
     - [`Read` and `Write`](traits/read-write.md)
     - [`Add`, `Mul`, ...](traits/operators.md)

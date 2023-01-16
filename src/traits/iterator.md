@@ -26,3 +26,10 @@ fn main() {
     }
 }
 ```
+
+<details>
+
+`IntoIterator` is the trait that makes for loops work. It is implemented by collection types such as
+`Vec<T>` and references to them such as `&Vec<T>` and `&[T]`. Ranges also implement it.
+
+</details>
