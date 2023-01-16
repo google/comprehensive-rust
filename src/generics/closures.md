@@ -19,3 +19,20 @@ fn main() {
     println!("mul_5: {}", apply_with_log(mul_5, 20));
 }
 ```
+
+<details>
+
+If you have an `FnOnce`, you may only call it once. It might consume captured values.
+
+An `FnMut` might mutate captured values, so you can call it multiple times but not concurrently.
+
+An `Fn` neither consumes nor mutates captured values, or perhaps captures nothing at all, so it can
+be called multiple times concurrently.
+
+`FnMut` is a subtype of `FnOnce`. `Fn` is a subtype of `FnMut` and `FnOnce`. I.e. you can use an
+`FnMut` wherever an `FnOnce` is called for, and you can use an `Fn` wherever an `FnMut` or `FnOnce`
+is called for.
+
+`move` closures only implement `FnOnce`.
+
+</details>
