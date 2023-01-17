@@ -19,7 +19,7 @@ fn main() {
 
 <details>
 
-* Mention that this is the opposite of the defaults in C++, which copies by value unless you use std::move (and the move constructor is defined!)
+* Mention that this is the opposite of the defaults in C++, which copies by value unless you use `std::move` (and the move constructor is defined!).
 
 * In rust, you have to be explicity to clone/copy values, this is by using `clone`.
 
