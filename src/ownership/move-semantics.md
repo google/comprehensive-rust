@@ -16,3 +16,11 @@ fn main() {
 * When `s1` goes out of scope, nothing happens: it has no ownership.
 * When `s2` goes out of scope, the string data is freed.
 * There is always _exactly_ one variable binding which owns a value.
+
+<details>
+
+* Mention that this is the opposite of the defaults in C++, which copies by value unless you use `std::move` (and the move constructor is defined!).
+
+* In Rust, you clones are explicit (by using `clone`).
+
+</details>
