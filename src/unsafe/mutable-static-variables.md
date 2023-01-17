@@ -6,7 +6,7 @@ It is safe to read an immutable static variable:
 static HELLO_WORLD: &str = "Hello, world!";
 
 fn main() {
-    println!("name is: {}", HELLO_WORLD);
+    println!("HELLO_WORLD: {}", HELLO_WORLD);
 }
 ```
 
