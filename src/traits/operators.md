@@ -20,3 +20,12 @@ fn main() {
     println!("{:?} + {:?} = {:?}", p1, p2, p1 + p2);
 }
 ```
+
+<details>
+
+Discussion points:
+
+* You could implement `Add` for `&Point`. In which situations is that useful? 
+* Why is `Output` an associated type? Could it be made a type parameter?
+
+</details>

@@ -28,3 +28,12 @@ fn main() {
     println!("Exiting main");
 }
 ```
+
+<details>
+
+Discussion points:
+
+* Why does not `drop` take `self`?
+* Try replacing `drop(a)` with `a.drop()`.
+
+</details>
