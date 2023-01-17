@@ -166,6 +166,7 @@
   - [Unions](unsafe/unions.md)
   - [Calling Unsafe Functions](unsafe/unsafe-functions.md)
     - [Extern Functions](unsafe/extern-functions.md)
+  - [Implementing Unsafe Traits](unsafe/unsafe-traits.md)
 - [Exercises](exercises/day-3/afternoon.md)
   - [Safe FFI Wrapper](exercises/day-3/safe-ffi-wrapper.md)
 
