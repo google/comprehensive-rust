@@ -15,3 +15,11 @@ fn main() {
     }
 }
 ```
+
+<details>
+
+This is usually only a problem for extern functions which do things with pointers which might
+violate Rust's memory model, but in general any C function might have undefined behaviour under any
+arbitrary circumstances.
+
+</details>
