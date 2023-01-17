@@ -163,9 +163,9 @@
 - [Unsafe Rust](unsafe.md)
   - [Dereferencing Raw Pointers](unsafe/raw-pointers.md)
   - [Mutable Static Variables](unsafe/mutable-static-variables.md)
+  - [Unions](unsafe/unions.md)
   - [Calling Unsafe Functions](unsafe/unsafe-functions.md)
   - [Extern Functions](unsafe/extern-functions.md)
-  - [Unions](unsafe/unions.md)
 - [Exercises](exercises/day-3/afternoon.md)
   - [Safe FFI Wrapper](exercises/day-3/safe-ffi-wrapper.md)
 
