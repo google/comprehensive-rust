@@ -31,6 +31,10 @@ jobs:
 
       - name: Setup Rust cache
         uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: |
+            . -> target
+            i18n-helpers -> target
 
       - name: Install mdbook
         run: cargo install mdbook --version 0.4.25

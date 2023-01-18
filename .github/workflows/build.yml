@@ -18,6 +18,10 @@ jobs:
 
       - name: Setup Rust cache
         uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: |
+            . -> target
+            i18n-helpers -> target
 
       - name: Install mdbook
         run: cargo install mdbook --version 0.4.25
@@ -36,6 +40,10 @@ jobs:
 
       - name: Setup Rust cache
         uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: |
+            . -> target
+            i18n-helpers -> target
 
       - name: Test Rust code
         run: cargo test
@@ -52,6 +60,10 @@ jobs:
 
       - name: Setup Rust cache
         uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: |
+            . -> target
+            i18n-helpers -> target
 
       - name: Install Gettext
         run: sudo apt install gettext
@@ -102,6 +114,10 @@ jobs:
 
       - name: Setup Rust cache
         uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: |
+            . -> target
+            i18n-helpers -> target
 
       - name: Install Gettext
         run: sudo apt install gettext
