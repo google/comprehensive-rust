@@ -2,8 +2,8 @@ name: Publish
 
 on:
   push:
-    branches:
-      - main
+#    branches:
+#      - main
   workflow_dispatch:
 
 permissions:
@@ -39,6 +39,52 @@ jobs:
         run: cargo install mdbook-svgbob --version 0.2.1
 
       - name: Build book
+        run: mdbook build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: 'book'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+
+  translations:
+    environment:
+      name: github-pages-${{ matrix.language }}
+      url: ${{ steps.deployment.outputs.page_url }}/${{ matrix.language }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        language:
+          - da
+    env:
+      MDBOOK_BOOK__LANGUAGE: ${{ matrix.language }}
+      MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE: po/${{ matrix.language }}.po
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Rust cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Install Gettext
+        run: sudo apt install gettext
+
+      - name: Install mdbook
+        run: cargo install mdbook --version 0.4.25
+
+      - name: Install mdbook-svgbob
+        run: cargo install mdbook-svgbob --version 0.2.1
+
+      - name: Install i18n-helpers
+        run: cargo install --path i18n-helpers --locked
+
+      - name: Build course with ${{ matrix.language }} translation
         run: mdbook build
 
       - name: Setup Pages
