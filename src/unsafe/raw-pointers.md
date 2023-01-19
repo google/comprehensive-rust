@@ -15,7 +15,7 @@ fn main() {
     // references or concurrently through any other pointers.
     unsafe {
         println!("r1 is: {}", *r1);
-        *r1 = 10;  // Data race if r1 is being written concurrently!
+        *r1 = 10;
         println!("r2 is: {}", *r2);
     }
 }
