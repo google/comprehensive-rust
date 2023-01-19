@@ -29,3 +29,12 @@ fn fizzbuzz_to(n: u32) {  // `-> ()` is normally omitted
     }
 }
 ```
+
+<details>
+
+* We refer in `main` to a function written below. Neither forward declarations nor headers are necessary. 
+* Declaration parameters are followed by a type (the reverse of some programming languages), then a return type.
+* The last expression in a function body becomes the return value. Simply omit the `;` at the end of the expression.
+* Some functions have no return value, and output the 'unit type', `()`. The compiler will infer this if the `-> ()` return type is omitted.
+
+</details>
