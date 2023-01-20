@@ -29,9 +29,12 @@ fn main() {
 * See the [Rust Reference](https://doc.rust-lang.org/reference/type-layout.html).
 
 <details>
-
-* `Option<bool>` is another example of tight packing.
-* For [some types](https://doc.rust-lang.org/std/option/#representation), Rust guarantees that `size_of::<T>()` equals `size_of::<Option<T>>()`.
-* Zero-sized types allow for efficient implementation of `HashSet` using `HashMap` with `()` as the value.
+    
+Key Points: 
+ * Internally Rust is using a field (discriminant) to keep track of the enum variant.
+ * As a niche optimization an enum discriminant is merged with the pointer so that `Option<&Foo>` is the same size as `&Foo`.
+ * `Option<bool>` is another example of tight packing.
+ * For [some types](https://doc.rust-lang.org/std/option/#representation), Rust guarantees that `size_of::<T>()` equals `size_of::<Option<T>>()`.
+ * Zero-sized types allow for efficient implementation of `HashSet` using `HashMap` with `()` as the value.
 
 </details>
