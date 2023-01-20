@@ -17,3 +17,11 @@ are other possible receivers for a method:
 Beyond variants on `self`, there are also
 [special wrapper types](https://doc.rust-lang.org/reference/special-types-and-traits.html)
 allowed to be receiver types, such as `Box<Self>`.
+
+<details>
+
+* In reality, all functions in rust are static.  Receivers just add the "dot syntax" syntactic sugar by implicitly passing the struct by move, reference, or mutable reference.
+
+* You can explicitly call any of these methods with `StructName::method_name(&structure, /*the rest of the args*/)`
+
+</details>
