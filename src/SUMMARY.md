@@ -77,6 +77,7 @@
   - [Enum Sizes](enums/sizes.md)
 - [Methods](methods.md)
   - [Method Receiver](methods/receiver.md)
+  - [Construction](structs/struct-construction.md)
   - [Example](methods/example.md)
 - [Pattern Matching](pattern-matching.md)
   - [Destructuring Enums](pattern-matching/destructuring-enums.md)
