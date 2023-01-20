@@ -1,6 +1,6 @@
 # Construction
 
-Unlike in C++ or Java, there is no "constructor" in rust for structs, all
+Unlike in C++ or Java, there is no "constructor" in Rust for structs, all
 construction is done using struct construction syntax.
 
 It is convention, however, to either implement the `Default` trait, or create a
