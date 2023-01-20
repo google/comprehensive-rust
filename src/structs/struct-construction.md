@@ -3,7 +3,7 @@
 Unlike in C++ or Java, there is no "constructor" in rust for structs, all
 construction is done using struct construction syntax.
 
-It is convention, however, to either implement the Default trait, or create a
+It is convention, however, to either implement the `Default` trait, or create a
 method called "new" that has no receiver (ie a "static" function).
 
 ```rust,editable
