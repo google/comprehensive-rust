@@ -20,7 +20,7 @@ allowed to be receiver types, such as `Box<Self>`.
 
 <details>
 
-* In reality, all functions in rust are static.  Receivers just add the "dot syntax" syntactic sugar by implicitly passing the struct by move, reference, or mutable reference.
+* In reality, all functions in Rust are static.  Receivers just add the "dot syntax" syntactic sugar by implicitly passing the struct by move, reference, or mutable reference.
 
 * You can explicitly call any of these methods with `StructName::method_name(&structure, /*the rest of the args*/)`
 
