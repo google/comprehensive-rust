@@ -15,7 +15,7 @@
 // ANCHOR: main
 //! Rust logging demo.
 
-use log::{debug, error};
+use log::{debug, error, info};
 
 /// Logs a greeting.
 fn main() {
@@ -25,5 +25,6 @@ fn main() {
             .with_min_level(log::Level::Trace),
     );
     debug!("Starting program.");
+    info!("Things are going fine.");
     error!("Something went wrong!");
 }
