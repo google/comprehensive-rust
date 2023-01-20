@@ -21,3 +21,13 @@ fn main() {
     println!("{peter:?}");
 }
 ```
+
+<details>
+ Key Points: 
+    
+* This slide illustrates short-hand syntax, by initiating the fields in a struct with similar-named variables. 
+* The `impl` block is where the boilerplate functions are defined. Later slides talk about methods in more detail.
+* This might be a good time to demonstrate function update syntax while pointing out the effects that the borrowing mechanism has on the original data sources.
+* Note, you can use `{:#?}` while printing structs to change the readability of the output.
+   
+</details>
