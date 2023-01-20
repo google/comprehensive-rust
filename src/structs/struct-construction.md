@@ -36,7 +36,7 @@ fn main() {
 
 * Mention the `Self` static scope accessor, it allows you to access any method of a struct.
 
-* In fact, dot method call syntax is just syntactic sugar, you can even access methods with &self receiver parameters by explicitly passing structs in to the first parameter, eg `Person::display(&peter)` if it had such a method `display(&self)`.
+* In fact, dot method call syntax is just syntactic sugar, you can even access methods with `&self` receiver parameters by explicitly passing structs in to the first parameter, e.g., `Person::display(&peter)` if it had such a method `display(&self)`.
 
 * Mention it is likely better to take string references and clone them in the construction methods, but we wanted to keep the example simple and consistent with others.
 
