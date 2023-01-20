@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-(function () {
+(function() {
   let notes = document.querySelector("details");
   // Create an unattached DOM node for the code below.
   if (!notes) {
@@ -32,7 +32,7 @@
 
   // Update the window. This shows/hides controls as necessary for regular and
   // speaker note pages.
-  function applyState() {
+  function applyState()  {
     if (window.location.hash == "#speaker-notes-open") {
       if (getState() != "popup") {
         markDefunct();
@@ -97,7 +97,7 @@
 
     let h4 = document.createElement("h4");
     h4.setAttribute("id", "speaker-notes");
-    h4.append("강의 참고 노트");
+    h4.append("Speaker Notes");
     h4.addEventListener("click", (event) => {
       // Update fragment as if we had clicked a link. A regular a element would
       // result in double-fire of the event.

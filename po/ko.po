@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: [한국어]Comprehensive Rust 🦀\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-01-20 09:04+0100\n"
+"PO-Revision-Date: 2023-01-20 10:22+0100\n"
 "Last-Translator: keispace <keispace.kyj@google.com>\n"
 "Language-Team: \n"
 "Language: ko\n"
@@ -883,8 +883,9 @@ msgstr ""
 #: src/welcome-day-1.md:14 src/welcome-day-1/what-is-rust.md:19
 #: src/hello-world.md:20 src/hello-world/small-example.md:21 src/why-rust.md:9
 #: src/why-rust/compile-time.md:14 src/why-rust/runtime.md:8
-#: src/why-rust/modern.md:17 src/basic-syntax/slices.md:18
-#: src/basic-syntax/string-slices.md:22 src/exercises/day-1/morning.md:9
+#: src/why-rust/modern.md:18 src/basic-syntax/compound-types.md:28
+#: src/basic-syntax/slices.md:18 src/basic-syntax/string-slices.md:22
+#: src/basic-syntax/functions.md:33 src/exercises/day-1/morning.md:9
 #: src/basic-syntax/variables.md:15 src/basic-syntax/type-inference.md:24
 #: src/basic-syntax/static-and-const.md:46
 #: src/basic-syntax/scopes-shadowing.md:23 src/memory-management/stack.md:26
@@ -924,8 +925,9 @@ msgstr ""
 #: src/welcome-day-1.md:42 src/welcome-day-1/what-is-rust.md:27
 #: src/hello-world.md:36 src/hello-world/small-example.md:44 src/why-rust.md:24
 #: src/why-rust/compile-time.md:33 src/why-rust/runtime.md:22
-#: src/why-rust/modern.md:51 src/basic-syntax/compound-types.md:50
-#: src/basic-syntax/slices.md:30 src/exercises/day-1/morning.md:28
+#: src/why-rust/modern.md:61 src/basic-syntax/compound-types.md:60
+#: src/basic-syntax/references.md:28 src/basic-syntax/slices.md:30
+#: src/basic-syntax/functions.md:40 src/exercises/day-1/morning.md:28
 #: src/basic-syntax/variables.md:20 src/basic-syntax/type-inference.md:44
 #: src/basic-syntax/static-and-const.md:52
 #: src/basic-syntax/scopes-shadowing.md:37 src/memory-management/stack.md:32
@@ -961,8 +963,7 @@ msgid ""
 "Here is a bit of background information about how we've been running the "
 "course\n"
 "internally at Google."
-msgstr ""
-"다음은 GooGle 내부에서 과정을 운영하는 방법에 대한 배경 정보입니다."
+msgstr "다음은 GooGle 내부에서 과정을 운영하는 방법에 대한 배경 정보입니다."
 
 #: src/running-the-course.md:8
 msgid "To run the course, you need to:"
@@ -978,7 +979,10 @@ msgid ""
 "   notes in a popup (click the link with a little arrow next to \"Speaker\n"
 "   Notes\"). This way you have a clean screen to present to the class."
 msgstr ""
-"1. 강의 자료를 숙지합니다. 주요 요점을 강조하기 위해 일부 페이지에 강의 참조노트를 포함하였습니다. (추가적인 노트를 작성하여 제공해 주시면 감사하겠습니다.) 강의노트의 링크를 누르면 강의노트가 분리된 팝업과 강의용의 화면으로 표시됩니다."
+"1. 강의 자료를 숙지합니다. 주요 요점을 강조하기 위해 일부 페이지에 강의 참조"
+"노트를 포함하였습니다. (추가적인 노트를 작성하여 제공해 주시면 감사하겠습니"
+"다.) 강의노트의 링크를 누르면 강의노트가 분리된 팝업과 강의용의 화면으로 표시"
+"됩니다."
 
 #: src/running-the-course.md:16
 msgid ""
@@ -989,7 +993,8 @@ msgid ""
 "process\n"
 "   all the information we give them."
 msgstr ""
-"2. 강의 날짜를 정합니다. 강의 내용이 많고 수강생들이 모든 정보를 공부할 수 있도록 중간에 틈을 두어 2주에 걸쳐 4일을 잡는 것을 추천합니다. "
+"2. 강의 날짜를 정합니다. 강의 내용이 많고 수강생들이 모든 정보를 공부할 수 있"
+"도록 중간에 틈을 두어 2주에 걸쳐 4일을 잡는 것을 추천합니다. "
 
 #: src/running-the-course.md:21
 msgid ""
@@ -1000,7 +1005,8 @@ msgid ""
 "have\n"
 "   time to answer the questions."
 msgstr ""
-"3. 충분한 공간을 확보합니다. 수강생과 강사가 질의를 하기에 충분한 시간과 공간이어야 합니다. 한번에 15-20명 규모의 공간을 추천합니다."
+"3. 충분한 공간을 확보합니다. 수강생과 강사가 질의를 하기에 충분한 시간과 공간"
+"이어야 합니다. 한번에 15-20명 규모의 공간을 추천합니다."
 
 #: src/running-the-course.md:26
 msgid ""
@@ -1013,7 +1019,9 @@ msgid ""
 "   Using your laptop will also allow you to fix typos as you or the course\n"
 "   participants spot them."
 msgstr ""
-"4. 강의 당일 조금 일찍 와서 준비합니다. 강사 노트북의 로컬환경에서 `mdbook serve`를 이용해 직접 프레젠테이션 하면 페이지 이동시의 지연이 없습니다. 과정 가운데 참가자가 발견한 오타를 수정할 수 도 있습니다."
+"4. 강의 당일 조금 일찍 와서 준비합니다. 강사 노트북의 로컬환경에서 `mdbook "
+"serve`를 이용해 직접 프레젠테이션 하면 페이지 이동시의 지연이 없습니다. 과정 "
+"가운데 참가자가 발견한 오타를 수정할 수 도 있습니다."
 
 #: src/running-the-course.md:32
 msgid ""
@@ -1026,7 +1034,10 @@ msgid ""
 "   and offer a solution, e.g., by showing people where to find the relvant\n"
 "   information in the standard library."
 msgstr ""
-"5. 사람들이 개별 혹은 작은 그룹으로 연습문제를 풀도록 합니다. 진행이 막히거나 도움이 필요한지 확인하시고, 여러사람이 동일한 문제를 가지고 있다면 전체적으로 이 문제를 제기하시고 해결책을 제시합니다. 예를 들어 표준 라이브러리에서 관련 정보를 찾을 수 있는 위리츷 사람들에게 보여줄 수 있습니다."
+"5. 사람들이 개별 혹은 작은 그룹으로 연습문제를 풀도록 합니다. 진행이 막히거"
+"나 도움이 필요한지 확인하시고, 여러사람이 동일한 문제를 가지고 있다면 전체적"
+"으로 이 문제를 제기하시고 해결책을 제시합니다. 예를 들어 표준 라이브러리에서 "
+"관련 정보를 찾을 수 있는 위리츷 사람들에게 보여줄 수 있습니다."
 
 #: src/running-the-course.md:38
 msgid ""
@@ -1037,13 +1048,18 @@ msgid ""
 "   checkout. This will ensure that the Android build system sees the\n"
 "   `Android.bp` files in `src/android/`."
 msgstr ""
-"6. 4일차에 안드로이드 부분을 건너띄지 않으려면 [AOSP checkout][1]이 필요합니다. 동일한 컴퓨터에 있는 [과정 저장소][2]를 체크아웃하고 `src/android/` 디렉토리를 AOSP 체크아웃의 루트로 이동합니다. 이렇게 하면 Android 빌드 시스템에서 `src/android/`의 `Android.bp` 파일을 볼 수 있습니다.\n"
+"6. 4일차에 안드로이드 부분을 건너띄지 않으려면 [AOSP checkout][1]이 필요합니"
+"다. 동일한 컴퓨터에 있는 [과정 저장소][2]를 체크아웃하고 `src/android/` 디렉"
+"토리를 AOSP 체크아웃의 루트로 이동합니다. 이렇게 하면 Android 빌드 시스템에"
+"서 `src/android/`의 `Android.bp` 파일을 볼 수 있습니다.\n"
 "  * _역주: 안드로이드쪽은 지식이 짧아 정확히 모르겠네요 원문 첨부합니다._\n"
 "    ```\n"
-"      6. If you don't skip the Android specific parts on Day 4, you will need an "
-"        [AOSP\n"
-"        checkout][1]. Make a checkout of the [course repository][2] on the same\n"
-"        machine and move the `src/android/` directory into the root of your AOSP\n"
+"      6. If you don't skip the Android specific parts on Day 4, you will "
+"need an         [AOSP\n"
+"        checkout][1]. Make a checkout of the [course repository][2] on the "
+"same\n"
+"        machine and move the `src/android/` directory into the root of your "
+"AOSP\n"
 "        checkout. This will ensure that the Android build system sees the\n"
 "        `Android.bp` files in `src/android/`. \n"
 "    ```\n"
@@ -1056,7 +1072,9 @@ msgid ""
 "see\n"
 "   the commands it runs and make sure they work when you run them by hand."
 msgstr ""
-"adb 동기화가 에뮬레이터 또는 실제 장치와 작동하는지 확인하고 `src/android/build_all.sh`를 사용하여 모든 Android 예제를 미리 빌드하십시오. 스크립트를 읽고 실행되는 명령을 확인하고 수동으로 실행할 때 작동하는지 확인하십시오."
+"adb 동기화가 에뮬레이터 또는 실제 장치와 작동하는지 확인하고 `src/android/"
+"build_all.sh`를 사용하여 모든 Android 예제를 미리 빌드하십시오. 스크립트를 읽"
+"고 실행되는 명령을 확인하고 수동으로 실행할 때 작동하는지 확인하십시오."
 
 #: src/running-the-course.md:48
 msgid ""
@@ -1064,7 +1082,8 @@ msgid ""
 "for\n"
 "you as it has been for us!"
 msgstr ""
-"준비는 끝입니다. 이제 우리가 그랬듯 이 과정이 여러분에게 즐거운 일이 되길 바랍니다!"
+"준비는 끝입니다. 이제 우리가 그랬듯 이 과정이 여러분에게 즐거운 일이 되길 바"
+"랍니다!"
 
 #: src/running-the-course.md:51
 msgid ""
@@ -1072,7 +1091,9 @@ msgid ""
 "course. We would love to hear what worked well for you and what can be made\n"
 "better. Your students are also very welcome to [send us feedback][4]!"
 msgstr ""
-"코스를 계속 개선할 수 있도록 나중에 [피드백][3]을 제공해 주십시오. 우리는 무엇이 당신에게 효과가 있었고 무엇이 더 나아질 수 있는지 듣고 싶습니다. 당신의 학생들 또한 우리에게 [피드백을 보내는 것][4]을 매우 환영합니다!"
+"코스를 계속 개선할 수 있도록 나중에 [피드백][3]을 제공해 주십시오. 우리는 무"
+"엇이 당신에게 효과가 있었고 무엇이 더 나아질 수 있는지 듣고 싶습니다. 당신의 "
+"학생들 또한 우리에게 [피드백을 보내는 것][4]을 매우 환영합니다!"
 
 #: src/running-the-course.md:55
 msgid ""
@@ -1088,7 +1109,8 @@ msgstr "# 강의 구성"
 
 #: src/running-the-course/course-structure.md:5
 msgid "The course is fast paced and covers a lot of ground:"
-msgstr "강의는 빠른 속도로 진행되며 다음 3,4일동안 많은 범위의 부분을 다룹니다:"
+msgstr ""
+"강의는 빠른 속도로 진행되며 다음 3,4일동안 많은 범위의 부분을 다룹니다:"
 
 #: src/running-the-course/course-structure.md:7
 msgid ""
@@ -1143,7 +1165,8 @@ msgstr ""
 "* <kbd>왼쪽 화살표</kbd>: 이전 페이지로 이동합니다.\n"
 "* <kbd>오른쪽 화살표</kbd>: 다음 페이지로 이동합니다.\n"
 "* <kbd>Ctrl + Enter</kbd>: 현재 포커스를 받은 코드 샘플 블록을 실행합니다.\n"
-"* <kbd>s</kbd>: 검색창을 활성화합니다.(mdbook 문제로 23.01.19 기준 영어로만 가능합니다.)"
+"* <kbd>s</kbd>: 검색창을 활성화합니다.(mdbook 문제로 23.01.19 기준 영어로만 "
+"가능합니다.)"
 
 #: src/cargo.md:1
 msgid "# Using Cargo"
@@ -1187,7 +1210,8 @@ msgid ""
 "utility that you can use to install/switch toolchains, setup cross "
 "compilation, etc."
 msgstr ""
-"rustup은 cargo, rustc와 함께 툴체인의 설치/전환, 교차 컴파일 설정등에 사용되는 cli 유틸리티입니다."
+"rustup은 cargo, rustc와 함께 툴체인의 설치/전환, 교차 컴파일 설정등에 사용되"
+"는 cli 유틸리티입니다."
 
 #: src/cargo.md:16
 msgid "### Package Managers"
@@ -1214,9 +1238,9 @@ msgid ""
 "using\n"
 "[VS Code][2] to edit the code (but any LSP compatible editor works)."
 msgstr ""
-"[VS Code][2]에서 작업하는 걸 추천 드립니다. [rust-analyzer][1] 확장을 통해 "
-"정의 이동 등 개발에 도움 받을 수 있습니다.(또는 다른 IDE나 편집기를 사용해"
-"도 무방합니다.)"
+"[VS Code][2]에서 작업하는 걸 추천 드립니다. [rust-analyzer][1] 확장을 통해 정"
+"의 이동 등 개발에 도움 받을 수 있습니다.(또는 다른 IDE나 편집기를 사용해도 무"
+"방합니다.)"
 
 #: src/cargo.md:29
 msgid ""
@@ -1225,10 +1249,10 @@ msgid ""
 "install the [Rust Plugin][5]. Please take note that as of January 2023 "
 "debugging only works on the CLion version of the Jetbrains IDEA suite."
 msgstr ""
-"일부는 자체 분석을 수행하지만 자체적인 장단점을 가진 [Jetbrains][4] 제품군"
-"을 사용하는걸 선호합니다. 이 경우, [러스트 플러그인][5]을 설치 할 수 있습니"
-"다. 다만 2023년 1월 기준, 디버깅은 Jetbrains IDEA suite의 CLion 버전에서만 "
-"작동한다는 점에 유의하시기 바랍니다."
+"일부는 자체 분석을 수행하지만 자체적인 장단점을 가진 [Jetbrains][4] 제품군을 "
+"사용하는걸 선호합니다. 이 경우, [러스트 플러그인][5]을 설치 할 수 있습니다. "
+"다만 2023년 1월 기준, 디버깅은 Jetbrains IDEA suite의 CLion 버전에서만 작동한"
+"다는 점에 유의하시기 바랍니다."
 
 #: src/cargo.md:31
 msgid ""
@@ -1291,7 +1315,8 @@ msgstr ""
 
 #: src/cargo/rust-ecosystem.md:21 src/hello-world.md:25
 #: src/hello-world/small-example.md:27 src/why-rust/runtime.md:10
-#: src/why-rust/modern.md:19 src/error-handling/try-operator.md:50
+#: src/why-rust/modern.md:20 src/basic-syntax/compound-types.md:30
+#: src/error-handling/try-operator.md:50
 #: src/error-handling/converting-error-types.md:55
 #: src/concurrency/threads.md:30
 msgid "Key points:"
@@ -1698,8 +1723,12 @@ msgid ""
 msgstr ""
 "* 의문이 들때는 간직하지 말고 질문 해야 합니다.\n"
 "* 이 수업은 상호작용이 중요하고 토론이 매우 권장됩니다.\n"
-"  * 강사로서, 관련성 있는 토론이 유지되도록 노력해야 합니다. 즉, 러스트가 다른 언어와 비교하여 어떻게 일을 처리하는지에 대한 관련성을 유지해야 합니다. 적절한 균형을 찾기 어렵겠지만 일방적인 강의 보다 더 많은 사람들을 참여시킬 수 있습니다.\n"
-"* 질문들이 슬라이드보다 앞서가도 괜찮습니다. 슬라이드는 그저 도움을 줄 뿐, 원하는 대로 건너띄어도 됩니다."
+"  * 강사로서, 관련성 있는 토론이 유지되도록 노력해야 합니다. 즉, 러스트가 다"
+"른 언어와 비교하여 어떻게 일을 처리하는지에 대한 관련성을 유지해야 합니다. 적"
+"절한 균형을 찾기 어렵겠지만 일방적인 강의 보다 더 많은 사람들을 참여시킬 수 "
+"있습니다.\n"
+"* 질문들이 슬라이드보다 앞서가도 괜찮습니다. 슬라이드는 그저 도움을 줄 뿐, 원"
+"하는 대로 건너띄어도 됩니다."
 
 #: src/welcome-day-1.md:29
 msgid ""
@@ -2155,19 +2184,21 @@ msgstr "## 언어적 특징"
 msgid ""
 "* Enums and pattern matching.\n"
 "* Generics.\n"
-"* No overhead FFI."
+"* No overhead FFI.\n"
+"* Zero-cost abstractions."
 msgstr ""
 "* 열거형과 패턴 매칭\n"
 "* 제너릭\n"
 "* FFI 런타임 오버헤드 없음.\n"
-"  * _역주: FFI: Foreign Function Interface. 타 언어 코드를 호출하기 위한   인"
-"터페이스_"
+"  * _역주: FFI: Foreign Function Interface. 타 언어 코드를 호출하기 위한 인"
+"터페이스_\n"
+"* 제로 코스트 추상화"
 
-#: src/why-rust/modern.md:11
+#: src/why-rust/modern.md:12
 msgid "## Tooling"
 msgstr "## 도구들"
 
-#: src/why-rust/modern.md:13
+#: src/why-rust/modern.md:14
 msgid ""
 "* Great compiler errors.\n"
 "* Built-in dependency manager.\n"
@@ -2177,7 +2208,31 @@ msgstr ""
 "* 내장 종속성 관리자\n"
 "* 내장 테스트 지원"
 
-#: src/why-rust/modern.md:21
+#: src/why-rust/modern.md:22
+msgid ""
+"* Zero-cost abstractions, similar to C++, means that you don't have to "
+"'pay'\n"
+"  for higher-level programming constructs with memory or CPU. For example,\n"
+"  writing a loop using `for` should result in roughly the same low level\n"
+"  instructions as using the `.iter().fold()` construct."
+msgstr ""
+"* C++과 유사하게 제로 코스트 추상화는 CPU나 메모리를 사용하여 상위레벨 "
+"프로그래밍 구조를 만드는데 '비용'을 지불할 필요가 없습니다. \n"
+"예를 들어 `for` 루프와와 `iter().fold()` 구조를 사용하는 것과 거의 동일한 "
+"낮은 수준의 명령어가 생성될 것 입니다."
+
+#: src/why-rust/modern.md:27
+msgid ""
+"* It may be worth mentioning that Rust enums are 'Algebraic Data Types', "
+"also\n"
+"  known as 'sum types', which allow the type system to express things like\n"
+"  `Option<T>` and `Result<T, E>`."
+msgstr ""
+"* 러스트의 열거형(enum)은 합계 타입(`sum types`)으로 알려진 대수학적 데이터형"
+"('Algebraic Data Types')으로, 타입 시스템이 `Option<T>`와 `Result<T, E>`등을 "
+"표현할 수 있게 해줍니다."
+
+#: src/why-rust/modern.md:31
 msgid ""
 "* Remind people to read the errors --- many developers have gotten used to\n"
 "  ignore lengthly compiler output. The Rust compiler is significantly more\n"
@@ -2189,7 +2244,7 @@ msgstr ""
 "시하는데 익숙해져 있습니다. 러스트 컴파일러는 다른 컴파일러보다 더 수다스럽"
 "고, 복사-붙여넣기 할 수 있는 정도의 코드 피드백을 제공하는 경우가 많습니다. "
 
-#: src/why-rust/modern.md:26
+#: src/why-rust/modern.md:36
 msgid ""
 "* The Rust standard library is small compared to languages like Java, "
 "Python,\n"
@@ -2201,7 +2256,7 @@ msgstr ""
 "작습니다. 표준이나 기본적이라고 생각되는 아래와 같은 라이브러리가 포함되있지 "
 "않습니다: "
 
-#: src/why-rust/modern.md:30
+#: src/why-rust/modern.md:40
 msgid ""
 "  * a random number generator, but see [rand].\n"
 "  * support for SSL or TLS, but see [rusttls].\n"
@@ -2209,9 +2264,9 @@ msgid ""
 msgstr ""
 "  * 난수 생성기, 하지만 [rand]문서를 참조하시기 바랍니다.\n"
 "  * SSL 또는 TLS지원, 하지만 [rusttls]문서를 참조하시기 바랍니다.\n"
-"  * JSON 지원, 하지만 [serde_json] 문서를 참조하시기 바랍니다."
+"  * JSON 지원, 하지만 [serde_json] 문서를 참조하시기 바랍니다.  \n"
 
-#: src/why-rust/modern.md:34
+#: src/why-rust/modern.md:44
 msgid ""
 "  The reasoning behind this is that functionality in the standard library "
 "cannot\n"
@@ -2220,11 +2275,11 @@ msgid ""
 "there\n"
 "  isn't a single \"best solution\" for some of these things."
 msgstr ""
-"이러한 배경에는 표준 라이브러리의 기능은 사라질 수 없어서 매우 안정적이어야  "
-"하기 때문입니다. 위의 예시들에서 러스트 커뮤니티는 가장 좋은 방법을 여전히  "
+"* 이러한 배경에는 표준 라이브러리의 기능은 사라질 수 없어서 매우 안정적이어야 "
+"하기 때문입니다. 위의 예시들에서 러스트 커뮤니티는 가장 좋은 방법을 여전히 "
 "찾고 있고 그렇기 때문에 여기에 대한 '최상의 솔루션'이 아직 없습니다. "
 
-#: src/why-rust/modern.md:39
+#: src/why-rust/modern.md:49
 msgid ""
 "  Rust comes with a built-in package manager in the form of Cargo and this "
 "makes\n"
@@ -2232,22 +2287,22 @@ msgid ""
 "this\n"
 "  is that the standard library can be smaller."
 msgstr ""
-"러스트는 카고라는 패키지 관리자가 내장되어 있고, 서드파티 크레이트를  다운로"
+"* 러스트는 카고라는 패키지 관리자가 내장되어 있고, 서드파티 크레이트를  다운로"
 "드, 컴파일 하기 매우 쉽습니다. 이 또한 표준 라이브러리가 작은 이유가  될 수 "
 "있습니다. "
 
-#: src/why-rust/modern.md:43
+#: src/why-rust/modern.md:53
 msgid ""
 "  Discovering good third-party crates can be a problem. Sites like\n"
 "  <https://lib.rs/> help with this by letting you compare health metrics "
 "for\n"
 "  crates to find a good and trusted one."
 msgstr ""
-"좋은 서드파티 크레이트를 찾는 것 자체가 문제가 될 수 있습니다. <https://lib."
+"* 좋은 서드파티 크레이트를 찾는 것 자체가 문제가 될 수 있습니다. <https://lib."
 "rs> 와 같은 사이트가 신뢰할수 있는 좋은 크레이트를 비교하여 찾는데 도움을  "
 "줄 수 있습니다. "
 
-#: src/why-rust/modern.md:47
+#: src/why-rust/modern.md:57
 msgid ""
 "[rand]: https://docs.rs/rand/\n"
 "[rusttls]: https://docs.rs/rustls/\n"
@@ -2393,63 +2448,76 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/basic-syntax/compound-types.md:28
-msgid ""
-"<details>\n"
-"    \n"
-"Key points:\n"
-"    \n"
-"Arrays:\n"
-"    \n"
-"* Arrays have elements of the same type, `T`, and length, `N`, which is a "
-"compile-time constant."
-msgstr ""
-"<details>\n"
-"    \n"
-"키포인트:\n"
-"    \n"
-"배열:\n"
-"    \n"
-"* 배열은 같은 타입(`T`)요소, 길이(`N`)와 같은 컴파일 타임 상수를 갖습니다."
+#: src/basic-syntax/compound-types.md:32
+msgid "Arrays:"
+msgstr "배열:"
 
-#: src/basic-syntax/compound-types.md:36
+#: src/basic-syntax/compound-types.md:34
+msgid ""
+"* Arrays have elements of the same type, `T`, and length, `N`, which is a "
+"compile-time constant.\n"
+"  Note that the length of the array is *part of its type*, which means that "
+"`[u8; 3]` and\n"
+"  `[u8; 4]` are considered two different types."
+msgstr ""
+"* 배열은 같은 타입(`T`)요소, 길이(`N`)와 같은 컴파일 타임 상수를 갖습니다."
+" 길이도 타입의 일부이므로 `[u8; 3]`와 `[u8; 4]`은 서로 다른 타입으로 간주됩니다."
+
+#: src/basic-syntax/compound-types.md:38
 msgid "* We can use literals to assign values to arrays."
 msgstr "* 리터럴을 사용하여 배열에 값을 할당할 수 있습니다."
 
-#: src/basic-syntax/compound-types.md:38
+#: src/basic-syntax/compound-types.md:40
 msgid ""
 "* In the main function, the print statement asks for the debug "
-"implementation with the `?` format parameter: `{a}` gives the default "
-"output, `{a:?}` gives the debug output."
+"implementation with the `?` format\n"
+"  parameter: `{}` gives the default output, `{:?}` gives the debug output. "
+"We\n"
+"  could also have used `{a}` and `{a:?}` without specifying the value after "
+"the\n"
+"  format string."
 msgstr ""
-"* main 함수에서 출력(println)구문은 `?` 형식 매개변수를 사용하여 디버그 출력을 요청합니다."
-"기본 형식은`{a}`이며 `{a:?}`는 디버그용 출력입니다."
+"* main 함수에서 출력(println)구문은 `?` 포맷지정자를 사용하여 디버그 출력"
+"을 요청합니다.기본 형식은`{}`이며 `{:?}`는 디버그용 출력입니다. "
+" `{a}`와 `{a:?}` 뒤에 별다른 값을 지정하지 않습니다. "
 
-#: src/basic-syntax/compound-types.md:40
+#: src/basic-syntax/compound-types.md:45
 msgid ""
 "* Adding `#`, eg `{a:#?}`, invokes a \"pretty printing\" format, which can "
 "be easier to read."
 msgstr ""
 "* `#`을 이용하여(`{a:#}`) 좀더 \"이쁜 출력\" 형식을 호출합니다.(읽기 쉬운...)"
 
-#: src/basic-syntax/compound-types.md:42
+#: src/basic-syntax/compound-types.md:47
 msgid "Tuples:"
 msgstr "튜플:"
 
-#: src/basic-syntax/compound-types.md:44
+#: src/basic-syntax/compound-types.md:49
 msgid "* Like arrays, tuples have a fixed length."
 msgstr "* 배열과 마찬가지로 튜플은 고정 길이를 갖습니다."
 
-#: src/basic-syntax/compound-types.md:46
+#: src/basic-syntax/compound-types.md:51
 msgid "* Tuples group together values of different types into a compound type."
 msgstr "* 튜플은 각기 다른 타입의 값도 복합타입으로 묶습니다."
 
-#: src/basic-syntax/compound-types.md:48
+#: src/basic-syntax/compound-types.md:53
 msgid ""
-"* Fields that can be accessed by the period and the index of the value, e.g. "
-"`t.0`, `t.1`."
+"* Fields of a tuple can be accessed by the period and the index of the "
+"value, e.g. `t.0`, `t.1`."
+msgstr "* 튜플의 값은 `t.0`, `t.1`과 같이 인덱스로 접근할 수 있습니다."
+
+#: src/basic-syntax/compound-types.md:55
+msgid ""
+"* The empty tuple `()` is also known as the \"unit type\". It is both a "
+"type, and\n"
+"  the only valid value of that type - that is to say both the type and its "
+"value\n"
+"  are expressed as `()`. It is used to indicate, for example, that a "
+"function or\n"
+"  expression has no return value, as we'll see in a future slide."
 msgstr ""
-"* 튜플의 값은 `t.0`, `t.1`과 같이 접근할 수 있습니다."
+"* 비어있는 튜플`()`은 단위 타입(unit type)이라고도 합니다. 이는 타입이면서 유효한 값입니다."
+"즉 타입과 값이 모두 `()`입니다. 예를 들어 함수나 식에서 반환 값이 없음을 나타낼 때 사용합니다."
 
 #: src/basic-syntax/references.md:1
 msgid "# References"
@@ -2472,21 +2540,43 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/references.md:14
-msgid "Some differences from C++:"
-msgstr "C++과의 차이점:\n"
+msgid "Some notes:"
+msgstr "참고사항:"
 
 #: src/basic-syntax/references.md:16
 msgid ""
-"* We must dereference `ref_x` when assigning to it, similar to C pointers,\n"
+"* We must dereference `ref_x` when assigning to it, similar to C and C++ "
+"pointers.\n"
 "* Rust will auto-dereference in some cases, in particular when invoking\n"
-"  methods (try `count_ones`).\n"
+"  methods (try `ref_x.count_ones()`).\n"
 "* References that are declared as `mut` can be bound to different values "
 "over their lifetime."
 msgstr ""
-"* C포인터와 유사하게 `ref_x`에 할당할 경우 참조를 해제해야 합니다. \n"
+"* C/C++의 포인터와 유사하게 `ref_x`에 할당할 경우 참조를 해제해야 합니다. \n"
 "* 러스트는 특정한 경우(메서드 호출)에 자동으로 참조 해제를 합니다."
-"(`count_one`메서드를 만들어보세요)\n"
+"(`ref_x.count_one()`메서드를 만들어보세요)\n"
 "* `mut`로 선언된 참조는 수명에 따라 다른 값으로 할당될 수 있습니다."
+
+#: src/basic-syntax/references.md:21
+msgid ""
+"<details>\n"
+"Key points:"
+msgstr ""
+"<details>\n"
+"키포인트: \n"
+
+#: src/basic-syntax/references.md:24
+msgid ""
+"* Be sure to note the difference between `let mut ref_x: &i32` and `let "
+"ref_x:\n"
+"  &mut i32`. The first one represents a mutable reference which can be bound "
+"to\n"
+"  different values, while the second represents a reference to a mutable "
+"value."
+msgstr ""
+"`let mut ref_x: &i32`와 `let ref_x: &mut i32`의 차이점에 주의 하시기 바랍니다.\n"
+"첫번째 값은 다른 값에 바인딩 될 수 있는 가변 참조이고, \n"
+"두번째 값은 가변 값에 대한 참조입니다."
 
 #: src/basic-syntax/references-dangling.md:1
 msgid "# Dangling References"
@@ -2584,8 +2674,11 @@ msgid ""
 "* Slices always borrow from another object. In this example, `a` has to "
 "remain 'alive' so we can take a slice from it. "
 msgstr ""
-"* `s`는 `i32` 슬라이스에 대한 참조입니다. `s`의 타입은 더이상 배열의 길이에 대해 다루지 않게 되며 이를 통해 다양한 크기의 슬라이스에 대한 계산을 수행할 수 있습니다.\n"
-"* 슬라이스는 항상 다른 객체로부터 '빌려' 옵니다. 이 예시에서 `a`는 마지막까지 '살아있어야' 슬라이스를 가져올 수 있습니다."
+"* `s`는 `i32` 슬라이스에 대한 참조입니다. `s`의 타입은 더이상 배열의 길이에 "
+"대해 다루지 않게 되며 이를 통해 다양한 크기의 슬라이스에 대한 계산을 수행할 "
+"수 있습니다.\n"
+"* 슬라이스는 항상 다른 객체로부터 '빌려' 옵니다. 이 예시에서 `a`는 마지막까"
+"지 '살아있어야' 슬라이스를 가져올 수 있습니다."
 
 #: src/basic-syntax/string-slices.md:1
 msgid "# `String` vs `str`"
@@ -2623,7 +2716,8 @@ msgid ""
 "* `String` a mutable string buffer."
 msgstr ""
 "* `&str` 타입은 문자열 슬라이스의 불변참조입니다.\n"
-"  * _역주: str은 문자(열) 리터럴라고 부릅니다. 그리고 &은 참조를 뜻하는데 문자 리터럴은 에초에 참조이므로 항상 &str 입니다._\n"
+"  * _역주: str은 문자(열) 리터럴라고 부릅니다. 그리고 &은 참조를 뜻하는데 문"
+"자 리터럴은 에초에 참조이므로 항상 &str 입니다._\n"
 "* `String` 타입은 가변 문자열 버퍼입니다."
 
 #: src/basic-syntax/string-slices.md:24
@@ -2632,7 +2726,8 @@ msgid ""
 "encoded string data stored in a block of memory. String literals "
 "(`”Hello”`), are stored in the program’s binary."
 msgstr ""
-"* `&str`은 메모리 블록에 저장되는 UTF-8인코딩 문자열의 불변 참조 슬라이스 입니다.\n"
+"* `&str`은 메모리 블록에 저장되는 UTF-8인코딩 문자열의 불변 참조 슬라이스 입"
+"니다.\n"
 "문자열 리터럴(`”Hello”`)은 프로그램 바이너리에 저장됩니다. "
 
 #: src/basic-syntax/string-slices.md:26
@@ -2640,7 +2735,8 @@ msgid ""
 "* Rust’s `String` type is a wrapper around a vector of bytes. As with a "
 "`Vec<T>`, it is mutable and owned."
 msgstr ""
-"* 러스트의 문자열(`String`)타입은 바이트 벡터의 래퍼(wrapper)입니다. `Vec<T>와 마찬가지로 가변적이며 소유권이 있습니다."
+"* 러스트의 문자열(`String`)타입은 바이트 벡터의 래퍼(wrapper)입니다. `Vec<T>"
+"와 마찬가지로 가변적이며 소유권이 있습니다."
 
 #: src/basic-syntax/string-slices.md:28
 msgid ""
@@ -2648,7 +2744,9 @@ msgid ""
 "creates a new empty string, to which string data can be added using the "
 "`to_string` method."
 msgstr ""
-"* `String::from`는 문자 리터럴(`&str`)로 부터 문자열을 생성합니다. `String::new`는 새로운 빈 문자열을 생성합니다. 여기에 `to_string`메서드를 이용해 문자열을 추가할 수 있습니다."
+"* `String::from`는 문자 리터럴(`&str`)로 부터 문자열을 생성합니다. `String::"
+"new`는 새로운 빈 문자열을 생성합니다. 여기에 `to_string`메서드를 이용해 문자"
+"열을 추가할 수 있습니다."
 
 #: src/basic-syntax/string-slices.md:30
 msgid ""
@@ -2743,6 +2841,22 @@ msgstr ""
 "    }\n"
 "}\n"
 "```"
+
+#: src/basic-syntax/functions.md:35
+msgid ""
+"* We refer in `main` to a function written below. Neither forward "
+"declarations nor headers are necessary. \n"
+"* Declaration parameters are followed by a type (the reverse of some "
+"programming languages), then a return type.\n"
+"* The last expression in a function body becomes the return value. Simply "
+"omit the `;` at the end of the expression.\n"
+"* Some functions have no return value, and output the 'unit type', `()`. The "
+"compiler will infer this if the `-> ()` return type is omitted."
+msgstr ""
+"* 메인 함수는 아래의 함수들을 참조합니다. 상단에 선언이나 헤더 같은건 필요 없습니다.\n"
+"* 매개변수 선언 뒤에는 타입이 따라옵니다. 다음에는 반환 타입입니다.(몇 언어에서는 반대입니다.)"
+"* 함수 본문의 마지막 표현식은 반환 값이 됩니다. 간단히, 식 끝에 있는 `;`를 생략하면 됩니다."
+"* 반환값이 없는 함수의 경우, `유닛 타입 ()`을 반환합니다. `-> ()`가 생략된 경우 컴파일러는  이를 추론합니다."
 
 #: src/basic-syntax/methods.md:1 src/methods.md:1
 msgid "# Methods"
@@ -2892,8 +3006,7 @@ msgstr ""
 #: src/exercises/day-3/morning.md:7 src/exercises/day-4/morning.md:12
 msgid ""
 "After looking at the exercises, you can look at the [solutions] provided."
-msgstr ""
-"연습문제를 살펴 본 후, 제공된 [solutions]을 살펴볼 수 있습니다."
+msgstr "연습문제를 살펴 본 후, 제공된 [solutions]을 살펴볼 수 있습니다."
 
 #: src/exercises/day-1/morning.md:24 src/exercises/day-2/morning.md:13
 #: src/exercises/day-3/morning.md:9 src/exercises/day-4/morning.md:14
@@ -3333,7 +3446,8 @@ msgstr ""
 
 #: src/basic-syntax/static-and-const.md:27
 msgid "According the the [Rust RFC Book][1] these are inlined upon use."
-msgstr "[Rust RFC Book][1]에 따르면 이것들은 사용시 인라인(코드에 대체) 표시됩니다."
+msgstr ""
+"[Rust RFC Book][1]에 따르면 이것들은 사용시 인라인(코드에 대체) 표시됩니다."
 
 #: src/basic-syntax/static-and-const.md:29
 msgid "## `static`"
@@ -3363,7 +3477,9 @@ msgid ""
 "an actual associated memory location.  This is useful for unsafe and "
 "embedded code, and have a `'static` lifetime."
 msgstr ""
-"[Rust RFC Book][1]에서 언급한 바와 같이 이들은 사용시 인라인화 되지 않고 연결된 메모리 위치를 가지고 있습니다. 따라서 이들은 안전하지 안거나 내장 코드에 유용하고 `'static` 수명을 갖습니다."
+"[Rust RFC Book][1]에서 언급한 바와 같이 이들은 사용시 인라인화 되지 않고 연결"
+"된 메모리 위치를 가지고 있습니다. 따라서 이들은 안전하지 안거나 내장 코드에 "
+"유용하고 `'static` 수명을 갖습니다."
 
 #: src/basic-syntax/static-and-const.md:44
 msgid ""
@@ -3383,8 +3499,8 @@ msgid ""
 msgstr ""
 "* `const`는 C++의 `constexpr`과 의미론거으로 유사하게 동작합니다.\n"
 "* 반면에 `static`은 C++의 `const`나 가변 정적 변수와 훨씬 더 유사합니다.\n"
-"* 런타임 평가 상수가 필요한 것은 매우 일반적이지는 않지만 정적변수를 사용하는 것보단 유용하고 안전합니다."
-
+"* 런타임 평가 상수가 필요한 것은 매우 일반적이지는 않지만 정적변수를 사용하"
+"는 것보단 유용하고 안전합니다."
 
 #: src/basic-syntax/static-and-const.md:54
 msgid "[1]: https://rust-lang.github.io/rfcs/0246-const-vs-static.html"
@@ -3567,7 +3683,8 @@ msgid ""
 "* Mention that a `String` is backed by a `Vec`, so it has a capacity and "
 "length and can grow if mutable via reallocation on the heap."
 msgstr ""
-"* 문자열(`String`)은 `Vec`에 의해 백업되므로 크기(용량)과 길이가 있고 힙 재할당을 통해 증가할 수 있습니다."
+"* 문자열(`String`)은 `Vec`에 의해 백업되므로 크기(용량)과 길이가 있고 힙 재할"
+"당을 통해 증가할 수 있습니다."
 
 #: src/memory-management/stack.md:30
 msgid ""
@@ -3575,7 +3692,9 @@ msgid ""
 "heap allocated using the [System Allocator] and custom allocators can be "
 "implemented using the [Allocator API]"
 msgstr ""
-"* 이에대한 질문의 답변으로, 기본 메모리가 시스템 할당자([System Allocator])를 사용하여 힙에 할당되고, 사용자 지정할당자는 할당자 API([Allocator API])를 이용하여 구현 도리 수 있다고 언급 할 수 있습니다."
+"* 이에대한 질문의 답변으로, 기본 메모리가 시스템 할당자([System Allocator])"
+"를 사용하여 힙에 할당되고, 사용자 지정할당자는 할당자 API([Allocator API])를 "
+"이용하여 구현 도리 수 있다고 언급 할 수 있습니다."
 
 #: src/memory-management/stack.md:34
 msgid ""
@@ -3596,7 +3715,8 @@ msgid ""
 "If not done with care, this can lead to crashes, bugs, security "
 "vulnerabilities, and memory leaks."
 msgstr ""
-"주의하지 않으면, 충돌(crash), 버그, 보안취약성 및 메모리 누수가 발생할 수 있습니다."
+"주의하지 않으면, 충돌(crash), 버그, 보안취약성 및 메모리 누수가 발생할 수 있"
+"습니다."
 
 #: src/memory-management/manual.md:7
 msgid "## C Example"
@@ -3753,9 +3873,11 @@ msgid ""
 "have no cost at runtime like C."
 msgstr ""
 "* 자바처럼 안전하고 정확합니다. 하지만 GC는 없습니다. \n"
-"* 선택되는 추상화(조합)에 따라서 단일 고유 포인터, 참조 카운트 혹은 원자적 참조 카운트가 될 수 있습니다. "
-"* C++처럼 범위(스코프)기반입니다. 하지만 컴파일러가 엄격하게 적용합니다.\n"
-"* 러스트 사용자는 상황에 맞는 추상화 방법을 선택할 수 도 있고, 그 중에는 C와 같이 런타임 코스트가 없는 것도 있습니다."
+"* 선택되는 추상화(조합)에 따라서 단일 고유 포인터, 참조 카운트 혹은 원자적 참"
+"조 카운트가 될 수 있습니다. * C++처럼 범위(스코프)기반입니다. 하지만 컴파일러"
+"가 엄격하게 적용합니다.\n"
+"* 러스트 사용자는 상황에 맞는 추상화 방법을 선택할 수 도 있고, 그 중에는 C와 "
+"같이 런타임 코스트가 없는 것도 있습니다."
 
 #: src/memory-management/rust.md:10
 msgid "It achieves this by modeling _ownership_ explicitly."
@@ -3768,7 +3890,10 @@ msgid ""
 "encapsulate ownership and memory allocation via various means, and prevent "
 "the potential errors in C."
 msgstr ""
-"* 이 시점에서 방법을 묻는 질문에 Rust에서 이 작업은 일반적으로 [Box], [Vec], [Rc] 또는 [Arc]와 같은 RAII 래퍼 유형에 의해 처리된다고 언급할 수 있습니다. 이들은 다양한 방법을 통해 소유권과 메모리 할당을 캡슐화하고, C 언어와 같은 잠재적인 오류를 방지합니다. "
+"* 이 시점에서 방법을 묻는 질문에 Rust에서 이 작업은 일반적으로 [Box], [Vec], "
+"[Rc] 또는 [Arc]와 같은 RAII 래퍼 유형에 의해 처리된다고 언급할 수 있습니다. "
+"이들은 다양한 방법을 통해 소유권과 메모리 할당을 캡슐화하고, C 언어와 같은 잠"
+"재적인 오류를 방지합니다. "
 
 #: src/memory-management/rust.md:16
 msgid ""
@@ -3940,12 +4065,12 @@ msgid ""
 "* Mention that this is the opposite of the defaults in C++, which copies by "
 "value unless you use `std::move` (and the move constructor is defined!)."
 msgstr ""
-"* (이동 생성자가 정의되고)`std::move`를 사용하지 않는 한, 이는 C++와는 정반대로 값으로 복사됩니다."
+"* (이동 생성자가 정의되고)`std::move`를 사용하지 않는 한, 이는 C++와는 정반대"
+"로 값으로 복사됩니다."
 
 #: src/ownership/move-semantics.md:24
 msgid "* In Rust, you clones are explicit (by using `clone`)."
-msgstr ""
-"* 러스트에서는 명시적으로 `clone`을 사용하여 복제해야합니다."
+msgstr "* 러스트에서는 명시적으로 `clone`을 사용하여 복제해야합니다."
 
 #: src/ownership/moved-strings-rust.md:1
 msgid "# Moved Strings in Rust"
@@ -4135,10 +4260,16 @@ msgid ""
 "move semantics the default, and by forcing programmers to make clones "
 "explicit."
 msgstr ""
-"* `say_hello`함수의 첫번째 호출시 `main`함수는 자신이 가진 `name`에 대한 소유권을 전달하므로, 이후 `main`함수에서는 `name`을 사용할 수 없습니다. \n"
-"* `main`함수에서 `name`을 참조로 전달(빌림)하고(`&name`), `say_hello`에서 매개변수를 참조형으로 수정한다면 `main`함수는 `name`의 소유권을 유지할 수 있습니다. \n"
-"* 또는 첫번째 호출 시 `main`함수에서 `name`을 복제하여 전달할 수도 있습니다.(`name.clone()`)\n"
-"* 러스트는 의미론 이동(move semantics)를 기본으로 하고 복제를 명시적으로 선언하도록 만듬으로 의도치 않게 C++보다 복사본을 만드는 것이 어렵습니다. \n "
+"* `say_hello`함수의 첫번째 호출시 `main`함수는 자신이 가진 `name`에 대한 소유"
+"권을 전달하므로, 이후 `main`함수에서는 `name`을 사용할 수 없습니다. \n"
+"* `main`함수에서 `name`을 참조로 전달(빌림)하고(`&name`), `say_hello`에서 매"
+"개변수를 참조형으로 수정한다면 `main`함수는 `name`의 소유권을 유지할 수 있습"
+"니다. \n"
+"* 또는 첫번째 호출 시 `main`함수에서 `name`을 복제하여 전달할 수도 있습니다."
+"(`name.clone()`)\n"
+"* 러스트는 의미론 이동(move semantics)를 기본으로 하고 복제를 명시적으로 선언"
+"하도록 만듬으로 의도치 않게 C++보다 복사본을 만드는 것이 어렵습니다. \n"
+" "
 
 #: src/ownership/copy-clone.md:1
 msgid "# Copying and Cloning"
@@ -4289,7 +4420,8 @@ msgstr ""
 "스택 반환에 대한 참고: \n"
 "* 컴파일러가 복사 동작을 제거할 수 있기 때문에 `add`에서의 반환 코스트가 낮습"
 "니다.\n"
-" 위 코드를 주택 주소를 출력하도록 수정하고 [Playground]에서 실행해 보시기 바랍니다.\n"
+" 위 코드를 주택 주소를 출력하도록 수정하고 [Playground]에서 실행해 보시기 바"
+"랍니다.\n"
 " `DEBUG` 최적화 레벨에서 주소는 변경되지만 `RELEASE`에서는 그렇지 않습니다."
 
 #: src/ownership/borrowing.md:30
@@ -4575,9 +4707,13 @@ msgid ""
 "somewhat harder to use.\n"
 "* When possible, make data structures own their data directly."
 msgstr ""
-"* 위의 예제에서 `Hightlight`의 어노테이션(annotation)은 포함된 `&str` 데이터가 `Highlight`인스턴스의 수명 만큼 유지되도록 합니다.\n"
-"* 만약 `test`가 `fox`(혹은 `dog`)의 수명 전에 소모된다면(`erase` 함수) 빌림 검사기는 오류를 발생시킬 것 입니다.\n"
-"* 빌린 데이터가 있는 타입은 사용자가 원본 데이터를 보유하도록 강제합니다. 이는 가벼운 뷰(lightweight views)를 만드는데 유용하지만, 일반적으로 사용하기 어렵게 만듭니다.\n"
+"* 위의 예제에서 `Hightlight`의 어노테이션(annotation)은 포함된 `&str` 데이터"
+"가 `Highlight`인스턴스의 수명 만큼 유지되도록 합니다.\n"
+"* 만약 `test`가 `fox`(혹은 `dog`)의 수명 전에 소모된다면(`erase` 함수) 빌림 "
+"검사기는 오류를 발생시킬 것 입니다.\n"
+"* 빌린 데이터가 있는 타입은 사용자가 원본 데이터를 보유하도록 강제합니다. 이"
+"는 가벼운 뷰(lightweight views)를 만드는데 유용하지만, 일반적으로 사용하기 어"
+"렵게 만듭니다.\n"
 "* 가능하다면 구조체가 데이터를 직접 소유하도록 하는 것이 좋습니다.\n"
 
 #: src/exercises/day-1/afternoon.md:1
@@ -5721,7 +5857,7 @@ msgstr ""
 " 그 일환으로 당신은 사용자의 건강 상태 통계를 추적해야합니다.  \n"
 "당신의 목표는 User구조체의 impl블록의 빈 함수를 구현하는 것입니다.  \n"
 
-#"* _gettext 이슈로 아래 문구 교체가 안되 병기됨_"
+# "* _gettext 이슈로 아래 문구 교체가 안되 병기됨_"
 #: src/exercises/day-2/health-statistics.md:3
 msgid ""
 "You're working on implementing a health-monitoring system. As part of that, "
@@ -5737,8 +5873,7 @@ msgid ""
 "`User`\n"
 "struct definition. Your goal is to implement the stubbed out methods on the\n"
 "`User` `struct` defined in the `impl` block."
-msgstr ""
-"당신의 목표는 User구조체의 impl블록의 빈 함수를 구현하는 것입니다.  \n"
+msgstr "당신의 목표는 User구조체의 impl블록의 빈 함수를 구현하는 것입니다.  \n"
 
 #: src/exercises/day-2/health-statistics.md:10
 msgid ""
@@ -6182,9 +6317,11 @@ msgid ""
 "* Unlike `match`, `if let` does not support guard clauses for pattern "
 "matching."
 msgstr ""
-"* `if let`은 `match`보다 더 간결할 수 있습니다. 예를 들어 특정한 경우만 고려하고 싶더라도 `match`는 모든 분기를 포함해야 합니다.\n"
+"* `if let`은 `match`보다 더 간결할 수 있습니다. 예를 들어 특정한 경우만 고려"
+"하고 싶더라도 `match`는 모든 분기를 포함해야 합니다.\n"
 "* 일반적으로 `Option`으로 작업할 때 `Some` 값을 처리하는 식으로 사용됩니다.\n"
-"* `match`와 다르게 `if let` 은 패턴매칭을 위한 검사식(guard)를 지원하지 않습니다.\n"
+"* `match`와 다르게 `if let` 은 패턴매칭을 위한 검사식(guard)를 지원하지 않습"
+"니다.\n"
 
 #: src/control-flow/while-expressions.md:1
 msgid "# `while` expressions"
@@ -6520,7 +6657,8 @@ msgid ""
 msgstr ""
 "* `len`은 `String`의 글자 길이가 아닌 바이트 사이즈를 반환합니다.\n"
 "* `chars`은 실제 문자들에 대한 반복자를 반환합니다.\n"
-"* `String`은 `Deref<Target = str>`의 구현으로 `str`의 메서드에 투명하게 액세스 할 수 있습니다."
+"* `String`은 `Deref<Target = str>`의 구현으로 `str`의 메서드에 투명하게 액세"
+"스 할 수 있습니다."
 
 #: src/std/option-result.md:1
 msgid "# `Option` and `Result`"
@@ -6560,10 +6698,12 @@ msgid ""
 msgstr ""
 "* `Option`와 `Result`는 표준 라이브러리에서만 널리 사용되는 것이 아닙니다.\n"
 "* `Option<&T>` 는 `&T`에 비해 공간 오버헤드가 없습니다.\n"
-"* `Result` 3일차에 다루겠지만, 표준 오류 처리를 구현하기 위한 표준 유형입니다.\n"
+"* `Result` 3일차에 다루겠지만, 표준 오류 처리를 구현하기 위한 표준 유형입니"
+"다.\n"
 "* `binary_search`는 `Result<usize, usize>`를 반환합니다.\n"
 "  * 요소가 발견된다면, `Result::Ok`는 발견된 요소의 인덱스를 보유합니다.\n"
-"  * 아니면, `Result::Err`에는 요소가 삽입되야 하는 인덱스가 포함되어 있습니다.(보통은 마지막 인덱스 입니다)"
+"  * 아니면, `Result::Err`에는 요소가 삽입되야 하는 인덱스가 포함되어 있습니"
+"다.(보통은 마지막 인덱스 입니다)"
 
 #: src/std/vec.md:1
 msgid "# `Vec`"
@@ -6719,7 +6859,8 @@ msgid ""
 "statement thanks to `Deref`."
 msgstr ""
 "* `Box`는 C++의 `std::unique_ptr`와 유사합니다.\n"
-"* 위의 예제에서 `Deref` 덕분에 `println!`구문에서  `*`를 생략할 수 도 있습니다."
+"* 위의 예제에서 `Deref` 덕분에 `println!`구문에서  `*`를 생략할 수 도 있습니"
+"다."
 
 #: src/std/box-recursive.md:1
 msgid "# Box with Recursive Data Structures"
@@ -6868,7 +7009,8 @@ msgid ""
 "write\") and returns a mutable reference."
 msgstr ""
 "* C++의 `std::shared_ptr`와 유사합니다.\n"
-"* `clone`은 저렴합니다: 동일한 할당에 대한 포인터를 생성하고 참조 카운트를 늘림니다.\n"
+"* `clone`은 저렴합니다: 동일한 할당에 대한 포인터를 생성하고 참조 카운트를 늘"
+"림니다.\n"
 "* `make_mut`는 실제로 필요한 경우에 내부 값을 복제하고( (\"clone-on-"
 "write\") ) 가변 참조를 반환합니다."
 
@@ -7515,8 +7657,9 @@ msgid ""
 "`Vec<T>` and references to them such as `&Vec<T>` and `&[T]`. Ranges also "
 "implement it."
 msgstr ""
-"`IntoIterator` 는 루프가 동작하도록 만드는 트레이트입니다. 이 트레이트는 `Vec<T>`와 같은 컬렉션 타입이나 `&Vec<T>`와 `&[T]`같은 참조에 의해 구현됩니다. Range 역시 이를 구현합니다."
-
+"`IntoIterator` 는 루프가 동작하도록 만드는 트레이트입니다. 이 트레이트는 "
+"`Vec<T>`와 같은 컬렉션 타입이나 `&Vec<T>`와 `&[T]`같은 참조에 의해 구현됩니"
+"다. Range 역시 이를 구현합니다."
 
 #: src/traits/from-iterator.md:1
 msgid "# FromIterator"
@@ -7559,7 +7702,8 @@ msgid ""
 "There are also implementations which let you do cool things like convert an\n"
 "`Iterator<Item = Result<V, E>>` into a `Result<Vec<V>, E>`."
 msgstr ""
-"이는 또한 `Iterator<Item = Result<V, E>>`을 `Result<Vec<V>, E>`로 변경하는 멋진 작업도 구현합니다."
+"이는 또한 `Iterator<Item = Result<V, E>>`을 `Result<Vec<V>, E>`로 변경하는 멋"
+"진 작업도 구현합니다."
 
 #: src/traits/from-into.md:1
 msgid "# `From` and `Into`"
@@ -7913,8 +8057,7 @@ msgstr ""
 #: src/generics/impl-trait.md:24
 msgid ""
 "The meaning of `impl Trait` is a bit different in the different positions."
-msgstr ""
-"`impl Trait`는 입장에 따라 의미가 조금씩 다릅니다."
+msgstr "`impl Trait`는 입장에 따라 의미가 조금씩 다릅니다."
 
 #: src/generics/impl-trait.md:26
 msgid ""
@@ -7926,8 +8069,11 @@ msgid ""
 "the concrete type in a\n"
 "  public API."
 msgstr ""
-"* 매개변수(parameter) 입장에서는 트레이트 경계(bound)가 있는 익명 제너릭 매개변수와 같습니다.\n"
-"* 반환 타입 입장에서는 이름을 지정하지 않고 트레이트를 구현한 구체적인 타입임을 의미합니다. 이는 공개된 API에서 구체적은 타입을 노출하지 않으려는 경우 유용할 수 있습니다."
+"* 매개변수(parameter) 입장에서는 트레이트 경계(bound)가 있는 익명 제너릭 매개"
+"변수와 같습니다.\n"
+"* 반환 타입 입장에서는 이름을 지정하지 않고 트레이트를 구현한 구체적인 타입임"
+"을 의미합니다. 이는 공개된 API에서 구체적은 타입을 노출하지 않으려는 경우 유"
+"용할 수 있습니다."
 
 #: src/generics/closures.md:1
 msgid "# Closures"
@@ -7975,15 +8121,15 @@ msgstr ""
 msgid ""
 "If you have an `FnOnce`, you may only call it once. It might consume "
 "captured values."
-msgstr ""
-"`FnOnce`는 한번만 호출되며 캡처된 값을 소모합니다."
+msgstr "`FnOnce`는 한번만 호출되며 캡처된 값을 소모합니다."
 
 #: src/generics/closures.md:27
 msgid ""
 "An `FnMut` might mutate captured values, so you can call it multiple times "
 "but not concurrently."
 msgstr ""
-"`FnMut`는 캡처된 값을 변경할 수 있으므로 여러번 호출은 가능하지만 동시에 호출 할 수는 없습니다."
+"`FnMut`는 캡처된 값을 변경할 수 있으므로 여러번 호출은 가능하지만 동시에 호"
+"출 할 수는 없습니다."
 
 #: src/generics/closures.md:29
 msgid ""
@@ -7991,7 +8137,8 @@ msgid ""
 "nothing at all, so it can\n"
 "be called multiple times concurrently."
 msgstr ""
-"`Fn`은 캡처된 값을 소모도 변경도 할 수 없거나 어떤 것도 캡처하지 않으므로 동시에 여러번 호출 할 수 있습니다."
+"`Fn`은 캡처된 값을 소모도 변경도 할 수 없거나 어떤 것도 캡처하지 않으므로 동"
+"시에 여러번 호출 할 수 있습니다."
 
 #: src/generics/closures.md:32
 msgid ""
@@ -8001,13 +8148,13 @@ msgid ""
 "an `FnMut` or `FnOnce`\n"
 "is called for."
 msgstr ""
-"`FnMut` 는 `FnOnce`의 하위타입입니다. `Fn`은 `FnMut`과 `FnOnce`의 하위 타입입니다."
-"즉, `FnMut`는 `FnOnce`가 호출되는 곳이면 어디서나 사용 할 수 있고 `Fn`은 `FnMut`와 `FnOnce`가 호출되는 곳이면 어디든 사용할 수 있습니다."
+"`FnMut` 는 `FnOnce`의 하위타입입니다. `Fn`은 `FnMut`과 `FnOnce`의 하위 타입입"
+"니다.즉, `FnMut`는 `FnOnce`가 호출되는 곳이면 어디서나 사용 할 수 있고 `Fn`"
+"은 `FnMut`와 `FnOnce`가 호출되는 곳이면 어디든 사용할 수 있습니다."
 
 #: src/generics/closures.md:36
 msgid "`move` closures only implement `FnOnce`."
-msgstr ""
-"클로저에서 선언되는 `move`는 오직 `FnOnce`만 구현합니다."
+msgstr "클로저에서 선언되는 `move`는 오직 `FnOnce`만 구현합니다."
 
 #: src/generics/monomorphization.md:1
 msgid "# Monomorphization"
@@ -8687,7 +8834,8 @@ msgid ""
 "empty file, file with username."
 msgstr ""
 "* `username` 변수는 `Ok(string)`이거나 `Err(error)`일 수 있습니다.\n"
-"* `fs::write` 메서드를 사용하여 파일이 없거나, 비었거나, 중복되는 경우 등을 테스트해 봅니다."
+"* `fs::write` 메서드를 사용하여 파일이 없거나, 비었거나, 중복되는 경우 등을 "
+"테스트해 봅니다."
 
 #: src/error-handling/converting-error-types.md:1
 msgid "# Converting Error Types"
@@ -9311,11 +9459,9 @@ msgid "Let us build a safe wrapper for reading directory content!"
 msgstr ""
 "이번 연습문제에서는 파일 폴더를 안전하게 읽을 수 있는 래퍼를 만들어 봅니다.\n"
 
-
 #: src/exercises/day-3/afternoon.md:7
 msgid "After looking at the exercise, you can look at the [solution] provided."
-msgstr ""
-"연습문제를 살펴 본 후, 제공된 [solutions]을 살펴볼 수 있습니다.\n"
+msgstr "연습문제를 살펴 본 후, 제공된 [solutions]을 살펴볼 수 있습니다.\n"
 
 #: src/exercises/day-3/safe-ffi-wrapper.md:1
 msgid "# Safe FFI Wrapper"
@@ -10417,7 +10563,7 @@ msgstr ""
 
 #: src/exercises/day-4/link-checker.md:95
 msgid "## Tasks"
-msgstr ""
+msgstr "## 할일"
 
 #: src/exercises/day-4/link-checker.md:97
 msgid ""
@@ -11759,7 +11905,8 @@ msgid ""
 "in\n"
 "the class having a piece of code which you can turn in to Rust on the fly."
 msgstr ""
-"이 연습문제는 열려있기 때문에 해답이 제공되지 않습니다. 클래스에서 제출된 코드에 의존합니다."
+"이 연습문제는 열려있기 때문에 해답이 제공되지 않습니다. 클래스에서 제출된 코"
+"드에 의존합니다."
 
 #: src/thanks.md:1
 msgid "# Thanks!"
