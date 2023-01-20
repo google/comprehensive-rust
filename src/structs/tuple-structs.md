@@ -37,8 +37,8 @@ fn main() {
 Key Points:
  * Tuple structs are a different type of struct. Note the lack of curly braces and the way fields are accessed.
  * A tuple struct can be used to create a new type by wrapping around a single field. The rest of the code can then talk about things in terms of these new types and avoid mistakes.
-* This slide shows an example of creating new types from f64s. You can demonstrate how to create, modify, add these new types with an f64 variable.
-* Naturally, the students might be curious about opportunities for automatic unwrapping. This is a good time to point out that Rust doesn’t like inexplicit things. For instance booleans aren’t used as integers. Similarly using the data in a struct requires accessing fields appropriately. 
+* This slide shows an example of creating new types from `f64`s. You can demonstrate how to create and modify a tuple struct. You can also add a `f64` value to the tuple struct.
+* This can be a good time to talk about unwrapping.  Rust generally doesn’t like inexplicit things, for instance booleans aren’t used as integers. Similarly using the data in a struct requires accessing fields appropriately so there isn't automatic unwrapping. 
 * If appropriate, you might bring up that using existing operations on these new types, such as `+` is possible, and we’ll learn about generics on Day 3. 
     
 </details>
