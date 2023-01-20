@@ -21,10 +21,12 @@ fn main() {
 <details>
 Key Points: 
 
-* Structs work similar as they do in other languages, but note there is no `typedef` keyword or inheritance between structs. 
+* Structs work like in C or C++.
+  * Like in C++, and unlike in C, no typedef is needed to define a type.
+  * Unlike in C++, there is no inheritance between structs.
 * Methods are defined in an `impl` block, which we will see in following slides.
-* This may be a good time to let people know there are different types of structs. The next slide will introduce Tuple structs. Here you can define a unit-like struct.
-    * Unit-like structs can be defined with `struct (name);`. There is no need for curly brackets and parentheses.
-    * You may use this type of struct when implementing a trait on some type but don’t have any data that you want to store in the value itself. 
+* This may be a good time to let people know there are different types of structs. 
+  * Zero-sized structs `e.g., struct Foo;` might be used when implementing a trait on some type but don’t have any data that you want to store in the value itself. 
+  * The next slide will introduce Tuple structs.
 
 </details>
