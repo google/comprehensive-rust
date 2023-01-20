@@ -22,4 +22,7 @@ This is usually only a problem for extern functions which do things with pointer
 violate Rust's memory model, but in general any C function might have undefined behaviour under any
 arbitrary circumstances.
 
+The `"C"` in this example is the ABI;
+[other ABIs are available too](https://doc.rust-lang.org/reference/items/external-blocks.html).
+
 </details>
