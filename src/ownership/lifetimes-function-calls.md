@@ -1,6 +1,13 @@
 # Lifetimes in Function Calls
 
-In addition to borrowing its arguments, a function can return a borrowed value:
+_Example problem_: 
+  * Two references to two values are borrowed by a function and the function returns
+    another reference.
+  * It must have come from one of those two inputs (or from a global variable).
+  * Which one is it? The compiler needs to to know, so at the call site the returned reference is not used
+    for longer than a variable from where the reference came from.
+
+Here is how this problem is solved in Rust:
 
 ```rust,editable
 #[derive(Debug)]
