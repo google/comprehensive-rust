@@ -27,6 +27,9 @@ that we can convert a variable `x` of type `i8` to an `i16` by calling
 `i16::from(x)`. Or, simpler, with `x.into()`, because `From<i8> for i16`
 implementation automatically create an implementation of `Into<i16> for i8`.
 
+The same applies for your own `From` implementations for your own types, so it is
+sufficient to only implement `From` to get a respective `Into` implementation automatically.
+
 1. Execute the above program and look at the compiler error.
 
 2. Update the code above to use `into()` to do the conversion.
