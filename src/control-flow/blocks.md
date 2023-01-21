@@ -34,3 +34,5 @@ fn main() {
     println!("doubled: {}", double(7));
 }
 ```
+
+However if the last expression ends with `;`, then the resulting value and type is `()`.
