@@ -73,3 +73,11 @@ slice-of-slices. Why or why not?
 
 See the [`ndarray` crate](https://docs.rs/ndarray/) for a production quality
 implementation.
+
+<details>
+    
+  * The answer to the bonus question: you could, but the type itself would not
+    enforce that the child slices are of the same length, so such variable
+    could contain an invalid matrix.
+    
+</details>
