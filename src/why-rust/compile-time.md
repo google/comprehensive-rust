@@ -22,6 +22,8 @@ are:
   a value (meaning the destructor is never run).
 * You can also accidentally create a [reference cycle] with `Rc` or
   `Arc`.
+* In fact infinitely populating a collection some will consider a memory
+  leak and Rust does not protect from those.
 
 For the purpose of this course, "No memory leaks" should be understood
 as "Pretty much no *accidental* memory leaks".
