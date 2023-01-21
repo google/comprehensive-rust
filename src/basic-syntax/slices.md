@@ -26,5 +26,9 @@ fn main() {
 * `s` is a reference to a slice of `i32`s. Notice that the type of `s` no longer mentions the array length. This allows us to performing computations on slices of different sizes.
  
 * Slices always borrow from another object. In this example, `a` has to remain 'alive' so we can take a slice from it. 
+    
+* The question about modifying `a[3]` can spark an interesting discussion, but the answer is that for memory safety reasons
+  you cannot do it through `a` after you created a slice. But you can read the data from both `a` and `s` safely. 
+  More details will be explained in the borrow checker section.
 
 </details>
