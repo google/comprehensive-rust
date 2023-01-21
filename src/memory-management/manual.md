@@ -4,6 +4,9 @@ You allocate and deallocate heap memory yourself.
 
 If not done with care, this can lead to crashes, bugs, security vulnerabilities, and memory leaks.
 
+Rust supports manual memory management too, but it is almost never needed. Usually such code resides
+deep in system libraries and is reliably wrapped in memory safe abstractions.
+
 ## C Example
 
 You must call `free` on every pointer you allocate with `malloc`:
