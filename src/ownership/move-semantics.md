@@ -21,6 +21,6 @@ fn main() {
 
 * Mention that this is the opposite of the defaults in C++, which copies by value unless you use `std::move` (and the move constructor is defined!).
 
-* In Rust, you clones are explicit (by using `clone`).
+* In Rust, primitive types (e.g. `u32`) are copied by default, but to copy structs and tuples you need to explicitly call `clone()`.
 
 </details>
