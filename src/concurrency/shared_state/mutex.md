@@ -26,3 +26,13 @@ implementation.
 [1]: https://doc.rust-lang.org/std/sync/struct.Mutex.html
 [2]: https://doc.rust-lang.org/std/sync/struct.Mutex.html#impl-Sync-for-Mutex%3CT%3E
 [3]: https://doc.rust-lang.org/std/sync/struct.Arc.html
+
+<details>
+    
+* `Mutex` in Rust looks like a collection with just one element - the protected data.
+    * It is not possible to forget to acquire the mutex before accessing the protected data.
+* A read-write lock counterpart - `RwLock`.
+* *Q from the audience:* Why does the `lock()` return a `Result`? 
+    * *A:* If the thread that held the `Mutex` panicked, the `Mutex` becomes "poisoned". `lock()` on poisoned mutexes fails, but it is still possible to extract the data from the `Mutex` via special methods to recover.  
+    
+</details>
