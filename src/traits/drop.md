@@ -28,3 +28,12 @@ fn main() {
     println!("Exiting main");
 }
 ```
+
+<details>
+
+* `drop` is called automatically, but it can be called manually like in this example.
+* If it was called manually, it won't be called at the end of the scope for the second time.
+* Calling `drop` earlier manually can be useful for objects that do some work on `drop`: lock guards, files.
+    * It is useful, but not hugely useful as you can always make custom scope by enclosing your code in a block.
+
+</details>
