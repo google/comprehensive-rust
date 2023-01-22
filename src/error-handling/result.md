@@ -23,8 +23,11 @@ fn main() {
 ```
 
 <details>
-    
-`Result` documentation is a recommended read. Not during the course, but it is worth mentioning. 
-It contains a lot of convenience methods and functions that help functional-style programming. 
+
+  * As with `Option`, the successful value sits inside of `Result`, forcing the developer to
+    explicitly extract it. This encourages error checking. In the case where error cannot happen
+    `unwrap()` or `expect()` can be called, and this is a signal of the developer intent too.  
+  * `Result` documentation is a recommended read. Not during the course, but it is worth mentioning. 
+    It contains a lot of convenience methods and functions that help functional-style programming. 
     
 </details>
