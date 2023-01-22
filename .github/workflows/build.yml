@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Rust cache
-        uses: Swatinem/rust-cache@v2
+        uses: ./.github/workflows/setup-rust-cache
 
       - name: Install mdbook
         uses: ./.github/workflows/install-mdbook
@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Rust cache
-        uses: Swatinem/rust-cache@v2
+        uses: ./.github/workflows/setup-rust-cache
 
       - name: Test Rust code
         run: cargo test
@@ -48,7 +48,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Rust cache
-        uses: Swatinem/rust-cache@v2
+        uses: ./.github/workflows/setup-rust-cache
 
       - name: Install Gettext
         run: sudo apt install gettext
@@ -92,7 +92,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Rust cache
-        uses: Swatinem/rust-cache@v2
+        uses: ./.github/workflows/setup-rust-cache
 
       - name: Install Gettext
         run: sudo apt install gettext
