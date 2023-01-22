@@ -20,10 +20,7 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: Install mdbook
-        run: cargo install mdbook --version 0.4.25
-
-      - name: Install mdbook-svgbob
-        run: cargo install mdbook-svgbob --version 0.2.1
+        uses: ./.github/workflows/install-mdbook
 
       - name: Test code snippets
         run: mdbook test
@@ -57,13 +54,7 @@ jobs:
         run: sudo apt install gettext
 
       - name: Install mdbook
-        run: cargo install mdbook --version 0.4.25
-
-      - name: Install mdbook-svgbob
-        run: cargo install mdbook-svgbob --version 0.2.1
-
-      - name: Install i18n-helpers
-        run: cargo install --path i18n-helpers --locked
+        uses: ./.github/workflows/install-mdbook
 
       - name: Generate po/messages.pot
         run: mdbook build -d po
@@ -107,13 +98,7 @@ jobs:
         run: sudo apt install gettext
 
       - name: Install mdbook
-        run: cargo install mdbook --version 0.4.25
-
-      - name: Install mdbook-svgbob
-        run: cargo install mdbook-svgbob --version 0.2.1
-
-      - name: Install i18n-helpers
-        run: cargo install --path i18n-helpers --locked
+        uses: ./.github/workflows/install-mdbook
 
       - name: Test ${{ matrix.language }} translation
         run: msgfmt --statistics -o /dev/null po/${{ matrix.language }}.po

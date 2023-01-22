@@ -33,10 +33,7 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: Install mdbook
-        run: cargo install mdbook --version 0.4.25
-
-      - name: Install mdbook-svgbob
-        run: cargo install mdbook-svgbob --version 0.2.1
+        uses: ./.github/workflows/install-mdbook
 
       - name: Build book
         run: mdbook build
