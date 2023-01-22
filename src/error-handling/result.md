@@ -21,3 +21,10 @@ fn main() {
     }
 }
 ```
+
+<details>
+    
+`Result` documentation is a recommended read. Not during the course, but it is worth mentioning. 
+It contains a lot of convenience methods and functions that help functional-style programming. 
+    
+</details>
