@@ -30,6 +30,6 @@ Key Points:
   * `_` is a wild card
 * It can be useful to show how binding works, by for instance replacing a wildcard character with a variable, or removing the quotes around `q`.
 * You can demonstrate matching on a reference.
-* This might be a good time to bring up the concept of irrefutable patterns, as the term can show up in error messages
+* This might be a good time to bring up the concept of irrefutable patterns, as the term can show up in error messages.
    
 </details>
