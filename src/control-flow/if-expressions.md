@@ -25,3 +25,9 @@ fn main() {
     };
 }
 ```
+
+<details>
+
+Because `if` is an expression and must have a particular type, both of its branch blocks must have the same type. Consider showing what happens if you add `;` after `x / 2` in the second example.
+    
+</details>
