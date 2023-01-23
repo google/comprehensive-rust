@@ -37,6 +37,6 @@ Rust terminology:
 * You can borrow `&str` slices from `String` via `&` and optionally range selection.
     
 * For C++ programmers: think of `&str` as `const char*` from C++, but the one that always points 
-  to a valid string in memory. Rust `String` is a rough equivalent of `std::string` from C++.
+  to a valid string in memory. Rust `String` is a rough equivalent of `std::string` from C++ (main difference: it can only contain UTF-8 encoded bytes and will never use a small-string optimization).
     
 </details>
