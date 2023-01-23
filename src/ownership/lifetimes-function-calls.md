@@ -1,13 +1,6 @@
 # Lifetimes in Function Calls
 
-_Example problem_: 
-  * Two references to two values are borrowed by a function and the function returns
-    another reference.
-  * It must have come from one of those two inputs (or from a global variable).
-  * Which one is it? The compiler needs to to know, so at the call site the returned reference is not used
-    for longer than a variable from where the reference came from.
-
-Here is how this problem is solved in Rust:
+In addition to borrowing its arguments, a function can return a borrowed value:
 
 ```rust,editable
 #[derive(Debug)]
@@ -57,5 +50,11 @@ In the above example, try the following:
   Note how this does not compile since `p3` outlives `p2`.
 
 * Reset the workspace and change the function signature to `fn left_most<'a, 'b>(p1: &'a Point, p2: &'a Point) -> &'b Point`. This will not compile because the relationship between the lifetimes `'a` and `'b` is unclear.
+* If students are still not sure why lifetimes are necessary, another way to explain it:
+  * Two references to two values are borrowed by a function and the function returns
+    another reference.
+  * It must have come from one of those two inputs (or from a global variable).
+  * Which one is it? The compiler needs to to know, so at the call site the returned reference is not used
+    for longer than a variable from where the reference came from.
 
 </details>
