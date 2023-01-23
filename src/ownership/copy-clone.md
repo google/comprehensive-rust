@@ -45,4 +45,7 @@ In the above example, try the following:
 * Remove `Copy` from the `derive` attribute. The compiler error is now in the `println!` for  `p1`.
 * Show that it works if you clone `p1` instead.
 
+If students ask about `derive`, it is sufficient to say that this is a way to generate code in Rust
+at compile time. In this case the default implementations of `Copy` and `Clone` traits are generated.
+    
 </details>
