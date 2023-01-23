@@ -10,10 +10,10 @@ expression which will be executed if the pattern matches:
 <details>
 
 Match guards as a separate syntax feature are important and necessary. They are not
-the same as separate `if` statements inside of the match branch. 
+the same as separate `if` expression inside of the match arm.
   
-`if` statement inside of the branch block (after `=>`) already happens after the match variant
-is fully selected. Failing the `if` condition inside of that block won't be
-able to "backtrack" and try to match other cases of the original `match` statement.
+An `if` expression inside of the branch block (after `=>`) happens after the match arm
+is selected. Failing the `if` condition inside of that block won't result in other arms
+of the original `match` expression being considered.
   
 </details>
