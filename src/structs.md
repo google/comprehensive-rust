@@ -25,3 +25,16 @@ fn main() {
     println!("{} is {} years old", jackie.name, jackie.age);
 }
 ```
+
+<details>
+Key Points: 
+
+* Structs work like in C or C++.
+  * Like in C++, and unlike in C, no typedef is needed to define a type.
+  * Unlike in C++, there is no inheritance between structs.
+* Methods are defined in an `impl` block, which we will see in following slides.
+* This may be a good time to let people know there are different types of structs. 
+  * Zero-sized structs `e.g., struct Foo;` might be used when implementing a trait on some type but don’t have any data that you want to store in the value itself. 
+  * The next slide will introduce Tuple structs.
+
+</details>
