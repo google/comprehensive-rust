@@ -1,0 +1,18 @@
+name: Install mdbook and dependencies
+
+description: Install the mdbook with the dependencies we need.
+
+runs:
+  using: composite
+  steps:
+    - name: Install mdbook
+      run: cargo install mdbook --version 0.4.25
+      shell: bash
+
+    - name: Install mdbook-svgbob
+      run: cargo install mdbook-svgbob --version 0.2.1
+      shell: bash
+
+    - name: Install i18n-helpers
+      run: cargo install --path i18n-helpers --locked
+      shell: bash

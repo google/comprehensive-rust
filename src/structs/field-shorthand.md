@@ -22,11 +22,22 @@ fn main() {
 }
 ```
 
+
+The `new` function could be written using `Self` as a type, as it is interchangeable with the struct type name
+
+```rust,ignore
+impl Person {
+    fn new(name: String, age: u8) -> Self {
+        Self { name, age }
+    }
+}
+```
+    
+
 <details>
 
 * Point out the syntax that is used inside the `new` function. To show a comparison you can also rewrite the struct definition using non-shorthand syntax.
 * The `impl` block is where the boilerplate functions are defined. Later slides talk about methods in more detail.
 * Use function update syntax to define a new structure using `peter`. Note that the variable `peter` will no longer be accessible afterwards.
 * Note, you can use `{:#?}` while printing structs to change the readability of the output.
-   
 </details>

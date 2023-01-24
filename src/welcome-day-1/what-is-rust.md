@@ -23,5 +23,7 @@ Rust fits in the same area as C++:
 * High flexibility.
 * High level of control.
 * Can be scaled down to very constrained devices like mobile phones.
+* Has no runtime or garbage collection.
+* Focuses on reliability and safety without sacrificing performance.
 
 </details>

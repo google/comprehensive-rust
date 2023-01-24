@@ -23,3 +23,12 @@ fn main() {
 ```
 
 [1]: https://doc.rust-lang.org/std/sync/struct.Arc.html
+
+<details>
+
+* `Arc` stands for "Atomic Reference Counted", a thread safe version of `Rc` that uses atomic operations.
+* `Arc::clone()` has the cost of atomic operations that get executed, but after that the use of the `T` is free.
+* Beware of reference cycles, Rust does not have a garbage collector to detect those.
+    * `std::sync::Weak` can help.
+    
+</details>

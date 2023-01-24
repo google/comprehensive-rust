@@ -22,6 +22,8 @@ fn main() {
 
 <details>
 
+* Definition: Shadowing is different from mutation, because after shadowing both variable's memory locations exist at the same time. Both are available under the same name, depending where you use it in the code. 
+* A shadowing variable can have a different type. 
 * Shadowing looks obscure at first, but is convenient for holding on to values after `.unwrap()`.
 * The following code demonstrates why the compiler can't simply reuse memory locations when shadowing an immutable variable in a scope, even if the type does not change.
 

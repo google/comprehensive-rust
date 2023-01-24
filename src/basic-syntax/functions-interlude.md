@@ -21,3 +21,11 @@ fn main() {
     println!("cash prize: {}", pick_one(500, 1000));
 }
 ```
+
+<details>
+
+* When using generics, the standard library's `Into<T>` can provide a kind of limited
+  polymorphism on argument types. We will see more details in a later section.
+
+</defails>
+
