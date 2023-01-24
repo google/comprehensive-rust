@@ -36,3 +36,12 @@ fn main() {
     }
 }
 ```
+
+<details>
+
+* `anyhow::Result<T>` is generic and it can hold any `Error` implementation without changing the type signature.
+* Actual error type inside of it can be extracted for examination if necessary.
+* Functionality provided by `anyhow::Result<T>` may be familiar to Go developers, as it provides similar usage patterns and ergonomics
+  of `(T, error)` from Go. 
+
+</details>
