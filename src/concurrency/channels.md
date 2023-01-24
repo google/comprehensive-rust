@@ -21,3 +21,9 @@ fn main() {
     println!("Received: {:?}", rx.recv());
 }
 ```
+
+<details>
+
+* `send()` and `recv()` return `Result`. If they return `Err`, it means the counterpart `Sender` or `Receiver` is dropped and the channel is closed.
+
+</details>

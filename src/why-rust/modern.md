@@ -14,6 +14,7 @@ Rust is built with all the experience gained in the last 40 years.
 * Great compiler errors.
 * Built-in dependency manager.
 * Built-in support for testing.
+* Excellent Language Server Protocol support.
 
 <details>
 
@@ -53,9 +54,13 @@ Key points:
   Discovering good third-party crates can be a problem. Sites like
   <https://lib.rs/> help with this by letting you compare health metrics for
   crates to find a good and trusted one.
+  
+* [rust-analyzer] is a well supported LSP implementation used in major
+  IDEs and text editors.
 
 [rand]: https://docs.rs/rand/
 [rusttls]: https://docs.rs/rustls/
 [serde_json]: https://docs.rs/serde_json/
+[rust-analyzer]: https://rust-analyzer.github.io/
 
 </details>

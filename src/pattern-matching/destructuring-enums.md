@@ -29,3 +29,11 @@ fn main() {
 Here we have used the arms to _destructure_ the `Result` value. In the first
 arm, `half` is bound to the value inside the `Ok` variant. In the second arm,
 `msg` is bound to the error message.
+
+<details>
+
+Key points:
+* The `if`/`else` expression is returning an enum that is later unpacked with a `match`.
+* You can try adding a third variant to the enum definition and displaying the errors when running the code. Point out the places where your code is now inexhaustive and how the compiler trys to give you hints.
+
+</details>

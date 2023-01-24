@@ -29,7 +29,11 @@ fn main() {
 
 <details>
 
-`IntoIterator` is the trait that makes for loops work. It is implemented by collection types such as
-`Vec<T>` and references to them such as `&Vec<T>` and `&[T]`. Ranges also implement it.
-
+* `IntoIterator` is the trait that makes for loops work. It is implemented by collection types such as
+  `Vec<T>` and references to them such as `&Vec<T>` and `&[T]`. Ranges also implement it.
+* The `Iterator` trait implements many common functional programming operations over collections 
+  (e.g. `map`, `filter`, `reduce`, etc). This is the trait where you can find all the documentation
+  about them. In Rust these functions should produce the code as efficient as equivalent imperative
+  implementations.
+    
 </details>

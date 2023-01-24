@@ -21,3 +21,17 @@ fn main() {
     println!("{peter:?}");
 }
 ```
+
+<details>
+
+The `new` function could be written using `Self` as a type, as it is interchangeable with the struct type name
+
+```rust,ignore
+impl Person {
+    fn new(name: String, age: u8) -> Self {
+        Self { name, age }
+    }
+}
+```
+    
+</details>
