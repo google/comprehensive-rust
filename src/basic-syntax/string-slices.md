@@ -24,19 +24,21 @@ Rust terminology:
 
 <details>
 
-* `&str` introduces a string slice, which is an immutable reference to UTF-8 encoded string data stored in a block of memory. String literals (`”Hello”`), are stored in the program’s binary.
+* `&str` introduces a string slice, which is an immutable reference to UTF-8 encoded string data 
+  stored in a block of memory. String literals (`”Hello”`), are stored in the program’s binary.
 
 * Rust’s `String` type is a wrapper around a vector of bytes. As with a `Vec<T>`, it is owned.
     
-* As with many other types 
+* As with many other types `String::from()` creates a string from a string literal; `String::new()` 
+  creates a new empty string, to which string data can be added using the `push()` and `push_str()` methods.
 
-* `String::from` creates a string from a string literal; `String::new` creates a new empty string, to which string data can be added using the `to_string` method.
-
-* The `push_str` method appends a string slice to the string.
+* The `format!()` macro is a convenient way to generate an owned string from dynamic values. It 
+  accepts the same format specification as `println!()`.
     
 * You can borrow `&str` slices from `String` via `&` and optionally range selection.
     
 * For C++ programmers: think of `&str` as `const char*` from C++, but the one that always points 
-  to a valid string in memory. Rust `String` is a rough equivalent of `std::string` from C++ (main difference: it can only contain UTF-8 encoded bytes and will never use a small-string optimization).
+  to a valid string in memory. Rust `String` is a rough equivalent of `std::string` from C++ 
+  (main difference: it can only contain UTF-8 encoded bytes and will never use a small-string optimization).
     
 </details>
