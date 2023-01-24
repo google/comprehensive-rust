@@ -41,7 +41,7 @@ fn fizzbuzz_to(n: u32) {  // `-> ()` is normally omitted
 
   (Type annotations added for clarity, but they can be elided.)
 
-  ```rust
+  ```rust,ignore
   let by_3: bool = is_divisible_by(n, 3);
   let by_5: bool = is_divisible_by(n, 5);
   let by_35: (bool, bool) = (by_3, by_5);
