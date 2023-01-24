@@ -74,6 +74,7 @@
 - [Structs](structs.md)
   - [Tuple Structs](structs/tuple-structs.md)
   - [Field Shorthand Syntax](structs/field-shorthand.md)
+  - [Struct Update Syntax](structs/update-syntax.md)
 - [Enums](enums.md)
   - [Variant Payloads](enums/variant-payloads.md)
   - [Enum Sizes](enums/sizes.md)

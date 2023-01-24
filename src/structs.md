@@ -36,5 +36,6 @@ Key Points:
 * This may be a good time to let people know there are different types of structs. 
   * Zero-sized structs `e.g., struct Foo;` might be used when implementing a trait on some type but don’t have any data that you want to store in the value itself. 
   * The next slide will introduce Tuple structs.
+* The `..peter` syntax in the block generating `Jackie` is called the "Struct Update Syntax" and is presented in one of the following slides.
 
 </details>
