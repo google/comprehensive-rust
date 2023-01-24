@@ -8,7 +8,7 @@ You can destructure arrays, tuples, and slices by matching on their elements:
 
 <details>
   
-Key points:
-* Continuing our journey in pattern matching, this slide just shows another type that can destructured with pattern matching. 
-* This is a another great time to do some live coding. You can add/remove values from the array, compare the syntax `..` and `_`, and share any errors you get.
+* Create a new pattern using `_` to represent an element. 
+* Add more values to the array. Some of the patterns will fail because they are expecting just 3 elements, go ahead and adjust them.
+* Point out that how `..` will expand to account for different number of elements.
 </details>
