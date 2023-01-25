@@ -110,7 +110,7 @@ we'll tell `mdbook` to watch the `po/` directory for changes:
 
 ```shell
 $ MDBOOK_BOOK__LANGUAGE=xx \
-  MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE=po/xx.po
-  MDBOOK_BUILD__EXTRA_WATCH_DIRS='["po"]'
+  MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE=po/xx.po \
+  MDBOOK_BUILD__EXTRA_WATCH_DIRS='["po"]' \
   mdbook serve -d book/xx
 ```
