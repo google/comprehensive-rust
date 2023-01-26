@@ -142,7 +142,7 @@ impl From<Circle> for Shape {
 }
 
 impl Shape {
-    pub fn circumference(&self) -> f64 {
+    pub fn perimeter(&self) -> f64 {
         match self {
             Shape::Polygon(poly) => poly.length(),
             Shape::Circle(circle) => circle.circumference(),
