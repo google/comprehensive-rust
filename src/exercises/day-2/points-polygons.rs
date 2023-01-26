@@ -204,7 +204,7 @@ mod tests {
     }
 
     #[test]
-    fn test_shape_circumferences() {
+    fn test_shape_perimeters() {
         let mut poly = Polygon::new();
         poly.add_point(Point::new(12, 13));
         poly.add_point(Point::new(17, 11));
@@ -213,12 +213,12 @@ mod tests {
             Shape::from(poly),
             Shape::from(Circle::new(Point::new(10, 20), 5)),
         ];
-        let circumferences = shapes
+        let perimeters = shapes
             .iter()
-            .map(Shape::circumference)
+            .map(Shape::perimeter)
             .map(round_two_digits)
             .collect::<Vec<_>>();
-        assert_eq!(circumferences, vec![15.48, 31.42]);
+        assert_eq!(perimeters, vec![15.48, 31.42]);
     }
 }
 // ANCHOR_END: unit-tests
