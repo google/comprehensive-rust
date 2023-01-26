@@ -15,29 +15,24 @@
 // ANCHOR: luhn
 pub fn luhn(cc_number: &str) -> bool {
     // ANCHOR_END: luhn
-    let mut digits_seen = 0;
-    let mut sum = 0;
-    for (i, ch) in cc_number.chars().rev().filter(|&ch| ch != ' ').enumerate() {
-        match ch.to_digit(10) {
-            Some(d) => {
-                sum += if i % 2 == 1 {
-                    let dd = d * 2;
-                    dd / 10 + dd % 10
-                } else {
-                    d
-                };
-                digits_seen += 1;
-            }
-            None => return false,
-        }
-    }
+    let mut numbers: Vec<u32> = cc_number
+        .chars()
+        .map(|x| x.to_digit(10))
+        .flatten()
+        .collect();
 
-    if digits_seen < 2 {
+    if numbers.len() < 2 {
         return false;
     }
 
-    sum % 10 == 0
+    for n in numbers.iter_mut().rev().skip(1).step_by(2) {
+        let double = *n * 2;
+        *n = double % 10 + double / 10;
+    }
+
+    numbers.iter().sum::<u32>() % 10 == 0
 }
+
 
 fn main() {
     let cc_number = "1234 5678 1234 5670";
