@@ -39,3 +39,15 @@ tests pass:
 #[allow(dead_code)]
 fn main() {}
 ```
+
+<details>
+
+Since the method signatures are missing from the problem statements, the key part
+of the exercise is to specify those correctly.
+
+Other interesting parts of the exercise:
+    
+* Derive a `Copy` trait for some structs, as in tests the methods sometimes don't borrow their arguments.
+* Discover that `Add` trait must be implemented for two objects to be addable via "+".    
+
+</details>
