@@ -5,7 +5,7 @@ See the page on [other resources](other-resources.md) for a full list of useful
 resources.
 
 The material of Comprehensive Rust is licensed under the terms of the Apache 2.0
-license, please see [`LICENSE.txt`](../LICENSE.txt) for details.
+license, please see [`LICENSE`](../LICENSE) for details.
 
 ## Rust by Example
 
