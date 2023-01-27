@@ -530,11 +530,11 @@ msgstr "단위 테스트"
 
 #: src/SUMMARY.md:160
 msgid "Test Modules"
-msgstr "테스트모듈"
+msgstr "테스트 모듈"
 
 #: src/SUMMARY.md:161
 msgid "Documentation Tests"
-msgstr "문서 테스트"
+msgstr "문서주석 테스트"
 
 #: src/SUMMARY.md:162
 msgid "Integration Tests"
@@ -662,15 +662,15 @@ msgstr ""
 
 #: src/SUMMARY.md:206
 msgid "Interface"
-msgstr "인터페이스"
+msgstr "AIDL 인터페이스"
 
 #: src/SUMMARY.md:207
 msgid "Implementation"
-msgstr "구현"
+msgstr "서비스 구현"
 
 #: src/SUMMARY.md:208
 msgid "Server"
-msgstr "서버"
+msgstr "AIDL 서버"
 
 #: src/SUMMARY.md:209
 msgid "Deploy"
@@ -2110,7 +2110,6 @@ msgstr ""
 "안전한 러스트에서도 메모리 누수가 발생하는 몇가지 예는 다음과 같습니다:"
 
 #: src/why-rust/compile-time.md:19
-#, fuzzy
 msgid ""
 "* You can for use [`Box::leak`] to leak a pointer. A use of this could\n"
 "  be to get runtime-initialized and runtime-sized static variables\n"
@@ -2121,11 +2120,12 @@ msgid ""
 "* In fact, some will consider infinitely populating a collection a memory\n"
 "  leak and Rust does not protect from those."
 msgstr ""
-"* [`Box::leak`]을 사용하여 런타임 초기화 및 런타임 크기 정적 변수를 가져올 "
-"수 있습니다. 이를 통해 포인터 누수를 발생시킬 수 있습니다. \n"
+"* [`Box::leak`]을 이용하여 포인터 누수를 발생시킬 수 있습니다. 이를 사용하여 런타임 초기화 및 런타임 크기 정적 변수를 가져올 수 있습니다.\n"
 "* [`std::mem::forget`]을 사용하여 컴파일러가 값에 대해 \"잊도록\" 만들 수 있"
 "습니다(소멸자가 실행되지 않음을 의미합니다).\n"
-"* `Rc` 또는 `Arc`를 사용하여 실수로 [reference cycle]을 생성할 수도 있습니다."
+"* `Rc` 또는 `Arc`를 사용하여 실수로 [reference cycle]을 생성할 수도 있습니다.\n"
+"* 컬렉션을 무한정 채우는 것을 메모리 누수로 간주할 수도 있지만,"
+" 러스트는 이를 보호하진 못합니다."
 
 #: src/why-rust/compile-time.md:28
 msgid ""
@@ -2317,7 +2317,6 @@ msgstr ""
 "수 있습니다. "
 
 #: src/why-rust/modern.md:54
-#, fuzzy
 msgid ""
 "  Discovering good third-party crates can be a problem. Sites like\n"
 "  <https://lib.rs/> help with this by letting you compare health metrics "
@@ -2539,7 +2538,6 @@ msgid ""
 msgstr "* 튜플의 값은 `t.0`, `t.1`과 같이 인덱스로 접근할 수 있습니다."
 
 #: src/basic-syntax/compound-types.md:55
-#, fuzzy
 msgid ""
 "* The empty tuple `()` is also known as the \"unit type\". It is both a "
 "type, and\n"
@@ -2551,9 +2549,10 @@ msgid ""
 "    * You can think of it as `void` that can be familiar to you from other \n"
 "      programming languages."
 msgstr ""
-"* 비어있는 튜플`()`은 단위 타입(unit type)이라고도 합니다. 이는 타입이면서 유"
-"효한 값입니다.즉 타입과 값이 모두 `()`입니다. 예를 들어 함수나 식에서 반환 값"
-"이 없음을 나타낼 때 사용합니다."
+"* 비어있는 튜플`()`은 단위 타입(unit type)이라고도 합니다. 이는 타입이면서"
+" 해당 타입의 유일하며 유효한 값입니다. 즉 타입과 값이 모두 `()`입니다."
+" 예를 들어 함수나 식에서 반환 값이 없음을 나타낼 때 사용합니다."
+"  * 다른 언어에서 익숙한 `void` 개념으로 생각할 수 있습니다."
 
 #: src/basic-syntax/references.md:1
 msgid "# References"
@@ -2692,7 +2691,6 @@ msgstr ""
 "* 괄호안에 시작과 끝 인덱스를 지정하여 `a`를 빌려 잘라낸 슬라이스를 만듭니다."
 
 #: src/basic-syntax/slices.md:22
-#, fuzzy
 msgid ""
 "* If the slice starts at index 0, Rust’s range syntax allows us to drop the "
 "starting index, meaning that `&a[0..a.len()]` and `&a[..a.len()]` are "
@@ -2701,8 +2699,9 @@ msgid ""
 "* The same is true for the last index, so `&a[2..a.len()]` and `&a[2..]` are "
 "identical."
 msgstr ""
-"* 슬라이스가 인덱스 0 부터 시작한다면 생략 가능합니다.\n"
-"*마지막 인덱스도 마찬가지이므로 `&a[2..a.len()]` 와 `&a[2..]`는 동일합니다."
+"* 슬라이스가 인덱스 0 부터 시작한다면 시작 인덱스는 생략 가능합니다."
+" 즉 `&a[0..a.len()]`와 `&a[..a.len()]` 는 동일합니다.\n"
+"* 마지막 인덱스도 마찬가지이므로 `&a[2..a.len()]` 와 `&a[2..]`는 동일합니다."
 
 #: src/basic-syntax/slices.md:26
 msgid ""
@@ -2711,7 +2710,6 @@ msgstr ""
 "* 따라서 전체 배열의 슬라이스를 `&a[..]`를 통해 쉽게 만들 수 있습니다."
 
 #: src/basic-syntax/slices.md:28
-#, fuzzy
 msgid ""
 "* `s` is a reference to a slice of `i32`s. Notice that the type of `s` "
 "(`&[i32]`) no longer mentions the array length. This allows us to perform "
@@ -2726,11 +2724,18 @@ msgid ""
 "the data from both `a` and `s` safely. \n"
 "  More details will be explained in the borrow checker section."
 msgstr ""
-"* `s`는 `i32` 슬라이스에 대한 참조입니다. `s`의 타입은 더이상 배열의 길이에 "
-"대해 다루지 않게 되며 이를 통해 다양한 크기의 슬라이스에 대한 계산을 수행할 "
-"수 있습니다.\n"
-"* 슬라이스는 항상 다른 객체로부터 '빌려' 옵니다. 이 예시에서 `a`는 마지막까"
-"지 '살아있어야' 슬라이스를 가져올 수 있습니다."
+"* `s`는 `i32` 슬라이스에 대한 참조입니다. `s`의 타입(`&[i32]`)은 더이상 배열의"
+" 길이에 대해 다루지 않게 되며 이를 통해 다양한 크기의 슬라이스에 대한 계산을"
+" 수행할 수 있습니다.\n"
+" \n"
+"* 슬라이스는 항상 다른 객체로부터 '빌려' 옵니다. 이 예시에서 `a`는 마지막까지"
+" (범위 내에서) '살아있어야' 슬라이스를 가져올 수 있습니다.\n"
+"    \n"
+"* `a[3]`로 수정하라는 질문은 흥미로운 토론을 불러 일으킬 수 있지만,"
+" 결론은 메모리 안전을 위해 슬라이스를 만든 후에는 `a`를 수정 할 수 없지만"
+" `a`와 `s`는 안전하게 읽을 수 있습니다."
+"빌림 검사 부분에서 좀 더 자세히 설명하겠습니다."
+
 
 #: src/basic-syntax/string-slices.md:1
 msgid "# `String` vs `str`"
@@ -2776,19 +2781,17 @@ msgstr ""
 "* `String` 타입은 가변 문자열 버퍼입니다."
 
 #: src/basic-syntax/string-slices.md:27
-#, fuzzy
 msgid ""
 "* `&str` introduces a string slice, which is an immutable reference to UTF-8 "
 "encoded string data \n"
 "  stored in a block of memory. String literals (`”Hello”`), are stored in "
 "the program’s binary."
 msgstr ""
-"* `&str`은 메모리 블록에 저장되는 UTF-8인코딩 문자열의 불변 참조 슬라이스 입"
-"니다.\n"
-"문자열 리터럴(`”Hello”`)은 프로그램 바이너리에 저장됩니다. "
+"* `&str`은 메모리 블록에 저장된 UTF-8인코딩 문자열 데이터의 불변 참조 슬라이스"
+" 입니다.\n"
+" 문자열 리터럴(`”Hello”`)은 프로그램 바이너리에 저장됩니다. "
 
 #: src/basic-syntax/string-slices.md:30
-#, fuzzy
 msgid ""
 "* Rust’s `String` type is a wrapper around a vector of bytes. As with a "
 "`Vec<T>`, it is owned.\n"
@@ -2798,9 +2801,11 @@ msgid ""
 "  creates a new empty string, to which string data can be added using the "
 "`push()` and `push_str()` methods."
 msgstr ""
-"* `String::from`는 문자 리터럴(`&str`)로 부터 문자열을 생성합니다. `String::"
-"new`는 새로운 빈 문자열을 생성합니다. 여기에 `to_string`메서드를 이용해 문자"
-"열을 추가할 수 있습니다."
+"* 러스트의 `String` 타입은 바이트 벡터 래퍼입니다. `Vec<T>`와 같이 소유됩니다.\n"
+"* 다른 많은 타입들처럼 `String::from`는 문자열 리터럴로부터 문자열을"
+" 생성합니다.\n"
+"  * `String::new()`는 새로운 빈 문자열을 생성합니다. \n"
+"  * `push()`와 `push_str()`메서드를 사용하여 문자열 데이터를 추가 할 수 있습니다."
 
 #: src/basic-syntax/string-slices.md:35
 msgid ""
@@ -2917,7 +2922,6 @@ msgstr ""
 "```"
 
 #: src/basic-syntax/functions.md:35
-#, fuzzy
 msgid ""
 "* We refer in `main` to a function written below. Neither forward "
 "declarations nor headers are necessary. \n"
@@ -2934,10 +2938,16 @@ msgid ""
 msgstr ""
 "* 메인 함수는 아래의 함수들을 참조합니다. 상단에 선언이나 헤더 같은건 필요 없"
 "습니다.\n"
-"* 매개변수 선언 뒤에는 타입이 따라옵니다. 다음에는 반환 타입입니다.(몇 언어에"
-"서는 반대입니다.)* 함수 본문의 마지막 표현식은 반환 값이 됩니다. 간단히, 식 "
-"끝에 있는 `;`를 생략하면 됩니다.* 반환값이 없는 함수의 경우, `유닛 타입 ()`"
-"을 반환합니다. `-> ()`가 생략된 경우 컴파일러는  이를 추론합니다."
+"* 매개변수 선언 뒤에는 타입 표시합니다. 다음에는 반환 타입입니다.(일부 언어에"
+"서는 반대입니다.)\n"
+"* 함수 본문의 마지막 표현식은 반환 값이 됩니다. 간단히, 식 끝에 있는 `;`를 "
+"생략하면 됩니다.\n"
+"* 반환값이 없는 함수의 경우, `유닛 타입 ()`을 반환합니다. "
+"`-> ()`가 생략된 경우 컴파일러는 이를 추론합니다."
+"* `fizzbuzz_to()`함수 내 `for` 반목문의 rage 표현식 중 `=n`은 해당 범위까지 "
+"포함한다는 의미입니다. \n"
+"* `fizzbuzz()`함수의 `match` 표현식은 많은 일을 합니다."
+" 무슨 일이 일어나는지 조금 더 이해하기 쉽도록 아래 코드를 확인하시기 바랍니다."
 
 #: src/basic-syntax/functions.md:42
 msgid "  (Type annotations added for clarity, but they can be elided.)"
@@ -3615,16 +3625,15 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/static-and-const.md:41
-#, fuzzy
 msgid ""
 "As noted in the [Rust RFC Book][1], these are not inlined upon use and have "
 "an actual associated memory location.  This is useful for unsafe and "
 "embedded code, and the variable lives through the entirety of the program "
 "execution."
 msgstr ""
-"[Rust RFC Book][1]에서 언급한 바와 같이 이들은 사용시 인라인화 되지 않고 연결"
-"된 메모리 위치를 가지고 있습니다. 따라서 이들은 안전하지 안거나 내장 코드에 "
-"유용하고 `'static` 수명을 갖습니다."
+"[Rust RFC Book][1]에서 언급한 바와 같이 이들은 사용시 인라인화 되지 않고 실제로"
+" 연결된 메모리 위치를 가지고 있습니다. 따라서 이들은 안전하지 않고 내장된 코드에"
+" 유용하고, 변수는 프로그램 실행 주기와 같은 수명을 같습니다."
 
 #: src/basic-syntax/static-and-const.md:44
 msgid ""
@@ -3692,7 +3701,6 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/scopes-shadowing.md:25
-#, fuzzy
 msgid ""
 "* Definition: Shadowing is different from mutation, because after shadowing "
 "both variable's memory locations exist at the same time. Both are available "
@@ -3704,10 +3712,13 @@ msgid ""
 "locations when shadowing an immutable variable in a scope, even if the type "
 "does not change."
 msgstr ""
-"* 쉐도잉은 모호해 보일 수 있지만 `.unwrap()` 이후의 값을 할당하는데 용이합니"
+"* 쉐도잉 후 두 변수의 메모리가 동시에 존재하기 때문에 쉐도잉은 가변성과 다릅니다."
+" 코드에서 호출되는 위치에 따라 동일한 이름을 사용할 수 있습니다.\n"
+"* 쉐도잉 시 타입은 변경될 수 있습니다.\n"
+"* 쉐도잉은 모호해 보일 수 있지만 `.unwrap()` 이후의 값을 유지하는데 용이합니"
 "다. \n"
-"* 아래 코드는 컴파일러가 스포크에서 변경되지 않는 변수를 쉐도잉할때 타입이 동"
-"일하더라도 메모리 위치를 단순 재사용 할 수 없는 이유를 보여줍니다.(원본 a를 "
+"* 아래 코드는 컴파일러가 스코프 범위에서 불변 변수를 쉐도잉할때 타입이"
+" 동일하더라도 메모리 위치를 단순 재사용 할 수 없는 이유를 보여줍니다.(원본 a를 "
 "참조한 b와 쉐도잉 된 a(a+1) 둘다 살아있어야 하므로 메모리를 따로 할당합니다.)"
 
 #: src/basic-syntax/scopes-shadowing.md:30
@@ -4399,7 +4410,6 @@ msgid ""
 msgstr ""
 
 #: src/ownership/moves-function-calls.md:20
-#, fuzzy
 msgid ""
 "* With the first call to `say_hello`, `main` gives up ownership of `name`. "
 "Afterwards, `name` cannot be used anymore within `main`.\n"
@@ -4414,7 +4424,8 @@ msgid ""
 "explicit."
 msgstr ""
 "* `say_hello`함수의 첫번째 호출시 `main`함수는 자신이 가진 `name`에 대한 소유"
-"권을 전달하므로, 이후 `main`함수에서는 `name`을 사용할 수 없습니다. \n"
+"권을 포기하므로, 이후 `main`함수에서는 `name`을 사용할 수 없습니다. \n"
+"* `name`에 할당되있는 힙 메모리는 `say_hello`함수의 끝에서 해제됩니다.\n"
 "* `main`함수에서 `name`을 참조로 전달(빌림)하고(`&name`), `say_hello`에서 매"
 "개변수를 참조형으로 수정한다면 `main`함수는 `name`의 소유권을 유지할 수 있습"
 "니다. \n"
@@ -4883,7 +4894,6 @@ msgid ""
 msgstr ""
 
 #: src/ownership/lifetimes-data-structures.md:25
-#, fuzzy
 msgid ""
 "* In the above example, the annotation on `Highlight` enforces that the data "
 "underlying the contained `&str` lives at least as long as any instance of "
@@ -4900,14 +4910,18 @@ msgid ""
 "lifetime of the struct itself. Those are very advanced use cases.\n"
 "</details>"
 msgstr ""
-"* 위의 예제에서 `Hightlight`의 어노테이션(annotation)은 포함된 `&str` 데이터"
-"가 `Highlight`인스턴스의 수명 만큼 유지되도록 합니다.\n"
-"* 만약 `test`가 `fox`(혹은 `dog`)의 수명 전에 소모된다면(`erase` 함수) 빌림 "
-"검사기는 오류를 발생시킬 것 입니다.\n"
+"* 위의 예제에서 `Hightlight`의 어노테이션(annotation)은 적어도 내부의 `&str`"
+" 데이터를 사용하는 `Highlight` 인스턴스만큼 지속되는 동안 적용됩니다.\n"
+"* 만약 `test`가 `fox`(혹은 `dog`)의 수명 전에 소모된다면(`erase` 함수) 빌림"
+" 검사기는 오류를 발생시킬 것 입니다.\n"
 "* 빌린 데이터가 있는 타입은 사용자가 원본 데이터를 보유하도록 강제합니다. 이"
-"는 가벼운 뷰(lightweight views)를 만드는데 유용하지만, 일반적으로 사용하기 어"
+"는 경량 뷰(lightweight views)를 만드는데 유용하지만, 일반적으로 사용하기 어"
 "렵게 만듭니다.\n"
 "* 가능하다면 구조체가 데이터를 직접 소유하도록 하는 것이 좋습니다.\n"
+"* 다수의 참조를 포함하는 일부 구조는 하나 이상의 수명 어노테이션을 가질 수 있습니다."
+" 이는 구조 자체 뿐 아니라 참조 간의 수명 관계를 설명해야 할 때 필요할 수 있습니다."
+" 다소 난이도가 있는 사례입니다."
+"</details>"
 
 #: src/exercises/day-1/afternoon.md:1
 msgid "# Day 1: Afternoon Exercises"
@@ -6836,7 +6850,6 @@ msgid ""
 msgstr "러스트의 [패턴매칭](../pattern-matching.md)을 참조하세요"
 
 #: src/control-flow/if-let-expressions.md:21
-#, fuzzy
 msgid ""
 "* `if let` can be more concise than `match`, e.g., when only one case is "
 "interesting. In contrast, `match` requires all branches to be covered.\n"
@@ -6848,6 +6861,8 @@ msgid ""
 msgstr ""
 "* `if let`은 `match`보다 더 간결할 수 있습니다. 예를 들어 특정한 경우만 고려"
 "하고 싶더라도 `match`는 모든 분기를 포함해야 합니다.\n"
+"  * 비슷한 사용례로 새롭게 \"stable\" 릴리즈 된 [`let else`](https://github."
+"com/rust-lang/rust/pull/93628) 기능을 시연하는 것도 고려해 보시기 바랍니다.\n"
 "* 일반적으로 `Option`으로 작업할 때 `Some` 값을 처리하는 식으로 사용됩니다.\n"
 "* `match`와 다르게 `if let` 은 패턴매칭을 위한 검사식(guard)를 지원하지 않습"
 "니다.\n"
@@ -10938,6 +10953,17 @@ msgid ""
 "[`PoisonError`]. You can call `into_inner()` on the error to recover the "
 "data regardless."
 msgstr ""
+"<details>\n"
+"    \n"
+"* 러스트의 `Mutex`는 보호된 데이터라는 하나의 요소만으로 이루어진 컬렉션처럼"
+" 동작합니다.\n"
+"  * 보호된 데이터에 접근하기 전 `Mutex`를 획득하는 것을 잊지 않아야 합니다.\n"
+"* 읽기-쓰기에 대한 잠금은 `RwLock`가 있습니다.\n"
+"* 어째서 `lock()`이 `Result`를 반환합니까?\n"
+"  * `Mutex`를 고정한 스레드가 패닉 상태가 되면, `Mutex`는 보호한 데이터가"
+"  일관되지 않은 상태일 수 있음을 알리기 위해 \"중독(poisoned)\"됩니다."
+"  중독된 뮤텍스에서 `lock()`을 호출하면 실패하고 [`PoisonError`]가 발생합니다."
+"  오류로부터 데이터를 복구하기 위해 `into_inner()`를 호출할 수 있습니다."
 
 #: src/concurrency/shared_state/mutex.md:38
 msgid ""
@@ -10984,6 +11010,11 @@ msgid ""
 "use std::sync::{Arc, Mutex};\n"
 "use std::thread;"
 msgstr ""
+"가능한 해결방법입니다.:\n"
+"    \n"
+"```rust,editable\n"
+"use std::sync::{Arc, Mutex};\n"
+"use std::thread;"
 
 #: src/concurrency/shared_state/example.md:29
 msgid ""
@@ -11023,6 +11054,14 @@ msgid ""
 "    \n"
 "Notable parts:"
 msgstr ""
+"    {\n"
+"        let v = v.lock().unwrap();\n"
+"        println!(\"v: {v:?}\");\n"
+"    }\n"
+"}\n"
+"```\n"
+"    \n"
+"참고 사항:"
 
 #: src/concurrency/shared_state/example.md:54
 msgid ""
@@ -11034,6 +11073,11 @@ msgid ""
 "possible.\n"
 "* We still need to acquire the `Mutex` to print our `Vec`."
 msgstr ""
+"* `v`는 `Arc`와 `Mutex`와 직교성을 가지므로 둘 모두로부터 래핑되있습니다.\n"
+"* `v: Arc<_>`는 다른 스레드로 이동하기 전 'v2'로부터 복제해야 합니다. 따라서 "
+" 익명함수 시그니처에 `move`키워드가 추가되었습니다.\n"
+"* 블록은 `LockGuard`의 범위를 최대한 좁히기 위해 사용되었습니다.\n"
+"* `Vec`을 출력하기위해 `Mutex`를 먼저 획득합니다."
 
 #: src/concurrency/send-sync.md:1
 msgid "# `Send` and `Sync`"
@@ -11067,6 +11111,8 @@ msgid ""
 "when \n"
 "the compiler determines it’s appropriate."
 msgstr ""
+"두 트레이트는 컴파일러가 적합한지 자동으로 판단하여 구현하므로 직접 구현하지"
+" 않습니다."
 
 #: src/concurrency/send-sync.md:13
 msgid ""
@@ -11082,6 +11128,11 @@ msgid ""
 "  \n"
 "</details>"
 msgstr ""
+"* 이러한 트레이트들은 타입이 특정한 스레드-안전 속성을 가지도록 하는 마커로"
+" 생각할 수 있습니다.\n"
+"* 제너릭 제약 조건 하에서 정상적인 트레이트로 사용 될 수 있습니다.\n"
+"  \n"
+"</details>"
 
 #: src/concurrency/send-sync/send.md:1
 msgid "# `Send`"
@@ -11671,7 +11722,7 @@ msgstr "다음은 `rust_binary`와 `rust_library`를 살펴봅니다."
 
 #: src/android/build-rules/binary.md:1
 msgid "# Rust Binaries"
-msgstr ""
+msgstr "# 러스트 바이너리"
 
 #: src/android/build-rules/binary.md:3
 msgid ""
@@ -11732,7 +11783,7 @@ msgstr ""
 
 #: src/android/build-rules/library.md:1
 msgid "# Rust Libraries"
-msgstr ""
+msgstr "# 러스트 라이브러리"
 
 #: src/android/build-rules/library.md:3
 msgid "You use `rust_library` to create a new Rust library for Android."
@@ -11861,7 +11912,7 @@ msgstr ""
 
 #: src/android/aidl/interface.md:1
 msgid "# AIDL Interfaces"
-msgstr ""
+msgstr "# AIDL 인터페이스"
 
 #: src/android/aidl/interface.md:3
 msgid "You declare the API of your service using an AIDL interface:"
@@ -11919,7 +11970,7 @@ msgstr ""
 
 #: src/android/aidl/implementation.md:1
 msgid "# Service Implementation"
-msgstr ""
+msgstr "# 서비스 구현"
 
 #: src/android/aidl/implementation.md:3
 msgid "We can now implement the AIDL service:"
@@ -11984,7 +12035,7 @@ msgstr ""
 
 #: src/android/aidl/server.md:1
 msgid "# AIDL Server"
-msgstr ""
+msgstr "# AIDL 서버"
 
 #: src/android/aidl/server.md:3
 msgid "Finally, we can create a server which exposes the service:"
@@ -12044,7 +12095,7 @@ msgstr ""
 
 #: src/android/aidl/deploy.md:1
 msgid "# Deploy"
-msgstr ""
+msgstr "# 배포"
 
 #: src/android/aidl/deploy.md:3
 msgid "We can now build, push, and start the service:"
@@ -12093,7 +12144,7 @@ msgstr ""
 
 #: src/android/aidl/client.md:1
 msgid "# AIDL Client"
-msgstr ""
+msgstr "# AIDL 클라이언트"
 
 #: src/android/aidl/client.md:3
 msgid "Finally, we can create a Rust client for our new service."
@@ -12182,7 +12233,7 @@ msgstr ""
 
 #: src/android/aidl/changing.md:1
 msgid "# Changing API"
-msgstr ""
+msgstr "# API 수정"
 
 #: src/android/aidl/changing.md:3
 msgid ""
@@ -12205,7 +12256,7 @@ msgstr ""
 
 #: src/android/logging.md:1
 msgid "# Logging"
-msgstr ""
+msgstr "# 로깅"
 
 #: src/android/logging.md:3
 msgid ""
@@ -12706,6 +12757,9 @@ msgid ""
 "the function. You can also use `#[export_name = \"some_name\"]` to specify "
 "whatever name you want."
 msgstr ""
+"`#[no_mangle]`은 러스트의 일반적인 name mangling을 비활성화하므로 함수의 이름이"
+" 내보낸 심볼이 됩니다. "
+" `#[export_name = \"some_name\"]`을 사용하여 원하는 이름을 지정할 수 있습니다."
 
 #: src/android/interoperability/cpp.md:1
 msgid "# With C++"
@@ -13296,6 +13350,8 @@ msgid ""
 "In addition, the type itself would not enforce that the child slices are of "
 "the same length, so such variable could contain an invalid matrix."
 msgstr ""
+"또한 타임 자체의 슬라이스 길이가 동일하지 않으므로 이러한 변수에 잘못된 행렬이"
+" 포함될 수 있습니다."
 
 #: src/exercises/day-1/solutions-afternoon.md:1
 msgid "# Day 1 Afternoon Exercises"
