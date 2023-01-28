@@ -52,6 +52,7 @@ fn translate(text: &str, catalog: &Catalog) -> String {
 
         let translated = catalog
             .find_message(paragraph)
+            .filter(|msg| !msg.flags.contains("fuzzy"))
             .and_then(|msg| msg.get_msgstr().ok())
             .filter(|msgstr| !msgstr.is_empty())
             .map(|msgstr| msgstr.as_str())
