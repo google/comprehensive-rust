@@ -32,7 +32,7 @@ To run the course, you need to:
 5. Let people solve the exercises by themselves or in small groups. Make sure to
    ask people if they're stuck or if there is anything you can help with. When
    you see that several people have the same problem, call it out to the class
-   and offer a solution, e.g., by showing people where to find the relvant
+   and offer a solution, e.g., by showing people where to find the relevant
    information in the standard library.
 
 6. If you don't skip the Android specific parts on Day 4, you will need an [AOSP
