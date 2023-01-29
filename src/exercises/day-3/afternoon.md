@@ -4,8 +4,8 @@ Let us build a safe wrapper for reading directory content!
 
 <details>
 
-After looking at the exercise, you can look at the [solutions] provided.
+After looking at the exercise, you can look at the [solution] provided.
 
-[solutions]: solutions-afternoon.md
+[solution]: solutions-afternoon.md
 
 </details>
