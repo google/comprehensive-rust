@@ -30,7 +30,7 @@ Key points:
   `Option<T>` and `Result<T, E>`.
 
 * Remind people to read the errors --- many developers have gotten used to
-  ignore lengthly compiler output. The Rust compiler is significantly more
+  ignore lengthy compiler output. The Rust compiler is significantly more
   talkative than other compilers. It will often provide you with _actionable_
   feedback, ready to copy-paste into your code.
 
