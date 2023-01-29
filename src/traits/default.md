@@ -11,15 +11,11 @@ struct Derived {
 }
 
 #[derive(Debug)]
-struct Implemented {
-    name: String,
-}
+struct Implemented(String);
 
 impl Default for Implemented {
     fn default() -> Self {
-        Self {
-            name: "John Smith".into(),
-        }
+        Self("John Smith".into())
     }
 }
 
