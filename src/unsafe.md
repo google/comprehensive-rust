@@ -6,7 +6,7 @@ The Rust language has two parts:
 * **Unsafe Rust:** can trigger undefined behavior if preconditions are violated.
 
 We will be seeing mostly safe Rust in this course, but it's important to know
-what Unsafe Rust is. 
+what Unsafe Rust is.
 
 Unsafe code is usually small and isolated, and its correctness should be carefully
 documented. It is usually wrapped in a safe abstraction layer.
