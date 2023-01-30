@@ -24,7 +24,7 @@ Rust.
 
 <details>
 
-* Point out that the `while let` loop will keep going as long as there is an value to unwrap.   
-* You could rewrite the `while let` loop as an infinite loop with an if statement that breaks when there is no value to unwrap for `iter.next()`. The `while let` provides syntactic sugar for the above scenario. 
+* Point out that the `while let` loop will keep going as long as the value matches the pattern.
+* You could rewrite the `while let` loop as an infinite loop with an if statement that breaks when there is no value to unwrap for `iter.next()`. The `while let` provides syntactic sugar for the above scenario.
     
 </details>
