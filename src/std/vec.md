@@ -26,10 +26,16 @@ methods on a `Vec`.
 
 <details>
     
-Notice how `Vec<T>` is a generic type too, but you don't have to specify `T` explicitly.
-As always with Rust type inference, the `T` was established during the first `push` call.
-
-`vec![...]` is a canonical macro to use instead of `Vec::new()` and it supports
-adding initial elements to the vector.
+* `Vec` is a type of collection, along with `String` and `HashMap`. The data it contains is stored
+  on the heap. This means the amount of data doesn't need to be  known at compile time. It can grow
+  or shrink at runtime.
+* Notice how `Vec<T>` is a generic type too, but you don't have to specify `T` explicitly. As always
+  with Rust type inference, the `T` was established during the first `push` call.
+* `vec![...]` is a canonical macro to use instead of `Vec::new()` and it supports adding initial
+  elements to the vector. 
+* To index the vector you use `[` `]`, but they will panic if out of bounds. Alternatively, using
+  `get` will return an `Option`. The `pop` function will remove the last element.
+* Show iterating over a vector and mutating the value:
+  `for e in &mut v { *e += 50; }`
 
 </details>
