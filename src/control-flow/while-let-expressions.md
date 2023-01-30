@@ -20,3 +20,11 @@ return `None`. The `while let` lets us keep iterating through all items.
 
 See [pattern matching](../pattern-matching.md) for more details on patterns in
 Rust.
+
+
+<details>
+
+* Point out that the `while let` loop will keep going as long as the value matches the pattern.
+* You could rewrite the `while let` loop as an infinite loop with an if statement that breaks when there is no value to unwrap for `iter.next()`. The `while let` provides syntactic sugar for the above scenario.
+    
+</details>
