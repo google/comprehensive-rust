@@ -13,12 +13,13 @@ fn duplicate<T: Clone>(a: T) -> (T, T) {
 fn main() {
     let foo = String::from("foo");
     let pair = duplicate(foo);
+    println!("{pair:?}");
 }
 ```
 
 <details>
 
-Consider showing a `where` clause syntax. Students can encounter it too when reading code.
+Show a `where` clause, students will encounter it when reading code.
     
 ```rust,ignore
 fn duplicate<T>(a: T) -> (T, T)
