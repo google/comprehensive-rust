@@ -17,20 +17,8 @@ enum Foo {
     B,
 }
 
-#[repr(u32)]
-enum Bar {
-    A,  // 0
-    B = 10000,
-    C,  // 10001
-}
-
 fn main() {
     dbg_size!(Foo);
-    dbg_size!(Bar);
-    dbg_size!(bool);
-    dbg_size!(Option<bool>);
-    dbg_size!(&i32);
-    dbg_size!(Option<&i32>);
 }
 ```
 
@@ -38,13 +26,44 @@ fn main() {
 
 <details>
     
-Key Points: 
+Key Points:
+
  * Internally Rust is using a field (discriminant) to keep track of the enum variant.
- * `Bar` enum demonstrates that there is a way to control the discriminant value and type. If `repr` is removed, the discriminant type takes 2 bytes, becuase 10001 fits 2 bytes.
- * As a niche optimization an enum discriminant is merged with the pointer so that `Option<&Foo>` is the same size as `&Foo`.
- * `Option<bool>` is another example of tight packing.
- * For [some types](https://doc.rust-lang.org/std/option/#representation), Rust guarantees that `size_of::<T>()` equals `size_of::<Option<T>>()`.
- * Zero-sized types allow for efficient implementation of `HashSet` using `HashMap` with `()` as the value.
+
+ * You can control the discriminant if needed (e.g., for compatibility with C):
+ 
+     ```rust,editable
+     #[repr(u32)]
+     enum Bar {
+         A,  // 0
+         B = 10000,
+         C,  // 10001
+     }
+     
+     fn main() {
+         println!("A: {}", Bar::A as u32);
+         println!("B: {}", Bar::B as u32);
+         println!("C: {}", Bar::C as u32);
+     }
+     ```
+
+    Without `repr`, the discriminant type takes 2 bytes, because 10001 fits 2
+    bytes.
+
+
+ * Try out other types such as
+ 
+     * `dbg_size!(bool)`: size 1 bytes, align: 1 bytes,
+     * `dbg_size!(Option<bool>)`: size 1 bytes, align: 1 bytes (niche optimization, see below),
+     * `dbg_size!(&i32)`: size 8 bytes, align: 8 bytes (on a 64-bit machine),
+     * `dbg_size!(Option<&i32>)`: size 8 bytes, align: 8 bytes (null pointer optimization, see below).
+
+ * Niche optimization: Rust will merge use unused bit patterns for the enum
+   discriminant.
+
+ * Null pointer optimization: For [some
+   types](https://doc.rust-lang.org/std/option/#representation), Rust guarantees
+   that `size_of::<T>()` equals `size_of::<Option<T>>()`.
 
 Example code if you want to show how the bitwise representation *may* look like in practice.
 It's important to note that the compiler provides no guarantees regarding this representation, therefore this is totally unsafe.
