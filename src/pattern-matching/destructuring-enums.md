@@ -13,7 +13,7 @@ fn divide_in_two(n: i32) -> Result {
     if n % 2 == 0 {
         Result::Ok(n / 2)
     } else {
-        Result::Err(format!("cannot divide {} into two equal parts", n))
+        Result::Err(format!("cannot divide {n} into two equal parts"))
     }
 }
 
