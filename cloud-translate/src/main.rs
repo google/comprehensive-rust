@@ -137,7 +137,7 @@ async fn translate_catalog(
             continue;
         }
         let msgid = msg.get_msgid().unwrap();
-        if msgid.trim().is_empty() {
+        if msgid.trim().is_empty() || msgid.contains("```") {
             continue;
         }
         char_count += msgid.chars().count();
