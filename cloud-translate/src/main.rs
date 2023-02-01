@@ -68,6 +68,11 @@ async fn translate(
     msgids: &[&str],
     lang: &str,
 ) -> anyhow::Result<Vec<String>> {
+    if msgids.is_empty() {
+        // It is an error to send an empty request to Cloud Translate.
+        return Ok(Vec::new());
+    }
+
     let request = TranslateTextRequest {
         contents: msgids.into(),
         mime_type: "text/plain",
