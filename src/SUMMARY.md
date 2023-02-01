@@ -237,6 +237,7 @@
 
 - [Welcome](welcome-bare-metal.md)
 - [`no_std`](bare-metal/no_std.md)
+  - [A minimal example](bare-metal/minimal.md)
   - [`core`]()
   - [`alloc`]()
 - [Microcontrollers]()
