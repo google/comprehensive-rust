@@ -12,9 +12,6 @@ fn main() {
     v2.extend(v1.iter());
     v2.push(9999);
     println!("v2: len = {}, capacity = {}", v2.len(), v2.capacity());
-    
-    let mut numbers = vec![1, 2, 3];
-    numbers.push(42);
 }
 ```
 
