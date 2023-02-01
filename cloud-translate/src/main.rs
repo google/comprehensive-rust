@@ -182,6 +182,9 @@ async fn main() -> anyhow::Result<()> {
     match &args.as_slice() {
         &[_, gcp_project, po_file, max_char_count] => {
             let max_char_count = max_char_count.parse::<usize>()?;
+            if max_char_count > 30000 {
+                anyhow::bail!("You can only translate up to 30k characters at a time");
+            }
             let token = get_token().await?;
             let client = create_client(gcp_project)?;
 
