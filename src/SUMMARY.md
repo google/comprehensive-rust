@@ -153,6 +153,7 @@
   - [Structured Error Handling](error-handling/result.md)
   - [Propagating Errors with ?](error-handling/try-operator.md)
     - [Converting Error Types](error-handling/converting-error-types.md)
+      - [Example](error-handling/converting-error-types-example.md)
     - [Deriving Error Enums](error-handling/deriving-error-enums.md)
     - [Dynamic Error Types](error-handling/dynamic-errors.md)
     - [Adding Context to Errors](error-handling/error-contexts.md)
