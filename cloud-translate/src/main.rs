@@ -137,6 +137,9 @@ async fn translate_catalog(
             continue;
         }
         let msgid = msg.get_msgid().unwrap();
+        if msgid.trim().is_empty() {
+            continue;
+        }
         char_count += msgid.chars().count();
         if char_count > max_char_count {
             let trunc = msgid.chars().take(20).collect::<String>();
