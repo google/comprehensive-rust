@@ -233,6 +233,32 @@
 
 ----
 
+# Day 5A: Morning
+
+- [Welcome](welcome-no_std.md)
+- [`no_std`](no_std/no_std.md)
+  - [`core`]()
+  - [`alloc`]()
+- [Microcontrollers]()
+  - [PACs]()
+  - [HAL crates]()
+  - [The type state pattern]()
+
+# Day 5A: Afternoon
+
+- [Application processors]()
+  - [MMIO]()
+  - [Let's write a UART driver]()
+  - [Logging]()
+- [Useful crates]()
+  - [`zerocopy`]()
+  - [`aarch64_paging`]()
+  - [`buddy_system_allocator`]()
+  - [`tinyvec`]()
+  - [`spin` and `once_cell`]()
+
+---
+
 # Solutions
 
 ----
