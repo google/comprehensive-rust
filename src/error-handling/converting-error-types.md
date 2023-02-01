@@ -20,9 +20,8 @@ type returned by the function:
 
 ```rust,editable
 use std::error::Error;
-use std::{fs, io};
+use std::{fs, fmt, io};
 use std::io::Read;
-use std::fmt::{self, Display, Formatter};
 
 #[derive(Debug)]
 enum ReadUsernameError {
@@ -32,11 +31,11 @@ enum ReadUsernameError {
 
 impl Error for ReadUsernameError {}
 
-impl Display for ReadUsernameError {
-    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+impl fmt::Display for ReadUsernameError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match self {
-            Self::IoError(e) => write!(f, "IO error: {}", e),
-            Self::EmptyUsername(filename) => write!(f, "Found no username in {}", filename),
+            Self::IoError(err) => write!(f, "IO error: {err}"),
+            Self::EmptyUsername(path) => write!(f, "No username in {path}"),
         }
     }
 }
@@ -48,7 +47,7 @@ impl From<io::Error> for ReadUsernameError {
 }
 
 fn read_username(path: &str) -> Result<String, ReadUsernameError> {
-    let mut username = String::with_capacity(100);
+    let mut username = String::new();
     fs::File::open(path)?.read_to_string(&mut username)?;
     if username.is_empty() {
         return Err(ReadUsernameError::EmptyUsername(String::from(path)));
