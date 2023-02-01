@@ -1,6 +1,6 @@
 # A minimal `no_std` program
 
-```rust,editable
+```rust,editable,compile_fail
 #![no_main]
 #![no_std]
 

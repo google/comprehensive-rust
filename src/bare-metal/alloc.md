@@ -2,7 +2,7 @@
 
 To use `alloc` you must implement a global (heap) allocator.
 
-```rust,editable
+```rust,editable,compile_fail
 {{#include alloc-example/src/main.rs:Alloc}}
 ```
 
