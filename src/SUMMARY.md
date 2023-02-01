@@ -235,8 +235,8 @@
 
 # Day 5A: Morning
 
-- [Welcome](welcome-no_std.md)
-- [`no_std`](no_std/no_std.md)
+- [Welcome](welcome-bare-metal.md)
+- [`no_std`](bare-metal/no_std.md)
   - [`core`]()
   - [`alloc`]()
 - [Microcontrollers]()
