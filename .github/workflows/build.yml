@@ -34,6 +34,9 @@ jobs:
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
 
+      - name: Build Rust code
+        run: cargo build
+
       - name: Test Rust code
         run: cargo test
 
