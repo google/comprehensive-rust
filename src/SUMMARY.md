@@ -239,9 +239,9 @@
 - [`no_std`](bare-metal/no_std.md)
   - [A minimal example](bare-metal/minimal.md)
   - [`alloc`](bare-metal/alloc.md)
-- [Microcontrollers]()
-  - [PACs]()
-  - [HAL crates]()
+- [Microcontrollers](bare-metal/microcontrollers.md)
+  - [PACs](bare-metal/microcontrollers/pacs.md)
+  - [HAL crates](bare-metal/microcontrollers/hals.md)
   - [The type state pattern]()
 
 # Day 5A: Afternoon
