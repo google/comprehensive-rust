@@ -17,9 +17,9 @@
 #![no_std]
 
 extern crate alloc;
+extern crate panic_halt as _;
 
 use alloc::{string::ToString, vec::Vec};
-use core::panic::PanicInfo;
 use buddy_system_allocator::LockedHeap;
 
 #[global_allocator]
@@ -39,10 +39,4 @@ pub fn entry() {
     // Now we can do things that require heap allocation.
     let mut v = Vec::new();
     v.push("A string".to_string());
-}
-// ANCHOR_END: Alloc
-
-#[panic_handler]
-fn panic(_panic: &PanicInfo) -> ! {
-    loop {}
 }
