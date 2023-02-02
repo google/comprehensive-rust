@@ -34,12 +34,11 @@ jobs:
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
 
+      - name: Build Rust code
+        run: cargo build
+
       - name: Test Rust code
         run: cargo test
-
-      - name: Test i18n-helpers
-        run: cargo test
-        working-directory: i18n-helpers
 
   i18n-helpers:
     runs-on: ubuntu-latest

@@ -1,49 +1,5 @@
-[package]
-name = "comprehensive-rust"
-version = "0.1.0"
-edition = "2021"
-publish = false
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[[bin]]
-name = "for-loops"
-path = "src/exercises/day-1/for-loops.rs"
-
-[[bin]]
-name = "book-library"
-path = "src/exercises/day-1/book-library.rs"
-
-[[bin]]
-name = "points-polygons"
-path = "src/exercises/day-2/points-polygons.rs"
-
-[[bin]]
-name = "luhn"
-path = "src/exercises/day-2/luhn.rs"
-
-[[bin]]
-name = "strings-iterators"
-path = "src/exercises/day-2/strings-iterators.rs"
-
-[[bin]]
-name = "safe-ffi-wrapper"
-path = "src/exercises/day-3/safe-ffi-wrapper.rs"
-
-[[bin]]
-name = "simple-gui"
-path = "src/exercises/day-3/simple-gui.rs"
-
-[[bin]]
-name = "dining-philosophers"
-path = "src/exercises/day-4/dining-philosophers.rs"
-
-[[bin]]
-name = "link-checker"
-path = "src/exercises/day-4/link-checker.rs"
-
-
-[dependencies]
-reqwest = { version = "0.11.12", features = ["blocking"] }
-scraper = "0.13.0"
-thiserror = "1.0.37"
+[workspace]
+members = [
+  "i18n-helpers",
+  "src/exercises",
+]

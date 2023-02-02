@@ -6,7 +6,4 @@
 
 ```rust
 {{#include points-polygons.rs}}
-
-#[allow(dead_code)]
-fn main() {}
 ```
