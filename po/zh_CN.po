@@ -17,7 +17,7 @@ msgstr "欢迎来到 Comprehensive Rust 🦀"
 
 #: src/SUMMARY.md:4
 msgid "Running the Course"
-msgstr "运行课程"
+msgstr "开设课程"
 
 #: src/SUMMARY.md:5
 msgid "Course Structure"
@@ -29,7 +29,7 @@ msgstr "键盘快捷键"
 
 #: src/SUMMARY.md:7
 msgid "Using Cargo"
-msgstr "使用货物"
+msgstr "使用 Cargo"
 
 #: src/SUMMARY.md:8
 msgid "Rust Ecosystem"
@@ -1004,7 +1004,7 @@ msgstr ""
 
 #: src/running-the-course.md:1
 msgid "# Running the Course"
-msgstr "# 运行课程"
+msgstr "# 开设课程"
 
 #: src/running-the-course.md:3 src/running-the-course/course-structure.md:3
 msgid "> This page is for the course instructor."
@@ -1022,7 +1022,7 @@ msgstr ""
 
 #: src/running-the-course.md:8
 msgid "To run the course, you need to:"
-msgstr "要运行课程，您需要："
+msgstr "要开设该课程，您需要："
 
 #: src/running-the-course.md:10
 msgid ""
@@ -3128,7 +3128,7 @@ msgstr ""
 
 #: src/basic-syntax/functions-interlude.md:12
 msgid "However, function parameters can be generic:"
-msgstr "但是，函数参数可以是通用的：(Hilbert-WIP)"
+msgstr "但是，函数参数可以是通用的："
 
 #: src/basic-syntax/functions-interlude.md:14
 msgid ""
@@ -3153,31 +3153,35 @@ msgid ""
 "of limited\n"
 "  polymorphism on argument types. We will see more details in a later "
 "section."
-msgstr "</defails>"
+msgstr ""
+"* 使用泛型时，标准库的 `Into<T>` 可以提供一种"
+"有限的\n"
+"参数类型的多态性。我们将在稍后看到更多细节"
+"部分。"
 
 #: src/basic-syntax/functions-interlude.md:30
 msgid "</defails>"
-msgstr "# 第一天：晨练"
+msgstr ""
 
 #: src/exercises/day-1/morning.md:1
 msgid "# Day 1: Morning Exercises"
-msgstr "在这些练习中，我们将探索 Rust 的两个部分："
+msgstr "# 第一天：晨练"
 
 #: src/exercises/day-1/morning.md:3
 msgid "In these exercises, we will explore two parts of Rust:"
-msgstr "* 类型之间的隐式转换。"
+msgstr "在这些练习中，我们将探索 Rust 的两个部分："
 
 #: src/exercises/day-1/morning.md:5
 msgid "* Implicit conversions between types."
-msgstr "* 数组和 `for` 循环。"
+msgstr "* 类型之间的隐式转换。"
 
 #: src/exercises/day-1/morning.md:7
 msgid "* Arrays and `for` loops."
-msgstr "解决练习时需要考虑的几件事："
+msgstr "* 数组和 `for` 循环。"
 
 #: src/exercises/day-1/morning.md:11
 msgid "A few things to consider while solving the exercises:"
-msgstr ""
+msgstr "解决练习时需要考虑的几件事："
 
 #: src/exercises/day-1/morning.md:13
 msgid ""
@@ -3185,11 +3189,15 @@ msgid ""
 "  auto-completion in your editor. See the page about [Using Cargo] for "
 "details\n"
 "  on installing Rust."
-msgstr "* 或者，使用 Rust 游乐场。"
+msgstr ""
+"* 如果可能，请使用本地 Rust 安装。这样你可以获得\n"
+" 在您的编辑器中自动完成。请参阅有关 [Using Cargo] 的页面"
+"细节\n"
+"关于安装 Rust。"
 
 #: src/exercises/day-1/morning.md:17
 msgid "* Alternatively, use the Rust Playground."
-msgstr ""
+msgstr "* 或者，使用 Rust 游乐场。"
 
 #: src/exercises/day-1/morning.md:19
 msgid ""
@@ -3197,26 +3205,29 @@ msgid ""
 "lose\n"
 "their state if you navigate away from the page."
 msgstr ""
+"代码片段是故意不可编辑的：内联代码片段"
+"输\n"
+"如果您离开该页面，它们的状态。"
 
 #: src/exercises/day-1/morning.md:22 src/exercises/day-1/afternoon.md:11
 #: src/exercises/day-2/morning.md:11 src/exercises/day-2/afternoon.md:7
 #: src/exercises/day-3/morning.md:7 src/exercises/day-4/morning.md:12
 msgid ""
 "After looking at the exercises, you can look at the [solutions] provided."
-msgstr "[解决方案]: solutions-morning.md"
+msgstr ""
 
 #: src/exercises/day-1/morning.md:24 src/exercises/day-2/morning.md:13
 #: src/exercises/day-3/morning.md:9 src/exercises/day-4/morning.md:14
 msgid "[solutions]: solutions-morning.md"
-msgstr "[使用 Cargo]: ../../cargo.md"
+msgstr "[答案]: solutions-morning.md"
 
 #: src/exercises/day-1/morning.md:26
 msgid "[Using Cargo]: ../../cargo.md"
-msgstr "# 隐式转换"
+msgstr "[使用 Cargo]: ../../cargo.md"
 
 #: src/exercises/day-1/implicit-conversions.md:1
 msgid "# Implicit Conversions"
-msgstr ""
+msgstr "# 隐式转换"
 
 #: src/exercises/day-1/implicit-conversions.md:3
 msgid ""
@@ -3224,6 +3235,9 @@ msgid ""
 "([unlike\n"
 "C++][3]). You can see this in a program like this:"
 msgstr ""
+"Rust 不会在类型之间自动应用_隐式转换_"
+"([不像\n"
+"C++][3])。你可以在这样的程序中看到这一点："
 
 #: src/exercises/day-1/implicit-conversions.md:6
 msgid ""
@@ -3257,6 +3271,13 @@ msgid ""
 "into\n"
 "another type."
 msgstr ""
+"Rust 整数类型都实现了 [`From<T>`][1] 和 [`Into<T>`][2]\n"
+"让我们在它们之间进行转换的特性。`From<T>` 特性有一个单一的"
+"`来自（）`\n"
+"方法，类似地，`Into<T>` 特征有一个单一的 `into()` 方法。\n"
+"实现这些特征就是一个类型表达它可以被转换的方式"
+"进入\n"
+"另一种。"
 
 #: src/exercises/day-1/implicit-conversions.md:25
 msgid ""
@@ -3266,6 +3287,11 @@ msgid ""
 "`i16::from(x)`. Or, simpler, with `x.into()`, because `From<i8> for i16`\n"
 "implementation automatically create an implementation of `Into<i16> for i8`."
 msgstr ""
+"标准库有一个 `From<i8> for i16` 的实现，它是"
+"意味着\n"
+"我们可以通过调用 \n 将类型为 `i8` 的变量 `x` 转换为 `i16`"
+"`i16::from(x)`。或者，更简单，使用 `x.into()`，因为 `From<i8> for i16`\n"
+"实现自动创建 `Into<i16> for i8` 的实现。"
 
 #: src/exercises/day-1/implicit-conversions.md:30
 msgid ""
@@ -3273,15 +3299,20 @@ msgid ""
 "it is\n"
 "sufficient to only implement `From` to get a respective `Into` "
 "implementation automatically."
-msgstr "1. 执行上面的程序，查看编译错误。"
+msgstr ""
+"这同样适用于您自己的类型的 `From` 实现，所以"
+"它为N"
+"足以只实施 `From` 以获得相应的 `Into` "
+"自动执行。"
 
 #: src/exercises/day-1/implicit-conversions.md:33
 msgid "1. Execute the above program and look at the compiler error."
-msgstr "2. 更新上面的代码以使用 `into()` 进行转换。"
+msgstr "1. 执行上面的程序，查看编译错误。"
 
 #: src/exercises/day-1/implicit-conversions.md:35
 msgid "2. Update the code above to use `into()` to do the conversion."
-msgstr ""
+msgstr "2. 更新上面的代码以使用 `into()` 进行转换。"
+
 
 #: src/exercises/day-1/implicit-conversions.md:37
 msgid ""
@@ -3292,21 +3323,27 @@ msgid ""
 "for\n"
 "   the pairs you check."
 msgstr ""
+"3. 将 `x` 和 `y` 的类型更改为其他类型（例如 `f32`、`bool`、\n"
+" `i128`) 查看哪些类型可以转换为哪些其他类型。尝试\n"
+" 将小型类型转换为大型类型，反之亦然。检查\n"
+" [标准库文档][1] 查看是否实现了 `From<T>` "
+"为\n"
+"你检查的货币对。"
 
 #: src/exercises/day-1/implicit-conversions.md:43
 msgid ""
 "[1]: https://doc.rust-lang.org/std/convert/trait.From.html\n"
 "[2]: https://doc.rust-lang.org/std/convert/trait.Into.html\n"
 "[3]: https://en.cppreference.com/w/cpp/language/implicit_conversion"
-msgstr "# 数组和 `for` 循环"
+msgstr ""
 
 #: src/exercises/day-1/for-loops.md:1
 msgid "# Arrays and `for` Loops"
-msgstr "我们看到数组可以这样声明："
+msgstr "# 数组和 `for` 循环"
 
 #: src/exercises/day-1/for-loops.md:3
 msgid "We saw that an array can be declared like this:"
-msgstr ""
+msgstr "我们看到数组可以这样声明："
 
 #: src/exercises/day-1/for-loops.md:5
 msgid ""
@@ -3320,6 +3357,8 @@ msgid ""
 "You can print such an array by asking for its debug representation with `{:?}"
 "`:"
 msgstr ""
+"您可以通过使用 `{:?}` 请求其调试表示来打印这样的数组"
+"："
 
 #: src/exercises/day-1/for-loops.md:11
 msgid ""
@@ -3336,6 +3375,8 @@ msgid ""
 "Rust lets you iterate over things like arrays and ranges using the `for`\n"
 "keyword:"
 msgstr ""
+"Rust 允许您使用 `for` 遍历数组和范围之类的东西\n"
+"关键词："
 
 #: src/exercises/day-1/for-loops.md:21
 msgid ""
@@ -3367,6 +3408,10 @@ msgid ""
 "a function `transpose` which will transpose a matrix (turn rows into "
 "columns):"
 msgstr ""
+"使用上面的代码编写一个漂亮打印矩阵的函数 `pretty_print`"
+"和\n"
+"一个函数 ‘transpose’，它将转置一个矩阵（将行转换为"
+"列）："
 
 #: src/exercises/day-1/for-loops.md:41
 msgid ""
@@ -3375,17 +3420,19 @@ msgid ""
 "\"transpose\"⎜⎢4 5 6⎥⎟  \"==\"⎢2 5 8⎥\n"
 "           ⎝⎣7 8 9⎦⎠      ⎣3 6 9⎦\n"
 "```"
-msgstr "硬编码这两个函数以在 3 × 3 矩阵上运行。"
+msgstr ""
 
 #: src/exercises/day-1/for-loops.md:47
 msgid "Hard-code both functions to operate on 3 × 3 matrices."
-msgstr ""
+msgstr "硬编码这两个函数以在 3 × 3 矩阵上运行。"
 
 #: src/exercises/day-1/for-loops.md:49
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and implement the\n"
 "functions:"
 msgstr ""
+"将下面的代码复制到 <https://play.rust-lang.org/> 并执行\n"
+"职能："
 
 #: src/exercises/day-1/for-loops.md:52 src/exercises/day-1/book-library.md:20
 #: src/exercises/day-2/health-statistics.md:13
@@ -3433,11 +3480,11 @@ msgid ""
 "    pretty_print(&transposed);\n"
 "}\n"
 "```"
-msgstr "## 奖励问题"
+msgstr ""
 
 #: src/exercises/day-1/for-loops.md:80
 msgid "## Bonus Question"
-msgstr ""
+msgstr "## 奖励问题"
 
 #: src/exercises/day-1/for-loops.md:82
 msgid ""
@@ -3445,6 +3492,9 @@ msgid ""
 "argument and return types? Something like `&[&[i32]]` for a two-dimensional\n"
 "slice-of-slices. Why or why not?"
 msgstr ""
+"你能为你的\n使用 `&[i32]` 切片而不是硬编码的 3 × 3 矩阵吗？"
+"参数和返回类型？类似于 `&[&[i32]]` 的二维\n"
+"切片中的切片。为什么或为什么不？"
 
 #: src/exercises/day-1/for-loops.md:87
 msgid ""
@@ -3452,16 +3502,21 @@ msgid ""
 "quality\n"
 "implementation."
 msgstr ""
+"查看 [`ndarray` crate](https://docs.rs/ndarray/) 进行制作"
+"质量\n"
+"执行。"
 
 #: src/exercises/day-1/for-loops.md:92
 msgid ""
 "The solution and the answer to the bonus section are available in the \n"
 "[Solution](solutions-morning.md#arrays-and-for-loops) section."
-msgstr "# 变量"
+msgstr ""
+"奖金部分的解决方案和答案可在\n"
+"[解决方案](solutions-morning.md#arrays-and-for-loops) 部分。"
 
 #: src/basic-syntax/variables.md:1
 msgid "# Variables"
-msgstr ""
+msgstr "# 变量"
 
 #: src/basic-syntax/variables.md:3
 msgid ""
@@ -3469,6 +3524,9 @@ msgid ""
 "by\n"
 "default:"
 msgstr ""
+"Rust 通过静态类型提供类型安全。变量绑定是不可变的"
+"通过\n"
+"默认："
 
 #: src/basic-syntax/variables.md:6
 msgid ""
@@ -3488,15 +3546,19 @@ msgid ""
 "types less and less as the type progresses.\n"
 "* Note that since `println!` is a macro, `x` is not moved, even using the "
 "function like syntax of `println!(\"x: {}\", x)`"
-msgstr "# 类型推断"
+msgstr ""
+"* 由于类型推断，`i32` 是可选的。我们将逐步展示"
+"随着打字的进行，打字越来越少。\n"
+"* 请注意，由于 `println!` 是一个宏，即使使用 "
+"功能类似于 `println!(\"x: {}\", x)`"
 
 #: src/basic-syntax/type-inference.md:1
 msgid "# Type Inference"
-msgstr "Rust 将查看变量是如何_使用_来确定类型的："
+msgstr "# 类型推断"
 
 #: src/basic-syntax/type-inference.md:3
 msgid "Rust will look at how the variable is _used_ to determine the type:"
-msgstr ""
+msgstr "Rust 将查看变量是如何_使用_来确定类型的："
 
 #: src/basic-syntax/type-inference.md:5
 msgid ""
@@ -3540,6 +3602,14 @@ msgid ""
 "to the explicit declaration of a type.\n"
 "The compiler does the job for us and helps us to write a more concise code."
 msgstr ""
+"这张幻灯片演示了 Rust 编译器如何根据"
+"由变量声明和用法给出的约束推断类型。\n"
+"\n"
+"非常重要的是要强调像这样声明的变量不是"
+"某种动态的\"任何类型\"，可以\n"
+"持有任何数据。这种声明生成的机器代码是相同的"
+"到类型的显式声明。\n"
+"编译器为我们完成工作，帮助我们编写更简洁的代码。"
 
 #: src/basic-syntax/type-inference.md:32
 msgid ""
@@ -3547,6 +3617,9 @@ msgid ""
 "container without the code ever explicitly specifying the contained type, "
 "using `_` as a placeholder:"
 msgstr ""
+"下面的代码告诉编译器复制到某个泛型中"
+"没有代码明确指定包含类型的容器，"
+"使用 `_` 作为占位符："
 
 #: src/basic-syntax/type-inference.md:34
 msgid ""
@@ -3571,23 +3644,26 @@ msgid ""
 "[`collect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator."
 "html#method.collect) relies on `FromIterator`, which [`HashSet`](https://doc."
 "rust-lang.org/std/iter/trait.FromIterator.html) implements."
-msgstr "# 静态和常量变量"
+msgstr ""
+"[`collect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator。"
+"html#method.collect) 依赖于 `FromIterator`，它是 [`HashSet`](https://doc."
+"rust-lang.org/std/iter/trait.FromIterator.html）实现。"
 
 #: src/basic-syntax/static-and-const.md:1
 msgid "# Static and Constant Variables"
-msgstr "全局状态由静态和常量变量管理。"
+msgstr "# 静态和常量变量"
 
 #: src/basic-syntax/static-and-const.md:3
 msgid "Global state is managed with static and constant variables."
-msgstr "## `const`"
+msgstr "全局状态由静态和常量变量管理。"
 
 #: src/basic-syntax/static-and-const.md:5
 msgid "## `const`"
-msgstr "你可以声明编译时常量："
+msgstr ""
 
 #: src/basic-syntax/static-and-const.md:7
 msgid "You can declare compile-time constants:"
-msgstr ""
+msgstr "你可以声明编译时常量："
 
 #: src/basic-syntax/static-and-const.md:9
 msgid ""
@@ -3615,19 +3691,19 @@ msgid ""
 "    println!(\"Digest: {digest:?}\");\n"
 "}\n"
 "```"
-msgstr "根据 [Rust RFC Book][1]，这些在使用时内联。"
+msgstr ""
 
 #: src/basic-syntax/static-and-const.md:27
 msgid "According the the [Rust RFC Book][1] these are inlined upon use."
-msgstr "## `static`"
+msgstr "根据 [Rust RFC Book][1]，这些在使用时内联。"
 
 #: src/basic-syntax/static-and-const.md:29
 msgid "## `static`"
-msgstr "你也可以声明静态变量："
+msgstr ""
 
 #: src/basic-syntax/static-and-const.md:31
 msgid "You can also declare static variables:"
-msgstr ""
+msgstr "你也可以声明静态变量："
 
 #: src/basic-syntax/static-and-const.md:33
 msgid ""
@@ -3650,12 +3726,18 @@ msgid ""
 "embedded code, and the variable lives through the entirety of the program "
 "execution."
 msgstr ""
+"如 [Rust RFC Book][1] 中所述，这些在使用时并未内联，并且具有"
+"实际关联的内存位置。这对于不安全和"
+"嵌入式代码，变量贯穿整个程序"
+"执行。"
 
 #: src/basic-syntax/static-and-const.md:44
 msgid ""
 "We will look at mutating static data in the [chapter on Unsafe Rust](../"
 "unsafe.md)."
 msgstr ""
+"我们将在 [关于 Unsafe Rust 的章节](../"
+"unsafe.md）。"
 
 #: src/basic-syntax/static-and-const.md:48
 msgid ""
@@ -3664,15 +3746,20 @@ msgid ""
 "global variable in C++.\n"
 "* It isn't super common that one would need a runtime evaluated constant, "
 "but it is helpful and safer than using a static."
-msgstr "[1]: https://rust-lang.github.io/rfcs/0246-const-vs-static.html"
+msgstr ""
+"* 提及 `const` 在语义上类似于 C++ 的 `constexpr`。\n"
+"* 另一方面，`static` 更类似于 `const` 或可变的"
+"C++ 中的全局变量。\n"
+"* 需要运行时评估常量的情况并不常见，"
+"但它比使用静电更有帮助且更安全。"
 
 #: src/basic-syntax/static-and-const.md:54
 msgid "[1]: https://rust-lang.github.io/rfcs/0246-const-vs-static.html"
-msgstr "# 作用域和阴影"
+msgstr "[1]: https://rust-lang.github.io/rfcs/0246-const-vs-static.html"
 
 #: src/basic-syntax/scopes-shadowing.md:1
 msgid "# Scopes and Shadowing"
-msgstr ""
+msgstr "# 作用域和阴影"
 
 #: src/basic-syntax/scopes-shadowing.md:3
 msgid ""
@@ -3680,6 +3767,9 @@ msgid ""
 "the\n"
 "same scope:"
 msgstr ""
+"您可以隐藏变量，包括来自外部范围的变量和来自"
+"然后"
+"相同范围的变量："
 
 #: src/basic-syntax/scopes-shadowing.md:6
 msgid ""
@@ -3722,6 +3812,15 @@ msgid ""
 "locations when shadowing an immutable variable in a scope, even if the type "
 "does not change."
 msgstr ""
+"*定义：shadowing不同于mutation，因为shadowing之后"
+"两个变量的内存位置同时存在。两者都可用"
+"使用相同的名称，具体取决于您在代码中使用它的位置。\n"
+"* 阴影变量可以有不同的类型。\n"
+"* 阴影乍看模糊，但便于坚持"
+"`.unwrap()` 之后的值。\n"
+"*以下代码演示了为什么编译器不能简单地重用内存"
+"在范围内隐藏不可变变量时的位置，即使类型"
+"不变。"
 
 #: src/basic-syntax/scopes-shadowing.md:30
 msgid ""
@@ -3733,44 +3832,49 @@ msgid ""
 "    println!(\"{a} {b}\");\n"
 "}\n"
 "```"
-msgstr "#内存管理"
+msgstr ""
+
 
 #: src/memory-management.md:1
 msgid "# Memory Management"
-msgstr "传统上，语言分为两大类："
+msgstr "#内存管理"
 
 #: src/memory-management.md:3
 msgid "Traditionally, languages have fallen into two broad categories:"
-msgstr ""
+msgstr "传统上，语言分为两大类："
 
 #: src/memory-management.md:5
 msgid ""
 "* Full control via manual memory management: C, C++, Pascal, ...\n"
 "* Full safety via automatic memory management at runtime: Java, Python, Go, "
 "Haskell, ..."
-msgstr "Rust 提供了一种新的组合："
+msgstr ""
+"* 通过手动内存管理完全控制：C、C++、Pascal、...\n"
+"* 通过运行时自动内存管理实现完全安全：Java、Python、Go、Haskell、..."
 
 #: src/memory-management.md:8
 msgid "Rust offers a new mix:"
-msgstr ""
+msgstr "Rust 提供了一种新的组合："
 
 #: src/memory-management.md:10
 msgid ""
 "> Full control *and* safety via compile time enforcement of correct memory\n"
 "> management."
-msgstr "它通过一个明确的所有权概念来做到这一点。"
+msgstr ""
+"> 通过编译时强制执行正确的内存来完全控制*和*安全\n"
+">管理。"
 
 #: src/memory-management.md:13
 msgid "It does this with an explicit ownership concept."
-msgstr "首先，让我们回顾一下内存管理的工作原理。"
+msgstr "它通过一个明确的所有权概念来做到这一点。"
 
 #: src/memory-management.md:15
 msgid "First, let's refresh how memory management works."
-msgstr "# 堆栈与堆"
+msgstr "首先，让我们回顾一下内存管理的工作原理。"
 
 #: src/memory-management/stack-vs-heap.md:1
 msgid "# The Stack vs The Heap"
-msgstr ""
+msgstr "# 堆栈与堆"
 
 #: src/memory-management/stack-vs-heap.md:3
 msgid ""
@@ -3780,6 +3884,11 @@ msgid ""
 "  * Easy to manage: follows function calls.\n"
 "  * Great memory locality."
 msgstr ""
+"* 堆栈：局部变量的连续内存区域。\n"
+" * 值具有在编译时已知的固定大小。\n"
+" * 极快：只需移动堆栈指针。\n"
+" * 易于管理：遵循函数调用。\n"
+" * 伟大的记忆地点。"
 
 #: src/memory-management/stack-vs-heap.md:9
 msgid ""
@@ -3787,11 +3896,15 @@ msgid ""
 "  * Values have dynamic sizes determined at runtime.\n"
 "  * Slightly slower than the stack: some book-keeping needed.\n"
 "  * No guarantee of memory locality."
-msgstr "# 栈内存"
+msgstr ""
+"* 堆：存储函数调用之外的值。\n"
+" * 值具有在运行时确定的动态大小。\n"
+" * 比堆栈稍慢：需要一些簿记。\n"
+" * 不保证内存位置。"
 
 #: src/memory-management/stack.md:1
 msgid "# Stack Memory"
-msgstr ""
+msgstr "# 栈内存"
 
 #: src/memory-management/stack.md:3
 msgid ""
@@ -3799,6 +3912,9 @@ msgid ""
 "sized\n"
 "data on the heap:"
 msgstr ""
+"创建一个 String 将固定大小的数据放在堆栈上并动态地"
+"尺寸\n"
+"堆上的数据："
 
 #: src/memory-management/stack.md:6
 msgid ""
@@ -3831,6 +3947,8 @@ msgid ""
 "* Mention that a `String` is backed by a `Vec`, so it has a capacity and "
 "length and can grow if mutable via reallocation on the heap."
 msgstr ""
+"* 提到 `String` 由 `Vec` 支持，所以它有一个容量和 "
+"长度，如果通过堆上的重新分配可变，则可以增长。"
 
 #: src/memory-management/stack.md:30
 msgid ""
@@ -3838,34 +3956,41 @@ msgid ""
 "heap allocated using the [System Allocator] and custom allocators can be "
 "implemented using the [Allocator API]"
 msgstr ""
+"*如果学生问起，你可以提到底层记忆是"
+"使用 [System Allocator] 和自定义分配器分配的堆可以是"
+"使用 [Allocator API] 实现"
 
 #: src/memory-management/stack.md:34
 msgid ""
 "[System Allocator]: https://doc.rust-lang.org/std/alloc/struct.System.html\n"
 "[Allocator API]: https://doc.rust-lang.org/std/alloc/index.html"
-msgstr "# 手动内存管理"
+msgstr ""
+"[系统分配器]：https://doc.rust-lang.org/std/alloc/struct.System.html\n"
+"[分配器 API]：https://doc.rust-lang.org/std/alloc/index.html"
 
 #: src/memory-management/manual.md:1
 msgid "# Manual Memory Management"
-msgstr "你自己分配和释放堆内存。"
+msgstr "# 手动内存管理"
 
 #: src/memory-management/manual.md:3
 msgid "You allocate and deallocate heap memory yourself."
-msgstr ""
+msgstr "你自己分配和释放堆内存。"
 
 #: src/memory-management/manual.md:5
 msgid ""
 "If not done with care, this can lead to crashes, bugs, security "
 "vulnerabilities, and memory leaks."
-msgstr "## C 范例"
+msgstr ""
+"如果不小心，这可能会导致崩溃、错误、安全问题"
+"漏洞和内存泄漏。"
 
 #: src/memory-management/manual.md:7
 msgid "## C Example"
-msgstr "你必须在你用 `malloc` 分配的每个指针上调用 `free`："
+msgstr "## C 范例"
 
 #: src/memory-management/manual.md:9
 msgid "You must call `free` on every pointer you allocate with `malloc`:"
-msgstr ""
+msgstr "你必须在你用 `malloc` 分配的每个指针上调用 `free`："
 
 #: src/memory-management/manual.md:11
 msgid ""
@@ -3885,16 +4010,20 @@ msgid ""
 "Memory is leaked if the function returns early between `malloc` and `free`: "
 "the\n"
 "pointer is lost and we cannot deallocate the memory."
-msgstr "# 基于作用域的内存管理"
+msgstr ""
+"如果函数在 `malloc` 和 `free` 之间提前返回，则内存泄漏："
+"然后"
+"指针丢失，我们无法释放内存。"
 
 #: src/memory-management/scope-based.md:1
 msgid "# Scope-Based Memory Management"
-msgstr ""
+msgstr "# 基于作用域的内存管理"
 
 #: src/memory-management/scope-based.md:3
 msgid ""
 "Constructors and destructors let you hook into the lifetime of an object."
 msgstr ""
+"构造函数和析构函数可让您进入对象的生命周期。"
 
 #: src/memory-management/scope-based.md:5
 msgid ""
@@ -3909,11 +4038,11 @@ msgid ""
 "This is often called _resource acquisition is initialization_ (RAII) and "
 "gives\n"
 "you smart pointers."
-msgstr "## C++ 范例"
+msgstr ""
 
 #: src/memory-management/scope-based.md:12
 msgid "## C++ Example"
-msgstr ""
+msgstr "## C++ 范例"
 
 #: src/memory-management/scope-based.md:14
 msgid ""
@@ -3943,11 +4072,11 @@ msgid ""
 "std::unique_ptr<Person> person = find_person(\"Carla\");\n"
 "say_hello(std::move(person));\n"
 "```"
-msgstr "# 自动内存管理"
+msgstr ""
 
 #: src/memory-management/garbage-collection.md:1
 msgid "# Automatic Memory Management"
-msgstr ""
+msgstr "# 自动内存管理"
 
 #: src/memory-management/garbage-collection.md:3
 msgid ""
@@ -3978,15 +4107,15 @@ msgid ""
 "  System.out.println(\"Hello \" + person.getName());\n"
 "}\n"
 "```"
-msgstr "# Rust 中的内存管理"
+msgstr ""
 
 #: src/memory-management/rust.md:1
 msgid "# Memory Management in Rust"
-msgstr "Rust 中的内存管理是混合的："
+msgstr "# Rust 中的内存管理"
 
 #: src/memory-management/rust.md:3
 msgid "Memory management in Rust is a mix:"
-msgstr ""
+msgstr "Rust 中的内存管理是混合的："
 
 #: src/memory-management/rust.md:5
 msgid ""
@@ -3997,11 +4126,18 @@ msgid ""
 "* Scope-based like C++, but the compiler enforces full adherence.\n"
 "* A Rust user can choose the right abstraction for the situation, some even "
 "have no cost at runtime like C."
-msgstr "它通过显式建模 _ownership_ 来实现这一点。"
+msgstr ""
+"* 像 Java 一样安全和正确，但没有垃圾收集器。\n"
+"*取决于您使用的抽象（或抽象组合）"
+"选择，可以是单个唯一指针、引用计数或原子"
+"引用计数。\n"
+"* 像 C++ 一样基于作用域，但编译器强制完全遵守。\n"
+"* Rust 用户可以根据情况选择正确的抽象，有些甚至是"
+"像 C 一样在运行时没有成本。"
 
 #: src/memory-management/rust.md:10
 msgid "It achieves this by modeling _ownership_ explicitly."
-msgstr ""
+msgstr "它通过显式建模 _ownership_ 来实现这一点。"
 
 #: src/memory-management/rust.md:14
 msgid ""
@@ -4010,12 +4146,18 @@ msgid ""
 "encapsulate ownership and memory allocation via various means, and prevent "
 "the potential errors in C."
 msgstr ""
+"* 如果问到此时如何，你可以提到在 Rust 中这通常是"
+"由 [Box]、[Vec]、[Rc] 或 [Arc] 等 RAII 包装器类型处理。这些"
+"通过各种方式封装所有权和内存分配，并防止"
+"C 中的潜在错误。"
 
 #: src/memory-management/rust.md:16
 msgid ""
 "* You may be asked about destructors here, the [Drop] trait is the Rust "
 "equivalent."
 msgstr ""
+"* 你可能会在这里被问到关于析构函数的问题，[Drop] 特性是 Rust "
+"相等的。"
 
 #: src/memory-management/rust.md:20
 msgid ""
@@ -4024,19 +4166,19 @@ msgid ""
 "[Rc]: https://doc.rust-lang.org/std/rc/struct.Rc.html\n"
 "[Arc]: https://doc.rust-lang.org/std/sync/struct.Arc.html\n"
 "[Drop]: https://doc.rust-lang.org/std/ops/trait.Drop.html"
-msgstr "#比较"
+msgstr ""
 
 #: src/memory-management/comparison.md:1
 msgid "# Comparison"
-msgstr "这里是内存管理技术的粗略比较。"
+msgstr "#比较"
 
 #: src/memory-management/comparison.md:3
 msgid "Here is a rough comparison of the memory management techniques."
-msgstr "## 不同内存管理技术的优点"
+msgstr "这里是内存管理技术的粗略比较。"
 
 #: src/memory-management/comparison.md:5
 msgid "## Pros of Different Memory Management Techniques"
-msgstr ""
+msgstr "## 不同内存管理技术的优点"
 
 #: src/memory-management/comparison.md:7
 msgid ""
@@ -4052,11 +4194,23 @@ msgid ""
 "  * Enforced by compiler.\n"
 "  * No runtime overhead.\n"
 "  * Safe and correct."
-msgstr "## 不同内存管理技术的缺点"
+msgstr ""
+"* 像 C:\n 这样的手册"
+" * 没有运行时开销。\n"
+"* 像 Java 一样自动:\n"
+" * 全自动。\n"
+" * 安全且正确。\n"
+"* 基于作用域，如 C++:\n"
+" * 部分自动。\n"
+" * 没有运行时开销。\n"
+"* 编译器强制基于作用域，如 Rust：\n"
+" * 由编译器强制执行。\n"
+" * 没有运行时开销。\n"
+" * 安全且正确。"
 
 #: src/memory-management/comparison.md:20
 msgid "## Cons of Different Memory Management Techniques"
-msgstr ""
+msgstr "## 不同内存管理技术的缺点"
 
 #: src/memory-management/comparison.md:22
 msgid ""
@@ -4073,11 +4227,24 @@ msgid ""
 "* Compiler-enforced and scope-based like Rust:\n"
 "  * Some upfront complexity.\n"
 "  * Can reject valid programs."
-msgstr "#所有权"
+msgstr ""
+"* 像 C:\n 这样的手册"
+" * 释放后使用。\n"
+" * 双重释放。\n"
+" * 内存泄漏。\n"
+"* 像 Java 一样自动:\n"
+" * 垃圾收集暂停。\n"
+" * 析构函数延迟。\n"
+"* 基于作用域，如 C++:\n"
+" * 复杂，由程序员选择加入。\n"
+" * 释放后使用的潜力。\n"
+"* 像 Rust 一样强制编译器和基于作用域：\n"
+" * 一些前期的复杂性。\n"
+" * 可以拒绝有效程序。"
 
 #: src/ownership.md:1
 msgid "# Ownership"
-msgstr ""
+msgstr "#所有权"
 
 #: src/ownership.md:3
 msgid ""
@@ -4085,6 +4252,9 @@ msgid ""
 "to\n"
 "use a variable outside its scope:"
 msgstr ""
+"所有变量绑定都有一个 _scope_，它们在其中是有效的，这是一个错误"
+"吨"
+"在其范围之外使用变量："
 
 #: src/ownership.md:6
 msgid ""
@@ -4109,15 +4279,18 @@ msgid ""
 "* At the end of the scope, the variable is _dropped_ and the data is freed.\n"
 "* A destructor can run here to free up resources.\n"
 "* We say that the variable _owns_ the value."
-msgstr "# 移动语义"
+msgstr ""
+"* 在作用域的末尾，变量被 _dropped_ 并且数据被释放。\n"
+"* 析构函数可以在这里运行以释放资源。\n"
+"* 我们说变量_拥有_值。"
 
 #: src/ownership/move-semantics.md:1
 msgid "# Move Semantics"
-msgstr "赋值将在变量之间转移所有权："
+msgstr "# 移动语义"
 
 #: src/ownership/move-semantics.md:3
 msgid "An assignment will transfer ownership between variables:"
-msgstr ""
+msgstr "赋值将在变量之间转移所有权："
 
 #: src/ownership/move-semantics.md:5
 msgid ""
@@ -4139,16 +4312,23 @@ msgid ""
 "* When `s2` goes out of scope, the string data is freed.\n"
 "* There is always _exactly_ one variable binding which owns a value."
 msgstr ""
+"* 将 `s1` 分配给 `s2` 转移所有权。\n"
+"* 数据已从 `s1` _移动_，并且 `s1` 不再可访问。\n"
+"* 当 `s1` 超出范围时，什么也不会发生：它没有所有权。\n"
+"* 当 `s2` 超出范围时，字符串数据被释放。\n"
+"* 总是_exactly_ 一个变量绑定拥有一个值。"
 
 #: src/ownership/move-semantics.md:22
 msgid ""
 "* Mention that this is the opposite of the defaults in C++, which copies by "
 "value unless you use `std::move` (and the move constructor is defined!)."
-msgstr "* 在 Rust 中，克隆是显式的（通过使用 `clone`）。"
+msgstr ""
+"* 请注意，这与 C++ 中的默认值相反，后者通过 "
+"值，除非你使用 `std::move`（并且移动构造函数已定义！）。"
 
 #: src/ownership/move-semantics.md:24
 msgid "* In Rust, you clones are explicit (by using `clone`)."
-msgstr "# Moved Strings in Rust"
+msgstr "* 在 Rust 中，克隆是显式的（通过使用 `clone`）。"
 
 #: src/ownership/moved-strings-rust.md:1
 msgid "# Moved Strings in Rust"
@@ -4168,11 +4348,13 @@ msgstr ""
 msgid ""
 "* The heap data from `s1` is reused for `s2`.\n"
 "* When `s1` goes out of scope, nothing happens (it has been moved from)."
-msgstr "移动到 `s2` 之前："
+msgstr ""
+"* 来自 `s1` 的堆数据被 `s2` 重用。\n"
+"* 当 `s1` 超出范围时，什么也不会发生（它已被移出）。"
 
 #: src/ownership/moved-strings-rust.md:13
 msgid "Before move to `s2`:"
-msgstr ""
+msgstr "移动到 `s2` 之前："
 
 #: src/ownership/moved-strings-rust.md:15
 msgid ""
@@ -4190,11 +4372,11 @@ msgid ""
 ":                           :\n"
 "`- - - - - - - - - - - - - -'\n"
 "```"
-msgstr "移动到 `s2` 之后："
+msgstr ""
 
 #: src/ownership/moved-strings-rust.md:30
 msgid "After move to `s2`:"
-msgstr ""
+msgstr "移动到 `s2` 之后："
 
 #: src/ownership/moved-strings-rust.md:32
 msgid ""
@@ -4218,15 +4400,15 @@ msgid ""
 ":                           :\n"
 "`- - - - - - - - - - - - - -'\n"
 "```"
-msgstr "# 现代 C++ 中的双重释放"
+msgstr ""
 
 #: src/ownership/double-free-modern-cpp.md:1
 msgid "# Double Frees in Modern C++"
-msgstr "现代 C++ 以不同的方式解决这个问题："
+msgstr "# 现代 C++ 中的双重释放"
 
 #: src/ownership/double-free-modern-cpp.md:3
 msgid "Modern C++ solves this differently:"
-msgstr ""
+msgstr "现代 C++ 以不同的方式解决这个问题："
 
 #: src/ownership/double-free-modern-cpp.md:5
 msgid ""
@@ -4241,11 +4423,12 @@ msgid ""
 "* The heap data from `s1` is duplicated and `s2` gets its own independent "
 "copy.\n"
 "* When `s1` and `s2` go out of scope, they each free their own memory."
-msgstr "复制赋值前："
+msgstr ""
+
 
 #: src/ownership/double-free-modern-cpp.md:13
 msgid "Before copy-assignment:"
-msgstr ""
+msgstr "复制赋值前："
 
 #: src/ownership/double-free-modern-cpp.md:16
 msgid ""
@@ -4262,11 +4445,11 @@ msgid ""
 ":                           :     `- - - - - - - - - - - -'\n"
 "`- - - - - - - - - - - - - -'\n"
 "```"
-msgstr "复制赋值后："
+msgstr ""
 
 #: src/ownership/double-free-modern-cpp.md:30
 msgid "After copy-assignment:"
-msgstr ""
+msgstr "复制赋值后："
 
 #: src/ownership/double-free-modern-cpp.md:32
 msgid ""
@@ -4290,17 +4473,19 @@ msgid ""
 ":                           :     `- - - - - - - - - - - -'\n"
 "`- - - - - - - - - - - - - -'\n"
 "```"
-msgstr "# 在函数调用中移动"
+msgstr ""
 
 #: src/ownership/moves-function-calls.md:1
 msgid "# Moves in Function Calls"
-msgstr ""
+msgstr "# 在函数调用中移动"
 
 #: src/ownership/moves-function-calls.md:3
 msgid ""
 "When you pass a value to a function, the value is assigned to the function\n"
 "parameter. This transfers ownership:"
 msgstr ""
+"当您将值传递给函数时，该值将分配给函数\n"
+"参数。这会转移所有权："
 
 #: src/ownership/moves-function-calls.md:6
 msgid ""
@@ -4333,16 +4518,28 @@ msgid ""
 "* Rust makes it harder than C++ to inadvertently create copies by making "
 "move semantics the default, and by forcing programmers to make clones "
 "explicit."
-msgstr "# 复制和克隆"
+msgstr ""
+"* 第一次调用 `say_hello` 时，`main` 放弃了 `name` 的所有权。"
+"之后，在 main 中不能再使用 name 了。\n"
+"* 为 `name` 分配的堆内存将在结束时释放"
+"`say_hello` 函数。\n"
+"* 如果 `main` 将 `name` 作为引用传递 (`&name`)，则它可以保留所有权"
+"如果 `say_hello` 接受引用作为参数。\n"
+"* 或者，`main` 可以在第一次调用时传递 `name` 的克隆（`name。"
+"克隆（）`）。\n"
+"* Rust 比 C++ 更难通过以下方式无意中创建副本"
+"将语义设为默认值，并通过强迫程序员进行克隆"
+"明确。"
 
 #: src/ownership/copy-clone.md:1
 msgid "# Copying and Cloning"
-msgstr ""
+msgstr "# 复制和克隆"
 
 #: src/ownership/copy-clone.md:3
 msgid ""
 "While move semantics are the default, certain types are copied by default:"
 msgstr ""
+"虽然移动语义是默认的，但默认情况下会复制某些类型："
 
 #: src/ownership/copy-clone.md:5
 msgid ""
@@ -4354,15 +4551,15 @@ msgid ""
 "    println!(\"y: {y}\");\n"
 "}\n"
 "```"
-msgstr "这些类型实现了 `Copy` 特性。"
+msgstr ""
 
 #: src/ownership/copy-clone.md:14
 msgid "These types implement the `Copy` trait."
-msgstr "您可以选择加入您自己的类型以使用复制语义："
+msgstr "这些类型实现了 `Copy` 特性。"
 
 #: src/ownership/copy-clone.md:16
 msgid "You can opt-in your own types to use copy semantics:"
-msgstr ""
+msgstr "您可以选择加入您自己的类型以使用复制语义："
 
 #: src/ownership/copy-clone.md:18
 msgid ""
@@ -4386,11 +4583,13 @@ msgstr ""
 msgid ""
 "* After the assignment, both `p1` and `p2` own their own data.\n"
 "* We can also use `p1.clone()` to explicitly copy the data."
-msgstr "复制和克隆不是一回事："
+msgstr ""
+"* 赋值后，`p1` 和 `p2` 都拥有自己的数据。\n"
+"* 我们还可以使用 `p1.clone()` 来显式复制数据。"
 
 #: src/ownership/copy-clone.md:35
 msgid "Copying and cloning are not the same thing:"
-msgstr ""
+msgstr "复制和克隆不是一回事："
 
 #: src/ownership/copy-clone.md:37
 msgid ""
@@ -4401,11 +4600,18 @@ msgid ""
 "* Cloning is a more general operation and also allows for custom behavior by "
 "implementing the `Clone` trait.\n"
 "* Copying does not work on types that implement the `Drop` trait."
-msgstr "在上面的例子中，尝试以下操作："
+msgstr ""
+"*复制是指按位复制内存区域，不适用于"
+"任意对象。\n"
+"* 复制不允许自定义逻辑（与 C+ 中的复制构造函数不同"
+"+）。\n"
+"*克隆是一种更通用的操作，还允许通过"
+"实施 `Clone` 特征。\n"
+"* 复制不适用于实现 `Drop` 特征的类型。"
 
 #: src/ownership/copy-clone.md:42 src/ownership/lifetimes-function-calls.md:29
 msgid "In the above example, try the following:"
-msgstr ""
+msgstr "在上面的例子中，尝试以下操作："
 
 #: src/ownership/copy-clone.md:44
 msgid ""
@@ -4415,6 +4621,11 @@ msgid ""
 "the `println!` for  `p1`.\n"
 "* Show that it works if you clone `p1` instead."
 msgstr ""
+"* 将一个 String 字段添加到 struct Point。它不会编译，因为"
+"`String` 不是 `Copy` 类型。\n"
+"* 从 `derive` 属性中删除 `Copy`。编译器错误现在位于"
+"`p1` 的 `println!`。\n"
+"* 如果您改为克隆 `p1`，则表明它有效。"
 
 #: src/ownership/copy-clone.md:48
 msgid ""
@@ -4424,17 +4635,25 @@ msgid ""
 "`Clone` traits are generated.\n"
 "    \n"
 "</details>"
-msgstr "# 借用"
+msgstr ""
+"如果学生问到`derive`，只要说这是一种"
+"用 Rust 在编译时生成代码的方法就可以了。\n"
+"在这种情况下，生成了 `Copy` 和"
+"`Clone` 特征的默认实现。\n"
+"\n"
+"</details>"
 
 #: src/ownership/borrowing.md:1
 msgid "# Borrowing"
-msgstr ""
+msgstr "# 借用"
 
 #: src/ownership/borrowing.md:3
 msgid ""
 "Instead of transferring ownership when calling a function, you can let a\n"
 "function _borrow_ the value:"
 msgstr ""
+"而不是在调用函数时转移所有权，你可以让一个\n"
+"函数_借用_值："
 
 #: src/ownership/borrowing.md:6 src/ownership/lifetimes-function-calls.md:5
 msgid ""
@@ -4466,6 +4685,8 @@ msgid ""
 "* The `add` function _borrows_ two points and returns a new point.\n"
 "* The caller retains ownership of the inputs."
 msgstr ""
+"* `add` 函数_借用_ 两个点并返回一个新点。\n"
+"* 调用者保留输入的所有权。"
 
 #: src/ownership/borrowing.md:27
 msgid ""
@@ -4476,6 +4697,12 @@ msgid ""
 "addresses should change, while the stay the same when changing to the "
 "\"RELEASE\" setting:"
 msgstr ""
+"关于堆栈返回的注释：\n"
+"* 证明 `add` 的返回值很便宜，因为编译器可以"
+"消除复制操作。将上面的代码更改为打印堆栈地址"
+" 并在 [Playground] 上运行它。在 \"DEBUG\" 优化级别，"
+"地址应该改变，而当改变到"
+"“发布”设置时保持不变："
 
 #: src/ownership/borrowing.md:30
 msgid ""
@@ -4508,25 +4735,40 @@ msgid ""
 "because constructors can have side effects. In Rust, this is not an issue at "
 "all. If RVO did not happen, Rust will always performs a simple and efficient "
 "`memcpy` copy."
-msgstr "[Playground]: https://play.rust-lang.org/"
+msgstr ""
+"  fn main() {\n"
+"      let p1 = Point(3, 4);\n"
+"      let p2 = Point(10, 20);\n"
+"      let p3 = add(&p1, &p2);\n"
+"      println!(\"&p3.0: {:p}\", &p3.0);\n"
+"      println!(\"{p1:?} + {p2:?} = {p3:?}\");\n"
+"  }\n"
+"  ```\n"
+"* Rust 编译器可以进行返回值优化 (RVO)。\n"
+"* 在 C++ 中，复制省略必须在语言规范中定义"
+"因为构造函数可能有副作用。在 Rust 中，这不是问题"
+"全部。如果 RVO 没有发生，Rust 将始终执行简单而高效的操作"
+"`memcpy` 副本。"
 
 #: src/ownership/borrowing.md:53
 msgid "[Playground]: https://play.rust-lang.org/"
-msgstr "# 共享和唯一借用"
+msgstr ""
 
 #: src/ownership/shared-unique-borrows.md:1
 msgid "# Shared and Unique Borrows"
-msgstr "Rust 限制了你借用值的方式："
+msgstr "# 共享和唯一借用"
 
 #: src/ownership/shared-unique-borrows.md:3
 msgid "Rust puts constraints on the ways you can borrow values:"
-msgstr ""
+msgstr "Rust 限制了你借用值的方式："
 
 #: src/ownership/shared-unique-borrows.md:5
 msgid ""
 "* You can have one or more `&T` values at any given time, _or_\n"
 "* You can have exactly one `&mut T` value."
 msgstr ""
+"* 您可以在任何给定时间拥有一个或多个 `&T` 值，_or_\n"
+"* 你可以有一个 `&mut T` 值。"
 
 #: src/ownership/shared-unique-borrows.md:8
 msgid ""
@@ -4561,15 +4803,22 @@ msgid ""
 "* After that change, the compiler realizes that `b` is only ever used before "
 "the new mutable borrow of `a` through `c`. This is a feature of the borrow "
 "checker called \"non-lexical lifetimes\"."
-msgstr "# 生命周期"
+msgstr ""
+"* 上面的代码无法编译，因为 `a` 被借用为可变的"
+"（通过 `c`）同时不可变（通过 `b`）。\n"
+"* 将 `b` 的 `println!` 语句移到引入 `c` 的范围之前"
+"使代码编译。\n"
+"*在那次更改之后，编译器意识到 `b` 只在之前使用过"
+"从 `a` 到 `c` 的新可变借用。这是借用的一个特性"
+"检查器称为“非词汇生命周期”。"
 
 #: src/ownership/lifetimes.md:1
 msgid "# Lifetimes"
-msgstr "借用的值有_lifetime_:"
+msgstr "# 生命周期"
 
 #: src/ownership/lifetimes.md:3
 msgid "A borrowed value has a _lifetime_:"
-msgstr ""
+msgstr "借用的值有_lifetime_:"
 
 #: src/ownership/lifetimes.md:5
 msgid ""
@@ -4583,17 +4832,29 @@ msgid ""
 "  * Lifetime annotations create constraints; the compiler verifies that "
 "there is\n"
 "    a valid solution."
-msgstr "# 函数调用的生命周期"
+msgstr ""
+"* 可以省略生命周期：`add(p1: &Point, p2: &Point) -> Point`。\n"
+"* 生命周期也可以是显式的：`&'a Point`, `&'document str`。\n"
+"* 将 `&'a Point` 读作 \"a borrowed `Point` which is valid at least the\n"
+" 生命周期 `a`\".\n"
+"* 生命周期总是由编译器推断：你不能分配一个 "
+"一生\n"
+"你自己。\n"
+" * 生命周期注释创建约束；编译器验证 "
+"有\n"
+"一个有效的解决方案。"
 
 #: src/ownership/lifetimes-function-calls.md:1
 msgid "# Lifetimes in Function Calls"
-msgstr ""
+msgstr "# 函数调用的生命周期"
 
 #: src/ownership/lifetimes-function-calls.md:3
 msgid ""
 "In addition to borrowing its arguments, a function can return a borrowed "
 "value:"
 msgstr ""
+"除了借用它的参数外，函数还可以返回一个借用的"
+"价值："
 
 #: src/ownership/lifetimes-function-calls.md:9
 msgid ""
@@ -4621,6 +4882,11 @@ msgid ""
 "  lifetime `a`\".\n"
 "  * The _at least_ part is important when parameters are in different scopes."
 msgstr ""
+"* `'a` 是通用参数，由编译器推断。\n"
+"* 生命周期以 `'` 开头，`'a` 是典型的默认名称。\n"
+"* 将 `&'a Point` 读作 \"a borrowed `Point` which is valid at least the\n"
+" 生命周期 `a`\".\n"
+"*当参数在不同的范围内时，_至少_部分很重要。"
 
 #: src/ownership/lifetimes-function-calls.md:31
 msgid ""
@@ -4630,6 +4896,11 @@ msgid ""
 "  #[derive(Debug)]\n"
 "  struct Point(i32, i32);"
 msgstr ""
+"* 将 `p2` 和 `p3` 的声明移动到一个新的作用域 (`{ ... }`), "
+"导致以下代码：\n"
+"  ```rust,ignore\n"
+"  #[derive(Debug)]\n"
+"  struct Point(i32, i32);"
 
 #: src/ownership/lifetimes-function-calls.md:36
 msgid ""
@@ -4667,16 +4938,29 @@ msgid ""
 "  * Which one is it? The compiler needs to to know, so at the call site the "
 "returned reference is not used\n"
 "    for longer than a variable from where the reference came from."
-msgstr "# 数据结构中的生命周期"
+msgstr ""
+"* 重置工作区并将函数签名更改为 `fn left_most<'a, "
+"'b>(p1: &'a Point, p2: &'a Point) -> &'b Point`。这不会编译"
+"因为生命周期 `'a` 和 `'b` 之间的关系不清楚。\n"
+"* 另一种解释方式：\n"
+" * 对两个值的两个引用被一个函数和函数借用 "
+"返回\n"
+" 另一个参考。\n"
+" * 它必须来自这两个输入之一（或来自全球"
+"变量）。\n"
+" * 它是哪一个？编译器需要知道，所以在调用点上 "
+"没有使用返回的引用\n"
+"比引用来源的变量长。"
 
 #: src/ownership/lifetimes-data-structures.md:1
 msgid "# Lifetimes in Data Structures"
-msgstr ""
+msgstr "# 数据结构中的生命周期"
 
 #: src/ownership/lifetimes-data-structures.md:3
 msgid ""
 "If a data type stores borrowed data, it must be annotated with a lifetime:"
 msgstr ""
+"如果一个数据类型存储借用的数据，它必须用生命周期注解："
 
 #: src/ownership/lifetimes-data-structures.md:5
 msgid ""
@@ -4722,31 +5006,45 @@ msgid ""
 "lifetime relationships between the references themselves, in addition to the "
 "lifetime of the struct itself. Those are very advanced use cases.\n"
 "</details>"
-msgstr "# 第一天：下午练习"
+msgstr ""
+"* 在上面的例子中，`Highlight` 上的注解强制数据"
+"底层包含的 `&str` 至少与任何实例一样长"
+"使用该数据的 `Highlight`。\n"
+"* 如果 `text` 在 `fox`（或 `dog`）的生命周期结束之前被消耗，"
+"借用检查器抛出一个错误。\n"
+"* 带有借用数据的类型迫使用户保留原始数据。这"
+"对于创建轻量级视图很有用，但它通常会使它们成为"
+"有点难用。\n"
+"* 如果可能，让数据结构直接拥有它们的数据。\n"
+"*一些内部有多个引用的结构可以有多个"
+"终身注释。如果需要描述，这可能是必要的"
+"引用本身之间的生命周期关系，除了"
+"结构本身的生命周期。那些是非常高级的用例。\n"
+"</details>"
 
 #: src/exercises/day-1/afternoon.md:1
 msgid "# Day 1: Afternoon Exercises"
-msgstr "我们会看两件事："
+msgstr "# 第一天：下午练习"
 
 #: src/exercises/day-1/afternoon.md:3
 msgid "We will look at two things:"
-msgstr "* 一个小图书馆，"
+msgstr "我们会看两件事："
 
 #: src/exercises/day-1/afternoon.md:5
 msgid "* A small book library,"
-msgstr "* 迭代器和所有权（困难）。"
+msgstr "* 一个小图书馆，"
 
 #: src/exercises/day-1/afternoon.md:7
 msgid "* Iterators and ownership (hard)."
-msgstr "[解决方案]: solutions-afternoon.md"
+msgstr "* 迭代器和所有权（困难）。"
 
 #: src/exercises/day-1/afternoon.md:13 src/exercises/day-2/afternoon.md:9
 msgid "[solutions]: solutions-afternoon.md"
-msgstr "# 设计一个库"
+msgstr "[解决方案]: solutions-afternoon.md"
 
 #: src/exercises/day-1/book-library.md:1
 msgid "# Designing a Library"
-msgstr ""
+msgstr "# 设计一个库"
 
 #: src/exercises/day-1/book-library.md:3
 msgid ""
@@ -4754,6 +5052,9 @@ msgid ""
 "now,\n"
 "you just need to know part of its API:"
 msgstr ""
+"明天我们将学习更多关于结构和 `Vec<T>` 类型的知识。对于"
+"现在，\n"
+"你只需要了解它的部分 API："
 
 #: src/exercises/day-1/book-library.md:6
 msgid ""
@@ -4774,6 +5075,8 @@ msgid ""
 "Use this to create a library application. Copy the code below to\n"
 "<https://play.rust-lang.org/> and update the types to make it compile:"
 msgstr ""
+"使用它来创建一个库应用程序。将下面的代码复制到\n"
+"<https://play.rust-lang.org/> 并更新类型以使其编译："
 
 #: src/exercises/day-1/book-library.md:24
 msgid ""
@@ -4911,6 +5214,11 @@ msgid ""
 "html)\n"
 "traits."
 msgstr ""
+"Rust 的所有权模型影响许多 API。这方面的一个例子是\n"
+"[`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) 和\n"
+"[`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator。"
+"html)\n"
+"特质。"
 
 #: src/exercises/day-1/iterators-and-ownership.md:8
 msgid "## `Iterator`"
@@ -4923,6 +5231,10 @@ msgid ""
 "`Iterator` trait simply says that you can call `next` until you get `None` "
 "back:"
 msgstr ""
+"特征就像接口：它们描述了一种类型的行为（方法）。"
+"然后"
+"`Iterator` trait 只是说你可以调用 `next` 直到你得到 `None` "
+"背部："
 
 #: src/exercises/day-1/iterators-and-ownership.md:13
 msgid ""
@@ -4932,11 +5244,11 @@ msgid ""
 "    fn next(&mut self) -> Option<Self::Item>;\n"
 "}\n"
 "```"
-msgstr "你像这样使用这个特性："
+msgstr ""
 
 #: src/exercises/day-1/iterators-and-ownership.md:20
 msgid "You use this trait like this:"
-msgstr ""
+msgstr "你像这样使用这个特性："
 
 #: src/exercises/day-1/iterators-and-ownership.md:22
 msgid ""
@@ -4954,11 +5266,11 @@ msgid ""
 "    println!(\"No more items: {:?}\", iter.next());\n"
 "}\n"
 "```"
-msgstr "迭代器返回的类型是什么？在这里测试你的答案："
+msgstr ""
 
 #: src/exercises/day-1/iterators-and-ownership.md:34
 msgid "What is the type returned by the iterator? Test your answer here:"
-msgstr ""
+msgstr "迭代器返回的类型是什么？在这里测试你的答案："
 
 #: src/exercises/day-1/iterators-and-ownership.md:36
 msgid ""
@@ -4975,11 +5287,11 @@ msgid ""
 "    println!(\"v0: {v0:?}\");\n"
 "}\n"
 "```"
-msgstr "为什么使用这种类型？"
+msgstr ""
 
 #: src/exercises/day-1/iterators-and-ownership.md:46
 msgid "Why is this type used?"
-msgstr "## `IntoIterator`"
+msgstr "为什么使用这种类型？"
 
 #: src/exercises/day-1/iterators-and-ownership.md:48
 msgid "## `IntoIterator`"
@@ -4991,6 +5303,9 @@ msgid ""
 "iterator. The related trait `IntoIterator` tells you how to create the "
 "iterator:"
 msgstr ""
+"`Iterator` 特性告诉您如何在创建一个\n 后_迭代_"
+"迭代器。相关特征 `IntoIterator` 告诉您如何创建"
+"迭代器："
 
 #: src/exercises/day-1/iterators-and-ownership.md:53
 msgid ""
@@ -5012,22 +5327,28 @@ msgid ""
 "The syntax here means that every implementation of `IntoIterator` must\n"
 "declare two types:"
 msgstr ""
+"这里的语法意味着 `IntoIterator` 的每个实现都必须\n"
+"声明两种类型："
 
 #: src/exercises/day-1/iterators-and-ownership.md:65
 msgid ""
 "* `Item`: the type we iterate over, such as `i8`,\n"
 "* `IntoIter`: the `Iterator` type returned by the `into_iter` method."
 msgstr ""
+"* `Item`：我们迭代的类型，比如`i8`，\n"
+"* `IntoIter`：`into_iter` 方法返回的 `Iterator` 类型。"
 
 #: src/exercises/day-1/iterators-and-ownership.md:68
 msgid ""
 "Note that `IntoIter` and `Item` are linked: the iterator must have the same\n"
 "`Item` type, which means that it returns `Option<Item>`"
-msgstr "和以前一样，迭代器返回的类型是什么？"
+msgstr ""
+"请注意，`IntoIter` 和 `Item` 是链接的：迭代器必须具有相同的\n"
+"`Item` 类型，表示它返回 `Option<Item>`"
 
 #: src/exercises/day-1/iterators-and-ownership.md:71
 msgid "Like before, what  is the type returned by the iterator?"
-msgstr ""
+msgstr "和以前一样，迭代器返回的类型是什么？"
 
 #: src/exercises/day-1/iterators-and-ownership.md:73
 msgid ""
@@ -5036,11 +5357,11 @@ msgid ""
 "    let v: Vec<String> = vec![String::from(\"foo\"), String::"
 "from(\"bar\")];\n"
 "    let mut iter = v.into_iter();"
-msgstr "## `for` 循环"
+msgstr ""
 
 #: src/exercises/day-1/iterators-and-ownership.md:83
 msgid "## `for` Loops"
-msgstr ""
+msgstr "## `for` 循环"
 
 #: src/exercises/day-1/iterators-and-ownership.md:85
 msgid ""
@@ -5049,6 +5370,10 @@ msgid ""
 "They call `into_iter()` on an expression and iterates over the resulting\n"
 "iterator:"
 msgstr ""
+"现在我们知道了 `Iterator` 和 `IntoIterator`，我们可以构建 `for` 了"
+"循环。\n"
+"他们在表达式上调用 `into_iter()` 并迭代结果\n"
+"迭代器："
 
 #: src/exercises/day-1/iterators-and-ownership.md:89
 msgid ""
@@ -5071,11 +5396,11 @@ msgid ""
 "    }\n"
 "}\n"
 "```"
-msgstr "每个循环中 `word` 的类型是什么？"
+msgstr ""
 
 #: src/exercises/day-1/iterators-and-ownership.md:103
 msgid "What is the type of `word` in each loop?"
-msgstr ""
+msgstr "每个循环中 `word` 的类型是什么？"
 
 #: src/exercises/day-1/iterators-and-ownership.md:105
 msgid ""
@@ -5088,23 +5413,32 @@ msgid ""
 "Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-"
 "for-Vec%3CT%2C%20A%3E)\n"
 "to check your answers."
-msgstr "# 欢迎来到第二天"
+msgstr ""
+"试验上面的代码，然后查阅文档"
+"[`实现\n"
+"IntoIterator for\n"
+"&Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-"
+"IntoIterator-for-%26%27a%20Vec%3CT%2C%20A%3E)\n"
+"和 [`impl IntoIterator for\n"
+"Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-"
+"for-Vec%3CT%2C%20A%3E)\n"
+"检查你的答案。"
 
 #: src/welcome-day-2.md:1
 msgid "# Welcome to Day 2"
-msgstr "现在我们已经看到了相当多的 Rust，我们将继续："
+msgstr "# 欢迎来到第二天"
 
 #: src/welcome-day-2.md:3
 msgid "Now that we have seen a fair amount of Rust, we will continue with:"
-msgstr "* 结构、枚举、方法。"
+msgstr "现在我们已经看到了相当多的 Rust，我们将继续："
 
 #: src/welcome-day-2.md:5
 msgid "* Structs, enums, methods."
-msgstr "* 模式匹配：解构枚举、结构和数组。"
+msgstr "* 结构、枚举、方法。"
 
 #: src/welcome-day-2.md:7
 msgid "* Pattern matching: destructuring enums, structs, and arrays."
-msgstr ""
+msgstr "* 模式匹配：解构枚举、结构和数组。"
 
 #: src/welcome-day-2.md:9
 msgid ""
@@ -5112,25 +5446,31 @@ msgid ""
 "and\n"
 "  `continue`."
 msgstr ""
+"* 控制流结构：`if`、`if let`、`while`、`while let`、`break`、"
+"和\n"
+"  `continue`。"
 
 #: src/welcome-day-2.md:12
 msgid ""
 "* The Standard Library: `String`, `Option` and `Result`, `Vec`, `HashMap`, "
 "`Rc`\n"
 "  and `Arc`."
-msgstr "* 模块：可见性、路径和文件系统层次结构。"
+msgstr ""
+"* 标准库：`String`、`Option` 和 `Result`、`Vec`、`HashMap`、"
+"`Rc`\n"
+"和 `Arc`。"
 
 #: src/welcome-day-2.md:15
 msgid "* Modules: visibility, paths, and filesystem hierarchy."
-msgstr "# 结构"
+msgstr "* 模块：可见性、路径和文件系统层次结构。"
 
 #: src/structs.md:1
 msgid "# Structs"
-msgstr "与 C 和 C++ 一样，Rust 支持自定义结构："
+msgstr "# 结构"
 
 #: src/structs.md:3
 msgid "Like C and C++, Rust has support for custom structs:"
-msgstr ""
+msgstr "与 C 和 C++ 一样，Rust 支持自定义结构："
 
 #: src/structs.md:5
 msgid ""
@@ -5167,6 +5507,8 @@ msgid ""
 "<details>\n"
 "Key Points: "
 msgstr ""
+"<details>\n"
+"关键点： "
 
 #: src/structs.md:32
 msgid ""
@@ -5181,15 +5523,26 @@ msgid ""
 "trait on some type but don’t have any data that you want to store in the "
 "value itself. \n"
 "  * The next slide will introduce Tuple structs."
-msgstr "# 元组结构"
+msgstr ""
+"* 结构像在 C 或 C++ 中一样工作。\n"
+" * 与 C++ 一样，与 C 不同，定义类型不需要 typedef。\n"
+" * 与 C++ 不同，结构之间没有继承。\n"
+"* 方法在 `impl` 块中定义，我们将在下面看到"
+"幻灯片。\n"
+"*这可能是让人们知道有不同类型的好时机"
+"结构。\n"
+" * 零大小的结构`例如，struct Foo;` 可能会在实现一个"
+"某种类型的特征，但没有任何数据要存储在"
+"价值本身。\n"
+" * 下一张幻灯片将介绍元组结构。"
 
 #: src/structs/tuple-structs.md:1
 msgid "# Tuple Structs"
-msgstr "如果字段名称不重要，您可以使用元组结构："
+msgstr "# 元组结构 (Hilbert WIP)"
 
 #: src/structs/tuple-structs.md:3
 msgid "If the field names are unimportant, you can use a tuple struct:"
-msgstr ""
+msgstr "如果字段名称不重要，您可以使用元组结构："
 
 #: src/structs/tuple-structs.md:5
 msgid ""
@@ -5204,11 +5557,11 @@ msgid ""
 "    println!(\"({}, {})\", p.0, p.1);\n"
 "}\n"
 "```"
-msgstr "这通常用于单字段包装器（称为新类型）："
+msgstr ""
 
 #: src/structs/tuple-structs.md:14
 msgid "This is often used for single-field wrappers (called newtypes):"
-msgstr ""
+msgstr "这通常用于单字段包装器（称为新类型）："
 
 #: src/structs/tuple-structs.md:16
 msgid ""
@@ -5237,7 +5590,7 @@ msgid ""
 "    let force = compute_thruster_force();\n"
 "    set_thruster_force(force);\n"
 "}"
-msgstr "```"
+msgstr ""
 
 #: src/structs/tuple-structs.md:33 src/generics/trait-objects.md:86
 msgid "```"
@@ -5253,11 +5606,11 @@ msgid ""
 "`OddNumber(u32)`.\n"
 "    \n"
 "</details>"
-msgstr "# 字段速记语法"
+msgstr ""
 
 #: src/structs/field-shorthand.md:1
 msgid "# Field Shorthand Syntax"
-msgstr ""
+msgstr "# 字段速记语法"
 
 #: src/structs/field-shorthand.md:3
 msgid ""
@@ -5310,11 +5663,11 @@ msgid ""
 "```\n"
 "    \n"
 "</details>"
-msgstr "# 枚举"
+msgstr ""
 
 #: src/enums.md:1
 msgid "# Enums"
-msgstr ""
+msgstr "# 枚举"
 
 #: src/enums.md:3
 msgid ""
@@ -5379,11 +5732,11 @@ msgid ""
 "structs but then they wouldn’t be the same type as they would if they were "
 "all defined in an enum. \n"
 "</details>"
-msgstr "# 变体载荷"
+msgstr ""
 
 #: src/enums/variant-payloads.md:1
 msgid "# Variant Payloads"
-msgstr ""
+msgstr "# 变体载荷"
 
 #: src/enums/variant-payloads.md:3
 msgid ""
