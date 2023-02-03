@@ -17,10 +17,10 @@ Along with cargo and rustc, Rustup will install itself as a command line utility
 
 #### Debian
 
-On Debian/Ubuntu, you can install Cargo and the Rust source with
+On Debian/Ubuntu, you can install Cargo, the Rust source and the [Rust formatter][6] with
 
 ```shell
-$ sudo apt install cargo rust-src
+$ sudo apt install cargo rust-src rustfmt
 ```
 
 This will allow [rust-analyzer][1] to jump to the definitions. We suggest using
@@ -33,3 +33,4 @@ Some folks also like to use the [JetBrains][4] family of IDEs, which do their ow
 [3]: https://rustup.rs/
 [4]: https://www.jetbrains.com/clion/
 [5]: https://www.jetbrains.com/rust/
+[6]: https://github.com/rust-lang/rustfmt
