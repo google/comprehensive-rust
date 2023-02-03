@@ -35,9 +35,6 @@ tests pass:
 {{#include points-polygons.rs:Shape}}
 
 {{#include points-polygons.rs:unit-tests}}
-
-#[allow(dead_code)]
-fn main() {}
 ```
 
 <details>
