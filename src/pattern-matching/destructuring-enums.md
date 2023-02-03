@@ -13,7 +13,7 @@ fn divide_in_two(n: i32) -> Result {
     if n % 2 == 0 {
         Result::Ok(n / 2)
     } else {
-        Result::Err(format!("cannot divide {} into two equal parts", n))
+        Result::Err(format!("cannot divide {n} into two equal parts"))
     }
 }
 
@@ -34,6 +34,6 @@ arm, `half` is bound to the value inside the `Ok` variant. In the second arm,
 
 Key points:
 * The `if`/`else` expression is returning an enum that is later unpacked with a `match`.
-* You can try adding a third variant to the enum definition and displaying the errors when running the code. Point out the places where your code is now inexhaustive and how the compiler trys to give you hints.
+* You can try adding a third variant to the enum definition and displaying the errors when running the code. Point out the places where your code is now inexhaustive and how the compiler tries to give you hints.
 
 </details>
