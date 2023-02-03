@@ -3179,12 +3179,12 @@ msgid ""
 "into\n"
 "another type."
 msgstr ""
-"러스트의 정수형 타입은 모두 [`From<T>`][1] 와 [`Into<T>`][2] 트레이트를  구현"
-"하여 둘 사이를 변환 할 수 있습니다.\n"
-"`From<T>` 트레이트는 단일 `from()` 메서드를 가지고 있고, `Into<T>`트레이트"
-"는  단일 `into()`메서드를 가지고 있습니다.\n"
-"이러한 트레이트를 구현하는 것은 타입이 다른 타입으로 변환하는 것을 표현하는  "
-"방법입니다."
+"러스트의 정수형 타입은 모두 [`From<T>`][1] 와 [`Into<T>`][2] 트레이트를 구현"
+"하고 있으며, 이를 통해 타입 변환이 이루어 집니다.\n"
+"`From<T>` 트레이트는 `from()` 메서드를 가지고 있고, `Into<T>`트레이트"
+"는 `into()` 메서드를 가지고 있습니다.\n"
+"러스트에서는 `From`과 `Into` 트레이트를 구현함으로써, 타입 간 변환이 "
+"가능하다는 것을 표현합니다."
 
 #: src/exercises/day-1/implicit-conversions.md:25
 msgid ""
@@ -3194,12 +3194,12 @@ msgid ""
 "`i16::from(x)`. Or, simpler, with `x.into()`, because `From<i8> for i16`\n"
 "implementation automatically create an implementation of `Into<i16> for i8`."
 msgstr ""
-"표준 라이브러리에는 `From<i8> for i16`가 구현되어 있는데 이것은 우리가 `i8` "
+"표준 라이브러리에는 `From<i8> for i16`가 구현되어 있는데 이것은 `i8` "
 "타입의 변수 `x`를 `i16::from(x)`를 호출하여 `i16`타입으로 변환할 수 있다는  "
-"의미입니다. \n"
-"(혹은 더 간단하게 `x.into()`를 사용합니다.)\n"
-"`From<i8> for i16`의 구현은 자동으로 `Into<i16> for i8`를 생성하기 때문입니"
-"다."
+"의미입니다.\n"
+"혹은 더 간단하게 `x.into()`를 사용할 수도 있습니다. 이것이 가능한 이유는 "
+"`From<i8> for i16` 구현을 가지고 있으면 `Into<i16> for i8` 구현이 자동으로 "
+"생성되기 때문입니다."
 
 #: src/exercises/day-1/implicit-conversions.md:30
 msgid ""
@@ -3208,16 +3208,16 @@ msgid ""
 "sufficient to only implement `From` to get a respective `Into` "
 "implementation automatically."
 msgstr ""
-"사용자 타입에 대한 `From`구현에도 동일하게 적용되므로 `From`을 구현하는 것으"
-"로 자동으로 `Into`역시 구현됩니다."
+"이는 사용자 정의 타입에도 동일하게 적용되는 규칙입니다. 따라서 "
+"`From`만을 구현해도 `Into`까지 자동으로 구현이 됩니다."
 
 #: src/exercises/day-1/implicit-conversions.md:33
 msgid "1. Execute the above program and look at the compiler error."
-msgstr "1. 위 예제코드를 실행해서 발생한 오류를 확인해 보세요."
+msgstr "1. 위 예제코드를 실행하고 어떤 컴파일 에러가 발생하는지 확인해 보세요."
 
 #: src/exercises/day-1/implicit-conversions.md:35
 msgid "2. Update the code above to use `into()` to do the conversion."
-msgstr "2. `into()` 메서드를 사용하여 코드를 수정하세요."
+msgstr "2. `into()`를 사용하여 코드를 수정하세요."
 
 #: src/exercises/day-1/implicit-conversions.md:37
 msgid ""
@@ -3247,7 +3247,7 @@ msgstr "# 배열과 `for`반복문"
 
 #: src/exercises/day-1/for-loops.md:3
 msgid "We saw that an array can be declared like this:"
-msgstr "우리는 배열을 아래와 같이 선언 할 수 있음을 보았습니다:"
+msgstr "배열을 아래와 같이 선언 할 수 있음을 배웠습니다:"
 
 #: src/exercises/day-1/for-loops.md:5
 msgid ""
@@ -3260,7 +3260,7 @@ msgstr ""
 msgid ""
 "You can print such an array by asking for its debug representation with `{:?}"
 "`:"
-msgstr "배열은 `{:?}` 형태로 표시하여 출력할 수 있습니다."
+msgstr "배열을 출력하려면 `{:?}`를 씁니다."
 
 #: src/exercises/day-1/for-loops.md:11
 msgid ""
@@ -3276,7 +3276,7 @@ msgstr ""
 msgid ""
 "Rust lets you iterate over things like arrays and ranges using the `for`\n"
 "keyword:"
-msgstr "러스트에서는 `for`키워드를 사용해 배열이나 범위를 반복할 수 있습니다:"
+msgstr "러스트에서는 `for` 키워드를 사용해 배열이나 범위를 반복할 수 있습니다:"
 
 #: src/exercises/day-1/for-loops.md:21
 msgid ""
@@ -3308,8 +3308,8 @@ msgid ""
 "a function `transpose` which will transpose a matrix (turn rows into "
 "columns):"
 msgstr ""
-"위의 예제에서 행렬을 예쁘게 출력하는 `pretty_print`함수와 행렬을 전치(행과  "
-"열을 변경)시키는 `transpose`함수를 작성해 보시기 바랍니다."
+"위 코드를 이용해서, 행렬을 예쁘게 출력하는 `pretty_print`함수와, 행렬을 전치(행과  "
+"열을 서로 바꾸는)시키는 `transpose`함수를 작성해 보시기 바랍니다."
 
 #: src/exercises/day-1/for-loops.md:41
 msgid ""
@@ -3322,7 +3322,7 @@ msgstr ""
 
 #: src/exercises/day-1/for-loops.md:47
 msgid "Hard-code both functions to operate on 3 × 3 matrices."
-msgstr "두 함수 모두 3×3 행렬에서 작동하도록 하드 코딩합니다."
+msgstr "두 함수 모두 행렬의 크기는 3 x 3 으로 하드코딩 합니다."
 
 #: src/exercises/day-1/for-loops.md:49
 msgid ""
@@ -3384,7 +3384,7 @@ msgstr ""
 
 #: src/exercises/day-1/for-loops.md:80
 msgid "## Bonus Question"
-msgstr "## 추가 문제"
+msgstr "## 보너스 문제"
 
 #: src/exercises/day-1/for-loops.md:82
 msgid ""
@@ -3392,8 +3392,8 @@ msgid ""
 "argument and return types? Something like `&[&[i32]]` for a two-dimensional\n"
 "slice-of-slices. Why or why not?"
 msgstr ""
-"하드코딩된 3×3 행렬 입력을 `&[i32]` 슬라이스를 통해 인수와 반환값의 정의가 가"
-"능한가요? 예컨데 `&[&[i32]]`는 2차원 슬라이스의 슬라이스 입니다.  가능하다면/"
+"`&[i32]`슬라이스를 잘 이용하면 행렬 크기를 3 x 3으로 하드코딩 하지 않을 수 있을까요?\n"
+"예컨데 `&[&[i32]]`는 2차원 슬라이스의 슬라이스 입니다. 가능하다면/"
 "하지 않다면 왜 그런가요?"
 
 #: src/exercises/day-1/for-loops.md:87
@@ -3402,7 +3402,7 @@ msgid ""
 "quality\n"
 "implementation."
 msgstr ""
-"프로덕션 품질의 구현에 대해서는 [`ndarray` 크레이트](https://docs.rs/"
+"상용 품질의 구현에 대해서는 [`ndarray` 크레이트](https://docs.rs/"
 "ndarray/)를 참조하시기 바랍니다."
 
 #: src/exercises/day-1/for-loops.md:92
@@ -3410,7 +3410,7 @@ msgid ""
 "The solution and the answer to the bonus section are available in the \n"
 "[Solution](solutions-morning.md#arrays-and-for-loops) section."
 msgstr ""
-"추가 문제에 대한 답변역시 [Solution](solutions-morning.md#arrays-and-for-"
+"보너스 문제에 대한 답변 역시 [Solution](solutions-morning.md#arrays-and-for-"
 "loops)에서 확인할 수 있습니다."
 
 #: src/basic-syntax/variables.md:1
@@ -3423,8 +3423,8 @@ msgid ""
 "by\n"
 "default:"
 msgstr ""
-"러스트는 정적 타이핑을 통해 타입 세이프티(타입 안전)을 제공합니다.  \n"
-"변수 바인딩은 기본적으로 불변(immutable)합니다.: "
+"러스트는 정적 타이핑을 통해 타입 안전성을 제공합니다.  \n"
+"변수는 기본적으로 불변(immutable)합니다.: "
 
 #: src/basic-syntax/variables.md:6
 msgid ""
@@ -3445,10 +3445,10 @@ msgid ""
 "* Note that since `println!` is a macro, `x` is not moved, even using the "
 "function like syntax of `println!(\"x: {}\", x)`"
 msgstr ""
-"* 유형 추론에 의해서 `i32`는 생략 가능합니다. 강의가 진행될 수록 생략 가능"
-"한  부분은 점점 생략할 것입니다.\n"
-"* `println!(\"x: {}\", x)`는 함수 문법처럼 보이지만 `println!`은 매크로이므"
-"로  `x`는 이동되지 않습니다."
+"* 타입 추론에 덕분에 `i32`는 생략 가능합니다. 강의가 진행될 수록 생략 가능"
+"한 부분은 점점 생략할 것입니다.\n"
+"* `println!(\"x: {}\", x)`는 함수 호출 처럼 보이지만 실은 매크로 호출입니다."
+"때문에 `x`는 이동되지 않습니다."
 
 #: src/basic-syntax/type-inference.md:1
 msgid "# Type Inference"
@@ -3456,7 +3456,7 @@ msgstr "# 타입 추론"
 
 #: src/basic-syntax/type-inference.md:3
 msgid "Rust will look at how the variable is _used_ to determine the type:"
-msgstr "러스트는 변수가 어떻게 사용되는지 확인하여 타입 추론을 제공합니다. "
+msgstr "러스트는 변수가 어떻게 사용되는지를 보고 그 변수의 타입을 추론합니다. "
 
 #: src/basic-syntax/type-inference.md:5
 msgid ""
@@ -3500,14 +3500,14 @@ msgid ""
 "to the explicit declaration of a type.\n"
 "The compiler does the job for us and helps us to write a more concise code."
 msgstr ""
-"이 슬라이드는 러스트 컴파일러가 변수 선언 및 사용에 의해 주어진 제약 조건을 "
-"통해타입을 추론하는 방법을 보여줍니다.\n"
+"이 슬라이드는, 러스트 컴파일러가 변수가 어떻게 선언되어 있고, 어떻게 사용되는지를 "
+"제약 조건으로 삼아서 변수의 타입을 추론하는 모습을 보여줍니다.\n"
 "    \n"
-"이렇게 선언된 변수는 어떤 동적 데이터도 담을 수 있는 \"any 타입\"이 아니라는 "
-"것을 강조하는 것이 중요한 사항입니다.\n"
-"이러한 선언에 의해 생성된 머신코드는 명시적 선언으로 생성된 것과 동일합니"
-"다.\n"
-"컴파일러는 우리가 더 간결할 코드를 쓸 수 있도록 해줍니다."
+"여기서 중요한 것은, 이렇게 명시적인 타입을 생략하고 선언되었다고 해서 "
+"\"어떤 타입\"이라도 다 담을 수 있는 타입이 되는 것은 아니라는 점입니다.\n"
+"명시적인 타입 선언이 있던 없던, 컴파일러가 생성한 머신코드는 동일합니다. "
+"컴파일러는 단지 타입 선언을 생략할 수 있도록 해서 프로그래머가 더 간결한 코드를 쓸 수 있도록 "
+"도와줄 뿐입니다."
 
 #: src/basic-syntax/type-inference.md:32
 msgid ""
@@ -3515,8 +3515,8 @@ msgid ""
 "container without the code ever explicitly specifying the contained type, "
 "using `_` as a placeholder:"
 msgstr ""
-"아래 코드는 컴파일러가 타입 미지정(`_`)으로 추론을 통해 변수에 할당 시킴니"
-"다. "
+"아래 코드는, 제너릭 컨테이너를 쓸 때 컨테이터 안에 포함된 데이터의 타입을 "
+"명시적으로 쓰지 않고 `_`로 대체하여도 된다는 것을 보여줍니다."
 
 #: src/basic-syntax/type-inference.md:34
 msgid ""
@@ -3543,7 +3543,7 @@ msgid ""
 "rust-lang.org/std/iter/trait.FromIterator.html) implements."
 msgstr ""
 "[`collect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator."
-"html#method.collect)은 [`HashSet`](https://doc.rust-lang.org/std/iter/trait."
+"html#method.collect)는 [`HashSet`](https://doc.rust-lang.org/std/iter/trait."
 "FromIterator.html)을 구현한 `FromIterator`에 의존합니다."
 
 #: src/basic-syntax/static-and-const.md:1
@@ -3552,7 +3552,7 @@ msgstr "# 정적변수(static)과 상수(const)"
 
 #: src/basic-syntax/static-and-const.md:3
 msgid "Global state is managed with static and constant variables."
-msgstr "전역 상태(state) 정적 변수와 상수로 관리됩니다."
+msgstr "프로그램의 글로벌 상태는 결국 정적 변수와 상수로 표현됩니다."
 
 #: src/basic-syntax/static-and-const.md:5
 msgid "## `const`"
@@ -3560,7 +3560,7 @@ msgstr "## 상수(`const`)"
 
 #: src/basic-syntax/static-and-const.md:7
 msgid "You can declare compile-time constants:"
-msgstr "컴파일 시점의 상수를 선언할 수 있습니다."
+msgstr "컴파일 시 값이 정해지는 상수를 선언할 수 있습니다."
 
 #: src/basic-syntax/static-and-const.md:9
 msgid ""
@@ -3593,7 +3593,7 @@ msgstr ""
 #: src/basic-syntax/static-and-const.md:27
 msgid "According the the [Rust RFC Book][1] these are inlined upon use."
 msgstr ""
-"[Rust RFC Book][1]에 따르면 이것들은 사용시 인라인(코드에 대체) 표시됩니다."
+"[Rust RFC Book][1]에 따르면 상수는, 그 상수가 사용되는 곳에 인라인 됩니다."
 
 #: src/basic-syntax/static-and-const.md:29
 msgid "## `static`"
@@ -3624,9 +3624,9 @@ msgid ""
 "embedded code, and the variable lives through the entirety of the program "
 "execution."
 msgstr ""
-"[Rust RFC Book][1]에서 언급한 바와 같이 이들은 사용시 인라인화 되지 않고 실제"
-"로 연결된 메모리 위치를 가지고 있습니다. 따라서 이들은 안전하지 않고 내장된 "
-"코드에 유용하고, 변수는 프로그램 실행 주기와 같은 수명을 같습니다."
+"[Rust RFC Book][1]에서 언급한 바와 같이, 정적 변수는 별도의 메모리 공간을 가지며, "
+"인라인 되지 않습니다. 정적 변수는 안전하지 않은(unsafe) 러스트와 임베디드 시스템용 "
+"코드에서 유용합니다. 이들의 수명은 프로그램이 수행되는 전체 시간과 동일합니다."
 
 #: src/basic-syntax/static-and-const.md:44
 msgid ""
@@ -3644,10 +3644,10 @@ msgid ""
 "* It isn't super common that one would need a runtime evaluated constant, "
 "but it is helpful and safer than using a static."
 msgstr ""
-"* `const`는 C++의 `constexpr`과 의미론거으로 유사하게 동작합니다.\n"
+"* `const`는 C++의 `constexpr`과 매우 비슷합니다.\n"
 "* 반면에 `static`은 C++의 `const`나 가변 정적 변수와 훨씬 더 유사합니다.\n"
-"* 런타임 평가 상수가 필요한 것은 매우 일반적이지는 않지만 정적변수를 사용하"
-"는 것보단 유용하고 안전합니다."
+"* 프로그램 수행시 그 값이 정해지는 상수가 필요한 경우는 드뭅니다. 그러나 "
+"그렇다고 해도, 정적 변수를 사용하는 것 보다는 더 유용하고 안전합니다."
 
 #: src/basic-syntax/static-and-const.md:54
 msgid "[1]: https://rust-lang.github.io/rfcs/0246-const-vs-static.html"
@@ -3662,7 +3662,7 @@ msgid ""
 "You can shadow variables, both those from outer scopes and variables from "
 "the\n"
 "same scope:"
-msgstr "바깥 범위와 동일 범위의 변수를 모두 가릴 수 있습니다.(변수 쉐도잉)"
+msgstr "현재 범위에 있는 변수와, 바깥 범위에 있는 변수 모두 가릴(쉐도잉)수 있습니다:"
 
 #: src/basic-syntax/scopes-shadowing.md:6
 msgid ""
@@ -3705,14 +3705,16 @@ msgid ""
 "locations when shadowing an immutable variable in a scope, even if the type "
 "does not change."
 msgstr ""
-"* 쉐도잉 후 두 변수의 메모리가 동시에 존재하기 때문에 쉐도잉은 가변성과 다릅"
-"니다. 코드에서 호출되는 위치에 따라 동일한 이름을 사용할 수 있습니다.\n"
-"* 쉐도잉 시 타입은 변경될 수 있습니다.\n"
-"* 쉐도잉은 모호해 보일 수 있지만 `.unwrap()` 이후의 값을 유지하는데 용이합니"
-"다. \n"
-"* 아래 코드는 컴파일러가 스코프 범위에서 불변 변수를 쉐도잉할때 타입이 동일하"
-"더라도 메모리 위치를 단순 재사용 할 수 없는 이유를 보여줍니다.(원본 a를 참조"
-"한 b와 쉐도잉 된 a(a+1) 둘다 살아있어야 하므로 메모리를 따로 할당합니다.)"
+"* 쉐도잉은 기존 변수에 새로운 값을 할당하는 것이 아닙니다. 쉐도잉을 하면 새로운 "
+"변수기 생기며, 이전 변수와 새 변수는 메모리의 서로 다룬 위치에 존재합니다. "
+"그 두 변수는 단지 이름이 같은 뿐이며, 코드 중 어디에서 그 이름이 사용되었느냐에 "
+"따라 어떤 변수를 지칭하는 지가 결정됩니다.\n"
+"* 쉐도잉 시 타입을 바꿀 수 있습니다.\n"
+"* 처음에 쉐도잉을 보면 코드를 더 모호하게 만든다고 생각할 수 도 있습니다. 그러나 "
+"실제로 쉐도잉을 이용하면, 어떤 변수에서 `.unwrap()` 된 값을 새로운 변수에 담을 경우 "
+"새로운 이름을 지을 필요 없이 기존 이름을 유지할 수 있어서 편리합니다.\n"
+"* 아래 코드는 불변 변수를 쉐도잉할 때 타입이 동일하"
+"더라도 새 변수가 원래 변수의 메모리 위치를 재사용 할 수 없는지 그 이유를 보여줍니다."
 
 #: src/basic-syntax/scopes-shadowing.md:30
 msgid ""
@@ -3732,7 +3734,7 @@ msgstr "# 메모리 관리"
 
 #: src/memory-management.md:3
 msgid "Traditionally, languages have fallen into two broad categories:"
-msgstr "전통적으로, 프로그래밍 언어는 크게 두가지로 분류 됩니다:"
+msgstr "전통적으로, 두 종류의 프로그래밍 언어가 있습니다:"
 
 #: src/memory-management.md:5
 msgid ""
@@ -3740,23 +3742,23 @@ msgid ""
 "* Full safety via automatic memory management at runtime: Java, Python, Go, "
 "Haskell, ..."
 msgstr ""
-"* 소스레벨 메모리 관리(수동 제어): C, C++, Pascal, ...\n"
-"* 런타임 시 자동 메모리 관리를 통한 안전성 제공(like GC): Java, Python, Go, "
+"* 메모리 관리가 프로그래머의 완전한 통제하에 있지만 수동(_역주_: 그래서 안전하지 않을 수 있는)이 언어: C, C++, Pascal, ...\n"
+"* 메모리 관리가 런타임에 의해 되므로 안전하지만 자동(_역주_: 그래서 프로그래머가 개입할 여지가 적거나 없는)인 언어: Java, Python, Go, "
 "Haskell, ... "
 
 #: src/memory-management.md:8
 msgid "Rust offers a new mix:"
-msgstr "러스트는 이 둘을 혼합한 새로운 형태를 제안합니다:"
+msgstr "러스트는 이 둘을 혼합한 새로운 형태의 메모리 관리 기법을 제공합니다:"
 
 #: src/memory-management.md:10
 msgid ""
 "> Full control *and* safety via compile time enforcement of correct memory\n"
 "> management."
-msgstr "> 컴파일 시 메모리 관리를 통한 안전성과 제어 제공"
+msgstr "> 완전한 통제와 안전"
 
 #: src/memory-management.md:13
 msgid "It does this with an explicit ownership concept."
-msgstr "이것은 명시적인 소유권 컨셉을 통해 이뤄집니다."
+msgstr "이를 가능하게 하는 러스트의 컨셉은 명시적인 소유권입니다."
 
 #: src/memory-management.md:15
 msgid "First, let's refresh how memory management works."
@@ -3774,11 +3776,11 @@ msgid ""
 "  * Easy to manage: follows function calls.\n"
 "  * Great memory locality."
 msgstr ""
-"* 스택: 지역변수를 위한 메모리 상 연속적인 영역\n"
-"  * 값은 사전 정의된 고정 크기를 갖습니다. \n"
-"  * 극도로 빠름: 단지 스택 포인터만 이동됩니다. \n"
-"  * 관리가 쉬움: 함수 호출을 따릅니다.\n"
-"  * 메모리 인접성"
+"* 스택: 지역 변수를 위한 연속적인 메모리 영역\n"
+"  * 여기 저장되는 값은 컴파일 시 결정되는 고정 크기를 갖습니다. \n"
+"  * 매우 빠름: 메모리 할당/반환이 단지 스택 포인터의 이동만으로 구현됩니다.\n"
+"  * 관리가 쉬움: 함수가 호출되면 할당되고, 리턴하면 반환됩니다.\n"
+"  * 스택에 있는 값들은 매우 높은 메모리 인접성을 가집니다(_역주_: 그래서 캐시를 효과적으로 활용할 수 있습니다)"
 
 #: src/memory-management/stack-vs-heap.md:9
 msgid ""
@@ -3787,11 +3789,10 @@ msgid ""
 "  * Slightly slower than the stack: some book-keeping needed.\n"
 "  * No guarantee of memory locality."
 msgstr ""
-"* 힙: 함수 호출 외부의 값이 저장되는 곳\n"
-"  * 값은 런타임 시 결정되는 동적 크기를 갖습니다. \n"
-"  * 스택에 비해서는 약간 느림: 약간의 추가 기록(힙 주소를 스택에 저장)이  필"
-"요함.\n"
-"  * 메모리 인접성을 보장하지 않음."
+"* 힙: 함수 호출/리턴과 상관 없이 유지되는 값이 저장되는 곳\n"
+"  * 여기 저장되는 값은 프로그램 수행시 그 크기가 결정됩니다.\n"
+"  * 스택 보다는 느림: 메모리 할당/반환시 해야 할 일이 좀 더 있습니다.\n"
+"  * 메모리 인접성을 보장하지 않습니다."
 
 #: src/memory-management/stack.md:1
 msgid "# Stack Memory"
@@ -3803,8 +3804,8 @@ msgid ""
 "sized\n"
 "data on the heap:"
 msgstr ""
-"`String` 타입은 힙에 동적으로 데이터를 저장하고 크기 고정된 데이터(힙 데이터"
-"에 대한 정보)를 스택에 저장합니다."
+"`String` 타입은 고정 크기 데이터(_역주_: 문자열의 길이, 문자열이 저장된 버퍼의 주소 등)는 "
+"스택에 저장하고, 가변 크기 데이터(_역주_: 문자열 버퍼)는 힙에 저장합니다:"
 
 #: src/memory-management/stack.md:6
 msgid ""
@@ -3837,8 +3838,8 @@ msgid ""
 "* Mention that a `String` is backed by a `Vec`, so it has a capacity and "
 "length and can grow if mutable via reallocation on the heap."
 msgstr ""
-"* 문자열(`String`)은 `Vec`에 의해 백업되므로 크기(용량)과 길이가 있고 힙 재할"
-"당을 통해 증가할 수 있습니다."
+"* 문자열(`String`)은 실제로는 `Vec`입니다. 크기(capacity)와 현재 길이(length) "
+"정보를 가지며, 더 큰 크기가 필요할 경우 힙에서 재 할당을 합니다."
 
 #: src/memory-management/stack.md:30
 msgid ""
@@ -3846,9 +3847,8 @@ msgid ""
 "heap allocated using the [System Allocator] and custom allocators can be "
 "implemented using the [Allocator API]"
 msgstr ""
-"* 이에대한 질문의 답변으로, 기본 메모리가 시스템 할당자([System Allocator])"
-"를 사용하여 힙에 할당되고, 사용자 지정할당자는 할당자 API([Allocator API])를 "
-"이용하여 구현 도리 수 있다고 언급 할 수 있습니다."
+" 힙은 기본적으로 [System Allocator]를 통해 할당됩니다. 그리고 [Allocator API]를 이용해서 "
+"커스텀 메모리 할당자를 만들 수도 있습니다."
 
 #: src/memory-management/stack.md:34
 msgid ""
@@ -3869,16 +3869,16 @@ msgid ""
 "If not done with care, this can lead to crashes, bugs, security "
 "vulnerabilities, and memory leaks."
 msgstr ""
-"주의하지 않으면, 충돌(crash), 버그, 보안취약성 및 메모리 누출이 발생할 수 있"
+"조심하지 않으면, 충돌(crash), 버그, 보안취약성 및 메모리 누출이 발생할 수 있"
 "습니다."
 
 #: src/memory-management/manual.md:7
 msgid "## C Example"
-msgstr "## C언어 예제"
+msgstr "## C 언어 예제"
 
 #: src/memory-management/manual.md:9
 msgid "You must call `free` on every pointer you allocate with `malloc`:"
-msgstr "`malloc`로 할당하는 포인터마다 `free`를 호출해야 합니다: "
+msgstr "`malloc`으로 할당하는 포인터마다 `free`를 호출해야 합니다: "
 
 #: src/memory-management/manual.md:11
 msgid ""
@@ -3899,9 +3899,9 @@ msgid ""
 "the\n"
 "pointer is lost and we cannot deallocate the memory."
 msgstr ""
-"만약`malloc` 과 `free` 사이에서 함수가 먼저 반환되면 메모리 누출이 일어납니"
-"다:  \n"
-" 포인터가 손실되어 메모리 할당을 해제할 수 없게 됩니다."
+"만약`malloc` 과 `free` 사이에서 함수가 일찍 반환되면 메모리 누출이 일어납니"
+"다:\n"
+" 포인터를 잃어버리게 되어 메모리를 반환할 수 없게 됩니다."
 
 #: src/memory-management/scope-based.md:1
 msgid "# Scope-Based Memory Management"
@@ -3910,7 +3910,8 @@ msgstr "# 범위기반 메모리 관리"
 #: src/memory-management/scope-based.md:3
 msgid ""
 "Constructors and destructors let you hook into the lifetime of an object."
-msgstr "생성자와 소멸자를 사용하여 객체의 수명에 연결(hook)할 수 있습니다. "
+msgstr "생성자와 소멸자를 사용하여 객체의 생명주기에 따라 메모리 할당/해제가 "
+"일어나도록 할 수 있습니다."
 
 #: src/memory-management/scope-based.md:5
 msgid ""
@@ -3919,8 +3920,10 @@ msgid ""
 "is\n"
 "raised."
 msgstr ""
-"포인터를 객체에 래핑하여 객체가 소멸될 때 메모리를 해제 할 수 있습니다. \n"
-"컴파일러는 예외(exception)가 발생하더라도 이를 보장합니다. "
+"포인터를 객체로 감싸도록 하면, 그 객체가 소멸될 때 그 포인터가 가리키는 메모리가 \n"
+"해제되도록 할 수 있습니다. 컴파일러는 객체가 소멸될 때 반드시 소멸자가 호출되는 것을 \n"
+"보장합니다. 심지어는 예외(exception)가 발생(_역주_: 함수의 리턴이나 스코프의 종료 뿐만이 아니라) "
+"하더라도요."
 
 #: src/memory-management/scope-based.md:9
 msgid ""
@@ -3928,8 +3931,8 @@ msgid ""
 "gives\n"
 "you smart pointers."
 msgstr ""
-"이를 종종 RAII(Resource Acquisition Is Initialization, 리소스 획득은 초기화"
-"다)이라고 하며, RAII패턴의 스마트 포인터를 제공합니다."
+"이를 종종 RAII (Resource Acquisition Is Initialization)라고 하며, 이런 객체는 "
+"일종의 스마트 포인터 역할을 합니다."
 
 #: src/memory-management/scope-based.md:12
 msgid "## C++ Example"
@@ -3951,15 +3954,14 @@ msgid ""
 "* At the end of `say_hello`, the `std::unique_ptr` destructor will run.\n"
 "* The destructor frees the `Person` object it points to."
 msgstr ""
-"* `std::unique_ptr`객체는 스택에 할당되며, 힙에 할당된 메모리를 가리킵니다"
-"(point).\n"
+"* `std::unique_ptr`객체는 스택에 할당되며, 힙에 할당된 메모리를 가리킵니다.\n"
 "* `say_hello`함수가 끝나면 `std::unique_ptr`의 소멸자가 실행됩니다.\n"
-"* 소멸자는 `Person` 객체가 가르키는(point) 곳을 해제합니다."
+"* 소멸자는 `Person` 객체가 가리키는 메모리를 해제합니다."
 
 #: src/memory-management/scope-based.md:25
 msgid ""
 "Special move constructors are used when passing ownership to a function:"
-msgstr "특별한 이동 생성자는 소유권을 함수로 전달할때 사용됩니다."
+msgstr "이동 생성자는 함수 호출 시 소유권을 전달할때 사용됩니다."
 
 #: src/memory-management/scope-based.md:27
 msgid ""
@@ -3978,7 +3980,7 @@ msgid ""
 "An alternative to manual and scope-based memory management is automatic "
 "memory\n"
 "management:"
-msgstr "수동, 스코프기반 메모리 관리의 대안인 자동 메모리 관리 방식입니다:"
+msgstr "수동, 스코프기반 메모리 관리의 대안으로 자동 메모리 관리 방식이 있습니다:"
 
 #: src/memory-management/garbage-collection.md:6
 msgid ""
@@ -3987,7 +3989,7 @@ msgid ""
 "programmer."
 msgstr ""
 "* 개발자는 메모리를 명시적으로 할당/해제 하지 않습니다. \n"
-"* 가비지 컬렉터(GC)는 개발자 대신 사용되지 않는 메모리를 찾아 해제합니다."
+"* 가비지 컬렉터(GC)는 사용되지 않는 메모리를 찾아 해제합니다."
 
 #: src/memory-management/garbage-collection.md:9
 msgid "## Java Example"
@@ -3996,7 +3998,7 @@ msgstr "## Jave 예제"
 #: src/memory-management/garbage-collection.md:11
 msgid "The `person` object is not deallocated after `sayHello` returns:"
 msgstr ""
-"`person`객체는 `sayHello`함수 반환 후에도 해제되지 않습니다. (GC가 나중에 알"
+"`person`객체는 `sayHello`함수 반환 후에도 해제되지 않습니다. (_역주_: GC가 나중에 알"
 "아서 해제합니다.)"
 
 #: src/memory-management/garbage-collection.md:13
@@ -4014,7 +4016,7 @@ msgstr "# 러스트에서의 메모리 관리"
 
 #: src/memory-management/rust.md:3
 msgid "Memory management in Rust is a mix:"
-msgstr "러스트의 메모리 관리는 이전 방식들을 혼합해서 사용합니다:"
+msgstr "러스트의 메모리 관리는 지금까지 설명한 방식들을 혼합해서 사용합니다:"
 
 #: src/memory-management/rust.md:5
 msgid ""
@@ -4027,15 +4029,14 @@ msgid ""
 "have no cost at runtime like C."
 msgstr ""
 "* 자바처럼 안전하고 정확합니다. 하지만 GC는 없습니다. \n"
-"* 선택되는 추상화(조합)에 따라서 단일 고유 포인터, 참조 카운트 혹은 원자적 참"
-"조 카운트가 될 수 있습니다. * C++처럼 범위(스코프)기반입니다. 하지만 컴파일러"
-"가 엄격하게 적용합니다.\n"
-"* 러스트 사용자는 상황에 맞는 추상화 방법을 선택할 수 도 있고, 그 중에는 C와 "
-"같이 런타임 코스트가 없는 것도 있습니다."
+"* 다양한 추상화를 제공합니다: 단일 포인터, 참조 카운트, 아토믹(atomic) 참조 카운트\n"
+"* C++ 처럼 범위(스코프) 기반입니다. 하지만 컴파일러가 훨씬 더 엄격합니다.\n"
+"* 사용자는 상황에 따라 적합한 추상화를 선택할 수 있습니다. 그 중에는 C 언어 처럼 "
+"런타임 오버헤드가 없는 것도 있습니다."
 
 #: src/memory-management/rust.md:10
 msgid "It achieves this by modeling _ownership_ explicitly."
-msgstr "이는 러스트의 명시적인 `소유권` 설계를 통해 이뤄집니다."
+msgstr "러스트는 _소유권_을 언어 차원에서 명시적으로 모델링 함으로써 이를 이룹니다."
 
 #: src/memory-management/rust.md:14
 msgid ""
@@ -4044,17 +4045,18 @@ msgid ""
 "encapsulate ownership and memory allocation via various means, and prevent "
 "the potential errors in C."
 msgstr ""
-"* 이 시점에서 방법을 묻는 질문에 Rust에서 이 작업은 일반적으로 [Box], [Vec], "
-"[Rc] 또는 [Arc]와 같은 RAII 래퍼 유형에 의해 처리된다고 언급할 수 있습니다. "
-"이들은 다양한 방법을 통해 소유권과 메모리 할당을 캡슐화하고, C 언어와 같은 잠"
-"재적인 오류를 방지합니다. "
+"* 이 시점에서 그게 어떻게 가능하냐는 질문이 있으면, 러스트에서 이 작업은 "
+"일반적으로 [Box], [Vec], [Rc] 또는 [Arc]와 같은 RAII 타입에 의해 처리된다고 "
+"답변할 수 있습니다. "
+"이들은 다양한 방법을 통해 소유권과 메모리 할당에 대한 구체적인 내용을을 캡슐화하여, "
+"C 언어였다면 발생할 수 있었을 다양한 에러를 막습니다."
 
 #: src/memory-management/rust.md:16
 msgid ""
 "* You may be asked about destructors here, the [Drop] trait is the Rust "
 "equivalent."
 msgstr ""
-"* 소멸자에 대한 질문도 받을 수 있습니다. 러스트의 [Drop] 트레이트 입니다."
+"* 소멸자에 대한 질문도 있을 수 있습니다. [Drop] 트레이트가 답입니다."
 
 #: src/memory-management/rust.md:20
 msgid ""
@@ -4131,13 +4133,14 @@ msgstr ""
 "  * 메모리 누출 문제\n"
 "* JAVA와 같은 자동화 관리: \n"
 "  * GC동작으로 인한 멈춤\n"
-"  * 소멸자 지연 동작\n"
+"  * 소멸자 지연 (_역주_: 특정 메모리를 더이상 사용하지 않더라도 "
+"곧바로 해제 되지 않고 GC가 동작할 때 까지 기다려야 한다는 점)\n"
 "* C++ 와 같은 범위 기반 관리: \n"
-"  * 복잡하며 개발자에 의해서 최적화가 필요함\n"
+"  * 복잡하며, 개발자의 선택사항임\n"
 "  * 사용 후 해제 문제 가능성 있음\n"
-"* 러스트와 같은 컴파일러 수행 범위 기반 관리: \n"
+"* 러스트와 같은 컴파일러가 강제하는 수행 범위 기반 관리: \n"
 "  * 약간의 초기 복잡성\n"
-"  * 유효한 프로그램(로직)이 거부 될 수 있음"
+"  * 올바른 프로그램이지만 컴파일러가 거부할 수 있음"
 
 #: src/ownership.md:1
 msgid "# Ownership"
@@ -4149,8 +4152,8 @@ msgid ""
 "to\n"
 "use a variable outside its scope:"
 msgstr ""
-"모든 변수 바인딩은 유효한 _범위를_ 가지며, 범위 밖에서 변수 사용은 오류입니"
-"다:"
+"모든 변수 바인딩은 유효한 _범위(스코프)_를 가지며, 범위 밖에서 변수 사용하면 "
+"에러가 발생합니다."
 
 #: src/ownership.md:6
 msgid ""
@@ -4176,9 +4179,9 @@ msgid ""
 "* A destructor can run here to free up resources.\n"
 "* We say that the variable _owns_ the value."
 msgstr ""
-"* 스코프가 종료되면 변수는 _삭제되고_ 데이터 메모리는 해제됩니다.\n"
-"* 소멸자는 여기(스코프 종료지점)에서 메모리 자원을 해제 합니다. \n"
-"* 이것을 두고 변수가 값을 _소유한다고_ 표현합니다."
+"* 스코프가 종료되면 변수는 _삭제(drop)_되었다고 하며 그 변수의 데이터는 메모리에서 해제됩니다.\n"
+"* 스코프가 종료될 때 다른 리소스를 해제하기 위해 소멸자가 호출되도록 할 수 있습니다.\n"
+"* 이것을 두고 변수가 값을 _소유_한다고 표현합니다."
 
 #: src/ownership/move-semantics.md:1
 msgid "# Move Semantics"
@@ -4186,7 +4189,7 @@ msgstr "# Move 문법(Move Semantics)"
 
 #: src/ownership/move-semantics.md:3
 msgid "An assignment will transfer ownership between variables:"
-msgstr "(변수의)할당은 변수 간 소유권을 이동시킵니다:"
+msgstr "(변수의)할당은 소유권을 변수 간에 이동시킵니다:"
 
 #: src/ownership/move-semantics.md:5
 msgid ""
@@ -4209,22 +4212,22 @@ msgid ""
 "* There is always _exactly_ one variable binding which owns a value."
 msgstr ""
 "* s1을 s2에 할당하여 소유권을 이전시킵니다.\n"
-"* 데이터는 s1에서 _이동_됩니다. 따라서 s1은 더이상 접근 할 수 없습니다.\n"
-"* `s1`의 스코프가 종료되면 아무 일도 없습니다: 아무런 소유권이 없습니다.\n"
+"* 데이터는 s1에서 _이동_됩니다. 따라서 프로그래머는 s1은 더 이상 접근 할 수 없습니다.\n"
+"* `s1`의 스코프가 종료되면 아무 일도 없습니다: 왜냐하면 `s1`은 아무런 소유권이 없기 때문입니다.\n"
 "* `s2`의 스코프가 종료되면 문자열 데이터는 해제됩니다.\n"
-"* 값(데이터)의 소유권을 갖는 변수는 항상 _정확히_ 하나 입니다."
+"* 값(데이터)의 소유권을 갖는 변수는 항상 _단_ 하나 입니다."
 
 #: src/ownership/move-semantics.md:22
 msgid ""
 "* Mention that this is the opposite of the defaults in C++, which copies by "
 "value unless you use `std::move` (and the move constructor is defined!)."
 msgstr ""
-"* (이동 생성자가 정의되고)`std::move`를 사용하지 않는 한, 이는 C++ 와는 정반대"
-"로 값으로 복사됩니다."
+"* 이는 C++과 정반대 임을 설명하세요. C++에서는 복사가 기본이고, `std::move` "
+"를 이용해야만 (그리고 이동 생성자가 정의되어 있어야만!) 소유권 이전이 됩니다."
 
 #: src/ownership/move-semantics.md:24
 msgid "* In Rust, you clones are explicit (by using `clone`)."
-msgstr "* 러스트에서는 명시적으로 `clone`을 사용하여 복제해야합니다."
+msgstr "* 러스트에서는 복사할때에는 명시적으로 `clone`을 사용합니다."
 
 #: src/ownership/moved-strings-rust.md:1
 msgid "# Moved Strings in Rust"
@@ -4250,7 +4253,7 @@ msgstr ""
 
 #: src/ownership/moved-strings-rust.md:13
 msgid "Before move to `s2`:"
-msgstr "`s2`이동 전 메모리:"
+msgstr "`s2`로 이동 전 메모리:"
 
 #: src/ownership/moved-strings-rust.md:15
 msgid ""
@@ -4272,7 +4275,7 @@ msgstr ""
 
 #: src/ownership/moved-strings-rust.md:30
 msgid "After move to `s2`:"
-msgstr "`s2`이동 후 메모리:"
+msgstr "`s2`로 이동 후 메모리:"
 
 #: src/ownership/moved-strings-rust.md:32
 msgid ""
@@ -4381,8 +4384,7 @@ msgid ""
 "When you pass a value to a function, the value is assigned to the function\n"
 "parameter. This transfers ownership:"
 msgstr ""
-"값을 함수에 전달할때, 값은 함수 매개변수에 할당됩니다. 이것은 소유권을 이동시"
-"킵니다:"
+"값을 함수에 전달할때, 그 값은 매개변수에 할당됩니다. 이때 소유권의 이동이 일어납니다:"
 
 #: src/ownership/moves-function-calls.md:6
 msgid ""
@@ -4424,8 +4426,8 @@ msgstr ""
 "니다. \n"
 "* 또는 첫번째 호출 시 `main`함수에서 `name`을 복제하여 전달할 수도 있습니다."
 "(`name.clone()`)\n"
-"* 러스트는 의미론 이동(move semantics)를 기본으로 하고 복제를 명시적으로 선언"
-"하도록 만듬으로 의도치 않게 C++보다 복사본을 만드는 것이 어렵습니다. \n"
+"* 러스트는 이동을 기본으로 하고 복제를 명시적으로 선언"
+"하도록 만듬으로, 의도치 않게 복사본을 만드는 것이 C++에서보다 어렵습니다. \n"
 " "
 
 #: src/ownership/copy-clone.md:1
@@ -4435,7 +4437,7 @@ msgstr "# 복사와 복제"
 #: src/ownership/copy-clone.md:3
 msgid ""
 "While move semantics are the default, certain types are copied by default:"
-msgstr "의미구조(Semantics)가 이동할때, 특정 타입은 기본적으로 복사됩니다:"
+msgstr "이동이 기본 설정이지만, 특정 타입은 복사됩니다:"
 
 #: src/ownership/copy-clone.md:5
 msgid ""
@@ -4451,12 +4453,12 @@ msgstr ""
 
 #: src/ownership/copy-clone.md:14
 msgid "These types implement the `Copy` trait."
-msgstr "이러한 유형들은 `Copy` 트레이트를 구현합니다. "
+msgstr "이러한 타입들은 `Copy` 트레이트를 구현합니다. "
 
 #: src/ownership/copy-clone.md:16
 msgid "You can opt-in your own types to use copy semantics:"
 msgstr ""
-"직접 만든 타입들도 `Copy`트레이트를 구현하여 의미복사를 할 수 있습니다:"
+"직접 만든 타입들도 `Copy`트레이트를 구현하여 복사를 할 수 있습니다:"
 
 #: src/ownership/copy-clone.md:18
 msgid ""
@@ -4486,7 +4488,7 @@ msgstr ""
 
 #: src/ownership/copy-clone.md:35
 msgid "Copying and cloning are not the same thing:"
-msgstr "복사와 복제는 같지 않습니다: "
+msgstr "복사(copying)와 복제(cloning)는 같지 않습니다: "
 
 #: src/ownership/copy-clone.md:37
 msgid ""
@@ -4498,11 +4500,13 @@ msgid ""
 "implementing the `Clone` trait.\n"
 "* Copying does not work on types that implement the `Drop` trait."
 msgstr ""
-"* 복사는 메모리 영역의 비트단위 복사본으로 임의의 객체에서는 동작하지 않습니"
-"다. \n"
-"* 복제는 보다 일반적인 작업으로 `Clone`트레이트를 구현하여 사용자 지정동작을 "
-"허용합니다.\n"
-"* `Drop` 트레이트를 구현한 타입에서 복사는 동작하지 않습니다."
+"* 복사는 메모리의 내용을 그대로 한 벌 더 만드는 것을 의미하며, 아무 객체에서나 다 "
+"지원하지는 않습니다. \n"
+"* 복사는 커스터마이즈 할 수 없습니다. (C++에서 복사 생성자를 통해 복사 동작을 "
+"임의로 구현할 수 있는 것과 비교가 됩니다.)\n"
+"* 복제는 보다 일반적인 작업이며, `Clone`트레이트를 구현하여 복제시 동작을 "
+"커스터마이즈 할 수 있습니다.\n"
+"* `Drop` 트레이트를 구현한 타입은 복사되지 않습니다."
 
 #: src/ownership/copy-clone.md:42 src/ownership/lifetimes-function-calls.md:29
 msgid "In the above example, try the following:"
@@ -4516,9 +4520,11 @@ msgid ""
 "the `println!` for  `p1`.\n"
 "* Show that it works if you clone `p1` instead."
 msgstr ""
-"* `Point 구조체`에 `String`필드를 추가하면 어떻게 됩니까?\n"
-"* `derive` 속성에서 `Copy`를 제거해도 동작합니까?\n"
-"* Copy를 제거 한 후, `p1`을 이동해도 여전히 출력 됩니까?"
+"* `Point`구조체에 `String`필드를 추가하세요. 컴파일 되지 않을 것입니다. "
+"왜냐하면 `String`은 `Copy`트레이트를 구현하고 있지 않기 때문입니다.\n"
+"* `derive` 속성에서 `Copy`를 제거해 보세요. `p1`을 `println!` 할 때 "
+"컴파일 에러가 발생할 것입니다.\n"
+"* `p1`을 복제하면 잘 동작함을 확인해 보세요."
 
 #: src/ownership/copy-clone.md:48
 msgid ""
@@ -4531,7 +4537,7 @@ msgid ""
 msgstr ""
 "만약 학생들이 `derive`에 대해 묻는다면, 컴파일 시 러스트에서 코드를 생성하는"
 "방법이라고 말하는 것으로 충분합니다.\n"
-"위 경우 `Copy`와 `Clone` 트레이트가 기본 구현으로 생성됩니다.\n"
+"위 경우 `Copy`와 `Clone` 트레이트에 대한 기본 구현이 생성됩니다.\n"
 "    \n"
 "</details>"
 
@@ -4576,9 +4582,9 @@ msgid ""
 "* The `add` function _borrows_ two points and returns a new point.\n"
 "* The caller retains ownership of the inputs."
 msgstr ""
-"* `add` 함수는 두 Point객체 값을 _빌려_오와서 새로운 Point객체를 반환합니"
+"* `add` 함수는 두 `Point` 객체 값을 _빌려_와서 새로운 `Point` 객체를 반환합니"
 "다.\n"
-"* 호출자(main 함수)는 여전히 p1, p2의 소유권을 유지합니다."
+"* `p1`과 `p2`의 소유권은 여전히 호출자(`main`함수)에 있습니다."
 
 #: src/ownership/borrowing.md:27
 msgid ""
@@ -4589,12 +4595,11 @@ msgid ""
 "addresses should change, while the stay the same when changing to the "
 "\"RELEASE\" setting:"
 msgstr ""
-"스택 반환에 대한 참고: \n"
-"* 컴파일러가 복사 동작을 제거할 수 있기 때문에 `add`에서의 반환 코스트가 낮습"
-"니다.\n"
-" 위 코드를 주택 주소를 출력하도록 수정하고 [Playground]에서 실행해 보시기 바"
-"랍니다.\n"
-" `DEBUG` 최적화 레벨에서 주소는 변경되지만 `RELEASE`에서는 그렇지 않습니다."
+"스택에 할당된 값을 리턴하는 것에 대한 참고: \n"
+"* `add`에서 값을 반환하는 것은 매우 값이 싸다는 것을 설명하세요. 왜냐하면, "
+"컴파일러가 복사 과정을 생략할 수 있기 때문입니다. 위 코드를 스택 주소를 "
+"출력하도록 수정하고 [Playground]에서 수행해 보세요. \"디버그\" 최적화 레벨에서는 "
+"주소가 바뀌지만, \"릴리즈\" 레벨에서는 바뀌지 않습니다."
 
 #: src/ownership/borrowing.md:30
 msgid ""
@@ -4651,16 +4656,15 @@ msgstr "# 공유와 고유 빌림"
 
 #: src/ownership/shared-unique-borrows.md:3
 msgid "Rust puts constraints on the ways you can borrow values:"
-msgstr "러스트는 값을 빌려오는 방법에 대한 제약이 존재합니다:"
+msgstr "러스트에서는 값을 빌릴 때 다음과 같은 제약조건이 있습니다:"
 
 #: src/ownership/shared-unique-borrows.md:5
 msgid ""
 "* You can have one or more `&T` values at any given time, _or_\n"
 "* You can have exactly one `&mut T` value."
 msgstr ""
-"* 한번에 하나 이상의 `&T` 값을 가질 수 있습니다.(1~N개의 불변 변수)  _또는"
-"_ \n"
-"* 정확히 하나의 `&mut T` 값을 가질 수 있습니다.(1개의 가변 변수)"
+"* 한번에 하나 이상의 `&T` 값을 가지거나, _또는_\n"
+"* 정확히 하나의 `&mut T` 값만을 가질 수 있습니다."
 
 #: src/ownership/shared-unique-borrows.md:8
 msgid ""
@@ -4696,13 +4700,17 @@ msgid ""
 "the new mutable borrow of `a` through `c`. This is a feature of the borrow "
 "checker called \"non-lexical lifetimes\"."
 msgstr ""
-"* 상기 코드는 `a`는 가변변수`c`와 불변변수`b`에 동시에 빌림이 되어 컴파일이  "
-"되지 않습니다. \n"
-"* 코드 컴파일을 위해 `c` 선언 범위 앞으로 `b`에 대한 `println!`구문을   이동"
-"합니다.\n"
-"* 이 변경 후에 컴파일러는 `b`가 `c` 나 `a` 의 사용전까지만 이용되는 것을 알"
-"게 되어 컴파일이 됩니다. 이러한 기능을 `비 어휘적 수명(non-lexical lifetime)`"
-"라고 합니다."
+"* 위 코드 컴파일 되지 않습니다. 왜냐하면 `c`는 `a`를 가변 변수로 빌렸고, "
+"이와 동시에 `b`는 `a`를 불변 변수로 빌렸기 때문입니다.\n"
+"* `b`에 대한 `println!` 구분을 `c`가 있는 스코프 앞으로 이동하면 컴파일이 됩니다."
+"* 이렇게 바꾸면, 컴파일러는 `c`가 `a`를 가변 변수로 빌리기 전에만 `b`가 사용된다는 "
+"것을 확인할 수 있습니다. 빌림 검사기의 이러한 기능을 \"non-lexical lifetime\" 이라고 "
+"합니다. (_역주_: 단순히 스코프만 보면 `b`의 수명은 `main`함수의 전체라고 생각할 수 있습니다. "
+"때문에 `c`의 블럭 안에서는 `a`에 대한 가변 빌림과 불변 빌림이 동시에 존재하는 것 처럼 "
+"보이며, 이는 위 제약 조건을 위반하는 것으로 생각할 수 있습니다. 그러나 컴파일러는 `b`"
+"가 `c`블럭이 시작되기 전에만 사용된다는 점을 적극 활용해서 `b`의 수명을 `c`블럭의 시작 "
+"전 까지로 줄입니다. 그러면 `b`와 `c`의 수명은 겹치지 않고, 따라서 제약 조건을 위반하지 "
+"않습니다.)"
 
 #: src/ownership/lifetimes.md:1
 msgid "# Lifetimes"
@@ -4710,7 +4718,7 @@ msgstr "# 수명"
 
 #: src/ownership/lifetimes.md:3
 msgid "A borrowed value has a _lifetime_:"
-msgstr "빌려온 값은 _수명을_ 갖습니다:"
+msgstr "빌려온 값은 _수명_을 갖습니다:"
 
 #: src/ownership/lifetimes.md:5
 msgid ""
@@ -4725,12 +4733,12 @@ msgid ""
 "there is\n"
 "    a valid solution."
 msgstr ""
-"* 수명는 생략할 수 있습니다: `add(p1: &Point, p2: &Point) -> Point`.\n"
+"* 수명은 생략할 수 있습니다: `add(p1: &Point, p2: &Point) -> Point`.\n"
 "* 물론 명시할 수도 있습니다: `&'a Point`, `&'document str`.\n"
-"* `&'a Point` 는 as `a`가 유효한 동안 빌려온 `Point` 입니다.\n"
-"* 수명는 항상 컴파일러에 의해 추론됩니다: 직접 수명을 설정할 수는 없습니다.\n"
-"  * 수명 표기(`'`)은 제약조건을 생성합니다.\n"
-"  * 컴파일러는 수명을 추론 할 유효한 방법이 있는지 확인합니다."
+"* `&'a Point` 는 `Point`의 수명이 최소한 `'a`라는 수명보다는 같거나 더 길다는 것을 의미합니다.\n"
+"* 수명은 항상 컴파일러가 자동으로 추론합니다. 직접 수명을 지정할 수는 없습니다.\n"
+"  * 수명 표기(`'`)은 수명 추론시 제약조건이 됩니다. 컴파일러는 이 제약조건을 만족시키는 "
+"유요한 수명을 추론할 수 있는지 검사를 합니다.\n"
 
 #: src/ownership/lifetimes-function-calls.md:1
 msgid "# Lifetimes in Function Calls"
@@ -4769,9 +4777,9 @@ msgid ""
 "  * The _at least_ part is important when parameters are in different scopes."
 msgstr ""
 "* `'a`는 제너릭 매개변수로 컴파일러로에 의해 추론됩니다.\n"
-"* 수명은 `'` 로 표기하며 러스트에서는 일반적으로 `'a` 라고 표현합니다.\n"
-"* `&'a Point` 는 as  `a`와 동일한 수명을 가지는 빌려온 `Point` 입니다.\n"
-"  * **중요** : 다른 스코프에 있어도 적용 됩니다."
+"* 수명의 이름은 `'` 로 시작하며 보통 `'a`를 많이 씁니다.\n"
+"* `&'a Point` 는 `Point`의 수명이 `'a` 수명과 최소한 같거나 더 길다는 것을 의미합니다.\n"
+"  * 매개변수들이 서로 다른 스코프에 있을 경우 _최소한_이라는 조건이 중요합니다."
 
 #: src/ownership/lifetimes-function-calls.md:31
 msgid ""
@@ -4781,7 +4789,7 @@ msgid ""
 "  #[derive(Debug)]\n"
 "  struct Point(i32, i32);"
 msgstr ""
-"* p2와 p3를 새로운 범위(`{...}`)로 아래 코드와 같이 이동해 봅니다:\n"
+"* `p2`와 `p3`를 새로운 범위(`{...}`)로 아래 코드와 같이 이동해 봅니다:\n"
 "  ```rust,ignore\n"
 "  #[derive(Debug)]\n"
 "  struct Point(i32, i32);"
@@ -4817,7 +4825,7 @@ msgstr ""
 "      println!(\"left-most point: {:?}\", p3);\n"
 "  }\n"
 "  ```\n"
-"  p3가 p2보다 오래 지속되기 때문에 이 예제는 컴파일되지 않음을 확인하시기   "
+"  `p3`의 수명이 `p2` 보다 길기 때문에 이 예제는 컴파일되지 않음을 확인하시기   "
 "바랍니다."
 
 #: src/ownership/lifetimes-function-calls.md:52
@@ -4836,15 +4844,14 @@ msgid ""
 "    for longer than a variable from where the reference came from."
 msgstr ""
 "* 작업공간을 초기화 한 후 함수 시그니처를 `fn left_most<'a, 'b>(p1: &'a "
-"Point,   p2: &'a Point) -> &'b Point`로 변경해 봅니다. 이 경우 `'a`와 `'b`사"
-"이의   관계가 불분명하기 때문에 컴파일 되지 않습니다.\n"
-"* 이를 설명하는 또 다른 방법:  \n"
-"  * 각 값에 대한 두 참조(&p1,&p2)는 함수에 의해 빌림을 당하고,   함수는 또 다"
-"른 참조(p3)를 반환합니다.\n"
-"  * 이는(p3) 입력받은 두 참조(또는 전역 변수)로 부터 온 것이어야만 합니다.\n"
-"  * 컴파일러는 수명의 출처를 정확히 알아야 하기 때문에,   호출부에서 반환된 "
-"참조(p3)는 참조가 발생한 변수(p1,p2)보다 오랫동안 사용되지 않습니다.  (p3의 "
-"수명'b와 'a가 연결되있지 않아서 수명 지정이 충분하지 않다는 오류)"
+"Point, p2: &'a Point) -> &'b Point`로 변경해 봅니다. 이 경우 `'a`와 `'b`사"
+"이의 관계가 불분명하기 때문에 컴파일 되지 않습니다.\n"
+"* 이 에러를 설명하는 또 다른 방법은 다음과 같습니다:  \n"
+"  * 이 함수는 두 값을 빌려서, 새로운 참조를 반환합니다.\n"
+"  * 이 반환된 참조는 두 입력 중 하나로 부터 와야 합니다. (아니면 전역 변수로 부터)\n"
+"  * 두 입력 중 어떤 것일까요? 컴파일러는 이를 알아야 합니다. 그래야만 "
+"함수 호출부에서 봤을 때, 반환된 참조의 수명이 원래 값을 수명보다 길지 않음을 확인할 "
+"수 있기 때문입니다."
 
 #: src/ownership/lifetimes-data-structures.md:1
 msgid "# Lifetimes in Data Structures"
@@ -4854,8 +4861,7 @@ msgstr "# 구조체에서의 수명"
 msgid ""
 "If a data type stores borrowed data, it must be annotated with a lifetime:"
 msgstr ""
-"만약 빌려온 데이터를 저장하는 타입(구조체 같은)인 경우, 반드시 수명 표기를 해"
-"야합니다."
+"어떤 타입이 빌려온 데이터를 저장하고 있다면, 반드시 수명을 표시해야 합니다:"
 
 #: src/ownership/lifetimes-data-structures.md:5
 msgid ""
@@ -4902,17 +4908,19 @@ msgid ""
 "lifetime of the struct itself. Those are very advanced use cases.\n"
 "</details>"
 msgstr ""
-"* 위의 예제에서 `Hightlight`의 어노테이션(annotation)은 적어도 내부의 `&str` "
-"데이터를 사용하는 `Highlight` 인스턴스만큼 지속되는 동안 적용됩니다.\n"
-"* 만약 `test`가 `fox`(혹은 `dog`)의 수명 전에 소모된다면(`erase` 함수) 빌림 "
-"검사기는 오류를 발생시킬 것 입니다.\n"
-"* 빌린 데이터가 있는 타입은 사용자가 원본 데이터를 보유하도록 강제합니다. 이"
-"는 경량 뷰(lightweight views)를 만드는데 유용하지만, 일반적으로 사용하기 어렵"
-"게 만듭니다.\n"
-"* 가능하다면 구조체가 데이터를 직접 소유하도록 하는 것이 좋습니다.\n"
-"* 다수의 참조를 포함하는 일부 구조는 하나 이상의 수명 어노테이션을 가질 수 있"
-"습니다. 이는 구조 자체 뿐 아니라 참조 간의 수명 관계를 설명해야 할 때 필요할 "
-"수 있습니다. 다소 난이도가 있는 사례입니다.</details>"
+"* 위의 예제에서, `Highlight`의 어노테이션 (_역주_: `<'doc>`)은 그 안에 있는 "
+"`Highlight`가 살아있는 동안에는 그 객체가 사용하는 `&str`도 살아있어야 한다는 "
+"것을 의미합니다."
+"* 만약 `text`가 `fox` (혹은 `dog`)의 수명이 다하기 전에 소모된다면 "
+"(_역주_: 주석 처리된 `erase`함수가 호출되었다면 `text`는 그 함수 안으로 이동되고 "
+"따라서 그 수명을 다하게 됩니다.) 빌림 검사기는 에러를 발생합니다."
+"* 빌린 데이터를 가지고 있는 타입은 사용자로 하여금 원본 데이터를 유지하도록 "
+"강제합니다. 이런 타입은 경량 뷰(lightweight view)를 만드는데 유용하지만, 이 제약 "
+"조건 때문에 이런 타입을 사용하는 것이 쉽지만은 않습니다."
+"* 따라서, 가능하다면, 구조체가 자신의 데이터를 직접 소유하도록 하는 것이 좋습니다."
+"* 한 구조체안에 여러 참조가 있으면서, 이 참조들의 수명이 서로 다르게 지정되는 경우도 "
+"있습니다. 이는 참조와 그 구조체 간의 관계 뿐만이 아니라, 그 참조들 사이의 수명 관계를 "
+"설명해야 할 경우에 필요합니다. 매우 고급 기술입니다.</details>"
 
 #: src/exercises/day-1/afternoon.md:1
 msgid "# Day 1: Afternoon Exercises"
@@ -4928,7 +4936,7 @@ msgstr "* 작은 도서관"
 
 #: src/exercises/day-1/afternoon.md:7
 msgid "* Iterators and ownership (hard)."
-msgstr "* 반복자와 소유권(어려움!)"
+msgstr "* 반복자와 소유권 (어려움)"
 
 #: src/exercises/day-1/afternoon.md:13 src/exercises/day-2/afternoon.md:9
 #: src/exercises/day-3/afternoon.md:9
@@ -4945,7 +4953,7 @@ msgid ""
 "now,\n"
 "you just need to know part of its API:"
 msgstr ""
-"우리는 내일 구조체와 Vec<T>에 대해 더 많은 것을 배울 것입니다.  \n"
+"우리는 내일 구조체와 `Vec<T>`에 대해 더 많은 것을 배울 것입니다.  \n"
 "일단 오늘은 API의 일부만 알면 됩니다:"
 
 #: src/exercises/day-1/book-library.md:6
@@ -4969,8 +4977,6 @@ msgid ""
 msgstr ""
 "도서관 프로그램을 만들기 위해 아래 코드를 <https://play.rust-lang.org/>에 복"
 "사해서 구현하시면 됩니다.\n"
-" *  _역주: 아래 소스 주석에 번역이 적용되지 않지만 이해가 어렵진 않습니다_\n"
-"   * _self가 추가되야할 메서드도 있고 impl 자체도 구현할게 있습니다._"
 
 #: src/exercises/day-1/book-library.md:24
 msgid ""
@@ -5124,7 +5130,7 @@ msgid ""
 "html)\n"
 "traits."
 msgstr ""
-"러스트의 소유권 모델은 많은 API에 영향을 줍니다.  \n"
+"러스트의 소유권 모델은 많은 API에 반영이 되어 있습니다.  \n"
 "예를들어 [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator."
 "html) 와 [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait."
 "IntoIterator.html) 같은 트레이트가 있습니다."
@@ -5140,9 +5146,9 @@ msgid ""
 "`Iterator` trait simply says that you can call `next` until you get `None` "
 "back:"
 msgstr ""
-"트레이트는 타입에 대한 행동(메서드)를 설명한다는 점에서 인터페이스와  유사합"
-"니다.`Iterator`는 단순히 `None`가 나올때까지 `next`를 호출하는 트레이트입니"
-"다."
+"트레이트는 타입에 대한 행동(메서드)를 설명한다는 점에서 인터페이스와 유사합"
+"니다. `Iterator`는 단순히 `None`이 나올때까지 `next`를 호출하는 것이 가능하다는 "
+"것을 나타내는 트레이트입니다."
 
 #: src/exercises/day-1/iterators-and-ownership.md:13
 msgid ""
@@ -5156,7 +5162,7 @@ msgstr ""
 
 #: src/exercises/day-1/iterators-and-ownership.md:20
 msgid "You use this trait like this:"
-msgstr "`Iterator`트레이트는 이렇게 사용합니다:"
+msgstr "`Iterator` 트레이트는 이렇게 사용합니다:"
 
 #: src/exercises/day-1/iterators-and-ownership.md:22
 msgid ""
@@ -5179,8 +5185,7 @@ msgstr ""
 #: src/exercises/day-1/iterators-and-ownership.md:34
 msgid "What is the type returned by the iterator? Test your answer here:"
 msgstr ""
-"질문) 반복자(이터레이터)가 반환하는 타입은 무엇입니까? 아래 코드를 수정해보세"
-"요:"
+"반복자가 반환하는 값들은 타입이 뭘까요? 여기서 답을 테스트 해 보세요:"
 
 #: src/exercises/day-1/iterators-and-ownership.md:36
 msgid ""
@@ -5201,7 +5206,7 @@ msgstr ""
 
 #: src/exercises/day-1/iterators-and-ownership.md:46
 msgid "Why is this type used?"
-msgstr "왜 이런 것을 사용해야 합니까?"
+msgstr "왜 이런 타입이 사용되는 것일까요?"
 
 #: src/exercises/day-1/iterators-and-ownership.md:48
 msgid "## `IntoIterator`"
@@ -5213,9 +5218,8 @@ msgid ""
 "iterator. The related trait `IntoIterator` tells you how to create the "
 "iterator:"
 msgstr ""
-"Iterator 트레이트는 생성된 반복자를 \"어떻게 반복 하는지\" 알려줍니다.  \n"
-"이와 관련된 `IntoIterator` 트레이트는 \"반복자를 어떻게 만드는지\" 알려줍니"
-"다."
+"`Iterator` 트레이트는 생성된 반복자를 _사용_하는 방법을 알려줍니다. 반면 "
+"`IntoIterator` 트레이트는 반복자를 생성하는 방법을 알려줍니다:"
 
 #: src/exercises/day-1/iterators-and-ownership.md:53
 msgid ""
@@ -5236,29 +5240,28 @@ msgstr ""
 msgid ""
 "The syntax here means that every implementation of `IntoIterator` must\n"
 "declare two types:"
-msgstr "IntoIterator의 모든 구현은 반드시 두 타입을 선언해야합니다:"
+msgstr "`IntoIterator`의 모든 구현은 반드시 다음의 두 타입을 선언해야합니다:"
 
 #: src/exercises/day-1/iterators-and-ownership.md:65
 msgid ""
 "* `Item`: the type we iterate over, such as `i8`,\n"
 "* `IntoIter`: the `Iterator` type returned by the `into_iter` method."
 msgstr ""
-"* `Item`: `i8`과 같이 반복되는 요소의 유형\n"
-"* `IntoIter`:  `into_iter`메서드에서 반환되는 `Iterator`타입."
+"* `Item`: `i8`과 같이 반복되는 값의 타입\n"
+"* `IntoIter`:  `into_iter` 메서드에서 반환되는 `Iterator`타입."
 
 #: src/exercises/day-1/iterators-and-ownership.md:68
 msgid ""
 "Note that `IntoIter` and `Item` are linked: the iterator must have the same\n"
 "`Item` type, which means that it returns `Option<Item>`"
 msgstr ""
-"IntoIter와 Item는 링크되어 있습니다: 반복자와 Item 타입은 동일해야합니다. "
-"즉, Option<Item>를 반환해야 합니다."
+"`IntoIter`에서 `Item`가 연결되어 있음을 주목하세요. `IntoIter` 반복자는 `Item` "
+"타입의 데이터를 가리켜야 합니다. 즉, 반복자는 `Option<Item>`을 리턴합니다."
 
 #: src/exercises/day-1/iterators-and-ownership.md:71
 msgid "Like before, what  is the type returned by the iterator?"
 msgstr ""
-"질문) (이전과 마찬가지로) 반복자(이터레이터)가 반환하는 타입은 무엇입니까? 아"
-"래 코드를 수정해보세요:"
+"이전과 마찬가지로, 반복자가 반환하는 타입은 무엇입니까?"
 
 #: src/exercises/day-1/iterators-and-ownership.md:73
 msgid ""
@@ -5271,7 +5274,7 @@ msgstr ""
 
 #: src/exercises/day-1/iterators-and-ownership.md:83
 msgid "## `for` Loops"
-msgstr "## 배열과 `for`반복문"
+msgstr "## 배열과 `for` 반복문"
 
 #: src/exercises/day-1/iterators-and-ownership.md:85
 msgid ""
@@ -5282,7 +5285,8 @@ msgid ""
 msgstr ""
 "자, 이제 우리는 `Iterator`와 `IntoIterator`를 알았으므로 `for` 루프를 만들 "
 "수 있습니다. \n"
-"`for` 루프는 `into_iter()`를 호출하여 결과를 반환하는 것을 반복합니다:"
+"`for` 루프는 `into_iter()`를 호출하여 반복자를 만든 다음 그 반복자를 이용하여 "
+"요소들을 반복해서 접근합니다:"
 
 #: src/exercises/day-1/iterators-and-ownership.md:89
 msgid ""
@@ -5309,7 +5313,7 @@ msgstr ""
 
 #: src/exercises/day-1/iterators-and-ownership.md:103
 msgid "What is the type of `word` in each loop?"
-msgstr "질문) 매 루프에서 `word`의 타입은 무엇입니까? "
+msgstr "매 루프에서 `word`의 타입은 무엇입니까? "
 
 #: src/exercises/day-1/iterators-and-ownership.md:105
 msgid ""
