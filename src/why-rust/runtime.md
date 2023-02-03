@@ -5,6 +5,26 @@ No undefined behavior at runtime:
 * Array access is bounds checked.
 * Integer overflow is defined.
 
+```rust
+fn main() {
+    // Create an array of 10 items.
+    let x = [0; 10];
+    // Attempt to access it out of bounds.
+    println!("Out-of-bounds: {}", x[10]);
+}
+```
+
+```rust
+fn main() {
+    let x = [0; 10];
+    foo(&x);
+}
+
+fn foo(x: &[i32]) {
+    println!("Out-of-bounds: {}", x[10]);
+}
+```
+
 <details>
 
 Key points:
