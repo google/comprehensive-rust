@@ -28,14 +28,24 @@ Use this to create a library application. Copy the code below to
     }
 
 {{#include book-library.rs:Library_len}}
+        unimplemented!()
+    }
 
 {{#include book-library.rs:Library_is_empty}}
+        unimplemented!()
+    }
 
 {{#include book-library.rs:Library_add_book}}
+        unimplemented!()
+    }
 
 {{#include book-library.rs:Library_print_books}}
+        unimplemented!()
+    }
 
 {{#include book-library.rs:Library_oldest_book}}
+        unimplemented!()
+    }
 }
 
 {{#include book-library.rs:main}}
