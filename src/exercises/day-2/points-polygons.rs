@@ -222,3 +222,5 @@ mod tests {
     }
 }
 // ANCHOR_END: unit-tests
+
+fn main() {}
