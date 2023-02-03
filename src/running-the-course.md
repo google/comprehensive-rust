@@ -25,7 +25,7 @@ To run the course, you need to:
 
 4. On the day of your course, show up to the room a little early to set things
    up. We recommend presenting directly using `mdbook serve` running on your
-   laptop. This ensures optimal performance with no lag as you change pages.
+   laptop (see the [installation instructions][5]). This ensures optimal performance with no lag as you change pages.
    Using your laptop will also allow you to fix typos as you or the course
    participants spot them.
 
@@ -56,3 +56,4 @@ better. Your students are also very welcome to [send us feedback][4]!
 [2]: https://github.com/google/comprehensive-rust
 [3]: https://github.com/google/comprehensive-rust/discussions/86
 [4]: https://github.com/google/comprehensive-rust/discussions/100
+[5]: https://github.com/google/comprehensive-rust#building
