@@ -68,3 +68,5 @@ fn test_matches_with_wildcard() {
     ));
 }
 // ANCHOR_END: unit-tests
+
+fn main() {}

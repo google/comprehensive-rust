@@ -23,7 +23,8 @@ You will also need a way to find links. We can use [`scraper`][2] for that:
 $ cargo add scraper
 ```
 
-Finally, we'll need some way of handling errors. We [`thiserror`][3] for that:
+Finally, we'll need some way of handling errors. We use [`thiserror`][3] for
+that:
 
 ```shell
 $ cargo add thiserror
