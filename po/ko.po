@@ -11725,8 +11725,8 @@ msgid ""
 "you can write new operating system services in Rust, as well as extending\n"
 "existing services."
 msgstr ""
-"러스트는 안드로이드 네이티브 플랫폼 개발을 지원합니다. 즉, 기존 서비스를 확"
-"장 할 뿐 아니라 새로운 OS서비스를 작성할 수 있음을 뜻합니다."
+"러스트는 안드로이드 네이티브 플랫폼 개발을 지원합니다. 기존의 OS 서비스를 "
+"확장하거나, 새로운 서비스를 만드는데 러스트를 쓸 수 있습니다."
 
 #: src/android/setup.md:1
 msgid "# Setup"
@@ -11738,8 +11738,8 @@ msgid ""
 "have\n"
 "access to one or create a new one with:"
 msgstr ""
-"Android Virtual Device를 사용하여 코드를 테스트합니다. \n"
-"액세스 권한이 있는지 확인하거나 다음을 사용하여 새 액세스 권한을 만드십시오:"
+"안드로이드 가상 디바이스(Android Virtual Device)를 사용하여 여려분의 코드를 "
+"수행할 겁니다. 새로운 가상 디바이스를 생성하려면 아래의 명령어를 사용하세요."
 
 #: src/android/setup.md:6
 msgid ""
@@ -11765,7 +11765,7 @@ msgstr "# 빌드 규칙(Build Rules)"
 #: src/android/build-rules.md:3
 msgid "The Android build system (Soong) supports Rust via a number of modules:"
 msgstr ""
-"안드로이드 빌드 시스템(Soong)은 다음과 같은 여러 모듈을 통해 러스트를  지원합"
+"안드로이드 빌드 시스템(Soong)은 다음과 같은 여러 모듈을 통해 러스트를 지원합"
 "니다:"
 
 #: src/android/build-rules.md:5
@@ -11795,28 +11795,15 @@ msgstr ""
 "| Module Type       | Description                                          "
 "|\n"
 "|-------------------|------------------------------------------------------|\n"
-"| `rust_binary`     | 러스트 바이너리(Rust binary)를 생성합니다.           "
-"|\n"
-"| `rust_library`    | 러스트 라이브러리를 생성하고, rlib와 dylib variants"
-"를                       제공합니"
-"다.                                          |\n"
-"| `rust_ffi`        | cc모듈에서 사용할 수 있는 Rust C library를 생성하"
-"고,                       static and shared variants를 제공합니"
-"다.             |\n"
-"| `rust_proc_macro` | proc-macro Rust library를 생성합니다. 컴파일"
-"러                       플러그인과 유사합니"
-"다.                               |\n"
-"| `rust_test`       | standard Rust test harness를 사용하는 러스트 테스"
-"트                       바이너리를 생성합니"
-"다.                               |\n"
-"| `rust_fuzz`       | libfuzzer를 사용하여 Rust fuzz 바이너리를 생성합니"
-"다.|\n"
-"| `rust_protobuf`   | 소스를 생성하고 특정 protobuf에 대한 인터페이스"
-"를                       제공하는 러스트 라이브러리를 생성합니"
-"다.             |\n"
-"| `rust_bindgen`    | 소스를 생성하고 C 라이브러리에 대한 러스트 바인딩"
-"을                       포함하는 러스트 라이브러리를 생성합니"
-"다               |"
+"| `rust_binary`     | 러스트 바이너리를 생성합니다.|\n"
+"| `rust_library`    | 러스트 라이브러리(rlib혹은 dylib)를 생성합니다.|\n"
+"| `rust_ffi`        | cc 모듈에서 사용할 수 있는 C library (정적 혹은 동적)를 생성합니다.|\n"
+"| `rust_proc_macro` | `proc-macro`를 구현하는 러스트 라이브러리를 생성합니다. "
+"컴파일러의 플러그인으로 생각해도 좋습니다.|\n"
+"| `rust_test`       | 표준 러스트 테스트 러너를 사용하는 테스트 바이너리를 생성합니다.|\n"
+"| `rust_fuzz`       | `libfuzzer`를 사용하여 fuzz 바이너리를 생성합니다.|\n"
+"| `rust_protobuf`   | 프로토버프(protobuf) 인터페이스를 제공하는 러스트 라이브러리를 생성합니다.|\n"
+"| `rust_bindgen`    | C 라이브러리에 대한 러스트 바인딩을 제공하는 러스트 라이브러리를 생성합니다.|"
 
 #: src/android/build-rules.md:16
 msgid "We will look at `rust_binary` and `rust_library` next."
@@ -11871,7 +11858,7 @@ msgstr ""
 
 #: src/android/build-rules/binary.md:27
 msgid "You can now build, push, and run the binary:"
-msgstr "이제 바이너리를 빌드, 푸시, 실행할 수 있습니다:"
+msgstr "그런 다음, 이 바이너리를 빌드하고, 가상 디바이스에 넣고, 실행합니다:"
 
 #: src/android/build-rules/binary.md:29
 msgid ""
@@ -11889,11 +11876,11 @@ msgstr "# 러스트 라이브러리"
 
 #: src/android/build-rules/library.md:3
 msgid "You use `rust_library` to create a new Rust library for Android."
-msgstr "`rust_library`를 사용하여 Android용 새 Rust 라이브러리를 만듭니다."
+msgstr "`rust_library`를 사용하여 안드로이드용 새 러스트 라이브러리를 만듭니다."
 
 #: src/android/build-rules/library.md:5
 msgid "Here we declare a dependency on two libraries:"
-msgstr "여기서 2개의 라이브러리 의존성을 선언합니다."
+msgstr "여기서 두 개의 라이브러리에 대한 의존성을 선언합니다."
 
 #: src/android/build-rules/library.md:7
 msgid ""
@@ -11901,8 +11888,8 @@ msgid ""
 "* `libtextwrap`, which is a crate already vendored in\n"
 "  [`external/rust/crates/`][crates]."
 msgstr ""
-"* 아래에 정의한 libgreeting.\n"
-"* [`external/rust/crates/`][crates]에 존재하는 libtextwrap"
+"* 아래에 정의한 `libgreeting`.\n"
+"* [`external/rust/crates/`][crates]에 존재하는 `libtextwrap`."
 
 #: src/android/build-rules/library.md:11
 msgid ""
@@ -11977,7 +11964,7 @@ msgstr ""
 
 #: src/android/build-rules/library.md:59
 msgid "You build, push, and run the binary like before:"
-msgstr "이제 이전과 같이 바이너리를 빌드, 푸시, 실행할 수 있습니다:"
+msgstr "이전처럼, 빌드하고, 가상 디바이스로 넣고, 실행합니다:"
 
 #: src/android/build-rules/library.md:61
 msgid ""
@@ -12001,15 +11988,15 @@ msgid ""
 "(AIDL)](https://developer.android.com/guide/components/aidl) is supported in "
 "Rust:"
 msgstr ""
-"러스트는 안드로이드 [인터페이스 정의 언어(AIDL)](https://developer.android."
-"com/guide/components/aidl)을 지원합니다:"
+"러스트는 [안드로이드 인터페이스 정의 언어(AIDL)](https://developer.android."
+"com/guide/components/aidl)를 지원합니다:"
 
 #: src/android/aidl.md:6
 msgid ""
 "* Rust code can call existing AIDL servers,\n"
 "* You can create new AIDL servers in Rust."
 msgstr ""
-"* 러스트 코드는 기존 AIDL 서버를 호출 할 수 있습니다. \n"
+"* 러스트 코드에서 기존 AIDL 서버를 호출 할 수 있습니다. \n"
 "* 러스트에서 새로운 AIDL 서버를 생성할 수 있습니다."
 
 #: src/android/aidl/interface.md:1
@@ -12067,7 +12054,7 @@ msgid ""
 "vendor\n"
 "partition."
 msgstr ""
-"AIDL 파일이 벤더 파티션의 바이너리에서 사용되는 경우 `vendor_available: true`"
+"AIDL 파일이 벤더 파티션에 있는 바이너리에서 사용될 경우 `vendor_available: true`"
 "를 추가합니다."
 
 #: src/android/aidl/implementation.md:1
@@ -12201,7 +12188,7 @@ msgstr "# 배포"
 
 #: src/android/aidl/deploy.md:3
 msgid "We can now build, push, and start the service:"
-msgstr "서비스를 빌드, 푸시, 시작 할 수 있습니다:"
+msgstr "서비스를 빌드하고, 가상 디바이스에 넣고, 시작 할 수 있습니다:"
 
 #: src/android/aidl/deploy.md:5
 msgid ""
@@ -12214,7 +12201,7 @@ msgstr ""
 
 #: src/android/aidl/deploy.md:11
 msgid "In another terminal, check that the service runs:"
-msgstr "다른 터미널에서 서비스 구동을 확인합니다:"
+msgstr "다른 터미널을 띄워서 서비스가 잘 수행되고 있는지 확인합니다:"
 
 #: src/android/aidl/deploy.md:13
 msgid ""
@@ -12226,7 +12213,7 @@ msgstr ""
 
 #: src/android/aidl/deploy.md:18
 msgid "You can also call the service with `service call`:"
-msgstr "`service call`로 서비스를 호출할 수도 있습니다:"
+msgstr "`service call`명렁어로 서비스를 호출할 수도 있습니다:"
 
 #: src/android/aidl/deploy.md:20
 msgid ""
@@ -12250,7 +12237,7 @@ msgstr "# AIDL 클라이언트"
 
 #: src/android/aidl/client.md:3
 msgid "Finally, we can create a Rust client for our new service."
-msgstr "마지막으로, 새로운 서비스를 위한 러스트 클라이언트를 만들 수 있습니다."
+msgstr "마지막으로, 아까 추가한 서비스에 대한 클라이언트를 러스트로 만들겠습니다."
 
 #: src/android/aidl/client.md:5
 msgid "*birthday_service/src/client.rs*:"
@@ -12317,11 +12304,11 @@ msgstr ""
 
 #: src/android/aidl/client.md:52
 msgid "Notice that the client does not depend on `libbirthdayservice`."
-msgstr "클라이언트는 `libbirthdayservice`에 의존하지 않습니다. "
+msgstr "클라이언트는 `libbirthdayservice`에 의존하지 않음에 주목하세요. "
 
 #: src/android/aidl/client.md:54
 msgid "Build, push, and run the client on your device:"
-msgstr "장치에서 빌드, 푸시, 실행합니다: "
+msgstr "빌드하고, 가상 디바이스로 넣고, 실행합니다: "
 
 #: src/android/aidl/client.md:56
 msgid ""
@@ -12343,8 +12330,8 @@ msgid ""
 "specify a\n"
 "list of lines for the birthday card:"
 msgstr ""
-"API를 확장하여 더 많은 기능을 제공합니다. 클라이언트가 생일 카드에 대한 줄 목"
-"록을 지정할 수 있도록 합니다:"
+"API를 확장하여 더 많은 기능을 제공해 봅시다. 클라이언트가 생일 카드에 대한 줄 목"
+"록을 지정할 수 있도록 합시다:"
 
 #: src/android/aidl/changing.md:9
 msgid ""
@@ -12366,8 +12353,8 @@ msgid ""
 "or\n"
 "`stdout` (on-host):"
 msgstr ""
-"`log`크레이트를 사용하여 `logcat`(장치)나 `stdout`(호스트)에서 자동으로 로그"
-"를 기록하도록 합니다:"
+"`log` 크레이트를 사용하면 안드로이드 디바이스 안에서 수행될 때에는 `logcat`으로, "
+"호스트에서 수행될 때에는 `stdout`으로 로그가 자동으로 출력이 되도록 할 수 있습니다."
 
 #: src/android/logging.md:6
 msgid "_hello_rust_logs/Android.bp_:"
@@ -12423,7 +12410,7 @@ msgstr ""
 #: src/android/logging.md:42 src/android/interoperability/with-c/bindgen.md:98
 #: src/android/interoperability/with-c/rust.md:73
 msgid "Build, push, and run the binary on your device:"
-msgstr "장치에서 바이너리를 빌드, 푸시, 실행합니다:"
+msgstr "빌드하고, 가상 디바이스에 넣고, 실행합니다:"
 
 #: src/android/logging.md:44
 msgid ""
@@ -12460,15 +12447,14 @@ msgid ""
 "means\n"
 "that you can:"
 msgstr ""
-"러스트는 다른 언어와의 상호운용성을 훌륭히 지원합니다. 즉, 다음을 수행할 수 "
-"있습니다:"
+"러스트는 다음과 같이 다른 언어와의 상호운용성을 훌륭히 지원합니다:"
 
 #: src/android/interoperability.md:6
 msgid ""
 "* Call Rust functions from other languages.\n"
 "* Call functions written in other languages from Rust."
 msgstr ""
-"* 타 언어에서 rust 함수를 호출합니다. \n"
+"* 타 언어에서 러스트 함수를 호출합니다. \n"
 "* 타 언어의 함수를 러스트에서 호출합니다."
 
 #: src/android/interoperability.md:9
@@ -12488,12 +12474,12 @@ msgid ""
 "Rust has full support for linking object files with a C calling convention.\n"
 "Similarly, you can export Rust functions and call them from C."
 msgstr ""
-"러스트는 C 호출규약과 함께 객체 파일을 연결하는 것을 완벽하게 지원합니다. \n"
-"반대로 러스트 함수를 내보내서 C에서 호출 할 수 있습니다. "
+"러스트는 C 호출규약을 따르는 오브젝트 파일과 링킹할 수 있습니다.\n"
+"또한, 반대로 러스트 함수를 내보내서 C에서 호출 할 수 도 있습니다. "
 
 #: src/android/interoperability/with-c.md:6
 msgid "You can do it by hand if you want:"
-msgstr "원하는 경우 직접 코딩할 수 있습니다: "
+msgstr "원한다면 아래와 같이 수동으로 코딩할 수 있습니다:"
 
 #: src/android/interoperability/with-c.md:8
 msgid ""
@@ -12526,12 +12512,12 @@ msgid ""
 "> This assumes full knowledge of the target platform. Not recommended for\n"
 "> production."
 msgstr ""
-"> 이는 대상 플랫폼에 대한 완전한 지식을 전제로 합니다. 실 제품에는 권장하진 "
-"않습니다."
+"> 이러한 방법은 타겟 플랫폼의 모든 부분을 사전에 알고 있다는 전제를 깔고 있습니다.\n"
+"> 상용 프로젝트에서는 권장하지 않습니다."
 
 #: src/android/interoperability/with-c.md:26
 msgid "We will look at better options next."
-msgstr "다음으로 좀 더 나은 옵션을 살펴보겠습니다."
+msgstr "좀 더 나은 옵션을 살펴보겠습니다."
 
 #: src/android/interoperability/with-c/bindgen.md:1
 msgid "# Using Bindgen"
@@ -12544,11 +12530,11 @@ msgid ""
 "can auto-generate bindings from a C header file."
 msgstr ""
 "[bindgen](https://rust-lang.github.io/rust-bindgen/introduction.html)는 C 헤"
-"더파일에서 자동으로 생성하는 도구입니다."
+"더파일에서 러스트 바인딩을 자동으로 생성하는 도구입니다."
 
 #: src/android/interoperability/with-c/bindgen.md:6
 msgid "First create a small C library:"
-msgstr "작은 C라이브러리를 생성합니다."
+msgstr "먼저 작은 C라이브러리를 만들어 보겠습니다:"
 
 #: src/android/interoperability/with-c/bindgen.md:8
 msgid "_interoperability/bindgen/libbirthday.h_:"
@@ -12617,7 +12603,7 @@ msgid ""
 "Create a wrapper header file for the library (not strictly needed in this\n"
 "example):"
 msgstr ""
-"라이브러리에 대한 래퍼 헤더 파일을 만듭니다(이 예시에서는 필요하지 않습니다):"
+"라이브러리에 대한 헤더 파일을 만듭니다(이 예시에서는 반드시 필요한 것은 아닙니다.):"
 
 #: src/android/interoperability/with-c/bindgen.md:47
 msgid "_interoperability/bindgen/libbirthday_wrapper.h_:"
@@ -12703,7 +12689,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/bindgen.md:106
 msgid "Finally, we can run auto-generated tests to ensure the bindings work:"
-msgstr "마지막으로, 바인딩이 작동하는지 자동생성 테스트를 실행할 수 있습니다:"
+msgstr "마지막으로, 바인딩이 잘 작동하는지 확인하기 위해, 자동 생성된 테스트를 실행해 보겠습니다:"
 
 #: src/android/interoperability/with-c/bindgen.md:110
 msgid ""
@@ -12806,7 +12792,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/rust.md:48
 msgid "We can now call this from a C binary:"
-msgstr "이제 C바이너리에서 호출할 수 있습니다:"
+msgstr "이제 이 러스트 함수를 C바이너리에서 호출할 수 있습니다:"
 
 #: src/android/interoperability/with-c/rust.md:50
 msgid "_interoperability/rust/analyze/main.c_"
@@ -12859,9 +12845,9 @@ msgid ""
 "the function. You can also use `#[export_name = \"some_name\"]` to specify "
 "whatever name you want."
 msgstr ""
-"`#[no_mangle]`은 러스트의 일반적인 name mangling을 비활성화하므로 함수의 이름"
-"이 내보낸 심볼이 됩니다.  `#[export_name = \"some_name\"]`을 사용하여 원하는 "
-"이름을 지정할 수 있습니다."
+"`#[no_mangle]`은 러스트의 네임 맹글링(name mangling)을 비활성화하므로 외부로 노출되는 "
+"심볼의 이름은 함수의 이름 그대로가 됩니다.\n"
+"심볼 이름을 바꾸고 싶다면 `#[export_name = \"some_name\"]`을 사용합니다."
 
 #: src/android/interoperability/cpp.md:1
 msgid "# With C++"
@@ -12905,8 +12891,8 @@ msgid ""
 "crate](https://docs.rs/jni/) allows you to create a compatible library."
 msgstr ""
 "자바는 [Java Native Interface(JNI)](https://en.wikipedia.org/wiki/"
-"Java_Native_Interface)를 통해 공유 객체를 로드할 수 있습니다. [`jni` 크레이"
-"트](https://docs.rs/jni/)를 사용하여 호환 라이브러리를 만들 수 있습니다."
+"Java_Native_Interface)를 통해 공유 라이브러리를 로드할 수 있습니다. [`jni` 크레이"
+"트](https://docs.rs/jni/)를 사용하여 JNI 라이브러리를 만들 수 있습니다."
 
 #: src/android/interoperability/java.md:7
 msgid "First, we create a Rust function to export to Java:"
@@ -12965,7 +12951,7 @@ msgstr ""
 
 #: src/android/interoperability/java.md:43
 msgid "Finally, we can call this function from Java:"
-msgstr "마침내, 자바에서 이 함수를 호출 할 수 있습니다:"
+msgstr "자바에서 이 함수를 호출 할 수 있습니다:"
 
 #: src/android/interoperability/java.md:45
 msgid "_interoperability/java/HelloWorld.java_:"
@@ -13026,8 +13012,8 @@ msgid ""
 "Let us\n"
 "group up and do this together. Some suggestions:"
 msgstr ""
-"마지막 연습문제는 당신의 프로젝트 중 하나를 FFI로 러스트와 연계 해보는 것입니"
-"다. 몇가지 예시입니다: "
+"마지막 연습문제는 여러분이 작업하고 있는 프로젝트 중 하나를 FFI로 러스트와 연계 해보는 것입니"
+"다. 몇 가지 예시입니다: "
 
 #: src/exercises/day-4/afternoon.md:6
 msgid "* Call your AIDL service with a client written in Rust."
@@ -13090,7 +13076,7 @@ msgstr "## 공식 문서들"
 #: src/other-resources.md:8
 msgid "The Rust project hosts many resources. These cover Rust in general:"
 msgstr ""
-"러스트 프로젝트는 여러 리소스를 호스팅합니다. 일반적인 내용을 다루는 몇가지 "
+"러스트 프로젝트에는 참조할 만한 자료가 많습니다. 일반적인 내용을 다루는 몇가지 "
 "참고 문서들입니다:"
 
 #: src/other-resources.md:10
