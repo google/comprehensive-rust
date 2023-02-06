@@ -134,6 +134,7 @@
     - [Read and Write](traits/read-write.md)
     - [Add, Mul, ...](traits/operators.md)
     - [Drop](traits/drop.md)
+    - [Default](traits/default.md)
 - [Generics](generics.md)
   - [Generic Data Types](generics/data-types.md)
   - [Generic Methods](generics/methods.md)

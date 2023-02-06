@@ -7,3 +7,4 @@ We will now look at some of the most common traits of the Rust standard library:
 * `Read` and `Write` used for IO,
 * `Add`, `Mul`, ... used for operator overloading, and
 * `Drop` used for defining destructors.
+* `Default` used to construct a default instance of a type.
