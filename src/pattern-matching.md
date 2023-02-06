@@ -19,3 +19,17 @@ fn main() {
 ```
 
 The `_` pattern is a wildcard pattern which matches any value.
+
+<details>
+    
+Key Points:
+* You might point out how some specific characters are being used when in a patten
+  * `|` as an `or`
+  * `..` can expand as much as it needs to be
+  * `1..=5` represents an inclusive range
+  * `_` is a wild card
+* It can be useful to show how binding works, by for instance replacing a wildcard character with a variable, or removing the quotes around `q`.
+* You can demonstrate matching on a reference.
+* This might be a good time to bring up the concept of irrefutable patterns, as the term can show up in error messages.
+   
+</details>

@@ -28,3 +28,15 @@ fn main() {
     println!("Exiting main");
 }
 ```
+
+<details>
+
+Discussion points:
+
+* Why does not `Drop::drop` take `self`?
+    * Short-answer: If it did, `std::mem::drop` would be called at the end of
+        the block, resulting in another call to `Drop::drop`, and a stack
+        overflow!
+* Try replacing `drop(a)` with `a.drop()`.
+
+</details>

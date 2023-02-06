@@ -40,3 +40,10 @@ Build, push, and run the binary on your device:
 ```shell
 {{#include ../../build_all.sh:analyze_numbers}}
 ```
+
+<details>
+
+`#[no_mangle]` disables Rust's usual name mangling, so the exported symbol will just be the name of
+the function. You can also use `#[export_name = "some_name"]` to specify whatever name you want.
+
+</details>
