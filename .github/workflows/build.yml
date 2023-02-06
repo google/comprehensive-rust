@@ -124,5 +124,11 @@ jobs:
       - name: Build course with ${{ matrix.language }} translation
         run: mdbook build
 
+      - name: Upload ${{ matrix.language }} translation
+        uses: actions/upload-artifact@v3
+        with:
+          name: comprehensive-rust-${{ matrix.language }}
+          path: book/
+
       - name: Test code snippets with ${{ matrix.language }} translation
         run: mdbook test
