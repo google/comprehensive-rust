@@ -29,8 +29,8 @@ fn main() {
 <details>
 
 * The HashMap is not defined in the prelude and needs to be brought into scope.
-* In a hashmap, types with the Copy trait (`i32`) are copied into the hashmap, and owned values (`String`) are moved into the hashmap.
-* Try the following to shortcuts. The first line will see if a book is an the hashmap and if not return an alternative value. The second line will insert the alternative value in the hashmap if the book is not found.
+* In a hashmap, types with the `Copy` trait (`i32`) are copied into the hashmap, and owned values (`String`) are moved into the hashmap.
+* Try the following lines of code. The first line will see if a book is in the hashmap and if not return an alternative value. The second line will insert the alternative value in the hashmap if the book is not found.
     ```
     let pc1 = page_counts.get("Harry Potter and the Sorcerer's Stone ").unwrap_or(&336);
     let pc2 = page_counts.entry("The Hunger Games".to_string()).or_insert(374);
