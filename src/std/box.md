@@ -31,7 +31,9 @@ from `T` directly on a `Box<T>`][2].
 
 <details>
 
-* `Box` is like `std::unique_ptr` in C++.
-* In the above example, you can even leave out the `*` in the `println!` statement thanks to `Deref`.
-
+* `Box` is like `std::unique_ptr` in C++. 
+* In the above example, you can even leave out the `*` in the `println!` statement thanks to `Deref`. 
+* A `Box` can be useful when you
+   * have a size that can’t be known at compile time,  but the rust compiler wants to know an exact size.
+   * want to transfer owenership of a large amount of data. To avoid copying large amounts of data on the stack, instead store data on a heap in a box and only pointer data is copied.
 </details>
