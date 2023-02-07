@@ -21,3 +21,12 @@ expression of the block, if any. In the example above, the type is `()`.
 
 See [pattern matching](../pattern-matching.md) for more details on patterns in
 Rust.
+
+<details>
+    
+* Save the match expression to a variable and print it out.
+* Remove `.as_deref()` and explain the error.
+    * `std::env::Agrs().next` returns an option borrowed string. 
+    * `as_deref()` takes an `option` type and calls the deref on the inside value in the case of a `Some` variant.
+    * By using `as_deref()`, we are able to match against a String literal.
+</details>
