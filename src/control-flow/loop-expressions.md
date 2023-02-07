@@ -19,3 +19,8 @@ fn main() {
     println!("Final x: {x}");
 }
 ```
+
+<details>
+    
+* You can break with a value `break 8` 
+</details>
