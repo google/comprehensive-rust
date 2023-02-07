@@ -37,7 +37,7 @@ fn main() {
 * Newtypes are a great way to encode additional information about the value in a primitive type, for example:
   * The number is measured in some units: `Newtons` in the example above.
   * The value passed some validation when it was created, so you no longer have to validate it again at every use: 'PhoneNumber(String)` or `OddNumber(u32)`.
-* You can demonstrate how to create and modify a tuple struct. You can also add a `f64` value to the tuple struct.
-  * This can be a good time to talk about unwrapping.  Rust generally doesn’t like inexplicit things, for instance booleans aren’t used as integers. Similarly using the data in a struct requires accessing fields appropriately so there isn't automatic unwrapping. 
-  * If appropriate, you might bring up that using existing operations on these new types, such as `+` is possible, and we’ll learn about generics on Day 3.  
+* Demonstrate how to add a `f64` value to a `Newtons` type by accessing the single field in the newtype.
+  *  Rust generally doesn’t like inexplicit things, like automatic unwrapping or for instance using booleans as integers.
+  *  Operator overloading is discussed on Day 3 (generics). 
 </details>
