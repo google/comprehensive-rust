@@ -25,7 +25,7 @@ fn main() {
 
 <details>
 
-    * Packages provide functionality and include a cargo.toml file that describes how to build a bundle of 1+ crates.
-    * Crates are a tree of modules, where a binary crate creates an executable and a library crate compiles to a library.
-    * Modules define organization, scope, and is the focus of this section. 
+* Packages provide functionality and include a cargo.toml file that describes how to build a bundle of 1+ crates.
+* Crates are a tree of modules, where a binary crate creates an executable and a library crate compiles to a library.
+* Modules define organization, scope, and is the focus of this section. 
 </details>
