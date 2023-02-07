@@ -8,5 +8,5 @@ You can also destructure `structs`:
 <details>
 
 * Change the literal values in `foo` to match with the other patterns.
-* Try adding a new field to the `Foo` struct and make changes to the pattern as needed
+* Add a new field to `Foo` and make changes to the pattern as needed.
 </details>
