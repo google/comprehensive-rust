@@ -43,11 +43,11 @@ fn main() {}
 <details>
 
 Since the method signatures are missing from the problem statements, the key part
-of the exercise is to specify those correctly.
+of the exercise is to specify those correctly. Do not modify any of the tests.
 
 Other interesting parts of the exercise:
     
 * Derive a `Copy` trait for some structs, as in tests the methods sometimes don't borrow their arguments.
-* Discover that `Add` trait must be implemented for two objects to be addable via "+".    
+* Discover that `Add` trait must be implemented for two objects to be addable via "+". Note that we do not discuss generics until Day 3.
 
 </details>
