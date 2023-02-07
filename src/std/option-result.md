@@ -21,5 +21,5 @@ fn main() {
 * `binary_search` returns `Result<usize, usize>`.
   * If found, `Result::Ok` holds the index where the element is found.
   * Otherwise, `Result::Err` contains the index where such an element should be inserted.
-
+* `Option` and `Result` are `enums`, which means we can use enum functions on them. Ex. `first.unwrap_or(0)`.
 </details>
