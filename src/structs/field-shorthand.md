@@ -36,8 +36,7 @@ impl Person {
 
 <details>
 
-* Point out the syntax that is used inside the `new` function. To show a comparison you can also rewrite the struct definition using non-shorthand syntax.
-* The `impl` block is where the boilerplate functions are defined. Later slides talk about methods in more detail.
-* Use function update syntax to define a new structure using `peter`. Note that the variable `peter` will no longer be accessible afterwards.
+* Methods are defined in the `impl` block.
+* Use struct update syntax to define a new structure using `peter`. Note that the variable `peter` will no longer be accessible afterwards.
 * Note, you can use `{:#?}` while printing structs to change the readability of the output.
 </details>
