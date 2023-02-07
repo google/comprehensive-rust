@@ -24,5 +24,5 @@ You can use `break` and `continue` here as usual.
 * Index iteration is not a special syntax in Rust for just that case.
 * `(0..10)` is a range that implements an `Iterator` trait. 
 * `step_by` is a method that returns another `Iterator` that skips every other element. 
-* Try modifying the elements in the vector by using `for x in v.iter_mut()`    
+* Modify the elements in the vector by using `for x in v.iter_mut()`    
 </details>
