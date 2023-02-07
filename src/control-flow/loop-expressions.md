@@ -22,5 +22,5 @@ fn main() {
 
 <details>
     
-* You can break with a value `break 8` 
+* Break the `loop` with a value `break 8` and print it out.
 </details>
