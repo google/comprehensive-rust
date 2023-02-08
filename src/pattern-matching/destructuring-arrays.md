@@ -26,5 +26,5 @@ fn inspect(slice: &[i32]) {
     }
 }
 ```
-* Show matching against the tail `[.., 9]` 
+* Show matching against the tail with patterns `[.., b]` and `[a@..,b]`
 </details>
