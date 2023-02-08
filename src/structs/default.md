@@ -1,11 +1,6 @@
 # Setting Default values in Structs
 
-Deriving defaults
-```
-#[derive(Debug, Default)]
-```
-
-or by creating a Default implementation 
+You can either derive or define default values for structs.  
 
 ```rust,editable
 #[derive(Debug)]
