@@ -1,6 +1,6 @@
 # The `Default` Trait
 
-`Default` trait provides a default implementation of a trait.
+[`Default`][1] trait provides a default implementation of a trait.
 
 ```rust,editable
 #[derive(Debug, Default)]
@@ -45,3 +45,5 @@ fn main() {
   * Rust standard library is aware that types can implement `Default` and provides convenience methods that use it.
 
 </details>
+
+[1]: https://doc.rust-lang.org/std/default/trait.Default.html

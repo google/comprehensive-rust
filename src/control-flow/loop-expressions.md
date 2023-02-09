@@ -19,3 +19,9 @@ fn main() {
     println!("Final x: {x}");
 }
 ```
+
+<details>
+    
+* Break the `loop` with a value (e.g. `break 8`) and print it out.
+
+</details>

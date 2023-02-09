@@ -21,7 +21,7 @@ fn main() {
     thread::sleep(Duration::from_millis(100));
 
     for msg in rx.iter() {
-        println!("Main: got {}", msg);
+        println!("Main: got {msg}");
     }
 }
 ```

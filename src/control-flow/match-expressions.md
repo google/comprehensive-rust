@@ -21,3 +21,12 @@ expression of the block, if any. In the example above, the type is `()`.
 
 See [pattern matching](../pattern-matching.md) for more details on patterns in
 Rust.
+
+<details>
+    
+* Save the match expression to a variable and print it out.
+* Remove `.as_deref()` and explain the error.
+    * `std::env::Agrs().next` returns an `Option<&String>`, but we cannot match against `String`.
+    * `as_deref()` transforms an `Option<T>` to `Option<T::Target>`. In our case, this turns `Option<&String>` into `Option<&str>`.
+    * We can now use pattern matching to match against the `&str` inside `Option`.
+</details>
