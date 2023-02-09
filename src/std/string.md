@@ -13,7 +13,7 @@ fn main() {
     s2.push('!');
     println!("s2: len = {}, capacity = {}", s2.len(), s2.capacity());
 
-    let s3 = String::from("🇨🇭");
+    let s3 = String::from("A Flag:🇨🇭");
     println!("s3: len = {}, number of chars = {}", s3.len(),
              s3.chars().count());
 }
@@ -35,6 +35,6 @@ fn main() {
     * `String` implements `Deref<Target = str>` which transparently gives it access to `str`'s methods.
     * Write and compare `let s3 = s1.deref();` and  `let s3 = &*s1`;.
 * `String` is implemented as a wrapper around a vector of bytes, many of the operations you see supported on vectors are also supported on `String`, but with some extra guarantees.
-* Show the danger of indexing Strings by (1) adding a unicode character to an above string (Ex. `Hβello`) and slicing it at various locations and (2) unwraping the characters `.chars.nth(i).unwrap()` where `i` is in-bound and out-of-bounds given the number of chars. 
+* Compare the different ways to inde a Strings by using `s3[i]` and `s3.chars.nth(i).unwrap()` where `i` is in-bound, out-of-bounds, and "on" the flag unicode character.
 
 </details>
