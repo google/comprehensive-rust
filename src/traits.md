@@ -25,7 +25,19 @@ impl Greet for Cat {
     }
 }
 
+// Generic function (more in the next chapter).
+fn greetings<T: Greet>(greetable: T) {
+    println!("Hello, what is your name?");
+    greetable.say_hello();
+}
+
 fn main() {
+    // Static (compile-time) dispatch.
+    greetings(Dog { name: String::from("Fido") });
+    greetings(Cat);
+    println!("----------");
+
+    // Dynamic (runtime) dispatch.
     let pets: Vec<Box<dyn Greet>> = vec![
         Box::new(Dog { name: String::from("Fido") }),
         Box::new(Cat),
@@ -39,6 +51,8 @@ fn main() {
 <details>
 
 * Traits may specify pre-implemented (default) methods and methods that users are required to implement themselves. Methods with default implementations can rely on required methods.
+* Traits can be used for both compile-time and runtime dispatch, respectively
+  via generics and dynamic objects
 * Types that implement a given trait may be of different sizes. This makes it impossible to have things like `Vec<Greet>` in the example above.
 * `dyn Greet` is a way to tell the compiler about a dynamically sized type that implements `Greet`.
 * In the example, `pets` holds Fat Pointers to objects that implement `Greet`. The Fat Pointer consists of two components, a pointer to the actual object and a pointer to the virtual method table for the `Greet` implementation of that particular object.
