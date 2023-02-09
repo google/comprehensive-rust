@@ -1,6 +1,6 @@
 # The `Drop` Trait
 
-Values which implement `Drop` can specify code to run when they go out of scope:
+Values which implement [`Drop`][1] can specify code to run when they go out of scope:
 
 ```rust,editable
 struct Droppable {
@@ -40,3 +40,5 @@ Discussion points:
 * Try replacing `drop(a)` with `a.drop()`.
 
 </details>
+
+[1]: https://doc.rust-lang.org/std/ops/trait.Drop.html

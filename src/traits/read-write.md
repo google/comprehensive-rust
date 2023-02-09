@@ -1,6 +1,6 @@
 # `Read` and `Write`
 
-Using `Read` and `BufRead`, you can abstract over `u8` sources:
+Using [`Read`][1] and [`BufRead`][2], you can abstract over `u8` sources:
 
 ```rust,editable
 use std::io::{BufRead, BufReader, Read, Result};
@@ -20,7 +20,7 @@ fn main() -> Result<()> {
 }
 ```
 
-Similarly, `Write` lets you abstract over `u8` sinks:
+Similarly, [`Write`][3] lets you abstract over `u8` sinks:
 
 ```rust,editable
 use std::io::{Result, Write};
@@ -38,3 +38,7 @@ fn main() -> Result<()> {
     Ok(())
 }
 ```
+
+[1]: https://doc.rust-lang.org/std/io/trait.Read.html
+[2]: https://doc.rust-lang.org/std/io/trait.BufRead.html
+[3]: https://doc.rust-lang.org/std/io/trait.Write.html
