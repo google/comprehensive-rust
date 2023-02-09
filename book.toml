@@ -21,10 +21,18 @@ renderers = ["html"]
 renderers = ["html"]
 class = "bob"
 
+# Enable this preprocessor to overlay a large red rectangle on the
+# pages. This will show you an estimate of what the course
+# participants can see during the presentation.
+#
+# [preprocessor.aspect-ratio-helper]
+# command = "./aspect-ratio-helper.py"
+
 [output.html]
 curly-quotes = true
 additional-js = ["ga4.js", "speaker-notes.js"]
 additional-css = ["svgbob.css", "speaker-notes.css"]
+site-url = "/comprehensive-rust/"
 git-repository-url = "https://github.com/google/comprehensive-rust"
 edit-url-template = "https://github.com/google/comprehensive-rust/edit/main/{path}"
 
@@ -34,3 +42,7 @@ level = 0
 
 [output.html.playground]
 editable = true
+
+[output.html.redirect]
+"structure.html" = "running-the-course/course-structure.html"
+"unsafe/unsafe-functions.html" = "calling-unsafe-functions.html"

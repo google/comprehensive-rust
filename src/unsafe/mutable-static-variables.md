@@ -6,7 +6,7 @@ It is safe to read an immutable static variable:
 static HELLO_WORLD: &str = "Hello, world!";
 
 fn main() {
-    println!("name is: {}", HELLO_WORLD);
+    println!("HELLO_WORLD: {HELLO_WORLD}");
 }
 ```
 
@@ -23,6 +23,13 @@ fn add_to_counter(inc: u32) {
 fn main() {
     add_to_counter(42);
 
-    unsafe { println!("COUNTER: {}", COUNTER); }  // Potential data race!
+    unsafe { println!("COUNTER: {COUNTER}"); }  // Potential data race!
 }
 ```
+
+<details>
+
+Using a mutable static is generally a bad idea, but there are some cases where it might make sense
+in low-level `no_std` code, such as implementing a heap allocator or working with some C APIs.
+
+</details>

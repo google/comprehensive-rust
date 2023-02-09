@@ -1,8 +1,8 @@
 # Safe FFI Wrapper
 
 Rust has great support for calling functions through a _foreign function
-interface_ (FFI). We will use this to build a safe wrapper the `glibc` functions
-you would use from C to read the filenames of a directory.
+interface_ (FFI). We will use this to build a safe wrapper for the `libc`
+functions you would use from C to read the filenames of a directory.
 
 You will want to consult the manual pages:
 

@@ -12,22 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Setup cookie consent banner.
-var consent = document.createElement('script');
-consent.setAttribute('data-autoload-cookie-consent-bar', 'true');
-consent.setAttribute('src', 'https://www.gstatic.com/brandstudio/kato/cookie_choice_component/cookie_consent_bar.v3.js');
-document.head.appendChild(consent);
-
-// Load and configure Google Analytics.
-var ga4 = document.createElement('script');
-ga4.setAttribute('src', 'https://www.googletagmanager.com/gtag/js?id=G-ZN78TEJMRW');
-document.head.appendChild(ga4);
-
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-ZN78TEJMRW');
-
 // Look through all Playgrounds on the page to determine if the code snippet
 // matches one of the. If the code is different from all Playgrounds, we
 // conclude that the user modified the Playground before submitting it.

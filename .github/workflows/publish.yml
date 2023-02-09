@@ -18,6 +18,7 @@ concurrency:
 
 env:
   CARGO_TERM_COLOR: always
+  LANGUAGES: da
 
 jobs:
   publish:
@@ -30,16 +31,22 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Rust cache
-        uses: Swatinem/rust-cache@v2
+        uses: ./.github/workflows/setup-rust-cache
 
       - name: Install mdbook
-        run: cargo install mdbook --version 0.4.25
+        uses: ./.github/workflows/install-mdbook
 
-      - name: Install mdbook-svgbob
-        run: cargo install mdbook-svgbob --version 0.2.1
+      - name: Build course in English
+        run: mdbook build -d book
 
-      - name: Build book
-        run: mdbook build
+      - name: Build all translations
+        run: |
+          for po_lang in ${{ env.LANGUAGES }}; do
+              MDBOOK_BOOK__LANGUAGE=$po_lang \
+              MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE=po/$po_lang.po \
+              MDBOOK_OUTPUT__HTML__SITE_URL=/comprehensive-rust/$po_lang/ \
+              mdbook build -d book/$po_lang
+          done
 
       - name: Setup Pages
         uses: actions/configure-pages@v2
@@ -47,7 +54,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: 'book'
+          path: book
 
       - name: Deploy to GitHub Pages
         id: deployment

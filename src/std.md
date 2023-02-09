@@ -19,3 +19,13 @@ The common vocabulary types include:
 * [`Box`](std/box.md): an owned pointer for heap-allocated data.
 
 * [`Rc`](std/rc.md): a shared reference-counted pointer for heap-allocated data.
+
+<details>
+  
+  * In fact, Rust contains several layers of the Standard Library: `core`, `alloc` and `std`. 
+  * `core` includes the most basic types and functions that don't depend on `libc`, allocator or
+    even the presence of an operating system. 
+  * `alloc` includes types which require a global heap allocator, such as `Vec`, `Box` and `Arc`.
+  * Embedded Rust applications often only use `core`, and sometimes `alloc`.
+
+</details>

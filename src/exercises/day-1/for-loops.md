@@ -73,3 +73,10 @@ slice-of-slices. Why or why not?
 
 See the [`ndarray` crate](https://docs.rs/ndarray/) for a production quality
 implementation.
+
+<details>
+
+The solution and the answer to the bonus section are available in the 
+[Solution](solutions-morning.md#arrays-and-for-loops) section.
+
+</details>
