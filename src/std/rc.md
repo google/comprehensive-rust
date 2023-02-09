@@ -24,12 +24,12 @@ context.
 [3]: ../concurrency/shared_state/arc.md
 
 <details>
-    
-* Count ensures value is valid for as long as there are owners.
+
+* `Rc`'s Count ensures that its contained value is valid for as long as there are references.
 * Like C++'s `std::shared_ptr`.
-* `clone` is cheap: creates a pointer to the same allocation and increases the reference count. Does not make a deep clone and can generally be ignored when looking for performance issues in code
+* `clone` is cheap: it creates a pointer to the same allocation and increases the reference count. Does not make a deep clone and can generally be ignored when looking for performance issues in code.
 * `make_mut` actually clones the inner value if necessary ("clone-on-write") and returns a mutable reference.
-* `Rc::strong_count` to print reference count.
-* Compare the different datatypes mentioned. Box enables (im)mutable borrows at compile time, Refcell enables (im)mutable borrows at run time and will panic if it fails at runtime.
+* Use `Rc::strong_count` to check the reference count.
+* Compare the different datatypes mentioned. `Box` enables (im)mutable borrows at compile time, `RefCell` enables (im)mutable borrows at run time and will panic if it fails at runtime.
 
 </details>
