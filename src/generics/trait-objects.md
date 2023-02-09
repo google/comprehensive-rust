@@ -6,7 +6,7 @@ We've seen how a function can take arguments which implement a trait:
 use std::fmt::Display;
 
 fn print<T: Display>(x: T) {
-    println!("Your value: {}", x);
+    println!("Your value: {x}");
 }
 
 fn main() {
