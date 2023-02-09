@@ -6,7 +6,11 @@ You can destructure arrays, tuples, and slices by matching on their elements:
 {{#include ../../third_party/rust-by-example/destructuring-arrays.rs}}
 ```
 
-Destructuring of slices of unknown length also works with patterns of fixed length.
+
+<details>
+
+* Destructuring of slices of unknown length also works with patterns of fixed length.
+
 
 ```rust,editable
 fn main() {
@@ -24,10 +28,10 @@ fn inspect(slice: &[i32]) {
     }
 }
 ```
-
-<details>
   
 * Create a new pattern using `_` to represent an element. 
-* Add more values to the array. Some of the patterns will fail because they are expecting just 3 elements, go ahead and adjust them.
+* Add more values to the array.
 * Point out that how `..` will expand to account for different number of elements.
+* Show matching against the tail with patterns `[.., b]` and `[a@..,b]`
+
 </details>

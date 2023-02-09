@@ -1,6 +1,6 @@
 # Iterators
 
-You can implement the `Iterator` trait on your own types:
+You can implement the [`Iterator`][1] trait on your own types:
 
 ```rust,editable
 struct Fibonacci {
@@ -37,3 +37,5 @@ fn main() {
   implementations.
     
 </details>
+
+[1]: https://doc.rust-lang.org/std/iter/trait.Iterator.html

@@ -1,6 +1,6 @@
 # FromIterator
 
-`FromIterator` lets you build a collection from an `Iterator`.
+[`FromIterator`][1] lets you build a collection from an [`Iterator`][2].
 
 ```rust,editable
 fn main() {
@@ -24,3 +24,6 @@ There are also implementations which let you do cool things like convert an
 `Iterator<Item = Result<V, E>>` into a `Result<Vec<V>, E>`.
 
 </details>
+
+[1]: https://doc.rust-lang.org/std/iter/trait.FromIterator.html
+[2]: https://doc.rust-lang.org/std/iter/trait.Iterator.html
