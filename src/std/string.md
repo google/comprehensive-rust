@@ -30,7 +30,7 @@ fn main() {
 * `new` heap allocated buffer. `StringL::with capacity` is used when you know how much you want to push on
 * `len` returns the size of the `String` in bytes, not its length in characters.
 * `chars` returns an iterator over the actual characters.
-*  When people refer to strings they could either be talking about &str or String. 
+*  When people refer to strings they could either be talking about `&str` or `String`. 
 * Implementing Deref (trait), gives the compiler ability to take a value of any type, call the deref method, and know how to dereference it  
     * `String` implements `Deref<Target = str>` which transparently gives it access to `str`'s methods.
     * Write and compare `let s3 = s1.deref();` and  `let s3 = &*s1`;.
