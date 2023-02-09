@@ -12,6 +12,17 @@ fn main() {
     v2.extend(v1.iter());
     v2.push(9999);
     println!("v2: len = {}, capacity = {}", v2.len(), v2.capacity());
+
+    // Canonical macro to initialize a vector with elements.
+    let mut v3 = vec![0, 0, 1, 2, 3, 4];
+
+    // Retain only the even elements.
+    v3.retain(|x| x % 2 == 0);
+    println!("{v3:?}");
+
+    // Remove consecutive duplicates.
+    v3.dedup();
+    println!("{v3:?}");
 }
 ```
 
@@ -22,14 +33,14 @@ methods on a `Vec`.
 [2]: https://doc.rust-lang.org/std/vec/struct.Vec.html#deref-methods-[T]
 
 <details>
-    
+
 * `Vec` is a type of collection, along with `String` and `HashMap`. The data it contains is stored
   on the heap. This means the amount of data doesn't need to be  known at compile time. It can grow
   or shrink at runtime.
 * Notice how `Vec<T>` is a generic type too, but you don't have to specify `T` explicitly. As always
   with Rust type inference, the `T` was established during the first `push` call.
 * `vec![...]` is a canonical macro to use instead of `Vec::new()` and it supports adding initial
-  elements to the vector. 
+  elements to the vector.
 * To index the vector you use `[` `]`, but they will panic if out of bounds. Alternatively, using
   `get` will return an `Option`. The `pop` function will remove the last element.
 * Show iterating over a vector and mutating the value:
