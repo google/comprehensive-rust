@@ -34,7 +34,7 @@ fn main() {
 * Implementing Deref (trait), gives the compiler ability to take a value of any type, call the deref method, and know how to dereference it  
     * `String` implements `Deref<Target = str>` which transparently gives it access to `str`'s methods.
     * Write and compare `let s3 = s1.deref();` and  `let s3 = &*s1`;.
-* String isimplemented as a wrapper around a vector of bytes, many of the operations you see supported on vectors are also supported on String, but with some extra guarantees.
+* `String` is implemented as a wrapper around a vector of bytes, many of the operations you see supported on vectors are also supported on `String`, but with some extra guarantees.
 * Show the danger of indexing Strings by (1) adding a unicode character to an above string (Ex. `Hβello`) and slicing it at various locations and (2) unwraping the characters `.chars.nth(i).unwrap()` where `i` is in-bound and out-of-bounds given the number of chars. 
 
 </details>
