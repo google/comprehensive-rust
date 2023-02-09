@@ -10536,19 +10536,19 @@ msgstr "# 4일차 개요"
 
 #: src/welcome-day-4.md:3
 msgid "Today we will look at two main topics:"
-msgstr "오늘 강의는 두가지 주제를 다룹니다:"
+msgstr "오늘 강의는 두 가지 주제를 다룹니다:"
 
 #: src/welcome-day-4.md:5
 msgid "* Concurrency: threads, channels, shared state, `Send` and `Sync`."
-msgstr "* 동시성: 쓰레드, 채널, 상태 공유(쉐어 스테이트), `Send`와 `Sync`"
+msgstr "* 동시성: 쓰레드, 채널, 상태 공유, `Send`와 `Sync`"
 
 #: src/welcome-day-4.md:7
 msgid ""
 "* Android: building binaries and libraries, using AIDL, logging, and\n"
 "  interoperability with C, C++, and Java."
 msgstr ""
-"* 안드로이드: 바이너리와 라이브러리 작성, AIDL 사용, 로깅과 C/C++, 자바와의 "
-"상호 운용성"
+"* 안드로이드: 바이너리와 라이브러리 만드는 방법, AIDL 사용법, 로깅하는 방법, "
+"C/C++, 자바와의 상호 운용성"
 
 #: src/welcome-day-4.md:10
 msgid ""
@@ -10560,10 +10560,9 @@ msgid ""
 "that\n"
 "> parses some raw bytes would be ideal."
 msgstr ""
-"> 우리는 오늘 당신의 프로젝트를 호출해볼 것입니다. 따라서 가지고 있는 코드 중"
-"에 작은 부분을 찾아보세요\n"
-"> 종속성이 적고 특이 타입이 적을 수록 좋습니다. raw byte를 분석하는 종류의 것"
-"이 이상적입니다."
+"> 우리는 오늘 여러분의 프로젝트에서 러스트 코드를 호출해볼 것입니다. 그 프로젝트에서 \n"
+"> 러스트로 옮길만 한 작은 부분을 정하세요. 의존성이 적고 \"특이한\" 타입이 적을 수록 \n"
+"> 좋습니다. 바이트 몇 개를 파싱하는 코드라면 완벽합니다."
 
 #: src/concurrency.md:1
 msgid "# Fearless Concurrency"
@@ -10574,8 +10573,7 @@ msgid ""
 "Rust has full support for concurrency using OS threads with mutexes and\n"
 "channels."
 msgstr ""
-"러스트는 뮤텍스와 채널이 있는 OS 스레드를 사용하여 동시성을 완전히 지원합니"
-"다."
+"러스트는 동시성 지원이 막강합니다. 운영체제 레벨의 스레드를 사용하며, 뮤택스와 채널도 지원합니다."
 
 #: src/concurrency.md:6
 msgid ""
@@ -10585,9 +10583,9 @@ msgid ""
 "you\n"
 "can rely on the compiler to ensure correctness at runtime."
 msgstr ""
-"러스트의 타입 시스템은 많은 동시성 버그가 컴파일 시 버그를 일으키는 중요한  "
-"역할을 합니다. 이는 컴파일러를 사용하여 런타임의 정확성을 보장할 수 있기  때"
-"문에 종종 _겁없는 동시성(fearless concurrency)_라고 합니다."
+"러스트의 타입 시스템은 프로그램에 동시성 버그가 있을 경우, 컴파일 시에 에러가 "
+"발생하도록 해 줍니다. 컴파일러를 이용해서 프로그램이 수행시에 정확히 동작함을 "
+"미리 보장해 주기 때문에, 사람들은 이를 종종 _겁없는 동시성_ 이라고 합니다."
 
 #: src/concurrency/threads.md:1
 msgid "# Threads"
@@ -10631,11 +10629,10 @@ msgid ""
 "* Thread panics are independent of each other.\n"
 "  * Panics can carry a payload, which can be unpacked with `downcast_ref`."
 msgstr ""
-"* 스레드는 모두 데몬 스레드입니다. 따라서 주 스레드는 이를 기다리지 않습니"
-"다.\n"
-"* 스레드의 패닉은 서로 독립적으로 발생합니다.\n"
-"  * (스레드의) 패닉은 (주 스레드에게) 페이로드를 전달하고, 이는 "
-"`downcast_ref`로 풀어볼 수 있습니다."
+"* 스레드는 모두 데몬 스레드입니다. 따라서 메인 스레드는 이 스레드들이 끝나기를 "
+"기다리지 않습니다.\n"
+"* 한 스레드에서 발생한 패닉은 다른 스레드에게 영향을 끼치지 않습니다.\n"
+"  * 패닉은 추가정보(페이로드)를 포함할 수 있으며, 이는 `downcast_ref`로 풀어볼 수 있습니다."
 
 #: src/concurrency/threads.md:32
 msgid ""
@@ -10643,8 +10640,7 @@ msgid ""
 "is\n"
 "  not waiting."
 msgstr ""
-"* 주 스레드가 기다리지 않기 때문에 생성된 스레드의 for문은 10까지 가지 않습니"
-"다."
+"* 메인 스레드가 자식 스레드를 기다리지 않기 때문에 자식 스레드의 for문은 10까지 가지 않습니다."
 
 #: src/concurrency/threads.md:35
 msgid ""
@@ -10652,13 +10648,13 @@ msgid ""
 "for\n"
 "  the thread to finish."
 msgstr ""
-"* 만약 주 스레드가 스레드 동작을 대기 하기 원한다면 `let handle = thread::"
+"* 만약 메인 스레드가 자식 스레드가 끝날 때 까지 기다리기를 원한다면 `let handle = thread::"
 "spawn(...)`으로 스레드를 선언한 후 `handle.join()`로 연결하여 사용합니다."
 
 #: src/concurrency/threads.md:38
 msgid "* Trigger a panic in the thread, notice how this doesn't affect `main`."
 msgstr ""
-"* 스레드에서 유발된 패닉(for 강제 종료)이 주 스레드에는 영향이 없음을 확인하"
+"* 자식 스레드에서 발생한 패닉이 메인 스레드에는 영향을 주지 않음을 확인하"
 "시기 바랍니다."
 
 #: src/concurrency/threads.md:40
@@ -10667,8 +10663,8 @@ msgid ""
 "panic\n"
 "  payload. This is a good time to talk about [`Any`]."
 msgstr ""
-"* `handle.join()`사용시 `Result` 반환값을 통해 패닉 페이로드에 접근할 수 있습"
-"니다. [`Any`]를 참조하시기 바랍니다."
+"* `handle.join()`사용시 `Result` 반환값을 통해 패닉의 추가정보에 접근할 수 있습"
+"니다. 이 시점에서 [`Any`]에 대해 이야기를 해 보면 좋습니다."
 
 #: src/concurrency/threads.md:43
 msgid "[`Any`]: https://doc.rust-lang.org/std/any/index.html"
@@ -10680,7 +10676,7 @@ msgstr "# 범위 스레드(Scoped Threads)"
 
 #: src/concurrency/scoped-threads.md:3
 msgid "Normal threads cannot borrow from their environment:"
-msgstr "일반 스레드는 그들의 환경(주 스레드)에서 빌릴수 없습니다:"
+msgstr "보통, 스레드는 스레드 밖에서 데이터를 빌릴 수 없습니다."
 
 #: src/concurrency/scoped-threads.md:5
 msgid ""
@@ -10742,8 +10738,8 @@ msgid ""
 msgstr ""
 "<details>\n"
 "    \n"
-"* `thread::scope` 함수가 완료되면 모든 스레드의 결합이 보장되므로 빌린 데이터"
-"를 반환 할 수 있습니다. \n"
+"* `thread::scope` 함수가 완료되면 그 안에서 생성된 모든 스레드들이 종료했음이 "
+"보장되기 때문에, 그 때 빌렸던 데이터들을 다시 반환할 수 있기 때문입니다.\n"
 "* 일반적인 러스트의 빌림 규칙이 적용됩니다: 한 스레드에 의한 가변 빌림 또는 "
 "여러 스레드에 대한 불변 빌림중 하나만 가능합니다.\n"
 "    \n"
@@ -10760,7 +10756,8 @@ msgid ""
 "are connected via the channel, but you only see the end-points."
 msgstr ""
 "러스트의 채널은 `Sender<T>` 와 `Receiver<T>` 두 부분으로 구성됩니다.\n"
-"두 부분은 채널을 통해 연결되지만 우리는 종단만을 확인할 수 있습니다."
+"이 둘은 채널을 통해 서로 연결되어 있지만, 우리는 채널을 볼 수는 없고 이 양 "
+"끝단만을 사용하게 됩니다."
 
 #: src/concurrency/channels.md:6
 msgid ""
@@ -10802,7 +10799,7 @@ msgid ""
 "counterpart `Sender` or `Receiver` is dropped and the channel is closed."
 msgstr ""
 "* `send()`와 `recv()`는 `Result`를 반환합니다. 만일 `Err`가 반환된다면, 상대"
-"방의 `Sender`또는 `Receiver`는 삭제되고 채널이 닫힙니다."
+"방의 `Sender`또는 `Receiver`가 삭제되었고 채널이 닫혔다는 뜻입니다."
 
 #: src/concurrency/channels/unbounded.md:1
 msgid "# Unbounded Channels"
@@ -10810,7 +10807,7 @@ msgstr "# 무경계 채널(Unbounded Channels)"
 
 #: src/concurrency/channels/unbounded.md:3
 msgid "You get an unbounded and asynchronous channel with `mpsc::channel()`:"
-msgstr "`mpsc::channel()`함수는 무제한, 비동기 채널을 생성합니다: "
+msgstr "`mpsc::channel()` 함수는 경계가 없는 비동기 채널을 생성합니다: "
 
 #: src/concurrency/channels/unbounded.md:5
 #: src/concurrency/channels/bounded.md:5
@@ -10847,11 +10844,11 @@ msgstr ""
 
 #: src/concurrency/channels/bounded.md:1
 msgid "# Bounded Channels"
-msgstr "# 경계 채널(Bounded Channels)"
+msgstr "# 경계가 있는 채널(Bounded Channels)"
 
 #: src/concurrency/channels/bounded.md:3
 msgid "Bounded and synchronous channels make `send` block the current thread:"
-msgstr "경계가 있는 동기 채널은 `send`가 주 스레드를 차단하도록 만듭니다:"
+msgstr "경계가 있는 동기 채널은 `send`가 현제 스레드를 블로킹 하도록 만듭니다:"
 
 #: src/concurrency/channels/bounded.md:10
 msgid ""
@@ -10869,7 +10866,7 @@ msgid ""
 "is\n"
 "primarily done via two types:"
 msgstr ""
-"러스트는 주로 아래 두 가지 타입 시스템을 이용해서 공유 데이터 동기화를 수행합"
+"러스트는 주로 아래 두 가지 타입을 이용해서 공유 데이터 동기화를 수행합"
 "니다: "
 
 #: src/concurrency/shared_state.md:6
@@ -10879,9 +10876,9 @@ msgid ""
 "  takes care to deallocate `T` when the last thread exits,\n"
 "* [`Mutex<T>`][2]: ensures mutual exclusion access to the `T` value."
 msgstr ""
-"* [`Arc<T>`][1], atomic[^역주1] 참조 카운트 `T`: 스레드 사이의 공유를 담당하"
-"고, 마지막 스레드 종료시 T를 해제합니다.\n"
-"* [`Mutex<T>`][2]: `T`값에 대한 상호배제 엑세스를 보장합니다."
+"* [`Arc<T>`][1], `T`에 대한 아토믹 참조 카운트: 이 참조는 다수의 스레드 사이에서 "
+"공유될 수 있고, 참조하던 마지막 스레드가 종료할 경우 `T`를 반환합니다.\n"
+"* [`Mutex<T>`][2]: `T`값에 대한 상호 배제 엑세스를 보장합니다."
 
 #: src/concurrency/shared_state.md:10
 msgid ""
@@ -10889,9 +10886,7 @@ msgid ""
 "[2]: https://doc.rust-lang.org/std/sync/struct.Mutex.html"
 msgstr ""
 "[1]: https://doc.rust-lang.org/std/sync/struct.Arc.html\n"
-"[2]: https://doc.rust-lang.org/std/sync/struct.Mutex.html\n"
-"[^역주1]: C++의 atomic을 구현했다고 합니다. 원자적 연산(한번에 일어나는 명령"
-"어 연산)으로 1개의 명령어로 처리했다/안했다로만 존재합니다."
+"[2]: https://doc.rust-lang.org/std/sync/struct.Mutex.html"
 
 #: src/concurrency/shared_state/arc.md:1
 msgid "# `Arc`"
@@ -10899,7 +10894,9 @@ msgstr "# `Arc`"
 
 #: src/concurrency/shared_state/arc.md:3
 msgid "[`Arc<T>`][1] allows shared read-only access via its `clone` method:"
-msgstr "[`Arc<T>`][1]는 `clone` 메서드를 통해 읽기전용 접근을 허용합니다:"
+msgstr "[`Arc<T>`][1]의 `clone` 메서드를 이용하면 여러 스레드가 한 데이터를 동시에 "
+"(_역주_: 그리고 안전하게. 스레드가 하나라도 살아있는 동안에는 `T`가 반환되지 않음) "
+"읽을 수 있습니다:"
 
 #: src/concurrency/shared_state/arc.md:5
 msgid ""
@@ -10946,12 +10943,13 @@ msgid ""
 "    \n"
 "</details>"
 msgstr ""
-"* `Arc`는 원자 연산을 사용하는 `RC`의 스레드 세이프 버전인 원자 참조 카운트"
-"(Atomic Reference Counted)입니다.\n"
-"* `Arc::clone()`는 원자 연산을 수행하는 코스트가 있지만 그 이후의 `T`를 사용 "
-"하는 것은 노 코스트입니다. \n"
-"* 참조 주기를 주의해야 합니다. 러스트는 이를 감지할 GC가 없습니다\n"
-"  * `std::sync::Weak`가 도움이 될 것입니다.    \n"
+"* `Arc`는 \"Atomic Reference Counted\"를 의미하며, 스레드 안정성을 보장하는 "
+"`Rc`라고 생각하면 됩니다.\n"
+"* `Arc::clone()`는 아토믹 연산을 수행하기 때문에 그 때 코스트가 좀 있지만, "
+"일단 `clone()`이 끝난 후 `T`를 사용하는 대에는 아무런 오버헤드가 없습니다.\n"
+"* 순환 참조가 발생하지 않도록 주의해야 합니다. 러스트는 순환 참조를 감지하는 "
+"가비지 컬랙터가 없습니다.\n"
+"  * 순환 참조를 피하는데 `std::sync::Weak`가 도움이 될 것입니다.\n"
 "</details>"
 
 #: src/concurrency/shared_state/mutex.md:1
@@ -10963,8 +10961,8 @@ msgid ""
 "[`Mutex<T>`][1] ensures mutual exclusion _and_ allows mutable access to `T`\n"
 "behind a read-only interface:"
 msgstr ""
-"[`Mutex<T>`][1]는 상호배제를 보장하고, 일기전용 인터페이스 뒤에서 `T`에 대한 "
-"가변 접근을 허용합니다:"
+"[`Mutex<T>`][1]를 이용하면 불변 참조를 통해서도 `T`의 값을 수정할 수가 있으며, "
+"_이에 더해서_ 한 번에 한 스레드만 `T`의 값을 접근(읽거나 쓰거나)함을 보장해 줍니다:"
 
 #: src/concurrency/shared_state/mutex.md:6
 msgid ""
@@ -10999,7 +10997,8 @@ msgstr ""
 msgid ""
 "Notice how we have a [`impl<T: Send> Sync for Mutex<T>`][2] blanket\n"
 "implementation."
-msgstr "[`impl<T: Send> Sync for Mutex<T>`][2]를 참조하시기 바랍니다"
+msgstr ""
+"모든 `Mutex<T>`는 [`impl<T: Send> Sync for Mutex<T>`][2]를 자동으로 구현함을 참조하세요."
 
 #: src/concurrency/shared_state/mutex.md:26
 msgid ""
@@ -11028,19 +11027,19 @@ msgstr ""
 "<details>\n"
 "    \n"
 "* 러스트의 `Mutex`는 오직 하나의 데이터만 담을 수 있는 컬렉션처럼 볼 수도"
-" 있습니다. 다른 컬렉션과 다른 점은, 그 데이터가 동시성 문제로부터 보호된다는"
+" 있습니다. 다른 컬렉션과 다른 점은, 그 데이터가 동시성 문제로부터 자유롭다는"
 " 점입니다.\n"
-"  * `Mutex`는 mutax를 획득하지 않으면 보호된 데이터에 접근하는 것을 불가능"
+"  * `Mutex`는 뮤텍스를 획득하지 않으면 보호된 데이터에 접근하는 것이 불가능"
 "  하도록 디자인 되어 있습니다.\n"
 "* `Mutex`는 읽기와 쓰기에 대한 잠금을 구별하지 않기 때문에 여러 스레드에서"
-" 데이터를 \"읽기\"만 하려고 해도 이를 동시에 지원할 수 없습니다. 한 번에 한"
+" 데이터를 \"읽기\"만 하려고 해도 이를 동시에 허용하지 않습니다. 즉, 한 번에 한"
 " 스레드에서의 읽기만 허용이 됩니다. \"읽기\"에 대한 동시성을 지원하면서"
 " \"쓰기\"에 대해서 안전하고 싶다면 `RwLock`을 사용할 수 있습니다.\n"
-"* 어째서 `lock()`이 `Result`를 반환합니까?\n"
+"* 왜 `lock()`이 `Result`를 반환할까요?\n"
 "  * `Mutex`를 획득한 스레드에서 패닉이 발생하면, 데이터가 올바르지 않은 상황이"
 "  될 수 있습니다. 이를 `Mutex`가 \"중독(poisoned)\" 되었다고 표현하며, 중독된"
 "  뮤텍스에서 `lock()`을 호출하면 실패하고 [`PoisonError`]가 발생합니다."
-"  오류로부터 데이터를 복구하기 위해 `into_inner()`를 호출할 수 있습니다."
+"  이러한 오류로부터 데이터를 복구하기 위해 `into_inner()`를 호출할 수 있습니다."
 
 #: src/concurrency/shared_state/mutex.md:38
 msgid ""
@@ -11052,7 +11051,7 @@ msgstr ""
 
 #: src/concurrency/shared_state/example.md:3
 msgid "Let us see `Arc` and `Mutex` in action:"
-msgstr "`Arc`와 `Mutex`의 동작을 살펴봅니다:(동작하도록 수정해보세요)"
+msgstr "`Arc`와 `Mutex`의 동작을 살펴봅시다:"
 
 #: src/concurrency/shared_state/example.md:5
 msgid ""
@@ -11150,11 +11149,12 @@ msgid ""
 "possible.\n"
 "* We still need to acquire the `Mutex` to print our `Vec`."
 msgstr ""
-"* `v`는 `Arc`와 `Mutex`와 직교성을 가지므로 둘 모두로부터 래핑되있습니다.\n"
-"* `v: Arc<_>`는 다른 스레드로 이동하기 전 'v2'로부터 복제해야 합니다. 따라"
-"서  익명함수 시그니처에 `move`키워드가 추가되었습니다.\n"
+"* `v`는 `Arc`와 `Mutex` 모두에 포함되어 있습니다. 이는 `Arc`와 `Mutex`가 서로 "
+"완전히 다른 문제를 위한 도구이기 때문입니다.\n"
+"* `v: Arc<_>`를 다른 스레드에서 사용하려면, 먼저 `v2`로 복사를 하고 이를 그 "
+"스레드로 이동 해야 합니다. 그래서 람다의 시그니처에 `move`가 있는 것입니다.\n"
 "* 블록은 `LockGuard`의 범위를 최대한 좁히기 위해 사용되었습니다.\n"
-"* `Vec`을 출력하기위해 `Mutex`를 먼저 획득합니다."
+"* `Vec`을 단순히 출력하기 위해서도 여전히 `Mutex`를 획득해야 합니다."
 
 #: src/concurrency/send-sync.md:1
 msgid "# `Send` and `Sync`"
@@ -11165,8 +11165,8 @@ msgid ""
 "How does Rust know to forbid shared access across thread? The answer is in "
 "two traits:"
 msgstr ""
-"러스트는 아래 두가지 트레이트를 이용하여 스레드 간 공유 접근을 금지된 것을 "
-"알 수 있습니다:"
+"러스트는 어떻게 해서 스레드 간에 특정 데이터 타입이 공유될 수 있거나, 안된다는 것을 "
+"알까요? 정답은 다음 두 트레이트에 있습니다:"
 
 #: src/concurrency/send-sync.md:5
 msgid ""
@@ -11188,8 +11188,8 @@ msgid ""
 "when \n"
 "the compiler determines it’s appropriate."
 msgstr ""
-"두 트레이트는 컴파일러가 적합한지 자동으로 판단하여 구현하므로 직접 구현하지 "
-"않습니다."
+"이 트레이트는 프로그래머가 수동으로 구현을 해야 하는 트레이트가 아닙니다. "
+"컴파일러는 적당하다고 판단되면 이 두 트레이트를 자동으로 구현합니다."
 
 #: src/concurrency/send-sync.md:13
 msgid ""
@@ -11205,10 +11205,9 @@ msgid ""
 "  \n"
 "</details>"
 msgstr ""
-"* 이러한 트레이트들은 타입이 특정한 스레드-안전 속성을 가지도록 하는 마커로 "
+"* `Sync`와 `Send`는 어떤 타입이 특정한 스레드-안전 속성을 가짐을 나타내는 마커로 "
 "생각할 수 있습니다.\n"
-"* 제너릭 제약 조건 하에서 정상적인 트레이트로 사용 될 수 있습니다.\n"
-"  \n"
+"* 이 두 트레이트는 제너릭에서 제약 조건을 나타내는 트레이트로 사용될 수도 있습니다.\n"
 "</details>"
 
 #: src/concurrency/send-sync/send.md:1
@@ -11219,7 +11218,7 @@ msgstr "# `Send`"
 msgid ""
 "> A type `T` is [`Send`][1] if it is safe to move a `T` value to another "
 "thread."
-msgstr "> `T`가 스레드 간 이동이 안전하다면, `T`의 타입은 `Send`입니다."
+msgstr "> `T`가 스레드 간에 안전하게 이동될 수 있다면, `T`의 타입은 `Send`입니다."
 
 #: src/concurrency/send-sync/send.md:5
 msgid ""
@@ -11247,7 +11246,7 @@ msgid ""
 "multiple\n"
 "> threads at the same time."
 msgstr ""
-"> `&T`가 여러 스레드에서 접근이 안전하다면, `&T`의 타입은 `Sync`입니다."
+"> `&T`가 여러 스레드에서 안전하게 접근될 수 있다면, `&T`의 타입은 `Sync`입니다."
 
 #: src/concurrency/send-sync/sync.md:6
 msgid "More precisely, the definition is:"
@@ -11255,7 +11254,7 @@ msgstr "좀 더 정확한 정의는 다음과 같습니다:"
 
 #: src/concurrency/send-sync/sync.md:8
 msgid "> `T` is `Sync` if and only if `&T` is `Send`"
-msgstr "`&T`만 `Send`인 경우, `T`의 타입은 `Sync`입니다."
+msgstr "`&T`가 `Send`인 경우에만 `T`의 타입이 `Sync`가 됩니다."
 
 #: src/concurrency/send-sync/sync.md:10
 msgid "[1]: https://doc.rust-lang.org/std/marker/trait.Sync.html"
@@ -11267,8 +11266,8 @@ msgid ""
 "thread-safe for shared use, it is also thread-safe to pass references of it "
 "across threads."
 msgstr ""
-"어떤 타입이 공유 사용을 위해 스레드 안전한 경우, 스레드를 통해 참조를 전달하는"
-" 것도 스레드 안전하다는 의미입니다."
+"위 문장을 풀어서 이야기 하면, 어떤 타입이 스레드 간에 공유되어서 사용되기에 안전하다면 "
+"그 타입의 참조 타입은 스레드 간에 이동 가능하다는 것입니다."
 
 #: src/concurrency/send-sync/sync.md:16
 msgid ""
@@ -11278,11 +11277,11 @@ msgid ""
 "is also safe to move to another thread, because the data it references can "
 "be accessed from any thread safely."
 msgstr ""
-"타입이 Sync라는 것은 데이터 레이스(경합)이나 다른 동기화 문제가 없이 여러"
-" 스레드에서 공유 접근이 가능하다는 의미이고, 이는 다른 스레드로 이동하는 것이"
-" 안전하다는 것입니다. \n"
-"타입이 참조하는 데이터는 모든 스레드에서 안전하게 접근할 수 있으므로 타입에"
-" 대한 참조는 다른 스레드로 이동해도 안전합니다."
+"이는 다음과 같이 증명할 수 있습니다: 어떤 타입이 `Sync`라는 말은 곧 그 타입이 여러 스레드들 사이에서 "
+"데이터 레이스나 여타 동기화 문제 없이 공유 가능하다는 말입니다. "
+"스레드 간 공유가 안전하다면, 스레드간 이동도 안전할 수 밖에 없습니다. "
+"어떤 타입의 스레드간 이동이 안전하다면, 그 타입의 참조 또한 스레드간 이동이 "
+"안전할 수 밖에 없습니다."
 
 #: src/concurrency/send-sync/examples.md:1
 msgid "# Examples"
@@ -11294,7 +11293,7 @@ msgstr ""
 
 #: src/concurrency/send-sync/examples.md:5
 msgid "Most types you come across are `Send + Sync`:"
-msgstr "대부분의 타입은 Send + Sync입니다:"
+msgstr "여러분이 다루게 될 대부분의 타입은 `Send + Sync`입니다:"
 
 #: src/concurrency/send-sync/examples.md:7
 msgid ""
@@ -11308,16 +11307,16 @@ msgstr ""
 "* `i8`, `f32`, `bool`, `char`, `&str`, ...\n"
 "* `(T1, T2)`, `[T; N]`, `&[T]`, `struct { x: T }`, ...\n"
 "* `String`, `Option<T>`, `Vec<T>`, `Box<T>`, ...\n"
-"* `Arc<T>`: atomic 참조 카운트로 명시적 스레드-세이프.\n"
-"* `Mutex<T>`: 내부 잠금을 통해 명시적 스레드-세이프.\n"
-"* `AtomicBool`, `AtomicU8`, ...: 특별한 atomic 명령을 사용합니다."
+"* `Arc<T>`: 참조 카운트 조작을 아토믹 하기 때문에 스레드 안전함.\n"
+"* `Mutex<T>`: 값을 접근하기 위해 뮤택스를 잠궈야 하기 때문에 스레드 안전함.\n"
+"* `AtomicBool`, `AtomicU8`, ...: 값을 접근할 때 특별한 아토믹 명령어들을 사용합니다."
 
 #: src/concurrency/send-sync/examples.md:14
 msgid ""
 "The generic types are typically `Send + Sync` when the type parameters are\n"
 "`Send + Sync`."
 msgstr ""
-"제너릭 타입은 일반적으로 타입파라메터가 `Send + Sync`이면 `Send + Sync` 입니"
+"제너릭 타입은 일반적으로 타입 파라메터가 `Send + Sync`이면 `Send + Sync` 입니"
 "다."
 
 #: src/concurrency/send-sync/examples.md:17
@@ -11329,8 +11328,8 @@ msgid ""
 "These types can be moved to other threads, but they're not thread-safe.\n"
 "Typically because of interior mutability:"
 msgstr ""
-"아래 타입들은 일반적으로 내부 가변성으로 인해 다른 스레드로 이동될 수 있지만 "
-"스레드-세이프 하지 않습니다."
+"아래 타입들은 다른 스레드로 이동될 수 있지만 내부적으로 값이 변경될 수 있기 때문에 "
+"스레드 안전하지 않습니다."
 
 #: src/concurrency/send-sync/examples.md:22
 msgid ""
@@ -11347,14 +11346,16 @@ msgstr ""
 #: src/concurrency/send-sync/examples.md:29
 msgid ""
 "These types are thread-safe, but they cannot be moved to another thread:"
-msgstr "아래 타입들은 스레드-세이프 하지만 다른 스레드로 이동될 수 없습니다:"
+msgstr "아래 타입들은 스레드 안전하지만 다른 스레드로 이동될 수 없습니다:"
 
 #: src/concurrency/send-sync/examples.md:31
 msgid ""
 "* `MutexGuard<T>`: Uses OS level primitives which must be deallocated on "
 "the\n"
 "  thread which created them."
-msgstr "* `MutexGuard<T>`: OS레벨에서 생성한 스레드에서 할당해제해야합니다"
+msgstr ""
+"* `MutexGuard<T>`: 내부적으로, 운영체제가 제공하는 primitive를 사용하는데, 이 primitive는 "
+"생성된 스레드에서 해제가 이루어져야 합니다. (_역주_: 그래서 다른 스레드로 옮길 수 없습니다.)"
 
 #: src/concurrency/send-sync/examples.md:34
 msgid "## `!Send + !Sync`"
@@ -11362,7 +11363,7 @@ msgstr ""
 
 #: src/concurrency/send-sync/examples.md:36
 msgid "These types are not thread-safe and cannot be moved to other threads:"
-msgstr "아래 타입들은 스레드-세이프 하지도 않고 다른 스레드로 이동될 수도 없습니다:"
+msgstr "아래 타입들은 스레드 안전하지도 않고 다른 스레드로 이동될 수도 없습니다:"
 
 #: src/concurrency/send-sync/examples.md:38
 msgid ""
@@ -11371,10 +11372,9 @@ msgid ""
 "* `*const T`, `*mut T`: Rust assumes raw pointers may have special\n"
 "  concurrency considerations."
 msgstr ""
-"* `Rc<T>`: 각 `Rc<T>` 는 비 atomic 참조 카운트를 포함하는 `RcBox<T>`를 참조합"
+"* `Rc<T>`: `Rc<T>` 는 아토믹하지 않은 방식으로 참조 카운트를 조작하는 `RcBox<T>`를 참조합"
 "니다.\n"
-"* `*const T`, `*mut T`: 러스트는 raw 포인터가 특별한 동시성 고려사항을 가질 "
-"수 있다고 가정합니다."
+"* `*const T`, `*mut T`: 러스트는 포인터가 스레드 안전하지 않다고 가정합니다."
 
 #: src/exercises/day-4/morning.md:1 src/exercises/day-4/afternoon.md:1
 msgid "# Exercises"
@@ -11382,7 +11382,7 @@ msgstr "# 연습문제"
 
 #: src/exercises/day-4/morning.md:3
 msgid "Let us practice our new concurrency skills with"
-msgstr "이번 훈련에서는 동시성 기술을 연습합니다:"
+msgstr "동시성 기법들을 연습해 봅시다:"
 
 #: src/exercises/day-4/morning.md:5
 msgid "* Dining philosophers: a classic problem in concurrency."
@@ -11393,8 +11393,8 @@ msgid ""
 "* Multi-threaded link checker: a larger project where you'll use Cargo to\n"
 "  download dependencies and then check links in parallel."
 msgstr ""
-"* 멀티 스레드 링크 검사: 카고를 사용하여 종속성을 다운로드하면서 링크를 체크"
-"하는 큰 프로젝트입니다"
+"* 멀티 스레드 링크 검사기: 병렬적으로 웹페이지의 링크들을 체크합니다. "
+"카고를 통해 몇 가지 의존성들을 다운도르 받아야 하는 큰 프로젝트 입니다."
 
 #: src/exercises/day-4/dining-philosophers.md:1
 msgid "# Dining Philosophers"
@@ -11423,12 +11423,12 @@ msgstr ""
 "> 5명의 철학자가 원탁에서 식사를 하고 있습니다. \n"
 "> 철학자는 원탁에서 자신의 자리에 앉아있습니다.\n"
 "> 포크는 각 접시 사이에 있습니다. \n"
-"> 제공되는 요리를 먹기 위해서는 2개의 포크를 모두 사용해야합니다.\n"
-"> 철학자는 생각을 하다가 배가 고프면 자신의 좌우의 포크를 들어 요리를 먹습니"
+"> 제공되는 요리를 먹기 위해서는 두 개의 포크를 모두 사용해야합니다.\n"
+"> 철학자는 생각을 하다가 배가 고프면 자신의 좌,우의 포크를 들어 요리를 먹습니"
 "다.\n"
 "> 철학자는 요리를 먹은 후에는 포크를 다시 자리에 내려놓습니다.\n"
 "> 철학자는 자신의 좌,우에 포크가 있을때만 요리를 먹을 수 있습니다.\n"
-"> 따라서 두개의 포크는 오직 자신의 좌,우 철학자가 생각을 할 때만 사용할 수 있"
+"> 따라서 두 개의 포크는 오직 자신의 좌,우 철학자가 생각을 할 때만 사용할 수 있"
 "습니다."
 
 #: src/exercises/day-4/dining-philosophers.md:13
@@ -11439,10 +11439,10 @@ msgid ""
 "blanks,\n"
 "and test that `cargo run` does not deadlock:"
 msgstr ""
-"이번 훈련에서는 [로컬 카고 설치](../../cargo/running-locally.md)가 필요합니"
+"이번 훈련에서는 [카고 설치하기](../../cargo/running-locally.md)가 필요합니"
 "다.\n"
 "아래 코드를 복사해서 `src/main.rs`에 붙여놓고 빈 부분을 채우고, `cargo run` "
-"커맨드로 테스트 해서 교착상태(데드락)이 되지 않는지 확인합니다:"
+"커맨드로 테스트 해서 교착상태(데드락)가 발생하지 않는지 확인합니다:"
 
 #: src/exercises/day-4/dining-philosophers.md:17
 msgid ""
@@ -11530,7 +11530,7 @@ msgid ""
 "pages have been validated."
 msgstr ""
 "새로 배운것들을 활용해서 멀티 스레드 링크 검사기를 만듭니다. \n"
-"검사기는 웹페이지가 유효한지 확인합니다. \n"
+"이 검사기는 웹페이지 안에 있는 링크들이 유효한지 확인합니다. \n"
 "그리고 재귀적으로 동일 도메인의 다른 모든 페이지가 유효한지 확인합니다."
 
 #: src/exercises/day-4/link-checker.md:8
@@ -11539,7 +11539,7 @@ msgid ""
 "Cargo project and `reqwest` it as a dependency with:"
 msgstr ""
 "이를 위해서 [`reqwest`][1]와 같은 HTTP 클라이언트가 필요합니다. 새로운 로컬 "
-"프로젝트를 만들고 [`reqwest`][1]를 종속성에 추가하십시요"
+"프로젝트를 만들고 [`reqwest`][1]를 의존성에 추가하십시요"
 
 #: src/exercises/day-4/link-checker.md:11
 msgid ""
@@ -11557,7 +11557,7 @@ msgid ""
 "> `Cargo.toml` file by hand. Add the dependencies listed below."
 msgstr ""
 "> 만일 `cargo add` 커맨드가 `error: no such subcommand` 로 실패한다면 \n"
-"> `Cargo.toml` 파일을 직접 수정해도 됩니다. 아래에 전체 종속성 내용이 있습니"
+"> `Cargo.toml` 파일을 직접 수정해도 됩니다. 아래에 전체 의존성 내용이 있습니"
 "다."
 
 #: src/exercises/day-4/link-checker.md:20
@@ -11588,7 +11588,7 @@ msgstr ""
 #: src/exercises/day-4/link-checker.md:32
 msgid ""
 "The `cargo add` calls will update the `Cargo.toml` file to look like this:"
-msgstr "모든 `cargo add`이 끝나면 `Cargo.toml`에 아래 내용이 추가 되있습니다:"
+msgstr "모든 `cargo add`가 끝나면 `Cargo.toml`에 아래 내용이 추가됩니다:"
 
 #: src/exercises/day-4/link-checker.md:34
 msgid ""
@@ -11686,7 +11686,7 @@ msgstr ""
 
 #: src/exercises/day-4/link-checker.md:95
 msgid "## Tasks"
-msgstr "## 할일"
+msgstr "## 할 일"
 
 #: src/exercises/day-4/link-checker.md:97
 msgid ""
@@ -11701,7 +11701,7 @@ msgstr ""
 "* 스레드를 사용하여 링크를 병렬로 확인합니다: URL을 채널로 보내서 몇 개의 스"
 "레드가 URL을 병렬로 체크하도록 합니다.\n"
 "* `www.google.org`도메인의 모든 페이지를 재귀적으로 확인하기 위해 코드를 확장"
-"해서 작성합니다: 사이트에 의해 차단되지 않도록 100페이지 정도로 제한을 두시"
+"해서 작성합니다: 차단당하지 않도록 100페이지 정도로 제한을 두시"
 "기 바랍니다."
 
 #: src/exercises/day-4/link-checker.md:103
@@ -11722,8 +11722,8 @@ msgid ""
 "you can write new operating system services in Rust, as well as extending\n"
 "existing services."
 msgstr ""
-"러스트는 안드로이드 네이티브 플랫폼 개발을 지원합니다. 즉, 기존 서비스를 확"
-"장 할 뿐 아니라 새로운 OS서비스를 작성할 수 있음을 뜻합니다."
+"러스트는 안드로이드 네이티브 플랫폼 개발을 지원합니다. 기존의 OS 서비스를 "
+"확장하거나, 새로운 서비스를 만드는데 러스트를 쓸 수 있습니다."
 
 #: src/android/setup.md:1
 msgid "# Setup"
@@ -11735,8 +11735,8 @@ msgid ""
 "have\n"
 "access to one or create a new one with:"
 msgstr ""
-"Android Virtual Device를 사용하여 코드를 테스트합니다. \n"
-"액세스 권한이 있는지 확인하거나 다음을 사용하여 새 액세스 권한을 만드십시오:"
+"안드로이드 가상 디바이스(Android Virtual Device)를 사용하여 여러분의 코드를 "
+"수행할 겁니다. 새로운 가상 디바이스를 생성하려면 아래의 명령어를 사용하세요."
 
 #: src/android/setup.md:6
 msgid ""
@@ -11762,7 +11762,7 @@ msgstr "# 빌드 규칙(Build Rules)"
 #: src/android/build-rules.md:3
 msgid "The Android build system (Soong) supports Rust via a number of modules:"
 msgstr ""
-"안드로이드 빌드 시스템(Soong)은 다음과 같은 여러 모듈을 통해 러스트를  지원합"
+"안드로이드 빌드 시스템(Soong)은 다음과 같은 여러 모듈을 통해 러스트를 지원합"
 "니다:"
 
 #: src/android/build-rules.md:5
@@ -11792,28 +11792,15 @@ msgstr ""
 "| Module Type       | Description                                          "
 "|\n"
 "|-------------------|------------------------------------------------------|\n"
-"| `rust_binary`     | 러스트 바이너리(Rust binary)를 생성합니다.           "
-"|\n"
-"| `rust_library`    | 러스트 라이브러리를 생성하고, rlib와 dylib variants"
-"를                       제공합니"
-"다.                                          |\n"
-"| `rust_ffi`        | cc모듈에서 사용할 수 있는 Rust C library를 생성하"
-"고,                       static and shared variants를 제공합니"
-"다.             |\n"
-"| `rust_proc_macro` | proc-macro Rust library를 생성합니다. 컴파일"
-"러                       플러그인과 유사합니"
-"다.                               |\n"
-"| `rust_test`       | standard Rust test harness를 사용하는 러스트 테스"
-"트                       바이너리를 생성합니"
-"다.                               |\n"
-"| `rust_fuzz`       | libfuzzer를 사용하여 Rust fuzz 바이너리를 생성합니"
-"다.|\n"
-"| `rust_protobuf`   | 소스를 생성하고 특정 protobuf에 대한 인터페이스"
-"를                       제공하는 러스트 라이브러리를 생성합니"
-"다.             |\n"
-"| `rust_bindgen`    | 소스를 생성하고 C 라이브러리에 대한 러스트 바인딩"
-"을                       포함하는 러스트 라이브러리를 생성합니"
-"다               |"
+"| `rust_binary`     | 러스트 바이너리를 생성합니다.|\n"
+"| `rust_library`    | 러스트 라이브러리(rlib혹은 dylib)를 생성합니다.|\n"
+"| `rust_ffi`        | cc 모듈에서 사용할 수 있는 C library (정적 혹은 동적)를 생성합니다.|\n"
+"| `rust_proc_macro` | `proc-macro`를 구현하는 러스트 라이브러리를 생성합니다. "
+"컴파일러의 플러그인으로 생각해도 좋습니다.|\n"
+"| `rust_test`       | 표준 러스트 테스트 러너를 사용하는 테스트 바이너리를 생성합니다.|\n"
+"| `rust_fuzz`       | `libfuzzer`를 사용하여 fuzz 바이너리를 생성합니다.|\n"
+"| `rust_protobuf`   | 프로토버프(protobuf) 인터페이스를 제공하는 러스트 라이브러리를 생성합니다.|\n"
+"| `rust_bindgen`    | C 라이브러리에 대한 러스트 바인딩을 제공하는 러스트 라이브러리를 생성합니다.|"
 
 #: src/android/build-rules.md:16
 msgid "We will look at `rust_binary` and `rust_library` next."
@@ -11868,7 +11855,7 @@ msgstr ""
 
 #: src/android/build-rules/binary.md:27
 msgid "You can now build, push, and run the binary:"
-msgstr "이제 바이너리를 빌드, 푸시, 실행할 수 있습니다:"
+msgstr "그런 다음, 이 바이너리를 빌드하고, 가상 디바이스에 넣고, 실행합니다:"
 
 #: src/android/build-rules/binary.md:29
 msgid ""
@@ -11886,11 +11873,11 @@ msgstr "# 러스트 라이브러리"
 
 #: src/android/build-rules/library.md:3
 msgid "You use `rust_library` to create a new Rust library for Android."
-msgstr "`rust_library`를 사용하여 Android용 새 Rust 라이브러리를 만듭니다."
+msgstr "`rust_library`를 사용하여 안드로이드용 새 러스트 라이브러리를 만듭니다."
 
 #: src/android/build-rules/library.md:5
 msgid "Here we declare a dependency on two libraries:"
-msgstr "여기서 2개의 라이브러리 의존성을 선언합니다."
+msgstr "여기서 두 개의 라이브러리에 대한 의존성을 선언합니다."
 
 #: src/android/build-rules/library.md:7
 msgid ""
@@ -11898,8 +11885,8 @@ msgid ""
 "* `libtextwrap`, which is a crate already vendored in\n"
 "  [`external/rust/crates/`][crates]."
 msgstr ""
-"* 아래에 정의한 libgreeting.\n"
-"* [`external/rust/crates/`][crates]에 존재하는 libtextwrap"
+"* 아래에 정의한 `libgreeting`.\n"
+"* [`external/rust/crates/`][crates]에 존재하는 `libtextwrap`."
 
 #: src/android/build-rules/library.md:11
 msgid ""
@@ -11974,7 +11961,7 @@ msgstr ""
 
 #: src/android/build-rules/library.md:59
 msgid "You build, push, and run the binary like before:"
-msgstr "이제 이전과 같이 바이너리를 빌드, 푸시, 실행할 수 있습니다:"
+msgstr "이전처럼, 빌드하고, 가상 디바이스로 넣고, 실행합니다:"
 
 #: src/android/build-rules/library.md:61
 msgid ""
@@ -11998,15 +11985,15 @@ msgid ""
 "(AIDL)](https://developer.android.com/guide/components/aidl) is supported in "
 "Rust:"
 msgstr ""
-"러스트는 안드로이드 [인터페이스 정의 언어(AIDL)](https://developer.android."
-"com/guide/components/aidl)을 지원합니다:"
+"러스트는 [안드로이드 인터페이스 정의 언어(AIDL)](https://developer.android."
+"com/guide/components/aidl)를 지원합니다:"
 
 #: src/android/aidl.md:6
 msgid ""
 "* Rust code can call existing AIDL servers,\n"
 "* You can create new AIDL servers in Rust."
 msgstr ""
-"* 러스트 코드는 기존 AIDL 서버를 호출 할 수 있습니다. \n"
+"* 러스트 코드에서 기존 AIDL 서버를 호출 할 수 있습니다. \n"
 "* 러스트에서 새로운 AIDL 서버를 생성할 수 있습니다."
 
 #: src/android/aidl/interface.md:1
@@ -12064,7 +12051,7 @@ msgid ""
 "vendor\n"
 "partition."
 msgstr ""
-"AIDL 파일이 벤더 파티션의 바이너리에서 사용되는 경우 `vendor_available: true`"
+"AIDL 파일이 벤더 파티션에 있는 바이너리에서 사용될 경우 `vendor_available: true`"
 "를 추가합니다."
 
 #: src/android/aidl/implementation.md:1
@@ -12198,7 +12185,7 @@ msgstr "# 배포"
 
 #: src/android/aidl/deploy.md:3
 msgid "We can now build, push, and start the service:"
-msgstr "서비스를 빌드, 푸시, 시작 할 수 있습니다:"
+msgstr "서비스를 빌드하고, 가상 디바이스에 넣고, 시작 할 수 있습니다:"
 
 #: src/android/aidl/deploy.md:5
 msgid ""
@@ -12211,7 +12198,7 @@ msgstr ""
 
 #: src/android/aidl/deploy.md:11
 msgid "In another terminal, check that the service runs:"
-msgstr "다른 터미널에서 서비스 구동을 확인합니다:"
+msgstr "다른 터미널을 띄워서 서비스가 잘 수행되고 있는지 확인합니다:"
 
 #: src/android/aidl/deploy.md:13
 msgid ""
@@ -12223,7 +12210,7 @@ msgstr ""
 
 #: src/android/aidl/deploy.md:18
 msgid "You can also call the service with `service call`:"
-msgstr "`service call`로 서비스를 호출할 수도 있습니다:"
+msgstr "`service call`명렁어로 서비스를 호출할 수도 있습니다:"
 
 #: src/android/aidl/deploy.md:20
 msgid ""
@@ -12247,7 +12234,7 @@ msgstr "# AIDL 클라이언트"
 
 #: src/android/aidl/client.md:3
 msgid "Finally, we can create a Rust client for our new service."
-msgstr "마지막으로, 새로운 서비스를 위한 러스트 클라이언트를 만들 수 있습니다."
+msgstr "마지막으로, 아까 추가한 서비스에 대한 클라이언트를 러스트로 만들겠습니다."
 
 #: src/android/aidl/client.md:5
 msgid "*birthday_service/src/client.rs*:"
@@ -12314,11 +12301,11 @@ msgstr ""
 
 #: src/android/aidl/client.md:52
 msgid "Notice that the client does not depend on `libbirthdayservice`."
-msgstr "클라이언트는 `libbirthdayservice`에 의존하지 않습니다. "
+msgstr "클라이언트는 `libbirthdayservice`에 의존하지 않음에 주목하세요. "
 
 #: src/android/aidl/client.md:54
 msgid "Build, push, and run the client on your device:"
-msgstr "장치에서 빌드, 푸시, 실행합니다: "
+msgstr "빌드하고, 가상 디바이스로 넣고, 실행합니다: "
 
 #: src/android/aidl/client.md:56
 msgid ""
@@ -12340,8 +12327,8 @@ msgid ""
 "specify a\n"
 "list of lines for the birthday card:"
 msgstr ""
-"API를 확장하여 더 많은 기능을 제공합니다. 클라이언트가 생일 카드에 대한 줄 목"
-"록을 지정할 수 있도록 합니다:"
+"API를 확장하여 더 많은 기능을 제공해 봅시다. 클라이언트가 생일 카드에 담길 "
+"내용을 지정할 수 있도록 하겠습니다:"
 
 #: src/android/aidl/changing.md:9
 msgid ""
@@ -12363,8 +12350,8 @@ msgid ""
 "or\n"
 "`stdout` (on-host):"
 msgstr ""
-"`log`크레이트를 사용하여 `logcat`(장치)나 `stdout`(호스트)에서 자동으로 로그"
-"를 기록하도록 합니다:"
+"`log` 크레이트를 사용하면 안드로이드 디바이스 안에서 수행될 때에는 `logcat`으로, "
+"호스트에서 수행될 때에는 `stdout`으로 로그가 자동으로 출력이 되도록 할 수 있습니다."
 
 #: src/android/logging.md:6
 msgid "_hello_rust_logs/Android.bp_:"
@@ -12420,7 +12407,7 @@ msgstr ""
 #: src/android/logging.md:42 src/android/interoperability/with-c/bindgen.md:98
 #: src/android/interoperability/with-c/rust.md:73
 msgid "Build, push, and run the binary on your device:"
-msgstr "장치에서 바이너리를 빌드, 푸시, 실행합니다:"
+msgstr "빌드하고, 가상 디바이스에 넣고, 실행합니다:"
 
 #: src/android/logging.md:44
 msgid ""
@@ -12457,15 +12444,14 @@ msgid ""
 "means\n"
 "that you can:"
 msgstr ""
-"러스트는 다른 언어와의 상호운용성을 훌륭히 지원합니다. 즉, 다음을 수행할 수 "
-"있습니다:"
+"러스트는 다음과 같이 다른 언어와의 상호운용성을 훌륭히 지원합니다:"
 
 #: src/android/interoperability.md:6
 msgid ""
 "* Call Rust functions from other languages.\n"
 "* Call functions written in other languages from Rust."
 msgstr ""
-"* 타 언어에서 rust 함수를 호출합니다. \n"
+"* 타 언어에서 러스트 함수를 호출합니다. \n"
 "* 타 언어의 함수를 러스트에서 호출합니다."
 
 #: src/android/interoperability.md:9
@@ -12485,12 +12471,12 @@ msgid ""
 "Rust has full support for linking object files with a C calling convention.\n"
 "Similarly, you can export Rust functions and call them from C."
 msgstr ""
-"러스트는 C 호출규약과 함께 객체 파일을 연결하는 것을 완벽하게 지원합니다. \n"
-"반대로 러스트 함수를 내보내서 C에서 호출 할 수 있습니다. "
+"러스트는 C 호출규약을 따르는 오브젝트 파일과 링킹할 수 있습니다.\n"
+"또한, 반대로 러스트 함수를 내보내서 C에서 호출 할 수 도 있습니다. "
 
 #: src/android/interoperability/with-c.md:6
 msgid "You can do it by hand if you want:"
-msgstr "원하는 경우 직접 코딩할 수 있습니다: "
+msgstr "원한다면 아래와 같이 수동으로 코딩할 수 있습니다:"
 
 #: src/android/interoperability/with-c.md:8
 msgid ""
@@ -12523,12 +12509,12 @@ msgid ""
 "> This assumes full knowledge of the target platform. Not recommended for\n"
 "> production."
 msgstr ""
-"> 이는 대상 플랫폼에 대한 완전한 지식을 전제로 합니다. 실 제품에는 권장하진 "
-"않습니다."
+"> 이러한 방법은 타겟 플랫폼의 모든 부분을 사전에 알고 있다는 전제를 깔고 있습니다.\n"
+"> 상용 프로젝트에서는 권장하지 않습니다."
 
 #: src/android/interoperability/with-c.md:26
 msgid "We will look at better options next."
-msgstr "다음으로 좀 더 나은 옵션을 살펴보겠습니다."
+msgstr "좀 더 나은 옵션을 살펴보겠습니다."
 
 #: src/android/interoperability/with-c/bindgen.md:1
 msgid "# Using Bindgen"
@@ -12541,11 +12527,11 @@ msgid ""
 "can auto-generate bindings from a C header file."
 msgstr ""
 "[bindgen](https://rust-lang.github.io/rust-bindgen/introduction.html)는 C 헤"
-"더파일에서 자동으로 생성하는 도구입니다."
+"더파일에서 러스트 바인딩을 자동으로 생성하는 도구입니다."
 
 #: src/android/interoperability/with-c/bindgen.md:6
 msgid "First create a small C library:"
-msgstr "작은 C라이브러리를 생성합니다."
+msgstr "먼저 작은 C라이브러리를 만들어 보겠습니다:"
 
 #: src/android/interoperability/with-c/bindgen.md:8
 msgid "_interoperability/bindgen/libbirthday.h_:"
@@ -12614,7 +12600,7 @@ msgid ""
 "Create a wrapper header file for the library (not strictly needed in this\n"
 "example):"
 msgstr ""
-"라이브러리에 대한 래퍼 헤더 파일을 만듭니다(이 예시에서는 필요하지 않습니다):"
+"라이브러리에 대한 헤더 파일을 만듭니다(이 예시에서는 반드시 필요한 것은 아닙니다.):"
 
 #: src/android/interoperability/with-c/bindgen.md:47
 msgid "_interoperability/bindgen/libbirthday_wrapper.h_:"
@@ -12700,7 +12686,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/bindgen.md:106
 msgid "Finally, we can run auto-generated tests to ensure the bindings work:"
-msgstr "마지막으로, 바인딩이 작동하는지 자동생성 테스트를 실행할 수 있습니다:"
+msgstr "마지막으로, 바인딩이 잘 작동하는지 확인하기 위해, 자동 생성된 테스트를 실행해 보겠습니다:"
 
 #: src/android/interoperability/with-c/bindgen.md:110
 msgid ""
@@ -12803,7 +12789,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/rust.md:48
 msgid "We can now call this from a C binary:"
-msgstr "이제 C바이너리에서 호출할 수 있습니다:"
+msgstr "이제 이 러스트 함수를 C바이너리에서 호출할 수 있습니다:"
 
 #: src/android/interoperability/with-c/rust.md:50
 msgid "_interoperability/rust/analyze/main.c_"
@@ -12856,9 +12842,9 @@ msgid ""
 "the function. You can also use `#[export_name = \"some_name\"]` to specify "
 "whatever name you want."
 msgstr ""
-"`#[no_mangle]`은 러스트의 일반적인 name mangling을 비활성화하므로 함수의 이름"
-"이 내보낸 심볼이 됩니다.  `#[export_name = \"some_name\"]`을 사용하여 원하는 "
-"이름을 지정할 수 있습니다."
+"`#[no_mangle]`은 러스트의 네임 맹글링(name mangling)을 비활성화하므로 외부로 노출되는 "
+"심볼의 이름은 함수의 이름 그대로가 됩니다.\n"
+"심볼 이름을 바꾸고 싶다면 `#[export_name = \"some_name\"]`을 사용합니다."
 
 #: src/android/interoperability/cpp.md:1
 msgid "# With C++"
@@ -12902,8 +12888,8 @@ msgid ""
 "crate](https://docs.rs/jni/) allows you to create a compatible library."
 msgstr ""
 "자바는 [Java Native Interface(JNI)](https://en.wikipedia.org/wiki/"
-"Java_Native_Interface)를 통해 공유 객체를 로드할 수 있습니다. [`jni` 크레이"
-"트](https://docs.rs/jni/)를 사용하여 호환 라이브러리를 만들 수 있습니다."
+"Java_Native_Interface)를 통해 공유 라이브러리를 로드할 수 있습니다. [`jni` 크레이"
+"트](https://docs.rs/jni/)를 사용하여 JNI 라이브러리를 만들 수 있습니다."
 
 #: src/android/interoperability/java.md:7
 msgid "First, we create a Rust function to export to Java:"
@@ -12962,7 +12948,7 @@ msgstr ""
 
 #: src/android/interoperability/java.md:43
 msgid "Finally, we can call this function from Java:"
-msgstr "마침내, 자바에서 이 함수를 호출 할 수 있습니다:"
+msgstr "자바에서 이 함수를 호출 할 수 있습니다:"
 
 #: src/android/interoperability/java.md:45
 msgid "_interoperability/java/HelloWorld.java_:"
@@ -13023,8 +13009,8 @@ msgid ""
 "Let us\n"
 "group up and do this together. Some suggestions:"
 msgstr ""
-"마지막 연습문제는 당신의 프로젝트 중 하나를 FFI로 러스트와 연계 해보는 것입니"
-"다. 몇가지 예시입니다: "
+"마지막 연습문제는 여러분이 작업하고 있는 프로젝트 중 하나를 FFI로 러스트와 연계 해보는 것입니"
+"다. 몇 가지 예시입니다: "
 
 #: src/exercises/day-4/afternoon.md:6
 msgid "* Call your AIDL service with a client written in Rust."
@@ -13087,7 +13073,7 @@ msgstr "## 공식 문서들"
 #: src/other-resources.md:8
 msgid "The Rust project hosts many resources. These cover Rust in general:"
 msgstr ""
-"러스트 프로젝트는 여러 리소스를 호스팅합니다. 일반적인 내용을 다루는 몇가지 "
+"러스트 프로젝트에는 참조할 만한 자료가 많습니다. 일반적인 내용을 다루는 몇가지 "
 "참고 문서들입니다:"
 
 #: src/other-resources.md:10
