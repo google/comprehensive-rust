@@ -31,3 +31,8 @@ fn main() {
     outer::public();
 }
 ```
+<details>
+    
+* Use the `pub` keyword to make mods public.   
+    
+</details>
