@@ -21,9 +21,6 @@ function:
 
 
 ```rust
-// TODO: remove this when you're done with your implementation.
-#![allow(unused_variables, dead_code)]
-
 {{#include luhn.rs:luhn}}
     unimplemented!()
 }
