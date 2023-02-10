@@ -10,8 +10,11 @@ methods:
 {{#include ../../../third_party/rust-on-exercism/health-statistics.rs}}
 
 fn main() {
-    let bob = User::new(String::from("Bob"), 32, 155.2);
-    println!("I'm {} and my age is {}", bob.name(), bob.age());
+    let alice = User{name: String::from("Alice"), age:32, weight:155.2};
+    println!("New user: \n {:#?} \n\nhas name {:?}, age {:?}, and weight {:?}", alice, alice.name, alice.age, alice.weight);
+    
+    //let bob = User::new(String::from("Bob"), 32, 155.2);
+    //println!("I'm {} and my age is {}", bob.name(), bob.age());
 }
 
 #[test]
