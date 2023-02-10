@@ -12,7 +12,7 @@ fn main() {
     page_counts.insert("Pride and Prejudice".to_string(), 303);
 
     if !page_counts.contains_key("Les Misérables") {
-        println!("We've know about {} books, but not Les Misérables.",
+        println!("We know about {} books, but not Les Misérables.",
                  page_counts.len());
     }
 
