@@ -17,19 +17,20 @@ Along with cargo and rustc, Rustup will install itself as a command line utility
 
 #### Debian
 
-On Debian/Ubuntu, you can install Cargo and the Rust source with
+On Debian/Ubuntu, you can install Cargo, the Rust source and the [Rust formatter][6] with
 
 ```shell
-$ sudo apt install cargo rust-src
+$ sudo apt install cargo rust-src rustfmt
 ```
 
 This will allow [rust-analyzer][1] to jump to the definitions. We suggest using
 [VS Code][2] to edit the code (but any LSP compatible editor works).
 
-Some folks also like to use the [Jetbrains][4] family of IDEs, which do their own analysis but have their own tradeoffs. If you prefer them, you can install the [Rust Plugin][5]. Please take note that as of January 2023 debugging only works on the CLion version of the Jetbrains IDEA suite.
+Some folks also like to use the [JetBrains][4] family of IDEs, which do their own analysis but have their own tradeoffs. If you prefer them, you can install the [Rust Plugin][5]. Please take note that as of January 2023 debugging only works on the CLion version of the JetBrains IDEA suite.
 
 [1]: https://rust-analyzer.github.io/
 [2]: https://code.visualstudio.com/
 [3]: https://rustup.rs/
 [4]: https://www.jetbrains.com/clion/
 [5]: https://www.jetbrains.com/rust/
+[6]: https://github.com/rust-lang/rustfmt

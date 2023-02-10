@@ -6,7 +6,7 @@ We've seen how a function can take arguments which implement a trait:
 use std::fmt::Display;
 
 fn print<T: Display>(x: T) {
-    println!("Your value: {}", x);
+    println!("Your value: {x}");
 }
 
 fn main() {
@@ -66,7 +66,7 @@ Memory layout after allocating `xs`:
                                   '- - - - - - - - - - - - - - - - - - - - - - - -'
 ```
 
-Similarly, you need a trait object if you want to return different values
+Similarly, you need a trait object if you want to return different types
 implementing a trait:
 
 ```rust,editable
