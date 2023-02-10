@@ -50,8 +50,6 @@ Copy the code below to <https://play.rust-lang.org/> and implement the
 functions:
 
 ```rust,should_panic
-// TODO: remove this when you're done with your implementation.
-#![allow(unused_variables, dead_code)]
 
 {{#include for-loops.rs:transpose}}
     unimplemented!()
