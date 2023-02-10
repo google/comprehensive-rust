@@ -19,5 +19,8 @@ fn panic(_panic: &PanicInfo) -> ! {
 * It can also be provided by another crate, such as `panic-halt`.
 * Depending on the target, you may need to compile with `panic = "abort"` to avoid an error about
   `eh_personality`.
+* Note that there is no `main` or any other entry point; it's up to you to define your own entry
+  point. This will typically involve a linker script and some assembly code to set things up ready
+  for Rust code to run.
 
 </details>
