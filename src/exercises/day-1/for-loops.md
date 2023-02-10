@@ -49,7 +49,7 @@ Hard-code both functions to operate on 3 × 3 matrices.
 Copy the code below to <https://play.rust-lang.org/> and implement the
 functions:
 
-```rust,should_panic
+```rust
 //fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {
 //    unimplemented!()
 //}
