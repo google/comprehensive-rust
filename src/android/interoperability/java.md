@@ -4,6 +4,8 @@ Java can load shared objects via [Java Native Interface
 (JNI)](https://en.wikipedia.org/wiki/Java_Native_Interface). The [`jni`
 crate](https://docs.rs/jni/) allows you to create a compatible library.
 
+The [`jni_fn` crate](https://docs.rs/jni_fn/) provides a macro for easier JNI function name generation. 
+
 First, we create a Rust function to export to Java:
 
 _interoperability/java/src/lib.rs_:

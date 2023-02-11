@@ -18,10 +18,11 @@
 use jni::objects::{JClass, JString};
 use jni::sys::jstring;
 use jni::JNIEnv;
+use jni_fn::jni_fn;
 
 /// HelloWorld::hello method implementation.
-#[no_mangle]
-pub extern "system" fn Java_HelloWorld_hello(
+#[jni_fn("HelloWorld")]
+pub fn hello(
     env: JNIEnv,
     _class: JClass,
     name: JString,
