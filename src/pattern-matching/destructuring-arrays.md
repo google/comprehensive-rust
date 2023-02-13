@@ -8,7 +8,7 @@ You can destructure arrays, tuples, and slices by matching on their elements:
 
 <details>
 
-Destructuring of slices of unknown length also works with patterns of fixed length.
+* Destructuring of slices of unknown length also works with patterns of fixed length.
 
 ```rust,editable
 fn main() {
@@ -26,5 +26,5 @@ fn inspect(slice: &[i32]) {
     }
 }
 ```
-
+* Show matching against the tail with patterns `[.., b]` and `[a@..,b]`
 </details>

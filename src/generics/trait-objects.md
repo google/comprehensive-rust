@@ -66,7 +66,7 @@ Memory layout after allocating `xs`:
                                   '- - - - - - - - - - - - - - - - - - - - - - - -'
 ```
 
-Similarly, you need a trait object if you want to return different values
+Similarly, you need a trait object if you want to return different types
 implementing a trait:
 
 ```rust,editable
