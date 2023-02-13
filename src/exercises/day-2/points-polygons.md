@@ -43,7 +43,7 @@ fn main() {}
 <details>
 
 Since the method signatures are missing from the problem statements, the key part
-of the exercise is to specify those correctly. Do not modify any of the tests.
+of the exercise is to specify those correctly. You don't have to modify the tests.
 
 Other interesting parts of the exercise:
     
