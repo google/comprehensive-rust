@@ -35,7 +35,7 @@ fn main() {
 
 <details>
 
-* The HashMap is not defined in the prelude and needs to be brought into scope.
+* `HashMap` is not defined in the prelude and needs to be brought into scope.
 * Try the following lines of code. The first line will see if a book is in the hashmap and if not return an alternative value. The second line will insert the alternative value in the hashmap if the book is not found.
 
   ```rust,ignore
