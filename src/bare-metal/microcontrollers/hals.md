@@ -11,5 +11,7 @@ from [`embedded-hal`](https://crates.io/crates/embedded-hal).
 <details>
 
  * `split(...)` enables the GPIO port and returns a struct of its pins.
+ * HAL crates exist for many Cortex-M and RISC-V devices, including various STM32, GD32, nRF, NXP,
+   MSP430, AVR and PIC microcontrollers.
 
 </details>
