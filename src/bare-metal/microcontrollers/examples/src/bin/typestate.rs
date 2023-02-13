@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// ANCHOR: Example
 #![no_main]
 #![no_std]
 
@@ -28,6 +27,7 @@ use gd32f1x0_hal::{
     prelude::*,
 };
 
+// ANCHOR: Example
 #[entry]
 fn main() -> ! {
     let p = Peripherals::take().unwrap();
