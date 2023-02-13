@@ -244,6 +244,7 @@
   - [HAL crates](bare-metal/microcontrollers/hals.md)
   - [The type state pattern](bare-metal/microcontrollers/type-state.md)
   - [embedded-hal](bare-metal/microcontrollers/embedded-hal.md)
+  - [Other projects](bare-metal/microcontrollers/other-projects.md)
 
 # Day 5A: Afternoon
 
