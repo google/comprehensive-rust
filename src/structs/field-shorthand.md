@@ -33,7 +33,9 @@ impl Person {
     }
 }
 ```
+
 * Methods are defined in the `impl` block.
 * Use struct update syntax to define a new structure using `peter`. Note that the variable `peter` will no longer be accessible afterwards.
 * Note, you can use `{:#?}` while printing structs to change the readability of the output.
+
 </details>
