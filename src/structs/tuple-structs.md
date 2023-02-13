@@ -34,8 +34,10 @@ fn main() {
 
 <details>
 
-Newtypes are a great way to encode additional information about the value in a primitive type, for example:
+* Newtypes are a great way to encode additional information about the value in a primitive type, for example:
   * The number is measured in some units: `Newtons` in the example above.
   * The value passed some validation when it was created, so you no longer have to validate it again at every use: 'PhoneNumber(String)` or `OddNumber(u32)`.
-    
+* Demonstrate how to add a `f64` value to a `Newtons` type by accessing the single field in the newtype.
+  *  Rust generally doesn’t like inexplicit things, like automatic unwrapping or for instance using booleans as integers.
+  *  Operator overloading is discussed on Day 3 (generics). 
 </details>

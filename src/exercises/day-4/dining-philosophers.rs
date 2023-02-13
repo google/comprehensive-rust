@@ -90,6 +90,6 @@ fn main() {
 
     drop(tx);
     for thought in rx {
-        println!("{}", thought);
+        println!("{thought}");
     }
 }

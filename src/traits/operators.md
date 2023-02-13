@@ -1,6 +1,6 @@
 # `Add`, `Mul`, ...
 
-Operator overloading is implemented via traits in `std::ops`:
+Operator overloading is implemented via traits in [`std::ops`][1]:
 
 ```rust,editable
 #[derive(Debug, Copy, Clone)]
@@ -36,3 +36,5 @@ Discussion points:
         trait.
 
 </details>
+
+[1]: https://doc.rust-lang.org/std/ops/index.html
