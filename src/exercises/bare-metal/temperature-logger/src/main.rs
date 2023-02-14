@@ -18,11 +18,13 @@
 extern crate panic_halt as _;
 
 use cortex_m_rt::entry;
-use microbit::Board;
+use microbit::{hal::twim::Twim, pac::twim0::frequency::FREQUENCY_A, Board};
 
 #[entry]
 fn main() -> ! {
     let board = Board::take().unwrap();
+
+    let i2c = Twim::new(board.TWIM0, board.i2c_internal.into(), FREQUENCY_A::K100);
 
     loop {}
 }
