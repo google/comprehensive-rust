@@ -55,6 +55,10 @@ A small selection of other guides and tutorial for Rust:
   Rust](https://docs.microsoft.com/en-us/learn/paths/rust-first-steps/): two
   Rust guides aimed at new developers. The first is a set of 35 videos and the
   second is a set of 11 modules which covers Rust syntax and basic constructs.
+* [Learn Rust With Entirely Too Many Linked
+  Lists](https://rust-unofficial.github.io/too-many-lists/): in-depth
+  exploration of Rust's memory management rules, through implementing a few
+  different types of list structures.
 
 Please see the [Little Book of Rust Books](https://lborb.github.io/book/) for
 even more Rust books.
