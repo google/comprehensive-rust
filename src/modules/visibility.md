@@ -36,7 +36,7 @@ fn main() {
 
 <details>
 
-* Use the `pub` keyword to make mods public.
+* Use the `pub` keyword to make modules public.
 
 Additionally, there are advanced `pub(...)` specifiers to restrict the scope of public visibility.
 
