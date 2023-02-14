@@ -28,7 +28,7 @@ The `crate` root is in:
 
   The following is valid:
 
-  ```
+  ```ignore
   src/
   ├── main.rs
   ├── top_module.rs
