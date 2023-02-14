@@ -290,7 +290,7 @@ msgstr "배열 분해(역구조화)"
 
 #: src/SUMMARY.md:87
 msgid "Match Guards"
-msgstr "검사식(Match Guards)"
+msgstr "매치 가드"
 
 #: src/SUMMARY.md:89
 msgid "Health Statistics"
@@ -386,7 +386,7 @@ msgstr "모듈"
 
 #: src/SUMMARY.md:114
 msgid "Visibility"
-msgstr "접근자(Visibility)"
+msgstr "가시성"
 
 #: src/SUMMARY.md:115
 msgid "Paths"
@@ -5727,7 +5727,7 @@ msgstr ""
 " 종류가 기록된, 숨겨진 필드(식별자)의 값을 검사합니다.\n"
 "* `WebEvent::Click { ... }`은 최상위 레벨 구조체 `struct Click {...}`를 따로 정의하고"
 " `WebEvent::Click(Click)`처럼 튜플 형태로 정의한 것과 정확히 같진 않습니다. 예를 들어"
-" `WelbEvent::Click { ... }` 로 정의한 경우, 구조체 형태와 유사하지만 트레이트를 구현 할 수 없습니다."
+" `WebEvent::Click { ... }` 로 정의한 경우, 구조체 형태와 유사하지만 트레이트를 구현 할 수 없습니다."
 
 #: src/enums/sizes.md:1
 msgid "# Enum Sizes"
@@ -5881,18 +5881,17 @@ msgstr ""
 "* 메서드를 함수와 비교하여 소개하는 것도 도움이 될 수 있습니다.\n"
 "  * 메서드는 구조체나 열거형과 같은 타입의 인스턴스에서 호출 되며,   첫번째 "
 "매개변수(파라메터)는 인스턴스를 `self`로 표기합니다.\n"
-"  * 개발자는 메서드 receiver 문법을 사용하고 더 체계적으로 만들기 위해  메서"
-"드를 사용할 수 있습니다. 메서드를 사용하면 구현된 코드를 예측 가능한  곳에 "
-"둘 수 있습니다.\n"
-"*  메서드 receiver인 `self`키워드 사용을 언급해 주시기 바랍니다.\n"
-"  * `self`가 `self:&Self`의 줄인 버전임을 알려주시고, 구조체의 이름이 어떻"
-"게  사용 될 수 있는지 보여주시기 바랍니다.\n"
-"  * Self는 `impl`블록이 속한 타입의 별칭이며 블록 어디에서도 사용될 수 있음"
-"을  설명합니다.\n"
-"  * self는 다른 구조체와 마찬가지로 점 표기(self.xx)를 이용하여 개별 필드에  "
-"접근 할 수 있습니다./n  * 코드를 수정하고 say_hello 함수를 두 번 실행함으로"
-"써 `&self`와 `self`가  어떻게 다른지 보여주는 좋은 시간이 될 수 있습니다.* 다"
-"음 슬라이드에서 receiver의 구분을 설명합니다.   \n"
+"  * 메서드를 이용하면 receiver 문법을 사용할 수 있고 코드를 좀더 체계적으로 정리할 "
+"수 있습니다. 메서드들이 예측 가능한 위치에 모여 있으니 찾기 쉽습니다.\n"
+"* 메서드 receiver인 `self` 키워드 사용을 언급해 주시기 바랍니다.\n"
+"  * 예제의 경우 `self: &Self`의 줄인 버전임을 알려주고, 구조체의 이름을 직접 사용하면"
+" 어떻게 되는지 보여주는 것도 좋습니다.\n"
+"  * `impl` 블록 내부에서는 `Self`가 해당 타입의 이름 대용으로 사용될 수 있음을 알려주세요.\n"
+"  * 구조체의 필드를 접근할 때 점 표기를 사용하듯이 `self`에 점 표기를 사용하여 개별"
+" 필드들을 접근할 수 있습니다.\n"
+"  * `say_hello` 함수가 두 번 호출되도록 코드를 수정하여 `&self`와 `self`가 어떻게 다른지"
+" 보여주는 것도 좋습니다.\n"
+"* 다음 슬라이드에서 receiver의 구분을 설명합니다.   \n"
 "</details>"
 
 #: src/methods/receiver.md:1
@@ -5905,8 +5904,8 @@ msgid ""
 "There\n"
 "are other possible receivers for a method:"
 msgstr ""
-"`&self`는 메서드가 객체를 불변하게 빌려옴을 나타냅니다. 그 외에 메서드가 받아"
-"올 수 있는 인자는 다음과 같습니다:"
+"`&self`는 메서드가 객체를 불변하게 빌려옴을 나타냅니다. "
+"메서드의 리시버는 다음의 형태들이 가능합니다."
 
 #: src/methods/receiver.md:6
 msgid ""
@@ -5927,18 +5926,17 @@ msgid ""
 "to\n"
 "  create constructors which are called `new` by convention."
 msgstr ""
-"* `&self`: 호출자로부터 불변참조객체를 빌려옴을 나타냅니다. 객체는 나중에 다"
-"시 사용 될 수 있습니다.\n"
-"* `&mut self`: 호출자로부터 유일한 가변참조객체를 빌려옴을 나타냅니다.객체는 "
-"나중에 다시 사용 될 수 있습니다.\n"
-"* `self`: 호출자의 객체가 이동되어 메서드가 객체의 소유권을 가져옵니다. 따라"
-"서 명시적으로 소유권을 반환하지 않으면 (메서드 종료 후)객체는 삭제(해제)됩니"
-"다.\n"
-"* `mut self`: 위와 동일하지만 메서드가 소유권을 가지고 있는 동안에도 객체를수"
-"정할 수 있습니다. 완전한 소유권이 (자동으로) 변동성을 의미하는 것은 아닙니"
-"다.\n"
-"* 인자 없음: 구조체의 정적 메서드가 됩니다. 관습적으로 `new`라고 지정되는 생"
-"성자를 만들때 사용합니다. "
+"* `&self`: 호출자로부터 공유가능한 불변 참조 방식으로 객체를 빌려옴을 나타냅니다."
+" 객체는 메소드 호출 뒤에도 사용될 수 있습니다.\n"
+"* `&mut self`: 호출자로부터 유일한 가변 참조 방식으로 객체를 빌려옴을 나타냅니다."
+" 객체는 메소드 호출 뒤에도 사용될 수 있습니다.\n"
+"* `self`: 호출자로부터 객체의 소유권을 가져오고 객체는 호출자로부터 메소드로 이동됩니다."
+" 메소드가 객체를 소유하게 되며 따라서 명시적으로 소유권을 다른 곳으로 전달하지 않는다면"
+" 메서드 종료와 함께 객체는 drop(해제)됩니다.\n"
+"* `mut self`: 위와 동일하지만 메서드가 객체의 소유권을 가지면서 동시에 객체를 수정할 수도 있습니다."
+" 소유권을 가지는 것이 수정할 수 있음을 의미하는 것은 아닙니다.\n"
+"* 리시버 없음: 구조체의 정적 메서드가 됩니다. 주로 생성자를 만들때 사용하게 되며, 생성자는 흔히"
+" `new`라고 이름붙입니다."
 
 #: src/methods/receiver.md:19
 msgid ""
@@ -5947,9 +5945,9 @@ msgid ""
 "and-traits.html)\n"
 "allowed to be receiver types, such as `Box<Self>`."
 msgstr ""
-"`self`에 대한 variants 외에도 `Box<Self>`와 같이 리시버 타입으로 허용되는 "
-"[special wrapper types](https://doc.rust-lang.org/reference/special-types-"
-"and-traits.html)도 있습니다."
+"`self`를 사용하는 이같은 변형들 외에도 `Box<Self>`와 같이 리시버 타입으로 허용되는 "
+"[특별한 래퍼 타입](https://doc.rust-lang.org/reference/special-types-"
+"and-traits.html)이 있습니다."
 
 #: src/methods/receiver.md:23
 msgid ""
@@ -5966,10 +5964,10 @@ msgid ""
 msgstr ""
 "<details>\n"
 "  \n"
-" \"공유되고 불변한\" 것과 \"유일하고 가변한\" 특성을 강조하시기 바랍니다. 이"
-"러한 특성은 러스트의 빌림 검사기(borrow checker) 규착으로 인해 발생하며 "
-"`self`도 예외는 아닙니다. 여러 위치에서 구조를 참조하고 수정 (`&mut self`)하"
-"는 것은 불가합니다.  \n"
+" \"공유가능한 불변\"과 \"유일한 가변\" 부분은 강조할 만합니다. 이"
+"러한 제약은 러스트의 빌림 검사기(borrow checker) 규칙으로 늘 붙어다닙니다. "
+"`self`도 예외는 아닙니다. 여러 위치에서 구조체를 참조하면서 객체를 수정하는"
+"(`&mut self`를 리시버로 하는) 메서드를 호출하는 것은 불가능합니다.\n"
 "</details>"
 
 #: src/methods/example.md:1 src/concurrency/shared_state/example.md:1
@@ -5994,8 +5992,7 @@ msgid ""
 "    }"
 msgstr ""
 "impl Race {\n"
-"    fn new(name: &str) -> Race {  // 정적 메서드(static method)는 self가  없"
-"습니다.\n"
+"    fn new(name: &str) -> Race {  // 리시버 없음. 정적 메서드\n"
 "        Race { name: String::from(name), laps: Vec::new() }\n"
 "    }"
 
@@ -6006,8 +6003,8 @@ msgid ""
 "        self.laps.push(lap);\n"
 "    }"
 msgstr ""
-"    fn add_lap(&mut self, lap: i32) {  // self에 대한 배타적인 빌림 읽기-쓰"
-"기\n"
+"    fn add_lap(&mut self, lap: i32) {  // self에 대한 배타적인 빌림. 읽고 쓰"
+"기 가능\n"
 "        self.laps.push(lap);\n"
 "    }"
 
@@ -6020,7 +6017,7 @@ msgid ""
 "        }\n"
 "    }"
 msgstr ""
-"    fn print_laps(&self) {  // self에 대한 읽기 전용 빌림 & 공유 \n"
+"    fn print_laps(&self) {  // self에 대한 읽기 전용 빌림. 공유 가능\n"
 "        println!(\"Recorded {} laps for {}:\", self.laps.len(), self.name);\n"
 "        for (idx, lap) in self.laps.iter().enumerate() {\n"
 "            println!(\"Lap {idx}: {lap} sec\");\n"
@@ -6078,16 +6075,16 @@ msgstr ""
 "<details>\n"
 "    \n"
 "키 포인트:\n"
-"* 4가지의 메서드 receiver에 대해 설명합니다.\n"
-"  * 변수 값을 사용하여 함수가 수행할 수 있는 작업을 변경하는 것과  `main`에"
-"서 다시 사용하는지 여부를 지정할 수 있습니다.\n"
+"* 4가지 유형의 메서드 receiver에 대해 설명합니다.\n"
+"  * receiver 유형에 따라 함수가 할 수 있는 일이 달라지고, 또 메소드를 호출한 뒤"
+" `main`에서 해당 객체를 사용할 수 있는지 여부도 달라진다는 점을 강조하세요.\n"
 "  * `finish`를 두번 호출하여 오류가 발생하는 것을 보일 수 있습니다.\n"
-"  * 비록 메서드 receiver는 다르지만 main 함수에서 비 정적 함수를 부르는 방법"
+"* 비록 메서드 receiver는 다르지만 main 함수에서 비 정적 함수를 부르는 방법"
 "은 같습니다.  러스트는 메서드를 호출할 때 자동으로 참조/역참조(따라가기)를 수"
-"행합니다.  러스트는 매서드 시그니처의 객체를 매칭할 때 `&`, `*`, `muts`를 자"
-"동으로 일치시킵니다.\n"
-"  * `print_laps`함수가 반복되는 벡터를 사용합을 지적할 수 있습니다.  오후 강"
-"의에서 벡터에 대해 더 자세히 설명할 것입니다."
+"행합니다.  러스트는 객체와 매서드 시그니처가 서로 매치되도록 객체에 `&`, `*`, `muts`를 자"
+"동으로 붙여줍니다.\n"
+"* `print_laps`함수에서 벡터를 어떤 식으로 사용하고 있는지 언급하는 것도 좋습니다."
+" 벡터는 오후 강의에서 더 자세히 설명할 것입니다."
 
 #: src/pattern-matching.md:1
 msgid "# Pattern Matching"
@@ -6099,12 +6096,12 @@ msgid ""
 "The\n"
 "comparisons are done from top to bottom and the first match wins."
 msgstr ""
-"`match`키워드는 C/C++의 `switch`와 유사하게 하나 이상의 패턴과 일치 시킬 수 "
-"있습니다."
+"`match`키워드는 값을 여러 형태의 _패턴_과 매치시킬 수 있습니다. "
+"맨 위 패턴부터 하나씩 매치되는지 검사하며, 처음으로 매치되는 패턴이 선택됩니다."
 
 #: src/pattern-matching.md:6
 msgid "The patterns can be simple values, similarly to `switch` in C and C++:"
-msgstr "비교동작은 위에서 아래로 진행되며 처음 일치하는 패턴이 실행됩니다. "
+msgstr "C/C++의 `switch`와 비슷하게 값을 패턴으로 사용할 수도 있습니다."
 
 #: src/pattern-matching.md:8
 msgid ""
@@ -6127,7 +6124,7 @@ msgstr ""
 
 #: src/pattern-matching.md:21
 msgid "The `_` pattern is a wildcard pattern which matches any value."
-msgstr "`_`패턴은 어떤 패턴과도 매칭되는 와일드 카드입니다.(default)"
+msgstr "`_`패턴은 어떤 값과도 매칭되는 와일드카드입니다."
 
 #: src/pattern-matching.md:23
 msgid ""
@@ -6151,15 +6148,16 @@ msgstr ""
 "<details>\n"
 "    \n"
 "키 포인트:\n"
-"* 패턴에서 사용되는 특수 문자들입니다:  * `|`: 또는(or) 기호입니다.\n"
-"  * `..`: 필요한 만큼 확장합니다.(나머지)\n"
-"  * `1..=5`: range를 나타냅니다.(1~5)\n"
-"  * `_`: 는 switch 문의 `default`처럼 와일드 카드 입니다.\n"
-"* 와일드카드 문자를 변수로 바꾸거나 `q`의 따옴표를 제거하는 식의 수정으로바인"
-"딩이 어떻게 작동하는지 보여주는 것도 유용할 수 있습니다.\n"
-"* 참조에서도 매칭을 시연할 수 있습니다.\n"
-"* 에러메시지에 종종 이러한 용어가 나타날 수 있어서 패턴의 개념을 정확히 알 필"
-"요가 있습니다.\n"
+"* 패턴에서 사용되는 특수 문자들을 알려주세요.\n"
+"  * `|`: or 기호입니다.\n"
+"  * `..`: 필요한 만큼 확장합니다.\n"
+"  * `1..=5`: 끝 값(여기서는 5)을 포함하는 범위를 나타냅니다.\n"
+"  * `_`: 와일드카드입니다.\n"
+"* 와일드카드 문자를 변수로 바꾸거나 `q`의 따옴표를 제거하는 식으로 수정하면서 "
+"바인딩이 어떻게 작동하는지 보여주는 것도 유용할 수 있습니다.\n"
+"* 참조를 매칭하는 것도 시연할 수 있습니다.\n"
+"* 에러 메시지에 \"반박 불가능 패턴(irrefutable pattern)\"이란 용어가 등장하기도 합니다. 지금 그 의미를 소개"
+"하는 것도 좋을 것 같습니다.\n"
 "   \n"
 "</details>"
 
@@ -6174,8 +6172,8 @@ msgid ""
 "you inspect the structure of your types. Let us start with a simple `enum` "
 "type:"
 msgstr ""
-"구조체의 바인딩된 값을 패턴으로 사용할 수 있습니다. 간단한 `enum` 타입의 예시"
-"입니다:"
+"구조체나 열거형 값의 일부를 패턴 매치를 통해 변수에 바인딩할 수 있습니다. "
+"간단한 `enum` 타입을 먼저 살펴보겠습니다."
 
 #: src/pattern-matching/destructuring-enums.md:6
 msgid ""
@@ -6217,10 +6215,10 @@ msgid ""
 "arm,\n"
 "`msg` is bound to the error message."
 msgstr ""
-"위의 `match`구문을 `divide_in_two`함수에서 반환되는 `Result` 값을 arm(패턴  "
-"단위)으로 분해합니다. \n"
-"* 첫번째 arm의 `half`는 `Ok` variant에 바인딩된 값입니다.`(n/2)`\n"
-"* 두번째 amr의 `msg`는 `Err` variant에 바인딩 된 에러 메시지 입니다."
+"`match`구문에서 `divide_in_two`함수에서 반환되는 `Result` 값을 두 개의 팔(혹은 가지)로 "
+"_분해(destructure)_ 하였습니다.\n"
+"첫번째 팔에서 `half`는 `Ok` variant에 담긴 값으로 바인딩됩니다.\n"
+"두번째 팔에서 `msg`는 오류 메시지 문자열에 바인딩됩니다."
 
 #: src/pattern-matching/destructuring-enums.md:35
 msgid ""
@@ -6229,13 +6227,12 @@ msgid ""
 "with a `match`.\n"
 "* You can try adding a third variant to the enum definition and displaying "
 "the errors when running the code. Point out the places where your code is "
-"now inexhaustive and how the compiler trys to give you hints."
+"now inexhaustive and how the compiler tries to give you hints."
 msgstr ""
 "키 포인트:\n"
-"* `if`/`else` 표현식은 이후 `match`에 사용할 수 있는 열거형을 반환합니다.\n"
-"* 열거형에 세번째 variant를 추가하고 코드를 실행하여 오류를 표시 할 수 있습니"
-"다.컴파일러가 오류를 친절히 설명하기 위해 노력하고 있음을 이야기 해 주시기 바"
-"랍니다."
+"* `if`/`else` 표현식은 열거형을 반환하고, 이 값은 나중에 `match`로 분해됩니다.\n"
+"* 열거형에 세번째 variant를 추가하고 코드를 실행하여 오류를 표시해보세요."
+" 코드 어느 부분에 누락이 있는지, 그리고 컴파일러가 어떤 식으로 힌트를 주는지 같이 살펴보세요."
 
 #: src/pattern-matching/destructuring-structs.md:1
 msgid "# Destructuring Structs"
@@ -6243,7 +6240,7 @@ msgstr "# 구조체 분해(역구조화)"
 
 #: src/pattern-matching/destructuring-structs.md:3
 msgid "You can also destructure `structs`:"
-msgstr "`구조체`역시 분해할 수 있습니다:"
+msgstr "`struct` 구조체 역시 분해할 수 있습니다:"
 
 #: src/pattern-matching/destructuring-structs.md:5
 msgid ""
@@ -6276,7 +6273,7 @@ msgstr "# 배열 분해(역구조화)"
 #: src/pattern-matching/destructuring-arrays.md:3
 msgid ""
 "You can destructure arrays, tuples, and slices by matching on their elements:"
-msgstr "배역 역시 분해가 가능하고, 슬라이스를 적용할 수 있습니다."
+msgstr "배열이나 튜플, 슬라이스도 그 요소들에 대해 패턴 매칭으로 분해할 수 있습니다."
 
 #: src/pattern-matching/destructuring-arrays.md:5
 msgid ""
@@ -6296,7 +6293,7 @@ msgstr ""
 
 #: src/pattern-matching/match-guards.md:1
 msgid "# Match Guards"
-msgstr "# 검사식(Match Guards)"
+msgstr "# 매치 가드"
 
 #: src/pattern-matching/match-guards.md:3
 msgid ""
@@ -6304,8 +6301,8 @@ msgid ""
 "Boolean\n"
 "expression which will be executed if the pattern matches:"
 msgstr ""
-"match를 사용할때 각 패턴에 대해서 불리언으로 반환되는 검사식(guard)를 추가할 "
-"수 있습니다. "
+"패턴 뒤에 가드(guard, 조건식)를 덧붙일 수 있습니다. 가드는 패턴이 매치되면 추가로 따져보는"
+" 불리언 표현식입니다."
 
 #: src/pattern-matching/match-guards.md:6
 msgid ""
@@ -6338,13 +6335,13 @@ msgid ""
 "pattern with an `|`.\n"
 "</details>"
 msgstr ""
-"키 포인트: \n"
-"* 검사식은 별도의 문법으로서도 중요하고 필요합니다."
-"* 검사식은 (보기와 달리) 단지 match arm 내부의 분리된 'if' 표현식이 아닙니다."
-" match arm 이 선택된 후 `=>`이후의 `if` 표현식이 발생합니다. 따라서 if 조건이"
-" 실패하면 (match는 성공했으므로) 다른 arm은 고려되지 않습니다.\n"
-"* 패턴에 정의된 변수를 if 표현식에 사용할 수 있습니다.\n"
-"* 검사식에 정의된 조건은 `|`(or) 가 있는 패턴의 모든 표현식에 적용됩니다.\n"
+"키 포인트:\n"
+"* 매치 가드가 별도의 문법 요소라는 점이 중요합니다.\n"
+"* 매치의 각 팔(혹은 가지) 안에 따로 `if`를 사용한 것과 다릅니다."
+" 매치 가지의 `=>` 뒤에 사용된 `if` 표현식은 해당 가지가 선택된 다음에 실행됩니다."
+" 따라서 여기서 `if` 조건이 실패하더라도 원래 `match`의 다른 가지는 고려되지 않습니다.\n"
+"* 패턴에 정의된 변수를 가드의 표현식에서 사용할 수 있습니다.\n"
+"* 가드에 정의된 조건은 `|` 를 포함하는 패턴의 모든 표현식에 적용됩니다.\n"
 "</details>"
 
 #: src/exercises/day-2/morning.md:1
@@ -6361,16 +6358,12 @@ msgstr "* 건강 상태 통계를 추적하는 프로그램의 간단한 구조�
 
 #: src/exercises/day-2/morning.md:7
 msgid "* Multiple structs and enums for a drawing library."
-msgstr "* 드로잉 라이브러리를 위한 다중 구조체 및 열거헝."
+msgstr "* 드로잉 라이브러리를 위한 구조체 및 열거헝."
 
 #: src/exercises/day-2/health-statistics.md:1
 msgid "# Health Statistics"
 msgstr ""
-"# 건강상태 모니터링 시스템\n"
-"당신은 건강 상태를 모니터링하는 시스템을 구현하는 일을 하고 있습니다.\n"
-" 그 일환으로 당신은 사용자의 건강 상태 통계를 추적해야합니다.  \n"
-"당신의 목표는 User구조체의 impl블록의 빈 함수를 구현하는 것입니다.  \n"
-"* _gettext 이슈로 아래 문구 교체가 안되 병기됨_"
+"# 건강상태 모니터링 시스템"
 
 #: src/exercises/day-2/health-statistics.md:3
 msgid ""
@@ -6387,7 +6380,7 @@ msgid ""
 "`User`\n"
 "struct definition. Your goal is to implement the stubbed out methods on the\n"
 "`User` `struct` defined in the `impl` block."
-msgstr "당신의 목표는 User구조체의 impl블록의 빈 함수를 구현하는 것입니다."
+msgstr "당신의 목표는 `User` 구조체의 `impl` 블록의 빈 함수를 구현하는 것입니다."
 
 #: src/exercises/day-2/health-statistics.md:10
 msgid ""
@@ -6482,7 +6475,7 @@ msgstr ""
 
 #: src/exercises/day-2/points-polygons.md:1
 msgid "# Polygon Struct"
-msgstr "# 다각형 구조"
+msgstr "# Polygon 구조체"
 
 #: src/exercises/day-2/points-polygons.md:3
 msgid ""
@@ -6492,7 +6485,7 @@ msgid ""
 "the\n"
 "tests pass:"
 msgstr ""
-"우리는 몇개의 꼭지점을 가진 다각형을 표현하는 구조체를 만들 것입니다.  \n"
+"우리는 몇개의 꼭지점을 가진 다각형을 표현하는 `Polygon` 구조체를 만들 것입니다.  \n"
 "아래 코드를 <https://play.rust-lang.org/>에 복사해서 테스트가 통과하도록 빠"
 "진 메서드를 구현하시면 됩니다: "
 
@@ -6694,9 +6687,9 @@ msgid ""
 msgstr ""
 "연습문제의 다른 흥미로운 부분:\n"
 "    \n"
-"* 테스트 메서드가 때때로 인수를 빌리지 않는 것처럼 일부 구조체에 `Copy`"
-"트레이트를 사용합니다.\n"
-"* \"+\"를 사용할 수 있도록 두 객체에 대해 `Add` 트레이트를 구현해야 합니다."
+"* 테스트 코드를 보면 어떤 메서드들은 인자를 borrow하는 대신 `Copy` 트레이트를 사용하기도 합니다. "
+"구조체에 `Copy` 트레이트를 지정하면 됩니다.\n"
+"* \"+\"를 사용하여 두 객체를 서로 더하는 경우에는 `Add` 트레이트를 구현해야 합니다."
 
 #: src/control-flow.md:1
 msgid "# Control Flow"
@@ -6711,9 +6704,8 @@ msgid ""
 "similarly\n"
 "in Rust."
 msgstr ""
-"앞에서 살펴본 바와 같이 러스트의 표현식으로써 `if`는 두 블록 중 하나를 조건"
-"에 따라 평가(반환)하며, 블록은 `if` 표현식의 값이 되는 값을 가질 수 있습니"
-"다. 다른 흐름제어 표현식도 러스트에서 유사하게 작동합니다. "
+"앞에서 살펴본 바와 같이 러스트에서 `if`는 표현식입니다. 조건에 따라 두 블록 중 하나를 "
+"평가하며, 그 결과값이 `if` 표현식의 값이 됩니다. 다른 흐름제어 표현식도 유사하게 작동합니다. "
 
 #: src/control-flow/blocks.md:1
 msgid "# Blocks"
@@ -6724,7 +6716,7 @@ msgid ""
 "A block in Rust has a value and a type: the value is the last expression of "
 "the\n"
 "block:"
-msgstr "러스트에서 블록은 값과 타입을 갖습니다: 블록의 표현식이 값이 됩니다."
+msgstr "러스트에서 블록은 값과 타입을 갖습니다. 블록의 마지막 표현식이 블록의 값이 됩니다."
 
 #: src/control-flow/blocks.md:6
 msgid ""
@@ -6753,8 +6745,7 @@ msgid ""
 "The same rule is used for functions: the value of the function body is the\n"
 "return value:"
 msgstr ""
-"함수에도 동일한 규칙이 적용됩니다: 함수 바디의 (마지막) 값이 반환 값이 됩니"
-"다."
+"함수에도 동일한 규칙이 적용됩니다. 함수 바디를 이루는 블록의 값이 반환값이 됩니다."
 
 #: src/control-flow/blocks.md:28
 msgid ""
@@ -6777,8 +6768,7 @@ msgid ""
 "However if the last expression ends with `;`, then the resulting value and "
 "type is `()`."
 msgstr ""
-"(위 코드에서 main함수의 경우) 마지막 표현식이 `;`로 끝나기 때문에 반환되는 값"
-"과 타입은 `()`입니다."
+"위의 `main` 함수는 마지막 표현식이 `;`로 끝나기 때문에 반환되는 값과 타입이 `()`입니다."
 
 #: src/control-flow/if-expressions.md:1
 msgid "# `if` expressions"
@@ -6786,7 +6776,7 @@ msgstr "# `if` 표현식"
 
 #: src/control-flow/if-expressions.md:3
 msgid "You use `if` very similarly to how you would in other languages:"
-msgstr "`if`문은 다른 언어와 동일하게 사용할수 있습니다(조건의 ()는 없습니다):"
+msgstr "`if`는 다른 언어와 매우 유사합니다."
 
 #: src/control-flow/if-expressions.md:5
 msgid ""
@@ -6806,8 +6796,8 @@ msgstr ""
 msgid ""
 "In addition, you can use it as an expression. This does the same as above:"
 msgstr ""
-"게다가 `if`는 표현식(할당가능)으로 사용 될수도 있습니다.\n"
-"아래 코드는 위와 동일한 결과 입니다."
+"게다가 `if`는 표현식으로 사용할 수도 있습니다.\n"
+"아래 코드는 위와 동일합니다."
 
 #: src/control-flow/if-expressions.md:18
 msgid ""
@@ -6831,8 +6821,8 @@ msgid ""
 "    \n"
 "</details>"
 msgstr ""
-"`if`는 표현식이고 특정 유형을 가져야 하므로 분기 블록은 모두 같은 타입을 가져"
-"야 합니다.두번째 예시의 `x / 2` 뒤에 `;`를 추가하여 어떻게 되는지 확인해 보시"
+"`if`는 표현식이고 타입을 가져야 하므로 분기 블록은 모두 같은 타입을 가져"
+"야 합니다. 두번째 예시의 `x / 2` 뒤에 `;`를 추가하여 어떻게 되는지 확인해 보시"
 "기 바랍니다.    \n"
 "</details>"
 
@@ -6842,7 +6832,7 @@ msgstr "# `if let` 표현식"
 
 #: src/control-flow/if-let-expressions.md:3
 msgid "If you want to match a value against a pattern, you can use `if let`:"
-msgstr "`if let`문을 사용하면 값을 패턴매칭에 사용할 수 있습니다:"
+msgstr "어떤 값이 패턴에 매치되는지 검사하려면 `if let` 표현식을 사용하면 됩니다."
 
 #: src/control-flow/if-let-expressions.md:5
 msgid ""
@@ -6865,7 +6855,7 @@ msgid ""
 "See [pattern matching](../pattern-matching.md) for more details on patterns "
 "in\n"
 "Rust."
-msgstr "러스트의 [패턴매칭](../pattern-matching.md)을 참조하세요"
+msgstr "패턴에 관한 설명은 [패턴 매칭](../pattern-matching.md)을 참조하세요."
 
 #: src/control-flow/if-let-expressions.md:21
 msgid ""
@@ -6882,7 +6872,7 @@ msgstr ""
 "  * 비슷한 사용례로 새롭게 \"stable\" 릴리즈 된 [`let else`](https://github."
 "com/rust-lang/rust/pull/93628) 기능을 시연하는 것도 고려해 보시기 바랍니다.\n"
 "* 일반적으로 `Option`으로 작업할 때 `Some` 값을 처리하는 식으로 사용됩니다.\n"
-"* `match`와 다르게 `if let` 은 패턴매칭을 위한 검사식(guard)를 지원하지 않습"
+"* `match`와 다르게 `if let` 패턴 매칭에서는 가드를 지원하지 않습"
 "니다."
 
 #: src/control-flow/while-expressions.md:1
@@ -6891,7 +6881,7 @@ msgstr "# `while` 표현식"
 
 #: src/control-flow/while-expressions.md:3
 msgid "The `while` keyword works very similar to other languages:"
-msgstr "`while` 역시 다른 언어와 동일한 사용법을 갖습니다:"
+msgstr "`while` 역시 다른 언어과 매우 비슷합니다."
 
 #: src/control-flow/while-expressions.md:5
 msgid ""
@@ -6946,10 +6936,10 @@ msgid ""
 "will\n"
 "return `None`. The `while let` lets us keep iterating through all items."
 msgstr ""
-"`v.iter()`가 반환한 반복자는 `next()`가 호출될 때마다 `Option<i32>`를 반환합"
+"`v.into_iter()`가 반환한 반복자는 `next()`가 호출될 때마다 `Option<i32>`를 반환합"
 "니다.\n"
-"이는 `None`이 호출되기 전까지 `Some(x)`를 반환한다는 의미로 결과적으로 "
-"`while let`은 반복자의 모든 아이템을 반복하도록 하게 해줍니다."
+"반복자가 완료될 때까지는 `Some(x)`를 반환하고 마지막엔 `None`을 반환합니다. "
+"`while let`을 통해 반복자의 모든 아이템을 확인할 수 있습니다."
 
 #: src/control-flow/for-expressions.md:1
 msgid "# `for` expressions"
@@ -6986,7 +6976,7 @@ msgstr ""
 
 #: src/control-flow/for-expressions.md:20
 msgid "You can use `break` and `continue` here as usual."
-msgstr "역시 다른언어와 마찬가지로 `break` 와 `continue`를 사용할 수 있습니다."
+msgstr "다른 언어와 마찬가지로 `break` 와 `continue`를 사용할 수 있습니다."
 
 #: src/control-flow/for-expressions.md:22
 msgid ""
@@ -7001,9 +6991,9 @@ msgid ""
 msgstr ""
 "<details>\n"
 "    \n"
-"* 인덱스 반복의 경우는 러스트의 특별한 방식은 아닙니다. \n"
-"* `(0..10)`은 `Iterator` 트레이트를 구현하는 range 입니다. \n"
-"* `step_by`는 다른 요소들을 건너뛰는 또다른 `Iterator`의 메서드입니다.\n"
+"* 러스트는 인덱스 반복을 위해 별도의 문법을 사용하지 않습니다. \n"
+"* `(0..10)`은 `Iterator` 트레이트를 구현하는 범위(range) 값입니다. \n"
+"* `step_by`는 반복자의 요소들을 건너뛰는 또다른 `Iterator`를 반환하는 메서드입니다.\n"
 "    \n"
 "</details>"
 
@@ -7017,8 +7007,8 @@ msgid ""
 "must\n"
 "either `break` or `return` to stop the loop:"
 msgstr ""
-"마지막으로 `loop`키워드는 무한한 루프를 생성합니다. 따라서 반드시 `break` 또"
-"는 `return`를 사용해서 루프를 정지해야 합니다:"
+"마지막으로 `loop`키워드는 무한 루프를 생성합니다. 따라서 반드시 `break` 또"
+"는 `return`을 사용해서 루프를 정지해야 합니다."
 
 #: src/control-flow/loop-expressions.md:6
 msgid ""
@@ -7050,8 +7040,8 @@ msgid ""
 "In\n"
 "that sense, it works like a series of `if let` expressions:"
 msgstr ""
-"마치 `if let`를 여러개 적용한 것과 같이 `match`키워드는 하나 이상의 패턴을 찾"
-"는데 사용됩니다."
+"`match`키워드는 어떤 값을 하나 이상의 패턴에 대해 매치하는데 사용합니다. 그런 면에서 `if let` 표현식을"
+" 여러개 이어 놓은 것과 같습니다."
 
 #: src/control-flow/match-expressions.md:6
 msgid ""
@@ -7074,9 +7064,8 @@ msgid ""
 "Like `if let`, each match arm must have the same type. The type is the last\n"
 "expression of the block, if any. In the example above, the type is `()`."
 msgstr ""
-"`if let`처럼 각 매치 암(match arm)의 마지막 표현식이 타입이 되며 모든 암은 동"
-"일한 타입이어야 합니다. 위의 예제에서 타입은 `()`(반환값 없음)입니다.\n"
-"* _역주: 예시에서 각 arm의 리턴 타입은 리턴없음(`()`)"
+"`if let`과 마찬가지로 매치의 모든 팔(arm)은 같은 타입이어야 합니다. 팔이 블록이라면 블록의 마지막"
+" 표현식이 그 타입이 됩니다. 위의 예제에서 매치 표현식의 타입은 `()`입니다."
 
 #: src/control-flow/break-continue.md:1
 msgid "# `break` and `continue`"
@@ -7090,9 +7079,8 @@ msgid ""
 "optionally\n"
 "take a label argument which is used to break out of nested loops:"
 msgstr ""
-"만약 루프를 중간에 멈추고 십다면 `break`를, 바로 다음 반복으로 넘어가기 위해"
-"서는 `continue`를 사용합니다. 두 키워드 모두 중첩 루프에서 label로 표기한 인"
-"수를 취하여 제어 할 수 있습니다."
+"루프를 빠져나가려면 `break`를, 다음 반복으로 넘어가기 위해서는 `continue`를 사용합니다. "
+"중첩 루프에서는 레이블과 함께 사용할 수 있습니다."
 
 #: src/control-flow/break-continue.md:7
 msgid ""
@@ -7119,8 +7107,7 @@ msgstr ""
 msgid ""
 "In this case we break the outer loop after 3 iterations of the inner loop."
 msgstr ""
-"위 예제는 중접루프를 3회 반복한 후 바깥루프('outer' 레이블)을 정지합니다.(종"
-"료)"
+"위 예제는 내부의 `while` 루프를 3회 반복한 후 바깥 루프를 빠져나갑니다."
 
 #: src/std.md:1
 msgid "# Standard Library"
@@ -7134,9 +7121,10 @@ msgid ""
 "together\n"
 "smoothly because they both use the same `String` type."
 msgstr ""
-"러스트는 러스트 라이브러리와 프로그램에서 사용되는 공통 타입을 설정하는 데 도"
-"움을 주는 표준 라이브러리와 함께 제공 됩니다. 이렇게 하면 두 라이브러리 모두 "
-"같은 `String` 타입을 사용하기 때문에 원활하게 함께 작동할 수 있습니다."
+"러스트에서 제공하는 표준 라이브러리는 러스트로 라이브러리나 프로그램을 작성할 때 공통적으로 사용할 수 "
+"있는 여러 타입들을 포함하고 있습니다. 이를 통해 서로 다른 두 라이브러리라 하더라도 "
+"함께 사용하는데 큰 어려움이 없게 됩니다. 예를 들면 두 라이브러리 모두 같은 `String` 타입을 사용하기"
+" 때문입니다."
 
 #: src/std.md:7
 msgid "The common vocabulary types include:"
@@ -7148,38 +7136,36 @@ msgid ""
 "values\n"
 "  and [error handling](error-handling.md)."
 msgstr ""
-"* [Option and Result 타입](std/option-result.md) : 선택적 옵션 값과   [error "
-"handling](error-handling.md)에 사용됩니다."
+"* [`Option`과 `Result`](std/option-result.md) : 어떤 값이 있거나 없거나 하는 경우, "
+"그리고 [오류 처리](error-handling.md)에 사용합니다."
 
 #: src/std.md:12
 msgid ""
 "* [`String`](std/string.md): the default string type used for owned data."
 msgstr ""
-"* [`String`](std/string.md): 소유 데이터에서 사용되는 기본적인 문자열   타입"
-"입니다."
+"* [`String`](std/string.md): 기본적인 문자열 타입으로, 문자열 데이터를 소유하는 경우에 사용합니다."
 
 #: src/std.md:14
 msgid "* [`Vec`](std/vec.md): a standard extensible vector."
-msgstr "* [`Vec`](std/vec.md): 확장가능한 표준 벡터 타입입니다."
+msgstr "* [`Vec`](std/vec.md): 가변 크기의 표준 벡터 타입입니다."
 
 #: src/std.md:16
 msgid ""
 "* [`HashMap`](std/hashmap.md): a hash map type with a configurable hashing\n"
 "  algorithm."
 msgstr ""
-"* [`HashMap`](std/hashmap.md): 구성 가능한 해시 알고리즘을 가지는 해쉬 맵   "
-"타입입니다"
+"* [`HashMap`](std/hashmap.md): 해시 알고리즘을 따로 지정할 수도 있는 해시맵 타입입니다"
 
 #: src/std.md:19
 msgid "* [`Box`](std/box.md): an owned pointer for heap-allocated data."
-msgstr "* [`Box`](std/box.md): 힙 데이터에 대한 소유 포인터입니다:"
+msgstr "* [`Box`](std/box.md): 힙 데이터에 대한 소유 포인터입니다."
 
 #: src/std.md:21
 msgid ""
 "* [`Rc`](std/rc.md): a shared reference-counted pointer for heap-allocated "
 "data."
 msgstr ""
-"* [`Rc`](std/rc.md): 힙에 할당된 데이터에 대한 참조 카운팅 공유 포인터입니"
+"* [`Rc`](std/rc.md): 힙에 할당된 데이터에 대한 참조 카운팅 공유 포인터입니다."
 
 #: src/std.md:23
 msgid ""
@@ -7196,23 +7182,21 @@ msgid ""
 msgstr ""
 "<details>\n"
 "  \n"
-"  * 사실, 러스트의 표준라이브러리는 여러 계층(layer)를 포함합니다: `core`, "
-"`alloc`, `std`. \n"
-"  * `core`는 `libc`, 할당자(allocator), 심지어 os에도 의존하지 않는 가장  기"
+"  * 사실, 러스트의 표준 라이브러리는 `core`, `alloc`, `std`와 같이 계층(layer)으로 나눠집니다. \n"
+"  * `core`는 `libc`나 할당자(allocator), 심지어 OS에도 의존하지 않는 가장  기"
 "본적인 함수와 타입을 포함합니다.\n"
 "  * `alloc`은 `Vec`, `Box`, `Arc`와 같이 전역 힙 할당이 필요한 타입을 포함합"
 "니다.\n"
-"  * 임베디드 러스트 응용프로그램은 종종 `core`만 사용하고 때로는 `alloc`도 사"
-"용합니다."
+"  * 임베디드 러스트 응용프로그램은 주로 `core`만 사용하거나 가끔 `alloc`을 함께 사용합니다."
 
 #: src/std/string.md:1
 msgid "# String"
-msgstr "# String"
+msgstr "# `String` 문자열"
 
 #: src/std/string.md:3
 msgid ""
 "[`String`][1] is the standard heap-allocated growable UTF-8 string buffer:"
-msgstr "[`String`][1]은 힙에 할당된 확장가능한 표준 UTF-8 문자열 버퍼입니다."
+msgstr "[`String`][1]은 힙에 할당되고 가변 길이의 표준 UTF-8 문자열 버퍼입니다."
 
 #: src/std/string.md:5
 msgid ""
@@ -7247,7 +7231,7 @@ msgid ""
 "`str` methods on a `String`."
 msgstr ""
 "`String`은 [`Deref<Target = str>`][2]을 구현합니다.\n"
-"이는 , `String`에서 모든 `str`관련 메서드를 호출 할 수 있다는 의미 입니다."
+"이는 , `String` 값에 대해서도 `str`의 모든 메서드를 호출 할 수 있다는 의미 입니다."
 
 #: src/std/string.md:25
 msgid ""
@@ -7275,7 +7259,7 @@ msgstr "# `Option`과 `Result`"
 
 #: src/std/option-result.md:3
 msgid "The types represent optional data:"
-msgstr "이 타입은 선택가능한 데이터를 표시합니다: "
+msgstr "이 타입은 선택적 데이터를 나타냅니다."
 
 #: src/std/option-result.md:5
 msgid ""
@@ -7305,14 +7289,13 @@ msgid ""
 "  * Otherwise, `Result::Err` contains the index where such an element should "
 "be inserted."
 msgstr ""
-"* `Option`와 `Result`는 표준 라이브러리에서만 널리 사용되는 것이 아닙니다.\n"
+"* `Option`과 `Result`는 표준 라이브러리뿐만아니라 매우 광범위하게 사용되는 타입입니다.\n"
 "* `Option<&T>` 는 `&T`에 비해 공간 오버헤드가 없습니다.\n"
-"* `Result` 3일차에 다루겠지만, 표준 오류 처리를 구현하기 위한 표준 유형입니"
-"다.\n"
+"* `Result`는 오류 처리를 위한 표준 타입입니다. 3일차 과정에서 살펴봅니다.\n"
 "* `binary_search`는 `Result<usize, usize>`를 반환합니다.\n"
 "  * 요소가 발견된다면, `Result::Ok`는 발견된 요소의 인덱스를 보유합니다.\n"
 "  * 아니면, `Result::Err`에는 요소가 삽입되야 하는 인덱스가 포함되어 있습니"
-"다.(보통은 마지막 인덱스 입니다)"
+"다."
 
 #: src/std/vec.md:1
 msgid "# `Vec`"
@@ -7320,7 +7303,7 @@ msgstr "# `Vec`"
 
 #: src/std/vec.md:3
 msgid "[`Vec`][1] is the standard resizable heap-allocated buffer:"
-msgstr "[`Vec`][1] 는 힙에 할당된 표준 가변크기 버퍼입니다."
+msgstr "[`Vec`][1] 는 힙에 할당된 표준 가변 크기 버퍼입니다."
 
 #: src/std/vec.md:5
 msgid ""
@@ -7351,7 +7334,7 @@ msgid ""
 "methods on a `Vec`."
 msgstr ""
 "`Vec`은 [`Deref<Target = [T]>`][2]를 구현합니다. \n"
-"이는 `Vec`에서 슬라이스 메서드(배열 관련 메서드)를 호출 할 수 있다는 의미입니"
+"이는 `Vec`에서 슬라이스 메서드를 호출 할 수 있다는 의미입니"
 "다."
 
 #: src/std/vec.md:24
@@ -7380,7 +7363,7 @@ msgid ""
 "supports\n"
 "adding initial elements to the vector."
 msgstr ""
-"`vec![...]`는 표준 매크로로 `Vec::new()`를 대체하고, 벡터에 추가 초기요소를 "
+"`vec![...]` 표준 매크로로 `Vec::new()`를 대체하고, 벡터에 추가 초기요소를 "
 "추가할 수 있습니다."
 
 #: src/std/hashmap.md:1
@@ -7390,9 +7373,7 @@ msgstr "# `HashMap`"
 #: src/std/hashmap.md:3
 msgid "Standard hash map with protection against HashDoS attacks:"
 msgstr ""
-"HashDoS[^역주1] 공격으로부터 보호되는 표준 해시 맵입니다.\n"
-"* _역주: HashDoS: Hash table을 사용하는 웹서버에 파라미터가 많은 POST를   호"
-"출하여 Hash table 충돌을 유도하여 CPU 부하를 발생시키는 공격 방법."
+"HashDoS 공격으로부터 보호되는 표준 해시 맵입니다."
 
 #: src/std/hashmap.md:5
 msgid ""
@@ -7472,7 +7453,7 @@ msgid ""
 "from `T` directly on a `Box<T>`][2]."
 msgstr ""
 "`Box<T>`은 [`Deref<Target = T>`][2]를 구현합니다. \n"
-"이는 [`Box<T>`에서 T 관련 메서드를 직접 호출][2] 할 수 있다는 의미입니다."
+"이는 [`Box<T>`에서 `T` 메서드를 직접 호출][2] 할 수 있다는 의미입니다."
 
 #: src/std/box.md:29
 msgid ""
@@ -7564,17 +7545,16 @@ msgstr ""
 "<details>\n"
 "    \n"
 "만일 `Box`를 사용하지 않고 `List`에 직접 `List`를 포함하려고 시도한다면, 컴파"
-"일러는 메모리에 있는 구조체의 고정 크기를 계산하지 않으므로 무한대로 갈 것입"
-"니다.\n"
+"일러는 구조체의 고정 크기를 계산할 수 없습니다. 컴파일러가 보기에 무한대의 크기로 보일 것입니다.\n"
 "    \n"
-"`Box`는 일반 포인터와 크기가 같고 힙에 있는 `List`의 다음 요소만 가리키기 때"
-"문에 이러한 문제가 없습니다. \n"
+"`Box`는 일반 포인터와 크기가 같기 때문에 크기를 계산하는 데 문제가 없습니다. 다만 힙에 위치한 "
+"`List`의 다음 요소를 가리킬 뿐입니다."
 "    \n"
 "</details>"
 
 #: src/std/box-niche.md:1
 msgid "# Niche Optimization"
-msgstr "# 니치(틈새) 최적화(Niche Optimization)"
+msgstr "# 틈새 최적화(Niche Optimization)"
 
 #: src/std/box-niche.md:16
 msgid ""
@@ -7582,8 +7562,7 @@ msgid ""
 "This\n"
 "allows the compiler to optimize the memory layout:"
 msgstr ""
-"`Box`는 비어있을 수 없습니다. 따라서 포인터는 항상 유효하고 `null`이 아닙니"
-"다.\n"
+"`Box`는 비어있을 수 없습니다. 따라서 포인터는 항상 유효하며 `null`이 아닙니다. "
 "이는 컴파일러가 메모리 레이아웃을 최적화 할 수 있게 해줍니다."
 
 #: src/std/box-niche.md:19
@@ -7621,7 +7600,7 @@ msgid ""
 "to the same data from multiple places:"
 msgstr ""
 "[`Rc`][1]는 참조 카운팅 공유 포인터입니다. \n"
-"여러 위치의 동일한 데이터를 참조해야할 경우 사용합니다:"
+"여러 위치에서 동일한 데이터를 참조해야할 경우 사용합니다:"
 
 #: src/std/rc.md:6
 msgid ""
@@ -7664,7 +7643,7 @@ msgid ""
 "write\") and returns a mutable reference."
 msgstr ""
 "* C++의 `std::shared_ptr`와 유사합니다.\n"
-"* `clone`은 저렴합니다: 동일한 할당에 대한 포인터를 생성하고 참조 카운트를 늘"
+"* `clone`은 저렴합니다. 동일한 할당에 대한 포인터를 생성하고 참조 카운트를 늘"
 "림니다.\n"
 "* `make_mut`는 실제로 필요한 경우에 내부 값을 복제하고( (\"clone-on-"
 "write\") ) 가변 참조를 반환합니다."
@@ -7675,11 +7654,11 @@ msgstr "# 모듈"
 
 #: src/modules.md:3
 msgid "We have seen how `impl` blocks let us namespace functions to a type."
-msgstr "`impl`블록은 네임스페이스함수를 타입으로 제공합니다."
+msgstr "`impl`블록은 해당 타입의 함수들에 대한 네임스페이스를 제공합니다."
 
 #: src/modules.md:5
 msgid "Similarly, `mod` lets us namespace types and functions:"
-msgstr "`mod` 역시 네임스페이스 타입과 함수를 제공합니다: "
+msgstr "마찬가지로, `mod`는 타입과 함수들에 대해 네임스페이스를 제공합니다: "
 
 #: src/modules.md:7
 msgid ""
@@ -7711,18 +7690,18 @@ msgstr ""
 
 #: src/modules/visibility.md:1
 msgid "# Visibility"
-msgstr "# 접근자(Visibility)"
+msgstr "# 가시성"
 
 #: src/modules/visibility.md:3
 msgid "Modules are a privacy boundary:"
-msgstr "모듈의 기본 접근자는 private 입니다:"
+msgstr "모듈의 타입이나 함수는 기본적으로 비깥에 노출되지 않습니다."
 
 #: src/modules/visibility.md:5
 msgid ""
 "* Module items are private by default (hides implementation details).\n"
 "* Parent and sibling items are always visible."
 msgstr ""
-"* 모듈의 항목은 기본적으로 private 입니다.(구현에서 숨겨짐)\n"
+"* 따라서 모듈의 세부 구현 내용이 감춰집니다.\n"
 "* 부모와 이웃 항목에서는 접근 가능합니다."
 
 #: src/modules/visibility.md:8
@@ -7781,9 +7760,9 @@ msgid ""
 "   * `foo` or `self::foo` refers to `foo` in the current module,\n"
 "   * `super::foo` refers to `foo` in the parent module."
 msgstr ""
-"1. 상대경로\n"
-"  *  `foo` 또는 `self::foo`는 `foo`모듈 안에서 현재 모듈을 가리킵니다.\n"
-"  * `super::foo`는 `foo`모듈의 부모 모듈을 가리킵니다."
+"1. 상대 경로\n"
+"   *  `foo` 또는 `self::foo`는 현재 모듈 내부의 `foo`를 가리킵니다.\n"
+"   * `super::foo`는 부모 모듈의 `foo`를 가리킵니다."
 
 #: src/modules/paths.md:9
 msgid ""
@@ -7792,8 +7771,8 @@ msgid ""
 "   * `bar::foo` refers to `foo` in the `bar` crate."
 msgstr ""
 "2. 절대 경로\n"
-"  * `crate::foo`는 현재 크레이트 루트의 있는 `foo`를 가리킵니다.\n"
-"  * `bar::foo`는 `bar`크레이트 안에 있는 `foo`를 가리킵니다."
+"   * `crate::foo`는 현재 크레이트 루트의 `foo`를 가리킵니다.\n"
+"   * `bar::foo`는 `bar`크레이트의 `foo`를 가리킵니다."
 
 #: src/modules/filesystem.md:1
 msgid "# Filesystem Hierarchy"
@@ -7801,7 +7780,7 @@ msgstr "# 파일시스템 계층"
 
 #: src/modules/filesystem.md:3
 msgid "The module content can be omitted:"
-msgstr "모듈의 내용은 생략될 수 있습니다:"
+msgstr "모듈의 내용은 생략될 수 있습니다."
 
 #: src/modules/filesystem.md:5
 msgid ""
@@ -7850,7 +7829,7 @@ msgstr "이번 연습문제는 문자열과 반복자에 초점을 맞출 것입
 
 #: src/exercises/day-2/luhn.md:1
 msgid "# Luhn Algorithm"
-msgstr "# 룬 알고리즘"
+msgstr "# 룬(Luhn) 알고리즘"
 
 #: src/exercises/day-2/luhn.md:3
 msgid ""
@@ -7860,7 +7839,7 @@ msgid ""
 "the\n"
 "following to validate the credit card number:"
 msgstr ""
-"[룬 알고리즘](https://ko.wikipedia.org/wiki/"
+"[룬(Luhn) 알고리즘](https://ko.wikipedia.org/wiki/"
 "%EB%A3%AC_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)은 신용카드 번호 검증에 사용되"
 "는 알고리즘 입니다. \n"
 "이 알고리즘은 신용카드 번호를 `문자열`로 입력받고, 아래의 순서에 따라 신용카"
@@ -7868,7 +7847,7 @@ msgstr ""
 
 #: src/exercises/day-2/luhn.md:7
 msgid "* Ignore all spaces. Reject number with less than two digits."
-msgstr "* 모든 공백을 무시합니다, 2자리 미만 숫자는 무시합니다."
+msgstr "* 모든 공백을 무시합니다. 2자리 미만 숫자는 무시합니다."
 
 #: src/exercises/day-2/luhn.md:9
 msgid ""
@@ -7876,7 +7855,7 @@ msgid ""
 "`1234`,\n"
 "  we double `3` and `1`."
 msgstr ""
-"* 오른쪽에서 왼쪽으로 이동하며 2번째 자리마다 숫자를 2배 증가시킵니다.   1234"
+"* 오른쪽에서 왼쪽으로 이동하며 2번째 자리마다 숫자를 2배 증가시킵니다. 예를 들어 `1234`"
 "에서 3과 1을 두배로 만듭니다.(2464)"
 
 #: src/exercises/day-2/luhn.md:12
@@ -7885,12 +7864,11 @@ msgid ""
 "which\n"
 "  becomes `5`."
 msgstr ""
-"* 두배로 만든 숫자가 2자리가 넘으면 각 자리를 더합니다: 7의 두배는 14이므로 5"
-"가   됩니다."
+"* 두배로 만든 숫자가 2자리라면 각 자리 숫자를 더합니다. 예를 들어, `7`은 두배로 만들면 `14`이므로 `5`가 됩니다."
 
 #: src/exercises/day-2/luhn.md:15
 msgid "* Sum all the undoubled and doubled digits."
-msgstr "* 모든 자리의 숫자를 합합니다."
+msgstr "* 모든 자리의 숫자를 더합니다."
 
 #: src/exercises/day-2/luhn.md:17
 msgid "* The credit card number is valid if the sum ends with `0`."
@@ -7980,9 +7958,9 @@ msgid ""
 "matches a full segment. See the unit tests below."
 msgstr ""
 "이번 훈련은 웹 서버의 라우팅 컴포넌트를 구현합니다. \n"
-"서버는 _요청경로(request path)와_ 일치하는 여러개의 _경로 접두사(path "
-"prefixes)로_ 구성되어 있습니다. 경로 접두사에는 와일드카드문자를 포함할 수 있"
-"습니다.  아래 테스트 코드를 참조하세요"
+"서버는 _요청 경로(request path)_ 를 처리할 수 있는 여러 개의 _경로 접두사(path "
+"prefix)_ 로 구성됩니다. 경로 접두사는 와일드카드문자를 포함할 수 있"
+"습니다.  아래 단위 테스트 코드를 참조하세요."
 
 #: src/exercises/day-2/strings-iterators.md:8
 msgid ""

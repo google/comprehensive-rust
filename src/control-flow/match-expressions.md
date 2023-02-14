@@ -26,7 +26,7 @@ Rust.
     
 * Save the match expression to a variable and print it out.
 * Remove `.as_deref()` and explain the error.
-    * `std::env::Agrs().next` returns an `Option<&String>`, but we cannot match against `String`.
+    * `std::env::args().next()` returns an `Option<&String>`, but we cannot match against `String`.
     * `as_deref()` transforms an `Option<T>` to `Option<T::Target>`. In our case, this turns `Option<&String>` into `Option<&str>`.
     * We can now use pattern matching to match against the `&str` inside `Option`.
 </details>
