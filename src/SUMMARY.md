@@ -240,11 +240,16 @@
   - [A minimal example](bare-metal/minimal.md)
   - [`alloc`](bare-metal/alloc.md)
 - [Microcontrollers](bare-metal/microcontrollers.md)
+  - [Raw MMIO]()
   - [PACs](bare-metal/microcontrollers/pacs.md)
   - [HAL crates](bare-metal/microcontrollers/hals.md)
+  - [Board support crates](bare-metal/microcontrollers/board-support.md)
   - [The type state pattern](bare-metal/microcontrollers/type-state.md)
   - [embedded-hal](bare-metal/microcontrollers/embedded-hal.md)
   - [Other projects](bare-metal/microcontrollers/other-projects.md)
+  - [cargo-embed, probe-rs]()
+- [Exercises](exercises/bare-metal/morning.md)
+  - [Temperature logger](exercises/bare-metal/temperature-logger.md)
 
 # Day 5A: Afternoon
 
@@ -273,3 +278,4 @@
   - [Day 3 Morning](exercises/day-3/solutions-morning.md)
   - [Day 3 Afternoon](exercises/day-3/solutions-afternoon.md)
   - [Day 4 Morning](exercises/day-4/solutions-morning.md)
+  - [Day 5A Morning](exercises/bare-metal/solutions-morning.md)
