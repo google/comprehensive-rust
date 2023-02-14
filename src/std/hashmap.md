@@ -47,5 +47,20 @@ fn main() {
       .or_insert(374);
   ```
 * Unlike `vec!`, there is unfortunately no standard `hashmap!` macro.
+  * Although, since Rust 1.56, HashMap implements [`From<[(K, V); N]>`][1], which allows us to easily initialize a hash map from a literal array:
+
+  ```rust,ignore
+  let page_counts = HashMap::from([
+    ("Harry Potter and the Sorcerer's Stone".to_string(), 336),
+    ("The Hunger Games".to_string(), 374),
+  ]);
+  ```
+
+ * Alternatively HashMap can be built from any `Iterator` which yields key-value tuples.
+* We are showing `HashMap<String, i32>`, and avoid using `&str` as key to make examples easier. Using references in collections can, of course, be done,
+  but it can lead into complications with the borrow checker.
+  * Try removing `to_string()` from the example above and see if it still compiles. Where do you think we might run into issues?
+
+[1]: https://doc.rust-lang.org/std/collections/hash_map/struct.HashMap.html#impl-From%3C%5B(K%2C%20V)%3B%20N%5D%3E-for-HashMap%3CK%2C%20V%2C%20RandomState%3E
 
 </details>
