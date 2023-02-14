@@ -5,23 +5,25 @@ No undefined behavior at runtime:
 * Array access is bounds checked.
 * Integer overflow is defined.
 
-```rust
+```rust,editable
 fn main() {
     // Create an array of 10 items.
     let x = [0; 10];
+    println!("In-bounds: {}", x[9]);
     // Attempt to access it out of bounds.
-    println!("Out-of-bounds: {}", x[10]);
+    // println!("Out-of-bounds: {}", x[10]);
 }
 ```
 
-```rust
+```rust,editable
 fn main() {
     let x = [0; 10];
     foo(&x);
 }
 
 fn foo(x: &[i32]) {
-    println!("Out-of-bounds: {}", x[10]);
+    println!("In-bounds: {}", x[9]);
+    // println!("Out-of-bounds: {}", x[10]);
 }
 ```
 
