@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: [한국어]Comprehensive Rust 🦀\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-02-15 12:52+0900\n"
+"PO-Revision-Date: 2023-02-15 13:23+0900\n"
 "Last-Translator: keispace <keispace.kyj@google.com>\n"
 "Language-Team: \n"
 "Language: ko\n"
@@ -450,9 +450,8 @@ msgid "Drop"
 msgstr "Drop"
 
 #: src/SUMMARY.md:137
-#, fuzzy
 msgid "Default"
-msgstr "기본 메서드"
+msgstr "Default"
 
 #: src/SUMMARY.md:138
 msgid "Generics"
@@ -8598,13 +8597,12 @@ msgid "[1]: https://doc.rust-lang.org/std/ops/trait.Drop.html"
 msgstr ""
 
 #: src/traits/default.md:1
-#, fuzzy
 msgid "# The `Default` Trait"
-msgstr "# `Drop` 트레이트"
+msgstr "# `Default` 트레이트"
 
 #: src/traits/default.md:3
 msgid "[`Default`][1] trait provides a default implementation of a trait."
-msgstr ""
+msgstr "[`Default`][1] 트레이트는 기본 구현을 제공합니다."
 
 #: src/traits/default.md:5
 msgid ""
@@ -8616,12 +8614,21 @@ msgid ""
 "    z: Implemented,\n"
 "}"
 msgstr ""
+"```rust,editable\n"
+"#[derive(Debug, Default)]\n"
+"struct Derived {\n"
+"    x: u32,\n"
+"    y: String,\n"
+"    z: Implemented,\n"
+"}"
 
 #: src/traits/default.md:13
 msgid ""
 "#[derive(Debug)]\n"
 "struct Implemented(String);"
 msgstr ""
+"#[derive(Debug)]\n"
+"struct Implemented(String);"
 
 #: src/traits/default.md:16
 msgid ""
@@ -8631,6 +8638,11 @@ msgid ""
 "    }\n"
 "}"
 msgstr ""
+"impl Default for Implemented {\n"
+"    fn default() -> Self {\n"
+"        Self(\"John Smith\".into())\n"
+"    }\n"
+"}"
 
 #: src/traits/default.md:22
 msgid ""
@@ -8638,6 +8650,9 @@ msgid ""
 "    let default_struct: Derived = Default::default();\n"
 "    println!(\"{default_struct:#?}\");"
 msgstr ""
+"fn main() {\n"
+"    let default_struct: Derived = Default::default();\n"
+"    println!(\"{default_struct:#?}\");"
 
 #: src/traits/default.md:26
 msgid ""
@@ -8647,6 +8662,11 @@ msgid ""
 "    };\n"
 "    println!(\"{almost_default_struct:#?}\");"
 msgstr ""
+"    let almost_default_struct = Derived {\n"
+"        y: \"Y is set!\".into(),\n"
+"        ..Default::default()\n"
+"    };\n"
+"    println!(\"{almost_default_struct:#?}\");"
 
 #: src/traits/default.md:32
 msgid ""
@@ -8654,6 +8674,9 @@ msgid ""
 "    println!(\"{:#?}\", nothing.unwrap_or_default());\n"
 "}"
 msgstr ""
+"    let nothing: Option<Derived> = None;\n"
+"    println!(\"{:#?}\", nothing.unwrap_or_default());\n"
+"}"
 
 #: src/traits/default.md:40
 msgid ""
@@ -8666,10 +8689,20 @@ msgid ""
 "  * Rust standard library is aware that types can implement `Default` and provides convenience "
 "methods that use it."
 msgstr ""
+"  * 트레이트를 직접 구현하거나 `#[derive(Default)]`를 붙여서 컴파일러에게 구현을 맡길 수 있습니"
+"다.\n"
+"  * 컴파일러가 제공하는 자동 구현의 경우 모든 필드에 대해 기본 값을 설정한 새 인스턴스를 반환합니"
+"다.\n"
+"    * 구조체의 각 필드 타입들이 모두 `Default`를 구현해야 함을 의미합니다.\n"
+"  * 러스트 표준 타입들은 대부분 `Default`를 구현하고 있으며, 기본 값은 `0`이나 `\"\"`처럼 예상 가능"
+"한 값들입니다.\n"
+"  * 구조체 부분 복사를 할때 `default`를 편리하게 사용할 수 있습니다.\n"
+"  * Rust standard library is aware that types can implement `Default` and provides convenience "
+"methods that use it."
 
 #: src/traits/default.md:49
 msgid "[1]: https://doc.rust-lang.org/std/default/trait.Default.html"
-msgstr ""
+msgstr "[1]: https://doc.rust-lang.org/std/default/trait.Default.html"
 
 #: src/generics.md:1
 msgid "# Generics"
