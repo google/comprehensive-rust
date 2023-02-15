@@ -1,6 +1,6 @@
 # Exercises
 
-We will read the temperature from an I2C temperature sensor, and log the readings to a serial port.
+We will read the direction from an I2C compass, and log the readings to a serial port.
 
 <details>
 
