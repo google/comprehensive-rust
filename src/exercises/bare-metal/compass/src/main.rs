@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ANCHOR: top
 #![no_main]
 #![no_std]
 
@@ -19,6 +20,7 @@ extern crate panic_halt as _;
 
 use core::fmt::Write;
 use cortex_m_rt::entry;
+// ANCHOR_END: top
 use lsm303agr::{Lsm303agr, MagOutputDataRate};
 use microbit::{
     hal::{
@@ -29,10 +31,12 @@ use microbit::{
     Board,
 };
 
+// ANCHOR: main
 #[entry]
 fn main() -> ! {
     let board = Board::take().unwrap();
 
+    // Configure serial port.
     let mut serial = Uarte::new(
         board.UARTE0,
         board.uart.into(),
@@ -40,6 +44,8 @@ fn main() -> ! {
         Baudrate::BAUD115200,
     );
 
+    // Set up the I2C controller and IMU.
+    // ANCHOR_END: main
     writeln!(serial, "Setting up IMU...").unwrap();
     let i2c = Twim::new(board.TWIM0, board.i2c_internal.into(), FREQUENCY_A::K100);
     let mut imu = Lsm303agr::new_with_i2c(i2c);
@@ -47,9 +53,12 @@ fn main() -> ! {
     imu.set_mag_odr(MagOutputDataRate::Hz50).unwrap();
     let mut imu = imu.into_mag_continuous().ok().unwrap();
 
+    // ANCHOR: loop
     writeln!(serial, "Ready.").unwrap();
 
     loop {
+        // Read compass data and log it to the serial port.
+        // ANCHOR_END: loop
         while !imu.mag_status().unwrap().xyz_new_data {}
         let compass_reading = imu.mag_data().unwrap();
         writeln!(
