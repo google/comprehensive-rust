@@ -7,3 +7,12 @@ be divided into several parts:
  * Writing firmware for microcontrollers.
  * Writing bootloader / kernel code for application processors.
  * Some useful crates for bare-metal Rust development.
+
+To get started, install some tools we'll need later:
+
+```bash
+sudo apt install gdb-multiarch picocom
+rustup update
+rustup target add thumbv7em-none-eabihf
+cargo install cargo-binutils cargo-embed
+```
