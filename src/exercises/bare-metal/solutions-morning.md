@@ -1,9 +1,9 @@
 # Day 5A Morning Exercise
 
-## Temperature logger
+## Compass
 
-([back to exercise](temperature-logger.md))
+([back to exercise](compass.md))
 
 ```rust
-{{#include temperature-logger/src/main.rs}}
+{{#include compass/src/main.rs}}
 ```

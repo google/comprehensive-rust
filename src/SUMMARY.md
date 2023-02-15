@@ -249,7 +249,7 @@
   - [Other projects](bare-metal/microcontrollers/other-projects.md)
   - [cargo-embed, probe-rs]()
 - [Exercises](exercises/bare-metal/morning.md)
-  - [Temperature logger](exercises/bare-metal/temperature-logger.md)
+  - [Compass](exercises/bare-metal/compass.md)
 
 # Day 5A: Afternoon
 
