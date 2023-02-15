@@ -48,6 +48,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
+name = "compass"
+version = "0.1.0"
+dependencies = [
+ "cortex-m-rt",
+ "embedded-hal",
+ "lsm303agr",
+ "microbit-v2",
+ "panic-halt",
+]
+
+[[package]]
 name = "cortex-m"
 version = "0.7.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -145,6 +156,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "02b4af3693f1b705df946e9fe5631932443781d0aabb423b62fcd4d73f6d2fd0"
 dependencies = [
  "crunchy",
+]
+
+[[package]]
+name = "lsm303agr"
+version = "0.2.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "aab0b8c3a75dfdebe9f79c738458da139e8111207d176e9fb6b360117432ac4f"
+dependencies = [
+ "embedded-hal",
+ "nb 1.0.0",
 ]
 
 [[package]]
@@ -306,16 +327,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "unicode-ident",
-]
-
-[[package]]
-name = "temperature-logger"
-version = "0.1.0"
-dependencies = [
- "cortex-m-rt",
- "embedded-hal",
- "microbit-v2",
- "panic-halt",
 ]
 
 [[package]]
