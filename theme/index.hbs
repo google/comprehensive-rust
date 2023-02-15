@@ -170,14 +170,23 @@
                           });
                           let selectedLang = document.getElementById("{{ language }}");
                           selectedLang.parentNode.classList.add("theme-selected");
+
+                          // The path to the root, taking the current
+                          // language into account.
+                          {{#if (eq language "en")}}
+                          let full_path_to_root = "{{ path_to_root }}";
+                          {{else}}
+                          let full_path_to_root = "{{ path_to_root }}../";
+                          {{/if}}
+                          // The page path (mdbook only gives us
+                          // access to the path to the Markdown file).
+                          let path = "{{ path }}".replace(/\.md$/, ".html");
                           for (let lang of langList.querySelectorAll("a")) {
                               if (lang.id == "en") {
-                                  lang.href = "{{ path_to_root }}{{ path }}";
+                                  lang.href = `${full_path_to_root}${path}`;
                               } else {
-                                  lang.href = `{{ path_to_root }}${lang.id}/{{ path }}`;
+                                  lang.href = `${full_path_to_root}${lang.id}/${path}`;
                               }
-                              lang.href = lang.href.replace(/\.md$/, ".html");
-                              console.log(lang);
                           }
                         </script>
 
