@@ -7,7 +7,7 @@ Hint: check the documentation for the [`lsm303agr`](https://docs.rs/lsm303agr/la
 
 If you have time, try displaying it on the LEDs somehow too, or use the buttons somehow.
 
-```rust,should_panic
+```rust,compile_fail
 {{#include compass/src/main.rs:top}}
 use microbit::{hal::uarte::{Baudrate, Parity, Uarte}, Board};
 

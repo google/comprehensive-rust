@@ -4,6 +4,6 @@
 
 ([back to exercise](compass.md))
 
-```rust
+```rust,compile_fail
 {{#include compass/src/main.rs}}
 ```
