@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: [한국어]Comprehensive Rust 🦀\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-02-16 14:39+0900\n"
+"PO-Revision-Date: 2023-02-16 16:17+0900\n"
 "Last-Translator: keispace <keispace.kyj@google.com>\n"
 "Language-Team: \n"
 "Language: ko\n"
@@ -8135,7 +8135,6 @@ msgid ""
 msgstr ""
 
 #: src/traits.md:41
-#, fuzzy
 msgid ""
 "* Traits may specify pre-implemented (default) methods and methods that users are required to "
 "implement themselves. Methods with default implementations can rely on required methods.\n"
@@ -8150,9 +8149,9 @@ msgstr ""
 "* 트레이트는 사용자가 직접 구현해야 하는 메서드와 사전 구현된(디폴트) 메서드를 지정할 수 있습니다. "
 "기본 구현된 메서드는 (다른)필수 메서드를 의존할 수 있습니다.\n"
 "* 여러 타입이 같은 트레이트를 구현하더라도 그 크기는 서로 다를 수 있습니다. 그래서 `Vec<Greeet>`같"
-"은 것은 불가능합니다. (_역주_: 왜냐하면 `Greet`트레이트를 구현하는 타입들 중 어떤 크기의 타입이 실"
-"제로 사용될 지, 컴파일 시에 알 방법이 없는 반면, `Vec<>`는 타입의 크기를 컴파일 시에 알고자 하기 때"
-"문)\n"
+"은 것은 불가능합니다. 왜냐하면 `Greet`트레이트를 구현하는 타입들 중 어떤 크기의 타입이 실제로 사용"
+"될 지, 컴파일 시에 알 방법이 없는 반면, `Vec<>`는 타입의 크기를 컴파일 시에 알고자 하기 때문입니"
+"다.\n"
 "* `dyn Greet`는 `Greet`을 구현하는, 가변 크기의 타입을 의미합니다."
 
 #: src/traits.md:46
@@ -8180,8 +8179,8 @@ msgstr "# 트레이트 상속하기(Deriving Traits)"
 #: src/traits/deriving-traits.md:3
 msgid "You can let the compiler derive a number of traits:"
 msgstr ""
-"컴파일러가 여러가지 트레이트를 상속(derive)하도록 할 수 있습니다. \n"
-"_역주_: 이 경우 컴파일러가 트레이트를 자동으로 구현함"
+"컴파일러가 여러가지 트레이트를 상속(derive)하도록 할 수 있습니다. 이 경우 컴파일러가 트레이트를 자"
+"동으로 구현합니다."
 
 #: src/traits/deriving-traits.md:5
 msgid ""
@@ -8368,7 +8367,8 @@ msgstr "# FromIterator"
 #: src/traits/from-iterator.md:3
 msgid "[`FromIterator`][1] lets you build a collection from an [`Iterator`][2]."
 msgstr ""
-"어떤 컬렉션이 `FromIterator`를 구현하고 있다면 `Iterator`로부터 그 컬렉션을 만들 수 있습니다."
+"어떤 컬렉션이 `[FromIterator`][1]를 구현하고 있다면 [`Iterator`][2]로부터 그 컬렉션을 만들 수 있습"
+"니다."
 
 #: src/traits/from-iterator.md:5
 msgid ""
@@ -8491,7 +8491,7 @@ msgstr "# `Read`와 `Write`"
 
 #: src/traits/read-write.md:3
 msgid "Using [`Read`][1] and [`BufRead`][2], you can abstract over `u8` sources:"
-msgstr "`Read`와 `BufRead`를 사용하면 `u8` 타입의 데이터 스트림을 읽을 수 있습니다:"
+msgstr "[`Read`][1]와 [`BufRead`][2]를 사용하면 `u8` 타입의 데이터 스트림을 읽을 수 있습니다:"
 
 #: src/traits/read-write.md:5
 msgid ""
@@ -8624,7 +8624,7 @@ msgstr ""
 "니다.\n"
 "* 왜 `Output`이 연관된 타입인가요? 타입 파라메터로 만들 수 있을까요?\n"
 "  * 답: 타입 파라메터를 호출하는 쪽에서 결정합니다. 반면 연관된 타입(`Output`같은) 은 트레이트를 구"
-"현하는 쪽에서 제거 가능합니다."
+"현하는 쪽에서 제어 가능합니다."
 
 #: src/traits/operators.md:40
 msgid "[1]: https://doc.rust-lang.org/std/ops/index.html"
@@ -8636,7 +8636,8 @@ msgstr "# `Drop` 트레이트"
 
 #: src/traits/drop.md:3
 msgid "Values which implement [`Drop`][1] can specify code to run when they go out of scope:"
-msgstr "`Drop`트레이트를 구현하면, 그 값이 스코프 밖으로 나갈 때 실행될 코드를 작성할 수 있습니다:"
+msgstr ""
+"[`Drop`][1]트레이트를 구현하면, 그 값이 스코프 밖으로 나갈 때 실행될 코드를 작성할 수 있습니다:"
 
 #: src/traits/drop.md:5
 msgid ""
@@ -8949,7 +8950,6 @@ msgid ""
 msgstr ""
 
 #: src/generics/trait-bounds.md:35
-#, fuzzy
 msgid ""
 "Show a `where` clause, students will encounter it when reading code.\n"
 "    \n"
@@ -8996,7 +8996,7 @@ msgstr "# 트레이트 구현하기(`impl Trait`)"
 msgid ""
 "Similar to trait bounds, an `impl Trait` syntax can be used in function\n"
 "arguments and return values:"
-msgstr "트레이트 바운드와 유사하게 `impl`트레이트 문법은 함수의 인자와 반환값에도 적용 가능합니다:"
+msgstr "트레이트 바운드와 유사하게 `impl Trait` 문법은 함수의 인자와 반환값에도 적용 가능합니다:"
 
 #: src/generics/impl-trait.md:6 src/generics/trait-objects.md:5 src/generics/trait-objects.md:28
 msgid ""
