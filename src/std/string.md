@@ -27,8 +27,7 @@ fn main() {
 
 <details>
 
-* `len` returns the size of the `String` in bytes, not its length in characters.
-* `chars` returns an iterator over the actual characters.
-* `String` implements `Deref<Target = str>` which transparently gives it access to `str`'s methods.
+* `len()` returns the size of the `String` in bytes, not its length in characters.
+* `chars()` returns an iterator over the actual characters.
 
 </details>
