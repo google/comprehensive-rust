@@ -236,9 +236,9 @@
 # Day 5A: Morning
 
 - [Welcome](welcome-bare-metal.md)
-- [`no_std`](bare-metal/no_std.md)
+- [no_std](bare-metal/no_std.md)
   - [A minimal example](bare-metal/minimal.md)
-  - [`alloc`](bare-metal/alloc.md)
+  - [alloc](bare-metal/alloc.md)
 - [Microcontrollers](bare-metal/microcontrollers.md)
   - [Raw MMIO]()
   - [PACs](bare-metal/microcontrollers/pacs.md)
@@ -258,11 +258,11 @@
   - [Let's write a UART driver]()
   - [Logging]()
 - [Useful crates]()
-  - [`zerocopy`]()
-  - [`aarch64_paging`]()
-  - [`buddy_system_allocator`]()
-  - [`tinyvec`]()
-  - [`spin` and `once_cell`]()
+  - [zerocopy]()
+  - [aarch64_paging]()
+  - [buddy_system_allocator]()
+  - [tinyvec]()
+  - [spin and once_cell]()
 
 ---
 
