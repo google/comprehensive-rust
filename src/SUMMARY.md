@@ -240,7 +240,7 @@
   - [A minimal example](bare-metal/minimal.md)
   - [alloc](bare-metal/alloc.md)
 - [Microcontrollers](bare-metal/microcontrollers.md)
-  - [Raw MMIO]()
+  - [Raw MMIO](bare-metal/microcontrollers/mmio.md)
   - [PACs](bare-metal/microcontrollers/pacs.md)
   - [HAL crates](bare-metal/microcontrollers/hals.md)
   - [Board support crates](bare-metal/microcontrollers/board-support.md)
