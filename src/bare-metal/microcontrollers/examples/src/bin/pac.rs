@@ -19,23 +19,34 @@
 extern crate panic_halt as _;
 
 use cortex_m_rt::entry;
-use gd32f1::gd32f130::Peripherals;
+use nrf52833_pac::Peripherals;
 
 #[entry]
 fn main() -> ! {
     let p = Peripherals::take().unwrap();
-    let gpioc = p.GPIOC;
+    let gpio0 = p.P0;
 
-    // Enable GPIOC.
-    p.RCU.ahben.modify(|_, w| w.pcen().enabled());
+    // Configure GPIO 0 pins 21 and 28 as push-pull outputs.
+    gpio0.pin_cnf[21].write(|w| {
+        w.dir().output();
+        w.input().disconnect();
+        w.pull().disabled();
+        w.drive().s0s1();
+        w.sense().disabled();
+        w
+    });
+    gpio0.pin_cnf[28].write(|w| {
+        w.dir().output();
+        w.input().disconnect();
+        w.pull().disabled();
+        w.drive().s0s1();
+        w.sense().disabled();
+        w
+    });
 
-    // Configure PC9 as a push-pull output.
-    gpioc.pud.modify(|_, w| w.pud9().floating());
-    gpioc.omode.modify(|_, w| w.om9().push_pull());
-    gpioc.ctl.modify(|_, w| w.ctl9().output());
-
-    // Set PC9 high to turn the LED on.
-    gpioc.bop.write(|w| w.bop9().set());
+    // Set pin 28 low and pin 21 high to turn the LED on.
+    gpio0.outclr.write(|w| w.pin28().clear());
+    gpio0.outset.write(|w| w.pin21().set());
 
     loop {}
 }

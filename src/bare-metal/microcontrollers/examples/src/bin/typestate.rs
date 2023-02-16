@@ -18,10 +18,10 @@
 extern crate panic_halt as _;
 
 use cortex_m_rt::entry;
-use gd32f1x0_hal::{
+use nrf52833_hal::{
     gpio::{
-        gpioc::{PC1, PC2, PC9},
-        Floating, Input, OpenDrain, Output, PushPull,
+        p0::{self, P0_01, P0_02, P0_03},
+        Disconnected, Floating, Input, Level, OpenDrain, OpenDrainConfig, Output, PushPull,
     },
     pac::Peripherals,
     prelude::*,
@@ -31,20 +31,24 @@ use gd32f1x0_hal::{
 #[entry]
 fn main() -> ! {
     let p = Peripherals::take().unwrap();
-    let mut rcu = p.RCU.constrain();
-    let mut gpioc = p.GPIOC.split(&mut rcu.ahb);
-    let pc9: PC9<Input<Floating>> = gpioc.pc9;
-    // let pc9_again = gpioc.pc9; // Error, moved.
-    if pc9.is_high().unwrap() {
+    let gpio0 = p0::Parts::new(p.P0);
+
+    let pin: P0_01<Disconnected> = gpio0.p0_01;
+
+    // let gpio0_01_again = gpio0.p0_01; // Error, moved.
+    let pin_input: P0_01<Input<Floating>> = pin.into_floating_input();
+    if pin_input.is_high().unwrap() {
         // ...
     }
-    let mut pc9_output: PC9<Output<OpenDrain>> =
-        pc9.into_open_drain_output(&mut gpioc.config);
-    pc9_output.set_high().unwrap();
-    // pc9.is_high(); // Error, moved.
+    let mut pin_output: P0_01<Output<OpenDrain>> =
+        pin_input.into_open_drain_output(OpenDrainConfig::Disconnect0Standard1, Level::Low);
+    pin_output.set_high().unwrap();
+    // pin_input.is_high(); // Error, moved.
 
-    let _pc1: PC1<Output<OpenDrain>> = gpioc.pc1.into_open_drain_output(&mut gpioc.config);
-    let _pc2: PC2<Output<PushPull>> = gpioc.pc2.into_push_pull_output(&mut gpioc.config);
+    let _pin2: P0_02<Output<OpenDrain>> = gpio0
+        .p0_02
+        .into_open_drain_output(OpenDrainConfig::Disconnect0Standard1, Level::Low);
+    let _pin3: P0_03<Output<PushPull>> = gpio0.p0_03.into_push_pull_output(Level::Low);
 
     loop {}
 }

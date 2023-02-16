@@ -19,21 +19,26 @@
 extern crate panic_halt as _;
 
 use cortex_m_rt::entry;
-use gd32f1x0_hal::{pac::Peripherals, prelude::*};
+use nrf52833_hal::{
+    gpio::{p0, Level},
+    pac::Peripherals,
+    prelude::*,
+};
 
 #[entry]
 fn main() -> ! {
     let p = Peripherals::take().unwrap();
-    let mut rcu = p.RCU.constrain();
 
-    // Enable GPIOC.
-    let mut gpioc = p.GPIOC.split(&mut rcu.ahb);
+    // GPIO port 0.
+    let gpio0 = p0::Parts::new(p.P0);
 
-    // Configure PC9 as a push-pull output.
-    let mut led = gpioc.pc9.into_push_pull_output(&mut gpioc.config);
+    // Configure GPIO 0 pins 21 and 28 as push-pull outputs.
+    let mut col1 = gpio0.p0_28.into_push_pull_output(Level::High);
+    let mut row1 = gpio0.p0_21.into_push_pull_output(Level::Low);
 
-    // Set PC9 high to turn the LED on.
-    led.set_high().unwrap();
+    // Set pin 28 low and pin 21 high to turn the LED on.
+    col1.set_low().unwrap();
+    row1.set_high().unwrap();
 
     loop {}
 }
