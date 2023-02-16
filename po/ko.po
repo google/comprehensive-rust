@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: [한국어]Comprehensive Rust 🦀\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-02-16 11:29+0900\n"
+"PO-Revision-Date: 2023-02-16 16:17+0900\n"
 "Last-Translator: keispace <keispace.kyj@google.com>\n"
 "Language-Team: \n"
 "Language: ko\n"
@@ -8047,24 +8047,23 @@ msgstr "# 3일차 개요"
 
 #: src/welcome-day-3.md:3
 msgid "Today, we will cover some more advanced topics of Rust:"
-msgstr "오늘은 러스트의 몇가지 고급 주제를 다룹니다:"
+msgstr "오늘은 몇 가지 고급 주제를 다룹니다:"
 
 #: src/welcome-day-3.md:5
 msgid ""
 "* Traits: deriving traits, default methods, and important standard library\n"
 "  traits."
-msgstr "* 트레이트: 트레이트 파생(derive), 기본 메서드, 주요 표준라이브러리 트레이트"
+msgstr "* 트레이트: 트레이트 상속(derive), 디폴트 메서드, 표준 라이브러에 있는 중요한 트레이트 들"
 
 #: src/welcome-day-3.md:8
 msgid ""
 "* Generics: generic data types, generic methods, monomorphization, and trait\n"
 "  objects."
-msgstr ""
-"* 제너릭: 제너릭 데이터 타입, 제너릭 메서드, 단형화(monomorphization),   그리고 트레이트 객체"
+msgstr "* 제너릭: 제너릭 데이터 타입, 제너릭 메서드, 단형화(monomorphization), 트레이트 객체"
 
 #: src/welcome-day-3.md:11
 msgid "* Error handling: panics, `Result`, and the try operator `?`."
-msgstr "* 오류처리(에러 핸들링): 패닉, Result, ?연산자(시행 연산자)"
+msgstr "* 오류처리(에러 핸들링): 패닉, `Result`, `?` 연산자"
 
 #: src/welcome-day-3.md:13
 msgid "* Testing: unit tests, documentation tests, and integration tests."
@@ -8074,7 +8073,7 @@ msgstr "* 테스트: 단위 테스트, 문서 테스트 및 통합 테스트"
 msgid ""
 "* Unsafe Rust: raw pointers, static variables, unsafe functions, and extern\n"
 "  functions."
-msgstr "* 안전하지 않은 러스트: 원시(raw) 포인터, 정적 변수, 안전하지 않은 함수,   외부 함수"
+msgstr "* 안전하지 않은 러스트: 원시(raw) 포인터, 정적 변수, 안전하지 않은 함수, 외부 함수"
 
 #: src/traits.md:1
 msgid "# Traits"
@@ -8082,7 +8081,7 @@ msgstr "# 트레이트(Trait)"
 
 #: src/traits.md:3
 msgid "Rust lets you abstract over types with traits. They're similar to interfaces:"
-msgstr "러스트는 인터페이스 처럼 트레이트가 있는 타입을 추상화 할 수 있습니다: "
+msgstr "트레이트는 타입을 추상화 하는데 사용됩니다. 인터페이스와 비슷합니다:"
 
 #: src/traits.md:5
 msgid ""
@@ -8101,7 +8100,7 @@ msgstr ""
 
 #: src/traits.md:14
 msgid "struct Cat;  // No name, cats won't respond to it anyway."
-msgstr "struct Cat;  // 이름속성이 없습니다. 고양이는 어쨌든 반응하지 않습니다:)"
+msgstr "struct Cat;  // 이름이 없습니다. 이름이 있더라도 고양이는 어차피 불러도 반응 없을 겁니다."
 
 #: src/traits.md:16
 msgid ""
@@ -8136,7 +8135,6 @@ msgid ""
 msgstr ""
 
 #: src/traits.md:41
-#, fuzzy
 msgid ""
 "* Traits may specify pre-implemented (default) methods and methods that users are required to "
 "implement themselves. Methods with default implementations can rely on required methods.\n"
@@ -8148,11 +8146,13 @@ msgid ""
 "consists of two components, a pointer to the actual object and a pointer to the virtual method "
 "table for the `Greet` implementation of that particular object."
 msgstr ""
-"* 트레이트는 사용자가 직접 구현해야하는 메서드와 사전 구현된(기본) 메서드를 지정할 수 있습니다. 기"
-"본 구현된 메서드는 (다른)필수 메서드를 의존할 수 있습니다.\n"
-"* 주어진 트레이트를 구현하는 타입은 크기가 다를 수 있습니다. 이는 위의 예시에서 `Vec<Greet>`와 같"
-"은 것을 가질 수 없게 합니다.\n"
-"* `dyn Greet`는 컴파일러에게 `Greet`을 구현하는 동적 사이즈 타입을 알려주는 표기입니다."
+"* 트레이트는 사용자가 직접 구현해야 하는 메서드와 사전 구현된(디폴트) 메서드를 지정할 수 있습니다. "
+"기본 구현된 메서드는 (다른)필수 메서드를 의존할 수 있습니다.\n"
+"* 여러 타입이 같은 트레이트를 구현하더라도 그 크기는 서로 다를 수 있습니다. 그래서 `Vec<Greeet>`같"
+"은 것은 불가능합니다. 왜냐하면 `Greet`트레이트를 구현하는 타입들 중 어떤 크기의 타입이 실제로 사용"
+"될 지, 컴파일 시에 알 방법이 없는 반면, `Vec<>`는 타입의 크기를 컴파일 시에 알고자 하기 때문입니"
+"다.\n"
+"* `dyn Greet`는 `Greet`을 구현하는, 가변 크기의 타입을 의미합니다."
 
 #: src/traits.md:46
 msgid ""
@@ -8179,8 +8179,8 @@ msgstr "# 트레이트 상속하기(Deriving Traits)"
 #: src/traits/deriving-traits.md:3
 msgid "You can let the compiler derive a number of traits:"
 msgstr ""
-"컴파일러가 여러가지 트레이트를 상속(derive)하도록 할 수 있습니다:\n"
-"* _역주: derive 메타주석 이야기 입니다._"
+"컴파일러가 여러가지 트레이트를 상속(derive)하도록 할 수 있습니다. 이 경우 컴파일러가 트레이트를 자"
+"동으로 구현합니다."
 
 #: src/traits/deriving-traits.md:5
 msgid ""
@@ -8206,17 +8206,11 @@ msgstr ""
 
 #: src/traits/default-methods.md:1
 msgid "# Default Methods"
-msgstr "# 기본 메서드"
+msgstr "# 디폴트 메서드"
 
 #: src/traits/default-methods.md:3
 msgid "Traits can implement behavior in terms of other trait methods:"
-msgstr ""
-"트레이트는 다른 트레이트 메서드에서의 동작을 구현할 수 있습니다.\n"
-"* 역주: \n"
-"  * Equals 트레이트에서 equal은 선언만 되어있고 not_equal에서 이를 호출하고     있습니다. (추상 메"
-"서드)\n"
-"  * impl에서 equal 메서드를 정의하고 있어서 Centimeter에서의 equal 메서드를     구현되어 있습니다."
-"(추상 메서드 구현)"
+msgstr "트레이트의 디폴트 메서드에서 다른(구현되지 않은) 메소드를 이용할 수 있습니다:"
 
 #: src/traits/default-methods.md:5
 msgid ""
@@ -8257,11 +8251,11 @@ msgstr ""
 
 #: src/traits/important-traits.md:1
 msgid "# Important Traits"
-msgstr "# 중요 트레이트"
+msgstr "# 중요한 트레이트들"
 
 #: src/traits/important-traits.md:3
 msgid "We will now look at some of the most common traits of the Rust standard library:"
-msgstr "러스트 표준 라이브러리의 자주 사용하는 몇가지 트레이트 예시입니다:"
+msgstr "러스트 표준 라이브러리에는 다음과 같은 범용 트레이트들이 정의되어 있습니다:"
 
 #: src/traits/important-traits.md:5
 #, fuzzy
@@ -8274,7 +8268,7 @@ msgid ""
 "* [`Default`][10] used to construct a default instance of a type."
 msgstr ""
 "* `Iterator`와 `IntoIterator` 트레이트는 `for` 루프에서 사용됩니다.\n"
-"* `From`과 `Into` 트레이트는 타입변환시 사용됩니다.\n"
+"* `From`과 `Into` 트레이트는 값을 변환할 때 사용됩니다.\n"
 "* `Read`와 `Write` 트레이트는 I/O에 사용됩니다.\n"
 "* `Add`, `Mul` 등의 트레이트들은 연산자 오버로딩(overloading)에 사용됩니다.\n"
 "* `Drop` 트레이트는 소멸자 정의에 사용됩니다."
@@ -8298,9 +8292,8 @@ msgid "# Iterators"
 msgstr "# Iterators"
 
 #: src/traits/iterator.md:3
-#, fuzzy
 msgid "You can implement the [`Iterator`][1] trait on your own types:"
-msgstr "`Iterator`를 커스텀 타입에 구현할 수 있습니다: "
+msgstr "`Iterator`트레이트를 여러분이 정의한 타입에서 구현해 보겠습니다: "
 
 #: src/traits/iterator.md:5
 msgid ""
@@ -8354,12 +8347,12 @@ msgid ""
 "</details>"
 msgstr ""
 "* `IntoIterator`는 루프가 작동하도록 만드는 트레이트입니다.\n"
-"  `Vec<T>`와 같은 컬렉션 타입과 그에 대한 참조 타입(`&Vec<T>`, `&[T]`)으로 구현됩니다.\n"
-"  Range 역시 이를 구현합니다.\n"
-"* `Iterator` 트레이트는 컬렉션에 대해 일반적인 함수형 프로그래밍 동작  (`map`, `filter`, `reduce` "
-"등)을 구현합니다. \n"
-"  관련 문서에서도 해당 기능들을 확인 할 수 있습니다.\n"
-"  러스트에서 이러한 함수들은 명령형으로 구현된 코드와 동등하게 동작합니다.\n"
+"  `Vec<T>`와 같은 컬렉션 타입과 그에 대한 참조 타입(`&Vec<T>`, `&[T]`)들 모두 이 트레이트를 구현합"
+"니다. Range 역시 이를 구현합니다.\n"
+"* `Iterator` 트레이트는 컬렉션에 대해 다양한 함수형 프로그래밍 연산 (`map`, `filter`, `reduce` 등)"
+"을 구현합니다. \n"
+"이 연산들에 대한 자세한 설명은 `Iterator` 트레이트의 API 레퍼런스에서 찾을 수 있습니다.\n"
+"러스트에서 이러한 함수형 연산들은 절차형으로 구현된 코드와 동일한 성능을 보여줍니다.\n"
 "    \n"
 "</details>"
 
@@ -8372,9 +8365,10 @@ msgid "# FromIterator"
 msgstr "# FromIterator"
 
 #: src/traits/from-iterator.md:3
-#, fuzzy
 msgid "[`FromIterator`][1] lets you build a collection from an [`Iterator`][2]."
-msgstr "`FromIterator` 는 `Iterator`로부터 컬렉션을 만들 수 있습니다."
+msgstr ""
+"어떤 컬렉션이 `[FromIterator`][1]를 구현하고 있다면 [`Iterator`][2]로부터 그 컬렉션을 만들 수 있습"
+"니다."
 
 #: src/traits/from-iterator.md:5
 msgid ""
@@ -8475,10 +8469,10 @@ msgid ""
 msgstr ""
 "<details>\n"
 "  \n"
-"* 그렇기 때문에 사용자가 직접 타입을 구현하는 경우에도 `From` 만 구현하는 것이 일반적입니다.\n"
-"* \"`String`으로 변환할 수 있는 모든 것\"과 같은 함수의 인수 타입을 선언할 때 규칙은 반대로 적용되"
-"므로 `Into`를 사용해야 합니다. 함수는 `From`을 구현한 타입과 _오직_ `Into`만 구현한 타입을 사용할 "
-"수 있습니다.\n"
+"* 그렇기 때문에 사용자 정의 타입의 경우에도 `From` 만 구현하는 것이 일반적입니다.\n"
+"* \"`String`으로 변환할 수 있는 모든 것\"과 같은 함수의 인수 타입을 선언할 때에는 `Into`를 사용해"
+"야 함을 조심하세요. 그래야만, 함수는 `From`을 구현한 타입과 `Into` _만_ 구현한 타입 모두를 인자로 "
+"받을 수 있습니다.\n"
 "    \n"
 "</details>"
 
@@ -8496,9 +8490,8 @@ msgid "# `Read` and `Write`"
 msgstr "# `Read`와 `Write`"
 
 #: src/traits/read-write.md:3
-#, fuzzy
 msgid "Using [`Read`][1] and [`BufRead`][2], you can abstract over `u8` sources:"
-msgstr "`Read`와 `BufRead`를 사용하면 `u8` 소스로부터 읽을 수 있습니다:"
+msgstr "[`Read`][1]와 [`BufRead`][2]를 사용하면 `u8` 타입의 데이터 스트림을 읽을 수 있습니다:"
 
 #: src/traits/read-write.md:5
 msgid ""
@@ -8531,9 +8524,8 @@ msgid ""
 msgstr ""
 
 #: src/traits/read-write.md:23
-#, fuzzy
 msgid "Similarly, [`Write`][3] lets you abstract over `u8` sinks:"
-msgstr "유사하게 `Write`를 통해 `u8`소스로 출력할 수 있습니다:"
+msgstr "이와 비슷하게, `Write`를 사옹하면 `u8` 타입의 데이터를 쓸 수 있습니다:"
 
 #: src/traits/read-write.md:25
 msgid ""
@@ -8576,9 +8568,8 @@ msgid "# `Add`, `Mul`, ..."
 msgstr "# `Add`, `Mul`, ..."
 
 #: src/traits/operators.md:3
-#, fuzzy
 msgid "Operator overloading is implemented via traits in [`std::ops`][1]:"
-msgstr "연산자 오버로드는 `std::ops` 트레이트을 통해 구현됩니다:"
+msgstr "연산자 오버로드는 `std::ops`에 있는 다양한 트레이트들을 통해 구현됩니다:"
 
 #: src/traits/operators.md:5
 msgid ""
@@ -8613,7 +8604,7 @@ msgstr ""
 
 #: src/traits/operators.md:26 src/traits/drop.md:34
 msgid "Discussion points:"
-msgstr "논의점: "
+msgstr "논의점:"
 
 #: src/traits/operators.md:28
 msgid ""
@@ -8627,13 +8618,13 @@ msgid ""
 "        associated types (like `Output`) are controlled by the implementor of a\n"
 "        trait."
 msgstr ""
-"* 언제 `&Point`에 `Add`를 구현하는 것이 좋습니까?\n"
-"  * 답변: `Add:add`은 'self'를 소모(consume)합니다. 만약 `Copy`트레이트 없는  타입 `T`가 연산자 오"
-"버로딩 하는 경우 `&T`에 대한 연산자 오버로딩도 고려해야  합니다. 이렇게 하면 호출부에서의 불필요한 "
-"복제를 방지할 수 있습니다.\n"
-"* 왜 `Output`이 연관 타입(associated type)입니까? 타입 매개변수를 만들 수 있습니까?\n"
-"  * 답변: 타입 매개변수는 호출자가 제어하지만 연관 타입(associated type)은  트레이트의 구현자가 제"
-"어합니다."
+"* `&Point`가 `Add`를 구현하도록 할 수도 있습니다. 이게 어떤 경우에 유용할까요?\n"
+"  * 답: `Add:add`는 `self`를 소모합니다. 만약 타입 `T`가 `Copy`트레이트를 구현하고 있지 않다면 `&T`"
+"에 대해서도 연산자 오버로딩을 고려해야 합니다. 이렇게 하면 호출부에서 불필요한 복사를 피할 수 있습"
+"니다.\n"
+"* 왜 `Output`이 연관된 타입인가요? 타입 파라메터로 만들 수 있을까요?\n"
+"  * 답: 타입 파라메터를 호출하는 쪽에서 결정합니다. 반면 연관된 타입(`Output`같은) 은 트레이트를 구"
+"현하는 쪽에서 제어 가능합니다."
 
 #: src/traits/operators.md:40
 msgid "[1]: https://doc.rust-lang.org/std/ops/index.html"
@@ -8644,9 +8635,9 @@ msgid "# The `Drop` Trait"
 msgstr "# `Drop` 트레이트"
 
 #: src/traits/drop.md:3
-#, fuzzy
 msgid "Values which implement [`Drop`][1] can specify code to run when they go out of scope:"
-msgstr "`Drop`트레이트는 값이 스코프 밖으로 나갈때 실행하는 코드를 작성할 수 있습니다:"
+msgstr ""
+"[`Drop`][1]트레이트를 구현하면, 그 값이 스코프 밖으로 나갈 때 실행될 코드를 작성할 수 있습니다:"
 
 #: src/traits/drop.md:5
 msgid ""
@@ -8692,7 +8683,7 @@ msgid ""
 "        overflow!\n"
 "* Try replacing `drop(a)` with `a.drop()`."
 msgstr ""
-"* `Drop::drop`은 왜 `self`를 가지지 않습니까?\n"
+"* `Drop::drop`은 왜 `self`를 인자로 받지 않습니까?\n"
 "  * 짧은 대답: 만약 그렇게 된다면 `std::mem::drop`이 블록의 끝에서 호출되고, 다시 `Drop::drop`을 호"
 "출하게되 스택 오버플로가 발생합니다.\n"
 "* `drop(a)`를 `a.drop()`로 변경해 보시기 바랍니다."
@@ -8817,7 +8808,9 @@ msgstr "# 제너릭"
 msgid ""
 "Rust support generics, which lets you abstract an algorithm (such as sorting)\n"
 "over the types used in the algorithm."
-msgstr "러스트는 제너릭을 지원하여 정렬과 같은 알고리즘에 적용되는 타입을 추상화 할 수 있습니다."
+msgstr ""
+"러스트는 제너릭을 지원합니다. 이를 이용하면 알고리즘(정렬과 같은)을 추상화 하여 특정 타입에 의존하"
+"지 않도록 할 수 있습니다."
 
 #: src/generics/data-types.md:1
 msgid "# Generic Data Types"
@@ -8825,7 +8818,7 @@ msgstr "# 제너릭 데이터 타입"
 
 #: src/generics/data-types.md:3
 msgid "You can use generics to abstract over the concrete field type:"
-msgstr "제너릭을 사용하여 구체적인 타입을 추상화할 수 있습니다:"
+msgstr "제너릭을 사용하여 필드의 타입을 추상화 할 수 있습니다:"
 
 #: src/generics/data-types.md:5
 msgid ""
@@ -8895,12 +8888,12 @@ msgid ""
 "      * `Point` is still generic and you can use `Point<f64>`, but methods in this block will only "
 "be available for `Point<u32>`."
 msgstr ""
-"* *의문:* `impl<T> Point<T> {}`에서 `T`가 왜 두번 지정됩니까?\n"
-"  * 제너릭 타입에 대한 제너릭 구현 이기 때문입니다. 이들을 일반적으로 독립적입니다.\n"
-"  * 이는 이러한 방법으로 모든 `T`에 대해 정의 된다는 것을 뜻합니다.\n"
+"* *질문:* `impl<T> Point<T> {}`에서 `T`가 왜 두 번 사용됩니까?\n"
+"  * 제너릭 타입에 대한 제너릭 구현 이기 때문입니다. 이 두 제너릭은 서로 독립적입니다.\n"
+"  * 이는 임의의 모든 `T`에 대해서 이 메소드들이 정의된다는 것을 의미합니다.\n"
 "  * `impl Point<u32> { .. }`와 같이 작성하는 것도 가능합니다.\n"
-"    * `Point`는 여전히 제너릭이며 `Point<f64>`를 사용할 수도 있지만    이 블록의 메서드는 "
-"`Point<u32>`만 쓸 수 있습니다."
+"    * `Point`는 여전히 제너릭이며 `Point<f64>`를 사용할 수도 있지만 이 블록의 메서드는 `Point<u32>`"
+"만 쓸 수 있습니다."
 
 #: src/generics/trait-bounds.md:1
 msgid "# Trait Bounds"
@@ -8957,7 +8950,6 @@ msgid ""
 msgstr ""
 
 #: src/generics/trait-bounds.md:35
-#, fuzzy
 msgid ""
 "Show a `where` clause, students will encounter it when reading code.\n"
 "    \n"
@@ -8970,7 +8962,7 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-"`where`문법을 사용하는 것도 고려 할 수 있습니다. 학생들도 이러한 코드 표현을 마주할 수 있습니다.\n"
+"`where` 문법을 사용할 수도 있습니다. 수강생들도 코드를 읽다가 그 문법을 마주할 수 있습니다.\n"
 "    \n"
 "```rust,ignore\n"
 "fn duplicate<T>(a: T) -> (T, T)\n"
@@ -8990,9 +8982,9 @@ msgid ""
 "    \n"
 "</details>"
 msgstr ""
-"* 매개변수가 많은 경우 함수 시그니처을 정리합니다.\n"
-"* 좀 더 강력한 추가 기능을 제공합니다.\n"
-"  * 추가 기능은 `Option<T>`와 같이 \":\" 왼쪽에 있는 타입이 임의적일 수  있다는 것입니다.\n"
+"* 이를 이용하면 타입 파라메터가 많은 경우 함수 시그니처를 간결하게 정리하는데 도움이 됩니다.\n"
+"* 좀 더 강력한 추가 기능도 제공합니다.\n"
+"  * `\":\" 왼쪽에 임의의 타입(예를 들어 `Option<T>`)을 사용할 수 있습니다.\n"
 "    \n"
 "</details>"
 
@@ -9004,7 +8996,7 @@ msgstr "# 트레이트 구현하기(`impl Trait`)"
 msgid ""
 "Similar to trait bounds, an `impl Trait` syntax can be used in function\n"
 "arguments and return values:"
-msgstr "트레이트 바운드와 유사하게 `impl`트레이트 문법은 함수의 인자와 반환값에 적용 가능합니다:"
+msgstr "트레이트 바운드와 유사하게 `impl Trait` 문법은 함수의 인자와 반환값에도 적용 가능합니다:"
 
 #: src/generics/impl-trait.md:6 src/generics/trait-objects.md:5 src/generics/trait-objects.md:28
 msgid ""
@@ -9033,12 +9025,12 @@ msgid ""
 "* `impl Trait` cannot be used with the `::<>` turbo fish syntax.\n"
 "* `impl Trait` allows you to work with types which you cannot name."
 msgstr ""
-"* `impl` 트레이트는 터보피쉬문법(`::<>`)에는 사용할 수 없습니다.\n"
-"* `impl` 트레이트는 익명타입과 사용할 수 있습니다."
+"* `impl Trait`를 터보피쉬문법(`::<>`)과 함께 사용할 수는 없습니다.\n"
+"* `impl Trait`를 이용하면 이름이 없는 타입을 다룰 수 있습니다."
 
 #: src/generics/impl-trait.md:24
 msgid "The meaning of `impl Trait` is a bit different in the different positions."
-msgstr "`impl Trait`는 입장에 따라 의미가 조금씩 다릅니다."
+msgstr "`impl Trait`는 어디에 사용되었느냐에 따라 의미가 조금씩 다릅니다."
 
 #: src/generics/impl-trait.md:26
 msgid ""
@@ -9049,9 +9041,11 @@ msgid ""
 "a\n"
 "  public API."
 msgstr ""
-"* 매개변수(parameter) 입장에서는 트레이트 경계(bound)가 있는 익명 제너릭 매개변수와 같습니다.\n"
-"* 반환 타입 입장에서는 이름을 지정하지 않고 트레이트를 구현한 구체적인 타입임을 의미합니다. 이는 공"
-"개된 API에서 구체적은 타입을 노출하지 않으려는 경우 유용할 수 있습니다."
+"* 함수 인자의 타입으로 사용되었을 경우에는 `impl Trait`는 트레이트 경계가 있는 익명의 제너릭 타입"
+"을 의미합니다.\n"
+"* 리턴 타입으로 사용되었을 경우에는, 그 트레이트를 구현하는 구체적인 타입인데, 타입 이름을 프로그래"
+"머가 짓지 않았다는 것을 의미합니다. 이는 그 구체적인 타입 이름을 API로 공개하고 싶지 않은 경우에 유"
+"용합니다."
 
 #: src/generics/impl-trait.md:31
 msgid ""
@@ -9065,12 +9059,12 @@ msgid ""
 "    \n"
 "</details>"
 msgstr ""
-"이 예시는 `impl Display`가 두번 사용 되었다는 점에서 훌륭합니다.\n"
-"이는 두 사용처에서 동일한 `impl Display` 타입의 사용을 강제하지 않는 것을 설명하는데 도움이 됩니"
-"다. 만일 `T: Display`를 사용한다면 입력과 반환 값이 동일 한 `T` 타입이어야 한다는 제약이 생깁니다. "
-"여기에서 입력되는 유형은 `format!`으로 반환되는 타입과 동일하지 않을 가능성이 높기 때문에 `T: "
-"Display`의 지정은 특정 기능에는 동작하지 않을 수 있습니다. 만약 `: Display` 형태로 사용하고 싶다면 "
-"독립적인 제너릭 매개변수가 2개 필요합니다.\n"
+"이 예시는 `impl Display`가 두번 사용 되었다는 점에서 훌륭합니다. 여기서 중요한 것은 이 두 `impl "
+"Display`가 실제로 같은 타입일 필요가 없다는 것입니다. 만약 `T: Display`로 트레이트 경계를 정하고 입"
+"력 파라메터와 리턴 값의 타입을 모두 `T`로 했다면, 이는 입력과 리턴값이 같은 타입임을 강제합니다. 이"
+"렇게 했다면 위의 예제는 동작하지 않았을 것입니다. 왜냐하면, 입력 값의 타입이 `format!`이 리턴하는 "
+"타입과 같지 않을 가능성이 높기 때문입니다. 만약 `: Display` 문법을 사용하고 싶다면 독립적인 제너릭 "
+"매개변수가 두 개가 필요합니다.\n"
 "    \n"
 "</details>"
 
@@ -9085,10 +9079,9 @@ msgid ""
 "[`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), and\n"
 "[`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html) traits:"
 msgstr ""
-"클로저 혹은 람다표현식은 익명타입입니다. 이들은 \n"
-"[`Fn`](https://doc.rust-lang.org/std/ops/trait.Fn.html),\n"
-"[`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), \n"
-"[`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html) 라는 특별한 트레이트를 구현합니다."
+"클로저 혹은 람다표현식은 익명타입입니다. 이들은 [`Fn`](https://doc.rust-lang.org/std/ops/trait.Fn."
+"html),[`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), [`FnOnce`](https://doc.rust-"
+"lang.org/std/ops/trait.FnOnce.html) 라는 특별한 트레이트를 구현합니다."
 
 #: src/generics/closures.md:8
 msgid ""
@@ -9130,8 +9123,8 @@ msgid ""
 "can\n"
 "be called multiple times concurrently."
 msgstr ""
-"`Fn`은 캡처된 값을 소모도 변경도 할 수 없거나 어떤 것도 캡처하지 않으므로 동시에 여러번 호출 할 수 "
-"있습니다."
+"`Fn`은 캡처된 값을 소모도 변경도 하지 않고, 혹은 어떤 것도 캡쳐하지 않았을 수도 있기 때문에 동시에 "
+"여러번 호출할 수 있습니다."
 
 #: src/generics/closures.md:32
 msgid ""
@@ -9140,13 +9133,13 @@ msgid ""
 "`FnOnce`\n"
 "is called for."
 msgstr ""
-"`FnMut` 는 `FnOnce`의 하위타입입니다. `Fn`은 `FnMut`과 `FnOnce`의 하위 타입입니다.즉, `FnMut`는 "
+"`FnMut` 는 `FnOnce`의 하위타입입니다. `Fn`은 `FnMut`과 `FnOnce`의 하위 타입입니다. 즉, `FnMut`는 "
 "`FnOnce`가 호출되는 곳이면 어디서나 사용 할 수 있고 `Fn`은 `FnMut`와 `FnOnce`가 호출되는 곳이면 어"
 "디든 사용할 수 있습니다."
 
 #: src/generics/closures.md:36
 msgid "`move` closures only implement `FnOnce`."
-msgstr "클로저에서 선언되는 `move`는 오직 `FnOnce`만 구현합니다."
+msgstr "클로저가 `move`와 함께 선언되었다면 그 클로저는 오직 `FnOnce`만 구현합니다."
 
 #: src/generics/monomorphization.md:1
 msgid "# Monomorphization"
@@ -9201,8 +9194,8 @@ msgid ""
 "This is a zero-cost abstraction: you get exactly the same result as if you had\n"
 "hand-coded the data structures without the abstraction."
 msgstr ""
-"이것은 (런타임)코스트가 들지 않는 추상화입니다: 추상화 없이 직접 코딩한 것과 정확히 같은 결과입니"
-"다."
+"이것이 바로 비용이 들지 않는 (zero-cost) 추상화 입니다: 러스트의 제너릭은 추상화를 거치지 않고 직"
+"접 구체적인 타입을 써서 코딩한 것과 정확히 동일한 결과를 보여줍니다."
 
 #: src/generics/trait-objects.md:1
 msgid "# Trait Objects"
@@ -9210,7 +9203,7 @@ msgstr "# 트레이트 객체"
 
 #: src/generics/trait-objects.md:3
 msgid "We've seen how a function can take arguments which implement a trait:"
-msgstr "트레이트를 구현할 때 인수를 취하는 방법:"
+msgstr "함수가 특정 트레이트를 구현하는 인자를 입력으로 받도록 하는 방법에 대해 설명했었습니다:"
 
 #: src/generics/trait-objects.md:8
 msgid ""
@@ -9230,7 +9223,9 @@ msgstr ""
 
 #: src/generics/trait-objects.md:18
 msgid "However, how can we store a collection of mixed types which implement `Display`?"
-msgstr "아래와 같이 여러가지 타입을 혼합하여 인수로 받려면 어떻게 해야 합니까?"
+msgstr ""
+"그런데, 아래와 같이 `Display`를 구현하는 서로 다른 타입들의 콜렉션을 저장하고 싶다면 어떻게 해야 할"
+"까요?"
 
 #: src/generics/trait-objects.md:20
 msgid ""
@@ -9243,7 +9238,7 @@ msgstr ""
 
 #: src/generics/trait-objects.md:26
 msgid "For this, we need _trait objects_:"
-msgstr "이를 위해서 _트레이트 객체가_ 필요합니다:"
+msgstr "이를 위해서는 _트레이트 객체_가 필요합니다:"
 
 #: src/generics/trait-objects.md:31
 msgid ""
@@ -9292,11 +9287,12 @@ msgid ""
 msgstr ""
 
 #: src/generics/trait-objects.md:69
-#, fuzzy
 msgid ""
 "Similarly, you need a trait object if you want to return different types\n"
 "implementing a trait:"
-msgstr "마찬가지로 트레이트를 구현한 다른 값을 반환할 때도 트레이트 객체가 필요합니다:"
+msgstr ""
+"마찬가지로, 같은 트레이트를 구현하는 서로 다른 타입의 값을 리턴할 때에도 트레이트 객체가 필요합니"
+"다:"
 
 #: src/generics/trait-objects.md:72
 msgid ""
@@ -9325,7 +9321,7 @@ msgstr "# 3일차 오전 연습문제"
 #: src/exercises/day-3/morning.md:3
 msgid "We will design a classical GUI library traits and trait objects."
 msgstr ""
-"이번 연습문제에서는 트레이트와 트레이트 객체를 통해 고전적인 GUI라이브러리를 설계할 것입니다."
+"이번 연습문제에서는 트레이트와 트레이트 객체를 통해 고전적인 GUI 라이브러리를 설계할 것입니다."
 
 #: src/exercises/day-3/simple-gui.md:1
 msgid "# A Simple GUI Library"
@@ -9336,12 +9332,12 @@ msgid ""
 "Let us design a classical GUI library using our new knowledge of traits and\n"
 "trait objects."
 msgstr ""
-"이번 연습문제에서는 트레이트와 트레이트 객체 지식을 활용하여 고전적인  GUI라이브러리를 설계할 것입"
-"니다."
+"이번 연습문제에서는 트레이트와 트레이트 객체에 대해 배운것을 활용하여 고전적인 GUI 라이브러리를 설"
+"계할 것입니다."
 
 #: src/exercises/day-3/simple-gui.md:6
 msgid "We will have a number of widgets in our library:"
-msgstr "라이브러리에는 몇가지 위젯이 있습니다:"
+msgstr "라이브러리에는 몇 가지 위젯이 있습니다:"
 
 #: src/exercises/day-3/simple-gui.md:8
 msgid ""
@@ -9350,13 +9346,13 @@ msgid ""
 "  button is pressed.\n"
 "* `Label`: has a `label`."
 msgstr ""
-"* `Window`: `title` 속성과 다른 위젯이 포함됩니다.\n"
-"* `Button`: `label`위젯과 버튼이 눌렸을때 실행되는 콜백 함수가 있습니다.\n"
-"* `Label`: `label` 위젯 입니다."
+"* `Window`: `title` 속성을 가지고 있으며, 다른 위젯들을 포함할 수 있습니다.\n"
+"* `Button`: `label` 속성을 가지고 있으며, 버튼이 눌렸을때 실행되는 콜백 함수가 있습니다.\n"
+"* `Label`: `label` 속성을 가지고 있습니다."
 
 #: src/exercises/day-3/simple-gui.md:13
 msgid "The widgets will implement a `Widget` trait, see below."
-msgstr "위젯은 `Widget` 트레이트를 구현합니다. 아래 코드를 참조하세요"
+msgstr "위젯들은 모두 `Widget` 트레이트를 구현합니다. 아래 코드를 참조하세요"
 
 #: src/exercises/day-3/simple-gui.md:15
 msgid ""
@@ -9538,7 +9534,7 @@ msgid ""
 "formatting operators. In particular, notice how you can pad with different\n"
 "characters (here a `'/'`) and how you can control alignment:"
 msgstr ""
-"정렬된 글자를 그리기 위해서는 [fill/alignment](https://doc.rust-lang.org/std/fmt/index."
+"텍스트를 줄맞춤 해서 그리려면 [fill/alignment](https://doc.rust-lang.org/std/fmt/index."
 "html#fillalignment)를 참조하시기 바랍니다. \n"
 "특수 문자(여기서는 '/')로 패딩을 주는 방법과 정렬을 제어하는 방법을 확인하시기 바랍니다."
 
