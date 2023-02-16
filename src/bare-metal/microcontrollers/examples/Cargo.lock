@@ -30,24 +30,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "46afbd2983a5d5a7bd740ccb198caf5b82f45c40c09c0eed36052d91cb92e719"
 
 [[package]]
-name = "bitflags"
-version = "1.3.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bef38d45163c2f1dde094a7dfd33ccf595c92905c8f8f4fdc18d06fb1037718a"
-
-[[package]]
-name = "bxcan"
-version = "0.7.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "40ac3d0c0a542d0ab5521211f873f62706a7136df415676f676d347e5a41dd80"
-dependencies = [
- "bitflags",
- "embedded-hal",
- "nb 1.0.0",
- "vcell",
-]
-
-[[package]]
 name = "bytemuck"
 version = "1.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -129,15 +111,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "embedded-dma"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "994f7e5b5cb23521c22304927195f236813053eb9c065dd2226a32ba64695446"
-dependencies = [
- "stable_deref_trait",
-]
-
-[[package]]
 name = "embedded-hal"
 version = "0.2.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -163,34 +136,6 @@ dependencies = [
  "bytemuck",
  "half",
  "typenum",
-]
-
-[[package]]
-name = "gd32f1"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7f484ed96a7b3129d72792c31eb9d22e8e3164d668dcbfd05ce8e5786799a946"
-dependencies = [
- "cortex-m",
- "cortex-m-rt",
- "vcell",
-]
-
-[[package]]
-name = "gd32f1x0-hal"
-version = "0.7.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0e94f33a60f7c7a4a38010bf4801b182cf294a8f1236e3cf528bb1f0fe995571"
-dependencies = [
- "bxcan",
- "cast",
- "cortex-m",
- "cortex-m-rt",
- "embedded-dma 0.2.0",
- "embedded-hal",
- "gd32f1",
- "nb 1.0.0",
- "void",
 ]
 
 [[package]]
@@ -228,9 +173,9 @@ version = "0.1.0"
 dependencies = [
  "cortex-m-rt",
  "embedded-hal",
- "gd32f1",
- "gd32f1x0-hal",
  "microbit-v2",
+ "nrf52833-hal",
+ "nrf52833-pac",
  "panic-halt",
 ]
 
@@ -258,7 +203,7 @@ dependencies = [
  "cast",
  "cfg-if",
  "cortex-m",
- "embedded-dma 0.1.2",
+ "embedded-dma",
  "embedded-hal",
  "embedded-storage",
  "fixed",
