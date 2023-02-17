@@ -20,5 +20,7 @@
    * It uses the Cortex-M NVIC (Nested Virtual Interrupt Controller) for scheduling rather than a
      proper kernel.
    * Cortex-M only.
+ * Google uses TockOS on the Haven microcontroller for Titan security keys.
+ * FreeRTOS is mostly written in C, but there are Rust bindings for writing applications.
 
 </details>
