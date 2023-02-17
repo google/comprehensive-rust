@@ -1,6 +1,25 @@
 # `no_std`
 
-## `core`
+<table>
+<tr>
+<th>
+  
+`core`
+
+</th>
+<th>
+
+`alloc`
+
+</th>
+<th>
+
+`std`
+
+</th>
+</tr>
+<tr valign="top">
+<td>
 
 * Slices, `&str`, `CStr`
 * `NonZeroU8`...
@@ -13,13 +32,15 @@
 * `fence`, `AtomicBool`, `AtomicPtr`, `AtomicU32`...
 * `Duration`
 
-## `alloc`
+</td>
+<td>
 
 * `Box`, `Cow`, `Arc`, `Rc`
 * `Vec`, `BinaryHeap`, `BtreeMap`, `LinkedList`, `VecDeque`
 * `String`, `CString`, `format!`
 
-## `std`
+</td>
+<td>
 
 * `Error`
 * `HashMap`
@@ -32,8 +53,13 @@
 * `spawn`, `sleep` and the rest of `thread`
 * `SystemTime`, `Instant`
 
+</td>
+</tr>
+</table>
+
 <details>
 
 * `HashMap` depends on RNG.
+* `std` re-exports the contents of both `core` and `alloc`.
 
 </details>
