@@ -4,6 +4,7 @@
 - [Running the Course](running-the-course.md)
   - [Course Structure](running-the-course/course-structure.md)
   - [Keyboard Shortcuts](running-the-course/keyboard-shortcuts.md)
+  - [Translations](running-the-course/translations.md)
 - [Using Cargo](cargo.md)
   - [Rust Ecosystem](cargo/rust-ecosystem.md)
   - [Code Samples](cargo/code-samples.md)
