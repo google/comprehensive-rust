@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: [한국어]Comprehensive Rust 🦀\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-02-16 16:17+0900\n"
+"PO-Revision-Date: 2023-02-16 18:13+0900\n"
 "Last-Translator: keispace <keispace.kyj@google.com>\n"
 "Language-Team: \n"
 "Language: ko\n"
@@ -9574,15 +9574,15 @@ msgstr "# 오류처리"
 
 #: src/error-handling.md:3
 msgid "Error handling in Rust is done using explicit control flow:"
-msgstr "러스트의 오류 처리는 명시적인 흐름제어로 처리됩니다:"
+msgstr "러스트에서 오류는 명시적인 흐름을 따라 처리가 됩니다:"
 
 #: src/error-handling.md:5
 msgid ""
 "* Functions that can have errors list this in their return type,\n"
 "* There are no exceptions."
 msgstr ""
-"* 오류를 발생할 수 있는 함수는 반환 타입에 명시합니다. \n"
-"* 예외는 없습니다."
+"* 오류를 발생할 수 있는 함수는 반환 타입에 이를 명시해야 합니다. \n"
+"* 예외(exception) 기능은 없습니다."
 
 #: src/error-handling/panics.md:1
 msgid "# Panics"
@@ -9590,7 +9590,7 @@ msgstr "# 패닉"
 
 #: src/error-handling/panics.md:3
 msgid "Rust will trigger a panic if a fatal error happens at runtime:"
-msgstr "러스트는 런타임에서 치명적인 오류를 만나면 패닉을 발생할 것입니다:"
+msgstr "러스트는 수행 중 치명적인 오류를 만나면 패닉을 발생할 것입니다:"
 
 #: src/error-handling/panics.md:5
 msgid ""
@@ -9609,9 +9609,9 @@ msgid ""
 "* Use non-panicking APIs (such as `Vec::get`) if crashing is not acceptable."
 msgstr ""
 "* 패닉은 복구할 수 없고 예상치 못한 오류입니다.\n"
-"  * 패닉은 프로그램 버그의 증상입니다.\n"
-"* 충돌(크래시)를 허용하지 않아야 하는 경우 패닉을 유발하지 않는(non-panicking) API를 사용합니다."
-"(`Vec::get` 등)"
+"  * 패닉은 프로그램에 버그가 있다는 것을 나타냅니다.\n"
+"* 충돌(크래시)를 허용하지 않아야 하는 경우, 패닉을 유발하지 않는 API(`Vec::get`등)를 사용하면 됩니"
+"다."
 
 #: src/error-handling/panic-unwind.md:1
 msgid "# Catching the Stack Unwinding"
@@ -9619,7 +9619,8 @@ msgstr "# 스택 되감기"
 
 #: src/error-handling/panic-unwind.md:3
 msgid "By default, a panic will cause the stack to unwind. The unwinding can be caught:"
-msgstr "기본적으로, 패닉이 발생하면 스택은 해제됩니다. 스택 해제는 다음과 같이 캐치가 가능합니다: "
+msgstr ""
+"기본적으로, 패닉이 발생하면 스택 되감기를 합니다. 스택 되감기는 다음과 같이 캐치가 가능합니다:"
 
 #: src/error-handling/panic-unwind.md:5
 msgid ""
@@ -9650,18 +9651,20 @@ msgid ""
 "  request crashes.\n"
 "* This does not work if `panic = 'abort'` is set in your `Cargo.toml`."
 msgstr ""
-"* 이것은 단일 요청이 크래시 되더라도 계속 실행되야 하는 서버에 유용합니다.\n"
-"*  `Cargo.toml`설정파일에 `panic = abort`을 설정하면 동작하지 않습니다."
+"* 이것은 단일 요청이 크래시 되더라도 프로그램이 계속 실행되야 하는 서버에 유용합니다.\n"
+"* 만약 `Cargo.toml`설정파일에 `panic = abort`을 설정했다면 크래시를 캐치할 수 없습니다."
 
 #: src/error-handling/result.md:1
 msgid "# Structured Error Handling with `Result`"
-msgstr "# 구조화된 오류처리"
+msgstr "# `Result`를 이용한 구조화된 오류처리"
 
 #: src/error-handling/result.md:3
 msgid ""
 "We have already seen the `Result` enum. This is used pervasively when errors are\n"
 "expected as part of normal operation:"
-msgstr "`Result` enum은 흔히 오류를 예상되는 경우 사용됩니다: "
+msgstr ""
+"여러분은 이미 `Result` 열거형을 몇 번 봤습니다. 이 타입은 프로그램의 정상적인 수행 중에 발생할 수 "
+"있는 오류값들을 나타내기 위해 사용됩니다:"
 
 #: src/error-handling/result.md:6
 msgid ""
@@ -9701,12 +9704,12 @@ msgid ""
 "    \n"
 "</details>"
 msgstr ""
-"  * `Option`와 마찬가지로 성공한(`OK`) 값은 `Result` 내부에만 있으므로   개발자가 명시적으로 이를 "
-"추출하여야 합니다. 이렇게 하면 오류를 확인 할 수  있습니다. 만일 오류가 절대 발생하지 않는 경우라"
-"면 `unwrap()`나 `expect()`를   사용할 수 있으며 이는 개발자가 의도했음을 나타내는 신호이기도 합니"
-"다.\n"
-"  * 수업중엔 아니지만 `Result`에 대한 문서를 읽는 것을 권장합니다.   함수형 프로그래밍 스타일에 도"
-"움이 되는 편리한 메서드와 함수이 많이 포함되어  있습니다.\n"
+"  * `Option`와 마찬가지로, 성공한 경우의 값은 `Result` 내부에 있습니다. 그래서, 개발자는 명시적으"
+"로 이를 추출하여야 합니다. 이렇게 함으로써 값을 읽기 전에 오류 발생 여부를 반드시 체크하도록 유도하"
+"고 있습니다. 만일 오류가 절대 발생하지 않는 경우라면 `unwrap()`이나 `expect()`를 사용할 수 있으며, "
+"이는 개발자의 의도(_역주_: 오류가 발생할 수 없음)을 명시적으로 나타내는 방법이기도 합니다.\n"
+"  * 수업중엔 아니지만 `Result`의 API 레퍼런스를 읽는 것을 권장합니다. 함수형 프로그래밍 스타일에 도"
+"움이 되는 편리한 메서드와 함수를 많이 배울 수 있습니다.\n"
 "    \n"
 "</details>"
 
@@ -9718,7 +9721,7 @@ msgstr "# '?'를 이용한 오류 전파"
 msgid ""
 "The try-operator `?` is used to return errors to the caller. It lets you turn\n"
 "the common"
-msgstr "시도(시행)연산자 `?`는 호출자에게 오류를 반환할 때 사용합니다. "
+msgstr "연산자 `?`는 호출자에게 오류를 반환할 때 사용합니다. 이를 이용하면 이런 코드를"
 
 #: src/error-handling/try-operator.md:6
 msgid ""
@@ -9732,7 +9735,7 @@ msgstr ""
 
 #: src/error-handling/try-operator.md:13
 msgid "into the much simpler"
-msgstr "훨씬 간단한 방식으로"
+msgstr "이렇게 짧게 쓸 수 있습니다."
 
 #: src/error-handling/try-operator.md:15
 msgid ""
@@ -9743,7 +9746,7 @@ msgstr ""
 
 #: src/error-handling/try-operator.md:19
 msgid "We can use this to simplify our error handing code:"
-msgstr "이를 사용하면 오류를 처리할 수 단순화 할 수 있습니다:"
+msgstr "이제 우리 예제에 적용해 보겠습니다:"
 
 #: src/error-handling/try-operator.md:21
 msgid ""
@@ -9801,11 +9804,11 @@ msgstr ""
 #: src/error-handling/converting-error-types.md:1
 #: src/error-handling/converting-error-types-example.md:1
 msgid "# Converting Error Types"
-msgstr "# 오류타입 변환"
+msgstr "# 에러 타입이 다를 경우"
 
 #: src/error-handling/converting-error-types.md:3
 msgid "The effective expansion of `?` is a little more complicated than previously indicated:"
-msgstr "`?`의 효과적인 적용은 좀 더 복잡하긴 합니다:"
+msgstr "실제로 `?`가 적용되는 과정은 아까 설명한 것 보다 좀 더 복잡합니다:"
 
 #: src/error-handling/converting-error-types.md:5
 msgid ""
@@ -9832,7 +9835,7 @@ msgstr ""
 msgid ""
 "The `From::from` call here means we attempt to convert the error type to the\n"
 "type returned by the function:"
-msgstr "`From::from` 호출은 오류타입을 함수에서 반환하는 타입으로 변환합니다: "
+msgstr "`From::from`을 통해 원래의 에러 타입을 이 함수가 반환하는 에러 타입으로 변환하고 있습니다."
 
 #: src/error-handling/converting-error-types-example.md:3
 msgid ""
@@ -9908,6 +9911,10 @@ msgid ""
 "life easier for tests and consumers of your library. In this case we can't easily do so, because\n"
 "`io::Error` doesn't implement them."
 msgstr ""
+"에러 타입이 `std::error::Error`를 구현하도록 하는 것은 좋은 습관입니다. 그러면 `Debug`와 `Display` "
+"트레이트 또한 구현을 해야 합니다. 가능하다면 `Clone`과 `Eq` 트레이트도 구현하도록 하세요. 여러분의 "
+"라이브러리가 테스트 하기 쉬워지고, 사용하기 좋아질 겁니다. 다만, 이 예제에서는 그렇게 하기 힘듭니"
+"다. 왜냐하면 `io::Error`는 이 트레이트들을 구현하고 있지 않기 때문입니다."
 
 #: src/error-handling/deriving-error-enums.md:1
 msgid "# Deriving Error Enums"
@@ -9918,8 +9925,8 @@ msgid ""
 "The [thiserror](https://docs.rs/thiserror/) crate is a popular way to create an\n"
 "error enum like we did on the previous page:"
 msgstr ""
-"[thiserror](https://docs.rs/thiserror/) 크레이트는 전페이지에서 처럼 \n"
-"오류 enum을 만드는 일반적인 방법입니다."
+"[thiserror](https://docs.rs/thiserror/)는, 이전 페이지에서 보았던 것과 같은 에러 열거형을 쉽게 만"
+"들 수 있게 해 주는 유명한 크레이트 입니다."
 
 #: src/error-handling/deriving-error-enums.md:6
 msgid ""
@@ -9971,21 +9978,27 @@ msgid ""
 "added).\n"
 "It also works for structs."
 msgstr ""
+"`thiserror`의 derive 매크로를 이용하면 `std::error::Error`과 `Display`(만약 `#[error(...)]` 어트리"
+"뷰트를 추가했을 경우), `From`(만약 `#[from]` 어트리뷰트를 추가했을 경우) 트레이트들이 자동으로 구현"
+"이 됩니다. 구조체에 대해서도 사용 가능합니다."
 
 #: src/error-handling/deriving-error-enums.md:43
 msgid "It doesn't affect your public API, which makes it good for libraries."
 msgstr ""
+"이 매크로를 사용해도 밖으로 노출되는 API가 변경되지는 않습니다. 라이브러리를 만들 경우에는 이게 중"
+"요하죠."
 
 #: src/error-handling/dynamic-errors.md:1
-#, fuzzy
 msgid "# Dynamic Error Types"
-msgstr "# 오류타입 변환"
+msgstr "# 동적인 에러 타입"
 
 #: src/error-handling/dynamic-errors.md:3
 msgid ""
 "Sometimes we want to allow any type of error to be returned without writing our own enum covering\n"
 "all the different possibilities. `std::error::Error` makes this easy."
 msgstr ""
+"때때로 우리는, 발생 가능한 모든 에러를 일일히 열거하지 않고, 어떤 종류의 에러라도 상관없이 리턴하"
+"고 싶을 때가 있습니다. `std::error::Error`를 이용하면 쉽습니다."
 
 #: src/error-handling/dynamic-errors.md:6
 msgid ""
@@ -10025,10 +10038,13 @@ msgid ""
 "message\n"
 "somewhere."
 msgstr ""
+"이렇게 하면 코드의 양을 줄일 수 있습니다. 그러나 서로 다른 종류의 에러를 구별하여 다르게 처리하는 "
+"것이 불가능해 집니다. 때문에, `Box<dyn Error>`를 라이브러리의 API로 노출하는게 좋은 디자인은 아닙니"
+"다. 에러 발생시, 그저 에러 메시지를 출력하고 싶은 경우와 같이 제한된 상황에서는 유용할 수 있습니다."
 
 #: src/error-handling/error-contexts.md:1
 msgid "# Adding Context to Errors"
-msgstr "# 오류에 상황정보 추가"
+msgstr "# 오류에 문맥 추가"
 
 #: src/error-handling/error-contexts.md:3
 msgid ""
@@ -10036,8 +10052,9 @@ msgid ""
 "contextual information to your errors and allows you to have fewer\n"
 "custom error types:"
 msgstr ""
-"[anyhow](https://docs.rs/anyhow/) 크레이트는 오류에 대한 상황정보를 추가하기 위해 널리 사용되며 사"
-"용자 정의 오류 유형을 줄일 수 있습니다: "
+"[anyhow](https://docs.rs/anyhow/) 크레이트는 에러에 에러가 발생한 문맥에 대한 정보를 추가하기 위해 "
+"널리 사용되며, 이를 이용하면 서로 다른 문맥을 나타내기 사용자 정의 오류 타입을 많이 만들어야 하는 "
+"불편함을 피할 수 있습니다:"
 
 #: src/error-handling/error-contexts.md:7
 msgid ""
@@ -10087,7 +10104,7 @@ msgstr ""
 
 #: src/testing.md:1
 msgid "# Testing"
-msgstr "# 테스트"
+msgstr "# 테스팅"
 
 #: src/testing.md:3
 msgid "Rust and Cargo come with a simple unit test framework:"
@@ -10099,7 +10116,7 @@ msgstr "* 단위 테스트는 코드 전반에서 지원됩니다."
 
 #: src/testing.md:7
 msgid "* Integration tests are supported via the `tests/` directory."
-msgstr "* 통합테스트는 `test/` 폴더를 통해 지원됩니다."
+msgstr "* 통합테스트는 `test/` 디렉터리를 통해 지원됩니다."
 
 #: src/testing/unit-tests.md:1
 msgid "# Unit Tests"
@@ -10107,7 +10124,7 @@ msgstr "# 단위 테스트"
 
 #: src/testing/unit-tests.md:3
 msgid "Mark unit tests with `#[test]`:"
-msgstr "단위 테스트는 `#[test]` 표기로 이뤄집니다:"
+msgstr "단위 테스트는 `#[test]` 로 표시합니다:"
 
 #: src/testing/unit-tests.md:5
 msgid ""
@@ -10158,9 +10175,8 @@ msgid ""
 "Unit tests are often put in a nested module (run tests on the\n"
 "[Playground](https://play.rust-lang.org/)):"
 msgstr ""
-"단위 테스트는 종종 중첩 모듈 안에 존재합니다. [플레이그라운드](https://play.rust-lang.org/)에서 실"
-"행하시기 바랍니다)  \n"
-"--> 단위 테스트는 모듈로 분리해서 선언 가능합니다."
+"단위 테스트는 원래 모듈 밑에 서브 모듈로 만드는 경우가 많습니다. ([플레이그라운드](https://play."
+"rust-lang.org/)에서 다음 테스트를 수행해 보세요):"
 
 #: src/testing/test-modules.md:6
 msgid ""
@@ -10192,8 +10208,8 @@ msgid ""
 "* This lets you unit test private helpers.\n"
 "* The `#[cfg(test)]` attribute is only active when you run `cargo test`."
 msgstr ""
-"* 개별화된 헬퍼모듈을 통해 단위테스트를 수행할 수 있습니다.\n"
-"* `#[cfg(test)]` 속성은 오직 `cargo test` 커맨드 실행인 경우에만 동작합니다."
+"* 이렇게 서브 모듈로 테스트를 만들면 private한 헬퍼 함수에 대한 단위 테스트도 가능합니다.\n"
+"* `#[cfg(test)]` 어트리뷰트가 추가된 항목은 `cargo test`를 수행했을 경우에만 동작합니다."
 
 #: src/testing/doc-tests.md:1
 msgid "# Documentation Tests"
@@ -10227,7 +10243,7 @@ msgid ""
 "version=stable&mode=debug&edition=2021&gist=3ce2ad13ea1302f6572cb15cd96becf0)."
 msgstr ""
 "* `///` 주석안의 코드 블록은 자동으로 러스트 코드로 인식됩니다.\n"
-"* 코드 블록은 `cargo test` 커맨드 구동시 컴파일되고 실행됩니다.\n"
+"* 이 코드 블록은 `cargo test` 호출하면 자동으로 컴파일되고 실행됩니다.\n"
 "* 위 코드를 [Rust Playground](https://play.rust-lang.org/?"
 "version=stable&mode=debug&edition=2021&gist=3ce2ad13ea1302f6572cb15cd96becf0)에서 테스트 해 보시기 "
 "바랍니다."
@@ -10238,12 +10254,11 @@ msgstr "# 통합 테스트"
 
 #: src/testing/integration-tests.md:3
 msgid "If you want to test your library as a client, use an integration test."
-msgstr ""
-"라이브러리를 실제 테스트 하기위한 통합테스트는 `test/` 폴더 내에 `.rs`를 작성하여 수행합니다: "
+msgstr "라이브러리를 사용자 입장에서 테스트 하려면, 통합 테스트를 해야 합니다."
 
 #: src/testing/integration-tests.md:5
 msgid "Create a `.rs` file under `tests/`:"
-msgstr " "
+msgstr "`test/`디렉터리 아래에 `.rs`파일을 하나 만드세요:"
 
 #: src/testing/integration-tests.md:7
 msgid ""
@@ -10270,33 +10285,37 @@ msgstr "# 안전하지 않은 러스트"
 
 #: src/unsafe.md:3
 msgid "The Rust language has two parts:"
-msgstr "러스트의 문법은 크게 두가지 부분으로 나뉩니다:"
+msgstr "러스트로 작성된 프로그램은 크게 두 부분으로 나뉩니다:"
 
 #: src/unsafe.md:5
 msgid ""
 "* **Safe Rust:** memory safe, no undefined behavior possible.\n"
 "* **Unsafe Rust:** can trigger undefined behavior if preconditions are violated."
 msgstr ""
-"* **안전한 러스트:** 안전한 메모리, 정의되지 않은 동작 가능성 없음.\n"
-"* **안전하지 않은 러스트:** 사전 조건을 위반하는 경우 정의되지 않은 동작을   수행할 수 있습니다."
+"* **안전한 러스트:** 메모리 관련 오류 발생 불가능, 정의되지 않은 동작 없음.\n"
+"* **안전하지 않은 러스트:** 특별한 조건을 만족하지 않은채로 사용되면 정의되지 않은 동작을 유발할 "
+"수 있음."
 
 #: src/unsafe.md:8
 msgid ""
 "We will be seeing mostly safe Rust in this course, but it's important to know\n"
 "what Unsafe Rust is."
 msgstr ""
-"이 강의는 대부분 안전한 러스트에 대해 다루지만 **안전하지 않은 러스트가** 무엇인지는 알아 두어야 합"
-"니다."
+"이 강의는 대부분 안전한 러스트에 대해 다루지만 안전하지 않은 러스트가 무엇인지는 알아 두어야 합니"
+"다."
 
 #: src/unsafe.md:11
 msgid ""
 "Unsafe code is usually small and isolated, and its correctness should be carefully\n"
 "documented. It is usually wrapped in a safe abstraction layer."
 msgstr ""
+"보통, 안전하지 않은 러스트 코드는 크기가 작으며, 독립적으로 존재합니다. 그리고 코드가 왜 잘 작동하"
+"는지에 대해 세밀하게 문서화가 되어 있습니다. 그리고, 많은 경우 안전한 러스트 코드를 통해서 추상화"
+"를 시킨 후 사용하게 됩니다."
 
 #: src/unsafe.md:14
 msgid "Unsafe Rust gives you access to five new capabilities:"
-msgstr "안전하지 않은 러스트는 다음과 같은 5가지 새로운 기능을 제공합니다:"
+msgstr "안전하지 않은 러스트를 이용하면 다음과 같은 다섯 가지 것들이 가능해 집니다:"
 
 #: src/unsafe.md:16
 msgid ""
@@ -10310,18 +10329,17 @@ msgstr ""
 "* 정적 가변변수 접근 및 수정\n"
 "* `union` 필드 접근\n"
 "* `extern` 함수를 포함한 `unsafe` 함수 호출\n"
-"* `unsafe` 트레이트 구현"
+"* `unsafe` 트레이트 구현."
 
 #: src/unsafe.md:22
-#, fuzzy
 msgid ""
 "We will briefly cover unsafe capabilities next. For full details, please see\n"
 "[Chapter 19.1 in the Rust Book](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html)\n"
 "and the [Rustonomicon](https://doc.rust-lang.org/nomicon/)."
 msgstr ""
-"위 기능에 대해 간략히 살펴보겠습니다. 자세한 내용은 [Chapter 19.1 in the Rust Book](https://doc."
-"rust-lang.org/book/ch19-01-unsafe-rust.html)\n"
-"와 [Rustonomicon](https://doc.rust-lang.org/nomicon/)를 참조하세요"
+"위 기능들에 대해 간략히 살펴보겠습니다. 자세한 내용은 [러스트 프로그래밍 언어, 19.1절](https://doc."
+"rust-lang.org/book/ch19-01-unsafe-rust.html)과 [Rustonomicon](https://doc.rust-lang.org/nomicon/)"
+"를 참조하세요."
 
 #: src/unsafe.md:28
 msgid ""
@@ -10329,6 +10347,10 @@ msgid ""
 "turned off the compiler safety features and have to write correct code by\n"
 "themselves. It means the compiler no longer enforces Rust's memory-safety rules."
 msgstr ""
+"안전하지 않은 러스트라고 해서 코드가 부정확 하다는 뜻은 아닙니다. 여기서 안전하지 않다의 의미는 컴"
+"파일러가 제공해주는 안전 장치들이 꺼진 상태이며, 개발자가 스스로 정확하고 안전한 코드를 작성해야 함"
+"을 의미합니다. 이는 컴파일러가 더 이상 러스트의 메모리 안전과 관련된 규칙들을 적용하지 않는다는 것"
+"입니다."
 
 #: src/unsafe/raw-pointers.md:1
 msgid "# Dereferencing Raw Pointers"
@@ -10336,7 +10358,7 @@ msgstr "# 원시 포인터 역참조(따라가기)"
 
 #: src/unsafe/raw-pointers.md:3
 msgid "Creating pointers is safe, but dereferencing them requires `unsafe`:"
-msgstr "포인터 생성은 안전합니다. 하지만 역참조(따라가기)할 경우 `unsafe`가 필요합니다:"
+msgstr "포인터를 만드는 것은 안전합니다. 하지만 역참조(따라가기)할 경우 `unsafe`가 필요합니다:"
 
 #: src/unsafe/raw-pointers.md:5
 msgid ""
@@ -10366,6 +10388,18 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"    // 아래 코드는 안전합니다. r1과 r2는 참조로 부터 만들어 졌기 때문에 null이 아니며 align이 맞다"
+"는 것이 보장됩니다.\n"
+"    // 참조가 가리키는 객체들은 unsafe 블럭이 수행되는 동안 메모리에 살아있습니다. 그리고 이 객체들"
+"은 r1과 r2가 아닌 다른\n"
+"    // 어떤 참조나 포인터로도 접근이 안되고 있습니다.\n"
+"    unsafe {\n"
+"        println!(\"r1 is: {}\", *r1);\n"
+"        *r1 = 10;\n"
+"        println!(\"r2 is: {}\", *r2);\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/unsafe/raw-pointers.md:26
 msgid ""
@@ -10373,12 +10407,16 @@ msgid ""
 "`unsafe` block explaining how the code inside it satisfies the safety requirements of the unsafe\n"
 "operations it is doing."
 msgstr ""
+"모든 `unsafe` 블럭에 대해 왜 그 코드가 안전한지에 대한 설명을 주석으로 다는 것은 좋은 습관입니다(사"
+"실 안드로이드의 러스트 스타일 가이드에서는 이게 필수입니다)."
 
 #: src/unsafe/raw-pointers.md:30
 msgid ""
 "In the case of pointer dereferences, this means that the pointers must be\n"
 "[_valid_](https://doc.rust-lang.org/std/ptr/index.html#safety), i.e.:"
 msgstr ""
+"포인터 역참조를 할 경우, 포인터가 [_유효_](https://doc.rust-lang.org/std/ptr/index.html#safety)해"
+"야 합니다. 예를 들어:"
 
 #: src/unsafe/raw-pointers.md:33
 msgid ""
@@ -10389,10 +10427,16 @@ msgid ""
 " * If the pointer was obtained by casting a reference, the underlying object must be live and no\n"
 "   reference may be used to access the memory."
 msgstr ""
+"* 포인터는 null이면 안됩니다.\n"
+"* 포인터는 따라가기가 가능해야 합니다 (객체의 어느 한 부분을 가리키고 있어야 합니다).\n"
+"* 이미 반환된 객체를 가리키면 안됩니다.\n"
+"* 같은 위치에 대해 동시적인 접근이 있으면 안됩니다.\n"
+"* 참조를 캐스팅 해서 포인터를 만들었다면, 그 참조가 가리키는 객체는 살아 있어야 하며, 그 객체의 메"
+"모리를 접근하는 참조가 하나도 없어햐 합니다."
 
 #: src/unsafe/raw-pointers.md:40
 msgid "In most cases the pointer must also be properly aligned."
-msgstr ""
+msgstr "대부분의 경우 포인터는 align되어 있어야 합니다."
 
 #: src/unsafe/mutable-static-variables.md:1
 msgid "# Mutable Static Variables"
@@ -10400,7 +10444,7 @@ msgstr "# 정적 가변 변수"
 
 #: src/unsafe/mutable-static-variables.md:3
 msgid "It is safe to read an immutable static variable:"
-msgstr "불변 정적변수를 읽는 것은 '안전'합니다:"
+msgstr "불변 정적변수를 읽는 것은 안전합니다:"
 
 #: src/unsafe/mutable-static-variables.md:5
 msgid ""
@@ -10420,8 +10464,7 @@ msgstr ""
 msgid ""
 "However, since data races can occur, it is unsafe to read and write mutable\n"
 "static variables:"
-msgstr ""
-"하지만, 데이터 레이스가 발생할 수 있으므로 정적 가변변수를 읽고 쓰는 것은 '안전하지 않습니다':"
+msgstr "하지만, 데이터 레이스가 발생할 수 있으므로 정적 가변변수를 읽고 쓰는 것은 안전하지 않습니다:"
 
 #: src/unsafe/mutable-static-variables.md:16
 msgid ""
@@ -10455,14 +10498,19 @@ msgid ""
 "sense\n"
 "in low-level `no_std` code, such as implementing a heap allocator or working with some C APIs."
 msgstr ""
+"일반적으로 이야기 해서, 정적 가변 변수를 쓰는 것은 좋은 아이디어가 아닙니다. 그러나 `no_std`와 같"
+"은 저수준 코딩을 할 경우에는 필요하기도 합니다. 예를 들어 힙 할당기를 구현하거나, C API를 사용하는 "
+"게 그런 경우입니다."
 
 #: src/unsafe/unions.md:1
 msgid "# Unions"
-msgstr "# Unions"
+msgstr "# 유니온"
 
 #: src/unsafe/unions.md:3
 msgid "Unions are like enums, but you need to track the active field yourself:"
-msgstr "유니온타입은 열거형(enum)과 같지만 직접 활성 필드를 추척해야 합니다:"
+msgstr ""
+"유니온 타입은 열거형(enum)과 비슷하지만, 어떤 필드에 해당하는 값을 가지고 있는지 여부를 프로그래머"
+"가 수동으로 추적해야 합니다."
 
 #: src/unsafe/unions.md:5
 msgid ""
@@ -10490,6 +10538,8 @@ msgid ""
 "needed\n"
 "for interacting with C library APIs."
 msgstr ""
+"러스트에는 열거형이 있기 때문에 유니온이 필요한 경우는 극히 드뭅니다. 유니온은 C 라이브러리 API를 "
+"사용할 때 가끔 필요합니다."
 
 #: src/unsafe/unions.md:24
 msgid ""
@@ -10497,17 +10547,21 @@ msgid ""
 "[`std::mem::transmute`](https://doc.rust-lang.org/stable/std/mem/fn.transmute.html) or a safe\n"
 "wrapper such as the [`zerocopy`](https://crates.io/crates/zerocopy) crate."
 msgstr ""
+"바이트들을 특정 타입으로 재해석 하고 싶다면 `std::mem::transmute`](https://doc.rust-lang.org/"
+"stable/std/mem/fn.transmute.html)나 좀 더 안전한 [`zerocopy`](https://crates.io/crates/zerocopy) 크"
+"레이트를 사용하세요."
 
 #: src/unsafe/calling-unsafe-functions.md:1
 msgid "# Calling Unsafe Functions"
-msgstr "# '안전하지 않은' 함수 호출"
+msgstr "# 안전하지 않은' 함수 호출"
 
 #: src/unsafe/calling-unsafe-functions.md:3
-#, fuzzy
 msgid ""
 "A function or method can be marked `unsafe` if it has extra preconditions you\n"
 "must uphold to avoid undefined behaviour:"
-msgstr "다음과 같은 추가 전제 조건이 있는 경우 함수나 메서드는 `unsafe` 표시할 수 있습니다:"
+msgstr ""
+"함수나 메서드가 정의되지 않은 동작으로 빠지지 않게 하기 위해서 만족해야 하는 전제 조건이 있는 경"
+"우, 그 함수나 메서드를 `unsafe`로 표시할 수 있습니다:"
 
 #: src/unsafe/calling-unsafe-functions.md:6
 msgid ""
@@ -10517,7 +10571,6 @@ msgid ""
 msgstr ""
 
 #: src/unsafe/calling-unsafe-functions.md:10
-#, fuzzy
 msgid ""
 "    // Safe because the indices are in the correct order, within the bounds of\n"
 "    // the string slice, and lie on UTF-8 sequence boundaries.\n"
@@ -10529,11 +10582,10 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-"```rust,editable\n"
-"fn main() {\n"
-"    let emojis = \"🗻∈🌏\";\n"
+"    // 인덱스들이 올바른 순서로 있으며, 문자열 슬라이스의 범위 안에 있고, UTF-8 시퀀스의 범위 안"
+"에\n"
+"    // 있기 때문에 안전합니다.\n"
 "    unsafe {\n"
-"        // 인덱스가 UTF-8 시퀀스 경계에 있지 않은경우 정의되지 않은(undefined) 동작입니다.\n"
 "        println!(\"{}\", emojis.get_unchecked(0..4));\n"
 "        println!(\"{}\", emojis.get_unchecked(4..7));\n"
 "        println!(\"{}\", emojis.get_unchecked(7..11));\n"
@@ -10542,9 +10594,8 @@ msgstr ""
 "```"
 
 #: src/unsafe/writing-unsafe-functions.md:1
-#, fuzzy
 msgid "# Writing Unsafe Functions"
-msgstr "# '안전하지 않은' 함수 호출"
+msgstr "# '안전하지 않은' 함수 작성하기"
 
 #: src/unsafe/writing-unsafe-functions.md:3
 msgid ""
@@ -10552,6 +10603,7 @@ msgid ""
 "undefined\n"
 "behaviour."
 msgstr ""
+"여러분이 작성한 함수를 사용할 때 어떤 특별한 조건을 만족해야 한다면, `unsafe`로 마킹할 수 있습니다."
 
 #: src/unsafe/writing-unsafe-functions.md:6
 msgid ""
@@ -10592,17 +10644,20 @@ msgstr ""
 
 #: src/unsafe/writing-unsafe-functions.md:33
 msgid "We wouldn't actually use pointers for this because it can be done safely with references."
-msgstr ""
+msgstr "참조를 사용하면 안전하게 구현할 수 있기 때문에, 실제로 포인터를 사용할 필요는 없습니다."
 
 #: src/unsafe/writing-unsafe-functions.md:35
 msgid ""
 "Note that unsafe code is allowed within an unsafe function without an `unsafe` block. We can\n"
 "prohibit this with `#[deny(unsafe_op_in_unsafe_fn)]`. Try adding it and see what happens."
 msgstr ""
+"unsafe 코드가 unsafe 함수의 내부에서 호출될 경우에는 `unsafe`블럭을 지정하지 않아도 됩니다. "
+"`unsafe`블럭을 항상 지정하도록 하고 싶다면 `#[deny(unsafe_op_in_unsafe_fn)]`를 이용하세요. 이 어트"
+"리뷰트를 추가해 보고 어떤 일이 일어나는지 확인해 보세요."
 
 #: src/unsafe/extern-functions.md:1
 msgid "# Calling External Code"
-msgstr "# 외부 코드 호출(Calling External Code)"
+msgstr "# 외부 코드 호출"
 
 #: src/unsafe/extern-functions.md:3
 msgid ""
@@ -10638,29 +10693,37 @@ msgid ""
 "any\n"
 "arbitrary circumstances."
 msgstr ""
+"이게 문제가 되는 경우는 대부분 외부 함수가 러스트의 메모리 모델을 위반하고 있을 경우입니다. 그러나 "
+"어떤 C함수라도 어떤 임의의 상황에서는 정의되지 않은 동작을 할 수 있기 때문에, 엄밀히 말해서는 모든 "
+"외부 함수에 대해서 문제입니다."
 
 #: src/unsafe/extern-functions.md:25
 msgid ""
 "The `\"C\"` in this example is the ABI;\n"
 "[other ABIs are available too](https://doc.rust-lang.org/reference/items/external-blocks.html)."
 msgstr ""
+"위 예제 코드에서 `\"C\"`는 ABI를 의미합니다. [다른 ABI도 있습니다.](https://doc.rust-lang.org/"
+"reference/items/external-blocks.html)"
 
 #: src/unsafe/unsafe-traits.md:1
-#, fuzzy
 msgid "# Implementing Unsafe Traits"
-msgstr "# 중요 트레이트"
+msgstr "# 안전하지 않은 트레이트 구현하기"
 
 #: src/unsafe/unsafe-traits.md:3
 msgid ""
 "Like with functions, you can mark a trait as `unsafe` if the implementation must guarantee\n"
 "particular conditions to avoid undefined behaviour."
 msgstr ""
+"함수에서와 마찬가지로 트레이트도 `unsafe`로 마킹 가능합니다. 만약 그 트레이트를 구현할 때 정의되지 "
+"않은 동작을 피하기 위해 특별한 조건이 필요하다면 말이지요."
 
 #: src/unsafe/unsafe-traits.md:6
 msgid ""
 "For example, the `zerocopy` crate has an unsafe trait that looks\n"
 "[something like this](https://docs.rs/zerocopy/latest/zerocopy/trait.AsBytes.html):"
 msgstr ""
+"예를 들어 `zerocopy` 크레이트에는 [안전하지 않은 트레이트](https://docs.rs/zerocopy/"
+"latest/zerocopy/trait.AsBytes.html)가 있습니다:"
 
 #: src/unsafe/unsafe-traits.md:9
 msgid ""
@@ -10695,14 +10758,16 @@ msgid ""
 "There should be a `# Safety` section on the Rustdoc for the trait explaining the requirements for\n"
 "the trait to be safely implemented."
 msgstr ""
+"안전하지 않은 트레이트를 만들 때에는 주석에 `# Safety` 항목이 있어서 이 트레이트를 안전하게 구현하"
+"려면 어떤 요구사항들을 만족해야 하는지를 설명해야 합니다."
 
 #: src/unsafe/unsafe-traits.md:33
 msgid "The actual safety section for `AsBytes` is rather longer and more complicated."
-msgstr ""
+msgstr "`AsBytes`에서 지켜야 할 안전성에 대한 실제 설명은 좀 더 길고 복잡합니다."
 
 #: src/unsafe/unsafe-traits.md:35
 msgid "The built-in `Send` and `Sync` traits are unsafe."
-msgstr ""
+msgstr "빌트인 트레이트인 `Send`와 `Sync`는 안전하지 않은 트레이트 입니다."
 
 #: src/exercises/day-3/afternoon.md:1
 msgid "# Day 3: Afternoon Exercises"
@@ -10710,7 +10775,7 @@ msgstr "# 3일차 오후 연습문제"
 
 #: src/exercises/day-3/afternoon.md:3
 msgid "Let us build a safe wrapper for reading directory content!"
-msgstr "이번 연습문제에서는 파일 폴더를 안전하게 읽을 수 있는 래퍼를 만들어 봅니다."
+msgstr "디렉터리의 내용을 읽는 안전한 래퍼 코드를 작성해 봅시다!"
 
 #: src/exercises/day-3/afternoon.md:7
 msgid "After looking at the exercise, you can look at the [solution] provided."
@@ -10725,14 +10790,13 @@ msgid "# Safe FFI Wrapper"
 msgstr "# FFI래퍼"
 
 #: src/exercises/day-3/safe-ffi-wrapper.md:3
-#, fuzzy
 msgid ""
 "Rust has great support for calling functions through a _foreign function\n"
 "interface_ (FFI). We will use this to build a safe wrapper for the `libc`\n"
 "functions you would use from C to read the filenames of a directory."
 msgstr ""
-"러스트는 _외부 기능 호출(FFI)_을 지원합니다. 이를 이용하여 C에서 사용할 폴더 내 파일이름을 읽어오"
-"는 `glibc`함수를  만들 것입니다."
+"러스트는 _외부 기능 호출(FFI)_을 지원합니다. 우리는 이를 이용하여 디렉터리에서 파일 이름을 읽어오"
+"는 `libc` 함수에 대한 안전한 래퍼를 만들 것입니다."
 
 #: src/exercises/day-3/safe-ffi-wrapper.md:7
 msgid "You will want to consult the manual pages:"
@@ -10744,6 +10808,9 @@ msgid ""
 "* [`readdir(3)`](https://man7.org/linux/man-pages/man3/readdir.3.html)\n"
 "* [`closedir(3)`](https://man7.org/linux/man-pages/man3/closedir.3.html)"
 msgstr ""
+"* [`opendir(3)`](https://man7.org/linux/man-pages/man3/opendir.3.html)\n"
+"* [`readdir(3)`](https://man7.org/linux/man-pages/man3/readdir.3.html)\n"
+"* [`closedir(3)`](https://man7.org/linux/man-pages/man3/closedir.3.html)"
 
 #: src/exercises/day-3/safe-ffi-wrapper.md:13
 msgid ""
@@ -10751,8 +10818,9 @@ msgid ""
 "and [`CString`] types which are used to hold NUL-terminated strings coming from\n"
 "C. The [Nomicon] also has a very useful chapter about FFI."
 msgstr ""
-"C에서 오는 NUL-terminated 문자열을 보유하는 [`CStr`]과 [`CString`] 타입 등을  확인 하기 위해 또한 "
-"`std::ffi`모듈을 탐색할 수도 있습니다. [Nomicon]문서 또한 FFI에 대한 유용한 내용을 담고 있습니다."
+"[`std::ffi`] 모듈을 탐색하는게 필요할 지도 모르겠습니다. C에서 사용되는 NUL-terminated 문자열을 담"
+"기 위한 [`CStr`]과 [`CString`] 타입을 확인해 보세요. [Nomicon]문서 또한 FFI에 대한 유용한 내용을 담"
+"고 있습니다."
 
 #: src/exercises/day-3/safe-ffi-wrapper.md:17
 msgid ""
@@ -10761,12 +10829,16 @@ msgid ""
 "[`CString`]: https://doc.rust-lang.org/std/ffi/struct.CString.html\n"
 "[Nomicon]: https://doc.rust-lang.org/nomicon/ffi.html"
 msgstr ""
+"[`std::ffi`]: https://doc.rust-lang.org/std/ffi/\n"
+"[`CStr`]: https://doc.rust-lang.org/std/ffi/struct.CStr.html\n"
+"[`CString`]: https://doc.rust-lang.org/std/ffi/struct.CString.html\n"
+"[Nomicon]: https://doc.rust-lang.org/nomicon/ffi.html"
 
 #: src/exercises/day-3/safe-ffi-wrapper.md:22
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and fill in the missing\n"
 "functions and methods:"
-msgstr "아래 코드를 <https://play.rust-lang.org/>에 복사하고 빠진 함수와 메서드를 채워봅니다."
+msgstr "아래 코드를 <https://play.rust-lang.org/>에 복사하고 빠진 함수와 메서드를 채워봅니다:"
 
 #: src/exercises/day-3/safe-ffi-wrapper.md:29
 msgid ""
