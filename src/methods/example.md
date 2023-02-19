@@ -47,7 +47,7 @@ Key Points:
 * All four methods here use a different method receiver.
   * You can point out how that changes what the function can do with the variable values and if/how it can be used again in `main`.
   * You can showcase the error that appears when trying to call `finish` twice.
-* Note, that although the method receivers are different, the non-static functions are called the same way in the main body. Rust enables automatic referencing and dereferencing when calling methods. Rust automatically adds in the `&`, `*`, `muts` so that that object matches the method signature.
+* Note that although the method receivers are different, the non-static functions are called the same way in the main body. Rust enables automatic referencing and dereferencing when calling methods. Rust automatically adds in the `&`, `*`, `muts` so that that object matches the method signature.
 * You might point out that `print_laps` is using a vector that is iterated over. We describe vectors in more detail in the afternoon. 
 
 </details>
