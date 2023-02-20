@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: [한국어]Comprehensive Rust 🦀\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-02-17 15:29+0900\n"
+"PO-Revision-Date: 2023-02-19 06:58+0000\n"
 "Last-Translator: keispace <keispace.kyj@google.com>\n"
 "Language-Team: \n"
 "Language: ko\n"
@@ -1172,19 +1172,22 @@ msgstr "# 다른 언어들"
 msgid ""
 "The course has been translated into other languages by a set of wonderful\n"
 "volunteers:"
-msgstr "이 과정은 다른 언어로도 제공됩니다."
+msgstr "이 과정은 다른 언어로도 제공됩니다. 괄호 안은 번역에 도움 주신 분들입니다."
 
 #: src/running-the-course/translations.md:6
-msgid "* [Brazilian Portuguese][pt-BR] by [@rastringer] and [@hugojacob]."
+msgid ""
+"* [Brazilian Portuguese][pt-BR] by [@rastringer] and [@hugojacob].\n"
+"* [Korean][ko] by [@keispace], [@jiyongp] and [@jooyunghan]."
 msgstr ""
 "* [영어][en]\n"
-"* [브라질 포르투갈어][pt-BR] ([@rastringer], [@hugojacob])."
+"* [브라질 포르투갈어][pt-BR] ([@rastringer], [@hugojacob]).\n"
+"* [한국어][ko] ([@keispace], [@jiyongp], [@jooyunghan])"
 
-#: src/running-the-course/translations.md:8
+#: src/running-the-course/translations.md:9
 msgid "Use the language picker in the top-right corner to switch between languages."
 msgstr "페이지 오른쪽 위의 메뉴를 통해 다른 언어로 전환할 수 있습니다."
 
-#: src/running-the-course/translations.md:10
+#: src/running-the-course/translations.md:11
 msgid ""
 "If you want to help with this effort, please see [our instructions] for how to\n"
 "get going. Translations are coordinated on the [issue tracker]."
@@ -1192,18 +1195,26 @@ msgstr ""
 "이 과정의 번역 작업에 도움을 주고 싶다면 [여기][our instructions] 설명된 내용을 참고하세요.\n"
 "진행 중인 번역 작업에 대한 내용은 [이슈 트래커][issue tracker]를 참고하세요."
 
-#: src/running-the-course/translations.md:13
+#: src/running-the-course/translations.md:14
 msgid ""
 "[pt-BR]: https://google.github.io/comprehensive-rust/pt-BR/\n"
+"[ko]: https://google.github.io/comprehensive-rust/ko/\n"
 "[@rastringer]: https://github.com/rastringer\n"
 "[@hugojacob]: https://github.com/hugojacob\n"
+"[@keispace]: https://github.com/keispace\n"
+"[@jiyongp]: https://github.com/jiyongp\n"
+"[@jooyunghan]: https://github.com/jooyunghan\n"
 "[our instructions]: https://github.com/google/comprehensive-rust/blob/main/TRANSLATIONS.md\n"
 "[issue tracker]: https://github.com/google/comprehensive-rust/issues/282"
 msgstr ""
 "[en]: https://google.github.io/comprehensive-rust/\n"
 "[pt-BR]: https://google.github.io/comprehensive-rust/pt-BR/\n"
+"[ko]: https://google.github.io/comprehensive-rust/ko/\n"
 "[@rastringer]: https://github.com/rastringer\n"
 "[@hugojacob]: https://github.com/hugojacob\n"
+"[@keispace]: https://github.com/keispace\n"
+"[@jiyongp]: https://github.com/jiyongp\n"
+"[@jooyunghan]: https://github.com/jooyunghan\n"
 "[our instructions]: https://github.com/google/comprehensive-rust/blob/main/TRANSLATIONS.md\n"
 "[issue tracker]: https://github.com/google/comprehensive-rust/issues/282"
 
@@ -5877,9 +5888,9 @@ msgstr ""
 msgid ""
 "<details>\n"
 "  \n"
-"Consider emphasizing on \"shared and immutable\" and \"unique and mutable\". These constraints "
-"always come\n"
-"together in Rust due to borrow checker rules, and `self` is no exception. It won't be possible to\n"
+"Consider emphasizing \"shared and immutable\" and \"unique and mutable\". These constraints always "
+"come\n"
+"together in Rust due to borrow checker rules, and `self` is no exception. It isn't possible to\n"
 "reference a struct from multiple locations and call a mutating (`&mut self`) method on it.\n"
 "  \n"
 "</details>"
@@ -5981,7 +5992,7 @@ msgid ""
 "  * You can point out how that changes what the function can do with the variable values and if/"
 "how it can be used again in `main`.\n"
 "  * You can showcase the error that appears when trying to call `finish` twice.\n"
-"* Note, that although the method receivers are different, the non-static functions are called the "
+"* Note that although the method receivers are different, the non-static functions are called the "
 "same way in the main body. Rust enables automatic referencing and dereferencing when calling "
 "methods. Rust automatically adds in the `&`, `*`, `muts` so that that object matches the method "
 "signature.\n"
@@ -6071,7 +6082,7 @@ msgstr ""
 "* 참조를 매칭하는 것도 시연할 수 있습니다.\n"
 "* 에러 메시지에 \"반박 불가능 패턴(irrefutable pattern)\"이란 용어가 등장하기도 합니다. 지금 그 의"
 "미를 소개하는 것도 좋을 것 같습니다.\n"
-"   \n"
+"\n"
 "</details>"
 
 #: src/pattern-matching/destructuring-enums.md:1
@@ -6991,7 +7002,6 @@ msgid "You can use `break` and `continue` here as usual."
 msgstr "다른 언어와 마찬가지로 `break` 와 `continue`를 사용할 수 있습니다."
 
 #: src/control-flow/for-expressions.md:22
-#, fuzzy
 msgid ""
 "<details>\n"
 "    \n"
@@ -7006,8 +7016,8 @@ msgstr ""
 "* 러스트는 인덱스 반복을 위해 별도의 문법을 사용하지 않습니다. \n"
 "* `(0..10)`은 `Iterator` 트레이트를 구현하는 범위(range) 값입니다. \n"
 "* `step_by`는 반복자의 요소들을 건너뛰는 또다른 `Iterator`를 반환하는 메서드입니다.\n"
-"    \n"
-"</details>"
+"* 벡터 요소들을 수정하려고 하면 나오는 컴파일러 에러를 같이 살펴보세요. `v` 벡터를 가변 변수로 변경"
+"하고 루프는 `for x in v.iter_mut()`로 수정하세요."
 
 #: src/control-flow/loop-expressions.md:1
 msgid "# `loop` expressions"
@@ -7291,14 +7301,12 @@ msgid ""
 msgstr ""
 
 #: src/std/string.md:30
-#, fuzzy
 msgid ""
 "* `len()` returns the size of the `String` in bytes, not its length in characters.\n"
 "* `chars()` returns an iterator over the actual characters."
 msgstr ""
-"* `len`은 `String`의 글자 길이가 아닌 바이트 사이즈를 반환합니다.\n"
-"* `chars`은 실제 문자들에 대한 반복자를 반환합니다.\n"
-"* `String`은 `Deref<Target = str>`의 구현으로 `str`의 메서드에 투명하게 액세스 할 수 있습니다."
+"* `len()`은 `String`의 글자 길이가 아닌 바이트 사이즈를 반환합니다.\n"
+"* `chars()`은 실제 문자들에 대한 반복자를 반환합니다."
 
 #: src/std/vec.md:1
 msgid "# `Vec`"
@@ -7590,19 +7598,12 @@ msgid ""
 msgstr ""
 
 #: src/std/box-recursive.md:33
-#, fuzzy
 msgid ""
 "* If the `Box` was not used here and we attempted to embed a `List` directly into the `List`,\n"
 "the compiler would not compute a fixed size of the struct in memory, it would look infinite."
 msgstr ""
-"<details>\n"
-"    \n"
-"만일 `Box`를 사용하지 않고 `List`에 직접 `List`를 포함하려고 시도한다면, 컴파일러는 구조체의 고정 "
-"크기를 계산할 수 없습니다. 컴파일러가 보기에 무한대의 크기로 보일 것입니다.\n"
-"    \n"
-"`Box`는 일반 포인터와 크기가 같기 때문에 크기를 계산하는 데 문제가 없습니다. 다만 힙에 위치한 "
-"`List`의 다음 요소를 가리킬 뿐입니다.    \n"
-"</details>"
+"* 만일 `Box`를 사용하지 않고 `List`에 직접 `List`를 포함하려고 시도한다면, 컴파일러는 구조체의 고"
+"정 크기를 계산할 수 없습니다. 컴파일러가 보기에 무한대의 크기로 보일 것입니다."
 
 #: src/std/box-recursive.md:36
 msgid ""
@@ -7610,6 +7611,8 @@ msgid ""
 "next\n"
 "element of the `List` in the heap."
 msgstr ""
+"* `Box`는 일반 포인터와 크기가 같기 때문에 크기를 계산하는 데 문제가 없습니다. 다만 힙에 위치한 "
+"`List`의 다음 요소를 가리킬 뿐입니다."
 
 #: src/std/box-recursive.md:39
 msgid ""
@@ -7619,6 +7622,11 @@ msgid ""
 "    \n"
 "</details>"
 msgstr ""
+"* `List` 정의에서 `Box`를 제거하면 어떤 컴파일러 에러가 나오는지 같이 살펴보세요. “Recursive with "
+"indirection”라는 메시지를 보면, 값을 직접 저장하는 대신 `Box`나 비슷한 다른 종류의 참조 타입이 필요"
+"하다는 힌트를 얻을 수 있습니다.\n"
+"    \n"
+"</details>"
 
 #: src/std/box-niche.md:1
 msgid "# Niche Optimization"
@@ -7674,7 +7682,6 @@ msgid ""
 msgstr ""
 
 #: src/std/rc.md:18
-#, fuzzy
 msgid ""
 "* If you need to mutate the data inside an `Rc`, you will need to wrap the data in\n"
 "  a type such as [`Cell` or `RefCell`][2].\n"
@@ -7682,22 +7689,24 @@ msgid ""
 "* You can *downgrade* a shared pointer into a [`Weak`][4] pointer to create cycles\n"
 "  that will get dropped."
 msgstr ""
-"`Rc`내부의 데이터를 변경해야 하는 경우, 데이터를 [`Cell` 또는 `RefCell`][2]로 래핑해야합니다.\n"
-"멀티스레드인 경우 [`Arc`][3]를 참조하시기 바랍니다."
+"* `Rc`내부의 데이터를 변경해야 하는 경우, 데이터를 [`Cell` 또는 `RefCell`][2]로 래핑해야합니다.\n"
+"* 멀티스레드인 경우 [`Arc`][3]를 참조하시기 바랍니다.\n"
+"* drop 가능한 순환 구조를 만들기 위해 공유 포인터를 [`Weak`][4] 포인터로 **다운그레이드**할 수도 있"
+"습니다."
 
 #: src/std/rc.md:24
-#, fuzzy
 msgid ""
 "[1]: https://doc.rust-lang.org/std/rc/struct.Rc.html\n"
 "[2]: https://doc.rust-lang.org/std/cell/index.html\n"
 "[3]: ../concurrency/shared_state/arc.md\n"
 "[4]: https://doc.rust-lang.org/std/rc/struct.Weak.html"
 msgstr ""
-"[1]: https://doc.rust-lang.org/std/sync/struct.Arc.html\n"
-"[2]: https://doc.rust-lang.org/std/sync/struct.Mutex.html"
+"[1]: https://doc.rust-lang.org/std/rc/struct.Rc.html\n"
+"[2]: https://doc.rust-lang.org/std/cell/index.html\n"
+"[3]: ../concurrency/shared_state/arc.md\n"
+"[4]: https://doc.rust-lang.org/std/rc/struct.Weak.html"
 
 #: src/std/rc.md:31
-#, fuzzy
 msgid ""
 "* Like C++'s `std::shared_ptr`.\n"
 "* `clone` is cheap: creates a pointer to the same allocation and increases the reference count.\n"
@@ -7710,20 +7719,19 @@ msgstr ""
 "* C++의 `std::shared_ptr`와 유사합니다.\n"
 "* `clone`은 저렴합니다. 동일한 할당에 대한 포인터를 생성하고 참조 카운트를 늘림니다.\n"
 "* `make_mut`는 실제로 필요한 경우에 내부 값을 복제하고( (\"clone-on-write\") ) 가변 참조를 반환합니"
-"다."
+"다.\n"
+"* `Rc`는 `downgrade()`로 다운그레이드하여 **weak 참조 카운트**로 변경할 수 있습니다. 그러면 순환구"
+"조라 하더라도 drop이 가능합니다. (아마도 `RefCell` 을 함께 사용해야 할 것입니다.)"
 
 #: src/std/rc.md:38
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "use std::rc::{Rc, Weak};\n"
 "use std::cell::RefCell;"
 msgstr ""
-"가능한 해결방법입니다.:\n"
-"    \n"
 "```rust,editable\n"
-"use std::sync::{Arc, Mutex};\n"
-"use std::thread;"
+"use std::rc::{Rc, Weak};\n"
+"use std::cell::RefCell;"
 
 #: src/std/rc.md:42
 msgid ""
@@ -7816,7 +7824,6 @@ msgid "Modules are a privacy boundary:"
 msgstr "모듈의 타입이나 함수는 기본적으로 비깥에 노출되지 않습니다."
 
 #: src/modules/visibility.md:5
-#, fuzzy
 msgid ""
 "* Module items are private by default (hides implementation details).\n"
 "* Parent and sibling items are always visible.\n"
@@ -7824,7 +7831,8 @@ msgid ""
 "  descendants of `foo`."
 msgstr ""
 "* 따라서 모듈의 세부 구현 내용이 감춰집니다.\n"
-"* 부모와 이웃 항목에서는 접근 가능합니다."
+"* 부모와 이웃 항목은 언제나 접근 가능합니다.\n"
+"* 즉, 모듈 `foo`에서 접근 가능한 항목이라면 `foo` 아래의 모든 모듈에서 접근가능합니다."
 
 #: src/modules/visibility.md:10
 msgid ""
@@ -8419,7 +8427,6 @@ msgid "We will now look at some of the most common traits of the Rust standard l
 msgstr "러스트 표준 라이브러리에는 다음과 같은 범용 트레이트들이 정의되어 있습니다:"
 
 #: src/traits/important-traits.md:5
-#, fuzzy
 msgid ""
 "* [`Iterator`][1] and [`IntoIterator`][2] used in `for` loops,\n"
 "* [`From`][3] and [`Into`][4] used to convert values,\n"
@@ -8428,11 +8435,12 @@ msgid ""
 "* [`Drop`][9] used for defining destructors.\n"
 "* [`Default`][10] used to construct a default instance of a type."
 msgstr ""
-"* `Iterator`와 `IntoIterator` 트레이트는 `for` 루프에서 사용됩니다.\n"
-"* `From`과 `Into` 트레이트는 값을 변환할 때 사용됩니다.\n"
-"* `Read`와 `Write` 트레이트는 I/O에 사용됩니다.\n"
-"* `Add`, `Mul` 등의 트레이트들은 연산자 오버로딩(overloading)에 사용됩니다.\n"
-"* `Drop` 트레이트는 소멸자 정의에 사용됩니다."
+"* [`Iterator`][1]와 [`IntoIterator`][2] 트레이트는 `for` 루프에서 사용됩니다.\n"
+"* [`From`][3]과 [`Into`][4] 트레이트는 값을 변환할 때 사용됩니다.\n"
+"* [`Read`][5]와 [`Write`][6] 트레이트는 I/O에 사용됩니다.\n"
+"* [`Add`][7], [`Mul`][8] 등의 트레이트들은 연산자 오버로딩(overloading)에 사용됩니다.\n"
+"* [`Drop`][9] 트레이트는 소멸자 정의에 사용됩니다.\n"
+"* [`Default`][10] 트레이트는 어떤 타입의 기본값 인스턴스를 만들때 사용됩니다."
 
 #: src/traits/important-traits.md:12
 msgid ""
@@ -8568,22 +8576,20 @@ msgstr ""
 "이는 또한 `Iterator<Item = Result<V, E>>`을 `Result<Vec<V>, E>`로 변경하는 멋진 작업도 구현합니다."
 
 #: src/traits/from-iterator.md:28
-#, fuzzy
 msgid ""
 "[1]: https://doc.rust-lang.org/std/iter/trait.FromIterator.html\n"
 "[2]: https://doc.rust-lang.org/std/iter/trait.Iterator.html"
 msgstr ""
-"[1]: https://doc.rust-lang.org/std/sync/struct.Arc.html\n"
-"[2]: https://doc.rust-lang.org/std/sync/struct.Mutex.html"
+"[1]: https://doc.rust-lang.org/std/iter/trait.FromIterator.html\n"
+"[2]: https://doc.rust-lang.org/std/iter/trait.Iterator.html"
 
 #: src/traits/from-into.md:1
 msgid "# `From` and `Into`"
 msgstr "# `From`과 `Into`"
 
 #: src/traits/from-into.md:3
-#, fuzzy
 msgid "Types implement [`From`][1] and [`Into`][2] to facilitate type conversions:"
-msgstr "타입은 용이한 형변환을 위해 `From`과 `Into`를 구현합니다:"
+msgstr "타입은 용이한 형변환을 위해 [`From`][1]과 [`Into`][2]를 구현합니다."
 
 #: src/traits/from-into.md:5
 msgid ""
@@ -8599,9 +8605,8 @@ msgid ""
 msgstr ""
 
 #: src/traits/from-into.md:15
-#, fuzzy
 msgid "[`Into`][2] is automatically implemented when [`From`][1] is implemented:"
-msgstr "`From`이 구현되면 `Into` 역시 자동으로 구현됩니다:"
+msgstr "[`From`][1]이 구현되면 [`Into`][2] 역시 자동으로 구현됩니다."
 
 #: src/traits/from-into.md:17
 msgid ""
@@ -8638,13 +8643,12 @@ msgstr ""
 "</details>"
 
 #: src/traits/from-into.md:35
-#, fuzzy
 msgid ""
 "[1]: https://doc.rust-lang.org/std/convert/trait.From.html\n"
 "[2]: https://doc.rust-lang.org/std/convert/trait.Into.html"
 msgstr ""
-"[1]: https://doc.rust-lang.org/std/sync/struct.Arc.html\n"
-"[2]: https://doc.rust-lang.org/std/sync/struct.Mutex.html"
+"[1]: https://doc.rust-lang.org/std/convert/trait.From.html\n"
+"[2]: https://doc.rust-lang.org/std/convert/trait.Into.html"
 
 #: src/traits/read-write.md:1
 msgid "# `Read` and `Write`"
@@ -8715,14 +8719,14 @@ msgid ""
 msgstr ""
 
 #: src/traits/read-write.md:42
-#, fuzzy
 msgid ""
 "[1]: https://doc.rust-lang.org/std/io/trait.Read.html\n"
 "[2]: https://doc.rust-lang.org/std/io/trait.BufRead.html\n"
 "[3]: https://doc.rust-lang.org/std/io/trait.Write.html"
 msgstr ""
-"[1]: https://doc.rust-lang.org/std/sync/struct.Arc.html\n"
-"[2]: https://doc.rust-lang.org/std/sync/struct.Mutex.html"
+"[1]: https://doc.rust-lang.org/std/io/trait.Read.html\n"
+"[2]: https://doc.rust-lang.org/std/io/trait.BufRead.html\n"
+"[3]: https://doc.rust-lang.org/std/io/trait.Write.html"
 
 #: src/traits/operators.md:1
 msgid "# `Add`, `Mul`, ..."
@@ -9061,15 +9065,16 @@ msgid "# Trait Bounds"
 msgstr "# 제너릭 타입 제한(트레이트 경계, Trait Bounds)"
 
 #: src/generics/trait-bounds.md:3
-#, fuzzy
 msgid ""
 "When working with generics, you often want to require the types to implement\n"
 "some trait, so that you can call this trait's methods."
-msgstr "`T:` 혹은 `impl` 트레이트를 사용하여 제너릭을 사용할 때 타입을 제한할 수 있습니다:"
+msgstr ""
+"제너릭을 이용하다 보면 타입이 어떤 트레이트를 구현하고 있어야 하는 경우가 있습니다. 그래야 그 트레"
+"이트의 메서드를 호출할 수 있기 때문입니다."
 
 #: src/generics/trait-bounds.md:6
 msgid "You can do this with `T: Trait` or `impl Trait`:"
-msgstr ""
+msgstr "`T: Trait` 혹은 `impl Trait`를 사용하면 됩니다."
 
 #: src/generics/trait-bounds.md:8
 msgid ""
@@ -10732,7 +10737,6 @@ msgid ""
 msgstr ""
 
 #: src/unsafe/calling-unsafe-functions.md:10
-#, fuzzy
 msgid ""
 "    // Safe because the indices are in the correct order, within the bounds of\n"
 "    // the string slice, and lie on UTF-8 sequence boundaries.\n"
@@ -10746,12 +10750,10 @@ msgstr ""
 "에\n"
 "    // 있기 때문에 안전합니다.\n"
 "    unsafe {\n"
-"        println!(\"{}\", emojis.get_unchecked(0..4));\n"
-"        println!(\"{}\", emojis.get_unchecked(4..7));\n"
-"        println!(\"{}\", emojis.get_unchecked(7..11));\n"
-"    }\n"
-"}\n"
-"```"
+"        println!(\"emoji: {}\", emojis.get_unchecked(0..4));\n"
+"        println!(\"emoji: {}\", emojis.get_unchecked(4..7));\n"
+"        println!(\"emoji: {}\", emojis.get_unchecked(7..11));\n"
+"    }"
 
 #: src/unsafe/calling-unsafe-functions.md:18
 msgid "    println!(\"char count: {}\", count_chars(unsafe { emojis.get_unchecked(0..7) }));"
@@ -11367,7 +11369,6 @@ msgid ""
 msgstr ""
 
 #: src/concurrency/channels.md:27
-#, fuzzy
 msgid ""
 "* `mpsc` stands for Multi-Producer, Single-Consumer. `Sender` and `SyncSender` implement `Clone` "
 "(so\n"
@@ -11376,6 +11377,9 @@ msgid ""
 "or\n"
 "  `Receiver` is dropped and the channel is closed."
 msgstr ""
+"* `mpsc`는 “Multi-Produce, Single-Consumer”를 의미합니다. `Sender`와 `SyncSender`는 `Clone`을 구현"
+"하지만 (즉, 여러개의 producer를 만들수 있습니다)\n"
+"  `Receiver`는 `Clone`을 구현하지 않습니다.\n"
 "* `send()`와 `recv()`는 `Result`를 반환합니다. 만일 `Err`가 반환된다면, 상대방의 `Sender`또는 "
 "`Receiver`가 삭제되었고 채널이 닫혔다는 뜻입니다."
 
@@ -11451,7 +11455,6 @@ msgid ""
 msgstr "러스트는 주로 아래 두 가지 타입을 이용해서 공유 데이터 동기화를 수행합니다: "
 
 #: src/concurrency/shared_state.md:6
-#, fuzzy
 msgid ""
 "* [`Arc<T>`][1], atomic reference counted `T`: handles sharing between threads and\n"
 "  takes care to deallocate `T` when the last reference is dropped,\n"
@@ -11513,7 +11516,6 @@ msgid "[1]: https://doc.rust-lang.org/std/sync/struct.Arc.html"
 msgstr ""
 
 #: src/concurrency/shared_state/arc.md:29
-#, fuzzy
 msgid ""
 "* `Arc` stands for \"Atomic Reference Counted\", a thread safe version of `Rc` that uses atomic\n"
 "  operations.\n"
@@ -11527,12 +11529,13 @@ msgid ""
 msgstr ""
 "* `Arc`는 \"Atomic Reference Counted\"를 의미하며, 스레드 안정성을 보장하는 `Rc`라고 생각하면 됩니"
 "다.\n"
+"* `T`가 `Clone`을 구현하든 안하든 `Arc<T>`는 `Clone`을 구현합니다. `Send`와 `Sync`는 `T`가 이들을 "
+"구현하는 경우에만 구현됩니다.\n"
 "* `Arc::clone()`는 아토믹 연산을 수행하기 때문에 그 때 코스트가 좀 있지만, 일단 `clone()`이 끝난 "
 "후 `T`를 사용하는 대에는 아무런 오버헤드가 없습니다.\n"
 "* 순환 참조가 발생하지 않도록 주의해야 합니다. 러스트는 순환 참조를 감지하는 가비지 컬랙터가 없습니"
 "다.\n"
-"  * 순환 참조를 피하는데 `std::sync::Weak`가 도움이 될 것입니다.\n"
-"</details>"
+"    * 순환 참조를 피하는데 `std::sync::Weak`가 도움이 될 것입니다."
 
 #: src/concurrency/shared_state/mutex.md:1
 msgid "# `Mutex`"
@@ -11560,7 +11563,6 @@ msgid ""
 msgstr ""
 
 #: src/concurrency/shared_state/mutex.md:13
-#, fuzzy
 msgid ""
 "    {\n"
 "        let mut guard = v.lock().unwrap();\n"
@@ -11568,13 +11570,9 @@ msgid ""
 "    }"
 msgstr ""
 "    {\n"
-"        let v = v.lock().unwrap();\n"
-"        println!(\"v: {v:?}\");\n"
-"    }\n"
-"}\n"
-"```\n"
-"    \n"
-"참고 사항:"
+"        let mut guard = v.lock().unwrap();\n"
+"        guard.push(40);\n"
+"    }"
 
 #: src/concurrency/shared_state/mutex.md:18
 msgid ""
@@ -11597,7 +11595,6 @@ msgid ""
 msgstr ""
 
 #: src/concurrency/shared_state/mutex.md:29
-#, fuzzy
 msgid ""
 "<details>\n"
 "    \n"
@@ -11622,14 +11619,15 @@ msgstr ""
 "다른 점은, 그 데이터가 동시성 문제로부터 자유롭다는 점입니다.\n"
 "  * `Mutex`는 뮤텍스를 획득하지 않으면 보호된 데이터에 접근하는 것이 불가능  하도록 디자인 되어 있"
 "습니다.\n"
-"* `Mutex`는 읽기와 쓰기에 대한 잠금을 구별하지 않기 때문에 여러 스레드에서 데이터를 \"읽기\"만 하려"
-"고 해도 이를 동시에 허용하지 않습니다. 즉, 한 번에 한 스레드에서의 읽기만 허용이 됩니다. \"읽기"
-"\"에 대한 동시성을 지원하면서 \"쓰기\"에 대해서 안전하고 싶다면 `RwLock`을 사용할 수 있습니다.\n"
+"* `&Mutex<T>`에 대해 lock을 획득하면 `&mut T`를 얻을 수 있습니다. `MutexGuard`는 `&mut T`가 획득한 "
+"lock보다 오래 살아남지 않음을 보장합니다.\n"
+"* `Mutex<T>`는 오직 `T`가 `Send`를 구현하는 경우에만 `Send`와 `Sync`를 구현합니다.\n"
+"* 읽기-쓰기 lock은 `RwLock`을 사용합니다.\n"
 "* 왜 `lock()`이 `Result`를 반환할까요?\n"
-"  * `Mutex`를 획득한 스레드에서 패닉이 발생하면, 데이터가 올바르지 않은 상황이  될 수 있습니다. 이"
-"를 `Mutex`가 \"중독(poisoned)\" 되었다고 표현하며, 중독된  뮤텍스에서 `lock()`을 호출하면 실패하고 "
-"[`PoisonError`]가 발생합니다.  이러한 오류로부터 데이터를 복구하기 위해 `into_inner()`를 호출할 수 "
-"있습니다."
+"  * `Mutex`를 획득한 스레드에서 패닉이 발생하면, 데이터가 올바르지 않은 상황이 될 수 있습니다. 이"
+"를 `Mutex`가 \"중독(poisoned)\" 되었다고 표현하며,\n"
+"    중독된 뮤텍스에서 `lock()`을 호출하면 실패하고 [`PoisonError`]가 발생합니다. 이러한 오류로부터 "
+"데이터를 복구하기 위해 `into_inner()`를 호출할 수 있습니다."
 
 #: src/concurrency/shared_state/mutex.md:43
 msgid ""
@@ -11729,7 +11727,6 @@ msgstr ""
 "참고 사항:"
 
 #: src/concurrency/shared_state/example.md:54
-#, fuzzy
 msgid ""
 "* `v` is wrapped in both `Arc` and `Mutex`, because their concerns are orthogonal.\n"
 "  * Wrapping a `Mutex` in an `Arc` is a common pattern to share mutable state between threads.\n"
@@ -11740,6 +11737,7 @@ msgid ""
 msgstr ""
 "* `v`는 `Arc`와 `Mutex` 모두에 포함되어 있습니다. 이는 `Arc`와 `Mutex`가 서로 완전히 다른 문제를 위"
 "한 도구이기 때문입니다.\n"
+"  * `Mutex`를 `Arc`로 래핑하는 것은 가변 상태를 스레드들 간에 공유할 때 흔히 사용하는 패턴입니다.\n"
 "* `v: Arc<_>`를 다른 스레드에서 사용하려면, 먼저 `v2`로 복사를 하고 이를 그 스레드로 이동 해야 합니"
 "다. 그래서 람다의 시그니처에 `move`가 있는 것입니다.\n"
 "* 블록은 `LockGuard`의 범위를 최대한 좁히기 위해 사용되었습니다.\n"
@@ -11773,19 +11771,22 @@ msgid ""
 "you\n"
 "know it is valid."
 msgstr ""
+"`Send`와 `Sync` 트레이트는 [안전하지 않은 트레이트][3]입니다. 컴파일러는 타입의 요소들이 모두 "
+"`Send`와 `Sync` 타입이면\n"
+"자동으로 이 트레이트들을 적용시켜 줍니다. 물론 여러분 스스로 맞다고 알고 있다면 직접 구현해도 됩니"
+"다."
 
 #: src/concurrency/send-sync.md:14
-#, fuzzy
 msgid ""
 "[1]: https://doc.rust-lang.org/std/marker/trait.Send.html\n"
 "[2]: https://doc.rust-lang.org/std/marker/trait.Sync.html\n"
 "[3]: ../unsafe/unsafe-traits.md"
 msgstr ""
-"[1]: https://doc.rust-lang.org/std/sync/struct.Arc.html\n"
-"[2]: https://doc.rust-lang.org/std/sync/struct.Mutex.html"
+"[1]: https://doc.rust-lang.org/std/marker/trait.Send.html\n"
+"[2]: https://doc.rust-lang.org/std/marker/trait.Sync.html\n"
+"[3]: ../unsafe/unsafe-traits.md"
 
 #: src/concurrency/send-sync.md:20
-#, fuzzy
 msgid ""
 "* One can think of these traits as markers that the type has certain thread-safety properties.\n"
 "* They can be used in the generic constraints as normal traits.\n"
@@ -11795,6 +11796,7 @@ msgstr ""
 "* `Sync`와 `Send`는 어떤 타입이 특정한 스레드-안전 속성을 가짐을 나타내는 마커로 생각할 수 있습니"
 "다.\n"
 "* 이 두 트레이트는 제너릭에서 제약 조건을 나타내는 트레이트로 사용될 수도 있습니다.\n"
+"\n"
 "</details>"
 
 #: src/concurrency/send-sync/send.md:1
@@ -12128,11 +12130,10 @@ msgid ""
 msgstr ""
 
 #: src/exercises/day-4/link-checker.md:26
-#, fuzzy
 msgid ""
 "Finally, we'll need some way of handling errors. We use [`thiserror`][3] for\n"
 "that:"
-msgstr "마지막으로 오류 처리하는 방법으로 [`thiserror`][3]도 추가합니다:"
+msgstr "마지막으로 오류 처리하는 방법으로 [`thiserror`][3]도 추가합니다."
 
 #: src/exercises/day-4/link-checker.md:29
 msgid ""
@@ -13631,7 +13632,6 @@ msgid "A small selection of other guides and tutorial for Rust:"
 msgstr "러스트에 대한 기타 안내서와 튜토리얼의 일부입니다:"
 
 #: src/other-resources.md:37
-#, fuzzy
 msgid ""
 "* [Learn Rust the Dangerous Way](http://cliffle.com/p/dangerust/): covers Rust\n"
 "  from the perspective of low-level C programmers.\n"
@@ -13672,7 +13672,10 @@ msgstr ""
 "도 함께 다룹니다.\n"
 "* [Beginner's Series to Rust](https://docs.microsoft.com/en-us/shows/beginners-series-to-rust/), "
 "[Take your first steps with Rust](https://docs.microsoft.com/en-us/learn/paths/rust-first-steps/): "
-"첫번째는 35개의 시리즈 영상이며 두번째는 러스트의 문법과 구조를 다루는 11개의 모듈 세트입니다."
+"첫번째는 35개의 시리즈 영상이며 두번째는 러스트의 문법과 구조를 다루는 11개의 모듈 세트입니다.\n"
+"* [Learn Rust With Entirely Too Many Linked Lists](https://rust-unofficial.github.io/too-many-"
+"lists/):\n"
+"  몇가지 유형의 리스트 자료구조를 구현해보면서 러스트의 메모리 관리 규칙들을 깊이있게 탐색합니다."
 
 #: src/other-resources.md:63
 msgid ""
@@ -13695,13 +13698,12 @@ msgstr ""
 "유용한 자료의 전체 목록은 [other resources](other-resources.md)에서 살펴보시기 바랍니다."
 
 #: src/credits.md:7
-#, fuzzy
 msgid ""
 "The material of Comprehensive Rust is licensed under the terms of the Apache 2.0\n"
 "license, please see [`LICENSE`](../LICENSE) for details."
 msgstr ""
-"Comprehensive Rust의 자료는 Apache 2.0 라이선스를 따릅니다. 자세한건 [`LICENSE.txt`](../LICENSE."
-"txt) 확인해 보시기 바랍니다."
+"Comprehensive Rust의 자료는 Apache 2.0 라이선스를 따릅니다. 자세한건 [`LICENSE`](../LICENSE) 확인"
+"해 보시기 바랍니다."
 
 #: src/credits.md:10
 msgid "## Rust by Example"
@@ -13781,7 +13783,7 @@ msgstr "## 배열과 `for`반복문"
 
 #: src/exercises/day-1/solutions-morning.md:5
 msgid "([back to exercise](for-loops.md))"
-msgstr ""
+msgstr "([연습문제로 돌아가기](for-loops.md))"
 
 #: src/exercises/day-1/solutions-morning.md:7 src/exercises/day-1/solutions-afternoon.md:7
 #: src/exercises/day-2/solutions-morning.md:7 src/exercises/day-2/solutions-afternoon.md:7
@@ -13873,26 +13875,33 @@ msgid ""
 "```\n"
 "### Bonus question"
 msgstr ""
+"    let transposed = transpose(matrix);\n"
+"    println!(\"transposed:\");\n"
+"    pretty_print(&transposed);\n"
+"}\n"
+"```\n"
+"\n"
+"### 보너스 문제"
 
 #: src/exercises/day-1/solutions-morning.md:80
-#, fuzzy
 msgid ""
 "It requires more advanced concepts. It might seem that we could use a slice-of-slices "
 "(`&[&[i32]]`) as the input type to transpose and thus make our function handle any size of matrix. "
 "However, this quickly breaks down: the return type cannot be `&[&[i32]]` since it needs to own the "
 "data you return."
 msgstr ""
-"사실 잘 동작하진 않습니다. slice-of-slices (`&[&[i32]]`)을 입력 타입으로 사용하여 모든 크기의 행렬"
-"을 처리할 수 있습니다. 하지만 리턴 값을 소유해야 하기때문에 `&[&[i32]]` 타입을 사용할 순 없습니다. "
+"사실 이 문제는 고급 개념이 필요합니다. 슬라이스의 슬라이스(slice-of-slices, `&[&[i32]]`)를 입력 타"
+"입으로 사용하면 모든 크기의 행렬을 처리할 수 있을것 같습니다.\n"
+"하지만 실제로 해보면 금방 안된다는 걸 알 수 있습니다. 반환값을 소유해야 하기때문에 `&[&[i32]]` 반"
+"환 타입으로 사용할 수 없습니다. "
 
 #: src/exercises/day-1/solutions-morning.md:82
-#, fuzzy
 msgid ""
 "You can attempt to use something like `Vec<Vec<i32>>`, but this doesn't work out-of-the-box "
 "either: it's hard to convert from `Vec<Vec<i32>>` to `&[&[i32]]` so now you cannot easily use "
 "`pretty_print` either."
 msgstr ""
-"`Vec<Vec<i32>>`와 같은 타입을 사용하려고 시도할 수도 있지만 역시 잘 동작하진 않습니다:  "
+"`Vec<Vec<i32>>`와 같은 타입을 사용하려고 시도할 수도 있지만 역시 쉽게 되진 않습니다. "
 "`Vec<Vec<i32>>` 타입을 `&[&[i32]]`로 변환하는 것이 어렵기 때문에 `pretty_print`을 사용하는데 어려움"
 "이 있습니다."
 
@@ -13901,6 +13910,8 @@ msgid ""
 "Once we get to traits and generics, we'll be able to use the [`std::convert::AsRef`][1] trait to "
 "abstract over anything that can be referenced as a slice."
 msgstr ""
+"트레이트나 제너릭을 다루고 나면 [`std::convert::AsRef`][1] 트레이트를 사용하여 슬라이스처럼 사용될 "
+"수 있는 타입을 추상화할 수 있습니다."
 
 #: src/exercises/day-1/solutions-morning.md:86
 msgid ""
@@ -13943,9 +13954,8 @@ msgid ""
 "In addition, the type itself would not enforce that the child slices are of the same length, so "
 "such variable could contain an invalid matrix."
 msgstr ""
-"또한, 슬라이스 타입은 길이를 포함하지 않기 때문에 한 단계 아래의 슬라이스들이 같은 길이(_역주: 3_)"
-"임을 보장할 수 없습니다. 때문에 슬라이스 타입의 변수에는 잘못된 행렬(_역주: 각 열이나 행의 길이가 "
-"다른_)이 전달될 수 있습니다."
+"또한, 슬라이스 타입은 길이를 포함하지 않기 때문에 한 단계 아래의 슬라이스들이 같은 길이임을 보장할 "
+"수 없습니다. 때문에 슬라이스 타입의 변수에는 잘못된 행렬이 전달될 수 있습니다."
 
 #: src/exercises/day-1/solutions-morning.md:115
 msgid "[1]: https://doc.rust-lang.org/std/convert/trait.AsRef.html"
