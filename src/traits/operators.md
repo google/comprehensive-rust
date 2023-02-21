@@ -1,6 +1,6 @@
 # `Add`, `Mul`, ...
 
-Operator overloading is implemented via traits in `std::ops`:
+Operator overloading is implemented via traits in [`std::ops`][1]:
 
 ```rust,editable
 #[derive(Debug, Copy, Clone)]
@@ -20,3 +20,21 @@ fn main() {
     println!("{:?} + {:?} = {:?}", p1, p2, p1 + p2);
 }
 ```
+
+<details>
+
+Discussion points:
+
+* You could implement `Add` for `&Point`. In which situations is that useful? 
+    * Answer: `Add:add` consumes `self`. If type `T` for which you are
+        overloading the operator is not `Copy`, you should consider overloading
+        the operator for `&T` as well. This avoids unnecessary cloning on the
+        call site.
+* Why is `Output` an associated type? Could it be made a type parameter?
+    * Short answer: Type parameters are controlled by the caller, but
+        associated types (like `Output`) are controlled by the implementor of a
+        trait.
+
+</details>
+
+[1]: https://doc.rust-lang.org/std/ops/index.html

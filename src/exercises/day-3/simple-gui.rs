@@ -24,7 +24,7 @@ pub trait Widget {
     fn draw(&self) {
         let mut buffer = String::new();
         self.draw_into(&mut buffer);
-        println!("{}", &buffer);
+        println!("{buffer}");
     }
 }
 

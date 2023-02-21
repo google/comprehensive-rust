@@ -106,5 +106,5 @@ Experiment with the code above and then consult the documentation for [`impl
 IntoIterator for
 &Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-for-%26%27a%20Vec%3CT%2C%20A%3E)
 and [`impl IntoIterator for
-Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-for-%26%27a%20Vec%3CT%2C%20A%3E)
+Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-for-Vec%3CT%2C%20A%3E)
 to check your answers.

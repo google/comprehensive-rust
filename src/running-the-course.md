@@ -25,14 +25,14 @@ To run the course, you need to:
 
 4. On the day of your course, show up to the room a little early to set things
    up. We recommend presenting directly using `mdbook serve` running on your
-   laptop. This ensures optimal performance with no lag as you change pages.
+   laptop (see the [installation instructions][5]). This ensures optimal performance with no lag as you change pages.
    Using your laptop will also allow you to fix typos as you or the course
    participants spot them.
 
 5. Let people solve the exercises by themselves or in small groups. Make sure to
    ask people if they're stuck or if there is anything you can help with. When
    you see that several people have the same problem, call it out to the class
-   and offer a solution, e.g., by showing people where to find the relvant
+   and offer a solution, e.g., by showing people where to find the relevant
    information in the standard library.
 
 6. If you don't skip the Android specific parts on Day 4, you will need an [AOSP
@@ -56,3 +56,4 @@ better. Your students are also very welcome to [send us feedback][4]!
 [2]: https://github.com/google/comprehensive-rust
 [3]: https://github.com/google/comprehensive-rust/discussions/86
 [4]: https://github.com/google/comprehensive-rust/discussions/100
+[5]: https://github.com/google/comprehensive-rust#building
