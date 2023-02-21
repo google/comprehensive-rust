@@ -147,6 +147,52 @@
                     <h1 class="menu-title">{{ book_title }}</h1>
 
                     <div class="right-buttons">
+                        <button id="language-toggle" class="icon-button" type="button"
+                                title="Change language" aria-label="Change language"
+                                aria-haspopup="true" aria-expanded="false"
+                                aria-controls="language-list">
+                            <i class="fa fa-globe"></i>
+                        </button>
+                        <ul id="language-list" class="theme-popup" aria-label="Languages" role="menu">
+                          <li role="none"><button role="menuitem" class="theme">
+                              <a id="en">English</a>
+                          </button></li>
+                          <li role="none"><button role="menuitem" class="theme">
+                              <a id="pt-BR">Brazilian Portuguese</a>
+                          </button></li>
+                          <li role="none"><button role="menuitem" class="theme">
+                              <a id="ko">한국어 (Korean)</a>
+                          </button></li>
+                        </ul>
+
+                        <script>
+                          let langToggle = document.getElementById("language-toggle");
+                          let langList = document.getElementById("language-list");
+                          langToggle.addEventListener("click", (event) => {
+                              langList.style.display = langList.style.display == "block" ? "none" : "block";
+                          });
+                          let selectedLang = document.getElementById("{{ language }}");
+                          selectedLang.parentNode.classList.add("theme-selected");
+
+                          // The path to the root, taking the current
+                          // language into account.
+                          {{#if (eq language "en")}}
+                          let full_path_to_root = "{{ path_to_root }}";
+                          {{else}}
+                          let full_path_to_root = "{{ path_to_root }}../";
+                          {{/if}}
+                          // The page path (mdbook only gives us
+                          // access to the path to the Markdown file).
+                          let path = "{{ path }}".replace(/\.md$/, ".html");
+                          for (let lang of langList.querySelectorAll("a")) {
+                              if (lang.id == "en") {
+                                  lang.href = `${full_path_to_root}${path}`;
+                              } else {
+                                  lang.href = `${full_path_to_root}${lang.id}/${path}`;
+                              }
+                          }
+                        </script>
+
                         {{#if print_enable}}
                         <a href="{{ path_to_root }}print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
@@ -158,9 +204,16 @@
                         </a>
                         {{/if}}
                         {{#if git_repository_edit_url}}
+                        {{#if (eq language "en")}}
                         <a href="{{git_repository_edit_url}}" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
+                        {{else}}
+                        <a href="https://github.com/google/comprehensive-rust/edit/main/po/{{language}}.po"
+                           title="Suggest an edit to the translation" aria-label="Suggest an edit to the translation">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                        {{/if}}
                         {{/if}}
 
                     </div>
