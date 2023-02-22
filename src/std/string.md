@@ -13,7 +13,7 @@ fn main() {
     s2.push('!');
     println!("s2: len = {}, capacity = {}", s2.len(), s2.capacity());
 
-    let s3 = String::from("A Flag:🇨🇭");
+    let s3 = String::from("🇨🇭");
     println!("s3: len = {}, number of chars = {}", s3.len(),
              s3.chars().count());
 }
@@ -27,11 +27,11 @@ fn main() {
 
 <details>
 
-* `new()` heap allocated buffer. `StringL::with capacity` is used when you know how much you want to push on
-* `len()` returns the size of the `String` in bytes, not its length in characters.
-* `chars()` returns an iterator over the actual characters.
+* `String::new` returns a new empty string, use `String::with capacity` when you know how much data you want to push to the string.
+* `String::len` returns the size of the `String` in bytes (which can be different from its length in characters).
+* `String::chars` returns an iterator over the actual characters. Note that a `char` can be different from what a human will consider a "character" due to [grapheme clusters](https://docs.rs/unicode-segmentation/latest/unicode_segmentation/struct.Graphemes.html).
 *  When people refer to strings they could either be talking about `&str` or `String`. 
-* Implementing Deref (trait), gives the compiler ability to take a value of any type, call the deref method, and know how to dereference it  
+* When a type implements `Deref<Target = T>`, the compiler will let you transparently call methods from `T`.
     * `String` implements `Deref<Target = str>` which transparently gives it access to `str`'s methods.
     * Write and compare `let s3 = s1.deref();` and  `let s3 = &*s1`;.
 * `String` is implemented as a wrapper around a vector of bytes, many of the operations you see supported on vectors are also supported on `String`, but with some extra guarantees.
