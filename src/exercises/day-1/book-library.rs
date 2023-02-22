@@ -48,49 +48,34 @@ impl Library {
     }
 
     // ANCHOR: Library_len
-    //fn len(self) -> usize {
-    //    unimplemented!()
-    //}
-    // ANCHOR_END: Library_len
-    fn len(&self) -> usize {
+    fn len(self) -> usize {
+        // ANCHOR_END: Library_len
         self.books.len()
     }
 
     // ANCHOR: Library_is_empty
-    //fn is_empty(self) -> bool {
-    //    unimplemented!()
-    //}
-    // ANCHOR_END: Library_is_empty
     fn is_empty(&self) -> bool {
+        // ANCHOR_END: Library_is_empty
         self.books.is_empty()
     }
 
     // ANCHOR: Library_add_book
-    //fn add_book(self, book: Book) {
-    //    unimplemented!()
-    //}
-    // ANCHOR_END: Library_add_book
     fn add_book(&mut self, book: Book) {
+        // ANCHOR_END: Library_add_book
         self.books.push(book)
     }
 
     // ANCHOR: Library_print_books
-    //fn print_books(self) {
-    //    unimplemented!()
-    //}
-    // ANCHOR_END: Library_print_books
     fn print_books(&self) {
+        // ANCHOR_END: Library_print_books
         for book in &self.books {
             println!("{}", book);
         }
     }
 
     // ANCHOR: Library_oldest_book
-    //fn oldest_book(self) -> Option<&Book> {
-    //    unimplemented!()
-    //}
-    // ANCHOR_END: Library_oldest_book
     fn oldest_book(&self) -> Option<&Book> {
+        // ANCHOR_END: Library_oldest_book
         self.books.iter().min_by_key(|book| book.year)
     }
 }
@@ -100,22 +85,22 @@ impl Library {
 // implement the missing methods. You will need to update the
 // method signatures, including the "self" parameter! You may
 // also need to update the variable bindings within main.
-fn main() {
-    let library = Library::new();
+pub fn main() {
+    let mut library = Library::new();
 
-    //println!("Our library is empty: {}", library.is_empty());
-    //
-    //library.add_book(Book::new("Lord of the Rings", 1954));
-    //library.add_book(Book::new("Alice's Adventures in Wonderland", 1865));
-    //
-    //library.print_books();
-    //
-    //match library.oldest_book() {
-    //    Some(book) => println!("My oldest book is {book}"),
-    //    None => println!("My library is empty!"),
-    //}
-    //
-    //println!("Our library has {} books", library.len());
+    println!("Our library is empty: {}", library.is_empty());
+
+    library.add_book(Book::new("Lord of the Rings", 1954));
+    library.add_book(Book::new("Alice's Adventures in Wonderland", 1865));
+
+    library.print_books();
+
+    match library.oldest_book() {
+        Some(book) => println!("My oldest book is {book}"),
+        None => println!("My library is empty!"),
+    }
+
+    println!("Our library has {} books", library.len());
 }
 // ANCHOR_END: main
 
