@@ -33,7 +33,7 @@ fn main() {
 * `clone` is cheap: it creates a pointer to the same allocation and increases the reference count. Does not make a deep clone and can generally be ignored when looking for performance issues in code.
 * `make_mut` actually clones the inner value if necessary ("clone-on-write") and returns a mutable reference.
 * Use `Rc::strong_count` to check the reference count.
-* Compare the different datatypes mentioned. `Box` enables (im)mutable borrows at compile time, `RefCell` enables (im)mutable borrows at run time and will panic if it fails at runtime.
+* Compare the different datatypes mentioned. `Box` enables (im)mutable borrows that are enforced at compile time. `RefCell` enables (im)mutable borrows that are enforced at run time and will panic if it fails at runtime.
 * You can `downgrade()` a `Rc` into a *weakly reference-counted* object to
   create cycles that will be dropped properly (likely in combination with
   `RefCell`).
