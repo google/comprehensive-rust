@@ -9,7 +9,7 @@ You can define richer enums where the variants carry data. You can then use the
 
 <details>
 
-* In the above example, accessing the `char` in `KeyPress`, or `x` and `y` in `Click` only works within a `match` statement.  
+* The values in the enum variants can only be accessed after being pattern matched. The pattern binds references to the fields in the "match arm" after the `=>`.
   * The expressions is matched against the patterns from top to bottom. There is no fall-through like in C or C++.
   * The match expression has a value. The value is the last expression in the match arm which was executed.
   * Starting from the top we look for what pattern matches the value then run the code following the arrow. Once we find a match, we stop. 
