@@ -3068,7 +3068,6 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/type-inference.md:26
-#, fuzzy
 msgid ""
 "This slide demonstrates how the Rust compiler infers types based on constraints given by variable declarations and usages.\n"
 "    \n"
@@ -3732,7 +3731,6 @@ msgid "* Mention that this is the opposite of the defaults in C++, which copies 
 msgstr "* 이는 C++과 정반대 임을 설명하세요. C++에서는 복사가 기본이고, `std::move` 를 이용해야만 (그리고 이동 생성자가 정의되어 있어야만!) 소유권 이전이 됩니다."
 
 #: src/ownership/move-semantics.md:24
-#, fuzzy
 msgid "* In Rust, clones are explicit (by using `clone`)."
 msgstr "* 러스트에서는 복사할때에는 명시적으로 `clone`을 사용합니다."
 
@@ -4932,9 +4930,8 @@ msgid ""
 msgstr ""
 
 #: src/structs/field-shorthand.md:27
-#, fuzzy
 msgid "*  The `new` function could be written using `Self` as a type, as it is interchangeable with the struct type name"
-msgstr "`new`함수를 다음처럼 구조체 이름 대신 `Self`를 사용하여 작성해도 됩니다."
+msgstr "* `new`함수를 다음처럼 구조체 이름 대신 `Self`를 사용하여 작성해도 됩니다."
 
 #: src/structs/field-shorthand.md:29
 msgid ""
@@ -5079,7 +5076,6 @@ msgid ""
 msgstr ""
 
 #: src/enums/variant-payloads.md:35
-#, fuzzy
 msgid ""
 "* The values in the enum variants can only be accessed after being pattern matched. The pattern binds references to the fields in the \"match arm\" after the `=>`.\n"
 "  * The expressions is matched against the patterns from top to bottom. There is no fall-through like in C or C++.\n"
@@ -5093,7 +5089,11 @@ msgid ""
 "  \n"
 "</details>"
 msgstr ""
-"* 위의 예제에서 `KeyPress`의 `char`, `Cilck`의 `x`와 `y`의 접근은 `match`나 `if let` 안에서만 동작 합니다.\n"
+"* 열거형 안의 값은 패턴 매칭이 되고 난 이후에만 접근 가능합니다. 그 값에 대한 레퍼런스는 `=>` 이후에 사용가능합니다.\n"
+"  * 매치 패턴들은 위에서 아래로 순서에 따라 검사합니다. C나 C++에서와 같은 fall-through는 없습니다.\n"
+"  * 매치 표현식 자체는 값을 가집니다. 그 값은 매칭이 된 패턴에서 가장 마지막에 수행된 표현식이 됩니다.\n"
+"  * 가장 위에서 부터 어떤 패턴이 주어진 값과 매칭하는지 검사한 다음, 매칭된 것이 발견되면 화살표를 따라 코드를 수행합니다. 한 번 매칭이 되고 코드가 수행이 되면, 더이상의 매칭은 없습니다.\n"
+"* 매칭 패턴들이 불충분 하다면 어떤 일이 일어나는지 설명하세요. 러스트 컴파일러는 모든 가능한 케이스들이 핸들링 되는지 체크한다는 점을 상기시키세요.\n"
 "* `match`는 주어진 열거형 값이 실제로 어떤 variant인지 판단하기 위해, 그 variant의 종류가 기록된, 숨겨진 필드(식별자)의 값을 검사합니다.\n"
 "* `std::mem::discriminant()`를 이용하여 식별자를 얻을 수도 있습니다.\n"
 "  * 이는 각 필드 값을 굳이 비교할 필요 없는 구조체에 대해 `PartialEq` 트레잇을 구현할 때 유용합니다.\n"
@@ -5397,7 +5397,6 @@ msgid ""
 msgstr "`self`를 사용하는 이같은 변형들 외에도 `Box<Self>`와 같이 리시버 타입으로 허용되는 [특별한 래퍼 타입](https://doc.rust-lang.org/reference/special-types-and-traits.html)이 있습니다."
 
 #: src/methods/receiver.md:23
-#, fuzzy
 msgid ""
 "<details>\n"
 "  \n"
@@ -5494,7 +5493,6 @@ msgid ""
 msgstr ""
 
 #: src/methods/example.md:44
-#, fuzzy
 msgid ""
 "<details>\n"
 "    \n"
@@ -5511,7 +5509,7 @@ msgstr ""
 "* 4가지 유형의 메서드 receiver에 대해 설명합니다.\n"
 "  * receiver 유형에 따라 함수가 할 수 있는 일이 달라지고, 또 메소드를 호출한 뒤 `main`에서 해당 객체를 사용할 수 있는지 여부도 달라진다는 점을 강조하세요.\n"
 "  * `finish`를 두번 호출하여 오류가 발생하는 것을 보일 수 있습니다.\n"
-"* 비록 메서드 receiver는 다르지만 main 함수에서 비 정적 함수를 부르는 방법은 같습니다.  러스트는 메서드를 호출할 때 자동으로 참조/역참조(따라가기)를 수행합니다.  러스트는 객체와 매서드 시그니처가 서로 매치되도록 객체에 `&`, `*`, `muts`를 자동으로 붙여줍니다.\n"
+"* 비록 메서드 receiver는 다르지만 main 함수에서 비 정적 함수를 부르는 방법은 같습니다. 러스트는 메서드를 호출할 때 자동으로 참조/역참조(따라가기)를 수행합니다. 러스트는 객체와 매서드 시그니처가 서로 매치되도록 객체에 `&`, `*`, `muts`를 자동으로 붙여줍니다.\n"
 "* `print_laps`함수에서 벡터를 어떤 식으로 사용하고 있는지 언급하는 것도 좋습니다. 벡터는 오후 강의에서 더 자세히 설명할 것입니다. "
 
 #: src/pattern-matching.md:1
@@ -5552,7 +5550,6 @@ msgid "The `_` pattern is a wildcard pattern which matches any value."
 msgstr "`_`패턴은 어떤 값과도 매칭되는 와일드카드입니다."
 
 #: src/pattern-matching.md:23
-#, fuzzy
 msgid ""
 "<details>\n"
 "    \n"
@@ -5774,7 +5771,6 @@ msgstr ""
 "}"
 
 #: src/pattern-matching/destructuring-arrays.md:30
-#, fuzzy
 msgid ""
 "#[rustfmt::skip]\n"
 "fn inspect(slice: &[i32]) {\n"
@@ -5802,6 +5798,9 @@ msgstr ""
 "    }\n"
 "}\n"
 "```\n"
+"* 엘리먼트를 매칭할 때 `_`를 사용하는 패턴을 추가해 보세요.\n"
+"* 배열에 값을 더 추가해 보세요.\n"
+"* `..`가 서로 다른 개수의 엘리먼트들에 대해 어떻게 확장되는지 설명하세요.\n "
 "* `[.., b]`나 `[a@.., b]`와 같은 패턴으로 꼬리 부분을 매칭하는 것을 보여주세요.\n"
 "</details>"
 
