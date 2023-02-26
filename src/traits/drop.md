@@ -33,7 +33,7 @@ fn main() {
 
 Discussion points:
 
-* Why does not `Drop::drop` take `self`?
+* Why doesn't `Drop::drop` take `self`?
     * Short-answer: If it did, `std::mem::drop` would be called at the end of
         the block, resulting in another call to `Drop::drop`, and a stack
         overflow!
