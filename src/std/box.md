@@ -31,7 +31,7 @@ from `T` directly on a `Box<T>`][2].
 
 <details>
 
-* `Box` is like `std::unique_ptr` in C++. 
+* `Box` is like `std::unique_ptr` in C++, except that it's guaranteed to be not null. 
 * In the above example, you can even leave out the `*` in the `println!` statement thanks to `Deref`. 
 * A `Box` can be useful when you:
    * have a type whose size that can't be known at compile time, but the Rust compiler wants to know an exact size.
