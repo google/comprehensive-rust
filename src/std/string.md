@@ -35,6 +35,6 @@ fn main() {
     * `String` implements `Deref<Target = str>` which transparently gives it access to `str`'s methods.
     * Write and compare `let s3 = s1.deref();` and  `let s3 = &*s1`;.
 * `String` is implemented as a wrapper around a vector of bytes, many of the operations you see supported on vectors are also supported on `String`, but with some extra guarantees.
-* Compare the different ways to inde a Strings by using `s3[i]` and `s3.chars.nth(i).unwrap()` where `i` is in-bound, out-of-bounds, and "on" the flag unicode character.
+* Compare the different ways to index a `String` by using `s3[i]` and `s3.chars().nth(i).unwrap()` where `i` is in-bound, out-of-bounds, and "on" the flag Unicode character.
 
 </details>
