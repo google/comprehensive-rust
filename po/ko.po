@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: [한국어]Comprehensive Rust 🦀\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-02-26 15:41+0000\n"
+"PO-Revision-Date: 2023-02-27 18:16+0900\n"
 "Last-Translator: keispace <keispace.kyj@google.com>\n"
 "Language-Team: \n"
 "Language: ko\n"
@@ -954,7 +954,7 @@ msgstr "이것은 \"발표자 노트\"의 예제입니다. 이 부분을 이용�
 #: src/control-flow/for-expressions.md:29
 #: src/control-flow/loop-expressions.md:27 src/std.md:31
 #: src/std/option-result.md:25 src/std/string.md:40 src/std/vec.md:49
-#: src/std/hashmap.md:66 src/std/rc.md:66 src/modules.md:32
+#: src/std/hashmap.md:66 src/std/rc.md:69 src/modules.md:32
 #: src/modules/visibility.md:48 src/modules/filesystem.md:53
 #: src/exercises/day-2/afternoon.md:11 src/traits.md:54
 #: src/traits/from-iterator.md:26 src/traits/operators.md:38
@@ -7183,19 +7183,25 @@ msgstr ""
 
 #: src/std/rc.md:31
 msgid ""
+"* `Rc`'s Count ensures that its contained value is valid for as long as there are references.\n"
 "* Like C++'s `std::shared_ptr`.\n"
-"* `clone` is cheap: creates a pointer to the same allocation and increases the reference count.\n"
+"* `clone` is cheap: it creates a pointer to the same allocation and increases the reference count. Does not make a deep clone and can generally be ignored when looking for performance issues in code.\n"
 "* `make_mut` actually clones the inner value if necessary (\"clone-on-write\") and returns a mutable reference.\n"
+"* Use `Rc::strong_count` to check the reference count.\n"
+"* Compare the different datatypes mentioned. `Box` enables (im)mutable borrows that are enforced at compile time. `RefCell` enables (im)mutable borrows that are enforced at run time and will panic if it fails at runtime.\n"
 "* You can `downgrade()` a `Rc` into a *weakly reference-counted* object to\n"
 "  create cycles that will be dropped properly (likely in combination with\n"
 "  `RefCell`)."
 msgstr ""
+"* `Rc`는 참조 카운트를 통해 참조가 있는 동안은 `Rc`가 가리키고 있는 값이 메모리에서 해제되지 않음을 보장합니다.\n"
 "* C++의 `std::shared_ptr`와 유사합니다.\n"
-"* `clone`은 저렴합니다. 동일한 할당에 대한 포인터를 생성하고 참조 카운트를 늘림니다.\n"
+"* `clone`은 저렴합니다. 같은 곳을 가리키는 포인터를 하나 더 만들고, 참조 카운트를 늘립니다. 포인터가 가리키는 값 자체가 복제(깊은 복제)되지는 않으며, 그래서 코드에서 성능 문제가 있는지 검토할 때 일반적으로 `Rc`를 `clone`하는 것은 무시할 수 있습니다.\n"
 "* `make_mut`는 실제로 필요한 경우에 내부 값을 복제하고( (\"clone-on-write\") ) 가변 참조를 반환합니다.\n"
+"* 참조 카운트를 확인하려면 `Rc::strong_count`를 사용하세요.\n"
+"* 여기 언급된 몇가지 데이터 타입을 비교해보세요. `Box`는 불변/가변 빌림(borrow)을 컴파일 시점에 강제합니다. `RefCell`은 실행 시점에 불변/가변 빌림을 강제하며, 만약 런타임 시에 빌림 문제가 발생하면 패닉을 일으킵니다.\n"
 "* `Rc`는 `downgrade()`로 다운그레이드하여 **weak 참조 카운트**로 변경할 수 있습니다. 그러면 순환구조라 하더라도 drop이 가능합니다. (아마도 `RefCell` 을 함께 사용해야 할 것입니다.)"
 
-#: src/std/rc.md:38
+#: src/std/rc.md:41
 msgid ""
 "```rust,editable\n"
 "use std::rc::{Rc, Weak};\n"
@@ -7205,7 +7211,7 @@ msgstr ""
 "use std::rc::{Rc, Weak};\n"
 "use std::cell::RefCell;"
 
-#: src/std/rc.md:42
+#: src/std/rc.md:45
 msgid ""
 "#[derive(Debug)]\n"
 "struct Node {\n"
@@ -7215,7 +7221,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: src/std/rc.md:49
+#: src/std/rc.md:52
 msgid ""
 "fn main() {\n"
 "    let mut root = Rc::new(RefCell::new(Node {\n"
@@ -7231,7 +7237,7 @@ msgid ""
 "    root.borrow_mut().children.push(child);"
 msgstr ""
 
-#: src/std/rc.md:62
+#: src/std/rc.md:65
 msgid ""
 "    println!(\"graph: {root:#?}\");\n"
 "}\n"
@@ -7312,6 +7318,11 @@ msgid ""
 "        println!(\"outer::private\");\n"
 "    }"
 msgstr ""
+"```rust,editable\n"
+"mod outer {\n"
+"    fn private() {\n"
+"        println!(\"outer::private\");\n"
+"    }"
 
 #: src/modules/visibility.md:16
 msgid ""
@@ -7319,6 +7330,9 @@ msgid ""
 "        println!(\"outer::public\");\n"
 "    }"
 msgstr ""
+"    pub fn public() {\n"
+"        println!(\"outer::public\");\n"
+"    }"
 
 #: src/modules/visibility.md:20
 msgid ""
@@ -7327,6 +7341,10 @@ msgid ""
 "            println!(\"outer::inner::private\");\n"
 "        }"
 msgstr ""
+"    mod inner {\n"
+"        fn private() {\n"
+"            println!(\"outer::inner::private\");\n"
+"        }"
 
 #: src/modules/visibility.md:25
 msgid ""
@@ -7337,6 +7355,12 @@ msgid ""
 "    }\n"
 "}"
 msgstr ""
+"        pub fn public() {\n"
+"            println!(\"outer::inner::public\");\n"
+"            super::private();\n"
+"        }\n"
+"    }\n"
+"}"
 
 #: src/modules/visibility.md:32
 msgid ""
@@ -7345,22 +7369,30 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"fn main() {\n"
+"    outer::public();\n"
+"}\n"
+"```"
 
 #: src/modules/visibility.md:39
 msgid "* Use the `pub` keyword to make modules public."
-msgstr ""
+msgstr "* `pub` 키워드는 모듈에도 사용할 수 있습니다."
 
 #: src/modules/visibility.md:41
 msgid "Additionally, there are advanced `pub(...)` specifiers to restrict the scope of public visibility."
-msgstr ""
+msgstr "또한, 고급 기능으로 `pub(...)` 지정자를 사용하여 공개 범위를 제한할 수 있습니다."
 
 #: src/modules/visibility.md:43
 msgid ""
-"* See the [Rust Reference](https://doc.rust-lang.org/reference/visibility-and-privacy.html#pubin-path-pubcrate-pubsuper-and-pubself)).\n"
+"* See the [Rust Reference](https://doc.rust-lang.org/reference/visibility-and-privacy.html#pubin-path-pubcrate-pubsuper-and-pubself).\n"
 "* Configuring `pub(crate)` visibility is a common pattern.\n"
 "* Less commonly, you can give visibility to a specific path.\n"
 "* In any case, visibility must be granted to an ancestor module (and all of its descendants)."
 msgstr ""
+"* [공식 문서](https://doc.rust-lang.org/reference/visibility-and-privacy.html#pubin-path-pubcrate-pubsuper-and-pubself)를 참고하세요.\n"
+"* `pub(crate)`로 가시성을 지정하는 것이 자주 쓰입니다.\n"
+"* 자주 쓰이진 않지만 특정 경로에 대해서만 가시성을 부여할 수 있습니다.\n"
+"* 어떤 경우이든 가시성이 부여되면 해당 모듈을 포함하여 하위의 모든 모듈이 적용받습니다."
 
 #: src/modules/paths.md:1
 msgid "# Paths"
@@ -7439,11 +7471,11 @@ msgstr ""
 msgid ""
 "* The change from `module/mod.rs` to `module.rs` doesn't preclude the use of submodules in Rust 2018.\n"
 "  (It was mandatory in Rust 2015.)"
-msgstr ""
+msgstr "* `module/mod.rs`를 `module.rs`로 바꾼다 하더라도 Rust 2018에서는 하위 모듈을 사용할 수 있습니다. (Rust 2015에서는 하위 모듈이 있는 모듈은 `module/mod.rs` 형태여야 했습니다.)"
 
 #: src/modules/filesystem.md:29
 msgid "  The following is valid:"
-msgstr ""
+msgstr "  아래처럼 구성하는데 아무런 문제가 없습니다:"
 
 #: src/modules/filesystem.md:31
 msgid ""
@@ -7455,18 +7487,25 @@ msgid ""
 "      └── sub_module.rs\n"
 "  ```"
 msgstr ""
+"  ```ignore\n"
+"  src/\n"
+"  ├── main.rs\n"
+"  ├── top_module.rs\n"
+"  └── top_module/\n"
+"      └── sub_module.rs\n"
+"  ```"
 
 #: src/modules/filesystem.md:39
 msgid ""
 "* The main reason for the change is to prevent many files named `mod.rs`, which can be hard\n"
 "  to distinguish in IDEs."
-msgstr ""
+msgstr "* 이렇게 변경된 주된 이유는 모두 똑같은 이름의 `mod.rs` 파일이 잔뜩 생기는 것을 방지하기 위해서 입니다. IDE에서는 이들을 구분하기가 까다로웠습니다."
 
 #: src/modules/filesystem.md:42
 msgid ""
 "* Rust will look for modules in `modulename/mod.rs` and `modulename.rs`, but this can be changed\n"
 "  with a compiler directive:"
-msgstr ""
+msgstr "* 러스트는 모듈을 찾을 때 `modulename/mod.rs`와 `modulename.rs` 파일을 검사하는데, 컴파일러 디렉티브로 이를 변경할 수 있습니다."
 
 #: src/modules/filesystem.md:45
 msgid ""
@@ -7475,12 +7514,16 @@ msgid ""
 "  mod some_module { }\n"
 "  ```"
 msgstr ""
+"  ```rust,ignore\n"
+"  #[path = \"some/path.rs\"]\n"
+"  mod some_module { }\n"
+"  ```"
 
 #: src/modules/filesystem.md:50
 msgid ""
 "  This is useful, for example, if you would like to place tests for a module in a file named\n"
 "  `some_module_test.rs`, similar to the convention in Go."
-msgstr ""
+msgstr "  Go언어 에서처럼 어떤 모듈의 테스트를 `some_module_test.rs` 같은 파일에 두고 싶은 경우에 유용합니다."
 
 #: src/exercises/day-2/afternoon.md:1
 msgid "# Day 2: Afternoon Exercises"
@@ -8268,7 +8311,7 @@ msgstr ""
 
 #: src/traits/drop.md:36
 msgid ""
-"* Why does not `Drop::drop` take `self`?\n"
+"* Why doesn't `Drop::drop` take `self`?\n"
 "    * Short-answer: If it did, `std::mem::drop` would be called at the end of\n"
 "        the block, resulting in another call to `Drop::drop`, and a stack\n"
 "        overflow!\n"
