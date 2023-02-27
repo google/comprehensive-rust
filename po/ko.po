@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: [한국어]Comprehensive Rust 🦀\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-02-26 15:41+0000\n"
+"PO-Revision-Date: 2023-02-27 17:48+0900\n"
 "Last-Translator: keispace <keispace.kyj@google.com>\n"
 "Language-Team: \n"
 "Language: ko\n"
@@ -954,7 +954,7 @@ msgstr "이것은 \"발표자 노트\"의 예제입니다. 이 부분을 이용�
 #: src/control-flow/for-expressions.md:29
 #: src/control-flow/loop-expressions.md:27 src/std.md:31
 #: src/std/option-result.md:25 src/std/string.md:40 src/std/vec.md:49
-#: src/std/hashmap.md:66 src/std/rc.md:66 src/modules.md:32
+#: src/std/hashmap.md:66 src/std/rc.md:69 src/modules.md:32
 #: src/modules/visibility.md:48 src/modules/filesystem.md:53
 #: src/exercises/day-2/afternoon.md:11 src/traits.md:54
 #: src/traits/from-iterator.md:26 src/traits/operators.md:38
@@ -7183,19 +7183,25 @@ msgstr ""
 
 #: src/std/rc.md:31
 msgid ""
+"* `Rc`'s Count ensures that its contained value is valid for as long as there are references.\n"
 "* Like C++'s `std::shared_ptr`.\n"
-"* `clone` is cheap: creates a pointer to the same allocation and increases the reference count.\n"
+"* `clone` is cheap: it creates a pointer to the same allocation and increases the reference count. Does not make a deep clone and can generally be ignored when looking for performance issues in code.\n"
 "* `make_mut` actually clones the inner value if necessary (\"clone-on-write\") and returns a mutable reference.\n"
+"* Use `Rc::strong_count` to check the reference count.\n"
+"* Compare the different datatypes mentioned. `Box` enables (im)mutable borrows that are enforced at compile time. `RefCell` enables (im)mutable borrows that are enforced at run time and will panic if it fails at runtime.\n"
 "* You can `downgrade()` a `Rc` into a *weakly reference-counted* object to\n"
 "  create cycles that will be dropped properly (likely in combination with\n"
 "  `RefCell`)."
 msgstr ""
+"* `Rc`는 참조 카운트를 통해 참조가 있는 동안은 내부 값이 유효함을 보장합니다.\n"
 "* C++의 `std::shared_ptr`와 유사합니다.\n"
-"* `clone`은 저렴합니다. 동일한 할당에 대한 포인터를 생성하고 참조 카운트를 늘림니다.\n"
+"* `clone`은 저렴합니다. 동일한 할당에 대한 포인터를 생성하고 참조 카운트를 늘립니다. 깊은 복제를 하지 않으며 일반적인 경우라면 성능 문제를 검토할 때 무시할 수 있습니다.\n"
 "* `make_mut`는 실제로 필요한 경우에 내부 값을 복제하고( (\"clone-on-write\") ) 가변 참조를 반환합니다.\n"
+"* 참조 카운트를 확인하려면 `Rc::strong_count`를 사용하세요.\n"
+"* 여기 언급된 몇가지 데이터 타입을 비교해보세요. `Box`는 불변/가변 빌림(borrow)을 컴파일 시점에 강제합니다. `RefCell`은 실행 시점에 불변/가변 빌림을 강제하며, 만약 런타임 시에 빌림 문제가 발생하면 패닉을 일으킵니다.\n"
 "* `Rc`는 `downgrade()`로 다운그레이드하여 **weak 참조 카운트**로 변경할 수 있습니다. 그러면 순환구조라 하더라도 drop이 가능합니다. (아마도 `RefCell` 을 함께 사용해야 할 것입니다.)"
 
-#: src/std/rc.md:38
+#: src/std/rc.md:41
 msgid ""
 "```rust,editable\n"
 "use std::rc::{Rc, Weak};\n"
@@ -7205,7 +7211,7 @@ msgstr ""
 "use std::rc::{Rc, Weak};\n"
 "use std::cell::RefCell;"
 
-#: src/std/rc.md:42
+#: src/std/rc.md:45
 msgid ""
 "#[derive(Debug)]\n"
 "struct Node {\n"
@@ -7215,7 +7221,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: src/std/rc.md:49
+#: src/std/rc.md:52
 msgid ""
 "fn main() {\n"
 "    let mut root = Rc::new(RefCell::new(Node {\n"
@@ -7231,7 +7237,7 @@ msgid ""
 "    root.borrow_mut().children.push(child);"
 msgstr ""
 
-#: src/std/rc.md:62
+#: src/std/rc.md:65
 msgid ""
 "    println!(\"graph: {root:#?}\");\n"
 "}\n"
@@ -7356,7 +7362,7 @@ msgstr ""
 
 #: src/modules/visibility.md:43
 msgid ""
-"* See the [Rust Reference](https://doc.rust-lang.org/reference/visibility-and-privacy.html#pubin-path-pubcrate-pubsuper-and-pubself)).\n"
+"* See the [Rust Reference](https://doc.rust-lang.org/reference/visibility-and-privacy.html#pubin-path-pubcrate-pubsuper-and-pubself).\n"
 "* Configuring `pub(crate)` visibility is a common pattern.\n"
 "* Less commonly, you can give visibility to a specific path.\n"
 "* In any case, visibility must be granted to an ancestor module (and all of its descendants)."
@@ -8268,7 +8274,7 @@ msgstr ""
 
 #: src/traits/drop.md:36
 msgid ""
-"* Why does not `Drop::drop` take `self`?\n"
+"* Why doesn't `Drop::drop` take `self`?\n"
 "    * Short-answer: If it did, `std::mem::drop` would be called at the end of\n"
 "        the block, resulting in another call to `Drop::drop`, and a stack\n"
 "        overflow!\n"
