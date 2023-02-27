@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: [한국어]Comprehensive Rust 🦀\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-02-27 17:59+0900\n"
+"PO-Revision-Date: 2023-02-27 18:16+0900\n"
 "Last-Translator: keispace <keispace.kyj@google.com>\n"
 "Language-Team: \n"
 "Language: ko\n"
@@ -7471,11 +7471,11 @@ msgstr ""
 msgid ""
 "* The change from `module/mod.rs` to `module.rs` doesn't preclude the use of submodules in Rust 2018.\n"
 "  (It was mandatory in Rust 2015.)"
-msgstr ""
+msgstr "* `module/mod.rs`를 `module.rs`로 바꾼다 하더라도 Rust 2018에서는 하위 모듈을 사용할 수 있습니다. (Rust 2015에서는 하위 모듈이 있는 모듈은 `module/mod.rs` 형태여야 했습니다.)"
 
 #: src/modules/filesystem.md:29
 msgid "  The following is valid:"
-msgstr ""
+msgstr "  아래처럼 구성하는데 아무런 문제가 없습니다:"
 
 #: src/modules/filesystem.md:31
 msgid ""
@@ -7487,18 +7487,25 @@ msgid ""
 "      └── sub_module.rs\n"
 "  ```"
 msgstr ""
+"  ```ignore\n"
+"  src/\n"
+"  ├── main.rs\n"
+"  ├── top_module.rs\n"
+"  └── top_module/\n"
+"      └── sub_module.rs\n"
+"  ```"
 
 #: src/modules/filesystem.md:39
 msgid ""
 "* The main reason for the change is to prevent many files named `mod.rs`, which can be hard\n"
 "  to distinguish in IDEs."
-msgstr ""
+msgstr "* 이렇게 변경된 주된 이유는 모두 똑같은 이름의 `mod.rs` 파일이 잔뜩 생기는 것을 방지하기 위해서 입니다. IDE에서는 이들을 구분하기가 까다로웠습니다."
 
 #: src/modules/filesystem.md:42
 msgid ""
 "* Rust will look for modules in `modulename/mod.rs` and `modulename.rs`, but this can be changed\n"
 "  with a compiler directive:"
-msgstr ""
+msgstr "* 러스트는 모듈을 찾을 때 `modulename/mod.rs`와 `modulename.rs` 파일을 검사하는데, 컴파일러 디렉티브로 이를 변경할 수 있습니다."
 
 #: src/modules/filesystem.md:45
 msgid ""
@@ -7507,12 +7514,16 @@ msgid ""
 "  mod some_module { }\n"
 "  ```"
 msgstr ""
+"  ```rust,ignore\n"
+"  #[path = \"some/path.rs\"]\n"
+"  mod some_module { }\n"
+"  ```"
 
 #: src/modules/filesystem.md:50
 msgid ""
 "  This is useful, for example, if you would like to place tests for a module in a file named\n"
 "  `some_module_test.rs`, similar to the convention in Go."
-msgstr ""
+msgstr "  Go에서처럼 어떤 모듈의 테스트를 `some_module_test.rs` 같은 파일에 두고 싶은 경우에 유용합니다."
 
 #: src/exercises/day-2/afternoon.md:1
 msgid "# Day 2: Afternoon Exercises"
