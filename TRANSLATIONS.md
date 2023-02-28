@@ -90,7 +90,12 @@ remove the fuzzy marker.
 This will show you how to use the translations to generate localized HTML
 output.
 
-## Building a Translation
+Note: `mdbook` will use original untranslated entries for all entries marked as
+"fuzzy" (visible as "Needs work" in Poedit). This is especially important when
+using `cloud-translate` for initial translation as all entries will be marked
+as "fuzzy".
+
+### Building a Translation
 
 To use the `po/xx.po` file for your output, run the following command:
 
@@ -102,7 +107,7 @@ This will update the book's language to `xx`, it will make the `mdbook-gettext`
 preprocessor become active and tell it to use the `po/xx.po` file, and finally
 it will redirect the output to `book/xx`.
 
-## Serving a Translation
+### Serving a Translation
 
 Like normal, you can use `mdbook serve` to view your translation as you work on
 it. You use the same command as with `mdbook build` above:
