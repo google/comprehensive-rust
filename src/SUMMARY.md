@@ -257,7 +257,8 @@
 
 - [Application processors](bare-metal/aps.md)
   - [MMIO](bare-metal/aps/mmio.md)
-  - [Let's write a UART driver]()
+  - [Let's write a UART driver](bare-metal/aps/uart.md)
+    - [More traits](bare-metal/aps/uart/traits.md)
   - [Logging]()
   - [Other projects](bare-metal/aps/other-projects.md)
 - [Useful crates]()
