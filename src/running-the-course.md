@@ -8,7 +8,7 @@ internally at Google.
 To run the course, you need to:
 
 1. Make yourself familiar with the course material. We've included speaker notes
-   on some of the pages to help highlight the key points (please help us by
+   to help highlight the key points (please help us by
    contributing more speaker notes!). You should make sure to open the speaker
    notes in a popup (click the link with a little arrow next to "Speaker
    Notes"). This way you have a clean screen to present to the class.
