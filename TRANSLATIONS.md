@@ -95,9 +95,7 @@ output.
 To use the `po/xx.po` file for your output, run the following command:
 
 ```shell
-$ MDBOOK_BOOK__LANGUAGE='xx' \
-  MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE='po/xx.po' \
-  mdbook build -d book/xx
+$ MDBOOK_BOOK__LANGUAGE=xx mdbook build -d book/xx
 ```
 
 This will update the book's language to `xx`, it will make the `mdbook-gettext`
@@ -110,7 +108,5 @@ Like normal, you can use `mdbook serve` to view your translation as you work on
 it. You use the same command as with `mdbook build` above:
 
 ```shell
-$ MDBOOK_BOOK__LANGUAGE=xx \
-  MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE=po/xx.po \
-  mdbook serve -d book/xx
+$ MDBOOK_BOOK__LANGUAGE=xx mdbook serve -d book/xx
 ```
