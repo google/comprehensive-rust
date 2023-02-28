@@ -44,7 +44,6 @@ jobs:
         run: |
           for po_lang in ${{ env.LANGUAGES }}; do
               MDBOOK_BOOK__LANGUAGE=$po_lang \
-              MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE=po/$po_lang.po \
               MDBOOK_OUTPUT__HTML__SITE_URL=/comprehensive-rust/$po_lang/ \
               mdbook build -d book/$po_lang
           done

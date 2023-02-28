@@ -104,7 +104,6 @@ jobs:
         language: ${{ fromJSON(needs.find-translations.outputs.languages) }}
     env:
       MDBOOK_BOOK__LANGUAGE: ${{ matrix.language }}
-      MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE: po/${{ matrix.language }}.po
     steps:
       - name: Checkout
         uses: actions/checkout@v3
