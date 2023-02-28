@@ -118,8 +118,8 @@ fn main() {
     //}
     //
     //println!("Our library has {} books", library.len());
-    for b in library.books {
-        println!("{b}");
+    for book in library.books {
+        println!("{book}");
     }
 }
 // ANCHOR_END: main
