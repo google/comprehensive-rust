@@ -255,10 +255,11 @@
 
 # Bare Metal Rust: Afternoon
 
-- [Application processors]()
+- [Application processors](bare-metal/aps.md)
   - [MMIO](bare-metal/aps/mmio.md)
   - [Let's write a UART driver]()
   - [Logging]()
+  - [Other projects](bare-metal/aps/other-projects.md)
 - [Useful crates]()
   - [zerocopy]()
   - [aarch64_paging]()
