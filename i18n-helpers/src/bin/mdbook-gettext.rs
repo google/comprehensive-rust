@@ -115,8 +115,12 @@ fn preprocess() -> anyhow::Result<()> {
 fn main() -> anyhow::Result<()> {
     if std::env::args().len() == 3 {
         assert_eq!(std::env::args().nth(1).as_deref(), Some("supports"));
-        // Signal that we support all renderers.
-        process::exit(0);
+        if let Some("xgettext") = std::env::args().nth(2).as_deref() {
+            process::exit(1)
+        } else {
+            // Signal that we support all other renderers.
+            process::exit(0);
+        }
     }
 
     preprocess()
