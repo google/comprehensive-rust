@@ -14,11 +14,13 @@ extra-watch-dirs = ["po"]
 [preprocessor.links]
 
 [preprocessor.gettext]
+after = ["links"]
 
 [preprocessor.index]
 
 [preprocessor.svgbob]
 renderers = ["html"]
+after = ["gettext"]
 class = "bob"
 
 # Enable this preprocessor to overlay a large red rectangle on the
