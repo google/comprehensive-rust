@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: [한국어]Comprehensive Rust 🦀\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-02-27 18:16+0900\n"
+"PO-Revision-Date: 2023-03-01 04:43+0000\n"
 "Last-Translator: keispace <keispace.kyj@google.com>\n"
 "Language-Team: \n"
 "Language: ko\n"
@@ -5092,7 +5092,6 @@ msgid ""
 msgstr ""
 
 #: src/enums/variant-payloads.md:35
-#, fuzzy
 msgid ""
 "* The values in the enum variants can only be accessed after being pattern matched. The pattern binds references to the fields in the \"match arm\" after the `=>`.\n"
 "  * The expression is matched against the patterns from top to bottom. There is no fall-through like in C or C++.\n"
@@ -5131,6 +5130,8 @@ msgid ""
 "```rust,editable\n"
 "use std::mem::{align_of, size_of};"
 msgstr ""
+"```rust,editable\n"
+"use std::mem::{align_of, size_of};"
 
 #: src/enums/sizes.md:8
 msgid ""
@@ -5141,6 +5142,12 @@ msgid ""
 "    };\n"
 "}"
 msgstr ""
+"macro_rules! dbg_size {\n"
+"    ($t:ty) => {\n"
+"        println!(\"{}: size {} bytes, align: {} bytes\",\n"
+"                 stringify!($t), size_of::<$t>(), align_of::<$t>());\n"
+"    };\n"
+"}"
 
 #: src/enums/sizes.md:15
 msgid ""
@@ -5149,9 +5156,12 @@ msgid ""
 "    B,\n"
 "}"
 msgstr ""
+"enum Foo {\n"
+"    A,\n"
+"    B,\n"
+"}"
 
 #: src/enums/sizes.md:20
-#, fuzzy
 msgid ""
 "fn main() {\n"
 "    dbg_size!(Foo);\n"
@@ -5159,7 +5169,7 @@ msgid ""
 "```"
 msgstr ""
 "fn main() {\n"
-"    outer::public();\n"
+"    dbg_size!(Foo);\n"
 "}\n"
 "```"
 
@@ -6827,7 +6837,6 @@ msgid ""
 msgstr ""
 
 #: src/std/string.md:30
-#, fuzzy
 msgid ""
 "* `String::new` returns a new empty string, use `String::with capacity` when you know how much data you want to push to the string.\n"
 "* `String::len` returns the size of the `String` in bytes (which can be different from its length in characters).\n"
@@ -6847,7 +6856,7 @@ msgstr ""
 "    * `String`은 `Deref<Target = str>`을 구현하고 있기 때문에 `String`에 대해서도 `str` 메소드들을 호출할 수 있습니다.\n"
 "    * `let s3 = s1.deref();`와 `let s3 = &*s1;`을 비교해보세요.\n"
 "* `String`은 바이트 벡터의 래퍼로 구현되어 있습니다. 벡터가 지원하는 여러가지 연산들을 `String`도 지원합니다. 다만 `String`은 몇가지 보장 내용이 더 있습니다.\n"
-"* Compare the different ways to inde a Strings by using `s3[i]` and `s3.chars.nth(i).unwrap()` where `i` is in-bound, out-of-bounds, and \"on\" the flag unicode character."
+"* `String`을 인덱스로 접근하는 방법들을 비교해보세요. `s3[i]`와 `s3.chars().nth(i).unwrap()` 방법에 대해 `i`값이 범위를 벗어날 때, 벗어나지 않을 때, 혹은 플래그 유니코드 문자에 딱 걸린 경우 등을 비교 설명해주세요."
 
 #: src/std/vec.md:1
 msgid "# `Vec`"
