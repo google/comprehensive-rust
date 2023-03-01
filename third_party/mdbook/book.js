@@ -18,7 +18,7 @@ function playground_text(playground, hidden = true) {
 }
 
 (function codeSnippets() {
-    function fetch_with_timeout(url, options, timeout = 6000) {
+    function fetch_with_timeout(url, options, timeout = 15000) {
         return Promise.race([
             fetch(url, options),
             new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), timeout))
