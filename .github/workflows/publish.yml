@@ -43,9 +43,11 @@ jobs:
       - name: Build all translations
         run: |
           for po_lang in ${{ env.LANGUAGES }}; do
+              echo "::group::Building $po_lang translation"
               MDBOOK_BOOK__LANGUAGE=$po_lang \
               MDBOOK_OUTPUT__HTML__SITE_URL=/comprehensive-rust/$po_lang/ \
               mdbook build -d book/$po_lang
+              echo "::endgroup::"
           done
 
       - name: Setup Pages
