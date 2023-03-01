@@ -945,8 +945,8 @@ msgstr "이것은 \"발표자 노트\"의 예제입니다. 이 부분을 이용�
 #: src/ownership/moves-function-calls.md:26 src/ownership/borrowing.md:51
 #: src/ownership/shared-unique-borrows.md:29
 #: src/ownership/lifetimes-function-calls.md:60
-#: src/exercises/day-1/afternoon.md:15 src/exercises/day-1/book-library.md:103
-#: src/structs.md:41 src/structs/field-shorthand.md:41 src/enums/sizes.md:136
+#: src/exercises/day-1/afternoon.md:15 src/exercises/day-1/book-library.md:106
+#: src/structs.md:41 src/structs/field-shorthand.md:41 src/enums/sizes.md:155
 #: src/methods/example.md:53 src/pattern-matching/destructuring-enums.md:39
 #: src/pattern-matching/destructuring-arrays.md:46
 #: src/exercises/day-2/morning.md:15 src/exercises/day-2/points-polygons.md:125
@@ -2915,7 +2915,7 @@ msgid ""
 "functions:"
 msgstr "아래 코드를 <https://play.rust-lang.org/>에 복사해서 구현하시면 됩니다:"
 
-#: src/exercises/day-1/for-loops.md:52 src/exercises/day-1/book-library.md:20
+#: src/exercises/day-1/for-loops.md:52
 #: src/exercises/day-2/health-statistics.md:13
 msgid ""
 "```rust,should_panic\n"
@@ -4386,14 +4386,18 @@ msgid ""
 "<https://play.rust-lang.org/> and update the types to make it compile:"
 msgstr "도서관 프로그램을 만들기 위해 아래 코드를 <https://play.rust-lang.org/>에 복사해서 구현하시면 됩니다:"
 
-#: src/exercises/day-1/book-library.md:24
+#: src/exercises/day-1/book-library.md:20
+msgid "```rust,should_panic"
+msgstr ""
+
+#: src/exercises/day-1/book-library.md:22
 msgid ""
 "struct Library {\n"
 "    books: Vec<Book>,\n"
 "}"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:28
+#: src/exercises/day-1/book-library.md:26
 #: src/exercises/day-1/solutions-afternoon.md:27
 msgid ""
 "struct Book {\n"
@@ -4402,7 +4406,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:33
+#: src/exercises/day-1/book-library.md:31
 #: src/exercises/day-1/solutions-afternoon.md:32
 msgid ""
 "impl Book {\n"
@@ -4425,7 +4429,7 @@ msgstr ""
 "    }\n"
 "}"
 
-#: src/exercises/day-1/book-library.md:43
+#: src/exercises/day-1/book-library.md:41
 msgid ""
 "// This makes it possible to print Book values with {}.\n"
 "impl std::fmt::Display for Book {\n"
@@ -4441,7 +4445,7 @@ msgstr ""
 "    }\n"
 "}"
 
-#: src/exercises/day-1/book-library.md:50
+#: src/exercises/day-1/book-library.md:48
 msgid ""
 "impl Library {\n"
 "    fn new() -> Library {\n"
@@ -4449,35 +4453,35 @@ msgid ""
 "    }"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:55
+#: src/exercises/day-1/book-library.md:53
 msgid ""
 "    //fn len(self) -> usize {\n"
 "    //    unimplemented!()\n"
 "    //}"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:59
+#: src/exercises/day-1/book-library.md:57
 msgid ""
 "    //fn is_empty(self) -> bool {\n"
 "    //    unimplemented!()\n"
 "    //}"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:63
+#: src/exercises/day-1/book-library.md:61
 msgid ""
 "    //fn add_book(self, book: Book) {\n"
 "    //    unimplemented!()\n"
 "    //}"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:67
+#: src/exercises/day-1/book-library.md:65
 msgid ""
 "    //fn print_books(self) {\n"
 "    //    unimplemented!()\n"
 "    //}"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:71
+#: src/exercises/day-1/book-library.md:69
 msgid ""
 "    //fn oldest_book(self) -> Option<&Book> {\n"
 "    //    unimplemented!()\n"
@@ -4485,7 +4489,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:76
+#: src/exercises/day-1/book-library.md:74
 msgid ""
 "// This shows the desired behavior. Uncomment the code below and\n"
 "// implement the missing methods. You will need to update the\n"
@@ -4499,11 +4503,16 @@ msgstr ""
 "fn main() {\n"
 "    let library = Library::new();"
 
+#: src/exercises/day-1/book-library.md:81
+#: src/exercises/day-1/solutions-afternoon.md:113
+msgid "    //println!(\"Our library is empty: {}\", library.is_empty());"
+msgstr ""
+
 #: src/exercises/day-1/book-library.md:83
 msgid ""
-"    //println!(\"Our library is empty: {}\", library.is_empty());\n"
-"    //\n"
-"    //library.add_book(Book::new(\"Lord of the Rings\", 1954));\n"
+"    let favorite_book = Book::new(\"Lord of the Rings\", 1954);\n"
+"    println!(\"Our favorite book {favorite_book} should go in the library\");\n"
+"    //library.add_book(favorite_book);\n"
 "    //library.add_book(Book::new(\"Alice's Adventures in Wonderland\", 1865));\n"
 "    //\n"
 "    //library.print_books();\n"
@@ -4514,11 +4523,14 @@ msgid ""
 "    //}\n"
 "    //\n"
 "    //println!(\"Our library has {} books\", library.len());\n"
+"    for book in library.books {\n"
+"        println!(\"{book}\");\n"
+"    }\n"
 "}\n"
 "```"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:99
+#: src/exercises/day-1/book-library.md:102
 msgid ""
 "<details>\n"
 "    \n"
@@ -5002,7 +5014,7 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/enums.md:31
+#: src/enums.md:31 src/enums/sizes.md:27
 msgid ""
 "<details>\n"
 "    \n"
@@ -5080,9 +5092,10 @@ msgid ""
 msgstr ""
 
 #: src/enums/variant-payloads.md:35
+#, fuzzy
 msgid ""
 "* The values in the enum variants can only be accessed after being pattern matched. The pattern binds references to the fields in the \"match arm\" after the `=>`.\n"
-"  * The expressions is matched against the patterns from top to bottom. There is no fall-through like in C or C++.\n"
+"  * The expression is matched against the patterns from top to bottom. There is no fall-through like in C or C++.\n"
 "  * The match expression has a value. The value is the last expression in the match arm which was executed.\n"
 "  * Starting from the top we look for what pattern matches the value then run the code following the arrow. Once we find a match, we stop. \n"
 "* Demonstrate what happens when the search is inexhaustive. Note the advantage the Rust compiler provides by confirming when all cases are handled. \n"
@@ -5138,67 +5151,88 @@ msgid ""
 msgstr ""
 
 #: src/enums/sizes.md:20
-msgid ""
-"#[repr(u32)]\n"
-"enum Bar {\n"
-"    A,  // 0\n"
-"    B = 10000,\n"
-"    C,  // 10001\n"
-"}"
-msgstr ""
-
-#: src/enums/sizes.md:27
+#, fuzzy
 msgid ""
 "fn main() {\n"
 "    dbg_size!(Foo);\n"
-"    dbg_size!(Bar);\n"
-"    dbg_size!(bool);\n"
-"    dbg_size!(Option<bool>);\n"
-"    dbg_size!(&i32);\n"
-"    dbg_size!(Option<&i32>);\n"
 "}\n"
 "```"
 msgstr ""
+"fn main() {\n"
+"    outer::public();\n"
+"}\n"
+"```"
 
-#: src/enums/sizes.md:37
+#: src/enums/sizes.md:25
 msgid "* See the [Rust Reference](https://doc.rust-lang.org/reference/type-layout.html)."
 msgstr "* 자세한 사항은 [공식문서](https://doc.rust-lang.org/reference/type-layout.html)를 확인하세요."
 
-#: src/enums/sizes.md:39
-msgid ""
-"<details>\n"
-"    \n"
-"Key Points: \n"
-" * Internally Rust is using a field (discriminant) to keep track of the enum variant.\n"
-" * `Bar` enum demonstrates that there is a way to control the discriminant value and type. If `repr` is removed, the discriminant type takes 2 bytes, becuase 10001 fits 2 bytes.\n"
-" * As a niche optimization an enum discriminant is merged with the pointer so that `Option<&Foo>` is the same size as `&Foo`.\n"
-" * `Option<bool>` is another example of tight packing.\n"
-" * For [some types](https://doc.rust-lang.org/std/option/#representation), Rust guarantees that `size_of::<T>()` equals `size_of::<Option<T>>()`.\n"
-" * Zero-sized types allow for efficient implementation of `HashSet` using `HashMap` with `()` as the value."
+#: src/enums/sizes.md:31
+msgid " * Internally Rust is using a field (discriminant) to keep track of the enum variant."
 msgstr ""
-"<details>\n"
-"    \n"
-"키 포인트: \n"
-"* 러스트는 내부적으로 열거형의 각 variant를 구분하기 위해 별도의 필드(식별자)를 사용합니다.\n"
-"* `Bar` 타입을 보면 식별자의 값을 직접 지정하거나 그 타입을 변경할 수 있음을 알 수 있습니다.`repr`을 제거하면 10001을 나타내는데 2바이트가 필요하기 때문에 식별자 타입이 2바이트를 차지합니다.\n"
-"* 니치 최적화(niche optimization)로서 열거형(enum)의 식별자는 포인터에 결합됩니다.그래서 `Option<&Foo>` 타입은 `&Foo`와 같은 사이즈가 됩니다.\n"
-"* `Option<bool>역시 이에 대한 또 다른 예입니다.\n"
-"* [일부 타입](https://doc.rust-lang.org/std/option/#representation)의 경우 러스트는 `size_of::<T>()`와 `size_of::<Option<T>>()`가 동일함을 보장합니다. \n"
-"* 0크기 타입 덕분에 `HashMap`의 값을 `()`로 지정하는 식으로 `HashSet`을 효율적으로 구현할 수 있습니다."
 
-#: src/enums/sizes.md:49
+#: src/enums/sizes.md:33
+msgid ""
+" * You can control the discriminant if needed (e.g., for compatibility with C):\n"
+" \n"
+"     ```rust,editable\n"
+"     #[repr(u32)]\n"
+"     enum Bar {\n"
+"         A,  // 0\n"
+"         B = 10000,\n"
+"         C,  // 10001\n"
+"     }\n"
+"     \n"
+"     fn main() {\n"
+"         println!(\"A: {}\", Bar::A as u32);\n"
+"         println!(\"B: {}\", Bar::B as u32);\n"
+"         println!(\"C: {}\", Bar::C as u32);\n"
+"     }\n"
+"     ```"
+msgstr ""
+
+#: src/enums/sizes.md:50
+msgid ""
+"    Without `repr`, the discriminant type takes 2 bytes, because 10001 fits 2\n"
+"    bytes."
+msgstr ""
+
+#: src/enums/sizes.md:54
+msgid ""
+" * Try out other types such as\n"
+" \n"
+"     * `dbg_size!(bool)`: size 1 bytes, align: 1 bytes,\n"
+"     * `dbg_size!(Option<bool>)`: size 1 bytes, align: 1 bytes (niche optimization, see below),\n"
+"     * `dbg_size!(&i32)`: size 8 bytes, align: 8 bytes (on a 64-bit machine),\n"
+"     * `dbg_size!(Option<&i32>)`: size 8 bytes, align: 8 bytes (null pointer optimization, see below)."
+msgstr ""
+
+#: src/enums/sizes.md:61
+msgid ""
+" * Niche optimization: Rust will merge use unused bit patterns for the enum\n"
+"   discriminant."
+msgstr ""
+
+#: src/enums/sizes.md:64
+msgid ""
+" * Null pointer optimization: For [some\n"
+"   types](https://doc.rust-lang.org/std/option/#representation), Rust guarantees\n"
+"   that `size_of::<T>()` equals `size_of::<Option<T>>()`."
+msgstr ""
+
+#: src/enums/sizes.md:68
 msgid ""
 "Example code if you want to show how the bitwise representation *may* look like in practice.\n"
 "It's important to note that the compiler provides no guarantees regarding this representation, therefore this is totally unsafe."
 msgstr "비트 수준에서 어떤식으로 표현되는지 보여주고 싶다면 다음 예제 코드를 사용해보세요. 컴파일러가 비트 표현까지 보장하지 않기 때문에 여기에 의존하는 것은 안전하지 않다는 점을 꼭 알려주세요."
 
-#: src/enums/sizes.md:52
+#: src/enums/sizes.md:71
 msgid ""
 "```rust,editable\n"
 "use std::mem::transmute;"
 msgstr ""
 
-#: src/enums/sizes.md:55 src/enums/sizes.md:94
+#: src/enums/sizes.md:74 src/enums/sizes.md:113
 msgid ""
 "macro_rules! dbg_bits {\n"
 "    ($e:expr, $bit_type:ty) => {\n"
@@ -5207,7 +5241,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: src/enums/sizes.md:61
+#: src/enums/sizes.md:80
 msgid ""
 "fn main() {\n"
 "    // TOTALLY UNSAFE. Rust provides no guarantees about the bitwise\n"
@@ -5218,7 +5252,7 @@ msgid ""
 "        dbg_bits!(true, u8);"
 msgstr ""
 
-#: src/enums/sizes.md:69
+#: src/enums/sizes.md:88
 msgid ""
 "        println!(\"Bitwise representation of Option<bool>\");\n"
 "        dbg_bits!(None::<bool>, u8);\n"
@@ -5226,7 +5260,7 @@ msgid ""
 "        dbg_bits!(Some(true), u8);"
 msgstr ""
 
-#: src/enums/sizes.md:74
+#: src/enums/sizes.md:93
 msgid ""
 "        println!(\"Bitwise representation of Option<Option<bool>>\");\n"
 "        dbg_bits!(Some(Some(false)), u8);\n"
@@ -5235,7 +5269,7 @@ msgid ""
 "        dbg_bits!(None::<Option<bool>>, u8);"
 msgstr ""
 
-#: src/enums/sizes.md:80
+#: src/enums/sizes.md:99
 msgid ""
 "        println!(\"Bitwise representation of Option<&i32>\");\n"
 "        dbg_bits!(None::<&i32>, usize);\n"
@@ -5245,21 +5279,21 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/enums/sizes.md:87
+#: src/enums/sizes.md:106
 msgid "More complex example if you want to discuss what happens when we chain more than 256 `Option`s together."
 msgstr "좀더 복잡한 예제입니다. `Option`을 256개 이상으로 중첩한 경우에 어떻게 되는지 볼 수 있습니다."
 
-#: src/enums/sizes.md:89
+#: src/enums/sizes.md:108
 msgid ""
 "```rust,editable\n"
 "#![recursion_limit = \"1000\"]"
 msgstr ""
 
-#: src/enums/sizes.md:92
+#: src/enums/sizes.md:111
 msgid "use std::mem::transmute;"
 msgstr ""
 
-#: src/enums/sizes.md:100
+#: src/enums/sizes.md:119
 msgid ""
 "// Macro to wrap a value in 2^n Some() where n is the number of \"@\" signs.\n"
 "// Increasing the recursion limit is required to evaluate this macro.\n"
@@ -5274,7 +5308,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: src/enums/sizes.md:112
+#: src/enums/sizes.md:131
 msgid ""
 "fn main() {\n"
 "    // TOTALLY UNSAFE. Rust provides no guarantees about the bitwise\n"
@@ -5285,21 +5319,21 @@ msgid ""
 "        assert_eq!(many_options!(false, @@), Some(Some(Some(Some(false)))));"
 msgstr ""
 
-#: src/enums/sizes.md:120
+#: src/enums/sizes.md:139
 msgid ""
 "        println!(\"Bitwise representation of a chain of 128 Option's.\");\n"
 "        dbg_bits!(many_options!(false, @@@@@@@), u8);\n"
 "        dbg_bits!(many_options!(true, @@@@@@@), u8);"
 msgstr ""
 
-#: src/enums/sizes.md:124
+#: src/enums/sizes.md:143
 msgid ""
 "        println!(\"Bitwise representation of a chain of 256 Option's.\");\n"
 "        dbg_bits!(many_options!(false, @@@@@@@@), u16);\n"
 "        dbg_bits!(many_options!(true, @@@@@@@@), u16);"
 msgstr ""
 
-#: src/enums/sizes.md:128
+#: src/enums/sizes.md:147
 msgid ""
 "        println!(\"Bitwise representation of a chain of 257 Option's.\");\n"
 "        dbg_bits!(many_options!(Some(false), @@@@@@@@), u16);\n"
@@ -6793,6 +6827,7 @@ msgid ""
 msgstr ""
 
 #: src/std/string.md:30
+#, fuzzy
 msgid ""
 "* `String::new` returns a new empty string, use `String::with capacity` when you know how much data you want to push to the string.\n"
 "* `String::len` returns the size of the `String` in bytes (which can be different from its length in characters).\n"
@@ -6802,7 +6837,7 @@ msgid ""
 "    * `String` implements `Deref<Target = str>` which transparently gives it access to `str`'s methods.\n"
 "    * Write and compare `let s3 = s1.deref();` and  `let s3 = &*s1`;.\n"
 "* `String` is implemented as a wrapper around a vector of bytes, many of the operations you see supported on vectors are also supported on `String`, but with some extra guarantees.\n"
-"* Compare the different ways to inde a Strings by using `s3[i]` and `s3.chars.nth(i).unwrap()` where `i` is in-bound, out-of-bounds, and \"on\" the flag unicode character."
+"* Compare the different ways to index a `String` by using `s3[i]` and `s3.chars().nth(i).unwrap()` where `i` is in-bound, out-of-bounds, and \"on\" the flag Unicode character."
 msgstr ""
 "* `String::new`는 새로운 빈 문자열을 반환합니다. `String::with_capacity`는 새로 만들 문자열 버퍼에 넣을 데이터 크기를 알고 있는 경우에 사용할 수 있습니다.\n"
 "* `String::len`은 `String`의 바이트 크기를 반환합니다. (실제 문자 개수와는 다를 수 있습니다.)\n"
@@ -13228,11 +13263,11 @@ msgstr ""
 "fn main() {\n"
 "    let library = Library::new();"
 
-#: src/exercises/day-1/solutions-afternoon.md:113
+#: src/exercises/day-1/solutions-afternoon.md:115
 msgid ""
-"    //println!(\"Our library is empty: {}\", library.is_empty());\n"
-"    //\n"
-"    //library.add_book(Book::new(\"Lord of the Rings\", 1954));\n"
+"    let favorite_book = Book::new(\"Lord of the Rings\", 1954);\n"
+"    println!(\"Our favorite book {favorite_book} should go in the library\");\n"
+"    //library.add_book(favorite_book);\n"
 "    //library.add_book(Book::new(\"Alice's Adventures in Wonderland\", 1865));\n"
 "    //\n"
 "    //library.print_books();\n"
@@ -13243,11 +13278,14 @@ msgid ""
 "    //}\n"
 "    //\n"
 "    //println!(\"Our library has {} books\", library.len());\n"
+"    for book in library.books {\n"
+"        println!(\"{book}\");\n"
+"    }\n"
 "}\n"
 "// ANCHOR_END: main"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:129
+#: src/exercises/day-1/solutions-afternoon.md:134
 msgid ""
 "#[test]\n"
 "fn test_library_len() {\n"
@@ -13256,7 +13294,7 @@ msgid ""
 "    assert!(library.is_empty());"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:135
+#: src/exercises/day-1/solutions-afternoon.md:140
 msgid ""
 "    library.add_book(Book::new(\"Lord of the Rings\", 1954));\n"
 "    library.add_book(Book::new(\"Alice's Adventures in Wonderland\", 1865));\n"
@@ -13265,7 +13303,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:141
+#: src/exercises/day-1/solutions-afternoon.md:146
 msgid ""
 "#[test]\n"
 "fn test_library_is_empty() {\n"
@@ -13273,14 +13311,14 @@ msgid ""
 "    assert!(library.is_empty());"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:146
+#: src/exercises/day-1/solutions-afternoon.md:151
 msgid ""
 "    library.add_book(Book::new(\"Lord of the Rings\", 1954));\n"
 "    assert!(!library.is_empty());\n"
 "}"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:150
+#: src/exercises/day-1/solutions-afternoon.md:155
 msgid ""
 "#[test]\n"
 "fn test_library_print_books() {\n"
@@ -13293,7 +13331,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:160
+#: src/exercises/day-1/solutions-afternoon.md:165
 msgid ""
 "#[test]\n"
 "fn test_library_oldest_book() {\n"
@@ -13301,7 +13339,7 @@ msgid ""
 "    assert!(library.oldest_book().is_none());"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:165
+#: src/exercises/day-1/solutions-afternoon.md:170
 msgid ""
 "    library.add_book(Book::new(\"Lord of the Rings\", 1954));\n"
 "    assert_eq!(\n"
@@ -13310,7 +13348,7 @@ msgid ""
 "    );"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:171
+#: src/exercises/day-1/solutions-afternoon.md:176
 msgid ""
 "    library.add_book(Book::new(\"Alice's Adventures in Wonderland\", 1865));\n"
 "    assert_eq!(\n"
@@ -14075,6 +14113,27 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+
+#~ msgid ""
+#~ "<details>\n"
+#~ "    \n"
+#~ "Key Points: \n"
+#~ " * Internally Rust is using a field (discriminant) to keep track of the enum variant.\n"
+#~ " * `Bar` enum demonstrates that there is a way to control the discriminant value and type. If `repr` is removed, the discriminant type takes 2 bytes, becuase 10001 fits 2 bytes.\n"
+#~ " * As a niche optimization an enum discriminant is merged with the pointer so that `Option<&Foo>` is the same size as `&Foo`.\n"
+#~ " * `Option<bool>` is another example of tight packing.\n"
+#~ " * For [some types](https://doc.rust-lang.org/std/option/#representation), Rust guarantees that `size_of::<T>()` equals `size_of::<Option<T>>()`.\n"
+#~ " * Zero-sized types allow for efficient implementation of `HashSet` using `HashMap` with `()` as the value."
+#~ msgstr ""
+#~ "<details>\n"
+#~ "    \n"
+#~ "키 포인트: \n"
+#~ "* 러스트는 내부적으로 열거형의 각 variant를 구분하기 위해 별도의 필드(식별자)를 사용합니다.\n"
+#~ "* `Bar` 타입을 보면 식별자의 값을 직접 지정하거나 그 타입을 변경할 수 있음을 알 수 있습니다.`repr`을 제거하면 10001을 나타내는데 2바이트가 필요하기 때문에 식별자 타입이 2바이트를 차지합니다.\n"
+#~ "* 니치 최적화(niche optimization)로서 열거형(enum)의 식별자는 포인터에 결합됩니다.그래서 `Option<&Foo>` 타입은 `&Foo`와 같은 사이즈가 됩니다.\n"
+#~ "* `Option<bool>역시 이에 대한 또 다른 예입니다.\n"
+#~ "* [일부 타입](https://doc.rust-lang.org/std/option/#representation)의 경우 러스트는 `size_of::<T>()`와 `size_of::<Option<T>>()`가 동일함을 보장합니다. \n"
+#~ "* 0크기 타입 덕분에 `HashMap`의 값을 `()`로 지정하는 식으로 `HashSet`을 효율적으로 구현할 수 있습니다."
 
 #~ msgid ""
 #~ "* `len()` returns the size of the `String` in bytes, not its length in characters.\n"
