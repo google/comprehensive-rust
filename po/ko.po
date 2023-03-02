@@ -945,8 +945,8 @@ msgstr "이것은 \"발표자 노트\"의 예제입니다. 이 부분을 이용�
 #: src/ownership/moves-function-calls.md:26 src/ownership/borrowing.md:51
 #: src/ownership/shared-unique-borrows.md:29
 #: src/ownership/lifetimes-function-calls.md:60
-#: src/exercises/day-1/afternoon.md:15 src/exercises/day-1/book-library.md:103
-#: src/structs.md:41 src/structs/field-shorthand.md:41 src/enums/sizes.md:136
+#: src/exercises/day-1/afternoon.md:15 src/exercises/day-1/book-library.md:106
+#: src/structs.md:41 src/structs/field-shorthand.md:41 src/enums/sizes.md:155
 #: src/methods/example.md:53 src/pattern-matching/destructuring-enums.md:39
 #: src/pattern-matching/destructuring-arrays.md:46
 #: src/exercises/day-2/morning.md:15 src/exercises/day-2/points-polygons.md:125
@@ -2915,7 +2915,7 @@ msgid ""
 "functions:"
 msgstr "아래 코드를 <https://play.rust-lang.org/>에 복사해서 구현하시면 됩니다:"
 
-#: src/exercises/day-1/for-loops.md:52 src/exercises/day-1/book-library.md:20
+#: src/exercises/day-1/for-loops.md:52
 #: src/exercises/day-2/health-statistics.md:13
 msgid ""
 "```rust,should_panic\n"
@@ -3661,7 +3661,7 @@ msgstr "# 소유권"
 msgid ""
 "All variable bindings have a _scope_ where they are valid and it is an error to\n"
 "use a variable outside its scope:"
-msgstr "모든 변수 바인딩은 유효한 *범위(스코프)*를 가지며, 범위 밖에서 변수 사용하면 에러가 발생합니다:"
+msgstr "모든 변수 바인딩은 유효한 \"범위(스코프)\"를 가지며, 범위 밖에서 변수 사용하면 에러가 발생합니다:"
 
 #: src/ownership.md:6
 msgid ""
@@ -3687,9 +3687,9 @@ msgid ""
 "* A destructor can run here to free up resources.\n"
 "* We say that the variable _owns_ the value."
 msgstr ""
-"* 스코프가 종료되면 변수는 *삭제(drop)*되었다고 하며 그 변수의 데이터는 메모리에서 해제됩니다.\n"
+"* 스코프가 종료되면 변수는 \"삭제(drop)\"되었다고 하며 그 변수의 데이터는 메모리에서 해제됩니다.\n"
 "* 스코프가 종료될 때 다른 리소스를 해제하기 위해 소멸자가 호출되도록 할 수 있습니다.\n"
-"* 이것을 두고 변수가 값을 *소유*한다고 표현합니다."
+"* 이것을 두고 변수가 값을 \"소유\"한다고 표현합니다."
 
 #: src/ownership/move-semantics.md:1
 msgid "# Move Semantics"
@@ -4386,14 +4386,18 @@ msgid ""
 "<https://play.rust-lang.org/> and update the types to make it compile:"
 msgstr "도서관 프로그램을 만들기 위해 아래 코드를 <https://play.rust-lang.org/>에 복사해서 구현하시면 됩니다:"
 
-#: src/exercises/day-1/book-library.md:24
+#: src/exercises/day-1/book-library.md:20
+msgid "```rust,should_panic"
+msgstr ""
+
+#: src/exercises/day-1/book-library.md:22
 msgid ""
 "struct Library {\n"
 "    books: Vec<Book>,\n"
 "}"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:28
+#: src/exercises/day-1/book-library.md:26
 #: src/exercises/day-1/solutions-afternoon.md:27
 msgid ""
 "struct Book {\n"
@@ -4402,7 +4406,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:33
+#: src/exercises/day-1/book-library.md:31
 #: src/exercises/day-1/solutions-afternoon.md:32
 msgid ""
 "impl Book {\n"
@@ -4425,7 +4429,7 @@ msgstr ""
 "    }\n"
 "}"
 
-#: src/exercises/day-1/book-library.md:43
+#: src/exercises/day-1/book-library.md:41
 msgid ""
 "// This makes it possible to print Book values with {}.\n"
 "impl std::fmt::Display for Book {\n"
@@ -4441,7 +4445,7 @@ msgstr ""
 "    }\n"
 "}"
 
-#: src/exercises/day-1/book-library.md:50
+#: src/exercises/day-1/book-library.md:48
 msgid ""
 "impl Library {\n"
 "    fn new() -> Library {\n"
@@ -4449,35 +4453,35 @@ msgid ""
 "    }"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:55
+#: src/exercises/day-1/book-library.md:53
 msgid ""
 "    //fn len(self) -> usize {\n"
 "    //    unimplemented!()\n"
 "    //}"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:59
+#: src/exercises/day-1/book-library.md:57
 msgid ""
 "    //fn is_empty(self) -> bool {\n"
 "    //    unimplemented!()\n"
 "    //}"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:63
+#: src/exercises/day-1/book-library.md:61
 msgid ""
 "    //fn add_book(self, book: Book) {\n"
 "    //    unimplemented!()\n"
 "    //}"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:67
+#: src/exercises/day-1/book-library.md:65
 msgid ""
 "    //fn print_books(self) {\n"
 "    //    unimplemented!()\n"
 "    //}"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:71
+#: src/exercises/day-1/book-library.md:69
 msgid ""
 "    //fn oldest_book(self) -> Option<&Book> {\n"
 "    //    unimplemented!()\n"
@@ -4485,7 +4489,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:76
+#: src/exercises/day-1/book-library.md:74
 msgid ""
 "// This shows the desired behavior. Uncomment the code below and\n"
 "// implement the missing methods. You will need to update the\n"
@@ -4499,11 +4503,16 @@ msgstr ""
 "fn main() {\n"
 "    let library = Library::new();"
 
+#: src/exercises/day-1/book-library.md:81
+#: src/exercises/day-1/solutions-afternoon.md:113
+msgid "    //println!(\"Our library is empty: {}\", library.is_empty());"
+msgstr ""
+
 #: src/exercises/day-1/book-library.md:83
 msgid ""
-"    //println!(\"Our library is empty: {}\", library.is_empty());\n"
-"    //\n"
-"    //library.add_book(Book::new(\"Lord of the Rings\", 1954));\n"
+"    let favorite_book = Book::new(\"Lord of the Rings\", 1954);\n"
+"    println!(\"Our favorite book {favorite_book} should go in the library\");\n"
+"    //library.add_book(favorite_book);\n"
 "    //library.add_book(Book::new(\"Alice's Adventures in Wonderland\", 1865));\n"
 "    //\n"
 "    //library.print_books();\n"
@@ -4514,11 +4523,14 @@ msgid ""
 "    //}\n"
 "    //\n"
 "    //println!(\"Our library has {} books\", library.len());\n"
+"    for book in library.books {\n"
+"        println!(\"{book}\");\n"
+"    }\n"
 "}\n"
 "```"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:99
+#: src/exercises/day-1/book-library.md:102
 msgid ""
 "<details>\n"
 "    \n"
@@ -5002,7 +5014,7 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/enums.md:31
+#: src/enums.md:31 src/enums/sizes.md:27
 msgid ""
 "<details>\n"
 "    \n"
@@ -5082,7 +5094,7 @@ msgstr ""
 #: src/enums/variant-payloads.md:35
 msgid ""
 "* The values in the enum variants can only be accessed after being pattern matched. The pattern binds references to the fields in the \"match arm\" after the `=>`.\n"
-"  * The expressions is matched against the patterns from top to bottom. There is no fall-through like in C or C++.\n"
+"  * The expression is matched against the patterns from top to bottom. There is no fall-through like in C or C++.\n"
 "  * The match expression has a value. The value is the last expression in the match arm which was executed.\n"
 "  * Starting from the top we look for what pattern matches the value then run the code following the arrow. Once we find a match, we stop. \n"
 "* Demonstrate what happens when the search is inexhaustive. Note the advantage the Rust compiler provides by confirming when all cases are handled. \n"
@@ -5118,6 +5130,8 @@ msgid ""
 "```rust,editable\n"
 "use std::mem::{align_of, size_of};"
 msgstr ""
+"```rust,editable\n"
+"use std::mem::{align_of, size_of};"
 
 #: src/enums/sizes.md:8
 msgid ""
@@ -5128,6 +5142,12 @@ msgid ""
 "    };\n"
 "}"
 msgstr ""
+"macro_rules! dbg_size {\n"
+"    ($t:ty) => {\n"
+"        println!(\"{}: size {} bytes, align: {} bytes\",\n"
+"                 stringify!($t), size_of::<$t>(), align_of::<$t>());\n"
+"    };\n"
+"}"
 
 #: src/enums/sizes.md:15
 msgid ""
@@ -5136,69 +5156,117 @@ msgid ""
 "    B,\n"
 "}"
 msgstr ""
+"enum Foo {\n"
+"    A,\n"
+"    B,\n"
+"}"
 
 #: src/enums/sizes.md:20
 msgid ""
-"#[repr(u32)]\n"
-"enum Bar {\n"
-"    A,  // 0\n"
-"    B = 10000,\n"
-"    C,  // 10001\n"
-"}"
-msgstr ""
-
-#: src/enums/sizes.md:27
-msgid ""
 "fn main() {\n"
 "    dbg_size!(Foo);\n"
-"    dbg_size!(Bar);\n"
-"    dbg_size!(bool);\n"
-"    dbg_size!(Option<bool>);\n"
-"    dbg_size!(&i32);\n"
-"    dbg_size!(Option<&i32>);\n"
 "}\n"
 "```"
 msgstr ""
+"fn main() {\n"
+"    dbg_size!(Foo);\n"
+"}\n"
+"```"
 
-#: src/enums/sizes.md:37
+#: src/enums/sizes.md:25
 msgid "* See the [Rust Reference](https://doc.rust-lang.org/reference/type-layout.html)."
 msgstr "* 자세한 사항은 [공식문서](https://doc.rust-lang.org/reference/type-layout.html)를 확인하세요."
 
-#: src/enums/sizes.md:39
-msgid ""
-"<details>\n"
-"    \n"
-"Key Points: \n"
-" * Internally Rust is using a field (discriminant) to keep track of the enum variant.\n"
-" * `Bar` enum demonstrates that there is a way to control the discriminant value and type. If `repr` is removed, the discriminant type takes 2 bytes, becuase 10001 fits 2 bytes.\n"
-" * As a niche optimization an enum discriminant is merged with the pointer so that `Option<&Foo>` is the same size as `&Foo`.\n"
-" * `Option<bool>` is another example of tight packing.\n"
-" * For [some types](https://doc.rust-lang.org/std/option/#representation), Rust guarantees that `size_of::<T>()` equals `size_of::<Option<T>>()`.\n"
-" * Zero-sized types allow for efficient implementation of `HashSet` using `HashMap` with `()` as the value."
-msgstr ""
-"<details>\n"
-"    \n"
-"키 포인트: \n"
-"* 러스트는 내부적으로 열거형의 각 variant를 구분하기 위해 별도의 필드(식별자)를 사용합니다.\n"
-"* `Bar` 타입을 보면 식별자의 값을 직접 지정하거나 그 타입을 변경할 수 있음을 알 수 있습니다.`repr`을 제거하면 10001을 나타내는데 2바이트가 필요하기 때문에 식별자 타입이 2바이트를 차지합니다.\n"
-"* 니치 최적화(niche optimization)로서 열거형(enum)의 식별자는 포인터에 결합됩니다.그래서 `Option<&Foo>` 타입은 `&Foo`와 같은 사이즈가 됩니다.\n"
-"* `Option<bool>역시 이에 대한 또 다른 예입니다.\n"
-"* [일부 타입](https://doc.rust-lang.org/std/option/#representation)의 경우 러스트는 `size_of::<T>()`와 `size_of::<Option<T>>()`가 동일함을 보장합니다. \n"
-"* 0크기 타입 덕분에 `HashMap`의 값을 `()`로 지정하는 식으로 `HashSet`을 효율적으로 구현할 수 있습니다."
+#: src/enums/sizes.md:31
+msgid " * Internally Rust is using a field (discriminant) to keep track of the enum variant."
+msgstr "* 러스트는 열거형 variant를 구분하기 위해 내부적으로 식별자(discriminant) 필드를 사용합니다."
 
-#: src/enums/sizes.md:49
+#: src/enums/sizes.md:33
+msgid ""
+" * You can control the discriminant if needed (e.g., for compatibility with C):\n"
+" \n"
+"     ```rust,editable\n"
+"     #[repr(u32)]\n"
+"     enum Bar {\n"
+"         A,  // 0\n"
+"         B = 10000,\n"
+"         C,  // 10001\n"
+"     }\n"
+"     \n"
+"     fn main() {\n"
+"         println!(\"A: {}\", Bar::A as u32);\n"
+"         println!(\"B: {}\", Bar::B as u32);\n"
+"         println!(\"C: {}\", Bar::C as u32);\n"
+"     }\n"
+"     ```"
+msgstr ""
+" * C와의 연동과 같은 이유로 식별자를 직접 지정할 수도 있습니다:\n"
+" \n"
+"     ```rust,editable\n"
+"     #[repr(u32)]\n"
+"     enum Bar {\n"
+"         A,  // 0\n"
+"         B = 10000,\n"
+"         C,  // 10001\n"
+"     }\n"
+"     \n"
+"     fn main() {\n"
+"         println!(\"A: {}\", Bar::A as u32);\n"
+"         println!(\"B: {}\", Bar::B as u32);\n"
+"         println!(\"C: {}\", Bar::C as u32);\n"
+"     }\n"
+"     ```"
+
+#: src/enums/sizes.md:50
+msgid ""
+"    Without `repr`, the discriminant type takes 2 bytes, because 10001 fits 2\n"
+"    bytes."
+msgstr "    `repr` 속성이 없다면 10001이 2 바이트로 표현가능하기 때문에 식별자의 타입 크기는 2 바이트가 됩니다."
+
+#: src/enums/sizes.md:54
+msgid ""
+" * Try out other types such as\n"
+" \n"
+"     * `dbg_size!(bool)`: size 1 bytes, align: 1 bytes,\n"
+"     * `dbg_size!(Option<bool>)`: size 1 bytes, align: 1 bytes (niche optimization, see below),\n"
+"     * `dbg_size!(&i32)`: size 8 bytes, align: 8 bytes (on a 64-bit machine),\n"
+"     * `dbg_size!(Option<&i32>)`: size 8 bytes, align: 8 bytes (null pointer optimization, see below)."
+msgstr ""
+" * 다른 타입들도 확인해보세요.\n"
+" \n"
+"     * `dbg_size!(bool)`: size 1 bytes, align: 1 bytes\n"
+"     * `dbg_size!(Option<bool>)`: size 1 bytes, align: 1 bytes (니치 최적화, 아래 설명 참조)\n"
+"     * `dbg_size!(&i32)`: size 8 bytes, align: 8 bytes (64비트 머신인 경우)\n"
+"     * `dbg_size!(Option<&i32>)`: size 8 bytes, align: 8 bytes (널포인터 최적화, 아래 설명 참조)"
+
+#: src/enums/sizes.md:61
+msgid ""
+" * Niche optimization: Rust will merge use unused bit patterns for the enum\n"
+"   discriminant."
+msgstr " * 니치 최적화: 러스트는 열거형 식별자를 사용되지 않은 비트 패턴과 병합합니다."
+
+#: src/enums/sizes.md:64
+msgid ""
+" * Null pointer optimization: For [some\n"
+"   types](https://doc.rust-lang.org/std/option/#representation), Rust guarantees\n"
+"   that `size_of::<T>()` equals `size_of::<Option<T>>()`."
+msgstr " * 널포인터 최적화: `size_of::<T>()`와 `size_of::<Option<T>>()`가 같음이 보장되는 타입도 있습니다. [여기](https://doc.rust-lang.org/std/option/#representation)를 참조하세요."
+
+#: src/enums/sizes.md:68
 msgid ""
 "Example code if you want to show how the bitwise representation *may* look like in practice.\n"
 "It's important to note that the compiler provides no guarantees regarding this representation, therefore this is totally unsafe."
 msgstr "비트 수준에서 어떤식으로 표현되는지 보여주고 싶다면 다음 예제 코드를 사용해보세요. 컴파일러가 비트 표현까지 보장하지 않기 때문에 여기에 의존하는 것은 안전하지 않다는 점을 꼭 알려주세요."
 
-#: src/enums/sizes.md:52
+#: src/enums/sizes.md:71
 msgid ""
 "```rust,editable\n"
 "use std::mem::transmute;"
 msgstr ""
+"```rust,editable\n"
+"use std::mem::transmute;"
 
-#: src/enums/sizes.md:55 src/enums/sizes.md:94
+#: src/enums/sizes.md:74 src/enums/sizes.md:113
 msgid ""
 "macro_rules! dbg_bits {\n"
 "    ($e:expr, $bit_type:ty) => {\n"
@@ -5206,8 +5274,13 @@ msgid ""
 "    };\n"
 "}"
 msgstr ""
+"macro_rules! dbg_bits {\n"
+"    ($e:expr, $bit_type:ty) => {\n"
+"        println!(\"- {}: {:#x}\", stringify!($e), transmute::<_, $bit_type>($e));\n"
+"    };\n"
+"}"
 
-#: src/enums/sizes.md:61
+#: src/enums/sizes.md:80
 msgid ""
 "fn main() {\n"
 "    // TOTALLY UNSAFE. Rust provides no guarantees about the bitwise\n"
@@ -5217,16 +5290,27 @@ msgid ""
 "        dbg_bits!(false, u8);\n"
 "        dbg_bits!(true, u8);"
 msgstr ""
+"fn main() {\n"
+"    // TOTALLY UNSAFE. Rust provides no guarantees about the bitwise\n"
+"    // representation of types.\n"
+"    unsafe {\n"
+"        println!(\"Bitwise representation of bool\");\n"
+"        dbg_bits!(false, u8);\n"
+"        dbg_bits!(true, u8);"
 
-#: src/enums/sizes.md:69
+#: src/enums/sizes.md:88
 msgid ""
 "        println!(\"Bitwise representation of Option<bool>\");\n"
 "        dbg_bits!(None::<bool>, u8);\n"
 "        dbg_bits!(Some(false), u8);\n"
 "        dbg_bits!(Some(true), u8);"
 msgstr ""
+"        println!(\"Bitwise representation of Option<bool>\");\n"
+"        dbg_bits!(None::<bool>, u8);\n"
+"        dbg_bits!(Some(false), u8);\n"
+"        dbg_bits!(Some(true), u8);"
 
-#: src/enums/sizes.md:74
+#: src/enums/sizes.md:93
 msgid ""
 "        println!(\"Bitwise representation of Option<Option<bool>>\");\n"
 "        dbg_bits!(Some(Some(false)), u8);\n"
@@ -5234,8 +5318,13 @@ msgid ""
 "        dbg_bits!(Some(None::<bool>), u8);\n"
 "        dbg_bits!(None::<Option<bool>>, u8);"
 msgstr ""
+"        println!(\"Bitwise representation of Option<Option<bool>>\");\n"
+"        dbg_bits!(Some(Some(false)), u8);\n"
+"        dbg_bits!(Some(Some(true)), u8);\n"
+"        dbg_bits!(Some(None::<bool>), u8);\n"
+"        dbg_bits!(None::<Option<bool>>, u8);"
 
-#: src/enums/sizes.md:80
+#: src/enums/sizes.md:99
 msgid ""
 "        println!(\"Bitwise representation of Option<&i32>\");\n"
 "        dbg_bits!(None::<&i32>, usize);\n"
@@ -5244,22 +5333,30 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"        println!(\"Bitwise representation of Option<&i32>\");\n"
+"        dbg_bits!(None::<&i32>, usize);\n"
+"        dbg_bits!(Some(&0i32), usize);\n"
+"    }\n"
+"}\n"
+"```"
 
-#: src/enums/sizes.md:87
+#: src/enums/sizes.md:106
 msgid "More complex example if you want to discuss what happens when we chain more than 256 `Option`s together."
 msgstr "좀더 복잡한 예제입니다. `Option`을 256개 이상으로 중첩한 경우에 어떻게 되는지 볼 수 있습니다."
 
-#: src/enums/sizes.md:89
+#: src/enums/sizes.md:108
 msgid ""
 "```rust,editable\n"
 "#![recursion_limit = \"1000\"]"
 msgstr ""
+"```rust,editable\n"
+"#![recursion_limit = \"1000\"]"
 
-#: src/enums/sizes.md:92
+#: src/enums/sizes.md:111
 msgid "use std::mem::transmute;"
-msgstr ""
+msgstr "use std::mem::transmute;"
 
-#: src/enums/sizes.md:100
+#: src/enums/sizes.md:119
 msgid ""
 "// Macro to wrap a value in 2^n Some() where n is the number of \"@\" signs.\n"
 "// Increasing the recursion limit is required to evaluate this macro.\n"
@@ -5273,8 +5370,19 @@ msgid ""
 "    };\n"
 "}"
 msgstr ""
+"// Macro to wrap a value in 2^n Some() where n is the number of \"@\" signs.\n"
+"// Increasing the recursion limit is required to evaluate this macro.\n"
+"macro_rules! many_options {\n"
+"    ($value:expr) => { Some($value) };\n"
+"    ($value:expr, @) => {\n"
+"        Some(Some($value))\n"
+"    };\n"
+"    ($value:expr, @ $($more:tt)+) => {\n"
+"        many_options!(many_options!($value, $($more)+), $($more)+)\n"
+"    };\n"
+"}"
 
-#: src/enums/sizes.md:112
+#: src/enums/sizes.md:131
 msgid ""
 "fn main() {\n"
 "    // TOTALLY UNSAFE. Rust provides no guarantees about the bitwise\n"
@@ -5284,22 +5392,35 @@ msgid ""
 "        assert_eq!(many_options!(false, @), Some(Some(false)));\n"
 "        assert_eq!(many_options!(false, @@), Some(Some(Some(Some(false)))));"
 msgstr ""
+"fn main() {\n"
+"    // TOTALLY UNSAFE. Rust provides no guarantees about the bitwise\n"
+"    // representation of types.\n"
+"    unsafe {\n"
+"        assert_eq!(many_options!(false), Some(false));\n"
+"        assert_eq!(many_options!(false, @), Some(Some(false)));\n"
+"        assert_eq!(many_options!(false, @@), Some(Some(Some(Some(false)))));"
 
-#: src/enums/sizes.md:120
+#: src/enums/sizes.md:139
 msgid ""
 "        println!(\"Bitwise representation of a chain of 128 Option's.\");\n"
 "        dbg_bits!(many_options!(false, @@@@@@@), u8);\n"
 "        dbg_bits!(many_options!(true, @@@@@@@), u8);"
 msgstr ""
+"        println!(\"Bitwise representation of a chain of 128 Option's.\");\n"
+"        dbg_bits!(many_options!(false, @@@@@@@), u8);\n"
+"        dbg_bits!(many_options!(true, @@@@@@@), u8);"
 
-#: src/enums/sizes.md:124
+#: src/enums/sizes.md:143
 msgid ""
 "        println!(\"Bitwise representation of a chain of 256 Option's.\");\n"
 "        dbg_bits!(many_options!(false, @@@@@@@@), u16);\n"
 "        dbg_bits!(many_options!(true, @@@@@@@@), u16);"
 msgstr ""
+"        println!(\"Bitwise representation of a chain of 256 Option's.\");\n"
+"        dbg_bits!(many_options!(false, @@@@@@@@), u16);\n"
+"        dbg_bits!(many_options!(true, @@@@@@@@), u16);"
 
-#: src/enums/sizes.md:128
+#: src/enums/sizes.md:147
 msgid ""
 "        println!(\"Bitwise representation of a chain of 257 Option's.\");\n"
 "        dbg_bits!(many_options!(Some(false), @@@@@@@@), u16);\n"
@@ -5309,6 +5430,13 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"        println!(\"Bitwise representation of a chain of 257 Option's.\");\n"
+"        dbg_bits!(many_options!(Some(false), @@@@@@@@), u16);\n"
+"        dbg_bits!(many_options!(Some(true), @@@@@@@@), u16);\n"
+"        dbg_bits!(many_options!(None::<bool>, @@@@@@@@), u16);\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/methods.md:3
 msgid ""
@@ -6802,7 +6930,7 @@ msgid ""
 "    * `String` implements `Deref<Target = str>` which transparently gives it access to `str`'s methods.\n"
 "    * Write and compare `let s3 = s1.deref();` and  `let s3 = &*s1`;.\n"
 "* `String` is implemented as a wrapper around a vector of bytes, many of the operations you see supported on vectors are also supported on `String`, but with some extra guarantees.\n"
-"* Compare the different ways to inde a Strings by using `s3[i]` and `s3.chars.nth(i).unwrap()` where `i` is in-bound, out-of-bounds, and \"on\" the flag unicode character."
+"* Compare the different ways to index a `String` by using `s3[i]` and `s3.chars().nth(i).unwrap()` where `i` is in-bound, out-of-bounds, and \"on\" the flag Unicode character."
 msgstr ""
 "* `String::new`는 새로운 빈 문자열을 반환합니다. `String::with_capacity`는 새로 만들 문자열 버퍼에 넣을 데이터 크기를 알고 있는 경우에 사용할 수 있습니다.\n"
 "* `String::len`은 `String`의 바이트 크기를 반환합니다. (실제 문자 개수와는 다를 수 있습니다.)\n"
@@ -6812,7 +6940,7 @@ msgstr ""
 "    * `String`은 `Deref<Target = str>`을 구현하고 있기 때문에 `String`에 대해서도 `str` 메소드들을 호출할 수 있습니다.\n"
 "    * `let s3 = s1.deref();`와 `let s3 = &*s1;`을 비교해보세요.\n"
 "* `String`은 바이트 벡터의 래퍼로 구현되어 있습니다. 벡터가 지원하는 여러가지 연산들을 `String`도 지원합니다. 다만 `String`은 몇가지 보장 내용이 더 있습니다.\n"
-"* Compare the different ways to inde a Strings by using `s3[i]` and `s3.chars.nth(i).unwrap()` where `i` is in-bound, out-of-bounds, and \"on\" the flag unicode character."
+"* `String`을 인덱스로 접근하는 방법들을 비교해보세요. `s3[i]`와 `s3.chars().nth(i).unwrap()` 방법에 대해 `i`값이 범위를 벗어날 때, 벗어나지 않을 때, 혹은 플래그 유니코드 문자에 딱 걸린 경우 등을 비교 설명해주세요."
 
 #: src/std/vec.md:1
 msgid "# `Vec`"
@@ -6887,6 +7015,11 @@ msgid ""
 "* Show iterating over a vector and mutating the value:\n"
 "  `for e in &mut v { *e += 50; }`"
 msgstr ""
+"* `Vec`은 `String`이나 `HashMap`과 같은 컬렉션 타입입니다. 벡터는 데이터를 힙에 저장합니다. 이는 컴파일 시점에 데이터 크기를 알 필요가 없다는 의미고, 런타임에 더 커질 수도 작아질 수도 있습니다.\n"
+"* `Vec<T>`는 제네릭 타입이기도 합니다. 하지만 `T`를 꼭 지정해줄 필요는 없습니다. 이 경우, 러스트 타입 추론이 벡터에 처음 `push`하는 데이터로 `T`를 알 수 있었습니다.\n"
+"* `vec![...]`는 `Vec::new()` 대신 쓸 수 있는 표준 매크로로서, 초기 데이터를 추가한 벡터를 생성할 수 있습니다.\n"
+"* 벡터는 `[` `]`를 사용하여 인덱스로 접근할 수 있습니다. 하지만 범위를 벗어나면 패닉이 발생합니다. 대신 `get`을 사용하면 `Option`을 반환합니다. `pop` 함수는 마지막 요소를 제거합니다.\n"
+"* 벡터를 순회하면서 값을 변경할 수도 있음을 보여주세요: `for e in &mut v { *e += 50; }`"
 
 #: src/std/hashmap.md:1
 msgid "# `HashMap`"
@@ -6901,6 +7034,8 @@ msgid ""
 "```rust,editable\n"
 "use std::collections::HashMap;"
 msgstr ""
+"```rust,editable\n"
+"use std::collections::HashMap;"
 
 #: src/std/hashmap.md:8
 msgid ""
@@ -6910,6 +7045,11 @@ msgid ""
 "    page_counts.insert(\"Grimms' Fairy Tales\".to_string(), 751);\n"
 "    page_counts.insert(\"Pride and Prejudice\".to_string(), 303);"
 msgstr ""
+"fn main() {\n"
+"    let mut page_counts = HashMap::new();\n"
+"    page_counts.insert(\"Adventures of Huckleberry Finn\".to_string(), 207);\n"
+"    page_counts.insert(\"Grimms' Fairy Tales\".to_string(), 751);\n"
+"    page_counts.insert(\"Pride and Prejudice\".to_string(), 303);"
 
 #: src/std/hashmap.md:14
 msgid ""
@@ -6918,6 +7058,10 @@ msgid ""
 "                 page_counts.len());\n"
 "    }"
 msgstr ""
+"    if !page_counts.contains_key(\"Les Misérables\") {\n"
+"        println!(\"We know about {} books, but not Les Misérables.\",\n"
+"                 page_counts.len());\n"
+"    }"
 
 #: src/std/hashmap.md:19
 msgid ""
@@ -6928,6 +7072,12 @@ msgid ""
 "        }\n"
 "    }"
 msgstr ""
+"    for book in [\"Pride and Prejudice\", \"Alice's Adventure in Wonderland\"] {\n"
+"        match page_counts.get(book) {\n"
+"            Some(count) => println!(\"{book}: {count} pages\"),\n"
+"            None => println!(\"{book} is unknown.\")\n"
+"        }\n"
+"    }"
 
 #: src/std/hashmap.md:26
 msgid ""
@@ -6937,6 +7087,11 @@ msgid ""
 "        *page_count += 1;\n"
 "    }"
 msgstr ""
+"    // Use the .entry() method to insert a value if nothing is found.\n"
+"    for book in [\"Pride and Prejudice\", \"Alice's Adventure in Wonderland\"] {\n"
+"        let page_count: &mut i32 = page_counts.entry(book.to_string()).or_insert(0);\n"
+"        *page_count += 1;\n"
+"    }"
 
 #: src/std/hashmap.md:32
 msgid ""
@@ -6944,12 +7099,17 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"    println!(\"{page_counts:#?}\");\n"
+"}\n"
+"```"
 
 #: src/std/hashmap.md:38
 msgid ""
 "* `HashMap` is not defined in the prelude and needs to be brought into scope.\n"
 "* Try the following lines of code. The first line will see if a book is in the hashmap and if not return an alternative value. The second line will insert the alternative value in the hashmap if the book is not found."
 msgstr ""
+"* `HashMap`은 prelude에 정의되어 있지 않기 때문에 명시적으로 추가해줘야 합니다.\n"
+"* 아래 코드를 테스트해보세요. 첫 문장에서는 해시맵에 책이 있는지 검사하여, 없으면 디폴트 값을 반환합니다. 두번 째 문장에서는 해시맵에 해당 책이 없는 경우, 지정한 값을 해시맵에 추가한 뒤 그 값을 반환합니다."
 
 #: src/std/hashmap.md:41
 msgid ""
@@ -6964,6 +7124,16 @@ msgid ""
 "* Unlike `vec!`, there is unfortunately no standard `hashmap!` macro.\n"
 "  * Although, since Rust 1.56, HashMap implements [`From<[(K, V); N]>`][1], which allows us to easily initialize a hash map from a literal array:"
 msgstr ""
+"  ```rust,ignore\n"
+"  let pc1 = page_counts\n"
+"      .get(\"Harry Potter and the Sorcerer's Stone \")\n"
+"      .unwrap_or(&336);\n"
+"  let pc2 = page_counts\n"
+"      .entry(\"The Hunger Games\".to_string())\n"
+"      .or_insert(374);\n"
+"  ```\n"
+"* 안타깝지만 `hashmap!`같은 매크로가 없습니다.\n"
+"  * 러스트 1.56부터는 `HashMap`이 [`From<[(K, V); N]>`][1]을 구현하기 때문에 배열 리터럴을 이용하여 쉽게 해시맵을 초기화할 수 있습니다:"
 
 #: src/std/hashmap.md:52
 msgid ""
@@ -6974,6 +7144,12 @@ msgid ""
 "  ]);\n"
 "  ```"
 msgstr ""
+"  ```rust,ignore\n"
+"  let page_counts = HashMap::from([\n"
+"    (\"Harry Potter and the Sorcerer's Stone\".to_string(), 336),\n"
+"    (\"The Hunger Games\".to_string(), 374),\n"
+"  ]);\n"
+"  ```"
 
 #: src/std/hashmap.md:59
 msgid ""
@@ -6982,10 +7158,13 @@ msgid ""
 "  but it can lead into complications with the borrow checker.\n"
 "  * Try removing `to_string()` from the example above and see if it still compiles. Where do you think we might run into issues?"
 msgstr ""
+" * 키-값 쌍에 대한 `Iterator`로 해시맵을 만들 수도 있습니다.\n"
+"* 예제 코드에서는 편의상 해시맵의 키로 `&str`를 사용하지 않았습니다. 물론 컬렉션에 참조를 사용할 수도 있습니다. 다만 참조를 사용하게 되면 빌림 검사기 때문에 복잡해 질 수 있습니다.\n"
+"  * 예제 코드에서 `to_string()`을 없애도 컴파일에 문제가 없는지 확인해보세요. 어떤 문제에 부딪힐까요?"
 
 #: src/std/hashmap.md:64
 msgid "[1]: https://doc.rust-lang.org/std/collections/hash_map/struct.HashMap.html#impl-From%3C%5B(K%2C%20V)%3B%20N%5D%3E-for-HashMap%3CK%2C%20V%2C%20RandomState%3E"
-msgstr ""
+msgstr "[1]: https://doc.rust-lang.org/std/collections/hash_map/struct.HashMap.html#impl-From%3C%5B(K%2C%20V)%3B%20N%5D%3E-for-HashMap%3CK%2C%20V%2C%20RandomState%3E"
 
 #: src/std/box.md:1
 msgid "# `Box`"
@@ -7004,6 +7183,12 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {\n"
+"    let five = Box::new(5);\n"
+"    println!(\"five: {}\", *five);\n"
+"}\n"
+"```"
 
 #: src/std/box.md:13
 msgid ""
@@ -7020,6 +7205,18 @@ msgid ""
 "`- - - - - - -'     `- - - - - - -'\n"
 "```"
 msgstr ""
+"```bob\n"
+"  스택                힙\n"
+".- - - - - - -.     .- - - - - - -.\n"
+":             :     :             :\n"
+":    five     :     :             :\n"
+":   +-----+   :     :   +-----+   :\n"
+":   | o---|---+-----+-->|  5  |   :\n"
+":   +-----+   :     :   +-----+   :\n"
+":             :     :             :\n"
+":             :     :             :\n"
+"`- - - - - - -'     `- - - - - - -'\n"
+"```"
 
 #: src/std/box.md:26
 msgid ""
@@ -7032,6 +7229,8 @@ msgid ""
 "[1]: https://doc.rust-lang.org/std/boxed/struct.Box.html\n"
 "[2]: https://doc.rust-lang.org/std/ops/trait.Deref.html#more-on-deref-coercion"
 msgstr ""
+"[1]: https://doc.rust-lang.org/std/boxed/struct.Box.html\n"
+"[2]: https://doc.rust-lang.org/std/ops/trait.Deref.html#more-on-deref-coercion"
 
 #: src/std/box.md:34
 msgid ""
@@ -7042,6 +7241,12 @@ msgid ""
 "   * want to transfer ownership of a large amount of data. To avoid copying large amounts of data on the stack, instead store the data on the heap in a `Box` so only the pointer is moved.\n"
 "</details>"
 msgstr ""
+"* `Box`는 C++의 `std::unique_ptr`과 비슷합니다. 차이라면 `Box`는 널이 아님을 보장한다는 점입니다.\n"
+"* `Deref` 덕분에 위 예제의 `println!`문에 사용된 `*`를 빼도 문제가 없습니다.\n"
+"* `Box`는 아래의 경우에 유용합니다:\n"
+"   * 타입 크기를 컴파일 시점에 알 수 없는 경우.\n"
+"   * 아주 큰 데이터의 소유권을 전달하고 싶은 경우. 스택에 있는 큰 데이터를 복사하는 대신 `Box`를 이용하여 데이터는 힙에 저장하고 포인터만 이동하면 됩니다.\n"
+"</details>"
 
 #: src/std/box-recursive.md:1
 msgid "# Box with Recursive Data Structures"
@@ -7085,6 +7290,18 @@ msgid ""
 "'- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - - -'\n"
 "```"
 msgstr ""
+"```bob\n"
+"  스택                             힙\n"
+".- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - - -.\n"
+":                         :     :                                               :\n"
+":    list                 :     :                                               :\n"
+":   +------+----+----+    :     :    +------+----+----+    +------+----+----+   :\n"
+":   | Cons | 1  | o--+----+-----+--->| Cons | 2  | o--+--->| Nil  | // | // |   :\n"
+":   +------+----+----+    :     :    +------+----+----+    +------+----+----+   :\n"
+":                         :     :                                               :\n"
+":                         :     :                                               :\n"
+"'- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - - -'\n"
+"```"
 
 #: src/std/box-recursive.md:33
 msgid ""
@@ -7133,6 +7350,18 @@ msgid ""
 "`- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - -'\n"
 "```"
 msgstr ""
+"```bob\n"
+"  스택                            힙\n"
+".- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - -.\n"
+":                         :     :                                             :\n"
+":    list                 :     :                                             :\n"
+":   +----+----+           :     :    +----+----+    +----+------+             :\n"
+":   | 1  | o--+-----------+-----+--->| 2  | o--+--->| // | null |             :\n"
+":   +----+----+           :     :    +----+----+    +----+------+             :\n"
+":                         :     :                                             :\n"
+":                         :     :                                             :\n"
+"`- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - -'\n"
+"```"
 
 #: src/std/rc.md:1
 msgid "# `Rc`"
@@ -7196,7 +7425,7 @@ msgstr ""
 "* `Rc`는 참조 카운트를 통해 참조가 있는 동안은 `Rc`가 가리키고 있는 값이 메모리에서 해제되지 않음을 보장합니다.\n"
 "* C++의 `std::shared_ptr`와 유사합니다.\n"
 "* `clone`은 저렴합니다. 같은 곳을 가리키는 포인터를 하나 더 만들고, 참조 카운트를 늘립니다. 포인터가 가리키는 값 자체가 복제(깊은 복제)되지는 않으며, 그래서 코드에서 성능 문제가 있는지 검토할 때 일반적으로 `Rc`를 `clone`하는 것은 무시할 수 있습니다.\n"
-"* `make_mut`는 실제로 필요한 경우에 내부 값을 복제하고( (\"clone-on-write\") ) 가변 참조를 반환합니다.\n"
+"* `make_mut`는 실제로 필요한 경우에 내부 값을 복제하고(\"clone-on-write\") 가변 참조를 반환합니다.\n"
 "* 참조 카운트를 확인하려면 `Rc::strong_count`를 사용하세요.\n"
 "* 여기 언급된 몇가지 데이터 타입을 비교해보세요. `Box`는 불변/가변 빌림(borrow)을 컴파일 시점에 강제합니다. `RefCell`은 실행 시점에 불변/가변 빌림을 강제하며, 만약 런타임 시에 빌림 문제가 발생하면 패닉을 일으킵니다.\n"
 "* `Rc`는 `downgrade()`로 다운그레이드하여 **weak 참조 카운트**로 변경할 수 있습니다. 그러면 순환구조라 하더라도 drop이 가능합니다. (아마도 `RefCell` 을 함께 사용해야 할 것입니다.)"
@@ -7290,6 +7519,9 @@ msgid ""
 "* Crates are a tree of modules, where a binary crate creates an executable and a library crate compiles to a library.\n"
 "* Modules define organization, scope, and are the focus of this section."
 msgstr ""
+"* 패키지는 기능을 제공하며 하나의 대표 `Cargo.toml` 파일을 포함합니다. 패키지를 구성하는 크레이트들을 빌드하는 방법이 이 파일에 기술됩니다.\n"
+"* 크레이트는 모듈의 트리입니다. 바이너리 크레이트는 실행파일로 빌드되고, 라이브러리 크레이트는 라이브러리로 빌드됩니다.\n"
+"* 모듈은 코드를 조직화하고 스코프를 정의하는 단위입니다."
 
 #: src/modules/visibility.md:1
 msgid "# Visibility"
@@ -7466,6 +7698,8 @@ msgid ""
 "* `src/lib.rs` (for a library crate)\n"
 "* `src/main.rs` (for a binary crate)"
 msgstr ""
+"* `src/lib.rs` (라이브러리 크레이트)\n"
+"* `src/main.rs` (바이너리 크레이트)"
 
 #: src/modules/filesystem.md:26
 msgid ""
@@ -7552,7 +7786,7 @@ msgstr "* 모든 공백을 무시합니다. 2자리 미만 숫자는 무시합�
 msgid ""
 "* Moving from right to left, double every second digit: for the number `1234`,\n"
 "  we double `3` and `1`."
-msgstr "* 오른쪽에서 왼쪽으로 이동하며 2번째 자리마다 숫자를 2배 증가시킵니다. 예를 들어 `1234`에서 3과 1을 두배로 만듭니다.(2464)"
+msgstr "* 오른쪽에서 왼쪽으로 이동하며 2번째 자리마다 숫자를 2배 증가시킵니다. 예를 들어 `1234`에서 `3`과 `1`에 각각 2를 곱합니다."
 
 #: src/exercises/day-2/luhn.md:12
 msgid ""
@@ -7566,7 +7800,7 @@ msgstr "* 모든 자리의 숫자를 더합니다."
 
 #: src/exercises/day-2/luhn.md:17
 msgid "* The credit card number is valid if the sum ends with `0`."
-msgstr "* 합계의 끝자리가 `0`인 경우 유효한 신용카드 번호 입니다."
+msgstr "* 합계의 끝자리가 `0`인 경우 유효한 신용카드 번호입니다."
 
 #: src/exercises/day-2/luhn.md:19
 msgid ""
@@ -8015,7 +8249,7 @@ msgstr "# FromIterator"
 
 #: src/traits/from-iterator.md:3
 msgid "[`FromIterator`][1] lets you build a collection from an [`Iterator`][2]."
-msgstr "어떤 컬렉션이 `[FromIterator`][1]를 구현하고 있다면 [`Iterator`][2]로부터 그 컬렉션을 만들 수 있습니다."
+msgstr "어떤 컬렉션이 [`FromIterator`][1]를 구현하고 있다면 [`Iterator`][2]로부터 그 컬렉션을 만들 수 있습니다."
 
 #: src/traits/from-iterator.md:5
 msgid ""
@@ -8421,7 +8655,7 @@ msgstr ""
 "    * 구조체의 각 필드 타입들이 모두 `Default`를 구현해야 함을 의미합니다.\n"
 "  * 러스트 표준 타입들은 대부분 `Default`를 구현하고 있으며, 기본 값은 `0`이나 `\"\"`처럼 예상 가능한 값들입니다.\n"
 "  * 구조체 부분 복사를 할때 `default`를 편리하게 사용할 수 있습니다.\n"
-"  * Rust standard library is aware that types can implement `Default` and provides convenience methods that use it."
+"  * 러스트 표준 라이브러리는 `Default` 트레잇을 구현한 타입을 위한 편의 메서드를 제공하기도 합니다."
 
 #: src/traits/default.md:49
 msgid "[1]: https://doc.rust-lang.org/std/default/trait.Default.html"
@@ -8601,9 +8835,9 @@ msgid ""
 "    \n"
 "</details>"
 msgstr ""
-"* 이를 이용하면 타입 파라메터가 많은 경우 함수 시그니처를 간결하게 정리하는데 도움이 됩니다.\n"
+"* 이를 이용하면 타입 파라메터가 많은 경우 함수 시그니처를 간결하게 정리하는 데 도움이 됩니다.\n"
 "* 좀 더 강력한 추가 기능도 제공합니다.\n"
-"  * `\":\" 왼쪽에 임의의 타입(예를 들어 `Option<T>`)을 사용할 수 있습니다.\n"
+"  * `:` 왼쪽에 임의의 타입(예를 들어 `Option<T>`)을 사용할 수 있습니다.\n"
 "    \n"
 "</details>"
 
@@ -8679,7 +8913,7 @@ msgstr ""
 
 #: src/generics/closures.md:1
 msgid "# Closures"
-msgstr "# 클로저(Closures)"
+msgstr "# 클로저(Closure)"
 
 #: src/generics/closures.md:3
 msgid ""
@@ -8831,7 +9065,7 @@ msgstr ""
 
 #: src/generics/trait-objects.md:26
 msgid "For this, we need _trait objects_:"
-msgstr "이를 위해서는 _트레잇 객체_가 필요합니다:"
+msgstr "이를 위해서는 \"트레잇 객체\"가 필요합니다:"
 
 #: src/generics/trait-objects.md:31
 msgid ""
@@ -8878,6 +9112,33 @@ msgid ""
 "                                  '- - - - - - - - - - - - - - - - - - - - - - - -'\n"
 "```"
 msgstr ""
+"```bob\n"
+"  스택                               힙\n"
+".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - - -.\n"
+":                           :     :                                               :\n"
+":    xs                     :     :                                               :\n"
+":   +-----------+-------+   :     :   +-----+-----+                               :\n"
+":   | ptr       |   o---+---+-----+-->| o o | o o |                               :\n"
+":   | len       |     2 |   :     :   +-|-|-+-|-|-+                               :\n"
+":   | capacity  |     2 |   :     :     | |   | |   +----+----+----+----+----+    :\n"
+":   +-----------+-------+   :     :     | |   | '-->| H  | e  | l  | l  | o  |    :\n"
+":                           :     :     | |   |     +----+----+----+----+----+    :\n"
+"`- - - - - - - - - - - - - -'     :     | |   |                                   :\n"
+"                                  :     | |   |     +-------------------------+   :\n"
+"                                  :     | |   '---->| \"<str as Display>::fmt\" |   :\n"
+"                                  :     | |         +-------------------------+   :\n"
+"                                  :     | |                                       :\n"
+"                                  :     | |   +----+----+----+----+               :\n"
+"                                  :     | '-->| 7b | 00 | 00 | 00 |               :\n"
+"                                  :     |     +----+----+----+----+               :\n"
+"                                  :     |                                         :\n"
+"                                  :     |     +-------------------------+         :\n"
+"                                  :     '---->| \"<i32 as Display>::fmt\" |         :\n"
+"                                  :           +-------------------------+         :\n"
+"                                  :                                               :\n"
+"                                  :                                               :\n"
+"                                  '- - - - - - - - - - - - - - - - - - - - - - - -'\n"
+"```"
 
 #: src/generics/trait-objects.md:69
 msgid ""
@@ -9129,7 +9390,7 @@ msgid ""
 "[fill/alignment](https://doc.rust-lang.org/std/fmt/index.html#fillalignment)\n"
 "formatting operators. In particular, notice how you can pad with different\n"
 "characters (here a `'/'`) and how you can control alignment:"
-msgstr "텍스트를 줄맞춤 해서 그리려면 [fill/alignment](https://doc.rust-lang.org/std/fmt/index.html#fillalignment)를 참조하시기 바랍니다. 특수 문자(여기서는 '/')로 패딩을 주는 방법과 정렬을 제어하는 방법을 확인하시기 바랍니다:"
+msgstr "텍스트를 줄맞춤 해서 그리려면 [fill/alignment](https://doc.rust-lang.org/std/fmt/index.html#fillalignment)를 참조하시기 바랍니다. 특수 문자(여기서는 `'/'`)로 패딩을 주는 방법과 정렬을 제어하는 방법을 확인하시기 바랍니다:"
 
 #: src/exercises/day-3/simple-gui.md:140
 msgid ""
@@ -9203,7 +9464,7 @@ msgid ""
 msgstr ""
 "* 패닉은 복구할 수 없고 예상치 못한 오류입니다.\n"
 "  * 패닉은 프로그램에 버그가 있다는 것을 나타냅니다.\n"
-"* 충돌(크래시)를 허용하지 않아야 하는 경우, 패닉을 유발하지 않는 API(`Vec::get`등)를 사용하면 됩니다."
+"* 충돌(크래시)을 허용하지 않아야 하는 경우, 패닉을 유발하지 않는 API(`Vec::get`등)를 사용하면 됩니다."
 
 #: src/error-handling/panic-unwind.md:1
 msgid "# Catching the Stack Unwinding"
@@ -9297,7 +9558,7 @@ msgstr ""
 
 #: src/error-handling/try-operator.md:1
 msgid "# Propagating Errors with `?`"
-msgstr "# '?'를 이용한 오류 전파"
+msgstr "# `?`를 이용한 오류 전파"
 
 #: src/error-handling/try-operator.md:3
 msgid ""
@@ -9317,7 +9578,7 @@ msgstr ""
 
 #: src/error-handling/try-operator.md:13
 msgid "into the much simpler"
-msgstr "이렇게 짧게 쓸 수 있습니다"
+msgstr "이렇게 짧게 쓸 수 있습니다."
 
 #: src/error-handling/try-operator.md:15
 msgid ""
@@ -9601,7 +9862,7 @@ msgid ""
 "the program. As such it's generally not a good idea to use `Box<dyn Error>` in the public API of a\n"
 "library, but it can be a good option in a program where you just want to display the error message\n"
 "somewhere."
-msgstr "이렇게 하면 코드의 양을 줄일 수 있습니다. 그러나 서로 다른 종류의 에러를 구별하여 다르게 처리하는 것이 불가능해 집니다. 때문에, `Box<dyn Error>`를 라이브러리의 API로 노출하는게 좋은 디자인은 아닙니다. 에러 발생시, 그저 에러 메시지를 출력하고 싶은 경우와 같이 제한된 상황에서는 유용할 수 있습니다."
+msgstr "이렇게 하면 코드의 양을 줄일 수 있습니다. 그러나 서로 다른 종류의 에러를 구별하여 다르게 처리하는 것이 불가능해 집니다. 때문에, `Box<dyn Error>`를 라이브러리의 API로 노출하는게 좋은 디자인은 아닙니다. 에러 발생 시, 그저 에러 메시지를 출력하고 싶은 경우와 같이 제한된 상황에서는 유용할 수 있습니다."
 
 #: src/error-handling/error-contexts.md:1
 msgid "# Adding Context to Errors"
@@ -9621,6 +9882,10 @@ msgid ""
 "use std::io::Read;\n"
 "use anyhow::{Context, Result, bail};"
 msgstr ""
+"```rust,editable,compile_fail\n"
+"use std::{fs, io};\n"
+"use std::io::Read;\n"
+"use anyhow::{Context, Result, bail};"
 
 #: src/error-handling/error-contexts.md:12
 msgid ""
@@ -9636,6 +9901,17 @@ msgid ""
 "    Ok(username)\n"
 "}"
 msgstr ""
+"fn read_username(path: &str) -> Result<String> {\n"
+"    let mut username = String::with_capacity(100);\n"
+"    fs::File::open(path)\n"
+"        .context(format!(\"Failed to open {path}\"))?\n"
+"        .read_to_string(&mut username)\n"
+"        .context(\"Failed to read\")?;\n"
+"    if username.is_empty() {\n"
+"        bail!(\"Found no username in {path}\");\n"
+"    }\n"
+"    Ok(username)\n"
+"}"
 
 #: src/error-handling/error-contexts.md:24
 msgid ""
@@ -9648,6 +9924,14 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"fn main() {\n"
+"    //fs::write(\"config.dat\", \"\").unwrap();\n"
+"    match read_username(\"config.dat\") {\n"
+"        Ok(username) => println!(\"Username: {username}\"),\n"
+"        Err(err)     => println!(\"Error: {err:?}\"),\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/error-handling/error-contexts.md:35
 msgid ""
@@ -9658,6 +9942,10 @@ msgid ""
 "* Functionality provided by `anyhow::Result<T>` may be familiar to Go developers, as it provides\n"
 "  similar usage patterns and ergonomics to `(T, error)` from Go."
 msgstr ""
+"* `anyhow::Result<V>`는 `Result<V, anyhow::Error>`의 타입 앨리어스(alias)입니다.\n"
+"* `anyhow::Error`는 `Box<dyn Error>`의 래퍼 타입이라 할 수 있습니다. 따라서 라이브러리의 공개 API로서 사용하기에 부적합하다고 할 수 있지만 많은 애플리케이션에 널리 사용되고 있습니다.\n"
+"* 필요하다면 `anyhow::Error`에 저장된 진짜 에러 타입을 꺼내어 검사할 수도 있습니다.\n"
+"* `anyhow::Result<T>`가 제공하는 기능들이 Go 언어 개발자들에게는 익숙할 것입니다. Go언어에서 반환 값으로 사용하는 `(T, error)` 패턴과 비슷하기 때문입니다."
 
 #: src/testing.md:1
 msgid "# Testing"
@@ -9665,7 +9953,7 @@ msgstr "# 테스팅"
 
 #: src/testing.md:3
 msgid "Rust and Cargo come with a simple unit test framework:"
-msgstr "러스트와 카고(cargo)는 간단한 테스트 프레임워크와 함께 제공됩니다:"
+msgstr "러스트와 카고(cargo)는 간단한 단위 테스트 프레임워크와 함께 제공됩니다:"
 
 #: src/testing.md:5
 msgid "* Unit tests are supported throughout your code."
@@ -9673,7 +9961,7 @@ msgstr "* 단위 테스트는 코드 전반에서 지원됩니다."
 
 #: src/testing.md:7
 msgid "* Integration tests are supported via the `tests/` directory."
-msgstr "* 통합테스트는 `test/` 디렉터리를 통해 지원됩니다."
+msgstr "* 통합 테스트는 `tests/` 디렉터리를 통해 지원됩니다."
 
 #: src/testing/unit-tests.md:1
 msgid "# Unit Tests"
@@ -9693,6 +9981,13 @@ msgid ""
 "    }\n"
 "}"
 msgstr ""
+"```rust,editable\n"
+"fn first_word(text: &str) -> &str {\n"
+"    match text.find(' ') {\n"
+"        Some(idx) => &text[..idx],\n"
+"        None => &text,\n"
+"    }\n"
+"}"
 
 #: src/testing/unit-tests.md:13
 msgid ""
@@ -9701,6 +9996,10 @@ msgid ""
 "    assert_eq!(first_word(\"\"), \"\");\n"
 "}"
 msgstr ""
+"#[test]\n"
+"fn test_empty() {\n"
+"    assert_eq!(first_word(\"\"), \"\");\n"
+"}"
 
 #: src/testing/unit-tests.md:18
 msgid ""
@@ -9709,6 +10008,10 @@ msgid ""
 "    assert_eq!(first_word(\"Hello\"), \"Hello\");\n"
 "}"
 msgstr ""
+"#[test]\n"
+"fn test_single_word() {\n"
+"    assert_eq!(first_word(\"Hello\"), \"Hello\");\n"
+"}"
 
 #: src/testing/unit-tests.md:23
 msgid ""
@@ -9718,6 +10021,11 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"#[test]\n"
+"fn test_multiple_words() {\n"
+"    assert_eq!(first_word(\"Hello World\"), \"Hello\");\n"
+"}\n"
+"```"
 
 #: src/testing/unit-tests.md:29
 msgid "Use `cargo test` to find and run the unit tests."
@@ -9740,6 +10048,10 @@ msgid ""
 "    format!(\"{a} {b}\")\n"
 "}"
 msgstr ""
+"```rust,editable\n"
+"fn helper(a: &str, b: &str) -> String {\n"
+"    format!(\"{a} {b}\")\n"
+"}"
 
 #: src/testing/test-modules.md:11
 msgid ""
@@ -9747,6 +10059,9 @@ msgid ""
 "    println!(\"{}\", helper(\"Hello\", \"World\"));\n"
 "}"
 msgstr ""
+"pub fn main() {\n"
+"    println!(\"{}\", helper(\"Hello\", \"World\"));\n"
+"}"
 
 #: src/testing/test-modules.md:19
 msgid ""
@@ -9757,6 +10072,12 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"    #[test]\n"
+"    fn test_helper() {\n"
+"        assert_eq!(helper(\"foo\", \"bar\"), \"foo bar\");\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/testing/test-modules.md:26
 msgid ""
@@ -9768,7 +10089,7 @@ msgstr ""
 
 #: src/testing/doc-tests.md:1
 msgid "# Documentation Tests"
-msgstr "문서화주석 테스트"
+msgstr "# 문서화주석 테스트"
 
 #: src/testing/doc-tests.md:3
 msgid "Rust has built-in support for documentation tests:"
@@ -9789,6 +10110,18 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust\n"
+"/// Shortens a string to the given length.\n"
+"///\n"
+"/// ```\n"
+"/// use playground::shorten_string;\n"
+"/// assert_eq!(shorten_string(\"Hello World\", 5), \"Hello\");\n"
+"/// assert_eq!(shorten_string(\"Hello World\", 20), \"Hello World\");\n"
+"/// ```\n"
+"pub fn shorten_string(s: &str, length: usize) -> &str {\n"
+"    &s[..std::cmp::min(length, s.len())]\n"
+"}\n"
+"```"
 
 #: src/testing/doc-tests.md:18
 msgid ""
@@ -9817,6 +10150,8 @@ msgid ""
 "```rust,ignore\n"
 "use my_library::init;"
 msgstr ""
+"```rust,ignore\n"
+"use my_library::init;"
 
 #: src/testing/integration-tests.md:10
 msgid ""
@@ -9826,6 +10161,11 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"#[test]\n"
+"fn test_init() {\n"
+"    assert!(init().is_ok());\n"
+"}\n"
+"```"
 
 #: src/testing/integration-tests.md:16
 msgid "These tests only have access to the public API of your crate."
@@ -9905,12 +10245,17 @@ msgid ""
 "fn main() {\n"
 "    let mut num = 5;"
 msgstr ""
+"```rust,editable\n"
+"fn main() {\n"
+"    let mut num = 5;"
 
 #: src/unsafe/raw-pointers.md:9
 msgid ""
 "    let r1 = &mut num as *mut i32;\n"
 "    let r2 = &num as *const i32;"
 msgstr ""
+"    let r1 = &mut num as *mut i32;\n"
+"    let r2 = &num as *const i32;"
 
 #: src/unsafe/raw-pointers.md:12
 msgid ""
@@ -9926,9 +10271,10 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-"    // 아래 코드는 안전합니다. r1과 r2는 참조로 부터 만들어 졌기 때문에 null이 아니며 align이 맞다는 것이 보장됩니다.\n"
-"    // 참조가 가리키는 객체들은 unsafe 블럭이 수행되는 동안 메모리에 살아있습니다. 그리고 이 객체들은 r1과 r2가 아닌 다른\n"
-"    // 어떤 참조나 포인터로도 접근이 안되고 있습니다.\n"
+"    // 아래 코드는 안전합니다. r1과 r2는 참조로 부터 만들어 졌기 때문에 null이 아니며\n"
+"    // align이 맞다는 것이 보장됩니다. 참조가 가리키는 객체들은 unsafe 블럭이 수행되는\n"
+"    // 동안 메모리에 살아있습니다. 그리고 이 객체들은 r1과 r2가 아닌 다른 어떤 참조나\n"
+"    // 포인터로도 접근이 안되고 있습니다.\n"
 "    unsafe {\n"
 "        println!(\"r1 is: {}\", *r1);\n"
 "        *r1 = 10;\n"
@@ -9942,7 +10288,7 @@ msgid ""
 "It is good practice (and required by the Android Rust style guide) to write a comment for each\n"
 "`unsafe` block explaining how the code inside it satisfies the safety requirements of the unsafe\n"
 "operations it is doing."
-msgstr "모든 `unsafe` 블럭에 대해 왜 그 코드가 안전한지에 대한 설명을 주석으로 다는 것은 좋은 습관입니다(사실 안드로이드의 러스트 스타일 가이드에서는 이게 필수입니다)."
+msgstr "모든 `unsafe` 블록에 대해 왜 그 코드가 안전한지에 대한 설명을 주석으로 다는 것은 좋은 습관입니다(사실 안드로이드의 러스트 스타일 가이드에서는 이게 필수입니다)."
 
 #: src/unsafe/raw-pointers.md:30
 msgid ""
@@ -9963,7 +10309,7 @@ msgstr ""
 " * 포인터는 따라가기가 가능해야 합니다 (객체의 어느 한 부분을 가리키고 있어야 합니다).\n"
 " * 이미 반환된 객체를 가리키면 안됩니다.\n"
 " * 같은 위치에 대해 동시적인 접근이 있으면 안됩니다.\n"
-" * 참조를 캐스팅 해서 포인터를 만들었다면, 그 참조가 가리키는 객체는 살아 있어야 하며, 그 객체의 메모리를 접근하는 참조가 하나도 없어햐 합니다."
+" * 참조를 캐스팅 해서 포인터를 만들었다면, 그 참조가 가리키는 객체는 살아 있어야 하며, 그 객체의 메모리를 접근하는 참조가 하나도 없어야 합니다."
 
 #: src/unsafe/raw-pointers.md:40
 msgid "In most cases the pointer must also be properly aligned."
@@ -9982,6 +10328,8 @@ msgid ""
 "```rust,editable\n"
 "static HELLO_WORLD: &str = \"Hello, world!\";"
 msgstr ""
+"```rust,editable\n"
+"static HELLO_WORLD: &str = \"Hello, world!\";"
 
 #: src/unsafe/mutable-static-variables.md:8
 msgid ""
@@ -9990,6 +10338,10 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"fn main() {\n"
+"    println!(\"HELLO_WORLD: {HELLO_WORLD}\");\n"
+"}\n"
+"```"
 
 #: src/unsafe/mutable-static-variables.md:13
 msgid ""
@@ -10002,6 +10354,8 @@ msgid ""
 "```rust,editable\n"
 "static mut COUNTER: u32 = 0;"
 msgstr ""
+"```rust,editable\n"
+"static mut COUNTER: u32 = 0;"
 
 #: src/unsafe/mutable-static-variables.md:19
 msgid ""
@@ -10009,12 +10363,17 @@ msgid ""
 "    unsafe { COUNTER += inc; }  // Potential data race!\n"
 "}"
 msgstr ""
+"fn add_to_counter(inc: u32) {\n"
+"    unsafe { COUNTER += inc; }  // Potential data race!\n"
+"}"
 
 #: src/unsafe/mutable-static-variables.md:23
 msgid ""
 "fn main() {\n"
 "    add_to_counter(42);"
 msgstr ""
+"fn main() {\n"
+"    add_to_counter(42);"
 
 #: src/unsafe/mutable-static-variables.md:26
 msgid ""
@@ -10022,6 +10381,9 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"    unsafe { println!(\"COUNTER: {COUNTER}\"); }  // Potential data race!\n"
+"}\n"
+"```"
 
 #: src/unsafe/mutable-static-variables.md:32
 msgid ""
@@ -10046,6 +10408,12 @@ msgid ""
 "    b: bool,\n"
 "}"
 msgstr ""
+"```rust,editable\n"
+"#[repr(C)]\n"
+"union MyUnion {\n"
+"    i: u8,\n"
+"    b: bool,\n"
+"}"
 
 #: src/unsafe/unions.md:12
 msgid ""
@@ -10056,6 +10424,12 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"fn main() {\n"
+"    let u = MyUnion { i: 42 };\n"
+"    println!(\"int: {}\", unsafe { u.i });\n"
+"    println!(\"bool: {}\", unsafe { u.b });  // Undefined behavior!\n"
+"}\n"
+"```"
 
 #: src/unsafe/unions.md:21
 msgid ""
@@ -10068,11 +10442,11 @@ msgid ""
 "If you just want to reinterpret bytes as a different type, you probably want\n"
 "[`std::mem::transmute`](https://doc.rust-lang.org/stable/std/mem/fn.transmute.html) or a safe\n"
 "wrapper such as the [`zerocopy`](https://crates.io/crates/zerocopy) crate."
-msgstr "바이트들을 특정 타입으로 재해석 하고 싶다면 `std::mem::transmute`](https://doc.rust-lang.org/stable/std/mem/fn.transmute.html)나 좀 더 안전한 [`zerocopy`](https://crates.io/crates/zerocopy) 크레이트를 사용하세요."
+msgstr "바이트들을 특정 타입으로 재해석 하고 싶다면 [`std::mem::transmute`](https://doc.rust-lang.org/stable/std/mem/fn.transmute.html)나 좀 더 안전한 [`zerocopy`](https://crates.io/crates/zerocopy) 크레이트를 사용하세요."
 
 #: src/unsafe/calling-unsafe-functions.md:1
 msgid "# Calling Unsafe Functions"
-msgstr "# 안전하지 않은' 함수 호출"
+msgstr "# '안전하지 않은' 함수 호출"
 
 #: src/unsafe/calling-unsafe-functions.md:3
 msgid ""
@@ -10149,6 +10523,17 @@ msgid ""
 "    *b = temp;\n"
 "}"
 msgstr ""
+"```rust,editable\n"
+"/// Swaps the values pointed to by the given pointers.\n"
+"///\n"
+"/// # Safety\n"
+"///\n"
+"/// The pointers must be valid and properly aligned.\n"
+"unsafe fn swap(a: *mut u8, b: *mut u8) {\n"
+"    let temp = *a;\n"
+"    *a = *b;\n"
+"    *b = temp;\n"
+"}"
 
 #: src/unsafe/writing-unsafe-functions.md:18
 msgid ""
@@ -10156,6 +10541,9 @@ msgid ""
 "    let mut a = 42;\n"
 "    let mut b = 66;"
 msgstr ""
+"fn main() {\n"
+"    let mut a = 42;\n"
+"    let mut b = 66;"
 
 #: src/unsafe/writing-unsafe-functions.md:22
 msgid ""
@@ -10164,6 +10552,10 @@ msgid ""
 "        swap(&mut a, &mut b);\n"
 "    }"
 msgstr ""
+"    // Safe because ...\n"
+"    unsafe {\n"
+"        swap(&mut a, &mut b);\n"
+"    }"
 
 #: src/unsafe/writing-unsafe-functions.md:27
 msgid ""
@@ -10171,6 +10563,9 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"    println!(\"a = {}, b = {}\", a, b);\n"
+"}\n"
+"```"
 
 #: src/unsafe/writing-unsafe-functions.md:33
 msgid "We wouldn't actually use pointers for this because it can be done safely with references."
@@ -10180,7 +10575,7 @@ msgstr "참조를 사용하면 안전하게 구현할 수 있기 때문에, 실�
 msgid ""
 "Note that unsafe code is allowed within an unsafe function without an `unsafe` block. We can\n"
 "prohibit this with `#[deny(unsafe_op_in_unsafe_fn)]`. Try adding it and see what happens."
-msgstr "unsafe 코드가 unsafe 함수의 내부에서 호출될 경우에는 `unsafe`블럭을 지정하지 않아도 됩니다. `unsafe`블럭을 항상 지정하도록 하고 싶다면 `#[deny(unsafe_op_in_unsafe_fn)]`를 이용하세요. 이 어트리뷰트를 추가해 보고 어떤 일이 일어나는지 확인해 보세요."
+msgstr "unsafe 코드가 unsafe 함수의 내부에서 호출될 경우에는 `unsafe`블록을 지정하지 않아도 됩니다. `unsafe`블록을 항상 지정하도록 하고 싶다면 `#[deny(unsafe_op_in_unsafe_fn)]`를 이용하세요. 이 어트리뷰트를 추가해 보고 어떤 일이 일어나는지 확인해 보세요."
 
 #: src/unsafe/extern-functions.md:1
 msgid "# Calling External Code"
@@ -10190,7 +10585,7 @@ msgstr "# 외부 코드 호출"
 msgid ""
 "Functions from other languages might violate the guarantees of Rust. Calling\n"
 "them is thus unsafe:"
-msgstr "다른 언어의 함수는 러스트의 보증을 위반할 수 있습니다. 따라서 이를 호출하는 것은 '안전하지 않습니다':"
+msgstr "다른 언어의 함수는 러스트의 보증을 위반할 수 있습니다. 따라서 이를 호출하는 것은 안전하지 않습니다:"
 
 #: src/unsafe/extern-functions.md:6
 msgid ""
@@ -10199,6 +10594,10 @@ msgid ""
 "    fn abs(input: i32) -> i32;\n"
 "}"
 msgstr ""
+"```rust,editable\n"
+"extern \"C\" {\n"
+"    fn abs(input: i32) -> i32;\n"
+"}"
 
 #: src/unsafe/extern-functions.md:11
 msgid ""
@@ -10210,6 +10609,13 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"fn main() {\n"
+"    unsafe {\n"
+"        // Undefined behavior if abs misbehaves.\n"
+"        println!(\"Absolute value of -3 according to C: {}\", abs(-3));\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/unsafe/extern-functions.md:21
 msgid ""
@@ -10238,7 +10644,7 @@ msgstr "함수에서와 마찬가지로 트레잇도 `unsafe`로 마킹 가능�
 msgid ""
 "For example, the `zerocopy` crate has an unsafe trait that looks\n"
 "[something like this](https://docs.rs/zerocopy/latest/zerocopy/trait.AsBytes.html):"
-msgstr "예를 들어 `zerocopy` 크레이트에는 [안전하지 않은 트레잇](https://docs.rs/zerocopy/latest/zerocopy/trait.AsBytes.html)가 있습니다:"
+msgstr "예를 들어 `zerocopy` 크레이트에는 [안전하지 않은 트레잇](https://docs.rs/zerocopy/latest/zerocopy/trait.AsBytes.html)이 있습니다:"
 
 #: src/unsafe/unsafe-traits.md:9
 msgid ""
@@ -10246,6 +10652,9 @@ msgid ""
 "use std::mem::size_of_val;\n"
 "use std::slice;"
 msgstr ""
+"```rust,editable\n"
+"use std::mem::size_of_val;\n"
+"use std::slice;"
 
 #: src/unsafe/unsafe-traits.md:13
 msgid ""
@@ -10260,6 +10669,16 @@ msgid ""
 "    }\n"
 "}"
 msgstr ""
+"/// ...\n"
+"/// # Safety\n"
+"/// The type must have a defined representation and no padding.\n"
+"pub unsafe trait AsBytes {\n"
+"    fn as_bytes(&self) -> &[u8] {\n"
+"        unsafe {\n"
+"            slice::from_raw_parts(self as *const Self as *const u8, size_of_val(self))\n"
+"        }\n"
+"    }\n"
+"}"
 
 #: src/unsafe/unsafe-traits.md:24
 msgid ""
@@ -10267,6 +10686,9 @@ msgid ""
 "unsafe impl AsBytes for u32 {}\n"
 "```"
 msgstr ""
+"// Safe because u32 has a defined representation and no padding.\n"
+"unsafe impl AsBytes for u32 {}\n"
+"```"
 
 #: src/unsafe/unsafe-traits.md:30
 msgid ""
@@ -10292,11 +10714,11 @@ msgstr "디렉터리의 내용을 읽는 안전한 래퍼 코드를 작성해 �
 
 #: src/exercises/day-3/afternoon.md:7
 msgid "After looking at the exercise, you can look at the [solution] provided."
-msgstr "연습문제를 살펴 본 후, 제공된 [solutions]을 살펴볼 수 있습니다."
+msgstr "연습문제를 살펴 본 후, 제공된 [해답][solution]을 살펴볼 수 있습니다."
 
 #: src/exercises/day-3/afternoon.md:9
 msgid "[solution]: solutions-afternoon.md"
-msgstr ""
+msgstr "[solution]: solutions-afternoon.md"
 
 #: src/exercises/day-3/safe-ffi-wrapper.md:1
 msgid "# Safe FFI Wrapper"
@@ -13228,11 +13650,11 @@ msgstr ""
 "fn main() {\n"
 "    let library = Library::new();"
 
-#: src/exercises/day-1/solutions-afternoon.md:113
+#: src/exercises/day-1/solutions-afternoon.md:115
 msgid ""
-"    //println!(\"Our library is empty: {}\", library.is_empty());\n"
-"    //\n"
-"    //library.add_book(Book::new(\"Lord of the Rings\", 1954));\n"
+"    let favorite_book = Book::new(\"Lord of the Rings\", 1954);\n"
+"    println!(\"Our favorite book {favorite_book} should go in the library\");\n"
+"    //library.add_book(favorite_book);\n"
 "    //library.add_book(Book::new(\"Alice's Adventures in Wonderland\", 1865));\n"
 "    //\n"
 "    //library.print_books();\n"
@@ -13243,11 +13665,14 @@ msgid ""
 "    //}\n"
 "    //\n"
 "    //println!(\"Our library has {} books\", library.len());\n"
+"    for book in library.books {\n"
+"        println!(\"{book}\");\n"
+"    }\n"
 "}\n"
 "// ANCHOR_END: main"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:129
+#: src/exercises/day-1/solutions-afternoon.md:134
 msgid ""
 "#[test]\n"
 "fn test_library_len() {\n"
@@ -13256,7 +13681,7 @@ msgid ""
 "    assert!(library.is_empty());"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:135
+#: src/exercises/day-1/solutions-afternoon.md:140
 msgid ""
 "    library.add_book(Book::new(\"Lord of the Rings\", 1954));\n"
 "    library.add_book(Book::new(\"Alice's Adventures in Wonderland\", 1865));\n"
@@ -13265,7 +13690,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:141
+#: src/exercises/day-1/solutions-afternoon.md:146
 msgid ""
 "#[test]\n"
 "fn test_library_is_empty() {\n"
@@ -13273,14 +13698,14 @@ msgid ""
 "    assert!(library.is_empty());"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:146
+#: src/exercises/day-1/solutions-afternoon.md:151
 msgid ""
 "    library.add_book(Book::new(\"Lord of the Rings\", 1954));\n"
 "    assert!(!library.is_empty());\n"
 "}"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:150
+#: src/exercises/day-1/solutions-afternoon.md:155
 msgid ""
 "#[test]\n"
 "fn test_library_print_books() {\n"
@@ -13293,7 +13718,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:160
+#: src/exercises/day-1/solutions-afternoon.md:165
 msgid ""
 "#[test]\n"
 "fn test_library_oldest_book() {\n"
@@ -13301,7 +13726,7 @@ msgid ""
 "    assert!(library.oldest_book().is_none());"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:165
+#: src/exercises/day-1/solutions-afternoon.md:170
 msgid ""
 "    library.add_book(Book::new(\"Lord of the Rings\", 1954));\n"
 "    assert_eq!(\n"
@@ -13310,7 +13735,7 @@ msgid ""
 "    );"
 msgstr ""
 
-#: src/exercises/day-1/solutions-afternoon.md:171
+#: src/exercises/day-1/solutions-afternoon.md:176
 msgid ""
 "    library.add_book(Book::new(\"Alice's Adventures in Wonderland\", 1865));\n"
 "    assert_eq!(\n"
@@ -14075,37 +14500,3 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-
-#~ msgid ""
-#~ "* `len()` returns the size of the `String` in bytes, not its length in characters.\n"
-#~ "* `chars()` returns an iterator over the actual characters."
-#~ msgstr ""
-#~ "* `len()`은 `String`의 글자 길이가 아닌 바이트 사이즈를 반환합니다.\n"
-#~ "* `chars()`은 실제 문자들에 대한 반복자를 반환합니다."
-
-#~ msgid ""
-#~ "<details>\n"
-#~ "    \n"
-#~ "Notice how `Vec<T>` is a generic type too, but you don't have to specify `T` explicitly.\n"
-#~ "As always with Rust type inference, the `T` was established during the first `push` call."
-#~ msgstr ""
-#~ "<details>\n"
-#~ "    \n"
-#~ "`Vec<T>` 역시 제네릭 타입임을 주목하시기 바랍니다. 하지만 러스트는 첫 `push`를 통해 타입을 추론할 수 있으므로 `T`를 항상 명시할 필요는 없습니다."
-
-#~ msgid ""
-#~ "`vec![...]` is a canonical macro to use instead of `Vec::new()` and it supports\n"
-#~ "adding initial elements to the vector."
-#~ msgstr "`vec![...]` 표준 매크로로 `Vec::new()`를 대체하고, 벡터에 추가 초기요소를 추가할 수 있습니다."
-
-#~ msgid ""
-#~ "* `Box` is like `std::unique_ptr` in C++.\n"
-#~ "* In the above example, you can even leave out the `*` in the `println!` statement thanks to `Deref`."
-#~ msgstr ""
-#~ "* `Box`는 C++의 `std::unique_ptr`와 유사합니다.\n"
-#~ "* 위의 예제에서 `Deref` 덕분에 `println!`구문에서  `*`를 생략할 수 도 있습니다."
-
-#~ msgid ""
-#~ "Both traits are not to be implemented. They are implemented automatically when \n"
-#~ "the compiler determines it’s appropriate."
-#~ msgstr "이 트레잇은 프로그래머가 수동으로 구현을 해야 하는 트레잇이 아닙니다. 컴파일러는 적당하다고 판단되면 이 두 트레잇을 자동으로 구현합니다."
