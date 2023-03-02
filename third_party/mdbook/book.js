@@ -3,6 +3,16 @@
 // Fix back button cache problem
 window.onunload = function () { };
 
+function isPlaygroundModified(playground) {
+    let code_block = playground.querySelector("code");
+    if (window.ace && code_block.classList.contains("editable")) {
+      let editor = window.ace.edit(code_block);
+      return editor.getValue() != editor.originalCode;
+    } else {
+      return false;
+    }
+}
+
 // Global variable, shared between modules
 function playground_text(playground, hidden = true) {
     let code_block = playground.querySelector("code");
@@ -129,6 +139,8 @@ function playground_text(playground, hidden = true) {
 
         result_block.innerText = "Running...";
 
+        const playgroundModified = isPlaygroundModified(code_block);
+        const startTime = window.performance.now();
         fetch_with_timeout("https://play.rust-lang.org/evaluate.json", {
             headers: {
                 'Content-Type': "application/json",
@@ -139,6 +151,13 @@ function playground_text(playground, hidden = true) {
         })
         .then(response => response.json())
         .then(response => {
+            const endTime = window.performance.now();
+            gtag("event", "playground", {
+                "modified": playgroundModified,
+                "error": (response.error == null) ? null : 'compilation_error',
+                "latency": (endTime - startTime) / 1000,
+            });
+
             if (response.result.trim() === '') {
                 result_block.innerText = "No output";
                 result_block.classList.add("result-no-output");
@@ -147,7 +166,15 @@ function playground_text(playground, hidden = true) {
                 result_block.classList.remove("result-no-output");
             }
         })
-        .catch(error => result_block.innerText = "Playground Communication: " + error.message);
+        .catch(error => {
+            const endTime = window.performance.now();
+            gtag("event", "playground", {
+                "modified": playgroundModified,
+                "error": error.message,
+                "latency": (endTime - startTime) / 1000,
+            });
+            result_block.innerText = "Playground Communication: " + error.message
+        });
     }
 
     // Syntax highlighting Configuration
