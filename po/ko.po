@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: [한국어]Comprehensive Rust 🦀\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-03-01 06:02+0000\n"
+"PO-Revision-Date: 2023-03-01 12:28+0000\n"
 "Last-Translator: keispace <keispace.kyj@google.com>\n"
 "Language-Team: \n"
 "Language: ko\n"
@@ -9945,6 +9945,10 @@ msgid ""
 "    format!(\"{a} {b}\")\n"
 "}"
 msgstr ""
+"```rust,editable\n"
+"fn helper(a: &str, b: &str) -> String {\n"
+"    format!(\"{a} {b}\")\n"
+"}"
 
 #: src/testing/test-modules.md:11
 msgid ""
@@ -9952,6 +9956,9 @@ msgid ""
 "    println!(\"{}\", helper(\"Hello\", \"World\"));\n"
 "}"
 msgstr ""
+"pub fn main() {\n"
+"    println!(\"{}\", helper(\"Hello\", \"World\"));\n"
+"}"
 
 #: src/testing/test-modules.md:19
 msgid ""
@@ -9962,6 +9969,12 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"    #[test]\n"
+"    fn test_helper() {\n"
+"        assert_eq!(helper(\"foo\", \"bar\"), \"foo bar\");\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/testing/test-modules.md:26
 msgid ""
@@ -9994,6 +10007,18 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust\n"
+"/// Shortens a string to the given length.\n"
+"///\n"
+"/// ```\n"
+"/// use playground::shorten_string;\n"
+"/// assert_eq!(shorten_string(\"Hello World\", 5), \"Hello\");\n"
+"/// assert_eq!(shorten_string(\"Hello World\", 20), \"Hello World\");\n"
+"/// ```\n"
+"pub fn shorten_string(s: &str, length: usize) -> &str {\n"
+"    &s[..std::cmp::min(length, s.len())]\n"
+"}\n"
+"```"
 
 #: src/testing/doc-tests.md:18
 msgid ""
@@ -10022,6 +10047,8 @@ msgid ""
 "```rust,ignore\n"
 "use my_library::init;"
 msgstr ""
+"```rust,ignore\n"
+"use my_library::init;"
 
 #: src/testing/integration-tests.md:10
 msgid ""
@@ -10031,6 +10058,11 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"#[test]\n"
+"fn test_init() {\n"
+"    assert!(init().is_ok());\n"
+"}\n"
+"```"
 
 #: src/testing/integration-tests.md:16
 msgid "These tests only have access to the public API of your crate."
@@ -10110,12 +10142,17 @@ msgid ""
 "fn main() {\n"
 "    let mut num = 5;"
 msgstr ""
+"```rust,editable\n"
+"fn main() {\n"
+"    let mut num = 5;"
 
 #: src/unsafe/raw-pointers.md:9
 msgid ""
 "    let r1 = &mut num as *mut i32;\n"
 "    let r2 = &num as *const i32;"
 msgstr ""
+"    let r1 = &mut num as *mut i32;\n"
+"    let r2 = &num as *const i32;"
 
 #: src/unsafe/raw-pointers.md:12
 msgid ""
@@ -10147,7 +10184,7 @@ msgid ""
 "It is good practice (and required by the Android Rust style guide) to write a comment for each\n"
 "`unsafe` block explaining how the code inside it satisfies the safety requirements of the unsafe\n"
 "operations it is doing."
-msgstr "모든 `unsafe` 블럭에 대해 왜 그 코드가 안전한지에 대한 설명을 주석으로 다는 것은 좋은 습관입니다(사실 안드로이드의 러스트 스타일 가이드에서는 이게 필수입니다)."
+msgstr "모든 `unsafe` 블록에 대해 왜 그 코드가 안전한지에 대한 설명을 주석으로 다는 것은 좋은 습관입니다(사실 안드로이드의 러스트 스타일 가이드에서는 이게 필수입니다)."
 
 #: src/unsafe/raw-pointers.md:30
 msgid ""
@@ -10187,6 +10224,8 @@ msgid ""
 "```rust,editable\n"
 "static HELLO_WORLD: &str = \"Hello, world!\";"
 msgstr ""
+"```rust,editable\n"
+"static HELLO_WORLD: &str = \"Hello, world!\";"
 
 #: src/unsafe/mutable-static-variables.md:8
 msgid ""
@@ -10195,6 +10234,10 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"fn main() {\n"
+"    println!(\"HELLO_WORLD: {HELLO_WORLD}\");\n"
+"}\n"
+"```"
 
 #: src/unsafe/mutable-static-variables.md:13
 msgid ""
@@ -10207,6 +10250,8 @@ msgid ""
 "```rust,editable\n"
 "static mut COUNTER: u32 = 0;"
 msgstr ""
+"```rust,editable\n"
+"static mut COUNTER: u32 = 0;"
 
 #: src/unsafe/mutable-static-variables.md:19
 msgid ""
@@ -10214,12 +10259,17 @@ msgid ""
 "    unsafe { COUNTER += inc; }  // Potential data race!\n"
 "}"
 msgstr ""
+"fn add_to_counter(inc: u32) {\n"
+"    unsafe { COUNTER += inc; }  // Potential data race!\n"
+"}"
 
 #: src/unsafe/mutable-static-variables.md:23
 msgid ""
 "fn main() {\n"
 "    add_to_counter(42);"
 msgstr ""
+"fn main() {\n"
+"    add_to_counter(42);"
 
 #: src/unsafe/mutable-static-variables.md:26
 msgid ""
@@ -10227,6 +10277,9 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"    unsafe { println!(\"COUNTER: {COUNTER}\"); }  // Potential data race!\n"
+"}\n"
+"```"
 
 #: src/unsafe/mutable-static-variables.md:32
 msgid ""
@@ -10251,6 +10304,12 @@ msgid ""
 "    b: bool,\n"
 "}"
 msgstr ""
+"```rust,editable\n"
+"#[repr(C)]\n"
+"union MyUnion {\n"
+"    i: u8,\n"
+"    b: bool,\n"
+"}"
 
 #: src/unsafe/unions.md:12
 msgid ""
@@ -10261,6 +10320,12 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"fn main() {\n"
+"    let u = MyUnion { i: 42 };\n"
+"    println!(\"int: {}\", unsafe { u.i });\n"
+"    println!(\"bool: {}\", unsafe { u.b });  // Undefined behavior!\n"
+"}\n"
+"```"
 
 #: src/unsafe/unions.md:21
 msgid ""
@@ -10277,7 +10342,7 @@ msgstr "바이트들을 특정 타입으로 재해석 하고 싶다면 `std::mem
 
 #: src/unsafe/calling-unsafe-functions.md:1
 msgid "# Calling Unsafe Functions"
-msgstr "# 안전하지 않은' 함수 호출"
+msgstr "# '안전하지 않은' 함수 호출"
 
 #: src/unsafe/calling-unsafe-functions.md:3
 msgid ""
@@ -10354,6 +10419,17 @@ msgid ""
 "    *b = temp;\n"
 "}"
 msgstr ""
+"```rust,editable\n"
+"/// Swaps the values pointed to by the given pointers.\n"
+"///\n"
+"/// # Safety\n"
+"///\n"
+"/// The pointers must be valid and properly aligned.\n"
+"unsafe fn swap(a: *mut u8, b: *mut u8) {\n"
+"    let temp = *a;\n"
+"    *a = *b;\n"
+"    *b = temp;\n"
+"}"
 
 #: src/unsafe/writing-unsafe-functions.md:18
 msgid ""
@@ -10361,6 +10437,9 @@ msgid ""
 "    let mut a = 42;\n"
 "    let mut b = 66;"
 msgstr ""
+"fn main() {\n"
+"    let mut a = 42;\n"
+"    let mut b = 66;"
 
 #: src/unsafe/writing-unsafe-functions.md:22
 msgid ""
@@ -10369,6 +10448,10 @@ msgid ""
 "        swap(&mut a, &mut b);\n"
 "    }"
 msgstr ""
+"    // Safe because ...\n"
+"    unsafe {\n"
+"        swap(&mut a, &mut b);\n"
+"    }"
 
 #: src/unsafe/writing-unsafe-functions.md:27
 msgid ""
@@ -10376,6 +10459,9 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"    println!(\"a = {}, b = {}\", a, b);\n"
+"}\n"
+"```"
 
 #: src/unsafe/writing-unsafe-functions.md:33
 msgid "We wouldn't actually use pointers for this because it can be done safely with references."
@@ -10385,7 +10471,7 @@ msgstr "참조를 사용하면 안전하게 구현할 수 있기 때문에, 실�
 msgid ""
 "Note that unsafe code is allowed within an unsafe function without an `unsafe` block. We can\n"
 "prohibit this with `#[deny(unsafe_op_in_unsafe_fn)]`. Try adding it and see what happens."
-msgstr "unsafe 코드가 unsafe 함수의 내부에서 호출될 경우에는 `unsafe`블럭을 지정하지 않아도 됩니다. `unsafe`블럭을 항상 지정하도록 하고 싶다면 `#[deny(unsafe_op_in_unsafe_fn)]`를 이용하세요. 이 어트리뷰트를 추가해 보고 어떤 일이 일어나는지 확인해 보세요."
+msgstr "unsafe 코드가 unsafe 함수의 내부에서 호출될 경우에는 `unsafe`블록을 지정하지 않아도 됩니다. `unsafe`블록을 항상 지정하도록 하고 싶다면 `#[deny(unsafe_op_in_unsafe_fn)]`를 이용하세요. 이 어트리뷰트를 추가해 보고 어떤 일이 일어나는지 확인해 보세요."
 
 #: src/unsafe/extern-functions.md:1
 msgid "# Calling External Code"
@@ -10395,7 +10481,7 @@ msgstr "# 외부 코드 호출"
 msgid ""
 "Functions from other languages might violate the guarantees of Rust. Calling\n"
 "them is thus unsafe:"
-msgstr "다른 언어의 함수는 러스트의 보증을 위반할 수 있습니다. 따라서 이를 호출하는 것은 '안전하지 않습니다':"
+msgstr "다른 언어의 함수는 러스트의 보증을 위반할 수 있습니다. 따라서 이를 호출하는 것은 안전하지 않습니다:"
 
 #: src/unsafe/extern-functions.md:6
 msgid ""
@@ -10404,6 +10490,10 @@ msgid ""
 "    fn abs(input: i32) -> i32;\n"
 "}"
 msgstr ""
+"```rust,editable\n"
+"extern \"C\" {\n"
+"    fn abs(input: i32) -> i32;\n"
+"}"
 
 #: src/unsafe/extern-functions.md:11
 msgid ""
@@ -10415,6 +10505,13 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"fn main() {\n"
+"    unsafe {\n"
+"        // Undefined behavior if abs misbehaves.\n"
+"        println!(\"Absolute value of -3 according to C: {}\", abs(-3));\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/unsafe/extern-functions.md:21
 msgid ""
@@ -10443,7 +10540,7 @@ msgstr "함수에서와 마찬가지로 트레잇도 `unsafe`로 마킹 가능�
 msgid ""
 "For example, the `zerocopy` crate has an unsafe trait that looks\n"
 "[something like this](https://docs.rs/zerocopy/latest/zerocopy/trait.AsBytes.html):"
-msgstr "예를 들어 `zerocopy` 크레이트에는 [안전하지 않은 트레잇](https://docs.rs/zerocopy/latest/zerocopy/trait.AsBytes.html)가 있습니다:"
+msgstr "예를 들어 `zerocopy` 크레이트에는 [안전하지 않은 트레잇](https://docs.rs/zerocopy/latest/zerocopy/trait.AsBytes.html)이 있습니다:"
 
 #: src/unsafe/unsafe-traits.md:9
 msgid ""
@@ -10451,6 +10548,9 @@ msgid ""
 "use std::mem::size_of_val;\n"
 "use std::slice;"
 msgstr ""
+"```rust,editable\n"
+"use std::mem::size_of_val;\n"
+"use std::slice;"
 
 #: src/unsafe/unsafe-traits.md:13
 msgid ""
@@ -10465,6 +10565,16 @@ msgid ""
 "    }\n"
 "}"
 msgstr ""
+"/// ...\n"
+"/// # Safety\n"
+"/// The type must have a defined representation and no padding.\n"
+"pub unsafe trait AsBytes {\n"
+"    fn as_bytes(&self) -> &[u8] {\n"
+"        unsafe {\n"
+"            slice::from_raw_parts(self as *const Self as *const u8, size_of_val(self))\n"
+"        }\n"
+"    }\n"
+"}"
 
 #: src/unsafe/unsafe-traits.md:24
 msgid ""
@@ -10472,6 +10582,9 @@ msgid ""
 "unsafe impl AsBytes for u32 {}\n"
 "```"
 msgstr ""
+"// Safe because u32 has a defined representation and no padding.\n"
+"unsafe impl AsBytes for u32 {}\n"
+"```"
 
 #: src/unsafe/unsafe-traits.md:30
 msgid ""
@@ -10497,11 +10610,11 @@ msgstr "디렉터리의 내용을 읽는 안전한 래퍼 코드를 작성해 �
 
 #: src/exercises/day-3/afternoon.md:7
 msgid "After looking at the exercise, you can look at the [solution] provided."
-msgstr "연습문제를 살펴 본 후, 제공된 [solutions]을 살펴볼 수 있습니다."
+msgstr "연습문제를 살펴 본 후, 제공된 [해답][solution]을 살펴볼 수 있습니다."
 
 #: src/exercises/day-3/afternoon.md:9
 msgid "[solution]: solutions-afternoon.md"
-msgstr ""
+msgstr "[solution]: solutions-afternoon.md"
 
 #: src/exercises/day-3/safe-ffi-wrapper.md:1
 msgid "# Safe FFI Wrapper"
