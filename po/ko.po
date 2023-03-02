@@ -7206,7 +7206,7 @@ msgid ""
 "```"
 msgstr ""
 "```bob\n"
-"    스택                   힙\n"
+"  스택                힙\n"
 ".- - - - - - -.     .- - - - - - -.\n"
 ":             :     :             :\n"
 ":    five     :     :             :\n"
@@ -7290,6 +7290,18 @@ msgid ""
 "'- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - - -'\n"
 "```"
 msgstr ""
+"```bob\n"
+"  스택                             힙\n"
+".- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - - -.\n"
+":                         :     :                                               :\n"
+":    list                 :     :                                               :\n"
+":   +------+----+----+    :     :    +------+----+----+    +------+----+----+   :\n"
+":   | Cons | 1  | o--+----+-----+--->| Cons | 2  | o--+--->| Nil  | // | // |   :\n"
+":   +------+----+----+    :     :    +------+----+----+    +------+----+----+   :\n"
+":                         :     :                                               :\n"
+":                         :     :                                               :\n"
+"'- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - - -'\n"
+"```"
 
 #: src/std/box-recursive.md:33
 msgid ""
@@ -7338,6 +7350,18 @@ msgid ""
 "`- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - -'\n"
 "```"
 msgstr ""
+"```bob\n"
+"  스택                            힙\n"
+".- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - -.\n"
+":                         :     :                                             :\n"
+":    list                 :     :                                             :\n"
+":   +----+----+           :     :    +----+----+    +----+------+             :\n"
+":   | 1  | o--+-----------+-----+--->| 2  | o--+--->| // | null |             :\n"
+":   +----+----+           :     :    +----+----+    +----+------+             :\n"
+":                         :     :                                             :\n"
+":                         :     :                                             :\n"
+"`- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - -'\n"
+"```"
 
 #: src/std/rc.md:1
 msgid "# `Rc`"
@@ -7401,7 +7425,7 @@ msgstr ""
 "* `Rc`는 참조 카운트를 통해 참조가 있는 동안은 `Rc`가 가리키고 있는 값이 메모리에서 해제되지 않음을 보장합니다.\n"
 "* C++의 `std::shared_ptr`와 유사합니다.\n"
 "* `clone`은 저렴합니다. 같은 곳을 가리키는 포인터를 하나 더 만들고, 참조 카운트를 늘립니다. 포인터가 가리키는 값 자체가 복제(깊은 복제)되지는 않으며, 그래서 코드에서 성능 문제가 있는지 검토할 때 일반적으로 `Rc`를 `clone`하는 것은 무시할 수 있습니다.\n"
-"* `make_mut`는 실제로 필요한 경우에 내부 값을 복제하고( (\"clone-on-write\") ) 가변 참조를 반환합니다.\n"
+"* `make_mut`는 실제로 필요한 경우에 내부 값을 복제하고(\"clone-on-write\") 가변 참조를 반환합니다.\n"
 "* 참조 카운트를 확인하려면 `Rc::strong_count`를 사용하세요.\n"
 "* 여기 언급된 몇가지 데이터 타입을 비교해보세요. `Box`는 불변/가변 빌림(borrow)을 컴파일 시점에 강제합니다. `RefCell`은 실행 시점에 불변/가변 빌림을 강제하며, 만약 런타임 시에 빌림 문제가 발생하면 패닉을 일으킵니다.\n"
 "* `Rc`는 `downgrade()`로 다운그레이드하여 **weak 참조 카운트**로 변경할 수 있습니다. 그러면 순환구조라 하더라도 drop이 가능합니다. (아마도 `RefCell` 을 함께 사용해야 할 것입니다.)"
@@ -7495,6 +7519,9 @@ msgid ""
 "* Crates are a tree of modules, where a binary crate creates an executable and a library crate compiles to a library.\n"
 "* Modules define organization, scope, and are the focus of this section."
 msgstr ""
+"* 패키지는 기능을 제공하며 하나의 대표 `Cargo.toml` 파일을 포함합니다. 패키지를 구성하는 크레이트들을 빌드하는 방법이 이 파일에 기술됩니다.\n"
+"* 크레이트는 모듈의 트리입니다. 바이너리 크레이트는 실행파일로 빌드되고, 라이브러리 크레이트는 라이브러리로 빌드됩니다.\n"
+"* 모듈은 코드를 조직화하고 스코프를 정의하는 단위입니다."
 
 #: src/modules/visibility.md:1
 msgid "# Visibility"
@@ -7671,6 +7698,8 @@ msgid ""
 "* `src/lib.rs` (for a library crate)\n"
 "* `src/main.rs` (for a binary crate)"
 msgstr ""
+"* `src/lib.rs` (라이브러리 크레이트)\n"
+"* `src/main.rs` (바이너리 크레이트)"
 
 #: src/modules/filesystem.md:26
 msgid ""
@@ -7757,7 +7786,7 @@ msgstr "* 모든 공백을 무시합니다. 2자리 미만 숫자는 무시합�
 msgid ""
 "* Moving from right to left, double every second digit: for the number `1234`,\n"
 "  we double `3` and `1`."
-msgstr "* 오른쪽에서 왼쪽으로 이동하며 2번째 자리마다 숫자를 2배 증가시킵니다. 예를 들어 `1234`에서 3과 1을 두배로 만듭니다.(2464)"
+msgstr "* 오른쪽에서 왼쪽으로 이동하며 2번째 자리마다 숫자를 2배 증가시킵니다. 예를 들어 `1234`에서 `3`과 `1`에 각각 2를 곱합니다."
 
 #: src/exercises/day-2/luhn.md:12
 msgid ""
@@ -7771,7 +7800,7 @@ msgstr "* 모든 자리의 숫자를 더합니다."
 
 #: src/exercises/day-2/luhn.md:17
 msgid "* The credit card number is valid if the sum ends with `0`."
-msgstr "* 합계의 끝자리가 `0`인 경우 유효한 신용카드 번호 입니다."
+msgstr "* 합계의 끝자리가 `0`인 경우 유효한 신용카드 번호입니다."
 
 #: src/exercises/day-2/luhn.md:19
 msgid ""
@@ -8220,7 +8249,7 @@ msgstr "# FromIterator"
 
 #: src/traits/from-iterator.md:3
 msgid "[`FromIterator`][1] lets you build a collection from an [`Iterator`][2]."
-msgstr "어떤 컬렉션이 `[FromIterator`][1]를 구현하고 있다면 [`Iterator`][2]로부터 그 컬렉션을 만들 수 있습니다."
+msgstr "어떤 컬렉션이 [`FromIterator`][1]를 구현하고 있다면 [`Iterator`][2]로부터 그 컬렉션을 만들 수 있습니다."
 
 #: src/traits/from-iterator.md:5
 msgid ""
@@ -8626,7 +8655,7 @@ msgstr ""
 "    * 구조체의 각 필드 타입들이 모두 `Default`를 구현해야 함을 의미합니다.\n"
 "  * 러스트 표준 타입들은 대부분 `Default`를 구현하고 있으며, 기본 값은 `0`이나 `\"\"`처럼 예상 가능한 값들입니다.\n"
 "  * 구조체 부분 복사를 할때 `default`를 편리하게 사용할 수 있습니다.\n"
-"  * Rust standard library is aware that types can implement `Default` and provides convenience methods that use it."
+"  * 러스트 표준 라이브러리는 `Default` 트레잇을 구현한 타입을 위한 편의 메서드를 제공하기도 합니다."
 
 #: src/traits/default.md:49
 msgid "[1]: https://doc.rust-lang.org/std/default/trait.Default.html"
@@ -8806,9 +8835,9 @@ msgid ""
 "    \n"
 "</details>"
 msgstr ""
-"* 이를 이용하면 타입 파라메터가 많은 경우 함수 시그니처를 간결하게 정리하는데 도움이 됩니다.\n"
+"* 이를 이용하면 타입 파라메터가 많은 경우 함수 시그니처를 간결하게 정리하는 데 도움이 됩니다.\n"
 "* 좀 더 강력한 추가 기능도 제공합니다.\n"
-"  * `\":\" 왼쪽에 임의의 타입(예를 들어 `Option<T>`)을 사용할 수 있습니다.\n"
+"  * `:` 왼쪽에 임의의 타입(예를 들어 `Option<T>`)을 사용할 수 있습니다.\n"
 "    \n"
 "</details>"
 
@@ -8884,7 +8913,7 @@ msgstr ""
 
 #: src/generics/closures.md:1
 msgid "# Closures"
-msgstr "# 클로저(Closures)"
+msgstr "# 클로저(Closure)"
 
 #: src/generics/closures.md:3
 msgid ""
@@ -9036,7 +9065,7 @@ msgstr ""
 
 #: src/generics/trait-objects.md:26
 msgid "For this, we need _trait objects_:"
-msgstr "이를 위해서는 _트레잇 객체_가 필요합니다:"
+msgstr "이를 위해서는 \"트레잇 객체\"가 필요합니다:"
 
 #: src/generics/trait-objects.md:31
 msgid ""
@@ -9083,6 +9112,33 @@ msgid ""
 "                                  '- - - - - - - - - - - - - - - - - - - - - - - -'\n"
 "```"
 msgstr ""
+"```bob\n"
+"  스택                               힙\n"
+".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - - -.\n"
+":                           :     :                                               :\n"
+":    xs                     :     :                                               :\n"
+":   +-----------+-------+   :     :   +-----+-----+                               :\n"
+":   | ptr       |   o---+---+-----+-->| o o | o o |                               :\n"
+":   | len       |     2 |   :     :   +-|-|-+-|-|-+                               :\n"
+":   | capacity  |     2 |   :     :     | |   | |   +----+----+----+----+----+    :\n"
+":   +-----------+-------+   :     :     | |   | '-->| H  | e  | l  | l  | o  |    :\n"
+":                           :     :     | |   |     +----+----+----+----+----+    :\n"
+"`- - - - - - - - - - - - - -'     :     | |   |                                   :\n"
+"                                  :     | |   |     +-------------------------+   :\n"
+"                                  :     | |   '---->| \"<str as Display>::fmt\" |   :\n"
+"                                  :     | |         +-------------------------+   :\n"
+"                                  :     | |                                       :\n"
+"                                  :     | |   +----+----+----+----+               :\n"
+"                                  :     | '-->| 7b | 00 | 00 | 00 |               :\n"
+"                                  :     |     +----+----+----+----+               :\n"
+"                                  :     |                                         :\n"
+"                                  :     |     +-------------------------+         :\n"
+"                                  :     '---->| \"<i32 as Display>::fmt\" |         :\n"
+"                                  :           +-------------------------+         :\n"
+"                                  :                                               :\n"
+"                                  :                                               :\n"
+"                                  '- - - - - - - - - - - - - - - - - - - - - - - -'\n"
+"```"
 
 #: src/generics/trait-objects.md:69
 msgid ""
@@ -9334,7 +9390,7 @@ msgid ""
 "[fill/alignment](https://doc.rust-lang.org/std/fmt/index.html#fillalignment)\n"
 "formatting operators. In particular, notice how you can pad with different\n"
 "characters (here a `'/'`) and how you can control alignment:"
-msgstr "텍스트를 줄맞춤 해서 그리려면 [fill/alignment](https://doc.rust-lang.org/std/fmt/index.html#fillalignment)를 참조하시기 바랍니다. 특수 문자(여기서는 '/')로 패딩을 주는 방법과 정렬을 제어하는 방법을 확인하시기 바랍니다:"
+msgstr "텍스트를 줄맞춤 해서 그리려면 [fill/alignment](https://doc.rust-lang.org/std/fmt/index.html#fillalignment)를 참조하시기 바랍니다. 특수 문자(여기서는 `'/'`)로 패딩을 주는 방법과 정렬을 제어하는 방법을 확인하시기 바랍니다:"
 
 #: src/exercises/day-3/simple-gui.md:140
 msgid ""
@@ -9408,7 +9464,7 @@ msgid ""
 msgstr ""
 "* 패닉은 복구할 수 없고 예상치 못한 오류입니다.\n"
 "  * 패닉은 프로그램에 버그가 있다는 것을 나타냅니다.\n"
-"* 충돌(크래시)를 허용하지 않아야 하는 경우, 패닉을 유발하지 않는 API(`Vec::get`등)를 사용하면 됩니다."
+"* 충돌(크래시)을 허용하지 않아야 하는 경우, 패닉을 유발하지 않는 API(`Vec::get`등)를 사용하면 됩니다."
 
 #: src/error-handling/panic-unwind.md:1
 msgid "# Catching the Stack Unwinding"
@@ -9502,7 +9558,7 @@ msgstr ""
 
 #: src/error-handling/try-operator.md:1
 msgid "# Propagating Errors with `?`"
-msgstr "# '?'를 이용한 오류 전파"
+msgstr "# `?`를 이용한 오류 전파"
 
 #: src/error-handling/try-operator.md:3
 msgid ""
@@ -9522,7 +9578,7 @@ msgstr ""
 
 #: src/error-handling/try-operator.md:13
 msgid "into the much simpler"
-msgstr "이렇게 짧게 쓸 수 있습니다"
+msgstr "이렇게 짧게 쓸 수 있습니다."
 
 #: src/error-handling/try-operator.md:15
 msgid ""
@@ -9806,7 +9862,7 @@ msgid ""
 "the program. As such it's generally not a good idea to use `Box<dyn Error>` in the public API of a\n"
 "library, but it can be a good option in a program where you just want to display the error message\n"
 "somewhere."
-msgstr "이렇게 하면 코드의 양을 줄일 수 있습니다. 그러나 서로 다른 종류의 에러를 구별하여 다르게 처리하는 것이 불가능해 집니다. 때문에, `Box<dyn Error>`를 라이브러리의 API로 노출하는게 좋은 디자인은 아닙니다. 에러 발생시, 그저 에러 메시지를 출력하고 싶은 경우와 같이 제한된 상황에서는 유용할 수 있습니다."
+msgstr "이렇게 하면 코드의 양을 줄일 수 있습니다. 그러나 서로 다른 종류의 에러를 구별하여 다르게 처리하는 것이 불가능해 집니다. 때문에, `Box<dyn Error>`를 라이브러리의 API로 노출하는게 좋은 디자인은 아닙니다. 에러 발생 시, 그저 에러 메시지를 출력하고 싶은 경우와 같이 제한된 상황에서는 유용할 수 있습니다."
 
 #: src/error-handling/error-contexts.md:1
 msgid "# Adding Context to Errors"
@@ -9826,6 +9882,10 @@ msgid ""
 "use std::io::Read;\n"
 "use anyhow::{Context, Result, bail};"
 msgstr ""
+"```rust,editable,compile_fail\n"
+"use std::{fs, io};\n"
+"use std::io::Read;\n"
+"use anyhow::{Context, Result, bail};"
 
 #: src/error-handling/error-contexts.md:12
 msgid ""
@@ -9841,6 +9901,17 @@ msgid ""
 "    Ok(username)\n"
 "}"
 msgstr ""
+"fn read_username(path: &str) -> Result<String> {\n"
+"    let mut username = String::with_capacity(100);\n"
+"    fs::File::open(path)\n"
+"        .context(format!(\"Failed to open {path}\"))?\n"
+"        .read_to_string(&mut username)\n"
+"        .context(\"Failed to read\")?;\n"
+"    if username.is_empty() {\n"
+"        bail!(\"Found no username in {path}\");\n"
+"    }\n"
+"    Ok(username)\n"
+"}"
 
 #: src/error-handling/error-contexts.md:24
 msgid ""
@@ -9853,6 +9924,14 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"fn main() {\n"
+"    //fs::write(\"config.dat\", \"\").unwrap();\n"
+"    match read_username(\"config.dat\") {\n"
+"        Ok(username) => println!(\"Username: {username}\"),\n"
+"        Err(err)     => println!(\"Error: {err:?}\"),\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/error-handling/error-contexts.md:35
 msgid ""
@@ -9863,6 +9942,10 @@ msgid ""
 "* Functionality provided by `anyhow::Result<T>` may be familiar to Go developers, as it provides\n"
 "  similar usage patterns and ergonomics to `(T, error)` from Go."
 msgstr ""
+"* `anyhow::Result<V>`는 `Result<V, anyhow::Error>`의 타입 앨리어스(alias)입니다.\n"
+"* `anyhow::Error`는 `Box<dyn Error>`의 래퍼 타입이라 할 수 있습니다. 따라서 라이브러리의 공개 API로서 사용하기에 부적합하다고 할 수 있지만 많은 애플리케이션에 널리 사용되고 있습니다.\n"
+"* 필요하다면 `anyhow::Error`에 저장된 진짜 에러 타입을 꺼내어 검사할 수도 있습니다.\n"
+"* `anyhow::Result<T>`가 제공하는 기능들이 Go 언어 개발자들에게는 익숙할 것입니다. Go언어에서 반환 값으로 사용하는 `(T, error)` 패턴과 비슷하기 때문입니다."
 
 #: src/testing.md:1
 msgid "# Testing"
@@ -9870,7 +9953,7 @@ msgstr "# 테스팅"
 
 #: src/testing.md:3
 msgid "Rust and Cargo come with a simple unit test framework:"
-msgstr "러스트와 카고(cargo)는 간단한 테스트 프레임워크와 함께 제공됩니다:"
+msgstr "러스트와 카고(cargo)는 간단한 단위 테스트 프레임워크와 함께 제공됩니다:"
 
 #: src/testing.md:5
 msgid "* Unit tests are supported throughout your code."
@@ -9878,7 +9961,7 @@ msgstr "* 단위 테스트는 코드 전반에서 지원됩니다."
 
 #: src/testing.md:7
 msgid "* Integration tests are supported via the `tests/` directory."
-msgstr "* 통합테스트는 `test/` 디렉터리를 통해 지원됩니다."
+msgstr "* 통합 테스트는 `tests/` 디렉터리를 통해 지원됩니다."
 
 #: src/testing/unit-tests.md:1
 msgid "# Unit Tests"
@@ -9898,6 +9981,13 @@ msgid ""
 "    }\n"
 "}"
 msgstr ""
+"```rust,editable\n"
+"fn first_word(text: &str) -> &str {\n"
+"    match text.find(' ') {\n"
+"        Some(idx) => &text[..idx],\n"
+"        None => &text,\n"
+"    }\n"
+"}"
 
 #: src/testing/unit-tests.md:13
 msgid ""
@@ -9906,6 +9996,10 @@ msgid ""
 "    assert_eq!(first_word(\"\"), \"\");\n"
 "}"
 msgstr ""
+"#[test]\n"
+"fn test_empty() {\n"
+"    assert_eq!(first_word(\"\"), \"\");\n"
+"}"
 
 #: src/testing/unit-tests.md:18
 msgid ""
@@ -9914,6 +10008,10 @@ msgid ""
 "    assert_eq!(first_word(\"Hello\"), \"Hello\");\n"
 "}"
 msgstr ""
+"#[test]\n"
+"fn test_single_word() {\n"
+"    assert_eq!(first_word(\"Hello\"), \"Hello\");\n"
+"}"
 
 #: src/testing/unit-tests.md:23
 msgid ""
@@ -9923,6 +10021,11 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"#[test]\n"
+"fn test_multiple_words() {\n"
+"    assert_eq!(first_word(\"Hello World\"), \"Hello\");\n"
+"}\n"
+"```"
 
 #: src/testing/unit-tests.md:29
 msgid "Use `cargo test` to find and run the unit tests."
@@ -9986,7 +10089,7 @@ msgstr ""
 
 #: src/testing/doc-tests.md:1
 msgid "# Documentation Tests"
-msgstr "문서화주석 테스트"
+msgstr "# 문서화주석 테스트"
 
 #: src/testing/doc-tests.md:3
 msgid "Rust has built-in support for documentation tests:"
@@ -10168,9 +10271,10 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-"    // 아래 코드는 안전합니다. r1과 r2는 참조로 부터 만들어 졌기 때문에 null이 아니며 align이 맞다는 것이 보장됩니다.\n"
-"    // 참조가 가리키는 객체들은 unsafe 블럭이 수행되는 동안 메모리에 살아있습니다. 그리고 이 객체들은 r1과 r2가 아닌 다른\n"
-"    // 어떤 참조나 포인터로도 접근이 안되고 있습니다.\n"
+"    // 아래 코드는 안전합니다. r1과 r2는 참조로 부터 만들어 졌기 때문에 null이 아니며\n"
+"    // align이 맞다는 것이 보장됩니다. 참조가 가리키는 객체들은 unsafe 블럭이 수행되는\n"
+"    // 동안 메모리에 살아있습니다. 그리고 이 객체들은 r1과 r2가 아닌 다른 어떤 참조나\n"
+"    // 포인터로도 접근이 안되고 있습니다.\n"
 "    unsafe {\n"
 "        println!(\"r1 is: {}\", *r1);\n"
 "        *r1 = 10;\n"
@@ -10205,7 +10309,7 @@ msgstr ""
 " * 포인터는 따라가기가 가능해야 합니다 (객체의 어느 한 부분을 가리키고 있어야 합니다).\n"
 " * 이미 반환된 객체를 가리키면 안됩니다.\n"
 " * 같은 위치에 대해 동시적인 접근이 있으면 안됩니다.\n"
-" * 참조를 캐스팅 해서 포인터를 만들었다면, 그 참조가 가리키는 객체는 살아 있어야 하며, 그 객체의 메모리를 접근하는 참조가 하나도 없어햐 합니다."
+" * 참조를 캐스팅 해서 포인터를 만들었다면, 그 참조가 가리키는 객체는 살아 있어야 하며, 그 객체의 메모리를 접근하는 참조가 하나도 없어야 합니다."
 
 #: src/unsafe/raw-pointers.md:40
 msgid "In most cases the pointer must also be properly aligned."
@@ -10338,7 +10442,7 @@ msgid ""
 "If you just want to reinterpret bytes as a different type, you probably want\n"
 "[`std::mem::transmute`](https://doc.rust-lang.org/stable/std/mem/fn.transmute.html) or a safe\n"
 "wrapper such as the [`zerocopy`](https://crates.io/crates/zerocopy) crate."
-msgstr "바이트들을 특정 타입으로 재해석 하고 싶다면 `std::mem::transmute`](https://doc.rust-lang.org/stable/std/mem/fn.transmute.html)나 좀 더 안전한 [`zerocopy`](https://crates.io/crates/zerocopy) 크레이트를 사용하세요."
+msgstr "바이트들을 특정 타입으로 재해석 하고 싶다면 [`std::mem::transmute`](https://doc.rust-lang.org/stable/std/mem/fn.transmute.html)나 좀 더 안전한 [`zerocopy`](https://crates.io/crates/zerocopy) 크레이트를 사용하세요."
 
 #: src/unsafe/calling-unsafe-functions.md:1
 msgid "# Calling Unsafe Functions"
