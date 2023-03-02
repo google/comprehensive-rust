@@ -21,6 +21,7 @@ function:
 
 
 ```rust
+{{#include luhn.rs:luhn}}
 pub fn luhn(cc_number: &str) -> bool {
     println!("{cc_number}");
     unimplemented!()
