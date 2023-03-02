@@ -10,6 +10,7 @@ pass. Try avoiding allocating a `Vec` for your intermediate results:
 
 
 ```rust
+{{#include strings-iterators.rs:prefix_matches}}
 pub fn prefix_matches(prefix: &str, request_path: &str) -> bool {
     println!("Use parameters {prefix} and {request_path}");
     unimplemented!()
