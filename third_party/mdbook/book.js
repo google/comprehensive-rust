@@ -8,7 +8,6 @@ function isPlaygroundModified(playground) {
     if (window.ace && code_block.classList.contains("editable")) {
       let editor = window.ace.edit(code_block);
       return editor.getValue() != editor.originalCode;
-      return code != code_block.textContent;
     } else {
       return false;
     }
