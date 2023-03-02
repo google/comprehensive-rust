@@ -33,7 +33,7 @@ Key points:
 * Rust uses macros for situations where you want to have a variable number of
   arguments (no function [overloading](basic-syntax/functions-interlude.md)).
 
-* Macros being 'hygenic' means they don't accidentally capture identifiers from
+* Macros being 'hygienic' means they don't accidentally capture identifiers from
   the scope they are used in. Rust macros are actually only partially hygenic.
 
 </details>
