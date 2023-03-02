@@ -11,16 +11,12 @@ edition = "2021"
 [build]
 extra-watch-dirs = ["po"]
 
-[preprocessor.links]
-renderers = ["html"]
-
 [preprocessor.gettext]
-
-[preprocessor.index]
-renderers = ["html"]
+after = ["links"]
 
 [preprocessor.svgbob]
 renderers = ["html"]
+after = ["gettext"]
 class = "bob"
 
 # Enable this preprocessor to overlay a large red rectangle on the
