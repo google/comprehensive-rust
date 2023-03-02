@@ -43,9 +43,10 @@ window.fetch = async (...args) => {
   const startTime = window.performance.now();
   let endTime, errorMessage;
   try {
-    // The fetch_with_timeout function defaults to a 6000 ms timeout. We use a
-    // slightly shorter timeout so that we can catch and log the error.
-    config.signal = AbortSignal.timeout(5500);
+    // The fetch_with_timeout function from book.js defaults to a 15000 ms
+    // timeout. We use a slightly shorter timeout so that we can catch and log
+    // the error.
+    config.signal = AbortSignal.timeout(14500);
     let response = await originalFetch(resource, config);
     payload = await response.json();
     errorMessage = (payload.error == null) ? null : 'compilation_error';
