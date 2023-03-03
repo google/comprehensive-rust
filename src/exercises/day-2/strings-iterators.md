@@ -10,7 +10,10 @@ pass. Try avoiding allocating a `Vec` for your intermediate results:
 
 
 ```rust
-{{#include strings-iterators.rs:prefix_matches_unimplemented}}
+{{#include strings-iterators.rs:prefix_matches}}
+    println!("Use parameters {prefix} and {request_path}");
+    unimplemented!()
+}
 
 {{#include strings-iterators.rs:unit-tests}}
 ```
