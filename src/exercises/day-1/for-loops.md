@@ -49,29 +49,18 @@ Hard-code both functions to operate on 3 × 3 matrices.
 Copy the code below to <https://play.rust-lang.org/> and implement the
 functions:
 
-```rust
-//fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {
-//    unimplemented!()
-//}
-
-//fn pretty_print(matrix: &[[i32; 3]; 3]) {
-//    unimplemented!()
-//}
-
-fn main() {
-    let matrix = [
-        [101, 102, 103], // <-- the comment makes rustfmt add a newline
-        [201, 202, 203],
-        [301, 302, 303],
-    ];
-
-    println!("matrix: {matrix:?}" );
-    //pretty_print(&matrix);
-
-    //let transposed = transpose(matrix);
-    //println!("transposed:");
-    //pretty_print(&transposed);
+```rust, should_panic
+{{#include for-loops.rs:transpose}}
+    println!("Use matrix {matrix}");
+    unimplemented!()
 }
+
+{{#include for-loops.rs:pretty_print}}
+    println!("Use matrix {matrix}");
+    unimplemented!()
+}
+
+{{#include for-loops.rs:main}}
 ```
 
 ## Bonus Question
