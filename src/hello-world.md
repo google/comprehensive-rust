@@ -34,6 +34,7 @@ Key points:
   arguments (no function [overloading](basic-syntax/functions-interlude.md)).
 
 * Macros being 'hygienic' means they don't accidentally capture identifiers from
-  the scope they are used in. Rust macros are actually only partially hygenic.
+  the scope they are used in. Rust macros are actually only
+  [partially hygenic](https://veykril.github.io/tlborm/decl-macros/minutiae/hygiene.html).
 
 </details>
