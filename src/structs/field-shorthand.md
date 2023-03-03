@@ -25,6 +25,7 @@ fn main() {
 <details>
 
 *  The `new` function could be written using `Self` as a type, as it is interchangeable with the struct type name
+
 ```rust,ignore
 impl Person {
     fn new(name: String, age: u8) -> Self {
@@ -46,6 +47,7 @@ let tmp = Person { ..Default::default() };
 ```rust
 let tmp = Person { name: "Sam".to_string(), .. Default::default() };
 ```
+
 * Methods are defined in the `impl` block.
 * Use struct update syntax to define a new structure using `peter`. Note that the variable `peter` will no longer be accessible afterwards.
 * Use `{:#?}` when printing structs to request the `Debug` representation.
