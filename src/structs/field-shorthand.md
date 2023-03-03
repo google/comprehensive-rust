@@ -27,6 +27,11 @@ fn main() {
 *  The `new` function could be written using `Self` as a type, as it is interchangeable with the struct type name
 
      ```rust,editable
+     #[derive(Debug)]
+     struct Person {
+         name: String,
+         age: u8,
+     }
      impl Person {
          fn new(name: String, age: u8) -> Self {
              Self { name, age }
