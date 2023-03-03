@@ -24,7 +24,7 @@ fn main() {
 
 <details>
 
-The `new` function could be written using `Self` as a type, as it is interchangeable with the struct type name
+- The `new` function could be written using `Self` as a type, as it is interchangeable with the struct type name
 
 ```rust,ignore
 impl Person {
@@ -34,4 +34,18 @@ impl Person {
 }
 ```
     
+- Implement a `default` setting for the struct.
+```rust
+impl Default for Person {
+  fn default() -> Person { Person { name:"Bot".to_string(), age:0 } }
+}
+```
+- Create a new struct by using the default values.
+```rust
+let tmp = Person { ..Default::default() };
+```
+- Define some fields and use the default values for the other fields.
+```rust
+let tmp = Person { name: "Sam".to_string(), .. Default::default() };
+```
 </details>
