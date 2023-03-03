@@ -23,3 +23,6 @@ cargo install cargo-binutils cargo-embed
 echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", MODE="0664", GROUP="plugdev"' | sudo tee /etc/udev/rules.d/50-microbit.rules
 sudo udevadm control --reload-rules
 ```
+
+(If you're not using a Debian-based Linux distribution, you'll need to replace the `apt` command
+with the appropriate way to install GDB on your OS.)
