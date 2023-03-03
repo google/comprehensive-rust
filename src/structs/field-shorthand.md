@@ -33,7 +33,7 @@ impl Person {
     }
 }
 ```    
-* Implement a `default` setting for the struct.
+* Implement the `Default` trait for the struct.
 ```rust,ignore
 impl Default for Person {
   fn default() -> Person { Person { name:"Bot".to_string(), age:0 } }
