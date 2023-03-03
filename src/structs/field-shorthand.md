@@ -34,17 +34,17 @@ impl Person {
 }
 ```    
 * Implement a `default` setting for the struct.
-```rust
+```rust,ignore
 impl Default for Person {
   fn default() -> Person { Person { name:"Bot".to_string(), age:0 } }
 }
 ```
 * Create a new struct by using the default values.
-```rust
+```rust,ignore
 let tmp = Person { ..Default::default() };
 ```
 * Define some fields and use the default values for the other fields.
-```rust
+```rust,ignore
 let tmp = Person { name: "Sam".to_string(), .. Default::default() };
 ```
 
