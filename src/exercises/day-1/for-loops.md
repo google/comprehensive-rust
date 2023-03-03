@@ -51,12 +51,12 @@ functions:
 
 ```rust, should_panic
 {{#include for-loops.rs:transpose}}
-    println!("Use matrix {matrix}");
+    println!("Use matrix {:?}", matrix);
     unimplemented!()
 }
 
 {{#include for-loops.rs:pretty_print}}
-    println!("Use matrix {matrix}");
+    println!("Use matrix {:?}", matrix);
     unimplemented!()
 }
 
