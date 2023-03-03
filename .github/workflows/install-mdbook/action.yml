@@ -5,12 +5,14 @@ description: Install the mdbook with the dependencies we need.
 runs:
   using: composite
   steps:
+    # The --locked flag is important for reproducible builds. It also
+    # avoids breakage due to skews between mdbook and mdbook-svgbob.
     - name: Install mdbook
-      run: cargo install mdbook --version 0.4.25
+      run: cargo install mdbook --locked --version 0.4.25
       shell: bash
 
     - name: Install mdbook-svgbob
-      run: cargo install mdbook-svgbob --version 0.2.1
+      run: cargo install mdbook-svgbob --locked --version 0.2.1
       shell: bash
 
     - name: Install i18n-helpers

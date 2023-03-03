@@ -17,9 +17,11 @@
 //! This program works like `gettext`, meaning it will translate
 //! strings in your book.
 //!
-//! The translations come from GNU Gettext `xx.po` files. You must set
-//! preprocessor.gettext.po-file to the PO file to use. If unset, a
-//! warning is issued while building the book.
+//! The translations come from GNU Gettext `xx.po` files. The PO file is
+//! is found under `po` directory based on the `book.language`.
+//! For example, `book.langauge` is set to `ko`, then `po/ko.po` is used.
+//! You can set `preprocessor.gettext.po-dir` to specify where to find PO
+//! files. If the PO file is not found, you'll get the untranslated book. 
 //!
 //! See `TRANSLATIONS.md` in the repository root for more information.
 
@@ -32,8 +34,8 @@ use polib::catalog::Catalog;
 use polib::po_file;
 use semver::{Version, VersionReq};
 use std::io;
-use std::path::Path;
 use std::process;
+use toml::Value;
 
 fn translate(text: &str, catalog: &Catalog) -> String {
     let mut output = String::with_capacity(text.len());
@@ -66,19 +68,30 @@ fn translate(text: &str, catalog: &Catalog) -> String {
 }
 
 fn translate_book(ctx: &PreprocessorContext, mut book: Book) -> anyhow::Result<Book> {
+    // no-op when the target language is not set
+    if ctx.config.book.language.is_none() {
+        return Ok(book);
+    }
+
+    // the target language
+    let language = ctx.config.book.language.as_ref().unwrap();
+
+    // Find PO file for the target language
     let cfg = ctx
         .config
         .get_preprocessor("gettext")
         .ok_or_else(|| anyhow!("Could not read preprocessor.gettext configuration"))?;
-    let path = cfg
-        .get("po-file")
-        .ok_or_else(|| anyhow!("Missing preprocessor.gettext.po-file config value"))?
-        .as_str()
-        .ok_or_else(|| anyhow!("Expected a string for preprocessor.gettext.po-file"))?;
-    let catalog = po_file::parse(Path::new(path))
-        .map_err(|err| anyhow!("{err}"))
-        .with_context(|| format!("Could not parse {path} as PO file"))?;
+    let po_dir = cfg.get("po-dir").and_then(Value::as_str).unwrap_or("po");
+    let path = ctx.root.join(po_dir).join(format!("{language}.po"));
 
+    // no-op when PO file is missing
+    if !path.exists() {
+        return Ok(book);
+    }
+
+    let catalog = po_file::parse(&path)
+        .map_err(|err| anyhow!("{err}"))
+        .with_context(|| format!("Could not parse {:?} as PO file", path))?;
     book.for_each_mut(|item| match item {
         BookItem::Chapter(ch) => {
             ch.content = translate(&ch.content, &catalog);
@@ -115,8 +128,12 @@ fn preprocess() -> anyhow::Result<()> {
 fn main() -> anyhow::Result<()> {
     if std::env::args().len() == 3 {
         assert_eq!(std::env::args().nth(1).as_deref(), Some("supports"));
-        // Signal that we support all renderers.
-        process::exit(0);
+        if let Some("xgettext") = std::env::args().nth(2).as_deref() {
+            process::exit(1)
+        } else {
+            // Signal that we support all other renderers.
+            process::exit(0);
+        }
     }
 
     preprocess()

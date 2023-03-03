@@ -75,7 +75,7 @@ jobs:
           MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE: po/messages.pot
 
       - name: Compare no translation to no-op translation
-        run: diff -r expanded no-op
+        run: diff --color=always --unified --recursive expanded no-op
 
   find-translations:
     runs-on: ubuntu-latest
@@ -104,7 +104,6 @@ jobs:
         language: ${{ fromJSON(needs.find-translations.outputs.languages) }}
     env:
       MDBOOK_BOOK__LANGUAGE: ${{ matrix.language }}
-      MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE: po/${{ matrix.language }}.po
     steps:
       - name: Checkout
         uses: actions/checkout@v3
