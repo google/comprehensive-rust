@@ -26,38 +26,38 @@ fn main() {
 
 *  The `new` function could be written using `Self` as a type, as it is interchangeable with the struct type name
 
-```rust,ignore
-impl Person {
-    fn new(name: String, age: u8) -> Self {
-        Self { name, age }
-    }
-}
-```    
+     ```rust,ignore
+     impl Person {
+         fn new(name: String, age: u8) -> Self {
+             Self { name, age }
+         }
+     }
+     ```    
 * Implement the `Default` trait for the struct.
 
-```rust,ignore
-impl Default for Person {
-    fn default() -> Person {
-        Person {
-            name: "Bot".to_string(),
-            age: 0,
-        }
-    }
-}
-```
+     ```rust,ignore
+     impl Default for Person {
+         fn default() -> Person {
+             Person {
+                 name: "Bot".to_string(),
+                 age: 0,
+             }
+         }
+     }
+     ```
 * Create a new struct by using the default values.
-```rust,ignore
-    let tmp = Person {
-        ..Default::default()
-    };
-```
+     ```rust,ignore
+         let tmp = Person {
+             ..Default::default()
+         };
+     ```
 * Define some fields and use the default values for the other fields.
-```rust,ignore
-    let tmp = Person {
-        name: "Sam".to_string(),
-        ..Default::default()
-    };
-```
+     ```rust,ignore
+         let tmp = Person {
+             name: "Sam".to_string(),
+             ..Default::default()
+         };
+     ```
 
 * Methods are defined in the `impl` block.
 * Use struct update syntax to define a new structure using `peter`. Note that the variable `peter` will no longer be accessible afterwards.
