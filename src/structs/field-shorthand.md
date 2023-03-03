@@ -26,7 +26,7 @@ fn main() {
 
 *  The `new` function could be written using `Self` as a type, as it is interchangeable with the struct type name
 
-     ```rust,ignore
+     ```rust,editable
      impl Person {
          fn new(name: String, age: u8) -> Self {
              Self { name, age }
@@ -35,7 +35,7 @@ fn main() {
      ```    
 * Implement the `Default` trait for the struct.
 
-     ```rust
+     ```rust,editable
      impl Default for Person {
          fn default() -> Person {
              Person {
@@ -46,13 +46,13 @@ fn main() {
      }
      ```
 * Create a new struct by using the default values.
-     ```rust
+     ```rust,editable
          let tmp = Person {
              ..Default::default()
          };
      ```
 * Define some fields and use the default values for the other fields.
-     ```rust
+     ```rust,editable
          let tmp = Person {
              name: "Sam".to_string(),
              ..Default::default()
