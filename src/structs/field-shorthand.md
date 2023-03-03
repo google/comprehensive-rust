@@ -35,7 +35,7 @@ fn main() {
      ```    
 * Implement the `Default` trait for the struct.
 
-     ```rust,ignore
+     ```rust
      impl Default for Person {
          fn default() -> Person {
              Person {
@@ -46,13 +46,13 @@ fn main() {
      }
      ```
 * Create a new struct by using the default values.
-     ```rust,ignore
+     ```rust
          let tmp = Person {
              ..Default::default()
          };
      ```
 * Define some fields and use the default values for the other fields.
-     ```rust,ignore
+     ```rust
          let tmp = Person {
              name: "Sam".to_string(),
              ..Default::default()
