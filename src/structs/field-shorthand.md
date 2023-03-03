@@ -34,18 +34,29 @@ impl Person {
 }
 ```    
 * Implement the `Default` trait for the struct.
+
 ```rust,ignore
 impl Default for Person {
-  fn default() -> Person { Person { name:"Bot".to_string(), age:0 } }
+    fn default() -> Person {
+        Person {
+            name: "Bot".to_string(),
+            age: 0,
+        }
+    }
 }
 ```
 * Create a new struct by using the default values.
 ```rust,ignore
-let tmp = Person { ..Default::default() };
+    let tmp = Person {
+        ..Default::default()
+    };
 ```
 * Define some fields and use the default values for the other fields.
 ```rust,ignore
-let tmp = Person { name: "Sam".to_string(), .. Default::default() };
+    let tmp = Person {
+        name: "Sam".to_string(),
+        ..Default::default()
+    };
 ```
 
 * Methods are defined in the `impl` block.
