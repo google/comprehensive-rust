@@ -27,7 +27,7 @@ fn main() {
 
 <details>
 
-* `String::new` returns a new empty string, use `String::with capacity` when you know how much data you want to push to the string.
+* `String::new` returns a new empty string, use `String::with_capacity` when you know how much data you want to push to the string.
 * `String::len` returns the size of the `String` in bytes (which can be different from its length in characters).
 * `String::chars` returns an iterator over the actual characters. Note that a `char` can be different from what a human will consider a "character" due to [grapheme clusters](https://docs.rs/unicode-segmentation/latest/unicode_segmentation/struct.Graphemes.html).
 *  When people refer to strings they could either be talking about `&str` or `String`.  
