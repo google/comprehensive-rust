@@ -22,13 +22,17 @@ trigger when going through the code samples. We hope to improve on this via
 
 ## Building
 
-The course is built using [mdBook](https://github.com/rust-lang/mdBook) and its
-[Svgbob plugin](https://github.com/boozook/mdbook-svgbob). Install both tools
-with
+The course is built using a few tools:
+- [mdBook](https://github.com/rust-lang/mdBook)
+- [Svgbob plugin](https://github.com/boozook/mdbook-svgbob)
+- [i18n-helpers](TRANSLATIONS.md#i18n-helpers)
+
+Install these tools with
 
 ```shell
 $ cargo install mdbook
 $ cargo install mdbook-svgbob
+$ cargo install --path i18n-helpers
 ```
 
 Then run

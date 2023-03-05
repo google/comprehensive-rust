@@ -104,8 +104,10 @@ fn main() {
     let library = Library::new();
 
     //println!("Our library is empty: {}", library.is_empty());
-    //
-    //library.add_book(Book::new("Lord of the Rings", 1954));
+
+    let favorite_book = Book::new("Lord of the Rings", 1954);
+    println!("Our favorite book {favorite_book} should go in the library");
+    //library.add_book(favorite_book);
     //library.add_book(Book::new("Alice's Adventures in Wonderland", 1865));
     //
     //library.print_books();
@@ -116,6 +118,9 @@ fn main() {
     //}
     //
     //println!("Our library has {} books", library.len());
+    for book in library.books {
+        println!("{book}");
+    }
 }
 // ANCHOR_END: main
 

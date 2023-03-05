@@ -18,8 +18,6 @@ Use this to create a library application. Copy the code below to
 <https://play.rust-lang.org/> and update the types to make it compile:
 
 ```rust,should_panic
-// TODO: remove this when you're done with your implementation.
-#![allow(unused_variables, dead_code)]
 
 {{#include book-library.rs:setup}}
 
