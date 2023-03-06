@@ -21,7 +21,10 @@ To run the course, you need to:
 3. Find a room large enough for your in-person participants. We recommend a
    class size of 15-20 people. That's small enough that people are comfortable
    asking questions --- it's also small enough that one instructor will have
-   time to answer the questions.
+   time to answer the questions. Make sure the room has _desks_ for yourself and for the
+   students: you will all need to be able to sit and work with your laptops.
+   In particular, you will be doing a lot of live-coding as an instructor, so a lectern won't
+   be very helpful for you.
 
 4. On the day of your course, show up to the room a little early to set things
    up. We recommend presenting directly using `mdbook serve` running on your
