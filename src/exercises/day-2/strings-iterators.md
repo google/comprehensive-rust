@@ -11,9 +11,10 @@ pass. Try avoiding allocating a `Vec` for your intermediate results:
 
 ```rust
 // TODO: remove this when you're done with your implementation.
-#![allow(unused_variables, dead_code)]
+
 
 {{#include strings-iterators.rs:prefix_matches}}
+    println!("Use parameters {prefix} and {request_path}");
     unimplemented!()
 }
 
