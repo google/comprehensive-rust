@@ -43,19 +43,11 @@ use polib::message::Message;
 use polib::metadata::CatalogMetadata;
 use polib::po_file;
 use semver::{Version, VersionReq};
+use std::collections::HashMap;
 use std::io::{stdin, Read};
 use std::ops::Range;
 use std::path::{Path, PathBuf};
 use std::process;
-
-/// A span in the translated document
-struct TranslatedSpan {
-    /// The range of characters in the source captured by this span.
-    src_range: Range<usize>,
-
-    /// The translation of this span of text.
-    message: Message,
-}
 
 /// trim trailing newlines, space, and </details>, from the range (but leave them in the source)
 fn cleanup_span(document: &str, mut span: Range<usize>) -> Range<usize> {
@@ -71,35 +63,56 @@ fn cleanup_span(document: &str, mut span: Range<usize>) -> Range<usize> {
     span
 }
 
-/// Extract the text from the catalog.
-fn text_from_catalog(catalog: Catalog) -> (String, CatalogMetadata, Vec<TranslatedSpan>) {
-    let mut document = String::new();
-    let mut spans = vec![];
+fn clone_message(msg: &Message) -> Message {
+    Message::new_singular(
+        &msg.comments,
+        &msg.source,
+        &msg.flags,
+        &msg.msgctxt,
+        msg.get_msgid().expect("expected singular message"),
+        msg.get_msgstr().expect("expected singular message"),
+    )
+}
 
+/// Extract the text of each source file from the catalog.
+fn files_from_catalog(
+    catalog: Catalog,
+) -> (HashMap<String, Vec<Message>>, CatalogMetadata) {
+    // filename -> line number -> message chunk
+    let mut documents: HashMap<String, HashMap<usize, Message>> = HashMap::new();
+
+    // Gather all messages, keyed by their source. The catalog deduplicates messages with
+    // the same msgid, so re-duplicate those once for each source location.
     for msg in catalog.messages {
-        // ignore untranslated content
-        if msg.get_msgstr().unwrap().is_empty()
-            || msg.get_msgstr().unwrap() == msg.get_msgid().unwrap()
-        {
-            continue;
+        for srcline in msg.source.lines() {
+            for srcstr in srcline.split(' ') {
+                let mut parts = srcstr.split(':');
+                let filename = parts.next().expect("expected filename").to_string();
+                let lineno = parts.next().expect("expected line number");
+                let lineno = lineno
+                    .parse()
+                    .expect("expected line number to be an integer");
+                documents
+                    .entry(filename)
+                    .or_default()
+                    .insert(lineno, clone_message(&msg));
+            }
         }
-        let start = document.len();
-        document.push_str(&msg.get_msgid().unwrap());
-        let end = document.len();
-        document.push_str("\n\n");
-
-        let src_range = cleanup_span(&document, Range { start, end });
-        if src_range.end <= src_range.start {
-            continue;
-        }
-
-        spans.push(TranslatedSpan {
-            src_range,
-            message: msg,
-        });
     }
 
-    (document, catalog.metadata, spans)
+    // Now, organize those into vectors of messages in order by filename
+    let documents = documents
+        .drain()
+        .map(|(filename, mut messages)| {
+            let mut messages: Vec<(usize, Message)> = messages.drain().collect();
+            messages.sort_by_key(|(lineno, _)| *lineno);
+            (
+                filename,
+                messages.drain(..).map(|(_, msg)| msg).collect(),
+            )
+        })
+        .collect();
+    (documents, catalog.metadata)
 }
 
 /// Re-parse the source using the new parser
@@ -111,41 +124,78 @@ fn new_parse(document: &str) -> Vec<Range<usize>> {
     spans
 }
 
-fn merge(
-    document: &str,
-    translated_spans: &[TranslatedSpan],
-    new_spans: &[Range<usize>],
-) -> anyhow::Result<Vec<Message>> {
+fn merge(messages: &[Message]) -> anyhow::Result<Vec<Message>> {
+    // A reconstruction of the un-translated source document.
+    let mut untranslated = String::new();
+
+    // A reconstruction of the translated document.
+    let mut translated = String::new();
+
+    // The character spans, in `untranslated`, of the old messages. Indices in this
+    // vec match those in `messages`.
+    let mut old_spans = vec![];
+
+    for msg in messages {
+        let start = untranslated.len();
+        untranslated.push_str(msg.get_msgid().unwrap());
+        let end = untranslated.len();
+        untranslated.push_str("\n\n");
+
+        translated.push_str(msg.get_msgstr().unwrap());
+        translated.push_str("\n\n");
+
+        old_spans.push(Range { start, end });
+    }
+
+    // Character spans, again in `untranslated`, using the new parser.
+    let new_spans = new_parse(&untranslated);
+
     let mut merged = vec![];
-    let mut translated_spans = translated_spans.into_iter();
+    let mut old_spans = old_spans.into_iter().enumerate();
     for new_span in new_spans {
-        // the translated spans comprising this new span
-        let mut collected_spans = vec![];
+        // the index of the first old span in this new span
+        let mut first_index = None;
+
         // cleanup the new span for purposes of matching
-        let clean_span = cleanup_span(document, new_span.clone());
-        while let Some(xlated_span) = translated_spans.next() {
-            if xlated_span.src_range.end > clean_span.end {
+        let clean_span = cleanup_span(&untranslated, new_span.clone());
+        while let Some((i, old_span)) = old_spans.next() {
+            if first_index.is_none() {
+                first_index = Some(i);
+            }
+            let old_span = cleanup_span(&untranslated, old_span);
+            if old_span.end > clean_span.end {
                 anyhow::bail!(
                     "span mismatch:\n---- new split:\n{:?}\n---- old splits:\n{:?}\n---- last message:\n{:#?}",
-                    &document[clean_span.clone()],
-                    &document[clean_span.start..xlated_span.src_range.end],
-                    xlated_span.message,
+                    &untranslated[clean_span.clone()],
+                    &untranslated[clean_span.start..old_span.end],
+                    messages[i],
                 );
             }
-            collected_spans.push(xlated_span);
-            if xlated_span.src_range.end == clean_span.end {
-                let first = &collected_spans[0].message;
+            let end = old_span.end;
+            if end == clean_span.end {
+                // the collection of messages comprising this new message.
+                let src_messages = &messages[first_index.unwrap()..=i];
+                // base the new message on the first of the old messages.
+                let first = &messages[0];
 
                 // draw msgid from the new span, so that it matches
                 // new parses.
-                let msgid = &document[new_span.clone()];
+                let msgid = &untranslated[new_span.clone()];
 
-                // compose msgstr from the concatenation of all msgstr's in the collected
+                let mut msgstr = String::new();
+                // If any of the source messages contain a translation, then include them all,
+                // defaulting to the msgid for anything not containing a translation.
+                // compose msgstr from the concatenation of all non-empty msgstr's in the collected
                 // spans.
-                let mut msgstr = String::from(first.get_msgstr().unwrap());
-                for xlated_span in &collected_spans[1..] {
-                    msgstr.push_str("\n\n");
-                    msgstr.push_str(xlated_span.message.get_msgstr().unwrap());
+                if src_messages.iter().any(|msg| msg.get_msgstr().unwrap() != "") {
+                    let msgstrs: Vec<_> = src_messages.iter().map(|msg| {
+                        let mut msgstr = msg.get_msgstr().unwrap();
+                        if msgstr == "" {
+                            msgstr = msg.get_msgid().unwrap();
+                        }
+                        msgstr.as_ref()
+                    }).collect();
+                    msgstr = msgstrs.join("\n\n");
                 }
                 merged.push(Message::new_singular(
                     &first.comments,
@@ -162,27 +212,28 @@ fn merge(
         }
     }
 
-    // for each translated span, construct a new message containing the concatentation of
-    // the msgstr's from the source messages, and the messageid from the new span.
     Ok(merged)
 }
 
 fn process_po_file(filename: &str, output_filename: &str) -> anyhow::Result<()> {
+    println!("--{filename}");
     let path = PathBuf::from(filename.to_string());
     let catalog = po_file::parse(&path).expect("Could not open .po file");
 
-    let (document, metadata, translated_spans) = text_from_catalog(catalog);
-    let new_spans = new_parse(&document);
+    let (mut files, metadata) = files_from_catalog(catalog);
+    let mut new_catalog = Catalog::new();
+    new_catalog.metadata = metadata;
 
-    // write out the document content for debugging
-    std::fs::write("document.md", &document).context("writing document")?;
-
-    let merged =
-        merge(&document, &translated_spans[..], &new_spans[..]).expect("merge failed");
-
-    let mut catalog = Catalog::new();
-    catalog.messages = merged;
-    catalog.metadata = metadata;
+    let mut files: Vec<_> = files.drain().collect();
+    files.sort_by(|a, b| a.0.cmp(&b.0));
+    for (_, messages) in files {
+        for msg in merge(&messages)? {
+            match new_catalog.find_message_index(msg.get_msgid().unwrap()) {
+                Some(&idx) => new_catalog.update_message_by_index(idx, msg).unwrap(),
+                None => new_catalog.add_message(msg),
+            }
+        }
+    }
 
     let output_path = PathBuf::from(output_filename.to_string());
     // po_file does not truncate before writing to a file, so do so on its behalf.
@@ -190,12 +241,15 @@ fn process_po_file(filename: &str, output_filename: &str) -> anyhow::Result<()> 
         std::fs::remove_file(&output_path)
             .with_context(|| format!("Removing {}", output_path.display()))?;
     }
-    po_file::write(&catalog, &output_path)?;
+    po_file::write(&new_catalog, &output_path)?;
 
     Ok(())
 }
 
 fn main() -> anyhow::Result<()> {
     process_po_file("po/ko.po", "po/ko-new.po")?;
+    process_po_file("po/da.po", "po/da-new.po")?;
+    process_po_file("po/de.po", "po/de-new.po")?;
+    process_po_file("po/pt-BR.po", "po/pt-BR-new.po")?;
     Ok(())
 }
