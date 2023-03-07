@@ -93,7 +93,7 @@ fn create_catalog(ctx: &RenderContext) -> anyhow::Result<Catalog> {
             };
             for msg in i18n_helpers::extract_msgs(&chapter.content)
             {
-                let source = format!("{}:{}", path.display(), msg.lineno());
+                let source = format!("{}:{}", path.display(), msg.line_number());
                 add_message(&mut catalog, msg.text(&chapter.content), &source);
             }
         }

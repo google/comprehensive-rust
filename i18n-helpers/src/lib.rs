@@ -33,11 +33,11 @@ impl Message {
 
     /// Get the text of this message, as a slice of the document from which it was generated.
     pub fn text<'doc>(&self, document: &'doc str) -> &'doc str {
-        &document[self.span.start..self.span.end]
+        &document[self.span.clone()]
     }
 
     /// Get the line number at which this message begins.
-    pub fn lineno(&self) -> usize {
+    pub fn line_number(&self) -> usize {
         self.line
     }
 
@@ -53,11 +53,8 @@ impl Message {
 
     /// Trim trailing newlines from this message.
     fn trim_right(&mut self, document: &str) {
-        // Note that we cannot index `document[self.span.end]` as that may not
-        // be a valid UTF-8 character.
-        while document[self.span.clone()].ends_with("\n") {
-            self.span.end -= 1;
-        }
+        let trimmed_len = document[self.span.clone()].trim_end_matches('\n').len();
+        self.span.end = self.span.start + trimmed_len;
     }
 }
 
@@ -158,11 +155,13 @@ impl<'a> MsgAccumulator<'a> {
 
             // For many event types we just take the entire text from Start to End, which is
             // already encompassed in the event span.
-            Event::Start(Tag::CodeBlock(_))
-            | Event::Start(Tag::Heading(..))
-            | Event::Start(Tag::List(..))
-            | Event::Start(Tag::BlockQuote)
-            | Event::Start(Tag::Table(..)) => {
+            Event::Start(
+                Tag::CodeBlock(_)
+                | Tag::Heading(..)
+                | Tag::List(..)
+                | Tag::BlockQuote
+                | Tag::Table(..),
+            ) => {
                 self.finish_message();
                 self.push_message(span);
                 self.finish_message();
@@ -236,7 +235,7 @@ mod tests {
     }
 
     fn msg_to_tuple<'doc>(msg: &Message, document: &'doc str) -> (usize, &'doc str) {
-        (msg.lineno(), msg.text(document))
+        (msg.line_number(), msg.text(document))
     }
 
     macro_rules! assert_extract_msgs {
@@ -455,7 +454,7 @@ Top level.
     #[test]
     fn extract_msgs_headings() {
         assert_extract_msgs!(
-r#"Some text
+            r#"Some text
 # Headline News🦀
 
 * A
@@ -477,7 +476,7 @@ r#"Some text
         // This is a regression test for an error that would incorrectly combine
         // CodeBlock and HTML.
         assert_extract_msgs!(
-r#"```bob
+            r#"```bob
 BOB
 ```
 
