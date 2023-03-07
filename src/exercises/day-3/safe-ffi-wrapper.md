@@ -23,25 +23,23 @@ Copy the code below to <https://play.rust-lang.org/> and fill in the missing
 functions and methods:
 
 ```rust,should_panic
-// TODO: remove this when you're done with your implementation.
-#![allow(unused_imports)]
 
 {{#include safe-ffi-wrapper.rs:ffi}}
 
 {{#include safe-ffi-wrapper.rs:DirectoryIterator}}
-        print!("The path", self.path)
+        print!("The path {:?}", path);
         unimplemented!()
     }
 }
 
 {{#include safe-ffi-wrapper.rs:Iterator}}
-        print!("The path", self.path)
+        print!("The path {:?}", self.path);
         unimplemented!()
     }
 }
 
 {{#include safe-ffi-wrapper.rs:Drop}}
-        print!("The path", self.path)
+        print!("The path {:?}", self.path);
         unimplemented!()
     }
 }
