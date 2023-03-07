@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Comprehensive Rust 🦀\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-03-02 17:21-0300\n"
+"PO-Revision-Date: 2023-03-07 10:43-0300\n"
 "Last-Translator: Walter Javier Franck <walterjfranck@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
 "Language: es\n"
@@ -3360,6 +3360,8 @@ msgid ""
 "Rust provides type safety via static typing. Variable bindings are immutable by\n"
 "default:"
 msgstr ""
+"Rust provee tipos seguros por tipado estático. El enlace a variables es inmutable\n"
+"por defecto:"
 
 #: src/basic-syntax/variables.md:6
 msgid ""
@@ -3380,14 +3382,18 @@ msgid ""
 "* Note that since `println!` is a macro, `x` is not moved, even using the function like syntax of "
 "`println!(\"x: {}\", x)`"
 msgstr ""
+"* Dado a la inferencia de tipos `i32` es opcional. Poco a poco veremos los tipos a medida que "
+"avance el curso.\n"
+"* Nota que a partir que `println!` es una macro, `x` no se mueve, incluso usando una función como "
+"`println!(“x: {}”, x)`"
 
 #: src/basic-syntax/type-inference.md:1
 msgid "# Type Inference"
-msgstr ""
+msgstr "# Tipo de inferencia"
 
 #: src/basic-syntax/type-inference.md:3
 msgid "Rust will look at how the variable is _used_ to determine the type:"
-msgstr ""
+msgstr "Rust verá como _es usada_ la variable para determinar el tipo:"
 
 #: src/basic-syntax/type-inference.md:5
 msgid ""
@@ -3431,12 +3437,20 @@ msgid ""
 "declaration of a type.\n"
 "The compiler does the job for us and helps us write more concise code."
 msgstr ""
+"Este slide demuestra cómo el compilador de Rust infiere tipos basados en constrainst dadas por la "
+"declaración de variables y los usos.\n"
+"Es importante enfatizar que las variables declaradas como esta no son un conjunto dinámico de "
+"“cualquier tipo” que puede contener todo tipo de datos. El código generado por esa declaración es "
+"idéntica a la declaración explícita de un tipo.\n"
+"El compilador hace el trabajo por nosotros y nos ayuda a escribir código más conciso."
 
 #: src/basic-syntax/type-inference.md:32
 msgid ""
 "The following code tells the compiler to copy into a certain generic container without the code "
 "ever explicitly specifying the contained type, using `_` as a placeholder:"
 msgstr ""
+"El siguiente código dice al compilador que copie en un contenedor genérico determinado sin que "
+"explicitar específicamente el tipo contenido, usando `_` como un placeholder:"
 
 #: src/basic-syntax/type-inference.md:34
 msgid ""
@@ -3462,14 +3476,17 @@ msgid ""
 "on `FromIterator`, which [`HashSet`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html) "
 "implements."
 msgstr ""
+"[`collect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.collect) se basa "
+"en `FromIterator` que lo implementa el [`HashSet`](https://doc.rust-lang.org/std/iter/trait."
+"FromIterator.html)."
 
 #: src/basic-syntax/static-and-const.md:1
 msgid "# Static and Constant Variables"
-msgstr ""
+msgstr "# Variables Estáticas y Constantes"
 
 #: src/basic-syntax/static-and-const.md:3
 msgid "Global state is managed with static and constant variables."
-msgstr ""
+msgstr "El estado global es manejado con variables estáticas y constantes."
 
 #: src/basic-syntax/static-and-const.md:5
 msgid "## `const`"
@@ -3477,7 +3494,7 @@ msgstr ""
 
 #: src/basic-syntax/static-and-const.md:7
 msgid "You can declare compile-time constants:"
-msgstr ""
+msgstr "Puedes declarar constantes en tiempo de compilación:"
 
 #: src/basic-syntax/static-and-const.md:9
 msgid ""
@@ -3505,10 +3522,15 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"fn main() {\n"
+"    let digest = compute_digest(“Hola”);\n"
+"    println!(“Digest: {digest:?}”);\n"
+"}\n"
+"```"
 
 #: src/basic-syntax/static-and-const.md:27
 msgid "According the the [Rust RFC Book][1] these are inlined upon use."
-msgstr ""
+msgstr "De acuerdo con [Rust RFC Book][1] eso está en línea del uso."
 
 #: src/basic-syntax/static-and-const.md:29
 msgid "## `static`"
@@ -3516,7 +3538,7 @@ msgstr ""
 
 #: src/basic-syntax/static-and-const.md:31
 msgid "You can also declare static variables:"
-msgstr ""
+msgstr "También puedes declarar variables estáticas:"
 
 #: src/basic-syntax/static-and-const.md:33
 msgid ""
@@ -3538,10 +3560,13 @@ msgid ""
 "memory location.  This is useful for unsafe and embedded code, and the variable lives through the "
 "entirety of the program execution."
 msgstr ""
+"Como se ve en [Rust RFC Book][1], esto no está en línea del uso y puede estar asociado a una "
+"locación de memoria. Es útil para código no seguro o embebido, y las variables viven enteramente "
+"dentro de la ejecución del programa."
 
 #: src/basic-syntax/static-and-const.md:44
 msgid "We will look at mutating static data in the [chapter on Unsafe Rust](../unsafe.md)."
-msgstr ""
+msgstr "Veremos cambiar datos estáticos en el [capítulo Rust No Seguro](../unsafe.md)."
 
 #: src/basic-syntax/static-and-const.md:48
 msgid ""
@@ -3551,6 +3576,11 @@ msgid ""
 "* It isn't super common that one would need a runtime evaluated constant, but it is helpful and "
 "safer than using a static."
 msgstr ""
+"* Aclaremos que `const` semánticamente se comporta similar a `constexpr` de C++.\n"
+"* `static`, por lo contrario, es mucho más similar a `const` o una variable mutable global de C+"
+"+.\n"
+"* No es muy común que necesitemos evaluar contantes en runtime, pero ayuda y es más seguro que "
+"usando un _static_."
 
 #: src/basic-syntax/static-and-const.md:54
 msgid "[1]: https://rust-lang.github.io/rfcs/0246-const-vs-static.html"
@@ -3558,13 +3588,13 @@ msgstr ""
 
 #: src/basic-syntax/scopes-shadowing.md:1
 msgid "# Scopes and Shadowing"
-msgstr ""
+msgstr "# Scopes y Shadowing"
 
 #: src/basic-syntax/scopes-shadowing.md:3
 msgid ""
 "You can shadow variables, both those from outer scopes and variables from the\n"
 "same scope:"
-msgstr ""
+msgstr "Puedes hacer seguimiento de variables, fueras y dentro de su scope:"
 
 #: src/basic-syntax/scopes-shadowing.md:6
 msgid ""
@@ -3605,6 +3635,13 @@ msgid ""
 "* The following code demonstrates why the compiler can't simply reuse memory locations when "
 "shadowing an immutable variable in a scope, even if the type does not change."
 msgstr ""
+"* Definición: Shadowing es diferente de mutación, porque luego de shadowing ambos espacio de "
+"memorias de las variables existen al mismo tiempo. Ambas están disponibles bajo el mismo nombre, "
+"dependiendo donde uses el código.\n"
+"* Un shadowing de variable puede tener un tipo diferente.\n"
+"* El siguiente código demuestra por qué el compilador no puede simplemente reutilizar las "
+"locaciones de memoria mientras hacemos shadowing a una variable inmutable en un cope, incluso si "
+"el tipo no cambia."
 
 #: src/basic-syntax/scopes-shadowing.md:30
 msgid ""
@@ -3620,35 +3657,40 @@ msgstr ""
 
 #: src/memory-management.md:1
 msgid "# Memory Management"
-msgstr ""
+msgstr "# Manejo de memoria"
 
 #: src/memory-management.md:3
 msgid "Traditionally, languages have fallen into two broad categories:"
-msgstr ""
+msgstr "Por lo general, los lenguajes caen en dos amplias categorías:"
 
 #: src/memory-management.md:5
 msgid ""
 "* Full control via manual memory management: C, C++, Pascal, ...\n"
 "* Full safety via automatic memory management at runtime: Java, Python, Go, Haskell, ..."
 msgstr ""
+"* Control total manual del manejo de memoria: C, C++, Pascal, …\n"
+"* Total Seguridad vía manejo automático de memoria en tiempo de ejecución: Java, Python, Go, "
+"Haskell, …"
 
 #: src/memory-management.md:8
 msgid "Rust offers a new mix:"
-msgstr ""
+msgstr "Rust ofrece un nuevo mix:"
 
 #: src/memory-management.md:10
 msgid ""
 "> Full control *and* safety via compile time enforcement of correct memory\n"
 "> management."
 msgstr ""
+"> Control total y seguro vía tiempo de compilación con aseguramiento del correcto\n"
+"> manejo de memoria."
 
 #: src/memory-management.md:13
 msgid "It does this with an explicit ownership concept."
-msgstr ""
+msgstr "Esto da el concepto concepto explícito de _ownership_."
 
 #: src/memory-management.md:15
 msgid "First, let's refresh how memory management works."
-msgstr ""
+msgstr "Empecemos refrescando cómo funciona el manejo de memoria."
 
 #: src/memory-management/stack-vs-heap.md:1
 msgid "# The Stack vs The Heap"
@@ -3662,6 +3704,11 @@ msgid ""
 "  * Easy to manage: follows function calls.\n"
 "  * Great memory locality."
 msgstr ""
+"* Stack: Es un área de memoria continua para variables locales.\n"
+"  * Los valores son de tamaño fijo conocidos en tiempo de compilación.\n"
+"  * Extremadamente rápido:  solo mueve un puntero de Stack.\n"
+"  * Fácil de manejar: sigue funciones de llamada.\n"
+"  * Mucha memoria local."
 
 #: src/memory-management/stack-vs-heap.md:9
 msgid ""
@@ -3670,6 +3717,10 @@ msgid ""
 "  * Slightly slower than the stack: some book-keeping needed.\n"
 "  * No guarantee of memory locality."
 msgstr ""
+"* Heap: Guardar valores fuera de llamadas de funciones.\n"
+"  * Los valores tienen tamaños dinámicos determinados en tiempo de ejecución.\n"
+"  * Algo más lento que Stack: son necesarios algunos índices.\n"
+"  * No se garantiza memoria local."
 
 #: src/memory-management/stack.md:1
 msgid "# Stack Memory"
@@ -3680,6 +3731,7 @@ msgid ""
 "Creating a `String` puts fixed-sized data on the stack and dynamically sized\n"
 "data on the heap:"
 msgstr ""
+"Crear un `String` pune datos de tamaño fijo en el stack y con tamaño dado dinámicamente en el heap:"
 
 #: src/memory-management/stack.md:6
 msgid ""
@@ -3712,18 +3764,25 @@ msgid ""
 "* Mention that a `String` is backed by a `Vec`, so it has a capacity and length and can grow if "
 "mutable via reallocation on the heap."
 msgstr ""
+"* Ve que un `String` es respaldado por un `Vec`, así tiene capacidad y tamaño que puede "
+"incrementarse si la mutable por relocalicación en el _heap_."
 
 #: src/memory-management/stack.md:30
 msgid ""
 "* If students ask about it, you can mention that the underlying memory is heap allocated using the "
 "[System Allocator] and custom allocators can be implemented using the [Allocator API]"
 msgstr ""
+"* Si los estudiantes preguntan sobre esto, puedes mencionar que por debajo la memoria es colocada "
+"por _heap_ usando el [Sistema de Colocación] y la colocación personalizada puede ser implementada "
+"usando la [Allocator API]"
 
 #: src/memory-management/stack.md:32
 msgid ""
 "* We can inspect the memory layout with `unsafe` code. However, you should point out that this is "
 "rightfully unsafe!"
 msgstr ""
+"* Podemos inspeccionar el layout de memoria con la cláusula `unsafe`. Sin embargo, debes aclarar "
+"que esto no es seguro!"
 
 #: src/memory-management/stack.md:34
 msgid ""
@@ -3742,33 +3801,51 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {\n"
+"    let mut s1 = String::from(“Hello”);\n"
+"    s1.push(‘ ‘);\n"
+"    s1.push_str(“world”);\n"
+"    // NO HAGAS ESTO EN CASA! Sólo con propósitos educativos.\n"
+"    // El String no provee garantías en su layout, esto puede derivar en\n"
+"    // comportamientos no deseados.\n"
+"    unsafe {\n"
+"        let (capacity, ptr, len): (usize, usize, usize) = std::mem::transmute(s1);\n"
+"        println!(“ptr = {ptr:#x}, len = {len}, capacity = {capacity}”);\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/memory-management/stack.md:51
 msgid ""
 "[System Allocator]: https://doc.rust-lang.org/std/alloc/struct.System.html\n"
 "[Allocator API]: https://doc.rust-lang.org/std/alloc/index.html"
 msgstr ""
+"[Sistema de Colocación]: https://doc.rust-lang.org/std/alloc/struct.System.html\n"
+"[Allocator API]: https://doc.rust-lang.org/std/alloc/index.html"
 
 #: src/memory-management/manual.md:1
 msgid "# Manual Memory Management"
-msgstr ""
+msgstr "# Manejo Manual de Memoria"
 
 #: src/memory-management/manual.md:3
 msgid "You allocate and deallocate heap memory yourself."
-msgstr ""
+msgstr "Tú mismo puedes asignar o desasignar pilas (_heap_) de memoria."
 
 #: src/memory-management/manual.md:5
 msgid ""
 "If not done with care, this can lead to crashes, bugs, security vulnerabilities, and memory leaks."
 msgstr ""
+"Si no lo haces con cuidado, puede derivar en crasheo, errores, vulnerabilidad de seguridad, memory "
+"leaks."
 
 #: src/memory-management/manual.md:7
 msgid "## C Example"
-msgstr ""
+msgstr "# Ejemplo en C"
 
 #: src/memory-management/manual.md:9
 msgid "You must call `free` on every pointer you allocate with `malloc`:"
-msgstr ""
+msgstr "Debes llamar a `free` en cada puntero que pongas usando `malloc`:"
 
 #: src/memory-management/manual.md:11
 msgid ""
@@ -3788,14 +3865,16 @@ msgid ""
 "Memory is leaked if the function returns early between `malloc` and `free`: the\n"
 "pointer is lost and we cannot deallocate the memory."
 msgstr ""
+"La memoria es _leaked_ si la función vuelve rápido entre `malloc` y `free`: se pierde el puntero y "
+"no podemos desasignar la memoria."
 
 #: src/memory-management/scope-based.md:1
 msgid "# Scope-Based Memory Management"
-msgstr ""
+msgstr "# Ámbitos de Manejo de Memoria"
 
 #: src/memory-management/scope-based.md:3
 msgid "Constructors and destructors let you hook into the lifetime of an object."
-msgstr ""
+msgstr "Los constructores y destructores te permiten mantener en _lifetime_ un objeto. "
 
 #: src/memory-management/scope-based.md:5
 msgid ""
@@ -3803,16 +3882,21 @@ msgid ""
 "destroyed. The compiler guarantees that this happens, even if an exception is\n"
 "raised."
 msgstr ""
+"Envolviendo un puntero con un objeto, puedes liberar memoria cuando el objeto es\n"
+"destruido. El compilador garantiza que eso pase, incluso si se alcanzó una excepción."
 
 #: src/memory-management/scope-based.md:9
 msgid ""
 "This is often called _resource acquisition is initialization_ (RAII) and gives\n"
 "you smart pointers."
 msgstr ""
+"A menudo se dice que la adquisición de recursos es inicializada ó, _resource acquisition is "
+"initialization_ (RAII),\n"
+"y brinda punteros inteligentes."
 
 #: src/memory-management/scope-based.md:12
 msgid "## C++ Example"
-msgstr ""
+msgstr "## Ejemplo C++"
 
 #: src/memory-management/scope-based.md:14
 msgid ""
@@ -3822,6 +3906,11 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```c++\n"
+"void say_hello(std::unique_ptr<Person> person) {\n"
+"  std::cout << “Hola “ << person->name << std::endl;\n"
+"}\n"
+"```"
 
 #: src/memory-management/scope-based.md:20
 msgid ""
@@ -3830,10 +3919,14 @@ msgid ""
 "* At the end of `say_hello`, the `std::unique_ptr` destructor will run.\n"
 "* The destructor frees the `Person` object it points to."
 msgstr ""
+"* El objeto `std::unique_ptr` se ubica en el stack, y los punteros a \n"
+"  memoria apuntando a el heap.\n"
+"* Al final de `say_hello`, correrá el destructor `std::unique_ptr`.\n"
+"* El destructor libera el objeto `Person`que apunta a él."
 
 #: src/memory-management/scope-based.md:25
 msgid "Special move constructors are used when passing ownership to a function:"
-msgstr ""
+msgstr "Un movimiento especial de constructor es usado cuando se pasa la propiedad a una función:"
 
 #: src/memory-management/scope-based.md:27
 msgid ""
@@ -3845,27 +3938,29 @@ msgstr ""
 
 #: src/memory-management/garbage-collection.md:1
 msgid "# Automatic Memory Management"
-msgstr ""
+msgstr "# Manejo Automático de Memoria"
 
 #: src/memory-management/garbage-collection.md:3
 msgid ""
 "An alternative to manual and scope-based memory management is automatic memory\n"
 "management:"
-msgstr ""
+msgstr "Una alternativa al manejo manual es el automático:"
 
 #: src/memory-management/garbage-collection.md:6
 msgid ""
 "* The programmer never allocates or deallocates memory explicitly.\n"
 "* A garbage collector finds unused memory and deallocates it for the programmer."
 msgstr ""
+"* El programador nunca asigna o desasgan memoria explícitamente.\n"
+"* Un garbage collector encuentra memoria sin usar y la libera para el programador."
 
 #: src/memory-management/garbage-collection.md:9
 msgid "## Java Example"
-msgstr ""
+msgstr "## Ejemplo Java"
 
 #: src/memory-management/garbage-collection.md:11
 msgid "The `person` object is not deallocated after `sayHello` returns:"
-msgstr ""
+msgstr "El objeto `persona` no se libera luego que vuelva `sayHello`:"
 
 #: src/memory-management/garbage-collection.md:13
 msgid ""
@@ -3875,6 +3970,11 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```java\n"
+"void sayHello(Person person) {\n"
+"  System.out.println(“Hola “ + person.getName());\n"
+"}\n"
+"```"
 
 #: src/memory-management/rust.md:1
 msgid "# Memory Management in Rust"
@@ -3882,7 +3982,7 @@ msgstr "# Manejo de la Memoria en Rust"
 
 #: src/memory-management/rust.md:3
 msgid "Memory management in Rust is a mix:"
-msgstr ""
+msgstr "El manejo de memoria en Rust es una mezcla:"
 
 #: src/memory-management/rust.md:5
 msgid ""
@@ -3893,10 +3993,16 @@ msgid ""
 "* A Rust user can choose the right abstraction for the situation, some even have no cost at "
 "runtime like C."
 msgstr ""
+"* Segura y correcta como en Java, pero sin un Garbage Collector.\n"
+"* Dependiendo qué abstracción (o combinación de abstracción) eliges, puedes ser un puntero simple, "
+"referencia contada, o atómicamente referencia contada.\n"
+"* El ámbito basado en C++, pero que el compilador fuerza a incluirlo por completo.\n"
+"* Un usuario de Rust puede elegir la abstracción correcta para la situación, algunos incluso no "
+"tienen costo en runtime como C++."
 
 #: src/memory-management/rust.md:10
 msgid "It achieves this by modeling _ownership_ explicitly."
-msgstr ""
+msgstr "Esto se logra modelando el _ownership_ explícitamente."
 
 #: src/memory-management/rust.md:14
 msgid ""
@@ -3904,10 +4010,13 @@ msgid ""
 "types such as [Box], [Vec], [Rc], or [Arc]. These encapsulate ownership and memory allocation via "
 "various means, and prevent the potential errors in C."
 msgstr ""
+"* Si en este punto preguntas, puedes decir que Rust usualmente es tomado por tipos wrapper RAII "
+"como [Box], [Vec], [Rc], or [Arc]. Esto encapsula el _ownsership_ y la ubicación de memoria con "
+"varios significados, y previene potenciales errores en C."
 
 #: src/memory-management/rust.md:16
 msgid "* You may be asked about destructors here, the [Drop] trait is the Rust equivalent."
-msgstr ""
+msgstr "* Puedes preguntar acerca de destructores, el [Drop] es el equivalente de Rust."
 
 #: src/memory-management/rust.md:20
 msgid ""
@@ -3920,11 +4029,11 @@ msgstr ""
 
 #: src/memory-management/comparison.md:1
 msgid "# Comparison"
-msgstr ""
+msgstr "# Comparación"
 
 #: src/memory-management/comparison.md:3
 msgid "Here is a rough comparison of the memory management techniques."
-msgstr ""
+msgstr "Aquí una rústica comparación de técnicas de manejo de memoria."
 
 #: src/memory-management/comparison.md:5
 msgid "## Pros of Different Memory Management Techniques"
