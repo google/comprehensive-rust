@@ -43,7 +43,8 @@ fn main() -> ! {
     // Configure GPIO 0 pins 21 and 28 as push-pull outputs.
     let pin_cnf_21 = (GPIO_P0 + PIN_CNF + 21 * size_of::<u32>()) as *mut u32;
     let pin_cnf_28 = (GPIO_P0 + PIN_CNF + 28 * size_of::<u32>()) as *mut u32;
-    // Safe because the pointers are to valid peripheral control registers, and no aliases exist.
+    // Safe because the pointers are to valid peripheral control registers, and
+    // no aliases exist.
     unsafe {
         pin_cnf_21.write_volatile(
             DIR_OUTPUT | INPUT_DISCONNECT | PULL_DISABLED | DRIVE_S0S1 | SENSE_DISABLED,
@@ -56,7 +57,8 @@ fn main() -> ! {
     // Set pin 28 low and pin 21 high to turn the LED on.
     let gpio0_outset = (GPIO_P0 + OUTSET) as *mut u32;
     let gpio0_outclr = (GPIO_P0 + OUTCLR) as *mut u32;
-    // Safe because the pointers are to valid peripheral control registers, and no aliases exist.
+    // Safe because the pointers are to valid peripheral control registers, and
+    // no aliases exist.
     unsafe {
         gpio0_outclr.write_volatile(1 << 28);
         gpio0_outset.write_volatile(1 << 21);
