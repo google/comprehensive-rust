@@ -26,7 +26,7 @@
 //! See `TRANSLATIONS.md` in the repository root for more information.
 
 use anyhow::{anyhow, Context};
-use i18n_helpers::extract_paragraphs;
+use i18n_helpers::extract_msgs;
 use mdbook::book::Book;
 use mdbook::preprocess::{CmdPreprocessor, PreprocessorContext};
 use mdbook::BookItem;
@@ -38,31 +38,32 @@ use std::process;
 use toml::Value;
 
 fn translate(text: &str, catalog: &Catalog) -> String {
+    let mut consumed = 0; // bytes of text consumed so far
     let mut output = String::with_capacity(text.len());
-    let mut target_lineno = 1;
 
-    for (lineno, paragraph) in extract_paragraphs(text) {
-        // Fill in blank lines between paragraphs. This is important
-        // for code blocks where blank lines are significant.
-        while target_lineno < lineno {
-            output.push('\n');
-            target_lineno += 1;
+    for msg in extract_msgs(text) {
+        let span = msg.span();
+
+        // Copy over any bytes of text that precede this message.
+        if consumed < span.start {
+            output.push_str(&text[consumed..span.start]);
         }
-        // Subtract 1 because the paragraph is missing a final '\n'
-        // due to the splitting in `extract_paragraphs`.
-        target_lineno += paragraph.lines().count() - 1;
 
+        // Insert the translated text
+        let msg_text = msg.text(text);
         let translated = catalog
-            .find_message(paragraph)
+            .find_message(msg_text)
             .filter(|msg| !msg.flags.contains("fuzzy"))
             .and_then(|msg| msg.get_msgstr().ok())
             .filter(|msgstr| !msgstr.is_empty())
             .map(|msgstr| msgstr.as_str())
-            .unwrap_or(paragraph);
+            .unwrap_or(msg_text);
         output.push_str(translated);
+        consumed = span.end;
     }
 
-    let suffix = &text[text.trim_end_matches('\n').len()..];
+    // Handle any text left over after the last message.
+    let suffix = &text[consumed..];
     output.push_str(suffix);
     output
 }

@@ -91,10 +91,10 @@ fn create_catalog(ctx: &RenderContext) -> anyhow::Result<Catalog> {
                 Some(path) => ctx.config.book.src.join(path),
                 None => continue,
             };
-            for (lineno, paragraph) in i18n_helpers::extract_paragraphs(&chapter.content)
+            for msg in i18n_helpers::extract_msgs(&chapter.content)
             {
-                let source = format!("{}:{}", path.display(), lineno);
-                add_message(&mut catalog, paragraph, &source);
+                let source = format!("{}:{}", path.display(), msg.line_number());
+                add_message(&mut catalog, msg.text(&chapter.content), &source);
             }
         }
     }
