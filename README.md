@@ -1,5 +1,9 @@
 # Comprehensive Rust 🦀
 
+[![Build workflow](https://img.shields.io/github/actions/workflow/status/google/comprehensive-rust/build.yml?style=flat-square)](https://github.com/google/comprehensive-rust/actions/workflows/build.yml)
+[![GitHub contributors](https://img.shields.io/github/contributors/google/comprehensive-rust?style=flat-square)](https://github.com/google/comprehensive-rust/graphs/contributors)
+[![GitHub stars](https://img.shields.io/github/stars/google/comprehensive-rust?style=flat-square)](https://github.com/google/comprehensive-rust/stargazers)
+
 This repository has the source code for Comprehensive Rust 🦀, a four day Rust
 course developed by the Android team. The course covers all aspects of Rust,
 from basic syntax to generics and error handling. It also includes
