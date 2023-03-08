@@ -7,7 +7,7 @@ fn main() {
     let mut num = 5;
 
     let r1 = &mut num as *mut i32;
-    let r2 = &num as *const i32;
+    let r2 = r1 as *const i32;
 
     // Safe because r1 and r2 were obtained from references and so are guaranteed to be non-null and
     // properly aligned, the objects underlying the references from which they were obtained are
