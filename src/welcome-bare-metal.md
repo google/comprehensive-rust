@@ -1,5 +1,9 @@
 # Welcome to Bare Metal Rust
 
+This is a standalone one-day course about bare-metal Rust, aimed at people who are familiar with the
+basics of Rust (perhaps from completing the Comprehensive Rust course), and ideally also have some
+experience with bare-metal programming in some other language such as C.
+
 Today we will talk about 'bare-metal' Rust: running Rust code without an OS underneath us. This will
 be divided into several parts:
 
