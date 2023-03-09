@@ -22,7 +22,7 @@ use core::fmt::Write;
 use cortex_m_rt::entry;
 // ANCHOR_END: top
 use core::cmp::{max, min};
-use lsm303agr::{Lsm303agr, MagOutputDataRate};
+use lsm303agr::{AccelOutputDataRate, Lsm303agr, MagOutputDataRate};
 use microbit::{
     display::blocking::Display,
     hal::{
@@ -56,6 +56,7 @@ fn main() -> ! {
     let mut imu = Lsm303agr::new_with_i2c(i2c);
     imu.init().unwrap();
     imu.set_mag_odr(MagOutputDataRate::Hz50).unwrap();
+    imu.set_accel_odr(AccelOutputDataRate::Hz50).unwrap();
     let mut imu = imu.into_mag_continuous().ok().unwrap();
 
     // Set up display and timer.
@@ -70,16 +71,25 @@ fn main() -> ! {
         // ANCHOR_END: loop
         while !imu.mag_status().unwrap().xyz_new_data {}
         let compass_reading = imu.mag_data().unwrap();
+        while !imu.accel_status().unwrap().xyz_new_data {}
+        let accelerometer_reading = imu.accel_data().unwrap();
         writeln!(
             serial,
-            "{},{},{}",
-            compass_reading.x, compass_reading.y, compass_reading.z
+            "{},{},{}\t{},{},{}",
+            compass_reading.x,
+            compass_reading.y,
+            compass_reading.z,
+            accelerometer_reading.x,
+            accelerometer_reading.y,
+            accelerometer_reading.z,
         )
         .unwrap();
 
         let mut image = [[0; 5]; 5];
         let x = scale(-compass_reading.x, -COMPASS_SCALE, COMPASS_SCALE, 0, 4) as usize;
         let y = scale(compass_reading.y, -COMPASS_SCALE, COMPASS_SCALE, 0, 4) as usize;
+        let x = scale(accelerometer_reading.x, -700, 700, 0, 4) as usize;
+        let y = scale(-accelerometer_reading.y, -700, 700, 0, 4) as usize;
         image[y][x] = 255;
         display.show(&mut timer, image, 100);
     }
