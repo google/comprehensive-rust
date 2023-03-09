@@ -225,6 +225,21 @@
     - [With Java](android/interoperability/java.md)
 - [Exercises](exercises/day-4/android.md)
 
+# Day 4: Afternoon (Async)
+
+----
+
+- [Async](async.md)
+  - [async/await](async/async-await.md)
+  - [Async Blocks](async/async-blocks.md)
+  - Futures
+  - Executors
+  - Polling
+  - Pin
+  - Channels
+  - Select
+- [Exercises](exercises/day-4/async.md)
+
 # Final Words
 
 - [Thanks!](thanks.md)
