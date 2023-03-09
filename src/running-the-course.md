@@ -16,8 +16,6 @@ Before you run the course, you will want to:
 1. Select your topic for the afternoon of the fourth day. This may be based on
    the audience you expect, or on your own expertise.
 
-To run the course, you need to:
-
 1. Decide on the dates. Since the course is large, we recommend that you
    schedule the four days over two weeks. Course participants have said that
    they find it helpful to have a gap in the course since it helps them process
@@ -33,7 +31,7 @@ To run the course, you need to:
 
 1. On the day of your course, show up to the room a little early to set things
    up. We recommend presenting directly using `mdbook serve` running on your
-   laptop (see the [installation instructions][5]). This ensures optimal performance with no lag as you change pages.
+   laptop (see the [installation instructions][3]). This ensures optimal performance with no lag as you change pages.
    Using your laptop will also allow you to fix typos as you or the course
    participants spot them.
 
@@ -43,17 +41,15 @@ To run the course, you need to:
    and offer a solution, e.g., by showing people where to find the relevant
    information in the standard library.
 
-1. Prepare anything you need to hand for the afternoon of day 4.
+1. Prepare anything you need to have available for the afternoon of day 4.
 
 That is all, good luck running the course! We hope it will be as much fun for
 you as it has been for us!
 
-Please [provide feedback][3] afterwards so that we can keep improving the
+Please [provide feedback][1] afterwards so that we can keep improving the
 course. We would love to hear what worked well for you and what can be made
-better. Your students are also very welcome to [send us feedback][4]!
+better. Your students are also very welcome to [send us feedback][2]!
 
-[1]: https://source.android.com/docs/setup/download/downloading
-[2]: https://github.com/google/comprehensive-rust
-[3]: https://github.com/google/comprehensive-rust/discussions/86
-[4]: https://github.com/google/comprehensive-rust/discussions/100
-[5]: https://github.com/google/comprehensive-rust#building
+[1]: https://github.com/google/comprehensive-rust/discussions/86
+[2]: https://github.com/google/comprehensive-rust/discussions/100
+[3]: https://github.com/google/comprehensive-rust#building
