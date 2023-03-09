@@ -26,6 +26,7 @@ use lsm303agr::{AccelOutputDataRate, Lsm303agr, MagOutputDataRate};
 use microbit::{
     display::blocking::Display,
     hal::{
+        prelude::*,
         twim::Twim,
         uarte::{Baudrate, Parity, Uarte},
         Timer,
@@ -35,6 +36,7 @@ use microbit::{
 };
 
 const COMPASS_SCALE: i32 = 30000;
+const ACCELEROMETER_SCALE: i32 = 700;
 
 // ANCHOR: main
 #[entry]
@@ -63,15 +65,19 @@ fn main() -> ! {
     let mut timer = Timer::new(board.TIMER0);
     let mut display = Display::new(board.display_pins);
 
+    let mut mode = Mode::Compass;
+    let mut button_pressed = false;
+
     // ANCHOR: loop
     writeln!(serial, "Ready.").unwrap();
 
     loop {
         // Read compass data and log it to the serial port.
         // ANCHOR_END: loop
-        while !imu.mag_status().unwrap().xyz_new_data {}
+        while !(imu.mag_status().unwrap().xyz_new_data
+            && imu.accel_status().unwrap().xyz_new_data)
+        {}
         let compass_reading = imu.mag_data().unwrap();
-        while !imu.accel_status().unwrap().xyz_new_data {}
         let accelerometer_reading = imu.accel_data().unwrap();
         writeln!(
             serial,
@@ -86,12 +92,56 @@ fn main() -> ! {
         .unwrap();
 
         let mut image = [[0; 5]; 5];
-        let x = scale(-compass_reading.x, -COMPASS_SCALE, COMPASS_SCALE, 0, 4) as usize;
-        let y = scale(compass_reading.y, -COMPASS_SCALE, COMPASS_SCALE, 0, 4) as usize;
-        let x = scale(accelerometer_reading.x, -700, 700, 0, 4) as usize;
-        let y = scale(-accelerometer_reading.y, -700, 700, 0, 4) as usize;
+        let (x, y) = match mode {
+            Mode::Compass => (
+                scale(-compass_reading.x, -COMPASS_SCALE, COMPASS_SCALE, 0, 4) as usize,
+                scale(compass_reading.y, -COMPASS_SCALE, COMPASS_SCALE, 0, 4) as usize,
+            ),
+            Mode::Accelerometer => (
+                scale(
+                    accelerometer_reading.x,
+                    -ACCELEROMETER_SCALE,
+                    ACCELEROMETER_SCALE,
+                    0,
+                    4,
+                ) as usize,
+                scale(
+                    -accelerometer_reading.y,
+                    -ACCELEROMETER_SCALE,
+                    ACCELEROMETER_SCALE,
+                    0,
+                    4,
+                ) as usize,
+            ),
+        };
         image[y][x] = 255;
         display.show(&mut timer, image, 100);
+
+        // If button A is pressed, switch to the next mode and briefly blink all LEDs on.
+        if board.buttons.button_a.is_low().unwrap() {
+            if !button_pressed {
+                mode = mode.next();
+                display.show(&mut timer, [[255; 5]; 5], 200);
+            }
+            button_pressed = true;
+        } else {
+            button_pressed = false;
+        }
+    }
+}
+
+#[derive(Copy, Clone, Debug, Eq, PartialEq)]
+enum Mode {
+    Compass,
+    Accelerometer,
+}
+
+impl Mode {
+    fn next(self) -> Self {
+        match self {
+            Self::Compass => Self::Accelerometer,
+            Self::Accelerometer => Self::Compass,
+        }
     }
 }
 
