@@ -20,4 +20,10 @@ files.
 * If you `cargo install cargo-binutils` then you can run
   `cargo objdump --bin pac -- -d --no-show-raw-insn` to see the resulting binary.
 
+Run the example with:
+
+```sh
+cargo embed --bin pac
+```
+
 </details>

@@ -14,4 +14,10 @@ from [`embedded-hal`](https://crates.io/crates/embedded-hal).
  * HAL crates exist for many Cortex-M and RISC-V devices, including various STM32, GD32, nRF, NXP,
    MSP430, AVR and PIC microcontrollers.
 
+Run the example with:
+
+```sh
+cargo embed --bin hal
+```
+
 </details>

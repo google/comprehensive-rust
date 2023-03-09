@@ -14,4 +14,10 @@ Board support crates provide a further level of wrapping for a specific board fo
    itself.
    * `microbit-v2` includes a simple driver for the LED matrix.
 
+Run the example with:
+
+```sh
+cargo embed --bin board_support
+```
+
 </details>
