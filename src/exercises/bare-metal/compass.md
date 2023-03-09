@@ -17,3 +17,11 @@ use microbit::{hal::uarte::{Baudrate, Parity, Uarte}, Board};
     }
 }
 ```
+
+See the serial output with
+
+```sh
+picocom --baud 115200 --imap lfcrlf /dev/ttyACM0
+```
+
+Use Ctrl+A Ctrl+Q to quit picocom.
