@@ -246,8 +246,9 @@
   - [Board support crates](bare-metal/microcontrollers/board-support.md)
   - [The type state pattern](bare-metal/microcontrollers/type-state.md)
   - [embedded-hal](bare-metal/microcontrollers/embedded-hal.md)
+  - [probe-rs, cargo-embed](bare-metal/microcontrollers/probe-rs.md)
+    - [Debugging](bare-metal/microcontrollers/debugging.md)
   - [Other projects](bare-metal/microcontrollers/other-projects.md)
-  - [cargo-embed, probe-rs]()
 - [Exercises](exercises/bare-metal/morning.md)
   - [Compass](exercises/bare-metal/compass.md)
 
