@@ -21,15 +21,20 @@ extern crate panic_halt as _;
 use core::fmt::Write;
 use cortex_m_rt::entry;
 // ANCHOR_END: top
+use core::cmp::{max, min};
 use lsm303agr::{Lsm303agr, MagOutputDataRate};
 use microbit::{
+    display::blocking::Display,
     hal::{
         twim::Twim,
         uarte::{Baudrate, Parity, Uarte},
+        Timer,
     },
     pac::twim0::frequency::FREQUENCY_A,
     Board,
 };
+
+const COMPASS_SCALE: i32 = 30000;
 
 // ANCHOR: main
 #[entry]
@@ -53,6 +58,10 @@ fn main() -> ! {
     imu.set_mag_odr(MagOutputDataRate::Hz50).unwrap();
     let mut imu = imu.into_mag_continuous().ok().unwrap();
 
+    // Set up display and timer.
+    let mut timer = Timer::new(board.TIMER0);
+    let mut display = Display::new(board.display_pins);
+
     // ANCHOR: loop
     writeln!(serial, "Ready.").unwrap();
 
@@ -67,5 +76,25 @@ fn main() -> ! {
             compass_reading.x, compass_reading.y, compass_reading.z
         )
         .unwrap();
+
+        let mut image = [[0; 5]; 5];
+        let x = scale(-compass_reading.x, -COMPASS_SCALE, COMPASS_SCALE, 0, 4) as usize;
+        let y = scale(compass_reading.y, -COMPASS_SCALE, COMPASS_SCALE, 0, 4) as usize;
+        image[y][x] = 255;
+        display.show(&mut timer, image, 100);
     }
+}
+
+fn scale(value: i32, min_in: i32, max_in: i32, min_out: i32, max_out: i32) -> i32 {
+    let range_in = max_in - min_in;
+    let range_out = max_out - min_out;
+    cap(
+        min_out + range_out * (value - min_in) / range_in,
+        min_out,
+        max_out,
+    )
+}
+
+fn cap(value: i32, min_value: i32, max_value: i32) -> i32 {
+    max(min_value, min(value, max_value))
 }
