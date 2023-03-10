@@ -232,9 +232,8 @@
 - [Async](async.md)
   - [async/await](async/async-await.md)
   - [Async Blocks](async/async-blocks.md)
-  - Futures
-  - Executors
-  - Polling
+  - [Futures](async/futures.md)
+  - Executors and Polling
   - Pin
   - Channels
   - Select
