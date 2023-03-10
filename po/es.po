@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Comprehensive Rust 🦀\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-03-07 10:43-0300\n"
+"PO-Revision-Date: 2023-03-10 11:37-0300\n"
 "Last-Translator: Walter Javier Franck <walterjfranck@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
 "Language: es\n"
@@ -3874,7 +3874,7 @@ msgstr "# Ámbitos de Manejo de Memoria"
 
 #: src/memory-management/scope-based.md:3
 msgid "Constructors and destructors let you hook into the lifetime of an object."
-msgstr "Los constructores y destructores te permiten mantener en _lifetime_ un objeto. "
+msgstr "Los constructores y destructores te permiten mantener en _lifetime_ un objeto."
 
 #: src/memory-management/scope-based.md:5
 msgid ""
@@ -4037,7 +4037,7 @@ msgstr "Aquí una rústica comparación de técnicas de manejo de memoria."
 
 #: src/memory-management/comparison.md:5
 msgid "## Pros of Different Memory Management Techniques"
-msgstr ""
+msgstr "## Ventajas de las Diferentes Técnicas de Manejo de Memoria"
 
 #: src/memory-management/comparison.md:7
 msgid ""
@@ -4054,10 +4054,22 @@ msgid ""
 "  * No runtime overhead.\n"
 "  * Safe and correct."
 msgstr ""
+"* Manual como en C:\n"
+"  * No runtime overhead.\n"
+"* Automático como en Java:\n"
+"  * Totalmente automático.\n"
+"  * Correcto y Seguro.\n"
+"* Scope-based como en C++:\n"
+"  * Parcialmente automático.\n"
+"  * No runtime overhead.\n"
+"* Compiler-enforced y scope-based como en Rust:\n"
+"  * Asgurado por el compilador.\n"
+"  * No runtime overhead.\n"
+"  * Correcto y Seguro."
 
 #: src/memory-management/comparison.md:20
 msgid "## Cons of Different Memory Management Techniques"
-msgstr ""
+msgstr "## Contras de las Diferentes Técnicas de Manejo de Memoria"
 
 #: src/memory-management/comparison.md:22
 msgid ""
@@ -4075,6 +4087,19 @@ msgid ""
 "  * Some upfront complexity.\n"
 "  * Can reject valid programs."
 msgstr ""
+"* Manual como en C:\n"
+"  * Use-after-free.\n"
+"  * Double-frees.\n"
+"  * Memory leaks.\n"
+"* Automático como en Java:\n"
+"  * Pausas en Garbage Colletion.\n"
+"  * Destructor delays.\n"
+"* Scope-based como en C++:\n"
+"  * Complejo, a elección del programador.\n"
+"  * Potencial de use-after-free.\n"
+"* Compiler-enforced y scope-based como Rust:\n"
+"  * Alguna upfront complexity.\n"
+"  * Puede denegar programas válidos."
 
 #: src/ownership.md:1
 msgid "# Ownership"
@@ -4085,6 +4110,8 @@ msgid ""
 "All variable bindings have a _scope_ where they are valid and it is an error to\n"
 "use a variable outside its scope:"
 msgstr ""
+"Todos los enlaces de variables tienen un _scope_ donde son válidas y es un error\n"
+"usar la variable fuera de este _scope_:"
 
 #: src/ownership.md:6
 msgid ""
@@ -4110,6 +4137,9 @@ msgid ""
 "* A destructor can run here to free up resources.\n"
 "* We say that the variable _owns_ the value."
 msgstr ""
+"* Al final del _scope_, se borra la variable y se liberan los datos.\n"
+"* Un destructor puede correr aquí y liberar los recursos.\n"
+"* Podemos decir que la variable es dueña del valor."
 
 #: src/ownership/move-semantics.md:1
 msgid "# Move Semantics"
@@ -4117,7 +4147,7 @@ msgstr ""
 
 #: src/ownership/move-semantics.md:3
 msgid "An assignment will transfer ownership between variables:"
-msgstr ""
+msgstr "Una asignación transferirá su propiedad entre variables:"
 
 #: src/ownership/move-semantics.md:5
 msgid ""
@@ -4130,6 +4160,14 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {\n"
+"    let s1: String = String::from(“Hola!”);\n"
+"    let s2: String = s1;\n"
+"    println!(“s2: {s2}”);\n"
+"    // println!(“s1: {s1}”);\n"
+"}\n"
+"```"
 
 #: src/ownership/move-semantics.md:14
 msgid ""
@@ -4139,20 +4177,27 @@ msgid ""
 "* When `s2` goes out of scope, the string data is freed.\n"
 "* There is always _exactly_ one variable binding which owns a value."
 msgstr ""
+"* La asignación de `s1` a `s2` transfiere el _ownership_.\n"
+"* Los datos se mueven de `s1` y `s2` si no se accede más.\n"
+"* Cuando `s1` sale del ámbito, no sucede nada: no tiene dueño.\n"
+"* Cuando `s2` sale del ámbito, el dato del string es liberado.\n"
+"* Allí siempre hay _exactamente_ una variable enlazada que es dueña del valor."
 
 #: src/ownership/move-semantics.md:22
 msgid ""
 "* Mention that this is the opposite of the defaults in C++, which copies by value unless you use "
 "`std::move` (and the move constructor is defined!)."
 msgstr ""
+"* Hay que destacar que el contrario de los defaults en C++, que copia por valor a menos que uses "
+"`std::move` (y el movimiento del constructor está definido!)."
 
 #: src/ownership/move-semantics.md:24
 msgid "* In Rust, clones are explicit (by using `clone`)."
-msgstr ""
+msgstr "* En Rust los clones son explícitos (usando `clone`)."
 
 #: src/ownership/moved-strings-rust.md:1
 msgid "# Moved Strings in Rust"
-msgstr "#Mover Strings en Rust"
+msgstr "# Mover Strings en Rust"
 
 #: src/ownership/moved-strings-rust.md:3
 msgid ""
@@ -4169,10 +4214,12 @@ msgid ""
 "* The heap data from `s1` is reused for `s2`.\n"
 "* When `s1` goes out of scope, nothing happens (it has been moved from)."
 msgstr ""
+"* La pila (heap) de datos de `s1` es rehusado para `s2`.\n"
+"* Cuando `s1` sale del scope, no sucede nada (se movió de)."
 
 #: src/ownership/moved-strings-rust.md:13
 msgid "Before move to `s2`:"
-msgstr ""
+msgstr "Antes de mover a `s2`:"
 
 #: src/ownership/moved-strings-rust.md:15
 msgid ""
@@ -4194,7 +4241,7 @@ msgstr ""
 
 #: src/ownership/moved-strings-rust.md:30
 msgid "After move to `s2`:"
-msgstr ""
+msgstr "Luego de mover a `s2`:"
 
 #: src/ownership/moved-strings-rust.md:32
 msgid ""
@@ -4222,11 +4269,11 @@ msgstr ""
 
 #: src/ownership/double-free-modern-cpp.md:1
 msgid "# Double Frees in Modern C++"
-msgstr ""
+msgstr "# Liberar Doble en C++ moderno"
 
 #: src/ownership/double-free-modern-cpp.md:3
 msgid "Modern C++ solves this differently:"
-msgstr ""
+msgstr "El C++ moderno lo resuelve diferente:"
 
 #: src/ownership/double-free-modern-cpp.md:5
 msgid ""
@@ -4235,16 +4282,22 @@ msgid ""
 "std::string s2 = s1;  // Duplicate the data in s1.\n"
 "```"
 msgstr ""
+"```c++\n"
+"std::string s1 = “Cpp”;\n"
+"std::string s2 = s1;  // Duplica los datos en s1.\n"
+"```"
 
 #: src/ownership/double-free-modern-cpp.md:10
 msgid ""
 "* The heap data from `s1` is duplicated and `s2` gets its own independent copy.\n"
 "* When `s1` and `s2` go out of scope, they each free their own memory."
 msgstr ""
+"* La pila de datos de `s1` duplicada en `s2` obtiene su copia de datos independiente.\n"
+"* Cuando `s1` y `s2` salen del scope, cada uno liberan su propia memoria."
 
 #: src/ownership/double-free-modern-cpp.md:13
 msgid "Before copy-assignment:"
-msgstr ""
+msgstr "Antes de la asignación-copia:"
 
 #: src/ownership/double-free-modern-cpp.md:16
 msgid ""
@@ -4265,7 +4318,7 @@ msgstr ""
 
 #: src/ownership/double-free-modern-cpp.md:30
 msgid "After copy-assignment:"
-msgstr ""
+msgstr "Luego de la asignación-copia:"
 
 #: src/ownership/double-free-modern-cpp.md:32
 msgid ""
@@ -4293,13 +4346,15 @@ msgstr ""
 
 #: src/ownership/moves-function-calls.md:1
 msgid "# Moves in Function Calls"
-msgstr ""
+msgstr "# Movimientos en Llamadas de Funciones"
 
 #: src/ownership/moves-function-calls.md:3
 msgid ""
 "When you pass a value to a function, the value is assigned to the function\n"
 "parameter. This transfers ownership:"
 msgstr ""
+"Cuando pasas un valor a una función, el valor es asignado al parámetro de la\n"
+"función. Esto transfiere el ownership:"
 
 #: src/ownership/moves-function-calls.md:6
 msgid ""
@@ -4330,14 +4385,22 @@ msgid ""
 "* Rust makes it harder than C++ to inadvertently create copies by making move semantics the "
 "default, and by forcing programmers to make clones explicit."
 msgstr ""
+"* Con la primer llamada a `say_hello`, `main` da propiedad de `name`. Después de todo, `name` no "
+"puede usarse meas dentro de `main`.\n"
+"* La pila de memoria se asigna para `name` y será liberada al final de la función `say_hello`.\n"
+"* `main` puede mantener la propiedad si pasa `name` como referencia (`&name`) y si `say_hello` "
+"acepta una referencia como un parámetro.\n"
+"* Alternativamente, `main` puede pasar un clon de `name` in la primer llamada (`name.clone()`).\n"
+"* Rust hace esto más duro que C++ para crear copias automáticas mediante mover semánticas por "
+"defecto, y forzando a los programadores a hacer clones explícitos."
 
 #: src/ownership/copy-clone.md:1
 msgid "# Copying and Cloning"
-msgstr ""
+msgstr "# Copiar y Clonar"
 
 #: src/ownership/copy-clone.md:3
 msgid "While move semantics are the default, certain types are copied by default:"
-msgstr ""
+msgstr "Mientras mover semántica es por defecto, en otros casos los tipos son copiados:"
 
 #: src/ownership/copy-clone.md:5
 msgid ""
@@ -4353,11 +4416,11 @@ msgstr ""
 
 #: src/ownership/copy-clone.md:14
 msgid "These types implement the `Copy` trait."
-msgstr ""
+msgstr "Esos tipos implementan el trato de `Copia`."
 
 #: src/ownership/copy-clone.md:16
 msgid "You can opt-in your own types to use copy semantics:"
-msgstr ""
+msgstr "Puedes elegir tu propio tipo para usar copias semánticas:"
 
 #: src/ownership/copy-clone.md:18
 msgid ""
@@ -4382,10 +4445,12 @@ msgid ""
 "* After the assignment, both `p1` and `p2` own their own data.\n"
 "* We can also use `p1.clone()` to explicitly copy the data."
 msgstr ""
+"* Luego de la asignación, ambos `p1` y `p2` obtienen su propio dato.\n"
+"* También podemos usar `p1.clone()` para explícitamente copiar datos."
 
 #: src/ownership/copy-clone.md:35
 msgid "Copying and cloning are not the same thing:"
-msgstr ""
+msgstr "Copiar datos y clonar no es la misma cosa:"
 
 #: src/ownership/copy-clone.md:37
 msgid ""
@@ -4395,10 +4460,15 @@ msgid ""
 "`Clone` trait.\n"
 "* Copying does not work on types that implement the `Drop` trait."
 msgstr ""
+"* Copiar refiere a copias bit a bit de regiones de memoria y no funciona con objetos arbitrarios.\n"
+"* Copiar no permite por lógica personalizada (como copiar constructores en C++).\n"
+"* Clonar es una operación más general y también permite estados personalizados implementando el "
+"trato de `Clon`.\n"
+"* Copiar no funciona en tipos que implementan el trato `Drop`."
 
 #: src/ownership/copy-clone.md:42 src/ownership/lifetimes-function-calls.md:29
 msgid "In the above example, try the following:"
-msgstr ""
+msgstr "En el ejemplo de arriba, intenta lo siguiente:"
 
 #: src/ownership/copy-clone.md:44
 msgid ""
@@ -4408,6 +4478,11 @@ msgid ""
 "`p1`.\n"
 "* Show that it works if you clone `p1` instead."
 msgstr ""
+"* Agrega el campo `String` a `struct Point`. Esto no compilará porque `String` no es un tipo de "
+"`Copia`.\n"
+"* Remueve la `Copia` de el atributo `resultante`. El error del compilador es ahora `println!` para "
+"`p1`.\n"
+"* Muestra que en cambio funciona si clonas `p1`."
 
 #: src/ownership/copy-clone.md:48
 msgid ""
@@ -4418,6 +4493,12 @@ msgid ""
 "    \n"
 "</details>"
 msgstr ""
+"Si un estudiante pregunta sobre `derive`, es suficiente decir que esta es la forma que se genera "
+"el código en Rust\n"
+"en tiempo de compilación. En este caso la implementación del trato por defecto de `Copiar` y "
+"`Clonar` los genera.\n"
+"    \n"
+"</details>"
 
 #: src/ownership/borrowing.md:1
 msgid "# Borrowing"
@@ -4428,6 +4509,8 @@ msgid ""
 "Instead of transferring ownership when calling a function, you can let a\n"
 "function _borrow_ the value:"
 msgstr ""
+"En vez de transferir la propiedad cuando llamamos a una función, puedes _prestar_\n"
+"el valor a una función:"
 
 #: src/ownership/borrowing.md:6 src/ownership/lifetimes-function-calls.md:5
 msgid ""
@@ -4459,6 +4542,8 @@ msgid ""
 "* The `add` function _borrows_ two points and returns a new point.\n"
 "* The caller retains ownership of the inputs."
 msgstr ""
+"* El `add` de la función presta dos puntos y devuelve uno nuevo.\n"
+"* El llamador mantiene la propiedad de sus inputs."
 
 #: src/ownership/borrowing.md:27
 msgid ""
@@ -4468,6 +4553,11 @@ msgid ""
 "\"DEBUG\" optimization level, the addresses should change, while the stay the same when changing "
 "to the \"RELEASE\" setting:"
 msgstr ""
+"Notas acerca de la pila devuelta:\n"
+"* Demuestra que el return de `add` es adecuado porque le compilador puede eliminar la operación de "
+"copia. Cambia el código de arriba para imprimir una pila de direcciones y corre esto en "
+"[Playground]. En nivel de optimización “DEBUG”, las direcciones pueden cambiar, mientras que se "
+"mantienen igual cuando se cambia el seteo a “RELEASE”:"
 
 #: src/ownership/borrowing.md:30
 msgid ""
@@ -4500,6 +4590,18 @@ msgid ""
 "have side effects. In Rust, this is not an issue at all. If RVO did not happen, Rust will always "
 "performs a simple and efficient `memcpy` copy."
 msgstr ""
+"  fn main() {\n"
+"      let p1 = Point(3, 4);\n"
+"      let p2 = Point(10, 20);\n"
+"      let p3 = add(&p1, &p2);\n"
+"      println!(“&p3.0: {:p}”, &p3.0);\n"
+"      println!(“{p1:?} + {p2:?} = {p3:?}”);\n"
+"  }\n"
+"  ```\n"
+"* El compilador de Rust puede devolver optimización de valor (RVO).\n"
+"* En C++, la copia elisión tiene que estar definida en la especificación porque los contructores "
+"pueden tener efectos secundarios. En Rust, esto para nada es un issue. Si no sucede RVO, Rust "
+"siempre hará que corre de forma simple y eficiente con una copia `memcpy`."
 
 #: src/ownership/borrowing.md:53
 msgid "[Playground]: https://play.rust-lang.org/"
@@ -4507,17 +4609,19 @@ msgstr ""
 
 #: src/ownership/shared-unique-borrows.md:1
 msgid "# Shared and Unique Borrows"
-msgstr ""
+msgstr "# Shared y Unique Borrows"
 
 #: src/ownership/shared-unique-borrows.md:3
 msgid "Rust puts constraints on the ways you can borrow values:"
-msgstr ""
+msgstr "Rust restringe la forma que puedes estar calores:"
 
 #: src/ownership/shared-unique-borrows.md:5
 msgid ""
 "* You can have one or more `&T` values at any given time, _or_\n"
 "* You can have exactly one `&mut T` value."
 msgstr ""
+"* A lo largo del tiempo puedes tener diferentes valores `&T`, _o_\n"
+"* Puedes tener exactamente el mismo valor `&mud T`."
 
 #: src/ownership/shared-unique-borrows.md:8
 msgid ""
@@ -4553,14 +4657,20 @@ msgid ""
 "borrow of `a` through `c`. This is a feature of the borrow checker called \"non-lexical "
 "lifetimes\"."
 msgstr ""
+"* El código de arriba no compila porque `a` es prestado como mutable (a través de `c`) y es "
+"inmutable (a través de `b`) al mismo tiempo.\n"
+"* Mueve el `println!` para `b` antes del scope que dice a `c` hacer que el código compile.\n"
+"* Luego de ese cambio, el compilados hace que `b` sea usado solo antes de un préstamo mutable de "
+"`a` a través de `c`. Esta es una característica para chequear los préstamos llamada “non-lexical "
+"lifetimes”."
 
 #: src/ownership/lifetimes.md:1
 msgid "# Lifetimes"
-msgstr ""
+msgstr "# Tiempo de Vida"
 
 #: src/ownership/lifetimes.md:3
 msgid "A borrowed value has a _lifetime_:"
-msgstr ""
+msgstr "Un valor prestado tiene un tiempo de vida:"
 
 #: src/ownership/lifetimes.md:5
 msgid ""
@@ -4573,14 +4683,20 @@ msgid ""
 "  * Lifetime annotations create constraints; the compiler verifies that there is\n"
 "    a valid solution."
 msgstr ""
+"* El tiempo de vida puede ser otorgado: `add(p1: &Point, p2: &Point) -> Point`.\n"
+"* El tiempo también puede ser explícito: `&’a Point`, `&’document str`.\n"
+"* Leer `&’a Point` como un “`Point` prestado” que es válido para al menos el tiempo de `a`”.\n"
+"* Los tiempos de vida siempre son inferidos por el compilador: no puedes asignar uno tú mismo.\n"
+"* Las anotaciones de tiempo de vida crea dependencias; el compilador verifica que allí haya una "
+"solución válida."
 
 #: src/ownership/lifetimes-function-calls.md:1
 msgid "# Lifetimes in Function Calls"
-msgstr ""
+msgstr "# Tiempo de Vida en Llamada a Funciones"
 
 #: src/ownership/lifetimes-function-calls.md:3
 msgid "In addition to borrowing its arguments, a function can return a borrowed value:"
-msgstr ""
+msgstr "Además, para prestar estos argumentos, una función puede devolver un valor prestado:"
 
 #: src/ownership/lifetimes-function-calls.md:9
 msgid ""
@@ -4608,6 +4724,10 @@ msgid ""
 "  lifetime `a`\".\n"
 "  * The _at least_ part is important when parameters are in different scopes."
 msgstr ""
+"* `’a` es un parámetro genérico, inferido por el compilador.\n"
+"* Los tiempos de vida empiezan con `’` y `’a` es el nombre típico por default.\n"
+"* Lee `&’ un Point` es “un `Point` prestado que es válido por al menos el ciclo de vida de `a`”.\n"
+"* El _al menos_ es importante cuando los parámetros están en diferentes scopes."
 
 #: src/ownership/lifetimes-function-calls.md:31
 msgid ""
@@ -4617,6 +4737,10 @@ msgid ""
 "  #[derive(Debug)]\n"
 "  struct Point(i32, i32);"
 msgstr ""
+"* Mueve la declaración de `p2` y `p3` a un nuevo scope (`{ … }`), resultando en este código:\n"
+"  ```rust,ignore\n"
+"  #[derive(Debug)]\n"
+"  struct Point(i32, i32);"
 
 #: src/ownership/lifetimes-function-calls.md:36
 msgid ""
@@ -4639,6 +4763,17 @@ msgid ""
 "  ```\n"
 "  Note how this does not compile since `p3` outlives `p2`."
 msgstr ""
+"  fn main() {\n"
+"      let p1: Point = Point(10, 10);\n"
+"      let p3: &Point;\n"
+"      {\n"
+"          let p2: Point = Point(20, 20);\n"
+"          p3 = left_most(&p1, &p2);\n"
+"      }\n"
+"      println!(“left-most point: {:?}”, p3);\n"
+"  }\n"
+"  ```\n"
+"  Nota como no compila desde que `p3` persiste `p2`."
 
 #: src/ownership/lifetimes-function-calls.md:52
 msgid ""
@@ -4653,14 +4788,23 @@ msgid ""
 "not used\n"
 "    for longer than a variable from where the reference came from."
 msgstr ""
+"* Resetea el workspace y cambia el signo de la función a `fn left_most<‘a, ‘b>(p1: &’a Point, p2: "
+"&’a Point) -> &’b Point`. Esto no compilará porque la relación entre los ciclos de vida `’a` y "
+"`’b` no es clara.\n"
+"* Otra forma de explicar esto:\n"
+"  *Dos referencias para dos valores son prestados por una función y la función devuelve otra "
+"referencia.\n"
+"  * esto debe venir desde uno de esos dos inputs (o de una variable global).\n"
+"  * Cuál es esta? El compilador necesita saber, que la llamada para volver al sitio de referencia "
+"no se usa más que como variable de donde viene la referencia."
 
 #: src/ownership/lifetimes-data-structures.md:1
 msgid "# Lifetimes in Data Structures"
-msgstr ""
+msgstr "# Ciclos de Vida y Estructura de Datos"
 
 #: src/ownership/lifetimes-data-structures.md:3
 msgid "If a data type stores borrowed data, it must be annotated with a lifetime:"
-msgstr ""
+msgstr "SI un tipo de datos presta data, debe ser anotado como un ciclo de vida:"
 
 #: src/ownership/lifetimes-data-structures.md:5
 msgid ""
@@ -4703,36 +4847,50 @@ msgid ""
 "themselves, in addition to the lifetime of the struct itself. Those are very advanced use cases.\n"
 "</details>"
 msgstr ""
+"* En el ejemplo de arriba, las anotaciones `resaltadlas` fuerzan que los datos contenidos en "
+"`&str` viven al menos a lo largo de todas las instancias `resaltadlas` que usan esos datos.\n"
+"* Si el `texto` es usado antes del final del ciclo de vida de `fox` (o `dog`), el chequeado de "
+"préstamos arrojará error.\n"
+"* Los tipos que prestan datos fuerzan a los usuarios a mantener el dato original. Esto puede ser "
+"útil para crear vistas ligeras, pero generalmente hace que sea difícil de usar.\n"
+"* Cuando sea posible, haz estructuras de datos tengan su dato directamente.\n"
+"* Algunas estructuras con múltiples referencias dentro pueden tener más de una anotación de ciclo "
+"de vida. Esto puede ser necesario si allí quiere describir un a relación de ciclo de vida entre "
+"las referencias, ademas del ciclo de vida de las estructuras en sí mismo. Aquellas son casos de "
+"uso más avanzado.\n"
+"</details>"
 
 #: src/exercises/day-1/afternoon.md:1
 msgid "# Day 1: Afternoon Exercises"
-msgstr ""
+msgstr "# Día 1: Ejercicios de la Tarde"
 
 #: src/exercises/day-1/afternoon.md:3
 msgid "We will look at two things:"
-msgstr ""
+msgstr "Veremos todas estas cosas:"
 
 #: src/exercises/day-1/afternoon.md:5
 msgid "* A small book library,"
-msgstr ""
+msgstr "* Un pequeño libro de biblioteca,"
 
 #: src/exercises/day-1/afternoon.md:7
 msgid "* Iterators and ownership (hard)."
-msgstr ""
+msgstr "* Iteradores y propiedad (difícil)."
 
 #: src/exercises/day-1/afternoon.md:13 src/exercises/day-2/afternoon.md:9
 msgid "[solutions]: solutions-afternoon.md"
-msgstr ""
+msgstr "[soluciones]: solutions-afternoon.md"
 
 #: src/exercises/day-1/book-library.md:1
 msgid "# Designing a Library"
-msgstr ""
+msgstr "# Diseñar una Librería"
 
 #: src/exercises/day-1/book-library.md:3
 msgid ""
 "We will learn much more about structs and the `Vec<T>` type tomorrow. For now,\n"
 "you just need to know part of its API:"
 msgstr ""
+"Mañana aprenderemos mucho mas acerca de estructuras y tipos `Vec<T>`. Por ahora,\n"
+"solo necesitas conocer parte de esta API:"
 
 #: src/exercises/day-1/book-library.md:6
 msgid ""
@@ -4753,6 +4911,8 @@ msgid ""
 "Use this to create a library application. Copy the code below to\n"
 "<https://play.rust-lang.org/> and update the types to make it compile:"
 msgstr ""
+"Usa esto para crear una librería de aplicación. Copia el código debajo a\n"
+"<https://play.rust-lang.org/> y actualiza los tipos para hacer que compile:"
 
 #: src/exercises/day-1/book-library.md:24
 msgid ""
@@ -4781,6 +4941,15 @@ msgid ""
 "    }\n"
 "}"
 msgstr ""
+"impl Book {\n"
+"    // Este es el constructor, usado debajo.\n"
+"    fn new(title: &str, year: u16) -> Book {\n"
+"        Book {\n"
+"            title: String::from(title),\n"
+"            year,\n"
+"        }\n"
+"    }\n"
+"}"
 
 #: src/exercises/day-1/book-library.md:43
 msgid ""
@@ -4791,6 +4960,12 @@ msgid ""
 "    }\n"
 "}"
 msgstr ""
+"// Esto hace posible imprimir valores del libro con {}.\n"
+"impl std::fmt::Display for Book {\n"
+"    fn fmt(&self, f: &mut std::fmt::Formatter<‘_>) -> std::fmt::Result {\n"
+"        write!(f, “{} ({})”, self.title, self.year)\n"
+"    }\n"
+"}"
 
 #: src/exercises/day-1/book-library.md:50
 msgid ""
@@ -4845,6 +5020,11 @@ msgid ""
 "fn main() {\n"
 "    let library = Library::new();"
 msgstr ""
+"// Esto muestra el estado deseado. Descomenta el código debajo e\n"
+"// implementa el método que falta. Puedes necesitar actualizar el \n"
+"// signo del método, incluyendo el parámetro “self”. También\n"
+"fn main() {\n"
+"    let library = Library::new();"
 
 #: src/exercises/day-1/book-library.md:83
 msgid ""
@@ -4874,7 +5054,7 @@ msgstr ""
 
 #: src/exercises/day-1/iterators-and-ownership.md:1
 msgid "# Iterators and Ownership"
-msgstr ""
+msgstr "# Iteratoradores y Propiedad"
 
 #: src/exercises/day-1/iterators-and-ownership.md:3
 msgid ""
@@ -4883,6 +5063,9 @@ msgid ""
 "[`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html)\n"
 "traits."
 msgstr ""
+"El modelo de propiedad de Rust afecta muchas APIs. Un ejemplo de esto es\n"
+"[`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) y\n"
+"[`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html)."
 
 #: src/exercises/day-1/iterators-and-ownership.md:8
 msgid "## `Iterator`"
@@ -4893,6 +5076,8 @@ msgid ""
 "Traits are like interfaces: they describe behavior (methods) for a type. The\n"
 "`Iterator` trait simply says that you can call `next` until you get `None` back:"
 msgstr ""
+"Estos son como interfaces: ellas describen un estado (método) para un tipo. El\n"
+"`Iterador` simplemente dice que puedes llamar al `siguiente` hasta que se devuelve `ninguno`:"
 
 #: src/exercises/day-1/iterators-and-ownership.md:13
 msgid ""
@@ -4906,7 +5091,7 @@ msgstr ""
 
 #: src/exercises/day-1/iterators-and-ownership.md:20
 msgid "You use this trait like this:"
-msgstr ""
+msgstr "Puedes usar lo siguiente:"
 
 #: src/exercises/day-1/iterators-and-ownership.md:22
 msgid ""
@@ -4928,7 +5113,7 @@ msgstr ""
 
 #: src/exercises/day-1/iterators-and-ownership.md:34
 msgid "What is the type returned by the iterator? Test your answer here:"
-msgstr ""
+msgstr "Cuál es el tipo devuelto por el iterador? Testea tu respuesta aquí:"
 
 #: src/exercises/day-1/iterators-and-ownership.md:36
 msgid ""
@@ -4949,7 +5134,7 @@ msgstr ""
 
 #: src/exercises/day-1/iterators-and-ownership.md:46
 msgid "Why is this type used?"
-msgstr ""
+msgstr "Por qué es usado este tipo?"
 
 #: src/exercises/day-1/iterators-and-ownership.md:48
 msgid "## `IntoIterator`"
@@ -4960,6 +5145,8 @@ msgid ""
 "The `Iterator` trait tells you how to _iterate_ once you have created an\n"
 "iterator. The related trait `IntoIterator` tells you how to create the iterator:"
 msgstr ""
+"El `Iterator` te dice cómo _iterarP una vez que creas un\n"
+"iterado. La relación `IntoIterator` dice cómo crear un iterador:"
 
 #: src/exercises/day-1/iterators-and-ownership.md:53
 msgid ""
@@ -4980,23 +5167,27 @@ msgstr ""
 msgid ""
 "The syntax here means that every implementation of `IntoIterator` must\n"
 "declare two types:"
-msgstr ""
+msgstr "La sintaxis aquí dice que cada implementación de `IntoIterator` debe declarar dos tipos:"
 
 #: src/exercises/day-1/iterators-and-ownership.md:65
 msgid ""
 "* `Item`: the type we iterate over, such as `i8`,\n"
 "* `IntoIter`: the `Iterator` type returned by the `into_iter` method."
 msgstr ""
+"* `Item`: el tipo que iteramos, como `i8`,\n"
+"* `IntoIter`: el tipo `Iterator` devuelto por el método `into_iter`."
 
 #: src/exercises/day-1/iterators-and-ownership.md:68
 msgid ""
 "Note that `IntoIter` and `Item` are linked: the iterator must have the same\n"
 "`Item` type, which means that it returns `Option<Item>`"
 msgstr ""
+"Nota que `IntoIter` e `Item` están linkeados: el iterado debe tener el mismo\n"
+"tipo `Item`, que quiere decir que retorna `Option<item>`"
 
 #: src/exercises/day-1/iterators-and-ownership.md:71
 msgid "Like before, what  is the type returned by the iterator?"
-msgstr ""
+msgstr "Como antes, qué es el tipo devuelto por el iterador?"
 
 #: src/exercises/day-1/iterators-and-ownership.md:73
 msgid ""
@@ -5008,7 +5199,7 @@ msgstr ""
 
 #: src/exercises/day-1/iterators-and-ownership.md:83
 msgid "## `for` Loops"
-msgstr ""
+msgstr "## Loops `for`"
 
 #: src/exercises/day-1/iterators-and-ownership.md:85
 msgid ""
@@ -5016,6 +5207,8 @@ msgid ""
 "They call `into_iter()` on an expression and iterates over the resulting\n"
 "iterator:"
 msgstr ""
+"Ahora que sabemos de ambos `Iterator` y `Intolterator`, podemos hacer loops `for`.\n"
+"Ellos llaman `into_iter()` en una expresión e iterados sobre el iterado resultante:"
 
 #: src/exercises/day-1/iterators-and-ownership.md:89
 msgid ""
@@ -5042,7 +5235,7 @@ msgstr ""
 
 #: src/exercises/day-1/iterators-and-ownership.md:103
 msgid "What is the type of `word` in each loop?"
-msgstr ""
+msgstr "Qué es el tipo `word` en cada loop?"
 
 #: src/exercises/day-1/iterators-and-ownership.md:105
 msgid ""
@@ -5055,6 +5248,14 @@ msgid ""
 "Vec%3CT%2C%20A%3E)\n"
 "to check your answers."
 msgstr ""
+"Experimenta con el código de arriba y luego contusa por [`impl\n"
+"IntoIterator for\n"
+"&Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-for-"
+"%26%27a%20Vec%3CT%2C%20A%3E)\n"
+"y [`impl IntoIterator for\n"
+"Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-for-"
+"Vec%3CT%2C%20A%3E)\n"
+"para verificar tus respuestas."
 
 #: src/welcome-day-2.md:1
 msgid "# Welcome to Day 2"
