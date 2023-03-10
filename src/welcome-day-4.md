@@ -1,13 +1,11 @@
 # Welcome to Day 4
 
-Today we will look at two main topics:
+This morning, we will focus on Concurrency: threads, channels, shared state, `Send` and `Sync`.
+In the afternoon, we will have a chance to see Rust in action.
 
-* Concurrency: threads, channels, shared state, `Send` and `Sync`.
+<details>
 
-* Android: building binaries and libraries, using AIDL, logging, and
-  interoperability with C, C++, and Java.
+This is a good time to give an outline of what you will cover in the afternoon
+section, as announced in the course offering.
 
-> We will attempt to call Rust from one of your own projects today. So try to
-> find a little corner of your code base where we can move some lines of code to
-> Rust. The fewer dependencies and "exotic" types the better. Something that
-> parses some raw bytes would be ideal.
+</details>
