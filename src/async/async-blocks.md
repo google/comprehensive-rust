@@ -24,6 +24,7 @@ async fn main() {
         println!("task joined with result: {greeting}");
     }
 }
+```
 
 <details>
 
