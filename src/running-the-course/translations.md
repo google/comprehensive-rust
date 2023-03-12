@@ -5,6 +5,7 @@ volunteers:
 
 * [Brazilian Portuguese][pt-BR] by [@rastringer] and [@hugojacob].
 * [Korean][ko] by [@keispace], [@jiyongp] and [@jooyunghan].
+* [简体中文][zh-Hans] by [@taotieren]
 
 Use the language picker in the top-right corner to switch between languages.
 
@@ -13,10 +14,12 @@ get going. Translations are coordinated on the [issue tracker].
 
 [pt-BR]: https://google.github.io/comprehensive-rust/pt-BR/
 [ko]: https://google.github.io/comprehensive-rust/ko/
+[zh-Hans]: https://google.github.io/comprehensive-rust/zh-Hans/
 [@rastringer]: https://github.com/rastringer
 [@hugojacob]: https://github.com/hugojacob
 [@keispace]: https://github.com/keispace
 [@jiyongp]: https://github.com/jiyongp
 [@jooyunghan]: https://github.com/jooyunghan
+[@taotieren]: https://github.com/taotieren
 [our instructions]: https://github.com/google/comprehensive-rust/blob/main/TRANSLATIONS.md
 [issue tracker]: https://github.com/google/comprehensive-rust/issues/282
