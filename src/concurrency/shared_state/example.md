@@ -42,10 +42,7 @@ fn main() {
 
     handle.join().unwrap();
 
-    {
-        let v = v.lock().unwrap();
-        println!("v: {v:?}");
-    }
+    println!("v: {v:?}");
 }
 ```
     
@@ -55,6 +52,5 @@ Notable parts:
   * Wrapping a `Mutex` in an `Arc` is a common pattern to share mutable state between threads.
 * `v: Arc<_>` needs to be cloned as `v2` before it can be moved into another thread. Note `move` was added to the lambda signature.
 * Blocks are introduced to narrow the scope of the `LockGuard` as much as possible.
-* We still need to acquire the `Mutex` to print our `Vec`.
 
 </details>
