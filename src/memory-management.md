@@ -13,3 +13,9 @@ Rust offers a new mix:
 It does this with an explicit ownership concept.
 
 First, let's refresh how memory management works.
+
+<details>
+  
+One way to think about it, is that the compiler correctly puts all `alloc` and `free` calls in the fixed locations for you, without resorting to the garbage collection.
+  
+</details>
