@@ -26,3 +26,16 @@ fn main() {
     println!("{a:?} not_equals {b:?}: {}", a.not_equal(&b));
 }
 ```
+
+<details>
+
+* Traits may specify pre-implemented (default) methods and methods that users are required to
+  implement themselves. Methods with default implementations can rely on required methods.
+
+* Move method `not_equal` to a new trait `NotEqual`.
+
+* Make `NotEqual` a super trait for `Equal`.
+
+* Provide a blanket implementation of `NotEqual` for `Equal`.
+  * With the blanket implementation, you no longer need `NotEqual` as a super trait for `Equal`.
+</details>

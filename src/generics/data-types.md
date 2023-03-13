@@ -15,3 +15,11 @@ fn main() {
     println!("{integer:?} and {float:?}");
 }
 ```
+
+<details>
+
+* Try declaring a new variable `let p = Point { x: 5, y: 10.0 };`.
+
+* Fix the code to allow points that have elements of different types.
+
+</details>
