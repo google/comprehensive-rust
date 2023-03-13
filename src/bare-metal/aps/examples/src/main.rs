@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ANCHOR: main
 #![no_main]
 #![no_std]
 
@@ -34,8 +35,24 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     let mut uart = unsafe { Uart::new(PL011_BASE_ADDRESS as *mut u32) };
 
     writeln!(uart, "main({:#x}, {:#x}, {:#x}, {:#x})", x0, x1, x2, x3).unwrap();
+
+    loop {
+        if let Some(b) = uart.read_byte() {
+            uart.write_byte(b);
+            match b {
+                b'\r' => {
+                    uart.write_byte(b'\n');
+                }
+                b'q' => break,
+                _ => {}
+            }
+        }
+    }
+
+    writeln!(uart, "Bye!").unwrap();
     system_off().unwrap();
 }
+// ANCHOR_END: main
 
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
