@@ -9,14 +9,10 @@ fn main() {
     let r1 = &mut num as *mut i32;
     let r2 = &num as *const i32;
 
-    // Safe because r1 and r2 were obtained from references and so are guaranteed to be non-null and
-    // properly aligned, the objects underlying the references from which they were obtained are
-    // live throughout the whole unsafe block, and they are not accessed either through the
-    // references or concurrently through any other pointers.
     unsafe {
         println!("r1 is: {}", *r1);
         *r1 = 10;
-        println!("r2 is: {}", *r2);
+        println!("r2 is: {}", *r2);  // Undefined behavior!
     }
 }
 ```
@@ -38,5 +34,11 @@ In the case of pointer dereferences, this means that the pointers must be
    reference may be used to access the memory.
 
 In most cases the pointer must also be properly aligned.
+
+Run the code above in [Miri] via the Playground to see it detect undefined
+behavior. Miri is an interpreter for the mid-level intermediate representation
+in the Rust compiler. It can detect some classes of undefined behavior.
+
+[Miri]: https://github.com/rust-lang/miri
 
 </details>
