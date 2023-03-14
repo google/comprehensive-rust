@@ -253,16 +253,25 @@
 
 # Day 5A: Afternoon
 
-- [Application processors]()
-  - [MMIO]()
-  - [Let's write a UART driver]()
+- [Application processors](bare-metal/aps.md)
+  - [MMIO](bare-metal/aps/mmio.md)
+  - [Let's write a UART driver](bare-metal/aps/uart.md)
+    - [More traits](bare-metal/aps/uart/traits.md)
+  - [A better UART driver](bare-metal/aps/better-uart.md)
+    - [Bitflags](bare-metal/aps/better-uart/bitflags.md)
+    - [Multiple registers](bare-metal/aps/better-uart/registers.md)
+    - [Driver](bare-metal/aps/better-uart/driver.md)
+    - [Using it](bare-metal/aps/better-uart/using.md)
   - [Logging]()
+  - [Other projects](bare-metal/aps/other-projects.md)
 - [Useful crates]()
   - [zerocopy]()
   - [aarch64_paging]()
   - [buddy_system_allocator]()
   - [tinyvec]()
   - [spin and once_cell]()
+- [Android]()
+  - [vmbase]()
 
 ---
 
