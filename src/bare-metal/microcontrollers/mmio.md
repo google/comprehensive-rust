@@ -9,6 +9,8 @@ micro:bit:
 
 <details>
 
+* GPIO 0 pin 21 is connected to the first column of the LED matrix, and pin 28 to the first row.
+
 Run the example with:
 
 ```sh

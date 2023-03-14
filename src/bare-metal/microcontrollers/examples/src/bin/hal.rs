@@ -29,7 +29,7 @@ use nrf52833_hal::{
 fn main() -> ! {
     let p = Peripherals::take().unwrap();
 
-    // GPIO port 0.
+    // Create HAL wrapper for GPIO port 0.
     let gpio0 = p0::Parts::new(p.P0);
 
     // Configure GPIO 0 pins 21 and 28 as push-pull outputs.
