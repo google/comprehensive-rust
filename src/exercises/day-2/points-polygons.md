@@ -5,8 +5,6 @@ to <https://play.rust-lang.org/> and fill in the missing methods to make the
 tests pass:
 
 ```rust
-// TODO: remove this when you're done with your implementation.
-#![allow(unused_variables, dead_code)]
 
 {{#include points-polygons.rs:Point}}
     // add fields
