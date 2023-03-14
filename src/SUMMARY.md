@@ -233,6 +233,40 @@
 
 ----
 
+# Day 5A: Morning
+
+- [Welcome](welcome-bare-metal.md)
+- [no_std](bare-metal/no_std.md)
+  - [A minimal example](bare-metal/minimal.md)
+  - [alloc](bare-metal/alloc.md)
+- [Microcontrollers](bare-metal/microcontrollers.md)
+  - [Raw MMIO](bare-metal/microcontrollers/mmio.md)
+  - [PACs](bare-metal/microcontrollers/pacs.md)
+  - [HAL crates](bare-metal/microcontrollers/hals.md)
+  - [Board support crates](bare-metal/microcontrollers/board-support.md)
+  - [The type state pattern](bare-metal/microcontrollers/type-state.md)
+  - [embedded-hal](bare-metal/microcontrollers/embedded-hal.md)
+  - [probe-rs, cargo-embed](bare-metal/microcontrollers/probe-rs.md)
+    - [Debugging](bare-metal/microcontrollers/debugging.md)
+  - [Other projects](bare-metal/microcontrollers/other-projects.md)
+- [Exercises](exercises/bare-metal/morning.md)
+  - [Compass](exercises/bare-metal/compass.md)
+
+# Day 5A: Afternoon
+
+- [Application processors]()
+  - [MMIO]()
+  - [Let's write a UART driver]()
+  - [Logging]()
+- [Useful crates]()
+  - [zerocopy]()
+  - [aarch64_paging]()
+  - [buddy_system_allocator]()
+  - [tinyvec]()
+  - [spin and once_cell]()
+
+---
+
 # Solutions
 
 ----
@@ -245,3 +279,4 @@
   - [Day 3 Morning](exercises/day-3/solutions-morning.md)
   - [Day 3 Afternoon](exercises/day-3/solutions-afternoon.md)
   - [Day 4 Morning](exercises/day-4/solutions-morning.md)
+  - [Day 5A Morning](exercises/bare-metal/solutions-morning.md)
