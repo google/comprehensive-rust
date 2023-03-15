@@ -21,6 +21,15 @@ The `crate` root is in:
 * `src/lib.rs` (for a library crate)
 * `src/main.rs` (for a binary crate)
 
+Modules defined in files can be documented, too, using "inner doc comments".
+These document the item that contains them -- in this case, a module.
+
+```rust,editable,compile_fail
+//! This module implements the garden, including a highly performant germination
+//! implementation.
+pub mod vegetables;
+```
+
 <details>
 
 * The change from `module/mod.rs` to `module.rs` doesn't preclude the use of submodules in Rust 2018.

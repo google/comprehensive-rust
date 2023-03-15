@@ -32,6 +32,7 @@
   - [Slices](basic-syntax/slices.md)
     - [String vs str](basic-syntax/string-slices.md)
   - [Functions](basic-syntax/functions.md)
+    - [Documentation Comments](basic-syntax/doc-comments.md)
     - [Overloading](basic-syntax/functions-interlude.md)
 - [Exercises](exercises/day-1/morning.md)
   - [Implicit Conversions](exercises/day-1/implicit-conversions.md)
