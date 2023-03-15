@@ -236,7 +236,7 @@
   - Executors
   - Polling
   - Pin
-  - Channels
+  - [Async Channels](async/channels.md)
   - Select
 - [Exercises](exercises/day-4/async.md)
 
