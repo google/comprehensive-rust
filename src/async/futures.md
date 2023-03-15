@@ -41,7 +41,7 @@ pub enum Poll<T> {
 
 An async function returns an `impl Future`, and an async block evaluates to an
 `impl Future`. It's also possible (but uncommon) to implement `Future` for your
-own types. For example, the `JoinHandle` returns from `tokio::spawn` implements
+own types. For example, the `JoinHandle` returned from `tokio::spawn` implements
 `Future` to allow joining to it.
 
 The `.await` keyword, applied to a Future, causes the current async function or
