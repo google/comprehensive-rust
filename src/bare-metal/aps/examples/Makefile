@@ -17,8 +17,16 @@
 build:
 	cargo build
 
-ap-examples.bin: build
-	aarch64-linux-gnu-objcopy -O binary target/aarch64-unknown-none/debug/ap-examples ap-examples.bin
+minimal.bin: build
+	aarch64-linux-gnu-objcopy -O binary target/aarch64-unknown-none/debug/minimal minimal.bin
+improved.bin: build
+	aarch64-linux-gnu-objcopy -O binary target/aarch64-unknown-none/debug/improved improved.bin
 
-qemu: ap-examples.bin
-	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel ap-examples.bin -s
+qemu_minimal: minimal.bin
+	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel minimal.bin -s
+qemu: improved.bin
+	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel improved.bin -s
+
+clean:
+	cargo clean
+	rm -f *.bin

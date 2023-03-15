@@ -17,10 +17,9 @@
 #![no_std]
 
 mod exceptions;
-mod pl011;
 mod pl011_minimal;
 
-use crate::pl011::Uart;
+use crate::pl011_minimal::Uart;
 use core::{fmt::Write, panic::PanicInfo};
 use log::error;
 use psci::system_off;
@@ -32,24 +31,10 @@ pub const PL011_BASE_ADDRESS: usize = 0x900_0000;
 extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     // Safe because `PL011_BASE_ADDRESS` is the base address of a PL011 device,
     // and nothing else accesses that address range.
-    let mut uart = unsafe { Uart::new(PL011_BASE_ADDRESS as *mut u32) };
+    let mut uart = unsafe { Uart::new(PL011_BASE_ADDRESS) };
 
     writeln!(uart, "main({:#x}, {:#x}, {:#x}, {:#x})", x0, x1, x2, x3).unwrap();
 
-    loop {
-        if let Some(b) = uart.read_byte() {
-            uart.write_byte(b);
-            match b {
-                b'\r' => {
-                    uart.write_byte(b'\n');
-                }
-                b'q' => break,
-                _ => {}
-            }
-        }
-    }
-
-    writeln!(uart, "Bye!").unwrap();
     system_off().unwrap();
 }
 // ANCHOR_END: main
