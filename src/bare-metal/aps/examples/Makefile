@@ -12,24 +12,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-.PHONY: build qemu
+.PHONY: build qemu_minimal qemu qemu_logger
+
+all: minimal.bin improved.bin logger.bin
 
 build:
 	cargo build
 
 minimal.bin: build
-	aarch64-linux-gnu-objcopy -O binary target/aarch64-unknown-none/debug/minimal minimal.bin
+	aarch64-linux-gnu-objcopy -O binary target/aarch64-unknown-none/debug/minimal $@
 improved.bin: build
-	aarch64-linux-gnu-objcopy -O binary target/aarch64-unknown-none/debug/improved improved.bin
+	aarch64-linux-gnu-objcopy -O binary target/aarch64-unknown-none/debug/improved $@
 logger.bin: build
-	aarch64-linux-gnu-objcopy -O binary target/aarch64-unknown-none/debug/logger logger.bin
+	aarch64-linux-gnu-objcopy -O binary target/aarch64-unknown-none/debug/logger $@
 
 qemu_minimal: minimal.bin
-	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel minimal.bin -s
+	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel $< -s
 qemu: improved.bin
-	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel improved.bin -s
+	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel $< -s
 qemu_logger: logger.bin
-	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel logger.bin -s
+	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel $< -s
 
 clean:
 	cargo clean
