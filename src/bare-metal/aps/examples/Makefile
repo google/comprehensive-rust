@@ -21,11 +21,15 @@ minimal.bin: build
 	aarch64-linux-gnu-objcopy -O binary target/aarch64-unknown-none/debug/minimal minimal.bin
 improved.bin: build
 	aarch64-linux-gnu-objcopy -O binary target/aarch64-unknown-none/debug/improved improved.bin
+logger.bin: build
+	aarch64-linux-gnu-objcopy -O binary target/aarch64-unknown-none/debug/logger logger.bin
 
 qemu_minimal: minimal.bin
 	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel minimal.bin -s
 qemu: improved.bin
 	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel improved.bin -s
+qemu_logger: logger.bin
+	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel logger.bin -s
 
 clean:
 	cargo clean
