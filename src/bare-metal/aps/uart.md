@@ -2,7 +2,7 @@
 
 The QEMU 'virt' machine has a [PL011][1] UART, so let's write a driver for that.
 
-```rust,editable,compile_fail
+```rust,editable
 {{#include examples/src/pl011_minimal.rs:Example}}
 ```
 
