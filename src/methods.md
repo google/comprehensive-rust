@@ -4,24 +4,26 @@ Rust allows you to associate functions with your new types. You do this with an
 `impl` block:
 
 ```rust,editable
-#[derive(Debug)]
-struct Person {
-    name: String,
-    age: u8,
+struct Rectangle {
+    width: u32,
+    height: u32,
 }
 
-impl Person {
-    fn say_hello(&self) {
-        println!("Hello, my name is {}", self.name);
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+
+    fn inc_width(&mut self, delta: u32) {
+        self.width += delta;
     }
 }
 
 fn main() {
-    let peter = Person {
-        name: String::from("Peter"),
-        age: 27,
-    };
-    peter.say_hello();
+    let mut rect = Rectangle { width: 10, height: 5 };
+    println!("old area: {}", rect.area());
+    rect.inc_width(5);
+    println!("new area: {}", rect.area());
 }
 ```
 
@@ -35,7 +37,7 @@ Key Points:
   * Show that it is an abbreviated term for `self:&Self` and perhaps show how the struct name could also be used. 
   * Explain that `Self` is a type alias for the type the `impl` block is in and can be used elsewhere in the block.
   * Note how `self` is used like other structs and dot notation can be used to refer to individual fields.
-  * This might be a good time to demonstrate how the `&self` differs from `self` by modifying the code and trying to run say_hello twice.  
+  * This might be a good time to demonstrate how the `&self` differs from `self` by modifying the `area` method to use `self`.
 * We describe the distinction between method receivers next.
    
 </details>
