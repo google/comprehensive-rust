@@ -27,7 +27,12 @@ These document the item that contains them -- in this case, a module.
 ```rust,editable,compile_fail
 //! This module implements the garden, including a highly performant germination
 //! implementation.
-pub mod vegetables;
+
+/// Sow the given seed packets.
+fn sow(seeds: Vec<SeedPacket>) { todo!() }
+
+// Harvest the produce in the garden that is ready.
+fn harvest(garden: &mut Garden) { todo!() }
 ```
 
 <details>
