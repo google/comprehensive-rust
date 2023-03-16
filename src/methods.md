@@ -4,7 +4,6 @@ Rust allows you to associate functions with your new types. You do this with an
 `impl` block:
 
 ```rust,editable
-#[derive(Debug)]
 struct Person {
     name: String,
     age: u8,
