@@ -18,14 +18,12 @@
 extern crate panic_halt as _;
 
 use cortex_m_rt::entry;
-use nrf52833_hal::{
-    gpio::{
-        p0::{self, P0_01, P0_02, P0_03},
-        Disconnected, Floating, Input, Level, OpenDrain, OpenDrainConfig, Output, PushPull,
-    },
-    pac::Peripherals,
-    prelude::*,
+use nrf52833_hal::gpio::p0::{self, P0_01, P0_02, P0_03};
+use nrf52833_hal::gpio::{
+    Disconnected, Floating, Input, Level, OpenDrain, OpenDrainConfig, Output, PushPull,
 };
+use nrf52833_hal::pac::Peripherals;
+use nrf52833_hal::prelude::*;
 
 // ANCHOR: Example
 #[entry]

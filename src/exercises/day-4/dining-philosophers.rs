@@ -13,8 +13,7 @@
 // limitations under the License.
 
 // ANCHOR: Philosopher
-use std::sync::mpsc;
-use std::sync::{Arc, Mutex};
+use std::sync::{mpsc, Arc, Mutex};
 use std::thread;
 use std::time::Duration;
 
