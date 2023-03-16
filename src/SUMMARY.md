@@ -270,7 +270,7 @@
 - [Useful crates](bare-metal/useful-crates.md)
   - [zerocopy](bare-metal/useful-crates/zerocopy.md)
   - [aarch64-paging](bare-metal/useful-crates/aarch64-paging.md)
-  - [buddy_system_allocator]()
+  - [buddy_system_allocator](bare-metal/useful-crates/buddy_system_allocator.md)
   - [tinyvec]()
   - [spin and once_cell]()
 - [Android]()
