@@ -33,8 +33,7 @@ use mdbook::BookItem;
 use polib::catalog::Catalog;
 use polib::po_file;
 use semver::{Version, VersionReq};
-use std::io;
-use std::process;
+use std::{io, process};
 use toml::Value;
 
 fn translate(text: &str, catalog: &Catalog) -> String {

@@ -19,7 +19,8 @@
 extern crate panic_halt as _;
 
 use cortex_m_rt::entry;
-use microbit::{hal::prelude::*, Board};
+use microbit::hal::prelude::*;
+use microbit::Board;
 
 #[entry]
 fn main() -> ! {

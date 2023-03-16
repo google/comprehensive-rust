@@ -26,8 +26,7 @@ use mdbook::renderer::RenderContext;
 use mdbook::BookItem;
 use polib::catalog::Catalog;
 use polib::message::Message;
-use std::fs;
-use std::io;
+use std::{fs, io};
 
 fn add_message(catalog: &mut Catalog, msgid: &str, source: &str) {
     let sources = match catalog.find_message(msgid) {
