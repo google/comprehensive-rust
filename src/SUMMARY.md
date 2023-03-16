@@ -269,7 +269,7 @@
   - [Other projects](bare-metal/aps/other-projects.md)
 - [Useful crates](bare-metal/useful-crates.md)
   - [zerocopy](bare-metal/useful-crates/zerocopy.md)
-  - [aarch64_paging]()
+  - [aarch64-paging](bare-metal/useful-crates/aarch64-paging.md)
   - [buddy_system_allocator]()
   - [tinyvec]()
   - [spin and once_cell]()
