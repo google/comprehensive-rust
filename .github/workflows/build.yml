@@ -25,6 +25,16 @@ jobs:
       - name: Test code snippets
         run: mdbook test
 
+  format:
+    name: Format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Format Rust code
+        run: cargo fmt --all -- --check
+
   cargo:
     runs-on: ubuntu-latest
     steps:
