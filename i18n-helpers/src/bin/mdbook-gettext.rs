@@ -21,7 +21,7 @@
 //! is found under `po` directory based on the `book.language`.
 //! For example, `book.langauge` is set to `ko`, then `po/ko.po` is used.
 //! You can set `preprocessor.gettext.po-dir` to specify where to find PO
-//! files. If the PO file is not found, you'll get the untranslated book. 
+//! files. If the PO file is not found, you'll get the untranslated book.
 //!
 //! See `TRANSLATIONS.md` in the repository root for more information.
 
