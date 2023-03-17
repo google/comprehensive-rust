@@ -233,7 +233,7 @@
 
 ----
 
-# Day 5A: Morning
+# Bare Metal Rust: Morning
 
 - [Welcome](welcome-bare-metal.md)
 - [no_std](bare-metal/no_std.md)
@@ -252,7 +252,7 @@
 - [Exercises](exercises/bare-metal/morning.md)
   - [Compass](exercises/bare-metal/compass.md)
 
-# Day 5A: Afternoon
+# Bare Metal Rust: Afternoon
 
 - [Application processors]()
   - [MMIO]()
@@ -279,4 +279,4 @@
   - [Day 3 Morning](exercises/day-3/solutions-morning.md)
   - [Day 3 Afternoon](exercises/day-3/solutions-afternoon.md)
   - [Day 4 Morning](exercises/day-4/solutions-morning.md)
-  - [Day 5A Morning](exercises/bare-metal/solutions-morning.md)
+  - [Bare Metal Rust Morning](exercises/bare-metal/solutions-morning.md)
