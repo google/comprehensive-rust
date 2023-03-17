@@ -12,15 +12,33 @@ shouldn't be necessary for this exercise.
 
 If you have time, try displaying it on the LEDs somehow too, or use the buttons somehow.
 
+`src/main.rs`:
 ```rust,compile_fail
 {{#include compass/src/main.rs:top}}
 use microbit::{hal::uarte::{Baudrate, Parity, Uarte}, Board};
 
 {{#include compass/src/main.rs:main}}
+    // TODO
 
 {{#include compass/src/main.rs:loop}}
+        // TODO
     }
 }
+```
+
+`Cargo.toml` (you shouldn't need to change this):
+```toml
+{{#include compass/Cargo.toml}}
+```
+
+`Embed.toml` (you shouldn't need to change this):
+```toml
+{{#include compass/Embed.toml}}
+```
+
+`.cargo/config.toml` (you shouldn't need to change this):
+```toml
+{{#include compass/.cargo/config.toml}}
 ```
 
 See the serial output with
