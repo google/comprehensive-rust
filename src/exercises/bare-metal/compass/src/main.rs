@@ -51,7 +51,7 @@ fn main() -> ! {
         Baudrate::BAUD115200,
     );
 
-    // Set up the I2C controller and IMU.
+    // Set up the I2C controller and Inertial Measurement Unit.
     // ANCHOR_END: main
     writeln!(serial, "Setting up IMU...").unwrap();
     let i2c = Twim::new(board.TWIM0, board.i2c_internal.into(), FREQUENCY_A::K100);
