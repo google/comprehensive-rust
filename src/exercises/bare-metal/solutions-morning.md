@@ -1,4 +1,4 @@
-# Day 5A Morning Exercise
+# Bare Metal Rust Morning Exercise
 
 ## Compass
 
