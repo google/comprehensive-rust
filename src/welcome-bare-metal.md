@@ -17,7 +17,7 @@ as an example. It's a [development board](https://tech.microbit.org/hardware/) b
 nRF51822 microcontroller with some LEDs and buttons, an I2C-connected accelerometer and compass, and
 an on-board SWD debugger.
 
-To get started, install some tools we'll need later:
+To get started, install some tools we'll need later. On gLinux or Debian:
 
 ```bash
 sudo apt install gdb-multiarch libudev-dev picocom qemu-system-arm
@@ -34,5 +34,12 @@ echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", MODE="0664", GROUP="plugdev"' |\
 sudo udevadm control --reload-rules
 ```
 
-(If you're not using a Debian-based Linux distribution, you'll need to replace the `apt` command
-with the appropriate way to install GDB on your OS.)
+On MacOS:
+
+```bash
+xcode-select --install
+brew install picocom qemu gdb
+rustup update
+rustup target add thumbv7em-none-eabihf aarch64-unknown-none
+cargo install cargo-binutils cargo-embed
+```
