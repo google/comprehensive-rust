@@ -10,13 +10,13 @@ chip = "nrf52833_xxAA"
 enabled = true
 ```
 
-In one terminal:
+In one terminal under `src/bare-metal/microcontrollers/examples/`:
 
 ```sh
 cargo embed --bin board_support debug
 ```
 
-In another terminal:
+In another terminal in the same directory:
 
 ```sh
 gdb-multiarch target/thumbv7em-none-eabihf/debug/board_support --eval-command="target remote :1337"
