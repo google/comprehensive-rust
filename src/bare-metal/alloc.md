@@ -15,5 +15,7 @@ To use `alloc` you must implement a
   allocate regions of up to 2**32 bytes.
 * If any crate in your dependency tree depends on `alloc` then you must have exactly one global
   allocator defined in your binary. Usually this is done in the top-level binary crate.
+* `extern crate panic_halt as _` is necessary to ensure that the `panic_halt` crate is linked in so
+  we get its panic handler.
 
 </details>
