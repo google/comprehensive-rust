@@ -24,7 +24,13 @@ sudo apt install gdb-multiarch picocom libudev-dev
 rustup update
 rustup target add thumbv7em-none-eabihf
 cargo install cargo-binutils cargo-embed
-echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", MODE="0664", GROUP="plugdev"' | sudo tee /etc/udev/rules.d/50-microbit.rules
+```
+
+And give users in the `plugdev` group access to the micro:bit programmer:
+
+```bash
+echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", MODE="0664", GROUP="plugdev"' |\
+  sudo tee /etc/udev/rules.d/50-microbit.rules
 sudo udevadm control --reload-rules
 ```
 
