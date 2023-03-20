@@ -27,9 +27,9 @@ gdb-multiarch target/thumbv7em-none-eabihf/debug/board_support --eval-command="t
 In GDB, try running:
 
 ```gdb
-b src/bin/board_support.rs:28
 b src/bin/board_support.rs:29
-b src/bin/board_support.rs:31
+b src/bin/board_support.rs:30
+b src/bin/board_support.rs:32
 c
 c
 c
