@@ -20,7 +20,7 @@ an on-board SWD debugger.
 To get started, install some tools we'll need later:
 
 ```bash
-sudo apt install gdb-multiarch picocom
+sudo apt install gdb-multiarch picocom libudev-dev
 rustup update
 rustup target add thumbv7em-none-eabihf
 cargo install cargo-binutils cargo-embed
