@@ -256,6 +256,7 @@
 # Bare Metal Rust: Afternoon
 
 - [Application processors](bare-metal/aps.md)
+  - [Inline assembly](bare-metal/aps/inline-assembly.md)
   - [MMIO](bare-metal/aps/mmio.md)
   - [Let's write a UART driver](bare-metal/aps/uart.md)
     - [More traits](bare-metal/aps/uart/traits.md)
