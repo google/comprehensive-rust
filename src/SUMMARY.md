@@ -32,6 +32,7 @@
   - [Slices](basic-syntax/slices.md)
     - [String vs str](basic-syntax/string-slices.md)
   - [Functions](basic-syntax/functions.md)
+    - [Rustdoc](basic-syntax/rustdoc.md)
     - [Methods](basic-syntax/methods.md)
     - [Overloading](basic-syntax/functions-interlude.md)
 - [Exercises](exercises/day-1/morning.md)
