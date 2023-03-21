@@ -273,7 +273,7 @@
   - [aarch64-paging](bare-metal/useful-crates/aarch64-paging.md)
   - [buddy_system_allocator](bare-metal/useful-crates/buddy_system_allocator.md)
   - [tinyvec](bare-metal/useful-crates/tinyvec.md)
-  - [spin and once_cell]()
+  - [spin](bare-metal/useful-crates/spin.md)
 - [Android]()
   - [vmbase]()
 - [Exercises](exercises/bare-metal/afternoon.md)
