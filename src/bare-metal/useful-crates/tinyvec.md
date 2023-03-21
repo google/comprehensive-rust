@@ -6,7 +6,16 @@ allocated or on the stack, which keeps track of how many elements are used and p
 use more than are allocated.
 
 ```rust,editable,compile_fail
-{{#include tinyvec-example/src/main.rs:main}}
+use tinyvec::{array_vec, ArrayVec};
+
+fn main() {
+    let mut numbers: ArrayVec<[u32; 5]> = array_vec!(42, 66);
+    println!("{numbers:?}");
+    numbers.push(7);
+    println!("{numbers:?}");
+    numbers.remove(1);
+    println!("{numbers:?}");
+}
 ```
 
 <details>
