@@ -276,6 +276,8 @@
   - [spin and once_cell]()
 - [Android]()
   - [vmbase]()
+- [Exercises](exercises/bare-metal/afternoon.md)
+  - [RTC driver](exercises/bare-metal/rtc.md)
 
 ---
 
@@ -292,3 +294,4 @@
   - [Day 3 Afternoon](exercises/day-3/solutions-afternoon.md)
   - [Day 4 Morning](exercises/day-4/solutions-morning.md)
   - [Bare Metal Rust Morning](exercises/bare-metal/solutions-morning.md)
+  - [Bare Metal Rust Afternoon](exercises/bare-metal/solutions-afternoon.md)
