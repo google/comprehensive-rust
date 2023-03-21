@@ -50,6 +50,42 @@ jobs:
       - name: Test Rust code
         run: cargo test
 
+  bare-metal:
+    name: Build bare-metal Rust examples
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - directory: src/bare-metal/alloc-example
+            target: aarch64-unknown-none
+          - directory: src/bare-metal/aps/examples
+            target: aarch64-unknown-none
+          - directory: src/bare-metal/microcontrollers/examples
+            target: thumbv7em-none-eabihf
+          - directory: src/exercises/bare-metal/compass
+            target: thumbv7em-none-eabihf
+          - directory: src/exercises/bare-metal/rtc
+            target: aarch64-unknown-none
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Rust cache
+        uses: ./.github/workflows/setup-rust-cache
+
+      - name: Install dependencies
+        run: sudo apt update && sudo apt install gcc-aarch64-linux-gnu
+
+      - name: Install toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: ${{ matrix.target }}
+
+      - name: Build Rust code
+        working-directory: ${{ matrix.directory }}
+        run: cargo build
+
   i18n-helpers:
     runs-on: ubuntu-latest
     steps:

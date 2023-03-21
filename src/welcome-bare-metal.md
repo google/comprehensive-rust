@@ -20,9 +20,9 @@ an on-board SWD debugger.
 To get started, install some tools we'll need later. On gLinux or Debian:
 
 ```bash
-sudo apt install gdb-multiarch libudev-dev picocom qemu-system-arm
+sudo apt install aarch64-linux-gnu-gcc gdb-multiarch libudev-dev picocom qemu-system-arm
 rustup update
-rustup target add thumbv7em-none-eabihf aarch64-unknown-none
+rustup target add aarch64-unknown-none thumbv7em-none-eabihf
 cargo install cargo-binutils cargo-embed
 ```
 
@@ -38,8 +38,8 @@ On MacOS:
 
 ```bash
 xcode-select --install
-brew install picocom qemu gdb
+brew install gdb picocom qemu
 rustup update
-rustup target add thumbv7em-none-eabihf aarch64-unknown-none
+rustup target add aarch64-unknown-none thumbv7em-none-eabihf
 cargo install cargo-binutils cargo-embed
 ```
