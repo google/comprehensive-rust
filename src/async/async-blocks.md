@@ -3,7 +3,7 @@
 Similar to closures, a snippet of async code can be included inline in another
 function with an async block:
 
-```rust, editable
+```rust,editable,compile_fail
 use tokio::{time, task};
 
 #[tokio::main]

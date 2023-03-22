@@ -232,12 +232,7 @@
 - [Async](async.md)
   - [async/await](async/async-await.md)
   - [Async Blocks](async/async-blocks.md)
-  - Futures
-  - Executors
-  - Polling
-  - Pin
-  - Channels
-  - Select
+  - [Futures](async/futures.md)
 - [Exercises](exercises/day-4/async.md)
 
 # Final Words
