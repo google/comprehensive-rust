@@ -232,7 +232,8 @@
 - [Async](async.md)
   - [async/await](async/async-await.md)
   - [Async Blocks](async/async-blocks.md)
-  - [Futures](async/futures.md)
+- [Futures](async/futures.md)
+- [Runtimes and Tasks](async/runtimes.md)
 - [Exercises](exercises/day-4/async.md)
 
 # Final Words
