@@ -31,18 +31,18 @@ use log::{error, info, LevelFilter};
 use psci::system_off;
 
 /// Base address of the primary PL011 UART.
-pub const PL011_BASE_ADDRESS: usize = 0x900_0000;
+pub const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
 // ANCHOR_END: imports
 
 /// Base address of the PL031 RTC.
-pub const PL031_BASE_ADDRESS: usize = 0x901_0000;
+pub const PL031_BASE_ADDRESS: *mut u32 = 0x901_0000 as _;
 
 // ANCHOR: main
 #[no_mangle]
 extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     // Safe because `PL011_BASE_ADDRESS` is the base address of a PL011 device,
     // and nothing else accesses that address range.
-    let uart = unsafe { Uart::new(PL011_BASE_ADDRESS as *mut u32) };
+    let uart = unsafe { Uart::new(PL011_BASE_ADDRESS) };
     logger::init(uart, LevelFilter::Trace).unwrap();
 
     info!("main({:#x}, {:#x}, {:#x}, {:#x})", x0, x1, x2, x3);
@@ -50,7 +50,7 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
 
     // Safe because `PL031_BASE_ADDRESS` is the base address of a PL031 device,
     // and nothing else accesses that address range.
-    let rtc = unsafe { Rtc::new(PL031_BASE_ADDRESS as *mut u32) };
+    let rtc = unsafe { Rtc::new(PL031_BASE_ADDRESS) };
     let time = Utc.timestamp_opt(rtc.read().into(), 0).unwrap();
     info!("RTC: {}", time);
 
