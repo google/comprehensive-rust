@@ -17,6 +17,7 @@ to make an <abbr title="hypervisor call">HVC</abbr> to tell the firmware to powe
 * The `0 => _` syntax means initialise the register to 0 before running the inline assembly code,
   and ignore its contents afterwards. We need to use `inout` rather than `in` because the call could
   potentially clobber the contents of the registers.
+* Run the example in QEMU with `make qemu_psci` under `src/bare-metal/aps/examples`.
 
 </details>
 
