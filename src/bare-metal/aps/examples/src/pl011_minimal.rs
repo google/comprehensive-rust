@@ -32,10 +32,8 @@ impl Uart {
     /// The given base address must point to the 8 MMIO control registers of a
     /// PL011 device, which must be mapped into the address space of the process
     /// as device memory and not have any other aliases.
-    pub unsafe fn new(base_address: usize) -> Self {
-        Self {
-            base_address: base_address as *mut u8,
-        }
+    pub unsafe fn new(base_address: *mut u8) -> Self {
+        Self { base_address }
     }
 
     /// Writes a single byte to the UART.
