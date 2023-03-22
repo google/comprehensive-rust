@@ -2,7 +2,7 @@
 
 What is the type of an async operation?
 
-```rust, editable
+```rust,editable,compile_fail
 use tokio::time;
 
 async fn count_to(count: i32) -> i32 {

@@ -2,7 +2,7 @@
 
 At a high level, async Rust code looks very much like "normal" sequential code:
 
-```rust,editable
+```rust,editable,compile_fail
 use tokio::time;
 
 async fn count_to(count: i32) {
