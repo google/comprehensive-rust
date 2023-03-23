@@ -16,7 +16,11 @@ use cc::Build;
 use std::env;
 
 fn main() {
+    #[cfg(target_os = "linux")]
     env::set_var("CROSS_COMPILE", "aarch64-linux-gnu");
+    #[cfg(not(target_os = "linux"))]
+    env::set_var("CROSS_COMPILE", "aarch64-none-elf");
+
     Build::new()
         .file("entry.S")
         .file("exceptions.S")

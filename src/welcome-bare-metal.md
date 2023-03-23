@@ -39,6 +39,7 @@ On MacOS:
 ```bash
 xcode-select --install
 brew install gdb picocom qemu
+brew install --cask gcc-aarch64-embedded
 rustup update
 rustup target add aarch64-unknown-none thumbv7em-none-eabihf
 cargo install cargo-binutils cargo-embed
