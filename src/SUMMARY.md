@@ -235,6 +235,7 @@
   - [Futures](async/futures.md)
   - [Async Channels](async/channels.md)
   - [Futures Control Flow](async/control-flow.md)
+  - [Pitfalls](async/pitfalls.md)
 - [Exercises](exercises/day-4/async.md)
 
 # Final Words
