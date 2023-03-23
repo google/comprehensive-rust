@@ -10,7 +10,7 @@ We will demonstrate here a non-exhaustive array of common operations:
 - JS: `Promise.all`
 - Python: `asyncio.gather`
 
-```rust,editable
+```rust,editable,compile_fail
 use anyhow::Result;
 use futures::future;
 use reqwest;
@@ -44,7 +44,7 @@ async fn main() {
 - JS: `Promise.race`
 - Python: `asyncio.new_event_loop().run_until_complete(asyncio.wait(task_set, return_when=asyncio.FIRST_COMPLETED))`
 
-```rust,editable
+```rust,editable,compile_fail
 use anyhow::Result;
 use tokio::sync::mpsc::{self, Receiver, Sender};
 use tokio::time::{sleep, Duration};
@@ -107,7 +107,7 @@ async fn main() {
 
 ## Iterate over multiple channels with a timeout: `select` with `pin`
 
-```rust,editable
+```rust,editable,compile_fail
 use anyhow::Result;
 use tokio::sync::mpsc::{self, Receiver, Sender};
 use tokio::time::{sleep, Duration};
