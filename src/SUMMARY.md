@@ -237,7 +237,7 @@
   - Polling
   - Pin
   - [Async Channels](async/channels.md)
-  - Select
+  - [Futures Control Flow](async/control-flow.md)
 - [Exercises](exercises/day-4/async.md)
 
 # Final Words
