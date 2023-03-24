@@ -16,10 +16,9 @@
 #![no_main]
 #![no_std]
 
-extern crate panic_halt as _;
-
 use core::fmt::Write;
 use cortex_m_rt::entry;
+use panic_write::PanicHandler;
 // ANCHOR_END: top
 use core::cmp::{max, min};
 use lsm303agr::{AccelOutputDataRate, Lsm303agr, MagOutputDataRate};
@@ -44,12 +43,16 @@ fn main() -> ! {
     let board = Board::take().unwrap();
 
     // Configure serial port.
-    let mut serial = Uarte::new(
+    let serial = Uarte::new(
         board.UARTE0,
         board.uart.into(),
         Parity::EXCLUDED,
         Baudrate::BAUD115200,
     );
+    // Configure the panic handler to write panics to the serial port.
+    // We get a type back which we can keep writing to in the main
+    // program.
+    let mut serial = PanicHandler::new(serial);
 
     // Set up the I2C controller and Inertial Measurement Unit.
     // ANCHOR_END: main
