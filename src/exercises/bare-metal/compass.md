@@ -10,6 +10,12 @@ Hints:
   [micro:bit hardware](https://tech.microbit.org/hardware/).
 - The LSM303AGR Inertial Measurement Unit is connected to the internal I2C bus.
 - TWI is another name for I2C, so the I2C master peripheral is called TWIM.
+- The LSM303AGR driver needs something implementing the `embedded_hal::blocking::i2c::WriteRead`
+  trait. The
+  [`microbit::hal::Twim`](https://docs.rs/microbit-v2/latest/microbit/hal/struct.Twim.html) struct
+  implements this.
+- You have a [`microbit::Board`](https://docs.rs/microbit-v2/latest/microbit/struct.Board.html)
+  struct with fields for the various pins and peripherals.
 - You can also look at the
   [nRF52833 datasheet](https://infocenter.nordicsemi.com/pdf/nRF52833_PS_v1.5.pdf) if you want, but
   it shouldn't be necessary for this exercise.
