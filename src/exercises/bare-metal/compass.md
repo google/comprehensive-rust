@@ -1,6 +1,6 @@
 # Compass
 
-We will read the temperature from an I2C compass, and log the readings to a serial port.
+We will read the direction from an I2C compass, and log the readings to a serial port.
 
 Hint: check the documentation for the [`lsm303agr`](https://docs.rs/lsm303agr/latest/lsm303agr/) and
 [`microbit-v2`](https://docs.rs/microbit-v2/latest/microbit/) crates, as well as the
