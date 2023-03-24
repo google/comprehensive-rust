@@ -13,7 +13,7 @@
 # limitations under the License.
 
 UNAME := $(shell uname -s)
-ifeq ($(UNAME_S),Linux)
+ifeq ($(UNAME),Linux)
 	TARGET = aarch64-linux-gnu
 else
 	TARGET = aarch64-none-elf
