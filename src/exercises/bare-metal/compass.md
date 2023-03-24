@@ -13,6 +13,7 @@ shouldn't be necessary for this exercise.
 If you have time, try displaying it on the LEDs somehow too, or use the buttons somehow.
 
 `src/main.rs`:
+
 ```rust,compile_fail
 {{#include compass/src/main.rs:top}}
 use microbit::{hal::uarte::{Baudrate, Parity, Uarte}, Board};
@@ -27,16 +28,19 @@ use microbit::{hal::uarte::{Baudrate, Parity, Uarte}, Board};
 ```
 
 `Cargo.toml` (you shouldn't need to change this):
+
 ```toml
 {{#include compass/Cargo.toml}}
 ```
 
 `Embed.toml` (you shouldn't need to change this):
+
 ```toml
 {{#include compass/Embed.toml}}
 ```
 
 `.cargo/config.toml` (you shouldn't need to change this):
+
 ```toml
 {{#include compass/.cargo/config.toml}}
 ```
