@@ -45,10 +45,16 @@ use microbit::{hal::uarte::{Baudrate, Parity, Uarte}, Board};
 {{#include compass/.cargo/config.toml}}
 ```
 
-See the serial output with
+See the serial output on Linux with:
 
 ```sh
 picocom --baud 115200 --imap lfcrlf /dev/ttyACM0
+```
+
+Or on Mac OS something like (the device name may be slightly different):
+
+```sh
+picocom --baud 115200 --imap lfcrlf /dev/tty.usbmodem14502
 ```
 
 Use Ctrl+A Ctrl+Q to quit picocom.
