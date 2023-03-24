@@ -1,4 +1,4 @@
-# probe-rs, `cargo-embed`
+# `probe-rs`, `cargo-embed`
 
 [probe-rs](https://probe.rs/) is a handy toolset for embedded debugging, like OpenOCD but better
 integrated.
