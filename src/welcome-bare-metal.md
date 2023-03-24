@@ -20,7 +20,7 @@ an on-board SWD debugger.
 To get started, install some tools we'll need later. On gLinux or Debian:
 
 ```bash
-sudo apt install aarch64-linux-gnu-gcc gdb-multiarch libudev-dev picocom qemu-system-arm
+sudo apt install gcc-aarch64-linux-gnu gdb-multiarch libudev-dev picocom qemu-system-arm
 rustup update
 rustup target add aarch64-unknown-none thumbv7em-none-eabihf
 rustup component add llvm-tools-preview
