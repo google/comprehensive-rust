@@ -235,7 +235,13 @@
   - [Futures](async/futures.md)
   - [Async Channels](async/channels.md)
   - [Futures Control Flow](async/control-flow.md)
+    - [Daemon](async/control-flow/daemon.md)
+    - [Join](async/control-flow/join_all.md)
+    - [Select](async/control-flow/select.md)
   - [Pitfalls](async/pitfalls.md)
+    - [Blocking the executor](async/pitfalls/blocking-executor.md)
+    - [Pin](async/pitfalls/pin.md)
+    - [Reentering threads](async/pitfalls/reentering-threads.md)
 - [Exercises](exercises/day-4/async.md)
 
 # Final Words
