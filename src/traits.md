@@ -38,7 +38,6 @@ fn main() {
 
 <details>
 
-* Traits may specify pre-implemented (default) methods and methods that users are required to implement themselves. Methods with default implementations can rely on required methods.
 * Types that implement a given trait may be of different sizes. This makes it impossible to have things like `Vec<Greet>` in the example above.
 * `dyn Greet` is a way to tell the compiler about a dynamically sized type that implements `Greet`.
 * In the example, `pets` holds Fat Pointers to objects that implement `Greet`. The Fat Pointer consists of two components, a pointer to the actual object and a pointer to the virtual method table for the `Greet` implementation of that particular object.
@@ -49,5 +48,6 @@ fn main() {
          println!("{}", std::mem::size_of::<&dyn Greet>());
          println!("{}", std::mem::size_of::<Box<dyn Greet>>());
      ```
+* Default methods are covered in a subsequent chapter.
 
 </details>
