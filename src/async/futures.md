@@ -47,9 +47,6 @@ own types. For example, the `JoinHandle` returned from `tokio::spawn` implements
 The `.await` keyword, applied to a Future, causes the current async function or
 block to pause until that Future is ready, and then evaluates to its output.
 
-An important difference from other languages is that a Future is inert: it does
-not do anything until it is polled.
-
 <details>
 
 * Run the example and look at the error message. `_: () = ..` is a common
