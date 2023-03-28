@@ -19,7 +19,7 @@ However, how can we store a collection of mixed types which implement `Display`?
 
 ```rust,editable,compile_fail
 fn main() {
-    let xs = vec![123, "Hello"];
+    let displayables = vec![123, "Hello"];
 }
 ```
 
@@ -29,20 +29,20 @@ For this, we need _trait objects_:
 use std::fmt::Display;
 
 fn main() {
-    let xs: Vec<Box<dyn Display>> = vec![Box::new(123), Box::new("Hello")];
-    for x in xs {
+    let displayables: Vec<Box<dyn Display>> = vec![Box::new(123), Box::new("Hello")];
+    for x in displayables {
         println!("x: {x}");
     }
 }
 ```
 
-Memory layout after allocating `xs`:
+Memory layout after allocating `displayables`:
 
 ```bob
  Stack                             Heap
 .- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - - -.
 :                           :     :                                               :
-:    xs                     :     :                                               :
+:    displayables           :     :                                               :
 :   +-----------+-------+   :     :   +-----+-----+                               :
 :   | ptr       |   o---+---+-----+-->| o o | o o |                               :
 :   | len       |     2 |   :     :   +-|-|-+-|-|-+                               :
@@ -84,3 +84,19 @@ fn main() {
 }
 
 ```
+
+<details>
+
+* Types that implement a given trait may be of different sizes. This makes it impossible to have things like `Vec<Display>` in the example above.
+* `dyn Display` is a way to tell the compiler about a dynamically sized type that implements `Display`.
+* In the example, `displayables` holds *fat pointers* to objects that implement `Display`. The fat pointer consists of two components, a pointer to the actual object and a pointer to the virtual method table for the `Display` implementation of that particular object.
+* Compare these outputs in the above example:
+     ```rust,ignore
+		 use std::fmt::Display;
+         println!("{}", std::mem::size_of::<u32>());
+         println!("{}", std::mem::size_of::<&u32>());
+         println!("{}", std::mem::size_of::<&dyn Display>());
+         println!("{}", std::mem::size_of::<Box<dyn Display>>());
+     ```
+
+</details>
