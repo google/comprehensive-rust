@@ -243,7 +243,6 @@
   - [Pitfalls](async/pitfalls.md)
     - [Blocking the executor](async/pitfalls/blocking-executor.md)
     - [Pin](async/pitfalls/pin.md)
-    - [Reentering threads](async/pitfalls/reentering-threads.md)
 - [Exercises](exercises/day-4/async.md)
 
 # Final Words

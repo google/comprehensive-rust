@@ -6,4 +6,3 @@ Async / await provides convenient and efficient abstraction for concurrent async
 
 - [Blocking the executor](pitfalls/blocking-executor.md)
 - [Pin](pitfalls/pin.md)
-- [Reentering threads](pitfalls/reentering-threads.md)
