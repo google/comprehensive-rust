@@ -37,11 +37,3 @@ fn main() {
     greet(&captain_floof);
 }
 ```
-
-<details>
-
-* Later sections will get into more detail on generic functions like `greet`.
-  For now, students only need to know that `greet` will operate on a reference
-  to anything that implements `Pet`.
-
-</details>
