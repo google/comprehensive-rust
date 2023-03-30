@@ -92,6 +92,8 @@ fn main() -> anyhow::Result<()> {
     Ok(())
 }
 
+/// Writes the given output file based on the given code text from the Markdown input, processing
+/// include directives as necessary.
 fn write_output(
     text: CowStr,
     input_directory: &Path,
@@ -123,6 +125,8 @@ fn write_output(
     Ok(())
 }
 
+/// Writes the given `section` (or all, if it is `None`) of the given included file (relative to the
+/// `input_directory`) to the `output_file`.
 fn write_include(
     include_filename: &str,
     section: Option<&str>,
