@@ -25,7 +25,7 @@ impl Pet for Cat {
     }
 }
 
-fn greet(pet: &impl Pet) {
+fn greet<P: Pet>(pet: &P) {
     println!("Who's a cutie? {} is!", pet.name());
 }
 
