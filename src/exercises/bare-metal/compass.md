@@ -20,6 +20,9 @@ Hints:
   [nRF52833 datasheet](https://infocenter.nordicsemi.com/pdf/nRF52833_PS_v1.5.pdf) if you want, but
   it shouldn't be necessary for this exercise.
 
+Download the [exercise template](../../exercises.zip) and look in the `compass` directory for the
+following files.
+
 `src/main.rs`:
 
 ```rust,compile_fail
