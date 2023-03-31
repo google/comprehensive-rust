@@ -32,11 +32,11 @@ use log::{error, info, LevelFilter};
 use psci::system_off;
 
 /// Base address of the primary PL011 UART.
-pub const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
+const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
 // ANCHOR_END: imports
 
 /// Base address of the PL031 RTC.
-pub const PL031_BASE_ADDRESS: *mut u32 = 0x901_0000 as _;
+const PL031_BASE_ADDRESS: *mut u32 = 0x901_0000 as _;
 
 // ANCHOR: main
 #[no_mangle]
