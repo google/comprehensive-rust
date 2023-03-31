@@ -553,6 +553,38 @@ impl GicV3 {
         }
     }
 
+    /// Sends a software-generated interrupt (SGI) to the given cores.
+    pub fn send_sgi(intid: IntId, target: SgiTarget) {
+        assert!(intid.is_sgi());
+
+        let sgi_value = match target {
+            SgiTarget::All => {
+                let irm = 0b1;
+                (u64::from(intid.0 & 0x0f) << 24) | (irm << 40)
+            }
+            SgiTarget::List {
+                affinity3,
+                affinity2,
+                affinity1,
+                target_list,
+            } => {
+                let irm = 0b0;
+                u64::from(target_list)
+                    | (u64::from(affinity1) << 16)
+                    | (u64::from(intid.0 & 0x0f) << 24)
+                    | (u64::from(affinity2) << 32)
+                    | (irm << 40)
+                    | (u64::from(affinity3) << 48)
+            }
+        };
+
+        // Safe because writing to this system register doesn't access memory in
+        // any way.
+        unsafe {
+            write_sysreg!(icc_sgi1r_el1, sgi_value);
+        }
+    }
+
     /// Gets the ID of the highest priority signalled interrupt, and
     /// acknowledges it.
     ///
@@ -585,6 +617,20 @@ pub enum Trigger {
     Edge,
     /// The interrupt is level triggered.
     Level,
+}
+
+/// The target specification for a software-generated interrupt.
+#[derive(Copy, Clone, Debug, Eq, PartialEq)]
+pub enum SgiTarget {
+    /// The SGI is routed to all CPU cores except the current one.
+    All,
+    /// The SGI is routed to the CPU cores matching the given affinities and list.
+    List {
+        affinity3: u8,
+        affinity2: u8,
+        affinity1: u8,
+        target_list: u16,
+    },
 }
 
 /// Disables debug, SError, IRQ and FIQ exceptions.
