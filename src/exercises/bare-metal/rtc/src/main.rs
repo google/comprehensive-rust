@@ -28,7 +28,7 @@ use core::hint::spin_loop;
 // ANCHOR: imports
 use crate::pl011::Uart;
 use core::panic::PanicInfo;
-use log::{error, info, LevelFilter};
+use log::{error, info, trace, LevelFilter};
 use psci::system_off;
 
 /// Base address of the primary PL011 UART.
@@ -63,9 +63,43 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
         "Waiting for {}",
         Utc.timestamp_opt(target.into(), 0).unwrap()
     );
+    trace!(
+        "matched={}, interrupt_pending={}",
+        rtc.matched(),
+        rtc.interrupt_pending()
+    );
     while !rtc.matched() {
         spin_loop();
     }
+    trace!(
+        "matched={}, interrupt_pending={}",
+        rtc.matched(),
+        rtc.interrupt_pending()
+    );
+    info!("Finished waiting");
+
+    // Wait another 3 seconds for an interrupt.
+    let target = timestamp + 6;
+    info!(
+        "Waiting for {}",
+        Utc.timestamp_opt(target.into(), 0).unwrap()
+    );
+    rtc.set_match(target);
+    rtc.clear_interrupt();
+    rtc.enable_interrupt(true);
+    trace!(
+        "matched={}, interrupt_pending={}",
+        rtc.matched(),
+        rtc.interrupt_pending()
+    );
+    while !rtc.interrupt_pending() {
+        spin_loop();
+    }
+    trace!(
+        "matched={}, interrupt_pending={}",
+        rtc.matched(),
+        rtc.interrupt_pending()
+    );
     info!("Finished waiting");
 
     // ANCHOR: main_end
