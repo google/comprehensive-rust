@@ -23,7 +23,7 @@ mod pl011;
 // ANCHOR_END: top
 mod pl031;
 
-use crate::gicv3::GicV3;
+use crate::gicv3::{irq_enable, GicV3, Trigger, SPI_START};
 use crate::pl031::Rtc;
 use chrono::{TimeZone, Utc};
 use core::hint::spin_loop;
@@ -43,6 +43,8 @@ const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
 
 /// Base address of the PL031 RTC.
 const PL031_BASE_ADDRESS: *mut u32 = 0x901_0000 as _;
+/// The IRQ used by the PL031 RTC: SPI 2.
+const PL031_IRQ: u32 = SPI_START + 2;
 
 // ANCHOR: main
 #[no_mangle]
@@ -67,6 +69,12 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     let timestamp = rtc.read();
     let time = Utc.timestamp_opt(timestamp.into(), 0).unwrap();
     info!("RTC: {time}");
+
+    GicV3::set_priority_mask(0xff);
+    gic.set_interrupt_priority(PL031_IRQ, 0x80);
+    gic.set_trigger(PL031_IRQ, Trigger::Level);
+    irq_enable();
+    gic.enable_interrupt(PL031_IRQ, true);
 
     // Wait for 3 seconds, without interrupts.
     let target = timestamp + 3;
