@@ -37,6 +37,14 @@ directory for the following files.
 {{#include rtc/src/exceptions.rs}}
 ```
 
+`src/gicv3.rs` (you shouldn't need to change this):
+
+<!-- File src/gicv3.rs -->
+
+```rust,compile_fail
+{{#include rtc/src/gicv3.rs}}
+```
+
 `src/logger.rs` (you shouldn't need to change this):
 
 <!-- File src/logger.rs -->
