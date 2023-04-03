@@ -241,8 +241,9 @@
     - [Join](async/control-flow/join_all.md)
     - [Select](async/control-flow/select.md)
   - [Pitfalls](async/pitfalls.md)
-    - [Blocking the executor](async/pitfalls/blocking-executor.md)
+    - [Blocking the Executor](async/pitfalls/blocking-executor.md)
     - [Pin](async/pitfalls/pin.md)
+    - [Async Traits](async/pitfalls/pin.md)
 - [Exercises](exercises/day-4/async.md)
 
 # Final Words
