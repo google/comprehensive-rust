@@ -55,21 +55,13 @@ fn process_all(book: &Book, output_directory: &Path) -> anyhow::Result<()> {
         if let BookItem::Chapter(chapter) = item {
             trace!("Chapter {:?} / {:?}", chapter.path, chapter.source_path);
             if let Some(chapter_path) = &chapter.path {
-                let chapter_parent_directory =
-                    chapter_path.parent().with_context(|| {
-                        format!("Chapter file {:?} has no parent directory", chapter_path)
-                    })?;
                 // Put the exercises in a subdirectory named after the chapter file, without its
                 // parent directories.
                 let chapter_output_directory =
                     output_directory.join(chapter_path.file_stem().with_context(
                         || format!("Chapter {:?} has no file stem", chapter_path),
                     )?);
-                process(
-                    &chapter_parent_directory,
-                    &chapter_output_directory,
-                    &chapter.content,
-                )?;
+                process(&chapter_output_directory, &chapter.content)?;
             }
         }
     }
