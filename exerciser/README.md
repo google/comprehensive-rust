@@ -1,7 +1,7 @@
 # exerciser
 
-This is a tool to generate templates for exercises from the Markdown source. Given a Markdown file
-with one or more sections like:
+This is an mdBook renderer to generate templates for exercises from the Markdown source. Given a
+Markdown file `example.md` with one or more sections like:
 
 ````markdown
 <!-- File src/main.rs -->
@@ -15,5 +15,5 @@ fn some_more_code() {
 ```
 ````
 
-You can run it like `cargo run my/markdown/file.md exercise-templates/example`, and it will create a
-file `exercise-templates/example/src/main.rs` with the appropriate contents.
+It will create a file `book/exerciser/exercise-templates/example/src/main.rs` with the appropriate
+contents.

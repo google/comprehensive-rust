@@ -86,22 +86,6 @@ jobs:
         working-directory: ${{ matrix.directory }}
         run: cargo build
 
-  exercises:
-    name: Build exercise templates
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Build
-        run: ./build-exercise-templates.sh
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: exercise-templates
-          path: exercise-templates/
-
   find-translations:
     runs-on: ubuntu-latest
     outputs:
