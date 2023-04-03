@@ -50,13 +50,16 @@ jobs:
               echo "::endgroup::"
           done
 
+      - name: Zip exercise templates
+        run: cd book/exerciser && zip --recurse-paths ../html/exercises.zip exercise-templates/
+
       - name: Setup Pages
         uses: actions/configure-pages@v2
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: book
+          path: book/html
 
       - name: Deploy to GitHub Pages
         id: deployment

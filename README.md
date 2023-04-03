@@ -30,6 +30,7 @@ The course is built using a few tools:
 - [mdbook](https://github.com/rust-lang/mdBook)
 - [mdbook-svgbob](https://github.com/boozook/mdbook-svgbob)
 - [mdbook-i18n-helpers](TRANSLATIONS.md#i18n-helpers)
+- [exerciser](exerciser/)
 
 Install these tools with:
 
@@ -37,6 +38,7 @@ Install these tools with:
 $ cargo install mdbook
 $ cargo install mdbook-svgbob
 $ cargo install mdbook-i18n-helpers
+$ cargo install --path mdbook-exerciser
 ```
 
 Then run
