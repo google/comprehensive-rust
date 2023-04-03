@@ -25,6 +25,8 @@ use std::{
 
 const INCLUDE_START: &str = "{{#include ";
 const INCLUDE_END: &str = "}}";
+const FILENAME_START: &str = "<!-- File ";
+const FILENAME_END: &str = " -->";
 
 fn main() -> anyhow::Result<()> {
     pretty_env_logger::init();
@@ -59,9 +61,15 @@ fn main() -> anyhow::Result<()> {
     for event in parser {
         trace!("{:?}", event);
         match event {
-            Event::Code(x) => {
-                info!("{}:", x);
-                next_filename = Some(x.into_string());
+            Event::Html(html) => {
+                let html = html.trim();
+                if html.starts_with(FILENAME_START) && html.ends_with(FILENAME_END) {
+                    next_filename = Some(
+                        html[FILENAME_START.len()..html.len() - FILENAME_END.len()]
+                            .to_string(),
+                    );
+                    info!("Next file: {:?}:", next_filename);
+                }
             }
             Event::Start(Tag::CodeBlock(x)) => {
                 info!("Start {:?}", x);

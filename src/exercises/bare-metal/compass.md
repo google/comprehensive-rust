@@ -25,6 +25,8 @@ following files.
 
 `src/main.rs`:
 
+<!-- File src/main.rs -->
+
 ```rust,compile_fail
 {{#include compass/src/main.rs:top}}
 use microbit::{hal::uarte::{Baudrate, Parity, Uarte}, Board};
@@ -40,17 +42,23 @@ use microbit::{hal::uarte::{Baudrate, Parity, Uarte}, Board};
 
 `Cargo.toml` (you shouldn't need to change this):
 
+<!-- File Cargo.toml -->
+
 ```toml
 {{#include compass/Cargo.toml}}
 ```
 
 `Embed.toml` (you shouldn't need to change this):
 
+<!-- File Embed.toml -->
+
 ```toml
 {{#include compass/Embed.toml}}
 ```
 
 `.cargo/config.toml` (you shouldn't need to change this):
+
+<!-- File .cargo/config.toml -->
 
 ```toml
 {{#include compass/.cargo/config.toml}}
