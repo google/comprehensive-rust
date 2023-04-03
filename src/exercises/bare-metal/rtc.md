@@ -8,6 +8,9 @@ Download the [exercise template](../../exercises.zip) and look in the `rtc` dire
 following files.
 
 `src/main.rs`:
+
+<!-- File src/main.rs -->
+
 ```rust,compile_fail
 {{#include rtc/src/main.rs:top}}
 
@@ -21,56 +24,89 @@ following files.
 ```
 
 `src/exceptions.rs` (you shouldn't need to change this):
+
+<!-- File src/exceptions.rs -->
+
 ```rust,compile_fail
 {{#include rtc/src/exceptions.rs}}
 ```
 
 `src/logger.rs` (you shouldn't need to change this):
+
+<!-- File src/logger.rs -->
+
 ```rust,compile_fail
 {{#include rtc/src/logger.rs}}
 ```
 
 `src/pl011.rs` (you shouldn't need to change this):
+
+<!-- File src/pl011.rs -->
+
 ```rust,compile_fail
 {{#include rtc/src/pl011.rs}}
 ```
 
 `Cargo.toml` (you shouldn't need to change this):
+
+<!-- File Cargo.toml -->
+
 ```toml
 {{#include rtc/Cargo.toml}}
 ```
 
 `build.rs` (you shouldn't need to change this):
+
+<!-- File build.rs -->
+
 ```rust,compile_fail
 {{#include rtc/build.rs}}
 ```
 
 `entry.S` (you shouldn't need to change this):
+
+<!-- File entry.S -->
+
 ```armasm
 {{#include rtc/entry.S}}
 ```
 
 `exceptions.S` (you shouldn't need to change this):
+
+<!-- File exceptions.S -->
+
 ```armasm
 {{#include rtc/exceptions.S}}
 ```
 
 `idmap.S` (you shouldn't need to change this):
+
+<!-- File idmap.S -->
+
 ```armasm
 {{#include rtc/idmap.S}}
 ```
 
 `image.ld` (you shouldn't need to change this):
+
+<!-- File image.ld -->
+
 ```ld
 {{#include rtc/image.ld}}
 ```
 
 `Makefile` (you shouldn't need to change this):
+
+<!-- File Makefile -->
+
 ```makefile
 {{#include rtc/Makefile}}
 ```
 
 `.cargo/config.toml` (you shouldn't need to change this):
+
+<!-- File .cargo/config.toml -->
+
 ```toml
 {{#include rtc/.cargo/config.toml}}
 ```
