@@ -14,11 +14,9 @@
 
 use log::{info, trace};
 use pulldown_cmark::{Event, Parser, Tag};
-use std::{
-    fs::{create_dir_all, File},
-    io::Write,
-    path::Path,
-};
+use std::fs::{create_dir_all, File};
+use std::io::Write;
+use std::path::Path;
 
 const FILENAME_START: &str = "<!-- File ";
 const FILENAME_END: &str = " -->";
