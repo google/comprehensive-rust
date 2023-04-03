@@ -56,6 +56,10 @@ fn main() -> anyhow::Result<()> {
         .with_context(|| format!("Failed to open {:?}", input_filename))?;
     let parser = Parser::new(&input_contents);
 
+    // Find a specially-formatted comment followed by a code block, and then call `write_output`
+    // with the contents of the code block, to write to a file named by the comment. Code blocks
+    // without matching comments will be ignored, as will comments which are not followed by a code
+    // block.
     let mut next_filename: Option<String> = None;
     let mut current_file: Option<File> = None;
     for event in parser {
