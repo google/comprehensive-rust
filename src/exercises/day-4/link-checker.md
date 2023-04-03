@@ -32,7 +32,14 @@ $ cargo add thiserror
 
 The `cargo add` calls will update the `Cargo.toml` file to look like this:
 
+<!-- File Cargo.toml -->
+
 ```toml
+[package]
+name = "link-checker"
+version = "0.1.0"
+edition = "2021"
+
 [dependencies]
 reqwest = { version = "0.11.12", features = ["blocking", "rustls-tls"] }
 scraper = "0.13.0"
@@ -43,6 +50,8 @@ You can now download the start page. Try with a small site such as
 `https://www.google.org/`.
 
 Your `src/main.rs` file should look something like this:
+
+<!-- File src/main.rs -->
 
 ```rust,compile_fail
 {{#include link-checker.rs:setup}}
