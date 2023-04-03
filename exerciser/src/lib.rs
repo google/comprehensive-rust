@@ -13,23 +13,17 @@
 // limitations under the License.
 
 use log::{info, trace};
-use pulldown_cmark::{CowStr, Event, Parser, Tag};
+use pulldown_cmark::{Event, Parser, Tag};
 use std::{
-    fs::{create_dir_all, read_to_string, File},
+    fs::{create_dir_all, File},
     io::Write,
     path::Path,
 };
 
-const INCLUDE_START: &str = "{{#include ";
-const INCLUDE_END: &str = "}}";
 const FILENAME_START: &str = "<!-- File ";
 const FILENAME_END: &str = " -->";
 
-pub fn process(
-    input_directory: &Path,
-    output_directory: &Path,
-    input_contents: &str,
-) -> anyhow::Result<()> {
+pub fn process(output_directory: &Path, input_contents: &str) -> anyhow::Result<()> {
     let parser = Parser::new(input_contents);
 
     // Find a specially-formatted comment followed by a code block, and then call `write_output`
@@ -66,7 +60,7 @@ pub fn process(
             Event::Text(text) => {
                 info!("Text: {:?}", text);
                 if let Some(output_file) = &mut current_file {
-                    write_output(text, input_directory, output_file)?;
+                    output_file.write(text.as_bytes())?;
                 }
             }
             Event::End(Tag::CodeBlock(x)) => {
@@ -75,68 +69,6 @@ pub fn process(
             }
             _ => {}
         }
-    }
-
-    Ok(())
-}
-
-/// Writes the given output file based on the given code text from the Markdown input, processing
-/// include directives as necessary.
-fn write_output(
-    text: CowStr,
-    input_directory: &Path,
-    output_file: &mut File,
-) -> anyhow::Result<()> {
-    for line in text.lines() {
-        info!("Line: {:?}", line);
-        if let (Some(start), Some(end)) =
-            (line.find(INCLUDE_START), line.find(INCLUDE_END))
-        {
-            let include = line[start + INCLUDE_START.len()..end].trim();
-            info!("Include {:?}", include);
-            if let Some(colon) = include.find(":") {
-                write_include(
-                    &include[0..colon],
-                    Some(&include[colon + 1..]),
-                    input_directory,
-                    output_file,
-                )?;
-            } else {
-                write_include(include, None, input_directory, output_file)?;
-            }
-        } else {
-            output_file.write(line.as_bytes())?;
-            output_file.write(b"\n")?;
-        }
-    }
-
-    Ok(())
-}
-
-/// Writes the given `section` (or all, if it is `None`) of the given included file (relative to the
-/// `input_directory`) to the `output_file`.
-fn write_include(
-    include_filename: &str,
-    section: Option<&str>,
-    input_directory: &Path,
-    output_file: &mut File,
-) -> anyhow::Result<()> {
-    let full_include_filename = input_directory.join(include_filename);
-    let input_file = read_to_string(full_include_filename)?;
-    if let Some(section) = section {
-        let start_anchor = format!("ANCHOR: {}", section);
-        let end_anchor = format!("ANCHOR_END: {}", section);
-        for line in input_file
-            .lines()
-            .skip_while(|line| !line.contains(&start_anchor))
-            .skip(1)
-            .take_while(|line| !line.contains(&end_anchor))
-        {
-            output_file.write(line.as_bytes())?;
-            output_file.write(b"\n")?;
-        }
-    } else {
-        output_file.write(input_file.as_bytes())?;
     }
 
     Ok(())
