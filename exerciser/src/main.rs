@@ -42,9 +42,9 @@ fn main() -> anyhow::Result<()> {
         format!("Failed to create output directory {:?}", output_directory)
     })?;
 
-    let input_directory = input_filename
-        .parent()
-        .with_context(|| "Input file has no parent directory.")?;
+    let input_directory = input_filename.parent().with_context(|| {
+        format!("Input file {:?} has no parent directory.", input_filename)
+    })?;
     let input_contents = read_to_string(input_filename)
         .with_context(|| format!("Failed to open {:?}", input_filename))?;
 
