@@ -14,13 +14,13 @@
 
 use anyhow::Context;
 use log::trace;
-use mdbook::{book::Book, renderer::RenderContext, BookItem};
+use mdbook::book::Book;
+use mdbook::renderer::RenderContext;
+use mdbook::BookItem;
 use mdbook_exerciser::process;
-use std::{
-    fs::{create_dir, remove_dir_all},
-    io::stdin,
-    path::Path,
-};
+use std::fs::{create_dir, remove_dir_all};
+use std::io::stdin;
+use std::path::Path;
 
 fn main() -> anyhow::Result<()> {
     pretty_env_logger::init();
