@@ -13,42 +13,66 @@
 // limitations under the License.
 
 use anyhow::Context;
-use exerciser::process;
+use log::trace;
+use mdbook::{book::Book, renderer::RenderContext, BookItem};
+use mdbook_exerciser::process;
 use std::{
-    env::args,
-    fs::{create_dir, read_to_string},
+    fs::{create_dir, remove_dir_all},
+    io::stdin,
     path::Path,
-    process::exit,
 };
 
 fn main() -> anyhow::Result<()> {
     pretty_env_logger::init();
 
-    let args = args().collect::<Vec<_>>();
+    let context = RenderContext::from_json(&mut stdin()).context("Parsing stdin")?;
 
-    if args.len() != 3 {
-        eprintln!("Usage:");
-        eprintln!(
-            "  {} <src/exercises/exercise.md> <output directory>",
-            args[0]
-        );
-        exit(1);
-    }
+    let config = context
+        .config
+        .get_renderer("exerciser")
+        .context("Missing output.exerciser configuration")?;
 
-    let input_filename = Path::new(&args[1]);
-    let output_directory = Path::new(&args[2]);
+    let output_directory = Path::new(
+        config
+            .get("output-directory")
+            .context("Missing output.exerciser.output-directory configuration value")?
+            .as_str()
+            .context("Expected a string for output.exerciser.output-directory")?,
+    );
 
+    let _ = remove_dir_all(output_directory);
     create_dir(output_directory).with_context(|| {
         format!("Failed to create output directory {:?}", output_directory)
     })?;
 
-    let input_directory = input_filename.parent().with_context(|| {
-        format!("Input file {:?} has no parent directory.", input_filename)
-    })?;
-    let input_contents = read_to_string(input_filename)
-        .with_context(|| format!("Failed to open {:?}", input_filename))?;
+    process_all(&context.book, output_directory)?;
 
-    process(input_directory, output_directory, &input_contents)?;
+    Ok(())
+}
+
+fn process_all(book: &Book, output_directory: &Path) -> anyhow::Result<()> {
+    for item in book.iter() {
+        if let BookItem::Chapter(chapter) = item {
+            trace!("Chapter {:?} / {:?}", chapter.path, chapter.source_path);
+            if let Some(chapter_path) = &chapter.path {
+                let chapter_parent_directory =
+                    chapter_path.parent().with_context(|| {
+                        format!("Chapter file {:?} has no parent directory", chapter_path)
+                    })?;
+                // Put the exercises in a subdirectory named after the chapter file, without its
+                // parent directories.
+                let chapter_output_directory =
+                    output_directory.join(chapter_path.file_stem().with_context(
+                        || format!("Chapter {:?} has no file stem", chapter_path),
+                    )?);
+                process(
+                    &chapter_parent_directory,
+                    &chapter_output_directory,
+                    &chapter.content,
+                )?;
+            }
+        }
+    }
 
     Ok(())
 }
