@@ -1,6 +1,7 @@
 # Futures Control Flow
 
-Futures can be combined together to produce concurrent compute flow graphs. We will cover multiple common operations:
+Futures can be combined together to produce concurrent compute flow graphs. We
+will cover multiple common operations:
 
 ----
 
