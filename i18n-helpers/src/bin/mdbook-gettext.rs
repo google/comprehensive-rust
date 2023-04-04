@@ -51,11 +51,10 @@ fn translate(text: &str, catalog: &Catalog) -> String {
         // Insert the translated text
         let msg_text = msg.text(text);
         let translated = catalog
-            .find_message(msg_text)
-            .filter(|msg| !msg.flags.contains("fuzzy"))
-            .and_then(|msg| msg.get_msgstr().ok())
+            .find_message(None, msg_text, None)
+            .filter(|msg| !msg.flags().is_fuzzy())
+            .and_then(|msg| msg.msgstr().ok())
             .filter(|msgstr| !msgstr.is_empty())
-            .map(|msgstr| msgstr.as_str())
             .unwrap_or(msg_text);
         output.push_str(translated);
         consumed = span.end;
@@ -143,12 +142,16 @@ fn main() -> anyhow::Result<()> {
 mod tests {
     use super::*;
     use polib::message::Message;
+    use polib::metadata::CatalogMetadata;
 
     fn create_catalog(translations: &[(&str, &str)]) -> Catalog {
-        let mut catalog = Catalog::new();
+        let mut catalog = Catalog::new(CatalogMetadata::new());
         for (msgid, msgstr) in translations {
-            let message = Message::new_singular("", "", "", "", msgid, msgstr);
-            catalog.add_message(message);
+            let message = Message::build_singular()
+                .with_msgid(String::from(*msgid))
+                .with_msgstr(String::from(*msgstr))
+                .done();
+            catalog.append_or_update(message);
         }
         catalog
     }
