@@ -70,6 +70,18 @@ $ msginit -i po/messages.pot -l xx -o po/xx.po
 You can also simply copy `po/messages.pot` to `po/xx.po`. Then update the file
 header (the first entry with `msgid ""`) to the correct language.
 
+> **Tip:** You can use the
+> [`cloud-translate`](https://github.com/mgeisler/cloud-translate) tool to
+> quickly machine-translate a new translation. Install it with
+>
+> ```shell
+> cargo install cloud-translate
+> ```
+>
+> Untranslated entries will be sent through GCP Cloud Translate. Some of the
+> translations will be wrong after this, so you must inspect them by hand
+> afterwards.
+
 ### Updating an Existing Translation
 
 As the English text changes, translations gradually become outdated. To update
@@ -90,10 +102,11 @@ remove the fuzzy marker.
 This will show you how to use the translations to generate localized HTML
 output.
 
-Note: `mdbook` will use original untranslated entries for all entries marked as
-"fuzzy" (visible as "Needs work" in Poedit). This is especially important when
-using `cloud-translate` for initial translation as all entries will be marked
-as "fuzzy".
+> **Note:** `mdbook` will use original untranslated entries for all entries
+> marked as "fuzzy" (visible as "Needs work" in Poedit). This is especially
+> important when using
+> [`cloud-translate`](https://github.com/mgeisler/cloud-translate) for initial
+> translation as all entries will be marked as "fuzzy".
 
 ### Building a Translation
 
