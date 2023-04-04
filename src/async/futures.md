@@ -15,7 +15,11 @@ async fn count_to(count: i32) -> i32 {
 
 #[tokio::main]
 async fn main() {
-    let _: () = count_to(13);
+    println!("Final count is: {}!", count_to(13).await);
+
+    // Uncomment the following line to see the return type of the async call.
+    // let _: () = count_to(13);
+
 }
 ```
 
@@ -48,10 +52,6 @@ The `.await` keyword, applied to a Future, causes the current async function or
 block to pause until that Future is ready, and then evaluates to its output.
 
 <details>
-
-* Run the example and look at the error message. `_: () = ..` is a common
-  technique for getting the type of an expression. Try adding a `.await` in
-  `main`.
 
 * The `Future` and `Poll` types are conceptually quite simple, and implemented as
   such in `std::task`.

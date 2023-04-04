@@ -7,8 +7,8 @@ limited number of threads. This is because the per-task overhead is typically
 very low and operating systems provide primitives for efficiently identifying
 I/O that is able to proceed.
 
-Rust's asynchronous operation is based around "futures", which represent work
-that may be completed in the future. Futures are "polled" until they signal that
+Rust's asynchronous operation is based on "futures", which represent work that
+may be completed in the future. Futures are "polled" until they signal that
 they are complete.
 
 Futures are polled by an async runtime, and several different runtimes are
