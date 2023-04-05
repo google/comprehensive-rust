@@ -3,23 +3,22 @@
 At a high level, async Rust code looks very much like "normal" sequential code:
 
 ```rust,editable,compile_fail
-use tokio::time;
+use futures::executor::block_on;
 
 async fn count_to(count: i32) {
     for i in 1..=count {
-        println!("Count in task: {i}!");
-        time::sleep(time::Duration::from_millis(5)).await;
+        println!("Count is: {i}!");
     }
 }
 
-#[tokio::main]
-async fn main() {
-    tokio::spawn(count_to(10));
+async fn async_main(count: i32) {
+    let future = count_to(count);
+    future.await;
+}
 
-    for i in 1..5 {
-        println!("Main task: {i}");
-        time::sleep(time::Duration::from_millis(5)).await;
-    }
+fn main() {
+    let future = async_main(10);
+    block_on(future);
 }
 ```
 
@@ -27,26 +26,21 @@ async fn main() {
 
 Key points:
 
-* Tokio is one of several async runtimes available for Rust.
+* What is the return type of an async call?
+  * Change `let future = async_main(10);` to `let future: () = async_main(10);`
+    to see the type.
 
-* The function is decorated with the "async" keyword to indicate that it is async.  The
-  `tokio::main` macro invocation is a convenience to wrap the `main` function as a task.
+* The "async" keyword is syntactic sugar. The compiler replaces the return type. 
 
-* The `spawn` function creates a new, concurrent "task", just like spawning a thread.
+* You cannot make `main` async, without additional instructions to the compiler
+  on how to use the returned future.
 
-* Whenever a task would block, we add an `.await` which returns control to the runtime until the
-  blocking operation is ready to proceed.
+* You need an executor to run async code. `block_on` blocks the current thread
+  until the provided future has run to completion. 
 
-Further exploration:
+* `.await` asynchronously waits for the completion of another operation. Unlike
+  `block_on`, `.await` doesn't block the current thread.
 
-* Why does `count_to` not (usually) get to 10? This is an example of async cancellation.
-  `tokio::spawn` returns a handle which can be awaited to wait until it finishes.
-
-* Try `count_to(10).await` instead of spawning.
-
-* Try importing `tokio::join` and using it to join multiple handles.
-
-Note that the Rust playground does not allow network connections, so examples like making HTTP
-requests are not possible.
+* `.await` can only be used inside an `async` block. 
 
 </details>
