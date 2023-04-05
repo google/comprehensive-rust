@@ -21,6 +21,7 @@ fn main() {
 <details>
 
 * `tinyvec` requires that the element type implement `Default` for initialisation.
+* The Rust Playground includes `tinyvec`, so this example will run fine inline.
 
 </details>
 

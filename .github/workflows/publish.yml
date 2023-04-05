@@ -40,6 +40,9 @@ jobs:
       - name: Build course in English
         run: mdbook build -d book
 
+      - name: Zip exercise templates
+        run: cd book/exerciser && zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/
+
       - name: Build all translations
         run: |
           for po_lang in ${{ env.LANGUAGES }}; do
@@ -47,6 +50,8 @@ jobs:
               MDBOOK_BOOK__LANGUAGE=$po_lang \
               MDBOOK_OUTPUT__HTML__SITE_URL=/comprehensive-rust/$po_lang/ \
               mdbook build -d book/$po_lang
+              (cd book/$po_lang/exerciser && zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/)
+              mv book/$po_lang/html book/html/$po_lang
               echo "::endgroup::"
           done
 
@@ -56,7 +61,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: book
+          path: book/html
 
       - name: Deploy to GitHub Pages
         id: deployment
