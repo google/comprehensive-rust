@@ -17,6 +17,8 @@ working with structures shared with hardware e.g. by DMA, or sent over some exte
 * Attempting to derive `FromBytes` for these types would fail, because `RequestType` doesn't use all
   possible u32 values as discriminants, so not all byte patterns are valid.
 * `zerocopy::byteorder` has types for byte-order aware numeric primitives.
+* Run the example with `cargo run` under `src/bare-metal/useful-crates/zerocopy-example/`. (It won't
+  run in the Playground because of the crate dependency.)
 
 </details>
 

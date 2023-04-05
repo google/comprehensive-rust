@@ -17,5 +17,6 @@ To use `alloc` you must implement a
   allocator defined in your binary. Usually this is done in the top-level binary crate.
 * `extern crate panic_halt as _` is necessary to ensure that the `panic_halt` crate is linked in so
   we get its panic handler.
+* This example will build but not run, as it doesn't have an entry point.
 
 </details>

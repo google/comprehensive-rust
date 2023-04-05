@@ -28,6 +28,7 @@ idmap.activate();
 * For now it only supports EL1, but support for other exception levels should be straightforward to
   add.
 * This is used in Android for the [Protected VM Firmware][2].
+* There's no easy way to run this example, as it needs to run on real hardware or under QEMU.
 
 </details>
 
