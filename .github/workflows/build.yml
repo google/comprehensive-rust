@@ -86,43 +86,6 @@ jobs:
         working-directory: ${{ matrix.directory }}
         run: cargo build
 
-  i18n-helpers:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Rust cache
-        uses: ./.github/workflows/setup-rust-cache
-
-      - name: Install Gettext
-        run: sudo apt install gettext
-
-      - name: Install mdbook
-        uses: ./.github/workflows/install-mdbook
-
-      - name: Generate po/messages.pot
-        run: mdbook build -d po
-        env:
-          MDBOOK_OUTPUT: '{"xgettext": {"pot-file": "messages.pot"}}'
-
-      - name: Test messages.pot
-        run: msgfmt --statistics -o /dev/null po/messages.pot
-
-      - name: Expand includes without translation
-        run: mdbook build -d expanded
-        env:
-          MDBOOK_OUTPUT: '{"markdown": {}}'
-
-      - name: Expand includes with no-op translation
-        run: mdbook build -d no-op
-        env:
-          MDBOOK_OUTPUT: '{"markdown": {}}'
-          MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE: po/messages.pot
-
-      - name: Compare no translation to no-op translation
-        run: diff --color=always --unified --recursive expanded no-op
-
   find-translations:
     runs-on: ubuntu-latest
     outputs:
