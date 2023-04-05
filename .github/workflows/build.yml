@@ -133,7 +133,7 @@ jobs:
         run: mdbook build
 
       - name: Zip exercise templates for ${{ matrix.language }} translation
-        run: cd book/exerciser && zip --recurse-paths ../html/exercises.zip exercise-templates/
+        run: cd book/exerciser && zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/
 
       - name: Upload ${{ matrix.language }} translation
         uses: actions/upload-artifact@v3

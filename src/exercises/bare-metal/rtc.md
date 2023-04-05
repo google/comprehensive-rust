@@ -4,8 +4,8 @@ The QEMU aarch64 virt machine has a [PL031][1] real-time clock at 0x9010000. For
 should write a driver for it and use it to print the current time to the serial console. You can use
 the [`chrono`][2] crate for date/time formatting.
 
-Download the [exercise template](../../exercises.zip) and look in the `rtc` directory for the
-following files.
+Download the [exercise template](../../comprehensive-rust-exercises.zip) and look in the `rtc`
+directory for the following files.
 
 `src/main.rs`:
 

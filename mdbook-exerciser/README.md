@@ -15,5 +15,12 @@ fn some_more_code() {
 ```
 ````
 
-It will create a file `book/exerciser/exercise-templates/example/src/main.rs` with the appropriate
-contents.
+and mdbook configuration in `book.toml` like:
+
+```toml
+[output.exerciser]
+output-directory = "comprehensive-rust-exercises"
+```
+
+It will create a file `book/exerciser/comprehensive-rust-exercises/example/src/main.rs` with the
+appropriate contents.
