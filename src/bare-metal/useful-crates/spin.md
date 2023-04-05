@@ -25,6 +25,7 @@ fn main() {
   from `std::sync`;  and `Lazy` for lazy initialisation.
 * The [`once_cell`][2] crate also has some useful types for late initialisation with a slightly
   different approach to `spin::once::Once`.
+* The Rust Playground includes `spin`, so this example will run fine inline.
 
 </details>
 

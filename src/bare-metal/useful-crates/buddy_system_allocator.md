@@ -12,6 +12,8 @@ we might want to allocate MMIO space for PCI BARs:
 <details>
 
 * PCI BARs always have alignment equal to their size.
+* Run the example with `cargo run` under `src/bare-metal/useful-crates/allocator-example/`. (It won't
+  run in the Playground because of the crate dependency.)
 
 </details>
 
