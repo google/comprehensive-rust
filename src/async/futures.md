@@ -1,28 +1,5 @@
 # Futures
 
-What is the type of an async operation?
-
-```rust,editable,compile_fail
-use tokio::time;
-
-async fn count_to(count: i32) -> i32 {
-    for i in 1..=count {
-        println!("Count in task: {i}!");
-        time::sleep(time::Duration::from_millis(5)).await;
-    }
-    count
-}
-
-#[tokio::main]
-async fn main() {
-    println!("Final count is: {}!", count_to(13).await);
-
-    // Uncomment the following line to see the return type of the async call.
-    // let _: () = count_to(13);
-
-}
-```
-
 [Future](https://doc.rust-lang.org/nightly/src/core/future/future.rs.html#37)
 is a trait, implemented by objects that represent an operation that may not be
 complete yet. A future can be polled, and `poll` returns either

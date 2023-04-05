@@ -231,8 +231,8 @@
 
 - [Async](async.md)
   - [async/await](async/async-await.md)
-  - [Async Blocks](async/async-blocks.md)
   - [Futures](async/futures.md)
+  - [Async Blocks](async/async-blocks.md)
   - [Runtimes](async/runtimes.md)
   - [Tasks](async/tasks.md)ures](async/futures.md)
   - [Async Channels](async/channels.md)
