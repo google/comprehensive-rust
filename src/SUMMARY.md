@@ -229,21 +229,20 @@
 
 ----
 
-- [Async](async.md)
+- [Async Basics](async.md)
   - [async/await](async/async-await.md)
   - [Futures](async/futures.md)
   - [Runtimes](async/runtimes.md)
     - [Tokio](async/runtimes/tokio.md)
   - [Tasks](async/tasks.md)
   - [Async Channels](async/channels.md)
-  - [Futures Control Flow](async/control-flow.md)
-    - [Daemon](async/control-flow/daemon.md)
-    - [Join](async/control-flow/join_all.md)
-    - [Select](async/control-flow/select.md)
-  - [Pitfalls](async/pitfalls.md)
-    - [Blocking the Executor](async/pitfalls/blocking-executor.md)
-    - [Pin](async/pitfalls/pin.md)
-    - [Async Traits](async/pitfalls/async-traits.md)
+- [Control Flow](async/control-flow.md)
+  - [Join](async/control-flow/join.md)
+  - [Select](async/control-flow/select.md)
+- [Pitfalls](async/pitfalls.md)
+  - [Blocking the Executor](async/pitfalls/blocking-executor.md)
+  - [Pin](async/pitfalls/pin.md)
+  - [Async Traits](async/pitfalls/async-traits.md)
 - [Exercises](exercises/day-4/async.md)
 
 # Final Words

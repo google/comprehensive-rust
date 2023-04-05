@@ -12,13 +12,11 @@ async fn count_to(count: i32) {
 }
 
 async fn async_main(count: i32) {
-    let future = count_to(count);
-    future.await;
+    count_to(count).await;
 }
 
 fn main() {
-    let future = async_main(10);
-    block_on(future);
+    block_on(async_main(10));
 }
 ```
 
@@ -30,10 +28,10 @@ Key points:
   running operation or any real concurrency in it!
 
 * What is the return type of an async call?
-  * Change `let future = async_main(10);` to `let future: () = async_main(10);`
-    to see the type.
+  * Use `let future: () = async_main(10);` in `main` to see the type.
 
-* The "async" keyword is syntactic sugar. The compiler replaces the return type. 
+* The "async" keyword is syntactic sugar. The compiler replaces the return type
+  with a future. 
 
 * You cannot make `main` async, without additional instructions to the compiler
   on how to use the returned future.
@@ -44,6 +42,7 @@ Key points:
 * `.await` asynchronously waits for the completion of another operation. Unlike
   `block_on`, `.await` doesn't block the current thread.
 
-* `.await` can only be used inside an `async` block. 
+* `.await` can only be used inside an `async` function (or block; these are
+  introduced later). 
 
 </details>
