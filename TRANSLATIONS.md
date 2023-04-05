@@ -30,10 +30,10 @@ We use two helpers for the translations:
 * `mdbook-gettext`: This program translates the book into a target language. It
   is an mdbook preprocessor.
 
-Install both helpers with the following command from the root of the course:
+Install both helpers with:
 
 ```shell
-$ cargo install --path i18n-helpers
+$ cargo install mdbook-i18n-helpers
 ```
 
 ## Creating and Updating Translations
