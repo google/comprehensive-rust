@@ -90,7 +90,7 @@ fn translate_book(ctx: &PreprocessorContext, mut book: Book) -> anyhow::Result<B
 
     let catalog = po_file::parse(&path)
         .map_err(|err| anyhow!("{err}"))
-        .with_context(|| format!("Could not parse {:?} as PO file", path))?;
+        .with_context(|| format!("Could not parse {path:?} as PO file"))?;
     book.for_each_mut(|item| match item {
         BookItem::Chapter(ch) => {
             ch.content = translate(&ch.content, &catalog);

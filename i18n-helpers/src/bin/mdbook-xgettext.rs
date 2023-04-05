@@ -31,7 +31,7 @@ use std::{fs, io};
 
 fn add_message(catalog: &mut Catalog, msgid: &str, source: &str) {
     let sources = match catalog.find_message(None, msgid, None) {
-        Some(msg) => format!("{}\n{}", msg.source(), source),
+        Some(msg) => format!("{}\n{source}", msg.source()),
         None => String::from(source),
     };
     let message = Message::build_singular()
@@ -77,7 +77,7 @@ fn create_catalog(ctx: &RenderContext) -> anyhow::Result<Catalog> {
         })?;
         last_idx += idx;
         let lineno = summary[..last_idx].lines().count();
-        let source = format!("{}:{}", summary_path.display(), lineno);
+        let source = format!("{}:{lineno}", summary_path.display());
         add_message(&mut catalog, line, &source);
     }
 
