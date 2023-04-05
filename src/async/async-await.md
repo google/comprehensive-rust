@@ -26,6 +26,9 @@ fn main() {
 
 Key points:
 
+* Note that this is a simplified example to show the syntax. There is no long
+  running operation or any real concurrency in it!
+
 * What is the return type of an async call?
   * Change `let future = async_main(10);` to `let future: () = async_main(10);`
     to see the type.

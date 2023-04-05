@@ -28,6 +28,12 @@ async fn main() {
 
 <details>
 
-* It is good practice to make your deamons exit because some other blocking task might depend on them. Which would prevent your main thread from ever closing. You can use a `oneshot` channel to signal the task to terminate. You can also use the `ctrl+c` signal handler from `tokio` as an interrupt signal.
+* An async block is similar to a closure, but does not take any arguments. Its
+  return value is a Future, similar to `async fn`. 
+
+* It is good practice to make your deamons exit because some other blocking
+  task might depend on them. Which would prevent your main thread from ever
+  closing. You can use a `oneshot` channel to signal the task to terminate. You
+  can also use the `ctrl+c` signal handler from `tokio` as an interrupt signal.
 
 </details>

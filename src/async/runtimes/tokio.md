@@ -1,7 +1,11 @@
-# Spawning
+# Tokio
 
-Similar to closures, a snippet of async code can be included inline in another
-function with an async block:
+
+Tokio provides: 
+
+* A multi-threaded runtime for executing asynchronous code.
+* An asynchronous version of the standard library.
+* A large ecosystem of libraries.
 
 ```rust,editable,compile_fail
 use tokio::time;
@@ -26,12 +30,11 @@ async fn main() {
 
 <details>
 
-* The `spawn` function creates a new, concurrent "task", just like spawning a thread.
-
-* An async block is similar to a closure, but does not take any arguments. Its return
-  value is a Future, similar to `async fn`.
-
 * With the `tokio::main` macro we can now make `main` async.
+
+* The `spawn` function creates a new, concurrent "task".
+
+* Note: `spawn` takes a `Future`, you don't call `.await` on `count_to`.
 
 **Further exploration:**
 
