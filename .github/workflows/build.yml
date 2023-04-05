@@ -132,6 +132,9 @@ jobs:
       - name: Build course with ${{ matrix.language }} translation
         run: mdbook build
 
+      - name: Zip exercise templates for ${{ matrix.language }} translation
+        run: cd book/exerciser && zip --recurse-paths ../html/exercises.zip exercise-templates/
+
       - name: Upload ${{ matrix.language }} translation
         uses: actions/upload-artifact@v3
         with:
