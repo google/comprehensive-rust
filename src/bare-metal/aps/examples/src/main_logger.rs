@@ -35,7 +35,7 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     let uart = unsafe { Uart::new(PL011_BASE_ADDRESS) };
     logger::init(uart, LevelFilter::Trace).unwrap();
 
-    info!("main({:#x}, {:#x}, {:#x}, {:#x})", x0, x1, x2, x3);
+    info!("main({x0:#x}, {x1:#x}, {x2:#x}, {x3:#x})");
 
     assert_eq!(x1, 42);
 
@@ -44,7 +44,7 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
 
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
-    error!("{}", info);
+    error!("{info}");
     system_off().unwrap();
     loop {}
 }

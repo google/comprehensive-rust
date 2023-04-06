@@ -52,7 +52,7 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     // and nothing else accesses that address range.
     let rtc = unsafe { Rtc::new(PL031_BASE_ADDRESS) };
     let time = Utc.timestamp_opt(rtc.read().into(), 0).unwrap();
-    info!("RTC: {}", time);
+    info!("RTC: {time}");
 
     // ANCHOR: main_end
     system_off().unwrap();
@@ -60,7 +60,7 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
 
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
-    error!("{}", info);
+    error!("{info}");
     system_off().unwrap();
     loop {}
 }
