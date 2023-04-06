@@ -23,7 +23,7 @@ mod pl011;
 // ANCHOR_END: top
 mod pl031;
 
-use crate::gicv3::{irq_enable, GicV3, Trigger, SPI_START};
+use crate::gicv3::{irq_enable, wfi, GicV3, Trigger, SPI_START};
 use crate::pl031::Rtc;
 use chrono::{TimeZone, Utc};
 use core::hint::spin_loop;
@@ -113,7 +113,7 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
         rtc.interrupt_pending()
     );
     while !rtc.interrupt_pending() {
-        spin_loop();
+        wfi();
     }
     trace!(
         "matched={}, interrupt_pending={}",

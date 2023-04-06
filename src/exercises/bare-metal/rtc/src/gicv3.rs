@@ -553,3 +553,11 @@ pub fn irq_enable() {
         asm!("msr DAIFClr, #0xf", options(nomem, nostack));
     }
 }
+
+/// Waits for an interrupt.
+pub fn wfi() {
+    // Safe because this doesn't access memory in any way.
+    unsafe {
+        asm!("wfi", options(nomem, nostack));
+    }
+}
