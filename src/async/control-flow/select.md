@@ -2,11 +2,11 @@
 
 A select operation waits until any of a set of futures is ready, and responds to
 that future's result. In JavaScript, this is similar to `Promise.race`. In
-Python, compare to `asyncio.wait(task_set,
+Python, it compares to `asyncio.wait(task_set,
 return_when=asyncio.FIRST_COMPLETED)`.
 
 This is usually a macro, similar to match, with each arm of the form `pattern =
-future => { block }`. When the future is ready, the block is executed with the
+future => statement`. When the future is ready, the statement is executed with the
 variable bound to the future's result.
 
 ```rust,editable,compile_fail

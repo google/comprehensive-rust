@@ -8,7 +8,7 @@ An easy workaround is to use async equivalent methods where possible.
 use futures::future::join_all;
 use std::time::Instant;
 
-fn sleep_ms(start: &Instant, id: u64, duration_ms: u64) {
+async fn sleep_ms(start: &Instant, id: u64, duration_ms: u64) {
     std::thread::sleep(std::time::Duration::from_millis(duration_ms));
     println!(
         "future {id} slept for {duration_ms}ms, finished after {}ms",
@@ -37,12 +37,14 @@ async fn main() {
 
 * Another fix would be to `tokio::task::spawn_blocking` which spawns an actual
   thread and transforms its handle into a future without blocking the executor.
-  This is useful when calling external libraries that block the thread.
 
-* You should not think of tasks as OS threads. They do not map 1 to 1 and most executors will allow many tasks to run on a single OS thread. This creates multiple gotchas:
-  * For instance, using `std::sync::mutex` in an `async` runtime is very dangerous. When you lock the mutex in a thread then yield the executor using `.await` the thread might try to lock the mutex once more in a different task. Hence, prefer `async` alternatives like `tokio::sync::mutex`.
-  * Thread-local storage should also be used with care in async contexts as it doesn't map to specific tasks.
-  * Device drivers sometimes map to specific OS threads (for instance CUDA.) Prefer `tokio::task::spawn_blocking` when dealing with those.
-  * Some C libraries rely on thread local storage as well.
+* You should not think of tasks as OS threads. They do not map 1 to 1 and most
+  executors will allow many tasks to run on a single OS thread. This is
+  particularly problematic when interacting with other libraries via FFI, where
+  that library might depend on thread-local storage or map to specific OS
+  threads (e.g., CUDA). Prefer `tokio::task::spawn_blocking` in such situations.
+
+* Use sync mutexes with care. Holding a mutex over an `.await` may cause another
+  task to block, and that task may be running on the same thread.
 
 </details>

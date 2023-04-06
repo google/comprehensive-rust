@@ -8,7 +8,7 @@ That future may have one or more nested futures that its `poll` method polls,
 corresponding loosely to a call stack. Concurrency within a task is possible by
 polling multiple child futures, such as racing a timer and an I/O operation.
 
-```rust,editable,compile_fail
+```rust
 use tokio::io::{self, AsyncReadExt, AsyncWriteExt};
 use tokio::net::TcpListener;
 

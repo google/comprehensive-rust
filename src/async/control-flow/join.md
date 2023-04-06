@@ -39,7 +39,7 @@ Copy this example into your prepared `src/main.rs` and run it from there.
   you must know how many futures you will have at compile time. This is
   currently in the `futures` crate, soon to be stabilised in `std::future`.
 
-* The risk of `join` is that one of the future could never resolve, this would
+* The risk of `join` is that one of the futures may never resolve, this would
   cause your program to stall. 
 
 * You can also combine `join_all` with `join!` for instance to join all requests

@@ -1,8 +1,8 @@
 # Pin
 
-When you await a future, you effectively move the whole stack frame from which
-you called `.await` to an internal data structure of your executor. If your
-future has pointers to data on the stack, the addresses might get invalidated.
+When you await a future, all local variables (that would ordinarily be stored on
+a stack frame) are instead stored in the Future for the current async block. If your
+future has pointers to data on the stack, those pointers might get invalidated.
 This is unsafe.
 
 Therefore, you must guarantee that the addresses your future points to don't
@@ -18,26 +18,33 @@ use tokio::time::{sleep, Duration};
 // with a message on the `respond_on` channel.
 #[derive(Debug)]
 struct Work {
-    sleep_for: Duration,
-    respond_on: oneshot::Sender<u128>,
+    input: u32,
+    respond_on: oneshot::Sender<u32>,
 }
 
 // A worker which listens for work on a queue and performs it.
 async fn worker(mut work_queue: mpsc::Receiver<Work>) {
-    while let Some(work) = work_queue.recv().await {
-        sleep(work.sleep_for).await;
-        work.respond_on
-            .send(work.sleep_for.as_millis())
-            .expect("failed to send response");
+    let mut iterations = 0;
+    loop {
+        tokio::select! {
+            Some(work) = work_queue.recv() => {
+                sleep(Duration::from_millis(10)).await; // Pretend to work.
+                work.respond_on
+                    .send(work.input * 1000)
+                    .expect("failed to send response");
+                iterations += 1;
+            }
+            // TODO: report number of iterations every 100ms
+        }
     }
 }
 
 // A requester which requests work and waits for it to complete.
-async fn do_work(work_queue: &mpsc::Sender<Work>, duration: Duration) -> u128 {
+async fn do_work(work_queue: &mpsc::Sender<Work>, input: u32) -> u32 {
     let (tx, rx) = oneshot::channel();
     work_queue
         .send(Work {
-            sleep_for: duration,
+            input,
             respond_on: tx,
         })
         .await
@@ -49,25 +56,20 @@ async fn do_work(work_queue: &mpsc::Sender<Work>, duration: Duration) -> u128 {
 async fn main() {
     let (tx, rx) = mpsc::channel(10);
     spawn(worker(rx));
-    let resp = do_work(&tx, Duration::from_millis(10)).await;
-    println!("work result: {resp}");
+    for i in 0..100 {
+        let resp = do_work(&tx, i).await;
+        println!("work result for iteration {i}: {resp}");
+    }
 }
 ```
 
-Try making the worker print the number of work items handled every 100ms.
-
 <details>
 
-* Students may recognize this as an example of the actor pattern. Actors
+* You may recognize this as an example of the actor pattern. Actors
   typically call `select!` in a loop.
 
-* This serves as a summation of a few of the previous lessons, so take it
-  slowly:
-
-    * Begin the challenge by updating `main` to call `do_work` 100 times.
-
-    * Then update the worker function to use `loop { select! { .. } }` and count
-      work items, but still only receive on the channel.
+* This serves as a summation of a few of the previous lessons, so take your time
+  with it.
 
     * Naively add a `_ = sleep(Duration::from_millis(100)) => { println!(..) }`
       to the `select!`. This will never execute. Why?
