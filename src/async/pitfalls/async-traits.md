@@ -6,6 +6,7 @@ The crate [async_trait](https://docs.rs/async-trait/latest/async_trait/) provide
 
 ```rust,editable,compile_fail
 use async_trait::async_trait;
+use std::time::Instant;
 use tokio::time::{sleep, Duration};
 
 #[async_trait]
@@ -26,8 +27,11 @@ impl Sleeper for FixedSleeper {
 
 async fn run_all_sleepers_multiple_times(sleepers: Vec<Box<dyn Sleeper>>, n_times: usize) {
     for _ in 0..n_times {
+        println!("running all sleepers..");
         for sleeper in &sleepers {
+            let start = Instant::now();
             sleeper.sleep().await;
+            println!("slept for {}ms", start.elapsed().as_millis());
         }
     }
 }
@@ -44,7 +48,11 @@ async fn main() {
 
 <details>  
 
+* `async_trait` is easy to use, but note that it's using heap allocations to
+  achieve this, which has performance implications.
+
 * Try creating a new sleeper struct that will sleep for a random amount of time and adding it to the Vec.
-* Try making the `sleep` call mutable.
-* Try adding an associated type for the return value that would return how much time was actually slept.
+
+* Try making the `sleep` call take `&mut self`.
+
 </details>

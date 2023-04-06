@@ -5,10 +5,10 @@ less resource-intensive.
 
 A Task has a single top-level Future which the executor polls to make progress.
 That future may have one or more nested futures that its `poll` method polls,
-corresponding loosely to a call stack. Concurrency is possible within a task by
+corresponding loosely to a call stack. Concurrency within a task is possible by
 polling multiple child futures, such as racing a timer and an I/O operation.
 
-```rust,editable,compile_fail
+```rust,compile_fail
 use tokio::io::{self, AsyncReadExt, AsyncWriteExt};
 use tokio::net::TcpListener;
 
@@ -54,6 +54,10 @@ Copy this example into your prepared `src/main.rs` and run it from there.
 
 * Ask students to visualize what the state of the example server would be with a
   few connected clients. What tasks exist? What are their Futures?
+
+* This is the first time we've seen an `async` block. This is similar to a
+  closure, but does not take any arguments. Its return value is a Future,
+  similar to an `async fn`. 
 
 * Refactor the async block into a function, and improve the error handling using `?`.
 

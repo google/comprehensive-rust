@@ -44,6 +44,6 @@ async fn main() {
 
 * Try `count_to(10).await` instead of spawning.
 
-* Try importing `tokio::join` and using it to join multiple handles.
+* Try awaiting the task returned from `tokio::spawn`.
 
 </details>

@@ -1,10 +1,7 @@
 # Futures Control Flow
 
 Futures can be combined together to produce concurrent compute flow graphs. We
-will cover multiple common operations:
+have already seen tasks, that function as independent threads of execution.
 
-----
-
-- [Daemon](control-flow/daemon.md)
-- [Join](control-flow/join_all.md)
+- [Join](control-flow/join.md)
 - [Select](control-flow/select.md)

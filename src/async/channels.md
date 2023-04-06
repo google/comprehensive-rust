@@ -1,6 +1,6 @@
 # Async Channels
 
-Multiple Channels crates have support for `async`/`await`. For instance `tokio` channels:
+Several crates have support for `async`/`await`. For instance `tokio` channels:
 
 ```rust,editable,compile_fail
 use tokio::sync::mpsc::{self, Receiver};
@@ -12,6 +12,8 @@ async fn ping_handler(mut input: Receiver<()>) {
         count += 1;
         println!("Received {count} pings so far.");
     }
+
+    println!("ping_handler complete");
 }
 
 #[tokio::main]
@@ -35,9 +37,11 @@ async fn main() {
 * Overall, the interface is similar to the `sync` channels as seen in the
   [morning class](concurrency/channels.md).
 
-* The `Flume` crate has channels that implement both `sync` and `async` `send`
-  and `recv`. This can be convenient for complex application with both IO and
-  heavy CPU processing tasks.
+* Try removing the `std::mem::drop` call. What happens? Why?
+
+* The [Flume](https://docs.rs/flume/latest/flume/) crate has channels that
+  implement both `sync` and `async` `send` and `recv`. This can be convenient
+  for complex applications with both IO and heavy CPU processing tasks.
 
 * What makes working with `async` channels preferable is the ability to combine
   them with other `future`s to combine them and create complex control flow.

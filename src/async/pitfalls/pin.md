@@ -1,108 +1,110 @@
 # Pin
 
-When you await a future, you effectively move the whole stack frame from which you called `.await` to an internal data structure of your executor. If your future has pointers to data on the stack, the addresses might get invalidated. This is extremely unsafe. Therefore, you want to guarantee that the addresses your future point to don't change. That is why we need to `pin` futures. In most cases, you won't have to think about it when using futures from common libraries unless you use `select` in a loop (which is a pretty common use case). If, you implement your own future, you will likely run into this issue.
+When you await a future, all local variables (that would ordinarily be stored on
+a stack frame) are instead stored in the Future for the current async block. If your
+future has pointers to data on the stack, those pointers might get invalidated.
+This is unsafe.
+
+Therefore, you must guarantee that the addresses your future points to don't
+change. That is why we need to `pin` futures. Using the same future repeatedly
+in a `select!` often leads to issues with pinned values.
 
 ```rust,editable,compile_fail
-use tokio::sync::mpsc::{self, Receiver};
+use tokio::sync::{mpsc, oneshot};
+use tokio::task::spawn;
 use tokio::time::{sleep, Duration};
 
-#[derive(Debug, PartialEq)]
-struct Runner {
-    name: String,
+// A work item. In this case, just sleep for the given time and respond
+// with a message on the `respond_on` channel.
+#[derive(Debug)]
+struct Work {
+    input: u32,
+    respond_on: oneshot::Sender<u32>,
 }
 
-async fn race_finish_line(mut rcv: Receiver<String>, timeout: Duration) -> Option<Vec<Runner>> {
-    let mut performances: Vec<Runner> = Vec::new();
-    let timeout_sleep = sleep(timeout);
-    // Pinning here allows us to await `timeout_sleep` multiple times.
-    tokio::pin!(timeout_sleep);
-
+// A worker which listens for work on a queue and performs it.
+async fn worker(mut work_queue: mpsc::Receiver<Work>) {
+    let mut iterations = 0;
     loop {
         tokio::select! {
-            // Rcv.recv() returns a new future every time, hence it does not need to be pinned.
-            name = rcv.recv() => performances.push(Runner { name: name? }),
-            _ = timeout_sleep.as_mut() => break
+            Some(work) = work_queue.recv() => {
+                sleep(Duration::from_millis(10)).await; // Pretend to work.
+                work.respond_on
+                    .send(work.input * 1000)
+                    .expect("failed to send response");
+                iterations += 1;
+            }
+            // TODO: report number of iterations every 100ms
         }
     }
-    Some(performances)
+}
+
+// A requester which requests work and waits for it to complete.
+async fn do_work(work_queue: &mpsc::Sender<Work>, input: u32) -> u32 {
+    let (tx, rx) = oneshot::channel();
+    work_queue
+        .send(Work {
+            input,
+            respond_on: tx,
+        })
+        .await
+        .expect("failed to send on work queue");
+    rx.await.expect("failed waiting for response")
 }
 
 #[tokio::main]
 async fn main() {
-    let (sender, receiver) = mpsc::channel(32);
-
-    let names_and_time = [
-        ("Leo", 9),("Milo", 3),("Luna", 13),("Oliver", 5),("Charlie", 11),
-    ];
-
-    let finish_line_future = race_finish_line(receiver, Duration::from_secs(6));
-
-    for (name, duration_secs) in names_and_time {
-        let sender = sender.clone();
-        tokio::spawn(async move {
-            sleep(Duration::from_secs(duration_secs)).await;
-            sender.send(String::from(name)).await.expect("Failed to send runner");
-        });
+    let (tx, rx) = mpsc::channel(10);
+    spawn(worker(rx));
+    for i in 0..100 {
+        let resp = do_work(&tx, i).await;
+        println!("work result for iteration {i}: {resp}");
     }
-
-    println!("{:?}", finish_line_future.await.expect("Failed to collect finish line"));
-    // [Runner { name: "Milo" }, Runner { name: "Oliver" }]
 }
 ```
-
 
 <details>
 
-* `tokio::pin!` only works on futures that implement `Unpin`. Other futures need to use `box::pin`.
-* Another alternative is to not use `tokio::pin!` at all but spawn another task that will send to a `oneshot` channel after the end of the `sleep` call. 
+* You may recognize this as an example of the actor pattern. Actors
+  typically call `select!` in a loop.
 
-```rust,editable,compile_fail
-use tokio::sync::mpsc::{self, Receiver};
-use tokio::time::{sleep, Duration};
-use tokio::sync::oneshot;
+* This serves as a summation of a few of the previous lessons, so take your time
+  with it.
 
-#[derive(Debug, PartialEq)]
-struct Runner {
-    name: String,
-}
+    * Naively add a `_ = sleep(Duration::from_millis(100)) => { println!(..) }`
+      to the `select!`. This will never execute. Why?
 
-async fn race_finish_line(mut rcv: Receiver<String>, mut timeout: oneshot::Receiver<()>) -> Option<Vec<Runner>> {
-    let mut performances: Vec<Runner> = Vec::new();
-    loop {
-        tokio::select! {
-            name = rcv.recv() => performances.push(Runner { name: name? }),
-            _ = &mut timeout => break
+    * Instead, add a `timeout_fut` containing that future outside of the `loop`:
+
+        ```rust,compile_fail
+        let mut timeout_fut = sleep(Duration::from_millis(100));
+        loop {
+            select! {
+                ..,
+                _ = timeout_fut => { println!(..); },
+            }
         }
-    }
-    Some(performances)
-}
+        ```
+    * This still doesn't work. Follow the compiler errors, adding `&mut` to the
+      `timeout_fut` in the `select!` to work around the move, then using
+      `Box::pin`:
 
-#[tokio::main]
-async fn main() {
-    let (sender, receiver) = mpsc::channel(32);
-    let (os_sender, os_receiver) = oneshot::channel();
+        ```rust,compile_fail
+        let mut timeout_fut = Box::pin(sleep(Duration::from_millis(100)));
+        loop {
+            select! {
+                ..,
+                _ = &mut timeout_fut => { println!(..); },
+            }
+        }
+        ```
 
-    let names_and_time = [
-        ("Leo", 9),("Milo", 3),("Luna", 13),("Oliver", 5),("Charlie", 11),
-    ];
+    * This compiles, but once the timeout expires it is `Poll::Ready` on every
+      iteration (a fused future would help with this). Update to reset
+      `timeout_fut` every time it expires.
 
-    tokio::spawn(async move {
-        sleep(Duration::from_secs(5)).await;
-        os_sender.send(()).expect("Failed to send oneshot.");
-    });
-    let finish_line_future = race_finish_line(receiver, os_receiver);
-
-    for (name, duration_secs) in names_and_time {
-        let sender = sender.clone();
-        tokio::spawn(async move {
-            sleep(Duration::from_secs(duration_secs)).await;
-            sender.send(String::from(name)).await.expect("Failed to send runner");
-        });
-    }
-
-    println!("{:?}", finish_line_future.await.expect("Failed to collect finish line"));
-    // [Runner { name: "Milo" }, Runner { name: "Oliver" }]
-}
-```
+* Box allocates on the heap. In some cases, `tokio::pin!` is also an option, but
+  that is difficult to use for a future that is reassigned.
+* Another alternative is to not use `pin` at all but spawn another task that will send to a `oneshot` channel every 100ms.
 
 </details>
