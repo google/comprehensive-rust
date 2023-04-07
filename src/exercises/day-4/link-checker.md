@@ -39,6 +39,7 @@ The `cargo add` calls will update the `Cargo.toml` file to look like this:
 name = "link-checker"
 version = "0.1.0"
 edition = "2021"
+publish = false
 
 [dependencies]
 reqwest = { version = "0.11.12", features = ["blocking", "rustls-tls"] }
