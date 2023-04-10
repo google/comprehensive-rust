@@ -32,6 +32,7 @@
   - [Slices](basic-syntax/slices.md)
     - [String vs str](basic-syntax/string-slices.md)
   - [Functions](basic-syntax/functions.md)
+    - [Rustdoc](basic-syntax/rustdoc.md)
     - [Methods](basic-syntax/methods.md)
     - [Overloading](basic-syntax/functions-interlude.md)
 - [Exercises](exercises/day-1/morning.md)
@@ -126,25 +127,25 @@
 ----
 
 - [Welcome](welcome-day-3.md)
-- [Traits](traits.md)
-  - [Deriving Traits](traits/deriving-traits.md)
-  - [Default Methods](traits/default-methods.md)
-  - [Important Traits](traits/important-traits.md)
-    - [Iterator](traits/iterator.md)
-    - [FromIterator](traits/from-iterator.md)
-    - [From and Into](traits/from-into.md)
-    - [Read and Write](traits/read-write.md)
-    - [Add, Mul, ...](traits/operators.md)
-    - [Drop](traits/drop.md)
-    - [Default](traits/default.md)
 - [Generics](generics.md)
   - [Generic Data Types](generics/data-types.md)
   - [Generic Methods](generics/methods.md)
-  - [Trait Bounds](generics/trait-bounds.md)
-  - [impl Trait](generics/impl-trait.md)
-  - [Closures](generics/closures.md)
   - [Monomorphization](generics/monomorphization.md)
-  - [Trait Objects](generics/trait-objects.md)
+- [Traits](traits.md)
+  - [Trait Objects](traits/trait-objects.md)
+  - [Deriving Traits](traits/deriving-traits.md)
+  - [Default Methods](traits/default-methods.md)
+  - [Trait Bounds](traits/trait-bounds.md)
+  - [impl Trait](traits/impl-trait.md)
+- [Important Traits](traits/important-traits.md)
+  - [Iterator](traits/iterator.md)
+  - [FromIterator](traits/from-iterator.md)
+  - [From and Into](traits/from-into.md)
+  - [Read and Write](traits/read-write.md)
+  - [Drop](traits/drop.md)
+  - [Default](traits/default.md)
+  - [Operators: Add, Mul, ...](traits/operators.md)
+    - [Closures](traits/closures.md)
 - [Exercises](exercises/day-3/morning.md)
   - [A Simple GUI Library](exercises/day-3/simple-gui.md)
 
@@ -233,6 +234,53 @@
 
 ----
 
+# Bare Metal Rust: Morning
+
+- [Welcome](welcome-bare-metal.md)
+- [no_std](bare-metal/no_std.md)
+  - [A Minimal Example](bare-metal/minimal.md)
+  - [alloc](bare-metal/alloc.md)
+- [Microcontrollers](bare-metal/microcontrollers.md)
+  - [Raw MMIO](bare-metal/microcontrollers/mmio.md)
+  - [PACs](bare-metal/microcontrollers/pacs.md)
+  - [HAL Crates](bare-metal/microcontrollers/hals.md)
+  - [Board Support Crates](bare-metal/microcontrollers/board-support.md)
+  - [The Type State Pattern](bare-metal/microcontrollers/type-state.md)
+  - [embedded-hal](bare-metal/microcontrollers/embedded-hal.md)
+  - [probe-rs, cargo-embed](bare-metal/microcontrollers/probe-rs.md)
+    - [Debugging](bare-metal/microcontrollers/debugging.md)
+  - [Other Projects](bare-metal/microcontrollers/other-projects.md)
+- [Exercises](exercises/bare-metal/morning.md)
+  - [Compass](exercises/bare-metal/compass.md)
+
+# Bare Metal Rust: Afternoon
+
+- [Application Processors](bare-metal/aps.md)
+  - [Inline Assembly](bare-metal/aps/inline-assembly.md)
+  - [MMIO](bare-metal/aps/mmio.md)
+  - [Let's Write a UART Driver](bare-metal/aps/uart.md)
+    - [More Traits](bare-metal/aps/uart/traits.md)
+  - [A Better UART Driver](bare-metal/aps/better-uart.md)
+    - [Bitflags](bare-metal/aps/better-uart/bitflags.md)
+    - [Multiple Registers](bare-metal/aps/better-uart/registers.md)
+    - [Driver](bare-metal/aps/better-uart/driver.md)
+    - [Using It](bare-metal/aps/better-uart/using.md)
+  - [Logging](bare-metal/aps/logging.md)
+    - [Using It](bare-metal/aps/logging/using.md)
+  - [Other Projects](bare-metal/aps/other-projects.md)
+- [Useful Crates](bare-metal/useful-crates.md)
+  - [zerocopy](bare-metal/useful-crates/zerocopy.md)
+  - [aarch64-paging](bare-metal/useful-crates/aarch64-paging.md)
+  - [buddy_system_allocator](bare-metal/useful-crates/buddy_system_allocator.md)
+  - [tinyvec](bare-metal/useful-crates/tinyvec.md)
+  - [spin](bare-metal/useful-crates/spin.md)
+- [Android](bare-metal/android.md)
+  - [vmbase](bare-metal/android/vmbase.md)
+- [Exercises](exercises/bare-metal/afternoon.md)
+  - [RTC Driver](exercises/bare-metal/rtc.md)
+
+---
+
 # Solutions
 
 ----
@@ -245,3 +293,5 @@
   - [Day 3 Morning](exercises/day-3/solutions-morning.md)
   - [Day 3 Afternoon](exercises/day-3/solutions-afternoon.md)
   - [Day 4 Morning](exercises/day-4/solutions-morning.md)
+  - [Bare Metal Rust Morning](exercises/bare-metal/solutions-morning.md)
+  - [Bare Metal Rust Afternoon](exercises/bare-metal/solutions-afternoon.md)

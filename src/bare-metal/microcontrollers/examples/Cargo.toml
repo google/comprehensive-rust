@@ -1,0 +1,33 @@
+[workspace]
+
+[package]
+name = "microcontroller-examples"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+cortex-m-rt = "0.7.3"
+embedded-hal = "0.2.6"
+microbit-v2 = "0.13.0"
+nrf52833-hal = "0.14.1"
+nrf52833-pac = { version = "0.10.1", features = ["rt"] }
+panic-halt = "0.2.0"
+
+[[bin]]
+name = "board_support"
+
+[[bin]]
+name = "hal"
+
+[[bin]]
+name = "minimal"
+
+[[bin]]
+name = "mmio"
+
+[[bin]]
+name = "pac"
+
+[[bin]]
+name = "typestate"
