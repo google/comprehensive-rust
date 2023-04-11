@@ -48,10 +48,16 @@ async fn main() {
 
 <details>  
 
-* `async_trait` is easy to use, but note that it's using heap allocations to
-  achieve this, which has performance implications.
+* The difficulty with `async trait` is in that the resulting `Future` does not
+  have a size known at compile time, because the size of the `Future` depends
+  on the implementation. 
 
-* Try creating a new sleeper struct that will sleep for a random amount of time and adding it to the Vec.
+* `async_trait` is easy to use, but note that it's using heap allocations to
+  achieve this, and solve the unknow size problem above. This heap allocation
+  has performance overhead.
+
+* Try creating a new sleeper struct that will sleep for a random amount of time
+  and adding it to the Vec.
 
 * Try making the `sleep` call take `&mut self`.
 
