@@ -23,11 +23,12 @@ mod pl011;
 // ANCHOR_END: top
 mod pl031;
 
-use crate::gicv3::{irq_enable, wfi, GicV3, IntId, Trigger};
+use crate::gicv3::{irq_enable, wfi, IntId, Trigger};
 use crate::pl031::Rtc;
 use chrono::{TimeZone, Utc};
 use core::hint::spin_loop;
 // ANCHOR: imports
+use crate::gicv3::GicV3;
 use crate::pl011::Uart;
 use core::panic::PanicInfo;
 use log::{error, info, trace, LevelFilter};
@@ -55,13 +56,13 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     logger::init(uart, LevelFilter::Trace).unwrap();
 
     info!("main({:#x}, {:#x}, {:#x}, {:#x})", x0, x1, x2, x3);
-    // ANCHOR_END: main
 
     // Safe because `GICD_BASE_ADDRESS` and `GICR_BASE_ADDRESS` are the base
     // addresses of a GICv3 distributor and redistributor respectively, and
     // nothing else accesses those address ranges.
     let mut gic = unsafe { GicV3::new(GICD_BASE_ADDRESS, GICR_BASE_ADDRESS) };
     gic.setup();
+    // ANCHOR_END: main
 
     // Safe because `PL031_BASE_ADDRESS` is the base address of a PL031 device,
     // and nothing else accesses that address range.
