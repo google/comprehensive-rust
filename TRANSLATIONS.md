@@ -21,7 +21,7 @@ GNU Gettext utilities below.
 [Gettext]: https://www.gnu.org/software/gettext/manual/html_node/index.html
 [ISO 639]: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 
-## I18n Helpers
+## Preparation
 
 We use two helpers for the translations:
 
@@ -128,3 +128,6 @@ it. You use the same command as with `mdbook build` above:
 ```shell
 $ MDBOOK_BOOK__LANGUAGE=xx mdbook serve -d book/xx
 ```
+
+When you update the `po/xx.po` file, the translated book will automatically
+reload.
