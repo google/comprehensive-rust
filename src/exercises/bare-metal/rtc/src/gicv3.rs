@@ -53,14 +53,58 @@ macro_rules! write_sysreg {
 /// The offset in bytes from `RD_base` to `SGI_base`.
 const SGI_OFFSET: usize = 0x10000;
 
-/// The ID of the first Software Generated Interrupt.
-pub const SGI_START: u32 = 0;
+/// An interrupt ID.
+#[derive(Copy, Clone, Debug, Eq, Ord, PartialOrd, PartialEq)]
+pub struct IntId(u32);
 
-/// The ID of the first Private Peripheral Interrupt.
-pub const PPI_START: u32 = 16;
+impl IntId {
+    /// The ID of the first Software Generated Interrupt.
+    const SGI_START: u32 = 0;
 
-/// The ID of the first Shared Peripheral Interrupt.
-pub const SPI_START: u32 = 32;
+    /// The ID of the first Private Peripheral Interrupt.
+    const PPI_START: u32 = 16;
+
+    /// The ID of the first Shared Peripheral Interrupt.
+    const SPI_START: u32 = 32;
+
+    /// The first special interrupt ID.
+    const SPECIAL_START: u32 = 1020;
+
+    /// Returns the interrupt ID for the given Software Generated Interrupt.
+    pub const fn sgi(sgi: u32) -> Self {
+        assert!(sgi < Self::PPI_START);
+        Self(Self::SGI_START + sgi)
+    }
+
+    /// Returns the interrupt ID for the given Private Peripheral Interrupt.
+    pub const fn ppi(ppi: u32) -> Self {
+        assert!(ppi < Self::SPI_START - Self::PPI_START);
+        Self(Self::PPI_START + ppi)
+    }
+
+    /// Returns the interrupt ID for the given Shared Peripheral Interrupt.
+    pub const fn spi(spi: u32) -> Self {
+        assert!(spi < Self::SPECIAL_START);
+        Self(Self::SPI_START + spi)
+    }
+
+    /// Returns whether this interrupt ID is for a Software Generated Interrupt.
+    fn is_sgi(self) -> bool {
+        self.0 < Self::PPI_START
+    }
+
+    /// Returns whether this interrupt ID is private to a core, i.e. it is an
+    /// SGI or PPI.
+    fn is_private(self) -> bool {
+        self.0 < Self::SPI_START
+    }
+}
+
+impl From<IntId> for u32 {
+    fn from(intid: IntId) -> Self {
+        intid.0
+    }
+}
 
 bitflags! {
     #[repr(transparent)]
@@ -408,9 +452,9 @@ impl GicV3 {
     }
 
     /// Enables or disables the interrupt with the given ID.
-    pub fn enable_interrupt(&mut self, intid: u32, enable: bool) {
-        let index = (intid / 32) as usize;
-        let bit = 1 << (intid % 32);
+    pub fn enable_interrupt(&mut self, intid: IntId, enable: bool) {
+        let index = (intid.0 / 32) as usize;
+        let bit = 1 << (intid.0 % 32);
 
         // Safe because we know that `self.gicd` is a valid and unique pointer
         // to the registers of a GIC distributor interface, and `self.sgi` to
@@ -418,12 +462,12 @@ impl GicV3 {
         unsafe {
             if enable {
                 addr_of_mut!((*self.gicd).isenabler[index]).write_volatile(bit);
-                if intid < SPI_START {
+                if intid.is_private() {
                     addr_of_mut!((*self.sgi).isenabler0).write_volatile(bit);
                 }
             } else {
                 addr_of_mut!((*self.gicd).icenabler[index]).write_volatile(bit);
-                if intid < SPI_START {
+                if intid.is_private() {
                     addr_of_mut!((*self.sgi).icenabler0).write_volatile(bit);
                 }
             }
@@ -470,33 +514,33 @@ impl GicV3 {
     ///
     /// Note that lower numbers correspond to higher priorities; i.e. 0 is the
     /// highest priority, and 255 is the lowest.
-    pub fn set_interrupt_priority(&mut self, intid: u32, priority: u8) {
+    pub fn set_interrupt_priority(&mut self, intid: IntId, priority: u8) {
         // Safe because we know that `self.gicd` is a valid and unique pointer
         // to the registers of a GIC distributor interface, and `self.sgi` to
         // the SGI and PPI registers of a GIC redistributor interface.
         unsafe {
             // Affinity routing is enabled, so use the GICR for SGIs and PPIs.
-            if intid < SPI_START {
-                addr_of_mut!((*self.sgi).ipriorityr[intid as usize])
+            if intid.is_private() {
+                addr_of_mut!((*self.sgi).ipriorityr[intid.0 as usize])
                     .write_volatile(priority);
             } else {
-                addr_of_mut!((*self.gicd).ipriorityr[intid as usize])
+                addr_of_mut!((*self.gicd).ipriorityr[intid.0 as usize])
                     .write_volatile(priority);
             }
         }
     }
 
     /// Configures the trigger type for the interrupt with the given ID.
-    pub fn set_trigger(&mut self, intid: u32, trigger: Trigger) {
-        let index = (intid / 16) as usize;
-        let bit = 1 << (((intid % 16) * 2) + 1);
+    pub fn set_trigger(&mut self, intid: IntId, trigger: Trigger) {
+        let index = (intid.0 / 16) as usize;
+        let bit = 1 << (((intid.0 % 16) * 2) + 1);
 
         // Safe because we know that `self.gicd` is a valid and unique pointer
         // to the registers of a GIC distributor interface, and `self.sgi` to
         // the SGI and PPI registers of a GIC redistributor interface.
         unsafe {
             // Affinity routing is enabled, so use the GICR for SGIs and PPIs.
-            let register = if intid < SPI_START {
+            let register = if intid.is_private() {
                 addr_of_mut!((*self.sgi).icfgr[index])
             } else {
                 addr_of_mut!((*self.gicd).icfgr[index])
@@ -511,19 +555,26 @@ impl GicV3 {
 
     /// Gets the ID of the highest priority signalled interrupt, and
     /// acknowledges it.
-    pub fn get_and_acknowledge_interrupt() -> u32 {
+    ///
+    /// Returns `None` if there is no pending interrupt of sufficient priority.
+    pub fn get_and_acknowledge_interrupt() -> Option<IntId> {
         // Safe because reading this system register doesn't access memory in
         // any way.
-        (unsafe { read_sysreg!(icc_iar1_el1) }) as u32
+        let intid = unsafe { read_sysreg!(icc_iar1_el1) } as u32;
+        if intid == IntId::SPECIAL_START {
+            None
+        } else {
+            Some(IntId(intid))
+        }
     }
 
     /// Informs the interrupt controller that the CPU has completed processing
     /// the given interrupt. This drops the interrupt priority and deactivates
     /// the interrupt.
-    pub fn end_interrupt(intid: u32) {
+    pub fn end_interrupt(intid: IntId) {
         // Safe because writing to this system register doesn't access memory in
         // any way.
-        unsafe { write_sysreg!(icc_eoir1_el1, intid.into()) }
+        unsafe { write_sysreg!(icc_eoir1_el1, intid.0.into()) }
     }
 }
 

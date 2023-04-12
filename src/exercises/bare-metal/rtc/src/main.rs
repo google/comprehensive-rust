@@ -23,7 +23,7 @@ mod pl011;
 // ANCHOR_END: top
 mod pl031;
 
-use crate::gicv3::{irq_enable, wfi, GicV3, Trigger, SPI_START};
+use crate::gicv3::{irq_enable, wfi, GicV3, IntId, Trigger};
 use crate::pl031::Rtc;
 use chrono::{TimeZone, Utc};
 use core::hint::spin_loop;
@@ -43,8 +43,8 @@ const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
 
 /// Base address of the PL031 RTC.
 const PL031_BASE_ADDRESS: *mut u32 = 0x901_0000 as _;
-/// The IRQ used by the PL031 RTC: SPI 2.
-const PL031_IRQ: u32 = SPI_START + 2;
+/// The IRQ used by the PL031 RTC.
+const PL031_IRQ: IntId = IntId::spi(2);
 
 // ANCHOR: main
 #[no_mangle]
