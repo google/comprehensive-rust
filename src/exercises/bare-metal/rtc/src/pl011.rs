@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#![allow(unused)]
+
 use core::{
     fmt::{self, Write},
     ptr::{addr_of, addr_of_mut},
