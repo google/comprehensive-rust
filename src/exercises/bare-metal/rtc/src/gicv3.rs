@@ -17,6 +17,7 @@
 use bitflags::bitflags;
 use core::{
     arch::asm,
+    fmt::{self, Debug, Formatter},
     hint::spin_loop,
     mem::size_of,
     ptr::{addr_of, addr_of_mut},
@@ -56,7 +57,7 @@ macro_rules! write_sysreg {
 const SGI_OFFSET: usize = 0x10000;
 
 /// An interrupt ID.
-#[derive(Copy, Clone, Debug, Eq, Ord, PartialOrd, PartialEq)]
+#[derive(Copy, Clone, Eq, Ord, PartialOrd, PartialEq)]
 pub struct IntId(u32);
 
 impl IntId {
@@ -99,6 +100,20 @@ impl IntId {
     /// SGI or PPI.
     fn is_private(self) -> bool {
         self.0 < Self::SPI_START
+    }
+}
+
+impl Debug for IntId {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        if self.0 < Self::PPI_START {
+            write!(f, "SGI {}", self.0 - Self::SGI_START)
+        } else if self.0 < Self::SPI_START {
+            write!(f, "PPI {}", self.0 - Self::PPI_START)
+        } else if self.0 < Self::SPECIAL_START {
+            write!(f, "SPI {}", self.0 - Self::SPI_START)
+        } else {
+            write!(f, "Special IntId {}", self.0)
+        }
     }
 }
 
