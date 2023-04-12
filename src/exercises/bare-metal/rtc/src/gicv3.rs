@@ -466,6 +466,22 @@ impl GicV3 {
         }
     }
 
+    pub fn gicd_pending(&self, index: usize) -> u32 {
+        unsafe { addr_of!((*self.gicd).ispendr[index]).read_volatile() }
+    }
+
+    pub fn gicr_pending(&self) -> u32 {
+        unsafe { addr_of!((*self.sgi).ispendr0).read_volatile() }
+    }
+
+    pub fn gicd_active(&self, index: usize) -> u32 {
+        unsafe { addr_of!((*self.gicd).isactiver[index]).read_volatile() }
+    }
+
+    pub fn gicr_active(&self) -> u32 {
+        unsafe { addr_of!((*self.sgi).isactiver0).read_volatile() }
+    }
+
     /// Enables or disables the interrupt with the given ID.
     pub fn enable_interrupt(&mut self, intid: IntId, enable: bool) {
         let index = (intid.0 / 32) as usize;

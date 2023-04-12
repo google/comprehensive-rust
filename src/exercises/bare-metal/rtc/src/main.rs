@@ -23,7 +23,7 @@ mod pl011;
 // ANCHOR_END: top
 mod pl031;
 
-use crate::gicv3::{irq_enable, wfi, IntId, Trigger};
+use crate::gicv3::{irq_enable, wfi, IntId, SgiTarget, Trigger};
 use crate::pl031::Rtc;
 use chrono::{TimeZone, Utc};
 use core::hint::spin_loop;
@@ -63,6 +63,36 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     let mut gic = unsafe { GicV3::new(GICD_BASE_ADDRESS, GICR_BASE_ADDRESS) };
     gic.setup();
     // ANCHOR_END: main
+
+    // Test sending an SGI.
+    let sgi_intid = IntId::sgi(3);
+    GicV3::set_priority_mask(0xff);
+    gic.set_interrupt_priority(sgi_intid, 0x80);
+    irq_enable();
+    gic.enable_interrupt(sgi_intid, true);
+    assert_eq!(gic.gicd_pending(0), 0);
+    assert_eq!(gic.gicr_pending(), 0);
+    assert_eq!(gic.gicd_active(0), 0);
+    assert_eq!(gic.gicr_active(), 0);
+    info!("Sending SGI");
+
+    GicV3::send_sgi(
+        sgi_intid,
+        SgiTarget::List {
+            affinity3: 0,
+            affinity2: 0,
+            affinity1: 0,
+            target_list: 0b1,
+        },
+    );
+    info!("Sent SGI");
+    assert_eq!(gic.gicd_pending(0), 0);
+    assert_eq!(gic.gicr_pending(), 0);
+    assert_eq!(gic.gicd_active(0), 0);
+    assert_eq!(gic.gicr_active(), 0);
+    loop {
+        wfi();
+    }
 
     // Safe because `PL031_BASE_ADDRESS` is the base address of a PL031 device,
     // and nothing else accesses that address range.
