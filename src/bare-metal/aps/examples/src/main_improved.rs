@@ -25,7 +25,7 @@ use log::error;
 use psci::system_off;
 
 /// Base address of the primary PL011 UART.
-pub const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
+const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
 
 #[no_mangle]
 extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {

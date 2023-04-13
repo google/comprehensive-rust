@@ -24,6 +24,7 @@ mod pl031;
 
 use crate::pl031::Rtc;
 use chrono::{TimeZone, Utc};
+use core::hint::spin_loop;
 // ANCHOR: imports
 use crate::pl011::Uart;
 use core::panic::PanicInfo;
@@ -31,11 +32,11 @@ use log::{error, info, LevelFilter};
 use psci::system_off;
 
 /// Base address of the primary PL011 UART.
-pub const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
+const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
 // ANCHOR_END: imports
 
 /// Base address of the PL031 RTC.
-pub const PL031_BASE_ADDRESS: *mut u32 = 0x901_0000 as _;
+const PL031_BASE_ADDRESS: *mut u32 = 0x901_0000 as _;
 
 // ANCHOR: main
 #[no_mangle]
@@ -50,9 +51,22 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
 
     // Safe because `PL031_BASE_ADDRESS` is the base address of a PL031 device,
     // and nothing else accesses that address range.
-    let rtc = unsafe { Rtc::new(PL031_BASE_ADDRESS) };
-    let time = Utc.timestamp_opt(rtc.read().into(), 0).unwrap();
+    let mut rtc = unsafe { Rtc::new(PL031_BASE_ADDRESS) };
+    let timestamp = rtc.read();
+    let time = Utc.timestamp_opt(timestamp.into(), 0).unwrap();
     info!("RTC: {time}");
+
+    // Wait for 3 seconds, without interrupts.
+    let target = timestamp + 3;
+    rtc.set_match(target);
+    info!(
+        "Waiting for {}",
+        Utc.timestamp_opt(target.into(), 0).unwrap()
+    );
+    while !rtc.matched() {
+        spin_loop();
+    }
+    info!("Finished waiting");
 
     // ANCHOR: main_end
     system_off().unwrap();

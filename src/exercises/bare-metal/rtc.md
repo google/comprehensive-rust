@@ -1,8 +1,12 @@
 # RTC driver
 
 The QEMU aarch64 virt machine has a [PL031][1] real-time clock at 0x9010000. For this exercise, you
-should write a driver for it and use it to print the current time to the serial console. You can use
-the [`chrono`][2] crate for date/time formatting.
+should write a driver for it.
+
+1. Use it to print the current time to the serial console. You can use the [`chrono`][2] crate for
+   date/time formatting.
+2. Use the match register and raw interrupt status to busy-wait until a given time, e.g. 3 seconds
+   in the future. (Call [`core::hint::spin_loop`][3] inside the loop.)
 
 Download the [exercise template](../../comprehensive-rust-exercises.zip) and look in the `rtc`
 directory for the following files.
@@ -19,6 +23,8 @@ directory for the following files.
 {{#include rtc/src/main.rs:main}}
 
     // TODO: Initialise RTC and print value.
+
+    // TODO: Wait for 3 seconds.
 
 {{#include rtc/src/main.rs:main_end}}
 ```
@@ -115,3 +121,4 @@ Run the code in QEMU with `make qemu`.
 
 [1]: https://developer.arm.com/documentation/ddi0224/c
 [2]: https://crates.io/crates/chrono
+[3]: https://doc.rust-lang.org/core/hint/fn.spin_loop.html
