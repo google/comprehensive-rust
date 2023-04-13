@@ -23,17 +23,13 @@ use cortex_m_rt::entry;
 // ANCHOR_END: top
 use core::cmp::{max, min};
 use lsm303agr::{AccelOutputDataRate, Lsm303agr, MagOutputDataRate};
-use microbit::{
-    display::blocking::Display,
-    hal::{
-        prelude::*,
-        twim::Twim,
-        uarte::{Baudrate, Parity, Uarte},
-        Timer,
-    },
-    pac::twim0::frequency::FREQUENCY_A,
-    Board,
-};
+use microbit::display::blocking::Display;
+use microbit::hal::prelude::*;
+use microbit::hal::twim::Twim;
+use microbit::hal::uarte::{Baudrate, Parity, Uarte};
+use microbit::hal::Timer;
+use microbit::pac::twim0::frequency::FREQUENCY_A;
+use microbit::Board;
 
 const COMPASS_SCALE: i32 = 30000;
 const ACCELEROMETER_SCALE: i32 = 700;
