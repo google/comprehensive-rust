@@ -15,13 +15,11 @@
 #![allow(unused)]
 
 use bitflags::bitflags;
-use core::{
-    arch::asm,
-    fmt::{self, Debug, Formatter},
-    hint::spin_loop,
-    mem::size_of,
-    ptr::{addr_of, addr_of_mut},
-};
+use core::arch::asm;
+use core::fmt::{self, Debug, Formatter};
+use core::hint::spin_loop;
+use core::mem::size_of;
+use core::ptr::{addr_of, addr_of_mut};
 use log::trace;
 
 /// Reads and returns the value of the given aarch64 system register.
