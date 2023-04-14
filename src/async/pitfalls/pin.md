@@ -103,8 +103,10 @@ async fn main() {
       iteration (a fused future would help with this). Update to reset
       `timeout_fut` every time it expires.
 
-* Box allocates on the heap. In some cases, `tokio::pin!` is also an option, but
+* Box allocates on the heap. In some cases, `std::pin::pin!` (only recently
+  stabilized, with older code often using `tokio::pin!`) is also an option, but
   that is difficult to use for a future that is reassigned.
+
 * Another alternative is to not use `pin` at all but spawn another task that will send to a `oneshot` channel every 100ms.
 
 </details>
