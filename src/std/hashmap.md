@@ -38,23 +38,23 @@ fn main() {
 * `HashMap` is not defined in the prelude and needs to be brought into scope.
 * Try the following lines of code. The first line will see if a book is in the hashmap and if not return an alternative value. The second line will insert the alternative value in the hashmap if the book is not found.
 
-  ```rust,ignore
-  let pc1 = page_counts
-      .get("Harry Potter and the Sorcerer's Stone ")
-      .unwrap_or(&336);
-  let pc2 = page_counts
-      .entry("The Hunger Games".to_string())
-      .or_insert(374);
-  ```
+     ```rust,ignore
+       let pc1 = page_counts
+           .get("Harry Potter and the Sorcerer's Stone ")
+           .unwrap_or(&336);
+       let pc2 = page_counts
+           .entry("The Hunger Games".to_string())
+           .or_insert(374);
+       ```
 * Unlike `vec!`, there is unfortunately no standard `hashmap!` macro.
   * Although, since Rust 1.56, HashMap implements [`From<[(K, V); N]>`][1], which allows us to easily initialize a hash map from a literal array:
 
-  ```rust,ignore
-  let page_counts = HashMap::from([
-    ("Harry Potter and the Sorcerer's Stone".to_string(), 336),
-    ("The Hunger Games".to_string(), 374),
-  ]);
-  ```
+     ```rust,ignore
+       let page_counts = HashMap::from([
+         ("Harry Potter and the Sorcerer's Stone".to_string(), 336),
+         ("The Hunger Games".to_string(), 374),
+       ]);
+       ```
 
  * Alternatively HashMap can be built from any `Iterator` which yields key-value tuples.
 * We are showing `HashMap<String, i32>`, and avoid using `&str` as key to make examples easier. Using references in collections can, of course, be done,

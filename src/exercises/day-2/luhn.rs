@@ -42,8 +42,7 @@ pub fn luhn(cc_number: &str) -> bool {
 fn main() {
     let cc_number = "1234 5678 1234 5670";
     println!(
-        "Is {} a valid credit card number? {}",
-        cc_number,
+        "Is {cc_number} a valid credit card number? {}",
         if luhn(cc_number) { "yes" } else { "no" }
     );
 }
