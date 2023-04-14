@@ -23,5 +23,18 @@ Ensure that `adb sync` works with your emulator or real device and pre-build
 all Android examples using `src/android/build_all.sh`. Read the script to see
 the commands it runs and make sure they work when you run them by hand.
 
+## Async
+
+If you chose Async for Day 4 afternoon, you will need a fresh crate set up and
+the dependencies downloaded and ready to go. You can then copy/paste the
+examples into `src/main.rs` to experiment with them.
+
+```shell
+cargo init day4
+cd day4
+cargo add tokio --features full
+cargo run
+```
+
 [1]: https://source.android.com/docs/setup/download/downloading
 [2]: https://github.com/google/comprehensive-rust

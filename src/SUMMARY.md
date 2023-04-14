@@ -226,8 +226,24 @@
     - [With Java](android/interoperability/java.md)
 - [Exercises](exercises/day-4/android.md)
 
-# Async (temp until issue181 is closed)
+# Day 4: Afternoon (Async)
 
+----
+
+- [Async Basics](async.md)
+  - [async/await](async/async-await.md)
+  - [Futures](async/futures.md)
+  - [Runtimes](async/runtimes.md)
+    - [Tokio](async/runtimes/tokio.md)
+  - [Tasks](async/tasks.md)
+  - [Async Channels](async/channels.md)
+- [Control Flow](async/control-flow.md)
+  - [Join](async/control-flow/join.md)
+  - [Select](async/control-flow/select.md)
+- [Pitfalls](async/pitfalls.md)
+  - [Blocking the Executor](async/pitfalls/blocking-executor.md)
+  - [Pin](async/pitfalls/pin.md)
+  - [Async Traits](async/pitfalls/async-traits.md)
 - [Exercises](exercises/day-4/elevator.md)
 
 # Final Words
