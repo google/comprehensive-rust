@@ -7,8 +7,9 @@ you just need to know part of its API:
 fn main() {
     let mut vec = vec![10, 20];
     vec.push(30);
-    println!("middle value: {}", vec[vec.len() / 2]);
-    for item in vec.iter() {
+    let midpoint = vec.len() / 2;
+    println!("middle value: {}", vec[midpoint]);
+    for item in &vec {
         println!("item: {item}");
     }
 }
@@ -18,11 +19,9 @@ Use this to create a library application. Copy the code below to
 <https://play.rust-lang.org/> and update the types to make it compile:
 
 ```rust,should_panic
-
 {{#include book-library.rs:setup}}
-
 {{#include book-library.rs:Library_new}}
-        unimplemented!()
+        todo!("Initialize and return a `Library` value")
     }
 
 {{#include book-library.rs:Library_len}}
