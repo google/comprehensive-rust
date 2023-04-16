@@ -20,7 +20,8 @@ mod exceptions;
 mod pl011;
 
 use crate::pl011::Uart;
-use core::{fmt::Write, panic::PanicInfo};
+use core::fmt::Write;
+use core::panic::PanicInfo;
 use log::error;
 use psci::system_off;
 

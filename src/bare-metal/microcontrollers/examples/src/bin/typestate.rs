@@ -38,8 +38,8 @@ fn main() -> ! {
     if pin_input.is_high().unwrap() {
         // ...
     }
-    let mut pin_output: P0_01<Output<OpenDrain>> =
-        pin_input.into_open_drain_output(OpenDrainConfig::Disconnect0Standard1, Level::Low);
+    let mut pin_output: P0_01<Output<OpenDrain>> = pin_input
+        .into_open_drain_output(OpenDrainConfig::Disconnect0Standard1, Level::Low);
     pin_output.set_high().unwrap();
     // pin_input.is_high(); // Error, moved.
 
