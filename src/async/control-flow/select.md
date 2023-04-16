@@ -69,7 +69,9 @@ async fn main() {
 * Try adding a deadline to the race, demonstrating selecting different sorts of
   futures.
 
-* Note that `select!` consumes the futures it is given, and is easiest to use
-  when every execution of `select!` creates new futures.
+* Note that `select!` moves the values it is given. It is easiest to use
+  when every execution of `select!` creates new futures. An alternative is to
+  pass `&mut future` instead of the future itself, but this can lead to
+  issues, further discussed in the pinning slide.
 
 </details>

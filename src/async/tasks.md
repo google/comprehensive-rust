@@ -1,9 +1,9 @@
 # Tasks
 
-Runtimes have the concept of a "Task", similar to a thread but much
+Runtimes have the concept of a "task", similar to a thread but much
 less resource-intensive.
 
-A Task has a single top-level Future which the executor polls to make progress.
+A task has a single top-level future which the executor polls to make progress.
 That future may have one or more nested futures that its `poll` method polls,
 corresponding loosely to a call stack. Concurrency within a task is possible by
 polling multiple child futures, such as racing a timer and an I/O operation.
