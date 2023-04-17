@@ -12,7 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use log::error;
+use arm_gic::gicv3::GicV3;
+use log::{error, info, trace};
 use psci::system_off;
 
 #[no_mangle]
@@ -23,8 +24,9 @@ extern "C" fn sync_exception_current(_elr: u64, _spsr: u64) {
 
 #[no_mangle]
 extern "C" fn irq_current(_elr: u64, _spsr: u64) {
-    error!("irq_current");
-    system_off().unwrap();
+    trace!("irq_current");
+    let intid = GicV3::get_and_acknowledge_interrupt().expect("No pending interrupt");
+    info!("IRQ {intid:?}");
 }
 
 #[no_mangle]
