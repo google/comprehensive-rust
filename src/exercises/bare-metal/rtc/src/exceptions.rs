@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use crate::gicv3::GicV3;
+use arm_gic::gicv3::GicV3;
 use log::{error, info, trace};
 use psci::system_off;
 

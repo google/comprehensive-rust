@@ -17,19 +17,19 @@
 #![no_std]
 
 mod exceptions;
-mod gicv3;
 mod logger;
 mod pl011;
 // ANCHOR_END: top
 mod pl031;
 
-use crate::gicv3::{irq_enable, wfi, IntId, Trigger};
 use crate::pl031::Rtc;
+use arm_gic::gicv3::{IntId, Trigger};
+use arm_gic::{irq_enable, wfi};
 use chrono::{TimeZone, Utc};
 use core::hint::spin_loop;
 // ANCHOR: imports
-use crate::gicv3::GicV3;
 use crate::pl011::Uart;
+use arm_gic::gicv3::GicV3;
 use core::panic::PanicInfo;
 use log::{error, info, trace, LevelFilter};
 use psci::system_off;
