@@ -1,6 +1,8 @@
 # `if let` expressions
 
-If you want to match a value against a pattern, you can use `if let`:
+The [`if let`
+expression](https://doc.rust-lang.org/reference/expressions/if-expr.html#if-let-expressions)
+lets you execute different code depending on whether a value matches a pattern:
 
 ```rust,editable
 fn main() {
