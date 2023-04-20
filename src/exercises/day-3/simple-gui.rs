@@ -85,6 +85,7 @@ impl Window {
 impl Widget for Window {
     fn width(&self) -> usize {
         // ANCHOR_END: Window-width
+        // Add 4 paddings for borders
         self.inner_width() + 4
     }
 
@@ -159,17 +160,6 @@ fn main() {
         "Click me!",
         Box::new(|| println!("You clicked the button!")),
     )));
-    let mut inner_window = Box::new(Window::new("Sub-window"));
-    inner_window.add_widget(Box::new(Label::new("This is another")));
-    inner_window.add_widget(Box::new(Button::new(
-        "Hello",
-        Box::new(|| println!("Don't touch me")),
-    )));
-    inner_window.add_widget(Box::new(Label::new(
-        "Multi-line\n... is always tricky part in UI",
-    )));
-
-    window.add_widget(inner_window);
     window.draw();
 }
 // ANCHOR_END: main
