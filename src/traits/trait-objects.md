@@ -27,8 +27,8 @@ impl Pet for Cat {
 
 fn main() {
     let pets: Vec<Box<dyn Pet>> = vec![
-        Box::new(Dog { name: String::from("Fido") }),
         Box::new(Cat),
+        Box::new(Dog { name: String::from("Fido") }),
     ];
     for pet in pets {
         println!("Hello {}!", pet.name());
