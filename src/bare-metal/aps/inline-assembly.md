@@ -7,7 +7,7 @@ to make an <abbr title="hypervisor call">HVC</abbr> to tell the firmware to powe
 {{#include examples/src/main_psci.rs:main}}
 ```
 
-(If you actually want to do this, use the [`psci`][1] crate which has wrappers for all these functions.)
+(If you actually want to do this, use the [`smccc`][1] crate which has wrappers for all these functions.)
 
 <details>
 
@@ -28,4 +28,4 @@ to make an <abbr title="hypervisor call">HVC</abbr> to tell the firmware to powe
 
 </details>
 
-[1]: https://crates.io/crates/psci
+[1]: https://crates.io/crates/smccc
