@@ -2,7 +2,7 @@
 
 Trait objects allow for values of different types, for instance in a collection:
 
-```rust
+```rust,editable
 trait Pet {
     fn name(&self) -> String;
 }
