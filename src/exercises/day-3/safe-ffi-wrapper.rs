@@ -37,8 +37,8 @@ mod ffi {
     }
 
     // Layout as per man entry for dirent
-    #[repr(C)]
     #[cfg(target_os = "macos")]
+    #[repr(C)]
     pub struct dirent {
         pub d_ino: u64,
         pub d_seekoff: u64,
