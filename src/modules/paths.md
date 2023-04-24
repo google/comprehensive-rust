@@ -14,6 +14,6 @@ A module can bring symbols from another module into scope with `use`.
 You will typically see something like this at the top of each module:
 
 ```rust,editable
-use std::collection::HashSet;
-use serde_json::json;
+use std::collections::HashSet;
+use std::mem::transmute;
 ```
