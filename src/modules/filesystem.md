@@ -28,11 +28,15 @@ These document the item that contains them -- in this case, a module.
 //! This module implements the garden, including a highly performant germination
 //! implementation.
 
-/// Sow the given seed packets.
-fn sow(seeds: Vec<SeedPacket>) { todo!() }
+// Re-export types from this module.
+pub use seeds::SeedPacket;
+pub use garden::Garden;
 
-// Harvest the produce in the garden that is ready.
-fn harvest(garden: &mut Garden) { todo!() }
+/// Sow the given seed packets.
+pub fn sow(seeds: Vec<SeedPacket>) { todo!() }
+
+/// Harvest the produce in the garden that is ready.
+pub fn harvest(garden: &mut Garden) { todo!() }
 ```
 
 <details>
