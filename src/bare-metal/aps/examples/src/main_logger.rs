@@ -23,7 +23,8 @@ mod pl011;
 use crate::pl011::Uart;
 use core::panic::PanicInfo;
 use log::{error, info, LevelFilter};
-use psci::system_off;
+use smccc::psci::system_off;
+use smccc::Hvc;
 
 /// Base address of the primary PL011 UART.
 const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
@@ -39,13 +40,13 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
 
     assert_eq!(x1, 42);
 
-    system_off().unwrap();
+    system_off::<Hvc>().unwrap();
 }
 
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     error!("{info}");
-    system_off().unwrap();
+    system_off::<Hvc>().unwrap();
     loop {}
 }
 // ANCHOR_END: main
