@@ -163,4 +163,4 @@ impl Write for Uart {
 
 // Safe because it just contains a pointer to device memory, which can be
 // accessed from any context.
-unsafe impl Send for Uart {}
+//unsafe impl Send for Uart {}
