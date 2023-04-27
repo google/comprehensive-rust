@@ -1,6 +1,6 @@
 # `Arc`
 
-[`Arc<T>`][1] allows shared read-only access via its `clone` method:
+[`Arc<T>`][1] allows shared read-only access via `Arc::clone`:
 
 ```rust,editable
 use std::thread;
@@ -10,7 +10,7 @@ fn main() {
     let v = Arc::new(vec![10, 20, 30]);
     let mut handles = Vec::new();
     for _ in 1..5 {
-        let v = v.clone();
+        let v = Arc::clone(&v);
         handles.push(thread::spawn(move || {
             let thread_id = thread::current().id();
             println!("{thread_id:?}: {v:?}");
