@@ -2,7 +2,7 @@
 
 By default, a panic will cause the stack to unwind. The unwinding can be caught:
 
-```rust
+```rust,editable
 use std::panic;
 
 let result = panic::catch_unwind(|| {
