@@ -3,7 +3,7 @@
 Let us jump into the simplest possible Rust program, a classic Hello World
 program:
 
-```rust
+```rust,editable
 fn main() {
     println!("Hello 🌍!");
 }

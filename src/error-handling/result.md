@@ -3,7 +3,7 @@
 We have already seen the `Result` enum. This is used pervasively when errors are
 expected as part of normal operation:
 
-```rust
+```rust,editable
 use std::fs::File;
 use std::io::Read;
 

@@ -2,7 +2,7 @@
 
 Mark unit tests with `#[test]`:
 
-```rust,ignore
+```rust,editable,ignore
 fn first_word(text: &str) -> &str {
     match text.find(' ') {
         Some(idx) => &text[..idx],
