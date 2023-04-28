@@ -24,11 +24,11 @@ You will convert between all these types:
 - `&str` to `CString`: you need to allocate space for a trailing `\0` character,
 - `CString` to `*const i8`: you need a pointer to call C functions,
 - `*const i8` to `&CStr`: you need something which can find the trailing `\0` character,
-- `&CStr` to `&[u8]`: you will ultimately return a slice of bytes,
-- `&[u8]` to `&OsStr`: you can create an `OsString` from `&[u8]`. Use
+- `&CStr` to `&[u8]`: a slice of bytes is the universal interface for "some unknow data",
+- `&[u8]` to `&OsStr`: `&OsStr` is a step towards `OsString`, use
   [`OsStrExt`](https://doc.rust-lang.org/std/os/unix/ffi/trait.OsStrExt.html)
-  for this.
-- `&OsStr` to `OsString`: you need to take ownership of the data before you call
+  to create it,
+- `&OsStr` to `OsString`: you need to clone the data in `&OsStr` to be able to return it and call
   `readdir` again.
 
 The [Nomicon] also has a very useful chapter about FFI.
