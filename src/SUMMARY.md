@@ -3,7 +3,6 @@
 [Welcome to Comprehensive Rust 🦀](welcome.md)
 - [Running the Course](running-the-course.md)
   - [Course Structure](running-the-course/course-structure.md)
-  - [Day 4](running-the-course/day-4.md)
   - [Keyboard Shortcuts](running-the-course/keyboard-shortcuts.md)
   - [Translations](running-the-course/translations.md)
 - [Using Cargo](cargo.md)
