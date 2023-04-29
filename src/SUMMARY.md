@@ -200,7 +200,7 @@
     - [Calling Rust from C](android/interoperability/with-c/rust.md)
   - [With C++](android/interoperability/cpp.md))
   - [With Java](android/interoperability/java.md)
-- [Exercises](exercises/day-4/android.md)
+- [Exercises](exercises/android/morning.md)
 
 
 # Bare Metal: Morning
@@ -269,9 +269,9 @@
   - [Send](concurrency/send-sync/send.md)
   - [Sync](concurrency/send-sync/sync.md)
   - [Examples](concurrency/send-sync/examples.md)
-- [Exercises](exercises/day-4/morning.md)
-  - [Dining Philosophers](exercises/day-4/dining-philosophers.md)
-  - [Multi-threaded Link Checker](exercises/day-4/link-checker.md)
+- [Exercises](exercises/concurrency/morning.md)
+  - [Dining Philosophers](exercises/concurrency/dining-philosophers.md)
+  - [Multi-threaded Link Checker](exercises/concurrency/link-checker.md)
 
 # Concurrency: Afternoon
 
@@ -289,7 +289,7 @@
   - [Blocking the Executor](async/pitfalls/blocking-executor.md)
   - [Pin](async/pitfalls/pin.md)
   - [Async Traits](async/pitfalls/async-traits.md)
-- [Exercises](exercises/day-4/elevator.md)
+- [Exercises](exercises/concurrency/elevator.md)
 
 
 # Final Words
@@ -312,6 +312,6 @@
   - [Day 2 Afternoon](exercises/day-2/solutions-afternoon.md)
   - [Day 3 Morning](exercises/day-3/solutions-morning.md)
   - [Day 3 Afternoon](exercises/day-3/solutions-afternoon.md)
-  - [Day 4 Morning](exercises/day-4/solutions-morning.md)
   - [Bare Metal Rust Morning](exercises/bare-metal/solutions-morning.md)
   - [Bare Metal Rust Afternoon](exercises/bare-metal/solutions-afternoon.md)
+  - [Concurrency Morning](exercises/concurrency/solutions-morning.md)
