@@ -15,7 +15,7 @@ specialized topics:
 
 * [Android](../android.md): a half-day course on using Rust for Android platform
   development. This includes interoperability wtih C, C++, and Java.
-* [Bare-metal](../welcome-bare-metal.md): a full day class on using Rust for
+* [Bare-metal](../bare-metal.md): a full day class on using Rust for
   bare-metal (embedded) development. Both microcontrollers and application
   processors are covered.
 * [Concurrency](../concurrency.md): a full day class on classical as well as

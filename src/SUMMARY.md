@@ -208,7 +208,7 @@
 
 ----
 
-- [Welcome](welcome-bare-metal.md)
+- [Welcome](bare-metal.md)
 - [no_std](bare-metal/no_std.md)
   - [A Minimal Example](bare-metal/minimal.md)
   - [alloc](bare-metal/alloc.md)
