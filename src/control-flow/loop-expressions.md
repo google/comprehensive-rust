@@ -26,7 +26,7 @@ fn main() {
     
 * Break the `loop` with a value (e.g. `break 8`) and print it out.
 * Note that `loop` is the only looping construct which returns a non-trivial
-  value. This is because it's guaranteed to be entered at least once (unline
+  value. This is because it's guaranteed to be entered at least once (unlike
   `while` and `for` loops).
 
 </details>
