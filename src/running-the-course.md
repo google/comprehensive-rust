@@ -41,8 +41,6 @@ Before you run the course, you will want to:
    and offer a solution, e.g., by showing people where to find the relevant
    information in the standard library.
 
-1. Prepare anything you need to have available for the afternoon of day 4.
-
 That is all, good luck running the course! We hope it will be as much fun for
 you as it has been for us!
 
