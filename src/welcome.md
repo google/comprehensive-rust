@@ -4,7 +4,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/google/comprehensive-rust?style=flat-square)](https://github.com/google/comprehensive-rust/graphs/contributors)
 [![GitHub stars](https://img.shields.io/github/stars/google/comprehensive-rust?style=flat-square)](https://github.com/google/comprehensive-rust/stargazers)
 
-This is a four day Rust course developed by the Android team. The course covers
+This is a three day Rust course developed by the Android team. The course covers
 the full spectrum of Rust, from basic syntax to advanced topics like generics
 and error handling. It also includes Android-specific content on the last day.
 
@@ -15,25 +15,25 @@ about Rust and hope to:
 * Enable you to modify existing programs and write new programs in Rust.
 * Show you common Rust idioms.
 
-On Day 4, we will cover Android-specific things such as:
+The first three days show you the fundamentals of Rust. Following this, you're
+invited to dive into one or more spezialized topics:
 
-* Building Android components in Rust.
-* AIDL servers and clients.
-* Interoperability with C, C++, and Java.
+* [Android](android.md): a half-day course on using Rust for Android platform
+  development (AOSP). This includes interoperability wtih C, C++, and Java.
+* [Bare-metal](bare-metal.md): a full day class on using Rust for bare-metal
+  (embedded) development. Both microcontrollers and application processors are
+  covered.
+* [Concurrency](concurrency.md): a full day class on concurrency in Rust. We
+  cover both classical concurrency (preemptively scheduling using threads and
+  mutextes) and async/await concurrency (cooperative multitasking using
+  futures).
 
-It is important to note that this course does not cover Android **application** 
-development in Rust, and that the Android-specific parts are specifically about
-writing code for Android itself, the operating system. 
 
 ## Non-Goals
 
 Rust is a large language and we won't be able to cover all of it in a few days.
 Some non-goals of this course are:
 
-* Learn how to use async Rust --- we'll only mention async Rust when
-  covering traditional concurrency primitives. Please see [Asynchronous
-  Programming in Rust](https://rust-lang.github.io/async-book/) instead for
-  details on this topic.
 * Learn how to develop macros, please see [Chapter 19.5 in the Rust
   Book](https://doc.rust-lang.org/book/ch19-06-macros.html) and [Rust by
   Example](https://doc.rust-lang.org/rust-by-example/macros.html) instead.
