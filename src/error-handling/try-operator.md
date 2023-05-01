@@ -20,55 +20,31 @@ We can use this to simplify our error handing code:
 
 ```rust,editable
 use std::fs;
-use std::io::{self, Read};
+use std::io::{self, Error, ErrorKind, Read};
 
-fn read_username(path: &str) -> Result<String, io::Error> {
-    let username_file_result = fs::File::open(path);
-    let mut username_file = match username_file_result {
+// Reads the email address from a file and returns the username and hostname.
+fn read_email_address(path: &str) -> Result<(String, String), io::Error> {
+    let email_file_result = fs::File::open(path);
+    let mut email_file = match email_file_result {
         Ok(file) => file,
         Err(err) => return Err(err),
     };
 
-    let mut username = String::new();
-    match username_file.read_to_string(&mut username) {
-        Ok(_) => Ok(username),
-        Err(err) => Err(err),
+    let mut email = String::new();
+    if let Err(err) = email_file.read_to_string(&mut email) {
+        return Err(err);
+    }
+    if let Some((username, hostname)) = email.split_once('@') {
+        Ok((String::from(username), String::from(hostname)))
+    } else {
+        Err(Error::new(ErrorKind::InvalidData, "Invalid email address"))
     }
 }
 
 fn main() {
-    //fs::write("config.dat", "alice").unwrap();
-    let username = read_username("config.dat");
-    println!("username or error: {username:?}");
-}
-```
-
-It also works with `Option<T>`
-
-```rust,editable
-fn add_or_none(a: Option<i32>, b: Option<i32>) -> Option<i32> {
-    let a = if let Some(a) = a {
-        a
-    } else {
-        return None;
-    };
-
-    let b = if let Some(b) = b {
-        b
-    } else {
-        return None;
-    };
-
-    Some(a + b)
-}
-
-fn main() {
-    let a = Some(1);
-    let b = Some(2);
-    println!("None + None = {:?}", add_or_none(None, None));
-    println!("a + None = {:?}", add_or_none(a, None));
-    println!("None + b = {:?}", add_or_none(None, b));
-    println!("a + b = {:?}", add_or_none(a, b));
+    //fs::write("config.dat", "alice@gmail.com").unwrap();
+    let email = read_email_address("config.dat");
+    println!("email or error: {email:?}");
 }
 ```
 
