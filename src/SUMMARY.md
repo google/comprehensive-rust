@@ -3,7 +3,6 @@
 [Welcome to Comprehensive Rust 🦀](welcome.md)
 - [Running the Course](running-the-course.md)
   - [Course Structure](running-the-course/course-structure.md)
-  - [Day 4](running-the-course/day-4.md)
   - [Keyboard Shortcuts](running-the-course/keyboard-shortcuts.md)
   - [Translations](running-the-course/translations.md)
 - [Using Cargo](cargo.md)
@@ -178,85 +177,37 @@
   - [Safe FFI Wrapper](exercises/day-3/safe-ffi-wrapper.md)
 
 
-# Day 4: Morning
+# Android
 
 ----
 
-- [Welcome](welcome-day-4.md)
-- [Concurrency](concurrency.md)
-  - [Threads](concurrency/threads.md)
-  - [Scoped Threads](concurrency/scoped-threads.md)
-  - [Channels](concurrency/channels.md)
-    - [Unbounded Channels](concurrency/channels/unbounded.md)
-    - [Bounded Channels](concurrency/channels/bounded.md)
-  - [Shared State](concurrency/shared_state.md)
-    - [Arc](concurrency/shared_state/arc.md)
-    - [Mutex](concurrency/shared_state/mutex.md)
-    - [Example](concurrency/shared_state/example.md)
-  - [Send and Sync](concurrency/send-sync.md)
-    - [Send](concurrency/send-sync/send.md)
-    - [Sync](concurrency/send-sync/sync.md)
-    - [Examples](concurrency/send-sync/examples.md)
-- [Exercises](exercises/day-4/morning.md)
-  - [Dining Philosophers](exercises/day-4/dining-philosophers.md)
-  - [Multi-threaded Link Checker](exercises/day-4/link-checker.md)
+- [Welcome](android.md)
+- [Setup](android/setup.md)
+- [Build Rules](android/build-rules.md)
+  - [Binary](android/build-rules/binary.md)
+  - [Library](android/build-rules/library.md)
+- [AIDL](android/aidl.md)
+  - [Interface](android/aidl/interface.md)
+  - [Implementation](android/aidl/implementation.md)
+  - [Server](android/aidl/server.md)
+  - [Deploy](android/aidl/deploy.md)
+  - [Client](android/aidl/client.md)
+  - [Changing API](android/aidl/changing.md)
+- [Logging](android/logging.md)
+- [Interoperability](android/interoperability.md)
+  - [With C](android/interoperability/with-c.md)
+    - [Calling C with Bindgen](android/interoperability/with-c/bindgen.md)
+    - [Calling Rust from C](android/interoperability/with-c/rust.md)
+  - [With C++](android/interoperability/cpp.md))
+  - [With Java](android/interoperability/java.md)
+- [Exercises](exercises/android/morning.md)
 
-# Day 4: Afternoon (Android)
 
-----
-
-- [Android](android.md)
-  - [Setup](android/setup.md)
-  - [Build Rules](android/build-rules.md)
-    - [Binary](android/build-rules/binary.md)
-    - [Library](android/build-rules/library.md)
-  - [AIDL](android/aidl.md)
-    - [Interface](android/aidl/interface.md)
-    - [Implementation](android/aidl/implementation.md)
-    - [Server](android/aidl/server.md)
-    - [Deploy](android/aidl/deploy.md)
-    - [Client](android/aidl/client.md)
-    - [Changing API](android/aidl/changing.md)
-  - [Logging](android/logging.md)
-  - [Interoperability](android/interoperability.md)
-    - [With C](android/interoperability/with-c.md)
-      - [Calling C with Bindgen](android/interoperability/with-c/bindgen.md)
-      - [Calling Rust from C](android/interoperability/with-c/rust.md)
-    - [With C++](android/interoperability/cpp.md))
-    - [With Java](android/interoperability/java.md)
-- [Exercises](exercises/day-4/android.md)
-
-# Day 4: Afternoon (Async)
+# Bare Metal: Morning
 
 ----
 
-- [Async Basics](async.md)
-  - [async/await](async/async-await.md)
-  - [Futures](async/futures.md)
-  - [Runtimes](async/runtimes.md)
-    - [Tokio](async/runtimes/tokio.md)
-  - [Tasks](async/tasks.md)
-  - [Async Channels](async/channels.md)
-- [Control Flow](async/control-flow.md)
-  - [Join](async/control-flow/join.md)
-  - [Select](async/control-flow/select.md)
-- [Pitfalls](async/pitfalls.md)
-  - [Blocking the Executor](async/pitfalls/blocking-executor.md)
-  - [Pin](async/pitfalls/pin.md)
-  - [Async Traits](async/pitfalls/async-traits.md)
-- [Exercises](exercises/day-4/elevator.md)
-
-# Final Words
-
-- [Thanks!](thanks.md)
-- [Other Resources](other-resources.md)
-- [Credits](credits.md)
-
-----
-
-# Bare Metal Rust: Morning
-
-- [Welcome](welcome-bare-metal.md)
+- [Welcome](bare-metal.md)
 - [no_std](bare-metal/no_std.md)
   - [A Minimal Example](bare-metal/minimal.md)
   - [alloc](bare-metal/alloc.md)
@@ -273,7 +224,7 @@
 - [Exercises](exercises/bare-metal/morning.md)
   - [Compass](exercises/bare-metal/compass.md)
 
-# Bare Metal Rust: Afternoon
+# Bare Metal: Afternoon
 
 - [Application Processors](bare-metal/aps.md)
   - [Inline Assembly](bare-metal/aps/inline-assembly.md)
@@ -299,7 +250,56 @@
 - [Exercises](exercises/bare-metal/afternoon.md)
   - [RTC Driver](exercises/bare-metal/rtc.md)
 
----
+
+# Concurrency: Morning
+
+----
+
+- [Welcome](concurrency.md)
+- [Threads](concurrency/threads.md)
+  - [Scoped Threads](concurrency/scoped-threads.md)
+- [Channels](concurrency/channels.md)
+  - [Unbounded Channels](concurrency/channels/unbounded.md)
+  - [Bounded Channels](concurrency/channels/bounded.md)
+- [Shared State](concurrency/shared_state.md)
+  - [Arc](concurrency/shared_state/arc.md)
+  - [Mutex](concurrency/shared_state/mutex.md)
+  - [Example](concurrency/shared_state/example.md)
+- [Send and Sync](concurrency/send-sync.md)
+  - [Send](concurrency/send-sync/send.md)
+  - [Sync](concurrency/send-sync/sync.md)
+  - [Examples](concurrency/send-sync/examples.md)
+- [Exercises](exercises/concurrency/morning.md)
+  - [Dining Philosophers](exercises/concurrency/dining-philosophers.md)
+  - [Multi-threaded Link Checker](exercises/concurrency/link-checker.md)
+
+# Concurrency: Afternoon
+
+- [Async Basics](async.md)
+  - [async/await](async/async-await.md)
+  - [Futures](async/futures.md)
+  - [Runtimes](async/runtimes.md)
+    - [Tokio](async/runtimes/tokio.md)
+  - [Tasks](async/tasks.md)
+  - [Async Channels](async/channels.md)
+- [Control Flow](async/control-flow.md)
+  - [Join](async/control-flow/join.md)
+  - [Select](async/control-flow/select.md)
+- [Pitfalls](async/pitfalls.md)
+  - [Blocking the Executor](async/pitfalls/blocking-executor.md)
+  - [Pin](async/pitfalls/pin.md)
+  - [Async Traits](async/pitfalls/async-traits.md)
+- [Exercises](exercises/concurrency/elevator.md)
+
+
+# Final Words
+
+----
+
+- [Thanks!](thanks.md)
+- [Other Resources](other-resources.md)
+- [Credits](credits.md)
+
 
 # Solutions
 
@@ -312,6 +312,6 @@
   - [Day 2 Afternoon](exercises/day-2/solutions-afternoon.md)
   - [Day 3 Morning](exercises/day-3/solutions-morning.md)
   - [Day 3 Afternoon](exercises/day-3/solutions-afternoon.md)
-  - [Day 4 Morning](exercises/day-4/solutions-morning.md)
   - [Bare Metal Rust Morning](exercises/bare-metal/solutions-morning.md)
   - [Bare Metal Rust Afternoon](exercises/bare-metal/solutions-afternoon.md)
+  - [Concurrency Morning](exercises/concurrency/solutions-morning.md)

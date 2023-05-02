@@ -4,10 +4,14 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/google/comprehensive-rust?style=flat-square)](https://github.com/google/comprehensive-rust/graphs/contributors)
 [![GitHub stars](https://img.shields.io/github/stars/google/comprehensive-rust?style=flat-square)](https://github.com/google/comprehensive-rust/stargazers)
 
-This repository has the source code for Comprehensive Rust 🦀, a four day Rust
+This repository has the source code for Comprehensive Rust 🦀, a multi-day Rust
 course developed by the Android team. The course covers all aspects of Rust,
-from basic syntax to generics and error handling. It also includes
-Android-specific content on the last day.
+from basic syntax to generics and error handling. It also includes deep dives on
+[Android], [bare-metal], and [concurrency].
+
+[Android]: https://google.github.io/comprehensive-rust/android.md
+[bare-metal]: https://google.github.io/comprehensive-rust/bare-metal.md
+[concurrency]: https://google.github.io/comprehensive-rust/concurrency.md
 
 Read the course at **https://google.github.io/comprehensive-rust/**.
 

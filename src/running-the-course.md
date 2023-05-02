@@ -17,7 +17,7 @@ Before you run the course, you will want to:
    the audience you expect, or on your own expertise.
 
 1. Decide on the dates. Since the course is large, we recommend that you
-   schedule the four days over two weeks. Course participants have said that
+   schedule the days over two weeks. Course participants have said that
    they find it helpful to have a gap in the course since it helps them process
    all the information we give them.
 
@@ -40,8 +40,6 @@ Before you run the course, you will want to:
    you see that several people have the same problem, call it out to the class
    and offer a solution, e.g., by showing people where to find the relevant
    information in the standard library.
-
-1. Prepare anything you need to have available for the afternoon of day 4.
 
 That is all, good luck running the course! We hope it will be as much fun for
 you as it has been for us!
