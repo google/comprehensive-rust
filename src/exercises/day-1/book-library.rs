@@ -32,16 +32,16 @@ impl Book {
     }
 }
 
-// This makes it possible to print Book values with {}.
-impl std::fmt::Display for Book {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{} ({})", self.title, self.year)
-    }
-}
-// ANCHOR_END: setup
-
-// ANCHOR: Library_new
+// Implement the methods below. Update the `self` parameter to
+// indicate the method's required level of ownership over the object:
+//
+// - `&self` for shared read-only access,
+// - `&mut self` for unique and mutable access,
+// - `self` for unique access by value.
 impl Library {
+    // ANCHOR_END: setup
+
+    // ANCHOR: Library_new
     fn new() -> Library {
         // ANCHOR_END: Library_new
         Library { books: Vec::new() }
@@ -49,7 +49,7 @@ impl Library {
 
     // ANCHOR: Library_len
     //fn len(self) -> usize {
-    //    unimplemented!()
+    //    todo!("Return the length of `self.books`")
     //}
     // ANCHOR_END: Library_len
     fn len(&self) -> usize {
@@ -58,7 +58,7 @@ impl Library {
 
     // ANCHOR: Library_is_empty
     //fn is_empty(self) -> bool {
-    //    unimplemented!()
+    //    todo!("Return `true` if `self.books` is empty")
     //}
     // ANCHOR_END: Library_is_empty
     fn is_empty(&self) -> bool {
@@ -67,7 +67,7 @@ impl Library {
 
     // ANCHOR: Library_add_book
     //fn add_book(self, book: Book) {
-    //    unimplemented!()
+    //    todo!("Add a new book to `self.books`")
     //}
     // ANCHOR_END: Library_add_book
     fn add_book(&mut self, book: Book) {
@@ -76,22 +76,33 @@ impl Library {
 
     // ANCHOR: Library_print_books
     //fn print_books(self) {
-    //    unimplemented!()
+    //    todo!("Iterate over `self.books` and each book's title and year")
     //}
     // ANCHOR_END: Library_print_books
     fn print_books(&self) {
         for book in &self.books {
-            println!("{}", book);
+            println!("{}, published in {}", book.title, book.year);
         }
     }
 
     // ANCHOR: Library_oldest_book
     //fn oldest_book(self) -> Option<&Book> {
-    //    unimplemented!()
+    //    todo!("Return a reference to the oldest book (if any)")
     //}
     // ANCHOR_END: Library_oldest_book
     fn oldest_book(&self) -> Option<&Book> {
-        self.books.iter().min_by_key(|book| book.year)
+        // Using a closure and a built-in method:
+        // self.books.iter().min_by_key(|book| book.year)
+
+        // Longer hand-written solution:
+        let mut oldest: Option<&Book> = None;
+        for book in self.books.iter() {
+            if oldest.is_none() || book.year < oldest.unwrap().year {
+                oldest = Some(book);
+            }
+        }
+
+        oldest
     }
 }
 
@@ -103,24 +114,23 @@ impl Library {
 fn main() {
     let library = Library::new();
 
-    //println!("Our library is empty: {}", library.is_empty());
-
-    let favorite_book = Book::new("Lord of the Rings", 1954);
-    println!("Our favorite book {favorite_book} should go in the library");
-    //library.add_book(favorite_book);
+    //println!("The library is empty: {}", library.is_empty());
+    //
+    //library.add_book(Book::new("Lord of the Rings", 1954));
     //library.add_book(Book::new("Alice's Adventures in Wonderland", 1865));
+    //
+    //println!("The library is no longer empty: {}", library.is_empty());
+    //
     //
     //library.print_books();
     //
     //match library.oldest_book() {
-    //    Some(book) => println!("My oldest book is {book}"),
-    //    None => println!("My library is empty!"),
+    //    Some(book) => println!("The oldest book is {book}"),
+    //    None => println!("The library is empty!"),
     //}
     //
-    //println!("Our library has {} books", library.len());
-    for book in library.books {
-        println!("{book}");
-    }
+    //println!("The library has {} books", library.len());
+    //library.print_books();
 }
 // ANCHOR_END: main
 

@@ -14,7 +14,9 @@
 
 // ANCHOR: ffi
 mod ffi {
-    use std::os::raw::{c_char, c_int, c_long, c_ulong, c_ushort};
+    use std::os::raw::{c_char, c_int};
+    #[cfg(not(target_os = "macos"))]
+    use std::os::raw::{c_long, c_ulong, c_ushort};
 
     // Opaque type. See https://doc.rust-lang.org/nomicon/ffi.html.
     #[repr(C)]
@@ -24,6 +26,7 @@ mod ffi {
     }
 
     // Layout as per readdir(3) and definitions in /usr/include/x86_64-linux-gnu.
+    #[cfg(not(target_os = "macos"))]
     #[repr(C)]
     pub struct dirent {
         pub d_ino: c_long,
@@ -31,6 +34,18 @@ mod ffi {
         pub d_reclen: c_ushort,
         pub d_type: c_char,
         pub d_name: [c_char; 256],
+    }
+
+    // Layout as per man entry for dirent
+    #[cfg(target_os = "macos")]
+    #[repr(C)]
+    pub struct dirent {
+        pub d_ino: u64,
+        pub d_seekoff: u64,
+        pub d_reclen: u16,
+        pub d_namlen: u16,
+        pub d_type: u8,
+        pub d_name: [c_char; 1024],
     }
 
     extern "C" {

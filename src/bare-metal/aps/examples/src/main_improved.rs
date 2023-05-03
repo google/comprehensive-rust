@@ -20,12 +20,14 @@ mod exceptions;
 mod pl011;
 
 use crate::pl011::Uart;
-use core::{fmt::Write, panic::PanicInfo};
+use core::fmt::Write;
+use core::panic::PanicInfo;
 use log::error;
-use psci::system_off;
+use smccc::psci::system_off;
+use smccc::Hvc;
 
 /// Base address of the primary PL011 UART.
-pub const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
+const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
 
 #[no_mangle]
 extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
@@ -49,13 +51,13 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     }
 
     writeln!(uart, "Bye!").unwrap();
-    system_off().unwrap();
+    system_off::<Hvc>().unwrap();
 }
 // ANCHOR_END: main
 
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     error!("{info}");
-    system_off().unwrap();
+    system_off::<Hvc>().unwrap();
     loop {}
 }

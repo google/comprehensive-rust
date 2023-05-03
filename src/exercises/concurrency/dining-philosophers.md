@@ -11,8 +11,10 @@ The dining philosophers problem is a classic problem in concurrency:
 > an individual philosopher finishes eating, they will put down both forks.
 
 You will need a local [Cargo installation](../../cargo/running-locally.md) for
-this exercise. Copy the code below to `src/main.rs` file, fill out the blanks,
-and test that `cargo run` does not deadlock:
+this exercise. Copy the code below to a file called `src/main.rs`, fill out the
+blanks, and test that `cargo run` does not deadlock:
+
+<!-- File src/main.rs -->
 
 ```rust,compile_fail
 {{#include dining-philosophers.rs:Philosopher}}
@@ -34,4 +36,15 @@ and test that `cargo run` does not deadlock:
 
     // Output their thoughts
 }
+```
+
+You can use the following `Cargo.toml`:
+
+<!-- File Cargo.toml -->
+
+```toml
+[package]
+name = "dining-philosophers"
+version = "0.1.0"
+edition = "2021"
 ```

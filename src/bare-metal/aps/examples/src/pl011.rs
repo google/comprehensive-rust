@@ -12,10 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use core::{
-    fmt::{self, Write},
-    ptr::{addr_of, addr_of_mut},
-};
+use core::fmt::{self, Write};
+use core::ptr::{addr_of, addr_of_mut};
 
 // ANCHOR: Flags
 use bitflags::bitflags;

@@ -19,7 +19,8 @@
 extern crate alloc;
 extern crate panic_halt as _;
 
-use alloc::{string::ToString, vec::Vec};
+use alloc::string::ToString;
+use alloc::vec::Vec;
 use buddy_system_allocator::LockedHeap;
 
 #[global_allocator]

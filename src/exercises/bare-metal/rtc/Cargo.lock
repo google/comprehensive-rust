@@ -3,6 +3,15 @@
 version = 3
 
 [[package]]
+name = "arm-gic"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d16805d71f41d1714a51ee34f40633c42980a2afaf8ae237bcba09d6e15494ef"
+dependencies = [
+ "bitflags",
+]
+
+[[package]]
 name = "autocfg"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -10,9 +19,9 @@ checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
 
 [[package]]
 name = "bitflags"
-version = "2.0.2"
+version = "2.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "487f1e0fcbe47deb8b0574e646def1c903389d95241dd1bbcc6ce4a715dfc0c1"
+checksum = "c70beb79cbb5ce9c4f8e20849978f34225931f665bb49efa6982875a4d5facb3"
 
 [[package]]
 name = "cc"
@@ -84,6 +93,7 @@ checksum = "3374e3ae47f134467227a48be93b929e5d304efcd25ce5d176006403ca1d9bab"
 name = "rtc"
 version = "0.1.0"
 dependencies = [
+ "arm-gic",
  "bitflags",
  "cc",
  "chrono",
