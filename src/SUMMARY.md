@@ -144,7 +144,7 @@
   - [Drop](traits/drop.md)
   - [Default](traits/default.md)
   - [Operators: Add, Mul, ...](traits/operators.md)
-    - [Closures](traits/closures.md)
+  - [Closures: Fn, FnMut, FnOnce](traits/closures.md)
 - [Exercises](exercises/day-3/morning.md)
   - [A Simple GUI Library](exercises/day-3/simple-gui.md)
 
