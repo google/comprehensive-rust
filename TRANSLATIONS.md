@@ -46,6 +46,9 @@ find mistakes, you need to update the original English text instead. The fixes
 to the English text will flow into the `.po` files the next time the translators
 update them.
 
+> **Tip:** See our [style guide](STYLE.md) for some things to keep in mind when
+> writing the translation.
+
 ### Generating the PO Template
 
 To extract the original English text and generate a `messages.pot` file, you run
