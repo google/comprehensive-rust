@@ -127,4 +127,4 @@ Run the code in QEMU with `make qemu`.
 [1]: https://developer.arm.com/documentation/ddi0224/c
 [2]: https://crates.io/crates/chrono
 [3]: https://doc.rust-lang.org/core/hint/fn.spin_loop.html
-[4]: https://docs.rs/crate/arm-gic/0.1.0
+[4]: https://docs.rs/arm-gic/
