@@ -27,7 +27,7 @@ directory for the following files.
 
 {{#include rtc/src/main.rs:main}}
 
-    // TODO: Initialise RTC and print value.
+    // TODO: Create instance of RTC driver and print current time.
 
     // TODO: Wait for 3 seconds.
 
