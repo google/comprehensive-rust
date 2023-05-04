@@ -45,6 +45,6 @@ Copy this example into your prepared `src/main.rs` and run it from there.
 * You can also combine `join_all` with `join!` for instance to join all requests
   to an http service as well as a database query. Try adding a
   `tokio::time::sleep` to the future, using `futures::join!`. This is not a
-  timeout (that requires `select!`, the next chapter), but demonstrates `join!`.
+  timeout (that requires `select!`, explained in the next chapter), but demonstrates `join!`.
 
 </details>
