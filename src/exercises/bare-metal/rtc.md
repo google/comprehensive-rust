@@ -12,9 +12,9 @@ should write a driver for it.
    - Use the RTC interrupt, which is wired to the GIC as `IntId::spi(2)`.
    - Once the interrupt is enabled, you can put the core to sleep via `arm_gic::wfi()`, which will cause the core to sleep until it receives an interrupt.
    
-
-Download the [exercise template](../../comprehensive-rust-exercises.zip) and look in the `rtc`
-directory for the following files.
+Find the following files either in `rtc/` in the [exercise
+template](../../comprehensive-rust-exercises.zip) or in
+[`src/exercises/bare-metal/compass`](https://github.com/google/comprehensive-rust/tree/main/src/exercises/bare-metal/rtc).
 
 `src/main.rs`:
 

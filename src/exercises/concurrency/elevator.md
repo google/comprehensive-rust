@@ -11,8 +11,9 @@ by sending and receiving messages.
 
 ## Getting Started
 
-Download the [exercise template](../../comprehensive-rust-exercises.zip) and look in the `elevator`
-directory for the following files.
+Find the following files either in `elevator/` in the [exercise
+template](../../comprehensive-rust-exercises.zip) or in
+[`src/exercises/bare-metal/compass`](https://github.com/google/comprehensive-rust/tree/main/src/exercises/concurrency/elevator).
 
 `src/main.rs`:
 

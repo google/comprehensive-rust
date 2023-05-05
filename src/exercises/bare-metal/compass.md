@@ -20,8 +20,9 @@ Hints:
   [nRF52833 datasheet](https://infocenter.nordicsemi.com/pdf/nRF52833_PS_v1.5.pdf) if you want, but
   it shouldn't be necessary for this exercise.
 
-Download the [exercise template](../../comprehensive-rust-exercises.zip) and look in the `compass`
-directory for the following files.
+Find the following files either in `compass/` in the [exercise
+template](../../comprehensive-rust-exercises.zip) or in
+[`src/exercises/bare-metal/compass`](https://github.com/google/comprehensive-rust/tree/main/src/exercises/bare-metal/compass).
 
 `src/main.rs`:
 
