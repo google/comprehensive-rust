@@ -6,4 +6,4 @@ Here are some additional crates which we recommend for writing tests:
 
 * [googletest](https://docs.rs/googletest): Comprehensive test assertion library in the tradition of GoogleTest for C++.
 * [proptest](https://docs.rs/proptest): Property-based testing for Rust.
-* [rstest](https://crates.io/crates/rstest): Support for fixtures and parameterised tests.
+* [rstest](https://docs.rs/rstest): Support for fixtures and parameterised tests.
