@@ -14,10 +14,10 @@ fn main() {
 This is often used for single-field wrappers (called newtypes):
 
 ```rust,editable,compile_fail
-struct PoundOfForce(f64);
+struct PoundsOfForce(f64);
 struct Newtons(f64);
 
-fn compute_thruster_force() -> PoundOfForce {
+fn compute_thruster_force() -> PoundsOfForce {
     todo!("Ask a rocket scientist at NASA")
 }
 
