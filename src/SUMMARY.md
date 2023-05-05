@@ -165,6 +165,7 @@
   - [Test Modules](testing/test-modules.md)
   - [Documentation Tests](testing/doc-tests.md)
   - [Integration Tests](testing/integration-tests.md)
+  - [Useful crates](testing/useful-crates.md)
 - [Unsafe Rust](unsafe.md)
   - [Dereferencing Raw Pointers](unsafe/raw-pointers.md)
   - [Mutable Static Variables](unsafe/mutable-static-variables.md)
