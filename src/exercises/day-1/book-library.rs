@@ -112,7 +112,7 @@ impl Library {
 // method signatures, including the "self" parameter! You may
 // also need to update the variable bindings within main.
 fn main() {
-    let library = Library::new();
+    let mut library = Library::new();
 
     //println!("The library is empty: {}", library.is_empty());
     //
@@ -125,7 +125,7 @@ fn main() {
     //library.print_books();
     //
     //match library.oldest_book() {
-    //    Some(book) => println!("The oldest book is {book}"),
+    //    Some(book) => println!("The oldest book is {}", book.title),
     //    None => println!("The library is empty!"),
     //}
     //
