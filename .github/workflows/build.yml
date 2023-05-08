@@ -10,23 +10,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  mdbook:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Rust cache
-        uses: ./.github/workflows/setup-rust-cache
-
-      - name: Install mdbook
-        uses: ./.github/workflows/install-mdbook
-
-      - name: Test code snippets
-        run: mdbook test
-
   format:
-    name: Format
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -51,7 +35,6 @@ jobs:
         run: cargo test
 
   bare-metal:
-    name: Build bare-metal Rust examples
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -77,40 +60,37 @@ jobs:
         run: sudo apt update && sudo apt install gcc-aarch64-linux-gnu
 
       - name: Install toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          target: ${{ matrix.target }}
+        run: rustup target add ${{ matrix.target }}
 
       - name: Build Rust code
         working-directory: ${{ matrix.directory }}
         run: cargo build
 
-  find-translations:
+  find-languages:
     runs-on: ubuntu-latest
     outputs:
-      languages: ${{ steps.find-translations.outputs.languages }}
+      languages: ${{ steps.find-languages.outputs.languages }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Find translations
-        id: find-translations
+      - name: Find languages
+        id: find-languages
         shell: python
         run: |
           import os, json, pathlib
-          languages = [p.stem for p in pathlib.Path("po").iterdir() if p.suffix == ".po"]
+          languages = ["en"] + [p.stem for p in pathlib.Path("po").iterdir() if p.suffix == ".po"]
           github_output = open(os.environ["GITHUB_OUTPUT"], "a")
           github_output.write("languages=")
           json.dump(sorted(languages), github_output)
 
-  translations:
+  build:
     runs-on: ubuntu-latest
     needs:
-      - find-translations
+      - find-languages
     strategy:
       matrix:
-        language: ${{ fromJSON(needs.find-translations.outputs.languages) }}
+        language: ${{ fromJSON(needs.find-languages.outputs.languages) }}
     env:
       MDBOOK_BOOK__LANGUAGE: ${{ matrix.language }}
     steps:
@@ -121,25 +101,34 @@ jobs:
         uses: ./.github/workflows/setup-rust-cache
 
       - name: Install Gettext
+        if: matrix.language != 'en'
         run: sudo apt install gettext
 
       - name: Install mdbook
         uses: ./.github/workflows/install-mdbook
 
       - name: Test ${{ matrix.language }} translation
+        if: matrix.language != 'en'
         run: msgfmt --statistics -o /dev/null po/${{ matrix.language }}.po
 
-      - name: Build course with ${{ matrix.language }} translation
+      - name: Build course
         run: mdbook build
 
-      - name: Zip exercise templates for ${{ matrix.language }} translation
-        run: cd book/exerciser && zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/
+      - name: Zip exercise templates
+        run: zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/
+        working-directory: book/exerciser
 
-      - name: Upload ${{ matrix.language }} translation
+      - name: Prepare book for upload
+        run: |
+          mv book/html book/comprehensive-rust-${{ matrix.language }}
+          rm -r book/exerciser
+
+      # Upload the book now to retain it in case mdbook test fails.
+      - name: Upload book
         uses: actions/upload-artifact@v3
         with:
           name: comprehensive-rust-${{ matrix.language }}
           path: book/
 
-      - name: Test code snippets with ${{ matrix.language }} translation
+      - name: Test code snippets
         run: mdbook test
