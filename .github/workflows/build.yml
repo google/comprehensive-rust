@@ -115,7 +115,8 @@ jobs:
         run: mdbook build
 
       - name: Zip exercise templates
-        run: cd book/exerciser && zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/
+        run: zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/
+        working-directory: book/exerciser
 
       - name: Upload book
         uses: actions/upload-artifact@v3
