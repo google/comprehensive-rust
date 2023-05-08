@@ -125,7 +125,7 @@ fn main() {
     //library.print_books();
     //
     //match library.oldest_book() {
-    //    Some(book) => println!("The oldest book is {book}"),
+    //    Some(book) => println!("The oldest book is {}", book.title),
     //    None => println!("The library is empty!"),
     //}
     //
