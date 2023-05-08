@@ -75,10 +75,7 @@ jobs:
         run: sudo apt update && sudo apt install gcc-aarch64-linux-gnu
 
       - name: Install toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          target: ${{ matrix.target }}
+        run: rustup target add ${{ matrix.target }}
 
       - name: Build Rust code
         working-directory: ${{ matrix.directory }}
