@@ -118,6 +118,12 @@ jobs:
         run: zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/
         working-directory: book/exerciser
 
+      - name: Prepare book for upload
+        run: |
+          mv book/html book/comprehensive-rust-${{ matrix.language }}
+          rm -r book/exerciser
+
+      # Upload the book now to retain it in case mdbook test fails.
       - name: Upload book
         uses: actions/upload-artifact@v3
         with:
