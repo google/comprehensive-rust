@@ -112,7 +112,7 @@ impl Library {
 // method signatures, including the "self" parameter! You may
 // also need to update the variable bindings within main.
 fn main() {
-    let mut library = Library::new();
+    let library = Library::new();
 
     //println!("The library is empty: {}", library.is_empty());
     //
