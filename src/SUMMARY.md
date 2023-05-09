@@ -290,7 +290,9 @@
   - [Blocking the Executor](async/pitfalls/blocking-executor.md)
   - [Pin](async/pitfalls/pin.md)
   - [Async Traits](async/pitfalls/async-traits.md)
-- [Exercises](exercises/concurrency/elevator.md)
+- [Exercises](exercises/concurrency/afternoon.md)
+  - [Dining Philosophers](exercises/concurrency/dining-philosophers-async.md)
+  - [Elevator Operations](exercises/concurrency/elevator.md)
 
 
 # Final Words
@@ -316,3 +318,4 @@
   - [Bare Metal Rust Morning](exercises/bare-metal/solutions-morning.md)
   - [Bare Metal Rust Afternoon](exercises/bare-metal/solutions-afternoon.md)
   - [Concurrency Morning](exercises/concurrency/solutions-morning.md)
+  - [Concurrency Afternoon](exercises/concurrency/solutions-afternoon.md)
