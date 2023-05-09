@@ -12,45 +12,48 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use std::sync::{Arc};
-use std::thread;
-use std::time::Duration;
+// ANCHOR: Philosopher
+use std::sync::Arc;
 use tokio::time;
 use tokio::sync::mpsc::{self, Sender};
 use tokio::sync::Mutex;
 
-
 struct Fork;
 
-/// We've already learnt that to avoid a deadlock, we have to break the
-/// symmetry. So here we call the forks the first_fork and the second_fork.
-/// The left fork is not necessarily the first fork.
 struct Philosopher {
     name: String,
-    first_fork: Arc<Mutex<Fork>>,
-    second_fork: Arc<Mutex<Fork>>,
+    // ANCHOR_END: Philosopher
+    left_fork: Arc<Mutex<Fork>>,
+    right_fork: Arc<Mutex<Fork>>,
     thoughts: Sender<String>,
 }
 
+// ANCHOR: Philosopher-think
 impl Philosopher {
     async fn think(&self) {
         self.thoughts
             .send(format!("Eureka! {} has a new idea!", &self.name)).await
             .unwrap();
     }
+    // ANCHOR_END: Philosopher-think
 
+    // ANCHOR: Philosopher-eat
     async fn eat(&self) {
         // Pick up forks...
-        let _first_lock = self.first_fork.lock().await;
+        // ANCHOR_END: Philosopher-eat
+        let _first_lock = self.left_fork.lock().await;
         // Add a delay before picking the second fork to allow the execution
         // to transfer to another task
         time::sleep(time::Duration::from_millis(1)).await;
-        let _second_lock = self.second_fork.lock().await;
+        let _second_lock = self.right_fork.lock().await;
 
+        // ANCHOR: Philosopher-eat-body
         println!("{} is eating...", &self.name);
         time::sleep(time::Duration::from_millis(5)).await;
+        // ANCHOR_END: Philosopher-eat-body
 
         // The locks are dropped here
+        // ANCHOR: Philosopher-eat-end
     }
 }
 
@@ -59,6 +62,7 @@ static PHILOSOPHERS: &[&str] =
 
 #[tokio::main]
 async fn main() {
+    // ANCHOR_END: Philosopher-eat-end
     // Create forks
     let mut forks = vec![];
     (0..PHILOSOPHERS.len()).for_each(|_| forks.push(Arc::new(Mutex::new(Fork))));
@@ -72,8 +76,8 @@ async fn main() {
             let right_fork = forks[(i + 1) % PHILOSOPHERS.len()].clone();
             philosophers.push(Philosopher {
                 name: name.to_string(),
-                first_fork: if i % 2 == 0 { left_fork.clone() } else { right_fork.clone() },
-                second_fork: if i % 2 == 0 { right_fork.clone() } else { left_fork.clone() },
+                left_fork: if i % 2 == 0 { left_fork.clone() } else { right_fork.clone() },
+                right_fork: if i % 2 == 0 { right_fork } else { left_fork },
                 thoughts: tx.clone(),
             });
         }

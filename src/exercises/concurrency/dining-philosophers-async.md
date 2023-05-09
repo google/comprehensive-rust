@@ -11,46 +11,17 @@ that `cargo run` does not deadlock:
 <!-- File src/main.rs -->
 
 ```rust,compile_fail
-use std::sync::Arc;
-use std::thread;
-use std::time::Duration;
-use tokio::time;
-use tokio::sync::mpsc::{self, Sender};
-use tokio::sync::Mutex;
-
-
-struct Fork;
-
-/// We've already learnt that to avoid a deadlock, we have to break the
-/// symmetry. So here we call the forks the first_fork and the second_fork.
-/// The left fork is not necessarily the first fork.
-struct Philosopher {
-    name: String,
-    first_fork: ...,
-    second_fork: ...,
-    thoughts: ...,
+{{#include dining-philosophers-async.rs:Philosopher}}
+    // left_fork: ...
+    // right_fork: ...
+    // thoughts: ...
 }
 
-impl Philosopher {
-    async fn think(&self) {
-        self.thoughts
-            .send(format!("Eureka! {} has a new idea!", &self.name)).await
-            .unwrap();
-    }
+{{#include dining-philosophers-async.rs:Philosopher-think}}
 
-    async fn eat(&self) {
-        // Pick up forks...
-
-        println!("{} is eating...", &self.name);
-        time::sleep(time::Duration::from_millis(10)).await;
-    }
-}
-
-static PHILOSOPHERS: &[&str] =
-    &["Socrates", "Plato", "Aristotle", "Thales", "Pythagoras"];
-
-#[tokio::main]
-async fn main() {
+{{#include dining-philosophers-async.rs:Philosopher-eat}}
+{{#include dining-philosophers-async.rs:Philosopher-eat-body}}
+{{#include dining-philosophers-async.rs:Philosopher-eat-end}}
     // Create forks
 
     // Create philosophers
@@ -59,7 +30,6 @@ async fn main() {
 
     // Output their thoughts
 }
-
 ```
 
 Since this time you are using Async Rust, you'll need a `tokio` dependency.
