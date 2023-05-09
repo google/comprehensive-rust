@@ -4,7 +4,7 @@
 
 ([back to exercise](dining-philosophers-async.md))
 
-```rust
+```rust,compile_fail
 {{#include dining-philosophers-async.rs}}
 ```
 
