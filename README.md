@@ -34,7 +34,7 @@ The course is built using a few tools:
 - [mdbook](https://github.com/rust-lang/mdBook)
 - [mdbook-svgbob](https://github.com/boozook/mdbook-svgbob)
 - [mdbook-i18n-helpers](TRANSLATIONS.md#i18n-helpers)
-- [exerciser](exerciser/)
+- [mdbook-exerciser](mdbook-exerciser/)
 
 Install these tools with:
 
@@ -59,7 +59,8 @@ $ mdbook serve
 
 to start a web server with the course. You'll find the content on
 <http://localhost:3000>. You can use `mdbook build` to create a static version
-of the course in the `book/` directory.
+of the course in the `book/` directory. Note that you have to separately build
+and zip exercises and add them to `book/html`.
 
 ## Contact
 
