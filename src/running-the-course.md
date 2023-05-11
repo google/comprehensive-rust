@@ -33,7 +33,7 @@ Before you run the course, you will want to:
    participants spot them.
 
 1. Let people solve the exercises by themselves or in small groups.
-   We typically spend 30-45 minutes on exercises in the morning and in the afternoon.
+   We typically spend 30-45 minutes on exercises in the morning and in the afternoon (including time to review the solutions).
    Make sure to
    ask people if they're stuck or if there is anything you can help with. When
    you see that several people have the same problem, call it out to the class
