@@ -33,7 +33,7 @@ trigger when going through the code samples. We hope to improve on this via
 The course is built using a few tools:
 - [mdbook](https://github.com/rust-lang/mdBook)
 - [mdbook-svgbob](https://github.com/boozook/mdbook-svgbob)
-- [mdbook-i18n-helpers](TRANSLATIONS.md#i18n-helpers)
+- [mdbook-i18n-helpers](https://github.com/google/mdbook-i18n-helpers)
 - [mdbook-exerciser](mdbook-exerciser/)
 
 Install these tools with:
