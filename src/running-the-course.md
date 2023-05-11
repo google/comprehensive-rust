@@ -13,16 +13,13 @@ Before you run the course, you will want to:
    popup (click the link with a little arrow next to "Speaker Notes"). This way
    you have a clean screen to present to the class.
 
-1. Select your topic for the afternoon of the fourth day. This may be based on
-   the audience you expect, or on your own expertise.
-
-1. Decide on the dates. Since the course is large, we recommend that you
+1. Decide on the dates. Since the course takes at least three full days, we recommend that you
    schedule the days over two weeks. Course participants have said that
    they find it helpful to have a gap in the course since it helps them process
    all the information we give them.
 
 1. Find a room large enough for your in-person participants. We recommend a
-   class size of 15-20 people. That's small enough that people are comfortable
+   class size of 15-25 people. That's small enough that people are comfortable
    asking questions --- it's also small enough that one instructor will have
    time to answer the questions. Make sure the room has _desks_ for yourself and for the
    students: you will all need to be able to sit and work with your laptops.
@@ -35,7 +32,9 @@ Before you run the course, you will want to:
    Using your laptop will also allow you to fix typos as you or the course
    participants spot them.
 
-1. Let people solve the exercises by themselves or in small groups. Make sure to
+1. Let people solve the exercises by themselves or in small groups.
+   We typically spend 30-45 minutes on exercises in the morning and in the afternoon (including time to review the solutions).
+   Make sure to
    ask people if they're stuck or if there is anything you can help with. When
    you see that several people have the same problem, call it out to the class
    and offer a solution, e.g., by showing people where to find the relevant
