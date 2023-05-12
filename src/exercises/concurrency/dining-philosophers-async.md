@@ -48,7 +48,7 @@ tokio = {version = "1.26.0", features = ["sync", "time", "macros", "rt-multi-thr
 ```
 
 Also note that this time you have to use the `Mutex` and the `mpsc` module
-form the `tokio` crate.
+from the `tokio` crate.
 
 <details>
 
