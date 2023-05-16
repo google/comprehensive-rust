@@ -1,3 +1,18 @@
+// Copyright 2023 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+// ANCHOR: setup
 use futures_util::sink::SinkExt;
 use std::net::SocketAddr;
 use thiserror::Error;
@@ -31,16 +46,25 @@ impl From<tokio_websockets::proto::ProtocolError> for ServerError {
         ServerError::Websocket(format!("{:?}", err))
     }
 }
+// ANCHOR_END: setup
 
+
+// ANCHOR: handle_connection
 async fn handle_connection(
     addr: SocketAddr,
     mut ws_stream: WebsocketStream<TcpStream>,
     bcast_tx: Sender<String>,
 ) -> Result<(), ServerError> {
+    // ANCHOR_END: handle_connection
+
     ws_stream
         .send(Message::text("Welcome to chat! Type a message".into()))
         .await?;
     let mut bcast_rx = bcast_tx.subscribe();
+
+    // A continuous loop to alternate between receiving messages from
+    // `ws_stream` and broadcasting them, or receiving messages on `bcast_rx`
+    // and sending them to the client. 
     loop {
         tokio::select! {
             incoming = ws_stream.next() => {
@@ -59,6 +83,7 @@ async fn handle_connection(
             }
         }
     }
+    // ANCHOR: main
 }
 
 #[tokio::main]
@@ -80,3 +105,4 @@ async fn main() -> Result<(), ServerError> {
         });
     }
 }
+// ANCHOR_END: main
