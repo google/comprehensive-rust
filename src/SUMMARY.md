@@ -203,6 +203,47 @@
   - [With Java](android/interoperability/java.md)
 - [Exercises](exercises/android/morning.md)
 
+# Concurrency: Morning
+
+----
+
+- [Welcome](concurrency.md)
+- [Threads](concurrency/threads.md)
+  - [Scoped Threads](concurrency/scoped-threads.md)
+- [Channels](concurrency/channels.md)
+  - [Unbounded Channels](concurrency/channels/unbounded.md)
+  - [Bounded Channels](concurrency/channels/bounded.md)
+- [Send and Sync](concurrency/send-sync.md)
+  - [Send](concurrency/send-sync/send.md)
+  - [Sync](concurrency/send-sync/sync.md)
+  - [Examples](concurrency/send-sync/examples.md)
+- [Shared State](concurrency/shared_state.md)
+  - [Arc](concurrency/shared_state/arc.md)
+  - [Mutex](concurrency/shared_state/mutex.md)
+  - [Example](concurrency/shared_state/example.md)
+- [Exercises](exercises/concurrency/morning.md)
+  - [Dining Philosophers](exercises/concurrency/dining-philosophers.md)
+  - [Multi-threaded Link Checker](exercises/concurrency/link-checker.md)
+
+# Concurrency: Afternoon
+
+- [Async Basics](async.md)
+  - [async/await](async/async-await.md)
+  - [Futures](async/futures.md)
+  - [Runtimes](async/runtimes.md)
+    - [Tokio](async/runtimes/tokio.md)
+  - [Tasks](async/tasks.md)
+  - [Async Channels](async/channels.md)
+- [Control Flow](async/control-flow.md)
+  - [Join](async/control-flow/join.md)
+  - [Select](async/control-flow/select.md)
+- [Pitfalls](async/pitfalls.md)
+  - [Blocking the Executor](async/pitfalls/blocking-executor.md)
+  - [Pin](async/pitfalls/pin.md)
+  - [Async Traits](async/pitfalls/async-traits.md)
+- [Exercises](exercises/concurrency/afternoon.md)
+  - [Dining Philosophers](exercises/concurrency/dining-philosophers-async.md)
+  - [Elevator Operations](exercises/concurrency/elevator.md)
 
 # Bare Metal: Morning
 
@@ -250,50 +291,6 @@
   - [vmbase](bare-metal/android/vmbase.md)
 - [Exercises](exercises/bare-metal/afternoon.md)
   - [RTC Driver](exercises/bare-metal/rtc.md)
-
-
-# Concurrency: Morning
-
-----
-
-- [Welcome](concurrency.md)
-- [Threads](concurrency/threads.md)
-  - [Scoped Threads](concurrency/scoped-threads.md)
-- [Channels](concurrency/channels.md)
-  - [Unbounded Channels](concurrency/channels/unbounded.md)
-  - [Bounded Channels](concurrency/channels/bounded.md)
-- [Send and Sync](concurrency/send-sync.md)
-  - [Send](concurrency/send-sync/send.md)
-  - [Sync](concurrency/send-sync/sync.md)
-  - [Examples](concurrency/send-sync/examples.md)
-- [Shared State](concurrency/shared_state.md)
-  - [Arc](concurrency/shared_state/arc.md)
-  - [Mutex](concurrency/shared_state/mutex.md)
-  - [Example](concurrency/shared_state/example.md)
-- [Exercises](exercises/concurrency/morning.md)
-  - [Dining Philosophers](exercises/concurrency/dining-philosophers.md)
-  - [Multi-threaded Link Checker](exercises/concurrency/link-checker.md)
-
-# Concurrency: Afternoon
-
-- [Async Basics](async.md)
-  - [async/await](async/async-await.md)
-  - [Futures](async/futures.md)
-  - [Runtimes](async/runtimes.md)
-    - [Tokio](async/runtimes/tokio.md)
-  - [Tasks](async/tasks.md)
-  - [Async Channels](async/channels.md)
-- [Control Flow](async/control-flow.md)
-  - [Join](async/control-flow/join.md)
-  - [Select](async/control-flow/select.md)
-- [Pitfalls](async/pitfalls.md)
-  - [Blocking the Executor](async/pitfalls/blocking-executor.md)
-  - [Pin](async/pitfalls/pin.md)
-  - [Async Traits](async/pitfalls/async-traits.md)
-- [Exercises](exercises/concurrency/afternoon.md)
-  - [Dining Philosophers](exercises/concurrency/dining-philosophers-async.md)
-  - [Elevator Operations](exercises/concurrency/elevator.md)
-
 
 # Final Words
 
