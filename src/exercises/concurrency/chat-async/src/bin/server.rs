@@ -2,8 +2,9 @@ use futures_util::sink::SinkExt;
 use std::net::SocketAddr;
 use thiserror::Error;
 use tokio::net::{TcpListener, TcpStream};
-use tokio::sync::broadcast::{Sender, channel, error::{SendError, RecvError}};
-use tokio_websockets::{ServerBuilder, WebsocketStream, Message};
+use tokio::sync::broadcast::error::{RecvError, SendError};
+use tokio::sync::broadcast::{channel, Sender};
+use tokio_websockets::{Message, ServerBuilder, WebsocketStream};
 
 #[derive(Error, Debug)]
 enum ServerError {
@@ -36,7 +37,9 @@ async fn handle_connection(
     mut ws_stream: WebsocketStream<TcpStream>,
     bcast_tx: Sender<String>,
 ) -> Result<(), ServerError> {
-    ws_stream.send(Message::text("Welcome to chat! Type a message".into())).await?;
+    ws_stream
+        .send(Message::text("Welcome to chat! Type a message".into()))
+        .await?;
     let mut bcast_rx = bcast_tx.subscribe();
     loop {
         tokio::select! {

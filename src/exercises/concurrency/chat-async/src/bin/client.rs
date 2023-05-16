@@ -1,6 +1,6 @@
 use futures_util::SinkExt;
 use http::Uri;
-use tokio::io::{BufReader, AsyncBufReadExt};
+use tokio::io::{AsyncBufReadExt, BufReader};
 use tokio_websockets::{ClientBuilder, Message};
 
 #[tokio::main]
@@ -29,7 +29,7 @@ async fn main() -> Result<(), tokio_websockets::Error> {
                     Err(err) => return Err(err.into()),
                 }
             }
-            
+
         }
     }
 }
