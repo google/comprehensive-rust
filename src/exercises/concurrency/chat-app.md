@@ -35,13 +35,13 @@ You are going to need the following functions from `tokio` and
 [`tokio_websockets`][2]. Spend a few minutes to familiarize yourself with the
 API. 
 
-- [WebsocketStream][3]::[next()][4]: for asynchronously reading messages from
-  a Websocket Stream.
-- [SinkExt][5]::[send()][6] implemented by `WebsocketStream`: for
-  asynchronously sending messages on a Websocket Stream.
-- [BufReader::read_line][7]: for asynchronously reading user messages
+- [WebsocketStream::next()][3]: for asynchronously reading messages from a
+  Websocket Stream.
+- [SinkExt::send()][4] implemented by `WebsocketStream`: for asynchronously
+  sending messages on a Websocket Stream.
+- [BufReader::read_line()][5]: for asynchronously reading user messages
   from the standard input.
-- [Sender][8]::[subscribe()][9]: for subscribing to a broadcast channel.
+- [Sender::subscribe()][6]: for subscribing to a broadcast channel.
 
 
 ## Two binaries
@@ -51,7 +51,7 @@ Normally in a Cargo project, you can have only one binary, and one
 and one for the server. You could potentially make them two separate Cargo
 projects, but we are going to put them in a single Cargo project with two
 binaries. For this to work, the client and server code should go under
-`src/bin` (see the [documentation][10]). 
+`src/bin` (see the [documentation][7]). 
 
 Copy the following server and client code into `src/bin/server.rs` and
 `src/bin/client.rs`, respectively. Your task is to complete these files as
@@ -113,11 +113,8 @@ $ cargo run --bin client
 
 [1]: https://docs.rs/tokio/latest/tokio/sync/broadcast/fn.channel.html
 [2]: https://docs.rs/tokio-websockets/0.3.2/tokio_websockets/
-[3]: https://docs.rs/tokio-websockets/0.3.2/tokio_websockets/proto/struct.WebsocketStream.html
-[4]: https://docs.rs/tokio-websockets/0.3.2/tokio_websockets/proto/struct.WebsocketStream.html#method.next
-[5]: https://docs.rs/futures-util/0.3.28/futures_util/sink/trait.SinkExt.html
-[6]: https://docs.rs/futures-util/0.3.28/futures_util/sink/trait.SinkExt.html#method.send
-[7]: https://docs.rs/tokio/latest/tokio/io/trait.AsyncBufReadExt.html#method.read_line
-[8]: https://docs.rs/tokio/latest/tokio/sync/broadcast/struct.Sender.html
-[9]: https://docs.rs/tokio/latest/tokio/sync/broadcast/struct.Sender.html#method.subscribe
-[10]: https://doc.rust-lang.org/cargo/reference/cargo-targets.html#binaries
+[3]: https://docs.rs/tokio-websockets/0.3.2/tokio_websockets/proto/struct.WebsocketStream.html#method.next
+[4]: https://docs.rs/futures-util/0.3.28/futures_util/sink/trait.SinkExt.html#method.send
+[5]: https://docs.rs/tokio/latest/tokio/io/trait.AsyncBufReadExt.html#method.read_line
+[6]: https://docs.rs/tokio/latest/tokio/sync/broadcast/struct.Sender.html#method.subscribe
+[7]: https://doc.rust-lang.org/cargo/reference/cargo-targets.html#binaries
