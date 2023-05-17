@@ -13,8 +13,8 @@
 // limitations under the License.
 
 // ANCHOR: setup
-use std::error::Error;
 use futures_util::sink::SinkExt;
+use std::error::Error;
 use std::net::SocketAddr;
 use tokio::net::{TcpListener, TcpStream};
 use tokio::sync::broadcast::{channel, Sender};
@@ -34,9 +34,9 @@ async fn handle_connection(
         .await?;
     let mut bcast_rx = bcast_tx.subscribe();
 
-    // A continuous loop to alternate between receiving messages from
-    // `ws_stream` and broadcasting them, or receiving messages on `bcast_rx`
-    // and sending them to the client. 
+    // A continuous loop for concurrently performing two tasks: (1) receiving
+    // messages from `ws_stream` and broadcasting them, and (2) receiving
+    // messages on `bcast_rx` and sending them to the client.
     loop {
         tokio::select! {
             incoming = ws_stream.next() => {

@@ -28,7 +28,7 @@ async fn main() -> Result<(), tokio_websockets::Error> {
     let mut stdin = BufReader::new(stdin);
 
     // ANCHOR_END: setup
-    // Continuous loop to alternate between sending and receiving messages
+    // Continuous loop for concurrently sending and receiving messages.
     loop {
         let mut line = String::new();
         tokio::select! {

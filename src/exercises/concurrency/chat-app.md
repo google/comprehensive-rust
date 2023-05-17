@@ -2,7 +2,7 @@
 
 In this exercise, we want to use our new knowledge to implement a broadcast
 chat application. We have a chat server that the clients connect to and publish
-their messages. The client read user messages from the standard input, and
+their messages. The client reads user messages from the standard input, and
 sends them to the server. The chat server broadcasts each message that it
 receives to all the clients.
 
@@ -11,6 +11,8 @@ For this, we use [a broadcast channel][1] on the server, and
 server.
 
 Create a new Cargo project and add the following dependencies:
+
+`Cargo.toml`:
 
 <!-- File Cargo.toml -->
 
@@ -29,16 +31,17 @@ tokio-websockets = "0.3.0"
 ```
 
 ## The required APIs
-You are going to need the following API from [`tokio_websockets`][2]. Spend a
-few minutes to familiarize yourself with the API. 
+You are going to need the following functions from `tokio` and
+[`tokio_websockets`][2]. Spend a few minutes to familiarize yourself with the
+API. 
 
 - [WebsocketStream][3]::[next()][4]: for asynchronously reading messages from
-  a Websocket Stream
+  a Websocket Stream.
 - [SinkExt][5]::[send()][6] implemented by `WebsocketStream`: for
-  asynchronously sending messages on a Websocket Stream
+  asynchronously sending messages on a Websocket Stream.
 - [BufReader::read_line][7]: for asynchronously reading user messages
-  from the standard input
-- [Sender][8]::[subscribe][9]: for subscribing to a broadcast channel
+  from the standard input.
+- [Sender][8]::[subscribe()][9]: for subscribing to a broadcast channel.
 
 
 ## Two binaries
@@ -47,11 +50,11 @@ Normally in a Cargo project, you can have only one binary, and one
 `src/main.rs` file. In this project, we need two binaries. One for the client,
 and one for the server. You could potentially make them two separate Cargo
 projects, but we are going to put them in a single Cargo project with two
-binaries. For this work, the client and server binaries should go under
+binaries. For this to work, the client and server code should go under
 `src/bin` (see the [documentation][10]). 
 
 Copy the following server and client code into `src/bin/server.rs` and
-`src/bin/client.rs`, respectively. You task is to complete these files as
+`src/bin/client.rs`, respectively. Your task is to complete these files as
 described below.
  
 
@@ -63,8 +66,9 @@ described below.
 {{#include chat-async/src/bin/server.rs:setup}}
 
 {{#include chat-async/src/bin/server.rs:handle_connection}}
-    // Hint: Use `tokio::select!`, in a continuous loop, to asynchronously
-    // alternate between the two tasks.
+
+    // TODO: For a hint, see the description of the task below.
+
 {{#include chat-async/src/bin/server.rs:main}}
 ```
 
@@ -74,8 +78,9 @@ described below.
 
 ```rust,compile_fail
 {{#include chat-async/src/bin/client.rs:setup}}
-    // Hint: Use `tokio::select!`, in a continuous loop, to asynchronously
-    // alternate between the two tasks.
+
+    // TODO: For a hint, see the description of the task below.
+
 }
 ```
 
@@ -95,14 +100,14 @@ $ cargo run --bin client
 ## Tasks
 
 * Implement the `handle_connection` function in `server.rs`.
-  * Hint: Use `tokio::select!` to asynchronously alternate between the two
-    tasks, in a continuous loop. One task receives messages from the client and
-    broadcasts them. The other sends messages received by the server to the
-    client.
+  * Hint: Use `tokio::select!` for concurrently performing two tasks in a
+    continuous loop. One task receives messages from the client and broadcasts
+    them. The other sends messages received by the server to the client.
 * Complete the main function in `client.rs`.
-  * Hint: Use `tokio::select!` to asynchronously alternate between (1) reading
-    user messages from standard input and sending them to the server, and (2)
-    receiving messages from the server, and displaying them for the user.
+  * Hint: As before, use `tokio::select!` in a continuous loop for concurrently
+    performing two tasks: (1) reading user messages from standard input and
+    sending them to the server, and (2) receiving messages from the server, and
+    displaying them for the user.
 * Optional: Once you are done, change the code to broadcast messages to all
   clients, but the sender of the message.
 
