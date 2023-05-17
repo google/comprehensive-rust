@@ -17,17 +17,7 @@ Create a new Cargo project and add the following dependencies:
 <!-- File Cargo.toml -->
 
 ```toml
-[package]
-name = "chat-async"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-futures-util = "0.3.28"
-http = "0.2.9"
-thiserror = "1.0.40"
-tokio = { version = "1.28.1", features = ["net", "macros", "time", "rt", "rt-multi-thread", "io-std", "io-util"] }
-tokio-websockets = "0.3.0"
+{{#include chat-async/Cargo.toml}}
 ```
 
 ## The required APIs
@@ -50,13 +40,12 @@ Normally in a Cargo project, you can have only one binary, and one
 `src/main.rs` file. In this project, we need two binaries. One for the client,
 and one for the server. You could potentially make them two separate Cargo
 projects, but we are going to put them in a single Cargo project with two
-binaries. For this to work, the client and server code should go under
+binaries. For this to work, the client and the server code should go under
 `src/bin` (see the [documentation][7]). 
 
 Copy the following server and client code into `src/bin/server.rs` and
 `src/bin/client.rs`, respectively. Your task is to complete these files as
-described below.
- 
+described below. 
 
 `src/bin/server.rs`:
 
@@ -99,11 +88,11 @@ $ cargo run --bin client
 
 ## Tasks
 
-* Implement the `handle_connection` function in `server.rs`.
+* Implement the `handle_connection` function in `src/bin/server.rs`.
   * Hint: Use `tokio::select!` for concurrently performing two tasks in a
     continuous loop. One task receives messages from the client and broadcasts
     them. The other sends messages received by the server to the client.
-* Complete the main function in `client.rs`.
+* Complete the main function in `src/bin/client.rs`.
   * Hint: As before, use `tokio::select!` in a continuous loop for concurrently
     performing two tasks: (1) reading user messages from standard input and
     sending them to the server, and (2) receiving messages from the server, and
