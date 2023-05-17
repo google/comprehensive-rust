@@ -8,7 +8,7 @@
 {{#include dining-philosophers-async.rs}}
 ```
 
-## A Broadcast Chat Application
+## Broadcast Chat Application
 
 ([back to exercise](chat-app.md))
 

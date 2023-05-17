@@ -1,4 +1,4 @@
-# A Broadcast Chat Application
+# Broadcast Chat Application
 
 In this exercise, we want to use our new knowledge to implement a broadcast
 chat application. We have a chat server that the clients connect to and publish

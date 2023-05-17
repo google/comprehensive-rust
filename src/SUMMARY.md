@@ -292,7 +292,7 @@
   - [Async Traits](async/pitfalls/async-traits.md)
 - [Exercises](exercises/concurrency/afternoon.md)
   - [Dining Philosophers](exercises/concurrency/dining-philosophers-async.md)
-  - [Broadcast Chat](exercises/concurrency/chat-app.md)
+  - [Broadcast Chat Application](exercises/concurrency/chat-app.md)
 
 
 # Final Words
