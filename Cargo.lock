@@ -187,7 +187,6 @@ version = "0.1.0"
 dependencies = [
  "futures-util",
  "http",
- "thiserror",
  "tokio",
  "tokio-websockets",
 ]
@@ -1997,6 +1996,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "43b2853a4d09f215c24cc5489c992ce46052d359b5109343cbafbf26bc62f8a3"
 
 [[package]]
+name = "signal-hook-registry"
+version = "1.4.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d8229b473baa5980ac72ef434c4415e70c4b5e71b423043adb4ba059f89c99a1"
+dependencies = [
+ "libc",
+]
+
+[[package]]
 name = "siphasher"
 version = "0.3.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2185,7 +2193,9 @@ dependencies = [
  "libc",
  "mio",
  "num_cpus",
+ "parking_lot",
  "pin-project-lite",
+ "signal-hook-registry",
  "socket2",
  "tokio-macros",
  "windows-sys 0.48.0",
@@ -2251,9 +2261,9 @@ dependencies = [
 
 [[package]]
 name = "tokio-websockets"
-version = "0.3.0"
+version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d009a9a2a71bd44791363f42ba2dd7d47bf49aa61f7c43eabcd29a285e75a865"
+checksum = "8d1df20f31f428a351ec353699a82aad49360090e8f6320ac0dacf5def4f1573"
 dependencies = [
  "base64 0.21.0",
  "bytes",

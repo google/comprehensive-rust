@@ -1,46 +1,42 @@
+// Copyright 2023 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+// ANCHOR: setup
 use futures_util::sink::SinkExt;
+use std::error::Error;
 use std::net::SocketAddr;
-use thiserror::Error;
 use tokio::net::{TcpListener, TcpStream};
-use tokio::sync::broadcast::error::{RecvError, SendError};
 use tokio::sync::broadcast::{channel, Sender};
 use tokio_websockets::{Message, ServerBuilder, WebsocketStream};
+// ANCHOR_END: setup
 
-#[derive(Error, Debug)]
-enum ServerError {
-    #[error("websocket error: {0}")]
-    Websocket(String),
-    #[error("io error: {0}")]
-    IO(#[from] std::io::Error),
-    #[error("broadcast channel SendError: {0}")]
-    SendError(#[from] SendError<String>),
-    #[error("broadcast channel RecvError: {0}")]
-    RecvError(#[from] RecvError),
-}
-
-// tokio_websockets Error types do not implement std::error::Error, so we make do by just capturing
-// the debug format for the error.
-impl From<tokio_websockets::Error> for ServerError {
-    fn from(err: tokio_websockets::Error) -> Self {
-        ServerError::Websocket(format!("{:?}", err))
-    }
-}
-
-impl From<tokio_websockets::proto::ProtocolError> for ServerError {
-    fn from(err: tokio_websockets::proto::ProtocolError) -> Self {
-        ServerError::Websocket(format!("{:?}", err))
-    }
-}
-
+// ANCHOR: handle_connection
 async fn handle_connection(
     addr: SocketAddr,
     mut ws_stream: WebsocketStream<TcpStream>,
     bcast_tx: Sender<String>,
-) -> Result<(), ServerError> {
+) -> Result<(), Box<dyn Error + Send + Sync>> {
+    // ANCHOR_END: handle_connection
+
     ws_stream
         .send(Message::text("Welcome to chat! Type a message".into()))
         .await?;
     let mut bcast_rx = bcast_tx.subscribe();
+
+    // A continuous loop for concurrently performing two tasks: (1) receiving
+    // messages from `ws_stream` and broadcasting them, and (2) receiving
+    // messages on `bcast_rx` and sending them to the client.
     loop {
         tokio::select! {
             incoming = ws_stream.next() => {
@@ -59,10 +55,11 @@ async fn handle_connection(
             }
         }
     }
+    // ANCHOR: main
 }
 
 #[tokio::main]
-async fn main() -> Result<(), ServerError> {
+async fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
     let (bcast_tx, _) = channel(16);
 
     let listener = TcpListener::bind("127.0.0.1:2000").await?;
@@ -80,3 +77,4 @@ async fn main() -> Result<(), ServerError> {
         });
     }
 }
+// ANCHOR_END: main
