@@ -19,6 +19,7 @@ Some notes:
 * References that are declared as `mut` can be bound to different values over their lifetime.
 
 <details>
+
 Key points:
 
 * Be sure to note the difference between `let mut ref_x: &i32` and `let ref_x:
