@@ -1,4 +1,4 @@
-# Runtimes and Tasks
+# Runtimes
 
 A *runtime* provides support for performing operations asynchronously (a
 *reactor*) and is responsible for executing futures (an *executor*). Rust does not have a

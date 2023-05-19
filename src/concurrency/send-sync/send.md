@@ -7,3 +7,10 @@ in that thread. So the question is when you can allocate a value in one thread
 and deallocate it in another.
 
 [1]: https://doc.rust-lang.org/std/marker/trait.Send.html
+
+<details>
+
+As an example, a connection to the SQLite library must only be accessed from a
+single thread.
+
+</details>

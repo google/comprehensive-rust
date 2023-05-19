@@ -35,7 +35,26 @@ fn main() {
 * Move method `not_equal` to a new trait `NotEqual`.
 
 * Make `NotEqual` a super trait for `Equal`.
+    ```rust,editable,compile_fail
+    trait NotEqual: Equals {
+        fn not_equal(&self, other: &Self) -> bool {
+            !self.equal(other)
+        }
+    }
+    ```
 
 * Provide a blanket implementation of `NotEqual` for `Equal`.
+    ```rust,editable,compile_fail
+    trait NotEqual {
+        fn not_equal(&self, other: &Self) -> bool;
+    }
+
+    impl<T> NotEqual for T where T: Equals {
+        fn not_equal(&self, other: &Self) -> bool {
+            !self.equal(other)
+        }
+    }
+    ```
   * With the blanket implementation, you no longer need `NotEqual` as a super trait for `Equal`.
+    
 </details>
