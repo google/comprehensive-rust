@@ -11,8 +11,7 @@ are other possible receivers for a method:
   method becomes the owner of the object. The object will be dropped (deallocated)
   when the method returns, unless its ownership is explicitly
   transmitted. Complete ownership does not automatically mean mutability.
-* `mut self`: same as above, but while the method owns the object, and it can
-  mutate it too. 
+* `mut self`: same as above, but the method can mutate the object. 
 * No receiver: this becomes a static method on the struct. Typically used to
   create constructors which are called `new` by convention.
 
