@@ -10,3 +10,6 @@ A borrowed value has a _lifetime_:
   yourself.
   * Lifetime annotations create constraints; the compiler verifies that there is
     a valid solution.
+* Lifetimes for function arguments and return values must be fully specified,
+  but Rust allows these to be elidied in most cases with [a few simple
+  rules](https://doc.rust-lang.org/nomicon/lifetime-elision.html).
