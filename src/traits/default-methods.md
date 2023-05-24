@@ -33,13 +33,18 @@ fn main() {
   implement themselves. Methods with default implementations can rely on required methods.
 
 * Move method `not_equal` to a new trait `NotEqual`.
-
-* Make `NotEqual` a super trait for `Equal`.
     ```rust,editable,compile_fail
-    trait NotEqual: Equals {
+    trait NotEqual {
         fn not_equal(&self, other: &Self) -> bool {
             !self.equal(other)
         }
+    }
+    ```
+
+* Make `NotEqual` a super trait for `Equal`.
+    ```rust,editable,compile_fail
+    trait Equals: NotEqual {
+        fn equal(&self, other: &Self) -> bool;
     }
     ```
 
