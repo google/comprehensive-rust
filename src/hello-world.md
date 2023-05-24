@@ -35,6 +35,6 @@ Key points:
 
 * Macros being 'hygienic' means they don't accidentally capture identifiers from
   the scope they are used in. Rust macros are actually only
-  [partially hygenic](https://veykril.github.io/tlborm/decl-macros/minutiae/hygiene.html).
+  [partially hygienic](https://veykril.github.io/tlborm/decl-macros/minutiae/hygiene.html).
 
 </details>

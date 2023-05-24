@@ -16,7 +16,7 @@ specialized topics:
 ### Android
 
 The [Android Deep Dive](../android.md) is a half-day course on using Rust for
-Android platform development. This includes interoperability wtih C, C++, and
+Android platform development. This includes interoperability with C, C++, and
 Java.
 
 You will need an [AOSP checkout][1]. Make a checkout of the [course
