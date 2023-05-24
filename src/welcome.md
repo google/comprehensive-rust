@@ -16,7 +16,7 @@ about Rust and hope to:
 * Show you common Rust idioms.
 
 The first three days show you the fundamentals of Rust. Following this, you're
-invited to dive into one or more spezialized topics:
+invited to dive into one or more specialized topics:
 
 * [Android](android.md): a half-day course on using Rust for Android platform
   development (AOSP). This includes interoperability with C, C++, and Java.
