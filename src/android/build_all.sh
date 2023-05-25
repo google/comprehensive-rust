@@ -24,7 +24,7 @@ function run_example() {
   done
 }
 
-cd $ANDROID_BUILD_TOP
+cd "$ANDROID_BUILD_TOP"
 source build/envsetup.sh
 lunch aosp_cf_x86_64_phone-userdebug
 #acloud reconnect --autoconnect adb
@@ -35,7 +35,7 @@ adb shell rm -rf '/data/local/tmp/*'
 run_example <<EOF
 # ANCHOR: hello_rust
 $ m hello_rust
-$ adb push $ANDROID_PRODUCT_OUT/system/bin/hello_rust /data/local/tmp
+$ adb push "$ANDROID_PRODUCT_OUT/system/bin/hello_rust /data/local/tmp"
 $ adb shell /data/local/tmp/hello_rust
 # ANCHOR_END: hello_rust
 EOF
@@ -43,7 +43,7 @@ EOF
 run_example <<EOF
 # ANCHOR: hello_rust_with_dep
 $ m hello_rust_with_dep
-$ adb push $ANDROID_PRODUCT_OUT/system/bin/hello_rust_with_dep /data/local/tmp
+$ adb push "$ANDROID_PRODUCT_OUT/system/bin/hello_rust_with_dep /data/local/tmp"
 $ adb shell /data/local/tmp/hello_rust_with_dep
 # ANCHOR_END: hello_rust_with_dep
 EOF
@@ -52,7 +52,7 @@ function birthday_server() {
   run_example <<EOF
 # ANCHOR: birthday_server
 $ m birthday_server
-$ adb push $ANDROID_PRODUCT_OUT/system/bin/birthday_server /data/local/tmp
+$ adb push "$ANDROID_PRODUCT_OUT/system/bin/birthday_server /data/local/tmp"
 $ adb shell /data/local/tmp/birthday_server
 # ANCHOR_END: birthday_server
 EOF
@@ -83,7 +83,7 @@ EOF
 run_example <<EOF
 # ANCHOR: birthday_client
 $ m birthday_client
-$ adb push $ANDROID_PRODUCT_OUT/system/bin/birthday_client /data/local/tmp
+$ adb push "$ANDROID_PRODUCT_OUT/system/bin/birthday_client /data/local/tmp"
 $ adb shell /data/local/tmp/birthday_client Charlie 60
 # ANCHOR_END: birthday_client
 EOF
@@ -94,7 +94,7 @@ pkill -f birthday_server
 run_example <<EOF
 # ANCHOR: hello_rust_logs
 $ m hello_rust_logs
-$ adb push $ANDROID_PRODUCT_OUT/system/bin/hello_rust_logs /data/local/tmp
+$ adb push "$ANDROID_PRODUCT_OUT/system/bin/hello_rust_logs /data/local/tmp"
 $ adb shell /data/local/tmp/hello_rust_logs
 # ANCHOR_END: hello_rust_logs
 EOF
@@ -102,7 +102,7 @@ EOF
 run_example <<EOF
 # ANCHOR: print_birthday_card
 $ m print_birthday_card
-$ adb push $ANDROID_PRODUCT_OUT/system/bin/print_birthday_card /data/local/tmp
+$ adb push "$ANDROID_PRODUCT_OUT/system/bin/print_birthday_card /data/local/tmp"
 $ adb shell /data/local/tmp/print_birthday_card
 # ANCHOR_END: print_birthday_card
 EOF
@@ -116,7 +116,7 @@ EOF
 run_example <<EOF
 # ANCHOR: analyze_numbers
 $ m analyze_numbers
-$ adb push $ANDROID_PRODUCT_OUT/system/bin/analyze_numbers /data/local/tmp
+$ adb push "$ANDROID_PRODUCT_OUT/system/bin/analyze_numbers /data/local/tmp"
 $ adb shell /data/local/tmp/analyze_numbers
 # ANCHOR_END: analyze_numbers
 EOF
