@@ -16,7 +16,7 @@ Static memory management at compile time:
 It is possible to produce memory leaks in (safe) Rust. Some examples
 are:
 
-* You can for use [`Box::leak`] to leak a pointer. A use of this could
+* You can use [`Box::leak`] to leak a pointer. A use of this could
   be to get runtime-initialized and runtime-sized static variables
 * You can use [`std::mem::forget`] to make the compiler "forget" about
   a value (meaning the destructor is never run).
