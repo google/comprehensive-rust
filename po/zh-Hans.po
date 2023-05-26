@@ -90,7 +90,7 @@ msgstr "基本语法"
 
 #: src/SUMMARY.md:27
 msgid "Scalar Types"
-msgstr ""
+msgstr "标量类型"
 
 #: src/SUMMARY.md:28
 msgid "Compound Types"
@@ -2340,7 +2340,7 @@ msgstr ""
 
 #: src/basic-syntax/scalar-types.md:1
 msgid "# Scalar Types"
-msgstr ""
+msgstr "# 标量类型"
 
 #: src/basic-syntax/scalar-types.md:3
 msgid ""
@@ -2360,10 +2360,25 @@ msgid ""
 "| Booleans               | `bool`                                     | "
 "`true`, `false`               |"
 msgstr ""
+"|                        | 类型                                     | "
+"字面量                      |\n"
+"|------------------------|--------------------------------------------|-------------------------------|\n"
+"| 有符号整数              | `i8`, `i16`, `i32`, `i64`, `i128`, `isize` | "
+"`-10`, `0`, `1_000`, `123i64` |\n"
+"| 无符号整数              | `u8`, `u16`, `u32`, `u64`, `u128`, `usize` | `0`, "
+"`123`, `10u16`           |\n"
+"| 浮点数                 | `f32`, `f64`                               | "
+"`3.14`, `-10.0e20`, `2f32`    |\n"
+"| 字符串                 | `&str`                                     | "
+"`\"foo\"`, `\"two\\nlines\"`       |\n"
+"| Unicode 标量类型       | `char`                                     | "
+"`'a'`, `'α'`, `'∞'`           |\n"
+"| 布尔值                 | `bool`                                     | "
+"`true`, `false`               |"
 
 #: src/basic-syntax/scalar-types.md:12
 msgid "The types have widths as follows:"
-msgstr ""
+msgstr "各类型占用的空间为："
 
 #: src/basic-syntax/scalar-types.md:14
 msgid ""
@@ -2371,11 +2386,14 @@ msgid ""
 "* `isize` and `usize` are the width of a pointer,\n"
 "* `char` is 32 bit wide,\n"
 "* `bool` is 8 bit wide."
-msgstr ""
+msgstr "* `iN`, `uN` 和 `fN` 占用 _N_ 位，\n"
+"* `isize` 和 `usize` 占用一个指针大小的空间，\n"
+"* `char` 占用 32 位空间，\n"
+"* `bool` 占用 8 位空间。"
 
 #: src/basic-syntax/scalar-types.md:21
 msgid "There are a few syntaxes which are not shown above:"
-msgstr ""
+msgstr "上表中还有一些未提及的语法："
 
 #: src/basic-syntax/scalar-types.md:23
 msgid ""
@@ -2401,6 +2419,25 @@ msgid ""
 "  }\n"
 "  ```"
 msgstr ""
+"- 原始字符串可在创建 `&str` 时禁用转义："
+"`r\"\\n\"\n"
+"  == \"\\\\\\\\n\"`。可以在外层引号两侧添加相同数量的 `#`，以在字符串中嵌入双引号：\n"
+"\n"
+"  ```rust,editable\n"
+"  fn main() {\n"
+"      println!(r#\"<a href=\"link.html\">link</a>\"#);\n"
+"      println!(\"<a href=\\\"link.html\\\">link</a>\");\n"
+"  }\n"
+"  ```\n"
+"\n"
+"- 字节串可以用于直接创建 `&[u8]` 类型的值：\n"
+"\n"
+"  ```rust,editable\n"
+"  fn main() {\n"
+"      println!(\"{:?}\", b\"abc\");\n"
+"      println!(\"{:?}\", &[97, 98, 99]);\n"
+"  }\n"
+"  ```"
 
 #: src/basic-syntax/compound-types.md:1
 msgid "# Compound Types"
