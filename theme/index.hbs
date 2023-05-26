@@ -172,7 +172,9 @@
                               langList.style.display = langList.style.display == "block" ? "none" : "block";
                           });
                           let selectedLang = document.getElementById("{{ language }}");
-                          selectedLang.parentNode.classList.add("theme-selected");
+                          if (selectedLang) {
+                              selectedLang.parentNode.classList.add("theme-selected");
+                          }
 
                           // The path to the root, taking the current
                           // language into account.
