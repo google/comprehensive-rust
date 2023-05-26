@@ -13,7 +13,16 @@ from basic syntax to generics and error handling. It also includes deep dives on
 [bare-metal]: https://google.github.io/comprehensive-rust/bare-metal.html
 [concurrency]: https://google.github.io/comprehensive-rust/concurrency.html
 
-Read the course at **https://google.github.io/comprehensive-rust/**.
+<div align="center">
+
+👉
+Read the course:
+[**English**](https://google.github.io/comprehensive-rust/) ∙
+[Brazilian Portuguese](https://google.github.io/comprehensive-rust/pt-BR/) ∙
+[Korean](https://google.github.io/comprehensive-rust/ko/)
+👈
+
+</div>
 
 ## Course Format and Target Audience
 
