@@ -1,6 +1,6 @@
 # The `Default` Trait
 
-[`Default`][1] trait provides a default implementation of a trait.
+[`Default`][1] trait produces a default value for a type.
 
 ```rust,editable
 #[derive(Debug, Default)]
