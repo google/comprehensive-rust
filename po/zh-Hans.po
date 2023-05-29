@@ -58,7 +58,7 @@ msgstr ""
 
 #: src/SUMMARY.md:19
 msgid "What is Rust?"
-msgstr ""
+msgstr "什么是 Rust？"
 
 #: src/SUMMARY.md:20
 msgid "Hello World!"
@@ -98,7 +98,7 @@ msgstr ""
 
 #: src/SUMMARY.md:29
 msgid "References"
-msgstr ""
+msgstr "引用"
 
 #: src/SUMMARY.md:30
 msgid "Dangling References"
@@ -136,7 +136,7 @@ msgstr ""
 
 #: src/SUMMARY.md:38
 msgid "Implicit Conversions"
-msgstr ""
+msgstr "隐式类型转换"
 
 #: src/SUMMARY.md:39
 msgid "Arrays and for Loops"
@@ -1963,12 +1963,13 @@ msgstr ""
 
 #: src/welcome-day-1/what-is-rust.md:1
 msgid "# What is Rust?"
-msgstr ""
+msgstr "# 什么是 Rust ？"
 
 #: src/welcome-day-1/what-is-rust.md:3
 msgid ""
 "Rust is a new programming language which had its [1.0 release in 2015][1]:"
 msgstr ""
+"Rust 是一种新的编程语言，它的[1.0 版本于 2015 年发布][1]："
 
 #: src/welcome-day-1/what-is-rust.md:5
 msgid ""
@@ -1986,10 +1987,22 @@ msgid ""
 "  * desktops,\n"
 "  * servers."
 msgstr ""
+"* Rust 是一种静态编译语言，其功能定位与 C++ 相似\n"
+"  * `rustc` 使用 LLVM 作为它的后端。\n"
+"* Rust 支持多种[平台和架构](https://doc.rust-lang.org/nightly/rustc/platform-support."
+"html):\n"
+"  * x86, ARM, WebAssembly, ...\n"
+"  * Linux, Mac, Windows, ...\n"
+"* Rust 被广泛用于各种设备中：\n"
+"  * 固件和引导程序，\n"
+"  * 智能显示器，\n"
+"  * 手机，\n"
+"  * 桌面，\n"
+"  * 服务器。"
 
 #: src/welcome-day-1/what-is-rust.md:21
 msgid "Rust fits in the same area as C++:"
-msgstr ""
+msgstr "Rust 和 C++ 适用于类似的场景："
 
 #: src/welcome-day-1/what-is-rust.md:23
 msgid ""
@@ -1999,6 +2012,11 @@ msgid ""
 "* Has no runtime or garbage collection.\n"
 "* Focuses on reliability and safety without sacrificing performance."
 msgstr ""
+"* 极高的灵活性。\n"
+"* 高度的控制能力。\n"
+"* 能够在资源极度有限的设备（如手机）上运行。\n"
+"* 没有运行时和垃圾收集。\n"
+"* 关注程序可靠性和安全性，而不会牺牲任何性能。"
 
 #: src/hello-world.md:1
 msgid "# Hello World!"
@@ -2554,11 +2572,11 @@ msgstr ""
 
 #: src/basic-syntax/references.md:1
 msgid "# References"
-msgstr ""
+msgstr "# 引用"
 
 #: src/basic-syntax/references.md:3
 msgid "Like C++, Rust has references:"
-msgstr ""
+msgstr "如同 C++ 一样，Rust 也提供了引用类型。"
 
 #: src/basic-syntax/references.md:5
 msgid ""
@@ -2574,7 +2592,7 @@ msgstr ""
 
 #: src/basic-syntax/references.md:14
 msgid "Some notes:"
-msgstr ""
+msgstr "一些注意事项："
 
 #: src/basic-syntax/references.md:16
 msgid ""
@@ -2585,6 +2603,9 @@ msgid ""
 "* References that are declared as `mut` can be bound to different values "
 "over their lifetime."
 msgstr ""
+"* 就像 C 与 C++ 中的指针一样，对引用 `ref_x` 进行赋值时，我们必须对其解引用。\n"
+"* Rust 有时会进行自动解引用。比如调用方法 `ref_x.count_ones()` 时，ref_x 会被解引用。\n"
+"* 如果引用值被声明为 `mut`（可变引用），那么这个引用值可以在它的生命周期内被绑定为不同的值。"
 
 #: src/basic-syntax/references.md:25
 msgid ""
@@ -2595,6 +2616,8 @@ msgid ""
 "  different values, while the second represents a reference to a mutable "
 "value."
 msgstr ""
+"* 注意 `let mut ref_x: &i32` 与 `let ref_x: &mut i32` "
+"之间的区别。第一条语句声明了一个可变引用，所以我们可以修改这个引用所绑定的值；第二条语句声明了一个指向可变变量的引用。"
 
 #: src/basic-syntax/references-dangling.md:1
 msgid "# Dangling References"
@@ -3003,7 +3026,7 @@ msgstr ""
 
 #: src/exercises/day-1/implicit-conversions.md:1
 msgid "# Implicit Conversions"
-msgstr ""
+msgstr "# 隐式类型转换"
 
 #: src/exercises/day-1/implicit-conversions.md:3
 msgid ""
@@ -3011,6 +3034,7 @@ msgid ""
 "([unlike\n"
 "C++][3]). You can see this in a program like this:"
 msgstr ""
+"[与 C++ 不同][3]，Rust 不会自动进行 _隐式类型转换_。例如，下面的程序中不存在隐式类型转换："
 
 #: src/exercises/day-1/implicit-conversions.md:6
 msgid ""
@@ -3027,6 +3051,18 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable,compile_fail\n"
+"fn multiply(x: i16, y: i16) -> i16 {\n"
+"    x * y\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let x: i8 = 15;\n"
+"    let y: i16 = 1000;\n"
+"\n"
+"    println!(\"{x} * {y} = {}\", multiply(x, y));\n"
+"}\n"
+"```"
 
 #: src/exercises/day-1/implicit-conversions.md:19
 msgid ""
@@ -3038,6 +3074,11 @@ msgid ""
 "into\n"
 "another type."
 msgstr ""
+"Rust 的整数类型都实现了 [`From<T>`][1] 和 [`Into<T>`][2]\n"
+"trait，使得我们可以在它们之间进行转换。`From<T>` trait 包含 "
+"`from()`\n"
+"方法，`Into<T>` trait 包含 `into()` 方法。"
+"类型通过实现这些 trait 来表达它将被如何转换为另一个类型。"
 
 #: src/exercises/day-1/implicit-conversions.md:25
 msgid ""
@@ -3047,6 +3088,9 @@ msgid ""
 "`i16::from(x)`. Or, simpler, with `x.into()`, because `From<i8> for i16`\n"
 "implementation automatically create an implementation of `Into<i16> for i8`."
 msgstr ""
+"标准库中包含 `From<i8> for i16` 的实现，即我们可以通过调用 `i16::from(x)` 来将 `i8`\n"
+"类型的变量 `x` 转换为 `i16`。或者也可以简单地使用 `x.into()`，因为 `From<i8> for i16`\n"
+"的实现会自动创建 `Into<i16> for i8` 的实现。"
 
 #: src/exercises/day-1/implicit-conversions.md:30
 msgid ""
@@ -3055,6 +3099,7 @@ msgid ""
 "sufficient to only implement `From` to get a respective `Into` "
 "implementation automatically."
 msgstr ""
+"这同样也适用于自定义类型的 `From` 实现，只需实现 `From` 就可以自动得到对应的 `Into` 实现。"
 
 #: src/exercises/day-1/implicit-conversions.md:33
 msgid ""
@@ -3069,6 +3114,13 @@ msgid ""
 "for\n"
 "   the pairs you check."
 msgstr ""
+"1. 执行上述程序，并查看对应的编译错误。\n"
+"\n"
+"2. 修改代码，使用 `into()` 进行类型转换。\n"
+"\n"
+"3. 修改 `x` 和 `y` 的类型（例如 `f32`, `bool`,\n"
+"   `i128` 等）来了解哪些类型之间可以相互转换。尝试将较小的类型转换为较大的类型和将较大的类型转换为较小的类型。阅读\n"
+"   [标准库文档][1] 来了解对于你所尝试的两个类型 `From<T>` 是否已被实现。"
 
 #: src/exercises/day-1/for-loops.md:1
 msgid "# Arrays and `for` Loops"
