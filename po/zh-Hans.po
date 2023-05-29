@@ -136,7 +136,7 @@ msgstr ""
 
 #: src/SUMMARY.md:38
 msgid "Implicit Conversions"
-msgstr ""
+msgstr "隐式类型转换"
 
 #: src/SUMMARY.md:39
 msgid "Arrays and for Loops"
@@ -3026,7 +3026,7 @@ msgstr ""
 
 #: src/exercises/day-1/implicit-conversions.md:1
 msgid "# Implicit Conversions"
-msgstr ""
+msgstr "# 隐式类型转换"
 
 #: src/exercises/day-1/implicit-conversions.md:3
 msgid ""
@@ -3034,6 +3034,7 @@ msgid ""
 "([unlike\n"
 "C++][3]). You can see this in a program like this:"
 msgstr ""
+"[与 C++ 不同][3]，Rust 不会自动进行 _隐式类型转换_。例如，下面的程序中不存在隐式类型转换："
 
 #: src/exercises/day-1/implicit-conversions.md:6
 msgid ""
@@ -3050,6 +3051,18 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable,compile_fail\n"
+"fn multiply(x: i16, y: i16) -> i16 {\n"
+"    x * y\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let x: i8 = 15;\n"
+"    let y: i16 = 1000;\n"
+"\n"
+"    println!(\"{x} * {y} = {}\", multiply(x, y));\n"
+"}\n"
+"```"
 
 #: src/exercises/day-1/implicit-conversions.md:19
 msgid ""
@@ -3061,6 +3074,11 @@ msgid ""
 "into\n"
 "another type."
 msgstr ""
+"Rust 的整数类型都实现了 [`From<T>`][1] 和 [`Into<T>`][2]\n"
+"trait，使得我们可以在它们之间进行转换。`From<T>` trait 包含 "
+"`from()`\n"
+"方法，`Into<T>` trait 包含 `into()` 方法。"
+"类型通过实现这些 trait 来表达它将被如何转换为另一个类型。"
 
 #: src/exercises/day-1/implicit-conversions.md:25
 msgid ""
@@ -3070,6 +3088,9 @@ msgid ""
 "`i16::from(x)`. Or, simpler, with `x.into()`, because `From<i8> for i16`\n"
 "implementation automatically create an implementation of `Into<i16> for i8`."
 msgstr ""
+"标准库中包含 `From<i8> for i16` 的实现，即我们可以通过调用 `i16::from(x)` 来将 `i8`\n"
+"类型的变量 `x` 转换为 `i16`。或者也可以简单地使用 `x.into()`，因为 `From<i8> for i16`\n"
+"的实现会自动创建 `Into<i16> for i8` 的实现。"
 
 #: src/exercises/day-1/implicit-conversions.md:30
 msgid ""
@@ -3078,6 +3099,7 @@ msgid ""
 "sufficient to only implement `From` to get a respective `Into` "
 "implementation automatically."
 msgstr ""
+"这同样也适用于自定义类型的 `From` 实现，只需实现 `From` 就可以自动得到对应的 `Into` 实现。"
 
 #: src/exercises/day-1/implicit-conversions.md:33
 msgid ""
@@ -3092,6 +3114,13 @@ msgid ""
 "for\n"
 "   the pairs you check."
 msgstr ""
+"1. 执行上述程序，并查看对应的编译错误。\n"
+"\n"
+"2. 修改代码，使用 `into()` 进行类型转换。\n"
+"\n"
+"3. 修改 `x` 和 `y` 的类型（例如 `f32`, `bool`,\n"
+"   `i128` 等）来了解哪些类型之间可以相互转换。尝试将较小的类型转换为较大的类型和将较大的类型转换为较小的类型。阅读\n"
+"   [标准库文档][1] 来了解对于你所尝试的两个类型 `From<T>` 是否已被实现。"
 
 #: src/exercises/day-1/for-loops.md:1
 msgid "# Arrays and `for` Loops"
