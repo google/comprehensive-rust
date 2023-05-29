@@ -98,7 +98,7 @@ msgstr ""
 
 #: src/SUMMARY.md:29
 msgid "References"
-msgstr ""
+msgstr "引用"
 
 #: src/SUMMARY.md:30
 msgid "Dangling References"
@@ -2572,11 +2572,11 @@ msgstr ""
 
 #: src/basic-syntax/references.md:1
 msgid "# References"
-msgstr ""
+msgstr "# 引用"
 
 #: src/basic-syntax/references.md:3
 msgid "Like C++, Rust has references:"
-msgstr ""
+msgstr "如同 C++ 一样，Rust 也提供了引用类型。"
 
 #: src/basic-syntax/references.md:5
 msgid ""
@@ -2592,7 +2592,7 @@ msgstr ""
 
 #: src/basic-syntax/references.md:14
 msgid "Some notes:"
-msgstr ""
+msgstr "一些注意事项："
 
 #: src/basic-syntax/references.md:16
 msgid ""
@@ -2603,6 +2603,9 @@ msgid ""
 "* References that are declared as `mut` can be bound to different values "
 "over their lifetime."
 msgstr ""
+"* 就像 C 与 C++ 中的指针一样，对引用 `ref_x` 进行赋值时，我们必须对其解引用。\n"
+"* Rust 有时会进行自动解引用。比如调用方法 `ref_x.count_ones()` 时，ref_x 会被解引用。\n"
+"* 如果引用值被声明为 `mut`（可变引用），那么这个引用值可以在它的生命周期内被绑定为不同的值。"
 
 #: src/basic-syntax/references.md:25
 msgid ""
@@ -2613,6 +2616,8 @@ msgid ""
 "  different values, while the second represents a reference to a mutable "
 "value."
 msgstr ""
+"* 注意 `let mut ref_x: &i32` 与 `let ref_x: &mut i32` "
+"之间的区别。第一条语句声明了一个可变引用，所以我们可以修改这个引用所绑定的值；第二条语句声明了一个指向可变变量的引用。"
 
 #: src/basic-syntax/references-dangling.md:1
 msgid "# Dangling References"
