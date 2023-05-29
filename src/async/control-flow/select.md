@@ -74,4 +74,7 @@ async fn main() {
   pass `&mut future` instead of the future itself, but this can lead to
   issues, further discussed in the pinning slide.
 
+* Unmatched branches are dropped, which cancels their futures (unless a reference
+  was used).
+
 </details>
