@@ -69,12 +69,10 @@ async fn main() {
 * Try adding a deadline to the race, demonstrating selecting different sorts of
   futures.
 
-* Note that `select!` moves the values it is given. It is easiest to use
-  when every execution of `select!` creates new futures. An alternative is to
-  pass `&mut future` instead of the future itself, but this can lead to
-  issues, further discussed in the pinning slide.
+* Note that `select!` drops unmatched branches, which cancels their futures.
+  It is easiest to use when every execution of `select!` creates new futures.
 
-* Unmatched branches are dropped, which cancels their futures (unless a reference
-  was used).
+    * An alternative is to pass `&mut future` instead of the future itself, but
+      this can lead to issues, further discussed in the pinning slide.
 
 </details>
