@@ -1,4 +1,4 @@
-# Day 4 Morning Exercise
+# Concurrency Morning Exercise
 
 ## Dining Philosophers
 

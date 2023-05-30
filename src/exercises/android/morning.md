@@ -1,7 +1,7 @@
 # Exercises
 
-For the last exercise, we will look at one of the projects you work with. Let us
-group up and do this together. Some suggestions:
+This is a group exercise: We will look at one of the projects you work with and
+try to integrate some Rust into it. Some suggestions:
 
 * Call your AIDL service with a client written in Rust.
 

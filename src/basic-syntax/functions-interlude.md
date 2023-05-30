@@ -27,5 +27,5 @@ fn main() {
 * When using generics, the standard library's `Into<T>` can provide a kind of limited
   polymorphism on argument types. We will see more details in a later section.
 
-</defails>
+</details>
 

@@ -24,7 +24,7 @@ fn main() {
 }
 ```
 
-According the the [Rust RFC Book][1] these are inlined upon use.
+According to the [Rust RFC Book][1] these are inlined upon use.
 
 ## `static`
 

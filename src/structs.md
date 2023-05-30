@@ -27,7 +27,8 @@ fn main() {
 ```
 
 <details>
-Key Points: 
+
+Key Points:
 
 * Structs work like in C or C++.
   * Like in C++, and unlike in C, no typedef is needed to define a type.

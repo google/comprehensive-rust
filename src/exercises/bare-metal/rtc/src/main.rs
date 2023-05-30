@@ -32,7 +32,8 @@ use crate::pl011::Uart;
 use arm_gic::gicv3::GicV3;
 use core::panic::PanicInfo;
 use log::{error, info, trace, LevelFilter};
-use psci::system_off;
+use smccc::psci::system_off;
+use smccc::Hvc;
 
 /// Base addresses of the GICv3.
 const GICD_BASE_ADDRESS: *mut u64 = 0x800_0000 as _;
@@ -124,13 +125,13 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     info!("Finished waiting");
 
     // ANCHOR: main_end
-    system_off().unwrap();
+    system_off::<Hvc>().unwrap();
 }
 
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     error!("{info}");
-    system_off().unwrap();
+    system_off::<Hvc>().unwrap();
     loop {}
 }
 // ANCHOR_END: main_end
