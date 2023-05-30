@@ -66,7 +66,7 @@ msgstr ""
 
 #: src/SUMMARY.md:21
 msgid "Small Example"
-msgstr ""
+msgstr "简短示例"
 
 #: src/SUMMARY.md:22
 msgid "Why Rust?"
@@ -1692,7 +1692,7 @@ msgstr ""
 #: src/error-handling/converting-error-types-example.md:50
 #: src/concurrency/threads.md:30 src/async/async-await.md:25
 msgid "Key points:"
-msgstr ""
+msgstr "关键点："
 
 #: src/cargo/rust-ecosystem.md:23
 msgid ""
@@ -2098,11 +2098,11 @@ msgstr ""
 
 #: src/hello-world/small-example.md:1
 msgid "# Small Example"
-msgstr ""
+msgstr "# 简短示例"
 
 #: src/hello-world/small-example.md:3
 msgid "Here is a small example program in Rust:"
-msgstr ""
+msgstr "以下是一个简短的 Rust 示例程序"
 
 #: src/hello-world/small-example.md:5
 msgid ""
@@ -2122,6 +2122,21 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {              // 程序入口\n"
+"    let mut x: i32 = 6;  // 可变变量绑定\n"
+"    print!(\"{x}\");       // 与 printf 类似的输出宏\n"
+"    while x != 1 {       // 表达式周围没有括号\n"
+"        if x % 2 == 0 {  // 与其他语言类似的数值计算\n"
+"            x = x / 2;\n"
+"        } else {\n"
+"            x = 3 * x + 1;\n"
+"        }\n"
+"        print!(\" -> {x}\");\n"
+"    }\n"
+"    println!();\n"
+"}\n"
+"```"
 
 #: src/hello-world/small-example.md:23
 msgid ""
@@ -2131,6 +2146,7 @@ msgid ""
 "different\n"
 "inputs."
 msgstr ""
+"这段代码实现了 Collatz 猜想：猜想认为该循环总是会结束，但该猜想还没有被证明。可以编辑代码来尝试不同的输入。"
 
 #: src/hello-world/small-example.md:29
 msgid ""
@@ -2154,6 +2170,16 @@ msgid ""
 "the\n"
 "  students become familiar with searching in the standard library."
 msgstr ""
+"* 说明所有变量的类型都是静态的。尝试删除 `i32` 来触发类型推断。尝试使用 `i8` 来触发运行时整数溢出。\n"
+"\n"
+"* 将 `let mut x` 改为 `let x`，讨论出现的编译错误。\n"
+"\n"
+"* 展示 `print!` 在参数与格式字符串不匹配时产生的编译错误。\n"
+"\n"
+"* 展示如何使用 `{}` 作为占位符，来输出比单个变量更复杂的表达式。\n"
+"\n"
+"* 向学生展示标准库，展示如何搜索 `std::"
+"fmt`，其中包含用于格式化字符串的微型语言规则。要点是让学生熟悉在标准库中搜索的过程。"
 
 #: src/why-rust.md:1
 msgid "# Why Rust?"
@@ -4839,7 +4865,7 @@ msgstr ""
 #: src/methods/example.md:46 src/pattern-matching.md:25
 #: src/pattern-matching/match-guards.md:22 src/control-flow/blocks.md:42
 msgid "Key Points:"
-msgstr ""
+msgstr "关键点："
 
 #: src/structs.md:33
 msgid ""
