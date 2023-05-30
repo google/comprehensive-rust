@@ -1,7 +1,7 @@
 # exerciser
 
-This is an mdBook renderer to generate templates for exercises from the Markdown source. Given a
-Markdown file `example.md` with one or more sections like:
+This is an mdBook renderer to generate templates for exercises from the Markdown
+source. Given a Markdown file `example.md` with one or more sections like:
 
 ````markdown
 <!-- File src/main.rs -->
@@ -22,5 +22,6 @@ and mdbook configuration in `book.toml` like:
 output-directory = "comprehensive-rust-exercises"
 ```
 
-It will create a file `book/exerciser/comprehensive-rust-exercises/example/src/main.rs` with the
+It will create a file
+`book/exerciser/comprehensive-rust-exercises/example/src/main.rs` with the
 appropriate contents.
