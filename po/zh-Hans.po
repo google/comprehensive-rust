@@ -74,7 +74,7 @@ msgstr "为什么选择 Rust？"
 
 #: src/SUMMARY.md:23
 msgid "Compile Time Guarantees"
-msgstr ""
+msgstr "编译期保障"
 
 #: src/SUMMARY.md:24
 msgid "Runtime Guarantees"
@@ -2234,11 +2234,11 @@ msgstr ""
 
 #: src/why-rust/compile-time.md:1
 msgid "# Compile Time Guarantees"
-msgstr ""
+msgstr "# 编译期保障"
 
 #: src/why-rust/compile-time.md:3
 msgid "Static memory management at compile time:"
-msgstr ""
+msgstr "编译期静态内存管理："
 
 #: src/why-rust/compile-time.md:5
 msgid ""
@@ -2251,12 +2251,21 @@ msgid ""
 "* No data races between threads.\n"
 "* No iterator invalidation."
 msgstr ""
+"* 不存在未初始化的变量。\n"
+"* 不存在内存泄漏（_通常情况下_，见注释）。\n"
+"* 不存在“双重释放”。\n"
+"* 不存在“释放后使用”。\n"
+"* 不存在 `NULL` 指针。\n"
+"* 不存在被遗忘的互斥锁。\n"
+"* 不存在线程之间的数据竞争。\n"
+"* 不存在迭代器失效。"
 
 #: src/why-rust/compile-time.md:16
 msgid ""
 "It is possible to produce memory leaks in (safe) Rust. Some examples\n"
 "are:"
 msgstr ""
+"在（安全的）Rust 中也有可能产生内存泄漏。例如："
 
 #: src/why-rust/compile-time.md:19
 msgid ""
@@ -2269,12 +2278,17 @@ msgid ""
 "* In fact, some will consider infinitely populating a collection a memory\n"
 "  leak and Rust does not protect from those."
 msgstr ""
+"* 可以使用 [`Box::leak`] 来泄漏一个指针。该方法可以用于得到在运行时决定大小和初始化的静态变量\n"
+"* 可以使用 [`std::mem::forget`] 来让编译器“忘记”一个值（即其析构函数不会被执行）。\n"
+"* 可以使用 `Rc` 或 `Arc` 意外创建一个循环引用（[reference cycle]）。\n"
+"* 实际上，有人认为无限填充一个集合也是一种内存泄漏，Rust 对此没有保护。"
 
 #: src/why-rust/compile-time.md:28
 msgid ""
 "For the purpose of this course, \"No memory leaks\" should be understood\n"
 "as \"Pretty much no *accidental* memory leaks\"."
 msgstr ""
+"就本课程而言，“不存在内存泄漏”应理解为“几乎没有 *意外* 内存泄漏”。"
 
 #: src/why-rust/runtime.md:1
 msgid "# Runtime Guarantees"
