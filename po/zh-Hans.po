@@ -140,7 +140,7 @@ msgstr "隐式类型转换"
 
 #: src/SUMMARY.md:39
 msgid "Arrays and for Loops"
-msgstr ""
+msgstr "数组与 for 循环"
 
 #: src/SUMMARY.md:41
 msgid "Day 1: Afternoon"
@@ -3248,11 +3248,11 @@ msgstr ""
 
 #: src/exercises/day-1/for-loops.md:1
 msgid "# Arrays and `for` Loops"
-msgstr ""
+msgstr "# 数组与 `for` 循环"
 
 #: src/exercises/day-1/for-loops.md:3
 msgid "We saw that an array can be declared like this:"
-msgstr ""
+msgstr "我们可以这样声明一个数组："
 
 #: src/exercises/day-1/for-loops.md:5
 msgid ""
@@ -3260,12 +3260,16 @@ msgid ""
 "let array = [10, 20, 30];\n"
 "```"
 msgstr ""
+"```rust\n"
+"let array = [10, 20, 30];\n"
+"```"
 
 #: src/exercises/day-1/for-loops.md:9
 msgid ""
 "You can print such an array by asking for its debug representation with `{:?}"
 "`:"
 msgstr ""
+"你可以使用 `{:?}` 来打印这种数组的调试格式："
 
 #: src/exercises/day-1/for-loops.md:11
 msgid ""
@@ -3276,12 +3280,19 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {\n"
+"    let array = [10, 20, 30];\n"
+"    println!(\"array: {array:?}\");\n"
+"}\n"
+"```"
 
 #: src/exercises/day-1/for-loops.md:18
 msgid ""
 "Rust lets you iterate over things like arrays and ranges using the `for`\n"
 "keyword:"
 msgstr ""
+"在 Rust 中，可以使用 `for` 关键词遍历数组和区间等元素："
 
 #: src/exercises/day-1/for-loops.md:21
 msgid ""
@@ -3302,6 +3313,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {\n"
+"    let array = [10, 20, 30];\n"
+"    print!(\"Iterating over array:\");\n"
+"    for n in array {\n"
+"        print!(\" {n}\");\n"
+"    }\n"
+"    println!();\n"
+"\n"
+"    print!(\"Iterating over range:\");\n"
+"    for i in 0..3 {\n"
+"        print!(\" {}\", array[i]);\n"
+"    }\n"
+"    println!();\n"
+"}\n"
+"```"
 
 #: src/exercises/day-1/for-loops.md:38
 msgid ""
@@ -3310,6 +3337,8 @@ msgid ""
 "a function `transpose` which will transpose a matrix (turn rows into "
 "columns):"
 msgstr ""
+"使用以上知识，写一个用易读的格式输出矩阵的 `pretty_print` 函数，以及一个对矩阵进行转置（将行和列互换）的\n"
+"`transpose` 函数："
 
 #: src/exercises/day-1/for-loops.md:41
 msgid ""
@@ -3319,16 +3348,22 @@ msgid ""
 "           ⎝⎣7 8 9⎦⎠      ⎣3 6 9⎦\n"
 "```"
 msgstr ""
+"```bob\n"
+"           ⎛⎡1 2 3⎤⎞      ⎡1 4 7⎤\n"
+"\"transpose\"⎜⎢4 5 6⎥⎟  \"==\"⎢2 5 8⎥\n"
+"           ⎝⎣7 8 9⎦⎠      ⎣3 6 9⎦\n"
+"```"
 
 #: src/exercises/day-1/for-loops.md:47
 msgid "Hard-code both functions to operate on 3 × 3 matrices."
-msgstr ""
+msgstr "硬编码这两个函数，让它们处理 3 × 3 的矩阵。"
 
 #: src/exercises/day-1/for-loops.md:49
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and implement the\n"
 "functions:"
 msgstr ""
+"将下面的代码复制到 <https://play.rust-lang.org/> 并实现上述函数："
 
 #: src/exercises/day-1/for-loops.md:52
 msgid ""
@@ -3360,10 +3395,37 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,should_panic\n"
+"// TODO: 完成你的实现后移除此行。\n"
+"#![allow(unused_variables, dead_code)]\n"
+"\n"
+"fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {\n"
+"    unimplemented!()\n"
+"}\n"
+"\n"
+"fn pretty_print(matrix: &[[i32; 3]; 3]) {\n"
+"    unimplemented!()\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let matrix = [\n"
+"        [101, 102, 103], // <-- 这个注释会让 rustfmt 添加一个新行\n"
+"        [201, 202, 203],\n"
+"        [301, 302, 303],\n"
+"    ];\n"
+"\n"
+"    println!(\"matrix:\");\n"
+"    pretty_print(&matrix);\n"
+"\n"
+"    let transposed = transpose(matrix);\n"
+"    println!(\"transposed:\");\n"
+"    pretty_print(&transposed);\n"
+"}\n"
+"```"
 
 #: src/exercises/day-1/for-loops.md:80
 msgid "## Bonus Question"
-msgstr ""
+msgstr "## 附加题"
 
 #: src/exercises/day-1/for-loops.md:82
 msgid ""
@@ -3371,6 +3433,8 @@ msgid ""
 "argument and return types? Something like `&[&[i32]]` for a two-dimensional\n"
 "slice-of-slices. Why or why not?"
 msgstr ""
+"是否可以使用 `&[i32]` 切片而不是硬编码的 3 × 3 矩阵作为函数的参数和返回类型？例如使用\n"
+"`&[&[i32]]` 表示一个二维的切片的切片。为什么这样做是可行或不可行的？"
 
 #: src/exercises/day-1/for-loops.md:87
 msgid ""
@@ -3378,12 +3442,15 @@ msgid ""
 "quality\n"
 "implementation."
 msgstr ""
+"参考 [`ndarray` crate](https://docs.rs/ndarray/) 以了解该功能满足生产环境质量的实现。"
 
 #: src/exercises/day-1/for-loops.md:92
 msgid ""
 "The solution and the answer to the bonus section are available in the \n"
 "[Solution](solutions-morning.md#arrays-and-for-loops) section."
 msgstr ""
+"题目解答和附加题的答案在\n"
+"[题解](solutions-morning.md#arrays-and-for-loops) 章节中。"
 
 #: src/basic-syntax/variables.md:1
 msgid "# Variables"
