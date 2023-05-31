@@ -31,6 +31,7 @@ trigger when going through the code samples. We hope to improve on this via
 ## Building
 
 The course is built using a few tools:
+
 - [mdbook](https://github.com/rust-lang/mdBook)
 - [mdbook-svgbob](https://github.com/boozook/mdbook-svgbob)
 - [mdbook-i18n-helpers](https://github.com/google/mdbook-i18n-helpers)
@@ -64,9 +65,10 @@ and zip exercises and add them to `book/html`. To build any of the translated
 versions of the course, run `MDBOOK_BOOK__LANGUAGE=xx mdbook build -d book/xx`
 where `xx` is the ISO 639 language code (e.g. `da` for the Danish translation).
 [TRANSLATIONS.md](TRANSLATIONS.md) contains further instructions.
+
 ## Contact
 
-For questions or comments, please contact [Martin
-Geisler](mailto:mgeisler@google.com) or start a [discussion on
-GitHub](https://github.com/google/comprehensive-rust/discussions). We would love
-to hear from you.
+For questions or comments, please contact
+[Martin Geisler](mailto:mgeisler@google.com) or start a
+[discussion on GitHub](https://github.com/google/comprehensive-rust/discussions).
+We would love to hear from you.

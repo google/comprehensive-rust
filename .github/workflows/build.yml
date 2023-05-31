@@ -21,8 +21,8 @@ jobs:
           rustup default nightly
           rustup component add rustfmt
 
-      - name: Check Rust formatting
-        run: cargo fmt --all -- --check
+      - name: Check formatting
+        uses: dprint/check@v2.2
 
   cargo:
     runs-on: ubuntu-latest

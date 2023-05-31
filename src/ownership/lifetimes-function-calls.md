@@ -28,7 +28,7 @@ fn main() {
 
 In the above example, try the following:
 
-* Move the declaration of `p2` and `p3` into a a new scope (`{ ... }`), resulting in the following code:
+* Move the declaration of `p2` and `p3` into a new scope (`{ ... }`), resulting in the following code:
   ```rust,ignore
   #[derive(Debug)]
   struct Point(i32, i32);
@@ -54,7 +54,7 @@ In the above example, try the following:
   * Two references to two values are borrowed by a function and the function returns
     another reference.
   * It must have come from one of those two inputs (or from a global variable).
-  * Which one is it? The compiler needs to to know, so at the call site the returned reference is not used
+  * Which one is it? The compiler needs to know, so at the call site the returned reference is not used
     for longer than a variable from where the reference came from.
 
 </details>

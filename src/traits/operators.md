@@ -30,10 +30,12 @@ Discussion points:
         overloading the operator is not `Copy`, you should consider overloading
         the operator for `&T` as well. This avoids unnecessary cloning on the
         call site.
-* Why is `Output` an associated type? Could it be made a type parameter?
-    * Short answer: Type parameters are controlled by the caller, but
+* Why is `Output` an associated type? Could it be made a type parameter of the method?
+    * Short answer: Function type parameters are controlled by the caller, but
         associated types (like `Output`) are controlled by the implementor of a
         trait.
+* You could implement `Add` for two different types, e.g.
+  `impl Add<(i32, i32)> for Point` would add a tuple to a `Point`.
 
 </details>
 

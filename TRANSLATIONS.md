@@ -5,9 +5,9 @@ languages! We use the [Gettext] system for translations. This means that you
 don't modify the Markdown files directly: instead you modify `.po` files in a
 `po/` directory. The `.po` files are small text-based translation databases.
 
-> **Tip:** You should not edit the `.po` files by hand. Instead use a PO
-> editor, such as [Poedit](https://poedit.net/). There are also several online
-> editors available. This will ensure that the file is encoded correctly.
+> **Tip:** You should not edit the `.po` files by hand. Instead use a PO editor,
+> such as [Poedit](https://poedit.net/). There are also several online editors
+> available. This will ensure that the file is encoded correctly.
 
 There is a `.po` file for each language. They are named after the [ISO 639]
 language codes: Danish would go into `po/da.po`, Korean would go into
@@ -25,9 +25,9 @@ GNU Gettext utilities below.
 
 We use two helpers for the translations:
 
-* `mdbook-xgettext`: This program extracts the English text. It is an mdbook
+- `mdbook-xgettext`: This program extracts the English text. It is an mdbook
   renderer.
-* `mdbook-gettext`: This program translates the book into a target language. It
+- `mdbook-gettext`: This program translates the book into a target language. It
   is an mdbook preprocessor.
 
 Install both helpers with:

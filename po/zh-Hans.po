@@ -66,15 +66,15 @@ msgstr ""
 
 #: src/SUMMARY.md:21
 msgid "Small Example"
-msgstr ""
+msgstr "简短示例"
 
 #: src/SUMMARY.md:22
 msgid "Why Rust?"
-msgstr ""
+msgstr "为什么选择 Rust？"
 
 #: src/SUMMARY.md:23
 msgid "Compile Time Guarantees"
-msgstr ""
+msgstr "编译期保障"
 
 #: src/SUMMARY.md:24
 msgid "Runtime Guarantees"
@@ -94,7 +94,7 @@ msgstr "标量类型"
 
 #: src/SUMMARY.md:28
 msgid "Compound Types"
-msgstr ""
+msgstr "复合类型"
 
 #: src/SUMMARY.md:29
 msgid "References"
@@ -102,11 +102,11 @@ msgstr "引用"
 
 #: src/SUMMARY.md:30
 msgid "Dangling References"
-msgstr ""
+msgstr "悬垂引用"
 
 #: src/SUMMARY.md:31
 msgid "Slices"
-msgstr ""
+msgstr "切片"
 
 #: src/SUMMARY.md:32
 msgid "String vs str"
@@ -132,7 +132,7 @@ msgstr ""
 #: src/SUMMARY.md:148 src/SUMMARY.md:177 src/SUMMARY.md:204 src/SUMMARY.md:225
 #: src/SUMMARY.md:251 src/SUMMARY.md:273 src/SUMMARY.md:293
 msgid "Exercises"
-msgstr ""
+msgstr "习题"
 
 #: src/SUMMARY.md:38
 msgid "Implicit Conversions"
@@ -140,7 +140,7 @@ msgstr "隐式类型转换"
 
 #: src/SUMMARY.md:39
 msgid "Arrays and for Loops"
-msgstr ""
+msgstr "数组与 for 循环"
 
 #: src/SUMMARY.md:41
 msgid "Day 1: Afternoon"
@@ -1692,7 +1692,7 @@ msgstr ""
 #: src/error-handling/converting-error-types-example.md:50
 #: src/concurrency/threads.md:30 src/async/async-await.md:25
 msgid "Key points:"
-msgstr ""
+msgstr "关键点："
 
 #: src/cargo/rust-ecosystem.md:23
 msgid ""
@@ -2098,11 +2098,11 @@ msgstr ""
 
 #: src/hello-world/small-example.md:1
 msgid "# Small Example"
-msgstr ""
+msgstr "# 简短示例"
 
 #: src/hello-world/small-example.md:3
 msgid "Here is a small example program in Rust:"
-msgstr ""
+msgstr "以下是一个简短的 Rust 示例程序"
 
 #: src/hello-world/small-example.md:5
 msgid ""
@@ -2122,6 +2122,21 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {              // 程序入口\n"
+"    let mut x: i32 = 6;  // 可变变量绑定\n"
+"    print!(\"{x}\");       // 与 printf 类似的输出宏\n"
+"    while x != 1 {       // 表达式周围没有括号\n"
+"        if x % 2 == 0 {  // 与其他语言类似的数值计算\n"
+"            x = x / 2;\n"
+"        } else {\n"
+"            x = 3 * x + 1;\n"
+"        }\n"
+"        print!(\" -> {x}\");\n"
+"    }\n"
+"    println!();\n"
+"}\n"
+"```"
 
 #: src/hello-world/small-example.md:23
 msgid ""
@@ -2131,6 +2146,7 @@ msgid ""
 "different\n"
 "inputs."
 msgstr ""
+"这段代码实现了 Collatz 猜想：猜想认为该循环总是会结束，但该猜想还没有被证明。可以编辑代码来尝试不同的输入。"
 
 #: src/hello-world/small-example.md:29
 msgid ""
@@ -2154,14 +2170,24 @@ msgid ""
 "the\n"
 "  students become familiar with searching in the standard library."
 msgstr ""
+"* 说明所有变量的类型都是静态的。尝试删除 `i32` 来触发类型推断。尝试使用 `i8` 来触发运行时整数溢出。\n"
+"\n"
+"* 将 `let mut x` 改为 `let x`，讨论出现的编译错误。\n"
+"\n"
+"* 展示 `print!` 在参数与格式字符串不匹配时产生的编译错误。\n"
+"\n"
+"* 展示如何使用 `{}` 作为占位符，来输出比单个变量更复杂的表达式。\n"
+"\n"
+"* 向学生展示标准库，展示如何搜索 `std::"
+"fmt`，其中包含用于格式化字符串的微型语言规则。要点是让学生熟悉在标准库中搜索的过程。"
 
 #: src/why-rust.md:1
 msgid "# Why Rust?"
-msgstr ""
+msgstr "# 为什么选择 Rust？"
 
 #: src/why-rust.md:3
 msgid "Some unique selling points of Rust:"
-msgstr ""
+msgstr "Rust 有一些独特的卖点："
 
 #: src/why-rust.md:5
 msgid ""
@@ -2169,6 +2195,9 @@ msgid ""
 "* Lack of undefined runtime behavior.\n"
 "* Modern language features."
 msgstr ""
+"* 编译期内存安全。\n"
+"* 没有运行时未定义行为。\n"
+"* 现代的编程语言特性。"
 
 #: src/why-rust.md:11
 msgid ""
@@ -2176,6 +2205,7 @@ msgid ""
 "Depending\n"
 "on the answer you can highlight different features of Rust:"
 msgstr ""
+"应该问问学生们都使用过哪些语言。根据答案侧重讲解 Rust 的不同特性："
 
 #: src/why-rust.md:14
 msgid ""
@@ -2195,14 +2225,20 @@ msgid ""
 "collector)\n"
 "  as well as access to low-level hardware (should you need it)"
 msgstr ""
+"* 使用过 C 或 C++：Rust 利用\"借用检查\"消除了一类 _运行时错误_ 。你可以达到堪比 C 和 C++\n"
+"的性能，而没有内存不安全的问题。并且你还可以得到些现代的语言构造，比如模式匹配和内置依赖管理。\n"
+"\n"
+"* 使用过 Java, Go, Python, JavaScript...：你可以得到和这些语言相同的内存安全特性，并拥有"
+"类似的使用高级语言的感受。同时你可以得到类似 C 和 C++ 的高速且可预测的执行性能（无垃圾回收机制）"
+"，以及在需要时对底层硬件的访问。"
 
 #: src/why-rust/compile-time.md:1
 msgid "# Compile Time Guarantees"
-msgstr ""
+msgstr "# 编译期保障"
 
 #: src/why-rust/compile-time.md:3
 msgid "Static memory management at compile time:"
-msgstr ""
+msgstr "编译期静态内存管理："
 
 #: src/why-rust/compile-time.md:5
 msgid ""
@@ -2215,12 +2251,21 @@ msgid ""
 "* No data races between threads.\n"
 "* No iterator invalidation."
 msgstr ""
+"* 不存在未初始化的变量。\n"
+"* 不存在内存泄漏（_通常情况下_，见注释）。\n"
+"* 不存在“双重释放”。\n"
+"* 不存在“释放后使用”。\n"
+"* 不存在 `NULL` 指针。\n"
+"* 不存在被遗忘的互斥锁。\n"
+"* 不存在线程之间的数据竞争。\n"
+"* 不存在迭代器失效。"
 
 #: src/why-rust/compile-time.md:16
 msgid ""
 "It is possible to produce memory leaks in (safe) Rust. Some examples\n"
 "are:"
 msgstr ""
+"在（安全的）Rust 中也有可能产生内存泄漏。例如："
 
 #: src/why-rust/compile-time.md:19
 msgid ""
@@ -2233,12 +2278,17 @@ msgid ""
 "* In fact, some will consider infinitely populating a collection a memory\n"
 "  leak and Rust does not protect from those."
 msgstr ""
+"* 可以使用 [`Box::leak`] 来泄漏一个指针。该方法可以用于得到在运行时决定大小和初始化的静态变量\n"
+"* 可以使用 [`std::mem::forget`] 来让编译器“忘记”一个值（即其析构函数不会被执行）。\n"
+"* 可以使用 `Rc` 或 `Arc` 意外创建一个循环引用（[reference cycle]）。\n"
+"* 实际上，有人认为无限填充一个集合也是一种内存泄漏，Rust 对此没有保护。"
 
 #: src/why-rust/compile-time.md:28
 msgid ""
 "For the purpose of this course, \"No memory leaks\" should be understood\n"
 "as \"Pretty much no *accidental* memory leaks\"."
 msgstr ""
+"就本课程而言，“不存在内存泄漏”应理解为“几乎没有 *意外* 内存泄漏”。"
 
 #: src/why-rust/runtime.md:1
 msgid "# Runtime Guarantees"
@@ -2477,7 +2527,7 @@ msgstr ""
 
 #: src/basic-syntax/compound-types.md:1
 msgid "# Compound Types"
-msgstr ""
+msgstr "# 复合类型"
 
 #: src/basic-syntax/compound-types.md:3
 msgid ""
@@ -2489,10 +2539,17 @@ msgid ""
 "| Tuples | `()`, `(T,)`, `(T1, T2)`, ... | `()`, `('x',)`, `('x', 1.2)`, ... "
 "|"
 msgstr ""
+"|        | 类型                         | 字面量                          "
+"|\n"
+"|--------|-------------------------------|-----------------------------------|\n"
+"| 数组（Arrays） | `[T; N]`                      | `[20, 30, 40]`, `[0; 3]`          "
+"|\n"
+"| 元组（Tuples） | `()`, `(T,)`, `(T1, T2)`, ... | `()`, `('x',)`, `('x', 1.2)`, ... "
+"|"
 
 #: src/basic-syntax/compound-types.md:8
 msgid "Array assignment and access:"
-msgstr ""
+msgstr "数组的赋值和访问操作："
 
 #: src/basic-syntax/compound-types.md:10
 msgid ""
@@ -2507,7 +2564,7 @@ msgstr ""
 
 #: src/basic-syntax/compound-types.md:18
 msgid "Tuple assignment and access:"
-msgstr ""
+msgstr "元组的赋值和访问操作："
 
 #: src/basic-syntax/compound-types.md:20
 msgid ""
@@ -2522,7 +2579,7 @@ msgstr ""
 
 #: src/basic-syntax/compound-types.md:32
 msgid "Arrays:"
-msgstr ""
+msgstr "数组："
 
 #: src/basic-syntax/compound-types.md:34
 msgid ""
@@ -2545,10 +2602,22 @@ msgid ""
 "* Adding `#`, eg `{a:#?}`, invokes a \"pretty printing\" format, which can "
 "be easier to read."
 msgstr ""
+"* 数组中的元素具有相同的类型 `T`，数组的长度为 `N`，`N` 是一个编译期常量。\n"
+"  需要注意的是数组的长度是它*类型的一部分*, 这意味着 "
+"`[u8; 3]` 和\n"
+"  `[u8; 4]` 在 Rust 中被认为是不同的类型。\n"
+"\n"
+"* 我们可以使用字面量来为数组赋值。\n"
+"\n"
+"* 在主函数中，打印（print）语句使用 `?` 格式请求调试实现。\n"
+"  使用参数 `{}` 打印默认输出，`{:?}` 表示以调试格式输出。 "
+"我们也可以不在格式化字符串后面指定变量值，直接使用 `{a}` 和 `{a:?}` 进行输出。"
+"\n"
+"* 添加 `#`, 比如 `{a:#?}`, 会输出“美观打印（pretty printing）” 格式, 这种格式可能会更加易读。"
 
 #: src/basic-syntax/compound-types.md:47
 msgid "Tuples:"
-msgstr ""
+msgstr "元组："
 
 #: src/basic-syntax/compound-types.md:49
 msgid ""
@@ -2569,6 +2638,21 @@ msgid ""
 "    * You can think of it as `void` that can be familiar to you from other \n"
 "      programming languages."
 msgstr ""
+"* 和数组一样，元组也具有固定的长度。\n"
+"\n"
+"* 元组将不同类型的值组成一个复合类型。\n"
+"\n"
+"* 元组中的字段可以通过英文句号加上值的下标进行访问"
+"比如：`t.0`, `t.1`。\n"
+"\n"
+"* 空元组 `()` 也被称作 “单元（unit）类型”. 它既是一个"
+"类型，\n"
+"  也是这种类型的唯一值——也就是说它的类型和它的"
+"  值都被表示为 `()`。它通常用于表示，比如，一个"
+"  函数或表达式没有返回值，我们会在后续的幻灯片种见到这种用法。" 
+"  \n"
+"    * 你可以将其理解为你可能在其他编程语言中比较熟悉的 \n"
+"      `void` 类型"
 
 #: src/basic-syntax/references.md:1
 msgid "# References"
@@ -2621,11 +2705,11 @@ msgstr ""
 
 #: src/basic-syntax/references-dangling.md:1
 msgid "# Dangling References"
-msgstr ""
+msgstr "# 悬垂引用（Dangling References）"
 
 #: src/basic-syntax/references-dangling.md:3
 msgid "Rust will statically forbid dangling references:"
-msgstr ""
+msgstr "Rust 会静态地禁止悬垂引用："
 
 #: src/basic-syntax/references-dangling.md:5
 msgid ""
@@ -2640,6 +2724,16 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable,compile_fail\n"
+"fn main() {\n"
+"    let ref_x: &i32;\n"
+"    {\n"
+"        let x: i32 = 10;\n"
+"        ref_x = &x;\n"
+"    }\n"
+"    println!(\"ref_x: {ref_x}\");\n"
+"}\n"
+"```"
 
 #: src/basic-syntax/references-dangling.md:16
 msgid ""
@@ -2648,14 +2742,17 @@ msgid ""
 "  enough.\n"
 "* We will talk more about borrowing when we get to ownership."
 msgstr ""
+"* 一个引用被认为是“借用（borrow）”了它指向的值。\n"
+"* Rust 会跟踪所有引用的生命周期，以确保这些值的存活时间足够长。\n"
+"* 我们会在讲到所有权（ownership）时详细讨论借用（borrow）。"
 
 #: src/basic-syntax/slices.md:1
 msgid "# Slices"
-msgstr ""
+msgstr "# 切片"
 
 #: src/basic-syntax/slices.md:3
 msgid "A slice gives you a view into a larger collection:"
-msgstr ""
+msgstr "切片 (slice) 的作用是提供对集合 (collection) 的视图 (view):"
 
 #: src/basic-syntax/slices.md:5
 msgid ""
@@ -2675,6 +2772,8 @@ msgid ""
 "* Slices borrow data from the sliced type.\n"
 "* Question: What happens if you modify `a[3]`?"
 msgstr ""
+"* 切片从被切片的类型中借用 (borrow) 数据。\n"
+"* 请思考：如果我们改变 `a[3]`，将会产生怎样的后果？"
 
 #: src/basic-syntax/slices.md:20
 msgid ""
@@ -2704,6 +2803,13 @@ msgid ""
 "the data from both `a` and `s` safely. \n"
 "  More details will be explained in the borrow checker section."
 msgstr ""
+"* 创建切片时，我们借用了 `a` ，并在方括号中标明了起始和结尾下标。\n"
+"* 如果切片的起始下标为 0， Rust 语法允许我们省略起始下标。比如说 `&a[0..a.len()]` 与 `&a[..a.len()]` 是等价的。\n"
+"* 结尾下标也可以用相同方式省略。比如说 `&a[2..a.len()]` 和 `&a[2..]` 是等价的。\n"
+"* 因此，我们可以用 `&a[..]` 来创建包含整个数组的切片。\n"
+"* 切片会从另外一个对象中借用数据。在这个例子中， `a` 必须在其切片存活时保持存活（处于作用域中）。\n"
+"* 关于修改 `a[3]` 的问题可能会引发精彩的讨论。正确答案是：为了保证内存安全，在创建切片后，我们不能通过 `a` 来修改数据。不过我们可以通过 "
+"`a` 或者 `s` 来读取数据。我们将会在“借用”章节着重介绍这个内容。"
 
 #: src/basic-syntax/string-slices.md:1
 msgid "# `String` vs `str`"
@@ -2936,11 +3042,11 @@ msgstr ""
 
 #: src/basic-syntax/functions-interlude.md:1
 msgid "# Function Overloading"
-msgstr ""
+msgstr "# 函数重载"
 
 #: src/basic-syntax/functions-interlude.md:3
 msgid "Overloading is not supported:"
-msgstr ""
+msgstr "# 不支持重载："
 
 #: src/basic-syntax/functions-interlude.md:5
 msgid ""
@@ -2951,10 +3057,17 @@ msgid ""
 "  * All call sites have the same number of arguments.\n"
 "  * Macros are sometimes used as an alternative."
 msgstr ""
+"* 每一个函数都只有一种实现：\n"
+"  * 始终接受固定个数的形参。\n"
+"  * 始终接受一组形参类型。\n"
+"* 不支持提供默认值：\n"
+"  * 实参的数量在所有调用的地方都是一样的。\n"
+"  * 有时可以用宏（Macro）作为替代。"
+
 
 #: src/basic-syntax/functions-interlude.md:12
 msgid "However, function parameters can be generic:"
-msgstr ""
+msgstr "然而，函数形参可以是泛型（generics）："
 
 #: src/basic-syntax/functions-interlude.md:14
 msgid ""
@@ -2969,6 +3082,16 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn pick_one<T>(a: T, b: T) -> T {\n"
+"    if std::process::id() % 2 == 0 { a } else { b }\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    println!(\"coin toss: {}\", pick_one(\"heads\", \"tails\"));\n"
+"    println!(\"cash prize: {}\", pick_one(500, 1000));\n"
+"}\n"
+"```"
 
 #: src/basic-syntax/functions-interlude.md:27
 msgid ""
@@ -2977,14 +3100,16 @@ msgid ""
 "  polymorphism on argument types. We will see more details in a later "
 "section."
 msgstr ""
+"* 标准库中的 `Into<T>` 通过泛型参数提供了一种具有"
+"有限多态性的参数类型。详见之后的章节。"
 
 #: src/exercises/day-1/morning.md:1
 msgid "# Day 1: Morning Exercises"
-msgstr ""
+msgstr "# 第一天上午习题"
 
 #: src/exercises/day-1/morning.md:3
 msgid "In these exercises, we will explore two parts of Rust:"
-msgstr ""
+msgstr "在这些习题中，我们将探索 Rust 的两个部分："
 
 #: src/exercises/day-1/morning.md:5
 msgid ""
@@ -2992,10 +3117,13 @@ msgid ""
 "\n"
 "* Arrays and `for` loops."
 msgstr ""
+"* 类型之间的隐式转换。\n"
+"\n"
+"* 数组和 `for` 循环。"
 
 #: src/exercises/day-1/morning.md:11
 msgid "A few things to consider while solving the exercises:"
-msgstr ""
+msgstr "在解题时要考虑几件事："
 
 #: src/exercises/day-1/morning.md:13
 msgid ""
@@ -3006,6 +3134,9 @@ msgid ""
 "\n"
 "* Alternatively, use the Rust Playground."
 msgstr ""
+"* 最好使用本地安装的 Rust，以实现在编辑器中自动补全。关于安装 Rust 的细节，请参见 [使用 Cargo] 页面。\n"
+"\n"
+"* 也可以使用 Rust Playground 作为替代。"
 
 #: src/exercises/day-1/morning.md:19
 msgid ""
@@ -3013,6 +3144,7 @@ msgid ""
 "lose\n"
 "their state if you navigate away from the page."
 msgstr ""
+"页面内嵌的代码片段是不可编辑的：因为离开页面后内嵌代码片段中的修改会丢失。"
 
 #: src/exercises/day-1/morning.md:22 src/exercises/day-1/afternoon.md:11
 #: src/exercises/day-2/morning.md:11 src/exercises/day-2/afternoon.md:7
@@ -3023,6 +3155,7 @@ msgstr ""
 msgid ""
 "After looking at the exercises, you can look at the [solutions] provided."
 msgstr ""
+"读完习题后，可以阅读本书提供的 [题解]。"
 
 #: src/exercises/day-1/implicit-conversions.md:1
 msgid "# Implicit Conversions"
@@ -3124,11 +3257,11 @@ msgstr ""
 
 #: src/exercises/day-1/for-loops.md:1
 msgid "# Arrays and `for` Loops"
-msgstr ""
+msgstr "# 数组与 `for` 循环"
 
 #: src/exercises/day-1/for-loops.md:3
 msgid "We saw that an array can be declared like this:"
-msgstr ""
+msgstr "我们可以这样声明一个数组："
 
 #: src/exercises/day-1/for-loops.md:5
 msgid ""
@@ -3136,12 +3269,16 @@ msgid ""
 "let array = [10, 20, 30];\n"
 "```"
 msgstr ""
+"```rust\n"
+"let array = [10, 20, 30];\n"
+"```"
 
 #: src/exercises/day-1/for-loops.md:9
 msgid ""
 "You can print such an array by asking for its debug representation with `{:?}"
 "`:"
 msgstr ""
+"你可以使用 `{:?}` 来打印这种数组的调试格式："
 
 #: src/exercises/day-1/for-loops.md:11
 msgid ""
@@ -3152,12 +3289,19 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {\n"
+"    let array = [10, 20, 30];\n"
+"    println!(\"array: {array:?}\");\n"
+"}\n"
+"```"
 
 #: src/exercises/day-1/for-loops.md:18
 msgid ""
 "Rust lets you iterate over things like arrays and ranges using the `for`\n"
 "keyword:"
 msgstr ""
+"在 Rust 中，可以使用 `for` 关键词遍历数组和区间等元素："
 
 #: src/exercises/day-1/for-loops.md:21
 msgid ""
@@ -3178,6 +3322,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {\n"
+"    let array = [10, 20, 30];\n"
+"    print!(\"Iterating over array:\");\n"
+"    for n in array {\n"
+"        print!(\" {n}\");\n"
+"    }\n"
+"    println!();\n"
+"\n"
+"    print!(\"Iterating over range:\");\n"
+"    for i in 0..3 {\n"
+"        print!(\" {}\", array[i]);\n"
+"    }\n"
+"    println!();\n"
+"}\n"
+"```"
 
 #: src/exercises/day-1/for-loops.md:38
 msgid ""
@@ -3186,6 +3346,8 @@ msgid ""
 "a function `transpose` which will transpose a matrix (turn rows into "
 "columns):"
 msgstr ""
+"使用以上知识，写一个用易读的格式输出矩阵的 `pretty_print` 函数，以及一个对矩阵进行转置（将行和列互换）的\n"
+"`transpose` 函数："
 
 #: src/exercises/day-1/for-loops.md:41
 msgid ""
@@ -3195,16 +3357,22 @@ msgid ""
 "           ⎝⎣7 8 9⎦⎠      ⎣3 6 9⎦\n"
 "```"
 msgstr ""
+"```bob\n"
+"           ⎛⎡1 2 3⎤⎞      ⎡1 4 7⎤\n"
+"\"transpose\"⎜⎢4 5 6⎥⎟  \"==\"⎢2 5 8⎥\n"
+"           ⎝⎣7 8 9⎦⎠      ⎣3 6 9⎦\n"
+"```"
 
 #: src/exercises/day-1/for-loops.md:47
 msgid "Hard-code both functions to operate on 3 × 3 matrices."
-msgstr ""
+msgstr "硬编码这两个函数，让它们处理 3 × 3 的矩阵。"
 
 #: src/exercises/day-1/for-loops.md:49
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and implement the\n"
 "functions:"
 msgstr ""
+"将下面的代码复制到 <https://play.rust-lang.org/> 并实现上述函数："
 
 #: src/exercises/day-1/for-loops.md:52
 msgid ""
@@ -3236,10 +3404,37 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,should_panic\n"
+"// TODO: 完成你的实现后移除此行。\n"
+"#![allow(unused_variables, dead_code)]\n"
+"\n"
+"fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {\n"
+"    unimplemented!()\n"
+"}\n"
+"\n"
+"fn pretty_print(matrix: &[[i32; 3]; 3]) {\n"
+"    unimplemented!()\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let matrix = [\n"
+"        [101, 102, 103], // <-- 这个注释会让 rustfmt 添加一个新行\n"
+"        [201, 202, 203],\n"
+"        [301, 302, 303],\n"
+"    ];\n"
+"\n"
+"    println!(\"matrix:\");\n"
+"    pretty_print(&matrix);\n"
+"\n"
+"    let transposed = transpose(matrix);\n"
+"    println!(\"transposed:\");\n"
+"    pretty_print(&transposed);\n"
+"}\n"
+"```"
 
 #: src/exercises/day-1/for-loops.md:80
 msgid "## Bonus Question"
-msgstr ""
+msgstr "## 附加题"
 
 #: src/exercises/day-1/for-loops.md:82
 msgid ""
@@ -3247,6 +3442,8 @@ msgid ""
 "argument and return types? Something like `&[&[i32]]` for a two-dimensional\n"
 "slice-of-slices. Why or why not?"
 msgstr ""
+"是否可以使用 `&[i32]` 切片而不是硬编码的 3 × 3 矩阵作为函数的参数和返回类型？例如使用\n"
+"`&[&[i32]]` 表示一个二维的切片的切片。为什么这样做是可行或不可行的？"
 
 #: src/exercises/day-1/for-loops.md:87
 msgid ""
@@ -3254,12 +3451,15 @@ msgid ""
 "quality\n"
 "implementation."
 msgstr ""
+"参考 [`ndarray` crate](https://docs.rs/ndarray/) 以了解该功能满足生产环境质量的实现。"
 
 #: src/exercises/day-1/for-loops.md:92
 msgid ""
 "The solution and the answer to the bonus section are available in the \n"
 "[Solution](solutions-morning.md#arrays-and-for-loops) section."
 msgstr ""
+"题目解答和附加题的答案在\n"
+"[题解](solutions-morning.md#arrays-and-for-loops) 章节中。"
 
 #: src/basic-syntax/variables.md:1
 msgid "# Variables"
@@ -4826,7 +5026,7 @@ msgstr ""
 #: src/methods/example.md:46 src/pattern-matching.md:25
 #: src/pattern-matching/match-guards.md:22 src/control-flow/blocks.md:42
 msgid "Key Points:"
-msgstr ""
+msgstr "关键点："
 
 #: src/structs.md:33
 msgid ""
@@ -15108,7 +15308,7 @@ msgstr ""
 msgid ""
 "At a high level, async Rust code looks very much like \"normal\" sequential "
 "code:"
-msgstr ""
+msgstr "从高层次上看，异步 Rust 代码与“正常”的顺序代码非常类似："
 
 #: src/async/async-await.md:5
 msgid ""
@@ -15159,6 +15359,20 @@ msgid ""
 "* `.await` can only be used inside an `async` function (or block; these are\n"
 "  introduced later). "
 msgstr ""
+"* 请注意，这只是一个简单的示例，用于展示语法。其中没有长时间运行的操作或任何真正的并发！\n"
+"\n"
+"* 异步调用的返回类型是什么？\n"
+"  * 在 `main` 中使用 `let future: () = async_main(10);` 来查看类型。\n"
+"\n"
+"* \"async\" 关键字是语法糖。编译器会将返回类型替换为 future。\n"
+"\n"
+"* 你不能将 `main` 声明为异步函数，除非在编译器中加入额外的指令来告诉它如何使用返回的 future。\n"
+"\n"
+"* 你需要一个执行器来运行异步代码。`block_on`会阻塞当前线程，直到提供的future完成为止。 \n"
+"\n"
+"* `.await` 会异步地等待另一个操作的完成。与 `block_on` 不同，`.await` 不会阻塞当前线程。\n"
+"\n"
+"* `.await` 只能在 `async` 函数（或块，这些稍后会介绍）中使用。 "
 
 #: src/async/futures.md:1
 msgid "# Futures"
