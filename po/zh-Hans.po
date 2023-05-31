@@ -2975,11 +2975,11 @@ msgstr ""
 
 #: src/basic-syntax/functions-interlude.md:1
 msgid "# Function Overloading"
-msgstr ""
+msgstr "# 函数重载"
 
 #: src/basic-syntax/functions-interlude.md:3
 msgid "Overloading is not supported:"
-msgstr ""
+msgstr "# 不支持重载："
 
 #: src/basic-syntax/functions-interlude.md:5
 msgid ""
@@ -2990,10 +2990,17 @@ msgid ""
 "  * All call sites have the same number of arguments.\n"
 "  * Macros are sometimes used as an alternative."
 msgstr ""
+"* 每一个函数都只有一种实现：\n"
+"  * 始终接受固定个数的形参。\n"
+"  * 始终接受一组形参类型。\n"
+"* 不支持提供默认值：\n"
+"  * 实参的数量在所有调用的地方都是一样的。\n"
+"  * 有时可以用宏（Macro）作为替代。"
+
 
 #: src/basic-syntax/functions-interlude.md:12
 msgid "However, function parameters can be generic:"
-msgstr ""
+msgstr "然而，函数形参可以是泛型（generics）："
 
 #: src/basic-syntax/functions-interlude.md:14
 msgid ""
@@ -3008,6 +3015,16 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn pick_one<T>(a: T, b: T) -> T {\n"
+"    if std::process::id() % 2 == 0 { a } else { b }\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    println!(\"coin toss: {}\", pick_one(\"heads\", \"tails\"));\n"
+"    println!(\"cash prize: {}\", pick_one(500, 1000));\n"
+"}\n"
+"```"
 
 #: src/basic-syntax/functions-interlude.md:27
 msgid ""
@@ -3016,6 +3033,8 @@ msgid ""
 "  polymorphism on argument types. We will see more details in a later "
 "section."
 msgstr ""
+"* 标准库中的 `Into<T>` 通过泛型参数提供了一种具有"
+"有限多态性的参数类型。详见之后的章节。"
 
 #: src/exercises/day-1/morning.md:1
 msgid "# Day 1: Morning Exercises"
