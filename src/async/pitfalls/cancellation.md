@@ -73,10 +73,8 @@ async fn main() -> std::io::Result<()> {
 * The compiler doesn't help with cancellation-safety. You need to read API
   documentation and consider what state your `async fn` holds.
 
-* Cancellation can be compared to panics and the `?` operator
-
-    * Unlike `panic` and `?`, cancellation is part of normal control flow
-      (vs error-handling).
+* Unlike `panic` and `?`, cancellation is part of normal control flow
+  (vs error-handling).
 
 * The example loses parts of the string.
 
