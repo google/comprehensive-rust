@@ -106,7 +106,7 @@ msgstr "悬垂引用"
 
 #: src/SUMMARY.md:31
 msgid "Slices"
-msgstr ""
+msgstr "切片"
 
 #: src/SUMMARY.md:32
 msgid "String vs str"
@@ -2748,11 +2748,11 @@ msgstr ""
 
 #: src/basic-syntax/slices.md:1
 msgid "# Slices"
-msgstr ""
+msgstr "# 切片"
 
 #: src/basic-syntax/slices.md:3
 msgid "A slice gives you a view into a larger collection:"
-msgstr ""
+msgstr "切片 (slice) 的作用是提供对集合 (collection) 的视图 (view):"
 
 #: src/basic-syntax/slices.md:5
 msgid ""
@@ -2772,6 +2772,8 @@ msgid ""
 "* Slices borrow data from the sliced type.\n"
 "* Question: What happens if you modify `a[3]`?"
 msgstr ""
+"* 切片从被切片的类型中借用 (borrow) 数据。\n"
+"* 请思考：如果我们改变 `a[3]`，将会产生怎样的后果？"
 
 #: src/basic-syntax/slices.md:20
 msgid ""
@@ -2801,6 +2803,13 @@ msgid ""
 "the data from both `a` and `s` safely. \n"
 "  More details will be explained in the borrow checker section."
 msgstr ""
+"* 创建切片时，我们借用了 `a` ，并在方括号中标明了起始和结尾下标。\n"
+"* 如果切片的起始下标为 0， Rust 语法允许我们省略起始下标。比如说 `&a[0..a.len()]` 与 `&a[..a.len()]` 是等价的。\n"
+"* 结尾下标也可以用相同方式省略。比如说 `&a[2..a.len()]` 和 `&a[2..]` 是等价的。\n"
+"* 因此，我们可以用 `&a[..]` 来创建包含整个数组的切片。\n"
+"* 切片会从另外一个对象中借用数据。在这个例子中， `a` 必须在其切片存活时保持存活（处于作用域中）。\n"
+"* 关于修改 `a[3]` 的问题可能会引发精彩的讨论。正确答案是：为了保证内存安全，在创建切片后，我们不能通过 `a` 来修改数据。不过我们可以通过 "
+"`a` 或者 `s` 来读取数据。我们将会在“借用”章节着重介绍这个内容。"
 
 #: src/basic-syntax/string-slices.md:1
 msgid "# `String` vs `str`"
