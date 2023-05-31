@@ -20,19 +20,18 @@ impl LinesReader {
     }
 
     async fn next(&mut self) -> io::Result<Option<String>> {
-        let mut buf = Vec::new();
-        loop {
-            buf.push(0);
-            let last = buf.len() - 1;
-            if self.stream.read(&mut buf[last..]).await? == 0 {
-                // Assume file ends with newline
-                return Ok(None)
-            }
-            if buf[last] == b'\n' {
+        let mut bytes = Vec::new();
+        let mut buf = [0];
+        while self.stream.read(&mut buf[..]).await? != 0 {
+            bytes.push(buf[0]);
+            if buf[0] == b'\n' {
                 break;
             }
         }
-        let s = String::from_utf8(buf)
+        if bytes.is_empty() {
+            return Ok(None)
+        }
+        let s = String::from_utf8(bytes)
             .map_err(|_| io::Error::new(ErrorKind::InvalidData, "not UTF-8"))?;
         Ok(Some(s))
     }
@@ -84,17 +83,18 @@ async fn main() -> std::io::Result<()> {
         ```rust,compile_fail
         struct LinesReader {
             stream: DuplexStream,
-            buf: Vec<u8>,
+            bytes: Vec<u8>,
+            buf: [u8; 1],
         }
 
         impl LinesReader {
             fn new(stream: DuplexStream) -> Self {
-                Self { stream, buf: Vec::new() }
+                Self { stream, bytes: Vec::new(), buf: [0] }
             }
             async fn next(&mut self) -> io::Result<Option<String>> {
-                // replace buf with self.buf
+                // prefix buf and bytes with self.
                 // ...
-                let raw = std::mem::take(&mut self.buf);
+                let raw = std::mem::take(&mut self.bytes);
                 let s = String::from_utf8(raw)
                 // ...
             }
