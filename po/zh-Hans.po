@@ -94,7 +94,7 @@ msgstr "标量类型"
 
 #: src/SUMMARY.md:28
 msgid "Compound Types"
-msgstr ""
+msgstr "复合类型"
 
 #: src/SUMMARY.md:29
 msgid "References"
@@ -2513,7 +2513,7 @@ msgstr ""
 
 #: src/basic-syntax/compound-types.md:1
 msgid "# Compound Types"
-msgstr ""
+msgstr "# 复合类型"
 
 #: src/basic-syntax/compound-types.md:3
 msgid ""
@@ -2525,10 +2525,17 @@ msgid ""
 "| Tuples | `()`, `(T,)`, `(T1, T2)`, ... | `()`, `('x',)`, `('x', 1.2)`, ... "
 "|"
 msgstr ""
+"|        | 类型                         | 字面量                          "
+"|\n"
+"|--------|-------------------------------|-----------------------------------|\n"
+"| 数组（Arrays） | `[T; N]`                      | `[20, 30, 40]`, `[0; 3]`          "
+"|\n"
+"| 元组（Tuples） | `()`, `(T,)`, `(T1, T2)`, ... | `()`, `('x',)`, `('x', 1.2)`, ... "
+"|"
 
 #: src/basic-syntax/compound-types.md:8
 msgid "Array assignment and access:"
-msgstr ""
+msgstr "数组的赋值和访问操作："
 
 #: src/basic-syntax/compound-types.md:10
 msgid ""
@@ -2543,7 +2550,7 @@ msgstr ""
 
 #: src/basic-syntax/compound-types.md:18
 msgid "Tuple assignment and access:"
-msgstr ""
+msgstr "元组的赋值和访问操作："
 
 #: src/basic-syntax/compound-types.md:20
 msgid ""
@@ -2558,7 +2565,7 @@ msgstr ""
 
 #: src/basic-syntax/compound-types.md:32
 msgid "Arrays:"
-msgstr ""
+msgstr "数组："
 
 #: src/basic-syntax/compound-types.md:34
 msgid ""
@@ -2581,10 +2588,22 @@ msgid ""
 "* Adding `#`, eg `{a:#?}`, invokes a \"pretty printing\" format, which can "
 "be easier to read."
 msgstr ""
+"* 数组中的元素具有相同的类型 `T`，数组的长度为 `N`，`N` 是一个编译期常量。\n"
+"  需要注意的是数组的长度是它*类型的一部分*, 这意味着 "
+"`[u8; 3]` 和\n"
+"  `[u8; 4]` 在 Rust 中被认为是不同的类型。\n"
+"\n"
+"* 我们可以使用字面量来为数组赋值。\n"
+"\n"
+"* 在主函数中，打印（print）语句使用 `?` 格式请求调试实现。\n"
+"  使用参数 `{}` 打印默认输出，`{:?}` 表示以调试格式输出。 "
+"我们也可以不在格式化字符串后面指定变量值，直接使用 `{a}` 和 `{a:?}` 进行输出。"
+"\n"
+"* 添加 `#`, 比如 `{a:#?}`, 会输出“美观打印（pretty printing）” 格式, 这种格式可能会更加易读。"
 
 #: src/basic-syntax/compound-types.md:47
 msgid "Tuples:"
-msgstr ""
+msgstr "元组："
 
 #: src/basic-syntax/compound-types.md:49
 msgid ""
@@ -2605,6 +2624,21 @@ msgid ""
 "    * You can think of it as `void` that can be familiar to you from other \n"
 "      programming languages."
 msgstr ""
+"* 和数组一样，元组也具有固定的长度。\n"
+"\n"
+"* 元组将不同类型的值组成一个复合类型。\n"
+"\n"
+"* 元组中的字段可以通过英文句号加上值的下标进行访问"
+"比如：`t.0`, `t.1`。\n"
+"\n"
+"* 空元组 `()` 也被称作 “单元（unit）类型”. 它既是一个"
+"类型，\n"
+"  也是这种类型的唯一值——也就是说它的类型和它的"
+"  值都被表示为 `()`。它通常用于表示，比如，一个"
+"  函数或表达式没有返回值，我们会在后续的幻灯片种见到这种用法。" 
+"  \n"
+"    * 你可以将其理解为你可能在其他编程语言中比较熟悉的 \n"
+"      `void` 类型"
 
 #: src/basic-syntax/references.md:1
 msgid "# References"
