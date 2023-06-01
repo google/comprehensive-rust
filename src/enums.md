@@ -6,6 +6,7 @@ different variants:
 ```rust,editable
 fn generate_random_number() -> i32 {
     4  // Chosen by fair dice roll. Guaranteed to be random.
+    // (Source: https://xkcd.com/221/)
 }
 
 #[derive(Debug)]
