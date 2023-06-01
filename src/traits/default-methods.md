@@ -34,7 +34,7 @@ fn main() {
 
 * Move method `not_equal` to a new trait `NotEqual`.
 
-* Make `NotEqual` a super trait for `Equal`.
+* Make `Equals` a super trait for `NotEqual`.
     ```rust,editable,compile_fail
     trait NotEqual: Equals {
         fn not_equal(&self, other: &Self) -> bool {
