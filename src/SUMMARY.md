@@ -240,6 +240,7 @@
     - [Using It](bare-metal/aps/better-uart/using.md)
   - [Logging](bare-metal/aps/logging.md)
     - [Using It](bare-metal/aps/logging/using.md)
+  - [Exceptions](bare-metal/aps/exceptions.md)
   - [Other Projects](bare-metal/aps/other-projects.md)
 - [Useful Crates](bare-metal/useful-crates.md)
   - [zerocopy](bare-metal/useful-crates/zerocopy.md)
