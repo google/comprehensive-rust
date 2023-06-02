@@ -5,8 +5,7 @@ different variants:
 
 ```rust,editable
 fn generate_random_number() -> i32 {
-    // Implementation based on https://xkcd.com/221/
-    4  // Chosen by fair dice roll. Guaranteed to be random.
+    4  // Chosen by fair dice roll. Guaranteed to be random. [1]
 }
 
 #[derive(Debug)]
@@ -27,6 +26,8 @@ fn flip_coin() -> CoinFlip {
 fn main() {
     println!("You got: {:?}", flip_coin());
 }
+
+// [1] See https://xkcd.com/221/
 ```
 
 <details>
