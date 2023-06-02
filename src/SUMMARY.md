@@ -228,6 +228,7 @@
 # Bare Metal: Afternoon
 
 - [Application Processors](bare-metal/aps.md)
+  - [Getting Ready to Rust](bare-metal/aps/entry-point.md)
   - [Inline Assembly](bare-metal/aps/inline-assembly.md)
   - [MMIO](bare-metal/aps/mmio.md)
   - [Let's Write a UART Driver](bare-metal/aps/uart.md)

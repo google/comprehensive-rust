@@ -77,6 +77,7 @@
  * prepares the stack, enables floating point, and sets up the exception vector. It preserves x0-x3
  * for the Rust entry point, as these may contain boot parameters.
  */
+// ANCHOR: entry
 .section .init.entry, "ax"
 .global entry
 entry:
