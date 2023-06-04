@@ -5,6 +5,7 @@ different variants:
 
 ```rust,editable
 fn generate_random_number() -> i32 {
+    // Implementation based on https://xkcd.com/221/
     4  // Chosen by fair dice roll. Guaranteed to be random.
 }
 
