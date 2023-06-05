@@ -1,7 +1,6 @@
 # Tasks
 
-Runtimes have the concept of a "task", similar to a thread but much
-less resource-intensive.
+Rust has a task system, which is a form of lightweight threading.
 
 A task has a single top-level future which the executor polls to make progress.
 That future may have one or more nested futures that its `poll` method polls,
