@@ -78,7 +78,7 @@ msgstr "编译期保障"
 
 #: src/SUMMARY.md:24
 msgid "Runtime Guarantees"
-msgstr ""
+msgstr "运行时保障"
 
 #: src/SUMMARY.md:25
 msgid "Modern Features"
@@ -2292,17 +2292,19 @@ msgstr ""
 
 #: src/why-rust/runtime.md:1
 msgid "# Runtime Guarantees"
-msgstr ""
+msgstr "# 运行时保障"
 
 #: src/why-rust/runtime.md:3
 msgid "No undefined behavior at runtime:"
-msgstr ""
+msgstr "Rust 没有运行时未定义行为："
 
 #: src/why-rust/runtime.md:5
 msgid ""
 "* Array access is bounds checked.\n"
 "* Integer overflow is defined."
 msgstr ""
+"* 数组访问有边界检查。\n"
+"* 整数溢出的行为有明确定义。"
 
 #: src/why-rust/runtime.md:12
 msgid ""
@@ -2316,6 +2318,12 @@ msgid ""
 "  `unsafe` allows you to call functions such as `slice::get_unchecked`\n"
 "  which does not do bounds checking."
 msgstr ""
+"* 整数溢出的行为由编译时的标志指定。可以选择 panic（一种受控的程序崩溃）或使用“绕回（wrap-around）”语义。"
+"默认情况下，使用调试模式编译（`cargo build`）的行为为 panic，"
+"使用发布模式编译（`cargo build --release`）的行为为“绕回”。\n"
+"\n"
+"* 边界检查不能使用编译标志禁用，也不能直接通过 `unsafe` 关键字禁用。然而，\n"
+"`unsafe` 允许你调用 `slice::get_unchecked` 等不做边界检查的函数。"
 
 #: src/why-rust/modern.md:1
 msgid "# Modern Features"
