@@ -1159,7 +1159,7 @@ msgstr ""
 #: src/ownership/borrowing.md:25 src/ownership/shared-unique-borrows.md:23
 #: src/ownership/lifetimes-function-calls.md:27 src/ownership/lifetimes-data-structures.md:23
 #: src/exercises/day-1/afternoon.md:9 src/exercises/day-1/book-library.md:100 src/structs.md:29
-#: src/structs/tuple-structs.md:35 src/structs/field-shorthand.md:25 src/enums.md:31
+#: src/structs/tuple-structs.md:35 src/structs/field-shorthand.md:25 src/enums.md:32
 #: src/enums/variant-payloads.md:33 src/enums/sizes.md:27 src/methods.md:28
 #: src/methods/receiver.md:22 src/methods/example.md:44 src/pattern-matching.md:23
 #: src/pattern-matching/destructuring-enums.md:33 src/pattern-matching/destructuring-structs.md:21
@@ -1242,7 +1242,7 @@ msgstr ""
 #: src/ownership/borrowing.md:51 src/ownership/shared-unique-borrows.md:29
 #: src/ownership/lifetimes-function-calls.md:60 src/ownership/lifetimes-data-structures.md:30
 #: src/exercises/day-1/afternoon.md:15 src/exercises/day-1/book-library.md:104 src/structs.md:42
-#: src/structs/tuple-structs.md:43 src/structs/field-shorthand.md:72 src/enums.md:41
+#: src/structs/tuple-structs.md:43 src/structs/field-shorthand.md:72 src/enums.md:42
 #: src/enums/variant-payloads.md:45 src/enums/sizes.md:155 src/methods.md:41
 #: src/methods/receiver.md:28 src/methods/example.md:53 src/pattern-matching.md:35
 #: src/pattern-matching/destructuring-enums.md:39 src/pattern-matching/destructuring-structs.md:29
@@ -1464,10 +1464,10 @@ msgid ""
 "Android examples using `src/android/build_all.sh`. Read the script to see the\n"
 "commands it runs and make sure they work when you run them by hand."
 msgstr ""
-"   Stelle sicher, dass `adb sync` auf deinem Emulator oder Rechner funktioniert.\n"
-"   Erstelle bereits vor dem Kurs alle Android-Beispiele mit `src/android/build_all.sh`. \n"
-"   Schaue auch in das Skript rein und probiere aus, ob alle Befehle, die es ausführt\n"
-"   auch von Hand ausgeführt funktionieren."
+"Stelle sicher, dass `adb sync` auf deinem Emulator oder Rechner funktioniert.\n"
+"Erstelle bereits vor dem Kurs alle Android-Beispiele mit `src/android/build_all.sh`. \n"
+"Schaue auch in das Skript rein und probiere aus, ob alle Befehle, die es ausführt\n"
+"auch von Hand ausgeführt funktionieren."
 
 #: src/running-the-course/course-structure.md:34
 msgid "### Bare-Metal"
@@ -1583,6 +1583,23 @@ msgid "Use the language picker in the top-right corner to switch between languag
 msgstr "Benutze die Sprachenauswahl oben rechts, um die Sprache zu wechseln."
 
 #: src/running-the-course/translations.md:11
+msgid "## Incomplete Translations"
+msgstr "# Angefangene Übersetzungen"
+
+#: src/running-the-course/translations.md:13
+msgid ""
+"There is a large number of in-progress translations. We link to the most\n"
+"recently updated translations:"
+msgstr ""
+
+#: src/running-the-course/translations.md:16
+msgid ""
+"* [French][fr] by [@KookaS] and [@vcaen].\n"
+"* [German][de] by [@Throvn] and [@ronaldfw].\n"
+"* [Japanese][ja] by [@CoinEZ-JPN] and [@momotaro1105]."
+msgstr ""
+
+#: src/running-the-course/translations.md:20
 msgid ""
 "If you want to help with this effort, please see [our instructions] for how to\n"
 "get going. Translations are coordinated on the [issue tracker]."
@@ -1644,7 +1661,7 @@ msgstr "#### Debian"
 
 #: src/cargo.md:20
 msgid "On Debian/Ubuntu, you can install Cargo, the Rust source and the [Rust formatter][6] with"
-msgstr "Auf Debian/Ubuntu kannst du Cargo und den Rust Quellcode wie folgt installieren:"
+msgstr "Auf Debian/Ubuntu kannst du Cargo und den Rust Quellcode wie folgt installieren"
 
 #: src/cargo.md:22
 msgid ""
@@ -2328,7 +2345,7 @@ msgid ""
 msgstr ""
 "* Keine nicht initialisierten (uninitialized) Variablen.\n"
 "* Keine Speicherlecks (_meistens_, siehe Anmerkungen).\n"
-"* Keine Doppelbefreiungen (double-freies).\n"
+"* Keine Doppelbefreiungen (double-frees).\n"
 "* Keine Nachnutzung (use-after-free).\n"
 "* Keine `NULL`-Zeiger (null Pointer).\n"
 "* Keine vergessenen gesperrten Mutexe.\n"
@@ -2342,7 +2359,6 @@ msgid ""
 msgstr "Es ist möglich, Speicherlecks in (sicherem) Rust zu erzeugen. Einige Beispiele sind:"
 
 #: src/why-rust/compile-time.md:19
-#, fuzzy
 msgid ""
 "* You can use [`Box::leak`] to leak a pointer. A use of this could\n"
 "  be to get runtime-initialized and runtime-sized static variables\n"
@@ -2355,34 +2371,29 @@ msgid ""
 msgstr ""
 "* Sie können [`Box::leak`] verwenden, um einen Zeiger zu verlieren. Eine Nutzung dieser könnte\n"
 "  sein, um zur Laufzeit initialisierte statische Variablen in Laufzeitgröße zu erhalten\n"
-"* Sie können [`std::mem::forget`] verwenden, um den Compiler \"vergessen\" zu lassen\n"
-"  ein Wert (was bedeutet, dass der Destruktor niemals ausgeführt wird).\n"
-"* Sie können auch versehentlich einen [Referenzzyklus] mit `Rc` oder erstellen\n"
-"  \"Bogen\".\n"
-"* In der Tat werden einige in Betracht ziehen, eine Sammlung unendlich als Erinnerung zu füllen\n"
-"  Leck und Rost schützt nicht vor denen."
+"* Sie können [`std::mem::forget`] verwenden, um den Compiler einen Wert \"vergessen\" zu lassen\n"
+"  (was bedeutet, dass der Destruktor niemals ausgeführt wird).\n"
+"* Sie können auch versehentlich einen [Referenzzyklus] mit `Rc` oder `Arc` erstellen\n"
+"* In der Tat werden einige in Betracht ziehen, eine Sammlung (Collection) unendlich  zu befüllen\n"
+"  Rust schützt nicht vor sowelchen Speicherlecks (memory leaks)."
 
 #: src/why-rust/compile-time.md:28
-#, fuzzy
 msgid ""
 "For the purpose of this course, \"No memory leaks\" should be understood\n"
 "as \"Pretty much no *accidental* memory leaks\"."
 msgstr ""
-"Für die Zwecke dieses Kurses sollte \"Keine Speicherlecks\" verstanden werden\n"
+"\"Keine Speicherlecks\" sollten somit verstanden werden\n"
 "als \"so gut wie keine *versehentlichen* Speicherlecks\"."
 
 #: src/why-rust/runtime.md:1
-#, fuzzy
 msgid "# Runtime Guarantees"
 msgstr "# Laufzeitgarantien"
 
 #: src/why-rust/runtime.md:3
-#, fuzzy
 msgid "No undefined behavior at runtime:"
-msgstr "Kein undefiniertes Verhalten zur Laufzeit:"
+msgstr "Kein undefiniertes Verhalten (undefined behavior) zur Laufzeit:"
 
 #: src/why-rust/runtime.md:5
-#, fuzzy
 msgid ""
 "* Array access is bounds checked.\n"
 "* Integer overflow is defined."
@@ -2391,7 +2402,6 @@ msgstr ""
 "* Ganzzahlüberlauf ist definiert."
 
 #: src/why-rust/runtime.md:12
-#, fuzzy
 msgid ""
 "* Integer overflow is defined via a compile-time flag. The options are\n"
 "  either a panic (a controlled crash of the program) or wrap-around\n"
@@ -2403,56 +2413,58 @@ msgid ""
 "  `unsafe` allows you to call functions such as `slice::get_unchecked`\n"
 "  which does not do bounds checking."
 msgstr ""
-"* Ganzzahlüberlauf wird über ein Flag zur Kompilierzeit definiert. Die Optionen sind\n"
-"  entweder eine Panik (ein kontrollierter Absturz des Programms) oder ein Wrap-Around\n"
-"  Semantik. Standardmäßig erhalten Sie Panik im Debug-Modus (`cargo build`)\n"
-"  und Wrap-Around im Release-Modus (`cargo build --release`)."
+"* Ganzzahlüberlauf (integer overflow) wird über ein Flag zur Kompilierzeit definiert. Die Optionen "
+"sind\n"
+"  entweder ein kontrollierter Abbruch des Programms (panic) oder eine Wrap-Around\n"
+"  Semantik. Standardmäßig erhalten Sie einen Abbruch (panic) im Debug-Modus (`cargo build`)\n"
+"  und ein Wrap-Around im Release-Modus (`cargo build --release`).\n"
+"\n"
+"* Die Grenzüberprüfung (bounds checking) kann nicht mit einem Compiler-Flag deaktiviert werden. Es "
+"kann auch\n"
+"   nicht direkt mit dem Schlüsselwort „unsafe“ deaktiviert werden. Jedoch können Sie Funktionen "
+"wie\n"
+"   `slice::get_unchecked` mit `unsafe` aufrufen\n"
+"   was keine Grenzenprüfung durchführt."
 
 #: src/why-rust/modern.md:1
-#, fuzzy
 msgid "# Modern Features"
 msgstr "# Moderne Funktionen"
 
 #: src/why-rust/modern.md:3
-#, fuzzy
 msgid "Rust is built with all the experience gained in the last 40 years."
-msgstr "Rust wird mit all den Erfahrungen der letzten 40 Jahre gebaut."
+msgstr "Rust wurde mit vielen Erfahrungen aus den letzten 40 Jahren gebaut."
 
 #: src/why-rust/modern.md:5
-#, fuzzy
 msgid "## Language Features"
 msgstr "## Sprachmerkmale"
 
 #: src/why-rust/modern.md:7
-#, fuzzy
 msgid ""
 "* Enums and pattern matching.\n"
 "* Generics.\n"
 "* No overhead FFI.\n"
 "* Zero-cost abstractions."
 msgstr ""
-"* Enums und Musterabgleich.\n"
+"* Enums und Musterabgleich (pattern matching).\n"
 "* Generika.\n"
 "* Kein Overhead-FFI.\n"
 "* Nullkosten-Abstraktionen."
 
 #: src/why-rust/modern.md:12
-#, fuzzy
 msgid "## Tooling"
-msgstr "## Werkzeuge"
+msgstr "## Werkzeuge (Tools)"
 
 #: src/why-rust/modern.md:14
-#, fuzzy
 msgid ""
 "* Great compiler errors.\n"
 "* Built-in dependency manager.\n"
 "* Built-in support for testing.\n"
 "* Excellent Language Server Protocol support."
 msgstr ""
-"* Große Compiler-Fehler.\n"
-"* Eingebauter Abhängigkeitsmanager.\n"
-"* Eingebaute Unterstützung zum Testen.\n"
-"* Hervorragende Unterstützung des Language Server Protocol."
+"* Gute Compiler-Fehler.\n"
+"* Eingebauter Paketmanager.\n"
+"* Eingebaute Unterstützung für Tests.\n"
+"* Hervorragende Unterstützung des Language Server Protokolls."
 
 #: src/why-rust/modern.md:23
 msgid ""
@@ -2494,19 +2506,52 @@ msgid ""
 "* [rust-analyzer] is a well supported LSP implementation used in major\n"
 "  IDEs and text editors."
 msgstr ""
+"* Kostenfreie Abstraktionen, ähnlich wie bei C++, bedeuten, dass Sie für Programmierkonstrukte auf "
+"höherer Ebene nicht mit Speicher oder CPU „bezahlen“ müssen. Beispielsweise sollte das Schreiben "
+"einer Schleife mit `for` ungefähr zu denselben Low-Level-Anweisungen führen wie die Verwendung des "
+"Konstrukts `.iter().fold()`.\n"
+"\n"
+"* Es kann erwähnenswert sein, dass Rust-Enums „algebraische Datentypen“ sind, auch bekannt als "
+"„Summentypen“, die es dem Typsystem ermöglichen, Dinge wie `Option<T>` und `Result<T, E>` "
+"auszudrücken.\n"
+"\n"
+"* Erinnern Sie die Teilnehmer daran, die Fehler zu lesen – viele Entwickler haben sich daran "
+"gewöhnt, lange Compiler-Ausgaben zu ignorieren. Der Rust-Compiler ist deutlich gesprächiger als "
+"andere Compiler. Es liefert Ihnen oft _umsetzbares_ Feedback, das Sie in Ihren Code einfach "
+"übernehmen können.\n"
+"\n"
+"* Die Rust-Standardbibliothek ist im Vergleich zu Sprachen wie Java, Python und Go klein. Rust "
+"bringt einige Dinge nicht mit, die Sie als normal betrachten könnten:\n"
+"\n"
+"   * ein Zufallszahlengenerator, siehe aber [rand].\n"
+"   * Unterstützung für SSL oder TLS, siehe jedoch [rusttls].\n"
+"   * Unterstützung für JSON, siehe jedoch [serde_json].\n"
+"\n"
+"Der Grund dafür ist, dass die Funktionalität in der Standardbibliothek nicht herausgenommen werden "
+"dürfen und daher sehr stabil sein muss. Für die obigen Beispiele arbeitet die Rust-Gemeinschaft "
+"immer noch daran, die beste Lösung zu finden – und vielleicht gibt es für einige dieser Dinge "
+"keine einzige „beste Lösung“.\n"
+"\n"
+"   Rust verfügt über einen integrierten Paketmanager in Form von Cargo, der das Herunterladen und "
+"Kompilieren von Crates von Drittanbietern vereinfacht. Dies hat zur Folge, dass die "
+"Standardbibliothek kleiner sein kann.\n"
+"\n"
+"   Das Auffinden guter Kisten von Drittanbietern kann ein Problem sein. Websites wie\n"
+"   <https://lib.rs/> hilft Ihnen dabei, indem es Ihnen ermöglicht, Gesundheitsmetriken für Kisten "
+"zu vergleichen, um eine gute und vertrauenswürdige zu finden.\n"
+"  \n"
+"* [rust-analyzer] ist eine gut unterstützte LSP-Implementierung, die in wichtigen IDEs und "
+"Texteditoren verwendet wird."
 
 #: src/basic-syntax.md:1
-#, fuzzy
 msgid "# Basic Syntax"
 msgstr "# Grundlegende Syntax"
 
 #: src/basic-syntax.md:3
-#, fuzzy
 msgid "Much of the Rust syntax will be familiar to you from C, C++ or Java:"
-msgstr "Ein Großteil der Rust-Syntax wird Ihnen aus C oder C++ vertraut sein:"
+msgstr "Ein Großteil der Rust-Syntax wird Ihnen aus C oder C++ bekannt sein:"
 
 #: src/basic-syntax.md:5
-#, fuzzy
 msgid ""
 "* Blocks and scopes are delimited by curly braces.\n"
 "* Line comments are started with `//`, block comments are delimited by `/* ...\n"
@@ -2514,19 +2559,16 @@ msgid ""
 "* Keywords like `if` and `while` work the same.\n"
 "* Variable assignment is done with `=`, comparison is done with `==`."
 msgstr ""
-"* Blöcke und Bereiche werden durch geschweifte Klammern getrennt.\n"
-"* Zeilenkommentare beginnen mit `//`, Blockkommentare werden mit `/* begrenzt ...\n"
-"  */`.\n"
-"* Schlüsselwörter wie „if“ und „while“ funktionieren gleich.\n"
+"* Blöcke und Bereiche (scopes) werden durch geschweifte Klammern getrennt.\n"
+"* Zeilenkommentare beginnen mit `//`, Blockkommentare werden mit `/* ... */` begrenzt\n"
+"* Schlüsselwörter (keywords) wie `if` und `while` funktionieren gleich.\n"
 "* Variablenzuweisung erfolgt mit `=`, Vergleich erfolgt mit `==`."
 
 #: src/basic-syntax/scalar-types.md:1
-#, fuzzy
 msgid "# Scalar Types"
 msgstr "# Skalare Typen"
 
 #: src/basic-syntax/scalar-types.md:3
-#, fuzzy
 msgid ""
 "|                        | Types                                      | "
 "Literals                      |\n"
@@ -2545,24 +2587,24 @@ msgid ""
 "`false`               |"
 msgstr ""
 "| | Typen | Literale |\n"
-"|------------------------|------------------------ "
-"--------------------|------------------------------------- --|\n"
-"| Ganzzahlen mit Vorzeichen | „i8“, „i16“, „i32“, „i64“, „i128“, „Größe“ | „-10“, „0“, „1_000“, "
-"„123i64“ |\n"
-"| Ganzzahlen ohne Vorzeichen | `u8`, `u16`, `u32`, `u64`, `u128`, `usize` | `0`, `123`, `10u16` |\n"
-"| Fließkommazahlen | „f32“, „f64“ | `3.14`, `-10.0e20`, `2f32` |\n"
-"| Saiten | `&str` | `\"foo\"`, `r#\"\\\\\"#` |\n"
-"| Unicode-Skalarwerte | \"char\" | `'a'`, `'α'`, `'∞'` |\n"
-"| Byte-Strings | `&[u8]` | `b\"abc\"`, `br#\" \" \"#` |\n"
-"| Boolesche Werte | „Bool“ | „wahr“, „falsch“ |"
+"|------------------------|--------------------------------------------|---------------------------------------|\n"
+"| Ganzzahlen mit Vorzeichen | `i8`, `i16`, `i32`, `i64`, `i128`, `isize` | `-10`, `0`, `1_000`, "
+"`123i64` |\n"
+"| Ganzzahlen ohne Vorzeichen  `u8`, `u16`, `u32`, `u64`, `u128`, `usize` | `0`, `123`, "
+"`10u16`           |\n"
+"| Fließkommazahlen | `f32`, `f64`                               | `3.14`, `-10.0e20`, `2f32`    |\n"
+"| Zeichenketten (Strings) | `&str`                                     | `\"foo\"`, "
+"`\"two\\nlines\"`       |\n"
+"| Unicode-Skalarwerte | `char`                                     | `'a'`, `'α'`, "
+"`'∞'`           \n"
+"| Wahrheitswerte (booleans)               | `bool`                                     | `true`, "
+"`false`               |"
 
 #: src/basic-syntax/scalar-types.md:12
-#, fuzzy
 msgid "The types have widths as follows:"
 msgstr "Die Typen haben folgende Breiten:"
 
 #: src/basic-syntax/scalar-types.md:14
-#, fuzzy
 msgid ""
 "* `iN`, `uN`, and `fN` are _N_ bits wide,\n"
 "* `isize` and `usize` are the width of a pointer,\n"
@@ -2576,7 +2618,7 @@ msgstr ""
 
 #: src/basic-syntax/scalar-types.md:21
 msgid "There are a few syntaxes which are not shown above:"
-msgstr ""
+msgstr "Es gibt einige Syntaxen, die oben nicht aufgeführt sind:"
 
 #: src/basic-syntax/scalar-types.md:23
 msgid ""
@@ -2600,9 +2642,27 @@ msgid ""
 "  }\n"
 "  ```"
 msgstr ""
+"- Mit puren Zeichenketten (raw strings) können Sie einen `&str`-Wert mit deaktivierten Escape-"
+"Zeichen erstellen: `r\"\\n\" == \"\\\\\\\\n\"`. Sie können doppelte Anführungszeichen einbetten, "
+"indem Sie auf beiden Seiten der Anführungszeichen die gleiche Anzahl von `#` verwenden:\n"
+"\n"
+"  ```rust,editable\n"
+"  fn main() {\n"
+"      println!(r#\"<a href=\"link.html\">link</a>\"#);\n"
+"      println!(\"<a href=\\\"link.html\\\">link</a>\");\n"
+"  }\n"
+"  ```\n"
+"\n"
+"- Mit Byte-Strings können Sie direkt einen „&[u8]“-Wert erstellen:\n"
+"\n"
+"  ```rust,editable\n"
+"  fn main() {\n"
+"      println!(\"{:?}\", b\"abc\");\n"
+"      println!(\"{:?}\", &[97, 98, 99]);\n"
+"  }\n"
+"  ```"
 
 #: src/basic-syntax/compound-types.md:1
-#, fuzzy
 msgid "# Compound Types"
 msgstr "# Verbundtypen"
 
@@ -2613,9 +2673,12 @@ msgid ""
 "| Arrays | `[T; N]`                      | `[20, 30, 40]`, `[0; 3]`          |\n"
 "| Tuples | `()`, `(T,)`, `(T1, T2)`, ... | `()`, `('x',)`, `('x', 1.2)`, ... |"
 msgstr ""
+"|        | Typen                         | Literale                          |\n"
+"|--------|-------------------------------|-----------------------------------|\n"
+"| Arrays | `[T; N]`                      | `[20, 30, 40]`, `[0; 3]`          |\n"
+"| Tupel | `()`, `(T,)`, `(T1, T2)`, ... | `()`, `('x',)`, `('x', 1.2)`, ... |"
 
 #: src/basic-syntax/compound-types.md:8
-#, fuzzy
 msgid "Array assignment and access:"
 msgstr "Array-Zuordnung und Zugriff:"
 
@@ -2631,9 +2694,8 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/compound-types.md:18
-#, fuzzy
 msgid "Tuple assignment and access:"
-msgstr "Tupelzuweisung und Zugriff:"
+msgstr "Tupel-Zuweisung und Zugriff:"
 
 #: src/basic-syntax/compound-types.md:20
 msgid ""
@@ -2647,7 +2709,6 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/compound-types.md:32
-#, fuzzy
 msgid "Arrays:"
 msgstr "Arrays:"
 
@@ -2666,14 +2727,24 @@ msgid ""
 "\n"
 "* Adding `#`, eg `{a:#?}`, invokes a \"pretty printing\" format, which can be easier to read."
 msgstr ""
+"* Arrays haben Elemente desselben Typs `T` und der Länge `N`, was eine Konstante zur "
+"Kompilierungszeit ist. Beachten Sie, dass die Länge des Arrays *Teil seines Typs* ist, was "
+"bedeutet, dass `[u8; 3]` und `[u8; 4]` als zwei verschiedene Typen betrachtet werden.\n"
+"\n"
+"* Wir können Literale verwenden, um Arrays Werte zuzuweisen.\n"
+"\n"
+"* In der `main`-Funktion fragt die print-Anweisung mit dem Formatparameter `?` nach der Debug-"
+"Implementierung: `{}` gibt die Standardausgabe aus, „{:?}“ gibt die Debug-Ausgabe aus. Wir hätten "
+"auch `{a}` und `{a:?}` verwenden können, ohne den Wert nach der Formatzeichenfolge anzugeben.\n"
+"\n"
+"* Das Hinzufügen von `#`, z. B. `{a:#?}`, ruft ein „hübsches Druckformat“ (pretty print) auf, das "
+"einfacher zu lesen ist."
 
 #: src/basic-syntax/compound-types.md:47
-#, fuzzy
 msgid "Tuples:"
 msgstr "Tupel:"
 
 #: src/basic-syntax/compound-types.md:49
-#, fuzzy
 msgid ""
 "* Like arrays, tuples have a fixed length.\n"
 "\n"
@@ -2688,21 +2759,25 @@ msgid ""
 "    * You can think of it as `void` that can be familiar to you from other \n"
 "      programming languages."
 msgstr ""
-"* Das leere Tupel `()` ist auch als \"Einheitstyp\" bekannt. Es ist sowohl ein Typ als auch\n"
-"  der einzig gültige Wert dieses Typs - also sowohl der Typ als auch sein Wert\n"
-"  werden als `()` ausgedrückt. Es wird zum Beispiel verwendet, um anzuzeigen, dass eine Funktion "
-"oder\n"
-"  Ausdruck hat keinen Rückgabewert, wie wir auf einer zukünftigen Folie sehen werden.\n"
-"    * Sie können es sich als „Leere“ vorstellen, die Ihnen von anderen bekannt sein kann\n"
-"      Programmiersprachen."
+"* Wie Arrays haben Tupel eine feste Länge.\n"
+"\n"
+"* Tupel gruppieren Werte unterschiedlicher Typen zu einem zusammengesetzten Typ.\n"
+"\n"
+"* Auf Felder eines Tupels kann durch einen Punkt gefolgt von dem Index des Werts zugegriffen "
+"werden, z. B. „t.0“, „t.1“.\n"
+"\n"
+"* Das leere Tupel „()“ wird auch als „Einheitstyp“ (unit type) bezeichnet. Es ist sowohl ein Typ "
+"als auch der einzige gültige Wert dieses Typs – das heißt, sowohl der Typ als auch sein Wert "
+"werden als `()` ausgedrückt. Es wird beispielsweise verwendet, um anzuzeigen, dass eine Funktion "
+"oder ein Ausdruck keinen Rückgabewert hat, wie wir auf einer zukünftigen Folie sehen werden.\n"
+"     * Sie können es sich als `void` vorstellen, das Ihnen aus anderen Programmiersprachen bekannt "
+"sein kann."
 
 #: src/basic-syntax/references.md:1
-#, fuzzy
 msgid "# References"
 msgstr "# Verweise"
 
 #: src/basic-syntax/references.md:3
-#, fuzzy
 msgid "Like C++, Rust has references:"
 msgstr "Wie C++ hat Rust Referenzen:"
 
@@ -2719,44 +2794,40 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/references.md:14
-#, fuzzy
 msgid "Some notes:"
 msgstr "Einige Notizen:"
 
 #: src/basic-syntax/references.md:16
-#, fuzzy
 msgid ""
 "* We must dereference `ref_x` when assigning to it, similar to C and C++ pointers.\n"
 "* Rust will auto-dereference in some cases, in particular when invoking\n"
 "  methods (try `ref_x.count_ones()`).\n"
 "* References that are declared as `mut` can be bound to different values over their lifetime."
 msgstr ""
-"* Wir müssen `ref_x` beim Zuweisen dereferenzieren, ähnlich wie bei C- und C++-Zeigern.\n"
-"* Rust wird in einigen Fällen automatisch dereferenzieren, insbesondere beim Aufrufen\n"
-"  Methoden (probieren Sie `ref_x.count_ones()`).\n"
+"* Wir müssen `ref_x` beim Zuweisen dereferenzieren, ähnlich wie bei C und C++-Zeigern.\n"
+"* Rust wird in einigen Fällen automatisch dereferenzieren, insbesondere beim Aufrufen von Methoden "
+"(probieren Sie `ref_x.count_ones()`).\n"
 "* Referenzen, die als `mut` deklariert sind, können über ihre Lebensdauer an unterschiedliche "
 "Werte gebunden werden."
 
 #: src/basic-syntax/references.md:25
-#, fuzzy
 msgid ""
 "* Be sure to note the difference between `let mut ref_x: &i32` and `let ref_x:\n"
 "  &mut i32`. The first one represents a mutable reference which can be bound to\n"
 "  different values, while the second represents a reference to a mutable value."
 msgstr ""
 "* Beachten Sie unbedingt den Unterschied zwischen `let mut ref_x: &i32` und `let ref_x:\n"
-"  &mut i32`. Der erste stellt eine veränderliche Referenz dar, an die gebunden werden kann\n"
-"  unterschiedliche Werte, während der zweite einen Verweis auf einen veränderlichen Wert darstellt."
+"  &mut i32`. Das erste stellt eine veränderliche Referenz (mutable reference) dar, an die "
+"unterschiedliche Werte gebunden werden können,\n"
+"  während das zweite Beispiel einen Verweis auf einen veränderlichen Wert darstellt."
 
 #: src/basic-syntax/references-dangling.md:1
-#, fuzzy
 msgid "# Dangling References"
-msgstr "# Dangling-Referenzen"
+msgstr "# Hängende-Referenzen (dangling references)"
 
 #: src/basic-syntax/references-dangling.md:3
-#, fuzzy
 msgid "Rust will statically forbid dangling references:"
-msgstr "Rust wird baumelnde Referenzen statisch verbieten:"
+msgstr "Rust verbietet hängende Referenzen statisch:"
 
 #: src/basic-syntax/references-dangling.md:5
 msgid ""
@@ -2773,27 +2844,24 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/references-dangling.md:16
-#, fuzzy
 msgid ""
 "* A reference is said to \"borrow\" the value it refers to.\n"
 "* Rust is tracking the lifetimes of all references to ensure they live long\n"
 "  enough.\n"
 "* We will talk more about borrowing when we get to ownership."
 msgstr ""
-"* Eine Referenz soll den Wert, auf den sie sich bezieht, \"leihen\".\n"
-"* Rust verfolgt die Lebensdauer aller Referenzen, um sicherzustellen, dass sie lange leben\n"
-"  genug.\n"
-"* Wir werden mehr über das Ausleihen sprechen, wenn wir zum Eigentum kommen."
+"* Eine Referenz \"leiht\" (borrows) sich den Wert, auf den sie sich bezieht, .\n"
+"* Rust verfolgt die Lebensdauer aller Referenzen, um sicherzustellen, dass sie lange genug leben\n"
+"* Wir werden mehr über das Ausleihen (borrowing) sprechen, wenn wir zum Eigentum (ownership) "
+"kommen."
 
 #: src/basic-syntax/slices.md:1
-#, fuzzy
 msgid "# Slices"
-msgstr "# Scheiben"
+msgstr "# Anteilstypen (Slices)"
 
 #: src/basic-syntax/slices.md:3
-#, fuzzy
 msgid "A slice gives you a view into a larger collection:"
-msgstr "Ein Slice gibt Ihnen einen Einblick in eine größere Sammlung:"
+msgstr "Ein Anteilstyp (slice) gibt Ihnen einen Einblick in eine größere Sammlung (collection):"
 
 #: src/basic-syntax/slices.md:5
 msgid ""
@@ -2809,16 +2877,14 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/slices.md:15
-#, fuzzy
 msgid ""
 "* Slices borrow data from the sliced type.\n"
 "* Question: What happens if you modify `a[3]`?"
 msgstr ""
-"* Slices borgen Daten vom Sliced-Typ.\n"
+"* Anteilstypen (slices) borgen (borrow) Daten vom Sliced-Typ.\n"
 "* Frage: Was passiert, wenn Sie `a[3]` ändern?"
 
 #: src/basic-syntax/slices.md:20
-#, fuzzy
 msgid ""
 "* We create a slice by borrowing `a` and specifying the starting and ending indexes in brackets.\n"
 "\n"
@@ -2841,23 +2907,34 @@ msgid ""
 "and `s` safely. \n"
 "  More details will be explained in the borrow checker section."
 msgstr ""
-"* `s` ist ein Verweis auf einen Slice von `i32`s. Beachten Sie, dass der Typ von `s` (`&[i32]`) "
-"die Array-Länge nicht mehr erwähnt. Dies ermöglicht es uns, Berechnungen für Scheiben "
-"unterschiedlicher Größe durchzuführen.\n"
-" \n"
-"* Slices leihen sich immer von einem anderen Objekt. In diesem Beispiel muss „a“ mindestens so "
-"lange „lebendig“ (im Geltungsbereich) bleiben wie unser Slice.\n"
+"* Wir erstellen ein Anteilstyp, indem wir `a` ausleihen (borrow) und den Start- und Endindex in "
+"Klammern angeben.\n"
+"\n"
+"* Wenn der Anteilstyp bei Index 0 beginnt, erlaubt uns die Range-Syntax von Rust, den Startindex "
+"wegzulassen, was bedeutet, dass `&a[0..a.len()]` und `&a[..a.len()]` identisch sind.\n"
 "    \n"
-"* Die Frage nach dem Modifizieren von `a[3]` kann eine interessante Diskussion auslösen, aber die "
-"Antwort ist aus Gründen der Speichersicherheit\n"
-"  Sie können dies nicht über `a` tun, nachdem Sie einen Slice erstellt haben, aber Sie können die "
-"Daten sowohl von `a` als auch von `s` sicher lesen.\n"
-"  Weitere Details werden im Abschnitt zum Ausleihen von Prüfern erklärt."
+"* Das Gleiche gilt für den letzten Index, daher sind `&a[2..a.len()]` und `&a[2..]` identisch.\n"
+"\n"
+"* Um einfach einen Anteilstyp des gesamten Arrays zu erstellen, können wir daher „&a[..]“ "
+"verwenden.\n"
+"\n"
+"* `s` ist ein Verweis (reference) auf einen Teil von `i32`. Beachten Sie, dass der Typ `s` "
+"(`&[i32]`) die Array-Länge nicht mehr erwähnt. Dadurch können wir Berechnungen für Anteilstypen "
+"unterschiedlicher Größe durchführen.\n"
+" \n"
+"* Anteilstypen (slices) leihen (borrow) sich immer etwas von einem anderen Objekt aus. In diesem "
+"Beispiel muss `a` mindestens so lange (im Gültigkeitsbereich (scope)) „lebendig“ bleiben wie unser "
+"Anteilstyp.\n"
+"    \n"
+"* Die Frage nach einer Werteänderung durch `a[3]` kann eine interessante Diskussion auslösen, aber "
+"die Antwort lautet: aus Gründen der Speichersicherheit können Sie dies nicht über `a` tun, nachdem "
+"Sie ein Slice erstellt haben. Allerdings können Sie die Werte sowohl von `a` als auch von `s` "
+"sicher lesen.\n"
+"   Weitere Einzelheiten werden im Abschnitt „Ausleihenprüfer“ (borrow checken) erläutert."
 
 #: src/basic-syntax/string-slices.md:1
-#, fuzzy
 msgid "# `String` vs `str`"
-msgstr "# `String` gegen `str`"
+msgstr "# `String` vs `str`"
 
 #: src/basic-syntax/string-slices.md:3
 #, fuzzy
@@ -4752,7 +4829,7 @@ msgid ""
 "  * Lifetime annotations create constraints; the compiler verifies that there is\n"
 "    a valid solution.\n"
 "* Lifetimes for function arguments and return values must be fully specified,\n"
-"  but Rust allows these to be elidied in most cases with [a few simple\n"
+"  but Rust allows these to be elided in most cases with [a few simple\n"
 "  rules](https://doc.rust-lang.org/nomicon/lifetime-elision.html)."
 msgstr ""
 
@@ -5332,7 +5409,7 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/structs.md:31 src/enums.md:33 src/enums/sizes.md:29 src/methods.md:30
+#: src/structs.md:31 src/enums.md:34 src/enums/sizes.md:29 src/methods.md:30
 #: src/methods/example.md:46 src/pattern-matching.md:25 src/pattern-matching/match-guards.md:22
 #: src/control-flow/blocks.md:42
 #, fuzzy
@@ -5521,6 +5598,7 @@ msgstr ""
 msgid ""
 "```rust,editable\n"
 "fn generate_random_number() -> i32 {\n"
+"    // Implementation based on https://xkcd.com/221/\n"
 "    4  // Chosen by fair dice roll. Guaranteed to be random.\n"
 "}\n"
 "\n"
@@ -5545,7 +5623,7 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/enums.md:35
+#: src/enums.md:36
 #, fuzzy
 msgid ""
 "* Enumerations allow you to collect a set of values under one type\n"
