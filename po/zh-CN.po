@@ -2941,12 +2941,13 @@ msgstr ""
 
 #: src/basic-syntax/rustdoc.md:1
 msgid "# Rustdoc"
-msgstr ""
+msgstr "# Rustdoc"
 
 #: src/basic-syntax/rustdoc.md:3
 msgid ""
 "All language items in Rust can be documented using special `///` syntax."
 msgstr ""
+"Rust 中的所有语言元素都可以通过特殊的 `///` 语法进行文档化。"
 
 #: src/basic-syntax/rustdoc.md:5
 msgid ""
@@ -2964,6 +2965,17 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"/// 判断第一个参数是否可以被第二个参数整除。\n"
+"///\n"
+"/// 如果第二个参数是 0，则返回结果为 false。\n"
+"fn is_divisible_by(lhs: u32, rhs: u32) -> bool {\n"
+"    if rhs == 0 {\n"
+"        return false;  // 边界条件，直接返回\n"
+"    }\n"
+"    lhs % rhs == 0     // 代码块中的最后一个表达式就是它的返回值\n"
+"}\n"
+"```"
 
 #: src/basic-syntax/rustdoc.md:17
 msgid ""
@@ -2973,6 +2985,8 @@ msgid ""
 "is\n"
 "idiomatic to document all public items in an API using this pattern."
 msgstr ""
+"文档的内容会被当做 Markdown 处理。所有已发布 Rust 库 crate 都会自动被[rustdoc](https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html) 工具在 [`docs.rs`](https://docs.rs)存档。 "
+"按照这种方式来为 API 中的所有公开项编写文档是 Rust 中惯用的做法。"
 
 #: src/basic-syntax/rustdoc.md:24
 msgid ""
@@ -2987,6 +3001,9 @@ msgid ""
 "not\n"
 "  be addressed here."
 msgstr ""
+"* 向学生展示在 [`docs.rs/rand`](https://docs.rs/rand) 中为 `rand` crate 生成的文档。\n"
+"* 本课程的幻灯片中不包含 rustdoc，这是为了节省空间，但是在实际的代码中，应当编写相关的程序文档。\n"
+"* 内部文档注释将在稍后（在讲解模块的页面）讨论，这里无需进行说明。"
 
 #: src/basic-syntax/methods.md:1 src/methods.md:1
 msgid "# Methods"
