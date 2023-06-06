@@ -1,6 +1,6 @@
 # Async Channels
 
-Several crates have support for `async`/`await`. For instance `tokio` channels:
+Several crates have support for asynchronous channels. For instance `tokio`:
 
 ```rust,editable,compile_fail
 use tokio::sync::mpsc::{self, Receiver};
