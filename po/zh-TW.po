@@ -7324,11 +7324,11 @@ msgstr ""
 
 #: src/generics/methods.md:1
 msgid "# Generic Methods"
-msgstr ""
+msgstr "# 泛型方法"
 
 #: src/generics/methods.md:3
 msgid "You can declare a generic type on your `impl` block:"
-msgstr ""
+msgstr "你可以將 `impl` 區塊宣告為泛型型別："
 
 #: src/generics/methods.md:5
 msgid ""
@@ -7362,6 +7362,13 @@ msgid ""
 "      * `Point` is still generic and you can use `Point<f64>`, but methods "
 "in this block will only be available for `Point<u32>`."
 msgstr ""
+"* *問題：* 為什麼 `T` 在 `impl<T> Point<T> {}` 中重複出現了兩次？\n"
+"    * 因為這是一個泛型型別 `T` 的 `Point` 實作，而 `Point` 的型別為泛型 `T`。"
+"它們是各自獨立的泛型。\n"
+"    * 這表示這個方法是為了任意型別 `T` 而定義的。\n"
+"    * 你可以寫成 `impl Point<u32> { .. }`。\n"
+"      * 由於 `Point` 仍然是泛型型別，你可以使用 `Point<f64>`，但這個方法將只"
+"適用於 `Point<u32>`。"
 
 #: src/generics/monomorphization.md:1
 msgid "# Monomorphization"
