@@ -78,11 +78,11 @@ msgstr "编译期保障"
 
 #: src/SUMMARY.md:24
 msgid "Runtime Guarantees"
-msgstr ""
+msgstr "运行时保障"
 
 #: src/SUMMARY.md:25
 msgid "Modern Features"
-msgstr ""
+msgstr "现代特性"
 
 #: src/SUMMARY.md:26
 msgid "Basic Syntax"
@@ -2292,17 +2292,19 @@ msgstr ""
 
 #: src/why-rust/runtime.md:1
 msgid "# Runtime Guarantees"
-msgstr ""
+msgstr "# 运行时保障"
 
 #: src/why-rust/runtime.md:3
 msgid "No undefined behavior at runtime:"
-msgstr ""
+msgstr "Rust 没有运行时未定义行为："
 
 #: src/why-rust/runtime.md:5
 msgid ""
 "* Array access is bounds checked.\n"
 "* Integer overflow is defined."
 msgstr ""
+"* 数组访问有边界检查。\n"
+"* 整数溢出的行为有明确定义。"
 
 #: src/why-rust/runtime.md:12
 msgid ""
@@ -2316,18 +2318,24 @@ msgid ""
 "  `unsafe` allows you to call functions such as `slice::get_unchecked`\n"
 "  which does not do bounds checking."
 msgstr ""
+"* 整数溢出的行为由编译时的标志指定。可以选择 panic（一种受控的程序崩溃）或使用“绕回（wrap-around）”语义。"
+"默认情况下，使用调试模式编译（`cargo build`）的行为为 panic，"
+"使用发布模式编译（`cargo build --release`）的行为为“绕回”。\n"
+"\n"
+"* 边界检查不能使用编译标志禁用，也不能直接通过 `unsafe` 关键字禁用。然而，\n"
+"`unsafe` 允许你调用 `slice::get_unchecked` 等不做边界检查的函数。"
 
 #: src/why-rust/modern.md:1
 msgid "# Modern Features"
-msgstr ""
+msgstr "# 现代特性"
 
 #: src/why-rust/modern.md:3
 msgid "Rust is built with all the experience gained in the last 40 years."
-msgstr ""
+msgstr "Rust 建立于过去 40 年来所获得的经验之上。"
 
 #: src/why-rust/modern.md:5
 msgid "## Language Features"
-msgstr ""
+msgstr "## 语言特性"
 
 #: src/why-rust/modern.md:7
 msgid ""
@@ -2336,10 +2344,14 @@ msgid ""
 "* No overhead FFI.\n"
 "* Zero-cost abstractions."
 msgstr ""
+"* 枚举和模式匹配。\n"
+"* 泛型。\n"
+"* 无额外开销外部函数接口（FFI）。\n"
+"* 零成本抽象。"
 
 #: src/why-rust/modern.md:12
 msgid "## Tooling"
-msgstr ""
+msgstr "## 工具"
 
 #: src/why-rust/modern.md:14
 msgid ""
@@ -2348,6 +2360,10 @@ msgid ""
 "* Built-in support for testing.\n"
 "* Excellent Language Server Protocol support."
 msgstr ""
+"* 强大的编译器错误提示。\n"
+"* 内置依赖管理器。\n"
+"* 对测试的内置支持。\n"
+"* 优秀的语言服务协议（Language Server Protocol）支持。"
 
 #: src/why-rust/modern.md:23
 msgid ""
@@ -2399,6 +2415,30 @@ msgid ""
 "* [rust-analyzer] is a well supported LSP implementation used in major\n"
 "  IDEs and text editors."
 msgstr ""
+"* 与 C++ 类似的零成本抽象，意味着你不需要为高级程序语言的结构“付出”更多的内存和 CPU。"
+"例如使用 `for` 循环与使用 `.iter().fold()` 结构应该会生成大致相同的底层指令。\n"
+"\n"
+"* 值得一提的是，Rust 的枚举是“代数数据类型”（也叫“和类型”）。它使得类型系统可以表示\n"
+"  `Option<T>` 和 `Result<T, E>` 等结构。\n"
+"\n"
+"* 提醒学生去阅读编译错误 --- 许多开发者已经习惯去忽略冗长的编译器输出。Rust 编译器会比其它编译器更健谈。"
+"它通常会提供 _可操作的_ 反馈，可以直接复制粘贴到代码中。\n"
+"\n"
+"* 相比 Java, Python 和 Go 等语言，Rust 标准库较为精简。Rust 并没有内置一些你可能认为标准和必要的功能：\n"
+"\n"
+"  * 随机数生成器，可以使用 [rand] 替代。\n"
+"  * SSL 和 TLS 支持，可以使用 [rusttls] 替代。\n"
+"  * JSON 支持，可以使用 [serde_json] 替代。\n"
+"\n"
+"  Rust 这么做的原因是标准库中的功能是无法去除的，因此该功能必须非常稳定。"
+"对于以上例子，Rust 社区仍在寻找最佳解决方案 --- 甚至对一些情况可能没有单一的“最佳解决方案”。\n"
+"\n"
+"  Rust 内置了一个包管理器 Cargo，使得下载和编译第三方 crate 变得简单。这也导致标准库可以更加精简。\n"
+"\n"
+"  发现高质量的第三方 crate 也许是一个问题。\n"
+"  <https://lib.rs/> 等网站对此问题有所帮助。它能帮你比较 crate 的健康指标，以找到一个高质量并受信任的 crate。\n"
+"  \n"
+"* [rust-analyzer] 是一个受到广泛支持的 LSP 实现，被主流的 IDE 和文本编辑器所使用。"
 
 #: src/basic-syntax.md:1
 msgid "# Basic Syntax"
@@ -2941,12 +2981,13 @@ msgstr ""
 
 #: src/basic-syntax/rustdoc.md:1
 msgid "# Rustdoc"
-msgstr ""
+msgstr "# Rustdoc"
 
 #: src/basic-syntax/rustdoc.md:3
 msgid ""
 "All language items in Rust can be documented using special `///` syntax."
 msgstr ""
+"Rust 中的所有语言元素都可以通过特殊的 `///` 语法进行文档化。"
 
 #: src/basic-syntax/rustdoc.md:5
 msgid ""
@@ -2964,6 +3005,17 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"/// 判断第一个参数是否可以被第二个参数整除。\n"
+"///\n"
+"/// 如果第二个参数是 0，则返回结果为 false。\n"
+"fn is_divisible_by(lhs: u32, rhs: u32) -> bool {\n"
+"    if rhs == 0 {\n"
+"        return false;  // 边界条件，直接返回\n"
+"    }\n"
+"    lhs % rhs == 0     // 代码块中的最后一个表达式就是它的返回值\n"
+"}\n"
+"```"
 
 #: src/basic-syntax/rustdoc.md:17
 msgid ""
@@ -2973,6 +3025,8 @@ msgid ""
 "is\n"
 "idiomatic to document all public items in an API using this pattern."
 msgstr ""
+"文档的内容会被当做 Markdown 处理。所有已发布 Rust 库 crate 都会自动被[rustdoc](https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html) 工具在 [`docs.rs`](https://docs.rs)存档。 "
+"按照这种方式来为 API 中的所有公开项编写文档是 Rust 中惯用的做法。"
 
 #: src/basic-syntax/rustdoc.md:24
 msgid ""
@@ -2987,6 +3041,9 @@ msgid ""
 "not\n"
 "  be addressed here."
 msgstr ""
+"* 向学生展示在 [`docs.rs/rand`](https://docs.rs/rand) 中为 `rand` crate 生成的文档。\n"
+"* 本课程的幻灯片中不包含 rustdoc，这是为了节省空间，但是在实际的代码中，应当编写相关的程序文档。\n"
+"* 内部文档注释将在稍后（在讲解模块的页面）讨论，这里无需进行说明。"
 
 #: src/basic-syntax/methods.md:1 src/methods.md:1
 msgid "# Methods"
