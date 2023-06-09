@@ -156,6 +156,12 @@ This is often better than leaving 50+ comments since this can be overwhelming
 for the contributor. Instead, please work with the contributor to improve things
 in follow-up PRs.
 
+### GitHub Suggestions
+
+When reviewing a translation PR, please use the [GitHub suggestion feature](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request).
+This feature allows you to directly write how you think a line or paragraph should
+be phrased. The PR author can [apply the changes with a single click](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request) afterwards.
+
 ### Incomplete Translations
 
 When the first 1-2 days of the course have been translated, we can publish the
