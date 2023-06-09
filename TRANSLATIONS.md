@@ -104,9 +104,10 @@ updated messages are marked "fuzzy". A fuzzy entry will reuse the previous
 translation: you should then go over it and update it as necessary before you
 remove the fuzzy marker.
 
-> **Note:** Your PRs should either be the result of running `msgmerge` or the result
-> of new translation work on the PO file for your language. Avoid mixing the two since
-> it often creates a very large diff, which is hard or impossible to review.
+> **Note:** Your PRs should either be the result of running `msgmerge` or the
+> result of new translation work on the PO file for your language. Avoid mixing
+> the two since it often creates a very large diff, which is hard or impossible
+> to review.
 
 ## Using Translations
 
