@@ -104,6 +104,11 @@ updated messages are marked "fuzzy". A fuzzy entry will reuse the previous
 translation: you should then go over it and update it as necessary before you
 remove the fuzzy marker.
 
+> **Note:** You should not run `msgmerge` too often. The reason is that it often
+> creates a very large diff, which is hard or impossible to review. Focus on
+>  finishing the translation first and only then start incorporating new changes
+>  with `msgmerge`.
+
 ## Using Translations
 
 This will show you how to use the translations to generate localized HTML
