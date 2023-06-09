@@ -66,6 +66,9 @@ versions of the course, run `MDBOOK_BOOK__LANGUAGE=xx mdbook build -d book/xx`
 where `xx` is the ISO 639 language code (e.g. `da` for the Danish translation).
 [TRANSLATIONS.md](TRANSLATIONS.md) contains further instructions.
 
+> **Note** On Windows, you need to enable symlinks
+> (`git config --global core.symlinks true`) and Developer Mode.
+
 ## Contact
 
 For questions or comments, please contact
