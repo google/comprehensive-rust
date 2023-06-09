@@ -55,6 +55,6 @@ fn main() {
         }
     }
     ```
-  * With the blanket implementation, you no longer need `NotEqual` as a super trait for `Equal`.
+  * With the blanket implementation, you no longer need `Equals` as a super trait for `NotEqual`.
     
 </details>
