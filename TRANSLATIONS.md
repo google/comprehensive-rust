@@ -104,10 +104,10 @@ updated messages are marked "fuzzy". A fuzzy entry will reuse the previous
 translation: you should then go over it and update it as necessary before you
 remove the fuzzy marker.
 
-> **Note:** You should not run `msgmerge` too often. The reason is that it often
-> creates a very large diff, which is hard or impossible to review. Focus on
-> finishing the translation first and only then start incorporating new changes
-> with `msgmerge`.
+> **Note:** Until the translation is complete, you should either run `msgmerge` or
+> update the PO file for your language. Avoid mixing the two since it often creates
+> a very large diff, which is hard or impossible to review. When the translation is
+> complete, run `msgmerge` to incorporate changes in the English text.
 
 ## Using Translations
 
