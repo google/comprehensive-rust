@@ -161,7 +161,8 @@ in follow-up PRs.
 When reviewing a translation PR, please use the
 [GitHub suggestion feature](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request).
 This feature allows you to directly write how you think a line or paragraph
-should be phrased. Use the left-most button in the toolbar to start a suggestion.
+should be phrased. Use the left-most button in the toolbar to create a
+suggestion.
 
 The PR author can
 [apply the changes with a single click](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)
