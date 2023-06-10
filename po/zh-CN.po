@@ -14450,7 +14450,7 @@ msgid ""
 "Rust has full support for concurrency using OS threads with mutexes and\n"
 "channels."
 msgstr ""
-"Rust 使用包含互斥量和通道的 OS 线程\n"
+"Rust 提供了对包含互斥量和通道的 OS 线程的支持\n"
 "为并发提供全面支持。"
 
 #: src/concurrency.md:6
@@ -14461,7 +14461,7 @@ msgid ""
 "you\n"
 "can rely on the compiler to ensure correctness at runtime."
 msgstr ""
-"Rust 类型系统在使许多并发 bug 成为编译时 bug 方面\n"
+"Rust 类型系统能帮助我们把许多并发bug转换为编译期bug\n"
 "发挥着重要作用。这通常称为“无畏并发”，因为你可以依靠编译器来确保\n"
 "运行时的正确性。"
 
@@ -14704,7 +14704,7 @@ msgstr ""
 
 #: src/concurrency/channels/unbounded.md:1
 msgid "# Unbounded Channels"
-msgstr "# 无边界通道"
+msgstr "# 无界通道"
 
 #: src/concurrency/channels/unbounded.md:3
 msgid "You get an unbounded and asynchronous channel with `mpsc::channel()`:"
@@ -14762,7 +14762,7 @@ msgstr ""
 
 #: src/concurrency/channels/bounded.md:1
 msgid "# Bounded Channels"
-msgstr "# 有边界通道"
+msgstr "# 有界通道"
 
 #: src/concurrency/channels/bounded.md:3
 msgid "Bounded and synchronous channels make `send` block the current thread:"
@@ -15057,7 +15057,7 @@ msgid ""
 "  takes care to deallocate `T` when the last reference is dropped,\n"
 "* [`Mutex<T>`][2]: ensures mutually exclusive access to the `T` value."
 msgstr ""
-"* [`Arc<T>`][1]，原子引用计数 `T`：用于处理线程之间的共享，并负责\n"
+"* [`Arc<T>`][1]，对 `T` 进行原子计数：用于处理线程之间的共享，并负责\n"
 "在最后一个引用被丢弃时取消分配 `T`。\n"
 "* [`Mutex<T>`][2]：确保对 `T` 值的互斥访问。"
 
@@ -15219,7 +15219,7 @@ msgstr ""
 "* 如果 `T` 实现了 `Send`，`Mutex<T>` 便会实现 `Send` 和 `Sync`。\n"
 "* 读写锁版本 - `RwLock`。\n"
 "* 为什么 `lock()` 会返回 `Result`？\n"
-"* 如果持有 `Mutex` 的线程发出紧急警报，`Mutex` 便会“中毒”并发出信号，\n"
+"* 如果持有 `Mutex` 的线程发生panic，`Mutex` 便会“中毒”并发出信号，\n"
 "表明其所保护的数据可能处于不一致状态。对中毒的互斥量调用 `lock()` 将会失"
 "败，\n"
 "并将显示 [`PoisonError`]。无论如何，你可以对该错误调用 `into_inner()` 来\n"
