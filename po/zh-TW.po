@@ -1148,7 +1148,7 @@ msgstr ""
 #: src/ownership/lifetimes-data-structures.md:23
 #: src/exercises/day-1/afternoon.md:9 src/exercises/day-1/book-library.md:100
 #: src/structs.md:29 src/structs/tuple-structs.md:35
-#: src/structs/field-shorthand.md:25 src/enums.md:32
+#: src/structs/field-shorthand.md:25 src/enums.md:31
 #: src/enums/variant-payloads.md:33 src/enums/sizes.md:27 src/methods.md:28
 #: src/methods/receiver.md:22 src/methods/example.md:44
 #: src/pattern-matching.md:23 src/pattern-matching/destructuring-enums.md:33
@@ -1223,7 +1223,7 @@ msgstr ""
 #: src/exercises/concurrency/afternoon.md:11
 #: src/exercises/concurrency/dining-philosophers-async.md:75
 msgid "<details>"
-msgstr ""
+msgstr "<details>"
 
 #: src/welcome.md:52
 msgid ""
@@ -1254,7 +1254,7 @@ msgstr ""
 #: src/ownership/lifetimes-data-structures.md:30
 #: src/exercises/day-1/afternoon.md:15 src/exercises/day-1/book-library.md:104
 #: src/structs.md:42 src/structs/tuple-structs.md:43
-#: src/structs/field-shorthand.md:72 src/enums.md:42
+#: src/structs/field-shorthand.md:72 src/enums.md:41
 #: src/enums/variant-payloads.md:45 src/enums/sizes.md:155 src/methods.md:41
 #: src/methods/receiver.md:28 src/methods/example.md:53
 #: src/pattern-matching.md:35 src/pattern-matching/destructuring-enums.md:39
@@ -1277,7 +1277,7 @@ msgstr ""
 #: src/traits/trait-bounds.md:50 src/traits/impl-trait.md:44
 #: src/traits/iterator.md:42 src/traits/from-iterator.md:26
 #: src/traits/from-into.md:33 src/traits/drop.md:42 src/traits/default.md:47
-#: src/traits/operators.md:40 src/traits/closures.md:38
+#: src/traits/operators.md:38 src/traits/closures.md:38
 #: src/exercises/day-3/morning.md:11 src/error-handling/result.md:33
 #: src/error-handling/try-operator.md:53
 #: src/error-handling/converting-error-types-example.md:60
@@ -1330,7 +1330,7 @@ msgstr ""
 #: src/exercises/concurrency/afternoon.md:17
 #: src/exercises/concurrency/dining-philosophers-async.md:79
 msgid "</details>"
-msgstr ""
+msgstr "</details>"
 
 #: src/running-the-course.md:1
 msgid "# Running the Course"
@@ -1709,7 +1709,7 @@ msgstr ""
 #: src/error-handling/converting-error-types-example.md:50
 #: src/concurrency/threads.md:30 src/async/async-await.md:25
 msgid "Key points:"
-msgstr ""
+msgstr "重要須知："
 
 #: src/cargo/rust-ecosystem.md:23
 msgid ""
@@ -5301,7 +5301,7 @@ msgstr ""
 
 #: src/methods/example.md:1 src/concurrency/shared_state/example.md:1
 msgid "# Example"
-msgstr ""
+msgstr "# 範例"
 
 #: src/methods/example.md:3
 msgid ""
@@ -14111,13 +14111,14 @@ msgstr ""
 
 #: src/concurrency.md:1
 msgid "# Welcome to Concurrency in Rust"
-msgstr ""
+msgstr "# 歡迎使用 Rust 的並行程式設計"
 
 #: src/concurrency.md:3
 msgid ""
 "Rust has full support for concurrency using OS threads with mutexes and\n"
 "channels."
 msgstr ""
+"Rust 使用 OS 執行緒搭配著互斥鎖和通道來完整支援並行處理。"
 
 #: src/concurrency.md:6
 msgid ""
@@ -14127,14 +14128,17 @@ msgid ""
 "you\n"
 "can rely on the compiler to ensure correctness at runtime."
 msgstr ""
+"在將許多執行期並行錯誤轉換為編譯期錯誤的過程中，Rust 型別系統扮演了\n"
+"重要角色。這通常稱為「無懼並行」，因為你可以依賴編譯器，\n"
+"確保執行期能夠正確運作。"
 
 #: src/concurrency/threads.md:1
 msgid "# Threads"
-msgstr ""
+msgstr "# 執行緒"
 
 #: src/concurrency/threads.md:3
 msgid "Rust threads work similarly to threads in other languages:"
-msgstr ""
+msgstr "Rust 執行緒的運作方式與其他語言類似："
 
 #: src/concurrency/threads.md:5
 msgid ""
@@ -14157,6 +14161,24 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::thread;\n"
+"use std::time::Duration;\n"
+"\n"
+"fn main() {\n"
+"    thread::spawn(|| {\n"
+"        for i in 1..10 {\n"
+"            println!(\"Count in thread: {i}!\");\n"
+"            thread::sleep(Duration::from_millis(5));\n"
+"        }\n"
+"    });\n"
+"\n"
+"    for i in 1..5 {\n"
+"        println!(\"Main thread: {i}\");\n"
+"        thread::sleep(Duration::from_millis(5));\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/concurrency/threads.md:24
 msgid ""
@@ -14164,6 +14186,9 @@ msgid ""
 "* Thread panics are independent of each other.\n"
 "  * Panics can carry a payload, which can be unpacked with `downcast_ref`."
 msgstr ""
+"* 執行緒都是 daemon 執行緒，主執行緒不會等待這類執行緒完成運作。\n"
+"* 執行緒恐慌均為各自獨立，並非彼此相關。\n"
+"  * 如果恐慌附帶酬載，可使用 `downcast_ref` 解除封裝。"
 
 #: src/concurrency/threads.md:32
 msgid ""
@@ -14181,14 +14206,24 @@ msgid ""
 "panic\n"
 "  payload. This is a good time to talk about [`Any`]."
 msgstr ""
+"* 請注意，執行緒會在達到 10 之前停止運作，因為主執行緒不會\n"
+" 等待其完成運作。\n"
+"\n"
+"* 請依序使用 `let handle = thread::spawn(...)` 和 `handle.join()`，等待\n"
+" 執行緒完成運作。\n"
+"\n"
+"* 在執行緒中觸發恐慌，請注意，這不會影響 `main`。\n"
+"\n"
+"* 使用 `handle.join()` 的 `Result` 傳回值，取得恐慌酬載的\n"
+"存取權。這個階段是提起 [`Any`] 的好時機。"
 
 #: src/concurrency/scoped-threads.md:1
 msgid "# Scoped Threads"
-msgstr ""
+msgstr "# 限定範圍執行緒"
 
 #: src/concurrency/scoped-threads.md:3
 msgid "Normal threads cannot borrow from their environment:"
-msgstr ""
+msgstr "一般執行緒無法借用環境的資源："
 
 #: src/concurrency/scoped-threads.md:5
 msgid ""
@@ -14204,10 +14239,21 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable,compile_fail\n"
+"use std::thread;\n"
+"\n"
+"fn main() {\n"
+"    let s = String::from(\"Hello\");\n"
+"\n"
+"    thread::spawn(|| {\n"
+"        println!(\"Length: {}\", s.len());\n"
+"    });\n"
+"}\n"
+"```"
 
 #: src/concurrency/scoped-threads.md:17
 msgid "However, you can use a [scoped thread][1] for this:"
-msgstr ""
+msgstr "但是，你可以使用[限定範圍執行緒][1]執行這項功能："
 
 #: src/concurrency/scoped-threads.md:19
 msgid ""
@@ -14225,6 +14271,19 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::thread;\n"
+"\n"
+"fn main() {\n"
+"    let s = String::from(\"Hello\");\n"
+"\n"
+"    thread::scope(|scope| {\n"
+"        scope.spawn(|| {\n"
+"            println!(\"Length: {}\", s.len());\n"
+"        });\n"
+"    });\n"
+"}\n"
+"```"
 
 #: src/concurrency/scoped-threads.md:37
 msgid ""
@@ -14235,10 +14294,15 @@ msgid ""
 "thread, or immutably by any number of threads.\n"
 "    "
 msgstr ""
+"* 原因在於 `thread::scope` 函式完成時，能保證所有執行緒都已加入，因此能夠傳回"
+"借用的資料。\n"
+"* 適用 Rust 一般借用規則：可以由一個執行緒以可變方式借用，或者由任意數量的執"
+"行緒以不可變方式借用。\n"
+"    "
 
 #: src/concurrency/channels.md:1
 msgid "# Channels"
-msgstr ""
+msgstr "# 通道"
 
 #: src/concurrency/channels.md:3
 msgid ""
@@ -14246,6 +14310,8 @@ msgid ""
 "parts\n"
 "are connected via the channel, but you only see the end-points."
 msgstr ""
+"Rust 通道分為兩個部分：`Sender<T>` 和 `Receiver<T>`。這兩個部分\n"
+"透過通道相連，但你只能看到端點。"
 
 #: src/concurrency/channels.md:6
 msgid ""
@@ -14268,6 +14334,24 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::sync::mpsc;\n"
+"use std::thread;\n"
+"\n"
+"fn main() {\n"
+"    let (tx, rx) = mpsc::channel();\n"
+"\n"
+"    tx.send(10).unwrap();\n"
+"    tx.send(20).unwrap();\n"
+"\n"
+"    println!(\"Received: {:?}\", rx.recv());\n"
+"    println!(\"Received: {:?}\", rx.recv());\n"
+"\n"
+"    let tx2 = tx.clone();\n"
+"    tx2.send(30).unwrap();\n"
+"    println!(\"Received: {:?}\", rx.recv());\n"
+"}\n"
+"```"
 
 #: src/concurrency/channels.md:27
 msgid ""
@@ -14278,14 +14362,20 @@ msgid ""
 "counterpart `Sender` or\n"
 "  `Receiver` is dropped and the channel is closed."
 msgstr ""
+"* `mpsc` 代表多重生產者、唯一消費者。`Sender` 和 `SyncSender` 會實作 "
+"`Clone`\n"
+"  (用於製作多重生產者)，但 `Receiver` 不會。\n"
+"* `send()` 和 `recv()` 會傳回 `Result`。如果傳回的是 `Err`，表示對應的 "
+"`Sender` 或\n"
+"  `Receiver` 已釋放，且通道已關閉。"
 
 #: src/concurrency/channels/unbounded.md:1
 msgid "# Unbounded Channels"
-msgstr ""
+msgstr "# 無界限的通道"
 
 #: src/concurrency/channels/unbounded.md:3
 msgid "You get an unbounded and asynchronous channel with `mpsc::channel()`:"
-msgstr ""
+msgstr "你可以使用 `mpsc::channel()` 取得無界限的非同步通道："
 
 #: src/concurrency/channels/unbounded.md:5
 msgid ""
@@ -14313,14 +14403,37 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::sync::mpsc;\n"
+"use std::thread;\n"
+"use std::time::Duration;\n"
+"\n"
+"fn main() {\n"
+"    let (tx, rx) = mpsc::channel();\n"
+"\n"
+"    thread::spawn(move || {\n"
+"        let thread_id = thread::current().id();\n"
+"        for i in 1..10 {\n"
+"            tx.send(format!(\"Message {i}\")).unwrap();\n"
+"            println!(\"{thread_id:?}: sent Message {i}\");\n"
+"        }\n"
+"        println!(\"{thread_id:?}: done\");\n"
+"    });\n"
+"    thread::sleep(Duration::from_millis(100));\n"
+"\n"
+"    for msg in rx.iter() {\n"
+"        println!(\"Main: got {msg}\");\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/concurrency/channels/bounded.md:1
 msgid "# Bounded Channels"
-msgstr ""
+msgstr "# 有界限的通道"
 
 #: src/concurrency/channels/bounded.md:3
 msgid "Bounded and synchronous channels make `send` block the current thread:"
-msgstr ""
+msgstr "有界限的同步通道可讓 `send` 阻擋現行執行緒："
 
 #: src/concurrency/channels/bounded.md:5
 msgid ""
@@ -14348,16 +14461,39 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::sync::mpsc;\n"
+"use std::thread;\n"
+"use std::time::Duration;\n"
+"\n"
+"fn main() {\n"
+"    let (tx, rx) = mpsc::sync_channel(3);\n"
+"\n"
+"    thread::spawn(move || {\n"
+"        let thread_id = thread::current().id();\n"
+"        for i in 1..10 {\n"
+"            tx.send(format!(\"Message {i}\")).unwrap();\n"
+"            println!(\"{thread_id:?}: sent Message {i}\");\n"
+"        }\n"
+"        println!(\"{thread_id:?}: done\");\n"
+"    });\n"
+"    thread::sleep(Duration::from_millis(100));\n"
+"\n"
+"    for msg in rx.iter() {\n"
+"        println!(\"Main: got {msg}\");\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/concurrency/send-sync.md:1
 msgid "# `Send` and `Sync`"
-msgstr ""
+msgstr "# `Send` 和 `Sync`"
 
 #: src/concurrency/send-sync.md:3
 msgid ""
 "How does Rust know to forbid shared access across thread? The answer is in "
 "two traits:"
-msgstr ""
+msgstr "Rust 如何得知要禁止在執行緒間共享存取權？答案就在以下兩個特徵中："
 
 #: src/concurrency/send-sync.md:5
 msgid ""
@@ -14368,6 +14504,11 @@ msgid ""
 "thread\n"
 "  boundary."
 msgstr ""
+"* [`Send`][1]：如果可以將 `T` 在執行緒界線間安全轉移，型別 `T` 就會是 "
+"`Send`。\n"
+"\n"
+"* [`Sync`][2]：如果可以將 `&T` 在執行緒界線間安全轉移，型別 `T` 就會是\n"
+"`Sync`。"
 
 #: src/concurrency/send-sync.md:10
 msgid ""
@@ -14377,6 +14518,10 @@ msgid ""
 "them manually when you\n"
 "know it is valid."
 msgstr ""
+"`Send` 和 `Sync` 是 [不安全的特徵][3]。如果你的型別只包含其他有 `Send` 和 `Sync` 的"
+"型別，\n"
+"編譯器就會自動根據型別為你產生 `Send` 和 `Sync`。或許如果你知道你的型別是適用的，\n"
+"也可以手動實作。"
 
 #: src/concurrency/send-sync.md:20
 msgid ""
@@ -14385,16 +14530,18 @@ msgid ""
 "* They can be used in the generic constraints as normal traits.\n"
 "  "
 msgstr ""
+"* 這些特徵可視為標記，表示該型別含有特定執行緒安全屬性。\n"
+"* 這些特徵就像一般特徵，可用於泛型條件約束。"
 
 #: src/concurrency/send-sync/send.md:1
 msgid "# `Send`"
-msgstr ""
+msgstr "# `Send`"
 
 #: src/concurrency/send-sync/send.md:3
 msgid ""
 "> A type `T` is [`Send`][1] if it is safe to move a `T` value to another "
 "thread."
-msgstr ""
+msgstr "> 如果可以將 `T` 值安全轉移至其他執行緒，型別 `T` 就會是 [`Send`][1]。"
 
 #: src/concurrency/send-sync/send.md:5
 msgid ""
@@ -14404,6 +14551,9 @@ msgid ""
 "thread\n"
 "and deallocate it in another."
 msgstr ""
+"將所有權轉移到其他執行緒的結果，就是「destructors」會在該執行緒中\n"
+"執行。因此問題是，何時能在一個執行緒中分配一個值，\n"
+"以及何時可在另一個執行緒中解除分配這個值。"
 
 #: src/concurrency/send-sync/send.md:13
 msgid ""
@@ -14411,10 +14561,12 @@ msgid ""
 "a\n"
 "single thread."
 msgstr ""
+"舉例來說，與 SQLite 資料庫的連線必須只能透過單一執行緒\n"
+"存取。"
 
 #: src/concurrency/send-sync/sync.md:1
 msgid "# `Sync`"
-msgstr ""
+msgstr "# `Sync`"
 
 #: src/concurrency/send-sync/sync.md:3
 msgid ""
@@ -14422,14 +14574,16 @@ msgid ""
 "multiple\n"
 "> threads at the same time."
 msgstr ""
+"> 如果可以同時從多個執行緒存取 `T` 值，\n"
+"> 型別 `T` 就會是 [`Sync`][1]。"
 
 #: src/concurrency/send-sync/sync.md:6
 msgid "More precisely, the definition is:"
-msgstr ""
+msgstr "更精確的定義如下："
 
 #: src/concurrency/send-sync/sync.md:8
 msgid "> `T` is `Sync` if and only if `&T` is `Send`"
-msgstr ""
+msgstr "> `&T` 必須為 `Send`，`T` 才會是 `Sync`"
 
 #: src/concurrency/send-sync/sync.md:14
 msgid ""
@@ -14437,6 +14591,7 @@ msgid ""
 "thread-safe for shared use, it is also thread-safe to pass references of it "
 "across threads."
 msgstr ""
+"這定義簡單的表示，若一個型別可以在確保執行緒安全的情況下被共用，這型別的參考值也可以安全的被傳遞於其他的執行緒。"
 
 #: src/concurrency/send-sync/sync.md:16
 msgid ""
@@ -14446,18 +14601,21 @@ msgid ""
 "is also safe to move to another thread, because the data it references can "
 "be accessed from any thread safely."
 msgstr ""
+"原因在於如果型別為 Sync，表示能在多個執行緒之間共用，沒有資料競爭或其他同步問"
+"題的風險，因此可以安全轉移到其他執行緒。此外，由於可以從任何執行緒安全存取型"
+"別參考的資料，型別參考也能安全地轉移到其他執行緒。"
 
 #: src/concurrency/send-sync/examples.md:1
 msgid "# Examples"
-msgstr ""
+msgstr "# 範例"
 
 #: src/concurrency/send-sync/examples.md:3
 msgid "## `Send + Sync`"
-msgstr ""
+msgstr "## `Send + Sync`"
 
 #: src/concurrency/send-sync/examples.md:5
 msgid "Most types you come across are `Send + Sync`:"
-msgstr ""
+msgstr "你遇到的多數型別會是 `Send + Sync`："
 
 #: src/concurrency/send-sync/examples.md:7
 msgid ""
@@ -14468,22 +14626,32 @@ msgid ""
 "* `Mutex<T>`: Explicitly thread-safe via internal locking.\n"
 "* `AtomicBool`, `AtomicU8`, ...: Uses special atomic instructions."
 msgstr ""
+"* `i8`、`f32`、`bool`、`char`、`&str`、...\n"
+"* `(T1, T2)`、`[T; N]`、`&[T]`、`struct { x: T }`、...\n"
+"* `String`、`Option<T>`、`Vec<T>`、`Box<T>`、...\n"
+"* `Arc<T>`：透過原子參考計數明確防護執行緒安全。\n"
+"* `Mutex<T>`：透過內部鎖定系統明確防護執行緒安全。\n"
+"* `AtomicBool`、`AtomicU8`、...：使用特殊原子性指示。"
 
 #: src/concurrency/send-sync/examples.md:14
 msgid ""
 "The generic types are typically `Send + Sync` when the type parameters are\n"
 "`Send + Sync`."
 msgstr ""
+"如果型別參數是 `Send + Sync`，\n"
+"一般型別通常就會是 `Send + Sync`。"
 
 #: src/concurrency/send-sync/examples.md:17
 msgid "## `Send + !Sync`"
-msgstr ""
+msgstr "## `Send + !Sync`"
 
 #: src/concurrency/send-sync/examples.md:19
 msgid ""
 "These types can be moved to other threads, but they're not thread-safe.\n"
 "Typically because of interior mutability:"
 msgstr ""
+"以下型別可以轉移到其他執行緒，但不會防護執行緒安全。\n"
+"原因通常在於內部可變性："
 
 #: src/concurrency/send-sync/examples.md:22
 msgid ""
@@ -14492,15 +14660,19 @@ msgid ""
 "* `Cell<T>`\n"
 "* `RefCell<T>`"
 msgstr ""
+"* `mpsc::Sender<T>`\n"
+"* `mpsc::Receiver<T>`\n"
+"* `Cell<T>`\n"
+"* `RefCell<T>`"
 
 #: src/concurrency/send-sync/examples.md:27
 msgid "## `!Send + Sync`"
-msgstr ""
+msgstr "## `!Send + Sync`"
 
 #: src/concurrency/send-sync/examples.md:29
 msgid ""
 "These types are thread-safe, but they cannot be moved to another thread:"
-msgstr ""
+msgstr "以下型別會防護執行緒安全，但無法轉移至其他執行緒："
 
 #: src/concurrency/send-sync/examples.md:31
 msgid ""
@@ -14508,14 +14680,16 @@ msgid ""
 "the\n"
 "  thread which created them."
 msgstr ""
+"* `MutexGuard<T>`：使用 OS 層級的原始元件，這類元件必須在建立該元件的\n"
+"執行緒上解除分配。"
 
 #: src/concurrency/send-sync/examples.md:34
 msgid "## `!Send + !Sync`"
-msgstr ""
+msgstr "## `!Send + !Sync`"
 
 #: src/concurrency/send-sync/examples.md:36
 msgid "These types are not thread-safe and cannot be moved to other threads:"
-msgstr ""
+msgstr "以下型別不會防護執行緒安全，也無法轉移至其他執行緒："
 
 #: src/concurrency/send-sync/examples.md:38
 msgid ""
@@ -14524,10 +14698,14 @@ msgid ""
 "* `*const T`, `*mut T`: Rust assumes raw pointers may have special\n"
 "  concurrency considerations."
 msgstr ""
+"* `Rc<T>`：每個 `Rc<T>` 都有一個 `RcBox<T>` 參考，其中包含一個\n"
+"非原子參考計數。\n"
+"* `*const T`、`*mut T`：Rust 會假定原始指標可能有特殊的\n"
+"並行考量。"
 
 #: src/concurrency/shared_state.md:1
 msgid "# Shared State"
-msgstr ""
+msgstr "# 共享狀態"
 
 #: src/concurrency/shared_state.md:3
 msgid ""
@@ -14535,6 +14713,8 @@ msgid ""
 "is\n"
 "primarily done via two types:"
 msgstr ""
+"Rust 會使用型別系統強制同步共享的資料，主要透過兩種型別\n"
+"執行："
 
 #: src/concurrency/shared_state.md:6
 msgid ""
@@ -14543,14 +14723,17 @@ msgid ""
 "  takes care to deallocate `T` when the last reference is dropped,\n"
 "* [`Mutex<T>`][2]: ensures mutually exclusive access to the `T` value."
 msgstr ""
+"* [`Arc<T>`][1]，原子參考計數為 `T`：處理執行緒間的共享狀態，\n"
+"並且在最後參考釋放時負責解除分配 `T`。\n"
+"* [`Mutex<T>`][2]：確保能提供 `T` 值的可變專屬存取權。"
 
 #: src/concurrency/shared_state/arc.md:1
 msgid "# `Arc`"
-msgstr ""
+msgstr "# `Arc`"
 
 #: src/concurrency/shared_state/arc.md:3
 msgid "[`Arc<T>`][1] allows shared read-only access via `Arc::clone`:"
-msgstr ""
+msgstr "[`Arc<T>`][1] 可透過 `Arc::clone` 取得共享唯讀存取權："
 
 #: src/concurrency/shared_state/arc.md:5
 msgid ""
@@ -14574,6 +14757,25 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::thread;\n"
+"use std::sync::Arc;\n"
+"\n"
+"fn main() {\n"
+"    let v = Arc::new(vec![10, 20, 30]);\n"
+"    let mut handles = Vec::new();\n"
+"    for _ in 1..5 {\n"
+"        let v = Arc::clone(&v);\n"
+"        handles.push(thread::spawn(move || {\n"
+"            let thread_id = thread::current().id();\n"
+"            println!(\"{thread_id:?}: {v:?}\");\n"
+"        }));\n"
+"    }\n"
+"\n"
+"    handles.into_iter().for_each(|h| h.join().unwrap());\n"
+"    println!(\"v: {v:?}\");\n"
+"}\n"
+"```"
 
 #: src/concurrency/shared_state/arc.md:29
 msgid ""
@@ -14590,16 +14792,27 @@ msgid ""
 "detect them.\n"
 "    * `std::sync::Weak` can help."
 msgstr ""
+"* `Arc` 代表「原子參考計數」，這個 `Rc` 的執行緒安全版本會採用原子性\n"
+"運算。\n"
+"* `Arc<T>` 會實作 `Clone`，與 `T` 無關。如果 `T` 同時實作 `Send` 和 "
+"`Sync`，\n"
+"`Arc<T>` 也會實作這兩者。\n"
+"* `Arc::clone()` 會導致執行原子性運算的費用，但之後使用得到的\n"
+" `T` 不需任何費用。\n"
+"* 留意參考循環，`Arc` 並不使用垃圾收集器進行偵測。\n"
+"    * `std::sync::Weak` 可協助執行這項功能。"
 
 #: src/concurrency/shared_state/mutex.md:1
 msgid "# `Mutex`"
-msgstr ""
+msgstr "# `Mutex`"
 
 #: src/concurrency/shared_state/mutex.md:3
 msgid ""
 "[`Mutex<T>`][1] ensures mutual exclusion _and_ allows mutable access to `T`\n"
 "behind a read-only interface:"
 msgstr ""
+"[`Mutex<T>`][1] 可確保執行互斥功能，「並」在唯讀介面背後授予 `T`\n"
+"的可變存取權："
 
 #: src/concurrency/shared_state/mutex.md:6
 msgid ""
@@ -14619,12 +14832,29 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::sync::Mutex;\n"
+"\n"
+"fn main() {\n"
+"    let v = Mutex::new(vec![10, 20, 30]);\n"
+"    println!(\"v: {:?}\", v.lock().unwrap());\n"
+"\n"
+"    {\n"
+"        let mut guard = v.lock().unwrap();\n"
+"        guard.push(40);\n"
+"    }\n"
+"\n"
+"    println!(\"v: {:?}\", v.lock().unwrap());\n"
+"}\n"
+"```"
 
 #: src/concurrency/shared_state/mutex.md:22
 msgid ""
 "Notice how we have a [`impl<T: Send> Sync for Mutex<T>`][2] blanket\n"
 "implementation."
 msgstr ""
+"請留意我們如何進行 [`impl<T: Send> Sync for Mutex<T>`][2] 的概括性\n"
+"實作。"
 
 #: src/concurrency/shared_state/mutex.md:31
 msgid ""
@@ -14646,10 +14876,22 @@ msgid ""
 "to recover the data\n"
 "      regardless."
 msgstr ""
+"* Rust 中的 `Mutex` 就像是只有一個元素的集合，也就是受保護的資料。\n"
+"    * 必須先取得互斥鎖，才能存取受保護的資料。\n"
+"* 只要使用這個鎖，就能從 `&Mutex<T>` 取得 `&mut T`。`MutexGuard` 可確保\n"
+" `&mut T` 的壽命不會超過所持有的鎖。\n"
+"* 如果 `T` 實作 `Send`，`Mutex<T>` 才會實作 `Send` 和 `Sync`。\n"
+"* 可讀寫的對應鎖 - `RwLock`。\n"
+"* 為何 `lock()` 會傳回 `Result`？\n"
+"* 如果持有 `Mutex` 的執行緒發生恐慌，`Mutex` 就會「中毒」，指出\n"
+"其保護的資料可能處於不一致的狀態。如果對已中毒的互斥鎖呼叫 `lock()`，\n"
+"會發生 [`PoisonError`] 錯誤。無論如何，你都可以對錯誤呼叫 `into_inner()` 來復"
+"原\n"
+"資料。"
 
 #: src/concurrency/shared_state/example.md:3
 msgid "Let us see `Arc` and `Mutex` in action:"
-msgstr ""
+msgstr "我們來看看 `Arc` 和 `Mutex` 的實際應用情形："
 
 #: src/concurrency/shared_state/example.md:5
 msgid ""
@@ -14669,10 +14911,25 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable,compile_fail\n"
+"use std::thread;\n"
+"// use std::sync::{Arc, Mutex};\n"
+"\n"
+"fn main() {\n"
+"    let v = vec![10, 20, 30];\n"
+"    let handle = thread::spawn(|| {\n"
+"        v.push(10);\n"
+"    });\n"
+"    v.push(1000);\n"
+"\n"
+"    handle.join().unwrap();\n"
+"    println!(\"v: {v:?}\");\n"
+"}\n"
+"```"
 
 #: src/concurrency/shared_state/example.md:23
 msgid "Possible solution:"
-msgstr ""
+msgstr "可能的解決方案："
 
 #: src/concurrency/shared_state/example.md:25
 msgid ""
@@ -14700,10 +14957,33 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::sync::{Arc, Mutex};\n"
+"use std::thread;\n"
+"\n"
+"fn main() {\n"
+"    let v = Arc::new(Mutex::new(vec![10, 20, 30]));\n"
+"\n"
+"    let v2 = Arc::clone(&v);\n"
+"    let handle = thread::spawn(move || {\n"
+"        let mut v2 = v2.lock().unwrap();\n"
+"        v2.push(10);\n"
+"    });\n"
+"\n"
+"    {\n"
+"        let mut v = v.lock().unwrap();\n"
+"        v.push(1000);\n"
+"    }\n"
+"\n"
+"    handle.join().unwrap();\n"
+"\n"
+"    println!(\"v: {v:?}\");\n"
+"}\n"
+"```"
 
 #: src/concurrency/shared_state/example.md:49
 msgid "Notable parts:"
-msgstr ""
+msgstr "重要部分："
 
 #: src/concurrency/shared_state/example.md:51
 msgid ""
@@ -14716,6 +14996,11 @@ msgid ""
 "* Blocks are introduced to narrow the scope of the `LockGuard` as much as "
 "possible."
 msgstr ""
+"* `v` 已同時納入 `Arc` 和 `Mutex`，因為兩者的考量互不相關。\n"
+"* 將 `Mutex` 納入 `Arc`，是在執行緒間共享可變狀態的常見模式。\n"
+"* `v: Arc<_>` 需要複製成 `v2`，才能轉移到其他執行緒。請注意，`move` 已新"
+"增至 lambda 簽章。\n"
+"* 采用區塊，盡量縮小 `LockGuard` 的範圍。"
 
 #: src/exercises/concurrency/morning.md:3
 msgid "Let us practice our new concurrency skills with"
