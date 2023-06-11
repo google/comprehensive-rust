@@ -1888,10 +1888,10 @@ msgid ""
 "writing, the latest stable Rust release has these version numbers:"
 msgstr ""
 "Wenn Sie mit dem Code auf Ihrem eigenen System experimentieren möchten, sollten Sie\n"
-"zuerst Rust zu installieren. Befolgen Sie dazu die [Anweisungen in dem Rust\n"
+"zuerst Rust installieren. Befolgen Sie dazu die [Anweisungen in dem Rust\n"
 "Buch 1]. Dies sollte Ihnen ein funktionierendes `rustc` und `cargo` geben. Zum "
 "Verfassungszeitpunkt\n"
-"hat die neueste stabile Rust-Version diese Versionsnummer:"
+"hat die neueste stabile Rust-Version folgende Versionsnummer:"
 
 #: src/cargo/running-locally.md:8
 msgid ""
@@ -1908,8 +1908,8 @@ msgid ""
 "With this in place, follow these steps to build a Rust binary from one\n"
 "of the examples in this training:"
 msgstr ""
-"Wenn dies vorhanden ist, befolgen Sie diese Schritte, um eine Rust-Binärdatei aus einem Beispiel "
-"zu erstellen:"
+"Wenn dies vorhanden ist, befolgen Sie die folgenden Schritte, um eine Rust-Binärdatei aus einem "
+"Beispiel zu erstellen:"
 
 #: src/cargo/running-locally.md:18
 msgid ""
@@ -1961,6 +1961,46 @@ msgid ""
 "   run `cargo` commands, it will automatically download and compile missing\n"
 "   dependencies for you."
 msgstr ""
+"1. Klicken Sie bei dem Beispiel, das Sie kopieren möchten, auf die Schaltfläche „In die "
+"Zwischenablage kopieren“.\n"
+"2. Verwenden Sie `cargo new exercise`, um ein neues `exercise/`-Verzeichnis für Ihren Code zu "
+"erstellen:\n"
+"    ```shell\n"
+"    $ cargo new exercise\n"
+"         Created binary (application) `exercise` package\n"
+"    ```\n"
+"3. Navigieren Sie zu `exercise/` und verwenden Sie `cargo run, um Ihre Binärdatei zu erstellen und "
+"auszuführen:\n"
+"    ```shell\n"
+"    $ cd exercise\n"
+"    $ cargo run\n"
+"       Compiling exercise v0.1.0 (/home/mgeisler/tmp/exercise)\n"
+"        Finished dev [unoptimized + debuginfo] target(s) in 0.75s\n"
+"         Running `target/debug/exercise`\n"
+"    Hello, world!\n"
+"    ```\n"
+"4. Ersetzen Sie den Platzhalter-Code in `src/main.rs` durch Ihren eigenen Code. Verwenden Sie "
+"beispielsweise das Beispiel auf der vorherigen Seite und lassen Sie `src/main.rs` so aussehen:\n"
+"    ```rust\n"
+"    fn main() {\n"
+"        println!(\"Edit me!\");\n"
+"    }\n"
+"    ```\n"
+"5. Verwenden Sie `cargo run`, um die neue Binärdatei zu erstellen und auszuführen:\n"
+"    ```shell\n"
+"    $ cargo run\n"
+"       Compiling exercise v0.1.0 (/home/mgeisler/tmp/exercise)\n"
+"        Finished dev [unoptimized + debuginfo] target(s) in 0.24s\n"
+"         Running `target/debug/exercise`\n"
+"    Edit me!\n"
+"    ```\n"
+"6. Verwenden Sie `cargo check`, um Ihr Projekt schnell auf Fehler zu überprüfen, und verwenden Sie "
+"`cargo build`, um es zu kompilieren, ohne es auszuführen. Sie finden die Ausgabe in `target/debug/"
+"` für einen normalen Debug-Build. Verwenden Sie `cargo build --release`, um einen optimierten "
+"Release-Build in `target/release/` zu erstellen.\n"
+"7. Sie können Abhängigkeiten (dependencies) zu Ihrem Projekt hinzufügen, indem Sie `Cargo.toml` "
+"bearbeiten. Wenn Sie `cargo`-Befehle ausführen, werden fehlende Abhängigkeiten automatisch "
+"heruntergeladen und für Sie kompiliert."
 
 #: src/cargo/running-locally.md:70
 msgid ""
@@ -2937,9 +2977,8 @@ msgid "# `String` vs `str`"
 msgstr "# `String` vs `str`"
 
 #: src/basic-syntax/string-slices.md:3
-#, fuzzy
 msgid "We can now understand the two string types in Rust:"
-msgstr "Wir können jetzt die beiden String-Typen in Rust verstehen:"
+msgstr "Kommen wir jetzt zu den beiden String-Typen in Rust:"
 
 #: src/basic-syntax/string-slices.md:5
 msgid ""
@@ -2960,21 +2999,18 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/string-slices.md:20
-#, fuzzy
 msgid "Rust terminology:"
-msgstr "Rost-Terminologie:"
+msgstr "Rust-Terminologie:"
 
 #: src/basic-syntax/string-slices.md:22
-#, fuzzy
 msgid ""
 "* `&str` an immutable reference to a string slice.\n"
 "* `String` a mutable string buffer."
 msgstr ""
-"* `&str` eine unveränderliche Referenz auf einen String-Slice.\n"
-"* `String` ein veränderlicher String-Puffer."
+"* `&str` eine unveränderliche (immutable) Referenz auf einen String-Slice.\n"
+"* `String` ein veränderlicher String-Puffer (mutable string buffer)."
 
 #: src/basic-syntax/string-slices.md:27
-#, fuzzy
 msgid ""
 "* `&str` introduces a string slice, which is an immutable reference to UTF-8 encoded string data \n"
 "  stored in a block of memory. String literals (`”Hello”`), are stored in the program’s binary.\n"
@@ -2997,33 +3033,38 @@ msgid ""
 "optimization).\n"
 "    "
 msgstr ""
-"* Das `format!()`-Makro ist eine bequeme Möglichkeit, einen eigenen String aus dynamischen Werten "
-"zu generieren. Es\n"
-"  akzeptiert die gleiche Formatspezifikation wie `println!()`.\n"
+"* `&str` führt einen String-Slice ein, der eine unveränderliche Referenz auf UTF-8-codierte String-"
+"Daten ist, die in einem Speicherblock gespeichert sind. String-Literale (`\"Hallo\"`) werden in "
+"der Binärdatei des Programms gespeichert.\n"
+"\n"
+"* Der `String`-Typ von Rust ist eine Verpackung (wrapper) um einen Byte-Vektor. Wie bei einem "
+"`Vec<T>` ist es im Besitz.\n"
 "    \n"
-"* Sie können `&str`-Slices von `String` über `&` und optional Bereichsauswahl ausleihen.\n"
+"* Wie bei vielen anderen Typen erstellt `String::from()` einen String aus einem String-Literal; "
+"`String::new()` erstellt einen neuen leeren String, zu dem String-Daten mit den Methoden `push()` "
+"und `push_str()` hinzugefügt werden können.\n"
+"\n"
+"* Das Makro `format!()` ist eine praktische Möglichkeit, einen aneigenbaren (owned) String aus "
+"dynamischen Werten zu generieren. Es akzeptiert die gleiche Formatspezifikation wie `println!()`.\n"
 "    \n"
-"* Für C++-Programmierer: Stellen Sie sich `&str` als `const char*` von C++ vor, aber dasjenige, "
-"das immer zeigt\n"
-"  zu einer gültigen Zeichenfolge im Speicher. Rust `String` ist ein grobes Äquivalent zu `std::"
-"string` aus C++\n"
-"  (Hauptunterschied: Es kann nur UTF-8-codierte Bytes enthalten und verwendet niemals eine Small-"
-"String-Optimierung).\n"
+"* Sie können `&str`-Slices von `String` über `&` und optional eine Bereichsauswahl (range "
+"Selection) ausleihen.\n"
 "    \n"
-"</details>"
+"* Für C++-Programmierer: Stellen Sie sich `&str` als `const char*` aus C++ vor, der immer auf eine "
+"gültige Zeichenfolge im Speicher zeigt. Rust `String` ist ein grobes Äquivalent von `std::string` "
+"aus C++ (Hauptunterschied: Es kann nur UTF-8-codierte Bytes enthalten und wird niemals eine "
+"Optimierung für kleine Zeichenfolgen verwenden). "
 
 #: src/basic-syntax/functions.md:1
-#, fuzzy
 msgid "# Functions"
 msgstr "# Funktionen"
 
 #: src/basic-syntax/functions.md:3
-#, fuzzy
 msgid ""
 "A Rust version of the famous [FizzBuzz](https://en.wikipedia.org/wiki/Fizz_buzz) interview "
 "question:"
 msgstr ""
-"Eine Rust-Version der berühmten [FizzBuzz](https://en.wikipedia.org/wiki/Fizz_buzz) Interviewfrage:"
+"Eine Rust-Version der berühmten [FizzBuzz](https://de.wikipedia.org/wiki/Fizz_buzz) Interviewfrage:"
 
 #: src/basic-syntax/functions.md:5
 msgid ""
@@ -3069,15 +3110,24 @@ msgid ""
 "* The range expression in the `for` loop in `print_fizzbuzz_to()` contains `=n`, which causes it "
 "to include the upper bound."
 msgstr ""
+"* Wir beziehen uns in `main` auf eine unten beschriebene Funktion. Es sind weder Forward-"
+"Deklarationen noch Header erforderlich.\n"
+"* Auf Deklarationsparameter folgt ein Typ (das Gegenteil einiger Programmiersprachen) und dann ein "
+"Rückgabetyp.\n"
+"* Der letzte Ausdruck in einem Funktionskörper (oder einem beliebigen Block) wird zum "
+"Rückgabewert. Lassen Sie einfach das `;` am Ende des Ausdrucks weg.\n"
+"* Einige Funktionen haben keinen Rückgabewert und geben den `Einheitentyp` (Unittyp) `()` zurück. "
+"Der Compiler schließt daraus, wenn der Rückgabetyp `->()` weggelassen wird.\n"
+"* Der Bereichsausdruck (range expression) in der `for`-Schleife in `print_fizzbuzz_to()` enthält "
+"`=n`, was dazu führt, dass die Obergrenze einschlossen wird."
 
 #: src/basic-syntax/rustdoc.md:1
-#, fuzzy
 msgid "# Rustdoc"
-msgstr "# Warum Rost?"
+msgstr "# Rustdoc"
 
 #: src/basic-syntax/rustdoc.md:3
 msgid "All language items in Rust can be documented using special `///` syntax."
-msgstr ""
+msgstr "Alle Sprachelemente in Rust können mit der speziellen `///`-Syntax dokumentiert werden."
 
 #: src/basic-syntax/rustdoc.md:5
 msgid ""
@@ -3101,6 +3151,10 @@ msgid ""
 "[rustdoc](https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html) tool. It is\n"
 "idiomatic to document all public items in an API using this pattern."
 msgstr ""
+"Die Inhalte werden als Markdown behandelt. Alle veröffentlichten Rust-Bibliothekskästen (library "
+"cates) werden automatisch unter [`docs.rs`](https://docs.rs) mit [rustdoc](https://doc.rust-lang."
+"org/rustdoc/what-is-rustdoc.html) dokumentiert. Es ist idiomatisch, alle öffentlichen Elemente in "
+"einer API mithilfe dieses Musters zu dokumentieren."
 
 #: src/basic-syntax/rustdoc.md:24
 msgid ""
@@ -3113,20 +3167,26 @@ msgid ""
 "* Inner doc comments are discussed later (in the page on modules) and need not\n"
 "  be addressed here."
 msgstr ""
+"* Zeigen Sie den Schülern die generierten Dokumente für die Kiste (crate) `rand` unter [`docs.rs/"
+"rand`](https://docs.rs/rand).\n"
+"\n"
+"* Dieser Kurs enthält keine Rustdocs auf Folien, um Platz zu sparen, aber im echten Code sollten "
+"Rustdoc-Kommentare vorhanden sein.\n"
+"\n"
+"* Inner doc Kommentare werden später besprochen (auf der Seite zu Modulen) und müssen hier nicht "
+"behandelt werden."
 
 #: src/basic-syntax/methods.md:1 src/methods.md:1
-#, fuzzy
 msgid "# Methods"
 msgstr "# Methoden"
 
 #: src/basic-syntax/methods.md:3
-#, fuzzy
 msgid ""
 "Methods are functions associated with a type. The `self` argument of a method is\n"
 "an instance of the type it is associated with:"
 msgstr ""
-"Rust hat Methoden, das sind einfach Funktionen, die einem bestimmten Typ zugeordnet sind. Der\n"
-"Das erste Argument einer Methode ist eine Instanz des Typs, dem sie zugeordnet ist:"
+"Methoden sind Funktionen, die einem bestimmten Typ zugeordnet sind.\n"
+"Das `self`-Argument einer Methode ist die Instanz des Typs, dem sie zugeordnet ist:"
 
 #: src/basic-syntax/methods.md:6
 msgid ""
@@ -3156,10 +3216,9 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/methods.md:30
-#, fuzzy
 msgid "* We will look much more at methods in today's exercise and in tomorrow's class."
 msgstr ""
-"* Wir werden uns in der heutigen Übung und im morgigen Unterricht viel mehr mit Methoden befassen."
+"* Wir werden uns in der heutigen Übung und im morgigen Unterricht tiefer mit Methoden befassen."
 
 #: src/basic-syntax/methods.md:34
 msgid ""
@@ -3174,19 +3233,26 @@ msgid ""
 "- Add a `Rectangle::new_square(width: u32)` constructor to illustrate that\n"
 "  constructors can take arbitrary parameters."
 msgstr ""
+"* Fügen Sie einen `Rectangle::new`-Konstruktor hinzu und rufen Sie diesen von `main` aus auf:\n"
+"\n"
+"    ```rust,editable,compile_fail\n"
+"    fn new(width: u32, height: u32) -> Rectangle {\n"
+"        Rectangle { width, height }\n"
+"    }\n"
+"    ```\n"
+"\n"
+"* Fügen Sie einen `Rectangle::new_square(width: u32)`-Konstruktor hinzu, um zu veranschaulichen, "
+"dass Konstruktoren beliebige Parameter annehmen können."
 
 #: src/basic-syntax/functions-interlude.md:1
-#, fuzzy
 msgid "# Function Overloading"
 msgstr "# Funktionsüberladung"
 
 #: src/basic-syntax/functions-interlude.md:3
-#, fuzzy
 msgid "Overloading is not supported:"
 msgstr "Überladen wird nicht unterstützt:"
 
 #: src/basic-syntax/functions-interlude.md:5
-#, fuzzy
 msgid ""
 "* Each function has a single implementation:\n"
 "  * Always takes a fixed number of parameters.\n"
@@ -3199,11 +3265,10 @@ msgstr ""
 "  * Akzeptiert immer eine feste Anzahl von Parametern.\n"
 "  * Akzeptiert immer einen einzelnen Satz von Parametertypen.\n"
 "* Standardwerte werden nicht unterstützt:\n"
-"  * Alle Aufrufseiten haben die gleiche Anzahl von Argumenten.\n"
+"  * Alle Aufrufseiten (call sites) haben die gleiche Anzahl von Argumenten.\n"
 "  * Makros werden manchmal als Alternative verwendet."
 
 #: src/basic-syntax/functions-interlude.md:12
-#, fuzzy
 msgid "However, function parameters can be generic:"
 msgstr "Funktionsparameter können jedoch generisch sein:"
 
@@ -3222,14 +3287,13 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/functions-interlude.md:27
-#, fuzzy
 msgid ""
 "* When using generics, the standard library's `Into<T>` can provide a kind of limited\n"
 "  polymorphism on argument types. We will see more details in a later section."
 msgstr ""
-"* Bei Verwendung von Generics kann das `Into<T>` der Standardbibliothek eine Art Limitierung "
-"bieten\n"
-"  Polymorphismus auf Argumenttypen. Wir werden mehr Details in einem späteren Abschnitt sehen."
+"* Bei Verwendung von Generika (generics) kann `Into<T>` der Standardbibliothek eine Art "
+"eingeschränkten Polymorphismus für Argumenttypen bereitstellen. Weitere Einzelheiten erfahren Sie "
+"in einem späteren Abschnitt."
 
 #: src/exercises/day-1/morning.md:1
 #, fuzzy
