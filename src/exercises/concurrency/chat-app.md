@@ -29,7 +29,7 @@ API.
   Websocket Stream.
 - [SinkExt::send()][4] implemented by `WebsocketStream`: for asynchronously
   sending messages on a Websocket Stream.
-- [BufReader::read_line()][5]: for asynchronously reading user messages
+- [Lines::next_line()][5]: for asynchronously reading user messages
   from the standard input.
 - [Sender::subscribe()][6]: for subscribing to a broadcast channel.
 
@@ -104,6 +104,6 @@ $ cargo run --bin client
 [2]: https://docs.rs/tokio-websockets/0.3.2/tokio_websockets/
 [3]: https://docs.rs/tokio-websockets/0.3.2/tokio_websockets/proto/struct.WebsocketStream.html#method.next
 [4]: https://docs.rs/futures-util/0.3.28/futures_util/sink/trait.SinkExt.html#method.send
-[5]: https://docs.rs/tokio/latest/tokio/io/trait.AsyncBufReadExt.html#method.read_line
+[5]: https://docs.rs/tokio/latest/tokio/io/struct.Lines.html#method.next_line
 [6]: https://docs.rs/tokio/latest/tokio/sync/broadcast/struct.Sender.html#method.subscribe
 [7]: https://doc.rust-lang.org/cargo/reference/cargo-targets.html#binaries

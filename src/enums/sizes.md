@@ -58,7 +58,7 @@ Key Points:
      * `dbg_size!(&i32)`: size 8 bytes, align: 8 bytes (on a 64-bit machine),
      * `dbg_size!(Option<&i32>)`: size 8 bytes, align: 8 bytes (null pointer optimization, see below).
 
- * Niche optimization: Rust will merge use unused bit patterns for the enum
+ * Niche optimization: Rust will merge unused bit patterns for the enum
    discriminant.
 
  * Null pointer optimization: For [some

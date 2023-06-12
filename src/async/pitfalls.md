@@ -5,3 +5,4 @@ Async / await provides convenient and efficient abstraction for concurrent async
 - [Blocking the Executor](pitfalls/blocking-executor.md)
 - [Pin](pitfalls/pin.md)
 - [Async Traits](pitfall/async-traits.md)
+- [Cancellation](pitfalls/cancellation.md)

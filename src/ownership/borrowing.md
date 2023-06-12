@@ -46,7 +46,7 @@ Notes on stack returns:
   }
   ```
 * The Rust compiler can do return value optimization (RVO).
-* In C++, copy elision has to be defined in the language specification because constructors can have side effects. In Rust, this is not an issue at all. If RVO did not happen, Rust will always performs a simple and efficient `memcpy` copy.
+* In C++, copy elision has to be defined in the language specification because constructors can have side effects. In Rust, this is not an issue at all. If RVO did not happen, Rust will always perform a simple and efficient `memcpy` copy.
 
 </details>
 
