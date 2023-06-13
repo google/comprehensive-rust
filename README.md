@@ -37,7 +37,14 @@ The course is built using a few tools:
 - [mdbook-i18n-helpers](https://github.com/google/mdbook-i18n-helpers)
 - [mdbook-exerciser](mdbook-exerciser/)
 
-Install these tools with:
+First clone the repository:
+
+```shell
+$ git clone https://github.com/google/comprehensive-rust/
+$ cd comprehensive-rust
+```
+
+Then install these tools with:
 
 ```shell
 $ cargo install mdbook
@@ -46,7 +53,7 @@ $ cargo install mdbook-i18n-helpers
 $ cargo install --path mdbook-exerciser
 ```
 
-Then run
+Run
 
 ```shell
 $ mdbook test
