@@ -14443,15 +14443,14 @@ msgstr ""
 
 #: src/concurrency.md:1
 msgid "# Welcome to Concurrency in Rust"
-msgstr "# 欢迎了解 Rust 中的并发机制"
+msgstr "# 欢迎了解 Rust 中的并发"
 
 #: src/concurrency.md:3
 msgid ""
 "Rust has full support for concurrency using OS threads with mutexes and\n"
 "channels."
 msgstr ""
-"Rust 提供了对包含互斥量和通道的 OS 线程的支持\n"
-"为并发提供全面支持。"
+"Rust 完全支持使用带有互斥锁和通道的操作系统线程进行并发。"
 
 #: src/concurrency.md:6
 msgid ""
@@ -14520,7 +14519,7 @@ msgid ""
 "  * Panics can carry a payload, which can be unpacked with `downcast_ref`."
 msgstr ""
 "* 线程均为守护程序线程，主线程不会等待这些线程。\n"
-"* 线程紧急警报是彼此独立的。\n"
+"* 线程紧急警报 (panic) 是彼此独立的。\n"
 "* 紧急警报可以携带载荷，并可以使用 `downcast_ref` 对载荷进行解压缩。"
 
 #: src/concurrency/threads.md:32
@@ -14552,7 +14551,7 @@ msgstr ""
 
 #: src/concurrency/scoped-threads.md:1
 msgid "# Scoped Threads"
-msgstr "# 分区线程"
+msgstr "# 范围线程"
 
 #: src/concurrency/scoped-threads.md:3
 msgid "Normal threads cannot borrow from their environment:"
@@ -14586,7 +14585,7 @@ msgstr ""
 
 #: src/concurrency/scoped-threads.md:17
 msgid "However, you can use a [scoped thread][1] for this:"
-msgstr "不过，你可以使用[分区线程][1]来实现此目的："
+msgstr "不过，你可以使用[范围线程][1]来实现此目的："
 
 #: src/concurrency/scoped-threads.md:19
 msgid ""
@@ -14643,7 +14642,7 @@ msgid ""
 "parts\n"
 "are connected via the channel, but you only see the end-points."
 msgstr ""
-"Rust 通道包含两个部分：`Sender<T>` 和 `Receiver<T>`。这两个部分\n"
+"Rust 通道（Channel）包含两个部分：`Sender<T>` 和 `Receiver<T>`。这两个部分\n"
 "通过通道进行连接，但你只能看到端点。"
 
 #: src/concurrency/channels.md:6
@@ -14766,7 +14765,7 @@ msgstr "# 有界通道"
 
 #: src/concurrency/channels/bounded.md:3
 msgid "Bounded and synchronous channels make `send` block the current thread:"
-msgstr "有边界的同步通道会使 `send` 屏蔽当前线程："
+msgstr "有边界的同步通道会使 `send` 阻塞当前线程："
 
 #: src/concurrency/channels/bounded.md:5
 msgid ""
@@ -15014,7 +15013,7 @@ msgid ""
 "the\n"
 "  thread which created them."
 msgstr ""
-"* `MutexGuard<T>`：使用 OS 级基元（必须在创建这些基元的线程上\n"
+"* `MutexGuard<T>`：使用操作系统级别的原语（必须在创建这些原语的线程上\n"
 "取消分配）。"
 
 #: src/concurrency/send-sync/examples.md:34
@@ -15138,7 +15137,7 @@ msgstr ""
 
 #: src/concurrency/shared_state/mutex.md:1
 msgid "# `Mutex`"
-msgstr "# `Mutex`"
+msgstr "# `互斥器 (Mutex)`"
 
 #: src/concurrency/shared_state/mutex.md:3
 msgid ""
@@ -15210,7 +15209,7 @@ msgid ""
 "to recover the data\n"
 "      regardless."
 msgstr ""
-"* Rust 中的 `Mutex` 看起来就像只包含一个元素的集合，其中的元素就是受保护的数"
+"* Rust 中的互斥器看起来就像只包含一个元素的集合，其中的元素就是受保护的数"
 "据。\n"
 "* 在访问受保护的数据之前不可能忘记获取互斥量。\n"
 "* 你可以通过获取锁，从 `&Mutex<T>` 中获取 `&mut T`。`MutexGuard` 能够确保 "
