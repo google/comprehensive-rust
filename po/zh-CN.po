@@ -1223,7 +1223,7 @@ msgstr ""
 #: src/exercises/concurrency/afternoon.md:11
 #: src/exercises/concurrency/dining-philosophers-async.md:75
 msgid "<details>"
-msgstr ""
+msgstr "<details>"
 
 #: src/welcome.md:52
 msgid ""
@@ -1330,7 +1330,7 @@ msgstr ""
 #: src/exercises/concurrency/afternoon.md:17
 #: src/exercises/concurrency/dining-philosophers-async.md:79
 msgid "</details>"
-msgstr ""
+msgstr "</details>"
 
 #: src/running-the-course.md:1
 msgid "# Running the Course"
@@ -5669,7 +5669,7 @@ msgstr ""
 
 #: src/methods/example.md:1 src/concurrency/shared_state/example.md:1
 msgid "# Example"
-msgstr ""
+msgstr "# 示例"
 
 #: src/methods/example.md:3
 msgid ""
@@ -14510,13 +14510,14 @@ msgstr ""
 
 #: src/concurrency.md:1
 msgid "# Welcome to Concurrency in Rust"
-msgstr ""
+msgstr "# 欢迎了解 Rust 中的并发"
 
 #: src/concurrency.md:3
 msgid ""
 "Rust has full support for concurrency using OS threads with mutexes and\n"
 "channels."
 msgstr ""
+"Rust 完全支持使用带有互斥锁和通道的操作系统线程进行并发。"
 
 #: src/concurrency.md:6
 msgid ""
@@ -14526,14 +14527,17 @@ msgid ""
 "you\n"
 "can rely on the compiler to ensure correctness at runtime."
 msgstr ""
+"Rust 类型系统能帮助我们把许多并发bug转换为编译期bug\n"
+"发挥着重要作用。这通常称为“无畏并发”，因为你可以依靠编译器来确保\n"
+"运行时的正确性。"
 
 #: src/concurrency/threads.md:1
 msgid "# Threads"
-msgstr ""
+msgstr "# 线程"
 
 #: src/concurrency/threads.md:3
 msgid "Rust threads work similarly to threads in other languages:"
-msgstr ""
+msgstr "Rust 线程的运作方式与其他语言中的线程类似："
 
 #: src/concurrency/threads.md:5
 msgid ""
@@ -14556,6 +14560,24 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::thread;\n"
+"use std::time::Duration;\n"
+"\n"
+"fn main() {\n"
+"    thread::spawn(|| {\n"
+"        for i in 1..10 {\n"
+"            println!(\"Count in thread: {i}!\");\n"
+"            thread::sleep(Duration::from_millis(5));\n"
+"        }\n"
+"    });\n"
+"\n"
+"    for i in 1..5 {\n"
+"        println!(\"Main thread: {i}\");\n"
+"        thread::sleep(Duration::from_millis(5));\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/concurrency/threads.md:24
 msgid ""
@@ -14563,6 +14585,9 @@ msgid ""
 "* Thread panics are independent of each other.\n"
 "  * Panics can carry a payload, which can be unpacked with `downcast_ref`."
 msgstr ""
+"* 线程均为守护程序线程，主线程不会等待这些线程。\n"
+"* 线程紧急警报 (panic) 是彼此独立的。\n"
+"* 紧急警报可以携带载荷，并可以使用 `downcast_ref` 对载荷进行解压缩。"
 
 #: src/concurrency/threads.md:32
 msgid ""
@@ -14580,14 +14605,24 @@ msgid ""
 "panic\n"
 "  payload. This is a good time to talk about [`Any`]."
 msgstr ""
+"* 请注意，线程在达到 10 之前就停止了，而主线程并\n"
+"没有等待。\n"
+"\n"
+"* 使用 `let handle = thread::spawn(...)` 和后面的 `handle.join()` 等待\n"
+"线程完成。\n"
+"\n"
+"* 在线程中触发紧急警报，并注意这为何不会影响到 `main`。\n"
+"\n"
+"* 使用 `handle.join()` 的 `Result` 返回值来获取对紧急警报\n"
+"载荷的访问权限。现在有必要介绍一下 [`Any`] 了。"
 
 #: src/concurrency/scoped-threads.md:1
 msgid "# Scoped Threads"
-msgstr ""
+msgstr "# 范围线程"
 
 #: src/concurrency/scoped-threads.md:3
 msgid "Normal threads cannot borrow from their environment:"
-msgstr ""
+msgstr "常规线程不能从它们所处的环境中借用："
 
 #: src/concurrency/scoped-threads.md:5
 msgid ""
@@ -14603,10 +14638,21 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable,compile_fail\n"
+"use std::thread;\n"
+"\n"
+"fn main() {\n"
+"    let s = String::from(\"Hello\");\n"
+"\n"
+"    thread::spawn(|| {\n"
+"        println!(\"Length: {}\", s.len());\n"
+"    });\n"
+"}\n"
+"```"
 
 #: src/concurrency/scoped-threads.md:17
 msgid "However, you can use a [scoped thread][1] for this:"
-msgstr ""
+msgstr "不过，你可以使用[范围线程][1]来实现此目的："
 
 #: src/concurrency/scoped-threads.md:19
 msgid ""
@@ -14624,6 +14670,19 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::thread;\n"
+"\n"
+"fn main() {\n"
+"    let s = String::from(\"Hello\");\n"
+"\n"
+"    thread::scope(|scope| {\n"
+"        scope.spawn(|| {\n"
+"            println!(\"Length: {}\", s.len());\n"
+"        });\n"
+"    });\n"
+"}\n"
+"```"
 
 #: src/concurrency/scoped-threads.md:37
 msgid ""
@@ -14634,10 +14693,15 @@ msgid ""
 "thread, or immutably by any number of threads.\n"
 "    "
 msgstr ""
+"* 其原因在于，在 `thread::scope` 函数完成后，可保证所有线程都已联结在一起，使"
+"得线程能够返回借用的数据。\n"
+"* 此时须遵守常规 Rust 借用规则：你可以通过一个线程以可变的方式借用，也可以通"
+"过任意数量的线程以不可变的方式借用。\n"
+"    "
 
 #: src/concurrency/channels.md:1
 msgid "# Channels"
-msgstr ""
+msgstr "# 通道"
 
 #: src/concurrency/channels.md:3
 msgid ""
@@ -14645,6 +14709,8 @@ msgid ""
 "parts\n"
 "are connected via the channel, but you only see the end-points."
 msgstr ""
+"Rust 通道（Channel）包含两个部分：`Sender<T>` 和 `Receiver<T>`。这两个部分\n"
+"通过通道进行连接，但你只能看到端点。"
 
 #: src/concurrency/channels.md:6
 msgid ""
@@ -14667,6 +14733,24 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::sync::mpsc;\n"
+"use std::thread;\n"
+"\n"
+"fn main() {\n"
+"    let (tx, rx) = mpsc::channel();\n"
+"\n"
+"    tx.send(10).unwrap();\n"
+"    tx.send(20).unwrap();\n"
+"\n"
+"    println!(\"Received: {:?}\", rx.recv());\n"
+"    println!(\"Received: {:?}\", rx.recv());\n"
+"\n"
+"    let tx2 = tx.clone();\n"
+"    tx2.send(30).unwrap();\n"
+"    println!(\"Received: {:?}\", rx.recv());\n"
+"}\n"
+"```"
 
 #: src/concurrency/channels.md:27
 msgid ""
@@ -14677,14 +14761,20 @@ msgid ""
 "counterpart `Sender` or\n"
 "  `Receiver` is dropped and the channel is closed."
 msgstr ""
+"* `mpsc` 代表多个生产方，单个使用方。`Sender` 和 `SyncSender` 会实现 `Clone`"
+"（因此，\n"
+"你可以设置多个生产方），但 `Receiver` 不会实现。\n"
+"* `send()` 和 `recv()` 会返回 `Result`。如果它们返回 `Err`，则表示对应的 "
+"`Sender` 或 `Receiver`\n"
+"已被丢弃，且通道已关闭。"
 
 #: src/concurrency/channels/unbounded.md:1
 msgid "# Unbounded Channels"
-msgstr ""
+msgstr "# 无界通道"
 
 #: src/concurrency/channels/unbounded.md:3
 msgid "You get an unbounded and asynchronous channel with `mpsc::channel()`:"
-msgstr ""
+msgstr "你可以使用 `mpsc::channel()` 获得无边界的异步通道："
 
 #: src/concurrency/channels/unbounded.md:5
 msgid ""
@@ -14712,14 +14802,37 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::sync::mpsc;\n"
+"use std::thread;\n"
+"use std::time::Duration;\n"
+"\n"
+"fn main() {\n"
+"    let (tx, rx) = mpsc::channel();\n"
+"\n"
+"    thread::spawn(move || {\n"
+"        let thread_id = thread::current().id();\n"
+"        for i in 1..10 {\n"
+"            tx.send(format!(\"Message {i}\")).unwrap();\n"
+"            println!(\"{thread_id:?}: sent Message {i}\");\n"
+"        }\n"
+"        println!(\"{thread_id:?}: done\");\n"
+"    });\n"
+"    thread::sleep(Duration::from_millis(100));\n"
+"\n"
+"    for msg in rx.iter() {\n"
+"        println!(\"Main: got {msg}\");\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/concurrency/channels/bounded.md:1
 msgid "# Bounded Channels"
-msgstr ""
+msgstr "# 有界通道"
 
 #: src/concurrency/channels/bounded.md:3
 msgid "Bounded and synchronous channels make `send` block the current thread:"
-msgstr ""
+msgstr "有边界的同步通道会使 `send` 阻塞当前线程："
 
 #: src/concurrency/channels/bounded.md:5
 msgid ""
@@ -14747,16 +14860,39 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::sync::mpsc;\n"
+"use std::thread;\n"
+"use std::time::Duration;\n"
+"\n"
+"fn main() {\n"
+"    let (tx, rx) = mpsc::sync_channel(3);\n"
+"\n"
+"    thread::spawn(move || {\n"
+"        let thread_id = thread::current().id();\n"
+"        for i in 1..10 {\n"
+"            tx.send(format!(\"Message {i}\")).unwrap();\n"
+"            println!(\"{thread_id:?}: sent Message {i}\");\n"
+"        }\n"
+"        println!(\"{thread_id:?}: done\");\n"
+"    });\n"
+"    thread::sleep(Duration::from_millis(100));\n"
+"\n"
+"    for msg in rx.iter() {\n"
+"        println!(\"Main: got {msg}\");\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/concurrency/send-sync.md:1
 msgid "# `Send` and `Sync`"
-msgstr ""
+msgstr "# `Send` 和 `Sync`"
 
 #: src/concurrency/send-sync.md:3
 msgid ""
 "How does Rust know to forbid shared access across thread? The answer is in "
 "two traits:"
-msgstr ""
+msgstr "Rust 如何知道要禁止跨线程共享访问？答案在于 Rust 的两个特征："
 
 #: src/concurrency/send-sync.md:5
 msgid ""
@@ -14767,6 +14903,10 @@ msgid ""
 "thread\n"
 "  boundary."
 msgstr ""
+"* [`Send`][1]：如果跨线程边界移动 `T` 是安全的，则类型 `T`\n"
+"为 `Send`。\n"
+"* [`Sync`][2]：如果跨线程边界移动 `&T` 是安全的，则类型 `T`\n"
+"为 `Sync`。"
 
 #: src/concurrency/send-sync.md:10
 msgid ""
@@ -14776,6 +14916,10 @@ msgid ""
 "them manually when you\n"
 "know it is valid."
 msgstr ""
+"`Send` 和 `Sync` 均为[不安全特征][3]。只要类型仅包含 `Send` 和 `Sync` 类型，"
+"编译器就会自动为类型派生\n"
+"这两种特征。你也可以手动实现它们（如果你确定这样\n"
+"有效的话）。"
 
 #: src/concurrency/send-sync.md:20
 msgid ""
@@ -14784,16 +14928,19 @@ msgid ""
 "* They can be used in the generic constraints as normal traits.\n"
 "  "
 msgstr ""
+"* 不妨将这些特征视为类型包含某些线程安全属性的标记。\n"
+"* 它们可以在泛型约束中作为常规特征使用。\n"
+"  "
 
 #: src/concurrency/send-sync/send.md:1
 msgid "# `Send`"
-msgstr ""
+msgstr "# `Send`"
 
 #: src/concurrency/send-sync/send.md:3
 msgid ""
 "> A type `T` is [`Send`][1] if it is safe to move a `T` value to another "
 "thread."
-msgstr ""
+msgstr "> 如果将 `T` 值移动到另一个线程是安全的，则类型 `T` 为 [`Send`][1]。"
 
 #: src/concurrency/send-sync/send.md:5
 msgid ""
@@ -14803,6 +14950,9 @@ msgid ""
 "thread\n"
 "and deallocate it in another."
 msgstr ""
+"将所有权转移到另一个线程的影响是，“析构函数”将在相应线程中\n"
+"运行。因此，问题在于你何时可以在一个线程中分配某个值，然后在\n"
+"另一个线程中取消分配该值。"
 
 #: src/concurrency/send-sync/send.md:13
 msgid ""
@@ -14810,10 +14960,12 @@ msgid ""
 "a\n"
 "single thread."
 msgstr ""
+"例如，与 SQLite 库的连接只能通过\n"
+"单个线程访问。"
 
 #: src/concurrency/send-sync/sync.md:1
 msgid "# `Sync`"
-msgstr ""
+msgstr "# `Sync`"
 
 #: src/concurrency/send-sync/sync.md:3
 msgid ""
@@ -14821,14 +14973,16 @@ msgid ""
 "multiple\n"
 "> threads at the same time."
 msgstr ""
+"> 如果同时从多个线程访问 `T` 值是安全的，则类型 `T`\n"
+">为 [`Sync`][1]。"
 
 #: src/concurrency/send-sync/sync.md:6
 msgid "More precisely, the definition is:"
-msgstr ""
+msgstr "更准确地说，定义是："
 
 #: src/concurrency/send-sync/sync.md:8
 msgid "> `T` is `Sync` if and only if `&T` is `Send`"
-msgstr ""
+msgstr "> 当且仅当 `&T` 为 `Send` 时，`T` 为 `Sync`"
 
 #: src/concurrency/send-sync/sync.md:14
 msgid ""
@@ -14836,6 +14990,8 @@ msgid ""
 "thread-safe for shared use, it is also thread-safe to pass references of it "
 "across threads."
 msgstr ""
+"该语句实质上是一种简写形式，表示如果某个类型对于共享使用是线程安全的，那么跨"
+"线程传递对该类型的引用也是线程安全的。"
 
 #: src/concurrency/send-sync/sync.md:16
 msgid ""
@@ -14845,18 +15001,21 @@ msgid ""
 "is also safe to move to another thread, because the data it references can "
 "be accessed from any thread safely."
 msgstr ""
+"这是因为如果某个类型为 Sync，则意味着它可以在多个线程之间共享，而不存在数据争"
+"用或其他同步问题的风险，因此将其移动到另一个线程是安全的。对该类型的引用同样"
+"可以安全地移动到另一个线程，因为它引用的数据可以从任何线程安全地访问。"
 
 #: src/concurrency/send-sync/examples.md:1
 msgid "# Examples"
-msgstr ""
+msgstr "# 示例"
 
 #: src/concurrency/send-sync/examples.md:3
 msgid "## `Send + Sync`"
-msgstr ""
+msgstr "## `Send + Sync`"
 
 #: src/concurrency/send-sync/examples.md:5
 msgid "Most types you come across are `Send + Sync`:"
-msgstr ""
+msgstr "你遇到的类型大都属于 `Send + Sync`："
 
 #: src/concurrency/send-sync/examples.md:7
 msgid ""
@@ -14867,22 +15026,32 @@ msgid ""
 "* `Mutex<T>`: Explicitly thread-safe via internal locking.\n"
 "* `AtomicBool`, `AtomicU8`, ...: Uses special atomic instructions."
 msgstr ""
+"* `i8`、`f32`、`bool`、`char`、`&str`…\n"
+"* `(T1, T2)`、`[T; N]`、`&[T]`、`struct { x: T }`…\n"
+"* `String`、`Option<T>`、`Vec<T>`、`Box<T>`…\n"
+"* `Arc<T>`：明确通过原子引用计数实现线程安全。\n"
+"* `Mutex<T>`：明确通过内部锁定实现线程安全。\n"
+"* `AtomicBool`、`AtomicU8`…：使用特殊的原子指令。"
 
 #: src/concurrency/send-sync/examples.md:14
 msgid ""
 "The generic types are typically `Send + Sync` when the type parameters are\n"
 "`Send + Sync`."
 msgstr ""
+"当类型参数为 `Send + Sync` 时，泛型类型通常\n"
+"为 `Send + Sync`。"
 
 #: src/concurrency/send-sync/examples.md:17
 msgid "## `Send + !Sync`"
-msgstr ""
+msgstr "## `Send + !Sync`"
 
 #: src/concurrency/send-sync/examples.md:19
 msgid ""
 "These types can be moved to other threads, but they're not thread-safe.\n"
 "Typically because of interior mutability:"
 msgstr ""
+"这些类型可以移动到其他线程，但它们不是线程安全的。\n"
+"这通常是由内部可变性造成的："
 
 #: src/concurrency/send-sync/examples.md:22
 msgid ""
@@ -14891,15 +15060,19 @@ msgid ""
 "* `Cell<T>`\n"
 "* `RefCell<T>`"
 msgstr ""
+"* `mpsc::Sender<T>`\n"
+"* `mpsc::Receiver<T>`\n"
+"* `Cell<T>`\n"
+"* `RefCell<T>`"
 
 #: src/concurrency/send-sync/examples.md:27
 msgid "## `!Send + Sync`"
-msgstr ""
+msgstr "## `!Send + Sync`"
 
 #: src/concurrency/send-sync/examples.md:29
 msgid ""
 "These types are thread-safe, but they cannot be moved to another thread:"
-msgstr ""
+msgstr "这些类型是线程安全的，但它们不能移动到另一个线程："
 
 #: src/concurrency/send-sync/examples.md:31
 msgid ""
@@ -14907,14 +15080,16 @@ msgid ""
 "the\n"
 "  thread which created them."
 msgstr ""
+"* `MutexGuard<T>`：使用操作系统级别的原语（必须在创建这些原语的线程上\n"
+"取消分配）。"
 
 #: src/concurrency/send-sync/examples.md:34
 msgid "## `!Send + !Sync`"
-msgstr ""
+msgstr "## `!Send + !Sync`"
 
 #: src/concurrency/send-sync/examples.md:36
 msgid "These types are not thread-safe and cannot be moved to other threads:"
-msgstr ""
+msgstr "这些类型不是线程安全的，不能移动到其他线程："
 
 #: src/concurrency/send-sync/examples.md:38
 msgid ""
@@ -14923,10 +15098,14 @@ msgid ""
 "* `*const T`, `*mut T`: Rust assumes raw pointers may have special\n"
 "  concurrency considerations."
 msgstr ""
+"* `Rc<T>`：每个 `Rc<T>` 都具有对 `RcBox<T>` 的引用，其中包含\n"
+"非原子引用计数。\n"
+"* `*const T`、`*mut T`：Rust 会假定原始指针可能\n"
+"在并发方面有特殊的注意事项。"
 
 #: src/concurrency/shared_state.md:1
 msgid "# Shared State"
-msgstr ""
+msgstr "# 共享状态"
 
 #: src/concurrency/shared_state.md:3
 msgid ""
@@ -14934,6 +15113,8 @@ msgid ""
 "is\n"
 "primarily done via two types:"
 msgstr ""
+"Rust 使用类型系统来强制同步共享数据。这主要\n"
+"通过两种类型实现："
 
 #: src/concurrency/shared_state.md:6
 msgid ""
@@ -14942,14 +15123,17 @@ msgid ""
 "  takes care to deallocate `T` when the last reference is dropped,\n"
 "* [`Mutex<T>`][2]: ensures mutually exclusive access to the `T` value."
 msgstr ""
+"* [`Arc<T>`][1]，对 `T` 进行原子计数：用于处理线程之间的共享，并负责\n"
+"在最后一个引用被丢弃时取消分配 `T`。\n"
+"* [`Mutex<T>`][2]：确保对 `T` 值的互斥访问。"
 
 #: src/concurrency/shared_state/arc.md:1
 msgid "# `Arc`"
-msgstr ""
+msgstr "# `Arc`"
 
 #: src/concurrency/shared_state/arc.md:3
 msgid "[`Arc<T>`][1] allows shared read-only access via `Arc::clone`:"
-msgstr ""
+msgstr "[`Arc<T>`][1] 允许通过 `Arc::clone` 实现共享只读权限："
 
 #: src/concurrency/shared_state/arc.md:5
 msgid ""
@@ -14973,6 +15157,25 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::thread;\n"
+"use std::sync::Arc;\n"
+"\n"
+"fn main() {\n"
+"    let v = Arc::new(vec![10, 20, 30]);\n"
+"    let mut handles = Vec::new();\n"
+"    for _ in 1..5 {\n"
+"        let v = Arc::clone(&v);\n"
+"        handles.push(thread::spawn(move || {\n"
+"            let thread_id = thread::current().id();\n"
+"            println!(\"{thread_id:?}: {v:?}\");\n"
+"        }));\n"
+"    }\n"
+"\n"
+"    handles.into_iter().for_each(|h| h.join().unwrap());\n"
+"    println!(\"v: {v:?}\");\n"
+"}\n"
+"```"
 
 #: src/concurrency/shared_state/arc.md:29
 msgid ""
@@ -14989,16 +15192,27 @@ msgid ""
 "detect them.\n"
 "    * `std::sync::Weak` can help."
 msgstr ""
+"* `Arc` 代表“原子引用计数”，它是使用原子操作的 `Rc` 的\n"
+"线程安全版本。\n"
+"* 无论 `T` 是否实现 `Clone`，`Arc<T>` 都会实现 `Clone`。如果 `T` 实现了 "
+"`Send` 和 `Sync`，`Arc<T>` 便会\n"
+"实现二者。\n"
+"* `Arc::clone()` 在执行原子操作方面有开销，但在此之后，`T` 便可\n"
+"随意使用，而没有任何开销。\n"
+"* 请警惕引用循环，`Arc` 不会使用垃圾回收器检测引用循环。\n"
+"* `std::sync::Weak` 对此有所帮助。"
 
 #: src/concurrency/shared_state/mutex.md:1
 msgid "# `Mutex`"
-msgstr ""
+msgstr "# `互斥器 (Mutex)`"
 
 #: src/concurrency/shared_state/mutex.md:3
 msgid ""
 "[`Mutex<T>`][1] ensures mutual exclusion _and_ allows mutable access to `T`\n"
 "behind a read-only interface:"
 msgstr ""
+"[`Mutex<T>`][1] 能够确保互斥，并允许对只读接口\n"
+"后面的 `T` 进行可变访问："
 
 #: src/concurrency/shared_state/mutex.md:6
 msgid ""
@@ -15018,12 +15232,29 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::sync::Mutex;\n"
+"\n"
+"fn main() {\n"
+"    let v = Mutex::new(vec![10, 20, 30]);\n"
+"    println!(\"v: {:?}\", v.lock().unwrap());\n"
+"\n"
+"    {\n"
+"        let mut guard = v.lock().unwrap();\n"
+"        guard.push(40);\n"
+"    }\n"
+"\n"
+"    println!(\"v: {:?}\", v.lock().unwrap());\n"
+"}\n"
+"```"
 
 #: src/concurrency/shared_state/mutex.md:22
 msgid ""
 "Notice how we have a [`impl<T: Send> Sync for Mutex<T>`][2] blanket\n"
 "implementation."
 msgstr ""
+"请注意我们如何设置 [`impl<T: Send> Sync for Mutex<T>`][2] 通用\n"
+"实现。"
 
 #: src/concurrency/shared_state/mutex.md:31
 msgid ""
@@ -15045,10 +15276,24 @@ msgid ""
 "to recover the data\n"
 "      regardless."
 msgstr ""
+"* Rust 中的互斥器看起来就像只包含一个元素的集合，其中的元素就是受保护的数"
+"据。\n"
+"* 在访问受保护的数据之前不可能忘记获取互斥量。\n"
+"* 你可以通过获取锁，从 `&Mutex<T>` 中获取 `&mut T`。`MutexGuard` 能够确保 "
+"`&mut T`\n"
+"存在的时间不会比持有锁的时间更长。\n"
+"* 如果 `T` 实现了 `Send`，`Mutex<T>` 便会实现 `Send` 和 `Sync`。\n"
+"* 读写锁版本 - `RwLock`。\n"
+"* 为什么 `lock()` 会返回 `Result`？\n"
+"* 如果持有 `Mutex` 的线程发生panic，`Mutex` 便会“中毒”并发出信号，\n"
+"表明其所保护的数据可能处于不一致状态。对中毒的互斥量调用 `lock()` 将会失"
+"败，\n"
+"并将显示 [`PoisonError`]。无论如何，你可以对该错误调用 `into_inner()` 来\n"
+"恢复数据。"
 
 #: src/concurrency/shared_state/example.md:3
 msgid "Let us see `Arc` and `Mutex` in action:"
-msgstr ""
+msgstr "让我们看看 `Arc` 和 `Mutex` 的实际效果："
 
 #: src/concurrency/shared_state/example.md:5
 msgid ""
@@ -15068,10 +15313,25 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable,compile_fail\n"
+"use std::thread;\n"
+"// use std::sync::{Arc, Mutex};\n"
+"\n"
+"fn main() {\n"
+"    let v = vec![10, 20, 30];\n"
+"    let handle = thread::spawn(|| {\n"
+"        v.push(10);\n"
+"    });\n"
+"    v.push(1000);\n"
+"\n"
+"    handle.join().unwrap();\n"
+"    println!(\"v: {v:?}\");\n"
+"}\n"
+"```"
 
 #: src/concurrency/shared_state/example.md:23
 msgid "Possible solution:"
-msgstr ""
+msgstr "可能有用的解决方案："
 
 #: src/concurrency/shared_state/example.md:25
 msgid ""
@@ -15099,10 +15359,33 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::sync::{Arc, Mutex};\n"
+"use std::thread;\n"
+"\n"
+"fn main() {\n"
+"    let v = Arc::new(Mutex::new(vec![10, 20, 30]));\n"
+"\n"
+"    let v2 = Arc::clone(&v);\n"
+"    let handle = thread::spawn(move || {\n"
+"        let mut v2 = v2.lock().unwrap();\n"
+"        v2.push(10);\n"
+"    });\n"
+"\n"
+"    {\n"
+"        let mut v = v.lock().unwrap();\n"
+"        v.push(1000);\n"
+"    }\n"
+"\n"
+"    handle.join().unwrap();\n"
+"\n"
+"    println!(\"v: {v:?}\");\n"
+"}\n"
+"```"
 
 #: src/concurrency/shared_state/example.md:49
 msgid "Notable parts:"
-msgstr ""
+msgstr "值得注意的部分："
 
 #: src/concurrency/shared_state/example.md:51
 msgid ""
@@ -15115,6 +15398,11 @@ msgid ""
 "* Blocks are introduced to narrow the scope of the `LockGuard` as much as "
 "possible."
 msgstr ""
+"* `Arc` 和 `Mutex` 中都封装了 `v`，因为它们的关注点是正交的。\n"
+"* 将 `Mutex` 封装在 `Arc` 中是一种在线程之间共享可变状态的常见模式。\n"
+"* `v: Arc<_>` 必须先克隆为 `v2`，然后才能移动到另一个线程中。请注意，lambda "
+"签名中添加了 `move`。\n"
+"* 我们引入了块，以尽可能缩小 `LockGuard` 的作用域。"
 
 #: src/exercises/concurrency/morning.md:3
 msgid "Let us practice our new concurrency skills with"
