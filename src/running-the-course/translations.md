@@ -21,12 +21,12 @@ recently updated translations:
 If you want to help with this effort, please see [our instructions] for how to
 get going. Translations are coordinated on the [issue tracker].
 
+[bn]: https://google.github.io/comprehensive-rust/bn/
 [de]: https://google.github.io/comprehensive-rust/de/
 [fr]: https://google.github.io/comprehensive-rust/fr/
 [ja]: https://google.github.io/comprehensive-rust/ja/
 [ko]: https://google.github.io/comprehensive-rust/ko/
 [pt-BR]: https://google.github.io/comprehensive-rust/pt-BR/
-[bn]: https://google.github.io/comprehensive-rust/bn/
 
 [@CoinEZ-JPN]: https://github.com/CoinEZ
 [@KookaS]: https://github.com/KookaS
@@ -36,10 +36,10 @@ get going. Translations are coordinated on the [issue tracker].
 [@jooyunghan]: https://github.com/jooyunghan
 [@keispace]: https://github.com/keispace
 [@momotaro1105]: https://github.com/momotaro1105
+[@raselmandol]: https://github.com/raselmandol
 [@rastringer]: https://github.com/rastringer
 [@ronaldfw]: https://github.com/ronaldfw
 [@vcaen]: https://github.com/vcaen
-[@raselmandol]: https://github.com/raselmandol
 
 [our instructions]: https://github.com/google/comprehensive-rust/blob/main/TRANSLATIONS.md
 [issue tracker]: https://github.com/google/comprehensive-rust/issues/282
