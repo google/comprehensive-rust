@@ -29,5 +29,7 @@ Before we can start running Rust code, we need to do some initialisation.
   GiB of address space for devices, the next 1 GiB for DRAM, and another 1 GiB higher up for more
   devices. This matches the memory layout that QEMU uses.
 * We also set up the exception vector (`vbar_el1`), which we'll see more about later.
+* All examples this afternoon assume we will be running at exception level 1 (EL1). If you need to
+  run at a different exception level you'll need to modify `entry.S` accordingly.
 
 </details>
