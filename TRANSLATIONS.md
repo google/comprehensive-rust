@@ -1,9 +1,13 @@
 # Translations of Comprehensive Rust 🦀
 
 We would love to have your help with translating the course into other
-languages! We use the [Gettext] system for translations. This means that you
-don't modify the Markdown files directly: instead you modify `.po` files in a
-`po/` directory. The `.po` files are small text-based translation databases.
+languages! Please see the [translations page] for the existing translations..
+
+[translations page]: https://google.github.io/comprehensive-rust/running-the-course/translations.html
+
+We use the [Gettext] system for translations. This means that you don't modify
+the Markdown files directly: instead you modify `.po` files in a `po/`
+directory. The `.po` files are small text-based translation databases.
 
 > **Tip:** You should not edit the `.po` files by hand. Instead use a PO editor,
 > such as [Poedit](https://poedit.net/). There are also several online editors
@@ -100,6 +104,11 @@ updated messages are marked "fuzzy". A fuzzy entry will reuse the previous
 translation: you should then go over it and update it as necessary before you
 remove the fuzzy marker.
 
+> **Note:** Your PRs should either be the result of running `msgmerge` or the
+> result of new translation work on the PO file for your language. Avoid mixing
+> the two since it often creates a very large diff, which is hard or impossible
+> to review.
+
 ## Using Translations
 
 This will show you how to use the translations to generate localized HTML
@@ -134,3 +143,40 @@ $ MDBOOK_BOOK__LANGUAGE=xx mdbook serve -d book/xx
 
 When you update the `po/xx.po` file, the translated book will automatically
 reload.
+
+## Reviewing Translations
+
+When a new translation is started, we look for people who can help review it.
+These reviewers are often Googlers, but they don't have to be. To automatically
+get an email when new PRs are created for your language, please add yourself to
+the [CODEOWNERS] file.
+
+When reviewing a translation, please keep in mind that translations are a labour
+of love. Someone spends their free time translating the course because they want
+to bring Rust to users who speak their language.
+
+Nothing is published right away after a PR lands for a new in-progress language.
+It is therefore safe to merge the PR as long as the translation is reasonable.
+This is often better than leaving 50+ comments since this can be overwhelming
+for the contributor. Instead, please work with the contributor to improve things
+in follow-up PRs.
+
+### GitHub Suggestions
+
+When reviewing a translation PR, please use the
+[GitHub suggestion feature](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request).
+This feature allows you to directly write how you think a line or paragraph
+should be phrased. Use the left-most button in the toolbar to create a
+suggestion.
+
+The PR author can
+[apply the changes with a single click](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)
+afterwards, drastically reducing the number of round-trips needed in a review.
+
+### Incomplete Translations
+
+When the first 1-2 days of the course have been translated, we can publish the
+translation and link it from the [translations page]. The idea is to celebrate
+the hard work, even if it is incomplete.
+
+[CODEOWNERS]: https://github.com/google/comprehensive-rust/blob/main/.github/CODEOWNERS

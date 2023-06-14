@@ -5,9 +5,10 @@ that future's result. In JavaScript, this is similar to `Promise.race`. In
 Python, it compares to `asyncio.wait(task_set,
 return_when=asyncio.FIRST_COMPLETED)`.
 
-This is usually a macro, similar to match, with each arm of the form `pattern =
-future => statement`. When the future is ready, the statement is executed with the
-variable bound to the future's result.
+Similar to a match statement, the body of `select!` has a number of arms, each
+of the form `pattern = future => statement`. When the `future` is ready, the
+`statement` is executed with the variables in `pattern` bound to the `future`'s
+result.
 
 ```rust,editable,compile_fail
 use tokio::sync::mpsc::{self, Receiver};
@@ -69,9 +70,10 @@ async fn main() {
 * Try adding a deadline to the race, demonstrating selecting different sorts of
   futures.
 
-* Note that `select!` moves the values it is given. It is easiest to use
-  when every execution of `select!` creates new futures. An alternative is to
-  pass `&mut future` instead of the future itself, but this can lead to
-  issues, further discussed in the pinning slide.
+* Note that `select!` drops unmatched branches, which cancels their futures.
+  It is easiest to use when every execution of `select!` creates new futures.
+
+    * An alternative is to pass `&mut future` instead of the future itself, but
+      this can lead to issues, further discussed in the pinning slide.
 
 </details>

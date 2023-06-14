@@ -25,12 +25,11 @@ async fn main() -> Result<(), tokio_websockets::Error> {
         .await?;
 
     let stdin = tokio::io::stdin();
-    let mut stdin = BufReader::new(stdin);
+    let mut stdin = BufReader::new(stdin).lines();
 
     // ANCHOR_END: setup
     // Continuous loop for concurrently sending and receiving messages.
     loop {
-        let mut line = String::new();
         tokio::select! {
             incoming = ws_stream.next() => {
                 match incoming {
@@ -39,10 +38,10 @@ async fn main() -> Result<(), tokio_websockets::Error> {
                     None => return Ok(()),
                 }
             }
-            res = stdin.read_line(&mut line) => {
+            res = stdin.next_line() => {
                 match res {
-                    Ok(0) => return Ok(()),
-                    Ok(_) => ws_stream.send(Message::text(line.trim_end().to_string())).await?,
+                    Ok(None) => return Ok(()),
+                    Ok(Some(line)) => ws_stream.send(Message::text(line.to_string())).await?,
                     Err(err) => return Err(err.into()),
                 }
             }
