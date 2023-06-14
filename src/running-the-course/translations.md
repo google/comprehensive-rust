@@ -16,6 +16,7 @@ recently updated translations:
 * [French][fr] by [@KookaS] and [@vcaen].
 * [German][de] by [@Throvn] and [@ronaldfw].
 * [Japanese][ja] by [@CoinEZ-JPN] and [@momotaro1105].
+* [Bengali][bn] by [@raselmandol].
 
 If you want to help with this effort, please see [our instructions] for how to
 get going. Translations are coordinated on the [issue tracker].
@@ -25,6 +26,7 @@ get going. Translations are coordinated on the [issue tracker].
 [ja]: https://google.github.io/comprehensive-rust/ja/
 [ko]: https://google.github.io/comprehensive-rust/ko/
 [pt-BR]: https://google.github.io/comprehensive-rust/pt-BR/
+[bn]: https://google.github.io/comprehensive-rust/bn/
 
 [@CoinEZ-JPN]: https://github.com/CoinEZ
 [@KookaS]: https://github.com/KookaS
@@ -37,6 +39,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@rastringer]: https://github.com/rastringer
 [@ronaldfw]: https://github.com/ronaldfw
 [@vcaen]: https://github.com/vcaen
+[@raselmandol]: https://github.com/raselmandol
 
 [our instructions]: https://github.com/google/comprehensive-rust/blob/main/TRANSLATIONS.md
 [issue tracker]: https://github.com/google/comprehensive-rust/issues/282
