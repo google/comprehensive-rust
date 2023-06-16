@@ -2292,11 +2292,11 @@ msgstr ""
 
 #: src/why-rust/compile-time.md:1
 msgid "# Compile Time Guarantees"
-msgstr ""
+msgstr "# コンパイル時の保証"
 
 #: src/why-rust/compile-time.md:3
 msgid "Static memory management at compile time:"
-msgstr ""
+msgstr "コンパイル時の静的メモリの管理："
 
 #: src/why-rust/compile-time.md:5
 msgid ""
@@ -2309,12 +2309,20 @@ msgid ""
 "* No data races between threads.\n"
 "* No iterator invalidation."
 msgstr ""
+"* 変数の初期化が強制される。\n"
+"* メモリリークの心配が（ほとんど）ない (ノートを参照)。\n"
+"* 二重解放が起きない。\n"
+"* 解放済みメモリ使用（use-after-free）がない。\n"
+"* `NULL`（ヌル）ポイントがない。\n"
+"* ミューテックス（mutex）のロックの解除忘れがない。\n"
+"* スレッド間でデータ競合しない。\n"
+"* イテレータが無効化されない。"
 
 #: src/why-rust/compile-time.md:16
 msgid ""
 "It is possible to produce memory leaks in (safe) Rust. Some examples\n"
 "are:"
-msgstr ""
+msgstr "（安全な）Rustでメモリリークを発生させることができます。例として以下のような手段があります："
 
 #: src/why-rust/compile-time.md:19
 msgid ""
@@ -2327,12 +2335,21 @@ msgid ""
 "* In fact, some will consider infinitely populating a collection a memory\n"
 "  leak and Rust does not protect from those."
 msgstr ""
+"* [`Box::leak`]を使ってポインタをリークさせることができます。実行時に初期化され、実行時にサイズが決"
+"まるstatic変数の取得などに使われます。\n"
+"* [`std::mem::forget`]を使って、コンパイラに値を忘れさせることができます (つまり、デストラクタが実"
+"行されない)。\n"
+"* `Rc`や`Arc`を使って[循環参照（reference cycle）]を誤って作成することがあります。\n"
+"* コレクションを無限に拡張し続けることをメモリリークと見なす場合があり、Rustにはこれを防ぐ機能はあ"
+"りません。"
 
 #: src/why-rust/compile-time.md:28
 msgid ""
 "For the purpose of this course, \"No memory leaks\" should be understood\n"
 "as \"Pretty much no *accidental* memory leaks\"."
 msgstr ""
+"本講座での「メモリリークが起きない」は「*意図しない*メモリリークはほとんど起きない」と解釈すべきで"
+"す。"
 
 #: src/why-rust/runtime.md:1
 msgid "# Runtime Guarantees"
