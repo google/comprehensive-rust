@@ -296,7 +296,7 @@ msgstr ""
 
 #: src/SUMMARY.md:88
 msgid "Destructuring Arrays"
-msgstr ""
+msgstr "解构数组"
 
 #: src/SUMMARY.md:89
 msgid "Match Guards"
@@ -5953,12 +5953,13 @@ msgstr ""
 
 #: src/pattern-matching/destructuring-arrays.md:1
 msgid "# Destructuring Arrays"
-msgstr ""
+msgstr "# 解构数组"
 
 #: src/pattern-matching/destructuring-arrays.md:3
 msgid ""
 "You can destructure arrays, tuples, and slices by matching on their elements:"
 msgstr ""
+"你可以通过元素匹配来解构数组、元组和切片："
 
 #: src/pattern-matching/destructuring-arrays.md:5
 msgid ""
@@ -6006,6 +6007,31 @@ msgid ""
 "elements.\n"
 "* Show matching against the tail with patterns `[.., b]` and `[a@..,b]`"
 msgstr ""
+"* 对未知长度的切片进行解构也可以使用固定长度的模式。\n"
+"\n"
+"\n"
+"     ```rust,editable\n"
+"     fn main() {\n"
+"         inspect(&[0, -2, 3]);\n"
+"         inspect(&[0, -2, 3, 4]);\n"
+"     }\n"
+"\n"
+"     #[rustfmt::skip]\n"
+"     fn inspect(slice: &[i32]) {\n"
+"         println!(\"Tell me about {slice:?}\");\n"
+"         match slice {\n"
+"             &[0, y, z] => println!(\"First is 0, y = {y}, and z = {z}\"),\n"
+"             &[1, ..]   => println!(\"First is 1 and the rest were "
+"ignored\"),\n"
+"             _          => println!(\"All elements were ignored\"),\n"
+"         }\n"
+"     }\n"
+"     ```\n"
+"  \n"
+"* 使用 `_` 创建一个新的模式来代表一个元素。\n"
+"* 向数组中添加更多的值。\n"
+"* 指出 `..` 是如何扩展以适应不同数量的元素的。 \n"
+"* 展示使用模式 `[.., b]` 和 `[a@..,b]` 来匹配切片的尾部。"
 
 #: src/pattern-matching/match-guards.md:1
 msgid "# Match Guards"
