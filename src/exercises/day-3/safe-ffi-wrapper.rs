@@ -38,7 +38,7 @@ mod ffi {
 
     // Layout as per man entry for dirent
     #[cfg(target_os = "macos")]
-    #[repr(C)]
+    #[repr(C, align(1))]
     pub struct dirent {
         pub d_ino: u64,
         pub d_seekoff: u64,
@@ -139,13 +139,13 @@ mod tests {
 
     #[test]
     fn test_empty_directory() -> Result<(), Box<dyn Error>> {
-        //        let tmp = tempfile::TempDir::new()?;
-        //        let iter = DirectoryIterator::new(
-        //            tmp.path().to_str().ok_or("Non UTF-8 character in path")?,
-        //        )?;
-        //        let mut entries = iter.collect::<Vec<_>>();
-        //        entries.sort();
-        //        assert_eq!(entries, &[".", ".."]);
+        let tmp = tempfile::TempDir::new()?;
+        let iter = DirectoryIterator::new(
+            tmp.path().to_str().ok_or("Non UTF-8 character in path")?,
+        )?;
+        let mut entries = iter.collect::<Vec<_>>();
+        entries.sort();
+        assert_eq!(entries, &[".", ".."]);
         Ok(())
     }
 
