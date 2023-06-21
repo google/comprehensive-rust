@@ -56,7 +56,7 @@ mod ffi {
         pub d_reclen: u16,
         pub d_type: u8,
         pub d_namlen: u8,
-        pub d_name: [::c_char; 256],
+        pub d_name: [c_char; 256],
     }
 
     extern "C" {
