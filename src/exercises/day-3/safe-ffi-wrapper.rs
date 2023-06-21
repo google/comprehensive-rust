@@ -37,7 +37,7 @@ mod ffi {
     }
 
     // Layout as per man entry for dirent
-    #[cfg(target_os = "macos")]
+    #[cfg(all(target_os = "macos", target_arch = "aarch64"))]
     #[repr(C)]
     pub struct dirent {
         pub d_ino: u64,
@@ -46,6 +46,17 @@ mod ffi {
         pub d_namlen: u16,
         pub d_type: u8,
         pub d_name: [c_char; 1024],
+    }
+
+    // Layout according to <https://github.com/rust-lang/libc/issues/414>
+    #[cfg(all(target_os = "macos", target_arch = "x86_64"))]
+    #[repr(C)]
+    pub struct dirent {
+        pub d_fileno: u32,
+        pub d_reclen: u16,
+        pub d_type: u8,
+        pub d_namlen: u8,
+        pub d_name: [::c_char; 256],
     }
 
     extern "C" {
@@ -133,6 +144,7 @@ mod tests {
     use std::error::Error;
 
     #[test]
+    #[cfg(not(miri))]
     fn test_nonexisting_directory() {
         let iter = DirectoryIterator::new("no-such-directory");
         assert!(iter.is_err());
@@ -151,6 +163,7 @@ mod tests {
     }
 
     #[test]
+    #[cfg(not(miri))]
     fn test_nonempty_directory() -> Result<(), Box<dyn Error>> {
         let tmp = tempfile::TempDir::new()?;
         std::fs::write(tmp.path().join("foo.txt"), "The Foo Diaries\n")?;
