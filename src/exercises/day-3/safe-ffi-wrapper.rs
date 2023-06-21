@@ -16,7 +16,7 @@
 mod ffi {
     use std::os::raw::{c_char, c_int};
     #[cfg(not(target_os = "macos"))]
-    use std::os::raw::{c_long, c_ulong, c_ushort};
+    use std::os::raw::{c_long, c_ulong, c_ushort, c_uchar};
 
     // Opaque type. See https://doc.rust-lang.org/nomicon/ffi.html.
     #[repr(C)]
@@ -25,22 +25,24 @@ mod ffi {
         _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
     }
 
-    // Layout as per readdir(3) and definitions in /usr/include/x86_64-linux-gnu.
+    // Layout according to the Linux man page for readdir(3), where ino_t and
+    // off_t are resolved according to the definitions in
+    // /usr/include/x86_64-linux-gnu/{sys/types.h, bits/typesizes.h}.
     #[cfg(not(target_os = "macos"))]
     #[repr(C)]
     pub struct dirent {
-        pub d_ino: c_long,
-        pub d_off: c_ulong,
+        pub d_ino: c_ulong,
+        pub d_off: c_long,
         pub d_reclen: c_ushort,
-        pub d_type: c_char,
+        pub d_type: c_uchar,
         pub d_name: [c_char; 256],
     }
 
-    // Layout as per man entry for dirent
-    #[cfg(all(target_os = "macos", target_arch = "aarch64"))]
+    // Layout according to the macOS man page for dir(5).
+    #[cfg(all(target_os = "macos"))]
     #[repr(C)]
     pub struct dirent {
-        pub d_ino: u64,
+        pub d_fileno: u64,
         pub d_seekoff: u64,
         pub d_reclen: u16,
         pub d_namlen: u16,
@@ -48,20 +50,21 @@ mod ffi {
         pub d_name: [c_char; 1024],
     }
 
-    // Layout according to <https://github.com/rust-lang/libc/issues/414>
-    #[cfg(all(target_os = "macos", target_arch = "x86_64"))]
-    #[repr(C)]
-    pub struct dirent {
-        pub d_fileno: u32,
-        pub d_reclen: u16,
-        pub d_type: u8,
-        pub d_namlen: u8,
-        pub d_name: [c_char; 256],
-    }
-
     extern "C" {
         pub fn opendir(s: *const c_char) -> *mut DIR;
+
+        #[cfg(not(all(target_os = "macos", target_arch = "x86_64")))]
         pub fn readdir(s: *mut DIR) -> *const dirent;
+
+        // See https://github.com/rust-lang/libc/issues/414 and the section on
+        // _DARWIN_FEATURE_64_BIT_INODE in the macOS man page for stat(2).
+        //
+        // "Platforms that existed before these updates were available" refers
+        // to macOS (as opposed to iOS / wearOS / etc.) on Intel and PowerPC.
+        #[cfg(all(target_os = "macos", target_arch = "x86_64"))]
+        #[link_name = "readdir$INODE64"]
+        pub fn readdir(s: *mut DIR) -> *const dirent;
+
         pub fn closedir(s: *mut DIR) -> c_int;
     }
 }
