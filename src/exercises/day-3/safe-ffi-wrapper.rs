@@ -45,7 +45,7 @@ mod ffi {
         pub d_reclen: u16,
         pub d_namlen: u16,
         pub d_type: u8,
-        pub d_name: [u8; 1024],
+        pub d_name: [c_char; 1024],
     }
 
     extern "C" {
@@ -57,6 +57,7 @@ mod ffi {
 
 use std::ffi::{CStr, CString, OsStr, OsString};
 use std::os::unix::ffi::OsStrExt;
+use std::ptr::addr_of;
 
 #[derive(Debug)]
 struct DirectoryIterator {
@@ -96,8 +97,10 @@ impl Iterator for DirectoryIterator {
             // We have reached the end of the directory.
             return None;
         }
-        // SAFETY: dirent.d_name is NULL terminated.
-        let os_str = OsStr::from_bytes(unsafe { &(*dirent).d_name });
+        // SAFETY: dirent is not NULL and dirent.d_name is NUL
+        // terminated.
+        let d_name = unsafe { CStr::from_ptr(addr_of!((*dirent).d_name).cast()) };
+        let os_str = OsStr::from_bytes(d_name.to_bytes());
         Some(os_str.to_owned())
     }
 }
