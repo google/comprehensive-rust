@@ -19,8 +19,8 @@ some_expression?
 We can use this to simplify our error handing code:
 
 ```rust,editable
-use std::fs;
-use std::io::{self, Read};
+use std::{fs, io};
+use std::io::Read;
 
 fn read_username(path: &str) -> Result<String, io::Error> {
     let username_file_result = fs::File::open(path);
