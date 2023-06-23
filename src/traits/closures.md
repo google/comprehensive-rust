@@ -33,6 +33,6 @@ be called multiple times concurrently.
 `FnMut` wherever an `FnOnce` is called for, and you can use an `Fn` wherever an `FnMut` or `FnOnce`
 is called for.
 
-`move` closures only implement `FnOnce`.
+Both `move` and non-`move` closures might only implement `FnOnce`.
 
 </details>
