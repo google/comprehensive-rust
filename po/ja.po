@@ -2250,7 +2250,7 @@ msgstr ""
 
 #: src/why-rust.md:3
 msgid "Some unique selling points of Rust:"
-msgstr ""
+msgstr "Rustのユニークなセールスポイントをいくつか紹介します："
 
 #: src/why-rust.md:5
 msgid ""
@@ -2258,12 +2258,17 @@ msgid ""
 "* Lack of undefined runtime behavior.\n"
 "* Modern language features."
 msgstr ""
+"* コンパイル時のメモリ安全性。\n"
+"* 未定義の実行時動作がない。\n"
+"* 現代的な言語機能。"
 
 #: src/why-rust.md:11
 msgid ""
 "Make sure to ask the class which languages they have experience with. Depending\n"
 "on the answer you can highlight different features of Rust:"
 msgstr ""
+"受講者にどの言語の経験があるかを尋ねてください。回答に応じて、Rustのさまざまな特徴を強調することが"
+"できます："
 
 #: src/why-rust.md:14
 msgid ""
@@ -2277,14 +2282,21 @@ msgid ""
 "  you get fast and predictable performance like C and C++ (no garbage collector)\n"
 "  as well as access to low-level hardware (should you need it)"
 msgstr ""
+"* CまたはC++の経験がある場合： Rustは借用チェッカーを介して実行時エラーの一部を排除してくれます。そ"
+"れに加え、CやC++と同等のパフォーマンスを得ることができ、メモリ安全性の問題はありません。さらに、パ"
+"ターンマッチングや組み込みの依存関係管理などの構造要素を含む現代的な言語です。\n"
+"\n"
+"* Java、Go、Python、JavaScriptなどの経験がある場合： これらの言語と同様のメモリ安全性と、高水準言語"
+"に近い感覚を得ることができます。また、CやC++のように高速かつ予測可能なパフォーマンス（ガベージコレ"
+"クタがない）を得ることができ、（必要なら）低水準なハードウェアへのアクセスも可能です"
 
 #: src/why-rust/compile-time.md:1
 msgid "# Compile Time Guarantees"
-msgstr ""
+msgstr "# コンパイル時の保証"
 
 #: src/why-rust/compile-time.md:3
 msgid "Static memory management at compile time:"
-msgstr ""
+msgstr "コンパイル時の静的メモリの管理："
 
 #: src/why-rust/compile-time.md:5
 msgid ""
@@ -2297,12 +2309,21 @@ msgid ""
 "* No data races between threads.\n"
 "* No iterator invalidation."
 msgstr ""
+"* 未初期化の変数がない。\n"
+"* メモリリークの心配が（ほとんど）ない (ノートを参照)。\n"
+"* 二重解放が起きない。\n"
+"* 解放済みメモリ使用（use-after-free）がない。\n"
+"* `NULL`（ヌル）ポインタがない。\n"
+"* ミューテックス（mutex）のロックの解除忘れがない。\n"
+"* スレッド間でデータ競合しない。\n"
+"* イテレータが無効化されない。"
 
 #: src/why-rust/compile-time.md:16
 msgid ""
 "It is possible to produce memory leaks in (safe) Rust. Some examples\n"
 "are:"
 msgstr ""
+"SafeなRustの範囲内でメモリリークを引き起こすことは可能です。例として以下のような手段があります："
 
 #: src/why-rust/compile-time.md:19
 msgid ""
@@ -2315,26 +2336,37 @@ msgid ""
 "* In fact, some will consider infinitely populating a collection a memory\n"
 "  leak and Rust does not protect from those."
 msgstr ""
+"* [`Box::leak`]を使ってポインタをリークさせることができます。この関数は実行時に初期化され、実行時に"
+"サイズが決まるstatic変数の取得などに使われます。\n"
+"* [`std::mem::forget`]を使って、コンパイラに値を忘れさせることができます (つまり、デストラクタが実"
+"行されない)。\n"
+"* `Rc`や`Arc`を使って[循環参照（reference cycle）]を誤って作成することがあります。\n"
+"* コレクションを無限に拡張し続けることをメモリリークと見なす場合があり、Rustにはこれを防ぐ機能はあ"
+"りません。"
 
 #: src/why-rust/compile-time.md:28
 msgid ""
 "For the purpose of this course, \"No memory leaks\" should be understood\n"
 "as \"Pretty much no *accidental* memory leaks\"."
 msgstr ""
+"本講座での「メモリリークが起きない」は「*意図しない*メモリリークはほとんど起きない」と解釈すべきで"
+"す。"
 
 #: src/why-rust/runtime.md:1
 msgid "# Runtime Guarantees"
-msgstr ""
+msgstr "# 実行時の保証"
 
 #: src/why-rust/runtime.md:3
 msgid "No undefined behavior at runtime:"
-msgstr ""
+msgstr "実行時に未定義の動作はありません："
 
 #: src/why-rust/runtime.md:5
 msgid ""
 "* Array access is bounds checked.\n"
 "* Integer overflow is defined."
 msgstr ""
+"* 配列へのアクセスには境界チェックが行われる。\n"
+"* 整数オーバーフローの挙動が定義されている。"
 
 #: src/why-rust/runtime.md:12
 msgid ""
@@ -2348,18 +2380,26 @@ msgid ""
 "  `unsafe` allows you to call functions such as `slice::get_unchecked`\n"
 "  which does not do bounds checking."
 msgstr ""
+"* 整数オーバーフローは、コンパイル時のフラグで定義されます。選択肢として、パニック（プログラムの制"
+"御されたクラッシュ）またはラップアラウンドのセマンティクスがあります。デフォルトとして、デバッグ"
+"モード（`cargo build`）ではパニックが発生し、リリースモード（`cargo build —release`）ではラップアラ"
+"ウンドが行われます。\n"
+"\n"
+"* 境界チェックは、コンパイル時のフラグで無効にすることはできません。また、`unsafe`のキーワードを"
+"使って直接無効にすることもできません。しかし、`unsafe`を使って境界チェックを行わない`slice::"
+"get_unchecked`のような関数を呼び出すことができます。"
 
 #: src/why-rust/modern.md:1
 msgid "# Modern Features"
-msgstr ""
+msgstr "# 現代的な機能"
 
 #: src/why-rust/modern.md:3
 msgid "Rust is built with all the experience gained in the last 40 years."
-msgstr ""
+msgstr "Rustは過去40年間の経験を基に構築されています。"
 
 #: src/why-rust/modern.md:5
 msgid "## Language Features"
-msgstr ""
+msgstr "## 言語の特徴"
 
 #: src/why-rust/modern.md:7
 msgid ""
@@ -2368,6 +2408,10 @@ msgid ""
 "* No overhead FFI.\n"
 "* Zero-cost abstractions."
 msgstr ""
+"* 列挙型とパターンマッチング\n"
+"* ジェネリクス\n"
+"* オーバーヘッドのないFFI\n"
+"* ゼロコスト抽象化"
 
 #: src/why-rust/modern.md:12
 msgid "## Tooling"
@@ -2380,6 +2424,10 @@ msgid ""
 "* Built-in support for testing.\n"
 "* Excellent Language Server Protocol support."
 msgstr ""
+"* 優秀なコンパイルエラー。\n"
+"* 組み込みの依存関係マネージャ。\n"
+"* 組み込みのテストサポート。\n"
+"* Language Server Protocol（LSP）のサポート。"
 
 #: src/why-rust/modern.md:23
 msgid ""
@@ -2421,6 +2469,36 @@ msgid ""
 "* [rust-analyzer] is a well supported LSP implementation used in major\n"
 "  IDEs and text editors."
 msgstr ""
+"* C++と同様に、ゼロコスト抽象化とは、より高水準なプログラミング構造の利用にメモリやCPUのコストを支"
+"払う必要がないことを意味します。例えば、`for`を使ったループの場合、`iter().fold()`構文を使った場合"
+"とおおよそ同じ低水準の処理になります。\n"
+"\n"
+"* Rustの列挙型は「代数的データ型」であり、「直和型」と呼ばれます。`Option<T>`や`Result<T, E>`のよう"
+"な要素を表現することができます。\n"
+"\n"
+"* エラーをちゃんと確認するよう注意してください。多くの開発者は、長いコンパイラ出力を無視することに"
+"慣れてしまっています。Rustのコンパイラは他のコンパイラよりもわかりやすく実用的なフィードバックを提"
+"供してくれます。そして多くの場合、コードにそのままコピペできるようなフィードバックが提供されま"
+"す。\n"
+"\n"
+"* Rustの標準ライブラリは、Java、Python、Goなどのそれと比べると小規模です。Rustには標準的かつ必須と"
+"思われるいくつかの機能が含まれていません：\n"
+"\n"
+"  * 乱数生成器。[rand]を確認してください。\n"
+"  * SSLやTLSのサポート。[rusttls]を確認してください。\n"
+"  * JSONのサポート。[serde_json]を確認してください。 \n"
+"\n"
+"  この理由は、標準ライブラリの機能は消えることがなく、非常に安定したものでなければならないからで"
+"す。上記の例については、Rustコミュニティが未だに最適な解決策を探し続けています。そもそも、これらに"
+"対する「最適解」は一つであるとは限らないのです。\n"
+"\n"
+"  Rustには、Cargoという外部クレートのダウンロードからコンパイルまでを簡単に行ってくれるパッケージマ"
+"ネージャが組み込まれています。これにより、標準ライブラリを小規模に保つことができています。\n"
+"\n"
+"  良い外部クレートを見つけるのは難しいときがあります。<https://lib.rs/>のようなサイトを使うことで、"
+"クレートの評価基準を参考にしながら比較を行うことができます。\n"
+"  \n"
+"* [rust-analyzer]は、主要IDEやテキストエディタで使用できる、サポートが充実しているLSPの実装です。"
 
 #: src/basic-syntax.md:1
 msgid "# Basic Syntax"
