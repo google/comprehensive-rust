@@ -31,19 +31,21 @@ fn main() {
 
 <details>
 
-An `Fn` neither consumes nor mutates captured values, or perhaps captures nothing at all, so it can
-be called multiple times concurrently.
+An `Fn` (e.g. `add_3`) neither consumes nor mutates captured values, or perhaps captures
+nothing at all. It can be called multiple times concurrently.
 
-An `FnMut` might mutate captured values, so you can call it multiple times but not concurrently.
+An `FnMut` (e.g. `accumulate`) might mutate captured values. You can call it multiple times,
+but not concurrently.
 
-If you have an `FnOnce`, you may only call it once. It might consume captured values.
+If you have an `FnOnce` (e.g. `multiply_sum`), you may only call it once. It might consume
+captured values.
 
 `FnMut` is a subtype of `FnOnce`. `Fn` is a subtype of `FnMut` and `FnOnce`. I.e. you can use an
 `FnMut` wherever an `FnOnce` is called for, and you can use an `Fn` wherever an `FnMut` or `FnOnce`
 is called for.
 
-The compiler infers some other traits for closures. For example, `add_3` is `Copy` and
-`multiply_sum` is `Clone`.
+The compiler also infers `Copy` (e.g. for `add_3`) and `Clone` (e.g. `multiply_sum`),
+depending on what the closure captures.
 
 By default, closures will capture by reference if they can. The `move` keyword makes them capture
 by value.
