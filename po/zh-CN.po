@@ -144,15 +144,15 @@ msgstr "数组与 for 循环"
 
 #: src/SUMMARY.md:41
 msgid "Day 1: Afternoon"
-msgstr ""
+msgstr "第 1 天：下午"
 
 #: src/SUMMARY.md:43
 msgid "Variables"
-msgstr ""
+msgstr "变量"
 
 #: src/SUMMARY.md:44
 msgid "Type Inference"
-msgstr ""
+msgstr "类型推导"
 
 #: src/SUMMARY.md:45
 msgid "static & const"
@@ -3557,7 +3557,7 @@ msgstr ""
 
 #: src/basic-syntax/variables.md:1
 msgid "# Variables"
-msgstr ""
+msgstr "# 变量"
 
 #: src/basic-syntax/variables.md:3
 msgid ""
@@ -3565,6 +3565,7 @@ msgid ""
 "by\n"
 "default:"
 msgstr ""
+"Rust 通过静态类型实现了类型安全。变量绑定默认是不可变的："
 
 #: src/basic-syntax/variables.md:6
 msgid ""
@@ -3577,6 +3578,14 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {\n"
+"    let x: i32 = 10;\n"
+"    println!(\"x: {x}\");\n"
+"    // x = 20;\n"
+"    // println!(\"x: {x}\");\n"
+"}\n"
+"```"
 
 #: src/basic-syntax/variables.md:17
 msgid ""
@@ -3585,14 +3594,17 @@ msgid ""
 "* Note that since `println!` is a macro, `x` is not moved, even using the "
 "function like syntax of `println!(\"x: {}\", x)`"
 msgstr ""
+"* 由于类型推导，`i32` 可以省略。随着课程推进，我们会越来越少地看到类型声明。\n"
+"* 需要注意的是由于 `println!` 是一个宏，尽管使用了一个 `println!(\"x: {}\", x)` 这样"
+"形如函数的语法，`x` 也不会被移动。"
 
 #: src/basic-syntax/type-inference.md:1
 msgid "# Type Inference"
-msgstr ""
+msgstr "# 类型推导"
 
 #: src/basic-syntax/type-inference.md:3
 msgid "Rust will look at how the variable is _used_ to determine the type:"
-msgstr ""
+msgstr "Rust 会根据变量的使用来确定其类型："
 
 #: src/basic-syntax/type-inference.md:5
 msgid ""
@@ -3615,12 +3627,31 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn takes_u32(x: u32) {\n"
+"    println!(\"u32: {x}\");\n"
+"}\n"
+"\n"
+"fn takes_i8(y: i8) {\n"
+"    println!(\"i8: {y}\");\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let x = 10;\n"
+"    let y = 20;\n"
+"\n"
+"    takes_u32(x);\n"
+"    takes_i8(y);\n"
+"    // takes_u32(y);\n"
+"}\n"
+"```"
 
 #: src/basic-syntax/type-inference.md:26
 msgid ""
 "This slide demonstrates how the Rust compiler infers types based on "
 "constraints given by variable declarations and usages."
 msgstr ""
+"这张幻灯片演示了 Rust 编译器是如何根据变量声明和用法来推导其类型的。"
 
 #: src/basic-syntax/type-inference.md:28
 msgid ""
@@ -3630,13 +3661,18 @@ msgid ""
 "to the explicit declaration of a type.\n"
 "The compiler does the job for us and helps us write more concise code."
 msgstr ""
+"需要重点强调的是这样声明的变量并非像那种动态类型语言中可以持有任何数据的“任何类型”。"
+"这种声明所生成的机器码与明确类型声明完全相同。"
+"编译器进行类型推导能够让我们编写更简略的代码。"
 
 #: src/basic-syntax/type-inference.md:32
+#, fuzzy
 msgid ""
 "The following code tells the compiler to copy into a certain generic "
 "container without the code ever explicitly specifying the contained type, "
 "using `_` as a placeholder:"
 msgstr ""
+"下面的代码通过使用 `_` 占位符来告诉编译器无需明确指定其类型就可以将对应数据拷贝到该容器： "
 
 #: src/basic-syntax/type-inference.md:34
 msgid ""
@@ -3652,6 +3688,17 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {\n"
+"    let mut v = Vec::new();\n"
+"    v.push((10, false));\n"
+"    v.push((20, true));\n"
+"    println!(\"v: {v:?}\");\n"
+"\n"
+"    let vv = v.iter().collect::<std::collections::HashSet<_>>();\n"
+"    println!(\"vv: {vv:?}\");\n"
+"}\n"
+"```"
 
 #: src/basic-syntax/type-inference.md:46
 msgid ""
@@ -3659,6 +3706,9 @@ msgid ""
 "html#method.collect) relies on `FromIterator`, which [`HashSet`](https://doc."
 "rust-lang.org/std/iter/trait.FromIterator.html) implements."
 msgstr ""
+"[`collect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator."
+"html#method.collect) 依赖 [`HashSet`](https://doc."
+"rust-lang.org/std/iter/trait.FromIterator.html) 实现的 `FromIterator`。"
 
 #: src/basic-syntax/static-and-const.md:1
 msgid "# Static and Constant Variables"
