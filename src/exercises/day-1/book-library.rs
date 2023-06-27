@@ -114,12 +114,12 @@ impl Library {
 fn main() {
     let library = Library::new();
 
-    //println!("The library is empty: {}", library.is_empty());
+    //println!("The library is empty: library.is_empty() -> {}", library.is_empty());
     //
     //library.add_book(Book::new("Lord of the Rings", 1954));
     //library.add_book(Book::new("Alice's Adventures in Wonderland", 1865));
     //
-    //println!("The library is no longer empty: {}", library.is_empty());
+    //println!("The library is no longer empty: library.is_empty() -> {}", library.is_empty());
     //
     //
     //library.print_books();
