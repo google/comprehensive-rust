@@ -3750,7 +3750,7 @@ msgstr ""
 
 #: src/ownership.md:1
 msgid "# Ownership"
-msgstr "# 擁有權"
+msgstr "# 所有權"
 
 #: src/ownership.md:3
 msgid ""
@@ -3801,7 +3801,7 @@ msgstr "# 移動語意"
 
 #: src/ownership/move-semantics.md:3
 msgid "An assignment will transfer ownership between variables:"
-msgstr "指派會在變數之間轉移擁有權："
+msgstr "指派會在變數之間轉移所有權："
 
 #: src/ownership/move-semantics.md:5
 msgid ""
@@ -3831,9 +3831,9 @@ msgid ""
 "* When `s2` goes out of scope, the string data is freed.\n"
 "* There is always _exactly_ one variable binding which owns a value."
 msgstr ""
-"* 將 `s1` 指派給 `s2` 會轉移擁有權。\n"
+"* 將 `s1` 指派給 `s2` 會轉移所有權。\n"
 "* 資料已從 `s1`「移出」，`s1` 無法再供存取。\n"
-"* 當 `s1` 超出範圍時，系統不會執行任何動作，因為 `s1` 沒有擁有權。\n"
+"* 當 `s1` 超出範圍時，系統不會執行任何動作，因為 `s1` 沒有所有權。\n"
 "* 當 `s2` 超出範圍時，系統會釋放字串資料。\n"
 "* 一律「只有」一個變數綁定會擁有值。"
 
@@ -4080,7 +4080,7 @@ msgstr "# 函式呼叫中的移動"
 msgid ""
 "When you pass a value to a function, the value is assigned to the function\n"
 "parameter. This transfers ownership:"
-msgstr "將值傳遞至函式時，該值會指派給函式參數。這麼做會轉移擁有權："
+msgstr "將值傳遞至函式時，該值會指派給函式參數。這麼做會轉移所有權："
 
 #: src/ownership/moves-function-calls.md:6
 msgid ""
@@ -4122,11 +4122,11 @@ msgid ""
 "move semantics the default, and by forcing programmers to make clones "
 "explicit."
 msgstr ""
-"* 首次呼叫 `say_hello` 時，`main` 會放棄 `name` 的擁有權。之後，`name` 就無法"
+"* 首次呼叫 `say_hello` 時，`main` 會放棄 `name` 的所有權。之後，`name` 就無法"
 "在 `main` 內使用。\n"
 "* 為 `name` 分配的堆積記憶體會在 `say_hello` 函式結束時釋放。\n"
 "* 如果 `main` 以參照的形式傳送 `name` (`&name`)，且 `say_hello` 能以參數的形"
-"式接受參照，`main` 就可以保留擁有權。\n"
+"式接受參照，`main` 就可以保留所有權。\n"
 "* 另外，`main` 可在首次呼叫 (`name.clone()`) 中傳遞 `name` 的克隆。\n"
 "* 在 Rust 中，移動語意為預設做法，且強制規定程式設計師必須明確設定克隆，因此"
 "不小心建立副本的可能性就會低於在 C++ 中。"
@@ -4256,7 +4256,7 @@ msgstr "# 借用"
 msgid ""
 "Instead of transferring ownership when calling a function, you can let a\n"
 "function _borrow_ the value:"
-msgstr "您可以不必在呼叫函式時轉移擁有權，而是讓函式「借用」值："
+msgstr "您可以不必在呼叫函式時轉移所有權，而是讓函式「借用」值："
 
 #: src/ownership/borrowing.md:6
 msgid ""
@@ -4298,7 +4298,7 @@ msgid ""
 "* The caller retains ownership of the inputs."
 msgstr ""
 "* `add` 函式會「借用」兩個點，並傳回新的點。\n"
-"* 呼叫端會保留輸入內容的擁有權。"
+"* 呼叫端會保留輸入內容的所有權。"
 
 #: src/ownership/borrowing.md:27
 msgid "Notes on stack returns:"
