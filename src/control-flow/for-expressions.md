@@ -1,7 +1,7 @@
 # `for` loops
 
 The [`for` loop](https://doc.rust-lang.org/std/keyword.for.html) is closely
-related to the [`while let` loop](while-let-expression.md). It will
+related to the [`while let` loop](while-let-expressions.md). It will
 automatically call `into_iter()` on the expression and then iterate over it:
 
 ```rust,editable
