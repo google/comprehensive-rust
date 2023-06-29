@@ -27,17 +27,24 @@ GNU Gettext utilities below.
 
 ## Preparation
 
-We use two helpers for the translations:
+You will need the [Gettext] utilities (`msginit`, `msgmerge`). Under Ubuntu, you
+can install with:
+
+```shell
+$ sudo apt install gettext
+```
+
+We use `mdbook` and two helpers for the translations:
 
 - `mdbook-xgettext`: This program extracts the English text. It is an mdbook
   renderer.
 - `mdbook-gettext`: This program translates the book into a target language. It
   is an mdbook preprocessor.
 
-Install both helpers with:
+Install everything with:
 
 ```shell
-$ cargo install mdbook-i18n-helpers
+$ cargo install mdbook mdbook-i18n-helpers
 ```
 
 ## Creating and Updating Translations
