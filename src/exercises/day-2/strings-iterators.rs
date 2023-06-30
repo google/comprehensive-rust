@@ -15,23 +15,25 @@
 // ANCHOR: prefix_matches
 pub fn prefix_matches(prefix: &str, request_path: &str) -> bool {
     // ANCHOR_END: prefix_matches
-    let prefixes = prefix.split('/');
-    let request_paths = request_path
-        .split('/')
-        .map(|p| Some(p))
-        .chain(std::iter::once(None));
 
-    for (prefix, request_path) in prefixes.zip(request_paths) {
-        match request_path {
-            Some(request_path) => {
-                if (prefix != "*") && (prefix != request_path) {
-                    return false;
-                }
-            }
-            None => return false,
+    let mut request_segments = request_path.split('/');
+
+    for prefix_segment in prefix.split('/') {
+        let Some(request_segment) = request_segments.next() else {
+            return false;
+        };
+        if request_segment != prefix_segment && prefix_segment != "*" {
+            return false;
         }
     }
     true
+
+    // Alternatively, Iterator::zip() lets us iterate simultaneously over prefix
+    // and request segments. The zip() iterator is finished as soon as one of
+    // the source iterators is finished, but we need to iterate over all request
+    // segments. A neat trick that makes zip() work is to use map() and chain()
+    // to produce an iterator that returns Some(str) for each pattern segments,
+    // and then returns None indefinitely.
 }
 
 // ANCHOR: unit-tests
