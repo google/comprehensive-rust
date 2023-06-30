@@ -27,7 +27,7 @@ GNU Gettext utilities below.
 
 ## Preparation
 
-You will need the [Gettext] utilities (`msginit`, `msgmerge`). Under Ubuntu, you
+You will need the [Gettext] utilities (`msginit`, `msgmerge`). Under Debian and Ubuntu, you
 can install with:
 
 ```shell
