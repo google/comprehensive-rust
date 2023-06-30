@@ -40,5 +40,7 @@ Key points:
 * Show the students the standard library, show them how to search for `std::fmt`
   which has the rules of the formatting mini-language. It's important that the
   students become familiar with searching in the standard library.
+    
+    * In a shell `rustup doc std::fmt` will open a browser on the local std::fmt documentation
 
 </details>

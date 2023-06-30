@@ -89,6 +89,13 @@ header (the first entry with `msgid ""`) to the correct language.
 > translations will be wrong after this, so you must inspect them by hand
 > afterwards.
 
+Next, please update the file `.github/labeler.yml` to include the new language:
+
+```diff
++ 'translation/xx':
++ - po/xx.po
+```
+
 ### Updating an Existing Translation
 
 As the English text changes, translations gradually become outdated. To update
@@ -103,6 +110,11 @@ Unchanged messages will stay intact, deleted messages are marked as old, and
 updated messages are marked "fuzzy". A fuzzy entry will reuse the previous
 translation: you should then go over it and update it as necessary before you
 remove the fuzzy marker.
+
+> **Note:** Your PRs should either be the result of running `msgmerge` or the
+> result of new translation work on the PO file for your language. Avoid mixing
+> the two since it often creates a very large diff, which is hard or impossible
+> to review.
 
 ## Using Translations
 
@@ -155,6 +167,18 @@ It is therefore safe to merge the PR as long as the translation is reasonable.
 This is often better than leaving 50+ comments since this can be overwhelming
 for the contributor. Instead, please work with the contributor to improve things
 in follow-up PRs.
+
+### GitHub Suggestions
+
+When reviewing a translation PR, please use the
+[GitHub suggestion feature](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request).
+This feature allows you to directly write how you think a line or paragraph
+should be phrased. Use the left-most button in the toolbar to create a
+suggestion.
+
+The PR author can
+[apply the changes with a single click](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)
+afterwards, drastically reducing the number of round-trips needed in a review.
 
 ### Incomplete Translations
 

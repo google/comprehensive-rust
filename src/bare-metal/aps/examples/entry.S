@@ -15,19 +15,19 @@
  */
 
 .macro adr_l, reg:req, sym:req
-	adrp \reg, \sym
-	add \reg, \reg, :lo12:\sym
+    adrp \reg, \sym
+    add \reg, \reg, :lo12:\sym
 .endm
 
 .macro mov_i, reg:req, imm:req
-	movz \reg, :abs_g3:\imm
-	movk \reg, :abs_g2_nc:\imm
-	movk \reg, :abs_g1_nc:\imm
-	movk \reg, :abs_g0_nc:\imm
+    movz \reg, :abs_g3:\imm
+    movk \reg, :abs_g2_nc:\imm
+    movk \reg, :abs_g1_nc:\imm
+    movk \reg, :abs_g0_nc:\imm
 .endm
 
-.set .L_MAIR_DEV_nGnRE,	0x04
-.set .L_MAIR_MEM_WBWA,	0xff
+.set .L_MAIR_DEV_nGnRE, 0x04
+.set .L_MAIR_MEM_WBWA, 0xff
 .set .Lmairval, .L_MAIR_DEV_nGnRE | (.L_MAIR_MEM_WBWA << 8)
 
 /* 4 KiB granule size for TTBR0_EL1. */
@@ -77,66 +77,71 @@
  * prepares the stack, enables floating point, and sets up the exception vector. It preserves x0-x3
  * for the Rust entry point, as these may contain boot parameters.
  */
+// ANCHOR: entry
 .section .init.entry, "ax"
 .global entry
 entry:
-	/* Load and apply the memory management configuration, ready to enable MMU and caches. */
-	adrp x30, idmap
-	msr ttbr0_el1, x30
+    /*
+     * Load and apply the memory management configuration, ready to enable MMU and
+     * caches.
+     */
+    adrp x30, idmap
+    msr ttbr0_el1, x30
 
-	mov_i x30, .Lmairval
-	msr mair_el1, x30
+    mov_i x30, .Lmairval
+    msr mair_el1, x30
 
-	mov_i x30, .Ltcrval
-	/* Copy the supported PA range into TCR_EL1.IPS. */
-	mrs x29, id_aa64mmfr0_el1
-	bfi x30, x29, #32, #4
+    mov_i x30, .Ltcrval
+    /* Copy the supported PA range into TCR_EL1.IPS. */
+    mrs x29, id_aa64mmfr0_el1
+    bfi x30, x29, #32, #4
 
-	msr tcr_el1, x30
+    msr tcr_el1, x30
 
-	mov_i x30, .Lsctlrval
+    mov_i x30, .Lsctlrval
 
-	/*
-	 * Ensure everything before this point has completed, then invalidate any potentially stale
-	 * local TLB entries before they start being used.
-	 */
-	isb
-	tlbi vmalle1
-	ic iallu
-	dsb nsh
-	isb
+    /*
+     * Ensure everything before this point has completed, then invalidate any
+     * potentially stale local TLB entries before they start being used.
+     */
+    isb
+    tlbi vmalle1
+    ic iallu
+    dsb nsh
+    isb
 
-	/*
-	 * Configure sctlr_el1 to enable MMU and cache and don't proceed until this has completed.
-	 */
-	msr sctlr_el1, x30
-	isb
+    /*
+     * Configure sctlr_el1 to enable MMU and cache and don't proceed until this
+     * has completed.
+     */
+    msr sctlr_el1, x30
+    isb
 
-	/* Disable trapping floating point access in EL1. */
-	mrs x30, cpacr_el1
-	orr x30, x30, #(0x3 << 20)
-	msr cpacr_el1, x30
-	isb
+    /* Disable trapping floating point access in EL1. */
+    mrs x30, cpacr_el1
+    orr x30, x30, #(0x3 << 20)
+    msr cpacr_el1, x30
+    isb
 
-	/* Zero out the bss section. */
-	adr_l x29, bss_begin
-	adr_l x30, bss_end
-0:	cmp x29, x30
-	b.hs 1f
-	stp xzr, xzr, [x29], #16
-	b 0b
+    /* Zero out the bss section. */
+    adr_l x29, bss_begin
+    adr_l x30, bss_end
+0:  cmp x29, x30
+    b.hs 1f
+    stp xzr, xzr, [x29], #16
+    b 0b
 
-1:	/* Prepare the stack. */
-	adr_l x30, boot_stack_end
-	mov sp, x30
+1:  /* Prepare the stack. */
+    adr_l x30, boot_stack_end
+    mov sp, x30
 
-	/* Set up exception vector. */
-	adr x30, vector_table_el1
-	msr vbar_el1, x30
+    /* Set up exception vector. */
+    adr x30, vector_table_el1
+    msr vbar_el1, x30
 
-	/* Call into Rust code. */
-	bl main
+    /* Call into Rust code. */
+    bl main
 
-	/* Loop forever waiting for interrupts. */
-2:	wfi
-	b 2b
+    /* Loop forever waiting for interrupts. */
+2:  wfi
+    b 2b
