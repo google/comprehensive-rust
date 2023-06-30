@@ -34,18 +34,8 @@ Ubuntu, you can install with:
 $ sudo apt install gettext
 ```
 
-We use `mdbook` and two helpers for the translations:
-
-- `mdbook-xgettext`: This program extracts the English text. It is an mdbook
-  renderer.
-- `mdbook-gettext`: This program translates the book into a target language. It
-  is an mdbook preprocessor.
-
-Install everything with:
-
-```shell
-$ cargo install mdbook mdbook-i18n-helpers
-```
+Ensure you can build the book, and that `mdbook serve` works. For this, follow
+the instructions in the [README](README.md).
 
 ## Creating and Updating Translations
 
