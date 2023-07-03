@@ -3,7 +3,7 @@
 No undefined behavior at runtime:
 
 * Array access is bounds checked.
-* Integer overflow is defined.
+* Integer overflow is defined (panic or wrap-around).
 
 <details>
 
