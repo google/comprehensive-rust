@@ -84,18 +84,9 @@ impl Polygon {
     }
 
     pub fn length(&self) -> f64 {
-        if self.points.is_empty() {
-            return 0.0;
-        }
-
-        let mut result = 0.0;
-        let mut last_point = self.points[0];
-        for point in &self.points[1..] {
-            result += last_point.dist(*point);
-            last_point = *point;
-        }
-        result += last_point.dist(self.points[0]);
-        result
+        std::iter::zip(self.points.iter(), self.points.iter().cycle().skip(1))
+                .map(|p| p.0.dist(*p.1))
+                .sum()
     }
 }
 
