@@ -13,26 +13,51 @@ fn apply_with_log(func: impl FnOnce(i32) -> i32, input: i32) -> i32 {
 
 fn main() {
     let add_3 = |x| x + 3;
-    let mul_5 = |x| x * 5;
-
     println!("add_3: {}", apply_with_log(add_3, 10));
-    println!("mul_5: {}", apply_with_log(mul_5, 20));
+    println!("add_3: {}", apply_with_log(add_3, 20));
+
+    let mut v = Vec::new();
+    let mut accumulate = |x: i32| {
+        v.push(x);
+        v.iter().sum::<i32>()
+    };
+    println!("accumulate: {}", apply_with_log(&mut accumulate, 4));
+    println!("accumulate: {}", apply_with_log(&mut accumulate, 5));
+
+    let multiply_sum = |x| x * v.into_iter().sum::<i32>();
+    println!("multiply_sum: {}", apply_with_log(multiply_sum, 3));
 }
 ```
 
 <details>
 
-If you have an `FnOnce`, you may only call it once. It might consume captured values.
+An `Fn` (e.g. `add_3`) neither consumes nor mutates captured values, or perhaps captures
+nothing at all. It can be called multiple times concurrently.
 
-An `FnMut` might mutate captured values, so you can call it multiple times but not concurrently.
+An `FnMut` (e.g. `accumulate`) might mutate captured values. You can call it multiple times,
+but not concurrently.
 
-An `Fn` neither consumes nor mutates captured values, or perhaps captures nothing at all, so it can
-be called multiple times concurrently.
+If you have an `FnOnce` (e.g. `multiply_sum`), you may only call it once. It might consume
+captured values.
 
 `FnMut` is a subtype of `FnOnce`. `Fn` is a subtype of `FnMut` and `FnOnce`. I.e. you can use an
 `FnMut` wherever an `FnOnce` is called for, and you can use an `Fn` wherever an `FnMut` or `FnOnce`
 is called for.
 
-`move` closures only implement `FnOnce`.
+The compiler also infers `Copy` (e.g. for `add_3`) and `Clone` (e.g. `multiply_sum`),
+depending on what the closure captures.
+
+By default, closures will capture by reference if they can. The `move` keyword makes them capture
+by value.
+```rust,editable
+fn make_greeter(prefix: String) -> impl Fn(&str) {
+    return move |name| println!("{} {}", prefix, name)
+}
+
+fn main() {
+    let hi = make_greeter("Hi".to_string());
+    hi("there");
+}
+```
 
 </details>
