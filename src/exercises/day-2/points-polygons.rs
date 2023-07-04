@@ -84,9 +84,24 @@ impl Polygon {
     }
 
     pub fn length(&self) -> f64 {
-        std::iter::zip(self.points.iter(), self.points.iter().cycle().skip(1))
-                .map(|p| p.0.dist(*p.1))
-                .sum()
+        if self.points.is_empty() {
+            return 0.0;
+        }
+
+        let mut result = 0.0;
+        let mut last_point = self.points[0];
+        for point in &self.points[1..] {
+            result += last_point.dist(*point);
+            last_point = *point;
+        }
+        result += last_point.dist(self.points[0]);
+        result
+        // Alternatively, Iterator::zip() lets us iterate over the pairs of points 
+        // but we need to pair each point with the next one and the last point
+        // with the first point. The zip() iterator is finished as soon as one of 
+        // the source iterators is finished, a neat trick is to combine Iterator::cycle
+        // with Iterator::skip to create the second iterator for the zip and using map 
+        // and sum to calculate the total length.
     }
 }
 
