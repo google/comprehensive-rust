@@ -17,9 +17,9 @@ fn main() {
 }
 
 #[test]
-fn test_weight() {
+fn test_height() {
     let bob = User::new(String::from("Bob"), 32, 155.2);
-    assert_eq!(bob.weight(), 155.2);
+    assert_eq!(bob.height(), 155.2);
 }
 
 #[test]

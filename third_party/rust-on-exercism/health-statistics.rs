@@ -1,11 +1,11 @@
 pub struct User {
     name: String,
     age: u32,
-    weight: f32,
+    height: f32,
 }
 
 impl User {
-    pub fn new(name: String, age: u32, weight: f32) -> Self {
+    pub fn new(name: String, age: u32, height: f32) -> Self {
         unimplemented!()
     }
 
@@ -17,7 +17,7 @@ impl User {
         unimplemented!()
     }
 
-    pub fn weight(&self) -> f32 {
+    pub fn height(&self) -> f32 {
         unimplemented!()
     }
 
@@ -25,7 +25,7 @@ impl User {
         unimplemented!()
     }
 
-    pub fn set_weight(&mut self, new_weight: f32) {
+    pub fn set_height(&mut self, new_height: f32) {
         unimplemented!()
     }
 }
