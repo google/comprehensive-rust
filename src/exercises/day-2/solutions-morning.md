@@ -1,9 +1,9 @@
 # Day 2 Morning Exercises
 
-## Points and Polygons
+## Designing a Library
 
-([back to exercise](points-polygons.md))
+([back to exercise](book-library.md))
 
 ```rust
-{{#include points-polygons.rs}}
+{{#include book-library.rs}}
 ```

@@ -2,9 +2,9 @@
 
 We will look at two things:
 
-* A small book library,
+* The Luhn algorithm,
 
-* Iterators and ownership (hard).
+* An exercise on pattern matching.
 
 <details>
 
