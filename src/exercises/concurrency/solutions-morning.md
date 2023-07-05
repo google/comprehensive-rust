@@ -8,3 +8,10 @@
 {{#include dining-philosophers.rs}}
 ```
 
+## Link Checker
+
+([back to exercise](link-checker.md))
+
+```rust,compile_fail
+{{#include link-checker.rs}}
+```
