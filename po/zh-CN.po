@@ -4034,11 +4034,11 @@ msgstr ""
 
 #: src/memory-management.md:1
 msgid "# Memory Management"
-msgstr ""
+msgstr "# 内存管理"
 
 #: src/memory-management.md:3
 msgid "Traditionally, languages have fallen into two broad categories:"
-msgstr ""
+msgstr "传统上，语言分为两大类："
 
 #: src/memory-management.md:5
 msgid ""
@@ -4046,28 +4046,32 @@ msgid ""
 "* Full safety via automatic memory management at runtime: Java, Python, Go, "
 "Haskell, ..."
 msgstr ""
+"* 通过手动内存管理实现完全控制：C、C++、Pascal…\n"
+"* 运行时通过自动内存管理实现完全安全：Java、Python、Go、Haskell…"
 
 #: src/memory-management.md:8
 msgid "Rust offers a new mix:"
-msgstr ""
+msgstr "Rust 提供了一个全新的组合："
 
 #: src/memory-management.md:10
 msgid ""
 "> Full control *and* safety via compile time enforcement of correct memory\n"
 "> management."
 msgstr ""
+"> 通过编译时强制执行正确的内存"
+">管理来实现完全控制与安全。"
 
 #: src/memory-management.md:13
 msgid "It does this with an explicit ownership concept."
-msgstr ""
+msgstr "它通过一个明确的所有权（ownership）概念来实现此目的。"
 
 #: src/memory-management.md:15
 msgid "First, let's refresh how memory management works."
-msgstr ""
+msgstr "首先，我们回顾一下内存管理的工作原理。"
 
 #: src/memory-management/stack-vs-heap.md:1
 msgid "# The Stack vs The Heap"
-msgstr ""
+msgstr "# 栈与堆"
 
 #: src/memory-management/stack-vs-heap.md:3
 msgid ""
@@ -4082,10 +4086,20 @@ msgid ""
 "  * Slightly slower than the stack: some book-keeping needed.\n"
 "  * No guarantee of memory locality."
 msgstr ""
+"* 栈：局部变量的连续内存区域。\n"
+"  * 值在编译时具有已知的固定大小。\n"
+"  * 速度极快：只需移动一个栈指针。\n"
+"  * 易于管理：遵循函数调用规则。\n"
+"  * 优秀的内存局部性。\n"
+"\n"
+"* 堆：函数调用之外的值的存储。\n"
+"  * 值具有动态大小，具体大小需在运行时确定。\n"
+"  * 比栈稍慢：需要向系统申请空间。\n"
+"  * 不保证内存局部性。"
 
 #: src/memory-management/stack.md:1
 msgid "# Stack Memory"
-msgstr ""
+msgstr "# 栈内存"
 
 #: src/memory-management/stack.md:3
 msgid ""
@@ -4093,6 +4107,8 @@ msgid ""
 "sized\n"
 "data on the heap:"
 msgstr ""
+"创建 `String` 时将固定大小的数据存储在栈上，\n"
+"并将动态大小的数据存储在堆上："
 
 #: src/memory-management/stack.md:6
 msgid ""
@@ -4102,6 +4118,11 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {\n"
+"    let s1 = String::from(\"Hello\");\n"
+"}\n"
+"```"
 
 #: src/memory-management/stack.md:12
 msgid ""
@@ -4119,6 +4140,19 @@ msgid ""
 "`- - - - - - - - - - - - - -'\n"
 "```"
 msgstr ""
+"```bob\n"
+" 栈                             堆\n"
+".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - -.\n"
+":                           :     :                               :\n"
+":    s1                     :     :                               :\n"
+":   +-----------+-------+   :     :   +----+----+----+----+----+  :\n"
+":   | ptr       |   o---+---+-----+-->| H  | e  | l  | l  | o  |  :\n"
+":   | len       |     5 |   :     :   +----+----+----+----+----+  :\n"
+":   | capacity  |     5 |   :     :                               :\n"
+":   +-----------+-------+   :     :                               :\n"
+":                           :     `- - - - - - - - - - - - - - - -'\n"
+"`- - - - - - - - - - - - - -'\n"
+"```"
 
 #: src/memory-management/stack.md:28
 msgid ""
@@ -4150,28 +4184,52 @@ msgid ""
 "    }\n"
 "    ```"
 msgstr ""
+"* 指出 `String` 底层由 `Vec` 实现，因此它具有容量和长度，如果值可变，则可以通过在堆上重新分配存储空间进行增长。\n"
+"\n"
+"* 如果学员提出相关问题，你可以提及我们不仅能使用[系统分配器]在堆上分配底层内"
+"存，还能使用 [Allocator API] 实现自定义分配器\n"
+"\n"
+"* 我们可以使用 `unsafe` 代码检查内存布局。不过，你应该指出，这种做法不安全！\n"
+"\n"
+"    ```rust,editable\n"
+"    fn main() {\n"
+"        let mut s1 = String::from(\"Hello\");\n"
+"        s1.push(' ');\n"
+"        s1.push_str(\"world\");\n"
+"        // DON'T DO THIS AT HOME! For educational purposes only.\n"
+"        // String provides no guarantees about its layout, so this could "
+"lead to\n"
+"        // undefined behavior.\n"
+"        unsafe {\n"
+"            let (capacity, ptr, len): (usize, usize, usize) = std::mem::"
+"transmute(s1);\n"
+"            println!(\"ptr = {ptr:#x}, len = {len}, capacity = "
+"{capacity}\");\n"
+"        }\n"
+"    }\n"
+"    ```"
 
 #: src/memory-management/manual.md:1
 msgid "# Manual Memory Management"
-msgstr ""
+msgstr "# 手动内存管理"
 
 #: src/memory-management/manual.md:3
 msgid "You allocate and deallocate heap memory yourself."
-msgstr ""
+msgstr "你自己实现堆内存分配和释放。"
 
 #: src/memory-management/manual.md:5
 msgid ""
 "If not done with care, this can lead to crashes, bugs, security "
 "vulnerabilities, and memory leaks."
-msgstr ""
+msgstr "稍有不慎，这可能会导致崩溃、bug、安全漏洞和内存泄漏。"
 
 #: src/memory-management/manual.md:7
 msgid "## C Example"
-msgstr ""
+msgstr "## C++ 示例"
 
 #: src/memory-management/manual.md:9
 msgid "You must call `free` on every pointer you allocate with `malloc`:"
-msgstr ""
+msgstr "你必须对使用 `malloc` 分配的每个指针调用 `free`："
 
 #: src/memory-management/manual.md:11
 msgid ""
@@ -4185,6 +4243,15 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```c\n"
+"void foo(size_t n) {\n"
+"    int* int_array = (int*)malloc(n * sizeof(int));\n"
+"    //\n"
+"    // ... lots of code\n"
+"    //\n"
+"    free(int_array);\n"
+"}\n"
+"```"
 
 #: src/memory-management/manual.md:21
 msgid ""
@@ -4192,15 +4259,17 @@ msgid ""
 "the\n"
 "pointer is lost and we cannot deallocate the memory."
 msgstr ""
+"如果函数在 `malloc` 和 `free` 之间提前返回，则会导致内存泄漏：\n"
+"指针丢失，而我们无法释放对应的内存。"
 
 #: src/memory-management/scope-based.md:1
 msgid "# Scope-Based Memory Management"
-msgstr ""
+msgstr "# 基于作用域的内存管理"
 
 #: src/memory-management/scope-based.md:3
 msgid ""
 "Constructors and destructors let you hook into the lifetime of an object."
-msgstr ""
+msgstr "构造函数和析构函数让你可以钩入对象的生命周期。"
 
 #: src/memory-management/scope-based.md:5
 msgid ""
@@ -4209,6 +4278,9 @@ msgid ""
 "is\n"
 "raised."
 msgstr ""
+"通过将指针封装在对象中，你可以在该对象\n"
+"被销毁时释放内存。编译器可保证这一点的实现，即使"
+"引发了异常也不例外。"
 
 #: src/memory-management/scope-based.md:9
 msgid ""
@@ -4216,10 +4288,12 @@ msgid ""
 "gives\n"
 "you smart pointers."
 msgstr ""
+"这通常称为“资源获取即初始化 (resource acquisition is initialization, RAII)”，\n"
+"并为你提供智能指针。"
 
 #: src/memory-management/scope-based.md:12
 msgid "## C++ Example"
-msgstr ""
+msgstr "## C++ 示例"
 
 #: src/memory-management/scope-based.md:14
 msgid ""
@@ -4229,6 +4303,11 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```c++\n"
+"void say_hello(std::unique_ptr<Person> person) {\n"
+"  std::cout << \"Hello \" << person->name << std::endl;\n"
+"}\n"
+"```"
 
 #: src/memory-management/scope-based.md:20
 msgid ""
@@ -4237,11 +4316,15 @@ msgid ""
 "* At the end of `say_hello`, the `std::unique_ptr` destructor will run.\n"
 "* The destructor frees the `Person` object it points to."
 msgstr ""
+"* `std::unique_ptr` 对象在栈上分配内存，并指向"
+"在堆上分配的内存。\n"
+"* 在 `say_hello` 结束时，`std::unique_ptr` 析构函数将运行。\n"
+"* 析构函数释放它所指向的 `Person` 对象。"
 
 #: src/memory-management/scope-based.md:25
 msgid ""
 "Special move constructors are used when passing ownership to a function:"
-msgstr ""
+msgstr "将所有权传递给函数时，使用特殊的 move 构造函数："
 
 #: src/memory-management/scope-based.md:27
 msgid ""
@@ -4250,10 +4333,14 @@ msgid ""
 "say_hello(std::move(person));\n"
 "```"
 msgstr ""
+"```c++\n"
+"std::unique_ptr<Person> person = find_person(\"Carla\");\n"
+"say_hello(std::move(person));\n"
+"```"
 
 #: src/memory-management/garbage-collection.md:1
 msgid "# Automatic Memory Management"
-msgstr ""
+msgstr "# 自动内存管理"
 
 #: src/memory-management/garbage-collection.md:3
 msgid ""
@@ -4261,6 +4348,8 @@ msgid ""
 "memory\n"
 "management:"
 msgstr ""
+"自动内存管理是手动和基于作用域的内存管理\n"
+"的替代方案："
 
 #: src/memory-management/garbage-collection.md:6
 msgid ""
@@ -4268,14 +4357,16 @@ msgid ""
 "* A garbage collector finds unused memory and deallocates it for the "
 "programmer."
 msgstr ""
+"* 程序员从不显式分配或取消分配内存。\n"
+"* 垃圾回收器找到未使用的内存，并为程序员将其取消分配。"
 
 #: src/memory-management/garbage-collection.md:9
 msgid "## Java Example"
-msgstr ""
+msgstr "## Java 示例"
 
 #: src/memory-management/garbage-collection.md:11
 msgid "The `person` object is not deallocated after `sayHello` returns:"
-msgstr ""
+msgstr "`sayHello` 返回后，`person` 对象未被取消分配："
 
 #: src/memory-management/garbage-collection.md:13
 msgid ""
@@ -4285,14 +4376,19 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```java\n"
+"void sayHello(Person person) {\n"
+"  System.out.println(\"Hello \" + person.getName());\n"
+"}\n"
+"```"
 
 #: src/memory-management/rust.md:1
 msgid "# Memory Management in Rust"
-msgstr ""
+msgstr "# Rust 中的内存管理"
 
 #: src/memory-management/rust.md:3
 msgid "Memory management in Rust is a mix:"
-msgstr ""
+msgstr "Rust 中的内存管理是一种混合模式："
 
 #: src/memory-management/rust.md:5
 msgid ""
@@ -4304,10 +4400,16 @@ msgid ""
 "* A Rust user can choose the right abstraction for the situation, some even "
 "have no cost at runtime like C."
 msgstr ""
+"* 像 Java 一样安全又正确，但没有垃圾回收器。\n"
+"* 根据你选择的抽象（或抽象组合），可以是单个唯一指针，也可以是引用计数，或原"
+"子引用计数。\n"
+"* 像 C++ 一样基于作用域，但编译器会强制完全遵循规则。\n"
+"* Rust 用户可以根据具体情况选择合适的抽象，有些甚至没有像 C 那样的运行时开"
+"销。"
 
 #: src/memory-management/rust.md:10
 msgid "It achieves this by modeling _ownership_ explicitly."
-msgstr ""
+msgstr "它通过对“所有权”进行显式建模来实现这一点。"
 
 #: src/memory-management/rust.md:14
 msgid ""
@@ -4319,18 +4421,23 @@ msgid ""
 "* You may be asked about destructors here, the [Drop] trait is the Rust "
 "equivalent."
 msgstr ""
+"* 如果此时被问及如何操作，你可以提及在 Rust 中，这通常由 RAII 封装容器类型"
+"（例如 [Box]、[Vec]、[Rc] 或 [Arc]）处理。这些类型通过各种方式封装了所有权和"
+"内存分配，并防止了 C 中潜在错误的发生。\n"
+"\n"
+"* 你可能会被问及析构函数，此处 [Drop] trait 是 Rust 等效项。"
 
 #: src/memory-management/comparison.md:1
 msgid "# Comparison"
-msgstr ""
+msgstr "# 比较"
 
 #: src/memory-management/comparison.md:3
 msgid "Here is a rough comparison of the memory management techniques."
-msgstr ""
+msgstr "下面是对内存管理技术的粗略比较。"
 
 #: src/memory-management/comparison.md:5
 msgid "## Pros of Different Memory Management Techniques"
-msgstr ""
+msgstr "## 不同内存管理技术的优点"
 
 #: src/memory-management/comparison.md:7
 msgid ""
@@ -4347,10 +4454,22 @@ msgid ""
 "  * No runtime overhead.\n"
 "  * Safe and correct."
 msgstr ""
+"* 手动（如 C）：\n"
+"  * 无运行时开销。\n"
+"* 自动（如 Java）：\n"
+"  * 完全自动。\n"
+"  * 安全且正确。\n"
+"* 基于作用域（如 C++）：\n"
+"  * 部分自动。\n"
+"  * 无运行时开销。\n"
+"* 由编译器强制执行、基于作用域（如 Rust）：\n"
+"  * 由编译器强制执行。\n"
+"  * 无运行时开销。\n"
+"  * 安全且正确。"
 
 #: src/memory-management/comparison.md:20
 msgid "## Cons of Different Memory Management Techniques"
-msgstr ""
+msgstr "## 不同内存管理技术的缺点"
 
 #: src/memory-management/comparison.md:22
 msgid ""
@@ -4368,6 +4487,19 @@ msgid ""
 "  * Some upfront complexity.\n"
 "  * Can reject valid programs."
 msgstr ""
+"* 手动（如 C）：\n"
+"  * 释放后使用。\n"
+"  * 双重释放。\n"
+"  * 内存泄漏。\n"
+"* 自动（如 Java）：\n"
+"  * 垃圾回收暂停。\n"
+"  * 析构函数延迟。\n"
+"* 基于作用域（如 C++）：\n"
+"  * 复杂，由程序员自选。\n"
+"  * 有望释放后使用。\n"
+"* 由编译器强制执行、基于作用域（如 Rust）：\n"
+"  * 前期有些复杂。\n"
+"  * 可能拒绝有效的程序。"
 
 #: src/ownership.md:1
 msgid "# Ownership"
