@@ -73,6 +73,7 @@ struct CrawlState {
     domain: String,
     visited_pages: std::collections::HashSet<String>,
 }
+
 impl CrawlState {
     fn new(start_url: &Url) -> CrawlState {
         let mut visited_pages = std::collections::HashSet::new();
@@ -83,13 +84,16 @@ impl CrawlState {
         }
     }
 
-    fn visit_links(&self, url: &Url) -> bool {
+    /// Determine whether links within the given page should be extracted.
+    fn should_extract_links(&self, url: &Url) -> bool {
         let Some(url_domain) = url.domain() else {
             return false;
         };
         url_domain == self.domain
     }
 
+    /// Mark the given page as visited, returning true if it had already
+    /// been visited.
     fn mark_visited(&mut self, url: &Url) -> bool {
         self.visited_pages.insert(url.as_str().to_string())
     }
@@ -146,7 +150,7 @@ fn control_crawl(
             Ok(link_urls) => {
                 for url in link_urls {
                     if crawl_state.mark_visited(&url) {
-                        let extract_links = crawl_state.visit_links(&url);
+                        let extract_links = crawl_state.should_extract_links(&url);
                         let crawl_command = CrawlCommand { url, extract_links };
                         command_sender.send(crawl_command).unwrap();
                         pending_urls += 1;
