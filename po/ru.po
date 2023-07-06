@@ -313,23 +313,23 @@ msgstr ""
 
 #: src/SUMMARY.md:94
 msgid "Day 2: Afternoon"
-msgstr ""
+msgstr "День 2: Вторая половина дня"
 
 #: src/SUMMARY.md:96 src/SUMMARY.md:288
 msgid "Control Flow"
-msgstr ""
+msgstr "Поток управления"
 
 #: src/SUMMARY.md:97
 msgid "Blocks"
-msgstr ""
+msgstr "Блоки"
 
 #: src/SUMMARY.md:98
 msgid "if expressions"
-msgstr ""
+msgstr "Выражение if"
 
 #: src/SUMMARY.md:99
 msgid "if let expressions"
-msgstr ""
+msgstr "Выражение if let"
 
 #: src/SUMMARY.md:100
 msgid "while expressions"
@@ -5648,7 +5648,7 @@ msgstr ""
 
 #: src/control-flow.md:1
 msgid "# Control Flow"
-msgstr ""
+msgstr "# Поток управления"
 
 #: src/control-flow.md:3
 msgid ""
@@ -5657,16 +5657,21 @@ msgid ""
 "the value of the `if` expression. Other control flow expressions work similarly\n"
 "in Rust."
 msgstr ""
+"Как мы уже заметили, выражение `if` может использоваться для \n"
+"условного выполнения одного из двух блоков. Однако, в Rust сами блоки могут \n"
+"иметь значения. Значение одного из двух блоков (в зависимости от значения условия) \n"
+"и станет значением всего выражения `if`. Другие выражения управления потоком\n"
+"(такие как `while`, `for` и `match`), работают схожим образом."
 
 #: src/control-flow/blocks.md:1
 msgid "# Blocks"
-msgstr ""
+msgstr "# Блоки"
 
 #: src/control-flow/blocks.md:3
 msgid ""
 "A block in Rust has a value and a type: the value is the last expression of the\n"
 "block:"
-msgstr ""
+msgstr "Блоки в языке Rust имеют тип и значение, которые равны типу и значению последнего выражения в блоке. Например:"
 
 #: src/control-flow/blocks.md:6
 msgid ""
@@ -5695,6 +5700,8 @@ msgid ""
 "The same rule is used for functions: the value of the function body is the\n"
 "return value:"
 msgstr ""
+"То же правило работает и для функций: функция возвращает значение \n"
+"последнего выражения в теле:"
 
 #: src/control-flow/blocks.md:28
 msgid ""
@@ -5708,10 +5715,21 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn double(x: i32) -> i32 {\n"
+"    x + x\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    println!(\"удвоенное: {}\", double(7));\n"
+"}\n"
+"```"
 
 #: src/control-flow/blocks.md:38
 msgid "However if the last expression ends with `;`, then the resulting value and type is `()`."
 msgstr ""
+"Однако, если за последним выражением в блоке следует `;`, то результатом такого \n"
+"блока (а также его тип) будет `()`."
 
 #: src/control-flow/blocks.md:43
 msgid ""
@@ -5719,17 +5737,20 @@ msgid ""
 "* You can show how the value of the block changes by changing the last line in the block. For instance, adding/removing a semicolon or using a `return`.\n"
 "   "
 msgstr ""
+"* Этот слайд показывает, что в языке Rust у блоков есть тип и значение. \n"
+"* Можно показать, как меняется значение блока при изменении последней строки \n"
+"в блоке. Например, можно добавить/убрать точку с запятой или использовать `return`."
 
 #: src/control-flow/if-expressions.md:1
 msgid "# `if` expressions"
-msgstr ""
+msgstr "# Выражение `if`"
 
 #: src/control-flow/if-expressions.md:3
 msgid ""
 "You use [`if`\n"
 "expressions](https://doc.rust-lang.org/reference/expressions/if-expr.html#if-expressions)\n"
 "exactly like `if` statements in other languages:"
-msgstr ""
+msgstr "[Выражение `if`](https://doc.rust-lang.org/reference/expressions/if-expr.html#if-expressions) работает так же, как и оператор `if` в других языках:"
 
 #: src/control-flow/if-expressions.md:7
 msgid ""
@@ -5750,6 +5771,9 @@ msgid ""
 "In addition, you can use `if` as an expression. The last expression of each\n"
 "block becomes the value of the `if` expression:"
 msgstr ""
+"Помимо этого, можно использовать `if` как выражение. Последнее выражение \n"
+"внутри одного из блоков (в зависимости от значения условия) становится \n"
+"значением всего выражения `if`:"
 
 #: src/control-flow/if-expressions.md:22
 msgid ""
@@ -5767,11 +5791,11 @@ msgstr ""
 
 #: src/control-flow/if-expressions.md:35
 msgid "Because `if` is an expression and must have a particular type, both of its branch blocks must have the same type. Consider showing what happens if you add `;` after `x / 2` in the second example."
-msgstr ""
+msgstr "Обе ветки выражения `if` должны быть одинакового типа. Попробуйте показать, что происходит, если добавить `;` после `x / 2` во втором примере."
 
 #: src/control-flow/if-let-expressions.md:1
 msgid "# `if let` expressions"
-msgstr ""
+msgstr "# Выражение `if let`"
 
 #: src/control-flow/if-let-expressions.md:3
 msgid ""
@@ -5779,6 +5803,9 @@ msgid ""
 "expression](https://doc.rust-lang.org/reference/expressions/if-expr.html#if-let-expressions)\n"
 "lets you execute different code depending on whether a value matches a pattern:"
 msgstr ""
+"[Выражение `if let`](https://doc.rust-lang.org/reference/expressions/if-expr.html#if-let-expressions)\n"
+"позволяет выполнять разные ветки кода в зависимости от того, соответствует ли какое-либо \n"
+"значение шаблону или нет:"
 
 #: src/control-flow/if-let-expressions.md:7
 msgid ""
@@ -5793,6 +5820,16 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {\n"
+"    let arg = std::env::args().next();\n"
+"    if let Some(value) = arg {\n"
+"        println!(\"Имя программы: {value}\");\n"
+"    } else {\n"
+"        println!(\"Имя не указано.\");\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/control-flow/if-let-expressions.md:18
 #: src/control-flow/while-let-expressions.md:21
@@ -5801,6 +5838,8 @@ msgid ""
 "See [pattern matching](../pattern-matching.md) for more details on patterns in\n"
 "Rust."
 msgstr ""
+"Больше информации об использовании шаблонов в языке Rust можно найти на\n"
+"[странице про сопоставление с шаблоном](../pattern-matching.md)."
 
 #: src/control-flow/if-let-expressions.md:23
 msgid ""
@@ -5822,6 +5861,23 @@ msgid ""
 "       Some(item.to_uppercase())\n"
 "   }"
 msgstr ""
+"* `if let` может быть более лаконично, чем `match`. Например, когда нужно проверить только один вариант. Выражение `match`, напротив, требует проверки всех вариантов.\n"
+"* Типичным случаем использования является проверка на значение `Some` при работе с типом `Option`.\n"
+"* В отличие от выражения `match`, `if let` не позволяет использовать охранные выражения.\n"
+"* Начиная с версии 1.65, похожая конструкция [`let-else`](https://doc.rust-lang.org/rust-by-example/flow_control/let_else.html) позволяет проводить деструктурирующее присвоение, а при ошибке исполнить ветку с не возвращающим блоком (`panic`/`return`/`break`/`continue`). Например:\n"
+"\n"
+"   ```rust,editable\n"
+"   fn main() {\n"
+"       println!(\"{:?}\", second_word_to_upper(\"foo bar\"));\n"
+"   }\n"
+"    \n"
+"   fn second_word_to_upper(s: &str) -> Option<String> {\n"
+"       let mut it = s.split(' ');\n"
+"       let (Some(_), Some(item)) = (it.next(), it.next()) else {\n"
+"           return None;\n"
+"       };\n"
+"       Some(item.to_uppercase())\n"
+"   }"
 
 #: src/control-flow/while-expressions.md:1
 msgid "# `while` loops"
