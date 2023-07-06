@@ -3222,7 +3222,7 @@ msgstr "# Rustdoc"
 
 #: src/basic-syntax/rustdoc.md:3
 msgid "All language items in Rust can be documented using special `///` syntax."
-msgstr ""
+msgstr "Todos os itens da linguagem podem ser documentados com a sintaxe especial `///`."
 
 #: src/basic-syntax/rustdoc.md:5
 msgid ""
@@ -3246,7 +3246,7 @@ msgstr ""
 "    if rhs == 0 {\n"
 "        return false;  // Caso excepcional, retorne antes\n"
 "    }\n"
-"    lhs % rhs == 0     // A última expressão do bloco é utilizada como valor de retorno\n"
+"    lhs % rhs == 0     // A última expressão do bloco é o valor de retorno\n"
 "}\n"
 "```"
 
@@ -3257,6 +3257,10 @@ msgid ""
 "[rustdoc](https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html) tool. It is\n"
 "idiomatic to document all public items in an API using this pattern."
 msgstr ""
+"O conteúdio é tratado como _Markdown_. Todos os _crates_ publicados da biblioteca Rust são\n"
+"documentados automaticamente em [`docs.rs`](https://docs.rs) utilizando a\n"
+"ferramenta [rustdoc](https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html). É idiomático\n"
+"documentar ros os itens públicos em uma API usando este padrão."
 
 #: src/basic-syntax/rustdoc.md:24
 msgid ""
@@ -3269,6 +3273,14 @@ msgid ""
 "* Inner doc comments are discussed later (in the page on modules) and need not\n"
 "  be addressed here."
 msgstr ""
+"* Mostre aos alunos os documentos gerados para o crate `rand` em\n"
+"  [`docs.rs/rand`](https://docs.rs/rand).\n"
+"\n"
+"* Este curso não inclui o rustdoc nos slides, apenas para economizar espaço, mas em\n"
+"  código real eles devem estar presentes.\n"
+"\n"
+"* Os comentários internos do documento são discutidos posteriormente (na página sobre módulos) e não precisam ser\n"
+"  ser abordados aqui."
 
 #: src/basic-syntax/methods.md:1 src/methods.md:1
 msgid "# Methods"
@@ -3349,10 +3361,20 @@ msgid ""
 "- Add a `Rectangle::new_square(width: u32)` constructor to illustrate that\n"
 "  constructors can take arbitrary parameters."
 msgstr ""
+"- Adicione um construtor `Rectangle::new` e chame a partir de `main`:\n"
+"\n"
+"    ```rust,editable,compile_fail\n"
+"    fn new(width: u32, height: u32) -> Rectangle {\n"
+"        Rectangle { width, height }\n"
+"    }\n"
+"    ```\n"
+"\n"
+"- Adicione um construtor `Rectangle::new_square(width: u32)` para ilustrar que\n"
+"  construtores podem ter parâmetros arbitrários."
 
 #: src/basic-syntax/functions-interlude.md:1
 msgid "# Function Overloading"
-msgstr "# Sobrecarga de funções"
+msgstr "# Sobrecarga de Funções"
 
 #: src/basic-syntax/functions-interlude.md:3
 msgid "Overloading is not supported:"
@@ -3372,11 +3394,11 @@ msgstr ""
 "  * Sempre usa um único conjunto de tipos de parâmetros.\n"
 "* Valores padrão não são suportados:\n"
 "  * Todos as chamadas têm o mesmo número de argumentos.\n"
-"  * Às vezes macros são usadas como alternativa."
+"  * Às vezes macr  os são usadas como alternativa."
 
 #: src/basic-syntax/functions-interlude.md:12
 msgid "However, function parameters can be generic:"
-msgstr "No entanto, os parâmetros da função podem ser genéricos:"
+msgstr "No entanto, os parâmetros da função podem ser tipos genéricos:"
 
 #: src/basic-syntax/functions-interlude.md:14
 msgid ""
@@ -3407,16 +3429,16 @@ msgid ""
 "* When using generics, the standard library's `Into<T>` can provide a kind of limited\n"
 "  polymorphism on argument types. We will see more details in a later section."
 msgstr ""
-"* Ao usar generics, o `Into<T>` da biblioteca padrão pode fornecer um tipo polimórfico\n"
-"  limitado nos tipos do argumento. Veremos mais detalhes em uma seção posterior."
+"* Ao usar tipos genéricos, o `Into<T>` da biblioteca padrão pode fornecer um tipo polimórfico\n"
+"  limitado nos tipos de argumento. Veremos mais detalhes em uma seção posterior."
 
 #: src/exercises/day-1/morning.md:1
 msgid "# Day 1: Morning Exercises"
-msgstr "# Dia 1: Exercícios matinais"
+msgstr "# Dia 1: Exercícios Matinais"
 
 #: src/exercises/day-1/morning.md:3
 msgid "In these exercises, we will explore two parts of Rust:"
-msgstr "Nestes exercícios, exploraremos duas partes do Rust:"
+msgstr "Nestes exercícios, vamos explorar duas partes do Rust:"
 
 #: src/exercises/day-1/morning.md:5
 msgid ""
@@ -3426,7 +3448,7 @@ msgid ""
 msgstr ""
 "* Conversões implícitas entre tipos.\n"
 "\n"
-"* Vetores e loops `for`."
+"* Matrizes (_Arrays_) e laços (loops) `for`."
 
 #: src/exercises/day-1/morning.md:11
 msgid "A few things to consider while solving the exercises:"
@@ -3441,10 +3463,10 @@ msgid ""
 "* Alternatively, use the Rust Playground."
 msgstr ""
 "* Se possível, use uma instalação local do Rust. Desta forma, você pode obter\n"
-"  preenchimento automático em seu editor. Veja a página sobre [Utilização do Cargo] para detalhes\n"
+"  preenchimento automático em seu editor. Veja a página sobre [Utilização do Cargo][Using Cargo] para detalhes\n"
 "  sobre instalação do Rust.\n"
 "\n"
-"* Alternativamente, utilizar o Rust Playground."
+"* Alternativamente, utilize o Rust Playground."
 
 #: src/exercises/day-1/morning.md:19
 msgid ""
@@ -3460,11 +3482,11 @@ msgstr ""
 #: src/exercises/bare-metal/afternoon.md:7 src/exercises/concurrency/morning.md:12
 #: src/exercises/concurrency/afternoon.md:13
 msgid "After looking at the exercises, you can look at the [solutions] provided."
-msgstr "Depois de ver os exercícios, você pode ver as [soluções] fornecidas."
+msgstr "Depois de ver os exercícios, você pode ver as [soluções][solutions] fornecidas."
 
 #: src/exercises/day-1/implicit-conversions.md:1
 msgid "# Implicit Conversions"
-msgstr "# Conversões implícitas"
+msgstr "# Conversões Implícitas"
 
 #: src/exercises/day-1/implicit-conversions.md:3
 msgid ""
@@ -3472,7 +3494,7 @@ msgid ""
 "C++][3]). You can see this in a program like this:"
 msgstr ""
 "Rust não aplicará automaticamente _conversões implícitas_ entre os tipos ([ao contrário\n"
-"De C++][3]). Você pode ver isso em um programa como este:"
+"de C++][3]). Você pode ver isso em um programa como este:"
 
 #: src/exercises/day-1/implicit-conversions.md:6
 msgid ""
@@ -3510,10 +3532,10 @@ msgid ""
 "Implementing these traits is how a type expresses that it can be converted into\n"
 "another type."
 msgstr ""
-"Todos os tipos inteiros do Rust implementam os traits [`From<T>`][1] e [`Into<T>`][2]\n"
-"para nos deixar converter entre eles. Os traits `From<T>` tem um único `from()`\n"
+"Todos os tipos inteiros do Rust implementam os _traits_ [`From<T>`][1] e [`Into<T>`][2]\n"
+"para nos deixar converter entre eles. O trait `From<T>` tem um único método `from()`\n"
 "e da mesma forma, o trait `Into<T>` tem um único método `into()`.\n"
-"A implementação dessas características é como um tipo expressa que pode ser convertido em\n"
+"A implementação desses traits é como um tipo expressa que pode ser convertido em\n"
 "outro tipo."
 
 #: src/exercises/day-1/implicit-conversions.md:25
@@ -3533,9 +3555,8 @@ msgid ""
 "The same applies for your own `From` implementations for your own types, so it is\n"
 "sufficient to only implement `From` to get a respective `Into` implementation automatically."
 msgstr ""
-"O mesmo se aplica a suas próprias implementações de `From` para seus tipos, então é\n"
-"suficiente implementar apenas `From` para obter uma respectiva implementação `Into` "
-"automaticamente."
+"O mesmo se aplica a suas próprias implementações de `From` para seus próprios tipos, então é\n"
+"suficiente implementar apenas `From` para obter uma respectiva implementação `Into` automaticamente."
 
 #: src/exercises/day-1/implicit-conversions.md:33
 msgid ""
@@ -3551,7 +3572,7 @@ msgid ""
 msgstr ""
 "1. Execute o programa acima e observe o erro de compilação.\n"
 "\n"
-"2. Atualize o código para utilizar `into()` para fazer a conversão.\n"
+"2. Atualize o código acima para utilizar `into()` para fazer a conversão.\n"
 "\n"
 "3. Mude os tipos de `x` e `y` para outros tipos (como `f32`, `bool`,\n"
 "   `i128`) para ver quais tipos você pode converter para quais outros tipos. Experimente\n"
@@ -3561,11 +3582,11 @@ msgstr ""
 
 #: src/exercises/day-1/for-loops.md:1
 msgid "# Arrays and `for` Loops"
-msgstr "# Vetores e laços `for`"
+msgstr "# Matrizes (Arrays) e Laços (Loops) `for`"
 
 #: src/exercises/day-1/for-loops.md:3
 msgid "We saw that an array can be declared like this:"
-msgstr "Vimos que um vetor pode ser declarado assim:"
+msgstr "Vimos que uma matriz pode ser declarada assim:"
 
 #: src/exercises/day-1/for-loops.md:5
 msgid ""
@@ -3574,12 +3595,12 @@ msgid ""
 "```"
 msgstr ""
 "```rust\n"
-"let vetor = [10, 20, 30];\n"
+"let matriz = [10, 20, 30];\n"
 "```"
 
 #: src/exercises/day-1/for-loops.md:9
 msgid "You can print such an array by asking for its debug representation with `{:?}`:"
-msgstr "Você pode imprimir tal vetor solicitando sua representação de depuração com `{:?}`:"
+msgstr "Você pode imprimir tal matriz solicitando sua representação de depuração com `{:?}`:"
 
 #: src/exercises/day-1/for-loops.md:11
 msgid ""
@@ -3592,8 +3613,8 @@ msgid ""
 msgstr ""
 "```rust,editable\n"
 "fn main() {\n"
-"    let vetor = [10, 20, 30];\n"
-"    println!(\"Vetor: {vetor:?}\");\n"
+"    let matriz = [10, 20, 30];\n"
+"    println!(\"Matriz: {matriz:?}\");\n"
 "}\n"
 "```"
 
@@ -3602,8 +3623,8 @@ msgid ""
 "Rust lets you iterate over things like arrays and ranges using the `for`\n"
 "keyword:"
 msgstr ""
-"Rust permite iterar em coisas como vetores e intervalos usando um laço `for`\n"
-":"
+"Rust permite iterar em coisas como matrizes e _ranges_ (faixa ou intervalo) usando\n"
+"a palavra-chave `for`:"
 
 #: src/exercises/day-1/for-loops.md:21
 msgid ""
@@ -3626,16 +3647,16 @@ msgid ""
 msgstr ""
 "```rust,editable\n"
 "fn main() {\n"
-"    let array = [10, 20, 30];\n"
-"    print!(\"Iterando sobre o vetor:\");\n"
-"    for n in array {\n"
+"    let matriz = [10, 20, 30];\n"
+"    print!(\"Iterando sobre a matriz:\");\n"
+"    for n in matriz {\n"
 "        print!(\" {n}\");\n"
 "    }\n"
 "    println!();\n"
 "\n"
-"    print!(\"Iterando sobre um intervalo:\");\n"
+"    print!(\"Iterando sobre um range:\");\n"
 "    for i in 0..3 {\n"
-"        print!(\" {}\", array[i]);\n"
+"        print!(\" {}\", matriz[i]);\n"
 "    }\n"
 "    println!();\n"
 "}\n"
@@ -3700,6 +3721,33 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,should_panic\n"
+"// TODO: remova isto quando você terminar sua implementação .\n"
+"#![allow(unused_variables, dead_code)]\n"
+"\n"
+"fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {\n"
+"    unimplemented!()\n"
+"}\n"
+"\n"
+"fn pretty_print(matrix: &[[i32; 3]; 3]) {\n"
+"    unimplemented!()\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let matrix = [\n"
+"        [101, 102, 103], // <-- o comentário faz com que o rustfmt adicione uma nova linha\n"
+"        [201, 202, 203],\n"
+"        [301, 302, 303],\n"
+"    ];\n"
+"\n"
+"    println!(\"matriz:\");\n"
+"    pretty_print(&matrix);\n"
+"\n"
+"    let transposed = transpose(matrix);\n"
+"    println!(\"transposta:\");\n"
+"    pretty_print(&transposed);\n"
+"}\n"
+"```"
 
 #: src/exercises/day-1/for-loops.md:80
 msgid "## Bonus Question"
@@ -3711,9 +3759,9 @@ msgid ""
 "argument and return types? Something like `&[&[i32]]` for a two-dimensional\n"
 "slice-of-slices. Why or why not?"
 msgstr ""
-"Você poderia usar slices `&[i32]` em vez de matrizes 3 × 3 estáticos para o seu\n"
-"argumentos e tipos de retorno? Algo como `&[&[i32]]` para um slice-de-slices\n"
-"bidimensional. Por que ou por que não?"
+"Você poderia usar slices `&[i32]` em vez de matrizes 3 × 3 fixos no código para o seu\n"
+"argumento e tipos de retorno? Algo como `&[&[i32]]` para um slice-de-slices\n"
+"bidimensional. Por quê ou por que não?"
 
 #: src/exercises/day-1/for-loops.md:87
 msgid ""
@@ -3769,7 +3817,7 @@ msgstr ""
 
 #: src/basic-syntax/type-inference.md:1
 msgid "# Type Inference"
-msgstr "# Inferência do tipo"
+msgstr "# Inferência do Tipo"
 
 #: src/basic-syntax/type-inference.md:3
 msgid "Rust will look at how the variable is _used_ to determine the type:"
@@ -3802,6 +3850,8 @@ msgid ""
 "This slide demonstrates how the Rust compiler infers types based on constraints given by variable "
 "declarations and usages."
 msgstr ""
+"Este slide demonstra como o compilador Rust infere tipos com base em restrições dadas por "
+"declarações e usos de variáveis."
 
 #: src/basic-syntax/type-inference.md:28
 msgid ""
@@ -3811,9 +3861,6 @@ msgid ""
 "declaration of a type.\n"
 "The compiler does the job for us and helps us write more concise code."
 msgstr ""
-"Este slide demonstra como o compilador Rust infere tipos com base em restrições dadas por "
-"declarações e usos de variáveis.\n"
-"    \n"
 "É muito importante enfatizar que variáveis declaradas assim não são de um tipo dinâmico \"qualquer "
 "tipo\" que possa\n"
 "armazenar quaisquer dados. O código de máquina gerado por tal declaração é idêntico à declaração "
@@ -3826,10 +3873,9 @@ msgid ""
 "ever explicitly specifying the contained type, using `_` as a placeholder:"
 msgstr ""
 "O código a seguir informa ao compilador para copiar para um determinado contêiner genérico sem que "
-"o código especifique explicitamente o tipo contido, usando `_` como placeholder:"
+"o código especifique explicitamente o tipo contido, usando `_` como _placeholder_:"
 
 #: src/basic-syntax/type-inference.md:34
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "fn main() {\n"
@@ -3845,12 +3891,13 @@ msgid ""
 msgstr ""
 "```rust, editable\n"
 "fn main() {\n"
-"    let mut vetor = vec![10, 20];\n"
-"    vetor.push(30);\n"
-"    println!(\"valor do meio: {}\", vetor[vetor.len() / 2]);\n"
-"    for item in vetor.iter() {\n"
-"        println!(\"item: {item}\");\n"
-"    }\n"
+"    let mut v = Vec::new();\n"
+"    v.push((10, false));\n"
+"    v.push((20, true));\n"
+"    println!(\"v: {v:?}\");\n"
+"\n"
+"    let vv = v.iter().collect::<std::collections::HashSet<_>>();\n"
+"    println!(\"vv: {vv:?}\");\n"
 "}\n"
 "```"
 
@@ -3866,7 +3913,7 @@ msgstr ""
 
 #: src/basic-syntax/static-and-const.md:1
 msgid "# Static and Constant Variables"
-msgstr "# Variáveis estáticas e constantes"
+msgstr "# Variáveis Estáticas e Constantes"
 
 #: src/basic-syntax/static-and-const.md:3
 msgid "Global state is managed with static and constant variables."
@@ -3878,7 +3925,7 @@ msgstr "## `const`"
 
 #: src/basic-syntax/static-and-const.md:7
 msgid "You can declare compile-time constants:"
-msgstr "Você pode declarar constantes de tempo de compilação:"
+msgstr "Você pode declarar constantes em tempo de compilação:"
 
 #: src/basic-syntax/static-and-const.md:9
 msgid ""
@@ -3902,10 +3949,8 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/static-and-const.md:27
-#, fuzzy
 msgid "According to the [Rust RFC Book][1] these are inlined upon use."
-msgstr ""
-"De acordo com o [Rust RFC Book][1], eles são expandidos no próprio local (inline) após o uso."
+msgstr "De acordo com o [Rust RFC Book][1], eles são expandidos no próprio local (_inline_) quando utilizados."
 
 #: src/basic-syntax/static-and-const.md:29
 msgid "## `static`"
@@ -3916,7 +3961,6 @@ msgid "You can also declare static variables:"
 msgstr "Você também pode declarar variáveis estáticas:"
 
 #: src/basic-syntax/static-and-const.md:33
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "static BANNER: &str = \"Welcome to RustOS 3.14\";\n"
@@ -3926,8 +3970,13 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-"```rust, editable\n"
-"static BANNER: &str = \"Bem-vindo ao RustOS 3.14\";"
+"```rust,editable\n"
+"static BANNER: &str = \"Bem-vindo ao RustOS 3.14\";\n"
+"\n"
+"fn main() {\n"
+"    println!(\"{BANNER}\");\n"
+"}\n"
+"```"
 
 #: src/basic-syntax/static-and-const.md:41
 msgid ""
@@ -3935,13 +3984,13 @@ msgid ""
 "memory location.  This is useful for unsafe and embedded code, and the variable lives through the "
 "entirety of the program execution."
 msgstr ""
-"Conforme observado no [Rust RFC Book][1], `static` e `const` não são expandidos em linha (inlined) "
+"Conforme observado no [Rust RFC Book][1], `static` e `const` não são expandidos em linha (_inlined_) "
 "quando utilizados e possuem um local de memória real associado. Isso é útil para código inseguro e "
 "embarcado, e a variável sobrevive durante toda a execução do programa."
 
 #: src/basic-syntax/static-and-const.md:44
 msgid "We will look at mutating static data in the [chapter on Unsafe Rust](../unsafe.md)."
-msgstr "Veremos a mutação de dados estáticos no [capítulo sobre Unsafe Rust](../unsafe.md)."
+msgstr "Veremos a mutação de dados estáticos no [capítulo sobre Rust Inseguro (_Unsafe_)](../unsafe.md)."
 
 #: src/basic-syntax/static-and-const.md:48
 msgid ""
@@ -3952,14 +4001,13 @@ msgid ""
 "safer than using a static."
 msgstr ""
 "* Mencione que `const` se comporta semanticamente similar ao `constexpr` de C++.\n"
-"* `static`, por outro lado, é muito mais parecido com um `const` ou variável global mutável em C+"
-"+.\n"
+"* `static`, por outro lado, é muito mais parecido com um `const` ou variável global mutável em C++.\n"
 "* Não é muito comum que alguém precise de uma constante avaliada em tempo de execução, mas é útil "
 "e mais seguro do que usar uma estática."
 
 #: src/basic-syntax/scopes-shadowing.md:1
 msgid "# Scopes and Shadowing"
-msgstr "# Escopos e sobreposição"
+msgstr "# Escopos e _Shadowing_ (Sobreposição)"
 
 #: src/basic-syntax/scopes-shadowing.md:3
 msgid ""
@@ -3970,7 +4018,6 @@ msgstr ""
 "mesmo escopo:"
 
 #: src/basic-syntax/scopes-shadowing.md:6
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "fn main() {\n"
@@ -3989,22 +4036,20 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-"```rust, editable\n"
+"```rust,editable\n"
 "fn main() {\n"
-"    let x = {\n"
-"        let y = 10;\n"
-"        println!(\"y: {y}\");\n"
-"        let z = {\n"
-"            let w = {\n"
-"                3 + 4\n"
-"            };\n"
-"            println!(\"w: {w}\");\n"
-"            y * w\n"
-"        };\n"
-"        println!(\"z: {z}\");\n"
-"        z - y\n"
-"    };\n"
-"    println!(\"x: {x}\");\n"
+"    let a = 10;\n"
+"    println!(\"antes: {a}\");\n"
+"\n"
+"    {\n"
+"        let a = \"olá\";\n"
+"        println!(\"escopo interno: {a}\");\n"
+"\n"
+"        let a = true;\n"
+"        println!(\"sobreposto no escopo interno: {a}\");\n"
+"    }\n"
+"\n"
+"    println!(\"depois: {a}\");\n"
 "}\n"
 "```"
 
@@ -4018,12 +4063,11 @@ msgid ""
 "* The following code demonstrates why the compiler can't simply reuse memory locations when "
 "shadowing an immutable variable in a scope, even if the type does not change."
 msgstr ""
-"* Definição: A sobreposição é diferente da mutação, porque após a sobreposição, os locais de "
-"memória de ambas as variáveis existem ao mesmo tempo. Ambos estão disponíveis com o mesmo nome, "
-"dependendo de onde você os usa no código.\n"
+"* Definição: _Shadowing_ é diferente da mutação, porque após a sobreposição (_shadowing_), os locais de "
+"memória de ambas as variáveis existem ao mesmo tempo. Ambas estão disponíveis com o mesmo nome, "
+"dependendo de onde você as usa no código.\n"
 "* Uma variável sobreposta pode ter um tipo diferente.\n"
-"* A sobreposição parece obscura a princípio, mas é conveniente para manter os valores após `."
-"unwrap()`.\n"
+"* A sobreposição parece obscura a princípio, mas é conveniente para manter os valores após `.unwrap()`.\n"
 "* O código a seguir demonstra por que o compilador não pode simplesmente reutilizar locais de "
 "memória ao sobrepor uma variável imutável em um escopo, mesmo que o tipo não seja alterado."
 
@@ -4041,7 +4085,7 @@ msgstr ""
 
 #: src/memory-management.md:1
 msgid "# Memory Management"
-msgstr "# Gerenciamento de memória"
+msgstr "# Gerenciamento de Memória"
 
 #: src/memory-management.md:3
 msgid "Traditionally, languages have fallen into two broad categories:"
@@ -4053,35 +4097,33 @@ msgid ""
 "* Full safety via automatic memory management at runtime: Java, Python, Go, Haskell, ..."
 msgstr ""
 "* Controle total através do gerenciamento manual de memória: C, C++, Pascal, ...\n"
-"* Segurança total através do gerenciamento automático de memória em tempo de execução: Java, "
-"Python, Go, Haskell, ..."
+"* Segurança total através do gerenciamento automático de memória em tempo de execução: Java, Python, Go, Haskell, ..."
 
 #: src/memory-management.md:8
 msgid "Rust offers a new mix:"
-msgstr "Rust oferece uma nova mistura:"
+msgstr "O Rust oferece uma nova combinação:"
 
 #: src/memory-management.md:10
 msgid ""
 "> Full control *and* safety via compile time enforcement of correct memory\n"
 "> management."
 msgstr ""
-"> Controle total *e* segurança por imposição do correto gerenciamento de memória em tempo de\n"
+"> Controle total **_e_** segurança por imposição do correto gerenciamento de memória em tempo de\n"
 "> compilação."
 
 #: src/memory-management.md:13
 msgid "It does this with an explicit ownership concept."
-msgstr "Ele faz isso com um conceito de ownership explícito."
+msgstr "Ele faz isso com um conceito de _ownership_ (posse) explícito."
 
 #: src/memory-management.md:15
 msgid "First, let's refresh how memory management works."
-msgstr "Primeiro, vamos rever como o gerenciamento de memória funciona."
+msgstr "Primeiro, vamos rever como funciona o gerenciamento de memória."
 
 #: src/memory-management/stack-vs-heap.md:1
 msgid "# The Stack vs The Heap"
-msgstr "# Stack (pilha) vs Heap"
+msgstr "# A Pilha (_stack_) vs O _Heap_"
 
 #: src/memory-management/stack-vs-heap.md:3
-#, fuzzy
 msgid ""
 "* Stack: Continuous area of memory for local variables.\n"
 "  * Values have fixed sizes known at compile time.\n"
@@ -4094,23 +4136,27 @@ msgid ""
 "  * Slightly slower than the stack: some book-keeping needed.\n"
 "  * No guarantee of memory locality."
 msgstr ""
-"* Stack: Área contínua de memória para variáveis locais.\n"
+"* Pilha: Área contínua de memória para variáveis locais.\n"
 "  * Os valores têm tamanhos fixos conhecidos em tempo de compilação.\n"
-"  * Extremamente rápido: basta mover um ponteiro do stack.\n"
+"  * Extremamente rápido: basta mover um ponteiro da pilha.\n"
 "  * Fácil de gerenciar: segue chamadas de função.\n"
-"  * Ótima localização na memória."
+"  * Ótima localidade de memória."
+"\n"
+"* Heap: Armazenamento de valores fora das chamadas de função.\n"
+"  * Valores possuem tamanhos dinâmicos determinados em tempo de execução.\n"
+"  * Ligeiramente mais devagar que a pilha: necessário um pouco de gerenciamento.\n"
+"  * Sem garantias de localidade de memória."
 
 #: src/memory-management/stack.md:1
 msgid "# Stack Memory"
-msgstr "# Memória de pilha (stack Memory)"
+msgstr "# Memória de Pilha (_Stack Memory_)"
 
 #: src/memory-management/stack.md:3
 msgid ""
 "Creating a `String` puts fixed-sized data on the stack and dynamically sized\n"
 "data on the heap:"
 msgstr ""
-"A criação de uma `String` coloca dados de tamanho fixo no stack e dados dimensionados "
-"dinamicamente\n"
+"A criação de uma `String` coloca dados de tamanho fixo na pilha e dados dimensionados dinamicamente\n"
 "no heap:"
 
 #: src/memory-management/stack.md:6
@@ -4121,9 +4167,13 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {\n"
+"    let s1 = String::from(\"Hello\");\n"
+"}\n"
+"```"
 
 #: src/memory-management/stack.md:12
-#, fuzzy
 msgid ""
 "```bob\n"
 " Stack                             Heap\n"
@@ -4140,21 +4190,20 @@ msgid ""
 "```"
 msgstr ""
 "```bob\n"
-" Stack                            Heap\n"
-".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - -.\n"
-":                           :     :                               :\n"
-":    s1                     :     :                               :\n"
-":   +-----------+-------+   :     :   +----+----+----+----+----+  :\n"
-":   | ptr       |   o---+---+-----+-->| H  | e  | l  | l  | o  |  :\n"
-":   | len       |     5 |   :     :   +----+----+----+----+----+  :\n"
-":   | capacity  |     5 |   :     :                               :\n"
-":   +-----------+-------+   :     :                               :\n"
-":                           :     `- - - - - - - - - - - - - - - -'\n"
-"`- - - - - - - - - - - - - -'\n"
+" Pilha                             Heap\n"
+".- - - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - -.\n"
+":                             :     :                               :\n"
+":                             :     :                               :\n"
+":   +------------+-------+    :     :   +----+----+----+----+----+  :\n"
+":   | ptr        |   o---+----+-----+-->| H  | e  | l  | l  | o  |  :\n"
+":   | tamanho    |     5 |    :     :   +----+----+----+----+----+  :\n"
+":   | capacidade |     5 |    :     :                               :\n"
+":   +------------+-------+    :     :                               :\n"
+":                             :     `- - - - - - - - - - - - - - - -'\n"
+"`- - - - - - - - - - - - - - -'\n"
 "```"
 
 #: src/memory-management/stack.md:28
-#, fuzzy
 msgid ""
 "* Mention that a `String` is backed by a `Vec`, so it has a capacity and length and can grow if "
 "mutable via reallocation on the heap.\n"
@@ -4180,13 +4229,22 @@ msgid ""
 "    }\n"
 "    ```"
 msgstr ""
+"* Mencione que uma `String` é suportada por um `Vec`, portanto, ela tem um tamanho e capacidade e pode crescer se "
+"for mutável por meio de realocação no heap.\n"
+"\n"
+"* Se os alunos perguntarem sobre isso, você pode mencionar que a memória subjacente é alocada no heap usando o "
+"_[System Allocator]_ e os alocadores personalizados podem ser implementados usando a _[API Allocator][Allocator API]_.\n"
+"\n"
+"* Podemos inspecionar o layout da memória com código inseguro (`unsafe`). No entanto, você deve apontar que isso é "
+"legitimamente inseguro!\n"
+"\n"
 "```rust,editable\n"
 "fn main() {\n"
 "    let mut s1 = String::from(\"Olá\");\n"
 "    s1.push(' ');\n"
 "    s1.push_str(\"mundo\");\n"
 "    // NÃO FAÇA ISSO EM CASA! Somente com propósito educacional.\n"
-"    // String não provém nenhuma garantia sobre o seu layout, então isso pode levar\n"
+"    // String não fornece nenhuma garantia sobre o seu layout, então isso pode levar\n"
 "    // a um comportamento indefinido.\n"
 "    unsafe {\n"
 "        let (capacity, ptr, len): (usize, usize, usize) = std::mem::transmute(s1);\n"
@@ -4197,7 +4255,7 @@ msgstr ""
 
 #: src/memory-management/manual.md:1
 msgid "# Manual Memory Management"
-msgstr "# Gerenciamento manual de memória"
+msgstr "# Gerenciamento Manual de Memória"
 
 #: src/memory-management/manual.md:3
 msgid "You allocate and deallocate heap memory yourself."
@@ -4207,8 +4265,7 @@ msgstr "Você mesmo aloca e desaloca memória no heap."
 msgid ""
 "If not done with care, this can lead to crashes, bugs, security vulnerabilities, and memory leaks."
 msgstr ""
-"Se não for feito com cuidado, isso pode levar a travamentos, bugs, vulnerabilidades de segurança e "
-"vazamentos de memória."
+"Se não for feito com cuidado, isso pode levar a travamentos, bugs, vulnerabilidades de segurança e vazamentos de memória."
 
 #: src/memory-management/manual.md:7
 msgid "## C Example"
@@ -4236,12 +4293,12 @@ msgid ""
 "Memory is leaked if the function returns early between `malloc` and `free`: the\n"
 "pointer is lost and we cannot deallocate the memory."
 msgstr ""
-"A memória vaza se a função retornar mais cedo entre `malloc` e `free`: o\n"
+"Memória é vazada se a função retornar mais cedo entre `malloc` e `free`: o\n"
 "ponteiro é perdido e não podemos desalocar a memória."
 
 #: src/memory-management/scope-based.md:1
 msgid "# Scope-Based Memory Management"
-msgstr "# Gerenciamento de memória baseado em escopo"
+msgstr "# Gerenciamento de Memória Baseado em Escopo"
 
 #: src/memory-management/scope-based.md:3
 msgid "Constructors and destructors let you hook into the lifetime of an object."
@@ -4262,9 +4319,8 @@ msgid ""
 "This is often called _resource acquisition is initialization_ (RAII) and gives\n"
 "you smart pointers."
 msgstr ""
-"Isso geralmente é chamado de _aquisição de recursos é inicialização_ (resource acquisition is "
-"initialization, RAII) e fornece\n"
-"ponteiros inteligentes."
+"Isso geralmente é chamado de _aquisição de recursos é inicialização_ (_resource acquisition is initialization_, RAII) e fornece\n"
+"ponteiros inteligentes (_smart pointers_)."
 
 #: src/memory-management/scope-based.md:12
 msgid "## C++ Example"
@@ -4279,8 +4335,8 @@ msgid ""
 "```"
 msgstr ""
 "```c++\n"
-"void say_hello(std::unique_ptr<Person> person) {\n"
-"  std::cout << \"Olá \" << person->name << std::endl;\n"
+"void diga_ola(std::unique_ptr<Pessoa> pessoa) {\n"
+"  std::cout << \"Olá \" << pessoa->nome << std::endl;\n"
 "}\n"
 "```"
 
@@ -4291,15 +4347,14 @@ msgid ""
 "* At the end of `say_hello`, the `std::unique_ptr` destructor will run.\n"
 "* The destructor frees the `Person` object it points to."
 msgstr ""
-"* O objeto `std::unique_ptr` é alocado no stack e aponta para\n"
+"* O objeto `std::unique_ptr` é alocado na pilha e aponta para\n"
 "  memória alocada no heap.\n"
-"* No final de `say_hello`, o destrutor `std::unique_ptr` será executado.\n"
-"* O destrutor libera o objeto `Person` para o qual ele aponta."
+"* No final de `diga_ola`, o destrutor `std::unique_ptr` será executado.\n"
+"* O destrutor libera o objeto `Pessoa` para o qual ele aponta."
 
 #: src/memory-management/scope-based.md:25
 msgid "Special move constructors are used when passing ownership to a function:"
-msgstr ""
-"Construtores especiais de movimento (move) são usados ao passar a \"ownership\" para uma função:"
+msgstr "Construtores especiais de movimento (_move_) são usados ao passar o _\"ownership\"_ para uma função:"
 
 #: src/memory-management/scope-based.md:27
 msgid ""
@@ -4308,18 +4363,21 @@ msgid ""
 "say_hello(std::move(person));\n"
 "```"
 msgstr ""
+"```c++\n"
+"std::unique_ptr<Pessoa> pessoa = encontre_pessoa(\"Carla\");\n"
+"diga_ola(std::move(pessoa));\n"
+"```"
 
 #: src/memory-management/garbage-collection.md:1
 msgid "# Automatic Memory Management"
-msgstr "# Gerenciamento automático de memória"
+msgstr "# Gerenciamento Automático de Memória"
 
 #: src/memory-management/garbage-collection.md:3
 msgid ""
 "An alternative to manual and scope-based memory management is automatic memory\n"
 "management:"
 msgstr ""
-"Uma alternativa ao gerenciamento de memória manual e baseado em escopo é o gerenciamento "
-"automático\n"
+"Uma alternativa ao gerenciamento de memória manual e baseado em escopo é o gerenciamento automático\n"
 "de memória:"
 
 #: src/memory-management/garbage-collection.md:6
@@ -4328,8 +4386,7 @@ msgid ""
 "* A garbage collector finds unused memory and deallocates it for the programmer."
 msgstr ""
 "* O programador nunca aloca ou desaloca memória explicitamente.\n"
-"* Um \"coletor de lixo\" (garbage collector) encontra memória não utilizada e a desaloca para o "
-"programador."
+"* Um \"coletor de lixo\" (_garbage collector_) encontra memória não utilizada e a desaloca para o programador."
 
 #: src/memory-management/garbage-collection.md:9
 msgid "## Java Example"
@@ -4337,7 +4394,7 @@ msgstr "## Exemplo em Java"
 
 #: src/memory-management/garbage-collection.md:11
 msgid "The `person` object is not deallocated after `sayHello` returns:"
-msgstr "O objeto `person` não é desalocado depois que `sayHello` retorna:"
+msgstr "O objeto `pessoa` não é desalocado depois que `digaOla` retorna:"
 
 #: src/memory-management/garbage-collection.md:13
 msgid ""
@@ -4348,18 +4405,18 @@ msgid ""
 "```"
 msgstr ""
 "```java\n"
-"void sayHello(Person person) {\n"
-"  System.out.println(\"Olá \" + person.getName());\n"
+"void digaOla(Pessoa pessoa) {\n"
+"  System.out.println(\"Olá \" + pessoa.obterNome());\n"
 "}\n"
 "```"
 
 #: src/memory-management/rust.md:1
 msgid "# Memory Management in Rust"
-msgstr "# Gerenciamento de memória do Rust"
+msgstr "# Gerenciamento de Memória no Rust"
 
 #: src/memory-management/rust.md:3
 msgid "Memory management in Rust is a mix:"
-msgstr "O gerenciamento de memória no Rust é uma mistura:"
+msgstr "O gerenciamento de memória no Rust é uma combinação:"
 
 #: src/memory-management/rust.md:5
 msgid ""
@@ -4378,12 +4435,10 @@ msgstr ""
 "tempo de execução como C."
 
 #: src/memory-management/rust.md:10
-#, fuzzy
 msgid "Rust achieves this by modeling _ownership_ explicitly."
-msgstr "Ele consegue isso modelando a propriedade (_ownership_) explicitamente."
+msgstr "O Rust consegue isso modelando a propriedade (_ownership_) explicitamente."
 
 #: src/memory-management/rust.md:14
-#, fuzzy
 msgid ""
 "* If asked how at this point, you can mention that in Rust this is usually handled by RAII wrapper "
 "types such as [Box], [Vec], [Rc], or [Arc]. These encapsulate ownership and memory allocation via "
@@ -4392,8 +4447,10 @@ msgid ""
 "* You may be asked about destructors here, the [Drop] trait is the Rust equivalent."
 msgstr ""
 "* Neste ponto, se perguntado como, você pode mencionar que em Rust isso geralmente é tratado por "
-"wrappers RAII como [Box], [Vec], [Rc] ou [Arc]. Eles encapsulam a propriedade (ownership) e a "
-"alocação de memória por vários meios e evitam possíveis erros em C."
+"_wrappers_ (invólucros) RAII como [Box], [Vec], [Rc] ou [Arc]. Eles encapsulam a propriedade (ownership) e a "
+"alocação de memória por vários meios e evitam os erros possíveis em C."
+"\n"
+"* Você pode ser perguntado sobre destrutores aqui, o _trait_ [Drop] é o equivalente em Rust."
 
 #: src/memory-management/comparison.md:1
 msgid "# Comparison"
@@ -4405,7 +4462,7 @@ msgstr "Aqui está uma comparação aproximada das técnicas de gerenciamento de
 
 #: src/memory-management/comparison.md:5
 msgid "## Pros of Different Memory Management Techniques"
-msgstr "## Vantagens de diferentes técnicas de gerenciamento de memória"
+msgstr "## Vantagens de Diferentes Técnicas de Gerenciamento de Memória"
 
 #: src/memory-management/comparison.md:7
 msgid ""
@@ -4429,15 +4486,15 @@ msgstr ""
 "  * Seguro e correto.\n"
 "* Baseado em escopo como C++:\n"
 "  * Parcialmente automático.\n"
-"  * Nenhuma sobrecargo de tempo de execução.\n"
-"* Baseado em escopo aplicado pelo compilador como Rust:\n"
-"  * Aplicado pelo compilador.\n"
+"  * Nenhuma sobrecarga em tempo de execução.\n"
+"* Baseado em escopo imposto pelo compilador como Rust:\n"
+"  * Imposto pelo compilador.\n"
 "  * Nenhuma sobrecarga em tempo de execução.\n"
 "  * Seguro e correto."
 
 #: src/memory-management/comparison.md:20
 msgid "## Cons of Different Memory Management Techniques"
-msgstr "## Desvantagens de diferentes técnicas de gerenciamento de memória"
+msgstr "## Desvantagens de Diferentes Técnicas de Gerenciamento de Memória"
 
 #: src/memory-management/comparison.md:22
 msgid ""
@@ -4456,22 +4513,22 @@ msgid ""
 "  * Can reject valid programs."
 msgstr ""
 "* Manual como C:\n"
-"  * Uso após a liberação (use-after-free).\n"
-"  * Liberações duplas (double-free).\n"
-"  * Vazamento de memória.\n"
+"  * Uso após a liberação (_use-after-free_).\n"
+"  * Liberações duplas (_double-frees_).\n"
+"  * Vazamentos de memória.\n"
 "* Automático como Java:\n"
-"  * Pausa para coleta de lixo.\n"
+"  * Pausas para coleta de lixo.\n"
 "  * Atrasos na execução de destrutores.\n"
 "* Baseado em escopo como C++:\n"
 "  * Complexo, o programador deve optar em utilizá-las.\n"
-"  * Potencial para uso após a liberação (user-after-free).\n"
-"* Obrigado pelo compilador e baseado em escopo como Rust:\n"
+"  * Potencial para uso após a liberação (_use-after-free_).\n"
+"* Imposto pelo compilador e baseado em escopo como Rust:\n"
 "  * Alguma complexidade inicial.\n"
 "  * Pode rejeitar programas válidos."
 
 #: src/ownership.md:1
 msgid "# Ownership"
-msgstr "# Ownership"
+msgstr "# Ownership (_\"Posse\"_)"
 
 #: src/ownership.md:3
 msgid ""
@@ -4482,7 +4539,6 @@ msgstr ""
 "usar uma variável fora de seu escopo:"
 
 #: src/ownership.md:6
-#, fuzzy
 msgid ""
 "```rust,editable,compile_fail\n"
 "struct Point(i32, i32);\n"
@@ -4496,6 +4552,7 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable,compile_fail\n"
 "fn main() {\n"
 "    {\n"
 "        let p = Ponto(3, 4);\n"
@@ -4511,9 +4568,9 @@ msgid ""
 "* A destructor can run here to free up resources.\n"
 "* We say that the variable _owns_ the value."
 msgstr ""
-"* No final do escopo, a variável é _dropada_ e os dados são liberados.\n"
+"* No final do escopo, a variável é eliminada (_\"dropada\"_) e os dados são liberados.\n"
 "* Um destrutor pode ser executado aqui para liberar recursos.\n"
-"* Dizemos que a variável _possui_ (é dona) o valor."
+"* Dizemos que a variável _possui_ (_owns_) o valor."
 
 #: src/ownership/move-semantics.md:1
 msgid "# Move Semantics"
@@ -4521,7 +4578,7 @@ msgstr "# Semântica do `move` (mover)"
 
 #: src/ownership/move-semantics.md:3
 msgid "An assignment will transfer ownership between variables:"
-msgstr "Uma atribuição transferirá a propriedade (ownership) entre variáveis:"
+msgstr "Uma atribuição transferirá a posse (ownership) entre variáveis:"
 
 #: src/ownership/move-semantics.md:5
 msgid ""
@@ -4552,25 +4609,26 @@ msgid ""
 "* There is always _exactly_ one variable binding which owns a value."
 msgstr ""
 "* A atribuição de `s1` a `s2` transfere a ownership.\n"
-"* Os dados foram _movidos_ de `s1` e `s1` não estão mais acessíveis.\n"
+"* Os dados foram _movidos_ de `s1` e `s1` não está mais acessível.\n"
 "* Quando `s1` sai do escopo, nada acontece: ele não tem ownership.\n"
 "* Quando `s2` sai do escopo, os dados da string são liberados.\n"
-"* Há sempre _exatamente_ uma associação de variável que possui um valor."
+"* Há sempre _exatamente_ uma associação de variável que possui (owns) um valor."
 
 #: src/ownership/move-semantics.md:22
-#, fuzzy
 msgid ""
 "* Mention that this is the opposite of the defaults in C++, which copies by value unless you use "
 "`std::move` (and the move constructor is defined!).\n"
 "\n"
 "* In Rust, clones are explicit (by using `clone`)."
 msgstr ""
-"* Mencione que isso é o oposto dos padrões em C++, que copia por valor, a menos que você use `std::"
-"move` (e o construtor de movimento esteja definido!)."
+"* Mencione que isso é o oposto dos _defaults_ (padrões) em C++, que copia por valor, a menos que você use "
+"`std::move` (e o construtor `move` esteja definido!)."
+"\n"
+"* No Rust, clones são explícitos (utilizando `clone`)."
 
 #: src/ownership/moved-strings-rust.md:1
 msgid "# Moved Strings in Rust"
-msgstr "# Strings movidas em Rust"
+msgstr "# Strings Movidas em Rust"
 
 #: src/ownership/moved-strings-rust.md:3
 msgid ""
@@ -4595,7 +4653,6 @@ msgid "Before move to `s2`:"
 msgstr "Antes de mover para `s2`:"
 
 #: src/ownership/moved-strings-rust.md:15
-#, fuzzy
 msgid ""
 "```bob\n"
 " Stack                             Heap\n"
@@ -4613,18 +4670,18 @@ msgid ""
 "```"
 msgstr ""
 "```bob\n"
-" Stack                             Heap\n"
-".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - -.\n"
-":                           :     :                           :\n"
-":    s1                     :     :                           :\n"
-":   +-----------+-------+   :     :   +----+----+----+----+   :\n"
-":   | ptr       |   o---+---+-----+-->| R  | u  | s  | t  |   :\n"
-":   | len       |     4 |   :     :   +----+----+----+----+   :\n"
-":   | capacity  |     4 |   :     :                           :\n"
-":   +-----------+-------+   :     :                           :\n"
-":                           :     `- - - - - - - - - - - - - -'\n"
-":                           :\n"
-"`- - - - - - - - - - - - - -'\n"
+" Pilha                                     Heap\n"
+".- - - - - - - - - - - - - - - - - -.     .- - - - - - - - - - - - - -.\n"
+":                                   :     :                           :\n"
+":    s1                             :     :                           :\n"
+":   +----------------+--------+     :     :   +----+----+----+----+   :\n"
+":   | ponteiro       |    o---+-----+-----+-->| R  | u  | s  | t  |   :\n"
+":   | tamanho        |      4 |     :     :   +----+----+----+----+   :\n"
+":   | capacidade     |      4 |     :     :                           :\n"
+":   +----------------+--------+     :     :                           :\n"
+":                                   :     `- - - - - - - - - - - - - -'\n"
+":                                   :\n"
+"`- - - - - - - - - - - - - - - - - -'\n"
 "```"
 
 #: src/ownership/moved-strings-rust.md:30
@@ -4632,7 +4689,6 @@ msgid "After move to `s2`:"
 msgstr "Depois de mover para `s2`:"
 
 #: src/ownership/moved-strings-rust.md:32
-#, fuzzy
 msgid ""
 "```bob\n"
 " Stack                             Heap\n"
@@ -4656,10 +4712,10 @@ msgid ""
 "```"
 msgstr ""
 "```bob\n"
-" Stack                             Heap\n"
+" Pilha                             Heap\n"
 ".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - -.\n"
 ":                           :     :                           :\n"
-":    s1 \"(inacessível)\"   :     :                           :\n"
+":    s1 \"(inacessível)\"     :     :                           :\n"
 ":   +------------+------+   :     :   +----+----+----+----+   :\n"
 ":   | ponteiro   |  o---+---+--+--+-->| R  | u  | s  | t  |   :\n"
 ":   | tamanho    |    4 |   :  |  :   +----+----+----+----+   :\n"
@@ -4678,7 +4734,7 @@ msgstr ""
 
 #: src/ownership/double-free-modern-cpp.md:1
 msgid "# Double Frees in Modern C++"
-msgstr "# Liberações duplas (double-free) em C++ moderno"
+msgstr "# Liberações Duplas (_double-frees_) em C++ Moderno"
 
 #: src/ownership/double-free-modern-cpp.md:3
 msgid "Modern C++ solves this differently:"
