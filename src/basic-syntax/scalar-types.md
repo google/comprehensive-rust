@@ -13,8 +13,8 @@ The types have widths as follows:
 
 * `iN`, `uN`, and `fN` are _N_ bits wide,
 * `isize` and `usize` are the width of a pointer,
-* `char` is 32 bit wide,
-* `bool` is 8 bit wide.
+* `char` is 32 bits wide,
+* `bool` is 8 bits wide.
 
 <details>
 
