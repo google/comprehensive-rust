@@ -1,7 +1,8 @@
 # Blocks
 
-A block in Rust has a value and a type: the value is the last expression of the
-block:
+A block in Rust contains a sequence of expressions.
+Each block has a value and a type,
+which are those of the last expression of the block:
 
 ```rust,editable
 fn main() {
@@ -22,6 +23,8 @@ fn main() {
 }
 ```
 
+If the last expression ends with `;`, then the resulting value and type is `()`.
+
 The same rule is used for functions: the value of the function body is the
 return value:
 
@@ -34,8 +37,6 @@ fn main() {
     println!("doubled: {}", double(7));
 }
 ```
-
-However if the last expression ends with `;`, then the resulting value and type is `()`.
 
 <details>
 
