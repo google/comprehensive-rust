@@ -64,7 +64,7 @@
   - [Lifetimes in Function Calls](ownership/lifetimes-function-calls.md)
   - [Lifetimes in Data Structures](ownership/lifetimes-data-structures.md)
 - [Exercises](exercises/day-1/afternoon.md)
-  - [Designing a Library](exercises/day-1/book-library.md)
+  - [Storing Books](exercises/day-1/book-library.md)
   - [Iterators and Ownership](exercises/day-1/iterators-and-ownership.md)
 
 

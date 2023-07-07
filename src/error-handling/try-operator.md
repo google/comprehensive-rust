@@ -16,7 +16,7 @@ into the much simpler
 some_expression?
 ```
 
-We can use this to simplify our error handing code:
+We can use this to simplify our error handling code:
 
 ```rust,editable
 use std::{fs, io};
