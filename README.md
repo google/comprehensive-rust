@@ -40,29 +40,29 @@ The course is built using a few tools:
 First clone the repository:
 
 ```shell
-$ git clone https://github.com/google/comprehensive-rust/
-$ cd comprehensive-rust
+git clone https://github.com/google/comprehensive-rust/
+cd comprehensive-rust
 ```
 
 Then install these tools with:
 
 ```shell
-$ cargo install mdbook
-$ cargo install mdbook-svgbob
-$ cargo install mdbook-i18n-helpers
-$ cargo install --path mdbook-exerciser
+cargo install mdbook
+cargo install mdbook-svgbob
+cargo install mdbook-i18n-helpers
+cargo install --path mdbook-exerciser
 ```
 
 Run
 
 ```shell
-$ mdbook test
+mdbook test
 ```
 
 to test all included Rust snippets. Run
 
 ```shell
-$ mdbook serve
+mdbook serve
 ```
 
 to start a web server with the course. You'll find the content on
