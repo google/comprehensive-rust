@@ -2,7 +2,7 @@ pub struct User {
     name: String,
     age: u32,
     height: f32,
-    doctor_visits: usize,
+    visit_count: usize,
     last_blood_pressure: Option<(u32, u32)>,
 }
 
