@@ -9,9 +9,9 @@ For this, you will need an HTTP client such as [`reqwest`][1]. Create a new
 Cargo project and `reqwest` it as a dependency with:
 
 ```shell
-$ cargo new link-checker
-$ cd link-checker
-$ cargo add --features blocking,rustls-tls reqwest
+cargo new link-checker
+cd link-checker
+cargo add --features blocking,rustls-tls reqwest
 ```
 
 > If `cargo add` fails with `error: no such subcommand`, then please edit the
@@ -20,14 +20,14 @@ $ cargo add --features blocking,rustls-tls reqwest
 You will also need a way to find links. We can use [`scraper`][2] for that:
 
 ```shell
-$ cargo add scraper
+cargo add scraper
 ```
 
 Finally, we'll need some way of handling errors. We use [`thiserror`][3] for
 that:
 
 ```shell
-$ cargo add thiserror
+cargo add thiserror
 ```
 
 The `cargo add` calls will update the `Cargo.toml` file to look like this:
@@ -72,7 +72,7 @@ fn main() {
 Run the code in `src/main.rs` with
 
 ```shell
-$ cargo run
+cargo run
 ```
 
 ## Tasks
