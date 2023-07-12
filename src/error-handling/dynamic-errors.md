@@ -4,7 +4,7 @@ Sometimes we want to allow any type of error to be returned without writing our 
 all the different possibilities. `std::error::Error` makes this easy.
 
 ```rust,editable,compile_fail
-use std::fs::{self, File};
+use std::fs;
 use std::io::Read;
 use thiserror::Error;
 use std::error::Error;
@@ -14,8 +14,8 @@ use std::error::Error;
 struct EmptyUsernameError(String);
 
 fn read_username(path: &str) -> Result<String, Box<dyn Error>> {
-    let mut username = String::with_capacity(100);
-    File::open(path)?.read_to_string(&mut username)?;
+    let mut username = String::new();
+    fs::File::open(path)?.read_to_string(&mut username)?;
     if username.is_empty() {
         return Err(EmptyUsernameError(String::from(path)).into());
     }

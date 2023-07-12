@@ -32,7 +32,7 @@ blanks, and test that `cargo run` does not deadlock:
 
     // Create philosophers
 
-    // Make them think and eat
+    // Make each of them think and eat 100 times
 
     // Output their thoughts
 }

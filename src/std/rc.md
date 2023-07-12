@@ -29,7 +29,7 @@ fn main() {
 <details>
 
 * `Rc`'s count ensures that its contained value is valid for as long as there are references.
-* Like C++'s `std::shared_ptr`.
+* `Rc` in Rust is like `std::shared_ptr` in C++.
 * `Rc::clone` is cheap: it creates a pointer to the same allocation and increases the reference count. Does not make a deep clone and can generally be ignored when looking for performance issues in code.
 * `make_mut` actually clones the inner value if necessary ("clone-on-write") and returns a mutable reference.
 * Use `Rc::strong_count` to check the reference count.

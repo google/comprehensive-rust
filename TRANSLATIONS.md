@@ -27,18 +27,15 @@ GNU Gettext utilities below.
 
 ## Preparation
 
-We use two helpers for the translations:
-
-- `mdbook-xgettext`: This program extracts the English text. It is an mdbook
-  renderer.
-- `mdbook-gettext`: This program translates the book into a target language. It
-  is an mdbook preprocessor.
-
-Install both helpers with:
+You will need the [Gettext] utilities (`msginit`, `msgmerge`). Under Debian and
+Ubuntu, you can install with:
 
 ```shell
-$ cargo install mdbook-i18n-helpers
+sudo apt install gettext
 ```
+
+Ensure you can build the book, and that `mdbook serve` works. For this, follow
+the instructions in the [README](README.md).
 
 ## Creating and Updating Translations
 
@@ -59,7 +56,7 @@ To extract the original English text and generate a `messages.pot` file, you run
 `mdbook` with a special renderer:
 
 ```shell
-$ MDBOOK_OUTPUT='{"xgettext": {"pot-file": "messages.pot"}}' \
+MDBOOK_OUTPUT='{"xgettext": {"pot-file": "messages.pot"}}' \
   mdbook build -d po
 ```
 
@@ -71,7 +68,7 @@ To start a new translation, first generate the `po/messages.pot` file. Then use
 `msginit` to create a `xx.po` file for the fictional `xx` language:
 
 ```shell
-$ msginit -i po/messages.pot -l xx -o po/xx.po
+msginit -i po/messages.pot -l xx -o po/xx.po
 ```
 
 You can also simply copy `po/messages.pot` to `po/xx.po`. Then update the file
@@ -89,6 +86,13 @@ header (the first entry with `msgid ""`) to the correct language.
 > translations will be wrong after this, so you must inspect them by hand
 > afterwards.
 
+Next, please update the file `.github/labeler.yml` to include the new language:
+
+```diff
++ 'translation/xx':
++ - po/xx.po
+```
+
 ### Updating an Existing Translation
 
 As the English text changes, translations gradually become outdated. To update
@@ -96,7 +100,7 @@ the `po/xx.po` file with new messages, first extract the English text into a
 `po/messages.pot` template file. Then run
 
 ```shell
-$ msgmerge --update po/xx.po po/messages.pot
+msgmerge --update po/xx.po po/messages.pot
 ```
 
 Unchanged messages will stay intact, deleted messages are marked as old, and
@@ -125,7 +129,7 @@ output.
 To use the `po/xx.po` file for your output, run the following command:
 
 ```shell
-$ MDBOOK_BOOK__LANGUAGE=xx mdbook build -d book/xx
+MDBOOK_BOOK__LANGUAGE=xx mdbook build -d book/xx
 ```
 
 This will update the book's language to `xx`, it will make the `mdbook-gettext`
@@ -138,7 +142,7 @@ Like normal, you can use `mdbook serve` to view your translation as you work on
 it. You use the same command as with `mdbook build` above:
 
 ```shell
-$ MDBOOK_BOOK__LANGUAGE=xx mdbook serve -d book/xx
+MDBOOK_BOOK__LANGUAGE=xx mdbook serve -d book/xx
 ```
 
 When you update the `po/xx.po` file, the translated book will automatically

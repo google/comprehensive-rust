@@ -10,7 +10,7 @@ You must call `free` on every pointer you allocate with `malloc`:
 
 ```c
 void foo(size_t n) {
-    int* int_array = (int*)malloc(n * sizeof(int));
+    int* int_array = malloc(n * sizeof(int));
     //
     // ... lots of code
     //
