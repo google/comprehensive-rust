@@ -27,7 +27,7 @@ The logs show up in `adb logcat`:
 adb logcat -s rust
 ```
 
-```shell
+```text
 09-08 08:38:32.454  2420  2420 D rust: hello_rust_logs: Starting program.
 09-08 08:38:32.454  2420  2420 I rust: hello_rust_logs: Things are going fine.
 09-08 08:38:32.454  2420  2420 E rust: hello_rust_logs: Something went wrong!

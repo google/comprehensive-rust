@@ -21,6 +21,6 @@ You can now build, push, and run the binary:
 {{#include ../build_all.sh:hello_rust}}
 ```
 
-```shell
+```text
 Hello from Rust!
 ```

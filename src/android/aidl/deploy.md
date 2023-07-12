@@ -12,7 +12,7 @@ In another terminal, check that the service runs:
 {{#include ../build_all.sh:service_check_birthday_server}}
 ```
 
-```shell
+```text
 Service birthdayservice: found
 ```
 
@@ -22,7 +22,7 @@ You can also call the service with `service call`:
 {{#include ../build_all.sh:service_call_birthday_server}}
 ```
 
-```shell
+```text
 Result: Parcel(
   0x00000000: 00000000 00000036 00610048 00700070 '....6...H.a.p.p.'
   0x00000010: 00200079 00690042 00740072 00640068 'y. .B.i.r.t.h.d.'
