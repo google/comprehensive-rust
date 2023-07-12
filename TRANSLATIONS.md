@@ -126,8 +126,8 @@ a few things from their default configuration:
     1. On Windows, go to **File / Settings**
     1. On MacOS, select **Settings** from the **Poedit** menu item)
 1. Go to the **Advanced** tab
-1. On **Line endings:**, select the option **Unix (recommended)**
-1. Check the **Wrap at:** box, and **79** on the textbox
+1. On **Line endings**, select the option **Unix (recommended)**
+1. Check the **Wrap at** box, and **79** on the textbox
 1. ***Uncheck*** the **Preserve formatting of existing files** box
 
 ![Poedit Screenshot](poedit-screenshot.png)
