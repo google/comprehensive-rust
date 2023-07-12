@@ -119,8 +119,8 @@ remove the fuzzy marker.
 
 ## Additional Configuration Steps for Poedit
 
-If you are using Poedit to work with your `.po` file, you will need to change
-a few things from their default configuration:
+If you are using [Poedit](https://poedit.net/) to work with your `.po` file, you will
+need to change a few things from their default configuration:
 
 1. Open the **Settings** dialog
     1. On Windows, go to **File / Settings**
