@@ -2265,7 +2265,6 @@ msgstr ""
 "* 在需要处理可变数量的参数的情况下，Rust 使用宏（没有函数[重载](basic-syntax/functions-interlude.md)）。\n"
 "* 宏是“卫生的”意味着它们不会意外地捕获它们所在作用域中的标识符。Rust 的宏实际上只是[部分卫生](https://veykril.github.io/tlborm/decl-macros/minutiae/hygiene.html)。"
 
-
 #: src/hello-world/small-example.md:1
 msgid "# Small Example"
 msgstr "# 简短示例"
@@ -3862,19 +3861,19 @@ msgstr ""
 
 #: src/basic-syntax/static-and-const.md:1
 msgid "# Static and Constant Variables"
-msgstr ""
+msgstr "# 静态 (Static) 变量和常数 (Constant) 变量"
 
 #: src/basic-syntax/static-and-const.md:3
 msgid "Global state is managed with static and constant variables."
-msgstr ""
+msgstr "全局的状态是由静态变量和常数变量来管理的。"
 
 #: src/basic-syntax/static-and-const.md:5
 msgid "## `const`"
-msgstr ""
+msgstr "## `const`"
 
 #: src/basic-syntax/static-and-const.md:7
 msgid "You can declare compile-time constants:"
-msgstr ""
+msgstr "你可以声明编译期 (compile-time) 常量："
 
 #: src/basic-syntax/static-and-const.md:9
 msgid ""
@@ -3897,18 +3896,36 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"const DIGEST_SIZE: usize = 3;\n"
+"const ZERO: Option<u8> = Some(42);\n"
+"\n"
+"fn compute_digest(text: &str) -> [u8; DIGEST_SIZE] {\n"
+"    let mut digest = [ZERO.unwrap_or(0); DIGEST_SIZE];\n"
+"    for (idx, &b) in text.as_bytes().iter().enumerate() {\n"
+"        digest[idx % DIGEST_SIZE] = digest[idx % DIGEST_SIZE]."
+"wrapping_add(b);\n"
+"    }\n"
+"    digest\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let digest = compute_digest(\"Hello\");\n"
+"    println!(\"Digest: {digest:?}\");\n"
+"}\n"
+"```"
 
 #: src/basic-syntax/static-and-const.md:27
 msgid "According to the [Rust RFC Book][1] these are inlined upon use."
-msgstr ""
+msgstr "根据 [Rust RFC Book][1] 这些变量在使用时是内联 (inlined) 的。"
 
 #: src/basic-syntax/static-and-const.md:29
 msgid "## `static`"
-msgstr ""
+msgstr "## `static`"
 
 #: src/basic-syntax/static-and-const.md:31
 msgid "You can also declare static variables:"
-msgstr ""
+msgstr "你也可以声明静态变量："
 
 #: src/basic-syntax/static-and-const.md:33
 msgid ""
@@ -3920,6 +3937,13 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"static BANNER: &str = \"Welcome to RustOS 3.14\";\n"
+"\n"
+"fn main() {\n"
+"    println!(\"{BANNER}\");\n"
+"}\n"
+"```"
 
 #: src/basic-syntax/static-and-const.md:41
 msgid ""
@@ -3928,12 +3952,16 @@ msgid ""
 "embedded code, and the variable lives through the entirety of the program "
 "execution."
 msgstr ""
+"正如 [Rust RFC Book][1] 中所述，这些变量在使用时并不是内联的，"
+"而且还具有实际相关联的内存位置。这对于不安全的嵌入式代码是有用的，"
+"并且这些变量存在于整个程序的执行过程之中。"
 
 #: src/basic-syntax/static-and-const.md:44
 msgid ""
 "We will look at mutating static data in the [chapter on Unsafe Rust](../"
 "unsafe.md)."
 msgstr ""
+"我们会在[关于不安全的Rust的章节](../unsafe.md)中研究改变静态数据。"
 
 #: src/basic-syntax/static-and-const.md:48
 msgid ""
@@ -3943,6 +3971,10 @@ msgid ""
 "* It isn't super common that one would need a runtime evaluated constant, "
 "but it is helpful and safer than using a static."
 msgstr ""
+"* 值得一提的是，`const` 在语义上与C++的 `constexpr` 类似。\n"
+"* 另一方面，`static` 远远更类似于C++中的 `const` 或可改变的全局变量。\n"
+"* 虽然需要使用在运行中求值的常量的情况并不是很常见，但是它是有帮助的，"
+"而且比使用静态变量更安全。"
 
 #: src/basic-syntax/scopes-shadowing.md:1
 msgid "# Scopes and Shadowing"
