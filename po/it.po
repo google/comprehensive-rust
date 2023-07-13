@@ -3228,21 +3228,19 @@ msgid ""
 "  enough.\n"
 "* We will talk more about borrowing when we get to ownership."
 msgstr ""
-"* Si dice che un riferimento \"prenda in prestito\" il valore a cui si "
+"* Si dice che un riferimento \"prenda in prestito\" (_borrow_) il valore a cui si "
 "riferisce.\n"
 "* Rust tiene traccia delle vite di tutti i riferimenti per assicurarsi che "
-"durino a lungo\n"
-"  Abbastanza.\n"
-"* Parleremo di più del prestito quando arriveremo alla proprietà."
+"durino a abbastanza a lungo.\n"
+"* Parleremo di più del _borrowing_ quando arriveremo alla proprietà (_ownership_)."
 
 #: src/basic-syntax/slices.md:1
 msgid "# Slices"
 msgstr "# Slices"
 
 #: src/basic-syntax/slices.md:3
-#, fuzzy
 msgid "A slice gives you a view into a larger collection:"
-msgstr "Una sezione ti offre una vista in una raccolta più ampia:"
+msgstr "Una _slice_ ti offre una vista in una raccolta più ampia:"
 
 #: src/basic-syntax/slices.md:5
 msgid ""
@@ -3258,16 +3256,14 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/slices.md:15
-#, fuzzy
 msgid ""
 "* Slices borrow data from the sliced type.\n"
 "* Question: What happens if you modify `a[3]`?"
 msgstr ""
-"* Le sezioni prendono in prestito i dati dal tipo a fette.\n"
+"* Le sezioni prendono in prestito i dati dal tipo della raccolta.\n"
 "* Domanda: Cosa succede se modifichi `a[3]`?"
 
 #: src/basic-syntax/slices.md:20
-#, fuzzy
 msgid ""
 "* We create a slice by borrowing `a` and specifying the starting and ending "
 "indexes in brackets.\n"
@@ -3327,7 +3323,6 @@ msgid "# `String` vs `str`"
 msgstr "# `String` vs `str`"
 
 #: src/basic-syntax/string-slices.md:3
-#, fuzzy
 msgid "We can now understand the two string types in Rust:"
 msgstr "Ora possiamo comprendere i due tipi di stringhe in Rust:"
 
@@ -3354,13 +3349,12 @@ msgid "Rust terminology:"
 msgstr "Terminologia di Rust:"
 
 #: src/basic-syntax/string-slices.md:22
-#, fuzzy
 msgid ""
 "* `&str` an immutable reference to a string slice.\n"
 "* `String` a mutable string buffer."
 msgstr ""
 "* `&str` un riferimento immutabile a uno slice di stringa.\n"
-"* `String` un buffer di stringa mutabile."
+"* `String` è un buffer di stringa mutabile."
 
 #: src/basic-syntax/string-slices.md:27
 msgid ""
@@ -3398,12 +3392,11 @@ msgid "# Functions"
 msgstr "# Funzioni"
 
 #: src/basic-syntax/functions.md:3
-#, fuzzy
 msgid ""
 "A Rust version of the famous [FizzBuzz](https://en.wikipedia.org/wiki/"
 "Fizz_buzz) interview question:"
 msgstr ""
-"Una versione Rust della famosa domanda dell'intervista [FizzBuzz](https://en."
+"Una versione Rust del famoso gioco [FizzBuzz](https://en."
 "wikipedia.org/wiki/Fizz_buzz):"
 
 #: src/basic-syntax/functions.md:5
@@ -3456,7 +3449,6 @@ msgid "# Rustdoc"
 msgstr "# Rustdoc"
 
 #: src/basic-syntax/rustdoc.md:3
-#, fuzzy
 msgid ""
 "All language items in Rust can be documented using special `///` syntax."
 msgstr ""
@@ -3481,7 +3473,6 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/rustdoc.md:17
-#, fuzzy
 msgid ""
 "The contents are treated as Markdown. All published Rust library crates are\n"
 "automatically documented at [`docs.rs`](https://docs.rs) using the\n"
@@ -3489,17 +3480,16 @@ msgid ""
 "is\n"
 "idiomatic to document all public items in an API using this pattern."
 msgstr ""
-"I contenuti sono trattati come Markdown. Tutti i crate della libreria Rust "
-"pubblicati lo sono\n"
-"documentato automaticamente in [`docs.rs`](https://docs.rs) utilizzando il "
-"file\n"
-"[rustdoc](https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html) strumento. "
+"I contenuti sono trattati come Markdown. Tutti i _crate_ pubblicati della libreria Rust "
+"sono\n"
+"automaticamente documentati in [`docs.rs`](https://docs.rs) utilizzando lo "
+"strumento \n"
+"[rustdoc](https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html). "
 "È\n"
 "idiomatico per documentare tutti gli elementi pubblici in un'API utilizzando "
 "questo modello."
 
 #: src/basic-syntax/rustdoc.md:24
-#, fuzzy
 msgid ""
 "* Show students the generated docs for the `rand` crate at\n"
 "  [`docs.rs/rand`](https://docs.rs/rand).\n"
@@ -3512,23 +3502,22 @@ msgid ""
 "not\n"
 "  be addressed here."
 msgstr ""
-"* Mostra agli studenti i documenti generati per la cassa `rand` su\n"
+"* Mostra agli studenti i documenti generati per il _crate_ `rand` su\n"
 "  [`docs.rs/rand`](https://docs.rs/rand).\n"
 "\n"
 "* Questo corso non include rustdoc sulle diapositive, solo per risparmiare "
-"spazio, ma in\n"
-"  codice reale dovrebbero essere presenti.\n"
+"spazio, ma nel contesto\n"
+"  reale dovrebbe essere presente.\n"
 "\n"
 "* I commenti interni al documento sono discussi più avanti (nella pagina sui "
-"moduli) e non sono necessari\n"
-"  essere affrontato qui."
+"moduli) e non è necessario\n"
+"  affrontarli qui."
 
 #: src/basic-syntax/methods.md:1 src/methods.md:1
 msgid "# Methods"
 msgstr "# Metodi"
 
 #: src/basic-syntax/methods.md:3
-#, fuzzy
 msgid ""
 "Methods are functions associated with a type. The `self` argument of a "
 "method is\n"
@@ -3536,7 +3525,7 @@ msgid ""
 msgstr ""
 "I metodi sono funzioni associate a un tipo. L'argomento `self` di un metodo "
 "è\n"
-"un'istanza del tipo a cui è associata:"
+"un'istanza del tipo a cui è associato:"
 
 #: src/basic-syntax/methods.md:6
 msgid ""
@@ -3566,7 +3555,6 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/methods.md:30
-#, fuzzy
 msgid ""
 "* We will look much more at methods in today's exercise and in tomorrow's "
 "class."
@@ -3594,10 +3582,9 @@ msgstr "# Overloading di Funzione"
 
 #: src/basic-syntax/functions-interlude.md:3
 msgid "Overloading is not supported:"
-msgstr "Overloading non è supportato:"
+msgstr "L' Overloading non è supportato:"
 
 #: src/basic-syntax/functions-interlude.md:5
-#, fuzzy
 msgid ""
 "* Each function has a single implementation:\n"
 "  * Always takes a fixed number of parameters.\n"
@@ -3614,7 +3601,6 @@ msgstr ""
 "  * Le macro sono talvolta utilizzate come alternativa."
 
 #: src/basic-syntax/functions-interlude.md:12
-#, fuzzy
 msgid "However, function parameters can be generic:"
 msgstr "Tuttavia, i parametri delle funzioni possono essere generici:"
 
@@ -3633,7 +3619,6 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/functions-interlude.md:27
-#, fuzzy
 msgid ""
 "* When using generics, the standard library's `Into<T>` can provide a kind "
 "of limited\n"
@@ -3641,8 +3626,8 @@ msgid ""
 "section."
 msgstr ""
 "* Quando si usano i generici, `Into<T>` della libreria standard può fornire "
-"una sorta di limited\n"
-"  polimorfismo sui tipi di argomento. Vedremo maggiori dettagli in una "
+"una sorta di\n"
+"  polimorfismo limitato sui tipi dell'argomento. Vedremo maggiori dettagli in una "
 "sezione successiva."
 
 #: src/exercises/day-1/morning.md:1
@@ -3650,12 +3635,10 @@ msgid "# Day 1: Morning Exercises"
 msgstr "# Giorno 1: Esercizi Mattutini"
 
 #: src/exercises/day-1/morning.md:3
-#, fuzzy
 msgid "In these exercises, we will explore two parts of Rust:"
 msgstr "In questi esercizi esploreremo due parti di Rust:"
 
 #: src/exercises/day-1/morning.md:5
-#, fuzzy
 msgid ""
 "* Implicit conversions between types.\n"
 "\n"
@@ -3666,12 +3649,10 @@ msgstr ""
 "* Array e cicli `for`."
 
 #: src/exercises/day-1/morning.md:11
-#, fuzzy
 msgid "A few things to consider while solving the exercises:"
 msgstr "Alcune cose da considerare durante la risoluzione degli esercizi:"
 
 #: src/exercises/day-1/morning.md:13
-#, fuzzy
 msgid ""
 "* Use a local Rust installation, if possible. This way you can get\n"
 "  auto-completion in your editor. See the page about [Using Cargo] for "
@@ -3682,14 +3663,12 @@ msgid ""
 msgstr ""
 "* Utilizzare un'installazione locale di Rust, se possibile. In questo modo "
 "puoi ottenere\n"
-"  completamento automatico nel tuo editor. Vedi la pagina su [Utilizzo del "
-"carico] per i dettagli\n"
+"  completamento automatico nel tuo editor. Vedi la pagina su [Using Cargo] per i dettagli\n"
 "  sull'installazione di Rust.\n"
 "\n"
 "* In alternativa, usa Rust Playground."
 
 #: src/exercises/day-1/morning.md:19
-#, fuzzy
 msgid ""
 "The code snippets are not editable on purpose: the inline code snippets "
 "lose\n"
@@ -3705,18 +3684,16 @@ msgstr ""
 #: src/exercises/bare-metal/afternoon.md:7
 #: src/exercises/concurrency/morning.md:12
 #: src/exercises/concurrency/afternoon.md:13
-#, fuzzy
 msgid ""
 "After looking at the exercises, you can look at the [solutions] provided."
 msgstr ""
-"Dopo aver esaminato gli esercizi, puoi esaminare le [soluzioni] fornite."
+"Dopo aver esaminato gli esercizi, puoi esaminare le [solutions] fornite."
 
 #: src/exercises/day-1/implicit-conversions.md:1
 msgid "# Implicit Conversions"
 msgstr "# Conversioni Implicite"
 
 #: src/exercises/day-1/implicit-conversions.md:3
-#, fuzzy
 msgid ""
 "Rust will not automatically apply _implicit conversions_ between types "
 "([unlike\n"
@@ -3743,7 +3720,6 @@ msgid ""
 msgstr ""
 
 #: src/exercises/day-1/implicit-conversions.md:19
-#, fuzzy
 msgid ""
 "The Rust integer types all implement the [`From<T>`][1] and [`Into<T>`][2]\n"
 "traits to let us convert between them. The `From<T>` trait has a single "
@@ -3753,16 +3729,15 @@ msgid ""
 "into\n"
 "another type."
 msgstr ""
-"Tutti i tipi interi di Rust implementano [`From<T>`][1] e [`Into<T>`][2]\n"
-"tratti per farci convertire tra di loro. Il tratto `From<T>` ha un singolo "
+"Tutti i tipi interi in Rust implementano i _traits_ [`From<T>`][1] e [`Into<T>`][2]\n"
+"consentendo la conversione tra di loro. Il _trait_ `From<T>` ha un singolo metodo "
 "`from()`\n"
-"e allo stesso modo, il tratto `Into<T>` ha un singolo metodo `into()`.\n"
-"L'implementazione di questi tratti è il modo in cui un tipo esprime ciò in "
-"cui può essere convertito\n"
-"un altro tipo."
+" e allo stesso modo, il _trait_ `Into<T>` ha un singolo metodo `into()`.\n"
+"L'implementazione di questi _traits_ esprime il modo in cui un tipo consente "
+" di essere convertito in\n"
+" un altro tipo."
 
 #: src/exercises/day-1/implicit-conversions.md:25
-#, fuzzy
 msgid ""
 "The standard library has an implementation of `From<i8> for i16`, which "
 "means\n"
@@ -3774,13 +3749,12 @@ msgstr ""
 "significa\n"
 "che possiamo convertire una variabile `x` di tipo `i8` in una `i16` "
 "chiamando\n"
-"`i16::da(x)`. O, più semplicemente, con `x.into()`, perché `From<i8> for "
+"`i16::from(x)`. O, più semplicemente, con `x.into()`, perché l'implementazione `From<i8> for "
 "i16`\n"
-"l'implementazione crea automaticamente un'implementazione di `Into<i16> per "
+" crea automaticamente un'implementazione di `Into<i16> per "
 "i8`."
 
 #: src/exercises/day-1/implicit-conversions.md:30
-#, fuzzy
 msgid ""
 "The same applies for your own `From` implementations for your own types, so "
 "it is\n"
@@ -3792,7 +3766,6 @@ msgstr ""
 "rispettiva implementazione `Into`."
 
 #: src/exercises/day-1/implicit-conversions.md:33
-#, fuzzy
 msgid ""
 "1. Execute the above program and look at the compiler error.\n"
 "\n"
@@ -3807,14 +3780,14 @@ msgid ""
 msgstr ""
 "1. Eseguire il programma precedente e osservare l'errore del compilatore.\n"
 "\n"
-"2. Aggiorna il codice sopra per utilizzare `into()` per eseguire la "
+"2. Aggiornare il codice per utilizzare `into()` per eseguire la "
 "conversione.\n"
 "\n"
-"3. Cambia i tipi di `x` e `y` in altre cose (come `f32`, `bool`,\n"
+"3. Cambiare i tipi di `x` e `y` in altre cose (come `f32`, `bool`,\n"
 "   `i128`) per vedere quali tipi è possibile convertire in quali altri tipi. "
-"Tentativo\n"
-"   convertire caratteri piccoli in caratteri grandi e viceversa. Controlla "
-"il\n"
+"Provare a\n"
+"   convertire tipi \"piccoli\" in tipi \"grandi\" e viceversa. Controlla "
+"la\n"
 "   [documentazione della libreria standard][1] per vedere se `From<T>` è "
 "implementato per\n"
 "   le coppie che controlli."
@@ -3824,7 +3797,6 @@ msgid "# Arrays and `for` Loops"
 msgstr "# Array e Cicli `for`"
 
 #: src/exercises/day-1/for-loops.md:3
-#, fuzzy
 msgid "We saw that an array can be declared like this:"
 msgstr "Abbiamo visto che un array può essere dichiarato in questo modo:"
 
@@ -3836,7 +3808,6 @@ msgid ""
 msgstr ""
 
 #: src/exercises/day-1/for-loops.md:9
-#, fuzzy
 msgid ""
 "You can print such an array by asking for its debug representation with `{:?}"
 "`:"
@@ -3855,13 +3826,11 @@ msgid ""
 msgstr ""
 
 #: src/exercises/day-1/for-loops.md:18
-#, fuzzy
 msgid ""
 "Rust lets you iterate over things like arrays and ranges using the `for`\n"
 "keyword:"
 msgstr ""
-"Rust ti consente di iterare cose come array e intervalli usando il `for`\n"
-"parola chiave:"
+"Rust ti consente di iterare cose come array e intervalli usando la parola chiave `for`:"
 
 #: src/exercises/day-1/for-loops.md:21
 msgid ""
@@ -3884,7 +3853,6 @@ msgid ""
 msgstr ""
 
 #: src/exercises/day-1/for-loops.md:38
-#, fuzzy
 msgid ""
 "Use the above to write a function `pretty_print` which pretty-print a matrix "
 "and\n"
@@ -3892,7 +3860,7 @@ msgid ""
 "columns):"
 msgstr ""
 "Usa quanto sopra per scrivere una funzione `pretty_print` che stampa in modo "
-"grazioso una matrice e\n"
+"efficace una matrice e\n"
 "una funzione `transpose` che traspone una matrice (trasforma le righe in "
 "colonne):"
 
@@ -3906,18 +3874,15 @@ msgid ""
 msgstr ""
 
 #: src/exercises/day-1/for-loops.md:47
-#, fuzzy
 msgid "Hard-code both functions to operate on 3 × 3 matrices."
-msgstr "Hard-code entrambe le funzioni per operare su matrici 3 × 3."
+msgstr "Implementa entrambe le funzioni per operare su matrici 3 × 3."
 
 #: src/exercises/day-1/for-loops.md:49
-#, fuzzy
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and implement the\n"
 "functions:"
 msgstr ""
-"Copia il codice qui sotto in <https://play.rust-lang.org/> e implementa il "
-"file\n"
+"Copia il codice qui sotto in <https://play.rust-lang.org/> e implementa le "
 "funzioni:"
 
 #: src/exercises/day-1/for-loops.md:52
@@ -3956,36 +3921,32 @@ msgid "## Bonus Question"
 msgstr "## Domanda bonus"
 
 #: src/exercises/day-1/for-loops.md:82
-#, fuzzy
 msgid ""
 "Could you use `&[i32]` slices instead of hard-coded 3 × 3 matrices for your\n"
 "argument and return types? Something like `&[&[i32]]` for a two-dimensional\n"
 "slice-of-slices. Why or why not?"
 msgstr ""
-"Potresti usare fette `&[i32]` invece di matrici 3 × 3 codificate per il tuo\n"
-"argomenti e tipi restituiti? Qualcosa come \"&[&[i32]]\" per un oggetto "
+"Potresti usare _slices_ `&[i32]` invece di matrici 3 × 3 codificate per il tuo\n"
+"argomento e tipi restituiti? Qualcosa come `&[&[i32]]` per un oggetto "
 "bidimensionale\n"
-"fetta di fette. Perché o perché no?"
+"_slice-di-slices_. Perché o perché no?"
 
 #: src/exercises/day-1/for-loops.md:87
-#, fuzzy
 msgid ""
 "See the [`ndarray` crate](https://docs.rs/ndarray/) for a production "
 "quality\n"
 "implementation."
 msgstr ""
-"Guarda la [cassa `ndarray`](https://docs.rs/ndarray/) per una qualità di "
-"produzione\n"
-"implementazione."
+"Guarda il _crate_ [`ndarray`](https://docs.rs/ndarray/) per una implementazione di livello "
+"produzione (_production_)."
 
 #: src/exercises/day-1/for-loops.md:92
-#, fuzzy
 msgid ""
 "The solution and the answer to the bonus section are available in the \n"
 "[Solution](solutions-morning.md#arrays-and-for-loops) section."
 msgstr ""
-"La soluzione e la risposta alla sezione bonus sono disponibili nel\n"
-"[Soluzione](solutions-morning.md#arrays-and-for-loops)."
+"La soluzione e la risposta alla sezione bonus sono disponibili nella\n"
+"sezione [Soluzione](solutions-morning.md#arrays-and-for-loops)."
 
 #: src/basic-syntax/variables.md:1
 msgid "# Variables"
