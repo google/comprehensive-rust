@@ -9211,25 +9211,27 @@ msgstr ""
 
 #: src/error-handling.md:1
 msgid "# Error Handling"
-msgstr ""
+msgstr "# 錯誤處理"
 
 #: src/error-handling.md:3
 msgid "Error handling in Rust is done using explicit control flow:"
-msgstr ""
+msgstr "在 Rust 中，是透過顯式控制流程完成錯誤處理作業："
 
 #: src/error-handling.md:5
 msgid ""
 "* Functions that can have errors list this in their return type,\n"
 "* There are no exceptions."
 msgstr ""
+"* 可能含有錯誤的函式會在傳回類型中列出相關資訊。\n"
+"* 沒有任何例外狀況。"
 
 #: src/error-handling/panics.md:1
 msgid "# Panics"
-msgstr ""
+msgstr "# 恐慌"
 
 #: src/error-handling/panics.md:3
 msgid "Rust will trigger a panic if a fatal error happens at runtime:"
-msgstr ""
+msgstr "如果執行階段發生重大錯誤，Rust 就會觸發恐慌："
 
 #: src/error-handling/panics.md:5
 msgid ""
@@ -9247,16 +9249,19 @@ msgid ""
 "  * Panics are symptoms of bugs in the program.\n"
 "* Use non-panicking APIs (such as `Vec::get`) if crashing is not acceptable."
 msgstr ""
+"* 恐慌代表發生無法復原的非預期錯誤。\n"
+"* 恐慌可以反映程式中的錯誤。\n"
+"* 如果出現無法接受的當機問題，請使用不會觸發恐慌的 API，例如 `Vec::get`。"
 
 #: src/error-handling/panic-unwind.md:1
 msgid "# Catching the Stack Unwinding"
-msgstr ""
+msgstr "# 擷取解開堆疊的動作"
 
 #: src/error-handling/panic-unwind.md:3
 msgid ""
 "By default, a panic will cause the stack to unwind. The unwinding can be "
 "caught:"
-msgstr ""
+msgstr "根據預設，恐慌會造成解開堆疊。您可以擷取這類動作："
 
 #: src/error-handling/panic-unwind.md:5
 msgid ""
@@ -9275,16 +9280,19 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/error-handling/panic-unwind.md:19
+#: src/error-handling/panic-unwind.md:21
 msgid ""
 "* This can be useful in servers which should keep running even if a single\n"
 "  request crashes.\n"
 "* This does not work if `panic = 'abort'` is set in your `Cargo.toml`."
 msgstr ""
+"* 如果伺服器需要持續運作 (即使有單一要求異常終止也不例外)，這種做法就能派上用"
+"場。\n"
+"* 如果您在 `Cargo.toml` 中設定 `panic = 'abort'`，就無法採取此做法。"
 
 #: src/error-handling/result.md:1
 msgid "# Structured Error Handling with `Result`"
-msgstr ""
+msgstr "# 使用 `Result` 進行結構化錯誤處理"
 
 #: src/error-handling/result.md:3
 msgid ""
@@ -9292,6 +9300,8 @@ msgid ""
 "are\n"
 "expected as part of normal operation:"
 msgstr ""
+"我們先前介紹了 `Result` 列舉。當正常運作過程中預期發生錯誤時，普遍都會使用這"
+"個列舉："
 
 #: src/error-handling/result.md:6
 msgid ""
@@ -9329,17 +9339,24 @@ msgid ""
 "functional-style programming. \n"
 "    "
 msgstr ""
+"  * As with `Option`, the successful value sits inside of `Result`, forcing "
+"the developer to explicitly extract it. This encourages error checking. In "
+"the case where an error should never happen, `unwrap()` or `expect()` can be "
+"called, and this is a signal of the developer intent too.\n"
+"* `Result` documentation is a recommended read. Not during the course, but "
+"it is worth mentioning. It contains a lot of convenience methods and "
+"functions that help functional-style programming.\n"
 
 #: src/error-handling/try-operator.md:1
 msgid "# Propagating Errors with `?`"
-msgstr ""
+msgstr "# 使用 `?` 傳播錯誤"
 
 #: src/error-handling/try-operator.md:3
 msgid ""
 "The try-operator `?` is used to return errors to the caller. It lets you "
 "turn\n"
 "the common"
-msgstr ""
+msgstr "try 運算子 `?` 用於將錯誤傳回呼叫端，讓您將下列常見的程式碼："
 
 #: src/error-handling/try-operator.md:6
 msgid ""
@@ -9350,10 +9367,16 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,ignore\n"
+"match some_expression {\n"
+"    Ok(value) => value,\n"
+"    Err(err) => return Err(err),\n"
+"}\n"
+"```"
 
 #: src/error-handling/try-operator.md:13
 msgid "into the much simpler"
-msgstr ""
+msgstr "轉換成以下較簡潔的程式碼："
 
 #: src/error-handling/try-operator.md:15
 msgid ""
@@ -9361,10 +9384,13 @@ msgid ""
 "some_expression?\n"
 "```"
 msgstr ""
+"```rust,ignore\n"
+"some_expression?\n"
+"```"
 
 #: src/error-handling/try-operator.md:19
 msgid "We can use this to simplify our error handing code:"
-msgstr ""
+msgstr "我們可以使用這個運算子，簡化錯誤處理程式碼："
 
 #: src/error-handling/try-operator.md:21
 msgid ""
@@ -9401,17 +9427,20 @@ msgid ""
 "* Use the `fs::write` call to test out the different scenarios: no file, "
 "empty file, file with username."
 msgstr ""
+"* The `username` variable can be either `Ok(string)` or `Err(error)`.\n"
+"* Use the `fs::write` call to test out the different scenarios: no file, "
+"empty file, file with username."
 
 #: src/error-handling/converting-error-types.md:1
 #: src/error-handling/converting-error-types-example.md:1
 msgid "# Converting Error Types"
-msgstr ""
+msgstr "# 轉換錯誤類型"
 
 #: src/error-handling/converting-error-types.md:3
 msgid ""
 "The effective expansion of `?` is a little more complicated than previously "
 "indicated:"
-msgstr ""
+msgstr "比起先前提到的下列程式碼，`?` 的有效擴展稍微更複雜一點："
 
 #: src/error-handling/converting-error-types.md:5
 msgid ""
@@ -9419,10 +9448,13 @@ msgid ""
 "expression?\n"
 "```"
 msgstr ""
+"```rust,ignore\n"
+"expression?\n"
+"```"
 
 #: src/error-handling/converting-error-types.md:9
 msgid "works the same as"
-msgstr ""
+msgstr "運作方式與以下程式碼相同："
 
 #: src/error-handling/converting-error-types.md:11
 msgid ""
@@ -9433,6 +9465,12 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,ignore\n"
+"match expression {\n"
+"    Ok(value) => value,\n"
+"    Err(err)  => return Err(From::from(err)),\n"
+"}\n"
+"```"
 
 #: src/error-handling/converting-error-types.md:18
 msgid ""
@@ -9440,6 +9478,7 @@ msgid ""
 "the\n"
 "type returned by the function:"
 msgstr ""
+"這裡的 `From::from` 呼叫意味著，我們嘗試將錯誤類型轉換成函式傳回的類型："
 
 #: src/error-handling/converting-error-types-example.md:3
 msgid ""
@@ -9500,10 +9539,15 @@ msgid ""
 "easily do so, because\n"
 "`io::Error` doesn't implement them."
 msgstr ""
+"It is good practice for all error types to implement `std::error::Error`, "
+"which requires `Debug` and `Display`. It's generally helpful for them to "
+"implement `Clone` and `Eq` too where possible, to make life easier for tests "
+"and consumers of your library. In this case we can't easily do so, because "
+"`io::Error` doesn't implement them."
 
 #: src/error-handling/deriving-error-enums.md:1
 msgid "# Deriving Error Enums"
-msgstr ""
+msgstr "# 推導錯誤列舉"
 
 #: src/error-handling/deriving-error-enums.md:3
 msgid ""
@@ -9511,6 +9555,8 @@ msgid ""
 "an\n"
 "error enum like we did on the previous page:"
 msgstr ""
+"[thiserror](https://docs.rs/thiserror/) crate 很常用來建立錯誤列舉，我們在上"
+"一頁就曾這麼做："
 
 #: src/error-handling/deriving-error-enums.md:6
 msgid ""
@@ -9554,14 +9600,17 @@ msgid ""
 "`#[from]` attribute is added).\n"
 "It also works for structs."
 msgstr ""
+"`thiserror`'s derive macro automatically implements `std::error::Error`, and "
+"optionally `Display` (if the `#[error(...)]` attributes are provided) and "
+"`From` (if the `#[from]` attribute is added). It also works for structs."
 
 #: src/error-handling/deriving-error-enums.md:43
 msgid "It doesn't affect your public API, which makes it good for libraries."
-msgstr ""
+msgstr "It doesn't affect your public API, which makes it good for libraries."
 
 #: src/error-handling/dynamic-errors.md:1
 msgid "# Dynamic Error Types"
-msgstr ""
+msgstr "# 動態錯誤類型"
 
 #: src/error-handling/dynamic-errors.md:3
 msgid ""
@@ -9569,6 +9618,8 @@ msgid ""
 "our own enum covering\n"
 "all the different possibilities. `std::error::Error` makes this easy."
 msgstr ""
+"我們有時會想允許傳回任何類型的錯誤，而不是自行編寫涵蓋所有不同可能性的列舉。"
+"`std::error::Error` 可讓這項工作更輕鬆。"
 
 #: src/error-handling/dynamic-errors.md:6
 msgid ""
@@ -9611,10 +9662,15 @@ msgid ""
 "display the error message\n"
 "somewhere."
 msgstr ""
+"This saves on code, but gives up the ability to cleanly handle different "
+"error cases differently in the program. As such it's generally not a good "
+"idea to use `Box<dyn Error>` in the public API of a library, but it can be a "
+"good option in a program where you just want to display the error message "
+"somewhere."
 
 #: src/error-handling/error-contexts.md:1
 msgid "# Adding Context to Errors"
-msgstr ""
+msgstr "# 為錯誤添加背景資訊"
 
 #: src/error-handling/error-contexts.md:3
 msgid ""
@@ -9622,6 +9678,8 @@ msgid ""
 "contextual information to your errors and allows you to have fewer\n"
 "custom error types:"
 msgstr ""
+"透過廣泛使用的 [anyhow](https://docs.rs/anyhow/) crate，您可以為錯誤添加背景"
+"資訊，並減少自訂錯誤類型的數量："
 
 #: src/error-handling/error-contexts.md:7
 msgid ""
@@ -9665,6 +9723,15 @@ msgid ""
 "developers, as it provides\n"
 "  similar usage patterns and ergonomics to `(T, error)` from Go."
 msgstr ""
+"* `anyhow::Result<V>` is a type alias for `Result<V, anyhow::Error>`.\n"
+"* `anyhow::Error` is essentially a wrapper around `Box<dyn Error>`. As such "
+"it's again generally not a good choice for the public API of a library, but "
+"is widely used in applications.\n"
+"* Actual error type inside of it can be extracted for examination if "
+"necessary.\n"
+"* Functionality provided by `anyhow::Result<T>` may be familiar to Go "
+"developers, as it provides similar usage patterns and ergonomics to `(T, "
+"error)` from Go."
 
 #: src/testing.md:1
 msgid "# Testing"
