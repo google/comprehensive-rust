@@ -13,6 +13,11 @@ directory. The `.po` files are small text-based translation databases.
 > such as [Poedit](https://poedit.net/). There are also several online editors
 > available. This will ensure that the file is encoded correctly.
 
+> **Important** If you are planning to use [Poedit](https://poedit.net/) as
+> suggested above, make sure to follow the additional configuration
+> steps](#Additional-Configuration-Steps-for-Poedit) below to ensure the `.po`
+> file is correctly formatted.
+
 There is a `.po` file for each language. They are named after the [ISO 639]
 language codes: Danish would go into `po/da.po`, Korean would go into
 `po/ko.po`, etc. The `.po` files contain all the English text plus the
@@ -112,6 +117,21 @@ remove the fuzzy marker.
 > result of new translation work on the PO file for your language. Avoid mixing
 > the two since it often creates a very large diff, which is hard or impossible
 > to review.
+
+## Additional Configuration Steps for Poedit
+
+If you are using [Poedit](https://poedit.net/) to work with your `.po` file, you
+will need to change a few things from their default configuration:
+
+1. Open the **Settings** dialog
+   1. On Windows, go to **File / Settings**
+   1. On MacOS, select **Settings** from the **Poedit** menu item)
+1. Go to the **Advanced** tab
+1. On **Line endings**, select the option **Unix (recommended)**
+1. Check the **Wrap at** box, and **79** on the textbox
+1. _**Uncheck**_ the **Preserve formatting of existing files** box
+
+![Poedit Screenshot](poedit-screenshot.png)
 
 ## Using Translations
 
