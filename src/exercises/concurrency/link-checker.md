@@ -57,12 +57,13 @@ Your `src/main.rs` file should look something like this:
 ```rust,compile_fail
 {{#include link-checker.rs:setup}}
 
-{{#include link-checker.rs:extract_links}}
+{{#include link-checker.rs:visit_page}}
 
 fn main() {
+    let client = Client::new();
     let start_url = Url::parse("https://www.google.org").unwrap();
-    let response = get(start_url).unwrap();
-    match extract_links(response) {
+    let crawl_command = CrawlCommand{ url: start_url, extract_links: true };
+    match visit_page(&client, &crawl_command) {
         Ok(links) => println!("Links: {links:#?}"),
         Err(err) => println!("Could not extract links: {err:#}"),
     }
