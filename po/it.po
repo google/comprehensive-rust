@@ -2263,16 +2263,13 @@ msgid "# Welcome to Day 1"
 msgstr "# Benvenuto al primo giorno"
 
 #: src/welcome-day-1.md:3
-#, fuzzy
 msgid ""
 "This is the first day of Comprehensive Rust. We will cover a lot of ground\n"
 "today:"
 msgstr ""
-"Questo è il primo giorno di Comprehensive Rust. Copriremo molto terreno\n"
-"Oggi:"
+"Questo è il primo giorno di Comprehensive Rust. Oggi copriremo un sacco di strada:\n"
 
 #: src/welcome-day-1.md:6
-#, fuzzy
 msgid ""
 "* Basic Rust syntax: variables, scalar and compound types, enums, structs,\n"
 "  references, functions, and methods.\n"
@@ -2288,17 +2285,16 @@ msgstr ""
 "  riferimenti, funzioni e metodi.\n"
 "\n"
 "* Gestione della memoria: stack vs heap, gestione manuale della memoria, "
-"memoria basata sull'ambito\n"
-"  gestione e raccolta dei rifiuti.\n"
+"memoria basata sull'ambito (scoped),\n"
+"  garbage collection.\n"
 "\n"
-"* Proprietà: semantica di spostamento, copia e clonazione, prestito e durata."
+"* Ownership: semantica di spostamento (move), copia e clonazione, prestito (borrowing) e durata (lifetimes)."
 
 #: src/welcome-day-1.md:16
 msgid "Please remind the students that:"
-msgstr "Ricorda agli studenti che:"
+msgstr "Si prega di ricordare agli studenti che:"
 
 #: src/welcome-day-1.md:18
-#, fuzzy
 msgid ""
 "* They should ask questions when they get them, don't save them to the end.\n"
 "* The class is meant to be interactive and discussions are very much "
@@ -2325,20 +2321,18 @@ msgstr ""
 "pertinenti, ad es.\n"
 "    mantieni la relazione con il modo in cui Rust fa le cose rispetto a "
 "qualche altra lingua. Può essere\n"
-"    difficile trovare il giusto equilibrio, ma peccare per permettere "
-"discussioni\n"
-"    poiché coinvolgono le persone molto più della comunicazione "
+"    difficile trovare il giusto equilibrio, ma è meglio permettere "
+"discussioni che\n"
+"    coinvolgono le persone piuttosto della comunicazione "
 "unidirezionale.\n"
 "* Le domande probabilmente significheranno che parleremo di cose prima delle "
 "diapositive.\n"
 "  * Questo è perfettamente a posto! La ripetizione è una parte importante "
 "dell'apprendimento. Ricordare\n"
 "    che le diapositive sono solo un supporto e sei libero di saltarle come "
-"preferisci\n"
-"    Piace."
+"preferisci."
 
 #: src/welcome-day-1.md:29
-#, fuzzy
 msgid ""
 "The idea for the first day is to show _just enough_ of Rust to be able to "
 "speak\n"
@@ -2348,12 +2342,11 @@ msgid ""
 msgstr ""
 "L'idea per il primo giorno è mostrare _quanto basta_ di Rust per poter "
 "parlare\n"
-"sul famoso controllo dei prestiti. Il modo in cui Rust gestisce la memoria è "
+"sul famoso _borrow checker_. Il modo in cui Rust gestisce la memoria è "
 "una caratteristica importante\n"
 "e dovremmo mostrarlo subito agli studenti."
 
 #: src/welcome-day-1.md:33
-#, fuzzy
 msgid ""
 "If you're teaching this in a classroom, this is a good place to go over the\n"
 "schedule. We suggest splitting the day into two parts (following the slides):"
@@ -2364,7 +2357,6 @@ msgstr ""
 "slide):"
 
 #: src/welcome-day-1.md:36
-#, fuzzy
 msgid ""
 "* Morning: 9:00 to 12:00,\n"
 "* Afternoon: 13:00 to 16:00."
@@ -2373,7 +2365,6 @@ msgstr ""
 "* Pomeriggio: dalle 13:00 alle 16:00."
 
 #: src/welcome-day-1.md:39
-#, fuzzy
 msgid ""
 "You can of course adjust this as necessary. Please make sure to include "
 "breaks,\n"
@@ -2387,7 +2378,6 @@ msgid "# What is Rust?"
 msgstr "# Cos'è Rust?"
 
 #: src/welcome-day-1/what-is-rust.md:3
-#, fuzzy
 msgid ""
 "Rust is a new programming language which had its [1.0 release in 2015][1]:"
 msgstr ""
@@ -2395,7 +2385,6 @@ msgstr ""
 "[1.0 nel 2015][1]:"
 
 #: src/welcome-day-1/what-is-rust.md:5
-#, fuzzy
 msgid ""
 "* Rust is a statically compiled language in a similar role as C++\n"
 "  * `rustc` uses LLVM as its backend.\n"
@@ -2418,8 +2407,8 @@ msgstr ""
 "html):\n"
 "  * x86, ARM, WebAssembly, ...\n"
 "  * Linux, Mac, Windows, ...\n"
-"* La ruggine viene utilizzata per un'ampia gamma di dispositivi:\n"
-"  * firmware e caricatori di avvio,\n"
+"* Rust è utilizzato per un'ampia gamma di dispositivi:\n"
+"  * firmware e _boot loaders_,\n"
 "  * display intelligenti,\n"
 "  * cellulari,\n"
 "  * desktop,\n"
@@ -2430,7 +2419,6 @@ msgid "Rust fits in the same area as C++:"
 msgstr "Rust è usato nelle stesse aree di C++:"
 
 #: src/welcome-day-1/what-is-rust.md:23
-#, fuzzy
 msgid ""
 "* High flexibility.\n"
 "* High level of control.\n"
@@ -2440,7 +2428,7 @@ msgid ""
 msgstr ""
 "* Elevata flessibilità.\n"
 "* Alto livello di controllo.\n"
-"* Può essere ridotto a dispositivi molto vincolati come i telefoni "
+"* Può essere adattato a dispositivi molto particolari come i telefoni "
 "cellulari.\n"
 "* Non ha runtime o garbage collection.\n"
 "* Si concentra su affidabilità e sicurezza senza sacrificare le prestazioni."
@@ -2450,13 +2438,11 @@ msgid "# Hello World!"
 msgstr "# Ciao mondo!"
 
 #: src/hello-world.md:3
-#, fuzzy
 msgid ""
 "Let us jump into the simplest possible Rust program, a classic Hello World\n"
 "program:"
 msgstr ""
-"Passiamo al programma Rust più semplice possibile, un classico Hello World\n"
-"programma:"
+"Passiamo al programma Rust più semplice possibile, un classico Hello World:\n"
 
 #: src/hello-world.md:6
 msgid ""
@@ -2472,7 +2458,6 @@ msgid "What you see:"
 msgstr "Quello che vedi:"
 
 #: src/hello-world.md:14
-#, fuzzy
 msgid ""
 "* Functions are introduced with `fn`.\n"
 "* Blocks are delimited by curly braces like in C and C++.\n"
@@ -2483,12 +2468,11 @@ msgstr ""
 "* Le funzioni sono introdotte con `fn`.\n"
 "* I blocchi sono delimitati da parentesi graffe come in C e C++.\n"
 "* La funzione `main` è il punto di ingresso del programma.\n"
-"* Rust ha macro igieniche, `println!` ne è un esempio.\n"
+"* Rust ha macro definite come 'igieniche' (_hygienic macros_), `println!` ne è un esempio.\n"
 "* Le stringhe Rust sono codificate in UTF-8 e possono contenere qualsiasi "
 "carattere Unicode."
 
 #: src/hello-world.md:22
-#, fuzzy
 msgid ""
 "This slide tries to make the students comfortable with Rust code. They will "
 "see\n"
@@ -2497,11 +2481,10 @@ msgid ""
 msgstr ""
 "Questa diapositiva cerca di mettere gli studenti a proprio agio con il "
 "codice Rust. Vedranno\n"
-"un sacco di esso nei prossimi quattro giorni, quindi iniziamo in piccolo con "
+"un sacco di Rust nei prossimi quattro giorni, quindi iniziamo in piccolo con "
 "qualcosa di familiare."
 
 #: src/hello-world.md:27
-#, fuzzy
 msgid ""
 "* Rust is very much like other languages in the C/C++/Java tradition. It is\n"
 "  imperative (not functional) and it doesn't try to reinvent things unless\n"
@@ -2534,7 +2517,7 @@ msgstr ""
 "* Le macro essendo \"igieniche\" significa che non catturano accidentalmente "
 "identificatori da\n"
 "  l'ambito in cui vengono utilizzate. Le macro di Rust sono in realtà solo\n"
-"  [parzialmente igienico](https://veykril.github.io/tlborm/decl-macros/"
+"  [parzialmente igieniche](https://veykril.github.io/tlborm/decl-macros/"
 "minutiae/hygiene.html)."
 
 #: src/hello-world/small-example.md:1
@@ -2565,7 +2548,6 @@ msgid ""
 msgstr ""
 
 #: src/hello-world/small-example.md:23
-#, fuzzy
 msgid ""
 "The code implements the Collatz conjecture: it is believed that the loop "
 "will\n"
@@ -2573,14 +2555,12 @@ msgid ""
 "different\n"
 "inputs."
 msgstr ""
-"Il codice implementa la congettura di Collatz: si ritiene che il ciclo lo "
-"farà\n"
-"finiscono sempre, ma questo non è ancora provato. Modifica il codice e gioca "
+"Il codice implementa la congettura di Collatz: si ritiene che il ciclo\n"
+"finirà sempre, ma questo non è ancora provato. Modifica il codice e gioca "
 "con diversi\n"
 "ingressi."
 
 #: src/hello-world/small-example.md:29
-#, fuzzy
 msgid ""
 "* Explain that all variables are statically typed. Try removing `i32` to "
 "trigger\n"
@@ -2606,17 +2586,17 @@ msgid ""
 "fmt documentation"
 msgstr ""
 "* Spiegare che tutte le variabili sono tipizzate staticamente. Prova a "
-"rimuovere \"i32\" per attivare\n"
-"  inferenza di tipo. Prova invece con `i8` e attiva un overflow di runtime "
+"rimuovere `i32` per attivare\n"
+"  l'inferenza di tipo. Prova invece con `i8` e attiva un overflow di runtime "
 "integer.\n"
 "\n"
 "* Modificare `let mut x` in `let x`, discutere l'errore del compilatore.\n"
 "\n"
 "* Mostra come `print!` restituisce un errore di compilazione se gli "
-"argomenti non corrispondono a\n"
-"  stringa di formato.\n"
+"argomenti non corrispondono al\n"
+"  formato della stringa.\n"
 "\n"
-"* Mostra come devi usare `{}` come segnaposto se vuoi stampare un file\n"
+"* Mostra come devi usare `{}` come segnaposto se vuoi stampare un'\n"
 "  espressione che è più complessa di una singola variabile.\n"
 "\n"
 "* Mostra agli studenti la libreria standard, mostra loro come cercare `std::"
@@ -2635,29 +2615,26 @@ msgid "Some unique selling points of Rust:"
 msgstr "Alcuni punti di forza unici di Rust:"
 
 #: src/why-rust.md:5
-#, fuzzy
 msgid ""
 "* Compile time memory safety.\n"
 "* Lack of undefined runtime behavior.\n"
 "* Modern language features."
 msgstr ""
-"* Sicurezza della memoria del tempo di compilazione.\n"
+"* Sicurezza della memoria al tempo di compilazione.\n"
 "* Mancanza di comportamento runtime non definito.\n"
 "* Funzionalità del linguaggio moderno."
 
 #: src/why-rust.md:11
-#, fuzzy
 msgid ""
 "Make sure to ask the class which languages they have experience with. "
 "Depending\n"
 "on the answer you can highlight different features of Rust:"
 msgstr ""
 "Assicurati di chiedere alla classe con quali lingue ha esperienza. "
-"Dipendente\n"
-"nella risposta puoi evidenziare diverse caratteristiche di Rust:"
+"In base alla\n"
+"risposta puoi evidenziare diverse caratteristiche di Rust:"
 
 #: src/why-rust.md:14
-#, fuzzy
 msgid ""
 "* Experience with C or C++: Rust eliminates a whole class of _runtime "
 "errors_\n"
@@ -2677,9 +2654,9 @@ msgid ""
 msgstr ""
 "* Esperienza con C o C++: Rust elimina un'intera classe di _errori di "
 "runtime_\n"
-"  tramite il controllo del prestito. Ottieni prestazioni come in C e C++, ma "
-"non lo fai\n"
-"  hanno i problemi di sicurezza della memoria. Inoltre, ottieni un "
+"  tramite il _borrow checker_. Ottieni prestazioni come in C e C++, ma "
+"non\n"
+"  hai i problemi di sicurezza della memoria. Inoltre, ottieni un "
 "linguaggio moderno con\n"
 "  costrutti come il pattern matching e la gestione delle dipendenze "
 "incorporata.\n"
@@ -2701,7 +2678,6 @@ msgid "Static memory management at compile time:"
 msgstr "Gestione statica della memoria in fase di compilazione:"
 
 #: src/why-rust/compile-time.md:5
-#, fuzzy
 msgid ""
 "* No uninitialized variables.\n"
 "* No memory leaks (_mostly_, see notes).\n"
@@ -2714,15 +2690,14 @@ msgid ""
 msgstr ""
 "* Nessuna variabile non inizializzata.\n"
 "* Nessuna perdita di memoria (_principalmente_, vedi note).\n"
-"* Nessuna doppia libera.\n"
-"* Nessun utilizzo dopo-gratis.\n"
+"* Nessun _double-frees_.\n"
+"* Nessun _use-after-free_.\n"
 "* Nessun puntatore `NULL`.\n"
-"* Nessun mutex bloccato dimenticato.\n"
-"* Nessuna gara di dati tra i thread.\n"
+"* Nessun mutex dimenticato bloccato.\n"
+"* Nessuna 'situazione di corsa' (_race condition_) di dati tra i thread.\n"
 "* Nessuna invalidazione dell'iteratore."
 
 #: src/why-rust/compile-time.md:16
-#, fuzzy
 msgid ""
 "It is possible to produce memory leaks in (safe) Rust. Some examples\n"
 "are:"
@@ -2731,7 +2706,6 @@ msgstr ""
 "Sono:"
 
 #: src/why-rust/compile-time.md:19
-#, fuzzy
 msgid ""
 "* You can use [`Box::leak`] to leak a pointer. A use of this could\n"
 "  be to get runtime-initialized and runtime-sized static variables\n"
@@ -2744,26 +2718,24 @@ msgid ""
 msgstr ""
 "* Puoi usare [`Box::leak`] per far trapelare un puntatore. Un uso di questo "
 "potrebbe\n"
-"  be per ottenere variabili statiche inizializzate in runtime e di "
-"dimensioni runtime\n"
+"  essere quello di ottenere variabili statiche inizializzate/dimensionate in runtime\n"
 "* Puoi usare [`std::mem::forget`] per fare in modo che il compilatore "
 "\"dimentichi\"\n"
 "  un valore (il che significa che il distruttore non viene mai eseguito).\n"
-"* Puoi anche creare accidentalmente un [ciclo di riferimento] con `Rc` o\n"
-"  'Arco'.\n"
+"* Puoi anche creare accidentalmente un _[reference cycle]_ con `Rc` o\n"
+"  `Arc`.\n"
 "* In effetti, alcuni considereranno il popolamento infinito di una raccolta "
-"un ricordo\n"
-"  perdite e la ruggine non protegge da quelle."
+"un _memory leak_\n"
+"  e Rust non protegge da quello."
 
 #: src/why-rust/compile-time.md:28
-#, fuzzy
 msgid ""
 "For the purpose of this course, \"No memory leaks\" should be understood\n"
 "as \"Pretty much no *accidental* memory leaks\"."
 msgstr ""
 "Ai fini di questo corso, si dovrebbe intendere \"Nessuna perdita di "
 "memoria\".\n"
-"come \"Praticamente nessuna perdita di memoria * accidentale *\"."
+"come \"Praticamente nessuna perdita di memoria *accidentale*\"."
 
 #: src/why-rust/runtime.md:1
 msgid "# Runtime Guarantees"
@@ -2774,7 +2746,6 @@ msgid "No undefined behavior at runtime:"
 msgstr "Nessun comportamento indefinito in fase di esecuzione:"
 
 #: src/why-rust/runtime.md:5
-#, fuzzy
 msgid ""
 "* Array access is bounds checked.\n"
 "* Integer overflow is defined (panic or wrap-around)."
@@ -2783,7 +2754,6 @@ msgstr ""
 "* L'overflow di numeri interi è definito."
 
 #: src/why-rust/runtime.md:12
-#, fuzzy
 msgid ""
 "* Integer overflow is defined via the [`overflow-checks`](https://doc.rust-"
 "lang.org/rustc/codegen-options/index.html#overflow-checks)\n"
@@ -2797,15 +2767,16 @@ msgid ""
 "  `unsafe` allows you to call functions such as `slice::get_unchecked`\n"
 "  which does not do bounds checking."
 msgstr ""
-"* L'overflow di numeri interi è definito tramite un flag in fase di "
-"compilazione. Le opzioni sono\n"
-"  o un panico (un crash controllato del programma) o un wrap-around\n"
-"  semantica. Per impostazione predefinita, ottieni il panico in modalità di "
+"* L'overflow di numeri interi è definito tramite il flag [`overflow-checks`](https://doc.rust-"
+"lang.org/rustc/codegen-options/index.html#overflow-checks) in fase di "
+"compilazione. Se abilitato il programma _va in panico_ (crash controllato del programma),\n"
+"  altrimenti si ha un _wrap-around_.\n"
+"  Per impostazione predefinita, si ottiene il panico in modalità di "
 "debug (`cargo build`)\n"
 "  e wrap-around in modalità rilascio (`cargo build --release`).\n"
 "\n"
 "* Il controllo dei limiti non può essere disabilitato con un flag del "
-"compilatore. Io posso anche\n"
+"compilatore. Può anche\n"
 "  non essere disabilitato direttamente con la parola chiave `unsafe`. "
 "Tuttavia,\n"
 "  `unsafe` ti permette di chiamare funzioni come `slice::get_unchecked`\n"
@@ -2816,7 +2787,6 @@ msgid "# Modern Features"
 msgstr "# Funzionalità moderne"
 
 #: src/why-rust/modern.md:3
-#, fuzzy
 msgid "Rust is built with all the experience gained in the last 40 years."
 msgstr "Rust è costruito con tutta l'esperienza maturata negli ultimi 40 anni."
 
@@ -2825,7 +2795,6 @@ msgid "## Language Features"
 msgstr "## Caratteristiche del linguaggio"
 
 #: src/why-rust/modern.md:7
-#, fuzzy
 msgid ""
 "* Enums and pattern matching.\n"
 "* Generics.\n"
@@ -2834,28 +2803,26 @@ msgid ""
 msgstr ""
 "* Enumerazioni e pattern matching.\n"
 "* Generici.\n"
-"* Nessun FFI in testa.\n"
-"* Astrazioni a costo zero."
+"* Nessun _overhead_ FFI.\n"
+"* Astrazioni a costo zero (_Zero-cost abstractions_)."
 
 #: src/why-rust/modern.md:12
 msgid "## Tooling"
 msgstr "## Tooling"
 
 #: src/why-rust/modern.md:14
-#, fuzzy
 msgid ""
 "* Great compiler errors.\n"
 "* Built-in dependency manager.\n"
 "* Built-in support for testing.\n"
 "* Excellent Language Server Protocol support."
 msgstr ""
-"* Grandi errori del compilatore.\n"
+"* Ottimi errori del compilatore.\n"
 "* Gestore delle dipendenze integrato.\n"
 "* Supporto integrato per i test.\n"
 "* Eccellente supporto del protocollo Language Server."
 
 #: src/why-rust/modern.md:23
-#, fuzzy
 msgid ""
 "* Zero-cost abstractions, similar to C++, means that you don't have to "
 "'pay'\n"
@@ -2918,16 +2885,16 @@ msgstr ""
 "esprimere cose come\n"
 "  `Opzione<T>` e `Risultato<T, E>`.\n"
 "\n"
-"* Ricorda alle persone di leggere gli errori --- a cui molti sviluppatori si "
-"sono abituati\n"
-"  ignora il lungo output del compilatore. Il compilatore Rust è molto di "
+"* Ricorda alle persone di leggere gli errori --- molti sviluppatori si "
+"sono abituati a\n"
+"  ignorare il lungo output del compilatore. Il compilatore Rust è molto di "
 "più\n"
-"  loquace rispetto ad altri compilatori. Ti fornirà spesso _actionable_\n"
-"  feedback, pronto per il copia-incolla nel tuo codice.\n"
+"  loquace rispetto ad altri compilatori. Ti fornirà spesso feedback\n"
+"  _pronto all'uso_', pronto per il copia-incolla nel tuo codice.\n"
 "\n"
 "* La libreria standard di Rust è piccola rispetto a linguaggi come Java, "
 "Python,\n"
-"  e vai. Rust non viene fornito con molte cose che potresti considerare "
+"  e Go. Rust non viene fornito con molte cose che potresti considerare "
 "standard e\n"
 "  essenziale:\n"
 "\n"
@@ -2937,26 +2904,26 @@ msgstr ""
 "\n"
 "  Il ragionamento alla base di ciò è che la funzionalità nella libreria "
 "standard non può\n"
-"  andare via, quindi deve essere molto stabile. Per gli esempi precedenti, "
-"Rust\n"
-"  la comunità sta ancora lavorando per trovare la soluzione migliore --- e "
-"forse lì\n"
-"  non è un'unica \"soluzione migliore\" per alcune di queste cose.\n"
+"  essere tolto, quindi deve essere molto stabile. Per gli esempi precedenti, "
+"la comunità Rust\n"
+"  sta ancora lavorando per trovare la soluzione migliore --- e "
+"forse \n"
+"  non c''è un'unica \"soluzione migliore\" per alcune di queste cose.\n"
 "\n"
 "  Rust viene fornito con un gestore di pacchetti integrato sotto forma di "
 "Cargo e questo rende\n"
-"  è banale scaricare e compilare casse di terze parti. Una conseguenza di "
+"  banale scaricare e compilare pacchetti di terze parti (_crates_). Una conseguenza di "
 "ciò\n"
 "  è che la libreria standard può essere più piccola.\n"
 "\n"
-"  La scoperta di buone casse di terze parti può essere un problema. Siti "
+"  La scoperta di buoni pacchetti (_crates_) di terze parti può essere un problema. Siti "
 "come\n"
-"  <https://lib.rs/> aiuta in questo consentendoti di confrontare le metriche "
-"di salute per\n"
-"  casse per trovarne una buona e fidata.\n"
+"  <https://lib.rs/> aiuta in questo consentendo di confrontare le metriche "
+"per specifiche\n"
+"  _crate_ per trovarne una buona e fidata.\n"
 "  \n"
-"* [rust-analyzer] è un'implementazione LSP ben supportata utilizzata in "
-"major\n"
+"* [rust-analyzer] è un'implementazione LSP ben supportata utilizzata nei"
+"maggiori\n"
 "  IDE ed editor di testo."
 
 #: src/basic-syntax.md:1
@@ -2964,12 +2931,10 @@ msgid "# Basic Syntax"
 msgstr "# Sintassi di base"
 
 #: src/basic-syntax.md:3
-#, fuzzy
 msgid "Much of the Rust syntax will be familiar to you from C, C++ or Java:"
 msgstr "Gran parte della sintassi di Rust ti sarà familiare da C, C++ o Java:"
 
 #: src/basic-syntax.md:5
-#, fuzzy
 msgid ""
 "* Blocks and scopes are delimited by curly braces.\n"
 "* Line comments are started with `//`, block comments are delimited by `/"
@@ -2982,7 +2947,7 @@ msgstr ""
 "* I commenti di riga iniziano con `//`, i commenti di blocco sono delimitati "
 "da `/* ...\n"
 "  */'.\n"
-"* Parole chiave come \"if\" e \"while\" funzionano allo stesso modo.\n"
+"* Parole chiave come `if` e `while` funzionano allo stesso modo.\n"
 "* L'assegnazione delle variabili viene eseguita con `=`, il confronto viene "
 "eseguito con `==`."
 
@@ -2991,7 +2956,6 @@ msgid "# Scalar Types"
 msgstr "# Tipi scalari"
 
 #: src/basic-syntax/scalar-types.md:3
-#, fuzzy
 msgid ""
 "|                        | Types                                      | "
 "Literals                      |\n"
@@ -3026,7 +2990,6 @@ msgid "The types have widths as follows:"
 msgstr "I tipi hanno larghezze come segue:"
 
 #: src/basic-syntax/scalar-types.md:14
-#, fuzzy
 msgid ""
 "* `iN`, `uN`, and `fN` are _N_ bits wide,\n"
 "* `isize` and `usize` are the width of a pointer,\n"
@@ -3143,7 +3106,6 @@ msgid "Tuples:"
 msgstr "Tuple:"
 
 #: src/basic-syntax/compound-types.md:49
-#, fuzzy
 msgid ""
 "* Like arrays, tuples have a fixed length.\n"
 "\n"
@@ -3205,7 +3167,6 @@ msgid "Some notes:"
 msgstr "Alcune note:"
 
 #: src/basic-syntax/references.md:16
-#, fuzzy
 msgid ""
 "* We must dereference `ref_x` when assigning to it, similar to C and C++ "
 "pointers.\n"
@@ -3223,7 +3184,6 @@ msgstr ""
 "diversi nel corso della loro durata."
 
 #: src/basic-syntax/references.md:25
-#, fuzzy
 msgid ""
 "* Be sure to note the difference between `let mut ref_x: &i32` and `let "
 "ref_x:\n"
@@ -3244,7 +3204,6 @@ msgid "# Dangling References"
 msgstr "# Riferimenti Penzolanti (Dangling References)"
 
 #: src/basic-syntax/references-dangling.md:3
-#, fuzzy
 msgid "Rust will statically forbid dangling references:"
 msgstr "Rust proibirà staticamente i riferimenti penzolanti:"
 
@@ -3263,7 +3222,6 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/references-dangling.md:16
-#, fuzzy
 msgid ""
 "* A reference is said to \"borrow\" the value it refers to.\n"
 "* Rust is tracking the lifetimes of all references to ensure they live long\n"
