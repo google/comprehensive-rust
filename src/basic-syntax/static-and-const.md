@@ -1,6 +1,6 @@
 # Static and Constant Variables
 
-Global state is managed with static and constant variables.
+Globally-scoped names for values can be given with static variables and constant definitions.
 
 ## `const`
 
@@ -39,14 +39,17 @@ fn main() {
 ```
 
 As noted in the [Rust RFC Book][1], these are not inlined upon use and have an actual associated memory location.  This is useful for unsafe and embedded code, and the variable lives through the entirety of the program execution.
+When a globally-scoped value does not have a reason to need object identity, `const` is generally preferred.
 
 
-We will look at mutating static data in the [chapter on Unsafe Rust](../unsafe.md).
+We will look at [mutating static data](../unsafe/mutable-static-variables.md) in the chapter on Unsafe Rust.
+Because `static` variables are accessible from any thread, mutable static variables require manual, unsafe, synchronization of accesses.
 
 <details>
 
 * Mention that `const` behaves semantically similar to C++'s `constexpr`.
 * `static`, on the other hand, is much more similar to a `const` or mutable global variable in C++.
+* `static` provides object identity: an address in memory and state as required by types with interior mutability such as `Mutex<T>`.
 * It isn't super common that one would need a runtime evaluated constant, but it is helpful and safer than using a static.
 
 </details>
