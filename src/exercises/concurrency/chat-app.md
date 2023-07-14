@@ -77,13 +77,13 @@ described below.
 Run the server with:
 
 ```shell
-$ cargo run --bin server
+cargo run --bin server
 ```
 
 and the client with:
 
 ```shell
-$ cargo run --bin client
+cargo run --bin client
 ```
 
 ## Tasks

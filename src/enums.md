@@ -34,7 +34,7 @@ fn main() {
 Key Points:
 
 * Enumerations allow you to collect a set of values under one type
-* This page offers an enum type `CoinFlip` with two variants `Heads` and `Tail`. You might note the namespace when using variants.
+* This page offers an enum type `CoinFlip` with two variants `Heads` and `Tails`. You might note the namespace when using variants.
 * This might be a good time to compare Structs and Enums:
   * In both, you can have a simple version without fields (unit struct) or one with different types of fields (variant payloads). 
   * In both, associated functions are defined within an `impl` block.

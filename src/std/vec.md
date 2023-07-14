@@ -30,7 +30,7 @@ fn main() {
 methods on a `Vec`.
 
 [1]: https://doc.rust-lang.org/std/vec/struct.Vec.html
-[2]: https://doc.rust-lang.org/std/vec/struct.Vec.html#deref-methods-[T]
+[2]: https://doc.rust-lang.org/std/vec/struct.Vec.html#deref-methods-%5BT%5D
 
 <details>
 
