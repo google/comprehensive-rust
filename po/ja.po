@@ -885,7 +885,7 @@ msgstr "async/await"
 
 #: src/SUMMARY.md:281
 msgid "Futures"
-msgstr "Futures"
+msgstr "Future"
 
 #: src/SUMMARY.md:282
 msgid "Runtimes"
@@ -14446,7 +14446,7 @@ msgstr ""
 
 #: src/async.md:1
 msgid "# Async Rust"
-msgstr ""
+msgstr "# Asyncの基礎"
 
 #: src/async.md:3
 msgid ""
@@ -14457,6 +14457,11 @@ msgid ""
 "very low and operating systems provide primitives for efficiently identifying\n"
 "I/O that is able to proceed."
 msgstr ""
+"「Async」は複数のタスクが並行処理される並行性モデルです。それぞれのタスクはブロックされるまで実行さ"
+"れ、そして次に進むことのできる他のタスクに切り替えることにより実現されます。このモデルは限られた数"
+"のスレッド上でより多くのタスクを実行することを可能にします。なぜなら、タスクごとのオーバーヘッドは"
+"通常はとても低く、効率的に実行可能なI/Oを特定するために必要なプリミティブをOSが提供してくれるからで"
+"す。"
 
 #: src/async.md:10
 msgid ""
@@ -14464,16 +14469,19 @@ msgid ""
 "may be completed in the future. Futures are \"polled\" until they signal that\n"
 "they are complete."
 msgstr ""
+"Rustの非同期的な操作は「future」に基づいていて、これは将来に完了するかもしれない作業を表していま"
+"す。Futureは、タスクが完了したことを知らせるシグナルが得られるまでポーリングされます。"
 
 #: src/async.md:14
 msgid ""
 "Futures are polled by an async runtime, and several different runtimes are\n"
 "available."
 msgstr ""
+"Futureは非同期的なランタイムによりポーリングされます。ランタイムにはいくつかの選択肢があります。"
 
 #: src/async.md:17
 msgid "## Comparisons"
-msgstr ""
+msgstr "## 他の言語との比較"
 
 #: src/async.md:19
 msgid ""
@@ -14485,14 +14493,21 @@ msgid ""
 "   runtime implements the event loop, so many of the details of Promise\n"
 "   resolution are hidden."
 msgstr ""
+" * Pythonには似たようなモデルが`asyncio`として搭載されています。しかし、ここでの`Future`型はコール"
+"バックに基づくものであって、ポーリングによるものではありません。Pythonの非同期プログラムは「ルー"
+"プ」を必要とし、Rustのランタイムに似ています。\n"
+"\n"
+" * JavaScriptの`Promise`は似ているものの、これもまたもやコールバックに基づきます。\n"
+"   この言語のランタイムはイベントループにより実装されているため、多くのPromise解決の詳細は隠されて"
+"います。"
 
 #: src/async/async-await.md:1
 msgid "# `async`/`await`"
-msgstr ""
+msgstr "# `async`/`await`"
 
 #: src/async/async-await.md:3
 msgid "At a high level, async Rust code looks very much like \"normal\" sequential code:"
-msgstr ""
+msgstr "おおまかには、Rustの非同期コードはほとんど「通常の」逐次的なコードのように見えます:"
 
 #: src/async/async-await.md:5
 msgid ""
@@ -14538,6 +14553,24 @@ msgid ""
 "* `.await` can only be used inside an `async` function (or block; these are\n"
 "  introduced later). "
 msgstr ""
+"* これは構文を示すための単純化された例であることに注意してください。長く実行されうる操作や本物の並"
+"行処理はここには含まれません。\n"
+"* 非同期の呼び出しの返り値の型は？\n"
+"  * 型を知るために`main`で`let future: () = async_main(10);`を使ってみてください。\n"
+"\n"
+"* 「async」キーワードは糖衣構文です。コンパイラは返り値をfutureに置き換えます。\n"
+"\n"
+"* コンパイラに対して、返されたfutureの値をその後どう扱うべきかという、追加の指示を含めない限り、"
+"`main`をasyncにすることはできません。\n"
+"\n"
+"* 非同期のコードを実行するためには、エグゼキュータが必要です。`block_on`は、与えられたfutureが最後まで"
+"実行されるまで、現在のスレッドをブロックします。\n"
+"\n"
+"* `.await`は非同期的に他の操作の完了を待ちます。`block_on`とは異なり、`.await`は現在のスレッドをブ"
+"ロックしません。\n"
+"\n"
+"* `.await`はasync関数(またはasync ブロック)の中でのみ利用できます。"
+"(async関数・ブロックについては後ほど紹介します。)"
 
 #: src/async/futures.md:1
 msgid "# Futures"
@@ -14550,6 +14583,9 @@ msgid ""
 "complete yet. A future can be polled, and `poll` returns a\n"
 "[`Poll`](https://doc.rust-lang.org/std/task/enum.Poll.html)."
 msgstr ""
+"[`Future`](https://doc.rust-lang.org/std/future/trait.Future.html)はトレイトであり、まだ完了してな"
+"いかもしれない操作を表現するオブジェクトにより実装されます。Futureはポーリングされることがあり、"
+"`poll`は[`Poll`](https://doc.rust-lang.org/std/task/enum.Poll.html)を返します。"
 
 #: src/async/futures.md:8
 msgid ""
@@ -14575,12 +14611,17 @@ msgid ""
 "implement `Future` for your own types. For example, the `JoinHandle` returned\n"
 "from `tokio::spawn` implements `Future` to allow joining to it."
 msgstr ""
+"非同期の関数は`impl Future`を返します。自分で定義した型に対して`Future`を実装することも（あまりない"
+"ことですが）可能です。例えば、`tokio::spawn`から返される`JoinHandle`は`Future`を実装する"
+"ことにより、joinすることを可能にしています。"
 
 #: src/async/futures.md:27
 msgid ""
 "The `.await` keyword, applied to a Future, causes the current async function to\n"
 "pause until that Future is ready, and then evaluates to its output."
 msgstr ""
+"Futureに適用される`.await`キーワードは、そのFutureの準備ができるまで、現在の非同期の関数の一時停止"
+"を起こし、そしてその出力を評価します。"
 
 #: src/async/futures.md:32
 msgid ""
@@ -14597,10 +14638,19 @@ msgid ""
 "    that future remain valid. This is required to allow references to remain\n"
 "    valid after an `.await`."
 msgstr ""
+"* `Future`と`Poll`の型はまさに示されたように実装されます; ドキュメントの具体的な実装を見るにはリン"
+"クをクリックしてください。\n"
+"* `Pin`と`Context`については詳しくは扱いません。なぜなら、新しく非同期のプリミティブを作るよりも、"
+"非同期のコードを書くことに我々は重点を置くつもりだからです。完結には以下で説明されます：\n"
+"  * `Context`は、特定のイベントが発生した時に、Futureが自分自身を再びポーリングされるようにスケ"
+"ジュールすることを可能にします。\n"
+"\n"
+"  * `Pin`はfutureへのポインタが有効であり続けるために、Futureがメモリの中で移動されないことを確実に"
+"します。これは、参照が`.await`の後に有効であり続けるために必要です。"
 
 #: src/async/runtimes.md:1
 msgid "# Runtimes"
-msgstr ""
+msgstr "# ランタイム"
 
 #: src/async/runtimes.md:3
 msgid ""
@@ -14608,6 +14658,9 @@ msgid ""
 "*reactor*) and is responsible for executing futures (an *executor*). Rust does not have a\n"
 "\"built-in\" runtime, but several options are available:"
 msgstr ""
+"*runtime*は非同期な演算（*reactor*）のサポートを提供し、また、futureを実行すること（*executor*）を"
+"担当しています。Rustには「ビルトイン」のランタイムはありませんが、いくつかのランタイムの選択肢があ"
+"ります: "
 
 #: src/async/runtimes.md:7
 msgid ""
@@ -14618,6 +14671,11 @@ msgid ""
 "   basic runtime in `async::task`.\n"
 " * [smol](https://docs.rs/smol/latest/smol/) - simple and lightweight"
 msgstr ""
+" * [Tokio](https://tokio.rs/) - パフォーマンスが高い。HTTP向けの[Hyper](https://hyper.rs/)やgRPC向けの[Tonic](https://"
+"github.com/hyperium/tonic)のような発達したエコシステムも持っている\n"
+" * [async-std](https://async.rs/) - 「async」のための「std」であることを目指したもの。また、"
+"`async::task`に基本的なランタイムを含む。\n"
+" * [smol](https://docs.rs/smol/latest/smol/) - シンプルで軽量"
 
 #: src/async/runtimes.md:14
 msgid ""
@@ -14626,6 +14684,9 @@ msgid ""
 "rs)\n"
 "already has one."
 msgstr ""
+"いくつかのより巨大なアプリケーションは、独自のランタイムを備えています。例えば[Fuchsia](https://"
+"fuchsia.googlesource.com/fuchsia/+/refs/heads/main/src/lib/fuchsia-async/src/lib.rs)はそのようなも"
+"のをすでに備えています。"
 
 #: src/async/runtimes.md:20
 msgid ""
@@ -14638,6 +14699,12 @@ msgid ""
 "  Promises, for example, which will run to completion even if they are never\n"
 "  used."
 msgstr ""
+"* 上で挙げられたランタイムのうち、TokioのみがRustプレイグラウンドでサポートされています。このプレイ"
+"グラウンドではいかなる入出力操作も許可されていないため、大抵の興味深い非同期のあれこれは、プレイグ"
+"ラウンドで実行することはできません。\n"
+"* Futureは、ポーリングを行うエグゼキュータの存在なしには何も行わない（入出力操作さえ始めない）とい"
+"う点で「怠惰」です。例えば、これは、エグゼキュータがなくとも最後まで実行されるJavaScriptのPromiseと"
+"は異なります。"
 
 #: src/async/runtimes/tokio.md:1
 msgid "# Tokio"
@@ -14645,7 +14712,7 @@ msgstr ""
 
 #: src/async/runtimes/tokio.md:4
 msgid "Tokio provides: "
-msgstr ""
+msgstr "Tokioは以下を提供します: "
 
 #: src/async/runtimes/tokio.md:6
 msgid ""
@@ -14653,6 +14720,9 @@ msgid ""
 "* An asynchronous version of the standard library.\n"
 "* A large ecosystem of libraries."
 msgstr ""
+"* 非同期のコードを実行するためのマルチスレッドのランタイム。\n"
+"* 標準ライブラリの非同期バージョン。\n"
+"* 大きなライブラリのエコシステム。"
 
 #: src/async/runtimes/tokio.md:10
 msgid ""
@@ -14686,10 +14756,14 @@ msgid ""
 "\n"
 "* Note: `spawn` takes a `Future`, you don't call `.await` on `count_to`."
 msgstr ""
+"* `tokio::main`のマクロにより、`main`の非同期処理を作ることができます。\n"
+"\n"
+"* `spawn`関数は新しい並行の「タスク」を作成します。\n"
+"* 注意：`spawn`は`Future`を引数に取るため、`count_to`に対して`.await`を呼ぶことはありません。"
 
 #: src/async/runtimes/tokio.md:39
 msgid "**Further exploration:**"
-msgstr ""
+msgstr "**さらなる探求:**"
 
 #: src/async/runtimes/tokio.md:41
 msgid ""
@@ -14701,6 +14775,10 @@ msgid ""
 "\n"
 "* Try awaiting the task returned from `tokio::spawn`."
 msgstr ""
+"* どうして`count_to`は（通常は）10に辿り着かないのでしょうか？これは非同期処理のキャンセルの例で"
+"す。 `tokio::spawn`は完了まで待機するためのハンドラを返します。\n"
+"* プロセスを新しく作る代わりに、`count_to(10).await`を試してみてください。\n"
+"* `tokio::spawn`から返されたタスクを待機してみてください。"
 
 #: src/async/tasks.md:1
 msgid "# Tasks"
@@ -14711,6 +14789,8 @@ msgid ""
 "Runtimes have the concept of a \"task\", similar to a thread but much\n"
 "less resource-intensive."
 msgstr ""
+"ランタイムには「タスク」という概念があり、スレッドに似ているものの、スレッドよりリソースの消費はは"
+"るかに小さいです。"
 
 #: src/async/tasks.md:6
 msgid ""
@@ -14719,6 +14799,11 @@ msgid ""
 "corresponding loosely to a call stack. Concurrency within a task is possible by\n"
 "polling multiple child futures, such as racing a timer and an I/O operation."
 msgstr ""
+"タスクには、単一のトップレベルのfutureがあり、これはエグゼキュータが先に進むためにポーリングする対"
+"象となります。そのfutureには一つまたは複数のfutureがネストされていることもあり、トップレベルの"
+"futureの`poll`メソッドがポーリングすることになり、大まかにはコールスタックに対応すると言えます。タ"
+"スクにおける並行処理は、例えば競合タイマーや入出力操作など、複数の子のfutureをポーリングすることに"
+"より可能になります。"
 
 #: src/async/tasks.md:11
 msgid ""
@@ -14765,7 +14850,7 @@ msgstr ""
 
 #: src/async/tasks.md:53 src/async/control-flow/join.md:36
 msgid "Copy this example into your prepared `src/main.rs` and run it from there."
-msgstr ""
+msgstr "この例を準備した`src/main.rs`にコピーして、そこから実行してみましょう。"
 
 #: src/async/tasks.md:55
 msgid ""
@@ -14778,14 +14863,20 @@ msgid ""
 "\n"
 "* Refactor the async block into a function, and improve the error handling using `?`."
 msgstr ""
+"* 例のサーバーがどのような状態の時に、いくつかのクライアントと接続された状態にあるのかを、可視化す"
+"るように受講者に指示してください。どんなタスクが存在していますか？それらのfutureは何ですか？\n"
+"\n"
+"* 私たちが`async`ブロックを見かけるのは初めてですね。これはクロージャと似ていますが、何も引数は取り"
+"ません。この返り値はFutureであり、`async fn`と似ています。\n"
+"* mainのasyncブロックを関数にリファクタして、`?`を使ったエラーハンドリングを改善してみましょう。"
 
 #: src/async/channels.md:1
 msgid "# Async Channels"
-msgstr ""
+msgstr "# Asyncチャネル"
 
 #: src/async/channels.md:3
 msgid "Several crates have support for `async`/`await`. For instance `tokio` channels:"
-msgstr ""
+msgstr "いくつかのクレートは`async`/`await`をサポートしています。例えば、`tokio`チャネルは:"
 
 #: src/async/channels.md:5
 msgid ""
@@ -14834,6 +14925,17 @@ msgid ""
 "* What makes working with `async` channels preferable is the ability to combine\n"
 "  them with other `future`s to combine them and create complex control flow."
 msgstr ""
+"* チャネルサイズを `3`に変えてみて、これがどのように処理に影響するか確認してみましょう。\n"
+"\n"
+"* 一般的に、このインターフェースは、[朝の講座](concurrency/channels.md)で見られたような`sync`チャネ"
+"ルに似ています。\n"
+"* `std::mem::drop`の呼び出しを除いてみましょう。何か起こるでしょうか？それはなぜでしょうか？\n"
+"\n"
+"* [Flume](https://docs.rs/flume/latest/flume/)クレートには`sync`と`async`や`send`と`recv`の両方を実"
+"装するチャネルがあります。\n"
+"これは入出力と重いCPUの処理のタスクの両方を含む、複雑なアプリケーションで便利です。\n"
+"* `async`チャネルを扱うことを好ましくするのは、チャネルと繋げるためにや、複雑なコントロールフローを"
+"作るために、チャネルを他の`future`と繋げられることです。"
 
 #: src/async/control-flow.md:1
 msgid "# Futures Control Flow"
