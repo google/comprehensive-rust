@@ -24,7 +24,10 @@ Build, push, and run the binary on your device:
 The logs show up in `adb logcat`:
 
 ```shell
-$ adb logcat -s rust
+adb logcat -s rust
+```
+
+```text
 09-08 08:38:32.454  2420  2420 D rust: hello_rust_logs: Starting program.
 09-08 08:38:32.454  2420  2420 I rust: hello_rust_logs: Things are going fine.
 09-08 08:38:32.454  2420  2420 E rust: hello_rust_logs: Something went wrong!
