@@ -61,6 +61,6 @@ fn main() {
   but it can lead into complications with the borrow checker.
   * Try removing `to_string()` from the example above and see if it still compiles. Where do you think we might run into issues?
 
-[1]: https://doc.rust-lang.org/std/collections/hash_map/struct.HashMap.html#impl-From%3C%5B(K%2C%20V)%3B%20N%5D%3E-for-HashMap%3CK%2C%20V%2C%20RandomState%3E
+[1]: https://doc.rust-lang.org/std/collections/hash_map/struct.HashMap.html#impl-From%3C%5B(K,+V);+N%5D%3E-for-HashMap%3CK,+V,+RandomState%3E
 
 </details>
