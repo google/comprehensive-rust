@@ -20,7 +20,7 @@ Along with cargo and rustc, Rustup will install itself as a command line utility
 On Debian/Ubuntu, you can install Cargo, the Rust source and the [Rust formatter][6] with
 
 ```shell
-$ sudo apt install cargo rust-src rustfmt
+sudo apt install cargo rust-src rustfmt
 ```
 
 This will allow [rust-analyzer][1] to jump to the definitions. We suggest using

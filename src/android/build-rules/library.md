@@ -32,6 +32,9 @@ You build, push, and run the binary like before:
 
 ```shell
 {{#include ../build_all.sh:hello_rust_with_dep}}
+```
+
+```text
 Hello Bob, it is very
 nice to meet you!
 ```
