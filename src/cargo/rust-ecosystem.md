@@ -6,7 +6,7 @@ The Rust ecosystem consists of a number of tools, of which the main ones are:
   intermediate formats.
 
 * `cargo`: the Rust dependency manager and build tool. Cargo knows how to
-  download dependencies hosted on <https://crates.io> and it will pass them to
+  download dependencies, usually hosted on <https://crates.io>, and it will pass them to
   `rustc` when building your project. Cargo also comes with a built-in test
   runner which is used to execute unit tests.
 
@@ -28,6 +28,8 @@ Key points:
 
 * New features are being tested on "nightly", "beta" is what becomes
   "stable" every six weeks.
+
+* Dependencies can also be resolved from alternative [registries], git, folders, and more.
 
 * Rust also has [editions]: the current edition is Rust 2021. Previous
   editions were Rust 2015 and Rust 2018.
@@ -63,5 +65,7 @@ Key points:
 [cargo clippy]: https://github.com/rust-lang/rust-clippy
 
 [official Cargo Book]: https://doc.rust-lang.org/cargo/
+
+[registries]: https://doc.rust-lang.org/cargo/reference/registries.html
 
 </details>
