@@ -27,7 +27,8 @@ Here is a rough comparison of the memory management techniques.
   * Garbage collection pauses.
   * Destructor delays.
 * Scope-based like C++:
-  * Complex, opt-in by programmer.
+  * Circular references can lead to memory leaks
+  * Complex, opt-in by programmer (on C++).
   * Potential for use-after-free.
 * Compiler-enforced and scope-based like Rust:
   * Some upfront complexity.
