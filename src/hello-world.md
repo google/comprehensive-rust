@@ -38,6 +38,6 @@ Key points:
   [partially hygienic](https://veykril.github.io/tlborm/decl-macros/minutiae/hygiene.html).
 
 * While it is not a functional language, it includes a range of
-  [functional concepts](https://doc.rust-lang.org/book/ch13-00-functional-features.html)
+  [functional concepts](https://doc.rust-lang.org/book/ch13-00-functional-features.html).
 
 </details>
