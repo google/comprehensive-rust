@@ -1,6 +1,6 @@
 # Modern Features
 
-Rust is built with all the experience gained in the last 40 years.
+Rust is built with all the experience gained in the last decades.
 
 ## Language Features
 
