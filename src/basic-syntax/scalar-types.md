@@ -40,4 +40,7 @@ There are a few syntaxes which are not shown above:
   }
   ```
 
+- All underscores in numbers can be left out, they are for legibility only.
+  So `1_000` can be written as `1000` (or `10_00`), and `123_i64` can be written as `123i64`.
+
 </details>
