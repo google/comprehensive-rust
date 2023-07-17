@@ -12,7 +12,7 @@ fn main() {
 ```
 
 * The assignment of `s1` to `s2` transfers ownership.
-* When `s1` goes out of scope, nothing happens: it has no ownership.
+* When `s1` goes out of scope, nothing happens: it does not own anything.
 * When `s2` goes out of scope, the string data is freed.
 * There is always _exactly_ one variable binding which owns a value.
 
@@ -20,7 +20,7 @@ fn main() {
 
 * Mention that this is the opposite of the defaults in C++, which copies by value unless you use `std::move` (and the move constructor is defined!).
 
-* Data is not moved when you do `s2 = s1`, it is only the ownership that moves.
+* It is only the ownership that moves. Whether the resulting machine code copies any data around is a matter of optimization, and such copies are aggressively optimized away.
 
 * Simple values (such as integers) can be marked `Copy` (see later slides).
 
