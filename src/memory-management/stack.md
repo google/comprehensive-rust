@@ -1,7 +1,7 @@
-# Stack Memory
+# Stack and Heap Example
 
-Creating a `String` puts fixed-sized data on the stack and dynamically sized
-data on the heap:
+Creating a `String` puts fixed-sized metadata on the stack and dynamically sized
+data, the actual string, on the heap:
 
 ```rust,editable
 fn main() {
@@ -40,7 +40,7 @@ fn main() {
         // String provides no guarantees about its layout, so this could lead to
         // undefined behavior.
         unsafe {
-            let (capacity, ptr, len): (usize, usize, usize) = std::mem::transmute(s1);
+            let (ptr, capacity, len): (usize, usize, usize) = std::mem::transmute(s1);
             println!("ptr = {ptr:#x}, len = {len}, capacity = {capacity}");
         }
     }

@@ -62,7 +62,7 @@ pub fn harvest(garden: &mut Garden) { todo!() }
 
   ```rust,ignore
   #[path = "some/path.rs"]
-  mod some_module { }
+  mod some_module;
   ```
 
   This is useful, for example, if you would like to place tests for a module in a file named
