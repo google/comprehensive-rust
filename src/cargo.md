@@ -7,30 +7,29 @@ and how it fits into this training.
 
 ## Installation
 
-### Rustup (Recommended)
+> TL;DR: Visit [rustup.rs][1].
 
-You can follow the instructions to install cargo and rust compiler, among other standard ecosystem tools with the [rustup][3] tool, which is maintained by the Rust Foundation.
+You can follow the instructions to install cargo and rust compiler, among other standard ecosystem tools with the [rustup][1] tool, which is maintained by the Rust Foundation.
 
 Along with cargo and rustc, Rustup will install itself as a command line utility that you can use to install/switch toolchains, setup cross compilation, etc.
 
-### Package Managers
+<details>
 
-#### Debian
-
-On Debian/Ubuntu, you can install Cargo, the Rust source and the [Rust formatter][6] with
+* On Debian/Ubuntu, you can also install Cargo, the Rust source and the [Rust formatter][6] via `apt`. However, this gets you an outdated rust version and may lead to unexpected behavior. The command would be:
 
 ```shell
-sudo apt install cargo rust-src rustfmt
+    sudo apt install cargo rust-src rustfmt
 ```
 
-This will allow [rust-analyzer][1] to jump to the definitions. We suggest using
-[VS Code][2] to edit the code (but any LSP compatible editor works).
+* We suggest using [VS Code][2] to edit the code (but any LSP compatible editor works with rust-analyzer[3]).
 
-Some folks also like to use the [JetBrains][4] family of IDEs, which do their own analysis but have their own tradeoffs. If you prefer them, you can install the [Rust Plugin][5]. Please take note that as of January 2023 debugging only works on the CLion version of the JetBrains IDEA suite.
+* Some folks also like to use the [JetBrains][4] family of IDEs, which do their own analysis but have their own tradeoffs. If you prefer them, you can install the [Rust Plugin][5]. Please take note that as of January 2023 debugging only works on the CLion version of the JetBrains IDEA suite.
 
-[1]: https://rust-analyzer.github.io/
+</details>
+
+[1]: https://rustup.rs/
 [2]: https://code.visualstudio.com/
-[3]: https://rustup.rs/
+[3]: https://rust-analyzer.github.io/
 [4]: https://www.jetbrains.com/clion/
 [5]: https://www.jetbrains.com/rust/
 [6]: https://github.com/rust-lang/rustfmt

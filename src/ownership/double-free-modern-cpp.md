@@ -1,4 +1,4 @@
-# Double Frees in Modern C++
+# Extra Work in Modern C++ 
 
 Modern C++ solves this differently:
 
