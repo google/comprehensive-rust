@@ -6,14 +6,9 @@ The module content can be omitted:
 mod garden;
 ```
 
-The `garden` module content is found at:
-
-* `src/garden.rs` (modern Rust 2018 style)
-* `src/garden/mod.rs` (older Rust 2015 style)
-
-Similarly, a `garden::vegetables` module can be found at:
-
-* `src/garden/vegetables.rs` (modern Rust 2018 style)
+The `garden` module content is found at `src/garden.rs`.
+Similarly, a `garden::vegetables` module can be found at `src/garden/vegetables.rs`.
+ (modern Rust 2018 style)
 * `src/garden/vegetables/mod.rs` (older Rust 2015 style)
 
 The `crate` root is in:
@@ -41,10 +36,12 @@ pub fn harvest(garden: &mut Garden) { todo!() }
 
 <details>
 
-* The change from `module/mod.rs` to `module.rs` doesn't preclude the use of submodules in Rust 2018.
-  (It was mandatory in Rust 2015.)
+* Before Rust 2018, modules needed to be located at `module/mod.rs` instead of `module.rs`, and this is still a working alternative for current versions.
 
-  The following is valid:
+* The main reason to introduce `filename.rs` as alternative to `filename/mod.rs`
+  was because many files named `mod.rs` can be hard to distinguish in IDEs.
+
+* Deeper nesting can use folders, even if the main module is a file:
 
   ```ignore
   src/
@@ -54,11 +51,7 @@ pub fn harvest(garden: &mut Garden) { todo!() }
       └── sub_module.rs
   ```
 
-* The main reason for the change is to prevent many files named `mod.rs`, which can be hard
-  to distinguish in IDEs.
-
-* Rust will look for modules in `modulename/mod.rs` and `modulename.rs`, but this can be changed
-  with a compiler directive:
+* The place rust will look for modules can be changed with a compiler directive:
 
   ```rust,ignore
   #[path = "some/path.rs"]
