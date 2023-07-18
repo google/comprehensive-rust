@@ -7,11 +7,9 @@ and how it fits into this training.
 
 ## Installation
 
-> TL;DR: Visit [rustup.rs][1].
+> **Please follow the instructions on <https://rustup.rs/>.**
 
-You can follow the instructions to install cargo and rust compiler, among other standard ecosystem tools with the [rustup][1] tool, which is maintained by the Rust Foundation.
-
-Along with cargo and rustc, Rustup will install itself as a command line utility that you can use to install/switch toolchains, setup cross compilation, etc.
+This will give you the Cargo build tool (`cargo`) and the Rust compiler (`rustc`). You will also get `rustup`, a command line utility that you can use to install/switch toolchains, setup cross compilation, etc.
 
 <details>
 
@@ -27,7 +25,6 @@ Along with cargo and rustc, Rustup will install itself as a command line utility
 
 </details>
 
-[1]: https://rustup.rs/
 [2]: https://code.visualstudio.com/
 [3]: https://rust-analyzer.github.io/
 [4]: https://www.jetbrains.com/clion/
