@@ -1,12 +1,12 @@
 # Filesystem Hierarchy
 
-The module content can be omitted:
+Omitting the module content will tell Rust to look for it in another file:
 
 ```rust,editable,compile_fail
 mod garden;
 ```
 
-The `garden` module content is found at `src/garden.rs`.
+This tells rust that the `garden` module content is found at `src/garden.rs`.
 Similarly, a `garden::vegetables` module can be found at `src/garden/vegetables.rs`.
 
 The `crate` root is in:
