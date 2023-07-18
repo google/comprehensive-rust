@@ -20,3 +20,4 @@ void foo(size_t n) {
 
 Memory is leaked if the function returns early between `malloc` and `free`: the
 pointer is lost and we cannot deallocate the memory.
+Worse, freeing the pointer twice, or accessing a freed pointer can lead to exploitable security vulnerabilities.
