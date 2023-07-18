@@ -7,7 +7,7 @@ and how it fits into this training.
 
 ## Installation
 
-**Please follow the instructions on <https://rustup.rs/>.**
+> **Please follow the instructions on <https://rustup.rs/>.**
 
 This will give you the Cargo build tool (`cargo`) and the Rust compiler (`rustc`). You will also get `rustup`, a command line utility that you can use to install/switch toolchains, setup cross compilation, etc.
 
