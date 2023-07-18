@@ -34,7 +34,7 @@ pub fn harvest(garden: &mut Garden) { todo!() }
 
 <details>
 
-* Before Rust 2018, modules needed to be located at `module/mod.rs` instead of `module.rs`, and this is still a working alternative for current versions.
+* Before Rust 2018, modules needed to be located at `module/mod.rs` instead of `module.rs`, and this is still a working alternative for editions after 2018.
 
 * The main reason to introduce `filename.rs` as alternative to `filename/mod.rs`
   was because many files named `mod.rs` can be hard to distinguish in IDEs.
