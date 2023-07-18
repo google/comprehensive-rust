@@ -20,7 +20,7 @@ fn main() {
 
 * Mention that this is the opposite of the defaults in C++, which copies by value unless you use `std::move` (and the move constructor is defined!).
 
-* It is only the ownership that moves. Whether the resulting machine code copies any data around is a matter of optimization, and such copies are aggressively optimized away.
+* It is only the ownership that moves. Whether any machine code is generated to manipulate the data itself is a matter of optimization, and such copies are aggressively optimized away.
 
 * Simple values (such as integers) can be marked `Copy` (see later slides).
 
