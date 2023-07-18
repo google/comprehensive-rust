@@ -36,7 +36,7 @@ fn main() {
 
 * Make `Equals` a super trait for `NotEquals`.
     ```rust,editable,compile_fail
-    trait NotEqual: Equals {
+    trait NotEquals: Equals {
         fn not_equals(&self, other: &Self) -> bool {
             !self.equals(other)
         }
