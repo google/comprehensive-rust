@@ -8,8 +8,6 @@ mod garden;
 
 The `garden` module content is found at `src/garden.rs`.
 Similarly, a `garden::vegetables` module can be found at `src/garden/vegetables.rs`.
- (modern Rust 2018 style)
-* `src/garden/vegetables/mod.rs` (older Rust 2015 style)
 
 The `crate` root is in:
 
