@@ -3110,7 +3110,7 @@ msgstr ""
 
 #: src/basic-syntax/string-slices.md:3
 msgid "We can now understand the two string types in Rust:"
-msgstr ""
+msgstr "现在我们就可以理解 Rust 中的两种字符串类型："
 
 #: src/basic-syntax/string-slices.md:5
 msgid ""
@@ -3132,13 +3132,15 @@ msgstr ""
 
 #: src/basic-syntax/string-slices.md:20
 msgid "Rust terminology:"
-msgstr ""
+msgstr "Rust 术语："
 
 #: src/basic-syntax/string-slices.md:22
 msgid ""
 "* `&str` an immutable reference to a string slice.\n"
 "* `String` a mutable string buffer."
 msgstr ""
+"* `&str` 是一个指向字符串片段的不可变引用。\n"
+"* `String` 是一个可变字符串缓冲区。"
 
 #: src/basic-syntax/string-slices.md:27
 msgid ""
@@ -3170,6 +3172,22 @@ msgid ""
 "use a small-string optimization).\n"
 "    "
 msgstr ""
+"* `&str` 引入了一个字符串切片，它是一个指向保存在内存块中的 UTF-8 编码字符串数据的不可变引用。"
+"   字符串字面量（`”Hello”`）会保存在程序的二进制文件中。\n"
+"\n"
+"* Rust 的 `String` 类型是一个字节 vector 的封装。和 `Vec<T>` 一样，它是拥有所有权的。\n"
+"   \n"
+"* 和其他类型一样，`String::from()` 会从字符串字面量创建一个字符串；`String::new()` 会创建一个新的空字符串，"
+"   之后可以使用 `push()` 和 `push_str()` 方法向其中添加字符串数据。\n"
+"\n"
+"* `format!()` 宏可以方便地动态生成拥有所有权的字符串。它接受和 `println!()` 相同的格式规范。\n"
+"   \n"
+"* 你可以通过 `&` 和可选的范围选择从 `String` 中借用 `&str` 切片。\n"
+"   \n"
+"* 对于 C++ 程序员：可以把 `&str` 当作 C++ 中的 `const char*`，但是它总是指向内存中的一个有效字符串。"
+"   Rust 的 `String` 大致相当于 C++ 中 `std::string` （主要区别：它只能包含 UTF-8 编码的字节，"
+"   并且永远不会使用小字符串优化（small-string optimization））。\n"
+"    "
 
 #: src/basic-syntax/functions.md:1
 msgid "# Functions"
