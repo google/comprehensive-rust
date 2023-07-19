@@ -13459,7 +13459,7 @@ msgstr "# Rustでの並行性へようこそ"
 msgid ""
 "Rust has full support for concurrency using OS threads with mutexes and\n"
 "channels."
-msgstr "RustはOSスレッドをミューテックスとチャネルとともに扱う並行性を十分にサポートしています。"
+msgstr "Rustはミューテックスとチャネルを用いてOSスレッドを扱う並行性を十分にサポートしています。"
 
 #: src/concurrency.md:6
 msgid ""
@@ -13468,8 +13468,8 @@ msgid ""
 "can rely on the compiler to ensure correctness at runtime."
 msgstr ""
 "Rustの型システムは多くの並行性にまつわるバグをコンパイル時のバグにとどめるという点で、重要な役割を"
-"果たします。これは時に _恐れるな！並行性！_ と呼ばれます。なぜなら、コンパイラにランタイムレベルで"
-"の正しさを保証することをまかせてよいためです。"
+"果たします。これは時に _fearless concurrency_ （「怖くない並行性」） と呼ばれます。なぜなら、コンパ"
+"イラに実行時での正しさを保証することをまかせてよいためです。"
 
 #: src/concurrency/threads.md:1
 msgid "# Threads"
@@ -13508,7 +13508,7 @@ msgid ""
 "  * Panics can carry a payload, which can be unpacked with `downcast_ref`."
 msgstr ""
 "* スレッドはすべてデーモンスレッドで、メインスレッドはそれらを待ちません。\n"
-"* スレッドパニックは互いに特立です。\n"
+"* スレッドパニックは互いに独立です。\n"
 "  * パニックはペイロードを保持していることがあり、それは`downcast_ref`で展開可能です。"
 
 #: src/concurrency/threads.md:32
@@ -13589,8 +13589,8 @@ msgid ""
 msgstr ""
 "* この理由は、関数`thread::scope`が完了するとき、全てのスレッドはjoinされることが保証されているの"
 "で、スレッドが借用したデータを返すことができるためです。\n"
-"* 通常のRustの借用のルールが適用されます:一つのスレッドごとに変数値の変更が可能な形で借用すること、"
-"または任意の数のスレッドから値の変更が不可能な形で借用すること。\n"
+"* 通常のRustの借用のルールが適用されます:　一つのスレッドがミュータブルで借用すること、または任意の"
+"数のスレッドからイミュータブルで借用すること。\n"
 "    "
 
 #: src/concurrency/channels.md:1
