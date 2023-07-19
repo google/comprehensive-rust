@@ -13617,13 +13617,13 @@ msgstr ""
 
 #: src/concurrency.md:1
 msgid "# Welcome to Concurrency in Rust"
-msgstr ""
+msgstr "# Rustでの並行性へようこそ"
 
 #: src/concurrency.md:3
 msgid ""
 "Rust has full support for concurrency using OS threads with mutexes and\n"
 "channels."
-msgstr ""
+msgstr "Rustはミューテックスとチャネルを用いてOSスレッドを扱う並行性を十分にサポートしています。"
 
 #: src/concurrency.md:6
 msgid ""
@@ -13631,14 +13631,17 @@ msgid ""
 "compile time bugs. This is often referred to as _fearless concurrency_ since you\n"
 "can rely on the compiler to ensure correctness at runtime."
 msgstr ""
+"Rustの型システムは多くの並行性にまつわるバグをコンパイル時のバグにとどめるという点で、重要な役割を"
+"果たします。これは時に _fearless concurrency_ （「怖くない並行性」） と呼ばれます。なぜなら、コンパ"
+"イラに実行時での正しさを保証することをまかせてよいためです。"
 
 #: src/concurrency/threads.md:1
 msgid "# Threads"
-msgstr ""
+msgstr "# スレッド"
 
 #: src/concurrency/threads.md:3
 msgid "Rust threads work similarly to threads in other languages:"
-msgstr ""
+msgstr "Rustのスレッドは他の言語のスレッドと似た挙動をします:"
 
 #: src/concurrency/threads.md:5
 msgid ""
@@ -13668,6 +13671,9 @@ msgid ""
 "* Thread panics are independent of each other.\n"
 "  * Panics can carry a payload, which can be unpacked with `downcast_ref`."
 msgstr ""
+"* スレッドはすべてデーモンスレッドで、メインスレッドはそれらを待ちません。\n"
+"* スレッドパニックは互いに独立です。\n"
+"  * パニックはペイロードを保持していることがあり、それは`downcast_ref`で展開可能です。"
 
 #: src/concurrency/threads.md:32
 msgid ""
@@ -13682,14 +13688,24 @@ msgid ""
 "* Use the `Result` return value from `handle.join()` to get access to the panic\n"
 "  payload. This is a good time to talk about [`Any`]."
 msgstr ""
+"* スレッドはカウントが10に到達するまでに止められます。メインのスレッドは待機しません。\n"
+"\n"
+"* `let handle = thread::spawn(…)`と後に`handle.join()`を使って、スレッドが完了するのを待ってみてく"
+"ださい。\n"
+"\n"
+"* スレッド内でパニックを引き起こしてみて、それがどのように`main`に影響しないかを観察してみてくださ"
+"い。\n"
+"\n"
+"* `handle.join()`の返り値の`Result`を使って、パニックペイロードへのアクセスを得てみてください。\n"
+"  これは[`Any`]について話すのに良いタイミングです。"
 
 #: src/concurrency/scoped-threads.md:1
 msgid "# Scoped Threads"
-msgstr ""
+msgstr "# スコープ付きスレッド"
 
 #: src/concurrency/scoped-threads.md:3
 msgid "Normal threads cannot borrow from their environment:"
-msgstr ""
+msgstr "通常のスレッドはそれらの環境から借用することはできません:"
 
 #: src/concurrency/scoped-threads.md:5
 msgid ""
@@ -13708,7 +13724,7 @@ msgstr ""
 
 #: src/concurrency/scoped-threads.md:17
 msgid "However, you can use a [scoped thread][1] for this:"
-msgstr ""
+msgstr "しかし、そのために[スコープ付きスレッド][1]を使うことができます:"
 
 #: src/concurrency/scoped-threads.md:19
 msgid ""
@@ -13735,6 +13751,11 @@ msgid ""
 "any number of threads.\n"
 "    "
 msgstr ""
+"* この理由は、関数`thread::scope`が完了するとき、全てのスレッドはjoinされることが保証されているの"
+"で、スレッドが借用したデータを返すことができるためです。\n"
+"* 通常のRustの借用のルールが適用されます:　一つのスレッドがミュータブルで借用すること、または任意の"
+"数のスレッドからイミュータブルで借用すること。\n"
+"    "
 
 #: src/concurrency/channels.md:1
 msgid "# Channels"
