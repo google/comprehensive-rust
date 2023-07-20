@@ -9859,11 +9859,11 @@ msgstr ""
 
 #: src/unsafe.md:1
 msgid "# Unsafe Rust"
-msgstr ""
+msgstr "# 不安全的 Rust"
 
 #: src/unsafe.md:3
 msgid "The Rust language has two parts:"
-msgstr ""
+msgstr "Rust 語言包含兩個部分："
 
 #: src/unsafe.md:5
 msgid ""
@@ -9871,13 +9871,15 @@ msgid ""
 "* **Unsafe Rust:** can trigger undefined behavior if preconditions are "
 "violated."
 msgstr ""
+"* **安全的 Rust：**可確保記憶體安全，無法觸發未定義的行為。\n"
+"* **不安全的 Rust：**如果違反先決條件，便可能觸發未定義的行為。"
 
 #: src/unsafe.md:8
 msgid ""
 "We will be seeing mostly safe Rust in this course, but it's important to "
 "know\n"
 "what Unsafe Rust is."
-msgstr ""
+msgstr "雖然本課程中出現的大多都是安全的 Rust，但瞭解不安全的 Rust 也很重要。"
 
 #: src/unsafe.md:11
 msgid ""
@@ -9885,10 +9887,12 @@ msgid ""
 "carefully\n"
 "documented. It is usually wrapped in a safe abstraction layer."
 msgstr ""
+"不安全的程式碼通常都很簡短、受到隔離，而且封裝在安全的抽象層中。您應該仔細記"
+"錄這類程式碼的正確性。"
 
 #: src/unsafe.md:14
 msgid "Unsafe Rust gives you access to five new capabilities:"
-msgstr ""
+msgstr "透過不安全的 Rust，可以使用五項新功能："
 
 #: src/unsafe.md:16
 msgid ""
@@ -9898,6 +9902,11 @@ msgid ""
 "* Call `unsafe` functions, including `extern` functions.\n"
 "* Implement `unsafe` traits."
 msgstr ""
+"* 對裸指標解參考。\n"
+"* 存取或修改可變的靜態變數。\n"
+"* 存取 `union` 欄位。\n"
+"* 呼叫 `unsafe` 函式 (包括 `extern` 函式)。\n"
+"* 實作 `unsafe` 特徵。"
 
 #: src/unsafe.md:22
 msgid ""
@@ -9907,6 +9916,9 @@ msgid ""
 "unsafe-rust.html)\n"
 "and the [Rustonomicon](https://doc.rust-lang.org/nomicon/)."
 msgstr ""
+"接下來將簡單介紹不安全的功能。如需瞭解詳情，請參閱 [Rust Book 的第 19.1 章]"
+"(https://rust-lang.tw/book-tw/ch19-01-unsafe-rust.html)，以及 [Rustonomicon]"
+"(https://doc.rust-lang.org/nomicon/)。"
 
 #: src/unsafe.md:28
 msgid ""
@@ -9916,14 +9928,18 @@ msgid ""
 "themselves. It means the compiler no longer enforces Rust's memory-safety "
 "rules."
 msgstr ""
+"Unsafe Rust does not mean the code is incorrect. It means that developers "
+"have turned off the compiler safety features and have to write correct code "
+"by themselves. It means the compiler no longer enforces Rust's memory-safety "
+"rules."
 
 #: src/unsafe/raw-pointers.md:1
 msgid "# Dereferencing Raw Pointers"
-msgstr ""
+msgstr "# 對裸指標解參考"
 
 #: src/unsafe/raw-pointers.md:3
 msgid "Creating pointers is safe, but dereferencing them requires `unsafe`:"
-msgstr ""
+msgstr "建立指標相當安全，不過對指標解參考就需要使用 `unsafe`："
 
 #: src/unsafe/raw-pointers.md:5
 msgid ""
@@ -9957,12 +9973,17 @@ msgid ""
 "requirements of the unsafe\n"
 "operations it is doing."
 msgstr ""
+"It is good practice (and required by the Android Rust style guide) to write "
+"a comment for each `unsafe` block explaining how the code inside it "
+"satisfies the safety requirements of the unsafe operations it is doing."
 
 #: src/unsafe/raw-pointers.md:31
 msgid ""
 "In the case of pointer dereferences, this means that the pointers must be\n"
 "[_valid_](https://doc.rust-lang.org/std/ptr/index.html#safety), i.e.:"
 msgstr ""
+"In the case of pointer dereferences, this means that the pointers must be "
+"[_valid_](https://doc.rust-lang.org/std/ptr/index.html#safety), i.e.:"
 
 #: src/unsafe/raw-pointers.md:34
 msgid ""
@@ -9975,18 +9996,25 @@ msgid ""
 "must be live and no\n"
 "   reference may be used to access the memory."
 msgstr ""
+" * The pointer must be non-null.\n"
+"* The pointer must be _dereferenceable_ (within the bounds of a single "
+"allocated object).\n"
+"* The object must not have been deallocated.\n"
+"* There must not be concurrent accesses to the same location.\n"
+"* If the pointer was obtained by casting a reference, the underlying object "
+"must be live and no reference may be used to access the memory."
 
 #: src/unsafe/raw-pointers.md:41
 msgid "In most cases the pointer must also be properly aligned."
-msgstr ""
+msgstr "In most cases the pointer must also be properly aligned."
 
 #: src/unsafe/mutable-static-variables.md:1
 msgid "# Mutable Static Variables"
-msgstr ""
+msgstr "# 可變的靜態變數"
 
 #: src/unsafe/mutable-static-variables.md:3
 msgid "It is safe to read an immutable static variable:"
-msgstr ""
+msgstr "您可以放心讀取不可變的靜態變數："
 
 #: src/unsafe/mutable-static-variables.md:5
 msgid ""
@@ -10003,7 +10031,7 @@ msgstr ""
 msgid ""
 "However, since data races can occur, it is unsafe to read and write mutable\n"
 "static variables:"
-msgstr ""
+msgstr "不過，讀取並寫入可變的靜態變數並不安全，因為可能發生資料競爭："
 
 #: src/unsafe/mutable-static-variables.md:16
 msgid ""
@@ -10029,14 +10057,17 @@ msgid ""
 "in low-level `no_std` code, such as implementing a heap allocator or working "
 "with some C APIs."
 msgstr ""
+"Using a mutable static is generally a bad idea, but there are some cases "
+"where it might make sense in low-level `no_std` code, such as implementing a "
+"heap allocator or working with some C APIs."
 
 #: src/unsafe/unions.md:1
 msgid "# Unions"
-msgstr ""
+msgstr "# 聯合體"
 
 #: src/unsafe/unions.md:3
 msgid "Unions are like enums, but you need to track the active field yourself:"
-msgstr ""
+msgstr "聯合體和列舉很像，但您需要自行追蹤可用欄位："
 
 #: src/unsafe/unions.md:5
 msgid ""
@@ -10061,6 +10092,8 @@ msgid ""
 "are occasionally needed\n"
 "for interacting with C library APIs."
 msgstr ""
+"Unions are very rarely needed in Rust as you can usually use an enum. They "
+"are occasionally needed for interacting with C library APIs."
 
 #: src/unsafe/unions.md:24
 msgid ""
@@ -10070,10 +10103,14 @@ msgid ""
 "transmute.html) or a safe\n"
 "wrapper such as the [`zerocopy`](https://crates.io/crates/zerocopy) crate."
 msgstr ""
+"If you just want to reinterpret bytes as a different type, you probably want "
+"[`std::mem::transmute`](https://doc.rust-lang.org/stable/std/mem/fn."
+"transmute.html) or a safe wrapper such as the [`zerocopy`](https://crates.io/"
+"crates/zerocopy) crate."
 
 #: src/unsafe/calling-unsafe-functions.md:1
 msgid "# Calling Unsafe Functions"
-msgstr ""
+msgstr "# 呼叫不安全的函式"
 
 #: src/unsafe/calling-unsafe-functions.md:3
 msgid ""
@@ -10081,6 +10118,8 @@ msgid ""
 "you\n"
 "must uphold to avoid undefined behaviour:"
 msgstr ""
+"如果函式或方法具有額外先決條件，而您必須遵循這些條件才能避免未定義的行為，那"
+"麼就可以將該函式或方法標示為 `unsafe`："
 
 #: src/unsafe/calling-unsafe-functions.md:6
 msgid ""
@@ -10114,7 +10153,7 @@ msgstr ""
 
 #: src/unsafe/writing-unsafe-functions.md:1
 msgid "# Writing Unsafe Functions"
-msgstr ""
+msgstr "# 編寫不安全的函式"
 
 #: src/unsafe/writing-unsafe-functions.md:3
 msgid ""
@@ -10122,6 +10161,7 @@ msgid ""
 "conditions to avoid undefined\n"
 "behaviour."
 msgstr ""
+"如果您的函式必須滿足特定條件才能避免未定義的行為，您可以將其標示為 `unsafe`。"
 
 #: src/unsafe/writing-unsafe-functions.md:6
 msgid ""
@@ -10156,6 +10196,8 @@ msgid ""
 "We wouldn't actually use pointers for this because it can be done safely "
 "with references."
 msgstr ""
+"We wouldn't actually use pointers for this because it can be done safely "
+"with references."
 
 #: src/unsafe/writing-unsafe-functions.md:35
 msgid ""
@@ -10164,17 +10206,20 @@ msgid ""
 "prohibit this with `#[deny(unsafe_op_in_unsafe_fn)]`. Try adding it and see "
 "what happens."
 msgstr ""
+"Note that unsafe code is allowed within an unsafe function without an "
+"`unsafe` block. We can prohibit this with `#[deny(unsafe_op_in_unsafe_fn)]`. "
+"Try adding it and see what happens."
 
 #: src/unsafe/extern-functions.md:1
 msgid "# Calling External Code"
-msgstr ""
+msgstr "# 呼叫外部程式碼"
 
 #: src/unsafe/extern-functions.md:3
 msgid ""
 "Functions from other languages might violate the guarantees of Rust. "
 "Calling\n"
 "them is thus unsafe:"
-msgstr ""
+msgstr "其他語言的函式可能會違反 Rust 保證，因此呼叫這類函式並不安全："
 
 #: src/unsafe/extern-functions.md:6
 msgid ""
@@ -10200,6 +10245,9 @@ msgid ""
 "undefined behaviour under any\n"
 "arbitrary circumstances."
 msgstr ""
+"This is usually only a problem for extern functions which do things with "
+"pointers which might violate Rust's memory model, but in general any C "
+"function might have undefined behaviour under any arbitrary circumstances."
 
 #: src/unsafe/extern-functions.md:25
 msgid ""
@@ -10210,7 +10258,7 @@ msgstr ""
 
 #: src/unsafe/unsafe-traits.md:1
 msgid "# Implementing Unsafe Traits"
-msgstr ""
+msgstr "# 實作不安全的特徵"
 
 #: src/unsafe/unsafe-traits.md:3
 msgid ""
@@ -10218,6 +10266,8 @@ msgid ""
 "must guarantee\n"
 "particular conditions to avoid undefined behaviour."
 msgstr ""
+"與函式類似，如果實作程序必須保證符合特定條件才能避免未定義的行為，您可以將特"
+"徵標示為 `unsafe`。"
 
 #: src/unsafe/unsafe-traits.md:6
 msgid ""
@@ -10225,6 +10275,8 @@ msgid ""
 "[something like this](https://docs.rs/zerocopy/latest/zerocopy/trait.AsBytes."
 "html):"
 msgstr ""
+"舉例來說，`zerocopy` crate 就具有不安全的特徵，如[這個頁面](https://docs.rs/"
+"zerocopy/latest/zerocopy/trait.AsBytes.html)所示："
 
 #: src/unsafe/unsafe-traits.md:9
 msgid ""
@@ -10255,16 +10307,20 @@ msgid ""
 "the requirements for\n"
 "the trait to be safely implemented."
 msgstr ""
+"There should be a `# Safety` section on the Rustdoc for the trait explaining "
+"the requirements for the trait to be safely implemented."
 
 #: src/unsafe/unsafe-traits.md:33
 msgid ""
 "The actual safety section for `AsBytes` is rather longer and more "
 "complicated."
 msgstr ""
+"The actual safety section for `AsBytes` is rather longer and more "
+"complicated."
 
 #: src/unsafe/unsafe-traits.md:35
 msgid "The built-in `Send` and `Sync` traits are unsafe."
-msgstr ""
+msgstr "The built-in `Send` and `Sync` traits are unsafe."
 
 #: src/exercises/day-3/afternoon.md:1
 msgid "# Day 3: Afternoon Exercises"
