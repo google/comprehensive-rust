@@ -51,4 +51,3 @@ Notes on stack returns:
 </details>
 
 [Playground]: https://play.rust-lang.org/
-[Godbolt]: https://rust.godbolt.org/
