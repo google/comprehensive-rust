@@ -1,6 +1,7 @@
 # Summary
 
 [Welcome to Comprehensive Rust 🦀](welcome.md)
+
 - [Running the Course](running-the-course.md)
   - [Course Structure](running-the-course/course-structure.md)
   - [Keyboard Shortcuts](running-the-course/keyboard-shortcuts.md)
@@ -10,10 +11,9 @@
   - [Code Samples](cargo/code-samples.md)
   - [Running Cargo Locally](cargo/running-locally.md)
 
-
 # Day 1: Morning
 
-----
+---
 
 - [Welcome](welcome-day-1.md)
   - [What is Rust?](welcome-day-1/what-is-rust.md)
@@ -67,10 +67,9 @@
   - [Storing Books](exercises/day-1/book-library.md)
   - [Iterators and Ownership](exercises/day-1/iterators-and-ownership.md)
 
-
 # Day 2: Morning
 
-----
+---
 
 - [Welcome](welcome-day-2.md)
 - [Structs](structs.md)
@@ -120,10 +119,9 @@
   - [Luhn Algorithm](exercises/day-2/luhn.md)
   - [Strings and Iterators](exercises/day-2/strings-iterators.md)
 
-
 # Day 3: Morning
 
-----
+---
 
 - [Welcome](welcome-day-3.md)
 - [Generics](generics.md)
@@ -177,10 +175,9 @@
 - [Exercises](exercises/day-3/afternoon.md)
   - [Safe FFI Wrapper](exercises/day-3/safe-ffi-wrapper.md)
 
-
 # Android
 
-----
+---
 
 - [Welcome](android.md)
 - [Setup](android/setup.md)
@@ -203,10 +200,9 @@
   - [With Java](android/interoperability/java.md)
 - [Exercises](exercises/android/morning.md)
 
-
 # Bare Metal: Morning
 
-----
+---
 
 - [Welcome](bare-metal.md)
 - [no_std](bare-metal/no_std.md)
@@ -253,10 +249,9 @@
 - [Exercises](exercises/bare-metal/afternoon.md)
   - [RTC Driver](exercises/bare-metal/rtc.md)
 
-
 # Concurrency: Morning
 
-----
+---
 
 - [Welcome](concurrency.md)
 - [Threads](concurrency/threads.md)
@@ -298,25 +293,26 @@
   - [Broadcast Chat Application](exercises/concurrency/chat-app.md)
 
 # WebAssembly
-----
+
+---
+
 - [WebAssembly basics](webassembly.md)
-  - [Load a WASM module](webassembly/load-wasm-module.md)
-  - [Expose a method](webassembly/expose-method.md)
-  - [Expose user-defined Rust types](webassembly/expose-rust-type.md)
-  - [Borrow Checker](webassembly/borrow-checker.md)
+- [Load a WASM module](webassembly/load-wasm-module.md)
+- [Expose a method](webassembly/expose-method.md)
+- [Expose user-defined Rust types](webassembly/expose-rust-type.md)
+- [Borrow Checker](webassembly/borrow-checker.md)
 
 # Final Words
 
-----
+---
 
 - [Thanks!](thanks.md)
 - [Other Resources](other-resources.md)
 - [Credits](credits.md)
 
-
 # Solutions
 
-----
+---
 
 - [Solutions](exercises/solutions.md)
   - [Day 1 Morning](exercises/day-1/solutions-morning.md)
