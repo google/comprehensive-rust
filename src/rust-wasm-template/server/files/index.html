@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebAssembly Template</title>
+    <style>
+        @font-face {
+            font-family: SourceCodePro;
+            src: url(/font.otf);
+        }
+
+        body {
+            background-color: #282c34;
+            font-family: "SourceCodePro";
+        }
+
+        h1 {
+            margin-left: 40px;
+            max-width: 530px;
+            color: #ca6568;
+        }
+
+        i {
+            color: #ca6568;
+        }
+
+        p, ul {
+            margin-left: 40px;
+            max-width: 530px;
+            text-align: justify;
+            color: #99a0ab;
+        }
+
+        li {
+            color: #ca6568;
+            background-color: #31363f;
+            margin-bottom: 20px;
+            max-width: 470px;
+            padding: 10px;
+        }
+
+        a {
+            color: #5fade9;
+        }
+
+        button {
+            background-color: #99a0ab;
+            width: 200px;
+            padding: 5px 0;
+            margin-left: calc(50% - 100px - 11px);
+            border-radius: 5px;
+            border: 0;
+            cursor: pointer;
+            transition: 1s;
+        }
+
+        button:hover {
+            background-color: #282c34;
+            color: white;
+        }
+
+        input, select {
+            float: right;
+            width: 150px;
+            padding: 5px;
+            background-color: #31363f;
+            border: 1px solid #99a0ab;
+            color: #99a0ab;
+            border-radius: 4px;
+        }
+
+        #wasmoutput {
+            background-color: aliceblue;
+            color: #282c34;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+<h1>
+    WebAssembly Template
+</h1>
+<p>
+    This repository contains the minimum amount of code needed to experiment with WebAssembly. Including a web server to serve the HTML and WASM as well as the javascript boilerplate needed to load WASM.
+</p>
+<p>
+    Edit <a href="">server/files/index.mjs</a> to edit the Javascript.
+</p>
+<p>
+WASM output: <span id="wasmoutput" />
+</p>
+<script type="module" src="/files/index.mjs"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+# rust-wasm-template
+
+This repository contains the minimum amount of code needed to experiment with WebAssembly. Including a web server to serve the HTML and WASM as well as the javascript boilerplate needed to load WASM.
+
+- `/server` contains the Web server as well as the static files
+- `/project` contains the Rust code
+
+## Installation
+
+Note: If you are running from a devcontainer, you only need to install wasm-pack.
+
+### Rust
+
+Recommended:
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+Alternatively, see the [installation page](https://www.rust-lang.org/tools/install).
+
+### wasm-pack
+
+Recommended:
+```
+curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+```
+
+Alternatively, see the [installation page](https://rustwasm.github.io/wasm-pack/installer/).
+
+## Run the local server
+
+```
+cd server
+
+cargo run
+```
+
+- On a devcontainer, go to `PORTS` and open the link under `Local Address` for Port `8080`
+- Locally, visit http://localhost:8080
+
+## Build WASM and copy target to the correct path
+
+```
+cd project
+
+wasm-pack build --target web && cp -r pkg ../server                                     
+```
+
+This command needs to be re-run to view your latest changes.
