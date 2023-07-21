@@ -6,37 +6,6 @@ Rust is often considered as one of the best languages to compile to WebAssembly 
 
 # Setting up the environment
 
+There are multiple frameworks to create WASM libraries from Rust. We will focus on [wasm-pack](https://rustwasm.github.io/docs/wasm-pack/introduction.html) and [wasm-bindgen](https://rustwasm.github.io/wasm-bindgen/).
+
 WebAssembly needs to be run in a Browser or a VM, therefore we will use a different set up for this class. Please navigate to [rust-wasm-template](https://github.com/google/comprehensive-rust/tree/main/src/rust-wasm-template) to view the installation instructions. Feel free to either clone the repository to run it locally, or open a new [Codespace on Github](https://codespaces.new/google/comprehensive-rust)
-
-## Install wasm-pack
-
-Recommended:
-
-```shell
-curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
-```
-
-Alternatively, see the [installation page](https://rustwasm.github.io/wasm-pack/installer/).
-
-## Run the local server
-
-WebAssembly cannot be loaded from the `files://` protocol yet, so we need to spawn a Web server to serve the different files.
-
-```shell
-cd server
-
-cargo run
-```
-
-- On a devcontainer, go to `PORTS` and open the link under `Local Address` for Port `8080`
-- Locally, visit http://localhost:8080
-
-## Build WASM and copy target to the correct path
-
-This command needs to be re-run to view your latest changes.
-
-```shell
-cd project
-
-wasm-pack build --target web && cp -r pkg ../server
-```

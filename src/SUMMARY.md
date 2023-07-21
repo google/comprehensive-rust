@@ -300,6 +300,7 @@
 # WebAssembly
 ----
 - [WebAssembly basics](webassembly.md)
+  - [Load a WASM module](webassembly/load-wasm-module.md)
 
 # Final Words
 
