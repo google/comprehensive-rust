@@ -297,6 +297,9 @@
   - [Dining Philosophers](exercises/concurrency/dining-philosophers-async.md)
   - [Broadcast Chat Application](exercises/concurrency/chat-app.md)
 
+# WebAssembly
+----
+- [WebAssembly basics](webassembly.md)
 
 # Final Words
 
