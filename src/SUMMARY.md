@@ -299,6 +299,7 @@
 - [WebAssembly basics](webassembly.md)
 - [Load a WASM module](webassembly/load-wasm-module.md)
 - [Import Method](webassembly/import-method.md)
+  - [web-sys](webassembly/web-sys.md)
 - [Expose a method](webassembly/expose-method.md)
 - [Expose user-defined Rust types](webassembly/expose-rust-type.md)
 - [Borrow Checker](webassembly/borrow-checker.md)
