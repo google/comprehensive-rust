@@ -3,10 +3,8 @@
 Rust enums are packed tightly, taking constraints due to alignment into account:
 
 ```rust,editable
-use std::{
-    any::type_name,
-    mem::{align_of, size_of},
-};
+use std::any::type_name;
+use std::mem::{align_of, size_of};
 
 fn dbg_size<T>() {
     println!("{}: size {} bytes, align: {} bytes",
