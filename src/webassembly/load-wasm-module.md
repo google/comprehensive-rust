@@ -1,7 +1,29 @@
 # Load a WASM module
 
+## Commands to run:
+
+You can compile the basic WASM library provided in [rust-wasm-template](https://github.com/google/comprehensive-rust/tree/main/src/rust-wasm-template) with this command:
+
+```shell
+cd src/rust-wasm-template/project
+
+wasm-pack build --target web && cp -r pkg ../server
+```
+
+You can start the web server provided in [rust-wasm-template](https://github.com/google/comprehensive-rust/tree/main/src/rust-wasm-template) with this command:
+
+
+```shell
+cd src/rust-wasm-template/server
+
+cargo run
+```
+
+Open the web page on port `8080`. HTML and JS files are provided at [rust-wasm-template/server](https://github.com/google/comprehensive-rust/tree/main/src/rust-wasm-template/server/files).
+
+## Javascript
+
 Once you have compiled your WebAssembly module, you want to call it from your Web application.
-This chapter will cover minimum amount of Javascript required to load a WASM module into a Web application.
 
 ```javascript
 // Import the module and the exported method `add`

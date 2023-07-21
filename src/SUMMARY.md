@@ -301,6 +301,7 @@
 ----
 - [WebAssembly basics](webassembly.md)
   - [Load a WASM module](webassembly/load-wasm-module.md)
+  - [Expose a method](webassembly/expose-method.md)
 
 # Final Words
 
