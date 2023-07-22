@@ -5876,11 +5876,11 @@ msgstr ""
 
 #: src/structs.md:1
 msgid "# Structs"
-msgstr ""
+msgstr "# 结构体"
 
 #: src/structs.md:3
 msgid "Like C and C++, Rust has support for custom structs:"
-msgstr ""
+msgstr "与 C 和 C++ 一样，Rust 支持自定义结构体："
 
 #: src/structs.md:5
 msgid ""
@@ -5936,11 +5936,11 @@ msgstr ""
 
 #: src/structs/tuple-structs.md:1
 msgid "# Tuple Structs"
-msgstr ""
+msgstr "# 元组结构体"
 
 #: src/structs/tuple-structs.md:3
 msgid "If the field names are unimportant, you can use a tuple struct:"
-msgstr ""
+msgstr "如果字段名称不重要，您可以使用元组结构体："
 
 #: src/structs/tuple-structs.md:5
 msgid ""
@@ -5956,7 +5956,7 @@ msgstr ""
 
 #: src/structs/tuple-structs.md:14
 msgid "This is often used for single-field wrappers (called newtypes):"
-msgstr ""
+msgstr "这通常用于单字段封装容器（称为 newtype）："
 
 #: src/structs/tuple-structs.md:16
 msgid ""
@@ -5997,13 +5997,13 @@ msgstr ""
 
 #: src/structs/field-shorthand.md:1
 msgid "# Field Shorthand Syntax"
-msgstr ""
+msgstr "# 字段简写语法"
 
 #: src/structs/field-shorthand.md:3
 msgid ""
 "If you already have variables with the right names, then you can create the\n"
 "struct using a shorthand:"
-msgstr ""
+msgstr "如果您已有名称正确的变量，则可以使用简写形式创建结构体："
 
 #: src/structs/field-shorthand.md:6
 msgid ""
@@ -20683,3 +20683,31 @@ msgstr ""
 "  * 它必须是来自这两个输入中的一个（或来自一个全局变量）。\n"
 "  * 是哪一个呢？编译器需要知道这一点，因此在调用点，返回的引用\n"
 "的使用时间不会超过引用的来源中的变量。"
+
+#: src/structs/tuple-structs.md:37
+msgid ""
+"* Newtypes are a great way to encode additional information about the value "
+"in a primitive type, for example:\n"
+"  * The number is measured in some units: `Newtons` in the example above.\n"
+"  * The value passed some validation when it was created, so you no longer "
+"have to validate it again at every use: 'PhoneNumber(String)` or "
+"`OddNumber(u32)`.\n"
+"* Demonstrate how to add a `f64` value to a `Newtons` type by accessing the "
+"single field in the newtype.\n"
+"  *  Rust generally doesn’t like inexplicit things, like automatic "
+"unwrapping or for instance using booleans as integers.\n"
+"  *  Operator overloading is discussed on Day 3 (generics).\n"
+"* The example is a subtle reference to the [Mars Climate Orbiter](https://en."
+"wikipedia.org/wiki/Mars_Climate_Orbiter) failure."
+msgstr ""
+"* 如需对基元类型中的值的额外信息进行编码，使用 newtype 是一种非常好的方式，例"
+"如：\n"
+"  * 数字会以某些单位来衡量：上方示例中为 `Newtons`。\n"
+"  * 值在创建时已通过一些验证，因此您不再需要在每次使用时都再次验证它："
+"`PhoneNumber(String)` 或 `OddNumber(u32)`。\n"
+"* 展示如何通过访问 newtype 中的单个字段，将 `f64` 值添加到 `Newtons` 类型。\n"
+"  *  Rust 通常不喜欢不明确的内容，例如自动解封或将布尔值用作整数。\n"
+"  *  运算符过载在第 3 天（泛型）讨论。\n"
+"* 此示例巧妙地引用了[火星气候探测者号](https://zh.wikipedia.org/wiki/"
+"%E7%81%AB%E6%98%9F%E6%B0%A3%E5%80%99%E6%8E%A2%E6%B8%AC%E8%80%85%E8%99%9F) 的"
+"失败事故。"
