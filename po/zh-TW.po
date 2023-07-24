@@ -8147,12 +8147,12 @@ msgstr ""
 
 #: src/traits.md:1
 msgid "# Traits"
-msgstr ""
+msgstr "# 特徵"
 
 #: src/traits.md:3
 msgid ""
 "Rust lets you abstract over types with traits. They're similar to interfaces:"
-msgstr ""
+msgstr "Rust 可讓您依據特徵對型別進行抽象化處理，這與介面相似："
 
 #: src/traits.md:5
 msgid ""
@@ -8196,13 +8196,13 @@ msgstr ""
 
 #: src/traits/trait-objects.md:1
 msgid "# Trait Objects"
-msgstr ""
+msgstr "# 特徵物件"
 
 #: src/traits/trait-objects.md:3
 msgid ""
 "Trait objects allow for values of different types, for instance in a "
 "collection:"
-msgstr ""
+msgstr "特徵物件可接受不同型別的值，舉例來說，在集合中會是這樣："
 
 #: src/traits/trait-objects.md:5
 msgid ""
@@ -8244,7 +8244,7 @@ msgstr ""
 
 #: src/traits/trait-objects.md:40
 msgid "Memory layout after allocating `pets`:"
-msgstr ""
+msgstr "以下是分配 `pets` 後的記憶體配置："
 
 #: src/traits/trait-objects.md:42
 msgid ""
@@ -8321,11 +8321,11 @@ msgstr ""
 
 #: src/traits/deriving-traits.md:1
 msgid "# Deriving Traits"
-msgstr ""
+msgstr "# 衍生特徵"
 
 #: src/traits/deriving-traits.md:3
 msgid "You can let the compiler derive a number of traits:"
-msgstr ""
+msgstr "您可以讓編譯器衍生多種特徵："
 
 #: src/traits/deriving-traits.md:5
 msgid ""
@@ -8348,11 +8348,11 @@ msgstr ""
 
 #: src/traits/default-methods.md:1
 msgid "# Default Methods"
-msgstr ""
+msgstr "# 預設方法"
 
 #: src/traits/default-methods.md:3
 msgid "Traits can implement behavior in terms of other trait methods:"
-msgstr ""
+msgstr "特徵可以依照其他特徵方法來實作行為："
 
 #: src/traits/default-methods.md:5
 msgid ""
@@ -8419,7 +8419,7 @@ msgstr ""
 
 #: src/traits/trait-bounds.md:1
 msgid "# Trait Bounds"
-msgstr ""
+msgstr "# 特徵界限"
 
 #: src/traits/trait-bounds.md:3
 msgid ""
@@ -8427,10 +8427,12 @@ msgid ""
 "implement\n"
 "some trait, so that you can call this trait's methods."
 msgstr ""
+"使用泛型時，您通常會需要該型別實作\n"
+" 某些特徵，這樣才能呼叫該特徵的方法。"
 
 #: src/traits/trait-bounds.md:6
 msgid "You can do this with `T: Trait` or `impl Trait`:"
-msgstr ""
+msgstr "您可以使用 `T: Trait` 或 `impl Trait` 執行此操作："
 
 #: src/traits/trait-bounds.md:8
 msgid ""
@@ -8462,7 +8464,7 @@ msgstr ""
 
 #: src/traits/trait-bounds.md:35
 msgid "Show a `where` clause, students will encounter it when reading code."
-msgstr ""
+msgstr "顯示 `where` 子句，學生在閱讀程式碼時會看到此內容。"
 
 #: src/traits/trait-bounds.md:37
 msgid ""
@@ -8475,6 +8477,14 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,ignore\n"
+"fn duplicate<T>(a: T) -> (T, T)\n"
+"where\n"
+"    T: Clone,\n"
+"{\n"
+"    (a.clone(), a.clone())\n"
+"}\n"
+"```"
 
 #: src/traits/trait-bounds.md:46
 msgid ""
@@ -8484,16 +8494,23 @@ msgid ""
 "\" can be arbitrary, like `Option<T>`.\n"
 "    "
 msgstr ""
+"* 如果您有多個參數，這個子句可以整理函式簽名。\n"
+"* 這個子句具有額外功能，因此效能也更強大。\n"
+"    * 如果有人提問，請說明額外功能是指 \":\" 左側的類別可為任意值，例如 "
+"`Option<T>`。\n"
+"    "
 
 #: src/traits/impl-trait.md:1
 msgid "# `impl Trait`"
-msgstr ""
+msgstr "# `impl Trait`"
 
 #: src/traits/impl-trait.md:3
 msgid ""
 "Similar to trait bounds, an `impl Trait` syntax can be used in function\n"
 "arguments and return values:"
 msgstr ""
+"與特徵界限類似，`impl Trait` 語法可用於\n"
+"函式引數和回傳值中："
 
 #: src/traits/impl-trait.md:6
 msgid ""
@@ -8513,12 +8530,12 @@ msgstr ""
 
 #: src/traits/impl-trait.md:19
 msgid "* `impl Trait` allows you to work with types which you cannot name."
-msgstr ""
+msgstr "* `impl Trait` 可讓您使用無法命名的型別。"
 
 #: src/traits/impl-trait.md:23
 msgid ""
 "The meaning of `impl Trait` is a bit different in the different positions."
-msgstr ""
+msgstr "`impl Trait` 的涵義會因使用位置而有些微不同。"
 
 #: src/traits/impl-trait.md:25
 msgid ""
@@ -8540,6 +8557,18 @@ msgid ""
 "x:\n"
 "  Vec<_> = foo.collect()` or with the turbofish, `foo.collect::<Vec<_>>()`."
 msgstr ""
+"* 對參數來說，`impl Trait` 就像是具有特徵界限的匿名泛型參數。\n"
+"\n"
+"* 對回傳型別來說，`impl Trait` 代表回傳型別就是實作特徵的\n"
+"某些具體型別，因而不必指名特定型別。如果您不想在公用 API 中公開具體型別，\n"
+"這就非常有用。\n"
+"\n"
+"在回傳位置進行推論並不容易。回傳 `impl Foo` 的函式\n"
+"會挑選自身回傳的具體型別，而不必在來源中寫出此資訊。回傳泛型型別\n"
+" (例如 `collect<B>() -> B`) 的函式則可回傳\n"
+"符合 `B` 的任何型別\n"
+"，而呼叫端可能需要選擇一個型別，例如使用 `let x: Vec<_> = foo.collect()` 或 "
+"Turbofish：`foo.collect::<Vec<_>>()`。"
 
 #: src/traits/impl-trait.md:37
 msgid ""
@@ -8555,16 +8584,22 @@ msgid ""
 "we'd need two\n"
 "independent generic parameters."
 msgstr ""
+"這個例子非常好，因為 `impl Display` 使用了兩次。這有助於說明此處沒有\n"
+"任何項目會強制使用「相同的」`impl Display` 型別。如果我們使用單一的 \n"
+"`T: Display`，則會強制限制「輸入」`T` 和「回傳」`T` 屬於同一型別。\n"
+"但這並不適合這個特定函式，因為我們預期做為「輸入」的型別不一定\n"
+"會是 `format!` 回傳的內容。如要透過 `: Display` 語法執行相同操作，我們會\n"
+"需要兩個獨立的泛型參數。"
 
 #: src/traits/important-traits.md:1
 msgid "# Important Traits"
-msgstr ""
+msgstr "# 重要特徵"
 
 #: src/traits/important-traits.md:3
 msgid ""
 "We will now look at some of the most common traits of the Rust standard "
 "library:"
-msgstr ""
+msgstr "現在來探討 Rust 標準程式庫最常見的幾個特徵："
 
 #: src/traits/important-traits.md:5
 msgid ""
@@ -8575,14 +8610,20 @@ msgid ""
 "* [`Drop`][9] used for defining destructors.\n"
 "* [`Default`][10] used to construct a default instance of a type."
 msgstr ""
+"* [`Iterator`][1] 和 [`IntoIterator`][2] 用於 `for` 迴圈。\n"
+"* [`From`][3] 和 [`Into`][4] 用來轉換值。\n"
+"* [`Read`][5] 和 [`Write`][6] 用於 IO。\n"
+"* [`Add`][7]、[`Mul`][8] 等用於運算子超載。\n"
+"* [`Drop`][9] 用於定義解構函式。\n"
+"* [`Default`][10] 用於建構型別的預設執行個體。"
 
 #: src/traits/iterator.md:1
 msgid "# Iterators"
-msgstr ""
+msgstr "# 疊代器"
 
 #: src/traits/iterator.md:3
 msgid "You can implement the [`Iterator`][1] trait on your own types:"
-msgstr ""
+msgstr "您可以自行在型別上實作 [`Iterator`][1] 特徵："
 
 #: src/traits/iterator.md:5
 msgid ""
@@ -8629,15 +8670,25 @@ msgid ""
 "  you can iterate over a vector with `for i in some_vec { .. }` but\n"
 "  `some_vec.next()` doesn't exist."
 msgstr ""
+"*`Iterator` 特徵會對集合實作許多常見的函式程式操作，\n"
+"例如 `map`、`filter`、`reduce` 等等。您可以藉由此特徵找出\n"
+"所有相關的說明文件。在 Rust 中，這些函式會產生程式碼，且應與對應的命令式\n"
+"實作項目一樣有效率。\n"
+"    \n"
+"*`IntoIterator` 是迫使 for 迴圈運作的特徵。此特徵由集合型別\n"
+"(例如 `Vec<T>`) 和相關參照 (`&Vec<T>` 與 `&[T]`) 實作而成。此外，範圍也會實作"
+"這項特徵。這就說明了\n"
+"您為何可以透過 `for i in some_vec { .. }` 對向量進行疊代，即使沒有 \n"
+"`some_vec.next()` 也無妨。"
 
 #: src/traits/from-iterator.md:1
 msgid "# FromIterator"
-msgstr ""
+msgstr "# FromIterator"
 
 #: src/traits/from-iterator.md:3
 msgid ""
 "[`FromIterator`][1] lets you build a collection from an [`Iterator`][2]."
-msgstr ""
+msgstr "[`FromIterator`][1] 可讓您透過 [`Iterator`][2] 建構集合。"
 
 #: src/traits/from-iterator.md:5
 msgid ""
@@ -8660,21 +8711,28 @@ msgid ""
 "    B: FromIterator<Self::Item>,\n"
 "    Self: Sized`"
 msgstr ""
+"`Iterator` implements\n"
+"`fn collect<B>(self) -> B\n"
+"where\n"
+"    B: FromIterator<Self::Item>,\n"
+"    Self: Sized`"
 
 #: src/traits/from-iterator.md:23
 msgid ""
 "There are also implementations which let you do cool things like convert an\n"
 "`Iterator<Item = Result<V, E>>` into a `Result<Vec<V>, E>`."
 msgstr ""
+"您也可以利用部分實作項目完成某些酷炫操作，例如將\n"
+"`Iterator<Item = Result<V, E>>` 轉換成 `Result<Vec<V>, E>`。"
 
 #: src/traits/from-into.md:1
 msgid "# `From` and `Into`"
-msgstr ""
+msgstr "# `From` 和 `Into`"
 
 #: src/traits/from-into.md:3
 msgid ""
 "Types implement [`From`][1] and [`Into`][2] to facilitate type conversions:"
-msgstr ""
+msgstr "型別會實作 [`From`][1] 和 [`Into`][2] 以利型別轉換作業執行："
 
 #: src/traits/from-into.md:5
 msgid ""
@@ -8692,7 +8750,7 @@ msgstr ""
 #: src/traits/from-into.md:15
 msgid ""
 "[`Into`][2] is automatically implemented when [`From`][1] is implemented:"
-msgstr ""
+msgstr "實作 [`From`][1] 時，[`Into`][2] 也會自動實作："
 
 #: src/traits/from-into.md:17
 msgid ""
@@ -8717,15 +8775,20 @@ msgid ""
 "_only_ implement `Into`.\n"
 "    "
 msgstr ""
+"* 這就是為什麼通常只需實作 `From`，因為型別也會實作 `Into`。\n"
+"* 如要宣告函式引數輸入型別 (例如「任何可轉換成 `String` 的型別」)，規則便會相"
+"反，此時請使用 `Into`。\n"
+"您的函式會接受實作 `From` 的類型，以及「僅」實作 `Into` 的型別。\n"
+"    "
 
 #: src/traits/read-write.md:1
 msgid "# `Read` and `Write`"
-msgstr ""
+msgstr "# `Read` 和 `Write`"
 
 #: src/traits/read-write.md:3
 msgid ""
 "Using [`Read`][1] and [`BufRead`][2], you can abstract over `u8` sources:"
-msgstr ""
+msgstr "使用 [`Read`][1] 和 [`BufRead`][2] 即可對 `u8` 來源進行抽象化處理："
 
 #: src/traits/read-write.md:5
 msgid ""
@@ -8750,7 +8813,7 @@ msgstr ""
 
 #: src/traits/read-write.md:23
 msgid "Similarly, [`Write`][3] lets you abstract over `u8` sinks:"
-msgstr ""
+msgstr "同樣地，[`Write`][3] 則可讓您將 `u8` 接收器抽象化："
 
 #: src/traits/read-write.md:25
 msgid ""
@@ -8774,13 +8837,13 @@ msgstr ""
 
 #: src/traits/drop.md:1
 msgid "# The `Drop` Trait"
-msgstr ""
+msgstr "# `Drop` 特徵"
 
 #: src/traits/drop.md:3
 msgid ""
 "Values which implement [`Drop`][1] can specify code to run when they go out "
 "of scope:"
-msgstr ""
+msgstr "如果值實作了 [`Drop`][1]，即可在超出範圍時指定要執行哪個程式碼："
 
 #: src/traits/drop.md:5
 msgid ""
@@ -8814,7 +8877,7 @@ msgstr ""
 
 #: src/traits/drop.md:34 src/traits/operators.md:26
 msgid "Discussion points:"
-msgstr ""
+msgstr "討論要點："
 
 #: src/traits/drop.md:36
 msgid ""
@@ -8825,14 +8888,20 @@ msgid ""
 "        overflow!\n"
 "* Try replacing `drop(a)` with `a.drop()`."
 msgstr ""
+"* 為什麼 `Drop::drop` 不使用 `self`？\n"
+"    * 簡答：如果這樣的話，系統會在\n"
+"區塊結尾呼叫 `std::mem::drop`，進而觸發另一個對 `Drop::drop` 的呼叫並造成堆"
+"疊\n"
+"溢位！\n"
+"* 請嘗試將 `drop(a)` 替換為 `a.drop()`。"
 
 #: src/traits/default.md:1
 msgid "# The `Default` Trait"
-msgstr ""
+msgstr "# `Default` 特徵"
 
 #: src/traits/default.md:3
 msgid "[`Default`][1] trait produces a default value for a type."
-msgstr ""
+msgstr "[`Default`][1] 特徵會產生型別的預設值。"
 
 #: src/traits/default.md:5
 msgid ""
@@ -8883,14 +8952,21 @@ msgid ""
 "  * Rust standard library is aware that types can implement `Default` and "
 "provides convenience methods that use it."
 msgstr ""
+"  * 這可以直接實作，也可以透過 `#[derive(Default)]` 衍生得出。\n"
+"  * 衍生的實作項目會產生一個執行個體，其中欄位全都設為預設值。\n"
+"    * 也就是說，該結構體中的所有型別也都必須實作 `Default`。\n"
+"  * 標準的 Rust 型別通常會以合理的值 (例如 `0`、`\"\"` 等等) 實作 "
+"`Default`。\n"
+"  * 部分結構體副本可與預設值完美搭配運作。\n"
+"  * Rust 標準程式庫瞭解型別可能會實作 `Default`，因此提供了便利的使用方式。"
 
 #: src/traits/operators.md:1
 msgid "# `Add`, `Mul`, ..."
-msgstr ""
+msgstr "# `Add`、`Mul`..."
 
 #: src/traits/operators.md:3
 msgid "Operator overloading is implemented via traits in [`std::ops`][1]:"
-msgstr ""
+msgstr "運算子超載會透過 [`std::ops`][1]: 內的特徵實作："
 
 #: src/traits/operators.md:5
 msgid ""
@@ -8934,10 +9010,21 @@ msgid ""
 "* You could implement `Add` for two different types, e.g.\n"
 "  `impl Add<(i32, i32)> for Point` would add a tuple to a `Point`."
 msgstr ""
+"* 您可以針對 `&Point` 實作 `Add`。但這能在哪些情況派上用場？\n"
+"    * 回答：`Add:add` 會耗用 `self`。如果您要\n"
+"超載運算子的型別 `T` 不是 `Copy`，建議您一併為 `&T`\n"
+"超載運算子。這可避免呼叫\n"
+"點中出現不必要的複製作業。\n"
+"* 為什麼 `Output` 是關聯型別？可將其用做方法的型別參數嗎？\n"
+"    * 簡答：函式型別參數是由呼叫端控管，但\n"
+"`Output` 這類關聯型別則由\n"
+"特徵實作者控管。\n"
+"* 您可以針對兩種不同型別實作 `Add`，\n"
+"舉例來說，`impl Add<(i32, i32)> for Point` 會將元組新增至 `Point`。"
 
 #: src/traits/closures.md:1
 msgid "# Closures"
-msgstr ""
+msgstr "# 閉包"
 
 #: src/traits/closures.md:3
 msgid ""
@@ -8947,6 +9034,10 @@ msgid ""
 "[`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), and\n"
 "[`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html) traits:"
 msgstr ""
+"無論是閉包還是 lambda 運算式，都含有無法命名的型別。不過，這兩者\n"
+"都會實作特殊的 [`Fn`](https://doc.rust-lang.org/std/ops/trait.Fn.html)、\n"
+"[`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html) 和\n"
+"[`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html) 特徵："
 
 #: src/traits/closures.md:8
 msgid ""
@@ -8985,7 +9076,7 @@ msgid ""
 "be called multiple times concurrently."
 msgstr ""
 
-#: src/traits/closures.md:32
+#: src/traits/closures.md:43
 msgid ""
 "`FnMut` is a subtype of `FnOnce`. `Fn` is a subtype of `FnMut` and `FnOnce`. "
 "I.e. you can use an\n"
@@ -8993,6 +9084,10 @@ msgid ""
 "an `FnMut` or `FnOnce`\n"
 "is called for."
 msgstr ""
+"`FnMut` 是 `FnOnce` 的子型別，而 `Fn` 是 `FnMut` 和 `FnOnce` 的子型別。換句話"
+"說，您可以在任何需要呼叫 `FnOnce` 的地方使用\n"
+"`FnMut`，而在任何需要呼叫 `FnMut` 或 `FnOnce` 的地方\n"
+"使用 `Fn`。"
 
 #: src/traits/closures.md:36
 msgid "`move` closures only implement `FnOnce`."
@@ -19598,3 +19693,49 @@ msgstr ""
 "  *  運算子超載會在第 3 天 (泛型) 討論。\n"
 "* 此範例巧妙地以 [Mars Climate Orbiter](https://en.wikipedia.org/wiki/"
 "Mars_Climate_Orbiter) 的失敗經驗做為參照。"
+
+#: src/traits/closures.md:34
+msgid ""
+"An `Fn` (e.g. `add_3`) neither consumes nor mutates captured values, or "
+"perhaps captures\n"
+"nothing at all. It can be called multiple times concurrently."
+msgstr ""
+"`Fn` (例如 `add_3`) 既不會耗用也不會修改擷取的值，或許\n"
+"也可說是不會擷取任何值，因此可以多次並行呼叫。"
+
+#: src/traits/closures.md:37
+msgid ""
+"An `FnMut` (e.g. `accumulate`) might mutate captured values. You can call it "
+"multiple times,\n"
+"but not concurrently."
+msgstr ""
+"`FnMut` (例如 `accumulate`) 可能會修改擷取的值，因此可以多次呼叫\n"
+" (但不得並行呼叫)。"
+
+#: src/traits/closures.md:40
+msgid ""
+"If you have an `FnOnce` (e.g. `multiply_sum`), you may only call it once. It "
+"might consume\n"
+"captured values."
+msgstr ""
+"如果是 `FnOnce` (例如`multiply_sum`)，也許就只能呼叫一次，因為這可能會耗用\n"
+"擷取的值。"
+
+#: src/traits/closures.md:47
+msgid ""
+"The compiler also infers `Copy` (e.g. for `add_3`) and `Clone` (e.g. "
+"`multiply_sum`),\n"
+"depending on what the closure captures."
+msgstr ""
+"編譯器也會根據閉包擷取到的內容來推論 `Copy` (例如針對 `add_3`) 和 `Clone` (例"
+"如 `multiply_sum`)."
+
+#: src/traits/closures.md:50
+msgid ""
+"By default, closures will capture by reference if they can. The `move` "
+"keyword makes them capture\n"
+"by value."
+msgstr ""
+"根據預設，閉包會依據參照來擷取內容 (如果可行的話)。`move` 關鍵字則可讓閉包根"
+"據值\n"
+"來擷取內容。"
