@@ -42,6 +42,6 @@ fn main() {
 - While _technically_, Rust does not have custom constructors, static methods are commonly used to initialize structs (but don't have to).
   The actual constructor, `Rectangle { width, height }`, could be called directly. See the [Rustnomicon](https://doc.rust-lang.org/nomicon/constructors.html).
 
-- Add a `Rectangle::new_square(width: u32)` constructor to illustrate that such static methods can take arbitrary parameters.
+- Add a `Rectangle::square(width: u32)` constructor to illustrate that such static methods can take arbitrary parameters.
 
 </details>
