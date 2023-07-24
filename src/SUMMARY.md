@@ -298,11 +298,13 @@
 
 - [WebAssembly basics](webassembly.md)
 - [Load a WASM module](webassembly/load-wasm-module.md)
-- [Import Method](webassembly/import-method.md)
-  - [web-sys](webassembly/web-sys.md)
 - [Expose a method](webassembly/expose-method.md)
-- [Error handling](webassembly/error-handling.md)
+  - [Error handling for exposed methods](webassembly/expose-method/error-handling.md)
+- [Import Method](webassembly/import-method.md)
+  - [Error handling for imported methods](webassembly/import-method/error-handling.md)
+  - [web-sys](webassembly/import-method/web-sys.md)
 - [Expose user-defined Rust types](webassembly/expose-rust-type.md)
+- [Import user-defined Javascript types](webassembly/import-js-type.md)
 - [Borrow Checker](webassembly/borrow-checker.md)
 
 # Final Words

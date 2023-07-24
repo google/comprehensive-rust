@@ -5,7 +5,7 @@ will automatically throw an error if the variant of the return value is `Result:
 
 ```rust
 #[wasm_bindgen]
-pub fn str_to_int(s: &str) -> Option<i32, JsValue> {
+pub fn str_to_int(s: &str) -> Result<i32, JsValue> {
     s.parse::<i32>()
         .map_err(|_| JsValue::from_str("Failed to parse string"))
 }
@@ -21,7 +21,7 @@ pub fn str_to_int(s: &str) -> Option<i32> {
 
 ```
 
-Javascript (click on the wasm output box) to parse the string:
+Javascript, click on the wasm output box to parse the string:
 
 ```javascript
 import init, {set_panic_hook, str_to_int} from '/wasm/project.js';
@@ -49,6 +49,6 @@ import init, {set_panic_hook, str_to_int} from '/wasm/project.js';
 <details>
 
 * Click on the wasm output box to see the output
-* `?` and other error handling toos also work
+* `?` and other error handling tools are also supported
 
 </details>
