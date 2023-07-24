@@ -25,7 +25,7 @@ async fn main() {
         println!("Sent {} pings so far.", i + 1);
     }
 
-    std::mem::drop(sender);
+    drop(sender);
     ping_handler_task.await.expect("Something went wrong in ping handler task.");
 }
 ```
