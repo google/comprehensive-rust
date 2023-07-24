@@ -9338,13 +9338,6 @@ msgid ""
 "    It contains a lot of convenience methods and functions that help "
 "functional-style programming. \n"
 msgstr ""
-"  * As with `Option`, the successful value sits inside of `Result`, forcing "
-"the developer to explicitly extract it. This encourages error checking. In "
-"the case where an error should never happen, `unwrap()` or `expect()` can be "
-"called, and this is a signal of the developer intent too.\n"
-"* `Result` documentation is a recommended read. Not during the course, but "
-"it is worth mentioning. It contains a lot of convenience methods and "
-"functions that help functional-style programming.\n"
 
 #: src/error-handling/try-operator.md:1
 msgid "# Propagating Errors with `?`"
@@ -9426,9 +9419,6 @@ msgid ""
 "* Use the `fs::write` call to test out the different scenarios: no file, "
 "empty file, file with username."
 msgstr ""
-"* The `username` variable can be either `Ok(string)` or `Err(error)`.\n"
-"* Use the `fs::write` call to test out the different scenarios: no file, "
-"empty file, file with username."
 
 #: src/error-handling/converting-error-types.md:1
 #: src/error-handling/converting-error-types-example.md:1
@@ -9538,11 +9528,6 @@ msgid ""
 "easily do so, because\n"
 "`io::Error` doesn't implement them."
 msgstr ""
-"It is good practice for all error types to implement `std::error::Error`, "
-"which requires `Debug` and `Display`. It's generally helpful for them to "
-"implement `Clone` and `Eq` too where possible, to make life easier for tests "
-"and consumers of your library. In this case we can't easily do so, because "
-"`io::Error` doesn't implement them."
 
 #: src/error-handling/deriving-error-enums.md:1
 msgid "# Deriving Error Enums"
@@ -9599,13 +9584,10 @@ msgid ""
 "`#[from]` attribute is added).\n"
 "It also works for structs."
 msgstr ""
-"`thiserror`'s derive macro automatically implements `std::error::Error`, and "
-"optionally `Display` (if the `#[error(...)]` attributes are provided) and "
-"`From` (if the `#[from]` attribute is added). It also works for structs."
 
 #: src/error-handling/deriving-error-enums.md:43
 msgid "It doesn't affect your public API, which makes it good for libraries."
-msgstr "It doesn't affect your public API, which makes it good for libraries."
+msgstr ""
 
 #: src/error-handling/dynamic-errors.md:1
 msgid "# Dynamic Error Types"
@@ -9661,11 +9643,6 @@ msgid ""
 "display the error message\n"
 "somewhere."
 msgstr ""
-"This saves on code, but gives up the ability to cleanly handle different "
-"error cases differently in the program. As such it's generally not a good "
-"idea to use `Box<dyn Error>` in the public API of a library, but it can be a "
-"good option in a program where you just want to display the error message "
-"somewhere."
 
 #: src/error-handling/error-contexts.md:1
 msgid "# Adding Context to Errors"
@@ -9722,15 +9699,6 @@ msgid ""
 "developers, as it provides\n"
 "  similar usage patterns and ergonomics to `(T, error)` from Go."
 msgstr ""
-"* `anyhow::Result<V>` is a type alias for `Result<V, anyhow::Error>`.\n"
-"* `anyhow::Error` is essentially a wrapper around `Box<dyn Error>`. As such "
-"it's again generally not a good choice for the public API of a library, but "
-"is widely used in applications.\n"
-"* Actual error type inside of it can be extracted for examination if "
-"necessary.\n"
-"* Functionality provided by `anyhow::Result<T>` may be familiar to Go "
-"developers, as it provides similar usage patterns and ergonomics to `(T, "
-"error)` from Go."
 
 #: src/testing.md:1
 msgid "# Testing"
