@@ -72,12 +72,15 @@ async fn main() {
         let mut philosophers = vec![];
         let (tx, rx) = mpsc::channel(10);
         for (i, name) in PHILOSOPHERS.iter().enumerate() {
-            let left_fork = forks[i].clone();
-            let right_fork = forks[(i + 1) % PHILOSOPHERS.len()].clone();
+            let left_fork = Arc::clone(&forks[i]);
+            let right_fork = Arc::clone(&forks[(i + 1) % PHILOSOPHERS.len()]);
+            if i % 2 == 1 {
+                std::mem::swap(&mut left_fork, &mut right_fork);
+            }
             philosophers.push(Philosopher {
                 name: name.to_string(),
-                left_fork: if i % 2 == 0 { left_fork.clone() } else { right_fork.clone() },
-                right_fork: if i % 2 == 0 { right_fork } else { left_fork },
+                left_fork,
+                right_fork,
                 thoughts: tx.clone(),
             });
         }
