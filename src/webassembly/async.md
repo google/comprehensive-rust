@@ -27,7 +27,6 @@ impl Rotator {
         spawn_local(async move {
             let mut rotation = 0;
             while let Some(rotate_side) = receiver.recv().await {
-                log(&format!("Rotation: {}", rotation));
                 match rotate_side {
                     RotateSide::Left => rotation -= 45,
                     RotateSide::Right => rotation += 45,
