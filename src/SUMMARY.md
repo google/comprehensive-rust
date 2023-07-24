@@ -306,6 +306,8 @@
 - [Expose user-defined Rust types](webassembly/expose-rust-type.md)
 - [Import user-defined Javascript types](webassembly/import-js-type.md)
 - [Borrow Checker](webassembly/borrow-checker.md)
+- [Async](webassembly/async.md)
+
 
 # Final Words
 
