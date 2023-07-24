@@ -4,12 +4,12 @@ A *runtime* provides support for performing operations asynchronously (a
 *reactor*) and is responsible for executing futures (an *executor*). Rust does not have a
 "built-in" runtime, but several options are available:
 
- * [Tokio](https://tokio.rs/) - performant, with a well-developed ecosystem of
+ * [Tokio](https://tokio.rs/): performant, with a well-developed ecosystem of
    functionality like [Hyper](https://hyper.rs/) for HTTP or
    [Tonic](https://github.com/hyperium/tonic) for gRPC.
- * [async-std](https://async.rs/) - aims to be a "std for async", and includes a
+ * [async-std](https://async.rs/): aims to be a "std for async", and includes a
    basic runtime in `async::task`.
- * [smol](https://docs.rs/smol/latest/smol/) - simple and lightweight
+ * [smol](https://docs.rs/smol/latest/smol/): simple and lightweight
 
 Several larger applications have their own runtimes. For example,
 [Fuchsia](https://fuchsia.googlesource.com/fuchsia/+/refs/heads/main/src/lib/fuchsia-async/src/lib.rs)
