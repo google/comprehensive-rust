@@ -74,7 +74,10 @@ async fn main() {
         for (i, name) in PHILOSOPHERS.iter().enumerate() {
             let left_fork = Arc::clone(&forks[i]);
             let right_fork = Arc::clone(&forks[(i + 1) % PHILOSOPHERS.len()]);
-            if i % 2 == 1 {
+            // To avoid a deadlock, we have to break the symmetry
+            // somewhere. This will swap the forks without deinitializing
+            // either of them.
+            if i  == 0 {
                 std::mem::swap(&mut left_fork, &mut right_fork);
             }
             philosophers.push(Philosopher {
