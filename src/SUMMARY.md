@@ -305,7 +305,8 @@
   - [web-sys](webassembly/import-method/web-sys.md)
 - [Expose user-defined Rust types](webassembly/expose-rust-type.md)
 - [Import user-defined Javascript types](webassembly/import-js-type.md)
-- [Borrow Checker](webassembly/borrow-checker.md)
+- [Limitations](webassembly/limitations.md)
+  - [Borrow Checker](webassembly/limitations/borrow-checker.md)
 - [Async](webassembly/async.md)
 
 
