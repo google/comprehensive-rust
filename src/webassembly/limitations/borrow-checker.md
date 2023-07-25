@@ -1,6 +1,7 @@
 # Borrow Checker
 
-Types annotated with `wasm_bindgen` can reference each other.
+When we export a Rust type to Javascript and the pass an instance of this type to a method that takes ownership of it, the javascript variable will be cleared and dereferencing it will throw a runtime error.
+This essentially implements the borrow checker at Runtime in Javascript.
 
 ```rust
 #[wasm_bindgen]
@@ -27,8 +28,6 @@ impl MultiCounter {
     }
 }
 ```
-
-But what happens when you call `add_counter` from Javascript ?
 
 ```javascript
 import init, {set_panic_hook, Counter, MultiCounter} from '/wasm/project.js';

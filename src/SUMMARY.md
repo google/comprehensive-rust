@@ -307,6 +307,7 @@
 - [Import user-defined Javascript types](webassembly/import-js-type.md)
 - [Limitations](webassembly/limitations.md)
   - [Borrow Checker](webassembly/limitations/borrow-checker.md)
+  - [Closures](webassembly/limitations/closures.md)
 - [Async](webassembly/async.md)
 
 
