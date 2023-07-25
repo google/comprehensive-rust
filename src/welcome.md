@@ -40,8 +40,8 @@ Some non-goals of this course are:
 
 ## Assumptions
 
-The course assumes that you already know how to program. Rust is a statically-
-typed language and we will sometimes make comparisons with C and C++ to better
+The course assumes that you already know how to program. Rust is a statically-typed
+language and we will sometimes make comparisons with C and C++ to better
 explain or contrast the Rust approach.
 
 If you know how to program in a dynamically-typed language such as Python or
