@@ -47,7 +47,7 @@ embedded code, and the variable lives through the entirety of the program execut
 When a globally-scoped value does not have a reason to need object identity, `const` is generally preferred.
 
 Because `static` variables are accessible from any thread, they have more ownership constraints than data on the stack or the heap. 
-For instance, they cannot be safely mutated. We will look at [mutating static data](../unsafe/mutable-static-variables.md) in the chapter on Unsafe Rust..
+For instance, they cannot be safely mutated. We will look at [mutating static data](../unsafe/mutable-static-variables.md) in the chapter on Unsafe Rust.
 
 <details>
 
@@ -61,10 +61,10 @@ For instance, they cannot be safely mutated. We will look at [mutating static da
 
 | Property | Static | Constant |
 |---|---|---|
-| Allocated at runtime | Yes | No |
+| Has an address in memory | Yes (in rodata) | No (inlined) |
 | Lives for the entire duration of the program | Yes | No |
 | Can be mutable | Yes (unsafe) | No |
-| Evaluated at compile time | No | Yes |
+| Evaluated at compile time | Initialised at compile time but reevaluated at runtime | Yes |
 | Inlined wherever it is used | No | Yes |
 
 
