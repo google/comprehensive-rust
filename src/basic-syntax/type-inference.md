@@ -43,6 +43,6 @@ fn main() {
 }
 ```
 
-[`collect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.collect) relies on `FromIterator`, which [`HashSet`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html) implements.
+[`collect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html#method.collect) relies on [`FromIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html), which [`HashSet`](https://doc.rust-lang.org/std/collections/struct.HashSet.html#impl-FromIterator%3CT%3E-for-HashSet%3CT,+S%3E) implements.
 
 </details>

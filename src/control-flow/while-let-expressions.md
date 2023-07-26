@@ -1,7 +1,7 @@
-# `while let` expressions
+# `while let` loops
 
-Like with `if`, there is a `while let` variant which repeatedly tests a value
-against a pattern:
+Like with `if let`, there is a [`while let`](https://doc.rust-lang.org/reference/expressions/loop-expr.html#predicate-pattern-loops)
+variant which repeatedly tests a value against a pattern:
 
 ```rust,editable
 fn main() {
@@ -14,13 +14,12 @@ fn main() {
 }
 ```
 
-Here the iterator returned by `v.iter()` will return a `Option<i32>` on every
+Here the iterator returned by `v.into_iter()` will return a `Option<i32>` on every
 call to `next()`. It returns `Some(x)` until it is done, after which it will
 return `None`. The `while let` lets us keep iterating through all items.
 
 See [pattern matching](../pattern-matching.md) for more details on patterns in
 Rust.
-
 
 <details>
 

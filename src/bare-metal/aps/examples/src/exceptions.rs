@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ANCHOR: exceptions
 use log::error;
 use smccc::psci::system_off;
 use smccc::Hvc;

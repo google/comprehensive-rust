@@ -1,6 +1,8 @@
 # `if` expressions
 
-You use `if` very similarly to how you would in other languages:
+You use [`if`
+expressions](https://doc.rust-lang.org/reference/expressions/if-expr.html#if-expressions)
+exactly like `if` statements in other languages:
 
 ```rust,editable
 fn main() {
@@ -13,7 +15,9 @@ fn main() {
 }
 ```
 
-In addition, you can use it as an expression. This does the same as above:
+In addition, you can use `if` as an expression. The last expression of each
+block becomes the value of the `if` expression:
+
 
 ```rust,editable
 fn main() {

@@ -7,12 +7,12 @@ writing, the latest stable Rust release has these version numbers:
 
 ```shell
 % rustc --version
-rustc 1.61.0 (fe5b13d68 2022-05-18)
+rustc 1.69.0 (84c898d65 2023-04-16)
 % cargo --version
-cargo 1.61.0 (a028ae4 2022-04-29)
+cargo 1.69.0 (6e9a83356 2023-04-12)
 ```
 
-With this is in place, then follow these steps to build a Rust binary from one
+With this in place, follow these steps to build a Rust binary from one
 of the examples in this training:
 
 1. Click the "Copy to clipboard" button on the example you want to copy.

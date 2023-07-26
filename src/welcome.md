@@ -1,12 +1,12 @@
 # Welcome to Comprehensive Rust 🦀
 
-[![Build workflow](https://img.shields.io/github/actions/workflow/status/google/comprehensive-rust/build.yml?style=flat-square)](https://github.com/google/comprehensive-rust/actions/workflows/build.yml)
+[![Build workflow](https://img.shields.io/github/actions/workflow/status/google/comprehensive-rust/build.yml?style=flat-square)](https://github.com/google/comprehensive-rust/actions/workflows/build.yml?query=branch%3Amain)
 [![GitHub contributors](https://img.shields.io/github/contributors/google/comprehensive-rust?style=flat-square)](https://github.com/google/comprehensive-rust/graphs/contributors)
 [![GitHub stars](https://img.shields.io/github/stars/google/comprehensive-rust?style=flat-square)](https://github.com/google/comprehensive-rust/stargazers)
 
-This is a four day Rust course developed by the Android team. The course covers
+This is a free Rust course developed by the Android team at Google. The course covers
 the full spectrum of Rust, from basic syntax to advanced topics like generics
-and error handling. It also includes Android-specific content on the last day.
+and error handling.
 
 The goal of the course is to teach you Rust. We assume you don't know anything
 about Rust and hope to:
@@ -15,36 +15,37 @@ about Rust and hope to:
 * Enable you to modify existing programs and write new programs in Rust.
 * Show you common Rust idioms.
 
-On Day 4, we will cover Android-specific things such as:
+We call the first three course days Rust Fundamentals.
 
-* Building Android components in Rust.
-* AIDL servers and clients.
-* Interoperability with C, C++, and Java.
+Building on this, you're invited to dive into one or more specialized topics:
 
-It is important to note that this course does not cover Android **application** 
-development in Rust, and that the Android-specific parts are specifically about
-writing code for Android itself, the operating system. 
+* [Android](android.md): a half-day course on using Rust for Android platform
+  development (AOSP). This includes interoperability with C, C++, and Java.
+* [Bare-metal](bare-metal.md): a whole-day class on using Rust for bare-metal
+  (embedded) development. Both microcontrollers and application processors are
+  covered.
+* [Concurrency](concurrency.md): a whole-day class on concurrency in Rust. We
+  cover both classical concurrency (preemptively scheduling using threads and
+  mutexes) and async/await concurrency (cooperative multitasking using
+  futures).
+
 
 ## Non-Goals
 
 Rust is a large language and we won't be able to cover all of it in a few days.
 Some non-goals of this course are:
 
-* Learn how to use async Rust --- we'll only mention async Rust when
-  covering traditional concurrency primitives. Please see [Asynchronous
-  Programming in Rust](https://rust-lang.github.io/async-book/) instead for
-  details on this topic.
-* Learn how to develop macros, please see [Chapter 19.5 in the Rust
+* Learning how to develop macros: please see [Chapter 19.5 in the Rust
   Book](https://doc.rust-lang.org/book/ch19-06-macros.html) and [Rust by
   Example](https://doc.rust-lang.org/rust-by-example/macros.html) instead.
 
 ## Assumptions
 
-The course assumes that you already know how to program. Rust is a statically
-typed language and we will sometimes make comparisons with C and C++ to better
+The course assumes that you already know how to program. Rust is a statically-typed
+language and we will sometimes make comparisons with C and C++ to better
 explain or contrast the Rust approach.
 
-If you know how to program in a dynamically typed language such as Python or
+If you know how to program in a dynamically-typed language such as Python or
 JavaScript, then you will be able to follow along just fine too.
 
 <details>

@@ -31,7 +31,7 @@ rtc.bin: build
 	$(OBJCOPY) -O binary target/aarch64-unknown-none/debug/rtc $@
 
 qemu: rtc.bin
-	qemu-system-aarch64 -machine virt,gic_version=3 -cpu max -serial mon:stdio -display none -kernel $< -s
+	qemu-system-aarch64 -machine virt,gic-version=3 -cpu max -serial mon:stdio -display none -kernel $< -s
 
 clean:
 	cargo clean

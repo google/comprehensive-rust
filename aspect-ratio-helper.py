@@ -21,7 +21,7 @@ rectangle has an aspect ratio of 16 to 8.5, meaning that it is
 slightly smaller than a standard 16/9 monitor.
 
 The idea is that this approximates what the course participants can
-bee at once during a class. This in turn will help you estimate when
+see at once during a class. This in turn will help you estimate when
 the slides are too large to be seen without scrolling.
 
 Enable it in book.toml.
