@@ -17,10 +17,12 @@ js-sys = "0.3.51"
 # all the `std::fmt` and `std::panicking` infrastructure, so isn't great for
 # code size when deploying.
 console_error_panic_hook = "0.1.7"
+tokio = { version = "1.29.1", features = ["sync"] }
 
 [dependencies.web-sys]
 version = "0.3.4"
 features = [
+  'CssStyleDeclaration',
   'Document',
   'Element',
   'HtmlElement',
