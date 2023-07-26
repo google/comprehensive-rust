@@ -1,11 +1,12 @@
 # Static and Constant Variables
 
-Static and constants are two kind of variables with special constraints.
+Static and constant variables are two different ways to create values that
+cannot be moved or reallocated during the execution of the program. 
 
 ## `const`
 
-Constants are values created at compile time. They are inherently more efficient because they don't need to be computed at runtime
-and the compiler can inline them and apply special optimizations that would not be possible with a larger set of values:
+Constant variables are evaluated at compile time and their values are inlined
+wherever they are used:
 
 ```rust,editable
 const DIGEST_SIZE: usize = 3;
@@ -53,6 +54,17 @@ Static variables have more ownership constraints than data on the stack or the h
 * `static`, on the other hand, is much more similar to a `const` or mutable global variable in C++.
 * It isn't super common that one would need a runtime evaluated constant, but it is helpful and safer than using a static.
 * `thread_local` data can be created with the macro `std::thread_local`.
+
+### Properties table: 
+
+| Property | Static | Constant |
+|---|---|---|
+| Allocated at runtime | Yes | No |
+| Lives for the entire duration of the program | Yes | No |
+| Can be mutable | Yes (unsafe) | No |
+| Evaluated at compile time | No | Yes |
+| Inlined wherever it is used | No | Yes |
+
 
 </details>
 
