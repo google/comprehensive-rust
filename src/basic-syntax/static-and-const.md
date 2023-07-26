@@ -61,10 +61,10 @@ We will look at [mutating static data](../unsafe/mutable-static-variables.md) in
 
 | Property | Static | Constant |
 |---|---|---|
-| Has an address in memory | Yes (in rodata) | No (inlined) |
+| Has an address in memory | Yes | No (inlined) |
 | Lives for the entire duration of the program | Yes | No |
 | Can be mutable | Yes (unsafe) | No |
-| Evaluated at compile time | Initialised at compile time but reevaluated at runtime | Yes |
+| Evaluated at compile time | Yes (initialised at compile time) | Yes |
 | Inlined wherever it is used | No | Yes |
 
 
