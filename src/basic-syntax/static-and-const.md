@@ -46,8 +46,8 @@ As noted in the [Rust RFC Book][1], these are not inlined upon use and have an a
 embedded code, and the variable lives through the entirety of the program execution.
 When a globally-scoped value does not have a reason to need object identity, `const` is generally preferred.
 
-Because `static` variables are accessible from any thread, they have more ownership constraints than data on the stack or the heap. 
-For instance, they cannot be safely mutated. We will look at [mutating static data](../unsafe/mutable-static-variables.md) in the chapter on Unsafe Rust.
+Because `static` variables are accessible from any thread, they need to be guarded, for example by a [`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html), or accessed using `unsafe` code.
+We will look at [mutating static data](../unsafe/mutable-static-variables.md) in the chapter on Unsafe Rust.
 
 <details>
 
