@@ -43,7 +43,7 @@ fn main() {
   * Standard Rust types often implement `Default` with reasonable values (e.g. `0`, `""`, etc).
   * The partial struct copy works nicely with default.
   * Rust standard library is aware that types can implement `Default` and provides convenience methods that use it.
-  * the `..` syntax is called [`struct update syntax`][2]
+  * the `..` syntax is called [struct update syntax][2]
 
 </details>
 
