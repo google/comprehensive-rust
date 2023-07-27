@@ -8,6 +8,10 @@ Instead of `tokio::spawn`, `wasm_bindgen` provides `wasm_bindgen_futures::spawn_
 Let's create a class that waits for messages on a channel to rotate an HTML element:
 
 ```rust
+use wasm_bindgen::prelude::*;
+use tokio::sync::mpsc::{Sender, channel};
+use wasm_bindgen_futures::spawn_local;
+
 #[derive(Debug)]
 enum RotateSide {
     Left,
