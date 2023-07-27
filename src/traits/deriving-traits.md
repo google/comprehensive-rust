@@ -1,6 +1,8 @@
 # Deriving Traits
 
-You can let the compiler derive a number of traits:
+Rust derive macros work by automatically generating code that implements the specified traits for a data structure.
+
+You can let the compiler derive a number of traits as follows:
 
 ```rust,editable
 #[derive(Debug, Clone, PartialEq, Eq, Default)]

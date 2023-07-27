@@ -10,7 +10,7 @@ You must call `free` on every pointer you allocate with `malloc`:
 
 ```c
 void foo(size_t n) {
-    int* int_array = (int*)malloc(n * sizeof(int));
+    int* int_array = malloc(n * sizeof(int));
     //
     // ... lots of code
     //
@@ -20,3 +20,4 @@ void foo(size_t n) {
 
 Memory is leaked if the function returns early between `malloc` and `free`: the
 pointer is lost and we cannot deallocate the memory.
+Worse, freeing the pointer twice, or accessing a freed pointer can lead to exploitable security vulnerabilities.

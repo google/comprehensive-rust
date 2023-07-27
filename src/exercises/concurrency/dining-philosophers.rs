@@ -62,8 +62,8 @@ fn main() {
 
     for i in 0..forks.len() {
         let tx = tx.clone();
-        let mut left_fork = forks[i].clone();
-        let mut right_fork = forks[(i + 1) % forks.len()].clone();
+        let mut left_fork = Arc::clone(&forks[i]);
+        let mut right_fork = Arc::clone(&forks[(i + 1) % forks.len()]);
 
         // To avoid a deadlock, we have to break the symmetry
         // somewhere. This will swap the forks without deinitializing

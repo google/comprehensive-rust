@@ -4,9 +4,9 @@ Traits can implement behavior in terms of other trait methods:
 
 ```rust,editable
 trait Equals {
-    fn equal(&self, other: &Self) -> bool;
-    fn not_equal(&self, other: &Self) -> bool {
-        !self.equal(other)
+    fn equals(&self, other: &Self) -> bool;
+    fn not_equals(&self, other: &Self) -> bool {
+        !self.equals(other)
     }
 }
 
@@ -14,7 +14,7 @@ trait Equals {
 struct Centimeter(i16);
 
 impl Equals for Centimeter {
-    fn equal(&self, other: &Centimeter) -> bool {
+    fn equals(&self, other: &Centimeter) -> bool {
         self.0 == other.0
     }
 }
@@ -22,8 +22,8 @@ impl Equals for Centimeter {
 fn main() {
     let a = Centimeter(10);
     let b = Centimeter(20);
-    println!("{a:?} equals {b:?}: {}", a.equal(&b));
-    println!("{a:?} not_equals {b:?}: {}", a.not_equal(&b));
+    println!("{a:?} equals {b:?}: {}", a.equals(&b));
+    println!("{a:?} not_equals {b:?}: {}", a.not_equals(&b));
 }
 ```
 
@@ -32,26 +32,26 @@ fn main() {
 * Traits may specify pre-implemented (default) methods and methods that users are required to
   implement themselves. Methods with default implementations can rely on required methods.
 
-* Move method `not_equal` to a new trait `NotEqual`.
+* Move method `not_equals` to a new trait `NotEquals`.
 
-* Make `Equals` a super trait for `NotEqual`.
+* Make `Equals` a super trait for `NotEquals`.
     ```rust,editable,compile_fail
-    trait NotEqual: Equals {
-        fn not_equal(&self, other: &Self) -> bool {
-            !self.equal(other)
+    trait NotEquals: Equals {
+        fn not_equals(&self, other: &Self) -> bool {
+            !self.equals(other)
         }
     }
     ```
 
-* Provide a blanket implementation of `NotEqual` for `Equal`.
+* Provide a blanket implementation of `NotEquals` for `Equals`.
     ```rust,editable,compile_fail
-    trait NotEqual {
-        fn not_equal(&self, other: &Self) -> bool;
+    trait NotEquals {
+        fn not_equals(&self, other: &Self) -> bool;
     }
 
-    impl<T> NotEqual for T where T: Equals {
-        fn not_equal(&self, other: &Self) -> bool {
-            !self.equal(other)
+    impl<T> NotEquals for T where T: Equals {
+        fn not_equals(&self, other: &Self) -> bool {
+            !self.equals(other)
         }
     }
     ```

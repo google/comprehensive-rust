@@ -1,4 +1,4 @@
-# Designing a Library
+# Storing Books
 
 We will learn much more about structs and the `Vec<T>` type tomorrow. For now,
 you just need to know part of its API:
@@ -15,7 +15,7 @@ fn main() {
 }
 ```
 
-Use this to create a library application. Copy the code below to
+Use this to model a library's book collection. Copy the code below to
 <https://play.rust-lang.org/> and update the types to make it compile:
 
 ```rust,should_panic

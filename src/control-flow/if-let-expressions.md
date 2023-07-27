@@ -23,7 +23,7 @@ Rust.
 * Unlike `match`, `if let` does not have to cover all branches. This can make it more concise than `match`.
 * A common usage is handling `Some` values when working with `Option`.
 * Unlike `match`, `if let` does not support guard clauses for pattern matching.
-* Since 1.65, a similar [let-else](https://doc.rust-lang.org/rust-by-example/flow_control/let_else.html) construct allows to do a destructuring assignment, or if it fails, have a non-returning block branch (panic/return/break/continue):
+* Since 1.65, a similar [let-else](https://doc.rust-lang.org/rust-by-example/flow_control/let_else.html) construct allows to do a destructuring assignment, or if it fails, execute a block which is required to abort normal control flow (with `panic`/`return`/`break`/`continue`):
 
    ```rust,editable
    fn main() {
