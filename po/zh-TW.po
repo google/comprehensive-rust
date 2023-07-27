@@ -7385,7 +7385,7 @@ msgstr "在這個範例中，內層迴圈經過三次迭代後，我們使用 `b
 
 #: src/std.md:1
 msgid "# Standard Library"
-msgstr ""
+msgstr "# 標準函式庫"
 
 #: src/std.md:3
 msgid ""
@@ -7395,10 +7395,12 @@ msgid ""
 "together\n"
 "smoothly because they both use the same `String` type."
 msgstr ""
+"Rust 提供標準函式庫，可用於建立供 Rust 函式庫和程式使用的常用型別集。如此一"
+"來，兩個函式庫會使用相同的 `String` 型別，因此能夠順暢搭配運作。"
 
 #: src/std.md:7
 msgid "The common vocabulary types include:"
-msgstr ""
+msgstr "常見的詞彙型別包括："
 
 #: src/std.md:9
 msgid ""
@@ -7418,6 +7420,17 @@ msgid ""
 "* [`Rc`](std/rc.md): a shared reference-counted pointer for heap-allocated "
 "data."
 msgstr ""
+"* [`Option` 和 `Result`](std/option-result.md) 型別：用於選擇性的值和[錯誤處理](error-handling.md)。\n"
+"\n"
+"* [`String`](std/string.md)：用於自有資料的預設字串型別。\n"
+"\n"
+"* [`Vec`](std/vec.md)：標準的可延伸向量。\n"
+"\n"
+"* [`HashMap`](std/hashmap.md)：採用可設定雜湊演算法的雜湊映射型別。\n"
+"\n"
+"* [`Box`](std/box.md)：堆積配置資料的擁有所有權的指標。\n"
+"\n"
+"* [`Rc`](std/rc.md)：堆積配置資料的共用參考指標。"
 
 #: src/std.md:25
 msgid ""
@@ -7430,14 +7443,18 @@ msgid ""
 "`Vec`, `Box` and `Arc`.\n"
 "  * Embedded Rust applications often only use `core`, and sometimes `alloc`."
 msgstr ""
+"  * Rust 實際上含有多種層級的標準函式庫，分別是 `core`、`alloc` 和 `std`。\n"
+"  * `core` 包括最基本的型別與函式，這些型別與函式不依附於 `libc`、配置器或作業系統。\n"
+"  * `alloc` 包括需要全域堆積配置器的型別，例如 `Vec`、`Box` 和 `Arc`。\n"
+"  * 嵌入式 Rust 應用程式通常只使用 `core`，偶爾會使用 `alloc`。"
 
 #: src/std/option-result.md:1
 msgid "# `Option` and `Result`"
-msgstr ""
+msgstr "# `Option` 和 `Result`"
 
 #: src/std/option-result.md:3
 msgid "The types represent optional data:"
-msgstr ""
+msgstr "這些型別代表選擇性的資料："
 
 #: src/std/option-result.md:5
 msgid ""
@@ -7464,15 +7481,21 @@ msgid ""
 "  * Otherwise, `Result::Err` contains the index where such an element should "
 "be inserted."
 msgstr ""
+"* `Option` 和 `Result` 這兩種型別的使用範圍很廣，不侷限於標準函式庫。\n"
+"* 相較於 `&T`，`Option<&T>` 的空間開銷為零。\n"
+"* `Result` 是實作錯誤處理的標準型別，我們將在第 3 天的課程中介紹。\n"
+"* `binary_search` 會回傳 `Result<usize, usize>`。\n"
+"* 如果找到該元素，`Result::Ok` 會保留該元素所在位置的索引。\n"
+"* 如果沒有找到，`Result::Err` 會包含應插入這類元素的索引。"
 
 #: src/std/string.md:1
 msgid "# String"
-msgstr ""
+msgstr "# String"
 
 #: src/std/string.md:3
 msgid ""
 "[`String`][1] is the standard heap-allocated growable UTF-8 string buffer:"
-msgstr ""
+msgstr "[`String`][1] 是標準堆積配置的可成長 UTF-8 字串緩衝區："
 
 #: src/std/string.md:5
 msgid ""
@@ -7500,6 +7523,8 @@ msgid ""
 "call all\n"
 "`str` methods on a `String`."
 msgstr ""
+"`String` 會實作 [`Deref<Target = str>`][2]。也就是說，您可以在 `String` 上呼"
+"叫所有 `str` 方法。"
 
 #: src/std/string.md:30
 msgid ""
@@ -7530,11 +7555,11 @@ msgstr ""
 
 #: src/std/vec.md:1
 msgid "# `Vec`"
-msgstr ""
+msgstr "# `Vec`"
 
 #: src/std/vec.md:3
 msgid "[`Vec`][1] is the standard resizable heap-allocated buffer:"
-msgstr ""
+msgstr "[`Vec`][1] 是可調整大小的標準堆積配置緩衝區："
 
 #: src/std/vec.md:5
 msgid ""
@@ -7569,6 +7594,8 @@ msgid ""
 "slice\n"
 "methods on a `Vec`."
 msgstr ""
+"`Vec` 會實作 [`Deref<Target = [T]>`][2]。也就是說，您可以在 `Vec` 上呼叫切片"
+"方法。"
 
 #: src/std/vec.md:37
 msgid ""
@@ -7594,11 +7621,11 @@ msgstr ""
 
 #: src/std/hashmap.md:1
 msgid "# `HashMap`"
-msgstr ""
+msgstr "# `HashMap`"
 
 #: src/std/hashmap.md:3
 msgid "Standard hash map with protection against HashDoS attacks:"
-msgstr ""
+msgstr "標準雜湊映射，可防範 HashDoS 攻擊："
 
 #: src/std/hashmap.md:5
 msgid ""
@@ -7677,11 +7704,11 @@ msgstr ""
 
 #: src/std/box.md:1
 msgid "# `Box`"
-msgstr ""
+msgstr "# `Box`"
 
 #: src/std/box.md:3
 msgid "[`Box`][1] is an owned pointer to data on the heap:"
-msgstr ""
+msgstr "[`Box`][1] 是具有所有權的指向堆積上的資料的指標："
 
 #: src/std/box.md:5
 msgid ""
@@ -7715,6 +7742,8 @@ msgid ""
 "methods\n"
 "from `T` directly on a `Box<T>`][2]."
 msgstr ""
+"`Box<T>` 會實作 `Deref<Target = T>`。也就是說，您可以[直接在 `Box<T>` 上透過 "
+"`T` 呼叫方法][2]。"
 
 #: src/std/box.md:34
 msgid ""
@@ -7729,15 +7758,21 @@ msgid ""
 "large amounts of data on the stack, instead store the data on the heap in a "
 "`Box` so only the pointer is moved."
 msgstr ""
+"* `Box` 就像是 C++ 中的 `std::unique_ptr`，兩者的差別在於 `Box` 不會是空值。\n"
+"* 上面的範例使用 `Deref`，因此 `println!` 陳述式甚至可以省略 `*`。\n"
+"* 在以下情況下，您可以使用 `Box`：\n"
+"   * 編譯時遇到不知道大小為何的類型，但 Rust 編譯器需要知道確切大小。\n"
+"   * 想要轉移大量資料的所有權。為避免在堆疊上複製大量資料，請改將"
+"資料儲存在 `Box` 的堆積上，這樣系統就只會移動指標。"
 
 #: src/std/box-recursive.md:1
 msgid "# Box with Recursive Data Structures"
-msgstr ""
+msgstr "# 包含遞迴資料結構的 Box"
 
 #: src/std/box-recursive.md:3
 msgid ""
 "Recursive data types or data types with dynamic sizes need to use a `Box`:"
-msgstr ""
+msgstr "遞迴資料類型或含有動態大小的資料類型必須使用 `Box`："
 
 #: src/std/box-recursive.md:5 src/std/box-niche.md:3
 msgid ""
@@ -7794,10 +7829,16 @@ msgid ""
 "reference of some kind, instead of storing a value directly.   \n"
 "    "
 msgstr ""
+"* 如果這裡未使用 `Box`，且我們要將 `List` 直接嵌入 `List`，編譯器就不會計算出固定的"
+"結構體記憶體大小，結構體看起來會像是無限大。\n"
+"* `Box` 大小與一般指標相同，並且只會指向堆積中的下一個 `List` 元素，因此可以解決這個問題。\n"
+"* 將 `Box` 從 List 定義中移除後，畫面上會顯示編譯器錯誤。如果您看到「Recursive with "
+"indirection」錯誤訊息，建議您使用 Box 或其他種類的參考，而不是直接儲存值。\n"
+"    "
 
 #: src/std/box-niche.md:1
 msgid "# Niche Optimization"
-msgstr ""
+msgstr "# 區位最佳化"
 
 #: src/std/box-niche.md:16
 msgid ""
@@ -7805,6 +7846,8 @@ msgid ""
 "This\n"
 "allows the compiler to optimize the memory layout:"
 msgstr ""
+"`Box` 不能空白，因此指標會一律有效，而且不會是 `null`。這樣一來，編譯器可以將"
+"記憶體配置最佳化："
 
 #: src/std/box-niche.md:19
 msgid ""
@@ -7830,7 +7873,7 @@ msgstr ""
 
 #: src/std/rc.md:1
 msgid "# `Rc`"
-msgstr ""
+msgstr "# `Rc`"
 
 #: src/std/rc.md:3
 msgid ""
@@ -7838,6 +7881,8 @@ msgid ""
 "refer\n"
 "to the same data from multiple places:"
 msgstr ""
+"[`Rc`][1] 是參考計數的共用指標。如要在多個位置參考相同的資料，可以使用這個指"
+"標："
 
 #: src/std/rc.md:6
 msgid ""
@@ -7864,6 +7909,9 @@ msgid ""
 "cycles\n"
 "  that will get dropped."
 msgstr ""
+"* 如要在 `Rc` 內修改資料，必須將資料加入 [`Cell` 或 `RefCell`][2] 等型別中。"
+"* 如果是多執行緒的環境，請參閱 [`Arc`][3]。* 您可以將共用指標「降級」為 "
+"[`Weak`][4] 指標，建立之後會捨棄的循環。"
 
 #: src/std/rc.md:31
 msgid ""
@@ -7884,6 +7932,17 @@ msgid ""
 "  create cycles that will be dropped properly (likely in combination with\n"
 "  `RefCell`)."
 msgstr ""
+"* `Rc` 的計數可確保只要有參考，內含的值就會保持有效。\n"
+"* Rust 的 `Rc` 就好比是 C++ 的 `std::shared_ptr`。\n"
+"* `Rc::clone` 的成本很低：這個做法會建立指向相同配置的指標，並增加參考計數，"
+"而不會產生深克隆，尋找程式碼效能問題時通常可以忽略。\n"
+"* `make_mut` 實際上會在必要時克隆內部值 (「clone-on-write」)，並回"
+"傳可變動的參考。\n"
+"* 使用 `Rc::strong_count` 可查看參考計數。\n"
+"* 比較提及的不同資料型別。`Box` 可啟用在編譯時強制執行的可變/不可變借用。"
+"`RefCell` 可啟用在執行階段強制執行的可變/不可變借用，如果在執行階段失敗，將觸發恐慌。\n"
+"* `Rc::downgrade` 提供的「弱參考計數」物件，建立之後會適當捨棄的循環 (可能會搭配 "
+"`RefCell`)。"
 
 #: src/std/rc.md:41
 msgid ""
