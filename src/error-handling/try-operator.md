@@ -16,29 +16,28 @@ into the much simpler
 some_expression?
 ```
 
-We can use this to simplify our error handing code:
+We can use this to simplify our error handling code:
 
 ```rust,editable
 use std::fs;
-use std::io::{self, Error, ErrorKind, Read};
+use std::io::{self, Error, ErrorKind};
 
-// Reads the email address from a file and returns the username and hostname.
-fn read_email_address(path: &str) -> Result<(String, String), io::Error> {
+// Reads the email address from a file and returns the username.
+fn read_email_address(path: &str) -> Result<String, io::Error> {
     let email = match fs::read_to_string(path) {
         Ok(file) => file,
         Err(err) => return Err(err),
     };
 
-    if let Some((username, hostname)) = email.split_once('@') {
-        Ok((String::from(username), String::from(hostname)))
+    if let Some((username, _)) = email.split_once('@') {
+        Ok(String::from(username))
     } else {
         Err(Error::new(ErrorKind::InvalidData, "Invalid email address"))
     }
 }
 
-
 fn main() {
-    //fs::write("config.dat", "alice@gmail.com").unwrap();
+    fs::write("config.dat", "alice@gmail.com").unwrap();
     let email = read_email_address("config.dat");
     println!("email or error: {email:?}");
 }

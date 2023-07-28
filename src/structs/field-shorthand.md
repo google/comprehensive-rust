@@ -56,11 +56,11 @@ fn main() {
      }
      fn create_default() {
          let tmp = Person {
-             ..Default::default()
+             ..Person::default()
          };
          let tmp = Person {
              name: "Sam".to_string(),
-             ..Default::default()
+             ..Person::default()
          };
      }
      ```

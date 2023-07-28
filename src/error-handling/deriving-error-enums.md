@@ -17,7 +17,7 @@ enum ReadUsernameError {
 }
 
 fn read_username(path: &str) -> Result<String, ReadUsernameError> {
-    let mut username = String::with_capacity(100);
+    let mut username = String::new();
     fs::File::open(path)?.read_to_string(&mut username)?;
     if username.is_empty() {
         return Err(ReadUsernameError::EmptyUsername(String::from(path)));

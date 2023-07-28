@@ -1,7 +1,8 @@
 # `match` expressions
 
-The `match` keyword is used to match a value against one or more patterns. In
-that sense, it works like a series of `if let` expressions:
+The [`match` keyword](https://doc.rust-lang.org/reference/expressions/match-expr.html)
+is used to match a value against one or more patterns. In that sense, it works
+like a series of `if let` expressions:
 
 ```rust,editable
 fn main() {

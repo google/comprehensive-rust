@@ -60,6 +60,4 @@ async fn main() {
 * Try creating a new sleeper struct that will sleep for a random amount of time
   and adding it to the Vec.
 
-* Try making the `sleep` call take `&mut self`.
-
 </details>

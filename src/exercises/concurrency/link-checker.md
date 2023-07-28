@@ -9,9 +9,9 @@ For this, you will need an HTTP client such as [`reqwest`][1]. Create a new
 Cargo project and `reqwest` it as a dependency with:
 
 ```shell
-$ cargo new link-checker
-$ cd link-checker
-$ cargo add --features blocking,rustls-tls reqwest
+cargo new link-checker
+cd link-checker
+cargo add --features blocking,rustls-tls reqwest
 ```
 
 > If `cargo add` fails with `error: no such subcommand`, then please edit the
@@ -20,14 +20,14 @@ $ cargo add --features blocking,rustls-tls reqwest
 You will also need a way to find links. We can use [`scraper`][2] for that:
 
 ```shell
-$ cargo add scraper
+cargo add scraper
 ```
 
 Finally, we'll need some way of handling errors. We use [`thiserror`][3] for
 that:
 
 ```shell
-$ cargo add thiserror
+cargo add thiserror
 ```
 
 The `cargo add` calls will update the `Cargo.toml` file to look like this:
@@ -57,12 +57,13 @@ Your `src/main.rs` file should look something like this:
 ```rust,compile_fail
 {{#include link-checker.rs:setup}}
 
-{{#include link-checker.rs:extract_links}}
+{{#include link-checker.rs:visit_page}}
 
 fn main() {
+    let client = Client::new();
     let start_url = Url::parse("https://www.google.org").unwrap();
-    let response = get(start_url).unwrap();
-    match extract_links(response) {
+    let crawl_command = CrawlCommand{ url: start_url, extract_links: true };
+    match visit_page(&client, &crawl_command) {
         Ok(links) => println!("Links: {links:#?}"),
         Err(err) => println!("Could not extract links: {err:#}"),
     }
@@ -72,7 +73,7 @@ fn main() {
 Run the code in `src/main.rs` with
 
 ```shell
-$ cargo run
+cargo run
 ```
 
 ## Tasks

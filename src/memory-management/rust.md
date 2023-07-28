@@ -7,7 +7,7 @@ Memory management in Rust is a mix:
 * Scope-based like C++, but the compiler enforces full adherence.
 * A Rust user can choose the right abstraction for the situation, some even have no cost at runtime like C.
 
-It achieves this by modeling _ownership_ explicitly.
+Rust achieves this by modeling _ownership_ explicitly.
 
 <details>
 

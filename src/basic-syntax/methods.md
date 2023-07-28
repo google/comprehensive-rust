@@ -1,7 +1,7 @@
 # Methods
 
-Rust has methods, they are simply functions that are associated with a particular type. The
-first argument of a method is an instance of the type it is associated with:
+Methods are functions associated with a type. The `self` argument of a method is
+an instance of the type it is associated with:
 
 ```rust,editable
 struct Rectangle {
@@ -28,3 +28,20 @@ fn main() {
 ```
 
 * We will look much more at methods in today's exercise and in tomorrow's class.
+
+<details>
+
+- Add a static method called `Rectangle::new` and call this from `main`:
+
+    ```rust,editable,compile_fail
+    fn new(width: u32, height: u32) -> Rectangle {
+        Rectangle { width, height }
+    }
+    ```
+
+- While _technically_, Rust does not have custom constructors, static methods are commonly used to initialize structs (but don't have to).
+  The actual constructor, `Rectangle { width, height }`, could be called directly. See the [Rustnomicon](https://doc.rust-lang.org/nomicon/constructors.html).
+
+- Add a `Rectangle::square(width: u32)` constructor to illustrate that such static methods can take arbitrary parameters.
+
+</details>

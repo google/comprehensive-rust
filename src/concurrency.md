@@ -1,4 +1,4 @@
-# Fearless Concurrency
+# Welcome to Concurrency in Rust
 
 Rust has full support for concurrency using OS threads with mutexes and
 channels.

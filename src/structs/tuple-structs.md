@@ -14,10 +14,10 @@ fn main() {
 This is often used for single-field wrappers (called newtypes):
 
 ```rust,editable,compile_fail
-struct PoundOfForce(f64);
+struct PoundsOfForce(f64);
 struct Newtons(f64);
 
-fn compute_thruster_force() -> PoundOfForce {
+fn compute_thruster_force() -> PoundsOfForce {
     todo!("Ask a rocket scientist at NASA")
 }
 
@@ -39,5 +39,6 @@ fn main() {
   * The value passed some validation when it was created, so you no longer have to validate it again at every use: 'PhoneNumber(String)` or `OddNumber(u32)`.
 * Demonstrate how to add a `f64` value to a `Newtons` type by accessing the single field in the newtype.
   *  Rust generally doesn’t like inexplicit things, like automatic unwrapping or for instance using booleans as integers.
-  *  Operator overloading is discussed on Day 3 (generics). 
+  *  Operator overloading is discussed on Day 3 (generics).
+* The example is a subtle reference to the [Mars Climate Orbiter](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter) failure.
 </details>
