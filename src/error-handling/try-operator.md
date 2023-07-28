@@ -19,27 +19,27 @@ some_expression?
 We can use this to simplify our error handling code:
 
 ```rust,editable
-use std::fs;
-use std::io::{self, Error, ErrorKind};
+use std::{fs, io};
+use std::io::Read;
 
-// Reads the email address from a file and returns the username.
-fn read_email_address(path: &str) -> Result<String, io::Error> {
-    let email = match fs::read_to_string(path) {
+fn read_username(path: &str) -> Result<String, io::Error> {
+    let username_file_result = fs::File::open(path);
+    let mut username_file = match username_file_result {
         Ok(file) => file,
         Err(err) => return Err(err),
     };
 
-    if let Some((username, _)) = email.split_once('@') {
-        Ok(String::from(username))
-    } else {
-        Err(Error::new(ErrorKind::InvalidData, "Invalid email address"))
+    let mut username = String::new();
+    match username_file.read_to_string(&mut username) {
+        Ok(_) => Ok(username),
+        Err(err) => Err(err),
     }
 }
 
 fn main() {
-    fs::write("config.dat", "alice@gmail.com").unwrap();
-    let email = read_email_address("config.dat");
-    println!("email or error: {email:?}");
+    //fs::write("config.dat", "alice").unwrap();
+    let username = read_username("config.dat");
+    println!("username or error: {username:?}");
 }
 ```
 
