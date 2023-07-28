@@ -1,6 +1,7 @@
 # Summary
 
-[Welcome to Comprehensive Rust 🦀](welcome.md)
+<!-- Keep first page as index.md to avoid giving it two names. -->
+[Welcome to Comprehensive Rust 🦀](index.md)
 - [Running the Course](running-the-course.md)
   - [Course Structure](running-the-course/course-structure.md)
   - [Keyboard Shortcuts](running-the-course/keyboard-shortcuts.md)
