@@ -4,7 +4,7 @@ The try-operator `?` is used to return errors to the caller. It lets you turn
 the common
 
 ```rust,ignore
-let some_variable = match some_expression {
+match some_expression {
     Ok(value) => value,
     Err(err) => return Err(err),
 };
@@ -59,9 +59,7 @@ a function returning a `Result<T, Err>` can only apply the `?` operator on a fun
 `Result<AnyT, Err>`. It cannot apply the `?` operator on a function returning a `Result<T, OtherErr>` 
 or an `Option<AnyT>`. Reciprocally, a function returning an `Option<T>` can only apply the `?` operator 
 on a function returning an `Option<AnyT>`.
-    * You can coerce incompatible types into one another with the different `Option` and `Result` methods 
+    * You can convert incompatible types into one another with the different `Option` and `Result` methods 
     such as `Option::ok_or`, `Result::ok`, `Result::err`.
-    * Error types can be implicitely converted into the return type (let's call it`TopLevelErrorT`) with the `?` operator if they implement the `Into<TopLevelErrorT>` trait. This can be a good exercise to 
-    try out.
 
 </details>
