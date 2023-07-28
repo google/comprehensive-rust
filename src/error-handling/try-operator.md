@@ -49,5 +49,12 @@ Key points:
 
 * The `username` variable can be either `Ok(string)` or `Err(error)`.
 * Use the `fs::write` call to test out the different scenarios: no file, empty file, file with username.
+* The return type of the function has to be compatible with the nested functions it calls. For instance,
+a function returning a `Result<T, Err>` can only apply the `?` operator on a function returning a 
+`Result<AnyT, Err>`. It cannot apply the `?` operator on a function returning a `Result<T, OtherErr>` 
+or an `Option<AnyT>`. Reciprocally, a function returning an `Option<T>` can only apply the `?` operator 
+on a function returning an `Option<AnyT>`.
+    * You can convert incompatible types into one another with the different `Option` and `Result` methods 
+    such as `Option::ok_or`, `Result::ok`, `Result::err`.
 
 </details>
