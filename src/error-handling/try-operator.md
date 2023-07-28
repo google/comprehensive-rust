@@ -7,7 +7,7 @@ the common
 match some_expression {
     Ok(value) => value,
     Err(err) => return Err(err),
-};
+}
 ```
 
 into the much simpler
