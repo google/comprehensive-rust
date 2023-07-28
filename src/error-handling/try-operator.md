@@ -13,7 +13,7 @@ match some_expression {
 into the much simpler
 
 ```rust,ignore
-let some_variable = some_expression?;
+some_expression?
 ```
 
 We can use this to simplify our error handing code:
