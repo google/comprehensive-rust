@@ -24,22 +24,18 @@ use std::io::{self, Error, ErrorKind, Read};
 
 // Reads the email address from a file and returns the username and hostname.
 fn read_email_address(path: &str) -> Result<(String, String), io::Error> {
-    let email_file_result = fs::File::open(path);
-    let mut email_file = match email_file_result {
+    let email = match fs::read_to_string(path) {
         Ok(file) => file,
         Err(err) => return Err(err),
     };
 
-    let mut email = String::new();
-    if let Err(err) = email_file.read_to_string(&mut email) {
-        return Err(err);
-    }
     if let Some((username, hostname)) = email.split_once('@') {
         Ok((String::from(username), String::from(hostname)))
     } else {
         Err(Error::new(ErrorKind::InvalidData, "Invalid email address"))
     }
 }
+
 
 fn main() {
     //fs::write("config.dat", "alice@gmail.com").unwrap();
