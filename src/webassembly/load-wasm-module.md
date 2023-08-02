@@ -2,24 +2,44 @@
 
 ## Commands to run:
 
+
+### Compile Rust lib to WASM
+
 You can compile the basic WASM library provided in [rust-wasm-template](https://github.com/google/comprehensive-rust/tree/main/src/rust-wasm-template) with this command:
 
 ```shell
-cd src/rust-wasm-template/project
+cd src/rust-wasm-template
 
-wasm-pack build --target web && cp -r pkg ../server
+wasm-pack build --target web --out-dir static/wasm
 ```
 
-You can start the web server provided in [rust-wasm-template](https://github.com/google/comprehensive-rust/tree/main/src/rust-wasm-template) with this command:
+### Serve static files
 
+Webassembly has to be loaded from an HTTP server in order to be loaded on the brower.  
 
-```shell
-cd src/rust-wasm-template/server
+If you have python on your machine, you can simply
 
-cargo run
+```
+cd rust-wasm-template/static
+
+python3 -m http.server
 ```
 
-Open the web page on port `8080`. HTML and JS files are provided at [rust-wasm-template/server](https://github.com/google/comprehensive-rust/tree/main/src/rust-wasm-template/server/files).
+Otherwise a Rust alternative exists and you can install it with
+
+```
+cargo install cargo server
+```
+
+And run
+
+```
+cd rust-wasm-template/static
+
+cargo-server
+```
+
+Open the web page on port `8000`. HTML and JS files are provided at [rust-wasm-template/static](https://github.com/google/comprehensive-rust/tree/main/src/rust-wasm-template/static).
 
 ## Javascript
 
