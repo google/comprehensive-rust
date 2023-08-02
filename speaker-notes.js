@@ -230,7 +230,7 @@
       markDefunct();
       break;
     default:
-      if (window.location.pathname == "/print.html") {
+      if (window.location.pathname.endsWith("/print.html")) {
         setupPrintPage();
         return;
       }
