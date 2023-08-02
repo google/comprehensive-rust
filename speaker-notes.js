@@ -230,8 +230,7 @@
       markDefunct();
       break;
     default:
-      const printPageRegexp = /print\.html?/;
-      if (window.location.pathname.match(printPageRegexp)) {
+      if (window.location.pathname.endsWith("/print.html")) {
         setupPrintPage();
         return;
       }
