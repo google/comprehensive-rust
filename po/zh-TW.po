@@ -4442,7 +4442,7 @@ msgid ""
 msgstr ""
 "* 首次呼叫 `say_hello` 時，`main` 會放棄 `name` 的所有權。之後，`name` 就無法"
 "在 `main` 內使用。\n"
-"* 為 `name` 分配的堆積記憶體會在 `say_hello` 函式結束時釋放。\n"
+"* 為 `name` 配置的堆積記憶體會在 `say_hello` 函式結束時釋放。\n"
 "* 如果 `main` 以參照的形式傳送 `name` (`&name`)，且 `say_hello` 能以參數的形"
 "式接受參照，`main` 就可以保留所有權。\n"
 "* 另外，`main` 可在首次呼叫 (`name.clone()`) 中傳遞 `name` 的克隆。\n"
@@ -8661,7 +8661,7 @@ msgstr ""
 
 #: src/traits/trait-objects.md:40
 msgid "Memory layout after allocating `pets`:"
-msgstr "以下是分配 `pets` 後的記憶體配置："
+msgstr "以下是配置 `pets` 後的記憶體配置："
 
 #: src/traits/trait-objects.md:42
 msgid ""
@@ -16064,8 +16064,8 @@ msgid ""
 "and deallocate it in another."
 msgstr ""
 "將所有權轉移到其他執行緒的結果，就是「destructors」會在該執行緒中\n"
-"執行。因此問題是，何時能在一個執行緒中分配一個值，\n"
-"以及何時可在另一個執行緒中解除分配這個值。"
+"執行。因此問題是，何時能在一個執行緒中配置一個值，\n"
+"並在另一個執行緒中釋放這個值的記憶體。"
 
 #: src/concurrency/send-sync/send.md:13
 msgid ""
@@ -16193,7 +16193,7 @@ msgid ""
 "  thread which created them."
 msgstr ""
 "* `MutexGuard<T>`：使用 OS 層級的原始元件，這類元件必須在建立該元件的\n"
-"執行緒上解除分配。"
+"執行緒上釋放記憶體。"
 
 #: src/concurrency/send-sync/examples.md:34
 msgid "## `!Send + !Sync`"
@@ -16236,7 +16236,7 @@ msgid ""
 "* [`Mutex<T>`][2]: ensures mutually exclusive access to the `T` value."
 msgstr ""
 "* [`Arc<T>`][1]，原子參考計數為 `T`：處理執行緒間的共享狀態，\n"
-"並且在最後參考釋放時負責解除分配 `T`。\n"
+"並且在最後參考被丟棄時負責釋放 `T` 的記憶體。\n"
 "* [`Mutex<T>`][2]：確保能提供 `T` 值的可變專屬存取權。"
 
 #: src/concurrency/shared_state/arc.md:1
