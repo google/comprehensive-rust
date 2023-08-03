@@ -44,5 +44,5 @@ We will reuse our different implementations. So do not erase them when going fro
 3. Create an X-ray effect. This is done by mapping colors to their opposite, for instance `0<->255`, `100<->155`. Beware of illumination.
 4. You can play with the function, for instance you can implement greyscale, or add random noise.
 5. In the `setup` function create a dropdown (`<select>`) that will change which transformation to apply to the image.
-6. Blur only the background. This can be done by figuring out only the pixels that didn't change between multiple frames.
+6. (BONUS) Track moving objects. This can be done by figuring out only the pixels that didn't change between multiple frames. For instance, you could compute the standard deviation of the pixel and black out below a threshold.
 While this can be achieved without touching Javascript, I recommend editing it.

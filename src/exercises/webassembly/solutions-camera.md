@@ -83,3 +83,88 @@ pub fn edit_bitmap(
     Ok(())
 }
 ```
+
+6. Track moving objects. This can be done by figuring out only the pixels that didn't change between multiple frames. For instance, you could compute the standard deviation of the pixel and black out below a threshold.
+While this can be achieved without touching Javascript, I recommend editing it.
+```rust
+extern crate console_error_panic_hook;
+
+use js_sys::Uint8ClampedArray;
+use std::collections::VecDeque;
+use tokio::sync::mpsc::{channel, Receiver, Sender};
+use wasm_bindgen::{prelude::*, Clamped};
+use wasm_bindgen_futures::spawn_local;
+use web_sys::ImageData;
+
+#[wasm_bindgen]
+extern "C" {
+    fn alert(s: &str);
+
+    #[wasm_bindgen(js_namespace = console)]
+    pub fn log(s: &str);
+}
+
+#[wasm_bindgen]
+pub struct FrameSender {
+    sdr: Sender<Uint8ClampedArray>,
+}
+
+#[wasm_bindgen]
+impl FrameSender {
+    pub fn send(&self, data: Uint8ClampedArray) -> Result<(), JsValue> {
+        self.sdr.try_send(data).map_err(|e| e.to_string().into())
+    }
+}
+
+async fn frame_processor(
+    mut image_data: Receiver<Uint8ClampedArray>,
+    canvas_ctx: web_sys::CanvasRenderingContext2d,
+) {
+    let mut deque: VecDeque<Vec<u8>> = VecDeque::new();
+    let mut current_data;
+    while let Some(image_data) = image_data.recv().await {
+        deque.push_back(image_data.to_vec());
+        if deque.len() < 10 {
+            continue;
+        }
+        let first = deque.pop_front().unwrap();
+        for (idx, v) in first.into_iter().enumerate() {
+            let pixels: Vec<f32> = deque
+                .iter()
+                .map(|image| image[idx] as f32)
+                .chain(Some(v as f32))
+                .collect();
+            let mean = pixels.iter().fold(0.0, |a, b| a + *b) / pixels.len() as f32;
+            let variance = pixels.iter().fold(0.0, |a, b| a + (b - mean).powi(2))
+                / pixels.len() as f32;
+            if variance.sqrt() < 8.0 && idx % 4 != 3 {
+                image_data.set_index(idx as u32, 0);
+            }
+        }
+        current_data = image_data.to_vec();
+        canvas_ctx
+            .put_image_data(
+                &ImageData::new_with_u8_clamped_array(Clamped(&current_data), 400)
+                    .unwrap(),
+                0.0,
+                0.0,
+            )
+            .unwrap();
+    }
+}
+
+#[wasm_bindgen]
+pub fn setup(
+    canvas_ctx: web_sys::CanvasRenderingContext2d,
+) -> Result<FrameSender, JsValue> {
+    console_error_panic_hook::set_once();
+
+    let (sdr, rcv) = channel(2);
+    let sender = FrameSender { sdr };
+    spawn_local(async move {
+        frame_processor(rcv, canvas_ctx).await;
+    });
+    Ok(sender)
+}
+
+```
