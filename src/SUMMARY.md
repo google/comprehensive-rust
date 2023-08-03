@@ -309,7 +309,8 @@
   - [Borrow Checker](webassembly/limitations/borrow-checker.md)
   - [Closures](webassembly/limitations/closures.md)
 - [Async](webassembly/async.md)
-
+- [Exercises](exercises/webassembly/webassembly.md)
+  - [Camera](exercises/webassembly/camera.md)
 
 # Final Words
 
