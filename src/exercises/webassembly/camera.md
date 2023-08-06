@@ -39,10 +39,12 @@ The image can be thought of as a matrix of dimension `(width, height, 4)`, it is
 
 We will reuse our different implementations. So do not erase them when going from one exercise to the next.
 
-1. The first exercise is to turn the top half the image to black.
-2. Turn the left half of the image to white.
+First off let's implement some methods that modify the video live:
+
+1. Paint the top half the image to black.
+2. Paint the left half of the image to white.
 3. Create an X-ray effect. This is done by mapping colors to their opposite, for instance `0<->255`, `100<->155`. Beware of illumination.
-4. You can play with the function, for instance you can implement greyscale, or add random noise.
-5. In the `setup` function create a dropdown (`<select>`) that will change which transformation to apply to the image.
-6. (BONUS) Track moving objects. This can be done by figuring out only the pixels that didn't change between multiple frames. For instance, you could compute the standard deviation of the pixel and black out below a threshold.
+4. `(BONUS)` Now feel free to implement other transformations such as `greyscale` or adding `random noise`.
+5. Let's now add functionalities to our page. In the `setup` function create a dropdown (`<select>`) that will change which transformation to apply to the image.
+6. `(BONUS)` Track moving objects. This can be done by figuring out only the pixels that didn't change between multiple frames. For instance, you could compute the standard deviation of the pixel and black out below a threshold.
 While this can be achieved without touching Javascript, I recommend editing it.
