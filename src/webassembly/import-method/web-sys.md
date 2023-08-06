@@ -13,8 +13,8 @@ pub fn add_a_cat() -> Result<(), JsValue> {
 
     let image = document.create_element("img")?;
     // We need a random number to prevent the browser from caching the image
-    let random_number = js_sys::Math::random();
-    image.set_attribute("src", &format!("https://cataas.com/cat?random={random_number}"))?;
+    let random_number = js_sys::Math::random() * 10_000.0;
+    image.set_attribute("src", &format!("https://picsum.photos/300?random={random_number}"))?;
     body.append_child(&image)?;
 
     Ok(())

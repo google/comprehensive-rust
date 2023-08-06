@@ -23,7 +23,7 @@ extern "C" {
 }
 
 #[wasm_bindgen]
-pub fn set_panic_hook() {
+pub fn setup() {
     console_error_panic_hook::set_once();
 }
 
