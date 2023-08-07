@@ -50,7 +50,7 @@ Because `static` variables are accessible from any thread, they must be `Sync`. 
 is possible through a [`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html), atomic or
 similar. It is also possible to have mutable statics, but they require manual synchronisation so any
 access to them requires `unsafe` code. We will look at
-mutable statics](../unsafe/mutable-static-variables.md) in the chapter on Unsafe Rust.
+[mutable statics](../unsafe/mutable-static-variables.md) in the chapter on Unsafe Rust.
 
 <details>
 

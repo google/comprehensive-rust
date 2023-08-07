@@ -4,18 +4,12 @@
   "markdown": {
     "textWrap": "always"
   },
-  "toml": {},
   "exec": {
-    "associations": "**/*.rs",
-    "rustfmt": "rustfmt --edition 2021",
-    "rustfmt.associations": "**/*.rs"
+    "commands": [{
+      "command": "rustfmt --edition 2021",
+      "exts": ["rs"]
+    }]
   },
-  "includes": [
-    "**/*.json",
-    "**/*.md",
-    "**/*.rs",
-    "**/*.toml"
-  ],
   "excludes": [
     "/book/",
     "/src/",
@@ -23,7 +17,7 @@
     "target/"
   ],
   "plugins": [
-    "https://plugins.dprint.dev/exec-0.3.5.json@d687dda57be0fe9a0088ccdaefa5147649ff24127d8b3ea227536c68ee7abeab",
+    "https://plugins.dprint.dev/exec-0.4.3.json@42343548b8022c99b1d750be6b894fe6b6c7ee25f72ae9f9082226dd2e515072",
     "https://plugins.dprint.dev/json-0.17.2.wasm",
     "https://plugins.dprint.dev/markdown-0.15.2.wasm",
     "https://plugins.dprint.dev/toml-0.5.4.wasm"

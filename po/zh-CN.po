@@ -8989,7 +8989,7 @@ msgstr ""
 
 #: src/generics.md:1
 msgid "# Generics"
-msgstr ""
+msgstr "# 泛型"
 
 #: src/generics.md:3
 msgid ""
@@ -8997,14 +8997,15 @@ msgid ""
 "sorting)\n"
 "over the types used in the algorithm."
 msgstr ""
+"Rust 支持泛型，允许您根据算法（例如排序）中使用的类型对算法进行抽象化处理。"
 
 #: src/generics/data-types.md:1
 msgid "# Generic Data Types"
-msgstr ""
+msgstr "# 通用数据类型"
 
 #: src/generics/data-types.md:3
 msgid "You can use generics to abstract over the concrete field type:"
-msgstr ""
+msgstr "您可以使用泛型对具体字段类型进行抽象化处理："
 
 #: src/generics/data-types.md:5
 msgid ""
@@ -9032,11 +9033,11 @@ msgstr ""
 
 #: src/generics/methods.md:1
 msgid "# Generic Methods"
-msgstr ""
+msgstr "# 泛型方法"
 
 #: src/generics/methods.md:3
 msgid "You can declare a generic type on your `impl` block:"
-msgstr ""
+msgstr "您可以在 `impl` 块中声明通用类型："
 
 #: src/generics/methods.md:5
 msgid ""
@@ -9070,14 +9071,20 @@ msgid ""
 "      * `Point` is still generic and you can use `Point<f64>`, but methods "
 "in this block will only be available for `Point<u32>`."
 msgstr ""
+"* *问：*为什么 `T` 在 `impl<T> Point<T> {}` 中指定了两次？这不是多余的吗？\n"
+"    * 这是因为它是泛型类型的泛型实现部分。它们是独立的泛型内容。\n"
+"    * 这意味着这些方法是针对所有 `T` 定义的。\n"
+"    * 可以编写 `impl Point<u32> { .. }`。\n"
+"      * `Point` 依然是一个泛型，并且您可以使用 `Point<f64>`，但此块中的方法将仅"
+"适用于 `Point<u32>`。"
 
 #: src/generics/monomorphization.md:1
 msgid "# Monomorphization"
-msgstr ""
+msgstr "# 单态化"
 
 #: src/generics/monomorphization.md:3
 msgid "Generic code is turned into non-generic code based on the call sites:"
-msgstr ""
+msgstr "泛型代码根据调用位置转换为非泛型代码："
 
 #: src/generics/monomorphization.md:5
 msgid ""
@@ -9091,7 +9098,7 @@ msgstr ""
 
 #: src/generics/monomorphization.md:12
 msgid "behaves as if you wrote"
-msgstr ""
+msgstr "具体行为与您所编写的一样"
 
 #: src/generics/monomorphization.md:14
 msgid ""
@@ -9119,6 +9126,8 @@ msgid ""
 "had\n"
 "hand-coded the data structures without the abstraction."
 msgstr ""
+"这是零成本的抽象化处理：您得到的结果不会受到影响，也就是说，与在没有进行抽象"
+"化处理的情况下，对数据结构进行手动编码时的结果一样。"
 
 #: src/traits.md:1
 msgid "# Traits"
