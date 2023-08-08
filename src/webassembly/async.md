@@ -9,8 +9,8 @@ Let's create a class that waits for messages on a channel to rotate an HTML elem
 
 ```rust
 use wasm_bindgen::prelude::*;
-use tokio::sync::mpsc::{Sender, channel};
 use wasm_bindgen_futures::spawn_local;
+use tokio::sync::mpsc::{channel, Sender};
 
 #[derive(Debug)]
 enum RotateSide {
