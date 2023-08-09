@@ -14652,7 +14652,7 @@ msgstr ""
 
 #: src/concurrency/channels.md:1
 msgid "# Channels"
-msgstr ""
+msgstr "# チャネル"
 
 #: src/concurrency/channels.md:3
 msgid ""
@@ -14660,6 +14660,8 @@ msgid ""
 "parts\n"
 "are connected via the channel, but you only see the end-points."
 msgstr ""
+"Rustのチャネルには二つの部品があります： `Sender<T>` と`Receiver<T>`です。この２つの部品はチャネルに"
+"よって繋がっていますが、見ることができるのはエンドポイントだけです。"
 
 #: src/concurrency/channels.md:6
 msgid ""
@@ -14692,14 +14694,18 @@ msgid ""
 "counterpart `Sender` or\n"
 "  `Receiver` is dropped and the channel is closed."
 msgstr ""
+"* `mpsc` は Multi-Producer, Single-Consumerの略称です。 `Sender`と`SyncSender`は`Clone`を実装してい"
+"る（よって複数のproducerが作成可能）のですが、`Receiver`についてはそうではありません。\n"
+"* `send()`と`recv()`は`Result`を返します。もし`Err`が返された場合、これは、対応する`Sender`か"
+"`Receiver`のいずれかがドロップされ、チャンネルが閉じられたことを意味します。"
 
 #: src/concurrency/channels/unbounded.md:1
 msgid "# Unbounded Channels"
-msgstr ""
+msgstr "# Unboundedチャネル"
 
 #: src/concurrency/channels/unbounded.md:3
 msgid "You get an unbounded and asynchronous channel with `mpsc::channel()`:"
-msgstr ""
+msgstr "Unboundedで非同期的なチャネルは`mpsc::channel()`によって得られます："
 
 #: src/concurrency/channels/unbounded.md:5
 msgid ""
@@ -14730,7 +14736,7 @@ msgstr ""
 
 #: src/concurrency/channels/bounded.md:1
 msgid "# Bounded Channels"
-msgstr ""
+msgstr "# Boundedチャネル"
 
 #: src/concurrency/channels/bounded.md:3
 msgid "Bounded and synchronous channels make `send` block the current thread:"
