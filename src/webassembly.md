@@ -8,4 +8,4 @@ Rust is often considered as one of the best languages to compile to WebAssembly 
 
 There are multiple frameworks to create WASM libraries from Rust. We will focus on [wasm-pack](https://rustwasm.github.io/docs/wasm-pack/introduction.html) and [wasm-bindgen](https://rustwasm.github.io/wasm-bindgen/).
 
-WebAssembly needs to be run in a Browser or a VM, therefore we will use a different set up for this class. Please navigate to [rust-wasm-template](https://github.com/google/comprehensive-rust/tree/main/src/rust-wasm-template) to view the installation instructions. Feel free to either clone the repository to run it locally, or open a new [Codespace on Github](https://codespaces.new/google/comprehensive-rust)
+WebAssembly needs to be run in a browser or a VM, therefore we will use a different set up for this class. Please navigate to [rust-wasm-template](https://github.com/google/comprehensive-rust/tree/main/src/rust-wasm-template) to view the installation instructions. Feel free to either clone the repository to run it locally, or open a new [Codespace on Github](https://codespaces.new/google/comprehensive-rust)

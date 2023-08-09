@@ -2,12 +2,10 @@
 
 This repository contains the minimum amount of code needed to experiment with WebAssembly. Including a web server to serve the HTML and WASM as well as the javascript boilerplate needed to load WASM.
 
-- `/static` contains the static files including compiled webassembly.
-- `/src/lib.rs` contains the Rust code.
+- `static` contains the static files including compiled webassembly.
+- `src/lib.rs` contains the Rust code.
 
 ## Installation
-
-Note: If you are running from a devcontainer, you only need to install wasm-pack.
 
 ### Rust
 
@@ -29,7 +27,7 @@ Alternatively, see the [installation page](https://rustwasm.github.io/wasm-pack/
 
 ## Run the local server
 
-If you have python on your machine, you can simply
+If you have Python on your machine, you can simply
 
 ```
 cd rust-wasm-template/static
@@ -40,7 +38,7 @@ python3 -m http.server
 Otherwise a Rust alternative exists and you can install it with
 
 ```
-cargo install cargo server
+cargo install cargo-server
 ```
 
 And run
@@ -48,11 +46,10 @@ And run
 ```
 cd rust-wasm-template/static
 
-cargo-server
+cargo server
 ```
 
-- On a devcontainer, go to `PORTS` and open the link under `Local Address` for Port `8000`
-- Locally, visit http://localhost:8000
+Visit http://localhost:8000
 
 ## Build WASM and copy target to the correct path
 

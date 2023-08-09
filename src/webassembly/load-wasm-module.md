@@ -17,7 +17,7 @@ wasm-pack build --target web --out-dir static/wasm
 
 Webassembly has to be loaded from an HTTP server in order to be loaded on the brower.  
 
-If you have python on your machine, you can simply
+If you have Python on your machine, you can simply
 
 ```
 cd rust-wasm-template/static
@@ -28,7 +28,7 @@ python3 -m http.server
 Otherwise a Rust alternative exists and you can install it with
 
 ```
-cargo install cargo server
+cargo install cargo-server
 ```
 
 And run
@@ -36,7 +36,7 @@ And run
 ```
 cd rust-wasm-template/static
 
-cargo-server
+cargo server
 ```
 
 Open the web page on port `8000`. HTML and JS files are provided at [rust-wasm-template/static](https://github.com/google/comprehensive-rust/tree/main/src/rust-wasm-template/static).
