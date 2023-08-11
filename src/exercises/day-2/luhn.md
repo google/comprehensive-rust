@@ -18,7 +18,7 @@ following to validate the credit card number:
 
 Copy the code below to <https://play.rust-lang.org/> and implement the function.
 
-Try to solve the problem the "simple" way first, using for loops an integers.
+Try to solve the problem the "simple" way first, using `for` loops and integers.
 Then, revisit the solution and try to implement it with iterators.
 
 
