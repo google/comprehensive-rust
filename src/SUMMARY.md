@@ -113,6 +113,7 @@
     - [Recursive Data Types](std/box-recursive.md)
     - [Niche Optimization](std/box-niche.md)
   - [Rc](std/rc.md)
+  - [Cell/RefCell](std/cell.md)
 - [Modules](modules.md)
   - [Visibility](modules/visibility.md)
   - [Paths](modules/paths.md)
