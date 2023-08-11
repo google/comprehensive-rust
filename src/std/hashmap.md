@@ -61,6 +61,8 @@ fn main() {
   but it can lead into complications with the borrow checker.
   * Try removing `to_string()` from the example above and see if it still compiles. Where do you think we might run into issues?
 
+* This type has several "method-specific" return types, such as `std::collections::hash_map::Keys`. These types often appear in searches of the Rust docs. Show students the docs for this type, and the helpful link back to the `keys` method.
+
 [1]: https://doc.rust-lang.org/std/collections/hash_map/struct.HashMap.html#impl-From%3C%5B(K,+V);+N%5D%3E-for-HashMap%3CK,+V,+RandomState%3E
 
 </details>
