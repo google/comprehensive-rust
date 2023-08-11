@@ -1457,7 +1457,7 @@ msgid ""
 "* Day 3: Traits and generics, error handling, testing, unsafe Rust."
 msgstr ""
 "* 第 1 天：Rust 基礎知識、擁有權 (ownership) 與借用檢查器 (borrow checker)。\n"
-"* 第 2 天：複合資料類型、模式比對 (pattern matching)、標準程式庫。\n"
+"* 第 2 天：複合資料型別、模式比對 (pattern matching)、標準程式庫。\n"
 "* 第 3 天：特徵 (traits) 與泛型 (generics)、錯誤處理、測試、不安全的 Rust。"
 
 #: src/running-the-course/course-structure.md:11
@@ -3986,7 +3986,7 @@ msgid ""
 "* You may be asked about destructors here, the [Drop] trait is the Rust "
 "equivalent."
 msgstr ""
-"* 如果這時學員詢問相關做法，您可以表示這在 Rust 中通常會以 RAII 包裝函式類型"
+"* 如果這時學員詢問相關做法，您可以表示這在 Rust 中通常會以 RAII 包裝函式型別"
 "處理，例如 [Box]、[Vec]、[Rc] 或 [Arc]。這些型別會透過多種方法封裝所有權和記"
 "憶體配置，防止在 C 中可能出現的錯誤。\n"
 "\n"
@@ -4456,7 +4456,7 @@ msgstr "# 複製和克隆"
 #: src/ownership/copy-clone.md:3
 msgid ""
 "While move semantics are the default, certain types are copied by default:"
-msgstr "雖然移動語意是預設做法，但某些類型的預設做法為複製："
+msgstr "雖然移動語意是預設做法，但某些型別的預設做法為複製："
 
 #: src/ownership/copy-clone.md:5
 msgid ""
@@ -4480,11 +4480,11 @@ msgstr ""
 
 #: src/ownership/copy-clone.md:14
 msgid "These types implement the `Copy` trait."
-msgstr "這些類型會實作 `Copy` 特徵。"
+msgstr "這些型別會實作 `Copy` 特徵。"
 
 #: src/ownership/copy-clone.md:16
 msgid "You can opt-in your own types to use copy semantics:"
-msgstr "您可以自行選擇加入類型，使用複製語意的做法："
+msgstr "您可以自行選擇加入型別，使用複製語意的做法："
 
 #: src/ownership/copy-clone.md:18
 msgid ""
@@ -4537,7 +4537,7 @@ msgstr ""
 "* 複製是指記憶體區域的按位元複製作業，不適用於任意物件。\n"
 "* 複製不允許用於自訂邏輯，這與 C++ 中的複製建構函式不同。\n"
 "* 克隆是較廣泛的作業，而且只要實作 `Clone` 特徵，即允許用於自訂行為。\n"
-"* 複製不適用於實作 `Drop` 特徵的類型。"
+"* 複製不適用於實作 `Drop` 特徵的型別。"
 
 #: src/ownership/copy-clone.md:42 src/ownership/lifetimes-function-calls.md:29
 msgid "In the above example, try the following:"
@@ -4551,7 +4551,7 @@ msgid ""
 "the `println!` for  `p1`.\n"
 "* Show that it works if you clone `p1` instead."
 msgstr ""
-"* 將 `String` 欄位新增至 `struct Point`。由於 `String` 不屬於 `Copy` 類型，因"
+"* 將 `String` 欄位新增至 `struct Point`。由於 `String` 不屬於 `Copy` 型別，因"
 "此不會編譯。\n"
 "* 從 `derive` 屬性中移除 `Copy`。編譯器錯誤現在位於 `p1` 的 `println!` 中。\n"
 "* 示範如果改為克隆 `p1`，就能正常運作。"
@@ -4911,7 +4911,7 @@ msgstr "# 資料結構中的生命週期"
 #: src/ownership/lifetimes-data-structures.md:3
 msgid ""
 "If a data type stores borrowed data, it must be annotated with a lifetime:"
-msgstr "如果資料類型會儲存借用的資料，則必須使用生命週期註解："
+msgstr "如果資料型別會儲存借用的資料，則必須使用生命週期註解："
 
 #: src/ownership/lifetimes-data-structures.md:5
 msgid ""
@@ -4973,7 +4973,7 @@ msgstr ""
 "的基礎資料，留存時間應至少和使用該資料的所有 `Highlight` 例項一樣長。\n"
 "* 如果在 `fox` (或 `dog`) 的生命週期結束前消耗 `text`，借用檢查器會擲回錯"
 "誤。\n"
-"* 含有借用資料的類型會強制要求使用者保留原始資料。這在建立輕量檢視畫面可能很"
+"* 含有借用資料的型別會強制要求使用者保留原始資料。這在建立輕量檢視畫面可能很"
 "實用，但通常也會增加使用難度。\n"
 "* 請盡可能讓資料結構直接擁有資料。\n"
 "* 某些內含多個參照的結構體可擁有多個生命週期註解。如果除了結構體的生命週期之"
@@ -7292,8 +7292,8 @@ msgid ""
 "Like `if let`, each match arm must have the same type. The type is the last\n"
 "expression of the block, if any. In the example above, the type is `()`."
 msgstr ""
-"和 `if let` 一樣，每個比對臂都必須具有相同類型。類型是區塊的最後一個運算式 "
-"(如有)。在上述範例中，類型為 `()`。"
+"和 `if let` 一樣，每個比對臂都必須具有相同型別。型別是區塊的最後一個運算式 "
+"(如有)。在上述範例中，型別為 `()`。"
 
 #: src/control-flow/match-expressions.md:28
 msgid ""
@@ -7761,7 +7761,7 @@ msgstr ""
 "* `Box` 就像是 C++ 中的 `std::unique_ptr`，兩者的差別在於 `Box` 不會是空值。\n"
 "* 上面的範例使用 `Deref`，因此 `println!` 陳述式甚至可以省略 `*`。\n"
 "* 在以下情況下，您可以使用 `Box`：\n"
-"   * 編譯時遇到不知道大小為何的類型，但 Rust 編譯器需要知道確切大小。\n"
+"   * 編譯時遇到不知道大小為何的型別，但 Rust 編譯器需要知道確切大小。\n"
 "   * 想要轉移大量資料的所有權。為避免在堆疊上複製大量資料，請改將"
 "資料儲存在 `Box` 的堆積上，這樣系統就只會移動指標。"
 
@@ -7772,7 +7772,7 @@ msgstr "# 包含遞迴資料結構的 Box"
 #: src/std/box-recursive.md:3
 msgid ""
 "Recursive data types or data types with dynamic sizes need to use a `Box`:"
-msgstr "遞迴資料類型或含有動態大小的資料類型必須使用 `Box`："
+msgstr "遞迴資料型別或含有動態大小的資料型別必須使用 `Box`："
 
 #: src/std/box-recursive.md:5 src/std/box-niche.md:3
 msgid ""
@@ -9193,7 +9193,7 @@ msgstr ""
 "* 這就是為什麼通常只需實作 `From`，因為型別也會實作 `Into`。\n"
 "* 如要宣告函式引數輸入型別 (例如「任何可轉換成 `String` 的型別」)，規則便會相"
 "反，此時請使用 `Into`。\n"
-"您的函式會接受實作 `From` 的類型，以及「僅」實作 `Into` 的型別。\n"
+"您的函式會接受實作 `From` 的型別，以及「僅」實作 `Into` 的型別。\n"
 "    "
 
 #: src/traits/read-write.md:1
@@ -9994,7 +9994,7 @@ msgstr ""
 #: src/error-handling/converting-error-types.md:1
 #: src/error-handling/converting-error-types-example.md:1
 msgid "# Converting Error Types"
-msgstr "# 轉換錯誤類型"
+msgstr "# 轉換錯誤型別"
 
 #: src/error-handling/converting-error-types.md:3
 msgid ""
@@ -20317,7 +20317,7 @@ msgid ""
 "* The example is a subtle reference to the [Mars Climate Orbiter](https://en."
 "wikipedia.org/wiki/Mars_Climate_Orbiter) failure."
 msgstr ""
-"* 如要對原始類型中值的額外資訊進行編碼，Newtypes 是絕佳的方式，舉例來說：\n"
+"* 如要對原始型別中值的額外資訊進行編碼，Newtypes 是絕佳的方式，舉例來說：\n"
 " * 此數字會採用某些測量單位：在上例中為 `Newtons`。\n"
 " * 此值在建立時已通過某些驗證，因此往後不必在每次使用時再次驗證。例如："
 "'PhoneNumber(String)` 或 `OddNumber(u32)` 。\n"
