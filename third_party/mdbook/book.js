@@ -78,7 +78,7 @@ function playground_text(playground, hidden = true) {
     }
 
     // updates the visibility of play button based on `no_run` class and
-    // used crates vs ones available on http://play.rust-lang.org
+    // used crates vs ones available on https://play.rust-lang.org
     function update_play_button(pre_block, playground_crates) {
         var play_button = pre_block.querySelector(".play-button");
 
@@ -206,7 +206,7 @@ function playground_text(playground, hidden = true) {
     // even if highlighting doesn't apply
     code_nodes.forEach(function (block) { block.classList.add('hljs'); });
 
-    Array.from(document.querySelectorAll("code.language-rust")).forEach(function (block) {
+    Array.from(document.querySelectorAll("code.hljs")).forEach(function (block) {
 
         var lines = Array.from(block.querySelectorAll('.boring'));
         // If no lines were hidden, return
@@ -373,7 +373,7 @@ function playground_text(playground, hidden = true) {
         }
 
         setTimeout(function () {
-            themeColorMetaTag.content = getComputedStyle(document.body).backgroundColor;
+            themeColorMetaTag.content = getComputedStyle(document.documentElement).backgroundColor;
         }, 1);
 
         if (window.ace && window.editors) {
@@ -578,13 +578,6 @@ function playground_text(playground, hidden = true) {
             firstContact = null;
         }
     }, { passive: true });
-
-    // Scroll sidebar to current active section
-    var activeSection = document.getElementById("sidebar").querySelector(".active");
-    if (activeSection) {
-        // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
-        activeSection.scrollIntoView({ block: 'center' });
-    }
 })();
 
 (function chapterNavigation() {
@@ -703,13 +696,14 @@ function playground_text(playground, hidden = true) {
         }, { passive: true });
     })();
     (function controllBorder() {
-        menu.classList.remove('bordered');
-        document.addEventListener('scroll', function () {
+        function updateBorder() {
             if (menu.offsetTop === 0) {
                 menu.classList.remove('bordered');
             } else {
                 menu.classList.add('bordered');
             }
-        }, { passive: true });
+        }
+        updateBorder();
+        document.addEventListener('scroll', updateBorder, { passive: true });
     })();
 })();
