@@ -12,6 +12,8 @@ rustc 1.69.0 (84c898d65 2023-04-16)
 cargo 1.69.0 (6e9a83356 2023-04-12)
 ```
 
+You can use any later version too since Rust maintains backwards compatibility.
+
 With this in place, follow these steps to build a Rust binary from one
 of the examples in this training:
 
