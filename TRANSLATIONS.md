@@ -14,9 +14,9 @@ directory. The `.po` files are small text-based translation databases.
 > available. This will ensure that the file is encoded correctly.
 
 > **Important:** If you are planning to use [Poedit](https://poedit.net/) as
-> suggested above, make sure to follow the additional configuration
-> steps](#Additional-Configuration-Steps-for-Poedit) below to ensure the `.po`
-> file is correctly formatted.
+> suggested above, make sure to follow the
+> [additional configuration steps](#Additional-Configuration-for-Poedit) below
+> to ensure the `.po` file is correctly formatted.
 
 There is a `.po` file for each language. They are named after the [ISO 639]
 language codes: Danish would go into `po/da.po`, Korean would go into
