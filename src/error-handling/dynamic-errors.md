@@ -7,12 +7,13 @@ all the different possibilities. `std::error::Error` makes this easy.
 use std::fs;
 use std::io::Read;
 use thiserror::Error;
+use std::error;
 
 #[derive(Clone, Debug, Eq, Error, PartialEq)]
 #[error("Found no username in {0}")]
 struct EmptyUsernameError(String);
 
-fn read_username(path: &str) -> Result<String, Box<dyn std::error::Error>> {
+fn read_username(path: &str) -> Result<String, Box<dyn error::Error>> {
     let mut username = String::new();
     fs::File::open(path)?.read_to_string(&mut username)?;
     if username.is_empty() {
