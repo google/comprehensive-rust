@@ -11740,16 +11740,17 @@ msgstr ""
 
 #: src/android/aidl/interface.md:1
 msgid "# AIDL Interfaces"
-msgstr ""
+msgstr "# AIDL 接口"
 
 #: src/android/aidl/interface.md:3
 msgid "You declare the API of your service using an AIDL interface:"
-msgstr ""
+msgstr "您可以使用 AIDL 接口声明您的服务的 API："
 
 #: src/android/aidl/interface.md:5
 msgid ""
 "*birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl*:"
 msgstr ""
+"*birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl*:"
 
 #: src/android/aidl/interface.md:7
 msgid ""
@@ -11763,10 +11764,19 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```java\n"
+"package com.example.birthdayservice;\n"
+"\n"
+"/** 生日服务接口。 */\n"
+"interface IBirthdayService {\n"
+"    /** 生成一条生日快乐的祝福信息。 */\n"
+"    String wishHappyBirthday(String name, int years);\n"
+"}\n"
+"```"
 
 #: src/android/aidl/interface.md:17
 msgid "*birthday_service/aidl/Android.bp*:"
-msgstr ""
+msgstr "*birthday_service/aidl/Android.bp*:"
 
 #: src/android/aidl/interface.md:19
 msgid ""
@@ -11783,6 +11793,18 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"aidl_interface {\n"
+"    name: \"com.example.birthdayservice\",\n"
+"    srcs: [\"com/example/birthdayservice/*.aidl\"],\n"
+"    unstable: true,\n"
+"    backend: {\n"
+"        rust: { // 默认情况下不启用 Rust \n"
+"            enabled: true,\n"
+"        },\n"
+"    },\n"
+"}\n"
+"```"
 
 #: src/android/aidl/interface.md:32
 msgid ""
@@ -11790,6 +11812,8 @@ msgid ""
 "vendor\n"
 "partition."
 msgstr ""
+"如果供应商分区中的二进制文件使用了您的 AIDL 文件，请添加 `vendor_available: "
+"true`。"
 
 #: src/android/aidl/implementation.md:1
 msgid "# Service Implementation"
