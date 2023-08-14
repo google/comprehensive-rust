@@ -1,6 +1,6 @@
 # `Cell` and `RefCell`
 
-[`Cell`][https://doc.rust-lang.org/std/cell/struct.Cell.html] and
+[`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html) and
 [`RefCell`](https://doc.rust-lang.org/std/cell/struct.RefCell.html) implement
 what Rust calls *interior mutability:* mutation of values in an immutable
 context.
