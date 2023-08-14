@@ -6,10 +6,9 @@ all the different possibilities. `std::error::Error` makes this easy.
 ```rust,editable,compile_fail
 use std::fs;
 use std::io::Read;
-use thiserror::Error;
 use std::error::Error;
 
-#[derive(Clone, Debug, Eq, Error, PartialEq)]
+#[derive(Clone, Debug, Eq, thiserror::Error, PartialEq)]
 #[error("Found no username in {0}")]
 struct EmptyUsernameError(String);
 
