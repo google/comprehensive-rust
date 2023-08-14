@@ -6,13 +6,13 @@ all the different possibilities. `std::error::Error` makes this easy.
 ```rust,editable,compile_fail
 use std::fs;
 use std::io::Read;
-use std::error::Error;
+use thiserror::Error;
 
-#[derive(Clone, Debug, Eq, thiserror::Error, PartialEq)]
+#[derive(Clone, Debug, Eq, Error, PartialEq)]
 #[error("Found no username in {0}")]
 struct EmptyUsernameError(String);
 
-fn read_username(path: &str) -> Result<String, Box<dyn Error>> {
+fn read_username(path: &str) -> Result<String, Box<dyn std::error::Error>> {
     let mut username = String::new();
     fs::File::open(path)?.read_to_string(&mut username)?;
     if username.is_empty() {
