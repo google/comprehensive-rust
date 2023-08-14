@@ -644,7 +644,7 @@ msgstr ""
 
 #: src/SUMMARY.md:196
 msgid "Changing API"
-msgstr ""
+msgstr "改寫 API"
 
 #: src/SUMMARY.md:197 src/SUMMARY.md:240
 msgid "Logging"
@@ -11777,14 +11777,14 @@ msgstr ""
 
 #: src/android/aidl/changing.md:1
 msgid "# Changing API"
-msgstr ""
+msgstr "# 改寫 API"
 
 #: src/android/aidl/changing.md:3
 msgid ""
 "Let us extend the API with more functionality: we want to let clients "
 "specify a\n"
 "list of lines for the birthday card:"
-msgstr ""
+msgstr "讓我們為這個 API 擴充更多功能：我們想要讓用戶能在生日卡上指定幾行字："
 
 #: src/android/aidl/changing.md:6
 msgid ""
@@ -11798,6 +11798,15 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```java\n"
+"package com.example.birthdayservice;\n"
+"\n"
+"/** 生日功能介面 */\n"
+"interface IBirthdayService {\n"
+"    /** 生成一段生日快樂的祝賀訊息 */\n"
+"    String wishHappyBirthday(String name, int years, in String[] text);\n"
+"}\n"
+"```"
 
 #: src/android/logging.md:1 src/bare-metal/aps/logging.md:1
 msgid "# Logging"
