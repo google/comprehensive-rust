@@ -13,7 +13,9 @@
 // limitations under the License.
 
 (function() {
-  let notes = document.querySelector("details");
+  const details = new Array(...document.querySelectorAll("details"));
+  let notes = details.find(details => details.getAttribute("solution") === null);
+  const solutions = details.filter(details => details.getAttribute("solution") !== null);
   // Create an unattached DOM node for the code below.
   if (!notes) {
     notes = document.createElement("details");
@@ -47,7 +49,7 @@
         break;
       case "inline-open":
         popIn.classList.add("hidden");
-        notes.open = true;
+        notes.open = notes.getAttribute("solution") === null;
         notes.classList.remove("hidden");
         break;
       case "inline-closed":
@@ -87,23 +89,38 @@
     });
     document.querySelector(".left-buttons").append(popIn);
 
-    // Create speaker notes.
-    notes.addEventListener("toggle", (event) => {
-      setState(notes.open ? "inline-open" : "inline-closed");
-    });
+    const createSpeakerNotes = () => {
+      notes.addEventListener("toggle", (event) => {
+        setState(notes.open ? "inline-open" : "inline-closed");
+      });
+  
+      const summary = document.createElement("summary");
+      notes.insertBefore(summary, notes.firstChild);
+  
+      const h4 = document.createElement("h4");
+      h4.setAttribute("id", "speaker-notes");
+      h4.append("Speaker Notes");
+      h4.addEventListener("click", (event) => {
+        // Update fragment as if we had clicked a link. A regular a element would
+        // result in double-fire of the event.
+        window.location.hash = "#speaker-notes";
+      });
+      summary.append(h4);
+    };
 
-    let summary = document.createElement("summary");
-    notes.insertBefore(summary, notes.firstChild);
+    const createSolutions = () => {
+      for(const solution of solutions) {
+        const summary = document.createElement("summary");
+        solution.insertBefore(summary, solution.firstChild);
+    
+        const h4 = document.createElement("h4");
+        h4.append("Solution");
+        summary.append(h4);
+      }
+    };
 
-    let h4 = document.createElement("h4");
-    h4.setAttribute("id", "speaker-notes");
-    h4.append("Speaker Notes");
-    h4.addEventListener("click", (event) => {
-      // Update fragment as if we had clicked a link. A regular a element would
-      // result in double-fire of the event.
-      window.location.hash = "#speaker-notes";
-    });
-    summary.append(h4);
+    createSpeakerNotes();
+    createSolutions();
 
     // Create pop-out button.
     let popOutLocation = new URL(window.location.href);
