@@ -49,7 +49,7 @@
         break;
       case "inline-open":
         popIn.classList.add("hidden");
-        notes.open = notes.getAttribute("solution") === null;
+        notes.open = true;
         notes.classList.remove("hidden");
         break;
       case "inline-closed":
