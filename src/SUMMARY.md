@@ -121,6 +121,7 @@
 - [Exercises](exercises/day-2/afternoon.md)
   - [Luhn Algorithm](exercises/day-2/luhn.md)
   - [Strings and Iterators](exercises/day-2/strings-iterators.md)
+  - [Binary Tree](exercises/day-2/binary-tree.md)
 
 
 # Day 3: Morning
