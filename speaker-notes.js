@@ -145,18 +145,11 @@
   // Create headers on the print page.
   function setupPrintPage() {
     for (const notes of document.querySelectorAll("details")) {
-      let summaryContent;
-      if (notes.getAttribute("solution") !== null) {
-        notes.open = false;
-        summaryContent = "Solution";
-      } else {
-        notes.open = true;
-        summaryContent = "Speaker Notes";
-      }
-      const summary = document.createElement("summary");
+      notes.open = true;
+      let summary = document.createElement("summary");
       notes.insertBefore(summary, notes.firstChild);
-      const h4 = document.createElement("h4");
-      h4.append(summaryContent);
+      let h4 = document.createElement("h4");
+      h4.append("Speaker Notes");
       summary.append(h4);
     }
   }
