@@ -15,7 +15,7 @@ enum Side {
 
 Using the data structures in the standard library, how can we represent such a Binary Tree in Rust?
 
-<details open=false>
+<details solution>
 
 ```rust
 #[derive(Debug)]
@@ -30,7 +30,7 @@ struct BinaryTree {
 
 Let's now write a method to to create a BinaryTree with arbitrary depth:
 
-<details open=false>
+<details solution>
 
 ```rust
 use Side::*;
@@ -57,7 +57,7 @@ Let's now write a method to invert the tree. To make sure that the tree is inver
 left nodes values should now be `Right` and right nodes values should now be `Left`.
 
 
-<details open=false>
+<details solution>
 
 ```rust
 use Side::*;
