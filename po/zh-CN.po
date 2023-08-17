@@ -8018,7 +8018,7 @@ msgstr "在本示例中，我们会在内循环 3 次迭代后终止外循环。
 
 #: src/std.md:1
 msgid "# Standard Library"
-msgstr ""
+msgstr "# 标准库"
 
 #: src/std.md:3
 msgid ""
@@ -8028,10 +8028,13 @@ msgid ""
 "together\n"
 "smoothly because they both use the same `String` type."
 msgstr ""
+"Rust 附带一个标准库，此库有助于建立一个供 Rust 库和程序\n"
+"使用的常用类型集。这样一来，两个库便可顺畅地搭配运作，\n"
+"因为它们使用相同的 `String` 类型。"
 
 #: src/std.md:7
 msgid "The common vocabulary types include:"
-msgstr ""
+msgstr "常见的词汇类型包括："
 
 #: src/std.md:9
 msgid ""
@@ -8051,6 +8054,19 @@ msgid ""
 "* [`Rc`](std/rc.md): a shared reference-counted pointer for heap-allocated "
 "data."
 msgstr ""
+"* [`Option` 和 `Result`](std/option-result.md) 类型：用于可选值和\n"
+"[错误处理](error-handling.md)。\n"
+"\n"
+"* [`String`](std/string.md)：用于自有数据的默认字符串类型。\n"
+"\n"
+"* [`Vec`](std/vec.md)：标准的可扩展矢量。\n"
+"\n"
+"* [`HashMap`](std/hashmap.md)：采用可配置哈希算法的哈希映射\n"
+"类型。\n"
+"\n"
+"* [`Box`](std/box.md)：适用于堆分配数据的自有指针。\n"
+"\n"
+"* [`Rc`](std/rc.md)：适用于堆分配数据的共享引用计数指针。"
 
 #: src/std.md:25
 msgid ""
@@ -8063,14 +8079,19 @@ msgid ""
 "`Vec`, `Box` and `Arc`.\n"
 "  * Embedded Rust applications often only use `core`, and sometimes `alloc`."
 msgstr ""
+"  * Rust 实际上含有多个层级的标准库，分别是 `core`、`alloc` 和 `std`。\n"
+"  * `core` 包括最基本的类型与函数，这些类型与函数不依赖于 `libc`、分配器\n"
+"或是否存在操作系统。\n"
+"  * `alloc` 包括需要全局堆分配器的类型，例如 `Vec`、`Box` 和 `Arc`。\n"
+"  * 嵌入式 Rust 应用通常只使用 `core`，偶尔会使用 `alloc`。"
 
 #: src/std/option-result.md:1
 msgid "# `Option` and `Result`"
-msgstr ""
+msgstr "# `Option` 和 `Result`"
 
 #: src/std/option-result.md:3
 msgid "The types represent optional data:"
-msgstr ""
+msgstr "这些类型表示可选数据："
 
 #: src/std/option-result.md:5
 msgid ""
@@ -8097,15 +8118,21 @@ msgid ""
 "  * Otherwise, `Result::Err` contains the index where such an element should "
 "be inserted."
 msgstr ""
+"* `Option` 和 `Result` 的使用范围很广，不局限于标准库。\n"
+"* 相较于 `&T`，`Option<&T>` 的空间开销为零。\n"
+"* `Result` 是用于实现错误处理的标准类型，我们将在第 3 天的课程中介绍。\n"
+"* `binary_search` 会返回 `Result<usize, usize>`。\n"
+"  * 如果找到该元素，`Result::Ok` 会保留该元素所在位置的索引。\n"
+"  * 如果没有找到该元素，`Result::Err` 会包含应插入这类元素的索引。"
 
 #: src/std/string.md:1
 msgid "# String"
-msgstr ""
+msgstr "# String"
 
 #: src/std/string.md:3
 msgid ""
 "[`String`][1] is the standard heap-allocated growable UTF-8 string buffer:"
-msgstr ""
+msgstr "[`String`][1] 是标准堆分配的可扩容 UTF-8 字符串缓冲区："
 
 #: src/std/string.md:5
 msgid ""
@@ -8133,6 +8160,8 @@ msgid ""
 "call all\n"
 "`str` methods on a `String`."
 msgstr ""
+"`String` 会实现 [`Deref<Target = str>`][2]，这意味着您可以\n"
+"对 `String` 调用所有 `str` 方法。"
 
 #: src/std/string.md:30
 msgid ""
@@ -8163,11 +8192,11 @@ msgstr ""
 
 #: src/std/vec.md:1
 msgid "# `Vec`"
-msgstr ""
+msgstr "# `Vec`"
 
 #: src/std/vec.md:3
 msgid "[`Vec`][1] is the standard resizable heap-allocated buffer:"
-msgstr ""
+msgstr "[`Vec`][1] 是标准的可调整大小堆分配缓冲区："
 
 #: src/std/vec.md:5
 msgid ""
@@ -8202,6 +8231,8 @@ msgid ""
 "slice\n"
 "methods on a `Vec`."
 msgstr ""
+"`Vec` 会实现 [`Deref<Target = [T]>`][2]，这意味着您可以对 `Vec`\n"
+"调用 slice 方法。"
 
 #: src/std/vec.md:37
 msgid ""
@@ -8227,11 +8258,11 @@ msgstr ""
 
 #: src/std/hashmap.md:1
 msgid "# `HashMap`"
-msgstr ""
+msgstr "# `HashMap`"
 
 #: src/std/hashmap.md:3
 msgid "Standard hash map with protection against HashDoS attacks:"
-msgstr ""
+msgstr "标准的哈希映射，内含针对 HashDoS 攻击的保护措施："
 
 #: src/std/hashmap.md:5
 msgid ""
@@ -8310,11 +8341,11 @@ msgstr ""
 
 #: src/std/box.md:1
 msgid "# `Box`"
-msgstr ""
+msgstr "# `Box`"
 
 #: src/std/box.md:3
 msgid "[`Box`][1] is an owned pointer to data on the heap:"
-msgstr ""
+msgstr "[`Box`][1] 是指向堆上数据的自有指针："
 
 #: src/std/box.md:5
 msgid ""
@@ -8348,6 +8379,9 @@ msgid ""
 "methods\n"
 "from `T` directly on a `Box<T>`][2]."
 msgstr ""
+"`Box<T>` 会实现 `Deref<Target = T>`，这意味着您可以[直接在 `Box<T>` 上通过 "
+"`T`\n"
+"调用相应方法][2]。"
 
 #: src/std/box.md:34
 msgid ""
@@ -8362,15 +8396,21 @@ msgid ""
 "large amounts of data on the stack, instead store the data on the heap in a "
 "`Box` so only the pointer is moved."
 msgstr ""
+"* 在 C++ 中，`Box` 与 `std::unique_ptr` 类似，除了它一定会不为 null 以外。\n"
+"* 在上面的示例中，因为有 `Deref`，您甚至可以在 `println!` 语句中省略 `*`。\n"
+"* 在以下情况下，`Box` 可能会很实用：\n"
+"   * 在编译时间遇到无法知晓大小的类型，但 Rust 编译器需要知道确切大小。\n"
+"   * 想要转让大量数据的所有权。为避免在堆栈上复制大量数据，请改为将数据存储"
+"在 `Box` 中的堆上，以便仅移动指针。"
 
 #: src/std/box-recursive.md:1
 msgid "# Box with Recursive Data Structures"
-msgstr ""
+msgstr "# 包含递归数据结构的 Box"
 
 #: src/std/box-recursive.md:3
 msgid ""
 "Recursive data types or data types with dynamic sizes need to use a `Box`:"
-msgstr ""
+msgstr "递归数据类型或具有动态大小的数据类型需要使用 `Box`："
 
 #: src/std/box-recursive.md:5 src/std/box-niche.md:3
 msgid ""
@@ -8427,10 +8467,20 @@ msgid ""
 "reference of some kind, instead of storing a value directly.   \n"
 "    "
 msgstr ""
+"* 如果这里未使用 `Box`，且我们曾尝试将一个 `List` 直接嵌入 `List`，\n"
+"编译器就不会计算内存中结构体的固定大小，结构体看起来会像是无限大。\n"
+"\n"
+"* `Box` 大小与一般指针相同，并且只会指向堆中的下一个 `List` 元素，\n"
+"因此可以解决这个问题。\n"
+"\n"
+"* 将 `Box` 从 List 定义中移除后，画面上会显示编译器错误。如果您看"
+"到“Recursive with indirection”错误消息，这是在提示您使用 Box 或其他类型的引"
+"用，而不是直接储存值。\n"
+"    "
 
 #: src/std/box-niche.md:1
 msgid "# Niche Optimization"
-msgstr ""
+msgstr "# 小众优化"
 
 #: src/std/box-niche.md:16
 msgid ""
@@ -8438,6 +8488,8 @@ msgid ""
 "This\n"
 "allows the compiler to optimize the memory layout:"
 msgstr ""
+"`Box` 不得为空，因此指针始终有效且非 `null`。这样，\n"
+"编译器就可以优化内存布局："
 
 #: src/std/box-niche.md:19
 msgid ""
@@ -8463,7 +8515,7 @@ msgstr ""
 
 #: src/std/rc.md:1
 msgid "# `Rc`"
-msgstr ""
+msgstr "# `Rc`"
 
 #: src/std/rc.md:3
 msgid ""
@@ -8471,6 +8523,8 @@ msgid ""
 "refer\n"
 "to the same data from multiple places:"
 msgstr ""
+"[`Rc`][1] 是引用计数的共享指针。如果您需要从多个位置\n"
+"引用相同的数据，请使用此指针："
 
 #: src/std/rc.md:6
 msgid ""
@@ -8497,6 +8551,11 @@ msgid ""
 "cycles\n"
 "  that will get dropped."
 msgstr ""
+"* 如果您需要在 `Rc` 内修改数据，则需将数据封装入\n"
+"[`Cell` 或 `RefCell`][2] 等类型中。\n"
+"* 如果您在多线程情境中，请参阅 [`Arc`][3]。\n"
+"* 您可以将共享指针*降级*为 [`Weak`][4] 指针，\n"
+"以便创建之后会被舍弃的循环引用。"
 
 #: src/std/rc.md:31
 msgid ""
@@ -8517,6 +8576,19 @@ msgid ""
 "  create cycles that will be dropped properly (likely in combination with\n"
 "  `RefCell`)."
 msgstr ""
+"* `Rc` 的计数可确保只要有引用，内含的值就会保持有效。\n"
+"* 类似 C++ 的 `std::shared_ptr`。\n"
+"* `Rc::clone` 的成本很低：这个做法会创建指向相同分配的指针，并增加引用计数，"
+"而不会产生深层的克隆，排查代码性能问题时通常可以忽略。\n"
+"* `make_mut` 实际上会在必要时克隆内部值（“clone-on-write”），并返回可变的引"
+"用。\n"
+"* 使用 `Rc::strong_count` 可查看引用计数。\n"
+"* 比较提及的不同数据类型。`Box` 可启用在编译时强制执行的可变/不可变借用。"
+"`RefCell` 可启用在运行时强制执行的可变/不可变借用，如果在运行时失败，将产生恐"
+"慌。\n"
+"* `Rc::downgrade` 会向您提供 *弱引用计数* 对象，\n"
+"以便创建之后会被适当舍弃的周期（可能会与\n"
+"`RefCell` 组合）。"
 
 #: src/std/rc.md:41
 msgid ""
