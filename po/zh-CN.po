@@ -11728,15 +11728,15 @@ msgstr ""
 
 #: src/android/build-rules/library.md:1
 msgid "# Rust Libraries"
-msgstr ""
+msgstr "# Rust 库"
 
 #: src/android/build-rules/library.md:3
 msgid "You use `rust_library` to create a new Rust library for Android."
-msgstr ""
+msgstr "您可以使用 `rust_library` 为 Android 创建一个新的 Rust 库。"
 
 #: src/android/build-rules/library.md:5
 msgid "Here we declare a dependency on two libraries:"
-msgstr ""
+msgstr "在这里，我们声明了对两个库的依赖："
 
 #: src/android/build-rules/library.md:7
 msgid ""
@@ -11744,6 +11744,10 @@ msgid ""
 "* `libtextwrap`, which is a crate already vendored in\n"
 "  [`external/rust/crates/`][crates]."
 msgstr ""
+"* `libgreeting`, 我们在下面进行了定义，\n"
+"* `libtextwrap`, 一个已经在\n"
+" [`external/rust/crates/`][crates]\n"
+"中提供的 crate。"
 
 #: src/android/build-rules/library.md:15
 msgid ""
@@ -11766,6 +11770,24 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_binary {\n"
+"    name: \"hello_rust_with_dep\",\n"
+"    crate_name: \"hello_rust_with_dep\",\n"
+"    srcs: [\"src/main.rs\"],\n"
+"    rustlibs: [\n"
+"        \"libgreetings\",\n"
+"        \"libtextwrap\",\n"
+"    ],\n"
+"    prefer_rlib: true,\n"
+"}\n"
+"\n"
+"rust_library {\n"
+"    name: \"libgreetings\",\n"
+"    crate_name: \"greetings\",\n"
+"    srcs: [\"src/lib.rs\"],\n"
+"}\n"
+"```"
 
 #: src/android/build-rules/library.md:36
 msgid ""
@@ -11781,10 +11803,21 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,ignore\n"
+"//! Rust demo.\n"
+"\n"
+"use greetings::greeting;\n"
+"use textwrap::fill;\n"
+"\n"
+"/// Prints a greeting to standard output.\n"
+"fn main() {\n"
+"    println!(\"{}\", fill(&greeting(\"Bob\"), 24));\n"
+"}\n"
+"```"
 
 #: src/android/build-rules/library.md:48
 msgid "_hello_rust/src/lib.rs_:"
-msgstr ""
+msgstr "_hello_rust/src/lib.rs_:"
 
 #: src/android/build-rules/library.md:50
 msgid ""
@@ -11797,10 +11830,18 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,ignore\n"
+"//! Greeting library.\n"
+"\n"
+"/// Greet `name`.\n"
+"pub fn greeting(name: &str) -> String {\n"
+"    format!(\"Hello {name}, it is very nice to meet you!\")\n"
+"}\n"
+"```"
 
 #: src/android/build-rules/library.md:59
 msgid "You build, push, and run the binary like before:"
-msgstr ""
+msgstr "您可以像之前一样构建、推送和运行二进制文件："
 
 #: src/android/build-rules/library.md:61
 msgid ""
@@ -11813,6 +11854,14 @@ msgid ""
 "nice to meet you!\n"
 "```"
 msgstr ""
+"```shell\n"
+"$ m hello_rust_with_dep\n"
+"$ adb push $ANDROID_PRODUCT_OUT/system/bin/hello_rust_with_dep /data/local/"
+"tmp\n"
+"$ adb shell /data/local/tmp/hello_rust_with_dep\n"
+"Hello Bob, it is very\n"
+"nice to meet you!\n"
+"```"
 
 #: src/android/aidl.md:1
 msgid "# AIDL"
