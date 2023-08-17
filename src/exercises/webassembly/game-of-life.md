@@ -23,13 +23,8 @@ extern "C" {
 }
 
 #[wasm_bindgen]
-pub fn set_panic_hook() {
+pub fn setup() {
     console_error_panic_hook::set_once();
-}
-
-#[wasm_bindgen]
-pub fn start(canvas: HtmlCanvasElement, width: i32, height: i32) -> Result<(), JsValue> {
-    Ok(())
 }
 ```
 
