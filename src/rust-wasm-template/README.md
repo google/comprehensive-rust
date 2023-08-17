@@ -1,6 +1,6 @@
 # rust-wasm-template
 
-This repository contains the minimum amount of code needed to experiment with WebAssembly. Including a web server to serve the HTML and WASM as well as the javascript boilerplate needed to load WASM.
+This repository contains the minimum amount of code needed to experiment with WebAssembly. Including a web server to serve the HTML and Wasm as well as the javascript boilerplate needed to load Wasm.
 
 - `static` contains the static files including compiled webassembly.
 - `src/lib.rs` contains the Rust code.
@@ -51,7 +51,7 @@ cargo server
 
 Visit http://localhost:8000
 
-## Build WASM and copy target to the correct path
+## Build Wasm and copy target to the correct path
 
 ```
 wasm-pack build --target web --out-dir static/wasm                                     

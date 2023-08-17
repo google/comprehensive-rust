@@ -297,7 +297,7 @@
 ---
 
 - [WebAssembly basics](webassembly.md)
-- [Load a WASM module](webassembly/load-wasm-module.md)
+- [Load a Wasm module](webassembly/load-wasm-module.md)
 - [Expose a method](webassembly/expose-method.md)
   - [Error handling for exposed methods](webassembly/expose-method/error-handling.md)
 - [Import Method](webassembly/import-method.md)

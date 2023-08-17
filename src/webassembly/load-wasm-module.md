@@ -1,11 +1,11 @@
-# Load a WASM module
+# Load a Wasm module
 
 ## Commands to run:
 
 
-### Compile Rust lib to WASM
+### Compile Rust lib to Wasm
 
-You can compile the basic WASM library provided in [rust-wasm-template](https://github.com/google/comprehensive-rust/tree/main/src/rust-wasm-template) with this command:
+You can compile the basic Wasm library provided in [rust-wasm-template](https://github.com/google/comprehensive-rust/tree/main/src/rust-wasm-template) with this command:
 
 ```shell
 cd src/rust-wasm-template
@@ -53,7 +53,7 @@ import init, {add} from '/wasm/project.js'; // A typescript version is also gene
 (async () => { 
     // Run the init method to initiate the WebAssembly module.
     await init();
-    console.log('WASM output', add(1, 2));
+    console.log('Wasm output', add(1, 2));
 })();
 ```
 

@@ -24,6 +24,6 @@ pub fn add(a: i32, b: i32) -> i32 {
 
 <details>
  
-* `set_panic_hook` is a convenient setup method that adds debug information to stack traces when a WASM module panics. Don't use it in prod builds because it is rather 
+* `set_panic_hook` is a convenient setup method that adds debug information to stack traces when a Wasm module panics. Don't use it in prod builds because it is rather 
 
 </details>

@@ -1,6 +1,6 @@
 # Import a Javascript method
 
-Since WASM runs in the browser, we will want to interact directly with Javascript APIs from Rust.
+Since Wasm runs in the browser, we will want to interact directly with Javascript APIs from Rust.
 For instance `println!` will not log to the javascript console, so we need to use `console.log`.
 Similarly, we want to be able to call `alert`. This works the same way as FFIs with C.
 

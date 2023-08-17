@@ -1,6 +1,6 @@
 # Closures
 
-Closures can be returned to Rust and executed on the WASM runtime.
+Closures can be returned to Rust and executed on the Wasm runtime.
 
 ```rust
 use wasm_bindgen::prelude::*;
@@ -46,7 +46,7 @@ import init, {set_panic_hook, timeout_set_seconds} from '/wasm/project.js';
 * Since the function that creates the closure keeps its ownership, the closure would be dropped if we did't return it.
     * Returning ownership allows the JS runtime to manage the lifetime of the closure and to collect it when it can.
     * Try returning nothing from the method.
-* Closures can only be passed by reference to WASM functions.
+* Closures can only be passed by reference to Wasm functions.
     * This is why we pass `&Closure` to `setInterval`.
     * This is also why we need to create `ClosureHandle` to return the closure.
 
