@@ -16818,7 +16818,7 @@ msgstr ""
 
 #: src/async.md:1
 msgid "# Async Rust"
-msgstr ""
+msgstr "# 非同步的 Rust"
 
 #: src/async.md:3
 msgid ""
@@ -16833,7 +16833,10 @@ msgid ""
 "very low and operating systems provide primitives for efficiently "
 "identifying\n"
 "I/O that is able to proceed."
-msgstr ""
+msgstr "「非同步（async）」是一種將多個任務併行執行的模式。在這樣的模式中，當其中一個"
+"任務進入阻塞狀態時，系統會去執行至另一個可執行的任務。這種模式允許在執行緒數量有限的"
+"環境下執行大量的任務，這是因為每個任務所造成的開銷通常都很低，而且作業系統提供的基本"
+"功能能夠有效地辨識可處理的 I/O。"
 
 #: src/async.md:10
 msgid ""
@@ -16843,16 +16846,19 @@ msgid ""
 "that\n"
 "they are complete."
 msgstr ""
+"Rust 的非同步操作是透過「future」來處理，代表可能在未來完成的工作。Future "
+"會處在被「輪詢（poll）」的狀態，直到它送出信號來表示工作已經處理完成。"
 
 #: src/async.md:14
 msgid ""
 "Futures are polled by an async runtime, and several different runtimes are\n"
 "available."
 msgstr ""
+"Future 會被非同步的執行環境（runtime）輪詢，而執行環境有許多種可選擇。"
 
 #: src/async.md:17
 msgid "## Comparisons"
-msgstr ""
+msgstr "## 比較"
 
 #: src/async.md:19
 msgid ""
@@ -16867,16 +16873,23 @@ msgid ""
 "   runtime implements the event loop, so many of the details of Promise\n"
 "   resolution are hidden."
 msgstr ""
+"* Python 有一個類似的模型 `asyncio`。不過 `asyncio` 的 `Future` 類型是根據回呼"
+"函數（callback）而非輪詢。非同步的 Python 程式需要「迴圈（loop）」來處理，"
+"類似於 Rust 的執行環境。\n"
+"\n"
+"* JavaScript 的 `Promise` 也是類似的概念，但仍是基於回呼函數。JavaScript 的語言"
+"執行環境實作了事件迴圈（event loop），所以隱藏了很多關於 Promise 的處理細節。"
 
 #: src/async/async-await.md:1
 msgid "# `async`/`await`"
-msgstr ""
+msgstr "# `async`/`await`"
 
 #: src/async/async-await.md:3
 msgid ""
 "At a high level, async Rust code looks very much like \"normal\" sequential "
 "code:"
 msgstr ""
+"從高層次的角度來看，非同步的 Rust 程式碼看起來很像「一般的」同步程式碼："
 
 #: src/async/async-await.md:5
 msgid ""
@@ -16927,6 +16940,24 @@ msgid ""
 "* `.await` can only be used inside an `async` function (or block; these are\n"
 "  introduced later). "
 msgstr ""
+"* 注意這只是一個簡化過的程式碼，目的是要示範程式語法。這份範例程式碼當中並沒有需要"
+"長時間運行的操作，也沒有真正的併行處理！\n"
+"\n"
+"* 如何得知非同步函數的回傳型別？\n"
+"  * 在 `main` 函數中使用 `let feature: () = async_main(10);` 以查看型態。\n"
+"\n"
+"* 「async」這個關鍵字只是個程式碼語法糖。編譯器會將函數回傳型態以 future 取代。"
+"\n"
+"* 你不能把 `main` 函數標示成非同步函數，除非你對編譯器額外設定了如何處理回傳的 "
+"future 的方式。\n"
+"\n"
+"* 你需要處理器去執行非同步的程式碼。`block_on` 會阻塞當前的執行緒，直到 future 已"
+"執行完畢。\n"
+"\n"
+"* `.await` 會非同步地等待其他操作執行完畢。別於 `block_on`，`.await` 不會阻塞"
+"當前的執行緒。\n"
+"\n"
+"* `.await` 只能用在 `async` 函數（或程式碼區塊，之後會介紹）中。"
 
 #: src/async/futures.md:1
 msgid "# Futures"
