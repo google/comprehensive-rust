@@ -11874,15 +11874,15 @@ msgstr ""
 
 #: src/android/aidl/server.md:1
 msgid "# AIDL Server"
-msgstr ""
+msgstr "# AIDL 服务器"
 
 #: src/android/aidl/server.md:3
 msgid "Finally, we can create a server which exposes the service:"
-msgstr ""
+msgstr "最后，我们可以创建一个暴露服务的服务器："
 
 #: src/android/aidl/server.md:5
 msgid "*birthday_service/src/server.rs*:"
-msgstr ""
+msgstr "*birthday_service/src/server.rs*:"
 
 #: src/android/aidl/server.md:7
 msgid ""
@@ -11909,6 +11909,28 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,ignore\n"
+"//! 生日服务。\n"
+"use birthdayservice::BirthdayService;\n"
+"use com_example_birthdayservice::aidl::com::example::birthdayservice::"
+"IBirthdayService::BnBirthdayService;\n"
+"use com_example_birthdayservice::binder;\n"
+"\n"
+"const SERVICE_IDENTIFIER: &str = \"birthdayservice\";\n"
+"\n"
+"/// 生日服务的入口。\n"
+"fn main() {\n"
+"    let birthday_service = BirthdayService;\n"
+"    let birthday_service_binder = BnBirthdayService::new_binder(\n"
+"        birthday_service,\n"
+"        binder::BinderFeatures::default(),\n"
+"    );\n"
+"    binder::add_service(SERVICE_IDENTIFIER, birthday_service_binder."
+"as_binder())\n"
+"        .expect(\"Failed to register service\");\n"
+"    binder::ProcessState::join_thread_pool()\n"
+"}\n"
+"```"
 
 #: src/android/aidl/server.md:30
 msgid ""
@@ -11926,14 +11948,27 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_binary {\n"
+"    name: \"birthday_server\",\n"
+"    crate_name: \"birthday_server\",\n"
+"    srcs: [\"src/server.rs\"],\n"
+"    rustlibs: [\n"
+"        \"com.example.birthdayservice-rust\",\n"
+"        \"libbinder_rs\",\n"
+"        \"libbirthdayservice\",\n"
+"    ],\n"
+"    prefer_rlib: true,\n"
+"}\n"
+"```"
 
 #: src/android/aidl/deploy.md:1
 msgid "# Deploy"
-msgstr ""
+msgstr "# 部署"
 
 #: src/android/aidl/deploy.md:3
 msgid "We can now build, push, and start the service:"
-msgstr ""
+msgstr "我们现在可以构建、推送和启动服务："
 
 #: src/android/aidl/deploy.md:5
 msgid ""
@@ -11943,10 +11978,15 @@ msgid ""
 "$ adb shell /data/local/tmp/birthday_server\n"
 "```"
 msgstr ""
+"```shell\n"
+"$ m birthday_server\n"
+"$ adb push $ANDROID_PRODUCT_OUT/system/bin/birthday_server /data/local/tmp\n"
+"$ adb shell /data/local/tmp/birthday_server\n"
+"```"
 
 #: src/android/aidl/deploy.md:11
 msgid "In another terminal, check that the service runs:"
-msgstr ""
+msgstr "在另一个终端中，检查该服务是否正在运行："
 
 #: src/android/aidl/deploy.md:13
 msgid ""
@@ -11955,10 +11995,14 @@ msgid ""
 "Service birthdayservice: found\n"
 "```"
 msgstr ""
+"```shell\n"
+"$ adb shell service check birthdayservice\n"
+"Service birthdayservice: found\n"
+"```"
 
 #: src/android/aidl/deploy.md:18
 msgid "You can also call the service with `service call`:"
-msgstr ""
+msgstr "您还可以使用 `service call` 命令调用该服务："
 
 #: src/android/aidl/deploy.md:20
 msgid ""
@@ -11975,6 +12019,18 @@ msgid ""
 "  0x00000070: 00210073 00000000                   's.!.....        ')\n"
 "```"
 msgstr ""
+"```shell\n"
+"$ $ adb shell service call birthdayservice 1 s16 Bob i32 24\n"
+"Result: Parcel(\n"
+"  0x00000000: 00000000 00000036 00610048 00700070 '....6...H.a.p.p.'\n"
+"  0x00000010: 00200079 00690042 00740072 00640068 'y. .B.i.r.t.h.d.'\n"
+"  0x00000020: 00790061 00420020 0062006f 0020002c 'a.y. .B.o.b.,. .'\n"
+"  0x00000030: 006f0063 0067006e 00610072 00750074 'c.o.n.g.r.a.t.u.'\n"
+"  0x00000040: 0061006c 00690074 006e006f 00200073 'l.a.t.i.o.n.s. .'\n"
+"  0x00000050: 00690077 00680074 00740020 00650068 'w.i.t.h. .t.h.e.'\n"
+"  0x00000060: 00320020 00200034 00650079 00720061 ' .2.4. .y.e.a.r.'\n"
+"  0x00000070: 00210073 00000000                   's.!.....        ')\n"
+"```"
 
 #: src/android/aidl/client.md:1
 msgid "# AIDL Client"
