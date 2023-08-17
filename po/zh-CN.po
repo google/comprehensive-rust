@@ -9131,12 +9131,12 @@ msgstr ""
 
 #: src/traits.md:1
 msgid "# Traits"
-msgstr ""
+msgstr "# 特征"
 
 #: src/traits.md:3
 msgid ""
 "Rust lets you abstract over types with traits. They're similar to interfaces:"
-msgstr ""
+msgstr "Rust 让您可以依据特征对类型进行抽象化处理。特征与接口类似："
 
 #: src/traits.md:5
 msgid ""
@@ -9180,13 +9180,13 @@ msgstr ""
 
 #: src/traits/trait-objects.md:1
 msgid "# Trait Objects"
-msgstr ""
+msgstr "# 特征（Trait）对象"
 
 #: src/traits/trait-objects.md:3
 msgid ""
 "Trait objects allow for values of different types, for instance in a "
 "collection:"
-msgstr ""
+msgstr "特征（Trait）对象可接受不同类型的值，举例来说，在集合中会是这样："
 
 #: src/traits/trait-objects.md:5
 msgid ""
@@ -9228,7 +9228,7 @@ msgstr ""
 
 #: src/traits/trait-objects.md:40
 msgid "Memory layout after allocating `pets`:"
-msgstr ""
+msgstr "以下是分配 `pets` 后的内存布局："
 
 #: src/traits/trait-objects.md:42
 msgid ""
@@ -9305,11 +9305,11 @@ msgstr ""
 
 #: src/traits/deriving-traits.md:1
 msgid "# Deriving Traits"
-msgstr ""
+msgstr "# 派生特征"
 
 #: src/traits/deriving-traits.md:3
 msgid "You can let the compiler derive a number of traits:"
-msgstr ""
+msgstr "您可以让编译器派生多个特征："
 
 #: src/traits/deriving-traits.md:5
 msgid ""
@@ -9332,11 +9332,11 @@ msgstr ""
 
 #: src/traits/default-methods.md:1
 msgid "# Default Methods"
-msgstr ""
+msgstr "# 默认方法"
 
 #: src/traits/default-methods.md:3
 msgid "Traits can implement behavior in terms of other trait methods:"
-msgstr ""
+msgstr "特征可以依照其他特征方法来实现行为："
 
 #: src/traits/default-methods.md:5
 msgid ""
@@ -9403,7 +9403,7 @@ msgstr ""
 
 #: src/traits/trait-bounds.md:1
 msgid "# Trait Bounds"
-msgstr ""
+msgstr "# 特征边界"
 
 #: src/traits/trait-bounds.md:3
 msgid ""
@@ -9411,10 +9411,12 @@ msgid ""
 "implement\n"
 "some trait, so that you can call this trait's methods."
 msgstr ""
+"使用泛型时，您通常会想要利用类型来实现某些特性，\n"
+"这样才能调用此特征的方法。"
 
 #: src/traits/trait-bounds.md:6
 msgid "You can do this with `T: Trait` or `impl Trait`:"
-msgstr ""
+msgstr "您可以使用 `T: Trait` 或 `impl Trait` 执行此操作："
 
 #: src/traits/trait-bounds.md:8
 msgid ""
@@ -9446,7 +9448,7 @@ msgstr ""
 
 #: src/traits/trait-bounds.md:35
 msgid "Show a `where` clause, students will encounter it when reading code."
-msgstr ""
+msgstr "显示 `where` 子句，学员在阅读代码时会看到它。"
 
 #: src/traits/trait-bounds.md:37
 msgid ""
@@ -9459,6 +9461,14 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,ignore\n"
+"fn duplicate<T>(a: T) -> (T, T)\n"
+"where\n"
+"    T: Clone,\n"
+"{\n"
+"    (a.clone(), a.clone())\n"
+"}\n"
+"```"
 
 #: src/traits/trait-bounds.md:46
 msgid ""
@@ -9468,16 +9478,23 @@ msgid ""
 "\" can be arbitrary, like `Option<T>`.\n"
 "    "
 msgstr ""
+"* 它会在您有多个形参的情况下整理函数签名。\n"
+"* 它具有额外功能，因此也更强大。\n"
+"    * 如果有人提问，便阐明额外功能是指“:”左侧的类别可为任意值，例如 "
+"`Option<T>`。\n"
+"    "
 
 #: src/traits/impl-trait.md:1
 msgid "# `impl Trait`"
-msgstr ""
+msgstr "# `impl Trait`"
 
 #: src/traits/impl-trait.md:3
 msgid ""
 "Similar to trait bounds, an `impl Trait` syntax can be used in function\n"
 "arguments and return values:"
 msgstr ""
+"与特征边界类似，`impl Trait` 语法可以在函数实参\n"
+"和返回值中使用："
 
 #: src/traits/impl-trait.md:6
 msgid ""
@@ -9497,12 +9514,12 @@ msgstr ""
 
 #: src/traits/impl-trait.md:19
 msgid "* `impl Trait` allows you to work with types which you cannot name."
-msgstr ""
+msgstr "* `impl Trait` 让您可使用无法命名的类型。"
 
 #: src/traits/impl-trait.md:23
 msgid ""
 "The meaning of `impl Trait` is a bit different in the different positions."
-msgstr ""
+msgstr "`impl Trait` 的意义因使用位置而略有不同。"
 
 #: src/traits/impl-trait.md:25
 msgid ""
@@ -9524,6 +9541,17 @@ msgid ""
 "x:\n"
 "  Vec<_> = foo.collect()` or with the turbofish, `foo.collect::<Vec<_>>()`."
 msgstr ""
+"* 对形参来说，`impl Trait` 就像是具有特征边界的匿名泛型形参。\n"
+"\n"
+"* 对返回值类型来说，它则意味着返回值类型就是实现该特征的某具体类型，\n"
+"无需为该类型命名。如果您不想在公共 API 中公开该具体类型，便可\n"
+"使用此方法。\n"
+"\n"
+"在返回位置处进行推断有一定难度。会返回 `impl Foo` 的函数会挑选\n"
+"自身返回的具体类型，而不必在来源中写出此信息。会返回\n"
+"泛型类型（例如 `collect<B>() -> B`）的函数则可返回符合 `B`\n"
+"的任何类型，而调用方可能需要选择一个类型，例如使用 `let x:\n"
+"  Vec<_> = foo.collect()` 或使用以下 Turbofish：`foo.collect::<Vec<_>>()`。"
 
 #: src/traits/impl-trait.md:37
 msgid ""
@@ -9539,16 +9567,23 @@ msgid ""
 "we'd need two\n"
 "independent generic parameters."
 msgstr ""
+"这是一个非常棒的示例，因为它使用了两次 `impl Display`。这有助于说明\n"
+"此处没有任何项目会强制使用相同的 `impl Display` 类型。如果我们使用单个\n"
+"`T: Display`，它会强制限制输入 `T` 和返回 `T` 均为同一类型。\n"
+"这并不适用于这个特定函数，因为我们预期作为输入的类型可能\n"
+"不会是 `format!` 返回的值。如果我们希望通过 `: Display` 语法执行相同的操作，"
+"则需要两个\n"
+"独立的泛型形参。"
 
 #: src/traits/important-traits.md:1
 msgid "# Important Traits"
-msgstr ""
+msgstr "# 重要特征"
 
 #: src/traits/important-traits.md:3
 msgid ""
 "We will now look at some of the most common traits of the Rust standard "
 "library:"
-msgstr ""
+msgstr "现在，我们来看看 Rust 标准库的一些最常见的特征："
 
 #: src/traits/important-traits.md:5
 msgid ""
@@ -9559,14 +9594,20 @@ msgid ""
 "* [`Drop`][9] used for defining destructors.\n"
 "* [`Default`][10] used to construct a default instance of a type."
 msgstr ""
+"* [`Iterator`][1] 和 [`IntoIterator`][2] 用于 `for` 循环中，\n"
+"* [`From`][3] 和 [`Into`][4] 用于转换值，\n"
+"* [`Read`][5] 和 [`Write`][6] 用于实现 IO。\n"
+"* [`Add`][7]、[`Mul`][8] 等用于实现运算符重载，\n"
+"* [`Drop`][9] 用于定义析构函数。\n"
+"* [`Default`][10] 用于构建相应类型的默认实例。"
 
 #: src/traits/iterator.md:1
 msgid "# Iterators"
-msgstr ""
+msgstr "# 迭代器"
 
 #: src/traits/iterator.md:3
 msgid "You can implement the [`Iterator`][1] trait on your own types:"
-msgstr ""
+msgstr "您可以自行实现 [`Iterator`][1] 特征："
 
 #: src/traits/iterator.md:5
 msgid ""
@@ -9613,15 +9654,25 @@ msgid ""
 "  you can iterate over a vector with `for i in some_vec { .. }` but\n"
 "  `some_vec.next()` doesn't exist."
 msgstr ""
+"* `Iterator` 特征会对集合实现许多常见的函数程序操作，\n"
+"例如 `map``filter`和`reduce` 等。您可以通过此特征找到有关它们的所有\n"
+"文档。在 Rust 中，这些函数应生成代码，且生成的代码应与等效命令式实现一样\n"
+"高效。\n"
+"    \n"
+"* `IntoIterator` 是迫使 for 循环运作的特征。此特征由集合类型\n"
+"（例如 `Vec<T>`）和相关引用（例如 `&Vec<T>` 和 `&[T]`）而实现。此外，范围也会"
+"实现这项特征。因此，\n"
+"您可以使用 `for i in some_vec { .. }` 来遍历某矢量，但\n"
+"`some_vec.next()` 不存在。"
 
 #: src/traits/from-iterator.md:1
 msgid "# FromIterator"
-msgstr ""
+msgstr "# FromIterator"
 
 #: src/traits/from-iterator.md:3
 msgid ""
 "[`FromIterator`][1] lets you build a collection from an [`Iterator`][2]."
-msgstr ""
+msgstr "[`FromIterator`][1] 让您可通过 [`Iterator`][2] 构建一个集合。"
 
 #: src/traits/from-iterator.md:5
 msgid ""
@@ -9644,21 +9695,28 @@ msgid ""
 "    B: FromIterator<Self::Item>,\n"
 "    Self: Sized`"
 msgstr ""
+"`Iterator` 会实现\n"
+"`fn collect<B>(self) -> B\n"
+"where\n"
+"    B: FromIterator<Self::Item>,\n"
+"    Self: Sized`"
 
 #: src/traits/from-iterator.md:23
 msgid ""
 "There are also implementations which let you do cool things like convert an\n"
 "`Iterator<Item = Result<V, E>>` into a `Result<Vec<V>, E>`."
 msgstr ""
+"还有一些实现，让您可执行一些很酷的操作，比如\n"
+"将 `Iterator<Item = Result<V, E>>` 转换成 `Result<Vec<V>, E>`。"
 
 #: src/traits/from-into.md:1
 msgid "# `From` and `Into`"
-msgstr ""
+msgstr "# `From` 和 `Into`"
 
 #: src/traits/from-into.md:3
 msgid ""
 "Types implement [`From`][1] and [`Into`][2] to facilitate type conversions:"
-msgstr ""
+msgstr "类型会实现 [`From`][1] 和 [`Into`][2] 以加快类型转换："
 
 #: src/traits/from-into.md:5
 msgid ""
@@ -9676,7 +9734,7 @@ msgstr ""
 #: src/traits/from-into.md:15
 msgid ""
 "[`Into`][2] is automatically implemented when [`From`][1] is implemented:"
-msgstr ""
+msgstr "实现 [`From`][1] 后，系统会自动实现 [`Into`][2]："
 
 #: src/traits/from-into.md:17
 msgid ""
@@ -9701,15 +9759,20 @@ msgid ""
 "_only_ implement `Into`.\n"
 "    "
 msgstr ""
+"* 这就是为什么通常只需实现 `From`，因为您的类型也会实现 `Into`。\n"
+"* 若要声明某个函数实参输入类型（例如“任何可转换成 `String` 的类型”），规则便"
+"会相反，此时应使用 `Into`。\n"
+"您的函数会接受可实现 `From` 的类型，以及那些仅实现 `Into` 的类型。\n"
+"    "
 
 #: src/traits/read-write.md:1
 msgid "# `Read` and `Write`"
-msgstr ""
+msgstr "# `Read` 和 `Write`"
 
 #: src/traits/read-write.md:3
 msgid ""
 "Using [`Read`][1] and [`BufRead`][2], you can abstract over `u8` sources:"
-msgstr ""
+msgstr "您可以使用 [`Read`][1] 和 [`BufRead`][2] 对 `u8` 来源进行抽象化处理："
 
 #: src/traits/read-write.md:5
 msgid ""
@@ -9734,7 +9797,7 @@ msgstr ""
 
 #: src/traits/read-write.md:23
 msgid "Similarly, [`Write`][3] lets you abstract over `u8` sinks:"
-msgstr ""
+msgstr "您同样可使用 [`Write`][3] 对 `u8` 接收器进行抽象化处理："
 
 #: src/traits/read-write.md:25
 msgid ""
@@ -9758,13 +9821,13 @@ msgstr ""
 
 #: src/traits/drop.md:1
 msgid "# The `Drop` Trait"
-msgstr ""
+msgstr "# `Drop` 特征"
 
 #: src/traits/drop.md:3
 msgid ""
 "Values which implement [`Drop`][1] can specify code to run when they go out "
 "of scope:"
-msgstr ""
+msgstr "用于实现 [`Drop`][1] 的值可以指定在超出范围时运行的代码："
 
 #: src/traits/drop.md:5
 msgid ""
@@ -9798,7 +9861,7 @@ msgstr ""
 
 #: src/traits/drop.md:34 src/traits/operators.md:26
 msgid "Discussion points:"
-msgstr ""
+msgstr "讨论点："
 
 #: src/traits/drop.md:36
 msgid ""
@@ -9809,10 +9872,15 @@ msgid ""
 "        overflow!\n"
 "* Try replacing `drop(a)` with `a.drop()`."
 msgstr ""
+"* 为什么 `Drop::drop` 不使用 `self`？\n"
+"    * 简答：如果这样的话，系统会在代码块结尾\n"
+"调用 `std::mem::drop`，进而引发再一次调用 `Drop::drop`，并引发堆栈\n"
+"溢出！\n"
+"* 尝试用 `a.drop()` 替换 `drop(a)`。"
 
 #: src/traits/default.md:1
 msgid "# The `Default` Trait"
-msgstr ""
+msgstr "# `Default` 特征"
 
 #: src/traits/default.md:3
 msgid "[`Default`][1] trait provides a default implementation of a trait."
@@ -9867,14 +9935,20 @@ msgid ""
 "  * Rust standard library is aware that types can implement `Default` and "
 "provides convenience methods that use it."
 msgstr ""
+"  * 系统可以直接实现它，也可以通过 `#[derive(Default)]` 派生出它。\n"
+"  * 派生的实现会生成一个实例，其中字段全都设为其默认值。\n"
+"    * 这意味着，该结构体中的所有类型也都必须实现 `Default`。\n"
+"  * 标准的 Rust 类型通常会以合理的值（例如 `0``\"\"` 等）实现 `Default`。\n"
+"  * 部分结构体副本可与默认值完美搭配运作。\n"
+"  * Rust 标准库了解类型可能会实现 `Default`，因此提供了便利的使用方式。"
 
 #: src/traits/operators.md:1
 msgid "# `Add`, `Mul`, ..."
-msgstr ""
+msgstr "# `Add``Mul`…"
 
 #: src/traits/operators.md:3
 msgid "Operator overloading is implemented via traits in [`std::ops`][1]:"
-msgstr ""
+msgstr "运算符重载是通过 [`std::ops`][1] 中的特征实现的："
 
 #: src/traits/operators.md:5
 msgid ""
@@ -9917,7 +9991,7 @@ msgstr ""
 
 #: src/traits/closures.md:1
 msgid "# Closures"
-msgstr ""
+msgstr "# 闭包"
 
 #: src/traits/closures.md:3
 msgid ""
@@ -9927,6 +10001,10 @@ msgid ""
 "[`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), and\n"
 "[`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html) traits:"
 msgstr ""
+"闭包或 lambda 表达式具有无法命名的类型。不过，它们会\n"
+"实现特殊的 [`Fn`](https://doc.rust-lang.org/std/ops/trait.Fn.html)，\n"
+"[`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html) 和\n"
+"[`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html) 特征："
 
 #: src/traits/closures.md:8
 msgid ""
@@ -9965,7 +10043,7 @@ msgid ""
 "be called multiple times concurrently."
 msgstr ""
 
-#: src/traits/closures.md:32
+#: src/traits/closures.md:43
 msgid ""
 "`FnMut` is a subtype of `FnOnce`. `Fn` is a subtype of `FnMut` and `FnOnce`. "
 "I.e. you can use an\n"
@@ -9973,10 +10051,99 @@ msgid ""
 "an `FnMut` or `FnOnce`\n"
 "is called for."
 msgstr ""
+"`FnMut` 是 `FnOnce` 的子类型。`Fn` 是 `FnMut` 和 `FnOnce` 的子类型。也就是"
+"说，您可以在任何\n"
+"需要调用 `FnOnce` 的地方使用 `FnMut`，还可在任何需要调用 `FnMut` 或 `FnOnce` "
+"的地方\n"
+"使用 `Fn`。"
 
 #: src/traits/closures.md:36
 msgid "`move` closures only implement `FnOnce`."
 msgstr ""
+
+#: src/traits/default.md:3
+msgid "[`Default`][1] trait produces a default value for a type."
+msgstr "[`Default`][1] 特征会为类型生成默认值。"
+
+#: src/traits/operators.md:28
+msgid ""
+"* You could implement `Add` for `&Point`. In which situations is that "
+"useful? \n"
+"    * Answer: `Add:add` consumes `self`. If type `T` for which you are\n"
+"        overloading the operator is not `Copy`, you should consider "
+"overloading\n"
+"        the operator for `&T` as well. This avoids unnecessary cloning on "
+"the\n"
+"        call site.\n"
+"* Why is `Output` an associated type? Could it be made a type parameter of "
+"the method?\n"
+"    * Short answer: Function type parameters are controlled by the caller, "
+"but\n"
+"        associated types (like `Output`) are controlled by the implementor "
+"of a\n"
+"        trait.\n"
+"* You could implement `Add` for two different types, e.g.\n"
+"  `impl Add<(i32, i32)> for Point` would add a tuple to a `Point`."
+msgstr ""
+"* 您可以针对 `&Point` 实现 `Add`。此做法在哪些情况下可派上用场？\n"
+"    * 回答：`Add:add` 会耗用 `self`。如果您的运算符重载对象\n"
+"（即类型 `T`）不是 `Copy`，建议您也为 `&T`\n"
+"重载运算符。这可避免调用点上存在不必要的\n"
+"克隆任务。\n"
+"* 为什么 `Output` 是关联类型？可将它用作该方法的类型形参吗？\n"
+"    * 简答：函数类型形参是由调用方控管，但\n"
+"`Output` 这类关联类型则由特征实现人员\n"
+"控管。\n"
+"* 您可以针对两种不同类型实现 `Add`，例如，\n"
+"`impl Add<(i32, i32)> for Point` 会向 `Point` 中添加元组。"
+
+#: src/traits/closures.md:34
+msgid ""
+"An `Fn` (e.g. `add_3`) neither consumes nor mutates captured values, or "
+"perhaps captures\n"
+"nothing at all. It can be called multiple times concurrently."
+msgstr ""
+"`Fn`（例如 `add_3`）既不会耗用也不会修改捕获的值，或许\n"
+"也不会捕获任何值。它可被并发调用多次。"
+
+#: src/traits/closures.md:37
+msgid ""
+"An `FnMut` (e.g. `accumulate`) might mutate captured values. You can call it "
+"multiple times,\n"
+"but not concurrently."
+msgstr ""
+"`FnMut`（例如 `accumulate`）可能会改变捕获的值。您可以多次调用它，\n"
+"但不能并发调用它。"
+
+#: src/traits/closures.md:40
+msgid ""
+"If you have an `FnOnce` (e.g. `multiply_sum`), you may only call it once. It "
+"might consume\n"
+"captured values."
+msgstr ""
+"如果您使用 `FnOnce`（例如 `multiply_sum`），或许只能调用它一次。它可能会耗"
+"用\n"
+"所捕获的值。"
+
+#: src/traits/closures.md:47
+msgid ""
+"The compiler also infers `Copy` (e.g. for `add_3`) and `Clone` (e.g. "
+"`multiply_sum`),\n"
+"depending on what the closure captures."
+msgstr ""
+"编译器也会推断 `Copy`（例如针对 `add_3`）和 `Clone`（例如 "
+"`multiply_sum`），\n"
+"具体取决于闭包捕获的数据。"
+
+#: src/traits/closures.md:50
+msgid ""
+"By default, closures will capture by reference if they can. The `move` "
+"keyword makes them capture\n"
+"by value."
+msgstr ""
+"默认情况下，闭包会依据引用来捕获数据（如果可以的话）。`move` 关键字则可让闭包"
+"依据值\n"
+"来捕获数据。"
 
 #: src/exercises/day-3/morning.md:1
 msgid "# Day 3: Morning Exercises"
