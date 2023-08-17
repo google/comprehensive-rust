@@ -24,13 +24,12 @@ pub fn str_to_int(s: &str) -> Option<i32> {
 Javascript, click on the wasm output box to parse the string:
 
 ```javascript
-import init, {set_panic_hook, str_to_int} from '/wasm/project.js';
+import init, {str_to_int} from '/wasm/project.js';
 
 
 (async () => { 
     // Run the init method to initiate the WebAssembly module.
     await init();
-    set_panic_hook();
     const wasmoutput = document.querySelector('#wasmoutput');
     const input = document.createElement('input');
     input.type = 'text';

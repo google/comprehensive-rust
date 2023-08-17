@@ -1,19 +1,13 @@
 # Import a Javascript method
 
-Since Wasm runs in the browser, we will want to interact directly with Javascript APIs from Rust.
-For instance `println!` will not log to the javascript console, so we need to use `console.log`.
-Similarly, we want to be able to call `alert`. This works the same way as FFIs with C.
+Methods from javascript can be imported directly as `extern "C"` bindings.
 
 ```rust
 #[wasm_bindgen]
 extern "C" {
     fn alert(s: &str);
-
-    // `js_namespace` will get values inside of a nested object in window. Here, `window.console.log`
     #[wasm_bindgen(js_namespace = console)]
     pub fn log(s: &str);
-
-    // jsMethod is a user defined method defined in the `window` object
     pub fn jsMethod();
 }
 
@@ -44,5 +38,9 @@ window.jsMethod = jsMethod;
 ```
 
 <details>
+
+Since Wasm runs in the browser, we will want to interact directly with Javascript APIs from Rust.
+For instance `println!` will not log to the javascript console, so we need to use `console.log`.
+Similarly, we want to be able to call `alert`. This works the same way as FFIs with C.
 
 </details>

@@ -22,18 +22,16 @@ pub fn add_a_cat() -> Result<(), JsValue> {
 ```
 
 ```javascript
-import init, {set_panic_hook, add_a_cat} from '/wasm/project.js';
+import init, { add_a_cat } from "/wasm/project.js";
 
-
-(async () => { 
-    // Run the init method to initiate the WebAssembly module.
-    await init();
-    set_panic_hook();
-    const button = document.createElement("button");
-    button.textContent = "Add a cat";
-    document.body.appendChild(button);
-    button.addEventListener("click", () => {
-        add_a_cat();
-    });
+(async () => {
+  // Run the init method to initiate the WebAssembly module.
+  await init();
+  const button = document.createElement("button");
+  button.textContent = "Add a cat";
+  document.body.appendChild(button);
+  button.addEventListener("click", () => {
+    add_a_cat();
+  });
 })();
 ```

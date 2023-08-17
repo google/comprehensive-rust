@@ -1,78 +1,36 @@
 # Async
 
-Rust methods in WebAssembly can be declared async. Once called, they will be scheduled on the browser's event loop.
-An event handler can for instance be implemented with a tokio channel.
-
-Instead of `tokio::spawn`, `wasm_bindgen` provides `wasm_bindgen_futures::spawn_local`.
-
-Let's create a class that waits for messages on a channel to rotate an HTML element:
+Rust methods in WebAssembly can be declared async. 
 
 ```rust
 use wasm_bindgen::prelude::*;
-use wasm_bindgen_futures::spawn_local;
-use tokio::sync::mpsc::{channel, Sender};
-
-#[derive(Debug)]
-enum RotateSide {
-    Left,
-    Right,
-}
+use wasm_bindgen_futures::JsFuture;
+use web_sys::Response;
 
 #[wasm_bindgen]
-pub struct Rotator {
-    sender: Sender<RotateSide>,
-}
-
-#[wasm_bindgen]
-impl Rotator {
-    #[wasm_bindgen(constructor)]
-    pub fn new(element: web_sys::HtmlElement) -> Rotator {
-        let (sender, mut receiver) = channel::<RotateSide>(1);
-        spawn_local(async move {
-            let mut rotation = 0;
-            while let Some(rotate_side) = receiver.recv().await {
-                match rotate_side {
-                    RotateSide::Left => rotation -= 45,
-                    RotateSide::Right => rotation += 45,
-                }
-                element.set_inner_html(&rotation.to_string());
-                let style = element.style();
-                style
-                    .set_property("transform", &format!("rotate({rotation}deg)"))
-                    .expect("Failed to rotate");
-            }
-        });
-        Rotator { sender }
-    }
-
-    #[wasm_bindgen]
-    pub async fn rotate(&self, msg: String) -> Result<(), JsValue> {
-        let rotate_side = match msg.as_str() {
-            "ArrowLeft" => RotateSide::Left,
-            "ArrowRight" => RotateSide::Right,
-            _ => return Ok(()),
-        };
-        self.sender
-            .send(rotate_side)
-            .await
-            .map_err(|e| JsValue::from_str(&format!("Receiver dropped {:?}", e)))
-    }
+pub async fn get_current_page() -> Result<JsValue, JsValue> {
+    let window = web_sys::window().unwrap();
+    let resp_value = JsFuture::from(window.fetch_with_str("")).await?;
+    let resp: Response = resp_value.dyn_into().unwrap();
+    let text = JsFuture::from(resp.text()?).await?;
+    Ok(text)
 }
 ```
 
-Let's call it from Javascript
-
 ```javascript
-import init, {Rotator} from '/wasm/project.js';
+import init, { get_current_page} from '/wasm/project.js';
 
 (async () => { 
-    // Run the init method to initiate the WebAssembly module.
     await init();
-    const wasmoutput = document.querySelector('#wasmoutput');
-    const rotator = new Rotator(wasmoutput);
-    document.body.addEventListener('keydown', async (e) => {
-        await rotator.rotate(e.key);
-    });
+    console.log(await get_current_page());
 })();
 
 ```
+
+<details>
+
+- Async methods are scheduled on the Javascript event loop.
+- Instead of `tokio::spawn`, `wasm_bindgen` provides `wasm_bindgen_futures::spawn_local`.
+- We use `JsFuture::from` to convert Javascript futures to Rust futures that we can `.await`.
+
+</details>
