@@ -11648,20 +11648,21 @@ msgstr ""
 #: src/android/build-rules.md:16
 msgid "We will look at `rust_binary` and `rust_library` next."
 msgstr "下面我们来看看`rust_binary` 和 `rust_library`。"
+
 #: src/android/build-rules/binary.md:1
 msgid "# Rust Binaries"
-msgstr ""
+msgstr "# Rust 二进制文件"
 
 #: src/android/build-rules/binary.md:3
 msgid ""
 "Let us start with a simple application. At the root of an AOSP checkout, "
 "create\n"
 "the following files:"
-msgstr ""
+msgstr "让我们从一个简单的应用程序开始。在 AOSP 签出的根目录下，创建以下文件："
 
 #: src/android/build-rules/binary.md:6 src/android/build-rules/library.md:13
 msgid "_hello_rust/Android.bp_:"
-msgstr ""
+msgstr "_hello_rust/Android.bp_:"
 
 #: src/android/build-rules/binary.md:8
 msgid ""
@@ -11673,10 +11674,17 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_binary {\n"
+"    name: \"hello_rust\",\n"
+"    crate_name: \"hello_rust\",\n"
+"    srcs: [\"src/main.rs\"],\n"
+"}\n"
+"```"
 
 #: src/android/build-rules/binary.md:16 src/android/build-rules/library.md:34
 msgid "_hello_rust/src/main.rs_:"
-msgstr ""
+msgstr "_hello_rust/src/main.rs_:"
 
 #: src/android/build-rules/binary.md:18
 msgid ""
@@ -11689,10 +11697,18 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust\n"
+"//! Rust demo.\n"
+"\n"
+"/// Prints a greeting to standard output.\n"
+"fn main() {\n"
+"    println!(\"Hello from Rust!\");\n"
+"}\n"
+"```"
 
 #: src/android/build-rules/binary.md:27
 msgid "You can now build, push, and run the binary:"
-msgstr ""
+msgstr "你现在可以构建、推送和运行二进制文件："
 
 #: src/android/build-rules/binary.md:29
 msgid ""
@@ -11703,6 +11719,12 @@ msgid ""
 "Hello from Rust!\n"
 "```"
 msgstr ""
+"```shell\n"
+"$ m hello_rust\n"
+"$ adb push $ANDROID_PRODUCT_OUT/system/bin/hello_rust /data/local/tmp\n"
+"$ adb shell /data/local/tmp/hello_rust\n"
+"Hello from Rust!\n"
+"```"
 
 #: src/android/build-rules/library.md:1
 msgid "# Rust Libraries"
