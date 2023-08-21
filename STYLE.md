@@ -47,7 +47,7 @@ struct Person { name: String }
 
 if the `Person` struct is not important for your example. Please use this
 sparingly: enclose the code block in `<!-- dprint-ignore-start -->` and
-`<!-- dprint-ignore-start -->` to suppress warnings about the formatting.
+`<!-- dprint-ignore-end -->` to suppress warnings about the formatting.
 
 ## Speaker Notes
 
