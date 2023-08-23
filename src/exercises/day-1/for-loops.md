@@ -85,7 +85,7 @@ preview of issues of ownership that will come later in the afternoon.
 Without the `&`...
 * The loop would have been one that consumes the array.  This is a
   change [introduced in the 2021
-  Edition](https://doc.rust-lang.org/edition-guide/rust-2021/IntoIterator-for-arrays.html)
+  Edition](https://doc.rust-lang.org/edition-guide/rust-2021/IntoIterator-for-arrays.html).
 * An implicit array copy would have occured.  Since `i32` is a copy type, then
   `[i32; 3]` is also a copy type.
 
