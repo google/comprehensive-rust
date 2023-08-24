@@ -70,7 +70,7 @@
 
 - [Exercises](exercises/day-1/afternoon.md)
   - [Luhn Algorithm](exercises/day-1/luhn.md)
-  - [Pattern Matching exercise (TBD)]()
+  - [Pattern Matching (TBD)]()
 
 # Day 2: Morning
 
