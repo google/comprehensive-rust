@@ -6880,45 +6880,39 @@ msgstr ""
 "```"
 
 #: src/structs/tuple-structs.md:37
-#, fuzzy
 msgid ""
 "Newtypes are a great way to encode additional information about the value in "
 "a primitive type, for example:"
 msgstr ""
-"뉴타입은 다음과 같은 원시타입 값에 특별한 의미를 부여하는 데 유용합니다."
+"뉴타입은 기본 타입에 부가적인 의미를 더하는 좋은 방법입니다. 예를 들어:"
 
 #: src/structs/tuple-structs.md:38
-#, fuzzy
 msgid "The number is measured in some units: `Newtons` in the example above."
-msgstr "단위 표시를 위한 숫자: 위 예제에서는 뉴턴 단위 표기를 위해 사용합니다."
+msgstr "숫자값에 단위를 표시할 수 있음: 위에서 `Newtons`이 그 예입니다."
 
 #: src/structs/tuple-structs.md:39
-#, fuzzy
 msgid ""
 "The value passed some validation when it was created, so you no longer have "
 "to validate it again at every use: 'PhoneNumber(String)`or`OddNumber(u32)\\`."
 msgstr ""
-"값이 생성될 때 이미 유효성 검사를 통과 했으므로 추가적인 검사가 필요없는 경"
-"우: `PhoneNumber(String)`또는 `OddNumber(u32)`"
+"값이 생성될 때 이미 유효성 검사를 통과 했으므로 추가적인 검사가 필요없습니"
+"다: `PhoneNumber(String)`또는 `OddNumber(u32)`"
 
 #: src/structs/tuple-structs.md:40
-#, fuzzy
 msgid ""
 "Demonstrate how to add a `f64` value to a `Newtons` type by accessing the "
 "single field in the newtype."
 msgstr "`Newtons` 타입의 값에 `f64` 값을 더하는 방법을 보여주세요."
 
 #: src/structs/tuple-structs.md:41
-#, fuzzy
 msgid ""
 "Rust generally doesn’t like inexplicit things, like automatic unwrapping or "
 "for instance using booleans as integers."
 msgstr ""
-"러스트는 대체로 분명하지 않은 것을 싫어합니다. 예를 들면 자동으로 unwrap하거"
-"나 불리언 값을 정수 값으로 사용하는 것들이 그렇습니다."
+"러스트는 분명하지 않은 것을 싫어합니다. 예를 들면 자동으로 unwrap하거나 불리"
+"언 값을 정수 값으로 사용하는 것들이 그렇습니다."
 
 #: src/structs/tuple-structs.md:42
-#, fuzzy
 msgid "Operator overloading is discussed on Day 3 (generics)."
 msgstr "연산자 재정의는 3일차 제네릭 부분에서 다룹니다."
 
@@ -6927,6 +6921,8 @@ msgid ""
 "The example is a subtle reference to the [Mars Climate Orbiter](https://en."
 "wikipedia.org/wiki/Mars_Climate_Orbiter) failure."
 msgstr ""
+"이는 [화성 기후 궤도선 (Mars Climate Orbiter)](https://en.wikipedia.org/wiki/"
+"Mars_Climate_Orbiter)의 실패 원인으로 지목된 도량형 입력 오류를 보여줍니다."
 
 #: src/structs/field-shorthand.md:3
 msgid ""
@@ -6977,15 +6973,13 @@ msgstr ""
 "```"
 
 #: src/structs/field-shorthand.md:27
-#, fuzzy
 msgid ""
 "The `new` function could be written using `Self` as a type, as it is "
 "interchangeable with the struct type name"
 msgstr ""
-"`new`함수를 다음처럼 구조체 이름 대신 `Self`를 사용하여 작성해도 됩니다."
+"`new`함수를 다음처럼 구조체 이름 대신 `Self`를 사용하여 작성해도 됩니다"
 
 #: src/structs/field-shorthand.md:29
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "#[derive(Debug)]\n"
@@ -7014,7 +7008,6 @@ msgstr ""
 "```"
 
 #: src/structs/field-shorthand.md:41
-#, fuzzy
 msgid ""
 "Implement the `Default` trait for the struct. Define some fields and use the "
 "default values for the other fields."
@@ -7023,7 +7016,6 @@ msgstr ""
 "값을 사용할 수 있습니다."
 
 #: src/structs/field-shorthand.md:43
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "#[derive(Debug)]\n"
@@ -7066,22 +7058,20 @@ msgstr ""
 "}\n"
 "fn create_default() {\n"
 "    let tmp = Person {\n"
-"        ..Default::default()\n"
+"        ..Person::default()\n"
 "    };\n"
 "    let tmp = Person {\n"
 "        name: \"Sam\".to_string(),\n"
-"        ..Default::default()\n"
+"        ..Person::default()\n"
 "    };\n"
 "}\n"
 "```"
 
 #: src/structs/field-shorthand.md:68
-#, fuzzy
 msgid "Methods are defined in the `impl` block."
 msgstr "메서드는 `impl` 블록에 정의됩니다."
 
 #: src/structs/field-shorthand.md:69
-#, fuzzy
 msgid ""
 "Use struct update syntax to define a new structure using `peter`. Note that "
 "the variable `peter` will no longer be accessible afterwards."
@@ -7090,7 +7080,6 @@ msgstr ""
 "요. 이때, `peter`는 더이상 사용할 수 없게 됩니다."
 
 #: src/structs/field-shorthand.md:70
-#, fuzzy
 msgid ""
 "Use `{:#?}` when printing structs to request the `Debug` representation."
 msgstr "구조체를 `Debug` 형태로 출력하려면 `{:#?}`를 사용하세요."
@@ -7156,47 +7145,41 @@ msgstr ""
 "```"
 
 #: src/enums.md:36
-#, fuzzy
 msgid "Enumerations allow you to collect a set of values under one type"
-msgstr "열거형은 값들의 집합을 하나의 타입으로 표현할 수 있게 합니다."
+msgstr "열거형은 값들의 집합을 하나의 타입으로 표현할 수 있게 합니다"
 
 #: src/enums.md:37
-#, fuzzy
 msgid ""
 "This page offers an enum type `CoinFlip` with two variants `Heads` and "
 "`Tails`. You might note the namespace when using variants."
 msgstr ""
-"위의 `CoinFlip` 열거형 타입은 `Heads`와 `Tail` 두가지 variant를 가집니다. 열"
+"위의 `CoinFlip` 열거형 타입은 `Heads`와 `Tail` 두 가지 variant를 가집니다. 열"
 "거형 타입의 variant는 네임스페이스를 붙여서 사용합니다."
 
 #: src/enums.md:38
-#, fuzzy
 msgid "This might be a good time to compare Structs and Enums:"
-msgstr "구조체와 열거형을 비교해 볼까요?"
+msgstr "구조체와 열거형을 비교해 보겠습니다:"
 
 #: src/enums.md:39
-#, fuzzy
 msgid ""
 "In both, you can have a simple version without fields (unit struct) or one "
 "with different types of fields (variant payloads). "
 msgstr ""
 "구조체나 열거형 모두, 필드가 하나도 없는 단순한 형태도 가능 하고, 여러 타입"
-"의 필드를 가질 수도 있습니다."
+"의 필드를 가질 수도 있습니다. "
 
 #: src/enums.md:40
-#, fuzzy
 msgid "In both, associated functions are defined within an `impl` block."
 msgstr "둘 다 연관함수를 `impl`블록으로 정의 할 수 있습니다."
 
 #: src/enums.md:41
-#, fuzzy
 msgid ""
 "You could even implement the different variants of an enum with separate "
 "structs but then they wouldn’t be the same type as they would if they were "
 "all defined in an enum. "
 msgstr ""
 "열거형 타입의 각 variant를 별도의 구조체로 정의할 수도 있지만, 그러면 열거형"
-"을 사용했을 때처럼 하나의 타입으로 취급할 수 없습니다."
+"을 사용했을 때처럼 하나의 타입으로 취급할 수 없습니다. "
 
 #: src/enums/variant-payloads.md:3
 msgid ""
@@ -7294,7 +7277,7 @@ msgid ""
 msgstr ""
 "가장 위에서 부터 어떤 패턴이 주어진 값과 매칭하는지 검사한 다음, 매칭된 것이 "
 "발견되면 화살표를 따라 코드를 수행합니다. 한 번 매칭이 되고 코드가 수행이 되"
-"면, 더이상의 매칭은 없습니다."
+"면, 더이상의 매칭은 없습니다. "
 
 #: src/enums/variant-payloads.md:39
 msgid ""
@@ -7302,7 +7285,7 @@ msgid ""
 "the Rust compiler provides by confirming when all cases are handled. "
 msgstr ""
 "매칭 패턴들이 불충분 하다면 어떤 일이 일어나는지 설명하세요. 러스트 컴파일러"
-"는 모든 가능한 케이스들이 핸들링 되는지 체크한다는 점을 상기시키세요."
+"는 모든 가능한 케이스들이 핸들링 되는지 체크한다는 점을 상기시키세요. "
 
 #: src/enums/variant-payloads.md:40
 msgid "`match` inspects a hidden discriminant field in the `enum`."
@@ -7314,7 +7297,7 @@ msgstr ""
 msgid ""
 "It is possible to retrieve the discriminant by calling `std::mem::"
 "discriminant()`"
-msgstr "`std::mem::discriminant()`를 이용하여 식별자를 얻을 수도 있습니다."
+msgstr "`std::mem::discriminant()`를 이용하여 식별자를 얻을 수도 있습니다"
 
 #: src/enums/variant-payloads.md:42
 msgid ""
@@ -7344,7 +7327,6 @@ msgstr ""
 "니다:"
 
 #: src/enums/sizes.md:5
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "use std::any::type_name;\n"
@@ -7366,13 +7348,12 @@ msgid ""
 "```"
 msgstr ""
 "```rust,editable\n"
+"use std::any::type_name;\n"
 "use std::mem::{align_of, size_of};\n"
 "\n"
-"macro_rules! dbg_size {\n"
-"    ($t:ty) => {\n"
-"        println!(\"{}: size {} bytes, align: {} bytes\",\n"
-"                 stringify!($t), size_of::<$t>(), align_of::<$t>());\n"
-"    };\n"
+"fn dbg_size<T>() {\n"
+"    println!(\"{}: size {} bytes, align: {} bytes\",\n"
+"        type_name::<T>(), size_of::<T>(), align_of::<T>());\n"
 "}\n"
 "\n"
 "enum Foo {\n"
@@ -7381,7 +7362,7 @@ msgstr ""
 "}\n"
 "\n"
 "fn main() {\n"
-"    dbg_size!(Foo);\n"
+"    dbg_size::<Foo>();\n"
 "}\n"
 "```"
 
@@ -7394,7 +7375,6 @@ msgstr ""
 "html)를 확인하세요."
 
 #: src/enums/sizes.md:30
-#, fuzzy
 msgid ""
 "Internally Rust is using a field (discriminant) to keep track of the enum "
 "variant."
@@ -7403,13 +7383,11 @@ msgstr ""
 "를 사용합니다."
 
 #: src/enums/sizes.md:32
-#, fuzzy
 msgid ""
 "You can control the discriminant if needed (e.g., for compatibility with C):"
-msgstr "C와의 연동과 같은 이유로 식별자를 직접 지정할 수도 있습니다:"
+msgstr "C와의 연동을 위해 식별자 값을 직접 지정할 수도 있습니다:"
 
 #: src/enums/sizes.md:34
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "#[repr(u32)]\n"
@@ -7442,7 +7420,6 @@ msgstr ""
 "```"
 
 #: src/enums/sizes.md:49
-#, fuzzy
 msgid ""
 "Without `repr`, the discriminant type takes 2 bytes, because 10001 fits 2 "
 "bytes."
@@ -7451,40 +7428,34 @@ msgstr ""
 "기는 2 바이트가 됩니다."
 
 #: src/enums/sizes.md:53
-#, fuzzy
 msgid "Try out other types such as"
-msgstr "다른 타입들도 확인해보세요."
+msgstr "다른 타입들도 확인해보세요"
 
 #: src/enums/sizes.md:55
-#, fuzzy
 msgid "`dbg_size!(bool)`: size 1 bytes, align: 1 bytes,"
-msgstr "`dbg_size!(bool)`: size 1 bytes, align: 1 bytes"
+msgstr "`dbg_size!(bool)`: 크기 1 바이트, 정렬: 1 바이트,"
 
 #: src/enums/sizes.md:56
-#, fuzzy
 msgid ""
 "`dbg_size!(Option<bool>)`: size 1 bytes, align: 1 bytes (niche optimization, "
 "see below),"
 msgstr ""
-"`dbg_size!(Option<bool>)`: size 1 bytes, align: 1 bytes (니치 최적화, 아래 설"
-"명 참조)"
+"`dbg_size!(Option<bool>)`: 크기 1 바이트, 정렬: 1 바이트 (니치 최적화, 아래 "
+"설명 참조)"
 
 #: src/enums/sizes.md:57
-#, fuzzy
 msgid "`dbg_size!(&i32)`: size 8 bytes, align: 8 bytes (on a 64-bit machine),"
-msgstr "`dbg_size!(&i32)`: size 8 bytes, align: 8 bytes (64비트 머신인 경우)"
+msgstr "`dbg_size!(&i32)`: 크기 8 바이트, 정렬: 8 바이트 (64비트 머신인 경우)"
 
 #: src/enums/sizes.md:58
-#, fuzzy
 msgid ""
 "`dbg_size!(Option<&i32>)`: size 8 bytes, align: 8 bytes (null pointer "
 "optimization, see below)."
 msgstr ""
-"`dbg_size!(Option<&i32>)`: size 8 bytes, align: 8 bytes (널포인터 최적화, 아"
+"`dbg_size!(Option<&i32>)`: 크기 8 바이트, 정렬: 8 바이트 (널포인터 최적화, 아"
 "래 설명 참조)"
 
 #: src/enums/sizes.md:60
-#, fuzzy
 msgid ""
 "Niche optimization: Rust will merge unused bit patterns for the enum "
 "discriminant."
@@ -7497,6 +7468,9 @@ msgid ""
 "option/#representation), Rust guarantees that `size_of::<T>()` equals "
 "`size_of::<Option<T>>()`."
 msgstr ""
+"널포인터 최적화: [어떤 타입들](https://doc.rust-lang.org/std/option/"
+"#representation)에 대해서 러스트는 `size_of::<T>()`가 `size_of::"
+"<Option<T>>()`와 같은 것을 보장합니다."
 
 #: src/enums/sizes.md:67
 msgid ""
@@ -7504,6 +7478,9 @@ msgid ""
 "like in practice. It's important to note that the compiler provides no "
 "guarantees regarding this representation, therefore this is totally unsafe."
 msgstr ""
+"실제로 널포인터 최적화가 적용된 것을 확인하고 싶다면 아래의 예제코드를 사용하"
+"세요. 주의할 점은, 여기에서 보여주는 비트 패턴이 컴파일러가 보장해 주는 것은 "
+"아니라는 점입니다. 여기에 의존하는 것은 완전히 unsafe합니다."
 
 #: src/enums/sizes.md:70
 msgid ""
@@ -7543,12 +7520,49 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::mem::transmute;\n"
+"\n"
+"macro_rules! dbg_bits {\n"
+"    ($e:expr, $bit_type:ty) => {\n"
+"        println!(\"- {}: {:#x}\", stringify!($e), transmute::<_, "
+"$bit_type>($e));\n"
+"    };\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    // TOTALLY UNSAFE. Rust provides no guarantees about the bitwise\n"
+"    // representation of types.\n"
+"    unsafe {\n"
+"        println!(\"Bitwise representation of bool\");\n"
+"        dbg_bits!(false, u8);\n"
+"        dbg_bits!(true, u8);\n"
+"\n"
+"        println!(\"Bitwise representation of Option<bool>\");\n"
+"        dbg_bits!(None::<bool>, u8);\n"
+"        dbg_bits!(Some(false), u8);\n"
+"        dbg_bits!(Some(true), u8);\n"
+"\n"
+"        println!(\"Bitwise representation of Option<Option<bool>>\");\n"
+"        dbg_bits!(Some(Some(false)), u8);\n"
+"        dbg_bits!(Some(Some(true)), u8);\n"
+"        dbg_bits!(Some(None::<bool>), u8);\n"
+"        dbg_bits!(None::<Option<bool>>, u8);\n"
+"\n"
+"        println!(\"Bitwise representation of Option<&i32>\");\n"
+"        dbg_bits!(None::<&i32>, usize);\n"
+"        dbg_bits!(Some(&0i32), usize);\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/enums/sizes.md:105
 msgid ""
 "More complex example if you want to discuss what happens when we chain more "
 "than 256 `Option`s together."
 msgstr ""
+"아래는 좀 더 복잡한 예제입니다.  256개 이상의 `Option`이 중첩되어 연결되어 있"
+"을 경우 어떻게 되는지 보여줍니다."
 
 #: src/enums/sizes.md:107
 msgid ""
@@ -7602,6 +7616,55 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"#![recursion_limit = \"1000\"]\n"
+"\n"
+"use std::mem::transmute;\n"
+"\n"
+"macro_rules! dbg_bits {\n"
+"    ($e:expr, $bit_type:ty) => {\n"
+"        println!(\"- {}: {:#x}\", stringify!($e), transmute::<_, "
+"$bit_type>($e));\n"
+"    };\n"
+"}\n"
+"\n"
+"// Macro to wrap a value in 2^n Some() where n is the number of \"@\" "
+"signs.\n"
+"// Increasing the recursion limit is required to evaluate this macro.\n"
+"macro_rules! many_options {\n"
+"    ($value:expr) => { Some($value) };\n"
+"    ($value:expr, @) => {\n"
+"        Some(Some($value))\n"
+"    };\n"
+"    ($value:expr, @ $($more:tt)+) => {\n"
+"        many_options!(many_options!($value, $($more)+), $($more)+)\n"
+"    };\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    // TOTALLY UNSAFE. Rust provides no guarantees about the bitwise\n"
+"    // representation of types.\n"
+"    unsafe {\n"
+"        assert_eq!(many_options!(false), Some(false));\n"
+"        assert_eq!(many_options!(false, @), Some(Some(false)));\n"
+"        assert_eq!(many_options!(false, @@), "
+"Some(Some(Some(Some(false)))));\n"
+"\n"
+"        println!(\"Bitwise representation of a chain of 128 Option's.\");\n"
+"        dbg_bits!(many_options!(false, @@@@@@@), u8);\n"
+"        dbg_bits!(many_options!(true, @@@@@@@), u8);\n"
+"\n"
+"        println!(\"Bitwise representation of a chain of 256 Option's.\");\n"
+"        dbg_bits!(many_options!(false, @@@@@@@@), u16);\n"
+"        dbg_bits!(many_options!(true, @@@@@@@@), u16);\n"
+"\n"
+"        println!(\"Bitwise representation of a chain of 257 Option's.\");\n"
+"        dbg_bits!(many_options!(Some(false), @@@@@@@@), u16);\n"
+"        dbg_bits!(many_options!(Some(true), @@@@@@@@), u16);\n"
+"        dbg_bits!(many_options!(None::<bool>, @@@@@@@@), u16);\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/methods.md:3
 msgid ""
@@ -7658,12 +7721,10 @@ msgstr ""
 "```"
 
 #: src/methods.md:31
-#, fuzzy
 msgid "It can be helpful to introduce methods by comparing them to functions."
 msgstr "메서드를 함수와 비교하여 소개하는 것도 도움이 될 수 있습니다."
 
 #: src/methods.md:32
-#, fuzzy
 msgid ""
 "Methods are called on an instance of a type (such as a struct or enum), the "
 "first parameter represents the instance as `self`."
@@ -7672,7 +7733,6 @@ msgstr ""
 "수(파라메터)는 인스턴스를 `self`로 표기합니다."
 
 #: src/methods.md:33
-#, fuzzy
 msgid ""
 "Developers may choose to use methods to take advantage of method receiver "
 "syntax and to help keep them more organized. By using methods we can keep "
@@ -7682,12 +7742,10 @@ msgstr ""
 "할 수 있습니다. 메서드들이 예측 가능한 위치에 모여 있으니 찾기 쉽습니다."
 
 #: src/methods.md:34
-#, fuzzy
 msgid "Point out the use of the keyword `self`, a method receiver."
 msgstr "메서드 receiver인 `self` 키워드 사용을 언급해 주시기 바랍니다."
 
 #: src/methods.md:35
-#, fuzzy
 msgid ""
 "Show that it is an abbreviated term for `self: Self` and perhaps show how "
 "the struct name could also be used."
@@ -7696,7 +7754,6 @@ msgstr ""
 "하면 어떻게 되는지 보여주는 것도 좋습니다."
 
 #: src/methods.md:36
-#, fuzzy
 msgid ""
 "Explain that `Self` is a type alias for the type the `impl` block is in and "
 "can be used elsewhere in the block."
@@ -7705,7 +7762,6 @@ msgstr ""
 "려주세요."
 
 #: src/methods.md:37
-#, fuzzy
 msgid ""
 "Note how `self` is used like other structs and dot notation can be used to "
 "refer to individual fields."
@@ -7714,7 +7770,6 @@ msgstr ""
 "별 필드들을 접근할 수 있습니다."
 
 #: src/methods.md:38
-#, fuzzy
 msgid ""
 "This might be a good time to demonstrate how the `&self` differs from `self` "
 "by modifying the code and trying to run say_hello twice."
@@ -7723,7 +7778,6 @@ msgstr ""
 "게 다른지 보여주는 것도 좋습니다."
 
 #: src/methods.md:39
-#, fuzzy
 msgid "We describe the distinction between method receivers next."
 msgstr "다음 슬라이드에서 receiver의 구분을 설명합니다."
 
@@ -7736,7 +7790,6 @@ msgstr ""
 "음의 형태들이 가능합니다:"
 
 #: src/methods/receiver.md:6
-#, fuzzy
 msgid ""
 "`&self`: borrows the object from the caller using a shared and immutable "
 "reference. The object can be used again afterwards."
@@ -7745,7 +7798,6 @@ msgstr ""
 "다. 객체는 메소드 호출 뒤에도 사용될 수 있습니다."
 
 #: src/methods/receiver.md:8
-#, fuzzy
 msgid ""
 "`&mut self`: borrows the object from the caller using a unique and mutable "
 "reference. The object can be used again afterwards."
@@ -7754,7 +7806,6 @@ msgstr ""
 "다. 객체는 메소드 호출 뒤에도 사용될 수 있습니다."
 
 #: src/methods/receiver.md:10
-#, fuzzy
 msgid ""
 "`self`: takes ownership of the object and moves it away from the caller. The "
 "method becomes the owner of the object. The object will be dropped "
@@ -7766,15 +7817,13 @@ msgstr ""
 "로 전달하지 않는다면 메서드 종료와 함께 객체는 drop(해제)됩니다."
 
 #: src/methods/receiver.md:14
-#, fuzzy
 msgid "`mut self`: same as above, but the method can mutate the object. "
 msgstr ""
 "`mut self`: 위와 동일하지만 메서드가 객체의 소유권을 가지면서 동시에 객체를 "
 "수정할 수도 있습니다. 소유권을 가지는 것이 수정할 수 있음을 의미하는 것은 아"
-"닙니다."
+"닙니다. "
 
 #: src/methods/receiver.md:15
-#, fuzzy
 msgid ""
 "No receiver: this becomes a static method on the struct. Typically used to "
 "create constructors which are called `new` by convention."
@@ -7894,14 +7943,14 @@ msgstr ""
 
 #: src/methods/example.md:47
 msgid "All four methods here use a different method receiver."
-msgstr "4가지 유형의 메서드 receiver에 대해 설명합니다."
+msgstr "이 네 개의 메서드는 서로 다른 유형의 리시버를 사용합니다."
 
 #: src/methods/example.md:48
 msgid ""
 "You can point out how that changes what the function can do with the "
 "variable values and if/how it can be used again in `main`."
 msgstr ""
-"receiver 유형에 따라 함수가 할 수 있는 일이 달라지고, 또 메소드를 호출한 뒤 "
+"리시버의 유형에 따라 함수가 할 수 있는 일이 달라지고, 또 메소드를 호출한 뒤 "
 "`main`에서 해당 객체를 사용할 수 있는지 여부도 달라진다는 점을 강조하세요."
 
 #: src/methods/example.md:49
@@ -7977,23 +8026,23 @@ msgstr "`_`패턴은 어떤 값과도 매칭되는 와일드카드입니다."
 msgid ""
 "You might point out how some specific characters are being used when in a "
 "pattern"
-msgstr "패턴에서 사용되는 특수 문자들을 알려주세요."
+msgstr "패턴에서 사용되는 특수 문자들을 알려주세요"
 
 #: src/pattern-matching.md:27
 msgid "`|` as an `or`"
-msgstr "`|`: or 기호입니다."
+msgstr "`|`: or 기호입니다"
 
 #: src/pattern-matching.md:28
 msgid "`..` can expand as much as it needs to be"
-msgstr "`..`: 필요한 만큼 확장합니다."
+msgstr "`..`: 필요한 만큼 확장합니다"
 
 #: src/pattern-matching.md:29
 msgid "`1..=5` represents an inclusive range"
-msgstr "`1..=5`: 끝 값(여기서는 5)을 포함하는 범위를 나타냅니다."
+msgstr "`1..=5`: 끝 값(여기서는 5)을 포함하는 범위를 나타냅니다"
 
 #: src/pattern-matching.md:30
 msgid "`_` is a wild card"
-msgstr "`_`: 와일드카드입니다."
+msgstr "`_`: 와일드카드입니다"
 
 #: src/pattern-matching.md:31
 msgid ""
@@ -8239,7 +8288,7 @@ msgstr ""
 
 #: src/pattern-matching/destructuring-arrays.md:41
 msgid "Create a new pattern using `_` to represent an element. "
-msgstr "`_`를 사용하여 요소를 매칭하는 패턴을 추가해보세요."
+msgstr "`_`를 사용하여 요소를 매칭하는 패턴을 추가해보세요. "
 
 #: src/pattern-matching/destructuring-arrays.md:42
 msgid "Add more values to the array."
@@ -8254,7 +8303,7 @@ msgstr "`..`가 요소 개수에 상관없이 매치될 수 있음을 알려주�
 #: src/pattern-matching/destructuring-arrays.md:44
 msgid "Show matching against the tail with patterns `[.., b]` and `[a@..,b]`"
 msgstr ""
-"`[.., b]`나 `[a@.., b]`와 같은 패턴으로 꼬리 부분을 매칭하는 것을 보여주세요."
+"`[.., b]`나 `[a@.., b]`와 같은 패턴으로 꼬리 부분을 매칭하는 것을 보여주세요"
 
 #: src/pattern-matching/match-guards.md:3
 msgid ""
@@ -8466,6 +8515,105 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,should_panic\n"
+"// TODO: remove this when you're done with your implementation.\n"
+"#![allow(unused_variables, dead_code)]\n"
+"\n"
+"pub struct User {\n"
+"    name: String,\n"
+"    age: u32,\n"
+"    height: f32,\n"
+"    visit_count: usize,\n"
+"    last_blood_pressure: Option<(u32, u32)>,\n"
+"}\n"
+"\n"
+"pub struct Measurements {\n"
+"    height: f32,\n"
+"    blood_pressure: (u32, u32),\n"
+"}\n"
+"\n"
+"pub struct HealthReport<'a> {\n"
+"    patient_name: &'a str,\n"
+"    visit_count: u32,\n"
+"    height_change: f32,\n"
+"    blood_pressure_change: Option<(i32, i32)>,\n"
+"}\n"
+"\n"
+"impl User {\n"
+"    pub fn new(name: String, age: u32, height: f32) -> Self {\n"
+"        unimplemented!()\n"
+"    }\n"
+"\n"
+"    pub fn name(&self) -> &str {\n"
+"        unimplemented!()\n"
+"    }\n"
+"\n"
+"    pub fn age(&self) -> u32 {\n"
+"        unimplemented!()\n"
+"    }\n"
+"\n"
+"    pub fn height(&self) -> f32 {\n"
+"        unimplemented!()\n"
+"    }\n"
+"\n"
+"    pub fn doctor_visits(&self) -> u32 {\n"
+"        unimplemented!()\n"
+"    }\n"
+"\n"
+"    pub fn set_age(&mut self, new_age: u32) {\n"
+"        unimplemented!()\n"
+"    }\n"
+"\n"
+"    pub fn set_height(&mut self, new_height: f32) {\n"
+"        unimplemented!()\n"
+"    }\n"
+"\n"
+"    pub fn visit_doctor(&mut self, measurements: Measurements) -> "
+"HealthReport {\n"
+"        unimplemented!()\n"
+"    }\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let bob = User::new(String::from(\"Bob\"), 32, 155.2);\n"
+"    println!(\"I'm {} and my age is {}\", bob.name(), bob.age());\n"
+"}\n"
+"\n"
+"#[test]\n"
+"fn test_height() {\n"
+"    let bob = User::new(String::from(\"Bob\"), 32, 155.2);\n"
+"    assert_eq!(bob.height(), 155.2);\n"
+"}\n"
+"\n"
+"#[test]\n"
+"fn test_set_age() {\n"
+"    let mut bob = User::new(String::from(\"Bob\"), 32, 155.2);\n"
+"    assert_eq!(bob.age(), 32);\n"
+"    bob.set_age(33);\n"
+"    assert_eq!(bob.age(), 33);\n"
+"}\n"
+"\n"
+"#[test]\n"
+"fn test_visit() {\n"
+"    let mut bob = User::new(String::from(\"Bob\"), 32, 155.2);\n"
+"    assert_eq!(bob.doctor_visits(), 0);\n"
+"    let report = bob.visit_doctor(Measurements {\n"
+"        height: 156.1,\n"
+"        blood_pressure: (120, 80),\n"
+"    });\n"
+"    assert_eq!(report.patient_name, \"Bob\");\n"
+"    assert_eq!(report.visit_count, 1);\n"
+"    assert_eq!(report.blood_pressure_change, None);\n"
+"\n"
+"    let report = bob.visit_doctor(Measurements {\n"
+"        height: 156.1,\n"
+"        blood_pressure: (115, 76),\n"
+"    });\n"
+"\n"
+"    assert_eq!(report.visit_count, 2);\n"
+"    assert_eq!(report.blood_pressure_change, Some((-5, -4)));\n"
+"}\n"
+"```"
 
 #: src/exercises/day-2/points-polygons.md:1
 msgid "Polygon Struct"
@@ -8591,6 +8739,113 @@ msgid ""
 "fn main() {}\n"
 "```"
 msgstr ""
+"```rust\n"
+"// TODO: remove this when you're done with your implementation.\n"
+"#![allow(unused_variables, dead_code)]\n"
+"\n"
+"pub struct Point {\n"
+"    // add fields\n"
+"}\n"
+"\n"
+"impl Point {\n"
+"    // add methods\n"
+"}\n"
+"\n"
+"pub struct Polygon {\n"
+"    // add fields\n"
+"}\n"
+"\n"
+"impl Polygon {\n"
+"    // add methods\n"
+"}\n"
+"\n"
+"pub struct Circle {\n"
+"    // add fields\n"
+"}\n"
+"\n"
+"impl Circle {\n"
+"    // add methods\n"
+"}\n"
+"\n"
+"pub enum Shape {\n"
+"    Polygon(Polygon),\n"
+"    Circle(Circle),\n"
+"}\n"
+"\n"
+"#[cfg(test)]\n"
+"mod tests {\n"
+"    use super::*;\n"
+"\n"
+"    fn round_two_digits(x: f64) -> f64 {\n"
+"        (x * 100.0).round() / 100.0\n"
+"    }\n"
+"\n"
+"    #[test]\n"
+"    fn test_point_magnitude() {\n"
+"        let p1 = Point::new(12, 13);\n"
+"        assert_eq!(round_two_digits(p1.magnitude()), 17.69);\n"
+"    }\n"
+"\n"
+"    #[test]\n"
+"    fn test_point_dist() {\n"
+"        let p1 = Point::new(10, 10);\n"
+"        let p2 = Point::new(14, 13);\n"
+"        assert_eq!(round_two_digits(p1.dist(p2)), 5.00);\n"
+"    }\n"
+"\n"
+"    #[test]\n"
+"    fn test_point_add() {\n"
+"        let p1 = Point::new(16, 16);\n"
+"        let p2 = p1 + Point::new(-4, 3);\n"
+"        assert_eq!(p2, Point::new(12, 19));\n"
+"    }\n"
+"\n"
+"    #[test]\n"
+"    fn test_polygon_left_most_point() {\n"
+"        let p1 = Point::new(12, 13);\n"
+"        let p2 = Point::new(16, 16);\n"
+"\n"
+"        let mut poly = Polygon::new();\n"
+"        poly.add_point(p1);\n"
+"        poly.add_point(p2);\n"
+"        assert_eq!(poly.left_most_point(), Some(p1));\n"
+"    }\n"
+"\n"
+"    #[test]\n"
+"    fn test_polygon_iter() {\n"
+"        let p1 = Point::new(12, 13);\n"
+"        let p2 = Point::new(16, 16);\n"
+"\n"
+"        let mut poly = Polygon::new();\n"
+"        poly.add_point(p1);\n"
+"        poly.add_point(p2);\n"
+"\n"
+"        let points = poly.iter().cloned().collect::<Vec<_>>();\n"
+"        assert_eq!(points, vec![Point::new(12, 13), Point::new(16, 16)]);\n"
+"    }\n"
+"\n"
+"    #[test]\n"
+"    fn test_shape_perimeters() {\n"
+"        let mut poly = Polygon::new();\n"
+"        poly.add_point(Point::new(12, 13));\n"
+"        poly.add_point(Point::new(17, 11));\n"
+"        poly.add_point(Point::new(16, 16));\n"
+"        let shapes = vec![\n"
+"            Shape::from(poly),\n"
+"            Shape::from(Circle::new(Point::new(10, 20), 5)),\n"
+"        ];\n"
+"        let perimeters = shapes\n"
+"            .iter()\n"
+"            .map(Shape::perimeter)\n"
+"            .map(round_two_digits)\n"
+"            .collect::<Vec<_>>();\n"
+"        assert_eq!(perimeters, vec![15.48, 31.42]);\n"
+"    }\n"
+"}\n"
+"\n"
+"#[allow(dead_code)]\n"
+"fn main() {}\n"
+"```"
 
 #: src/exercises/day-2/points-polygons.md:117
 msgid ""
@@ -8633,7 +8888,6 @@ msgstr ""
 "식도 유사하게 작동합니다."
 
 #: src/control-flow/blocks.md:3
-#, fuzzy
 msgid ""
 "A block in Rust contains a sequence of expressions. Each block has a value "
 "and a type, which are those of the last expression of the block:"
@@ -8682,7 +8936,6 @@ msgstr ""
 "```"
 
 #: src/control-flow/blocks.md:26
-#, fuzzy
 msgid ""
 "If the last expression ends with `;`, then the resulting value and type is "
 "`()`."
@@ -8725,7 +8978,7 @@ msgid ""
 "The point of this slide is to show that blocks have a type and value in "
 "Rust. "
 msgstr ""
-"러스트에서는 블록이 타입과 값을 가진다는 점이 이 슬라이드의 핵심입니다."
+"러스트에서는 블록이 타입과 값을 가진다는 점이 이 슬라이드의 핵심입니다. "
 
 #: src/control-flow/blocks.md:45
 msgid ""
@@ -8745,7 +8998,7 @@ msgid ""
 "if-expr.html#if-expressions) exactly like `if` statements in other languages:"
 msgstr ""
 "다른 언어의 `if` 문과 똑같이 [`if` 표현식](https://doc.rust-lang.org/"
-"reference/expressions/if-expr.html#if-expressions)을 사용합니다."
+"reference/expressions/if-expr.html#if-expressions)을 사용합니다:"
 
 #: src/control-flow/if-expressions.md:7
 msgid ""
@@ -8772,7 +9025,6 @@ msgstr ""
 "```"
 
 #: src/control-flow/if-expressions.md:18
-#, fuzzy
 msgid ""
 "In addition, you can use `if` as an expression. The last expression of each "
 "block becomes the value of the `if` expression:"
@@ -8825,7 +9077,7 @@ msgid ""
 msgstr ""
 "[`if let` 표현식](https://doc.rust-lang.org/reference/expressions/if-expr."
 "html#if-let-expressions)을 사용하면 값이 패턴과 일치하는지에 따라 다른 코드"
-"를 실행할 수 있습니다."
+"를 실행할 수 있습니다:"
 
 #: src/control-flow/if-let-expressions.md:7
 msgid ""
@@ -8860,7 +9112,6 @@ msgid ""
 msgstr "패턴에 관한 설명은 [패턴 매칭](../pattern-matching.md)을 참조하세요."
 
 #: src/control-flow/if-let-expressions.md:23
-#, fuzzy
 msgid ""
 "Unlike `match`, `if let` does not have to cover all branches. This can make "
 "it more concise than `match`."
@@ -8869,19 +9120,16 @@ msgstr ""
 "우). 이와 달리 `match`에서는 모든 브랜치가 처리되어야 합니다."
 
 #: src/control-flow/if-let-expressions.md:24
-#, fuzzy
 msgid "A common usage is handling `Some` values when working with `Option`."
 msgstr "일반적 사용법은 `Option`을 사용할 때 `Some` 값을 처리하는 것입니다."
 
 #: src/control-flow/if-let-expressions.md:25
-#, fuzzy
 msgid ""
 "Unlike `match`, `if let` does not support guard clauses for pattern matching."
 msgstr ""
 "`match`와 달리 `if let`은 패턴 일치를 위한 보호 절을 지원하지 않습니다."
 
 #: src/control-flow/if-let-expressions.md:26
-#, fuzzy
 msgid ""
 "Since 1.65, a similar [let-else](https://doc.rust-lang.org/rust-by-example/"
 "flow_control/let_else.html) construct allows to do a destructuring "
@@ -8891,10 +9139,9 @@ msgstr ""
 "1.65부터 유사한 [let-else](https://doc.rust-lang.org/rust-by-example/"
 "flow_control/let_else.html) 구성은 디스트럭처링 할당을 실행하거나 실패할 경"
 "우 반환되지 않는 블록 브랜치(panic/return/break/continue)를 보유하도록 허용합"
-"니다."
+"니다:"
 
 #: src/control-flow/if-let-expressions.md:28
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "fn main() {\n"
@@ -8925,9 +9172,8 @@ msgstr ""
 "```"
 
 #: src/control-flow/while-expressions.md:1
-#, fuzzy
 msgid "`while` loops"
-msgstr "`while` 표현식"
+msgstr "`while` 반복문"
 
 #: src/control-flow/while-expressions.md:3
 msgid ""
@@ -8935,7 +9181,7 @@ msgid ""
 "expr.html#predicate-loops) works very similar to other languages:"
 msgstr ""
 "[`while` 키워드](https://doc.rust-lang.org/reference/expressions/loop-expr."
-"html#predicate-loops)는 다른 언어와 매우 비슷하게 작동합니다."
+"html#predicate-loops)는 다른 언어와 매우 비슷하게 작동합니다:"
 
 #: src/control-flow/while-expressions.md:6
 msgid ""
@@ -8968,19 +9214,17 @@ msgstr ""
 "```"
 
 #: src/control-flow/while-let-expressions.md:1
-#, fuzzy
 msgid "`while let` loops"
-msgstr "`while let` 표현식"
+msgstr "`while let` 반복문"
 
 #: src/control-flow/while-let-expressions.md:3
-#, fuzzy
 msgid ""
 "Like with `if let`, there is a [`while let`](https://doc.rust-lang.org/"
 "reference/expressions/loop-expr.html#predicate-pattern-loops) variant which "
 "repeatedly tests a value against a pattern:"
 msgstr ""
 "마지막으로, 무한 루프를 만드는 [`loop` 키워드](https://doc.rust-lang.org/"
-"reference/expressions/loop-expr.html#infinite-loops)가 있습니다."
+"reference/expressions/loop-expr.html#infinite-loops)가 있습니다:"
 
 #: src/control-flow/while-let-expressions.md:6
 msgid ""
@@ -9007,7 +9251,6 @@ msgstr ""
 "```"
 
 #: src/control-flow/while-let-expressions.md:17
-#, fuzzy
 msgid ""
 "Here the iterator returned by `v.into_iter()` will return a `Option<i32>` on "
 "every call to `next()`. It returns `Some(x)` until it is done, after which "
@@ -9035,18 +9278,16 @@ msgstr ""
 "법적 편의를 제공합니다."
 
 #: src/control-flow/for-expressions.md:1
-#, fuzzy
 msgid "`for` loops"
-msgstr "배열과 `for` 반복문"
+msgstr "`for` 반복문"
 
 #: src/control-flow/for-expressions.md:3
-#, fuzzy
 msgid ""
 "The [`for` loop](https://doc.rust-lang.org/std/keyword.for.html) is closely "
 "related to the [`while let` loop](while-let-expressions.md). It will "
 "automatically call `into_iter()` on the expression and then iterate over it:"
 msgstr ""
-"`for`표현식은 `while let` 표현식과 매우 유사합니다. `for`표현식은 자동으로 "
+"`for` 반복문은 `while let` 반복문과 매우 유사합니다. `for` 반복문은 자동으로 "
 "`into_iter()`를 호출한 다음 이를 반복합니다:"
 
 #: src/control-flow/for-expressions.md:7
@@ -9085,7 +9326,7 @@ msgstr "다른 언어와 마찬가지로 `break` 와 `continue`를 사용할 수
 
 #: src/control-flow/for-expressions.md:25
 msgid "Index iteration is not a special syntax in Rust for just that case."
-msgstr "러스트는 인덱스 반복을 위해 별도의 문법을 사용하지 않습니다. "
+msgstr "러스트는 인덱스 기반의 반복을 위한 별도의 문법을 사용하지 않습니다."
 
 #: src/control-flow/for-expressions.md:26
 msgid "`(0..10)` is a range that implements an `Iterator` trait. "
@@ -9097,7 +9338,7 @@ msgid ""
 "element. "
 msgstr ""
 "`step_by`는 반복자의 요소들을 건너뛰는 또다른 `Iterator`를 반환하는 메서드입"
-"니다."
+"니다. "
 
 #: src/control-flow/for-expressions.md:28
 msgid ""
@@ -9120,11 +9361,8 @@ msgstr ""
 "reference/expressions/loop-expr.html#infinite-loops)가 있습니다."
 
 #: src/control-flow/loop-expressions.md:6
-#, fuzzy
 msgid "Here you must either `break` or `return` to stop the loop:"
-msgstr ""
-"마지막으로 `loop`키워드는 무한 루프를 생성합니다. 따라서 반드시 `break` 또는 "
-"`return`을 사용해서 루프를 정지해야 합니다:"
+msgstr "따라서 반드시 `break` 또는 `return`을 사용해서 루프를 정지해야 합니다:"
 
 #: src/control-flow/loop-expressions.md:8
 msgid ""
@@ -9181,7 +9419,6 @@ msgid "`match` expressions"
 msgstr "`match` 표현식"
 
 #: src/control-flow/match-expressions.md:3
-#, fuzzy
 msgid ""
 "The [`match` keyword](https://doc.rust-lang.org/reference/expressions/match-"
 "expr.html) is used to match a value against one or more patterns. In that "
@@ -9266,7 +9503,7 @@ msgid ""
 "reference/expressions/loop-expr.html#break-expressions),"
 msgstr ""
 "루프를 조기에 종료하려면 [`break`](https://doc.rust-lang.org/reference/"
-"expressions/loop-expr.html#break-expressions)를 사용합니다."
+"expressions/loop-expr.html#break-expressions)를 사용합니다,"
 
 #: src/control-flow/break-continue.md:4
 msgid ""
@@ -9277,7 +9514,6 @@ msgstr ""
 "expressions/loop-expr.html#continue-expressions)를 사용합니다."
 
 #: src/control-flow/break-continue.md:7
-#, fuzzy
 msgid ""
 "Both `continue` and `break` can optionally take a label argument which is "
 "used to break out of nested loops:"
@@ -9387,7 +9623,7 @@ msgid ""
 "`alloc` and `std`. "
 msgstr ""
 "사실, 러스트의 표준 라이브러리는 `core`, `alloc`, `std`와 같이 계층(layer)으"
-"로 나눠집니다."
+"로 나눠집니다. "
 
 #: src/std.md:26
 msgid ""
@@ -9395,7 +9631,7 @@ msgid ""
 "`libc`, allocator or even the presence of an operating system. "
 msgstr ""
 "`core`는 `libc`나 할당자(allocator), 심지어 OS에도 의존하지 않는 가장 기본적"
-"인 함수와 타입을 포함합니다."
+"인 함수와 타입을 포함합니다. "
 
 #: src/std.md:28
 msgid ""
@@ -9530,7 +9766,6 @@ msgstr ""
 "서도 `str`의 모든 메서드를 호출 할 수 있다는 의미 입니다."
 
 #: src/std/string.md:30
-#, fuzzy
 msgid ""
 "`String::new` returns a new empty string, use `String::with_capacity` when "
 "you know how much data you want to push to the string."
@@ -9539,7 +9774,6 @@ msgstr ""
 "로 만들 문자열 버퍼에 넣을 데이터 크기를 알고 있는 경우에 사용할 수 있습니다."
 
 #: src/std/string.md:31
-#, fuzzy
 msgid ""
 "`String::len` returns the size of the `String` in bytes (which can be "
 "different from its length in characters)."
@@ -9548,7 +9782,6 @@ msgstr ""
 "를 수 있습니다.)"
 
 #: src/std/string.md:32
-#, fuzzy
 msgid ""
 "`String::chars` returns an iterator over the actual characters. Note that a "
 "`char` can be different from what a human will consider a \"character\" due "
@@ -9562,14 +9795,12 @@ msgstr ""
 "unicode_segmentation/struct.Graphemes.html)를 참고하세요."
 
 #: src/std/string.md:33
-#, fuzzy
 msgid ""
 "When people refer to strings they could either be talking about `&str` or "
 "`String`."
-msgstr "문자열이라고 언급하는 경우는 `&str`이거나 `String`일 수 있습니다."
+msgstr "사람들이 문자열이라고 말할 때에는 `&str`이거나 `String`일 수 있습니다."
 
 #: src/std/string.md:34
-#, fuzzy
 msgid ""
 "When a type implements `Deref<Target = T>`, the compiler will let you "
 "transparently call methods from `T`."
@@ -9578,7 +9809,6 @@ msgstr ""
 "메소드들을 호출할 수 있게 도와줍니다."
 
 #: src/std/string.md:35
-#, fuzzy
 msgid ""
 "`String` implements `Deref<Target = str>` which transparently gives it "
 "access to `str`'s methods."
@@ -9587,12 +9817,10 @@ msgstr ""
 "`str` 메소드들을 호출할 수 있습니다."
 
 #: src/std/string.md:36
-#, fuzzy
 msgid "Write and compare `let s3 = s1.deref();` and  `let s3 = &*s1`;."
 msgstr "`let s3 = s1.deref();`와 `let s3 = &*s1;`을 비교해보세요."
 
 #: src/std/string.md:37
-#, fuzzy
 msgid ""
 "`String` is implemented as a wrapper around a vector of bytes, many of the "
 "operations you see supported on vectors are also supported on `String`, but "
@@ -9603,24 +9831,24 @@ msgstr ""
 "다."
 
 #: src/std/string.md:38
-#, fuzzy
 msgid "Compare the different ways to index a `String`:"
-msgstr ""
-"`String`을 인덱스로 접근하는 방법들을 비교해보세요. `s3[i]`와 `s3.chars()."
-"nth(i).unwrap()` 방법에 대해 `i`값이 범위를 벗어날 때, 벗어나지 않을 때, 혹"
-"은 플래그 유니코드 문자에 딱 걸린 경우 등을 비교 설명해주세요."
+msgstr "`String`을 인덱스로 접근하는 방법들을 비교해보세요:"
 
 #: src/std/string.md:39
 msgid ""
 "To a character by using `s3.chars().nth(i).unwrap()` where `i` is in-bound, "
 "out-of-bounds."
 msgstr ""
+"`s3.chars().nth(i).unwrap()`를 이용하여 한 문자를 선택하는 경우, `i`값이 범위"
+"를 벗어날 때, 벗어나지 않을 때 동작을 설명하세요."
 
 #: src/std/string.md:40
 msgid ""
 "To a substring by using `s3[0..4]`, where that slice is on character "
 "boundaries or not."
 msgstr ""
+"`s3[0..4]`를 이용해서 문자열의 일부를 선택하는데, 슬라이스가 유니코드 문자열 "
+"경계에 딱 맞지 않을 경우 어떻게 되는지 설명하세요."
 
 #: src/std/vec.md:1
 msgid "`Vec`"
@@ -9822,14 +10050,12 @@ msgstr ""
 "```"
 
 #: src/std/hashmap.md:38
-#, fuzzy
 msgid ""
 "`HashMap` is not defined in the prelude and needs to be brought into scope."
 msgstr ""
 "`HashMap`은 prelude에 정의되어 있지 않기 때문에 명시적으로 추가해줘야 합니다."
 
 #: src/std/hashmap.md:39
-#, fuzzy
 msgid ""
 "Try the following lines of code. The first line will see if a book is in the "
 "hashmap and if not return an alternative value. The second line will insert "
@@ -9840,7 +10066,6 @@ msgstr ""
 "지정한 값을 해시맵에 추가한 뒤 그 값을 반환합니다."
 
 #: src/std/hashmap.md:41
-#, fuzzy
 msgid ""
 "```rust,ignore\n"
 "  let pc1 = page_counts\n"
@@ -9861,12 +10086,10 @@ msgstr ""
 "```"
 
 #: src/std/hashmap.md:49
-#, fuzzy
 msgid "Unlike `vec!`, there is unfortunately no standard `hashmap!` macro."
 msgstr "안타깝지만 `hashmap!`같은 매크로가 없습니다."
 
 #: src/std/hashmap.md:50
-#, fuzzy
 msgid ""
 "Although, since Rust 1.56, HashMap implements [`From<[(K, V); N]>`](https://"
 "doc.rust-lang.org/std/collections/hash_map/struct.HashMap.html#impl-"
@@ -9879,7 +10102,6 @@ msgstr ""
 "이용하여 쉽게 해시맵을 초기화할 수 있습니다:"
 
 #: src/std/hashmap.md:52
-#, fuzzy
 msgid ""
 "```rust,ignore\n"
 "  let page_counts = HashMap::from([\n"
@@ -9896,14 +10118,12 @@ msgstr ""
 "```"
 
 #: src/std/hashmap.md:59
-#, fuzzy
 msgid ""
 "Alternatively HashMap can be built from any `Iterator` which yields key-"
 "value tuples."
 msgstr "키-값 쌍에 대한 `Iterator`로 해시맵을 만들 수도 있습니다."
 
 #: src/std/hashmap.md:60
-#, fuzzy
 msgid ""
 "We are showing `HashMap<String, i32>`, and avoid using `&str` as key to make "
 "examples easier. Using references in collections can, of course, be done, "
@@ -9914,7 +10134,6 @@ msgstr ""
 "에 복잡해 질 수 있습니다."
 
 #: src/std/hashmap.md:62
-#, fuzzy
 msgid ""
 "Try removing `to_string()` from the example above and see if it still "
 "compiles. Where do you think we might run into issues?"
@@ -9929,6 +10148,10 @@ msgid ""
 "Rust docs. Show students the docs for this type, and the helpful link back "
 "to the `keys` method."
 msgstr ""
+"해시맵의 몇 몇 메서드는 해시맵 내부의 특별한 타입(예를 들어 `std::"
+"collections::hash_map::Keys`)들을 리턴합니다. 이러한 타입들은 Rust 문서에서"
+"도 검색할 수 있습니다. 수강생들에게 이 타입들에 대한 문서를 보여주고, 이 문서"
+"에 `keys` 메서드로의 역 링크가 있음을 알려주세요."
 
 #: src/std/box.md:1
 msgid "`Box`"
@@ -10003,14 +10226,14 @@ msgid ""
 "not null. "
 msgstr ""
 "`Box`는 C++의 `std::unique_ptr`과 비슷합니다. 차이라면 `Box`는 널이 아님을 보"
-"장한다는 점입니다."
+"장한다는 점입니다. "
 
 #: src/std/box.md:35
 msgid ""
 "In the above example, you can even leave out the `*` in the `println!` "
 "statement thanks to `Deref`. "
 msgstr ""
-"`Deref` 덕분에 위 예제의 `println!`문에 사용된 `*`를 빼도 문제가 없습니다."
+"`Deref` 덕분에 위 예제의 `println!`문에 사용된 `*`를 빼도 문제가 없습니다. "
 
 #: src/std/box.md:36
 msgid "A `Box` can be useful when you:"
@@ -10111,7 +10334,6 @@ msgstr ""
 "```"
 
 #: src/std/box-recursive.md:33
-#, fuzzy
 msgid ""
 "If `Box` was not used and we attempted to embed a `List` directly into the "
 "`List`, the compiler would not compute a fixed size of the struct in memory "
@@ -10122,7 +10344,6 @@ msgstr ""
 "기로 보일 것입니다."
 
 #: src/std/box-recursive.md:36
-#, fuzzy
 msgid ""
 "`Box` solves this problem as it has the same size as a regular pointer and "
 "just points at the next element of the `List` in the heap."
@@ -10131,7 +10352,6 @@ msgstr ""
 "다만 힙에 위치한 `List`의 다음 요소를 가리킬 뿐입니다."
 
 #: src/std/box-recursive.md:39
-#, fuzzy
 msgid ""
 "Remove the `Box` in the List definition and show the compiler error. "
 "\"Recursive with indirection\" is a hint you might want to use a Box or "
@@ -10203,7 +10423,6 @@ msgstr ""
 "인터입니다. 여러 위치에서 동일한 데이터를 참조해야할 경우 사용합니다:"
 
 #: src/std/rc.md:6
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "use std::rc::Rc;\n"
@@ -10222,7 +10441,7 @@ msgstr ""
 "\n"
 "fn main() {\n"
 "    let mut a = Rc::new(10);\n"
-"    let mut b = a.clone();\n"
+"    let mut b = Rc::clone(&a);\n"
 "\n"
 "    println!(\"a: {a}\");\n"
 "    println!(\"b: {b}\");\n"
@@ -10230,29 +10449,24 @@ msgstr ""
 "```"
 
 #: src/std/rc.md:18
-#, fuzzy
 msgid ""
 "See [`Arc`](../concurrency/shared_state/arc.md) and [`Mutex`](https://doc."
 "rust-lang.org/std/sync/struct.Mutex.html) if you are in a multi-threaded "
 "context."
 msgstr ""
-"`Rc`내부의 데이터를 변경해야 하는 경우, 데이터를 [`Cell` 또는 `RefCell`](../"
-"concurrency/shared_state/arc.md)로 래핑해야합니다."
+"멀티스레드 환경에서 작업하는 경우 [`Arc`](../concurrency/shared_state/arc.md)"
+"와 [`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)를 참조하세"
+"요."
 
 #: src/std/rc.md:19
-#, fuzzy
 msgid ""
 "You can _downgrade_ a shared pointer into a [`Weak`](https://doc.rust-lang."
 "org/std/rc/struct.Weak.html) pointer to create cycles that will get dropped."
 msgstr ""
-"멀티스레드인 경우 [`Arc`](https://doc.rust-lang.org/std/sync/struct.Mutex."
-"html)를 참조하시기 바랍니다.\n"
-"\n"
 "drop 가능한 순환 구조를 만들기 위해 공유 포인터를 [`Weak`](https://doc.rust-"
-"lang.org/std/rc/struct.Weak.html) 포인터로 **다운그레이드**할 수도 있습니다."
+"lang.org/std/rc/struct.Weak.html) 포인터로 _다운그레이드_할 수도 있습니다."
 
 #: src/std/rc.md:29
-#, fuzzy
 msgid ""
 "`Rc`'s count ensures that its contained value is valid for as long as there "
 "are references."
@@ -10261,24 +10475,21 @@ msgstr ""
 "에서 해제되지 않음을 보장합니다."
 
 #: src/std/rc.md:30
-#, fuzzy
 msgid "`Rc` in Rust is like `std::shared_ptr` in C++."
 msgstr "C++의 `std::shared_ptr`와 유사합니다."
 
 #: src/std/rc.md:31
-#, fuzzy
 msgid ""
 "`Rc::clone` is cheap: it creates a pointer to the same allocation and "
 "increases the reference count. Does not make a deep clone and can generally "
 "be ignored when looking for performance issues in code."
 msgstr ""
-"`clone`은 저렴합니다. 같은 곳을 가리키는 포인터를 하나 더 만들고, 참조 카운트"
-"를 늘립니다. 포인터가 가리키는 값 자체가 복제(깊은 복제)되지는 않으며, 그래"
-"서 코드에서 성능 문제가 있는지 검토할 때 일반적으로 `Rc`를 `clone`하는 것은 "
-"무시할 수 있습니다."
+"`clone`은 비용이 거의 들지 않습니다. 같은 곳을 가리키는 포인터를 하나 더 만들"
+"고, 참조 카운트를 늘립니다. 포인터가 가리키는 값 자체가 복제(깊은 복제)되지"
+"는 않으며, 그래서 코드에서 성능 문제가 있는지 검토할 때 일반적으로 `Rc`를 "
+"`clone`하는 것은 무시할 수 있습니다."
 
 #: src/std/rc.md:32
-#, fuzzy
 msgid ""
 "`make_mut` actually clones the inner value if necessary (\"clone-on-write\") "
 "and returns a mutable reference."
@@ -10287,29 +10498,22 @@ msgstr ""
 "변 참조를 반환합니다."
 
 #: src/std/rc.md:33
-#, fuzzy
 msgid "Use `Rc::strong_count` to check the reference count."
 msgstr "참조 카운트를 확인하려면 `Rc::strong_count`를 사용하세요."
 
 #: src/std/rc.md:34
-#, fuzzy
 msgid ""
 "`Rc::downgrade` gives you a _weakly reference-counted_ object to create "
 "cycles that will be dropped properly (likely in combination with `RefCell`, "
 "on the next slide)."
 msgstr ""
-"여기 언급된 몇가지 데이터 타입을 비교해보세요. `Box`는 불변/가변 빌림(borrow)"
-"을 컴파일 시점에 강제합니다. `RefCell`은 실행 시점에 불변/가변 빌림을 강제하"
-"며, 만약 런타임 시에 빌림 문제가 발생하면 패닉을 일으킵니다.\n"
-"\n"
-"`Rc`는 `downgrade()`로 다운그레이드하여 **weak 참조 카운트**로 변경할 수 있습"
-"니다. 그러면 순환구조라 하더라도 drop이 가능합니다. (아마도 `RefCell` 을 함"
-"께 사용해야 할 것입니다.)"
+"`Rc`는 `downgrade()`로 다운그레이드하여 _약하게 참조 카운트되는(weekly "
+"reference-counted)_ 객체가 될 있습니다. 그러면 순환구조라 하더라도 drop이 가"
+"능합니다. (아마도 `RefCell` 을 함께 사용해야 할 것입니다.)"
 
 #: src/std/cell.md:1
-#, fuzzy
 msgid "`Cell` and `RefCell`"
-msgstr "`Option`과 `Result`"
+msgstr "`Cell`과 `RefCell`"
 
 #: src/std/cell.md:3
 msgid ""
@@ -10318,6 +10522,10 @@ msgid ""
 "implement what Rust calls _interior mutability:_ mutation of values in an "
 "immutable context."
 msgstr ""
+"[`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html) 과 [`RefCell`]"
+"(https://doc.rust-lang.org/std/cell/struct.RefCell.html)은 러스트에서 _내적 "
+"가변성(interior mutability)_라고 부르는 것을 구현합니다. 이를 이용하면 불변"
+"인 객체의 값을 수정할 수 있습니다."
 
 #: src/std/cell.md:8
 msgid ""
@@ -10325,6 +10533,11 @@ msgid ""
 "values. More complex interior types typically use `RefCell`, which tracks "
 "shared and exclusive references at runtime and panics if they are misused."
 msgstr ""
+"`Cell`은 간단한 타입에 대해서 주로 사용됩니다. 왜냐하면 `Cell`에 있는 값을 읽"
+"거나 쓸때에는 복사 혹은 이동을 해야만 하기 때문입니다. 복잡한 타입이라면 "
+"`RefCell`이 더 보편적입니다. 이를 이용하면 참조를 통해 값을 읽거나 쓰게 해 주"
+"는 대신, 그 참조들이 올바른지를 런타임에 체크하고, 제대로 사용되지 않을 경우 "
+"패닉을 발생시킵니다."
 
 #: src/std/cell.md:12
 msgid ""
@@ -10362,6 +10575,39 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"use std::cell::RefCell;\n"
+"use std::rc::Rc;\n"
+"\n"
+"#[derive(Debug, Default)]\n"
+"struct Node {\n"
+"    value: i64,\n"
+"    children: Vec<Rc<RefCell<Node>>>,\n"
+"}\n"
+"\n"
+"impl Node {\n"
+"    fn new(value: i64) -> Rc<RefCell<Node>> {\n"
+"        Rc::new(RefCell::new(Node { value, ..Node::default() }))\n"
+"    }\n"
+"\n"
+"    fn sum(&self) -> i64 {\n"
+"        self.value + self.children.iter().map(|c| c.borrow().sum()).sum::"
+"<i64>()\n"
+"    }\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let root = Node::new(1);\n"
+"    root.borrow_mut().children.push(Node::new(5));\n"
+"    let subtree = Node::new(10);\n"
+"    subtree.borrow_mut().children.push(Node::new(11));\n"
+"    subtree.borrow_mut().children.push(Node::new(12));\n"
+"    root.borrow_mut().children.push(subtree);\n"
+"\n"
+"    println!(\"graph: {root:#?}\");\n"
+"    println!(\"graph sum: {}\", root.borrow().sum());\n"
+"}\n"
+"```"
 
 #: src/std/cell.md:47
 msgid ""
@@ -10370,18 +10616,27 @@ msgid ""
 "This is safe because there's always one, un-referenced value in the cell, "
 "but it's not ergonomic."
 msgstr ""
+"이 예제에서 `RefCell`대신 `Cell`을 썼었다면, `Node`에 자식 노느를 추가하기 위"
+"해서, `Node`를 `Rc`밖으로 이동시킨 다음, 자식 노드를 추가하고, 다시 `Rc`안으"
+"로 이동시켜야 했을 겁니다. 이렇게 해야만 하는 이유는 안전 때문입니다. Cell 내"
+"부의 그 값이 오직 하나 존재하며, 그 값에 대한 참조가 없다는 것이 보장되기 때"
+"문입니다. 물론 편리하지는 않습니다."
 
 #: src/std/cell.md:48
 msgid ""
 "To do anything with a Node, you must call a `RefCell` method, usually "
 "`borrow` or `borrow_mut`."
 msgstr ""
+"노드를 이동하거나 복사하지 않고 그대로 사용하기 위해서는 `RefCell`로 감싼다"
+"음 `borrow`나 `borrow_mut`메서드를 이용해야 합니다."
 
 #: src/std/cell.md:49
 msgid ""
 "Demonstrate that reference loops can be created by adding `root` to `subtree."
 "children` (don't try to print it!)."
 msgstr ""
+"`root`를 `subtree.children`에 추가해서 순환 참조가 생길 수 있음을 보여주세요 "
+"(그래프를 출력하지는 마세요!)."
 
 #: src/std/cell.md:50
 msgid ""
@@ -10390,6 +10645,9 @@ msgid ""
 "the presence of the reference loop, with `thread 'main' panicked at 'already "
 "borrowed: BorrowMutError'`."
 msgstr ""
+"`self.value`를 증가시키는 메서드인`fn inc(&mut self)`를 추가하고 그 메서드를 "
+"자식노드에서 호출하세요. 그러면 `thread 'main' panicked at 'already "
+"borrowed: BorrowMutError'` 런타임 패닉이 발생함을 보이세요."
 
 #: src/modules.md:3
 msgid "We have seen how `impl` blocks let us namespace functions to a type."
@@ -10577,11 +10835,11 @@ msgstr "경로는 아래와 같이 구분합니다:"
 
 #: src/modules/paths.md:5
 msgid "As a relative path:"
-msgstr "상대 경로"
+msgstr "상대 경로:"
 
 #: src/modules/paths.md:6
 msgid "`foo` or `self::foo` refers to `foo` in the current module,"
-msgstr "`foo` 또는 `self::foo`는 현재 모듈 내부의 `foo`를 가리킵니다."
+msgstr "`foo` 또는 `self::foo`는 현재 모듈 내부의 `foo`를 가리킵니다,"
 
 #: src/modules/paths.md:7
 msgid "`super::foo` refers to `foo` in the parent module."
@@ -10589,11 +10847,11 @@ msgstr "`super::foo`는 부모 모듈의 `foo`를 가리킵니다."
 
 #: src/modules/paths.md:9
 msgid "As an absolute path:"
-msgstr "절대 경로"
+msgstr "절대 경로:"
 
 #: src/modules/paths.md:10
 msgid "`crate::foo` refers to `foo` in the root of the current crate,"
-msgstr "`crate::foo`는 현재 크레이트 루트의 `foo`를 가리킵니다."
+msgstr "`crate::foo`는 현재 크레이트 루트의 `foo`를 가리킵니다,"
 
 #: src/modules/paths.md:11
 msgid "`bar::foo` refers to `foo` in the `bar` crate."
@@ -10605,7 +10863,7 @@ msgid ""
 "will typically see something like this at the top of each module:"
 msgstr ""
 "모듈은 `use`를 사용하여 다른 모듈의 심볼을 내 스코프로 가져올 수 있습니다. 일"
-"반적으로 각 모듈의 상단에 다음과 같은 내용이 옵니다."
+"반적으로 각 모듈의 상단에 다음과 같은 내용이 옵니다:"
 
 #: src/modules/paths.md:16
 msgid ""
@@ -10623,6 +10881,7 @@ msgstr ""
 msgid ""
 "Omitting the module content will tell Rust to look for it in another file:"
 msgstr ""
+"모듈의 내용을 기술하지 않으면, 러스트는 다른 파일에서 그 내용을 읽습니다:"
 
 #: src/modules/filesystem.md:5
 msgid ""
@@ -10640,6 +10899,9 @@ msgid ""
 "rs`. Similarly, a `garden::vegetables` module can be found at `src/garden/"
 "vegetables.rs`."
 msgstr ""
+"위 코드는 러스트로 하여금 `garden`모듈의 내용을 `src/garden.rs`에서 찾도록 합"
+"니다. 비슷하게, `garden::vegetables` 모듈은 `src/garden/vegetables.rs`에서 찾"
+"습니다."
 
 #: src/modules/filesystem.md:12
 msgid "The `crate` root is in:"
@@ -10696,36 +10958,29 @@ msgstr ""
 "```"
 
 #: src/modules/filesystem.md:37
-#, fuzzy
 msgid ""
 "Before Rust 2018, modules needed to be located at `module/mod.rs` instead of "
 "`module.rs`, and this is still a working alternative for editions after 2018."
 msgstr ""
 "`module/mod.rs`를 `module.rs`로 바꾼다 하더라도 Rust 2018에서는 하위 모듈을 "
-"사용할 수 있습니다. (Rust 2015에서는 하위 모듈이 있는 모듈은 `module/mod.rs` "
-"형태여야 했습니다.)"
+"사용할 수 있습니다."
 
 #: src/modules/filesystem.md:39
-#, fuzzy
 msgid ""
 "The main reason to introduce `filename.rs` as alternative to `filename/mod."
 "rs` was because many files named `mod.rs` can be hard to distinguish in IDEs."
-msgstr "아래처럼 구성하는데 아무런 문제가 없습니다:"
+msgstr ""
+"`filename.rs`를 `filename/mod.rs`대신 사용할 수 있도록 하는 주된 이유는, "
+"`mod.rs`라는 이름을 가진 파일이 많을 경우 IDE에서 이들을 서로 구별하는게 힘들"
+"기 때문입니다."
 
 #: src/modules/filesystem.md:42
-#, fuzzy
 msgid "Deeper nesting can use folders, even if the main module is a file:"
 msgstr ""
-"```ignore\n"
-"src/\n"
-"├── main.rs\n"
-"├── top_module.rs\n"
-"└── top_module/\n"
-"    └── sub_module.rs\n"
-"```"
+"폴더를 이용해서 더 깊은 계층 구조를 구현할 수 있습니다. 심지어는 메인 모듈이 "
+"파일이더라도요:"
 
 #: src/modules/filesystem.md:44
-#, fuzzy
 msgid ""
 "```ignore\n"
 "src/\n"
@@ -10735,20 +10990,21 @@ msgid ""
 "    └── sub_module.rs\n"
 "```"
 msgstr ""
-"이렇게 변경된 주된 이유는 모두 똑같은 이름의 `mod.rs` 파일이 잔뜩 생기는 것"
-"을 방지하기 위해서 입니다. IDE에서는 이들을 구분하기가 까다로웠습니다."
+"```ignore\n"
+"src/\n"
+"├── main.rs\n"
+"├── top_module.rs\n"
+"└── top_module/\n"
+"    └── sub_module.rs\n"
+"```"
 
 #: src/modules/filesystem.md:52
-#, fuzzy
 msgid ""
 "The place rust will look for modules can be changed with a compiler "
 "directive:"
-msgstr ""
-"러스트는 모듈을 찾을 때 `modulename/mod.rs`와 `modulename.rs` 파일을 검사하는"
-"데, 컴파일러 디렉티브로 이를 변경할 수 있습니다."
+msgstr "러스트가 어디서 모듈들을 찾을지는 컴파일러 디렉티브로 변경 가능합니다:"
 
 #: src/modules/filesystem.md:54
-#, fuzzy
 msgid ""
 "```rust,ignore\n"
 "#[path = \"some/path.rs\"]\n"
@@ -10757,17 +11013,16 @@ msgid ""
 msgstr ""
 "```rust,ignore\n"
 "#[path = \"some/path.rs\"]\n"
-"mod some_module { }\n"
+"mod some_module;\n"
 "```"
 
 #: src/modules/filesystem.md:59
-#, fuzzy
 msgid ""
 "This is useful, for example, if you would like to place tests for a module "
 "in a file named `some_module_test.rs`, similar to the convention in Go."
 msgstr ""
-"Go언어 에서처럼 어떤 모듈의 테스트를 `some_module_test.rs` 같은 파일에 두고 "
-"싶은 경우에 유용합니다."
+"이는 Go언어 에서처럼 어떤 모듈의 테스트를 `some_module_test.rs` 같은 파일에 "
+"두고 싶은 경우에 유용합니다."
 
 #: src/exercises/day-2/afternoon.md:1
 msgid "Day 2: Afternoon Exercises"
@@ -10789,21 +11044,18 @@ msgstr ""
 "의 순서에 따라 신용카드 번호의 유효성을 확인합니다:"
 
 #: src/exercises/day-2/luhn.md:7
-#, fuzzy
 msgid "Ignore all spaces. Reject number with less than two digits."
 msgstr "모든 공백을 무시합니다. 2자리 미만 숫자는 무시합니다."
 
 #: src/exercises/day-2/luhn.md:9
-#, fuzzy
 msgid ""
 "Moving from **right to left**, double every second digit: for the number "
 "`1234`, we double `3` and `1`. For the number `98765`, we double `6` and `8`."
 msgstr ""
-"오른쪽에서 왼쪽으로 이동하며 2번째 자리마다 숫자를 2배 증가시킵니다. 예를 들"
-"어 `1234`에서 `3`과 `1`에 각각 2를 곱합니다."
+"**오른쪽에서 왼쪽으로** 이동하며 2번째 자리마다 숫자를 2배 증가시킵니다. 예"
+"를 들어 `1234`에서 `3`과 `1`에 각각 2를 곱합니다."
 
 #: src/exercises/day-2/luhn.md:12
-#, fuzzy
 msgid ""
 "After doubling a digit, sum the digits. So doubling `7` becomes `14` which "
 "becomes `5`."
@@ -10812,28 +11064,27 @@ msgstr ""
 "로 만들면 `14`이므로 `5`가 됩니다."
 
 #: src/exercises/day-2/luhn.md:15
-#, fuzzy
 msgid "Sum all the undoubled and doubled digits."
 msgstr "모든 자리의 숫자를 더합니다."
 
 #: src/exercises/day-2/luhn.md:17
-#, fuzzy
 msgid "The credit card number is valid if the sum ends with `0`."
 msgstr "합계의 끝자리가 `0`인 경우 유효한 신용카드 번호입니다."
 
 #: src/exercises/day-2/luhn.md:19
-#, fuzzy
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and implement the "
 "function."
 msgstr ""
-"아래 코드를 <https://play.rust-lang.org/>에 복사해서 구현하시면 됩니다:"
+"아래 코드를 <https://play.rust-lang.org/>에 복사해서 구현하시면 됩니다."
 
 #: src/exercises/day-2/luhn.md:21
 msgid ""
 "Try to solve the problem the \"simple\" way first, using `for` loops and "
 "integers. Then, revisit the solution and try to implement it with iterators."
 msgstr ""
+"`for`반복문과 인덱스를 이용하는 \"쉬운\"방법으로 먼저 풀어 보세요. 그런 다음 "
+"반복자를 이용해서 다시 풀어 보세요."
 
 #: src/exercises/day-2/luhn.md:25
 msgid ""
@@ -10886,6 +11137,54 @@ msgid ""
 "fn main() {}\n"
 "```"
 msgstr ""
+"```rust\n"
+"// TODO: remove this when you're done with your implementation.\n"
+"#![allow(unused_variables, dead_code)]\n"
+"\n"
+"pub fn luhn(cc_number: &str) -> bool {\n"
+"    unimplemented!()\n"
+"}\n"
+"\n"
+"#[test]\n"
+"fn test_non_digit_cc_number() {\n"
+"    assert!(!luhn(\"foo\"));\n"
+"}\n"
+"\n"
+"#[test]\n"
+"fn test_empty_cc_number() {\n"
+"    assert!(!luhn(\"\"));\n"
+"    assert!(!luhn(\" \"));\n"
+"    assert!(!luhn(\"  \"));\n"
+"    assert!(!luhn(\"    \"));\n"
+"}\n"
+"\n"
+"#[test]\n"
+"fn test_single_digit_cc_number() {\n"
+"    assert!(!luhn(\"0\"));\n"
+"}\n"
+"\n"
+"#[test]\n"
+"fn test_two_digit_cc_number() {\n"
+"    assert!(luhn(\" 0 0 \"));\n"
+"}\n"
+"\n"
+"#[test]\n"
+"fn test_valid_cc_number() {\n"
+"    assert!(luhn(\"4263 9826 4026 9299\"));\n"
+"    assert!(luhn(\"4539 3195 0343 6467\"));\n"
+"    assert!(luhn(\"7992 7398 713\"));\n"
+"}\n"
+"\n"
+"#[test]\n"
+"fn test_invalid_cc_number() {\n"
+"    assert!(!luhn(\"4223 9826 4026 9299\"));\n"
+"    assert!(!luhn(\"4539 3195 0343 6476\"));\n"
+"    assert!(!luhn(\"8273 1232 7352 0569\"));\n"
+"}\n"
+"\n"
+"#[allow(dead_code)]\n"
+"fn main() {}\n"
+"```"
 
 #: src/exercises/day-2/strings-iterators.md:3
 msgid ""
@@ -10955,6 +11254,51 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust\n"
+"// TODO: remove this when you're done with your implementation.\n"
+"#![allow(unused_variables, dead_code)]\n"
+"\n"
+"pub fn prefix_matches(prefix: &str, request_path: &str) -> bool {\n"
+"    unimplemented!()\n"
+"}\n"
+"\n"
+"#[test]\n"
+"fn test_matches_without_wildcard() {\n"
+"    assert!(prefix_matches(\"/v1/publishers\", \"/v1/publishers\"));\n"
+"    assert!(prefix_matches(\"/v1/publishers\", \"/v1/publishers/"
+"abc-123\"));\n"
+"    assert!(prefix_matches(\"/v1/publishers\", \"/v1/publishers/abc/"
+"books\"));\n"
+"\n"
+"    assert!(!prefix_matches(\"/v1/publishers\", \"/v1\"));\n"
+"    assert!(!prefix_matches(\"/v1/publishers\", \"/v1/publishersBooks\"));\n"
+"    assert!(!prefix_matches(\"/v1/publishers\", \"/v1/parent/"
+"publishers\"));\n"
+"}\n"
+"\n"
+"#[test]\n"
+"fn test_matches_with_wildcard() {\n"
+"    assert!(prefix_matches(\n"
+"        \"/v1/publishers/*/books\",\n"
+"        \"/v1/publishers/foo/books\"\n"
+"    ));\n"
+"    assert!(prefix_matches(\n"
+"        \"/v1/publishers/*/books\",\n"
+"        \"/v1/publishers/bar/books\"\n"
+"    ));\n"
+"    assert!(prefix_matches(\n"
+"        \"/v1/publishers/*/books\",\n"
+"        \"/v1/publishers/foo/books/book1\"\n"
+"    ));\n"
+"\n"
+"    assert!(!prefix_matches(\"/v1/publishers/*/books\", \"/v1/"
+"publishers\"));\n"
+"    assert!(!prefix_matches(\n"
+"        \"/v1/publishers/*/books\",\n"
+"        \"/v1/publishers/foo/booksByAuthor\"\n"
+"    ));\n"
+"}\n"
+"```"
 
 #: src/welcome-day-3.md:1
 msgid "Welcome to Day 3"
