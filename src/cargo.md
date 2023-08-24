@@ -16,7 +16,7 @@ This will give you the Cargo build tool (`cargo`) and the Rust compiler (`rustc`
 * On Debian/Ubuntu, you can also install Cargo, the Rust source and the [Rust formatter][6] via `apt`. However, this gets you an outdated rust version and may lead to unexpected behavior. The command would be:
 
 ```shell
-    sudo apt install cargo rust-src rustfmt
+sudo apt install cargo rust-src rustfmt
 ```
 
 * We suggest using [VS Code][2] to edit the code (but any LSP compatible editor works with rust-analyzer[3]).
