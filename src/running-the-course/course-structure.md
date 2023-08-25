@@ -13,9 +13,9 @@ The course is fast paced and covers a lot of ground:
 In addition to the 3-day class on Rust Fundamentals, we cover some more
 specialized topics:
 
-### Android
+### Rust in Android
 
-The [Android Deep Dive](../android.md) is a half-day course on using Rust for
+The [Rust in Android](../android.md) deep dive is a half-day course on using Rust for
 Android platform development. This includes interoperability with C, C++, and
 Java.
 
@@ -31,9 +31,9 @@ commands it runs and make sure they work when you run them by hand.
 [1]: https://source.android.com/docs/setup/download/downloading
 [2]: https://github.com/google/comprehensive-rust
 
-### Bare-Metal
+### Bare-Metal Rust
 
-The [Bare-Metal Deep Dive](../bare-metal.md): a full day class on using Rust for
+The [Bare-Metal Rust](../bare-metal.md) deep dive is a full day class on using Rust for
 bare-metal (embedded) development. Both microcontrollers and application
 processors are covered.
 
@@ -42,9 +42,9 @@ micro:bit](https://microbit.org/) v2 development board ahead of time. Everybody
 will need to install a number of packages as described on the [welcome
 page](../bare-metal.md).
 
-### Concurrency
+### Concurrency in Rust
 
-The [Concurrency Deep Dive](../concurrency.md) is a full day class on classical
+The [Concurrency in Rust](../concurrency.md) deep dive is a full day class on classical
 as well as `async`/`await` concurrency.
 
 You will need a fresh crate set up and the dependencies downloaded and ready to
