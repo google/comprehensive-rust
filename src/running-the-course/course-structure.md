@@ -4,9 +4,9 @@
 
 The course is fast paced and covers a lot of ground:
 
-* Day 1: Basic Rust, ownership and the borrow checker.
-* Day 2: Compound data types,  pattern matching, the standard library.
-* Day 3: Traits and generics, error handling, testing, unsafe Rust.
+* Day 1: Basic Rust, syntax, control flow, creating and consuming values.
+* Day 2: Memory management, ownership, compound data types, and the standard library.
+* Day 3: Generics, traits, error handling, testing, and unsafe Rust.
 
 ## Deep Dives
 
