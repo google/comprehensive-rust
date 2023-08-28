@@ -97,17 +97,14 @@
   - [Lifetimes](ownership/lifetimes.md)
   - [Lifetimes in Function Calls](ownership/lifetimes-function-calls.md)
   - [Lifetimes in Data Structures](ownership/lifetimes-data-structures.md)
-- [Exercises](exercises/day-2/morning.md)
-  - [Storing Books](exercises/day-2/book-library.md)
-  - [Iterators and Ownership](exercises/day-2/iterators-and-ownership.md)
-
 - [Structs](structs.md)
   - [Tuple Structs](structs/tuple-structs.md)
   - [Field Shorthand Syntax](structs/field-shorthand.md)
 - [Methods](methods.md)
   - [Method Receiver](methods/receiver.md)
   - [Example](methods/example.md)
-- [Exercises](exercises/day-2/afternoon.md)
+- [Exercises](exercises/day-2/morning.md)
+  - [Storing Books](exercises/day-2/book-library.md)
   - [Health Statistics](exercises/day-2/health-statistics.md)
 
 # Day 2: Afternoon
@@ -127,6 +124,7 @@
   - [Paths](modules/paths.md)
   - [Filesystem Hierarchy](modules/filesystem.md)
 - [Exercises](exercises/day-2/afternoon.md)
+  - [Iterators and Ownership](exercises/day-2/iterators-and-ownership.md)
   - [Strings and Iterators](exercises/day-2/strings-iterators.md)
 
 
