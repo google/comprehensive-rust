@@ -328,6 +328,8 @@
   - [Day 2 Afternoon](exercises/day-2/solutions-afternoon.md)
   - [Day 3 Morning](exercises/day-3/solutions-morning.md)
   - [Day 3 Afternoon](exercises/day-3/solutions-afternoon.md)
+	- [A Simple GUI Library](exercises/day-3/solutions-morning-simple-gui.md)
+	- [Points and Polygons](exercises/day-3/solutions-morning-points-polygons.md)
   - [Bare Metal Rust Morning](exercises/bare-metal/solutions-morning.md)
   - [Bare Metal Rust Afternoon](exercises/bare-metal/solutions-afternoon.md)
   - [Concurrency Morning](exercises/concurrency/solutions-morning.md)

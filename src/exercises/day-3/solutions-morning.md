@@ -1,17 +1,4 @@
-# Day 3 Morning Exercise
+# Day 3 Morning Solutions
 
-## A Simple GUI Library
-
-([back to exercise](simple-gui.md))
-
-```rust
-{{#include simple-gui.rs}}
-```
-
-## Points and Polygons
-
-([back to exercise](points-polygons.md))
-
-```rust
-{{#include points-polygons.rs}}
-```
+* [A Simple GUI Library](solutions-morning-simple-gui.md)
+* [Points and Polygons](solutions-morning-points-polygons.md)
