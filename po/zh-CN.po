@@ -12666,15 +12666,15 @@ msgstr ""
 
 #: src/android/aidl/implementation.md:1
 msgid "Service Implementation"
-msgstr ""
+msgstr "服务实现"
 
 #: src/android/aidl/implementation.md:3
 msgid "We can now implement the AIDL service:"
-msgstr ""
+msgstr "我们现在可以实现AIDL服务："
 
 #: src/android/aidl/implementation.md:5
 msgid "_birthday_service/src/lib.rs_:"
-msgstr ""
+msgstr "_birthday_service/src/lib.rs_:"
 
 #: src/android/aidl/implementation.md:7
 msgid ""
@@ -12700,11 +12700,32 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,ignore\n"
+"//! 实现了 `IBirthdayService` AIDL 接口。\n"
+"use com_example_birthdayservice::aidl::com::example::birthdayservice::"
+"IBirthdayService::IBirthdayService;\n"
+"use com_example_birthdayservice::binder;\n"
+"\n"
+"/// `IBirthdayService` 接口的具体实现。\n"
+"pub struct BirthdayService;\n"
+"\n"
+"impl binder::Interface for BirthdayService {}\n"
+"\n"
+"impl IBirthdayService for BirthdayService {\n"
+"    fn wishHappyBirthday(&self, name: &str, years: i32) -> binder::"
+"Result<String> {\n"
+"        Ok(format!(\n"
+"            \"Happy Birthday {name}, congratulations with the {years} years!"
+"\"\n"
+"        ))\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/android/aidl/implementation.md:26 src/android/aidl/server.md:28
 #: src/android/aidl/client.md:37
 msgid "_birthday_service/Android.bp_:"
-msgstr ""
+msgstr "_birthday_service/Android.bp_:"
 
 #: src/android/aidl/implementation.md:28
 msgid ""
@@ -12720,6 +12741,17 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_library {\n"
+"    name: \"libbirthdayservice\",\n"
+"    srcs: [\"src/lib.rs\"],\n"
+"    crate_name: \"birthdayservice\",\n"
+"    rustlibs: [\n"
+"        \"com.example.birthdayservice-rust\",\n"
+"        \"libbinder_rs\",\n"
+"    ],\n"
+"}\n"
+"```"
 
 #: src/android/aidl/server.md:1
 msgid "AIDL Server"
