@@ -16587,6 +16587,8 @@ msgstr ""
 msgid ""
 "With bounded (synchronous) channels, `send` can block the current thread:"
 msgstr ""
+"Bounded（かつ同期的）なチャネルを用いたとき、`send`は現在のスレッドをブロック"
+"することがあります："
 
 #: src/concurrency/channels/bounded.md:5
 msgid ""
@@ -16621,18 +16623,26 @@ msgid ""
 "channel for the new message. The thread can be blocked indefinitely if there "
 "is nobody who reads from the channel."
 msgstr ""
+"`send`を呼んだときにチャネルに空きがなければ、現在のスレッドはブロックされま"
+"す。もし誰もチャネルから値を読み取らない場合は、このスレッドは無期限にブロッ"
+"クされることがあります。"
 
 #: src/concurrency/channels/bounded.md:32
 msgid ""
 "A call to `send` will abort with an error (that is why it returns `Result`) "
 "if the channel is closed. A channel is closed when the receiver is dropped."
 msgstr ""
+"もしもチャネルが閉じられた場合、`send`の呼び出しはエラーとともに中断します。"
+"（`send`が`Result`を返すのはこのためです。）受け取り側がドロップされたとき"
+"に、チャネルは閉じられます。"
 
 #: src/concurrency/channels/bounded.md:33
 msgid ""
 "A bounded channel with a size of zero is called a \"rendezvous channel\". "
 "Every send will block the current thread until another thread calls `read`."
 msgstr ""
+"サイズが０のBoundedチャネルは「ランデブーチャネル」と呼ばれます。別のスレッド"
+"が`read`を呼ぶまでは、それぞれのsendは現在のスレッドをブロックします。"
 
 #: src/concurrency/send-sync.md:1
 msgid "`Send` and `Sync`"
