@@ -6,6 +6,7 @@ minutes: 10
 
 Use the try operator (?) to simplify the error handling in this code:
 
+```rust
 use std::fs;
 use std::io::{self, Read};
 
@@ -30,4 +31,4 @@ fn main() {
     let username = read_username("config.dat");
     println!("username or error: {username:?}");
 }
-
+```

@@ -1,5 +1,7 @@
 // ANCHOR: solution
 // ANCHOR: setup
+
+#![allow(dead_code)]
 pub struct User {
     name: String,
     age: u32,
@@ -80,12 +82,11 @@ impl User {
             visit_count: self.visit_count as u32,
             height_change: measurements.height - self.height,
             blood_pressure_change: match self.last_blood_pressure {
-                Some(lbp) => Some((
-                    bp.0 as i32 - lbp.0 as i32,
-                    bp.1 as i32 - lbp.1 as i32
-                )),
+                Some(lbp) => {
+                    Some((bp.0 as i32 - lbp.0 as i32, bp.1 as i32 - lbp.1 as i32))
+                }
                 None => None,
-            }
+            },
         };
         self.height = measurements.height;
         self.last_blood_pressure = Some(bp);
