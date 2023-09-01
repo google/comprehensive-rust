@@ -4,11 +4,6 @@ existing course material:
 - welcome-day-1/what-is-rust.md
 ---
 
-<!-- NOTES:
-Rust is a modern safe programming language used by Google and more broadly in the industry. This section will mention some success stories to excite the audience.
--->
-# What is Rust?
-
 # What is Rust?
 
 Rust is a new programming language which had its [1.0 release in 2015][1]:

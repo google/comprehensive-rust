@@ -12,8 +12,9 @@ today:
 * Basic Rust syntax: variables, scalar and compound types, enums, structs,
   references, functions, and methods.
 
-* Control flow constructs: `if`, `if let`, `while`, `while let`, `break`, and
-  `continue`.
+* Control flow constructs: loops, conditionals, and so on.
+
+* Types and type inference
 
 * Pattern matching: destructuring enums, structs, and arrays.
 
@@ -32,9 +33,9 @@ Please remind the students that:
     that the slides are just a support and you are free to skip them as you
     like.
 
-The idea for the first day is to show _just enough_ of Rust to be able to speak
-about the famous borrow checker. The way Rust handles memory is a major feature
-and we should show students this right away.
+The idea for the first day is to show the "basic" things in Rust that should
+have immediate parallels in other languages. The more advanced parts of Rust
+come on the subsequent days.
 
 If you're teaching this in a classroom, this is a good place to go over the
 schedule. We suggest splitting the day into two parts (following the slides):
@@ -43,6 +44,7 @@ schedule. We suggest splitting the day into two parts (following the slides):
 * Afternoon: 13:00 to 16:00.
 
 You can of course adjust this as necessary. Please make sure to include breaks,
-we recommend a break every hour!
+we recommend a break after every exercise, and covering the exercise results
+after the break.
 
 </details>
