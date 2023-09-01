@@ -6,10 +6,10 @@ today:
 * Basic Rust syntax: variables, scalar and compound types, enums, structs,
   references, functions, and methods.
 
-* Memory management: stack vs heap, manual memory management, scope-based memory
-  management, and garbage collection.
+* Control flow constructs: `if`, `if let`, `while`, `while let`, `break`, and
+  `continue`.
 
-* Ownership: move semantics, copying and cloning, borrowing, and lifetimes.
+* Pattern matching: destructuring enums, structs, and arrays.
 
 <details>
 
