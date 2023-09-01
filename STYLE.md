@@ -80,14 +80,9 @@ When translating the course, please take the following into account:
   [translated into your language](https://doc.rust-lang.org/book/appendix-06-translation.html),
   please use the same vocabulary.
 
-- Be careful to preserve the Markdown syntax of the original text. Pay special
-  attention to reference links in all their variations: `[foo][bar]`, `[foo][]`
-  (which means `[foo][foo]`), and `[foo]` (which also means `[foo][foo]`).
-
-  As an example, if you translate `[foo]`, to `[FOO]`, you must also update the
-  corresponding link definition from `[foo]: https://example.net` to
-  `[FOO]: https://example.net`. If you forget to do this, you end up with a
-  broken link in the translation.
+- The text you write is in Markdown format. Make sure to preserve the original
+  formatting in the translation by marking text as `` `code` ``, `_emphasis_`
+  and `**strong emphasis**` like in the original.
 
 - If you find mistakes or things that sound awkward in the original English
   text, please submit PRs to fix them! Fixing typos in the translation is great,
