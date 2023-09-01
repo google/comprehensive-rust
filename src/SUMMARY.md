@@ -85,7 +85,6 @@
   - [Scope-Based Memory Management](memory-management/scope-based.md)
   - [Garbage Collection](memory-management/garbage-collection.md)
   - [Rust Memory Management](memory-management/rust.md)
-  - [Comparison](memory-management/comparison.md)
 - [Ownership](ownership.md)
   - [Move Semantics](ownership/move-semantics.md)
   - [Moved Strings in Rust](ownership/moved-strings-rust.md)
