@@ -1,9 +1,13 @@
 # Day 1 Afternoon Exercises
 
-## Designing a Library
+## Luhn Algorithm
 
-([back to exercise](book-library.md))
+([back to exercise](luhn.md))
 
 ```rust
-{{#include book-library.rs}}
+{{#include luhn.rs}}
 ```
+
+## Pattern matching
+
+TBD.

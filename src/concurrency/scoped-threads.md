@@ -5,12 +5,15 @@ Normal threads cannot borrow from their environment:
 ```rust,editable,compile_fail
 use std::thread;
 
-fn main() {
+fn foo() {
     let s = String::from("Hello");
-
     thread::spawn(|| {
         println!("Length: {}", s.len());
     });
+}
+
+fn main() {
+    foo();
 }
 ```
 

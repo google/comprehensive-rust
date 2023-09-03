@@ -4,9 +4,13 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/google/comprehensive-rust?style=flat-square)](https://github.com/google/comprehensive-rust/graphs/contributors)
 [![GitHub stars](https://img.shields.io/github/stars/google/comprehensive-rust?style=flat-square)](https://github.com/google/comprehensive-rust/stargazers)
 
-This is a three day Rust course developed by the Android team. The course covers
+This is a free Rust course developed by the Android team at Google. The course covers
 the full spectrum of Rust, from basic syntax to advanced topics like generics
-and error handling. It also includes Android-specific content on the last day.
+and error handling.
+
+> The latest version of the course can be found at
+> <https://google.github.io/comprehensive-rust/>. If you are reading
+> somewhere else, please check there for updates.
 
 The goal of the course is to teach you Rust. We assume you don't know anything
 about Rust and hope to:
@@ -15,8 +19,9 @@ about Rust and hope to:
 * Enable you to modify existing programs and write new programs in Rust.
 * Show you common Rust idioms.
 
-The first three days show you the fundamentals of Rust. Following this, you're
-invited to dive into one or more specialized topics:
+We call the first three course days Rust Fundamentals.
+
+Building on this, you're invited to dive into one or more specialized topics:
 
 * [Android](android.md): a half-day course on using Rust for Android platform
   development (AOSP). This includes interoperability with C, C++, and Java.
@@ -40,8 +45,8 @@ Some non-goals of this course are:
 
 ## Assumptions
 
-The course assumes that you already know how to program. Rust is a statically-
-typed language and we will sometimes make comparisons with C and C++ to better
+The course assumes that you already know how to program. Rust is a statically-typed
+language and we will sometimes make comparisons with C and C++ to better
 explain or contrast the Rust approach.
 
 If you know how to program in a dynamically-typed language such as Python or

@@ -7,3 +7,11 @@
 ```rust
 {{#include simple-gui.rs}}
 ```
+
+## Points and Polygons
+
+([back to exercise](points-polygons.md))
+
+```rust
+{{#include points-polygons.rs}}
+```

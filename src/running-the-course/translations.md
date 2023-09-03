@@ -3,7 +3,7 @@
 The course has been translated into other languages by a set of wonderful
 volunteers:
 
-* [Brazilian Portuguese][pt-BR] by [@rastringer] and [@hugojacob].
+* [Brazilian Portuguese][pt-BR] by [@rastringer], [@hugojacob], [@joaovicmendes] and [@henrif75].
 * [Korean][ko] by [@keispace], [@jiyongp] and [@jooyunghan].
 
 Use the language picker in the top-right corner to switch between languages.
@@ -40,6 +40,8 @@ get going. Translations are coordinated on the [issue tracker].
 [@rastringer]: https://github.com/rastringer
 [@ronaldfw]: https://github.com/ronaldfw
 [@vcaen]: https://github.com/vcaen
+[@joaovicmendes]: https://github.com/joaovicmendes
+[@henrif75]: https://github.com/henrif75
 
 [our instructions]: https://github.com/google/comprehensive-rust/blob/main/TRANSLATIONS.md
 [issue tracker]: https://github.com/google/comprehensive-rust/issues/282

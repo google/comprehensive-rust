@@ -1,6 +1,7 @@
 # Summary
 
-[Welcome to Comprehensive Rust 🦀](welcome.md)
+<!-- Keep first page as index.md to avoid giving it two names. -->
+[Welcome to Comprehensive Rust 🦀](index.md)
 - [Running the Course](running-the-course.md)
   - [Course Structure](running-the-course/course-structure.md)
   - [Keyboard Shortcuts](running-the-course/keyboard-shortcuts.md)
@@ -40,10 +41,43 @@
 
 # Day 1: Afternoon
 
+- [Control Flow](control-flow.md)
+  - [Blocks](control-flow/blocks.md)
+  - [if expressions](control-flow/if-expressions.md)
+  - [for expressions](control-flow/for-expressions.md)
+  - [while expressions](control-flow/while-expressions.md)
+  - [break & continue](control-flow/break-continue.md)
+  - [loop expressions](control-flow/loop-expressions.md)
+
 - [Variables](basic-syntax/variables.md)
   - [Type Inference](basic-syntax/type-inference.md)
   - [static & const](basic-syntax/static-and-const.md))
   - [Scopes and Shadowing](basic-syntax/scopes-shadowing.md)
+- [Enums](enums.md)
+  - [Variant Payloads](enums/variant-payloads.md)
+  - [Enum Sizes](enums/sizes.md)
+
+- [Novel Control Flow](control-flow/novel.md)
+  - [if let expressions](control-flow/if-let-expressions.md)
+  - [while let expressions](control-flow/while-let-expressions.md)
+  - [match expressions](control-flow/match-expressions.md)
+
+- [Pattern Matching](pattern-matching.md)
+  - [Destructuring Enums](pattern-matching/destructuring-enums.md)
+  - [Destructuring Structs](pattern-matching/destructuring-structs.md)
+  - [Destructuring Arrays](pattern-matching/destructuring-arrays.md)
+  - [Match Guards](pattern-matching/match-guards.md)
+
+- [Exercises](exercises/day-1/afternoon.md)
+  - [Luhn Algorithm](exercises/day-1/luhn.md)
+  - [Pattern Matching (TBD)]()
+
+# Day 2: Morning
+
+----
+
+- [Welcome](welcome-day-2.md)
+
 - [Memory Management](memory-management.md)
   - [Stack vs Heap](memory-management/stack-vs-heap.md)
   - [Stack Memory](memory-management/stack.md)
@@ -51,7 +85,6 @@
   - [Scope-Based Memory Management](memory-management/scope-based.md)
   - [Garbage Collection](memory-management/garbage-collection.md)
   - [Rust Memory Management](memory-management/rust.md)
-  - [Comparison](memory-management/comparison.md)
 - [Ownership](ownership.md)
   - [Move Semantics](ownership/move-semantics.md)
   - [Moved Strings in Rust](ownership/moved-strings-rust.md)
@@ -63,46 +96,18 @@
   - [Lifetimes](ownership/lifetimes.md)
   - [Lifetimes in Function Calls](ownership/lifetimes-function-calls.md)
   - [Lifetimes in Data Structures](ownership/lifetimes-data-structures.md)
-- [Exercises](exercises/day-1/afternoon.md)
-  - [Storing Books](exercises/day-1/book-library.md)
-  - [Iterators and Ownership](exercises/day-1/iterators-and-ownership.md)
-
-
-# Day 2: Morning
-
-----
-
-- [Welcome](welcome-day-2.md)
 - [Structs](structs.md)
   - [Tuple Structs](structs/tuple-structs.md)
   - [Field Shorthand Syntax](structs/field-shorthand.md)
-- [Enums](enums.md)
-  - [Variant Payloads](enums/variant-payloads.md)
-  - [Enum Sizes](enums/sizes.md)
 - [Methods](methods.md)
   - [Method Receiver](methods/receiver.md)
   - [Example](methods/example.md)
-- [Pattern Matching](pattern-matching.md)
-  - [Destructuring Enums](pattern-matching/destructuring-enums.md)
-  - [Destructuring Structs](pattern-matching/destructuring-structs.md)
-  - [Destructuring Arrays](pattern-matching/destructuring-arrays.md)
-  - [Match Guards](pattern-matching/match-guards.md)
 - [Exercises](exercises/day-2/morning.md)
+  - [Storing Books](exercises/day-2/book-library.md)
   - [Health Statistics](exercises/day-2/health-statistics.md)
-  - [Points and Polygons](exercises/day-2/points-polygons.md)
 
 # Day 2: Afternoon
 
-- [Control Flow](control-flow.md)
-  - [Blocks](control-flow/blocks.md)
-  - [if expressions](control-flow/if-expressions.md)
-  - [if let expressions](control-flow/if-let-expressions.md)
-  - [while expressions](control-flow/while-expressions.md)
-  - [while let expressions](control-flow/while-let-expressions.md)
-  - [for expressions](control-flow/for-expressions.md)
-  - [loop expressions](control-flow/loop-expressions.md)
-  - [match expressions](control-flow/match-expressions.md)
-  - [break & continue](control-flow/break-continue.md)
 - [Standard Library](std.md)
   - [Option and Result](std/option-result.md)
   - [String](std/string.md)
@@ -112,12 +117,13 @@
     - [Recursive Data Types](std/box-recursive.md)
     - [Niche Optimization](std/box-niche.md)
   - [Rc](std/rc.md)
+  - [Cell/RefCell](std/cell.md)
 - [Modules](modules.md)
   - [Visibility](modules/visibility.md)
   - [Paths](modules/paths.md)
   - [Filesystem Hierarchy](modules/filesystem.md)
 - [Exercises](exercises/day-2/afternoon.md)
-  - [Luhn Algorithm](exercises/day-2/luhn.md)
+  - [Iterators and Ownership](exercises/day-2/iterators-and-ownership.md)
   - [Strings and Iterators](exercises/day-2/strings-iterators.md)
 
 
@@ -147,6 +153,7 @@
   - [Closures: Fn, FnMut, FnOnce](traits/closures.md)
 - [Exercises](exercises/day-3/morning.md)
   - [A Simple GUI Library](exercises/day-3/simple-gui.md)
+  - [Points and Polygons](exercises/day-3/points-polygons.md)
 
 # Day 3: Afternoon
 

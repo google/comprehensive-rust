@@ -38,9 +38,9 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     writeln!(uart, "main({x0:#x}, {x1:#x}, {x2:#x}, {x3:#x})").unwrap();
 
     loop {
-        if let Some(b) = uart.read_byte() {
-            uart.write_byte(b);
-            match b {
+        if let Some(byte) = uart.read_byte() {
+            uart.write_byte(byte);
+            match byte {
                 b'\r' => {
                     uart.write_byte(b'\n');
                 }

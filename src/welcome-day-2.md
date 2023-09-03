@@ -2,12 +2,12 @@
 
 Now that we have seen a fair amount of Rust, we will continue with:
 
-* Structs, enums, methods.
+* Memory management: stack vs heap, manual memory management, scope-based memory
+  management, and garbage collection.
 
-* Pattern matching: destructuring enums, structs, and arrays.
+* Ownership: move semantics, copying and cloning, borrowing, and lifetimes.
 
-* Control flow constructs: `if`, `if let`, `while`, `while let`, `break`, and
-  `continue`.
+* Structs and methods.
 
 * The Standard Library: `String`, `Option` and `Result`, `Vec`, `HashMap`, `Rc`
   and `Arc`.
