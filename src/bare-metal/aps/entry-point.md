@@ -21,7 +21,7 @@ Before we can start running Rust code, we need to do some initialisation.
     which sets `+strict-align` to prevent the compiler generating unaligned accesses, so it should
     be fine in this case, but this is not necessarily the case in general.
   * If it were running in a VM, this can lead to cache coherency issues. The problem is that the VM
-    is accessing memory directly with the cache disabled, while the host has cachable aliases to the
+    is accessing memory directly with the cache disabled, while the host has cacheable aliases to the
     same memory. Even if the host doesn't explicitly access the memory, speculative accesses can
     lead to cache fills, and then changes from one or the other will get lost when the cache is
     cleaned or the VM enables the cache. (Cache is keyed by physical address, not VA or IPA.)
