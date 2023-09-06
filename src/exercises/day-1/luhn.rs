@@ -51,6 +51,7 @@ fn main() {
 #[test]
 fn test_non_digit_cc_number() {
     assert!(!luhn("foo"));
+    assert!(!luhn("foo 0 0"));
 }
 
 #[test]
