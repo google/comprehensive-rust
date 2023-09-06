@@ -79,7 +79,7 @@ async fn main() -> std::io::Result<()> {
 
     * Whenever the `tick()` branch finishes first, `next()` and its `buf` are dropped.
 
-    * `LinesReader` can be made cancellation-safe by makeing `buf` part of the struct:
+    * `LinesReader` can be made cancellation-safe by making `buf` part of the struct:
         ```rust,compile_fail
         struct LinesReader {
             stream: DuplexStream,

@@ -19,6 +19,6 @@ The QEMU 'virt' machine has a [PL011][1] UART, so let's write a driver for that.
 * This is a common pattern for writing safe wrappers of unsafe code: moving the burden of proof for
   soundness from a large number of places to a smaller number of places.
 
-</detais>
+</details>
 
 [1]: https://developer.arm.com/documentation/ddi0183/g
