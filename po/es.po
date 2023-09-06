@@ -1938,7 +1938,6 @@ msgid ""
 msgstr ""
 
 #: src/cargo/running-locally.md:17
-#, fuzzy
 msgid ""
 "With this in place, follow these steps to build a Rust binary from one of "
 "the examples in this training:"
@@ -1959,7 +1958,6 @@ msgstr ""
 "código:"
 
 #: src/cargo/running-locally.md:24
-#, fuzzy
 msgid ""
 "```shell\n"
 "$ cargo new exercise\n"
@@ -2013,7 +2011,6 @@ msgstr ""
 "como"
 
 #: src/cargo/running-locally.md:43
-#, fuzzy
 msgid ""
 "```rust\n"
 "fn main() {\n"
@@ -2034,7 +2031,6 @@ msgid "Use `cargo run` to build and run your updated binary:"
 msgstr "Usa `cargo run` para hacer build y ejecutar tu binario actualizado:"
 
 #: src/cargo/running-locally.md:51
-#, fuzzy
 msgid ""
 "```shell\n"
 "$ cargo run\n"
@@ -2087,9 +2083,8 @@ msgstr ""
 "un IDE normal."
 
 #: src/welcome-day-1.md:1
-#, fuzzy
 msgid "Welcome to Day 1"
-msgstr "# Te damos la bienvenida al día 1"
+msgstr "Te damos la bienvenida al Día 1"
 
 #: src/welcome-day-1.md:3
 #, fuzzy
@@ -2112,6 +2107,8 @@ msgid ""
 "Control flow constructs: `if`, `if let`, `while`, `while let`, `break`, and "
 "`continue`."
 msgstr ""
+"Control de flujo: `if`, `if let`, `while`, `while let`, `break`, y "
+"`continue`."
 
 #: src/welcome-day-1.md:12
 msgid "Pattern matching: destructuring enums, structs, and arrays."
@@ -2128,7 +2125,6 @@ msgstr ""
 "Deben hacer las preguntas cuando surgen, no las guarden hasta el final."
 
 #: src/welcome-day-1.md:19
-#, fuzzy
 msgid ""
 "The class is meant to be interactive and discussions are very much "
 "encouraged!"
@@ -2171,18 +2167,17 @@ msgid ""
 "speak about the famous borrow checker. The way Rust handles memory is a "
 "major feature and we should show students this right away."
 msgstr ""
-"La idea del primer día es mostrar _lo suficiente_ de Rust\n"
-"como para poder hablar del famoso verificador de préstamos. La forma en que "
-"Rust gestiona la memoria es una característica importante\n"
-"y debemos mostrarla a los estudiantes desde el principio."
+"La idea del primer día es mostrar _lo suficiente_ de Rustcomo para poder "
+"hablar del famoso _borrow checker_. La forma en que Rust gestiona la memoria "
+"es una característica importante y debemos mostrarla a los estudiantes desde "
+"el principio."
 
 #: src/welcome-day-1.md:33
 msgid ""
 "If you're teaching this in a classroom, this is a good place to go over the "
 "schedule. We suggest splitting the day into two parts (following the slides):"
 msgstr ""
-"Si estás impartiendo el curso en un aula, este es un buen lugar para "
-"repasar\n"
+"Si estás impartiendo el curso en un aula, este es un buen lugar para repasar "
 "el calendario. Te recomendamos que dividas el día en dos partes (siguiendo "
 "las diapositivas):"
 
@@ -2260,7 +2255,7 @@ msgstr "servidores."
 
 #: src/welcome-day-1/what-is-rust.md:21
 msgid "Rust fits in the same area as C++:"
-msgstr "Rust se asemeja bastante a C++:"
+msgstr "Rust satisface las mismas necesidades que C++:"
 
 #: src/welcome-day-1/what-is-rust.md:23
 msgid "High flexibility."
@@ -2279,12 +2274,12 @@ msgstr ""
 
 #: src/welcome-day-1/what-is-rust.md:26
 msgid "Has no runtime or garbage collection."
-msgstr "No tiene tiempos de ejecución ni recolección de memoria residual."
+msgstr "No tiene _runtime_ ni _garbage collection_."
 
 #: src/welcome-day-1/what-is-rust.md:27
 msgid "Focuses on reliability and safety without sacrificing performance."
 msgstr ""
-"Se centra en la fiabilidad y la seguridad sin poner en riesgo el rendimiento."
+"Se centra en la fiabilidad y la seguridad sin sacrificar el rendimiento."
 
 #: src/hello-world.md:3
 msgid ""
@@ -2324,7 +2319,7 @@ msgstr "La función `main` es el punto de entrada del programa."
 
 #: src/hello-world.md:17
 msgid "Rust has hygienic macros, `println!` is an example of this."
-msgstr "ust tiene macros higiénicas, como por ejemplo `println!`."
+msgstr "Rust tiene macros higiénicas, como por ejemplo `println!`."
 
 #: src/hello-world.md:18
 msgid "Rust strings are UTF-8 encoded and can contain any Unicode character."
@@ -2370,7 +2365,7 @@ msgid ""
 "hygienic](https://veykril.github.io/tlborm/decl-macros/minutiae/hygiene."
 "html)."
 msgstr ""
-"Que las macros sean 'higiénicas' significa que no cogen por accidente "
+"Que las macros sean 'higiénicas' significa que no capturan accidentalmente"
 "identificadores del ámbito en el que se utilizan. En realidad, las macros de "
 "Rust solo son [parcialmente higiénicas](https://veykril.github.io/tlborm/"
 "decl-macros/minutiae/hygiene.html)."
@@ -2410,6 +2405,21 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {              // Punto de entrada del programa\n"
+"    let mut x: i32 = 6;  // Variable mutable vinculante\n"
+"    print!(\"{x}\");       // Macro para printing, como printf\n"
+"    while x != 1 {       // Sin paréntesis alrededor de las expresiones\n"
+"        if x % 2 == 0 {  // Operaciones matemáticas como en otros lenguajes\n"
+"            x = x / 2;\n"
+"        } else {\n"
+"            x = 3 * x + 1;\n"
+"        }\n"
+"        print!(\" -> {x}\");\n"
+"    }\n"
+"    println!();\n"
+"}\n"
+"```"
 
 #: src/hello-world/small-example.md:23
 msgid ""
@@ -2428,12 +2438,12 @@ msgid ""
 "overflow."
 msgstr ""
 "Explica que todas las variables están tipadas estáticamente. Prueba a quitar "
-"`i32` para activar la inferencia de tipos. Prueba con `i8` y activa un "
-"desbordamiento de enteros con tiempo de ejecución."
+"`i32` para activar la inferencia de tipos. Prueba con `i8` y provoca un "
+"desbordamiento de enteros en _runtime_."
 
 #: src/hello-world/small-example.md:32
 msgid "Change `let mut x` to `let x`, discuss the compiler error."
-msgstr "Cambia `let mut x` por `let x` y explica el error del compilador."
+msgstr "Cambia `let mut x` por `let x` y discute el error del compilador."
 
 #: src/hello-world/small-example.md:34
 msgid ""
@@ -2457,8 +2467,8 @@ msgid ""
 "fmt` which has the rules of the formatting mini-language. It's important "
 "that the students become familiar with searching in the standard library."
 msgstr ""
-"Muestra a los alumnos la biblioteca estándar y cómo buscar `std::fmt`,que "
-"tiene las reglas del formato mini-language. Es importante que los alumnos se "
+"Muestra a los alumnos la biblioteca estándar y cómo buscar `std::fmt`, que "
+"tiene las reglas del mini-lenguaje de formato. Es importante que los alumnos se "
 "familiaricen con la búsqueda en la biblioteca estándar."
 
 #: src/hello-world/small-example.md:44
@@ -2466,7 +2476,7 @@ msgid ""
 "In a shell `rustup doc std::fmt` will open a browser on the local std::fmt "
 "documentation"
 msgstr ""
-"En un shell, `doc. std::fmt` abrirá un navegador en la documentación local "
+"En un shell, `rustup doc std::fmt` abrirá un navegador en la documentación local "
 "de std::fmt."
 
 #: src/why-rust.md:3
@@ -2475,23 +2485,24 @@ msgstr "Estas son algunas de las ventajas competitivas de Rust:"
 
 #: src/why-rust.md:5
 msgid "Compile time memory safety."
-msgstr "Seguridad de la memoria durante el tiempo de compilación."
+msgstr "Seguridad de la memoria en tiempo de compilación."
 
 #: src/why-rust.md:6
 msgid "Lack of undefined runtime behavior."
-msgstr "Ausencia de comportamientos indefinidos en el entorno de ejecución."
+msgstr "Ausencia de comportamientos indefinidos en _runtime_."
 
 #: src/why-rust.md:7
 msgid "Modern language features."
-msgstr "Características del lenguaje moderno."
+msgstr "Características de lenguajes modernos."
 
 #: src/why-rust.md:11
 msgid ""
 "Make sure to ask the class which languages they have experience with. "
 "Depending on the answer you can highlight different features of Rust:"
 msgstr ""
-"Pregunta a la clase qué lenguajes conocen. En función de la respuesta, "
-"puedes destacar distintas características de Rust:"
+"Asegúrate de preguntar a la clase en qué lenguajes tienen experiencia. "
+"Dependiendo de la respuesta puedes destacar diferentes características de "
+"Rust:"
 
 #: src/why-rust.md:14
 msgid ""
@@ -2501,10 +2512,10 @@ msgid ""
 "constructs like pattern matching and built-in dependency management."
 msgstr ""
 "Experiencia con C o C++: Rust elimina una clase completa de _errores de "
-"tiempo de ejecución_ mediante el verificador de préstamos. Obtienes un "
-"rendimiento similar al de C y C++, pero no tienes problemas de seguridad en "
-"la memoria. Además, obtienes un lenguaje moderno con elementos como la "
-"coincidencia de patrones y la gestión de dependencias integrada."
+"runtime_ mediante el _borrow checker_. Obtienes un rendimiento "
+"similar al de C y C++, pero no tienes problemas de seguridad en la memoria. "
+"Además, obtienes un lenguaje moderno con elementos como la coincidencia de "
+"patrones y la gestión de dependencias integrado."
 
 #: src/why-rust.md:19
 msgid ""
@@ -2514,14 +2525,14 @@ msgid ""
 "collector) as well as access to low-level hardware (should you need it)"
 msgstr ""
 "Experiencia con Java, Go, Python, JavaScript, etc.: Consigues la misma "
-"seguridad en la memoria que en esos lenguajes, además de una sensación "
+"seguridad en la memoria que en éstos lenguajes, además de una sensación "
 "similar a la de un lenguaje de alto nivel. También consigues un rendimiento "
-"rápido y predecible, como en C y C++ (sin recolector de memoria residual), "
+"rápido y predecible como en C y C++ (sin recolector de memoria residual), "
 "así como acceso a hardware de bajo nivel (si lo necesitas)."
 
 #: src/why-rust/compile-time.md:3
 msgid "Static memory management at compile time:"
-msgstr "Gestión estática de la memoria durante el tiempo de compilación:"
+msgstr "Gestión estática de la memoria en tiempo de compilación:"
 
 #: src/why-rust/compile-time.md:5
 msgid "No uninitialized variables."
@@ -2549,7 +2560,7 @@ msgstr "No se olvidan las exclusiones mutuas bloqueadas."
 
 #: src/why-rust/compile-time.md:11
 msgid "No data races between threads."
-msgstr "No hay carreras de datos entre hilos."
+msgstr "No hay condiciones de carrera de datos entre hilos."
 
 #: src/why-rust/compile-time.md:12
 msgid "No iterator invalidation."
@@ -2559,7 +2570,7 @@ msgstr "No se invalidan los iteradores."
 msgid ""
 "It is possible to produce memory leaks in (safe) Rust. Some examples are:"
 msgstr ""
-"Es posible producir pérdidas de memoria en Rust (seguro). Estos son algunos "
+"Es posible producir pérdidas de memoria en (_safe_) Rust. Estos son algunos "
 "ejemplos:"
 
 #: src/why-rust/compile-time.md:19
@@ -2569,8 +2580,8 @@ msgid ""
 "initialized and runtime-sized static variables"
 msgstr ""
 "Puedes usar [`Box::leak`](https://doc.rust-lang.org/std/boxed/struct.Box."
-"html#method.leak) para filtrar un puntero. Esto podría usarse para obtener "
-"variables estáticas iniciadas y medidas por tiempo de ejecución."
+"html#method.leak) para perder un puntero. Esto podría usarse para obtener "
+"variables estáticas iniciadas y medidas en _runtime_."
 
 #: src/why-rust/compile-time.md:21
 msgid ""
@@ -2587,15 +2598,15 @@ msgid ""
 "You can also accidentally create a [reference cycle](https://doc.rust-lang."
 "org/book/ch15-06-reference-cycles.html) with `Rc` or `Arc`."
 msgstr ""
-"También puedes crear por accidente un [ciclo de referencia](https://doc.rust-"
-"lang."
+"También puedes crear por accidente una [referencia circular](https://doc.rust-"
+"lang.org/book/ch15-06-reference-cycles.html) con `Rc` o `Arc`."
 
 #: src/why-rust/compile-time.md:25
 msgid ""
 "In fact, some will consider infinitely populating a collection a memory leak "
 "and Rust does not protect from those."
 msgstr ""
-"De hecho, algunos consideran que poblar de forma indefinida una colección es "
+"De hecho, algunos consideran que poblar de forma infinita una colección es "
 "una fuga de memoria y Rust no protege de ellas."
 
 #: src/why-rust/compile-time.md:28
@@ -2608,7 +2619,7 @@ msgstr ""
 
 #: src/why-rust/runtime.md:3
 msgid "No undefined behavior at runtime:"
-msgstr "No hay comportamientos indefinidos durante el tiempo de ejecución:"
+msgstr "No hay comportamientos indefinidos en _runtime_:"
 
 #: src/why-rust/runtime.md:5
 msgid "Array access is bounds checked."
@@ -2616,7 +2627,7 @@ msgstr "Se comprueban los límites de acceso a los arrays."
 
 #: src/why-rust/runtime.md:6
 msgid "Integer overflow is defined (panic or wrap-around)."
-msgstr "Se define el desbordamiento de enteros (pánico o envoltorios)."
+msgstr "Se define el desbordamiento de enteros (_panic_ o _wrap-around_)."
 
 #: src/why-rust/runtime.md:12
 msgid ""
@@ -2630,10 +2641,10 @@ msgstr ""
 "El desbordamiento de enteros se define mediante la bandera de tiempo\n"
 "de compilación [`overflow-checks`](https://doc.rust-lang.org/rustc/codegen-"
 "options/index.html#overflow-checks). Si se habilita, el programa entrará en "
-"pánico (un fallo controlado del programa). De lo contrario, se obtendrá una "
-"semántica envolvente. De forma predeterminada, se obtienen pánicos en el "
+"_panic_ (un fallo controlado del programa). De lo contrario, se obtendrá "
+"semántica de _wrap-around_. De forma predeterminada, se obtienen _panics_ en el "
 "modo de depuración (`cargo build`) (\"versión de compilación\") y semántica "
-"envolvente en el modo de liberación (`cargo build --release`)."
+"de _wrap-around_ en el modo de liberación (`cargo build --release`)."
 
 #: src/why-rust/runtime.md:18
 msgid ""
@@ -2642,7 +2653,7 @@ msgid ""
 "call functions such as `slice::get_unchecked` which does not do bounds "
 "checking."
 msgstr ""
-"La comprobación de límites no se puede inhabilitar con una bandera de "
+"La comprobación de límites no se puede deshabilitar con una bandera de "
 "compilador. Tampoco se puede inhabilitar directamente con la palabra clave "
 "`unsafe`. Sin embargo, `unsafe` te permite llamar a funciones como `slice::"
 "get_unchecked`, que no realiza comprobaciones de límites."
@@ -2667,7 +2678,7 @@ msgstr "Genéricos"
 
 #: src/why-rust/modern.md:9
 msgid "No overhead FFI."
-msgstr "No hay sobrecarga de FFI"
+msgstr "Sin _overhead_ de FFI."
 
 #: src/why-rust/modern.md:10
 msgid "Zero-cost abstractions."
@@ -2679,7 +2690,7 @@ msgstr "Herramientas"
 
 #: src/why-rust/modern.md:14
 msgid "Great compiler errors."
-msgstr "Grandes errores del compilador."
+msgstr "Excelentes errores de compilación."
 
 #: src/why-rust/modern.md:15
 msgid "Built-in dependency manager."
@@ -2701,7 +2712,7 @@ msgid ""
 "instructions as using the `.iter().fold()` construct."
 msgstr ""
 "Las abstracciones sin coste, similares a las de C++, significan que no "
-"tienes que 'pagar' por construcciones de programación de nivel superior con "
+"tienes que 'pagar' por construcciones de programación de alto nivel con "
 "memoria o CPU. Por ejemplo, escribir un bucle utilizando `for` debería dar "
 "como resultado prácticamente las mismas instrucciones de bajo nivel que con "
 "la construcción `.iter().fold()`."
@@ -2859,7 +2870,7 @@ msgstr ""
 
 #: src/basic-syntax/scalar-types.md:7
 msgid "Floating point numbers"
-msgstr "Números de punto flotante"
+msgstr "Números de coma flotante"
 
 #: src/basic-syntax/scalar-types.md:7
 msgid "`f32`, `f64`"
@@ -2911,7 +2922,7 @@ msgstr "Los tipos tienen la siguiente anchura:"
 
 #: src/basic-syntax/scalar-types.md:14
 msgid "`iN`, `uN`, and `fN` are _N_ bits wide,"
-msgstr ""
+msgstr "`iN`, `uN`, and `fN` son _N_ bits de capacidad,"
 
 #: src/basic-syntax/scalar-types.md:15
 msgid "`isize` and `usize` are the width of a pointer,"
@@ -3054,7 +3065,7 @@ msgid ""
 "the debug output. We could also have used `{a}` and `{a:?}` without "
 "specifying the value after the format string."
 msgstr ""
-"En la función principal, la instrucción de impresión solicita la "
+"En la función _main_, la instrucción de impresión solicita la "
 "implementación de depuración con el parámetro de formato `?`: `{}` ofrece la "
 "salida predeterminada y `{:?}` ofrece la salida de depuración. También se "
 "podría haber usado `{a}` y `{a:?}` sin especificar el valor después de la "
@@ -3151,7 +3162,7 @@ msgid ""
 "their lifetime."
 msgstr ""
 "Las referencias que se declaran como `mut` se pueden vincular a distintos "
-"valores durante su  tiempo de vida."
+"valores durante su tiempo de vida."
 
 #: src/basic-syntax/references.md:25
 msgid ""
@@ -3294,7 +3305,7 @@ msgstr ""
 "no se puede hacer mediante `a` en este punto de la ejecución, pero sí se "
 "pueden leer los datos de `a` y `s` de forma segura. Funciona antes de crear "
 "el slice y después de `println`, cuando el slice ya no se utiliza. En la "
-"sección que trata sobre el verificador de préstamos se dará más información."
+"sección que trata sobre el _borrow checker_ se dará más información."
 
 #: src/basic-syntax/string-slices.md:1
 msgid "`String` vs `str`"
