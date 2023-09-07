@@ -79,7 +79,7 @@ msgstr "Tiempo de Compilación Garantizado"
 
 #: src/SUMMARY.md:25 src/why-rust/runtime.md:1
 msgid "Runtime Guarantees"
-msgstr "Garantías en Tiempo de Ejecución"
+msgstr "Garantías en Runtime (Tiempo de Ejecución)"
 
 #: src/SUMMARY.md:26 src/why-rust/modern.md:1
 msgid "Modern Features"
@@ -936,9 +936,8 @@ msgid "Futures"
 msgstr ""
 
 #: src/SUMMARY.md:294 src/async/runtimes.md:1
-#, fuzzy
 msgid "Runtimes"
-msgstr "Garantías en Tiempo de Ejecución"
+msgstr "Garantías en Runtime (Tiempo de Ejecución)"
 
 #: src/SUMMARY.md:295 src/async/runtimes/tokio.md:1
 msgid "Tokio"
@@ -4709,8 +4708,8 @@ msgid ""
 "You can shadow variables, both those from outer scopes and variables from "
 "the same scope:"
 msgstr ""
-"Puedes sombrear variables, tanto las de ámbitos externos "
-"como las del propio ámbito:"
+"Puedes sombrear variables, tanto las de ámbitos externos como las del propio "
+"ámbito:"
 
 #: src/basic-syntax/scopes-shadowing.md:6
 msgid ""
@@ -10879,13 +10878,11 @@ msgstr ""
 
 #: src/error-handling.md:6
 msgid "There are no exceptions."
-msgstr "No hay excepciones."
+msgstr "No hay _exceptions_ (excepciones)."
 
 #: src/error-handling/panics.md:3
 msgid "Rust will trigger a panic if a fatal error happens at runtime:"
-msgstr ""
-"Rust activará un pánico si se produce un error grave durante el tiempo de "
-"ejecución:"
+msgstr "Rust activará un _panic_ si se produce un error grave en _runtime_:"
 
 #: src/error-handling/panics.md:5
 msgid ""
@@ -10899,28 +10896,29 @@ msgstr ""
 
 #: src/error-handling/panics.md:12
 msgid "Panics are for unrecoverable and unexpected errors."
-msgstr "Los pánicos se usan para errores irrecuperables e inesperados."
+msgstr "Los _panics_ se usan para errores irrecuperables e inesperados."
 
 #: src/error-handling/panics.md:13
 msgid "Panics are symptoms of bugs in the program."
-msgstr "Los pánicos son un síntoma de que hay fallos en el programa."
+msgstr "Los _panics_ son un síntoma de que hay fallos en el programa."
 
 #: src/error-handling/panics.md:14
 msgid ""
 "Use non-panicking APIs (such as `Vec::get`) if crashing is not acceptable."
 msgstr ""
-"Utiliza API que no activen pánicos (como `Vec::get`) si no se admiten fallos."
+"Utiliza API que no activen _panics_ (como `Vec::get`) si no se admiten "
+"fallos."
 
 #: src/error-handling/panic-unwind.md:1
 msgid "Catching the Stack Unwinding"
-msgstr "Capturar el desenrrollado de la pila"
+msgstr "Capturar el Desenrrollado de la _Stack_"
 
 #: src/error-handling/panic-unwind.md:3
 msgid ""
 "By default, a panic will cause the stack to unwind. The unwinding can be "
 "caught:"
 msgstr ""
-"De forma predeterminada, el pánico hará que la pila se desenrolle. El "
+"De forma predeterminada, el _panic_ hará que la _stack_ se desenrolle. El "
 "proceso de desenrrollado se puede detectar:"
 
 #: src/error-handling/panic-unwind.md:5
@@ -10956,15 +10954,15 @@ msgstr "No funciona si `panic = 'abort'` está definido en `Cargo.toml`."
 
 #: src/error-handling/result.md:1
 msgid "Structured Error Handling with `Result`"
-msgstr "Gestión estructurada de errores con `Result`"
+msgstr "Gestión Estructurada de Errores con `Result`"
 
 #: src/error-handling/result.md:3
 msgid ""
 "We have already seen the `Result` enum. This is used pervasively when errors "
 "are expected as part of normal operation:"
 msgstr ""
-"Ya hemos visto la enumeración `Result`. Se utiliza normalmente cuando se "
-"esperan errores como parte del funcionamiento normal:"
+"Ya hemos visto la _enum_ `Result`. Se utiliza normalmente cuando se esperan "
+"errores como parte del funcionamiento normal:"
 
 #: src/error-handling/result.md:6
 msgid ""
@@ -11233,9 +11231,9 @@ msgid ""
 "The [thiserror](https://docs.rs/thiserror/) crate is a popular way to create "
 "an error enum like we did on the previous page:"
 msgstr ""
-"Uno de los métodos más populares para crear una enumeración de errores es el "
-"crate [thiserror](https://docs.rs/thiserror/), como hicimos en la página "
-"anterior:"
+"Uno de los métodos más populares para crear una _enum_ (enumeración) de "
+"errores es el crate [thiserror](https://docs.rs/thiserror/), como hicimos en "
+"la página anterior:"
 
 #: src/error-handling/deriving-error-enums.md:6
 msgid ""
@@ -11294,7 +11292,7 @@ msgid ""
 "makes this easy."
 msgstr ""
 "A veces, queremos permitir que se devuelva cualquier tipo de error sin "
-"escribir nuestra propia enumeración que cubra todas las posibilidades. `std::"
+"escribir nuestra propia _enum_ que cubra todas las posibilidades. `std::"
 "error::Error` facilita este proceso."
 
 #: src/error-handling/dynamic-errors.md:6
@@ -11467,7 +11465,7 @@ msgid ""
 "(https://play.rust-lang.org/)):"
 msgstr ""
 "Las pruebas unitarias se suelen incluir en un módulo anidado (ejecuta las "
-"pruebas en el [playground](https://play.rust-lang.org/)):"
+"pruebas en el [_Playground_](https://play.rust-lang.org/)):"
 
 #: src/testing/test-modules.md:6
 msgid ""
@@ -11816,13 +11814,13 @@ msgid ""
 msgstr ""
 "No suele ser buena idea usar una variable estática mutable, pero en algunos "
 "casos puede encajar en código `no_std` de bajo nivel, como implementar una "
-"asignación de montículo o trabajar con algunas APIs C."
+"asignación de _heap_ o trabajar con algunas APIs C."
 
 #: src/unsafe/unions.md:3
 msgid "Unions are like enums, but you need to track the active field yourself:"
 msgstr ""
-"Las uniones son como enumeraciones, pero eres tú quien debe hacer el "
-"seguimiento del campo activo:"
+"Las uniones son como _enums_ (enumeraciones), pero eres tú quien debe hacer "
+"el seguimiento del campo activo:"
 
 #: src/unsafe/unions.md:5
 msgid ""
@@ -11847,7 +11845,7 @@ msgid ""
 "are occasionally needed for interacting with C library APIs."
 msgstr ""
 "Las uniones raramente son necesarias en Rust, ya que se suele utilizar una "
-"enumeración. A veces se necesitan para interactuar con APIs de biblioteca C."
+"_enum_. A veces se necesitan para interactuar con APIs de biblioteca C."
 
 #: src/unsafe/unions.md:24
 msgid ""
@@ -12177,8 +12175,8 @@ msgid ""
 "[`OsStr`](https://doc.rust-lang.org/std/ffi/struct.OsStr.html) and "
 "[`OsString`](https://doc.rust-lang.org/std/ffi/struct.OsString.html)"
 msgstr ""
-"[`OsStr`](https://doc.rust-lang.org/std/ffi/struct.OsStr.html) y "
-"[`OsString`](https://doc.rust-lang.org/std/ffi/struct.OsString.html)"
+"[`OsStr`](https://doc.rust-lang.org/std/ffi/struct.OsStr.html) y [`OsString`]"
+"(https://doc.rust-lang.org/std/ffi/struct.OsString.html)"
 
 #: src/exercises/day-3/safe-ffi-wrapper.md:20
 msgid "OS-specific"
