@@ -4029,12 +4029,18 @@ msgid ""
 "becomes the value of the `if` expression. Other control flow expressions "
 "work similarly in Rust."
 msgstr ""
+"Como hemos visto, `if` es una expresión de Rust. Se utiliza para realizar "
+"una evaluación condicional de uno de los dos bloques, aunque estos pueden "
+"tener un valor que acaba convirtiéndose en el valor de la expresión `if`. "
+"Otras expresiones del flujo de control funcionan de forma similar en Rust."
 
 #: src/control-flow/blocks.md:3
 msgid ""
 "A block in Rust contains a sequence of expressions. Each block has a value "
 "and a type, which are those of the last expression of the block:"
 msgstr ""
+"En Rust, un bloque contiene una secuencia de expresiones.  Cada bloque tiene "
+"un tipo y un valor,  que son los de la última expresión del bloque:"
 
 #: src/control-flow/blocks.md:7
 msgid ""
@@ -4063,15 +4069,18 @@ msgid ""
 "If the last expression ends with `;`, then the resulting value and type is "
 "`()`."
 msgstr ""
+"Si la última expresión termina con `;`, el tipo y el valor resultante será "
+"`()`."
 
 #: src/control-flow/blocks.md:28
 msgid ""
 "The same rule is used for functions: the value of the function body is the "
 "return value:"
 msgstr ""
+"Se utiliza la misma regla para las funciones: el valor del cuerpo de la "
+"función es el valor devuelto:"
 
 #: src/control-flow/blocks.md:31
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "fn double(x: i32) -> i32 {\n"
@@ -4083,39 +4092,41 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-"```rust,editable\n"
-"fn main() {\n"
-"    println!(\"Modifícame!\");\n"
-"}\n"
-"```"
 
 #: src/control-flow/blocks.md:43 src/enums.md:34 src/enums/sizes.md:28
 #: src/pattern-matching.md:25 src/pattern-matching/match-guards.md:22
 #: src/structs.md:31 src/methods.md:30 src/methods/example.md:46
 msgid "Key Points:"
-msgstr ""
+msgstr "Puntos Clave:"
 
 #: src/control-flow/blocks.md:44
 msgid ""
 "The point of this slide is to show that blocks have a type and value in "
 "Rust. "
 msgstr ""
+"El objetivo de esta diapositiva es mostrar que los bloques tienen un tipo y "
+"un valor en Rust. "
 
 #: src/control-flow/blocks.md:45
 msgid ""
 "You can show how the value of the block changes by changing the last line in "
 "the block. For instance, adding/removing a semicolon or using a `return`."
 msgstr ""
+"Puedes mostrar cómo cambia el valor del bloque cambiando su última línea. "
+"Por ejemplo, añade o quita un punto y coma, o utiliza la expresión `return`."
 
 #: src/control-flow/if-expressions.md:1
 msgid "`if` expressions"
-msgstr ""
+msgstr "Expresiones `if`"
 
 #: src/control-flow/if-expressions.md:3
 msgid ""
 "You use [`if` expressions](https://doc.rust-lang.org/reference/expressions/"
 "if-expr.html#if-expressions) exactly like `if` statements in other languages:"
 msgstr ""
+"Puedes usar [expresiones `if`](https://doc.rust-lang.org/reference/"
+"expressions/if-expr.html#if-expressions) de la misma forma que en otros "
+"lenguajes:"
 
 #: src/control-flow/if-expressions.md:7
 msgid ""
@@ -4136,6 +4147,8 @@ msgid ""
 "In addition, you can use `if` as an expression. The last expression of each "
 "block becomes the value of the `if` expression:"
 msgstr ""
+"Además, puedes utilizar `if` como expresión. La última expresión de cada "
+"bloque se convierte en el valor de la expresión `if`:"
 
 #: src/control-flow/if-expressions.md:22
 msgid ""
@@ -4157,11 +4170,14 @@ msgid ""
 "branch blocks must have the same type. Consider showing what happens if you "
 "add `;` after `x / 2` in the second example."
 msgstr ""
+"Dado que `if` es una expresión y debe tener un tipo concreto, ambos bloques "
+"de ramas deben tener el mismo tipo. En el segundo ejemplo, puedes mostrar lo "
+"que sucede al añadir `;` después de `x / 2`."
 
 #: src/control-flow/for-expressions.md:1
 #, fuzzy
 msgid "`for` loops"
-msgstr "Loops `for`"
+msgstr "Bucles `for`"
 
 #: src/control-flow/for-expressions.md:3
 msgid ""
@@ -4169,9 +4185,12 @@ msgid ""
 "related to the [`while let` loop](while-let-expressions.md). It will "
 "automatically call `into_iter()` on the expression and then iterate over it:"
 msgstr ""
+"El [bucle `for`][`for` loop](https://doc.rust-lang.org/std/keyword.for.html) "
+"está estrechamente relacionado con el [bucle `while let`](while-let-"
+"expressions.md). Llamará automáticamente a `into_iter()` en la expresión y "
+"después iterará sobre ella:"
 
 #: src/control-flow/for-expressions.md:7
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "fn main() {\n"
@@ -4187,49 +4206,47 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-"```rust,editable\n"
-"fn main() {\n"
-"    let array = [10, 20, 30];\n"
-"    print!(\"Iterando sobre el array:\");\n"
-"    for n in array {\n"
-"        print!(\" {n}\");\n"
-"    }\n"
-"    println!();\n"
-"```"
 
 #: src/control-flow/for-expressions.md:21
 msgid "You can use `break` and `continue` here as usual."
-msgstr ""
+msgstr "Aquí puedes usar `break` y `continue` como de costumbre."
 
 #: src/control-flow/for-expressions.md:25
 msgid "Index iteration is not a special syntax in Rust for just that case."
 msgstr ""
+"La iteración de índices no es una sintaxis especial en Rust para ese caso."
 
 #: src/control-flow/for-expressions.md:26
 msgid "`(0..10)` is a range that implements an `Iterator` trait. "
-msgstr ""
+msgstr "`(0..10)` es un rango que implementa un `Iterator` trait."
 
 #: src/control-flow/for-expressions.md:27
 msgid ""
 "`step_by` is a method that returns another `Iterator` that skips every other "
 "element. "
 msgstr ""
+"`step_by` es un método que devuelve otro `Iterator` que salta cada otro "
+"elemento."
 
 #: src/control-flow/for-expressions.md:28
 msgid ""
 "Modify the elements in the vector and explain the compiler errors. Change "
 "vector `v` to be mutable and the for loop to `for x in v.iter_mut()`."
 msgstr ""
+"Modifica los elementos del vector y explica los errores del compilador. "
+"Cambia el vector `v` para que sea mutable y el bucle `for x in v.iter_mut()`."
 
 #: src/control-flow/while-expressions.md:1
 msgid "`while` loops"
-msgstr ""
+msgstr "Bucles `while`"
 
 #: src/control-flow/while-expressions.md:3
 msgid ""
 "The [`while` keyword](https://doc.rust-lang.org/reference/expressions/loop-"
 "expr.html#predicate-loops) works very similar to other languages:"
 msgstr ""
+"La [palabra clave `while`](https://doc.rust-lang.org/reference/expressions/"
+"loop-expr.html#predicate-loops) es muy similar a otros lenguajes:"
 
 #: src/control-flow/while-expressions.md:6
 msgid ""
@@ -4250,25 +4267,32 @@ msgstr ""
 
 #: src/control-flow/break-continue.md:1
 msgid "`break` and `continue`"
-msgstr ""
+msgstr "`break` y `continue`"
 
 #: src/control-flow/break-continue.md:3
 msgid ""
 "If you want to exit a loop early, use [`break`](https://doc.rust-lang.org/"
 "reference/expressions/loop-expr.html#break-expressions),"
 msgstr ""
+"Si quieres salir de un bucle antes, usa [`break`](https://doc.rust-lang.org/"
+"reference/expressions/loop-expr.html#break-expressions)."
 
 #: src/control-flow/break-continue.md:4
 msgid ""
 "If you want to immediately start the next iteration use [`continue`](https://"
 "doc.rust-lang.org/reference/expressions/loop-expr.html#continue-expressions)."
 msgstr ""
+"Si quieres iniciar inmediatamente la siguiente iteración, usa [`continue`]"
+"(https://doc.rust-lang.org/reference/expressions/loop-expr.html#continue-"
+"expressions)."
 
 #: src/control-flow/break-continue.md:7
 msgid ""
 "Both `continue` and `break` can optionally take a label argument which is "
 "used to break out of nested loops:"
 msgstr ""
+"De forma opcional, tanto `continue` como `break` pueden utilizar un "
+"argumento de etiqueta para interrumpir los bucles anidados:"
 
 #: src/control-flow/break-continue.md:10
 msgid ""
@@ -4295,20 +4319,24 @@ msgstr ""
 msgid ""
 "In this case we break the outer loop after 3 iterations of the inner loop."
 msgstr ""
+"En este caso, detenemos el bucle exterior tras tres iteraciones del bucle "
+"interno."
 
 #: src/control-flow/loop-expressions.md:1
 msgid "`loop` expressions"
-msgstr ""
+msgstr "Expresiones `loop`"
 
 #: src/control-flow/loop-expressions.md:3
 msgid ""
 "Finally, there is a [`loop` keyword](https://doc.rust-lang.org/reference/"
 "expressions/loop-expr.html#infinite-loops) which creates an endless loop."
 msgstr ""
+"Por último, la [palabra clave `loop`](https://doc.rust-lang.org/reference/"
+"expressions/loop-expr.html#infinite-loops) crea un bucle infinito."
 
 #: src/control-flow/loop-expressions.md:6
 msgid "Here you must either `break` or `return` to stop the loop:"
-msgstr ""
+msgstr "Para detener el bucle, debes usar `break` o `return`:"
 
 #: src/control-flow/loop-expressions.md:8
 msgid ""
@@ -4332,7 +4360,7 @@ msgstr ""
 
 #: src/control-flow/loop-expressions.md:27
 msgid "Break the `loop` with a value (e.g. `break 8`) and print it out."
-msgstr ""
+msgstr "Interrumpe `loop` con un valor (por ejemplo, `break 8`) e imprímelo."
 
 #: src/control-flow/loop-expressions.md:28
 msgid ""
@@ -4340,14 +4368,17 @@ msgid ""
 "value. This is because it's guaranteed to be entered at least once (unlike "
 "`while` and `for` loops)."
 msgstr ""
+"Ten en cuenta que `loop` es la única construcción de bucle que devuelve un "
+"valor no trivial. Esto se debe a que es inevitable que se introduzca al "
+"menos una vez (a diferencia de los bucles `while` y `for`)."
 
 #: src/basic-syntax/variables.md:3
 msgid ""
 "Rust provides type safety via static typing. Variable bindings are immutable "
 "by default:"
 msgstr ""
-"Rust provee tipos seguros por tipado estático. El enlace a variables es "
-"inmutable por defecto:"
+"Rust ofrece seguridad de tipos mediante tipado estático. De forma "
+"predeterminada, los enlaces a variables son inmutables:"
 
 #: src/basic-syntax/variables.md:6
 msgid ""
@@ -4366,12 +4397,12 @@ msgid ""
 "Due to type inference the `i32` is optional. We will gradually show the "
 "types less and less as the course progresses."
 msgstr ""
-"Dado a la inferencia de tipos `i32` es opcional. Poco a poco veremos los "
-"tipos a medida que avance el curso."
+"Debido a la inferencia de tipos, `i32` es opcional. A medida que avance el "
+"curso, iremos mostrando cada vez menos los tipos."
 
 #: src/basic-syntax/type-inference.md:3
 msgid "Rust will look at how the variable is _used_ to determine the type:"
-msgstr "Rust verá como _es usada_ la variable para determinar el tipo:"
+msgstr "Rust consultará cómo se _usa_ la variable para determinar el tipo:"
 
 #: src/basic-syntax/type-inference.md:5
 msgid ""
@@ -4396,18 +4427,12 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/type-inference.md:26
-#, fuzzy
 msgid ""
 "This slide demonstrates how the Rust compiler infers types based on "
 "constraints given by variable declarations and usages."
 msgstr ""
-"Este slide demuestra cómo el compilador de Rust infiere tipos basados en "
-"constrainst dadas por la declaración de variables y los usos. Es importante "
-"enfatizar que las variables declaradas como esta no son un conjunto dinámico "
-"de \"cualquier tipo\" que puede contener todo tipo de datos. El código "
-"generado por esa declaración es idéntica a la declaración explícita de un "
-"tipo. El compilador hace el trabajo por nosotros y nos ayuda a escribir "
-"código más conciso."
+"Esta diapositiva muestra cómo el compilador de Rust infiere tipos basándose "
+"en restricciones proporcionadas por declaraciones y usos de variables."
 
 #: src/basic-syntax/type-inference.md:28
 msgid ""
@@ -4417,6 +4442,11 @@ msgid ""
 "of a type. The compiler does the job for us and helps us write more concise "
 "code."
 msgstr ""
+"Es muy importante subrayar que las variables que se declaran así no son de "
+"un \"tipo cualquiera\" dinámico que pueda contener cualquier dato. El código "
+"máquina generado por tal declaración es idéntico a la declaración explícita "
+"de un tipo. El compilador hace el trabajo por nosotros y nos ayuda a "
+"escribir código más conciso."
 
 #: src/basic-syntax/type-inference.md:32
 msgid ""
@@ -4424,9 +4454,9 @@ msgid ""
 "container without the code ever explicitly specifying the contained type, "
 "using `_` as a placeholder:"
 msgstr ""
-"El siguiente código dice al compilador que copie en un contenedor genérico "
-"determinado sin que explicitar específicamente el tipo contenido, usando `_` "
-"como un placeholder:"
+"El siguiente fragmento de código le indica al compilador que copie en un "
+"determinado contenedor genérico sin que el código especifique explícitamente "
+"el tipo contenido utilizando `_` como marcador de posición:"
 
 #: src/basic-syntax/type-inference.md:34
 msgid ""
@@ -4444,7 +4474,6 @@ msgid ""
 msgstr ""
 
 #: src/basic-syntax/type-inference.md:46
-#, fuzzy
 msgid ""
 "[`collect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator."
 "html#method.collect) relies on [`FromIterator`](https://doc.rust-lang.org/"
@@ -4453,8 +4482,10 @@ msgid ""
 "HashSet%3CT,+S%3E) implements."
 msgstr ""
 "[`collect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator."
-"html#method.collect) se basa en `FromIterator` que lo implementa el "
-"[`HashSet`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html)."
+"html#method.collect) se basa en [`FromIterator`](https://doc.rust-lang.org/"
+"std/iter/trait.FromIterator.html), que implementa [`HashSet`](https://doc."
+"rust-lang.org/std/collections/struct.HashSet.html#impl-FromIterator%3CT%3E-"
+"for-HashSet%3CT,+S%3E)."
 
 #: src/basic-syntax/static-and-const.md:1
 msgid "Static and Constant Variables"
@@ -4466,16 +4497,21 @@ msgid ""
 "scoped values that cannot be moved or reallocated during the execution of "
 "the program. "
 msgstr ""
+"Las variables estáticas y constantes son dos formas diferentes de crear "
+"valores de ámbito global que no se pueden mover ni reasignar durante la "
+"ejecución del programa. "
 
 #: src/basic-syntax/static-and-const.md:6
 msgid "`const`"
-msgstr ""
+msgstr "`const`"
 
 #: src/basic-syntax/static-and-const.md:8
 msgid ""
 "Constant variables are evaluated at compile time and their values are "
 "inlined wherever they are used:"
 msgstr ""
+"Las variables constantes se evalúan en tiempo de compilación y sus valores "
+"se insertan dondequiera que se utilicen:"
 
 #: src/basic-syntax/static-and-const.md:11
 msgid ""
@@ -4505,27 +4541,31 @@ msgid ""
 "According to the [Rust RFC Book](https://rust-lang.github.io/rfcs/0246-const-"
 "vs-static.html) these are inlined upon use."
 msgstr ""
-"De acuerdo con [Rust RFC Book](https://rust-lang.github.io/rfcs/0246-const-"
-"vs-static.html) eso está en línea del uso."
+"Según el libro [Rust RFC Book](https://rust-lang.github.io/rfcs/0246-const-"
+"vs-static.html), se insertan cuando se utilizan."
 
 #: src/basic-syntax/static-and-const.md:31
 msgid ""
 "Only functions marked `const` can be called at compile time to generate "
 "`const` values. `const` functions can however be called at runtime."
 msgstr ""
+"Sólo se pueden llamar a las funciones marcadas como `const` en tiempo de "
+"compilación para generar valores `const`. Sin embargo, las funciones `const` "
+"se pueden llamar en _runtime_."
 
 #: src/basic-syntax/static-and-const.md:33
 msgid "`static`"
-msgstr ""
+msgstr "`static`"
 
 #: src/basic-syntax/static-and-const.md:35
 msgid ""
 "Static variables will live during the whole execution of the program, and "
 "therefore will not move:"
 msgstr ""
+"Las variables estáticas vivirán durante toda la ejecución del programa y, "
+"por lo tanto, no se moverán:"
 
 #: src/basic-syntax/static-and-const.md:37
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "static BANNER: &str = \"Welcome to RustOS 3.14\";\n"
@@ -4535,14 +4575,8 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-"```rust,editable\n"
-"fn main() {\n"
-"    println!(\"Modifícame!\");\n"
-"}\n"
-"```"
 
 #: src/basic-syntax/static-and-const.md:45
-#, fuzzy
 msgid ""
 "As noted in the [Rust RFC Book](https://rust-lang.github.io/rfcs/0246-const-"
 "vs-static.html), these are not inlined upon use and have an actual "
@@ -4551,10 +4585,12 @@ msgid ""
 "globally-scoped value does not have a reason to need object identity, "
 "`const` is generally preferred."
 msgstr ""
-"Como se ve en [Rust RFC Book](https://rust-lang.github.io/rfcs/0246-const-vs-"
-"static.html), esto no está en línea del uso y puede estar asociado a una "
-"locación de memoria. Es útil para código no seguro o embebido, y las "
-"variables viven enteramente dentro de la ejecución del programa."
+"Tal y como se indica en el libro [Rust RFC Book](https://rust-lang.github.io/"
+"rfcs/0246-const-vs-static.html), no están insertadas y tienen una ubicación "
+"de memoria real asociada.  Esto resulta útil para código insertado y no "
+"seguro. Además, la variable continúa durante toda la ejecución del programa. "
+"Cuando un valor de ámbito global no tiene ningún motivo para necesitar "
+"identidad de objeto, se suele preferir `const`."
 
 #: src/basic-syntax/static-and-const.md:49
 msgid ""
@@ -4565,112 +4601,118 @@ msgid ""
 "access to them requires `unsafe` code. We will look at [mutable statics](../"
 "unsafe/mutable-static-variables.md) in the chapter on Unsafe Rust."
 msgstr ""
+"Dado que se puede acceder a las variables `static` desde cualquier hilo, es "
+"necesario protegerlas, por ejemplo, mediante un comando [`Mutex`](https://"
+"doc.rust-lang.org/std/sync/struct.Mutex.html), o que sean accesibles usando "
+"código `unsafe`. Veremos la [mutación de datos estáticos](../unsafe/mutable-"
+"static-variables.md) en el capítulo sobre Rust inseguro."
 
 #: src/basic-syntax/static-and-const.md:57
 msgid "Mention that `const` behaves semantically similar to C++'s `constexpr`."
 msgstr ""
-"Aclaremos que `const` semánticamente se comporta similar a `constexpr` de C+"
-"+."
+"Menciona que `const` se comporta semánticamente de forma similar a "
+"`constexpr` de C++."
 
 #: src/basic-syntax/static-and-const.md:58
 msgid ""
 "`static`, on the other hand, is much more similar to a `const` or mutable "
 "global variable in C++."
 msgstr ""
-"`static`, por lo contrario, es mucho más similar a `const` o una variable "
-"mutable global de C++."
+"Por su parte, `static` se parece mucho más a `const` o a una variable global "
+"mutable de C++."
 
 #: src/basic-syntax/static-and-const.md:59
 msgid ""
 "`static` provides object identity: an address in memory and state as "
 "required by types with interior mutability such as `Mutex<T>`."
 msgstr ""
+"`static` proporciona la identidad del objeto: una dirección en la memoria y "
+"en el estado que requieren los tipos con mutabilidad interior, como "
+"`Mutex<T>`."
 
 #: src/basic-syntax/static-and-const.md:60
 msgid ""
 "It isn't super common that one would need a runtime evaluated constant, but "
 "it is helpful and safer than using a static."
 msgstr ""
-"No es muy común que necesitemos evaluar contantes en runtime, pero ayuda y "
-"es más seguro que usando un _static_."
+"No es muy habitual que se necesite una constante evaluada en _runtime_, pero "
+"es útil y más seguro que usar una estática."
 
 #: src/basic-syntax/static-and-const.md:61
 msgid "`thread_local` data can be created with the macro `std::thread_local`."
 msgstr ""
+"Datos del `thread_local` se pueden crear con la macro `std::thread_local`."
 
 #: src/basic-syntax/static-and-const.md:63
 msgid "Properties table:"
-msgstr ""
+msgstr "Tabla de propiedades:"
 
 #: src/basic-syntax/static-and-const.md:65
 msgid "Property"
-msgstr ""
+msgstr "Propiedad"
 
 #: src/basic-syntax/static-and-const.md:65
 msgid "Static"
-msgstr ""
+msgstr "Estático"
 
 #: src/basic-syntax/static-and-const.md:65
 msgid "Constant"
-msgstr ""
+msgstr "Constante"
 
 #: src/basic-syntax/static-and-const.md:67
 msgid "Has an address in memory"
-msgstr ""
+msgstr "Tiene una dirección en la memoria"
 
 #: src/basic-syntax/static-and-const.md:67
 #: src/basic-syntax/static-and-const.md:68
 #: src/basic-syntax/static-and-const.md:70
 #: src/basic-syntax/static-and-const.md:71
 msgid "Yes"
-msgstr ""
+msgstr "Sí"
 
 #: src/basic-syntax/static-and-const.md:67
 msgid "No (inlined)"
-msgstr ""
+msgstr "No (insertado)"
 
 #: src/basic-syntax/static-and-const.md:68
-#, fuzzy
 msgid "Lives for the entire duration of the program"
-msgstr "La función `main` que es el punto de entrada al programa."
+msgstr "Vive durante toda la ejecución del programa"
 
 #: src/basic-syntax/static-and-const.md:68
 #: src/basic-syntax/static-and-const.md:69
 #: src/basic-syntax/static-and-const.md:71
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: src/basic-syntax/static-and-const.md:69
 msgid "Can be mutable"
-msgstr ""
+msgstr "Puede ser mutable"
 
 #: src/basic-syntax/static-and-const.md:69
 msgid "Yes (unsafe)"
-msgstr ""
+msgstr "Sí (inseguro)"
 
 #: src/basic-syntax/static-and-const.md:70
-#, fuzzy
 msgid "Evaluated at compile time"
-msgstr "Los valores son de tamaño fijo conocidos en tiempo de compilación."
+msgstr "Evaluado en tiempo de compilación"
 
 #: src/basic-syntax/static-and-const.md:70
 msgid "Yes (initialised at compile time)"
-msgstr ""
+msgstr "Sí (inicializado en tiempo de compilación)"
 
 #: src/basic-syntax/static-and-const.md:71
 msgid "Inlined wherever it is used"
-msgstr ""
+msgstr "Insertado dondequiera que se utilice"
 
 #: src/basic-syntax/scopes-shadowing.md:3
 msgid ""
 "You can shadow variables, both those from outer scopes and variables from "
 "the same scope:"
 msgstr ""
-"Puedes hacer seguimiento de variables, esto se puede hacer para variables "
-"dentro y fuera del scope actual:"
+"Puedes sombrear variables, tanto las de ámbitos externos "
+"como las del propio ámbito:"
 
 #: src/basic-syntax/scopes-shadowing.md:6
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "fn main() {\n"
@@ -4689,41 +4731,29 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-"```rust,editable\n"
-"fn main() {\n"
-"    let array = [10, 20, 30];\n"
-"    print!(\"Iterando sobre el array:\");\n"
-"    for n in array {\n"
-"        print!(\" {n}\");\n"
-"    }\n"
-"    println!();\n"
-"```"
 
 #: src/basic-syntax/scopes-shadowing.md:25
-#, fuzzy
 msgid ""
 "Definition: Shadowing is different from mutation, because after shadowing "
 "both variable's memory locations exist at the same time. Both are available "
 "under the same name, depending where you use it in the code. "
 msgstr ""
-"Definición: Shadowing es diferente de mutación, porque luego de shadowing "
-"ambos espacio de memorias de las variables existen al mismo tiempo. Ambas "
-"están disponibles bajo el mismo nombre, dependiendo donde uses el código."
+"Definición: _Shadowing_ (sombreado) es distinto de la mutación, ya que, "
+"después de sombrear la memoria de las dos variables, las ubicaciones existen "
+"al mismo tiempo. Ambas están disponibles bajo el mismo nombre, en función de "
+"dónde se utiliza en el código. "
 
 #: src/basic-syntax/scopes-shadowing.md:26
-#, fuzzy
 msgid "A shadowing variable can have a different type. "
-msgstr "Un shadowing de variable puede tener un tipo diferente."
+msgstr "Una variable sombreada puede tener un tipo diferente. "
 
 #: src/basic-syntax/scopes-shadowing.md:27
-#, fuzzy
 msgid ""
 "Shadowing looks obscure at first, but is convenient for holding on to values "
 "after `.unwrap()`."
 msgstr ""
-"El siguiente código demuestra por qué el compilador no puede simplemente "
-"reutilizar las locaciones de memoria mientras hacemos shadowing a una "
-"variable inmutable en un cope, incluso si el tipo no cambia."
+"Al principio, el sombreado no es fácil, pero resulta útil para conservar "
+"valores después de `.unwrap()`."
 
 #: src/basic-syntax/scopes-shadowing.md:28
 msgid ""
@@ -4731,6 +4761,9 @@ msgid ""
 "locations when shadowing an immutable variable in a scope, even if the type "
 "does not change."
 msgstr ""
+"El siguiente fragmento de código demuestra por qué el compilador no puede "
+"reutilizar ubicaciones de memoria cuando sombrea una variable inmutable en "
+"un ámbito, incluso si el tipo no cambia."
 
 #: src/basic-syntax/scopes-shadowing.md:30
 msgid ""
@@ -4749,6 +4782,7 @@ msgid ""
 "The `enum` keyword allows the creation of a type which has a few different "
 "variants:"
 msgstr ""
+"La palabra clave `enum` permite crear un tipo que tiene diferentes variantes:"
 
 #: src/enums.md:6
 msgid ""
@@ -4778,30 +4812,63 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn generate_random_number() -> i32 {\n"
+"    // Implementation based on https://xkcd.com/221/\n"
+"    4  // Chosen by fair dice roll. Guaranteed to be random.\n"
+"}\n"
+"\n"
+"#[derive(Debug)]\n"
+"enum CoinFlip {\n"
+"    Heads,\n"
+"    Tails,\n"
+"}\n"
+"\n"
+"fn flip_coin() -> CoinFlip {\n"
+"    let random_number = generate_random_number();\n"
+"    if random_number % 2 == 0 {\n"
+"        return CoinFlip::Heads;\n"
+"    } else {\n"
+"        return CoinFlip::Tails;\n"
+"    }\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    println!(\"You got: {:?}\", flip_coin());\n"
+"}\n"
+"```"
 
 #: src/enums.md:36
 msgid "Enumerations allow you to collect a set of values under one type"
 msgstr ""
+"Las enumeraciones te permiten recoger un conjunto de valores en un solo tipo."
 
 #: src/enums.md:37
 msgid ""
 "This page offers an enum type `CoinFlip` with two variants `Heads` and "
 "`Tails`. You might note the namespace when using variants."
 msgstr ""
+"En esta página se ofrece el tipo de enumeración `CoinFlip` (tirar moneda) "
+"con dos variantes: `Heads` (cara) y `Tails` (cruz). Puede que veas el "
+"espacio de nombres cuando utilices variantes."
 
 #: src/enums.md:38
 msgid "This might be a good time to compare Structs and Enums:"
 msgstr ""
+"Este es un buen momento para comparar las estructuras y las enumeraciones:"
 
 #: src/enums.md:39
 msgid ""
 "In both, you can have a simple version without fields (unit struct) or one "
 "with different types of fields (variant payloads). "
 msgstr ""
+"En ambas puedes tener una versión sencilla sin campos (estructura unitaria) "
+"o una versión con distintos tipos de campos (variantes con carga útil). "
 
 #: src/enums.md:40
 msgid "In both, associated functions are defined within an `impl` block."
 msgstr ""
+"En ambos casos, las funciones asociadas se definen en un bloque `impl`."
 
 #: src/enums.md:41
 msgid ""
@@ -4809,12 +4876,18 @@ msgid ""
 "structs but then they wouldn’t be the same type as they would if they were "
 "all defined in an enum. "
 msgstr ""
+"Incluso podrías implementar las distintas variantes de una enumeración con "
+"estructuras diferentes, pero entonces no serían del mismo tipo como lo "
+"serían si estuvieran todas definidas en una enumeración. "
 
 #: src/enums/variant-payloads.md:3
 msgid ""
 "You can define richer enums where the variants carry data. You can then use "
 "the `match` statement to extract the data from each variant:"
 msgstr ""
+"Puedes definir enumeraciones más completas en las que las variantes "
+"contienen datos. Después, puedes usar la instrucción `match` para extraer "
+"los datos de cada variante:"
 
 #: src/enums/variant-payloads.md:6
 msgid ""
@@ -4852,46 +4925,62 @@ msgid ""
 "matched. The pattern binds references to the fields in the \"match arm\" "
 "after the `=>`."
 msgstr ""
+"Solo se puede acceder a los valores de las variantes de enumeración una vez "
+"que coincidan con el patrón. El patrón vincula referencias a los campos del "
+"\"brazo de coincidencias\" después de `=>`."
 
 #: src/enums/variant-payloads.md:36
 msgid ""
 "The expression is matched against the patterns from top to bottom. There is "
 "no fall-through like in C or C++."
 msgstr ""
+"La expresión se coteja con los patrones de arriba abajo. No hay ningún "
+"sistema de respaldo, como en C o C++."
 
 #: src/enums/variant-payloads.md:37
 msgid ""
 "The match expression has a value. The value is the last expression in the "
 "match arm which was executed."
 msgstr ""
+"La expresión de coincidencia tiene un valor. El valor es la última expresión "
+"en el brazo de coincidencia que se ha ejecutado."
 
 #: src/enums/variant-payloads.md:38
 msgid ""
 "Starting from the top we look for what pattern matches the value then run "
 "the code following the arrow. Once we find a match, we stop. "
 msgstr ""
+"Empezando por la parte superior, buscaremos el patrón que coincide con el "
+"valor y, a continuación, ejecutaremos el fragmento de código que sigue a la "
+"flecha. Cuando encontremos una coincidencia, pararemos. "
 
 #: src/enums/variant-payloads.md:39
 msgid ""
 "Demonstrate what happens when the search is inexhaustive. Note the advantage "
 "the Rust compiler provides by confirming when all cases are handled. "
 msgstr ""
+"Demuestra lo que pasa cuando la búsqueda no es exhaustiva. Ten en cuenta la "
+"ventaja que ofrece el compilador de Rust al confirmar cuándo se gestionan "
+"todos los casos. "
 
 #: src/enums/variant-payloads.md:40
 msgid "`match` inspects a hidden discriminant field in the `enum`."
-msgstr ""
+msgstr "`match` inspecciona un campo discriminante oculto en `enum`."
 
 #: src/enums/variant-payloads.md:41
 msgid ""
 "It is possible to retrieve the discriminant by calling `std::mem::"
 "discriminant()`"
 msgstr ""
+"Se puede obtener el discriminante llamando a `std::mem::discriminant()`."
 
 #: src/enums/variant-payloads.md:42
 msgid ""
 "This is useful, for example, if implementing `PartialEq` for structs where "
 "comparing field values doesn't affect equality."
 msgstr ""
+"Esto resulta útil si, por ejemplo, se implementa `PartialEq` en estructuras "
+"en las que la comparación de valores de campos no afecta a la igualdad."
 
 #: src/enums/variant-payloads.md:43
 msgid ""
@@ -4899,12 +4988,17 @@ msgid ""
 "Click(Click)` with a top level `struct Click { ... }`. The inlined version "
 "cannot implement traits, for example."
 msgstr ""
+"`WebEvent::Click { ... }` no es exactamente lo mismo que `WebEvent::"
+"Click(Click)` con un nivel superior `struct Click { ... }`. La versión "
+"insertada no puede implementar traits, por ejemplo."
 
 #: src/enums/sizes.md:3
 msgid ""
 "Rust enums are packed tightly, taking constraints due to alignment into "
 "account:"
 msgstr ""
+"Las enumeraciones de Rust son densamente empaquetadas, ya que tienen en "
+"cuenta las restricciones debidas a la alineación:"
 
 #: src/enums/sizes.md:5
 msgid ""
@@ -4933,17 +5027,23 @@ msgid ""
 "See the [Rust Reference](https://doc.rust-lang.org/reference/type-layout."
 "html)."
 msgstr ""
+"Consulta el libro [Rust Reference](https://doc.rust-lang.org/reference/type-"
+"layout.html)."
 
 #: src/enums/sizes.md:30
 msgid ""
 "Internally Rust is using a field (discriminant) to keep track of the enum "
 "variant."
 msgstr ""
+"Rust utiliza un campo (discriminante) de forma interna para hacer un "
+"seguimiento de la variante de enumeración."
 
 #: src/enums/sizes.md:32
 msgid ""
 "You can control the discriminant if needed (e.g., for compatibility with C):"
 msgstr ""
+"Puedes controlar el discriminante si es necesario (por ejemplo, para "
+"asegurar la compatibilidad con C):"
 
 #: src/enums/sizes.md:34
 msgid ""
@@ -4968,36 +5068,46 @@ msgid ""
 "Without `repr`, the discriminant type takes 2 bytes, because 10001 fits 2 "
 "bytes."
 msgstr ""
+"Sin `repr`, el tipo discriminante ocupa 2 bytes, debido a que 10001 se cabe "
+"en 2 bytes."
 
 #: src/enums/sizes.md:53
 msgid "Try out other types such as"
-msgstr ""
+msgstr "Prueba otros tipos, como"
 
 #: src/enums/sizes.md:55
 msgid "`dbg_size!(bool)`: size 1 bytes, align: 1 bytes,"
-msgstr ""
+msgstr "`dbg_size!(bool)`: tamaño de 1 byte, alineación de 1 byte,"
 
 #: src/enums/sizes.md:56
 msgid ""
 "`dbg_size!(Option<bool>)`: size 1 bytes, align: 1 bytes (niche optimization, "
 "see below),"
 msgstr ""
+"`dbg_size!(Option<bool>)`: tamaño de 1 byte, alineación de 1 byte "
+"(optimización de nichos, consulta más abajo),"
 
 #: src/enums/sizes.md:57
 msgid "`dbg_size!(&i32)`: size 8 bytes, align: 8 bytes (on a 64-bit machine),"
 msgstr ""
+"`dbg_size!(&i32)`: tamaño de 8 bytes, alineación de 8 bytes (en una máquina "
+"de 64 bits),"
 
 #: src/enums/sizes.md:58
 msgid ""
 "`dbg_size!(Option<&i32>)`: size 8 bytes, align: 8 bytes (null pointer "
 "optimization, see below)."
 msgstr ""
+"`dbg_size!(Option<&i32>)`: tamaño de 8 bytes, alineación de 8 bytes "
+"(optimización del puntero nulo, consulta más abajo)."
 
 #: src/enums/sizes.md:60
 msgid ""
 "Niche optimization: Rust will merge unused bit patterns for the enum "
 "discriminant."
 msgstr ""
+"Optimización de nichos: Rust combina los patrones de bits no utilizados para "
+"el discriminante de enumeración."
 
 #: src/enums/sizes.md:63
 msgid ""
@@ -5005,6 +5115,9 @@ msgid ""
 "option/#representation), Rust guarantees that `size_of::<T>()` equals "
 "`size_of::<Option<T>>()`."
 msgstr ""
+"Optimización de puntero nulo: para [algunos tipos](https://doc.rust-lang.org/"
+"std/option/#representation), Rust asegura que `size_of::<T>()` es igual a "
+"`size_of::<Option<T> >()`."
 
 #: src/enums/sizes.md:67
 msgid ""
@@ -5012,6 +5125,10 @@ msgid ""
 "like in practice. It's important to note that the compiler provides no "
 "guarantees regarding this representation, therefore this is totally unsafe."
 msgstr ""
+"Fragmento de código de ejemplo si quieres mostrar cómo puede ser la "
+"representación bit a bit en la práctica. Es importante tener en cuenta que "
+"el compilador no ofrece garantías con respecto a esta representación, por lo "
+"tanto es totalmente inseguro. "
 
 #: src/enums/sizes.md:70
 msgid ""
@@ -5057,6 +5174,8 @@ msgid ""
 "More complex example if you want to discuss what happens when we chain more "
 "than 256 `Option`s together."
 msgstr ""
+"Ejemplo más complejo si quieres hablar de lo que pasa cuando encadenamos más "
+"de 256 `Option`."
 
 #: src/enums/sizes.md:107
 msgid ""
@@ -5116,18 +5235,20 @@ msgid ""
 "Rust has a few control flow constructs which differ from other languages. "
 "They are used for pattern matching:"
 msgstr ""
+"Rust tiene algunas construcciones de control de flujo que difieren de otros "
+"lenguajes. Se utilizan para el patrón de coincidencia:"
 
 #: src/control-flow/novel.md:6 src/control-flow/if-let-expressions.md:1
 msgid "`if let` expressions"
-msgstr ""
+msgstr "Expresiones `if let`"
 
 #: src/control-flow/novel.md:7
 msgid "`while let` expressions"
-msgstr ""
+msgstr "Expresiones `while let`"
 
 #: src/control-flow/novel.md:8 src/control-flow/match-expressions.md:1
 msgid "`match` expressions"
-msgstr ""
+msgstr "Expresiones `match`"
 
 #: src/control-flow/if-let-expressions.md:3
 msgid ""
@@ -5135,6 +5256,9 @@ msgid ""
 "expr.html#if-let-expressions) lets you execute different code depending on "
 "whether a value matches a pattern:"
 msgstr ""
+"La [expresión `if let`][(https://doc.rust-lang.org/reference/expressions/if-"
+"expr.html#if-let-expressions) te permite ejecutar código diferente en "
+"función de si un valor coincide con un patrón:"
 
 #: src/control-flow/if-let-expressions.md:7
 msgid ""
@@ -5157,21 +5281,29 @@ msgid ""
 "See [pattern matching](../pattern-matching.md) for more details on patterns "
 "in Rust."
 msgstr ""
+"Consulta de nuevo la sección de [coincidencia de patrones](../pattern-"
+"matching.md) para obtener más información sobre los patrones de Rust."
 
 #: src/control-flow/if-let-expressions.md:23
 msgid ""
 "Unlike `match`, `if let` does not have to cover all branches. This can make "
 "it more concise than `match`."
 msgstr ""
+"A diferencia de `match`, `if let` no tiene que cubrir todas las ramas, "
+"pudiendo así conseguir que sea más conciso que `match`."
 
 #: src/control-flow/if-let-expressions.md:24
 msgid "A common usage is handling `Some` values when working with `Option`."
 msgstr ""
+"Un uso habitual consiste en gestionar valores `Some` al trabajar con "
+"`Option`."
 
 #: src/control-flow/if-let-expressions.md:25
 msgid ""
 "Unlike `match`, `if let` does not support guard clauses for pattern matching."
 msgstr ""
+"A diferencia de `match`, `if let` no admite cláusulas guardia para la "
+"coincidencia de patrones."
 
 #: src/control-flow/if-let-expressions.md:26
 msgid ""
@@ -5180,6 +5312,11 @@ msgid ""
 "assignment, or if it fails, execute a block which is required to abort "
 "normal control flow (with `panic`/`return`/`break`/`continue`):"
 msgstr ""
+"A partir de la versión 1.65, una construcción [let-else](https://doc.rust-"
+"lang.org/rust-by-example/flow_control/let_else.html) similar permite "
+"realizar una tarea de desestructuración o, si falla, ejecutar un bloque "
+"necesario para anular el flujo de control normal (con `panic`/`return`/"
+"`break`/`continue`)::"
 
 #: src/control-flow/if-let-expressions.md:28
 msgid ""
@@ -5200,9 +5337,8 @@ msgid ""
 msgstr ""
 
 #: src/control-flow/while-let-expressions.md:1
-#, fuzzy
 msgid "`while let` loops"
-msgstr "expresiones while let"
+msgstr "Bucles `while let`"
 
 #: src/control-flow/while-let-expressions.md:3
 msgid ""
@@ -5210,9 +5346,11 @@ msgid ""
 "reference/expressions/loop-expr.html#predicate-pattern-loops) variant which "
 "repeatedly tests a value against a pattern:"
 msgstr ""
+"Al igual que con `if let`, hay una variante [`while let`](https://doc.rust-"
+"lang.org/reference/expressions/loop-expr.html#predicate-pattern-loops) que "
+"prueba repetidamente un valor con respecto a un patrón:"
 
 #: src/control-flow/while-let-expressions.md:6
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "fn main() {\n"
@@ -5225,15 +5363,6 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-"```rust,editable\n"
-"fn main() {\n"
-"    let array = [10, 20, 30];\n"
-"    print!(\"Iterando sobre el array:\");\n"
-"    for n in array {\n"
-"        print!(\" {n}\");\n"
-"    }\n"
-"    println!();\n"
-"```"
 
 #: src/control-flow/while-let-expressions.md:17
 msgid ""
@@ -5242,12 +5371,18 @@ msgid ""
 "it will return `None`. The `while let` lets us keep iterating through all "
 "items."
 msgstr ""
+"Aquí, el iterador devuelto por `v.into_iter()` devolverá `Option<i32>` en "
+"cada llamada a `next()`. Devuelve `Some(x)` hasta que finaliza y, a "
+"continuación, devuelve `None`. `while let` nos permite seguir iterando a "
+"través de todos los elementos."
 
 #: src/control-flow/while-let-expressions.md:26
 msgid ""
 "Point out that the `while let` loop will keep going as long as the value "
 "matches the pattern."
 msgstr ""
+"Señala que el bucle `while let` seguirá funcionando siempre que el valor "
+"coincida con el patrón."
 
 #: src/control-flow/while-let-expressions.md:27
 msgid ""
@@ -5255,6 +5390,10 @@ msgid ""
 "statement that breaks when there is no value to unwrap for `iter.next()`. "
 "The `while let` provides syntactic sugar for the above scenario."
 msgstr ""
+"Puedes reescribir el bucle `while let` como un ciclo infinito con una "
+"instrucción if que deje de funcionar si `iter.next()` no tienen ningún valor "
+"que desenvolver. `while let` proporciona azúcar sintáctico en la situación "
+"anterior."
 
 #: src/control-flow/match-expressions.md:3
 msgid ""
@@ -5262,6 +5401,10 @@ msgid ""
 "expr.html) is used to match a value against one or more patterns. In that "
 "sense, it works like a series of `if let` expressions:"
 msgstr ""
+"La \\[palabra clave `match`\\][`match` keyword](https://doc.rust-lang.org/"
+"reference/expressions/match-expr.html) se usa para comparar un valor con uno "
+"o varios patrones. En ese sentido, funciona como una serie de expresiones "
+"`if let`:"
 
 #: src/control-flow/match-expressions.md:7
 msgid ""
@@ -5284,41 +5427,55 @@ msgid ""
 "Like `if let`, each match arm must have the same type. The type is the last "
 "expression of the block, if any. In the example above, the type is `()`."
 msgstr ""
+"Al igual que con `if let`, cada brazo de coincidencia debe ser del mismo "
+"tipo. El tipo es la última expresión del bloque, si la hay. En el ejemplo "
+"anterior, el tipo es `()`."
 
 #: src/control-flow/match-expressions.md:28
 msgid "Save the match expression to a variable and print it out."
-msgstr ""
+msgstr "Guarda la expresión de coincidencia en una variable e imprímela."
 
 #: src/control-flow/match-expressions.md:29
 msgid "Remove `.as_deref()` and explain the error."
-msgstr ""
+msgstr "Elimina `.as_deref()` y explica el error."
 
 #: src/control-flow/match-expressions.md:30
 msgid ""
 "`std::env::args().next()` returns an `Option<String>`, but we cannot match "
 "against `String`."
 msgstr ""
+"`std::env::args().next()` devuelve `Option<String>`, pero no podemos "
+"encontrar coincidencias con `String`."
 
 #: src/control-flow/match-expressions.md:31
 msgid ""
 "`as_deref()` transforms an `Option<T>` to `Option<&T::Target>`. In our case, "
 "this turns `Option<String>` into `Option<&str>`."
 msgstr ""
+"`as_deref()` transforma `Option<T>` en `Option<&T::Target>`. En nuestro "
+"caso, esto convierte `Option<String>` en `Option<&str>`."
 
 #: src/control-flow/match-expressions.md:32
 msgid ""
 "We can now use pattern matching to match against the `&str` inside `Option`."
 msgstr ""
+"Ahora podemos usar la coincidencia de patrones para encontrar coincidencias "
+"con `&str` dentro de `Option`."
 
 #: src/pattern-matching.md:3
 msgid ""
 "The `match` keyword let you match a value against one or more _patterns_. "
 "The comparisons are done from top to bottom and the first match wins."
 msgstr ""
+"La palabra clave `match` te permite comparar un valor con uno o varios "
+"_patrones_. Las comparaciones se hacen de arriba abajo y el primero que "
+"coincida gana."
 
 #: src/pattern-matching.md:6
 msgid "The patterns can be simple values, similarly to `switch` in C and C++:"
 msgstr ""
+"Los patrones pueden ser valores simples, del mismo modo que `switch` en C y "
+"C++:"
 
 #: src/pattern-matching.md:8
 msgid ""
@@ -5338,45 +5495,50 @@ msgstr ""
 
 #: src/pattern-matching.md:21
 msgid "The `_` pattern is a wildcard pattern which matches any value."
-msgstr ""
+msgstr "`_` es un patrón comodín que coincide con cualquier valor."
 
 #: src/pattern-matching.md:26
 msgid ""
 "You might point out how some specific characters are being used when in a "
 "pattern"
-msgstr ""
+msgstr "Puedes señalar cómo se usan algunos caracteres concretos en un patrón"
 
 #: src/pattern-matching.md:27
 msgid "`|` as an `or`"
-msgstr ""
+msgstr "`|` como `or`,"
 
 #: src/pattern-matching.md:28
 msgid "`..` can expand as much as it needs to be"
-msgstr ""
+msgstr "`..` se puede ampliar tanto como sea necesario."
 
 #: src/pattern-matching.md:29
 msgid "`1..=5` represents an inclusive range"
-msgstr ""
+msgstr "`1..=5` representa un intervalo inclusivo."
 
 #: src/pattern-matching.md:30
 msgid "`_` is a wild card"
-msgstr ""
+msgstr "`_` es un comodín."
 
 #: src/pattern-matching.md:31
 msgid ""
 "It can be useful to show how binding works, by for instance replacing a "
 "wildcard character with a variable, or removing the quotes around `q`."
 msgstr ""
+"Puede ser útil para mostrar cómo funciona un enlace, por ejemplo, cambiando "
+"un carácter comodín por una variable o quitando las comillas alrededor de "
+"`q`. "
 
 #: src/pattern-matching.md:32
 msgid "You can demonstrate matching on a reference."
-msgstr ""
+msgstr "Puedes mostrar la coincidencia con una referencia."
 
 #: src/pattern-matching.md:33
 msgid ""
 "This might be a good time to bring up the concept of irrefutable patterns, "
 "as the term can show up in error messages."
 msgstr ""
+"Este puede ser un buen momento para mencionar el concepto de patrones "
+"irrefutables, ya que el término puede aparecer en mensajes de error."
 
 #: src/pattern-matching/destructuring-enums.md:3
 msgid ""
@@ -5384,6 +5546,9 @@ msgid ""
 "how you inspect the structure of your types. Let us start with a simple "
 "`enum` type:"
 msgstr ""
+"Los patrones también se pueden usar para enlazar variables a partes de los "
+"valores. Así es como se inspecciona la estructura de tus tipos. Empecemos "
+"con un tipo `enum` sencillo:"
 
 #: src/pattern-matching/destructuring-enums.md:6
 msgid ""
@@ -5417,12 +5582,17 @@ msgid ""
 "arm, `half` is bound to the value inside the `Ok` variant. In the second "
 "arm, `msg` is bound to the error message."
 msgstr ""
+"Aquí hemos utilizado los brazos para _desestructurar_ el valor de `Result`. "
+"En el primer brazo, `half` está vinculado al valor que hay dentro de la "
+"variante `Ok`. En el segundo, `msg` está vinculado al mensaje de error."
 
 #: src/pattern-matching/destructuring-enums.md:36
 msgid ""
 "The `if`/`else` expression is returning an enum that is later unpacked with "
 "a `match`."
 msgstr ""
+"La expresión `if`/`else` devuelve una enumeración que más tarde se "
+"descomprime con `match`."
 
 #: src/pattern-matching/destructuring-enums.md:37
 msgid ""
@@ -5430,10 +5600,14 @@ msgid ""
 "errors when running the code. Point out the places where your code is now "
 "inexhaustive and how the compiler tries to give you hints."
 msgstr ""
+"Puedes probar a añadir una tercera variante a la definición de la "
+"enumeración y mostrar los errores al ejecutar el código. Señala los lugares "
+"en los que tu código está ahora incompleto y explica cómo el compilador "
+"intenta dar sugerencias."
 
 #: src/pattern-matching/destructuring-structs.md:3
 msgid "You can also destructure `structs`:"
-msgstr ""
+msgstr "También puedes desestructurar `structs`:"
 
 #: src/pattern-matching/destructuring-structs.md:5
 msgid ""
@@ -5459,10 +5633,13 @@ msgstr ""
 #: src/pattern-matching/destructuring-structs.md:23
 msgid "Change the literal values in `foo` to match with the other patterns."
 msgstr ""
+"Cambia los valores literales de `foo` para que coincidan con los demás "
+"patrones."
 
 #: src/pattern-matching/destructuring-structs.md:24
 msgid "Add a new field to `Foo` and make changes to the pattern as needed."
 msgstr ""
+"Añade un campo nuevo a `Foo` y realiza los cambios necesarios en el patrón."
 
 #: src/pattern-matching/destructuring-structs.md:25
 msgid ""
@@ -5470,11 +5647,16 @@ msgid ""
 "spot. Try changing the `2` in the second arm to a variable, and see that it "
 "subtly doesn't work. Change it to a `const` and see it working again."
 msgstr ""
+"La diferencia entre una captura y una expresión constante puede ser difícil "
+"de detectar. Prueba a cambiar el `2` del segundo brazo por una variable y "
+"observa que no funciona. Cámbialo a `const` y verás que vuelve a funcionar."
 
 #: src/pattern-matching/destructuring-arrays.md:3
 msgid ""
 "You can destructure arrays, tuples, and slices by matching on their elements:"
 msgstr ""
+"Puedes desestructurar arrays, tuplas y slices haciendo coincidir sus "
+"elementos:"
 
 #: src/pattern-matching/destructuring-arrays.md:5
 msgid ""
@@ -5497,6 +5679,8 @@ msgid ""
 "Destructuring of slices of unknown length also works with patterns of fixed "
 "length."
 msgstr ""
+"La desestructuración de slices de longitud desconocida también funciona con "
+"patrones de longitud fija."
 
 #: src/pattern-matching/destructuring-arrays.md:24
 msgid ""
@@ -5520,27 +5704,33 @@ msgstr ""
 
 #: src/pattern-matching/destructuring-arrays.md:41
 msgid "Create a new pattern using `_` to represent an element. "
-msgstr ""
+msgstr "Crea un patrón con `_` para representar un elemento. "
 
 #: src/pattern-matching/destructuring-arrays.md:42
 msgid "Add more values to the array."
-msgstr ""
+msgstr "Añade más valores al array."
 
 #: src/pattern-matching/destructuring-arrays.md:43
 msgid ""
 "Point out that how `..` will expand to account for different number of "
 "elements."
 msgstr ""
+"Señala cómo `..` se expandirá para representar un número distinto de "
+"elementos."
 
 #: src/pattern-matching/destructuring-arrays.md:44
 msgid "Show matching against the tail with patterns `[.., b]` and `[a@..,b]`"
 msgstr ""
+"Muestra las coincidencias de tail con los patrones `[.., b]` y `[a@..,b]`."
 
 #: src/pattern-matching/match-guards.md:3
 msgid ""
 "When matching, you can add a _guard_ to a pattern. This is an arbitrary "
 "Boolean expression which will be executed if the pattern matches:"
 msgstr ""
+"Al establecer coincidencias, puedes añadir un _guardia_ a un patrón. Se "
+"trata de una expresión booleana arbitraria que se ejecutará si el patrón "
+"coincide:"
 
 #: src/pattern-matching/match-guards.md:6
 msgid ""
@@ -5565,6 +5755,9 @@ msgid ""
 "we wish to concisely express more complex ideas than patterns alone would "
 "allow."
 msgstr ""
+"Las guardas de coincidencia, como característica sintáctica independiente, "
+"son importantes y necesarios cuando queremos expresar de forma concisa ideas "
+"más complejas de lo que permitirían los patrones por sí solos."
 
 #: src/pattern-matching/match-guards.md:24
 msgid ""
@@ -5573,16 +5766,23 @@ msgid ""
 "match arm is selected. Failing the `if` condition inside of that block won't "
 "result in other arms of the original `match` expression being considered."
 msgstr ""
+"No son lo mismo que una expresión `if` independiente dentro del brazo de "
+"coincidencias. Una expresión `if` dentro del bloque de ramas (después de "
+"`=>`) se produce tras seleccionar el brazo de coincidencias. Si no se cumple "
+"la condición `if` dentro de ese bloque, no se tienen en cuenta otros brazos "
+"de la expresión `match` original."
 
 #: src/pattern-matching/match-guards.md:26
 msgid "You can use the variables defined in the pattern in your if expression."
-msgstr ""
+msgstr "Puedes usar las variables definidas en el patrón en tu expresión if."
 
 #: src/pattern-matching/match-guards.md:27
 msgid ""
 "The condition defined in the guard applies to every expression in a pattern "
 "with an `|`."
 msgstr ""
+"La condición definida en el guarda se aplica a todas las expresiones de un "
+"patrón con un `|`."
 
 #: src/exercises/day-1/afternoon.md:1
 msgid "Day 1: Afternoon Exercises"
@@ -5593,24 +5793,22 @@ msgid "We will look at two things:"
 msgstr "Veremos todas estas cosas:"
 
 #: src/exercises/day-1/afternoon.md:5
-#, fuzzy
 msgid "The Luhn algorithm,"
 msgstr "Algoritmo de Luhn"
 
 #: src/exercises/day-1/afternoon.md:7
-#, fuzzy
 msgid "An exercise on pattern matching."
-msgstr "Enums y pattern matching."
+msgstr "Un ejercicio sobre coincidencia de patrones."
 
 #: src/exercises/day-1/afternoon.md:11 src/exercises/day-2/afternoon.md:7
 #: src/exercises/bare-metal/afternoon.md:7
 #: src/exercises/concurrency/afternoon.md:13
-#, fuzzy
 msgid ""
 "After looking at the exercises, you can look at the [solutions](solutions-"
 "afternoon.md) provided."
 msgstr ""
-"Luego de ver los ejercicios, puedes ver las \\[soluciones\\] que se brindan."
+"Luego de ver los ejercicios, puedes ver las [soluciones](solutions-afternoon."
+"md) que se brindan."
 
 #: src/exercises/day-1/luhn.md:3
 msgid ""
@@ -5618,45 +5816,58 @@ msgid ""
 "to validate credit card numbers. The algorithm takes a string as input and "
 "does the following to validate the credit card number:"
 msgstr ""
+"El [algoritmo de Luhn](https://es.wikipedia.org/wiki/Luhn_algorithm) se usa "
+"para validar números de tarjetas de crédito. El algoritmo toma una cadena "
+"como entrada y hace lo siguiente para validar el número de la tarjeta de "
+"crédito:"
 
 #: src/exercises/day-1/luhn.md:7
 msgid "Ignore all spaces. Reject number with less than two digits."
 msgstr ""
+"Ignora todos los espacios. Rechaza los números con menos de dos dígitos."
 
 #: src/exercises/day-1/luhn.md:9
 msgid ""
 "Moving from **right to left**, double every second digit: for the number "
 "`1234`, we double `3` and `1`. For the number `98765`, we double `6` and `8`."
 msgstr ""
+"De derecha a izquierda, duplica cada dos cifras: en el caso del número "
+"`1234`, se duplica el `3` y el `1`. En el caso del número `98765`, se "
+"duplica el `6` y el `8`."
 
 #: src/exercises/day-1/luhn.md:12
 msgid ""
 "After doubling a digit, sum the digits. So doubling `7` becomes `14` which "
 "becomes `5`."
 msgstr ""
+"Después de duplicar un dígito, se suman los dígitos que contiene. Por tanto, "
+"si duplicas `7`, pasará a ser `14`, lo cual pasará a ser `5`."
 
 #: src/exercises/day-1/luhn.md:15
 msgid "Sum all the undoubled and doubled digits."
-msgstr ""
+msgstr "Suma todos los dígitos, no duplicados y duplicados."
 
 #: src/exercises/day-1/luhn.md:17
 msgid "The credit card number is valid if the sum ends with `0`."
 msgstr ""
+"El número de la tarjeta de crédito es válido si la suma termina en `0`."
 
 #: src/exercises/day-1/luhn.md:19
-#, fuzzy
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and implement the "
 "function."
 msgstr ""
-"Copia el código debajo para <https://play.rust-lang.org/> e implementa las "
-"funciones:"
+"Copia el siguiente fragmento de código en <https://play.rust-lang.org/> e "
+"implementa la función:"
 
 #: src/exercises/day-1/luhn.md:21
 msgid ""
 "Try to solve the problem the \"simple\" way first, using `for` loops and "
 "integers. Then, revisit the solution and try to implement it with iterators."
 msgstr ""
+"Intenta resolver el problema de la forma \"sencilla\" primero, usando bucles "
+"`for` e enteros. Luego, vuelve a la solución e intenta implementarla con "
+"iteradores."
 
 #: src/exercises/day-1/luhn.md:25
 msgid ""
