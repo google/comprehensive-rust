@@ -4709,8 +4709,8 @@ msgid ""
 "You can shadow variables, both those from outer scopes and variables from "
 "the same scope:"
 msgstr ""
-"Puedes sombrear variables, tanto las de ámbitos externos "
-"como las del propio ámbito:"
+"Puedes sombrear variables, tanto las de ámbitos externos como las del propio "
+"ámbito:"
 
 #: src/basic-syntax/scopes-shadowing.md:6
 msgid ""
@@ -13712,8 +13712,8 @@ msgstr "Se compilará en un binario vacío."
 #: src/bare-metal/minimal.md:18
 msgid "`std` provides a panic handler; without it we must provide our own."
 msgstr ""
-"`std` proporciona un controlador de pánico; sin no hay, debemos proporcionar "
-"uno nuestro."
+"`std` proporciona un controlador de _panic_; sin no hay, debemos "
+"proporcionar uno nuestro."
 
 #: src/bare-metal/minimal.md:19
 msgid "It can also be provided by another crate, such as `panic-halt`."
@@ -13743,9 +13743,8 @@ msgid ""
 "To use `alloc` you must implement a [global (heap) allocator](https://doc."
 "rust-lang.org/stable/std/alloc/trait.GlobalAlloc.html)."
 msgstr ""
-"Para utilizar `alloc`, debes implementar un \\[asignador global (de "
-"montículo)\\][global (heap) allocator](https://doc.rust-lang.org/stable/std/"
-"alloc/trait.GlobalAlloc.html)."
+"Para utilizar `alloc`, debes implementar un [asignador global (de _heap_)]"
+"(https://doc.rust-lang.org/stable/std/alloc/trait.GlobalAlloc.html)."
 
 #: src/bare-metal/alloc.md:6
 msgid ""
@@ -13807,7 +13806,7 @@ msgstr ""
 "            .init(HEAP.as_mut_ptr() as usize, HEAP.len());\n"
 "    }\n"
 "\n"
-"    // Ahora podemos hacer cosas que requieran asignación de montículo.\n"
+"    // Ahora podemos hacer cosas que requieran asignación de _heap_.\n"
 "    let mut v = Vec::new();\n"
 "    v.push(\"A string\".to_string());\n"
 "}\n"
@@ -13847,7 +13846,7 @@ msgid ""
 "crate is linked in so we get its panic handler."
 msgstr ""
 "`extern crate panic_halt as _` es necesario para asegurar que el crate "
-"`panic_halt` esté vinculado y así podamos obtener su controlador de pánico."
+"`panic_halt` esté vinculado y así podamos obtener su controlador de _panic_."
 
 #: src/bare-metal/alloc.md:47
 msgid "This example will build but not run, as it doesn't have an entry point."
@@ -14982,7 +14981,7 @@ msgid ""
 "zeroing the BSS, and setting up the stack pointer."
 msgstr ""
 "Es lo mismo que en C: inicializar el estado del procesador, poner a cero el "
-"BSS y configurar el puntero de la pila."
+"BSS y configurar el puntero de la _stack_."
 
 #: src/bare-metal/aps/entry-point.md:79
 msgid ""
@@ -15631,7 +15630,7 @@ msgid ""
 "with a bunch of method implementations to get and set flags."
 msgstr ""
 "La macro `bitflags!` crea un newtype, como `Flags(u16)`, junto con un montón "
-"de implementaciones de métodos para obtener y definir banderas."
+"de implementaciones de métodos para obtener y definir _flags_ (banderas)."
 
 #: src/bare-metal/aps/better-uart/registers.md:1
 msgid "Multiple registers"
@@ -15965,7 +15964,7 @@ msgstr ""
 #: src/bare-metal/aps/logging/using.md:46
 msgid "Note that our panic handler can now log details of panics."
 msgstr ""
-"Ten en cuenta que nuestro controlador de pánico ahora ya puede registrar la "
+"Ten en cuenta que nuestro controlador de _panic_ ahora ya puede registrar la "
 "información de los pánicos."
 
 #: src/bare-metal/aps/logging/using.md:47
@@ -15988,7 +15987,7 @@ msgstr ""
 "tipos de excepciones (synchronous, IRQ, FIQ, SError) desde 4 estados (EL "
 "actual con SP0, EL actual con SPx, EL inferior con AArch64 y EL inferior con "
 "AArch32). Implementamos esto en el ensamblaje para guardar los registros "
-"volátiles en la pila antes de llamar al código de Rust:"
+"volátiles en la _stack_ antes de llamar al código de Rust:"
 
 #: src/bare-metal/aps/exceptions.md:8
 msgid ""
@@ -16133,7 +16132,7 @@ msgstr "[`cargo-call-stack`](https://crates.io/crates/cargo-call-stack)"
 
 #: src/bare-metal/aps/other-projects.md:13
 msgid "Static analysis to determine maximum stack usage."
-msgstr "Análisis estático para determinar el uso máximo de la pila."
+msgstr "Análisis estático para determinar el uso máximo de la _stack_."
 
 #: src/bare-metal/aps/other-projects.md:17
 msgid ""
@@ -16142,7 +16141,7 @@ msgid ""
 msgstr ""
 "El tutorial del sistema operativo en RaspberryPi ejecuta código de Rust "
 "antes de que la MMU y las cachés se habiliten. De este modo, se leerá y "
-"escribirá memoria (por ejemplo, la pila). Sin embargo:"
+"escribirá memoria (por ejemplo, la _stack_). Sin embargo:"
 
 #: src/bare-metal/aps/other-projects.md:19
 msgid ""
@@ -16416,11 +16415,11 @@ msgid ""
 "and panics if you try to use more than are allocated."
 msgstr ""
 "A veces, se necesita algo que se pueda cambiar de tamaño, como `Vec`, pero "
-"sin asignación de montículo. [`tinyvec`](https://crates.io/crates/tinyvec) "
+"sin asignación de _heap_. [`tinyvec`](https://crates.io/crates/tinyvec) "
 "ofrece un vector respaldado por un array o slice, que se podría asignar "
-"estáticamente o en la pila, y que hace un seguimiento de cuántos elementos "
-"se usan, entrando en pánico si intentas utilizar más elementos de los "
-"asignados."
+"estáticamente o en la _stack_, y que hace un seguimiento de cuántos "
+"elementos se usan, entrando en _panic_ si intentas utilizar más elementos de "
+"los asignados."
 
 #: src/bare-metal/useful-crates/tinyvec.md:8
 msgid ""
