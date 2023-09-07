@@ -5935,15 +5935,15 @@ msgid ""
 "Memory management: stack vs heap, manual memory management, scope-based "
 "memory management, and garbage collection."
 msgstr ""
-"Gestión de la memoria: _stack_ (pila) o _heap_ (montículo), gestión manual "
-"de la memoria, gestión de la memoria basada en el ámbito y _garbage "
-"collector_ (recolección de memoria residual)."
+"Gestión de la memoria: _stack_ (pila) vs _heap_ (montículo), gestión manual "
+"de la memoria, gestión de la memoria basada en ámbitos y _garbage collector_ "
+"(recolección de memoria residual)."
 
 #: src/welcome-day-2.md:8
 msgid ""
 "Ownership: move semantics, copying and cloning, borrowing, and lifetimes."
 msgstr ""
-"_Ownership_ (Propiedad): semántica de movimiento, copiar y clonar, "
+"_Ownership_ (Propiedad): semántica de movimiento, copiar, clonar, "
 "_borrowing_ (préstamos) y _lifetimes_ (tiempos de vida)."
 
 #: src/welcome-day-2.md:10
@@ -5955,7 +5955,7 @@ msgid ""
 "The Standard Library: `String`, `Option` and `Result`, `Vec`, `HashMap`, "
 "`Rc` and `Arc`."
 msgstr ""
-"El _Standard _Library_ (Biblioteca Estándar): `String`, `Option` y `Result`, "
+"La Biblioteca Estándar (_Standard Library_): `String`, `Option` y `Result`, "
 "`Vec`, `HashMap`, `Rc` y `Arc`."
 
 #: src/welcome-day-2.md:15
@@ -5989,8 +5989,8 @@ msgid ""
 "Full control _and_ safety via compile time enforcement of correct memory "
 "management."
 msgstr ""
-"Control _y_ seguridad total a través de la implementación en tiempo de "
-"compilación de la correcta gestión de la memoria."
+"Control _y_ seguridad completa gracias a que el compilador se encarga del "
+"correcto manejo de la memoria"
 
 #: src/memory-management.md:13
 msgid "It does this with an explicit ownership concept."
@@ -6003,11 +6003,11 @@ msgstr "En primer lugar, veamos cómo funciona la gestión de la memoria."
 
 #: src/memory-management/stack-vs-heap.md:1
 msgid "The Stack vs The Heap"
-msgstr "La _Stack_ (Pila) o el _Heap_ (Montículo)"
+msgstr "_Stack_ (Pila) vs _Heap_ (Montículo)"
 
 #: src/memory-management/stack-vs-heap.md:3
 msgid "Stack: Continuous area of memory for local variables."
-msgstr "_Stack_: zona de memoria continua para las variables locales."
+msgstr "_Stack_: Zona de memoria continua para las variables locales."
 
 #: src/memory-management/stack-vs-heap.md:4
 msgid "Values have fixed sizes known at compile time."
@@ -6015,7 +6015,7 @@ msgstr "Los valores tienen tamaños fijos conocidos en tiempo de compilación."
 
 #: src/memory-management/stack-vs-heap.md:5
 msgid "Extremely fast: just move a stack pointer."
-msgstr "Muy rápida: mueve el puntero de una _stack_."
+msgstr "Muy rápida: mueve el _stack pointer_."
 
 #: src/memory-management/stack-vs-heap.md:6
 msgid "Easy to manage: follows function calls."
@@ -6023,7 +6023,7 @@ msgstr "Fácil de gestionar: sigue las llamadas de funciones."
 
 #: src/memory-management/stack-vs-heap.md:7
 msgid "Great memory locality."
-msgstr "Excelente localización de memoria."
+msgstr "Excelente localidad de memoria."
 
 #: src/memory-management/stack-vs-heap.md:9
 msgid "Heap: Storage of values outside of function calls."
@@ -6035,11 +6035,11 @@ msgstr "Los valores tienen tamaños dinámicos determinados en _runtime_."
 
 #: src/memory-management/stack-vs-heap.md:11
 msgid "Slightly slower than the stack: some book-keeping needed."
-msgstr "Ligeramente más lento que la _stack_: requiere cierta contabilidad."
+msgstr "Ligeramente más lento que el _stack_: requiere cierta trazabilidad."
 
 #: src/memory-management/stack-vs-heap.md:12
 msgid "No guarantee of memory locality."
-msgstr "No se puede asegurar la localización de la memoria."
+msgstr "No se puede asegurar la localidad de la memoria."
 
 #: src/memory-management/stack.md:1
 msgid "Stack and Heap Example"
@@ -6078,19 +6078,6 @@ msgid ""
 "`- - - - - - - - - - - - - -'\n"
 "```"
 msgstr ""
-"```bob\n"
-" _Stack_                        _Heap_\n"
-".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - -.\n"
-":                           :     :                               :\n"
-":    s1                     :     :                               :\n"
-":   +-----------+-------+   :     :   +----+----+----+----+----+  :\n"
-":   | ptr       |   o---+---+-----+-->| H  | e  | l  | l  | o  |  :\n"
-":   | len       |     5 |   :     :   +----+----+----+----+----+  :\n"
-":   | capacity  |     5 |   :     :                               :\n"
-":   +-----------+-------+   :     :                               :\n"
-":                           :     `- - - - - - - - - - - - - - - -'\n"
-"`- - - - - - - - - - - - - -'\n"
-"```"
 
 #: src/memory-management/stack.md:28
 msgid ""
@@ -6111,8 +6098,8 @@ msgstr ""
 "Si los alumnos lo preguntan, puedes mencionar que la memoria subyacente "
 "recibe una asignación de _heap_ mediante el [Asignador del Sistema](https://"
 "doc.rust-lang.org/std/alloc/struct.System.html) y que se pueden implementar "
-"asignadores personalizados mediante la [API Allocator](https://doc.rust-lang."
-"org/std/alloc/index.html)."
+"asignadores personalizados mediante el [_Allocator API_](https://doc.rust-"
+"lang.org/std/alloc/index.html)."
 
 #: src/memory-management/stack.md:32
 msgid ""
@@ -6156,7 +6143,7 @@ msgstr ""
 
 #: src/memory-management/manual.md:7
 msgid "C Example"
-msgstr "Ejemplo de C"
+msgstr "Ejemplo en C"
 
 #: src/memory-management/manual.md:9
 msgid "You must call `free` on every pointer you allocate with `malloc`:"
@@ -6215,7 +6202,7 @@ msgstr ""
 
 #: src/memory-management/scope-based.md:12
 msgid "C++ Example"
-msgstr "Ejemplo de C++"
+msgstr "Ejemplo en C++"
 
 #: src/memory-management/scope-based.md:14
 msgid ""
@@ -6236,7 +6223,7 @@ msgid ""
 "The `std::unique_ptr` object is allocated on the stack, and points to memory "
 "allocated on the heap."
 msgstr ""
-"El objeto `std::unique_ptr` se asigna a la _stack_ y apunta a la memoria "
+"El objeto `std::unique_ptr` se reserva en el _stack_ y apunta a la memoria "
 "asignada en el _heap_."
 
 #: src/memory-management/scope-based.md:22
@@ -6251,7 +6238,7 @@ msgstr "El destructor libera el objeto `Person` al que apunta."
 msgid ""
 "Special move constructors are used when passing ownership to a function:"
 msgstr ""
-"Los constructores de movimiento especiales se utilizan cuando se pasa la "
+"Los constructores de movimiento especiales se utilizan cuando se pasa el "
 "_ownership_ a una función:"
 
 #: src/memory-management/scope-based.md:27
@@ -6289,12 +6276,12 @@ msgstr ""
 
 #: src/memory-management/garbage-collection.md:9
 msgid "Java Example"
-msgstr "Ejemplo de Java"
+msgstr "Ejemplo en Java"
 
 #: src/memory-management/garbage-collection.md:11
 msgid "The `person` object is not deallocated after `sayHello` returns:"
 msgstr ""
-"El objeto `person` no se desasigna después de que `sayHello` devuelva el "
+"El objeto `person` no se libera después de que `sayHello` devuelva el "
 "siguiente resultado:"
 
 #: src/memory-management/garbage-collection.md:13
@@ -6349,7 +6336,7 @@ msgstr ""
 
 #: src/memory-management/rust.md:10
 msgid "Rust achieves this by modeling _ownership_ explicitly."
-msgstr "Rust lo consigue modelando explícitamente la _propiedad_."
+msgstr "Rust lo consigue modelando explícitamente el _ownership_."
 
 #: src/memory-management/rust.md:14
 msgid ""
@@ -6366,7 +6353,7 @@ msgstr ""
 "org/std/boxed/struct.Box.html), [Vec]https://doc.rust-lang.org/std/vec/"
 "struct.Vec.html), [Rc](https://doc.rust-lang.org/std/rc/struct.Rc.html) o "
 "[Arc](https://doc.rust-lang.org/std/sync/struct.Arc.html). Estos encapsulan "
-"la _ownership_ y la asignación de memoria a través de diversos medios, "
+"el _ownership_ y la asignación de memoria a través de diversos medios, "
 "evitando así los posibles errores en C."
 
 #: src/memory-management/rust.md:16
@@ -6513,7 +6500,7 @@ msgstr "Decimos que el valor _pertenece_ a la variable."
 
 #: src/ownership/move-semantics.md:3
 msgid "An assignment will transfer _ownership_ between variables:"
-msgstr "Una asignación transferirá la _ownership_ entre variables:"
+msgstr "Una asignación transferirá su _ownership_ entre variables:"
 
 #: src/ownership/move-semantics.md:5
 msgid ""
@@ -6537,7 +6524,7 @@ msgstr ""
 
 #: src/ownership/move-semantics.md:14
 msgid "The assignment of `s1` to `s2` transfers ownership."
-msgstr "La asignación de `s1` a `s2` transfiere la _ownership_."
+msgstr "La asignación de `s1` a `s2` transfiere el _ownership_."
 
 #: src/ownership/move-semantics.md:15
 msgid "When `s1` goes out of scope, nothing happens: it does not own anything."
@@ -6567,9 +6554,9 @@ msgid ""
 "to manipulate the data itself is a matter of optimization, and such copies "
 "are aggressively optimized away."
 msgstr ""
-"Solo se mueve la _ownership_. Si se genera algún código máquina para "
-"manipular los datos en sí, se trata de una cuestión de optimización, y esas "
-"copias se optimizan de forma agresiva."
+"Es únicamente el ownership el que se mueve. Si se genera algún código "
+"máquina para manipular los datos en sí, se trata de una cuestión de "
+"optimización, y esas copias se optimizan de forma agresiva."
 
 #: src/ownership/move-semantics.md:25
 msgid ""
@@ -6580,7 +6567,7 @@ msgstr ""
 
 #: src/ownership/move-semantics.md:27
 msgid "In Rust, clones are explicit (by using `clone`)."
-msgstr "En Rust, los clones son explícitos (si usas `clone`)."
+msgstr "En Rust, la clonación es explícita (usando `clone`)."
 
 #: src/ownership/moved-strings-rust.md:3
 msgid ""
@@ -6598,7 +6585,7 @@ msgstr "Los datos del _heap_ de `s1` se reutilizan en `s2`."
 
 #: src/ownership/moved-strings-rust.md:11
 msgid "When `s1` goes out of scope, nothing happens (it has been moved from)."
-msgstr "Cuando `s1` sale del ámbito, no ocurre nada (se ha movido)."
+msgstr "Cuando `s1` sale del ámbito, no ocurre nada (ha sido movida)."
 
 #: src/ownership/moved-strings-rust.md:13
 msgid "Before move to `s2`:"
@@ -6621,20 +6608,6 @@ msgid ""
 "`- - - - - - - - - - - - - -'\n"
 "```"
 msgstr ""
-"```bob\n"
-" _Stack_                         _Heap_\n"
-".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - -.\n"
-":                           :     :                           :\n"
-":    s1                     :     :                           :\n"
-":   +-----------+-------+   :     :   +----+----+----+----+   :\n"
-":   | ptr       |   o---+---+-----+-->| R  | u  | s  | t  |   :\n"
-":   | len       |     4 |   :     :   +----+----+----+----+   :\n"
-":   | capacity  |     4 |   :     :                           :\n"
-":   +-----------+-------+   :     :                           :\n"
-":                           :     `- - - - - - - - - - - - - -'\n"
-":                           :\n"
-"`- - - - - - - - - - - - - -'\n"
-"```"
 
 #: src/ownership/moved-strings-rust.md:30
 msgid "After move to `s2`:"
@@ -6804,7 +6777,7 @@ msgid ""
 "parameter. This transfers ownership:"
 msgstr ""
 "Cuando pasas un valor a una función, el valor se asigna al parámetro de la "
-"función. Esta acción transfiere la _ownership_:"
+"función. Esta acción transfiere el _ownership_:"
 
 #: src/ownership/moves-function-calls.md:6
 msgid ""
@@ -6826,7 +6799,7 @@ msgid ""
 "With the first call to `say_hello`, `main` gives up ownership of `name`. "
 "Afterwards, `name` cannot be used anymore within `main`."
 msgstr ""
-"Con la primera llamada a `say_hello`, `main` deja de tener la _ownership_ de "
+"Con la primera llamada a `say_hello`, `main` deja de tener el _ownership_ de "
 "`name`. Después, ya no se podrá usar `name` dentro de `main`."
 
 #: src/ownership/moves-function-calls.md:21
@@ -6842,7 +6815,7 @@ msgid ""
 "`main` can retain ownership if it passes `name` as a reference (`&name`) and "
 "if `say_hello` accepts a reference as a parameter."
 msgstr ""
-"main` podrá conservar la _ownership_ si pasa`name` como referencia (`&name`) "
+"main` podrá conservar el _ownership_ si pasa`name` como referencia (`&name`) "
 "y si `say_hello` acepta una referencia como parámetro."
 
 #: src/ownership/moves-function-calls.md:23
@@ -6860,7 +6833,7 @@ msgid ""
 msgstr ""
 "Rust hace que resulte más difícil que en C++ crear copias por error al "
 "definir la semántica de movimiento como predeterminada y al obligar a los "
-"programadores a hacer clones explícitos."
+"programadores a clonar sólo de forma explícita."
 
 #: src/ownership/copy-clone.md:3
 msgid ""
@@ -6926,14 +6899,14 @@ msgid ""
 "arbitrary objects."
 msgstr ""
 "Copiar hace referencia a las copias bit a bit de regiones de memoria y no "
-"funciona en objetos aleatorios."
+"funciona en cualquier objeto."
 
 #: src/ownership/copy-clone.md:38
 msgid ""
 "Copying does not allow for custom logic (unlike copy constructors in C++)."
 msgstr ""
-"Copiar no permite la lógica personalizada (a diferencia de los constructores "
-"de copias de C++)."
+"Copiar no permite lógica personalizada (a diferencia de los constructores de "
+"copias de C++)."
 
 #: src/ownership/copy-clone.md:39
 msgid ""
@@ -6987,7 +6960,7 @@ msgid ""
 "Instead of transferring ownership when calling a function, you can let a "
 "function _borrow_ the value:"
 msgstr ""
-"En lugar de transferir la _ownership_ al llamar a una función, puedes "
+"En lugar de transferir el _ownership_ al llamar a una función, puedes "
 "permitir que una función _tome prestado_ el valor:"
 
 #: src/ownership/borrowing.md:6
@@ -7015,7 +6988,7 @@ msgstr "La función `add` _toma prestados_ dos puntos y devuelve uno nuevo."
 
 #: src/ownership/borrowing.md:23
 msgid "The caller retains ownership of the inputs."
-msgstr "El llamador conserva la _ownership_ de las entradas."
+msgstr "El llamador conserva el _ownership_ de las entradas."
 
 #: src/ownership/borrowing.md:27
 msgid "Notes on stack returns:"
@@ -8130,10 +8103,10 @@ msgid ""
 "(deallocated) when the method returns, unless its ownership is explicitly "
 "transmitted. Complete ownership does not automatically mean mutability."
 msgstr ""
-"`self`: asume la _ownership_ del objeto y lo aleja del llamador. El método "
+"`self`: asume el _ownership_ del objeto y lo aleja del llamador. El método "
 "se convierte en el propietario del objeto. El objeto se eliminará (es decir, "
 "se anulará la asignación) cuando el método devuelva un resultado, a menos "
-"que se transmita su _ownership_ de forma explícita. La _ownership_ completa "
+"que se transmita su _ownership_ de forma explícita. El _ownership_ completa "
 "no implica automáticamente una mutabilidad."
 
 #: src/methods/receiver.md:14
