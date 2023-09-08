@@ -8405,19 +8405,19 @@ msgid ""
 "[`HashMap`](std/hashmap.md): a hash map type with a configurable hashing "
 "algorithm."
 msgstr ""
-"[`HashMap`](std/hashmap.md): un tipo de mapa hash con un algoritmo cifrado "
-"con hash que se puede configurar."
+"[`HashMap`](std/hashmap.md): un mapa hash con un algoritmo hash configurable."
 
 #: src/std.md:19
 msgid "[`Box`](std/box.md): an owned pointer for heap-allocated data."
-msgstr "[`Box`](std/box.md): un puntero propio para datos asignados a _heap_s."
+msgstr ""
+"[`Box`](std/box.md): un puntero propio para datos ubicados en el _heap_."
 
 #: src/std.md:21
 msgid ""
 "[`Rc`](std/rc.md): a shared reference-counted pointer for heap-allocated "
 "data."
 msgstr ""
-"[`Rc`](std/rc.md): un puntero compartido de referencia contada para datos "
+"[`Rc`](std/rc.md): un puntero compartido de conteo de referencias para datos "
 "asignados a _heap_."
 
 #: src/std.md:25
@@ -8434,21 +8434,23 @@ msgid ""
 "`libc`, allocator or even the presence of an operating system. "
 msgstr ""
 "`core` incluye los tipos y funciones más básicos que no dependen de `libc`, "
-"de un asignador ni de la presencia de un sistema operativo. "
+"de un _allocator_ (asignador de memoria) ni de la presencia de un sistema "
+"operativo. "
 
 #: src/std.md:28
 msgid ""
 "`alloc` includes types which require a global heap allocator, such as `Vec`, "
 "`Box` and `Arc`."
 msgstr ""
-"`alloc` incluye tipos que requieren una asignador de _heap_ global, como "
+"`alloc` incluye tipos que requieren un _allocator_ de _heap_ global, como "
 "`Vec`, `Box` y `Arc`."
 
 #: src/std.md:29
 msgid ""
 "Embedded Rust applications often only use `core`, and sometimes `alloc`."
 msgstr ""
-"Las aplicaciones insertadas de Rust usan a menudo `core` y, a veces, `alloc`."
+"Las aplicaciones embebidas en Rust menudo solo usan `core` y a algunas veces "
+"`alloc`."
 
 #: src/std/option-result.md:1
 msgid "`Option` and `Result`"
@@ -8478,7 +8480,7 @@ msgstr "`Option` y `Result` se usan mucho, no solo en la biblioteca estándar."
 
 #: src/std/option-result.md:19
 msgid "`Option<&T>` has zero space overhead compared to `&T`."
-msgstr "`Option<&T>` no tiene espacio adicional en comparación con `&T`."
+msgstr "`Option<&T>` no usa espacio adicional en comparación con `&T`."
 
 #: src/std/option-result.md:20
 msgid ""
@@ -8548,7 +8550,7 @@ msgid ""
 "you know how much data you want to push to the string."
 msgstr ""
 "`String::new` devuelve una nueva cadena vacía. Usa `String::with_capacity` "
-"cuando sepas cuántos datos quieres enviar a la cadena."
+"cuando sepas cuántos datos quieres guardar."
 
 #: src/std/string.md:31
 msgid ""
@@ -8567,7 +8569,7 @@ msgid ""
 msgstr ""
 "`String::chars` devuelve un iterador sobre los caracteres reales. Ten en "
 "cuenta que un `char` puede ser diferente de lo que un humano consideraría un "
-"\"carácter\", debido a los [grupos de grafemas](https://docs.rs/unicode-"
+"\"caracter\", debido a los [grupos de grafemas](https://docs.rs/unicode-"
 "segmentation/latest/unicode_segmentation/struct.Graphemes.html)."
 
 #: src/std/string.md:33
@@ -8575,8 +8577,8 @@ msgid ""
 "When people refer to strings they could either be talking about `&str` or "
 "`String`."
 msgstr ""
-"Cuando los usuarios se refieren a cadenas, pueden estar hablando de `&str` o "
-"de `String`. "
+"Cuando la gente se refiere a cadenas, pueden estar hablando de `&str` o de "
+"`String`. "
 
 #: src/std/string.md:34
 msgid ""
@@ -9037,8 +9039,8 @@ msgid ""
 "`List`, the compiler would not compute a fixed size of the struct in memory "
 "(`List` would be of infinite size)."
 msgstr ""
-"Si no se utiliza `Box` e intentamos insertar una `List` directamente en la "
-"`List`, el compilador no calcularía un tamaño fijo de la estructura en la "
+"Si no se utiliza `Box` e intentamos insertar un `List` directamente dentro "
+"de `List`, el compilador no calcularía un tamaño fijo de la estructura en la "
 "memoria (`List` tendría un tamaño infinito)."
 
 #: src/std/box-recursive.md:36
@@ -9196,7 +9198,7 @@ msgid ""
 "on the next slide)."
 msgstr ""
 "`Rc::downgrade` ofrece un objeto _de referencia contada baja_ para crear "
-"ciclos que se abandonarán correctamente (posiblemente en combinación con "
+"`Rc::downgrade` ofrece un objeto de _referencia contada débil_ para crear "
 "`RefCell`)."
 
 #: src/std/cell.md:1
