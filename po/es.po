@@ -12502,7 +12502,7 @@ msgstr ""
 
 #: src/android.md:1
 msgid "Welcome to Rust in Android"
-msgstr ""
+msgstr "Te Damos la Bienvenida a Rust en Android"
 
 #: src/android.md:3
 msgid ""
@@ -12510,6 +12510,9 @@ msgid ""
 "that you can write new operating system services in Rust, as well as "
 "extending existing services."
 msgstr ""
+"Rust es compatible con el desarrollo de plataformas nativas en Android. Esto "
+"significa que puedes escribir nuevos servicios del sistema operativo en "
+"Rust, así como ampliar los que ya existen."
 
 #: src/android.md:7
 msgid ""
@@ -12518,12 +12521,18 @@ msgid ""
 "to Rust. The fewer dependencies and \"exotic\" types the better. Something "
 "that parses some raw bytes would be ideal."
 msgstr ""
+"Hoy intentaremos llamar a Rust desde un proyecto personal. Intenta encontrar "
+"una pequeña esquina de tu código base donde podamos mover algunas líneas de "
+"código a Rust. Cuantas menos dependencias y tipos \"exóticos\" tenga, mejor. "
+"Lo ideal sería algo que analizara bytes sin procesar."
 
 #: src/android/setup.md:3
 msgid ""
 "We will be using an Android Virtual Device to test our code. Make sure you "
 "have access to one or create a new one with:"
 msgstr ""
+"Utilizaremos un dispositivo Android virtual para probar el código. Asegúrate "
+"de que tienes acceso a uno o créalo con:"
 
 #: src/android/setup.md:6
 msgid ""
@@ -12539,108 +12548,125 @@ msgid ""
 "Please see the [Android Developer Codelab](https://source.android.com/docs/"
 "setup/start) for details."
 msgstr ""
+"Consulta el [Codelab para desarrolladores de Android](https://source.android."
+"com/docs/setup/start) para obtener más información."
 
 #: src/android/build-rules.md:3
 msgid "The Android build system (Soong) supports Rust via a number of modules:"
 msgstr ""
+"El sistema de compilación de Android (Soong) es compatible con Rust a través "
+"de una serie de módulos:"
 
 #: src/android/build-rules.md:5
 msgid "Module Type"
-msgstr ""
+msgstr "Tipo de módulo"
 
 #: src/android/build-rules.md:5
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #: src/android/build-rules.md:7
 msgid "`rust_binary`"
-msgstr ""
+msgstr "`rust_binary`"
 
 #: src/android/build-rules.md:7
 msgid "Produces a Rust binary."
-msgstr ""
+msgstr "Produce un binario de Rust."
 
 #: src/android/build-rules.md:8
 msgid "`rust_library`"
-msgstr ""
+msgstr "`rust_library`"
 
 #: src/android/build-rules.md:8
 msgid "Produces a Rust library, and provides both `rlib` and `dylib` variants."
 msgstr ""
+"Produce una biblioteca de Rust y proporciona las variantes `rlib` y `dylib`."
 
 #: src/android/build-rules.md:9
 msgid "`rust_ffi`"
-msgstr ""
+msgstr "`rust_ffi`"
 
 #: src/android/build-rules.md:9
 msgid ""
 "Produces a Rust C library usable by `cc` modules, and provides both static "
 "and shared variants."
 msgstr ""
+"Produce una biblioteca de Rust C que pueden usar los módulos `cc` y "
+"proporciona variantes estáticas y compartidas."
 
 #: src/android/build-rules.md:10
 msgid "`rust_proc_macro`"
-msgstr ""
+msgstr "`rust_proc_macro`"
 
 #: src/android/build-rules.md:10
 msgid ""
 "Produces a `proc-macro` Rust library. These are analogous to compiler "
 "plugins."
 msgstr ""
+"Produce una biblioteca de Rust `proc-macro`. Son similares a complementos "
+"del compilador."
 
 #: src/android/build-rules.md:11
 msgid "`rust_test`"
-msgstr ""
+msgstr "`rust_test`"
 
 #: src/android/build-rules.md:11
 msgid "Produces a Rust test binary that uses the standard Rust test harness."
 msgstr ""
+"Produce un binario de prueba de Rust que utiliza el agente de prueba "
+"estándar de Rust."
 
 #: src/android/build-rules.md:12
 msgid "`rust_fuzz`"
-msgstr ""
+msgstr "`rust_fuzz`"
 
 #: src/android/build-rules.md:12
 msgid "Produces a Rust fuzz binary leveraging `libfuzzer`."
-msgstr ""
+msgstr "Produce un binario de fuzz de Rust que aprovecha `libfuzzer`."
 
 #: src/android/build-rules.md:13
 msgid "`rust_protobuf`"
-msgstr ""
+msgstr "`rust_protobuf`"
 
 #: src/android/build-rules.md:13
 msgid ""
 "Generates source and produces a Rust library that provides an interface for "
 "a particular protobuf."
 msgstr ""
+"Genera código fuente y produce una biblioteca Rust que proporciona una "
+"interfaz para un protobuf en particular."
 
 #: src/android/build-rules.md:14
 msgid "`rust_bindgen`"
-msgstr ""
+msgstr "`rust_bindgen`"
 
 #: src/android/build-rules.md:14
 msgid ""
 "Generates source and produces a Rust library containing Rust bindings to C "
 "libraries."
 msgstr ""
+"Genera código fuente y produce una biblioteca de Rust que contiene enlaces "
+"de Rust a bibliotecas de C."
 
 #: src/android/build-rules.md:16
 msgid "We will look at `rust_binary` and `rust_library` next."
-msgstr ""
+msgstr "A continuación, hablaremos de `rust_binary` y `rust_library`."
 
 #: src/android/build-rules/binary.md:1
 msgid "Rust Binaries"
-msgstr ""
+msgstr "Binarios de Rust"
 
 #: src/android/build-rules/binary.md:3
 msgid ""
 "Let us start with a simple application. At the root of an AOSP checkout, "
 "create the following files:"
 msgstr ""
+"Empecemos con una sencilla aplicación. Desde la raíz de un AOSP revisado, "
+"crea los siguientes archivos:"
 
 #: src/android/build-rules/binary.md:6 src/android/build-rules/library.md:13
 msgid "_hello_rust/Android.bp_:"
-msgstr ""
+msgstr "_hello_rust/Android.bp_:"
 
 #: src/android/build-rules/binary.md:8
 msgid ""
@@ -12655,7 +12681,7 @@ msgstr ""
 
 #: src/android/build-rules/binary.md:16 src/android/build-rules/library.md:34
 msgid "_hello_rust/src/main.rs_:"
-msgstr ""
+msgstr "_hello_rust/src/main.rs_:"
 
 #: src/android/build-rules/binary.md:18
 msgid ""
@@ -12671,7 +12697,7 @@ msgstr ""
 
 #: src/android/build-rules/binary.md:27
 msgid "You can now build, push, and run the binary:"
-msgstr ""
+msgstr "Ahora puedes compilar, insertar y ejecutar el binario:"
 
 #: src/android/build-rules/binary.md:29
 msgid ""
@@ -12691,19 +12717,19 @@ msgstr ""
 
 #: src/android/build-rules/library.md:1
 msgid "Rust Libraries"
-msgstr ""
+msgstr "Bibliotecas de Rust"
 
 #: src/android/build-rules/library.md:3
 msgid "You use `rust_library` to create a new Rust library for Android."
-msgstr ""
+msgstr "Crea una biblioteca de Rust para Android con `rust_library`."
 
 #: src/android/build-rules/library.md:5
 msgid "Here we declare a dependency on two libraries:"
-msgstr ""
+msgstr "Aquí declaramos una dependencia en dos bibliotecas:"
 
 #: src/android/build-rules/library.md:7
 msgid "`libgreeting`, which we define below,"
-msgstr ""
+msgstr "`libgreeting`, que definimos más abajo."
 
 #: src/android/build-rules/library.md:8
 msgid ""
@@ -12711,6 +12737,9 @@ msgid ""
 "(https://cs.android.com/android/platform/superproject/+/master:external/rust/"
 "crates/)."
 msgstr ""
+"`libtextwrap`, que es un crate ya incluido en [`external/rust/crates/`]"
+"(https://cs.android.com/android/platform/superproject/+/master:external/rust/"
+"crates/)."
 
 #: src/android/build-rules/library.md:15
 msgid ""
@@ -12733,6 +12762,24 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_binary {\n"
+"    name: \"hello_rust_with_dep\",\n"
+"    crate_name: \"hello_rust_with_dep\",\n"
+"    srcs: [\"src/main.rs\"],\n"
+"    rustlibs: [\n"
+"        \"libgreetings\",\n"
+"        \"libtextwrap\",\n"
+"    ],\n"
+"    prefer_rlib: true,\n"
+"}\n"
+"\n"
+"rust_library {\n"
+"    name: \"libgreetings\",\n"
+"    crate_name: \"greetings\",\n"
+"    srcs: [\"src/lib.rs\"],\n"
+"}\n"
+"```"
 
 #: src/android/build-rules/library.md:36
 msgid ""
@@ -12748,10 +12795,21 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,ignore\n"
+"//! Rust demo.\n"
+"\n"
+"use greetings::greeting;\n"
+"use textwrap::fill;\n"
+"\n"
+"/// Imprime un saludo en una salida estándar.\n"
+"fn main() {\n"
+"    println!(\"{}\", fill(&greeting(\"Bob\"), 24));\n"
+"}\n"
+"```"
 
 #: src/android/build-rules/library.md:48
 msgid "_hello_rust/src/lib.rs_:"
-msgstr ""
+msgstr "_hello_rust/src/lib.rs_:"
 
 #: src/android/build-rules/library.md:50
 msgid ""
@@ -12764,10 +12822,18 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,ignore\n"
+"//! Greeting library.\n"
+"\n"
+"/// Saludar a `name`.\n"
+"pub fn greeting(name: &str) -> String {\n"
+"    format!(\"Hello {name}, it is very nice to meet you!\")\n"
+"}\n"
+"```"
 
 #: src/android/build-rules/library.md:59
 msgid "You build, push, and run the binary like before:"
-msgstr ""
+msgstr "Puedes compilar, insertar y ejecutar el binario como antes:"
 
 #: src/android/build-rules/library.md:61
 msgid ""
@@ -12778,6 +12844,12 @@ msgid ""
 "adb shell /data/local/tmp/hello_rust_with_dep\n"
 "```"
 msgstr ""
+"```shell\n"
+"m hello_rust_with_dep\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/hello_rust_with_dep /data/local/"
+"tmp\"\n"
+"adb shell /data/local/tmp/hello_rust_with_dep\n"
+"```"
 
 #: src/android/build-rules/library.md:67
 msgid ""
@@ -12786,33 +12858,41 @@ msgid ""
 "nice to meet you!\n"
 "```"
 msgstr ""
+"```text\n"
+"Hello Bob, it is very\n"
+"nice to meet you!\n"
+"```"
 
 #: src/android/aidl.md:3
 msgid ""
 "The [Android Interface Definition Language (AIDL)](https://developer.android."
 "com/guide/components/aidl) is supported in Rust:"
 msgstr ""
+"El [lenguaje de definición de la interfaz de Android (AIDL)](https://"
+"developer.android.com/guide/components/aidl) es compatible con Rust:"
 
 #: src/android/aidl.md:6
 msgid "Rust code can call existing AIDL servers,"
 msgstr ""
+"El código de Rust puede llamar a servidores AIDL que ya se hayan creado."
 
 #: src/android/aidl.md:7
 msgid "You can create new AIDL servers in Rust."
-msgstr ""
+msgstr "Puedes crear servidores de AIDL en Rust."
 
 #: src/android/aidl/interface.md:1
 msgid "AIDL Interfaces"
-msgstr ""
+msgstr "Interfaces de AIDL"
 
 #: src/android/aidl/interface.md:3
 msgid "You declare the API of your service using an AIDL interface:"
-msgstr ""
+msgstr "La API de tu servicio se declara mediante una interfaz de AIDL:"
 
 #: src/android/aidl/interface.md:5
 msgid ""
 "_birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:"
 msgstr ""
+"_birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:"
 
 #: src/android/aidl/interface.md:7
 msgid ""
@@ -12826,10 +12906,19 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```java\n"
+"package com.example.birthdayservice;\n"
+"\n"
+"/** Birthday service interface. */\n"
+"interface IBirthdayService {\n"
+"    /** Generate a Happy Birthday message. */\n"
+"    String wishHappyBirthday(String name, int years);\n"
+"}\n"
+"```"
 
 #: src/android/aidl/interface.md:17
 msgid "_birthday_service/aidl/Android.bp_:"
-msgstr ""
+msgstr "_birthday_service/aidl/Android.bp_:"
 
 #: src/android/aidl/interface.md:19
 msgid ""
@@ -12846,24 +12935,38 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"aidl_interface {\n"
+"    name: \"com.example.birthdayservice\",\n"
+"    srcs: [\"com/example/birthdayservice/*.aidl\"],\n"
+"    unstable: true,\n"
+"    backend: {\n"
+"        rust: { // Rust is not enabled by default\n"
+"            enabled: true,\n"
+"        },\n"
+"    },\n"
+"}\n"
+"```"
 
 #: src/android/aidl/interface.md:32
 msgid ""
 "Add `vendor_available: true` if your AIDL file is used by a binary in the "
 "vendor partition."
 msgstr ""
+"Añade `vendor_available: true` si un binario de la partición del proveedor "
+"utiliza tu archivo de AIDL."
 
 #: src/android/aidl/implementation.md:1
 msgid "Service Implementation"
-msgstr ""
+msgstr "Implementación del servicio"
 
 #: src/android/aidl/implementation.md:3
 msgid "We can now implement the AIDL service:"
-msgstr ""
+msgstr "Ahora podemos implementar el servicio de AIDL:"
 
 #: src/android/aidl/implementation.md:5
 msgid "_birthday_service/src/lib.rs_:"
-msgstr ""
+msgstr "_birthday_service/src/lib.rs_:"
 
 #: src/android/aidl/implementation.md:7
 msgid ""
@@ -12893,7 +12996,7 @@ msgstr ""
 #: src/android/aidl/implementation.md:26 src/android/aidl/server.md:28
 #: src/android/aidl/client.md:37
 msgid "_birthday_service/Android.bp_:"
-msgstr ""
+msgstr "_birthday_service/Android.bp_:"
 
 #: src/android/aidl/implementation.md:28
 msgid ""
@@ -12912,15 +13015,15 @@ msgstr ""
 
 #: src/android/aidl/server.md:1
 msgid "AIDL Server"
-msgstr ""
+msgstr "Servidor de AIDL"
 
 #: src/android/aidl/server.md:3
 msgid "Finally, we can create a server which exposes the service:"
-msgstr ""
+msgstr "Por último, podemos crear un servidor que exponga el servicio:"
 
 #: src/android/aidl/server.md:5
 msgid "_birthday_service/src/server.rs_:"
-msgstr ""
+msgstr "_birthday_service/src/server.rs_:"
 
 #: src/android/aidl/server.md:7
 msgid ""
@@ -12967,7 +13070,7 @@ msgstr ""
 
 #: src/android/aidl/deploy.md:3
 msgid "We can now build, push, and start the service:"
-msgstr ""
+msgstr "Ahora podemos crear, insertar e iniciar el servicio:"
 
 #: src/android/aidl/deploy.md:5
 msgid ""
@@ -12981,7 +13084,7 @@ msgstr ""
 
 #: src/android/aidl/deploy.md:11
 msgid "In another terminal, check that the service runs:"
-msgstr ""
+msgstr "Comprueba que el servicio funciona en otra terminal:"
 
 #: src/android/aidl/deploy.md:13
 msgid ""
@@ -12999,7 +13102,7 @@ msgstr ""
 
 #: src/android/aidl/deploy.md:21
 msgid "You can also call the service with `service call`:"
-msgstr ""
+msgstr "También puedes llamar al servicio con `service call`:"
 
 #: src/android/aidl/deploy.md:23
 msgid ""
@@ -13025,15 +13128,16 @@ msgstr ""
 
 #: src/android/aidl/client.md:1
 msgid "AIDL Client"
-msgstr ""
+msgstr "Cliente de AIDL"
 
 #: src/android/aidl/client.md:3
 msgid "Finally, we can create a Rust client for our new service."
 msgstr ""
+"Por último, podemos crear un cliente de Rust para nuestro nuevo servicio."
 
 #: src/android/aidl/client.md:5
 msgid "_birthday_service/src/client.rs_:"
-msgstr ""
+msgstr "_birthday_service/src/client.rs_:"
 
 #: src/android/aidl/client.md:7
 msgid ""
@@ -13089,11 +13193,11 @@ msgstr ""
 
 #: src/android/aidl/client.md:52
 msgid "Notice that the client does not depend on `libbirthdayservice`."
-msgstr ""
+msgstr "Ten en cuenta que el cliente no depende de `libbirthdayservice`."
 
 #: src/android/aidl/client.md:54
 msgid "Build, push, and run the client on your device:"
-msgstr ""
+msgstr "Compila, inserta y ejecuta el cliente en tu dispositivo:"
 
 #: src/android/aidl/client.md:56
 msgid ""
@@ -13117,6 +13221,8 @@ msgid ""
 "Let us extend the API with more functionality: we want to let clients "
 "specify a list of lines for the birthday card:"
 msgstr ""
+"Ampliemos la API con más funciones. Queremos que los clientes puedan indicar "
+"una lista de líneas para la tarjeta de cumpleaños:"
 
 #: src/android/aidl/changing.md:6
 msgid ""
@@ -13136,10 +13242,12 @@ msgid ""
 "You should use the `log` crate to automatically log to `logcat` (on-device) "
 "or `stdout` (on-host):"
 msgstr ""
+"Utiliza el crate `log` para que se registre automáticamente en `logcat` (en "
+"el dispositivo) o `stdout` (en el host):"
 
 #: src/android/logging.md:6
 msgid "_hello_rust_logs/Android.bp_:"
-msgstr ""
+msgstr "_hello_rust_logs/Android.bp_:"
 
 #: src/android/logging.md:8
 msgid ""
@@ -13160,7 +13268,7 @@ msgstr ""
 
 #: src/android/logging.md:22
 msgid "_hello_rust_logs/src/main.rs_:"
-msgstr ""
+msgstr "_hello_rust_logs/src/main.rs_:"
 
 #: src/android/logging.md:24
 msgid ""
@@ -13186,7 +13294,7 @@ msgstr ""
 #: src/android/logging.md:42 src/android/interoperability/with-c/bindgen.md:98
 #: src/android/interoperability/with-c/rust.md:73
 msgid "Build, push, and run the binary on your device:"
-msgstr ""
+msgstr "Compila, inserta y ejecuta el binario en tu dispositivo:"
 
 #: src/android/logging.md:44
 msgid ""
@@ -13200,7 +13308,7 @@ msgstr ""
 
 #: src/android/logging.md:50
 msgid "The logs show up in `adb logcat`:"
-msgstr ""
+msgstr "Los registros se muestran en `adb logcat`:"
 
 #: src/android/logging.md:52
 msgid ""
@@ -13225,34 +13333,40 @@ msgid ""
 "Rust has excellent support for interoperability with other languages. This "
 "means that you can:"
 msgstr ""
+"Rust admite sin problemas la interoperabilidad con otros lenguajes. Esto "
+"significa que puedes hacer lo siguiente:"
 
 #: src/android/interoperability.md:6
 msgid "Call Rust functions from other languages."
-msgstr ""
+msgstr "Llamar a funciones de Rust desde otros lenguajes."
 
 #: src/android/interoperability.md:7
 msgid "Call functions written in other languages from Rust."
-msgstr ""
+msgstr "Llamar a funciones escritas en otros lenguajes desde Rust."
 
 #: src/android/interoperability.md:9
 msgid ""
 "When you call functions in a foreign language we say that you're using a "
 "_foreign function interface_, also known as FFI."
 msgstr ""
+"Cuando llamas a funciones en otro lenguaje, se dice que estás usando una "
+"_interfaz de función externa_, también denominada FFI."
 
 #: src/android/interoperability/with-c.md:1
 msgid "Interoperability with C"
-msgstr ""
+msgstr "Interoperabilidad con C"
 
 #: src/android/interoperability/with-c.md:3
 msgid ""
 "Rust has full support for linking object files with a C calling convention. "
 "Similarly, you can export Rust functions and call them from C."
 msgstr ""
+"Rust admite vincular archivos de objetos con una convención de llamada de C. "
+"Del mismo modo, puedes exportar funciones de Rust y llamarlas desde C."
 
 #: src/android/interoperability/with-c.md:6
 msgid "You can do it by hand if you want:"
-msgstr ""
+msgstr "Si quieres, puedes hacerlo de forma manual:"
 
 #: src/android/interoperability/with-c.md:8
 msgid ""
@@ -13274,34 +13388,41 @@ msgid ""
 "We already saw this in the [Safe FFI Wrapper exercise](../../exercises/day-3/"
 "safe-ffi-wrapper.md)."
 msgstr ""
+"Ya lo hemos visto en el ejercicio [Envoltorio de FFI seguro](../../exercises/"
+"day-3/safe-ffi-wrapper.md)."
 
 #: src/android/interoperability/with-c.md:23
 msgid ""
 "This assumes full knowledge of the target platform. Not recommended for "
 "production."
 msgstr ""
+"Esto supone un conocimiento completo de la plataforma objetivo. No se "
+"recomienda para producción."
 
 #: src/android/interoperability/with-c.md:26
 msgid "We will look at better options next."
-msgstr ""
+msgstr "A continuación, estudiaremos otras opciones mejores."
 
 #: src/android/interoperability/with-c/bindgen.md:1
 msgid "Using Bindgen"
-msgstr ""
+msgstr "Uso de Bindgen"
 
 #: src/android/interoperability/with-c/bindgen.md:3
 msgid ""
 "The [bindgen](https://rust-lang.github.io/rust-bindgen/introduction.html) "
 "tool can auto-generate bindings from a C header file."
 msgstr ""
+"La herramienta [bindgen](https://rust-lang.github.io/rust-bindgen/"
+"introduction.html) puede generar automáticamente enlaces desde un archivo de "
+"encabezado de C."
 
 #: src/android/interoperability/with-c/bindgen.md:6
 msgid "First create a small C library:"
-msgstr ""
+msgstr "En primer lugar, crea una biblioteca de C pequeña:"
 
 #: src/android/interoperability/with-c/bindgen.md:8
 msgid "_interoperability/bindgen/libbirthday.h_:"
-msgstr ""
+msgstr "_interoperability/bindgen/libbirthday.h_:"
 
 #: src/android/interoperability/with-c/bindgen.md:10
 msgid ""
@@ -13317,7 +13438,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/bindgen.md:19
 msgid "_interoperability/bindgen/libbirthday.c_:"
-msgstr ""
+msgstr "_interoperability/bindgen/libbirthday.c_:"
 
 #: src/android/interoperability/with-c/bindgen.md:21
 msgid ""
@@ -13336,7 +13457,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/bindgen.md:33
 msgid "Add this to your `Android.bp` file:"
-msgstr ""
+msgstr "Añade lo siguiente a tu archivo `Android.bp`:"
 
 #: src/android/interoperability/with-c/bindgen.md:35
 #: src/android/interoperability/with-c/bindgen.md:55
@@ -13360,10 +13481,12 @@ msgid ""
 "Create a wrapper header file for the library (not strictly needed in this "
 "example):"
 msgstr ""
+"Crea un archivo de encabezado de envoltorio para la biblioteca (no es "
+"estrictamente necesario en este ejemplo):"
 
 #: src/android/interoperability/with-c/bindgen.md:47
 msgid "_interoperability/bindgen/libbirthday_wrapper.h_:"
-msgstr ""
+msgstr "_interoperability/bindgen/libbirthday_wrapper.h_:"
 
 #: src/android/interoperability/with-c/bindgen.md:49
 msgid ""
@@ -13374,7 +13497,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/bindgen.md:53
 msgid "You can now auto-generate the bindings:"
-msgstr ""
+msgstr "Ahora puedes generar automáticamente los enlaces:"
 
 #: src/android/interoperability/with-c/bindgen.md:57
 msgid ""
@@ -13391,7 +13514,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/bindgen.md:67
 msgid "Finally, we can use the bindings in our Rust program:"
-msgstr ""
+msgstr "Por último, podemos utilizar los enlaces de nuestro programa de Rust:"
 
 #: src/android/interoperability/with-c/bindgen.md:71
 msgid ""
@@ -13406,7 +13529,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/bindgen.md:79
 msgid "_interoperability/bindgen/main.rs_:"
-msgstr ""
+msgstr "_interoperability/bindgen/main.rs_:"
 
 #: src/android/interoperability/with-c/bindgen.md:81
 msgid ""
@@ -13441,6 +13564,8 @@ msgstr ""
 #: src/android/interoperability/with-c/bindgen.md:106
 msgid "Finally, we can run auto-generated tests to ensure the bindings work:"
 msgstr ""
+"Por último, podemos ejecutar pruebas generadas automáticamente para "
+"comprobar que los enlaces funcionan:"
 
 #: src/android/interoperability/with-c/bindgen.md:110
 msgid ""
@@ -13466,15 +13591,15 @@ msgstr ""
 
 #: src/android/interoperability/with-c/rust.md:1
 msgid "Calling Rust"
-msgstr ""
+msgstr "Llamar a Rust"
 
 #: src/android/interoperability/with-c/rust.md:3
 msgid "Exporting Rust functions and types to C is easy:"
-msgstr ""
+msgstr "Es fácil exportar las funciones y los tipos de Rust a C:"
 
 #: src/android/interoperability/with-c/rust.md:5
 msgid "_interoperability/rust/libanalyze/analyze.rs_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/analyze.rs_"
 
 #: src/android/interoperability/with-c/rust.md:7
 msgid ""
@@ -13498,7 +13623,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/rust.md:24
 msgid "_interoperability/rust/libanalyze/analyze.h_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/analyze.h_"
 
 #: src/android/interoperability/with-c/rust.md:26
 msgid ""
@@ -13516,7 +13641,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/rust.md:37
 msgid "_interoperability/rust/libanalyze/Android.bp_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/Android.bp_"
 
 #: src/android/interoperability/with-c/rust.md:39
 msgid ""
@@ -13532,11 +13657,11 @@ msgstr ""
 
 #: src/android/interoperability/with-c/rust.md:48
 msgid "We can now call this from a C binary:"
-msgstr ""
+msgstr "Ahora podemos llamarlo desde un binario de C:"
 
 #: src/android/interoperability/with-c/rust.md:50
 msgid "_interoperability/rust/analyze/main.c_"
-msgstr ""
+msgstr "_interoperability/rust/analyze/main.c_"
 
 #: src/android/interoperability/with-c/rust.md:52
 msgid ""
@@ -13553,7 +13678,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/rust.md:62
 msgid "_interoperability/rust/analyze/Android.bp_"
-msgstr ""
+msgstr "_interoperability/rust/analyze/Android.bp_"
 
 #: src/android/interoperability/with-c/rust.md:64
 msgid ""
@@ -13582,44 +13707,58 @@ msgid ""
 "will just be the name of the function. You can also use `#[export_name = "
 "\"some_name\"]` to specify whatever name you want."
 msgstr ""
+"\"#\\[no_mangle\\]\" inhabilita la modificación de nombres habitual de Rust, "
+"por lo que el símbolo exportado será el nombre de la función. También puedes "
+"utilizar `#[export_name = \"some_name\"]` para especificar el nombre que "
+"quieras."
 
 #: src/android/interoperability/cpp.md:3
 msgid ""
 "The [CXX crate](https://cxx.rs/) makes it possible to do safe "
 "interoperability between Rust and C++."
 msgstr ""
+"El [crate CXX](https://cxx.rs/) permite una interoperabilidad segura entre "
+"Rust y C++."
 
 #: src/android/interoperability/cpp.md:6
 msgid "The overall approach looks like this:"
-msgstr ""
+msgstr "El enfoque general es el siguiente:"
 
 #: src/android/interoperability/cpp.md:10
 msgid ""
 "See the [CXX tutorial](https://cxx.rs/tutorial.html) for an full example of "
 "using this."
 msgstr ""
+"Consulta el [tutorial de CXX](https://cxx.rs/tutorial.html) para ver un "
+"ejemplo completo de su uso."
 
 #: src/android/interoperability/cpp.md:14
 msgid ""
 "At this point, the instructor should switch to the [CXX tutorial](https://"
 "cxx.rs/tutorial.html)."
 msgstr ""
+"En este punto, el instructor debería cambiar al [tutorial de CXX](https://"
+"cxx.rs/tutorial.html)."
 
 #: src/android/interoperability/cpp.md:16
 msgid "Walk the students through the tutorial step by step."
-msgstr ""
+msgstr "Guía a los estudiantes a través del tutorial paso a paso."
 
 #: src/android/interoperability/cpp.md:18
 msgid ""
 "Highlight how CXX presents a clean interface without unsafe code in _both "
 "languages_."
 msgstr ""
+"Destaca cómo CXX presenta una interfaz limpia sin código inseguro en _ambos "
+"lenguajes_."
 
 #: src/android/interoperability/cpp.md:20
 msgid ""
 "Show the correspondence between [Rust and C++ types](https://cxx.rs/bindings."
 "html):"
 msgstr ""
+"Muestra la correspondencia entre [los tipos de Rust y C++](https://cxx.rs/"
+"bindings.html):"
 
 #: src/android/interoperability/cpp.md:22
 msgid ""
@@ -13628,16 +13767,22 @@ msgid ""
 "types, `rust::String` in C++ can be easily constructed from a C++ `std::"
 "string`, making it very ergonomic to use."
 msgstr ""
+"Explica que una `String` de Rust no puede asignarse a una `std::string` de C+"
+"+ (esta última no mantiene la invariante UTF-8). Muestra que, a pesar de ser "
+"tipos diferentes, `rust::String` en C++ se puede construir fácilmente a "
+"partir de una `std::string` de C++, lo que la hace muy ergonómica de usar."
 
 #: src/android/interoperability/cpp.md:28
 msgid ""
 "Explain that a Rust function returning `Result<T, E>` becomes a function "
 "which throws a `E` exception in C++ (and vice versa)."
 msgstr ""
+"Explica que una función de Rust que devuelve `Result<T, E>` se convierte en "
+"una función que lanza una excepción `E` en C++ (y viceversa)."
 
 #: src/android/interoperability/java.md:1
 msgid "Interoperability with Java"
-msgstr ""
+msgstr "Interoperabilidad con Java"
 
 #: src/android/interoperability/java.md:3
 msgid ""
@@ -13645,14 +13790,17 @@ msgid ""
 "wikipedia.org/wiki/Java_Native_Interface). The [`jni` crate](https://docs.rs/"
 "jni/) allows you to create a compatible library."
 msgstr ""
+"Java puede cargar objetos compartidos a través de la [interfaz nativa de "
+"Java (JNI)](https://es.wikipedia.org/wiki/Java_Native_Interface). [El crate "
+"`jni`](https://docs.rs/jni/) permite crear una biblioteca compatible."
 
 #: src/android/interoperability/java.md:7
 msgid "First, we create a Rust function to export to Java:"
-msgstr ""
+msgstr "En primer lugar, creamos una función de Rust para exportar a Java:"
 
 #: src/android/interoperability/java.md:9
 msgid "_interoperability/java/src/lib.rs_:"
-msgstr ""
+msgstr "_interoperability/java/src/lib.rs_:"
 
 #: src/android/interoperability/java.md:11
 msgid ""
@@ -13681,7 +13829,7 @@ msgstr ""
 #: src/android/interoperability/java.md:32
 #: src/android/interoperability/java.md:62
 msgid "_interoperability/java/Android.bp_:"
-msgstr ""
+msgstr "_interoperability/java/Android.bp_:"
 
 #: src/android/interoperability/java.md:34
 msgid ""
@@ -13697,11 +13845,11 @@ msgstr ""
 
 #: src/android/interoperability/java.md:43
 msgid "Finally, we can call this function from Java:"
-msgstr ""
+msgstr "Por último, podemos llamar a esta función desde Java:"
 
 #: src/android/interoperability/java.md:45
 msgid "_interoperability/java/HelloWorld.java_:"
-msgstr ""
+msgstr "_interoperability/java/HelloWorld.java_:"
 
 #: src/android/interoperability/java.md:47
 msgid ""
@@ -13735,7 +13883,7 @@ msgstr ""
 
 #: src/android/interoperability/java.md:73
 msgid "Finally, you can build, sync, and run the binary:"
-msgstr ""
+msgstr "Ahora puedes compilar, sincronizar y ejecutar el binario:"
 
 #: src/android/interoperability/java.md:75
 msgid ""
@@ -13751,20 +13899,24 @@ msgid ""
 "This is a group exercise: We will look at one of the projects you work with "
 "and try to integrate some Rust into it. Some suggestions:"
 msgstr ""
+"Este es un ejercicio de grupo: escogeremos uno de los proyectos con los que "
+"se esté trabajando e intentaremos integrar Rust en él. Algunas sugerencias:"
 
 #: src/exercises/android/morning.md:6
 msgid "Call your AIDL service with a client written in Rust."
-msgstr ""
+msgstr "Llama a tu servicio de AIDL con un cliente escrito en Rust."
 
 #: src/exercises/android/morning.md:8
 msgid "Move a function from your project to Rust and call it."
-msgstr ""
+msgstr "Mueve una función desde tu proyecto a Rust y llámala."
 
 #: src/exercises/android/morning.md:12
 msgid ""
 "No solution is provided here since this is open-ended: it relies on someone "
 "in the class having a piece of code which you can turn in to Rust on the fly."
 msgstr ""
+"Aquí la solución es abierta, ya que depende de que alguno de los asistentes "
+"tenga un fragmento de código que se pueda convertir en Rust sobre la marcha."
 
 #: src/bare-metal.md:1
 #, fuzzy
