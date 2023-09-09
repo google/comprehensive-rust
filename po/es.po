@@ -8372,71 +8372,93 @@ msgid ""
 "types used by Rust library and programs. This way, two libraries can work "
 "together smoothly because they both use the same `String` type."
 msgstr ""
+"Rust viene con una biblioteca estándar que ayuda a establecer un conjunto de "
+"tipos comunes que se usan en la biblioteca y los programas de Rust. De esta "
+"forma, dos bibliotecas pueden funcionar juntas sin problemas, puesto que "
+"ambas utilizan el mismo tipo `String`."
 
 #: src/std.md:7
 msgid "The common vocabulary types include:"
 msgstr ""
+"Entre los tipos de vocabulario más habituales se incluyen los siguientes:"
 
 #: src/std.md:9
 msgid ""
 "[`Option` and `Result`](std/option-result.md) types: used for optional "
 "values and [error handling](error-handling.md)."
 msgstr ""
+"Tipos [`Option` y `Result`](std/option-result.md): se utilizan para valores "
+"opcionales y [gestión de errores](error-handling.md)."
 
 #: src/std.md:12
 msgid "[`String`](std/string.md): the default string type used for owned data."
 msgstr ""
+"[`String`](std/string.md): el tipo de cadena predeterminado que se usa para "
+"los datos propios."
 
 #: src/std.md:14
 msgid "[`Vec`](std/vec.md): a standard extensible vector."
-msgstr ""
+msgstr "[`Vec`](std/vec.md): un vector estándar extensible."
 
 #: src/std.md:16
 msgid ""
 "[`HashMap`](std/hashmap.md): a hash map type with a configurable hashing "
 "algorithm."
 msgstr ""
+"[`HashMap`](std/hashmap.md): un mapa hash con un algoritmo hash configurable."
 
 #: src/std.md:19
 msgid "[`Box`](std/box.md): an owned pointer for heap-allocated data."
 msgstr ""
+"[`Box`](std/box.md): un puntero propio para datos ubicados en el _heap_."
 
 #: src/std.md:21
 msgid ""
 "[`Rc`](std/rc.md): a shared reference-counted pointer for heap-allocated "
 "data."
 msgstr ""
+"[`Rc`](std/rc.md): un puntero compartido de conteo de referencias para datos "
+"asignados a _heap_."
 
 #: src/std.md:25
 msgid ""
 "In fact, Rust contains several layers of the Standard Library: `core`, "
 "`alloc` and `std`. "
 msgstr ""
+"De hecho, Rust contiene varias capas de la biblioteca estándar: `core`, "
+"`alloc` y `std`. "
 
 #: src/std.md:26
 msgid ""
 "`core` includes the most basic types and functions that don't depend on "
 "`libc`, allocator or even the presence of an operating system. "
 msgstr ""
+"`core` incluye los tipos y funciones más básicos que no dependen de `libc`, "
+"de un _allocator_ (asignador de memoria) ni de la presencia de un sistema "
+"operativo. "
 
 #: src/std.md:28
 msgid ""
 "`alloc` includes types which require a global heap allocator, such as `Vec`, "
 "`Box` and `Arc`."
 msgstr ""
+"`alloc` incluye tipos que requieren un _allocator_ de _heap_ global, como "
+"`Vec`, `Box` y `Arc`."
 
 #: src/std.md:29
 msgid ""
 "Embedded Rust applications often only use `core`, and sometimes `alloc`."
 msgstr ""
+"Las aplicaciones embebidas en Rust menudo solo usan `core` y a algunas veces "
+"`alloc`."
 
 #: src/std/option-result.md:1
 msgid "`Option` and `Result`"
-msgstr ""
+msgstr "`Option` y `Result`"
 
 #: src/std/option-result.md:3
 msgid "The types represent optional data:"
-msgstr ""
+msgstr "Los tipos representan datos opcionales:"
 
 #: src/std/option-result.md:5
 msgid ""
@@ -8454,37 +8476,44 @@ msgstr ""
 
 #: src/std/option-result.md:18
 msgid "`Option` and `Result` are widely used not just in the standard library."
-msgstr ""
+msgstr "`Option` y `Result` se usan mucho, no solo en la biblioteca estándar."
 
 #: src/std/option-result.md:19
 msgid "`Option<&T>` has zero space overhead compared to `&T`."
-msgstr ""
+msgstr "`Option<&T>` no usa espacio adicional en comparación con `&T`."
 
 #: src/std/option-result.md:20
 msgid ""
 "`Result` is the standard type to implement error handling as we will see on "
 "Day 3."
 msgstr ""
+"`Result` es el tipo estándar para implementar la gestión de errores, tal y "
+"como veremos el día 3."
 
 #: src/std/option-result.md:21
 msgid "`binary_search` returns `Result<usize, usize>`."
-msgstr ""
+msgstr "`binary_search` devuelve `Result<usize, usize>`."
 
 #: src/std/option-result.md:22
 msgid "If found, `Result::Ok` holds the index where the element is found."
 msgstr ""
+"Si se encuentra, `Result::Ok` contiene el índice donde se halla el elemento."
 
 #: src/std/option-result.md:23
 msgid ""
 "Otherwise, `Result::Err` contains the index where such an element should be "
 "inserted."
 msgstr ""
+"De lo contrario, `Result::Err` contendrá el índice donde se debe insertar "
+"dicho elemento."
 
 #: src/std/string.md:3
 msgid ""
 "[`String`](https://doc.rust-lang.org/std/string/struct.String.html) is the "
 "standard heap-allocated growable UTF-8 string buffer:"
 msgstr ""
+"[`String`](https://doc.rust-lang.org/std/string/struct.String.html) es el "
+"búfer de cadena UTF-8 estándar, ampliable y asignado a un _heap_:"
 
 #: src/std/string.md:5
 msgid ""
@@ -8512,18 +8541,24 @@ msgid ""
 "string/struct.String.html#deref-methods-str), which means that you can call "
 "all `str` methods on a `String`."
 msgstr ""
+"`String` implementa \\[`Deref<Target = str>`\\]\\[2\\], lo que significa que "
+"puedes llamar a todos los métodos `str` en una `String`."
 
 #: src/std/string.md:30
 msgid ""
 "`String::new` returns a new empty string, use `String::with_capacity` when "
 "you know how much data you want to push to the string."
 msgstr ""
+"`String::new` devuelve una nueva cadena vacía. Usa `String::with_capacity` "
+"cuando sepas cuántos datos quieres guardar."
 
 #: src/std/string.md:31
 msgid ""
 "`String::len` returns the size of the `String` in bytes (which can be "
 "different from its length in characters)."
 msgstr ""
+"`String::len` devuelve el tamaño de `String` en bytes (que puede ser "
+"diferente de su longitud en caracteres)."
 
 #: src/std/string.md:32
 msgid ""
@@ -8532,28 +8567,38 @@ msgid ""
 "to [grapheme clusters](https://docs.rs/unicode-segmentation/latest/"
 "unicode_segmentation/struct.Graphemes.html)."
 msgstr ""
+"`String::chars` devuelve un iterador sobre los caracteres reales. Ten en "
+"cuenta que un `char` puede ser diferente de lo que un humano consideraría un "
+"\"caracter\", debido a los [grupos de grafemas](https://docs.rs/unicode-"
+"segmentation/latest/unicode_segmentation/struct.Graphemes.html)."
 
 #: src/std/string.md:33
 msgid ""
 "When people refer to strings they could either be talking about `&str` or "
 "`String`."
 msgstr ""
+"Cuando la gente se refiere a cadenas, pueden estar hablando de `&str` o de "
+"`String`. "
 
 #: src/std/string.md:34
 msgid ""
 "When a type implements `Deref<Target = T>`, the compiler will let you "
 "transparently call methods from `T`."
 msgstr ""
+"Cuando un tipo implementa `Deref<Target = T>`, el compilador te permite "
+"llamar a métodos de forma transparente desde `T`."
 
 #: src/std/string.md:35
 msgid ""
 "`String` implements `Deref<Target = str>` which transparently gives it "
 "access to `str`'s methods."
 msgstr ""
+"`String` implementa `Deref<Target = str>`, que le proporciona acceso "
+"transparente a los métodos de `str`."
 
 #: src/std/string.md:36
 msgid "Write and compare `let s3 = s1.deref();` and  `let s3 = &*s1`;."
-msgstr ""
+msgstr "Escribe y compara `let s3 = s1.deref();` y `let s3 = &*s1`;."
 
 #: src/std/string.md:37
 msgid ""
@@ -8561,32 +8606,41 @@ msgid ""
 "operations you see supported on vectors are also supported on `String`, but "
 "with some extra guarantees."
 msgstr ""
+"`String` se implementa como un envoltorio alrededor de un vector de bytes. "
+"Muchas de las operaciones que ves como compatibles con vectores también lo "
+"son con `String`, pero con algunas garantías adicionales."
 
 #: src/std/string.md:38
 msgid "Compare the different ways to index a `String`:"
-msgstr ""
+msgstr "Compara las diferentes formas de indexar `String`:"
 
 #: src/std/string.md:39
 msgid ""
 "To a character by using `s3.chars().nth(i).unwrap()` where `i` is in-bound, "
 "out-of-bounds."
 msgstr ""
+"A un carácter mediante `s3. chars().nth(i).unwrap()`, donde `i` está dentro "
+"o fuera de los límites"
 
 #: src/std/string.md:40
 msgid ""
 "To a substring by using `s3[0..4]`, where that slice is on character "
 "boundaries or not."
 msgstr ""
+"A una cadena secundaria mediante `s3[0..4]`, donde el slice está en los "
+"límites de caracteres o no."
 
 #: src/std/vec.md:1
 msgid "`Vec`"
-msgstr ""
+msgstr "`Vec`"
 
 #: src/std/vec.md:3
 msgid ""
 "[`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html) is the standard "
 "resizable heap-allocated buffer:"
 msgstr ""
+"[`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html) es el búfer "
+"estándar redimensionable asignado al _heap_:"
 
 #: src/std/vec.md:5
 msgid ""
@@ -8621,6 +8675,9 @@ msgid ""
 "struct.Vec.html#deref-methods-%5BT%5D), which means that you can call slice "
 "methods on a `Vec`."
 msgstr ""
+"`Vec` implementa [`Deref<Target = [T]>`](https://doc.rust-lang.org/std/vec/"
+"struct.Vec.html#deref-methods-%5BT%5D), lo que significa que puedes llamar a "
+"métodos slice en un `Vec`."
 
 #: src/std/vec.md:37
 msgid ""
@@ -8628,6 +8685,10 @@ msgid ""
 "it contains is stored on the heap. This means the amount of data doesn't "
 "need to be  known at compile time. It can grow or shrink at runtime."
 msgstr ""
+"`Vec` es un tipo de colección, junto con `String` y `HashMap`. Los datos que "
+"contiene se almacenan en el _heap_. Esto significa que no es necesario "
+"conocer la cantidad de datos durante la compilación. Puede aumentar o "
+"disminuir durante la ejecución."
 
 #: src/std/vec.md:40
 msgid ""
@@ -8635,12 +8696,17 @@ msgid ""
 "explicitly. As always with Rust type inference, the `T` was established "
 "during the first `push` call."
 msgstr ""
+"Ten en cuenta que `Vec<T>` también es un tipo genérico, pero no tienes que "
+"especificar `T` de forma explícita. Como siempre sucede con la inferencia de "
+"tipos de Rust, `T` se estableció durante la primera llamada a `push`."
 
 #: src/std/vec.md:42
 msgid ""
 "`vec![...]` is a canonical macro to use instead of `Vec::new()` and it "
 "supports adding initial elements to the vector."
 msgstr ""
+"`vec![...]` es una macro canónica para usarla en lugar de `Vec::new()` y "
+"admite que se añadan elementos iniciales al vector."
 
 #: src/std/vec.md:44
 msgid ""
@@ -8648,20 +8714,25 @@ msgid ""
 "Alternatively, using `get` will return an `Option`. The `pop` function will "
 "remove the last element."
 msgstr ""
+"Para indexar el vector, se utiliza `[` `]`, pero entrará en pánico si se "
+"sale de los límites. También se puede usar `get` para obtener una `Option`. "
+"La función `pop` eliminará el último elemento."
 
 #: src/std/vec.md:46
 msgid ""
 "Show iterating over a vector and mutating the value: `for e in &mut v { *e "
 "+= 50; }`"
 msgstr ""
+"Muestra la iteración sobre un vector y la mutación del valor: `for e in &mut "
+"v { *e += 50; }`."
 
 #: src/std/hashmap.md:1 src/bare-metal/no_std.md:46
 msgid "`HashMap`"
-msgstr ""
+msgstr "`HashMap`"
 
 #: src/std/hashmap.md:3
 msgid "Standard hash map with protection against HashDoS attacks:"
-msgstr ""
+msgstr "Mapa hash estándar con protección frente a ataques HashDoS:"
 
 #: src/std/hashmap.md:5
 msgid ""
@@ -8704,7 +8775,7 @@ msgstr ""
 #: src/std/hashmap.md:38
 msgid ""
 "`HashMap` is not defined in the prelude and needs to be brought into scope."
-msgstr ""
+msgstr "`HashMap` no se ha explicado en el preludio y debe conocerse."
 
 #: src/std/hashmap.md:39
 msgid ""
@@ -8712,6 +8783,10 @@ msgid ""
 "hashmap and if not return an alternative value. The second line will insert "
 "the alternative value in the hashmap if the book is not found."
 msgstr ""
+"Prueba las siguientes líneas de código. La primera línea comprobará si un "
+"libro está incluido en el hashmap y, si no, devolverá un valor alternativo. "
+"La segunda línea insertará el valor alternativo en el hashmap si el libro no "
+"se encuentra."
 
 #: src/std/hashmap.md:41
 msgid ""
@@ -8728,6 +8803,8 @@ msgstr ""
 #: src/std/hashmap.md:49
 msgid "Unlike `vec!`, there is unfortunately no standard `hashmap!` macro."
 msgstr ""
+"A diferencia de `vec!`, por desgracia no hay ninguna macro estándar de "
+"`hashmap!`."
 
 #: src/std/hashmap.md:50
 msgid ""
@@ -8736,6 +8813,11 @@ msgid ""
 "From%3C%5B(K,+V);+N%5D%3E-for-HashMap%3CK,+V,+RandomState%3E), which allows "
 "us to easily initialize a hash map from a literal array:"
 msgstr ""
+"Sin embargo, desde la versión 1.56 de Rust, HashMap implementa [`From<[(K, "
+"V); N]>`](https://doc.rust-lang.org/std/collections/hash_map/struct.HashMap."
+"html#impl-From%3C%5B(K,+V);+N%5D%3E-for-HashMap%3CK,+V,+RandomState%, que "
+"nos permite inicializar fácilmente un mapa hash a partir de un _array_ "
+"literal:"
 
 #: src/std/hashmap.md:52
 msgid ""
@@ -8752,6 +8834,8 @@ msgid ""
 "Alternatively HashMap can be built from any `Iterator` which yields key-"
 "value tuples."
 msgstr ""
+"HashMap también se puede crear a partir de cualquier `Iterator` que genere "
+"tuplas de pares clave-valor."
 
 #: src/std/hashmap.md:60
 msgid ""
@@ -8759,12 +8843,17 @@ msgid ""
 "examples easier. Using references in collections can, of course, be done, "
 "but it can lead into complications with the borrow checker."
 msgstr ""
+"Mostraremos `HashMap<String, i32>` y evitaremos utilizar `&str` para que los "
+"ejemplos sean más sencillos. Por supuesto, se pueden usar las referencias en "
+"las colecciones, pero pueden dar problemas con el _borrow checker_."
 
 #: src/std/hashmap.md:62
 msgid ""
 "Try removing `to_string()` from the example above and see if it still "
 "compiles. Where do you think we might run into issues?"
 msgstr ""
+"Prueba a eliminar `to_string()` del ejemplo anterior para ver si aún sigue "
+"compilando. ¿Dónde crees que podríamos encontrar problemas?"
 
 #: src/std/hashmap.md:64
 msgid ""
@@ -8773,16 +8862,22 @@ msgid ""
 "Rust docs. Show students the docs for this type, and the helpful link back "
 "to the `keys` method."
 msgstr ""
+"Este tipo tiene varios tipos de devolución \"específicos del método\", como "
+"`std::collections::hash_map::Keys`. Estos tipos a menudo aparecen en las "
+"búsquedas de la documentación de Rust. Muestra a los estudiantes la "
+"documentación de este tipo y el enlace útil de vuelta al método `keys`."
 
 #: src/std/box.md:1
 msgid "`Box`"
-msgstr ""
+msgstr "`Box`"
 
 #: src/std/box.md:3
 msgid ""
 "[`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) is an owned "
 "pointer to data on the heap:"
 msgstr ""
+"[`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) es un puntero "
+"propio de datos en el _heap_:"
 
 #: src/std/box.md:5
 msgid ""
@@ -8809,6 +8904,18 @@ msgid ""
 "`- - - - - - -'     `- - - - - - -'\n"
 "```"
 msgstr ""
+"```bob\n"
+" _Stack_            _Heap_\n"
+".- - - - - - -.     .- - - - - - -.\n"
+":             :     :             :\n"
+":    five     :     :             :\n"
+":   +-----+   :     :   +-----+   :\n"
+":   | o---|---+-----+-->|  5  |   :\n"
+":   +-----+   :     :   +-----+   :\n"
+":             :     :             :\n"
+":             :     :             :\n"
+"`- - - - - - -'     `- - - - - - -'\n"
+"```"
 
 #: src/std/box.md:26
 msgid ""
@@ -8816,28 +8923,37 @@ msgid ""
 "methods from `T` directly on a `Box<T>`](https://doc.rust-lang.org/std/ops/"
 "trait.Deref.html#more-on-deref-coercion)."
 msgstr ""
+"`Box<T>` implementa `Deref<Target = T>`, lo que significa que puedes [llamar "
+"a métodos desde `T` directamente en un `Box<T>`](https://doc.rust-lang.org/"
+"std/ops/trait.Deref.html#more-on-deref-coercion)."
 
 #: src/std/box.md:34
 msgid ""
 "`Box` is like `std::unique_ptr` in C++, except that it's guaranteed to be "
 "not null. "
 msgstr ""
+"`Box` es igual que `std::unique_ptr` en C++, salvo que está asegurado que no "
+"será nulo. "
 
 #: src/std/box.md:35
 msgid ""
 "In the above example, you can even leave out the `*` in the `println!` "
 "statement thanks to `Deref`. "
 msgstr ""
+"En el ejemplo anterior, incluso puedes omitir `*` en la instrucción `println!"
+"` gracias a `Deref`. "
 
 #: src/std/box.md:36
 msgid "A `Box` can be useful when you:"
-msgstr ""
+msgstr "Un `Box` puede resultar útil en los siguientes casos:"
 
 #: src/std/box.md:37
 msgid ""
 "have a type whose size that can't be known at compile time, but the Rust "
 "compiler wants to know an exact size."
 msgstr ""
+"Si tienes un tipo cuyo tamaño no se conoce durante la compilación, pero el "
+"compilador de Rust quiere saber el tamaño exacto."
 
 #: src/std/box.md:38
 msgid ""
@@ -8845,15 +8961,20 @@ msgid ""
 "amounts of data on the stack, instead store the data on the heap in a `Box` "
 "so only the pointer is moved."
 msgstr ""
+"Si quieres transferir la propiedad de una gran cantidad de datos. Para "
+"evitar que se copien grandes cantidades de datos en la _stack_, almacena los "
+"datos del _heap_ en un `Box` para que solo se mueva el puntero."
 
 #: src/std/box-recursive.md:1
 msgid "Box with Recursive Data Structures"
-msgstr ""
+msgstr "Box con Estructuras de Datos Recursivos"
 
 #: src/std/box-recursive.md:3
 msgid ""
 "Recursive data types or data types with dynamic sizes need to use a `Box`:"
 msgstr ""
+"Los tipos de datos recursivos o los tipos de datos con tamaños dinámicos "
+"deben utilizar un `Box`:"
 
 #: src/std/box-recursive.md:5 src/std/box-niche.md:3
 msgid ""
@@ -8893,6 +9014,24 @@ msgid ""
 "- -'\n"
 "```"
 msgstr ""
+"```bob\n"
+" _Stack_                       _Heap_\n"
+".- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - "
+"- -.\n"
+":                         :     :                                               :\n"
+":    "
+"list                 :     :                                               :\n"
+":   +------+----+----+    :     :    +------+----+----+    +------+----+----"
+"+   :\n"
+":   | Cons | 1  | o--+----+-----+--->| Cons | 2  | o--+--->| Nil  | // | // "
+"|   :\n"
+":   +------+----+----+    :     :    +------+----+----+    +------+----+----"
+"+   :\n"
+":                         :     :                                               :\n"
+":                         :     :                                               :\n"
+"'- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - "
+"- -'\n"
+"```"
 
 #: src/std/box-recursive.md:33
 msgid ""
@@ -8900,12 +9039,17 @@ msgid ""
 "`List`, the compiler would not compute a fixed size of the struct in memory "
 "(`List` would be of infinite size)."
 msgstr ""
+"Si no se utiliza `Box` e intentamos insertar un `List` directamente dentro "
+"de `List`, el compilador no calcularía un tamaño fijo de la estructura en la "
+"memoria (`List` tendría un tamaño infinito)."
 
 #: src/std/box-recursive.md:36
 msgid ""
 "`Box` solves this problem as it has the same size as a regular pointer and "
 "just points at the next element of the `List` in the heap."
 msgstr ""
+"`Box` resuelve este problema, ya que tiene el mismo tamaño que un puntero "
+"normal y solo apunta al siguiente elemento de la `List` en el _heap_."
 
 #: src/std/box-recursive.md:39
 msgid ""
@@ -8913,12 +9057,18 @@ msgid ""
 "\"Recursive with indirection\" is a hint you might want to use a Box or "
 "reference of some kind, instead of storing a value directly."
 msgstr ""
+"Elimina `Box` de la definición de la lista y muestra el error del "
+"compilador. \"Recursivo con indirección\" es una sugerencia de que puedes "
+"usar un Box o referencia de algún tipo, en lugar de almacenar un valor "
+"directamente."
 
 #: src/std/box-niche.md:16
 msgid ""
 "A `Box` cannot be empty, so the pointer is always valid and non-`null`. This "
 "allows the compiler to optimize the memory layout:"
 msgstr ""
+"`Box` no puede estar vacío, por lo que el puntero siempre es válido y no "
+"`null`. Esto permite que el compilador optimice el diseño de la memoria:"
 
 #: src/std/box-niche.md:19
 msgid ""
@@ -8941,10 +9091,28 @@ msgid ""
 "-'\n"
 "```"
 msgstr ""
+"```bob\n"
+" _Stack_                        _Heap_\n"
+".- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - "
+"-.\n"
+":                         :     :                                             :\n"
+":    "
+"list                 :     :                                             :\n"
+":   +----+----+           :     :    +----+----+    +----+------"
+"+             :\n"
+":   | 1  | o--+-----------+-----+--->| 2  | o--+--->| // | null "
+"|             :\n"
+":   +----+----+           :     :    +----+----+    +----+------"
+"+             :\n"
+":                         :     :                                             :\n"
+":                         :     :                                             :\n"
+"`- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - "
+"-'\n"
+"```"
 
 #: src/std/rc.md:1
 msgid "`Rc`"
-msgstr ""
+msgstr "`Rc`"
 
 #: src/std/rc.md:3
 msgid ""
@@ -8952,9 +9120,11 @@ msgid ""
 "counted shared pointer. Use this when you need to refer to the same data "
 "from multiple places:"
 msgstr ""
+"[`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html) es un puntero "
+"compartido de referencia contada. Utilízalo cuando necesites hacer "
+"referencia a los mismos datos desde varios lugares:"
 
 #: src/std/rc.md:6
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "use std::rc::Rc;\n"
@@ -8968,14 +9138,6 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-"```rust,editable\n"
-"fn main() {\n"
-"    let s1: String = String::from(\"Hola!\");\n"
-"    let s2: String = s1;\n"
-"    println!(\"s2: {s2}\");\n"
-"    // println!(\"s1: {s1}\");\n"
-"}\n"
-"```"
 
 #: src/std/rc.md:18
 msgid ""
@@ -8983,22 +9145,29 @@ msgid ""
 "rust-lang.org/std/sync/struct.Mutex.html) if you are in a multi-threaded "
 "context."
 msgstr ""
+"Consulta [`Arc`](../concurrency/shared_state/arc.md) y [`Mutex`](https://doc."
+"rust-lang.org/std/sync/struct.Mutex.html) si te encuentras en un contexto "
+"multihilo."
 
 #: src/std/rc.md:19
 msgid ""
 "You can _downgrade_ a shared pointer into a [`Weak`](https://doc.rust-lang."
 "org/std/rc/struct.Weak.html) pointer to create cycles that will get dropped."
 msgstr ""
+"Puedes _degradar_ un puntero compartido en un puntero [`Weak`](https://doc."
+"rust-lang.org/std/rc/struct.Weak.html) para crear ciclos que se abandonarán."
 
 #: src/std/rc.md:29
 msgid ""
 "`Rc`'s count ensures that its contained value is valid for as long as there "
 "are references."
 msgstr ""
+"El recuento de `Rc` asegura que el valor que contiene sea válido mientras "
+"haya referencias."
 
 #: src/std/rc.md:30
 msgid "`Rc` in Rust is like `std::shared_ptr` in C++."
-msgstr ""
+msgstr "`Rc` en Rust es como `std::shared_ptr` en C++."
 
 #: src/std/rc.md:31
 msgid ""
@@ -9006,16 +9175,21 @@ msgid ""
 "increases the reference count. Does not make a deep clone and can generally "
 "be ignored when looking for performance issues in code."
 msgstr ""
+"`Rc::clone` es simple: crea un puntero en la misma asignación y aumenta el "
+"recuento de referencias. No hace clones completos y, por lo general, se "
+"puede ignorar cuando se buscan problemas de rendimiento en el código."
 
 #: src/std/rc.md:32
 msgid ""
 "`make_mut` actually clones the inner value if necessary (\"clone-on-write\") "
 "and returns a mutable reference."
 msgstr ""
+"`make_mut` clona el valor interno si es necesario (\"copiar al escribir\") y "
+"devuelve una referencia mutable."
 
 #: src/std/rc.md:33
 msgid "Use `Rc::strong_count` to check the reference count."
-msgstr ""
+msgstr "Comprueba el recuento de referencias con `Rc::strong_count`."
 
 #: src/std/rc.md:34
 msgid ""
@@ -9023,10 +9197,13 @@ msgid ""
 "cycles that will be dropped properly (likely in combination with `RefCell`, "
 "on the next slide)."
 msgstr ""
+"`Rc::downgrade` ofrece un objeto _de referencia contada baja_ para crear "
+"`Rc::downgrade` ofrece un objeto de _referencia contada débil_ para crear "
+"`RefCell`)."
 
 #: src/std/cell.md:1
 msgid "`Cell` and `RefCell`"
-msgstr ""
+msgstr "`Cell` y `RefCell`"
 
 #: src/std/cell.md:3
 msgid ""
@@ -9034,6 +9211,10 @@ msgid ""
 "(https://doc.rust-lang.org/std/cell/struct.RefCell.html) implement what Rust "
 "calls _interior mutability:_ mutation of values in an immutable context."
 msgstr ""
+"[`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html) y [`RefCell`]"
+"(https://doc.rust-lang.org/std/cell/struct.RefCell.html) implementan lo que "
+"Rust llama _mutabilidad interna_: mutación de valores en un contexto "
+"inmutable."
 
 #: src/std/cell.md:8
 msgid ""
@@ -9041,6 +9222,11 @@ msgid ""
 "values. More complex interior types typically use `RefCell`, which tracks "
 "shared and exclusive references at runtime and panics if they are misused."
 msgstr ""
+"Normalmente, `Cell` se utiliza para tipos simples, ya que requiere copiar o "
+"mover valores. Los tipos internos más complejos normalmente utilizan "
+"`RefCell`, que realiza un seguimiento de las referencias compartidas y "
+"exclusivas en tiempo de ejecución y entra en pánico si se utilizan de forma "
+"incorrecta."
 
 #: src/std/cell.md:12
 msgid ""
@@ -9086,18 +9272,26 @@ msgid ""
 "This is safe because there's always one, un-referenced value in the cell, "
 "but it's not ergonomic."
 msgstr ""
+"Si estuviéramos utilizando `Cell` en lugar de `RefCell` en este ejemplo, "
+"tendríamos que mover el `Node` fuera del `Rc` para insertar hijos y luego "
+"volver a moverlo. Esto es seguro porque siempre hay un valor sin referenciar "
+"en la celda, pero no es ergonómico."
 
 #: src/std/cell.md:48
 msgid ""
 "To do anything with a Node, you must call a `RefCell` method, usually "
 "`borrow` or `borrow_mut`."
 msgstr ""
+"Para hacer cualquier cosa con un Node, debes llamar a un método de "
+"`RefCell`, normalmente `borrow` o `borrow_mut`."
 
 #: src/std/cell.md:49
 msgid ""
 "Demonstrate that reference loops can be created by adding `root` to `subtree."
 "children` (don't try to print it!)."
 msgstr ""
+"Demuestra que se pueden crear bucles de referencia añadiendo `root` a "
+"`subtree.children` (¡no intentes imprimirlo!)."
 
 #: src/std/cell.md:50
 msgid ""
@@ -9106,14 +9300,22 @@ msgid ""
 "the presence of the reference loop, with `thread 'main' panicked at 'already "
 "borrowed: BorrowMutError'`."
 msgstr ""
+"Para demostrar un pánico en tiempo de ejecución, añade un `fn inc(&mut "
+"self)` que incremente `self.value` y llame al mismo método en sus hijos. "
+"Esto entrará en pánico en presencia del bucle de referencia, con `thread "
+"'main' panicked at 'already borrowed: BorrowMutError'`."
 
 #: src/modules.md:3
 msgid "We have seen how `impl` blocks let us namespace functions to a type."
 msgstr ""
+"Hemos visto cómo los bloques `impl` nos permiten asignar espacios de nombres "
+"de funciones a un tipo."
 
 #: src/modules.md:5
 msgid "Similarly, `mod` lets us namespace types and functions:"
 msgstr ""
+"Del mismo modo, `mod` nos permite asignar espacios de nombres a funciones y "
+"tipos:"
 
 #: src/modules.md:7
 msgid ""
@@ -9142,34 +9344,44 @@ msgid ""
 "Packages provide functionality and include a `Cargo.toml` file that "
 "describes how to build a bundle of 1+ crates."
 msgstr ""
+"Los paquetes ofrecen funciones e incluyen un archivo `Cargo.toml` que "
+"describe cómo compilar un paquete de más de un crate."
 
 #: src/modules.md:29
 msgid ""
 "Crates are a tree of modules, where a binary crate creates an executable and "
 "a library crate compiles to a library."
 msgstr ""
+"Los crates son un árbol de módulos, donde un crate binario crea un "
+"ejecutable y un crate de biblioteca compila una biblioteca."
 
 #: src/modules.md:30
 msgid "Modules define organization, scope, and are the focus of this section."
 msgstr ""
+"Los módulos definen la organización y el ámbito, y son el centro de esta "
+"sección."
 
 #: src/modules/visibility.md:3
 msgid "Modules are a privacy boundary:"
-msgstr ""
+msgstr "Los módulos marcan el límite de la privacidad:"
 
 #: src/modules/visibility.md:5
 msgid "Module items are private by default (hides implementation details)."
 msgstr ""
+"Los elementos del módulo son privados de forma predeterminada (se ocultan "
+"los detalles de implementación)."
 
 #: src/modules/visibility.md:6
 msgid "Parent and sibling items are always visible."
-msgstr ""
+msgstr "Los elementos superiores y los del mismo nivel siempre están visibles."
 
 #: src/modules/visibility.md:7
 msgid ""
 "In other words, if an item is visible in module `foo`, it's visible in all "
 "the descendants of `foo`."
 msgstr ""
+"Es decir, si un elemento está visible en el módulo `foo`, se verá en todos "
+"los elementos descendientes de `foo`."
 
 #: src/modules/visibility.md:10
 msgid ""
@@ -9203,67 +9415,76 @@ msgstr ""
 
 #: src/modules/visibility.md:39
 msgid "Use the `pub` keyword to make modules public."
-msgstr ""
+msgstr "Haz que los módulos sean públicos con la palabra clave `pub`."
 
 #: src/modules/visibility.md:41
 msgid ""
 "Additionally, there are advanced `pub(...)` specifiers to restrict the scope "
 "of public visibility."
 msgstr ""
+"Además, hay especificadores `pub(...)` avanzados para restringir el ámbito "
+"de la visibilidad pública."
 
 #: src/modules/visibility.md:43
 msgid ""
 "See the [Rust Reference](https://doc.rust-lang.org/reference/visibility-and-"
 "privacy.html#pubin-path-pubcrate-pubsuper-and-pubself)."
 msgstr ""
+"Consulta el libro [Rust Reference](https://doc.rust-lang.org/reference/"
+"visibility-and-privacy.html#pubin-path-pubcrate-pubsuper-and-pubself)."
 
 #: src/modules/visibility.md:44
 msgid "Configuring `pub(crate)` visibility is a common pattern."
-msgstr ""
+msgstr "Configurar la visibilidad de `pub(crate)` es un patrón común."
 
 #: src/modules/visibility.md:45
 msgid "Less commonly, you can give visibility to a specific path."
 msgstr ""
+"Aunque es menos frecuente, se puede dar visibilidad a una ruta específica."
 
 #: src/modules/visibility.md:46
 msgid ""
 "In any case, visibility must be granted to an ancestor module (and all of "
 "its descendants)."
 msgstr ""
+"En cualquier caso, se debe dar visibilidad a un módulo antecedente (y a "
+"todos sus descendientes)."
 
 #: src/modules/paths.md:3
 msgid "Paths are resolved as follows:"
-msgstr ""
+msgstr "Las rutas se resuelven de la siguiente manera:"
 
 #: src/modules/paths.md:5
 msgid "As a relative path:"
-msgstr ""
+msgstr "Como ruta relativa:"
 
 #: src/modules/paths.md:6
 msgid "`foo` or `self::foo` refers to `foo` in the current module,"
-msgstr ""
+msgstr "`foo` o `self::foo` hacen referencia a `foo` en el módulo."
 
 #: src/modules/paths.md:7
 msgid "`super::foo` refers to `foo` in the parent module."
-msgstr ""
+msgstr "`super::foo` hace referencia a `foo` en el módulo superior."
 
 #: src/modules/paths.md:9
 msgid "As an absolute path:"
-msgstr ""
+msgstr "Como ruta absoluta:"
 
 #: src/modules/paths.md:10
 msgid "`crate::foo` refers to `foo` in the root of the current crate,"
-msgstr ""
+msgstr "`crate::foo` hace referencia a `foo` en la raíz del crate."
 
 #: src/modules/paths.md:11
 msgid "`bar::foo` refers to `foo` in the `bar` crate."
-msgstr ""
+msgstr "`bar::foo` hace referencia a `foo` en el crate `bar`."
 
 #: src/modules/paths.md:13
 msgid ""
 "A module can bring symbols from another module into scope with `use`. You "
 "will typically see something like this at the top of each module:"
 msgstr ""
+"Un módulo puede incluir símbolos de otro módulo en el ámbito con `use`. "
+"Normalmente, se ve algo como esto en la parte superior de cada módulo:"
 
 #: src/modules/paths.md:16
 msgid ""
@@ -9277,6 +9498,7 @@ msgstr ""
 msgid ""
 "Omitting the module content will tell Rust to look for it in another file:"
 msgstr ""
+"Omitir el contenido del módulo hará que Rust lo busque en otro archivo:"
 
 #: src/modules/filesystem.md:5
 msgid ""
@@ -9291,18 +9513,21 @@ msgid ""
 "rs`. Similarly, a `garden::vegetables` module can be found at `src/garden/"
 "vegetables.rs`."
 msgstr ""
+"Esto indica que el contenido del módulo `garden` se encuentra en `src/garden."
+"rs`. Del mismo modo, el módulo `garden::vegetables` se encuentra en `src/"
+"garden/vegetables.rs`."
 
 #: src/modules/filesystem.md:12
 msgid "The `crate` root is in:"
-msgstr ""
+msgstr "La raíz de `crate` está en:"
 
 #: src/modules/filesystem.md:14
 msgid "`src/lib.rs` (for a library crate)"
-msgstr ""
+msgstr "`src/lib.rs` (para un crate de biblioteca)"
 
 #: src/modules/filesystem.md:15
 msgid "`src/main.rs` (for a binary crate)"
-msgstr ""
+msgstr "`src/main.rs` (para un crate binario)"
 
 #: src/modules/filesystem.md:17
 msgid ""
@@ -9310,6 +9535,9 @@ msgid ""
 "comments\". These document the item that contains them -- in this case, a "
 "module."
 msgstr ""
+"Los módulos definidos en archivos también se pueden documentar mediante "
+"\"comentarios internos del documento\". En ellos se indica el elemento que "
+"los contiene, en este caso, un módulo."
 
 #: src/modules/filesystem.md:20
 msgid ""
@@ -9335,16 +9563,24 @@ msgid ""
 "Before Rust 2018, modules needed to be located at `module/mod.rs` instead of "
 "`module.rs`, and this is still a working alternative for editions after 2018."
 msgstr ""
+"Antes de Rust 2018, los módulos debían ubicarse en `module/mod.rs` en lugar "
+"de en `module.rs`. Esta alternativa sigue existiendo en las ediciones "
+"posteriores a 2018."
 
 #: src/modules/filesystem.md:39
 msgid ""
 "The main reason to introduce `filename.rs` as alternative to `filename/mod."
 "rs` was because many files named `mod.rs` can be hard to distinguish in IDEs."
 msgstr ""
+"El principal motivo de introducir `filename.rs` en lugar de `filename/mod."
+"rs` se debe a que si muchos archivos llamados `mod.rs` puede ser difícil "
+"distinguirlos en IDEs."
 
 #: src/modules/filesystem.md:42
 msgid "Deeper nesting can use folders, even if the main module is a file:"
 msgstr ""
+"Un anidamiento más profundo puede usar carpetas, incluso si el módulo "
+"principal es un archivo:"
 
 #: src/modules/filesystem.md:44
 msgid ""
@@ -9362,6 +9598,8 @@ msgid ""
 "The place rust will look for modules can be changed with a compiler "
 "directive:"
 msgstr ""
+"El lugar donde Rust buscará los módulos se puede cambiar con una directiva "
+"del compilador:"
 
 #: src/modules/filesystem.md:54
 msgid ""
@@ -9376,6 +9614,8 @@ msgid ""
 "This is useful, for example, if you would like to place tests for a module "
 "in a file named `some_module_test.rs`, similar to the convention in Go."
 msgstr ""
+"Esto resulta útil, por ejemplo, si deseas colocar pruebas de un módulo en un "
+"archivo denominado `some_module_test.rs`, similar a la convención en Go."
 
 #: src/exercises/day-2/strings-iterators.md:3
 msgid ""
@@ -9384,12 +9624,20 @@ msgid ""
 "against _request paths_. The path prefixes can contain a wildcard character "
 "which matches a full segment. See the unit tests below."
 msgstr ""
+"En este ejercicio se va a implementar un componente de enrutamiento de un "
+"servidor web. El servidor está configurado con un número de _prefijos de "
+"ruta_ que se comparan con las _rutas de solicitud_. Los prefijos de ruta "
+"pueden contener un carácter comodín que coincida con un segmento completo. "
+"Consulta las pruebas unitarias más abajo."
 
 #: src/exercises/day-2/strings-iterators.md:8
 msgid ""
 "Copy the following code to <https://play.rust-lang.org/> and make the tests "
 "pass. Try avoiding allocating a `Vec` for your intermediate results:"
 msgstr ""
+"Copia el siguiente fragmento de código en la página <https://play.rust-lang."
+"org/> para hacer la prueba. Prueba a no asignar un `Vec` a los resultados "
+"intermedios:"
 
 #: src/exercises/day-2/strings-iterators.md:12
 msgid ""
