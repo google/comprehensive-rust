@@ -24,6 +24,29 @@ jobs:
       - name: Check formatting
         uses: dprint/check@v2.2
 
+      - name: Run git diff
+        id: git-diff
+        run: |
+          # Run git diff to generate the diff
+          diff=$(git diff --name-status ${{ github.event.before }} ${{ github.sha }})
+          
+          # Store the diff in an environment variable
+          echo "::set-env name=GIT_DIFF::$diff"
+      
+      - name: Annotate changes
+        run: |
+          # Get the diff from the environment variable
+          diff="$GIT_DIFF"
+          
+          # Process the diff and create annotations or messages for each file
+          while read -r line; do
+            file=$(echo "$line" | awk '{print $NF}')
+            change_type=$(echo "$line" | awk '{print $1}')
+            
+            # Example: Annotate with a warning for each file in the diff
+            echo "::warning file=$file::$change_type detected in $file"
+          done <<< "$diff"
+
       - name: Check for typos
         uses: crate-ci/typos@v1.16.9
         with:
