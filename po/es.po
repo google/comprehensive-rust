@@ -9690,47 +9690,59 @@ msgstr ""
 
 #: src/welcome-day-3.md:1
 msgid "Welcome to Day 3"
-msgstr "Bienvenido al Día 3"
+msgstr "Te damos la Bienvenida al Día 3"
 
 #: src/welcome-day-3.md:3
 msgid "Today, we will cover some more advanced topics of Rust:"
-msgstr ""
+msgstr "Hoy vamos a tratar algunos temas más avanzados de Rust:"
 
 #: src/welcome-day-3.md:5
 msgid ""
 "Traits: deriving traits, default methods, and important standard library "
 "traits."
 msgstr ""
+"_Traits_: derivación de _traits_, métodos predeterminados y _traits_ "
+"importantes de la _standard library_ (biblioteca estándar)."
 
 #: src/welcome-day-3.md:8
 msgid ""
 "Generics: generic data types, generic methods, monomorphization, and trait "
 "objects."
 msgstr ""
+"_Generics_ (Genéricos): tipos de datos genéricos, métodos genéricos, "
+"monomorfización y objetos de _traits_."
 
 #: src/welcome-day-3.md:11
 msgid "Error handling: panics, `Result`, and the try operator `?`."
 msgstr ""
+"Gestión de errores: _panics_ (pánicos), `Result` y el operador _try_ `?`."
 
 #: src/welcome-day-3.md:13
 msgid "Testing: unit tests, documentation tests, and integration tests."
 msgstr ""
+"Pruebas: pruebas unitarias, pruebas de documentación y pruebas de "
+"integración."
 
 #: src/welcome-day-3.md:15
 msgid ""
 "Unsafe Rust: raw pointers, static variables, unsafe functions, and extern "
 "functions."
 msgstr ""
+"Rust inseguro: punteros sin formato, variables estáticas, funciones no "
+"seguras y funciones externas."
 
 #: src/generics.md:3
 msgid ""
 "Rust support generics, which lets you abstract algorithms or data structures "
 "(such as sorting or a binary tree) over the types used or stored."
 msgstr ""
+"Rust admite el uso de genéricos, lo que permite abstraer los algoritmos o "
+"las estructuras de datos (como el orden o un árbol binario) sobre los tipos "
+"utilizados o almacenados."
 
 #: src/generics/data-types.md:3
 msgid "You can use generics to abstract over the concrete field type:"
-msgstr ""
+msgstr "Puedes usar genéricos para abstraer el tipo de campo concreto:"
 
 #: src/generics/data-types.md:5
 msgid ""
@@ -9752,14 +9764,17 @@ msgstr ""
 #: src/generics/data-types.md:21
 msgid "Try declaring a new variable `let p = Point { x: 5, y: 10.0 };`."
 msgstr ""
+"Prueba a declarar una nueva variable `let p = Point { x: 5, y: 10.0 };`."
 
 #: src/generics/data-types.md:23
 msgid "Fix the code to allow points that have elements of different types."
 msgstr ""
+"Corrige el código para permitir puntos que tengan elementos de distintos "
+"tipos."
 
 #: src/generics/methods.md:3
 msgid "You can declare a generic type on your `impl` block:"
-msgstr ""
+msgstr "Puedes declarar un tipo genérico en tu bloque `impl`:"
 
 #: src/generics/methods.md:5
 msgid ""
@@ -9787,30 +9802,38 @@ msgid ""
 "_Q:_ Why `T` is specified twice in `impl<T> Point<T> {}`? Isn't that "
 "redundant?"
 msgstr ""
+"_P:_ ¿Por qué `T` se especifica dos veces en `impl<T> Point<T> {}`? ¿No es "
+"redundante?"
 
 #: src/generics/methods.md:26
 msgid ""
 "This is because it is a generic implementation section for generic type. "
 "They are independently generic."
 msgstr ""
+"Esto se debe a que es una sección de implementación genérica para un tipo "
+"genérico. Son genéricos de forma independiente."
 
 #: src/generics/methods.md:27
 msgid "It means these methods are defined for any `T`."
-msgstr ""
+msgstr "Significa que estos métodos están definidos para cualquier `T`."
 
 #: src/generics/methods.md:28
 msgid "It is possible to write `impl Point<u32> { .. }`. "
-msgstr ""
+msgstr "Es posible escribir `impl Point<u32> { .. }`. "
 
 #: src/generics/methods.md:29
 msgid ""
 "`Point` is still generic and you can use `Point<f64>`, but methods in this "
 "block will only be available for `Point<u32>`."
 msgstr ""
+"`Point` sigue siendo genérico y puedes usar `Point<f64>`, pero los métodos "
+"de este bloque solo estarán disponibles para `Point<u32>`."
 
 #: src/generics/monomorphization.md:3
 msgid "Generic code is turned into non-generic code based on the call sites:"
 msgstr ""
+"El código genérico se convierte en código no genérico en función de los "
+"sitios de llamada:"
 
 #: src/generics/monomorphization.md:5
 msgid ""
@@ -9824,7 +9847,7 @@ msgstr ""
 
 #: src/generics/monomorphization.md:12
 msgid "behaves as if you wrote"
-msgstr ""
+msgstr "se comporta como si se hubiera escrito"
 
 #: src/generics/monomorphization.md:14
 msgid ""
@@ -9851,11 +9874,16 @@ msgid ""
 "This is a zero-cost abstraction: you get exactly the same result as if you "
 "had hand-coded the data structures without the abstraction."
 msgstr ""
+"Se trata de una abstracción sin coste: se obtiene exactamente el mismo "
+"resultado que si se hubiesen programado de forma manual las estructuras de "
+"datos sin la abstracción."
 
 #: src/traits.md:3
 msgid ""
 "Rust lets you abstract over types with traits. They're similar to interfaces:"
 msgstr ""
+"Rust te permite abstraer sobre tipos con _traits_. Son similares a las "
+"interfaces:"
 
 #: src/traits.md:5
 msgid ""
@@ -9898,13 +9926,12 @@ msgid ""
 msgstr ""
 
 #: src/traits/trait-objects.md:3
-#, fuzzy
 msgid ""
 "Trait objects allow for values of different types, for instance in a "
 "collection:"
 msgstr ""
-"Las Tuplas es un grupo de valores con diferentes tipos formando un tipo "
-"compuesto."
+"Los objetos de _traits_ permiten valores de diferentes tipos, por ejemplo, "
+"en una colección:"
 
 #: src/traits/trait-objects.md:5
 msgid ""
@@ -9946,7 +9973,7 @@ msgstr ""
 
 #: src/traits/trait-objects.md:40
 msgid "Memory layout after allocating `pets`:"
-msgstr ""
+msgstr "Diseño de la memoria después de asignar `pets`:"
 
 #: src/traits/trait-objects.md:42
 msgid ""
@@ -9999,18 +10026,71 @@ msgid ""
 "\n"
 "```"
 msgstr ""
+"```bob\n"
+" _Stack_                          _Heap_\n"
+".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - "
+"- -.\n"
+":                           :     :                                             :\n"
+":    "
+"pets                   :     :                                             :\n"
+":   +-----------+-------+   :     :   +-----+-----"
+"+                             :\n"
+":   | ptr       |   o---+---+-----+-->| o o | o o "
+"|                             :\n"
+":   | len       |     2 |   :     :   +-|-|-+-|-|-"
+"+                             :\n"
+":   | capacity  |     2 |   :     :     | |   | |   +---------------"
+"+           :\n"
+":   +-----------+-------+   :     :     | |   | '-->| name: \"Fido\"  "
+"|           :\n"
+":                           :     :     | |   |     +---------------"
+"+           :\n"
+"`- - - - - - - - - - - - - -'     :     | |   "
+"|                                 :\n"
+"                                  :     | |   |     +----------------------"
+"+    :   \n"
+"                                  :     | |   '---->| \"<Dog as Pet>::name\" "
+"|    :\n"
+"                                  :     | |         +----------------------"
+"+    : \n"
+"                                  :     | "
+"|                                     : \n"
+"                                  :     | |   +-"
+"+                               :   \n"
+"                                  :     | '-->|"
+"\\|                               :     \n"
+"                                  :     |     +-"
+"+                               :    \n"
+"                                  :     "
+"|                                       : \n"
+"                                  :     |     +----------------------"
+"+          : \n"
+"                                  :     '---->| \"<Cat as Pet>::name\" "
+"|          : \n"
+"                                  :           +----------------------"
+"+          :\n"
+"                                  :                                             :\n"
+"                                  '- - - - - - - - - - - - - - - - - - - - - "
+"- -'\n"
+"\n"
+"```"
 
 #: src/traits/trait-objects.md:72
 msgid ""
 "Types that implement a given trait may be of different sizes. This makes it "
 "impossible to have things like `Vec<Pet>` in the example above."
 msgstr ""
+"Los tipos que implementan un trait determinado pueden tener diferentes "
+"tamaños. Esto hace imposible tener elementos como `Vec<Pet>` en el ejemplo "
+"anterior."
 
 #: src/traits/trait-objects.md:73
 msgid ""
 "`dyn Pet` is a way to tell the compiler about a dynamically sized type that "
 "implements `Pet`."
 msgstr ""
+"`dyn Pet` es una forma de indicar al compilador un tipo de tamaño dinámico "
+"que implementa `Pet`."
 
 #: src/traits/trait-objects.md:74
 msgid ""
@@ -10019,10 +10099,14 @@ msgid ""
 "and a pointer to the virtual method table for the `Pet` implementation of "
 "that particular object."
 msgstr ""
+"En el ejemplo, `pets` contiene _punteros grandes_ en los objetos que "
+"implementan `Pet`. El puntero grande consta de dos componentes: un puntero "
+"al objeto real y un puntero a la tabla de métodos virtuales para la "
+"implementación de `Pet` en ese objeto concreto."
 
 #: src/traits/trait-objects.md:75
 msgid "Compare these outputs in the above example:"
-msgstr ""
+msgstr "Compara estas salidas en el ejemplo anterior:"
 
 #: src/traits/trait-objects.md:76
 msgid ""
@@ -10041,10 +10125,14 @@ msgid ""
 "Rust derive macros work by automatically generating code that implements the "
 "specified traits for a data structure."
 msgstr ""
+"Las macros de derivación de Rust funcionan generando automáticamente código "
+"que implementa los _traits_ especificados para una estructura de datos."
 
 #: src/traits/deriving-traits.md:5
 msgid "You can let the compiler derive a number of traits as follows:"
 msgstr ""
+"Puedes dejar que el compilador derive una serie de _traits_ de la siguiente "
+"manera:"
 
 #: src/traits/deriving-traits.md:7
 msgid ""
@@ -10068,6 +10156,8 @@ msgstr ""
 #: src/traits/default-methods.md:3
 msgid "Traits can implement behavior in terms of other trait methods:"
 msgstr ""
+"Los _traits_ pueden implementar comportamientos en función de otros métodos "
+"de _traits_:"
 
 #: src/traits/default-methods.md:5
 msgid ""
@@ -10103,14 +10193,18 @@ msgid ""
 "are required to implement themselves. Methods with default implementations "
 "can rely on required methods."
 msgstr ""
+"Los _traits_ pueden especificar los métodos implementados previamente "
+"(predeterminados) y los métodos que los usuarios deben implementar ellos "
+"mismos. Los métodos con implementaciones predeterminadas pueden basarse en "
+"métodos obligatorios."
 
 #: src/traits/default-methods.md:35
 msgid "Move method `not_equals` to a new trait `NotEquals`."
-msgstr ""
+msgstr "Mueve el método `not_equals` a un nuevo trait `NotEquals`."
 
 #: src/traits/default-methods.md:37
 msgid "Make `Equals` a super trait for `NotEquals`."
-msgstr ""
+msgstr "Haz que `Equals` sea un supertrait para `NotEquals`."
 
 #: src/traits/default-methods.md:38
 msgid ""
@@ -10122,10 +10216,17 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable,compile_fail\n"
+"trait NotEquals: Equals {\n"
+"    fn not_equals(&self, other: &Self) -> bool {\n"
+"        !self.equals(other)\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/traits/default-methods.md:46
 msgid "Provide a blanket implementation of `NotEquals` for `Equals`."
-msgstr ""
+msgstr "Proporciona una implementación general de `NotEquals` para `Equals`."
 
 #: src/traits/default-methods.md:47
 msgid ""
@@ -10147,16 +10248,21 @@ msgid ""
 "With the blanket implementation, you no longer need `Equals` as a super "
 "trait for `NotEqual`."
 msgstr ""
+"Con la implementación general, ya no necesitas `Equals` como supertrait para "
+"`NotEqual`."
 
 #: src/traits/trait-bounds.md:3
 msgid ""
 "When working with generics, you often want to require the types to implement "
 "some trait, so that you can call this trait's methods."
 msgstr ""
+"Cuando se trabaja con genéricos, a menudo se prefiere que los tipos "
+"implementen algún trait, de forma que se pueda llamar a los métodos de este "
+"trait."
 
 #: src/traits/trait-bounds.md:6
 msgid "You can do this with `T: Trait` or `impl Trait`:"
-msgstr ""
+msgstr "Puedes hacerlo con `T: Trait` o `impl Trait`:"
 
 #: src/traits/trait-bounds.md:8
 msgid ""
@@ -10189,6 +10295,8 @@ msgstr ""
 #: src/traits/trait-bounds.md:35
 msgid "Show a `where` clause, students will encounter it when reading code."
 msgstr ""
+"Muestra una cláusula `where` para que los alumnos la encuentren al leer el "
+"código."
 
 #: src/traits/trait-bounds.md:37
 msgid ""
@@ -10204,27 +10312,31 @@ msgstr ""
 
 #: src/traits/trait-bounds.md:46
 msgid "It declutters the function signature if you have many parameters."
-msgstr ""
+msgstr "Despeja la firma de la función si tienes muchos parámetros."
 
 #: src/traits/trait-bounds.md:47
 msgid "It has additional features making it more powerful."
-msgstr ""
+msgstr "Tiene funciones adicionales para que sea más potente."
 
 #: src/traits/trait-bounds.md:48
 msgid ""
 "If someone asks, the extra feature is that the type on the left of \":\" can "
 "be arbitrary, like `Option<T>`."
 msgstr ""
+"Si alguien pregunta, la función adicional es que el tipo que está a la "
+"izquierda de \":\" puede ser arbitrario, como `Option<T>`."
 
 #: src/traits/impl-trait.md:1
 msgid "`impl Trait`"
-msgstr ""
+msgstr "`impl Trait`"
 
 #: src/traits/impl-trait.md:3
 msgid ""
 "Similar to trait bounds, an `impl Trait` syntax can be used in function "
 "arguments and return values:"
 msgstr ""
+"De forma similar a los límites de _traits_, se puede usar la sintaxis `impl "
+"Trait` en argumentos de funciones y valores devueltos:"
 
 #: src/traits/impl-trait.md:6
 msgid ""
@@ -10245,17 +10357,21 @@ msgstr ""
 #: src/traits/impl-trait.md:19
 msgid "`impl Trait` allows you to work with types which you cannot name."
 msgstr ""
+"`impl Trait` permite trabajar con tipos a los que no se les puede asignar un "
+"nombre."
 
 #: src/traits/impl-trait.md:23
 msgid ""
 "The meaning of `impl Trait` is a bit different in the different positions."
-msgstr ""
+msgstr "La naturaleza de `impl Trait` varía ligeramente según la posición."
 
 #: src/traits/impl-trait.md:25
 msgid ""
 "For a parameter, `impl Trait` is like an anonymous generic parameter with a "
 "trait bound."
 msgstr ""
+"En el caso de los parámetros, `impl Trait` es como un parámetro genérico "
+"anónimo con un límite de trait."
 
 #: src/traits/impl-trait.md:27
 msgid ""
@@ -10263,6 +10379,9 @@ msgid ""
 "implements the trait, without naming the type. This can be useful when you "
 "don't want to expose the concrete type in a public API."
 msgstr ""
+"En el caso de un tipo de resultado devuelto, significa que este es un tipo "
+"concreto que implementa el trait, sin nombrar el tipo. Esto puede ser útil "
+"cuando no quieres exponer el tipo concreto en una API pública."
 
 #: src/traits/impl-trait.md:31
 msgid ""
@@ -10273,6 +10392,12 @@ msgid ""
 "`let x: Vec<_> = foo.collect()` or with the turbofish, `foo.collect::"
 "<Vec<_>>()`."
 msgstr ""
+"La inferencia es más complicada en la posición de retorno. Una función que "
+"devuelve `impl Foo` elige el tipo concreto que devuelve, sin escribirlo en "
+"el código fuente. Una función que devuelve un tipo genérico como "
+"`collect<B>() -> B` puede devolver cualquier tipo que cumpla `B`, y es "
+"posible que el llamador tenga que elegir uno, como con `let x: Vec<_> = foo."
+"collect()` o con la sintaxis turbofish, `foo.collect::<Vec<_>>()`."
 
 #: src/traits/impl-trait.md:37
 msgid ""
@@ -10284,12 +10409,22 @@ msgid ""
 "`format!` returns. If we wanted to do the same via `: Display` syntax, we'd "
 "need two independent generic parameters."
 msgstr ""
+"Este ejemplo es fantástico porque usa `impl Display` dos veces. Nos ayuda "
+"explicar que no hay nada que obligue a que sea _el mismo_ tipo `impl "
+"Display`. Si se utiliza un solo `T: Display`, se aplicaría la restricción de "
+"que el tipo de entrada `T` y el tipo de retorno `T` son iguales. No "
+"funcionaría para esta función en concreto, ya que el tipo que esperamos como "
+"entrada probablemente no sea el que devuelve `format!`. Si quisiéramos hacer "
+"lo mismo a través de la sintaxis `: Display`, necesitaríamos dos parámetros "
+"genéricos independientes."
 
 #: src/traits/important-traits.md:3
 msgid ""
 "We will now look at some of the most common traits of the Rust standard "
 "library:"
 msgstr ""
+"A continuación, veremos algunos de los _traits_ más comunes de la biblioteca "
+"estándar de Rust:"
 
 #: src/traits/important-traits.md:5
 msgid ""
@@ -10297,6 +10432,9 @@ msgid ""
 "[`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) "
 "used in `for` loops,"
 msgstr ""
+"[`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) y "
+"[`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) "
+"se usan en los bucles `for`."
 
 #: src/traits/important-traits.md:6
 msgid ""
@@ -10304,12 +10442,17 @@ msgid ""
 "(https://doc.rust-lang.org/std/convert/trait.Into.html) used to convert "
 "values,"
 msgstr ""
+"[`From`](https://doc.rust-lang.org/std/convert/trait.From.html) y [`Into`]"
+"(https://doc.rust-lang.org/std/convert/trait.Into.html) se usan para "
+"convertir valores."
 
 #: src/traits/important-traits.md:7
 msgid ""
 "[`Read`](https://doc.rust-lang.org/std/io/trait.Read.html) and [`Write`]"
 "(https://doc.rust-lang.org/std/io/trait.Write.html) used for IO,"
 msgstr ""
+"[`Read`](https://doc.rust-lang.org/std/io/trait.Read.html) y [`Write`]"
+"(https://doc.rust-lang.org/std/io/trait.Write.html) se usan para E/S."
 
 #: src/traits/important-traits.md:8
 msgid ""
@@ -10317,28 +10460,37 @@ msgid ""
 "doc.rust-lang.org/std/ops/trait.Mul.html), ... used for operator "
 "overloading, and"
 msgstr ""
+"[`Add`](https://doc.rust-lang.org/std/ops/trait.Add.html), [`Mul`](https://"
+"doc.rust-lang.org/std/ops/trait.Mul.html), ... se usan para sobrecargar "
+"operadores, y"
 
 #: src/traits/important-traits.md:9
 msgid ""
 "[`Drop`](https://doc.rust-lang.org/std/ops/trait.Drop.html) used for "
 "defining destructors."
 msgstr ""
+"[`Drop`](https://doc.rust-lang.org/std/ops/trait.Drop.html) se usa para "
+"definir destructores."
 
 #: src/traits/important-traits.md:10
 msgid ""
 "[`Default`](https://doc.rust-lang.org/std/default/trait.Default.html) used "
 "to construct a default instance of a type."
 msgstr ""
+"[`Default`](https://doc.rust-lang.org/std/default/trait.Default.html) se usa "
+"para construir una instancia predeterminada de un tipo."
 
 #: src/traits/iterator.md:1
 msgid "Iterators"
-msgstr ""
+msgstr "Iteradores"
 
 #: src/traits/iterator.md:3
 msgid ""
 "You can implement the [`Iterator`](https://doc.rust-lang.org/std/iter/trait."
 "Iterator.html) trait on your own types:"
 msgstr ""
+"Se puede implementar el trait [`Iterator`](https://doc.rust-lang.org/std/"
+"iter/trait.Iterator.html) en tus propios tipos:"
 
 #: src/traits/iterator.md:5
 msgid ""
@@ -10376,6 +10528,11 @@ msgid ""
 "functions should produce the code as efficient as equivalent imperative "
 "implementations."
 msgstr ""
+"El trait `Iterator` implementa muchas operaciones comunes de programación "
+"funcional en colecciones (por ejemplo, `map`, `filter`, `reduce`, etc.). "
+"Este es el trait que te permite encontrar toda la documentación sobre ellas. "
+"En Rust, estas funciones deberían generar un código tan eficiente como las "
+"implementaciones imperativas equivalentes."
 
 #: src/traits/iterator.md:37
 msgid ""
@@ -10384,6 +10541,11 @@ msgid ""
 "and `&[T]`. Ranges also implement it. This is why you can iterate over a "
 "vector with `for i in some_vec { .. }` but `some_vec.next()` doesn't exist."
 msgstr ""
+"`IntoIterator` es el trait que hace que los bucles funcionen. Se implementa "
+"a través de tipos de colecciones, como `Vec<T>`, y de referencias a ellas, "
+"como `&Vec<T>` y `&[T]`. Los intervalos también lo implementan. Esta es la "
+"razón por la que se puede iterar sobre un vector con `for i in some_vec "
+"{ .. }`, pero `some_vec.next()` no existe."
 
 #: src/traits/from-iterator.md:3
 msgid ""
@@ -10391,6 +10553,9 @@ msgid ""
 "lets you build a collection from an [`Iterator`](https://doc.rust-lang.org/"
 "std/iter/trait.Iterator.html)."
 msgstr ""
+"[`FromIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html) "
+"permite construir una colección a partir de un [`Iterator`](https://doc.rust-"
+"lang.org/std/iter/trait.Iterator.html)."
 
 #: src/traits/from-iterator.md:5
 msgid ""
@@ -10410,16 +10575,20 @@ msgid ""
 "`Iterator` implements `fn collect<B>(self) -> B where B: FromIterator<Self::"
 "Item>, Self: Sized`"
 msgstr ""
+"`Iterator` implementa `fn collect<B>(self) -> B where B: FromIterator<Self::"
+"Item>, Self: Sized`."
 
 #: src/traits/from-iterator.md:23
 msgid ""
 "There are also implementations which let you do cool things like convert an "
 "`Iterator<Item = Result<V, E>>` into a `Result<Vec<V>, E>`."
 msgstr ""
+"También hay implementaciones que permiten hacer cosas interesantes, como "
+"convertir un  `Iterator<Item = Result<V, E>>` en un `Result<Vec<V>, E>`."
 
 #: src/traits/from-into.md:1
 msgid "`From` and `Into`"
-msgstr ""
+msgstr "`From` e `Into`"
 
 #: src/traits/from-into.md:3
 msgid ""
@@ -10427,6 +10596,9 @@ msgid ""
 "html) and [`Into`](https://doc.rust-lang.org/std/convert/trait.Into.html) to "
 "facilitate type conversions:"
 msgstr ""
+"Los tipos implementan [`From`](https://doc.rust-lang.org/std/convert/trait."
+"From.html) y [`Into`](https://doc.rust-lang.org/std/convert/trait.Into.html) "
+"para facilitar las conversiones de tipos:"
 
 #: src/traits/from-into.md:5
 msgid ""
@@ -10447,6 +10619,9 @@ msgid ""
 "automatically implemented when [`From`](https://doc.rust-lang.org/std/"
 "convert/trait.From.html) is implemented:"
 msgstr ""
+"[`Into`](https://doc.rust-lang.org/std/convert/trait.Into.html) se "
+"implementa automáticamente cuando se implementa [`From`](https://doc.rust-"
+"lang.org/std/convert/trait.From.html):"
 
 #: src/traits/from-into.md:17
 msgid ""
@@ -10466,6 +10641,8 @@ msgid ""
 "That's why it is common to only implement `From`, as your type will get "
 "`Into` implementation too."
 msgstr ""
+"Por eso se suele implementar solo `From`, ya que el tipo ya habrá "
+"implementado también `Into`."
 
 #: src/traits/from-into.md:30
 msgid ""
@@ -10474,10 +10651,14 @@ msgid ""
 "Your function will accept types that implement `From` and those that _only_ "
 "implement `Into`."
 msgstr ""
+"Cuando se declara un tipo de entrada de argumento de función como "
+"\"cualquier elemento que se pueda convertir en `String`\", la regla es la "
+"contraria y se debe usar `Into`. La función aceptará tipos que implementen "
+"`From` y aquellos que _solo_ implementen `Into`."
 
 #: src/traits/read-write.md:1
 msgid "`Read` and `Write`"
-msgstr ""
+msgstr "`Read` y `Write`"
 
 #: src/traits/read-write.md:3
 msgid ""
@@ -10485,6 +10666,9 @@ msgid ""
 "[`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html), you can "
 "abstract over `u8` sources:"
 msgstr ""
+"Usando [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html) y "
+"[`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html), se puede "
+"abstraer sobre fuentes `u8`:"
 
 #: src/traits/read-write.md:5
 msgid ""
@@ -10512,6 +10696,8 @@ msgid ""
 "Similarly, [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) lets "
 "you abstract over `u8` sinks:"
 msgstr ""
+"De forma similar, [`Write`](https://doc.rust-lang.org/std/io/trait.Write."
+"html) te permite abstraer sobre fuentes `u8`:"
 
 #: src/traits/read-write.md:25
 msgid ""
@@ -10535,13 +10721,16 @@ msgstr ""
 
 #: src/traits/drop.md:1
 msgid "The `Drop` Trait"
-msgstr ""
+msgstr "El Trait `Drop`"
 
 #: src/traits/drop.md:3
 msgid ""
 "Values which implement [`Drop`](https://doc.rust-lang.org/std/ops/trait.Drop."
 "html) can specify code to run when they go out of scope:"
 msgstr ""
+"Los valores que implementan [`Drop`](https://doc.rust-lang.org/std/ops/trait."
+"Drop.html) pueden especificar el código que se ejecutará cuando salgan del "
+"ámbito:"
 
 #: src/traits/drop.md:5
 msgid ""
@@ -10575,31 +10764,36 @@ msgstr ""
 
 #: src/traits/drop.md:34 src/traits/operators.md:26
 msgid "Discussion points:"
-msgstr ""
+msgstr "Cuestiones de debate:"
 
 #: src/traits/drop.md:36
 msgid "Why doesn't `Drop::drop` take `self`?"
-msgstr ""
+msgstr "¿Por qué `Drop::drop` no acepta `self`?"
 
 #: src/traits/drop.md:37
 msgid ""
 "Short-answer: If it did, `std::mem::drop` would be called at the end of the "
 "block, resulting in another call to `Drop::drop`, and a stack overflow!"
 msgstr ""
+"Respuesta corta: si lo hiciera, se llamaría a `std::mem::drop` al final del "
+"bloque, lo que daría como resultado otra llamada a `Drop::drop` y un "
+"desbordamiento de la _stack_."
 
 #: src/traits/drop.md:40
 msgid "Try replacing `drop(a)` with `a.drop()`."
-msgstr ""
+msgstr "Prueba a sustituir `drop(a)` por `a.drop()`."
 
 #: src/traits/default.md:1
 msgid "The `Default` Trait"
-msgstr ""
+msgstr "El trait `Default`"
 
 #: src/traits/default.md:3
 msgid ""
 "[`Default`](https://doc.rust-lang.org/std/default/trait.Default.html) trait "
 "produces a default value for a type."
 msgstr ""
+"El trait [`Default`](https://doc.rust-lang.org/std/default/trait.Default."
+"html) produce un valor predeterminado para un tipo."
 
 #: src/traits/default.md:5
 msgid ""
@@ -10621,12 +10815,12 @@ msgid ""
 "}\n"
 "\n"
 "fn main() {\n"
-"    let default_struct = Derived::default();\n"
+"    let default_struct: Derived = Default::default();\n"
 "    println!(\"{default_struct:#?}\");\n"
 "\n"
 "    let almost_default_struct = Derived {\n"
 "        y: \"Y is set!\".into(),\n"
-"        ..Derived::default()\n"
+"        ..Default::default()\n"
 "    };\n"
 "    println!(\"{almost_default_struct:#?}\");\n"
 "\n"
@@ -10641,32 +10835,45 @@ msgstr ""
 msgid ""
 "It can be implemented directly or it can be derived via `#[derive(Default)]`."
 msgstr ""
+"Se puede implementar directamente o se puede derivar a través de "
+"`#[derive(Default)]`."
 
 #: src/traits/default.md:41
 msgid ""
 "A derived implementation will produce a value where all fields are set to "
 "their default values."
 msgstr ""
+"Una implementación derivada producirá un valor en el que todos los campos "
+"tendrán sus valores predeterminados."
 
 #: src/traits/default.md:42
 msgid "This means all types in the struct must implement `Default` too."
 msgstr ""
+"Esto significa que todos los tipos de la estructura también deberán "
+"implementar `Default`."
 
 #: src/traits/default.md:43
 msgid ""
 "Standard Rust types often implement `Default` with reasonable values (e.g. "
 "`0`, `\"\"`, etc)."
 msgstr ""
+"Los tipos estándar de Rust suelen implementar `Default` con valores "
+"razonables (por ejemplo, `0`, `\"\"`, etc.)."
 
 #: src/traits/default.md:44
 msgid "The partial struct copy works nicely with default."
 msgstr ""
+"La copia parcial de la estructura funciona correctamente con los valores "
+"predeterminados. ."
 
 #: src/traits/default.md:45
 msgid ""
 "Rust standard library is aware that types can implement `Default` and "
 "provides convenience methods that use it."
 msgstr ""
+"La biblioteca estándar de Rust tiene en cuenta que los tipos pueden "
+"implementar `Default` y, por ello, proporciona métodos prácticos que lo "
+"utilizan."
 
 #: src/traits/default.md:46
 msgid ""
@@ -10674,16 +10881,21 @@ msgid ""
 "book/ch05-01-defining-structs.html#creating-instances-from-other-instances-"
 "with-struct-update-syntax)"
 msgstr ""
+"la sintaxis `..` se denomina [sintaxis de actualización de estructuras]"
+"(https://doc.rust-lang.org/book/ch05-01-defining-structs.html#creating-"
+"instances-from-other-instances-with-struct-update-syntax)"
 
 #: src/traits/operators.md:1
 msgid "`Add`, `Mul`, ..."
-msgstr ""
+msgstr "`Add`, `Mul`, etc."
 
 #: src/traits/operators.md:3
 msgid ""
-"Operator overloading is implemented via traits in [`std::ops`](https://doc."
+"Operator overloading is implemented via _traits_ in [`std::ops`](https://doc."
 "rust-lang.org/std/ops/index.html):"
 msgstr ""
+"La sobrecarga de operadores se implementa mediante _traits_ en [`std::ops`]"
+"(https://doc.rust-lang.org/std/ops/index.html):"
 
 #: src/traits/operators.md:5
 msgid ""
@@ -10710,7 +10922,7 @@ msgstr ""
 #: src/traits/operators.md:28
 msgid ""
 "You could implement `Add` for `&Point`. In which situations is that useful? "
-msgstr ""
+msgstr "¿En qué situaciones sería útil implementar `Add` para `&Point`? "
 
 #: src/traits/operators.md:29
 msgid ""
@@ -10718,12 +10930,18 @@ msgid ""
 "the operator is not `Copy`, you should consider overloading the operator for "
 "`&T` as well. This avoids unnecessary cloning on the call site."
 msgstr ""
+"Respuesta: `Add:add` consume a `self`. Si el tipo `T` para el que se "
+"sobrecarga el operador no es `Copy`, deberías plantearte también sobrecargar "
+"el operador para `&T`. Así se evita la clonación innecesaria en el sitio de "
+"la llamada."
 
 #: src/traits/operators.md:33
 msgid ""
 "Why is `Output` an associated type? Could it be made a type parameter of the "
 "method?"
 msgstr ""
+"¿Por qué `Output` es un tipo asociado? ¿Se podría convertir en un parámetro "
+"tipo del método?"
 
 #: src/traits/operators.md:34
 msgid ""
@@ -10731,16 +10949,21 @@ msgid ""
 "associated types (like `Output`) are controlled by the implementor of a "
 "trait."
 msgstr ""
+"Respuesta corta: el llamador controla los parámetros tipo de la función, "
+"pero los tipos asociados (como `Output`) los controla el implementador de un "
+"trait ."
 
 #: src/traits/operators.md:37
 msgid ""
 "You could implement `Add` for two different types, e.g. `impl Add<(i32, "
 "i32)> for Point` would add a tuple to a `Point`."
 msgstr ""
+"Se podría implementar `Add` para dos tipos distintos; por ejemplo, `impl "
+"Add<(i32, i32)> for Point` añadiría una tupla a un `Point`."
 
 #: src/traits/closures.md:1
 msgid "Closures"
-msgstr "Cláusulas"
+msgstr "Cierres"
 
 #: src/traits/closures.md:3
 msgid ""
@@ -10749,6 +10972,11 @@ msgid ""
 "html), [`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), and "
 "[`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html) traits:"
 msgstr ""
+"Los cierres o expresiones lambda tienen tipos que no pueden nombrarse. Sin "
+"embargo, implementan _traits_ especiales [`Fn`](https://doc.rust-lang.org/"
+"std/ops/trait.Fn.html), [`FnMut`](https://doc.rust-lang.org/std/ops/trait."
+"FnMut.html) y [`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce."
+"html):"
 
 #: src/traits/closures.md:8
 msgid ""
@@ -10783,18 +11011,25 @@ msgid ""
 "perhaps captures nothing at all. It can be called multiple times "
 "concurrently."
 msgstr ""
+"Un `Fn` (por ejemplo, `add_3`) no consume ni modifica los valores "
+"capturados, o quizá  no captura nada en absoluto. Se puede llamar varias "
+"veces al mismo tiempo."
 
 #: src/traits/closures.md:37
 msgid ""
 "An `FnMut` (e.g. `accumulate`) might mutate captured values. You can call it "
 "multiple times, but not concurrently."
 msgstr ""
+"Un `FnMut` (por ejemplo, `accumulate`) puede modificar los valores "
+"capturados. Se puede llamar varias veces, pero no de forma simultánea."
 
 #: src/traits/closures.md:40
 msgid ""
 "If you have an `FnOnce` (e.g. `multiply_sum`), you may only call it once. It "
 "might consume captured values."
 msgstr ""
+"Si tienes un `FnOnce` (por ejemplo, `multiply_sum`), solo puedes llamarlo "
+"una vez. Puede consumir valores capturados."
 
 #: src/traits/closures.md:43
 msgid ""
@@ -10802,18 +11037,26 @@ msgid ""
 "I.e. you can use an `FnMut` wherever an `FnOnce` is called for, and you can "
 "use an `Fn` wherever an `FnMut` or `FnOnce` is called for."
 msgstr ""
+"`FnMut` es un subtipo de `FnOnce`, mientras que `Fn` es un subtipo de "
+"`FnMut` y `FnOnce`. Es decir, puedes utilizar un `FnMut` siempre que se "
+"llame a un `FnOnce`, y puedes usar un `Fn` siempre que se llame a un `FnMut` "
+"o a un `FnOnce`."
 
 #: src/traits/closures.md:47
 msgid ""
 "The compiler also infers `Copy` (e.g. for `add_3`) and `Clone` (e.g. "
 "`multiply_sum`), depending on what the closure captures."
 msgstr ""
+"El compilador también infiere `Copy` (por ejemplo, `add_3`) y `Clone` (por "
+"ejemplo, `multiply_sum`), dependiendo de lo que capture el cierre."
 
 #: src/traits/closures.md:50
 msgid ""
 "By default, closures will capture by reference if they can. The `move` "
 "keyword makes them capture by value."
 msgstr ""
+"De forma predeterminada, los cierres capturan, si pueden, por referencia. La "
+"palabra clave `move` hace que capturen por valor."
 
 #: src/traits/closures.md:52
 msgid ""
@@ -10831,51 +11074,60 @@ msgstr ""
 
 #: src/exercises/day-3/morning.md:1
 msgid "Day 3: Morning Exercises"
-msgstr ""
+msgstr "Día 3: Ejercicios de la Mañana"
 
 #: src/exercises/day-3/morning.md:3
-msgid "We will design a classical GUI library using traits and trait objects."
-msgstr ""
+msgid "We will design a classical GUI library traits and trait objects."
+msgstr "Diseñaremos una biblioteca GUI clásica de _traits_ y objetos _trait_."
 
 #: src/exercises/day-3/morning.md:5
 msgid ""
 "We will also look at enum dispatch with an exercise involving points and "
 "polygons."
 msgstr ""
+"También veremos la asignación de enumeraciones con un ejercicio que "
+"involucra puntos y polígonos."
 
 #: src/exercises/day-3/simple-gui.md:3
 msgid ""
 "Let us design a classical GUI library using our new knowledge of traits and "
 "trait objects."
 msgstr ""
+"Vamos a diseñar una biblioteca GUI clásica con nuestro recién adquirido "
+"conocimiento sobre _traits_ y objetos trait."
 
 #: src/exercises/day-3/simple-gui.md:6
 msgid "We will have a number of widgets in our library:"
-msgstr ""
+msgstr "Tendremos varios widgets en nuestra biblioteca:"
 
 #: src/exercises/day-3/simple-gui.md:8
 msgid "`Window`: has a `title` and contains other widgets."
-msgstr ""
+msgstr "`Window`: tiene un `title` y contiene otros widgets."
 
 #: src/exercises/day-3/simple-gui.md:9
 msgid ""
 "`Button`: has a `label` and a callback function which is invoked when the "
 "button is pressed."
 msgstr ""
+"`Button`: tiene una `label` y una función de retrollamada que se invoca "
+"cuando se pulsa el botón."
 
 #: src/exercises/day-3/simple-gui.md:11
 msgid "`Label`: has a `label`."
-msgstr ""
+msgstr "`Label`: tiene una `label`."
 
 #: src/exercises/day-3/simple-gui.md:13
 msgid "The widgets will implement a `Widget` trait, see below."
-msgstr ""
+msgstr "Los widgets implementarán un trait `Widget`, como se indica más abajo."
 
 #: src/exercises/day-3/simple-gui.md:15
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/>, fill in the missing "
 "`draw_into` methods so that you implement the `Widget` trait:"
 msgstr ""
+"Copia el siguiente fragmento de código en la página <https://play.rust-lang."
+"org/> y rellena los métodos `draw_into` que faltan para implementar el trait "
+"`Widget`:"
 
 #: src/exercises/day-3/simple-gui.md:18
 msgid ""
@@ -10995,7 +11247,7 @@ msgstr ""
 
 #: src/exercises/day-3/simple-gui.md:130
 msgid "The output of the above program can be something simple like this:"
-msgstr ""
+msgstr "La salida del programa anterior puede ser algo sencillo como esto:"
 
 #: src/exercises/day-3/simple-gui.md:132
 msgid ""
@@ -11017,6 +11269,10 @@ msgid ""
 "particular, notice how you can pad with different characters (here a `'/'`) "
 "and how you can control alignment:"
 msgstr ""
+"Si quieres trazar texto alineado, puedes usar los operadores de formato "
+"[relleno/alineación](https://doc.rust-lang.org/std/fmt/index."
+"html#fillalignment). En concreto, observa cómo puedes rellenar con distintos "
+"caracteres (en este caso, `'/'`) y cómo puedes controlar la alineación:"
 
 #: src/exercises/day-3/simple-gui.md:147
 msgid ""
@@ -11034,6 +11290,8 @@ msgstr ""
 msgid ""
 "Using such alignment tricks, you can for example produce output like this:"
 msgstr ""
+"Con estos trucos de alineación puedes, por ejemplo, obtener resultados como "
+"el siguiente:"
 
 #: src/exercises/day-3/simple-gui.md:158
 msgid ""
@@ -11051,7 +11309,7 @@ msgstr ""
 
 #: src/exercises/day-3/points-polygons.md:1
 msgid "Polygon Struct"
-msgstr ""
+msgstr "Estructura de polígono"
 
 #: src/exercises/day-3/points-polygons.md:3
 msgid ""
@@ -11059,6 +11317,9 @@ msgid ""
 "below to <https://play.rust-lang.org/> and fill in the missing methods to "
 "make the tests pass:"
 msgstr ""
+"Crearemos una estructura `Polygon` que contenga algunos puntos. Copia el "
+"siguiente fragmento de código en la página <https://play.rust-lang.org/> y "
+"rellena los métodos que faltan para pasar las pruebas:"
 
 #: src/exercises/day-3/points-polygons.md:7
 msgid ""
@@ -11177,22 +11438,30 @@ msgid ""
 "part of the exercise is to specify those correctly. You don't have to modify "
 "the tests."
 msgstr ""
+"Dado que faltan las firmas de los métodos en las instrucciones del problema, "
+"la parte clave del ejercicio consiste en especificarlas correctamente. No "
+"tienes que modificar las pruebas."
 
 #: src/exercises/day-3/points-polygons.md:120
 msgid "Other interesting parts of the exercise:"
-msgstr ""
+msgstr "Otras partes interesantes del ejercicio:"
 
 #: src/exercises/day-3/points-polygons.md:122
 msgid ""
 "Derive a `Copy` trait for some structs, as in tests the methods sometimes "
 "don't borrow their arguments."
 msgstr ""
+"Deriva un trait `Copy` en algunas estructuras, ya que, en las pruebas, los "
+"métodos a veces no toman prestados sus argumentos."
 
 #: src/exercises/day-3/points-polygons.md:123
 msgid ""
 "Discover that `Add` trait must be implemented for two objects to be addable "
 "via \"+\". Note that we do not discuss generics until Day 3."
 msgstr ""
+"Descubrir que hay que implementar el trait `Add` para que se puedan añadir "
+"dos objetos mediante \"+\". Ten en cuenta que no hablaremos de los genéricos "
+"hasta el día 3."
 
 #: src/error-handling.md:3
 msgid "Error handling in Rust is done using explicit control flow:"
