@@ -8372,71 +8372,93 @@ msgid ""
 "types used by Rust library and programs. This way, two libraries can work "
 "together smoothly because they both use the same `String` type."
 msgstr ""
+"Rust viene con una biblioteca estándar que ayuda a establecer un conjunto de "
+"tipos comunes que se usan en la biblioteca y los programas de Rust. De esta "
+"forma, dos bibliotecas pueden funcionar juntas sin problemas, puesto que "
+"ambas utilizan el mismo tipo `String`."
 
 #: src/std.md:7
 msgid "The common vocabulary types include:"
 msgstr ""
+"Entre los tipos de vocabulario más habituales se incluyen los siguientes:"
 
 #: src/std.md:9
 msgid ""
 "[`Option` and `Result`](std/option-result.md) types: used for optional "
 "values and [error handling](error-handling.md)."
 msgstr ""
+"Tipos [`Option` y `Result`](std/option-result.md): se utilizan para valores "
+"opcionales y [gestión de errores](error-handling.md)."
 
 #: src/std.md:12
 msgid "[`String`](std/string.md): the default string type used for owned data."
 msgstr ""
+"[`String`](std/string.md): el tipo de cadena predeterminado que se usa para "
+"los datos propios."
 
 #: src/std.md:14
 msgid "[`Vec`](std/vec.md): a standard extensible vector."
-msgstr ""
+msgstr "[`Vec`](std/vec.md): un vector estándar extensible."
 
 #: src/std.md:16
 msgid ""
 "[`HashMap`](std/hashmap.md): a hash map type with a configurable hashing "
 "algorithm."
 msgstr ""
+"[`HashMap`](std/hashmap.md): un mapa hash con un algoritmo hash configurable."
 
 #: src/std.md:19
 msgid "[`Box`](std/box.md): an owned pointer for heap-allocated data."
 msgstr ""
+"[`Box`](std/box.md): un puntero propio para datos ubicados en el _heap_."
 
 #: src/std.md:21
 msgid ""
 "[`Rc`](std/rc.md): a shared reference-counted pointer for heap-allocated "
 "data."
 msgstr ""
+"[`Rc`](std/rc.md): un puntero compartido de conteo de referencias para datos "
+"asignados a _heap_."
 
 #: src/std.md:25
 msgid ""
 "In fact, Rust contains several layers of the Standard Library: `core`, "
 "`alloc` and `std`. "
 msgstr ""
+"De hecho, Rust contiene varias capas de la biblioteca estándar: `core`, "
+"`alloc` y `std`. "
 
 #: src/std.md:26
 msgid ""
 "`core` includes the most basic types and functions that don't depend on "
 "`libc`, allocator or even the presence of an operating system. "
 msgstr ""
+"`core` incluye los tipos y funciones más básicos que no dependen de `libc`, "
+"de un _allocator_ (asignador de memoria) ni de la presencia de un sistema "
+"operativo. "
 
 #: src/std.md:28
 msgid ""
 "`alloc` includes types which require a global heap allocator, such as `Vec`, "
 "`Box` and `Arc`."
 msgstr ""
+"`alloc` incluye tipos que requieren un _allocator_ de _heap_ global, como "
+"`Vec`, `Box` y `Arc`."
 
 #: src/std.md:29
 msgid ""
 "Embedded Rust applications often only use `core`, and sometimes `alloc`."
 msgstr ""
+"Las aplicaciones embebidas en Rust menudo solo usan `core` y a algunas veces "
+"`alloc`."
 
 #: src/std/option-result.md:1
 msgid "`Option` and `Result`"
-msgstr ""
+msgstr "`Option` y `Result`"
 
 #: src/std/option-result.md:3
 msgid "The types represent optional data:"
-msgstr ""
+msgstr "Los tipos representan datos opcionales:"
 
 #: src/std/option-result.md:5
 msgid ""
@@ -8454,37 +8476,44 @@ msgstr ""
 
 #: src/std/option-result.md:18
 msgid "`Option` and `Result` are widely used not just in the standard library."
-msgstr ""
+msgstr "`Option` y `Result` se usan mucho, no solo en la biblioteca estándar."
 
 #: src/std/option-result.md:19
 msgid "`Option<&T>` has zero space overhead compared to `&T`."
-msgstr ""
+msgstr "`Option<&T>` no usa espacio adicional en comparación con `&T`."
 
 #: src/std/option-result.md:20
 msgid ""
 "`Result` is the standard type to implement error handling as we will see on "
 "Day 3."
 msgstr ""
+"`Result` es el tipo estándar para implementar la gestión de errores, tal y "
+"como veremos el día 3."
 
 #: src/std/option-result.md:21
 msgid "`binary_search` returns `Result<usize, usize>`."
-msgstr ""
+msgstr "`binary_search` devuelve `Result<usize, usize>`."
 
 #: src/std/option-result.md:22
 msgid "If found, `Result::Ok` holds the index where the element is found."
 msgstr ""
+"Si se encuentra, `Result::Ok` contiene el índice donde se halla el elemento."
 
 #: src/std/option-result.md:23
 msgid ""
 "Otherwise, `Result::Err` contains the index where such an element should be "
 "inserted."
 msgstr ""
+"De lo contrario, `Result::Err` contendrá el índice donde se debe insertar "
+"dicho elemento."
 
 #: src/std/string.md:3
 msgid ""
 "[`String`](https://doc.rust-lang.org/std/string/struct.String.html) is the "
 "standard heap-allocated growable UTF-8 string buffer:"
 msgstr ""
+"[`String`](https://doc.rust-lang.org/std/string/struct.String.html) es el "
+"búfer de cadena UTF-8 estándar, ampliable y asignado a un _heap_:"
 
 #: src/std/string.md:5
 msgid ""
@@ -8512,18 +8541,24 @@ msgid ""
 "string/struct.String.html#deref-methods-str), which means that you can call "
 "all `str` methods on a `String`."
 msgstr ""
+"`String` implementa \\[`Deref<Target = str>`\\]\\[2\\], lo que significa que "
+"puedes llamar a todos los métodos `str` en una `String`."
 
 #: src/std/string.md:30
 msgid ""
 "`String::new` returns a new empty string, use `String::with_capacity` when "
 "you know how much data you want to push to the string."
 msgstr ""
+"`String::new` devuelve una nueva cadena vacía. Usa `String::with_capacity` "
+"cuando sepas cuántos datos quieres guardar."
 
 #: src/std/string.md:31
 msgid ""
 "`String::len` returns the size of the `String` in bytes (which can be "
 "different from its length in characters)."
 msgstr ""
+"`String::len` devuelve el tamaño de `String` en bytes (que puede ser "
+"diferente de su longitud en caracteres)."
 
 #: src/std/string.md:32
 msgid ""
@@ -8532,28 +8567,38 @@ msgid ""
 "to [grapheme clusters](https://docs.rs/unicode-segmentation/latest/"
 "unicode_segmentation/struct.Graphemes.html)."
 msgstr ""
+"`String::chars` devuelve un iterador sobre los caracteres reales. Ten en "
+"cuenta que un `char` puede ser diferente de lo que un humano consideraría un "
+"\"caracter\", debido a los [grupos de grafemas](https://docs.rs/unicode-"
+"segmentation/latest/unicode_segmentation/struct.Graphemes.html)."
 
 #: src/std/string.md:33
 msgid ""
 "When people refer to strings they could either be talking about `&str` or "
 "`String`."
 msgstr ""
+"Cuando la gente se refiere a cadenas, pueden estar hablando de `&str` o de "
+"`String`. "
 
 #: src/std/string.md:34
 msgid ""
 "When a type implements `Deref<Target = T>`, the compiler will let you "
 "transparently call methods from `T`."
 msgstr ""
+"Cuando un tipo implementa `Deref<Target = T>`, el compilador te permite "
+"llamar a métodos de forma transparente desde `T`."
 
 #: src/std/string.md:35
 msgid ""
 "`String` implements `Deref<Target = str>` which transparently gives it "
 "access to `str`'s methods."
 msgstr ""
+"`String` implementa `Deref<Target = str>`, que le proporciona acceso "
+"transparente a los métodos de `str`."
 
 #: src/std/string.md:36
 msgid "Write and compare `let s3 = s1.deref();` and  `let s3 = &*s1`;."
-msgstr ""
+msgstr "Escribe y compara `let s3 = s1.deref();` y `let s3 = &*s1`;."
 
 #: src/std/string.md:37
 msgid ""
@@ -8561,32 +8606,41 @@ msgid ""
 "operations you see supported on vectors are also supported on `String`, but "
 "with some extra guarantees."
 msgstr ""
+"`String` se implementa como un envoltorio alrededor de un vector de bytes. "
+"Muchas de las operaciones que ves como compatibles con vectores también lo "
+"son con `String`, pero con algunas garantías adicionales."
 
 #: src/std/string.md:38
 msgid "Compare the different ways to index a `String`:"
-msgstr ""
+msgstr "Compara las diferentes formas de indexar `String`:"
 
 #: src/std/string.md:39
 msgid ""
 "To a character by using `s3.chars().nth(i).unwrap()` where `i` is in-bound, "
 "out-of-bounds."
 msgstr ""
+"A un carácter mediante `s3. chars().nth(i).unwrap()`, donde `i` está dentro "
+"o fuera de los límites"
 
 #: src/std/string.md:40
 msgid ""
 "To a substring by using `s3[0..4]`, where that slice is on character "
 "boundaries or not."
 msgstr ""
+"A una cadena secundaria mediante `s3[0..4]`, donde el slice está en los "
+"límites de caracteres o no."
 
 #: src/std/vec.md:1
 msgid "`Vec`"
-msgstr ""
+msgstr "`Vec`"
 
 #: src/std/vec.md:3
 msgid ""
 "[`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html) is the standard "
 "resizable heap-allocated buffer:"
 msgstr ""
+"[`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html) es el búfer "
+"estándar redimensionable asignado al _heap_:"
 
 #: src/std/vec.md:5
 msgid ""
@@ -8621,6 +8675,9 @@ msgid ""
 "struct.Vec.html#deref-methods-%5BT%5D), which means that you can call slice "
 "methods on a `Vec`."
 msgstr ""
+"`Vec` implementa [`Deref<Target = [T]>`](https://doc.rust-lang.org/std/vec/"
+"struct.Vec.html#deref-methods-%5BT%5D), lo que significa que puedes llamar a "
+"métodos slice en un `Vec`."
 
 #: src/std/vec.md:37
 msgid ""
@@ -8628,6 +8685,10 @@ msgid ""
 "it contains is stored on the heap. This means the amount of data doesn't "
 "need to be  known at compile time. It can grow or shrink at runtime."
 msgstr ""
+"`Vec` es un tipo de colección, junto con `String` y `HashMap`. Los datos que "
+"contiene se almacenan en el _heap_. Esto significa que no es necesario "
+"conocer la cantidad de datos durante la compilación. Puede aumentar o "
+"disminuir durante la ejecución."
 
 #: src/std/vec.md:40
 msgid ""
@@ -8635,12 +8696,17 @@ msgid ""
 "explicitly. As always with Rust type inference, the `T` was established "
 "during the first `push` call."
 msgstr ""
+"Ten en cuenta que `Vec<T>` también es un tipo genérico, pero no tienes que "
+"especificar `T` de forma explícita. Como siempre sucede con la inferencia de "
+"tipos de Rust, `T` se estableció durante la primera llamada a `push`."
 
 #: src/std/vec.md:42
 msgid ""
 "`vec![...]` is a canonical macro to use instead of `Vec::new()` and it "
 "supports adding initial elements to the vector."
 msgstr ""
+"`vec![...]` es una macro canónica para usarla en lugar de `Vec::new()` y "
+"admite que se añadan elementos iniciales al vector."
 
 #: src/std/vec.md:44
 msgid ""
@@ -8648,20 +8714,25 @@ msgid ""
 "Alternatively, using `get` will return an `Option`. The `pop` function will "
 "remove the last element."
 msgstr ""
+"Para indexar el vector, se utiliza `[` `]`, pero entrará en pánico si se "
+"sale de los límites. También se puede usar `get` para obtener una `Option`. "
+"La función `pop` eliminará el último elemento."
 
 #: src/std/vec.md:46
 msgid ""
 "Show iterating over a vector and mutating the value: `for e in &mut v { *e "
 "+= 50; }`"
 msgstr ""
+"Muestra la iteración sobre un vector y la mutación del valor: `for e in &mut "
+"v { *e += 50; }`."
 
 #: src/std/hashmap.md:1 src/bare-metal/no_std.md:46
 msgid "`HashMap`"
-msgstr ""
+msgstr "`HashMap`"
 
 #: src/std/hashmap.md:3
 msgid "Standard hash map with protection against HashDoS attacks:"
-msgstr ""
+msgstr "Mapa hash estándar con protección frente a ataques HashDoS:"
 
 #: src/std/hashmap.md:5
 msgid ""
@@ -8704,7 +8775,7 @@ msgstr ""
 #: src/std/hashmap.md:38
 msgid ""
 "`HashMap` is not defined in the prelude and needs to be brought into scope."
-msgstr ""
+msgstr "`HashMap` no se ha explicado en el preludio y debe conocerse."
 
 #: src/std/hashmap.md:39
 msgid ""
@@ -8712,6 +8783,10 @@ msgid ""
 "hashmap and if not return an alternative value. The second line will insert "
 "the alternative value in the hashmap if the book is not found."
 msgstr ""
+"Prueba las siguientes líneas de código. La primera línea comprobará si un "
+"libro está incluido en el hashmap y, si no, devolverá un valor alternativo. "
+"La segunda línea insertará el valor alternativo en el hashmap si el libro no "
+"se encuentra."
 
 #: src/std/hashmap.md:41
 msgid ""
@@ -8728,6 +8803,8 @@ msgstr ""
 #: src/std/hashmap.md:49
 msgid "Unlike `vec!`, there is unfortunately no standard `hashmap!` macro."
 msgstr ""
+"A diferencia de `vec!`, por desgracia no hay ninguna macro estándar de "
+"`hashmap!`."
 
 #: src/std/hashmap.md:50
 msgid ""
@@ -8736,6 +8813,11 @@ msgid ""
 "From%3C%5B(K,+V);+N%5D%3E-for-HashMap%3CK,+V,+RandomState%3E), which allows "
 "us to easily initialize a hash map from a literal array:"
 msgstr ""
+"Sin embargo, desde la versión 1.56 de Rust, HashMap implementa [`From<[(K, "
+"V); N]>`](https://doc.rust-lang.org/std/collections/hash_map/struct.HashMap."
+"html#impl-From%3C%5B(K,+V);+N%5D%3E-for-HashMap%3CK,+V,+RandomState%, que "
+"nos permite inicializar fácilmente un mapa hash a partir de un _array_ "
+"literal:"
 
 #: src/std/hashmap.md:52
 msgid ""
@@ -8752,6 +8834,8 @@ msgid ""
 "Alternatively HashMap can be built from any `Iterator` which yields key-"
 "value tuples."
 msgstr ""
+"HashMap también se puede crear a partir de cualquier `Iterator` que genere "
+"tuplas de pares clave-valor."
 
 #: src/std/hashmap.md:60
 msgid ""
@@ -8759,12 +8843,17 @@ msgid ""
 "examples easier. Using references in collections can, of course, be done, "
 "but it can lead into complications with the borrow checker."
 msgstr ""
+"Mostraremos `HashMap<String, i32>` y evitaremos utilizar `&str` para que los "
+"ejemplos sean más sencillos. Por supuesto, se pueden usar las referencias en "
+"las colecciones, pero pueden dar problemas con el _borrow checker_."
 
 #: src/std/hashmap.md:62
 msgid ""
 "Try removing `to_string()` from the example above and see if it still "
 "compiles. Where do you think we might run into issues?"
 msgstr ""
+"Prueba a eliminar `to_string()` del ejemplo anterior para ver si aún sigue "
+"compilando. ¿Dónde crees que podríamos encontrar problemas?"
 
 #: src/std/hashmap.md:64
 msgid ""
@@ -8773,16 +8862,22 @@ msgid ""
 "Rust docs. Show students the docs for this type, and the helpful link back "
 "to the `keys` method."
 msgstr ""
+"Este tipo tiene varios tipos de devolución \"específicos del método\", como "
+"`std::collections::hash_map::Keys`. Estos tipos a menudo aparecen en las "
+"búsquedas de la documentación de Rust. Muestra a los estudiantes la "
+"documentación de este tipo y el enlace útil de vuelta al método `keys`."
 
 #: src/std/box.md:1
 msgid "`Box`"
-msgstr ""
+msgstr "`Box`"
 
 #: src/std/box.md:3
 msgid ""
 "[`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) is an owned "
 "pointer to data on the heap:"
 msgstr ""
+"[`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) es un puntero "
+"propio de datos en el _heap_:"
 
 #: src/std/box.md:5
 msgid ""
@@ -8809,6 +8904,18 @@ msgid ""
 "`- - - - - - -'     `- - - - - - -'\n"
 "```"
 msgstr ""
+"```bob\n"
+" _Stack_            _Heap_\n"
+".- - - - - - -.     .- - - - - - -.\n"
+":             :     :             :\n"
+":    five     :     :             :\n"
+":   +-----+   :     :   +-----+   :\n"
+":   | o---|---+-----+-->|  5  |   :\n"
+":   +-----+   :     :   +-----+   :\n"
+":             :     :             :\n"
+":             :     :             :\n"
+"`- - - - - - -'     `- - - - - - -'\n"
+"```"
 
 #: src/std/box.md:26
 msgid ""
@@ -8816,28 +8923,37 @@ msgid ""
 "methods from `T` directly on a `Box<T>`](https://doc.rust-lang.org/std/ops/"
 "trait.Deref.html#more-on-deref-coercion)."
 msgstr ""
+"`Box<T>` implementa `Deref<Target = T>`, lo que significa que puedes [llamar "
+"a métodos desde `T` directamente en un `Box<T>`](https://doc.rust-lang.org/"
+"std/ops/trait.Deref.html#more-on-deref-coercion)."
 
 #: src/std/box.md:34
 msgid ""
 "`Box` is like `std::unique_ptr` in C++, except that it's guaranteed to be "
 "not null. "
 msgstr ""
+"`Box` es igual que `std::unique_ptr` en C++, salvo que está asegurado que no "
+"será nulo. "
 
 #: src/std/box.md:35
 msgid ""
 "In the above example, you can even leave out the `*` in the `println!` "
 "statement thanks to `Deref`. "
 msgstr ""
+"En el ejemplo anterior, incluso puedes omitir `*` en la instrucción `println!"
+"` gracias a `Deref`. "
 
 #: src/std/box.md:36
 msgid "A `Box` can be useful when you:"
-msgstr ""
+msgstr "Un `Box` puede resultar útil en los siguientes casos:"
 
 #: src/std/box.md:37
 msgid ""
 "have a type whose size that can't be known at compile time, but the Rust "
 "compiler wants to know an exact size."
 msgstr ""
+"Si tienes un tipo cuyo tamaño no se conoce durante la compilación, pero el "
+"compilador de Rust quiere saber el tamaño exacto."
 
 #: src/std/box.md:38
 msgid ""
@@ -8845,15 +8961,20 @@ msgid ""
 "amounts of data on the stack, instead store the data on the heap in a `Box` "
 "so only the pointer is moved."
 msgstr ""
+"Si quieres transferir la propiedad de una gran cantidad de datos. Para "
+"evitar que se copien grandes cantidades de datos en la _stack_, almacena los "
+"datos del _heap_ en un `Box` para que solo se mueva el puntero."
 
 #: src/std/box-recursive.md:1
 msgid "Box with Recursive Data Structures"
-msgstr ""
+msgstr "Box con Estructuras de Datos Recursivos"
 
 #: src/std/box-recursive.md:3
 msgid ""
 "Recursive data types or data types with dynamic sizes need to use a `Box`:"
 msgstr ""
+"Los tipos de datos recursivos o los tipos de datos con tamaños dinámicos "
+"deben utilizar un `Box`:"
 
 #: src/std/box-recursive.md:5 src/std/box-niche.md:3
 msgid ""
@@ -8893,6 +9014,24 @@ msgid ""
 "- -'\n"
 "```"
 msgstr ""
+"```bob\n"
+" _Stack_                       _Heap_\n"
+".- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - "
+"- -.\n"
+":                         :     :                                               :\n"
+":    "
+"list                 :     :                                               :\n"
+":   +------+----+----+    :     :    +------+----+----+    +------+----+----"
+"+   :\n"
+":   | Cons | 1  | o--+----+-----+--->| Cons | 2  | o--+--->| Nil  | // | // "
+"|   :\n"
+":   +------+----+----+    :     :    +------+----+----+    +------+----+----"
+"+   :\n"
+":                         :     :                                               :\n"
+":                         :     :                                               :\n"
+"'- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - "
+"- -'\n"
+"```"
 
 #: src/std/box-recursive.md:33
 msgid ""
@@ -8900,12 +9039,17 @@ msgid ""
 "`List`, the compiler would not compute a fixed size of the struct in memory "
 "(`List` would be of infinite size)."
 msgstr ""
+"Si no se utiliza `Box` e intentamos insertar un `List` directamente dentro "
+"de `List`, el compilador no calcularía un tamaño fijo de la estructura en la "
+"memoria (`List` tendría un tamaño infinito)."
 
 #: src/std/box-recursive.md:36
 msgid ""
 "`Box` solves this problem as it has the same size as a regular pointer and "
 "just points at the next element of the `List` in the heap."
 msgstr ""
+"`Box` resuelve este problema, ya que tiene el mismo tamaño que un puntero "
+"normal y solo apunta al siguiente elemento de la `List` en el _heap_."
 
 #: src/std/box-recursive.md:39
 msgid ""
@@ -8913,12 +9057,18 @@ msgid ""
 "\"Recursive with indirection\" is a hint you might want to use a Box or "
 "reference of some kind, instead of storing a value directly."
 msgstr ""
+"Elimina `Box` de la definición de la lista y muestra el error del "
+"compilador. \"Recursivo con indirección\" es una sugerencia de que puedes "
+"usar un Box o referencia de algún tipo, en lugar de almacenar un valor "
+"directamente."
 
 #: src/std/box-niche.md:16
 msgid ""
 "A `Box` cannot be empty, so the pointer is always valid and non-`null`. This "
 "allows the compiler to optimize the memory layout:"
 msgstr ""
+"`Box` no puede estar vacío, por lo que el puntero siempre es válido y no "
+"`null`. Esto permite que el compilador optimice el diseño de la memoria:"
 
 #: src/std/box-niche.md:19
 msgid ""
@@ -8941,10 +9091,28 @@ msgid ""
 "-'\n"
 "```"
 msgstr ""
+"```bob\n"
+" _Stack_                        _Heap_\n"
+".- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - "
+"-.\n"
+":                         :     :                                             :\n"
+":    "
+"list                 :     :                                             :\n"
+":   +----+----+           :     :    +----+----+    +----+------"
+"+             :\n"
+":   | 1  | o--+-----------+-----+--->| 2  | o--+--->| // | null "
+"|             :\n"
+":   +----+----+           :     :    +----+----+    +----+------"
+"+             :\n"
+":                         :     :                                             :\n"
+":                         :     :                                             :\n"
+"`- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - "
+"-'\n"
+"```"
 
 #: src/std/rc.md:1
 msgid "`Rc`"
-msgstr ""
+msgstr "`Rc`"
 
 #: src/std/rc.md:3
 msgid ""
@@ -8952,9 +9120,11 @@ msgid ""
 "counted shared pointer. Use this when you need to refer to the same data "
 "from multiple places:"
 msgstr ""
+"[`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html) es un puntero "
+"compartido de referencia contada. Utilízalo cuando necesites hacer "
+"referencia a los mismos datos desde varios lugares:"
 
 #: src/std/rc.md:6
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "use std::rc::Rc;\n"
@@ -8968,14 +9138,6 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-"```rust,editable\n"
-"fn main() {\n"
-"    let s1: String = String::from(\"Hola!\");\n"
-"    let s2: String = s1;\n"
-"    println!(\"s2: {s2}\");\n"
-"    // println!(\"s1: {s1}\");\n"
-"}\n"
-"```"
 
 #: src/std/rc.md:18
 msgid ""
@@ -8983,22 +9145,29 @@ msgid ""
 "rust-lang.org/std/sync/struct.Mutex.html) if you are in a multi-threaded "
 "context."
 msgstr ""
+"Consulta [`Arc`](../concurrency/shared_state/arc.md) y [`Mutex`](https://doc."
+"rust-lang.org/std/sync/struct.Mutex.html) si te encuentras en un contexto "
+"multihilo."
 
 #: src/std/rc.md:19
 msgid ""
 "You can _downgrade_ a shared pointer into a [`Weak`](https://doc.rust-lang."
 "org/std/rc/struct.Weak.html) pointer to create cycles that will get dropped."
 msgstr ""
+"Puedes _degradar_ un puntero compartido en un puntero [`Weak`](https://doc."
+"rust-lang.org/std/rc/struct.Weak.html) para crear ciclos que se abandonarán."
 
 #: src/std/rc.md:29
 msgid ""
 "`Rc`'s count ensures that its contained value is valid for as long as there "
 "are references."
 msgstr ""
+"El recuento de `Rc` asegura que el valor que contiene sea válido mientras "
+"haya referencias."
 
 #: src/std/rc.md:30
 msgid "`Rc` in Rust is like `std::shared_ptr` in C++."
-msgstr ""
+msgstr "`Rc` en Rust es como `std::shared_ptr` en C++."
 
 #: src/std/rc.md:31
 msgid ""
@@ -9006,16 +9175,21 @@ msgid ""
 "increases the reference count. Does not make a deep clone and can generally "
 "be ignored when looking for performance issues in code."
 msgstr ""
+"`Rc::clone` es simple: crea un puntero en la misma asignación y aumenta el "
+"recuento de referencias. No hace clones completos y, por lo general, se "
+"puede ignorar cuando se buscan problemas de rendimiento en el código."
 
 #: src/std/rc.md:32
 msgid ""
 "`make_mut` actually clones the inner value if necessary (\"clone-on-write\") "
 "and returns a mutable reference."
 msgstr ""
+"`make_mut` clona el valor interno si es necesario (\"copiar al escribir\") y "
+"devuelve una referencia mutable."
 
 #: src/std/rc.md:33
 msgid "Use `Rc::strong_count` to check the reference count."
-msgstr ""
+msgstr "Comprueba el recuento de referencias con `Rc::strong_count`."
 
 #: src/std/rc.md:34
 msgid ""
@@ -9023,10 +9197,13 @@ msgid ""
 "cycles that will be dropped properly (likely in combination with `RefCell`, "
 "on the next slide)."
 msgstr ""
+"`Rc::downgrade` ofrece un objeto _de referencia contada baja_ para crear "
+"`Rc::downgrade` ofrece un objeto de _referencia contada débil_ para crear "
+"`RefCell`)."
 
 #: src/std/cell.md:1
 msgid "`Cell` and `RefCell`"
-msgstr ""
+msgstr "`Cell` y `RefCell`"
 
 #: src/std/cell.md:3
 msgid ""
@@ -9034,6 +9211,10 @@ msgid ""
 "(https://doc.rust-lang.org/std/cell/struct.RefCell.html) implement what Rust "
 "calls _interior mutability:_ mutation of values in an immutable context."
 msgstr ""
+"[`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html) y [`RefCell`]"
+"(https://doc.rust-lang.org/std/cell/struct.RefCell.html) implementan lo que "
+"Rust llama _mutabilidad interna_: mutación de valores en un contexto "
+"inmutable."
 
 #: src/std/cell.md:8
 msgid ""
@@ -9041,6 +9222,11 @@ msgid ""
 "values. More complex interior types typically use `RefCell`, which tracks "
 "shared and exclusive references at runtime and panics if they are misused."
 msgstr ""
+"Normalmente, `Cell` se utiliza para tipos simples, ya que requiere copiar o "
+"mover valores. Los tipos internos más complejos normalmente utilizan "
+"`RefCell`, que realiza un seguimiento de las referencias compartidas y "
+"exclusivas en tiempo de ejecución y entra en pánico si se utilizan de forma "
+"incorrecta."
 
 #: src/std/cell.md:12
 msgid ""
@@ -9086,18 +9272,26 @@ msgid ""
 "This is safe because there's always one, un-referenced value in the cell, "
 "but it's not ergonomic."
 msgstr ""
+"Si estuviéramos utilizando `Cell` en lugar de `RefCell` en este ejemplo, "
+"tendríamos que mover el `Node` fuera del `Rc` para insertar hijos y luego "
+"volver a moverlo. Esto es seguro porque siempre hay un valor sin referenciar "
+"en la celda, pero no es ergonómico."
 
 #: src/std/cell.md:48
 msgid ""
 "To do anything with a Node, you must call a `RefCell` method, usually "
 "`borrow` or `borrow_mut`."
 msgstr ""
+"Para hacer cualquier cosa con un Node, debes llamar a un método de "
+"`RefCell`, normalmente `borrow` o `borrow_mut`."
 
 #: src/std/cell.md:49
 msgid ""
 "Demonstrate that reference loops can be created by adding `root` to `subtree."
 "children` (don't try to print it!)."
 msgstr ""
+"Demuestra que se pueden crear bucles de referencia añadiendo `root` a "
+"`subtree.children` (¡no intentes imprimirlo!)."
 
 #: src/std/cell.md:50
 msgid ""
@@ -9106,14 +9300,22 @@ msgid ""
 "the presence of the reference loop, with `thread 'main' panicked at 'already "
 "borrowed: BorrowMutError'`."
 msgstr ""
+"Para demostrar un pánico en tiempo de ejecución, añade un `fn inc(&mut "
+"self)` que incremente `self.value` y llame al mismo método en sus hijos. "
+"Esto entrará en pánico en presencia del bucle de referencia, con `thread "
+"'main' panicked at 'already borrowed: BorrowMutError'`."
 
 #: src/modules.md:3
 msgid "We have seen how `impl` blocks let us namespace functions to a type."
 msgstr ""
+"Hemos visto cómo los bloques `impl` nos permiten asignar espacios de nombres "
+"de funciones a un tipo."
 
 #: src/modules.md:5
 msgid "Similarly, `mod` lets us namespace types and functions:"
 msgstr ""
+"Del mismo modo, `mod` nos permite asignar espacios de nombres a funciones y "
+"tipos:"
 
 #: src/modules.md:7
 msgid ""
@@ -9142,34 +9344,44 @@ msgid ""
 "Packages provide functionality and include a `Cargo.toml` file that "
 "describes how to build a bundle of 1+ crates."
 msgstr ""
+"Los paquetes ofrecen funciones e incluyen un archivo `Cargo.toml` que "
+"describe cómo compilar un paquete de más de un crate."
 
 #: src/modules.md:29
 msgid ""
 "Crates are a tree of modules, where a binary crate creates an executable and "
 "a library crate compiles to a library."
 msgstr ""
+"Los crates son un árbol de módulos, donde un crate binario crea un "
+"ejecutable y un crate de biblioteca compila una biblioteca."
 
 #: src/modules.md:30
 msgid "Modules define organization, scope, and are the focus of this section."
 msgstr ""
+"Los módulos definen la organización y el ámbito, y son el centro de esta "
+"sección."
 
 #: src/modules/visibility.md:3
 msgid "Modules are a privacy boundary:"
-msgstr ""
+msgstr "Los módulos marcan el límite de la privacidad:"
 
 #: src/modules/visibility.md:5
 msgid "Module items are private by default (hides implementation details)."
 msgstr ""
+"Los elementos del módulo son privados de forma predeterminada (se ocultan "
+"los detalles de implementación)."
 
 #: src/modules/visibility.md:6
 msgid "Parent and sibling items are always visible."
-msgstr ""
+msgstr "Los elementos superiores y los del mismo nivel siempre están visibles."
 
 #: src/modules/visibility.md:7
 msgid ""
 "In other words, if an item is visible in module `foo`, it's visible in all "
 "the descendants of `foo`."
 msgstr ""
+"Es decir, si un elemento está visible en el módulo `foo`, se verá en todos "
+"los elementos descendientes de `foo`."
 
 #: src/modules/visibility.md:10
 msgid ""
@@ -9203,67 +9415,76 @@ msgstr ""
 
 #: src/modules/visibility.md:39
 msgid "Use the `pub` keyword to make modules public."
-msgstr ""
+msgstr "Haz que los módulos sean públicos con la palabra clave `pub`."
 
 #: src/modules/visibility.md:41
 msgid ""
 "Additionally, there are advanced `pub(...)` specifiers to restrict the scope "
 "of public visibility."
 msgstr ""
+"Además, hay especificadores `pub(...)` avanzados para restringir el ámbito "
+"de la visibilidad pública."
 
 #: src/modules/visibility.md:43
 msgid ""
 "See the [Rust Reference](https://doc.rust-lang.org/reference/visibility-and-"
 "privacy.html#pubin-path-pubcrate-pubsuper-and-pubself)."
 msgstr ""
+"Consulta el libro [Rust Reference](https://doc.rust-lang.org/reference/"
+"visibility-and-privacy.html#pubin-path-pubcrate-pubsuper-and-pubself)."
 
 #: src/modules/visibility.md:44
 msgid "Configuring `pub(crate)` visibility is a common pattern."
-msgstr ""
+msgstr "Configurar la visibilidad de `pub(crate)` es un patrón común."
 
 #: src/modules/visibility.md:45
 msgid "Less commonly, you can give visibility to a specific path."
 msgstr ""
+"Aunque es menos frecuente, se puede dar visibilidad a una ruta específica."
 
 #: src/modules/visibility.md:46
 msgid ""
 "In any case, visibility must be granted to an ancestor module (and all of "
 "its descendants)."
 msgstr ""
+"En cualquier caso, se debe dar visibilidad a un módulo antecedente (y a "
+"todos sus descendientes)."
 
 #: src/modules/paths.md:3
 msgid "Paths are resolved as follows:"
-msgstr ""
+msgstr "Las rutas se resuelven de la siguiente manera:"
 
 #: src/modules/paths.md:5
 msgid "As a relative path:"
-msgstr ""
+msgstr "Como ruta relativa:"
 
 #: src/modules/paths.md:6
 msgid "`foo` or `self::foo` refers to `foo` in the current module,"
-msgstr ""
+msgstr "`foo` o `self::foo` hacen referencia a `foo` en el módulo."
 
 #: src/modules/paths.md:7
 msgid "`super::foo` refers to `foo` in the parent module."
-msgstr ""
+msgstr "`super::foo` hace referencia a `foo` en el módulo superior."
 
 #: src/modules/paths.md:9
 msgid "As an absolute path:"
-msgstr ""
+msgstr "Como ruta absoluta:"
 
 #: src/modules/paths.md:10
 msgid "`crate::foo` refers to `foo` in the root of the current crate,"
-msgstr ""
+msgstr "`crate::foo` hace referencia a `foo` en la raíz del crate."
 
 #: src/modules/paths.md:11
 msgid "`bar::foo` refers to `foo` in the `bar` crate."
-msgstr ""
+msgstr "`bar::foo` hace referencia a `foo` en el crate `bar`."
 
 #: src/modules/paths.md:13
 msgid ""
 "A module can bring symbols from another module into scope with `use`. You "
 "will typically see something like this at the top of each module:"
 msgstr ""
+"Un módulo puede incluir símbolos de otro módulo en el ámbito con `use`. "
+"Normalmente, se ve algo como esto en la parte superior de cada módulo:"
 
 #: src/modules/paths.md:16
 msgid ""
@@ -9277,6 +9498,7 @@ msgstr ""
 msgid ""
 "Omitting the module content will tell Rust to look for it in another file:"
 msgstr ""
+"Omitir el contenido del módulo hará que Rust lo busque en otro archivo:"
 
 #: src/modules/filesystem.md:5
 msgid ""
@@ -9291,18 +9513,21 @@ msgid ""
 "rs`. Similarly, a `garden::vegetables` module can be found at `src/garden/"
 "vegetables.rs`."
 msgstr ""
+"Esto indica que el contenido del módulo `garden` se encuentra en `src/garden."
+"rs`. Del mismo modo, el módulo `garden::vegetables` se encuentra en `src/"
+"garden/vegetables.rs`."
 
 #: src/modules/filesystem.md:12
 msgid "The `crate` root is in:"
-msgstr ""
+msgstr "La raíz de `crate` está en:"
 
 #: src/modules/filesystem.md:14
 msgid "`src/lib.rs` (for a library crate)"
-msgstr ""
+msgstr "`src/lib.rs` (para un crate de biblioteca)"
 
 #: src/modules/filesystem.md:15
 msgid "`src/main.rs` (for a binary crate)"
-msgstr ""
+msgstr "`src/main.rs` (para un crate binario)"
 
 #: src/modules/filesystem.md:17
 msgid ""
@@ -9310,6 +9535,9 @@ msgid ""
 "comments\". These document the item that contains them -- in this case, a "
 "module."
 msgstr ""
+"Los módulos definidos en archivos también se pueden documentar mediante "
+"\"comentarios internos del documento\". En ellos se indica el elemento que "
+"los contiene, en este caso, un módulo."
 
 #: src/modules/filesystem.md:20
 msgid ""
@@ -9335,16 +9563,24 @@ msgid ""
 "Before Rust 2018, modules needed to be located at `module/mod.rs` instead of "
 "`module.rs`, and this is still a working alternative for editions after 2018."
 msgstr ""
+"Antes de Rust 2018, los módulos debían ubicarse en `module/mod.rs` en lugar "
+"de en `module.rs`. Esta alternativa sigue existiendo en las ediciones "
+"posteriores a 2018."
 
 #: src/modules/filesystem.md:39
 msgid ""
 "The main reason to introduce `filename.rs` as alternative to `filename/mod."
 "rs` was because many files named `mod.rs` can be hard to distinguish in IDEs."
 msgstr ""
+"El principal motivo de introducir `filename.rs` en lugar de `filename/mod."
+"rs` se debe a que si muchos archivos llamados `mod.rs` puede ser difícil "
+"distinguirlos en IDEs."
 
 #: src/modules/filesystem.md:42
 msgid "Deeper nesting can use folders, even if the main module is a file:"
 msgstr ""
+"Un anidamiento más profundo puede usar carpetas, incluso si el módulo "
+"principal es un archivo:"
 
 #: src/modules/filesystem.md:44
 msgid ""
@@ -9362,6 +9598,8 @@ msgid ""
 "The place rust will look for modules can be changed with a compiler "
 "directive:"
 msgstr ""
+"El lugar donde Rust buscará los módulos se puede cambiar con una directiva "
+"del compilador:"
 
 #: src/modules/filesystem.md:54
 msgid ""
@@ -9376,6 +9614,8 @@ msgid ""
 "This is useful, for example, if you would like to place tests for a module "
 "in a file named `some_module_test.rs`, similar to the convention in Go."
 msgstr ""
+"Esto resulta útil, por ejemplo, si deseas colocar pruebas de un módulo en un "
+"archivo denominado `some_module_test.rs`, similar a la convención en Go."
 
 #: src/exercises/day-2/strings-iterators.md:3
 msgid ""
@@ -9384,12 +9624,20 @@ msgid ""
 "against _request paths_. The path prefixes can contain a wildcard character "
 "which matches a full segment. See the unit tests below."
 msgstr ""
+"En este ejercicio se va a implementar un componente de enrutamiento de un "
+"servidor web. El servidor está configurado con un número de _prefijos de "
+"ruta_ que se comparan con las _rutas de solicitud_. Los prefijos de ruta "
+"pueden contener un carácter comodín que coincida con un segmento completo. "
+"Consulta las pruebas unitarias más abajo."
 
 #: src/exercises/day-2/strings-iterators.md:8
 msgid ""
 "Copy the following code to <https://play.rust-lang.org/> and make the tests "
 "pass. Try avoiding allocating a `Vec` for your intermediate results:"
 msgstr ""
+"Copia el siguiente fragmento de código en la página <https://play.rust-lang."
+"org/> para hacer la prueba. Prueba a no asignar un `Vec` a los resultados "
+"intermedios:"
 
 #: src/exercises/day-2/strings-iterators.md:12
 msgid ""
@@ -12254,7 +12502,7 @@ msgstr ""
 
 #: src/android.md:1
 msgid "Welcome to Rust in Android"
-msgstr ""
+msgstr "Te Damos la Bienvenida a Rust en Android"
 
 #: src/android.md:3
 msgid ""
@@ -12262,6 +12510,9 @@ msgid ""
 "that you can write new operating system services in Rust, as well as "
 "extending existing services."
 msgstr ""
+"Rust es compatible con el desarrollo de plataformas nativas en Android. Esto "
+"significa que puedes escribir nuevos servicios del sistema operativo en "
+"Rust, así como ampliar los que ya existen."
 
 #: src/android.md:7
 msgid ""
@@ -12270,12 +12521,18 @@ msgid ""
 "to Rust. The fewer dependencies and \"exotic\" types the better. Something "
 "that parses some raw bytes would be ideal."
 msgstr ""
+"Hoy intentaremos llamar a Rust desde un proyecto personal. Intenta encontrar "
+"una pequeña esquina de tu código base donde podamos mover algunas líneas de "
+"código a Rust. Cuantas menos dependencias y tipos \"exóticos\" tenga, mejor. "
+"Lo ideal sería algo que analizara bytes sin procesar."
 
 #: src/android/setup.md:3
 msgid ""
 "We will be using an Android Virtual Device to test our code. Make sure you "
 "have access to one or create a new one with:"
 msgstr ""
+"Utilizaremos un dispositivo Android virtual para probar el código. Asegúrate "
+"de que tienes acceso a uno o créalo con:"
 
 #: src/android/setup.md:6
 msgid ""
@@ -12291,108 +12548,125 @@ msgid ""
 "Please see the [Android Developer Codelab](https://source.android.com/docs/"
 "setup/start) for details."
 msgstr ""
+"Consulta el [Codelab para desarrolladores de Android](https://source.android."
+"com/docs/setup/start) para obtener más información."
 
 #: src/android/build-rules.md:3
 msgid "The Android build system (Soong) supports Rust via a number of modules:"
 msgstr ""
+"El sistema de compilación de Android (Soong) es compatible con Rust a través "
+"de una serie de módulos:"
 
 #: src/android/build-rules.md:5
 msgid "Module Type"
-msgstr ""
+msgstr "Tipo de módulo"
 
 #: src/android/build-rules.md:5
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #: src/android/build-rules.md:7
 msgid "`rust_binary`"
-msgstr ""
+msgstr "`rust_binary`"
 
 #: src/android/build-rules.md:7
 msgid "Produces a Rust binary."
-msgstr ""
+msgstr "Produce un binario de Rust."
 
 #: src/android/build-rules.md:8
 msgid "`rust_library`"
-msgstr ""
+msgstr "`rust_library`"
 
 #: src/android/build-rules.md:8
 msgid "Produces a Rust library, and provides both `rlib` and `dylib` variants."
 msgstr ""
+"Produce una biblioteca de Rust y proporciona las variantes `rlib` y `dylib`."
 
 #: src/android/build-rules.md:9
 msgid "`rust_ffi`"
-msgstr ""
+msgstr "`rust_ffi`"
 
 #: src/android/build-rules.md:9
 msgid ""
 "Produces a Rust C library usable by `cc` modules, and provides both static "
 "and shared variants."
 msgstr ""
+"Produce una biblioteca de Rust C que pueden usar los módulos `cc` y "
+"proporciona variantes estáticas y compartidas."
 
 #: src/android/build-rules.md:10
 msgid "`rust_proc_macro`"
-msgstr ""
+msgstr "`rust_proc_macro`"
 
 #: src/android/build-rules.md:10
 msgid ""
 "Produces a `proc-macro` Rust library. These are analogous to compiler "
 "plugins."
 msgstr ""
+"Produce una biblioteca de Rust `proc-macro`. Son similares a complementos "
+"del compilador."
 
 #: src/android/build-rules.md:11
 msgid "`rust_test`"
-msgstr ""
+msgstr "`rust_test`"
 
 #: src/android/build-rules.md:11
 msgid "Produces a Rust test binary that uses the standard Rust test harness."
 msgstr ""
+"Produce un binario de prueba de Rust que utiliza el agente de prueba "
+"estándar de Rust."
 
 #: src/android/build-rules.md:12
 msgid "`rust_fuzz`"
-msgstr ""
+msgstr "`rust_fuzz`"
 
 #: src/android/build-rules.md:12
 msgid "Produces a Rust fuzz binary leveraging `libfuzzer`."
-msgstr ""
+msgstr "Produce un binario de fuzz de Rust que aprovecha `libfuzzer`."
 
 #: src/android/build-rules.md:13
 msgid "`rust_protobuf`"
-msgstr ""
+msgstr "`rust_protobuf`"
 
 #: src/android/build-rules.md:13
 msgid ""
 "Generates source and produces a Rust library that provides an interface for "
 "a particular protobuf."
 msgstr ""
+"Genera código fuente y produce una biblioteca Rust que proporciona una "
+"interfaz para un protobuf en particular."
 
 #: src/android/build-rules.md:14
 msgid "`rust_bindgen`"
-msgstr ""
+msgstr "`rust_bindgen`"
 
 #: src/android/build-rules.md:14
 msgid ""
 "Generates source and produces a Rust library containing Rust bindings to C "
 "libraries."
 msgstr ""
+"Genera código fuente y produce una biblioteca de Rust que contiene enlaces "
+"de Rust a bibliotecas de C."
 
 #: src/android/build-rules.md:16
 msgid "We will look at `rust_binary` and `rust_library` next."
-msgstr ""
+msgstr "A continuación, hablaremos de `rust_binary` y `rust_library`."
 
 #: src/android/build-rules/binary.md:1
 msgid "Rust Binaries"
-msgstr ""
+msgstr "Binarios de Rust"
 
 #: src/android/build-rules/binary.md:3
 msgid ""
 "Let us start with a simple application. At the root of an AOSP checkout, "
 "create the following files:"
 msgstr ""
+"Empecemos con una sencilla aplicación. Desde la raíz de un AOSP revisado, "
+"crea los siguientes archivos:"
 
 #: src/android/build-rules/binary.md:6 src/android/build-rules/library.md:13
 msgid "_hello_rust/Android.bp_:"
-msgstr ""
+msgstr "_hello_rust/Android.bp_:"
 
 #: src/android/build-rules/binary.md:8
 msgid ""
@@ -12407,7 +12681,7 @@ msgstr ""
 
 #: src/android/build-rules/binary.md:16 src/android/build-rules/library.md:34
 msgid "_hello_rust/src/main.rs_:"
-msgstr ""
+msgstr "_hello_rust/src/main.rs_:"
 
 #: src/android/build-rules/binary.md:18
 msgid ""
@@ -12423,7 +12697,7 @@ msgstr ""
 
 #: src/android/build-rules/binary.md:27
 msgid "You can now build, push, and run the binary:"
-msgstr ""
+msgstr "Ahora puedes compilar, insertar y ejecutar el binario:"
 
 #: src/android/build-rules/binary.md:29
 msgid ""
@@ -12443,19 +12717,19 @@ msgstr ""
 
 #: src/android/build-rules/library.md:1
 msgid "Rust Libraries"
-msgstr ""
+msgstr "Bibliotecas de Rust"
 
 #: src/android/build-rules/library.md:3
 msgid "You use `rust_library` to create a new Rust library for Android."
-msgstr ""
+msgstr "Crea una biblioteca de Rust para Android con `rust_library`."
 
 #: src/android/build-rules/library.md:5
 msgid "Here we declare a dependency on two libraries:"
-msgstr ""
+msgstr "Aquí declaramos una dependencia en dos bibliotecas:"
 
 #: src/android/build-rules/library.md:7
 msgid "`libgreeting`, which we define below,"
-msgstr ""
+msgstr "`libgreeting`, que definimos más abajo."
 
 #: src/android/build-rules/library.md:8
 msgid ""
@@ -12463,6 +12737,9 @@ msgid ""
 "(https://cs.android.com/android/platform/superproject/+/master:external/rust/"
 "crates/)."
 msgstr ""
+"`libtextwrap`, que es un crate ya incluido en [`external/rust/crates/`]"
+"(https://cs.android.com/android/platform/superproject/+/master:external/rust/"
+"crates/)."
 
 #: src/android/build-rules/library.md:15
 msgid ""
@@ -12485,6 +12762,24 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_binary {\n"
+"    name: \"hello_rust_with_dep\",\n"
+"    crate_name: \"hello_rust_with_dep\",\n"
+"    srcs: [\"src/main.rs\"],\n"
+"    rustlibs: [\n"
+"        \"libgreetings\",\n"
+"        \"libtextwrap\",\n"
+"    ],\n"
+"    prefer_rlib: true,\n"
+"}\n"
+"\n"
+"rust_library {\n"
+"    name: \"libgreetings\",\n"
+"    crate_name: \"greetings\",\n"
+"    srcs: [\"src/lib.rs\"],\n"
+"}\n"
+"```"
 
 #: src/android/build-rules/library.md:36
 msgid ""
@@ -12500,10 +12795,21 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,ignore\n"
+"//! Rust demo.\n"
+"\n"
+"use greetings::greeting;\n"
+"use textwrap::fill;\n"
+"\n"
+"/// Imprime un saludo en una salida estándar.\n"
+"fn main() {\n"
+"    println!(\"{}\", fill(&greeting(\"Bob\"), 24));\n"
+"}\n"
+"```"
 
 #: src/android/build-rules/library.md:48
 msgid "_hello_rust/src/lib.rs_:"
-msgstr ""
+msgstr "_hello_rust/src/lib.rs_:"
 
 #: src/android/build-rules/library.md:50
 msgid ""
@@ -12516,10 +12822,18 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,ignore\n"
+"//! Greeting library.\n"
+"\n"
+"/// Saludar a `name`.\n"
+"pub fn greeting(name: &str) -> String {\n"
+"    format!(\"Hello {name}, it is very nice to meet you!\")\n"
+"}\n"
+"```"
 
 #: src/android/build-rules/library.md:59
 msgid "You build, push, and run the binary like before:"
-msgstr ""
+msgstr "Puedes compilar, insertar y ejecutar el binario como antes:"
 
 #: src/android/build-rules/library.md:61
 msgid ""
@@ -12530,6 +12844,12 @@ msgid ""
 "adb shell /data/local/tmp/hello_rust_with_dep\n"
 "```"
 msgstr ""
+"```shell\n"
+"m hello_rust_with_dep\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/hello_rust_with_dep /data/local/"
+"tmp\"\n"
+"adb shell /data/local/tmp/hello_rust_with_dep\n"
+"```"
 
 #: src/android/build-rules/library.md:67
 msgid ""
@@ -12538,33 +12858,41 @@ msgid ""
 "nice to meet you!\n"
 "```"
 msgstr ""
+"```text\n"
+"Hello Bob, it is very\n"
+"nice to meet you!\n"
+"```"
 
 #: src/android/aidl.md:3
 msgid ""
 "The [Android Interface Definition Language (AIDL)](https://developer.android."
 "com/guide/components/aidl) is supported in Rust:"
 msgstr ""
+"El [lenguaje de definición de la interfaz de Android (AIDL)](https://"
+"developer.android.com/guide/components/aidl) es compatible con Rust:"
 
 #: src/android/aidl.md:6
 msgid "Rust code can call existing AIDL servers,"
 msgstr ""
+"El código de Rust puede llamar a servidores AIDL que ya se hayan creado."
 
 #: src/android/aidl.md:7
 msgid "You can create new AIDL servers in Rust."
-msgstr ""
+msgstr "Puedes crear servidores de AIDL en Rust."
 
 #: src/android/aidl/interface.md:1
 msgid "AIDL Interfaces"
-msgstr ""
+msgstr "Interfaces de AIDL"
 
 #: src/android/aidl/interface.md:3
 msgid "You declare the API of your service using an AIDL interface:"
-msgstr ""
+msgstr "La API de tu servicio se declara mediante una interfaz de AIDL:"
 
 #: src/android/aidl/interface.md:5
 msgid ""
 "_birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:"
 msgstr ""
+"_birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:"
 
 #: src/android/aidl/interface.md:7
 msgid ""
@@ -12578,10 +12906,19 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```java\n"
+"package com.example.birthdayservice;\n"
+"\n"
+"/** Birthday service interface. */\n"
+"interface IBirthdayService {\n"
+"    /** Generate a Happy Birthday message. */\n"
+"    String wishHappyBirthday(String name, int years);\n"
+"}\n"
+"```"
 
 #: src/android/aidl/interface.md:17
 msgid "_birthday_service/aidl/Android.bp_:"
-msgstr ""
+msgstr "_birthday_service/aidl/Android.bp_:"
 
 #: src/android/aidl/interface.md:19
 msgid ""
@@ -12598,24 +12935,38 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"aidl_interface {\n"
+"    name: \"com.example.birthdayservice\",\n"
+"    srcs: [\"com/example/birthdayservice/*.aidl\"],\n"
+"    unstable: true,\n"
+"    backend: {\n"
+"        rust: { // Rust is not enabled by default\n"
+"            enabled: true,\n"
+"        },\n"
+"    },\n"
+"}\n"
+"```"
 
 #: src/android/aidl/interface.md:32
 msgid ""
 "Add `vendor_available: true` if your AIDL file is used by a binary in the "
 "vendor partition."
 msgstr ""
+"Añade `vendor_available: true` si un binario de la partición del proveedor "
+"utiliza tu archivo de AIDL."
 
 #: src/android/aidl/implementation.md:1
 msgid "Service Implementation"
-msgstr ""
+msgstr "Implementación del servicio"
 
 #: src/android/aidl/implementation.md:3
 msgid "We can now implement the AIDL service:"
-msgstr ""
+msgstr "Ahora podemos implementar el servicio de AIDL:"
 
 #: src/android/aidl/implementation.md:5
 msgid "_birthday_service/src/lib.rs_:"
-msgstr ""
+msgstr "_birthday_service/src/lib.rs_:"
 
 #: src/android/aidl/implementation.md:7
 msgid ""
@@ -12645,7 +12996,7 @@ msgstr ""
 #: src/android/aidl/implementation.md:26 src/android/aidl/server.md:28
 #: src/android/aidl/client.md:37
 msgid "_birthday_service/Android.bp_:"
-msgstr ""
+msgstr "_birthday_service/Android.bp_:"
 
 #: src/android/aidl/implementation.md:28
 msgid ""
@@ -12664,15 +13015,15 @@ msgstr ""
 
 #: src/android/aidl/server.md:1
 msgid "AIDL Server"
-msgstr ""
+msgstr "Servidor de AIDL"
 
 #: src/android/aidl/server.md:3
 msgid "Finally, we can create a server which exposes the service:"
-msgstr ""
+msgstr "Por último, podemos crear un servidor que exponga el servicio:"
 
 #: src/android/aidl/server.md:5
 msgid "_birthday_service/src/server.rs_:"
-msgstr ""
+msgstr "_birthday_service/src/server.rs_:"
 
 #: src/android/aidl/server.md:7
 msgid ""
@@ -12719,7 +13070,7 @@ msgstr ""
 
 #: src/android/aidl/deploy.md:3
 msgid "We can now build, push, and start the service:"
-msgstr ""
+msgstr "Ahora podemos crear, insertar e iniciar el servicio:"
 
 #: src/android/aidl/deploy.md:5
 msgid ""
@@ -12733,7 +13084,7 @@ msgstr ""
 
 #: src/android/aidl/deploy.md:11
 msgid "In another terminal, check that the service runs:"
-msgstr ""
+msgstr "Comprueba que el servicio funciona en otra terminal:"
 
 #: src/android/aidl/deploy.md:13
 msgid ""
@@ -12751,7 +13102,7 @@ msgstr ""
 
 #: src/android/aidl/deploy.md:21
 msgid "You can also call the service with `service call`:"
-msgstr ""
+msgstr "También puedes llamar al servicio con `service call`:"
 
 #: src/android/aidl/deploy.md:23
 msgid ""
@@ -12777,15 +13128,16 @@ msgstr ""
 
 #: src/android/aidl/client.md:1
 msgid "AIDL Client"
-msgstr ""
+msgstr "Cliente de AIDL"
 
 #: src/android/aidl/client.md:3
 msgid "Finally, we can create a Rust client for our new service."
 msgstr ""
+"Por último, podemos crear un cliente de Rust para nuestro nuevo servicio."
 
 #: src/android/aidl/client.md:5
 msgid "_birthday_service/src/client.rs_:"
-msgstr ""
+msgstr "_birthday_service/src/client.rs_:"
 
 #: src/android/aidl/client.md:7
 msgid ""
@@ -12841,11 +13193,11 @@ msgstr ""
 
 #: src/android/aidl/client.md:52
 msgid "Notice that the client does not depend on `libbirthdayservice`."
-msgstr ""
+msgstr "Ten en cuenta que el cliente no depende de `libbirthdayservice`."
 
 #: src/android/aidl/client.md:54
 msgid "Build, push, and run the client on your device:"
-msgstr ""
+msgstr "Compila, inserta y ejecuta el cliente en tu dispositivo:"
 
 #: src/android/aidl/client.md:56
 msgid ""
@@ -12869,6 +13221,8 @@ msgid ""
 "Let us extend the API with more functionality: we want to let clients "
 "specify a list of lines for the birthday card:"
 msgstr ""
+"Ampliemos la API con más funciones. Queremos que los clientes puedan indicar "
+"una lista de líneas para la tarjeta de cumpleaños:"
 
 #: src/android/aidl/changing.md:6
 msgid ""
@@ -12888,10 +13242,12 @@ msgid ""
 "You should use the `log` crate to automatically log to `logcat` (on-device) "
 "or `stdout` (on-host):"
 msgstr ""
+"Utiliza el crate `log` para que se registre automáticamente en `logcat` (en "
+"el dispositivo) o `stdout` (en el host):"
 
 #: src/android/logging.md:6
 msgid "_hello_rust_logs/Android.bp_:"
-msgstr ""
+msgstr "_hello_rust_logs/Android.bp_:"
 
 #: src/android/logging.md:8
 msgid ""
@@ -12912,7 +13268,7 @@ msgstr ""
 
 #: src/android/logging.md:22
 msgid "_hello_rust_logs/src/main.rs_:"
-msgstr ""
+msgstr "_hello_rust_logs/src/main.rs_:"
 
 #: src/android/logging.md:24
 msgid ""
@@ -12938,7 +13294,7 @@ msgstr ""
 #: src/android/logging.md:42 src/android/interoperability/with-c/bindgen.md:98
 #: src/android/interoperability/with-c/rust.md:73
 msgid "Build, push, and run the binary on your device:"
-msgstr ""
+msgstr "Compila, inserta y ejecuta el binario en tu dispositivo:"
 
 #: src/android/logging.md:44
 msgid ""
@@ -12952,7 +13308,7 @@ msgstr ""
 
 #: src/android/logging.md:50
 msgid "The logs show up in `adb logcat`:"
-msgstr ""
+msgstr "Los registros se muestran en `adb logcat`:"
 
 #: src/android/logging.md:52
 msgid ""
@@ -12977,34 +13333,40 @@ msgid ""
 "Rust has excellent support for interoperability with other languages. This "
 "means that you can:"
 msgstr ""
+"Rust admite sin problemas la interoperabilidad con otros lenguajes. Esto "
+"significa que puedes hacer lo siguiente:"
 
 #: src/android/interoperability.md:6
 msgid "Call Rust functions from other languages."
-msgstr ""
+msgstr "Llamar a funciones de Rust desde otros lenguajes."
 
 #: src/android/interoperability.md:7
 msgid "Call functions written in other languages from Rust."
-msgstr ""
+msgstr "Llamar a funciones escritas en otros lenguajes desde Rust."
 
 #: src/android/interoperability.md:9
 msgid ""
 "When you call functions in a foreign language we say that you're using a "
 "_foreign function interface_, also known as FFI."
 msgstr ""
+"Cuando llamas a funciones en otro lenguaje, se dice que estás usando una "
+"_interfaz de función externa_, también denominada FFI."
 
 #: src/android/interoperability/with-c.md:1
 msgid "Interoperability with C"
-msgstr ""
+msgstr "Interoperabilidad con C"
 
 #: src/android/interoperability/with-c.md:3
 msgid ""
 "Rust has full support for linking object files with a C calling convention. "
 "Similarly, you can export Rust functions and call them from C."
 msgstr ""
+"Rust admite vincular archivos de objetos con una convención de llamada de C. "
+"Del mismo modo, puedes exportar funciones de Rust y llamarlas desde C."
 
 #: src/android/interoperability/with-c.md:6
 msgid "You can do it by hand if you want:"
-msgstr ""
+msgstr "Si quieres, puedes hacerlo de forma manual:"
 
 #: src/android/interoperability/with-c.md:8
 msgid ""
@@ -13026,34 +13388,41 @@ msgid ""
 "We already saw this in the [Safe FFI Wrapper exercise](../../exercises/day-3/"
 "safe-ffi-wrapper.md)."
 msgstr ""
+"Ya lo hemos visto en el ejercicio [Envoltorio de FFI seguro](../../exercises/"
+"day-3/safe-ffi-wrapper.md)."
 
 #: src/android/interoperability/with-c.md:23
 msgid ""
 "This assumes full knowledge of the target platform. Not recommended for "
 "production."
 msgstr ""
+"Esto supone un conocimiento completo de la plataforma objetivo. No se "
+"recomienda para producción."
 
 #: src/android/interoperability/with-c.md:26
 msgid "We will look at better options next."
-msgstr ""
+msgstr "A continuación, estudiaremos otras opciones mejores."
 
 #: src/android/interoperability/with-c/bindgen.md:1
 msgid "Using Bindgen"
-msgstr ""
+msgstr "Uso de Bindgen"
 
 #: src/android/interoperability/with-c/bindgen.md:3
 msgid ""
 "The [bindgen](https://rust-lang.github.io/rust-bindgen/introduction.html) "
 "tool can auto-generate bindings from a C header file."
 msgstr ""
+"La herramienta [bindgen](https://rust-lang.github.io/rust-bindgen/"
+"introduction.html) puede generar automáticamente enlaces desde un archivo de "
+"encabezado de C."
 
 #: src/android/interoperability/with-c/bindgen.md:6
 msgid "First create a small C library:"
-msgstr ""
+msgstr "En primer lugar, crea una biblioteca de C pequeña:"
 
 #: src/android/interoperability/with-c/bindgen.md:8
 msgid "_interoperability/bindgen/libbirthday.h_:"
-msgstr ""
+msgstr "_interoperability/bindgen/libbirthday.h_:"
 
 #: src/android/interoperability/with-c/bindgen.md:10
 msgid ""
@@ -13069,7 +13438,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/bindgen.md:19
 msgid "_interoperability/bindgen/libbirthday.c_:"
-msgstr ""
+msgstr "_interoperability/bindgen/libbirthday.c_:"
 
 #: src/android/interoperability/with-c/bindgen.md:21
 msgid ""
@@ -13088,7 +13457,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/bindgen.md:33
 msgid "Add this to your `Android.bp` file:"
-msgstr ""
+msgstr "Añade lo siguiente a tu archivo `Android.bp`:"
 
 #: src/android/interoperability/with-c/bindgen.md:35
 #: src/android/interoperability/with-c/bindgen.md:55
@@ -13112,10 +13481,12 @@ msgid ""
 "Create a wrapper header file for the library (not strictly needed in this "
 "example):"
 msgstr ""
+"Crea un archivo de encabezado de envoltorio para la biblioteca (no es "
+"estrictamente necesario en este ejemplo):"
 
 #: src/android/interoperability/with-c/bindgen.md:47
 msgid "_interoperability/bindgen/libbirthday_wrapper.h_:"
-msgstr ""
+msgstr "_interoperability/bindgen/libbirthday_wrapper.h_:"
 
 #: src/android/interoperability/with-c/bindgen.md:49
 msgid ""
@@ -13126,7 +13497,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/bindgen.md:53
 msgid "You can now auto-generate the bindings:"
-msgstr ""
+msgstr "Ahora puedes generar automáticamente los enlaces:"
 
 #: src/android/interoperability/with-c/bindgen.md:57
 msgid ""
@@ -13143,7 +13514,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/bindgen.md:67
 msgid "Finally, we can use the bindings in our Rust program:"
-msgstr ""
+msgstr "Por último, podemos utilizar los enlaces de nuestro programa de Rust:"
 
 #: src/android/interoperability/with-c/bindgen.md:71
 msgid ""
@@ -13158,7 +13529,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/bindgen.md:79
 msgid "_interoperability/bindgen/main.rs_:"
-msgstr ""
+msgstr "_interoperability/bindgen/main.rs_:"
 
 #: src/android/interoperability/with-c/bindgen.md:81
 msgid ""
@@ -13193,6 +13564,8 @@ msgstr ""
 #: src/android/interoperability/with-c/bindgen.md:106
 msgid "Finally, we can run auto-generated tests to ensure the bindings work:"
 msgstr ""
+"Por último, podemos ejecutar pruebas generadas automáticamente para "
+"comprobar que los enlaces funcionan:"
 
 #: src/android/interoperability/with-c/bindgen.md:110
 msgid ""
@@ -13218,15 +13591,15 @@ msgstr ""
 
 #: src/android/interoperability/with-c/rust.md:1
 msgid "Calling Rust"
-msgstr ""
+msgstr "Llamar a Rust"
 
 #: src/android/interoperability/with-c/rust.md:3
 msgid "Exporting Rust functions and types to C is easy:"
-msgstr ""
+msgstr "Es fácil exportar las funciones y los tipos de Rust a C:"
 
 #: src/android/interoperability/with-c/rust.md:5
 msgid "_interoperability/rust/libanalyze/analyze.rs_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/analyze.rs_"
 
 #: src/android/interoperability/with-c/rust.md:7
 msgid ""
@@ -13250,7 +13623,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/rust.md:24
 msgid "_interoperability/rust/libanalyze/analyze.h_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/analyze.h_"
 
 #: src/android/interoperability/with-c/rust.md:26
 msgid ""
@@ -13268,7 +13641,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/rust.md:37
 msgid "_interoperability/rust/libanalyze/Android.bp_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/Android.bp_"
 
 #: src/android/interoperability/with-c/rust.md:39
 msgid ""
@@ -13284,11 +13657,11 @@ msgstr ""
 
 #: src/android/interoperability/with-c/rust.md:48
 msgid "We can now call this from a C binary:"
-msgstr ""
+msgstr "Ahora podemos llamarlo desde un binario de C:"
 
 #: src/android/interoperability/with-c/rust.md:50
 msgid "_interoperability/rust/analyze/main.c_"
-msgstr ""
+msgstr "_interoperability/rust/analyze/main.c_"
 
 #: src/android/interoperability/with-c/rust.md:52
 msgid ""
@@ -13305,7 +13678,7 @@ msgstr ""
 
 #: src/android/interoperability/with-c/rust.md:62
 msgid "_interoperability/rust/analyze/Android.bp_"
-msgstr ""
+msgstr "_interoperability/rust/analyze/Android.bp_"
 
 #: src/android/interoperability/with-c/rust.md:64
 msgid ""
@@ -13334,44 +13707,58 @@ msgid ""
 "will just be the name of the function. You can also use `#[export_name = "
 "\"some_name\"]` to specify whatever name you want."
 msgstr ""
+"\"#\\[no_mangle\\]\" inhabilita la modificación de nombres habitual de Rust, "
+"por lo que el símbolo exportado será el nombre de la función. También puedes "
+"utilizar `#[export_name = \"some_name\"]` para especificar el nombre que "
+"quieras."
 
 #: src/android/interoperability/cpp.md:3
 msgid ""
 "The [CXX crate](https://cxx.rs/) makes it possible to do safe "
 "interoperability between Rust and C++."
 msgstr ""
+"El [crate CXX](https://cxx.rs/) permite una interoperabilidad segura entre "
+"Rust y C++."
 
 #: src/android/interoperability/cpp.md:6
 msgid "The overall approach looks like this:"
-msgstr ""
+msgstr "El enfoque general es el siguiente:"
 
 #: src/android/interoperability/cpp.md:10
 msgid ""
 "See the [CXX tutorial](https://cxx.rs/tutorial.html) for an full example of "
 "using this."
 msgstr ""
+"Consulta el [tutorial de CXX](https://cxx.rs/tutorial.html) para ver un "
+"ejemplo completo de su uso."
 
 #: src/android/interoperability/cpp.md:14
 msgid ""
 "At this point, the instructor should switch to the [CXX tutorial](https://"
 "cxx.rs/tutorial.html)."
 msgstr ""
+"En este punto, el instructor debería cambiar al [tutorial de CXX](https://"
+"cxx.rs/tutorial.html)."
 
 #: src/android/interoperability/cpp.md:16
 msgid "Walk the students through the tutorial step by step."
-msgstr ""
+msgstr "Guía a los estudiantes a través del tutorial paso a paso."
 
 #: src/android/interoperability/cpp.md:18
 msgid ""
 "Highlight how CXX presents a clean interface without unsafe code in _both "
 "languages_."
 msgstr ""
+"Destaca cómo CXX presenta una interfaz limpia sin código inseguro en _ambos "
+"lenguajes_."
 
 #: src/android/interoperability/cpp.md:20
 msgid ""
 "Show the correspondence between [Rust and C++ types](https://cxx.rs/bindings."
 "html):"
 msgstr ""
+"Muestra la correspondencia entre [los tipos de Rust y C++](https://cxx.rs/"
+"bindings.html):"
 
 #: src/android/interoperability/cpp.md:22
 msgid ""
@@ -13380,16 +13767,22 @@ msgid ""
 "types, `rust::String` in C++ can be easily constructed from a C++ `std::"
 "string`, making it very ergonomic to use."
 msgstr ""
+"Explica que una `String` de Rust no puede asignarse a una `std::string` de C+"
+"+ (esta última no mantiene la invariante UTF-8). Muestra que, a pesar de ser "
+"tipos diferentes, `rust::String` en C++ se puede construir fácilmente a "
+"partir de una `std::string` de C++, lo que la hace muy ergonómica de usar."
 
 #: src/android/interoperability/cpp.md:28
 msgid ""
 "Explain that a Rust function returning `Result<T, E>` becomes a function "
 "which throws a `E` exception in C++ (and vice versa)."
 msgstr ""
+"Explica que una función de Rust que devuelve `Result<T, E>` se convierte en "
+"una función que lanza una excepción `E` en C++ (y viceversa)."
 
 #: src/android/interoperability/java.md:1
 msgid "Interoperability with Java"
-msgstr ""
+msgstr "Interoperabilidad con Java"
 
 #: src/android/interoperability/java.md:3
 msgid ""
@@ -13397,14 +13790,17 @@ msgid ""
 "wikipedia.org/wiki/Java_Native_Interface). The [`jni` crate](https://docs.rs/"
 "jni/) allows you to create a compatible library."
 msgstr ""
+"Java puede cargar objetos compartidos a través de la [interfaz nativa de "
+"Java (JNI)](https://es.wikipedia.org/wiki/Java_Native_Interface). [El crate "
+"`jni`](https://docs.rs/jni/) permite crear una biblioteca compatible."
 
 #: src/android/interoperability/java.md:7
 msgid "First, we create a Rust function to export to Java:"
-msgstr ""
+msgstr "En primer lugar, creamos una función de Rust para exportar a Java:"
 
 #: src/android/interoperability/java.md:9
 msgid "_interoperability/java/src/lib.rs_:"
-msgstr ""
+msgstr "_interoperability/java/src/lib.rs_:"
 
 #: src/android/interoperability/java.md:11
 msgid ""
@@ -13433,7 +13829,7 @@ msgstr ""
 #: src/android/interoperability/java.md:32
 #: src/android/interoperability/java.md:62
 msgid "_interoperability/java/Android.bp_:"
-msgstr ""
+msgstr "_interoperability/java/Android.bp_:"
 
 #: src/android/interoperability/java.md:34
 msgid ""
@@ -13449,11 +13845,11 @@ msgstr ""
 
 #: src/android/interoperability/java.md:43
 msgid "Finally, we can call this function from Java:"
-msgstr ""
+msgstr "Por último, podemos llamar a esta función desde Java:"
 
 #: src/android/interoperability/java.md:45
 msgid "_interoperability/java/HelloWorld.java_:"
-msgstr ""
+msgstr "_interoperability/java/HelloWorld.java_:"
 
 #: src/android/interoperability/java.md:47
 msgid ""
@@ -13487,7 +13883,7 @@ msgstr ""
 
 #: src/android/interoperability/java.md:73
 msgid "Finally, you can build, sync, and run the binary:"
-msgstr ""
+msgstr "Ahora puedes compilar, sincronizar y ejecutar el binario:"
 
 #: src/android/interoperability/java.md:75
 msgid ""
@@ -13503,25 +13899,28 @@ msgid ""
 "This is a group exercise: We will look at one of the projects you work with "
 "and try to integrate some Rust into it. Some suggestions:"
 msgstr ""
+"Este es un ejercicio de grupo: escogeremos uno de los proyectos con los que "
+"se esté trabajando e intentaremos integrar Rust en él. Algunas sugerencias:"
 
 #: src/exercises/android/morning.md:6
 msgid "Call your AIDL service with a client written in Rust."
-msgstr ""
+msgstr "Llama a tu servicio de AIDL con un cliente escrito en Rust."
 
 #: src/exercises/android/morning.md:8
 msgid "Move a function from your project to Rust and call it."
-msgstr ""
+msgstr "Mueve una función desde tu proyecto a Rust y llámala."
 
 #: src/exercises/android/morning.md:12
 msgid ""
 "No solution is provided here since this is open-ended: it relies on someone "
 "in the class having a piece of code which you can turn in to Rust on the fly."
 msgstr ""
+"Aquí la solución es abierta, ya que depende de que alguno de los asistentes "
+"tenga un fragmento de código que se pueda convertir en Rust sobre la marcha."
 
 #: src/bare-metal.md:1
-#, fuzzy
 msgid "Welcome to Bare Metal Rust"
-msgstr "Bienvenido a Comprehensive Rust 🦀"
+msgstr "Te damos la bienvenida a Bare Metal Rust"
 
 #: src/bare-metal.md:3
 msgid ""
@@ -13530,29 +13929,35 @@ msgid ""
 "Comprehensive Rust course), and ideally also have some experience with bare-"
 "metal programming in some other language such as C."
 msgstr ""
+"Este es un curso independiente de un día sobre Rust bare-metal, dirigido a "
+"personas que están familiarizadas con los conceptos básicos de Rust (tal vez "
+"después de completar el curso Comprehensive Rust). Lo ideal sería que "
+"también tuvieran experiencia con la programación bare-metal en otros "
+"lenguajes, como C."
 
 #: src/bare-metal.md:7
 msgid ""
 "Today we will talk about 'bare-metal' Rust: running Rust code without an OS "
 "underneath us. This will be divided into several parts:"
 msgstr ""
+"Hoy vamos a hablar de Rust \"bare-metal\": ejecutar código de Rust sin un "
+"sistema operativo. Se dividirá en varias partes:"
 
 #: src/bare-metal.md:10
-#, fuzzy
 msgid "What is `no_std` Rust?"
-msgstr "¿Qué es Rust?"
+msgstr "¿Qué es `no_std` en Rust?"
 
 #: src/bare-metal.md:11
 msgid "Writing firmware for microcontrollers."
-msgstr ""
+msgstr "Escribir firmware para microcontroladores."
 
 #: src/bare-metal.md:12
 msgid "Writing bootloader / kernel code for application processors."
-msgstr ""
+msgstr "Escribir código bootloader o kernel para procesadores de aplicaciones."
 
 #: src/bare-metal.md:13
 msgid "Some useful crates for bare-metal Rust development."
-msgstr ""
+msgstr "Algunos crates útiles para el desarrollo de Rust bare-metal."
 
 #: src/bare-metal.md:15
 msgid ""
@@ -13562,11 +13967,18 @@ msgid ""
 "with some LEDs and buttons, an I2C-connected accelerometer and compass, and "
 "an on-board SWD debugger."
 msgstr ""
+"En la parte del curso dedicada a los microcontroladores, utilizaremos la "
+"versión 2 de [BBC micro:bit](https://microbit.org/) como ejemplo. Es una "
+"[placa de desarrollo](https://tech.microbit.org/hardware/) basada en el "
+"microcontrolador Nordic nRF51822 con algunos LED y botones, un acelerómetro "
+"y una brújula conectados mediante I2C y un depurador SWD integrado."
 
 #: src/bare-metal.md:20
 msgid ""
 "To get started, install some tools we'll need later. On gLinux or Debian:"
 msgstr ""
+"Para empezar, instala algunas de las herramientas que necesitarás más "
+"adelante. En gLinux o Debian:"
 
 #: src/bare-metal.md:22
 msgid ""
@@ -13579,11 +13991,20 @@ msgid ""
 "cargo install cargo-binutils cargo-embed\n"
 "```"
 msgstr ""
+"```bash\n"
+"sudo apt install gcc-aarch64-linux-gnu gdb-multiarch libudev-dev picocom pkg-"
+"config qemu-system-arm\n"
+"rustup update\n"
+"rustup target add aarch64-unknown-none thumbv7em-none-eabihf\n"
+"rustup component add llvm-tools-preview\n"
+"cargo install cargo-binutils cargo-embed\n"
+"```"
 
 #: src/bare-metal.md:30
 msgid ""
 "And give users in the `plugdev` group access to the micro:bit programmer:"
 msgstr ""
+"Permite a los usuarios del grupo `plugdev` acceder al programador micro:bit:"
 
 #: src/bare-metal.md:32
 msgid ""
@@ -13594,10 +14015,16 @@ msgid ""
 "sudo udevadm control --reload-rules\n"
 "```"
 msgstr ""
+"```bash\n"
+"echo 'SUBSYSTEM==\"usb\", ATTR{idVendor}==\"0d28\", MODE=\"0664\", "
+"GROUP=\"plugdev\"' |\\\n"
+"  sudo tee /etc/udev/rules.d/50-microbit.rules\n"
+"sudo udevadm control --reload-rules\n"
+"```"
 
 #: src/bare-metal.md:38
 msgid "On MacOS:"
-msgstr ""
+msgstr "En MacOS:"
 
 #: src/bare-metal.md:40
 msgid ""
@@ -13611,119 +14038,127 @@ msgid ""
 "cargo install cargo-binutils cargo-embed\n"
 "```"
 msgstr ""
+"```bash\n"
+"xcode-select --install\n"
+"brew install gdb picocom qemu\n"
+"brew install --cask gcc-aarch64-embedded\n"
+"rustup update\n"
+"rustup target add aarch64-unknown-none thumbv7em-none-eabihf\n"
+"rustup component add llvm-tools-preview\n"
+"cargo install cargo-binutils cargo-embed\n"
+"```"
 
 #: src/bare-metal/no_std.md:1
 msgid "`no_std`"
-msgstr ""
+msgstr "`no_std`"
 
 #: src/bare-metal/no_std.md:7
 msgid "`core`"
-msgstr ""
+msgstr "`core`"
 
 #: src/bare-metal/no_std.md:12 src/bare-metal/alloc.md:1
 msgid "`alloc`"
-msgstr ""
+msgstr "`alloc`"
 
 #: src/bare-metal/no_std.md:17
 msgid "`std`"
-msgstr ""
+msgstr "`std`"
 
 #: src/bare-metal/no_std.md:24
 msgid "Slices, `&str`, `CStr`"
-msgstr ""
+msgstr "Slices, `&str`, `CStr`"
 
 #: src/bare-metal/no_std.md:25
 msgid "`NonZeroU8`..."
-msgstr ""
+msgstr "`NonZeroU8`..."
 
 #: src/bare-metal/no_std.md:26
-#, fuzzy
 msgid "`Option`, `Result`"
-msgstr "Option y Result"
+msgstr "`Option`, `Result`"
 
 #: src/bare-metal/no_std.md:27
 msgid "`Display`, `Debug`, `write!`..."
-msgstr ""
+msgstr "`Display`, `Debug`, `write!`..."
 
 #: src/bare-metal/no_std.md:29
 msgid "`panic!`, `assert_eq!`..."
-msgstr ""
+msgstr "`panic!`, `assert_eq!`..."
 
 #: src/bare-metal/no_std.md:30
 msgid "`NonNull` and all the usual pointer-related functions"
-msgstr ""
+msgstr "`NonNull` y todas las funciones relacionadas con punteros habituales"
 
 #: src/bare-metal/no_std.md:31
 msgid "`Future` and `async`/`await`"
-msgstr ""
+msgstr "`Future` and `async`/`await`"
 
 #: src/bare-metal/no_std.md:32
 msgid "`fence`, `AtomicBool`, `AtomicPtr`, `AtomicU32`..."
-msgstr ""
+msgstr "`fence`, `AtomicBool`, `AtomicPtr`, `AtomicU32`..."
 
 #: src/bare-metal/no_std.md:33
 msgid "`Duration`"
-msgstr ""
+msgstr "`Duration`"
 
 #: src/bare-metal/no_std.md:38
 msgid "`Box`, `Cow`, `Arc`, `Rc`"
-msgstr ""
+msgstr "`Box`, `Cow`, `Arc`, `Rc`"
 
 #: src/bare-metal/no_std.md:39
 msgid "`Vec`, `BinaryHeap`, `BtreeMap`, `LinkedList`, `VecDeque`"
-msgstr ""
+msgstr "`Vec`, `BinaryHeap`, `BtreeMap`, `LinkedList`, `VecDeque`"
 
 #: src/bare-metal/no_std.md:40
 msgid "`String`, `CString`, `format!`"
-msgstr ""
+msgstr "`String`, `CString`, `format!`"
 
 #: src/bare-metal/no_std.md:45
 msgid "`Error`"
-msgstr ""
+msgstr "`Error`"
 
 #: src/bare-metal/no_std.md:47
 msgid "`Mutex`, `Condvar`, `Barrier`, `Once`, `RwLock`, `mpsc`"
-msgstr ""
+msgstr "`Mutex`, `Condvar`, `Barrier`, `Once`, `RwLock`, `mpsc`"
 
 #: src/bare-metal/no_std.md:48
 msgid "`File` and the rest of `fs`"
-msgstr ""
+msgstr "`File` y el resto de `fs`"
 
 #: src/bare-metal/no_std.md:49
 msgid "`println!`, `Read`, `Write`, `Stdin`, `Stdout` and the rest of `io`"
-msgstr ""
+msgstr "`println!`, `Read`, `Write`, `Stdin`, `Stdout` y el resto de `io`"
 
 #: src/bare-metal/no_std.md:50
 msgid "`Path`, `OsString`"
-msgstr ""
+msgstr "`Path`, `OsString`"
 
 #: src/bare-metal/no_std.md:51
 msgid "`net`"
-msgstr ""
+msgstr "`net`"
 
 #: src/bare-metal/no_std.md:52
 msgid "`Command`, `Child`, `ExitCode`"
-msgstr ""
+msgstr "`Command`, `Child`, `ExitCode`"
 
 #: src/bare-metal/no_std.md:53
 msgid "`spawn`, `sleep` and the rest of `thread`"
-msgstr ""
+msgstr "`spawn`, `sleep` y el resto de `thread`"
 
 #: src/bare-metal/no_std.md:54
 msgid "`SystemTime`, `Instant`"
-msgstr ""
+msgstr "`SystemTime`, `Instant`"
 
 #: src/bare-metal/no_std.md:62
 msgid "`HashMap` depends on RNG."
-msgstr ""
+msgstr "`HashMap` depende de RNG."
 
 #: src/bare-metal/no_std.md:63
 msgid "`std` re-exports the contents of both `core` and `alloc`."
-msgstr ""
+msgstr "`std` vuelve a exportar el contenido de `core` y `alloc`."
 
 #: src/bare-metal/minimal.md:1
 msgid "A minimal `no_std` program"
-msgstr ""
+msgstr "Un programa `no_std` mínimo"
 
 #: src/bare-metal/minimal.md:3
 msgid ""
@@ -13739,24 +14174,39 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable,compile_fail\n"
+"#![no_main]\n"
+"#![no_std]\n"
+"\n"
+"use core::panic::PanicInfo;\n"
+"\n"
+"#[panic_handler]\n"
+"fn panic(_panic: &PanicInfo) -> ! {\n"
+"    loop {}\n"
+"}\n"
+"```"
 
 #: src/bare-metal/minimal.md:17
 msgid "This will compile to an empty binary."
-msgstr ""
+msgstr "Se compilará en un binario vacío."
 
 #: src/bare-metal/minimal.md:18
 msgid "`std` provides a panic handler; without it we must provide our own."
 msgstr ""
+"`std` proporciona un controlador de _panic_; sin no hay, debemos "
+"proporcionar uno nuestro."
 
 #: src/bare-metal/minimal.md:19
 msgid "It can also be provided by another crate, such as `panic-halt`."
-msgstr ""
+msgstr "También puede proporcionarlo otro crate, como `panic-halt`."
 
 #: src/bare-metal/minimal.md:20
 msgid ""
 "Depending on the target, you may need to compile with `panic = \"abort\"` to "
 "avoid an error about `eh_personality`."
 msgstr ""
+"Dependiendo del objetivo, es posible que tengas que compilar con `panic = "
+"\"abort\"` para evitar un error sobre `eh_personality`."
 
 #: src/bare-metal/minimal.md:22
 msgid ""
@@ -13764,12 +14214,18 @@ msgid ""
 "define your own entry point. This will typically involve a linker script and "
 "some assembly code to set things up ready for Rust code to run."
 msgstr ""
+"Ten en cuenta que no hay `main` ni ningún otro punto de entrada; depende de "
+"ti definir un punto de entrada propio. Esto suele implicar una secuencia de "
+"comandos de enlazador y algún código de ensamblado de forma que todo esté "
+"preparado para que se ejecute el código de Rust."
 
 #: src/bare-metal/alloc.md:3
 msgid ""
 "To use `alloc` you must implement a [global (heap) allocator](https://doc."
 "rust-lang.org/stable/std/alloc/trait.GlobalAlloc.html)."
 msgstr ""
+"Para utilizar `alloc`, debes implementar un [asignador global (de _heap_)]"
+"(https://doc.rust-lang.org/stable/std/alloc/trait.GlobalAlloc.html)."
 
 #: src/bare-metal/alloc.md:6
 msgid ""
@@ -13805,6 +14261,37 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable,compile_fail\n"
+"#![no_main]\n"
+"#![no_std]\n"
+"\n"
+"extern crate alloc;\n"
+"extern crate panic_halt as _;\n"
+"\n"
+"use alloc::string::ToString;\n"
+"use alloc::vec::Vec;\n"
+"use buddy_system_allocator::LockedHeap;\n"
+"\n"
+"#[global_allocator]\n"
+"static HEAP_ALLOCATOR: LockedHeap<32> = LockedHeap::<32>::new();\n"
+"\n"
+"static mut HEAP: [u8; 65536] = [0; 65536];\n"
+"\n"
+"pub fn entry() {\n"
+"    // Safe because `HEAP` is only used here and `entry` is only called "
+"once.\n"
+"    unsafe {\n"
+"        // Give the allocator some memory to allocate.\n"
+"        HEAP_ALLOCATOR\n"
+"            .lock()\n"
+"            .init(HEAP.as_mut_ptr() as usize, HEAP.len());\n"
+"    }\n"
+"\n"
+"    // Ahora podemos hacer cosas que requieran asignación de _heap_.\n"
+"    let mut v = Vec::new();\n"
+"    v.push(\"A string\".to_string());\n"
+"}\n"
+"```"
 
 #: src/bare-metal/alloc.md:39
 msgid ""
@@ -13812,12 +14299,18 @@ msgid ""
 "system allocator. Other crates are available, or you can write your own or "
 "hook into your existing allocator."
 msgstr ""
+"`buddy_system_allocator` es un crate de terceros que implementa un _buddy "
+"system allocator_ (una técnica de asignación de memoria) básico. Hay otros "
+"crates disponibles, pero también puedes escribir el tuyo propio o conectarte "
+"a tu asignador."
 
 #: src/bare-metal/alloc.md:41
 msgid ""
 "The const parameter of `LockedHeap` is the max order of the allocator; i.e. "
 "in this case it can allocate regions of up to 2\\*\\*32 bytes."
 msgstr ""
+"El parámetro const de `LockedHeap` es el orden máximo del asignador. Es "
+"decir, en este caso, puede asignar regiones de hasta 2\\*\\*32 bytes."
 
 #: src/bare-metal/alloc.md:43
 msgid ""
@@ -13825,22 +14318,31 @@ msgid ""
 "exactly one global allocator defined in your binary. Usually this is done in "
 "the top-level binary crate."
 msgstr ""
+"Si algún crate del árbol de dependencias depende de `alloc`, debes tener "
+"exactamente un asignador global definido en el binario. Esto se suele hacer "
+"en el crate binario de nivel superior."
 
 #: src/bare-metal/alloc.md:45
 msgid ""
 "`extern crate panic_halt as _` is necessary to ensure that the `panic_halt` "
 "crate is linked in so we get its panic handler."
 msgstr ""
+"`extern crate panic_halt as _` es necesario para asegurar que el crate "
+"`panic_halt` esté vinculado y así podamos obtener su controlador de _panic_."
 
 #: src/bare-metal/alloc.md:47
 msgid "This example will build but not run, as it doesn't have an entry point."
 msgstr ""
+"Este ejemplo se compilará pero no se ejecutará, ya que no cuenta con un "
+"punto de entrada."
 
 #: src/bare-metal/microcontrollers.md:3
 msgid ""
 "The `cortex_m_rt` crate provides (among other things) a reset handler for "
 "Cortex M microcontrollers."
 msgstr ""
+"El crate `cortex_m_rt` proporciona (entre otras cosas) un controlador de "
+"reinicio para microcontroladores Cortex M."
 
 #: src/bare-metal/microcontrollers.md:5
 msgid ""
@@ -13866,22 +14368,29 @@ msgid ""
 "Next we'll look at how to access peripherals, with increasing levels of "
 "abstraction."
 msgstr ""
+"A continuación, veremos cómo se accede a los periféricos con niveles de "
+"abstracción cada vez mayores."
 
 #: src/bare-metal/microcontrollers.md:25
 msgid ""
 "The `cortex_m_rt::entry` macro requires that the function have type `fn() -"
 "> !`, because returning to the reset handler doesn't make sense."
 msgstr ""
+"La macro `cortex_m_rt::entry` requiere que la función tenga el tipo `fn() -"
+"> !`, ya que no tiene sentido devolver resultados al controlador de reinicio."
 
 #: src/bare-metal/microcontrollers.md:27
 msgid "Run the example with `cargo embed --bin minimal`"
-msgstr ""
+msgstr "Ejecuta el ejemplo con `cargo embed --bin minimal`."
 
 #: src/bare-metal/microcontrollers/mmio.md:3
 msgid ""
 "Most microcontrollers access peripherals via memory-mapped IO. Let's try "
 "turning on an LED on our micro:bit:"
 msgstr ""
+"La mayoría de los microcontroladores acceden a los periféricos a través de E/"
+"S asignada a la memoria. Vamos a probar a encender un LED en nuestro micro:"
+"bit:"
 
 #: src/bare-metal/microcontrollers/mmio.md:6
 msgid ""
@@ -13953,13 +14462,15 @@ msgid ""
 "GPIO 0 pin 21 is connected to the first column of the LED matrix, and pin 28 "
 "to the first row."
 msgstr ""
+"El pin 21 de GPIO 0 está conectado a la primera columna de la matriz de LED "
+"y el pin 28 a la primera fila."
 
 #: src/bare-metal/microcontrollers/mmio.md:66
 #: src/bare-metal/microcontrollers/pacs.md:59
 #: src/bare-metal/microcontrollers/hals.md:43
 #: src/bare-metal/microcontrollers/board-support.md:34
 msgid "Run the example with:"
-msgstr ""
+msgstr "Ejecuta el ejemplo con:"
 
 #: src/bare-metal/microcontrollers/mmio.md:68
 msgid ""
@@ -13970,7 +14481,7 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/pacs.md:1
 msgid "Peripheral Access Crates"
-msgstr ""
+msgstr "Crates de Acceso Periférico"
 
 #: src/bare-metal/microcontrollers/pacs.md:3
 msgid ""
@@ -13978,6 +14489,10 @@ msgid ""
 "wrappers for memory-mapped peripherals from [CMSIS-SVD](https://www.keil.com/"
 "pack/doc/CMSIS/SVD/html/index.html) files."
 msgstr ""
+"[`svd2rust`](https://crates.io/crates/svd2rust) genera, en su gran mayoría, "
+"envoltorios seguros de Rust para periféricos asignados a la memoria a partir "
+"de archivos [CMSIS-SVD](https://www.keil.com/pack/doc/CMSIS/SVD/html/index."
+"html)."
 
 #: src/bare-metal/microcontrollers/pacs.md:7
 msgid ""
@@ -14027,12 +14542,17 @@ msgid ""
 "SVD (System View Description) files are XML files typically provided by "
 "silicon vendors which describe the memory map of the device."
 msgstr ""
+"Los archivos SVD (System View Description) son archivos XML que suelen "
+"proporcionar los proveedores de silicio y que describen el mapa de memoria "
+"del dispositivo."
 
 #: src/bare-metal/microcontrollers/pacs.md:51
 msgid ""
 "They are organised by peripheral, register, field and value, with names, "
 "descriptions, addresses and so on."
 msgstr ""
+"Se organizan por periférico, registro, campo y valor, con nombres, "
+"descripciones y direcciones, etc."
 
 #: src/bare-metal/microcontrollers/pacs.md:53
 msgid ""
@@ -14040,16 +14560,21 @@ msgid ""
 "which patch the mistakes, add missing details, and publish the generated "
 "crates."
 msgstr ""
+"Los archivos SVD suelen tener errores y estar incompletos, por lo que "
+"existen varios proyectos que aplican parches a los errores, añaden detalles "
+"que faltan y publican los crates generados."
 
 #: src/bare-metal/microcontrollers/pacs.md:55
 msgid "`cortex-m-rt` provides the vector table, among other things."
-msgstr ""
+msgstr "`cortex-m-rt` proporciona la tabla de vectores, entre otras cosas."
 
 #: src/bare-metal/microcontrollers/pacs.md:56
 msgid ""
 "If you `cargo install cargo-binutils` then you can run `cargo objdump --bin "
 "pac -- -d --no-show-raw-insn` to see the resulting binary."
 msgstr ""
+"Si instalas `cargo install cargo-binutils` puedes ejecutar `cargo objdump --"
+"bin pac -- -d --no-show-raw-insn` para ver el binario resultante."
 
 #: src/bare-metal/microcontrollers/pacs.md:61
 msgid ""
@@ -14060,7 +14585,7 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/hals.md:1
 msgid "HAL crates"
-msgstr ""
+msgstr "Crates HAL"
 
 #: src/bare-metal/microcontrollers/hals.md:3
 msgid ""
@@ -14069,6 +14594,10 @@ msgid ""
 "various peripherals. These generally implement traits from [`embedded-hal`]"
 "(https://crates.io/crates/embedded-hal)."
 msgstr ""
+"[Los crates HAL](https://github.com/rust-embedded/awesome-embedded-rust#hal-"
+"implementation-crates) de muchos microcontroladores incluyen envoltorios "
+"alrededor de varios periféricos. Por lo general, implementan traits de "
+"[`embedded-hal`](https://crates.io/crates/embedded-hal)."
 
 #: src/bare-metal/microcontrollers/hals.md:7
 msgid ""
@@ -14107,12 +14636,15 @@ msgstr ""
 msgid ""
 "`set_low` and `set_high` are methods on the `embedded_hal` `OutputPin` trait."
 msgstr ""
+"`set_low` y `set_high` son métodos del trait `OutputPin` de `embedded_hal`."
 
 #: src/bare-metal/microcontrollers/hals.md:40
 msgid ""
 "HAL crates exist for many Cortex-M and RISC-V devices, including various "
 "STM32, GD32, nRF, NXP, MSP430, AVR and PIC microcontrollers."
 msgstr ""
+"Hay crates HAL para muchos dispositivos Cortex-M y RISC-V, incluidos varios "
+"microcontroladores STM32, GD32, nRF, NXP, MSP430, AVR y PIC."
 
 #: src/bare-metal/microcontrollers/hals.md:45
 msgid ""
@@ -14123,13 +14655,15 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/board-support.md:1
 msgid "Board support crates"
-msgstr ""
+msgstr "Crates de compatibilidad de placa"
 
 #: src/bare-metal/microcontrollers/board-support.md:3
 msgid ""
 "Board support crates provide a further level of wrapping for a specific "
 "board for convenience."
 msgstr ""
+"Los crates de compatibilidad de placa proporcionan un nivel adicional de "
+"envoltorio a una placa específica para mayor comodidad."
 
 #: src/bare-metal/microcontrollers/board-support.md:5
 msgid ""
@@ -14160,16 +14694,20 @@ msgid ""
 "In this case the board support crate is just providing more useful names, "
 "and a bit of initialisation."
 msgstr ""
+"En este caso, el crate de compatibilidad de placa proporciona solo nombres "
+"más útiles y un poco de inicialización."
 
 #: src/bare-metal/microcontrollers/board-support.md:30
 msgid ""
 "The crate may also include drivers for some on-board devices outside of the "
 "microcontroller itself."
 msgstr ""
+"El crate también puede incluir controladores para algunos dispositivos "
+"integrados fuera del propio microcontrolador ."
 
 #: src/bare-metal/microcontrollers/board-support.md:32
 msgid "`microbit-v2` includes a simple driver for the LED matrix."
-msgstr ""
+msgstr "`microbit-v2` incluye un controlador sencillo para la matriz de LED."
 
 #: src/bare-metal/microcontrollers/board-support.md:36
 msgid ""
@@ -14180,7 +14718,7 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/type-state.md:1
 msgid "The type state pattern"
-msgstr ""
+msgstr "El patrón de tipo de estado"
 
 #: src/bare-metal/microcontrollers/type-state.md:3
 msgid ""
@@ -14220,12 +14758,17 @@ msgid ""
 "Pins don't implement `Copy` or `Clone`, so only one instance of each can "
 "exist. Once a pin is moved out of the port struct nobody else can take it."
 msgstr ""
+"Los pines no implementan `Copy` ni `Clone`, por lo que solo puede haber una "
+"instancia de cada uno. Cuando se quita un pin de la estructura del puerto, "
+"nadie más puede usarlo."
 
 #: src/bare-metal/microcontrollers/type-state.md:34
 msgid ""
 "Changing the configuration of a pin consumes the old pin instance, so you "
 "can’t keep use the old instance afterwards."
 msgstr ""
+"Si cambias la configuración de un pin, se consumirá la instancia del pin "
+"anterior y no podrás seguir usando la instancia previa."
 
 #: src/bare-metal/microcontrollers/type-state.md:36
 msgid ""
@@ -14235,50 +14778,60 @@ msgid ""
 "way without properly configuring it first. Illegal state transitions are "
 "caught at compile time."
 msgstr ""
+"El tipo de un valor indica el estado en el que se encuentra: por ejemplo, en "
+"este caso, el estado de configuración de un pin de GPIO. De esta manera, se "
+"codifica la máquina de estados en el sistema de tipos, asegurando así que no "
+"se use un pin de cierta forma sin antes configurarlo correctamente. Las "
+"transiciones de estado ilegales se detectan durante el tiempo de compilación."
 
 #: src/bare-metal/microcontrollers/type-state.md:40
 msgid ""
 "You can call `is_high` on an input pin and `set_high` on an output pin, but "
 "not vice-versa."
 msgstr ""
+"Puedes llamar a `is_high` en un pin de entrada y a `set_high` en un pin de "
+"salida, pero no al revés."
 
 #: src/bare-metal/microcontrollers/type-state.md:41
 msgid "Many HAL crates follow this pattern."
-msgstr ""
+msgstr "Muchos crates HAL siguen este patrón."
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:1
 msgid "`embedded-hal`"
-msgstr ""
+msgstr "`embedded-hal`"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:3
 msgid ""
 "The [`embedded-hal`](https://crates.io/crates/embedded-hal) crate provides a "
 "number of traits covering common microcontroller peripherals."
 msgstr ""
+"El crate [`embedded-hal`](https://crates.io/crates/embedded-hal) proporciona "
+"una serie de traits que cubren los periféricos habituales de los "
+"microcontroladores."
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:6
 msgid "GPIO"
-msgstr ""
+msgstr "GPIO"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:7
 msgid "ADC"
-msgstr ""
+msgstr "ADC"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:8
 msgid "I2C, SPI, UART, CAN"
-msgstr ""
+msgstr "I2C, SPI, UART, CAN"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:9
 msgid "RNG"
-msgstr ""
+msgstr "RNG"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:10
 msgid "Timers"
-msgstr ""
+msgstr "Temporizadores"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:11
 msgid "Watchdogs"
-msgstr ""
+msgstr "Watchdogs"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:13
 msgid ""
@@ -14286,67 +14839,80 @@ msgid ""
 "awesome-embedded-rust#driver-crates) in terms of these traits, e.g. an "
 "accelerometer driver might need an I2C or SPI bus implementation."
 msgstr ""
+"Es entonces cuando otros crates implementan \\[controladores\\][drivers]"
+"(https://github.com/rust-embedded/awesome-embedded-rust#driver-crates) en "
+"función de estos traits. Por ejemplo, un controlador de acelerómetro podría "
+"necesitar una implementación de bus I2C o SPI."
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:19
 msgid ""
 "There are implementations for many microcontrollers, as well as other "
 "platforms such as Linux on Raspberry Pi."
 msgstr ""
+"Hay implementaciones para muchos microcontroladores, así como otras "
+"plataformas como Linux en Raspberry Pi."
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:21
 msgid ""
 "There is work in progress on an `async` version of `embedded-hal`, but it "
 "isn't stable yet."
 msgstr ""
+"Se está trabajando en una versión `async` de `embedded-hal`, pero aún no es "
+"estable."
 
 #: src/bare-metal/microcontrollers/probe-rs.md:1
 msgid "`probe-rs`, `cargo-embed`"
-msgstr ""
+msgstr "`probe-rs`, `cargo-embed`"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:3
 msgid ""
 "[probe-rs](https://probe.rs/) is a handy toolset for embedded debugging, "
 "like OpenOCD but better integrated."
 msgstr ""
+"[probe-rs](https://probe.rs/) es un conjunto de herramientas de depuración "
+"integradas muy útil, como OpenOCD, pero mejor integrado."
 
 #: src/bare-metal/microcontrollers/probe-rs.md:6
 msgid "SWD"
-msgstr ""
+msgstr "SWD"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:6
 msgid " and JTAG via CMSIS-DAP, ST-Link and J-Link probes"
-msgstr ""
+msgstr " y JTAG a través de comprobaciones CMSIS-DAP, ST-Link y J-Link"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:7
 msgid "GDB stub and Microsoft "
-msgstr ""
+msgstr "GDB stub y el servidor "
 
 #: src/bare-metal/microcontrollers/probe-rs.md:7
 msgid "DAP"
-msgstr ""
+msgstr "DAP"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:7
-#, fuzzy
 msgid " server"
-msgstr "servers."
+msgstr " de Microsoft"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:8
 msgid "Cargo integration"
-msgstr ""
+msgstr "Integración de Cargo"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:10
 msgid "`cargo-embed` is a cargo subcommand to build and flash binaries, log "
 msgstr ""
+"`cargo-embed` es un subcomando de Cargo para compilar e instalar binarios, "
+"registrar salidas "
 
 #: src/bare-metal/microcontrollers/probe-rs.md:11
 msgid "RTT"
-msgstr ""
+msgstr "TTR"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:11
 msgid ""
 " output and connect GDB. It's configured by an `Embed.toml` file in your "
 "project directory."
 msgstr ""
+" y conectar GDB. Se configura mediante un archivo `Embed.toml` en el "
+"directorio del proyecto."
 
 #: src/bare-metal/microcontrollers/probe-rs.md:16
 msgid ""
@@ -14355,24 +14921,34 @@ msgid ""
 "CoreSight Debug Access Port of various Arm Cortex processors. It's what the "
 "on-board debugger on the BBC micro:bit uses."
 msgstr ""
+"[CMSIS-DAP](https://arm-software.github.io/CMSIS_5/DAP/html/index.html) es "
+"un protocolo estándar de Arm mediante USB que permite que un depurador en "
+"circuito acceda al puerto de acceso de depuración CoreSight de varios "
+"procesadores Cortex de Arm. Es lo que utiliza el depurador integrado en el "
+"BBC micro:bit"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:19
 msgid ""
 "ST-Link is a range of in-circuit debuggers from ST Microelectronics, J-Link "
 "is a range from SEGGER."
 msgstr ""
+"ST-Link es una gama de depuradores en circuito de ST Microelectronics. J-"
+"Link es una gama de SEGGER."
 
 #: src/bare-metal/microcontrollers/probe-rs.md:21
 msgid ""
 "The Debug Access Port is usually either a 5-pin JTAG interface or 2-pin "
 "Serial Wire Debug."
 msgstr ""
+"El puerto de acceso de depuración suele ser una interfaz JTAG de 5 pines o "
+"una SWD de 2 pines."
 
 #: src/bare-metal/microcontrollers/probe-rs.md:22
 msgid ""
 "probe-rs is a library which you can integrate into your own tools if you "
 "want to."
 msgstr ""
+"probe-rs es una biblioteca que puedes integrar en tus propias herramientas."
 
 #: src/bare-metal/microcontrollers/probe-rs.md:23
 msgid ""
@@ -14380,20 +14956,26 @@ msgid ""
 "adapter-protocol/) lets VSCode and other IDEs debug code running on any "
 "supported microcontroller."
 msgstr ""
+"[El protocolo de adaptador de depuración de Microsoft](https://microsoft."
+"github.io/debug-adapter-protocol/) permite que VSCode y otros IDEs depuren "
+"el código que se ejecuta en cualquier microcontrolador compatible."
 
 #: src/bare-metal/microcontrollers/probe-rs.md:25
 msgid "cargo-embed is a binary built using the probe-rs library."
-msgstr ""
+msgstr "cargo-embed es un binario compilado con la biblioteca probe-rs."
 
 #: src/bare-metal/microcontrollers/probe-rs.md:26
 msgid ""
 "RTT (Real Time Transfers) is a mechanism to transfer data between the debug "
 "host and the target through a number of ringbuffers."
 msgstr ""
+"TTR (transferencias en tiempo real) es un mecanismo para transferir datos "
+"entre el host de depuración y el objetivo a través de una serie de búferes "
+"circulares."
 
 #: src/bare-metal/microcontrollers/debugging.md:3
 msgid "Embed.toml:"
-msgstr ""
+msgstr "Embed.toml:"
 
 #: src/bare-metal/microcontrollers/debugging.md:5
 msgid ""
@@ -14408,7 +14990,7 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/debugging.md:13
 msgid "In one terminal under `src/bare-metal/microcontrollers/examples/`:"
-msgstr ""
+msgstr "En un terminal en `src/bare-metal/microcontrollers/examples/`:"
 
 #: src/bare-metal/microcontrollers/debugging.md:15
 msgid ""
@@ -14419,7 +15001,7 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/debugging.md:19
 msgid "In another terminal in the same directory:"
-msgstr ""
+msgstr "En otro terminal del mismo directorio:"
 
 #: src/bare-metal/microcontrollers/debugging.md:21
 msgid ""
@@ -14431,7 +15013,7 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/debugging.md:27
 msgid "In GDB, try running:"
-msgstr ""
+msgstr "En GDB, prueba a ejecutar:"
 
 #: src/bare-metal/microcontrollers/debugging.md:29
 msgid ""
@@ -14447,95 +15029,110 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/other-projects.md:1
 #: src/bare-metal/aps/other-projects.md:1
-#, fuzzy
 msgid "Other projects"
-msgstr "Otros Recursos"
+msgstr "Otros proyectos"
 
 #: src/bare-metal/microcontrollers/other-projects.md:3
 msgid "[RTIC](https://rtic.rs/)"
-msgstr ""
+msgstr "[RTIC](https://rtic.rs/)"
 
 #: src/bare-metal/microcontrollers/other-projects.md:4
 msgid "\"Real-Time Interrupt-driven Concurrency\""
-msgstr ""
+msgstr "\"Concurrencia en tiempo real basada en interrupciones\""
 
 #: src/bare-metal/microcontrollers/other-projects.md:5
 msgid ""
 "Shared resource management, message passing, task scheduling, timer queue"
 msgstr ""
+"Gestión de recursos compartidos, envío de mensajes, programación de tareas, "
+"cola del temporizador, etc."
 
 #: src/bare-metal/microcontrollers/other-projects.md:6
 msgid "[Embassy](https://embassy.dev/)"
-msgstr ""
+msgstr "[Embassy](https://embassy.dev/)"
 
 #: src/bare-metal/microcontrollers/other-projects.md:7
 msgid "`async` executors with priorities, timers, networking, USB"
-msgstr ""
+msgstr "Ejecutores `async` con prioridades, temporizadores, redes, USB, etc."
 
 #: src/bare-metal/microcontrollers/other-projects.md:8
 msgid "[TockOS](https://www.tockos.org/documentation/getting-started)"
-msgstr ""
+msgstr "[TockOS](https://www.tockos.org/documentation/getting-started)"
 
 #: src/bare-metal/microcontrollers/other-projects.md:9
 msgid ""
 "Security-focused RTOS with preemptive scheduling and Memory Protection Unit "
 "support"
 msgstr ""
+"RTOS centrado en la seguridad con programación interrumpible y "
+"compatibilidad con la unidad de protección de memoria."
 
 #: src/bare-metal/microcontrollers/other-projects.md:10
 msgid "[Hubris](https://hubris.oxide.computer/)"
-msgstr ""
+msgstr "[Hubris](https://hubris.oxide.computer/)"
 
 #: src/bare-metal/microcontrollers/other-projects.md:11
 msgid ""
 "Microkernel RTOS from Oxide Computer Company with memory protection, "
 "unprivileged drivers, IPC"
 msgstr ""
+"RTOS de microkernel de Oxide Computer Company con protección de memoria, "
+"controladores sin privilegios, IPC, etc."
 
 #: src/bare-metal/microcontrollers/other-projects.md:12
 msgid "[Bindings for FreeRTOS](https://github.com/lobaro/FreeRTOS-rust)"
-msgstr ""
+msgstr "[Enlaces para FreeRTOS](https://github.com/lobaro/FreeRTOS-rust)"
 
 #: src/bare-metal/microcontrollers/other-projects.md:13
 msgid ""
 "Some platforms have `std` implementations, e.g. [esp-idf](https://esp-rs."
 "github.io/book/overview/using-the-standard-library.html)."
 msgstr ""
+"Algunas plataformas tienen implementaciones `std`, como [esp-idf](https://"
+"esp-rs.github.io/book/overview/using-the-standard-library.html)."
 
 #: src/bare-metal/microcontrollers/other-projects.md:18
 msgid "RTIC can be considered either an RTOS or a concurrency framework."
-msgstr ""
+msgstr "RTIC se puede considerar un RTOS o un framework de concurrencia."
 
 #: src/bare-metal/microcontrollers/other-projects.md:19
 msgid "It doesn't include any HALs."
-msgstr ""
+msgstr "No incluye ningún HAL."
 
 #: src/bare-metal/microcontrollers/other-projects.md:20
 msgid ""
 "It uses the Cortex-M NVIC (Nested Virtual Interrupt Controller) for "
 "scheduling rather than a proper kernel."
 msgstr ""
+"Usa el NVIC (controlador de interrupción virtual anidado) Cortex‐M para la "
+"programación en lugar de un kernel propio."
 
 #: src/bare-metal/microcontrollers/other-projects.md:22
 msgid "Cortex-M only."
-msgstr ""
+msgstr "Solo Cortex-M."
 
 #: src/bare-metal/microcontrollers/other-projects.md:23
 msgid ""
 "Google uses TockOS on the Haven microcontroller for Titan security keys."
 msgstr ""
+"Google utiliza TockOS en el microcontrolador Haven para las llaves de "
+"seguridad Titan."
 
 #: src/bare-metal/microcontrollers/other-projects.md:24
 msgid ""
 "FreeRTOS is mostly written in C, but there are Rust bindings for writing "
 "applications."
 msgstr ""
+"FreeRTOS está escrito principalmente en C, pero hay enlaces de Rust para "
+"aplicaciones de escritura."
 
 #: src/exercises/bare-metal/morning.md:3
 msgid ""
 "We will read the direction from an I2C compass, and log the readings to a "
 "serial port."
 msgstr ""
+"Leeremos la dirección desde una brújula I2C, y registraremos las lecturas en "
+"un puerto serie."
 
 #: src/exercises/bare-metal/compass.md:3
 msgid ""
@@ -14543,10 +15140,13 @@ msgid ""
 "serial port. If you have time, try displaying it on the LEDs somehow too, or "
 "use the buttons somehow."
 msgstr ""
+"Leeremos la dirección desde una brújula I2C, y registraremos las lecturas en "
+"un puerto serie. Si tienes tiempo, prueba a mostrarlo también en los LED o "
+"usa los botones de alguna forma."
 
 #: src/exercises/bare-metal/compass.md:6
 msgid "Hints:"
-msgstr ""
+msgstr "Sugerencias:"
 
 #: src/exercises/bare-metal/compass.md:8
 msgid ""
@@ -14555,16 +15155,23 @@ msgid ""
 "microbit/) crates, as well as the [micro:bit hardware](https://tech.microbit."
 "org/hardware/)."
 msgstr ""
+"Consulta la documentación sobre los crates [`lsm303agr`](https://docs.rs/"
+"lsm303agr/latest/lsm303agr/) y [`microbit-v2`](https://docs.rs/microbit-v2/"
+"latest/microbit/), así como [el hardware de micro:bit](https://tech.microbit."
+"org/hardware/)."
 
 #: src/exercises/bare-metal/compass.md:11
 msgid ""
 "The LSM303AGR Inertial Measurement Unit is connected to the internal I2C bus."
 msgstr ""
+"La unidad de medición inercial LSM303AGR está conectada al bus I2C interno."
 
 #: src/exercises/bare-metal/compass.md:12
 msgid ""
 "TWI is another name for I2C, so the I2C master peripheral is called TWIM."
 msgstr ""
+"TWI es otro nombre para I2C, por lo que el periférico I2C maestro se llama "
+"TWIM."
 
 #: src/exercises/bare-metal/compass.md:13
 msgid ""
@@ -14572,12 +15179,19 @@ msgid ""
 "blocking::i2c::WriteRead` trait. The [`microbit::hal::Twim`](https://docs.rs/"
 "microbit-v2/latest/microbit/hal/struct.Twim.html) struct implements this."
 msgstr ""
+"El controlador LSM303AGR necesita algo que implemente  el trait "
+"`embedded_hal::blocking::i2c::WriteRead`. La estructura [`microbit::hal::"
+"Twim`](https://docs.rs/microbit-v2/latest/microbit/hal/struct.Twim.html) "
+"implementa esto."
 
 #: src/exercises/bare-metal/compass.md:17
 msgid ""
 "You have a [`microbit::Board`](https://docs.rs/microbit-v2/latest/microbit/"
 "struct.Board.html) struct with fields for the various pins and peripherals."
 msgstr ""
+"Tienes una estructura [`microbit::Board`](https://docs.rs/microbit-v2/latest/"
+"microbit/struct.Board.html) con campos para los distintos pines y "
+"periféricos."
 
 #: src/exercises/bare-metal/compass.md:19
 msgid ""
@@ -14585,16 +15199,21 @@ msgid ""
 "com/pdf/nRF52833_PS_v1.5.pdf) if you want, but it shouldn't be necessary for "
 "this exercise."
 msgstr ""
+"También puedes consultar la \\[hoja de datos nRF52833\\][nRF52833 datasheet]"
+"(https://infocenter.nordicsemi.com/pdf/nRF52833_PS_v1.5.pdf) si quieres, "
+"pero no debería ser necesario para este ejercicio."
 
 #: src/exercises/bare-metal/compass.md:23
 msgid ""
 "Download the [exercise template](../../comprehensive-rust-exercises.zip) and "
 "look in the `compass` directory for the following files."
 msgstr ""
+"Descarga la [plantilla de ejercicio](../../comprehensive-rust-exercises.zip) "
+"y busca los siguientes archivos en el directorio `compass`."
 
 #: src/exercises/bare-metal/compass.md:26 src/exercises/bare-metal/rtc.md:19
 msgid "`src/main.rs`:"
-msgstr ""
+msgstr "`src/main.rs`:"
 
 #: src/exercises/bare-metal/compass.md:30
 msgid ""
@@ -14635,7 +15254,7 @@ msgstr ""
 
 #: src/exercises/bare-metal/compass.md:64 src/exercises/bare-metal/rtc.md:385
 msgid "`Cargo.toml` (you shouldn't need to change this):"
-msgstr ""
+msgstr "`Cargo.toml` (no debería ser necesario cambiarlo):"
 
 #: src/exercises/bare-metal/compass.md:68
 msgid ""
@@ -14659,7 +15278,7 @@ msgstr ""
 
 #: src/exercises/bare-metal/compass.md:85
 msgid "`Embed.toml` (you shouldn't need to change this):"
-msgstr ""
+msgstr "`Embed.toml` (no debería ser necesario cambiarlo):"
 
 #: src/exercises/bare-metal/compass.md:89
 msgid ""
@@ -14677,7 +15296,7 @@ msgstr ""
 
 #: src/exercises/bare-metal/compass.md:100 src/exercises/bare-metal/rtc.md:985
 msgid "`.cargo/config.toml` (you shouldn't need to change this):"
-msgstr ""
+msgstr "`.cargo/config.toml` (no debería ser necesario cambiarlo):"
 
 #: src/exercises/bare-metal/compass.md:104
 msgid ""
@@ -14692,7 +15311,7 @@ msgstr ""
 
 #: src/exercises/bare-metal/compass.md:112
 msgid "See the serial output on Linux with:"
-msgstr ""
+msgstr "Consulta la salida de serie en Linux con:"
 
 #: src/exercises/bare-metal/compass.md:114
 msgid ""
@@ -14705,6 +15324,8 @@ msgstr ""
 msgid ""
 "Or on Mac OS something like (the device name may be slightly different):"
 msgstr ""
+"En Mac OS debería ser algo como lo siguiente (el nombre del dispositivo "
+"puede ser algo diferente):"
 
 #: src/exercises/bare-metal/compass.md:120
 msgid ""
@@ -14715,11 +15336,11 @@ msgstr ""
 
 #: src/exercises/bare-metal/compass.md:124
 msgid "Use Ctrl+A Ctrl+Q to quit picocom."
-msgstr ""
+msgstr "Pulsa Ctrl+A Ctrl+Q para salir de Picocom."
 
 #: src/bare-metal/aps.md:1
 msgid "Application processors"
-msgstr ""
+msgstr "Procesadores de aplicaciones"
 
 #: src/bare-metal/aps.md:3
 msgid ""
@@ -14728,6 +15349,10 @@ msgid ""
 "with QEMU's aarch64 ['virt'](https://qemu-project.gitlab.io/qemu/system/arm/"
 "virt.html) board."
 msgstr ""
+"Hasta ahora hemos hablado de microcontroladores, como la serie Cortex‐M de "
+"Arm. Ahora vamos a probar a escribir algo para Cortex-A. Para simplificar, "
+"solo trabajaremos con la placa ['virt'](https://qemu-project.gitlab.io/qemu/"
+"system/arm/virt.html) aarch64 de QEMU."
 
 #: src/bare-metal/aps.md:9
 msgid ""
@@ -14735,6 +15360,9 @@ msgid ""
 "privilege (exception levels on Arm CPUs, rings on x86), while application "
 "processors do."
 msgstr ""
+"En términos generales, los microcontroladores no tienen un MMU ni varios "
+"niveles de privilegio (niveles de excepción en las CPU de Arm, anillos en "
+"x86), mientras que los procesadores de aplicaciones sí los tienen."
 
 #: src/bare-metal/aps.md:11
 msgid ""
@@ -14742,11 +15370,16 @@ msgid ""
 "architecture. The 'virt' board doesn't correspond to any particular real "
 "hardware, but is designed purely for virtual machines."
 msgstr ""
+"QEMU permite emular varias máquinas o modelos de placa diferentes para cada "
+"arquitectura. La placa \"virt\" no se corresponde con ningún hardware real "
+"concreto, pero está diseñada exclusivamente para máquinas virtuales."
 
 #: src/bare-metal/aps/entry-point.md:3
 msgid ""
 "Before we can start running Rust code, we need to do some initialisation."
 msgstr ""
+"Antes de que podamos empezar a ejecutar código de Rust, tenemos que hacer "
+"alguna inicialización."
 
 #: src/bare-metal/aps/entry-point.md:5
 msgid ""
@@ -14829,6 +15462,8 @@ msgid ""
 "This is the same as it would be for C: initialising the processor state, "
 "zeroing the BSS, and setting up the stack pointer."
 msgstr ""
+"Es lo mismo que en C: inicializar el estado del procesador, poner a cero el "
+"BSS y configurar el puntero de la _stack_."
 
 #: src/bare-metal/aps/entry-point.md:79
 msgid ""
@@ -14838,18 +15473,27 @@ msgid ""
 "on zeroes. The compiler assumes that the loader will take care of zeroing "
 "them."
 msgstr ""
+"El BSS (símbolo de inicio del bloque, por motivos históricos) es la parte "
+"del objeto que contiene variables asignadas de forma estática que se "
+"inicializan a cero. Se omiten en la imagen para evitar malgastar espacio con "
+"ceros. El compilador asume que el cargador se encargará de ponerlos a cero."
 
 #: src/bare-metal/aps/entry-point.md:83
 msgid ""
 "The BSS may already be zeroed, depending on how memory is initialised and "
 "the image is loaded, but we zero it to be sure."
 msgstr ""
+"Es posible que el BSS ya esté a cero, dependiendo de cómo se inicialice la "
+"memoria y cómo se cargue la imagen, aunque se pone igualmente a cero para "
+"estar seguros."
 
 #: src/bare-metal/aps/entry-point.md:85
 msgid ""
 "We need to enable the MMU and cache before reading or writing any memory. If "
 "we don't:"
 msgstr ""
+"Necesitamos habilitar la MMU y la caché antes de leer o escribir memoria. Si "
+"no lo hacemos, sucederá lo siguiente:"
 
 #: src/bare-metal/aps/entry-point.md:86
 msgid ""
@@ -14858,6 +15502,10 @@ msgid ""
 "generating unaligned accesses, so it should be fine in this case, but this "
 "is not necessarily the case in general."
 msgstr ""
+"Los accesos no alineados fallarán. Compilamos el código Rust para el "
+"objetivo `aarch64-unknown-none`, que define `+strict-align` para evitar que "
+"el compilador genere accesos no alineados. En este caso debería estar bien, "
+"pero no tiene por qué ser así en general."
 
 #: src/bare-metal/aps/entry-point.md:89
 msgid ""
@@ -14869,6 +15517,14 @@ msgid ""
 "is cleaned or the VM enables the cache. (Cache is keyed by physical address, "
 "not VA or IPA.)"
 msgstr ""
+"Si se estuviera ejecutando en una máquina virtual, podría provocar problemas "
+"de coherencia en la caché. El problema es que la máquina virtual accede a la "
+"memoria directamente con la caché inhabilitada, mientras que el host cuenta "
+"con alias que se pueden almacenar en caché en la misma memoria. Incluso si "
+"el host no accede explícitamente a la memoria, los accesos especulativos "
+"pueden provocar que se llene la caché, haciendo que los cambios de uno u "
+"otro se pierdan cuando se borre la caché o cuando la máquina virtual la "
+"habilite. (La caché está codificada por dirección física, no por VA ni IPA)."
 
 #: src/bare-metal/aps/entry-point.md:94
 msgid ""
@@ -14877,12 +15533,18 @@ msgid ""
 "for DRAM, and another 1 GiB higher up for more devices. This matches the "
 "memory layout that QEMU uses."
 msgstr ""
+"Para simplificar, solo se utiliza una tabla de páginas codificada (consulta "
+"`idmap.S`) que mapea la identidad del primer GiB de espacio de direcciones "
+"para dispositivos, el siguiente GiB para DRAM y otro GiB más para más "
+"dispositivos. Esto coincide con la disposición de memoria que utiliza QEMU."
 
 #: src/bare-metal/aps/entry-point.md:97
 msgid ""
 "We also set up the exception vector (`vbar_el1`), which we'll see more about "
 "later."
 msgstr ""
+"También configuramos el vector de excepción (`vbar_el1`), del que veremos "
+"más contenido en próximas dipositivas."
 
 #: src/bare-metal/aps/entry-point.md:98
 msgid ""
@@ -14890,24 +15552,29 @@ msgid ""
 "(EL1). If you need to run at a different exception level you'll need to "
 "modify `entry.S` accordingly."
 msgstr ""
+"Todos los ejemplos de esta tarde se ejecutarán en el nivel de excepción 1 "
+"(EL1). Si necesitas ejecutar en un nivel de excepción diferente, deberás "
+"modificar `entry.S` según corresponda."
 
 #: src/bare-metal/aps/inline-assembly.md:1
 msgid "Inline assembly"
-msgstr ""
+msgstr "Ensamblaje integrado"
 
 #: src/bare-metal/aps/inline-assembly.md:3
 msgid ""
 "Sometimes we need to use assembly to do things that aren't possible with "
 "Rust code. For example, to make an "
 msgstr ""
+"A veces necesitamos usar el ensamblador para hacer cosas que no son posibles "
+"con código Rust. Por ejemplo, hacer un "
 
 #: src/bare-metal/aps/inline-assembly.md:4
 msgid "HVC"
-msgstr ""
+msgstr "HVC"
 
 #: src/bare-metal/aps/inline-assembly.md:4
 msgid " to tell the firmware to power off the system:"
-msgstr ""
+msgstr " para decirle al firmware que apague el sistema:"
 
 #: src/bare-metal/aps/inline-assembly.md:6
 msgid ""
@@ -14950,6 +15617,8 @@ msgid ""
 "(If you actually want to do this, use the [`smccc`](https://crates.io/crates/"
 "smccc) crate which has wrappers for all these functions.)"
 msgstr ""
+"(Si realmente quieres hacer esto, utiliza el crate [`smccc`](https://crates."
+"io/crates/smccc) que tiene envoltorios para todas estas funciones)."
 
 #: src/bare-metal/aps/inline-assembly.md:43
 msgid ""
@@ -14957,6 +15626,10 @@ msgid ""
 "functions to manage system and CPU power states, among other things. It is "
 "implemented by EL3 firmware and hypervisors on many systems."
 msgstr ""
+"PSCI es la interfaz de coordinación de estado de alimentación de Arm, un "
+"conjunto estándar de funciones para gestionar los estados de alimentación "
+"del sistema y de la CPU, entre otras cosas. Lo implementan el firmware EL3 y "
+"los hipervisores en muchos sistemas."
 
 #: src/bare-metal/aps/inline-assembly.md:46
 msgid ""
@@ -14965,12 +15638,18 @@ msgid ""
 "`inout` rather than `in` because the call could potentially clobber the "
 "contents of the registers."
 msgstr ""
+"La sintaxis `0 => _` significa inicializar el registro a 0 antes de ejecutar "
+"el código de ensamblaje integrado e ignorar su contenido después. "
+"Necesitamos utilizar `inout` en lugar de `in` porque la llamada podría "
+"alterar el contenido de los registros."
 
 #: src/bare-metal/aps/inline-assembly.md:49
 msgid ""
 "This `main` function needs to be `#[no_mangle]` and `extern \"C\"` because "
 "it is called from our entry point in `entry.S`."
 msgstr ""
+"Esta función `main` debe ser `#[no_mangle]` y `extern \"C\"`, ya que se "
+"llama desde nuestro punto de entrada en `entry.S`."
 
 #: src/bare-metal/aps/inline-assembly.md:51
 msgid ""
@@ -14981,36 +15660,50 @@ msgid ""
 "arguments passed to a function, so `entry.S` doesn't need to do anything "
 "special except make sure it doesn't change these registers."
 msgstr ""
+"`_x0`–`_x3` son los valores de los registros `x0`–`x3`, que el bootloader "
+"utiliza habitualmente para pasar elementos al árbol de dispositivos, como un "
+"puntero. De acuerdo con la convención de llamadas estándar de aarch64 (que "
+"es lo que `extern \"C\"` usa), los registros `x0`–`x7` se utilizan para los "
+"primeros ocho argumentos que se pasan a una función, de modo que `entry.S` "
+"no tiene que hacer nada especial, salvo asegurarse de que no cambia estos "
+"registros."
 
 #: src/bare-metal/aps/inline-assembly.md:56
 msgid ""
 "Run the example in QEMU with `make qemu_psci` under `src/bare-metal/aps/"
 "examples`."
 msgstr ""
+"Ejecuta el ejemplo en QEMU con `make qemu_psci` en `src/bare-metal/aps/"
+"examples`."
 
 #: src/bare-metal/aps/mmio.md:1
 msgid "Volatile memory access for MMIO"
-msgstr ""
+msgstr "Acceso a la memoria volátil para MMIO"
 
 #: src/bare-metal/aps/mmio.md:3
 msgid "Use `pointer::read_volatile` and `pointer::write_volatile`."
-msgstr ""
+msgstr "Se puede usar `pointer::read_volatile` y `pointer::write_volatile`."
 
 #: src/bare-metal/aps/mmio.md:4
 msgid "Never hold a reference."
-msgstr ""
+msgstr "Nunca retengas una referencia."
 
 #: src/bare-metal/aps/mmio.md:5
 msgid ""
 "`addr_of!` lets you get fields of structs without creating an intermediate "
 "reference."
 msgstr ""
+"`addr_of!` permite obtener campos de estructuras sin crear una referencia "
+"intermedia."
 
 #: src/bare-metal/aps/mmio.md:9
 msgid ""
 "Volatile access: read or write operations may have side-effects, so prevent "
 "the compiler or hardware from reordering, duplicating or eliding them."
 msgstr ""
+"Acceso volátil: las operaciones de lectura o escritura pueden tener efectos "
+"secundarios, por lo que se debe evitar que el compilador o el hardware las "
+"reordene, duplique u omita."
 
 #: src/bare-metal/aps/mmio.md:11
 msgid ""
@@ -15018,6 +15711,10 @@ msgid ""
 "compiler may assume that the value read is the same as the value just "
 "written, and not bother actually reading memory."
 msgstr ""
+"Normalmente, si escribes y luego lees (por ejemplo, a través de una "
+"referencia mutable), el compilador puede suponer que el valor leído es el "
+"mismo que el que se acaba de escribir, sin molestarse si quiera en leer "
+"realmente la memoria."
 
 #: src/bare-metal/aps/mmio.md:13
 msgid ""
@@ -15025,22 +15722,29 @@ msgid ""
 "this is unsound. Whenever a reference exist, the compiler may choose to "
 "dereference it."
 msgstr ""
+"Algunos crates para el acceso volátil al hardware sí mantienen referencias, "
+"aunque no es seguro. Siempre que exista una referencia, el compilador puede "
+"desreferenciarla."
 
 #: src/bare-metal/aps/mmio.md:15
 msgid ""
 "Use the `addr_of!` macro to get struct field pointers from a pointer to the "
 "struct."
 msgstr ""
+"Utiliza la macro `addr_of!` para obtener punteros de campos de estructuras a "
+"partir de un puntero en la estructura."
 
 #: src/bare-metal/aps/uart.md:1
 msgid "Let's write a UART driver"
-msgstr ""
+msgstr "Vamos a escribir un controlador de UART"
 
 #: src/bare-metal/aps/uart.md:3
 msgid ""
 "The QEMU 'virt' machine has a [PL011](https://developer.arm.com/"
 "documentation/ddi0183/g) UART, so let's write a driver for that."
 msgstr ""
+"La máquina \"virt\" de QEMU tiene una UART [PL011]https://developer.arm.com/"
+"documentation/ddi0183/g), así que vamos a escribir un controlador para ella."
 
 #: src/bare-metal/aps/uart.md:5
 msgid ""
@@ -15106,6 +15810,13 @@ msgid ""
 "it is always safe to call `write_byte` later because we can assume the "
 "necessary preconditions."
 msgstr ""
+"Ten en cuenta que `Uart::new` no es seguro, mientras que los otros métodos "
+"sí lo son. Esto se debe a que mientras que el llamador de `Uart::new` "
+"asegure que se cumplan sus requisitos de seguridad (es decir, que solo haya "
+"una instancia del controlador para una UART determinada y que nada más "
+"asigne alias a su espacio de direcciones), siempre es más seguro llamar a "
+"`write_byte` más adelante, ya que podemos asumir\\ las condiciones previas "
+"necesarias."
 
 #: src/bare-metal/aps/uart.md:60
 msgid ""
@@ -15113,6 +15824,9 @@ msgid ""
 "`write_byte` unsafe), but that would be much less convenient to use as every "
 "place that calls `write_byte` would need to reason about the safety"
 msgstr ""
+"Podríamos haberlo hecho al revés (haciendo que `new` fuese seguro y "
+"`write_byte` no seguro), pero\\sería mucho menos cómodo de usar, ya que cada "
+"lugar que llamase a `write_byte` tendría que pensar en la seguridad"
 
 #: src/bare-metal/aps/uart.md:63
 msgid ""
@@ -15120,16 +15834,21 @@ msgid ""
 "the burden of proof for soundness from a large number of places to a smaller "
 "number of places."
 msgstr ""
+"Este es un patrón común para escribir envoltorios seguros de código "
+"inseguro: mover la carga de la prueba de seguridad de un gran número de "
+"lugares a otro más pequeño."
 
 #: src/bare-metal/aps/uart/traits.md:1
 msgid "More traits"
-msgstr ""
+msgstr "Más traits"
 
 #: src/bare-metal/aps/uart/traits.md:3
 msgid ""
 "We derived the `Debug` trait. It would be useful to implement a few more "
 "traits too."
 msgstr ""
+"Hemos derivado el trait `Debug`. También sería útil implementar algunos "
+"traits más."
 
 #: src/bare-metal/aps/uart/traits.md:5
 msgid ""
@@ -15156,16 +15875,20 @@ msgid ""
 "Implementing `Write` lets us use the `write!` and `writeln!` macros with our "
 "`Uart` type."
 msgstr ""
+"Implementar `Write` nos permite utilizar las macros `write!` y `writeln!` "
+"con nuestro tipo `Uart`."
 
 #: src/bare-metal/aps/uart/traits.md:25
 msgid ""
 "Run the example in QEMU with `make qemu_minimal` under `src/bare-metal/aps/"
 "examples`."
 msgstr ""
+"Ejecuta el ejemplo en QEMU con `make qemu_minimal` en `src/bare-metal/aps/"
+"examples`."
 
 #: src/bare-metal/aps/better-uart.md:1
 msgid "A better UART driver"
-msgstr ""
+msgstr "Un controlador UART mejor"
 
 #: src/bare-metal/aps/better-uart.md:3
 msgid ""
@@ -15175,173 +15898,180 @@ msgid ""
 "read. Plus, some of them are bit fields which would be nice to access in a "
 "structured way."
 msgstr ""
+"En realidad, PL011 tiene [muchos registros más](https://developer.arm.com/"
+"documentation/ddi0183/g/programmers-model/summary-of-registers), por lo que "
+"añadir desplazamientos para crear punteros que les permita acceder a ellos "
+"da lugar a errores y dificulta la lectura. Además, algunos de ellos son "
+"campos de bits a los que estaría bien acceder de forma estructurada."
 
 #: src/bare-metal/aps/better-uart.md:7
 msgid "Offset"
-msgstr ""
+msgstr "Desplazamiento"
 
 #: src/bare-metal/aps/better-uart.md:7
 msgid "Register name"
-msgstr ""
+msgstr "Nombre de registro"
 
 #: src/bare-metal/aps/better-uart.md:7
 msgid "Width"
-msgstr ""
+msgstr "Ancho"
 
 #: src/bare-metal/aps/better-uart.md:9
 msgid "0x00"
-msgstr ""
+msgstr "0x00"
 
 #: src/bare-metal/aps/better-uart.md:9
 msgid "DR"
-msgstr ""
+msgstr "DR"
 
 #: src/bare-metal/aps/better-uart.md:9
 msgid "12"
-msgstr ""
+msgstr "12"
 
 #: src/bare-metal/aps/better-uart.md:10
 msgid "0x04"
-msgstr ""
+msgstr "0x04"
 
 #: src/bare-metal/aps/better-uart.md:10
 msgid "RSR"
-msgstr ""
+msgstr "RSR"
 
 #: src/bare-metal/aps/better-uart.md:10
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: src/bare-metal/aps/better-uart.md:11
 msgid "0x18"
-msgstr ""
+msgstr "0x18"
 
 #: src/bare-metal/aps/better-uart.md:11
 msgid "FR"
-msgstr ""
+msgstr "FR"
 
 #: src/bare-metal/aps/better-uart.md:11
 msgid "9"
-msgstr ""
+msgstr "9"
 
 #: src/bare-metal/aps/better-uart.md:12
 msgid "0x20"
-msgstr ""
+msgstr "0x20"
 
 #: src/bare-metal/aps/better-uart.md:12
 msgid "ILPR"
-msgstr ""
+msgstr "ILPR"
 
 #: src/bare-metal/aps/better-uart.md:12 src/bare-metal/aps/better-uart.md:15
 msgid "8"
-msgstr ""
+msgstr "8"
 
 #: src/bare-metal/aps/better-uart.md:13
 msgid "0x24"
-msgstr ""
+msgstr "0x24"
 
 #: src/bare-metal/aps/better-uart.md:13
 msgid "IBRD"
-msgstr ""
+msgstr "IBRD"
 
 #: src/bare-metal/aps/better-uart.md:13 src/bare-metal/aps/better-uart.md:16
 msgid "16"
-msgstr ""
+msgstr "16"
 
 #: src/bare-metal/aps/better-uart.md:14
 msgid "0x28"
-msgstr ""
+msgstr "0x28"
 
 #: src/bare-metal/aps/better-uart.md:14
 msgid "FBRD"
-msgstr ""
+msgstr "FBRD"
 
 #: src/bare-metal/aps/better-uart.md:14 src/bare-metal/aps/better-uart.md:17
 msgid "6"
-msgstr ""
+msgstr "6"
 
 #: src/bare-metal/aps/better-uart.md:15
 msgid "0x2c"
-msgstr ""
+msgstr "0x2c"
 
 #: src/bare-metal/aps/better-uart.md:15
 msgid "LCR_H"
-msgstr ""
+msgstr "LCR_H"
 
 #: src/bare-metal/aps/better-uart.md:16
 msgid "0x30"
-msgstr ""
+msgstr "0x30"
 
 #: src/bare-metal/aps/better-uart.md:16
 msgid "CR"
-msgstr ""
+msgstr "CR"
 
 #: src/bare-metal/aps/better-uart.md:17
 msgid "0x34"
-msgstr ""
+msgstr "0x34"
 
 #: src/bare-metal/aps/better-uart.md:17
 msgid "IFLS"
-msgstr ""
+msgstr "IFLS"
 
 #: src/bare-metal/aps/better-uart.md:18
 msgid "0x38"
-msgstr ""
+msgstr "0x38"
 
 #: src/bare-metal/aps/better-uart.md:18
 msgid "IMSC"
-msgstr ""
+msgstr "IMSC"
 
 #: src/bare-metal/aps/better-uart.md:18 src/bare-metal/aps/better-uart.md:19
 #: src/bare-metal/aps/better-uart.md:20 src/bare-metal/aps/better-uart.md:21
 msgid "11"
-msgstr ""
+msgstr "11"
 
 #: src/bare-metal/aps/better-uart.md:19
 msgid "0x3c"
-msgstr ""
+msgstr "0x3c"
 
 #: src/bare-metal/aps/better-uart.md:19
 msgid "RIS"
-msgstr ""
+msgstr "RIS"
 
 #: src/bare-metal/aps/better-uart.md:20
 msgid "0x40"
-msgstr ""
+msgstr "0x40"
 
 #: src/bare-metal/aps/better-uart.md:20
 msgid "MIS"
-msgstr ""
+msgstr "MIS"
 
 #: src/bare-metal/aps/better-uart.md:21
 msgid "0x44"
-msgstr ""
+msgstr "0x44"
 
 #: src/bare-metal/aps/better-uart.md:21
 msgid "ICR"
-msgstr ""
+msgstr "ICR"
 
 #: src/bare-metal/aps/better-uart.md:22
 msgid "0x48"
-msgstr ""
+msgstr "0x48"
 
 #: src/bare-metal/aps/better-uart.md:22
 msgid "DMACR"
-msgstr ""
+msgstr "DMACR"
 
 #: src/bare-metal/aps/better-uart.md:22
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: src/bare-metal/aps/better-uart.md:26
 msgid "There are also some ID registers which have been omitted for brevity."
-msgstr ""
+msgstr "También hay algunos registros de ID que se han omitido para abreviar."
 
 #: src/bare-metal/aps/better-uart/bitflags.md:3
 msgid ""
 "The [`bitflags`](https://crates.io/crates/bitflags) crate is useful for "
 "working with bitflags."
 msgstr ""
+"El crate [`bitflags`](https://crates.io/crates/bitflags) resulta útil para "
+"trabajar con bitflags."
 
 #: src/bare-metal/aps/better-uart/bitflags.md:5
 msgid ""
@@ -15381,15 +16111,19 @@ msgid ""
 "The `bitflags!` macro creates a newtype something like `Flags(u16)`, along "
 "with a bunch of method implementations to get and set flags."
 msgstr ""
+"La macro `bitflags!` crea un newtype, como `Flags(u16)`, junto con un montón "
+"de implementaciones de métodos para obtener y definir _flags_ (banderas)."
 
 #: src/bare-metal/aps/better-uart/registers.md:1
 msgid "Multiple registers"
-msgstr ""
+msgstr "Varios registros"
 
 #: src/bare-metal/aps/better-uart/registers.md:3
 msgid ""
 "We can use a struct to represent the memory layout of the UART's registers."
 msgstr ""
+"Podemos utilizar una estructura para representar la disposición de la "
+"memoria de los registros de UART."
 
 #: src/bare-metal/aps/better-uart/registers.md:5
 msgid ""
@@ -15436,10 +16170,18 @@ msgid ""
 "predictable layout, as default Rust representation allows the compiler to "
 "(among other things) reorder fields however it sees fit."
 msgstr ""
+"[`#[repr(C)]`](https://doc.rust-lang.org/reference/type-layout.html#the-c-"
+"representation) indica al compilador que ordene los campos de la estructura "
+"siguiendo las mismas reglas que en C. Esto es necesario para que nuestra "
+"estructura tenga un diseño predecible, ya que la representación "
+"predeterminada de Rust permite que el compilador (entre otras cosas) "
+"reordene los campos como crea conveniente."
 
 #: src/bare-metal/aps/better-uart/driver.md:3
 msgid "Now let's use the new `Registers` struct in our driver."
 msgstr ""
+"Ahora vamos a utilizar la nueva estructura de `Registers` en nuestro "
+"controlador."
 
 #: src/bare-metal/aps/better-uart/driver.md:5
 msgid ""
@@ -15511,18 +16253,22 @@ msgid ""
 "Note the use of `addr_of!` / `addr_of_mut!` to get pointers to individual "
 "fields without creating an intermediate reference, which would be unsound."
 msgstr ""
+"Fíjate en el uso de `addr_of!` y `addr_of_mut!` para llevar punteros a "
+"campos individuales sin crear una referencia intermedia. Sería una acción "
+"insegura."
 
 #: src/bare-metal/aps/better-uart/using.md:1
 #: src/bare-metal/aps/logging/using.md:1
-#, fuzzy
 msgid "Using it"
-msgstr "Usando Cargo"
+msgstr "Uso"
 
 #: src/bare-metal/aps/better-uart/using.md:3
 msgid ""
 "Let's write a small program using our driver to write to the serial console, "
 "and echo incoming bytes."
 msgstr ""
+"Vamos a crear un pequeño programa con nuestro controlador para escribir en "
+"la consola serie y compartir los bytes entrantes."
 
 #: src/bare-metal/aps/better-uart/using.md:6
 msgid ""
@@ -15577,11 +16323,15 @@ msgid ""
 "function is called from our entry point code in `entry.S`. See the speaker "
 "notes there for details."
 msgstr ""
+"Al igual que en el ejemplo de [ensamblaje integrado](../inline-assembly.md), "
+"esta función `main` se llama desde nuestro código de punto de entrada en "
+"`entry.S`. Consulta las notas del orador para obtener más información."
 
 #: src/bare-metal/aps/better-uart/using.md:53
 msgid ""
 "Run the example in QEMU with `make qemu` under `src/bare-metal/aps/examples`."
 msgstr ""
+"Ejecuta el ejemplo en QEMU con `make qemu` en `src/bare-metal/aps/examples`."
 
 #: src/bare-metal/aps/logging.md:3
 msgid ""
@@ -15589,6 +16339,8 @@ msgid ""
 "(https://crates.io/crates/log) crate. We can do this by implementing the "
 "`Log` trait."
 msgstr ""
+"Estaría bien poder utilizar las macros de registro del crate [`log`](https://"
+"crates.io/crates/log). Podemos hacerlo implementando el trait `Log`."
 
 #: src/bare-metal/aps/logging.md:6
 msgid ""
@@ -15641,10 +16393,12 @@ msgid ""
 "The unwrap in `log` is safe because we initialise `LOGGER` before calling "
 "`set_logger`."
 msgstr ""
+"La desenvoltura en `log` es segura porque inicializamos `LOGGER` antes de "
+"llamar a `set_logger`."
 
 #: src/bare-metal/aps/logging/using.md:3
 msgid "We need to initialise the logger before we use it."
-msgstr ""
+msgstr "Debemos inicializar el registrador antes de utilizarlo."
 
 #: src/bare-metal/aps/logging/using.md:5
 msgid ""
@@ -15692,12 +16446,16 @@ msgstr ""
 #: src/bare-metal/aps/logging/using.md:46
 msgid "Note that our panic handler can now log details of panics."
 msgstr ""
+"Ten en cuenta que nuestro controlador de _panic_ ahora ya puede registrar la "
+"información de los pánicos."
 
 #: src/bare-metal/aps/logging/using.md:47
 msgid ""
 "Run the example in QEMU with `make qemu_logger` under `src/bare-metal/aps/"
 "examples`."
 msgstr ""
+"Ejecuta el ejemplo en QEMU con `make qemu_logger` en `src/bare-metal/aps/"
+"examples`."
 
 #: src/bare-metal/aps/exceptions.md:3
 msgid ""
@@ -15707,6 +16465,11 @@ msgid ""
 "We implement this in assembly to save volatile registers to the stack before "
 "calling into Rust code:"
 msgstr ""
+"AArch64 define una tabla de vectores de excepción con 16 entradas, para 4 "
+"tipos de excepciones (synchronous, IRQ, FIQ, SError) desde 4 estados (EL "
+"actual con SP0, EL actual con SPx, EL inferior con AArch64 y EL inferior con "
+"AArch32). Implementamos esto en el ensamblaje para guardar los registros "
+"volátiles en la _stack_ antes de llamar al código de Rust:"
 
 #: src/bare-metal/aps/exceptions.md:8
 msgid ""
@@ -15768,18 +16531,24 @@ msgstr ""
 #: src/bare-metal/aps/exceptions.md:64
 msgid "EL is exception level; all our examples this afternoon run in EL1."
 msgstr ""
+"EL significa nivel de excepción (por sus siglas en inglés); todos nuestros "
+"ejemplos de esta tarde se ejecutan en EL1."
 
 #: src/bare-metal/aps/exceptions.md:65
 msgid ""
 "For simplicity we aren't distinguishing between SP0 and SPx for the current "
 "EL exceptions, or between AArch32 and AArch64 for the lower EL exceptions."
 msgstr ""
+"Para simplificar, no distinguimos entre SP0 y SPx para las excepciones del "
+"EL actual, ni entre AArch32 y AArch64 para las excepciones de EL inferiores."
 
 #: src/bare-metal/aps/exceptions.md:67
 msgid ""
 "For this example we just log the exception and power down, as we don't "
 "expect any of them to actually happen."
 msgstr ""
+"En este ejemplo, nos limitaremos a registrar la excepción y a apagarla, ya "
+"que no esperamos que se produzca ninguna."
 
 #: src/bare-metal/aps/exceptions.md:69
 msgid ""
@@ -15790,54 +16559,71 @@ msgid ""
 "rest of the program, and it's `Send` but not `Sync`, then we'll need to wrap "
 "it in something like a `Mutex` and put it in a static."
 msgstr ""
+"Podríamos pensar en los controladores de excepciones y en nuestro contexto "
+"de ejecución principal como si fueran hilos diferentes. [`Send` y `Sync`]"
+"(../../concurrency/send-sync.md) controlarán lo que podemos compartir entre "
+"ellos, igual que con los hilos. Por ejemplo, si queremos compartir algún "
+"valor entre los controladores de excepciones y el resto del programa, y es "
+"`Send`en vez de `Sync`, necesitaremos envolverlo en un `Mutex`, por ejemplo, "
+"y ponerlo en un estático."
 
 #: src/bare-metal/aps/other-projects.md:3
 msgid "[oreboot](https://github.com/oreboot/oreboot)"
-msgstr ""
+msgstr "[oreboot](https://github.com/oreboot/oreboot)"
 
 #: src/bare-metal/aps/other-projects.md:4
 msgid "\"coreboot without the C\""
-msgstr ""
+msgstr "\"coreboot sin la C\"."
 
 #: src/bare-metal/aps/other-projects.md:5
 msgid "Supports x86, aarch64 and RISC-V."
-msgstr ""
+msgstr "Compatible con x86, aarch64 y RISC-V."
 
 #: src/bare-metal/aps/other-projects.md:6
 msgid "Relies on LinuxBoot rather than having many drivers itself."
-msgstr ""
+msgstr "Depende de LinuxBoot en lugar de tener controladores propios."
 
 #: src/bare-metal/aps/other-projects.md:7
 msgid ""
 "[Rust RaspberryPi OS tutorial](https://github.com/rust-embedded/rust-"
 "raspberrypi-OS-tutorials)"
 msgstr ""
+"[Tutorial del SO de Rust en RaspberryPi][Rust RaspberryPi OS tutorial]"
+"(https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials)"
 
 #: src/bare-metal/aps/other-projects.md:8
 msgid ""
 "Initialisation, UART driver, simple bootloader, JTAG, exception levels, "
 "exception handling, page tables"
 msgstr ""
+"Inicialización, controlador de UART, bootloader sencillo, JTAG, niveles de "
+"excepción, gestión de excepciones, tablas de páginas, etc."
 
 #: src/bare-metal/aps/other-projects.md:10
 msgid ""
 "Some dodginess around cache maintenance and initialisation in Rust, not "
 "necessarily a good example to copy for production code."
 msgstr ""
+"Algunas dudas sobre el mantenimiento de la caché y la inicialización en "
+"Rust, aunque no es precisamente un buen ejemplo para copiar en código de "
+"producción."
 
 #: src/bare-metal/aps/other-projects.md:12
 msgid "[`cargo-call-stack`](https://crates.io/crates/cargo-call-stack)"
-msgstr ""
+msgstr "[`cargo-call-stack`](https://crates.io/crates/cargo-call-stack)"
 
 #: src/bare-metal/aps/other-projects.md:13
 msgid "Static analysis to determine maximum stack usage."
-msgstr ""
+msgstr "Análisis estático para determinar el uso máximo de la _stack_."
 
 #: src/bare-metal/aps/other-projects.md:17
 msgid ""
 "The RaspberryPi OS tutorial runs Rust code before the MMU and caches are "
 "enabled. This will read and write memory (e.g. the stack). However:"
 msgstr ""
+"El tutorial del sistema operativo en RaspberryPi ejecuta código de Rust "
+"antes de que la MMU y las cachés se habiliten. De este modo, se leerá y "
+"escribirá memoria (por ejemplo, la _stack_). Sin embargo:"
 
 #: src/bare-metal/aps/other-projects.md:19
 msgid ""
@@ -15846,6 +16632,10 @@ msgid ""
 "generating unaligned accesses so it should be alright, but this is not "
 "necessarily the case in general."
 msgstr ""
+"Sin la MMU y la caché, los accesos no alineados fallarán. Se compila con "
+"`aarch64-unknown-none`, que define `+strict-align` para evitar que el "
+"compilador genere accesos no alineados. Debería estar bien, pero no tiene "
+"por qué ser así, en general."
 
 #: src/bare-metal/aps/other-projects.md:22
 msgid ""
@@ -15857,16 +16647,27 @@ msgid ""
 "alright in this particular case (running directly on the hardware with no "
 "hypervisor), but isn't a good pattern in general."
 msgstr ""
+"Si se estuviera ejecutando en una máquina virtual, podría provocar problemas "
+"de coherencia en la caché. El problema es que la máquina virtual accede a la "
+"memoria directamente con la caché inhabilitada, mientras que el host cuenta "
+"con alias que se pueden almacenar en caché en la misma memoria. Incluso si "
+"el host no accede explícitamente a la memoria, los accesos especulativos "
+"pueden provocar que se llene la caché, haciendo que los cambios de uno u "
+"otro se pierdan. De nuevo, es correcto en este caso particular (si se "
+"ejecuta directamente en el hardware sin hipervisor) pero, por lo general, no "
+"es un buen patrón."
 
 #: src/bare-metal/useful-crates.md:3
 msgid ""
 "We'll go over a few crates which solve some common problems in bare-metal "
 "programming."
 msgstr ""
+"A continuación, repasaremos algunos crates que resuelven ciertos problemas "
+"comunes en la programación bare-metal."
 
 #: src/bare-metal/useful-crates/zerocopy.md:1
 msgid "`zerocopy`"
-msgstr ""
+msgstr "`zerocopy`"
 
 #: src/bare-metal/useful-crates/zerocopy.md:3
 msgid ""
@@ -15874,6 +16675,9 @@ msgid ""
 "traits and macros for safely converting between byte sequences and other "
 "types."
 msgstr ""
+"El crate [`zerocopy`](https://docs.rs/zerocopy/) (de Fuchsia) proporciona "
+"traits y macros para realizar conversiones seguras entre secuencias de bytes "
+"y otros tipos."
 
 #: src/bare-metal/useful-crates/zerocopy.md:6
 msgid ""
@@ -15918,12 +16722,19 @@ msgid ""
 "but can be useful for working with structures shared with hardware e.g. by "
 "DMA, or sent over some external interface."
 msgstr ""
+"No es adecuado para MMIO (ya que no utiliza lecturas y escrituras "
+"volátiles), pero puede ser útil para trabajar con estructuras compartidas "
+"con hardware (por ejemplo, mediante DMA) o enviadas a través de alguna "
+"interfaz externa."
 
 #: src/bare-metal/useful-crates/zerocopy.md:45
 msgid ""
 "`FromBytes` can be implemented for types for which any byte pattern is "
 "valid, and so can safely be converted from an untrusted sequence of bytes."
 msgstr ""
+"`FromBytes` se puede implementar en tipos en los que cualquier patrón de "
+"bytes es válido, por lo que se puede convertir de forma segura a partir de "
+"una secuencia de bytes que no es fiable."
 
 #: src/bare-metal/useful-crates/zerocopy.md:47
 msgid ""
@@ -15931,11 +16742,16 @@ msgid ""
 "`RequestType` doesn't use all possible u32 values as discriminants, so not "
 "all byte patterns are valid."
 msgstr ""
+"Si se intenta derivar `FromBytes` para estos tipos, se produciría un error, "
+"pues `RequestType` no utiliza todos los valores u32 posibles como "
+"discriminantes y, por tanto, todos los patrones de bytes son válidos."
 
 #: src/bare-metal/useful-crates/zerocopy.md:49
 msgid ""
 "`zerocopy::byteorder` has types for byte-order aware numeric primitives."
 msgstr ""
+"`zerocopy::byteorder` tiene tipos para primitivos numéricos conscientes del "
+"orden de bytes."
 
 #: src/bare-metal/useful-crates/zerocopy.md:50
 msgid ""
@@ -15943,10 +16759,13 @@ msgid ""
 "zerocopy-example/`. (It won't run in the Playground because of the crate "
 "dependency.)"
 msgstr ""
+"Ejecuta el ejemplo con `cargo run` en `src/bare-metal/useful-crates/zerocopy-"
+"example/`. (No se ejecutará en  el playground debido a la dependencia del "
+"crate)."
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:1
 msgid "`aarch64-paging`"
-msgstr ""
+msgstr "`aarch64-paging`"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:3
 msgid ""
@@ -15954,6 +16773,9 @@ msgid ""
 "you create page tables according to the AArch64 Virtual Memory System "
 "Architecture."
 msgstr ""
+"El crate [`aarch64-paging`](https://crates.io/crates/aarch64-paging) permite "
+"crear tablas de páginas de acuerdo con la arquitectura del sistema de "
+"memoria virtual AArch64."
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:6
 msgid ""
@@ -15983,6 +16805,8 @@ msgid ""
 "For now it only supports EL1, but support for other exception levels should "
 "be straightforward to add."
 msgstr ""
+"Por ahora, solo es compatible con EL1, pero debería ser sencillo añadir "
+"compatibilidad con otros niveles de excepción."
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:30
 msgid ""
@@ -15990,16 +16814,21 @@ msgid ""
 "com/android/platform/superproject/+/master:packages/modules/Virtualization/"
 "pvmfw/)."
 msgstr ""
+"Se utiliza en Android para el [Firmware de Máquina Virtual Protegida]"
+"(https://cs.android.com/android/platform/superproject/+/master:packages/"
+"modules/Virtualization/pvmfw/)."
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:31
 msgid ""
 "There's no easy way to run this example, as it needs to run on real hardware "
 "or under QEMU."
 msgstr ""
+"No hay una forma sencilla de ejecutar este ejemplo, ya que debe hacerse en "
+"hardware real o en QEMU."
 
 #: src/bare-metal/useful-crates/buddy_system_allocator.md:1
 msgid "`buddy_system_allocator`"
-msgstr ""
+msgstr "`buddy_system_allocator`"
 
 #: src/bare-metal/useful-crates/buddy_system_allocator.md:3
 msgid ""
@@ -16012,6 +16841,15 @@ msgid ""
 "allocating other address space. For example, we might want to allocate MMIO "
 "space for PCI BARs:"
 msgstr ""
+"[`buddy_system_allocator`](https://crates.io/crates/buddy_system_allocator) "
+"es un crate de terceros que implementa un asignador básico del sistema "
+"buddy. Se puede utilizar tanto para [`LockedHeap`](https://docs.rs/"
+"buddy_system_allocator/0.9.0/buddy_system_allocator/struct.LockedHeap.html) "
+"implementando [`GlobalAlloc`](https://doc.rust-lang.org/core/alloc/trait."
+"GlobalAlloc.html), de forma que puedas usar el crate `alloc` estándar (tal y "
+"como vimos [antes](../alloc.md)), o para asignar otro espacio de "
+"direcciones. Por ejemplo, podríamos querer asignar espacio MMIO para los "
+"registros de dirección base (BAR) de PCI:"
 
 #: src/bare-metal/useful-crates/buddy_system_allocator.md:8
 msgid ""
@@ -16034,7 +16872,7 @@ msgstr ""
 
 #: src/bare-metal/useful-crates/buddy_system_allocator.md:26
 msgid "PCI BARs always have alignment equal to their size."
-msgstr ""
+msgstr "Los BAR de PCI siempre tienen una alineación igual a su tamaño."
 
 #: src/bare-metal/useful-crates/buddy_system_allocator.md:27
 msgid ""
@@ -16042,10 +16880,13 @@ msgid ""
 "allocator-example/`. (It won't run in the Playground because of the crate "
 "dependency.)"
 msgstr ""
+"Ejecuta el ejemplo con `cargo run` en `src/bare-metal/useful-crates/"
+"allocator-example/`. (No se ejecutará en el playground debido a la "
+"dependencia del crate)."
 
 #: src/bare-metal/useful-crates/tinyvec.md:1
 msgid "`tinyvec`"
-msgstr ""
+msgstr "`tinyvec`"
 
 #: src/bare-metal/useful-crates/tinyvec.md:3
 msgid ""
@@ -16055,6 +16896,12 @@ msgid ""
 "allocated or on the stack, which keeps track of how many elements are used "
 "and panics if you try to use more than are allocated."
 msgstr ""
+"A veces, se necesita algo que se pueda cambiar de tamaño, como `Vec`, pero "
+"sin asignación de _heap_. [`tinyvec`](https://crates.io/crates/tinyvec) "
+"ofrece un vector respaldado por un array o slice, que se podría asignar "
+"estáticamente o en la _stack_, y que hace un seguimiento de cuántos "
+"elementos se usan, entrando en _panic_ si intentas utilizar más elementos de "
+"los asignados."
 
 #: src/bare-metal/useful-crates/tinyvec.md:8
 msgid ""
@@ -16077,15 +16924,19 @@ msgid ""
 "`tinyvec` requires that the element type implement `Default` for "
 "initialisation."
 msgstr ""
+"`tinyvec` requiere que el tipo de elemento implemente `Default` para la "
+"inicialización."
 
 #: src/bare-metal/useful-crates/tinyvec.md:24
 msgid ""
 "The Rust Playground includes `tinyvec`, so this example will run fine inline."
 msgstr ""
+"El playground de Rust incluye `tinyvec`, por lo que este ejemplo se "
+"ejecutará bien aunque esté insertado."
 
 #: src/bare-metal/useful-crates/spin.md:1
 msgid "`spin`"
-msgstr ""
+msgstr "`spin`"
 
 #: src/bare-metal/useful-crates/spin.md:3
 msgid ""
@@ -16093,12 +16944,18 @@ msgid ""
 "are not available in `core` or `alloc`. How can we manage synchronisation or "
 "interior mutability, such as for sharing state between different CPUs?"
 msgstr ""
+"`std::sync::Mutex` y el resto de los primitivos de sincronización de `std::"
+"sync` no están disponibles en `core` o `alloc`. ¿Cómo podemos gestionar la "
+"sincronización o la mutabilidad interior para, por ejemplo, compartir el "
+"estado entre diferentes CPUs?"
 
 #: src/bare-metal/useful-crates/spin.md:7
 msgid ""
 "The [`spin`](https://crates.io/crates/spin) crate provides spinlock-based "
 "equivalents of many of these primitives."
 msgstr ""
+"El crate [`spin`](https://crates.io/crates/spin) proporciona equivalentes "
+"basados en spinlocks de muchos de estos primitivos."
 
 #: src/bare-metal/useful-crates/spin.md:9
 msgid ""
@@ -16118,12 +16975,17 @@ msgstr ""
 #: src/bare-metal/useful-crates/spin.md:23
 msgid "Be careful to avoid deadlock if you take locks in interrupt handlers."
 msgstr ""
+"Intenta evitar interbloqueos si usas bloqueos en los controladores de las "
+"interrupciones."
 
 #: src/bare-metal/useful-crates/spin.md:24
 msgid ""
 "`spin` also has a ticket lock mutex implementation; equivalents of `RwLock`, "
 "`Barrier` and `Once` from `std::sync`;  and `Lazy` for lazy initialisation."
 msgstr ""
+"`spin` también cuenta con una implementación de exclusión mutua de bloqueo "
+"de tickets; equivalentes de `RwLock`, `Barrier` y `Once` de `std::sync`, y "
+"`Lazy` para inicialización perezosa"
 
 #: src/bare-metal/useful-crates/spin.md:26
 msgid ""
@@ -16131,11 +16993,16 @@ msgid ""
 "useful types for late initialisation with a slightly different approach to "
 "`spin::once::Once`."
 msgstr ""
+"El crate [`once_cell`](https://crates.io/crates/once_cell) también tiene "
+"algunos tipos útiles de inicialización tardía con un enfoque ligeramente "
+"distinto al de `spin::once::Once`."
 
 #: src/bare-metal/useful-crates/spin.md:28
 msgid ""
 "The Rust Playground includes `spin`, so this example will run fine inline."
 msgstr ""
+"El playground de Rust incluye `spin`, por lo que este ejemplo se ejecutará "
+"bien aunque está insertado."
 
 #: src/bare-metal/android.md:3
 msgid ""
@@ -16144,6 +17011,11 @@ msgid ""
 "with a linker script to produce the binary itself, and then a `raw_binary` "
 "to convert the ELF to a raw binary ready to be run."
 msgstr ""
+"Para compilar un binario de Rust bare-metal en AOSP, tienes que usar una "
+"regla `rust_ffi_static` de Soong para crear tu código Rust y, seguidamente, "
+"un `cc_binary` con una secuencia de comandos de enlazador para producir el "
+"binario en sí. Por último, un `raw_binary` para convertir el ELF en un "
+"binario sin formato que pueda ejecutarse."
 
 #: src/bare-metal/android.md:7
 msgid ""
@@ -16194,6 +17066,12 @@ msgid ""
 "master/vmbase/) library provides a linker script and useful defaults for the "
 "build rules, along with an entry point, UART console logging and more."
 msgstr ""
+"En el caso de las máquinas virtuales que se ejecutan con crosvm en aarch64, "
+"la biblioteca [vmbase](https://android.googlesource.com/platform/packages/"
+"modules/Virtualization/+/refs/heads/master/vmbase/) proporciona una "
+"secuencia de comandos de enlazador y valores predeterminados útiles para las "
+"reglas de compilación, además de un punto de entrada, registro de la consola "
+"UART y mucho más."
 
 #: src/bare-metal/android/vmbase.md:6
 msgid ""
@@ -16216,21 +17094,28 @@ msgid ""
 "The `main!` macro marks your main function, to be called from the `vmbase` "
 "entry point."
 msgstr ""
+"La macro `main!` indica tu función principal, que se llama desde el punto de "
+"entrada `vmbase`."
 
 #: src/bare-metal/android/vmbase.md:22
 msgid ""
 "The `vmbase` entry point handles console initialisation, and issues a "
 "PSCI_SYSTEM_OFF to shutdown the VM if your main function returns."
 msgstr ""
+"El punto de entrada `vmbase` gestiona la inicialización de la consola y "
+"emite PSCI_SYSTEM_OFF para apagar la máquina virtual si tu función principal "
+"devuelve un resultado."
 
 #: src/exercises/bare-metal/afternoon.md:3
 msgid "We will write a driver for the PL031 real-time clock device."
 msgstr ""
+"Escribiremos un controlador para el dispositivo de reloj en tiempo real "
+"PL031."
 
 #: src/exercises/bare-metal/rtc.md:1
 #: src/exercises/bare-metal/solutions-afternoon.md:3
 msgid "RTC driver"
-msgstr ""
+msgstr "Controlador RTC"
 
 #: src/exercises/bare-metal/rtc.md:3
 msgid ""
@@ -16238,12 +17123,18 @@ msgid ""
 "documentation/ddi0224/c) real-time clock at 0x9010000. For this exercise, "
 "you should write a driver for it."
 msgstr ""
+"La máquina virtual aarch64 de QEMU tiene un reloj en tiempo real [PL031]"
+"(https://developer.arm.com/documentation/ddi0224/c) en 0x9010000. En este "
+"ejercicio, debes escribir un controlador para el reloj."
 
 #: src/exercises/bare-metal/rtc.md:6
 msgid ""
 "Use it to print the current time to the serial console. You can use the "
 "[`chrono`](https://crates.io/crates/chrono) crate for date/time formatting."
 msgstr ""
+"Úsalo para imprimir la hora en la consola serie. Puedes usar el crate "
+"[`chrono`](https://crates.io/crates/chrono) para dar formato a la fecha y la "
+"hora."
 
 #: src/exercises/bare-metal/rtc.md:8
 msgid ""
@@ -16251,6 +17142,10 @@ msgid ""
 "time, e.g. 3 seconds in the future. (Call [`core::hint::spin_loop`](https://"
 "doc.rust-lang.org/core/hint/fn.spin_loop.html) inside the loop.)"
 msgstr ""
+"Utiliza el registro de coincidencias y el estado de interrupción sin formato "
+"para esperar hasta un momento dado, por ejemplo, un adelanto de 3 segundos. "
+"(Llama a [`core::hint::spin_loop`](https://doc.rust-lang.org/core/hint/fn."
+"spin_loop.html) dentro d+el bucle)."
 
 #: src/exercises/bare-metal/rtc.md:10
 msgid ""
@@ -16258,22 +17153,33 @@ msgid ""
 "the RTC match. You can use the driver provided in the [`arm-gic`](https://"
 "docs.rs/arm-gic/) crate to configure the Arm Generic Interrupt Controller."
 msgstr ""
+"_Ampliación si hay tiempo:_ habilita y gestiona la interrupción que genera "
+"la coincidencia de RTC. Puedes usar el controlador que se proporciona con el "
+"crate [`arm-gic`](https://docs.rs/arm-gic/) para configurar el controlador "
+"de interrupciones genérico (GIC) de Arm."
 
 #: src/exercises/bare-metal/rtc.md:12
 msgid "Use the RTC interrupt, which is wired to the GIC as `IntId::spi(2)`."
 msgstr ""
+"Utiliza la interrupción de RTC, que está conectada al GIC como `IntId::"
+"spi(2)`."
 
 #: src/exercises/bare-metal/rtc.md:13
 msgid ""
 "Once the interrupt is enabled, you can put the core to sleep via `arm_gic::"
 "wfi()`, which will cause the core to sleep until it receives an interrupt."
 msgstr ""
+"Después de habilitar la interrupción, puedes poner el núcleo en suspensión "
+"mediante `arm_gic::wfi()`, lo que hará que entre en suspensión hasta que "
+"reciba una interrupción."
 
 #: src/exercises/bare-metal/rtc.md:16
 msgid ""
 "Download the [exercise template](../../comprehensive-rust-exercises.zip) and "
 "look in the `rtc` directory for the following files."
 msgstr ""
+"Descarga la [plantilla de ejercicio](../../comprehensive-rust-exercises.zip) "
+"y busca en el directorio `rtc` los siguientes archivos."
 
 #: src/exercises/bare-metal/rtc.md:23
 msgid ""
@@ -16338,6 +17244,8 @@ msgid ""
 "`src/exceptions.rs` (you should only need to change this for the 3rd part of "
 "the exercise):"
 msgstr ""
+"`src/exceptions.rs` (solo se debería cambiar esto en la tercera parte del "
+"ejercicio):"
 
 #: src/exercises/bare-metal/rtc.md:79
 msgid ""
@@ -16415,7 +17323,7 @@ msgstr ""
 
 #: src/exercises/bare-metal/rtc.md:149
 msgid "`src/logger.rs` (you shouldn't need to change this):"
-msgstr ""
+msgstr "`src/logger.rs` (no debería ser necesario cambiarlo):"
 
 #: src/exercises/bare-metal/rtc.md:153
 msgid ""
@@ -16480,7 +17388,7 @@ msgstr ""
 
 #: src/exercises/bare-metal/rtc.md:210
 msgid "`src/pl011.rs` (you shouldn't need to change this):"
-msgstr ""
+msgstr "`src/pl011.rs` (no debería ser necesario cambiarlo):"
 
 #: src/exercises/bare-metal/rtc.md:214
 msgid ""
@@ -16687,7 +17595,7 @@ msgstr ""
 
 #: src/exercises/bare-metal/rtc.md:410
 msgid "`build.rs` (you shouldn't need to change this):"
-msgstr ""
+msgstr "`build.rs` (no debería ser necesario cambiarlo):"
 
 #: src/exercises/bare-metal/rtc.md:414
 msgid ""
@@ -16726,7 +17634,7 @@ msgstr ""
 
 #: src/exercises/bare-metal/rtc.md:446
 msgid "`entry.S` (you shouldn't need to change this):"
-msgstr ""
+msgstr "`entry.S` (no debería ser necesario cambiarlo):"
 
 #: src/exercises/bare-metal/rtc.md:450
 msgid ""
@@ -16892,7 +17800,7 @@ msgstr ""
 
 #: src/exercises/bare-metal/rtc.md:595
 msgid "`exceptions.S` (you shouldn't need to change this):"
-msgstr ""
+msgstr "`exceptions.S` (no debería ser necesario cambiarlo):"
 
 #: src/exercises/bare-metal/rtc.md:599
 msgid ""
@@ -17090,7 +17998,7 @@ msgstr ""
 
 #: src/exercises/bare-metal/rtc.md:780
 msgid "`idmap.S` (you shouldn't need to change this):"
-msgstr ""
+msgstr "`idmap.S` (no debería ser necesario cambiarlo):"
 
 #: src/exercises/bare-metal/rtc.md:784
 msgid ""
@@ -17143,7 +18051,7 @@ msgstr ""
 
 #: src/exercises/bare-metal/rtc.md:829
 msgid "`image.ld` (you shouldn't need to change this):"
-msgstr ""
+msgstr "`image.ld` (no debería ser necesario cambiarlo):"
 
 #: src/exercises/bare-metal/rtc.md:833
 msgid ""
@@ -17258,7 +18166,7 @@ msgstr ""
 
 #: src/exercises/bare-metal/rtc.md:940
 msgid "`Makefile` (you shouldn't need to change this):"
-msgstr ""
+msgstr "`Makefile` (no debería ser necesario cambiarlo):"
 
 #: src/exercises/bare-metal/rtc.md:944
 msgid ""
@@ -17316,7 +18224,7 @@ msgstr ""
 
 #: src/exercises/bare-metal/rtc.md:995
 msgid "Run the code in QEMU with `make qemu`."
-msgstr ""
+msgstr "Ejecuta el código en QEMU con `make qemu`."
 
 #: src/concurrency.md:1
 msgid "Welcome to Concurrency in Rust"
