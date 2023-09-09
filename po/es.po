@@ -18683,15 +18683,16 @@ msgid "Run the code in QEMU with `make qemu`."
 msgstr "Ejecuta el código en QEMU con `make qemu`."
 
 #: src/concurrency.md:1
-#, fuzzy
 msgid "Welcome to Concurrency in Rust"
-msgstr "Bienvenido a Comprehensive Rust 🦀"
+msgstr "Te Damos la Bienvenida a Concurrencia en Rust"
 
 #: src/concurrency.md:3
 msgid ""
 "Rust has full support for concurrency using OS threads with mutexes and "
 "channels."
 msgstr ""
+"Rust es totalmente compatible con la concurrencia mediante hilos del SO con "
+"exclusiones mutuas y canales."
 
 #: src/concurrency.md:6
 msgid ""
@@ -18699,10 +18700,14 @@ msgid ""
 "compile time bugs. This is often referred to as _fearless concurrency_ since "
 "you can rely on the compiler to ensure correctness at runtime."
 msgstr ""
+"El sistema de tipos de Rust desempeña un papel importante al hacer que "
+"muchos errores de concurrencia sean errores en tiempo de compilación. A "
+"menudo, esto se conoce como _concurrencia sin miedo_, ya que puedes confiar "
+"en el compilador para asegurar la corrección en el tiempo de ejecución."
 
 #: src/concurrency/threads.md:3
 msgid "Rust threads work similarly to threads in other languages:"
-msgstr ""
+msgstr "Los hilos de Rust funcionan de forma similar a los de otros lenguajes:"
 
 #: src/concurrency/threads.md:5
 msgid ""
@@ -18729,44 +18734,51 @@ msgstr ""
 #: src/concurrency/threads.md:24
 msgid "Threads are all daemon threads, the main thread does not wait for them."
 msgstr ""
+"Los hilos son todos hilos daemon, y el hilo principal no espera por ellos."
 
 #: src/concurrency/threads.md:25
 msgid "Thread panics are independent of each other."
-msgstr ""
+msgstr "Los pánicos de los hilos son independientes entre sí."
 
 #: src/concurrency/threads.md:26
 msgid "Panics can carry a payload, which can be unpacked with `downcast_ref`."
 msgstr ""
+"Los pánicos pueden transportar una carga útil, que se puede desempaquetar "
+"con `downcast_ref`."
 
 #: src/concurrency/threads.md:32
 msgid ""
 "Notice that the thread is stopped before it reaches 10 — the main thread is "
 "not waiting."
 msgstr ""
+"Observa que el hilo se detiene antes de llegar a 10; el hilo principal no "
+"está esperando."
 
 #: src/concurrency/threads.md:35
 msgid ""
 "Use `let handle = thread::spawn(...)` and later `handle.join()` to wait for "
 "the thread to finish."
 msgstr ""
+"Utiliza `let handle = thread::spawn(...)` y, después, `handle.join()` para "
+"esperar a que el hilo termine."
 
 #: src/concurrency/threads.md:38
 msgid "Trigger a panic in the thread, notice how this doesn't affect `main`."
-msgstr ""
+msgstr "Activa un pánico en el hilo y observa cómo esto no afecta a `main`."
 
 #: src/concurrency/threads.md:40
 msgid ""
 "Use the `Result` return value from `handle.join()` to get access to the "
-"panic payload. This is a good time to talk about [`Any`](https://doc.rust-"
-"lang.org/std/any/index.html)."
+"panic payload. This is a good time to talk about \\[`Any`\\]."
 msgstr ""
+"Usa el valor devuelto `Result` de `handle.join.()` para acceder a la carga "
+"útil del pánico. Este es un buen momento para hablar sobre \\[`Any`\\]."
 
 #: src/concurrency/scoped-threads.md:3
 msgid "Normal threads cannot borrow from their environment:"
-msgstr ""
+msgstr "Los hilos normales no pueden tomar nada prestado de su entorno:"
 
 #: src/concurrency/scoped-threads.md:5
-#, fuzzy
 msgid ""
 "```rust,editable,compile_fail\n"
 "use std::thread;\n"
@@ -18783,23 +18795,16 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-"```rust,editable\n"
-"fn main() {\n"
-"    let s1: String = String::from(\"Hola!\");\n"
-"    let s2: String = s1;\n"
-"    println!(\"s2: {s2}\");\n"
-"    // println!(\"s1: {s1}\");\n"
-"}\n"
-"```"
 
 #: src/concurrency/scoped-threads.md:20
 msgid ""
 "However, you can use a [scoped thread](https://doc.rust-lang.org/std/thread/"
 "fn.scope.html) for this:"
 msgstr ""
+"Sin embargo, puedes usar un [hilo con ámbito](https://doc.rust-lang.org/std/"
+"thread/fn.scope.html) para lo siguiente:"
 
 #: src/concurrency/scoped-threads.md:22
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "use std::thread;\n"
@@ -18815,32 +18820,32 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
-"```rust,editable\n"
-"fn main() {\n"
-"    let s1: String = String::from(\"Hola!\");\n"
-"    let s2: String = s1;\n"
-"    println!(\"s2: {s2}\");\n"
-"    // println!(\"s1: {s1}\");\n"
-"}\n"
-"```"
 
 #: src/concurrency/scoped-threads.md:40
 msgid ""
 "The reason for that is that when the `thread::scope` function completes, all "
 "the threads are guaranteed to be joined, so they can return borrowed data."
 msgstr ""
+"La razón es que, cuando se completa la función `thread::scope`, se asegura "
+"que todos los hilos están unidos, por lo que pueden devolver datos prestados."
 
 #: src/concurrency/scoped-threads.md:41
 msgid ""
 "Normal Rust borrowing rules apply: you can either borrow mutably by one "
 "thread, or immutably by any number of threads."
 msgstr ""
+"Se aplican las reglas normales de préstamo de Rust: un hilo puede tomar "
+"datos prestados de manera mutable o cualquier número de hilos puede tomar "
+"datos prestados de manera inmutable."
 
 #: src/concurrency/channels.md:3
 msgid ""
 "Rust channels have two parts: a `Sender<T>` and a `Receiver<T>`. The two "
 "parts are connected via the channel, but you only see the end-points."
 msgstr ""
+"Los canales de Rust tienen dos partes: `Sender<T>` y `Receiver<T>`. Las dos "
+"partes están conectadas a través del canal, pero solo se ven los puntos "
+"finales."
 
 #: src/concurrency/channels.md:6
 msgid ""
@@ -18870,16 +18875,21 @@ msgid ""
 "implement `Clone` (so you can make multiple producers) but `Receiver` does "
 "not."
 msgstr ""
+"`mpsc` son las siglas de Multi-Producer, Single-Consumer (multiproductor, "
+"consumidor único.) `Sender` y `SyncSender` implementan `Clone` (es decir, "
+"puedes crear varios productores), pero `Receiver` no."
 
 #: src/concurrency/channels.md:29
 msgid ""
 "`send()` and `recv()` return `Result`. If they return `Err`, it means the "
 "counterpart `Sender` or `Receiver` is dropped and the channel is closed."
 msgstr ""
+"`send()` y `recv()` devuelven `Result`. Si devuelven `Err`, significa que el "
+"homólogo `Sender` o `Receiver` se ha eliminado y el canal se ha cerrado."
 
 #: src/concurrency/channels/unbounded.md:3
 msgid "You get an unbounded and asynchronous channel with `mpsc::channel()`:"
-msgstr ""
+msgstr "Se obtiene un canal asíncrono y sin límites con `mpsc::channel()`:"
 
 #: src/concurrency/channels/unbounded.md:5
 msgid ""
@@ -18911,7 +18921,7 @@ msgstr ""
 #: src/concurrency/channels/bounded.md:3
 msgid ""
 "With bounded (synchronous) channels, `send` can block the current thread:"
-msgstr ""
+msgstr "Con canales limitados (síncronos), `send` puede bloquear el hilo:"
 
 #: src/concurrency/channels/bounded.md:5
 msgid ""
@@ -18946,40 +18956,54 @@ msgid ""
 "channel for the new message. The thread can be blocked indefinitely if there "
 "is nobody who reads from the channel."
 msgstr ""
+"Al llamar a `send`, se bloqueará el hilo hasta que haya espacio suficiente "
+"en el canal para el mensaje nuevo. El hilo se puede bloquear de forma "
+"indefinida si no hay nadie que lea el canal."
 
 #: src/concurrency/channels/bounded.md:32
 msgid ""
 "A call to `send` will abort with an error (that is why it returns `Result`) "
 "if the channel is closed. A channel is closed when the receiver is dropped."
 msgstr ""
+"Si se cierra el canal, se anulará la llamada a `send` y se producirá un "
+"error (por eso devuelve `Result`). Un canal se cierra cuando se elimina el "
+"receptor."
 
 #: src/concurrency/channels/bounded.md:33
 msgid ""
 "A bounded channel with a size of zero is called a \"rendezvous channel\". "
 "Every send will block the current thread until another thread calls `read`."
 msgstr ""
+"Un canal delimitado con un tamaño de cero se denomina \"canal rendezvous\". "
+"Cada envío bloqueará el hilo actual hasta que otro hilo llame a `read`."
 
 #: src/concurrency/send-sync.md:1
 msgid "`Send` and `Sync`"
-msgstr ""
+msgstr "`Send` y `Sync`"
 
 #: src/concurrency/send-sync.md:3
 msgid ""
 "How does Rust know to forbid shared access across thread? The answer is in "
 "two traits:"
 msgstr ""
+"¿Cómo sabe Rust que debe prohibir el acceso compartido entre hilos? La "
+"respuesta está en dos traits:"
 
 #: src/concurrency/send-sync.md:5
 msgid ""
 "[`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html): a type `T` "
 "is `Send` if it is safe to move a `T` across a thread boundary."
 msgstr ""
+"[`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html): un tipo `T` "
+"es `Send` si es seguro mover un `T` entre los límites de un hilo."
 
 #: src/concurrency/send-sync.md:7
 msgid ""
 "[`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html): a type `T` "
 "is `Sync` if it is safe to move a `&T` across a thread boundary."
 msgstr ""
+"[`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html): un tipo `T` "
+"es `Sync` si es seguro mover un `&T` entre los límites de un hilo."
 
 #: src/concurrency/send-sync.md:10
 msgid ""
@@ -18988,26 +19012,35 @@ msgid ""
 "contain `Send` and `Sync` types. You can also implement them manually when "
 "you know it is valid."
 msgstr ""
+"`Send` y `Sync` son [traits inseguros](../unsafe/unsafe-traits.md). El "
+"compilador los derivará automáticamente a tus tipos siempre que solo "
+"contengan los tipos `Send` y `Sync`. También puedes implementarlos de forma "
+"manual cuando sepas que es válido."
 
 #: src/concurrency/send-sync.md:20
 msgid ""
 "One can think of these traits as markers that the type has certain thread-"
 "safety properties."
 msgstr ""
+"Se podría pensar en estos traits como marcadores que indican que el tipo "
+"tiene ciertas propiedades de seguridad en hilos."
 
 #: src/concurrency/send-sync.md:21
 msgid "They can be used in the generic constraints as normal traits."
 msgstr ""
+"Se pueden utilizar en las restricciones genéricas como traits normales."
 
 #: src/concurrency/send-sync/send.md:1
 msgid "`Send`"
-msgstr ""
+msgstr "`Send`"
 
 #: src/concurrency/send-sync/send.md:3
 msgid ""
 "A type `T` is [`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html) "
 "if it is safe to move a `T` value to another thread."
 msgstr ""
+"Un tipo `T` es [`Send`](https://doc.rust-lang.org/std/marker/trait.Send."
+"html) si es seguro mover un valor `T` a otro hilo."
 
 #: src/concurrency/send-sync/send.md:5
 msgid ""
@@ -19015,30 +19048,37 @@ msgid ""
 "run in that thread. So the question is when you can allocate a value in one "
 "thread and deallocate it in another."
 msgstr ""
+"El efecto de mover la propiedad a otro hilo es que los _destructores_ se "
+"ejecutarán en ese hilo. Por tanto, la cuestion es cuándo se puede asignar un "
+"valor a un hilo y desasignarlo en otro."
 
 #: src/concurrency/send-sync/send.md:13
 msgid ""
 "As an example, a connection to the SQLite library must only be accessed from "
 "a single thread."
 msgstr ""
+"Por ejemplo, solo se puede acceder a una conexión a la biblioteca SQLite "
+"desde un único hilo."
 
 #: src/concurrency/send-sync/sync.md:1
 msgid "`Sync`"
-msgstr ""
+msgstr "`Sync`"
 
 #: src/concurrency/send-sync/sync.md:3
 msgid ""
 "A type `T` is [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html) "
 "if it is safe to access a `T` value from multiple threads at the same time."
 msgstr ""
+"Un tipo `T` es [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync."
+"html) si es seguro acceder a un valor `T` desde varios hilos al mismo tiempo."
 
 #: src/concurrency/send-sync/sync.md:6
 msgid "More precisely, the definition is:"
-msgstr ""
+msgstr "En concreto, la definición es la siguiente:"
 
 #: src/concurrency/send-sync/sync.md:8
 msgid "`T` is `Sync` if and only if `&T` is `Send`"
-msgstr ""
+msgstr "`T` es `Sync` únicamente si `&T` es `Send`."
 
 #: src/concurrency/send-sync/sync.md:14
 msgid ""
@@ -19046,6 +19086,9 @@ msgid ""
 "thread-safe for shared use, it is also thread-safe to pass references of it "
 "across threads."
 msgstr ""
+"Esta instrucción es, básicamente, una forma resumida de indicar que, si un "
+"tipo es seguro para los hilos en uso compartido, también lo es para pasar "
+"referencias de él a través de los hilos."
 
 #: src/concurrency/send-sync/sync.md:16
 msgid ""
@@ -19055,111 +19098,136 @@ msgid ""
 "is also safe to move to another thread, because the data it references can "
 "be accessed from any thread safely."
 msgstr ""
+"Esto se debe a que, si el tipo es Sync, significa que se puede compartir "
+"entre múltiples hilos sin el riesgo de que haya carreras de datos u otros "
+"problemas de sincronización, por lo que es seguro moverlo a otro hilo. "
+"También es seguro mover una referencia al tipo a otro hilo, ya que se puede "
+"acceder de forma segura a los datos a los que hace referencia desde "
+"cualquier hilo."
 
 #: src/concurrency/send-sync/examples.md:3
 msgid "`Send + Sync`"
-msgstr ""
+msgstr "`Send + Sync`"
 
 #: src/concurrency/send-sync/examples.md:5
 msgid "Most types you come across are `Send + Sync`:"
-msgstr ""
+msgstr "La mayoría de los tipos que encuentras son `Send + Sync`:"
 
 #: src/concurrency/send-sync/examples.md:7
 msgid "`i8`, `f32`, `bool`, `char`, `&str`, ..."
-msgstr ""
+msgstr "`i8`, `f32`, `bool`, `char`, `&str`, etc."
 
 #: src/concurrency/send-sync/examples.md:8
 msgid "`(T1, T2)`, `[T; N]`, `&[T]`, `struct { x: T }`, ..."
-msgstr ""
+msgstr "`(T1, T2)`, `[T; N]`, `&[T]`, `struct { x: T }`, etc."
 
 #: src/concurrency/send-sync/examples.md:9
 msgid "`String`, `Option<T>`, `Vec<T>`, `Box<T>`, ..."
-msgstr ""
+msgstr "`String`, `Option<T>`, `Vec<T>`, `Box<T>`, etc."
 
 #: src/concurrency/send-sync/examples.md:10
 msgid "`Arc<T>`: Explicitly thread-safe via atomic reference count."
 msgstr ""
+"`Arc<T>`: explícitamente seguro para los hilos mediante el recuento atómico "
+"de referencias."
 
 #: src/concurrency/send-sync/examples.md:11
 msgid "`Mutex<T>`: Explicitly thread-safe via internal locking."
 msgstr ""
+"`Mutex<T>`: explícitamente seguro para los hilos mediante bloqueo interno."
 
 #: src/concurrency/send-sync/examples.md:12
 msgid "`AtomicBool`, `AtomicU8`, ...: Uses special atomic instructions."
 msgstr ""
+"`AtomicBool`, `AtomicU8`, etc.: utiliza instrucciones atómicas especiales."
 
 #: src/concurrency/send-sync/examples.md:14
 msgid ""
 "The generic types are typically `Send + Sync` when the type parameters are "
 "`Send + Sync`."
 msgstr ""
+"Los tipos genéricos suelen ser `Send + Sync` cuando los parámetros del tipo "
+"son `Send + Sync`."
 
 #: src/concurrency/send-sync/examples.md:17
 msgid "`Send + !Sync`"
-msgstr ""
+msgstr "`Send + !Sync`"
 
 #: src/concurrency/send-sync/examples.md:19
 msgid ""
 "These types can be moved to other threads, but they're not thread-safe. "
 "Typically because of interior mutability:"
 msgstr ""
+"Estos tipos se pueden mover a otros hilos, pero no son seguros para los "
+"hilos. Normalmente, esto se debe a la mutabilidad interior:"
 
 #: src/concurrency/send-sync/examples.md:22
 msgid "`mpsc::Sender<T>`"
-msgstr ""
+msgstr "`mpsc::Sender<T>`"
 
 #: src/concurrency/send-sync/examples.md:23
 msgid "`mpsc::Receiver<T>`"
-msgstr ""
+msgstr "`mpsc::Receiver<T>`"
 
 #: src/concurrency/send-sync/examples.md:24
 msgid "`Cell<T>`"
-msgstr ""
+msgstr "`Cell<T>`"
 
 #: src/concurrency/send-sync/examples.md:25
 msgid "`RefCell<T>`"
-msgstr ""
+msgstr "`RefCell<T>`"
 
 #: src/concurrency/send-sync/examples.md:27
 msgid "`!Send + Sync`"
-msgstr ""
+msgstr "`!Send + Sync`"
 
 #: src/concurrency/send-sync/examples.md:29
 msgid ""
 "These types are thread-safe, but they cannot be moved to another thread:"
 msgstr ""
+"Estos tipos son seguros para los hilos _(thread safe)_, pero no se pueden "
+"mover a otro hilo:"
 
 #: src/concurrency/send-sync/examples.md:31
 msgid ""
 "`MutexGuard<T>`: Uses OS level primitives which must be deallocated on the "
 "thread which created them."
 msgstr ""
+"`MutexGuard<T>`: utiliza primitivos de nivel SO que se deben desasignar en "
+"el hilo que los creó."
 
 #: src/concurrency/send-sync/examples.md:34
 msgid "`!Send + !Sync`"
-msgstr ""
+msgstr "`!Send + !Sync`"
 
 #: src/concurrency/send-sync/examples.md:36
 msgid "These types are not thread-safe and cannot be moved to other threads:"
 msgstr ""
+"Estos tipos no son seguros para los hilos y no se pueden mover a otros hilos:"
 
 #: src/concurrency/send-sync/examples.md:38
 msgid ""
 "`Rc<T>`: each `Rc<T>` has a reference to an `RcBox<T>`, which contains a non-"
 "atomic reference count."
 msgstr ""
+"`Rc<T>`: cada `Rc<T>` tiene una referencia a un `RcBox<T>`, que contiene un "
+"recuento de referencias no atómico."
 
 #: src/concurrency/send-sync/examples.md:40
 msgid ""
 "`*const T`, `*mut T`: Rust assumes raw pointers may have special concurrency "
 "considerations."
 msgstr ""
+"`*const T`, `*mut T`: Rust asume que los punteros sin procesar pueden tener "
+"consideraciones especiales de concurrencia."
 
 #: src/concurrency/shared_state.md:3
 msgid ""
 "Rust uses the type system to enforce synchronization of shared data. This is "
 "primarily done via two types:"
 msgstr ""
+"Rust utiliza el sistema de tipos para implementar la sincronización de los "
+"datos compartidos. Esto se hace principalmente a través de dos tipos:"
 
 #: src/concurrency/shared_state.md:6
 msgid ""
@@ -19167,22 +19235,29 @@ msgid ""
 "reference counted `T`: handles sharing between threads and takes care to "
 "deallocate `T` when the last reference is dropped,"
 msgstr ""
+"[`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html), recuento "
+"atómico de referencias `T`: gestiona el uso compartido entre hilos y se "
+"encarga de desasignar `T` cuando se elimina la última referencia."
 
 #: src/concurrency/shared_state.md:8
 msgid ""
 "[`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html): ensures "
 "mutually exclusive access to the `T` value."
 msgstr ""
+"[`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html): asegura "
+"el acceso mutuamente excluyente al valor `T`."
 
 #: src/concurrency/shared_state/arc.md:1
 msgid "`Arc`"
-msgstr ""
+msgstr "`Arc`"
 
 #: src/concurrency/shared_state/arc.md:3
 msgid ""
 "[`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html) allows shared "
 "read-only access via `Arc::clone`:"
 msgstr ""
+"[`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html) permite el "
+"acceso compartido de solo lectura a través de `Arc::clone`:"
 
 #: src/concurrency/shared_state/arc.md:5
 msgid ""
@@ -19212,32 +19287,41 @@ msgid ""
 "`Arc` stands for \"Atomic Reference Counted\", a thread safe version of `Rc` "
 "that uses atomic operations."
 msgstr ""
+"`Arc` son las siglas de \"Atomic Reference Counted\" (recuento atómico de "
+"referencias), una versión de `Rc` segura para los hilos que utiliza "
+"operaciones atómicas."
 
 #: src/concurrency/shared_state/arc.md:31
 msgid ""
 "`Arc<T>` implements `Clone` whether or not `T` does. It implements `Send` "
 "and `Sync` if and only if `T` implements them both."
 msgstr ""
+"`Arc<T>` implementa `Clone`, independientemente de si `T` lo hace o no. "
+"Implementa `Send` y `Sync` si `T` implementa ambos."
 
 #: src/concurrency/shared_state/arc.md:33
 msgid ""
 "`Arc::clone()` has the cost of atomic operations that get executed, but "
 "after that the use of the `T` is free."
 msgstr ""
+"`Arc::clone()` tiene el coste de las operaciones atómicas que se ejecutan; "
+"después el uso de `T` es libre."
 
 #: src/concurrency/shared_state/arc.md:35
 msgid ""
 "Beware of reference cycles, `Arc` does not use a garbage collector to detect "
 "them."
 msgstr ""
+"Hay que prestar atención a los ciclos de referencia, ya que `Arc` no usa un "
+"recolector de memoria residual para detectarlos."
 
 #: src/concurrency/shared_state/arc.md:36
 msgid "`std::sync::Weak` can help."
-msgstr ""
+msgstr "`std::sync::Weak` puede resultar útil."
 
 #: src/concurrency/shared_state/mutex.md:1
 msgid "`Mutex`"
-msgstr ""
+msgstr "`Mutex`"
 
 #: src/concurrency/shared_state/mutex.md:3
 msgid ""
@@ -19245,6 +19329,9 @@ msgid ""
 "mutual exclusion _and_ allows mutable access to `T` behind a read-only "
 "interface:"
 msgstr ""
+"[`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html) asegura "
+"la exclusión mutua _y_ permite un acceso mutable a `T` a través de una "
+"interfaz de solo lectura:"
 
 #: src/concurrency/shared_state/mutex.md:6
 msgid ""
@@ -19271,38 +19358,50 @@ msgid ""
 "lang.org/std/sync/struct.Mutex.html#impl-Sync-for-Mutex%3CT%3E) blanket "
 "implementation."
 msgstr ""
+"Fíjate en cómo tenemos una implementación general de [`impl<T: Send> Sync "
+"for Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html#impl-"
+"Sync-for-Mutex%3CT%3E)."
 
 #: src/concurrency/shared_state/mutex.md:31
 msgid ""
 "`Mutex` in Rust looks like a collection with just one element - the "
 "protected data."
 msgstr ""
+"`Mutex` en Rust parece una colección con un solo elemento: los datos "
+"protegidos."
 
 #: src/concurrency/shared_state/mutex.md:32
 msgid ""
 "It is not possible to forget to acquire the mutex before accessing the "
 "protected data."
 msgstr ""
+"No es posible olvidarse de adquirir la exclusión mutua antes de acceder a "
+"los datos protegidos."
 
 #: src/concurrency/shared_state/mutex.md:33
 msgid ""
 "You can get an `&mut T` from an `&Mutex<T>` by taking the lock. The "
 "`MutexGuard` ensures that the `&mut T` doesn't outlive the lock being held."
 msgstr ""
+"Puedes obtener un `&mut T` de `Mutex<T>` mediante el bloqueo. El "
+"`MutexGuard` asegura que `&mut T` no dure más tiempo que el bloqueo que se "
+"ha aplicado."
 
 #: src/concurrency/shared_state/mutex.md:35
 msgid ""
 "`Mutex<T>` implements both `Send` and `Sync` iff (if and only if) `T` "
 "implements `Send`."
 msgstr ""
+"`Mutex<T>` implementa tanto `Send` como `Sync` únicamente si `T` implementa "
+"`Send`."
 
 #: src/concurrency/shared_state/mutex.md:36
 msgid "A read-write lock counterpart - `RwLock`."
-msgstr ""
+msgstr "Un equivalente de bloqueo de lectura y escritura: `RwLock`."
 
 #: src/concurrency/shared_state/mutex.md:37
 msgid "Why does `lock()` return a `Result`? "
-msgstr ""
+msgstr "¿Por qué `lock()` devuelve un `Result`? "
 
 #: src/concurrency/shared_state/mutex.md:38
 msgid ""
@@ -19312,10 +19411,16 @@ msgid ""
 "[`PoisonError`](https://doc.rust-lang.org/std/sync/struct.PoisonError.html). "
 "You can call `into_inner()` on the error to recover the data regardless."
 msgstr ""
+"Si el hilo que contiene `Mutex` entra en pánico, `Mutex` se \"envenena\" "
+"para indicar que los datos que protegía pueden estar en un estado "
+"incoherente. Llamar a `lock()` en una exclusión mutua envenenada da el error "
+"[`PoisonError`](https://doc.rust-lang.org/std/sync/struct.PoisonError.html). "
+"Puedes llamar a `into_inner()` en el error para recuperar los datos de todos "
+"modos."
 
 #: src/concurrency/shared_state/example.md:3
 msgid "Let us see `Arc` and `Mutex` in action:"
-msgstr ""
+msgstr "Veamos cómo funcionan `Arc` y `Mutex`:"
 
 #: src/concurrency/shared_state/example.md:5
 msgid ""
@@ -19338,7 +19443,7 @@ msgstr ""
 
 #: src/concurrency/shared_state/example.md:23
 msgid "Possible solution:"
-msgstr ""
+msgstr "Solución posible:"
 
 #: src/concurrency/shared_state/example.md:25
 msgid ""
@@ -19369,49 +19474,60 @@ msgstr ""
 
 #: src/concurrency/shared_state/example.md:49
 msgid "Notable parts:"
-msgstr ""
+msgstr "Puntos a destacar:"
 
 #: src/concurrency/shared_state/example.md:51
 msgid ""
 "`v` is wrapped in both `Arc` and `Mutex`, because their concerns are "
 "orthogonal."
 msgstr ""
+"`v` se envuelve tanto en `Arc` como en `Mutex`, porque sus preocupaciones "
+"son ortogonales."
 
 #: src/concurrency/shared_state/example.md:52
 msgid ""
 "Wrapping a `Mutex` in an `Arc` is a common pattern to share mutable state "
 "between threads."
 msgstr ""
+"Envolver un `Mutex` en un `Arc` es un patrón habitual para compartir el "
+"estado mutable entre hilos."
 
 #: src/concurrency/shared_state/example.md:53
 msgid ""
 "`v: Arc<_>` needs to be cloned as `v2` before it can be moved into another "
 "thread. Note `move` was added to the lambda signature."
 msgstr ""
+"`v: Arc<_>` se debe clonar como `v2` antes de poder moverlo a otro hilo. Ten "
+"en cuenta que `move` se ha añadido a la firma lambda."
 
 #: src/concurrency/shared_state/example.md:54
 msgid ""
 "Blocks are introduced to narrow the scope of the `LockGuard` as much as "
 "possible."
 msgstr ""
+"Se introducen bloqueos para limitar al máximo el ámbito de `LockGuard`."
 
 #: src/exercises/concurrency/morning.md:3
 msgid "Let us practice our new concurrency skills with"
-msgstr ""
+msgstr "Vamos a practicar nuestras nuevas habilidades de concurrencia con"
 
 #: src/exercises/concurrency/morning.md:5
 msgid "Dining philosophers: a classic problem in concurrency."
-msgstr ""
+msgstr "La cena de los filósofos: un problema clásico de concurrencia."
 
 #: src/exercises/concurrency/morning.md:7
 msgid ""
 "Multi-threaded link checker: a larger project where you'll use Cargo to "
 "download dependencies and then check links in parallel."
 msgstr ""
+"El comprobador de enlaces multihilo: un proyecto más grande donde utilizarás "
+"Cargo para descargar dependencias y luego comprobar los enlaces en paralelo."
 
 #: src/exercises/concurrency/dining-philosophers.md:3
 msgid "The dining philosophers problem is a classic problem in concurrency:"
 msgstr ""
+"El problema de la cena de los filósofos es un problema clásico de "
+"concurrencia:"
 
 #: src/exercises/concurrency/dining-philosophers.md:5
 msgid ""
@@ -19424,6 +19540,14 @@ msgid ""
 "not eating. After an individual philosopher finishes eating, they will put "
 "down both forks."
 msgstr ""
+"Cinco filósofos cenan juntos en la misma mesa. Cada filósofo tiene su propio "
+"sitio en ella. Hay un tenedor entre cada plato. El plato que van a degustar "
+"es una especie de espaguetis que hay que comer con dos tenedores. Los "
+"filósofos solo pueden pensar y comer alternativamente. Además, solo pueden "
+"comer sus espaguetis cuando disponen de un tenedor a la izquierda y otro a "
+"la derecha. Por tanto, los dos tenedores solo estarán disponibles cuando su "
+"dos vecinos más cercanos estén pensando y no comiendo. Cuando un filósofo "
+"termina de comer, deja los dos tenedores en la mesa."
 
 #: src/exercises/concurrency/dining-philosophers.md:13
 msgid ""
@@ -19431,6 +19555,10 @@ msgid ""
 "for this exercise. Copy the code below to a file called `src/main.rs`, fill "
 "out the blanks, and test that `cargo run` does not deadlock:"
 msgstr ""
+"Para realizar este ejercicio necesitarás una \\[instalación local de "
+"Cargo\\] (../../cargo/running-locally.md). Copia el fragmento de código que "
+"aparece más abajo en un archivo denominado `src/main.rs`, rellena los "
+"espacios en blanco y comprueba que `cargo run` no presenta interbloqueos:"
 
 #: src/exercises/concurrency/dining-philosophers.md:19
 msgid ""
@@ -19479,7 +19607,7 @@ msgstr ""
 
 #: src/exercises/concurrency/dining-philosophers.md:61
 msgid "You can use the following `Cargo.toml`:"
-msgstr ""
+msgstr "Puedes usar el siguiente archivo `Cargo.toml`:"
 
 #: src/exercises/concurrency/dining-philosophers.md:65
 msgid ""
@@ -19498,12 +19626,19 @@ msgid ""
 "should recursively check other pages on the same domain and keep doing this "
 "until all pages have been validated."
 msgstr ""
+"Utilicemos nuestros nuevos conocimientos para crear un comprobador de "
+"enlaces multihilo. Debería empezar en una página web y comprobar que los "
+"enlaces de la página son válidos. Debería consultar otras páginas del mismo "
+"dominio y seguir haciéndolo hasta que todas las páginas se hayan validado."
 
 #: src/exercises/concurrency/link-checker.md:8
 msgid ""
 "For this, you will need an HTTP client such as [`reqwest`](https://docs.rs/"
 "reqwest/). Create a new Cargo project and `reqwest` it as a dependency with:"
 msgstr ""
+"Para ello, necesitarás un cliente HTTP como [`reqwest`](https://docs.rs/"
+"reqwest/). Crea un proyecto de Cargo y aplica `reqwest` como una dependencia "
+"con:"
 
 #: src/exercises/concurrency/link-checker.md:11
 msgid ""
@@ -19519,12 +19654,16 @@ msgid ""
 "If `cargo add` fails with `error: no such subcommand`, then please edit the "
 "`Cargo.toml` file by hand. Add the dependencies listed below."
 msgstr ""
+"Si `cargo add` da `error: no such subcommand`, edita el archivo `Cargo.toml` "
+"de forma manual. Añade las dependencias que se indican más abajo."
 
 #: src/exercises/concurrency/link-checker.md:20
 msgid ""
 "You will also need a way to find links. We can use [`scraper`](https://docs."
 "rs/scraper/) for that:"
 msgstr ""
+"También necesitarás una forma de encontrar enlaces. Podemos usar [`scraper`]"
+"(https://docs.rs/scraper/) para eso:"
 
 #: src/exercises/concurrency/link-checker.md:22
 msgid ""
@@ -19538,6 +19677,8 @@ msgid ""
 "Finally, we'll need some way of handling errors. We use [`thiserror`]"
 "(https://docs.rs/thiserror/) for that:"
 msgstr ""
+"Por último, necesitaremos algún método para gestionar los errores. Para "
+"ello, usaremos [`thiserror`](https://docs.rs/thiserror/):"
 
 #: src/exercises/concurrency/link-checker.md:29
 msgid ""
@@ -19545,11 +19686,16 @@ msgid ""
 "cargo add thiserror\n"
 "```"
 msgstr ""
+"```shell\n"
+"cargo add thiserror\n"
+"```"
 
 #: src/exercises/concurrency/link-checker.md:33
 msgid ""
 "The `cargo add` calls will update the `Cargo.toml` file to look like this:"
 msgstr ""
+"Las llamadas a `cargo add` actualizarán el archivo `Cargo.toml` para que "
+"tenga este aspecto:"
 
 #: src/exercises/concurrency/link-checker.md:37
 msgid ""
@@ -19567,16 +19713,31 @@ msgid ""
 "thiserror = \"1.0.37\"\n"
 "```"
 msgstr ""
+"```toml\n"
+"[package]\n"
+"name = \"link-checker\"\n"
+"version = \"0.1.0\"\n"
+"edition = \"2021\"\n"
+"publish = false\n"
+"\n"
+"[dependencies]\n"
+"reqwest = { version = \"0.11.12\", features = [\"blocking\", \"rustls-"
+"tls\"] }\n"
+"scraper = \"0.13.0\"\n"
+"thiserror = \"1.0.37\"\n"
+"```"
 
 #: src/exercises/concurrency/link-checker.md:50
 msgid ""
 "You can now download the start page. Try with a small site such as `https://"
 "www.google.org/`."
 msgstr ""
+"Ya puedes descargar la página de inicio. Prueba con un sitio pequeño, como "
+"`https://www.google.org/`."
 
 #: src/exercises/concurrency/link-checker.md:53
 msgid "Your `src/main.rs` file should look something like this:"
-msgstr ""
+msgstr "El archivo `src/main.rs` debería tener un aspecto similar a este:"
 
 #: src/exercises/concurrency/link-checker.md:57
 msgid ""
@@ -19646,10 +19807,75 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,compile_fail\n"
+"use reqwest::{blocking::Client, Url};\n"
+"use scraper::{Html, Selector};\n"
+"use thiserror::Error;\n"
+"\n"
+"#[derive(Error, Debug)]\n"
+"enum Error {\n"
+"    #[error(\"request error: {0}\")]\n"
+"    ReqwestError(#[from] reqwest::Error),\n"
+"    #[error(\"bad http response: {0}\")]\n"
+"    BadResponse(String),\n"
+"}\n"
+"\n"
+"#[derive(Debug)]\n"
+"struct CrawlCommand {\n"
+"    url: Url,\n"
+"    extract_links: bool,\n"
+"}\n"
+"\n"
+"fn visit_page(client: &Client, command: &CrawlCommand) -> Result<Vec<Url>, "
+"Error> {\n"
+"    println!(\"Checking {:#}\", command.url);\n"
+"    let response = client.get(command.url.clone()).send()?;\n"
+"    if !response.status().is_success() {\n"
+"        return Err(Error::BadResponse(response.status().to_string()));\n"
+"    }\n"
+"\n"
+"    let mut link_urls = Vec::new();\n"
+"    if !command.extract_links {\n"
+"        return Ok(link_urls);\n"
+"    }\n"
+"\n"
+"    let base_url = response.url().to_owned();\n"
+"    let body_text = response.text()?;\n"
+"    let document = Html::parse_document(&body_text);\n"
+"\n"
+"    let selector = Selector::parse(\"a\").unwrap();\n"
+"    let href_values = document\n"
+"        .select(&selector)\n"
+"        .filter_map(|element| element.value().attr(\"href\"));\n"
+"    for href in href_values {\n"
+"        match base_url.join(href) {\n"
+"            Ok(link_url) => {\n"
+"                link_urls.push(link_url);\n"
+"            }\n"
+"            Err(err) => {\n"
+"                println!(\"On {base_url:#}: ignored unparsable {href:?}: "
+"{err}\");\n"
+"            }\n"
+"        }\n"
+"    }\n"
+"    Ok(link_urls)\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let client = Client::new();\n"
+"    let start_url = Url::parse(\"https://www.google.org\").unwrap();\n"
+"    let crawl_command = CrawlCommand{ url: start_url, extract_links: "
+"true };\n"
+"    match visit_page(&client, &crawl_command) {\n"
+"        Ok(links) => println!(\"Links: {links:#?}\"),\n"
+"        Err(err) => println!(\"Could not extract links: {err:#}\"),\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/exercises/concurrency/link-checker.md:120
 msgid "Run the code in `src/main.rs` with"
-msgstr ""
+msgstr "Ejecuta el código en `src/main.rs` con"
 
 #: src/exercises/concurrency/link-checker.md:122
 msgid ""
@@ -19657,12 +19883,17 @@ msgid ""
 "cargo run\n"
 "```"
 msgstr ""
+"```shell\n"
+"cargo run\n"
+"```"
 
 #: src/exercises/concurrency/link-checker.md:128
 msgid ""
 "Use threads to check the links in parallel: send the URLs to be checked to a "
 "channel and let a few threads check the URLs in parallel."
 msgstr ""
+"Comprueba los enlaces en paralelo con los hilos: envía las URLs que se van a "
+"comprobar a un canal y deja que varios hilos comprueben las URLs en paralelo."
 
 #: src/exercises/concurrency/link-checker.md:130
 msgid ""
@@ -19670,11 +19901,13 @@ msgid ""
 "org` domain. Put an upper limit of 100 pages or so so that you don't end up "
 "being blocked by the site."
 msgstr ""
+"Amplía esta opción para extraer enlaces de todas las páginas del dominio "
+"`www.google.org`. Define un límite máximo de 100 páginas para que el sitio "
+"no te bloquee."
 
 #: src/async.md:1
-#, fuzzy
 msgid "Async Rust"
-msgstr "¿Por qué Rust?"
+msgstr "Async en Rust"
 
 #: src/async.md:3
 msgid ""
@@ -19685,6 +19918,13 @@ msgid ""
 "per-task overhead is typically very low and operating systems provide "
 "primitives for efficiently identifying I/O that is able to proceed."
 msgstr ""
+"\"Async\" es un modelo de concurrencia en el que se ejecutan varias tareas "
+"al mismo tiempo. Se ejecuta cada una de ellas hasta que se bloquea y, a "
+"continuación, se cambia a otra tarea que está lista para progresar. El "
+"modelo permite ejecutar un mayor número de tareas en un número limitado de "
+"hilos. Esto se debe a que la sobrecarga por tarea suele ser muy baja y los "
+"sistemas operativos proporcionan primitivos para identificar de forma "
+"eficiente las E/S que pueden continuar."
 
 #: src/async.md:10
 msgid ""
@@ -19692,17 +19932,21 @@ msgid ""
 "that may be completed in the future. Futures are \"polled\" until they "
 "signal that they are complete."
 msgstr ""
+"La operación asíncrona de Rust se basa en \"valores futuros\", que "
+"representan el trabajo que puede completarse más adelante. Los futuros se "
+"\"sondean\" hasta que indican que se han completado."
 
 #: src/async.md:14
 msgid ""
 "Futures are polled by an async runtime, and several different runtimes are "
 "available."
 msgstr ""
+"Los futuros se sondean mediante un tiempo de ejecución asíncrono y hay "
+"disponibles varios tiempos de ejecución diferentes."
 
 #: src/async.md:17
-#, fuzzy
 msgid "Comparisons"
-msgstr "Comparación"
+msgstr "Comparaciones"
 
 #: src/async.md:19
 msgid ""
@@ -19710,6 +19954,10 @@ msgid ""
 "callback-based, and not polled. Async Python programs require a \"loop\", "
 "similar to a runtime in Rust."
 msgstr ""
+"Python tiene un modelo similar en su `asyncio`. Sin embargo, su tipo "
+"`Future` está basado en retrollamadas y no se sondea. Los programas "
+"asíncronos de Python requieren un \"bucle\", similar a un tiempo de "
+"ejecución en Rust."
 
 #: src/async.md:23
 msgid ""
@@ -19717,16 +19965,21 @@ msgid ""
 "runtime implements the event loop, so many of the details of Promise "
 "resolution are hidden."
 msgstr ""
+"`Promise` de JavaScript es parecido, pero también se basa en retrollamadas. "
+"El tiempo de ejecución del lenguaje implementa el bucle de eventos, por lo "
+"que muchos de los detalles de la resolución de Promise están ocultos."
 
 #: src/async/async-await.md:1
 msgid "`async`/`await`"
-msgstr ""
+msgstr "`async`/`await`"
 
 #: src/async/async-await.md:3
 msgid ""
 "At a high level, async Rust code looks very much like \"normal\" sequential "
 "code:"
 msgstr ""
+"En general, el código asíncrono de Rust se parece mucho al código secuencial "
+"\"normal\":"
 
 #: src/async/async-await.md:5
 msgid ""
@@ -19748,51 +20001,79 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable,compile_fail\n"
+"use futures::executor::block_on;\n"
+"\n"
+"async fn count_to(count: i32) {\n"
+"    for i in 1..=count {\n"
+"        println!(\"Count is: {i}!\");\n"
+"    }\n"
+"}\n"
+"\n"
+"async fn async_main(count: i32) {\n"
+"    count_to(count).await;\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    block_on(async_main(10));\n"
+"}\n"
+"```"
 
 #: src/async/async-await.md:27
 msgid ""
 "Note that this is a simplified example to show the syntax. There is no long "
 "running operation or any real concurrency in it!"
 msgstr ""
+"Ten en cuenta que este es un ejemplo simplificado para mostrar la sintaxis. "
+"No hay ninguna operación de larga duración ni concurrencia real."
 
 #: src/async/async-await.md:30
-#, fuzzy
 msgid "What is the return type of an async call?"
-msgstr "Qué es el tipo `word` en cada loop?"
+msgstr "¿Cuál es el tipo de resultado devuelto de una llamada asíncrona?"
 
 #: src/async/async-await.md:31
 msgid "Use `let future: () = async_main(10);` in `main` to see the type."
-msgstr ""
+msgstr "Consulta el tipo con `let future: () = async_main(10);` en `main` ."
 
 #: src/async/async-await.md:33
 msgid ""
 "The \"async\" keyword is syntactic sugar. The compiler replaces the return "
 "type with a future. "
 msgstr ""
+"La palabra clave \"async\" es azúcar sintáctico. El compilador sustituye el "
+"tipo de resultado devuelto por un futuro. "
 
 #: src/async/async-await.md:36
 msgid ""
 "You cannot make `main` async, without additional instructions to the "
 "compiler on how to use the returned future."
 msgstr ""
+"No se puede hacer que `main` sea asíncrono sin dar instrucciones adicionales "
+"al compilador sobre cómo usar el futuro devuelto."
 
 #: src/async/async-await.md:39
 msgid ""
 "You need an executor to run async code. `block_on` blocks the current thread "
 "until the provided future has run to completion. "
 msgstr ""
+"Se necesita un ejecutor para ejecutar el código asíncrono. `block_on` "
+"bloquea el hilo hasta que se complete el futuro proporcionado. "
 
 #: src/async/async-await.md:42
 msgid ""
 "`.await` asynchronously waits for the completion of another operation. "
 "Unlike `block_on`, `.await` doesn't block the current thread."
 msgstr ""
+"`.await` espera de forma asíncrona la finalización de otra operación. A "
+"diferencia de `block_on`, `.await` no bloquea el hilo."
 
 #: src/async/async-await.md:45
 msgid ""
 "`.await` can only be used inside an `async` function (or block; these are "
 "introduced later). "
 msgstr ""
+"`.await` solo se puede usar dentro de una función `async` (o bloqueo; estos "
+"se verán más tarde). "
 
 #: src/async/futures.md:3
 msgid ""
@@ -19801,6 +20082,10 @@ msgid ""
 "complete yet. A future can be polled, and `poll` returns a [`Poll`](https://"
 "doc.rust-lang.org/std/task/enum.Poll.html)."
 msgstr ""
+"[`Future`](https://doc.rust-lang.org/std/future/trait.Future.html) es un "
+"trait implementado por objetos que representan una operación que puede que "
+"aún no se haya completado. Se puede sondear un futuro y `poll` devuelve un "
+"[`Poll`](https://doc.rust-lang.org/std/task/enum.Poll.html)."
 
 #: src/async/futures.md:8
 msgid ""
@@ -19828,30 +20113,43 @@ msgid ""
 "`JoinHandle` returned from `tokio::spawn` implements `Future` to allow "
 "joining to it."
 msgstr ""
+"Una función asíncrona devuelve `impl Future`. También es posible (aunque no "
+"es habitual) implementar `Future` para tus propios tipos. Por ejemplo, el "
+"`JoinHandle` devuelto por `tokio::spawn` implementa `Future` para permitir "
+"que se una a él."
 
 #: src/async/futures.md:27
 msgid ""
 "The `.await` keyword, applied to a Future, causes the current async function "
 "to pause until that Future is ready, and then evaluates to its output."
 msgstr ""
+"La palabra clave `.await`, aplicada a un futuro, provoca que la función "
+"asíncrona se detenga hasta que dicho futuro esté listo y, a continuación, se "
+"evalúa su salida."
 
 #: src/async/futures.md:32
 msgid ""
 "The `Future` and `Poll` types are implemented exactly as shown; click the "
 "links to show the implementations in the docs."
 msgstr ""
+"Los tipos `Future` y `Polll` se implementan exactamente como se indica. Haz "
+"clic en los enlaces para mostrar las implementaciones en los documentos."
 
 #: src/async/futures.md:35
 msgid ""
 "We will not get to `Pin` and `Context`, as we will focus on writing async "
 "code, rather than building new async primitives. Briefly:"
 msgstr ""
+"No trataremos `Pin` ni `Context`, ya que nos centraremos en escribir código "
+"asíncrono en lugar de compilar nuevos primitivos asíncronos. Brevemente:"
 
 #: src/async/futures.md:38
 msgid ""
 "`Context` allows a Future to schedule itself to be polled again when an "
 "event occurs."
 msgstr ""
+"`Context` permite que un futuro se programe a sí mismo para que se vuelva a "
+"sondear cuando se produzca un evento."
 
 #: src/async/futures.md:41
 msgid ""
@@ -19859,6 +20157,9 @@ msgid ""
 "that future remain valid. This is required to allow references to remain "
 "valid after an `.await`."
 msgstr ""
+"`Pin` asegura que el futuro no se mueva en la memoria, de forma que los "
+"punteros en ese futuro siguen siendo válidos. Esto es necesario para que las "
+"referencias sigan siendo válidas después de `.await`."
 
 #: src/async/runtimes.md:3
 msgid ""
@@ -19866,23 +20167,32 @@ msgid ""
 "_reactor_) and is responsible for executing futures (an _executor_). Rust "
 "does not have a \"built-in\" runtime, but several options are available:"
 msgstr ""
+"Un _runtime_ ofrece asistencia para realizar operaciones de forma asíncrona "
+"(un _reactor_) y es responsable de ejecutar futuros (un _ejecutor_). Rust no "
+"cuenta con un tiempo de ejecución \"integrado\", pero hay varias opciones "
+"disponibles:"
 
 #: src/async/runtimes.md:7
 msgid ""
-"[Tokio](https://tokio.rs/): performant, with a well-developed ecosystem of "
+"[Tokio](https://tokio.rs/) - performant, with a well-developed ecosystem of "
 "functionality like [Hyper](https://hyper.rs/) for HTTP or [Tonic](https://"
 "github.com/hyperium/tonic) for gRPC."
 msgstr ""
+"[Tokio](https://tokio.rs/): eficaz, con un ecosistema bien desarrollado de "
+"funciones, como [Hyper](https://hyper.rs/) para HTTP o [Tonic](https://"
+"github.com/hyperium/tonic) para usar gRPC."
 
 #: src/async/runtimes.md:10
 msgid ""
 "[async-std](https://async.rs/): aims to be a \"std for async\", and includes "
 "a basic runtime in `async::task`."
 msgstr ""
+"[async-std](https://async.rs/): se trata de un \"std para async\" e incluye "
+"un tiempo de ejecución básico en `async::task`."
 
 #: src/async/runtimes.md:12
 msgid "[smol](https://docs.rs/smol/latest/smol/): simple and lightweight"
-msgstr ""
+msgstr "[smol](https://docs.rs/smol/latest/smol/): sencillo y ligero."
 
 #: src/async/runtimes.md:14
 msgid ""
@@ -19890,6 +20200,9 @@ msgid ""
 "(https://fuchsia.googlesource.com/fuchsia/+/refs/heads/main/src/lib/fuchsia-"
 "async/src/lib.rs) already has one."
 msgstr ""
+"Varias aplicaciones de mayor tamaño tienen sus propios tiempos de ejecución. "
+"Por ejemplo, [Fuchsia](https://fuchsia.googlesource.com/fuchsia/+/refs/heads/"
+"main/src/lib/fuchsia-async/src/lib.rs) ya tiene uno."
 
 #: src/async/runtimes.md:20
 msgid ""
@@ -19897,6 +20210,10 @@ msgid ""
 "playground. The playground also does not permit any I/O, so most interesting "
 "async things can't run in the playground."
 msgstr ""
+"Ten en cuenta que, de los tiempos de ejecución enumerados, el playground de "
+"Rust solo admite Tokio. El playground tampoco permite ningún tipo de E/S, "
+"por lo que la mayoría de elementos asíncronos interesantes no se pueden "
+"ejecutar. en él."
 
 #: src/async/runtimes.md:24
 msgid ""
@@ -19905,22 +20222,26 @@ msgid ""
 "Promises, for example, which will run to completion even if they are never "
 "used."
 msgstr ""
+"Los futuros son \"inertes\", ya que no realizan ninguna acción (ni siquiera "
+"iniciar una operación de E/S) a menos que haya un ejecutor que los sondee. "
+"Muy diferente de las promesas de JavaScript, por ejemplo, que se ejecutan "
+"hasta su finalización, aunque nunca se utilicen."
 
 #: src/async/runtimes/tokio.md:4
 msgid "Tokio provides: "
-msgstr ""
+msgstr "Tokio ofrece lo siguiente: "
 
 #: src/async/runtimes/tokio.md:6
 msgid "A multi-threaded runtime for executing asynchronous code."
-msgstr ""
+msgstr "Un tiempo de ejecución multihilo para ejecutar código asíncrono."
 
 #: src/async/runtimes/tokio.md:7
 msgid "An asynchronous version of the standard library."
-msgstr ""
+msgstr "Una versión asíncrona de la biblioteca estándar."
 
 #: src/async/runtimes/tokio.md:8
 msgid "A large ecosystem of libraries."
-msgstr ""
+msgstr "Un amplio ecosistema de bibliotecas."
 
 #: src/async/runtimes/tokio.md:10
 msgid ""
@@ -19948,19 +20269,20 @@ msgstr ""
 
 #: src/async/runtimes/tokio.md:33
 msgid "With the `tokio::main` macro we can now make `main` async."
-msgstr ""
+msgstr "Con la macro `tokio::main`, podemos hacer que `main` sea asíncrono."
 
 #: src/async/runtimes/tokio.md:35
 msgid "The `spawn` function creates a new, concurrent \"task\"."
-msgstr ""
+msgstr "La función `spawn` crea una \"tarea\" simultánea."
 
 #: src/async/runtimes/tokio.md:37
 msgid "Note: `spawn` takes a `Future`, you don't call `.await` on `count_to`."
 msgstr ""
+"Nota: `spawn` utiliza un `Future`, no se llama a `.await` en `count_to`."
 
 #: src/async/runtimes/tokio.md:39
 msgid "**Further exploration:**"
-msgstr ""
+msgstr "**Más información:**"
 
 #: src/async/runtimes/tokio.md:41
 msgid ""
@@ -19968,18 +20290,21 @@ msgid ""
 "cancellation. `tokio::spawn` returns a handle which can be awaited to wait "
 "until it finishes."
 msgstr ""
+"¿Por qué `count_to` no suele llegar a 10? Se trata de un ejemplo de "
+"cancelación asíncrona. `tokio::spawn` devuelve un controlador que puede "
+"esperarse hasta que termine."
 
 #: src/async/runtimes/tokio.md:45
 msgid "Try `count_to(10).await` instead of spawning."
-msgstr ""
+msgstr "Prueba `count_to(10).await` en lugar de usar spawn."
 
 #: src/async/runtimes/tokio.md:47
 msgid "Try awaiting the task returned from `tokio::spawn`."
-msgstr ""
+msgstr "Intenta esperar a la correción de la tarea de `tokio::spawn`."
 
 #: src/async/tasks.md:3
 msgid "Rust has a task system, which is a form of lightweight threading."
-msgstr ""
+msgstr "Rust tiene un sistema de tareas, que es una forma de hilo ligero."
 
 #: src/async/tasks.md:5
 msgid ""
@@ -19989,6 +20314,12 @@ msgid ""
 "task is possible by polling multiple child futures, such as racing a timer "
 "and an I/O operation."
 msgstr ""
+"Una tarea tiene un solo futuro de nivel superior que el ejecutor sondea para "
+"hacer que progrese. El futuro puede tener uno o varios futuros anidados que "
+"su método `poll` sondea, lo que se corresponde con una pila de llamadas. La "
+"concurrencia dentro de una tarea es posible mediante el sondeo de varios "
+"futuros secundarios , como una carrera de un temporizador y una operación de "
+"E/S."
 
 #: src/async/tasks.md:10
 msgid ""
@@ -20038,12 +20369,16 @@ msgstr ""
 msgid ""
 "Copy this example into your prepared `src/main.rs` and run it from there."
 msgstr ""
+"Copia este ejemplo en el archivo `src/main.rs` que has preparado y ejecútalo "
+"desde ahí."
 
 #: src/async/tasks.md:54
 msgid ""
 "Ask students to visualize what the state of the example server would be with "
 "a few connected clients. What tasks exist? What are their Futures?"
 msgstr ""
+"Pide a los alumnos que vean cuál sería el estado del servidor de ejemplo con "
+"algunos clientes conectados. ¿Qué tareas hay? ¿Cuáles son sus futuros?"
 
 #: src/async/tasks.md:57
 msgid ""
@@ -20051,17 +20386,22 @@ msgid ""
 "closure, but does not take any arguments. Its return value is a Future, "
 "similar to an `async fn`. "
 msgstr ""
+"Esta es la primera vez que vemos un bloque `async`. Es similar a un cierre, "
+"pero no acepta argumentos. Su valor devuelto es un futuro, similar a `async "
+"fn`. "
 
 #: src/async/tasks.md:61
 msgid ""
 "Refactor the async block into a function, and improve the error handling "
 "using `?`."
 msgstr ""
+"Refactoriza el bloque asíncrono en una función y mejora la gestión de "
+"errores con `?`."
 
 #: src/async/channels.md:3
 msgid ""
 "Several crates have support for asynchronous channels. For instance `tokio`:"
-msgstr ""
+msgstr "Varios crates admiten canales asíncronos. Por ejemplo, `tokio`:"
 
 #: src/async/channels.md:5
 msgid ""
@@ -20088,7 +20428,7 @@ msgid ""
 "        println!(\"Sent {} pings so far.\", i + 1);\n"
 "    }\n"
 "\n"
-"    drop(sender);\n"
+"    std::mem::drop(sender);\n"
 "    ping_handler_task.await.expect(\"Something went wrong in ping handler "
 "task.\");\n"
 "}\n"
@@ -20098,16 +20438,19 @@ msgstr ""
 #: src/async/channels.md:35
 msgid "Change the channel size to `3` and see how it affects the execution."
 msgstr ""
+"Cambia el tamaño del canal a `3` y comprueba cómo afecta a la ejecución."
 
 #: src/async/channels.md:37
 msgid ""
 "Overall, the interface is similar to the `sync` channels as seen in the "
 "[morning class](concurrency/channels.md)."
 msgstr ""
+"En general, la interfaz es similar a los canales `sync`, tal como se ha "
+"visto ver en la [clase de la mañana](concurrency/channels.md)."
 
 #: src/async/channels.md:40
 msgid "Try removing the `std::mem::drop` call. What happens? Why?"
-msgstr ""
+msgstr "Prueba a quitar la llamada a `std::mem::drop`. ¿Qué sucede? ¿Por qué?"
 
 #: src/async/channels.md:42
 msgid ""
@@ -20115,6 +20458,10 @@ msgid ""
 "implement both `sync` and `async` `send` and `recv`. This can be convenient "
 "for complex applications with both IO and heavy CPU processing tasks."
 msgstr ""
+"El crate [Flume](https://docs.rs/flume/latest/flume/) tiene canales que "
+"implementan `sync` y `async`,`send` y `recv`. Esto puede resultar práctico "
+"para aplicaciones complejas con tareas de E/S y tareas pesadas de "
+"procesamiento de CPU."
 
 #: src/async/channels.md:46
 msgid ""
@@ -20122,11 +20469,12 @@ msgid ""
 "combine them with other `future`s to combine them and create complex control "
 "flow."
 msgstr ""
+"Es preferible trabajar con canales `async` por la capacidad de combinarlos "
+"con otros `future` para poder crear un flujo de control complejo."
 
 #: src/async/control-flow.md:1
-#, fuzzy
 msgid "Futures Control Flow"
-msgstr "Control de Flujo"
+msgstr "Flujo de Control de Futuros"
 
 #: src/async/control-flow.md:3
 msgid ""
@@ -20134,14 +20482,17 @@ msgid ""
 "We have already seen tasks, that function as independent threads of "
 "execution."
 msgstr ""
+"Los futuros pueden combinarse para producir gráficos de flujo de computación "
+"simultáneos. Ya hemos visto tareas que funcionan como hilos de ejecución "
+"independientes."
 
 #: src/async/control-flow.md:6
 msgid "[Join](control-flow/join.md)"
-msgstr ""
+msgstr "[Join](control-flow/join.md)"
 
 #: src/async/control-flow.md:7
 msgid "[Select](control-flow/select.md)"
-msgstr ""
+msgstr "[Select](control-flow/select.md)"
 
 #: src/async/control-flow/join.md:3
 msgid ""
@@ -20149,6 +20500,9 @@ msgid ""
 "a collection of their results. This is similar to `Promise.all` in "
 "JavaScript or `asyncio.gather` in Python."
 msgstr ""
+"Una operación join espera hasta que todos los futuros estén listos y "
+"devuelve una colección de sus resultados. Es similar a `Promise.all` en "
+"JavaScript o `asyncio.gather` en Python."
 
 #: src/async/control-flow/join.md:7
 msgid ""
@@ -20186,12 +20540,18 @@ msgid ""
 "you must know how many futures you will have at compile time. This is "
 "currently in the `futures` crate, soon to be stabilised in `std::future`."
 msgstr ""
+"En el caso de varios futuros de tipos distintos, puedes utilizar `std::"
+"future::join!`, pero debes saber cuántos futuros tendrás en el tiempo de "
+"compilación. Esto se encuentra actualmente en el crate `futures`, que pronto "
+"se estabilizará en `std::future`."
 
 #: src/async/control-flow/join.md:42
 msgid ""
 "The risk of `join` is that one of the futures may never resolve, this would "
 "cause your program to stall. "
 msgstr ""
+"El riesgo que supone 'join' es que puede que uno de los futuros no se "
+"resuelva nunca, causando que el programa se bloquee. "
 
 #: src/async/control-flow/join.md:45
 msgid ""
@@ -20201,6 +20561,11 @@ msgid ""
 "timeout (that requires `select!`, explained in the next chapter), but "
 "demonstrates `join!`."
 msgstr ""
+"También puedes combinar `join_all` con `join!`, por ejemplo, para unir todas "
+"las solicitudes a un servicio HTTP, así como una consulta a la base de "
+"datos. Prueba a añadir un tokio::time::sleep`al futuro mediante`futures::"
+"join!`. No se trata de un tiempo de espera (para eso se requiere `select!`, "
+"que se explica en el siguiente capítulo), sino que muestra `join!\\`."
 
 #: src/async/control-flow/select.md:3
 msgid ""
@@ -20209,6 +20574,10 @@ msgid ""
 "race`. In Python, it compares to `asyncio.wait(task_set, return_when=asyncio."
 "FIRST_COMPLETED)`."
 msgstr ""
+"Una operación select espera hasta que un conjunto de futuros esté listo y "
+"responde al resultado de ese futuro. En JavaScript, esto es similar a "
+"`Promise.race`. En Python, se compara con `asyncio.wait(task_set, "
+"return_when=asyncio.FIRST_COMPLETED)`."
 
 #: src/async/control-flow/select.md:8
 msgid ""
@@ -20217,6 +20586,10 @@ msgid ""
 "ready, the `statement` is executed with the variables in `pattern` bound to "
 "the `future`'s result."
 msgstr ""
+"Al igual que en el caso de una instrucción _match_, el cuerpo de `select!` "
+"tiene una serie de brazos, cada uno de los cuales tiene la forma `pattern = "
+"future => statement`. Cuando `future` está listo, la instrucción se ejecuta "
+"con las variables de `pattern` vinculadas al resultado de `future`."
 
 #: src/async/control-flow/select.md:13
 msgid ""
@@ -20275,34 +20648,47 @@ msgid ""
 "whichever arrives first. Since the dog takes 50ms, it wins against the cat "
 "that take 500ms seconds."
 msgstr ""
+"En este ejemplo, tenemos una carrera entre un gato y un perro. "
+"`first_animal_to_finish_race` escucha a ambos canales y elige el que llegue "
+"primero. Como el perro tarda 50 ms, gana al gato, que tarda 500 ms."
 
 #: src/async/control-flow/select.md:67
 msgid ""
 "You can use `oneshot` channels in this example as the channels are supposed "
 "to receive only one `send`."
 msgstr ""
+"En este ejemplo, puedes usar canales `oneshot`, ya que se supone que solo "
+"recibirán un `send`."
 
 #: src/async/control-flow/select.md:70
 msgid ""
 "Try adding a deadline to the race, demonstrating selecting different sorts "
 "of futures."
 msgstr ""
+"Prueba a añadir un límite a la carrera y demuestra cómo se seleccionan "
+"distintos tipos de futuros."
 
 #: src/async/control-flow/select.md:73
 msgid ""
 "Note that `select!` drops unmatched branches, which cancels their futures. "
 "It is easiest to use when every execution of `select!` creates new futures."
 msgstr ""
+"Ten en cuenta que `select!` elimina las ramas sin coincidencias, cancelando "
+"así sus futuros. Es más fácil de usar cuando cada ejecución de `select!` "
+"crea futuros."
 
 #: src/async/control-flow/select.md:76
 msgid ""
 "An alternative is to pass `&mut future` instead of the future itself, but "
 "this can lead to issues, further discussed in the pinning slide."
 msgstr ""
+"También puedes enviar `&mut future` en lugar del futuro en sí, pero esto "
+"podría provocar problemas, como se explica más adelante en la diapositiva "
+"sobre pines."
 
 #: src/async/pitfalls.md:1
 msgid "Pitfalls of async/await"
-msgstr ""
+msgstr "Inconvenientes de async/await"
 
 #: src/async/pitfalls.md:3
 msgid ""
@@ -20311,26 +20697,30 @@ msgid ""
 "with its share of pitfalls and footguns. We illustrate some of them in this "
 "chapter:"
 msgstr ""
+"Async/await ofrece una abstracción práctica y eficiente para la programación "
+"asíncrona simultánea. Sin embargo, el modelo async/await de Rust también "
+"viene acompañado de errores y footguns. En este capítulo veremos algunos de "
+"ellos:"
 
 #: src/async/pitfalls.md:5
 msgid "[Blocking the Executor](pitfalls/blocking-executor.md)"
-msgstr ""
+msgstr "[Bloqueo del ejecutor](pitfalls/blocking-executor.md)"
 
 #: src/async/pitfalls.md:6
 msgid "[Pin](pitfalls/pin.md)"
-msgstr ""
+msgstr "[Pin](pitfalls/pin.md)"
 
 #: src/async/pitfalls.md:7
 msgid "[Async Traits](pitfalls/async-traits.md)"
-msgstr ""
+msgstr "[Traits asíncronos](pitfalls/async-traits.md)"
 
 #: src/async/pitfalls.md:8
 msgid "[Cancellation](pitfalls/cancellation.md)"
-msgstr ""
+msgstr "[Cancelación](pitfalls/cancellation.md)"
 
 #: src/async/pitfalls/blocking-executor.md:1
 msgid "Blocking the executor"
-msgstr ""
+msgstr "Bloqueo del ejecutor"
 
 #: src/async/pitfalls/blocking-executor.md:3
 msgid ""
@@ -20339,6 +20729,11 @@ msgid ""
 "being executed. An easy workaround is to use async equivalent methods where "
 "possible."
 msgstr ""
+"La mayoría de los tiempos de ejecución asíncronos solo permiten que las "
+"tareas de E/S se ejecuten de forma simultánea. Esto significa que las tareas "
+"que bloquean la CPU bloquearán el ejecutor e impedirán que se ejecuten otras "
+"tareas. Una solución alternativa y sencilla es utilizar métodos asíncronos "
+"equivalentes siempre que sea posible."
 
 #: src/async/pitfalls/blocking-executor.md:7
 msgid ""
@@ -20368,6 +20763,8 @@ msgid ""
 "Run the code and see that the sleeps happen consecutively rather than "
 "concurrently."
 msgstr ""
+"Ejecuta el código y comprueba que las suspensiones se producen de forma "
+"consecutiva y no simultánea."
 
 #: src/async/pitfalls/blocking-executor.md:32
 msgid ""
@@ -20375,17 +20772,23 @@ msgid ""
 "makes the effect more obvious, but the bug is still present in the multi-"
 "threaded flavor."
 msgstr ""
+"La versión `\"current_thread\"` reúne todas las tareas en un solo hilo. Esto "
+"consigue que el efecto sea más obvio, pero el error sigue estando presente "
+"en la versión multihilo."
 
 #: src/async/pitfalls/blocking-executor.md:36
 msgid ""
 "Switch the `std::thread::sleep` to `tokio::time::sleep` and await its result."
 msgstr ""
+"Cambia `std::thread::sleep` a `tokio::time::sleep`. y espera su resultado."
 
 #: src/async/pitfalls/blocking-executor.md:38
 msgid ""
 "Another fix would be to `tokio::task::spawn_blocking` which spawns an actual "
 "thread and transforms its handle into a future without blocking the executor."
 msgstr ""
+"Otra solución sería `tokio::task::spawn_blocking`, que genera un hilo real y "
+"transforma su controlador en un futuro sin bloquear el ejecutor."
 
 #: src/async/pitfalls/blocking-executor.md:41
 msgid ""
@@ -20396,12 +20799,23 @@ msgid ""
 "OS threads (e.g., CUDA). Prefer `tokio::task::spawn_blocking` in such "
 "situations."
 msgstr ""
+"No debes pensar en las tareas como hilos del sistema operativo. No se "
+"asignan 1 a 1 y la mayoría de los ejecutores permitirán que se ejecuten "
+"muchas tareas en un solo hilo del sistema operativo. Esta situación es "
+"especialmente problemática cuando se interactúa con otras bibliotecas a "
+"través de FFI, donde dicha biblioteca puede depender del almacenamiento "
+"local de hilos o puede asignarse a hilos específicos del sistema operativo "
+"(por ejemplo, CUDA). En estos casos es preferible usar `tokio::task::"
+"spawn_blocking`."
 
 #: src/async/pitfalls/blocking-executor.md:47
 msgid ""
 "Use sync mutexes with care. Holding a mutex over an `.await` may cause "
 "another task to block, and that task may be running on the same thread."
 msgstr ""
+"Utiliza las exclusión mutuas de sincronización con cuidado. Si mantienes una "
+"exclusión mutua sobre un `.await`, puede que se bloquee otra tarea y que "
+"esta se esté ejecutando en el mismo hilo."
 
 #: src/async/pitfalls/pin.md:3
 msgid ""
@@ -20410,6 +20824,10 @@ msgid ""
 "async block. If your future has pointers to data on the stack, those "
 "pointers might get invalidated. This is unsafe."
 msgstr ""
+"Cuando esperas un futuro, todas las variables locales (que normalmente se "
+"almacenarían en un marco de pila) se almacenan en el futuro del bloque "
+"asíncrono. Si tu futuro tiene punteros en datos de la pila, podrían "
+"invalidarse. Es una acción insegura."
 
 #: src/async/pitfalls/pin.md:8
 msgid ""
@@ -20417,6 +20835,10 @@ msgid ""
 "change. That is why we need to `pin` futures. Using the same future "
 "repeatedly in a `select!` often leads to issues with pinned values."
 msgstr ""
+"Por lo tanto, debes asegurarte de que las direcciones a las que apunta el "
+"futuro no cambien. Por ese motivo debemos fijar (`pin`) los futuros. Si se "
+"usa el mismo futuro varias veces en un `select!`, se suelen producir "
+"problemas en los valores fijados."
 
 #: src/async/pitfalls/pin.md:12
 msgid ""
@@ -20480,23 +20902,30 @@ msgid ""
 "You may recognize this as an example of the actor pattern. Actors typically "
 "call `select!` in a loop."
 msgstr ""
+"Puede que reconozcas esto como un ejemplo del patrón actor. Los actores "
+"suelen llamar a `select!` en un bucle."
 
 #: src/async/pitfalls/pin.md:71
 msgid ""
 "This serves as a summation of a few of the previous lessons, so take your "
 "time with it."
 msgstr ""
+"Esta sección es un resumen de algunas de las lecciones anteriores, así que "
+"tómate tu tiempo ."
 
 #: src/async/pitfalls/pin.md:74
 msgid ""
 "Naively add a `_ = sleep(Duration::from_millis(100)) => { println!(..) }` to "
 "the `select!`. This will never execute. Why?"
 msgstr ""
+"Si añade un `_ = sleep(Duration::from_millis(100)) => { println!(..) }` a "
+"`select!`, nunca se ejecutará. ¿Por qué?"
 
 #: src/async/pitfalls/pin.md:77
 msgid ""
 "Instead, add a `timeout_fut` containing that future outside of the `loop`:"
 msgstr ""
+"En su lugar, añade un `timeout_fut` que contenga ese futuro fuera de `loop`:"
 
 #: src/async/pitfalls/pin.md:79
 msgid ""
@@ -20517,6 +20946,9 @@ msgid ""
 "`timeout_fut` in the `select!` to work around the move, then using `Box::"
 "pin`:"
 msgstr ""
+"Continuará sin funcionar. Sigue los errores del compilador y añade `&mut` a "
+"`timeout_fut` en `select!` para ir despejando el problema. A continuación, "
+"usa `Box::pin`:"
 
 #: src/async/pitfalls/pin.md:92
 msgid ""
@@ -20537,6 +20969,9 @@ msgid ""
 "iteration (a fused future would help with this). Update to reset "
 "`timeout_fut` every time it expires."
 msgstr ""
+"Se puede compilar, pero una vez que vence el tiempo de espera, aparece "
+"`Poll::Ready` en cada iteración (un futuro fusionado podría resultar útil). "
+"Actualiza para restablecer `timeout_fut` cada vez que expire."
 
 #: src/async/pitfalls/pin.md:106
 msgid ""
@@ -20544,12 +20979,18 @@ msgid ""
 "stabilized, with older code often using `tokio::pin!`) is also an option, "
 "but that is difficult to use for a future that is reassigned."
 msgstr ""
+"Box se asigna en el montículo. En algunos casos, `std::pin::pin!` (solo si "
+"se ha estabilizado recientemente, con código antiguo que suele utilizar "
+"`tokio::pin!`) también es una opción, pero difícil de utilizar en un futuro "
+"que se reasigna."
 
 #: src/async/pitfalls/pin.md:110
 msgid ""
 "Another alternative is to not use `pin` at all but spawn another task that "
 "will send to a `oneshot` channel every 100ms."
 msgstr ""
+"Otra alternativa es no utilizar `pin`, sino generar otra tarea que se "
+"enviará a un canal de `oneshot` cada 100 ms."
 
 #: src/async/pitfalls/async-traits.md:3
 msgid ""
@@ -20558,12 +20999,18 @@ msgid ""
 "term.](https://blog.rust-lang.org/inside-rust/2022/11/17/async-fn-in-trait-"
 "nightly.html))"
 msgstr ""
+"Los métodos asíncronos en traits todavía no son compatibles con el canal "
+"estable. ([Existe una característica experimental en nightly que debería "
+"estabilizarse a medio plazo.](https://blog.rust-lang.org/inside-"
+"rust/2022/11/17/async-fn-in-trait-nightly.html))"
 
 #: src/async/pitfalls/async-traits.md:5
 msgid ""
 "The crate [async_trait](https://docs.rs/async-trait/latest/async_trait/) "
 "provides a workaround through a macro:"
 msgstr ""
+"El crate [async_trait](https://docs.rs/async-trait/latest/async_trait/) "
+"proporciona una solución mediante una macro:"
 
 #: src/async/pitfalls/async-traits.md:7
 msgid ""
@@ -20616,6 +21063,9 @@ msgid ""
 "`async_trait` is easy to use, but note that it's using heap allocations to "
 "achieve this. This heap allocation has performance overhead."
 msgstr ""
+"`async_trait` es fácil de usar, pero ten en cuenta que utiliza asignaciones "
+"de montículos para conseguirlo. Esta asignación de montículo tiene una "
+"sobrecarga de rendimiento."
 
 #: src/async/pitfalls/async-traits.md:54
 msgid ""
@@ -20625,12 +21075,19 @@ msgid ""
 "blog/2019/10/26/async-fn-in-traits-are-hard/) if you are interested in "
 "digging deeper."
 msgstr ""
+"Los problemas de compatibilidad del lenguaje con `async trait` son muy "
+"complejos y no vale la pena describirlos en profundidad. Niko Matsakis lo "
+"explica muy bien en [esta publicación](https://smallcultfollowing.com/"
+"babysteps/blog/2019/10/26/async-fn-in-traits-are-hard/), por si te interesa "
+"investigar más a fondo."
 
 #: src/async/pitfalls/async-traits.md:60
 msgid ""
 "Try creating a new sleeper struct that will sleep for a random amount of "
 "time and adding it to the Vec."
 msgstr ""
+"Prueba a crear una estructura que entre en suspensión durante un periodo "
+"aleatorio y añádela a Vec."
 
 #: src/async/pitfalls/cancellation.md:3
 msgid ""
@@ -20639,6 +21096,11 @@ msgid ""
 "ensure the system works correctly even when futures are cancelled. For "
 "example, it shouldn't deadlock or lose data."
 msgstr ""
+"Si eliminas un futuro, no se podrá volver a sondear. Este fenómeno se "
+"denomina _cancelación_ y puede producirse en cualquier momento de `await`. "
+"Hay que tener cuidado para asegurar que el sistema funcione correctamente, "
+"incluso cuando se cancelen los futuros. Por ejemplo, no debería sufrir "
+"interbloqueos o perder datos."
 
 #: src/async/pitfalls/cancellation.md:8
 msgid ""
@@ -20713,28 +21175,35 @@ msgid ""
 "The compiler doesn't help with cancellation-safety. You need to read API "
 "documentation and consider what state your `async fn` holds."
 msgstr ""
+"El compilador no ayuda con la seguridad de la cancelación. Debes leer la "
+"documentación de la API y tener en cuenta el estado de tu `async fn`."
 
 #: src/async/pitfalls/cancellation.md:75
 msgid ""
 "Unlike `panic` and `?`, cancellation is part of normal control flow (vs "
 "error-handling)."
 msgstr ""
+"A diferencia de `panic` y `?`, la cancelación forma parte del flujo de "
+"control normal (en contraposición a la gestión de errores)."
 
 #: src/async/pitfalls/cancellation.md:78
 msgid "The example loses parts of the string."
-msgstr ""
+msgstr "En el ejemplo se pierden partes de la cadena."
 
 #: src/async/pitfalls/cancellation.md:80
 msgid ""
 "Whenever the `tick()` branch finishes first, `next()` and its `buf` are "
 "dropped."
 msgstr ""
+"Cuando la rama `tick()` termina primero, se eliminan `next()` y su `buf`."
 
 #: src/async/pitfalls/cancellation.md:82
 msgid ""
 "`LinesReader` can be made cancellation-safe by makeing `buf` part of the "
 "struct:"
 msgstr ""
+"`LinesReader` se puede configurar para que no se cancele marcando `buf` como "
+"parte de la estructura:"
 
 #: src/async/pitfalls/cancellation.md:83
 msgid ""
@@ -20766,6 +21235,9 @@ msgid ""
 "html#method.tick) is cancellation-safe because it keeps track of whether a "
 "tick has been 'delivered'."
 msgstr ""
+"[`Interval::tick`](https://docs.rs/tokio/latest/tokio/time/struct.Interval."
+"html#method.tick) es a prueba de cancelaciones, ya que registra si una marca "
+"se ha 'entregado'."
 
 #: src/async/pitfalls/cancellation.md:107
 msgid ""
@@ -20773,6 +21245,9 @@ msgid ""
 "AsyncReadExt.html#method.read) is cancellation-safe because it either "
 "returns or doesn't read data."
 msgstr ""
+"[`AsyncReadExt::read`](https://docs.rs/tokio/latest/tokio/io/trait."
+"AsyncReadExt.html#method.read) es a prueba de cancelaciones porque o "
+"devuelve los datos o no los lee."
 
 #: src/async/pitfalls/cancellation.md:110
 msgid ""
@@ -20780,35 +21255,46 @@ msgid ""
 "AsyncBufReadExt.html#method.read_line) is similar to the example and _isn't_ "
 "cancellation-safe. See its documentation for details and alternatives."
 msgstr ""
+"[`AsyncBufReadExt::read_line`](https://docs.rs/tokio/latest/tokio/io/trait."
+"AsyncBufReadExt.html#method.read_line) es similar al ejemplo y _no está_ "
+"configurado a prueba de cancelaciones. Consulta su documentación para "
+"obtener información detallada y alternativas."
 
 #: src/exercises/concurrency/afternoon.md:3
 msgid ""
 "To practice your Async Rust skills, we have again two exercises for you:"
 msgstr ""
+"Para practicar tus habilidades con async de Rust, tenemos otros dos nuevos "
+"ejercicios:"
 
 #: src/exercises/concurrency/afternoon.md:5
 msgid ""
 "Dining philosophers: we already saw this problem in the morning. This time "
 "you are going to implement it with Async Rust."
 msgstr ""
+"La cena de los filósofos: ya hemos visto este problema por la mañana. Esta "
+"vez vas a implementarlo con async de Rust."
 
 #: src/exercises/concurrency/afternoon.md:8
 msgid ""
 "A Broadcast Chat Application: this is a larger project that allows you "
 "experiment with more advanced Async Rust features."
 msgstr ""
+"Una aplicación de chat de difusión: se trata de un proyecto más grande que "
+"te permite experimentar con características más avanzadas de async de Rust."
 
 #: src/exercises/concurrency/dining-philosophers-async.md:1
 #: src/exercises/concurrency/solutions-afternoon.md:3
-#, fuzzy
 msgid "Dining Philosophers - Async"
-msgstr "Filosofía de la Cena"
+msgstr "La Cena de Filósofos - Async"
 
 #: src/exercises/concurrency/dining-philosophers-async.md:3
 msgid ""
 "See [dining philosophers](dining-philosophers.md) for a description of the "
 "problem."
 msgstr ""
+"Consulta la descripción del problema en la sección sobre [la cena de "
+"filósofos](dining-philosophers.md)."
 
 #: src/exercises/concurrency/dining-philosophers-async.md:6
 msgid ""
@@ -20816,6 +21302,10 @@ msgid ""
 "locally.md) for this exercise. Copy the code below to a file called `src/"
 "main.rs`, fill out the blanks, and test that `cargo run` does not deadlock:"
 msgstr ""
+"Como antes, necesitarás una [instalación local de Cargo](../../cargo/running-"
+"locally.md) para realizar el ejercicio. Copia el fragmento de código que "
+"aparece más abajo en un archivo denominado `src/main.rs`, rellena los "
+"espacios en blanco y comprueba que `cargo run` no presenta interbloqueos:"
 
 #: src/exercises/concurrency/dining-philosophers-async.md:13
 msgid ""
@@ -20870,6 +21360,8 @@ msgid ""
 "Since this time you are using Async Rust, you'll need a `tokio` dependency. "
 "You can use the following `Cargo.toml`:"
 msgstr ""
+"Dado que esta vez usas async, necesitarás una dependencia `tokio`. Puedes "
+"usar el siguiente `Cargo.toml`:"
 
 #: src/exercises/concurrency/dining-philosophers-async.md:62
 msgid ""
@@ -20890,10 +21382,12 @@ msgid ""
 "Also note that this time you have to use the `Mutex` and the `mpsc` module "
 "from the `tokio` crate."
 msgstr ""
+"Además, ten en cuenta que esta vez tienes que utilizar `Mutex` y el módulo "
+"`mpsc` del crate `tokio`."
 
 #: src/exercises/concurrency/dining-philosophers-async.md:77
 msgid "Can you make your implementation single-threaded? "
-msgstr ""
+msgstr "¿Puedes conseguir que tu implementación tenga un solo hilo? "
 
 #: src/exercises/concurrency/chat-app.md:3
 msgid ""
@@ -20903,6 +21397,11 @@ msgid ""
 "input, and sends them to the server. The chat server broadcasts each message "
 "that it receives to all the clients."
 msgstr ""
+"En este ejercicio, queremos usar nuestros nuevos conocimientos para "
+"implementar una aplicación de chat de difusión. Disponemos de un servidor de "
+"chat al que los clientes se conectan y publican sus mensajes. El cliente lee "
+"los mensajes de usuario de la entrada estándar y los envía al servidor. El "
+"servidor del chat transmite cada mensaje que recibe a todos los clientes."
 
 #: src/exercises/concurrency/chat-app.md:9
 msgid ""
@@ -20911,14 +21410,18 @@ msgid ""
 "(https://docs.rs/tokio-websockets/0.3.2/tokio_websockets/) for the "
 "communication between the client and the server."
 msgstr ""
+"Para ello, usaremos \\[un canal en abierto](https://docs.rs/tokio/latest/"
+"tokio/sync/broadcast/fn.channel.html) en el servidor y [`tokio_websockets`]"
+"(https://docs.rs/tokio-websockets/0.3.2/tokio_websockets/) para la "
+"comunicación entre el cliente y el servidor."
 
 #: src/exercises/concurrency/chat-app.md:13
 msgid "Create a new Cargo project and add the following dependencies:"
-msgstr ""
+msgstr "Crea un proyecto de Cargo y añade las siguientes dependencias:"
 
 #: src/exercises/concurrency/chat-app.md:15
 msgid "`Cargo.toml`:"
-msgstr ""
+msgstr "`Cargo.toml`:"
 
 #: src/exercises/concurrency/chat-app.md:19
 msgid ""
@@ -20938,7 +21441,7 @@ msgstr ""
 
 #: src/exercises/concurrency/chat-app.md:32
 msgid "The required APIs"
-msgstr ""
+msgstr "Las APIs necesarias"
 
 #: src/exercises/concurrency/chat-app.md:33
 msgid ""
@@ -20947,6 +21450,9 @@ msgid ""
 "tokio_websockets/). Spend a few minutes to familiarize yourself with the "
 "API. "
 msgstr ""
+"Necesitarás las siguientes funciones de `tokio` y [`tokio_websockets`]"
+"(https://docs.rs/tokio-websockets/0.3.2/tokio_websockets/). Dedica unos "
+"minutos a familiarizarte con la API. "
 
 #: src/exercises/concurrency/chat-app.md:37
 msgid ""
@@ -20954,6 +21460,9 @@ msgid ""
 "tokio_websockets/proto/struct.WebsocketStream.html#method.next): for "
 "asynchronously reading messages from a Websocket Stream."
 msgstr ""
+"[WebsocketStream::next()](https://docs.rs/tokio-websockets/0.3.2/"
+"tokio_websockets/proto/struct.WebsocketStream.html#method.next): para la "
+"lectura asíncrona de mensajes de un flujo WebSocket."
 
 #: src/exercises/concurrency/chat-app.md:39
 msgid ""
@@ -20961,6 +21470,9 @@ msgid ""
 "trait.SinkExt.html#method.send) implemented by `WebsocketStream`: for "
 "asynchronously sending messages on a Websocket Stream."
 msgstr ""
+"[SinkExt::send()](https://docs.rs/futures-util/0.3.28/futures_util/sink/"
+"trait.SinkExt.html#method.send) implementado por `WebsocketStream`: permite "
+"enviar mensajes de forma asíncrona a través de un flujo WebSocket."
 
 #: src/exercises/concurrency/chat-app.md:41
 msgid ""
@@ -20968,16 +21480,21 @@ msgid ""
 "html#method.next_line): for asynchronously reading user messages from the "
 "standard input."
 msgstr ""
+"[Lines::next_line()](https://docs.rs/tokio/latest/tokio/io/struct.Lines."
+"html#method.next_line): para la lectura asíncrona de mensajes de usuario de "
+"la entrada estándar."
 
 #: src/exercises/concurrency/chat-app.md:43
 msgid ""
 "[Sender::subscribe()](https://docs.rs/tokio/latest/tokio/sync/broadcast/"
 "struct.Sender.html#method.subscribe): for subscribing to a broadcast channel."
 msgstr ""
+"[Sender::subscribe()](https://docs.rs/tokio/latest/tokio/sync/broadcast/"
+"struct.Sender.html#method.subscribe): para suscribirse a un canal en abierto."
 
 #: src/exercises/concurrency/chat-app.md:46
 msgid "Two binaries"
-msgstr ""
+msgstr "Dos binarios"
 
 #: src/exercises/concurrency/chat-app.md:48
 msgid ""
@@ -20989,6 +21506,13 @@ msgid ""
 "(see the [documentation](https://doc.rust-lang.org/cargo/reference/cargo-"
 "targets.html#binaries)). "
 msgstr ""
+"Normalmente, en un proyecto de Cargo, solo puedes tener un archivo binario y "
+"un archivo `src/main.rs`. En este proyecto, se necesitan dos binarios, uno "
+"para el cliente y otro para el servidor. Puedes convertirlos en dos "
+"proyectos de Cargo independientes, pero los incluiremos en un solo proyecto "
+"de Cargo con dos binarios. Para que funcione, el código del cliente y del "
+"servidor deben aparecer en `src/bin` (consulta la [documentación](https://"
+"doc.rust-lang.org/cargo/reference/cargo-targets.html#binaries)). "
 
 #: src/exercises/concurrency/chat-app.md:55
 msgid ""
@@ -20996,11 +21520,14 @@ msgid ""
 "bin/client.rs`, respectively. Your task is to complete these files as "
 "described below. "
 msgstr ""
+"Copia el fragmento de código del servidor y del cliente que aparecen más "
+"abajo en `src/bin/server.rs` y `src/bin/client.rs`, respectivamente. Tu "
+"tarea es completar estos archivos como se describe a continuación. "
 
 #: src/exercises/concurrency/chat-app.md:59
 #: src/exercises/concurrency/solutions-afternoon.md:123
 msgid "`src/bin/server.rs`:"
-msgstr ""
+msgstr "`src/bin/server.rs`:"
 
 #: src/exercises/concurrency/chat-app.md:63
 msgid ""
@@ -21045,9 +21572,9 @@ msgid ""
 msgstr ""
 
 #: src/exercises/concurrency/chat-app.md:102
-#: src/exercises/concurrency/solutions-afternoon.md:208
+#: src/exercises/concurrency/solutions-afternoon.md:202
 msgid "`src/bin/client.rs`:"
-msgstr ""
+msgstr "`src/bin/client.rs`:"
 
 #: src/exercises/concurrency/chat-app.md:106
 msgid ""
@@ -21075,13 +21602,12 @@ msgid ""
 msgstr ""
 
 #: src/exercises/concurrency/chat-app.md:127
-#, fuzzy
 msgid "Running the binaries"
-msgstr "Seguir el Curso"
+msgstr "Ejecutar los binarios"
 
 #: src/exercises/concurrency/chat-app.md:128
 msgid "Run the server with:"
-msgstr ""
+msgstr "Ejecuta el servidor con:"
 
 #: src/exercises/concurrency/chat-app.md:130
 msgid ""
@@ -21092,7 +21618,7 @@ msgstr ""
 
 #: src/exercises/concurrency/chat-app.md:134
 msgid "and the client with:"
-msgstr ""
+msgstr "y el cliente con:"
 
 #: src/exercises/concurrency/chat-app.md:136
 msgid ""
@@ -21103,7 +21629,7 @@ msgstr ""
 
 #: src/exercises/concurrency/chat-app.md:142
 msgid "Implement the `handle_connection` function in `src/bin/server.rs`."
-msgstr ""
+msgstr "Implementa la función `handle_connection` en `src/bin/server.rs`."
 
 #: src/exercises/concurrency/chat-app.md:143
 msgid ""
@@ -21111,10 +21637,13 @@ msgid ""
 "continuous loop. One task receives messages from the client and broadcasts "
 "them. The other sends messages received by the server to the client."
 msgstr ""
+"Sugerencia: usa `tokio::select!` para realizar dos tareas simultáneamente en "
+"un bucle continuo. Una tarea recibe mensajes del cliente y los transmite. La "
+"otra envía los mensajes que recibe el servidor al cliente."
 
 #: src/exercises/concurrency/chat-app.md:146
 msgid "Complete the main function in `src/bin/client.rs`."
-msgstr ""
+msgstr "Completa la función principal en `src/bin/client.rs`."
 
 #: src/exercises/concurrency/chat-app.md:147
 msgid ""
@@ -21123,12 +21652,18 @@ msgid ""
 "sending them to the server, and (2) receiving messages from the server, and "
 "displaying them for the user."
 msgstr ""
+"Sugerencia: al igual que antes, usa `tokio::select!` en un bucle continuo "
+"para realizar dos tareas simultáneamente: (1) leer los mensajes del usuario "
+"desde la entrada estándar y enviarlos al servidor, y (2) recibir mensajes "
+"del servidor y mostrárselos al usuario."
 
 #: src/exercises/concurrency/chat-app.md:151
 msgid ""
 "Optional: Once you are done, change the code to broadcast messages to all "
 "clients, but the sender of the message."
 msgstr ""
+"Opcional: cuando termines, cambia el código para difundir mensajes a todos "
+"los clientes, excepto al remitente."
 
 #: src/thanks.md:3
 msgid ""
@@ -23096,7 +23631,7 @@ msgstr ""
 
 #: src/exercises/concurrency/solutions-morning.md:1
 msgid "Concurrency Morning Exercise"
-msgstr "Simultaneidad: Ejercicios de la Mañana"
+msgstr "Concurrencia: Ejercicios de la Mañana"
 
 #: src/exercises/concurrency/solutions-morning.md:5
 msgid "([back to exercise](dining-philosophers.md))"
@@ -23407,7 +23942,7 @@ msgstr ""
 
 #: src/exercises/concurrency/solutions-afternoon.md:1
 msgid "Concurrency Afternoon Exercise"
-msgstr "Simultaneidad: Ejercicios de la Tarde"
+msgstr "Concurrencia: Ejercicios de la Tarde"
 
 #: src/exercises/concurrency/solutions-afternoon.md:5
 msgid "([back to exercise](dining-philosophers-async.md))"
