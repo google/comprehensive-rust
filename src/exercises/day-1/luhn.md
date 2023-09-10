@@ -9,8 +9,8 @@ following to validate the credit card number:
 * Moving from **right to left**, double every second digit: for the number `1234`,
   we double `3` and `1`. For the number `98765`, we double `6` and `8`.
 
-* After doubling a digit, sum the digits. So doubling `7` becomes `14` which
-  becomes `5`.
+* After doubling a digit, sum the digits if the result is greater than 9. So doubling `7` becomes `14` which
+  becomes `1 + 4 = 5`.
 
 * Sum all the undoubled and doubled digits.
 
