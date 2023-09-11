@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Comprehensive Rust 🦀\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-06-06 13:18+0900\n"
+"PO-Revision-Date: 2023-09-11 04:55+0000\n"
 "Last-Translator: Kenta Aratani <kentaaratani@coinez.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
 "Language: ja\n"
@@ -10,6 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: src/SUMMARY.md:4 src/index.md:1
 msgid "Welcome to Comprehensive Rust 🦀"
@@ -12743,15 +12744,15 @@ msgstr ""
 
 #: src/bare-metal/no_std.md:62
 msgid "`HashMap` depends on RNG."
-msgstr ""
+msgstr "`HashMap`はRNGに依存します。"
 
 #: src/bare-metal/no_std.md:63
 msgid "`std` re-exports the contents of both `core` and `alloc`."
-msgstr ""
+msgstr "`std`は`core`と`alloc`の両方を再エクスポートします。"
 
 #: src/bare-metal/minimal.md:1
 msgid "A minimal `no_std` program"
-msgstr ""
+msgstr "最小限の`no_std`プログラム"
 
 #: src/bare-metal/minimal.md:3
 msgid ""
@@ -12770,21 +12771,27 @@ msgstr ""
 
 #: src/bare-metal/minimal.md:17
 msgid "This will compile to an empty binary."
-msgstr ""
+msgstr "このコードは空のバイナリを生成します。"
 
 #: src/bare-metal/minimal.md:18
 msgid "`std` provides a panic handler; without it we must provide our own."
 msgstr ""
+"パニックハンドラは`std`が提供するので、それを使わない場合は自分で提供する必要"
+"があります。"
 
 #: src/bare-metal/minimal.md:19
 msgid "It can also be provided by another crate, such as `panic-halt`."
 msgstr ""
+"あるいは、`panic-halt`のような別のクレートが提供するパニックハンドラを利用す"
+"ることもできます。"
 
 #: src/bare-metal/minimal.md:20
 msgid ""
 "Depending on the target, you may need to compile with `panic = \"abort\"` to "
 "avoid an error about `eh_personality`."
 msgstr ""
+"ターゲットによっては、`eh_personality`に関するエラーを回避するために`panic = "
+"\"abort\"`を指定してコンパイルする必要があります。"
 
 #: src/bare-metal/minimal.md:22
 msgid ""
@@ -12792,12 +12799,17 @@ msgid ""
 "define your own entry point. This will typically involve a linker script and "
 "some assembly code to set things up ready for Rust code to run."
 msgstr ""
+"なお、`main`のようなプログラムの規定エントリポイントはないので、自分でエント"
+"リポイントを定義する必要があります。通常、Rustコードを実行できるようにするた"
+"めには、リンカスクリプトとある程度のアセンブリコードを必要とします。"
 
 #: src/bare-metal/alloc.md:3
 msgid ""
 "To use `alloc` you must implement a [global (heap) allocator](https://doc."
 "rust-lang.org/stable/std/alloc/trait.GlobalAlloc.html)."
 msgstr ""
+"`alloc`を使うためには、[グローバル（ヒープ）アロケータ](https://doc.rust-"
+"lang.org/stable/std/alloc/trait.GlobalAlloc.html)を実装しなければなりません。"
 
 #: src/bare-metal/alloc.md:6
 msgid ""
@@ -12840,12 +12852,17 @@ msgid ""
 "system allocator. Other crates are available, or you can write your own or "
 "hook into your existing allocator."
 msgstr ""
+"`buddy_system_allocator`はサードパーティのクレートで、単純なバディシステムア"
+"ロケータです。その他にも利用できるクレートはありますし、自前で実装したり、別"
+"のアロケータに自分のコードをフックすることも可能です。"
 
 #: src/bare-metal/alloc.md:41
 msgid ""
 "The const parameter of `LockedHeap` is the max order of the allocator; i.e. "
 "in this case it can allocate regions of up to 2\\*\\*32 bytes."
 msgstr ""
+"パラメータ定数`LockedHeap`はアロケータの最大オーダを示します。この場合、"
+"2\\*\\*32バイトの領域を確保することが可能です。"
 
 #: src/bare-metal/alloc.md:43
 msgid ""
@@ -12853,16 +12870,23 @@ msgid ""
 "exactly one global allocator defined in your binary. Usually this is done in "
 "the top-level binary crate."
 msgstr ""
+"もし依存関係にあるクレートが`alloc`に依存する場合、必ずバイナリファイルあたり"
+"一つだけのグローバルなアロケータが存在するようにしなければなりません。通常、"
+"これはトップレベルのバイナリを生成するクレートにより制御されます。"
 
 #: src/bare-metal/alloc.md:45
 msgid ""
 "`extern crate panic_halt as _` is necessary to ensure that the `panic_halt` "
 "crate is linked in so we get its panic handler."
 msgstr ""
+"`extern crate panic_halt as _` という部分は、`panic_halt`クレートを確実にリン"
+"クし、パニックハンドラを利用可能にするために必要です。"
 
 #: src/bare-metal/alloc.md:47
 msgid "This example will build but not run, as it doesn't have an entry point."
 msgstr ""
+"この例で示したコードはビルドできますが、エントリポイントがないので実行するこ"
+"とはできません。"
 
 #: src/bare-metal/microcontrollers.md:3
 msgid ""
