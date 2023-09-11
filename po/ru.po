@@ -166,11 +166,11 @@ msgstr "Выражение if"
 
 #: src/SUMMARY.md:47
 msgid "for expressions"
-msgstr ""
+msgstr "Выражение for"
 
 #: src/SUMMARY.md:48
 msgid "while expressions"
-msgstr ""
+msgstr "Выражение while"
 
 #: src/SUMMARY.md:49
 msgid "break & continue"
@@ -219,7 +219,7 @@ msgstr "Выражение if let"
 
 #: src/SUMMARY.md:62
 msgid "while let expressions"
-msgstr ""
+msgstr "Выражение while let"
 
 #: src/SUMMARY.md:63
 msgid "match expressions"
@@ -4276,6 +4276,9 @@ msgid ""
 "related to the [`while let` loop](while-let-expressions.md). It will "
 "automatically call `into_iter()` on the expression and then iterate over it:"
 msgstr ""
+"Выражение [`for`](https://doc.rust-lang.org/std/keyword.for.html) очень "
+"похоже на выражение [`while let`](while-let-expressions.md).  Оно неявно "
+"вызывает `into_iter()` для итерируемого объекта:"
 
 #: src/control-flow/for-expressions.md:7
 msgid ""
@@ -4296,37 +4299,46 @@ msgstr ""
 
 #: src/control-flow/for-expressions.md:21
 msgid "You can use `break` and `continue` here as usual."
-msgstr ""
+msgstr "Здесь также можно изпользовать выражения `break` и `continue`."
 
 #: src/control-flow/for-expressions.md:25
 msgid "Index iteration is not a special syntax in Rust for just that case."
 msgstr ""
+"В языке Rust нет специального синтакса для итерации по идексам контейнеров."
 
 #: src/control-flow/for-expressions.md:26
 msgid "`(0..10)` is a range that implements an `Iterator` trait. "
-msgstr ""
+msgstr "`(0..10)` -- это диапазон, который реализует трейт `Iterator`. "
 
 #: src/control-flow/for-expressions.md:27
 msgid ""
 "`step_by` is a method that returns another `Iterator` that skips every other "
 "element. "
 msgstr ""
+"`step_by` -- это метод, который возвращает итератор, который пропускает "
+"каждый второй элемент. "
 
 #: src/control-flow/for-expressions.md:28
 msgid ""
 "Modify the elements in the vector and explain the compiler errors. Change "
 "vector `v` to be mutable and the for loop to `for x in v.iter_mut()`."
 msgstr ""
+"Попробуйте присвоить что-нибудь к `x` и объясните ошибки компиляции, которые "
+"при этом появятся. Сделайте `v` изменяемым и поменяйте цикл `for` на `for x "
+"in v.iter_mut()`."
 
 #: src/control-flow/while-expressions.md:1
 msgid "`while` loops"
-msgstr ""
+msgstr "Выражение `while`"
 
 #: src/control-flow/while-expressions.md:3
 msgid ""
 "The [`while` keyword](https://doc.rust-lang.org/reference/expressions/loop-"
 "expr.html#predicate-loops) works very similar to other languages:"
 msgstr ""
+"[Ключевое слово `while`](https://doc.rust-lang.org/reference/expressions/"
+"loop-expr.html#predicate-loops)\n"
+"работает примерно так же, как и в других языках программирования"
 
 #: src/control-flow/while-expressions.md:6
 msgid ""
@@ -4344,6 +4356,19 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"fn main() {\n"
+"    let mut x = 10;\n"
+"    while x != 1 {\n"
+"        x = if x % 2 == 0 {\n"
+"            x / 2\n"
+"        } else {\n"
+"            3 * x + 1\n"
+"        };\n"
+"    }\n"
+"    println!(\"Конечное значение x: {x}\");\n"
+"}\n"
+"```"
 
 #: src/control-flow/break-continue.md:1
 msgid "`break` and `continue`"
@@ -5279,7 +5304,7 @@ msgstr ""
 
 #: src/control-flow/while-let-expressions.md:1
 msgid "`while let` loops"
-msgstr ""
+msgstr "Выражение `while let`"
 
 #: src/control-flow/while-let-expressions.md:3
 msgid ""
@@ -5287,6 +5312,10 @@ msgid ""
 "reference/expressions/loop-expr.html#predicate-pattern-loops) variant which "
 "repeatedly tests a value against a pattern:"
 msgstr ""
+"Аналогично выражению `if let` существует [выражение`while let`](https://doc."
+"rust-lang.org/reference/expressions/loop-expr.html#predicate-pattern-"
+"loops),\n"
+"которое в цикле проверяет сопоставление какого-либо выражения шаблону:"
 
 #: src/control-flow/while-let-expressions.md:6
 msgid ""
@@ -5309,12 +5338,20 @@ msgid ""
 "it will return `None`. The `while let` lets us keep iterating through all "
 "items."
 msgstr ""
+"Здесь `next()`-итератор, возвращаемого выражением `v.into_iter()`, "
+"возвращает объект типа `Option<i32>`.\n"
+"Сначала будет возращаться `Some(x)` для каждого элемента вектора,\n"
+"после чего `next()` вернет `None`. Выражение `while let` позволяет нам "
+"лаконично\n"
+"проитерировать все значения вектора."
 
 #: src/control-flow/while-let-expressions.md:26
 msgid ""
 "Point out that the `while let` loop will keep going as long as the value "
 "matches the pattern."
 msgstr ""
+"Уточнить, что циклы `while let` будут продолжаться до тех пор, пока значение "
+"будет соответствовать шаблону."
 
 #: src/control-flow/while-let-expressions.md:27
 msgid ""
@@ -5322,6 +5359,9 @@ msgid ""
 "statement that breaks when there is no value to unwrap for `iter.next()`. "
 "The `while let` provides syntactic sugar for the above scenario."
 msgstr ""
+"Этот цикл можно переписать как бесконечный цикл, который прерывается, когда "
+"результат `iter.next()` перестает соответствовать `Some(x)`. Выражение "
+"`while let` позволяет описать ту же самую логику более лаконично."
 
 #: src/control-flow/match-expressions.md:3
 msgid ""

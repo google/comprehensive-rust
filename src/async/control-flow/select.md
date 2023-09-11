@@ -62,7 +62,7 @@ async fn main() {
 * In this example, we have a race between a cat and a dog.
   `first_animal_to_finish_race` listens to both channels and will pick whichever
   arrives first. Since the dog takes 50ms, it wins against the cat that
-  take 500ms seconds.
+  take 500ms.
 
 * You can use `oneshot` channels in this example as the channels are supposed to
   receive only one `send`.

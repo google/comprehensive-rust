@@ -25,8 +25,8 @@ You are going to need the following functions from `tokio` and
 [`tokio_websockets`][2]. Spend a few minutes to familiarize yourself with the
 API. 
 
-- [WebsocketStream::next()][3]: for asynchronously reading messages from a
-  Websocket Stream.
+- [StreamExt::next()][3] implemented by `WebsocketStream`: for asynchronously
+  reading messages from a Websocket Stream.
 - [SinkExt::send()][4] implemented by `WebsocketStream`: for asynchronously
   sending messages on a Websocket Stream.
 - [Lines::next_line()][5]: for asynchronously reading user messages
@@ -101,8 +101,8 @@ cargo run --bin client
   clients, but the sender of the message.
 
 [1]: https://docs.rs/tokio/latest/tokio/sync/broadcast/fn.channel.html
-[2]: https://docs.rs/tokio-websockets/0.3.2/tokio_websockets/
-[3]: https://docs.rs/tokio-websockets/0.3.2/tokio_websockets/proto/struct.WebsocketStream.html#method.next
+[2]: https://docs.rs/tokio-websockets/0.4.0/tokio_websockets/
+[3]: https://docs.rs/futures-util/0.3.28/futures_util/stream/trait.StreamExt.html#method.next
 [4]: https://docs.rs/futures-util/0.3.28/futures_util/sink/trait.SinkExt.html#method.send
 [5]: https://docs.rs/tokio/latest/tokio/io/struct.Lines.html#method.next_line
 [6]: https://docs.rs/tokio/latest/tokio/sync/broadcast/struct.Sender.html#method.subscribe
