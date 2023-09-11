@@ -929,7 +929,7 @@ msgid "Tokio"
 msgstr "Tokio"
 
 #: src/SUMMARY.md:293 src/exercises/concurrency/link-checker.md:126
-#: src/async/tasks.md:1 src/exercises/concurrency/chat-app.md:140
+#: src/async/tasks.md:1 src/exercises/concurrency/chat-app.md:143
 msgid "Tasks"
 msgstr "Tasks"
 
@@ -1085,12 +1085,14 @@ msgstr "Brindarte idiomática propia de Rust."
 
 #: src/index.md:22
 msgid "We call the first three course days Rust Fundamentals."
-msgstr ""
+msgstr "Llamamos a los tres primeros días del curso Fundamentos de Rust."
 
 #: src/index.md:24
 msgid ""
 "Building on this, you're invited to dive into one or more specialized topics:"
 msgstr ""
+"Basándonos en esto, te invitamos a profundizar en uno o más temas "
+"especializados:"
 
 #: src/index.md:26
 msgid ""
@@ -1151,7 +1153,6 @@ msgid "Assumptions"
 msgstr "Suposiciones"
 
 #: src/index.md:48
-#, fuzzy
 msgid ""
 "The course assumes that you already know how to program. Rust is a "
 "statically-typed language and we will sometimes make comparisons with C and "
@@ -1725,6 +1726,7 @@ msgstr ""
 #: src/why-rust/modern.md:21 src/basic-syntax/compound-types.md:30
 #: src/basic-syntax/references.md:23
 #: src/pattern-matching/destructuring-enums.md:35
+#: src/ownership/double-free-modern-cpp.md:55
 #: src/error-handling/try-operator.md:48
 #: src/error-handling/converting-error-types-example.md:50
 #: src/concurrency/threads.md:30 src/async/async-await.md:25
@@ -5863,9 +5865,10 @@ msgstr ""
 "duplica el `6` y el `8`."
 
 #: src/exercises/day-1/luhn.md:12
+#, fuzzy
 msgid ""
-"After doubling a digit, sum the digits. So doubling `7` becomes `14` which "
-"becomes `5`."
+"After doubling a digit, sum the digits if the result is greater than 9. So "
+"doubling `7` becomes `14` which becomes `1 + 4 = 5`."
 msgstr ""
 "Después de duplicar un dígito, se suman los dígitos que contiene. Por tanto, "
 "si duplicas `7`, pasará a ser `14`, lo cual pasará a ser `5`."
@@ -6579,8 +6582,9 @@ msgstr ""
 "```"
 
 #: src/ownership/double-free-modern-cpp.md:1
-msgid "Extra Work in Modern C++"
-msgstr "Trabajo adicional en C++ moderno"
+#, fuzzy
+msgid "Defensive Copies in Modern C++"
+msgstr "Double free en código C++ moderno"
 
 #: src/ownership/double-free-modern-cpp.md:3
 msgid "Modern C++ solves this differently:"
@@ -6691,6 +6695,28 @@ msgstr ""
 ":                           :     `- - - - - - - - - - - -'\n"
 "`- - - - - - - - - - - - - -'\n"
 "```"
+
+#: src/ownership/double-free-modern-cpp.md:57
+msgid ""
+"C++ has made a slightly different choice than Rust. Because `=` copies data, "
+"the string data has to be cloned. Otherwise we would get a double-free when "
+"either string goes out of scope."
+msgstr ""
+
+#: src/ownership/double-free-modern-cpp.md:61
+msgid ""
+"C++ also has [`std::move`](https://en.cppreference.com/w/cpp/utility/move), "
+"which is used to indicate when a value may be moved from. If the example had "
+"been `s2 = std::move(s1)`, no heap allocation would take place. After the "
+"move, `s1` would be in a valid but unspecified state. Unlike Rust, the "
+"programmer is allowed to keep using `s1`."
+msgstr ""
+
+#: src/ownership/double-free-modern-cpp.md:66
+msgid ""
+"Unlike Rust, `=` in C++ can run arbitrary code as determined by the type "
+"which is being copied or moved."
+msgstr ""
 
 #: src/ownership/moves-function-calls.md:3
 msgid ""
@@ -11003,7 +11029,7 @@ msgid "Day 3: Morning Exercises"
 msgstr "Día 3: Ejercicios de la Mañana"
 
 #: src/exercises/day-3/morning.md:3
-msgid "We will design a classical GUI library traits and trait objects."
+msgid "We will design a classical GUI library using traits and trait objects."
 msgstr "Diseñaremos una biblioteca GUI clásica de _traits_ y objetos _trait_."
 
 #: src/exercises/day-3/morning.md:5
@@ -21332,10 +21358,11 @@ msgstr ""
 "servidor del chat transmite cada mensaje que recibe a todos los clientes."
 
 #: src/exercises/concurrency/chat-app.md:9
+#, fuzzy
 msgid ""
 "For this, we use [a broadcast channel](https://docs.rs/tokio/latest/tokio/"
 "sync/broadcast/fn.channel.html) on the server, and [`tokio_websockets`]"
-"(https://docs.rs/tokio-websockets/0.3.2/tokio_websockets/) for the "
+"(https://docs.rs/tokio-websockets/0.4.0/tokio_websockets/) for the "
 "communication between the client and the server."
 msgstr ""
 "Para ello, usaremos \\[un canal en abierto](https://docs.rs/tokio/latest/"
@@ -21352,6 +21379,7 @@ msgid "`Cargo.toml`:"
 msgstr "`Cargo.toml`:"
 
 #: src/exercises/concurrency/chat-app.md:19
+#, fuzzy
 msgid ""
 "```toml\n"
 "[package]\n"
@@ -21360,21 +21388,36 @@ msgid ""
 "edition = \"2021\"\n"
 "\n"
 "[dependencies]\n"
-"futures-util = \"0.3.28\"\n"
+"futures-util = { version = \"0.3.28\", features = [\"sink\"] }\n"
 "http = \"0.2.9\"\n"
 "tokio = { version = \"1.28.1\", features = [\"full\"] }\n"
-"tokio-websockets = \"0.3.2\"\n"
+"tokio-websockets = { version = \"0.4.0\", features = [\"client\", "
+"\"fastrand\", \"server\", \"sha1_smol\"] }\n"
 "```"
 msgstr ""
+"```toml\n"
+"[package]\n"
+"name = \"link-checker\"\n"
+"version = \"0.1.0\"\n"
+"edition = \"2021\"\n"
+"publish = false\n"
+"\n"
+"[dependencies]\n"
+"reqwest = { version = \"0.11.12\", features = [\"blocking\", \"rustls-"
+"tls\"] }\n"
+"scraper = \"0.13.0\"\n"
+"thiserror = \"1.0.37\"\n"
+"```"
 
 #: src/exercises/concurrency/chat-app.md:32
 msgid "The required APIs"
 msgstr "Las APIs necesarias"
 
 #: src/exercises/concurrency/chat-app.md:33
+#, fuzzy
 msgid ""
 "You are going to need the following functions from `tokio` and "
-"[`tokio_websockets`](https://docs.rs/tokio-websockets/0.3.2/"
+"[`tokio_websockets`](https://docs.rs/tokio-websockets/0.4.0/"
 "tokio_websockets/). Spend a few minutes to familiarize yourself with the "
 "API. "
 msgstr ""
@@ -21383,14 +21426,15 @@ msgstr ""
 "minutos a familiarizarte con la API. "
 
 #: src/exercises/concurrency/chat-app.md:37
+#, fuzzy
 msgid ""
-"[WebsocketStream::next()](https://docs.rs/tokio-websockets/0.3.2/"
-"tokio_websockets/proto/struct.WebsocketStream.html#method.next): for "
+"[StreamExt::next()](https://docs.rs/futures-util/0.3.28/futures_util/stream/"
+"trait.StreamExt.html#method.next) implemented by `WebsocketStream`: for "
 "asynchronously reading messages from a Websocket Stream."
 msgstr ""
-"[WebsocketStream::next()](https://docs.rs/tokio-websockets/0.3.2/"
-"tokio_websockets/proto/struct.WebsocketStream.html#method.next): para la "
-"lectura asíncrona de mensajes de un flujo WebSocket."
+"[SinkExt::send()](https://docs.rs/futures-util/0.3.28/futures_util/sink/"
+"trait.SinkExt.html#method.send) implementado por `WebsocketStream`: permite "
+"enviar mensajes de forma asíncrona a través de un flujo WebSocket."
 
 #: src/exercises/concurrency/chat-app.md:39
 msgid ""
@@ -21461,6 +21505,7 @@ msgstr "`src/bin/server.rs`:"
 msgid ""
 "```rust,compile_fail\n"
 "use futures_util::sink::SinkExt;\n"
+"use futures_util::stream::StreamExt;\n"
 "use std::error::Error;\n"
 "use std::net::SocketAddr;\n"
 "use tokio::net::{TcpListener, TcpStream};\n"
@@ -21499,14 +21544,15 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/exercises/concurrency/chat-app.md:102
-#: src/exercises/concurrency/solutions-afternoon.md:208
+#: src/exercises/concurrency/chat-app.md:103
+#: src/exercises/concurrency/solutions-afternoon.md:210
 msgid "`src/bin/client.rs`:"
 msgstr "`src/bin/client.rs`:"
 
-#: src/exercises/concurrency/chat-app.md:106
+#: src/exercises/concurrency/chat-app.md:107
 msgid ""
 "```rust,compile_fail\n"
+"use futures_util::stream::StreamExt;\n"
 "use futures_util::SinkExt;\n"
 "use http::Uri;\n"
 "use tokio::io::{AsyncBufReadExt, BufReader};\n"
@@ -21514,10 +21560,10 @@ msgid ""
 "\n"
 "#[tokio::main]\n"
 "async fn main() -> Result<(), tokio_websockets::Error> {\n"
-"    let mut ws_stream = ClientBuilder::from_uri(Uri::"
-"from_static(\"ws://127.0.0.1:2000\"))\n"
-"        .connect()\n"
-"        .await?;\n"
+"    let (mut ws_stream, _) =\n"
+"        ClientBuilder::from_uri(Uri::from_static(\"ws://127.0.0.1:2000\"))\n"
+"            .connect()\n"
+"            .await?;\n"
 "\n"
 "    let stdin = tokio::io::stdin();\n"
 "    let mut stdin = BufReader::new(stdin).lines();\n"
@@ -21529,37 +21575,37 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/exercises/concurrency/chat-app.md:127
+#: src/exercises/concurrency/chat-app.md:130
 msgid "Running the binaries"
 msgstr "Ejecutar los binarios"
 
-#: src/exercises/concurrency/chat-app.md:128
+#: src/exercises/concurrency/chat-app.md:131
 msgid "Run the server with:"
 msgstr "Ejecuta el servidor con:"
 
-#: src/exercises/concurrency/chat-app.md:130
+#: src/exercises/concurrency/chat-app.md:133
 msgid ""
 "```shell\n"
 "cargo run --bin server\n"
 "```"
 msgstr ""
 
-#: src/exercises/concurrency/chat-app.md:134
+#: src/exercises/concurrency/chat-app.md:137
 msgid "and the client with:"
 msgstr "y el cliente con:"
 
-#: src/exercises/concurrency/chat-app.md:136
+#: src/exercises/concurrency/chat-app.md:139
 msgid ""
 "```shell\n"
 "cargo run --bin client\n"
 "```"
 msgstr ""
 
-#: src/exercises/concurrency/chat-app.md:142
+#: src/exercises/concurrency/chat-app.md:145
 msgid "Implement the `handle_connection` function in `src/bin/server.rs`."
 msgstr "Implementa la función `handle_connection` en `src/bin/server.rs`."
 
-#: src/exercises/concurrency/chat-app.md:143
+#: src/exercises/concurrency/chat-app.md:146
 msgid ""
 "Hint: Use `tokio::select!` for concurrently performing two tasks in a "
 "continuous loop. One task receives messages from the client and broadcasts "
@@ -21569,11 +21615,11 @@ msgstr ""
 "un bucle continuo. Una tarea recibe mensajes del cliente y los transmite. La "
 "otra envía los mensajes que recibe el servidor al cliente."
 
-#: src/exercises/concurrency/chat-app.md:146
+#: src/exercises/concurrency/chat-app.md:149
 msgid "Complete the main function in `src/bin/client.rs`."
 msgstr "Completa la función principal en `src/bin/client.rs`."
 
-#: src/exercises/concurrency/chat-app.md:147
+#: src/exercises/concurrency/chat-app.md:150
 msgid ""
 "Hint: As before, use `tokio::select!` in a continuous loop for concurrently "
 "performing two tasks: (1) reading user messages from standard input and "
@@ -21585,7 +21631,7 @@ msgstr ""
 "desde la entrada estándar y enviarlos al servidor, y (2) recibir mensajes "
 "del servidor y mostrárselos al usuario."
 
-#: src/exercises/concurrency/chat-app.md:151
+#: src/exercises/concurrency/chat-app.md:154
 msgid ""
 "Optional: Once you are done, change the code to broadcast messages to all "
 "clients, but the sender of the message."
@@ -24019,6 +24065,7 @@ msgid ""
 "\n"
 "// ANCHOR: setup\n"
 "use futures_util::sink::SinkExt;\n"
+"use futures_util::stream::StreamExt;\n"
 "use std::error::Error;\n"
 "use std::net::SocketAddr;\n"
 "use tokio::net::{TcpListener, TcpStream};\n"
@@ -24048,9 +24095,10 @@ msgid ""
 "            incoming = ws_stream.next() => {\n"
 "                match incoming {\n"
 "                    Some(Ok(msg)) => {\n"
-"                        let msg = msg.as_text()?;\n"
-"                        println!(\"From client {addr:?} {msg:?}\");\n"
-"                        bcast_tx.send(msg.into())?;\n"
+"                        if let Some(text) = msg.as_text() {\n"
+"                            println!(\"From client {addr:?} {text:?}\");\n"
+"                            bcast_tx.send(text.into())?;\n"
+"                        }\n"
 "                    }\n"
 "                    Some(Err(err)) => return Err(err.into()),\n"
 "                    None => return Ok(()),\n"
@@ -24087,7 +24135,7 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/exercises/concurrency/solutions-afternoon.md:210
+#: src/exercises/concurrency/solutions-afternoon.md:212
 msgid ""
 "```rust,compile_fail\n"
 "// Copyright 2023 Google LLC\n"
@@ -24105,6 +24153,7 @@ msgid ""
 "// limitations under the License.\n"
 "\n"
 "// ANCHOR: setup\n"
+"use futures_util::stream::StreamExt;\n"
 "use futures_util::SinkExt;\n"
 "use http::Uri;\n"
 "use tokio::io::{AsyncBufReadExt, BufReader};\n"
@@ -24112,10 +24161,10 @@ msgid ""
 "\n"
 "#[tokio::main]\n"
 "async fn main() -> Result<(), tokio_websockets::Error> {\n"
-"    let mut ws_stream = ClientBuilder::from_uri(Uri::"
-"from_static(\"ws://127.0.0.1:2000\"))\n"
-"        .connect()\n"
-"        .await?;\n"
+"    let (mut ws_stream, _) =\n"
+"        ClientBuilder::from_uri(Uri::from_static(\"ws://127.0.0.1:2000\"))\n"
+"            .connect()\n"
+"            .await?;\n"
 "\n"
 "    let stdin = tokio::io::stdin();\n"
 "    let mut stdin = BufReader::new(stdin).lines();\n"
@@ -24126,8 +24175,11 @@ msgid ""
 "        tokio::select! {\n"
 "            incoming = ws_stream.next() => {\n"
 "                match incoming {\n"
-"                    Some(Ok(msg)) => println!(\"From server: {}\", msg."
-"as_text()?),\n"
+"                    Some(Ok(msg)) => {\n"
+"                        if let Some(text) = msg.as_text() {\n"
+"                            println!(\"From server: {}\", text);\n"
+"                        }\n"
+"                    },\n"
 "                    Some(Err(err)) => return Err(err.into()),\n"
 "                    None => return Ok(()),\n"
 "                }\n"
@@ -24146,6 +24198,18 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+
+#~ msgid "Extra Work in Modern C++"
+#~ msgstr "Trabajo adicional en C++ moderno"
+
+#~ msgid ""
+#~ "[WebsocketStream::next()](https://docs.rs/tokio-websockets/0.3.2/"
+#~ "tokio_websockets/proto/struct.WebsocketStream.html#method.next): for "
+#~ "asynchronously reading messages from a Websocket Stream."
+#~ msgstr ""
+#~ "[WebsocketStream::next()](https://docs.rs/tokio-websockets/0.3.2/"
+#~ "tokio_websockets/proto/struct.WebsocketStream.html#method.next): para la "
+#~ "lectura asíncrona de mensajes de un flujo WebSocket."
 
 #~ msgid "Comparison"
 #~ msgstr "Comparación"
