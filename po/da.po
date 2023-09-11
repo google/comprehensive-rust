@@ -244,9 +244,8 @@ msgid "Lifetimes in Data Structures"
 msgstr "Livstider i datastrukturer"
 
 #: src/SUMMARY.md:68 src/exercises/day-1/book-library.md:1
-#, fuzzy
 msgid "Storing Books"
-msgstr "String og str"
+msgstr "Lagring af bøger"
 
 #: src/SUMMARY.md:69 src/exercises/day-1/iterators-and-ownership.md:1
 msgid "Iterators and Ownership"
@@ -802,9 +801,8 @@ msgid "Using It"
 msgstr "Anvendelse"
 
 #: src/SUMMARY.md:245 src/bare-metal/aps/exceptions.md:1
-#, fuzzy
 msgid "Exceptions"
-msgstr "Funktioner"
+msgstr "Undtagelser"
 
 #: src/SUMMARY.md:247
 msgid "Useful Crates"
@@ -901,9 +899,8 @@ msgid "Multi-threaded Link Checker"
 msgstr "Flertrådet linktjekker"
 
 #: src/SUMMARY.md:281
-#, fuzzy
 msgid "Concurrency: Afternoon"
-msgstr "Dag 1: Eftermiddag"
+msgstr "Concurrency: Eftermiddag"
 
 #: src/SUMMARY.md:283
 msgid "Async Basics"
@@ -918,9 +915,8 @@ msgid "Futures"
 msgstr "Fremtidige resultater (eng. Futures)"
 
 #: src/SUMMARY.md:286 src/async/runtimes.md:1
-#, fuzzy
 msgid "Runtimes"
-msgstr "Garantier under programudføring"
+msgstr ""
 
 #: src/SUMMARY.md:287 src/async/runtimes/tokio.md:1
 msgid "Tokio"
@@ -960,9 +956,8 @@ msgid "Async Traits"
 msgstr "Asynkrone egenskaber (eng. Traits)"
 
 #: src/SUMMARY.md:297 src/async/pitfalls/cancellation.md:1
-#, fuzzy
 msgid "Cancellation"
-msgstr "Installation"
+msgstr "Annulering"
 
 #: src/SUMMARY.md:300 src/exercises/concurrency/chat-app.md:1
 #: src/exercises/concurrency/solutions-afternoon.md:119
@@ -1042,16 +1037,14 @@ msgid ""
 msgstr ""
 
 #: src/index.md:7
-#, fuzzy
 msgid ""
 "This is a free Rust course developed by the Android team at Google. The "
 "course covers the full spectrum of Rust, from basic syntax to advanced "
 "topics like generics and error handling."
 msgstr ""
-"Dette er et tre dages Rust-kursus udviklet af Android-teamet. Kurset dækker "
+"Dette er et gratis Rust-kursus udviklet af Android-teamet. Kurset dækker "
 "hele spektret af Rust, fra grundlæggende syntaks til avancerede emner som "
-"generiske og fejlhåndtering. Det inkluderer også Android-specifikt indhold "
-"på den sidste dag."
+"generiske typer og fejlhåndtering."
 
 #: src/index.md:11
 msgid ""
@@ -1400,9 +1393,8 @@ msgid ""
 msgstr ""
 
 #: src/running-the-course/translations.md:11
-#, fuzzy
 msgid "Incomplete Translations"
-msgstr "Oversættelser"
+msgstr "Ufuldstændige oversættelser"
 
 #: src/running-the-course/translations.md:13
 msgid ""
@@ -1859,12 +1851,11 @@ msgid "Welcome to Day 1"
 msgstr "Velkommen til Dag 1"
 
 #: src/welcome-day-1.md:3
-#, fuzzy
 msgid ""
 "This is the first day of Rust Fundamentals. We will cover a lot of ground "
 "today:"
 msgstr ""
-"Dette er den første dag af Comprehensive Rust. Vi kommer til at dække en "
+"Dette er den første dag af Rust Fundamentals. Vi kommer til at dække en "
 "masse terræn i dag:"
 
 #: src/welcome-day-1.md:6
@@ -4028,9 +4019,8 @@ msgid "No guarantee of memory locality."
 msgstr ""
 
 #: src/memory-management/stack.md:1
-#, fuzzy
 msgid "Stack and Heap Example"
-msgstr "Stak og heap"
+msgstr "Eksempel på stak og heap"
 
 #: src/memory-management/stack.md:3
 msgid ""
@@ -4573,9 +4563,8 @@ msgstr ""
 "```"
 
 #: src/ownership/double-free-modern-cpp.md:1
-#, fuzzy
 msgid "Extra Work in Modern C++"
-msgstr "Dobbeltfrigivelser i moderne C++"
+msgstr "Defensiv kopiering i moderne C++"
 
 #: src/ownership/double-free-modern-cpp.md:3
 msgid "Modern C++ solves this differently:"
@@ -17127,9 +17116,8 @@ msgid "Run the code in QEMU with `make qemu`."
 msgstr ""
 
 #: src/concurrency.md:1
-#, fuzzy
 msgid "Welcome to Concurrency in Rust"
-msgstr "Velkommen til Comprehensive Rust 🦀"
+msgstr "Velkommen til Concurrency i Rust"
 
 #: src/concurrency.md:3
 msgid ""
@@ -17235,7 +17223,6 @@ msgid "Normal threads cannot borrow from their environment:"
 msgstr "Normale tråde kan ikke låne fra deres omgivelser:"
 
 #: src/concurrency/scoped-threads.md:5
-#, fuzzy
 msgid ""
 "```rust,editable,compile_fail\n"
 "use std::thread;\n"
@@ -17255,12 +17242,15 @@ msgstr ""
 "```rust,editable,compile_fail\n"
 "use std::thread;\n"
 "\n"
-"fn main() {\n"
+"fn foo() {\n"
 "    let s = String::from(\"Hello\");\n"
-"\n"
 "    thread::spawn(|| {\n"
 "        println!(\"Længde: {}\", s.len());\n"
 "    });\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    foo();\n"
 "}\n"
 "```"
 
@@ -17384,7 +17374,6 @@ msgid "You get an unbounded and asynchronous channel with `mpsc::channel()`:"
 msgstr ""
 
 #: src/concurrency/channels/unbounded.md:5
-#, fuzzy
 msgid ""
 "```rust,editable\n"
 "use std::sync::mpsc;\n"
@@ -17411,20 +17400,25 @@ msgid ""
 "```"
 msgstr ""
 "```rust,editable\n"
+"use std::sync::mpsc;\n"
 "use std::thread;\n"
 "use std::time::Duration;\n"
 "\n"
 "fn main() {\n"
-"    thread::spawn(|| {\n"
-"        for i in 1..10 {\n"
-"            println!(\"Tæller i tråden: {i}!\");\n"
-"            thread::sleep(Duration::from_millis(5));\n"
-"        }\n"
-"    });\n"
+"    let (tx, rx) = mpsc::channel();\n"
 "\n"
-"    for i in 1..5 {\n"
-"        println!(\"Hovedtråden: {i}\");\n"
-"        thread::sleep(Duration::from_millis(5));\n"
+"    thread::spawn(move || {\n"
+"        let thread_id = thread::current().id();\n"
+"        for i in 1..10 {\n"
+"            tx.send(format!(\"Besked {i}\")).unwrap();\n"
+"            println!(\"{thread_id:?}: sendte Besked {i}\");\n"
+"        }\n"
+"        println!(\"{thread_id:?}: færdig\");\n"
+"    });\n"
+"    thread::sleep(Duration::from_millis(100));\n"
+"\n"
+"    for msg in rx.iter() {\n"
+"        println!(\"Hovedtråden: modtog {msg}\");\n"
 "    }\n"
 "}\n"
 "```"
@@ -19628,9 +19622,8 @@ msgstr ""
 
 #: src/exercises/concurrency/chat-app.md:59
 #: src/exercises/concurrency/solutions-afternoon.md:123
-#, fuzzy
 msgid "`src/bin/server.rs`:"
-msgstr "`src/main.rs`:"
+msgstr "`src/bin/server.rs`:"
 
 #: src/exercises/concurrency/chat-app.md:63
 msgid ""
@@ -19676,9 +19669,8 @@ msgstr ""
 
 #: src/exercises/concurrency/chat-app.md:102
 #: src/exercises/concurrency/solutions-afternoon.md:208
-#, fuzzy
 msgid "`src/bin/client.rs`:"
-msgstr "`src/main.rs`:"
+msgstr "`src/bin/client.rs`:"
 
 #: src/exercises/concurrency/chat-app.md:106
 msgid ""
@@ -19706,9 +19698,8 @@ msgid ""
 msgstr ""
 
 #: src/exercises/concurrency/chat-app.md:127
-#, fuzzy
 msgid "Running the binaries"
-msgstr "Afvikling af kurset"
+msgstr "Afvikling af binære filer"
 
 #: src/exercises/concurrency/chat-app.md:128
 msgid "Run the server with:"
@@ -20779,7 +20770,6 @@ msgid "([back to exercise](strings-iterators.md))"
 msgstr "([tilbage til øvelsen](strings-iterators.md))"
 
 #: src/exercises/day-2/solutions-afternoon.md:101
-#, fuzzy
 msgid ""
 "```rust\n"
 "// Copyright 2022 Google LLC\n"
@@ -20885,23 +20875,30 @@ msgstr ""
 "// ANCHOR: prefix_matches\n"
 "pub fn prefix_matches(prefix: &str, request_path: &str) -> bool {\n"
 "    // ANCHOR_END: prefix_matches\n"
-"    let prefixes = prefix.split('/');\n"
-"    let request_paths = request_path\n"
-"        .split('/')\n"
-"        .map(|p| Some(p))\n"
-"        .chain(std::iter::once(None));\n"
 "\n"
-"    for (prefix, request_path) in prefixes.zip(request_paths) {\n"
-"        match request_path {\n"
-"            Some(request_path) => {\n"
-"                if (prefix != \"*\") && (prefix != request_path) {\n"
-"                    return false;\n"
-"                }\n"
-"            }\n"
-"            None => return false,\n"
+"    let mut request_segments = request_path.split('/');\n"
+"\n"
+"    for prefix_segment in prefix.split('/') {\n"
+"        let Some(request_segment) = request_segments.next() else {\n"
+"            return false;\n"
+"        };\n"
+"        if request_segment != prefix_segment && prefix_segment != \"*\" {\n"
+"            return false;\n"
 "        }\n"
 "    }\n"
 "    true\n"
+"\n"
+"    // Alternatively, Iterator::zip() lets us iterate simultaneously over "
+"prefix\n"
+"    // and request segments. The zip() iterator is finished as soon as one "
+"of\n"
+"    // the source iterators is finished, but we need to iterate over all "
+"request\n"
+"    // segments. A neat trick that makes zip() work is to use map() and "
+"chain()\n"
+"    // to produce an iterator that returns Some(str) for each pattern "
+"segments,\n"
+"    // and then returns None indefinitely.\n"
 "}\n"
 "\n"
 "// ANCHOR: unit-tests\n"
@@ -21903,14 +21900,12 @@ msgid ""
 msgstr ""
 
 #: src/exercises/concurrency/solutions-morning.md:104
-#, fuzzy
 msgid "Link Checker"
-msgstr "Flertrådet linktjekker"
+msgstr "Linktjekker"
 
 #: src/exercises/concurrency/solutions-morning.md:106
-#, fuzzy
 msgid "([back to exercise](link-checker.md))"
-msgstr "([tilbage til øvelsen](luhn.md))"
+msgstr "([tilbage til øvelsen](link-checker.md))"
 
 #: src/exercises/concurrency/solutions-morning.md:108
 msgid ""
@@ -22235,9 +22230,8 @@ msgid ""
 msgstr ""
 
 #: src/exercises/concurrency/solutions-afternoon.md:121
-#, fuzzy
 msgid "([back to exercise](chat-app.md))"
-msgstr "([tilbage til øvelsen](rtc.md))"
+msgstr "([tilbage til øvelsen](chat-app.md))"
 
 #: src/exercises/concurrency/solutions-afternoon.md:125
 msgid ""
