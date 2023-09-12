@@ -6,10 +6,9 @@ existing course material:
 
 # Variables
 
-Rust provides type safety via static typing. Variable bindings are immutable by
-default:
+Rust provides type safety via static typing. Variable bindings are made with
+`let`:
 
-<!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
     let x: i32 = 10;
@@ -21,6 +20,11 @@ fn main() {
 
 <details>
 
-* Due to type inference the `i32` is optional. We will gradually show the types less and less as the course progresses.
+* Uncomment the `x = 20` to demonstrate that variables are immutable by default.
+  Add the `mut` keyword to allow changes.
+
+* The `i32` here is the type of the variable. This must be known at compile
+  time, but type inference (covered later) allows the programmer to omit it in
+  many cases.
 
 </details>
