@@ -76,7 +76,7 @@ impl Library {
 
     // ANCHOR: Library_print_books
     //fn print_books(self) {
-    //    todo!("Iterate over `self.books` and each book's title and year")
+    //    todo!("Iterate over `self.books` and print each book's title and year")
     //}
     // ANCHOR_END: Library_print_books
     fn print_books(&self) {
