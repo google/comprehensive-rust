@@ -22,15 +22,7 @@ fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {
             result[j][i] = matrix[i][j];
         }
     }
-    return result;
-}
-
-// ANCHOR: pretty_print
-fn pretty_print(matrix: &[[i32; 3]; 3]) {
-    // ANCHOR_END: pretty_print
-    for row in matrix {
-        println!("{row:?}");
-    }
+    result
 }
 
 // ANCHOR: tests
@@ -61,10 +53,8 @@ fn main() {
         [301, 302, 303],
     ];
 
-    println!("matrix:");
-    pretty_print(&matrix);
-
+    println!("matrix: {:#?}", matrix);
     let transposed = transpose(matrix);
-    println!("transposed:");
-    pretty_print(&transposed);
+    println!("transposed: {:#?}", transposed);
 }
+// ANCHOR_END: main

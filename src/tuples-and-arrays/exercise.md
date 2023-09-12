@@ -4,51 +4,18 @@ existing course material:
 - exercises/day-1/for-loops.md
 ---
 
-<!-- NOTES:
-Simplify existing exercise, and drop bonus question
--->
 # Exercise: Nested Arrays
 
-# Arrays and `for` Loops
-
-We saw that an array can be declared like this:
+Arrays can contain other arrays:
 
 ```rust
-let array = [10, 20, 30];
+let array = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
 ```
 
-You can print such an array by asking for its debug representation with `{:?}`:
+What is the type of this variable?
 
-<!-- mdbook-xgettext: skip -->
-```rust,editable
-fn main() {
-    let array = [10, 20, 30];
-    println!("array: {array:?}");
-}
-```
-
-Rust lets you iterate over things like arrays and ranges using the `for`
-keyword:
-
-```rust,editable
-fn main() {
-    let array = [10, 20, 30];
-    print!("Iterating over array:");
-    for n in &array {
-        print!(" {n}");
-    }
-    println!();
-
-    print!("Iterating over range:");
-    for i in 0..3 {
-        print!(" {}", array[i]);
-    }
-    println!();
-}
-```
-
-Use the above to write a function `pretty_print` which pretty-print a matrix and
-a function `transpose` which will transpose a matrix (turn rows into columns):
+Use an array such as the above to write a function `transpose` which will
+transpose a matrix (turn rows into columns):
 
 <!-- mdbook-xgettext: skip -->
 ```bob
@@ -70,36 +37,13 @@ functions:
     unimplemented!()
 }
 
-{{#include exercise.rs:pretty_print}}
-    unimplemented!()
-}
-
 {{#include exercise.rs:main}}
 ```
 
-## Bonus Question
-
-Could you use `&[i32]` slices instead of hard-coded 3 × 3 matrices for your
-argument and return types? Something like `&[&[i32]]` for a two-dimensional
-slice-of-slices. Why or why not?
-
-
-See the [`ndarray` crate](https://docs.rs/ndarray/) for a production quality
-implementation.
-
 <details>
 
-The solution and the answer to the bonus section are available in the
-[Solution](solutions-morning.md#arrays-and-for-loops) section.
-
-The use of the reference `&array` within `for n in &array` is a subtle
-preview of issues of ownership that will come later in the afternoon.
-
-Without the `&`...
-* The loop would have been one that consumes the array.  This is a
-  change [introduced in the 2021
-  Edition](https://doc.rust-lang.org/edition-guide/rust-2021/IntoIterator-for-arrays.html).
-* An implicit array copy would have occurred.  Since `i32` is a copy type, then
-  `[i32; 3]` is also a copy type.
+The `transpose` function takes its argument by value, but we haven't covered
+ownership yet. Try printing a matrix after it has been transposed, to show the
+"value has been moved" error, as a preview of ownership and move semantics.
 
 </details>

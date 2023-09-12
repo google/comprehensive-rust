@@ -4,7 +4,11 @@ existing course material:
 - basic-syntax/compound-types.md
 ---
 
-# Compound Types
+# Tuples and Arrays
+
+Tuples and arrays are the first "compound" types we have seen. All elements of
+an array have the same type, while tuples can accommodate different types.
+Both types have a size fixed at compile time.
 
 |        | Types                         | Literals                          |
 |--------|-------------------------------|-----------------------------------|
@@ -41,7 +45,12 @@ Arrays:
 
 * A value of the array type `[T; N]` holds `N` (a compile-time constant) elements of the same type `T`.
   Note that the length of the array is *part of its type*, which means that `[u8; 3]` and
-  `[u8; 4]` are considered two different types.
+  `[u8; 4]` are considered two different types. Slices, which have a size determined at runtime,
+  are covered later.
+
+* Try accessing an out-of-bounds array element. Array accesses are checked at
+  runtime. Rust can usually optimize these checks away, and they can be avoided
+  using unsafe Rust.
 
 * We can use literals to assign values to arrays.
 
