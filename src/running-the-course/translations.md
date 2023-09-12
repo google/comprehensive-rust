@@ -32,18 +32,18 @@ get going. Translations are coordinated on the [issue tracker].
 
 [@CoinEZ-JPN]: https://github.com/CoinEZ
 [@deavid]: https://github.com/deavid
-[@KookaS]: https://github.com/KookaS
-[@Throvn]: https://github.com/Throvn
 [@henrif75]: https://github.com/henrif75
 [@hugojacob]: https://github.com/hugojacob
 [@jiyongp]: https://github.com/jiyongp
 [@joaovicmendes]: https://github.com/joaovicmendes
 [@jooyunghan]: https://github.com/jooyunghan
 [@keispace]: https://github.com/keispace
+[@KookaS]: https://github.com/KookaS
 [@momotaro1105]: https://github.com/momotaro1105
 [@raselmandol]: https://github.com/raselmandol
 [@rastringer]: https://github.com/rastringer
 [@ronaldfw]: https://github.com/ronaldfw
+[@Throvn]: https://github.com/Throvn
 [@vcaen]: https://github.com/vcaen
 
 [our instructions]: https://github.com/google/comprehensive-rust/blob/main/TRANSLATIONS.md
