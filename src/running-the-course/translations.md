@@ -5,6 +5,7 @@ volunteers:
 
 * [Brazilian Portuguese][pt-BR] by [@rastringer], [@hugojacob], [@joaovicmendes] and [@henrif75].
 * [Korean][ko] by [@keispace], [@jiyongp] and [@jooyunghan].
+* [Spanish][es] by [@deavid].
 
 Use the language picker in the top-right corner to switch between languages.
 
@@ -23,25 +24,27 @@ get going. Translations are coordinated on the [issue tracker].
 
 [bn]: https://google.github.io/comprehensive-rust/bn/
 [de]: https://google.github.io/comprehensive-rust/de/
+[es]: https://google.github.io/comprehensive-rust/es/
 [fr]: https://google.github.io/comprehensive-rust/fr/
 [ja]: https://google.github.io/comprehensive-rust/ja/
 [ko]: https://google.github.io/comprehensive-rust/ko/
 [pt-BR]: https://google.github.io/comprehensive-rust/pt-BR/
 
 [@CoinEZ-JPN]: https://github.com/CoinEZ
-[@KookaS]: https://github.com/KookaS
-[@Throvn]: https://github.com/Throvn
+[@deavid]: https://github.com/deavid
+[@henrif75]: https://github.com/henrif75
 [@hugojacob]: https://github.com/hugojacob
 [@jiyongp]: https://github.com/jiyongp
+[@joaovicmendes]: https://github.com/joaovicmendes
 [@jooyunghan]: https://github.com/jooyunghan
 [@keispace]: https://github.com/keispace
+[@KookaS]: https://github.com/KookaS
 [@momotaro1105]: https://github.com/momotaro1105
 [@raselmandol]: https://github.com/raselmandol
 [@rastringer]: https://github.com/rastringer
 [@ronaldfw]: https://github.com/ronaldfw
+[@Throvn]: https://github.com/Throvn
 [@vcaen]: https://github.com/vcaen
-[@joaovicmendes]: https://github.com/joaovicmendes
-[@henrif75]: https://github.com/henrif75
 
 [our instructions]: https://github.com/google/comprehensive-rust/blob/main/TRANSLATIONS.md
 [issue tracker]: https://github.com/google/comprehensive-rust/issues/282
