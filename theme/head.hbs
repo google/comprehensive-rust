@@ -1,0 +1,37 @@
+<script async src="https://www.gstatic.com/brandstudio/kato/cookie_choice_component/cookie_consent_bar.v3.js"
+        data-autoload-cookie-consent-bar="true"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZN78TEJMRW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZN78TEJMRW');
+</script>
+
+{{! Move to template code after fixing this issue:
+    https://github.com/google/mdbook-i18n-helpers/issues/70 }}
+<script>
+  (function () {
+      // See these pages for details:
+      // https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls
+      // https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics
+      let base = "https://google.github.io/comprehensive-rust";
+      {{#if (eq language "en")}}
+      let canonical_href = `${base}/{{ path }}`;
+      {{else}}
+      let canonical_href = `${base}/{{ language }}/{{ path }}`;
+      {{/if}}
+
+      // mdbook gives us a string ending in ".md", we replace it with ".html":
+      canonical_href = canonical_href.slice(0, -"md".length) + "html";
+      if (canonical_href.endsWith("/index.html")) {
+          canonical_href = canonical_href.slice(0, -"index.html".length);
+      }
+
+      let link = document.createElement("link");
+      link.rel = "canonical";
+      link.href = canonical_href;
+      document.head.appendChild(link);
+  })()
+</script>
