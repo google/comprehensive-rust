@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ANCHOR: solution
 use core::ptr::{addr_of, addr_of_mut};
 
 #[repr(C, align(4))]

@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ANCHOR: solution
 // ANCHOR: prefix_matches
 pub fn prefix_matches(prefix: &str, request_path: &str) -> bool {
     // ANCHOR_END: prefix_matches
