@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#![allow(dead_code)]
 // ANCHOR: solution
 // ANCHOR: Operation
 /// An operation to perform on two subexpressions.

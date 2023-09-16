@@ -1,23 +1,12 @@
 ---
 minutes: 15
-existing course material:
 - exercises/day-1/pattern-matching.md
 ---
 
 # Exercise: Expression Evaluation
 
-
-enum Op { Add, Subtract, Multiply, Divide }
-
-enum Input {
-  Number(i64),
-  Op(Op)
-}
-
-Vec<Input>
-# Exercise: Expression Evaluation
-
-Let's write a simple recursive evaluator for arithmetic expressions.
+Let's write a simple recursive evaluator for arithmetic expressions. Start with
+an enum defining the binary operations:
 
 ```rust
 {{#include exercise.rs:Operation}}

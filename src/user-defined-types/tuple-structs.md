@@ -9,8 +9,6 @@ Tuple structs, newtype wrappers, unit-like structs, including initialization syn
 -->
 # Tuple Structs
 
-# Tuple Structs
-
 If the field names are unimportant, you can use a tuple struct:
 
 ```rust,editable
@@ -52,4 +50,5 @@ fn main() {
   *  Rust generally doesn’t like inexplicit things, like automatic unwrapping or for instance using booleans as integers.
   *  Operator overloading is discussed on Day 3 (generics).
 * The example is a subtle reference to the [Mars Climate Orbiter](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter) failure.
+
 </details>
