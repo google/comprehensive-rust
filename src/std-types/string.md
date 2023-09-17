@@ -38,6 +38,7 @@ fn main() {
 * `String::chars` returns an iterator over the actual characters. Note that a `char` can be different from what a human will consider a "character" due to [grapheme clusters](https://docs.rs/unicode-segmentation/latest/unicode_segmentation/struct.Graphemes.html).
 *  When people refer to strings they could either be talking about `&str` or `String`.
 * When a type implements `Deref<Target = T>`, the compiler will let you transparently call methods from `T`.
+    * We haven't discussed the `Deref` trait yet, so at this point this mostly explains the structure of the sidebar in the documentation.
     * `String` implements `Deref<Target = str>` which transparently gives it access to `str`'s methods.
     * Write and compare `let s3 = s1.deref();` and  `let s3 = &*s1;`.
 * `String` is implemented as a wrapper around a vector of bytes, many of the operations you see supported on vectors are also supported on `String`, but with some extra guarantees.

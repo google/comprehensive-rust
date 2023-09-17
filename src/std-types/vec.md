@@ -49,7 +49,7 @@ methods on a `Vec`.
   elements to the vector.
 * To index the vector you use `[` `]`, but they will panic if out of bounds. Alternatively, using
   `get` will return an `Option`. The `pop` function will remove the last element.
-* Show iterating over a vector and mutating the value:
-  `for e in &mut v { *e += 50; }`
+* Slices are covered on day 3. For now, students only need to know that a value
+  of type `Vec` gives access to all of the documented read-only slice methods, too.
 
 </details>

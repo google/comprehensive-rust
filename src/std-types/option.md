@@ -4,33 +4,31 @@ existing course material:
 - std/option-result.md
 ---
 
-<!-- NOTES:
-Note that Result is addressed in a lot more detail in day 3
--->
 # Option
 
-# `Option` and `Result`
+We have already seen some use of `Option<T>`. It stores either a
+value of type `T` or nothing. For example,
+[`String::find`](https://doc.rust-lang.org/stable/std/string/struct.String.html#method.find)
+returns an `Option<usize>`.
 
-The types represent optional data:
-
-```rust,editable
+```rust,editable,should_panic
 fn main() {
-    let numbers = vec![10, 20, 30];
-    let first: Option<&i8> = numbers.first();
-    println!("first: {first:?}");
-
-    let arr: Result<[i8; 3], Vec<i8>> = numbers.try_into();
-    println!("arr: {arr:?}");
+    let name = "Löwe 老虎 Léopard Gepardi";
+    let mut position: Option<usize> = name.find('é');
+    println!("find returned {position:?}");
+    assert_eq!(position.unwrap(), 14);
+    position = name.find('Z');
+    println!("find returned {position:?}");
+    assert_eq!(position.expect("Character not found"), 0);
 }
 ```
 
 <details>
 
-* `Option` and `Result` are widely used not just in the standard library.
-* `Option<&T>` has zero space overhead compared to `&T`.
-* `Result` is the standard type to implement error handling as we will see on Day 3.
-* `try_into` attempts to convert the vector into a fixed-sized array. This can fail:
-  * If the vector has the right size, `Result::Ok` is returned with the array.
-  * Otherwise, `Result::Err` is returned with the original vector.
+  * `Option` is widely used, not just in the standard library.
+  * `unwrap` will return the value in an `Option`, or panic. `expect` is similar but takes an error message.
+    * You can panic on None, but you can't "accidentally" forget to check for None.
+    * It's common to `unwrap`/`expect` all over the place when hacking something together, but production code typically handles `None` in a nicer fashion.
+  * The niche optimization means that `Option<T>` often has the same size in memory as `T`.
 
 </details>
