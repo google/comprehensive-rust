@@ -165,59 +165,9 @@
                     </div>
 
                     <h1 class="menu-title">{{ book_title }}</h1>
-
                     <div class="right-buttons">
-                        <button id="language-toggle" class="icon-button" type="button"
-                                title="Change language" aria-label="Change language"
-                                aria-haspopup="true" aria-expanded="false"
-                                aria-controls="language-list">
-                            <i class="fa fa-globe"></i>
-                        </button>
-                        <ul id="language-list" class="theme-popup" aria-label="Languages" role="menu">
-                          <li role="none"><button role="menuitem" class="theme">
-                              <a id="en">English</a>
-                          </button></li>
-                          <li role="none"><button role="menuitem" class="theme">
-                              <a id="pt-BR">Brazilian Portuguese (Português do Brasil)</a>
-                          </button></li>
-                          <li role="none"><button role="menuitem" class="theme">
-                              <a id="ko">Korean (한국어)</a>
-                          </button></li>
-                          <li role="none"><button role="menuitem" class="theme">
-                              <a id="es">Spanish (Español)</a>
-                          </button></li>
-                        </ul>
-
-                        <script>
-                          let langToggle = document.getElementById("language-toggle");
-                          let langList = document.getElementById("language-list");
-                          langToggle.addEventListener("click", (event) => {
-                              langList.style.display = langList.style.display == "block" ? "none" : "block";
-                          });
-                          let selectedLang = document.getElementById("{{ language }}");
-                          if (selectedLang) {
-                              selectedLang.parentNode.classList.add("theme-selected");
-                          }
-
-                          // The path to the root, taking the current
-                          // language into account.
-                          {{#if (eq language "en")}}
-                          let full_path_to_root = "{{ path_to_root }}";
-                          {{else}}
-                          let full_path_to_root = "{{ path_to_root }}../";
-                          {{/if}}
-                          // The page path (mdbook only gives us
-                          // access to the path to the Markdown file).
-                          let path = "{{ path }}".replace(/\.md$/, ".html");
-                          for (let lang of langList.querySelectorAll("a")) {
-                              if (lang.id == "en") {
-                                  lang.href = `${full_path_to_root}${path}`;
-                              } else {
-                                  lang.href = `${full_path_to_root}${lang.id}/${path}`;
-                              }
-                          }
-                        </script>
-
+                        <LanguagePicker>
+                        </LanguagePicker>
                         {{#if print_enable}}
                         <a href="{{ path_to_root }}print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
