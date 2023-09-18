@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ANCHOR: solution
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 // ANCHOR: Point
 pub struct Point {
