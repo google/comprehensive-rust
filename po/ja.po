@@ -16685,7 +16685,8 @@ msgstr ""
 #: src/concurrency/send-sync.md:21
 msgid "They can be used in the generic constraints as normal traits."
 msgstr ""
-"これらは通常のトレイトとしての、一般的な制約の中で利用することができます。"
+"これらは通常のトレイトと同じように、ジェネリック境界の中で利用することができ"
+"ます。"
 
 #: src/concurrency/send-sync/send.md:1
 msgid "`Send`"
@@ -16735,7 +16736,7 @@ msgstr "より正確にいうと、以下のような定義です："
 
 #: src/concurrency/send-sync/sync.md:8
 msgid "`T` is `Sync` if and only if `&T` is `Send`"
-msgstr "`&T`が`Send`である場合に限り、`T`は`Sync`である"
+msgstr "`&T`が`Send`である場合、かつその場合に限り、`T`は`Sync`である"
 
 #: src/concurrency/send-sync/sync.md:14
 msgid ""
@@ -16797,7 +16798,8 @@ msgid ""
 "The generic types are typically `Send + Sync` when the type parameters are "
 "`Send + Sync`."
 msgstr ""
-"汎用的な型は、型パラメタが`Send + Sync`であるとき、通常は`Send + Sync`です。"
+"ジェネリクスは、型パラメタが`Send + Sync`であるとき、通常は`Send + Sync`で"
+"す。"
 
 #: src/concurrency/send-sync/examples.md:17
 msgid "`Send + !Sync`"
@@ -16809,7 +16811,7 @@ msgid ""
 "Typically because of interior mutability:"
 msgstr ""
 "これらの型は別のスレッドにムーブすることができますが、こうしたムーブはスレッ"
-"ドセーフではありません。通常は内部可変性により："
+"ドセーフではありません。通常は内部可変性がその原因です："
 
 #: src/concurrency/send-sync/examples.md:22
 msgid "`mpsc::Sender<T>`"
@@ -16860,16 +16862,16 @@ msgid ""
 "`Rc<T>`: each `Rc<T>` has a reference to an `RcBox<T>`, which contains a non-"
 "atomic reference count."
 msgstr ""
-"`Rc<T>`: それぞれの `Rc<T>` は、ノンアトミックな参照カウントを含む`RcBox<T>`"
-"への参照を持っています。"
+"`Rc<T>`: それぞれの `Rc<T>` は`RcBox<T>`への参照を持っています。これは、アト"
+"ミックでない参照カウントを持っています。"
 
 #: src/concurrency/send-sync/examples.md:40
 msgid ""
 "`*const T`, `*mut T`: Rust assumes raw pointers may have special concurrency "
 "considerations."
 msgstr ""
-"`*const T`, `*mut T`: Rustには、生ポインタには、特別な並行性に関する思慮が必"
-"要であるという仮定があります。"
+"`*const T`, `*mut T`: Rust は、生ポインターは同時実行性に関する特別な考慮事項"
+"がある可能性があることを仮定しています。"
 
 #: src/concurrency/shared_state.md:3
 msgid ""
