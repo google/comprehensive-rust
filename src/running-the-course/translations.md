@@ -31,8 +31,8 @@ get going. Translations are coordinated on the [issue tracker].
 [ja]: https://google.github.io/comprehensive-rust/ja/
 [ko]: https://google.github.io/comprehensive-rust/ko/
 [pt-BR]: https://google.github.io/comprehensive-rust/pt-BR/
-[zh-CN]: https://google.github.io/comprehensive-rust/zh-cn/
-[zh-TW]: https://google.github.io/comprehensive-rust/zh-tw/
+[zh-CN]: https://google.github.io/comprehensive-rust/zh-CN/
+[zh-TW]: https://google.github.io/comprehensive-rust/zh-TW/
 
 [@anlunx]: https://github.com/anlunx
 [@CoinEZ-JPN]: https://github.com/CoinEZ
