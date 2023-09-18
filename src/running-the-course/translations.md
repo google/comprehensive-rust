@@ -15,8 +15,8 @@ There is a large number of in-progress translations. We link to the most
 recently updated translations:
 
 * [Bengali][bn] by [@raselmandol].
-* [Chinese (Traditional)[zh-TW] by [@hueich], [@victorhsieh], [@mingyc], and [@johnathan79717].
-* [Chinese (Simplified)[zh-CN] by [@suetfei], [@wnghl], [@anlunx], [@kongy], [@noahdragon], and [@superwhd].
+* [Chinese (Traditional)][zh-TW] by [@hueich], [@victorhsieh], [@mingyc], and [@johnathan79717].
+* [Chinese (Simplified)][zh-CN] by [@suetfei], [@wnghl], [@anlunx], [@kongy], [@noahdragon], and [@superwhd].
 * [French][fr] by [@KookaS] and [@vcaen].
 * [German][de] by [@Throvn] and [@ronaldfw].
 * [Japanese][ja] by [@CoinEZ-JPN] and [@momotaro1105].
