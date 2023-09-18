@@ -8,7 +8,7 @@ fn main() {
     let first: Option<&i8> = numbers.first();
     println!("first: {first:?}");
 
-    let arr: Result<[i8, 3], Vec<i8>> = numbers.try_into();
+    let arr: Result<[i8; 3], Vec<i8>> = numbers.try_into();
     println!("arr: {arr:?}");
 }
 ```
