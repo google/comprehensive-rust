@@ -19,14 +19,14 @@ This will give you the Cargo build tool (`cargo`) and the Rust compiler (`rustc`
 sudo apt install cargo rust-src rustfmt
 ```
 
-* We suggest using [VS Code][2] to edit the code (but any LSP compatible editor works with rust-analyzer[3]).
+* We suggest using [VS Code][2] to edit the code (but any LSP compatible editor works with [rust-analyzer][3]).
 
-* Some folks also like to use the [JetBrains][4] family of IDEs, which do their own analysis but have their own tradeoffs. If you prefer them, you can install the [Rust Plugin][5]. Please take note that as of January 2023 debugging only works on the CLion version of the JetBrains IDEA suite.
+* Some folks also like to use the [JetBrains][4] family of feature-rich IDEs, which offer timely support, regular updates, and an out-of-the-box experience. If you prefer them, you can use [RustRover][5], which as of September 2023 is still available as a (free) preview. It will eventually replace the Rust plugin which can also be used in, e.g., their CLion IDE.
 
 </details>
 
 [2]: https://code.visualstudio.com/
 [3]: https://rust-analyzer.github.io/
-[4]: https://www.jetbrains.com/clion/
+[4]: https://www.jetbrains.com/
 [5]: https://www.jetbrains.com/rust/
 [6]: https://github.com/rust-lang/rustfmt

@@ -5,7 +5,7 @@
 ([back to exercise](luhn.md))
 
 ```rust
-{{#include luhn.rs}}
+{{#include luhn.rs:solution}}
 ```
 
 ## Pattern matching

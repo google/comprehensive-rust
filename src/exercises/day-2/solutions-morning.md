@@ -5,5 +5,5 @@
 ([back to exercise](book-library.md))
 
 ```rust
-{{#include book-library.rs}}
+{{#include book-library.rs:solution}}
 ```

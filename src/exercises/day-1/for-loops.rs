@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ANCHOR: solution
 // ANCHOR: transpose
 fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {
     // ANCHOR_END: transpose
