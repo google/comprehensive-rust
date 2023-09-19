@@ -1,6 +1,6 @@
 # The `Drop` Trait
 
-Values which implement `Drop` can specify code to run when they go out of scope:
+Values which implement [`Drop`][1] can specify code to run when they go out of scope:
 
 ```rust,editable
 struct Droppable {
@@ -33,7 +33,16 @@ fn main() {
 
 * `drop` is called automatically, but it can be called manually like in this example.
 * If it was called manually, it won't be called at the end of the scope for the second time.
-* Calling `drop` earlier manually can be useful for objects that do some work on `drop`: lock guards, files.
-    * It is useful, but not hugely useful as you can always make custom scope by enclosing your code in a block.
+* Calling `drop` can be useful for objects that do some work on `drop`: opening locks, closing files.
+
+Discussion points:
+
+* Why doesn't `Drop::drop` take `self`?
+    * Short-answer: If it did, `std::mem::drop` would be called at the end of
+        the block, resulting in another call to `Drop::drop`, and a stack
+        overflow!
+* Try replacing `drop(a)` with `a.drop()`.
 
 </details>
+
+[1]: https://doc.rust-lang.org/std/ops/trait.Drop.html

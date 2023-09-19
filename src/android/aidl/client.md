@@ -20,5 +20,8 @@ Build, push, and run the client on your device:
 
 ```shell
 {{#include ../build_all.sh:birthday_client}}
+```
+
+```text
 Happy Birthday Charlie, congratulations with the 60 years!
 ```

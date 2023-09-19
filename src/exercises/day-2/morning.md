@@ -2,9 +2,9 @@
 
 We will look at implementing methods in two contexts:
 
-* Simple struct which tracks health statistics.
+* Storing books and querying the collection
 
-* Multiple structs and enums for a drawing library.
+* Keeping track of health statistics for patients
 
 <details>
 

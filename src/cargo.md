@@ -7,29 +7,25 @@ and how it fits into this training.
 
 ## Installation
 
-### Rustup (Recommended)
+> **Please follow the instructions on <https://rustup.rs/>.**
 
-You can follow the instructions to install cargo and rust compiler, among other standard ecosystem tools with the [rustup][3] tool, which is maintained by the Rust Foundation.
+This will give you the Cargo build tool (`cargo`) and the Rust compiler (`rustc`). You will also get `rustup`, a command line utility that you can use to install to different compiler versions.
 
-Along with cargo and rustc, Rustup will install itself as a command line utility that you can use to install/switch toolchains, setup cross compilation, etc.
+After installing Rust, you should configure your editor or IDE to work with Rust. Most editors do this by talking to [rust-analyzer], which provides auto-completion and jump-to-definition functionality for [VS Code], [Emacs], [Vim/Neovim], and many others. There is also a different IDE available called [RustRover].
 
-### Package Managers
+<details>
 
-#### Debian
+* On Debian/Ubuntu, you can also install Cargo, the Rust source and the [Rust formatter] via `apt`. However, this gets you an outdated rust version and may lead to unexpected behavior. The command would be:
 
-On Debian/Ubuntu, you can install Cargo and the Rust source with
+    ```shell
+    sudo apt install cargo rust-src rustfmt
+    ```
 
-```shell
-$ sudo apt install cargo rust-src
-```
+</details>
 
-This will allow [rust-analyzer][1] to jump to the definitions. We suggest using
-[VS Code][2] to edit the code (but any LSP compatible editor works).
-
-Some folks also like to use the [Jetbrains][4] family of IDEs, which do their own analysis but have their own tradeoffs. If you prefer them, you can install the [Rust Plugin][5]. Please take note that as of January 2023 debugging only works on the CLion version of the Jetbrains IDEA suite.
-
-[1]: https://rust-analyzer.github.io/
-[2]: https://code.visualstudio.com/
-[3]: https://rustup.rs/
-[4]: https://www.jetbrains.com/clion/
-[5]: https://www.jetbrains.com/rust/
+[rust-analyzer]: https://rust-analyzer.github.io/
+[VS Code]: https://code.visualstudio.com/
+[Emacs]: https://rust-analyzer.github.io/manual.html#emacs
+[Vim/Neovim]: https://rust-analyzer.github.io/manual.html#vimneovim
+[RustRover]: https://www.jetbrains.com/rust/
+[Rust formatter]: https://github.com/rust-lang/rustfmt

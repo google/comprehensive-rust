@@ -8,7 +8,7 @@ use std::{fs, io};
 use std::io::Read;
 use thiserror::Error;
 
-#[derive(Error, Debug)]
+#[derive(Debug, Error)]
 enum ReadUsernameError {
     #[error("Could not read: {0}")]
     IoError(#[from] io::Error),
@@ -17,7 +17,7 @@ enum ReadUsernameError {
 }
 
 fn read_username(path: &str) -> Result<String, ReadUsernameError> {
-    let mut username = String::with_capacity(100);
+    let mut username = String::new();
     fs::File::open(path)?.read_to_string(&mut username)?;
     if username.is_empty() {
         return Err(ReadUsernameError::EmptyUsername(String::from(path)));
@@ -33,3 +33,13 @@ fn main() {
     }
 }
 ```
+
+<details>
+
+`thiserror`'s derive macro automatically implements `std::error::Error`, and optionally `Display`
+(if the `#[error(...)]` attributes are provided) and `From` (if the `#[from]` attribute is added).
+It also works for structs.
+
+It doesn't affect your public API, which makes it good for libraries.
+
+</details>

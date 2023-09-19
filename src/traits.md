@@ -3,35 +3,37 @@
 Rust lets you abstract over types with traits. They're similar to interfaces:
 
 ```rust,editable
-trait Greet {
-    fn say_hello(&self);
+trait Pet {
+    fn name(&self) -> String;
 }
 
 struct Dog {
     name: String,
 }
 
-struct Cat;  // No name, cats won't respond to it anyway.
+struct Cat;
 
-impl Greet for Dog {
-    fn say_hello(&self) {
-        println!("Wuf, my name is {}!", self.name);
+impl Pet for Dog {
+    fn name(&self) -> String {
+        self.name.clone()
     }
 }
 
-impl Greet for Cat {
-    fn say_hello(&self) {
-        println!("Miau!");
+impl Pet for Cat {
+    fn name(&self) -> String {
+        String::from("The cat") // No name, cats won't respond to it anyway.
     }
+}
+
+fn greet<P: Pet>(pet: &P) {
+    println!("Who's a cutie? {} is!", pet.name());
 }
 
 fn main() {
-    let pets: Vec<Box<dyn Greet>> = vec![
-        Box::new(Dog { name: String::from("Fido") }),
-        Box::new(Cat),
-    ];
-    for pet in pets {
-        pet.say_hello();
-    }
+    let fido = Dog { name: "Fido".into() };
+    greet(&fido);
+
+    let captain_floof = Cat;
+    greet(&captain_floof);
 }
 ```

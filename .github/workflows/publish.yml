@@ -18,6 +18,8 @@ concurrency:
 
 env:
   CARGO_TERM_COLOR: always
+  # Update the language picker in index.hbs to link new languages.
+  LANGUAGES: bn da de es fa fr it ja ko pt-BR zh-CN zh-TW
 
 jobs:
   publish:
@@ -30,16 +32,28 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Rust cache
-        uses: Swatinem/rust-cache@v2
+        uses: ./.github/workflows/setup-rust-cache
 
       - name: Install mdbook
-        run: cargo install mdbook --version 0.4.25
+        uses: ./.github/workflows/install-mdbook
 
-      - name: Install mdbook-svgbob
-        run: cargo install mdbook-svgbob --version 0.2.1
+      - name: Build course in English
+        run: mdbook build -d book
 
-      - name: Build book
-        run: mdbook build
+      - name: Zip exercise templates
+        run: cd book/exerciser && zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/
+
+      - name: Build all translations
+        run: |
+          for po_lang in ${{ env.LANGUAGES }}; do
+              echo "::group::Building $po_lang translation"
+              MDBOOK_BOOK__LANGUAGE=$po_lang \
+              MDBOOK_OUTPUT__HTML__SITE_URL=/comprehensive-rust/$po_lang/ \
+              mdbook build -d book/$po_lang
+              (cd book/$po_lang/exerciser && zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/)
+              mv book/$po_lang/html book/html/$po_lang
+              echo "::endgroup::"
+          done
 
       - name: Setup Pages
         uses: actions/configure-pages@v2
@@ -47,7 +61,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: 'book'
+          path: book/html
 
       - name: Deploy to GitHub Pages
         id: deployment

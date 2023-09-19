@@ -9,22 +9,28 @@ title = "Comprehensive Rust 🦀"
 edition = "2021"
 
 [build]
-extra-watch-dirs = ["po"]
+extra-watch-dirs = ["po", "third_party"]
 
-[preprocessor.links]
-renderers = ["html"]
-
-[preprocessor.index]
-renderers = ["html"]
+[preprocessor.gettext]
+after = ["links"]
 
 [preprocessor.svgbob]
 renderers = ["html"]
+after = ["gettext"]
 class = "bob"
+
+# Enable this preprocessor to overlay a large red rectangle on the
+# pages. This will show you an estimate of what the course
+# participants can see during the presentation.
+#
+# [preprocessor.aspect-ratio-helper]
+# command = "./aspect-ratio-helper.py"
 
 [output.html]
 curly-quotes = true
-additional-js = ["ga4.js", "speaker-notes.js"]
-additional-css = ["svgbob.css", "speaker-notes.css"]
+additional-js = ["speaker-notes.js"]
+additional-css = ["svgbob.css", "speaker-notes.css", "language-picker.css"]
+site-url = "/comprehensive-rust/"
 git-repository-url = "https://github.com/google/comprehensive-rust"
 edit-url-template = "https://github.com/google/comprehensive-rust/edit/main/{path}"
 
@@ -34,3 +40,45 @@ level = 0
 
 [output.html.playground]
 editable = true
+line-numbers = true
+
+[output.html.redirect]
+# Redirects in the form of "old-path" = "new-path", where the new path
+# is relative to the old path.
+"async/concurrency/channels.html" = "../channels.html"
+"async/pitfall/async-traits.html" = "../pitfalls/async-traits.html"
+"control-flow/while-let-expression.html" = "while-let-expressions.html"
+"exercises/day-1/soluções-tarde.html" = "solutions-afternoon.html"
+"exercises/day-2/soluções-tarde.html" = "solutions-afternoon.html"
+"exercises/day-3/soluções-tarde.html" = "solutions-afternoon.html"
+"exercises/day-3/simples-gui.html" = "simple-gui.html"
+"exercises/day-4/afternoon.html" = "../android/morning.html"
+"exercises/day-4/android.html" = "../android/morning.html"
+"exercises/day-4/dining-philosophers.html" = "../concurrency/dining-philosophers.html"
+"exercises/day-4/elevator.html" = "../concurrency/elevator.html"
+"exercises/day-4/link-checker.html" = "../concurrency/link-checker.html"
+"exercises/day-4/morning.html" = "../concurrency/morning.html"
+"exercises/day-4/solutions-morning.html" = "../concurrency/solutions-morning.html"
+"exercises/concurrency/elevator.html" = "chat-app.html"
+"generics/closures.html" = "../traits/closures.html"
+"generics/impl-trait.html" = "../traits/impl-trait.html"
+"generics/trait-bounds.html" = "../traits/trait-bounds.html"
+"generics/trait-objects.html" = "../traits/trait-objects.html"
+"outros-recursos.html" = "other-resources.html"
+"running-the-course/day-4.html" = "course-structure.html"
+"sintaxe-básica/funções-interlude.html" = "../basic-syntax/functions-interlude.html"
+"structure.html" = "running-the-course/course-structure.html"
+"unsafe/mutable-static-variables.md" = "mutable-static-variables.html"
+"unsafe/unsafe-functions.html" = "calling-unsafe-functions.html"
+"welcome-bare-metal.html" = "bare-metal.html"
+"welcome-day-4.html" = "concurrency.html"
+# Moving exercises between days
+"exercises/day-2/luhn.html" = "../day-1/luhn.html"
+"exercises/day-2/points-polygons.html" = "../day-3/points-polygons.html"
+"exercises/day-1/book-library.html" = "../day-2/book-library.html"
+"exercises/day-1/iterators-and-ownership.html" = "../day-2/iterators-and-ownership.html"
+# Send people to canonical URL instead of index.html
+"welcome.html" = "./"
+
+[output.exerciser]
+output-directory = "comprehensive-rust-exercises"

@@ -1,0 +1,32 @@
+[workspace]
+
+[package]
+name = "ap-examples"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+bitflags = "2.0.0"
+log = "0.4.17"
+smccc = "0.1.1"
+spin = "0.9.8"
+
+[build-dependencies]
+cc = "1.0.73"
+
+[[bin]]
+name = "improved"
+path = "src/main_improved.rs"
+
+[[bin]]
+name = "logger"
+path = "src/main_logger.rs"
+
+[[bin]]
+name = "minimal"
+path = "src/main_minimal.rs"
+
+[[bin]]
+name = "psci"
+path = "src/main_psci.rs"

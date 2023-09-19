@@ -5,12 +5,15 @@ Normal threads cannot borrow from their environment:
 ```rust,editable,compile_fail
 use std::thread;
 
-fn main() {
+fn foo() {
     let s = String::from("Hello");
-
     thread::spawn(|| {
         println!("Length: {}", s.len());
     });
+}
+
+fn main() {
+    foo();
 }
 ```
 
@@ -31,3 +34,10 @@ fn main() {
 ```
 
 [1]: https://doc.rust-lang.org/std/thread/fn.scope.html
+
+<details>
+    
+* The reason for that is that when the `thread::scope` function completes, all the threads are guaranteed to be joined, so they can return borrowed data.
+* Normal Rust borrowing rules apply: you can either borrow mutably by one thread, or immutably by any number of threads.
+    
+</details>

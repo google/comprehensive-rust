@@ -1,0 +1,16 @@
+[default.extend-identifiers]
+# False positives.
+mis = "mis"
+MIS = "MIS"
+inout = "inout"
+BARs = "BARs"
+
+[type.po]
+# Localized content should not be checked for typos. English
+# in these files should be validated manually.
+extend-glob = ["*.po"]
+check-file = false
+
+[files]
+# Typos in third party packages should be fixed upstream.
+extend-exclude = ["third_party/*"]

@@ -1,9 +1,22 @@
 # Translations of Comprehensive Rust 🦀
 
 We would love to have your help with translating the course into other
-languages! We use the [Gettext] system for translations. This means that you
-don't modify the Markdown files directly: instead you modify `.po` files in a
-`po/` directory. The `.po` files are small text-based translation databases.
+languages! Please see the [translations page] for the existing translations..
+
+[translations page]: https://google.github.io/comprehensive-rust/running-the-course/translations.html
+
+We use the [Gettext] system for translations. This means that you don't modify
+the Markdown files directly: instead you modify `.po` files in a `po/`
+directory. The `.po` files are small text-based translation databases.
+
+> **Tip:** You should not edit the `.po` files by hand. Instead use a PO editor,
+> such as [Poedit](https://poedit.net/). There are also several online editors
+> available. This will ensure that the file is encoded correctly.
+
+> **Important:** If you are planning to use [Poedit](https://poedit.net/) as
+> suggested above, make sure to follow the
+> [additional configuration steps](#Additional-Configuration-for-Poedit) below
+> to ensure the `.po` file is correctly formatted.
 
 There is a `.po` file for each language. They are named after the [ISO 639]
 language codes: Danish would go into `po/da.po`, Korean would go into
@@ -17,20 +30,17 @@ GNU Gettext utilities below.
 [Gettext]: https://www.gnu.org/software/gettext/manual/html_node/index.html
 [ISO 639]: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 
-## I18n Helpers
+## Preparation
 
-We use two helpers for the translations:
-
-* `mdbook-xgettext`: This program extracts the English text. It is an mdbook
-  renderer.
-* `mdbook-gettext`: This program translates the book into a target language. It
-  is an mdbook preprocessor.
-
-Install both helpers with the following command from the root of the course:
+You will need the [Gettext] utilities (`msginit`, `msgmerge`). Under Debian and
+Ubuntu, you can install with:
 
 ```shell
-$ cargo install --path i18n-helpers
+sudo apt install gettext
 ```
+
+Ensure you can build the book, and that `mdbook serve` works. For this, follow
+the instructions in the [README](README.md).
 
 ## Creating and Updating Translations
 
@@ -42,13 +52,16 @@ find mistakes, you need to update the original English text instead. The fixes
 to the English text will flow into the `.po` files the next time the translators
 update them.
 
+> **Tip:** See our [style guide](STYLE.md) for some things to keep in mind when
+> writing the translation.
+
 ### Generating the PO Template
 
 To extract the original English text and generate a `messages.pot` file, you run
 `mdbook` with a special renderer:
 
 ```shell
-$ MDBOOK_OUTPUT='{"xgettext": {"pot-file": "messages.pot"}}' \
+MDBOOK_OUTPUT='{"xgettext": {"pot-file": "messages.pot"}}' \
   mdbook build -d po
 ```
 
@@ -60,20 +73,39 @@ To start a new translation, first generate the `po/messages.pot` file. Then use
 `msginit` to create a `xx.po` file for the fictional `xx` language:
 
 ```shell
-$ msginit -i po/messages.pot -l xx -o po/xx.po
+msginit -i po/messages.pot -l xx -o po/xx.po
 ```
 
 You can also simply copy `po/messages.pot` to `po/xx.po`. Then update the file
 header (the first entry with `msgid ""`) to the correct language.
 
-### Updating an Existing Translation
+> **Tip:** You can use the
+> [`cloud-translate`](https://github.com/mgeisler/cloud-translate) tool to
+> quickly machine-translate a new translation. Install it with
+>
+> ```shell
+> cargo install cloud-translate
+> ```
+>
+> Untranslated entries will be sent through GCP Cloud Translate. Some of the
+> translations will be wrong after this, so you must inspect them by hand
+> afterwards.
+
+Next, please update the file `.github/labeler.yml` to include the new language:
+
+```diff
++ 'translation/xx':
++ - po/xx.po
+```
+
+### Refreshing an Existing Translation
 
 As the English text changes, translations gradually become outdated. To update
 the `po/xx.po` file with new messages, first extract the English text into a
 `po/messages.pot` template file. Then run
 
 ```shell
-$ msgmerge --update po/xx.po po/messages.pot
+msgmerge --update po/xx.po po/messages.pot
 ```
 
 Unchanged messages will stay intact, deleted messages are marked as old, and
@@ -81,36 +113,103 @@ updated messages are marked "fuzzy". A fuzzy entry will reuse the previous
 translation: you should then go over it and update it as necessary before you
 remove the fuzzy marker.
 
+> **Note:** Your PRs should either be the result of running `msgmerge` or the
+> result of new translation work on the PO file for your language. Avoid mixing
+> the two since it often creates a very large diff, which is hard or impossible
+> to review.
+
+### Editing a Translation
+
+You should install a PO editor to edit the `.po` file for your language. The
+files are simple text files, but it helps to use a dedicated editor since it
+will take care of escaping things like `"` correctly.
+
+There are many PO editors available. [Poedit](https://poedit.net/) is a popular
+cross-platform choice, but you can also find several online editors.
+
+#### Additional Configuration for Poedit
+
+If you are using [Poedit](https://poedit.net/) to work with your `.po` file, you
+will need to change a few things from their default configuration:
+
+1. Open the **Settings** dialog
+   1. On Windows, go to **File / Settings**
+   1. On MacOS, select **Settings** from the **Poedit** menu item
+1. Go to the **Advanced** tab
+1. On **Line endings**, select the option **Unix (recommended)**
+1. Check the **Wrap at** box, and **79** on the textbox
+1. _**Uncheck**_ the **Preserve formatting of existing files** box
+
+![Poedit Screenshot](poedit-screenshot.png)
+
 ## Using Translations
 
 This will show you how to use the translations to generate localized HTML
 output.
 
-## Building a Translation
+> **Note:** `mdbook` will use original untranslated entries for all entries
+> marked as "fuzzy" (visible as "Needs work" in Poedit). This is especially
+> important when using
+> [`cloud-translate`](https://github.com/mgeisler/cloud-translate) for initial
+> translation as all entries will be marked as "fuzzy".
+
+### Building a Translation
 
 To use the `po/xx.po` file for your output, run the following command:
 
 ```shell
-$ MDBOOK_BOOK__LANGUAGE='xx' \
-  MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE='po/xx.po' \
-  MDBOOK_PREPROCESSOR__GETTEXT__RENDERERS='["html"]' \
-  MDBOOK_PREPROCESSOR__GETTEXT__BEFORE='["svgbob"]' \
-  mdbook build -d book/xx
+MDBOOK_BOOK__LANGUAGE=xx mdbook build -d book/xx
 ```
 
 This will update the book's language to `xx`, it will make the `mdbook-gettext`
 preprocessor become active and tell it to use the `po/xx.po` file, and finally
 it will redirect the output to `book/xx`.
 
-## Serving a Translation
+### Serving a Translation
 
 Like normal, you can use `mdbook serve` to view your translation as you work on
-it. You use the same command as with `mdbook build` above, but additionally
-we'll tell `mdbook` to watch the `po/` directory for changes:
+it. You use the same command as with `mdbook build` above:
 
 ```shell
-$ MDBOOK_BOOK__LANGUAGE=xx \
-  MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE=po/xx.po
-  MDBOOK_BUILD__EXTRA_WATCH_DIRS='["po"]'
-  mdbook serve -d book/xx
+MDBOOK_BOOK__LANGUAGE=xx mdbook serve -d book/xx
 ```
+
+When you update the `po/xx.po` file, the translated book will automatically
+reload.
+
+## Reviewing Translations
+
+When a new translation is started, we look for people who can help review it.
+These reviewers are often Googlers, but they don't have to be. To automatically
+get an email when new PRs are created for your language, please add yourself to
+the [CODEOWNERS] file.
+
+When reviewing a translation, please keep in mind that translations are a labour
+of love. Someone spends their free time translating the course because they want
+to bring Rust to users who speak their language.
+
+Nothing is published right away after a PR lands for a new in-progress language.
+It is therefore safe to merge the PR as long as the translation is reasonable.
+This is often better than leaving 50+ comments since this can be overwhelming
+for the contributor. Instead, please work with the contributor to improve things
+in follow-up PRs.
+
+### GitHub Suggestions
+
+When reviewing a translation PR, please use the
+[GitHub suggestion feature](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request).
+This feature allows you to directly write how you think a line or paragraph
+should be phrased. Use the left-most button in the toolbar to create a
+suggestion.
+
+The PR author can
+[apply the changes with a single click](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)
+afterwards, drastically reducing the number of round-trips needed in a review.
+
+### Incomplete Translations
+
+When the first 1-2 days of the course have been translated, we can publish the
+translation and link it from the [translations page]. The idea is to celebrate
+the hard work, even if it is incomplete.
+
+[CODEOWNERS]: https://github.com/google/comprehensive-rust/blob/main/.github/CODEOWNERS

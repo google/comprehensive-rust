@@ -3,14 +3,15 @@
 No undefined behavior at runtime:
 
 * Array access is bounds checked.
-* Integer overflow is defined.
+* Integer overflow is defined (panic or wrap-around).
 
 <details>
 
 Key points:
 
-* Integer overflow is defined via a compile-time flag. The options are
-  either a panic (a controlled crash of the program) or wrap-around
+* Integer overflow is defined via the [`overflow-checks`](https://doc.rust-lang.org/rustc/codegen-options/index.html#overflow-checks)
+  compile-time flag. If enabled, the program will panic (a controlled
+  crash of the program), otherwise you get wrap-around
   semantics. By default, you get panics in debug mode (`cargo build`)
   and wrap-around in release mode (`cargo build --release`).
 
