@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+use matter::matter;
 use mdbook::book::{Book, BookItem};
 use mdbook::preprocess::PreprocessorContext;
-use matter::matter;
 
 pub fn remove_frontmatter(
     _ctx: &PreprocessorContext,
