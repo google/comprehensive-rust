@@ -20,6 +20,6 @@ fn main() {
 * `Result` is the standard type to implement error handling as we will see on Day 3.
 * `try_into` attempts to convert the vector into a fixed-sized array. This can fail:
   * If the vector has the right size, `Result::Ok` is returned with the array.
-  * Otherwise, `Result::Err` is returend with the original vector.
+  * Otherwise, `Result::Err` is returned with the original vector.
 
 </details>
