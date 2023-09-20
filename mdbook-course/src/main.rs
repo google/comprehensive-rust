@@ -21,7 +21,7 @@ use std::process;
 fn main() {
     pretty_env_logger::init();
     let app = Command::new("mdbook-course")
-        .about("Comprehensive-Rust-specific mdbook preprocessor")
+        .about("mdbook preprocessor for Comprehensive Rust")
         .subcommand(Command::new("supports").arg(Arg::new("renderer").required(true)));
     let matches = app.get_matches();
 
