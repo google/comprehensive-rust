@@ -1,7 +1,7 @@
 # mdbook-course
 
-This is an mdBook preprocessor to handle some specific details of the
-Comprehensive-Rust course.
+This is an mdBook preprocessor to handle some specific details of
+Comprehensive Rust.
 
 ## Frontmatter
 
