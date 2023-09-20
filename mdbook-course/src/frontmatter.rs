@@ -17,18 +17,24 @@ use mdbook::book::{Book, BookItem};
 use mdbook::preprocess::PreprocessorContext;
 
 pub fn remove_frontmatter(
-    _ctx: &PreprocessorContext,
+    ctx: &PreprocessorContext,
     book: &mut Book,
 ) -> anyhow::Result<()> {
+    let is_html = ctx.renderer == "html";
     book.for_each_mut(|chapter| {
         let BookItem::Chapter(chapter) = chapter else {
             return;
         };
         if let Some((frontmatter, content)) = matter(&chapter.content) {
-            // For the moment, include the frontmatter in the slide in a floating <pre>, for review
-            // purposes.
-            let pre = format!(r#"<pre class="frontmatter">{frontmatter}</pre>"#);
-            chapter.content = format!("{pre}\n\n{content}");
+            if is_html {
+                // For the moment, include the frontmatter in the slide in a floating <pre>, for review
+                // purposes.
+                let pre = format!(r#"<pre class="frontmatter">{frontmatter}</pre>"#);
+                chapter.content = format!("{pre}\n\n{content}");
+            } else {
+                // For non-HTML renderers, just strip the frontmatter.
+                chapter.content = content;
+            }
         }
     });
     Ok(())

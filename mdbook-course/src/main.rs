@@ -26,7 +26,7 @@ fn main() {
     let matches = app.get_matches();
 
     if let Some(_) = matches.subcommand_matches("supports") {
-        // Support all versions of mdbook.
+        // Support all renderers.
         process::exit(0);
     }
 
