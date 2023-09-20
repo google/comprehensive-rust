@@ -19,6 +19,7 @@ renderers = ["html"]
 after = ["gettext"]
 class = "bob"
 
+[preprocessor.course]
 # Enable this preprocessor to overlay a large red rectangle on the
 # pages. This will show you an estimate of what the course
 # participants can see during the presentation.
@@ -29,7 +30,12 @@ class = "bob"
 [output.html]
 curly-quotes = true
 additional-js = ["speaker-notes.js"]
-additional-css = ["svgbob.css", "speaker-notes.css", "language-picker.css"]
+additional-css = [
+  "svgbob.css",
+  "speaker-notes.css",
+  "language-picker.css",
+  "frontmatter.css",
+]
 site-url = "/comprehensive-rust/"
 git-repository-url = "https://github.com/google/comprehensive-rust"
 edit-url-template = "https://github.com/google/comprehensive-rust/edit/main/{path}"
