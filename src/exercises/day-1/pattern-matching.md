@@ -1,7 +1,3 @@
----
-minutes: 15
----
-
 # Exercise: Expression Evaluation
 
 Let's write a simple recursive evaluator for arithmetic expressions. 
