@@ -4,11 +4,6 @@ existing course material:
 - traits/trait-objects.md
 ---
 
-<!-- NOTES:
-How and when to use `dyn Trait`
--->
-# Trait Objects
-
 # Trait Objects
 
 Trait objects allow for values of different types, for instance in a collection:

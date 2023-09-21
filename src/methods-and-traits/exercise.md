@@ -4,12 +4,7 @@ existing course material:
 - exercises/day-3/simple-gui.md
 ---
 
-<!-- NOTES:
-This will need to be simplified to fit the time
--->
 # Exercise: GUI Library
-
-# Drawing A Simple GUI
 
 Let us design a classical GUI library using our new knowledge of traits and
 trait objects. We'll only implement the drawing of it (as text) for simplicity.
