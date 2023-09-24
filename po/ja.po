@@ -16646,25 +16646,31 @@ msgstr ""
 
 #: src/concurrency/send-sync.md:1
 msgid "`Send` and `Sync`"
-msgstr ""
+msgstr "`Send`と`Sync`"
 
 #: src/concurrency/send-sync.md:3
 msgid ""
 "How does Rust know to forbid shared access across thread? The answer is in "
 "two traits:"
 msgstr ""
+"Rustはどのようにスレッド間での値の共有アクセスを禁止するのでしょうか？その答"
+"えとなるのが、以下の２つのトレイトです："
 
 #: src/concurrency/send-sync.md:5
 msgid ""
 "[`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html): a type `T` "
 "is `Send` if it is safe to move a `T` across a thread boundary."
 msgstr ""
+"[`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html): スレッド境界"
+"をまたいでの型`T`のムーブが安全に行える場合、型`T`は`Send`である。"
 
 #: src/concurrency/send-sync.md:7
 msgid ""
 "[`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html): a type `T` "
 "is `Sync` if it is safe to move a `&T` across a thread boundary."
 msgstr ""
+"[`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html): スレッド境界"
+"をまたいで`&T`のムーブが安全に行える場合、型`T`は`Sync`である。"
 
 #: src/concurrency/send-sync.md:10
 msgid ""
@@ -16673,16 +16679,24 @@ msgid ""
 "contain `Send` and `Sync` types. You can also implement them manually when "
 "you know it is valid."
 msgstr ""
+"`Send`と`Sync`は[unsafeなトレイト](../unsafe/unsafe-traits.md)です。 あなたが"
+"新たに定義する型が`Send`と`Sync`の型のみを含む場合、コンパイラはその新しい型"
+"に対して`Send`と`Sync`を自動的に導出します。そうでなくても妥当であるならば"
+"`Send`と`Sync`を自分自身で実装することもできます。"
 
 #: src/concurrency/send-sync.md:20
 msgid ""
 "One can think of these traits as markers that the type has certain thread-"
 "safety properties."
 msgstr ""
+"これらのトレイトは、ある型が特定のスレッドセーフの特性を持っていることを示す"
+"マーカーと考えることもできます。"
 
 #: src/concurrency/send-sync.md:21
 msgid "They can be used in the generic constraints as normal traits."
 msgstr ""
+"これらは通常のトレイトと同じように、ジェネリック境界の中で利用することができ"
+"ます。"
 
 #: src/concurrency/send-sync/send.md:1
 msgid "`Send`"
@@ -16693,6 +16707,8 @@ msgid ""
 "A type `T` is [`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html) "
 "if it is safe to move a `T` value to another thread."
 msgstr ""
+"型`T`の値を安全に別のスレッドにムーブできる場合、型`T`は[`Send`](https://doc."
+"rust-lang.org/std/marker/trait.Send.html)である。"
 
 #: src/concurrency/send-sync/send.md:5
 msgid ""
@@ -16700,12 +16716,17 @@ msgid ""
 "run in that thread. So the question is when you can allocate a value in one "
 "thread and deallocate it in another."
 msgstr ""
+"所有権を別のスレットにムーブするということは、_デストラクタ_ がそのスレッドで"
+"実行されるということです。つまり、あるスレッドでアロケートされた値を別のス"
+"レッドで解放しても良いかというのが判断基準になります。"
 
 #: src/concurrency/send-sync/send.md:13
 msgid ""
 "As an example, a connection to the SQLite library must only be accessed from "
 "a single thread."
 msgstr ""
+"例を挙げると、SQLiteライブラリへのコネクションは、一つのスレッドからのみアク"
+"セスされる必要があります。"
 
 #: src/concurrency/send-sync/sync.md:1
 msgid "`Sync`"
@@ -16716,14 +16737,16 @@ msgid ""
 "A type `T` is [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html) "
 "if it is safe to access a `T` value from multiple threads at the same time."
 msgstr ""
+"型`T`の値を複数のスレッドから同時にアクセスしても安全な場合、型`T`は [`Sync`]"
+"(https://doc.rust-lang.org/std/marker/trait.Sync.html) である。"
 
 #: src/concurrency/send-sync/sync.md:6
 msgid "More precisely, the definition is:"
-msgstr ""
+msgstr "より正確には、以下のような定義です："
 
 #: src/concurrency/send-sync/sync.md:8
 msgid "`T` is `Sync` if and only if `&T` is `Send`"
-msgstr ""
+msgstr "`&T`が`Send`である場合、かつその場合に限り、`T`は`Sync`である"
 
 #: src/concurrency/send-sync/sync.md:14
 msgid ""
@@ -16731,6 +16754,8 @@ msgid ""
 "thread-safe for shared use, it is also thread-safe to pass references of it "
 "across threads."
 msgstr ""
+"これはつまり、「ある型の共有がスレッドセーフであれば、その参照をスレッド間で"
+"受け渡すこともスレッドセーフである」ということを手短に表したものです。"
 
 #: src/concurrency/send-sync/sync.md:16
 msgid ""
@@ -16740,6 +16765,11 @@ msgid ""
 "is also safe to move to another thread, because the data it references can "
 "be accessed from any thread safely."
 msgstr ""
+"なぜなら、ある型がSyncである場合、データ競合や他の同期の問題などのリスクなし"
+"にその型を複数のスレッド間で共有でき、その型を別のスレッドにムーブしても安全"
+"だからです。また、型への参照は別のスレッドにムーブしても安全です。それは、そ"
+"れが参照するデータは任意のスレッドから安全にアクセスすることができるからで"
+"す。"
 
 #: src/concurrency/send-sync/examples.md:3
 msgid "`Send + Sync`"
@@ -16747,7 +16777,7 @@ msgstr ""
 
 #: src/concurrency/send-sync/examples.md:5
 msgid "Most types you come across are `Send + Sync`:"
-msgstr ""
+msgstr "見かけるほとんどの型は`Send + Sync`です："
 
 #: src/concurrency/send-sync/examples.md:7
 msgid "`i8`, `f32`, `bool`, `char`, `&str`, ..."
@@ -16763,21 +16793,23 @@ msgstr ""
 
 #: src/concurrency/send-sync/examples.md:10
 msgid "`Arc<T>`: Explicitly thread-safe via atomic reference count."
-msgstr ""
+msgstr "`Arc<T>`: アトミック参照カウントにより、明示的にスレッドセーフ。"
 
 #: src/concurrency/send-sync/examples.md:11
 msgid "`Mutex<T>`: Explicitly thread-safe via internal locking."
-msgstr ""
+msgstr "`Mutex<T>`: 内部ロックにより明示的にスレッドセーフ。"
 
 #: src/concurrency/send-sync/examples.md:12
 msgid "`AtomicBool`, `AtomicU8`, ...: Uses special atomic instructions."
-msgstr ""
+msgstr "`AtomicBool`, `AtomicU8`, …: 特別なアトミック命令を利用。"
 
 #: src/concurrency/send-sync/examples.md:14
 msgid ""
 "The generic types are typically `Send + Sync` when the type parameters are "
 "`Send + Sync`."
 msgstr ""
+"ジェネリクスは、型パラメタが`Send + Sync`であるとき、通常は`Send + Sync`で"
+"す。"
 
 #: src/concurrency/send-sync/examples.md:17
 msgid "`Send + !Sync`"
@@ -16788,6 +16820,8 @@ msgid ""
 "These types can be moved to other threads, but they're not thread-safe. "
 "Typically because of interior mutability:"
 msgstr ""
+"これらの型は別のスレッドにムーブすることができますが、このようなムーブはス"
+"レッドセーフではありません。通常は内部可変性がその原因です："
 
 #: src/concurrency/send-sync/examples.md:22
 msgid "`mpsc::Sender<T>`"
@@ -16813,12 +16847,16 @@ msgstr ""
 msgid ""
 "These types are thread-safe, but they cannot be moved to another thread:"
 msgstr ""
+"このような型はスレッドセーフですが、別のスレッドにムーブすることはできませ"
+"ん："
 
 #: src/concurrency/send-sync/examples.md:31
 msgid ""
 "`MutexGuard<T>`: Uses OS level primitives which must be deallocated on the "
 "thread which created them."
 msgstr ""
+"`MutexGuard<T>`: プリミティブを作成したスレッド自身により、割り当てを解除され"
+"るべきであるようなOSレベルのプリミティブを利用。"
 
 #: src/concurrency/send-sync/examples.md:34
 msgid "`!Send + !Sync`"
@@ -16827,18 +16865,24 @@ msgstr ""
 #: src/concurrency/send-sync/examples.md:36
 msgid "These types are not thread-safe and cannot be moved to other threads:"
 msgstr ""
+"このような型はスレッドセーフではないため、別のスレッドにムーブすることはでき"
+"ません："
 
 #: src/concurrency/send-sync/examples.md:38
 msgid ""
 "`Rc<T>`: each `Rc<T>` has a reference to an `RcBox<T>`, which contains a non-"
 "atomic reference count."
 msgstr ""
+"`Rc<T>`: それぞれの `Rc<T>` は`RcBox<T>`への参照を持っています。これは、アト"
+"ミックでない参照カウントを持っています。"
 
 #: src/concurrency/send-sync/examples.md:40
 msgid ""
 "`*const T`, `*mut T`: Rust assumes raw pointers may have special concurrency "
 "considerations."
 msgstr ""
+"`*const T`, `*mut T`: Rust は、生ポインターは同時実行性に関する特別な考慮事項"
+"がある可能性があることを仮定しています。"
 
 #: src/concurrency/shared_state.md:3
 msgid ""
