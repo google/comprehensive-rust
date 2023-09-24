@@ -8,8 +8,8 @@ fn main() {
     let first: Option<&i8> = numbers.first();
     println!("first: {first:?}");
 
-    let idx: Result<usize, usize> = numbers.binary_search(&10);
-    println!("idx: {idx:?}");
+    let arr: Result<[i8; 3], Vec<i8>> = numbers.try_into();
+    println!("arr: {arr:?}");
 }
 ```
 
@@ -18,8 +18,8 @@ fn main() {
 * `Option` and `Result` are widely used not just in the standard library.
 * `Option<&T>` has zero space overhead compared to `&T`.
 * `Result` is the standard type to implement error handling as we will see on Day 3.
-* `binary_search` returns `Result<usize, usize>`.
-  * If found, `Result::Ok` holds the index where the element is found.
-  * Otherwise, `Result::Err` contains the index where such an element should be inserted.
+* `try_into` attempts to convert the vector into a fixed-sized array. This can fail:
+  * If the vector has the right size, `Result::Ok` is returned with the array.
+  * Otherwise, `Result::Err` is returned with the original vector.
 
 </details>

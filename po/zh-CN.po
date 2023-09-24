@@ -662,7 +662,7 @@ msgstr "更改 API"
 #: src/SUMMARY.md:197 src/SUMMARY.md:240 src/android/logging.md:1
 #: src/bare-metal/aps/logging.md:1
 msgid "Logging"
-msgstr ""
+msgstr "日志记录"
 
 #: src/SUMMARY.md:198 src/android/interoperability.md:1
 msgid "Interoperability"
@@ -13074,10 +13074,12 @@ msgid ""
 "You should use the `log` crate to automatically log to `logcat` (on-device) "
 "or `stdout` (on-host):"
 msgstr ""
+"你应该使用 `log` crate 来自动记录日志到 `logcat` （设备上）或 `stdout`（主机"
+"上）："
 
 #: src/android/logging.md:6
 msgid "_hello_rust_logs/Android.bp_:"
-msgstr ""
+msgstr "_hello_rust_logs/Android.bp_:"
 
 #: src/android/logging.md:8
 msgid ""
@@ -13095,10 +13097,23 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_binary {\n"
+"    name: \"hello_rust_logs\",\n"
+"    crate_name: \"hello_rust_logs\",\n"
+"    srcs: [\"src/main.rs\"],\n"
+"    rustlibs: [\n"
+"        \"liblog_rust\",\n"
+"        \"liblogger\",\n"
+"    ],\n"
+"    prefer_rlib: true,\n"
+"    host_supported: true,\n"
+"}\n"
+"```"
 
 #: src/android/logging.md:22
 msgid "_hello_rust_logs/src/main.rs_:"
-msgstr ""
+msgstr "_hello_rust_logs/src/main.rs_:"
 
 #: src/android/logging.md:24
 msgid ""
@@ -13120,11 +13135,28 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,ignore\n"
+"//! Rust logging demo.\n"
+"\n"
+"use log::{debug, error, info};\n"
+"\n"
+"/// Logs a greeting.\n"
+"fn main() {\n"
+"    logger::init(\n"
+"        logger::Config::default()\n"
+"            .with_tag_on_device(\"rust\")\n"
+"            .with_min_level(log::Level::Trace),\n"
+"    );\n"
+"    debug!(\"Starting program.\");\n"
+"    info!(\"Things are going fine.\");\n"
+"    error!(\"Something went wrong!\");\n"
+"}\n"
+"```"
 
 #: src/android/logging.md:42 src/android/interoperability/with-c/bindgen.md:98
 #: src/android/interoperability/with-c/rust.md:73
 msgid "Build, push, and run the binary on your device:"
-msgstr ""
+msgstr "在你的设备上构建，推送，并运行二进制文件 ："
 
 #: src/android/logging.md:44
 msgid ""
@@ -13134,10 +13166,15 @@ msgid ""
 "$ adb shell /data/local/tmp/hello_rust_logs\n"
 "```"
 msgstr ""
+"```shell\n"
+"$ m hello_rust_logs\n"
+"$ adb push $ANDROID_PRODUCT_OUT/system/bin/hello_rust_logs /data/local/tmp\n"
+"$ adb shell /data/local/tmp/hello_rust_logs\n"
+"```"
 
 #: src/android/logging.md:50
 msgid "The logs show up in `adb logcat`:"
-msgstr ""
+msgstr "日志将会在 `adb logcat` 中显示："
 
 #: src/android/logging.md:52
 msgid ""
@@ -13150,6 +13187,14 @@ msgid ""
 "wrong!\n"
 "```"
 msgstr ""
+"```shell\n"
+"$ adb logcat -s rust\n"
+"09-08 08:38:32.454  2420  2420 D rust: hello_rust_logs: Starting program.\n"
+"09-08 08:38:32.454  2420  2420 I rust: hello_rust_logs: Things are going "
+"fine.\n"
+"09-08 08:38:32.454  2420  2420 E rust: hello_rust_logs: Something went "
+"wrong!\n"
+"```"
 
 #: src/android/interoperability.md:3
 msgid ""

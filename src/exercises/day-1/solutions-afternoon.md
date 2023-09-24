@@ -5,9 +5,11 @@
 ([back to exercise](luhn.md))
 
 ```rust
-{{#include luhn.rs}}
+{{#include luhn.rs:solution}}
 ```
 
 ## Pattern matching
 
-TBD.
+```rust
+{{#include pattern-matching.rs:solution}}
+```

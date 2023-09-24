@@ -31,6 +31,10 @@ fn main() {
 
 <details>
 
+* `drop` is called automatically, but it can be called manually like in this example.
+* If it was called manually, it won't be called at the end of the scope for the second time.
+* Calling `drop` can be useful for objects that do some work on `drop`: releasing locks, closing files, etc.
+
 Discussion points:
 
 * Why doesn't `Drop::drop` take `self`?
