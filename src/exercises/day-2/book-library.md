@@ -50,6 +50,6 @@ Use this to model a library's book collection. Copy the code below to
 
 <details>
     
-[Solution](solutions-afternoon.md#designing-a-library)
+[Solution](solutions-morning.md#designing-a-library)
 
 </details>
