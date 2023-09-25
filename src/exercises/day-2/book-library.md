@@ -47,9 +47,3 @@ Use this to model a library's book collection. Copy the code below to
 
 {{#include book-library.rs:main}}
 ```
-
-<details>
-    
-[Solution](solutions-morning.md#designing-a-library)
-
-</details>
