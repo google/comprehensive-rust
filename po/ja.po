@@ -17974,7 +17974,7 @@ msgstr ""
 
 #: src/async/control-flow.md:1
 msgid "Futures Control Flow"
-msgstr ""
+msgstr "Futureの制御フロー"
 
 #: src/async/control-flow.md:3
 msgid ""
@@ -17982,6 +17982,8 @@ msgid ""
 "We have already seen tasks, that function as independent threads of "
 "execution."
 msgstr ""
+"並行計算フローグラフを生成するために、futureを組み合わせることができます。す"
+"でに独立したスレッドとして機能するタスクを見てきました。"
 
 #: src/async/control-flow.md:6
 msgid "[Join](control-flow/join.md)"
@@ -17997,6 +17999,9 @@ msgid ""
 "a collection of their results. This is similar to `Promise.all` in "
 "JavaScript or `asyncio.gather` in Python."
 msgstr ""
+"Joinという操作では、futureの集合の準備が整うまで待機し、その後に結果をまとめ"
+"て返します。これはJavaScriptにおける `Promise.all` やPythonにおける`asyncio."
+"gather`に似ています。"
 
 #: src/async/control-flow/join.md:7
 msgid ""
@@ -18034,12 +18039,18 @@ msgid ""
 "you must know how many futures you will have at compile time. This is "
 "currently in the `futures` crate, soon to be stabilised in `std::future`."
 msgstr ""
+"複数の互いに素な型のfutureに対しては、`std::future::join!`を利用できます。し"
+"かし、いくつのfutureがコンパイル時に存在しているのかを把握しておく必要があり"
+"ます。これは現在`futures`クレートにありますが、近いうちに`std::future`に統合"
+"される予定です。"
 
 #: src/async/control-flow/join.md:42
 msgid ""
 "The risk of `join` is that one of the futures may never resolve, this would "
 "cause your program to stall. "
 msgstr ""
+"`join`のリスクは、複数のfutureのうちの１つでも解決されないとプログラムがス"
+"トールしてしまうということです。 "
 
 #: src/async/control-flow/join.md:45
 msgid ""
@@ -18049,6 +18060,11 @@ msgid ""
 "timeout (that requires `select!`, explained in the next chapter), but "
 "demonstrates `join!`."
 msgstr ""
+"また、`join_all`と`join!`を組み合わせることもできます。それは、例えばデータ"
+"ベースのクエリと一緒にhttpサービスへの全てのリクエストをjoinする場合です。"
+"futureに`futures::join!`を用いて、`tokio::time::sleep`を追加してみてくださ"
+"い。これは（次のチャプターで説明する、`select!`を必要とする）タイムアウトでは"
+"ありませんが、`join!`の良い実演となっています。"
 
 #: src/async/control-flow/select.md:3
 msgid ""
@@ -18057,6 +18073,10 @@ msgid ""
 "race`. In Python, it compares to `asyncio.wait(task_set, return_when=asyncio."
 "FIRST_COMPLETED)`."
 msgstr ""
+"Selectという操作では、futureの集合のうち、いずれか１つの準備が整うまで待機"
+"し、そのfutureが提供する結果に対して応答します。これはJavaScriptにおける"
+"`Promise.race`に似ています。また、Pythonにおける `asyncio.wait(task_set, "
+"return_when=asyncio.FIRST_COMPLETED)`と比べることができます。"
 
 #: src/async/control-flow/select.md:8
 msgid ""
@@ -18065,6 +18085,10 @@ msgid ""
 "ready, the `statement` is executed with the variables in `pattern` bound to "
 "the `future`'s result."
 msgstr ""
+"Matchステートメントのように、`select!`の本体にはいくつかの 「腕」があり、それ"
+"ぞれは`pattern = future => statement`の形をとっています。 `future`の準備が"
+"整った時、その`statement`は`future`の結果に紐づく`pattern`の変数を用いて実行"
+"されます。"
 
 #: src/async/control-flow/select.md:13
 msgid ""
@@ -18123,30 +18147,44 @@ msgid ""
 "whichever arrives first. Since the dog takes 50ms, it wins against the cat "
 "that take 500ms seconds."
 msgstr ""
+"この例では、猫と犬のレースを扱っています。`first_animal_to_finish_race`は両方"
+"のチャネルをリッスンし、先に到着した方を選びます。犬は到着まで50msかかるの"
+"で、500msかかる猫に勝ちます。"
 
 #: src/async/control-flow/select.md:67
 msgid ""
 "You can use `oneshot` channels in this example as the channels are supposed "
 "to receive only one `send`."
 msgstr ""
+"この例では`oneshot`チャネルを使うこともできます。なぜなら、チャネルは一回きり"
+"の`send`を受け取ることになっているからです。"
 
 #: src/async/control-flow/select.md:70
 msgid ""
 "Try adding a deadline to the race, demonstrating selecting different sorts "
 "of futures."
 msgstr ""
+"レースに制限時間を追加することによって、違う種類のfutureをselectすることを実"
+"演してみてください。"
 
 #: src/async/control-flow/select.md:73
 msgid ""
 "Note that `select!` drops unmatched branches, which cancels their futures. "
 "It is easiest to use when every execution of `select!` creates new futures."
 msgstr ""
+"`select!`はマッチしなかったブランチをドロップすることに注意してください。これ"
+"は、そうしたブランチのfutureがキャンセルされることにつながります。`select!`を"
+"毎回実行する際に新たなfutureが作成されるときに、`select!`を使うのが最も簡単で"
+"す。"
 
 #: src/async/control-flow/select.md:76
 msgid ""
 "An alternative is to pass `&mut future` instead of the future itself, but "
 "this can lead to issues, further discussed in the pinning slide."
 msgstr ""
+"Futureそのものでなく、`&mut future`を渡すという代替案もあります。しかし、これ"
+"は問題につながることもあります。このことはPinに関するスライドで詳細に議論しま"
+"す。"
 
 #: src/async/pitfalls.md:1
 msgid "Pitfalls of async/await"
