@@ -16,7 +16,7 @@ should write a driver for it.
 Download the [exercise template](../../comprehensive-rust-exercises.zip) and look in the `rtc`
 directory for the following files.
 
-`src/main.rs`:
+_src/main.rs_:
 
 <!-- File src/main.rs -->
 
@@ -34,7 +34,7 @@ directory for the following files.
 {{#include rtc/src/main.rs:main_end}}
 ```
 
-`src/exceptions.rs` (you should only need to change this for the 3rd part of the exercise):
+_src/exceptions.rs_ (you should only need to change this for the 3rd part of the exercise):
 
 <!-- File src/exceptions.rs -->
 
@@ -42,7 +42,7 @@ directory for the following files.
 {{#include rtc/src/exceptions.rs}}
 ```
 
-`src/logger.rs` (you shouldn't need to change this):
+_src/logger.rs_ (you shouldn't need to change this):
 
 <!-- File src/logger.rs -->
 
@@ -50,7 +50,7 @@ directory for the following files.
 {{#include rtc/src/logger.rs}}
 ```
 
-`src/pl011.rs` (you shouldn't need to change this):
+_src/pl011.rs_ (you shouldn't need to change this):
 
 <!-- File src/pl011.rs -->
 
@@ -58,7 +58,7 @@ directory for the following files.
 {{#include rtc/src/pl011.rs}}
 ```
 
-`Cargo.toml` (you shouldn't need to change this):
+_Cargo.toml_ (you shouldn't need to change this):
 
 <!-- File Cargo.toml -->
 
@@ -66,7 +66,7 @@ directory for the following files.
 {{#include rtc/Cargo.toml}}
 ```
 
-`build.rs` (you shouldn't need to change this):
+_build.rs_ (you shouldn't need to change this):
 
 <!-- File build.rs -->
 
@@ -74,7 +74,7 @@ directory for the following files.
 {{#include rtc/build.rs}}
 ```
 
-`entry.S` (you shouldn't need to change this):
+_entry.S_ (you shouldn't need to change this):
 
 <!-- File entry.S -->
 
@@ -82,7 +82,7 @@ directory for the following files.
 {{#include rtc/entry.S}}
 ```
 
-`exceptions.S` (you shouldn't need to change this):
+_exceptions.S_ (you shouldn't need to change this):
 
 <!-- File exceptions.S -->
 
@@ -90,7 +90,7 @@ directory for the following files.
 {{#include rtc/exceptions.S}}
 ```
 
-`idmap.S` (you shouldn't need to change this):
+_idmap.S_ (you shouldn't need to change this):
 
 <!-- File idmap.S -->
 
@@ -98,7 +98,7 @@ directory for the following files.
 {{#include rtc/idmap.S}}
 ```
 
-`image.ld` (you shouldn't need to change this):
+_image.ld_ (you shouldn't need to change this):
 
 <!-- File image.ld -->
 
@@ -106,7 +106,7 @@ directory for the following files.
 {{#include rtc/image.ld}}
 ```
 
-`Makefile` (you shouldn't need to change this):
+_Makefile_ (you shouldn't need to change this):
 
 <!-- File Makefile -->
 
@@ -114,7 +114,7 @@ directory for the following files.
 {{#include rtc/Makefile}}
 ```
 
-`.cargo/config.toml` (you shouldn't need to change this):
+_.cargo/config.toml_ (you shouldn't need to change this):
 
 <!-- File .cargo/config.toml -->
 
