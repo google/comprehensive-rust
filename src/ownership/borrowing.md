@@ -3,6 +3,7 @@
 Instead of transferring ownership when calling a function, you can let a
 function _borrow_ the value:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 #[derive(Debug)]
 struct Point(i32, i32);
@@ -27,6 +28,7 @@ fn main() {
 Notes on stack returns:
 * Demonstrate that the return from `add` is cheap because the compiler can eliminate the copy operation. Change the above code to print stack addresses and run it on the [Playground] or look at the assembly in [Godbolt](https://rust.godbolt.org/). In the "DEBUG" optimization level, the addresses should change, while they stay the same when changing to the "RELEASE" setting:
 
+  <!-- mdbook-xgettext: skip -->
   ```rust,editable
   #[derive(Debug)]
   struct Point(i32, i32);

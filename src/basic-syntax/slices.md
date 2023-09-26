@@ -2,6 +2,7 @@
 
 A slice gives you a view into a larger collection:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
     let mut a: [i32; 6] = [10, 20, 30, 40, 50, 60];
