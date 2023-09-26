@@ -3,6 +3,7 @@
 The [`while` keyword](https://doc.rust-lang.org/reference/expressions/loop-expr.html#predicate-loops)
 works very similar to other languages:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
     let mut x = 10;
@@ -13,7 +14,7 @@ fn main() {
             3 * x + 1
         };
     }
-    println!("Final x: {x}");
+    println!("x: {x}");
 }
 ```
 

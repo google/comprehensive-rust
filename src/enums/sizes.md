@@ -31,6 +31,7 @@ Key Points:
 
  * You can control the discriminant if needed (e.g., for compatibility with C):
  
+     <!-- mdbook-xgettext: skip -->
      ```rust,editable
      #[repr(u32)]
      enum Bar {
@@ -67,6 +68,7 @@ Key Points:
      Example code if you want to show how the bitwise representation *may* look like in practice.
      It's important to note that the compiler provides no guarantees regarding this representation, therefore this is totally unsafe.
 
+     <!-- mdbook-xgettext: skip -->
      ```rust,editable
      use std::mem::transmute;
 
@@ -77,25 +79,23 @@ Key Points:
      }
 
      fn main() {
-         // TOTALLY UNSAFE. Rust provides no guarantees about the bitwise
-         // representation of types.
          unsafe {
-             println!("Bitwise representation of bool");
+             println!("bool:");
              dbg_bits!(false, u8);
              dbg_bits!(true, u8);
 
-             println!("Bitwise representation of Option<bool>");
+             println!("Option<bool>:");
              dbg_bits!(None::<bool>, u8);
              dbg_bits!(Some(false), u8);
              dbg_bits!(Some(true), u8);
 
-             println!("Bitwise representation of Option<Option<bool>>");
+             println!("Option<Option<bool>>:");
              dbg_bits!(Some(Some(false)), u8);
              dbg_bits!(Some(Some(true)), u8);
              dbg_bits!(Some(None::<bool>), u8);
              dbg_bits!(None::<Option<bool>>, u8);
 
-             println!("Bitwise representation of Option<&i32>");
+             println!("Option<&i32>:");
              dbg_bits!(None::<&i32>, usize);
              dbg_bits!(Some(&0i32), usize);
          }
@@ -104,6 +104,7 @@ Key Points:
 
      More complex example if you want to discuss what happens when we chain more than 256 `Option`s together.
 
+     <!-- mdbook-xgettext: skip -->
      ```rust,editable
      #![recursion_limit = "1000"]
 

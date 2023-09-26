@@ -2,6 +2,7 @@
 
 Like C++, Rust has references:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
     let mut x: i32 = 10;

@@ -7,6 +7,7 @@
 
 Array assignment and access:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
     let mut a: [i8; 10] = [42; 10];
@@ -17,11 +18,12 @@ fn main() {
 
 Tuple assignment and access:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
     let t: (i8, bool) = (7, true);
-    println!("1st index: {}", t.0);
-    println!("2nd index: {}", t.1);
+    println!("t.0: {}", t.0);
+    println!("t.1: {}", t.1);
 }
 ```
 

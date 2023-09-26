@@ -2,6 +2,7 @@
 
 In addition to borrowing its arguments, a function can return a borrowed value:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 #[derive(Debug)]
 struct Point(i32, i32);
@@ -14,7 +15,7 @@ fn main() {
     let p1: Point = Point(10, 10);
     let p2: Point = Point(20, 20);
     let p3: &Point = left_most(&p1, &p2);
-    println!("left-most point: {:?}", p3);
+    println!("p3: {p3:?}");
 }
 ```
 
@@ -29,6 +30,7 @@ fn main() {
 In the above example, try the following:
 
 * Move the declaration of `p2` and `p3` into a new scope (`{ ... }`), resulting in the following code:
+  <!-- mdbook-xgettext: skip -->
   ```rust,ignore
   #[derive(Debug)]
   struct Point(i32, i32);
@@ -44,7 +46,7 @@ In the above example, try the following:
           let p2: Point = Point(20, 20);
           p3 = left_most(&p1, &p2);
       }
-      println!("left-most point: {:?}", p3);
+      println!("p3: {p3:?}");
   }
   ```
   Note how this does not compile since `p3` outlives `p2`.

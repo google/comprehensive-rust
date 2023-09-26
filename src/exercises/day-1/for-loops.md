@@ -8,6 +8,7 @@ let array = [10, 20, 30];
 
 You can print such an array by asking for its debug representation with `{:?}`:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
     let array = [10, 20, 30];
@@ -38,6 +39,7 @@ fn main() {
 Use the above to write a function `pretty_print` which pretty-print a matrix and
 a function `transpose` which will transpose a matrix (turn rows into columns):
 
+<!-- mdbook-xgettext: skip -->
 ```bob
            ⎛⎡1 2 3⎤⎞      ⎡1 4 7⎤
 "transpose"⎜⎢4 5 6⎥⎟  "=="⎢2 5 8⎥
