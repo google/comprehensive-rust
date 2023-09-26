@@ -2,7 +2,7 @@
 <button id="language-toggle{{ counter }}" class="icon-button" type="button"
     title="Change language" aria-label="Change language"
     aria-haspopup="true" aria-expanded="false"
-    aria-controls="language-list{{ counter }}" style="{{ attributes["style"] }}">
+    aria-controls="language-list{{ counter }}" style="{{ attributes | get(key="style", default="")  }}">
     <i class="fa fa-globe"></i>
 </button>
 <ul id="language-list{{ counter }}" class="theme-popup" aria-label="Languages"
