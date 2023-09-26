@@ -1,0 +1,3 @@
+{% macro get_rendered_path(identifier) %}
+{% if identifier != get_context(key="output.i18n.default_language") %}/{{ identifier }}{% endif %}{{ strip_prefix(s=path, prefix=book_dir ~ "/html") }}
+{% endmacro get_rendered_path %}
