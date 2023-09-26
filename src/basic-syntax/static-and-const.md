@@ -8,6 +8,7 @@ cannot be moved or reallocated during the execution of the program.
 Constant variables are evaluated at compile time and their values are inlined
 wherever they are used:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 const DIGEST_SIZE: usize = 3;
 const ZERO: Option<u8> = Some(42);
@@ -22,7 +23,7 @@ fn compute_digest(text: &str) -> [u8; DIGEST_SIZE] {
 
 fn main() {
     let digest = compute_digest("Hello");
-    println!("Digest: {digest:?}");
+    println!("digest: {digest:?}");
 }
 ```
 
