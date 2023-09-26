@@ -2,6 +2,7 @@
 
 A Rust version of the famous [FizzBuzz](https://en.wikipedia.org/wiki/Fizz_buzz) interview question:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
     print_fizzbuzz_to(20);
