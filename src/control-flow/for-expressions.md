@@ -4,6 +4,7 @@ The [`for` loop](https://doc.rust-lang.org/std/keyword.for.html) is closely
 related to the [`while let` loop](while-let-expressions.md). It will
 automatically call `into_iter()` on the expression and then iterate over it:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
     let v = vec![10, 20, 30];

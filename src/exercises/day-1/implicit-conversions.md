@@ -3,6 +3,7 @@
 Rust will not automatically apply _implicit conversions_ between types ([unlike
 C++][3]). You can see this in a program like this:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable,compile_fail
 fn multiply(x: i16, y: i16) -> i16 {
     x * y

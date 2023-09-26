@@ -5,7 +5,7 @@
 ([back to exercise](for-loops.md))
 
 ```rust
-{{#include for-loops.rs}}
+{{#include for-loops.rs:solution}}
 ```
 ### Bonus question
 

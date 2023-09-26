@@ -5,5 +5,5 @@
 ([back to exercise](strings-iterators.md))
 
 ```rust
-{{#include strings-iterators.rs}}
+{{#include strings-iterators.rs:solution}}
 ```

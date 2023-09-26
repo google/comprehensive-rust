@@ -27,6 +27,7 @@ fn main() {
 * Shadowing looks obscure at first, but is convenient for holding on to values after `.unwrap()`.
 * The following code demonstrates why the compiler can't simply reuse memory locations when shadowing an immutable variable in a scope, even if the type does not change.
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
     let a = 1;
