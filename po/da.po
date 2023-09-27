@@ -1038,6 +1038,15 @@ msgid ""
 "io/github/stars/google/comprehensive-rust?style=flat-square)](https://github."
 "com/google/comprehensive-rust/stargazers)"
 msgstr ""
+"[![Bygge-arbejdsgang](https://img.shields.io/github/actions/workflow/status/"
+"google/comprehensive-rust/build.yml?style=flat-square)](https://github.com/"
+"google/comprehensive-rust/actions/workflows/build.yml?query=branch%3Amain)\n"
+"[![GitHub-bidragsydere](https://img.shields.io/github/contributors/google/"
+"comprehensive-rust?style=flat-square)](https://github.com/google/"
+"comprehensive-rust/graphs/contributors)\n"
+"[![GitHub-stjerner](https://img.shields.io/github/stars/google/comprehensive-"
+"rust?style=flat-square)](https://github.com/google/comprehensive-rust/"
+"stargazers)"
 
 #: src/index.md:7
 msgid ""
@@ -1066,7 +1075,7 @@ msgstr ""
 
 #: src/index.md:18
 msgid "Give you a comprehensive understanding of the Rust syntax and language."
-msgstr "Giver dig en omfattende forståelse af Rust-syntaksen og sproget."
+msgstr "Give dig en omfattende forståelse af Rust-syntaksen og sproget."
 
 #: src/index.md:19
 msgid "Enable you to modify existing programs and write new programs in Rust."
@@ -1076,22 +1085,28 @@ msgstr ""
 
 #: src/index.md:20
 msgid "Show you common Rust idioms."
-msgstr "Vis dig almindelige Rust idiomer."
+msgstr "Vise dig idiomatisk Rust."
 
 #: src/index.md:22
 msgid "We call the first three course days Rust Fundamentals."
 msgstr ""
+"Vi kalder de første tre kursusdage Grundlæggende Rust (_Rust Fundamentals_)."
 
 #: src/index.md:24
 msgid ""
 "Building on this, you're invited to dive into one or more specialized topics:"
 msgstr ""
+"Efterfølgende er du inviteret til at dykke ned i et eller flere "
+"specialiserede emner:"
 
 #: src/index.md:26
 msgid ""
 "[Android](android.md): a half-day course on using Rust for Android platform "
 "development (AOSP). This includes interoperability with C, C++, and Java."
 msgstr ""
+"[Android](android.md): en halv kursusdag om at bruge Rust til "
+"platformudvikling i Android (AOSP). Dette inkluderer interoperabilitet med "
+"C, C++ og Java."
 
 #: src/index.md:28
 msgid ""
@@ -1099,6 +1114,9 @@ msgid ""
 "(embedded) development. Both microcontrollers and application processors are "
 "covered."
 msgstr ""
+"[Rå jern](bare-metal.md): en fuld kursusdag om at bruge Rust til udvikling "
+"på det rå jern og indlejrede (_bare metal and embedded_) systemer. Dækker "
+"både mikroprocessorer og applikationsprocessorer."
 
 #: src/index.md:31
 msgid ""
@@ -1107,6 +1125,10 @@ msgid ""
 "mutexes) and async/await concurrency (cooperative multitasking using "
 "futures)."
 msgstr ""
+"[Samtidighed](concurrency.md): en hel kursusdag om samtidighed "
+"(_concurrency_) i Rust. Vi dækker både klassisk samtidighed (tidsdelt "
+"multitasking ved hjælp af tråde og mutexes) og async/await samtidighed "
+"(kooperativ multitasking ved hjælp af _futures_)."
 
 #: src/index.md:37
 msgid "Non-Goals"
@@ -1118,7 +1140,7 @@ msgid ""
 "days. Some non-goals of this course are:"
 msgstr ""
 "Rust er et stort sprog og vi vil ikke være i stand til at dække det hele på "
-"et par dage. Nogle af ting som vi ikke dækker er:"
+"et par dage. Nogle ting som vi ikke dækker er:"
 
 #: src/index.md:42
 msgid ""
@@ -1126,6 +1148,9 @@ msgid ""
 "(https://doc.rust-lang.org/book/ch19-06-macros.html) and [Rust by Example]"
 "(https://doc.rust-lang.org/rust-by-example/macros.html) instead."
 msgstr ""
+"At lære hvordan man udvikler makroer: se venligst [Kapitel 19.5 i Rust-bogen]"
+"(https://doc.rust-lang.org/book/ch19-06-macros.html) og [Rust by Example]"
+"(https://doc.rust-lang.org/rust-by-example/macros.html) i stedet."
 
 #: src/index.md:46
 msgid "Assumptions"
@@ -1137,12 +1162,17 @@ msgid ""
 "statically-typed language and we will sometimes make comparisons with C and "
 "C++ to better explain or contrast the Rust approach."
 msgstr ""
+"Kurset antager at du allerede ved hvordan man programerer. Rust er et "
+"statisk typet sprog og vi vil nogle gange sammenligne med C og C++ for bedre "
+"at kunne forklare Rust's tilgangsvinkel."
 
 #: src/index.md:52
 msgid ""
 "If you know how to program in a dynamically-typed language such as Python or "
 "JavaScript, then you will be able to follow along just fine too."
 msgstr ""
+"Hvis du ved hvordan man programmerer i et dynamisk typet sprog såsom Python "
+"eller JavaScript, så vil du også fint kunne følge med."
 
 #: src/index.md:57
 msgid ""
@@ -1150,6 +1180,10 @@ msgid ""
 "information to the slides. This could be key points which the instructor "
 "should cover as well as answers to typical questions which come up in class."
 msgstr ""
+"Dette er et eksempel på en _note_. Vi vil bruge disse til at tilføje "
+"yderligere information til siderne. Dette kan være nøglepunkter som "
+"instruktøren skal dække såvel som svar på typiske spørgsmål som bliver "
+"stillet i klassen."
 
 #: src/running-the-course.md:3 src/running-the-course/course-structure.md:3
 msgid "This page is for the course instructor."
@@ -1272,6 +1306,8 @@ msgid ""
 "In addition to the 3-day class on Rust Fundamentals, we cover some more "
 "specialized topics:"
 msgstr ""
+"Ud over kurset på tre dage om Grundlæggende Rust, dækker vi mere "
+"specialiserede emner:"
 
 #: src/running-the-course/course-structure.md:19
 msgid "Rust in Android"
@@ -20208,7 +20244,8 @@ msgstr ""
 "    // ANCHOR_END: luhn\n"
 "    let mut digits_seen = 0;\n"
 "    let mut sum = 0;\n"
-"    for (i, ch) in cc_number.chars().rev().filter(|&ch| ch != ' ').enumerate() {\n"
+"    for (i, ch) in cc_number.chars().rev().filter(|&ch| ch != ' ')."
+"enumerate() {\n"
 "        match ch.to_digit(10) {\n"
 "            Some(d) => {\n"
 "                sum += if i % 2 == 1 {\n"
