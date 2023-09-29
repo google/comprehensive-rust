@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Comprehensive Rust 🦀\n"
-"POT-Creation-Date: \n"
+"POT-Creation-Date: 2023-09-24\n"
 "PO-Revision-Date: 2023-06-06 13:18+0900\n"
 "Last-Translator: Kenta Aratani <kentaaratani@coinez.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -10,6 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: src/SUMMARY.md:4 src/index.md:1
 msgid "Welcome to Comprehensive Rust 🦀"
@@ -12551,7 +12552,7 @@ msgstr ""
 
 #: src/bare-metal.md:1
 msgid "Welcome to Bare Metal Rust"
-msgstr ""
+msgstr "ベアメタルRustへようこそ"
 
 #: src/bare-metal.md:3
 msgid ""
@@ -12560,28 +12561,33 @@ msgid ""
 "Comprehensive Rust course), and ideally also have some experience with bare-"
 "metal programming in some other language such as C."
 msgstr ""
+"こちらはベアメタルRustに関する独立した１日コースです。対象としているのは、"
+"Rustの基本的な部分に関しては習得済みな人で（例えば、本講座で）、Cなどの他の言"
+"語でベアメタル開発の経験があると理想的です。"
 
 #: src/bare-metal.md:7
 msgid ""
 "Today we will talk about 'bare-metal' Rust: running Rust code without an OS "
 "underneath us. This will be divided into several parts:"
 msgstr ""
+"今日、取り扱うのは、ベアメタルRustです。すなわち、OSなしでRustのコードを実行"
+"します。この章は以下のような構成になります:"
 
 #: src/bare-metal.md:10
 msgid "What is `no_std` Rust?"
-msgstr ""
+msgstr "`no_std` Rustとは?"
 
 #: src/bare-metal.md:11
 msgid "Writing firmware for microcontrollers."
-msgstr ""
+msgstr "マイクロコントローラ向けのファームウェア開発。"
 
 #: src/bare-metal.md:12
 msgid "Writing bootloader / kernel code for application processors."
-msgstr ""
+msgstr "アプリケーションプロセッサ向けのブートローダ／カーネル開発。"
 
 #: src/bare-metal.md:13
 msgid "Some useful crates for bare-metal Rust development."
-msgstr ""
+msgstr "ベアメタルRust開発に役立つクレートの紹介。"
 
 #: src/bare-metal.md:15
 msgid ""
@@ -12591,11 +12597,17 @@ msgid ""
 "with some LEDs and buttons, an I2C-connected accelerometer and compass, and "
 "an on-board SWD debugger."
 msgstr ""
+"マイクロコントローラ向けの学習では[BBC micro:bit](https://microbit.org/) v2を"
+"題材として使います。これは、Nordic nRF51822マイコンベースの[開発ボード]"
+"(https://tech.microbit.org/hardware/) で、いくつかのLEDやボタンスイッチ、I2C"
+"接続の加速度センサやコンパス、そしてオンボードSWDデバッガを搭載しています。"
 
 #: src/bare-metal.md:20
 msgid ""
 "To get started, install some tools we'll need later. On gLinux or Debian:"
 msgstr ""
+"まずはじめに、後ほど必要となるいくつかのツールをインストールします。gLinuxま"
+"たはDebianの場合は以下のようになります:"
 
 #: src/bare-metal.md:22
 msgid ""
@@ -12613,6 +12625,8 @@ msgstr ""
 msgid ""
 "And give users in the `plugdev` group access to the micro:bit programmer:"
 msgstr ""
+"さらに、`plugdev`グループにmicro:bitプログラム用デバイスへのアクセスを付与し"
+"ます:"
 
 #: src/bare-metal.md:32
 msgid ""
@@ -12626,7 +12640,7 @@ msgstr ""
 
 #: src/bare-metal.md:38
 msgid "On MacOS:"
-msgstr ""
+msgstr "MacOSの場合は以下のようになります:"
 
 #: src/bare-metal.md:40
 msgid ""
@@ -12743,15 +12757,15 @@ msgstr ""
 
 #: src/bare-metal/no_std.md:62
 msgid "`HashMap` depends on RNG."
-msgstr ""
+msgstr "`HashMap`はRNGに依存します。"
 
 #: src/bare-metal/no_std.md:63
 msgid "`std` re-exports the contents of both `core` and `alloc`."
-msgstr ""
+msgstr "`std`は`core`と`alloc`の両方を再エクスポートします。"
 
 #: src/bare-metal/minimal.md:1
 msgid "A minimal `no_std` program"
-msgstr ""
+msgstr "最小限の`no_std`プログラム"
 
 #: src/bare-metal/minimal.md:3
 msgid ""
@@ -12770,21 +12784,27 @@ msgstr ""
 
 #: src/bare-metal/minimal.md:17
 msgid "This will compile to an empty binary."
-msgstr ""
+msgstr "このコードは空のバイナリにコンパイルされます。"
 
 #: src/bare-metal/minimal.md:18
 msgid "`std` provides a panic handler; without it we must provide our own."
 msgstr ""
+"パニックハンドラは`std`が提供するので、それを使わない場合は自分で提供する必要"
+"があります。"
 
 #: src/bare-metal/minimal.md:19
 msgid "It can also be provided by another crate, such as `panic-halt`."
 msgstr ""
+"あるいは、`panic-halt`のような別のクレートが提供するパニックハンドラを利用す"
+"ることもできます。"
 
 #: src/bare-metal/minimal.md:20
 msgid ""
 "Depending on the target, you may need to compile with `panic = \"abort\"` to "
 "avoid an error about `eh_personality`."
 msgstr ""
+"ターゲットによっては、`eh_personality`に関するエラーを回避するために`panic = "
+"\"abort\"`を指定してコンパイルする必要があります。"
 
 #: src/bare-metal/minimal.md:22
 msgid ""
@@ -12792,12 +12812,17 @@ msgid ""
 "define your own entry point. This will typically involve a linker script and "
 "some assembly code to set things up ready for Rust code to run."
 msgstr ""
+"なお、`main`のようなプログラムの規定エントリポイントはないので、自分でエント"
+"リポイントを定義する必要があります。通常、Rustコードを実行できるようにするた"
+"めには、リンカスクリプトとある程度のアセンブリコードを必要とします。"
 
 #: src/bare-metal/alloc.md:3
 msgid ""
 "To use `alloc` you must implement a [global (heap) allocator](https://doc."
 "rust-lang.org/stable/std/alloc/trait.GlobalAlloc.html)."
 msgstr ""
+"`alloc`を使うためには、[グローバル（ヒープ）アロケータ](https://doc.rust-"
+"lang.org/stable/std/alloc/trait.GlobalAlloc.html)を実装しなければなりません。"
 
 #: src/bare-metal/alloc.md:6
 msgid ""
@@ -12840,12 +12865,17 @@ msgid ""
 "system allocator. Other crates are available, or you can write your own or "
 "hook into your existing allocator."
 msgstr ""
+"`buddy_system_allocator`はサードパーティのクレートで、単純なバディシステムア"
+"ロケータです。その他にも利用できるクレートはありますし、自前で実装したり、別"
+"のアロケータに自分のコードをフックすることも可能です。"
 
 #: src/bare-metal/alloc.md:41
 msgid ""
 "The const parameter of `LockedHeap` is the max order of the allocator; i.e. "
 "in this case it can allocate regions of up to 2\\*\\*32 bytes."
 msgstr ""
+"パラメータ定数`LockedHeap`はアロケータの最大オーダを示します。この場合、"
+"2\\*\\*32バイトの領域を確保することが可能です。"
 
 #: src/bare-metal/alloc.md:43
 msgid ""
@@ -12853,16 +12883,23 @@ msgid ""
 "exactly one global allocator defined in your binary. Usually this is done in "
 "the top-level binary crate."
 msgstr ""
+"もし依存関係にあるクレートが`alloc`に依存する場合、必ずバイナリファイルあたり"
+"一つだけのグローバルなアロケータが存在するようにしなければなりません。通常、"
+"これはトップレベルのバイナリを生成するクレートにより制御されます。"
 
 #: src/bare-metal/alloc.md:45
 msgid ""
 "`extern crate panic_halt as _` is necessary to ensure that the `panic_halt` "
 "crate is linked in so we get its panic handler."
 msgstr ""
+"`extern crate panic_halt as _` という部分は、`panic_halt`クレートを確実にリン"
+"クし、パニックハンドラを利用可能にするために必要です。"
 
 #: src/bare-metal/alloc.md:47
 msgid "This example will build but not run, as it doesn't have an entry point."
 msgstr ""
+"この例で示したコードはビルドできますが、エントリポイントがないので実行するこ"
+"とはできません。"
 
 #: src/bare-metal/microcontrollers.md:3
 msgid ""
@@ -17960,7 +17997,7 @@ msgstr ""
 
 #: src/async/control-flow.md:1
 msgid "Futures Control Flow"
-msgstr ""
+msgstr "Futureの制御フロー"
 
 #: src/async/control-flow.md:3
 msgid ""
@@ -17968,6 +18005,8 @@ msgid ""
 "We have already seen tasks, that function as independent threads of "
 "execution."
 msgstr ""
+"並行計算フローグラフを生成するために、futureを組み合わせることができます。す"
+"でに独立したスレッドとして機能するタスクを見てきました。"
 
 #: src/async/control-flow.md:6
 msgid "[Join](control-flow/join.md)"
@@ -17983,6 +18022,9 @@ msgid ""
 "a collection of their results. This is similar to `Promise.all` in "
 "JavaScript or `asyncio.gather` in Python."
 msgstr ""
+"Joinという操作では、futureの集合の準備が整うまで待機し、その後に結果をまとめ"
+"て返します。これはJavaScriptにおける `Promise.all` やPythonにおける`asyncio."
+"gather`に似ています。"
 
 #: src/async/control-flow/join.md:7
 msgid ""
@@ -18020,12 +18062,18 @@ msgid ""
 "you must know how many futures you will have at compile time. This is "
 "currently in the `futures` crate, soon to be stabilised in `std::future`."
 msgstr ""
+"複数の互いに素な型のfutureに対しては、`std::future::join!`を利用できます。し"
+"かし、いくつのfutureがコンパイル時に存在しているのかを把握しておく必要があり"
+"ます。これは現在`futures`クレートにありますが、近いうちに`std::future`に統合"
+"される予定です。"
 
 #: src/async/control-flow/join.md:42
 msgid ""
 "The risk of `join` is that one of the futures may never resolve, this would "
 "cause your program to stall. "
 msgstr ""
+"`join`のリスクは、複数のfutureのうちの１つでも解決されないとプログラムがス"
+"トールしてしまうということです。 "
 
 #: src/async/control-flow/join.md:45
 msgid ""
@@ -18035,6 +18083,11 @@ msgid ""
 "timeout (that requires `select!`, explained in the next chapter), but "
 "demonstrates `join!`."
 msgstr ""
+"また、`join_all`と`join!`を組み合わせることもできます。それは、例えばデータ"
+"ベースのクエリと一緒にhttpサービスへの全てのリクエストをjoinする場合です。"
+"futureに`futures::join!`を用いて、`tokio::time::sleep`を追加してみてくださ"
+"い。これは（次のチャプターで説明する、`select!`を必要とする）タイムアウトでは"
+"ありませんが、`join!`の良い実演となっています。"
 
 #: src/async/control-flow/select.md:3
 msgid ""
@@ -18043,6 +18096,10 @@ msgid ""
 "race`. In Python, it compares to `asyncio.wait(task_set, return_when=asyncio."
 "FIRST_COMPLETED)`."
 msgstr ""
+"Selectという操作では、futureの集合のうち、いずれか１つの準備が整うまで待機"
+"し、そのfutureが提供する結果に対して応答します。これはJavaScriptにおける"
+"`Promise.race`に似ています。また、Pythonにおける `asyncio.wait(task_set, "
+"return_when=asyncio.FIRST_COMPLETED)`と比べることができます。"
 
 #: src/async/control-flow/select.md:8
 msgid ""
@@ -18051,6 +18108,10 @@ msgid ""
 "ready, the `statement` is executed with the variables in `pattern` bound to "
 "the `future`'s result."
 msgstr ""
+"Matchステートメントのように、`select!`の本体にはいくつかの 「腕」があり、それ"
+"ぞれは`pattern = future => statement`の形をとっています。 `future`の準備が"
+"整った時、その`statement`は`future`の結果に紐づく`pattern`の変数を用いて実行"
+"されます。"
 
 #: src/async/control-flow/select.md:13
 msgid ""
@@ -18109,30 +18170,44 @@ msgid ""
 "whichever arrives first. Since the dog takes 50ms, it wins against the cat "
 "that take 500ms seconds."
 msgstr ""
+"この例では、猫と犬のレースを扱っています。`first_animal_to_finish_race`は両方"
+"のチャネルをリッスンし、先に到着した方を選びます。犬は到着まで50msかかるの"
+"で、500msかかる猫に勝ちます。"
 
 #: src/async/control-flow/select.md:67
 msgid ""
 "You can use `oneshot` channels in this example as the channels are supposed "
 "to receive only one `send`."
 msgstr ""
+"この例では`oneshot`チャネルを使うこともできます。なぜなら、チャネルは一回きり"
+"の`send`を受け取ることになっているからです。"
 
 #: src/async/control-flow/select.md:70
 msgid ""
 "Try adding a deadline to the race, demonstrating selecting different sorts "
 "of futures."
 msgstr ""
+"レースに制限時間を追加することによって、違う種類のfutureをselectすることを実"
+"演してみてください。"
 
 #: src/async/control-flow/select.md:73
 msgid ""
 "Note that `select!` drops unmatched branches, which cancels their futures. "
 "It is easiest to use when every execution of `select!` creates new futures."
 msgstr ""
+"`select!`はマッチしなかったブランチをドロップすることに注意してください。これ"
+"は、そうしたブランチのfutureがキャンセルされることにつながります。`select!`を"
+"毎回実行する際に新たなfutureが作成されるときに、`select!`を使うのが最も簡単で"
+"す。"
 
 #: src/async/control-flow/select.md:76
 msgid ""
 "An alternative is to pass `&mut future` instead of the future itself, but "
 "this can lead to issues, further discussed in the pinning slide."
 msgstr ""
+"Futureそのものでなく、`&mut future`を渡すという代替案もあります。しかし、これ"
+"は問題につながることもあります。このことはPinに関するスライドで詳細に議論しま"
+"す。"
 
 #: src/async/pitfalls.md:1
 msgid "Pitfalls of async/await"

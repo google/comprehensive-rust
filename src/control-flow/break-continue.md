@@ -7,6 +7,7 @@ the next iteration use [`continue`](https://doc.rust-lang.org/reference/expressi
 Both `continue` and `break` can optionally take a label argument which is used
 to break out of nested loops:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
     let v = vec![10, 20, 30];
