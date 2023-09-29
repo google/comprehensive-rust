@@ -10,8 +10,6 @@ All language items in Rust can be documented using special `///` syntax.
 /// # Example
 /// ```
 /// assert!(is_divisible_by(42, 2));
-/// assert!(!is_divisible_by(5, 3));
-/// assert!(!is_divisible_by(13, 0));
 /// ```
 fn is_divisible_by(lhs: u32, rhs: u32) -> bool {
     if rhs == 0 {
