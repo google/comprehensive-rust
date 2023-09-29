@@ -5,22 +5,22 @@
 ([back to exercise](dining-philosophers-async.md))
 
 ```rust,compile_fail
-{{#include dining-philosophers-async.rs}}
+{{#include dining-philosophers-async.rs:solution}}
 ```
 
 ## Broadcast Chat Application
 
 ([back to exercise](chat-app.md))
 
-`src/bin/server.rs`:
+_src/bin/server.rs_:
 
 ```rust,compile_fail
-{{#include chat-async/src/bin/server.rs}}
+{{#include chat-async/src/bin/server.rs:solution}}
 ```
 
-`src/bin/client.rs`:
+_src/bin/client.rs_:
 
 ```rust,compile_fail
-{{#include chat-async/src/bin/client.rs}}
+{{#include chat-async/src/bin/client.rs:solution}}
 ```
 

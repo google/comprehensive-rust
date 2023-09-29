@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ANCHOR: solution
 // ANCHOR: setup
 use futures_util::stream::StreamExt;
 use futures_util::SinkExt;

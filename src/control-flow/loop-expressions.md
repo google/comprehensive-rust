@@ -5,6 +5,7 @@ which creates an endless loop.
 
 Here you must either `break` or `return` to stop the loop:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
     let mut x = 10;
@@ -18,7 +19,7 @@ fn main() {
             break;
         }
     }
-    println!("Final x: {x}");
+    println!("x: {x}");
 }
 ```
 

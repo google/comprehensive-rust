@@ -2,6 +2,7 @@
 
 While move semantics are the default, certain types are copied by default:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
     let x = 42;
@@ -15,6 +16,7 @@ These types implement the `Copy` trait.
 
 You can opt-in your own types to use copy semantics:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 #[derive(Copy, Clone, Debug)]
 struct Point(i32, i32);

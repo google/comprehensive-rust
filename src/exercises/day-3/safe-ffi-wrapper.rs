@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ANCHOR: solution
 // ANCHOR: ffi
 mod ffi {
     use std::os::raw::{c_char, c_int};

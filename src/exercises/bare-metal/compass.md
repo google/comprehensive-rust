@@ -23,7 +23,7 @@ Hints:
 Download the [exercise template](../../comprehensive-rust-exercises.zip) and look in the `compass`
 directory for the following files.
 
-`src/main.rs`:
+_src/main.rs_:
 
 <!-- File src/main.rs -->
 
@@ -40,7 +40,7 @@ use microbit::{hal::uarte::{Baudrate, Parity, Uarte}, Board};
 }
 ```
 
-`Cargo.toml` (you shouldn't need to change this):
+_Cargo.toml_ (you shouldn't need to change this):
 
 <!-- File Cargo.toml -->
 
@@ -48,7 +48,7 @@ use microbit::{hal::uarte::{Baudrate, Parity, Uarte}, Board};
 {{#include compass/Cargo.toml}}
 ```
 
-`Embed.toml` (you shouldn't need to change this):
+_Embed.toml_ (you shouldn't need to change this):
 
 <!-- File Embed.toml -->
 
@@ -56,7 +56,7 @@ use microbit::{hal::uarte::{Baudrate, Parity, Uarte}, Board};
 {{#include compass/Embed.toml}}
 ```
 
-`.cargo/config.toml` (you shouldn't need to change this):
+_.cargo/config.toml_ (you shouldn't need to change this):
 
 <!-- File .cargo/config.toml -->
 

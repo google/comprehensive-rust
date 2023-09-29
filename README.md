@@ -36,6 +36,7 @@ The course is built using a few tools:
 - [mdbook-svgbob](https://github.com/boozook/mdbook-svgbob)
 - [mdbook-i18n-helpers](https://github.com/google/mdbook-i18n-helpers)
 - [mdbook-exerciser](mdbook-exerciser/)
+- [mdbook-course](mdbook-course/)
 
 First clone the repository:
 
@@ -51,6 +52,7 @@ cargo install mdbook
 cargo install mdbook-svgbob
 cargo install mdbook-i18n-helpers
 cargo install --path mdbook-exerciser
+cargo install --path mdbook-course
 ```
 
 Run

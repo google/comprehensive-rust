@@ -5,5 +5,5 @@
 ([back to exercise](safe-ffi-wrapper.md))
 
 ```rust
-{{#include safe-ffi-wrapper.rs}}
+{{#include safe-ffi-wrapper.rs:solution}}
 ```
