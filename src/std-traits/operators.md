@@ -4,7 +4,7 @@ existing course material:
 - traits/operators.md
 ---
 
-# `Add`, `Mul`, ...
+# Operators
 
 Operator overloading is implemented via traits in [`std::ops`][1]:
 
