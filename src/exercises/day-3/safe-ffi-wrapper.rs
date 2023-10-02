@@ -14,6 +14,9 @@
 
 // ANCHOR: solution
 // ANCHOR: ffi
+
+use tempfile::tempfile;  // requires tempfile = "3" in Cargo.toml dependencies
+
 mod ffi {
     use std::os::raw::{c_char, c_int};
     #[cfg(not(target_os = "macos"))]
