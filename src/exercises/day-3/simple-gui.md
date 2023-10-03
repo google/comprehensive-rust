@@ -7,7 +7,7 @@ We will have a number of widgets in our library:
 
 * `Window`: has a `title` and contains other widgets.
 * `Button`: has a `label`. In reality, it would also take a callback
-  to allow the called to do something when the button is clicked
+  function to allow the program to do something when the button is clicked
   but we won't include that since we're only drawing the GUI.
 * `Label`: has a `label`.
 
