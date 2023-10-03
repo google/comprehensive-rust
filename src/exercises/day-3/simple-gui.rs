@@ -43,14 +43,12 @@ impl Label {
 
 pub struct Button {
     label: Label,
-    // callback: Box<dyn FnMut()>, // Would also take a callback
 }
 
 impl Button {
-    fn new(label: &str) -> Button {  // would also take a callback
+    fn new(label: &str) -> Button {
         Button {
             label: Label::new(label),
-            // would store the callback here
         }
     }
 }
@@ -159,7 +157,6 @@ fn main() {
     window.add_widget(Box::new(Label::new("This is a small text GUI demo.")));
     window.add_widget(Box::new(Button::new(
         "Click me!"
-        // Box::new(|context| { /* process the button press using context */) }),
     )));
     window.draw();
 }
