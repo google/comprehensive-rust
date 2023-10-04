@@ -5,58 +5,60 @@ existing course material:
 - basic-syntax/references-dangling.md
 ---
 
-<!-- NOTES:
-First-pass introduction to references, without owernship, borrow checking, etc. Very informal coverage of lifetimes.
--->
 # Shared References
 
-# References
-
-Like C++, Rust has references:
+Rust's references provide a way to refer to another value, similar to pointers
+or C++'s references.
 
 <!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
-    let mut x: i32 = 10;
-    let ref_x: &mut i32 = &mut x;
-    *ref_x = 20;
-    println!("x: {x}");
+    let a = 'A';
+    let b = 'B';
+    let mut r: &char = &a;
+    println!("r: {}", *r);
+    r = &b;
+    println!("r: {}", *r);
 }
 ```
 
-Some notes:
-
-* We must dereference `ref_x` when assigning to it, similar to C and C++ pointers.
-* Rust will auto-dereference in some cases, in particular when invoking
-  methods (try `ref_x.count_ones()`).
-* References that are declared as `mut` can be bound to different values over their lifetime.
-
-<details>
-
-Key points:
-
-* Be sure to note the difference between `let mut ref_x: &i32` and `let ref_x:
-  &mut i32`. The first one represents a mutable reference which can be bound to
-  different values, while the second represents a reference to a mutable value.
-
-</details>
-# Dangling References
+A reference to a type `T` has type `&T`. A reference value is made with the `&`
+operator. The `*` operator "dereferences" a reference, yielding its value.
 
 Rust will statically forbid dangling references:
 
 <!-- mdbook-xgettext: skip -->
 ```rust,editable,compile_fail
-fn main() {
-    let ref_x: &i32;
-    {
-        let x: i32 = 10;
-        ref_x = &x;
-    }
-    println!("ref_x: {ref_x}");
+fn x_axis(x: i32) -> &(i32, i32) {
+    let point = (x, 0);
+    return &point;
 }
 ```
 
+<details>
+
 * A reference is said to "borrow" the value it refers to.
+
+* References are implemented as pointers, and a key advantage is that they can
+  be much smaller than the thing they point to.
+
+* Rust does not automatically create references for you - the `&` is always
+  required.
+
+* Rust will auto-dereference in some cases, in particular when invoking
+  methods (try `r.count_ones()`). There is no need for an `->` operator
+  like in C++.
+
+* In this example, `r` is mutable so that it can be reassigned (`r = &b`).
+
+* A shared reference does not allow modifying the valueit refers to, even if
+  that value was mutable.  Try `*r = 'X'`.
+
 * Rust is tracking the lifetimes of all references to ensure they live long
-  enough.
+  enough. Dangling references cannot occur in safe Rust. `x_axis` would return
+  a reference to `point`, but `point` will be deallocated when the function
+  returns, so this will not compile.
+
 * We will talk more about borrowing when we get to ownership.
+
+</details>

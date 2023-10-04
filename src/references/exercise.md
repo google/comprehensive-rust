@@ -9,56 +9,28 @@ A few utility functions like dot product, magnitude, normalize
 -->
 # Exercise: Geometry
 
-# Polygon Struct
+We will create a few utility functions for 3-dimensional geometry, representing
+a point as `[f64;3]`. It is up to you to determine the function signatures.
 
-We will create a `Polygon` struct which contain some points. Copy the code below
-to <https://play.rust-lang.org/> and fill in the missing methods to make the
-tests pass:
+```rust,compile_fail
+// Calculate the magnitude of a vector by summing the squares of its coordinates
+// and taking the square root. Use the `sqrt()` method to calculate the square
+// root, like `v.sqrt()`.
 
-```rust
-// TODO: remove this when you're done with your implementation.
-#![allow(unused_variables, dead_code)]
-
-{{#include exercise.rs:Point}}
-    // add fields
+{{#include exercise.rs:magnitude}}
+fn magnitude(...) -> f64 {
+    todo!()
 }
 
-{{#include exercise.rs:Point-impl}}
-    // add methods
+// Normalize a vector by calculating its magnitude and dividing all of its
+// coordinates by that magnitude.
+
+{{#include exercise.rs:normalize}}
+fn normalize(...) {
+    todo!()
 }
 
-{{#include exercise.rs:Polygon}}
-    // add fields
-}
+// Use the following `main` to test your work.
 
-{{#include exercise.rs:Polygon-impl}}
-    // add methods
-}
-
-{{#include exercise.rs:Circle}}
-    // add fields
-}
-
-{{#include exercise.rs:Circle-impl}}
-    // add methods
-}
-
-{{#include exercise.rs:Shape}}
-
-{{#include exercise.rs:unit-tests}}
-
-#[allow(dead_code)]
-fn main() {}
+{{#include exercise.rs:main}}
 ```
-
-<details>
-
-Since the method signatures are missing from the problem statements, the key part
-of the exercise is to specify those correctly. You don't have to modify the tests.
-
-Other interesting parts of the exercise:
-
-* Derive a `Copy` trait for some structs, as in tests the methods sometimes don't borrow their arguments.
-* Discover that `Add` trait must be implemented for two objects to be addable via "+". Note that we do not discuss generics until Day 3.
-
-</details>
