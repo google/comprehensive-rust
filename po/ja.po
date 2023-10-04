@@ -8528,10 +8528,14 @@ msgid ""
 "Rust support generics, which lets you abstract algorithms or data structures "
 "(such as sorting or a binary tree) over the types used or stored."
 msgstr ""
+"Rustはジェネリクス（generics）をサポートします。これにより、使用または保存す"
+"る型に関してアルゴリズムやデータ構造（ソートアルゴリズムや、二分木など）を抽"
+"象化することができます。"
 
 #: src/generics/data-types.md:3
 msgid "You can use generics to abstract over the concrete field type:"
 msgstr ""
+"ジェネリクスを使って、具体的なフィールドの型を抽象化することができます："
 
 #: src/generics/data-types.md:5
 msgid ""
@@ -8553,14 +8557,16 @@ msgstr ""
 #: src/generics/data-types.md:21
 msgid "Try declaring a new variable `let p = Point { x: 5, y: 10.0 };`."
 msgstr ""
+"次のような新しい変数を宣言してみてください `let p = Point { x: 5, y: 10.0 };"
+"`."
 
 #: src/generics/data-types.md:23
 msgid "Fix the code to allow points that have elements of different types."
-msgstr ""
+msgstr "異なる型の要素を持つ点を許容するように、コードを修正してください。"
 
 #: src/generics/methods.md:3
 msgid "You can declare a generic type on your `impl` block:"
-msgstr ""
+msgstr "`impl`に対して、ジェネリックな型を宣言することもできます："
 
 #: src/generics/methods.md:5
 msgid ""
@@ -8588,30 +8594,40 @@ msgid ""
 "_Q:_ Why `T` is specified twice in `impl<T> Point<T> {}`? Isn't that "
 "redundant?"
 msgstr ""
+"_Q:_ なぜ`T`は２回も `impl<T> Point<T> {}` において指定されたのでしょうか？冗"
+"長ではありませんか？"
 
 #: src/generics/methods.md:26
 msgid ""
 "This is because it is a generic implementation section for generic type. "
 "They are independently generic."
 msgstr ""
+"なぜなら、これはジェネリクスに対してのジェネリックな実装の箇所だからです。そ"
+"れらは独立してジェネリックです。"
 
 #: src/generics/methods.md:27
 msgid "It means these methods are defined for any `T`."
 msgstr ""
+"つまり、そのようなメソッドは任意の`T`に対して定義されるということです。"
 
 #: src/generics/methods.md:28
 msgid "It is possible to write `impl Point<u32> { .. }`. "
-msgstr ""
+msgstr "`impl Point<u32> { .. }`のように書くことも可能です。 "
 
 #: src/generics/methods.md:29
 msgid ""
 "`Point` is still generic and you can use `Point<f64>`, but methods in this "
 "block will only be available for `Point<u32>`."
 msgstr ""
+"`Point`はそれでもなおジェネリックであり、 `Point<f64>`を使うことができます。"
+"しかし、このブロックでのメソッドは`Point<u32>`に対してのみ利用可能となりま"
+"す。"
 
 #: src/generics/monomorphization.md:3
 msgid "Generic code is turned into non-generic code based on the call sites:"
 msgstr ""
+"ジェネリクスのコードは呼び出し箇所に基づいて、ジェネリックでないコードに変換"
+"されます："
 
 #: src/generics/monomorphization.md:5
 msgid ""
@@ -8625,7 +8641,7 @@ msgstr ""
 
 #: src/generics/monomorphization.md:12
 msgid "behaves as if you wrote"
-msgstr ""
+msgstr "上のコードは、次のように書いた時と同じように動作します"
 
 #: src/generics/monomorphization.md:14
 msgid ""
@@ -8652,6 +8668,8 @@ msgid ""
 "This is a zero-cost abstraction: you get exactly the same result as if you "
 "had hand-coded the data structures without the abstraction."
 msgstr ""
+"これはゼロコスト抽象化です：抽象化なしに手作業でデータ構造を書いたときと、全"
+"く同じ結果を得ることができます。"
 
 #: src/traits.md:3
 msgid ""
