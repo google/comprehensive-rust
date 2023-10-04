@@ -28,6 +28,11 @@ trigger when going through the code samples. We hope to improve on this via
 [speaker notes](https://github.com/google/comprehensive-rust/issues/53) and by
 [publishing videos](https://github.com/google/comprehensive-rust/issues/52).
 
+## Press
+
+- [Scaling Rust Adoption Through Training](https://security.googleblog.com/2023/09/scaling-rust-adoption-through-training.html):
+  We published a blog post with details on the development of the course.
+
 ## Building
 
 The course is built using a few tools:
