@@ -1,6 +1,5 @@
 # An Example in C
 
-All presented Rust features sound nice and cool, but what do they mean in practice?
 
 Let's consider the following "minimum wrong example" program in C:
 
