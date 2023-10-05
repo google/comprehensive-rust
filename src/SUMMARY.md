@@ -311,6 +311,7 @@
 ----
 
 - [Thanks!](thanks.md)
+- [Glossary](glossary.md)
 - [Other Resources](other-resources.md)
 - [Credits](credits.md)
 
