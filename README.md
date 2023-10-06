@@ -30,8 +30,17 @@ trigger when going through the code samples. We hope to improve on this via
 
 ## Press
 
-- [Scaling Rust Adoption Through Training](https://security.googleblog.com/2023/09/scaling-rust-adoption-through-training.html):
+Articles and blog posts from around the web which cover Comprehensive Rust:
+
+- 2023-09-08:
+  _[Teaching Rust in 5 days](https://mo8it.com/blog/teaching-rust/)_.
+  Comprehensive Rust was used as a base for a 5-day university class on Rust.
+- 2023-09-21:
+  _[Scaling Rust Adoption Through Training](https://security.googleblog.com/2023/09/scaling-rust-adoption-through-training.html)_.
   We published a blog post with details on the development of the course.
+- 2023-10-02:
+  _[In Search of Rust Developers, Companies Turn to In-House Training](https://www.darkreading.com/application-security/google-microsoft-take-refuge-in-rust-languages-better-security)_.
+  About how Microsoft, Google, and others are training people in Rust.
 
 ## Building
 
