@@ -1,10 +1,11 @@
-{% import "Macros" as macros %}
+{% import "macros.html" as macros %}
+{% set current_language = ctx | get(key="config") | get(key="book") | get(key="language", default="en") %}
 <button id="language-toggle{{ counter }}" class="icon-button" type="button"
     title="Change language" aria-label="Change language"
     aria-haspopup="true" aria-expanded="false"
     aria-controls="language-list{{ counter }}" style="{{ attributes | get(key="style", default="")  }}">
     <i class="fa fa-globe"></i>
-</button>
+</button> 
 <ul id="language-list{{ counter }}" class="theme-popup" aria-label="Languages"
     role="menu" style="left: auto; right: 10px;">
     {% for identifier, language_name in get_context(key="output.i18n.languages") %}
@@ -12,23 +13,24 @@
         <a id="{{ identifier }}"
             href="{{ macros::get_rendered_path(identifier=identifier) }}"
             style="color: inherit;">
-            <button role="menuitem" class="theme {% if identifier == language %} theme-selected {% endif %}">
-                {% include "Included" %} {{ language_name }}
+            <button role="menuitem" class="theme {% if identifier == current_language %} theme-selected {% endif %}">
+                {% include "include_language_picker.html" %} {{ language_name }}
             </button>
-        </a>
+        </a> 
     </li>
     {% endfor %}
 </ul>
-
+ 
 <script>
     let langToggle = document.getElementById("language-toggle{{ counter }}");
     let langList = document.getElementById("language-list{{ counter }}");
-    {% raw %}
-    langToggle.addEventListener("click", (event) => {{
+    {% raw %} 
+    langToggle.addEventListener("click", (event) => {
         langList.style.display = langList.style.display == "block" ? "none" : "block";
-    }});
+    });
     {% endraw %}
 </script>
+
 
 <style>
     [dir=rtl] #language-list{{ counter }} {% raw %} {

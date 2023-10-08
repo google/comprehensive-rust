@@ -166,6 +166,10 @@
 
                     <h1 class="menu-title">{{ book_title }}</h1>
                     <div class="right-buttons">
+                        {{{{raw}}}}
+                        {% set current_language = ctx | get(key="config") | get(key="book") | get(key="language", default="en") %}
+                        CURRENT LANGUAGE: {{ current_language }}
+                        {{{{/raw}}}}
                         <LanguagePicker style="color: red;">
                         </LanguagePicker>
                         {{#if print_enable}}

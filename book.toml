@@ -95,9 +95,7 @@ optional = true
 "pt-BR" = "Brazilian Portuguese (Português do Brasil)"
 
 [output.tera-backend]
-after = "html"
-components = [
-    { name = "Macros", path = "src/components/macros.html" },
-    { name = "Included", path = "src/components/include_language_picker.html" },
-    { name = "LanguagePicker", path = "src/components/language_picker.html", dependencies = ["Included", "Macros"] },
+html_components = [
+    "src/components/LanguagePicker.html",
 ]
+templates_dir = "src/components"
