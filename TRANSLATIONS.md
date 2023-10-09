@@ -100,18 +100,25 @@ Next, please update the file `.github/labeler.yml` to include the new language:
 
 ### Refreshing an Existing Translation
 
-As the English text changes, translations gradually become outdated. To update
-the `po/xx.po` file with new messages, first extract the English text into a
-`po/messages.pot` template file. Then run
+As the English text changes, translations gradually become outdated. The
+translations contain a POT-Creation-Date header which tells you when they were
+last updated with new English messages.
+
+To update the `po/xx.po` file with new messages, first extract the English text
+into a `po/messages.pot` template file. Then run
 
 ```shell
 msgmerge --update po/xx.po po/messages.pot
 ```
 
-Unchanged messages will stay intact, deleted messages are marked as old, and
-updated messages are marked "fuzzy". A fuzzy entry will reuse the previous
-translation: you should then go over it and update it as necessary before you
-remove the fuzzy marker.
+Notice that the POT-Creation-Date field is updated to the current time and date.
+This becomes the new baseline for the translation: new English text added
+afterwards will not show up in your translation, including completely new pages.
+
+When running `msgmerge`, unchanged messages stay intact, deleted messages are
+marked as old, and updated messages are marked "fuzzy". A fuzzy entry is not
+used when we publish a translation! You have to go over the fuzzy entries by
+hand and verify that the translation is correct the fuzzy marker.
 
 > **Note:** Your PRs should either be the result of running `msgmerge` or the
 > result of new translation work on the PO file for your language. Avoid mixing
