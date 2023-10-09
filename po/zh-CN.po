@@ -2331,6 +2331,8 @@ msgid ""
 "while it is not a functional language, it includes a range of [functional "
 "concepts](https://doc.rust-lang.org/book/ch13-00-functional-features.html)."
 msgstr ""
+"Rust "
+"是多范式编程语言。例如，它具有强大的[面向对象的编程功能](https://doc.rust-lang.org/book/ch17-00-oop.html)，虽然它不是函数式语言，但包括一系列的[函数概念](https://doc.rust-lang.org/book/ch13-00-functional-features.html)。"
 
 #: src/hello-world/small-example.md:3
 msgid "Here is a small example program in Rust:"
@@ -2412,7 +2414,7 @@ msgstr "向学生展示标准库，展示如何搜索 `std::fmt`，其中包含�
 msgid ""
 "In a shell `rustup doc std::fmt` will open a browser on the local std::fmt "
 "documentation"
-msgstr ""
+msgstr "在 shell 中，运行“rustup doc std::fmt”会在浏览器中打开本地 std::fmt 文档"
 
 #: src/why-rust.md:3
 msgid "Some unique selling points of Rust:"
@@ -3052,6 +3054,7 @@ msgid ""
 "`1_000` can be written as `1000` (or `10_00`), and `123_i64` can be written "
 "as `123i64`."
 msgstr ""
+"数字中的所有下划线均可忽略，它们只是为了方便辨识。因此，“1_000”可以写为“1000”（或“10_00”），而“123_i64”可以写为“123i64”。"
 
 #: src/basic-syntax/compound-types.md:5
 msgid "Arrays"
@@ -3276,10 +3279,12 @@ msgid ""
 "`println`, when the slice is no longer used. More details will be explained "
 "in the borrow checker section."
 msgstr ""
+"关于修改“a\\[3\\]”的问题可能会引发一些有趣的讨论，但正解是，出于内存安全方面的原因，您无法在执行作业的这个时间点通过“a”来进行此修改，但可以从“a”和“s”安全地读取数据。它会在您创建 "
+"Slice 之前运作，在“println”之后（不再使用 Slice 时）再次运作。更多详情会在“借用检查器”部分中加以说明。"
 
 #: src/basic-syntax/string-slices.md:1
 msgid "`String` vs `str`"
-msgstr ""
+msgstr "“String”与“str”的区别"
 
 #: src/basic-syntax/string-slices.md:3
 msgid "We can now understand the two string types in Rust:"
@@ -3473,6 +3478,8 @@ msgid ""
 "`cargo test`. We will discuss these tests in the [Testing "
 "section](../testing/doc-tests.html)."
 msgstr ""
+"Rustdoc 注释可以包含我们可使用“cargo "
+"test”运行和测试的代码段。我们将在[“测试”部分](../testing/doc-tests.html)中讨论这些测试。"
 
 #: src/basic-syntax/methods.md:3
 msgid ""
@@ -3525,6 +3532,9 @@ msgid ""
 "constructor, `Rectangle { width, height }`, could be called directly. See "
 "the [Rustnomicon](https://doc.rust-lang.org/nomicon/constructors.html)."
 msgstr ""
+"虽然从技术层面来讲，Rust 没有自定义构造函数，但静态方法通常用于初始化结构体（但并非必须这样做）。您可以直接调用实际构造函数“Rectangle { "
+"width, height }”。请参阅 [Rust "
+"秘典](https://doc.rust-lang.org/nomicon/constructors.html)。"
 
 #: src/basic-syntax/methods.md:45
 #, fuzzy
@@ -3878,11 +3888,11 @@ msgstr "题目解答和附加题的答案在 [题解](solutions-morning.md#array
 msgid ""
 "The use of the reference `&array` within `for n in &array` is a subtle "
 "preview of issues of ownership that will come later in the afternoon."
-msgstr ""
+msgstr "在“for n in &array”中使用引用“&array”这一做法巧妙地预先展示了下午将谈到的所有权问题。"
 
 #: src/exercises/day-1/for-loops.md:100
 msgid "Without the `&`..."
-msgstr ""
+msgstr "如果不使用“&”…"
 
 #: src/exercises/day-1/for-loops.md:101
 msgid ""
@@ -3890,12 +3900,14 @@ msgid ""
 "[introduced in the 2021 "
 "Edition](https://doc.rust-lang.org/edition-guide/rust-2021/IntoIterator-for-arrays.html)."
 msgstr ""
+"循环将会是一个使用数组的循环。这是一项[在 2021 "
+"年版中引入](https://doc.rust-lang.org/edition-guide/rust-2021/IntoIterator-for-arrays.html)的变更。"
 
 #: src/exercises/day-1/for-loops.md:104
 msgid ""
 "An implicit array copy would have occurred.  Since `i32` is a copy type, "
 "then `[i32; 3]` is also a copy type."
-msgstr ""
+msgstr "会发生隐式数组复制。由于“i32”是复制类型，因此“\\[i32; 3\\]”也是复制类型。"
 
 #: src/control-flow.md:3
 msgid ""
@@ -4154,7 +4166,7 @@ msgid ""
 "Static and constant variables are two different ways to create "
 "globally-scoped values that cannot be moved or reallocated during the "
 "execution of the program. "
-msgstr ""
+msgstr "静态变量和常量变量是创建全局范围值的两种不同方法，这类值在程序执行期间无法移动或重新分配。"
 
 #: src/basic-syntax/static-and-const.md:6
 msgid "`const`"
@@ -4164,7 +4176,7 @@ msgstr "`const`"
 msgid ""
 "Constant variables are evaluated at compile time and their values are "
 "inlined wherever they are used:"
-msgstr ""
+msgstr "系统会在编译时对常量变量进行求值；无论在何处使用，其值都会被内嵌："
 
 #: src/basic-syntax/static-and-const.md:30
 msgid ""
@@ -4180,7 +4192,7 @@ msgstr ""
 msgid ""
 "Only functions marked `const` can be called at compile time to generate "
 "`const` values. `const` functions can however be called at runtime."
-msgstr ""
+msgstr "在编译时只能调用标记为“const”的函数以生成“const”值。不过，可在运行时调用“const”函数。"
 
 #: src/basic-syntax/static-and-const.md:34
 msgid "`static`"
@@ -4190,7 +4202,7 @@ msgstr "`static`"
 msgid ""
 "Static variables will live during the whole execution of the program, and "
 "therefore will not move:"
-msgstr ""
+msgstr "静态变量在程序的整个执行过程中始终有效，因此不会移动："
 
 #: src/basic-syntax/static-and-const.md:38
 msgid ""
@@ -4234,6 +4246,8 @@ msgid ""
 "look at [mutable statics](../unsafe/mutable-static-variables.md) in the "
 "chapter on Unsafe Rust."
 msgstr ""
+"由于“static”变量可从任何线程访问，因此它们必须是“Sync”。内部可变性可通过[“互斥量”](https://doc.rust-lang.org/std/sync/struct.Mutex.html)、原子性或类似对象实现。也可能具有可变静态项，但它们需要手动同步，因此对它们的任何访问都需要“unsafe”代码。我们将在“不安全 "
+"Rust”章节中探讨[可变静态项](../unsafe/mutable-static-variables.md)。"
 
 #: src/basic-syntax/static-and-const.md:58
 msgid "Mention that `const` behaves semantically similar to C++'s `constexpr`."
@@ -4246,10 +4260,14 @@ msgid ""
 msgstr "另一方面，`static` 远远更类似于C++中的 `const` 或可改变的全局变量。"
 
 #: src/basic-syntax/static-and-const.md:60
+#, fuzzy
 msgid ""
 "`static` provides object identity: an address in memory and state as "
 "required by types with interior mutability such as `Mutex<T>`."
 msgstr ""
+"“static”提供对象标识：内存中的一个地址及具有内部可变性的类型（如“Mutex\n"
+"\n"
+"”）所需的状态。"
 
 #: src/basic-syntax/static-and-const.md:61
 msgid ""
@@ -4259,15 +4277,15 @@ msgstr "虽然需要使用在运行中求值的常量的情况并不是很常见
 
 #: src/basic-syntax/static-and-const.md:62
 msgid "`thread_local` data can be created with the macro `std::thread_local`."
-msgstr ""
+msgstr "可以使用宏“std::thread_local”创建“thread_local”数据。"
 
 #: src/basic-syntax/static-and-const.md:64
 msgid "Properties table:"
-msgstr ""
+msgstr "属性表："
 
 #: src/basic-syntax/static-and-const.md:66
 msgid "Property"
-msgstr ""
+msgstr "属性"
 
 #: src/basic-syntax/static-and-const.md:66
 #, fuzzy
@@ -4276,22 +4294,22 @@ msgstr "`static`"
 
 #: src/basic-syntax/static-and-const.md:66
 msgid "Constant"
-msgstr ""
+msgstr "常量"
 
 #: src/basic-syntax/static-and-const.md:68
 msgid "Has an address in memory"
-msgstr ""
+msgstr "在内存中有地址"
 
 #: src/basic-syntax/static-and-const.md:68
 #: src/basic-syntax/static-and-const.md:69
 #: src/basic-syntax/static-and-const.md:71
 #: src/basic-syntax/static-and-const.md:72
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: src/basic-syntax/static-and-const.md:68
 msgid "No (inlined)"
-msgstr ""
+msgstr "否（内嵌）"
 
 #: src/basic-syntax/static-and-const.md:69
 #, fuzzy
@@ -4302,15 +4320,15 @@ msgstr "`main` 函数是程序的入口。"
 #: src/basic-syntax/static-and-const.md:70
 #: src/basic-syntax/static-and-const.md:72
 msgid "No"
-msgstr ""
+msgstr "否"
 
 #: src/basic-syntax/static-and-const.md:70
 msgid "Can be mutable"
-msgstr ""
+msgstr "可变"
 
 #: src/basic-syntax/static-and-const.md:70
 msgid "Yes (unsafe)"
-msgstr ""
+msgstr "是（不安全）"
 
 #: src/basic-syntax/static-and-const.md:71
 #, fuzzy
@@ -4319,11 +4337,11 @@ msgstr "值在编译时具有已知的固定大小。"
 
 #: src/basic-syntax/static-and-const.md:71
 msgid "Yes (initialised at compile time)"
-msgstr ""
+msgstr "是（在编译时被初始化）"
 
 #: src/basic-syntax/static-and-const.md:72
 msgid "Inlined wherever it is used"
-msgstr ""
+msgstr "内嵌在使用它的任何位置"
 
 #: src/basic-syntax/scopes-shadowing.md:3
 msgid ""
@@ -4711,13 +4729,13 @@ msgstr "如果你想展示位表示方式在实践中“可能”会是什么样
 msgid ""
 "More complex example if you want to discuss what happens when we chain more "
 "than 256 `Option`s together."
-msgstr ""
+msgstr "如果您想讨论将 256 多个“Option”链在一起时会发生什么情况，可以使用下方这个更复杂的示例。"
 
 #: src/control-flow/novel.md:3
 msgid ""
 "Rust has a few control flow constructs which differ from other languages. "
 "They are used for pattern matching:"
-msgstr ""
+msgstr "Rust 有几个与其他语言不同的控制流结构。它们用于模式匹配："
 
 #: src/control-flow/novel.md:6
 #: src/control-flow/if-let-expressions.md:1
@@ -4974,30 +4992,30 @@ msgstr "现在是一个讲解不可反驳 (irrefutable) 模式的好时机。因
 
 #: src/pattern-matching.md:30
 msgid "`_` is a wild card"
-msgstr ""
+msgstr "“\\_”是通配符"
 
 #: src/pattern-matching.md:31
 msgid ""
 "It can be useful to show how binding works, by for instance replacing a "
 "wildcard character with a variable, or removing the quotes around `q`."
-msgstr ""
+msgstr "展示绑定的运作方式可能会很有帮助，例如通过用变量替换通配符或移除“q”周围的引号来展示。"
 
 #: src/pattern-matching.md:32
 msgid "You can demonstrate matching on a reference."
-msgstr ""
+msgstr "您可以在参照项上演示如何匹配。"
 
 #: src/pattern-matching.md:33
 msgid ""
 "This might be a good time to bring up the concept of irrefutable patterns, "
 "as the term can show up in error messages."
-msgstr ""
+msgstr "这时可能很适合提到“不可反驳的模式”这个概念，因为这个术语可能会出现在错误消息中。"
 
 #: src/pattern-matching/destructuring-enums.md:3
 msgid ""
 "Patterns can also be used to bind variables to parts of your values. This is "
 "how you inspect the structure of your types. Let us start with a simple "
 "`enum` type:"
-msgstr ""
+msgstr "模式还可用于将变量绑定到值的某些部分。这是您检查类型结构的方式。我们先从简单的“enum”类型开始："
 
 #: src/pattern-matching/destructuring-enums.md:6
 msgid ""
@@ -5031,23 +5049,24 @@ msgid ""
 "arm, `half` is bound to the value inside the `Ok` variant. In the second "
 "arm, `msg` is bound to the error message."
 msgstr ""
+"在这里，我们使用了分支来解构“Result”值。在第一个分支中，“half”被绑定到“Ok”变体中的值。在第二个分支中，“msg”被绑定到错误消息。"
 
 #: src/pattern-matching/destructuring-enums.md:36
 msgid ""
 "The `if`/`else` expression is returning an enum that is later unpacked with "
 "a `match`."
-msgstr ""
+msgstr "“if”/“else”表达式将返回一个枚举，该枚举之后会使用“match”进行解封装。"
 
 #: src/pattern-matching/destructuring-enums.md:37
 msgid ""
 "You can try adding a third variant to the enum definition and displaying the "
 "errors when running the code. Point out the places where your code is now "
 "inexhaustive and how the compiler tries to give you hints."
-msgstr ""
+msgstr "您可以尝试在枚举定义中添加第三个变体，并在运行代码时显示错误。指出代码现在有哪些地方还不详尽，并说明编译器会如何尝试给予提示。"
 
 #: src/pattern-matching/destructuring-structs.md:3
 msgid "You can also destructure `structs`:"
-msgstr ""
+msgstr "您还可以解构“structs”："
 
 #: src/pattern-matching/destructuring-structs.md:5
 msgid ""
@@ -5072,11 +5091,11 @@ msgstr ""
 
 #: src/pattern-matching/destructuring-structs.md:23
 msgid "Change the literal values in `foo` to match with the other patterns."
-msgstr ""
+msgstr "更改“foo”中的字面量值以与其他模式相匹配。"
 
 #: src/pattern-matching/destructuring-structs.md:24
 msgid "Add a new field to `Foo` and make changes to the pattern as needed."
-msgstr ""
+msgstr "向“Foo”添加一个新字段，并根据需要更改模式。"
 
 #: src/pattern-matching/destructuring-structs.md:25
 msgid ""
@@ -5084,6 +5103,7 @@ msgid ""
 "spot. Try changing the `2` in the second arm to a variable, and see that it "
 "subtly doesn't work. Change it to a `const` and see it working again."
 msgstr ""
+"捕获和常量表达式之间的区别可能很难发现。尝试将第二个分支中的“2”更改为一个变量，可以看到它几乎无法运作了。将它更改为“const”，可以看到它又正常运作了。"
 
 #: src/pattern-matching/destructuring-arrays.md:3
 msgid ""
@@ -5170,7 +5190,7 @@ msgstr "展示使用模式 `[.., b]` 和 `[a@..,b]` 来匹配切片的尾部。"
 msgid ""
 "When matching, you can add a _guard_ to a pattern. This is an arbitrary "
 "Boolean expression which will be executed if the pattern matches:"
-msgstr ""
+msgstr "匹配时，您可以向模式中添加“守卫”。这是一个任意布尔表达式，如果模式匹配，就会执行该表达式："
 
 #: src/pattern-matching/match-guards.md:6
 msgid ""
@@ -5194,7 +5214,7 @@ msgid ""
 "Match guards as a separate syntax feature are important and necessary when "
 "we wish to concisely express more complex ideas than patterns alone would "
 "allow."
-msgstr ""
+msgstr "有些想法比模式本身所允许的程度更加复杂，如果我们希望简要地表达这些想法，就必须把匹配守卫视为独立的语法功能。"
 
 #: src/pattern-matching/match-guards.md:24
 msgid ""
@@ -5203,24 +5223,25 @@ msgid ""
 "match arm is selected. Failing the `if` condition inside of that block won't "
 "result in other arms of the original `match` expression being considered."
 msgstr ""
+"它们与匹配分支中的单独“if”表达式不同。选择匹配分支后，分支块内（在“=>”之后）会出现“if”表达式。如果该分支块内的“if”条件失败，系统不会考虑原始“match”表达式的其他分支。"
 
 #: src/pattern-matching/match-guards.md:26
 msgid "You can use the variables defined in the pattern in your if expression."
-msgstr ""
+msgstr "您可以在 if 表达式中使用模式中定义的变量。"
 
 #: src/pattern-matching/match-guards.md:27
 msgid ""
 "The condition defined in the guard applies to every expression in a pattern "
 "with an `|`."
-msgstr ""
+msgstr "只要表达式在包含“|”的模式中，就会适用守卫定义的条件。"
 
 #: src/exercises/day-1/afternoon.md:1
 msgid "Day 1: Afternoon Exercises"
-msgstr ""
+msgstr "第 1 天：下午练习"
 
 #: src/exercises/day-1/afternoon.md:3
 msgid "We will look at two things:"
-msgstr ""
+msgstr "我们将关注以下两方面："
 
 #: src/exercises/day-1/afternoon.md:5
 #, fuzzy
@@ -5248,30 +5269,31 @@ msgid ""
 "to validate credit card numbers. The algorithm takes a string as input and "
 "does the following to validate the credit card number:"
 msgstr ""
+"[卢恩算法](https://zh.wikipedia.org/wiki/卢恩算法)用于验证信用卡号。该算法将字符串作为输入内容，并执行以下操作来验证信用卡号："
 
 #: src/exercises/day-1/luhn.md:7
 msgid "Ignore all spaces. Reject number with less than two digits."
-msgstr ""
+msgstr "忽略所有空格。拒绝少于两位的号码。"
 
 #: src/exercises/day-1/luhn.md:9
 msgid ""
 "Moving from **right to left**, double every second digit: for the number "
 "`1234`, we double `3` and `1`. For the number `98765`, we double `6` and `8`."
-msgstr ""
+msgstr "从**右到左**，将偶数位的数字乘二。对于数字“1234”，我们将“3”和“1”乘二；对于数字“98765”，将“6”和“8”乘二。"
 
 #: src/exercises/day-1/luhn.md:12
 msgid ""
 "After doubling a digit, sum the digits if the result is greater than 9. So "
 "doubling `7` becomes `14` which becomes `1 + 4 = 5`."
-msgstr ""
+msgstr "将一个数字乘二后，如果结果大于 9，则将每位数字相加。因此，将“7”乘二得“14”，然后“1 + 4 = 5”。"
 
 #: src/exercises/day-1/luhn.md:15
 msgid "Sum all the undoubled and doubled digits."
-msgstr ""
+msgstr "将所有未乘二和已乘二的数字相加。"
 
 #: src/exercises/day-1/luhn.md:17
 msgid "The credit card number is valid if the sum ends with `0`."
-msgstr ""
+msgstr "如果总和以“0”结尾，则信用卡号有效。"
 
 #: src/exercises/day-1/luhn.md:19
 #, fuzzy
@@ -5284,7 +5306,7 @@ msgstr "将下面的代码复制到 <https://play.rust-lang.org/> 并实现上�
 msgid ""
 "Try to solve the problem the \"simple\" way first, using `for` loops and "
 "integers. Then, revisit the solution and try to implement it with iterators."
-msgstr ""
+msgstr "使用“for”循环和整数，先尝试以简单的方式解决问题。然后，再次查看该解决方案，并尝试使用迭代器来实现它。"
 
 #: src/exercises/day-1/luhn.md:25
 msgid ""
@@ -19011,8 +19033,9 @@ msgid "move:"
 msgstr ""
 
 #: src/glossary.md:72
+#, fuzzy
 msgid "mutable:"
-msgstr ""
+msgstr "可变"
 
 #: src/glossary.md:73
 #, fuzzy
@@ -19144,8 +19167,9 @@ msgid "unit test:"
 msgstr "单元测试"
 
 #: src/glossary.md:103
+#, fuzzy
 msgid "unsafe:"
-msgstr ""
+msgstr "是（不安全）"
 
 #: src/glossary.md:104
 #, fuzzy
