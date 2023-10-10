@@ -33,6 +33,14 @@ async fn main() {
 
 <details>
 
+> Before running this example you should install the following dependencies:
+> * [anyhow](https://crates.io/crates/anyhow)
+> * [futures](https://crates.io/crates/futures)
+> * [reqwest](https://crates.io/crates/reqwest)
+> * [tokio](https://crates.io/crates/tokio)
+>
+> You can install them by running the following command in your terminal: `cargo add <package_name>`
+
 Copy this example into your prepared `src/main.rs` and run it from there.
 
 * For multiple futures of disjoint types, you can use `std::future::join!` but
