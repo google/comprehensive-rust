@@ -30,7 +30,9 @@ Also, please keep the hard line breaks to ensure a nice formatting.
 - allocate:\
   Dynamic memory allocation on [the heap](memory-management/stack-vs-heap.md).
 - argument:\
-- Bare-metal Rust: See [Bare-metal Rust](bare-metal.md).
+- Bare-metal Rust:\
+  Low-level Rust development, often deployed to a system without an operating
+  system. See [Bare-metal Rust](bare-metal.md).
 - block:\
   See [Blocks](control-flow/blocks.md) and _scope_.
 - borrow:\
