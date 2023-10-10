@@ -43,14 +43,12 @@ impl Label {
 
 pub struct Button {
     label: Label,
-    callback: Box<dyn FnMut()>,
 }
 
 impl Button {
-    fn new(label: &str, callback: Box<dyn FnMut()>) -> Button {
+    fn new(label: &str) -> Button {
         Button {
             label: Label::new(label),
-            callback,
         }
     }
 }
@@ -158,8 +156,7 @@ fn main() {
     let mut window = Window::new("Rust GUI Demo 1.23");
     window.add_widget(Box::new(Label::new("This is a small text GUI demo.")));
     window.add_widget(Box::new(Button::new(
-        "Click me!",
-        Box::new(|| println!("You clicked the button!")),
+        "Click me!"
     )));
     window.draw();
 }

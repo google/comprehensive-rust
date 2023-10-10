@@ -5,7 +5,6 @@ are connected via the channel, but you only see the end-points.
 
 ```rust,editable
 use std::sync::mpsc;
-use std::thread;
 
 fn main() {
     let (tx, rx) = mpsc::channel();
