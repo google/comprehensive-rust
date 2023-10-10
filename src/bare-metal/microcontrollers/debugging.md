@@ -18,10 +18,15 @@ cargo embed --bin board_support debug
 
 In another terminal in the same directory:
 
+On gLinux or Debian:
 ```sh
 gdb-multiarch target/thumbv7em-none-eabihf/debug/board_support --eval-command="target remote :1337"
 ```
 
+On MacOS:
+```sh
+arm-none-eabi-gdb target/thumbv7em-none-eabihf/debug/board_support --eval-command="target remote :1337"
+```
 <details>
 
 In GDB, try running:
