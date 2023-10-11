@@ -17,10 +17,10 @@ jobs:
       - name: Check for changes between msgid and msgstr
         run: |
           git reset origin/main
-          for filename in $(git diff --exit-code --name-only | grep '.po')
+          for filename in $(git diff --name-only | grep '.po')
           do
             echo Checking $filename changes
-            if git diff --exit-code $filename | grep -qE POT-Creation-Date; then
+            if git diff $filename | grep -q POT-Creation-Date; then
               echo Assuming \"$filename\" was changed automatically, skipping msgid check
               continue
             fi
