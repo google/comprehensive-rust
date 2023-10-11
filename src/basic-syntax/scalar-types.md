@@ -24,6 +24,7 @@ There are a few syntaxes which are not shown above:
   == "\\\\n"`. You can embed double-quotes by using an equal amount of `#` on
   either side of the quotes:
 
+  <!-- mdbook-xgettext: skip -->
   ```rust,editable
   fn main() {
       println!(r#"<a href="link.html">link</a>"#);
@@ -33,6 +34,7 @@ There are a few syntaxes which are not shown above:
 
 - Byte strings allow you to create a `&[u8]` value directly:
 
+  <!-- mdbook-xgettext: skip -->
   ```rust,editable
   fn main() {
       println!("{:?}", b"abc");

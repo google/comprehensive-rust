@@ -3,6 +3,7 @@
 Rust provides type safety via static typing. Variable bindings are immutable by
 default:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
     let x: i32 = 10;
