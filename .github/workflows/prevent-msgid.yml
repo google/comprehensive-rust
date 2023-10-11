@@ -1,0 +1,41 @@
+name: Prevent msgid changes in translations
+
+on:
+  pull_request:
+    paths:
+      - "**/*.po"
+
+jobs:
+  prevent-msgid-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Check for changes between msgid and msgstr
+        run: |
+          git reset origin/main
+          for filename in $(git diff --exit-code --name-only | grep '.po')
+          do
+            echo Checking $filename changes
+            if git diff --exit-code $filename | grep -qE POT-Creation-Date; then
+              echo Assuming \"$filename\" was changed automatically, skipping msgid check
+              continue
+            fi
+
+            changed_lines=$(git blame $filename | grep -n '^0\{8\} ' | cut -f1 -d:)
+            for changed_line in $changed_lines
+            do
+              if sed -n ${changed_line}p $filename | grep -q msgstr; then
+                continue
+              fi
+
+              if sed -n "${changed_line},\$p" $filename | awk '!/^msgid/ {print} /^msgid/ {exit}' | grep -q msgstr; then
+                echo Changed msgid in file \"$filename\" \(line $changed_line\)!
+                echo Please read https://github.com/google/comprehensive-rust/blob/main/TRANSLATIONS.md#creating-and-updating-translations.
+                exit 1
+              fi
+            done
+          done
