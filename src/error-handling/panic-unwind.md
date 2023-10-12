@@ -9,7 +9,6 @@ fn main() {
     let result = panic::catch_unwind(|| {
         "No problem here!"
     });
-    assert!(result.is_ok());
     println!("{result:?}");
 
     let result = panic::catch_unwind(|| {
