@@ -24,7 +24,7 @@ You will convert between all these types:
 - `&str` to `CString`: you need to allocate space for a trailing `\0` character,
 - `CString` to `*const i8`: you need a pointer to call C functions,
 - `*const i8` to `&CStr`: you need something which can find the trailing `\0` character,
-- `&CStr` to `&[u8]`: a slice of bytes is the universal interface for "some unknow data",
+- `&CStr` to `&[u8]`: a slice of bytes is the universal interface for "some unknown data",
 - `&[u8]` to `&OsStr`: `&OsStr` is a step towards `OsString`, use
   [`OsStrExt`](https://doc.rust-lang.org/std/os/unix/ffi/trait.OsStrExt.html)
   to create it,
