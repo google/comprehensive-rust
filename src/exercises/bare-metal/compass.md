@@ -43,7 +43,7 @@ use microbit::{hal::uarte::{Baudrate, Parity, Uarte}, Board};
 _Cargo.toml_ (you shouldn't need to change this):
 
 <!-- File Cargo.toml -->
-
+<!-- mdbook-xgettext: skip -->
 ```toml
 {{#include compass/Cargo.toml}}
 ```
@@ -51,7 +51,7 @@ _Cargo.toml_ (you shouldn't need to change this):
 _Embed.toml_ (you shouldn't need to change this):
 
 <!-- File Embed.toml -->
-
+<!-- mdbook-xgettext: skip -->
 ```toml
 {{#include compass/Embed.toml}}
 ```
@@ -59,19 +59,19 @@ _Embed.toml_ (you shouldn't need to change this):
 _.cargo/config.toml_ (you shouldn't need to change this):
 
 <!-- File .cargo/config.toml -->
-
+<!-- mdbook-xgettext: skip -->
 ```toml
 {{#include compass/.cargo/config.toml}}
 ```
 
 See the serial output on Linux with:
-
+<!-- mdbook-xgettext: skip -->
 ```sh
 picocom --baud 115200 --imap lfcrlf /dev/ttyACM0
 ```
 
 Or on Mac OS something like (the device name may be slightly different):
-
+<!-- mdbook-xgettext: skip -->
 ```sh
 picocom --baud 115200 --imap lfcrlf /dev/tty.usbmodem14502
 ```
