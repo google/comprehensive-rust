@@ -10,12 +10,12 @@ fn main() {
         "No problem here!"
     });
     assert!(result.is_ok());
-    println!("{}", result.unwrap());
+    println!("{result:?}");
 
     let result = panic::catch_unwind(|| {
         panic!("oh no!");
     });
-    assert!(result.is_err());
+    println!("{result:?}");
 }
 ```
 
