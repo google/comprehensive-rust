@@ -5,7 +5,7 @@
 state between different CPUs?
 
 The [`spin`][1] crate provides spinlock-based equivalents of many of these primitives.
-
+<!-- mdbook-xgettext: skip -->
 ```rust,editable,compile_fail
 use spin::mutex::SpinMutex;
 

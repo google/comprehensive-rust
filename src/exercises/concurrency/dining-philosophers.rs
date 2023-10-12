@@ -51,7 +51,7 @@ impl Philosopher {
 }
 
 static PHILOSOPHERS: &[&str] =
-    &["Socrates", "Plato", "Aristotle", "Thales", "Pythagoras"];
+    &["Socrates", "Hypatia", "Plato", "Aristotle", "Pythagoras"];
 
 fn main() {
     // ANCHOR_END: Philosopher-eat-end

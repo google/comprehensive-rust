@@ -61,7 +61,7 @@ _src/pl011.rs_ (you shouldn't need to change this):
 _Cargo.toml_ (you shouldn't need to change this):
 
 <!-- File Cargo.toml -->
-
+<!-- mdbook-xgettext: skip -->
 ```toml
 {{#include rtc/Cargo.toml}}
 ```
@@ -117,7 +117,7 @@ _Makefile_ (you shouldn't need to change this):
 _.cargo/config.toml_ (you shouldn't need to change this):
 
 <!-- File .cargo/config.toml -->
-
+<!-- mdbook-xgettext: skip -->
 ```toml
 {{#include rtc/.cargo/config.toml}}
 ```
