@@ -15,7 +15,7 @@ directory. The `.po` files are small text-based translation databases.
 
 > **Important:** If you are planning to use [Poedit](https://poedit.net/) as
 > suggested above, make sure to follow the
-> [additional configuration steps](#Additional-Configuration-for-Poedit) below
+> [additional configuration steps](#additional-configuration-for-poedit) below
 > to ensure the `.po` file is correctly formatted.
 
 There is a `.po` file for each language. They are named after the [ISO 639]
@@ -32,15 +32,35 @@ GNU Gettext utilities below.
 
 ## Preparation
 
-You will need the [Gettext] utilities (`msginit`, `msgmerge`). Under Debian and
-Ubuntu, you can install with:
+### Installing Gettext
+
+You will need the [Gettext] utilities (`msginit`, `msgmerge`).
+
+Under Debian and Ubuntu, you can install with:
 
 ```shell
 sudo apt install gettext
 ```
 
+On MacOS with [Homebrew](https://brew.sh/), you can install with:
+
+```shell
+brew install gettext
+```
+
+### Installing dprint
+
+We use [dprint](https://dprint.dev/) to format the `.po` files. You can install
+with:
+
+```shell
+cargo install dprint
+```
+
+### Installing mdbook tools
+
 Ensure you can build the book, and that `mdbook serve` works. For this, follow
-the instructions in the [README](README.md).
+the instructions in the [README](README.md#building).
 
 ## Creating and Updating Translations
 
@@ -148,6 +168,15 @@ will need to change a few things from their default configuration:
 1. _**Uncheck**_ the **Preserve formatting of existing files** box
 
 ![Poedit Screenshot](poedit-screenshot.png)
+
+### Formatting a Translation
+
+You should run `dprint` on your `.po` file to ensure it is formatted correctly.
+You can do this with:
+
+```shell
+dprint fmt po/xx.po
+```
 
 ## Using Translations
 
