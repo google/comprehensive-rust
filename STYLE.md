@@ -65,6 +65,24 @@ collapsed or removed entirely from the slide.
   course, instructors will only have time to glance at the notes so it is not
   useful to include full paragraphs which the instructor should read out loud.
 
+### More to Explore
+
+Move extended explanations in the notes to a "More to Explore" section:
+
+```markdown
+<details>
+
+...
+
+## More to Explore
+
+...
+
+</details>
+```
+
+The material there is outside the scope of the regular class.
+
 ## Translations
 
 This section is about what you write in the translation. We describe
