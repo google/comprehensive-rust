@@ -19,6 +19,7 @@ renderers = ["html"]
 after = ["gettext"]
 class = "bob"
 
+[preprocessor.course]
 # Enable this preprocessor to overlay a large red rectangle on the
 # pages. This will show you an estimate of what the course
 # participants can see during the presentation.
@@ -28,8 +29,13 @@ class = "bob"
 
 [output.html]
 curly-quotes = true
-additional-js = ["speaker-notes.js"]
-additional-css = ["svgbob.css", "speaker-notes.css", "language-picker.css"]
+additional-js = ["theme/speaker-notes.js"]
+additional-css = [
+  "theme/css/svgbob.css",
+  "theme/css/speaker-notes.css",
+  "theme/css/language-picker.css",
+  "theme/css/frontmatter.css",
+]
 site-url = "/comprehensive-rust/"
 git-repository-url = "https://github.com/google/comprehensive-rust"
 edit-url-template = "https://github.com/google/comprehensive-rust/edit/main/{path}"
@@ -79,6 +85,9 @@ line-numbers = true
 "exercises/day-1/iterators-and-ownership.html" = "../day-2/iterators-and-ownership.html"
 # Send people to canonical URL instead of index.html
 "welcome.html" = "./"
+
+[output.html.search]
+use-boolean-and = true
 
 [output.exerciser]
 output-directory = "comprehensive-rust-exercises"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Comprehensive Rust 🦀\n"
-"POT-Creation-Date: \n"
+"POT-Creation-Date: 2023-09-24\n"
 "PO-Revision-Date: 2023-06-06 13:18+0900\n"
 "Last-Translator: Kenta Aratani <kentaaratani@coinez.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -10,6 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: src/SUMMARY.md:4 src/index.md:1
 msgid "Welcome to Comprehensive Rust 🦀"
@@ -8527,10 +8528,14 @@ msgid ""
 "Rust support generics, which lets you abstract algorithms or data structures "
 "(such as sorting or a binary tree) over the types used or stored."
 msgstr ""
+"Rustはジェネリクス（generics）をサポートします。これにより、使用または保存す"
+"る型に関してアルゴリズムやデータ構造（ソートアルゴリズムや、二分木など）を抽"
+"象化することができます。"
 
 #: src/generics/data-types.md:3
 msgid "You can use generics to abstract over the concrete field type:"
 msgstr ""
+"ジェネリクスを使って、具体的なフィールドの型を抽象化することができます："
 
 #: src/generics/data-types.md:5
 msgid ""
@@ -8552,14 +8557,16 @@ msgstr ""
 #: src/generics/data-types.md:21
 msgid "Try declaring a new variable `let p = Point { x: 5, y: 10.0 };`."
 msgstr ""
+"次のような新しい変数を宣言してみてください `let p = Point { x: 5, y: 10.0 };"
+"`."
 
 #: src/generics/data-types.md:23
 msgid "Fix the code to allow points that have elements of different types."
-msgstr ""
+msgstr "異なる型の要素を持つ点を許容するように、コードを修正してください。"
 
 #: src/generics/methods.md:3
 msgid "You can declare a generic type on your `impl` block:"
-msgstr ""
+msgstr "`impl`に対して、ジェネリックな型を宣言することもできます："
 
 #: src/generics/methods.md:5
 msgid ""
@@ -8587,30 +8594,40 @@ msgid ""
 "_Q:_ Why `T` is specified twice in `impl<T> Point<T> {}`? Isn't that "
 "redundant?"
 msgstr ""
+"_Q:_ なぜ`T`は２回も `impl<T> Point<T> {}` において指定されたのでしょうか？冗"
+"長ではありませんか？"
 
 #: src/generics/methods.md:26
 msgid ""
 "This is because it is a generic implementation section for generic type. "
 "They are independently generic."
 msgstr ""
+"なぜなら、これはジェネリクスに対してのジェネリックな実装の箇所だからです。そ"
+"れらは独立してジェネリックです。"
 
 #: src/generics/methods.md:27
 msgid "It means these methods are defined for any `T`."
 msgstr ""
+"つまり、そのようなメソッドは任意の`T`に対して定義されるということです。"
 
 #: src/generics/methods.md:28
 msgid "It is possible to write `impl Point<u32> { .. }`. "
-msgstr ""
+msgstr "`impl Point<u32> { .. }`のように書くことも可能です。 "
 
 #: src/generics/methods.md:29
 msgid ""
 "`Point` is still generic and you can use `Point<f64>`, but methods in this "
 "block will only be available for `Point<u32>`."
 msgstr ""
+"`Point`はそれでもなおジェネリックであり、 `Point<f64>`を使うことができます。"
+"しかし、このブロックでのメソッドは`Point<u32>`に対してのみ利用可能となりま"
+"す。"
 
 #: src/generics/monomorphization.md:3
 msgid "Generic code is turned into non-generic code based on the call sites:"
 msgstr ""
+"ジェネリクスのコードは呼び出し箇所に基づいて、ジェネリックでないコードに変換"
+"されます："
 
 #: src/generics/monomorphization.md:5
 msgid ""
@@ -8624,7 +8641,7 @@ msgstr ""
 
 #: src/generics/monomorphization.md:12
 msgid "behaves as if you wrote"
-msgstr ""
+msgstr "上のコードは、次のように書いた時と同じように動作します"
 
 #: src/generics/monomorphization.md:14
 msgid ""
@@ -8651,6 +8668,8 @@ msgid ""
 "This is a zero-cost abstraction: you get exactly the same result as if you "
 "had hand-coded the data structures without the abstraction."
 msgstr ""
+"これはゼロコスト抽象化です：抽象化なしに手作業でデータ構造を書いたときと、全"
+"く同じ結果を得ることができます。"
 
 #: src/traits.md:3
 msgid ""
@@ -12551,7 +12570,7 @@ msgstr ""
 
 #: src/bare-metal.md:1
 msgid "Welcome to Bare Metal Rust"
-msgstr ""
+msgstr "ベアメタルRustへようこそ"
 
 #: src/bare-metal.md:3
 msgid ""
@@ -12560,28 +12579,33 @@ msgid ""
 "Comprehensive Rust course), and ideally also have some experience with bare-"
 "metal programming in some other language such as C."
 msgstr ""
+"こちらはベアメタルRustに関する独立した１日コースです。対象としているのは、"
+"Rustの基本的な部分に関しては習得済みな人で（例えば、本講座で）、Cなどの他の言"
+"語でベアメタル開発の経験があると理想的です。"
 
 #: src/bare-metal.md:7
 msgid ""
 "Today we will talk about 'bare-metal' Rust: running Rust code without an OS "
 "underneath us. This will be divided into several parts:"
 msgstr ""
+"今日、取り扱うのは、ベアメタルRustです。すなわち、OSなしでRustのコードを実行"
+"します。この章は以下のような構成になります:"
 
 #: src/bare-metal.md:10
 msgid "What is `no_std` Rust?"
-msgstr ""
+msgstr "`no_std` Rustとは?"
 
 #: src/bare-metal.md:11
 msgid "Writing firmware for microcontrollers."
-msgstr ""
+msgstr "マイクロコントローラ向けのファームウェア開発。"
 
 #: src/bare-metal.md:12
 msgid "Writing bootloader / kernel code for application processors."
-msgstr ""
+msgstr "アプリケーションプロセッサ向けのブートローダ／カーネル開発。"
 
 #: src/bare-metal.md:13
 msgid "Some useful crates for bare-metal Rust development."
-msgstr ""
+msgstr "ベアメタルRust開発に役立つクレートの紹介。"
 
 #: src/bare-metal.md:15
 msgid ""
@@ -12591,11 +12615,17 @@ msgid ""
 "with some LEDs and buttons, an I2C-connected accelerometer and compass, and "
 "an on-board SWD debugger."
 msgstr ""
+"マイクロコントローラ向けの学習では[BBC micro:bit](https://microbit.org/) v2を"
+"題材として使います。これは、Nordic nRF51822マイコンベースの[開発ボード]"
+"(https://tech.microbit.org/hardware/) で、いくつかのLEDやボタンスイッチ、I2C"
+"接続の加速度センサやコンパス、そしてオンボードSWDデバッガを搭載しています。"
 
 #: src/bare-metal.md:20
 msgid ""
 "To get started, install some tools we'll need later. On gLinux or Debian:"
 msgstr ""
+"まずはじめに、後ほど必要となるいくつかのツールをインストールします。gLinuxま"
+"たはDebianの場合は以下のようになります:"
 
 #: src/bare-metal.md:22
 msgid ""
@@ -12613,6 +12643,8 @@ msgstr ""
 msgid ""
 "And give users in the `plugdev` group access to the micro:bit programmer:"
 msgstr ""
+"さらに、`plugdev`グループにmicro:bitプログラム用デバイスへのアクセスを付与し"
+"ます:"
 
 #: src/bare-metal.md:32
 msgid ""
@@ -12626,7 +12658,7 @@ msgstr ""
 
 #: src/bare-metal.md:38
 msgid "On MacOS:"
-msgstr ""
+msgstr "MacOSの場合は以下のようになります:"
 
 #: src/bare-metal.md:40
 msgid ""
@@ -12743,15 +12775,15 @@ msgstr ""
 
 #: src/bare-metal/no_std.md:62
 msgid "`HashMap` depends on RNG."
-msgstr ""
+msgstr "`HashMap`はRNGに依存します。"
 
 #: src/bare-metal/no_std.md:63
 msgid "`std` re-exports the contents of both `core` and `alloc`."
-msgstr ""
+msgstr "`std`は`core`と`alloc`の両方を再エクスポートします。"
 
 #: src/bare-metal/minimal.md:1
 msgid "A minimal `no_std` program"
-msgstr ""
+msgstr "最小限の`no_std`プログラム"
 
 #: src/bare-metal/minimal.md:3
 msgid ""
@@ -12770,21 +12802,27 @@ msgstr ""
 
 #: src/bare-metal/minimal.md:17
 msgid "This will compile to an empty binary."
-msgstr ""
+msgstr "このコードは空のバイナリにコンパイルされます。"
 
 #: src/bare-metal/minimal.md:18
 msgid "`std` provides a panic handler; without it we must provide our own."
 msgstr ""
+"パニックハンドラは`std`が提供するので、それを使わない場合は自分で提供する必要"
+"があります。"
 
 #: src/bare-metal/minimal.md:19
 msgid "It can also be provided by another crate, such as `panic-halt`."
 msgstr ""
+"あるいは、`panic-halt`のような別のクレートが提供するパニックハンドラを利用す"
+"ることもできます。"
 
 #: src/bare-metal/minimal.md:20
 msgid ""
 "Depending on the target, you may need to compile with `panic = \"abort\"` to "
 "avoid an error about `eh_personality`."
 msgstr ""
+"ターゲットによっては、`eh_personality`に関するエラーを回避するために`panic = "
+"\"abort\"`を指定してコンパイルする必要があります。"
 
 #: src/bare-metal/minimal.md:22
 msgid ""
@@ -12792,12 +12830,17 @@ msgid ""
 "define your own entry point. This will typically involve a linker script and "
 "some assembly code to set things up ready for Rust code to run."
 msgstr ""
+"なお、`main`のようなプログラムの規定エントリポイントはないので、自分でエント"
+"リポイントを定義する必要があります。通常、Rustコードを実行できるようにするた"
+"めには、リンカスクリプトとある程度のアセンブリコードを必要とします。"
 
 #: src/bare-metal/alloc.md:3
 msgid ""
 "To use `alloc` you must implement a [global (heap) allocator](https://doc."
 "rust-lang.org/stable/std/alloc/trait.GlobalAlloc.html)."
 msgstr ""
+"`alloc`を使うためには、[グローバル（ヒープ）アロケータ](https://doc.rust-"
+"lang.org/stable/std/alloc/trait.GlobalAlloc.html)を実装しなければなりません。"
 
 #: src/bare-metal/alloc.md:6
 msgid ""
@@ -12840,12 +12883,17 @@ msgid ""
 "system allocator. Other crates are available, or you can write your own or "
 "hook into your existing allocator."
 msgstr ""
+"`buddy_system_allocator`はサードパーティのクレートで、単純なバディシステムア"
+"ロケータです。その他にも利用できるクレートはありますし、自前で実装したり、別"
+"のアロケータに自分のコードをフックすることも可能です。"
 
 #: src/bare-metal/alloc.md:41
 msgid ""
 "The const parameter of `LockedHeap` is the max order of the allocator; i.e. "
 "in this case it can allocate regions of up to 2\\*\\*32 bytes."
 msgstr ""
+"パラメータ定数`LockedHeap`はアロケータの最大オーダを示します。この場合、"
+"2\\*\\*32バイトの領域を確保することが可能です。"
 
 #: src/bare-metal/alloc.md:43
 msgid ""
@@ -12853,16 +12901,23 @@ msgid ""
 "exactly one global allocator defined in your binary. Usually this is done in "
 "the top-level binary crate."
 msgstr ""
+"もし依存関係にあるクレートが`alloc`に依存する場合、必ずバイナリファイルあたり"
+"一つだけのグローバルなアロケータが存在するようにしなければなりません。通常、"
+"これはトップレベルのバイナリを生成するクレートにより制御されます。"
 
 #: src/bare-metal/alloc.md:45
 msgid ""
 "`extern crate panic_halt as _` is necessary to ensure that the `panic_halt` "
 "crate is linked in so we get its panic handler."
 msgstr ""
+"`extern crate panic_halt as _` という部分は、`panic_halt`クレートを確実にリン"
+"クし、パニックハンドラを利用可能にするために必要です。"
 
 #: src/bare-metal/alloc.md:47
 msgid "This example will build but not run, as it doesn't have an entry point."
 msgstr ""
+"この例で示したコードはビルドできますが、エントリポイントがないので実行するこ"
+"とはできません。"
 
 #: src/bare-metal/microcontrollers.md:3
 msgid ""
@@ -16646,25 +16701,31 @@ msgstr ""
 
 #: src/concurrency/send-sync.md:1
 msgid "`Send` and `Sync`"
-msgstr ""
+msgstr "`Send`と`Sync`"
 
 #: src/concurrency/send-sync.md:3
 msgid ""
 "How does Rust know to forbid shared access across thread? The answer is in "
 "two traits:"
 msgstr ""
+"Rustはどのようにスレッド間での値の共有アクセスを禁止するのでしょうか？その答"
+"えとなるのが、以下の２つのトレイトです："
 
 #: src/concurrency/send-sync.md:5
 msgid ""
 "[`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html): a type `T` "
 "is `Send` if it is safe to move a `T` across a thread boundary."
 msgstr ""
+"[`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html): スレッド境界"
+"をまたいでの型`T`のムーブが安全に行える場合、型`T`は`Send`である。"
 
 #: src/concurrency/send-sync.md:7
 msgid ""
 "[`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html): a type `T` "
 "is `Sync` if it is safe to move a `&T` across a thread boundary."
 msgstr ""
+"[`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html): スレッド境界"
+"をまたいで`&T`のムーブが安全に行える場合、型`T`は`Sync`である。"
 
 #: src/concurrency/send-sync.md:10
 msgid ""
@@ -16673,16 +16734,24 @@ msgid ""
 "contain `Send` and `Sync` types. You can also implement them manually when "
 "you know it is valid."
 msgstr ""
+"`Send`と`Sync`は[unsafeなトレイト](../unsafe/unsafe-traits.md)です。 あなたが"
+"新たに定義する型が`Send`と`Sync`の型のみを含む場合、コンパイラはその新しい型"
+"に対して`Send`と`Sync`を自動的に導出します。そうでなくても妥当であるならば"
+"`Send`と`Sync`を自分自身で実装することもできます。"
 
 #: src/concurrency/send-sync.md:20
 msgid ""
 "One can think of these traits as markers that the type has certain thread-"
 "safety properties."
 msgstr ""
+"これらのトレイトは、ある型が特定のスレッドセーフの特性を持っていることを示す"
+"マーカーと考えることもできます。"
 
 #: src/concurrency/send-sync.md:21
 msgid "They can be used in the generic constraints as normal traits."
 msgstr ""
+"これらは通常のトレイトと同じように、ジェネリック境界の中で利用することができ"
+"ます。"
 
 #: src/concurrency/send-sync/send.md:1
 msgid "`Send`"
@@ -16693,6 +16762,8 @@ msgid ""
 "A type `T` is [`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html) "
 "if it is safe to move a `T` value to another thread."
 msgstr ""
+"型`T`の値を安全に別のスレッドにムーブできる場合、型`T`は[`Send`](https://doc."
+"rust-lang.org/std/marker/trait.Send.html)である。"
 
 #: src/concurrency/send-sync/send.md:5
 msgid ""
@@ -16700,12 +16771,17 @@ msgid ""
 "run in that thread. So the question is when you can allocate a value in one "
 "thread and deallocate it in another."
 msgstr ""
+"所有権を別のスレットにムーブするということは、_デストラクタ_ がそのスレッドで"
+"実行されるということです。つまり、あるスレッドでアロケートされた値を別のス"
+"レッドで解放しても良いかというのが判断基準になります。"
 
 #: src/concurrency/send-sync/send.md:13
 msgid ""
 "As an example, a connection to the SQLite library must only be accessed from "
 "a single thread."
 msgstr ""
+"例を挙げると、SQLiteライブラリへのコネクションは、一つのスレッドからのみアク"
+"セスされる必要があります。"
 
 #: src/concurrency/send-sync/sync.md:1
 msgid "`Sync`"
@@ -16716,14 +16792,16 @@ msgid ""
 "A type `T` is [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html) "
 "if it is safe to access a `T` value from multiple threads at the same time."
 msgstr ""
+"型`T`の値を複数のスレッドから同時にアクセスしても安全な場合、型`T`は [`Sync`]"
+"(https://doc.rust-lang.org/std/marker/trait.Sync.html) である。"
 
 #: src/concurrency/send-sync/sync.md:6
 msgid "More precisely, the definition is:"
-msgstr ""
+msgstr "より正確には、以下のような定義です："
 
 #: src/concurrency/send-sync/sync.md:8
 msgid "`T` is `Sync` if and only if `&T` is `Send`"
-msgstr ""
+msgstr "`&T`が`Send`である場合、かつその場合に限り、`T`は`Sync`である"
 
 #: src/concurrency/send-sync/sync.md:14
 msgid ""
@@ -16731,6 +16809,8 @@ msgid ""
 "thread-safe for shared use, it is also thread-safe to pass references of it "
 "across threads."
 msgstr ""
+"これはつまり、「ある型の共有がスレッドセーフであれば、その参照をスレッド間で"
+"受け渡すこともスレッドセーフである」ということを手短に表したものです。"
 
 #: src/concurrency/send-sync/sync.md:16
 msgid ""
@@ -16740,6 +16820,11 @@ msgid ""
 "is also safe to move to another thread, because the data it references can "
 "be accessed from any thread safely."
 msgstr ""
+"なぜなら、ある型がSyncである場合、データ競合や他の同期の問題などのリスクなし"
+"にその型を複数のスレッド間で共有でき、その型を別のスレッドにムーブしても安全"
+"だからです。また、型への参照は別のスレッドにムーブしても安全です。それは、そ"
+"れが参照するデータは任意のスレッドから安全にアクセスすることができるからで"
+"す。"
 
 #: src/concurrency/send-sync/examples.md:3
 msgid "`Send + Sync`"
@@ -16747,7 +16832,7 @@ msgstr ""
 
 #: src/concurrency/send-sync/examples.md:5
 msgid "Most types you come across are `Send + Sync`:"
-msgstr ""
+msgstr "見かけるほとんどの型は`Send + Sync`です："
 
 #: src/concurrency/send-sync/examples.md:7
 msgid "`i8`, `f32`, `bool`, `char`, `&str`, ..."
@@ -16763,21 +16848,23 @@ msgstr ""
 
 #: src/concurrency/send-sync/examples.md:10
 msgid "`Arc<T>`: Explicitly thread-safe via atomic reference count."
-msgstr ""
+msgstr "`Arc<T>`: アトミック参照カウントにより、明示的にスレッドセーフ。"
 
 #: src/concurrency/send-sync/examples.md:11
 msgid "`Mutex<T>`: Explicitly thread-safe via internal locking."
-msgstr ""
+msgstr "`Mutex<T>`: 内部ロックにより明示的にスレッドセーフ。"
 
 #: src/concurrency/send-sync/examples.md:12
 msgid "`AtomicBool`, `AtomicU8`, ...: Uses special atomic instructions."
-msgstr ""
+msgstr "`AtomicBool`, `AtomicU8`, …: 特別なアトミック命令を利用。"
 
 #: src/concurrency/send-sync/examples.md:14
 msgid ""
 "The generic types are typically `Send + Sync` when the type parameters are "
 "`Send + Sync`."
 msgstr ""
+"ジェネリクスは、型パラメタが`Send + Sync`であるとき、通常は`Send + Sync`で"
+"す。"
 
 #: src/concurrency/send-sync/examples.md:17
 msgid "`Send + !Sync`"
@@ -16788,6 +16875,8 @@ msgid ""
 "These types can be moved to other threads, but they're not thread-safe. "
 "Typically because of interior mutability:"
 msgstr ""
+"これらの型は別のスレッドにムーブすることができますが、このようなムーブはス"
+"レッドセーフではありません。通常は内部可変性がその原因です："
 
 #: src/concurrency/send-sync/examples.md:22
 msgid "`mpsc::Sender<T>`"
@@ -16813,12 +16902,16 @@ msgstr ""
 msgid ""
 "These types are thread-safe, but they cannot be moved to another thread:"
 msgstr ""
+"このような型はスレッドセーフですが、別のスレッドにムーブすることはできませ"
+"ん："
 
 #: src/concurrency/send-sync/examples.md:31
 msgid ""
 "`MutexGuard<T>`: Uses OS level primitives which must be deallocated on the "
 "thread which created them."
 msgstr ""
+"`MutexGuard<T>`: プリミティブを作成したスレッド自身により、割り当てを解除され"
+"るべきであるようなOSレベルのプリミティブを利用。"
 
 #: src/concurrency/send-sync/examples.md:34
 msgid "`!Send + !Sync`"
@@ -16827,18 +16920,24 @@ msgstr ""
 #: src/concurrency/send-sync/examples.md:36
 msgid "These types are not thread-safe and cannot be moved to other threads:"
 msgstr ""
+"このような型はスレッドセーフではないため、別のスレッドにムーブすることはでき"
+"ません："
 
 #: src/concurrency/send-sync/examples.md:38
 msgid ""
 "`Rc<T>`: each `Rc<T>` has a reference to an `RcBox<T>`, which contains a non-"
 "atomic reference count."
 msgstr ""
+"`Rc<T>`: それぞれの `Rc<T>` は`RcBox<T>`への参照を持っています。これは、アト"
+"ミックでない参照カウントを持っています。"
 
 #: src/concurrency/send-sync/examples.md:40
 msgid ""
 "`*const T`, `*mut T`: Rust assumes raw pointers may have special concurrency "
 "considerations."
 msgstr ""
+"`*const T`, `*mut T`: Rust は、生ポインターは同時実行性に関する特別な考慮事項"
+"がある可能性があることを仮定しています。"
 
 #: src/concurrency/shared_state.md:3
 msgid ""
@@ -17916,7 +18015,7 @@ msgstr ""
 
 #: src/async/control-flow.md:1
 msgid "Futures Control Flow"
-msgstr ""
+msgstr "Futureの制御フロー"
 
 #: src/async/control-flow.md:3
 msgid ""
@@ -17924,6 +18023,8 @@ msgid ""
 "We have already seen tasks, that function as independent threads of "
 "execution."
 msgstr ""
+"並行計算フローグラフを生成するために、futureを組み合わせることができます。す"
+"でに独立したスレッドとして機能するタスクを見てきました。"
 
 #: src/async/control-flow.md:6
 msgid "[Join](control-flow/join.md)"
@@ -17939,6 +18040,9 @@ msgid ""
 "a collection of their results. This is similar to `Promise.all` in "
 "JavaScript or `asyncio.gather` in Python."
 msgstr ""
+"Joinという操作では、futureの集合の準備が整うまで待機し、その後に結果をまとめ"
+"て返します。これはJavaScriptにおける `Promise.all` やPythonにおける`asyncio."
+"gather`に似ています。"
 
 #: src/async/control-flow/join.md:7
 msgid ""
@@ -17976,12 +18080,18 @@ msgid ""
 "you must know how many futures you will have at compile time. This is "
 "currently in the `futures` crate, soon to be stabilised in `std::future`."
 msgstr ""
+"複数の互いに素な型のfutureに対しては、`std::future::join!`を利用できます。し"
+"かし、いくつのfutureがコンパイル時に存在しているのかを把握しておく必要があり"
+"ます。これは現在`futures`クレートにありますが、近いうちに`std::future`に統合"
+"される予定です。"
 
 #: src/async/control-flow/join.md:42
 msgid ""
 "The risk of `join` is that one of the futures may never resolve, this would "
 "cause your program to stall. "
 msgstr ""
+"`join`のリスクは、複数のfutureのうちの１つでも解決されないとプログラムがス"
+"トールしてしまうということです。 "
 
 #: src/async/control-flow/join.md:45
 msgid ""
@@ -17991,6 +18101,11 @@ msgid ""
 "timeout (that requires `select!`, explained in the next chapter), but "
 "demonstrates `join!`."
 msgstr ""
+"また、`join_all`と`join!`を組み合わせることもできます。それは、例えばデータ"
+"ベースのクエリと一緒にhttpサービスへの全てのリクエストをjoinする場合です。"
+"futureに`futures::join!`を用いて、`tokio::time::sleep`を追加してみてくださ"
+"い。これは（次のチャプターで説明する、`select!`を必要とする）タイムアウトでは"
+"ありませんが、`join!`の良い実演となっています。"
 
 #: src/async/control-flow/select.md:3
 msgid ""
@@ -17999,6 +18114,10 @@ msgid ""
 "race`. In Python, it compares to `asyncio.wait(task_set, return_when=asyncio."
 "FIRST_COMPLETED)`."
 msgstr ""
+"Selectという操作では、futureの集合のうち、いずれか１つの準備が整うまで待機"
+"し、そのfutureが提供する結果に対して応答します。これはJavaScriptにおける"
+"`Promise.race`に似ています。また、Pythonにおける `asyncio.wait(task_set, "
+"return_when=asyncio.FIRST_COMPLETED)`と比べることができます。"
 
 #: src/async/control-flow/select.md:8
 msgid ""
@@ -18007,6 +18126,10 @@ msgid ""
 "ready, the `statement` is executed with the variables in `pattern` bound to "
 "the `future`'s result."
 msgstr ""
+"Matchステートメントのように、`select!`の本体にはいくつかの 「腕」があり、それ"
+"ぞれは`pattern = future => statement`の形をとっています。 `future`の準備が"
+"整った時、その`statement`は`future`の結果に紐づく`pattern`の変数を用いて実行"
+"されます。"
 
 #: src/async/control-flow/select.md:13
 msgid ""
@@ -18065,30 +18188,44 @@ msgid ""
 "whichever arrives first. Since the dog takes 50ms, it wins against the cat "
 "that take 500ms seconds."
 msgstr ""
+"この例では、猫と犬のレースを扱っています。`first_animal_to_finish_race`は両方"
+"のチャネルをリッスンし、先に到着した方を選びます。犬は到着まで50msかかるの"
+"で、500msかかる猫に勝ちます。"
 
 #: src/async/control-flow/select.md:67
 msgid ""
 "You can use `oneshot` channels in this example as the channels are supposed "
 "to receive only one `send`."
 msgstr ""
+"この例では`oneshot`チャネルを使うこともできます。なぜなら、チャネルは一回きり"
+"の`send`を受け取ることになっているからです。"
 
 #: src/async/control-flow/select.md:70
 msgid ""
 "Try adding a deadline to the race, demonstrating selecting different sorts "
 "of futures."
 msgstr ""
+"レースに制限時間を追加することによって、違う種類のfutureをselectすることを実"
+"演してみてください。"
 
 #: src/async/control-flow/select.md:73
 msgid ""
 "Note that `select!` drops unmatched branches, which cancels their futures. "
 "It is easiest to use when every execution of `select!` creates new futures."
 msgstr ""
+"`select!`はマッチしなかったブランチをドロップすることに注意してください。これ"
+"は、そうしたブランチのfutureがキャンセルされることにつながります。`select!`を"
+"毎回実行する際に新たなfutureが作成されるときに、`select!`を使うのが最も簡単で"
+"す。"
 
 #: src/async/control-flow/select.md:76
 msgid ""
 "An alternative is to pass `&mut future` instead of the future itself, but "
 "this can lead to issues, further discussed in the pinning slide."
 msgstr ""
+"Futureそのものでなく、`&mut future`を渡すという代替案もあります。しかし、これ"
+"は問題につながることもあります。このことはPinに関するスライドで詳細に議論しま"
+"す。"
 
 #: src/async/pitfalls.md:1
 msgid "Pitfalls of async/await"

@@ -1,13 +1,14 @@
-# A Simple GUI Library
+# Drawing A Simple GUI
 
 Let us design a classical GUI library using our new knowledge of traits and
-trait objects.
+trait objects. We'll only implement the drawing of it (as text) for simplicity.
 
 We will have a number of widgets in our library:
 
 * `Window`: has a `title` and contains other widgets.
-* `Button`: has a `label` and a callback function which is invoked when the
-  button is pressed.
+* `Button`: has a `label`. In reality, it would also take a callback
+  function to allow the program to do something when the button is clicked
+  but we won't include that since we're only drawing the GUI.
 * `Label`: has a `label`.
 
 The widgets will implement a `Widget` trait, see below.

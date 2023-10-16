@@ -13,10 +13,9 @@ directory. The `.po` files are small text-based translation databases.
 > such as [Poedit](https://poedit.net/). There are also several online editors
 > available. This will ensure that the file is encoded correctly.
 
-> **Important:** If you are planning to use [Poedit](https://poedit.net/) as
-> suggested above, make sure to follow the
-> [additional configuration steps](#Additional-Configuration-for-Poedit) below
-> to ensure the `.po` file is correctly formatted.
+> **Important:** You need to run `dprint fmt` after editing the PO file. This
+> ensures consistent formatting of the file. You need to install the Gettext
+> tools for this, see the Preparation section below.
 
 There is a `.po` file for each language. They are named after the [ISO 639]
 language codes: Danish would go into `po/da.po`, Korean would go into
@@ -32,12 +31,16 @@ GNU Gettext utilities below.
 
 ## Preparation
 
-You will need the [Gettext] utilities (`msginit`, `msgmerge`). Under Debian and
-Ubuntu, you can install with:
+You will need the [Gettext] utilities (`msginit`, `msgmerge`) and [`dprint`].
+Under Debian and Ubuntu, you can install Gettext with:
 
 ```shell
 sudo apt install gettext
 ```
+
+Install `dprint` using their installation instructions.
+
+[dprint]: https://dprint.dev/
 
 Ensure you can build the book, and that `mdbook serve` works. For this, follow
 the instructions in the [README](README.md).
@@ -46,11 +49,10 @@ the instructions in the [README](README.md).
 
 First, you need to know how to update the `.pot` and `.po` files.
 
-As a general rule, you should never touch the auto-generated `po/messages.pot`
-file. You should also not edit the `msgid` entries in a `po/xx.po` file. If you
-find mistakes, you need to update the original English text instead. The fixes
-to the English text will flow into the `.po` files the next time the translators
-update them.
+You should never touch the auto-generated `po/messages.pot` file. You should
+also not never the `msgid` entries in a `po/xx.po` file. If you find mistakes,
+you need to update the original English text instead. The fixes to the English
+text will flow into the `.po` files the next time the translators update them.
 
 > **Tip:** See our [style guide](STYLE.md) for some things to keep in mind when
 > writing the translation.
@@ -100,18 +102,25 @@ Next, please update the file `.github/labeler.yml` to include the new language:
 
 ### Refreshing an Existing Translation
 
-As the English text changes, translations gradually become outdated. To update
-the `po/xx.po` file with new messages, first extract the English text into a
-`po/messages.pot` template file. Then run
+As the English text changes, translations gradually become outdated. The
+translations contain a POT-Creation-Date header which tells you when they were
+last updated with new English messages.
+
+To update the `po/xx.po` file with new messages, first extract the English text
+into a `po/messages.pot` template file. Then run
 
 ```shell
 msgmerge --update po/xx.po po/messages.pot
 ```
 
-Unchanged messages will stay intact, deleted messages are marked as old, and
-updated messages are marked "fuzzy". A fuzzy entry will reuse the previous
-translation: you should then go over it and update it as necessary before you
-remove the fuzzy marker.
+Notice that the POT-Creation-Date field is updated to the current time and date.
+This becomes the new baseline for the translation: new English text added
+afterwards will not show up in your translation, including completely new pages.
+
+When running `msgmerge`, unchanged messages stay intact, deleted messages are
+marked as old, and updated messages are marked "fuzzy". A fuzzy entry is not
+used when we publish a translation! You have to go over the fuzzy entries by
+hand and verify that the translation is correct the fuzzy marker.
 
 > **Note:** Your PRs should either be the result of running `msgmerge` or the
 > result of new translation work on the PO file for your language. Avoid mixing
@@ -127,20 +136,15 @@ will take care of escaping things like `"` correctly.
 There are many PO editors available. [Poedit](https://poedit.net/) is a popular
 cross-platform choice, but you can also find several online editors.
 
-#### Additional Configuration for Poedit
+If the file is not formatted correct, you will get an error on the PR. Install
+[Gettext] and [`dprint`](https://dprint.dev/) and then run
 
-If you are using [Poedit](https://poedit.net/) to work with your `.po` file, you
-will need to change a few things from their default configuration:
+```shell
+dprint fmt
+```
 
-1. Open the **Settings** dialog
-   1. On Windows, go to **File / Settings**
-   1. On MacOS, select **Settings** from the **Poedit** menu item
-1. Go to the **Advanced** tab
-1. On **Line endings**, select the option **Unix (recommended)**
-1. Check the **Wrap at** box, and **79** on the textbox
-1. _**Uncheck**_ the **Preserve formatting of existing files** box
-
-![Poedit Screenshot](poedit-screenshot.png)
+This will automatically format the files for you. Commit the formatting fix and
+push to your branch. Your PR should now be error free.
 
 ## Using Translations
 

@@ -2,7 +2,7 @@
 
 For VMs running under crosvm on aarch64, the [vmbase][1] library provides a linker script and useful
 defaults for the build rules, along with an entry point, UART console logging and more.
-
+<!-- mdbook-xgettext: skip -->
 ```rust,compile_fail
 #![no_main]
 #![no_std]

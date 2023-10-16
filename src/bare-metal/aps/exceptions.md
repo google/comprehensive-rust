@@ -4,7 +4,7 @@ AArch64 defines an exception vector table with 16 entries, for 4 types of except
 IRQ, FIQ, SError) from 4 states (current EL with SP0, current EL with SPx, lower EL using AArch64,
 lower EL using AArch32). We implement this in assembly to save volatile registers to the stack
 before calling into Rust code:
-
+<!-- mdbook-xgettext: skip -->
 ```rust,editable,compile_fail
 {{#include examples/src/exceptions.rs:exceptions}}
 ```
