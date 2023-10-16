@@ -15,6 +15,7 @@
 // ANCHOR: solution
 // ANCHOR: luhn
 pub fn luhn(cc_number: &str) -> bool {
+    // ANCHOR_END: luhn
     let mut sum = 0;
     let mut double = false;
     let mut digit_seen = 0;
