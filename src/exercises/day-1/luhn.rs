@@ -15,10 +15,11 @@
 // ANCHOR: solution
 // ANCHOR: luhn
 pub fn luhn(cc_number: &str) -> bool {
+    let cc_number = cc_number.trim().replace(" ", "");
     let mut sum = 0;
     let mut double = false;
 
-    for (i, c) in cc_number.chars().filter(|&f| f != ' ').rev().enumerate() {
+    for c in cc_number.chars().filter(|&f| f != ' ').rev() {
         if let Some(digit) = c.to_digit(10) {
             if double {
                 let double_digit = digit * 2;
@@ -34,7 +35,12 @@ pub fn luhn(cc_number: &str) -> bool {
         } else {
             return false;
         }
-    } 
+    }
+
+    if cc_number.len() <= 1 || cc_number.is_empty() {
+        return false;
+    }
+
     sum % 10 == 0
 }
 
