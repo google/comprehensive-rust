@@ -93,7 +93,7 @@ impl CrawlState {
         url_domain == self.domain
     }
 
-    /// Mark the given page as visited, returning true if it had already
+    /// Mark the given page as visited, returning false if it had already
     /// been visited.
     fn mark_visited(&mut self, url: &Url) -> bool {
         self.visited_pages.insert(url.as_str().to_string())

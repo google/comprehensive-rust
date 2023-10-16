@@ -16,6 +16,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Install Gettext
+        run: |
+          sudo apt install gettext
+
       - name: Install nightly rustfmt
         run: |
           rustup default nightly
