@@ -4,11 +4,6 @@ existing course material:
 - modules/filesystem.md
 ---
 
-<!-- NOTES:
-Organizing modules into multiple files.
--->
-# Filesystem Hierarchy
-
 # Filesystem Hierarchy
 
 Omitting the module content will tell Rust to look for it in another file:

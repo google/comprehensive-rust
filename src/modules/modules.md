@@ -4,11 +4,6 @@ existing course material:
 - modules.md
 ---
 
-<!-- NOTES:
-Organizing the code within a crate and across crates.
--->
-# Modules
-
 # Modules
 
 We have seen how `impl` blocks let us namespace functions to a type.
