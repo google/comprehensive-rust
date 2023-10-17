@@ -4,29 +4,21 @@ existing course material:
 - exercises/day-2/strings-iterators.md
 ---
 
-<!-- NOTES:
-Something that involves a long-ish method chain (`someiter.foo().bar().bing().collect()`)
--->
 # Exercise: Iterator Method Chaining
 
-# Strings and Iterators
-
-In this exercise, you are implementing a routing component of a web server. The
-server is configured with a number of _path prefixes_ which are matched against
-_request paths_. The path prefixes can contain a wildcard character which
-matches a full segment. See the unit tests below.
+In this exercise, you will need to find and use some of the provided methods in
+the [`Iterator`][1] trait to implement a complex calculation.
 
 Copy the following code to <https://play.rust-lang.org/> and make the tests
-pass. Try avoiding allocating a `Vec` for your intermediate results:
+pass. Use an iterator expression and `collect` the result to construct the
+return value.
 
 
 ```rust
-// TODO: remove this when you're done with your implementation.
-#![allow(unused_variables, dead_code)]
-
-{{#include exercise.rs:prefix_matches}}
+{{#include exercise.rs:offset_differences}}
     unimplemented!()
 }
 
 {{#include exercise.rs:unit-tests}}
 ```
+[1]: https://doc.rust-lang.org/std/iter/trait.Iterator.html

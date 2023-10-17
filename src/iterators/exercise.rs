@@ -1,4 +1,4 @@
-// Copyright 2022 Google LLC
+// Copyright 2023 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,63 +12,54 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#![allow(dead_code)]
+
 // ANCHOR: solution
-// ANCHOR: prefix_matches
-pub fn prefix_matches(prefix: &str, request_path: &str) -> bool {
-    // ANCHOR_END: prefix_matches
-
-    let mut request_segments = request_path.split('/');
-
-    for prefix_segment in prefix.split('/') {
-        let Some(request_segment) = request_segments.next() else {
-            return false;
-        };
-        if request_segment != prefix_segment && prefix_segment != "*" {
-            return false;
-        }
-    }
-    true
-
-    // Alternatively, Iterator::zip() lets us iterate simultaneously over prefix
-    // and request segments. The zip() iterator is finished as soon as one of
-    // the source iterators is finished, but we need to iterate over all request
-    // segments. A neat trick that makes zip() work is to use map() and chain()
-    // to produce an iterator that returns Some(str) for each pattern segments,
-    // and then returns None indefinitely.
+// ANCHOR: offset_differences
+/// Calculate the differences between elements of `values` offset by `offset`, wrapping
+/// around from the end of `values` to the beginning.
+///
+/// Element `n` of the result is `values[(n+offset)%len] - values[n]`.
+fn offset_differences<N>(offset: usize, values: Vec<N>) -> Vec<N>
+where
+    N: Copy + std::ops::Sub<Output = N>,
+{
+    // ANCHOR_END: offset_differences
+    let a = (&values).into_iter();
+    let b = (&values).into_iter().cycle().skip(offset);
+    a.zip(b).map(|(a, b)| *b - *a).take(values.len()).collect()
 }
 
 // ANCHOR: unit-tests
 #[test]
-fn test_matches_without_wildcard() {
-    assert!(prefix_matches("/v1/publishers", "/v1/publishers"));
-    assert!(prefix_matches("/v1/publishers", "/v1/publishers/abc-123"));
-    assert!(prefix_matches("/v1/publishers", "/v1/publishers/abc/books"));
-
-    assert!(!prefix_matches("/v1/publishers", "/v1"));
-    assert!(!prefix_matches("/v1/publishers", "/v1/publishersBooks"));
-    assert!(!prefix_matches("/v1/publishers", "/v1/parent/publishers"));
+fn test_offset_one() {
+    assert_eq!(offset_differences(1, vec![1, 3, 5, 7]), vec![2, 2, 2, -6]);
+    assert_eq!(offset_differences(1, vec![1, 3, 5]), vec![2, 2, -4]);
+    assert_eq!(offset_differences(1, vec![1, 3]), vec![2, -2]);
 }
 
 #[test]
-fn test_matches_with_wildcard() {
-    assert!(prefix_matches(
-        "/v1/publishers/*/books",
-        "/v1/publishers/foo/books"
-    ));
-    assert!(prefix_matches(
-        "/v1/publishers/*/books",
-        "/v1/publishers/bar/books"
-    ));
-    assert!(prefix_matches(
-        "/v1/publishers/*/books",
-        "/v1/publishers/foo/books/book1"
-    ));
+fn test_larger_offsets() {
+    assert_eq!(offset_differences(2, vec![1, 3, 5, 7]), vec![4, 4, -4, -4]);
+    assert_eq!(offset_differences(3, vec![1, 3, 5, 7]), vec![6, -2, -2, -2]);
+    assert_eq!(offset_differences(4, vec![1, 3, 5, 7]), vec![0, 0, 0, 0]);
+    assert_eq!(offset_differences(5, vec![1, 3, 5, 7]), vec![2, 2, 2, -6]);
+}
 
-    assert!(!prefix_matches("/v1/publishers/*/books", "/v1/publishers"));
-    assert!(!prefix_matches(
-        "/v1/publishers/*/books",
-        "/v1/publishers/foo/booksByAuthor"
-    ));
+#[test]
+fn test_custom_type() {
+    assert_eq!(
+        offset_differences(1, vec![1.0, 11.0, 5.0, 0.0]),
+        vec![10.0, -6.0, -5.0, 1.0]
+    );
+}
+
+#[test]
+fn test_degenerate_cases() {
+    assert_eq!(offset_differences(1, vec![0]), vec![0]);
+    assert_eq!(offset_differences(1, vec![1]), vec![0]);
+    let empty: Vec<i32> = vec![];
+    assert_eq!(offset_differences(1, empty), vec![]);
 }
 // ANCHOR_END: unit-tests
 

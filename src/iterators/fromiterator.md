@@ -4,11 +4,6 @@ existing course material:
 - traits/from-iterator.md
 ---
 
-<!-- NOTES:
-The FromIterator trait and the collect method.
--->
-# FromIterator
-
 # FromIterator
 
 [`FromIterator`][1] lets you build a collection from an [`Iterator`][2].
@@ -27,13 +22,25 @@ fn main() {
 <details>
 
 `Iterator` implements
-`fn collect<B>(self) -> B
+
+```rust,ignore
+fn collect<B>(self) -> B
 where
     B: FromIterator<Self::Item>,
-    Self: Sized`
+    Self: Sized
+```
 
-There are also implementations which let you do cool things like convert an
-`Iterator<Item = Result<V, E>>` into a `Result<Vec<V>, E>`.
+There are two ways to specify `B` for this method:
+
+ * With the "turbofish": `some_iterator.collect::<COLLECTION_TYPE>()`, as
+   shown. The `_` shorthand used here lets Rust infer the type of the `Vec`
+   elements. 
+ * With type inference: `let prime_squares: Vec<_> =
+   some_iterator.collect()`. Rewrite the example to use this form.
+
+There are basic implementations of `FromIterator` for `Vec`, `HashMap`, etc.
+There are also more specialized implementations which let you do cool things
+like convert an `Iterator<Item = Result<V, E>>` into a `Result<Vec<V>, E>`.
 
 </details>
 

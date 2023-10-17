@@ -9,9 +9,9 @@ The Iterator trait and basic usage
 -->
 # Iterators
 
-# Iterators
-
-You can implement the [`Iterator`][1] trait on your own types:
+The [`Iterator`][1] trait supports iterating over values in a collection. It
+requires a `next` method and provides lots of methods. Many standard library types
+implement `Iterator`, and you can implement it yourself, too:
 
 ```rust,editable
 struct Fibonacci {

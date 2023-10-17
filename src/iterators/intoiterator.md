@@ -4,113 +4,83 @@ existing course material:
 - exercises/day-2/iterators-and-ownership.md
 ---
 
-# Iterators and Ownership
-
-The ownership model of Rust affects many APIs. An example of this is the
-[`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) and
-[`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html)
-traits.
-
-## `Iterator`
-
-Traits are like interfaces: they describe behavior (methods) for a type. The
-`Iterator` trait simply says that you can call `next` until you get `None` back:
-
-```rust
-pub trait Iterator {
-    type Item;
-    fn next(&mut self) -> Option<Self::Item>;
-}
-```
-
-You use this trait like this:
-
-```rust,editable
-fn main() {
-    let v: Vec<i8> = vec![10, 20, 30];
-    let mut iter = v.iter();
-
-    println!("v[0]: {:?}", iter.next());
-    println!("v[1]: {:?}", iter.next());
-    println!("v[2]: {:?}", iter.next());
-    println!("No more items: {:?}", iter.next());
-}
-```
-
-What is the type returned by the iterator? Test your answer here:
-
-```rust,editable,compile_fail
-fn main() {
-    let v: Vec<i8> = vec![10, 20, 30];
-    let mut iter = v.iter();
-
-    let v0: Option<..> = iter.next();
-    println!("v0: {v0:?}");
-}
-```
-
-Why is this type used?
-
-## `IntoIterator`
+# `IntoIterator`
 
 The `Iterator` trait tells you how to _iterate_ once you have created an
-iterator. The related trait `IntoIterator` tells you how to create the iterator:
+iterator. The related trait
+[`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html)
+defines how to create an iterator for a type. It is used automatically by the
+`for` loop.
 
-```rust
-pub trait IntoIterator {
-    type Item;
-    type IntoIter: Iterator<Item = Self::Item>;
+```rust,editable
+struct Grid {
+    x_coords: Vec<u32>,
+    y_coords: Vec<u32>,
+}
 
-    fn into_iter(self) -> Self::IntoIter;
+impl IntoIterator for Grid {
+    type Item = (u32, u32);
+    type IntoIter = GridIter;
+    fn into_iter(self) -> GridIter {
+        GridIter { grid: self, i: 0, j: 0 }
+    }
+}
+
+struct GridIter {
+    grid: Grid,
+    i: usize,
+    j: usize,
+}
+
+impl Iterator for GridIter {
+    type Item = (u32, u32);
+
+    fn next(&mut self) -> Option<(u32, u32)> {
+        self.i += 1;
+        if self.i >= self.grid.x_coords.len() {
+            self.i = 0;
+            self.j += 1;
+            if self.j >= self.grid.y_coords.len() {
+                return None;
+            }
+        }
+        Some((self.grid.x_coords[self.i], self.grid.y_coords[self.j]))
+    }
+}
+
+fn main() {
+    let grid = Grid {
+        x_coords: vec![3, 5, 7, 9],
+        y_coords: vec![10, 20, 30, 40],
+    };
+    for (x, y) in grid {
+        println!("point = {x}, {y}");
+    }
 }
 ```
 
-The syntax here means that every implementation of `IntoIterator` must
-declare two types:
+<details>
 
-* `Item`: the type we iterate over, such as `i8`,
+Click through to the docs for `IntoIterator`. Every implementation of
+`IntoIterator` must declare two types:
+
+* `Item`: the type to iterate over, such as `i8`,
 * `IntoIter`: the `Iterator` type returned by the `into_iter` method.
 
 Note that `IntoIter` and `Item` are linked: the iterator must have the same
 `Item` type, which means that it returns `Option<Item>`
 
-Like before, what  is the type returned by the iterator?
+The example iterates over all combinations of x and y coordinates.
 
-```rust,editable,compile_fail
-fn main() {
-    let v: Vec<String> = vec![String::from("foo"), String::from("bar")];
-    let mut iter = v.into_iter();
+Try iterating over the grid twice in `main`. Why does this fail? Note that
+`IntoIterator::into_iter` takes ownership of `self`.
 
-    let v0: Option<..> = iter.next();
-    println!("v0: {v0:?}");
-}
-```
+Fix this issue by implementing `IntoIterator` for `&Grid` and storing a
+reference to the `Grid` in `GridIter`.
 
-## `for` Loops
+The same problem can occur for standard library types: `for e in some_vector`
+will take ownership of `some_vector` and iterate over owned elements from that
+vector. Use `for e in &some_vector` instead, to iterate over references to
+elements of `some_vector`.
 
-Now that we know both `Iterator` and `IntoIterator`, we can build `for` loops.
-They call `into_iter()` on an expression and iterates over the resulting
-iterator:
-
-```rust,editable
-fn main() {
-    let v: Vec<String> = vec![String::from("foo"), String::from("bar")];
-
-    for word in &v {
-        println!("word: {word}");
-    }
-
-    for word in v {
-        println!("word: {word}");
-    }
-}
-```
-
-What is the type of `word` in each loop?
-
-Experiment with the code above and then consult the documentation for [`impl
-IntoIterator for
-&Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-for-%26'a+Vec%3CT,+A%3E)
-and [`impl IntoIterator for
-Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-for-Vec%3CT,+A%3E)
-to check your answers.
+</details>
