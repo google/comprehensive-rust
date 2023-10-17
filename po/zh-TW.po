@@ -630,7 +630,7 @@ msgstr "二進位檔"
 
 #: src/SUMMARY.md:196
 msgid "Library"
-msgstr "媒體庫"
+msgstr "函式庫"
 
 #: src/SUMMARY.md:197 src/android/aidl.md:1
 msgid "AIDL"
@@ -2354,7 +2354,7 @@ msgstr "不會造成記憶體流失 (__「一般」來說是這樣，請參閱�
 
 #: src/why-rust/compile-time.md:7
 msgid "No double-frees."
-msgstr "不會導致重複釋放。"
+msgstr "不會導致重複釋放記憶體。"
 
 #: src/why-rust/compile-time.md:8
 msgid "No use-after-free."
@@ -2452,7 +2452,7 @@ msgid ""
 "call functions such as `slice::get_unchecked` which does not do bounds "
 "checking."
 msgstr ""
-"您無法使用編譯器標記停用邊界檢查，也無法直接透過 `unsafe` 關鍵字停用。不過，"
+"您無法使用編譯器參數停用邊界檢查，也無法直接透過 `unsafe` 關鍵字停用。不過，"
 "您可以使用 `unsafe` 呼叫 `slice::get_unchecked` 這類不執行邊界檢查的函式。"
 
 #: src/why-rust/modern.md:3
@@ -2541,15 +2541,15 @@ msgstr ""
 
 #: src/why-rust/modern.md:41
 msgid "a random number generator, but see [rand](https://docs.rs/rand/)."
-msgstr "隨機號碼產生器，但請參閱 [rand](https://docs.rs/rand/)。"
+msgstr "隨機號碼產生器，請參閱 [rand](https://docs.rs/rand/)。"
 
 #: src/why-rust/modern.md:42
 msgid "support for SSL or TLS, but see [rusttls](https://docs.rs/rustls/)."
-msgstr "SSL 或 TLS 支援，但請參閱 [rusttls](https://docs.rs/rustls/)。"
+msgstr "SSL 或 TLS 支援，請參閱 [rusttls](https://docs.rs/rustls/)。"
 
 #: src/why-rust/modern.md:43
 msgid "support for JSON, but see [serde_json](https://docs.rs/serde_json/)."
-msgstr "JSON 支援，但請參閱 [serde_json](https://docs.rs/serde_json/)。"
+msgstr "JSON 支援，請參閱 [serde_json](https://docs.rs/serde_json/)。"
 
 #: src/why-rust/modern.md:45
 msgid ""
@@ -2608,7 +2608,7 @@ msgstr "`if` 和 `while` 等關鍵字的功用相同。"
 
 #: src/basic-syntax.md:9
 msgid "Variable assignment is done with `=`, comparison is done with `==`."
-msgstr "變數指派作業透過 `=` 完成，比較作業則透過 `==` 完成。"
+msgstr "變數指派作業透過 `=` 完成，等於運算則透過 `==` 完成。"
 
 #: src/basic-syntax/scalar-types.md:3 src/basic-syntax/compound-types.md:3
 #: src/exercises/day-3/safe-ffi-wrapper.md:16
@@ -2657,7 +2657,7 @@ msgstr ""
 
 #: src/basic-syntax/scalar-types.md:8
 msgid "Strings"
-msgstr "字串"
+msgstr "字串 (String)"
 
 #: src/basic-syntax/scalar-types.md:8
 msgid "`&str`"
@@ -2826,7 +2826,7 @@ msgid ""
 "specifying the value after the format string."
 msgstr ""
 "在主函式中，輸出陳述式會使用 `?` 格式參數要求偵錯實作：`{}` 提供預設輸出內"
-"容，`{:?}` 則提供偵錯輸出內容。我們也可以使用 `{a}` 和 `{a:?}`，不指定格式字"
+"容，`{:?}` 則提供偵錯輸出內容。我們也可以使用 `{a}` 和 `{a:?}` 而不需指定格式字"
 "串後方的值。"
 
 #: src/basic-syntax/compound-types.md:45
@@ -2990,7 +2990,7 @@ msgid ""
 "identical."
 msgstr ""
 "如果切片從索引 0 開始，Rust 的範圍語法可允許我們捨棄起始索引，也就是說，"
-"`&a[0..a.len()]` 和 `&a[..a.len()]` 並無二致。"
+"`&a[0..a.len()]` 和 `&a[..a.len()]` 意思相同。"
 
 #: src/basic-syntax/slices.md:25
 msgid ""
@@ -3185,7 +3185,7 @@ msgid ""
 "compiler will infer this if the `-> ()` return type is omitted."
 msgstr ""
 "某些函式沒有回傳值，會傳回 `()` 這個「單位型別」。如果省略 `-> ()` 傳回型別，"
-"編譯器就會推斷出這點。"
+"編譯器則會推斷出這點。"
 
 #: src/basic-syntax/functions.md:39
 msgid ""
