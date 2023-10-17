@@ -4,31 +4,17 @@ minutes: 10
 
 # Exercise: Rewriting with Result
 
-Use the try operator (?) to simplify the error handling in this code:
+The following implements a very simple parser for an expression language.
+However, it handles errors by panicking. Rewrite it to instead use idiomatic
+error handling and propagate errors to a return from `main`. Feel free to use
+`thiserror` and `anyhow`.
 
-```rust
-use std::fs;
-use std::io::{self, Read};
+HINT: start by fixing error handling in the `parse` function. Once that is
+working correctly, update `Tokenizer` to implement
+`Iterator<Item=Result<Token, TokenizerError>>` and handle that in the parser.
 
-fn read_username(path: &str) -> Result<String, io::Error> {
-    let username_file_result = fs::File::open(path);
+```rust,editable
+{{#include exercise.rs:types}}
 
-    let mut username_file = match username_file_result {
-        Ok(file) => file,
-        Err(e) => return Err(e),
-    };
-
-    let mut username = String::new();
-
-    match username_file.read_to_string(&mut username) {
-        Ok(_) => Ok(username),
-        Err(e) => Err(e),
-    }
-}
-
-fn main() {
-    //fs::write("config.dat", "alice").unwrap();
-    let username = read_username("config.dat");
-    println!("username or error: {username:?}");
-}
+{{#include exercise.rs:panics}}
 ```

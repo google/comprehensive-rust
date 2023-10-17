@@ -6,12 +6,9 @@ existing course material:
 - error-handling/panic-unwind.md
 ---
 
-<!-- NOTES:
-Students only need to know that it's possible, but unusual, to catch panics
--->
 # Panics
 
-# Panics
+Rust handles fatal errors with a "panic".
 
 Rust will trigger a panic if a fatal error happens at runtime:
 
@@ -24,15 +21,13 @@ fn main() {
 
 * Panics are for unrecoverable and unexpected errors.
   * Panics are symptoms of bugs in the program.
+  * Runtime failures like failed bounds checks can panic
+  * Assertions (such as `assert!`) panic on failure
+  * Purpose-specific panics can use the `panic!` macro.
+* A panic will "unwind" the stack, dropping values just as if the functions had returned.
 * Use non-panicking APIs (such as `Vec::get`) if crashing is not acceptable.
-# Error Handling
 
-Error handling in Rust is done using explicit control flow:
-
-* Functions that can have errors list this in their return type,
-* There are no exceptions.
-
-# Catching the Stack Unwinding
+<details>
 
 By default, a panic will cause the stack to unwind. The unwinding can be caught:
 
@@ -52,6 +47,9 @@ fn main() {
 }
 ```
 
+- Catching is unusual; do not attempt to implement exceptions with `catch_unwind`!
 - This can be useful in servers which should keep running even if a single
   request crashes.
 - This does not work if `panic = 'abort'` is set in your `Cargo.toml`.
+
+</details>

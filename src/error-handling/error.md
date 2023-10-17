@@ -4,53 +4,41 @@ existing course material:
 - error-handling/deriving-error-enums.md
 ---
 
-<!-- NOTES:
-Defining your own error type manually, as well as `Box<dyn Error>`
--->
-# Error Trait
+# Dynamic Error Types
 
-# Deriving Error Enums
+Sometimes we want to allow any type of error to be returned without writing our
+own enum covering all the different possibilities. The `std::error::Error`
+trait makes it easy to create a trait object that can contain any error.
 
-The [thiserror](https://docs.rs/thiserror/) crate is a popular way to create an
-error enum like we did on the previous page:
-
-```rust,editable,compile_fail
-use std::{fs, io};
+```rust,editable
+use std::error::Error;
+use std::fs;
 use std::io::Read;
-use thiserror::Error;
 
-#[derive(Debug, Error)]
-enum ReadUsernameError {
-    #[error("Could not read: {0}")]
-    IoError(#[from] io::Error),
-    #[error("Found no username in {0}")]
-    EmptyUsername(String),
-}
-
-fn read_username(path: &str) -> Result<String, ReadUsernameError> {
-    let mut username = String::new();
-    fs::File::open(path)?.read_to_string(&mut username)?;
-    if username.is_empty() {
-        return Err(ReadUsernameError::EmptyUsername(String::from(path)));
-    }
-    Ok(username)
+fn read_count(path: &str) -> Result<i32, Box<dyn Error>> {
+    let mut count_str = String::new();
+    fs::File::open(path)?.read_to_string(&mut count_str)?;
+    let count: i32 = count_str.parse()?;
+    Ok(count)
 }
 
 fn main() {
-    //fs::write("config.dat", "").unwrap();
-    match read_username("config.dat") {
-        Ok(username) => println!("Username: {username}"),
-        Err(err)     => println!("Error: {err}"),
+    fs::write("count.dat", "1i3").unwrap();
+    match read_count("count.dat") {
+        Ok(count) => println!("Count: {count}"),
+        Err(err) => println!("Error: {err}"),
     }
 }
 ```
 
 <details>
 
-`thiserror`'s derive macro automatically implements `std::error::Error`, and optionally `Display`
-(if the `#[error(...)]` attributes are provided) and `From` (if the `#[from]` attribute is added).
-It also works for structs.
+The `read_count` function can return `std::io::Error` (from file operations) or
+`std::num::ParseIntError` (from `String::parse`).
 
-It doesn't affect your public API, which makes it good for libraries.
+Boxing errors saves on code, but gives up the ability to cleanly handle different error cases differently in
+the program. As such it's generally not a good idea to use `Box<dyn Error>` in the public API of a
+library, but it can be a good option in a program where you just want to display the error message
+somewhere.
 
 </details>

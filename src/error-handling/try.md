@@ -4,10 +4,12 @@ existing course material:
 - error-handling/try-operator.md
 ---
 
-# Propagating Errors with `?`
+# Try Operator
 
-The try-operator `?` is used to return errors to the caller. It lets you turn
-the common
+Runtime errors like connection-refused or file-not-found are handled with the
+`Result` type, but matching this type on every call can be cumbersome.  The
+try-operator `?` is used to return errors to the caller. It lets you turn the
+common
 
 ```rust,ignore
 match some_expression {
@@ -51,16 +53,12 @@ fn main() {
 
 <details>
 
+Simplify the `read_username` function to use `?`.
+
 Key points:
 
 * The `username` variable can be either `Ok(string)` or `Err(error)`.
 * Use the `fs::write` call to test out the different scenarios: no file, empty file, file with username.
-* The return type of the function has to be compatible with the nested functions it calls. For instance,
-a function returning a `Result<T, Err>` can only apply the `?` operator on a function returning a
-`Result<AnyT, Err>`. It cannot apply the `?` operator on a function returning an `Option<AnyT>` or `Result<T, OtherErr>`
-unless `OtherErr` implements `From<Err>`. Reciprocally, a function returning an `Option<T>` can only apply the `?` operator
-on a function returning an `Option<AnyT>`.
-    * You can convert incompatible types into one another with the different `Option` and `Result` methods
-    such as `Option::ok_or`, `Result::ok`, `Result::err`.
+* Note that `main` can return a `Result<(), E>` as long as it implements `std::process:Termination`. In practice, this means that `E` implements `Debug`. The executable will print the `Err` variant and return a nonzero exit status on error.
 
 </details>
