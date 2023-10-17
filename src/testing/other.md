@@ -5,18 +5,16 @@ existing course material:
 - testing/doc-tests.md
 ---
 
-<!-- NOTES:
-Testing in more detail: Integration tests (separate crate with tests), documentation tests
--->
 # Other Types of Tests
 
-# Integration Tests
+## Integration Tests
 
 If you want to test your library as a client, use an integration test.
 
 Create a `.rs` file under `tests/`:
 
 ```rust,ignore
+// tests/my_library.rs
 use my_library::init;
 
 #[test]
@@ -26,7 +24,8 @@ fn test_init() {
 ```
 
 These tests only have access to the public API of your crate.
-# Documentation Tests
+
+## Documentation Tests
 
 Rust has built-in support for documentation tests:
 

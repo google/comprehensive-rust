@@ -4,7 +4,7 @@ existing course material:
 - testing/useful-crates.md
 ---
 
-## Useful crates for writing tests
+# Useful Crates
 
 Rust comes with only basic support for writing tests.
 
