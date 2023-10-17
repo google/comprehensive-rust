@@ -9,25 +9,6 @@ Present Copy as added functionality on top of the default move semantics: with C
 -->
 # Copy Types
 
-
-#[derive(Debug)] // Copy has been removed
-struct Person {
-  age: u8,
-}
-
-fn celebrate_birthday(person: Person) -> Person {
-  person.age += 1;
-  println!("Hurray you're now {} years old!", person.age);
-  person
-}
-
-fn main() {
-  let peter = Person { age: 40 };
-  celebrate_birthday(peter);
-  celebrate_birthday(peter);
-}
-# Copying and Cloning
-
 While move semantics are the default, certain types are copied by default:
 
 <!-- mdbook-xgettext: skip -->
@@ -35,7 +16,7 @@ While move semantics are the default, certain types are copied by default:
 fn main() {
     let x = 42;
     let y = x;
-    println!("x: {x}");
+    println!("x: {x}"); // would not be accessible if not Copy
     println!("y: {y}");
 }
 ```
@@ -74,8 +55,5 @@ In the above example, try the following:
 * Add a `String` field to `struct Point`. It will not compile because `String` is not a `Copy` type.
 * Remove `Copy` from the `derive` attribute. The compiler error is now in the `println!` for  `p1`.
 * Show that it works if you clone `p1` instead.
-
-If students ask about `derive`, it is sufficient to say that this is a way to generate code in Rust
-at compile time. In this case the default implementations of `Copy` and `Clone` traits are generated.
 
 </details>

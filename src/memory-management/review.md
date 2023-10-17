@@ -5,12 +5,9 @@ existing course material:
 - memory-management/stack.md
 ---
 
-<!-- NOTES:
-Short summary of memory: stack vs. heap, allocations, etc.
--->
 # Review of Program Memory
 
-# The Stack vs The Heap
+Programs allocate memory in two ways:
 
 * Stack: Continuous area of memory for local variables.
   * Values have fixed sizes known at compile time.
@@ -22,7 +19,8 @@ Short summary of memory: stack vs. heap, allocations, etc.
   * Values have dynamic sizes determined at runtime.
   * Slightly slower than the stack: some book-keeping needed.
   * No guarantee of memory locality.
-# Stack and Heap Example
+
+## Example
 
 Creating a `String` puts fixed-sized metadata on the stack and dynamically sized
 data, the actual string, on the heap:

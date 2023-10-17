@@ -2,8 +2,35 @@
 minutes: 10
 ---
 
-<!-- NOTES:
-A simple struct containing some Strings and with a partially-completed Builder pattern (with builder functions taking `self`) implemented. Students fill in a few `todo!()`s
--->
 # Exercise: Builder Type
 
+In this example, we will implement a complex data type that owns all of its
+data. We will use the "builder pattern" to support building a new value
+piece-by-piece, using convenience functions.
+
+Fill in the missing pieces.
+
+```rust,editable
+{{#include exercise.rs:Package}}
+{{#include exercise.rs:as_dependency}}
+        todo!("1")
+    }
+}
+
+{{#include exercise.rs:PackageBuilder}}
+{{#include exercise.rs:new}}
+        todo!("2")
+    }
+
+{{#include exercise.rs:version}}
+
+{{#include exercise.rs:dependency}}
+        todo!("3")
+    }
+
+{{#include exercise.rs:language}}
+        todo!("4")
+    }
+
+{{#include exercise.rs:build}}
+```

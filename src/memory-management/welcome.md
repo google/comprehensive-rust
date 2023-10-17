@@ -8,15 +8,13 @@ existing course material:
 
 Today, we will cover some more advanced topics of Rust:
 
-* Traits: deriving traits, default methods, and important standard library
-  traits.
+* Memory management, lifetimes, and the borrow checker: how Rust ensures memory safety.
 
-* Generics: generic data types, generic methods, monomorphization, and trait
-  objects.
+* Developer Conveniences: functionality to make you happier and more productive with Rust.
+
+* Slices: references to ranges of memory.
 
 * Error handling: panics, `Result`, and the try operator `?`.
-
-* Testing: unit tests, documentation tests, and integration tests.
 
 * Unsafe Rust: raw pointers, static variables, unsafe functions, and extern
   functions.

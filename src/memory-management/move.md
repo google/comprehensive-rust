@@ -7,11 +7,6 @@ existing course material:
 - ownership/moves-function-calls.md
 ---
 
-<!-- NOTES:
-Using a non-copyable type (String) explore how values are moved in assignment and function calls.
--->
-# Move semantics
-
 # Move Semantics
 
 An assignment will transfer _ownership_ between variables:
@@ -28,31 +23,6 @@ fn main() {
 * The assignment of `s1` to `s2` transfers ownership.
 * When `s1` goes out of scope, nothing happens: it does not own anything.
 * When `s2` goes out of scope, the string data is freed.
-* There is always _exactly_ one variable binding which owns a value.
-
-<details>
-
-* Mention that this is the opposite of the defaults in C++, which copies by value unless you use `std::move` (and the move constructor is defined!).
-
-* It is only the ownership that moves. Whether any machine code is generated to manipulate the data itself is a matter of optimization, and such copies are aggressively optimized away.
-
-* Simple values (such as integers) can be marked `Copy` (see later slides).
-
-* In Rust, clones are explicit (by using `clone`).
-
-</details>
-# Moved Strings in Rust
-
-<!-- mdbook-xgettext: skip -->
-```rust,editable
-fn main() {
-    let s1: String = String::from("Rust");
-    let s2: String = s1;
-}
-```
-
-* The heap data from `s1` is reused for `s2`.
-* When `s1` goes out of scope, nothing happens (it has been moved from).
 
 Before move to `s2`:
 
@@ -93,7 +63,43 @@ After move to `s2`:
 :                           :
 `- - - - - - - - - - - - - -'
 ```
-# Defensive Copies in Modern C++
+
+When you pass a value to a function, the value is assigned to the function
+parameter. This transfers ownership:
+
+```rust,editable
+fn say_hello(name: String) {
+    println!("Hello {name}")
+}
+
+fn main() {
+    let name = String::from("Alice");
+    say_hello(name);
+    // say_hello(name);
+}
+```
+
+<details>
+
+* Mention that this is the opposite of the defaults in C++, which copies by value unless you use `std::move` (and the move constructor is defined!).
+
+* It is only the ownership that moves. Whether any machine code is generated to manipulate the data itself is a matter of optimization, and such copies are aggressively optimized away.
+
+* Simple values (such as integers) can be marked `Copy` (see later slides).
+
+* In Rust, clones are explicit (by using `clone`).
+
+In the `say_hello` example:
+
+* With the first call to `say_hello`, `main` gives up ownership of `name`. Afterwards, `name` cannot be used anymore within `main`.
+* The heap memory allocated for `name` will be freed at the end of the `say_hello` function.
+* `main` can retain ownership if it passes `name` as a reference (`&name`) and if `say_hello` accepts a reference as a parameter.
+* Alternatively, `main` can pass a clone of `name` in the first call (`name.clone()`).
+* Rust makes it harder than C++ to inadvertently create copies by making move semantics the default, and by forcing programmers to make clones explicit.
+
+# More to Explore
+
+## Defensive Copies in Modern C++
 
 Modern C++ solves this differently:
 
@@ -145,7 +151,6 @@ After copy-assignment:
 `- - - - - - - - - - - - - -'
 ```
 
-<details>
 
 Key points:
 
@@ -162,31 +167,5 @@ Key points:
   which is being copied or moved.
 
 [`std::move`]: https://en.cppreference.com/w/cpp/utility/move
-
-</details>
-# Moves in Function Calls
-
-When you pass a value to a function, the value is assigned to the function
-parameter. This transfers ownership:
-
-```rust,editable
-fn say_hello(name: String) {
-    println!("Hello {name}")
-}
-
-fn main() {
-    let name = String::from("Alice");
-    say_hello(name);
-    // say_hello(name);
-}
-```
-
-<details>
-
-* With the first call to `say_hello`, `main` gives up ownership of `name`. Afterwards, `name` cannot be used anymore within `main`.
-* The heap memory allocated for `name` will be freed at the end of the `say_hello` function.
-* `main` can retain ownership if it passes `name` as a reference (`&name`) and if `say_hello` accepts a reference as a parameter.
-* Alternatively, `main` can pass a clone of `name` in the first call (`name.clone()`).
-* Rust makes it harder than C++ to inadvertently create copies by making move semantics the default, and by forcing programmers to make clones explicit.
 
 </details>
