@@ -6,14 +6,9 @@ existing course material:
 - std/box-niche.md
 ---
 
-<!-- NOTES:
-Extending ownership into the heap. Use a Box<SomeStruct> as an example
--->
-# Box<T>
+# `Box<T>`
 
-# `Box`
-
-[`Box`][1] is an owned pointer to data on the heap:
+[`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) is an owned pointer to data on the heap:
 
 ```rust,editable
 fn main() {
@@ -37,20 +32,7 @@ fn main() {
 ```
 
 `Box<T>` implements `Deref<Target = T>`, which means that you can [call methods
-from `T` directly on a `Box<T>`][2].
-
-[1]: https://doc.rust-lang.org/std/boxed/struct.Box.html
-[2]: https://doc.rust-lang.org/std/ops/trait.Deref.html#more-on-deref-coercion
-
-<details>
-
-* `Box` is like `std::unique_ptr` in C++, except that it's guaranteed to be not null.
-* In the above example, you can even leave out the `*` in the `println!` statement thanks to `Deref`.
-* A `Box` can be useful when you:
-   * have a type whose size that can't be known at compile time, but the Rust compiler wants to know an exact size.
-   * want to transfer ownership of a large amount of data. To avoid copying large amounts of data on the stack, instead store the data on the heap in a `Box` so only the pointer is moved.
-</details>
-# Box with Recursive Data Structures
+from `T` directly on a `Box<T>`](https://doc.rust-lang.org/std/ops/trait.Deref.html#more-on-deref-coercion).
 
 Recursive data types or data types with dynamic sizes need to use a `Box`:
 
@@ -79,8 +61,13 @@ fn main() {
 :                         :     :                                               :
 '- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - - -'
 ```
-
 <details>
+
+* `Box` is like `std::unique_ptr` in C++, except that it's guaranteed to be not null.
+* In the above example, you can even leave out the `*` in the `println!` statement thanks to `Deref`.
+* A `Box` can be useful when you:
+   * have a type whose size that can't be known at compile time, but the Rust compiler wants to know an exact size.
+   * want to transfer ownership of a large amount of data. To avoid copying large amounts of data on the stack, instead store the data on the heap in a `Box` so only the pointer is moved.
 
 * If `Box` was not used and we attempted to embed a `List` directly into the `List`,
 the compiler would not compute a fixed size of the struct in memory (`List` would be of infinite size).
@@ -90,8 +77,9 @@ element of the `List` in the heap.
 
 * Remove the `Box` in the List definition and show the compiler error. "Recursive with indirection" is a hint you might want to use a Box or reference of some kind, instead of storing a value directly.
 
-</details>
-# Niche Optimization
+# More to Explore
+
+## Niche Optimization
 
 ```rust,editable
 #[derive(Debug)]
@@ -121,3 +109,5 @@ allows the compiler to optimize the memory layout:
 :                         :     :                                             :
 `- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - -'
 ```
+
+</details>
