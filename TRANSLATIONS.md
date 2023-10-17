@@ -31,12 +31,23 @@ GNU Gettext utilities below.
 
 ## Preparation
 
+### Gettext
+
 You will need the [Gettext] utilities (`msginit`, `msgmerge`) and [`dprint`].
-Under Debian and Ubuntu, you can install Gettext with:
+
+On Debian and Ubuntu, you can install Gettext with:
 
 ```shell
 sudo apt install gettext
 ```
+
+On MacOS with [Homebrew](https://brew.sh/), you can install with:
+
+```shell
+brew install gettext
+```
+
+### `dprint`
 
 Install `dprint` using their installation instructions.
 
@@ -136,15 +147,18 @@ will take care of escaping things like `"` correctly.
 There are many PO editors available. [Poedit](https://poedit.net/) is a popular
 cross-platform choice, but you can also find several online editors.
 
-If the file is not formatted correct, you will get an error on the PR. Install
-[Gettext] and [`dprint`](https://dprint.dev/) and then run
+### Formatting a Translation
+
+If the file is not formatted correct, you will get an error on the PR. Make sure
+to follow the [steps](#preparation) to install [Gettext] and
+[`dprint`](https://dprint.dev/) and then run:
 
 ```shell
-dprint fmt
+dprint fmt po/xx.po
 ```
 
-This will automatically format the files for you. Commit the formatting fix and
-push to your branch. Your PR should now be error free.
+This will automatically format the `.po` file for you. Commit the formatting fix
+and push to your branch. Your PR should now be error free.
 
 ## Using Translations
 
