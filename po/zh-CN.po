@@ -75,7 +75,7 @@ msgstr "为什么选择 Rust？"
 
 #: src/SUMMARY.md:24 src/why-rust/an-example-in-c.md:1 src/credits.md:32
 msgid "An Example in C"
-msgstr "C++ 示例"
+msgstr "C语言示例"
 
 #: src/SUMMARY.md:25 src/why-rust/compile-time.md:1
 msgid "Compile Time Guarantees"
@@ -1532,6 +1532,10 @@ msgid ""
 "victorhsieh), [@mingyc](https://github.com/mingyc), and [@johnathan79717]"
 "(https://github.com/johnathan79717)."
 msgstr ""
+"[繁体中文版本](https://google.github.io/comprehensive-rust/zh-TW/) 译者："
+"[@hueich](https://github.com/hueich)、[@victorhsieh](https://github.com/"
+"victorhsieh)、[@mingyc](https://github.com/mingyc) 和 [@johnathan79717]"
+"(https://github.com/johnathan79717)。"
 
 #: src/running-the-course/translations.md:19
 msgid ""
@@ -1541,6 +1545,11 @@ msgid ""
 "kongy), [@noahdragon](https://github.com/noahdragon), and [@superwhd]"
 "(https://github.com/superwhd)."
 msgstr ""
+"[简体中文版本](https://google.github.io/comprehensive-rust/zh-CN/) 译者："
+"[@suetfei](https://github.com/suetfei)、[@wnghl](https://github.com/wnghl), "
+"[@anlunx](https://github.com/anlunx)、[@kongy](https://github.com/kongy), "
+"[@noahdragon](https://github.com/noahdragon) 和 [@superwhd](https://github."
+"com/superwhd)。"
 
 #: src/running-the-course/translations.md:20
 msgid ""
@@ -1619,6 +1628,12 @@ msgid ""
 "analyzer.github.io/manual.html#vimneovim), and many others. There is also a "
 "different IDE available called [RustRover](https://www.jetbrains.com/rust/)."
 msgstr ""
+"安装Rust之后，你应当配置你的编辑器或IDE以开始使用Rust。大多数编辑器使用[rust-"
+"analyzer](https://rust-analyzer.github.io/)以达成此目的。它为[VS Code]"
+"(https://code.visualstudio.com/)、[Emacs](https://rust-analyzer.github.io/"
+"manual.html#emacs)、[Vim/Neovim](https://rust-analyzer.github.io/manual."
+"html#vimneovim)及其他许多编辑器提供了自动补全及定义跳转的功能。同样也可以用一"
+"个叫[RustRover](https://www.jetbrains.com/rust/)的IDE。"
 
 #: src/cargo.md:18
 msgid ""
@@ -2381,7 +2396,7 @@ msgstr ""
 
 #: src/why-rust/an-example-in-c.md:4
 msgid "Let's consider the following \"minimum wrong example\" program in C:"
-msgstr ""
+msgstr "让我们查看以下C语言的 \"最小错误示例\" 程序："
 
 #: src/why-rust/an-example-in-c.md:6
 msgid ""
@@ -2430,55 +2445,55 @@ msgstr ""
 
 #: src/why-rust/an-example-in-c.md:48
 msgid "How many bugs do you spot?"
-msgstr ""
+msgstr "你发现了多少bug？"
 
 #: src/why-rust/an-example-in-c.md:52
 msgid ""
 "Despite just 29 lines of code, this C example contains serious bugs in at "
 "least 11:"
-msgstr ""
+msgstr "尽管该C语言示例仅有29行代码，但它却包含了至少11个严重bug："
 
 #: src/why-rust/an-example-in-c.md:54
 msgid "Assignment `=` instead of equality comparison `==` (line 28)"
-msgstr ""
+msgstr "使用赋值 `=` 而非判断相等 `==`（第28行）"
 
 #: src/why-rust/an-example-in-c.md:55
 msgid "Excess argument to `printf` (line 23)"
-msgstr ""
+msgstr "`printf`有多余参数（第23行）"
 
 #: src/why-rust/an-example-in-c.md:56
 msgid "File descriptor leak (after line 26)"
-msgstr ""
+msgstr "文件描述符泄露（第26行之后）"
 
 #: src/why-rust/an-example-in-c.md:57
 msgid "Forgotten braces in multi-line `if` (line 22)"
-msgstr ""
+msgstr "多行`if`语句缺少花括号（第22行）"
 
 #: src/why-rust/an-example-in-c.md:58
 msgid "Forgotten `break` in a `switch` statement (line 32)"
-msgstr ""
+msgstr "`switch`语句忘记添加`break`（第32行）"
 
 #: src/why-rust/an-example-in-c.md:59
 msgid ""
 "Forgotten NUL-termination of the `buf` string, leading to a buffer overflow "
 "(line 29)"
-msgstr ""
+msgstr "`buf`字符串忘记NUL终止符，从而导致缓冲区溢出（第29行）"
 
 #: src/why-rust/an-example-in-c.md:60
 msgid "Memory leak by not freeing the `malloc`\\-allocated buffer (line 21)"
-msgstr ""
+msgstr "未释放由`malloc`分配的缓冲区，从而导致内存泄漏（第21行）"
 
 #: src/why-rust/an-example-in-c.md:61
 msgid "Out-of-bounds access (line 17)"
-msgstr ""
+msgstr "越界访问（第17行）"
 
 #: src/why-rust/an-example-in-c.md:62
 msgid "Unchecked cases in the `switch` statement (line 11)"
-msgstr ""
+msgstr "`switch`语句存在未检查的情况（第11行）"
 
 #: src/why-rust/an-example-in-c.md:63
 msgid "Unchecked return values of `stat` and `fopen` (lines 18 and 26)"
-msgstr ""
+msgstr "`stat`和`fopen`存在未检查的返回值（第18行及第26行）"
 
 #: src/why-rust/an-example-in-c.md:65
 msgid ""
@@ -2486,6 +2501,9 @@ msgid ""
 "No, surprisingly this code compiles warning-free at the default warning "
 "level, even in the latest GCC version (13.2 as of writing)."
 msgstr ""
+"_即使对于C语言编译器，这些bug难道不应该是显而易见的吗？_  \n"
+"惊人的是，即便使用最新版本的GCC（截至撰文时为13.2），在默认警告等级下编译代码"
+"时也不出现任何警告。"
 
 #: src/why-rust/an-example-in-c.md:68
 msgid ""
@@ -2493,6 +2511,8 @@ msgid ""
 "Absolutely not, these kind of bugs have lead to serious security "
 "vulnerabilities in the past. Some examples:"
 msgstr ""
+"_这是非常极端的示例吗？_  \n"
+"当然不是。这些类型的bug在过去曾引发一系列的安全漏洞，比如以下案例："
 
 #: src/why-rust/an-example-in-c.md:71
 msgid ""
@@ -2500,12 +2520,16 @@ msgid ""
 "Attempt of 2003](https://freedom-to-tinker.com/2013/10/09/the-linux-backdoor-"
 "attempt-of-2003)"
 msgstr ""
+"使用赋值 `=` 而非判断相等 `==`：[2003年Linux后门尝试](https://freedom-to-"
+"tinker.com/2013/10/09/the-linux-backdoor-attempt-of-2003)"
 
 #: src/why-rust/an-example-in-c.md:72
 msgid ""
 "Forgotten braces in multi-line `if`: [The Apple goto fail vulnerability]"
 "(https://dwheeler.com/essays/apple-goto-fail.html)"
 msgstr ""
+"多行`if`语句缺少花括号：[Apple·goto失败漏洞](https://dwheeler.com/essays/"
+"apple-goto-fail.html)"
 
 #: src/why-rust/an-example-in-c.md:73
 msgid ""
@@ -2513,54 +2537,61 @@ msgid ""
 "(https://nakedsecurity.sophos.com/2012/05/21/anatomy-of-a-security-hole-the-"
 "break-that-broke-sudo)"
 msgstr ""
+"`switch`语句忘记添加`break`：[破坏sudo的break](https://nakedsecurity.sophos."
+"com/2012/05/21/anatomy-of-a-security-hole-the-break-that-broke-sudo)"
 
 #: src/why-rust/an-example-in-c.md:75
 msgid ""
 "_How is Rust any better here?_  \n"
 "Safe Rust makes all of these bugs impossible:"
 msgstr ""
+"_Rust在这些方面表现得怎么样？_  \n"
+"安全Rust使这些bug的出现变得不可能："
 
 #: src/why-rust/an-example-in-c.md:78
 msgid "Assignments inside an `if` clause are not supported."
-msgstr ""
+msgstr "不支持`if`语句内赋值。"
 
 #: src/why-rust/an-example-in-c.md:79
 msgid "Format strings are checked at compile-time."
-msgstr ""
+msgstr "编译时检查格式化字符串。"
 
 #: src/why-rust/an-example-in-c.md:80
 msgid "Resources are freed at the end of scope via the `Drop` trait."
-msgstr ""
+msgstr "在作用域末尾，Rust通过`Drop` trait来释放资源。"
 
 #: src/why-rust/an-example-in-c.md:81
 msgid "All `if` clauses require braces."
-msgstr ""
+msgstr "所有`if`语句必须有花括号。"
 
 #: src/why-rust/an-example-in-c.md:82
 msgid ""
 "`match` (as the Rust equivalent to `switch`) does not fall-through, hence "
 "you can't accidentally forget a `break`."
 msgstr ""
+"`match`语句（在Rust中相当于`switch`）并不会落空，因此你不会意外忘记一个"
+"`break`。"
 
 #: src/why-rust/an-example-in-c.md:83
 msgid "Buffer slices carry their size and don't rely on a NUL terminator."
-msgstr ""
+msgstr "缓冲区切片自带它们的大小，且不依赖NUL终止符。"
 
 #: src/why-rust/an-example-in-c.md:84
 msgid ""
 "Heap-allocated memory is freed via the `Drop` trait when the corresponding "
 "`Box` leaves the scope."
-msgstr ""
+msgstr "当相关`Box`离开作用域时，Rust通过`Drop` trait释放堆分配内存。"
 
 #: src/why-rust/an-example-in-c.md:85
 msgid ""
 "Out-of-bounds accesses cause a panic or can be checked via the `get` method "
 "of a slice."
 msgstr ""
+"越界访问会导致程序严重错误而终止，也可以用`get`方法来检查一个序列是否越界。"
 
 #: src/why-rust/an-example-in-c.md:86
 msgid "`match` mandates that all cases are handled."
-msgstr ""
+msgstr "`match`语句规定要处理所有情况。"
 
 #: src/why-rust/an-example-in-c.md:87
 msgid ""
@@ -2568,6 +2599,8 @@ msgid ""
 "thereby checked for success. Additionally, the compiler emits a warning if "
 "you miss to check the return value of a function marked with `#[must_use]`."
 msgstr ""
+"可出错的Rust函数返回的`Result`值需要拆箱并检查是否成功。此外，如果你忽略检查"
+"标注为`#[must_use]`的函数的返回值，编译器会发出警告。"
 
 #: src/why-rust/compile-time.md:3
 msgid "Static memory management at compile time:"
