@@ -7,10 +7,8 @@ existing course material:
 
 # Borrowing a Value
 
-# Borrowing
-
-Instead of transferring ownership when calling a function, you can let a
-function _borrow_ the value:
+As we saw before, instead of transferring ownership when calling a function,
+you can let a function _borrow_ the value:
 
 <!-- mdbook-xgettext: skip -->
 ```rust,editable
@@ -34,7 +32,13 @@ fn main() {
 
 <details>
 
+This slide is a review of the material on references from day 1, expanding
+slightly to include function arguments and return values.
+
+# More to Explore
+
 Notes on stack returns:
+
 * Demonstrate that the return from `add` is cheap because the compiler can eliminate the copy operation. Change the above code to print stack addresses and run it on the [Playground] or look at the assembly in [Godbolt](https://rust.godbolt.org/). In the "DEBUG" optimization level, the addresses should change, while they stay the same when changing to the "RELEASE" setting:
 
   <!-- mdbook-xgettext: skip -->
@@ -62,33 +66,3 @@ Notes on stack returns:
 </details>
 
 [Playground]: https://play.rust-lang.org/
-# Shared and Unique Borrows
-
-Rust puts constraints on the ways you can borrow values:
-
-* You can have one or more `&T` values at any given time, _or_
-* You can have exactly one `&mut T` value.
-
-<!-- mdbook-xgettext: skip -->
-```rust,editable,compile_fail
-fn main() {
-    let mut a: i32 = 10;
-    let b: &i32 = &a;
-
-    {
-        let c: &mut i32 = &mut a;
-        *c = 20;
-    }
-
-    println!("a: {a}");
-    println!("b: {b}");
-}
-```
-
-<details>
-
-* The above code does not compile because `a` is borrowed as mutable (through `c`) and as immutable (through `b`) at the same time.
-* Move the `println!` statement for `b` before the scope that introduces `c` to make the code compile.
-* After that change, the compiler realizes that `b` is only ever used before the new mutable borrow of `a` through `c`. This is a feature of the borrow checker called "non-lexical lifetimes".
-
-</details>

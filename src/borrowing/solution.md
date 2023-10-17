@@ -1,5 +1,5 @@
 # Solution
 
 ```rust,editable
-{{#include exercise.rs:solution}}
+{{#include ../../third_party/rust-on-exercism/health-statistics.rs:solution}}
 ```

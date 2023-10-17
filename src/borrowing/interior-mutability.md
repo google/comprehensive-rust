@@ -9,7 +9,11 @@ Introduce the concept, with an example based on Mutex showing an `&self` method 
 -->
 # Interior Mutability
 
-# `Cell` and `RefCell`
+Rust provides a few safe means of modifying a value given only a shared
+reference to that value. All of these replace copmile-time checks with runtime
+checks.
+
+## `Cell` and `RefCell`
 
 [`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html) and
 [`RefCell`](https://doc.rust-lang.org/std/cell/struct.RefCell.html) implement

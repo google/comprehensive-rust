@@ -4,7 +4,7 @@ existing course material:
 - exercises/day-2/health-statistics.md
 ---
 
-# Health Statistics
+# Exercise: Health Statistics
 
 {{#include ../../third_party/rust-on-exercism/health-statistics.md}}
 
