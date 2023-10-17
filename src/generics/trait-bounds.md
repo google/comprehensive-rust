@@ -16,41 +16,37 @@ fn duplicate<T: Clone>(a: T) -> (T, T) {
     (a.clone(), a.clone())
 }
 
-// Syntactic sugar for:
-//   fn add_42_millions<T: Into<i32>>(x: T) -> i32 {
-fn add_42_millions(x: impl Into<i32>) -> i32 {
-    x.into() + 42_000_000
-}
-
 // struct NotClonable;
 
 fn main() {
     let foo = String::from("foo");
     let pair = duplicate(foo);
     println!("{pair:?}");
-
-    let many = add_42_millions(42_i8);
-    println!("{many}");
-    let many_more = add_42_millions(10_000_000);
-    println!("{many_more}");
 }
 ```
 
 <details>
 
-Show a `where` clause, students will encounter it when reading code.
+* Try making a `NonClonable` and passing it to `duplicate`.
 
-```rust,ignore
-fn duplicate<T>(a: T) -> (T, T)
-where
-    T: Clone,
-{
-    (a.clone(), a.clone())
-}
-```
+* When multiple traits are necessary, use `+` to join them.
 
-* It declutters the function signature if you have many parameters.
-* It has additional features making it more powerful.
-    * If someone asks, the extra feature is that the type on the left of ":" can be arbitrary, like `Option<T>`.
+* Show a `where` clause, students will encounter it when reading code.
+
+  ```rust,ignore
+  fn duplicate<T>(a: T) -> (T, T)
+  where
+      T: Clone,
+  {
+      (a.clone(), a.clone())
+  }
+    ```
+
+  * It declutters the function signature if you have many parameters.
+  * It has additional features making it more powerful.
+      * If someone asks, the extra feature is that the type on the left of ":" can be arbitrary, like `Option<T>`.
+
+* Note that Rust does not (yet) support specialization. For example, given the
+  original `duplicate`, it is invalid to add a specialized `duplicate(a: u32)`.
 
 </details>
