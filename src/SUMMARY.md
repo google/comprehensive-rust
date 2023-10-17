@@ -332,7 +332,6 @@
 
 - [Solutions](exercises/solutions.md)
   - [Day 3 Morning](exercises/day-3/solutions-morning.md)
-  - [Day 3 Afternoon](exercises/day-3/solutions-afternoon.md)
   - [Bare Metal Rust Morning](exercises/bare-metal/solutions-morning.md)
   - [Bare Metal Rust Afternoon](exercises/bare-metal/solutions-afternoon.md)
   - [Concurrency Morning](exercises/concurrency/solutions-morning.md)

@@ -4,12 +4,7 @@ existing course material:
 - basic-syntax/static-and-const.md
 ---
 
-<!-- NOTES:
-try to make this short!
--->
 # Static and Const
-
-# Static and Constant Variables
 
 Static and constant variables are two different ways to create globally-scoped values that
 cannot be moved or reallocated during the execution of the program.
@@ -58,19 +53,12 @@ As noted in the [Rust RFC Book][1], these are not inlined upon use and have an a
 embedded code, and the variable lives through the entirety of the program execution.
 When a globally-scoped value does not have a reason to need object identity, `const` is generally preferred.
 
-Because `static` variables are accessible from any thread, they must be `Sync`. Interior mutability
-is possible through a [`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html), atomic or
-similar. It is also possible to have mutable statics, but they require manual synchronisation so any
-access to them requires `unsafe` code. We will look at
-[mutable statics](../unsafe/mutable-static-variables.md) in the chapter on Unsafe Rust.
-
 <details>
 
 * Mention that `const` behaves semantically similar to C++'s `constexpr`.
 * `static`, on the other hand, is much more similar to a `const` or mutable global variable in C++.
 * `static` provides object identity: an address in memory and state as required by types with interior mutability such as `Mutex<T>`.
 * It isn't super common that one would need a runtime evaluated constant, but it is helpful and safer than using a static.
-* `thread_local` data can be created with the macro `std::thread_local`.
 
 ### Properties table:
 
@@ -82,6 +70,13 @@ access to them requires `unsafe` code. We will look at
 | Evaluated at compile time | Yes (initialised at compile time) | Yes |
 | Inlined wherever it is used | No | Yes |
 
+# More to Explore
+
+Because `static` variables are accessible from any thread, they must be `Sync`. Interior mutability
+is possible through a [`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html), atomic or
+similar.
+
+Thread-local data can be created with the macro `std::thread_local`.
 
 </details>
 

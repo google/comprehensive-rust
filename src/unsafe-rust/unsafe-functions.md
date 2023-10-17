@@ -8,12 +8,16 @@ existing course material:
 
 # Unsafe Functions
 
-# Calling Unsafe Functions
+## Calling Unsafe Functions
 
 A function or method can be marked `unsafe` if it has extra preconditions you
 must uphold to avoid undefined behaviour:
 
 ```rust,editable
+extern "C" {
+    fn abs(input: i32) -> i32;
+}
+
 fn main() {
     let emojis = "🗻∈🌏";
 
@@ -27,6 +31,11 @@ fn main() {
 
     println!("char count: {}", count_chars(unsafe { emojis.get_unchecked(0..7) }));
 
+    unsafe {
+        // Undefined behavior if abs misbehaves.
+        println!("Absolute value of -3 according to C: {}", abs(-3));
+    }
+
     // Not upholding the UTF-8 encoding requirement breaks memory safety!
     // println!("emoji: {}", unsafe { emojis.get_unchecked(0..3) });
     // println!("char count: {}", count_chars(unsafe { emojis.get_unchecked(0..3) }));
@@ -36,7 +45,8 @@ fn count_chars(s: &str) -> usize {
     s.chars().count()
 }
 ```
-# Writing Unsafe Functions
+
+## Writing Unsafe Functions
 
 You can mark your own functions as `unsafe` if they require particular conditions to avoid undefined
 behaviour.
@@ -68,37 +78,25 @@ fn main() {
 
 <details>
 
-We wouldn't actually use pointers for this because it can be done safely with references.
+## Calling Unsafe Functions
 
-Note that unsafe code is allowed within an unsafe function without an `unsafe` block. We can
-prohibit this with `#[deny(unsafe_op_in_unsafe_fn)]`. Try adding it and see what happens.
-
-</details>
-# Calling External Code
-
-Functions from other languages might violate the guarantees of Rust. Calling
-them is thus unsafe:
-
-```rust,editable
-extern "C" {
-    fn abs(input: i32) -> i32;
-}
-
-fn main() {
-    unsafe {
-        // Undefined behavior if abs misbehaves.
-        println!("Absolute value of -3 according to C: {}", abs(-3));
-    }
-}
-```
-
-<details>
-
-This is usually only a problem for extern functions which do things with pointers which might
-violate Rust's memory model, but in general any C function might have undefined behaviour under any
-arbitrary circumstances.
+`get_unchecked`, like most `_unchecked` functions, is unsafe, because it can
+create UB if the range is incorrect. `abs` is incorrect for a different reason:
+it is an external function (FFI).  Calling external functions is usually only a
+problem when those functions do things with pointers which might violate Rust's
+memory model, but in general any C function might have undefined behaviour
+under any arbitrary circumstances.
 
 The `"C"` in this example is the ABI;
 [other ABIs are available too](https://doc.rust-lang.org/reference/items/external-blocks.html).
+
+## Writing Unsafe Functions
+
+We wouldn't actually use pointers for a `swap` function - it can be done safely
+with references.
+
+Note that unsafe code is allowed within an unsafe function without an `unsafe`
+block. We can prohibit this with `#[deny(unsafe_op_in_unsafe_fn)]`. Try adding
+it and see what happens. This will likely change in a future Rust edition.
 
 </details>

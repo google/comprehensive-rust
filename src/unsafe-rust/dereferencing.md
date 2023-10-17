@@ -10,10 +10,10 @@ Creating pointers is safe, but dereferencing them requires `unsafe`:
 
 ```rust,editable
 fn main() {
-    let mut num = 5;
+    let mut s = String::from("careful!");
 
-    let r1 = &mut num as *mut i32;
-    let r2 = r1 as *const i32;
+    let r1 = &mut s as *mut String;
+    let r2 = r1 as *const String;
 
     // Safe because r1 and r2 were obtained from references and so are
     // guaranteed to be non-null and properly aligned, the objects underlying
@@ -22,9 +22,16 @@ fn main() {
     // references or concurrently through any other pointers.
     unsafe {
         println!("r1 is: {}", *r1);
-        *r1 = 10;
+        *r1 = String::from("uhoh");
         println!("r2 is: {}", *r2);
     }
+
+    // NOT SAFE. DO NOT DO THIS.
+    /*
+    let r3: &String = unsafe { &*r1 };
+    drop(s);
+    println!("r3 is: {}", *r3);
+    */
 }
 ```
 
@@ -45,5 +52,9 @@ In the case of pointer dereferences, this means that the pointers must be
    reference may be used to access the memory.
 
 In most cases the pointer must also be properly aligned.
+
+The "NOT SAFE" sectoin gives an example of a common kind of UB bug: `*r1` has
+the `'static` lifetime, so `r3` has type `&'static String`, and thus outlives
+`s`. Creating a reference from a pointer requires _great care_.
 
 </details>

@@ -11,7 +11,7 @@ The Rust language has two parts:
 * **Safe Rust:** memory safe, no undefined behavior possible.
 * **Unsafe Rust:** can trigger undefined behavior if preconditions are violated.
 
-We will be seeing mostly safe Rust in this course, but it's important to know
+We saw mostly safe Rust in this course, but it's important to know
 what Unsafe Rust is.
 
 Unsafe code is usually small and isolated, and its correctness should be carefully
@@ -32,7 +32,7 @@ and the [Rustonomicon](https://doc.rust-lang.org/nomicon/).
 <details>
 
 Unsafe Rust does not mean the code is incorrect. It means that developers have
-turned off the compiler safety features and have to write correct code by
+turned off some compiler safety features and have to write correct code by
 themselves. It means the compiler no longer enforces Rust's memory-safety rules.
 
 </details>
