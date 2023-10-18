@@ -1,7 +1,7 @@
 # Board support crates
 
 Board support crates provide a further level of wrapping for a specific board for convenience.
-
+<!-- mdbook-xgettext: skip -->
 ```rust,editable,compile_fail
 {{#include examples/src/bin/board_support.rs:Example}}
 ```

@@ -4,7 +4,7 @@ Sometimes you want something which can be resized like a `Vec`, but without heap
 [`tinyvec`][1] provides this: a vector backed by an array or slice, which could be statically
 allocated or on the stack, which keeps track of how many elements are used and panics if you try to
 use more than are allocated.
-
+<!-- mdbook-xgettext: skip -->
 ```rust,editable,compile_fail
 use tinyvec::{array_vec, ArrayVec};
 

@@ -1,7 +1,7 @@
 # Inline assembly
 
 Sometimes we need to use assembly to do things that aren't possible with Rust code. For example,
-to make an <abbr title="hypervisor call">HVC</abbr> to tell the firmware to power off the system:
+to make an HVC (hypervisor call) to tell the firmware to power off the system:
 
 ```rust,editable,compile_fail
 {{#include examples/src/main_psci.rs:main}}

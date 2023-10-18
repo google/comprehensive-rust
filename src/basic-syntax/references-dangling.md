@@ -2,6 +2,7 @@
 
 Rust will statically forbid dangling references:
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable,compile_fail
 fn main() {
     let ref_x: &i32;

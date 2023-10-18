@@ -12,7 +12,7 @@ server.
 
 Create a new Cargo project and add the following dependencies:
 
-`Cargo.toml`:
+_Cargo.toml_:
 
 <!-- File Cargo.toml -->
 
@@ -47,7 +47,7 @@ Copy the following server and client code into `src/bin/server.rs` and
 `src/bin/client.rs`, respectively. Your task is to complete these files as
 described below. 
 
-`src/bin/server.rs`:
+_src/bin/server.rs_:
 
 <!-- File src/bin/server.rs -->
 
@@ -61,7 +61,7 @@ described below.
 {{#include chat-async/src/bin/server.rs:main}}
 ```
 
-`src/bin/client.rs`:
+_src/bin/client.rs_:
 
 <!-- File src/bin/client.rs -->
 

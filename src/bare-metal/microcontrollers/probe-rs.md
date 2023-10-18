@@ -3,13 +3,13 @@
 [probe-rs](https://probe.rs/) is a handy toolset for embedded debugging, like OpenOCD but better
 integrated.
 
-* <abbr title="Serial Wire Debug">SWD</abbr> and JTAG via CMSIS-DAP, ST-Link and J-Link probes
-* GDB stub and Microsoft <abbr title="Debug Adapter Protocol">DAP</abbr> server
+* SWD (Serial Wire Debug) and JTAG via CMSIS-DAP, ST-Link and J-Link probes
+* GDB stub and Microsoft DAP (Debug Adapter Protocol) server
 * Cargo integration
 
-`cargo-embed` is a cargo subcommand to build and flash binaries, log
-<abbr title="Real Time Transfers">RTT</abbr> output and connect GDB. It's configured by an
-`Embed.toml` file in your project directory.
+`cargo-embed` is a cargo subcommand to build and flash binaries, log RTT (Real
+Time Transfers) output and connect GDB. It's configured by an `Embed.toml` file
+in your project directory.
 
 <details>
 

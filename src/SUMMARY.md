@@ -21,6 +21,7 @@
 - [Hello World!](hello-world.md)
   - [Small Example](hello-world/small-example.md)
 - [Why Rust?](why-rust.md)
+  - [An Example in C](why-rust/an-example-in-c.md)
   - [Compile Time Guarantees](why-rust/compile-time.md)
   - [Runtime Guarantees](why-rust/runtime.md)
   - [Modern Features](why-rust/modern.md)
@@ -310,6 +311,7 @@
 ----
 
 - [Thanks!](thanks.md)
+- [Glossary](glossary.md)
 - [Other Resources](other-resources.md)
 - [Credits](credits.md)
 

@@ -18,7 +18,7 @@ nRF51822 microcontroller with some LEDs and buttons, an I2C-connected accelerome
 an on-board SWD debugger.
 
 To get started, install some tools we'll need later. On gLinux or Debian:
-
+<!-- mdbook-xgettext: skip -->
 ```bash
 sudo apt install gcc-aarch64-linux-gnu gdb-multiarch libudev-dev picocom pkg-config qemu-system-arm
 rustup update
@@ -28,7 +28,7 @@ cargo install cargo-binutils cargo-embed
 ```
 
 And give users in the `plugdev` group access to the micro:bit programmer:
-
+<!-- mdbook-xgettext: skip -->
 ```bash
 echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", MODE="0664", GROUP="plugdev"' |\
   sudo tee /etc/udev/rules.d/50-microbit.rules
@@ -36,7 +36,7 @@ sudo udevadm control --reload-rules
 ```
 
 On MacOS:
-
+<!-- mdbook-xgettext: skip -->
 ```bash
 xcode-select --install
 brew install gdb picocom qemu
