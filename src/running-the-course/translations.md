@@ -4,6 +4,7 @@ The course has been translated into other languages by a set of wonderful
 volunteers:
 
 * [Brazilian Portuguese][pt-BR] by [@rastringer], [@hugojacob], [@joaovicmendes], and [@henrif75].
+* [Chinese (Simplified)][zh-CN] by [@suetfei], [@wnghl], [@anlunx], [@kongy], [@noahdragon], [@superwhd], and [@SketchK].
 * [Korean][ko] by [@keispace], [@jiyongp], and [@jooyunghan].
 * [Spanish][es] by [@deavid].
 
@@ -16,7 +17,6 @@ recently updated translations:
 
 * [Bengali][bn] by [@raselmandol].
 * [Chinese (Traditional)][zh-TW] by [@hueich], [@victorhsieh], [@mingyc], and [@johnathan79717].
-* [Chinese (Simplified)][zh-CN] by [@suetfei], [@wnghl], [@anlunx], [@kongy], [@noahdragon], and [@superwhd].
 * [French][fr] by [@KookaS] and [@vcaen].
 * [German][de] by [@Throvn] and [@ronaldfw].
 * [Japanese][ja] by [@CoinEZ-JPN] and [@momotaro1105].
@@ -53,6 +53,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@raselmandol]: https://github.com/raselmandol
 [@rastringer]: https://github.com/rastringer
 [@ronaldfw]: https://github.com/ronaldfw
+[@SketchK]: https://github.com/SketchK
 [@suetfei]: https://github.com/suetfei
 [@superwhd]: https://github.com/superwhd
 [@Throvn]: https://github.com/Throvn
