@@ -30,8 +30,8 @@ pub fn luhn(cc_number: &str) -> bool {
                     double_digit
                 };
             } else {
-                sum += digit
-            };
+                sum += digit;
+            }
             double = !double;
             digit_seen += 1;
         } else {
