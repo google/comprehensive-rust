@@ -207,6 +207,13 @@
     - [Calling C with Bindgen](android/interoperability/with-c/bindgen.md)
     - [Calling Rust from C](android/interoperability/with-c/rust.md)
   - [With C++](android/interoperability/cpp.md))
+    - [The Bridge Module](android/interoperability/cpp/bridge.md)
+    - [Rust Bridge](android/interoperability/cpp/rust-bridge.md)
+    - [C++ Bridge](android/interoperability/cpp/cpp-bridge.md)
+    - [Shared Types](android/interoperability/cpp/shared-types.md)
+    - [Rust Error Handling](android/interoperability/cpp/rust-result.md)
+    - [C++ Error Handling](android/interoperability/cpp/cpp-exception.md)
+    - [Additional Types](android/interoperability/cpp/type-mapping.md)
   - [With Java](android/interoperability/java.md)
 - [Exercises](exercises/android/morning.md)
 
