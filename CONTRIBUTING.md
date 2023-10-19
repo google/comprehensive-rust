@@ -36,7 +36,7 @@ On Windows, you can should use [Gettext binaries for Windows].
 [`rustfmt`]: https://github.com/rust-lang/rustfmt
 [`yapf`]: https://github.com/google/yapf
 [`msgcat`]: https://www.gnu.org/software/gettext/manual/html_node/msgcat-Invocation.html
-[Gettext binaries for Windows](https://mlocati.github.io/articles/gettext-iconv-windows.html)
+[Gettext binaries for Windows]: https://mlocati.github.io/articles/gettext-iconv-windows.html
 
 ## Contributor License Agreement
 
