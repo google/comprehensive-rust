@@ -5,9 +5,9 @@ just a few small guidelines you need to follow.
 
 ## Formatting
 
-Please ensure that your files are formatted consistently. We use [`dprint`] for this
-and you should follow their installation instructions for your platform. We rely
-on a few tools in addition to `dprint`:
+Please ensure that your files are formatted consistently. We use [`dprint`] for
+this and you should follow their installation instructions for your platform. We
+rely on a few tools in addition to `dprint`:
 
 - [`rustfmt`] for formatting Rust code.
 - [`yapf`] for formatting Python code.
