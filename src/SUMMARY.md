@@ -242,6 +242,7 @@
   - [Other Projects](bare-metal/microcontrollers/other-projects.md)
 - [Exercises](exercises/bare-metal/morning.md)
   - [Compass](exercises/bare-metal/compass.md)
+  - [Solutions](exercises/bare-metal/solutions-morning.md)
 
 # Bare Metal: Afternoon
 
@@ -270,6 +271,7 @@
   - [vmbase](bare-metal/android/vmbase.md)
 - [Exercises](exercises/bare-metal/afternoon.md)
   - [RTC Driver](exercises/bare-metal/rtc.md)
+  - [Solutions](exercises/bare-metal/solutions-afternoon.md)
 
 
 # Concurrency: Morning
@@ -293,6 +295,7 @@
 - [Exercises](exercises/concurrency/morning.md)
   - [Dining Philosophers](exercises/concurrency/dining-philosophers.md)
   - [Multi-threaded Link Checker](exercises/concurrency/link-checker.md)
+  - [Solutions](exercises/concurrency/solutions-morning.md)
 
 # Concurrency: Afternoon
 
@@ -314,6 +317,7 @@
 - [Exercises](exercises/concurrency/afternoon.md)
   - [Dining Philosophers](exercises/concurrency/dining-philosophers-async.md)
   - [Broadcast Chat Application](exercises/concurrency/chat-app.md)
+  - [Solutions](exercises/concurrency/solutions-afternoon.md)
 
 
 # Final Words
@@ -324,15 +328,3 @@
 - [Glossary](glossary.md)
 - [Other Resources](other-resources.md)
 - [Credits](credits.md)
-
-
-# Solutions
-
-----
-
-- [Solutions](exercises/solutions.md)
-  - [Day 3 Morning](exercises/day-3/solutions-morning.md)
-  - [Bare Metal Rust Morning](exercises/bare-metal/solutions-morning.md)
-  - [Bare Metal Rust Afternoon](exercises/bare-metal/solutions-afternoon.md)
-  - [Concurrency Morning](exercises/concurrency/solutions-morning.md)
-  - [Concurrency Afternoon](exercises/concurrency/solutions-afternoon.md)
