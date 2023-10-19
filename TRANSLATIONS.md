@@ -180,8 +180,8 @@ output.
 
 ### Building a Translation
 
-Make sure you have gone through the [build setup](./README.md#building)
-at least once.
+Make sure you have gone through the [build setup](./README.md#building) at least
+once.
 
 To use the `po/xx.po` file for your output, run the following command:
 
