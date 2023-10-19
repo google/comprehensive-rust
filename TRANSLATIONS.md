@@ -49,9 +49,9 @@ brew install gettext
 
 ### `dprint`
 
-Install `dprint` using their installation instructions.
+Install [`dprint`] using their installation instructions.
 
-[dprint]: https://dprint.dev/
+[`dprint`]: https://dprint.dev/
 
 Ensure you can build the book, and that `mdbook serve` works. For this, follow
 the instructions in the [README](README.md).

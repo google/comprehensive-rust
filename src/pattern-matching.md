@@ -1,6 +1,6 @@
 # Pattern Matching
 
-The `match` keyword let you match a value against one or more _patterns_. The
+The `match` keyword lets you match a value against one or more _patterns_. The
 comparisons are done from top to bottom and the first match wins.
 
 The patterns can be simple values, similarly to `switch` in C and C++:
