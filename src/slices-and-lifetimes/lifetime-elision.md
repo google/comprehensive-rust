@@ -6,63 +6,64 @@ existing course material:
 
 # Lifetimes in Function Calls
 
-In addition to borrowing its arguments, a function can return a borrowed value:
+Lifetimes for function arguments and return values must be fully specified, but
+Rust allows lifetimes to be elided in most cases with [a few simple
+rules](https://doc.rust-lang.org/nomicon/lifetime-elision.html). This is not
+inference -- it is just a syntactic shorthand.
+
+* Each argument which does not have a lifetime annotation is given one.
+* If there is only one argument lifetime, it is given to all un-annotated return values.
+* If there are multiple argument lifetimes, but the first one is for `self`, that lifetime is given to all un-annotated return values.
 
 <!-- mdbook-xgettext: skip -->
 ```rust,editable
 #[derive(Debug)]
 struct Point(i32, i32);
 
-fn left_most<'a>(p1: &'a Point, p2: &'a Point) -> &'a Point {
-    if p1.0 < p2.0 { p1 } else { p2 }
+fn cab_distance(p1: &Point, p2: &Point) -> i32 {
+    (p1.0 - p2.0).abs() + (p1.1 - p2.1).abs()
+}
+
+fn nearest<'a>(points: &'a [Point], query: &Point) -> Option<&'a Point> {
+    let mut nearest = None;
+    for p in points {
+        if let Some((_, nearest_dist)) = nearest {
+            let dist = cab_distance(p, query);
+            if dist < nearest_dist {
+                nearest = Some((p, dist));
+            }
+        } else {
+            nearest = Some((p, cab_distance(p, query)));
+        };
+    }
+    nearest.map(|(p, _)| p)
 }
 
 fn main() {
-    let p1: Point = Point(10, 10);
-    let p2: Point = Point(20, 20);
-    let p3: &Point = left_most(&p1, &p2);
-    println!("p3: {p3:?}");
+    println!(
+        "{:?}",
+        nearest(
+            &[Point(1, 0), Point(1, 0), Point(-1, 0), Point(0, -1),],
+            &Point(0, 2)
+        )
+    );
 }
 ```
 
-* `'a` is a generic parameter, it is inferred by the compiler.
-* Lifetimes start with `'` and `'a` is a typical default name.
-* Read `&'a Point` as "a borrowed `Point` which is valid for at least the
-  lifetime `a`".
-  * The _at least_ part is important when parameters are in different scopes.
-
 <details>
 
-In the above example, try the following:
+In this example, `cab_distance` is trivially elided.
 
-* Move the declaration of `p2` and `p3` into a new scope (`{ ... }`), resulting in the following code:
-  <!-- mdbook-xgettext: skip -->
-  ```rust,ignore
-  #[derive(Debug)]
-  struct Point(i32, i32);
+The `nearest` function provides another example of a function with multiple references in its arguments that requires explicit annotation.
 
-  fn left_most<'a>(p1: &'a Point, p2: &'a Point) -> &'a Point {
-      if p1.0 < p2.0 { p1 } else { p2 }
-  }
+Try adjusting the signature to "lie" about the lifetimes returned:
 
-  fn main() {
-      let p1: Point = Point(10, 10);
-      let p3: &Point;
-      {
-          let p2: Point = Point(20, 20);
-          p3 = left_most(&p1, &p2);
-      }
-      println!("p3: {p3:?}");
-  }
-  ```
-  Note how this does not compile since `p3` outlives `p2`.
+```rust,ignore
+fn nearest<'a>(points: &'a [Point], query: &'q Point) -> Option<&'q Point> {
+```
 
-* Reset the workspace and change the function signature to `fn left_most<'a, 'b>(p1: &'a Point, p2: &'a Point) -> &'b Point`. This will not compile because the relationship between the lifetimes `'a` and `'b` is unclear.
-* Another way to explain it:
-  * Two references to two values are borrowed by a function and the function returns
-    another reference.
-  * It must have come from one of those two inputs (or from a global variable).
-  * Which one is it? The compiler needs to know, so at the call site the returned reference is not used
-    for longer than a variable from where the reference came from.
+This won't compile, demonstrating that the annotations are checked for validity
+by the compiler.  Note that this is not the case for raw pointers (unsafe), and
+this is a common source of errors with unsafe Rust.
 
 </details>

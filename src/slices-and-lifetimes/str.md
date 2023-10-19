@@ -9,9 +9,8 @@ Including `&str` as a way of representing a slice of valid utf-8
 -->
 # String References
 
-# `String` vs `str`
-
-We can now understand the two string types in Rust:
+We can now understand the two string types in Rust: `&str` is almost like
+`&[char]`, but with its data stored in a variable-length encoding (UTF-8).
 
 ```rust,editable
 fn main() {
@@ -46,10 +45,23 @@ Rust terminology:
 * The `format!()` macro is a convenient way to generate an owned string from dynamic values. It
   accepts the same format specification as `println!()`.
 
-* You can borrow `&str` slices from `String` via `&` and optionally range selection.
+* You can borrow `&str` slices from `String` via `&` and optionally range
+  selection.  If you select a byte range that is not aligned to character
+  boundaries, the expression will panic.  The `chars` iterator iterates over
+  characters and is preferred over trying to get character boundaries right.
 
 * For C++ programmers: think of `&str` as `const char*` from C++, but the one that always points
   to a valid string in memory. Rust `String` is a rough equivalent of `std::string` from C++
   (main difference: it can only contain UTF-8 encoded bytes and will never use a small-string optimization).
+
+* Byte strings literals allow you to create a `&[u8]` value directly:
+
+  <!-- mdbook-xgettext: skip -->
+  ```rust,editable
+  fn main() {
+      println!("{:?}", b"abc");
+      println!("{:?}", &[97, 98, 99]);
+  }
+  ```
 
 </details>
