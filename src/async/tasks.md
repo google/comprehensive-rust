@@ -53,9 +53,9 @@ Copy this example into your prepared `src/main.rs` and run it from there.
 
 Try connecting to it with a TCP connection tool like `nc` or `telnet`.
 
-* [Netcat (nc)](https://docs.rs/nc/latest/nc/): Netcat is a versatile networking utility that can be used for various networking tasks, including connecting to network services. 
+* [Netcat (nc)](https://www.unix.com/man-page/linux/1/nc/): Netcat is a versatile networking utility that can be used for various networking tasks, including connecting to network services. 
 
-* [Telnet](https://docs.rs/telnet/latest/telnet/): Telnet is a network protocol used for remote terminal connections to devices over a network. It's a simple way to test network connectivity.
+* [Telnet](https://www.unix.com/man-page/linux/1/telnet/): Telnet is a network protocol used for remote terminal connections to devices over a network. It's a simple way to test network connectivity.
 
 * Ask students to visualize what the state of the example server would be with a
   few connected clients. What tasks exist? What are their Futures?
