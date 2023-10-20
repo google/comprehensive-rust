@@ -49,7 +49,7 @@ brew install gettext
 
 ### `dprint`
 
-Install [`dprint`] using their
+Install `dprint` using their
 [installation instructions](https://dprint.dev/install/).
 
 [`dprint`]: https://dprint.dev/
