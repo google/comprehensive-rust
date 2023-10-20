@@ -16,6 +16,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Install formatting dependencies
+        run: |
+          sudo apt install gettext yapf3
+
       - name: Install nightly rustfmt
         run: |
           rustup default nightly
