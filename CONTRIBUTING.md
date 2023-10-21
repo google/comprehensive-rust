@@ -3,6 +3,41 @@
 We'd love to accept your patches and contributions to this project. There are
 just a few small guidelines you need to follow.
 
+## Formatting
+
+Please ensure that your files are formatted consistently. We use [`dprint`] for
+this and you should follow their installation instructions for your platform. We
+rely on a few tools in addition to `dprint`:
+
+- [`rustfmt`] for formatting Rust code.
+- [`yapf`] for formatting Python code.
+- [`msgcat`] for formatting PO files.
+
+### Linux
+
+On Debian, you install `rustfmt` via `rustup` and you can install the other
+tools using
+
+```sh
+sudo apt install yapf3 gettext
+```
+
+### MacOS
+
+> _TODO: to be filled in by someone using a Mac._
+
+### Windows
+
+On Windows, you can should use [Gettext binaries for Windows].
+
+> _TODO: fill in how to install `yapf` on Windows._
+
+[`dprint`]: https://dprint.dev/
+[`rustfmt`]: https://github.com/rust-lang/rustfmt
+[`yapf`]: https://github.com/google/yapf
+[`msgcat`]: https://www.gnu.org/software/gettext/manual/html_node/msgcat-Invocation.html
+[Gettext binaries for Windows]: https://mlocati.github.io/articles/gettext-iconv-windows.html
+
 ## Contributor License Agreement
 
 Contributions to this project must be accompanied by a Contributor License
