@@ -24,7 +24,11 @@ sudo apt install yapf3 gettext
 
 ### MacOS
 
-> _TODO: to be filled in by someone using a Mac._
+On MacOS with [Homebrew], you can install with:
+
+```shell
+brew install yapf gettext
+```
 
 ### Windows
 
@@ -36,6 +40,7 @@ On Windows, you can should use [Gettext binaries for Windows].
 [`rustfmt`]: https://github.com/rust-lang/rustfmt
 [`yapf`]: https://github.com/google/yapf
 [`msgcat`]: https://www.gnu.org/software/gettext/manual/html_node/msgcat-Invocation.html
+[Homebrew]: https://brew.sh/
 [Gettext binaries for Windows]: https://mlocati.github.io/articles/gettext-iconv-windows.html
 
 ## Contributor License Agreement
