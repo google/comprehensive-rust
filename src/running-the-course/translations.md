@@ -4,7 +4,7 @@ The course has been translated into other languages by a set of wonderful
 volunteers:
 
 * [Brazilian Portuguese][pt-BR] by [@rastringer], [@hugojacob], [@joaovicmendes], and [@henrif75].
-* [Chinese (Simplified)][zh-CN] by [@suetfei], [@wnghl], [@anlunx], [@kongy], [@noahdragon], [@superwhd], and [@SketchK].
+* [Chinese (Simplified)][zh-CN] by [@suetfei], [@wnghl], [@anlunx], [@kongy], [@noahdragon], [@superwhd], [@SketchK], and [@nodmp].
 * [Korean][ko] by [@keispace], [@jiyongp], and [@jooyunghan].
 * [Spanish][es] by [@deavid].
 
@@ -50,6 +50,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@mingyc]: https://github.com/mingyc
 [@momotaro1105]: https://github.com/momotaro1105
 [@noahdragon]: https://github.com/noahdragon
+[@nodmp]: https://github.com/nodmp
 [@raselmandol]: https://github.com/raselmandol
 [@rastringer]: https://github.com/rastringer
 [@ronaldfw]: https://github.com/ronaldfw
