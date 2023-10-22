@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Comprehensive Rust 🦀\n"
 "POT-Creation-Date: 2023-09-11 10:37-0700\n"
-"PO-Revision-Date: 2023-10-09 20:16-0700\n"
+"PO-Revision-Date: 2023-10-09 19:59-0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -1979,16 +1979,17 @@ msgid ""
 "references, functions, and methods."
 msgstr ""
 
-#: src/welcome-day-1.md:9
+#: src/welcome-day-2.md:5
 msgid ""
 "Memory management: stack vs heap, manual memory management, scope-based "
 "memory management, and garbage collection."
 msgstr ""
+"記憶體管理：堆疊和堆積、手動管理記憶體、範圍式記憶體管理，以及垃圾收集。"
 
-#: src/welcome-day-1.md:12
+#: src/welcome-day-2.md:8
 msgid ""
 "Ownership: move semantics, copying and cloning, borrowing, and lifetimes."
-msgstr ""
+msgstr "擁有權：轉移語意、複製、借用，以及生命週期。"
 
 #: src/welcome-day-1.md:16
 msgid "Please remind the students that:"
@@ -5231,11 +5232,13 @@ msgstr ""
 msgid "Iterators and ownership (hard)."
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:3
+#: src/exercises/day-2/book-library.md:3
 msgid ""
 "We will learn much more about structs and the `Vec<T>` type tomorrow. For "
 "now, you just need to know part of its API:"
 msgstr ""
+"明天我們會進一步講解結構體和 `Vec<T>` 型別。現階段，您只需要瞭解相關 API 的部"
+"分內容："
 
 #: src/exercises/day-1/book-library.md:6
 msgid ""
@@ -5342,28 +5345,33 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/exercises/day-1/book-library.md:102
+#: src/exercises/day-2/book-library.md:102
 msgid "[Solution](solutions-afternoon.md#designing-a-library)"
-msgstr ""
+msgstr "[解決方案](solutions-afternoon.md#designing-a-library)"
 
-#: src/exercises/day-1/iterators-and-ownership.md:3
+#: src/exercises/day-2/iterators-and-ownership.md:3
 msgid ""
 "The ownership model of Rust affects many APIs. An example of this is the "
 "[`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) and "
 "[`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) "
 "traits."
 msgstr ""
+"Rust 的擁有權模型會影響許多 API。[`Iterator`](https://doc.rust-lang.org/std/"
+"iter/trait.Iterator.html) 和 [`IntoIterator`](https://doc.rust-lang.org/std/"
+"iter/trait.IntoIterator.html) 特徵就是一例。"
 
-#: src/exercises/day-1/iterators-and-ownership.md:8 src/bare-metal/no_std.md:28
+#: src/exercises/day-2/iterators-and-ownership.md:8 src/bare-metal/no_std.md:28
 msgid "`Iterator`"
-msgstr ""
+msgstr "`Iterator`"
 
-#: src/exercises/day-1/iterators-and-ownership.md:10
+#: src/exercises/day-2/iterators-and-ownership.md:10
 msgid ""
 "Traits are like interfaces: they describe behavior (methods) for a type. The "
 "`Iterator` trait simply says that you can call `next` until you get `None` "
 "back:"
 msgstr ""
+"特徵就像介面一樣，可以說明型別的行為 (方法)。`Iterator` 特徵就是指您可以呼叫 "
+"`next`，直到取回 `None` 為止："
 
 #: src/exercises/day-1/iterators-and-ownership.md:13
 msgid ""
@@ -5375,9 +5383,9 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/exercises/day-1/iterators-and-ownership.md:20
+#: src/exercises/day-2/iterators-and-ownership.md:20
 msgid "You use this trait like this:"
-msgstr ""
+msgstr "您可以像下方這樣使用這個特徵："
 
 #: src/exercises/day-1/iterators-and-ownership.md:22
 msgid ""
@@ -5394,9 +5402,9 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/exercises/day-1/iterators-and-ownership.md:34
+#: src/exercises/day-2/iterators-and-ownership.md:34
 msgid "What is the type returned by the iterator? Test your answer here:"
-msgstr ""
+msgstr "如要瞭解疊代器傳回的型別為何，不妨在這裡測試答案："
 
 #: src/exercises/day-1/iterators-and-ownership.md:36
 msgid ""
@@ -5411,20 +5419,22 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/exercises/day-1/iterators-and-ownership.md:46
+#: src/exercises/day-2/iterators-and-ownership.md:46
 msgid "Why is this type used?"
-msgstr ""
+msgstr "思考一下，為什麼會使用這種型別？"
 
-#: src/exercises/day-1/iterators-and-ownership.md:48
+#: src/exercises/day-2/iterators-and-ownership.md:48
 msgid "`IntoIterator`"
-msgstr ""
+msgstr "`IntoIterator`"
 
-#: src/exercises/day-1/iterators-and-ownership.md:50
+#: src/exercises/day-2/iterators-and-ownership.md:50
 msgid ""
 "The `Iterator` trait tells you how to _iterate_ once you have created an "
 "iterator. The related trait `IntoIterator` tells you how to create the "
 "iterator:"
 msgstr ""
+"`Iterator` 特徵會告訴您如何在建立疊代器後進行「疊代」。相關特徵 "
+"`IntoIterator` 則會說明如何建立疊代器："
 
 #: src/exercises/day-1/iterators-and-ownership.md:53
 msgid ""
@@ -5438,29 +5448,31 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/exercises/day-1/iterators-and-ownership.md:62
+#: src/exercises/day-2/iterators-and-ownership.md:62
 msgid ""
 "The syntax here means that every implementation of `IntoIterator` must "
 "declare two types:"
-msgstr ""
+msgstr "這裡的語法表示每個 `IntoIterator` 的實作都必須宣告兩種型別："
 
-#: src/exercises/day-1/iterators-and-ownership.md:65
+#: src/exercises/day-2/iterators-and-ownership.md:65
 msgid "`Item`: the type we iterate over, such as `i8`,"
-msgstr ""
+msgstr "`Item`：進行疊代的型別，例如 `i8`。"
 
-#: src/exercises/day-1/iterators-and-ownership.md:66
+#: src/exercises/day-2/iterators-and-ownership.md:66
 msgid "`IntoIter`: the `Iterator` type returned by the `into_iter` method."
-msgstr ""
+msgstr "`IntoIter`：`into_iter` 方法傳回的 `Iterator` 型別。"
 
-#: src/exercises/day-1/iterators-and-ownership.md:68
+#: src/exercises/day-2/iterators-and-ownership.md:68
 msgid ""
 "Note that `IntoIter` and `Item` are linked: the iterator must have the same "
 "`Item` type, which means that it returns `Option<Item>`"
 msgstr ""
+"請注意，`IntoIter` 和 `Item` 已建立連結：疊代器必須具有相同的 `Item` 型別，表"
+"示會傳回 `Option<Item>`。"
 
-#: src/exercises/day-1/iterators-and-ownership.md:71
+#: src/exercises/day-2/iterators-and-ownership.md:71
 msgid "Like before, what  is the type returned by the iterator?"
-msgstr ""
+msgstr "和先前一樣，思考疊代器傳回的型別為何。"
 
 #: src/exercises/day-1/iterators-and-ownership.md:73
 msgid ""
@@ -5476,16 +5488,18 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/exercises/day-1/iterators-and-ownership.md:83
+#: src/exercises/day-2/iterators-and-ownership.md:83
 msgid "`for` Loops"
-msgstr ""
+msgstr "`for` 迴圈"
 
-#: src/exercises/day-1/iterators-and-ownership.md:85
+#: src/exercises/day-2/iterators-and-ownership.md:85
 msgid ""
 "Now that we know both `Iterator` and `IntoIterator`, we can build `for` "
 "loops. They call `into_iter()` on an expression and iterates over the "
 "resulting iterator:"
 msgstr ""
+"現在我們已瞭解 `Iterator` 和 `IntoIterator`，可以建構 `for` 迴圈了。這會在運"
+"算式上呼叫 `into_iter()`，並對產生的疊代器進行疊代："
 
 #: src/exercises/day-1/iterators-and-ownership.md:89
 msgid ""
@@ -5505,9 +5519,9 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/exercises/day-1/iterators-and-ownership.md:103
+#: src/exercises/day-2/iterators-and-ownership.md:103
 msgid "What is the type of `word` in each loop?"
-msgstr ""
+msgstr "思考一下，每個迴圈中的 `word` 型別為何？"
 
 #: src/exercises/day-1/iterators-and-ownership.md:105
 msgid ""
@@ -5520,15 +5534,16 @@ msgstr ""
 
 #: src/welcome-day-2.md:1
 msgid "Welcome to Day 2"
-msgstr ""
+msgstr "歡迎參加第 2 天課程"
 
 #: src/welcome-day-2.md:3
 msgid "Now that we have seen a fair amount of Rust, we will continue with:"
-msgstr ""
+msgstr "您目前對 Rust 已有相當程度的認識，接下來我們將繼續講解以下概念："
 
 #: src/welcome-day-2.md:5
+#, fuzzy
 msgid "Structs, enums, methods."
-msgstr ""
+msgstr "結構體和方法。"
 
 #: src/welcome-day-2.md:7
 msgid "Pattern matching: destructuring enums, structs, and arrays."
@@ -5545,10 +5560,11 @@ msgid ""
 "The Standard Library: `String`, `Option` and `Result`, `Vec`, `HashMap`, "
 "`Rc` and `Arc`."
 msgstr ""
+"標準程式庫：`String`、`Option` 和 `Result`、`Vec`、`HashMap`、`Rc` 和 `Arc`。"
 
 #: src/welcome-day-2.md:15
 msgid "Modules: visibility, paths, and filesystem hierarchy."
-msgstr ""
+msgstr "模組：瀏覽權限、路徑和檔案系統階層。"
 
 #: src/structs.md:3
 msgid "Like C and C++, Rust has support for custom structs:"
@@ -5589,27 +5605,27 @@ msgstr "重點："
 
 #: src/structs.md:33
 msgid "Structs work like in C or C++."
-msgstr ""
+msgstr "結構體的運作方式與在 C 或 C++ 中類似。"
 
 #: src/structs.md:34
 msgid "Like in C++, and unlike in C, no typedef is needed to define a type."
-msgstr ""
+msgstr "不需要 typedef 即可定義型別。這與 C++ 類似，但與 C 不同。"
 
 #: src/structs.md:35
 msgid "Unlike in C++, there is no inheritance between structs."
-msgstr ""
+msgstr "與 C++ 不同的是，結構體之間沒有繼承關係。"
 
 #: src/structs.md:36
 msgid ""
 "Methods are defined in an `impl` block, which we will see in following "
 "slides."
-msgstr ""
+msgstr "方法會在 `impl` 區塊中定義，我們將於接下來的投影片說明這點。"
 
 #: src/structs.md:37
 msgid ""
 "This may be a good time to let people know there are different types of "
 "structs. "
-msgstr ""
+msgstr "不妨趁此機會讓學員瞭解還有幾種不同的結構體。"
 
 #: src/structs.md:38
 msgid ""
@@ -5617,12 +5633,14 @@ msgid ""
 "trait on some type but don’t have any data that you want to store in the "
 "value itself. "
 msgstr ""
+"針對某些型別實作特徵時，可能會使用大小為零的結構體 `e.g., struct Foo;`，但其"
+"中沒有任何需要儲存在值本身的資料。"
 
 #: src/structs.md:39
 msgid ""
 "The next slide will introduce Tuple structs, used when the field names are "
 "not important."
-msgstr ""
+msgstr "在下一張投影片中，我們會介紹元組結構體，可於欄位名稱不重要時使用。"
 
 #: src/structs.md:40
 msgid ""
@@ -5630,6 +5648,8 @@ msgid ""
 "old struct without having to explicitly type it all out. It must always be "
 "the last element."
 msgstr ""
+"`..peter` 語法可讓我們從舊的結構體中複製大部分欄位，而不必明確輸入所有欄位。"
+"此元素一律須位於最後。"
 
 #: src/structs/tuple-structs.md:3
 msgid "If the field names are unimportant, you can use a tuple struct:"
@@ -5742,6 +5762,7 @@ msgid ""
 "The `new` function could be written using `Self` as a type, as it is "
 "interchangeable with the struct type name"
 msgstr ""
+"您可以將 `Self` 用做型別來編寫 `new` 函式，因為它可和結構體型別名稱互通。"
 
 #: src/structs/field-shorthand.md:29
 msgid ""
@@ -5764,6 +5785,7 @@ msgid ""
 "Implement the `Default` trait for the struct. Define some fields and use the "
 "default values for the other fields."
 msgstr ""
+"實作結構體的 `Default` 特徵。請定義部分欄位，並針對其他欄位使用預設值。"
 
 #: src/structs/field-shorthand.md:43
 msgid ""
@@ -5795,18 +5817,20 @@ msgstr ""
 
 #: src/structs/field-shorthand.md:68
 msgid "Methods are defined in the `impl` block."
-msgstr ""
+msgstr "方法會在 `impl` 區塊中定義。"
 
 #: src/structs/field-shorthand.md:69
 msgid ""
 "Use struct update syntax to define a new structure using `peter`. Note that "
 "the variable `peter` will no longer be accessible afterwards."
 msgstr ""
+"使用結構體更新語法，利用 `peter` 定義新結構。請注意，`peter` 這個變數之後將再"
+"也無法存取。"
 
 #: src/structs/field-shorthand.md:70
 msgid ""
 "Use `{:#?}` when printing structs to request the `Debug` representation."
-msgstr ""
+msgstr "輸出結構體時，請使用 `{:#?}` 提出 `Debug` 表示法要求。"
 
 #: src/enums.md:3
 msgid ""
@@ -6381,6 +6405,7 @@ msgid ""
 "Rust allows you to associate functions with your new types. You do this with "
 "an `impl` block:"
 msgstr ""
+"Rust 可讓您將函式與新型別建立關聯。您可以使用 `impl` 區塊來執行這項操作："
 
 #: src/methods.md:6
 msgid ""
@@ -6409,13 +6434,15 @@ msgstr ""
 
 #: src/methods.md:31
 msgid "It can be helpful to introduce methods by comparing them to functions."
-msgstr ""
+msgstr "導入方法時，若將方法比做函式，會很有幫助。"
 
 #: src/methods.md:32
 msgid ""
 "Methods are called on an instance of a type (such as a struct or enum), the "
 "first parameter represents the instance as `self`."
 msgstr ""
+"系統會在型別的執行個體 (例如結構體或列舉) 上呼叫方法，第一個參數以 `self` 代"
+"表執行個體。"
 
 #: src/methods.md:33
 msgid ""
@@ -6423,6 +6450,8 @@ msgid ""
 "syntax and to help keep them more organized. By using methods we can keep "
 "all the implementation code in one predictable place."
 msgstr ""
+"開發人員可以選擇透過方法來充分利用方法接收器語法，以更有條理的方式進行整理。"
+"藉由使用方法，我們可以將所有實作程式碼存放在可預測的位置。"
 
 #: src/methods.md:34
 msgid "Point out the use of the keyword `self`, a method receiver. "
@@ -6438,41 +6467,49 @@ msgstr ""
 msgid ""
 "Explain that `Self` is a type alias for the type the `impl` block is in and "
 "can be used elsewhere in the block."
-msgstr ""
+msgstr "講解 `Self` 是 `impl` 區塊所屬型別的型別別名，可用於該區塊的其他位置。"
 
 #: src/methods.md:37
 msgid ""
 "Note how `self` is used like other structs and dot notation can be used to "
 "refer to individual fields."
 msgstr ""
+"提醒學員如何以類似於其他結構體的方式來使用 `self`，並指出點標記法可用來參照個"
+"別欄位，"
 
 #: src/methods.md:38
 msgid ""
 "This might be a good time to demonstrate how the `&self` differs from `self` "
 "by modifying the code and trying to run say_hello twice."
 msgstr ""
+"這可能是示範 `&self` 和 `self` 差異的好時機，您只要修改程式碼並嘗試執行 "
+"say_hello 兩次即可。"
 
 #: src/methods.md:39
 msgid "We describe the distinction between method receivers next."
-msgstr ""
+msgstr "接下來我們將說明方法接收器之間的差異。"
 
 #: src/methods/receiver.md:3
 msgid ""
 "The `&self` above indicates that the method borrows the object immutably. "
 "There are other possible receivers for a method:"
 msgstr ""
+"上述的 `&self` 表示方法會以不可變的方式借用物件。以下是其他可能的方法接收器："
 
 #: src/methods/receiver.md:6
 msgid ""
 "`&self`: borrows the object from the caller using a shared and immutable "
 "reference. The object can be used again afterwards."
 msgstr ""
+"`&self`：使用共用且不可變動的參照，從呼叫端借用物件。之後可以再次使用該物件。"
 
 #: src/methods/receiver.md:8
 msgid ""
 "`&mut self`: borrows the object from the caller using a unique and mutable "
 "reference. The object can be used again afterwards."
 msgstr ""
+"`&mut self`：使用不重複且可變動的參照，從呼叫端借用物件。之後可以再次使用該物"
+"件。"
 
 #: src/methods/receiver.md:10
 msgid ""
@@ -6481,16 +6518,21 @@ msgid ""
 "(deallocated) when the method returns, unless its ownership is explicitly "
 "transmitted. Complete ownership does not automatically mean mutability."
 msgstr ""
+"`self`：取得物件擁有權，並將其移出呼叫端。方法會成為物件的擁有者。系統會在方"
+"法傳回時捨棄物件 (取消分配)，但如果其擁有權已明確傳送的情況例外。具備完整擁有"
+"權，不自動等同於具備可變動性。"
 
 #: src/methods/receiver.md:14
 msgid "`mut self`: same as above, but the method can mutate the object. "
-msgstr ""
+msgstr "`mut self`：同上，但方法可以變動物件。"
 
 #: src/methods/receiver.md:15
 msgid ""
 "No receiver: this becomes a static method on the struct. Typically used to "
 "create constructors which are called `new` by convention."
 msgstr ""
+"沒有接收器：這會成為結構體上的靜態方法，通常用於建立依慣例稱為 `new` 的建構函"
+"式。"
 
 #: src/methods/receiver.md:18
 msgid ""
@@ -6498,6 +6540,9 @@ msgid ""
 "doc.rust-lang.org/reference/special-types-and-traits.html) allowed to be "
 "receiver types, such as `Box<Self>`."
 msgstr ""
+"除了 `self` 的變體以外，您還可以使用[特殊的包裝函式型別](https://doc.rust-"
+"lang.org/reference/special-types-and-traits.html)做為接收器型別，例如 "
+"`Box<Self>`。"
 
 #: src/methods/receiver.md:24
 msgid ""
@@ -6506,6 +6551,9 @@ msgid ""
 "and `self` is no exception. It isn't possible to reference a struct from "
 "multiple locations and call a mutating (`&mut self`) method on it."
 msgstr ""
+"建議您強調「共用且不可變動」，以及「不重複且可變動」這兩個概念。由於借用檢查"
+"器規則的關係，這些限制在 Rust 中一律會一起出現，而 `self` 也不例外。您無法從"
+"多個位置參照結構體，並對其呼叫變異 (`&mut self`) 方法。"
 
 #: src/methods/example.md:3
 msgid ""
@@ -6555,18 +6603,20 @@ msgstr ""
 
 #: src/methods/example.md:47
 msgid "All four methods here use a different method receiver."
-msgstr ""
+msgstr "這裡的四個方法都使用不同的方法接收器。"
 
 #: src/methods/example.md:48
 msgid ""
 "You can point out how that changes what the function can do with the "
 "variable values and if/how it can be used again in `main`."
 msgstr ""
+"您可以指出這會如何變更函式能對變數值執行的動作，以及可否/如何在 `main` 中再次"
+"使用該函式。"
 
 #: src/methods/example.md:49
 msgid ""
 "You can showcase the error that appears when trying to call `finish` twice."
-msgstr ""
+msgstr "您可以演示嘗試呼叫 `finish` 兩次時會出現什麼錯誤。"
 
 #: src/methods/example.md:50
 msgid ""
@@ -6575,12 +6625,16 @@ msgid ""
 "referencing and dereferencing when calling methods. Rust automatically adds "
 "in the `&`, `*`, `muts` so that that object matches the method signature."
 msgstr ""
+"請注意，雖然方法接收器不同，但主體中非靜態函式的呼叫方式相同。Rust 會在呼叫方"
+"法時啟用自動參照和取消參照功能，並自動加入 `&`、`*`、`muts`，讓該物件與方法簽"
+"章相符。"
 
 #: src/methods/example.md:51
 msgid ""
 "You might point out that `print_laps` is using a vector that is iterated "
 "over. We describe vectors in more detail in the afternoon. "
 msgstr ""
+"您或許可以指出 `print_laps` 使用了不斷疊代的向量。我們會在下午詳細介紹向量。"
 
 #: src/pattern-matching.md:3
 msgid ""
@@ -6858,11 +6912,11 @@ msgstr ""
 
 #: src/exercises/day-2/morning.md:1
 msgid "Day 2: Morning Exercises"
-msgstr ""
+msgstr "第 2 天：上午練習"
 
 #: src/exercises/day-2/morning.md:3
 msgid "We will look at implementing methods in two contexts:"
-msgstr ""
+msgstr "我們會探討如何在以下兩種情況下實作方法："
 
 #: src/exercises/day-2/morning.md:5
 msgid "Simple struct which tracks health statistics."
@@ -6876,7 +6930,7 @@ msgstr ""
 msgid ""
 "You're working on implementing a health-monitoring system. As part of that, "
 "you need to keep track of users' health statistics."
-msgstr ""
+msgstr "您正在實作健康監控系統，因此須追蹤使用者的健康統計資料。"
 
 #: src/exercises/day-2/health-statistics.md:6
 msgid ""
@@ -6884,12 +6938,14 @@ msgid ""
 "`User` struct definition. Your goal is to implement the stubbed out methods "
 "on the `User` `struct` defined in the `impl` block."
 msgstr ""
+"您將從 `impl` 區塊中的部分虛設函式，以及 `User` 結構體定義著手，目標是在 "
+"`impl` 區塊中定義的 `User` `struct` 上導入虛設常式方法。"
 
 #: src/exercises/day-2/health-statistics.md:10
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and fill in the missing "
 "methods:"
-msgstr ""
+msgstr "請將以下程式碼複製到 <https://play.rust-lang.org/>，並填入缺少的方法："
 
 #: src/exercises/day-2/health-statistics.md:13
 msgid ""
@@ -7943,12 +7999,16 @@ msgid ""
 "`String::new` returns a new empty string, use `String::with_capacity` when "
 "you know how much data you want to push to the string."
 msgstr ""
+"`String::new` 會傳回新的空白字串，如果您知道要向字串推送多少資料，請使用 "
+"`String::with_capacity`。"
 
 #: src/std/string.md:31
 msgid ""
 "`String::len` returns the size of the `String` in bytes (which can be "
 "different from its length in characters)."
 msgstr ""
+"`String::len` 會傳回 `String` 的大小 (以位元組為單位，可能與以字元為單位的長"
+"度不同)。"
 
 #: src/std/string.md:32
 msgid ""
@@ -7957,28 +8017,35 @@ msgid ""
 "to [grapheme clusters](https://docs.rs/unicode-segmentation/latest/"
 "unicode_segmentation/struct.Graphemes.html)."
 msgstr ""
+"`String::chars` 會傳回實際字元的疊代器。請注意，由於[字形叢集](https://docs."
+"rs/unicode-segmentation/latest/unicode_segmentation/struct.Graphemes.html)的"
+"關係，`char` 和一般人所認為的「字元」可能不同。"
 
 #: src/std/string.md:33
 msgid ""
 "When people refer to strings they could either be talking about `&str` or "
 "`String`."
-msgstr ""
+msgstr "提到字串時，一般人可能是指 `&str` 或 `String`。"
 
 #: src/std/string.md:34
 msgid ""
 "When a type implements `Deref<Target = T>`, the compiler will let you "
 "transparently call methods from `T`."
 msgstr ""
+"當型別實作 `Deref<Target = T>` 時，編譯器可讓您以公開透明的方式呼叫 `T` 中的"
+"方法。"
 
 #: src/std/string.md:35
 msgid ""
 "`String` implements `Deref<Target = str>` which transparently gives it "
 "access to `str`'s methods."
 msgstr ""
+"`String` 會實作 `Deref<Target = str>`，後者能以公開透明的方式授予前者 `str` "
+"方法的存取權。"
 
 #: src/std/string.md:36
 msgid "Write and compare `let s3 = s1.deref();` and  `let s3 = &*s1`;."
-msgstr ""
+msgstr "編寫及比較 `let s3 = s1.deref();` 和 `let s3 = &*s1`;。"
 
 #: src/std/string.md:37
 msgid ""
@@ -7986,22 +8053,24 @@ msgid ""
 "operations you see supported on vectors are also supported on `String`, but "
 "with some extra guarantees."
 msgstr ""
+"`String` 是以包裝函式的形式在位元組向量的四周實作，許多在向量上支援的作業也適"
+"用於 `String`，但需要某些額外保證。"
 
 #: src/std/string.md:38
 msgid "Compare the different ways to index a `String`:"
-msgstr ""
+msgstr "請比較各種為 `String` 建立索引的方法："
 
 #: src/std/string.md:39
 msgid ""
 "To a character by using `s3.chars().nth(i).unwrap()` where `i` is in-bound, "
 "out-of-bounds."
-msgstr ""
+msgstr "使用 `s3.chars().nth(i).unwrap()` 變為字元，其中 `i` 代表是否出界。"
 
 #: src/std/string.md:40
 msgid ""
 "To a substring by using `s3[0..4]`, where that slice is on character "
 "boundaries or not."
-msgstr ""
+msgstr "使用 `s3[0..4]` 變為子字串，其中該切片會位於字元邊界上，也可能不會。"
 
 #: src/std/vec.md:1
 msgid "`Vec`"
@@ -8058,6 +8127,8 @@ msgid ""
 "it contains is stored on the heap. This means the amount of data doesn't "
 "need to be  known at compile time. It can grow or shrink at runtime."
 msgstr ""
+"`Vec` 是一種集合型別，與 `String` 和 `HashMap` 都一樣。`Vec` 內含的資料會儲存"
+"在堆積上。這表示在編譯期間無需得知資料量，可在執行階段増量或減量。"
 
 #: src/std/vec.md:40
 msgid ""
@@ -8065,12 +8136,15 @@ msgid ""
 "explicitly. As always with Rust type inference, the `T` was established "
 "during the first `push` call."
 msgstr ""
+"請留意 `Vec<T>` 也能做為泛型型別，但您不必明確指定 `T`。和往常的 Rust 型別推"
+"論一樣，系統會在第一次 `push` 呼叫期間建立 `T`。"
 
 #: src/std/vec.md:42
 msgid ""
 "`vec![...]` is a canonical macro to use instead of `Vec::new()` and it "
 "supports adding initial elements to the vector."
 msgstr ""
+"`vec![...]` 是用於取代 `Vec::new()` 的標準巨集，且支援在向量中加入初始元素。"
 
 #: src/std/vec.md:44
 msgid ""
@@ -8078,12 +8152,14 @@ msgid ""
 "Alternatively, using `get` will return an `Option`. The `pop` function will "
 "remove the last element."
 msgstr ""
+"如要為向量建立索引，請使用 `[` `]`，但如果超出範圍會引發恐慌。或者，使用 "
+"`get` 則可傳回 `Option`。`pop` 函式會移除最後一個元素。"
 
 #: src/std/vec.md:46
 msgid ""
 "Show iterating over a vector and mutating the value: `for e in &mut v { *e "
 "+= 50; }`"
-msgstr ""
+msgstr "示範如何對向量進行疊代並修改值：`for e in &mut v { *e += 50; }`"
 
 #: src/std/hashmap.md:1 src/bare-metal/no_std.md:46
 msgid "`HashMap`"
@@ -8134,7 +8210,7 @@ msgstr ""
 #: src/std/hashmap.md:38
 msgid ""
 "`HashMap` is not defined in the prelude and needs to be brought into scope."
-msgstr ""
+msgstr "我們一開始並未定義 `HashMap`，因此現在需要將其納入課程範圍。"
 
 #: src/std/hashmap.md:39
 msgid ""
@@ -8142,6 +8218,8 @@ msgid ""
 "hashmap and if not return an alternative value. The second line will insert "
 "the alternative value in the hashmap if the book is not found."
 msgstr ""
+"請嘗試使用以下幾行程式碼。第一行會查看書籍是否在雜湊表中，如果不在，系統會傳"
+"回替代值。如果系統找不到書籍，第二行會在雜湊表中插入替代值。"
 
 #: src/std/hashmap.md:41
 msgid ""
@@ -8157,7 +8235,7 @@ msgstr ""
 
 #: src/std/hashmap.md:49
 msgid "Unlike `vec!`, there is unfortunately no standard `hashmap!` macro."
-msgstr ""
+msgstr "可惜的是，並沒有所謂標準的 `hashmap!` 巨集。這點與 `vec!` 不同。"
 
 #: src/std/hashmap.md:50
 msgid ""
@@ -8166,6 +8244,10 @@ msgid ""
 "From%3C%5B(K,+V);+N%5D%3E-for-HashMap%3CK,+V,+RandomState%3E), which allows "
 "us to easily initialize a hash map from a literal array:"
 msgstr ""
+"不過，自 Rust 1.56 起，HashMap 會實作 [`From<[(K, V); N]>`](https://doc.rust-"
+"lang.org/std/collections/hash_map/struct.HashMap.html#impl-From%3C%5B(K,+V);"
+"+N%5D%3E-for-HashMap%3CK,+V,+RandomState%3E)，以便讓我們能從常值陣列初始化雜"
+"湊映射："
 
 #: src/std/hashmap.md:52
 msgid ""
@@ -8181,7 +8263,7 @@ msgstr ""
 msgid ""
 "Alternatively HashMap can be built from any `Iterator` which yields key-"
 "value tuples."
-msgstr ""
+msgstr "或者，您也可以透過任何能產生鍵/值元組的 `Iterator` 建立 HashMap。"
 
 #: src/std/hashmap.md:60
 msgid ""
@@ -8189,12 +8271,16 @@ msgid ""
 "examples easier. Using references in collections can, of course, be done, "
 "but it can lead into complications with the borrow checker."
 msgstr ""
+"我們示範的是 `HashMap<String, i32>`，請避免使用 `&str 做為鍵，讓範例變得更簡"
+"單。當然，也可以在集合中使用參照，但這可能會使借用檢查器變得複雜。"
 
 #: src/std/hashmap.md:62
 msgid ""
 "Try removing `to_string()` from the example above and see if it still "
 "compiles. Where do you think we might run into issues?"
 msgstr ""
+"請嘗試從上述範例中移除 `to_string()`，看看是否仍可編譯。您認為我們可能會在哪"
+"裡遇到問題？"
 
 #: src/std/box.md:1
 msgid "`Box`"
@@ -8428,11 +8514,13 @@ msgid ""
 "in a multi-threaded context."
 msgstr ""
 
-#: src/std/rc.md:21
+#: src/std/rc.md:19
 msgid ""
 "You can _downgrade_ a shared pointer into a [`Weak`](https://doc.rust-lang."
 "org/std/rc/struct.Weak.html) pointer to create cycles that will get dropped."
 msgstr ""
+"您可以將共用指標「降級」為 [`Weak`](https://doc.rust-lang.org/std/rc/struct."
+"Weak.html) 指標，以便建立之後會捨棄的循環。"
 
 #: src/std/rc.md:31
 msgid ""
@@ -8516,11 +8604,11 @@ msgstr ""
 
 #: src/modules.md:3
 msgid "We have seen how `impl` blocks let us namespace functions to a type."
-msgstr ""
+msgstr "我們已介紹 `impl` 區塊如何讓我們將函式的命名空間建立為型別。"
 
 #: src/modules.md:5
 msgid "Similarly, `mod` lets us namespace types and functions:"
-msgstr ""
+msgstr "同樣地，`mod` 可讓我們建立型別和函式的命名空間："
 
 #: src/modules.md:7
 msgid ""
@@ -8549,34 +8637,38 @@ msgid ""
 "Packages provide functionality and include a `Cargo.toml` file that "
 "describes how to build a bundle of 1+ crates."
 msgstr ""
+"套件會提供功能，並收錄 `Cargo.toml` 檔案，用於說明如何建構含有超過 1 個 "
+"Crate 的組合。"
 
 #: src/modules.md:29
 msgid ""
 "Crates are a tree of modules, where a binary crate creates an executable and "
 "a library crate compiles to a library."
 msgstr ""
+"Crate 是模組的樹狀結構，其中二進位檔 Crate 會建立執行檔，而程式庫 Crate 則會"
+"編譯至程式庫。"
 
 #: src/modules.md:30
 msgid "Modules define organization, scope, and are the focus of this section."
-msgstr ""
+msgstr "模組不僅會定義組織、範圍，同時也是本節重點。"
 
 #: src/modules/visibility.md:3
 msgid "Modules are a privacy boundary:"
-msgstr ""
+msgstr "我們可將模組視為隱私邊界："
 
 #: src/modules/visibility.md:5
 msgid "Module items are private by default (hides implementation details)."
-msgstr ""
+msgstr "模組項目預設為不公開 (會隱藏實作詳細資料)。"
 
 #: src/modules/visibility.md:6
 msgid "Parent and sibling items are always visible."
-msgstr ""
+msgstr "父項和同層項目一律會顯示。"
 
 #: src/modules/visibility.md:7
 msgid ""
 "In other words, if an item is visible in module `foo`, it's visible in all "
 "the descendants of `foo`."
-msgstr ""
+msgstr "換句話說，如果項目顯示在 `foo` 模組中，則會出現在 `foo` 的所有子系中。"
 
 #: src/modules/visibility.md:10
 msgid ""
@@ -8610,67 +8702,71 @@ msgstr ""
 
 #: src/modules/visibility.md:39
 msgid "Use the `pub` keyword to make modules public."
-msgstr ""
+msgstr "使用 `pub` 關鍵字將模組設為公開。"
 
 #: src/modules/visibility.md:41
 msgid ""
 "Additionally, there are advanced `pub(...)` specifiers to restrict the scope "
 "of public visibility."
-msgstr ""
+msgstr "此外，您也可以使用進階的 `pub(...)` 指定碼來限制公開的瀏覽權限範圍。"
 
 #: src/modules/visibility.md:43
 msgid ""
 "See the [Rust Reference](https://doc.rust-lang.org/reference/visibility-and-"
 "privacy.html#pubin-path-pubcrate-pubsuper-and-pubself)."
 msgstr ""
+"請參閱 [Rust 參考資料](https://doc.rust-lang.org/reference/visibility-and-"
+"privacy.html#pubin-path-pubcrate-pubsuper-and-pubself)。"
 
 #: src/modules/visibility.md:44
 msgid "Configuring `pub(crate)` visibility is a common pattern."
-msgstr ""
+msgstr "設定 `pub(crate)` 瀏覽權限是一種常見模式。"
 
 #: src/modules/visibility.md:45
 msgid "Less commonly, you can give visibility to a specific path."
-msgstr ""
+msgstr "您也可以授予特定路徑的瀏覽權限，但這較不常見。"
 
 #: src/modules/visibility.md:46
 msgid ""
 "In any case, visibility must be granted to an ancestor module (and all of "
 "its descendants)."
-msgstr ""
+msgstr "無論如何，都請務必將瀏覽權限授予祖系模組 (及其所有子系)。"
 
 #: src/modules/paths.md:3
 msgid "Paths are resolved as follows:"
-msgstr ""
+msgstr "路徑的解析方式包括："
 
 #: src/modules/paths.md:5
 msgid "As a relative path:"
-msgstr ""
+msgstr "做為相對路徑："
 
 #: src/modules/paths.md:6
 msgid "`foo` or `self::foo` refers to `foo` in the current module,"
-msgstr ""
+msgstr "`foo` 或 `self::foo` 是指目前模組中的 `foo`。"
 
 #: src/modules/paths.md:7
 msgid "`super::foo` refers to `foo` in the parent module."
-msgstr ""
+msgstr "`super::foo` 是指父項模組中的 `foo`。"
 
 #: src/modules/paths.md:9
 msgid "As an absolute path:"
-msgstr ""
+msgstr "做為絕對路徑："
 
 #: src/modules/paths.md:10
 msgid "`crate::foo` refers to `foo` in the root of the current crate,"
-msgstr ""
+msgstr "`crate::foo` 是指目前 Crate 根目錄中的 `foo`。"
 
 #: src/modules/paths.md:11
 msgid "`bar::foo` refers to `foo` in the `bar` crate."
-msgstr ""
+msgstr "`bar::foo` 是指 `bar` Crate 中的 `foo`。"
 
 #: src/modules/paths.md:13
 msgid ""
 "A module can bring symbols from another module into scope with `use`. You "
 "will typically see something like this at the top of each module:"
 msgstr ""
+"模組可以使用 `use` 將其他模組的符號帶進範圍內。您通常會在每個模組的頂端看到類"
+"似下方的內容："
 
 #: src/modules/paths.md:16
 msgid ""
@@ -8715,24 +8811,26 @@ msgstr ""
 msgid "`src/garden/vegetables/mod.rs` (older Rust 2015 style)"
 msgstr ""
 
-#: src/modules/filesystem.md:19
+#: src/modules/filesystem.md:12
 msgid "The `crate` root is in:"
-msgstr ""
+msgstr "`crate` 根層級位於："
 
-#: src/modules/filesystem.md:21
+#: src/modules/filesystem.md:14
 msgid "`src/lib.rs` (for a library crate)"
-msgstr ""
+msgstr "`src/lib.rs` (適用於程式庫 Crate)"
 
-#: src/modules/filesystem.md:22
+#: src/modules/filesystem.md:15
 msgid "`src/main.rs` (for a binary crate)"
-msgstr ""
+msgstr "`src/main.rs` (適用於二進位檔 Crate)"
 
-#: src/modules/filesystem.md:24
+#: src/modules/filesystem.md:17
 msgid ""
 "Modules defined in files can be documented, too, using \"inner doc "
 "comments\". These document the item that contains them -- in this case, a "
 "module."
 msgstr ""
+"您也可以使用 \"inner doc comments\" 記錄檔案中定義的模組。這些會記錄包含它們"
+"的項目，在本例中就是模組。"
 
 #: src/modules/filesystem.md:27
 msgid ""
@@ -8794,19 +8892,21 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/modules/filesystem.md:68
+#: src/modules/filesystem.md:59
 msgid ""
 "This is useful, for example, if you would like to place tests for a module "
 "in a file named `some_module_test.rs`, similar to the convention in Go."
 msgstr ""
+"舉例來說，如果您想將模組的測試放在名為 `some_module_test.rs` 的檔案中 (類似 "
+"Go 中的慣例)，這就會很實用。"
 
 #: src/exercises/day-2/afternoon.md:1
 msgid "Day 2: Afternoon Exercises"
-msgstr ""
+msgstr "第 2 天：下午練習"
 
 #: src/exercises/day-2/afternoon.md:3
 msgid "The exercises for this afternoon will focus on strings and iterators."
-msgstr ""
+msgstr "今天下午的練習著重在字串和疊代器。"
 
 #: src/exercises/day-2/luhn.md:3
 msgid ""
@@ -8904,12 +9004,17 @@ msgid ""
 "against _request paths_. The path prefixes can contain a wildcard character "
 "which matches a full segment. See the unit tests below."
 msgstr ""
+"在本次練習中，您將實作網路伺服器的路由元件。伺服器設定了多個與「要求路徑」__"
+"相符的「路徑前置字元」__。路徑前置字元可包含與完整片段相符的萬用字元。請參閱"
+"下方的單元測試。"
 
 #: src/exercises/day-2/strings-iterators.md:8
 msgid ""
 "Copy the following code to <https://play.rust-lang.org/> and make the tests "
 "pass. Try avoiding allocating a `Vec` for your intermediate results:"
 msgstr ""
+"將下列程式碼複製到 <https://play.rust-lang.org/>，然後設法通過測試。請盡量避"
+"免為中繼結果分配 `Vec`："
 
 #: src/exercises/day-2/strings-iterators.md:12
 msgid ""
@@ -21461,6 +21566,208 @@ msgid ""
 msgstr ""
 "根據預設，閉包會依據參照來擷取內容 (如果可行的話)。`move` 關鍵字則可讓閉包根"
 "據值 來擷取內容。"
+
+#: src/memory-management/stack.md:1
+msgid "Stack and Heap Example"
+msgstr "堆疊和堆積範例"
+
+#: src/ownership/move-semantics.md:23
+msgid ""
+"It is only the ownership that moves. Whether any machine code is generated "
+"to manipulate the data itself is a matter of optimization, and such copies "
+"are aggressively optimized away."
+msgstr ""
+"只有擁有權才會轉移。是否產生任何機器碼來操控資料本身是一個最優化問題，而系統"
+"會主動將這些副本最優化。"
+
+#: src/ownership/move-semantics.md:25
+msgid ""
+"Simple values (such as integers) can be marked `Copy` (see later slides)."
+msgstr "簡單的值 (例如整數) 可標示為 `Copy` (請參閱後續投影片)。"
+
+#: src/ownership/double-free-modern-cpp.md:57
+msgid ""
+"C++ has made a slightly different choice than Rust. Because `=` copies data, "
+"the string data has to be cloned. Otherwise we would get a double-free when "
+"either string goes out of scope."
+msgstr ""
+"C++ 提供的選擇與 Rust 略有不同。由於 `=` 會複製資料，所以字串資料一定要完成複"
+"製。否則，假如其中任一字串超出範圍，就會導致重複釋放的結果。"
+
+#: src/ownership/double-free-modern-cpp.md:61
+msgid ""
+"C++ also has [`std::move`](https://en.cppreference.com/w/cpp/utility/move), "
+"which is used to indicate when a value may be moved from. If the example had "
+"been `s2 = std::move(s1)`, no heap allocation would take place. After the "
+"move, `s1` would be in a valid but unspecified state. Unlike Rust, the "
+"programmer is allowed to keep using `s1`."
+msgstr ""
+"C++ 也提供 [`std::move`](https://en.cppreference.com/w/cpp/utility/move)，用"
+"於指出何時可以轉移特定值。例如假設是 `s2 = std::move(s1)`，就不會發生堆積分配"
+"的情形。轉移之後，`s1` 會處於有效但未指定的狀態。與 Rust 不同的是，程式設計師"
+"可以繼續使用 `s1`。"
+
+#: src/ownership/double-free-modern-cpp.md:66
+msgid ""
+"Unlike Rust, `=` in C++ can run arbitrary code as determined by the type "
+"which is being copied or moved."
+msgstr ""
+"C++ 中的 `=` 可以依照要複製或轉移的型別來執行任何程式碼，這點與 Rust 不同。"
+
+#: src/methods.md:34
+msgid "Point out the use of the keyword `self`, a method receiver."
+msgstr "指出我們會使用關鍵字 `self`，也就是方法接收器。"
+
+#: src/methods.md:35
+msgid ""
+"Show that it is an abbreviated term for `self: Self` and perhaps show how "
+"the struct name could also be used."
+msgstr "說明 `self` 是 `self: Self` 的縮寫，或許也能示範結構體名稱的可能用法。"
+
+#: src/exercises/day-2/morning.md:5
+msgid "Storing books and querying the collection"
+msgstr "儲存書籍並查詢館藏"
+
+#: src/exercises/day-2/morning.md:7
+msgid "Keeping track of health statistics for patients"
+msgstr "追蹤病患的健康統計資料"
+
+#: src/exercises/day-2/book-library.md:18
+msgid ""
+"Use this to model a library's book collection. Copy the code below to "
+"<https://play.rust-lang.org/> and update the types to make it compile:"
+msgstr ""
+"這可用來建立圖書館的館藏模型。請將下列程式碼複製到 <https://play.rust-lang."
+"org/>，然後更新型別以利編譯："
+
+#: src/std/hashmap.md:64
+msgid ""
+"This type has several \"method-specific\" return types, such as `std::"
+"collections::hash_map::Keys`. These types often appear in searches of the "
+"Rust docs. Show students the docs for this type, and the helpful link back "
+"to the `keys` method."
+msgstr ""
+"這個型別有多個「方法專屬」的傳回型別，例如 `std::collections::hash_map::"
+"Keys`。這些型別經常會在 Rust 文件的搜尋結果中出現。請向學生展示這個型別的文"
+"件，以及可返回 `keys` 方法的實用連結。"
+
+#: src/std/rc.md:18
+msgid ""
+"See [`Arc`](../concurrency/shared_state/arc.md) and [`Mutex`](https://doc."
+"rust-lang.org/std/sync/struct.Mutex.html) if you are in a multi-threaded "
+"context."
+msgstr ""
+"如果您處於多執行緒的環境，請參閱 [`Arc`](../concurrency/shared_state/arc.md) "
+"和 [`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)。"
+
+#: src/std/rc.md:30
+msgid "`Rc` in Rust is like `std::shared_ptr` in C++."
+msgstr "Rust 中的 `Rc` 就像 C++ 中的 `std::shared_ptr` 一樣。"
+
+#: src/std/cell.md:1
+msgid "`Cell` and `RefCell`"
+msgstr "`Cell` 和 `RefCell`"
+
+#: src/std/cell.md:8
+msgid ""
+"`Cell` is typically used for simple types, as it requires copying or moving "
+"values. More complex interior types typically use `RefCell`, which tracks "
+"shared and exclusive references at runtime and panics if they are misused."
+msgstr ""
+"`Cell` 因為需要複製或移動值，通常用於簡單的型別。較複雜的內部型別通常會使用 "
+"`RefCell`，可在執行階段和恐慌時追蹤共用和專屬的參照 (如果這些參照遭到濫用的"
+"話)。"
+
+#: src/std/cell.md:47
+msgid ""
+"If we were using `Cell` instead of `RefCell` in this example, we would have "
+"to move the `Node` out of the `Rc` to push children, then move it back in. "
+"This is safe because there's always one, un-referenced value in the cell, "
+"but it's not ergonomic."
+msgstr ""
+"如果我們在本例中使用 `Cell` 而非 `RefCell`，可能須將 `Node` 移出 `Rc` 才能推"
+"送子項，然後再將其移回。您可以放心執行這項操作，因為儲存格中始終有一個未參照"
+"的值，但不符人體工學。"
+
+#: src/std/cell.md:48
+msgid ""
+"To do anything with a Node, you must call a `RefCell` method, usually "
+"`borrow` or `borrow_mut`."
+msgstr ""
+"如要對節點執行任何操作，您必須呼叫 `RefCell` 方法，通常是 `borrow` 或 "
+"`borrow_mut`。"
+
+#: src/std/cell.md:49
+msgid ""
+"Demonstrate that reference loops can be created by adding `root` to `subtree."
+"children` (don't try to print it!)."
+msgstr ""
+"示範可以將 `root` 新增至 `subtree.children` (請勿嘗試輸出！) 來建立參照迴圈。"
+
+#: src/std/cell.md:50
+msgid ""
+"To demonstrate a runtime panic, add a `fn inc(&mut self)` that increments "
+"`self.value` and calls the same method on its children. This will panic in "
+"the presence of the reference loop, with `thread 'main' panicked at 'already "
+"borrowed: BorrowMutError'`."
+msgstr ""
+"如要演示執行階段發生的恐慌情形，請新增 `fn inc(&mut self)`，這可讓 `self."
+"value` 遞增，並在其子項呼叫相同的方法。在有參照迴圈的情況下，這會引發恐慌，其"
+"中的 `thread 'main' 會因 'already borrowed: BorrowMutError'` 而恐慌。"
+
+#: src/modules/filesystem.md:3
+msgid ""
+"Omitting the module content will tell Rust to look for it in another file:"
+msgstr "如果您省略模組內容，系統會指示 Rust 在其他檔案中尋找該內容："
+
+#: src/modules/filesystem.md:9
+msgid ""
+"This tells rust that the `garden` module content is found at `src/garden."
+"rs`. Similarly, a `garden::vegetables` module can be found at `src/garden/"
+"vegetables.rs`."
+msgstr ""
+"這會讓 Rust 知道 `garden` 模組內容是在 `src/garden.rs` 中找到的。同樣地，"
+"`garden::vegetables` 模組可在 `src/garden/vegetables.rs` 中找到。"
+
+#: src/modules/filesystem.md:37
+msgid ""
+"Before Rust 2018, modules needed to be located at `module/mod.rs` instead of "
+"`module.rs`, and this is still a working alternative for editions after 2018."
+msgstr ""
+"在 Rust 2018 之前，模組需位於 `module/mod.rs` 而非 `module.rs` 中，這仍然是 "
+"2018 後續版本的可行替代方案。"
+
+#: src/modules/filesystem.md:39
+msgid ""
+"The main reason to introduce `filename.rs` as alternative to `filename/mod."
+"rs` was because many files named `mod.rs` can be hard to distinguish in IDEs."
+msgstr ""
+"導入 `filename.rs` 做為 `filename/mod.rs` 的替代方案，主要是因為許多名為 "
+"`mod.rs` 的檔案在 IDE 中很難區分。"
+
+#: src/modules/filesystem.md:42
+msgid "Deeper nesting can use folders, even if the main module is a file:"
+msgstr "更深層的巢狀結構可以使用資料夾，即使主要模組為檔案也一樣："
+
+#: src/modules/filesystem.md:52
+msgid ""
+"The place rust will look for modules can be changed with a compiler "
+"directive:"
+msgstr "Rust 尋找模組的位置可透過編譯器指令變更："
+
+#: src/exercises/day-2/iterators-and-ownership.md:105
+msgid ""
+"Experiment with the code above and then consult the documentation for [`impl "
+"IntoIterator for &Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec."
+"html#impl-IntoIterator-for-%26'a+Vec%3CT,+A%3E) and [`impl IntoIterator for "
+"Vec<T>`](https://doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-"
+"for-Vec%3CT,+A%3E) to check your answers."
+msgstr ""
+"請用上方的程式碼進行試驗，並參閱 [`impl IntoIterator for &Vec<T>`](https://"
+"doc.rust-lang.org/std/vec/struct.Vec.html#impl-IntoIterator-for-"
+"%26'a+Vec%3CT,+A%3E) 和 [`impl IntoIterator for Vec<T>`](https://doc.rust-"
+"lang.org/std/vec/struct.Vec.html#impl-IntoIterator-for-Vec%3CT,+A%3E) 的說明"
+"文件確認答案。"
 
 #: src/traits/deriving-traits.md:3
 msgid ""
