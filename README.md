@@ -37,7 +37,8 @@ The course is built using a few tools:
 - [mdbook-i18n-helpers](https://github.com/google/mdbook-i18n-helpers)
 - [mdbook-exerciser](mdbook-exerciser/)
 
-First install Rust by following the instructions on https://rustup.rs/. Then clone this repository:
+First install Rust by following the instructions on https://rustup.rs/. Then
+clone this repository:
 
 ```shell
 git clone https://github.com/google/comprehensive-rust/
