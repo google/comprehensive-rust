@@ -1,7 +1,7 @@
 # Standard Library
 
 Rust comes with a standard library which helps establish a set of common types
-used by Rust library and programs. This way, two libraries can work together
+used by Rust libraries and programs. This way, two libraries can work together
 smoothly because they both use the same `String` type.
 
 The common vocabulary types include:
