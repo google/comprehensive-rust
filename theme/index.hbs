@@ -403,5 +403,15 @@
         {{/if}}
 
     </div>
+      <script>
+        window.addEventListener('load', function() {
+            const bidiNeededTags = ['h1','h2','h3','h4','h5','h6','p', 'ul', '.cookieBarInner' , 'details']
+            bidiNeededTags.forEach(bidiNeededTag =>{
+                document.querySelectorAll(bidiNeededTag).forEach(selectedTag =>{
+                    selectedTag.setAttribute("dir", "auto")
+                })              
+            })               
+        });
+        </script>
     </body>
 </html>
