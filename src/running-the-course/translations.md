@@ -5,6 +5,7 @@ volunteers:
 
 * [Brazilian Portuguese][pt-BR] by [@rastringer], [@hugojacob], [@joaovicmendes], and [@henrif75].
 * [Chinese (Simplified)][zh-CN] by [@suetfei], [@wnghl], [@anlunx], [@kongy], [@noahdragon], [@superwhd], [@SketchK], and [@nodmp].
+* [Chinese (Traditional)][zh-TW] by [@hueich], [@victorhsieh], [@mingyc], [@kuanhungchen], and [@johnathan79717].
 * [Korean][ko] by [@keispace], [@jiyongp], and [@jooyunghan].
 * [Spanish][es] by [@deavid].
 
@@ -16,7 +17,6 @@ There is a large number of in-progress translations. We link to the most
 recently updated translations:
 
 * [Bengali][bn] by [@raselmandol].
-* [Chinese (Traditional)][zh-TW] by [@hueich], [@victorhsieh], [@mingyc], and [@johnathan79717].
 * [French][fr] by [@KookaS] and [@vcaen].
 * [German][de] by [@Throvn] and [@ronaldfw].
 * [Japanese][ja] by [@CoinEZ-JPN] and [@momotaro1105].
@@ -47,6 +47,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@keispace]: https://github.com/keispace
 [@kongy]: https://github.com/kongy
 [@KookaS]: https://github.com/KookaS
+[@kuanhungchen]: https://github.com/kuanhungchen
 [@mingyc]: https://github.com/mingyc
 [@momotaro1105]: https://github.com/momotaro1105
 [@noahdragon]: https://github.com/noahdragon
