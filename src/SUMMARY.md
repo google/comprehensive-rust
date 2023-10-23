@@ -52,7 +52,7 @@
 
 - [Variables](basic-syntax/variables.md)
   - [Type Inference](basic-syntax/type-inference.md)
-  - [static & const](basic-syntax/static-and-const.md))
+  - [static & const](basic-syntax/static-and-const.md)
   - [Scopes and Shadowing](basic-syntax/scopes-shadowing.md)
 - [Enums](enums.md)
   - [Variant Payloads](enums/variant-payloads.md)
@@ -207,7 +207,7 @@
   - [With C](android/interoperability/with-c.md)
     - [Calling C with Bindgen](android/interoperability/with-c/bindgen.md)
     - [Calling Rust from C](android/interoperability/with-c/rust.md)
-  - [With C++](android/interoperability/cpp.md))
+  - [With C++](android/interoperability/cpp.md)
   - [With Java](android/interoperability/java.md)
 - [Exercises](exercises/android/morning.md)
 
