@@ -1,6 +1,6 @@
 # Shared Types
 
-```rust
+```rust,ignore
 #[cxx::bridge]
 mod ffi {
     #[derive(Clone, Debug, Hash)]

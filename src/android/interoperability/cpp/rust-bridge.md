@@ -1,6 +1,6 @@
 # Rust Bridge Declarations
 
-```rust
+```rust,ignore
 #[cxx::bridge]
 mod ffi {
     extern "Rust" {

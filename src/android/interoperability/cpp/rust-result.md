@@ -1,6 +1,6 @@
 # Rust Error Handling
 
-```rust
+```rust,ignore
 #[cxx::bridge]
 mod ffi {
     extern "Rust" {
@@ -12,7 +12,8 @@ fn fallible(depth: usize) -> anyhow::Result<String> {
     if depth == 0 {
         return Err(anyhow::Error::msg("fallible1 requires depth > 0"));
     }
-    ...
+
+    // ...
 }
 ```
 

@@ -4,7 +4,7 @@ CXX relies on a description of the function signatures that will be exposed from
 each language to the other. You provide this description using extern blocks in
 a Rust module annotated with the `#[cxx::bridge]` attribute macro.
 
-```rust
+```rust,ignore
 {{#include blobstore/src/main.rs:bridge}}
 ```
 
