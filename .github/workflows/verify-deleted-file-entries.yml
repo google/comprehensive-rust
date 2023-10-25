@@ -22,39 +22,35 @@ jobs:
           # Install your dependencies here.
 
       - name: Check if it's a pull request event
-        id: is-pull-request
+        id: check-pr-event
         run: |
           if [ -n "$GITHUB_EVENT_NAME" ] && [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
-            echo "::set-output name=is_pull_request::true"
+            echo "is_pull_request=true" >> $GITHUB_ENV
           else
-            echo "::set-output name=is_pull_request::false"
+            echo "is_pull_request=false" >> $GITHUB_ENV
           fi
 
       - name: Get base branch
         id: base-branch
         run: |
-          is_pull_request="${{ steps.is-pull-request.outputs.is_pull_request }}"
+          is_pull_request="${{ env.is_pull_request }}"
           if [ "$is_pull_request" == "true" ]; then
             base_branch=$(jq -r .pull_request.base.ref "$GITHUB_EVENT_PATH")
-            echo "::set-output name=base_branch::$base_branch"
+            echo "base_branch=$base_branch" >> $GITHUB_ENV
           else
-            echo "::set-output name=base_branch::"
+            echo "base_branch=" >> $GITHUB_ENV
           fi
 
-      - name: List deleted slides
-        id: deleted-slides
+      - name: Set deleted slides in an environment file
         run: |
-          base_branch="${{ steps.base-branch.outputs.base_branch }}"
+          base_branch="${{ env.base_branch }}"
           if [ -n "$base_branch" ]; then
-            deleted_slides=$(git diff --name-only $base_branch...HEAD --diff-filter=D)
-            echo "::set-output name=deleted_slides::$deleted_slides"
-          else
-            echo "::set-output name=deleted_slides::"
+            echo "DELETED_SLIDES=$(git diff --name-only \"$base_branch\"...HEAD --diff-filter=D)" >> $GITHUB_ENV
           fi
 
       - name: Check for entries in book.toml
         run: |
-          deleted_slides="${{ steps.deleted-slides.outputs.deleted_slides }}"
+          deleted_slides="$DELETED_SLIDES"
 
           for slide in $deleted_slides; do
             slide_filename=$(basename -- "$slide")
