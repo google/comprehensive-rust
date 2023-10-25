@@ -12548,25 +12548,27 @@ msgstr ""
 
 #: src/android/interoperability/with-c/bindgen.md:1
 msgid "Using Bindgen"
-msgstr ""
+msgstr "使用 Bindgen"
 
 #: src/android/interoperability/with-c/bindgen.md:3
 msgid ""
 "The [bindgen](https://rust-lang.github.io/rust-bindgen/introduction.html) "
 "tool can auto-generate bindings from a C header file."
 msgstr ""
+"[bindgen](https://rust-lang.github.io/rust-bindgen/introduction.html) 工具可"
+"以自动生成 C 头文件的绑定代码。"
 
 #: src/android/interoperability/with-c/bindgen.md:6
 msgid "First create a small C library:"
-msgstr ""
+msgstr "首先创建一个小型的 C 语言库："
 
 #: src/android/interoperability/with-c/bindgen.md:8
 msgid "_interoperability/bindgen/libbirthday.h_:"
-msgstr ""
+msgstr "interoperability/bindgen/libbirthday.h:"
 
 #: src/android/interoperability/with-c/bindgen.md:19
 msgid "_interoperability/bindgen/libbirthday.c_:"
-msgstr ""
+msgstr "_interoperability/bindgen/libbirthday.c_:"
 
 #: src/android/interoperability/with-c/bindgen.md:21
 msgid ""
@@ -12582,17 +12584,28 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```c\n"
+"#include <stdio.h>\n"
+"#include \"libbirthday.h\"\n"
+"\n"
+"void print_card(const card* card) {\n"
+"  printf(\"+--------------\\n\");\n"
+"  printf(\"| Happy Birthday %s!\\n\", card->name);\n"
+"  printf(\"| Congratulations with the %i years!\\n\", card->years);\n"
+"  printf(\"+--------------\\n\");\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md:33
 msgid "Add this to your `Android.bp` file:"
-msgstr ""
+msgstr "将该库添加到你的 `Android.bp` 文件中："
 
 #: src/android/interoperability/with-c/bindgen.md:35
 #: src/android/interoperability/with-c/bindgen.md:55
 #: src/android/interoperability/with-c/bindgen.md:69
 #: src/android/interoperability/with-c/bindgen.md:108
 msgid "_interoperability/bindgen/Android.bp_:"
-msgstr ""
+msgstr "_interoperability/bindgen/Android.bp_:"
 
 #: src/android/interoperability/with-c/bindgen.md:37
 msgid ""
@@ -12603,16 +12616,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"cc_library {\n"
+"    name: \"libbirthday\",\n"
+"    srcs: [\"libbirthday.c\"],\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md:44
 msgid ""
 "Create a wrapper header file for the library (not strictly needed in this "
 "example):"
-msgstr ""
+msgstr "为该库创建一个包装头文件（在此示例中不是必需的）："
 
 #: src/android/interoperability/with-c/bindgen.md:47
 msgid "_interoperability/bindgen/libbirthday_wrapper.h_:"
-msgstr ""
+msgstr "_interoperability/bindgen/libbirthday_wrapper.h_:"
 
 #: src/android/interoperability/with-c/bindgen.md:49
 msgid ""
@@ -12620,10 +12639,13 @@ msgid ""
 "#include \"libbirthday.h\"\n"
 "```"
 msgstr ""
+"```c\n"
+"#include \"libbirthday.h\"\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md:53
 msgid "You can now auto-generate the bindings:"
-msgstr ""
+msgstr "您现在可以自动生成绑定代码："
 
 #: src/android/interoperability/with-c/bindgen.md:57
 msgid ""
@@ -12637,10 +12659,19 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_bindgen {\n"
+"    name: \"libbirthday_bindgen\",\n"
+"    crate_name: \"birthday_bindgen\",\n"
+"    wrapper_src: \"libbirthday_wrapper.h\",\n"
+"    source_stem: \"bindings\",\n"
+"    static_libs: [\"libbirthday\"],\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md:67
 msgid "Finally, we can use the bindings in our Rust program:"
-msgstr ""
+msgstr "最后，我们可以在 Rust 程序中使用这些绑定："
 
 #: src/android/interoperability/with-c/bindgen.md:71
 msgid ""
@@ -12652,10 +12683,17 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_binary {\n"
+"    name: \"print_birthday_card\",\n"
+"    srcs: [\"main.rs\"],\n"
+"    rustlibs: [\"libbirthday_bindgen\"],\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md:79
 msgid "_interoperability/bindgen/main.rs_:"
-msgstr ""
+msgstr "_interoperability/bindgen/main.rs_:"
 
 #: src/android/interoperability/with-c/bindgen.md:81
 msgid ""
@@ -12676,6 +12714,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,compile_fail\n"
+"//! Bindgen demo.\n"
+"\n"
+"use birthday_bindgen::{card, print_card};\n"
+"\n"
+"fn main() {\n"
+"    let name = std::ffi::CString::new(\"Peter\").unwrap();\n"
+"    let card = card {\n"
+"        name: name.as_ptr(),\n"
+"        years: 42,\n"
+"    };\n"
+"    unsafe {\n"
+"        print_card(&card as *const card);\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md:100
 msgid ""
@@ -12686,10 +12740,16 @@ msgid ""
 "adb shell /data/local/tmp/print_birthday_card\n"
 "```"
 msgstr ""
+"```shell\n"
+"m print_birthday_card\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/print_birthday_card /data/local/"
+"tmp\"\n"
+"adb shell /data/local/tmp/print_birthday_card\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md:106
 msgid "Finally, we can run auto-generated tests to ensure the bindings work:"
-msgstr ""
+msgstr "最后，我们可以运行自动生成的测试来确保绑定代码正常工作："
 
 #: src/android/interoperability/with-c/bindgen.md:110
 msgid ""
@@ -12705,6 +12765,17 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_test {\n"
+"    name: \"libbirthday_bindgen_test\",\n"
+"    srcs: [\":libbirthday_bindgen\"],\n"
+"    crate_name: \"libbirthday_bindgen_test\",\n"
+"    test_suites: [\"general-tests\"],\n"
+"    auto_gen_config: true,\n"
+"    clippy_lints: \"none\", // Generated file, skip linting\n"
+"    lints: \"none\",\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md:1
 msgid "Calling Rust"
