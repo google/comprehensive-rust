@@ -12503,17 +12503,19 @@ msgstr ""
 
 #: src/android/interoperability/with-c.md:1
 msgid "Interoperability with C"
-msgstr ""
+msgstr "与 C 的互操作性"
 
 #: src/android/interoperability/with-c.md:3
 msgid ""
 "Rust has full support for linking object files with a C calling convention. "
 "Similarly, you can export Rust functions and call them from C."
 msgstr ""
+"Rust 对使用 C 调用约定链接目标文件提供了完整的支持。同样地，你可以导出 Rust "
+"函数并从 C 中调用它们。"
 
 #: src/android/interoperability/with-c.md:6
 msgid "You can do it by hand if you want:"
-msgstr ""
+msgstr "如果你愿意的话，你可以手工完成它："
 
 #: src/android/interoperability/with-c.md:8
 msgid ""
@@ -12529,44 +12531,59 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust\n"
+"extern \"C\" {\n"
+"    fn abs(x: i32) -> i32;\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let x = -42;\n"
+"    let abs_x = unsafe { abs(x) };\n"
+"    println!(\"{x}, {abs_x}\");\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c.md:20
 msgid ""
 "We already saw this in the [Safe FFI Wrapper exercise](../../exercises/day-3/"
 "safe-ffi-wrapper.md)."
 msgstr ""
+"我们已经在[安全 FFI 封装容器](../../exercises/day-3/safe-ffi-wrapper.md)练习"
+"中看到了这个例子。"
 
 #: src/android/interoperability/with-c.md:23
 msgid ""
 "This assumes full knowledge of the target platform. Not recommended for "
 "production."
-msgstr ""
+msgstr "这假设对目标平台拥有充分的了解，不建议用于生产环境。"
 
 #: src/android/interoperability/with-c.md:26
 msgid "We will look at better options next."
-msgstr ""
+msgstr "接下来我们将探讨更好的选择。"
 
 #: src/android/interoperability/with-c/bindgen.md:1
 msgid "Using Bindgen"
-msgstr ""
+msgstr "使用 Bindgen"
 
 #: src/android/interoperability/with-c/bindgen.md:3
 msgid ""
 "The [bindgen](https://rust-lang.github.io/rust-bindgen/introduction.html) "
 "tool can auto-generate bindings from a C header file."
 msgstr ""
+"[bindgen](https://rust-lang.github.io/rust-bindgen/introduction.html) 工具可"
+"以自动生成 C 头文件的绑定代码。"
 
 #: src/android/interoperability/with-c/bindgen.md:6
 msgid "First create a small C library:"
-msgstr ""
+msgstr "首先创建一个小型的 C 语言库："
 
 #: src/android/interoperability/with-c/bindgen.md:8
 msgid "_interoperability/bindgen/libbirthday.h_:"
-msgstr ""
+msgstr "interoperability/bindgen/libbirthday.h:"
 
 #: src/android/interoperability/with-c/bindgen.md:19
 msgid "_interoperability/bindgen/libbirthday.c_:"
-msgstr ""
+msgstr "_interoperability/bindgen/libbirthday.c_:"
 
 #: src/android/interoperability/with-c/bindgen.md:21
 msgid ""
@@ -12582,17 +12599,28 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```c\n"
+"#include <stdio.h>\n"
+"#include \"libbirthday.h\"\n"
+"\n"
+"void print_card(const card* card) {\n"
+"  printf(\"+--------------\\n\");\n"
+"  printf(\"| Happy Birthday %s!\\n\", card->name);\n"
+"  printf(\"| Congratulations with the %i years!\\n\", card->years);\n"
+"  printf(\"+--------------\\n\");\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md:33
 msgid "Add this to your `Android.bp` file:"
-msgstr ""
+msgstr "将该库添加到你的 `Android.bp` 文件中："
 
 #: src/android/interoperability/with-c/bindgen.md:35
 #: src/android/interoperability/with-c/bindgen.md:55
 #: src/android/interoperability/with-c/bindgen.md:69
 #: src/android/interoperability/with-c/bindgen.md:108
 msgid "_interoperability/bindgen/Android.bp_:"
-msgstr ""
+msgstr "_interoperability/bindgen/Android.bp_:"
 
 #: src/android/interoperability/with-c/bindgen.md:37
 msgid ""
@@ -12603,16 +12631,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"cc_library {\n"
+"    name: \"libbirthday\",\n"
+"    srcs: [\"libbirthday.c\"],\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md:44
 msgid ""
 "Create a wrapper header file for the library (not strictly needed in this "
 "example):"
-msgstr ""
+msgstr "为该库创建一个包装头文件（在此示例中不是必需的）："
 
 #: src/android/interoperability/with-c/bindgen.md:47
 msgid "_interoperability/bindgen/libbirthday_wrapper.h_:"
-msgstr ""
+msgstr "_interoperability/bindgen/libbirthday_wrapper.h_:"
 
 #: src/android/interoperability/with-c/bindgen.md:49
 msgid ""
@@ -12620,10 +12654,13 @@ msgid ""
 "#include \"libbirthday.h\"\n"
 "```"
 msgstr ""
+"```c\n"
+"#include \"libbirthday.h\"\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md:53
 msgid "You can now auto-generate the bindings:"
-msgstr ""
+msgstr "您现在可以自动生成绑定代码："
 
 #: src/android/interoperability/with-c/bindgen.md:57
 msgid ""
@@ -12637,10 +12674,19 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_bindgen {\n"
+"    name: \"libbirthday_bindgen\",\n"
+"    crate_name: \"birthday_bindgen\",\n"
+"    wrapper_src: \"libbirthday_wrapper.h\",\n"
+"    source_stem: \"bindings\",\n"
+"    static_libs: [\"libbirthday\"],\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md:67
 msgid "Finally, we can use the bindings in our Rust program:"
-msgstr ""
+msgstr "最后，我们可以在 Rust 程序中使用这些绑定："
 
 #: src/android/interoperability/with-c/bindgen.md:71
 msgid ""
@@ -12652,10 +12698,17 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_binary {\n"
+"    name: \"print_birthday_card\",\n"
+"    srcs: [\"main.rs\"],\n"
+"    rustlibs: [\"libbirthday_bindgen\"],\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md:79
 msgid "_interoperability/bindgen/main.rs_:"
-msgstr ""
+msgstr "_interoperability/bindgen/main.rs_:"
 
 #: src/android/interoperability/with-c/bindgen.md:81
 msgid ""
@@ -12676,6 +12729,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,compile_fail\n"
+"//! Bindgen demo.\n"
+"\n"
+"use birthday_bindgen::{card, print_card};\n"
+"\n"
+"fn main() {\n"
+"    let name = std::ffi::CString::new(\"Peter\").unwrap();\n"
+"    let card = card {\n"
+"        name: name.as_ptr(),\n"
+"        years: 42,\n"
+"    };\n"
+"    unsafe {\n"
+"        print_card(&card as *const card);\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md:100
 msgid ""
@@ -12686,10 +12755,16 @@ msgid ""
 "adb shell /data/local/tmp/print_birthday_card\n"
 "```"
 msgstr ""
+"```shell\n"
+"m print_birthday_card\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/print_birthday_card /data/local/"
+"tmp\"\n"
+"adb shell /data/local/tmp/print_birthday_card\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md:106
 msgid "Finally, we can run auto-generated tests to ensure the bindings work:"
-msgstr ""
+msgstr "最后，我们可以运行自动生成的测试来确保绑定代码正常工作："
 
 #: src/android/interoperability/with-c/bindgen.md:110
 msgid ""
@@ -12705,18 +12780,29 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_test {\n"
+"    name: \"libbirthday_bindgen_test\",\n"
+"    srcs: [\":libbirthday_bindgen\"],\n"
+"    crate_name: \"libbirthday_bindgen_test\",\n"
+"    test_suites: [\"general-tests\"],\n"
+"    auto_gen_config: true,\n"
+"    clippy_lints: \"none\", // Generated file, skip linting\n"
+"    lints: \"none\",\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md:1
 msgid "Calling Rust"
-msgstr ""
+msgstr "调用 Rust"
 
 #: src/android/interoperability/with-c/rust.md:3
 msgid "Exporting Rust functions and types to C is easy:"
-msgstr ""
+msgstr "将 Rust 函数和类型导出到 C 很简单："
 
 #: src/android/interoperability/with-c/rust.md:5
 msgid "_interoperability/rust/libanalyze/analyze.rs_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/analyze.rs_"
 
 #: src/android/interoperability/with-c/rust.md:7
 msgid ""
@@ -12737,10 +12823,26 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"//! Rust FFI demo.\n"
+"#![deny(improper_ctypes_definitions)]\n"
+"\n"
+"use std::os::raw::c_int;\n"
+"\n"
+"/// Analyze the numbers.\n"
+"#[no_mangle]\n"
+"pub extern \"C\" fn analyze_numbers(x: c_int, y: c_int) {\n"
+"    if x < y {\n"
+"        println!(\"x ({x}) is smallest!\");\n"
+"    } else {\n"
+"        println!(\"y ({y}) is probably larger than x ({x})\");\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md:24
 msgid "_interoperability/rust/libanalyze/analyze.h_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/analyze.h_"
 
 #: src/android/interoperability/with-c/rust.md:26
 msgid ""
@@ -12755,10 +12857,20 @@ msgid ""
 "#endif\n"
 "```"
 msgstr ""
+"```c\n"
+"#ifndef ANALYSE_H\n"
+"#define ANALYSE_H\n"
+"\n"
+"extern \"C\" {\n"
+"void analyze_numbers(int x, int y);\n"
+"}\n"
+"\n"
+"#endif\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md:37
 msgid "_interoperability/rust/libanalyze/Android.bp_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/Android.bp_"
 
 #: src/android/interoperability/with-c/rust.md:39
 msgid ""
@@ -12771,14 +12883,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_ffi {\n"
+"    name: \"libanalyze_ffi\",\n"
+"    crate_name: \"analyze_ffi\",\n"
+"    srcs: [\"analyze.rs\"],\n"
+"    include_dirs: [\".\"],\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md:48
 msgid "We can now call this from a C binary:"
-msgstr ""
+msgstr "我们现在可以从一个 C 二进制文件中调用它："
 
 #: src/android/interoperability/with-c/rust.md:50
 msgid "_interoperability/rust/analyze/main.c_"
-msgstr ""
+msgstr "_interoperability/rust/analyze/main.c_"
 
 #: src/android/interoperability/with-c/rust.md:52
 msgid ""
@@ -12792,10 +12912,19 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```c\n"
+"#include \"analyze.h\"\n"
+"\n"
+"int main() {\n"
+"  analyze_numbers(10, 20);\n"
+"  analyze_numbers(123, 123);\n"
+"  return 0;\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md:62
 msgid "_interoperability/rust/analyze/Android.bp_"
-msgstr ""
+msgstr "_interoperability/rust/analyze/Android.bp_"
 
 #: src/android/interoperability/with-c/rust.md:64
 msgid ""
@@ -12807,6 +12936,13 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"cc_binary {\n"
+"    name: \"analyze_numbers\",\n"
+"    srcs: [\"main.c\"],\n"
+"    static_libs: [\"libanalyze_ffi\"],\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md:75
 msgid ""
@@ -12817,6 +12953,12 @@ msgid ""
 "adb shell /data/local/tmp/analyze_numbers\n"
 "```"
 msgstr ""
+"```shell\n"
+"m analyze_numbers\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/analyze_numbers /data/local/"
+"tmp\"\n"
+"adb shell /data/local/tmp/analyze_numbers\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md:83
 msgid ""
@@ -12824,44 +12966,50 @@ msgid ""
 "will just be the name of the function. You can also use `#[export_name = "
 "\"some_name\"]` to specify whatever name you want."
 msgstr ""
+"`#[no_mangle]` 禁用了 Rust 通常的名称重整，因此导出的符号将仅为函数的名称。你"
+"还可以使用 `#[export_name = \"some_name\"]` 来指定任意你想要的名称。"
 
 #: src/android/interoperability/cpp.md:3
 msgid ""
 "The [CXX crate](https://cxx.rs/) makes it possible to do safe "
 "interoperability between Rust and C++."
 msgstr ""
+"[CXX crate](https://cxx.rs/) 使得在 Rust 和 C++ 之间进行安全的互操作成为可"
+"能。"
 
 #: src/android/interoperability/cpp.md:6
 msgid "The overall approach looks like this:"
-msgstr ""
+msgstr "整体的方法如下："
 
 #: src/android/interoperability/cpp.md:10
 msgid ""
 "See the [CXX tutorial](https://cxx.rs/tutorial.html) for an full example of "
 "using this."
 msgstr ""
+"请参阅 [CXX tutorial](https://cxx.rs/tutorial.html) ，了解有关使用的完整示"
+"例。"
 
 #: src/android/interoperability/cpp.md:14
 msgid ""
 "At this point, the instructor should switch to the [CXX tutorial](https://"
 "cxx.rs/tutorial.html)."
-msgstr ""
+msgstr "此时，讲师应该该切换到 [CXX tutorial](https://cxx.rs/tutorial.html)。"
 
 #: src/android/interoperability/cpp.md:16
 msgid "Walk the students through the tutorial step by step."
-msgstr ""
+msgstr "逐步引导学生按照教程一步步操作。"
 
 #: src/android/interoperability/cpp.md:18
 msgid ""
 "Highlight how CXX presents a clean interface without unsafe code in _both "
 "languages_."
-msgstr ""
+msgstr "突出展示 CXX 在 _两种语言_ 中都提供了一个没有不安全代码的干净接口。"
 
 #: src/android/interoperability/cpp.md:20
 msgid ""
 "Show the correspondence between [Rust and C++ types](https://cxx.rs/bindings."
 "html):"
-msgstr ""
+msgstr "展示 [Rust 和 C++类型](https://cxx.rs/bindings.html) 之间的对应关系："
 
 #: src/android/interoperability/cpp.md:22
 msgid ""
@@ -12870,16 +13018,21 @@ msgid ""
 "types, `rust::String` in C++ can be easily constructed from a C++ `std::"
 "string`, making it very ergonomic to use."
 msgstr ""
+"解释 Rust 的 `String` 无法直接映射到 C++ 的 `std::string `（后者不符合UTF-8不"
+"变性）。展示尽管类型不同，但在 C++ 中，可以很容易地从 C++ 的 `std::string` 构"
+"造 `rust::String` ，使得使用起来非常方便。"
 
 #: src/android/interoperability/cpp.md:28
 msgid ""
 "Explain that a Rust function returning `Result<T, E>` becomes a function "
 "which throws a `E` exception in C++ (and vice versa)."
 msgstr ""
+"解释 Rust 中返回 `Result<T, E> ` 的函数在 C++ 中会变成抛出 `E` 异常的函数（反"
+"之亦然）。"
 
 #: src/android/interoperability/java.md:1
 msgid "Interoperability with Java"
-msgstr ""
+msgstr "与 Java 的互操作性"
 
 #: src/android/interoperability/java.md:3
 msgid ""
@@ -12887,14 +13040,17 @@ msgid ""
 "wikipedia.org/wiki/Java_Native_Interface). The [`jni` crate](https://docs.rs/"
 "jni/) allows you to create a compatible library."
 msgstr ""
+"Java可以通过 [ Java 本地接口 (JNI)](https://en.wikipedia.org/wiki/"
+"Java_Native_Interface) 加载共享对象。[`jni` crate](https://docs.rs/jni/) 允许"
+"您创建一个兼容的库。"
 
 #: src/android/interoperability/java.md:7
 msgid "First, we create a Rust function to export to Java:"
-msgstr ""
+msgstr "首先，我们创建一个可以导出到 Java 的 Rust 函数："
 
 #: src/android/interoperability/java.md:9
 msgid "_interoperability/java/src/lib.rs_:"
-msgstr ""
+msgstr "_interoperability/java/src/lib.rs_:"
 
 #: src/android/interoperability/java.md:11
 msgid ""
@@ -12919,11 +13075,31 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,compile_fail\n"
+"//! Rust <-> Java FFI demo.\n"
+"\n"
+"use jni::objects::{JClass, JString};\n"
+"use jni::sys::jstring;\n"
+"use jni::JNIEnv;\n"
+"\n"
+"/// HelloWorld::hello method implementation.\n"
+"#[no_mangle]\n"
+"pub extern \"system\" fn Java_HelloWorld_hello(\n"
+"    env: JNIEnv,\n"
+"    _class: JClass,\n"
+"    name: JString,\n"
+") -> jstring {\n"
+"    let input: String = env.get_string(name).unwrap().into();\n"
+"    let greeting = format!(\"Hello, {input}!\");\n"
+"    let output = env.new_string(greeting).unwrap();\n"
+"    output.into_inner()\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/java.md:32
 #: src/android/interoperability/java.md:62
 msgid "_interoperability/java/Android.bp_:"
-msgstr ""
+msgstr "_interoperability/java/Android.bp_:"
 
 #: src/android/interoperability/java.md:34
 msgid ""
@@ -12936,14 +13112,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_ffi_shared {\n"
+"    name: \"libhello_jni\",\n"
+"    crate_name: \"hello_jni\",\n"
+"    srcs: [\"src/lib.rs\"],\n"
+"    rustlibs: [\"libjni\"],\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/java.md:43
 msgid "Finally, we can call this function from Java:"
-msgstr ""
+msgstr "最后，我们可以从 Java 中调用这个函数："
 
 #: src/android/interoperability/java.md:45
 msgid "_interoperability/java/HelloWorld.java_:"
-msgstr ""
+msgstr "_interoperability/java/HelloWorld.java_:"
 
 #: src/android/interoperability/java.md:47
 msgid ""
@@ -12962,6 +13146,20 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```java\n"
+"class HelloWorld {\n"
+"    private static native String hello(String name);\n"
+"\n"
+"    static {\n"
+"        System.loadLibrary(\"hello_jni\");\n"
+"    }\n"
+"\n"
+"    public static void main(String[] args) {\n"
+"        String output = HelloWorld.hello(\"Alice\");\n"
+"        System.out.println(output);\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/java.md:64
 msgid ""
@@ -12974,30 +13172,42 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"java_binary {\n"
+"    name: \"helloworld_jni\",\n"
+"    srcs: [\"HelloWorld.java\"],\n"
+"    main_class: \"HelloWorld\",\n"
+"    required: [\"libhello_jni\"],\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/java.md:73
 msgid "Finally, you can build, sync, and run the binary:"
-msgstr ""
+msgstr "最后，您可以构建、同步和运行二进制文件："
 
 #: src/exercises/android/morning.md:3
 msgid ""
 "This is a group exercise: We will look at one of the projects you work with "
 "and try to integrate some Rust into it. Some suggestions:"
 msgstr ""
+"这是一个小组练习：我们将查看你们正在处理的项目之一，并尝试将一些 Rust 代码集"
+"成进去。以下是一些建议："
 
 #: src/exercises/android/morning.md:6
 msgid "Call your AIDL service with a client written in Rust."
-msgstr ""
+msgstr "使用 Rust 编写的客户端调用你的 AIDL 服务。"
 
 #: src/exercises/android/morning.md:8
 msgid "Move a function from your project to Rust and call it."
-msgstr ""
+msgstr "将你项目中的某个函数迁移到 Rust 中并调用它。"
 
 #: src/exercises/android/morning.md:12
 msgid ""
 "No solution is provided here since this is open-ended: it relies on someone "
 "in the class having a piece of code which you can turn in to Rust on the fly."
 msgstr ""
+"此处没有提供解决方案，因为这是开放式的：它依赖于班级中是否有人有一段您可以即"
+"时转换成 Rust 的代码。"
 
 #: src/bare-metal.md:1
 msgid "Welcome to Bare Metal Rust"

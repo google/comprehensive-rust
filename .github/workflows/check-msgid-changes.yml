@@ -1,12 +1,12 @@
-name: Prevent msgid changes in translations
+name: Prevent unintended msgid changes
 
 on:
   pull_request:
     paths:
-      - "**/*.po"
+      - "po/*.po"
 
 jobs:
-  prevent-msgid-changes:
+  check-msgid-changes:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,4 +18,4 @@ jobs:
         run: git reset origin/main
 
       - name: Check po file changes
-        run: python3 .github/workflows/prevent-msgid.py
+        run: python3 .github/workflows/check-msgid-changes.py

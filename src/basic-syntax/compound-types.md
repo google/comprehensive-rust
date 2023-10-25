@@ -12,7 +12,7 @@ Array assignment and access:
 fn main() {
     let mut a: [i8; 10] = [42; 10];
     a[5] = 0;
-    println!("a: {:?}", a);
+    println!("a: {a:?}");
 }
 ```
 
@@ -39,10 +39,10 @@ Arrays:
 
 * We can use literals to assign values to arrays.
 
-* In the main function, the print statement asks for the debug implementation with the `?` format
-  parameter: `{}` gives the default output, `{:?}` gives the debug output. We
-  could also have used `{a}` and `{a:?}` without specifying the value after the
-  format string.
+* The `println!` macro asks for the debug implementation with the `?` format
+  parameter: `{}` gives the default output, `{:?}` gives the debug output. Types such as
+  integers and strings implement the default output, but arrays only implement the debug output.
+  This means that we must use debug output here.
 
 * Adding `#`, eg `{a:#?}`, invokes a "pretty printing" format, which can be easier to read.
 
