@@ -12708,15 +12708,15 @@ msgstr ""
 
 #: src/android/interoperability/with-c/rust.md:1
 msgid "Calling Rust"
-msgstr ""
+msgstr "调用 Rust"
 
 #: src/android/interoperability/with-c/rust.md:3
 msgid "Exporting Rust functions and types to C is easy:"
-msgstr ""
+msgstr "将 Rust 函数和类型导出到 C 很简单："
 
 #: src/android/interoperability/with-c/rust.md:5
 msgid "_interoperability/rust/libanalyze/analyze.rs_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/analyze.rs_"
 
 #: src/android/interoperability/with-c/rust.md:7
 msgid ""
@@ -12737,10 +12737,26 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,editable\n"
+"//! Rust FFI demo.\n"
+"#![deny(improper_ctypes_definitions)]\n"
+"\n"
+"use std::os::raw::c_int;\n"
+"\n"
+"/// Analyze the numbers.\n"
+"#[no_mangle]\n"
+"pub extern \"C\" fn analyze_numbers(x: c_int, y: c_int) {\n"
+"    if x < y {\n"
+"        println!(\"x ({x}) is smallest!\");\n"
+"    } else {\n"
+"        println!(\"y ({y}) is probably larger than x ({x})\");\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md:24
 msgid "_interoperability/rust/libanalyze/analyze.h_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/analyze.h_"
 
 #: src/android/interoperability/with-c/rust.md:26
 msgid ""
@@ -12755,10 +12771,20 @@ msgid ""
 "#endif\n"
 "```"
 msgstr ""
+"```c\n"
+"#ifndef ANALYSE_H\n"
+"#define ANALYSE_H\n"
+"\n"
+"extern \"C\" {\n"
+"void analyze_numbers(int x, int y);\n"
+"}\n"
+"\n"
+"#endif\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md:37
 msgid "_interoperability/rust/libanalyze/Android.bp_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/Android.bp_"
 
 #: src/android/interoperability/with-c/rust.md:39
 msgid ""
@@ -12771,14 +12797,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_ffi {\n"
+"    name: \"libanalyze_ffi\",\n"
+"    crate_name: \"analyze_ffi\",\n"
+"    srcs: [\"analyze.rs\"],\n"
+"    include_dirs: [\".\"],\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md:48
 msgid "We can now call this from a C binary:"
-msgstr ""
+msgstr "我们现在可以从一个 C 二进制文件中调用它："
 
 #: src/android/interoperability/with-c/rust.md:50
 msgid "_interoperability/rust/analyze/main.c_"
-msgstr ""
+msgstr "_interoperability/rust/analyze/main.c_"
 
 #: src/android/interoperability/with-c/rust.md:52
 msgid ""
@@ -12792,10 +12826,19 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```c\n"
+"#include \"analyze.h\"\n"
+"\n"
+"int main() {\n"
+"  analyze_numbers(10, 20);\n"
+"  analyze_numbers(123, 123);\n"
+"  return 0;\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md:62
 msgid "_interoperability/rust/analyze/Android.bp_"
-msgstr ""
+msgstr "_interoperability/rust/analyze/Android.bp_"
 
 #: src/android/interoperability/with-c/rust.md:64
 msgid ""
@@ -12807,6 +12850,13 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"cc_binary {\n"
+"    name: \"analyze_numbers\",\n"
+"    srcs: [\"main.c\"],\n"
+"    static_libs: [\"libanalyze_ffi\"],\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md:75
 msgid ""
@@ -12817,6 +12867,12 @@ msgid ""
 "adb shell /data/local/tmp/analyze_numbers\n"
 "```"
 msgstr ""
+"```shell\n"
+"m analyze_numbers\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/analyze_numbers /data/local/"
+"tmp\"\n"
+"adb shell /data/local/tmp/analyze_numbers\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md:83
 msgid ""
@@ -12824,6 +12880,8 @@ msgid ""
 "will just be the name of the function. You can also use `#[export_name = "
 "\"some_name\"]` to specify whatever name you want."
 msgstr ""
+"`#[no_mangle]` 禁用了 Rust 通常的名称重整，因此导出的符号将仅为函数的名称。你"
+"还可以使用 `#[export_name = \"some_name\"]` 来指定任意你想要的名称。"
 
 #: src/android/interoperability/cpp.md:3
 msgid ""
