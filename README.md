@@ -52,7 +52,8 @@ The course is built using a few tools:
 - [mdbook-exerciser](mdbook-exerciser/)
 - [mdbook-course](mdbook-course/)
 
-First clone the repository:
+First install Rust by following the instructions on https://rustup.rs/. Then
+clone this repository:
 
 ```shell
 git clone https://github.com/google/comprehensive-rust/

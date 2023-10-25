@@ -49,9 +49,16 @@ brew install gettext
 
 ### `dprint`
 
-Install [`dprint`] using their installation instructions.
+Install `dprint` using their
+[installation instructions](https://dprint.dev/install/).
 
 [`dprint`]: https://dprint.dev/
+
+Alternatively, on MacOS with [Homebrew](https://brew.sh/), you can install with:
+
+```shell
+brew install dprint
+```
 
 Ensure you can build the book, and that `mdbook serve` works. For this, follow
 the instructions in the [README](README.md).
@@ -172,6 +179,9 @@ output.
 > translation as all entries will be marked as "fuzzy".
 
 ### Building a Translation
+
+Make sure you have gone through the [build setup](./README.md#building) at least
+once.
 
 To use the `po/xx.po` file for your output, run the following command:
 
