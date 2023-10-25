@@ -12893,7 +12893,7 @@ msgstr ""
 
 #: src/android/interoperability/java.md:1
 msgid "Interoperability with Java"
-msgstr ""
+msgstr "与 Java 的互操作性"
 
 #: src/android/interoperability/java.md:3
 msgid ""
@@ -12901,14 +12901,17 @@ msgid ""
 "wikipedia.org/wiki/Java_Native_Interface). The [`jni` crate](https://docs.rs/"
 "jni/) allows you to create a compatible library."
 msgstr ""
+"Java可以通过 [ Java 本地接口 (JNI)](https://en.wikipedia.org/wiki/"
+"Java_Native_Interface) 加载共享对象。[`jni` crate](https://docs.rs/jni/) 允许"
+"您创建一个兼容的库。"
 
 #: src/android/interoperability/java.md:7
 msgid "First, we create a Rust function to export to Java:"
-msgstr ""
+msgstr "首先，我们创建一个可以导出到 Java 的 Rust 函数："
 
 #: src/android/interoperability/java.md:9
 msgid "_interoperability/java/src/lib.rs_:"
-msgstr ""
+msgstr "_interoperability/java/src/lib.rs_:"
 
 #: src/android/interoperability/java.md:11
 msgid ""
@@ -12933,11 +12936,31 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust,compile_fail\n"
+"//! Rust <-> Java FFI demo.\n"
+"\n"
+"use jni::objects::{JClass, JString};\n"
+"use jni::sys::jstring;\n"
+"use jni::JNIEnv;\n"
+"\n"
+"/// HelloWorld::hello method implementation.\n"
+"#[no_mangle]\n"
+"pub extern \"system\" fn Java_HelloWorld_hello(\n"
+"    env: JNIEnv,\n"
+"    _class: JClass,\n"
+"    name: JString,\n"
+") -> jstring {\n"
+"    let input: String = env.get_string(name).unwrap().into();\n"
+"    let greeting = format!(\"Hello, {input}!\");\n"
+"    let output = env.new_string(greeting).unwrap();\n"
+"    output.into_inner()\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/java.md:32
 #: src/android/interoperability/java.md:62
 msgid "_interoperability/java/Android.bp_:"
-msgstr ""
+msgstr "_interoperability/java/Android.bp_:"
 
 #: src/android/interoperability/java.md:34
 msgid ""
@@ -12950,14 +12973,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"rust_ffi_shared {\n"
+"    name: \"libhello_jni\",\n"
+"    crate_name: \"hello_jni\",\n"
+"    srcs: [\"src/lib.rs\"],\n"
+"    rustlibs: [\"libjni\"],\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/java.md:43
 msgid "Finally, we can call this function from Java:"
-msgstr ""
+msgstr "最后，我们可以从 Java 中调用这个函数："
 
 #: src/android/interoperability/java.md:45
 msgid "_interoperability/java/HelloWorld.java_:"
-msgstr ""
+msgstr "_interoperability/java/HelloWorld.java_:"
 
 #: src/android/interoperability/java.md:47
 msgid ""
@@ -12976,6 +13007,20 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```java\n"
+"class HelloWorld {\n"
+"    private static native String hello(String name);\n"
+"\n"
+"    static {\n"
+"        System.loadLibrary(\"hello_jni\");\n"
+"    }\n"
+"\n"
+"    public static void main(String[] args) {\n"
+"        String output = HelloWorld.hello(\"Alice\");\n"
+"        System.out.println(output);\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/java.md:64
 msgid ""
@@ -12988,10 +13033,18 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```javascript\n"
+"java_binary {\n"
+"    name: \"helloworld_jni\",\n"
+"    srcs: [\"HelloWorld.java\"],\n"
+"    main_class: \"HelloWorld\",\n"
+"    required: [\"libhello_jni\"],\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/java.md:73
 msgid "Finally, you can build, sync, and run the binary:"
-msgstr ""
+msgstr "最后，您可以构建、同步和运行二进制文件："
 
 #: src/exercises/android/morning.md:3
 msgid ""
