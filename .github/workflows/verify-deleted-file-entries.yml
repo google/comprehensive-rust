@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    types:
+      - opened
+      - synchronize
 
 jobs:
   verify-deleted-slides:
@@ -17,18 +21,36 @@ jobs:
         run: |
           # Install your dependencies here.
 
+      - name: Check if it's a pull request event
+        id: is-pull-request
+        run: |
+          if [ -n "$GITHUB_EVENT_NAME" ] && [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
+            echo "::set-output name=is_pull_request::true"
+          else
+            echo "::set-output name=is_pull_request::false"
+          fi
+
       - name: Get base branch
         id: base-branch
         run: |
-          base_branch=$(jq -r .pull_request.base.ref "$GITHUB_EVENT_PATH")
-          echo "::set-output name=base_branch::$base_branch"
+          is_pull_request="${{ steps.is-pull-request.outputs.is_pull_request }}"
+          if [ "$is_pull_request" == "true" ]; then
+            base_branch=$(jq -r .pull_request.base.ref "$GITHUB_EVENT_PATH")
+            echo "::set-output name=base_branch::$base_branch"
+          else
+            echo "::set-output name=base_branch::"
+          fi
 
       - name: List deleted slides
         id: deleted-slides
         run: |
           base_branch="${{ steps.base-branch.outputs.base_branch }}"
-          deleted_slides=$(git diff --name-only $base_branch...HEAD --diff-filter=D)
-          echo "::set-output name=deleted_slides::$deleted_slides"
+          if [ -n "$base_branch" ]; then
+            deleted_slides=$(git diff --name-only $base_branch...HEAD --diff-filter=D)
+            echo "::set-output name=deleted_slides::$deleted_slides"
+          else
+            echo "::set-output name=deleted_slides::"
+          fi
 
       - name: Check for entries in book.toml
         run: |
