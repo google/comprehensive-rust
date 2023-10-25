@@ -1,19 +1,7 @@
 # C++ Bridge Declarations
 
 ```rust,ignore
-#[cxx::bridge]
-mod ffi {
-    extern "C++" {
-        include!("demo/include/blobstore.h");
-        type BlobstoreClient;
-        fn new_blobstore_client() -> UniquePtr<BlobstoreClient>;
-        fn put(&self, parts: &mut MultiBuf) -> u64;
-    }
-
-    unsafe extern "C++" {
-        fn f();  // safe to call
-    }
-}
+{{#include ../../../../third_party/cxx/book/snippets.rs:cpp_bridge}}
 ```
 
 <details>

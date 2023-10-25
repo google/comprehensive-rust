@@ -1,26 +1,7 @@
 # Rust Bridge Declarations
 
 ```rust,ignore
-#[cxx::bridge]
-mod ffi {
-    extern "Rust" {
-        type MyType; // Opaque type
-        fn foo(&self); // Method on `MyType`
-        fn bar() -> Box<MyType>; // Free function
-    }
-}
-
-struct MyType(i32);
-
-impl MyType {
-    fn foo(&self) {
-        println!("{}", self.0);
-    }
-}
-
-fn bar() -> Box<MyType> {
-    Box::new(MyType(123))
-}
+{{#include ../../../../third_party/cxx/book/snippets.rs:rust_bridge}}
 ```
 
 <details>

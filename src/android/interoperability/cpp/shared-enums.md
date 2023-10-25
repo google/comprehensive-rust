@@ -1,44 +1,19 @@
 # Shared Enums
 
 ```rust,ignore
-#[cxx::bridge]
-mod ffi {
-    enum Suit {
-        Clubs,
-        Diamonds,
-        Hearts,
-        Spades,
-    }
-}
+{{#include ../../../../third_party/cxx/book/snippets.rs:shared_enums_bridge}}
 ```
 
 Generated Rust:
 
 ```rust
-#[derive(Copy, Clone, PartialEq, Eq)]
-#[repr(transparent)]
-pub struct Suit {
-    pub repr: u8,
-}
-
-#[allow(non_upper_case_globals)]
-impl Suit {
-    pub const Clubs: Self = Suit { repr: 0 };
-    pub const Diamonds: Self = Suit { repr: 1 };
-    pub const Hearts: Self = Suit { repr: 2 };
-    pub const Spades: Self = Suit { repr: 3 };
-}
+{{#include ../../../../third_party/cxx/book/snippets.rs:shared_enums_rust}}
 ```
 
 Generated C++:
 
 ```c++
-enum class Suit : uint8_t {
-  Clubs = 0,
-  Diamonds = 1,
-  Hearts = 2,
-  Spades = 3,
-};
+{{#include ../../../../third_party/cxx/book/snippets.cc:shared_enums_cpp}}
 ```
 
 <details>

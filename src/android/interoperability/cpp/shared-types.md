@@ -1,21 +1,7 @@
 # Shared Types
 
 ```rust,ignore
-#[cxx::bridge]
-mod ffi {
-    #[derive(Clone, Debug, Hash)]
-    struct PlayingCard {
-        suit: Suit,
-        value: u8,  // A=1, J=11, Q=12, K=13
-    }
-
-    enum Suit {
-        Clubs,
-        Diamonds,
-        Hearts,
-        Spades,
-    }
-}
+{{#include ../../../../third_party/cxx/book/snippets.rs:shared_types}}
 ```
 
 <details>

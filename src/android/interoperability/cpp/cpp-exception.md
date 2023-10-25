@@ -1,20 +1,7 @@
 # C++ Error Handling
 
 ```rust,ignore
-#[cxx::bridge]
-mod ffi {
-    unsafe extern "C++" {
-        include!("example/include/example.h");
-        fn fallible(depth: usize) -> Result<String>;
-    }
-}
-
-fn main() {
-    if let Err(err) = ffi::fallible(99) {
-        eprintln!("Error: {}", err);
-        process::exit(1);
-    }
-}
+{{#include ../../../../third_party/cxx/book/snippets.rs:cpp_exception}}
 ```
 
 <details>
