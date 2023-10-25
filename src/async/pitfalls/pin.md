@@ -1,4 +1,4 @@
-# Pin
+# `Pin`
 
 When you await a future, all local variables (that would ordinarily be stored on
 a stack frame) are instead stored in the Future for the current async block. If your
@@ -6,7 +6,7 @@ future has pointers to data on the stack, those pointers might get invalidated.
 This is unsafe.
 
 Therefore, you must guarantee that the addresses your future points to don't
-change. That is why we need to `pin` futures. Using the same future repeatedly
+change. That is why we need to "pin" futures. Using the same future repeatedly
 in a `select!` often leads to issues with pinned values.
 
 ```rust,editable,compile_fail
