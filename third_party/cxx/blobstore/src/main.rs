@@ -7,13 +7,16 @@ mod ffi {
         tags: Vec<String>,
     }
 
+    // ANCHOR: rust_bridge
     // Rust types and signatures exposed to C++.
     extern "Rust" {
         type MultiBuf;
 
         fn next_chunk(buf: &mut MultiBuf) -> &[u8];
     }
+    // ANCHOR_END: rust_bridge
 
+    // ANCHOR: cpp_bridge
     // C++ types and signatures exposed to Rust.
     unsafe extern "C++" {
         include!("demo/include/blobstore.h");
@@ -25,6 +28,7 @@ mod ffi {
         fn tag(&self, blobid: u64, tag: &str);
         fn metadata(&self, blobid: u64) -> BlobMetadata;
     }
+    // ANCHOR_END: cpp_bridge
 }
 // ANCHOR_END: bridge
 

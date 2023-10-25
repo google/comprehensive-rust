@@ -209,6 +209,7 @@
   - [With C++](android/interoperability/cpp.md))
     - [The Bridge Module](android/interoperability/cpp/bridge.md)
     - [Rust Bridge](android/interoperability/cpp/rust-bridge.md)
+    - [Generated C++](android/interoperability/cpp/generated-cpp.md)
     - [C++ Bridge](android/interoperability/cpp/cpp-bridge.md)
     - [Shared Types](android/interoperability/cpp/shared-types.md)
     - [Shared Enums](android/interoperability/cpp/shared-enums.md)
