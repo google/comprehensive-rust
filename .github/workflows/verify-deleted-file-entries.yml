@@ -10,29 +10,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: |
-        # Install your dependencies here.
+      - name: Install dependencies
+        run: |
+          # Install your dependencies here.
 
-    - name: List deleted slides
-      id: deleted-slides
-      run: |
-        deleted_slides=$(git diff --name-only HEAD^ HEAD)
-        echo "::set-output name=deleted_slides::$deleted_slides"
+      - name: List deleted slides
+        id: deleted-slides
+        run: |
+          deleted_slides=$(git diff --name-only HEAD^ HEAD)
+          echo "::set-output name=deleted_slides::$deleted_slides"
 
-    - name: Check for entries in book.toml
-      run: |
-        deleted_slides="${{ steps.deleted-slides.outputs.deleted_slides }}"
-        
-        for slide in $deleted_slides; do
-          slide_filename=$(basename -- "$slide")
-          slide_name="${slide_filename%.*}"
-          entry_exists=$(grep -c "\[slide.$slide_name\]" book.toml)
-          if [ $entry_exists -eq 0 ]; then
-            echo "Error: Entry for slide $slide_name not found in book.toml"
-            exit 1
-          fi
-        done
+      - name: Check for entries in book.toml
+        run: |
+          deleted_slides="${{ steps.deleted-slides.outputs.deleted_slides }}"
+
+          for slide in $deleted_slides; do
+            slide_filename=$(basename -- "$slide")
+            slide_name="${slide_filename%.*}"
+            entry_exists=$(grep -c "\[slide.$slide_name\]" book.toml)
+            if [ $entry_exists -eq 0 ]; then
+              echo "Error: Entry for slide $slide_name not found in book.toml"
+              exit 1
+            fi
+          done
