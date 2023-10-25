@@ -23,6 +23,6 @@ fn main() {
 }
 
 fn count_chars(s: &str) -> usize {
-    s.chars().map(|_| 1).sum()
+    s.chars().count()
 }
 ```
