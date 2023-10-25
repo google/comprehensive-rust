@@ -21,9 +21,9 @@ mod ffi {
 <details>
 
 * Only C-like (unit) enums are supported.
-* On the Rust side, the code generated for shared enums is actually a struct
-  wrapping a numeric value. This is because it is not UB in C++ for an enum
-  class to hold a value different from all of the listed variants, and our Rust
-  representation needs to have the same behavior.
+* A limited number of traits are supported for `#[derive()]` on shared types.
+  Corresponding functionality is also generated for the C++ code, e.g. if you
+  derive `Hash` also generates an implementation of `std::hash` for the
+  corresponding C++ type.
 
 </details>

@@ -211,6 +211,7 @@
     - [Rust Bridge](android/interoperability/cpp/rust-bridge.md)
     - [C++ Bridge](android/interoperability/cpp/cpp-bridge.md)
     - [Shared Types](android/interoperability/cpp/shared-types.md)
+    - [Shared Enums](android/interoperability/cpp/shared-enums.md)
     - [Rust Error Handling](android/interoperability/cpp/rust-result.md)
     - [C++ Error Handling](android/interoperability/cpp/cpp-exception.md)
     - [Additional Types](android/interoperability/cpp/type-mapping.md)
