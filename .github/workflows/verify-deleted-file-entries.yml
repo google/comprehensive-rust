@@ -17,10 +17,17 @@ jobs:
         run: |
           # Install your dependencies here.
 
+      - name: Get base branch
+        id: base-branch
+        run: |
+          base_branch=$(jq -r .pull_request.base.ref "$GITHUB_EVENT_PATH")
+          echo "::set-output name=base_branch::$base_branch"
+
       - name: List deleted slides
         id: deleted-slides
         run: |
-          deleted_slides=$(git diff --name-only HEAD^ HEAD)
+          base_branch="${{ steps.base-branch.outputs.base_branch }}"
+          deleted_slides=$(git diff --name-only $base_branch...HEAD --diff-filter=D)
           echo "::set-output name=deleted_slides::$deleted_slides"
 
       - name: Check for entries in book.toml
