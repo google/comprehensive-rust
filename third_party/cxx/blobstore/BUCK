@@ -1,0 +1,34 @@
+load("//tools/buck:rust_cxx_bridge.bzl", "rust_cxx_bridge")
+
+rust_binary(
+    name = "demo",
+    srcs = glob(["src/**/*.rs"]),
+    edition = "2021",
+    deps = [
+        ":blobstore-sys",
+        ":bridge",
+        "//:cxx",
+    ],
+)
+
+rust_cxx_bridge(
+    name = "bridge",
+    src = "src/main.rs",
+    deps = [":blobstore-include"],
+)
+
+cxx_library(
+    name = "blobstore-sys",
+    srcs = ["src/blobstore.cc"],
+    preferred_linkage = "static",
+    deps = [
+        ":blobstore-include",
+        ":bridge/include",
+    ],
+)
+
+cxx_library(
+    name = "blobstore-include",
+    exported_deps = ["//:core"],
+    exported_headers = ["include/blobstore.h"],
+)

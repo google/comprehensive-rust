@@ -5,7 +5,7 @@ each language to the other. You provide this description using extern blocks in
 a Rust module annotated with the `#[cxx::bridge]` attribute macro.
 
 ```rust,ignore
-{{#include blobstore/src/main.rs:bridge}}
+{{#include ../../../../third_party/cxx/blobstore/src/main.rs:bridge}}
 ```
 
 <details>
