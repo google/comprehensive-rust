@@ -12503,17 +12503,19 @@ msgstr ""
 
 #: src/android/interoperability/with-c.md:1
 msgid "Interoperability with C"
-msgstr ""
+msgstr "与 C 的互操作性"
 
 #: src/android/interoperability/with-c.md:3
 msgid ""
 "Rust has full support for linking object files with a C calling convention. "
 "Similarly, you can export Rust functions and call them from C."
 msgstr ""
+"Rust 对使用 C 调用约定链接目标文件提供了完整的支持。同样地，你可以导出 Rust "
+"函数并从 C 中调用它们。"
 
 #: src/android/interoperability/with-c.md:6
 msgid "You can do it by hand if you want:"
-msgstr ""
+msgstr "如果你愿意的话，你可以手工完成它："
 
 #: src/android/interoperability/with-c.md:8
 msgid ""
@@ -12529,22 +12531,35 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```rust\n"
+"extern \"C\" {\n"
+"    fn abs(x: i32) -> i32;\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let x = -42;\n"
+"    let abs_x = unsafe { abs(x) };\n"
+"    println!(\"{x}, {abs_x}\");\n"
+"}\n"
+"```"
 
 #: src/android/interoperability/with-c.md:20
 msgid ""
 "We already saw this in the [Safe FFI Wrapper exercise](../../exercises/day-3/"
 "safe-ffi-wrapper.md)."
 msgstr ""
+"我们已经在[安全 FFI 封装容器](../../exercises/day-3/safe-ffi-wrapper.md)练习"
+"中看到了这个例子。"
 
 #: src/android/interoperability/with-c.md:23
 msgid ""
 "This assumes full knowledge of the target platform. Not recommended for "
 "production."
-msgstr ""
+msgstr "这假设对目标平台拥有充分的了解，不建议用于生产环境。"
 
 #: src/android/interoperability/with-c.md:26
 msgid "We will look at better options next."
-msgstr ""
+msgstr "接下来我们将探讨更好的选择。"
 
 #: src/android/interoperability/with-c/bindgen.md:1
 msgid "Using Bindgen"
