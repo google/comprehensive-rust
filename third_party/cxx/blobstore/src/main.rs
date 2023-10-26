@@ -1,4 +1,6 @@
+//! Example project demonstrating usage of CXX.
 // ANCHOR: bridge
+#[allow(unsafe_op_in_unsafe_fn)]
 #[cxx::bridge(namespace = "org::blobstore")]
 mod ffi {
     // Shared structs with fields visible to both languages.
@@ -19,7 +21,7 @@ mod ffi {
     // ANCHOR: cpp_bridge
     // C++ types and signatures exposed to Rust.
     unsafe extern "C++" {
-        include!("demo/include/blobstore.h");
+        include!("include/blobstore.h");
 
         type BlobstoreClient;
 
@@ -32,15 +34,17 @@ mod ffi {
 }
 // ANCHOR_END: bridge
 
-// An iterator over contiguous chunks of a discontiguous file object.
-//
-// Toy implementation uses a Vec<Vec<u8>> but in reality this might be iterating
-// over some more complex Rust data structure like a rope, or maybe loading
-// chunks lazily from somewhere.
+/// An iterator over contiguous chunks of a discontiguous file object.
+///
+/// Toy implementation uses a Vec<Vec<u8>> but in reality this might be iterating
+/// over some more complex Rust data structure like a rope, or maybe loading
+/// chunks lazily from somewhere.
 pub struct MultiBuf {
     chunks: Vec<Vec<u8>>,
     pos: usize,
 }
+
+/// Pulls the next chunk from the buffer.
 pub fn next_chunk(buf: &mut MultiBuf) -> &[u8] {
     let next = buf.chunks.get(buf.pos);
     buf.pos += 1;
