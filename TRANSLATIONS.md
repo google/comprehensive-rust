@@ -63,6 +63,8 @@ brew install dprint
 Ensure you can build the book, and that `mdbook serve` works. For this, follow
 the instructions in the [README](README.md).
 
+For complete info about installing necessary tools , refer [CONTRIBUTING.md](CONTRIBUTING.md#formatting-and-preparation)
+
 ## Creating and Updating Translations
 
 First, you need to know how to update the `.pot` and `.po` files.
