@@ -16,24 +16,30 @@
 // ANCHOR: luhn
 pub fn luhn(cc_number: &str) -> bool {
     // ANCHOR_END: luhn
-    let mut digits_seen = 0;
     let mut sum = 0;
-    for (i, ch) in cc_number.chars().rev().filter(|&ch| ch != ' ').enumerate() {
-        match ch.to_digit(10) {
-            Some(d) => {
-                sum += if i % 2 == 1 {
-                    let dd = d * 2;
-                    dd / 10 + dd % 10
+    let mut double = false;
+    let mut digit_seen = 0;
+
+    for c in cc_number.chars().filter(|&f| f != ' ').rev() {
+        if let Some(digit) = c.to_digit(10) {
+            if double {
+                let double_digit = digit * 2;
+                sum += if double_digit > 9 {
+                    double_digit - 9
                 } else {
-                    d
+                    double_digit
                 };
-                digits_seen += 1;
+            } else {
+                sum += digit;
             }
-            None => return false,
+            double = !double;
+            digit_seen += 1;
+        } else {
+            return false;
         }
     }
 
-    if digits_seen < 2 {
+    if digit_seen < 2 {
         return false;
     }
 

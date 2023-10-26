@@ -1,5 +1,5 @@
 # A minimal `no_std` program
-
+<!-- mdbook-xgettext: skip -->
 ```rust,editable,compile_fail
 #![no_main]
 #![no_std]

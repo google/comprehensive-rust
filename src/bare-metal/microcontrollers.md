@@ -1,7 +1,7 @@
 # Microcontrollers
 
 The `cortex_m_rt` crate provides (among other things) a reset handler for Cortex M microcontrollers.
-
+<!-- mdbook-xgettext: skip -->
 ```rust,editable,compile_fail
 {{#include microcontrollers/examples/src/bin/minimal.rs:Example}}
 ```
