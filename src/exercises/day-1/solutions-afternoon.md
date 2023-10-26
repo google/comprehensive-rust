@@ -10,4 +10,6 @@
 
 ## Pattern matching
 
-TBD.
+```rust
+{{#include pattern-matching.rs:solution}}
+```

@@ -24,6 +24,7 @@ void say_hello(std::unique_ptr<Person> person) {
 
 Special move constructors are used when passing ownership to a function:
 
+<!-- mdbook-xgettext: skip -->
 ```c++
 std::unique_ptr<Person> person = find_person("Carla");
 say_hello(std::move(person));

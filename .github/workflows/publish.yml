@@ -30,6 +30,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          # We need the full history below.
+          fetch-depth: 0
 
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
@@ -46,9 +49,20 @@ jobs:
       - name: Build all translations
         run: |
           for po_lang in ${{ env.LANGUAGES }}; do
-              echo "::group::Building $po_lang translation"
+              POT_CREATION_DATE=$(grep --max-count 1 '^"POT-Creation-Date:' po/$po_lang.po | sed -E 's/".*: (.*)\\n"/\1/')
+              if [[ $POT_CREATION_DATE == "" ]]; then
+                  POT_CREATION_DATE=now
+              fi
+              echo "::group::Building $po_lang translation as of $POT_CREATION_DATE"
+              rm -r src/
+              git restore --source "$(git rev-list -n 1 --before "$POT_CREATION_DATE" @)" src/
+
+              # Set language and adjust site URL. Clear the redirects
+              # since they are in sync with the source files, not the
+              # translation.
               MDBOOK_BOOK__LANGUAGE=$po_lang \
               MDBOOK_OUTPUT__HTML__SITE_URL=/comprehensive-rust/$po_lang/ \
+              MDBOOK_OUTPUT__HTML__REDIRECT='{}' \
               mdbook build -d book/$po_lang
               (cd book/$po_lang/exerciser && zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/)
               mv book/$po_lang/html book/html/$po_lang

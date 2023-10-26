@@ -1,6 +1,6 @@
 # `Send` and `Sync`
 
-How does Rust know to forbid shared access across thread? The answer is in two traits:
+How does Rust know to forbid shared access across threads? The answer is in two traits:
 
 * [`Send`][1]: a type `T` is `Send` if it is safe to move a `T` across a thread
   boundary.

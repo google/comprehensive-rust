@@ -7,17 +7,17 @@ use std::panic;
 
 fn main() {
     let result = panic::catch_unwind(|| {
-        println!("hello!");
+        "No problem here!"
     });
-    assert!(result.is_ok());
-    
+    println!("{result:?}");
+
     let result = panic::catch_unwind(|| {
         panic!("oh no!");
     });
-    assert!(result.is_err());
+    println!("{result:?}");
 }
 ```
 
-* This can be useful in servers which should keep running even if a single
+- This can be useful in servers which should keep running even if a single
   request crashes.
-* This does not work if `panic = 'abort'` is set in your `Cargo.toml`.
+- This does not work if `panic = 'abort'` is set in your `Cargo.toml`.

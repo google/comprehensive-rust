@@ -4,13 +4,13 @@
 
 ([back to exercise](rtc.md))
 
-`main.rs`:
+_main.rs_:
 
 ```rust,compile_fail
 {{#include rtc/src/main.rs:solution}}
 ```
 
-`pl031.rs`:
+_pl031.rs_:
 
 ```rust
 {{#include rtc/src/pl031.rs:solution}}

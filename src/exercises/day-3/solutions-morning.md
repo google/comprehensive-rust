@@ -1,6 +1,6 @@
 # Day 3 Morning Exercise
 
-## A Simple GUI Library
+## Drawing A Simple GUI
 
 ([back to exercise](simple-gui.md))
 

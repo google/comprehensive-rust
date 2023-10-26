@@ -1,5 +1,6 @@
 # Moved Strings in Rust
 
+<!-- mdbook-xgettext: skip -->
 ```rust,editable
 fn main() {
     let s1: String = String::from("Rust");

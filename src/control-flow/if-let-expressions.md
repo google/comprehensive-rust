@@ -25,6 +25,7 @@ Rust.
 * Unlike `match`, `if let` does not support guard clauses for pattern matching.
 * Since 1.65, a similar [let-else](https://doc.rust-lang.org/rust-by-example/flow_control/let_else.html) construct allows to do a destructuring assignment, or if it fails, execute a block which is required to abort normal control flow (with `panic`/`return`/`break`/`continue`):
 
+   <!-- mdbook-xgettext: skip -->
    ```rust,editable
    fn main() {
        println!("{:?}", second_word_to_upper("foo bar"));

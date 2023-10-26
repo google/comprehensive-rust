@@ -16,4 +16,4 @@ match expression {
 ```
 
 The `From::from` call here means we attempt to convert the error type to the
-type returned by the function:
+type returned by the function.

@@ -21,6 +21,7 @@
 - [Hello World!](hello-world.md)
   - [Small Example](hello-world/small-example.md)
 - [Why Rust?](why-rust.md)
+  - [An Example in C](why-rust/an-example-in-c.md)
   - [Compile Time Guarantees](why-rust/compile-time.md)
   - [Runtime Guarantees](why-rust/runtime.md)
   - [Modern Features](why-rust/modern.md)
@@ -51,7 +52,7 @@
 
 - [Variables](basic-syntax/variables.md)
   - [Type Inference](basic-syntax/type-inference.md)
-  - [static & const](basic-syntax/static-and-const.md))
+  - [static & const](basic-syntax/static-and-const.md)
   - [Scopes and Shadowing](basic-syntax/scopes-shadowing.md)
 - [Enums](enums.md)
   - [Variant Payloads](enums/variant-payloads.md)
@@ -70,7 +71,7 @@
 
 - [Exercises](exercises/day-1/afternoon.md)
   - [Luhn Algorithm](exercises/day-1/luhn.md)
-  - [Pattern Matching (TBD)]()
+  - [Pattern Matching](exercises/day-1/pattern-matching.md)
 
 # Day 2: Morning
 
@@ -322,6 +323,7 @@
 ----
 
 - [Thanks!](thanks.md)
+- [Glossary](glossary.md)
 - [Other Resources](other-resources.md)
 - [Credits](credits.md)
 
