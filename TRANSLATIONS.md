@@ -33,7 +33,7 @@ GNU Gettext utilities below.
 
 Please make sure you can [build the course](README.md#building). You will also
 need the `msgmerge` and `msgcat` Gettext tool installed. Please see our
-[contribution guide](CONTRIBUTING.md#preparation) for details.
+[contribution guide](CONTRIBUTING.md#formatting) for details.
 
 ## Creating and Updating Translations
 
