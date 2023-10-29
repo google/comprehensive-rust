@@ -3,11 +3,11 @@
 We'd love to accept your patches and contributions to this project. There are
 just a few small guidelines you need to follow.
 
-## Formatting and Preparation
+## Formatting
 
-### Preparation
+We require files to be formatted consistently. To ensure this, you need to install a few tools.
 
-#### Gettext
+### Gettext
 
 You will need the [Gettext](https://www.gnu.org/software/gettext/manual/html_node/index.html) utilities (`msginit`, `msgmerge`) and [`dprint`](https://dprint.dev/).
 
@@ -23,7 +23,7 @@ On MacOS with [Homebrew](https://brew.sh/), you can install with:
   brew install gettext
 ```
 
-#### `dprint`
+### `dprint`
 
 Install `dprint` using their [installation instructions](https://dprint.dev/install/).
 Alternatively, on MacOS with [Homebrew](https://brew.sh/), you can install with:
