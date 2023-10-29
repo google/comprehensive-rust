@@ -3,65 +3,44 @@
 We'd love to accept your patches and contributions to this project. There are
 just a few small guidelines you need to follow.
 
+Make sure you can build the book, and that `mdbook serve` works. Please follow
+the [instructions in the README].
+
+[instructions in the README]: README.md#building
+
 ## Formatting
 
-We require files to be formatted consistently. To ensure this, you need to install a few tools.
+Please ensure that your files are formatted consistently. We use a few tools for
+this:
 
-### Gettext
-
-You will need the [Gettext](https://www.gnu.org/software/gettext/manual/html_node/index.html) utilities (`msginit`, `msgmerge`) and [`dprint`](https://dprint.dev/).
-
-On Debian and Ubuntu, you can install Gettext with:
-
-```sh
-sudo apt install gettext
-```
-
-On MacOS with [Homebrew](https://brew.sh/), you can install with:
-
-```sh
-  brew install gettext
-```
-
-### `dprint`
-
-Install `dprint` using their [installation instructions](https://dprint.dev/install/).
-Alternatively, on MacOS with [Homebrew](https://brew.sh/), you can install with:
-
-```sh
-brew install dprint
-```
-
-Ensure you can build the book, and that mdbook serve works. For this, follow the instructions in the [README](https://github.com/google/comprehensive-rust/blob/main/README.md).
-
-### Formatting
-
-Please ensure that your files are formatted consistently. We use [`dprint`] for
-this and you should follow their installation instructions for your platform. We
-rely on a few tools in addition to `dprint`:
-
+- [`dprint`] for driving the formatting.
 - [`rustfmt`] for formatting Rust code.
 - [`yapf`] for formatting Python code.
 - [`msgcat`] for formatting PO files.
 
-#### Linux
+Run `dprint fmt` to automatically format all files.
 
-On Debian, you install `rustfmt` via `rustup` and you can install the other
-tools using
+### Linux
+
+Install `dprint` using their
+[installation instructions](https://dprint.dev/install/) and install `rustfmt`
+via `rustup`.
+
+On Debian, you can install the other tools using:
 
 ```sh
 sudo apt install yapf3 gettext
 ```
 
-#### MacOS
+### MacOS
 
-On MacOS with [Homebrew], you can install with:
+On MacOS with [Homebrew], you can install the necessary tools with:
 
 ```shell
-brew install yapf gettext
+brew install dprint yapf gettext
 ```
 
-#### Windows
+### Windows
 
 On Windows, you can should use [Gettext binaries for Windows].
 

@@ -31,7 +31,9 @@ GNU Gettext utilities below.
 
 ## Preparation
 
-For complete info about prepration/installing necessary tools , refer [CONTRIBUTING.md](CONTRIBUTING.md#formatting-and-preparation)
+Please make sure you can [build the course](README.md#building). You will also
+need the `msgmerge` and `msgcat` Gettext tool installed. Please see our
+[contribution guide](CONTRIBUTING.md#preparation) for details.
 
 ## Creating and Updating Translations
 
