@@ -8,12 +8,15 @@ just a few small guidelines you need to follow.
 ### Preparation
 
 #### Gettext
+
 You will need the [Gettext](https://www.gnu.org/software/gettext/manual/html_node/index.html) utilities (`msginit`, `msgmerge`) and [`dprint`](https://dprint.dev/).
 
 On Debian and Ubuntu, you can install Gettext with:
+
 ```sh
 sudo apt install gettext
 ```
+
 On MacOS with [Homebrew](https://brew.sh/), you can install with:
 
 ```sh
@@ -21,12 +24,14 @@ On MacOS with [Homebrew](https://brew.sh/), you can install with:
 ```
 
 #### `dprint`
+
 Install `dprint` using their [installation instructions](https://dprint.dev/install/).
 Alternatively, on MacOS with [Homebrew](https://brew.sh/), you can install with:
 
 ```sh
 brew install dprint
 ```
+
 Ensure you can build the book, and that mdbook serve works. For this, follow the instructions in the [README](https://github.com/google/comprehensive-rust/blob/main/README.md).
 
 ### Formatting
