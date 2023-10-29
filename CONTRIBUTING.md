@@ -3,20 +3,30 @@
 We'd love to accept your patches and contributions to this project. There are
 just a few small guidelines you need to follow.
 
+Make sure you can build the book, and that `mdbook serve` works. Please follow
+the [instructions in the README].
+
+[instructions in the README]: README.md#building
+
 ## Formatting
 
-Please ensure that your files are formatted consistently. We use [`dprint`] for
-this and you should follow their installation instructions for your platform. We
-rely on a few tools in addition to `dprint`:
+Please ensure that your files are formatted consistently. We use a few tools for
+this:
 
+- [`dprint`] for driving the formatting.
 - [`rustfmt`] for formatting Rust code.
 - [`yapf`] for formatting Python code.
 - [`msgcat`] for formatting PO files.
 
+Run `dprint fmt` to automatically format all files.
+
 ### Linux
 
-On Debian, you install `rustfmt` via `rustup` and you can install the other
-tools using
+Install `dprint` using their
+[installation instructions](https://dprint.dev/install/) and install `rustfmt`
+via `rustup`.
+
+On Debian, you can install the other tools using:
 
 ```sh
 sudo apt install yapf3 gettext
@@ -24,10 +34,10 @@ sudo apt install yapf3 gettext
 
 ### MacOS
 
-On MacOS with [Homebrew], you can install with:
+On MacOS with [Homebrew], you can install the necessary tools with:
 
 ```shell
-brew install yapf gettext
+brew install dprint yapf gettext
 ```
 
 ### Windows
