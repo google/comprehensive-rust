@@ -88,7 +88,10 @@ of the course in the `book/` directory. Note that you have to separately build
 and zip exercises and add them to `book/html`. To build any of the translated
 versions of the course, run `MDBOOK_BOOK__LANGUAGE=xx mdbook build -d book/xx`
 where `xx` is the ISO 639 language code (e.g. `da` for the Danish translation).
+
 [TRANSLATIONS.md](TRANSLATIONS.md) contains further instructions.
+
+For complete info about installing necessary tools , refer [CONTRIBUTING.md](CONTRIBUTING.md#formatting-and-preparation)
 
 > **Note** On Windows, you need to enable symlinks
 > (`git config --global core.symlinks true`) and Developer Mode.

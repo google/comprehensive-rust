@@ -31,39 +31,7 @@ GNU Gettext utilities below.
 
 ## Preparation
 
-### Gettext
-
-You will need the [Gettext] utilities (`msginit`, `msgmerge`) and [`dprint`].
-
-On Debian and Ubuntu, you can install Gettext with:
-
-```shell
-sudo apt install gettext
-```
-
-On MacOS with [Homebrew](https://brew.sh/), you can install with:
-
-```shell
-brew install gettext
-```
-
-### `dprint`
-
-Install `dprint` using their
-[installation instructions](https://dprint.dev/install/).
-
-[`dprint`]: https://dprint.dev/
-
-Alternatively, on MacOS with [Homebrew](https://brew.sh/), you can install with:
-
-```shell
-brew install dprint
-```
-
-Ensure you can build the book, and that `mdbook serve` works. For this, follow
-the instructions in the [README](README.md).
-
-For complete info about installing necessary tools , refer [CONTRIBUTING.md](CONTRIBUTING.md#formatting-and-preparation)
+For complete info about prepration/installing necessary tools , refer [CONTRIBUTING.md](CONTRIBUTING.md#formatting-and-preparation)
 
 ## Creating and Updating Translations
 
