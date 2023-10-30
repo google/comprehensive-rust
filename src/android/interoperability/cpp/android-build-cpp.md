@@ -3,7 +3,7 @@
 Create a `cc_library_static` to build the C++ library, including the CXX
 generated header and source file.
 
-```json
+```javascript
 cc_library_static {
     name: "libcxx_test_cpp",
     srcs: ["cxx_test.cpp"],

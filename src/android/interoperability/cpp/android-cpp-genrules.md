@@ -3,7 +3,7 @@
 Create two genrules: One to generate the CXX header, and one to generate the CXX
 source file. These are then used as inputs to the `cc_library_static`.
 
-```json
+```javascript
 // Generate a C++ header containing the C++ bindings
 // to the Rust exported functions in lib.rs.
 genrule {
