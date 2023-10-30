@@ -38,7 +38,7 @@ impl BlobstoreClient {
     }
 }
 
-// And so on...
+// ...
 ```
 
 <details>
