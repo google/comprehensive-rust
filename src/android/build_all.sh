@@ -13,6 +13,33 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# How to use
+#
+# This script will build all the Android examples in the course. It
+# does that with a series of
+#
+# m hello_rust
+# m hello_rust_with_dep
+#
+# etc commands. The script must be executed from an AOSP checkout and
+# you must already have a working `adb` setup.
+#
+# To make the new build targets visible to your AOSP checkout, you
+# should either close the course repository into the AOSP checkout or
+# you can use a bind mount:
+#
+# cd "$ANDROID_BUILD_TOP"
+# mkdir comprehensive-rust
+# sudo mount -o bind ../path/to/comprehensive-rust/src comprehensive-rust
+#
+# This will let `m` see all the new build targets, try `m hello_rust`
+# by hand to verify.
+#
+# Make sure to add commands to execute new Android.bp files here. This
+# way we have a chance to fight bit-rot by automatically executing the
+# build commands once in a while (executing them in GitHub CI seems
+# hard since an AOSP checkout is huge).
+
 set -e
 
 function run_example() {
