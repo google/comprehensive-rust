@@ -8210,9 +8210,8 @@ msgid ""
 "Types that implement a given trait may be of different sizes. This makes it "
 "impossible to have things like `Vec<dyn Pet>` in the example above."
 msgstr ""
-"与えられたトレイトを実装する型は、異なるサイズの型であるかもしれません。この"
-"場合、型が、上の例にあるような `Vec<Pet>`のようなものを持つことは不可能となり"
-"ます。"
+"同じトレイトを実装する型であってもそのサイズは異なることがあります。そのた"
+"め、上の例でVec<Pet>と書くことはできません。"
 
 #: src/traits/trait-objects.md:70
 msgid ""
@@ -8238,7 +8237,7 @@ msgid ""
 "implementation of that particular object."
 msgstr ""
 "ファットポインタはdouble-widthポインタです。これは二つの要素からなります：実"
-"際のオブジェクトへのポインタと、そのオブジェクトの`Pet`の実装に向けた[仮想メ"
+"際のオブジェクトへのポインタと、そのオブジェクトの`Pet`の実装のための[仮想メ"
 "ソッドテーブル](https://en.wikipedia.org/wiki/Virtual_method_table) (vtable)"
 "です。"
 
@@ -8252,7 +8251,7 @@ msgstr ""
 
 #: src/traits/trait-objects.md:79
 msgid "Compare these outputs in the above example:"
-msgstr "上の例の結果を比べてみましょう："
+msgstr "上の例において、下のコードによる出力結果を比べてみましょう："
 
 #: src/traits/trait-objects.md:80
 msgid ""
@@ -8271,8 +8270,8 @@ msgid ""
 "Rust derive macros work by automatically generating code that implements the "
 "specified traits for a data structure."
 msgstr ""
-"Rustのderiveマクロは、データ構造に対して、指定されたトレイトを実装するコード"
-"を自動的に生成します。"
+"Rustのderiveマクロは、データ構造体に対して、指定されたトレイトを実装するコー"
+"ドを自動的に生成します。"
 
 #: src/traits/deriving-traits.md:5
 msgid "You can let the compiler derive a number of traits as follows:"
@@ -8301,8 +8300,7 @@ msgstr ""
 #: src/traits/default-methods.md:3
 msgid "Traits can implement behavior in terms of other trait methods:"
 msgstr ""
-"トレイトを用いて、異なるトレイトメソッドに関した動作を実装することができま"
-"す："
+"トレイトでは、別のトレイトメソッドを用いて挙動を定義することが可能です："
 
 #: src/traits/default-methods.md:5
 msgid ""
@@ -8339,8 +8337,8 @@ msgid ""
 "can rely on required methods."
 msgstr ""
 "トレイトは予め実装された（デフォルトの）メソッドと、ユーザが自身で実装する必"
-"要のあるメソッドを指定することがあります。デフォルトの実装のあるメソッドは、"
-"必須のメソッドのみに依存します。"
+"要のあるメソッドを指定することができます。デフォルトの実装のあるメソッドは、"
+"その定義を実装必須のメソットに依存することができます。"
 
 #: src/traits/default-methods.md:35
 msgid "Move method `not_equals` to a new trait `NotEquals`."
@@ -8481,9 +8479,7 @@ msgstr ""
 
 #: src/traits/impl-trait.md:19
 msgid "`impl Trait` allows you to work with types which you cannot name."
-msgstr ""
-"`impl Trait`を用いれば、名前を付けることができない型を活用することができま"
-"す。"
+msgstr "`impl Trait`を用いれば、型名を明示せずに型を限定することができます。"
 
 #: src/traits/impl-trait.md:23
 msgid ""
@@ -8504,9 +8500,9 @@ msgid ""
 "implements the trait, without naming the type. This can be useful when you "
 "don't want to expose the concrete type in a public API."
 msgstr ""
-"返り値に対しては、トレイトを実装する具象型と同じ返り値の型をとり、かつ型に名"
-"前をつけることはない、ということです。このことは公開されるAPIに具象型を晒した"
-"くない場合に便利です。"
+"返り値の型に用いる場合は、具体的な型名を明示せずに特定のトレイトを実装する何"
+"らかの具象型を返すということを意味します。このことは公開されるAPIに具象型を晒"
+"したくない場合に便利です。"
 
 #: src/traits/impl-trait.md:31
 msgid ""
@@ -8540,7 +8536,7 @@ msgstr ""
 "力の`T`と返り値の`T`が同一の型であることが強制されてしまいます。例で示した関"
 "数ではうまくいかないでしょう。なぜなら、我々が期待する入力の型は、`format!`が"
 "返すものではおそらくないからです。もしも同じことを`: Display`の構文で行いたい"
-"場合、２つの独立してジェネリックなパラメタが必要となるでしょう。"
+"場合、２つの独立したジェネリックなパラメタが必要となるでしょう。"
 
 #: src/traits/important-traits.md:3
 msgid ""
