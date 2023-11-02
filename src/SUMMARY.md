@@ -212,6 +212,31 @@
 - [Exercises](exercises/android/morning.md)
 
 
+
+# Chromium
+
+----
+
+- [Welcome](chromium.md)
+- [Setup](chromium/setup.md)
+- [Using cargo for tools](chromium/cargo.md)
+- [Policy](chromium/policy.md)
+- [Build Rules](chromium/build-rules.md)
+  - [Exercise](exercises/chromium/build-rules.md)
+- [Interoperability with C++](chromium/interoperability-with-cpp.md)
+  - [Exercise](exercises/chromium/interoperability-with-cpp.md)
+- [Adding third party crates](chromium/adding-third-party-crates.md)
+  - [Configuring third_party.toml](chromium/adding-third-party-crates/configuring-third-party-toml.md)
+  - [Generating gn build rules](chromium/adding-third-party-crates/generating-gn-build-rules.md)
+  - [Resolving problems](chromium/adding-third-party-crates/resolving-problems.md)
+  - [Depending on a crate](chromium/adding-third-party-crates/depending-on-a-crate.md)
+  - [Reviews and audits](chromium/adding-third-party-crates/reviews-and-audits.md)
+  - [Checking into Chromium source code](chromium/adding-third-party-crates/checking-in.md)
+  - [Keeping crates up to date](chromium/adding-third-party-crates/keeping-up-to-date.md)
+  - [Exercise](exercises/chromium/third-party.md)
+- [Bringing it together - Exercise](exercises/chromium/bringing-it-together.md)
+
+
 # Bare Metal: Morning
 
 ----

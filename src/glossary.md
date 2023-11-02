@@ -87,6 +87,8 @@ Also, please keep the hard line breaks to ensure a nice formatting.
   Days 1 to 3 of this course.
 - Rust in Android:\
   See [Rust in Android](android.md).
+- Rust in Chromium:\
+  See [Rust in Chromium](chromium.md).
 - safe:\
 - scope:\
 - standard library:\
