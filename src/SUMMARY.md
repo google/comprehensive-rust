@@ -16,8 +16,8 @@
 
 # Day 1: Morning
 
+- [Welcome](welcome-day-1.md)
 - [Hello, World](hello-world.md)
-  - [Welcome](hello-world/welcome.md)
   - [What is Rust?](hello-world/what-is-rust.md)
   - [Hello, World](hello-world/hello-world.md)
   - [Benefits of Rust](hello-world/benefits.md)
@@ -70,8 +70,8 @@
 
 # Day 2: Morning
 
+- [Welcome](welcome-day-2.md)
 - [Methods and Traits](methods-and-traits.md)
-  - [Welcome](methods-and-traits/welcome.md)
   - [Methods](methods-and-traits/methods.md)
   - [Traits](methods-and-traits/traits.md)
   - [Trait Objects](methods-and-traits/trait-objects.md)
@@ -132,8 +132,8 @@
 
 # Day 3: Morning
 
+- [Welcome](welcome-day-3.md)
 - [Memory Management](memory-management.md)
-  - [Welcome](memory-management/welcome.md)
   - [Review of Program Memory](memory-management/review.md)
   - [Approaches to Memory Management](memory-management/approaches.md)
   - [Ownership](memory-management/ownership.md)
