@@ -1,20 +1,20 @@
 {% import "macros.html" as macros %}
-{% set current_language = ctx | get(key="config") | get(key="book") | get(key="language", default="en") %}
-<button id="language-toggle{{ counter }}" class="icon-button" type="button"
+{% set current_language = ctx.config.book.language %}
+<button id="language-toggle" class="icon-button" type="button"
     title="Change language" aria-label="Change language"
     aria-haspopup="true" aria-expanded="false"
-    aria-controls="language-list{{ counter }}" style="{{ attributes | get(key="style", default="")  }}">
+    aria-controls="language-list">
     <i class="fa fa-globe"></i>
 </button> 
-<ul id="language-list{{ counter }}" class="theme-popup" aria-label="Languages"
-    role="menu" style="left: auto; right: 10px;">
-    {% for identifier, language_name in get_context(key="output.i18n.languages") %}
+<ul id="language-list" class="theme-popup" aria-label="Languages"
+    role="menu" style="left: auto; right: 10px; display: none;">
+    {% for identifier, language_name in ctx.config.output.i18n.languages %}
     <li role="none">
         <a id="{{ identifier }}"
             href="{{ macros::get_rendered_path(identifier=identifier) }}"
             style="color: inherit;">
             <button role="menuitem" class="theme {% if identifier == current_language %} theme-selected {% endif %}">
-                {% include "include_language_picker.html" %} {{ language_name }}
+                {{ language_name }}
             </button>
         </a> 
     </li>
@@ -22,8 +22,8 @@
 </ul>
  
 <script>
-    let langToggle = document.getElementById("language-toggle{{ counter }}");
-    let langList = document.getElementById("language-list{{ counter }}");
+    let langToggle = document.getElementById("language-toggle");
+    let langList = document.getElementById("language-list");
     {% raw %} 
     langToggle.addEventListener("click", (event) => {
         langList.style.display = langList.style.display == "block" ? "none" : "block";
@@ -33,7 +33,7 @@
 
 
 <style>
-    [dir=rtl] #language-list{{ counter }} {% raw %} {
+    [dir=rtl] #language-list {% raw %} {
         left: 10px;
         right: auto;
     }
