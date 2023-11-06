@@ -42,7 +42,11 @@ brew install dprint yapf gettext
 
 ### Windows
 
-On Windows, you can should use [Gettext binaries for Windows].
+On Windows, you can should install [Gettext tools for Windows].
+
+Install `dprint` using their
+[installation instructions](https://dprint.dev/install/) and install `rustfmt`
+via `rustup`.
 
 > _TODO: fill in how to install `yapf` on Windows._
 
@@ -51,7 +55,7 @@ On Windows, you can should use [Gettext binaries for Windows].
 [`yapf`]: https://github.com/google/yapf
 [`msgcat`]: https://www.gnu.org/software/gettext/manual/html_node/msgcat-Invocation.html
 [Homebrew]: https://brew.sh/
-[Gettext binaries for Windows]: https://mlocati.github.io/articles/gettext-iconv-windows.html
+[Gettext tools for Windows]: https://github.com/vslavik/gettext-tools-windows/releases
 
 ## Contributor License Agreement
 
