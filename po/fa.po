@@ -111,7 +111,7 @@ msgstr "ارجاعات تعلیق شده"
 
 #: src/SUMMARY.md:33 src/basic-syntax/slices.md:1
 msgid "Slices"
-msgstr "برش ها"
+msgstr "برش‌ها"
 
 #: src/SUMMARY.md:34
 msgid "String vs str"
@@ -1740,7 +1740,7 @@ msgstr ""
 #: src/error-handling/converting-error-types-example.md:50
 #: src/concurrency/threads.md:30 src/async/async-await.md:25
 msgid "Key points:"
-msgstr "امتیازات کلیدی:"
+msgstr "نکات کلیدی:"
 
 #: src/cargo/rust-ecosystem.md:23
 msgid ""
@@ -3279,29 +3279,35 @@ msgstr ""
 
 #: src/basic-syntax/references.md:3
 msgid "Like C++, Rust has references:"
-msgstr ""
+msgstr "مانند <span dir=ltr>C++</span>، Rust دارای مراجع است:"
 
 #: src/basic-syntax/references.md:15
 msgid "Some notes:"
-msgstr ""
+msgstr "برخی از نکات:"
 
 #: src/basic-syntax/references.md:17
 msgid ""
 "We must dereference `ref_x` when assigning to it, similar to C and C++ "
 "pointers."
 msgstr ""
+"باید هنگام تعریف <span dir=ltr>`ref_x`</span> ارجاع دهی شود، مشابه "
+"اشاره‌گرهای C و <span dir=ltr>C++</span>."
 
 #: src/basic-syntax/references.md:18
 msgid ""
 "Rust will auto-dereference in some cases, in particular when invoking "
 "methods (try `ref_x.count_ones()`)."
 msgstr ""
+"زبان Rust در برخی موارد به‌طور خودکار از ارجاع دهی صرف‌نظر می‌کند، به‌ویژه هنگام "
+"فراخوانی متدها (<span dir=ltr>`ref_x.count_ones()`</span> را امتحان کنید)."
 
 #: src/basic-syntax/references.md:20
 msgid ""
 "References that are declared as `mut` can be bound to different values over "
 "their lifetime."
 msgstr ""
+"مراجع‌ای که به‌عنوان `mut` تعریف می‌شوند،  می‌توانند در طول عمر خود به مقادیر "
+"مختلفی ارجاع داده شوند."
 
 #: src/basic-syntax/references.md:26
 msgid ""
@@ -3310,42 +3316,54 @@ msgid ""
 "to different values, while the second represents a reference to a mutable "
 "value."
 msgstr ""
+"توجه داشته باشید که تفاوت بین <span dir=ltr>`let mut ref_x: &i32`</span>  و "
+"<span dir=ltr>`let ref_x: &mut i32`</span> را به خاطر بسپارید. اولی نمایانگر "
+"یک مرجع قابل تغییر است که می‌تواند به مقادیر مختلفی ارجاع داده شود،  در حالی "
+"که دومی یک مرجع به یک مقدار قابل تغییر را نشان می‌دهد."
 
 #: src/basic-syntax/references-dangling.md:3
 msgid "Rust will statically forbid dangling references:"
-msgstr ""
+msgstr "Rust از نظر استاتیکی مراجع (تعلیق شده)`dangling` را ممنوع می‌کند:"
 
 #: src/basic-syntax/references-dangling.md:17
 msgid "A reference is said to \"borrow\" the value it refers to."
-msgstr ""
+msgstr "گفته می‌شود که یک مرجع مقدار مورد نظر خود را «قرض می‌گیرند»."
 
 #: src/basic-syntax/references-dangling.md:18
 msgid ""
 "Rust is tracking the lifetimes of all references to ensure they live long "
 "enough."
 msgstr ""
+"زبان Rust برای اینکه اطمینان حال کند طول‌عمر همه مراجع به اندازه کافی است, "
+"آنها را رهگیری میکند."
 
 #: src/basic-syntax/references-dangling.md:20
 msgid "We will talk more about borrowing when we get to ownership."
 msgstr ""
+"هنگامی که به مالکیت در زبان راست رسیدیم، بیشتر در مورد «قرض دادن» صحبت "
+"خواهیم کرد."
 
 #: src/basic-syntax/slices.md:3
 msgid "A slice gives you a view into a larger collection:"
-msgstr ""
+msgstr "یک برش به شما امکان می‌دهد نما (view) از یک مجموعه بزرگتر داشته باشید:"
 
 #: src/basic-syntax/slices.md:17
 msgid "Slices borrow data from the sliced type."
-msgstr ""
+msgstr "برش‌ها داده‌ها را از نوع برش‌شده قرض می‌گیرند."
 
 #: src/basic-syntax/slices.md:18
 msgid "Question: What happens if you modify `a[3]` right before printing `s`?"
 msgstr ""
+"پرسش: اگر <span dir=ltr>`a[3]`</span> را درست قبل از چاپ <span dir=ltr>`s`</"
+"span> تغییر دهید چه اتفاقی می‌افتد؟"
 
 #: src/basic-syntax/slices.md:22
 msgid ""
 "We create a slice by borrowing `a` and specifying the starting and ending "
 "indexes in brackets."
 msgstr ""
+"ما با قرض گرفتن <span dir=ltr>`a`</span> و مشخص کردن ایندس‌های شروع و پایان "
+"در براکت‌ها، برش (slice) ایجاد می‌کنیم."
 
 #: src/basic-syntax/slices.md:24
 msgid ""
@@ -3353,17 +3371,24 @@ msgid ""
 "starting index, meaning that `&a[0..a.len()]` and `&a[..a.len()]` are "
 "identical."
 msgstr ""
+"اگر برش را از اندیس 0 شروع شود، سینتکس زبانRust به ما اجازه می‌دهد اندیس شروع "
+"را حذف کنیم (یعنی عدد صفر را  ننویسیم)، به این معنی که <span dir=ltr>`&a[0.."
+"a.len()]`</span>  و <span dir=ltr>`&a[..a.len()]`</span> یکسان  هستند."
 
 #: src/basic-syntax/slices.md:26
 msgid ""
 "The same is true for the last index, so `&a[2..a.len()]` and `&a[2..]` are "
 "identical."
 msgstr ""
+"در مورد اندیس آخر نیز همینطور است، بنابراین <span dir=ltr>`&a[2..a.len()]`</"
+"span>  و  <span dir=ltr>`&a[2..]`</span>  یکسان هستند."
 
 #: src/basic-syntax/slices.md:28
 msgid ""
 "To easily create a slice of the full array, we can therefore use `&a[..]`."
 msgstr ""
+"یک روش ساده برای برش کل آرایه، این است که از <span dir=ltr>`&a[..]`</span> "
+"استفاده کنیم."
 
 #: src/basic-syntax/slices.md:30
 msgid ""
@@ -3371,12 +3396,18 @@ msgid ""
 "(`&[i32]`) no longer mentions the array length. This allows us to perform "
 "computation on slices of different sizes."
 msgstr ""
+"<span dir=ltr>`s`</span> یک مرجع به برش i32 است. توجه داشته باشید که نوع "
+"<span dir=ltr>`s`</span> (<span dir=ltr>`&[i32]`</span>) دیگر طول آرایه را "
+"ذکر نمی‌شود. این به ما امکان می‌دهد محاسباتی را روی برش‌هایی با اندازه‌های مختلف "
+"انجام دهیم."
 
 #: src/basic-syntax/slices.md:32
 msgid ""
 "Slices always borrow from another object. In this example, `a` has to remain "
 "'alive' (in scope) for at least as long as our slice. "
 msgstr ""
+"برش‌ها همیشه از یک شیء دیگر قرض می گیرند. در این مثال، <span dir=ltr>`a`</"
+"span> باید حداقل به اندازه طول‌عمر برش ما، فعال (در محدوده) باقی بماند. "
 
 #: src/basic-syntax/slices.md:34
 msgid ""
@@ -3387,14 +3418,22 @@ msgid ""
 "`println`, when the slice is no longer used. More details will be explained "
 "in the borrow checker section."
 msgstr ""
+"پرسش در مورد تغییر <span dir=ltr>`a[3]`</span> می تواند یک بحث جالب را شروع "
+"کند، اما پاسخ‌اش این است که به  دلایل ایمنی حافظه، نمی توانید این کار را از "
+"طریق <span dir=ltr>`a`</span> در این مرحله از اجرا انجام دهید، اما می‌توانید "
+"داده ها را از هر دو <span dir=ltr>`a`</span> و <span dir=ltr>`s`</span> به "
+"طور ایمن بخوانید. این کار قبل از ایجاد  اسلایس و دوباره بعد از <span "
+"dir=ltr>`println!`</span> کار میکند، زمانی که برش دیگر استفاده نمی شود. "
+"جزئیات بیشتری در بخش بررسی کننده‌قرض (the borrow checker) توضیح داده خواهیم "
+"داد. "
 
 #: src/basic-syntax/string-slices.md:1
 msgid "`String` vs `str`"
-msgstr ""
+msgstr "<span dir=ltr>`String`</span> در مقابل <span dir=ltr>`str`</span> "
 
 #: src/basic-syntax/string-slices.md:3
 msgid "We can now understand the two string types in Rust:"
-msgstr ""
+msgstr "حالا می توانیم دو نوع رشته ای را در Rust درک کنیم:"
 
 #: src/basic-syntax/string-slices.md:5
 msgid ""
@@ -3416,15 +3455,17 @@ msgstr ""
 
 #: src/basic-syntax/string-slices.md:20
 msgid "Rust terminology:"
-msgstr ""
+msgstr "اصطلاحات Rust:"
 
 #: src/basic-syntax/string-slices.md:22
 msgid "`&str` an immutable reference to a string slice."
 msgstr ""
+"<span dir=ltr><code class=hljs>&amp;str</code></span>  یک مرجع غیرقابل تغییر "
+"به یک برش رشته ای است."
 
 #: src/basic-syntax/string-slices.md:23
 msgid "`String` a mutable string buffer."
-msgstr ""
+msgstr "`String` یک بافر رشته ای قابل تغییر است."
 
 #: src/basic-syntax/string-slices.md:27
 msgid ""
@@ -3432,12 +3473,18 @@ msgid ""
 "encoded string data  stored in a block of memory. String literals "
 "(`”Hello”`), are stored in the program’s binary."
 msgstr ""
+"<span dir=ltr>`&str`</span>  یک برش رشته ای را معرفی می کند، که یک مرجع "
+"غیرقابل تغییر به داده های رشته ای  انکود شده UTF-8 است که در یک بلوک حافظه "
+"ذخیره شده است. لیترال های رشته ای <span dir=ltr>`String`</span>  (`”Hello”`) "
+"در باینری برنامه ذخیره می شوند."
 
 #: src/basic-syntax/string-slices.md:30
 msgid ""
 "Rust’s `String` type is a wrapper around a vector of bytes. As with a "
 "`Vec<T>`, it is owned."
 msgstr ""
+"در زبان Rust  نوع ‍<span dir=ltr>`String`</span> یک wrapper برای یک بردار از "
+"بایت‌هاست.  به عنوان <span dir=ltr>`Vec<T>`</span> وجود دارد، مالکیت آن دارد."
 
 #: src/basic-syntax/string-slices.md:32
 msgid ""
@@ -3445,18 +3492,28 @@ msgid ""
 "literal; `String::new()`  creates a new empty string, to which string data "
 "can be added using the `push()` and `push_str()` methods."
 msgstr ""
+"مانند بسیاری از انواع دیگر، <span dir=ltr>`String::from()`</span> یک رشته از "
+"یک لیترال رشته ایجاد می کند. <span dir=ltr>`String::new()`</span> ک رشته "
+"خالی جدید ایجاد می کند که داده های رشته ای می توانند با استفاده از متدهای "
+"<span dir=ltr>`push()`</span>  و <span dir=ltr>`push_str()`</span> به آن "
+"اضافه شوند."
 
 #: src/basic-syntax/string-slices.md:35
 msgid ""
 "The `format!()` macro is a convenient way to generate an owned string from "
 "dynamic values. It  accepts the same format specification as `println!()`."
 msgstr ""
+"ماکرو <span dir=ltr>`format!()`</span> یک راه راحت برای ایجاد یک رشته متعلق "
+"به مقادیر پویا است. مثل فرمت قابل  پذیرش توسط ماکرو <span dir=ltr>`println!"
+"()`</span> است."
 
 #: src/basic-syntax/string-slices.md:38
 msgid ""
 "You can borrow `&str` slices from `String` via `&` and optionally range "
 "selection."
 msgstr ""
+"شما می توانید برش‌های &str را از <span dir=ltr>`String`</span> از طریق `&` و "
+"انتخاب محدوده به صورت اختیاری،  قرض بگیرید."
 
 #: src/basic-syntax/string-slices.md:40
 msgid ""
@@ -3465,6 +3522,13 @@ msgid ""
 "equivalent of `std::string` from C++  (main difference: it can only contain "
 "UTF-8 encoded bytes and will never use a small-string optimization)."
 msgstr ""
+"برای برنامه نویسان <span dir=ltr>`C++`</span>: <span dir=ltr>`&str`</"
+"span>را  به عنوان <span dir=ltr>`const char*`</span> در <span dir=ltr>`C++`</"
+"span> درنظر بگیرید، اما یک فرق مهم این است که در راست که همیشه به یک رشته "
+"معتبر در حافظه اشاره می کند. زبان Rust  نوع <span dir=ltr>`String`</"
+"span>معادل تقریبی <span dir=ltr>`std::string`</span> در <span dir=ltr>`C++`</"
+"span> است (با این تفاوت که فقط می تواند حاوی بایت های انکودینگ شده UTF-8 "
+"باشد و هرگز از بهینه سازی رشته کوچک استفاده نمی کند)."
 
 #: src/basic-syntax/functions.md:3
 msgid ""
