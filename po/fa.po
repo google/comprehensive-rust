@@ -3839,7 +3839,7 @@ msgid ""
 "After looking at the exercises, you can look at the [solutions](solutions-"
 "morning.md) provided."
 msgstr ""
-"پس از دیدن تمرین‌ها، می‌توانید به [راه حل‌ها](solutions-morning.md) ارائه شده "
+"پس از دیدن تمرین‌ها، می‌توانید به [راه حل‌ها] (solutions-morning.md) ارائه شده "
 "نگاه کنید."
 
 #: src/exercises/day-1/implicit-conversions.md:3
@@ -3848,6 +3848,9 @@ msgid ""
 "([unlike C++](https://en.cppreference.com/w/cpp/language/"
 "implicit_conversion)). You can see this in a program like this:"
 msgstr ""
+"Rust به طور خودکار تبدیل‌های صریح بین انواع را اعمال نمی‌کند ([برخلاف زبان "
+"<span dir=ltr>`C++`</span>](https://en.cppreference.com/w/cpp/language/"
+"implicit_conversion)).به عنوان مثال میتونید این رو توی یک برنامه ببنید:"
 
 #: src/exercises/day-1/implicit-conversions.md:20
 msgid ""
@@ -3858,6 +3861,15 @@ msgid ""
 "trait has a single `into()` method. Implementing these traits is how a type "
 "expresses that it can be converted into another type."
 msgstr ""
+"همه انواع عدد صحیح Rust، ویژگی‌های [<span dir=ltr>`Into<T>`</span>](https://"
+"doc.rust-lang.org/std/convert/trait.Into.html) و [<span dir=ltr>`From<T>`</"
+"span>](https://doc.rust-lang.org/std/convert/trait.From.html) را پیاده‌سازی "
+"می‌کنندتا به ما امکان تبدیل بین انواع عددی صحیح را فراهم کنند. با پیاده سازی "
+"ویژگی <span dir=ltr>`From<T>`</span> همه انواع به صورت مشترک یک متد <span "
+"dir=ltr>`from()`</span>  را دارند.  با پیاده سازی ویژگی <span "
+"dir=ltr>`Into<T>`</span>  همه انواع یک متد مشترک به اسم <span "
+"dir=ltr>`into()`</span> را دارند. پیاده‌سازی این ویژگی‌ها راهی است که یک نوع "
+"بیان می‌کند که می‌تواند به نوع دیگری تبدیل شود."
 
 #: src/exercises/day-1/implicit-conversions.md:26
 msgid ""
@@ -3867,6 +3879,13 @@ msgid ""
 "i16` implementation automatically create an implementation of `Into<i16> for "
 "i8`."
 msgstr ""
+"کتابخانه استاندارد پیاده‌سازی <span dir=ltr>`From<i8> i16`</span> به نوع "
+"<span dir=ltr>`i16`</span> دارد، به این معنی که می‌توانیم یک متغیر `x` از نوع "
+"`i8` را با فراخوانی <span dir=ltr>`i16::from(x)`</span>  به یک <span "
+"dir=ltr>`i16`</span>  تبدیل کنیم.  یا به شیوه ساده‌تر، با <span dir=ltr>`x."
+"into()`</span> ، زیرا پیاده‌سازی <span dir=ltr>`From<i8>`</span>  برای نوع "
+"<span dir=ltr>`i16`</span>  به طور خودکار پیاده‌سازی<span "
+"dir=ltr>`Into<i16>`</span>  براینوع `i8` را ایجاد می‌کند."
 
 #: src/exercises/day-1/implicit-conversions.md:31
 msgid ""
@@ -3874,14 +3893,20 @@ msgid ""
 "it is sufficient to only implement `From` to get a respective `Into` "
 "implementation automatically."
 msgstr ""
+"همین امر برای پیاده‌سازی‌های <span dir=ltr>`From`</span> خودتان برای انواع "
+"خودتان نیز صدق می‌کند،  بنابراین کافیست فقط <span dir=ltr>`From`</span> را "
+"پیاده‌سازی کنید تا به طور خودکار پیاده‌سازی <span dir=ltr>`Into`</span> مربوطه "
+"را دریافت کنید."
 
 #: src/exercises/day-1/implicit-conversions.md:34
 msgid "Execute the above program and look at the compiler error."
-msgstr ""
+msgstr "برنامه فوق را اجرا کنید و به خطای کامپایلر نگاه کنید."
 
 #: src/exercises/day-1/implicit-conversions.md:36
 msgid "Update the code above to use `into()` to do the conversion."
 msgstr ""
+"کد بالا را به گونه‌ای به‌روزرسانی کنید که از <span dir=ltr>`into()`</span> "
+"برای انجام تبدیل استفاده شود."
 
 #: src/exercises/day-1/implicit-conversions.md:38
 msgid ""
@@ -3891,27 +3916,37 @@ msgid ""
 "[standard library documentation](https://doc.rust-lang.org/std/convert/trait."
 "From.html) to see if `From<T>` is implemented for the pairs you check."
 msgstr ""
+"نوع داده  `x` و `y` را به چیزهای دیگری (مانند `f32`, `bool`, `i128`) تغییر "
+"دهید تا ببینید کدام انواع را می‌توانید به کدام انواع دیگر تبدیل کنید.  سعی "
+"کنید انواع کوچک را به انواع بزرگ تبدیل کنید و برعکس. [مستندات کتابخانه "
+"استاندارد](https://doc.rust-lang.org/std/convert/trait.From.html) را بررسی "
+"کنید  تا ببینید آیا <span dir=ltr>`From<T>`</span> برای تبدیل نوع‌هاییکه "
+"بررسی می‌کنید پیاده‌سازی شده است یا نه."
 
 #: src/exercises/day-1/for-loops.md:1
 #: src/exercises/day-1/solutions-morning.md:3
 msgid "Arrays and `for` Loops"
-msgstr ""
+msgstr "آرایه‌ها و حلقه‌های `for`"
 
 #: src/exercises/day-1/for-loops.md:3
 msgid "We saw that an array can be declared like this:"
-msgstr ""
+msgstr "دیدیم که یک آرایه را می‌توان به صورت زیر تعریف کرد: "
 
 #: src/exercises/day-1/for-loops.md:9
 msgid ""
 "You can print such an array by asking for its debug representation with `{:?}"
 "`:"
 msgstr ""
+"می‌توانید چنین آرایه‌ای را با درخواست نمایش اشکال‌زدایی آن با <span "
+"dir=ltr>`{:?}`</span> چاپ کنید:"
 
 #: src/exercises/day-1/for-loops.md:19
 msgid ""
 "Rust lets you iterate over things like arrays and ranges using the `for` "
 "keyword:"
 msgstr ""
+"زبان Rust به شما این امکان می‌دهد با استفاده از کلمه کلیدی `for` بر روی "
+"چیزهایی مانند آرایه‌ها و رنج‌ها پیمایش کنید:"
 
 #: src/exercises/day-1/for-loops.md:22
 msgid ""
@@ -3939,16 +3974,22 @@ msgid ""
 "and a function `transpose` which will transpose a matrix (turn rows into "
 "columns):"
 msgstr ""
+"از موارد فوق برای نوشتن تابع <span dir=ltr>`pretty_print`</span> که یک "
+"ماتریس را به صورت <span dir=ltr>`pretty-print`</span>  چاپ می‌کند و تابع "
+"<span dir=ltr>`transpose`</span> که یک ماتریس را جابجا می‌کند  (ردیف‌ها را به "
+"ستون‌ها تبدیل می‌کند) استفاده کنید: "
 
 #: src/exercises/day-1/for-loops.md:49
 msgid "Hard-code both functions to operate on 3 × 3 matrices."
-msgstr ""
+msgstr "هر دو تابع را برای کار بر روی ماتریس‌های 3 × 3 هاردکد کنید."
 
 #: src/exercises/day-1/for-loops.md:51
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and implement the "
 "functions:"
 msgstr ""
+"کد زیر را در <span dir=ltr><https://play.rust-lang.org/></span> کپی کنید و "
+"توابع را پیاده‌سازی کنید:"
 
 #: src/exercises/day-1/for-loops.md:54
 msgid ""
@@ -3983,7 +4024,7 @@ msgstr ""
 
 #: src/exercises/day-1/for-loops.md:82
 msgid "Bonus Question"
-msgstr ""
+msgstr "سوال جایزه"
 
 #: src/exercises/day-1/for-loops.md:84
 msgid ""
@@ -3991,28 +4032,39 @@ msgid ""
 "argument and return types? Something like `&[&[i32]]` for a two-dimensional "
 "slice-of-slices. Why or why not?"
 msgstr ""
+"آیا می‌توانید به جای ماتریس‌های 3 × 3 هاردکد شده از برش‌های <span "
+"dir=ltr>`&[i32]`</span>  برای آرگومان و انواع برگشتی تابع خود استفاده کنید؟ "
+"چیزی شبیه <span dir=ltr>`&[&[i32]]`</span> برای برش-از-برش دو بعدی. آیا "
+"امکان پذیر هست؟ اگر نه چرا؟"
 
 #: src/exercises/day-1/for-loops.md:89
 msgid ""
 "See the [`ndarray` crate](https://docs.rs/ndarray/) for a production quality "
 "implementation."
 msgstr ""
+"برای دیدن یک پیاده سازی برای محیط پروداکشن به جعبه [<span dir=ltr>`ndarray`</"
+"span>](https://docs.rs/ndarray/) سر بزنید."
 
 #: src/exercises/day-1/for-loops.md:94
 msgid ""
 "The solution and the answer to the bonus section are available in the  "
 "[Solution](solutions-morning.md#arrays-and-for-loops) section."
 msgstr ""
+"راه‌حل‌ها و پاسخ به بخش جایزه در بخش جواب‌ها](solutions-morning.md#arrays-and-"
+"for-loops) موجود است."
 
 #: src/exercises/day-1/for-loops.md:97
 msgid ""
 "The use of the reference `&array` within `for n in &array` is a subtle "
 "preview of issues of ownership that will come later in the afternoon."
 msgstr ""
+"استفاده از ارجاع <span dir=ltr>`&array`</span>  در بخش <span dir=ltr>`for n "
+"in &array`</span>  پیش‌نمایشی از مسئله مالکیت است که بعداً توی قسمت عصر به ان "
+"خواهیم پرداخت."
 
 #: src/exercises/day-1/for-loops.md:100
 msgid "Without the `&`..."
-msgstr ""
+msgstr "بدون استفاده از `&` ..."
 
 #: src/exercises/day-1/for-loops.md:101
 msgid ""
@@ -4020,12 +4072,17 @@ msgid ""
 "[introduced in the 2021 Edition](https://doc.rust-lang.org/edition-guide/"
 "rust-2021/IntoIterator-for-arrays.html)."
 msgstr ""
+"حلقه به گونه‌ای می‌بود که آرایه را مصرف می‌کند. این تغییری [در ویرایش سال ۲۰۲۱ "
+"معرفی شده است.](https://doc.rust-lang.org/edition-guide/rust-2021/"
+"IntoIterator-for-arrays.html)"
 
 #: src/exercises/day-1/for-loops.md:104
 msgid ""
 "An implicit array copy would have occurred.  Since `i32` is a copy type, "
 "then `[i32; 3]` is also a copy type."
 msgstr ""
+"یک کپی آرایه ضمنی رخ می‌داد. از آنجایی که `i32` یک نوع کپی است، پس <span "
+"dir=ltr>`[i32; 3]`</span>  نیز یک نوع کپی است."
 
 #: src/control-flow.md:3
 msgid ""
