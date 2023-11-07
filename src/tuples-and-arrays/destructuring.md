@@ -6,6 +6,10 @@ existing course material:
 
 # Destructuring
 
+Destructuring is a way of extracting data from a data structure by writing a
+pattern that is matched up to the data structure, binding variables to
+subcomponents of the data structure.
+
 You can destructure tuples and arrays by matching on their elements:
 
 ## Tuples
@@ -34,7 +38,7 @@ fn describe_point(point: (i32, i32)) {
 
 <details>
 
-* Create a new pattern using `_` to represent an element.
+* Create a new array pattern using `_` to represent an element.
 * Add more values to the array.
 * Point out that how `..` will expand to account for different number of elements.
 * Show matching against the tail with patterns `[.., b]` and `[a@..,b]`

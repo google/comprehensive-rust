@@ -4,7 +4,8 @@ minutes: 10
 
 # Exclusive References
 
-Exclusive references allow changing the value they refer to.
+Exclusive references, also known as mutable references, allow changing the value
+they refer to. They have type `&mut T`.
 
 <!-- mdbook-xgettext: skip -->
 ```rust,editable

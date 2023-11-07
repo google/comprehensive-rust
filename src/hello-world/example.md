@@ -72,7 +72,7 @@ _Shouldn't these bugs be obvious even for a C compiler?_
 No, surprisingly this code compiles warning-free at the default warning level, even in the latest GCC version (13.2 as of writing).
 
 _Isn't this a highly unrealistic example?_
-Absolutely not, these kind of bugs have lead to serious security vulnerabilities in the past. Some examples:
+Absolutely not, these kind of bugs have led to serious security vulnerabilities in the past. Some examples:
 
 * Assignment `=` instead of equality comparison `==`: [The Linux Backdoor Attempt of 2003](https://freedom-to-tinker.com/2013/10/09/the-linux-backdoor-attempt-of-2003)
 * Forgotten braces in multi-line `if`: [The Apple goto fail vulnerability](https://dwheeler.com/essays/apple-goto-fail.html)

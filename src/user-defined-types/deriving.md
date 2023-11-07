@@ -6,7 +6,7 @@ existing course material:
 
 # Deriving
 
-You can ask Rust to derive a number of useful traits for your custom types, as follows:
+You can ask Rust to derive a number of useful behaviors for your custom types, as follows:
 
 ```rust,editable
 #[derive(Debug, Clone, Default)]
@@ -27,8 +27,12 @@ fn main() {
 
 <details>
 
-Traits are covered later in the course. For now, students only need to know
-that Traits provide useful behavior, and that `#[derive(..)]` is an easy way to
-add that behavior to types.
+These behaviors are "traits", which are covered later in the course. For now,
+students only need to know that traits provide useful behavior, and that
+`#[derive(..)]` is an easy way to add that behavior to types.
+
+Derivation is implemented with macros, and many crates provide useful derive
+macros to add useful functionality. For example, `serde` can derive
+serialization support for a struct using `#[derive(Serialize)]`.
 
 </detail>
