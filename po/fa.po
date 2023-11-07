@@ -4869,46 +4869,62 @@ msgid ""
 "Without `repr`, the discriminant type takes 2 bytes, because 10001 fits 2 "
 "bytes."
 msgstr ""
+"بدون `repr`، نوع discriminant دو بایت حافظه اشغال میکند، زیرا 10001 در 2 "
+"بایت جا می‌شود."
 
 #: src/enums/sizes.md:54
 msgid "Try out other types such as"
-msgstr ""
+msgstr "سایر انواع‌داده را امتحان کنید، مانند:"
 
 #: src/enums/sizes.md:56
 msgid "`dbg_size!(bool)`: size 1 bytes, align: 1 bytes,"
 msgstr ""
+"<span dir=ltr><code class=hljs>dbg_size!(bool)</code></span>: اندازه توی "
+"حافظه 1 بایت، فضای مورد نیاز برای align نیز  1 بایت است,"
 
 #: src/enums/sizes.md:57
 msgid ""
 "`dbg_size!(Option<bool>)`: size 1 bytes, align: 1 bytes (niche optimization, "
 "see below),"
 msgstr ""
+"<span dir=ltr><code class=hljs>dbg_size!(Option<bool>)</code></span>:  "
+"اندازه توی حافظه 1 بایت، ، فضای مورد نیاز برای align نیز  1 بایت است "
+"(بهینه‌سازی خاص، در زیر ببینید)"
 
 #: src/enums/sizes.md:58
 msgid "`dbg_size!(&i32)`: size 8 bytes, align: 8 bytes (on a 64-bit machine),"
 msgstr ""
+"<span dir=ltr><code class=hljs>dbg_size!(&i32)</code></span>: اندازه توی "
+"حافظه ۸ بایت، ، فضای مورد نیاز برای align نیز  ۸ بایت است (روی ماشین ۶۴ بیتی)"
 
 #: src/enums/sizes.md:59
 msgid ""
 "`dbg_size!(Option<&i32>)`: size 8 bytes, align: 8 bytes (null pointer "
 "optimization, see below)."
 msgstr ""
+"<span dir=ltr><code class=hljs>dbg_size!(Option<&i32>)</code></span>: اندازه "
+"توی حافظه ۸ بایت، ، فضای مورد نیاز برای align نیز  ۸ بایت است (بهینه‌سازی "
+"اشاره‌گر NULL را در زیر ببینید)"
 
 #: src/enums/sizes.md:61 src/memory-management/stack.md:32
 msgid "More to Explore"
-msgstr ""
+msgstr "برای کاوش بیشتر"
 
 #: src/enums/sizes.md:63
 msgid ""
 "Rust has several optimizations it can employ to make enums take up less "
 "space."
 msgstr ""
+"زبان Rust دارای چندین بهینه‌سازی دارد که می‌تواند برای کاهش فضای اشغال شده "
+"توسط`Enum`ها استفاده کند."
 
 #: src/enums/sizes.md:65
 msgid ""
 "Niche optimization: Rust will merge unused bit patterns for the enum "
 "discriminant."
 msgstr ""
+"بهینه‌سازی خاص: Rust الگوهای بیتی استفاده نشده را برای discriminant نوع "
+"`Enum` ادغام می‌کند."
 
 #: src/enums/sizes.md:68
 msgid ""
@@ -4916,6 +4932,9 @@ msgid ""
 "option/#representation), Rust guarantees that `size_of::<T>()` equals "
 "`size_of::<Option<T>>()`."
 msgstr ""
+"بهینه‌سازی اشاره‌گر `NULL`: برای برخی از انواع، Rust تضمین می‌کند که <span "
+"dir=ltr>`size_of::<T>()`</span>  برابر با <span dir=ltr>`size_of::"
+"<Option<T>>()`</span> است."
 
 #: src/enums/sizes.md:72
 msgid ""
@@ -4923,12 +4942,17 @@ msgid ""
 "like in practice. It's important to note that the compiler provides no "
 "guarantees regarding this representation, therefore this is totally unsafe."
 msgstr ""
+"کد نمونه, اگر می‌خواهید نشان دهید که نمایش بیت به بیت در عمل چگونه ممکن است "
+"به نظر برسد. مهم است توجه داشته باشید که کامپایلر هیچ تضمینی در مورد این "
+"نمایش نمی‌دهد، بنابراین این کاملاً ناایمن است."
 
 #: src/enums/sizes.md:109
 msgid ""
 "More complex example if you want to discuss what happens when we chain more "
 "than 256 `Option`s together."
 msgstr ""
+"مثال پیچیده‌تر اگر می‌خواهید در مورد اتفاقی که می‌افتد زمانی که بیش از ۲۶۵ عدد "
+"`Option` را به صورت تو در تو صدا بزنیم بحث کنید."
 
 #: src/control-flow/novel.md:3
 msgid ""
@@ -4938,16 +4962,15 @@ msgstr ""
 
 #: src/control-flow/novel.md:6 src/control-flow/if-let-expressions.md:1
 msgid "`if let` expressions"
-msgstr ""
+msgstr "عبارت `if let`"
 
 #: src/control-flow/novel.md:7
-#, fuzzy
 msgid "`while let` expressions"
-msgstr "عبارت while let"
+msgstr "عبارت `while let`"
 
 #: src/control-flow/novel.md:8 src/control-flow/match-expressions.md:1
 msgid "`match` expressions"
-msgstr ""
+msgstr "عبارت `match`"
 
 #: src/control-flow/if-let-expressions.md:3
 msgid ""
@@ -4955,6 +4978,9 @@ msgid ""
 "expr.html#if-let-expressions) lets you execute different code depending on "
 "whether a value matches a pattern:"
 msgstr ""
+"[عبارت `if let`](https://doc.rust-lang.org/reference/expressions/if-expr."
+"html#if-let-expressions)  به شما امکان می‌دهد بسته به اینکه آیا یک مقدار با "
+"یک الگو مطابقت دارد، کدهای مختلفی را اجرا کنید:"
 
 #: src/control-flow/if-let-expressions.md:7
 msgid ""
@@ -4977,21 +5003,30 @@ msgid ""
 "See [pattern matching](../pattern-matching.md) for more details on patterns "
 "in Rust."
 msgstr ""
+"به [تطبیق الگو](../pattern-matching.md) مراجعه کنید تا در مورد الگوها در "
+"Rust اطلاعات بیشتری کسب کنید."
 
 #: src/control-flow/if-let-expressions.md:23
 msgid ""
 "Unlike `match`, `if let` does not have to cover all branches. This can make "
 "it more concise than `match`."
 msgstr ""
+"برخلاف دستور `match` دستور `if let` همه حالت های ممکن را برای تطبیق الگو "
+"پشتیبانی نمیکند. اگر می‌خواهید همه حالت را پوشش دهید از دستور `match` استفاده "
+"کنید."
 
 #: src/control-flow/if-let-expressions.md:24
 msgid "A common usage is handling `Some` values when working with `Option`."
 msgstr ""
+"یک استفاده رایج از دستور `if let`، رسیدگی به مقادیر `Some` هنگام کار با "
+"`Option` است:"
 
 #: src/control-flow/if-let-expressions.md:25
 msgid ""
 "Unlike `match`, `if let` does not support guard clauses for pattern matching."
 msgstr ""
+"برخلاف دستور `match` دستور `if let`  از <span dir=ltr>`=>`</span> برای تطبیق "
+"الگو استفاده نمیکند."
 
 #: src/control-flow/if-let-expressions.md:26
 msgid ""
@@ -5000,10 +5035,14 @@ msgid ""
 "assignment, or if it fails, execute a block which is required to abort "
 "normal control flow (with `panic`/`return`/`break`/`continue`):"
 msgstr ""
+"از نسخه 1.65، یک کلیدواژه مشابه به اسم  [`let-else`](https://doc.rust-lang."
+"org/rust-by-example/flow_control/let_else.html) اجازه می‌دهد تا یک انتساب به "
+"صورت destructuring انجام شود، یا اگر شکست خورد، یک بلوک را اجرا کند که برای "
+"خاتمه دادن به جریان کنترل عادی (با panic/return/break/continue) ضروری است:"
 
 #: src/control-flow/while-let-expressions.md:1
 msgid "`while let` loops"
-msgstr ""
+msgstr "حلقه `while let`"
 
 #: src/control-flow/while-let-expressions.md:3
 msgid ""
@@ -5011,6 +5050,9 @@ msgid ""
 "reference/expressions/loop-expr.html#predicate-pattern-loops) variant which "
 "repeatedly tests a value against a pattern:"
 msgstr ""
+"مانند `if let`، یک دستور [`while let`](https://doc.rust-lang.org/reference/"
+"expressions/loop-expr.html#predicate-pattern-loops) وجود دارد که مقادیر "
+"مقابل الگو به طور مکرر (تکرار شونده‌ای) بررسی می‌کند:"
 
 #: src/control-flow/while-let-expressions.md:18
 msgid ""
@@ -5019,12 +5061,20 @@ msgid ""
 "it will return `None`. The `while let` lets us keep iterating through all "
 "items."
 msgstr ""
+"در اینجا، پیماینده (iterator) توسط <span dir=ltr>`v.into_iter()`</span> یک "
+"مقدار را برمیگرداند, یک <span dir=ltr>`Option<i32>`</span> را در هر فراخوانی "
+"به <span dir=ltr>`next()`</span> برمی گرداند. تا زمانی که محتوایی وجود داشته "
+"باشد این کار ادامه پیدا میکند و وقتی که تمام شد <span dir=ltr>`Some(x)`</"
+"span> را برمی گرداند و پس از آن None را برمی گرداند. `while let` به ما امکان "
+"می دهد همه مارد را به صورت کامل پیمایش کنیم."
 
 #: src/control-flow/while-let-expressions.md:27
 msgid ""
 "Point out that the `while let` loop will keep going as long as the value "
 "matches the pattern."
 msgstr ""
+"توجه داشته باشید که حلقه `while let` تا زمانی که مقادیر مقابل الگو طبیق "
+"داشته باشد (شرط برقرار باشد)، ادامه خواهد داشت."
 
 #: src/control-flow/while-let-expressions.md:28
 msgid ""
@@ -5032,6 +5082,10 @@ msgid ""
 "statement that breaks when there is no value to unwrap for `iter.next()`. "
 "The `while let` provides syntactic sugar for the above scenario."
 msgstr ""
+"می‌توانید حلقه `while let` را به عنوان یک حلقه بی‌پایان با یک عبارت `if` "
+"بازنویسی کنید که زمانی که مقداری برای باز کردن <span dir=ltr>`iter.next()`</"
+"span> وجود ندارد، قطع می‌شود. `while let` مثل آب خوردن سناریو بالا رو برای "
+"شما فراهم می‌کند."
 
 #: src/control-flow/match-expressions.md:3
 msgid ""
@@ -5039,6 +5093,9 @@ msgid ""
 "expr.html) is used to match a value against one or more patterns. In that "
 "sense, it works like a series of `if let` expressions:"
 msgstr ""
+"[کلمه‌کلیدی `match`](https://doc.rust-lang.org/reference/expressions/match-"
+"expr.html) برای مطابقت یک مقدار در برابر یک یا چند الگو استفاده می‌شود. از "
+"این نظر، مانند یک سری عبارات `if let` عمل می‌کند:"
 
 #: src/control-flow/match-expressions.md:7
 msgid ""
@@ -5061,41 +5118,61 @@ msgid ""
 "Like `if let`, each match arm must have the same type. The type is the last "
 "expression of the block, if any. In the example above, the type is `()`."
 msgstr ""
+"مثل دستور `if let`، باید همه شاخه تطبیق باید از نوع یکسانی را داشته باشند. "
+"نوع عبارت در آخر بلوک تعیین می‌شود، البته اگر وجود داشته باشد. در مثال بالا، "
+"نوع `()` است."
 
 #: src/control-flow/match-expressions.md:28
 msgid "Save the match expression to a variable and print it out."
 msgstr ""
+"مقادر بازگشتی از دستور `match` را در متغییری ذخیره کنید و آن را چاپ کنید."
 
 #: src/control-flow/match-expressions.md:29
 msgid "Remove `.as_deref()` and explain the error."
 msgstr ""
+"<span dir=ltr><code class=hljs>.as_deref()</code></span> را حذف کنید و خطا "
+"را توضیح دهید."
 
 #: src/control-flow/match-expressions.md:30
 msgid ""
 "`std::env::args().next()` returns an `Option<String>`, but we cannot match "
 "against `String`."
 msgstr ""
+"<span dir=ltr><code class=hljs>std::env::args().next()</code></span> یک "
+"<span dir=ltr>`Option<String>`</span>  را برمی‌گرداند،چرا نمی توانیم به عنوان "
+"`String` تطبیق الگو کنیم؟"
 
 #: src/control-flow/match-expressions.md:31
 msgid ""
 "`as_deref()` transforms an `Option<T>` to `Option<&T::Target>`. In our case, "
 "this turns `Option<String>` into `Option<&str>`."
 msgstr ""
+"<span dir=ltr><code class=hljs>as_deref()</code></span>  یک <span "
+"dir=ltr>`Option<T>`</span> را به <span dir=ltr>`Option<&T::Target>`</span>  "
+"تبدیل می‌کند. در مورد ما، این <span dir=ltr>`Option<String>`</span> را به "
+"<span dir=ltr>`Option<&str>`</span> تبدیل می‌کند."
 
 #: src/control-flow/match-expressions.md:32
 msgid ""
 "We can now use pattern matching to match against the `&str` inside `Option`."
 msgstr ""
+"اکنون می‌توانیم از تطبیق الگو برای مطابقت با <span dir=ltr>`&str`</span> داخل "
+"`Option` استفاده کنیم."
 
 #: src/pattern-matching.md:3
 msgid ""
 "The `match` keyword lets you match a value against one or more _patterns_. "
 "The comparisons are done from top to bottom and the first match wins."
 msgstr ""
+"کلمه کلیدی `match` به شما امکان می دهد یک مقدار را در برابر _یک یا چند الگو_ "
+"مطابقت دهید. مقایسه‌ها از بالا به پایین انجام می‌شوند و اولین تطبیق انتخاب "
+"می‌شود."
 
 #: src/pattern-matching.md:6
 msgid "The patterns can be simple values, similarly to `switch` in C and C++:"
 msgstr ""
+"الگوها می توانند مقادیر ساده ای باشند، شبیه به `switch` در C و <span "
+"dir=ltr>C++</span>:"
 
 #: src/pattern-matching.md:8
 msgid ""
@@ -5115,45 +5192,53 @@ msgstr ""
 
 #: src/pattern-matching.md:21
 msgid "The `_` pattern is a wildcard pattern which matches any value."
-msgstr ""
+msgstr "الگوی _ یک الگوی wildcard (هر حالتی) است که با هر مقداری مطابقت دارد."
 
 #: src/pattern-matching.md:26
 msgid ""
 "You might point out how some specific characters are being used when in a "
 "pattern"
 msgstr ""
+"بهتر است که اشاره کنید چطوری میتوان از کاراکترهای خاص در الگو استفاده کرد:"
 
 #: src/pattern-matching.md:27
 msgid "`|` as an `or`"
-msgstr ""
+msgstr "`|` به عنوان `or`"
 
 #: src/pattern-matching.md:28
 msgid "`..` can expand as much as it needs to be"
-msgstr ""
+msgstr "`..` برای تعیین همه محدوده یا تا جایی که میتوان گسترش یابد"
 
 #: src/pattern-matching.md:29
 msgid "`1..=5` represents an inclusive range"
 msgstr ""
+"<span dir=ltr><code class=hljs>1..=5</code></span> نمایانگر یک محدوده خاص "
+"است."
 
 #: src/pattern-matching.md:30
 msgid "`_` is a wild card"
-msgstr ""
+msgstr "`_` یک wildcard (هر حالتی) است."
 
 #: src/pattern-matching.md:31
 msgid ""
 "It can be useful to show how binding works, by for instance replacing a "
 "wildcard character with a variable, or removing the quotes around `q`."
 msgstr ""
+"می‌توان با جایگزینی یک کاراکتر`_` با یک متغیر، یا حذف نقل قول ها در اطراف "
+"`q`، به نمایش نحوه کارکرد انتساب کمک کرد."
 
 #: src/pattern-matching.md:32
 msgid "You can demonstrate matching on a reference."
-msgstr ""
+msgstr "می‌توانید تطبیق الگو را با یک ارجاع را نشان دهید."
 
 #: src/pattern-matching.md:33
 msgid ""
 "This might be a good time to bring up the concept of irrefutable patterns, "
 "as the term can show up in error messages."
 msgstr ""
+"این ممکن است زمان خوبی برای مطرح کردن مفهوم الگوهای غیرقابل انکار "
+"(irrefutable patterns) باشد، زیرا این اصطلاح می تواند در پیام های خطا ظاهر "
+"شود."
 
 #: src/pattern-matching/destructuring-enums.md:3
 msgid ""
