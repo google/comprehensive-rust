@@ -4091,58 +4091,75 @@ msgid ""
 "becomes the value of the `if` expression. Other control flow expressions "
 "work similarly in Rust."
 msgstr ""
+"همانطور که دیدیم، `if` در Rust یک عبارت است.  عبارت `if` برای آن استفاده "
+"میشود که یکی از ۲ بلوک شرطی را در راست ایجاد کند. توجه داشته باشید که در "
+"راست این بلاک  های `if`  میتوانند یک مقدار را برگرداند و اصطلاحا یک مقدار "
+"داشته باشند. بقیه عبارات کنترل جریان نیز مشابه این کار میکنند."
 
 #: src/control-flow/blocks.md:3
 msgid ""
 "A block in Rust contains a sequence of expressions. Each block has a value "
 "and a type, which are those of the last expression of the block:"
 msgstr ""
+"یک بلاک در Rust میتواند حاوی چندین عبارات باشد. هر بلاک دارای یک مقدار  و یک "
+"نوع بازگشتی است که مربوط به آخرین عبارت در ان بلاک می‌باشد:"
 
 #: src/control-flow/blocks.md:27
 msgid ""
 "If the last expression ends with `;`, then the resulting value and type is "
 "`()`."
-msgstr ""
+msgstr "اگر آخرین عبارت با `;` پایان یابد، مقدار و نوع بازگشتی `()` است."
 
 #: src/control-flow/blocks.md:29
 msgid ""
 "The same rule is used for functions: the value of the function body is the "
 "return value:"
 msgstr ""
+"قانون مشابه‌ای برای توابع نیز صدق می‌کند:  آخرین مقدار  در بلاک تابع مقدار "
+"برگشتی است: "
 
 #: src/control-flow/blocks.md:45 src/enums.md:34 src/enums/sizes.md:28
 #: src/pattern-matching.md:25 src/pattern-matching/match-guards.md:22
 #: src/structs.md:31 src/methods.md:30 src/methods/example.md:46
 msgid "Key Points:"
-msgstr ""
+msgstr "نکات کلیدی"
 
 #: src/control-flow/blocks.md:46
 msgid ""
 "The point of this slide is to show that blocks have a type and value in "
 "Rust. "
 msgstr ""
+"هدف از این اسلاید نشان دادن این است که بلوک ها در Rust دارای نوع و مقدار "
+"بازگشتی هستند."
 
 #: src/control-flow/blocks.md:47
 msgid ""
 "You can show how the value of the block changes by changing the last line in "
 "the block. For instance, adding/removing a semicolon or using a `return`."
 msgstr ""
+"می‌توانید نشان دهید که چگونه با تغییر خط آخر بلاک مقدار و نوع بازگشتی تغییر "
+"می‌کند. به عنوان مثال با اضافه کردن یا  حذف کردن یک `;` یا با استفاده از کلید "
+"واژه `return` تغییرات را اعمال کنید."
 
 #: src/control-flow/if-expressions.md:1
 msgid "`if` expressions"
-msgstr ""
+msgstr "عبارت `if`"
 
 #: src/control-flow/if-expressions.md:3
 msgid ""
 "You use [`if` expressions](https://doc.rust-lang.org/reference/expressions/"
 "if-expr.html#if-expressions) exactly like `if` statements in other languages:"
 msgstr ""
+"شما [عبارت `if`](https://doc.rust-lang.org/reference/expressions/if-expr."
+"html#if-expressions) رو به مانند دیگر زبان‌ها استفاده می‌کنید:"
 
 #: src/control-flow/if-expressions.md:18
 msgid ""
 "In addition, you can use `if` as an expression. The last expression of each "
 "block becomes the value of the `if` expression:"
 msgstr ""
+"در کنار این موضوع, می‌توانید از if به عنوان یک عبارت با قابلیت بازگشت مقدار "
+"هم استفاده کنید. آخرین عبارت توی هر بلاک  if اون مقدار و نوع بازگشتی است:"
 
 #: src/control-flow/if-expressions.md:35
 msgid ""
@@ -4150,10 +4167,13 @@ msgid ""
 "branch blocks must have the same type. Consider showing what happens if you "
 "add `;` after `x / 2` in the second example."
 msgstr ""
+"از آنجایی که ‍`if` یک عبارت است و باید نوع خاصی داشته باشد، هر دو بلاک (`if` "
+"و `else`) باید از نوع یکسانی را باز گردانند.  در نظر بگیرید که اگر بعد از "
+"`x / 2` در مثال دوم `;` اضافه کنید، چه اتفاقی می افتد. "
 
 #: src/control-flow/for-expressions.md:1
 msgid "`for` loops"
-msgstr ""
+msgstr "حلقه `for`"
 
 #: src/control-flow/for-expressions.md:3
 msgid ""
@@ -4161,85 +4181,112 @@ msgid ""
 "related to the [`while let` loop](while-let-expressions.md). It will "
 "automatically call `into_iter()` on the expression and then iterate over it:"
 msgstr ""
+"[حلقه `for`](https://doc.rust-lang.org/std/keyword.for.html)  به طور نزدیکی "
+"به حلقه [حلقه `while let` ](while-let-expressions.md) مرتبط است. حلقه `for` "
+"به طور خودکار  <span dir=ltr>`into_iter()`</span> را روی عبارت  فراخوانی "
+"می‌کند و سپس روی آن پیشمایش انجام می‌دهد:"
 
 #: src/control-flow/for-expressions.md:22
 msgid "You can use `break` and `continue` here as usual."
 msgstr ""
+"مثل بقیه زبان‌ها می‌توانید از `break` و `continue` به صورت عادی استفاده کنید."
 
 #: src/control-flow/for-expressions.md:26
 msgid "Index iteration is not a special syntax in Rust for just that case."
-msgstr ""
+msgstr "پیشمایش اندیس در زبان راست دارای سینتکس خاصی نمی‌باشد."
 
 #: src/control-flow/for-expressions.md:27
 msgid "`(0..10)` is a range that implements an `Iterator` trait. "
 msgstr ""
+"<span dir=ltr><code class=hljs>(0..10)</code></span>  یک محدوده است که ویژگی "
+"`Iterator` را پیاده‌سازی می‌کند."
 
 #: src/control-flow/for-expressions.md:28
 msgid ""
 "`step_by` is a method that returns another `Iterator` that skips every other "
 "element. "
 msgstr ""
+"متد `step_by`,  متدی است که یک `Iterator` دیگر با قابلیت در نظر نگرفتن بقیه "
+"عناصر را برمی‌گرداند."
 
 #: src/control-flow/for-expressions.md:29
 msgid ""
 "Modify the elements in the vector and explain the compiler errors. Change "
 "vector `v` to be mutable and the for loop to `for x in v.iter_mut()`."
 msgstr ""
+"عناصر را در بردار تغییر دهید و خطاهای کامپایلر را توضیح دهید. بردار v را "
+"قابل تغییر کنید (با اضافه کردن `mut`) و حلقه  `for` را به <span dir=ltr>`for "
+"x in v.iter_mut()`</span> تغییر دهید."
 
 #: src/control-flow/while-expressions.md:1
 msgid "`while` loops"
-msgstr ""
+msgstr "حلقه `while`"
 
 #: src/control-flow/while-expressions.md:3
 msgid ""
 "The [`while` keyword](https://doc.rust-lang.org/reference/expressions/loop-"
 "expr.html#predicate-loops) works very similar to other languages:"
 msgstr ""
+"[کلمه‌کلیدی`while` ](https://doc.rust-lang.org/reference/expressions/loop-"
+"expr.html#predicate-loops) بسیار شبیه به سایر زبان‌ها عمل می‌کند:"
 
 #: src/control-flow/break-continue.md:1
 msgid "`break` and `continue`"
-msgstr ""
+msgstr "`break` و `continue`"
 
 #: src/control-flow/break-continue.md:3
 msgid ""
 "If you want to exit a loop early, use [`break`](https://doc.rust-lang.org/"
 "reference/expressions/loop-expr.html#break-expressions),"
 msgstr ""
+"اگر می‌خواهید زودتر از یک حلقه خارج شوید، از [`break`](https://doc.rust-lang."
+"org/reference/expressions/loop-expr.html#break-expressions) استفاده کنید,"
 
 #: src/control-flow/break-continue.md:4
 msgid ""
 "If you want to immediately start the next iteration use [`continue`](https://"
 "doc.rust-lang.org/reference/expressions/loop-expr.html#continue-expressions)."
 msgstr ""
+"اگر می‌خواهید بلافاصله تکرار بعدی را شروع کنید، از [`continue`](https://doc."
+"rust-lang.org/reference/expressions/loop-expr.html#continue-expressions) "
+"استفاده کنید."
 
 #: src/control-flow/break-continue.md:7
 msgid ""
 "Both `continue` and `break` can optionally take a label argument which is "
 "used to break out of nested loops:"
 msgstr ""
+"کلیدواژه‌های `continue` و `break` هر دو می‌توانند به صورت اختیاری یک آرگومان "
+"برچسب (label) بگیرند که میتوان برای  خروج از حلقه‌های تو در تو استفاده می‌کرد:"
 
 #: src/control-flow/break-continue.md:29
 msgid ""
 "In this case we break the outer loop after 3 iterations of the inner loop."
-msgstr ""
+msgstr "در این مورد، پس از 3 تکرار حلقه `inner`، از حلقه `outer` خارج می‌شویم."
 
 #: src/control-flow/loop-expressions.md:1
 msgid "`loop` expressions"
-msgstr ""
+msgstr "عبارت `loop`"
 
 #: src/control-flow/loop-expressions.md:3
 msgid ""
 "Finally, there is a [`loop` keyword](https://doc.rust-lang.org/reference/"
 "expressions/loop-expr.html#infinite-loops) which creates an endless loop."
 msgstr ""
+"در نهایت، [کلمه کلیدی `loop`](https://doc.rust-lang.org/reference/"
+"expressions/loop-expr.html#infinite-loops) وجود دارد که یک حلقه بی‌پایان "
+"ایجاد می‌کند."
 
 #: src/control-flow/loop-expressions.md:6
 msgid "Here you must either `break` or `return` to stop the loop:"
 msgstr ""
+"اینجا باید از `break` یا `return` برای توقف حلقه و خروج از آن استفاده کنید:"
 
 #: src/control-flow/loop-expressions.md:28
 msgid "Break the `loop` with a value (e.g. `break 8`) and print it out."
 msgstr ""
+"حلقه `loop` را با یک مقدار متوقف کنید (به عنوان مثال <span dir=ltr>`break "
+"8`</span> ) و آن را چاپ کنید."
 
 #: src/control-flow/loop-expressions.md:29
 msgid ""
@@ -4247,6 +4294,9 @@ msgid ""
 "value. This is because it's guaranteed to be entered at least once (unlike "
 "`while` and `for` loops)."
 msgstr ""
+"توجه داشته باشید که loop تنها ساختار حلقه‌ای است که یک مقدار **non-trivial** "
+"را برمی‌گرداند. این به دلیل این است که  تضمین می‌شود حداقل یک بار وارد آن شود "
+"(برخلاف حلقه‌های `while` و `for`)."
 
 #: src/basic-syntax/variables.md:3
 msgid ""
