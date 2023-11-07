@@ -4303,22 +4303,28 @@ msgid ""
 "Rust provides type safety via static typing. Variable bindings are immutable "
 "by default:"
 msgstr ""
+"زبان Rust از طریق سیستم تایپ استاتیک, ایمینی نوع را فراهم می‌کند. به صورت "
+"پیشفرض تعریف متغییر ها از نوع «غیر قابل تغییر» (immutable) است:"
 
 #: src/basic-syntax/variables.md:18
 msgid ""
 "Due to type inference the `i32` is optional. We will gradually show the "
 "types less and less as the course progresses."
 msgstr ""
+"به دلیل تعیین نوع ضمنی گذاشتن `i32` اختیاریست. با جلو  رفتن در این دوره کمتر "
+"و کمتر آن را نشان خواهیم داد."
 
 #: src/basic-syntax/type-inference.md:3
 msgid "Rust will look at how the variable is _used_ to determine the type:"
-msgstr ""
+msgstr "زبان Rust برای تعیین نوع متغیر به نحوه استفاده از آن نگاه می‌کند:"
 
 #: src/basic-syntax/type-inference.md:27
 msgid ""
 "This slide demonstrates how the Rust compiler infers types based on "
 "constraints given by variable declarations and usages."
 msgstr ""
+"این اسلاید نشان می‌دهد که چگونه کامپایلر Rust با توجه به اعلان‌ها و استفاده‌های "
+"متغیر، انواع را استنتاج می‌کند. "
 
 #: src/basic-syntax/type-inference.md:29
 msgid ""
@@ -4328,6 +4334,11 @@ msgid ""
 "of a type. The compiler does the job for us and helps us write more concise "
 "code."
 msgstr ""
+"بسیار مهم است که تاکید کنیم متغیرهایی که به این صورت تعریف می‌شوند از «نوع "
+"داده پویای `any`» نیستند که بتواند هر نوعی باشند. وقتی که ما از **تعیین تایپ "
+"ضمنی** استفاده می‌کنیم در واقع مشابه زمانی هست که نوع داده را به صورت صریح "
+"اعلام میکنیم و کد های ماشین آنها دقیقا یکسان هستند. فقط با استفاده از  تعیین "
+"تایپ ضمنی میتوانید کد ها رو به صورت مختصرتر بنویسیم. "
 
 #: src/basic-syntax/type-inference.md:33
 msgid ""
@@ -4335,6 +4346,9 @@ msgid ""
 "container without the code ever explicitly specifying the contained type, "
 "using `_` as a placeholder:"
 msgstr ""
+"کد زیر به کامپایلر می‌گوید که بدون اینکه کد به صراحت نوع داده را مشخص کند، در "
+"یک کانتینر عمومی (generic container)  خاص کپی کند، با استفاده از _ به عنوان "
+"یک جایگزین برای اعلام نوع داده: "
 
 #: src/basic-syntax/type-inference.md:48
 msgid ""
@@ -4344,10 +4358,15 @@ msgid ""
 "org/std/collections/struct.HashSet.html#impl-FromIterator%3CT%3E-for-"
 "HashSet%3CT,+S%3E) implements."
 msgstr ""
+"[`collect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator."
+"html#method.collect) به [`FromIterator`](https://doc.rust-lang.org/std/iter/"
+"trait.FromIterator.html) متکی است که [`HashSet`](https://doc.rust-lang.org/"
+"std/collections/struct.HashSet.html#impl-FromIterator%3CT%3E-for-HashSet%3CT,"
+"+S%3E) آن را پیاده‌سازی می‌کند."
 
 #: src/basic-syntax/static-and-const.md:1
 msgid "Static and Constant Variables"
-msgstr ""
+msgstr "استاتیک ها و ثابت ها"
 
 #: src/basic-syntax/static-and-const.md:3
 msgid ""
@@ -4355,6 +4374,9 @@ msgid ""
 "scoped values that cannot be moved or reallocated during the execution of "
 "the program. "
 msgstr ""
+"متغیرهای `ثابت` و `ایستاتیک` دو روش متفاوت برای ایجاد مقادیر با اسکوپ گلوبال "
+"(قابل دسترس در کل برنامه) هستند که نمی‌توانند در طول اجرای برنامه منتقل یا "
+"دوباره تعریف شوند."
 
 #: src/basic-syntax/static-and-const.md:6
 msgid "`const`"
@@ -4365,18 +4387,25 @@ msgid ""
 "Constant variables are evaluated at compile time and their values are "
 "inlined wherever they are used:"
 msgstr ""
+"متغیرهای ثابت در زمان کامپایل ارزیابی می شوند و مقادیر آنها در هر جایی که "
+"استفاده می شوند، درج می شوند:"
 
 #: src/basic-syntax/static-and-const.md:30
 msgid ""
 "According to the [Rust RFC Book](https://rust-lang.github.io/rfcs/0246-const-"
 "vs-static.html) these are inlined upon use."
 msgstr ""
+"طبق [کتاب Rust RFC](https://rust-lang.github.io/rfcs/0246-const-vs-static."
+"html)، این موارد هنگام استفاده درج می شوند."
 
 #: src/basic-syntax/static-and-const.md:32
 msgid ""
 "Only functions marked `const` can be called at compile time to generate "
 "`const` values. `const` functions can however be called at runtime."
 msgstr ""
+"فقط توابعی که با `const` علامت گذاری شده اند می توانند در زمان کامپایل برای "
+"تولید مقادیر `const` فراخوانی شوند. با این حال، توابع `const` را می توان در "
+"زمان اجرا فراخوانی کرد (بر خلاف تعریف متغییری ثابت)"
 
 #: src/basic-syntax/static-and-const.md:34
 msgid "`static`"
@@ -4387,6 +4416,8 @@ msgid ""
 "Static variables will live during the whole execution of the program, and "
 "therefore will not move:"
 msgstr ""
+"متغیرهای ایستاتیک در طول عمر کل اجرای برنامه خواهند ماند و بنابراین منتقل "
+"نمی‌شوند:"
 
 #: src/basic-syntax/static-and-const.md:38
 msgid ""
@@ -4408,6 +4439,11 @@ msgid ""
 "globally-scoped value does not have a reason to need object identity, "
 "`const` is generally preferred."
 msgstr ""
+"همانطور که در [کتاب Rust RFC](https://rust-lang.github.io/rfcs/0246-const-vs-"
+"static.html) ذکر شده، این موارد هنگام استفاده درج نمی شوند و دارای یک مکان "
+"حافظه واقعی هستند. این برای کدهای ناایمن و `embedded` مفید است و متغیر در کل "
+"اجرای برنامه زنده می ماند. هنگامی که یک مقدار با اسکوپ گلوبال نیاز نیست, "
+"استفاده از `const` ترجیح داده می‌شود."
 
 #: src/basic-syntax/static-and-const.md:50
 msgid ""
@@ -4418,40 +4454,58 @@ msgid ""
 "access to them requires `unsafe` code. We will look at [mutable statics](../"
 "unsafe/mutable-static-variables.md) in the chapter on Unsafe Rust."
 msgstr ""
+"از آنجایی که متغیرهای `static` از هر رشته‌ای (thread) قابل دسترسی هستند، باید "
+"`Sync` باشند. تغییرپذیری داخلی از طریق یک [`Mutex`](https://doc.rust-lang."
+"org/std/sync/struct.Mutex.html)، اتمی یا مشابه امکان پذیر است. البته که "
+"داشتن متغییر های استاتیک قابل تغییر هم امکان پذیر هست اما برای این کار نیاز "
+"به همگام سازی دستی دارند.  بنابراین هر دسترسی به آنها نیاز به کد `unsafe` "
+"دارد. ما در فصل Unsafe Rust به استاتیک های قابل تغییر [mutable statics](../"
+"unsafe/mutable-static-variables.md) نگاه خواهیم کرد."
 
 #: src/basic-syntax/static-and-const.md:58
 msgid "Mention that `const` behaves semantically similar to C++'s `constexpr`."
 msgstr ""
+"به این نکته اشاره کنید که `const` شبیه `constexpr` در <span dir=ltr>`C++`</"
+"span> عمل می کند."
 
 #: src/basic-syntax/static-and-const.md:59
 msgid ""
 "`static`, on the other hand, is much more similar to a `const` or mutable "
 "global variable in C++."
 msgstr ""
+"از سوی دیگر، `static` بسیار شبیه به یک متغیر سراسری `const` یا `mutable` در "
+"<span dir=ltr>`C++`</span> هستند."
 
 #: src/basic-syntax/static-and-const.md:60
 msgid ""
 "`static` provides object identity: an address in memory and state as "
 "required by types with interior mutability such as `Mutex<T>`."
 msgstr ""
+"`static` هویت شی را فراهم می‌کند: آدرسی در حافظه و حالتی که توسط انواع با "
+"تغییرپذیری داخلی مانند <span dir=ltr>`Mutex<T>`</span> را نیاز دارد."
 
 #: src/basic-syntax/static-and-const.md:61
 msgid ""
 "It isn't super common that one would need a runtime evaluated constant, but "
 "it is helpful and safer than using a static."
 msgstr ""
+"با اینکه خیلی رایج نیست که اگر کسی به یک یک مقدار ثابت  که در زمان اجرا "
+"ارزیابی می‌شود از `const` استفاده کند اما مفید تر و ایمن تر از استفاده "
+"`static`ها هستند."
 
 #: src/basic-syntax/static-and-const.md:62
 msgid "`thread_local` data can be created with the macro `std::thread_local`."
 msgstr ""
+"داده‌های `thread_local` را با ماکروی <span dir=ltr>`std::thread_local`</span> "
+"می‌توان ایجاد کرد."
 
 #: src/basic-syntax/static-and-const.md:64
 msgid "Properties table:"
-msgstr ""
+msgstr "جدول خاصیت‌ها:"
 
 #: src/basic-syntax/static-and-const.md:66
 msgid "Property"
-msgstr ""
+msgstr "ویژگی"
 
 #: src/basic-syntax/static-and-const.md:66
 msgid "Static"
@@ -4463,54 +4517,56 @@ msgstr ""
 
 #: src/basic-syntax/static-and-const.md:68
 msgid "Has an address in memory"
-msgstr ""
+msgstr "دارای یک آدرس واقعی در حافظه"
 
 #: src/basic-syntax/static-and-const.md:68
 #: src/basic-syntax/static-and-const.md:69
 #: src/basic-syntax/static-and-const.md:71
 #: src/basic-syntax/static-and-const.md:72
 msgid "Yes"
-msgstr ""
+msgstr "بلی"
 
 #: src/basic-syntax/static-and-const.md:68
 msgid "No (inlined)"
-msgstr ""
+msgstr "خیر (به صورت درون خطی)"
 
 #: src/basic-syntax/static-and-const.md:69
 msgid "Lives for the entire duration of the program"
-msgstr ""
+msgstr "در طول‌عمر کل برنامه زنده می‌ماند؟"
 
 #: src/basic-syntax/static-and-const.md:69
 #: src/basic-syntax/static-and-const.md:70
 #: src/basic-syntax/static-and-const.md:72
 msgid "No"
-msgstr ""
+msgstr "خیر"
 
 #: src/basic-syntax/static-and-const.md:70
 msgid "Can be mutable"
-msgstr ""
+msgstr "میتوان قابل تغییر اش کرد"
 
 #: src/basic-syntax/static-and-const.md:70
 msgid "Yes (unsafe)"
-msgstr ""
+msgstr "بلی (unsafe)"
 
 #: src/basic-syntax/static-and-const.md:71
 msgid "Evaluated at compile time"
-msgstr ""
+msgstr "ارزیابی در زمان کامپایل"
 
 #: src/basic-syntax/static-and-const.md:71
 msgid "Yes (initialised at compile time)"
-msgstr ""
+msgstr "بلی (در زمان کامپایل ساخته می‌شود)"
 
 #: src/basic-syntax/static-and-const.md:72
 msgid "Inlined wherever it is used"
-msgstr ""
+msgstr "به صورت درون‌خطی هر جا که استفاده میشود قرار میگیرد"
 
 #: src/basic-syntax/scopes-shadowing.md:3
 msgid ""
 "You can shadow variables, both those from outer scopes and variables from "
 "the same scope:"
 msgstr ""
+"شما می توانید متغیرها را سایه بزنید، هم آنهایی که از اسکوپ‌های بیرونی هستند و "
+"هم متغیرهایی که از اسکوپ یکسان هستند:"
 
 #: src/basic-syntax/scopes-shadowing.md:6
 msgid ""
@@ -4538,16 +4594,21 @@ msgid ""
 "both variable's memory locations exist at the same time. Both are available "
 "under the same name, depending where you use it in the code. "
 msgstr ""
+"تعریف: سایه زدن با متغییر قابل تغییر متفاوت است، زیرا پس از سایه زدن، مکان "
+"های حافظه هر دو متغیر همزمان وجود دارند. هر دو تحت یک نام در دسترس هستند، "
+"بسته به اینکه در کجا در کد از آن استفاده می کنید."
 
 #: src/basic-syntax/scopes-shadowing.md:26
 msgid "A shadowing variable can have a different type. "
-msgstr ""
+msgstr "یک متغیر سایه‌دار می تواند انواع داده‌ای متفاوتی داشته باشد."
 
 #: src/basic-syntax/scopes-shadowing.md:27
 msgid ""
 "Shadowing looks obscure at first, but is convenient for holding on to values "
 "after `.unwrap()`."
 msgstr ""
+"سایه زدن در ابتدا مبهم به نظر می رسد، اما برای نگه داشتن مقادیر پس از  <span "
+"dir=ltr>`.unwrap()`</span> مناسب است."
 
 #: src/basic-syntax/scopes-shadowing.md:28
 msgid ""
@@ -4555,12 +4616,17 @@ msgid ""
 "locations when shadowing an immutable variable in a scope, even if the type "
 "does not change."
 msgstr ""
+"کد زیر نشان می دهد که چرا کامپایلر نمی تواند به سادگی از مکان های حافظه که "
+"قبلا برای یک متغییر در نظر گرفته است به صورت مجدد وقتی که یک متغییر غیر قابل "
+"تغییر داریم استفاده کند. حتی اگر چه نوع داده تغییر نکند."
 
 #: src/enums.md:3
 msgid ""
 "The `enum` keyword allows the creation of a type which has a few different "
 "variants:"
 msgstr ""
+"کلمه کلیدی `enum` اجازه ایجاد نوع داده‌ای را می دهد که دارای چندین گونه مختلف "
+"است:"
 
 #: src/enums.md:6
 msgid ""
@@ -4594,26 +4660,32 @@ msgstr ""
 #: src/enums.md:36
 msgid "Enumerations allow you to collect a set of values under one type"
 msgstr ""
+"`Enum`ها به شما امکان می دهند مجموعه‌ای از مقادیر مختلف با نوع‌های مختلف را "
+"تحت یک نوع جمع آوری کنید."
 
 #: src/enums.md:37
 msgid ""
 "This page offers an enum type `CoinFlip` with two variants `Heads` and "
 "`Tails`. You might note the namespace when using variants."
 msgstr ""
+"در این صفحه نوع`Enum`به اسم `CoinFlip` که دارای `Heads` و `Tails` می‌باشد. "
+"هنگام استفاده از `Enum`ها، به این اینگونه نام‌ها توجه کنید."
 
 #: src/enums.md:38
 msgid "This might be a good time to compare Structs and Enums:"
-msgstr ""
+msgstr "الان زمان خوبی برای مقایسه ساختارها و `Enum`هاست:"
 
 #: src/enums.md:39
 msgid ""
 "In both, you can have a simple version without fields (unit struct) or one "
 "with different types of fields (variant payloads). "
 msgstr ""
+"در هر دو، می توانید یک نسخه ساده بدون فیلد (unit struct) یا یکی با انواع "
+"مختلف فیلد (variant payloads) داشته باشید."
 
 #: src/enums.md:40
 msgid "In both, associated functions are defined within an `impl` block."
-msgstr ""
+msgstr "در هر دو، توابع مورد نیازشون در داخل یک بلاک `impl` تعریف می‌شوند."
 
 #: src/enums.md:41
 msgid ""
@@ -4621,12 +4693,17 @@ msgid ""
 "structs but then they wouldn’t be the same type as they would if they were "
 "all defined in an enum. "
 msgstr ""
+"شما حتی می توانید انواع مختلف یک `Enum` را با ساختارهای جداگانه پیاده سازی "
+"کنید، اما در آن صورت آنها از همان نوعی که در ابتدا تعریف کردید یعنی `Enum` "
+"نخواهند بود."
 
 #: src/enums/variant-payloads.md:3
 msgid ""
 "You can define richer enums where the variants carry data. You can then use "
 "the `match` statement to extract the data from each variant:"
 msgstr ""
+"می توانید شمارش های غنی تری را تعریف کنید که در آن انواع مختلف داده باشند. "
+"سپس می‌توانید از دستور `match` برای استخراج داده‌ها از هر فیلد استفاده کنید:"
 
 #: src/enums/variant-payloads.md:6
 msgid ""
@@ -4664,46 +4741,64 @@ msgid ""
 "matched. The pattern binds references to the fields in the \"match arm\" "
 "after the `=>`."
 msgstr ""
+"مقادیر در`Enum` فقط پس از طییق الگوی قابل دسترسی هستند. الگو ارجاعی را به "
+"فیلدهای موجود با استفاده  بازوی `match` پس از <span dir=ltr>`=>`</span>  "
+"متصل می کند."
 
 #: src/enums/variant-payloads.md:36
 msgid ""
 "The expression is matched against the patterns from top to bottom. There is "
 "no fall-through like in C or C++."
 msgstr ""
+"بر خلاف زبان‌های برخلاف C یا <span dir=ltr>`C++`</span> طبیق الگو به صورت از "
+"بالا به پایین نمی‌باشد."
 
 #: src/enums/variant-payloads.md:37
 msgid ""
 "The match expression has a value. The value is the last expression in the "
 "match arm which was executed."
 msgstr ""
+"عبارت `match` دارای یک مقدار بازگشتی است. این مقدار آخرین عبارت در بازوی "
+"`match` ای است که اجرا شده است."
 
 #: src/enums/variant-payloads.md:38
 msgid ""
 "Starting from the top we look for what pattern matches the value then run "
 "the code following the arrow. Once we find a match, we stop. "
 msgstr ""
+"از بالا شروع می‌کنیم و به دنبال الگویی هستیم که با مقدار مطابقت داشته باشد، "
+"سپس کد پس از <span dir=ltr>`=>`</span> را اجرا می‌کنیم. بعد از اینکه توی "
+"match اولین طبیق الگو انجام شد جستجو متوقف میشود."
 
 #: src/enums/variant-payloads.md:39
 msgid ""
 "Demonstrate what happens when the search is inexhaustive. Note the advantage "
 "the Rust compiler provides by confirming when all cases are handled. "
 msgstr ""
+"این اتفاق را زمانی که الگوهای جستجو کامل نیستند نشان دهید. به مزیت کامپایلر "
+"Rust که با تایید زمانی که همه موارد رسیدگی می‌شوند، اشاره کنید."
 
 #: src/enums/variant-payloads.md:40
 msgid "`match` inspects a hidden discriminant field in the `enum`."
 msgstr ""
+"دستور `match` یک فیلد تشخیصی پنهان (hidden discriminant field) در `enum` را "
+"بررسی می کند."
 
 #: src/enums/variant-payloads.md:41
 msgid ""
 "It is possible to retrieve the discriminant by calling `std::mem::"
 "discriminant()`"
 msgstr ""
+"می توان با فراخوانی <span dir=ltr>`std::mem::discriminant()`</span> فیلد "
+"تشخیصی پنهان  را دریافت کرد."
 
 #: src/enums/variant-payloads.md:42
 msgid ""
 "This is useful, for example, if implementing `PartialEq` for structs where "
 "comparing field values doesn't affect equality."
 msgstr ""
+"بهتره بدانیم که اگر `PartialEq` را برای ساختارهایی پیاده سازی کنیم. قابلیت  "
+"`PartialEq`  بر برابری تأثیر نمی‌گذارد."
 
 #: src/enums/variant-payloads.md:43
 msgid ""
@@ -4711,6 +4806,10 @@ msgid ""
 "Click(Click)` with a top level `struct Click { ... }`. The inlined version "
 "cannot implement traits, for example."
 msgstr ""
+"<span dir=ltr>`WebEvent::Click { ... }`</span> دقیقاً مانند <span "
+"dir=ltr>`WebEvent::Click(Click)`</span> با <span dir=ltr>`struct Click "
+"{ ... }`</span> در سطح بالا نیست.برای مثال, نسخه درون‌خطی نمی‌تواند ویژگی‌ها را "
+"پیاده‌سازی کند."
 
 #: src/enums/sizes.md:3
 msgid ""
