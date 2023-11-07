@@ -720,7 +720,7 @@ msgstr "マイクロコントローラ"
 
 #: src/SUMMARY.md:224 src/bare-metal/microcontrollers/mmio.md:1
 msgid "Raw MMIO"
-msgstr "生MMIO（メモリマップトI/O）"
+msgstr "生MMIO（メモリマップドI/O）"
 
 #: src/SUMMARY.md:225
 msgid "PACs"
@@ -3565,6 +3565,7 @@ msgid ""
 "After looking at the exercises, you can look at the [solutions](solutions-"
 "morning.md) provided."
 msgstr ""
+"練習問題に取り組んだあとは、 [解答](solutions-morning.md)をみても構いません。"
 
 #: src/exercises/day-1/implicit-conversions.md:3
 msgid ""
@@ -12017,28 +12018,36 @@ msgid ""
 "The `cortex_m_rt` crate provides (among other things) a reset handler for "
 "Cortex M microcontrollers."
 msgstr ""
+"`cortex_m_rt`クレートはCortex Mマイクロコントローラ向けのリセットハンドラ（と"
+"その他もろもろ）を提供します。"
 
 #: src/bare-metal/microcontrollers.md:21
 msgid ""
 "Next we'll look at how to access peripherals, with increasing levels of "
 "abstraction."
 msgstr ""
+"次は、抽象度の低いレベルから順に周辺I/Oにアクセスする方法について見ていきま"
+"す。"
 
 #: src/bare-metal/microcontrollers.md:25
 msgid ""
 "The `cortex_m_rt::entry` macro requires that the function have type `fn() -"
 "> !`, because returning to the reset handler doesn't make sense."
 msgstr ""
+"リセットハンドラはリターンしないので、`cortex_m_rt::entry`マクロは対象関数が"
+"`fn() -> !`という型であることを要求します。"
 
 #: src/bare-metal/microcontrollers.md:27
 msgid "Run the example with `cargo embed --bin minimal`"
-msgstr ""
+msgstr "この例は`cargo embed --bin minimal`により実行します"
 
 #: src/bare-metal/microcontrollers/mmio.md:3
 msgid ""
 "Most microcontrollers access peripherals via memory-mapped IO. Let's try "
 "turning on an LED on our micro:bit:"
 msgstr ""
+"大半のマイクロコントローラはメモリマップドRIO空間を通して周辺I/Oにアクセスし"
+"ます。micro:bitのLEDを光らせてみましょう:"
 
 #: src/bare-metal/microcontrollers/mmio.md:6
 msgid ""
@@ -12110,17 +12119,19 @@ msgid ""
 "GPIO 0 pin 21 is connected to the first column of the LED matrix, and pin 28 "
 "to the first row."
 msgstr ""
+"GPIO 0のピン21はマトリクスLEDの一番目の列に、ピン28は最初の行に接続されていま"
+"す。"
 
 #: src/bare-metal/microcontrollers/mmio.md:66
 #: src/bare-metal/microcontrollers/pacs.md:59
 #: src/bare-metal/microcontrollers/hals.md:43
 #: src/bare-metal/microcontrollers/board-support.md:34
 msgid "Run the example with:"
-msgstr ""
+msgstr "例の実行方法:"
 
 #: src/bare-metal/microcontrollers/pacs.md:1
 msgid "Peripheral Access Crates"
-msgstr ""
+msgstr "周辺I/Oへアクセスするためのクレート（PACs）"
 
 #: src/bare-metal/microcontrollers/pacs.md:3
 msgid ""
@@ -12128,6 +12139,9 @@ msgid ""
 "wrappers for memory-mapped peripherals from [CMSIS-SVD](https://www.keil.com/"
 "pack/doc/CMSIS/SVD/html/index.html) files."
 msgstr ""
+"[`svd2rust`](https://crates.io/crates/svd2rust) は[CMSIS-SVD](https://www."
+"keil.com/pack/doc/CMSIS/SVD/html/index.html) ファイルから、メモリマップされた"
+"周辺I/Oに対するほぼ安全（mostly-safe）なRustラッパーを生成します。"
 
 #: src/bare-metal/microcontrollers/pacs.md:7
 msgid ""
@@ -12177,12 +12191,16 @@ msgid ""
 "SVD (System View Description) files are XML files typically provided by "
 "silicon vendors which describe the memory map of the device."
 msgstr ""
+"SVD (System View Description)ファイルはXMLファイルでデバイスのメモリマップを"
+"記述したものであり、通常シリコンベンダにより提供されます。"
 
 #: src/bare-metal/microcontrollers/pacs.md:51
 msgid ""
 "They are organised by peripheral, register, field and value, with names, "
 "descriptions, addresses and so on."
 msgstr ""
+"周辺I/Oごとに、レジスタ、フィールドと値、名前、説明、アドレスなどにより構成さ"
+"れています。"
 
 #: src/bare-metal/microcontrollers/pacs.md:53
 msgid ""
@@ -12190,20 +12208,25 @@ msgid ""
 "which patch the mistakes, add missing details, and publish the generated "
 "crates."
 msgstr ""
+"SVDファイルにはよく誤りがあり、また情報が不足していることも多いので、様々なプ"
+"ロジェクトがそれを修正・追加し、クレートとして公開しています。"
 
 #: src/bare-metal/microcontrollers/pacs.md:55
 msgid "`cortex-m-rt` provides the vector table, among other things."
-msgstr ""
+msgstr "`cortex-m-rt`はベクタテーブルも提供します。"
 
 #: src/bare-metal/microcontrollers/pacs.md:56
 msgid ""
 "If you `cargo install cargo-binutils` then you can run `cargo objdump --bin "
 "pac -- -d --no-show-raw-insn` to see the resulting binary."
 msgstr ""
+"もし`cargo install cargo-binutils`を実行していれば、`cargo objdump --bin pac "
+"-- -d --no-show-raw-insn`を実行することにより生成されたバイナリの中身を見るこ"
+"とができます。"
 
 #: src/bare-metal/microcontrollers/hals.md:1
 msgid "HAL crates"
-msgstr ""
+msgstr "HALクレート"
 
 #: src/bare-metal/microcontrollers/hals.md:3
 msgid ""
@@ -12212,6 +12235,10 @@ msgid ""
 "various peripherals. These generally implement traits from [`embedded-hal`]"
 "(https://crates.io/crates/embedded-hal)."
 msgstr ""
+"多くのマイクロコントローラに対する[HALクレート](https://github.com/rust-"
+"embedded/awesome-embedded-rust#hal-implementation-crates)が様々な周辺I/Oに対"
+"するラッパーを提供しています。これらのクレートの多くは[`embedded-hal`]"
+"(https://crates.io/crates/embedded-hal)が定義するトレイトを実装しています。"
 
 #: src/bare-metal/microcontrollers/hals.md:7
 msgid ""
@@ -12250,42 +12277,52 @@ msgstr ""
 msgid ""
 "`set_low` and `set_high` are methods on the `embedded_hal` `OutputPin` trait."
 msgstr ""
+"`set_low`と`set_high`は`embedded_hal`の`OutputPin`トレイトの定義するメソッド"
+"です。"
 
 #: src/bare-metal/microcontrollers/hals.md:40
 msgid ""
 "HAL crates exist for many Cortex-M and RISC-V devices, including various "
 "STM32, GD32, nRF, NXP, MSP430, AVR and PIC microcontrollers."
 msgstr ""
+"Cortex-MやRISC-Vの多くのデバイスに対してHALクレートが存在し、これらには"
+"STM32、GD32、nRF、NXP、MSP430、AVR、PICマイクロコントローラなどが含まれます。"
 
 #: src/bare-metal/microcontrollers/board-support.md:1
 msgid "Board support crates"
-msgstr ""
+msgstr "ボードサポートクレート"
 
 #: src/bare-metal/microcontrollers/board-support.md:3
 msgid ""
 "Board support crates provide a further level of wrapping for a specific "
 "board for convenience."
 msgstr ""
+"ボードサポートクレードは特定のボードに対して更に利便性を向上させるラッパーを"
+"提供します。"
 
 #: src/bare-metal/microcontrollers/board-support.md:28
 msgid ""
 "In this case the board support crate is just providing more useful names, "
 "and a bit of initialisation."
 msgstr ""
+"この例では、ボードサポートクレートは単に分かりやすい名前を提供し、少しの初期"
+"化を実施しているだけです。"
 
 #: src/bare-metal/microcontrollers/board-support.md:30
 msgid ""
 "The crate may also include drivers for some on-board devices outside of the "
 "microcontroller itself."
 msgstr ""
+"マイクロコントローラの外に実装されたオンボードデバイスに対するドライバも提供"
+"されていることがあります。"
 
 #: src/bare-metal/microcontrollers/board-support.md:32
 msgid "`microbit-v2` includes a simple driver for the LED matrix."
-msgstr ""
+msgstr "`microbit-v2`はマトリクスLEDに対する簡単なドライバを含んでいます。"
 
 #: src/bare-metal/microcontrollers/type-state.md:1
 msgid "The type state pattern"
-msgstr ""
+msgstr "タイプステートパターン"
 
 #: src/bare-metal/microcontrollers/type-state.md:3
 msgid ""
@@ -12325,12 +12362,17 @@ msgid ""
 "Pins don't implement `Copy` or `Clone`, so only one instance of each can "
 "exist. Once a pin is moved out of the port struct nobody else can take it."
 msgstr ""
+"この例では、ピンを表すタイプは`Copy`も`Clone`も実装していません。そのため、た"
+"だ一つのインスタンスだけが存在可能です。ピンがポート構造体からムーブされる"
+"と、他の誰もそのピンにアクセスすることはできなくなります。"
 
 #: src/bare-metal/microcontrollers/type-state.md:34
 msgid ""
 "Changing the configuration of a pin consumes the old pin instance, so you "
 "can’t keep use the old instance afterwards."
 msgstr ""
+"ピンの設定を変更することは古いピンのインスタンスを消費することになります。そ"
+"のため、それ以降は古いインスタンスを使い続けることはできなくなります。"
 
 #: src/bare-metal/microcontrollers/type-state.md:36
 msgid ""
@@ -12340,16 +12382,23 @@ msgid ""
 "way without properly configuring it first. Illegal state transitions are "
 "caught at compile time."
 msgstr ""
+"変数の型はその状態を表すようになっています。例えば、この例では型がGPIOピンの"
+"状態を表しています。このようにステートマシンをタイプシステムに織り込むこと"
+"で、正しい設定をせずにピンを使ってしまうことがなくなります。不正な状態遷移に"
+"関してはコンパイル時に発見されるようになります。"
 
 #: src/bare-metal/microcontrollers/type-state.md:40
 msgid ""
 "You can call `is_high` on an input pin and `set_high` on an output pin, but "
 "not vice-versa."
 msgstr ""
+"インプットピンに対して`is_high`を呼び出すことは可能で、アウトプットピンに対し"
+"て`set_high`を呼び出すことも可能です。しかし、その逆の組み合わせは不可能で"
+"す。"
 
 #: src/bare-metal/microcontrollers/type-state.md:41
 msgid "Many HAL crates follow this pattern."
-msgstr ""
+msgstr "多くのHALクレートがこのパターンを用いています。"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:1
 msgid "`embedded-hal`"
@@ -12360,6 +12409,8 @@ msgid ""
 "The [`embedded-hal`](https://crates.io/crates/embedded-hal) crate provides a "
 "number of traits covering common microcontroller peripherals."
 msgstr ""
+"[`embedded-hal`](https://crates.io/crates/embedded-hal)クレートはマイクロコン"
+"トローラの周辺I/Oに関して共通に必要とされる多くのトレイトを提供します。"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:6
 msgid "GPIO"
@@ -12391,18 +12442,24 @@ msgid ""
 "awesome-embedded-rust#driver-crates) in terms of these traits, e.g. an "
 "accelerometer driver might need an I2C or SPI bus implementation."
 msgstr ""
+"多くのクレートはこれらのトレイトに対応することで[ドライバ](https://github."
+"com/rust-embedded/awesome-embedded-rust#driver-crates)を実装します。例えば、"
+"加速度センサのドライバにはI2CやSPIバスの実装が必要かもしれません。"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:19
 msgid ""
 "There are implementations for many microcontrollers, as well as other "
 "platforms such as Linux on Raspberry Pi."
 msgstr ""
+"多くのマイクロコントローラに対する実装に加えて、Raspberry Pi上のLinux向けの実"
+"装も存在します。"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:21
 msgid ""
 "There is work in progress on an `async` version of `embedded-hal`, but it "
 "isn't stable yet."
 msgstr ""
+"`embedded-hal`の`async`バージョンも開発中ですが、まだ安定してはいません。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:1
 msgid "`probe-rs`, `cargo-embed`"
@@ -12413,19 +12470,22 @@ msgid ""
 "[probe-rs](https://probe.rs/) is a handy toolset for embedded debugging, "
 "like OpenOCD but better integrated."
 msgstr ""
+"[probe-rs](https://probe.rs/)は組み込み向けデバッグに有用なツールセットです。"
+"これはOpenOCDのようなものですが、より高度に統合されています。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:6
 msgid ""
 "SWD (Serial Wire Debug) and JTAG via CMSIS-DAP, ST-Link and J-Link probes"
 msgstr ""
+"SWD (Serial Wire Debug) やCMSIS-DAP経由のJTAG、 ST-LinkやJ-Linkプローブ"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:7
 msgid "GDB stub and Microsoft DAP (Debug Adapter Protocol) server"
-msgstr ""
+msgstr "GDBスタブやMicrosoft DAP (Debug Adapter Protocol)サーバ"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:8
 msgid "Cargo integration"
-msgstr ""
+msgstr "Cargoとのインテグレーション"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:10
 msgid ""
@@ -12433,6 +12493,10 @@ msgid ""
 "(Real Time Transfers) output and connect GDB. It's configured by an `Embed."
 "toml` file in your project directory."
 msgstr ""
+"`cargo-embed`はcargoのサブコマンドであり、バイナリをビルドしたり、フラッシュ"
+"したり、RTT（Real Time Transfers）の出力ログを取得したり、GDBに接続するための"
+"ものです。設定は対象とするプロジェクトディレクトリにおける`Embed.toml`ファイ"
+"ルにより行います。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:16
 msgid ""
@@ -12441,24 +12505,33 @@ msgid ""
 "CoreSight Debug Access Port of various Arm Cortex processors. It's what the "
 "on-board debugger on the BBC micro:bit uses."
 msgstr ""
+"[CMSIS-DAP](https://arm-software.github.io/CMSIS_5/DAP/html/index.html) はUSB"
+"上のARM標準プロトコルで、インサーキット・デバッガが様々なArm Cortexプロセッサ"
+"のコアサイト・デバッグ・アクセスポートにアクセスするためのものです。BBC "
+"micro:bit のオンボード・デバッガもこれを利用しています。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:19
 msgid ""
 "ST-Link is a range of in-circuit debuggers from ST Microelectronics, J-Link "
 "is a range from SEGGER."
 msgstr ""
+"ST-Link はST Microelectronicsによるインサーキット・デバッガの総称で、 J-Link"
+"はSEGGERによるインサーキット・デバッガの総称です。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:21
 msgid ""
 "The Debug Access Port is usually either a 5-pin JTAG interface or 2-pin "
 "Serial Wire Debug."
 msgstr ""
+"デバッグ・アクセスポートは通常５ピンのJTAGインタフェースか、2ピンのシリアルワ"
+"イヤデバッグです。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:22
 msgid ""
 "probe-rs is a library which you can integrate into your own tools if you "
 "want to."
 msgstr ""
+"probe-rsは自分で独自のツールを統合したい場合に利用できるライブラリです。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:23
 msgid ""
@@ -12466,16 +12539,21 @@ msgid ""
 "adapter-protocol/) lets VSCode and other IDEs debug code running on any "
 "supported microcontroller."
 msgstr ""
+"[Microsoft Debug Adapter Protocol](https://microsoft.github.io/debug-adapter-"
+"protocol/) はVSCodeや他のIDEから、サポートされたマイクロコントローラ上で実行"
+"されているコードをデバッグすることを可能にします。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:25
 msgid "cargo-embed is a binary built using the probe-rs library."
-msgstr ""
+msgstr "cargo-embedはprobe-rsライブラリを利用して生成されたバイナリです。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:26
 msgid ""
 "RTT (Real Time Transfers) is a mechanism to transfer data between the debug "
 "host and the target through a number of ringbuffers."
 msgstr ""
+"RTT (Real Time Transfers)はデバッグホストとターゲット間のデータを多くのリング"
+"バッファを介してやりとりするためのメカニズムです。"
 
 #: src/bare-metal/microcontrollers/debugging.md:3
 msgid "_Embed.toml_:"
@@ -12484,23 +12562,25 @@ msgstr ""
 #: src/bare-metal/microcontrollers/debugging.md:13
 msgid "In one terminal under `src/bare-metal/microcontrollers/examples/`:"
 msgstr ""
+"ひとつのターミナルで、`src/bare-metal/microcontrollers/examples/`において下記"
+"を実行:"
 
 #: src/bare-metal/microcontrollers/debugging.md:19
 msgid "In another terminal in the same directory:"
-msgstr ""
+msgstr "別のターミナルで、同じディレクトリで下記を実行:"
 
 #: src/bare-metal/microcontrollers/debugging.md:21
 msgid "On gLinux or Debian:"
-msgstr ""
+msgstr "gLinuxまたはDebianの場合:"
 
 #: src/bare-metal/microcontrollers/debugging.md:34
 msgid "In GDB, try running:"
-msgstr ""
+msgstr "GDBで下記を実行してみてください:"
 
 #: src/bare-metal/microcontrollers/other-projects.md:1
 #: src/bare-metal/aps/other-projects.md:1
 msgid "Other projects"
-msgstr ""
+msgstr "他のプロジェクト"
 
 #: src/bare-metal/microcontrollers/other-projects.md:3
 msgid "[RTIC](https://rtic.rs/)"
@@ -12508,12 +12588,14 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/other-projects.md:4
 msgid "\"Real-Time Interrupt-driven Concurrency\""
-msgstr ""
+msgstr "\"Real-Time Interrupt-driven Concurrency\"の略"
 
 #: src/bare-metal/microcontrollers/other-projects.md:5
 msgid ""
 "Shared resource management, message passing, task scheduling, timer queue"
 msgstr ""
+"共有リソース管理、メッセージパッシング、タスクスケジューリング、タイマキュー"
+"を提供"
 
 #: src/bare-metal/microcontrollers/other-projects.md:6
 msgid "[Embassy](https://embassy.dev/)"
@@ -12521,7 +12603,7 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/other-projects.md:7
 msgid "`async` executors with priorities, timers, networking, USB"
-msgstr ""
+msgstr "優先度付き`async` エグゼキュータ、タイマ、ネットワーク、USB"
 
 #: src/bare-metal/microcontrollers/other-projects.md:8
 msgid "[TockOS](https://www.tockos.org/documentation/getting-started)"
@@ -12532,6 +12614,8 @@ msgid ""
 "Security-focused RTOS with preemptive scheduling and Memory Protection Unit "
 "support"
 msgstr ""
+"セキュリティに焦点をあてたRTOSで、プリエンプティブ・スケジューリングとMemory "
+"Protection Unitをサポート"
 
 #: src/bare-metal/microcontrollers/other-projects.md:10
 msgid "[Hubris](https://hubris.oxide.computer/)"
@@ -12542,51 +12626,65 @@ msgid ""
 "Microkernel RTOS from Oxide Computer Company with memory protection, "
 "unprivileged drivers, IPC"
 msgstr ""
+"Oxide Computer CompanyによるマイクロカーネルのRTOSでメモリ保護、非特権ドライ"
+"バ、IPCを提供"
 
 #: src/bare-metal/microcontrollers/other-projects.md:12
 msgid "[Bindings for FreeRTOS](https://github.com/lobaro/FreeRTOS-rust)"
 msgstr ""
+"[FreeRTOSに対するRustバインディング](https://github.com/lobaro/FreeRTOS-rust)"
 
 #: src/bare-metal/microcontrollers/other-projects.md:13
 msgid ""
 "Some platforms have `std` implementations, e.g. [esp-idf](https://esp-rs."
 "github.io/book/overview/using-the-standard-library.html)."
 msgstr ""
+"いくつかのプラットフォームでは `std`の実装あり、例えば [esp-idf](https://esp-"
+"rs.github.io/book/overview/using-the-standard-library.html)。"
 
 #: src/bare-metal/microcontrollers/other-projects.md:18
 msgid "RTIC can be considered either an RTOS or a concurrency framework."
 msgstr ""
+"RTICはRTOSとして捉えることもできますし、並行実行のフレームワークとして捉える"
+"こともできます。"
 
 #: src/bare-metal/microcontrollers/other-projects.md:19
 msgid "It doesn't include any HALs."
-msgstr ""
+msgstr "他のHALを全く含んでいません。"
 
 #: src/bare-metal/microcontrollers/other-projects.md:20
 msgid ""
 "It uses the Cortex-M NVIC (Nested Virtual Interrupt Controller) for "
 "scheduling rather than a proper kernel."
 msgstr ""
+"スケジューリングはカーネルではなく、Cortex-M NVIC (Nested Virtual Interrupt "
+"Controller)を利用して行います。"
 
 #: src/bare-metal/microcontrollers/other-projects.md:22
 msgid "Cortex-M only."
-msgstr ""
+msgstr "Cortex-Mのみの対応です。"
 
 #: src/bare-metal/microcontrollers/other-projects.md:23
 msgid ""
 "Google uses TockOS on the Haven microcontroller for Titan security keys."
 msgstr ""
+"GoogleはTockOSをTitanセキュリティキーのHavenマイクロコントローラで利用してい"
+"ます。"
 
 #: src/bare-metal/microcontrollers/other-projects.md:24
 msgid ""
 "FreeRTOS is mostly written in C, but there are Rust bindings for writing "
 "applications."
 msgstr ""
+"FreeRTOS はほとんどCで書かれていますが、アプリケーションを開発するためのRust"
+"バインディングが存在します。"
 
 #: src/exercises/bare-metal/morning.md:3
 msgid ""
 "We will read the direction from an I2C compass, and log the readings to a "
 "serial port."
 msgstr ""
+"I2C接続のコンパスから方位を読み取り、その結果をシリアルポートに出力します。"
 
 #: src/exercises/bare-metal/compass.md:3
 msgid ""
@@ -12594,10 +12692,12 @@ msgid ""
 "serial port. If you have time, try displaying it on the LEDs somehow too, or "
 "use the buttons somehow."
 msgstr ""
+"I2C接続のコンパスから方位を読み取り、その結果をシリアルポートに出力します。も"
+"し時間があれば、LEDやボタンをなんとか利用して方位を出力してみてください。"
 
 #: src/exercises/bare-metal/compass.md:6
 msgid "Hints:"
-msgstr ""
+msgstr "ヒント:"
 
 #: src/exercises/bare-metal/compass.md:8
 msgid ""
@@ -12606,16 +12706,20 @@ msgid ""
 "microbit/) crates, as well as the [micro:bit hardware](https://tech.microbit."
 "org/hardware/)."
 msgstr ""
+"[`lsm303agr`](https://docs.rs/lsm303agr/latest/lsm303agr/) クレートと "
+"[`microbit-v2`](https://docs.rs/microbit-v2/latest/microbit/)クレートのドキュ"
+"メント、ならびに[micro:bitハードウェア仕様](https://tech.microbit.org/"
+"hardware/)を確認してみてください。"
 
 #: src/exercises/bare-metal/compass.md:11
 msgid ""
 "The LSM303AGR Inertial Measurement Unit is connected to the internal I2C bus."
-msgstr ""
+msgstr "LSM303AGR慣性計測器は内部のI2Cバスに接続されています。"
 
 #: src/exercises/bare-metal/compass.md:12
 msgid ""
 "TWI is another name for I2C, so the I2C master peripheral is called TWIM."
-msgstr ""
+msgstr "TWIはI2Cの別名なので、I2CマスタはTWIMという名前になっています。"
 
 #: src/exercises/bare-metal/compass.md:13
 msgid ""
@@ -12623,12 +12727,17 @@ msgid ""
 "blocking::i2c::WriteRead` trait. The [`microbit::hal::Twim`](https://docs.rs/"
 "microbit-v2/latest/microbit/hal/struct.Twim.html) struct implements this."
 msgstr ""
+"LSM303AGRドライバは`embedded_hal::blocking::i2c::WriteRead`を実装するものを必"
+"要とします。 [`microbit::hal::Twim`](https://docs.rs/microbit-v2/latest/"
+"microbit/hal/struct.Twim.html)構造体がこれを実装しています。"
 
 #: src/exercises/bare-metal/compass.md:17
 msgid ""
 "You have a [`microbit::Board`](https://docs.rs/microbit-v2/latest/microbit/"
 "struct.Board.html) struct with fields for the various pins and peripherals."
 msgstr ""
+"様々なピンや周辺I/Oのための [`microbit::Board`](https://docs.rs/microbit-v2/"
+"latest/microbit/struct.Board.html)という構造体があります。"
 
 #: src/exercises/bare-metal/compass.md:19
 msgid ""
@@ -12636,12 +12745,17 @@ msgid ""
 "com/pdf/nRF52833_PS_v1.5.pdf) if you want, but it shouldn't be necessary for "
 "this exercise."
 msgstr ""
+"[nRF52833データシート](https://infocenter.nordicsemi.com/pdf/"
+"nRF52833_PS_v1.5.pdf)を見ることもできますが、この練習問題のためには必要ないは"
+"ずです。"
 
 #: src/exercises/bare-metal/compass.md:23
 msgid ""
 "Download the [exercise template](../../comprehensive-rust-exercises.zip) and "
 "look in the `compass` directory for the following files."
 msgstr ""
+"[練習問題のテンプレート](../../comprehensive-rust-exercises.zip) をダウンロー"
+"ドして、`compass`というディレクトリの中にある下記のファイルを見てください。"
 
 #: src/exercises/bare-metal/compass.md:26 src/exercises/bare-metal/rtc.md:19
 msgid "_src/main.rs_:"
@@ -12686,28 +12800,28 @@ msgstr ""
 
 #: src/exercises/bare-metal/compass.md:64 src/exercises/bare-metal/rtc.md:385
 msgid "_Cargo.toml_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_Cargo.toml_ (変更は不要なはずです):"
 
 #: src/exercises/bare-metal/compass.md:85
 msgid "_Embed.toml_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_Embed.toml_ (変更は不要なはずです):"
 
 #: src/exercises/bare-metal/compass.md:100 src/exercises/bare-metal/rtc.md:985
 msgid "_.cargo/config.toml_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_.cargo/config.toml_ (変更は不要なはずです):"
 
 #: src/exercises/bare-metal/compass.md:112
 msgid "See the serial output on Linux with:"
-msgstr ""
+msgstr "Linuxではシリアルポート出力を下記のコマンドで確認します:"
 
 #: src/exercises/bare-metal/compass.md:118
 msgid ""
 "Or on Mac OS something like (the device name may be slightly different):"
-msgstr ""
+msgstr "Mac OSではこんな感じになります（デバイス名が少し違うかもしれません）:"
 
 #: src/exercises/bare-metal/compass.md:124
 msgid "Use Ctrl+A Ctrl+Q to quit picocom."
-msgstr ""
+msgstr "Ctrl+A Ctrl+Q でpicocomを終了します。"
 
 #: src/bare-metal/aps.md:1
 msgid "Application processors"
