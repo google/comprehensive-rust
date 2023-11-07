@@ -5246,6 +5246,9 @@ msgid ""
 "how you inspect the structure of your types. Let us start with a simple "
 "`enum` type:"
 msgstr ""
+"الگوها همچنین می توانند برای انتساب متغیرها استفاده شوند.به این ترتیب ساختار "
+"انواع (Types) خود را بررسی می‌کنید. اجازه دهید با یک نوع `enum` ساده شروع "
+"کنیم:"
 
 #: src/pattern-matching/destructuring-enums.md:6
 msgid ""
@@ -5279,12 +5282,16 @@ msgid ""
 "arm, `half` is bound to the value inside the `Ok` variant. In the second "
 "arm, `msg` is bound to the error message."
 msgstr ""
+"در اینجا ما از شاخه‌ها برای `destructure` کردن مقدار `Result` استفاده "
+"کرده‌ایم. در شاخه اول، `half` به مقداری داخل نوع `Ok` متصل می شود. در شاخه "
+"دوم، `msg` به نوع`Err` متصل می‌شود."
 
 #: src/pattern-matching/destructuring-enums.md:36
 msgid ""
 "The `if`/`else` expression is returning an enum that is later unpacked with "
 "a `match`."
 msgstr ""
+"عبارت `if`/`else` یک `enum` را برمی گرداند که بعداً با `match` باز می شود."
 
 #: src/pattern-matching/destructuring-enums.md:37
 msgid ""
@@ -5292,10 +5299,13 @@ msgid ""
 "errors when running the code. Point out the places where your code is now "
 "inexhaustive and how the compiler tries to give you hints."
 msgstr ""
+"می توانید با اضافه کردن یک فیلد دیگر `None` به `enum`  اضافه کنید و نمایش "
+"خطاها هنگام اجرای کد، را تست کنید. مکان هایی را که کد شما اکنون ناقص است و "
+"نحوه تلاش کامپایلر برای ارائه نکاتی به شما را نشان دهید."
 
 #: src/pattern-matching/destructuring-structs.md:3
 msgid "You can also destructure `structs`:"
-msgstr ""
+msgstr "همچنین می‌توانید `structs` را destructure کنید:"
 
 #: src/pattern-matching/destructuring-structs.md:5
 msgid ""
@@ -5320,11 +5330,11 @@ msgstr ""
 
 #: src/pattern-matching/destructuring-structs.md:23
 msgid "Change the literal values in `foo` to match with the other patterns."
-msgstr ""
+msgstr "تغییر مقادیر لیترال در foo برای مطابقت با سایر الگوها."
 
 #: src/pattern-matching/destructuring-structs.md:24
 msgid "Add a new field to `Foo` and make changes to the pattern as needed."
-msgstr ""
+msgstr "اضافه کردن یک فیلد جدید به Foo و ایجاد تغییرات مورد نیاز."
 
 #: src/pattern-matching/destructuring-structs.md:25
 msgid ""
@@ -5332,11 +5342,15 @@ msgid ""
 "spot. Try changing the `2` in the second arm to a variable, and see that it "
 "subtly doesn't work. Change it to a `const` and see it working again."
 msgstr ""
+"تشخیص تفاوت بین یک گرفتن متغییر و یک عبارت ثابت می‌تواند دشوار باشد. سعی کنید "
+"‍`2` را در شاخه دوم به یک متغیر تغییر دهید و خواهید دید که  کار نمی‌کند. آن را "
+"به یک `const` تغییر دهید و خواهید دید که دوباره کار می‌کند."
 
 #: src/pattern-matching/destructuring-arrays.md:3
 msgid ""
 "You can destructure arrays, tuples, and slices by matching on their elements:"
 msgstr ""
+"می توانید آرایه‌ها، تاپل‌ها و برش‌ها را با تطابق با عناصر آنها destructure کنید."
 
 #: src/pattern-matching/destructuring-arrays.md:5
 msgid ""
@@ -5359,6 +5373,8 @@ msgid ""
 "Destructuring of slices of unknown length also works with patterns of fixed "
 "length."
 msgstr ""
+"برای destructure کردن برش هایی با طول ناشناخته نیز با الگوهای طول ثابت کار "
+"می کند."
 
 #: src/pattern-matching/destructuring-arrays.md:24
 msgid ""
@@ -5382,27 +5398,33 @@ msgstr ""
 
 #: src/pattern-matching/destructuring-arrays.md:41
 msgid "Create a new pattern using `_` to represent an element. "
-msgstr ""
+msgstr "یک الگوی جدید با استفاده از `_` برای نمایش یک عنصر ایجاد کنید."
 
 #: src/pattern-matching/destructuring-arrays.md:42
 msgid "Add more values to the array."
-msgstr ""
+msgstr "مقادیر بیشتری را به آرایه اضافه کنید."
 
 #: src/pattern-matching/destructuring-arrays.md:43
 msgid ""
 "Point out that how `..` will expand to account for different number of "
 "elements."
 msgstr ""
+"اشاره کنید که چگونه `..` برای در نظر گرفتن تعداد عناصر مختلف، گسترش خواهد "
+"یافت."
 
 #: src/pattern-matching/destructuring-arrays.md:44
 msgid "Show matching against the tail with patterns `[.., b]` and `[a@..,b]`"
 msgstr ""
+"مطابقت با انتهای آرایه رو با با الگوهای <span dir=ltr>`[.., b]`</span>  و "
+"<span dir=ltr>`[a@..,b]`</span> را نشان دهید."
 
 #: src/pattern-matching/match-guards.md:3
 msgid ""
 "When matching, you can add a _guard_ to a pattern. This is an arbitrary "
 "Boolean expression which will be executed if the pattern matches:"
 msgstr ""
+"هنگام تطابق، می توانید یک _guard_ به یک الگو اضافه کنید. این یک عبارت بولین "
+"دلخواه است که در صورت مطابقت الگو اجرا می شود."
 
 #: src/pattern-matching/match-guards.md:6
 msgid ""
@@ -5427,6 +5449,8 @@ msgid ""
 "we wish to concisely express more complex ideas than patterns alone would "
 "allow."
 msgstr ""
+"گارد های تطبیق  به عنوان یک ویژگی سینتکس جداگانه دسته بندی می‌شوند, زمانی مهم "
+"و ضروری هستند که بخواهیم ایده های پیچیده تر از الگوهای ساده بیان کنیم."
 
 #: src/pattern-matching/match-guards.md:24
 msgid ""
@@ -5435,16 +5459,21 @@ msgid ""
 "match arm is selected. Failing the `if` condition inside of that block won't "
 "result in other arms of the original `match` expression being considered."
 msgstr ""
+"آنها با عبارت `if` جداگانه ای در داخل یک شاخه تطبیق هستند یکسان نیستند. یک "
+"عبارت `if` در داخل بلاک شاخه (پس از <span dir=ltr>`=>`</span>) پس از ورود به "
+"اون شاخه خاص صدا زده میشود. اگر شرط `if` برقرار نباشد کاری به  سایر شاخه های "
+"عبارت `match` اصلی ندارد."
 
 #: src/pattern-matching/match-guards.md:26
 msgid "You can use the variables defined in the pattern in your if expression."
 msgstr ""
+"می توانید از متغیرهای تعریف شده در الگو در عبارت `if` خود استفاده کنید."
 
 #: src/pattern-matching/match-guards.md:27
 msgid ""
 "The condition defined in the guard applies to every expression in a pattern "
 "with an `|`."
-msgstr ""
+msgstr "شرط تعریف شده در guard با کمک `|` به شرط های تطبیق الگو اضافه می‌شود."
 
 #: src/exercises/day-1/afternoon.md:1
 msgid "Day 1: Afternoon Exercises"
