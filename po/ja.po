@@ -3759,58 +3759,75 @@ msgid ""
 "becomes the value of the `if` expression. Other control flow expressions "
 "work similarly in Rust."
 msgstr ""
+"今まで見てきたように、Rust において `if` は式です。`if` 式のブロックは値を"
+"持っており、条件判定の結果に応じて評価されたブロックの値が `if` 式の値となり"
+"ます。Rust では他の制御フローの式も同様の動作をします。"
 
 #: src/control-flow/blocks.md:3
 msgid ""
 "A block in Rust contains a sequence of expressions. Each block has a value "
 "and a type, which are those of the last expression of the block:"
 msgstr ""
+"Rust におけるブロックの中にはいくつかの式が存在します。それぞれのブロックは値"
+"と型を持っており、ブロックの値や型はそのブロック内にある最後の式の値や型と一"
+"致します。"
 
 #: src/control-flow/blocks.md:27
 msgid ""
 "If the last expression ends with `;`, then the resulting value and type is "
 "`()`."
 msgstr ""
+"最後の式が `;` で終了した場合、ブロック全体の値と型は `()` になります。"
 
 #: src/control-flow/blocks.md:29
 msgid ""
 "The same rule is used for functions: the value of the function body is the "
 "return value:"
 msgstr ""
+"同じルールが関数についても適用されます。関数の body ブロックの値が、その関数"
+"の返り値となります。"
 
 #: src/control-flow/blocks.md:45 src/enums.md:34 src/enums/sizes.md:28
 #: src/pattern-matching.md:25 src/pattern-matching/match-guards.md:22
 #: src/structs.md:31 src/methods.md:30 src/methods/example.md:46
 msgid "Key Points:"
-msgstr ""
+msgstr "キーポイント: "
 
 #: src/control-flow/blocks.md:46
 msgid ""
 "The point of this slide is to show that blocks have a type and value in "
 "Rust. "
 msgstr ""
+"このスライドのポイントは、Rust におけるブロックは型と値を持つということです。"
 
 #: src/control-flow/blocks.md:47
 msgid ""
 "You can show how the value of the block changes by changing the last line in "
 "the block. For instance, adding/removing a semicolon or using a `return`."
 msgstr ""
+"ブロック内にある最後の行を変更することによって、ブロック全体の値が変わること"
+"が分かります。例えば、行末のセミコロンを追加/削除したり、`return` を使用した"
+"りすることで、ブロックの値は変化します。"
 
 #: src/control-flow/if-expressions.md:1
 msgid "`if` expressions"
-msgstr ""
+msgstr "`if` 式"
 
 #: src/control-flow/if-expressions.md:3
 msgid ""
 "You use [`if` expressions](https://doc.rust-lang.org/reference/expressions/"
 "if-expr.html#if-expressions) exactly like `if` statements in other languages:"
 msgstr ""
+"Rust の [`if` 式](https://doc.rust-lang.org/reference/expressions/if-expr."
+"html#if-expressions) は、他の言語における `if` 文と全く同じように使えます。"
 
 #: src/control-flow/if-expressions.md:18
 msgid ""
 "In addition, you can use `if` as an expression. The last expression of each "
 "block becomes the value of the `if` expression:"
 msgstr ""
+"さらに、`if` を式としても用いることができます。それぞれのブロックにある最後の"
+"式が、`if` 式の値となります。"
 
 #: src/control-flow/if-expressions.md:35
 msgid ""
@@ -3818,10 +3835,13 @@ msgid ""
 "branch blocks must have the same type. Consider showing what happens if you "
 "add `;` after `x / 2` in the second example."
 msgstr ""
+"`if` は式であるため、1 つの決まった型を持たなくてはなりません。したがって、"
+"`if` 式の分岐ブロックは同一の型を持つ必要があります。2 つ目の例において、"
+"`x / 2` のあとに `;` を付け加えると何が起こるでしょうか。"
 
 #: src/control-flow/for-expressions.md:1
 msgid "`for` loops"
-msgstr ""
+msgstr "`for` ループ"
 
 #: src/control-flow/for-expressions.md:3
 msgid ""
@@ -3829,85 +3849,113 @@ msgid ""
 "related to the [`while let` loop](while-let-expressions.md). It will "
 "automatically call `into_iter()` on the expression and then iterate over it:"
 msgstr ""
+"[`for` loop](https://doc.rust-lang.org/std/keyword.for.html) は、[`while "
+"let` loop](while-let-expressions.md) とよく似ています。`for` ループは `in` "
+"キーワードの右側にある式に対して自動的に `into_iter()` を呼び出し、その結果生"
+"成されたイテレータを用いて走査を行います。"
 
 #: src/control-flow/for-expressions.md:22
 msgid "You can use `break` and `continue` here as usual."
 msgstr ""
+"`for` ループの中では、いつも通り `break` や `continue` を使うことができます。"
 
 #: src/control-flow/for-expressions.md:26
 msgid "Index iteration is not a special syntax in Rust for just that case."
 msgstr ""
+"Rust では、インデックスによる反復処理のために特別な構文は提供されていません。"
 
 #: src/control-flow/for-expressions.md:27
 msgid "`(0..10)` is a range that implements an `Iterator` trait. "
-msgstr ""
+msgstr "`(0..10)` は Range 型であり、`Iterator` トレイトを実装しています。"
 
 #: src/control-flow/for-expressions.md:28
 msgid ""
 "`step_by` is a method that returns another `Iterator` that skips every other "
 "element. "
 msgstr ""
+"`step_by` は、元のイテレータとは別の、各要素をスキップする `Iterator` を返す"
+"メソッドです。"
 
 #: src/control-flow/for-expressions.md:29
 msgid ""
 "Modify the elements in the vector and explain the compiler errors. Change "
 "vector `v` to be mutable and the for loop to `for x in v.iter_mut()`."
 msgstr ""
+"ベクタ内の要素を変更してみて、その結果生じるコンパイルエラーについて説明して"
+"ください。また、ベクタ `v` をミュータブルに、for ループを `for x in v."
+"iter_mut()` に変更してみましょう。"
 
 #: src/control-flow/while-expressions.md:1
 msgid "`while` loops"
-msgstr ""
+msgstr "`while` ループ"
 
 #: src/control-flow/while-expressions.md:3
 msgid ""
 "The [`while` keyword](https://doc.rust-lang.org/reference/expressions/loop-"
 "expr.html#predicate-loops) works very similar to other languages:"
 msgstr ""
+"[`while` キーワード](https://doc.rust-lang.org/reference/expressions/loop-"
+"expr.html#predicate-loops) は、他の言語における `while` と非常によく似た働き"
+"をします。"
 
 #: src/control-flow/break-continue.md:1
 msgid "`break` and `continue`"
-msgstr ""
+msgstr "`break` と `continue`"
 
 #: src/control-flow/break-continue.md:3
 msgid ""
 "If you want to exit a loop early, use [`break`](https://doc.rust-lang.org/"
 "reference/expressions/loop-expr.html#break-expressions),"
 msgstr ""
+"ループから早く抜け出したい場合は [`break`](https://doc.rust-lang.org/"
+"reference/expressions/loop-expr.html#break-expressions) を使用してください。"
 
 #: src/control-flow/break-continue.md:4
 msgid ""
 "If you want to immediately start the next iteration use [`continue`](https://"
 "doc.rust-lang.org/reference/expressions/loop-expr.html#continue-expressions)."
 msgstr ""
+"次のイテレーションをすぐさま開始したい場合は [`continue`](https://doc.rust-"
+"lang.org/reference/expressions/loop-expr.html#continue-expressions) を使用し"
+"てください。"
 
 #: src/control-flow/break-continue.md:7
 msgid ""
 "Both `continue` and `break` can optionally take a label argument which is "
 "used to break out of nested loops:"
 msgstr ""
+"`continue` と `break` はオプションでラベル引数を取ることができます。ラベルは"
+"ネストしたループから抜け出すために使われます。"
 
 #: src/control-flow/break-continue.md:29
 msgid ""
 "In this case we break the outer loop after 3 iterations of the inner loop."
 msgstr ""
+"上の例では、内側のループを 3 回イテレーションしたのちに外側のループを抜けるこ"
+"とになります。"
 
 #: src/control-flow/loop-expressions.md:1
 msgid "`loop` expressions"
-msgstr ""
+msgstr "`loop` 式"
 
 #: src/control-flow/loop-expressions.md:3
 msgid ""
 "Finally, there is a [`loop` keyword](https://doc.rust-lang.org/reference/"
 "expressions/loop-expr.html#infinite-loops) which creates an endless loop."
 msgstr ""
+"最後に、無限ループを作る [`loop` キーワード](https://doc.rust-lang.org/"
+"reference/expressions/loop-expr.html#infinite-loops) について説明します。"
 
 #: src/control-flow/loop-expressions.md:6
 msgid "Here you must either `break` or `return` to stop the loop:"
 msgstr ""
+"下の例で、ループから抜けるためには `break` あるいは `return` を使う必要があり"
+"ます。"
 
 #: src/control-flow/loop-expressions.md:28
 msgid "Break the `loop` with a value (e.g. `break 8`) and print it out."
 msgstr ""
+"例えば `break 8` のようにループを値と共に抜け、それを print してみましょう。"
 
 #: src/control-flow/loop-expressions.md:29
 msgid ""
@@ -3915,6 +3963,10 @@ msgid ""
 "value. This is because it's guaranteed to be entered at least once (unlike "
 "`while` and `for` loops)."
 msgstr ""
+"注意が必要なのは、`loop` が唯一、非自明な値を返すことができるループ構造である"
+"という点です。これは、`loop` が少なくとも一度は必ず実行されることが保証されて"
+"いるからです（これに対して、while や for ループは必ずしも実行されるわけではあ"
+"りません）。"
 
 #: src/basic-syntax/variables.md:3
 msgid ""
