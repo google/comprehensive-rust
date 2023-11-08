@@ -1,0 +1,32 @@
+cc_library_static {
+    name: "blobstore_cpp",
+    srcs: ["src/blobstore.cc"],
+    generated_headers: [
+        "cxx-bridge-header",
+        "blobstore_bridge_header"
+    ],
+    generated_sources: ["blobstore_bridge_code"],
+}
+
+genrule {
+    name: "blobstore_bridge_header",
+    tools: ["cxxbridge"],
+    cmd: "$(location cxxbridge) $(in) --header > $(out)",
+    srcs: ["src/main.rs"],
+    out: ["main.rs.h"],
+}
+
+genrule {
+    name: "blobstore_bridge_code",
+    tools: ["cxxbridge"],
+    cmd: "$(location cxxbridge) $(in) > $(out)",
+    srcs: ["src/main.rs"],
+    out: ["main.rs.cc"],
+}
+
+rust_binary {
+    name: "blobstore",
+    srcs: ["src/main.rs"],
+    rustlibs: ["libcxx"],
+    static_libs: ["blobstore_cpp"],
+}
