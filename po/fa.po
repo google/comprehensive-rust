@@ -299,7 +299,7 @@ msgstr "های جابجا شده در Rust String"
 
 #: src/SUMMARY.md:92
 msgid "Double Frees in Modern C++"
-msgstr "آزاد سازی مضاعف در<span dir=ltr>C++</span> مدرن"
+msgstr "آزاد سازی مضاعف در سی‌پلاس‌پلاس مدرن"
 
 #: src/SUMMARY.md:93 src/ownership/moves-function-calls.md:1
 msgid "Moves in Function Calls"
@@ -5477,20 +5477,19 @@ msgstr "شرط تعریف شده در guard با کمک `|` به شرط های �
 
 #: src/exercises/day-1/afternoon.md:1
 msgid "Day 1: Afternoon Exercises"
-msgstr ""
+msgstr "روز ۱: تمرین‌های عصر"
 
 #: src/exercises/day-1/afternoon.md:3
 msgid "We will look at two things:"
-msgstr ""
+msgstr "ما روی ۲ تا چیز نگاهی می‌اندازیم:"
 
 #: src/exercises/day-1/afternoon.md:5
-#, fuzzy
 msgid "The Luhn algorithm,"
 msgstr "الگوریتم  Luhn"
 
 #: src/exercises/day-1/afternoon.md:7
 msgid "An exercise on pattern matching."
-msgstr ""
+msgstr "تمرینی درباره تطبیق الگو"
 
 #: src/exercises/day-1/afternoon.md:11 src/exercises/day-2/afternoon.md:7
 #: src/exercises/bare-metal/afternoon.md:7
@@ -5499,6 +5498,8 @@ msgid ""
 "After looking at the exercises, you can look at the [solutions](solutions-"
 "afternoon.md) provided."
 msgstr ""
+"پس از بررسی تمرین‌ها، می‌توانید به [راه‌حل ها](solutions-afternoon.md) ارائه "
+"شده نگاهی بیندازید."
 
 #: src/exercises/day-1/luhn.md:3
 msgid ""
@@ -5506,42 +5507,56 @@ msgid ""
 "to validate credit card numbers. The algorithm takes a string as input and "
 "does the following to validate the credit card number:"
 msgstr ""
+"[الگوریتم Luhn](https://en.wikipedia.org/wiki/Luhn_algorithm) برای "
+"اعتبارسنجی شماره‌های کارت اعتباری استفاده می‌شود. این الگوریتم یک رشته را به "
+"عنوان ورودی دریافت می‌کند و برای اعتبارسنجی شماره کارت اعتباری مراحل زیر را "
+"انجام می‌دهد:"
 
 #: src/exercises/day-1/luhn.md:7
 msgid "Ignore all spaces. Reject number with less than two digits."
-msgstr ""
+msgstr "تمام فضاها را نادیده بگیرید.شماره‌هایی با کمتر از دو رقم را رد کنید."
 
 #: src/exercises/day-1/luhn.md:9
 msgid ""
 "Moving from **right to left**, double every second digit: for the number "
 "`1234`, we double `3` and `1`. For the number `98765`, we double `6` and `8`."
 msgstr ""
+"با حرکت از سمت راست رشته به چپ، هر دومین رقم را دوبل کنید: برای شماره "
+"`1234`، `3` و `1` را دوبل می‌کنیم. برای شماره `98765`، `6` و `8` را دوبل "
+"می‌کنیم."
 
 #: src/exercises/day-1/luhn.md:12
 msgid ""
 "After doubling a digit, sum the digits if the result is greater than 9. So "
 "doubling `7` becomes `14` which becomes `1 + 4 = 5`."
 msgstr ""
+"پس از دوبل کردن یک عدد، اگر اون جفت خروجی بیش از 9 باشد، ارقام را جمع کنید. "
+"بنابراین، دوبل کردن `7` به `14` تبدیل می‌شود که به <span dir=ltr>`1 + 4 = 5`</"
+"span> تبدیل می‌شود."
 
 #: src/exercises/day-1/luhn.md:15
 msgid "Sum all the undoubled and doubled digits."
-msgstr ""
+msgstr "تمام ارقام دو برابر نشده و دو برابر شده را جمع کنید."
 
 #: src/exercises/day-1/luhn.md:17
 msgid "The credit card number is valid if the sum ends with `0`."
-msgstr ""
+msgstr "اگر مجموع با ‍`0` خاتمه یابد، شماره کارت اعتباری معتبر است."
 
 #: src/exercises/day-1/luhn.md:19
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and implement the "
 "function."
 msgstr ""
+"کد زیر را به <span dir=ltr><https://play.rust-lang.org/></span>  کپی کنید و "
+"تابع را پیاده‌سازی کنید."
 
 #: src/exercises/day-1/luhn.md:21
 msgid ""
 "Try to solve the problem the \"simple\" way first, using `for` loops and "
 "integers. Then, revisit the solution and try to implement it with iterators."
 msgstr ""
+"ابتدا سعی کنید مشکل را به روش «ساده» با استفاده از حلقه‌های `for` و اعداد "
+"صحیح حل کنید. سپس،  سعی کنید آن را با استفاده از `iterator`ها پیاده‌سازی کنید."
 
 #: src/exercises/day-1/luhn.md:25
 msgid ""
@@ -5598,11 +5613,11 @@ msgstr ""
 
 #: src/exercises/day-1/pattern-matching.md:1
 msgid "Exercise: Expression Evaluation"
-msgstr ""
+msgstr "تمرین: عبارت را بسنجید"
 
 #: src/exercises/day-1/pattern-matching.md:3
 msgid "Let's write a simple recursive evaluator for arithmetic expressions. "
-msgstr ""
+msgstr "بیایید یک ارزیاب بازگشتی ساده برای عبارات حسابی بنویسیم."
 
 #: src/exercises/day-1/pattern-matching.md:5
 msgid ""
@@ -5709,6 +5724,11 @@ msgid ""
 "tests. To evaluate a boxed expression, use the deref operator to \"unbox\" "
 "it: `eval(*boxed_expr)`."
 msgstr ""
+"نوع `Box` در اینجا یک اشاره گر هوشمند است و در ادامه دوره به طور مفصل مورد "
+"بحث قرار خواهد گرفت. یک عبارت را می‌توان با <span dir=ltr>`Box::new`</span> "
+"مانند آنچه در تست‌ها دیده می‌شود، «جعبه‌ای» کرد. برای ارزیابی یک عبارت جعبه‌ای، "
+"از عملگر `deref` برای «خارج کردن» آن استفاده کنید: <span "
+"dir=ltr>`eval(*boxed_expr)`</span>"
 
 #: src/exercises/day-1/pattern-matching.md:105
 msgid ""
@@ -5716,6 +5736,9 @@ msgid ""
 "type represents either a successful value or an error with a message. This "
 "is very similar to the standard-library `Result` which we will see later."
 msgstr ""
+"برخی از عبارات قابل ارزیابی نیستند و خطایی را برمی‌گردانند. نوع `Res` "
+"نشان‌دهنده یک مقدار موفقیت‌آمیز یا یک خطا با پیام است. این بسیار شبیه به "
+"`Result` کتابخانه استاندارد است که بعداً خواهیم دید."
 
 #: src/exercises/day-1/pattern-matching.md:109
 msgid ""
@@ -5723,28 +5746,36 @@ msgid ""
 "`eval`. The final product should pass the tests. It may be helpful to use "
 "`todo!()` and get the tests to pass one-by-one."
 msgstr ""
+"کد را کپی و در زمین بازی Rust پیست کنید و شروع به پیاده‌سازی `eval` کنید. "
+"محصول نهایی باید تست‌ها را پشت سر بگذارد. ممکن است مفید باشد از <span "
+"dir=ltr>`todo!()`</span> استفاده کنید و تست‌ها را یکی یکی پاس دهید."
 
 #: src/exercises/day-1/pattern-matching.md:113
 msgid ""
 "If you finish early, try writing a test that results in an integer overflow. "
 "How could you handle this with `Res::Err` instead of a panic?"
 msgstr ""
+"اگر زود تموم شد، سعی کنید تست‌ای بنویسید که منجر به سرریز عدد صحیح (integer "
+"overflow) شود. چگونه می توانید این مشکل را با <span dir=ltr>`Res::Err`</"
+"span>  به جای `panic` برطرف کنید؟"
 
 #: src/welcome-day-2.md:1
 msgid "Welcome to Day 2"
-msgstr ""
+msgstr "به روز دوم خوش آمدید"
 
 #: src/welcome-day-2.md:3
 msgid "Now that we have seen a fair amount of Rust, we will continue with:"
 msgstr ""
+"حالا که از زبان راست به اندازه کافی چیز های مختلفی دیده ایم وقت ادامه با "
+"توجه به موارد زیر "
 
 #: src/welcome-day-2.md:5
 msgid ""
 "Memory management: stack vs heap, manual memory management, scope-based "
 "memory management, and garbage collection."
 msgstr ""
-"Memory management: stack vs heap, manual memory management, scope-based "
-"memory management, و garbage collection."
+"مدیریت حافظه: پشته (Stack) در مقابل انباشت (Heap)، مدیریت دستی حافظه، مدیریت "
+"حافظه مبتنی بر اسکوپ و جمع آوری زباله. "
 
 #: src/welcome-day-2.md:8
 msgid ""
@@ -5752,101 +5783,112 @@ msgid ""
 msgstr "Ownership: حرکت semantics،copying و cloning, borrowing  و lifetimes."
 
 #: src/welcome-day-2.md:10
-#, fuzzy
 msgid "Structs and methods."
-msgstr "رشته‌ها و تکرارکننده‌ها (Strings and Iterators)"
+msgstr "ساختارها و متدها."
 
 #: src/welcome-day-2.md:12
 msgid ""
 "The Standard Library: `String`, `Option` and `Result`, `Vec`, `HashMap`, "
 "`Rc` and `Arc`."
 msgstr ""
+"کتابخانه استاندارد:  `String`, `Option` و `Result`, `Vec`, `HashMap`, `Rc` و "
+"`Arc`."
 
 #: src/welcome-day-2.md:15
 msgid "Modules: visibility, paths, and filesystem hierarchy."
-msgstr ""
+msgstr "ماژول‌ها: قابل دیدن بودن, مسیرها و مدیریت سلسله مراتبی فایل‌سیستم"
 
 #: src/memory-management.md:3
 msgid "Traditionally, languages have fallen into two broad categories:"
-msgstr ""
+msgstr "به طور سنتی، زبان‌ها به دو دسته کلی تقسیم می شوند:"
 
 #: src/memory-management.md:5
 msgid "Full control via manual memory management: C, C++, Pascal, ..."
 msgstr ""
+"کنترل کامل از طریق مدیریت دستی حافظه: <span dir=ltr>C، C++</span> ، "
+"پاسکال، ..."
 
 #: src/memory-management.md:6
 msgid ""
 "Full safety via automatic memory management at runtime: Java, Python, Go, "
 "Haskell, ..."
 msgstr ""
+"ایمنی کامل از طریق مدیریت حافظه خودکار در زمان اجرا: جاوا، پایتون، Go، "
+"Haskell، ..."
 
 #: src/memory-management.md:8
 msgid "Rust offers a new mix:"
-msgstr ""
+msgstr "زبان Rust یک ترکیبی از هر را ارائه میدهد:"
 
 #: src/memory-management.md:10
 msgid ""
 "Full control _and_ safety via compile time enforcement of correct memory "
 "management."
-msgstr ""
+msgstr "مدیریت کامل و ایمنی حافظه با مدیریت درست حافظه در زمان کامپایل"
 
 #: src/memory-management.md:13
 msgid "It does this with an explicit ownership concept."
-msgstr ""
+msgstr "این کار رو با کمک مفهوم مالکیت صریح انجام میدهد."
 
 #: src/memory-management.md:15
 msgid "First, let's refresh how memory management works."
-msgstr ""
+msgstr "قبل از هر چیزی, آنچه درباره مدیریت حافظه میدونیم رو بروز رسانی کنیم."
 
 #: src/memory-management/stack-vs-heap.md:1
 msgid "The Stack vs The Heap"
-msgstr ""
+msgstr "پشته (Stack) در مقابل انباشت (Heap)"
 
 #: src/memory-management/stack-vs-heap.md:3
 msgid "Stack: Continuous area of memory for local variables."
 msgstr ""
+"پشته: مقادیر پشت سر هم در حافظه که برای متغییر محلی (داخل یک تابع) استفاده "
+"میشود."
 
 #: src/memory-management/stack-vs-heap.md:4
 msgid "Values have fixed sizes known at compile time."
 msgstr ""
+"مقادیر دارای سایز یکسان در طول کل پشته هستند که در زمان کامپایل تعیین می‌شود."
 
 #: src/memory-management/stack-vs-heap.md:5
 msgid "Extremely fast: just move a stack pointer."
-msgstr ""
+msgstr "بسیار سریع: فقط کافیه یک اشاره‌گر را جا به جا کنیم."
 
 #: src/memory-management/stack-vs-heap.md:6
 msgid "Easy to manage: follows function calls."
-msgstr ""
+msgstr "مدیریت آسان: از فراخوانی توابع پیروی میکنند."
 
 #: src/memory-management/stack-vs-heap.md:7
 msgid "Great memory locality."
-msgstr ""
+msgstr "بهره‌وری عالی از حافظه"
 
 #: src/memory-management/stack-vs-heap.md:9
 msgid "Heap: Storage of values outside of function calls."
 msgstr ""
+"انباشت: حافظه از از مقادیر که خارج از جایی که فراخوانی میشود وجود دارد."
 
 #: src/memory-management/stack-vs-heap.md:10
 msgid "Values have dynamic sizes determined at runtime."
-msgstr ""
+msgstr "مقادیر سایز‌های مختلفی دارند که در زمان اجرا تعیین می‌شوند."
 
 #: src/memory-management/stack-vs-heap.md:11
 msgid "Slightly slower than the stack: some book-keeping needed."
-msgstr ""
+msgstr "به طور محسوسی کندتر از پشته است: نیاز به یک چی-کجاست دارد."
 
 #: src/memory-management/stack-vs-heap.md:12
 msgid "No guarantee of memory locality."
-msgstr ""
+msgstr "هیچ تضمینی برای بهره‌وری بالا از حافظه ندارد"
 
 #: src/memory-management/stack.md:1
 msgid "Stack and Heap Example"
-msgstr ""
+msgstr "یک مثال از پشته و انباشت"
 
 #: src/memory-management/stack.md:3
 msgid ""
 "Creating a `String` puts fixed-sized metadata on the stack and dynamically "
 "sized data, the actual string, on the heap:"
 msgstr ""
+"یک `String` بسازید که متادیتا با سایزثابت را روی استک قرار دهد و متن اصلی "
+"سایزپویا را در انباشت قرار دهد."
 
 #: src/memory-management/stack.md:6
 msgid ""
@@ -5862,6 +5904,8 @@ msgid ""
 "Mention that a `String` is backed by a `Vec`, so it has a capacity and "
 "length and can grow if mutable via reallocation on the heap."
 msgstr ""
+"اشاره کنید که یک `String` بر پایه `Vec` است، بنابراین دارای ظرفیت و طول است "
+"و می تواند در صورت قابل تغییر بودن از طریق تخصیص مجدد در انباش بزرگتر کند."
 
 #: src/memory-management/stack.md:30
 msgid ""
@@ -5870,12 +5914,19 @@ msgid ""
 "struct.System.html) and custom allocators can be implemented using the "
 "[Allocator API](https://doc.rust-lang.org/std/alloc/index.html)"
 msgstr ""
+"اگر دانشجویان در مورد آن بپرسند، می توانید اشاره کنید که حافظه زیربنایی "
+"انباشت (heap) است که با استفاده از [System Allocator](https://doc.rust-lang."
+"org/std/alloc/struct.System.html) تخصیص داده می شود و تخصیص‌دهنده‌های سفارشی "
+"را می‌توان با استفاده از [Allocator API](https://doc.rust-lang.org/std/alloc/"
+"index.html) اجرا کرد."
 
 #: src/memory-management/stack.md:34
 msgid ""
 "We can inspect the memory layout with `unsafe` Rust. However, you should "
 "point out that this is rightfully unsafe!"
 msgstr ""
+"می‌توان با استفاده از `unsafe` در زبان راست چیدمان حافظه را بررسی کنیم. البته "
+"که به این موضوع که این کار خیلی ناایمن است هم اشاره کنید."
 
 #: src/memory-management/stack.md:37
 msgid ""
@@ -5899,21 +5950,24 @@ msgstr ""
 
 #: src/memory-management/manual.md:3
 msgid "You allocate and deallocate heap memory yourself."
-msgstr ""
+msgstr "شما خودتان حافظه انباشت را تخصیص داده و تخصیص‌زدایی می‌کنید."
 
 #: src/memory-management/manual.md:5
 msgid ""
 "If not done with care, this can lead to crashes, bugs, security "
 "vulnerabilities, and memory leaks."
 msgstr ""
+"اگر با دقت انجام نشود، این می تواند منجر به خرابی، اشکال، آسیب‌پذیری‌های "
+"امنیتی و نشتی حافظه شود."
 
 #: src/memory-management/manual.md:7
 msgid "C Example"
-msgstr ""
+msgstr "مثالی در زبان C"
 
 #: src/memory-management/manual.md:9
 msgid "You must call `free` on every pointer you allocate with `malloc`:"
 msgstr ""
+"باید `free` را برای هر اشاره‌گری که با `malloc` تخصیص می‌دهید، فراخوانی کنید:"
 
 #: src/memory-management/manual.md:11
 msgid ""
@@ -5935,11 +5989,16 @@ msgid ""
 "pointer twice, or accessing a freed pointer can lead to exploitable security "
 "vulnerabilities."
 msgstr ""
+"اگر تابع بین `malloc` و `free` مقداری را بازگرداند و از تابع خارج شویم، "
+"حافظه نشت می‌کند: اشاره گر گم می‌شود و نمی‌توانیم حافظه را تخصیص‌زدایی کنیم. "
+"بدتر از آن، آزاد کردن مجدد اشاره گر یا دسترسی به یک اشاره گر که قبلا آزاد "
+"شده می‌تواند منجر به آسیب‌پذیری‌های امنیتی قابل سوءاستفاده شود."
 
 #: src/memory-management/scope-based.md:3
 msgid ""
 "Constructors and destructors let you hook into the lifetime of an object."
 msgstr ""
+"سازنده‌ها و مخرب‌ها به شما امکان می‌دهند تا به طول‌عمر یک شیء متصل (hook) شوید."
 
 #: src/memory-management/scope-based.md:5
 msgid ""
@@ -5947,16 +6006,21 @@ msgid ""
 "destroyed. The compiler guarantees that this happens, even if an exception "
 "is raised."
 msgstr ""
+"با پیچیدن (wrapping) یک اشاره گر در یک شیء، می‌توانید هنگام تخریب شیء، حافظه "
+"را آزاد کنید. کامپایلر تضمین می‌کند که این اتفاق می‌افتد، حتی اگر یک exception "
+"ایجاد شود."
 
 #: src/memory-management/scope-based.md:9
 msgid ""
 "This is often called _resource acquisition is initialization_ (RAII) and "
 "gives you smart pointers."
 msgstr ""
+"این اغلب به عنوان _resource acquisition is initialization_  (RAII) نامیده "
+"می‌شود و به شما اشاره گرهای هوشمند می‌دهد."
 
 #: src/memory-management/scope-based.md:12
 msgid "C++ Example"
-msgstr ""
+msgstr "مثالی در <span dir=ltr>C++</span>"
 
 #: src/memory-management/scope-based.md:14
 msgid ""
@@ -5972,47 +6036,55 @@ msgid ""
 "The `std::unique_ptr` object is allocated on the stack, and points to memory "
 "allocated on the heap."
 msgstr ""
+"ابجکت <span dir=ltr>`std::unique_ptr`</span> در پشته تخصیص داده می‌شود و به "
+"حافظه‌ای که روی انباشت تخصیص داده شده اشاره می‌کند."
 
 #: src/memory-management/scope-based.md:22
 msgid "At the end of `say_hello`, the `std::unique_ptr` destructor will run."
 msgstr ""
+"در پایان `say_hello`، تابع مخرب <span dir=ltr>`std::unique_ptr`</span> اجرا "
+"می‌شود."
 
 #: src/memory-management/scope-based.md:23
 msgid "The destructor frees the `Person` object it points to."
-msgstr ""
+msgstr "مخرب شیء `Person` را که به آن اشاره می‌کند، آزاد می‌کند."
 
 #: src/memory-management/scope-based.md:25
 msgid ""
 "Special move constructors are used when passing ownership to a function:"
 msgstr ""
+"هنگام انتقال مالکیت به یک تابع از سازنده‌های مخصوص انتقال استفاده می‌شود:"
 
 #: src/memory-management/garbage-collection.md:1
 msgid "Automatic Memory Management"
-msgstr ""
+msgstr "مدیریت حافظه خودکار"
 
 #: src/memory-management/garbage-collection.md:3
 msgid ""
 "An alternative to manual and scope-based memory management is automatic "
 "memory management:"
 msgstr ""
+"یک جایگزین برای مدیریت حافظه دستی و مبتنی بر اسکوپ، مدیریت حافظه خودکار است:"
 
 #: src/memory-management/garbage-collection.md:6
 msgid "The programmer never allocates or deallocates memory explicitly."
-msgstr ""
+msgstr "برنامه نویس هیچ وقت به صورت صریح حافظه را تخصیص یا آزاد نمیکند."
 
 #: src/memory-management/garbage-collection.md:7
 msgid ""
 "A garbage collector finds unused memory and deallocates it for the "
 "programmer."
 msgstr ""
+"یک جمع‌آوری زباله حافظه استفاده نشده را پیدا می‌کند و آن را برای برنامه‌نویس "
+"تخصیص‌زدایی (آزاد) می‌کند."
 
 #: src/memory-management/garbage-collection.md:9
 msgid "Java Example"
-msgstr ""
+msgstr "مثالی در Java"
 
 #: src/memory-management/garbage-collection.md:11
 msgid "The `person` object is not deallocated after `sayHello` returns:"
-msgstr ""
+msgstr "شیء `person` پس از بازگشت `sayHello` تخصیص‌زدایی نمی‌شود:"
 
 #: src/memory-management/garbage-collection.md:13
 msgid ""
@@ -6025,29 +6097,33 @@ msgstr ""
 
 #: src/memory-management/rust.md:1
 msgid "Memory Management in Rust"
-msgstr ""
+msgstr "مدیریت حافظه در Rust"
 
 #: src/memory-management/rust.md:3
 msgid "Memory management in Rust is a mix:"
-msgstr ""
+msgstr "مدیریت حافظه در Rust ترکیبی از موارد زیر است:"
 
 #: src/memory-management/rust.md:5
 msgid "Safe and correct like Java, but without a garbage collector."
-msgstr ""
+msgstr "ایمن و صحیح مانند جاوا، اما بدون جمع‌آوری زباله."
 
 #: src/memory-management/rust.md:6
 msgid "Scope-based like C++, but the compiler enforces full adherence."
 msgstr ""
+"مبتنی بر اسکوپ مانند <span dir=ltr>C++</span>، اما کامپایلر همه موارد را "
+"رعایت می‌کند."
 
 #: src/memory-management/rust.md:7
 msgid ""
 "A Rust user can choose the right abstraction for the situation, some even "
 "have no cost at runtime like C."
 msgstr ""
+"کاربر Rust می‌تواند انتخاب کند که کدام انتزاع برای وضعیت مورد نظر مناسب است، "
+"برخی مانند C  هزینه‌ای در زمان اجرا ندارند."
 
 #: src/memory-management/rust.md:9
 msgid "Rust achieves this by modeling _ownership_ explicitly."
-msgstr ""
+msgstr "زبان Rust این کار را با مدل‌سازی صریح مالکیت انجام می‌دهد."
 
 #: src/memory-management/rust.md:13
 msgid ""
@@ -6059,35 +6135,46 @@ msgid ""
 "ownership and memory allocation via various means, and prevent the potential "
 "errors in C."
 msgstr ""
+"اگر توی این مرحله از شما پرسیده شد که چطوری این کار انجام می‌شود, میتوانید به "
+"این موضوع که زبان راست معمولاً توسط انواع `wrapper RAII` مانند [`Box`]"
+"(https://doc.rust-lang.org/std/boxed/struct.Box.html), [`Vec`](https://doc."
+"rust-lang.org/std/vec/struct.Vec.html), [`Rc`](https://doc.rust-lang.org/std/"
+"rc/struct.Rc.html), یا [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc."
+"html) مدیریت را انجام میدهد. این‌ها مالکیت و تخصیص حافظه را از طریق روش‌های "
+"مختلف دربرمی‌گیرند و از خطاهای بالقوه در C جلوگیری می‌کنند."
 
 #: src/memory-management/rust.md:15
 msgid ""
 "You may be asked about destructors here, the [Drop](https://doc.rust-lang."
 "org/std/ops/trait.Drop.html) trait is the Rust equivalent."
 msgstr ""
+"اگر درباره مخرب‌ها (destructors) از شما پرسیدند, مخرب ها معادل پیاده‌سازی "
+"[Drop](https://doc.rust-lang.org/std/ops/trait.Drop.html) هستند."
 
 #: src/ownership.md:3
 msgid ""
 "All variable bindings have a _scope_ where they are valid and it is an error "
 "to use a variable outside its scope:"
 msgstr ""
+"همه انتساب متغیر دارای یک *اسکوپ* هستند که در آن معتبر هستند و استفاده از یک "
+"متغیر خارج از اسکوپ آن خطا است."
 
 #: src/ownership.md:19
 msgid ""
 "At the end of the scope, the variable is _dropped_ and the data is freed."
-msgstr ""
+msgstr "در پایان اسکوپ، متغیر حذف می‌شود و داده‌ها آزاد می‌شوند."
 
 #: src/ownership.md:20
 msgid "A destructor can run here to free up resources."
-msgstr ""
+msgstr "یک مخرب می‌تواند در اینجا اجرا شود تا منابع را آزاد کند."
 
 #: src/ownership.md:21
 msgid "We say that the variable _owns_ the value."
-msgstr ""
+msgstr "ما می‌گوییم که متغیر *مالکیت* یک مقدار است."
 
 #: src/ownership/move-semantics.md:3
 msgid "An assignment will transfer _ownership_ between variables:"
-msgstr ""
+msgstr "انتساب, *مالکیت* را بین متغیرها منتقل می‌کند:"
 
 #: src/ownership/move-semantics.md:5
 msgid ""
@@ -6103,25 +6190,30 @@ msgstr ""
 
 #: src/ownership/move-semantics.md:14
 msgid "The assignment of `s1` to `s2` transfers ownership."
-msgstr ""
+msgstr "انتساب `s1`به `s2` مالکیت را منتقل می‌کند."
 
 #: src/ownership/move-semantics.md:15
 msgid "When `s1` goes out of scope, nothing happens: it does not own anything."
 msgstr ""
+"زمانی که دیگر در اسکوپ `s1` نیستیم,  هیچ اتفاقی نمی‌افتد: چون `s1` مالک چیزی "
+"نیست."
 
 #: src/ownership/move-semantics.md:16
 msgid "When `s2` goes out of scope, the string data is freed."
-msgstr ""
+msgstr "زمانی که دیگر در اسکوپ `s2` نیستیم, داده‌های رشته آزاد می‌شوند."
 
 #: src/ownership/move-semantics.md:17
 msgid "There is always _exactly_ one variable binding which owns a value."
-msgstr ""
+msgstr "همیشه مالکیت یک مقدار را یک متغییر که بهش انتساب میدیم دارد"
 
 #: src/ownership/move-semantics.md:21
 msgid ""
 "Mention that this is the opposite of the defaults in C++, which copies by "
 "value unless you use `std::move` (and the move constructor is defined!)."
 msgstr ""
+"اشاره کنید که این رویه راست بر خلاف پیش‌فرض زبان <span dir=ltr>C++</span>  "
+"است که در ان مقدار کپی میشود مگر که از <span dir=ltr>`std::move`</span> "
+"استفاده کنیم ( تا یک مقدار را جا به جا کنیم!)"
 
 #: src/ownership/move-semantics.md:23
 msgid ""
@@ -6129,31 +6221,36 @@ msgid ""
 "to manipulate the data itself is a matter of optimization, and such copies "
 "are aggressively optimized away."
 msgstr ""
+"این رویه فقط برای انتقال مالکیت است. اینکه آیا هیچ کد ماشینی برای دستکاری "
+"خود داده‌ها تولید می‌شود یا خیر، موضوعی برای بهینه‌سازی است و چنین کپی‌هایی "
+"به‌طور تهاجمی (aggressively) بهینه‌سازی می‌شوند."
 
 #: src/ownership/move-semantics.md:25
 msgid ""
 "Simple values (such as integers) can be marked `Copy` (see later slides)."
 msgstr ""
+"مقادیر ساده (مانند اعداد صحیح) را می‌توان `Copy` کرد (اسلایدهای بعدی را "
+"ببینید)."
 
 #: src/ownership/move-semantics.md:27
 msgid "In Rust, clones are explicit (by using `clone`)."
-msgstr ""
+msgstr "در Rust، کلون‌ها واضح بیان می‌شوند (با استفاده از `clone`)."
 
 #: src/ownership/moved-strings-rust.md:11
 msgid "The heap data from `s1` is reused for `s2`."
-msgstr ""
+msgstr "داده‌های انباشت از `s1` دوباره  برای `s2` استفاده می‌شود."
 
 #: src/ownership/moved-strings-rust.md:12
 msgid "When `s1` goes out of scope, nothing happens (it has been moved from)."
-msgstr ""
+msgstr "وقتی از اسکوپ `s1` خارج می‌شویم، هیچ اتفاقی نمی‌افتد."
 
 #: src/ownership/moved-strings-rust.md:14
 msgid "Before move to `s2`:"
-msgstr ""
+msgstr "قبل از انتقال به `s2` :"
 
 #: src/ownership/moved-strings-rust.md:31
 msgid "After move to `s2`:"
-msgstr ""
+msgstr "بعد از انتقال به `s2` :"
 
 #: src/ownership/moved-strings-rust.md:33
 msgid ""
@@ -6180,13 +6277,12 @@ msgid ""
 msgstr ""
 
 #: src/ownership/double-free-modern-cpp.md:1
-#, fuzzy
 msgid "Defensive Copies in Modern C++"
-msgstr "آزاد سازی مضاعف در مدرن سی++"
+msgstr "کپی‌های تدافعی در <span dir=ltr>C++</span> مدرن"
 
 #: src/ownership/double-free-modern-cpp.md:3
 msgid "Modern C++ solves this differently:"
-msgstr ""
+msgstr "<span dir=ltr>C++</span> مدرن این مشکل را به شیوه متفاوتی حل می‌کند:"
 
 #: src/ownership/double-free-modern-cpp.md:5
 msgid ""
@@ -6200,18 +6296,22 @@ msgstr ""
 msgid ""
 "The heap data from `s1` is duplicated and `s2` gets its own independent copy."
 msgstr ""
+"داده‌های انباشت از داده‌های `s1`  یک کپی برابر اصل برای  `s2` گرفته می‌شود که "
+"این کپی به صورت مستقل است."
 
 #: src/ownership/double-free-modern-cpp.md:11
 msgid "When `s1` and `s2` go out of scope, they each free their own memory."
 msgstr ""
+"حالا هر موقع `s1` یا `s2` از اسکوپ موردنظرشون خارج شوند هر کدام به صورت "
+"جداگانه‌ای حافظه خود را آزاد میکنند."
 
 #: src/ownership/double-free-modern-cpp.md:13
 msgid "Before copy-assignment:"
-msgstr ""
+msgstr "قبل از انتساب همراه کپی:"
 
 #: src/ownership/double-free-modern-cpp.md:30
 msgid "After copy-assignment:"
-msgstr ""
+msgstr "بعد از انتساب همراه کپی:"
 
 #: src/ownership/double-free-modern-cpp.md:57
 msgid ""
@@ -6219,6 +6319,10 @@ msgid ""
 "the string data has to be cloned. Otherwise we would get a double-free when "
 "either string goes out of scope."
 msgstr ""
+"زبان <span dir=ltr>C++</span> انتخاب کمی متفاوت نسبت به  زبان Rust انجام "
+"داده است. زیرا `=` داده‌ها را کپی می‌کند، داده‌های رشته باید کلون شوند. در غیر "
+"این صورت، هر موقع از اسکوپ یکی از آنها خارج شویم امکان به وجود آمدن اشتباه "
+"آزادسازی مجدد حافظه رخ دهد."
 
 #: src/ownership/double-free-modern-cpp.md:61
 msgid ""
@@ -6228,18 +6332,28 @@ msgid ""
 "move, `s1` would be in a valid but unspecified state. Unlike Rust, the "
 "programmer is allowed to keep using `s1`."
 msgstr ""
+"البته که زبان <span dir=ltr>C++</span> دارای  [<span dir=ltr>`std::move`</"
+"span>](https://en.cppreference.com/w/cpp/utility/move)  است که برای انتقال "
+"یک متغییر استفاده میشود. اگر مثال ما <span dir=ltr>`s2 = std::move(s1)`</"
+"span> بود هیچ تخصیص انباشتی صورت نمیگرفت بلکه `s1` در یک وضعیت معتبر البته "
+"نامشخص قرار میگرفت و برخلاف زبان Rust, توی زبان <span dir=ltr>C++</span> "
+"برنامه‌نویس مجاز است که دوباره از `s1` استفاده کند."
 
 #: src/ownership/double-free-modern-cpp.md:66
 msgid ""
 "Unlike Rust, `=` in C++ can run arbitrary code as determined by the type "
 "which is being copied or moved."
 msgstr ""
+"بر خلاف Rust، `=` در <span dir=ltr>C++</span> می‌تواند برای کپی کردن و هم "
+"انتقال دادن استفاده شود."
 
 #: src/ownership/moves-function-calls.md:3
 msgid ""
 "When you pass a value to a function, the value is assigned to the function "
 "parameter. This transfers ownership:"
 msgstr ""
+"هنگامی که یک مقدار را به یک تابع منتقل می‌کنید، مقدار به آرگمان تابع اختصاص "
+"داده می‌شود. به این شکل مالکیت را منتقل می‌کند:"
 
 #: src/ownership/moves-function-calls.md:6
 msgid ""
@@ -6261,96 +6375,123 @@ msgid ""
 "With the first call to `say_hello`, `main` gives up ownership of `name`. "
 "Afterwards, `name` cannot be used anymore within `main`."
 msgstr ""
+"با اولین فراخوانی `say_hello`، تابع `main` مالکیت `name` را انتقال می‌دهد. پس "
+"از آن، `name` دیگر نمی‌تواند در `main` استفاده شود."
 
 #: src/ownership/moves-function-calls.md:21
 msgid ""
 "The heap memory allocated for `name` will be freed at the end of the "
 "`say_hello` function."
 msgstr ""
+"حافظه انباشت اختصاص داده شده برای `name` در انتهای تابع `say_hello` آزاد "
+"خواهد شد."
 
 #: src/ownership/moves-function-calls.md:22
 msgid ""
 "`main` can retain ownership if it passes `name` as a reference (`&name`) and "
 "if `say_hello` accepts a reference as a parameter."
 msgstr ""
+"تابع `main` می‌تواند مالکیت `name` را حفظ کند اگر آن را به عنوان یک مرجع "
+"(<span dir=ltr>`&name`</span>) منتقل کند و صد البته که `say_hello` یک مرجع "
+"را به عنوان پارامتر باید بپذیرد."
 
 #: src/ownership/moves-function-calls.md:23
 msgid ""
 "Alternatively, `main` can pass a clone of `name` in the first call (`name."
 "clone()`)."
 msgstr ""
+"به عنوان گزینه دیگر، `main` می‌تواند یک کلون از `name` را در فراخوانی اولیه "
+"تابع ای که در نظر داریم (<span dir=ltr>`name.clone()`</span>) منتقل کند."
 
 #: src/ownership/moves-function-calls.md:24
 msgid ""
 "Rust makes it harder than C++ to inadvertently create copies by making move "
 "semantics the default, and by forcing programmers to make clones explicit."
 msgstr ""
+"در زبان Rust سخت‌تر از <span dir=ltr>C++</span> است که سهوا کپی ایجاد کنیم, "
+"زیر به صورت پیش‌فرض از مفهوم «انتقال» استفاده میکنیم و برنامه نویس مجبور است "
+"هر جا که لازم هست به صورت صریح کلون را ایجاد کند."
 
 #: src/ownership/copy-clone.md:3
 msgid ""
 "While move semantics are the default, certain types are copied by default:"
 msgstr ""
+"در حالی که مفهوم انتقال  به صورت پیش‌فرض است، در زبان راست چند نوع خاص به "
+"صورت پیش‌فرض کپی می‌شوند:"
 
 #: src/ownership/copy-clone.md:15
 msgid "These types implement the `Copy` trait."
-msgstr ""
+msgstr "این انواع‌داده ویژگی `Copy` را پیاده‌سازی کرده‌اند:"
 
 #: src/ownership/copy-clone.md:17
 msgid "You can opt-in your own types to use copy semantics:"
-msgstr ""
+msgstr "البته که میتوان برای نوع‌هایی که میسازید هم مفهوم کپی را داشته باشید:"
 
 #: src/ownership/copy-clone.md:32
 msgid "After the assignment, both `p1` and `p2` own their own data."
-msgstr ""
+msgstr "پس از انتساب، هر دو `p1` و `p2` داده‌های خود مستقل خود را دارند.‌"
 
 #: src/ownership/copy-clone.md:33
 msgid "We can also use `p1.clone()` to explicitly copy the data."
 msgstr ""
+"همچنین می‌توانیم از <span dir=ltr>`p1.clone()`</span>  برای کپی صریح داده‌ها "
+"استفاده کنیم."
 
 #: src/ownership/copy-clone.md:37
 msgid "Copying and cloning are not the same thing:"
-msgstr ""
+msgstr "کپی‌برداری و کلون‌سازی یکسان نیستند:"
 
 #: src/ownership/copy-clone.md:39
 msgid ""
 "Copying refers to bitwise copies of memory regions and does not work on "
 "arbitrary objects."
 msgstr ""
+"کپی‌برداری به کپی‌های بیت به بیت از مناطق حافظه اشاره دارد و روی همه انواع "
+"تعریف شده توسط شما کار نمی‌کند."
 
 #: src/ownership/copy-clone.md:40
 msgid ""
 "Copying does not allow for custom logic (unlike copy constructors in C++)."
 msgstr ""
+"کپی‌برداری اجازه منطق سفارشی را نمی‌دهد (بر خلاف کپی constructors در <span "
+"dir=ltr>C++</span>)."
 
 #: src/ownership/copy-clone.md:41
 msgid ""
 "Cloning is a more general operation and also allows for custom behavior by "
 "implementing the `Clone` trait."
 msgstr ""
+"کلون‌سازی یک عملیات عمومی‌تر است و همچنین با پیاده‌سازی ویژگی `Clone` امکان "
+"رفتار سفارشی را فراهم می‌کند."
 
 #: src/ownership/copy-clone.md:42
 msgid "Copying does not work on types that implement the `Drop` trait."
 msgstr ""
+"کپی‌برداری روی انواع داده‌ای که ویژگی Drop را پیاده سازی کرده اند کار نمی‌کند."
 
 #: src/ownership/copy-clone.md:44 src/ownership/lifetimes-function-calls.md:30
 msgid "In the above example, try the following:"
-msgstr ""
+msgstr "در مثال بالا، موارد زیر را امتحان کنید:"
 
 #: src/ownership/copy-clone.md:46
 msgid ""
 "Add a `String` field to `struct Point`. It will not compile because `String` "
 "is not a `Copy` type."
 msgstr ""
+"یک فیلد `String` به `struct Point` اضافه کنید. کامپایل نمی‌شود زیرا `String` "
+"یک نوع `Copy` نیست."
 
 #: src/ownership/copy-clone.md:47
 msgid ""
 "Remove `Copy` from the `derive` attribute. The compiler error is now in the "
 "`println!` for  `p1`."
 msgstr ""
+"ویژگی `Copy` را از ویژگی‌های `derive` حذف کنید. خطای کامپایلر اکنون در <span "
+"dir=ltr>`println!`</span> برای  `p1` است."
 
 #: src/ownership/copy-clone.md:48
 msgid "Show that it works if you clone `p1` instead."
-msgstr ""
+msgstr "نشان دهید که اگر `p1` را به جای کپی آن کلون کنید، کار می‌کند."
 
 #: src/ownership/copy-clone.md:50
 msgid ""
@@ -6358,6 +6499,9 @@ msgid ""
 "to generate code in Rust at compile time. In this case the default "
 "implementations of `Copy` and `Clone` traits are generated."
 msgstr ""
+"اگر دانشجویان در مورد `derive` پرسیدند، کافی است بگوییم که این راهی برای "
+"تولید کد در`Rust` در زمان کامپایل است. در این مورد، پیاده‌سازی‌های پیش‌فرض "
+"صفت‌های `Copy` و `Clone` تولید می‌شوند."
 
 #: src/ownership/borrowing.md:3
 msgid ""
