@@ -1,15 +1,13 @@
 # Memory Management
 
-Traditionally, languages have fallen into two broad categories:
+In this segment:
 
-* Full control via manual memory management: C, C++, Pascal, ...
-* Full safety via automatic memory management at runtime: Java, Python, Go, Haskell, ...
-
-Rust offers a new mix:
-
-> Full control *and* safety via compile time enforcement of correct memory
-> management.
-
-It does this with an explicit ownership concept.
-
-First, let's refresh how memory management works.
+* [Welcome](memory-management/welcome.md)
+* [Review of Program Memory](memory-management/review.md)
+* [Approaches to Memory Management](memory-management/approaches.md)
+* [Ownership](memory-management/ownership.md)
+* [Move semantics](memory-management/move.md)
+* [Clone](memory-management/clone.md)
+* [Copy Types](memory-management/copy-types.md)
+* [Drop](memory-management/drop.md)
+* [Exercise: Builder Type](memory-management/exercise.md)

@@ -1,7 +1,10 @@
 # Testing
 
-Rust and Cargo come with a simple unit test framework:
+In this segment:
 
-* Unit tests are supported throughout your code.
-
-* Integration tests are supported via the `tests/` directory.
+* [Language Docs](testing/docs.md)
+* [Test Modules](testing/test-modules.md)
+* [Other Types of Tests](testing/other.md)
+* [Useful Crates](testing/useful-crates.md)
+* [Compiler lints and Clippy](testing/lints.md)
+* [Exercise: Luhn Algorithm](testing/exercise.md)

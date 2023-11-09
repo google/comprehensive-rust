@@ -1,3 +1,9 @@
+---
+minutes: 3
+existing course material:
+- testing/useful-crates.md
+---
+
 ## Useful crates for writing tests
 
 Rust comes with only basic support for writing tests.

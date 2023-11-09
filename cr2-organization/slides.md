@@ -173,15 +173,17 @@ Vec<Input>
  * _Notes_: This will need to be simplified to fit the time
 
 ## generics/generic-functions - Generic Functions
- * _Existing Content_: generics.md, generics/methods.md, generics/monomorphization.md
+ * _Existing Content_: generics.md, generics/monomorphization.md
  * _Notes_: Cover monomorphization, too
 
-## generics/generic-structs - Generic Structs
- * _Existing Content_: generics/data-types.md
+## generics/generic-data - Generic Data types
+ * _Existing Content_: generics/data-types.md, generics/methods.md
 
 ## generics/trait-bounds - Trait Bounds
- * _Existing Content_: traits/trait-bounds.md, traits/impl-trait.md
- * _Notes_: Generic bounds and impl Trait` in argument and return position
+ * _Existing Content_: traits/trait-bounds.md
+
+## generics/impl-trait - Impl Trait
+ * _Existing Content_: traits/impl-trait.md
 
 ## generics/exercise - Exercise: Generic `min`
 
@@ -207,13 +209,13 @@ Vec<Input>
 ## std-types/exercise - Exercise: Counter
  * _Existing Content_: exercises/day-2/book-library.md
 
-## std-traits/equality - Eq, PartialEq, and Ord
+## std-traits/comparisons - Comparisons
  * _Existing Content_: traits/important-traits.md
 
 ## std-traits/operators - Operators
  * _Existing Content_: traits/operators.md
 
-## std-traits/into-and-from - Into and From
+## std-traits/from-and-into - From and Into
  * _Existing Content_: traits/from-into.md
 
 ## std-traits/casting - Casting
@@ -228,17 +230,15 @@ Vec<Input>
 ## std-traits/closures - Closures
  * _Existing Content_: traits/closures.md
 
-## std-traits/exercise - Exercise: Integer Conversions
+## std-traits/exercise - Exercise: ROT13
  * _Existing Content_: exercises/day-1/implicit-conversions.md
- * _Notes_: Simplify to fit 15 minutes, with more specific instructions
 
 ## iterators/iterators - Iterators
  * _Existing Content_: traits/iterator.md
  * _Notes_: The Iterator trait and basic usage
 
-## iterators/ownership - Iterator Ownership
+## iterators/intoiterator - IntoIterator
  * _Existing Content_: exercises/day-2/iterators-and-ownership.md
- * _Notes_: Ownership of iterators and any underlying collection, and the FromIterator trait
 
 ## iterators/fromiterator - FromIterator
  * _Existing Content_: traits/from-iterator.md
@@ -249,25 +249,37 @@ Vec<Input>
  * _Notes_: Something that involves a long-ish method chain (`someiter.foo().bar().bing().collect()`)
 
 ## modules/modules - Modules
- * _Existing Content_: modules.md, modules/filesystem.md
+ * _Existing Content_: modules.md
  * _Notes_: Organizing the code within a crate and across crates.
+
+## modules/filesystem - Filesystem Hierarchy
+ * _Existing Content_: modules/filesystem.md
+ * _Notes_: Organizing modules into multiple files.
 
 ## modules/visibility - Visibility
  * _Existing Content_: modules/visibility.md
 
-## modules/use-super-self - use, super, self
+## modules/paths - use, super, self
  * _Existing Content_: modules/paths.md
  * _Notes_: Include re-exports as well
 
 ## modules/exercise - Exercise: Modules for the GUI Library
  * _Notes_: Converting the GUI Library exercise solution into modules. Use the filesystem rather than the playground.
 
+## testing/docs - Language Docs
+ * _Notes_: Use language docs to look at methods on integers
+
 ## testing/test-modules - Test Modules
  * _Existing Content_: testing.md, testing/test-modules.md, testing/unit-tests.md
 
 ## testing/other - Other Types of Tests
- * _Existing Content_: testing/integration-tests.md, testing/doc-tests.md, testing/useful-crates.md
- * _Notes_: Testing in more detail: Integration tests (separate crate with tests), documentation tests, test utilities like googletest, proptest, rstest
+ * _Existing Content_: testing/integration-tests.md, testing/doc-tests.md
+ * _Notes_: Testing in more detail: Integration tests (separate crate with tests), documentation tests
+
+## testing/useful-crates - Useful Crates
+ * _Existing Content_: testing/useful-crates.md
+
+## testing/lints - Compiler lints and Clippy
 
 ## testing/exercise - Exercise: Luhn Algorithm
  * _Existing Content_: exercises/day-1/luhn.md
@@ -276,12 +288,16 @@ Vec<Input>
 ## memory-management/welcome - Welcome
  * _Existing Content_: welcome-day-3.md
 
+## memory-management/review - Review of Program Memory
+ * _Existing Content_: memory-management/stack-vs-heap.md, memory-management/stack.md
+ * _Notes_: Short summary of memory: stack vs. heap, allocations, etc.
+
 ## memory-management/approaches - Approaches to Memory Management
- * _Existing Content_: memory-management.md, memory-management/stack-vs-heap.md, memory-management/stack.md, memory-management/manual.md, memory-management/scope-based.md, memory-management/garbage-collection.md, memory-management/rust.md
+ * _Existing Content_: memory-management.md, memory-management/manual.md, memory-management/scope-based.md, memory-management/garbage-collection.md
  * _Notes_: Short summary of how different languages handle memory management
 
 ## memory-management/ownership - Ownership
- * _Existing Content_: ownership.md
+ * _Existing Content_: ownership.md, memory-management/rust.md
  * _Notes_: Ownership and how it ties to destructors
 
 ## memory-management/move - Move semantics
@@ -315,6 +331,9 @@ fn main() {
 ```
 
 
+## memory-management/drop - Drop
+ * _Existing Content_: traits/drop.md
+
 ## memory-management/exercise - Exercise: Builder Type
  * _Notes_: A simple struct containing some Strings and with a partially-completed Builder pattern (with builder functions taking `self`) implemented. Students fill in a few `todo!()`s
 
@@ -325,105 +344,40 @@ fn main() {
 ## smart-pointers/rc - Rc
  * _Existing Content_: std/rc.md
 
-## smart-pointers/drop - Drop
- * _Existing Content_: traits/drop.md
-
 ## smart-pointers/exercise - Exercise: Binary Tree
  * _Notes_: See https://github.com/google/comprehensive-rust/pull/1084
 
-## developer-conveniences/docs - Language Docs
- * _Notes_: Use language docs to look at methods on integers
-
-## developer-conveniences/static-and-const - Static and Const
- * _Existing Content_: basic-syntax/static-and-const.md
- * _Notes_: try to make this short!
-
-## developer-conveniences/lints - Compiler lints and Clippy
-
-## refs/shared - Borrowing a Value
+## borrowing/shared - Borrowing a Value
  * _Existing Content_: ownership/borrowing.md, ownership/shared-unique-borrows.md
 
-## refs/borrowck - Borrow Checking
+## borrowing/borrowck - Borrow Checking
 
-## refs/interior-mutability - Interior Mutability
+## borrowing/interior-mutability - Interior Mutability
  * _Existing Content_: std/cell.md
  * _Notes_: Introduce the concept, with an example based on Mutex showing an `&self` method doing mutation; reference Cell/RefCell without detail.
 
-## refs/exercise - Exercise: Health Statistics
+## borrowing/exercise - Exercise: Health Statistics
  * _Existing Content_: exercises/day-2/health-statistics.md
 
-## slices-and-lifetimes/slices - Slices: `&[T]`
- * _Existing Content_: basic-syntax/slices.md, basic-syntax/string-slices.md
-
-## slices-and-lifetimes/str - String References
- * _Notes_: Including `&str` as a way of representing a slice of valid utf-8
-
-## slices-and-lifetimes/lifetime-annotations - Lifetime Annotations
- * _Existing Content_: ownership/lifetimes.md, ownership/lifetimes-data-structures.md
-
-## slices-and-lifetimes/lifetime-elision - Lifetime Elision
- * _Existing Content_: ownership/lifetimes-function-calls.md
-
-## slices-and-lifetimes/struct-lifetimes - Struct Lifetimes
-
-## slices-and-lifetimes/exercise - Exercise: Packet Parsing
-
-```
-Given
-
-# TODO: adjust this to take and return byte slices
-
-fn src(header: [u8; 20]) -> [u8; 4] {
-  todo!("Extract source address")
-}
-
-fn dst(header: [u8; 20]) -> [u8; 4] {
-  todo!("Extract source address")
-}
-
-fn main() {
-    let header: [u8; 20] = [
-        0x45, 0x00, 0x00, 0x3e, 0x00, 0x00, 0x40, 0x00, 0x64, 0x04, 0x94, 0x6b, 0xc0, 0xa8, 0x00,
-        0x01, 0xc0, 0xa8, 0x00, 0xff,
-    ];
-    println!("Source address: {:?}", src(header));
-    println!("Destination address: {:?}", dst(header));
-}
-
-Print the source and destination IPv4 addresses.
-
-Packet generated with:
-
-fn main() {
-    let packet = etherparse::Ipv4Header::new(42, 100, 4, [192, 168, 0, 1], [192, 168, 0, 255]);
-    let mut wire = Vec::new();
-    packet.write(&mut wire).unwrap();
-    println!("packet: {:#04x?}", &wire);
-}
-```
-
-
-## error-handling/recovery - Recoverable & Irrecoverable Errors
- * _Existing Content_: error-handling.md
- * _Notes_: Introduce recoverable (Result) and non-recoverable errors (panic!)
-
 ## error-handling/panics - Panics
- * _Existing Content_: error-handling/panics.md, error-handling/panic-unwind.md
+ * _Existing Content_: error-handling/panics.md, error-handling.md, error-handling/panic-unwind.md
  * _Notes_: Students only need to know that it's possible, but unusual, to catch panics
 
 ## error-handling/try - Try operator
- * _Existing Content_: error-handling/try-operator.md, error-handling/converting-error-types.md, error-handling/converting-error-types-example.md
- * _Notes_: Basic usage of `?` along with its implied use of From
+ * _Existing Content_: error-handling/try-operator.md
+
+## error-handling/try-conversions - Try Conversions
+ * _Existing Content_: error-handling/converting-error-types.md, error-handling/converting-error-types-example.md
 
 ## error-handling/error - Error Trait
- * _Existing Content_: error-handling/deriving-error-enums.md, error-handling/dynamic-errors.md
+ * _Existing Content_: error-handling/deriving-error-enums.md
  * _Notes_: Defining your own error type manually, as well as `Box<dyn Error>`
 
 ## error-handling/thiserror-and-anyhow - thiserror and anyhow
- * _Existing Content_: error-handling/error-contexts.md
+ * _Existing Content_: error-handling/error-contexts.md, error-handling/dynamic-errors.md
  * _Notes_: Quick demo of using `thiserror` and `anyhow` to handle errors, including adding context
 
-## error-handling/exercise - Exercise: Rewriting with `?`
+## error-handling/exercise - Exercise: Rewriting with Result
 
 ```
 Use the try operator (?) to simplify the error handling in this code:
@@ -455,11 +409,33 @@ fn main() {
 ```
 
 
+## slices-and-lifetimes/slices - Slices: `&[T]`
+ * _Existing Content_: basic-syntax/slices.md
+
+## slices-and-lifetimes/str - String References
+ * _Existing Content_: basic-syntax/string-slices.md
+ * _Notes_: Including `&str` as a way of representing a slice of valid utf-8
+
+## slices-and-lifetimes/lifetime-annotations - Lifetime Annotations
+ * _Existing Content_: ownership/lifetimes.md
+
+## slices-and-lifetimes/lifetime-elision - Lifetime Elision
+ * _Existing Content_: ownership/lifetimes-function-calls.md
+
+## slices-and-lifetimes/struct-lifetimes - Struct Lifetimes
+ * _Existing Content_: ownership/lifetimes-data-structures.md
+
+## slices-and-lifetimes/exercise - Exercise: Protobuf Parsing
+
 ## unsafe-rust/unsafe - Unsafe
  * _Existing Content_: unsafe.md
 
 ## unsafe-rust/dereferencing - Dereferencing Raw Pointers
  * _Existing Content_: unsafe/raw-pointers.md
+
+## unsafe-rust/static-and-const - Static and Const
+ * _Existing Content_: basic-syntax/static-and-const.md
+ * _Notes_: try to make this short!
 
 ## unsafe-rust/mutable-static - Mutable Static Variables
  * _Existing Content_: unsafe/mutable-static-variables.md

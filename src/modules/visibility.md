@@ -1,3 +1,9 @@
+---
+minutes: 5
+existing course material:
+- modules/visibility.md
+---
+
 # Visibility
 
 Modules are a privacy boundary:

@@ -1,0 +1,93 @@
+---
+minutes: 3
+existing course material:
+- control-flow/novel.md
+- control-flow/if-let-expressions.md
+- control-flow/while-let-expressions.md
+---
+
+<!-- NOTES:
+Presented as shorthands to match expressions
+-->
+# Let Control Flow
+
+# Novel Control Flow
+
+Rust has a few control flow constructs which differ from other languages. They
+are used for pattern matching:
+
+- `if let` expressions
+- `while let` expressions
+- `match` expressions
+# `if let` expressions
+
+The [`if let`
+expression](https://doc.rust-lang.org/reference/expressions/if-expr.html#if-let-expressions)
+lets you execute different code depending on whether a value matches a pattern:
+
+```rust,editable
+fn main() {
+    let arg = std::env::args().next();
+    if let Some(value) = arg {
+        println!("Program name: {value}");
+    } else {
+        println!("Missing name?");
+    }
+}
+```
+
+See [pattern matching](../pattern-matching.md) for more details on patterns in
+Rust.
+
+<details>
+
+* Unlike `match`, `if let` does not have to cover all branches. This can make it more concise than `match`.
+* A common usage is handling `Some` values when working with `Option`.
+* Unlike `match`, `if let` does not support guard clauses for pattern matching.
+* Since 1.65, a similar [let-else](https://doc.rust-lang.org/rust-by-example/flow_control/let_else.html) construct allows to do a destructuring assignment, or if it fails, execute a block which is required to abort normal control flow (with `panic`/`return`/`break`/`continue`):
+
+   <!-- mdbook-xgettext: skip -->
+   ```rust,editable
+   fn main() {
+       println!("{:?}", second_word_to_upper("foo bar"));
+   }
+
+   fn second_word_to_upper(s: &str) -> Option<String> {
+       let mut it = s.split(' ');
+       let (Some(_), Some(item)) = (it.next(), it.next()) else {
+           return None;
+       };
+       Some(item.to_uppercase())
+   }
+
+</details>
+# `while let` loops
+
+Like with `if let`, there is a [`while let`](https://doc.rust-lang.org/reference/expressions/loop-expr.html#predicate-pattern-loops)
+variant which repeatedly tests a value against a pattern:
+
+<!-- mdbook-xgettext: skip -->
+```rust,editable
+fn main() {
+    let v = vec![10, 20, 30];
+    let mut iter = v.into_iter();
+
+    while let Some(x) = iter.next() {
+        println!("x: {x}");
+    }
+}
+```
+
+Here the iterator returned by `v.into_iter()` will return a `Option<i32>` on every
+call to `next()`. It returns `Some(x)` until it is done, after which it will
+return `None`. The `while let` lets us keep iterating through all items.
+
+See [pattern matching](../pattern-matching.md) for more details on patterns in
+Rust.
+
+<details>
+
+* Point out that the `while let` loop will keep going as long as the value matches the pattern.
+* You could rewrite the `while let` loop as an infinite loop with an if statement that breaks when there is no value to unwrap for `iter.next()`. The `while let` provides syntactic sugar for the above scenario.
+
+</details>

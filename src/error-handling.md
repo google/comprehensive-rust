@@ -1,7 +1,10 @@
 # Error Handling
 
-Error handling in Rust is done using explicit control flow:
+In this segment:
 
-* Functions that can have errors list this in their return type,
-* There are no exceptions.
-
+* [Panics](error-handling/panics.md)
+* [Try operator](error-handling/try.md)
+* [Try Conversions](error-handling/try-conversions.md)
+* [Error Trait](error-handling/error.md)
+* [thiserror and anyhow](error-handling/thiserror-and-anyhow.md)
+* [Exercise: Rewriting with Result](error-handling/exercise.md)

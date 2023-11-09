@@ -1,3 +1,14 @@
+---
+minutes: 10
+existing course material:
+- modules/paths.md
+---
+
+<!-- NOTES:
+Include re-exports as well
+-->
+# use, super, self
+
 # Paths
 
 Paths are resolved as follows:
