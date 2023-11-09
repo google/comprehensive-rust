@@ -46,7 +46,6 @@ fn main() {
     rot.read_to_string(&mut result).unwrap();
     println!("{}", result);
 }
-// ANCHOR_END: main
 
 #[cfg(test)]
 mod test {
@@ -80,3 +79,4 @@ mod test {
         }
     }
 }
+// ANCHOR_END: main
