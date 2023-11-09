@@ -28,32 +28,11 @@ Copy the code below to <https://play.rust-lang.org/>, fill in the missing
 
 {{#include exercise.rs:setup}}
 
-{{#include exercise.rs:Label-width}}
-        unimplemented!()
-    }
+// TODO: Implement `Widget` for `Label`.
 
-{{#include exercise.rs:Label-draw_into}}
-        unimplemented!()
-    }
-}
+// TODO: Implement `Widget` for `Button`.
 
-{{#include exercise.rs:Button-width}}
-        unimplemented!()
-    }
-
-{{#include exercise.rs:Button-draw_into}}
-        unimplemented!()
-    }
-}
-
-{{#include exercise.rs:Window-width}}
-        unimplemented!()
-    }
-
-{{#include exercise.rs:Window-draw_into}}
-        unimplemented!()
-    }
-}
+// TODO: Implement `Widget` for `Window`.
 
 {{#include exercise.rs:main}}
 ```
