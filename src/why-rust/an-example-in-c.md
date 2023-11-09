@@ -70,7 +70,7 @@ Absolutely not, these kind of bugs have lead to serious security vulnerabilities
 
 * Assignment `=` instead of equality comparison `==`: [The Linux Backdoor Attempt of 2003](https://freedom-to-tinker.com/2013/10/09/the-linux-backdoor-attempt-of-2003)
 * Forgotten braces in multi-line `if`: [The Apple goto fail vulnerability](https://dwheeler.com/essays/apple-goto-fail.html)
-* Forgotten `break` in a `switch` statement: [The break that broke sudo](https://nakedsecurity.sophos.com/2012/05/21/anatomy-of-a-security-hole-the-break-that-broke-sudo)
+* Forgotten `break` in a `switch` statement: [The break that broke sudo](https://www.lufsec.com/anatomy-of-a-security-hole-the-break-that-broke-sudo/)
 
 _How is Rust any better here?_  
 Safe Rust makes all of these bugs impossible:
