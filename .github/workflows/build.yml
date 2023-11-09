@@ -121,18 +121,15 @@ jobs:
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
 
-      - name: Install Gettext
-        if: matrix.language != 'en'
-        run: |
-          sudo apt update
-          sudo apt install gettext
-
       - name: Install mdbook
         uses: ./.github/workflows/install-mdbook
 
       - name: Test ${{ matrix.language }} translation
         if: matrix.language != 'en'
-        run: msgfmt --statistics -o /dev/null po/${{ matrix.language }}.po
+        run: |
+          sudo apt update
+          sudo apt install gettext
+          msgfmt --statistics -o /dev/null po/${{ matrix.language }}.po
 
       - name: Build course
         run: mdbook build
