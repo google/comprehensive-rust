@@ -17,34 +17,26 @@
 use std::collections::HashMap;
 use std::hash::Hash;
 
-// ANCHOR: Counter
 /// Counter counts the number of times each value of type T has been seen.
 struct Counter<T: Eq + Hash> {
-    // ANCHOR_END: Counter
     values: HashMap<T, u64>,
 }
 
 impl<T: Eq + Hash> Counter<T> {
-    // ANCHOR: new
     /// Create a new Counter.
     fn new() -> Self {
-        // ANCHOR_END: new
         Counter {
             values: HashMap::new(),
         }
     }
 
-    // ANCHOR: count
     /// Count an occurrence of the given value.
     fn count(&mut self, value: T) {
-        // ANCHOR_END: count
         *self.values.entry(value).or_default() += 1;
     }
 
-    // ANCHOR: times_seen
     /// Return the number of times the given value has been seen.
     fn times_seen(&self, value: T) -> u64 {
-        // ANCHOR_END: times_seen
         self.values.get(&value).copied().unwrap_or_default()
     }
 }
