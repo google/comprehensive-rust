@@ -122,7 +122,6 @@ jobs:
         uses: ./.github/workflows/setup-rust-cache
 
       - name: Install Gettext
-        if: matrix.language != 'en'
         run: |
           sudo apt update
           sudo apt install gettext
@@ -133,6 +132,12 @@ jobs:
       - name: Test ${{ matrix.language }} translation
         if: matrix.language != 'en'
         run: msgfmt --statistics -o /dev/null po/${{ matrix.language }}.po
+
+      - name: Test extracting English strings
+        if: matrix.language == 'en'
+        run: |
+          MDBOOK_OUTPUT='{"xgettext": {"pot-file": "messages.pot"}}' mdbook build -d po
+          msgfmt -o /dev/null --statistics po/messages.pot
 
       - name: Build course
         run: mdbook build
