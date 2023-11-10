@@ -65,7 +65,12 @@ Also, please keep the hard line breaks to ensure a nice formatting.
 - keyword:\
 - library:\
 - macro:\
-- main function:\
+  Rust macros can be recognized by a `!` in the name. Macros are used
+  when normal functions are not enough. A typical example is `format!`,
+  which takes a variable number of arguments, which isn't supported by
+  Rust functions.
+- `main` function:\
+  Rust programs start executing with the `main` function.
 - match:\
 - memory leak:\
 - method:\
@@ -92,6 +97,8 @@ Also, please keep the hard line breaks to ensure a nice formatting.
 - standard library:\
 - static:\
 - string:\
+  A data type storing textual data. See
+  [`String` vs `str`](basic-syntax/string-slices.html) for more.
 - struct:\
 - test:\
 - thread:\
@@ -102,5 +109,10 @@ Also, please keep the hard line breaks to ensure a nice formatting.
 - undefined behavior:\
 - union:\
 - unit test:\
+  Rust comes with built-in support for running small unit tests and larger
+  integration tests. See [Unit Tests](testing/unit-tests.html).
 - unsafe:\
+  The subset of Rust which allows you to trigger _undefined behavior_.
+  See [Unsafe Rust](unsafe.html).
 - variable:\
+  A memory location storing data. Variables are valid in a _scope_.
