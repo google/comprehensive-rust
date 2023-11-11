@@ -4821,7 +4821,7 @@ msgstr ""
 
 #: src/ownership/moves-function-calls.md:8 src/traits/impl-trait.md:10
 msgid "\"Hello {name}\""
-msgstr "\"Olá {nome}\""
+msgstr "\"Olá {name}\""
 
 #: src/ownership/moves-function-calls.md:12
 #: src/android/interoperability/java.md:56
@@ -4830,7 +4830,7 @@ msgstr "\"Alice\""
 
 #: src/ownership/moves-function-calls.md:14
 msgid "// say_hello(name);\n"
-msgstr "// diga_ola(nome);\n"
+msgstr "// say_hello(name);\n"
 
 #: src/ownership/moves-function-calls.md:20
 msgid ""
@@ -4845,8 +4845,8 @@ msgid ""
 "The heap memory allocated for `name` will be freed at the end of the "
 "`say_hello` function."
 msgstr ""
-"A memória do heap alocada para `nome` será liberada no final da função "
-"`diga_ola`."
+"A memória do heap alocada para `name` será liberada no final da função "
+"`say_hello`."
 
 #: src/ownership/moves-function-calls.md:22
 msgid ""
@@ -4854,7 +4854,7 @@ msgid ""
 "if `say_hello` accepts a reference as a parameter."
 msgstr ""
 "`main` pode manter a ownership se passar `nome` como uma referência "
-"(`&nome`) e se `diga_ola` aceitar uma referência como um parâmetro."
+"(`&name`) e se `say_hello` aceitar uma referência como um parâmetro."
 
 #: src/ownership/moves-function-calls.md:23
 msgid ""
@@ -4862,7 +4862,7 @@ msgid ""
 "clone()`)."
 msgstr ""
 "Alternativamente, `main` pode passar um clone de `nome` na primeira chamada "
-"(`nome.clone()`)."
+"(`name.clone()`)."
 
 #: src/ownership/moves-function-calls.md:24
 msgid ""
@@ -4949,7 +4949,7 @@ msgid ""
 "Add a `String` field to `struct Point`. It will not compile because `String` "
 "is not a `Copy` type."
 msgstr ""
-"Adicione um campo `String` ao `struct Ponto`. Ele não irá compilar porque "
+"Adicione um campo `String` ao `struct Point`. Ele não irá compilar porque "
 "`String` não é um tipo `Copy`."
 
 #: src/ownership/copy-clone.md:45
@@ -4989,7 +4989,7 @@ msgstr "\"{p1:?} + {p2:?} = {p3:?}\""
 #: src/ownership/borrowing.md:22
 msgid "The `add` function _borrows_ two points and returns a new point."
 msgstr ""
-"A função `somar` _pega emprestado_ (_borrows_) dois pontos e retorna um novo "
+"A função `add` _pega emprestado_ (_borrows_) dois pontos e retorna um novo "
 "ponto."
 
 #: src/ownership/borrowing.md:23
@@ -5097,19 +5097,19 @@ msgstr "Um valor emprestado tem um _tempo de vida_ (_lifetime_):"
 #: src/ownership/lifetimes.md:5
 msgid "The lifetime can be implicit: `add(p1: &Point, p2: &Point) -> Point`."
 msgstr ""
-"O tempo de vida pode ser implícito: `somar(p1: &Ponto, p2: &Ponto) -> Ponto`."
+"O tempo de vida pode ser implícito: `add(p1: &Point, p2: &Point) -> Point`."
 
 #: src/ownership/lifetimes.md:6
 msgid "Lifetimes can also be explicit: `&'a Point`, `&'document str`."
 msgstr ""
-"Tempos de vida também podem ser explícitos: `&'a Ponto`, `&'documento str`."
+"Tempos de vida também podem ser explícitos: `&'a Point`, `&'documento str`."
 
 #: src/ownership/lifetimes.md:7 src/ownership/lifetimes-function-calls.md:23
 msgid ""
 "Read `&'a Point` as \"a borrowed `Point` which is valid for at least the "
 "lifetime `a`\"."
 msgstr ""
-"Leia `&'a Ponto` como \"um `Ponto` emprestado que é válido por pelo menos o "
+"Leia `&'a Point` como \"um `Point` emprestado que é válido por pelo menos o "
 "tempo de vida `a`\"."
 
 #: src/ownership/lifetimes.md:9
@@ -5186,9 +5186,8 @@ msgid ""
 "because the relationship between the lifetimes `'a` and `'b` is unclear."
 msgstr ""
 "Reinicie o espaço de trabalho e altere a assinatura da função para `fn "
-"mais_a_esquerda<'a,   'b>(p1: &'a Ponto, p2: &'a Ponto) -> &'b Ponto`. Isso "
-"não será compilado porque a relação entre os   tempos de vida `'a` e `'b` "
-"não é clara."
+"left_most<'a, 'b>(p1: &'a Point, p2: &'a Point) -> &'b Point`. Isso não será "
+"compilado porque a relação entre os tempos de vida `'a` e `'b` não é clara."
 
 #: src/ownership/lifetimes-function-calls.md:53
 msgid "Another way to explain it:"
@@ -5227,7 +5226,7 @@ msgstr ""
 
 #: src/ownership/lifetimes-data-structures.md:10
 msgid "\"Bye {text}!\""
-msgstr "\"Até logo {texto}!\""
+msgstr "\"Até logo {text}!\""
 
 #: src/ownership/lifetimes-data-structures.md:14
 msgid "\"The quick brown fox jumps over the lazy dog.\""
@@ -5235,15 +5234,15 @@ msgstr "\"A raposa marrom ágil pula sobre o cachorro preguiçoso.\""
 
 #: src/ownership/lifetimes-data-structures.md:17
 msgid "// erase(text);\n"
-msgstr "// apagar(texto);\n"
+msgstr "// erase(text);\n"
 
 #: src/ownership/lifetimes-data-structures.md:18
 msgid "\"{fox:?}\""
-msgstr "\"{raposa:?}\""
+msgstr "\"{fox:?}\""
 
 #: src/ownership/lifetimes-data-structures.md:19
 msgid "\"{dog:?}\""
-msgstr "\"{cachorro:?}\""
+msgstr "\"{dog:?}\""
 
 #: src/ownership/lifetimes-data-structures.md:25
 msgid ""
@@ -5251,17 +5250,17 @@ msgid ""
 "underlying the contained `&str` lives at least as long as any instance of "
 "`Highlight` that uses that data."
 msgstr ""
-"No exemplo acima, a anotação em `Destaque` impõe que os dados subjacentes ao "
-"`&str` contido vivam pelo menos tanto quanto qualquer instância de "
-"`Destaque` que use esses dados."
+"No exemplo acima, a anotação em `Highlight` impõe que os dados subjacentes "
+"ao `&str` contido vivam pelo menos tanto quanto qualquer instância de "
+"`Highlight` que use esses dados."
 
 #: src/ownership/lifetimes-data-structures.md:26
 msgid ""
 "If `text` is consumed before the end of the lifetime of `fox` (or `dog`), "
 "the borrow checker throws an error."
 msgstr ""
-"Se `texto` for consumido antes do final do tempo de vida de `raposa` (ou "
-"`cachorro`), o verificador de empréstimo lançará um erro."
+"Se `text` for consumido antes do final do tempo de vida de `fox` (ou `dog`), "
+"o verificador de empréstimo lançará um erro."
 
 #: src/ownership/lifetimes-data-structures.md:27
 msgid ""
@@ -5616,7 +5615,7 @@ msgstr ""
 #: src/exercises/day-1/iterators-and-ownership.md:94
 #: src/exercises/day-1/iterators-and-ownership.md:98
 msgid "\"word: {word}\""
-msgstr "\"palavra: {palavra}\""
+msgstr "\"palavra: {word}\""
 
 #: src/exercises/day-1/iterators-and-ownership.md:103
 msgid "What is the type of `word` in each loop?"
@@ -5838,7 +5837,7 @@ msgstr ""
 
 #: src/structs/field-shorthand.md:21
 msgid "\"{peter:?}\""
-msgstr "\"{pedro:?}\""
+msgstr "\"{peter:?}\""
 
 #: src/structs/field-shorthand.md:27
 msgid ""
@@ -5874,7 +5873,7 @@ msgid ""
 "the variable `peter` will no longer be accessible afterwards."
 msgstr ""
 "Use a sintaxe de atualização de estruturas para definir uma nova `struct` "
-"usando `pedro`. Note que a variável `pedro` não será mais acessível após."
+"usando `peter`. Note que a variável `peter` não será mais acessível após."
 
 #: src/structs/field-shorthand.md:70
 msgid ""
@@ -6049,8 +6048,8 @@ msgid ""
 "Click(Click)` with a top level `struct Click { ... }`. The inlined version "
 "cannot implement traits, for example."
 msgstr ""
-"`EventoWeb::Clique { ... }` não é exatamente o mesmo que `EventoWeb::"
-"Clique(Clique)` com uma `struct Clique { ... }` _top-level_. A versão no "
+"`WebEvent::Click { ... }` não é exatamente o mesmo que `WebEvent::"
+"Click(Click)` com uma `struct Click { ... }` _top-level_. A versão no "
 "próprio local (_inline_) não permite implementar _traits_, por exemplo."
 
 #: src/enums/sizes.md:3
@@ -6402,7 +6401,7 @@ msgstr "\"Registrou {} voltas para {}:\""
 
 #: src/methods/example.md:22
 msgid "\"Lap {idx}: {lap} sec\""
-msgstr "\"Volta {idx}: {volta} seg\""
+msgstr "\"Volta {idx}: {lap} seg\""
 
 #: src/methods/example.md:26
 msgid "// Exclusive ownership of self\n"
@@ -6418,7 +6417,7 @@ msgstr "\"Monaco Grand Prix\""
 
 #: src/methods/example.md:40
 msgid "// race.add_lap(42);\n"
-msgstr "// corrida.adicionar_volta(42);\n"
+msgstr "// race.add_lap(42);\n"
 
 #: src/methods/example.md:47
 msgid "All four methods here use a different method receiver."
@@ -6581,7 +6580,7 @@ msgstr "\"não é possível dividir {n} em duas partes iguais\""
 
 #: src/pattern-matching/destructuring-enums.md:23
 msgid "\"{n} divided in two is {half}\""
-msgstr "\"{n} divido em dois é {metade}\""
+msgstr "\"{n} divido em dois é {half}\""
 
 #: src/pattern-matching/destructuring-enums.md:24
 msgid "\"sorry, an error happened: {msg}\""
@@ -6594,9 +6593,9 @@ msgid ""
 "arm, `msg` is bound to the error message."
 msgstr ""
 "Aqui usamos a verificação de correspondência para _desestruturar_ o valor "
-"contido em `Result`. Na primeira verificação de correspondência, `metade` "
-"está vinculado ao valor dentro da variante `Ok`. Na segunda, `msg` está "
-"vinculado à mensagem de erro."
+"contido em `Result`. Na primeira verificação de correspondência, `half` está "
+"vinculado ao valor dentro da variante `Ok`. Na segunda, `msg` está vinculado "
+"à mensagem de erro."
 
 #: src/pattern-matching/destructuring-enums.md:36
 msgid ""
@@ -6661,7 +6660,7 @@ msgstr ""
 
 #: src/pattern-matching/destructuring-arrays.md:9
 msgid "\"Tell me about {triple:?}\""
-msgstr "\"Fale-me sobre {triplo:?}\""
+msgstr "\"Fale-me sobre {triple:?}\""
 
 #: src/pattern-matching/destructuring-arrays.md:11
 #: src/pattern-matching/destructuring-arrays.md:34
@@ -6722,7 +6721,7 @@ msgstr ""
 
 #: src/pattern-matching/match-guards.md:10
 msgid "\"Tell me about {pair:?}\""
-msgstr "\"Fale-me sobre {par:?}\""
+msgstr "\"Fale-me sobre {pair:?}\""
 
 #: src/pattern-matching/match-guards.md:12
 msgid "\"These are twins\""
@@ -6843,9 +6842,9 @@ msgid ""
 "below to <https://play.rust-lang.org/> and fill in the missing methods to "
 "make the tests pass:"
 msgstr ""
-"Vamos criar um _struct_ `Poligono` que contém alguns `Pontos`. Copie o "
-"código abaixo em <https://play.rust-lang.org/> e preencha os métodos que "
-"faltam para fazer os testes passarem:"
+"Vamos criar um _struct_ `Polygon` que contém alguns `Points`. Copie o código "
+"abaixo em <https://play.rust-lang.org/> e preencha os métodos que faltam "
+"para fazer os testes passarem:"
 
 #: src/exercises/day-2/points-polygons.md:12
 #: src/exercises/day-2/points-polygons.md:20
@@ -7001,7 +7000,7 @@ msgstr ""
 
 #: src/control-flow/if-let-expressions.md:11
 msgid "\"Program name: {value}\""
-msgstr "\"Nome do programa: {valor}\""
+msgstr "\"Nome do programa: {value}\""
 
 #: src/control-flow/if-let-expressions.md:13
 msgid "\"Missing name?\""
@@ -7421,11 +7420,11 @@ msgstr "Os tipos representam dados opcionais:"
 
 #: src/std/option-result.md:9
 msgid "\"first: {first:?}\""
-msgstr "\"primeiro: {primeiro:?}\""
+msgstr "\"primeiro: {first:?}\""
 
 #: src/std/option-result.md:12
 msgid "\"idx: {idx:?}\""
-msgstr "\"ind: {ind:?}\""
+msgstr "\"ind: {idx:?}\""
 
 #: src/std/option-result.md:18
 msgid "`Option` and `Result` are widely used not just in the standard library."
@@ -7715,11 +7714,11 @@ msgstr "\"Alice's Adventure in Wonderland\""
 
 #: src/std/hashmap.md:21
 msgid "\"{book}: {count} pages\""
-msgstr "\"{livro}: {paginas} páginas\""
+msgstr "\"{book}: {count} páginas\""
 
 #: src/std/hashmap.md:22
 msgid "\"{book} is unknown.\""
-msgstr "\"{livro} é desconhecido.\""
+msgstr "\"{book} é desconhecido.\""
 
 #: src/std/hashmap.md:26
 msgid "// Use the .entry() method to insert a value if nothing is found.\n"
@@ -7728,7 +7727,7 @@ msgstr ""
 
 #: src/std/hashmap.md:32
 msgid "\"{page_counts:#?}\""
-msgstr "\"{contadores_paginas:#?}\""
+msgstr "\"{page_counts:#?}\""
 
 #: src/std/hashmap.md:38
 msgid ""
@@ -7888,7 +7887,7 @@ msgstr ""
 
 #: src/std/box-recursive.md:14 src/std/box-niche.md:12
 msgid "\"{list:?}\""
-msgstr "\"{lista:?}\""
+msgstr "\"{list:?}\""
 
 #: src/std/box-recursive.md:18
 msgid ""
@@ -8661,11 +8660,11 @@ msgstr "Você pode usar tipos genéricos para abstrair o tipo concreto do campo:
 
 #: src/generics/data-types.md:15
 msgid "\"{integer:?} and {float:?}\""
-msgstr "\"{inteiro:?} e {real:?}\""
+msgstr "\"{integer:?} e {float:?}\""
 
 #: src/generics/data-types.md:21
 msgid "Try declaring a new variable `let p = Point { x: 5, y: 10.0 };`."
-msgstr "Tente declarar uma nova variável `let p = Ponto { x: 5, y: 10.0 };`."
+msgstr "Tente declarar uma nova variável `let p = Point { x: 5, y: 10.0 };`."
 
 #: src/generics/data-types.md:23
 msgid "Fix the code to allow points that have elements of different types."
@@ -8679,22 +8678,22 @@ msgstr "Você pode declarar um tipo genérico em seu bloco `impl`:"
 
 #: src/generics/methods.md:11
 msgid "// + 10\n"
-msgstr ""
+msgstr "// + 10\n"
 
 #: src/generics/methods.md:14
 msgid "// fn set_x(&mut self, x: T)\n"
-msgstr ""
+msgstr "// fn set_x(&mut self, x: T)\n"
 
 #: src/generics/methods.md:19
 msgid "\"p.x = {}\""
-msgstr ""
+msgstr "\"p.x = {}\""
 
 #: src/generics/methods.md:25
 msgid ""
 "_Q:_ Why `T` is specified twice in `impl<T> Point<T> {}`? Isn't that "
 "redundant?"
 msgstr ""
-"_Pergunta:_ Por que `T` é especificado duas vezes em `impl<T> Ponto<T> {}`? "
+"_Pergunta:_ Por que `T` é especificado duas vezes em `impl<T> Point<T> {}`? "
 "Isso não é redundante?"
 
 #: src/generics/methods.md:26
@@ -8711,15 +8710,15 @@ msgstr "Significa que esses métodos são definidos para qualquer `T`."
 
 #: src/generics/methods.md:28
 msgid "It is possible to write `impl Point<u32> { .. }`. "
-msgstr "É possível escrever `Impl Ponto<u32> { .. }`."
+msgstr "É possível escrever `Impl Point<u32> { .. }`."
 
 #: src/generics/methods.md:29
 msgid ""
 "`Point` is still generic and you can use `Point<f64>`, but methods in this "
 "block will only be available for `Point<u32>`."
 msgstr ""
-"`Ponto` ainda é genérico e você pode usar `Ponto<f64>`, mas os métodos neste "
-"bloco só estarão disponíveis para `Ponto<u32>`."
+"`Point` ainda é genérico e você pode usar `Point<f64>`, mas os métodos neste "
+"bloco só estarão disponíveis para `Point<u32>`."
 
 #: src/generics/monomorphization.md:3
 msgid "Generic code is turned into non-generic code based on the call sites:"
@@ -9244,7 +9243,7 @@ msgstr ""
 
 #: src/traits/from-into.md:11 src/traits/from-into.md:23
 msgid "\"{s}, {addr}, {one}, {bigger}\""
-msgstr "\"{s}, {endereco_ipv4}, {um}, {maior}\""
+msgstr "\"{s}, {addr}, {one}, {bigger}\""
 
 #: src/traits/from-into.md:15
 msgid ""
@@ -9494,7 +9493,7 @@ msgstr ""
 msgid ""
 "You could implement `Add` for `&Point`. In which situations is that useful? "
 msgstr ""
-"Você pode implementar `Add` para `&Ponto`. Em quais situações isso é útil?"
+"Você pode implementar `Add` para `&Point`. Em quais situações isso é útil?"
 
 #: src/traits/operators.md:29
 #, fuzzy
@@ -9731,15 +9730,15 @@ msgstr ""
 
 #: src/exercises/day-3/simple-gui.md:150
 msgid "\"left aligned:  |{:/<width$}|\""
-msgstr "\"alinhado à esquerda: |{:/<largura$}|\""
+msgstr "\"alinhado à esquerda: |{:/<width$}|\""
 
 #: src/exercises/day-3/simple-gui.md:151
 msgid "\"centered:      |{:/^width$}|\""
-msgstr "\"centralizado: |{:/^largura$}|\""
+msgstr "\"centralizado: |{:/^width$}|\""
 
 #: src/exercises/day-3/simple-gui.md:152
 msgid "\"right aligned: |{:/>width$}|\""
-msgstr "\"alinhado à direita: |{:/>largura$}|\""
+msgstr "\"alinhado à direita: |{:/>width$}|\""
 
 #: src/exercises/day-3/simple-gui.md:156
 msgid ""
@@ -9837,7 +9836,7 @@ msgstr "\"diario.txt\""
 
 #: src/error-handling/result.md:16
 msgid "\"Dear diary: {contents}\""
-msgstr "\"Querido diário: {conteudo}\""
+msgstr "\"Querido diário: {contents}\""
 
 #: src/error-handling/result.md:19
 msgid "\"The diary could not be opened: {err}\""
@@ -9902,7 +9901,7 @@ msgstr "\"config.dat\""
 #: src/error-handling/try-operator.md:42
 #: src/error-handling/converting-error-types-example.md:44
 msgid "\"username or error: {username:?}\""
-msgstr "\"nome_usuario ou erro: {nome_usuario:?}\""
+msgstr "\"nome_usuario ou erro: {username:?}\""
 
 #: src/error-handling/try-operator.md:50
 #: src/error-handling/converting-error-types-example.md:52
@@ -9962,7 +9961,7 @@ msgstr "\"Erro E/S: {e}\""
 
 #: src/error-handling/converting-error-types-example.md:21
 msgid "\"Found no username in {filename}\""
-msgstr "\"Nome de usuário não encontrado em {nome_arquivo}\""
+msgstr "\"Nome de usuário não encontrado em {filename}\""
 
 #: src/error-handling/converting-error-types-example.md:42
 #: src/error-handling/deriving-error-enums.md:29
@@ -10424,7 +10423,7 @@ msgstr "\"Olá, mundo!\""
 
 #: src/unsafe/mutable-static-variables.md:9
 msgid "\"HELLO_WORLD: {HELLO_WORLD}\""
-msgstr "\"OLA_MUNDO: {OLA_MUNDO}\""
+msgstr "\"HELLO_WORLD: {HELLO_WORLD}\""
 
 #: src/unsafe/mutable-static-variables.md:13
 msgid ""
@@ -10441,7 +10440,7 @@ msgstr "// Corrida de dados potencial!\n"
 
 #: src/unsafe/mutable-static-variables.md:26
 msgid "\"COUNTER: {COUNTER}\""
-msgstr "\"CONTADOR: {CONTADOR}\""
+msgstr "\"COUNTER: {COUNTER}\""
 
 #: src/unsafe/mutable-static-variables.md:32
 msgid ""
@@ -17873,11 +17872,11 @@ msgstr ""
 #: src/exercises/day-3/solutions-morning.md:136
 #: src/exercises/day-3/solutions-morning.md:140
 msgid "\"+{:-<width$}+\""
-msgstr ""
+msgstr "\"+{:-<width$}+\""
 
 #: src/exercises/day-3/solutions-morning.md:138
 msgid "\"|{:^width$}|\""
-msgstr ""
+msgstr "\"|{:^width$}|\""
 
 #: src/exercises/day-3/solutions-morning.md:143
 msgid "// ANCHOR: Label-width\n"
