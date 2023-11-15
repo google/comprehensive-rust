@@ -116,8 +116,11 @@
         setState("popup");
         applyState();
         // bind the popup to reset the speaker note state on close of the popup
-        popup.onload = ()=>{
-          popup.onbeforeunload = ()=>{setState('inline-open'); applyState();};
+        popup.onload = () => {
+          popup.onbeforeunload = () => {
+            setState('inline-open');
+            applyState();
+          };
         };
       } else {
         window.alert(
