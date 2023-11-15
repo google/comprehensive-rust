@@ -4,34 +4,49 @@ minutes: 5
 
 # Exercise: Counter
 
-In this exercise you will build a very simple data structure that counts the
-number of times values are seen.
-
-Use a
+In this exercise you will take a very simple data structure and make it generic.
+It uses a
 [`std::collections::HashMap`](https://doc.rust-lang.org/stable/std/collections/struct.HashMap.html)
-to implement your `Counter` type.
+to keep track of which values have been seen and how many times each one has
+appeared.
+
+The initial version of `Counter` is hard coded to only work for `u32` values.
+Make the struct and its methods generic over the type of value being tracked,
+that way `Counter` can track any type of value.
 
 If you finish early, try using the
 [`entry`](https://doc.rust-lang.org/stable/std/collections/struct.HashMap.html#method.entry)
 method to halve the number of hash lookups required to implement the `count`
 method.
 
-```rust,compile_fail
-{{#include exercise.rs:Counter}}
-    // ...
+```rust,compile_fail,editable
+use std::collections::HashMap;
+
+/// Counter counts the number of times each value of type T has been seen.
+struct Counter {
+    values: HashMap<u32, u64>,
 }
 
-impl<T> Counter<T> {
-    {{#include exercise.rs:new}}
-        todo!()
+impl Counter {
+    /// Create a new Counter.
+    fn new() -> Self {
+        Counter {
+            values: HashMap::new(),
+        }
     }
 
-    {{#include exercise.rs:count}}
-        todo!()
+    /// Count an occurrence of the given value.
+    fn count(&mut self, value: u32) {
+        if self.values.contains_key(&value) {
+            *self.values.get_mut(&value).unwrap() += 1;
+        } else {
+            self.values.insert(value, 1);
+        }
     }
 
-    {{#include exercise.rs:times_seen}}
-        todo!()
+    /// Return the number of times the given value has been seen.
+    fn times_seen(&self, value: u32) -> u64 {
+        self.values.get(&value).copied().unwrap_or_default()
     }
 }
 

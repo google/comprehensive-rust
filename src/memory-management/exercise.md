@@ -33,4 +33,6 @@ Fill in the missing pieces.
     }
 
 {{#include exercise.rs:build}}
+
+{{#include exercise.rs:main}}
 ```

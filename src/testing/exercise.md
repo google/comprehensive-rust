@@ -4,9 +4,6 @@ existing course material:
 - exercises/day-1/luhn.md
 ---
 
-<!-- NOTES:
-Give all of the test cases, to give students a sense for how nice TDD is in Rust
--->
 # Exercise: Luhn Algorithm
 
 # Luhn Algorithm
@@ -27,22 +24,16 @@ following to validate the credit card number:
 
 * The credit card number is valid if the sum ends with `0`.
 
-Copy the code below to <https://play.rust-lang.org/> and implement the function.
+The provided code provides a buggy implementation of the luhn algorithm, along
+with two basic unit tests that confirm that most the algorithm is implemented
+correctly.
 
-Try to solve the problem the "simple" way first, using `for` loops and integers.
-Then, revisit the solution and try to implement it with iterators.
-
+Copy the code below to <https://play.rust-lang.org/> and write additional tests
+to uncover bugs in the provided implementation, fixing any bugs you find.
 
 ```rust
-// TODO: remove this when you're done with your implementation.
-#![allow(unused_variables, dead_code)]
-
 {{#include exercise.rs:luhn}}
-    unimplemented!()
-}
 
 {{#include exercise.rs:unit-tests}}
-
-#[allow(dead_code)]
-fn main() {}
+}
 ```

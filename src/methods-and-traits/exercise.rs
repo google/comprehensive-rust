@@ -79,20 +79,15 @@ impl Window {
         )
     }
 }
-
 // ANCHOR_END: setup
 
-// ANCHOR: Window-width
 impl Widget for Window {
     fn width(&self) -> usize {
-        // ANCHOR_END: Window-width
         // Add 4 paddings for borders
         self.inner_width() + 4
     }
 
-    // ANCHOR: Window-draw_into
     fn draw_into(&self, buffer: &mut dyn std::fmt::Write) {
-        // ANCHOR_END: Window-draw_into
         let mut inner = String::new();
         for widget in &self.widgets {
             widget.draw_into(&mut inner);
@@ -113,16 +108,12 @@ impl Widget for Window {
     }
 }
 
-// ANCHOR: Button-width
 impl Widget for Button {
     fn width(&self) -> usize {
-        // ANCHOR_END: Button-width
         self.label.width() + 8 // add a bit of padding
     }
 
-    // ANCHOR: Button-draw_into
     fn draw_into(&self, buffer: &mut dyn std::fmt::Write) {
-        // ANCHOR_END: Button-draw_into
         let width = self.width();
         let mut label = String::new();
         self.label.draw_into(&mut label);
@@ -135,10 +126,8 @@ impl Widget for Button {
     }
 }
 
-// ANCHOR: Label-width
 impl Widget for Label {
     fn width(&self) -> usize {
-        // ANCHOR_END: Label-width
         self.label
             .lines()
             .map(|line| line.chars().count())
@@ -146,9 +135,7 @@ impl Widget for Label {
             .unwrap_or(0)
     }
 
-    // ANCHOR: Label-draw_into
     fn draw_into(&self, buffer: &mut dyn std::fmt::Write) {
-        // ANCHOR_END: Label-draw_into
         writeln!(buffer, "{}", &self.label).unwrap();
     }
 }
