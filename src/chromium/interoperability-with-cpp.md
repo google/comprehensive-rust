@@ -1,6 +1,6 @@
 # Interoperability with C++
 
-The Rust community offers multiple options for C++/Rust interop, with new
+The Rust community offers multiple options for C++/Rust interop, with new tools
 being developed all the time. At the moment, Chromium uses a tool called "cxx".
 
 Behind the scenes, this uses a "lowest common denominator" C ABI, but it builds
