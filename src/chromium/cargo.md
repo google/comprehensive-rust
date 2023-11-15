@@ -2,7 +2,7 @@
 
 Mostly, we'll be talking about using `gn` to include Rust in Chromium itself.
 But can you use `cargo` and normal Rust crates to build Rust tools and to do
-Rust experiments outside the main Chromium biuld?
+Rust experiments outside the main Chromium build?
 
 Typical Rust development requires downloading and running content from the
 internet:
