@@ -46,7 +46,7 @@ For example:
 
 ```
 Missing dependency: example-transitive-dependency 1.0.83
-    chromium 0.1.0 (path+file:///usr/local/google/home/you/chromium/src/third_party/rust)
+    chromium 0.1.0 (path+file:///home/you/chromium/src/third_party/rust)
     example-crate 1.0.110 (path+file:///usr/local/google/home/you/chromium/src/third_party/rust/example-crate/v1/crate)
 ```
 
