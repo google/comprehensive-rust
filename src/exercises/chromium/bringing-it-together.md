@@ -47,7 +47,7 @@ Students will likely need some hints here. Hints include:
   what `Pin` does, and then explain why `cxx` needs it for mutable references
   to C++ data: the answer is that C++ data can't be moved around like Rust
   data, because it may contain self-referential pointers.
-* The C++ target containing ``ResourceBundle::MaybeMangleLocalizedString`
+* The C++ target containing `ResourceBundle::MaybeMangleLocalizedString`
   will need to depend on a `rust_static_library` target. The student
   probably already did this.
 * The `rust_static_library` target will need to depend on
