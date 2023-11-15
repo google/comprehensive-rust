@@ -91,9 +91,9 @@ This section is about what you write in the translation. We describe
 When translating the course, please take the following into account:
 
 - Do not translate:
-  - The course name ("Comprehensive Rust 🦀"). If the name is not
-    easily understood in your language, please add the translated version after
-    the original name.
+  - The course name ("Comprehensive Rust 🦀"). If the name is not easily
+    understood in your language, please add the translated version after the
+    original name.
   - Variable names (you _should_ translate the comments, though.)
 
 - If the Rust Book has been
