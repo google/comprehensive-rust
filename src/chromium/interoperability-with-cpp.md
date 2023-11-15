@@ -10,7 +10,7 @@ The overall approach looks like this:
 
 <img src="../android/interoperability/cpp/overview.svg">
 
-See the [CXX tutorial][1] for an full example of using this.
+See the [CXX tutorial][1] for a full example of using this.
 
 cxx requires you to declare the whole C++/Rust boundary in one of your `.rs`
 files. For instance:
