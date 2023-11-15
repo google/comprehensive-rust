@@ -94,7 +94,7 @@ The best way to learn cxx is by doing, so, another exercise!
 Students may ask - why do we still need `allow_unsafe = true`?
 
 The broad answer is that no C/C++ code is "safe" by the normal Rust standards.
-Calling back and forth C/C++ from Rust may do arbitrary things to memory, and
+Calling back and forth to C/C++ from Rust may do arbitrary things to memory, and
 compromise the safety of Rust's own data layouts. Presence of _too many_
 `unsafe` keywords in C/C++ interop can harm the signal-to-noise ratio of
 such a keyword, and is [controversial][3], but strictly, bringing any foreign
