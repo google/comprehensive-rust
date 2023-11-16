@@ -29,7 +29,7 @@ always do this irrespective of the setting of `mangle_localized_strings_`.
 If you've done everything right across all these exercises, congratulations,
 you should have created Chrome for pixies!
 
-<img src="chwomium.png">
+<img src="chwomium.png" alt="Chromium UI screenshot with uwu language">
 
 <details>
 Students will likely need some hints here. Hints include:

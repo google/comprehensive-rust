@@ -8,7 +8,7 @@ nice abstractions on both sides.
 
 The overall approach looks like this:
 
-<img src="../android/interoperability/cpp/overview.svg">
+<img src="../android/interoperability/cpp/overview.svg" alt="Overview diagram of cxx, showing that the same interface definition is used to create both C++ and Rust side code which then communicate via a lowest common denominator C API">
 
 See the [CXX tutorial][1] for a full example of using this.
 
