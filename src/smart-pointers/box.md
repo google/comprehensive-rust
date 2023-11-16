@@ -1,9 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- std/box.md
-- std/box-recursive.md
-- std/box-niche.md
 ---
 
 # `Box<T>`

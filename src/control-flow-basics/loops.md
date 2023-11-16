@@ -1,9 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- control-flow/while-expressions.md
-- control-flow/for-expressions.md
-- control-flow/loop-expressions.md
 ---
 
 # Loops

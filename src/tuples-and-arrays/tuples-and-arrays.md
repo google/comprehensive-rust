@@ -1,7 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- basic-syntax/compound-types.md
 ---
 
 # Tuples and Arrays

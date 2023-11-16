@@ -1,12 +1,5 @@
 ---
 minutes: 15
-existing course material:
-- exercises/day-1/morning.md
-- exercises/day-1/afternoon.md
-- exercises/day-2/morning.md
-- exercises/day-2/afternoon.md
-- exercises/day-3/morning.md
-- exercises/day-3/afternoon.md
 ---
 
 # Exercise: Collatz Sequence

@@ -1,8 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- pattern-matching/destructuring-structs.md
-- pattern-matching/destructuring-enums.md
 ---
 
 # Destructuring

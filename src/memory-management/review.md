@@ -1,8 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- memory-management/stack-vs-heap.md
-- memory-management/stack.md
 ---
 
 # Review of Program Memory

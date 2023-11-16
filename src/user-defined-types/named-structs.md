@@ -1,8 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- structs.md
-- structs/field-shorthand.md
 ---
 
 # Named Structs

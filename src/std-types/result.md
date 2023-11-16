@@ -1,7 +1,5 @@
 ---
 minutes: 3
-existing course material:
-- error-handling/result.md
 ---
 
 # Result

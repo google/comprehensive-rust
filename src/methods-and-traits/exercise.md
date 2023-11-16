@@ -1,7 +1,5 @@
 ---
 minutes: 15
-existing course material:
-- exercises/day-3/simple-gui.md
 ---
 
 # Exercise: GUI Library

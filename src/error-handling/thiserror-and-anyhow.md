@@ -1,8 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- error-handling/error-contexts.md
-- error-handling/dynamic-errors.md
 ---
 
 # `thiserror`  and `anyhow`

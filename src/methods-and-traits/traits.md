@@ -1,8 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- traits.md
-- traits/default-methods.md
 ---
 
 # Traits

@@ -1,7 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- error-handling/try-operator.md
 ---
 
 # Try Operator

@@ -1,7 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- structs/tuple-structs.md
 ---
 
 <!-- NOTES:

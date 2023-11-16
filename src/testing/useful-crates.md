@@ -1,7 +1,5 @@
 ---
 minutes: 3
-existing course material:
-- testing/useful-crates.md
 ---
 
 # Useful Crates

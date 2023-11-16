@@ -1,8 +1,5 @@
 ---
 minutes: 20
-existing course material:
-- testing/integration-tests.md
-- testing/doc-tests.md
 ---
 
 # Other Types of Tests

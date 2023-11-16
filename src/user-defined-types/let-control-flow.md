@@ -1,9 +1,5 @@
 ---
 minutes: 3
-existing course material:
-- control-flow/novel.md
-- control-flow/if-let-expressions.md
-- control-flow/while-let-expressions.md
 ---
 
 # Let Control Flow

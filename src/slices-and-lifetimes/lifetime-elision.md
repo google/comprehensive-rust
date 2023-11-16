@@ -1,7 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- ownership/lifetimes-function-calls.md
 ---
 
 # Lifetimes in Function Calls

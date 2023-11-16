@@ -1,7 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- traits/from-iterator.md
 ---
 
 # FromIterator

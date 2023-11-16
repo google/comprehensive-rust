@@ -1,10 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- memory-management.md
-- memory-management/manual.md
-- memory-management/scope-based.md
-- memory-management/garbage-collection.md
 ---
 
 # Approaches to Memory Management

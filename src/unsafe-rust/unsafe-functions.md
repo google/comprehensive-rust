@@ -1,9 +1,5 @@
 ---
 minutes: 2
-existing course material:
-- unsafe/calling-unsafe-functions.md
-- unsafe/writing-unsafe-functions.md
-- unsafe/extern-functions.md
 ---
 
 # Unsafe Functions

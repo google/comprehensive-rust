@@ -1,7 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- basic-syntax/static-and-const.md
 ---
 
 # Static and Const

@@ -1,10 +1,5 @@
 ---
 minutes: 3
-existing course material:
-- why-rust.md
-- why-rust/compile-time.md
-- why-rust/runtime.md
-- why-rust/modern.md
 ---
 
 # Benefits of Rust

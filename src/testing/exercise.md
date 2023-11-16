@@ -1,7 +1,5 @@
 ---
 minutes: 15
-existing course material:
-- exercises/day-1/luhn.md
 ---
 
 # Exercise: Luhn Algorithm

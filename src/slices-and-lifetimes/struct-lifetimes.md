@@ -1,7 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- ownership/lifetimes-data-structures.md
 ---
 
 # Lifetimes in Data Structures

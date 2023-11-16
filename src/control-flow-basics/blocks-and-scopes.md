@@ -1,8 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- basic-syntax/scopes-shadowing.md
-- control-flow/blocks.md
 ---
 
 # Blocks and Scopes

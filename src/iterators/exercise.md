@@ -1,7 +1,5 @@
 ---
 minutes: 15
-existing course material:
-- exercises/day-2/strings-iterators.md
 ---
 
 # Exercise: Iterator Method Chaining

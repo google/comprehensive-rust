@@ -1,9 +1,5 @@
 ---
 minutes: 3
-existing course material:
-- error-handling/panics.md
-- error-handling.md
-- error-handling/panic-unwind.md
 ---
 
 # Panics

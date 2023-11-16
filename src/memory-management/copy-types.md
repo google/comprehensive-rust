@@ -1,7 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- ownership/copy-clone.md
 ---
 
 <!-- NOTES:

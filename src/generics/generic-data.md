@@ -1,8 +1,5 @@
 ---
 minutes: 15
-existing course material:
-- generics/data-types.md
-- generics/methods.md
 ---
 
 # Generic Data Types

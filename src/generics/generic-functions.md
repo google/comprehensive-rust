@@ -1,8 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- generics.md
-- generics/monomorphization.md
 ---
 
 # Generic Functions

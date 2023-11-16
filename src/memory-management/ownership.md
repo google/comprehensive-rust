@@ -1,8 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- ownership.md
-- memory-management/rust.md
 ---
 
 # Ownership

@@ -1,7 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- traits/read-write.md
 ---
 
 # `Read` and `Write`

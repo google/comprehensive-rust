@@ -1,7 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- traits/drop.md
 ---
 
 # The `Drop` Trait

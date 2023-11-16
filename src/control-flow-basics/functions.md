@@ -1,10 +1,5 @@
 ---
 minutes: 3
-existing course material:
-- basic-syntax/functions.md
-- basic-syntax/rustdoc.md
-- basic-syntax/methods.md
-- basic-syntax/functions-interlude.md
 ---
 
 # Functions

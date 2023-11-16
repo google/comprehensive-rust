@@ -1,7 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- std/rc.md
 ---
 
 # `Rc`

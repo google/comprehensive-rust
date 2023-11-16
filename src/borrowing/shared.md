@@ -1,8 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- ownership/borrowing.md
-- ownership/shared-unique-borrows.md
 ---
 
 # Borrowing a Value

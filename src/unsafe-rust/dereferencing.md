@@ -1,7 +1,5 @@
 ---
 minutes: 3
-existing course material:
-- unsafe/raw-pointers.md
 ---
 
 # Dereferencing Raw Pointers

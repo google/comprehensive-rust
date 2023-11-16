@@ -1,9 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- enums.md
-- enums/variant-payloads.md
-- enums/sizes.md
 ---
 
 # Enums

@@ -1,8 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- basic-syntax/references.md
-- basic-syntax/references-dangling.md
 ---
 
 # Shared References

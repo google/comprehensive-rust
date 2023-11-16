@@ -1,7 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- why-rust/an-example-in-c.md
 ---
 
 # An Example in C

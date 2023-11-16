@@ -1,9 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- basic-syntax.md
-- control-flow.md
-- control-flow/if-expressions.md
 ---
 
 # Conditionals

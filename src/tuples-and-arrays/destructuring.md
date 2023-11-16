@@ -1,7 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- pattern-matching/destructuring-arrays.md
 ---
 
 # Destructuring

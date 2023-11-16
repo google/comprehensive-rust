@@ -1,7 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- traits/from-into.md
 ---
 
 # `From` and `Into`

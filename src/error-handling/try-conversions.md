@@ -1,8 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- error-handling/converting-error-types.md
-- error-handling/converting-error-types-example.md
 ---
 
 # Try Conversions

@@ -1,7 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- welcome-day-1/what-is-rust.md
 ---
 
 # What is Rust?

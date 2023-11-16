@@ -1,7 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- modules/filesystem.md
 ---
 
 # Filesystem Hierarchy

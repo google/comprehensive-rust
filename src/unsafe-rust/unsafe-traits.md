@@ -1,7 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- unsafe/unsafe-traits.md
 ---
 
 # Implementing Unsafe Traits

@@ -1,9 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- testing.md
-- testing/test-modules.md
-- testing/unit-tests.md
 ---
 
 # Test Modules

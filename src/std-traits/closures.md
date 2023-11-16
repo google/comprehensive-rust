@@ -1,7 +1,5 @@
 ---
 minutes: 15
-existing course material:
-- traits/closures.md
 ---
 
 # Closures

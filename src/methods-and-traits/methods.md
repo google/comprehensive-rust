@@ -1,9 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- methods.md
-- methods/receiver.md
-- methods/example.md
 ---
 
 # Methods

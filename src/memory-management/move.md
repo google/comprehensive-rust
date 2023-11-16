@@ -1,10 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- ownership/move-semantics.md
-- ownership/moved-strings-rust.md
-- ownership/double-free-modern-cpp.md
-- ownership/moves-function-calls.md
 ---
 
 # Move Semantics

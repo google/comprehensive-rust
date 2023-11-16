@@ -1,7 +1,5 @@
 ---
 minutes: 2
-existing course material:
-- unsafe/mutable-static-variables.md
 ---
 
 # Mutable Static Variables

@@ -1,7 +1,5 @@
 ---
 minutes: 15
-existing course material:
-- exercises/day-1/for-loops.md
 ---
 
 # Exercise: Nested Arrays

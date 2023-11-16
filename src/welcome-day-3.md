@@ -1,7 +1,5 @@
 ---
 minutes: 3
-existing course material:
-- welcome-day-3.md
 ---
 
 # Welcome to Day 3

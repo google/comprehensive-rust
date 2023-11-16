@@ -1,7 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- basic-syntax/string-slices.md
 ---
 
 <!-- NOTES:

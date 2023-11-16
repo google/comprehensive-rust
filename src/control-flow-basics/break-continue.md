@@ -1,7 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- control-flow/break-continue.md
 ---
 
 # `break` and `continue`

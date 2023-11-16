@@ -1,7 +1,5 @@
 ---
 minutes: 15
-existing course material:
-- exercises/day-2/health-statistics.md
 ---
 
 # Exercise: Health Statistics

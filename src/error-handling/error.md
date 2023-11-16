@@ -1,7 +1,5 @@
 ---
 minutes: 5
-existing course material:
-- error-handling/deriving-error-enums.md
 ---
 
 # Dynamic Error Types

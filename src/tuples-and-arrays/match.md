@@ -1,9 +1,5 @@
 ---
 minutes: 10
-existing course material:
-- control-flow/match-expressions.md
-- pattern-matching.md
-- pattern-matching/match-guards.md
 ---
 
 # Pattern Matching
