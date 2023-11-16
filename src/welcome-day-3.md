@@ -1,5 +1,7 @@
 ---
 minutes: 3
+course: Fundamentals
+session: Day 3 Morning
 ---
 
 # Welcome to Day 3
@@ -16,3 +18,7 @@ Today, we will cover some more advanced topics of Rust:
 
 * Unsafe Rust: raw pointers, static variables, unsafe functions, and extern
   functions.
+
+## Schedule
+
+{{%session outline}}

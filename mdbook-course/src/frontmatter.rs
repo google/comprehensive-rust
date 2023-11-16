@@ -14,45 +14,26 @@
 
 use anyhow::Context;
 use matter::matter;
-use mdbook::book::{Book, BookItem};
-use mdbook::preprocess::PreprocessorContext;
+use mdbook::book::Chapter;
 use serde::Deserialize;
 
-#[derive(Deserialize, Debug)]
-struct Frontmatter {
-    minutes: Option<u64>,
+#[derive(Deserialize, Debug, Default)]
+pub struct Frontmatter {
+    pub minutes: Option<u64>,
+    pub course: Option<String>,
+    pub session: Option<String>,
 }
 
-pub fn remove_frontmatter(
-    ctx: &PreprocessorContext,
-    book: &mut Book,
-) -> anyhow::Result<()> {
-    let is_html = ctx.renderer == "html";
-    book.for_each_mut(|chapter| {
-        let BookItem::Chapter(chapter) = chapter else {
-            return;
-        };
-        if let Some((frontmatter, mut content)) = matter(&chapter.content) {
-            if !is_html {
-                // For non-HTML renderers, just strip the frontmatter.
-                chapter.content = content;
-                return;
-            }
+/// Split a chapter's contents into frontmatter and the remaining contents.
+pub fn split_frontmatter(chapter: &Chapter) -> anyhow::Result<(Frontmatter, String)> {
+    if let Some((frontmatter, content)) = matter(&chapter.content) {
+        let frontmatter: Frontmatter =
+            serde_yaml::from_str(&frontmatter).with_context(|| {
+                format!("error parsing frontmatter in {:?}", chapter.source_path)
+            })?;
 
-            let frontmatter: Frontmatter = serde_yaml::from_str(&frontmatter)
-                .with_context(|| {
-                    format!("error parsing frontmatter in {:?}", chapter.source_path)
-                })
-                .unwrap();
-
-            if let Some(minutes) = frontmatter.minutes {
-                // Include the minutes in the speaker notes.
-                let plural = if minutes == 1 { "minute" } else { "minutes" };
-                content = content.replace("<details>", 
-                    &format!("<details>\nThis slide should take about {minutes:?} {plural}. "));
-            }
-            chapter.content = content;
-        }
-    });
-    Ok(())
+        Ok((frontmatter, content))
+    } else {
+        Ok((Frontmatter::default(), chapter.content.clone()))
+    }
 }

@@ -1,5 +1,7 @@
 ---
 minutes: 5
+course: Fundamentals
+session: Day 1 Morning
 ---
 
 # Welcome to Day 1
@@ -15,6 +17,10 @@ today:
 * Types and type inference
 
 * Pattern matching: destructuring enums, structs, and arrays.
+
+## Schedule
+
+{{%session outline}}
 
 <details>
 

@@ -50,6 +50,7 @@
 
 # Day 1: Afternoon
 
+- [Welcome](welcome-day-1-afternoon.md)
 - [References](references.md)
   - [Shared References](references/shared.md)
   - [Exclusive References](references/exclusive.md)
@@ -107,6 +108,7 @@
 
 # Day 2: Afternoon
 
+- [Welcome](welcome-day-2-afternoon.md)
 - [Iterators](iterators.md)
   - [Iterators](iterators/iterators.md)
   - [IntoIterator](iterators/intoiterator.md)
@@ -158,6 +160,7 @@
 
 # Day 3: Afternoon
 
+- [Welcome](welcome-day-3-afternoon.md)
 - [Error Handling](error-handling.md)
   - [Panics](error-handling/panics.md)
   - [Try operator](error-handling/try.md)

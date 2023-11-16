@@ -1,5 +1,7 @@
 ---
 minutes: 3
+course: Fundamentals
+session: Day 2 Morning
 ---
 
 # Welcome to Day 2
@@ -18,3 +20,7 @@ Rust:
 
  * Modules and visibility
  * Testing
+
+## Schedule
+
+{{%session outline}}
