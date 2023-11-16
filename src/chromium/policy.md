@@ -10,6 +10,16 @@ if they're the best option for performance or for security.
 Very few Rust libraries directly expose a C/C++ API, so that means that nearly
 all such libraries will require a small amount of first-party glue code.
 
+```mermaid
+sequenceDiagram
+    accTitle: Sequence diagram showing Chromium C++ calling into Chromium first-party Rust, which calls into third-party Rust
+    participant cpp as Chromium C++
+    participant 1p as Chromium first-party Rust
+    participant 3p as Rust third-party crate
+    cpp->>1p: Across language boundary
+    1p->>3p: Existing crate API
+```
+
 Because of this, today's course will be heavily focused on:
 
 * Bringing in third-party Rust code ("crates")
