@@ -1,10 +1,7 @@
 # Using cargo for tools
 
-Mostly, we'll be talking about using `gn` to include Rust in Chromium itself.
-But can you use `cargo` and normal Rust crates to build Rust tools and to do
-Rust experiments outside the main Chromium build?
-
-Typical Rust development requires downloading and running content from the
+As you'll see, Chromium builds don't use `cargo`. But typical Rust development
+uses `cargo` and requires downloading and running content from the
 internet:
 
 * The Rust toolchain (`cargo` and `rustc` at least)
@@ -15,23 +12,6 @@ internet:
 Your organization's policy, and/or common sense, may prohibit you from doing
 these things.
 
-Chromium contains a copy of `cargo` and `rustc`
-
-If you want to make a Rust tool, you can do something like this:
-
-```sh
-export PATH_TO_CHROMIUM_SRC=~/chromium/src
-mkdir my-rust-tool
-cd my-rust-tool
-$PATH_TO_CHROMIUM_SRC/third_party/rust-toolchain/bin/cargo init
-$PATH_TO_CHROMIUM_SRC/third_party/rust-toolchain/bin/cargo run
-```
-
-This uses Chromium's own Rust toolchain so you are not yet trusting anything
-from the internet.
-
-But, Chromium does not yet have a library of "approved" third-party crates.
-Exercise due caution.
 
 ## Mini exercise
 

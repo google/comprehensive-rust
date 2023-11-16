@@ -1,34 +1,27 @@
 # Build rules exercise
 
-In your Chromium build, add a new Rust target to `//ui/base/BUILD.gn` which:
+In your Chromium build, add a new Rust target to `//ui/base/BUILD.gn` containing:
 
-* Has a single Rust source code file
-* Allows unsafe code
-* Has the following Rust code:
-  ```rust
-  #[no_mangle]
-  pub extern "C" fn hello_from_rust() {
-      println!("Hello from Rust!")
-  }
-  ```
-  **Important**: note that `no_mangle` here is considered a type of unsafety
-  by the Rust compiler, so you'll need to to allow unsafe code in your
-  `gn` target.
-* Add this new Rust target as a dependency of `//ui/base:base`.
-* Declare this function at the top of `ui/base/resource/resource_bundle.cc`
-  (later, we'll see how this can be automated by bindings generation tools):
-  ```cpp
-  extern "C" void hello_from_rust();
-  ```
+```rust
+#[no_mangle]
+pub extern "C" fn hello_from_rust() {
+    println!("Hello from Rust!")
+}
+```
+**Important**: note that `no_mangle` here is considered a type of unsafety
+by the Rust compiler, so you'll need to to allow unsafe code in your
+`gn` target.
 
-* Call this function from somewhere in `ui/base/resource/resource_bundle.cc`
-  - we suggest the top of `ResourceBundle::MaybeMangleLocalizedString`.
-* Build Chromium.
-* Run Chromium, and ensure that "Hello from Rust!" is printed lots of times.
+Add this new Rust target as a dependency of `//ui/base:base`.
+Declare this function at the top of `ui/base/resource/resource_bundle.cc`
+(later, we'll see how this can be automated by bindings generation tools):
+```cpp
+extern "C" void hello_from_rust();
+```
 
-If you have any difficulties with this, please work through it with your
-instructor now - subsequent exercises will be more frustrating if you don't
-have a working, running, Chromium build.
+Call this function from somewhere in `ui/base/resource/resource_bundle.cc` -
+we suggest the top of `ResourceBundle::MaybeMangleLocalizedString`.
+Build and run Chromium, and ensure that "Hello from Rust!" is printed lots of times.
 
 If you use VSCode, now set up Rust to work well in VSCode. It will be useful
 in subsequent exercises. If you've succeeded, you will be able to use
@@ -43,6 +36,9 @@ right-click "Go to definition" on `println!`.
 * [How to install rust-analyzer in VSCode][4]
 
 <details>
+It's really important that students get this running, because future exercises
+will build on it.
+
 This example is unusual because it boils down to the lowest-common-denominator
 interop language, C. Both C++ and Rust can natively declare and call C ABI
 functions. Later in the course, we'll connect C++ directly to Rust.
