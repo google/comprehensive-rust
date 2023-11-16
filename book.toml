@@ -19,6 +19,9 @@ renderers = ["html"]
 after = ["gettext"]
 class = "bob"
 
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
 [preprocessor.course]
 # Enable this preprocessor to overlay a large red rectangle on the
 # pages. This will show you an estimate of what the course
@@ -29,7 +32,11 @@ class = "bob"
 
 [output.html]
 curly-quotes = true
-additional-js = ["theme/speaker-notes.js"]
+additional-js = [
+  "theme/speaker-notes.js",
+  "mermaid.min.js",
+  "mermaid-init.js",
+]
 additional-css = [
   "theme/css/svgbob.css",
   "theme/css/speaker-notes.css",
