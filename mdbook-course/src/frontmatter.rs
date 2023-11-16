@@ -12,9 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+use anyhow::Context;
 use matter::matter;
 use mdbook::book::{Book, BookItem};
 use mdbook::preprocess::PreprocessorContext;
+use serde::Deserialize;
+
+#[derive(Deserialize, Debug)]
+struct Frontmatter {
+    minutes: Option<u64>,
+}
 
 pub fn remove_frontmatter(
     ctx: &PreprocessorContext,
@@ -25,16 +32,26 @@ pub fn remove_frontmatter(
         let BookItem::Chapter(chapter) = chapter else {
             return;
         };
-        if let Some((frontmatter, content)) = matter(&chapter.content) {
-            if is_html {
-                // For the moment, include the frontmatter in the slide in a floating <pre>, for review
-                // purposes.
-                let pre = format!(r#"<pre class="frontmatter">{frontmatter}</pre>"#);
-                chapter.content = format!("{pre}\n\n{content}");
-            } else {
+        if let Some((frontmatter, mut content)) = matter(&chapter.content) {
+            if !is_html {
                 // For non-HTML renderers, just strip the frontmatter.
                 chapter.content = content;
+                return;
             }
+
+            let frontmatter: Frontmatter = serde_yaml::from_str(&frontmatter)
+                .with_context(|| {
+                    format!("error parsing frontmatter in {:?}", chapter.source_path)
+                })
+                .unwrap();
+
+            if let Some(minutes) = frontmatter.minutes {
+                // Include the minutes in the speaker notes.
+                let plural = if minutes == 1 { "minute" } else { "minutes" };
+                content = content.replace("<details>", 
+                    &format!("<details>\nThis slide should take about {minutes:?} {plural}. "));
+            }
+            chapter.content = content;
         }
     });
     Ok(())

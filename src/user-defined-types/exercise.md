@@ -1,6 +1,5 @@
 ---
 minutes: 15
-- exercises/day-1/pattern-matching.md
 ---
 
 # Exercise: Expression Evaluation
