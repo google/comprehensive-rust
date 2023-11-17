@@ -14,7 +14,3 @@ C++ headers will be generated at a sensible location, so you can just
 ```cpp
 #include "ui/base/my_rust_file.rs.h"
 ```
-
-and because you probably already depend on the Rust component from the C++
-component, you can just go ahead and use them - all the usual build rule things
-like visibility and gn dependencies are automatically set up.
