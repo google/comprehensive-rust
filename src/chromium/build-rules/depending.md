@@ -15,3 +15,8 @@ component("preexisting_cpp") {
   deps = [ ":my_rust_lib" ]
 }
 ```
+
+<details>
+We'll see that this relationship only works if the Rust code exposes plain C APIs
+which can be called from C++, or if we use a C++/Rust interop tool.
+</details>
