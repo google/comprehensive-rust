@@ -10,6 +10,9 @@ if they're the best option for performance or for security.
 Very few Rust libraries directly expose a C/C++ API, so that means that nearly
 all such libraries will require a small amount of first-party glue code.
 
+> First-party Rust glue code for a particular third-party crate should
+> normally be kept in `third_party/rust/crate/<crate>/<version>/wrapper`.
+
 Because of this, today's course will be heavily focused on:
 
 * Bringing in third-party Rust code ("crates")
