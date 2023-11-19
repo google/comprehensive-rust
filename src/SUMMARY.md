@@ -1,5 +1,3 @@
-# Summary
-
 <!-- Keep first page as index.md to avoid giving it two names. -->
 [Welcome to Comprehensive Rust 🦀](index.md)
 - [Running the Course](running-the-course.md)
