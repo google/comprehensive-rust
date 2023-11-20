@@ -15,7 +15,17 @@ These limitations constrain us to using Rust in Chromium only for well isolated
 a use-case for Rust in Chromium, a good starting point is to draft the cxx
 bindings for the language boundary to see if it appears simple enough.
 
-The best way to learn cxx is by doing, so, another exercise!
-
 
 [1]: https://cxx.rs/bindings.html
+
+<details>
+In addition, right now, Rust code in one component cannot depend on Rust
+code in another, due to linking details in our component build. That's another
+reason to restrict Rust to use in leaf nodes.
+
+You should also discuss some of the other sticky points with cxx, for example:
+
+* Its error handling is based around C++ exceptions (given on the next slide)
+* Function pointers are awkward to use.
+
+</details>

@@ -3,10 +3,9 @@
 The Rust community offers multiple options for C++/Rust interop, with new tools
 being developed all the time. At the moment, Chromium uses a tool called "cxx".
 
-Behind the scenes, this uses a "lowest common denominator" C ABI, but it builds
-nice abstractions on both sides.
-
-The overall approach looks like this:
+You describe your whole language boundary in an interface definition language
+(which looks a lot like Rust) and then cxx tools generate declarations for
+functions and types in both Rust and C++.
 
 <img src="../android/interoperability/cpp/overview.svg" alt="Overview diagram of cxx, showing that the same interface definition is used to create both C++ and Rust side code which then communicate via a lowest common denominator C API">
 
@@ -14,6 +13,8 @@ See the [CXX tutorial][1] for a full example of using this.
 
 
 <details>
+Talk through the diagram.
+
 Students may ask - why do we still need `allow_unsafe = true`?
 
 The broad answer is that no C/C++ code is "safe" by the normal Rust standards.

@@ -240,6 +240,7 @@
   - [Example bindings](chromium/interoperability-with-cpp/example-bindings.md)
   - [Using cxx from Chromium](chromium/interoperability-with-cpp/using-cxx-from-chromium.md)
   - [Limitations of cxx](chromium/interoperability-with-cpp/limitations-of-cxx.md)
+  - [cxx error handling](chromium/interoperability-with-cpp/error-handling.md)
   - [Exercise](exercises/chromium/interoperability-with-cpp.md)
 - [Adding third party crates](chromium/adding-third-party-crates.md)
   - [Configuring third_party.toml](chromium/adding-third-party-crates/configuring-third-party-toml.md)
