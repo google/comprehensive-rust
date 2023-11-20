@@ -1,15 +1,12 @@
 # Checking crates into Chromium source code
 
-Downloaded crates live in `//third_party/rust`.
+`git status` should reveal:
+* Crate code in `//third_party/rust/chromium_crates_io`
+* Metadata (`BUILD.gn` and `README.chromium`) in `//third_party/rust/<crate>`
 
-Under each `//third_party/rust/<some crate name>`, you'll find:
-* The crate source code in `v1/crate` (or whatever the version is)
-* A `BUILD.gn` file
-* A `README.chromium` file
+Please also add an `OWNERS` file there.
 
-Please also add an `OWNERS` file.
-
-You should land all this, along with your `third_party.toml` change, into
+You should land all this, along with your `Cargo.toml` and `gnrt_config.toml` changes, into
 the Chromium repo.
 
 As you do so, you might find presubmit checks fail because of non-inclusive
