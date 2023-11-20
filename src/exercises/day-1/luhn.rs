@@ -16,31 +16,32 @@
 // ANCHOR: luhn
 pub fn luhn(cc_number: &str) -> bool {
     // ANCHOR_END: luhn
+    let cc_number = cc_number.replace(" ", "");
     let mut sum = 0;
-    let mut double = false;
-    let mut digit_seen = 0;
+    let mut even = false;
 
-    for c in cc_number.chars().filter(|&f| f != ' ').rev() {
-        if let Some(digit) = c.to_digit(10) {
-            if double {
-                let double_digit = digit * 2;
-                sum += if double_digit > 9 {
-                    double_digit - 9
-                } else {
-                    double_digit
-                };
-            } else {
-                sum += digit;
-            }
-            double = !double;
-            digit_seen += 1;
-        } else {
-            return false;
-        }
+    if cc_number.len() < 2 {
+        return false;
     }
 
-    if digit_seen < 2 {
-        return false;
+    for c in cc_number.chars().rev() {
+        let mut num;
+
+        match c.to_digit(10) {
+            Some(n) => num = n,
+            None => return false,
+        }
+
+        if even {
+            num = num * 2;
+
+            if num > 9 {
+                num = (num / 10) + (num % 10);
+            }
+        }
+
+        sum += num;
+        even = !even;
     }
 
     sum % 10 == 0
