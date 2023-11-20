@@ -2,8 +2,8 @@
 
 Downloaded crates live in `//third_party/rust`.
 
-You'll find, for each crate,
-* The crate source code in `v1/crate`
+Under each `//third_party/rust/<some crate name>`, you'll find:
+* The crate source code in `v1/crate` (or whatever the version is)
 * A `BUILD.gn` file
 * A `README.chromium` file
 

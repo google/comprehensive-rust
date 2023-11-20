@@ -6,8 +6,8 @@ easy* for Rust crates to depend upon one another. So they do!
 | Property | C++ library | Rust crate |
 | --- | --- | --- |
 | Build system | Lots | Consistent - `Cargo.toml` |
-| Typical library size | Large | Small |
-| Transitive dependencies | None | Lots |
+| Typical library size | Large-ish | Small |
+| Transitive dependencies | Few | Lots |
 
 For a Chromium engineer, this has pros and cons:
 
@@ -23,3 +23,10 @@ We'll discuss:
 * How to audit its source code for sufficient safety.
 
 [0]: https://crates.io
+
+<details>
+All of the things in the table on this slide are generalizations, and
+counter-examples can be found. But in general it's important for students
+to understand that most Rust code depends on other Rust libraries, because
+it's easy to do so, and that this has both benefits and costs.
+</details>

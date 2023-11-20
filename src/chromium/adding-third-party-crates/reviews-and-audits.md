@@ -22,7 +22,8 @@ Meanwhile, for each new crate addition, we are checking for the following:
   that might have been maliciously inserted. (You can't realistically aim
   for 100% perfection here: there's often just too much code.)
 
-These are just guidelines - you should satisfy yourself however you see fit.
+These are just guidelines - work with reviewers from `security@chromium.org`
+to work out the right way to become confident of the crate.
 
 [0]: https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/rust.md#Third_party-review
 [1]: https://mozilla.github.io/cargo-vet/
