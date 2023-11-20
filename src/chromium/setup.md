@@ -10,6 +10,9 @@ autoninja -C out/Debug chrome
 out/Debug/chrome # or on Mac, out/Debug/Chromium.app/Contents/MacOS/Chromium
 ```
 
+(A component, debug build is recommended for quickest iteration time. This
+is the default!)
+
 See [How to build Chromium](https://www.chromium.org/developers/how-tos/get-the-code/)
 if you aren't already at that point. Be warned - setting up to build Chromium
 takes time.
