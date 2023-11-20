@@ -1,4 +1,4 @@
-# Generating gn build rules
+# Generating `gn` build rules
 
 A tool called `gnrt` knows how to generate Chromium build rules for the
 crate you just added.
@@ -18,11 +18,12 @@ vpython3 tools/crates/run_gnrt.py -- vendor
 This `vendor` command may download:
 * Your crate
 * Direct and transitive dependencies
-* Updates or new versions of other crates
+* New versions of other crates, as required by `cargo` to resolve
+  the complete set of crates required by Chromium.
 
 If a crate in `//third_party/rust/chromium_crates_io/patches` was updated as
 part of vendoring, then reapply patches to it by running
-`cd //third_party/rust/chromium_crates_io; ./apply_patches.sh`.
+`cd third_party/rust/chromium_crates_io; ./apply_patches.sh`.
 
 Once you've downloaded the crate, generate the `BUILD.gn` files like this:
 

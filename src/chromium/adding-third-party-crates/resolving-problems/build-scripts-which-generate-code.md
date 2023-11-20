@@ -18,5 +18,5 @@ Now rerun [`gnrt.py -- gen`][2] to regenerate `BUILD.gn` files to inform ninja
 that this particular output file is input to subsequent build steps.
 
 
-[1]: configuring-gnrt-config-toml.md
+[1]: ../configuring-gnrt-config-toml.md
 [2]: ../generating-gn-build-rules.md

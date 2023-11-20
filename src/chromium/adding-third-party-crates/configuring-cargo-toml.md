@@ -19,7 +19,7 @@ you wish to enable in the crate.
 
 You should specify the [semver version][2] of the crate that you want (look it
 up on [crates.io][3]!). For example, if the most recent published version of the
-crate `foo` is `1.2.3``, you'd specify
+crate `foo` is `1.2.3`, you'd specify
 
 ```
 foo = "1"

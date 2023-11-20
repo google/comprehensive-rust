@@ -3,7 +3,7 @@
 Alongside `Cargo.toml` is [`gnrt_config.toml`][0]. This contains Chromium-specific
 extensions to crate handling.
 
-If you add a new crate, you'll definitely need to specify at least the `group`.
+If you add a new crate, you should specify at least the `group`.
 This is one of:
 
 ```toml

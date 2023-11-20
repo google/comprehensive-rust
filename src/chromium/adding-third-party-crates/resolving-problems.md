@@ -14,8 +14,9 @@ by upgrading some other crate.
 If your build fails, it may be because of a `build.rs`: programs which do arbitrary
 things at build time. This is fundamentally at odds with the design of `gn`
 and `ninja` which aim for static, deterministic, build rules to maximize
-parallelism and repeatability of builds. If your crate or its dependencies
-have a `build.rs` you may need to take steps:
+parallelism and repeatability of builds.
+
+Some `build.rs` actions are automatically supported; others require action:
 
 | build script effect | Supported by our gn templates | Work required by you |
 |-----|-----|-----|
