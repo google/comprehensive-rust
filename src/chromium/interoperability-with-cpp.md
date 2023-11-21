@@ -12,23 +12,14 @@ functions and types in both Rust and C++.
 See the [CXX tutorial][1] for a full example of using this.
 
 
-<details>
-Talk through the diagram.
-
-Students may ask - why do we still need `allow_unsafe = true`?
-
-The broad answer is that no C/C++ code is "safe" by the normal Rust standards.
-Calling back and forth to C/C++ from Rust may do arbitrary things to memory, and
-compromise the safety of Rust's own data layouts. Presence of _too many_
-`unsafe` keywords in C/C++ interop can harm the signal-to-noise ratio of
-such a keyword, and is [controversial][3], but strictly, bringing any foreign
-code into a Rust binary can cause unexpected behavior from Rust's perspective.
-
-The narrow answer lies in the diagram at the top of this page - behind the
-scenes, cxx generates Rust `unsafe` and `extern "C"` functions just like
-we did manually in the previous section.
-</details>
-
 [1]: https://cxx.rs/tutorial.html
 [2]: https://cxx.rs/bindings.html
-[3]: https://steveklabnik.com/writing/the-cxx-debate
+
+
+<details>
+Talk through the diagram. Explain that behind the scenes, this is doing
+just the same as you previously did - but by programmatically ensuring that
+the C++ and Rust sides match, cxx can ensure there aren't obvious errors
+with object lifetimes, string lengths, etc. It reduces lots of fiddly
+boilerplate and the resulting code feels more "natural".
+</details>
