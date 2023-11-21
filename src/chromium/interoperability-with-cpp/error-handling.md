@@ -5,7 +5,7 @@ in Chromium. Alternatives:
 
 * Where success can be represented as a simple Boolean, as done in our [QR code generator][1]:
   Return a Boolean representing success, and record results using out-parameters:
-  ```rust
+  ```rust,ignore
   #[cxx::bridge(namespace = "qr_code_generator")]
   mod ffi {
     extern "Rust" {
@@ -20,7 +20,7 @@ in Chromium. Alternatives:
   ```
 * Where success is more complex, provide a Rust
   object which can be queried for details of success or failure:
-  ```rust
+  ```rust,ignore
   #[cxx::bridge]
   mod ffi {
     extern "Rust" {

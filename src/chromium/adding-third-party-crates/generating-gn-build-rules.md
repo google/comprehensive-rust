@@ -5,7 +5,7 @@ crate you just added.
 
 To start, download the crate you want like this:
 
-```
+```shell
 cd chromium/src
 vpython3 tools/crates/run_gnrt.py -- vendor
 ```
@@ -27,7 +27,7 @@ part of vendoring, then reapply patches to it by running
 
 Once you've downloaded the crate, generate the `BUILD.gn` files like this:
 
-```
+```shell
 vpython3 tools/crates/run_gnrt.py -- gen
 ```
 

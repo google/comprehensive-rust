@@ -17,7 +17,7 @@ language. This is because Rust crate data tends to include names of git branches
 and many projects still use non-inclusive terminology there. So you may need
 to run:
 
-```
+```shell
 infra/update_inclusive_language_presubmit_exempt_dirs.sh > infra/inclusive_language_presubmit_exempt_dirs.txt
 git add -p infra/inclusive_language_presubmit_exempt_dirs.txt # add whatever changes are yours
 ```
