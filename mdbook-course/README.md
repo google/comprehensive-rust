@@ -19,14 +19,14 @@ session: SESSION NAME
 
 ## Course Structure
 
-A book can contain multiple *courses*. Each course is made up of *sessions*, which
-are blocks of instructional time (and include breaks). Typically two
+A book can contain multiple _courses_. Each course is made up of _sessions_,
+which are blocks of instructional time (and include breaks). Typically two
 sessions are taught per day, morning and afternoon.
 
-Each session is comprised of *segments*, which are slides on a related theme.
+Each session is comprised of _segments_, which are slides on a related theme.
 Breaks are scheduled between segments.
 
-Each segment is comprised of *slides*. A slide can be made up of one or more
+Each segment is comprised of _slides_. A slide can be made up of one or more
 mdBook chapters.
 
 The course structure is derived from the mdBook structure. Each top-level mdBook
