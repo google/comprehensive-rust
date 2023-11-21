@@ -9,7 +9,7 @@ minutes: 15
 Copy the code below to <https://play.rust-lang.org/> and fill in the missing
 methods:
 
-```rust,should_panic
+```rust
 // TODO: remove this when you're done with your implementation.
 #![allow(unused_variables, dead_code)]
 

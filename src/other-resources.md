@@ -59,10 +59,6 @@ A small selection of other guides and tutorial for Rust:
   Lists](https://rust-unofficial.github.io/too-many-lists/): in-depth
   exploration of Rust's memory management rules, through implementing a few
   different types of list structures.
-* [Rust Primer](https://app.codecrafters.io/collections/rust-primer): Key
-  Rust fundamentals, no fluff, aimed at experienced engineers.
-* [CodeCrafters](https://app.codecrafters.io/tracks/rust): Recreate popular
-  devtools from scratch in Rust (e.g. Build your own BitTorrent, Git, Docker, etc)
 
 Please see the [Little Book of Rust Books](https://lborb.github.io/book/) for
 even more Rust books.

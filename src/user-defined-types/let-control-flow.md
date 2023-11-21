@@ -45,13 +45,13 @@ fn hex_or_die_trying(maybe_string: Option<String>) -> Result<u32, String> {
         s
     } else {
         return Err(String::from("got None"));
-    }
+    };
 
     let first_byte_char = if let Some(first_byte_char) = s.chars().next() {
         first_byte_char
     } else {
         return Err(String::from("got empty string"));
-    }
+    };
 
     if let Some(digit) = first_byte_char.to_digit(16) {
         Ok(digit)

@@ -1,5 +1,3 @@
-# Summary
-
 <!-- Keep first page as index.md to avoid giving it two names. -->
 [Welcome to Comprehensive Rust 🦀](index.md)
 - [Running the Course](running-the-course.md)
@@ -21,7 +19,6 @@
   - [What is Rust?](hello-world/what-is-rust.md)
   - [Hello, World](hello-world/hello-world.md)
   - [Benefits of Rust](hello-world/benefits.md)
-  - [An Example in C](hello-world/example.md)
   - [Playground](hello-world/playground.md)
 - [Types and Values](types-and-values.md)
   - [Variables](types-and-values/variables.md)

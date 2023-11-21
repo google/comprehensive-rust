@@ -10,7 +10,7 @@ piece-by-piece, using convenience functions.
 
 Fill in the missing pieces.
 
-```rust,editable
+```rust,should_panic,editable
 {{#include exercise.rs:Package}}
 {{#include exercise.rs:as_dependency}}
         todo!("1")
@@ -24,12 +24,16 @@ Fill in the missing pieces.
 
 {{#include exercise.rs:version}}
 
-{{#include exercise.rs:dependency}}
+{{#include exercise.rs:authors}}
         todo!("3")
     }
 
-{{#include exercise.rs:language}}
+{{#include exercise.rs:dependency}}
         todo!("4")
+    }
+
+{{#include exercise.rs:language}}
+        todo!("5")
     }
 
 {{#include exercise.rs:build}}
