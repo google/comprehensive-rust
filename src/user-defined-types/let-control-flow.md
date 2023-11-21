@@ -95,6 +95,7 @@ The `while let` lets us keep iterating through all items.
 ## let-else
 
 `if-let`s can pile up, as shown.  The `let-else` construct supports flattening this nested code.
+Rewrite the awkward version for students, so they can see the transformation.
 
 The rewritten version is:
 ```rust
