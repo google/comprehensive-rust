@@ -16,7 +16,10 @@ use std::path::Path;
 
 /// Given a source_path for the markdown file being rendered and a source_path for the target,
 /// generate a relative link.
-pub fn relative_link(doc_path: impl AsRef<Path>, target_path: impl AsRef<Path>) -> String {
+pub fn relative_link(
+    doc_path: impl AsRef<Path>,
+    target_path: impl AsRef<Path>,
+) -> String {
     let doc_path = doc_path.as_ref();
     let target_path = target_path.as_ref();
 
@@ -59,27 +62,48 @@ mod test {
 
     #[test]
     fn relative_link_same_dir() {
-        assert_eq!(relative_link(Path::new("welcome.md"), Path::new("hello-world.md")), "./hello-world.md".to_string());
+        assert_eq!(
+            relative_link(Path::new("welcome.md"), Path::new("hello-world.md")),
+            "./hello-world.md".to_string()
+        );
     }
 
     #[test]
     fn relative_link_subdir() {
-        assert_eq!(relative_link(Path::new("hello-world.md"), Path::new("hello-world/foo.md")), "./hello-world/foo.md".to_string());
+        assert_eq!(
+            relative_link(Path::new("hello-world.md"), Path::new("hello-world/foo.md")),
+            "./hello-world/foo.md".to_string()
+        );
     }
 
     #[test]
     fn relative_link_parent_dir() {
-        assert_eq!(relative_link(Path::new("references/foo.md"), Path::new("hello-world.md")), "../hello-world.md".to_string());
+        assert_eq!(
+            relative_link(Path::new("references/foo.md"), Path::new("hello-world.md")),
+            "../hello-world.md".to_string()
+        );
     }
 
     #[test]
     fn relative_link_deep_parent_dir() {
-        assert_eq!(relative_link(Path::new("references/foo/bar.md"), Path::new("hello-world.md")), "../../hello-world.md".to_string());
+        assert_eq!(
+            relative_link(
+                Path::new("references/foo/bar.md"),
+                Path::new("hello-world.md")
+            ),
+            "../../hello-world.md".to_string()
+        );
     }
 
     #[test]
     fn relative_link_peer_dir() {
-        assert_eq!(relative_link(Path::new("references/foo.md"), Path::new("hello-world/foo.md")), "../hello-world/foo.md".to_string());
+        assert_eq!(
+            relative_link(
+                Path::new("references/foo.md"),
+                Path::new("hello-world/foo.md")
+            ),
+            "../hello-world/foo.md".to_string()
+        );
     }
 
     #[test]

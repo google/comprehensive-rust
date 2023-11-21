@@ -14,9 +14,9 @@
 
 mod course;
 mod frontmatter;
+mod markdown;
 mod replacements;
 mod timing_info;
-mod markdown;
 
 use crate::course::Courses;
 use clap::{Arg, Command};
@@ -53,13 +53,15 @@ fn preprocess() -> anyhow::Result<()> {
             if let Some((course, session, segment, slide)) = courses.find_slide(chapter) {
                 timing_info::insert_timing_info(slide, chapter);
                 replacements::replace(
-                    &courses, Some(course), Some(session), Some(segment), chapter,
+                    &courses,
+                    Some(course),
+                    Some(session),
+                    Some(segment),
+                    chapter,
                 );
             } else {
                 // Outside of a course, just perform replacements.
-                replacements::replace(
-                    &courses, None, None, None, chapter,
-                );
+                replacements::replace(&courses, None, None, None, chapter);
             }
         }
     });

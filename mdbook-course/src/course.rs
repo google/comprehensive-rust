@@ -34,10 +34,10 @@
 //! same segment.
 
 use crate::frontmatter::{split_frontmatter, Frontmatter};
-use crate::markdown::{relative_link, duration};
+use crate::markdown::{duration, relative_link};
 use mdbook::book::{Book, BookItem, Chapter};
 use std::fmt::Write;
-use std::path::{PathBuf, Path};
+use std::path::{Path, PathBuf};
 
 /// Duration, in minutes, of breaks between segments in the course.
 const BREAK_DURATION: u64 = 10;
@@ -251,7 +251,8 @@ impl Course {
                     segment.name,
                     relative_link(&at_source_path, &segment.slides[0].source_paths[0]),
                     duration(segment.minutes())
-                ).unwrap();
+                )
+                .unwrap();
             }
         }
         outline
@@ -320,7 +321,8 @@ impl Session {
     /// Return the total duration of this session.
     pub fn minutes(&self) -> u64 {
         let instructional_time: u64 = self.into_iter().map(|s| s.minutes()).sum();
-        let breaks = (self.into_iter().filter(|s| s.minutes() > 0).count() - 1) as u64 * BREAK_DURATION;
+        let breaks = (self.into_iter().filter(|s| s.minutes() > 0).count() - 1) as u64
+            * BREAK_DURATION;
         instructional_time + breaks
     }
 }
@@ -380,7 +382,12 @@ impl Segment {
             )
             .unwrap();
         }
-        writeln!(&mut outline,"\nThis segment should take about {}", duration(self.minutes())).unwrap();
+        writeln!(
+            &mut outline,
+            "\nThis segment should take about {}",
+            duration(self.minutes())
+        )
+        .unwrap();
         outline
     }
 }

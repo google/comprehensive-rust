@@ -69,7 +69,7 @@ mod test {
             input: input.as_ref(),
             rot: 13,
         };
-        let mut buf = [0u8;256];
+        let mut buf = [0u8; 256];
         assert_eq!(rot.read(&mut buf).unwrap(), 256);
         for i in 0..=255 {
             if input[i] != buf[i] {

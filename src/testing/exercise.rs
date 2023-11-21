@@ -13,7 +13,8 @@
 // limitations under the License.
 
 // ANCHOR: solution
-#[cfg(never)] // This is the buggy version that appears in the problem.
+// This is the buggy version that appears in the problem.
+#[cfg(never)]
 // ANCHOR: luhn
 pub fn luhn(cc_number: &str) -> bool {
     let mut sum = 0;
@@ -122,5 +123,4 @@ mod test {
     fn test_two_digit_cc_number() {
         assert!(luhn(" 0 0 "));
     }
-
 }
