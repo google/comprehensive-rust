@@ -1,4 +1,4 @@
-## Using cxx from Chromium
+## Using cxx in Chromium
 
 The `rust_static_library` target intrinsically knows about cxx interop. Just add
 
