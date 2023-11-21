@@ -228,8 +228,7 @@
 
 - [Welcome](chromium.md)
 - [Setup](chromium/setup.md)
-- [Using cargo for tools](chromium/cargo.md)
-  - [How to](chromium/cargo/howto.md)
+- [Using cargo for experimental tools](chromium/cargo.md)
 - [Policy](chromium/policy.md)
 - [Build Rules](chromium/build-rules.md)
   - [Unsafe code](chromium/build-rules/unsafe.md)
