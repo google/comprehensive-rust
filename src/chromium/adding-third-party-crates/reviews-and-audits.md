@@ -15,8 +15,10 @@ Meanwhile, for each new crate addition, we are checking for the following:
   macros, work out what they're for. Are they compatible with the way
   Chromium is normally built?
 * Check each crate seems to be reasonably well maintained
-* Use `cargo audit` to check for known vulnerabilities (TODO: how to run this)
-* Ensure any unsafe code is good enough for the [Rule of Two][2]
+* Use `cd third-party/rust/chromium_crates_io; cargo audit` to check for
+  known vulnerabilities (first you'll need to `cargo install cargo-audit`,
+  which ironically involves downloading lots of dependencies from the internet[2])
+* Ensure any unsafe code is good enough for the [Rule of Two][3]
 * Check for any use of `fs` or `net` APIs
 * Read all the code at a sufficient level to look for anything out of place
   that might have been maliciously inserted. (You can't realistically aim
@@ -27,4 +29,5 @@ to work out the right way to become confident of the crate.
 
 [0]: https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/rust.md#Third_party-review
 [1]: https://mozilla.github.io/cargo-vet/
-[2]: https://chromium.googlesource.com/chromium/src/+/main/docs/security/rule-of-2.md#unsafe-code-in-safe-languages
+[2]: ../cargo.md
+[3]: https://chromium.googlesource.com/chromium/src/+/main/docs/security/rule-of-2.md#unsafe-code-in-safe-languages
