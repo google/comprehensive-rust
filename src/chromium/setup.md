@@ -17,6 +17,8 @@ See [How to build Chromium](https://www.chromium.org/developers/how-tos/get-the-
 if you aren't already at that point. Be warned - setting up to build Chromium
 takes time.
 
+It's also recommended that you have Visual Studio code installed.
+
 # About the exercises
 
 This part of the course has a series of exercises which build on each other.

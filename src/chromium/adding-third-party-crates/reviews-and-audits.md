@@ -2,7 +2,7 @@
 
 Adding new libraries is subject to Chromium's standard [policies][0], but of
 course also subject to code review. As you may be bringing in not just a single
-crate but also transitive depedencies, there may be a lot of code to review.
+crate but also transitive dependencies, there may be a lot of code to review.
 On the other hand, safe Rust code can have limited negative side effects.
 How should you review it?
 

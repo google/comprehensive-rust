@@ -50,7 +50,7 @@ sufficiently simple. Sketch how you might define that interface.
 * The [`rust_static_library` gn template][2]
 
 <details>
-As students explore Part Two, they're bound to have lots of questions aboout how
+As students explore Part Two, they're bound to have lots of questions about how
 to achieve these things, and also how cxx works behind the scenes.
 
 Some of the questions you may encounter:
