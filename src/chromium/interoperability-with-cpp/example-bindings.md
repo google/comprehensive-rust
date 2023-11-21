@@ -3,26 +3,8 @@
 cxx requires you to declare the whole C++/Rust boundary in one of your `.rs`
 files. For instance:
 
-```rust
-#[cxx::bridge]
-mod ffi {
-    extern "Rust" {
-        type MultiBuf;
-
-        fn next_chunk(buf: &mut MultiBuf) -> &[u8];
-    }
-
-    unsafe extern "C++" {
-        include!("cxx-demo/include/blobstore.h");
-
-        type BlobstoreClient;
-
-        fn new_blobstore_client() -> UniquePtr<BlobstoreClient>;
-        fn put(&self, parts: &mut MultiBuf) -> u64;
-    }
-}
-
-// It's fine to put more Rust code here after your #[cxx::bridge]
+```rust,ignore
+{{#include ../../../third_party/cxx/book/snippets.rs:cxx_overview}}
 ```
 
 <details>

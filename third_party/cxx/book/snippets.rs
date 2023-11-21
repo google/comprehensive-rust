@@ -119,3 +119,25 @@ fn main() {
     }
 }
 // ANCHOR_END: cpp_exception
+
+// ANCHOR: cxx_overview
+#[cxx::bridge]
+mod ffi {
+    extern "Rust" {
+        type MultiBuf;
+
+        fn next_chunk(buf: &mut MultiBuf) -> &[u8];
+    }
+
+    unsafe extern "C++" {
+        include!("example/include/blobstore.h");
+
+        type BlobstoreClient;
+
+        fn new_blobstore_client() -> UniquePtr<BlobstoreClient>;
+        fn put(self: &BlobstoreClient, buf: &mut MultiBuf) -> Result<u64>;
+    }
+}
+
+// Definitions of Rust types and functions go here
+// ANCHOR_END: cxx_overview
