@@ -15,7 +15,7 @@ all such libraries will require a small amount of first-party glue code.
 
 Because of this, today's course will be heavily focused on:
 
-* Bringing in third-party Rust code ("crates")
+* Bringing in third-party Rust libraries ("crates")
 * Writing glue code to be able to use those crates from Chromium C++.
 
 If this policy changes over time, the course will evolve to keep up.

@@ -5,9 +5,7 @@ uses `cargo` and requires downloading and running content from the
 internet:
 
 * The Rust toolchain (`cargo` and `rustc` at least)
-* Whatever [third-party crates][0] your project depends upon. (These may
-  include procedural macros and build scripts which are run on your machine
-  during the build process, as well as at run time.)
+* Whatever [third-party crates][0] your project depends upon.
 
 Your organization's policy, and/or common sense, may prohibit you from doing
 these things.
