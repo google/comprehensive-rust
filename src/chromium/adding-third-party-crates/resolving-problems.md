@@ -1,16 +1,5 @@
 # Resolving problems
 
-## Conflicting versions
-
-The crate that you want to include might have transitive dependencies
-already in the tree, and perhaps it needs a different version.
-
-Multiple versions of crates are allowed in Chromium, but it's strongly advised
-that you try to resolve this problem to reduce duplication, for example
-by upgrading some other crate.
-
-## Build scripts
-
 If your build fails, it may be because of a `build.rs`: programs which do arbitrary
 things at build time. This is fundamentally at odds with the design of `gn`
 and `ninja` which aim for static, deterministic, build rules to maximize

@@ -2,7 +2,7 @@
 
 `git status` should reveal:
 * Crate code in `//third_party/rust/chromium_crates_io`
-* Metadata (`BUILD.gn` and `README.chromium`) in `//third_party/rust/<crate>`
+* Metadata (`BUILD.gn` and `README.chromium`) in `//third_party/rust/<crate>/<version>`
 
 Please also add an `OWNERS` file there.
 

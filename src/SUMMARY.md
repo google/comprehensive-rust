@@ -244,6 +244,7 @@
 - [Adding third party crates](chromium/adding-third-party-crates.md)
   - [Configuring Cargo.toml](chromium/adding-third-party-crates/configuring-cargo-toml.md)
   - [Configuring gnrt_config.toml](chromium/adding-third-party-crates/configuring-gnrt-config-toml.md)
+  - [Downloading crates](chromium/adding-third-party-crates/downloading-crates.md)
   - [Generating gn build rules](chromium/adding-third-party-crates/generating-gn-build-rules.md)
   - [Resolving problems](chromium/adding-third-party-crates/resolving-problems.md)
     - [Build scripts which generate code](chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md)
