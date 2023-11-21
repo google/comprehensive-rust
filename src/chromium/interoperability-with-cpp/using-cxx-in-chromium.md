@@ -1,13 +1,17 @@
 ## Using cxx in Chromium
 
-The `rust_static_library` target intrinsically knows about cxx interop. Just add
+In Chromium, we define an independent `#[cxx::bridge] mod` for each leaf-node
+where we want to use Rust. You'd typically have one for each
+`rust_static_library`. Just add
 
 ```gn
-cxx_bindings = [ "my_rust_file.rs" ] # just list files containing #[cxx::bridge]
+cxx_bindings = [ "my_rust_file.rs" ]
+   # just list files containing #[cxx::bridge]
+allow_unsafe = true
 ```
 
-to your existing `rust_static_library` target. **You also need
-`allow_unsafe = true`**.
+to your existing `rust_static_library` target alongside `crate_root` and
+`sources`.
 
 C++ headers will be generated at a sensible location, so you can just
 
