@@ -32,7 +32,15 @@ very similar to the standard-library `Result` which we will see later.
 
 Copy and paste the code into the Rust playground, and begin implementing
 `eval`. The final product should pass the tests. It may be helpful to use
-`todo!()` and get the tests to pass one-by-one.
+`todo!()` and get the tests to pass one-by-one. You can also skip a test
+temporarily with
+`#[ignore]`:
+
+```none
+#[test]
+#[ignore]
+fn test_value() { .. }
+```
 
 If you finish early, try writing a test that results in an integer overflow.
 How could you handle this with `Res::Err` instead of a panic?

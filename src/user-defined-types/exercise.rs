@@ -140,6 +140,7 @@ fn test_error() {
     );
 }
 // ANCHOR_END: tests
+
 fn main() {
     let expr = Expression::Op {
         op: Operation::Sub,
