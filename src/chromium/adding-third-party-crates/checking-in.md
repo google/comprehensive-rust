@@ -4,7 +4,7 @@
 * Crate code in `//third_party/rust/chromium_crates_io`
 * Metadata (`BUILD.gn` and `README.chromium`) in `//third_party/rust/<crate>/<version>`
 
-Please also add an `OWNERS` file there.
+Please also add an `OWNERS` file in the latter location.
 
 You should land all this, along with your `Cargo.toml` and `gnrt_config.toml` changes, into
 the Chromium repo.
