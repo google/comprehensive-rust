@@ -110,6 +110,7 @@ jobs:
     strategy:
       matrix:
         language: ${{ fromJSON(needs.find-languages.outputs.languages) }}
+      fail-fast: false
     env:
       MDBOOK_BOOK__LANGUAGE: ${{ matrix.language }}
     steps:
