@@ -12,8 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// NOTE: Any changes to this file should be reflected in `src/modules/solution.md`.
-
 // ANCHOR: solution
 // ANCHOR: setup
 pub trait Widget {

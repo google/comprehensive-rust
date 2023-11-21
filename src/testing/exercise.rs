@@ -13,6 +13,7 @@
 // limitations under the License.
 
 // ANCHOR: solution
+#[cfg(never)] // This is the buggy version that appears in the problem.
 // ANCHOR: luhn
 pub fn luhn(cc_number: &str) -> bool {
     let mut sum = 0;
@@ -39,6 +40,36 @@ pub fn luhn(cc_number: &str) -> bool {
     sum % 10 == 0
 }
 // ANCHOR_END: luhn
+
+// This is the solution and passes all of the tests below.
+pub fn luhn(cc_number: &str) -> bool {
+    let mut sum = 0;
+    let mut double = false;
+    let mut digits = 0;
+
+    for c in cc_number.chars().rev() {
+        if let Some(digit) = c.to_digit(10) {
+            digits += 1;
+            if double {
+                let double_digit = digit * 2;
+                sum += if double_digit > 9 {
+                    double_digit - 9
+                } else {
+                    double_digit
+                };
+            } else {
+                sum += digit;
+            }
+            double = !double;
+        } else if c.is_whitespace() {
+            continue;
+        } else {
+            return false;
+        }
+    }
+
+    digits >= 2 && sum % 10 == 0
+}
 
 fn main() {
     let cc_number = "1234 5678 1234 5670";
