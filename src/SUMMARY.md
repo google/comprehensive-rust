@@ -112,27 +112,6 @@
   - [FromIterator](iterators/fromiterator.md)
   - [Exercise: Iterator Method Chaining](iterators/exercise.md)
     - [Solution](iterators/solution.md)
-- [Modules](modules.md)
-  - [Modules](modules/modules.md)
-  - [Filesystem Hierarchy](modules/filesystem.md)
-  - [Visibility](modules/visibility.md)
-  - [use, super, self](modules/paths.md)
-  - [Exercise: Modules for the GUI Library](modules/exercise.md)
-    - [Solution](modules/solution.md)
-- [Testing](testing.md)
-  - [Language Docs](testing/docs.md)
-  - [Test Modules](testing/test-modules.md)
-  - [Other Types of Tests](testing/other.md)
-  - [Useful Crates](testing/useful-crates.md)
-  - [Compiler lints and Clippy](testing/lints.md)
-  - [Exercise: Luhn Algorithm](testing/exercise.md)
-    - [Solution](testing/solution.md)
-
-----
-
-# Day 3: Morning
-
-- [Welcome](welcome-day-3.md)
 - [Memory Management](memory-management.md)
   - [Review of Program Memory](memory-management/review.md)
   - [Approaches to Memory Management](memory-management/approaches.md)
@@ -148,24 +127,18 @@
   - [Rc](smart-pointers/rc.md)
   - [Exercise: Binary Tree](smart-pointers/exercise.md)
     - [Solution](smart-pointers/solution.md)
+
+----
+
+# Day 3: Morning
+
+- [Welcome](welcome-day-3.md)
 - [Borrowing](borrowing.md)
   - [Borrowing a Value](borrowing/shared.md)
   - [Borrow Checking](borrowing/borrowck.md)
   - [Interior Mutability](borrowing/interior-mutability.md)
   - [Exercise: Health Statistics](borrowing/exercise.md)
     - [Solution](borrowing/solution.md)
-
-# Day 3: Afternoon
-
-- [Welcome](welcome-day-3-afternoon.md)
-- [Error Handling](error-handling.md)
-  - [Panics](error-handling/panics.md)
-  - [Try operator](error-handling/try.md)
-  - [Try Conversions](error-handling/try-conversions.md)
-  - [Error Trait](error-handling/error.md)
-  - [thiserror and anyhow](error-handling/thiserror-and-anyhow.md)
-  - [Exercise: Rewriting with Result](error-handling/exercise.md)
-    - [Solution](error-handling/solution.md)
 - [Slices and Lifetimes](slices-and-lifetimes.md)
   - [Slices: `&[T]`](slices-and-lifetimes/slices.md)
   - [String References](slices-and-lifetimes/str.md)
@@ -174,6 +147,33 @@
   - [Struct Lifetimes](slices-and-lifetimes/struct-lifetimes.md)
   - [Exercise: Protobuf Parsing](slices-and-lifetimes/exercise.md)
     - [Solution](slices-and-lifetimes/solution.md)
+- [Modules](modules.md)
+  - [Modules](modules/modules.md)
+  - [Filesystem Hierarchy](modules/filesystem.md)
+  - [Visibility](modules/visibility.md)
+  - [use, super, self](modules/paths.md)
+  - [Exercise: Modules for the GUI Library](modules/exercise.md)
+    - [Solution](modules/solution.md)
+
+# Day 3: Afternoon
+
+- [Welcome](welcome-day-3-afternoon.md)
+- [Testing](testing.md)
+  - [Language Docs](testing/docs.md)
+  - [Test Modules](testing/test-modules.md)
+  - [Other Types of Tests](testing/other.md)
+  - [Useful Crates](testing/useful-crates.md)
+  - [Compiler lints and Clippy](testing/lints.md)
+  - [Exercise: Luhn Algorithm](testing/exercise.md)
+    - [Solution](testing/solution.md)
+- [Error Handling](error-handling.md)
+  - [Panics](error-handling/panics.md)
+  - [Try operator](error-handling/try.md)
+  - [Try Conversions](error-handling/try-conversions.md)
+  - [Error Trait](error-handling/error.md)
+  - [thiserror and anyhow](error-handling/thiserror-and-anyhow.md)
+  - [Exercise: Rewriting with Result](error-handling/exercise.md)
+    - [Solution](error-handling/solution.md)
 - [Unsafe Rust](unsafe-rust.md)
   - [Unsafe](unsafe-rust/unsafe.md)
   - [Dereferencing Raw Pointers](unsafe-rust/dereferencing.md)
