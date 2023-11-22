@@ -1,46 +1,36 @@
 ---
-minutes: 30
+minutes: 15
 ---
 
-# Exercise: Expression Evaluation
+# Exercise: Elevator Events
 
-Let's write a simple recursive evaluator for arithmetic expressions. Start with
-an enum defining the binary operations:
+We will create a data structure to represent an event in an elevator control
+system. It is up to you to define the types and functions to construct various
+events. Use `#[derive(Debug)]` to allow the types to be formatted with `{:?}`.
 
-```rust
-{{#include exercise.rs:Operation}}
-
-{{#include exercise.rs:Expression}}
-
-{{#include exercise.rs:Res}}
-
-{{#include exercise.rs:eval}}
+```rust,compile_fail
+{{#include exercise.rs:car_arrived}}
     todo!()
 }
 
-{{#include exercise.rs:tests}}
+{{#include exercise.rs:car_door_opened}}
+    todo!()
+}
+
+{{#include exercise.rs:car_door_closed}}
+    todo!()
+}
+
+{{#include exercise.rs:lobby_call_button_pressed}}
+    todo!()
+}
+
+{{#include exercise.rs:car_floor_button_pressed}}
+    todo!()
+}
+
+{{#include exercise.rs:main}}
 ```
 
-The `Box` type here is a smart pointer, and will be covered in detail later in
-the course. An expression can be "boxed" with `Box::new` as seen in the tests.
-To evaluate a boxed expression, use the deref operator to "unbox" it:
-`eval(*boxed_expr)`.
-
-Some expressions cannot be evaluated and will return an error. The `Res`
-type represents either a successful value or an error with a message. This is
-very similar to the standard-library `Result` which we will see later.
-
-Copy and paste the code into the Rust playground, and begin implementing
-`eval`. The final product should pass the tests. It may be helpful to use
-`todo!()` and get the tests to pass one-by-one. You can also skip a test
-temporarily with
-`#[ignore]`:
-
-```none
-#[test]
-#[ignore]
-fn test_value() { .. }
-```
-
-If you finish early, try writing a test that results in an integer overflow.
-How could you handle this with `Res::Err` instead of a panic?
+This exercise only requires creating data structures. The next part of the
+course will cover getting data out of these structures.

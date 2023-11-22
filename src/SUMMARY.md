@@ -37,6 +37,10 @@
   - [Macros](control-flow-basics/macros.md)
   - [Exercise: Collatz conjecture](control-flow-basics/exercise.md)
     - [Solution](control-flow-basics/solution.md)
+
+# Day 1: Afternoon
+
+- [Welcome](welcome-day-1-afternoon.md)
 - [Tuples and Arrays](tuples-and-arrays.md)
   - [Tuples and Arrays](tuples-and-arrays/tuples-and-arrays.md)
   - [Array Iteration](tuples-and-arrays/iteration.md)
@@ -44,10 +48,6 @@
   - [Destructuring](tuples-and-arrays/destructuring.md)
   - [Exercise: Nested Arrays](tuples-and-arrays/exercise.md)
     - [Solution](tuples-and-arrays/solution.md)
-
-# Day 1: Afternoon
-
-- [Welcome](welcome-day-1-afternoon.md)
 - [References](references.md)
   - [Shared References](references/shared.md)
   - [Exclusive References](references/exclusive.md)
@@ -59,9 +59,7 @@
   - [Enums](user-defined-types/enums.md)
   - [Static and Const](user-defined-types/static-and-const.md)
   - [Type Aliases](user-defined-types/aliases.md)
-  - [Destructuring](user-defined-types/destructuring.md)
-  - [Let Control Flow](user-defined-types/let-control-flow.md)
-  - [Exercise: Expression Evaluation](user-defined-types/exercise.md)
+  - [Exercise: Elevator Events](user-defined-types/exercise.md)
     - [Solution](user-defined-types/solution.md)
 
 ----
@@ -69,6 +67,11 @@
 # Day 2: Morning
 
 - [Welcome](welcome-day-2.md)
+- [Pattern Matching](pattern-matching.md)
+  - [Destructuring](pattern-matching/destructuring.md)
+  - [Let Control Flow](pattern-matching/let-control-flow.md)
+  - [Exercise: Expression Evaluation](pattern-matching/exercise.md)
+    - [Solution](pattern-matching/solution.md)
 - [Methods and Traits](methods-and-traits.md)
   - [Methods](methods-and-traits/methods.md)
   - [Traits](methods-and-traits/traits.md)
@@ -83,8 +86,13 @@
   - [Impl Trait](generics/impl-trait.md)
   - [Exercise: Generic `min`](generics/exercise.md)
     - [Solution](generics/solution.md)
+
+# Day 2: Afternoon
+
+- [Welcome](welcome-day-2-afternoon.md)
 - [Standard Library Types](std-types.md)
   - [Standard Library](std-types/std.md)
+  - [Language Docs](std-types/docs.md)
   - [Option](std-types/option.md)
   - [Result](std-types/result.md)
   - [String](std-types/string.md)
@@ -103,15 +111,11 @@
   - [Exercise: ROT13](std-traits/exercise.md)
     - [Solution](std-traits/solution.md)
 
-# Day 2: Afternoon
+----
 
-- [Welcome](welcome-day-2-afternoon.md)
-- [Iterators](iterators.md)
-  - [Iterators](iterators/iterators.md)
-  - [IntoIterator](iterators/intoiterator.md)
-  - [FromIterator](iterators/fromiterator.md)
-  - [Exercise: Iterator Method Chaining](iterators/exercise.md)
-    - [Solution](iterators/solution.md)
+# Day 3: Morning
+
+- [Welcome](welcome-day-3.md)
 - [Memory Management](memory-management.md)
   - [Review of Program Memory](memory-management/review.md)
   - [Approaches to Memory Management](memory-management/approaches.md)
@@ -128,11 +132,9 @@
   - [Exercise: Binary Tree](smart-pointers/exercise.md)
     - [Solution](smart-pointers/solution.md)
 
-----
+# Day 3: Afternoon
 
-# Day 3: Morning
-
-- [Welcome](welcome-day-3.md)
+- [Welcome](welcome-day-3-afternoon.md)
 - [Borrowing](borrowing.md)
   - [Borrowing a Value](borrowing/shared.md)
   - [Borrow Checking](borrowing/borrowck.md)
@@ -147,6 +149,18 @@
   - [Struct Lifetimes](slices-and-lifetimes/struct-lifetimes.md)
   - [Exercise: Protobuf Parsing](slices-and-lifetimes/exercise.md)
     - [Solution](slices-and-lifetimes/solution.md)
+
+---
+
+# Day 4: Morning
+
+- [Welcome](welcome-day-4.md)
+- [Iterators](iterators.md)
+  - [Iterators](iterators/iterators.md)
+  - [IntoIterator](iterators/intoiterator.md)
+  - [FromIterator](iterators/fromiterator.md)
+  - [Exercise: Iterator Method Chaining](iterators/exercise.md)
+    - [Solution](iterators/solution.md)
 - [Modules](modules.md)
   - [Modules](modules/modules.md)
   - [Filesystem Hierarchy](modules/filesystem.md)
@@ -154,18 +168,17 @@
   - [use, super, self](modules/paths.md)
   - [Exercise: Modules for the GUI Library](modules/exercise.md)
     - [Solution](modules/solution.md)
-
-# Day 3: Afternoon
-
-- [Welcome](welcome-day-3-afternoon.md)
 - [Testing](testing.md)
-  - [Language Docs](testing/docs.md)
-  - [Test Modules](testing/test-modules.md)
+  - [Test Modules](testing/unit-tests.md)
   - [Other Types of Tests](testing/other.md)
   - [Useful Crates](testing/useful-crates.md)
   - [Compiler lints and Clippy](testing/lints.md)
   - [Exercise: Luhn Algorithm](testing/exercise.md)
     - [Solution](testing/solution.md)
+
+# Day 4: Afternoon
+
+- [Welcome](welcome-day-4-afternoon.md)
 - [Error Handling](error-handling.md)
   - [Panics](error-handling/panics.md)
   - [Try operator](error-handling/try.md)

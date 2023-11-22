@@ -13,10 +13,3 @@ In fact, Rust contains several layers of the Standard Library: `core`, `alloc` a
   even the presence of an operating system.
 * `alloc` includes types which require a global heap allocator, such as `Vec`, `Box` and `Arc`.
 * Embedded Rust applications often only use `core`, and sometimes `alloc`.
-
-<details>
-
-For each of the slides in this section, spend some time reviewing the
-documentation pages, highlighting some of the more common methods.
-
-</details>

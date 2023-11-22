@@ -1,1 +1,0 @@
-# Static and Const

@@ -22,6 +22,8 @@ a smaller type -- check the docs, and comment for clarity.
 
 <details>
 
+Consider taking a break after this slide.
+
 `as` is similar to a C++ static cast.  Use of `as` in cases where data might be
 lost is generally discouraged, or at least deserves an explanatory comment.
 

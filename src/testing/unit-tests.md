@@ -2,7 +2,7 @@
 minutes: 5
 ---
 
-# Test Modules
+# Unit Tests
 
 Rust and Cargo come with a simple unit test framework:
 
