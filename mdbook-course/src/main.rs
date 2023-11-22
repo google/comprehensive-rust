@@ -19,6 +19,7 @@ mod replacements;
 mod timing_info;
 
 use crate::course::Courses;
+use crate::markdown::duration;
 use clap::{Arg, Command};
 use mdbook::book::BookItem;
 use mdbook::preprocess::CmdPreprocessor;
@@ -65,6 +66,27 @@ fn preprocess() -> anyhow::Result<()> {
             }
         }
     });
+
+    let timediff = |actual, target| {
+        if actual > target {
+            format!("{}: {} OVER TARGET {}", duration(actual), duration(actual - target), duration(target))
+        } else if actual < target {
+            format!("{}: {} shorter than target {}", duration(actual), duration(target - actual), duration(target))
+        } else {
+            format!("{}: right on time", duration(actual))
+        }
+    };
+    // Print a summary of times for the "Fundamentals" course.
+    let fundamentals = courses.find_course("Fundamentals").unwrap();
+    eprintln!("Fundamentals: {}", timediff(fundamentals.minutes(), 8 * 3 * 60));
+
+    eprintln!("Sessions:");
+    for session in fundamentals {
+        eprintln!("  {}: {}", session.name, timediff(session.minutes(), 3 * 60));
+        for segment in session {
+            eprintln!("    {}: {}", segment.name, duration(segment.minutes()));
+        }
+    }
 
     serde_json::to_writer(stdout(), &book)?;
     Ok(())

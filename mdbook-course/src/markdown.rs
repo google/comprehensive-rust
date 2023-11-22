@@ -52,6 +52,7 @@ pub fn duration(mut minutes: u64) -> String {
         (0, m) => format!("{m} minutes"),
         (1, 0) => "1 hour".into(),
         (1, m) => format!("1 hour and {m} minutes"),
+        (h, 0) => format!("{h} hours"),
         (h, m) => format!("{h} hours and {m} minutes"),
     }
 }
@@ -138,6 +139,11 @@ mod test {
 
     #[test]
     fn duration_hours() {
+        assert_eq!(duration(120), "2 hours")
+    }
+
+    #[test]
+    fn duration_hours_mins() {
         assert_eq!(duration(130), "2 hours and 10 minutes")
     }
 }
