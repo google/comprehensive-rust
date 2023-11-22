@@ -1,5 +1,5 @@
 ---
-minutes: 3
+minutes: 5
 ---
 
 # Casting

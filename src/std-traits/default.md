@@ -1,5 +1,5 @@
 ---
-minutes: 5
+minutes: 10
 ---
 
 # The `Default` Trait
