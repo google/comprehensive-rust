@@ -1,10 +1,7 @@
 ---
-minutes: 15
+minutes: 30
 ---
 
-<!-- NOTES:
-A few utility functions like dot product, magnitude, normalize
--->
 # Exercise: Geometry
 
 We will create a few utility functions for 3-dimensional geometry, representing

@@ -1,5 +1,5 @@
 ---
-minutes: 10
+minutes: 20
 ---
 
 # Exercise: Modules for the GUI Library
