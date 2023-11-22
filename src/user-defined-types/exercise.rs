@@ -88,12 +88,20 @@ fn car_floor_button_pressed(floor: i32) -> Event {
 
 // ANCHOR: main
 fn main() {
-    println!("A ground floor passenger has pressed the up button: {:?}", lobby_call_button_pressed(0, Direction::Up));
-    println!("The car has arrived on the ground floor: {:?}", car_arrived(0));
+    println!(
+        "A ground floor passenger has pressed the up button: {:?}",
+        lobby_call_button_pressed(0, Direction::Up)
+    );
+    println!(
+        "The car has arrived on the ground floor: {:?}",
+        car_arrived(0)
+    );
     println!("The car door opened: {:?}", car_door_opened());
-    println!("A passenger has pressed the 3rd floor button: {:?}", car_floor_button_pressed(3));
+    println!(
+        "A passenger has pressed the 3rd floor button: {:?}",
+        car_floor_button_pressed(3)
+    );
     println!("The car door closed: {:?}", car_door_closed());
     println!("The car has arrived on the 3rd floor: {:?}", car_arrived(3));
 }
 // ANCHOR_END: main
-

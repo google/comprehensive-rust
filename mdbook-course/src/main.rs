@@ -69,20 +69,37 @@ fn preprocess() -> anyhow::Result<()> {
 
     let timediff = |actual, target| {
         if actual > target {
-            format!("{}: {} OVER TARGET {}", duration(actual), duration(actual - target), duration(target))
+            format!(
+                "{}: {} OVER TARGET {}",
+                duration(actual),
+                duration(actual - target),
+                duration(target)
+            )
         } else if actual < target {
-            format!("{}: {} shorter than target {}", duration(actual), duration(target - actual), duration(target))
+            format!(
+                "{}: {} shorter than target {}",
+                duration(actual),
+                duration(target - actual),
+                duration(target)
+            )
         } else {
             format!("{}: right on time", duration(actual))
         }
     };
     // Print a summary of times for the "Fundamentals" course.
     let fundamentals = courses.find_course("Fundamentals").unwrap();
-    eprintln!("Fundamentals: {}", timediff(fundamentals.minutes(), 8 * 3 * 60));
+    eprintln!(
+        "Fundamentals: {}",
+        timediff(fundamentals.minutes(), 8 * 3 * 60)
+    );
 
     eprintln!("Sessions:");
     for session in fundamentals {
-        eprintln!("  {}: {}", session.name, timediff(session.minutes(), 3 * 60));
+        eprintln!(
+            "  {}: {}",
+            session.name,
+            timediff(session.minutes(), 3 * 60)
+        );
         for segment in session {
             eprintln!("    {}: {}", segment.name, duration(segment.minutes()));
         }
