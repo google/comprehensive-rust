@@ -6,7 +6,7 @@ where we want to use Rust. You'd typically have one for each
 
 ```gn
 cxx_bindings = [ "my_rust_file.rs" ]
-   # just list files containing #[cxx::bridge]
+   # list of files containing #[cxx::bridge], not all source files
 allow_unsafe = true
 ```
 

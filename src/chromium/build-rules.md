@@ -5,7 +5,7 @@ for efficiency - its static rules allow maximum parallelism. Rust is no exceptio
 
 ## Adding Rust code to Chromium
 
-In some existing Chromium .gn file, declare a `rust_static_library`:
+In some existing Chromium `BUILD.gn` file, declare a `rust_static_library`:
 
 ```gn
 import("//build/rust/rust_static_library.gni")
