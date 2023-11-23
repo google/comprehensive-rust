@@ -41,7 +41,7 @@ more reliably.
 
 Assuming folks taking the course are physically together, ask them to discuss
 in small groups of 3-4 people. Then, ask each table whether they've come
-to a consensus on the level of risk
+to a consensus on the level of risk.
 
 Later in the course, we'll be running an actual `cargo`-based tool, `gnrt`.
 </details>

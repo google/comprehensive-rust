@@ -27,4 +27,4 @@ part of vendoring, then reapply patches to it by running
 
 
 
-[1]: ../cargo.md
+[0]: ../cargo.md
