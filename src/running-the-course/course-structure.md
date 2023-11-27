@@ -34,6 +34,17 @@ commands it runs and make sure they work when you run them by hand.
 [1]: https://source.android.com/docs/setup/download/downloading
 [2]: https://github.com/google/comprehensive-rust
 
+### Rust in Chromium
+
+The [Rust in Chromium](../chromium.md) deep dive is a half-day course on using
+Rust as part of the Chromium browser. It includes using Rust in Chromium's
+`gn` build system, bringing in third-party libraries ("crates") and C++
+interoperability.
+
+You will need to be able to build Chromium - a debug, component build is
+[recommended](../chromium/setup.md) for speed but any build will work.
+Ensure that you can run the Chromium browser that you've built.
+
 ### Bare-Metal Rust
 
 The [Bare-Metal Rust](../bare-metal.md) deep dive is a full day class on using Rust for
