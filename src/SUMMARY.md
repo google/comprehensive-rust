@@ -221,6 +221,42 @@
 - [Exercises](exercises/android/morning.md)
 
 
+
+# Chromium
+
+----
+
+- [Welcome](chromium.md)
+- [Setup](chromium/setup.md)
+- [Using cargo for experimental tools](chromium/cargo.md)
+- [Policy](chromium/policy.md)
+- [Build Rules](chromium/build-rules.md)
+  - [Unsafe code](chromium/build-rules/unsafe.md)
+  - [Depending on Rust code from Chromium C++](chromium/build-rules/depending.md)
+  - [Visual Studio code](chromium/build-rules/vscode.md)
+  - [Exercise](exercises/chromium/build-rules.md)
+- [Interoperability with C++](chromium/interoperability-with-cpp.md)
+  - [Example bindings](chromium/interoperability-with-cpp/example-bindings.md)
+  - [Limitations of cxx](chromium/interoperability-with-cpp/limitations-of-cxx.md)
+  - [cxx error handling](chromium/interoperability-with-cpp/error-handling.md)
+  - [Using cxx in Chromium](chromium/interoperability-with-cpp/using-cxx-in-chromium.md)
+  - [Exercise](exercises/chromium/interoperability-with-cpp.md)
+- [Adding third party crates](chromium/adding-third-party-crates.md)
+  - [Configuring Cargo.toml](chromium/adding-third-party-crates/configuring-cargo-toml.md)
+  - [Configuring gnrt_config.toml](chromium/adding-third-party-crates/configuring-gnrt-config-toml.md)
+  - [Downloading crates](chromium/adding-third-party-crates/downloading-crates.md)
+  - [Generating gn build rules](chromium/adding-third-party-crates/generating-gn-build-rules.md)
+  - [Resolving problems](chromium/adding-third-party-crates/resolving-problems.md)
+    - [Build scripts which generate code](chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md)
+    - [Build scripts which build C++ or take arbitrary actions](chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md)
+  - [Depending on a crate](chromium/adding-third-party-crates/depending-on-a-crate.md)
+  - [Reviews and audits](chromium/adding-third-party-crates/reviews-and-audits.md)
+  - [Checking into Chromium source code](chromium/adding-third-party-crates/checking-in.md)
+  - [Keeping crates up to date](chromium/adding-third-party-crates/keeping-up-to-date.md)
+  - [Exercise](exercises/chromium/third-party.md)
+- [Bringing it together - Exercise](exercises/chromium/bringing-it-together.md)
+
+
 # Bare Metal: Morning
 
 ----
