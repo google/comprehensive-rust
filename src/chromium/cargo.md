@@ -36,6 +36,12 @@ and come to a group agreement about what's an acceptable level of risk.
 
 <details>
 
+Talk about the cultural differences between the `cargo` world and the Chromium
+world: for instance, that code reuse is cheap in `cargo` and that it's
+encouraged to use (and create) lots of small single-purpose crates, which is
+difficult in Chromium (for good reasons). The net effect is that `cargo`
+ecosystem development feels more agile.
+
 Explain that it might seem strange to write tools in Rust, but this is
 increasingly popular across the industry --- Rust tools are quicker and work
 more reliably.
