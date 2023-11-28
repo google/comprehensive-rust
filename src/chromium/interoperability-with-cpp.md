@@ -17,9 +17,11 @@ See the [CXX tutorial][1] for a full example of using this.
 
 
 <details>
+
 Talk through the diagram. Explain that behind the scenes, this is doing
-just the same as you previously did - but by programmatically ensuring that
+just the same as you previously did --- but by programmatically ensuring that
 the C++ and Rust sides match, cxx can ensure there aren't obvious errors
 with object lifetimes, string lengths, etc. It reduces lots of fiddly
 boilerplate and the resulting code feels more "natural".
+
 </details>

@@ -1,4 +1,4 @@
-# Bringing it together - Exercise
+# Bringing it together --- Exercise
 
 In this exercise, you're going to add a whole new Chromium feature, bringing
 together everything you already learned.

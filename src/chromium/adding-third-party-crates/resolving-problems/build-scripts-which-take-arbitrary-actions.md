@@ -2,7 +2,7 @@
 
 Some crates use the [`cc`][2] crate to build and link C/C++ libraries.
 Other crates parse C/C++ using [`bindgen`][3] within their build scripts.
-These actions can't be supported in a Chromium context - our gn, ninja
+These actions can't be supported in a Chromium context --- our gn, ninja
 and LLVM build system is very specific in expressing relationships between
 build actions.
 
@@ -13,7 +13,7 @@ So, your options are:
 
 Patches should be kept in `third_party/rust/chromium_crates_io/patches/<crate>` -
 see for example the [patches against the cxx crate][4]. There is currently
-no automation - [simply create and apply patches manually][5] to remove the
+no automation --- [simply create and apply patches manually][5] to remove the
 problematic actions from the build script.
 
 If your patches modify the `Cargo.toml` file, rerun `gnrt gen`.

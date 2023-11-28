@@ -1,6 +1,6 @@
 # Including `unsafe` Rust code
 
-Unsafe Rust code is forbidden in `rust_static_library` by default - it won't
+Unsafe Rust code is forbidden in `rust_static_library` by default --- it won't
 compile. If you need unsafe Rust code, add `allow_unsafe = true` to the
 gn target. (Later in the course we'll see circumstances where this is necessary.)
 

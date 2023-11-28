@@ -12,7 +12,7 @@ cxx = "1"
 ```
 
 As with any other `Cargo.toml`, you can specify [more details about
-the dependencies][1] - most commonly, you'll want to specify the `features` that
+the dependencies][1] --- most commonly, you'll want to specify the `features` that
 you wish to enable in the crate.
 
 When adding a crate to Chromium, you'll often need to provide some extra
