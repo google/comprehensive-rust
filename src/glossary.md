@@ -127,6 +127,8 @@ Also, please keep the hard line breaks to ensure a nice formatting.
   Days 1 to 3 of this course.
 - Rust in Android:\
   See [Rust in Android](android.md).
+- Rust in Chromium:\
+  See [Rust in Chromium](chromium.md).
 - safe:\
   Refers to code that adheres to Rust's ownership and borrowing rules, preventing memory-related errors.
 - scope:\
