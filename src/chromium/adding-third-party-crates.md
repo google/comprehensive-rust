@@ -5,7 +5,7 @@ easy* for Rust crates to depend upon one another. So they do!
 
 | Property | C++ library | Rust crate |
 | --- | --- | --- |
-| Build system | Lots | Consistent - `Cargo.toml` |
+| Build system | Lots | Consistent: `Cargo.toml` |
 | Typical library size | Large-ish | Small |
 | Transitive dependencies | Few | Lots |
 

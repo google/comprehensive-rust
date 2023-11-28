@@ -41,7 +41,7 @@ Rust as part of the Chromium browser. It includes using Rust in Chromium's
 `gn` build system, bringing in third-party libraries ("crates") and C++
 interoperability.
 
-You will need to be able to build Chromium - a debug, component build is
+You will need to be able to build Chromium --- a debug, component build is
 [recommended](../chromium/setup.md) for speed but any build will work.
 Ensure that you can run the Chromium browser that you've built.
 

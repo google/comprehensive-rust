@@ -29,7 +29,7 @@ fn main() {
 
 Key points:
 
-* Notice that the thread is stopped before it reaches 10 — the main thread is
+* Notice that the thread is stopped before it reaches 10 --- the main thread is
   not waiting.
 
 * Use `let handle = thread::spawn(...)` and later `handle.join()` to wait for

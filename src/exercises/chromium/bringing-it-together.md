@@ -1,4 +1,4 @@
-# Bringing it together - Exercise
+# Bringing it together --- Exercise
 
 In this exercise, you're going to add a whole new Chromium feature, bringing
 together everything you already learned.
@@ -55,7 +55,7 @@ Students will likely need some hints here. Hints include:
 
 </details>
 
-[0]: https://crates.io/uwuify
+[0]: https://crates.io/crates/uwuify
 [1]: https://doc.rust-lang.org/std/string/struct.String.html#method.from_utf16
 [2]: https://cxx.rs/binding/slice.html
 [3]: https://doc.rust-lang.org/std/pin/
