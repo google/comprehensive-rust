@@ -14,7 +14,7 @@ out/Debug/chrome # or on Mac, out/Debug/Chromium.app/Contents/MacOS/Chromium
 is the default!)
 
 See [How to build Chromium](https://www.chromium.org/developers/how-tos/get-the-code/)
-if you aren't already at that point. Be warned - setting up to build Chromium
+if you aren't already at that point. Be warned: setting up to build Chromium
 takes time.
 
 It's also recommended that you have Visual Studio code installed.

@@ -1,6 +1,6 @@
 # Concurrency Afternoon Exercise
 
-## Dining Philosophers - Async
+## Dining Philosophers --- Async
 
 ([back to exercise](dining-philosophers-async.md))
 

@@ -35,8 +35,9 @@ Discuss in small groups the policies within your own team and organization,
 and come to a group agreement about what's an acceptable level of risk.
 
 <details>
+
 Explain that it might seem strange to write tools in Rust, but this is
-increasingly popular across the industry - Rust tools are quicker and work
+increasingly popular across the industry --- Rust tools are quicker and work
 more reliably.
 
 Assuming folks taking the course are physically together, ask them to discuss
@@ -44,6 +45,7 @@ in small groups of 3-4 people. Then, ask each table whether they've come
 to a consensus on the level of risk.
 
 Later in the course, we'll be running an actual `cargo`-based tool, `gnrt`.
+
 </details>
 
 [0]: https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/rust.md#Using-cargo
