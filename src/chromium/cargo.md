@@ -35,6 +35,7 @@ Discuss in small groups the policies within your own team and organization,
 and come to a group agreement about what's an acceptable level of risk.
 
 <details>
+
 Talk about the cultural differences between the `cargo` world and the Chromium
 world: for instance, that code reuse is cheap in `cargo` and that it's
 encouraged to use (and create) lots of small single-purpose crates, which is
