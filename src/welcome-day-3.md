@@ -1,16 +1,16 @@
+---
+minutes: 3
+course: Fundamentals
+session: Day 3 Morning
+---
+
 # Welcome to Day 3
 
-Today, we will cover some more advanced topics of Rust:
+Today, we will cover:
 
-* Traits: deriving traits, default methods, and important standard library
-  traits.
+* Memory management, lifetimes, and the borrow checker: how Rust ensures memory safety.
+* Smart pointers: standard library pointer types.
 
-* Generics: generic data types, generic methods, monomorphization, and trait
-  objects.
+## Schedule
 
-* Error handling: panics, `Result`, and the try operator `?`.
-
-* Testing: unit tests, documentation tests, and integration tests.
-
-* Unsafe Rust: raw pointers, static variables, unsafe functions, and extern
-  functions.
+{{%session outline}}

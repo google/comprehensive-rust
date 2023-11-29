@@ -177,6 +177,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "borrowing"
+version = "0.1.0"
+
+[[package]]
 name = "bstr"
 version = "1.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -313,6 +317,10 @@ dependencies = [
  "tempfile",
  "thiserror",
 ]
+
+[[package]]
+name = "control-flow-basics"
+version = "0.1.0"
 
 [[package]]
 name = "core-foundation"
@@ -542,6 +550,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "error-handling"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "thiserror",
+]
+
+[[package]]
 name = "fastrand"
 version = "2.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -688,6 +704,10 @@ dependencies = [
  "typenum",
  "version_check",
 ]
+
+[[package]]
+name = "generics"
+version = "0.1.0"
 
 [[package]]
 name = "getopts"
@@ -986,6 +1006,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "iterators"
+version = "0.1.0"
+
+[[package]]
 name = "itoa"
 version = "1.0.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1139,11 +1163,15 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "clap",
+ "lazy_static",
  "log",
  "matter",
  "mdbook",
  "pretty_env_logger",
+ "regex",
+ "serde",
  "serde_json",
+ "serde_yaml",
 ]
 
 [[package]]
@@ -1162,6 +1190,14 @@ name = "memchr"
 version = "2.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f665ee40bc4a3c5590afb1e9677db74a508659dfd71e126420da8274909a0167"
+
+[[package]]
+name = "memory-management"
+version = "0.1.0"
+
+[[package]]
+name = "methods-and-traits"
+version = "0.1.0"
 
 [[package]]
 name = "mime"
@@ -1373,6 +1409,10 @@ dependencies = [
  "smallvec",
  "windows-targets",
 ]
+
+[[package]]
+name = "pattern-matching"
+version = "0.1.0"
 
 [[package]]
 name = "percent-encoding"
@@ -1643,6 +1683,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "references"
+version = "0.1.0"
+
+[[package]]
 name = "regex"
 version = "1.10.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1881,6 +1925,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "serde_yaml"
+version = "0.9.27"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3cc7a1570e38322cfe4154732e5110f887ea57e22b76f4bfd32b5bdd3368666c"
+dependencies = [
+ "indexmap",
+ "itoa",
+ "ryu",
+ "serde",
+ "unsafe-libyaml",
+]
+
+[[package]]
 name = "servo_arc"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1948,10 +2005,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "slices-and-lifetimes"
+version = "0.1.0"
+dependencies = [
+ "thiserror",
+]
+
+[[package]]
 name = "smallvec"
 version = "1.11.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4dccd0940a2dcdf68d092b8cbab7dc0ad8fa938bf95787e1b916b0e3d0e8e970"
+
+[[package]]
+name = "smart-pointers"
+version = "0.1.0"
 
 [[package]]
 name = "socket2"
@@ -1987,6 +2055,14 @@ name = "stable_deref_trait"
 version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a8f112729512f8e442d81f95a8a7ddf2b7c6b8a1a6f509a95864142b30cab2d3"
+
+[[package]]
+name = "std-traits"
+version = "0.1.0"
+
+[[package]]
+name = "std-types"
+version = "0.1.0"
 
 [[package]]
 name = "string_cache"
@@ -2105,6 +2181,10 @@ dependencies = [
  "rustix",
  "windows-sys",
 ]
+
+[[package]]
+name = "testing"
+version = "0.1.0"
 
 [[package]]
 name = "thiserror"
@@ -2313,10 +2393,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "tuples-and-arrays"
+version = "0.1.0"
+
+[[package]]
 name = "typenum"
 version = "1.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "42ff0bf0c66b8238c6f3b578df37d0b7848e55df8577b3f74f92a69acceeb825"
+
+[[package]]
+name = "types-and-values"
+version = "0.1.0"
 
 [[package]]
 name = "ucd-trie"
@@ -2361,6 +2449,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e51733f11c9c4f72aa0c160008246859e340b00807569a0da0e7a1079b27ba85"
 
 [[package]]
+name = "unsafe-libyaml"
+version = "0.2.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f28467d3e1d3c6586d8f25fa243f544f5800fec42d97032474e17222c2b75cfa"
+
+[[package]]
+name = "unsafe-rust"
+version = "0.1.0"
+dependencies = [
+ "tempfile",
+]
+
+[[package]]
 name = "url"
 version = "2.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2370,6 +2471,10 @@ dependencies = [
  "idna",
  "percent-encoding",
 ]
+
+[[package]]
+name = "user-defined-types"
+version = "0.1.0"
 
 [[package]]
 name = "utf-8"

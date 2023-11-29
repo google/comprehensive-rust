@@ -1,3 +1,7 @@
+---
+minutes: 5
+---
+
 # Visibility
 
 Modules are a privacy boundary:

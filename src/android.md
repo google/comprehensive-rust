@@ -1,3 +1,6 @@
+---
+course: none
+---
 # Welcome to Rust in Android
 
 Rust is supported for system software on Android. This means that

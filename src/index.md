@@ -19,7 +19,7 @@ about Rust and hope to:
 * Enable you to modify existing programs and write new programs in Rust.
 * Show you common Rust idioms.
 
-We call the first three course days Rust Fundamentals.
+We call the first four course days Rust Fundamentals.
 
 Building on this, you're invited to dive into one or more specialized topics:
 

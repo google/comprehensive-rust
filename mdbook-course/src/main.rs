@@ -12,9 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+mod course;
+mod frontmatter;
+mod markdown;
+mod replacements;
+mod timing_info;
+
+use crate::course::Courses;
+use crate::markdown::duration;
 use clap::{Arg, Command};
+use mdbook::book::BookItem;
 use mdbook::preprocess::CmdPreprocessor;
-use mdbook_course::frontmatter::remove_frontmatter;
 use std::io::{stdin, stdout};
 use std::process;
 
@@ -37,9 +45,65 @@ fn main() {
 }
 
 fn preprocess() -> anyhow::Result<()> {
-    let (ctx, mut book) = CmdPreprocessor::parse_input(stdin())?;
+    let (_, book) = CmdPreprocessor::parse_input(stdin())?;
 
-    remove_frontmatter(&ctx, &mut book)?;
+    let (courses, mut book) = Courses::extract_structure(book)?;
+
+    book.for_each_mut(|chapter| {
+        if let BookItem::Chapter(chapter) = chapter {
+            if let Some((course, session, segment, slide)) = courses.find_slide(chapter) {
+                timing_info::insert_timing_info(slide, chapter);
+                replacements::replace(
+                    &courses,
+                    Some(course),
+                    Some(session),
+                    Some(segment),
+                    chapter,
+                );
+            } else {
+                // Outside of a course, just perform replacements.
+                replacements::replace(&courses, None, None, None, chapter);
+            }
+        }
+    });
+
+    let timediff = |actual, target| {
+        if actual > target {
+            format!(
+                "{}: {} OVER TARGET {}",
+                duration(actual),
+                duration(actual - target),
+                duration(target)
+            )
+        } else if actual < target {
+            format!(
+                "{}: {} shorter than target {}",
+                duration(actual),
+                duration(target - actual),
+                duration(target)
+            )
+        } else {
+            format!("{}: right on time", duration(actual))
+        }
+    };
+    // Print a summary of times for the "Fundamentals" course.
+    let fundamentals = courses.find_course("Fundamentals").unwrap();
+    eprintln!(
+        "Fundamentals: {}",
+        timediff(fundamentals.minutes(), 8 * 3 * 60)
+    );
+
+    eprintln!("Sessions:");
+    for session in fundamentals {
+        eprintln!(
+            "  {}: {}",
+            session.name,
+            timediff(session.minutes(), 3 * 60)
+        );
+        for segment in session {
+            eprintln!("    {}: {}", segment.name, duration(segment.minutes()));
+        }
+    }
 
     serde_json::to_writer(stdout(), &book)?;
     Ok(())
