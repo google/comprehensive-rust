@@ -1,7 +1,7 @@
 # Build rules
 
 Rust code is usually built using `cargo`. Chromium builds with `gn` and `ninja`
-for efficiency - its static rules allow maximum parallelism. Rust is no exception.
+for efficiency --- its static rules allow maximum parallelism. Rust is no exception.
 
 ## Adding Rust code to Chromium
 
@@ -22,7 +22,7 @@ depend upon third party code.
 <details>
 You must specify _both_ the crate root, _and_ a full list of sources.
 The `crate_root` is the file given to the Rust compiler representing the root
-file of the compilation unit - typically `lib.rs`. `sources` is a complete
+file of the compilation unit --- typically `lib.rs`. `sources` is a complete
 list of all source files which `ninja` needs in order to determine when rebuilds
 are necessary.
 

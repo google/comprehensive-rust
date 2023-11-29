@@ -14,9 +14,12 @@ Students will need to download lots of transitive dependencies.
 The total crates needed are: uwuify, smallvec, scopeguard, parking_lot,
 parking_lot_core, lock_api and instant. If students are downloading even
 more than that, they probably forgot to turn off the default features.
+
+Thanks to [Daniel Liu][3] for this crate!
 </detail>
 
 
 [0]: https://crates.io/crates/uwuify
 [1]: https://doc.rust-lang.org/cargo/reference/features.html#the-default-feature
 [2]: https://source.chromium.org/chromium/chromium/src/+/main:build/rust/rust_executable.gni
+[3]: https://github.com/Daniel-Liu-c0deb0t

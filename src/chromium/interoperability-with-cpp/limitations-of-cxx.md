@@ -8,7 +8,7 @@ cxx fundamentally suits cases where:
 * You're using only the types natively supported by cxx already, for example
   `std::unique_ptr`, `std::string`, `&[u8]` etc.
 
-It has many limitations - for example lack of support for Rust's `Option` type.
+It has many limitations --- for example lack of support for Rust's `Option` type.
 
 These limitations constrain us to using Rust in Chromium only for well isolated
 "leaf nodes" rather than for arbitrary Rust-C++ interop. When considering
