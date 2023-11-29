@@ -21,10 +21,9 @@ This `vendor` command may download:
 * New versions of other crates, as required by `cargo` to resolve
   the complete set of crates required by Chromium.
 
-If a crate in `//third_party/rust/chromium_crates_io/patches` was updated as
-part of vendoring, then reapply patches to it by running
-`cd third_party/rust/chromium_crates_io; ./apply_patches.sh`.
-
+Chromium maintains patches for some crates, kept in
+`//third_party/rust/chromium_crates_io/patches`. These will be reapplied
+automatically, but if patching fails you may need to take manual action.
 
 
 [0]: ../cargo.md
