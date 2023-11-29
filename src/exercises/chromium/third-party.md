@@ -22,4 +22,4 @@ Thanks to [Daniel Liu][3] for this crate!
 [0]: https://crates.io/crates/uwuify
 [1]: https://doc.rust-lang.org/cargo/reference/features.html#the-default-feature
 [2]: https://source.chromium.org/chromium/chromium/src/+/main:build/rust/rust_executable.gni
-[3]: https://twitter.com/daniel_c0deb0t
+[3]: https://github.com/Daniel-Liu-c0deb0t
