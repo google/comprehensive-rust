@@ -87,21 +87,24 @@ fn preprocess() -> anyhow::Result<()> {
         }
     };
     // Print a summary of times for the "Fundamentals" course.
-    let fundamentals = courses.find_course("Fundamentals").unwrap();
-    eprintln!(
-        "Fundamentals: {}",
-        timediff(fundamentals.minutes(), 8 * 3 * 60)
-    );
-
-    eprintln!("Sessions:");
-    for session in fundamentals {
+    // Translations with a POT-Creation-Date before 2023-11-29 (when
+    // we merged #1073) will have no frontmatter.
+    if let Some(fundamentals) = courses.find_course("Fundamentals") {
         eprintln!(
-            "  {}: {}",
-            session.name,
-            timediff(session.minutes(), 3 * 60)
+            "Fundamentals: {}",
+            timediff(fundamentals.minutes(), 8 * 3 * 60)
         );
-        for segment in session {
-            eprintln!("    {}: {}", segment.name, duration(segment.minutes()));
+
+        eprintln!("Sessions:");
+        for session in fundamentals {
+            eprintln!(
+                "  {}: {}",
+                session.name,
+                timediff(session.minutes(), 3 * 60)
+            );
+            for segment in session {
+                eprintln!("    {}: {}", segment.name, duration(segment.minutes()));
+            }
         }
     }
 
