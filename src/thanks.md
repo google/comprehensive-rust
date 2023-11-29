@@ -1,3 +1,6 @@
+---
+course: none
+---
 # Thanks!
 
 _Thank you for taking Comprehensive Rust 🦀!_ We hope you enjoyed it and that it

@@ -1,5 +1,6 @@
 ---
-course: none
+course: Android
+session: Android
 ---
 # Welcome to Rust in Android
 

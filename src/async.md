@@ -1,3 +1,6 @@
+---
+session: Afternoon
+---
 # Async Rust
 
 "Async" is a concurrency model where multiple tasks are executed concurrently by

@@ -321,6 +321,9 @@ impl Session {
     /// Return the total duration of this session.
     pub fn minutes(&self) -> u64 {
         let instructional_time: u64 = self.into_iter().map(|s| s.minutes()).sum();
+        if instructional_time == 0 {
+            return instructional_time;
+        }
         let breaks = (self.into_iter().filter(|s| s.minutes() > 0).count() - 1) as u64
             * BREAK_DURATION;
         instructional_time + breaks
