@@ -8,14 +8,14 @@ to handle untrustworthy input.
 skip ahead and do that now if you like. Or, you could create a new
 [`rust_executable` target][2] which uses `uwuify`).
 
-(Thanks to [@daniel_c0deb0t][3] for this crate!)
-
 <details>
 Students will need to download lots of transitive dependencies.
 
 The total crates needed are: uwuify, smallvec, scopeguard, parking_lot,
 parking_lot_core, lock_api and instant. If students are downloading even
 more than that, they probably forgot to turn off the default features.
+
+Thanks to [Daniel Liu][3] for this crate!
 </detail>
 
 
