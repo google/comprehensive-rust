@@ -11,9 +11,9 @@ today:
 
 * Basic Rust syntax: variables, scalar and compound types, enums, structs,
   references, functions, and methods.
-* Types and type inference
+* Types and type inference.
 * Control flow constructs: loops, conditionals, and so on.
-* User-defined types: structs and enums
+* User-defined types: structs and enums.
 * Pattern matching: destructuring enums, structs, and arrays.
 
 ## Schedule
