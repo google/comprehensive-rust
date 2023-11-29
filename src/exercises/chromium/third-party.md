@@ -8,6 +8,8 @@ to handle untrustworthy input.
 skip ahead and do that now if you like. Or, you could create a new
 [`rust_executable` target][2] which uses `uwuify`).
 
+(Thanks to [@daniel_c0deb0t][3] for this crate!)
+
 <details>
 Students will need to download lots of transitive dependencies.
 
@@ -20,3 +22,4 @@ more than that, they probably forgot to turn off the default features.
 [0]: https://crates.io/crates/uwuify
 [1]: https://doc.rust-lang.org/cargo/reference/features.html#the-default-feature
 [2]: https://source.chromium.org/chromium/chromium/src/+/main:build/rust/rust_executable.gni
+[3]: https://twitter.com/daniel_c0deb0t
