@@ -5,7 +5,7 @@ have access to one or create a new one with:
 
 ```shell
 source build/envsetup.sh
-lunch aosp_cf_x86_64_phone-userdebug
+lunch aosp_cf_x86_64_phone-trunk_staging-userdebug
 acloud create
 ```
 
