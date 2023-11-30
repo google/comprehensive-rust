@@ -18,7 +18,7 @@ Notes:
   in C++ the memory layout of custom Rust types and is unable to map C++
   destructor nor move constructors into methods of the Rust type.
 
-Example ([from a WIP prototype][0]):
+Example:
 
 ```rust,ignore
 #[cxx::bridge(namespace = "gfx::rust_bindings")]
