@@ -69,6 +69,4 @@ Difference(-actual / +expected):
 
 [prelude]: https://docs.rs/googletest/latest/googletest/prelude/index.html
 
-- GoogleTest is available for use in AOSP.
-
 </details>
