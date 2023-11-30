@@ -1,7 +1,7 @@
 # Example bindings
 
-cxx requires you to declare the C++/Rust boundary in one of your `.rs`
-files. For instance:
+cxx requires that the whole C++/Rust boundary is declared in `cxx::bridge`
+"modules" inside `.rs` source code.
 
 ```rust,ignore
 {{#include ../../../third_party/cxx/book/snippets.rs:cxx_overview}}
