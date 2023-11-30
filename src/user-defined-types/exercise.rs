@@ -54,35 +54,35 @@ enum Button {
 // ANCHOR: car_arrived
 /// The car has arrived on the given floor.
 fn car_arrived(floor: i32) -> Event {
-    // END_ANCHOR: car_arrived
+    // ANCHOR_END: car_arrived
     Event::CarArrived(floor)
 }
 
 // ANCHOR: car_door_opened
 /// The car doors have opened.
 fn car_door_opened() -> Event {
-    // END_ANCHOR: car_door_opened
+    // ANCHOR_END: car_door_opened
     Event::CarDoorOpened
 }
 
 // ANCHOR: car_door_closed
 /// The car doors have closed.
 fn car_door_closed() -> Event {
-    // END_ANCHOR: car_door_closed
+    // ANCHOR_END: car_door_closed
     Event::CarDoorClosed
 }
 
 // ANCHOR: lobby_call_button_pressed
 /// A directional button was pressed in an elevator lobby on the given floor.
 fn lobby_call_button_pressed(floor: i32, dir: Direction) -> Event {
-    // END_ANCHOR: lobby_call_button_pressed
+    // ANCHOR_END: lobby_call_button_pressed
     Event::ButtonPressed(Button::LobbyCall(dir, floor))
 }
 
 // ANCHOR: car_floor_button_pressed
 /// A floor button was pressed in the elevator car.
 fn car_floor_button_pressed(floor: i32) -> Event {
-    // END_ANCHOR: car_floor_button_pressed
+    // ANCHOR_END: car_floor_button_pressed
     Event::ButtonPressed(Button::CarFloor(floor))
 }
 
