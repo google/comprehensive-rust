@@ -19,9 +19,23 @@ See the [CXX tutorial][1] for a full example of using this.
 <details>
 
 Talk through the diagram. Explain that behind the scenes, this is doing
-just the same as you previously did --- but by programmatically ensuring that
-the C++ and Rust sides match, cxx can ensure there aren't obvious errors
-with object lifetimes, string lengths, etc. It reduces lots of fiddly
-boilerplate and the resulting code feels more "natural".
+just the same as you previously did. Point out that automating the process has
+the following benefits:
+
+* The tool guarantees that the C++ and Rust sides match
+  (e.g. you get compile errors if the `#[cxx::bridge]` doesn't match the actual
+  C++ or Rust definitions, but with out-of-sync manual bindings you'd get
+  Undefined Behavior)
+* The tool automates generation of FFI thunks (small, C-ABI-compatible, free
+  functions) for non-C features
+  (e.g. enabling FFI calls into Rust or C++ methods;
+  manual bindings would require authoring such top-level, free functions
+  manually)
+* The tool and the library can handle a set of core types, even if these
+  types don't expose a C ABI
+  (e.g. with manual bindings `std::span<T>` / `&[T]` have to be manually
+  destructured and rebuilt out of a pointer and length - this is error-prone
+  given that each language represents empty slices slightly differently)
 
 </details>
+
