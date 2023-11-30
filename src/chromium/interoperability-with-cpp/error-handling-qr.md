@@ -8,7 +8,7 @@ Notes:
 
 * A Rust reference that points to uninitialized memory results in Undefined
   Behavior (unlike in C++, when only the act of dereferencing such memory
-  results in UB).  Therefore, it is imporant that the C++ caller initializes
+  results in UB).  Therefore, it is important that the C++ caller initializes
   `out_qr_size` before calling into Rust.
 * `Pin<&mut SomeCppType>` behaves like `&mut SomeCppType`, but prevents
   moving. cxx uses this wrapper, because all Rust moves are `memcpy`s --- Rust
