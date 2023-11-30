@@ -16,7 +16,7 @@
 // ANCHOR: fib
 fn fib(n: u32) -> u32 {
     // ANCHOR_END: fib
-    if n < 2 {
+    if n <= 2 {
         return 1;
     } else {
         return fib(n - 1) + fib(n - 2);
