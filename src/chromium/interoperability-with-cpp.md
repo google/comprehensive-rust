@@ -41,7 +41,7 @@ the following benefits:
       `std::shared_ptr<T>`, and/or `Box` are natively supported. With manual
       bindings, one would have to pass C-ABI-compatible raw pointers, which
       would increase lifetime and memory-safety risks.
-    - `rust::String` and `CxxString` types understand and maintain differnces
+    - `rust::String` and `CxxString` types understand and maintain differences
       in string representation across the languages (e.g. `rust::String::lossy`
       can build a Rust string from non-UTF8 input and `rust::String::c_str`
       can NUL-terminate a string).
