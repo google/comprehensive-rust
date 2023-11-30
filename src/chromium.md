@@ -1,3 +1,7 @@
+---
+course: Chromium
+session: Chromium
+---
 # Welcome to Rust in Chromium
 
 Rust is supported for third-party libraries in Chromium, with first-party glue

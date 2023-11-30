@@ -1,3 +1,7 @@
+---
+course: Bare Metal
+session: Morning
+---
 # Welcome to Bare Metal Rust
 
 This is a standalone one-day course about bare-metal Rust, aimed at people who are familiar with the
