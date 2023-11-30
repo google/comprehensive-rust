@@ -20,6 +20,7 @@ You can also add `deps` on other Rust targets. Later we'll use this to
 depend upon third party code.
 
 <details>
+
 You must specify _both_ the crate root, _and_ a full list of sources.
 The `crate_root` is the file given to the Rust compiler representing the root
 file of the compilation unit --- typically `lib.rs`. `sources` is a complete
@@ -33,6 +34,7 @@ Students might be wondering why we need a gn template, rather than using
 [gn's built-in support for Rust static libraries][0].
 The answer is that this template provides support for cxx interop, Rust features,
 and unit tests, some of which we'll use later.
+
 </details>
 
 [0]: https://gn.googlesource.com/gn/+/main/docs/reference.md#func_static_library
