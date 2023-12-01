@@ -5,7 +5,7 @@ minutes: 5
 <!-- NOTES:
 The Iterator trait and basic usage
 -->
-# Iterators
+# `Iterator`
 
 The [`Iterator`][1] trait supports iterating over values in a collection. It
 requires a `next` method and provides lots of methods. Many standard library types
