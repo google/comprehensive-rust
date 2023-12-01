@@ -8,7 +8,7 @@ For mocking, [Mockall] is a widely used library. You need to refactor your
 code to use traits, which you can then quickly mock:
 
 ```rust,ignore
-{{#include mockall.rs}}
+{{#include mockall.rs:simple_example}}
 ```
 
 [Mockall]: https://docs.rs/mockall/
@@ -40,20 +40,12 @@ code to use traits, which you can then quickly mock:
   existing Cargo project.
 
 - Mockall has a lot more functionality. In particular, you can set up
-  expectations which depend on the arguments passed:
+  expectations which depend on the arguments passed. Here we use this to mock a
+  cat which becomes hungry 3 hours after the last time it was fed:
 
-    ```rust,ignore
-    let mut mock_cat = MockPet::new();
-    mock_cat
-        .expect_is_hungry()
-        .with(mockall::predicate::gt(Duration::from_secs(3 * 3600)))
-        .return_const(true);
-    mock_cat
-        .expect_is_hungry()
-        .return_const(true);
-    assert_eq!(mock_cat.is_hungry(Duration::from_secs(1 * 3600)), false);
-    assert_eq!(mock_cat.is_hungry(Duration::from_secs(5 * 3600)), true);
-    ```
+```rust,ignore
+{{#include mockall.rs:extended_example}}
+```
 
 - You can use `.times(n)` to limit the number of times a mock method can be
   called to `n` --- the mock will automatically panic when dropped if this isn't
