@@ -20,7 +20,7 @@ C++ headers will be generated at a sensible location, so you can just
 ```
 
 You will find some utility functions in `//base` to convert to/from Chromium
-C++ types to cxx Rust types --- for example [`SpanToRustSlice`][0].
+C++ types to CXX Rust types --- for example [`SpanToRustSlice`][0].
 
 <details>
 
@@ -34,7 +34,7 @@ such a keyword, and is [controversial][1], but strictly, bringing any foreign
 code into a Rust binary can cause unexpected behavior from Rust's perspective.
 
 The narrow answer lies in the diagram at the top of this page --- behind the
-scenes, cxx generates Rust `unsafe` and `extern "C"` functions just like
+scenes, CXX generates Rust `unsafe` and `extern "C"` functions just like
 we did manually in the previous section.
 
 </details>

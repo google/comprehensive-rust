@@ -32,7 +32,7 @@ crate is a compilation unit. A `static_library` is the smallest unit.)
 
 Students might be wondering why we need a gn template, rather than using
 [gn's built-in support for Rust static libraries][0].
-The answer is that this template provides support for cxx interop, Rust features,
+The answer is that this template provides support for CXX interop, Rust features,
 and unit tests, some of which we'll use later.
 
 </details>

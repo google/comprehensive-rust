@@ -14,7 +14,7 @@
 
 ## Part two
 
-It's a good idea to play with cxx a little. It helps you think about how flexible
+It's a good idea to play with CXX a little. It helps you think about how flexible
 Rust in Chromium actually is.
 
 Some things to try:
@@ -40,18 +40,18 @@ Some things to try:
 
 ## Part three
 
-Now you understand the strengths and limitations of cxx interop, think of
+Now you understand the strengths and limitations of CXX interop, think of
 a couple of use-cases for Rust in Chromium where the interface would be
 sufficiently simple. Sketch how you might define that interface.
 
 ## Where to find help
 
-* The [cxx binding reference][1]
+* The [`cxx` binding reference][1]
 * The [`rust_static_library` gn template][2]
 
 <details>
 As students explore Part Two, they're bound to have lots of questions about how
-to achieve these things, and also how cxx works behind the scenes.
+to achieve these things, and also how CXX works behind the scenes.
 
 Some of the questions you may encounter:
 * I'm seeing a problem initializing a variable of type X with type Y, where
@@ -60,8 +60,8 @@ Some of the questions you may encounter:
   `cxx::bridge`.
 * I seem to be able to freely convert C++ references into Rust references.
   Doesn't that risk UB?
-  For cxx's _opaque_ types, no, because they are zero-sized. For cxx trivial types
-  yes, it's _possible_ to cause UB, although cxx's design makes it quite
+  For CXX's _opaque_ types, no, because they are zero-sized. For CXX trivial types
+  yes, it's _possible_ to cause UB, although CXX's design makes it quite
   difficult to craft such an example.
 </details>
 
