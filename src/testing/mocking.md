@@ -4,7 +4,7 @@ minutes: 5
 
 # Mocking
 
-If you want to do mocking, we recommend [Mockall]. You need to refactor your
+For mocking, [Mockall] is a widely used library. You need to refactor your
 code to use traits, which you can then quickly mock:
 
 ```rust,ignore
@@ -15,7 +15,13 @@ code to use traits, which you can then quickly mock:
 
 <details>
 
-- Note that *mocking is controversial*: mocks allow you to completely isolate a
+- The advice here is for Android (AOSP) where Mockall is the recommended mocking library.
+  There are other [mocking libraries available on crates.io](https://crates.io/keywords/mock),
+  in particular in the area of mocking HTTP services. The other mocking libraries work
+  in a similar fashion as Mockall, meaning that they make it easy to get a mock implementation
+  of a given trait.
+
+- Note that mocking is somewhat *controversial*: mocks allow you to completely isolate a
   test from its dependencies. The immediate result is faster and more stable
   test execution. On the other hand, the mocks can be configured wrongly and
   return output different from what the real dependencies would do.
@@ -52,7 +58,5 @@ code to use traits, which you can then quickly mock:
 - You can use `.times(n)` to limit the number of times a mock method can be
   called to `n` --- the mock will automatically panic when dropped if this isn't
   satisfied.
-
-- Mockall is available for use in AOSP.
 
 </details>
