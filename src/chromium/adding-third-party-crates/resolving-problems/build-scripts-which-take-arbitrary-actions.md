@@ -12,7 +12,7 @@ So, your options are:
 * Apply a patch to the crate.
 
 Patches should be kept in `third_party/rust/chromium_crates_io/patches/<crate>` -
-see for example the [patches against the cxx crate][3] - and will be applied
+see for example the [patches against the `cxx` crate][3] - and will be applied
 automatically by `gnrt` each time it upgrades the crate.
 
 [1]: https://crates.io/crates/cc

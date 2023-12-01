@@ -1,6 +1,6 @@
-# cxx error handling
+# CXX error handling
 
-cxx's support for `Result<T,E>` relies on C++ exceptions, so we can't use that
+CXX's support for `Result<T,E>` relies on C++ exceptions, so we can't use that
 in Chromium. Alternatives:
 
 * Where success can be represented as a simple Boolean, as done in our [QR code generator][1]:
@@ -35,7 +35,7 @@ in Chromium. Alternatives:
   ```
 
 
-The best way to learn cxx is by doing, so, another exercise!
+The best way to learn CXX is by doing, so, another exercise!
 
 [0]: https://cxx.rs/binding/result.html
 [1]: https://source.chromium.org/chromium/chromium/src/+/main:components/qr_code_generator/qr_code_generator_ffi_glue.rs;l=10

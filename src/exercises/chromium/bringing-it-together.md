@@ -39,12 +39,12 @@ Students will likely need some hints here. Hints include:
   on the C++ side using `base::UTF16ToUTF8` and back again.
 * If students decide to do the conversion on the Rust side, they'll need to
   consider [`String::from_utf16`][1], consider error handling, and
-  consider which [cxx supported types can transfer a lot of u16s][2].
+  consider which [CXX supported types can transfer a lot of u16s][2].
 * Students may design the C++/Rust boundary in several different ways,
   e.g. taking and returning strings by value, or taking a mutable reference
-  to a string. If a mutable reference is used, cxx will likely
+  to a string. If a mutable reference is used, CXX will likely
   tell the student that they need to use [`Pin`][3]. You may need to explain
-  what `Pin` does, and then explain why `cxx` needs it for mutable references
+  what `Pin` does, and then explain why CXX needs it for mutable references
   to C++ data: the answer is that C++ data can't be moved around like Rust
   data, because it may contain self-referential pointers.
 * The C++ target containing `ResourceBundle::MaybeMangleLocalizedString`

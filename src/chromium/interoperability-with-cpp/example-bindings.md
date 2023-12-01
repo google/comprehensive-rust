@@ -1,6 +1,6 @@
 # Example bindings
 
-cxx requires that the whole C++/Rust boundary is declared in `cxx::bridge`
+CXX requires that the whole C++/Rust boundary is declared in `cxx::bridge`
 "modules" inside `.rs` source code.
 
 ```rust,ignore

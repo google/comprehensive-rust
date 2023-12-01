@@ -19,7 +19,7 @@ We will look at `rust_binary` and `rust_library` next.
 
 Additional items speaker may mention:
 
-- cargo is not optimized for multi-language repos, and also downloads packages from the internet.
+- Cargo is not optimized for multi-language repos, and also downloads packages from the internet.
 
 - For compliance and performance, Android must have crates in-tree.  It must also interop with C/C++/Java code.  Soong fills that gap.
 
