@@ -37,11 +37,3 @@ functions:
 
 {{#include exercise.rs:main}}
 ```
-
-<details>
-
-The `transpose` function takes its argument by value, but we haven't covered
-ownership yet. Try printing a matrix after it has been transposed, to show the
-"value has been moved" error, as a preview of ownership and move semantics.
-
-</details>
