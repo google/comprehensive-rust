@@ -173,6 +173,7 @@
   - [Other Types of Tests](testing/other.md)
   - [Useful Crates](testing/useful-crates.md)
   - [GoogleTest](testing/googletest.md)
+  - [Mocking](testing/mocking.md)
   - [Compiler lints and Clippy](testing/lints.md)
   - [Exercise: Luhn Algorithm](testing/exercise.md)
     - [Solution](testing/solution.md)
