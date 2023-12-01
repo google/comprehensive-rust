@@ -70,7 +70,7 @@ EOF
 run_example <<EOF
 # ANCHOR: hello_rust_with_dep
 m hello_rust_with_dep
-adb push "$ANDROID_PRODUCT_OUT/system/bin/hello_rust_with_dep /data/local/tmp"
+adb push $ANDROID_PRODUCT_OUT/system/bin/hello_rust_with_dep /data/local/tmp
 adb shell /data/local/tmp/hello_rust_with_dep
 # ANCHOR_END: hello_rust_with_dep
 EOF
