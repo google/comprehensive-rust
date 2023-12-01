@@ -1,7 +1,7 @@
 # Auditing third party crates
 
 Adding new libraries is subject to Chromium's standard [policies][0], but of
-course also subject to code review. As you may be bringing in not just a single
+course also subject to security review. As you may be bringing in not just a single
 crate but also transitive dependencies, there may be a lot of code to review.
 On the other hand, safe Rust code can have limited negative side effects.
 How should you review it?
@@ -18,7 +18,7 @@ Meanwhile, for each new crate addition, we are checking for the following:
 * Use `cd third-party/rust/chromium_crates_io; cargo audit` to check for
   known vulnerabilities (first you'll need to `cargo install cargo-audit`,
   which ironically involves downloading lots of dependencies from the internet[2])
-* Ensure any unsafe code is good enough for the [Rule of Two][3]
+* Ensure any `unsafe` code is good enough for the [Rule of Two][3]
 * Check for any use of `fs` or `net` APIs
 * Read all the code at a sufficient level to look for anything out of place
   that might have been maliciously inserted. (You can't realistically aim
