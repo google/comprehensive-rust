@@ -48,7 +48,7 @@ Rust terminology:
   boundaries, the expression will panic.  The `chars` iterator iterates over
   characters and is preferred over trying to get character boundaries right.
 
-* For C++ programmers: think of `&str` as `const char*` from C++, but the one that always points
+* For C++ programmers: think of `&str` as `std::string_view` from C++, but the one that always points
   to a valid string in memory. Rust `String` is a rough equivalent of `std::string` from C++
   (main difference: it can only contain UTF-8 encoded bytes and will never use a small-string optimization).
 
