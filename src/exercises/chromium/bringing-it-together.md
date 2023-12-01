@@ -38,7 +38,7 @@ Students will likely need some hints here. Hints include:
   UTF8, and will probably decide that it's better to do the conversion
   on the C++ side using `base::UTF16ToUTF8` and back again.
 * If students decide to do the conversion on the Rust side, they'll need to
-  consider [`std::string::from_utf16`][1], consider error handling, and
+  consider [`String::from_utf16`][1], consider error handling, and
   consider which [cxx supported types can transfer a lot of u16s][2].
 * Students may design the C++/Rust boundary in several different ways,
   e.g. taking and returning strings by value, or taking a mutable reference
