@@ -45,7 +45,7 @@ used:
 * Hypothetical/WIP PNG integration may need to implement memory-safe
   implementation of pixel transformations that are provided by `libpng`
   but missing in the `png` crate - e.g. RGBA => BGRA, or gamma correction.
-  Such functionality may benefit from seperate tests authored in Rust.
+  Such functionality may benefit from separate tests authored in Rust.
 
 </details>
 
