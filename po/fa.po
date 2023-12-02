@@ -3875,13 +3875,13 @@ msgid ""
 "i16` implementation automatically create an implementation of `Into<i16> for "
 "i8`."
 msgstr ""
-"کتابخانه استاندارد پیاده‌سازی <span dir=ltr>`From<i8> i16`</span> به نوع "
+"کتابخانه استاندارد یک پیاده‌سازی <span dir=ltr>`From<i8> for i16`</span> دارد "
 "<span dir=ltr>`i16`</span> دارد، به این معنی که می‌توانیم یک متغیر `x` از نوع "
 "`i8` را با فراخوانی <span dir=ltr>`i16::from(x)`</span>  به یک <span "
 "dir=ltr>`i16`</span>  تبدیل کنیم.  یا به شیوه ساده‌تر، با <span dir=ltr>`x."
 "into()`</span> ، زیرا پیاده‌سازی <span dir=ltr>`From<i8>`</span>  برای نوع "
 "<span dir=ltr>`i16`</span>  به طور خودکار پیاده‌سازی<span "
-"dir=ltr>`Into<i16>`</span>  براینوع `i8` را ایجاد می‌کند."
+"dir=ltr>`Into<i16>`</span>  برای نوع `i8` را ایجاد می‌کند."
 
 #: src/exercises/day-1/implicit-conversions.md:31
 msgid ""
@@ -3896,7 +3896,7 @@ msgstr ""
 
 #: src/exercises/day-1/implicit-conversions.md:34
 msgid "Execute the above program and look at the compiler error."
-msgstr "برنامه فوق را اجرا کنید و به خطای کامپایلر نگاه کنید."
+msgstr "برنامه فوق را اجرا و به خطای کامپایلر نگاه کنید."
 
 #: src/exercises/day-1/implicit-conversions.md:36
 msgid "Update the code above to use `into()` to do the conversion."
@@ -3916,7 +3916,7 @@ msgstr ""
 "دهید تا ببینید کدام انواع را می‌توانید به کدام انواع دیگر تبدیل کنید.  سعی "
 "کنید انواع کوچک را به انواع بزرگ تبدیل کنید و برعکس. [مستندات کتابخانه "
 "استاندارد](https://doc.rust-lang.org/std/convert/trait.From.html) را بررسی "
-"کنید  تا ببینید آیا <span dir=ltr>`From<T>`</span> برای تبدیل نوع‌هاییکه "
+"کنید  تا ببینید آیا <span dir=ltr>`From<T>`</span> برای تبدیل انواع‌ایی که "
 "بررسی می‌کنید پیاده‌سازی شده است یا نه."
 
 #: src/exercises/day-1/for-loops.md:1
@@ -3941,7 +3941,7 @@ msgid ""
 "Rust lets you iterate over things like arrays and ranges using the `for` "
 "keyword:"
 msgstr ""
-"زبان Rust به شما این امکان می‌دهد با استفاده از کلمه کلیدی `for` بر روی "
+"راست به شما این امکان را می‌دهد تا با استفاده از کلمه کلیدی `for` بر روی "
 "چیزهایی مانند آرایه‌ها و رنج‌ها پیمایش کنید:"
 
 #: src/exercises/day-1/for-loops.md:22
@@ -3970,7 +3970,7 @@ msgid ""
 "and a function `transpose` which will transpose a matrix (turn rows into "
 "columns):"
 msgstr ""
-"از موارد فوق برای نوشتن تابع <span dir=ltr>`pretty_print`</span> که یک "
+"از کد بالا برای نوشتن تابع <span dir=ltr>`pretty_print`</span> که یک "
 "ماتریس را به صورت <span dir=ltr>`pretty-print`</span>  چاپ می‌کند و تابع "
 "<span dir=ltr>`transpose`</span> که یک ماتریس را جابجا می‌کند  (ردیف‌ها را به "
 "ستون‌ها تبدیل می‌کند) استفاده کنید: "
@@ -3984,7 +3984,7 @@ msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and implement the "
 "functions:"
 msgstr ""
-"کد زیر را در <span dir=ltr><https://play.rust-lang.org/></span> کپی کنید و "
+"کد زیر را در <span dir=ltr><https://play.rust-lang.org/></span> کپی کرده و "
 "توابع را پیاده‌سازی کنید:"
 
 #: src/exercises/day-1/for-loops.md:54
@@ -4020,7 +4020,7 @@ msgstr ""
 
 #: src/exercises/day-1/for-loops.md:82
 msgid "Bonus Question"
-msgstr "سوال جایزه"
+msgstr "سوال جایزه‌دار"
 
 #: src/exercises/day-1/for-loops.md:84
 msgid ""
@@ -4031,14 +4031,14 @@ msgstr ""
 "آیا می‌توانید به جای ماتریس‌های 3 × 3 هاردکد شده از برش‌های <span "
 "dir=ltr>`&[i32]`</span>  برای آرگومان و انواع برگشتی تابع خود استفاده کنید؟ "
 "چیزی شبیه <span dir=ltr>`&[&[i32]]`</span> برای برش-از-برش دو بعدی. آیا "
-"امکان پذیر هست؟ اگر نه چرا؟"
+"امکان پذیر هست؟ چرا اره و چرا نه؟"
 
 #: src/exercises/day-1/for-loops.md:89
 msgid ""
 "See the [`ndarray` crate](https://docs.rs/ndarray/) for a production quality "
 "implementation."
 msgstr ""
-"برای دیدن یک پیاده سازی برای محیط پروداکشن به جعبه [<span dir=ltr>`ndarray`</"
+"برای دیدن یک پیاده‌سازی با کیفیت پروداکشن به جعبه [<span dir=ltr>`ndarray`</"
 "span>](https://docs.rs/ndarray/) سر بزنید."
 
 #: src/exercises/day-1/for-loops.md:94
@@ -4055,7 +4055,7 @@ msgid ""
 "preview of issues of ownership that will come later in the afternoon."
 msgstr ""
 "استفاده از ارجاع <span dir=ltr>`&array`</span>  در بخش <span dir=ltr>`for n "
-"in &array`</span>  پیش‌نمایشی از مسئله مالکیت است که بعداً توی قسمت عصر به ان "
+"in &array`</span>  پیش‌نمایشی کوچکی از مسئله مالکیت است که بعداً توی قسمت عصر به ان "
 "خواهیم پرداخت."
 
 #: src/exercises/day-1/for-loops.md:100
@@ -4118,15 +4118,14 @@ msgstr ""
 #: src/pattern-matching.md:25 src/pattern-matching/match-guards.md:22
 #: src/structs.md:31 src/methods.md:30 src/methods/example.md:46
 msgid "Key Points:"
-msgstr "نکات کلیدی"
+msgstr "نکات کلیدی:"
 
 #: src/control-flow/blocks.md:46
 msgid ""
 "The point of this slide is to show that blocks have a type and value in "
 "Rust. "
 msgstr ""
-"هدف از این اسلاید نشان دادن این است که بلوک ها در Rust دارای نوع و مقدار "
-"بازگشتی هستند."
+"هدف از این اسلاید نشان دادن این است که بلوک ها در Rust دارای نوع و مقدار هستند. "
 
 #: src/control-flow/blocks.md:47
 msgid ""
@@ -4139,7 +4138,7 @@ msgstr ""
 
 #: src/control-flow/if-expressions.md:1
 msgid "`if` expressions"
-msgstr "عبارت `if`"
+msgstr "عبارات `if`"
 
 #: src/control-flow/if-expressions.md:3
 msgid ""
@@ -4169,7 +4168,7 @@ msgstr ""
 
 #: src/control-flow/for-expressions.md:1
 msgid "`for` loops"
-msgstr "حلقه `for`"
+msgstr "حلقه‌های `for`"
 
 #: src/control-flow/for-expressions.md:3
 msgid ""
@@ -4216,7 +4215,7 @@ msgstr ""
 
 #: src/control-flow/while-expressions.md:1
 msgid "`while` loops"
-msgstr "حلقه `while`"
+msgstr "حلقه‌های `while`"
 
 #: src/control-flow/while-expressions.md:3
 msgid ""
@@ -4262,7 +4261,7 @@ msgstr "در این مورد، پس از 3 تکرار حلقه `inner`، از ح
 
 #: src/control-flow/loop-expressions.md:1
 msgid "`loop` expressions"
-msgstr "عبارت `loop`"
+msgstr "عبارات `loop`"
 
 #: src/control-flow/loop-expressions.md:3
 msgid ""
@@ -4362,7 +4361,7 @@ msgstr ""
 
 #: src/basic-syntax/static-and-const.md:1
 msgid "Static and Constant Variables"
-msgstr "استاتیک ها و ثابت ها"
+msgstr "متغیر‌های ایستا و ثابت"
 
 #: src/basic-syntax/static-and-const.md:3
 msgid ""
@@ -4370,7 +4369,7 @@ msgid ""
 "scoped values that cannot be moved or reallocated during the execution of "
 "the program. "
 msgstr ""
-"متغیرهای `ثابت` و `ایستاتیک` دو روش متفاوت برای ایجاد مقادیر با اسکوپ گلوبال "
+"متغیرهای `ثابت` و `ایستا` دو روش متفاوت برای ایجاد مقادیر با اسکوپ گلوبال "
 "(قابل دسترس در کل برنامه) هستند که نمی‌توانند در طول اجرای برنامه منتقل یا "
 "دوباره تعریف شوند."
 
@@ -4412,7 +4411,7 @@ msgid ""
 "Static variables will live during the whole execution of the program, and "
 "therefore will not move:"
 msgstr ""
-"متغیرهای ایستاتیک در طول عمر کل اجرای برنامه خواهند ماند و بنابراین منتقل "
+"متغیرهای ایستا در طول عمر کل اجرای برنامه خواهند ماند و بنابراین منتقل "
 "نمی‌شوند:"
 
 #: src/basic-syntax/static-and-const.md:38
