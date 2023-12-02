@@ -23,6 +23,7 @@ fn main() {
         name: name.as_ptr(),
         years: 42,
     };
+    // SAFETY: `print_card` is safe to call with a valid `card` pointer.
     unsafe {
         print_card(&card as *const card);
     }
