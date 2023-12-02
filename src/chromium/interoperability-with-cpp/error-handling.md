@@ -1,7 +1,7 @@
 # CXX error handling
 
-CXX's support for `Result<T,E>` relies on C++ exceptions, so we can't use that
-in Chromium. Alternatives:
+CXX's [support for `Result<T,E>`][0] relies on C++ exceptions, so we can't use
+that in Chromium. Alternatives:
 
 * The `T` part of `Result<T, E>` can be:
     - Returned via out parameters (e.g. via `&mut T`).  This requires that `T`
@@ -14,10 +14,9 @@ in Chromium. Alternatives:
       and cannot be stored in `UniquePtr<T>`.
 
 * The `E` part of `Result<T, E>` can be:
-    - Returned as a boolean (e.g. with `true` representing success, and `false`
+    - Returned as a boolean (e.g. `true` representing success, and `false`
       representing failure)
-    - Preserving error details is in theory possible (e.g. translating a Rust
-      `enum` into a shared, non-exhaustive C++/Rust enumeration), but so far
-      hasn't been needed in practice.
+    - Preserving error details is in theory possible, but so far hasn't been
+      needed in practice.
 
 [0]: https://cxx.rs/binding/result.html
