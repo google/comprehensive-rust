@@ -126,7 +126,7 @@ jobs:
       - name: Install mdbook
         uses: ./.github/workflows/install-mdbook
 
-      - name: Test ${{ matrix.language }} translation
+      - name: Test format of ${{ matrix.language }} translation
         if: matrix.language != 'en'
         run: msgfmt --statistics -o /dev/null po/${{ matrix.language }}.po
 
