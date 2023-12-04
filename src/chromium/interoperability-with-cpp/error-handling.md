@@ -1,41 +1,22 @@
 # CXX error handling
 
-CXX's support for `Result<T,E>` relies on C++ exceptions, so we can't use that
-in Chromium. Alternatives:
+CXX's [support for `Result<T,E>`][0] relies on C++ exceptions, so we can't use
+that in Chromium. Alternatives:
 
-* Where success can be represented as a simple Boolean, as done in our [QR code generator][1]:
-  Return a Boolean representing success, and record results using out-parameters:
-  ```rust,ignore
-  #[cxx::bridge(namespace = "qr_code_generator")]
-  mod ffi {
-    extern "Rust" {
-      fn generate_qr_code_using_rust(
-        data: &[u8],
-        min_version: i16,
-        out_pixels: Pin<&mut CxxVector<u8>>,
-        out_qr_size: &mut usize,
-      ) -> bool;
-    }
-  }
-  ```
-* Where success is more complex, provide a Rust
-  object which can be queried for details of success or failure:
-  ```rust,ignore
-  #[cxx::bridge]
-  mod ffi {
-    extern "Rust" {
-      type PngDecoder;
-      fn create_png_decoder() -> Box<PngDecoder>;
-      fn decode(self: &PngDecoder, png: &[u8]) -> bool; // whether successful
-      fn get_err_code(self: &PngDecoder) -> u32; // or some more complex error type
-      fn get_decoded_image(self: &PngDecoder) -> &[u8];
-            // or some more complex success type
-    }
-  }
-  ```
+* The `T` part of `Result<T, E>` can be:
+    - Returned via out parameters (e.g. via `&mut T`).  This requires that `T`
+      can be passed across the FFI boundary - for example `T` has to be:
+      - A primitive type (like `u32` or `usize`)
+      - A type natively supported by `cxx` (like `UniquePtr<T>`) that has a
+        suitable default value to use in a failure case (*unlike* `Box<T>`).
+    - Retained on the Rust side, and exposed via reference.  This may be needed
+      when `T` is a Rust type, which cannot be passed across the FFI boundary,
+      and cannot be stored in `UniquePtr<T>`.
 
-
-The best way to learn CXX is by doing, so, another exercise!
+* The `E` part of `Result<T, E>` can be:
+    - Returned as a boolean (e.g. `true` representing success, and `false`
+      representing failure)
+    - Preserving error details is in theory possible, but so far hasn't been
+      needed in practice.
 
 [0]: https://cxx.rs/binding/result.html
-[1]: https://source.chromium.org/chromium/chromium/src/+/main:components/qr_code_generator/qr_code_generator_ffi_glue.rs;l=10

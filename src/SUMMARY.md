@@ -256,6 +256,8 @@
   - [Example bindings](chromium/interoperability-with-cpp/example-bindings.md)
   - [Limitations of CXX](chromium/interoperability-with-cpp/limitations-of-cxx.md)
   - [CXX error handling](chromium/interoperability-with-cpp/error-handling.md)
+      - [Error handling: QR example](chromium/interoperability-with-cpp/error-handling-qr.md)
+      - [Error handling: PNG example](chromium/interoperability-with-cpp/error-handling-png.md)
   - [Using CXX in Chromium](chromium/interoperability-with-cpp/using-cxx-in-chromium.md)
   - [Exercise](exercises/chromium/interoperability-with-cpp.md)
 - [Adding third party crates](chromium/adding-third-party-crates.md)
