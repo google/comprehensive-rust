@@ -17,7 +17,10 @@ use mdbook::book::Chapter;
 
 /// Insert timing information for this slide into the speaker notes.
 pub fn insert_timing_info(slide: &Slide, chapter: &mut Chapter) {
-    if slide.minutes > 0 && chapter.content.contains("<details>") {
+    if slide.minutes > 0
+        && !slide.is_sub_chapter(chapter)
+        && chapter.content.contains("<details>")
+    {
         // Include the minutes in the speaker notes.
         let minutes = slide.minutes;
         let plural = if slide.minutes == 1 {

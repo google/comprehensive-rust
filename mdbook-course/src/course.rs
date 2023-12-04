@@ -447,6 +447,13 @@ impl Slide {
         Ok(())
     }
 
+    /// Determine whether the given chapter is a sub-chapter of this slide.
+    pub fn is_sub_chapter(&self, chapter: &Chapter) -> bool {
+        // The first `source_path` in the slide is the "parent" chapter, so anything
+        // else is a sub-chapter.
+        chapter.source_path.as_ref() != self.source_paths.get(0)
+    }
+
     /// Return the total duration of this slide.
     pub fn minutes(&self) -> u64 {
         self.minutes
