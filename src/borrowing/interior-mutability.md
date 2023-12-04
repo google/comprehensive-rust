@@ -8,7 +8,7 @@ Introduce the concept, with an example based on Mutex showing an `&self` method 
 # Interior Mutability
 
 Rust provides a few safe means of modifying a value given only a shared
-reference to that value. All of these replace copmile-time checks with runtime
+reference to that value. All of these replace compile-time checks with runtime
 checks.
 
 ## `Cell` and `RefCell`
