@@ -1,4 +1,4 @@
-# `rust_gtest_interop` library
+# `rust_gtest_interop` Library
 
 The [`rust_gtest_interop`][0] library provides a way to:
 

@@ -1,4 +1,4 @@
-# Visual Studio code
+# Visual Studio Code
 
 Types are elided in Rust code, which makes a good IDE even more useful than
 for C++. Visual Studio code works well for Rust in Chromium. To use it,

@@ -1,4 +1,4 @@
-# Including `unsafe` Rust code
+# Including `unsafe` Rust Code
 
 Unsafe Rust code is forbidden in `rust_static_library` by default --- it won't
 compile. If you need unsafe Rust code, add `allow_unsafe = true` to the

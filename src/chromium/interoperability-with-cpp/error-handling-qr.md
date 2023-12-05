@@ -1,4 +1,4 @@
-# CXX error handling: QR example
+# CXX Error Handling: QR Example
 
 The QR code generator is [an example][0] where a boolean is used to communicate
 success vs failure, and where the successful result can be passed across the FFI

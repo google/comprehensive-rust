@@ -1,4 +1,4 @@
-# Build scripts which generate code
+# Build Scripts Which Generate Code
 
 If `ninja` complains about missing files, check the `build.rs` to see if it
 writes source code files.

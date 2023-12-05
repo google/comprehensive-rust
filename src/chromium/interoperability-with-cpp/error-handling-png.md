@@ -1,4 +1,4 @@
-# CXX error handling: PNG example
+# CXX Error Handling: PNG Example
 
 A prototype of a PNG decoder illustrates what can be done when the successful
 result cannot be passed across the FFI boundary:

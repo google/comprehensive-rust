@@ -1,4 +1,4 @@
-# Example bindings
+# Example Bindings
 
 CXX requires that the whole C++/Rust boundary is declared in `cxx::bridge`
 modules inside `.rs` source code.

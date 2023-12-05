@@ -1,4 +1,4 @@
-# Resolving problems
+# Resolving Problems
 
 If your build fails, it may be because of a `build.rs`: programs which do arbitrary
 things at build time. This is fundamentally at odds with the design of `gn`

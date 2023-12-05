@@ -1,4 +1,4 @@
-# Depending on a crate
+# Depending on a Crate
 
 Once you've added a third-party crate and generated build rules,
 depending on a crate is simple. Find your `rust_static_library` target,

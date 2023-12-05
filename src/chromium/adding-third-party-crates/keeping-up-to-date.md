@@ -1,4 +1,4 @@
-# Keeping crates up to date
+# Keeping Crates Up to Date
 
 As the OWNER of any third party Chromium dependency, you are
 [expected to keep it up to date with any security fixes][0]. It is hoped
