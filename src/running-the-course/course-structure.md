@@ -4,14 +4,14 @@
 
 ## Rust Fundamentals
 
-The first three days make up [Rust Fundaments](../welcome-day-1.md).
+The first four days make up [Rust Fundaments](../welcome-day-1.md).
 The days are fast paced and we cover a lot of ground!
 
 {{%course outline Fundamentals}}
 
 ## Deep Dives
 
-In addition to the 3-day class on Rust Fundamentals, we cover some more
+In addition to the 4-day class on Rust Fundamentals, we cover some more
 specialized topics:
 
 ### Rust in Android
