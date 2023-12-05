@@ -33,6 +33,7 @@ fn main() {
 }
 ```
 
+# `let else` expressions 
 For the common case of matching a pattern and returning from the function, use
 [`let
 else`](https://doc.rust-lang.org/rust-by-example/flow_control/let_else.html).

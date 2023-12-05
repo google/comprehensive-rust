@@ -57,7 +57,7 @@ The `nearest` function provides another example of a function with multiple refe
 Try adjusting the signature to "lie" about the lifetimes returned:
 
 ```rust,ignore
-fn nearest<'a>(points: &'a [Point], query: &'q Point) -> Option<&'q Point> {
+fn nearest<'a, 'q'>(points: &'a [Point], query: &'q Point) -> Option<&'q Point> {
 ```
 
 This won't compile, demonstrating that the annotations are checked for validity

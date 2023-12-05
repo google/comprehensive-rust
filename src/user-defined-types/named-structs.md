@@ -51,6 +51,6 @@ Key Points:
   * The next slide will introduce Tuple structs, used when the field names are not important.
 * If you already have variables with the right names, then you can create the
 struct using a shorthand.
-* The syntax `..peter` allows us to copy the majority of the fields from the old struct without having to explicitly type it all out. It must always be the last element.
+* The syntax `..avery` allows us to copy the majority of the fields from the old struct without having to explicitly type it all out. It must always be the last element.
 
 </details>

@@ -75,6 +75,5 @@ Key Points:
   * Note how `self` is used like other structs and dot notation can be used to refer to individual fields.
   * This might be a good time to demonstrate how the `&self` differs from `self` by trying to run `finish` twice.
   * Beyond variants on `self`, there are also [special wrapper types](https://doc.rust-lang.org/reference/special-types-and-traits.html) allowed to be receiver types, such as `Box<Self>`.
-* Note that references have not been covered yet. References in method receivers are a particularly "natural" form of reference, so there is no need to go into a great level of detail.
 
 </details>

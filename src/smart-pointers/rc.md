@@ -37,6 +37,6 @@ fn main() {
 * Use `Rc::strong_count` to check the reference count.
 * `Rc::downgrade` gives you a *weakly reference-counted* object to
   create cycles that will be dropped properly (likely in combination with
-  `RefCell`, on the next slide).
+  `RefCell`).
 
 </details>

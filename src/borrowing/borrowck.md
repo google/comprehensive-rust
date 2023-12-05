@@ -31,7 +31,7 @@ fn main() {
 * The above code does not compile because `a` is borrowed as mutable (through `c`) and as immutable (through `b`) at the same time.
 * Move the `println!` statement for `b` before the scope that introduces `c` to make the code compile.
 * After that change, the compiler realizes that `b` is only ever used before the new mutable borrow of `a` through `c`. This is a feature of the borrow checker called "non-lexical lifetimes".
-* The exclusive reference constraint is quite strong. Rust uses it to ensure that data races do not occur. Rust also _relies_ on this constraint to optimize codes. For example, a value behind a shared reference can be safely cached in a register for the lifetime of that reference.
+* The exclusive reference constraint is quite strong. Rust uses it to ensure that data races do not occur. Rust also _relies_ on this constraint to optimize code. For example, a value behind a shared reference can be safely cached in a register for the lifetime of that reference.
 * The borrow checker is designed to accommodate many common patterns, such as taking exclusive references to different fields in a struct at the same time. But, there are some situations where it doesn't quite "get it" and this often results in "fighting with the borrow checker."
 
 </details>

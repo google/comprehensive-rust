@@ -68,9 +68,6 @@ Key Points:
 
 Rust has several optimizations it can employ to make enums take up less space.
 
- * Niche optimization: Rust will merge unused bit patterns for the enum
-   discriminant.
-
  * Null pointer optimization: For [some
    types](https://doc.rust-lang.org/std/option/#representation), Rust guarantees
    that `size_of::<T>()` equals `size_of::<Option<T>>()`.

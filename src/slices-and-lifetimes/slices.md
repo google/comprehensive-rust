@@ -37,6 +37,6 @@ fn main() {
 
 * The question about modifying `a[3]` can spark an interesting discussion, but the answer is that for memory safety reasons
   you cannot do it through `a` at this point in the execution, but you can read the data from both `a` and `s` safely.
-  It works before you created the slice, and again after the `println`, when the slice is no longer used. More details will be explained in the borrow checker section.
+  It works before you created the slice, and again after the `println`, when the slice is no longer used.
 
 </details>
