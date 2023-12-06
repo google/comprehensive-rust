@@ -33,7 +33,7 @@ compromise the safety of Rust's own data layouts. Presence of _too many_
 such a keyword, and is [controversial][1], but strictly, bringing any foreign
 code into a Rust binary can cause unexpected behavior from Rust's perspective.
 
-The narrow answer lies in the diagram at the top of this page --- behind the
+The narrow answer lies in the diagram at the top of [this page][2] --- behind the
 scenes, CXX generates Rust `unsafe` and `extern "C"` functions just like
 we did manually in the previous section.
 
@@ -41,3 +41,4 @@ we did manually in the previous section.
 
 [0]: https://source.chromium.org/chromium/chromium/src/+/main:base/containers/span_rust.h;l=21
 [1]: https://steveklabnik.com/writing/the-cxx-debate
+[2]: ../interoperability-with-cpp.md
