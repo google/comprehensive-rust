@@ -11,7 +11,7 @@ Very few Rust libraries directly expose a C/C++ API, so that means that nearly
 all such libraries will require a small amount of first-party glue code.
 
 ```bob
-C++                             Rust
+"C++"                           Rust
 .- - - - - - - - - -.           .- - - - - - - - - - - - - - - - - - - - - - -.
 :                   :           :                                             :
 : Existing Chromium :           :  Chromium Rust              Existing Rust   :
