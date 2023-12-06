@@ -1,7 +1,7 @@
 # Example bindings
 
 CXX requires that the whole C++/Rust boundary is declared in `cxx::bridge`
-"modules" inside `.rs` source code.
+modules inside `.rs` source code.
 
 ```rust,ignore
 {{#include ../../../third_party/cxx/book/snippets.rs:cxx_overview}}
@@ -11,6 +11,10 @@ CXX requires that the whole C++/Rust boundary is declared in `cxx::bridge`
 
 Point out:
 
+* Although this looks like a regular Rust `mod`, the `#[cxx::bridge]`
+  procedural macro does complex things to it. The generated code is quite
+  a bit more sophisticated - though this does still result in a `mod` called
+  `ffi` in your code.
 * Native support for C++'s `std::unique_ptr` in Rust
 * Native support for Rust slices in C++
 * Calls from C++ to Rust, and Rust types (in the top part)
