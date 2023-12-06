@@ -18,7 +18,7 @@ mod markdown;
 mod replacements;
 mod timing_info;
 
-use crate::course::Courses;
+use crate::course::{Course, Courses};
 use crate::markdown::duration;
 use clap::{Arg, Command};
 use mdbook::book::BookItem;
@@ -44,10 +44,54 @@ fn main() {
     }
 }
 
-fn preprocess() -> anyhow::Result<()> {
-    let (_, book) = CmdPreprocessor::parse_input(stdin())?;
+fn timediff(actual: u64, target: u64) -> String {
+    if actual > target {
+        format!(
+            "{}: {} OVER TARGET {}",
+            duration(actual),
+            duration(actual - target),
+            duration(target)
+        )
+    } else if actual < target {
+        format!(
+            "{}: {} shorter than target {}",
+            duration(actual),
+            duration(target - actual),
+            duration(target)
+        )
+    } else {
+        format!("{}: right on time", duration(actual))
+    }
+}
 
+fn print_summary(fundamentals: &Course) {
+    eprintln!(
+        "Fundamentals: {}",
+        timediff(fundamentals.minutes(), 8 * 3 * 60)
+    );
+
+    eprintln!("Sessions:");
+    for session in fundamentals {
+        eprintln!(
+            "  {}: {}",
+            session.name,
+            timediff(session.minutes(), 3 * 60)
+        );
+        for segment in session {
+            eprintln!("    {}: {}", segment.name, duration(segment.minutes()));
+        }
+    }
+}
+
+fn preprocess() -> anyhow::Result<()> {
+    let (ctx, book) = CmdPreprocessor::parse_input(stdin())?;
     let (courses, mut book) = Courses::extract_structure(book)?;
+    let verbose = ctx
+        .config
+        .get_preprocessor("course")
+        .and_then(|t| t.get("verbose"))
+        .and_then(|v| v.as_bool())
+        .unwrap_or_default();
 
     book.for_each_mut(|chapter| {
         if let BookItem::Chapter(chapter) = chapter {
@@ -67,44 +111,12 @@ fn preprocess() -> anyhow::Result<()> {
         }
     });
 
-    let timediff = |actual, target| {
-        if actual > target {
-            format!(
-                "{}: {} OVER TARGET {}",
-                duration(actual),
-                duration(actual - target),
-                duration(target)
-            )
-        } else if actual < target {
-            format!(
-                "{}: {} shorter than target {}",
-                duration(actual),
-                duration(target - actual),
-                duration(target)
-            )
-        } else {
-            format!("{}: right on time", duration(actual))
-        }
-    };
     // Print a summary of times for the "Fundamentals" course.
     // Translations with a POT-Creation-Date before 2023-11-29 (when
     // we merged #1073) will have no frontmatter.
-    if let Some(fundamentals) = courses.find_course("Fundamentals") {
-        eprintln!(
-            "Fundamentals: {}",
-            timediff(fundamentals.minutes(), 8 * 3 * 60)
-        );
-
-        eprintln!("Sessions:");
-        for session in fundamentals {
-            eprintln!(
-                "  {}: {}",
-                session.name,
-                timediff(session.minutes(), 3 * 60)
-            );
-            for segment in session {
-                eprintln!("    {}: {}", segment.name, duration(segment.minutes()));
-            }
+    if verbose {
+        if let Some(fundamentals) = courses.find_course("Fundamentals") {
+            print_summary(fundamentals);
         }
     }
 
