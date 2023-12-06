@@ -10,9 +10,9 @@ create custom error types that implement `From<T>`. `anyhow` helps with error
 handling in functions, including adding contextual information to your errors.
 
 ```rust,editable,compile_fail
-use std::{fs, io};
-use std::io::Read;
-use anyhow::{Context, Result, bail};
+use anyhow::{bail, Context, Result};
+use std::{fs, io::Read};
+use thiserror::Error;
 
 #[derive(Clone, Debug, Eq, Error, PartialEq)]
 #[error("Found no username in {0}")]
@@ -25,7 +25,7 @@ fn read_username(path: &str) -> Result<String> {
         .read_to_string(&mut username)
         .context("Failed to read")?;
     if username.is_empty() {
-        bail!(EmptyUsernameError(path));
+        bail!(EmptyUsernameError(path.to_string()));
     }
     Ok(username)
 }
