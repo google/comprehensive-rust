@@ -16,7 +16,7 @@ struct Race {
 
 impl Race {
     fn new(name: &str) -> Self {  // No receiver, a static method
-        Race { name: String::from(name), laps: Vec::new() }
+        Self { name: String::from(name), laps: Vec::new() }
     }
 
     fn add_lap(&mut self, lap: i32) {  // Exclusive borrowed read-write access to self
