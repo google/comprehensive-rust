@@ -278,6 +278,7 @@
   - [Keeping crates up to date](chromium/adding-third-party-crates/keeping-up-to-date.md)
   - [Exercise](exercises/chromium/third-party.md)
 - [Bringing it together - Exercise](exercises/chromium/bringing-it-together.md)
+- [Exercise Solutions](exercises/chromium/solutions.md)
 
 
 # Bare Metal: Morning
