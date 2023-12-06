@@ -31,7 +31,7 @@ impl Race {
     }
 
     fn finish(self) {  // Exclusive ownership of self
-        let total = self.laps.iter().sum::<i32>();
+        let total: i32 = self.laps.iter().sum();
         println!("Race {} is finished, total lap time: {}", self.name, total);
     }
 }
