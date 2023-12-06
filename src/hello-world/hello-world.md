@@ -24,7 +24,7 @@ What you see:
 <details>
 
 This slide tries to make the students comfortable with Rust code. They will see
-a ton of it over the next three days so we start small with something familiar.
+a ton of it over the next four days so we start small with something familiar.
 
 Key points:
 
