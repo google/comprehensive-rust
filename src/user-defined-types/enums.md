@@ -33,7 +33,7 @@ Key Points:
 
 * Enumerations allow you to collect a set of values under one type.
 * `Direction` is a type with variants. There are two values of `Direction`: `Direction::Left` and `Direction::Right`.
-* `PlayerMove` is a type with three variants. In addition to the payloads, Rust will store a discriminant so that it known at runtime which variant is in a `PlayerMove` value.
+* `PlayerMove` is a type with three variants. In addition to the payloads, Rust will store a discriminant so that it knows at runtime which variant is in a `PlayerMove` value.
 * This might be a good time to compare structs and enums:
   * In both, you can have a simple version without fields (unit struct) or one with different types of fields (variant payloads).
   * You could even implement the different variants of an enum with separate structs but then they wouldn’t be the same type as they would if they were all defined in an enum.
