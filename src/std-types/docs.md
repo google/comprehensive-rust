@@ -2,14 +2,13 @@
 minutes: 5
 ---
 
-# Language Docs
+# Documentation
 
-Rust comes with extensive documentation of the language and the standard library.
+Rust comes with extensive documentation. For example:
 
-For example:
  * All of the details about [loops](https://doc.rust-lang.org/stable/reference/expressions/loop-expr.html).
  * Primitive types like [`u8`](https://doc.rust-lang.org/stable/std/primitive.u8.html).
- * Standard-library items like [`Option`](https://doc.rust-lang.org/stable/std/option/enum.Option.html) or [`BinaryHeap`](https://doc.rust-lang.org/stable/std/collections/struct.BinaryHeap.html).
+ * Standard library types like [`Option`](https://doc.rust-lang.org/stable/std/option/enum.Option.html) or [`BinaryHeap`](https://doc.rust-lang.org/stable/std/collections/struct.BinaryHeap.html).
 
 In fact, you can document your own code:
 
@@ -40,6 +39,6 @@ or `/*! .. */`, called "inner doc comments":
 <details>
 
 * Show students the generated docs for the `rand` crate at
-  [`docs.rs/rand`](https://docs.rs/rand).
+  <https://docs.rs/rand>.
 
 </details>
