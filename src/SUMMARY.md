@@ -252,6 +252,10 @@
   - [Depending on Rust code from Chromium C++](chromium/build-rules/depending.md)
   - [Visual Studio code](chromium/build-rules/vscode.md)
   - [Exercise](exercises/chromium/build-rules.md)
+- [Testing](chromium/testing.md)
+  - [`rust_gtest_interop` library](chromium/testing/rust-gtest-interop.md)
+  - [GN rules for Rust tests](chromium/testing/build-gn.md)
+  - [Exercise](exercises/chromium/testing.md)
 - [Interoperability with C++](chromium/interoperability-with-cpp.md)
   - [Example bindings](chromium/interoperability-with-cpp/example-bindings.md)
   - [Limitations of CXX](chromium/interoperability-with-cpp/limitations-of-cxx.md)
@@ -274,6 +278,7 @@
   - [Keeping crates up to date](chromium/adding-third-party-crates/keeping-up-to-date.md)
   - [Exercise](exercises/chromium/third-party.md)
 - [Bringing it together - Exercise](exercises/chromium/bringing-it-together.md)
+- [Exercise Solutions](exercises/chromium/solutions.md)
 
 
 # Bare Metal: Morning

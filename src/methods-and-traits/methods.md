@@ -16,7 +16,7 @@ struct Race {
 
 impl Race {
     fn new(name: &str) -> Self {  // No receiver, a static method
-        Race { name: String::from(name), laps: Vec::new() }
+        Self { name: String::from(name), laps: Vec::new() }
     }
 
     fn add_lap(&mut self, lap: i32) {  // Exclusive borrowed read-write access to self
@@ -31,7 +31,7 @@ impl Race {
     }
 
     fn finish(self) {  // Exclusive ownership of self
-        let total = self.laps.iter().sum::<i32>();
+        let total: i32 = self.laps.iter().sum();
         println!("Race {} is finished, total lap time: {}", self.name, total);
     }
 }
@@ -75,6 +75,5 @@ Key Points:
   * Note how `self` is used like other structs and dot notation can be used to refer to individual fields.
   * This might be a good time to demonstrate how the `&self` differs from `self` by trying to run `finish` twice.
   * Beyond variants on `self`, there are also [special wrapper types](https://doc.rust-lang.org/reference/special-types-and-traits.html) allowed to be receiver types, such as `Box<Self>`.
-* Note that references have not been covered yet. References in method receivers are a particularly "natural" form of reference, so there is no need to go into a great level of detail.
 
 </details>

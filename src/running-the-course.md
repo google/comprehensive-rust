@@ -18,7 +18,7 @@ Before you run the course, you will want to:
    popup (click the link with a little arrow next to "Speaker Notes"). This way
    you have a clean screen to present to the class.
 
-1. Decide on the dates. Since the course takes at least three full days, we recommend that you
+1. Decide on the dates. Since the course takes four days, we recommend that you
    schedule the days over two weeks. Course participants have said that
    they find it helpful to have a gap in the course since it helps them process
    all the information we give them.

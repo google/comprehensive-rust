@@ -808,9 +808,8 @@ msgid "Using It"
 msgstr "使用例"
 
 #: src/SUMMARY.md:251 src/bare-metal/aps/exceptions.md:1
-#, fuzzy
 msgid "Exceptions"
-msgstr "関数"
+msgstr "例外"
 
 #: src/SUMMARY.md:253
 msgid "Useful Crates"
@@ -12877,7 +12876,7 @@ msgstr "Ctrl+A Ctrl+Q でpicocomを終了します。"
 
 #: src/bare-metal/aps.md:1
 msgid "Application processors"
-msgstr ""
+msgstr "アプリケーションプロセッサ"
 
 #: src/bare-metal/aps.md:3
 msgid ""
@@ -12886,6 +12885,10 @@ msgid ""
 "with QEMU's aarch64 ['virt'](https://qemu-project.gitlab.io/qemu/system/arm/"
 "virt.html) board."
 msgstr ""
+"ここまではArm Cortex-Mシリーズのようなマイクロコントローラについて見てきまし"
+"た。今度はCortex-Aを対象として何かを書いてみましょう。簡単化のために、ここで"
+"は（本物のハードウェアではなく）QEMUのaarch64 ['virt'](https://qemu-project."
+"gitlab.io/qemu/system/arm/virt.html)ボードを利用します。"
 
 #: src/bare-metal/aps.md:9
 msgid ""
@@ -12893,6 +12896,9 @@ msgid ""
 "privilege (exception levels on Arm CPUs, rings on x86), while application "
 "processors do."
 msgstr ""
+"大まかに言って、マイクロコントローラがMMUや複数の特権レベル（Arm CPUにおける"
+"例外レベル、x86におけるリング）を持たないのに対し、アプリケーションプロセッサ"
+"はこれらを持っています。"
 
 #: src/bare-metal/aps.md:11
 msgid ""
@@ -12900,11 +12906,14 @@ msgid ""
 "architecture. The 'virt' board doesn't correspond to any particular real "
 "hardware, but is designed purely for virtual machines."
 msgstr ""
+"QEMU は個々のアーキテクチャに対して様々な異なるマシンやボードモデルをサポート"
+"しています。今回使う 'virt' ボードは特定の本物のハードウェアに対応したもので"
+"はなく、純粋に仮想マシンとして設計されたものです。"
 
 #: src/bare-metal/aps/entry-point.md:3
 msgid ""
 "Before we can start running Rust code, we need to do some initialisation."
-msgstr ""
+msgstr "Rustのコードを実行できるようになる前にいくつかの初期化が必要です。"
 
 #: src/bare-metal/aps/entry-point.md:5
 msgid ""
@@ -12987,6 +12996,8 @@ msgid ""
 "This is the same as it would be for C: initialising the processor state, "
 "zeroing the BSS, and setting up the stack pointer."
 msgstr ""
+"この初期化内容はCの場合と同じになります。プロセッサ状態を初期化して、BSSをゼ"
+"ロ埋めして、スタックポインタを設定します。"
 
 #: src/bare-metal/aps/entry-point.md:79
 msgid ""
@@ -12996,18 +13007,26 @@ msgid ""
 "on zeroes. The compiler assumes that the loader will take care of zeroing "
 "them."
 msgstr ""
+"BSS（歴史的な理由によりblock starting symbolと呼ばれているもの）はオブジェク"
+"トファイルにおいてゼロ初期化される静的な変数を含む部分です。この部分はゼロに"
+"よる領域の浪費を避けるためにイメージからは除外されています。コンパイラはロー"
+"ダがこの領域をゼロ初期化することを想定しているのです。"
 
 #: src/bare-metal/aps/entry-point.md:83
 msgid ""
 "The BSS may already be zeroed, depending on how memory is initialised and "
 "the image is loaded, but we zero it to be sure."
 msgstr ""
+"メモリの初期化方法やイメージのロード方法によってはBSSはすでにゼロ埋めされてい"
+"ることがありますが、ここでは念の為にゼロ埋めしています。"
 
 #: src/bare-metal/aps/entry-point.md:85
 msgid ""
 "We need to enable the MMU and cache before reading or writing any memory. If "
 "we don't:"
 msgstr ""
+"いかなるメモリのreadやwriteよりも前にMMUとキャッシュを有効化する必要がありま"
+"す。それをしないと："
 
 #: src/bare-metal/aps/entry-point.md:86
 msgid ""
@@ -13016,6 +13035,10 @@ msgid ""
 "generating unaligned accesses, so it should be fine in this case, but this "
 "is not necessarily the case in general."
 msgstr ""
+"アラインされていないアクセスがフォールトになります。我々はコンパイラがアライ"
+"ンされていないアクセスを生成しないように`+strict-align`オプション を設定する"
+"`aarch64-unknown-none` ターゲット向けにRustコードをビルドします。そのためここ"
+"では問題にはなりませんが、一般的にはそうとは言えません。"
 
 #: src/bare-metal/aps/entry-point.md:89
 msgid ""
@@ -13027,6 +13050,14 @@ msgid ""
 "is cleaned or the VM enables the cache. (Cache is keyed by physical address, "
 "not VA or IPA.)"
 msgstr ""
+"もしVM上で実行していたとすると、キャッシュコヒーレンシーの問題を起こすことが"
+"あります。問題なのはVMがキャッシュを無効化したまま直接メモリにアクセスしてい"
+"るのに対し、ホストは同じメモリに対してキャッシュ可能なエイリアスを持ってしま"
+"うということです。ホストが仮に明示的にメモリにアクセスしないとしても、投機的"
+"なアクセスによりキャッシュフィルが起きることがあります。そうなると、ホストが"
+"キャッシュをフラッシュするかVMがキャッシュを有効化したときに、VMかホストのど"
+"ちらかによる変更が失われてしまいます。（キャッシュは仮想アドレスやIPAではなく"
+"物理アドレスをキーとしてアクセスされます）"
 
 #: src/bare-metal/aps/entry-point.md:94
 msgid ""
@@ -13035,12 +13066,17 @@ msgid ""
 "for DRAM, and another 1 GiB higher up for more devices. This matches the "
 "memory layout that QEMU uses."
 msgstr ""
+"単純化のために、ハードコードしたページテーブル（`idmap.S`参照）を利用します。"
+"このページテーブルは最初の1GiBをデバイス用に、次の1GiBをDRAM用に、次の1GiBを"
+"さらなるデバイス用に透過的にマップします。これはQEMUのメモリレイアウトに合致"
+"します。"
 
 #: src/bare-metal/aps/entry-point.md:97
 msgid ""
 "We also set up the exception vector (`vbar_el1`), which we'll see more about "
 "later."
 msgstr ""
+"例外ベクタ（`vbar_el1`）も設定します。これに関しては後ほど詳しく見ます。"
 
 #: src/bare-metal/aps/entry-point.md:98
 msgid ""
@@ -13048,10 +13084,13 @@ msgid ""
 "(EL1). If you need to run at a different exception level you'll need to "
 "modify `entry.S` accordingly."
 msgstr ""
+"今日の午後に扱うすべての例は例外レベル１（EL1）で実行されることを想定していま"
+"す。もし、別の例外レベルで実行する必要がある場合には、`entry.S`をそれに合わせ"
+"て変更する必要があります。"
 
 #: src/bare-metal/aps/inline-assembly.md:1
 msgid "Inline assembly"
-msgstr ""
+msgstr "インラインアセンブリ"
 
 #: src/bare-metal/aps/inline-assembly.md:3
 msgid ""
@@ -13059,6 +13098,9 @@ msgid ""
 "Rust code. For example, to make an HVC (hypervisor call) to tell the "
 "firmware to power off the system:"
 msgstr ""
+"時折Rustコードでは書けないことを行うためにアセンブリ言語を使う必要がありま"
+"す。例えば、電源を落とすためにファームウェアに対してHVC（ハイパーバイザコー"
+"ル）を発行する場合です："
 
 #: src/bare-metal/aps/inline-assembly.md:6
 msgid ""
@@ -13101,6 +13143,9 @@ msgid ""
 "(If you actually want to do this, use the [`smccc`](https://crates.io/crates/"
 "smccc) crate which has wrappers for all these functions.)"
 msgstr ""
+"（もし実際に電源を落とすプログラムを書きたい場合は、これらのすべての機能に対"
+"するラッパーを提供している[`smccc`](https://crates.io/crates/smccc)を使うと良"
+"いでしょう。）"
 
 #: src/bare-metal/aps/inline-assembly.md:43
 msgid ""
@@ -13108,6 +13153,9 @@ msgid ""
 "functions to manage system and CPU power states, among other things. It is "
 "implemented by EL3 firmware and hypervisors on many systems."
 msgstr ""
+"PSCI はArmのPower State Coordination Interfaceのことであり、これはシステムや"
+"CPU電力状態管理の機能を含む標準的なセットです。これは多くのシステムでEL3"
+"ファームウェアとハイパーバイザにより実装されています。"
 
 #: src/bare-metal/aps/inline-assembly.md:46
 msgid ""
@@ -13116,12 +13164,18 @@ msgid ""
 "`inout` rather than `in` because the call could potentially clobber the "
 "contents of the registers."
 msgstr ""
+"`0 => _` というシンタックスは、インラインアセンブリを実行する前にレジスタをゼ"
+"ロで初期化し、実行後はその値は気にしないということを示しています。`in`ではな"
+"く`inout`を使う必要があるのは、この実行でレジスタの値を上書きしてしまう可能性"
+"があるからです。"
 
 #: src/bare-metal/aps/inline-assembly.md:49
 msgid ""
 "This `main` function needs to be `#[no_mangle]` and `extern \"C\"` because "
 "it is called from our entry point in `entry.S`."
 msgstr ""
+"この `main` 関数は`entry.S`にあるエントリポイントから呼ばれるため、"
+"`#[no_mangle]`と`extern \"C\"`を必要とします。"
 
 #: src/bare-metal/aps/inline-assembly.md:51
 msgid ""
@@ -13132,36 +13186,48 @@ msgid ""
 "arguments passed to a function, so `entry.S` doesn't need to do anything "
 "special except make sure it doesn't change these registers."
 msgstr ""
+"`_x0`–`_x3`はレジスタ`x0`–`x3`の値であり、慣習的にブートロードがデバイスツ"
+"リーなどへのポインタを渡すのに利用されています。（`extern \"C\"`により指定さ"
+"れた）aarch64 の関数コール規約ではレジスタ`x0`–`x7`は最初の８個の引数を関数に"
+"渡すのに利用されることになっているため、`entry.S` はこれらの値を変更しないよ"
+"うにする以外の特別なことをする必要はありません。"
 
 #: src/bare-metal/aps/inline-assembly.md:56
 msgid ""
 "Run the example in QEMU with `make qemu_psci` under `src/bare-metal/aps/"
 "examples`."
 msgstr ""
+"この例を`src/bare-metal/aps/examples`において`make qemu_psci`とすることでQEMU"
+"により実行してみましょう。"
 
 #: src/bare-metal/aps/mmio.md:1
 msgid "Volatile memory access for MMIO"
-msgstr ""
+msgstr "MMIOに対するvolatileアクセス"
 
 #: src/bare-metal/aps/mmio.md:3
 msgid "Use `pointer::read_volatile` and `pointer::write_volatile`."
-msgstr ""
+msgstr "`pointer::read_volatile`と`pointer::write_volatile`を使います。"
 
 #: src/bare-metal/aps/mmio.md:4
 msgid "Never hold a reference."
-msgstr ""
+msgstr "絶対に参照を保持してはいけません。"
 
 #: src/bare-metal/aps/mmio.md:5
 msgid ""
 "`addr_of!` lets you get fields of structs without creating an intermediate "
 "reference."
 msgstr ""
+"`addr_of!`を用いると、中間的な参照を作らずに構造体のフィールドにアクセスする"
+"ことができます。"
 
 #: src/bare-metal/aps/mmio.md:9
 msgid ""
 "Volatile access: read or write operations may have side-effects, so prevent "
 "the compiler or hardware from reordering, duplicating or eliding them."
 msgstr ""
+"Volatileアクセス：MMIO領域に対するreadやwriteは副作用があることがあるので、コ"
+"ンパイラやハードウェアが実行順序を変更したり、複製したり、省略したりできない"
+"ようにするためのものです。"
 
 #: src/bare-metal/aps/mmio.md:11
 msgid ""
@@ -13169,6 +13235,9 @@ msgid ""
 "compiler may assume that the value read is the same as the value just "
 "written, and not bother actually reading memory."
 msgstr ""
+"通常は、例えばある可変参照に対してライトしリードすると、コンパイラはライトし"
+"たのと同じ値がリードで読み出されると想定し、実際にメモリをリードする必要はな"
+"いと判断します。"
 
 #: src/bare-metal/aps/mmio.md:13
 msgid ""
@@ -13176,22 +13245,29 @@ msgid ""
 "this is unsound. Whenever a reference exist, the compiler may choose to "
 "dereference it."
 msgstr ""
+"ハードウェアへのvolatileアクセスを行うための既存のクレートには参照を保持する"
+"ものがありますが、これは健全ではありません。参照が存在する間はいつでもコンパ"
+"イラがその参照を外して（MMIO領域にアクセスして）しまう可能性があります。"
 
 #: src/bare-metal/aps/mmio.md:15
 msgid ""
 "Use the `addr_of!` macro to get struct field pointers from a pointer to the "
 "struct."
 msgstr ""
+"構造体のポインタからそのフィールドへのポインタを得るには`addr_of!` マクロを"
+"使ってください。"
 
 #: src/bare-metal/aps/uart.md:1
 msgid "Let's write a UART driver"
-msgstr ""
+msgstr "UARTドライバを書いてみましょう"
 
 #: src/bare-metal/aps/uart.md:3
 msgid ""
 "The QEMU 'virt' machine has a [PL011](https://developer.arm.com/"
 "documentation/ddi0183/g) UART, so let's write a driver for that."
 msgstr ""
+"QEMUの'virt' マシンには[PL011](https://developer.arm.com/documentation/"
+"ddi0183/g)というUARTがあるので、それに対するドライバを書いてみましょう。"
 
 #: src/bare-metal/aps/uart.md:5
 msgid ""
@@ -13257,6 +13333,12 @@ msgid ""
 "it is always safe to call `write_byte` later because we can assume the "
 "necessary preconditions."
 msgstr ""
+"`Uart::new`がアンセーフでその他のメソッドがセーフであるということに注目してく"
+"ださい。これは、`Uart::new`の安全性要求が満たされている（すなわち特定のUARTに"
+"対して一つしかドライバのインスタンスが存在せず、そのアドレス空間に対してエイ"
+"リアスが全く存在しない）ことをその呼び出し元が保証する限り、それ以降は必要な"
+"事前条件が満たされていると想定することができ`write_byte`を常に安全に呼び出す"
+"ことができるようになることが理由です。"
 
 #: src/bare-metal/aps/uart.md:60
 msgid ""
@@ -13264,6 +13346,9 @@ msgid ""
 "`write_byte` unsafe), but that would be much less convenient to use as every "
 "place that calls `write_byte` would need to reason about the safety"
 msgstr ""
+"逆に（`new`をセーフにして、`write_byte` をアンセーフに）することもできました"
+"が、そうすると`write_byte`の全呼び出し箇所において安全性を考慮しなければなら"
+"なくなり、利便性が低下します"
 
 #: src/bare-metal/aps/uart.md:63
 msgid ""
@@ -13271,16 +13356,20 @@ msgid ""
 "the burden of proof for soundness from a large number of places to a smaller "
 "number of places."
 msgstr ""
+"これはアンセーフなコードに対してセーフなラッパーを構築する場合の共通パターン"
+"です：健全性に関する証明に関する労力を多数の場所から少数の場所に集約します。"
 
 #: src/bare-metal/aps/uart/traits.md:1
 msgid "More traits"
-msgstr ""
+msgstr "他のトレイト"
 
 #: src/bare-metal/aps/uart/traits.md:3
 msgid ""
 "We derived the `Debug` trait. It would be useful to implement a few more "
 "traits too."
 msgstr ""
+"ここでは`Debug`トレイトを導出しました。この他にもいくつかのトレイトを実装する"
+"と良いでしょう。"
 
 #: src/bare-metal/aps/uart/traits.md:5
 msgid ""
@@ -13307,16 +13396,20 @@ msgid ""
 "Implementing `Write` lets us use the `write!` and `writeln!` macros with our "
 "`Uart` type."
 msgstr ""
+"`Write`を実装すると、`Uart` タイプに対して `write!`と`writeln!`マクロが利用で"
+"きるようになります。"
 
 #: src/bare-metal/aps/uart/traits.md:25
 msgid ""
 "Run the example in QEMU with `make qemu_minimal` under `src/bare-metal/aps/"
 "examples`."
 msgstr ""
+"この例を`src/bare-metal/aps/examples`において`make qemu_minimal`とすること"
+"で、QEMUにより実行してみましょう。"
 
 #: src/bare-metal/aps/better-uart.md:1
 msgid "A better UART driver"
-msgstr ""
+msgstr "UARTドライバの改善"
 
 #: src/bare-metal/aps/better-uart.md:3
 msgid ""
@@ -13326,18 +13419,23 @@ msgid ""
 "read. Plus, some of them are bit fields which would be nice to access in a "
 "structured way."
 msgstr ""
+"実際のところPL011には[もっと多くのレジスタ](https://developer.arm.com/"
+"documentation/ddi0183/g/programmers-model/summary-of-registers)があり、それら"
+"にアクセスするためにオフセットを足してポインタを得ることは間違えになりやす"
+"く、可読性を低下させます。さらに、いくつかはビットフィールドなので、構造化さ"
+"れた方法でアクセスできたほうが良いでしょう。"
 
 #: src/bare-metal/aps/better-uart.md:7
 msgid "Offset"
-msgstr ""
+msgstr "オフセット"
 
 #: src/bare-metal/aps/better-uart.md:7
 msgid "Register name"
-msgstr ""
+msgstr "レジスタ名"
 
 #: src/bare-metal/aps/better-uart.md:7
 msgid "Width"
-msgstr ""
+msgstr "幅"
 
 #: src/bare-metal/aps/better-uart.md:9
 msgid "0x00"
@@ -13486,13 +13584,15 @@ msgstr ""
 
 #: src/bare-metal/aps/better-uart.md:26
 msgid "There are also some ID registers which have been omitted for brevity."
-msgstr ""
+msgstr "いくつかのIDレジスタは簡単化のための省略しています。"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:3
 msgid ""
 "The [`bitflags`](https://crates.io/crates/bitflags) crate is useful for "
 "working with bitflags."
 msgstr ""
+"[`bitflags`](https://crates.io/crates/bitflags) クレートはビットフラグを扱う"
+"のに便利です。"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:5
 msgid ""
@@ -13532,15 +13632,18 @@ msgid ""
 "The `bitflags!` macro creates a newtype something like `Flags(u16)`, along "
 "with a bunch of method implementations to get and set flags."
 msgstr ""
+"`bitflags!`マクロは`Flags(u16)`のような新しいタイプを生成し、フラグを読み書き"
+"するための多くのメソッド実装を一緒に提供します。"
 
 #: src/bare-metal/aps/better-uart/registers.md:1
 msgid "Multiple registers"
-msgstr ""
+msgstr "複数のレジスタ"
 
 #: src/bare-metal/aps/better-uart/registers.md:3
 msgid ""
 "We can use a struct to represent the memory layout of the UART's registers."
 msgstr ""
+"構造体を使ってUARTのレジスタのメモリレイアウトを表現することができます。"
 
 #: src/bare-metal/aps/better-uart/registers.md:41
 msgid ""
@@ -13550,10 +13653,15 @@ msgid ""
 "predictable layout, as default Rust representation allows the compiler to "
 "(among other things) reorder fields however it sees fit."
 msgstr ""
+"[`#[repr(C)]`](https://doc.rust-lang.org/reference/type-layout.html#the-c-"
+"representation) はコンパイラに対して、Cと同じ規則に従って構造体のフィールドを"
+"定義されている順番で配置することを指示します。これは構造体のレイアウトを予測"
+"可能にするために必要です。なぜならば、Rust標準の表現はコンパイラがフィールド"
+"を好きなように並び替えること（他にも色々とありますが）を許しているからです。"
 
 #: src/bare-metal/aps/better-uart/driver.md:3
 msgid "Now let's use the new `Registers` struct in our driver."
-msgstr ""
+msgstr "新しく定義した`Registers` 構造体を我々のドライバで使ってみましょう。"
 
 #: src/bare-metal/aps/better-uart/driver.md:5
 msgid ""
@@ -13625,17 +13733,22 @@ msgid ""
 "Note the use of `addr_of!` / `addr_of_mut!` to get pointers to individual "
 "fields without creating an intermediate reference, which would be unsound."
 msgstr ""
+"`addr_of!`と`addr_of_mut!` を使用して個々のフィールドに対するポインタを取得す"
+"ることで、不健全となってしまう中間的な参照を作らずに済んでいることに注目して"
+"ください。"
 
 #: src/bare-metal/aps/better-uart/using.md:1
 #: src/bare-metal/aps/logging/using.md:1
 msgid "Using it"
-msgstr ""
+msgstr "使用例"
 
 #: src/bare-metal/aps/better-uart/using.md:3
 msgid ""
 "Let's write a small program using our driver to write to the serial console, "
 "and echo incoming bytes."
 msgstr ""
+"我々のドライバを使って、シリアルコンソールにライトし、そして入力されたバイト"
+"をエコーする小さなプログラムを書いてみましょう。"
 
 #: src/bare-metal/aps/better-uart/using.md:6
 msgid ""
@@ -13690,11 +13803,16 @@ msgid ""
 "function is called from our entry point code in `entry.S`. See the speaker "
 "notes there for details."
 msgstr ""
+"[インラインアセンブリ](../inline-assembly.md) の例と同じように、この`main`関"
+"数は`entry.S`におけるエントリポイントから呼び出されます。詳細はそちらの"
+"speaker notesを参照してください。"
 
 #: src/bare-metal/aps/better-uart/using.md:53
 msgid ""
 "Run the example in QEMU with `make qemu` under `src/bare-metal/aps/examples`."
 msgstr ""
+"この例を`src/bare-metal/aps/examples`において`make qemu`とすることでQEMUによ"
+"り実行してみましょう。"
 
 #: src/bare-metal/aps/logging.md:3
 msgid ""
@@ -13702,6 +13820,8 @@ msgid ""
 "(https://crates.io/crates/log) crate. We can do this by implementing the "
 "`Log` trait."
 msgstr ""
+"[`log`](https://crates.io/crates/log) クレートが提供するログ用マクロを使える"
+"と良いでしょう。これは`Log`トレイトを実装することで可能になります。"
 
 #: src/bare-metal/aps/logging.md:6
 msgid ""
@@ -13754,10 +13874,12 @@ msgid ""
 "The unwrap in `log` is safe because we initialise `LOGGER` before calling "
 "`set_logger`."
 msgstr ""
+"`LOGGER` を`set_logger`を呼び出す前に初期化しているので、log` におけるunwrap"
+"はセーフです。"
 
 #: src/bare-metal/aps/logging/using.md:3
 msgid "We need to initialise the logger before we use it."
-msgstr ""
+msgstr "使用前にloggerを初期化する必要があります。"
 
 #: src/bare-metal/aps/logging/using.md:5
 msgid ""
@@ -13805,12 +13927,16 @@ msgstr ""
 #: src/bare-metal/aps/logging/using.md:46
 msgid "Note that our panic handler can now log details of panics."
 msgstr ""
+"我々のパニックハンドラがパニックの詳細についてログ出力できるようになったこと"
+"に注目してください。"
 
 #: src/bare-metal/aps/logging/using.md:47
 msgid ""
 "Run the example in QEMU with `make qemu_logger` under `src/bare-metal/aps/"
 "examples`."
 msgstr ""
+"この例を`src/bare-metal/aps/examples`において`make qemu_logger`とすることで"
+"QEMUにより実行してみましょう。"
 
 #: src/bare-metal/aps/exceptions.md:3
 msgid ""
@@ -13820,22 +13946,32 @@ msgid ""
 "We implement this in assembly to save volatile registers to the stack before "
 "calling into Rust code:"
 msgstr ""
+"AArch64は16エントリを持つ例外ベクターテーブルを定義しており、これらは４つのス"
+"テート（現在のELでSP0利用、現在のELでSPx利用、低位のELでAArch64、低位のELで"
+"AArch32）における４つのタイプの例外（同期、IRQ、FIQ、SError）に対応します。こ"
+"こではRustコードの呼び出し前に揮発レジスタの値をスタックに退避するためにベク"
+"ターテーブルをアセンブリ言語で実装しています："
 
 #: src/bare-metal/aps/exceptions.md:64
 msgid "EL is exception level; all our examples this afternoon run in EL1."
 msgstr ""
+"ELは例外レベルです。本日の午後に扱ったすべての例はEL1で実行されています。"
 
 #: src/bare-metal/aps/exceptions.md:65
 msgid ""
 "For simplicity we aren't distinguishing between SP0 and SPx for the current "
 "EL exceptions, or between AArch32 and AArch64 for the lower EL exceptions."
 msgstr ""
+"簡単化のために、ここでは現在のEL例外におけるSP0とSPｘの違い、低位のELレベルに"
+"おけるAArch32とAArch64の違いを区別していません。"
 
 #: src/bare-metal/aps/exceptions.md:67
 msgid ""
 "For this example we just log the exception and power down, as we don't "
 "expect any of them to actually happen."
 msgstr ""
+"ここではこれらの例外が発生しないはずなので、ただ例外に関するログを出力し、電"
+"源を落としています。"
 
 #: src/bare-metal/aps/exceptions.md:69
 msgid ""
@@ -13846,6 +13982,12 @@ msgid ""
 "rest of the program, and it's `Send` but not `Sync`, then we'll need to wrap "
 "it in something like a `Mutex` and put it in a static."
 msgstr ""
+"例外ハンドラとメインの実行コンテキストは異なるスレッドのようなものだと考える"
+"ことができます。ちょうどスレッド間の共有と同じように、[`Send`と`Sync`](../../"
+"concurrency/send-sync.md)により何を共有するかを制御することができます。例え"
+"ば、例外ハンドラとプログラムの他のコンテキストでとある値を共有したい場合に、"
+"もしそれが `Send`であり`Sync`でなければ、`Mutex` のようなものでラップして、"
+"staticに定義しなければなりません。"
 
 #: src/bare-metal/aps/other-projects.md:3
 msgid "[oreboot](https://github.com/oreboot/oreboot)"
@@ -13853,15 +13995,15 @@ msgstr ""
 
 #: src/bare-metal/aps/other-projects.md:4
 msgid "\"coreboot without the C\""
-msgstr ""
+msgstr "\"Cのない（つまり、C言語を使わない）coreboot\""
 
 #: src/bare-metal/aps/other-projects.md:5
 msgid "Supports x86, aarch64 and RISC-V."
-msgstr ""
+msgstr "アーキテクチャはx86、aarch64ならびにRISC-Vをサポート。"
 
 #: src/bare-metal/aps/other-projects.md:6
 msgid "Relies on LinuxBoot rather than having many drivers itself."
-msgstr ""
+msgstr "自身で多くのドライバを抱えずにLinuxBootに依存。"
 
 #: src/bare-metal/aps/other-projects.md:7
 msgid ""
@@ -13874,12 +14016,16 @@ msgid ""
 "Initialisation, UART driver, simple bootloader, JTAG, exception levels, "
 "exception handling, page tables"
 msgstr ""
+"初期化、UARTドライバ、単純なブートローダ、JTAG、例外レベル、例外ハンドラ、"
+"ページテーブル"
 
 #: src/bare-metal/aps/other-projects.md:10
 msgid ""
 "Some dodginess around cache maintenance and initialisation in Rust, not "
 "necessarily a good example to copy for production code."
 msgstr ""
+"キャッシュメンテナンスとRustの初期化に関してちょっと疑わしいところがあるの"
+"で、製品コードで真似するには必ずしも良い例ではありません。"
 
 #: src/bare-metal/aps/other-projects.md:12
 msgid "[`cargo-call-stack`](https://crates.io/crates/cargo-call-stack)"
@@ -13887,13 +14033,16 @@ msgstr ""
 
 #: src/bare-metal/aps/other-projects.md:13
 msgid "Static analysis to determine maximum stack usage."
-msgstr ""
+msgstr "スタックの最大使用量に関する静的解析。"
 
 #: src/bare-metal/aps/other-projects.md:17
 msgid ""
 "The RaspberryPi OS tutorial runs Rust code before the MMU and caches are "
 "enabled. This will read and write memory (e.g. the stack). However:"
 msgstr ""
+"RaspberryPi OS チュートリアルはMMUやキャッシュを有効化する前にRustコードを実"
+"行しています。これにより、例えばスタックメモリをreadしたりwriteしたりすること"
+"になります。しかし："
 
 #: src/bare-metal/aps/other-projects.md:19
 msgid ""
@@ -13902,6 +14051,11 @@ msgid ""
 "generating unaligned accesses so it should be alright, but this is not "
 "necessarily the case in general."
 msgstr ""
+"MMUとキャッシュを有効化していないと、アラインされていないアクセスはフォールト"
+"を引き起こします。そのチュートリアルでは、コンパイラがアラインされていないア"
+"クセスを生成しない`+strict-align`オプションをセットする`aarch64-unknown-none`"
+"をターゲットとしてビルドしているので大丈夫なはずですが、一般的には大丈夫とは"
+"限りません。"
 
 #: src/bare-metal/aps/other-projects.md:22
 msgid ""
@@ -13913,12 +14067,22 @@ msgid ""
 "alright in this particular case (running directly on the hardware with no "
 "hypervisor), but isn't a good pattern in general."
 msgstr ""
+"もしVM上で実行していたとすると、キャッシュコヒーレンシーの問題を起こすことが"
+"あります。問題なのはVMがキャッシュを無効化したまま直接メモリにアクセスしてい"
+"るのに対し、ホストは同じメモリに対してキャッシュ可能なエイリアスを持ってしま"
+"うということです。ホストが仮に明示的にメモリにアクセスしないとしても、投機的"
+"なアクセスによりキャッシュフィルが起きることがあり、そうなるとVMかホストのど"
+"ちらかによる変更が失われてしまいます。この（ハイパーバイザなしで直接ハード"
+"ウェアで実行する）場合には問題にはなりませんが、一般的には良くないパターンで"
+"す。"
 
 #: src/bare-metal/useful-crates.md:3
 msgid ""
 "We'll go over a few crates which solve some common problems in bare-metal "
 "programming."
 msgstr ""
+"ベアメタルプログラミングにおいて共通に発生する問題に対する解を与えるクレート"
+"についていくつか紹介します。"
 
 #: src/bare-metal/useful-crates/zerocopy.md:1
 msgid "`zerocopy`"
@@ -13930,6 +14094,8 @@ msgid ""
 "traits and macros for safely converting between byte sequences and other "
 "types."
 msgstr ""
+"（Fuchsiaの）[`zerocopy`](https://docs.rs/zerocopy/)クレートはバイトシーケン"
+"スとその他の型の変換を安全に行うためのトレイトやマクロを提供します。"
 
 #: src/bare-metal/useful-crates/zerocopy.md:40
 msgid ""
@@ -13937,12 +14103,17 @@ msgid ""
 "but can be useful for working with structures shared with hardware e.g. by "
 "DMA, or sent over some external interface."
 msgstr ""
+"これは（volatile read、writeを使用していないため）MMIOには適してませんが、例"
+"えばDMAのようなハードウェアと共有するデータ構造あるいは外部インタフェースを通"
+"して送信するデータ構造を扱うに場合には有用です。"
 
 #: src/bare-metal/useful-crates/zerocopy.md:45
 msgid ""
 "`FromBytes` can be implemented for types for which any byte pattern is "
 "valid, and so can safely be converted from an untrusted sequence of bytes."
 msgstr ""
+"`FromBytes`はいかなるバイトパターンも有効な値となる型に対して実装することがで"
+"き、信用できないバイトシーケンスからの安全な変換を可能にします。"
 
 #: src/bare-metal/useful-crates/zerocopy.md:47
 msgid ""
@@ -13950,11 +14121,16 @@ msgid ""
 "`RequestType` doesn't use all possible u32 values as discriminants, so not "
 "all byte patterns are valid."
 msgstr ""
+"`RequestType`はu32型のすべての値を有効なenum値として定義していないので、すべ"
+"てのバイトパターンが有効とはならず、これらに対する`FromBytes`の導出はフェール"
+"するでしょう。"
 
 #: src/bare-metal/useful-crates/zerocopy.md:49
 msgid ""
 "`zerocopy::byteorder` has types for byte-order aware numeric primitives."
 msgstr ""
+"`zerocopy::byteorder`はバイトオーダを気にする数値プリミティブに関する型を提供"
+"します。"
 
 #: src/bare-metal/useful-crates/zerocopy.md:50
 msgid ""
@@ -13962,6 +14138,9 @@ msgid ""
 "zerocopy-example/`. (It won't run in the Playground because of the crate "
 "dependency.)"
 msgstr ""
+"この例を`src/bare-metal/useful-crates/zerocopy-example/`において`cargo run`と"
+"とすることで実行してみましょう。（Playgroundではこの例が依存するクレートを利"
+"用できないため実行できません）"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:1
 msgid "`aarch64-paging`"
@@ -13973,6 +14152,8 @@ msgid ""
 "you create page tables according to the AArch64 Virtual Memory System "
 "Architecture."
 msgstr ""
+"[`aarch64-paging`](https://crates.io/crates/aarch64-paging)クレートはAArch64"
+"仮想メモリシステムアーキテクチャに則ったページテーブルの生成を可能にします。"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:6
 msgid ""
@@ -14002,6 +14183,8 @@ msgid ""
 "For now it only supports EL1, but support for other exception levels should "
 "be straightforward to add."
 msgstr ""
+"現時点ではEL1しかサポートされていませんが、他の例外レベルのサポートも簡単に追"
+"加できるはずです。"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:30
 msgid ""
@@ -14009,12 +14192,16 @@ msgid ""
 "com/android/platform/superproject/+/master:packages/modules/Virtualization/"
 "pvmfw/)."
 msgstr ""
+"これはAndroidで[Protected VM Firmware](https://cs.android.com/android/"
+"platform/superproject/+/master:packages/modules/Virtualization/pvmfw/)のため"
+"に利用されています。"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:31
 msgid ""
 "There's no easy way to run this example, as it needs to run on real hardware "
 "or under QEMU."
 msgstr ""
+"この例は本物のハードウェアかQEMUを必要とするので、簡単には実行できません。"
 
 #: src/bare-metal/useful-crates/buddy_system_allocator.md:1
 msgid "`buddy_system_allocator`"
@@ -14031,10 +14218,18 @@ msgid ""
 "allocating other address space. For example, we might want to allocate MMIO "
 "space for PCI BARs:"
 msgstr ""
+"[`buddy_system_allocator`](https://crates.io/crates/buddy_system_allocator) "
+"はサードパーティのクレートで、基本的なバディシステムアローケータを実装してい"
+"ます。このクレートは[`GlobalAlloc`](https://doc.rust-lang.org/core/alloc/"
+"trait.GlobalAlloc.html) を実装する [`LockedHeap`](https://docs.rs/"
+"buddy_system_allocator/0.9.0/buddy_system_allocator/struct.LockedHeap.html) "
+"により（ [以前](../alloc.md)見たように）標準の`alloc` クレートを利用可能にす"
+"るために使えますし、別のアドレス空間をアロケートするためにも使えます。例え"
+"ば、PCI BARに対するMMIO領域をアロケートしたい場合には以下のようにできます："
 
 #: src/bare-metal/useful-crates/buddy_system_allocator.md:26
 msgid "PCI BARs always have alignment equal to their size."
-msgstr ""
+msgstr "PCI BARは常にサイズと同じアラインになります。"
 
 #: src/bare-metal/useful-crates/buddy_system_allocator.md:27
 msgid ""
@@ -14042,6 +14237,9 @@ msgid ""
 "allocator-example/`. (It won't run in the Playground because of the crate "
 "dependency.)"
 msgstr ""
+"この例を`src/bare-metal/useful-crates/allocator-example/`において `cargo run`"
+"とすることで実行してみましょう。（Playgroundではこの例が依存するクレートを利"
+"用できないため実行できません）"
 
 #: src/bare-metal/useful-crates/tinyvec.md:1
 msgid "`tinyvec`"
@@ -14055,17 +14253,26 @@ msgid ""
 "allocated or on the stack, which keeps track of how many elements are used "
 "and panics if you try to use more than are allocated."
 msgstr ""
+"時には`Vec`のようにリサイズできる領域をヒープを使わずに確保したいと思うことが"
+"あります。[`tinyvec`](https://crates.io/crates/tinyvec)は静的に確保、またはス"
+"タック上に確保した配列またはスライスを割当領域とするベクタを提供します。この"
+"実装では、いくつの要素が使われているかが管理され、確保された以上に使おうとす"
+"るとパニックします。"
 
 #: src/bare-metal/useful-crates/tinyvec.md:23
 msgid ""
 "`tinyvec` requires that the element type implement `Default` for "
 "initialisation."
 msgstr ""
+"`tinyvec` は初期化のために要素となるタイプが`Default`を実装することを必要とし"
+"ます。"
 
 #: src/bare-metal/useful-crates/tinyvec.md:24
 msgid ""
 "The Rust Playground includes `tinyvec`, so this example will run fine inline."
 msgstr ""
+"Rust Playgroundは`tinyvec`を内包しているので、オンラインでこの例を実行するこ"
+"とができます。"
 
 #: src/bare-metal/useful-crates/spin.md:1
 msgid "`spin`"
@@ -14077,22 +14284,32 @@ msgid ""
 "are not available in `core` or `alloc`. How can we manage synchronisation or "
 "interior mutability, such as for sharing state between different CPUs?"
 msgstr ""
+"`std::sync`が提供する`std::sync::Mutex` とその他の同期プリミティブは`core`ま"
+"たは`alloc`では利用できません。となると、例えば異なるCPU間での状態共有のため"
+"の、同期や内部可変性はどのように実現したら良いのでしょうか？"
 
 #: src/bare-metal/useful-crates/spin.md:7
 msgid ""
 "The [`spin`](https://crates.io/crates/spin) crate provides spinlock-based "
 "equivalents of many of these primitives."
 msgstr ""
+"[`spin`](https://crates.io/crates/spin) クレートはこれらの多くのプリミティブ"
+"と等価なスピンロックベースのものを提供します。"
 
 #: src/bare-metal/useful-crates/spin.md:23
 msgid "Be careful to avoid deadlock if you take locks in interrupt handlers."
 msgstr ""
+"割り込みハンドラでロックを取得する場合にはデッドロックを引き起こさないように"
+"気をつけてください。"
 
 #: src/bare-metal/useful-crates/spin.md:24
 msgid ""
 "`spin` also has a ticket lock mutex implementation; equivalents of `RwLock`, "
 "`Barrier` and `Once` from `std::sync`;  and `Lazy` for lazy initialisation."
 msgstr ""
+"`spin` はチケットロックのミューテックス実装も持っています。これは`std::sync`"
+"における`RwLock`, `Barrier`、`Once` と等価であり、またレイジー初期化の観点で"
+"は`Lazy`と等価なものです。"
 
 #: src/bare-metal/useful-crates/spin.md:26
 msgid ""
@@ -14100,11 +14317,15 @@ msgid ""
 "useful types for late initialisation with a slightly different approach to "
 "`spin::once::Once`."
 msgstr ""
+"[`once_cell`](https://crates.io/crates/once_cell) クレートも`spin::once::"
+"Once`とは少し異なるアプローチの遅延初期化のための有用な型をいくつか持っていま"
+"す。"
 
 #: src/bare-metal/useful-crates/spin.md:28
 msgid ""
 "The Rust Playground includes `spin`, so this example will run fine inline."
 msgstr ""
+"Rust Playgroundは`spin`を内包しているので、この例はオンラインで実行できます。"
 
 #: src/bare-metal/android.md:3
 msgid ""

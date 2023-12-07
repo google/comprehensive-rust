@@ -136,7 +136,13 @@ jobs:
           MDBOOK_OUTPUT='{"xgettext": {"pot-file": "messages.pot"}}' mdbook build -d po
           msgfmt -o /dev/null --statistics po/messages.pot
 
+      # Build the translation without redirects just like publish.yml does.
+      - name: Build ${{ matrix.language }} translation
+        if: matrix.language != 'en'
+        run: MDBOOK_OUTPUT__HTML__REDIRECT='{}' mdbook build
+
       - name: Build course
+        if: matrix.language == 'en'
         run: mdbook build
 
       - name: Zip exercise templates

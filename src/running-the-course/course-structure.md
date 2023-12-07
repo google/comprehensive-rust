@@ -11,7 +11,7 @@ The days are fast paced and we cover a lot of ground!
 
 ## Deep Dives
 
-In addition to the 3-day class on Rust Fundamentals, we cover some more
+In addition to the 4-day class on Rust Fundamentals, we cover some more
 specialized topics:
 
 ### Rust in Android

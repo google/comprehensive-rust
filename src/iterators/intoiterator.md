@@ -34,7 +34,6 @@ impl Iterator for GridIter {
     type Item = (u32, u32);
 
     fn next(&mut self) -> Option<(u32, u32)> {
-        self.i += 1;
         if self.i >= self.grid.x_coords.len() {
             self.i = 0;
             self.j += 1;
@@ -42,7 +41,9 @@ impl Iterator for GridIter {
                 return None;
             }
         }
-        Some((self.grid.x_coords[self.i], self.grid.y_coords[self.j]))
+        let res = Some((self.grid.x_coords[self.i], self.grid.y_coords[self.j]));
+        self.i += 1;
+        res
     }
 }
 
