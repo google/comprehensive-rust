@@ -93,7 +93,7 @@
 - [Welcome](welcome-day-2-afternoon.md)
 - [Standard Library Types](std-types.md)
   - [Standard Library](std-types/std.md)
-  - [Language Docs](std-types/docs.md)
+  - [Documentation](std-types/docs.md)
   - [`Option`](std-types/option.md)
   - [`Result`](std-types/result.md)
   - [`String`](std-types/string.md)
