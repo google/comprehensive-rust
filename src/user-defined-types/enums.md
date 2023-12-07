@@ -22,7 +22,7 @@ enum PlayerMove {
 }
 
 fn main() {
-    let m = PlayerMove::Run(Direction::Left);
+    let m: PlayerMove = PlayerMove::Run(Direction::Left);
     println!("On this turn: {:?}", m);
 }
 ```
@@ -31,10 +31,10 @@ fn main() {
 
 Key Points:
 
-* Enumerations allow you to collect a set of values under one type
-* Direction has two variants, `Left` and `Right`. These are referred to with the `Direction::..` namespace.
-* PlayerMove shows the three types of variants. Rust will also store a discriminant so that it can determine at runtime which variant is in a value.
-* This might be a good time to compare Structs and Enums:
+* Enumerations allow you to collect a set of values under one type.
+* `Direction` is a type with variants. There are two values of `Direction`: `Direction::Left` and `Direction::Right`.
+* `PlayerMove` is a type with three variants. In addition to the payloads, Rust will store a discriminant so that it knows at runtime which variant is in a `PlayerMove` value.
+* This might be a good time to compare structs and enums:
   * In both, you can have a simple version without fields (unit struct) or one with different types of fields (variant payloads).
   * You could even implement the different variants of an enum with separate structs but then they wouldn’t be the same type as they would if they were all defined in an enum.
 * Rust uses minimal space to store the discriminant.
@@ -105,56 +105,6 @@ Rust has several optimizations it can employ to make enums take up less space.
              println!("Option<&i32>:");
              dbg_bits!(None::<&i32>, usize);
              dbg_bits!(Some(&0i32), usize);
-         }
-     }
-     ```
-
-     More complex example if you want to discuss what happens when we chain more than 256 `Option`s together.
-
-     <!-- mdbook-xgettext: skip -->
-     ```rust,editable
-     #![recursion_limit = "1000"]
-
-     use std::mem::transmute;
-
-     macro_rules! dbg_bits {
-         ($e:expr, $bit_type:ty) => {
-             println!("- {}: {:#x}", stringify!($e), transmute::<_, $bit_type>($e));
-         };
-     }
-
-     // Macro to wrap a value in 2^n Some() where n is the number of "@" signs.
-     // Increasing the recursion limit is required to evaluate this macro.
-     macro_rules! many_options {
-         ($value:expr) => { Some($value) };
-         ($value:expr, @) => {
-             Some(Some($value))
-         };
-         ($value:expr, @ $($more:tt)+) => {
-             many_options!(many_options!($value, $($more)+), $($more)+)
-         };
-     }
-
-     fn main() {
-         // TOTALLY UNSAFE. Rust provides no guarantees about the bitwise
-         // representation of types.
-         unsafe {
-             assert_eq!(many_options!(false), Some(false));
-             assert_eq!(many_options!(false, @), Some(Some(false)));
-             assert_eq!(many_options!(false, @@), Some(Some(Some(Some(false)))));
-
-             println!("Bitwise representation of a chain of 128 Option's.");
-             dbg_bits!(many_options!(false, @@@@@@@), u8);
-             dbg_bits!(many_options!(true, @@@@@@@), u8);
-
-             println!("Bitwise representation of a chain of 256 Option's.");
-             dbg_bits!(many_options!(false, @@@@@@@@), u16);
-             dbg_bits!(many_options!(true, @@@@@@@@), u16);
-
-             println!("Bitwise representation of a chain of 257 Option's.");
-             dbg_bits!(many_options!(Some(false), @@@@@@@@), u16);
-             dbg_bits!(many_options!(Some(true), @@@@@@@@), u16);
-             dbg_bits!(many_options!(None::<bool>, @@@@@@@@), u16);
          }
      }
      ```
