@@ -8,7 +8,7 @@ Specifically,
 
 ```bob
                      +------------+      +----------------------+
-"//third_party/rust" | crate name | "/v" | major semver version | "/:lib"
+"//third_party/rust" | crate name | "/v" | major semver version | ":lib"
                      +------------+      +----------------------+
 ```
 
