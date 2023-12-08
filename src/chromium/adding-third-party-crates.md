@@ -1,4 +1,4 @@
-# Adding third party crates
+# Adding Third Party Crates
 
 Rust libraries are called "crates" and are found at [crates.io][0]. It's *very
 easy* for Rust crates to depend upon one another. So they do!

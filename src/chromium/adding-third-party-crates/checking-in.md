@@ -1,4 +1,4 @@
-# Checking crates into Chromium source code
+# Checking Crates into Chromium Source Code
 
 `git status` should reveal:
 * Crate code in `//third_party/rust/chromium_crates_io`

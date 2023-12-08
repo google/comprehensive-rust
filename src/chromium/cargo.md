@@ -1,4 +1,4 @@
-# Comparing Chromium and Cargo ecosystems
+# Comparing Chromium and Cargo Ecosystems
 
 Rust community typically uses `cargo` and libraries from [crates.io][2].
 Chromium is built using `gn` and `ninja` and a curated set of dependencies.
