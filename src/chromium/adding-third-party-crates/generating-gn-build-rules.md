@@ -1,4 +1,4 @@
-# Generating `gn` build rules
+# Generating `gn` Build Rules
 
 Once you've downloaded the crate, generate the `BUILD.gn` files like this:
 

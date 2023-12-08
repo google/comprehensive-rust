@@ -1,4 +1,4 @@
-# Depending on Rust code from Chromium C++
+# Depending on Rust Code from Chromium C++
 
 Simply add the above target to the `deps` of some Chromium C++ target.
 

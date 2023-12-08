@@ -1,4 +1,4 @@
-# Downloading crates
+# Downloading Crates
 
 A tool called `gnrt` knows how to download crates and how to generate `BUILD.gn`
 rules.

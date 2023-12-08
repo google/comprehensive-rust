@@ -1,4 +1,4 @@
-# Build scripts which build C++ or take arbitrary actions
+# Build Scripts Which Build C++ or Take Arbitrary Actions
 
 Some crates use the [`cc`][1] crate to build and link C/C++ libraries.
 Other crates parse C/C++ using [`bindgen`][2] within their build scripts.

@@ -1,4 +1,4 @@
-# CXX error handling
+# CXX Error Handling
 
 CXX's [support for `Result<T,E>`][0] relies on C++ exceptions, so we can't use
 that in Chromium. Alternatives:

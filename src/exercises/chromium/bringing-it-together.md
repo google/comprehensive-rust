@@ -1,9 +1,9 @@
-# Bringing it together --- Exercise
+# Bringing It Together --- Exercise
 
 In this exercise, you're going to add a whole new Chromium feature, bringing
 together everything you already learned.
 
-## The brief from Product Management
+## The Brief from Product Management
 
 A community of pixies has been discovered living in a remote rainforest.
 It's important that we get Chromium for Pixies delivered to them as soon

@@ -1,4 +1,4 @@
-# GN rules for Rust tests
+# GN Rules for Rust Tests
 
 The simplest way to build Rust `gtest` tests is to add them to an existing test
 binary that already contains tests authored in C++. For example:

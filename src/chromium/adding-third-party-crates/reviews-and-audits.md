@@ -1,4 +1,4 @@
-# Auditing third party crates
+# Auditing Third Party Crates
 
 Adding new libraries is subject to Chromium's standard [policies][0], but of
 course also subject to security review. As you may be bringing in not just a single
