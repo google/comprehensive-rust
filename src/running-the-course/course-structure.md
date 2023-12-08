@@ -4,16 +4,14 @@
 
 ## Rust Fundamentals
 
-The first three days make up [Rust Fundaments](../welcome-day-1.md).
-The days are fast paced and we cover a lot of ground:
+The first four days make up [Rust Fundaments](../welcome-day-1.md).
+The days are fast paced and we cover a lot of ground!
 
-* Day 1: Basic Rust, syntax, control flow, creating and consuming values.
-* Day 2: Memory management, ownership, compound data types, and the standard library.
-* Day 3: Generics, traits, error handling, testing, and unsafe Rust.
+{{%course outline Fundamentals}}
 
 ## Deep Dives
 
-In addition to the 3-day class on Rust Fundamentals, we cover some more
+In addition to the 4-day class on Rust Fundamentals, we cover some more
 specialized topics:
 
 ### Rust in Android
@@ -33,6 +31,17 @@ commands it runs and make sure they work when you run them by hand.
 
 [1]: https://source.android.com/docs/setup/download/downloading
 [2]: https://github.com/google/comprehensive-rust
+
+### Rust in Chromium
+
+The [Rust in Chromium](../chromium.md) deep dive is a half-day course on using
+Rust as part of the Chromium browser. It includes using Rust in Chromium's
+`gn` build system, bringing in third-party libraries ("crates") and C++
+interoperability.
+
+You will need to be able to build Chromium --- a debug, component build is
+[recommended](../chromium/setup.md) for speed but any build will work.
+Ensure that you can run the Chromium browser that you've built.
 
 ### Bare-Metal Rust
 

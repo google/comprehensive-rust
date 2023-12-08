@@ -1,5 +1,7 @@
 // ANCHOR: solution
 // ANCHOR: setup
+
+#![allow(dead_code)]
 pub struct User {
     name: String,
     age: u32,
@@ -21,10 +23,7 @@ pub struct HealthReport<'a> {
 }
 
 impl User {
-    // ANCHOR_END: setup
-    // ANCHOR: User_new
     pub fn new(name: String, age: u32, height: f32) -> Self {
-        // ANCHOR_END: User_new
         Self {
             name,
             age,
@@ -33,42 +32,7 @@ impl User {
             last_blood_pressure: None,
         }
     }
-
-    // ANCHOR: User_name
-    pub fn name(&self) -> &str {
-        // ANCHOR_END: User_name
-        &self.name
-    }
-
-    // ANCHOR: User_age
-    pub fn age(&self) -> u32 {
-        // ANCHOR_END: User_age
-        self.age
-    }
-
-    // ANCHOR: User_height
-    pub fn height(&self) -> f32 {
-        // ANCHOR_END: User_height
-        self.height
-    }
-
-    // ANCHOR: User_doctor_visits
-    pub fn doctor_visits(&self) -> u32 {
-        // ANCHOR_END: User_doctor_visits
-        self.visit_count as u32
-    }
-
-    // ANCHOR: User_set_age
-    pub fn set_age(&mut self, new_age: u32) {
-        // ANCHOR_END: User_set_age
-        self.age = new_age
-    }
-
-    // ANCHOR: User_set_height
-    pub fn set_height(&mut self, new_height: f32) {
-        // ANCHOR_END: User_set_height
-        self.height = new_height
-    }
+    // ANCHOR_END: setup
 
     // ANCHOR: User_visit_doctor
     pub fn visit_doctor(&mut self, measurements: Measurements) -> HealthReport {
@@ -80,12 +44,11 @@ impl User {
             visit_count: self.visit_count as u32,
             height_change: measurements.height - self.height,
             blood_pressure_change: match self.last_blood_pressure {
-                Some(lbp) => Some((
-                    bp.0 as i32 - lbp.0 as i32,
-                    bp.1 as i32 - lbp.1 as i32
-                )),
+                Some(lbp) => {
+                    Some((bp.0 as i32 - lbp.0 as i32, bp.1 as i32 - lbp.1 as i32))
+                }
                 None => None,
-            }
+            },
         };
         self.height = measurements.height;
         self.last_blood_pressure = Some(bp);
@@ -96,29 +59,15 @@ impl User {
 // ANCHOR: main
 fn main() {
     let bob = User::new(String::from("Bob"), 32, 155.2);
-    println!("I'm {} and my age is {}", bob.name(), bob.age());
+    println!("I'm {} and my age is {}", bob.name, bob.age);
 }
 // ANCHOR_END: main
 
 // ANCHOR: tests
 #[test]
-fn test_height() {
-    let bob = User::new(String::from("Bob"), 32, 155.2);
-    assert_eq!(bob.height(), 155.2);
-}
-
-#[test]
-fn test_set_age() {
-    let mut bob = User::new(String::from("Bob"), 32, 155.2);
-    assert_eq!(bob.age(), 32);
-    bob.set_age(33);
-    assert_eq!(bob.age(), 33);
-}
-
-#[test]
 fn test_visit() {
     let mut bob = User::new(String::from("Bob"), 32, 155.2);
-    assert_eq!(bob.doctor_visits(), 0);
+    assert_eq!(bob.visit_count, 0);
     let report = bob.visit_doctor(Measurements {
         height: 156.1,
         blood_pressure: (120, 80),

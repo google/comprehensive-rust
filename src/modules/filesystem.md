@@ -1,3 +1,7 @@
+---
+minutes: 5
+---
+
 # Filesystem Hierarchy
 
 Omitting the module content will tell Rust to look for it in another file:

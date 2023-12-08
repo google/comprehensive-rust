@@ -13,7 +13,7 @@
 // limitations under the License.
 
 // ANCHOR: solution
-use std::{sync::Arc, sync::Mutex, sync::mpsc, thread};
+use std::{sync::mpsc, sync::Arc, sync::Mutex, thread};
 
 // ANCHOR: setup
 use reqwest::{blocking::Client, Url};
@@ -138,7 +138,10 @@ fn control_crawl(
     result_receiver: mpsc::Receiver<CrawlResult>,
 ) -> Vec<Url> {
     let mut crawl_state = CrawlState::new(&start_url);
-    let start_command = CrawlCommand { url: start_url, extract_links: true };
+    let start_command = CrawlCommand {
+        url: start_url,
+        extract_links: true,
+    };
     command_sender.send(start_command).unwrap();
     let mut pending_urls = 1;
 

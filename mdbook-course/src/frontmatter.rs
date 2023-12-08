@@ -12,30 +12,28 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+use anyhow::Context;
 use matter::matter;
-use mdbook::book::{Book, BookItem};
-use mdbook::preprocess::PreprocessorContext;
+use mdbook::book::Chapter;
+use serde::Deserialize;
 
-pub fn remove_frontmatter(
-    ctx: &PreprocessorContext,
-    book: &mut Book,
-) -> anyhow::Result<()> {
-    let is_html = ctx.renderer == "html";
-    book.for_each_mut(|chapter| {
-        let BookItem::Chapter(chapter) = chapter else {
-            return;
-        };
-        if let Some((frontmatter, content)) = matter(&chapter.content) {
-            if is_html {
-                // For the moment, include the frontmatter in the slide in a floating <pre>, for review
-                // purposes.
-                let pre = format!(r#"<pre class="frontmatter">{frontmatter}</pre>"#);
-                chapter.content = format!("{pre}\n\n{content}");
-            } else {
-                // For non-HTML renderers, just strip the frontmatter.
-                chapter.content = content;
-            }
-        }
-    });
-    Ok(())
+#[derive(Deserialize, Debug, Default)]
+pub struct Frontmatter {
+    pub minutes: Option<u64>,
+    pub course: Option<String>,
+    pub session: Option<String>,
+}
+
+/// Split a chapter's contents into frontmatter and the remaining contents.
+pub fn split_frontmatter(chapter: &Chapter) -> anyhow::Result<(Frontmatter, String)> {
+    if let Some((frontmatter, content)) = matter(&chapter.content) {
+        let frontmatter: Frontmatter =
+            serde_yaml::from_str(&frontmatter).with_context(|| {
+                format!("error parsing frontmatter in {:?}", chapter.source_path)
+            })?;
+
+        Ok((frontmatter, content))
+    } else {
+        Ok((Frontmatter::default(), chapter.content.clone()))
+    }
 }

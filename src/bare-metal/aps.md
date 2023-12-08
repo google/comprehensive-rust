@@ -1,3 +1,6 @@
+---
+session: Afternoon
+---
 # Application processors
 
 So far we've talked about microcontrollers, such as the Arm Cortex-M series. Now let's try writing

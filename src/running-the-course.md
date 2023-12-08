@@ -5,13 +5,10 @@
 Here is a bit of background information about how we've been running the course
 internally at Google.
 
-We typically run classes from 10:00 am to 4:00 pm, with a 1 hour lunch
-break in the middle. This leaves 2.5 hours for the morning class and
-2.5 hours for the afternoon class. Note that this is just a
-recommendation: you can also spend 3 hour on the morning session to
-give people more time for exercises. The downside of longer session is
-that people can become very tired after 6 full hours of class in the
-afternoon.
+We typically run classes from 9:00 am to 4:00 pm, with a 1 hour lunch break in
+the middle. This leaves 3 hours for the morning class and 3 hours for the
+afternoon class. Both sessions contain multiple breaks and time for students to
+work on exercises.
 
 Before you run the course, you will want to:
 
@@ -21,7 +18,7 @@ Before you run the course, you will want to:
    popup (click the link with a little arrow next to "Speaker Notes"). This way
    you have a clean screen to present to the class.
 
-1. Decide on the dates. Since the course takes at least three full days, we recommend that you
+1. Decide on the dates. Since the course takes four days, we recommend that you
    schedule the days over two weeks. Course participants have said that
    they find it helpful to have a gap in the course since it helps them process
    all the information we give them.
