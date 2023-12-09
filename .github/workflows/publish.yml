@@ -40,8 +40,51 @@ jobs:
       - name: Install mdbook
         uses: ./.github/workflows/install-mdbook
 
+      - name: Install mdbook-pandoc
+        run: curl --proto '=https' --tlsv1.2 -LsSf https://github.com/max-heller/mdbook-pandoc/releases/download/v0.2.0/mdbook-pandoc-installer.sh | sh
+      - name: Install pandoc
+        run: |
+          curl -LsSf https://github.com/jgm/pandoc/releases/download/3.1.9/pandoc-3.1.9-linux-amd64.tar.gz | tar zxf -
+          echo "$PWD/pandoc-3.1.9/bin" >> $GITHUB_PATH
+      - name: Install mdbook-pandoc dependencies
+        run: sudo apt-get install -y librsvg2-bin
+      - name: Install TeX Live
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          packages: >-
+            scheme-basic
+            amsfonts
+            amsmath
+            babel
+            bookmark
+            booktabs
+            fancyvrb
+            fontawesome
+            fontspec
+            geometry
+            graphics
+            hyperref
+            iftex
+            listings
+            lm
+            luacolor
+            luatexbase
+            lualatex-math
+            lua-ul
+            mdwtools
+            parskip
+            selnolig
+            setspace
+            soul
+            tools
+            unicode-math
+            xcolor
+            xurl
+
       - name: Build course in English
-        run: mdbook build -d book
+        run: |
+          mdbook build -d book
+          mv book/pandoc/pdf/comprehensive-rust.pdf book/html/
 
       - name: Zip exercise templates
         run: cd book/exerciser && zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/
@@ -65,6 +108,7 @@ jobs:
               MDBOOK_OUTPUT__HTML__REDIRECT='{}' \
               mdbook build -d book/$po_lang
               (cd book/$po_lang/exerciser && zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/)
+              mv book/$po_lang/pandoc/pdf/comprehensive-rust.pdf book/$po_lang/html/
               mv book/$po_lang/html book/html/$po_lang
               echo "::endgroup::"
           done
