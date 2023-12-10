@@ -149,6 +149,8 @@ Also, please keep the hard line breaks to ensure a nice formatting.
   The property of a program that ensures correct behavior in a multithreaded environment.
 - trait:\
   A collection of methods defined for an unknown type, providing a way to achieve polymorphism in Rust.
+- trait bound:\
+  An abstraction where you can require types to implement some traits of your interest.
 - type:\
   A classification that specifies which operations can be performed on values of a particular kind in Rust.
 - type inference:\
