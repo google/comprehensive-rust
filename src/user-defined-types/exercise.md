@@ -8,7 +8,17 @@ We will create a data structure to represent an event in an elevator control
 system. It is up to you to define the types and functions to construct various
 events. Use `#[derive(Debug)]` to allow the types to be formatted with `{:?}`.
 
-```rust,compile_fail
+This exercise only requires creating and populating data structures so that
+`main` runs without errors. The next part of the course will cover getting data
+out of these structures.
+
+```rust,should_panic
+{{#include exercise.rs:event}}
+    // TODO: add required variants
+}
+
+{{#include exercise.rs:direction}}
+
 {{#include exercise.rs:car_arrived}}
     todo!()
 }
@@ -31,6 +41,3 @@ events. Use `#[derive(Debug)]` to allow the types to be formatted with `{:?}`.
 
 {{#include exercise.rs:main}}
 ```
-
-This exercise only requires creating data structures. The next part of the
-course will cover getting data out of these structures.
