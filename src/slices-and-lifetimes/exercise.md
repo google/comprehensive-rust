@@ -47,7 +47,7 @@ What remains for you is to implement the `parse_field` function.
 
 
 {{#include exercise.rs:parse_field }}
-    // 1. Read and unpack the tag.
+    // 1. Read and unpack the tag, which is a varint.
     // 2. Based on the wire type, build a Field, consuming as many bytes as
     //    necessary.
     // 3. Return the field, and any un-consumed bytes.

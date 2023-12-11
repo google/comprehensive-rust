@@ -14,7 +14,7 @@ Implement the following types, so that the given tests pass.
 ```rust,editable
 {{#include exercise.rs:types}}
 
-// Implement `new`, `insert`, and `has`.
+// Implement `new`, `insert`, `len`, and `has`.
 
 {{#include exercise.rs:tests}}
 ```
