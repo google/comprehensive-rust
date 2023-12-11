@@ -15,9 +15,11 @@
 #![allow(dead_code)]
 
 // ANCHOR: solution
+// ANCHOR: event
 #[derive(Debug)]
 /// An event in the elevator system that the controller must react to.
 enum Event {
+    // ANCHOR_END: event
     /// A button was pressed.
     ButtonPressed(Button),
 
@@ -34,12 +36,14 @@ enum Event {
 /// A floor is represented as an integer.
 type Floor = i32;
 
+// ANCHOR: direction
 /// A direction of travel.
 #[derive(Debug)]
 enum Direction {
     Up,
     Down,
 }
+// ANCHOR_END: direction
 
 /// A user-accessible button.
 #[derive(Debug)]
