@@ -2,6 +2,7 @@
 minutes: 5
 course: Fundamentals
 session: Day 1 Morning
+target_minutes: 180
 ---
 
 # Welcome to Day 1

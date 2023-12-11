@@ -20,6 +20,7 @@ use serde::Deserialize;
 #[derive(Deserialize, Debug, Default)]
 pub struct Frontmatter {
     pub minutes: Option<u64>,
+    pub target_minutes: Option<u64>,
     pub course: Option<String>,
     pub session: Option<String>,
 }
