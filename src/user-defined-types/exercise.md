@@ -12,7 +12,7 @@ This exercise only requires creating and populating data structures so that
 `main` runs without errors. The next part of the course will cover getting data
 out of these structures.
 
-```rust
+```rust,should_panic
 {{#include exercise.rs:event}}
     // TODO: add required variants
 }
