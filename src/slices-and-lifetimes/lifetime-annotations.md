@@ -2,10 +2,10 @@
 minutes: 10
 ---
 
-# Lifetimes
+# Lifetime Annotations
 
-A reference has a _lifetime_, which must "outlive" the value it refers to. This
-is verified by the borrow checker.
+A reference has a _lifetime_, which must not "outlive" the value it refers to.
+This is verified by the borrow checker.
 
 The lifetime can be implicit - this is what we have seen so far.  Lifetimes can
 also be explicit: `&'a Point`, `&'document str`.  Lifetimes start with `'` and
@@ -19,7 +19,7 @@ ambiguity; the compiler verifies that there is a valid solution.
 Lifetimes become more complicated when considering passing values to and
 returning values from functions.
 
-```rust,compile_fail
+```rust,eitable,compile_fail
 #[derive(Debug)]
 struct Point(i32, i32);
 
