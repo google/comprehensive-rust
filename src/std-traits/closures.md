@@ -48,7 +48,7 @@ captured values.
 `FnMut` wherever an `FnOnce` is called for, and you can use an `Fn` wherever an `FnMut` or `FnOnce`
 is called for.
 
-When you define a function that takes a closure, you should take `FnOnce` if you can (i.e. you can it once), or `FnMut`
+When you define a function that takes a closure, you should take `FnOnce` if you can (i.e. you call it once), or `FnMut`
 else, and last `Fn`. This allows the most flexibility for the caller.
 
 In contrast, when you have a closure, the most flexible you can have is `Fn` (it can be passed everywhere), then `FnMut`,
