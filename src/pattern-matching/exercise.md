@@ -4,22 +4,7 @@ minutes: 30
 
 # Exercise: Expression Evaluation
 
-Let's write a simple recursive evaluator for arithmetic expressions. Start with
-an enum defining the binary operations:
-
-```rust
-{{#include exercise.rs:Operation}}
-
-{{#include exercise.rs:Expression}}
-
-{{#include exercise.rs:Res}}
-
-{{#include exercise.rs:eval}}
-    todo!()
-}
-
-{{#include exercise.rs:tests}}
-```
+Let's write a simple recursive evaluator for arithmetic expressions.
 
 The `Box` type here is a smart pointer, and will be covered in detail later in
 the course. An expression can be "boxed" with `Box::new` as seen in the tests.
@@ -44,3 +29,18 @@ fn test_value() { .. }
 
 If you finish early, try writing a test that results in an integer overflow.
 How could you handle this with `Res::Err` instead of a panic?
+
+```rust
+{{#include exercise.rs:Operation}}
+
+{{#include exercise.rs:Expression}}
+
+{{#include exercise.rs:Res}}
+
+{{#include exercise.rs:eval}}
+    todo!()
+}
+
+{{#include exercise.rs:tests}}
+```
+
