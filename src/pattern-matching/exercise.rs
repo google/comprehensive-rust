@@ -37,7 +37,7 @@ enum Value {
 // ANCHOR_END: Value
 
 // ANCHOR: Expression
-/// A numerical expression, in tree form.
+/// An expression, in tree form.
 #[derive(Debug)]
 enum Expression {
     /// An operation on two subexpressions.
