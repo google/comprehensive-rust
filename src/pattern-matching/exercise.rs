@@ -18,15 +18,26 @@
 /// An operation to perform on two subexpressions.
 #[derive(Debug)]
 enum Operation {
+    /// Add two Int values, or concatenate two String values.
     Add,
+    /// Subtract two Int values.
     Sub,
-    Mul,
-    Div,
 }
 // ANCHOR_END: Operation
 
+// ANCHOR: Value
+/// A value, the result of evaluating expression.
+#[derive(Debug, PartialEq, Eq)]
+enum Value {
+    /// An integer value.
+    Int(i64),
+    /// A string value.
+    String(String),
+}
+// ANCHOR_END: Value
+
 // ANCHOR: Expression
-/// An expression, in tree form.
+/// A numerical expression, in tree form.
 #[derive(Debug)]
 enum Expression {
     /// An operation on two subexpressions.
@@ -36,48 +47,31 @@ enum Expression {
         right: Box<Expression>,
     },
 
-    /// A literal value
-    Value(i64),
+    /// A literal value.
+    Value(Value),
 }
 // ANCHOR_END: Expression
 
-// ANCHOR: Res
-/// The result of evaluating an expression.
-#[derive(Debug, PartialEq, Eq)]
-enum Res {
-    /// Evaluation was successful, with the given result.
-    Ok(i64),
-    /// Evaluation failed, with the given error message.
-    Err(String),
-}
-// Allow `Ok` and `Err` as shorthands for `Res::Ok` and `Res::Err`.
-use Res::{Err, Ok};
-// ANCHOR_END: Res
-
 // ANCHOR: eval
-fn eval(e: Expression) -> Res {
+fn eval(e: Expression) -> Result<Value, String> {
     // ANCHOR_END: eval
     match e {
         Expression::Op { op, left, right } => {
             let left = match eval(*left) {
                 Ok(v) => v,
-                Err(msg) => return Err(msg),
+                e @ Err(_) => return e,
             };
             let right = match eval(*right) {
                 Ok(v) => v,
-                Err(msg) => return Err(msg),
+                e @ Err(_) => return e,
             };
-            Ok(match op {
-                Operation::Add => left + right,
-                Operation::Sub => left - right,
-                Operation::Mul => left * right,
-                Operation::Div => {
-                    if right == 0 {
-                        return Err(String::from("division by zero"));
-                    } else {
-                        left / right
-                    }
+            Ok(match (op, left, right) {
+                (Operation::Add, Value::Int(l), Value::Int(r)) => Value::Int(l + r),
+                (Operation::Add, Value::String(l), Value::String(r)) => {
+                    Value::String(l + &r)
                 }
+                (Operation::Sub, Value::Int(l), Value::Int(r)) => Value::Int(l - r),
+                _ => return Err(String::from("invalid operand types")),
             })
         }
         Expression::Value(v) => Ok(v),
@@ -87,7 +81,7 @@ fn eval(e: Expression) -> Res {
 // ANCHOR: tests
 #[test]
 fn test_value() {
-    assert_eq!(eval(Expression::Value(19)), Ok(19));
+    assert_eq!(eval(Expression::Value(Value::Int(19))), Ok(Value::Int(19)));
 }
 
 #[test]
@@ -95,28 +89,40 @@ fn test_sum() {
     assert_eq!(
         eval(Expression::Op {
             op: Operation::Add,
-            left: Box::new(Expression::Value(10)),
-            right: Box::new(Expression::Value(20)),
+            left: Box::new(Expression::Value(Value::Int(10))),
+            right: Box::new(Expression::Value(Value::Int(20))),
         }),
-        Ok(30)
+        Ok(Value::Int(30))
+    );
+}
+
+#[test]
+fn test_string_sum() {
+    assert_eq!(
+        eval(Expression::Op {
+            op: Operation::Add,
+            left: Box::new(Expression::Value(Value::String(String::from("foo")))),
+            right: Box::new(Expression::Value(Value::String(String::from("bar")))),
+        }),
+        Ok(Value::String(String::from("foobar")))
     );
 }
 
 #[test]
 fn test_recursion() {
     let term1 = Expression::Op {
-        op: Operation::Mul,
-        left: Box::new(Expression::Value(10)),
-        right: Box::new(Expression::Value(9)),
+        op: Operation::Add,
+        left: Box::new(Expression::Value(Value::Int(10))),
+        right: Box::new(Expression::Value(Value::Int(9))),
     };
     let term2 = Expression::Op {
-        op: Operation::Mul,
+        op: Operation::Add,
         left: Box::new(Expression::Op {
             op: Operation::Sub,
-            left: Box::new(Expression::Value(3)),
-            right: Box::new(Expression::Value(4)),
+            left: Box::new(Expression::Value(Value::Int(3))),
+            right: Box::new(Expression::Value(Value::Int(4))),
         }),
-        right: Box::new(Expression::Value(5)),
+        right: Box::new(Expression::Value(Value::Int(5))),
     };
     assert_eq!(
         eval(Expression::Op {
@@ -124,19 +130,19 @@ fn test_recursion() {
             left: Box::new(term1),
             right: Box::new(term2),
         }),
-        Ok(85)
+        Ok(Value::Int(23))
     );
 }
 
 #[test]
-fn test_error() {
+fn test_incompatible_types() {
     assert_eq!(
         eval(Expression::Op {
-            op: Operation::Div,
-            left: Box::new(Expression::Value(99)),
-            right: Box::new(Expression::Value(0)),
+            op: Operation::Add,
+            left: Box::new(Expression::Value(Value::Int(99))),
+            right: Box::new(Expression::Value(Value::String(String::from("foo")))),
         }),
-        Err(String::from("division by zero"))
+        Err(String::from("invalid operand types"))
     );
 }
 // ANCHOR_END: tests
@@ -144,8 +150,8 @@ fn test_error() {
 fn main() {
     let expr = Expression::Op {
         op: Operation::Sub,
-        left: Box::new(Expression::Value(20)),
-        right: Box::new(Expression::Value(10)),
+        left: Box::new(Expression::Value(Value::Int(20))),
+        right: Box::new(Expression::Value(Value::Int(10))),
     };
     println!("expr: {:?}", expr);
     println!("result: {:?}", eval(expr));
