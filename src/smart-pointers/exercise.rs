@@ -13,6 +13,8 @@
 // limitations under the License.
 
 // ANCHOR: solution
+use std::cmp::Ordering;
+
 // ANCHOR: types
 #[derive(Debug)]
 struct BinaryTreeNode<T: Ord + Copy> {
@@ -42,28 +44,22 @@ impl<T: Ord + Copy> BinaryTree<T> {
                     right: BinaryTree::new(),
                 }));
             }
-            Some(n) => {
-                if value < n.value {
-                    n.left.insert(value);
-                } else if value > n.value {
-                    n.right.insert(value);
-                }
-            }
+            Some(n) => match value.cmp(&n.value) {
+                Ordering::Less => n.left.insert(value),
+                Ordering::Equal => {}
+                Ordering::Greater => n.right.insert(value),
+            },
         }
     }
 
     fn has(&self, value: T) -> bool {
         match &self.0 {
             None => false,
-            Some(n) => {
-                if value == n.value {
-                    true
-                } else if value < n.value {
-                    n.left.has(value)
-                } else {
-                    n.right.has(value)
-                }
-            }
+            Some(n) => match value.cmp(&n.value) {
+                Ordering::Less => n.left.has(value),
+                Ordering::Equal => true,
+                Ordering::Greater => n.right.has(value),
+            },
         }
     }
 
