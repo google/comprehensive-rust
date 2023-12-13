@@ -13,7 +13,7 @@
 // limitations under the License.
 
 // ANCHOR: solution
-use std::cmp::Ordering::*;
+use std::cmp::Ordering;
 
 // ANCHOR: types
 /// A node in the binary tree.
@@ -25,7 +25,8 @@ struct Node<T: Ord + Copy> {
 }
 
 /// A possibly-empty subtree.
-type Subtree<T> = Option<Box<Node<T>>>;
+#[derive(Debug)]
+struct Subtree<T: Ord + Copy>(Option<Box<Node<T>>>);
 
 /// A container storing a set of values, using a binary tree.
 ///
@@ -38,22 +39,56 @@ pub struct BinaryTree<T: Ord + Copy> {
 
 impl<T: Ord + Copy> BinaryTree<T> {
     fn new() -> Self {
-        Self { root: None }
+        Self {
+            root: Subtree::new(),
+        }
     }
 
     fn insert(&mut self, value: T) {
-        match &mut self.root {
-            None => self.root = Some(Box::new(Node::new(value))),
-            Some(n) => n.insert(value),
+        self.root.insert(value);
+    }
+
+    fn has(&self, value: T) -> bool {
+        self.root.has(value)
+    }
+
+    fn len(&self) -> usize {
+        self.root.len()
+    }
+}
+
+impl<T: Ord + Copy> Subtree<T> {
+    fn new() -> Self {
+        Self(None)
+    }
+
+    fn insert(&mut self, value: T) {
+        match &mut self.0 {
+            None => self.0 = Some(Box::new(Node::new(value))),
+            Some(n) => match value.cmp(&n.value) {
+                Ordering::Less => n.left.insert(value),
+                Ordering::Equal => {}
+                Ordering::Greater => n.right.insert(value),
+            },
         }
     }
 
     fn has(&self, value: T) -> bool {
-        self.root.as_ref().map_or(false, |n| n.has(value))
+        match &self.0 {
+            None => false,
+            Some(n) => match value.cmp(&n.value) {
+                Ordering::Less => n.left.has(value),
+                Ordering::Equal => true,
+                Ordering::Greater => n.right.has(value),
+            },
+        }
     }
 
     fn len(&self) -> usize {
-        self.root.as_ref().map_or(0, |n| n.len())
+        match &self.0 {
+            None => 0,
+            Some(n) => 1 + n.left.len() + n.right.len(),
+        }
     }
 }
 
@@ -61,32 +96,9 @@ impl<T: Ord + Copy> Node<T> {
     fn new(value: T) -> Self {
         Self {
             value,
-            left: None,
-            right: None,
+            left: Subtree::new(),
+            right: Subtree::new(),
         }
-    }
-
-    fn insert(&mut self, value: T) {
-        match (&mut self.left, value.cmp(&self.value), &mut self.right) {
-            (Some(ref mut l), Less, _) => l.insert(value),
-            (None, Less, _) => self.left = Some(Box::new(Node::new(value))),
-            (_, Greater, Some(ref mut r)) => r.insert(value),
-            (_, Greater, None) => self.right = Some(Box::new(Node::new(value))),
-            (_, Equal, _) => {}
-        }
-    }
-
-    fn has(&self, value: T) -> bool {
-        match value.cmp(&self.value) {
-            Less => self.left.as_ref().map_or(false, |n| n.has(value)),
-            Equal => true,
-            Greater => self.right.as_ref().map_or(false, |n| n.has(value)),
-        }
-    }
-
-    fn len(&self) -> usize {
-        1 + self.left.as_ref().map_or(0, |n| n.len())
-            + self.right.as_ref().map_or(0, |n| n.len())
     }
 }
 
