@@ -18,6 +18,7 @@ jobs:
 
       - name: Install formatting dependencies
         run: |
+          sudo apt update
           sudo apt install gettext yapf3
 
       - name: Install nightly rustfmt
@@ -76,7 +77,9 @@ jobs:
         uses: ./.github/workflows/setup-rust-cache
 
       - name: Install dependencies
-        run: sudo apt install gcc-aarch64-linux-gnu
+        run: |
+          sudo apt update
+          sudo apt install gcc-aarch64-linux-gnu
 
       - name: Install toolchain
         run: rustup target add ${{ matrix.target }}
@@ -121,7 +124,9 @@ jobs:
         uses: ./.github/workflows/setup-rust-cache
 
       - name: Install Gettext
-        run: sudo apt install gettext
+        run: |
+          sudo apt update
+          sudo apt install gettext
 
       - name: Install mdbook
         uses: ./.github/workflows/install-mdbook
