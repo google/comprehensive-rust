@@ -4,7 +4,7 @@
 
 ## Rust Fundamentals
 
-The first four days make up [Rust Fundaments](../welcome-day-1.md).
+The first four days make up [Rust Fundamentals](../welcome-day-1.md).
 The days are fast paced and we cover a lot of ground!
 
 {{%course outline Fundamentals}}
