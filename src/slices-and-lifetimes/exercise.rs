@@ -81,7 +81,7 @@ impl<'a> FieldValue<'a> {
         let FieldValue::Len(data) = self else {
             return Err(Error::UnexpectedWireType);
         };
-        Ok(std::str::from_utf8(data).map_err(|_| Error::InvalidString)?)
+        std::str::from_utf8(data).map_err(|_| Error::InvalidString)
     }
 
     fn as_bytes(&self) -> Result<&'a [u8], Error> {
@@ -142,14 +142,14 @@ fn parse_field(data: &[u8]) -> Result<(Field, &[u8]), Error> {
         WireType::Len => {
             let (len, remainder) = parse_varint(remainder)?;
             let len: usize = len.try_into()?;
-            if remainder.len() < len as usize {
+            if remainder.len() < len {
                 return Err(Error::UnexpectedEOF);
             }
             let (value, remainder) = remainder.split_at(len);
             (FieldValue::Len(value), remainder)
         }
         WireType::I32 => {
-            if remainder.len() < 4usize {
+            if remainder.len() < 4 {
                 return Err(Error::UnexpectedEOF);
             }
             let (value, remainder) = remainder.split_at(4);
