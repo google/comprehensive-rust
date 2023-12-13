@@ -42,7 +42,7 @@ impl<T: Ord + Copy> BinaryTree<T> {
                     right: BinaryTree::new(),
                 }));
             }
-            Some(ref mut n) => {
+            Some(n) => {
                 if value < n.value {
                     n.left.insert(value);
                 } else if value > n.value {
