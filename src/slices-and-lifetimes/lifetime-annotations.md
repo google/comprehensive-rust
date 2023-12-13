@@ -19,7 +19,7 @@ ambiguity; the compiler verifies that there is a valid solution.
 Lifetimes become more complicated when considering passing values to and
 returning values from functions.
 
-```rust,eitable,compile_fail
+```rust,editable,compile_fail
 #[derive(Debug)]
 struct Point(i32, i32);
 
