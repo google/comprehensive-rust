@@ -44,7 +44,7 @@ impl<T: Ord + Copy> BinaryTree<T> {
                     right: BinaryTree::new(),
                 }));
             }
-            Some(ref mut n) => match value.cmp(&n.value) {
+            Some(n) => match value.cmp(&n.value) {
                 Ordering::Less => n.left.insert(value),
                 Ordering::Equal => {}
                 Ordering::Greater => n.right.insert(value),
@@ -81,7 +81,7 @@ fn main() {
 
 // ANCHOR: tests
 #[cfg(test)]
-mod test {
+mod tests {
     use super::*;
 
     #[test]
