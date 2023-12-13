@@ -35,27 +35,29 @@ Recursive data types or data types with dynamic sizes need to use a `Box`:
 ```rust,editable
 #[derive(Debug)]
 enum List<T> {
-    Cons(T, Box<List<T>>),
+    /// A non-empty list, consisting of the first element and the rest of the list.
+    Element(T, Box<List<T>>),
+    /// An empty list.
     Nil,
 }
 
 fn main() {
-    let list: List<i32> = List::Cons(1, Box::new(List::Cons(2, Box::new(List::Nil))));
+    let list: List<i32> = List::Element(1, Box::new(List::Element(2, Box::new(List::Nil))));
     println!("{list:?}");
 }
 ```
 
 ```bob
  Stack                           Heap
-.- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - - -.
-:                         :     :                                               :
-:    list                 :     :                                               :
-:   +------+----+----+    :     :    +------+----+----+    +------+----+----+   :
-:   | Cons | 1  | o--+----+-----+--->| Cons | 2  | o--+--->| Nil  | // | // |   :
-:   +------+----+----+    :     :    +------+----+----+    +------+----+----+   :
-:                         :     :                                               :
-:                         :     :                                               :
-'- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - - -'
+.- - - - - - - - - - - - - - .     .- - - - - - - - - - - - - - - - - - - - - - - - -.
+:                            :     :                                                 :
+:    list                    :     :                                                 :
+:   +---------+----+----+    :     :    +---------+----+----+    +------+----+----+  :
+:   | Element | 1  | o--+----+-----+--->| Element | 2  | o--+--->| Nil  | // | // |  :
+:   +---------+----+----+    :     :    +---------+----+----+    +------+----+----+  :
+:                            :     :                                                 :
+:                            :     :                                                 :
+'- - - - - - - - - - - - - - '     '- - - - - - - - - - - - - - - - - - - - - - - - -'
 ```
 <details>
 
@@ -79,12 +81,12 @@ element of the `List` in the heap.
 ```rust,editable
 #[derive(Debug)]
 enum List<T> {
-    Cons(T, Box<List<T>>),
+    Element(T, Box<List<T>>),
     Nil,
 }
 
 fn main() {
-    let list: List<i32> = List::Cons(1, Box::new(List::Cons(2, Box::new(List::Nil))));
+    let list: List<i32> = List::Element(1, Box::new(List::Element(2, Box::new(List::Nil))));
     println!("{list:?}");
 }
 ```
@@ -94,15 +96,15 @@ allows the compiler to optimize the memory layout:
 
 ```bob
  Stack                           Heap
-.- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - -.
-:                         :     :                                             :
-:    list                 :     :                                             :
-:   +----+----+           :     :    +----+----+    +----+------+             :
-:   | 1  | o--+-----------+-----+--->| 2  | o--+--->| // | null |             :
-:   +----+----+           :     :    +----+----+    +----+------+             :
-:                         :     :                                             :
-:                         :     :                                             :
-`- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - -'
+.- - - - - - - - - - - - - - .     .- - - - - - - - - - - - - -.
+:                            :     :                           :
+:    list                    :     :                           :
+:   +---------+----+----+    :     :    +---------+----+----+  :
+:   | Element | 1  | o--+----+-----+--->| Element | 2  | // |  :
+:   +---------+----+----+    :     :    +---------+----+----+  :
+:                            :     :                           :
+:                            :     :                           :
+'- - - - - - - - - - - - - - '     '- - - - - - - - - - - - - -'
 ```
 
 </details>
