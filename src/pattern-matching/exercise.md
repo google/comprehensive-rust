@@ -35,8 +35,6 @@ integer overflow. How could you handle this with `Result` instead of a panic?
 ```rust
 {{#include exercise.rs:Operation}}
 
-{{#include exercise.rs:Value}}
-
 {{#include exercise.rs:Expression}}
 
 {{#include exercise.rs:eval}}
