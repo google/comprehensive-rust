@@ -17,19 +17,6 @@
 use std::convert::TryFrom;
 use thiserror::Error;
 
-#[derive(Debug, Default)]
-struct PhoneNumber<'a> {
-    number: &'a str,
-    type_: &'a str,
-}
-
-#[derive(Debug, Default)]
-struct Person<'a> {
-    name: &'a str,
-    id: u64,
-    phone: Vec<PhoneNumber<'a>>,
-}
-
 #[derive(Debug, Error)]
 enum Error {
     #[error("Invalid varint")]
@@ -77,29 +64,6 @@ struct Field<'a> {
 
 trait ProtoMessage<'a>: Default + 'a {
     fn add_field(&mut self, field: Field<'a>) -> Result<(), Error>;
-}
-
-impl<'a> ProtoMessage<'a> for Person<'a> {
-    fn add_field(&mut self, field: Field<'a>) -> Result<(), Error> {
-        match field.field_num {
-            1 => self.name = field.value.as_string()?,
-            2 => self.id = field.value.as_u64()?,
-            3 => self.phone.push(parse_message(field.value.as_bytes()?)?),
-            _ => {} // skip everything else
-        }
-        Ok(())
-    }
-}
-
-impl<'a> ProtoMessage<'a> for PhoneNumber<'a> {
-    fn add_field(&mut self, field: Field<'a>) -> Result<(), Error> {
-        match field.field_num {
-            1 => self.number = field.value.as_string()?,
-            2 => self.type_ = field.value.as_string()?,
-            _ => {} // skip everything else
-        }
-        Ok(())
-    }
 }
 
 impl TryFrom<u64> for WireType {
@@ -221,6 +185,44 @@ fn parse_message<'a, T: ProtoMessage<'a>>(mut data: &'a [u8]) -> Result<T, Error
     Ok(result)
 }
 // ANCHOR_END: parse_message
+
+// ANCHOR: message_types
+#[derive(Debug, Default)]
+struct PhoneNumber<'a> {
+    number: &'a str,
+    type_: &'a str,
+}
+
+#[derive(Debug, Default)]
+struct Person<'a> {
+    name: &'a str,
+    id: u64,
+    phone: Vec<PhoneNumber<'a>>,
+}
+// ANCHOR_END: message_types
+
+impl<'a> ProtoMessage<'a> for Person<'a> {
+    fn add_field(&mut self, field: Field<'a>) -> Result<(), Error> {
+        match field.field_num {
+            1 => self.name = field.value.as_string()?,
+            2 => self.id = field.value.as_u64()?,
+            3 => self.phone.push(parse_message(field.value.as_bytes()?)?),
+            _ => {} // skip everything else
+        }
+        Ok(())
+    }
+}
+
+impl<'a> ProtoMessage<'a> for PhoneNumber<'a> {
+    fn add_field(&mut self, field: Field<'a>) -> Result<(), Error> {
+        match field.field_num {
+            1 => self.number = field.value.as_string()?,
+            2 => self.type_ = field.value.as_string()?,
+            _ => {} // skip everything else
+        }
+        Ok(())
+    }
+}
 
 // ANCHOR: main
 fn main() {
