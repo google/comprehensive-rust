@@ -35,32 +35,33 @@ Recursive data types or data types with dynamic sizes need to use a `Box`:
 ```rust,editable
 #[derive(Debug)]
 enum List<T> {
-    Cons(T, Box<List<T>>),
+    /// A non-empty list, consisting of the first element and the rest of the list.
+    Element(T, Box<List<T>>),
+    /// An empty list.
     Nil,
 }
 
 fn main() {
-    let list: List<i32> = List::Cons(1, Box::new(List::Cons(2, Box::new(List::Nil))));
+    let list: List<i32> = List::Element(1, Box::new(List::Element(2, Box::new(List::Nil))));
     println!("{list:?}");
 }
 ```
 
 ```bob
  Stack                           Heap
-.- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - - -.
-:                         :     :                                               :
-:    list                 :     :                                               :
-:   +------+----+----+    :     :    +------+----+----+    +------+----+----+   :
-:   | Cons | 1  | o--+----+-----+--->| Cons | 2  | o--+--->| Nil  | // | // |   :
-:   +------+----+----+    :     :    +------+----+----+    +------+----+----+   :
-:                         :     :                                               :
-:                         :     :                                               :
-'- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - - -'
+.- - - - - - - - - - - - - - .     .- - - - - - - - - - - - - - - - - - - - - - - - -.
+:                            :     :                                                 :
+:    list                    :     :                                                 :
+:   +---------+----+----+    :     :    +---------+----+----+    +------+----+----+  :
+:   | Element | 1  | o--+----+-----+--->| Element | 2  | o--+--->| Nil  | // | // |  :
+:   +---------+----+----+    :     :    +---------+----+----+    +------+----+----+  :
+:                            :     :                                                 :
+:                            :     :                                                 :
+'- - - - - - - - - - - - - - '     '- - - - - - - - - - - - - - - - - - - - - - - - -'
 ```
 <details>
 
 * `Box` is like `std::unique_ptr` in C++, except that it's guaranteed to be not null.
-* In the above example, you can even leave out the `*` in the `println!` statement thanks to `Deref`.
 * A `Box` can be useful when you:
    * have a type whose size that can't be known at compile time, but the Rust compiler wants to know an exact size.
    * want to transfer ownership of a large amount of data. To avoid copying large amounts of data on the stack, instead store the data on the heap in a `Box` so only the pointer is moved.
@@ -80,12 +81,12 @@ element of the `List` in the heap.
 ```rust,editable
 #[derive(Debug)]
 enum List<T> {
-    Cons(T, Box<List<T>>),
+    Element(T, Box<List<T>>),
     Nil,
 }
 
 fn main() {
-    let list: List<i32> = List::Cons(1, Box::new(List::Cons(2, Box::new(List::Nil))));
+    let list: List<i32> = List::Element(1, Box::new(List::Element(2, Box::new(List::Nil))));
     println!("{list:?}");
 }
 ```
@@ -95,15 +96,15 @@ allows the compiler to optimize the memory layout:
 
 ```bob
  Stack                           Heap
-.- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - -.
-:                         :     :                                             :
-:    list                 :     :                                             :
-:   +----+----+           :     :    +----+----+    +----+------+             :
-:   | 1  | o--+-----------+-----+--->| 2  | o--+--->| // | null |             :
-:   +----+----+           :     :    +----+----+    +----+------+             :
-:                         :     :                                             :
-:                         :     :                                             :
-`- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - -'
+.- - - - - - - - - - - - - - .     .- - - - - - - - - - - - - -.
+:                            :     :                           :
+:    list                    :     :                           :
+:   +---------+----+----+    :     :    +---------+----+----+  :
+:   | Element | 1  | o--+----+-----+--->| Element | 2  | // |  :
+:   +---------+----+----+    :     :    +---------+----+----+  :
+:                            :     :                           :
+:                            :     :                           :
+'- - - - - - - - - - - - - - '     '- - - - - - - - - - - - - -'
 ```
 
 </details>

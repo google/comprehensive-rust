@@ -42,6 +42,8 @@ struct Package {
 impl Package {
     // ANCHOR_END: Package
     // ANCHOR: as_dependency
+    /// Return a representation of this package as a dependency, for use in
+    /// building other packages.
     fn as_dependency(&self) -> Dependency {
         // ANCHOR_END: as_dependency
         Dependency {

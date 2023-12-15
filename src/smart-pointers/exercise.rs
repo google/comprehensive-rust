@@ -13,57 +13,74 @@
 // limitations under the License.
 
 // ANCHOR: solution
+use std::cmp::Ordering;
+
 // ANCHOR: types
+/// A node in the binary tree.
 #[derive(Debug)]
-struct BinaryTreeNode<T: Ord + Copy> {
+struct Node<T: Ord + Copy> {
     value: T,
-    left: BinaryTree<T>,
-    right: BinaryTree<T>,
+    left: Subtree<T>,
+    right: Subtree<T>,
 }
+
+/// A possibly-empty subtree.
+#[derive(Debug)]
+struct Subtree<T: Ord + Copy>(Option<Box<Node<T>>>);
 
 /// A container storing a set of values, using a binary tree.
 ///
 /// If the same value is added multiple times, it is only stored once.
 #[derive(Debug)]
-pub struct BinaryTree<T: Ord + Copy>(Option<Box<BinaryTreeNode<T>>>);
+pub struct BinaryTree<T: Ord + Copy> {
+    root: Subtree<T>,
+}
 // ANCHOR_END: types
 
 impl<T: Ord + Copy> BinaryTree<T> {
+    fn new() -> Self {
+        Self {
+            root: Subtree::new(),
+        }
+    }
+
+    fn insert(&mut self, value: T) {
+        self.root.insert(value);
+    }
+
+    fn has(&self, value: T) -> bool {
+        self.root.has(value)
+    }
+
+    fn len(&self) -> usize {
+        self.root.len()
+    }
+}
+
+impl<T: Ord + Copy> Subtree<T> {
     fn new() -> Self {
         Self(None)
     }
 
     fn insert(&mut self, value: T) {
         match &mut self.0 {
-            None => {
-                self.0 = Some(Box::new(BinaryTreeNode {
-                    value,
-                    left: BinaryTree::new(),
-                    right: BinaryTree::new(),
-                }));
-            }
-            Some(ref mut n) => {
-                if value < n.value {
-                    n.left.insert(value);
-                } else if value > n.value {
-                    n.right.insert(value);
-                }
-            }
+            None => self.0 = Some(Box::new(Node::new(value))),
+            Some(n) => match value.cmp(&n.value) {
+                Ordering::Less => n.left.insert(value),
+                Ordering::Equal => {}
+                Ordering::Greater => n.right.insert(value),
+            },
         }
     }
 
     fn has(&self, value: T) -> bool {
         match &self.0 {
             None => false,
-            Some(n) => {
-                if value == n.value {
-                    true
-                } else if value < n.value {
-                    n.left.has(value)
-                } else {
-                    n.right.has(value)
-                }
-            }
+            Some(n) => match value.cmp(&n.value) {
+                Ordering::Less => n.left.has(value),
+                Ordering::Equal => true,
+                Ordering::Greater => n.right.has(value),
+            },
         }
     }
 
@@ -71,6 +88,16 @@ impl<T: Ord + Copy> BinaryTree<T> {
         match &self.0 {
             None => 0,
             Some(n) => 1 + n.left.len() + n.right.len(),
+        }
+    }
+}
+
+impl<T: Ord + Copy> Node<T> {
+    fn new(value: T) -> Self {
+        Self {
+            value,
+            left: Subtree::new(),
+            right: Subtree::new(),
         }
     }
 }
@@ -85,7 +112,7 @@ fn main() {
 
 // ANCHOR: tests
 #[cfg(test)]
-mod test {
+mod tests {
     use super::*;
 
     #[test]

@@ -41,31 +41,18 @@ enum Expression {
 }
 // ANCHOR_END: Expression
 
-// ANCHOR: Res
-/// The result of evaluating an expression.
-#[derive(Debug, PartialEq, Eq)]
-enum Res {
-    /// Evaluation was successful, with the given result.
-    Ok(i64),
-    /// Evaluation failed, with the given error message.
-    Err(String),
-}
-// Allow `Ok` and `Err` as shorthands for `Res::Ok` and `Res::Err`.
-use Res::{Err, Ok};
-// ANCHOR_END: Res
-
 // ANCHOR: eval
-fn eval(e: Expression) -> Res {
+fn eval(e: Expression) -> Result<i64, String> {
     // ANCHOR_END: eval
     match e {
         Expression::Op { op, left, right } => {
             let left = match eval(*left) {
                 Ok(v) => v,
-                Err(msg) => return Err(msg),
+                e @ Err(_) => return e,
             };
             let right = match eval(*right) {
                 Ok(v) => v,
-                Err(msg) => return Err(msg),
+                e @ Err(_) => return e,
             };
             Ok(match op {
                 Operation::Add => left + right,
