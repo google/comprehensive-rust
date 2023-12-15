@@ -39,7 +39,8 @@ called VARINT. Luckily, `parse_varint` is defined for you below. The given code
 also defines callbacks to handle `Person` and `PhoneNumber` fields, and to parse
 a message into a series of calls to those callbacks.
 
-What remains for you is to implement the `parse_field` function.
+What remains for you is to implement the `parse_field` function and the
+`ProtoMessage` trait for `Person` and `PhoneNumber`.
 
 <!-- compile_fail because `mdbook test` does not allow use of `thiserror` -->
 ```rust,editable,compile_fail
@@ -55,6 +56,10 @@ What remains for you is to implement the `parse_field` function.
 }
 
 {{#include exercise.rs:parse_message }}
+
+{{#include exercise.rs:message_types}}
+
+// TODO: Implement ProtoMessage for Person and PhoneNumber.
 
 {{#include exercise.rs:main }}
 ```
