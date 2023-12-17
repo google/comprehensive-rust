@@ -111,7 +111,7 @@ msgstr "ارجاعات تعلیق شده"
 
 #: src/SUMMARY.md:33 src/basic-syntax/slices.md:1
 msgid "Slices"
-msgstr "برش ها"
+msgstr "برش‌ها"
 
 #: src/SUMMARY.md:34
 msgid "String vs str"
@@ -299,7 +299,7 @@ msgstr "های جابجا شده در Rust String"
 
 #: src/SUMMARY.md:92
 msgid "Double Frees in Modern C++"
-msgstr "آزاد سازی مضاعف در<span dir=ltr>C++</span> مدرن"
+msgstr "آزاد سازی مضاعف در سی‌پلاس‌پلاس مدرن"
 
 #: src/SUMMARY.md:93 src/ownership/moves-function-calls.md:1
 msgid "Moves in Function Calls"
@@ -1740,7 +1740,7 @@ msgstr ""
 #: src/error-handling/converting-error-types-example.md:50
 #: src/concurrency/threads.md:30 src/async/async-await.md:25
 msgid "Key points:"
-msgstr "امتیازات کلیدی:"
+msgstr "نکات کلیدی:"
 
 #: src/cargo/rust-ecosystem.md:23
 msgid ""
@@ -3279,29 +3279,35 @@ msgstr ""
 
 #: src/basic-syntax/references.md:3
 msgid "Like C++, Rust has references:"
-msgstr ""
+msgstr "مانند <span dir=ltr>C++</span>، راست دارای مراجع است:"
 
 #: src/basic-syntax/references.md:15
 msgid "Some notes:"
-msgstr ""
+msgstr "نکته:"
 
 #: src/basic-syntax/references.md:17
 msgid ""
 "We must dereference `ref_x` when assigning to it, similar to C and C++ "
 "pointers."
 msgstr ""
+"باید هنگام تعریف <span dir=ltr>`ref_x`</span> ارجاع دهی شود، مشابه "
+"اشاره‌گرهای C و <span dir=ltr>C++</span>."
 
 #: src/basic-syntax/references.md:18
 msgid ""
 "Rust will auto-dereference in some cases, in particular when invoking "
 "methods (try `ref_x.count_ones()`)."
 msgstr ""
+"راست در برخی موارد به‌طور خودکار از Dereference می‌کند، به‌ویژه هنگام فراخوانی "
+"متدها (<span dir=ltr>`ref_x.count_ones()`</span> را امتحان کنید)."
 
 #: src/basic-syntax/references.md:20
 msgid ""
 "References that are declared as `mut` can be bound to different values over "
 "their lifetime."
 msgstr ""
+"مراجع‌ای که به‌عنوان `mut` تعریف می‌شوند، می‌توانند در طول عمر خود به مقادیر "
+"مختلفی ارجاع داده شوند."
 
 #: src/basic-syntax/references.md:26
 msgid ""
@@ -3310,42 +3316,54 @@ msgid ""
 "to different values, while the second represents a reference to a mutable "
 "value."
 msgstr ""
+"توجه داشته باشید که تفاوت بین <span dir=ltr>`let mut ref_x: &i32`</span>  و "
+"<span dir=ltr>`let ref_x: &mut i32`</span> را به خاطر بسپارید. اولی نمایانگر "
+"یک مرجع قابل تغییر است که می‌تواند به مقادیر مختلفی ارجاع داده شود،  در حالی "
+"که دومی یک مرجع به یک مقدار قابل تغییر را نشان می‌دهد."
 
 #: src/basic-syntax/references-dangling.md:3
 msgid "Rust will statically forbid dangling references:"
-msgstr ""
+msgstr "راست بطور استاتیک مراجع تعلیق شده (dangling) را ممنوع می‌کند:"
 
 #: src/basic-syntax/references-dangling.md:17
 msgid "A reference is said to \"borrow\" the value it refers to."
-msgstr ""
+msgstr "گفته می‌شود که یک مرجع مقدار مورد اشاره خود را «قرض می‌گیرد»."
 
 #: src/basic-syntax/references-dangling.md:18
 msgid ""
 "Rust is tracking the lifetimes of all references to ensure they live long "
 "enough."
 msgstr ""
+"راست برای اینکه اطمینان حاصل کند طول‌عمر همه مراجع به اندازه کافی است, آنها "
+"را رهگیری می‌کند."
 
 #: src/basic-syntax/references-dangling.md:20
 msgid "We will talk more about borrowing when we get to ownership."
 msgstr ""
+"هنگامی که به مالکیت در زبان راست رسیدیم، بیشتر در مورد «قرض دادن» صحبت "
+"خواهیم کرد."
 
 #: src/basic-syntax/slices.md:3
 msgid "A slice gives you a view into a larger collection:"
-msgstr ""
+msgstr "یک برش به شما امکان می‌دهد نما (view) از یک مجموعه بزرگتر داشته باشید:"
 
 #: src/basic-syntax/slices.md:17
 msgid "Slices borrow data from the sliced type."
-msgstr ""
+msgstr "برش‌ها داده‌ها را از نوع برش‌شده قرض می‌گیرند."
 
 #: src/basic-syntax/slices.md:18
 msgid "Question: What happens if you modify `a[3]` right before printing `s`?"
 msgstr ""
+"پرسش: اگر <span dir=ltr>`a[3]`</span> را درست قبل از چاپ <span dir=ltr>`s`</"
+"span> تغییر دهید چه اتفاقی می‌افتد؟"
 
 #: src/basic-syntax/slices.md:22
 msgid ""
 "We create a slice by borrowing `a` and specifying the starting and ending "
 "indexes in brackets."
 msgstr ""
+"ما با قرض گرفتن <span dir=ltr>`a`</span> و مشخص کردن شاخص‌های شروع و پایان در "
+"براکت‌ها، برش (slice) ایجاد می‌کنیم."
 
 #: src/basic-syntax/slices.md:24
 msgid ""
@@ -3353,17 +3371,24 @@ msgid ""
 "starting index, meaning that `&a[0..a.len()]` and `&a[..a.len()]` are "
 "identical."
 msgstr ""
+"اگر برش از شاخص ۰ شروع شود، سینتکس راست به ما اجازه می‌دهد شاخص شروع را حذف "
+"کنیم (یعنی عدد صفر را  ننویسیم)، به این معنی که <span dir=ltr>`&a[0..a."
+"len()]`</span>  و <span dir=ltr>`&a[..a.len()]`</span> یکسان  هستند."
 
 #: src/basic-syntax/slices.md:26
 msgid ""
 "The same is true for the last index, so `&a[2..a.len()]` and `&a[2..]` are "
 "identical."
 msgstr ""
+"در مورد شاخص آخر نیز همینطور است، بنابراین <span dir=ltr>`&a[2..a.len()]`</"
+"span> و <span dir=ltr>`&a[2..]`</span>  یکسان هستند."
 
 #: src/basic-syntax/slices.md:28
 msgid ""
 "To easily create a slice of the full array, we can therefore use `&a[..]`."
 msgstr ""
+"یک روش ساده برای برش کل آرایه، این است که از <span dir=ltr>`&a[..]`</span> "
+"استفاده کنیم."
 
 #: src/basic-syntax/slices.md:30
 msgid ""
@@ -3371,12 +3396,18 @@ msgid ""
 "(`&[i32]`) no longer mentions the array length. This allows us to perform "
 "computation on slices of different sizes."
 msgstr ""
+"<span dir=ltr>`s`</span> یک مرجع به برش i32 است. توجه داشته باشید که نوع "
+"<span dir=ltr>`s`</span> (<span dir=ltr>`&[i32]`</span>) دیگر طول آرایه را "
+"ذکر نمی‌شود. این به ما امکان می‌دهد محاسباتی را روی برش‌هایی با اندازه‌های مختلف "
+"انجام دهیم."
 
 #: src/basic-syntax/slices.md:32
 msgid ""
 "Slices always borrow from another object. In this example, `a` has to remain "
 "'alive' (in scope) for at least as long as our slice. "
 msgstr ""
+"برش‌ها همیشه از یک شیء دیگر قرض می‌گیرند. در این مثال، <span dir=ltr>`a`</"
+"span> باید حداقل به اندازه طول‌عمر برش ما، زنده (در محدوده) باقی بماند. "
 
 #: src/basic-syntax/slices.md:34
 msgid ""
@@ -3387,14 +3418,21 @@ msgid ""
 "`println`, when the slice is no longer used. More details will be explained "
 "in the borrow checker section."
 msgstr ""
+"پرسش در مورد تغییر <span dir=ltr>`a[3]`</span> می تواند یک بحث جالب را شروع "
+"کند، اما پاسخ‌اش این است که به دلایل ایمنی حافظه، نمی‌توانید این کار را از "
+"طریق <span dir=ltr>`a`</span> در این مرحله از اجرا انجام دهید، اما می‌توانید "
+"داده‌ها را از هر دو <span dir=ltr>`a`</span> و <span dir=ltr>`s`</span> به "
+"طور ایمن بخوانید. این کار قبل از ایجاد برش و دوباره بعد از <span "
+"dir=ltr>`println!`</span> کار میکند، زمانی که برش دیگر استفاده نمی شود. "
+"جزئیات بیشتری در بخش بررسی‌کننده‌قرض (the borrow checker) توضیح خواهیم داد. "
 
 #: src/basic-syntax/string-slices.md:1
 msgid "`String` vs `str`"
-msgstr ""
+msgstr "<span dir=ltr>`String`</span> در مقابل <span dir=ltr>`str`</span> "
 
 #: src/basic-syntax/string-slices.md:3
 msgid "We can now understand the two string types in Rust:"
-msgstr ""
+msgstr "حالا می‌توانیم دو نوع رشته‌ای را در راست درک کنیم:"
 
 #: src/basic-syntax/string-slices.md:5
 msgid ""
@@ -3416,15 +3454,17 @@ msgstr ""
 
 #: src/basic-syntax/string-slices.md:20
 msgid "Rust terminology:"
-msgstr ""
+msgstr "اصطلاحات راست:"
 
 #: src/basic-syntax/string-slices.md:22
 msgid "`&str` an immutable reference to a string slice."
 msgstr ""
+"<span dir=ltr><code class=hljs>&amp;str</code></span>  یک مرجع غیرقابل تغییر "
+"به یک برش از رشته‌ است."
 
 #: src/basic-syntax/string-slices.md:23
 msgid "`String` a mutable string buffer."
-msgstr ""
+msgstr "`String` یک بافر رشته‌ای قابل تغییر است."
 
 #: src/basic-syntax/string-slices.md:27
 msgid ""
@@ -3432,12 +3472,18 @@ msgid ""
 "encoded string data  stored in a block of memory. String literals "
 "(`”Hello”`), are stored in the program’s binary."
 msgstr ""
+"<span dir=ltr>`&str`</span>  یک برش رشته‌ای را معرفی می‌کند، که یک مرجع "
+"غیرقابل تغییر به داده‌های رشته‌ای رمزشده UTF-8 است که در یک بلوک حافظه ذخیره "
+"شده است. لیترال های رشته‌ای <span dir=ltr>`String`</span>  (`”Hello”`) در "
+"باینری برنامه ذخیره می‌شوند."
 
 #: src/basic-syntax/string-slices.md:30
 msgid ""
 "Rust’s `String` type is a wrapper around a vector of bytes. As with a "
 "`Vec<T>`, it is owned."
 msgstr ""
+"در راست نوع ‍<span dir=ltr>`String`</span> یک wrapper بر روی یک بردار از "
+"بایت‌هاست. مانند <span dir=ltr>`Vec<T>`</span>، یک نوع Owned است."
 
 #: src/basic-syntax/string-slices.md:32
 msgid ""
@@ -3445,18 +3491,27 @@ msgid ""
 "literal; `String::new()`  creates a new empty string, to which string data "
 "can be added using the `push()` and `push_str()` methods."
 msgstr ""
+"مانند بسیاری از انواع دیگر، <span dir=ltr>`String::from()`</span> یک رشته از "
+"یک لیترال رشته ایجاد می‌کند. <span dir=ltr>`String::new()`</span> که رشته "
+"خالی جدید ایجاد می‌کند که داده های رشته‌ای می‌توانند با استفاده از متدهای <span "
+"dir=ltr>`push()`</span> و <span dir=ltr>`push_str()`</span> به آن اضافه شوند."
 
 #: src/basic-syntax/string-slices.md:35
 msgid ""
 "The `format!()` macro is a convenient way to generate an owned string from "
 "dynamic values. It  accepts the same format specification as `println!()`."
 msgstr ""
+"ماکرو <span dir=ltr>`format!()`</span> یک راه راحت برای ایجاد یک رشته Owned "
+"از مقادیر پویا است. مثل فرمت قابل پذیرش توسط ماکرو <span dir=ltr>`println!"
+"()`</span> است."
 
 #: src/basic-syntax/string-slices.md:38
 msgid ""
 "You can borrow `&str` slices from `String` via `&` and optionally range "
 "selection."
 msgstr ""
+"شما می‌توانید برش‌های &str را از <span dir=ltr>`String`</span> از طریق `&` و "
+"انتخاب محدوده به صورت اختیاری، قرض بگیرید."
 
 #: src/basic-syntax/string-slices.md:40
 msgid ""
@@ -3465,47 +3520,71 @@ msgid ""
 "equivalent of `std::string` from C++  (main difference: it can only contain "
 "UTF-8 encoded bytes and will never use a small-string optimization)."
 msgstr ""
+"برای برنامه‌نویسان <span dir=ltr>`C++`</span>: <span dir=ltr>`&str`</span>را  "
+"به عنوان <span dir=ltr>`const char*`</span> در <span dir=ltr>`C++`</span> "
+"درنظر بگیرید، اما یک فرق مهم این است که در راست که همیشه به یک رشته معتبر در "
+"حافظه اشاره می کند. راست نوع <span dir=ltr>`String`</span>معادل تقریبی <span "
+"dir=ltr>`std::string`</span> در <span dir=ltr>`C++`</span> است (با این تفاوت "
+"که فقط می‌تواند حاوی بایت‌های رمزشده UTF-8 باشد و هرگز از بهینه‌سازی Small-"
+"String استفاده نمی کند)."
 
 #: src/basic-syntax/functions.md:3
 msgid ""
 "A Rust version of the famous [FizzBuzz](https://en.wikipedia.org/wiki/"
 "Fizz_buzz) interview question:"
 msgstr ""
+"یک نسخه راست از سوال مصاحبه معروف مصاحبه [FizzBuzz](https://en.wikipedia.org/"
+"wiki/Fizz_buzz):"
 
 #: src/basic-syntax/functions.md:36
 msgid ""
 "We refer in `main` to a function written below. Neither forward declarations "
 "nor headers are necessary. "
 msgstr ""
+"ما در <span dir=ltr>`main`</span> به یک تابعی که در زیرش نوشته شده است اشاره "
+"می‌کنیم.  نیازی به اعلان از قبل تابع <span dir=ltr>`main`</span> یا در بخش "
+"هدر نیست. "
 
 #: src/basic-syntax/functions.md:37
 msgid ""
 "Declaration parameters are followed by a type (the reverse of some "
 "programming languages), then a return type."
 msgstr ""
+"بعد اعلان تابع پارامترهای ورودی و نوع آن و سپس یک نوع برگشتی هستند (برخلاف "
+"برخی از زبان‌های برنامه‌نویسی)."
 
 #: src/basic-syntax/functions.md:38
 msgid ""
 "The last expression in a function body (or any block) becomes the return "
 "value. Simply omit the `;` at the end of the expression."
 msgstr ""
+"آخرین عبارت در بدنه تابع (یا هر بلوک دیگری) به عنوان مقدار برگشتی در نظر "
+"گرفته می‌شود. به همین سادگی <span dir=ltr>`;`</span> را  میتوان در انتهای "
+"عبارت حذف کنید."
 
 #: src/basic-syntax/functions.md:39
 msgid ""
 "Some functions have no return value, and return the 'unit type', `()`. The "
 "compiler will infer this if the `-> ()` return type is omitted."
 msgstr ""
+"برخی از توابع هیچ مقدار برگشتی ندارند و «نوع یکه» <span dir=ltr>`()`</span> "
+"را برمی‌گردانند. اگر <span dir=ltr>`-> ()`</span> از بخش نوع برگشتی حذف شود، "
+"کامپایلر این را استنتاج خواهد کرد که هیچ نوع برگشتی وجود ندارد."
 
 #: src/basic-syntax/functions.md:40
 msgid ""
 "The range expression in the `for` loop in `print_fizzbuzz_to()` contains "
 "`=n`, which causes it to include the upper bound."
 msgstr ""
+"عبارت تعیین محدوده در حلقه <span dir=ltr>`for`</span> در <span "
+"dir=ltr>`print_fizzbuzz_to()`</span> حاوی <span dir=ltr>`=n`</span> است که "
+"باعث می‌شود محدوده حد بالا را هم شامل شود (آخرین عنصر)."
 
 #: src/basic-syntax/rustdoc.md:3
 msgid ""
 "All language items in Rust can be documented using special `///` syntax."
 msgstr ""
+"همه موارد زبان در راست را می‌توان با استفاده از سینتکس ویژه `///` مستند کرد."
 
 #: src/basic-syntax/rustdoc.md:5
 msgid ""
@@ -3537,24 +3616,36 @@ msgid ""
 "idiomatic to document all public items in an API using this pattern. Code "
 "snippets can document usage and will be used as unit tests."
 msgstr ""
+"محتوا کامنت شده به عنوان `Markdown` در نظر گرفته می‌شود. تمام جعبه‌هایی "
+"(Crate) که در راست منتشر می‌شوند به‌طور خودکار با استفاده از ابزار [rustdoc]"
+"(https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html) در [`docs.rs`]"
+"(https://docs.rs) مستند می‌شوند. این یک سبک رایج است که تمام آیتم‌های عمومی در "
+"یک API با استفاده از این الگو مستند شود. همچنین میتوان قطعه کدهایی شامل نحوه "
+"استفاده را مستند کرد و به عنوان تست‌های واحد (unit tests) استفاده خواهند شد."
 
 #: src/basic-syntax/rustdoc.md:30
 msgid ""
 "Show students the generated docs for the `rand` crate at [`docs.rs/rand`]"
 "(https://docs.rs/rand)."
 msgstr ""
+"دانشجویان را با مستندات تولید شده برای جعبه `rand` در [`docs.rs/rand`]"
+"(https://docs.rs/rand)  آشنا کنید."
 
 #: src/basic-syntax/rustdoc.md:33
 msgid ""
 "This course does not include rustdoc on slides, just to save space, but in "
 "real code they should be present."
 msgstr ""
+"این دوره برای صرفه‌جویی در نوشتار متنی rustdoc را در اسلایدها قرار نمی‌دهد، "
+"اما در کدهای دنیای واقعی باید وجود داشته باشد."
 
 #: src/basic-syntax/rustdoc.md:36
 msgid ""
 "Inner doc comments are discussed later (in the page on modules) and need not "
 "be addressed here."
 msgstr ""
+"کامنت های داخل کد در بخش‌های بعدی (در صفحه مربوط به ماژول‌ها) مورد بحث قرار "
+"می‌گیرد و نیازی به پرداختن به آنها در اینجا نیست."
 
 #: src/basic-syntax/rustdoc.md:39
 msgid ""
@@ -3562,12 +3653,17 @@ msgid ""
 "`cargo test`. We will discuss these tests in the [Testing section](../"
 "testing/doc-tests.html)."
 msgstr ""
+"کامنت های rustdoc می‌توانند حاوی قطعه کدهایی باشند که می‌توانیم آنها را با "
+"استفاده از <span dir=ltr>`cargo test`</span> اجرا و تست کنیم.  ما در  [بخش "
+"تست نویسی](../testing/doc-tests.html)  در مورد این تست‌ها بحث خواهیم کرد."
 
 #: src/basic-syntax/methods.md:3
 msgid ""
 "Methods are functions associated with a type. The `self` argument of a "
 "method is an instance of the type it is associated with:"
 msgstr ""
+"متدها، تابع‌هایی مربوط به یک نوع خاص هستند. آرگومان `self` یک متد، نمونه‌ای از "
+"نوعی است که با آن مرتبط است:"
 
 #: src/basic-syntax/methods.md:6
 msgid ""
@@ -3600,11 +3696,13 @@ msgstr ""
 msgid ""
 "We will look much more at methods in today's exercise and in tomorrow's "
 "class."
-msgstr ""
+msgstr "در تمرین امروز و کلاس فردا بیشتر به متدها می‌پردازیم."
 
 #: src/basic-syntax/methods.md:34
 msgid "Add a static method called `Rectangle::new` and call this from `main`:"
 msgstr ""
+"یک متد استاتیک به نام <span dir=ltr>`Rectangle::new`</span> اضافه کنید و آن "
+"را از `main` فراخوانی کنید:"
 
 #: src/basic-syntax/methods.md:42
 msgid ""
@@ -3613,48 +3711,56 @@ msgid ""
 "constructor, `Rectangle { width, height }`, could be called directly. See "
 "the [Rustnomicon](https://doc.rust-lang.org/nomicon/constructors.html)."
 msgstr ""
+"در حالی که از _نظر فنی_  راست یک متد سازنده خاص ندارد، معمولاً  از متدهای "
+"استاتیک برای مقداردهی اولیه ساختارها استفاده می‌شود (اما الزامی نیست). سازنده "
+"اصلی ، <span dir=ltr>`Rectangle { width, height }`</span> ،  را می‌توان به "
+"طور مستقیم فراخوانی کرد. برای اطلاعات بیشتر [Rustnomicon](https://doc.rust-"
+"lang.org/nomicon/constructors.html) را ببینید."
 
 #: src/basic-syntax/methods.md:45
 msgid ""
 "Add a `Rectangle::square(width: u32)` constructor to illustrate that such "
 "static methods can take arbitrary parameters."
 msgstr ""
+"برای نشان دادن اینکه چنین متدهای استاتیک می‌توانند آرگومان‌های دلخواه "
+"بگیرند،   با ارگمان‌های یک سازنده <span dir=ltr>`Rectangle::square(width: "
+"u32)`</span> اضافه کنید."
 
 #: src/basic-syntax/functions-interlude.md:1
 msgid "Function Overloading"
-msgstr ""
+msgstr "سربارگذاری تابع (Function Overloading)"
 
 #: src/basic-syntax/functions-interlude.md:3
 msgid "Overloading is not supported:"
-msgstr ""
+msgstr "سربارگذاری پشتیبانی نمیشود, چون:"
 
 #: src/basic-syntax/functions-interlude.md:5
 msgid "Each function has a single implementation:"
-msgstr ""
+msgstr "هر تابع فقط یک پیاده سازی دارد:"
 
 #: src/basic-syntax/functions-interlude.md:6
 msgid "Always takes a fixed number of parameters."
-msgstr ""
+msgstr "همیشه تعداد ثابتی از آرگومان‌ها می‌گیرد."
 
 #: src/basic-syntax/functions-interlude.md:7
 msgid "Always takes a single set of parameter types."
-msgstr ""
+msgstr "همیشه یک مجموعه واحد از انواع آرگومان‌ها را می‌گیرد."
 
 #: src/basic-syntax/functions-interlude.md:8
 msgid "Default values are not supported:"
-msgstr ""
+msgstr "مقادیر پیش‌فرض پشتیبانی نمی‌شوند:"
 
 #: src/basic-syntax/functions-interlude.md:9
 msgid "All call sites have the same number of arguments."
-msgstr ""
+msgstr "تمام محل‌های فراخوانی دارای تعداد یکسانی از آرگومان هستند."
 
 #: src/basic-syntax/functions-interlude.md:10
 msgid "Macros are sometimes used as an alternative."
-msgstr ""
+msgstr "گاهی اوقات از ماکروها به عنوان جایگزین استفاده می‌شود."
 
 #: src/basic-syntax/functions-interlude.md:12
 msgid "However, function parameters can be generic:"
-msgstr ""
+msgstr "با این حال، پارامترهای تابع می‌توانند جنریک باشند:"
 
 #: src/basic-syntax/functions-interlude.md:14
 msgid ""
@@ -3676,26 +3782,29 @@ msgid ""
 "limited polymorphism on argument types. We will see more details in a later "
 "section."
 msgstr ""
+"هنگام استفاده از جنریک‌ها، <span dir=ltr>`Into<T>`</span>  کتابخانه استاندارد "
+"می‌تواند نوعی چندشکلی (polymorphism) محدود در انواع آرگومان‌ها فراهم کند. "
+"جزئیات بیشتر را در بخش‌های بعدی خواهیم دید."
 
 #: src/exercises/day-1/morning.md:1
 msgid "Day 1: Morning Exercises"
-msgstr ""
+msgstr "روز اول: تمرین‌های صبح"
 
 #: src/exercises/day-1/morning.md:3
 msgid "In these exercises, we will explore two parts of Rust:"
-msgstr ""
+msgstr "در این تمرین‌ها، دو بخش از راست را بررسی خواهیم کرد:"
 
 #: src/exercises/day-1/morning.md:5
 msgid "Implicit conversions between types."
-msgstr ""
+msgstr "تبدیل‌های ضمنی بین انواع"
 
 #: src/exercises/day-1/morning.md:7
 msgid "Arrays and `for` loops."
-msgstr ""
+msgstr "آرایه‌ها و حلقه‌های `for`"
 
 #: src/exercises/day-1/morning.md:11
 msgid "A few things to consider while solving the exercises:"
-msgstr ""
+msgstr "چند نکته را هنگام حل تمرین‌ها درنظر بگیرید:"
 
 #: src/exercises/day-1/morning.md:13
 msgid ""
@@ -3703,16 +3812,21 @@ msgid ""
 "completion in your editor. See the page about [Using Cargo](../../cargo.md) "
 "for details on installing Rust."
 msgstr ""
+"در صورت امکان، از نصب محلی راست استفاده کنید. از این طریق می‌توانید از تکمیل "
+"خودکار در ویرایشگر خود استفاده کنید.  برای جزئیات بیشتر در مورد نصب راست، "
+"صفحه مربوط به [استفاده از کارگو](../../cargo.md)  را ببینید."
 
 #: src/exercises/day-1/morning.md:17
 msgid "Alternatively, use the Rust Playground."
-msgstr ""
+msgstr "در غیر این صورت از `Rust Playground` استفاده کنید."
 
 #: src/exercises/day-1/morning.md:19
 msgid ""
 "The code snippets are not editable on purpose: the inline code snippets lose "
 "their state if you navigate away from the page."
 msgstr ""
+"قطعه کدها به صورت عمدی قابل ویرایش نیستند: قطعه کدهای درون‌خطی اگر از صفحه "
+"خارج شوید،  به حالت پیش‌فرض بازنشانی می‌شوند و تغییرات شما درنظر گرفته نمی‌شود."
 
 #: src/exercises/day-1/morning.md:22 src/exercises/day-2/morning.md:11
 #: src/exercises/day-3/morning.md:9 src/exercises/bare-metal/morning.md:7
@@ -3721,6 +3835,8 @@ msgid ""
 "After looking at the exercises, you can look at the [solutions](solutions-"
 "morning.md) provided."
 msgstr ""
+"پس از دیدن تمرین‌ها، می‌توانید به [راه حل‌ها] (solutions-morning.md) ارائه شده "
+"نگاه کنید."
 
 #: src/exercises/day-1/implicit-conversions.md:3
 msgid ""
@@ -3728,6 +3844,9 @@ msgid ""
 "([unlike C++](https://en.cppreference.com/w/cpp/language/"
 "implicit_conversion)). You can see this in a program like this:"
 msgstr ""
+"راست به طور خودکار تبدیل‌های صریح بین انواع را اعمال نمی‌کند ([برخلاف زبان "
+"<span dir=ltr>`C++`</span>](https://en.cppreference.com/w/cpp/language/"
+"implicit_conversion)).به عنوان مثال میتوانید این را در یک برنامه ببینید:"
 
 #: src/exercises/day-1/implicit-conversions.md:20
 msgid ""
@@ -3738,6 +3857,15 @@ msgid ""
 "trait has a single `into()` method. Implementing these traits is how a type "
 "expresses that it can be converted into another type."
 msgstr ""
+"همه انواع عدد صحیح راست، تریت‌های (Trait) [<span dir=ltr>`Into<T>`</span>]"
+"(https://doc.rust-lang.org/std/convert/trait.Into.html) و [<span "
+"dir=ltr>`From<T>`</span>](https://doc.rust-lang.org/std/convert/trait.From."
+"html) را پیاده‌سازی می‌کنند تا به ما امکان تبدیل بین انواع عددی صحیح را بدهند. "
+"با پیاده سازی ویژگی <span dir=ltr>`From<T>`</span> همه انواع به صورت مشترک "
+"یک متد <span dir=ltr>`from()`</span> را دارند. با پیاده‌سازی تریت <span "
+"dir=ltr>`Into<T>`</span>  همه انواع یک متد مشترک به اسم <span "
+"dir=ltr>`into()`</span> را دارند. پیاده‌سازی این تریت‌ها راهی است که یک نوع "
+"بیان می‌کند که می‌تواند به نوع دیگری تبدیل شود."
 
 #: src/exercises/day-1/implicit-conversions.md:26
 msgid ""
@@ -3747,6 +3875,13 @@ msgid ""
 "i16` implementation automatically create an implementation of `Into<i16> for "
 "i8`."
 msgstr ""
+"کتابخانه استاندارد یک پیاده‌سازی <span dir=ltr>`From<i8> for i16`</span> دارد "
+"<span dir=ltr>`i16`</span> دارد، به این معنی که می‌توانیم یک متغیر `x` از نوع "
+"`i8` را با فراخوانی <span dir=ltr>`i16::from(x)`</span>  به یک <span "
+"dir=ltr>`i16`</span>  تبدیل کنیم.  یا به شیوه ساده‌تر، با <span dir=ltr>`x."
+"into()`</span> ، زیرا پیاده‌سازی <span dir=ltr>`From<i8>`</span>  برای نوع "
+"<span dir=ltr>`i16`</span>  به طور خودکار پیاده‌سازی<span "
+"dir=ltr>`Into<i16>`</span>  برای نوع `i8` را ایجاد می‌کند."
 
 #: src/exercises/day-1/implicit-conversions.md:31
 msgid ""
@@ -3754,14 +3889,20 @@ msgid ""
 "it is sufficient to only implement `From` to get a respective `Into` "
 "implementation automatically."
 msgstr ""
+"همین امر برای پیاده‌سازی‌های <span dir=ltr>`From`</span> خودتان برای انواع "
+"خودتان نیز صدق می‌کند،  بنابراین کافیست فقط <span dir=ltr>`From`</span> را "
+"پیاده‌سازی کنید تا به طور خودکار پیاده‌سازی <span dir=ltr>`Into`</span> مربوطه "
+"را دریافت کنید."
 
 #: src/exercises/day-1/implicit-conversions.md:34
 msgid "Execute the above program and look at the compiler error."
-msgstr ""
+msgstr "برنامه فوق را اجرا و به خطای کامپایلر نگاه کنید."
 
 #: src/exercises/day-1/implicit-conversions.md:36
 msgid "Update the code above to use `into()` to do the conversion."
 msgstr ""
+"کد بالا را به گونه‌ای به‌روزرسانی کنید که از <span dir=ltr>`into()`</span> "
+"برای انجام تبدیل استفاده شود."
 
 #: src/exercises/day-1/implicit-conversions.md:38
 msgid ""
@@ -3771,27 +3912,37 @@ msgid ""
 "[standard library documentation](https://doc.rust-lang.org/std/convert/trait."
 "From.html) to see if `From<T>` is implemented for the pairs you check."
 msgstr ""
+"نوع داده  `x` و `y` را به چیزهای دیگری (مانند `f32`, `bool`, `i128`) تغییر "
+"دهید تا ببینید کدام انواع را می‌توانید به کدام انواع دیگر تبدیل کنید.  سعی "
+"کنید انواع کوچک را به انواع بزرگ تبدیل کنید و برعکس. [مستندات کتابخانه "
+"استاندارد](https://doc.rust-lang.org/std/convert/trait.From.html) را بررسی "
+"کنید  تا ببینید آیا <span dir=ltr>`From<T>`</span> برای تبدیل انواع‌ایی که "
+"بررسی می‌کنید پیاده‌سازی شده است یا نه."
 
 #: src/exercises/day-1/for-loops.md:1
 #: src/exercises/day-1/solutions-morning.md:3
 msgid "Arrays and `for` Loops"
-msgstr ""
+msgstr "آرایه‌ها و حلقه‌های `for`"
 
 #: src/exercises/day-1/for-loops.md:3
 msgid "We saw that an array can be declared like this:"
-msgstr ""
+msgstr "دیدیم که یک آرایه را می‌توان به صورت زیر تعریف کرد: "
 
 #: src/exercises/day-1/for-loops.md:9
 msgid ""
 "You can print such an array by asking for its debug representation with `{:?}"
 "`:"
 msgstr ""
+"می‌توانید چنین آرایه‌ای را با درخواست نمایش اشکال‌زدایی آن با <span "
+"dir=ltr>`{:?}`</span> چاپ کنید:"
 
 #: src/exercises/day-1/for-loops.md:19
 msgid ""
 "Rust lets you iterate over things like arrays and ranges using the `for` "
 "keyword:"
 msgstr ""
+"راست به شما این امکان را می‌دهد تا با استفاده از کلمه کلیدی `for` بر روی "
+"چیزهایی مانند آرایه‌ها و رنج‌ها پیمایش کنید:"
 
 #: src/exercises/day-1/for-loops.md:22
 msgid ""
@@ -3819,16 +3970,22 @@ msgid ""
 "and a function `transpose` which will transpose a matrix (turn rows into "
 "columns):"
 msgstr ""
+"از کد بالا برای نوشتن تابع <span dir=ltr>`pretty_print`</span> که یک ماتریس "
+"را به صورت <span dir=ltr>`pretty-print`</span>  چاپ می‌کند و تابع <span "
+"dir=ltr>`transpose`</span> که یک ماتریس را جابجا می‌کند  (ردیف‌ها را به ستون‌ها "
+"تبدیل می‌کند) استفاده کنید: "
 
 #: src/exercises/day-1/for-loops.md:49
 msgid "Hard-code both functions to operate on 3 × 3 matrices."
-msgstr ""
+msgstr "هر دو تابع را برای کار بر روی ماتریس‌های 3 × 3 هاردکد کنید."
 
 #: src/exercises/day-1/for-loops.md:51
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and implement the "
 "functions:"
 msgstr ""
+"کد زیر را در <span dir=ltr><https://play.rust-lang.org/></span> کپی کرده و "
+"توابع را پیاده‌سازی کنید:"
 
 #: src/exercises/day-1/for-loops.md:54
 msgid ""
@@ -3863,7 +4020,7 @@ msgstr ""
 
 #: src/exercises/day-1/for-loops.md:82
 msgid "Bonus Question"
-msgstr ""
+msgstr "سوال جایزه‌دار"
 
 #: src/exercises/day-1/for-loops.md:84
 msgid ""
@@ -3871,28 +4028,39 @@ msgid ""
 "argument and return types? Something like `&[&[i32]]` for a two-dimensional "
 "slice-of-slices. Why or why not?"
 msgstr ""
+"آیا می‌توانید به جای ماتریس‌های 3 × 3 هاردکد شده از برش‌های <span "
+"dir=ltr>`&[i32]`</span>  برای آرگومان و انواع برگشتی تابع خود استفاده کنید؟ "
+"چیزی شبیه <span dir=ltr>`&[&[i32]]`</span> برای برش-از-برش دو بعدی. آیا "
+"امکان پذیر هست؟ چرا اره و چرا نه؟"
 
 #: src/exercises/day-1/for-loops.md:89
 msgid ""
 "See the [`ndarray` crate](https://docs.rs/ndarray/) for a production quality "
 "implementation."
 msgstr ""
+"برای دیدن یک پیاده‌سازی با کیفیت پروداکشن به جعبه [<span dir=ltr>`ndarray`</"
+"span>](https://docs.rs/ndarray/) سر بزنید."
 
 #: src/exercises/day-1/for-loops.md:94
 msgid ""
 "The solution and the answer to the bonus section are available in the  "
 "[Solution](solutions-morning.md#arrays-and-for-loops) section."
 msgstr ""
+"راه‌حل‌ها و پاسخ به بخش جایزه در بخش جواب‌ها](solutions-morning.md#arrays-and-"
+"for-loops) موجود است."
 
 #: src/exercises/day-1/for-loops.md:97
 msgid ""
 "The use of the reference `&array` within `for n in &array` is a subtle "
 "preview of issues of ownership that will come later in the afternoon."
 msgstr ""
+"استفاده از ارجاع <span dir=ltr>`&array`</span>  در بخش <span dir=ltr>`for n "
+"in &array`</span>  پیش‌نمایشی کوچکی از مسئله مالکیت است که بعداً توی قسمت عصر "
+"به ان خواهیم پرداخت."
 
 #: src/exercises/day-1/for-loops.md:100
 msgid "Without the `&`..."
-msgstr ""
+msgstr "بدون استفاده از `&` ..."
 
 #: src/exercises/day-1/for-loops.md:101
 msgid ""
@@ -3900,12 +4068,17 @@ msgid ""
 "[introduced in the 2021 Edition](https://doc.rust-lang.org/edition-guide/"
 "rust-2021/IntoIterator-for-arrays.html)."
 msgstr ""
+"حلقه به گونه‌ای می‌بود که آرایه را مصرف می‌کند. این تغییری [در ویرایش سال ۲۰۲۱ "
+"معرفی شده است.](https://doc.rust-lang.org/edition-guide/rust-2021/"
+"IntoIterator-for-arrays.html)"
 
 #: src/exercises/day-1/for-loops.md:104
 msgid ""
 "An implicit array copy would have occurred.  Since `i32` is a copy type, "
 "then `[i32; 3]` is also a copy type."
 msgstr ""
+"یک کپی آرایه ضمنی رخ می‌داد. از آنجایی که `i32` یک نوع کپی است، پس <span "
+"dir=ltr>`[i32; 3]`</span>  نیز یک نوع کپی است."
 
 #: src/control-flow.md:3
 msgid ""
@@ -3914,58 +4087,75 @@ msgid ""
 "becomes the value of the `if` expression. Other control flow expressions "
 "work similarly in Rust."
 msgstr ""
+"همانطور که دیدیم، `if` در Rust یک عبارت است.  عبارت `if` برای آن استفاده "
+"میشود که یکی از ۲ بلوک شرطی را در راست ایجاد کند. توجه داشته باشید که در "
+"راست این بلاک  های `if`  میتوانند یک مقدار را برگرداند و اصطلاحا یک مقدار "
+"داشته باشند. بقیه عبارات کنترل جریان نیز مشابه این کار میکنند."
 
 #: src/control-flow/blocks.md:3
 msgid ""
 "A block in Rust contains a sequence of expressions. Each block has a value "
 "and a type, which are those of the last expression of the block:"
 msgstr ""
+"یک بلاک در Rust میتواند حاوی چندین عبارات باشد. هر بلاک دارای یک مقدار  و یک "
+"نوع بازگشتی است که مربوط به آخرین عبارت در ان بلاک می‌باشد:"
 
 #: src/control-flow/blocks.md:27
 msgid ""
 "If the last expression ends with `;`, then the resulting value and type is "
 "`()`."
-msgstr ""
+msgstr "اگر آخرین عبارت با `;` پایان یابد، مقدار و نوع بازگشتی `()` است."
 
 #: src/control-flow/blocks.md:29
 msgid ""
 "The same rule is used for functions: the value of the function body is the "
 "return value:"
 msgstr ""
+"قانون مشابه‌ای برای توابع نیز صدق می‌کند:  آخرین مقدار  در بلاک تابع مقدار "
+"برگشتی است: "
 
 #: src/control-flow/blocks.md:45 src/enums.md:34 src/enums/sizes.md:28
 #: src/pattern-matching.md:25 src/pattern-matching/match-guards.md:22
 #: src/structs.md:31 src/methods.md:30 src/methods/example.md:46
 msgid "Key Points:"
-msgstr ""
+msgstr "نکات کلیدی:"
 
 #: src/control-flow/blocks.md:46
 msgid ""
 "The point of this slide is to show that blocks have a type and value in "
 "Rust. "
 msgstr ""
+"هدف از این اسلاید نشان دادن این است که بلوک ها در Rust دارای نوع و مقدار "
+"هستند. "
 
 #: src/control-flow/blocks.md:47
 msgid ""
 "You can show how the value of the block changes by changing the last line in "
 "the block. For instance, adding/removing a semicolon or using a `return`."
 msgstr ""
+"می‌توانید نشان دهید که چگونه با تغییر خط آخر بلاک مقدار و نوع بازگشتی تغییر "
+"می‌کند. به عنوان مثال با اضافه کردن یا  حذف کردن یک `;` یا با استفاده از کلید "
+"واژه `return` تغییرات را اعمال کنید."
 
 #: src/control-flow/if-expressions.md:1
 msgid "`if` expressions"
-msgstr ""
+msgstr "عبارات `if`"
 
 #: src/control-flow/if-expressions.md:3
 msgid ""
 "You use [`if` expressions](https://doc.rust-lang.org/reference/expressions/"
 "if-expr.html#if-expressions) exactly like `if` statements in other languages:"
 msgstr ""
+"شما [عبارت `if`](https://doc.rust-lang.org/reference/expressions/if-expr."
+"html#if-expressions) رو به مانند دیگر زبان‌ها استفاده می‌کنید:"
 
 #: src/control-flow/if-expressions.md:18
 msgid ""
 "In addition, you can use `if` as an expression. The last expression of each "
 "block becomes the value of the `if` expression:"
 msgstr ""
+"در کنار این موضوع, می‌توانید از if به عنوان یک عبارت با قابلیت بازگشت مقدار "
+"هم استفاده کنید. آخرین عبارت توی هر بلاک  if اون مقدار و نوع بازگشتی است:"
 
 #: src/control-flow/if-expressions.md:35
 msgid ""
@@ -3973,10 +4163,13 @@ msgid ""
 "branch blocks must have the same type. Consider showing what happens if you "
 "add `;` after `x / 2` in the second example."
 msgstr ""
+"از آنجایی که ‍`if` یک عبارت است و باید نوع خاصی داشته باشد، هر دو بلاک (`if` "
+"و `else`) باید از نوع یکسانی را باز گردانند.  در نظر بگیرید که اگر بعد از "
+"`x / 2` در مثال دوم `;` اضافه کنید، چه اتفاقی می افتد. "
 
 #: src/control-flow/for-expressions.md:1
 msgid "`for` loops"
-msgstr ""
+msgstr "حلقه‌های `for`"
 
 #: src/control-flow/for-expressions.md:3
 msgid ""
@@ -3984,85 +4177,112 @@ msgid ""
 "related to the [`while let` loop](while-let-expressions.md). It will "
 "automatically call `into_iter()` on the expression and then iterate over it:"
 msgstr ""
+"[حلقه `for`](https://doc.rust-lang.org/std/keyword.for.html)  به طور نزدیکی "
+"به حلقه [حلقه `while let` ](while-let-expressions.md) مرتبط است. حلقه `for` "
+"به طور خودکار  <span dir=ltr>`into_iter()`</span> را روی عبارت  فراخوانی "
+"می‌کند و سپس روی آن پیشمایش انجام می‌دهد:"
 
 #: src/control-flow/for-expressions.md:22
 msgid "You can use `break` and `continue` here as usual."
 msgstr ""
+"مثل بقیه زبان‌ها می‌توانید از `break` و `continue` به صورت عادی استفاده کنید."
 
 #: src/control-flow/for-expressions.md:26
 msgid "Index iteration is not a special syntax in Rust for just that case."
-msgstr ""
+msgstr "پیشمایش اندیس در زبان راست دارای سینتکس خاصی نمی‌باشد."
 
 #: src/control-flow/for-expressions.md:27
 msgid "`(0..10)` is a range that implements an `Iterator` trait. "
 msgstr ""
+"<span dir=ltr><code class=hljs>(0..10)</code></span>  یک محدوده است که ویژگی "
+"`Iterator` را پیاده‌سازی می‌کند."
 
 #: src/control-flow/for-expressions.md:28
 msgid ""
 "`step_by` is a method that returns another `Iterator` that skips every other "
 "element. "
 msgstr ""
+"متد `step_by`,  متدی است که یک `Iterator` دیگر با قابلیت در نظر نگرفتن بقیه "
+"عناصر را برمی‌گرداند."
 
 #: src/control-flow/for-expressions.md:29
 msgid ""
 "Modify the elements in the vector and explain the compiler errors. Change "
 "vector `v` to be mutable and the for loop to `for x in v.iter_mut()`."
 msgstr ""
+"عناصر را در بردار تغییر دهید و خطاهای کامپایلر را توضیح دهید. بردار v را "
+"قابل تغییر کنید (با اضافه کردن `mut`) و حلقه  `for` را به <span dir=ltr>`for "
+"x in v.iter_mut()`</span> تغییر دهید."
 
 #: src/control-flow/while-expressions.md:1
 msgid "`while` loops"
-msgstr ""
+msgstr "حلقه‌های `while`"
 
 #: src/control-flow/while-expressions.md:3
 msgid ""
 "The [`while` keyword](https://doc.rust-lang.org/reference/expressions/loop-"
 "expr.html#predicate-loops) works very similar to other languages:"
 msgstr ""
+"[کلمه‌کلیدی`while` ](https://doc.rust-lang.org/reference/expressions/loop-"
+"expr.html#predicate-loops) بسیار شبیه به سایر زبان‌ها عمل می‌کند:"
 
 #: src/control-flow/break-continue.md:1
 msgid "`break` and `continue`"
-msgstr ""
+msgstr "`break` و `continue`"
 
 #: src/control-flow/break-continue.md:3
 msgid ""
 "If you want to exit a loop early, use [`break`](https://doc.rust-lang.org/"
 "reference/expressions/loop-expr.html#break-expressions),"
 msgstr ""
+"اگر می‌خواهید زودتر از یک حلقه خارج شوید، از [`break`](https://doc.rust-lang."
+"org/reference/expressions/loop-expr.html#break-expressions) استفاده کنید,"
 
 #: src/control-flow/break-continue.md:4
 msgid ""
 "If you want to immediately start the next iteration use [`continue`](https://"
 "doc.rust-lang.org/reference/expressions/loop-expr.html#continue-expressions)."
 msgstr ""
+"اگر می‌خواهید بلافاصله تکرار بعدی را شروع کنید، از [`continue`](https://doc."
+"rust-lang.org/reference/expressions/loop-expr.html#continue-expressions) "
+"استفاده کنید."
 
 #: src/control-flow/break-continue.md:7
 msgid ""
 "Both `continue` and `break` can optionally take a label argument which is "
 "used to break out of nested loops:"
 msgstr ""
+"کلیدواژه‌های `continue` و `break` هر دو می‌توانند به صورت اختیاری یک آرگومان "
+"برچسب (label) بگیرند که میتوان برای  خروج از حلقه‌های تو در تو استفاده می‌کرد:"
 
 #: src/control-flow/break-continue.md:29
 msgid ""
 "In this case we break the outer loop after 3 iterations of the inner loop."
-msgstr ""
+msgstr "در این مورد، پس از 3 تکرار حلقه `inner`، از حلقه `outer` خارج می‌شویم."
 
 #: src/control-flow/loop-expressions.md:1
 msgid "`loop` expressions"
-msgstr ""
+msgstr "عبارات `loop`"
 
 #: src/control-flow/loop-expressions.md:3
 msgid ""
 "Finally, there is a [`loop` keyword](https://doc.rust-lang.org/reference/"
 "expressions/loop-expr.html#infinite-loops) which creates an endless loop."
 msgstr ""
+"در نهایت، [کلمه کلیدی `loop`](https://doc.rust-lang.org/reference/"
+"expressions/loop-expr.html#infinite-loops) وجود دارد که یک حلقه بی‌پایان "
+"ایجاد می‌کند."
 
 #: src/control-flow/loop-expressions.md:6
 msgid "Here you must either `break` or `return` to stop the loop:"
 msgstr ""
+"اینجا باید از `break` یا `return` برای توقف حلقه و خروج از آن استفاده کنید:"
 
 #: src/control-flow/loop-expressions.md:28
 msgid "Break the `loop` with a value (e.g. `break 8`) and print it out."
 msgstr ""
+"حلقه `loop` را با یک مقدار متوقف کنید (به عنوان مثال <span dir=ltr>`break "
+"8`</span> ) و آن را چاپ کنید."
 
 #: src/control-flow/loop-expressions.md:29
 msgid ""
@@ -4070,28 +4290,37 @@ msgid ""
 "value. This is because it's guaranteed to be entered at least once (unlike "
 "`while` and `for` loops)."
 msgstr ""
+"توجه داشته باشید که loop تنها ساختار حلقه‌ای است که یک مقدار **non-trivial** "
+"را برمی‌گرداند. این به دلیل این است که  تضمین می‌شود حداقل یک بار وارد آن شود "
+"(برخلاف حلقه‌های `while` و `for`)."
 
 #: src/basic-syntax/variables.md:3
 msgid ""
 "Rust provides type safety via static typing. Variable bindings are immutable "
 "by default:"
 msgstr ""
+"زبان Rust از طریق سیستم تایپ استاتیک, ایمینی نوع را فراهم می‌کند. به صورت "
+"پیشفرض تعریف متغییر ها از نوع «غیر قابل تغییر» (immutable) است:"
 
 #: src/basic-syntax/variables.md:18
 msgid ""
 "Due to type inference the `i32` is optional. We will gradually show the "
 "types less and less as the course progresses."
 msgstr ""
+"به دلیل تعیین نوع ضمنی گذاشتن `i32` اختیاریست. با جلو  رفتن در این دوره کمتر "
+"و کمتر آن را نشان خواهیم داد."
 
 #: src/basic-syntax/type-inference.md:3
 msgid "Rust will look at how the variable is _used_ to determine the type:"
-msgstr ""
+msgstr "زبان Rust برای تعیین نوع متغیر به نحوه استفاده از آن نگاه می‌کند:"
 
 #: src/basic-syntax/type-inference.md:27
 msgid ""
 "This slide demonstrates how the Rust compiler infers types based on "
 "constraints given by variable declarations and usages."
 msgstr ""
+"این اسلاید نشان می‌دهد که چگونه کامپایلر Rust با توجه به اعلان‌ها و استفاده‌های "
+"متغیر، انواع را استنتاج می‌کند. "
 
 #: src/basic-syntax/type-inference.md:29
 msgid ""
@@ -4101,6 +4330,11 @@ msgid ""
 "of a type. The compiler does the job for us and helps us write more concise "
 "code."
 msgstr ""
+"بسیار مهم است که تاکید کنیم متغیرهایی که به این صورت تعریف می‌شوند از «نوع "
+"داده پویای `any`» نیستند که بتواند هر نوعی باشند. وقتی که ما از **تعیین تایپ "
+"ضمنی** استفاده می‌کنیم در واقع مشابه زمانی هست که نوع داده را به صورت صریح "
+"اعلام میکنیم و کد های ماشین آنها دقیقا یکسان هستند. فقط با استفاده از  تعیین "
+"تایپ ضمنی میتوانید کد ها رو به صورت مختصرتر بنویسیم. "
 
 #: src/basic-syntax/type-inference.md:33
 msgid ""
@@ -4108,6 +4342,9 @@ msgid ""
 "container without the code ever explicitly specifying the contained type, "
 "using `_` as a placeholder:"
 msgstr ""
+"کد زیر به کامپایلر می‌گوید که بدون اینکه کد به صراحت نوع داده را مشخص کند، در "
+"یک کانتینر عمومی (generic container)  خاص کپی کند، با استفاده از _ به عنوان "
+"یک جایگزین برای اعلام نوع داده: "
 
 #: src/basic-syntax/type-inference.md:48
 msgid ""
@@ -4117,10 +4354,15 @@ msgid ""
 "org/std/collections/struct.HashSet.html#impl-FromIterator%3CT%3E-for-"
 "HashSet%3CT,+S%3E) implements."
 msgstr ""
+"[`collect`](https://doc.rust-lang.org/stable/std/iter/trait.Iterator."
+"html#method.collect) به [`FromIterator`](https://doc.rust-lang.org/std/iter/"
+"trait.FromIterator.html) متکی است که [`HashSet`](https://doc.rust-lang.org/"
+"std/collections/struct.HashSet.html#impl-FromIterator%3CT%3E-for-HashSet%3CT,"
+"+S%3E) آن را پیاده‌سازی می‌کند."
 
 #: src/basic-syntax/static-and-const.md:1
 msgid "Static and Constant Variables"
-msgstr ""
+msgstr "متغیر‌های ایستا و ثابت"
 
 #: src/basic-syntax/static-and-const.md:3
 msgid ""
@@ -4128,6 +4370,9 @@ msgid ""
 "scoped values that cannot be moved or reallocated during the execution of "
 "the program. "
 msgstr ""
+"متغیرهای `ثابت` و `ایستا` دو روش متفاوت برای ایجاد مقادیر با اسکوپ گلوبال "
+"(قابل دسترس در کل برنامه) هستند که نمی‌توانند در طول اجرای برنامه منتقل یا "
+"دوباره تعریف شوند."
 
 #: src/basic-syntax/static-and-const.md:6
 msgid "`const`"
@@ -4138,18 +4383,25 @@ msgid ""
 "Constant variables are evaluated at compile time and their values are "
 "inlined wherever they are used:"
 msgstr ""
+"متغیرهای ثابت در زمان کامپایل ارزیابی می شوند و مقادیر آنها در هر جایی که "
+"استفاده می شوند، درج می شوند:"
 
 #: src/basic-syntax/static-and-const.md:30
 msgid ""
 "According to the [Rust RFC Book](https://rust-lang.github.io/rfcs/0246-const-"
 "vs-static.html) these are inlined upon use."
 msgstr ""
+"طبق [کتاب Rust RFC](https://rust-lang.github.io/rfcs/0246-const-vs-static."
+"html)، این موارد هنگام استفاده درج می شوند."
 
 #: src/basic-syntax/static-and-const.md:32
 msgid ""
 "Only functions marked `const` can be called at compile time to generate "
 "`const` values. `const` functions can however be called at runtime."
 msgstr ""
+"فقط توابعی که با `const` علامت گذاری شده اند می توانند در زمان کامپایل برای "
+"تولید مقادیر `const` فراخوانی شوند. با این حال، توابع `const` را می توان در "
+"زمان اجرا فراخوانی کرد (بر خلاف تعریف متغییری ثابت)"
 
 #: src/basic-syntax/static-and-const.md:34
 msgid "`static`"
@@ -4160,6 +4412,8 @@ msgid ""
 "Static variables will live during the whole execution of the program, and "
 "therefore will not move:"
 msgstr ""
+"متغیرهای ایستا در طول عمر کل اجرای برنامه خواهند ماند و بنابراین منتقل "
+"نمی‌شوند:"
 
 #: src/basic-syntax/static-and-const.md:38
 msgid ""
@@ -4181,6 +4435,11 @@ msgid ""
 "globally-scoped value does not have a reason to need object identity, "
 "`const` is generally preferred."
 msgstr ""
+"همانطور که در [کتاب Rust RFC](https://rust-lang.github.io/rfcs/0246-const-vs-"
+"static.html) ذکر شده، این موارد هنگام استفاده درج نمی شوند و دارای یک مکان "
+"حافظه واقعی هستند. این برای کدهای ناایمن و `embedded` مفید است و متغیر در کل "
+"اجرای برنامه زنده می ماند. هنگامی که یک مقدار با اسکوپ گلوبال نیاز نیست, "
+"استفاده از `const` ترجیح داده می‌شود."
 
 #: src/basic-syntax/static-and-const.md:50
 msgid ""
@@ -4191,40 +4450,58 @@ msgid ""
 "access to them requires `unsafe` code. We will look at [mutable statics](../"
 "unsafe/mutable-static-variables.md) in the chapter on Unsafe Rust."
 msgstr ""
+"از آنجایی که متغیرهای `static` از هر رشته‌ای (thread) قابل دسترسی هستند، باید "
+"`Sync` باشند. تغییرپذیری داخلی از طریق یک [`Mutex`](https://doc.rust-lang."
+"org/std/sync/struct.Mutex.html)، اتمی یا مشابه امکان پذیر است. البته که "
+"داشتن متغییر های استاتیک قابل تغییر هم امکان پذیر هست اما برای این کار نیاز "
+"به همگام سازی دستی دارند.  بنابراین هر دسترسی به آنها نیاز به کد `unsafe` "
+"دارد. ما در فصل Unsafe Rust به استاتیک های قابل تغییر [mutable statics](../"
+"unsafe/mutable-static-variables.md) نگاه خواهیم کرد."
 
 #: src/basic-syntax/static-and-const.md:58
 msgid "Mention that `const` behaves semantically similar to C++'s `constexpr`."
 msgstr ""
+"به این نکته اشاره کنید که `const` شبیه `constexpr` در <span dir=ltr>`C++`</"
+"span> عمل می کند."
 
 #: src/basic-syntax/static-and-const.md:59
 msgid ""
 "`static`, on the other hand, is much more similar to a `const` or mutable "
 "global variable in C++."
 msgstr ""
+"از سوی دیگر، `static` بسیار شبیه به یک متغیر سراسری `const` یا `mutable` در "
+"<span dir=ltr>`C++`</span> هستند."
 
 #: src/basic-syntax/static-and-const.md:60
 msgid ""
 "`static` provides object identity: an address in memory and state as "
 "required by types with interior mutability such as `Mutex<T>`."
 msgstr ""
+"`static` هویت شی را فراهم می‌کند: آدرسی در حافظه و حالتی که توسط انواع با "
+"تغییرپذیری داخلی مانند <span dir=ltr>`Mutex<T>`</span> را نیاز دارد."
 
 #: src/basic-syntax/static-and-const.md:61
 msgid ""
 "It isn't super common that one would need a runtime evaluated constant, but "
 "it is helpful and safer than using a static."
 msgstr ""
+"با اینکه خیلی رایج نیست که اگر کسی به یک یک مقدار ثابت  که در زمان اجرا "
+"ارزیابی می‌شود از `const` استفاده کند اما مفید تر و ایمن تر از استفاده "
+"`static`ها هستند."
 
 #: src/basic-syntax/static-and-const.md:62
 msgid "`thread_local` data can be created with the macro `std::thread_local`."
 msgstr ""
+"داده‌های `thread_local` را با ماکروی <span dir=ltr>`std::thread_local`</span> "
+"می‌توان ایجاد کرد."
 
 #: src/basic-syntax/static-and-const.md:64
 msgid "Properties table:"
-msgstr ""
+msgstr "جدول خاصیت‌ها:"
 
 #: src/basic-syntax/static-and-const.md:66
 msgid "Property"
-msgstr ""
+msgstr "ویژگی"
 
 #: src/basic-syntax/static-and-const.md:66
 msgid "Static"
@@ -4236,54 +4513,56 @@ msgstr ""
 
 #: src/basic-syntax/static-and-const.md:68
 msgid "Has an address in memory"
-msgstr ""
+msgstr "دارای یک آدرس واقعی در حافظه"
 
 #: src/basic-syntax/static-and-const.md:68
 #: src/basic-syntax/static-and-const.md:69
 #: src/basic-syntax/static-and-const.md:71
 #: src/basic-syntax/static-and-const.md:72
 msgid "Yes"
-msgstr ""
+msgstr "بلی"
 
 #: src/basic-syntax/static-and-const.md:68
 msgid "No (inlined)"
-msgstr ""
+msgstr "خیر (به صورت درون خطی)"
 
 #: src/basic-syntax/static-and-const.md:69
 msgid "Lives for the entire duration of the program"
-msgstr ""
+msgstr "در طول‌عمر کل برنامه زنده می‌ماند؟"
 
 #: src/basic-syntax/static-and-const.md:69
 #: src/basic-syntax/static-and-const.md:70
 #: src/basic-syntax/static-and-const.md:72
 msgid "No"
-msgstr ""
+msgstr "خیر"
 
 #: src/basic-syntax/static-and-const.md:70
 msgid "Can be mutable"
-msgstr ""
+msgstr "میتوان قابل تغییر اش کرد"
 
 #: src/basic-syntax/static-and-const.md:70
 msgid "Yes (unsafe)"
-msgstr ""
+msgstr "بلی (unsafe)"
 
 #: src/basic-syntax/static-and-const.md:71
 msgid "Evaluated at compile time"
-msgstr ""
+msgstr "ارزیابی در زمان کامپایل"
 
 #: src/basic-syntax/static-and-const.md:71
 msgid "Yes (initialised at compile time)"
-msgstr ""
+msgstr "بلی (در زمان کامپایل ساخته می‌شود)"
 
 #: src/basic-syntax/static-and-const.md:72
 msgid "Inlined wherever it is used"
-msgstr ""
+msgstr "به صورت درون‌خطی هر جا که استفاده میشود قرار میگیرد"
 
 #: src/basic-syntax/scopes-shadowing.md:3
 msgid ""
 "You can shadow variables, both those from outer scopes and variables from "
 "the same scope:"
 msgstr ""
+"شما می توانید متغیرها را سایه بزنید، هم آنهایی که از اسکوپ‌های بیرونی هستند و "
+"هم متغیرهایی که از اسکوپ یکسان هستند:"
 
 #: src/basic-syntax/scopes-shadowing.md:6
 msgid ""
@@ -4311,16 +4590,21 @@ msgid ""
 "both variable's memory locations exist at the same time. Both are available "
 "under the same name, depending where you use it in the code. "
 msgstr ""
+"تعریف: سایه زدن با متغییر قابل تغییر متفاوت است، زیرا پس از سایه زدن، مکان "
+"های حافظه هر دو متغیر همزمان وجود دارند. هر دو تحت یک نام در دسترس هستند، "
+"بسته به اینکه در کجا در کد از آن استفاده می کنید."
 
 #: src/basic-syntax/scopes-shadowing.md:26
 msgid "A shadowing variable can have a different type. "
-msgstr ""
+msgstr "یک متغیر سایه‌دار می تواند انواع داده‌ای متفاوتی داشته باشد."
 
 #: src/basic-syntax/scopes-shadowing.md:27
 msgid ""
 "Shadowing looks obscure at first, but is convenient for holding on to values "
 "after `.unwrap()`."
 msgstr ""
+"سایه زدن در ابتدا مبهم به نظر می رسد، اما برای نگه داشتن مقادیر پس از  <span "
+"dir=ltr>`.unwrap()`</span> مناسب است."
 
 #: src/basic-syntax/scopes-shadowing.md:28
 msgid ""
@@ -4328,12 +4612,17 @@ msgid ""
 "locations when shadowing an immutable variable in a scope, even if the type "
 "does not change."
 msgstr ""
+"کد زیر نشان می دهد که چرا کامپایلر نمی تواند به سادگی از مکان های حافظه که "
+"قبلا برای یک متغییر در نظر گرفته است به صورت مجدد وقتی که یک متغییر غیر قابل "
+"تغییر داریم استفاده کند. حتی اگر چه نوع داده تغییر نکند."
 
 #: src/enums.md:3
 msgid ""
 "The `enum` keyword allows the creation of a type which has a few different "
 "variants:"
 msgstr ""
+"کلمه کلیدی `enum` اجازه ایجاد نوع داده‌ای را می دهد که دارای چندین گونه مختلف "
+"است:"
 
 #: src/enums.md:6
 msgid ""
@@ -4367,26 +4656,32 @@ msgstr ""
 #: src/enums.md:36
 msgid "Enumerations allow you to collect a set of values under one type"
 msgstr ""
+"`Enum`ها به شما امکان می دهند مجموعه‌ای از مقادیر مختلف با نوع‌های مختلف را "
+"تحت یک نوع جمع آوری کنید."
 
 #: src/enums.md:37
 msgid ""
 "This page offers an enum type `CoinFlip` with two variants `Heads` and "
 "`Tails`. You might note the namespace when using variants."
 msgstr ""
+"در این صفحه نوع`Enum`به اسم `CoinFlip` که دارای `Heads` و `Tails` می‌باشد. "
+"هنگام استفاده از `Enum`ها، به این اینگونه نام‌ها توجه کنید."
 
 #: src/enums.md:38
 msgid "This might be a good time to compare Structs and Enums:"
-msgstr ""
+msgstr "الان زمان خوبی برای مقایسه ساختارها و `Enum`هاست:"
 
 #: src/enums.md:39
 msgid ""
 "In both, you can have a simple version without fields (unit struct) or one "
 "with different types of fields (variant payloads). "
 msgstr ""
+"در هر دو، می توانید یک نسخه ساده بدون فیلد (unit struct) یا یکی با انواع "
+"مختلف فیلد (variant payloads) داشته باشید."
 
 #: src/enums.md:40
 msgid "In both, associated functions are defined within an `impl` block."
-msgstr ""
+msgstr "در هر دو، توابع مورد نیازشون در داخل یک بلاک `impl` تعریف می‌شوند."
 
 #: src/enums.md:41
 msgid ""
@@ -4394,12 +4689,17 @@ msgid ""
 "structs but then they wouldn’t be the same type as they would if they were "
 "all defined in an enum. "
 msgstr ""
+"شما حتی می توانید انواع مختلف یک `Enum` را با ساختارهای جداگانه پیاده سازی "
+"کنید، اما در آن صورت آنها از همان نوعی که در ابتدا تعریف کردید یعنی `Enum` "
+"نخواهند بود."
 
 #: src/enums/variant-payloads.md:3
 msgid ""
 "You can define richer enums where the variants carry data. You can then use "
 "the `match` statement to extract the data from each variant:"
 msgstr ""
+"می توانید شمارش های غنی تری را تعریف کنید که در آن انواع مختلف داده باشند. "
+"سپس می‌توانید از دستور `match` برای استخراج داده‌ها از هر فیلد استفاده کنید:"
 
 #: src/enums/variant-payloads.md:6
 msgid ""
@@ -4437,46 +4737,64 @@ msgid ""
 "matched. The pattern binds references to the fields in the \"match arm\" "
 "after the `=>`."
 msgstr ""
+"مقادیر در`Enum` فقط پس از طییق الگوی قابل دسترسی هستند. الگو ارجاعی را به "
+"فیلدهای موجود با استفاده  بازوی `match` پس از <span dir=ltr>`=>`</span>  "
+"متصل می کند."
 
 #: src/enums/variant-payloads.md:36
 msgid ""
 "The expression is matched against the patterns from top to bottom. There is "
 "no fall-through like in C or C++."
 msgstr ""
+"بر خلاف زبان‌های برخلاف C یا <span dir=ltr>`C++`</span> طبیق الگو به صورت از "
+"بالا به پایین نمی‌باشد."
 
 #: src/enums/variant-payloads.md:37
 msgid ""
 "The match expression has a value. The value is the last expression in the "
 "match arm which was executed."
 msgstr ""
+"عبارت `match` دارای یک مقدار بازگشتی است. این مقدار آخرین عبارت در بازوی "
+"`match` ای است که اجرا شده است."
 
 #: src/enums/variant-payloads.md:38
 msgid ""
 "Starting from the top we look for what pattern matches the value then run "
 "the code following the arrow. Once we find a match, we stop. "
 msgstr ""
+"از بالا شروع می‌کنیم و به دنبال الگویی هستیم که با مقدار مطابقت داشته باشد، "
+"سپس کد پس از <span dir=ltr>`=>`</span> را اجرا می‌کنیم. بعد از اینکه توی "
+"match اولین طبیق الگو انجام شد جستجو متوقف میشود."
 
 #: src/enums/variant-payloads.md:39
 msgid ""
 "Demonstrate what happens when the search is inexhaustive. Note the advantage "
 "the Rust compiler provides by confirming when all cases are handled. "
 msgstr ""
+"این اتفاق را زمانی که الگوهای جستجو کامل نیستند نشان دهید. به مزیت کامپایلر "
+"Rust که با تایید زمانی که همه موارد رسیدگی می‌شوند، اشاره کنید."
 
 #: src/enums/variant-payloads.md:40
 msgid "`match` inspects a hidden discriminant field in the `enum`."
 msgstr ""
+"دستور `match` یک فیلد تشخیصی پنهان (hidden discriminant field) در `enum` را "
+"بررسی می کند."
 
 #: src/enums/variant-payloads.md:41
 msgid ""
 "It is possible to retrieve the discriminant by calling `std::mem::"
 "discriminant()`"
 msgstr ""
+"می توان با فراخوانی <span dir=ltr>`std::mem::discriminant()`</span> فیلد "
+"تشخیصی پنهان  را دریافت کرد."
 
 #: src/enums/variant-payloads.md:42
 msgid ""
 "This is useful, for example, if implementing `PartialEq` for structs where "
 "comparing field values doesn't affect equality."
 msgstr ""
+"بهتره بدانیم که اگر `PartialEq` را برای ساختارهایی پیاده سازی کنیم. قابلیت  "
+"`PartialEq`  بر برابری تأثیر نمی‌گذارد."
 
 #: src/enums/variant-payloads.md:43
 msgid ""
@@ -4484,12 +4802,18 @@ msgid ""
 "Click(Click)` with a top level `struct Click { ... }`. The inlined version "
 "cannot implement traits, for example."
 msgstr ""
+"<span dir=ltr>`WebEvent::Click { ... }`</span> دقیقاً مانند <span "
+"dir=ltr>`WebEvent::Click(Click)`</span> با <span dir=ltr>`struct Click "
+"{ ... }`</span> در سطح بالا نیست.برای مثال, نسخه درون‌خطی نمی‌تواند ویژگی‌ها را "
+"پیاده‌سازی کند."
 
 #: src/enums/sizes.md:3
 msgid ""
 "Rust enums are packed tightly, taking constraints due to alignment into "
 "account:"
 msgstr ""
+"`enum`ها در Rust به صورت فشرده بسته بندی شده اند، با در نظر گرفتن محدودیت "
+"های ناشی از هم ترازی:"
 
 #: src/enums/sizes.md:5
 msgid ""
@@ -4518,63 +4842,85 @@ msgid ""
 "See the [Rust Reference](https://doc.rust-lang.org/reference/type-layout."
 "html)."
 msgstr ""
+"لطفا به  [مرجع Rust ](https://doc.rust-lang.org/reference/type-layout.html) "
+"مراجعه کنید."
 
 #: src/enums/sizes.md:30
 msgid ""
 "Internally Rust is using a field (discriminant) to keep track of the enum "
 "variant."
 msgstr ""
+"زبان Rust, به صورت داخلی از یک فیلد (discriminant) برای رهگیری نوع فیلدهای "
+"`enum` استفاده می کند."
 
 #: src/enums/sizes.md:32
 msgid ""
 "You can control the discriminant if needed (e.g., for compatibility with C):"
 msgstr ""
+"شما می توانید در صورت نیاز (به عنوان مثال، برای سازگاری با C) discriminant "
+"را کنترل کنید:"
 
 #: src/enums/sizes.md:50
 msgid ""
 "Without `repr`, the discriminant type takes 2 bytes, because 10001 fits 2 "
 "bytes."
 msgstr ""
+"بدون `repr`، نوع discriminant دو بایت حافظه اشغال میکند، زیرا 10001 در 2 "
+"بایت جا می‌شود."
 
 #: src/enums/sizes.md:54
 msgid "Try out other types such as"
-msgstr ""
+msgstr "سایر انواع‌داده را امتحان کنید، مانند:"
 
 #: src/enums/sizes.md:56
 msgid "`dbg_size!(bool)`: size 1 bytes, align: 1 bytes,"
 msgstr ""
+"<span dir=ltr><code class=hljs>dbg_size!(bool)</code></span>: اندازه توی "
+"حافظه 1 بایت، فضای مورد نیاز برای align نیز  1 بایت است,"
 
 #: src/enums/sizes.md:57
 msgid ""
 "`dbg_size!(Option<bool>)`: size 1 bytes, align: 1 bytes (niche optimization, "
 "see below),"
 msgstr ""
+"<span dir=ltr><code class=hljs>dbg_size!(Option<bool>)</code></span>:  "
+"اندازه توی حافظه 1 بایت، ، فضای مورد نیاز برای align نیز  1 بایت است "
+"(بهینه‌سازی خاص، در زیر ببینید)"
 
 #: src/enums/sizes.md:58
 msgid "`dbg_size!(&i32)`: size 8 bytes, align: 8 bytes (on a 64-bit machine),"
 msgstr ""
+"<span dir=ltr><code class=hljs>dbg_size!(&i32)</code></span>: اندازه توی "
+"حافظه ۸ بایت، ، فضای مورد نیاز برای align نیز  ۸ بایت است (روی ماشین ۶۴ بیتی)"
 
 #: src/enums/sizes.md:59
 msgid ""
 "`dbg_size!(Option<&i32>)`: size 8 bytes, align: 8 bytes (null pointer "
 "optimization, see below)."
 msgstr ""
+"<span dir=ltr><code class=hljs>dbg_size!(Option<&i32>)</code></span>: اندازه "
+"توی حافظه ۸ بایت، ، فضای مورد نیاز برای align نیز  ۸ بایت است (بهینه‌سازی "
+"اشاره‌گر NULL را در زیر ببینید)"
 
 #: src/enums/sizes.md:61 src/memory-management/stack.md:32
 msgid "More to Explore"
-msgstr ""
+msgstr "برای کاوش بیشتر"
 
 #: src/enums/sizes.md:63
 msgid ""
 "Rust has several optimizations it can employ to make enums take up less "
 "space."
 msgstr ""
+"زبان Rust دارای چندین بهینه‌سازی دارد که می‌تواند برای کاهش فضای اشغال شده "
+"توسط`Enum`ها استفاده کند."
 
 #: src/enums/sizes.md:65
 msgid ""
 "Niche optimization: Rust will merge unused bit patterns for the enum "
 "discriminant."
 msgstr ""
+"بهینه‌سازی خاص: Rust الگوهای بیتی استفاده نشده را برای discriminant نوع "
+"`Enum` ادغام می‌کند."
 
 #: src/enums/sizes.md:68
 msgid ""
@@ -4582,6 +4928,9 @@ msgid ""
 "option/#representation), Rust guarantees that `size_of::<T>()` equals "
 "`size_of::<Option<T>>()`."
 msgstr ""
+"بهینه‌سازی اشاره‌گر `NULL`: برای برخی از انواع، Rust تضمین می‌کند که <span "
+"dir=ltr>`size_of::<T>()`</span>  برابر با <span dir=ltr>`size_of::"
+"<Option<T>>()`</span> است."
 
 #: src/enums/sizes.md:72
 msgid ""
@@ -4589,12 +4938,17 @@ msgid ""
 "like in practice. It's important to note that the compiler provides no "
 "guarantees regarding this representation, therefore this is totally unsafe."
 msgstr ""
+"کد نمونه, اگر می‌خواهید نشان دهید که نمایش بیت به بیت در عمل چگونه ممکن است "
+"به نظر برسد. مهم است توجه داشته باشید که کامپایلر هیچ تضمینی در مورد این "
+"نمایش نمی‌دهد، بنابراین این کاملاً ناایمن است."
 
 #: src/enums/sizes.md:109
 msgid ""
 "More complex example if you want to discuss what happens when we chain more "
 "than 256 `Option`s together."
 msgstr ""
+"مثال پیچیده‌تر اگر می‌خواهید در مورد اتفاقی که می‌افتد زمانی که بیش از ۲۶۵ عدد "
+"`Option` را به صورت تو در تو صدا بزنیم بحث کنید."
 
 #: src/control-flow/novel.md:3
 msgid ""
@@ -4604,16 +4958,15 @@ msgstr ""
 
 #: src/control-flow/novel.md:6 src/control-flow/if-let-expressions.md:1
 msgid "`if let` expressions"
-msgstr ""
+msgstr "عبارت `if let`"
 
 #: src/control-flow/novel.md:7
-#, fuzzy
 msgid "`while let` expressions"
-msgstr "عبارت while let"
+msgstr "عبارت `while let`"
 
 #: src/control-flow/novel.md:8 src/control-flow/match-expressions.md:1
 msgid "`match` expressions"
-msgstr ""
+msgstr "عبارت `match`"
 
 #: src/control-flow/if-let-expressions.md:3
 msgid ""
@@ -4621,6 +4974,9 @@ msgid ""
 "expr.html#if-let-expressions) lets you execute different code depending on "
 "whether a value matches a pattern:"
 msgstr ""
+"[عبارت `if let`](https://doc.rust-lang.org/reference/expressions/if-expr."
+"html#if-let-expressions)  به شما امکان می‌دهد بسته به اینکه آیا یک مقدار با "
+"یک الگو مطابقت دارد، کدهای مختلفی را اجرا کنید:"
 
 #: src/control-flow/if-let-expressions.md:7
 msgid ""
@@ -4643,21 +4999,30 @@ msgid ""
 "See [pattern matching](../pattern-matching.md) for more details on patterns "
 "in Rust."
 msgstr ""
+"به [تطبیق الگو](../pattern-matching.md) مراجعه کنید تا در مورد الگوها در "
+"Rust اطلاعات بیشتری کسب کنید."
 
 #: src/control-flow/if-let-expressions.md:23
 msgid ""
 "Unlike `match`, `if let` does not have to cover all branches. This can make "
 "it more concise than `match`."
 msgstr ""
+"برخلاف دستور `match` دستور `if let` همه حالت های ممکن را برای تطبیق الگو "
+"پشتیبانی نمیکند. اگر می‌خواهید همه حالت را پوشش دهید از دستور `match` استفاده "
+"کنید."
 
 #: src/control-flow/if-let-expressions.md:24
 msgid "A common usage is handling `Some` values when working with `Option`."
 msgstr ""
+"یک استفاده رایج از دستور `if let`، رسیدگی به مقادیر `Some` هنگام کار با "
+"`Option` است:"
 
 #: src/control-flow/if-let-expressions.md:25
 msgid ""
 "Unlike `match`, `if let` does not support guard clauses for pattern matching."
 msgstr ""
+"برخلاف دستور `match` دستور `if let`  از <span dir=ltr>`=>`</span> برای تطبیق "
+"الگو استفاده نمیکند."
 
 #: src/control-flow/if-let-expressions.md:26
 msgid ""
@@ -4666,10 +5031,14 @@ msgid ""
 "assignment, or if it fails, execute a block which is required to abort "
 "normal control flow (with `panic`/`return`/`break`/`continue`):"
 msgstr ""
+"از نسخه 1.65، یک کلیدواژه مشابه به اسم  [`let-else`](https://doc.rust-lang."
+"org/rust-by-example/flow_control/let_else.html) اجازه می‌دهد تا یک انتساب به "
+"صورت destructuring انجام شود، یا اگر شکست خورد، یک بلوک را اجرا کند که برای "
+"خاتمه دادن به جریان کنترل عادی (با panic/return/break/continue) ضروری است:"
 
 #: src/control-flow/while-let-expressions.md:1
 msgid "`while let` loops"
-msgstr ""
+msgstr "حلقه `while let`"
 
 #: src/control-flow/while-let-expressions.md:3
 msgid ""
@@ -4677,6 +5046,9 @@ msgid ""
 "reference/expressions/loop-expr.html#predicate-pattern-loops) variant which "
 "repeatedly tests a value against a pattern:"
 msgstr ""
+"مانند `if let`، یک دستور [`while let`](https://doc.rust-lang.org/reference/"
+"expressions/loop-expr.html#predicate-pattern-loops) وجود دارد که مقادیر "
+"مقابل الگو به طور مکرر (تکرار شونده‌ای) بررسی می‌کند:"
 
 #: src/control-flow/while-let-expressions.md:18
 msgid ""
@@ -4685,12 +5057,20 @@ msgid ""
 "it will return `None`. The `while let` lets us keep iterating through all "
 "items."
 msgstr ""
+"در اینجا، پیماینده (iterator) توسط <span dir=ltr>`v.into_iter()`</span> یک "
+"مقدار را برمیگرداند, یک <span dir=ltr>`Option<i32>`</span> را در هر فراخوانی "
+"به <span dir=ltr>`next()`</span> برمی گرداند. تا زمانی که محتوایی وجود داشته "
+"باشد این کار ادامه پیدا میکند و وقتی که تمام شد <span dir=ltr>`Some(x)`</"
+"span> را برمی گرداند و پس از آن None را برمی گرداند. `while let` به ما امکان "
+"می دهد همه مارد را به صورت کامل پیمایش کنیم."
 
 #: src/control-flow/while-let-expressions.md:27
 msgid ""
 "Point out that the `while let` loop will keep going as long as the value "
 "matches the pattern."
 msgstr ""
+"توجه داشته باشید که حلقه `while let` تا زمانی که مقادیر مقابل الگو طبیق "
+"داشته باشد (شرط برقرار باشد)، ادامه خواهد داشت."
 
 #: src/control-flow/while-let-expressions.md:28
 msgid ""
@@ -4698,6 +5078,10 @@ msgid ""
 "statement that breaks when there is no value to unwrap for `iter.next()`. "
 "The `while let` provides syntactic sugar for the above scenario."
 msgstr ""
+"می‌توانید حلقه `while let` را به عنوان یک حلقه بی‌پایان با یک عبارت `if` "
+"بازنویسی کنید که زمانی که مقداری برای باز کردن <span dir=ltr>`iter.next()`</"
+"span> وجود ندارد، قطع می‌شود. `while let` مثل آب خوردن سناریو بالا رو برای "
+"شما فراهم می‌کند."
 
 #: src/control-flow/match-expressions.md:3
 msgid ""
@@ -4705,6 +5089,9 @@ msgid ""
 "expr.html) is used to match a value against one or more patterns. In that "
 "sense, it works like a series of `if let` expressions:"
 msgstr ""
+"[کلمه‌کلیدی `match`](https://doc.rust-lang.org/reference/expressions/match-"
+"expr.html) برای مطابقت یک مقدار در برابر یک یا چند الگو استفاده می‌شود. از "
+"این نظر، مانند یک سری عبارات `if let` عمل می‌کند:"
 
 #: src/control-flow/match-expressions.md:7
 msgid ""
@@ -4727,41 +5114,61 @@ msgid ""
 "Like `if let`, each match arm must have the same type. The type is the last "
 "expression of the block, if any. In the example above, the type is `()`."
 msgstr ""
+"مثل دستور `if let`، باید همه شاخه تطبیق باید از نوع یکسانی را داشته باشند. "
+"نوع عبارت در آخر بلوک تعیین می‌شود، البته اگر وجود داشته باشد. در مثال بالا، "
+"نوع `()` است."
 
 #: src/control-flow/match-expressions.md:28
 msgid "Save the match expression to a variable and print it out."
 msgstr ""
+"مقادر بازگشتی از دستور `match` را در متغییری ذخیره کنید و آن را چاپ کنید."
 
 #: src/control-flow/match-expressions.md:29
 msgid "Remove `.as_deref()` and explain the error."
 msgstr ""
+"<span dir=ltr><code class=hljs>.as_deref()</code></span> را حذف کنید و خطا "
+"را توضیح دهید."
 
 #: src/control-flow/match-expressions.md:30
 msgid ""
 "`std::env::args().next()` returns an `Option<String>`, but we cannot match "
 "against `String`."
 msgstr ""
+"<span dir=ltr><code class=hljs>std::env::args().next()</code></span> یک "
+"<span dir=ltr>`Option<String>`</span>  را برمی‌گرداند،چرا نمی توانیم به عنوان "
+"`String` تطبیق الگو کنیم؟"
 
 #: src/control-flow/match-expressions.md:31
 msgid ""
 "`as_deref()` transforms an `Option<T>` to `Option<&T::Target>`. In our case, "
 "this turns `Option<String>` into `Option<&str>`."
 msgstr ""
+"<span dir=ltr><code class=hljs>as_deref()</code></span>  یک <span "
+"dir=ltr>`Option<T>`</span> را به <span dir=ltr>`Option<&T::Target>`</span>  "
+"تبدیل می‌کند. در مورد ما، این <span dir=ltr>`Option<String>`</span> را به "
+"<span dir=ltr>`Option<&str>`</span> تبدیل می‌کند."
 
 #: src/control-flow/match-expressions.md:32
 msgid ""
 "We can now use pattern matching to match against the `&str` inside `Option`."
 msgstr ""
+"اکنون می‌توانیم از تطبیق الگو برای مطابقت با <span dir=ltr>`&str`</span> داخل "
+"`Option` استفاده کنیم."
 
 #: src/pattern-matching.md:3
 msgid ""
 "The `match` keyword lets you match a value against one or more _patterns_. "
 "The comparisons are done from top to bottom and the first match wins."
 msgstr ""
+"کلمه کلیدی `match` به شما امکان می دهد یک مقدار را در برابر _یک یا چند الگو_ "
+"مطابقت دهید. مقایسه‌ها از بالا به پایین انجام می‌شوند و اولین تطبیق انتخاب "
+"می‌شود."
 
 #: src/pattern-matching.md:6
 msgid "The patterns can be simple values, similarly to `switch` in C and C++:"
 msgstr ""
+"الگوها می توانند مقادیر ساده ای باشند، شبیه به `switch` در C و <span "
+"dir=ltr>C++</span>:"
 
 #: src/pattern-matching.md:8
 msgid ""
@@ -4781,45 +5188,53 @@ msgstr ""
 
 #: src/pattern-matching.md:21
 msgid "The `_` pattern is a wildcard pattern which matches any value."
-msgstr ""
+msgstr "الگوی _ یک الگوی wildcard (هر حالتی) است که با هر مقداری مطابقت دارد."
 
 #: src/pattern-matching.md:26
 msgid ""
 "You might point out how some specific characters are being used when in a "
 "pattern"
 msgstr ""
+"بهتر است که اشاره کنید چطوری میتوان از کاراکترهای خاص در الگو استفاده کرد:"
 
 #: src/pattern-matching.md:27
 msgid "`|` as an `or`"
-msgstr ""
+msgstr "`|` به عنوان `or`"
 
 #: src/pattern-matching.md:28
 msgid "`..` can expand as much as it needs to be"
-msgstr ""
+msgstr "`..` برای تعیین همه محدوده یا تا جایی که میتوان گسترش یابد"
 
 #: src/pattern-matching.md:29
 msgid "`1..=5` represents an inclusive range"
 msgstr ""
+"<span dir=ltr><code class=hljs>1..=5</code></span> نمایانگر یک محدوده خاص "
+"است."
 
 #: src/pattern-matching.md:30
 msgid "`_` is a wild card"
-msgstr ""
+msgstr "`_` یک wildcard (هر حالتی) است."
 
 #: src/pattern-matching.md:31
 msgid ""
 "It can be useful to show how binding works, by for instance replacing a "
 "wildcard character with a variable, or removing the quotes around `q`."
 msgstr ""
+"می‌توان با جایگزینی یک کاراکتر`_` با یک متغیر، یا حذف نقل قول ها در اطراف "
+"`q`، به نمایش نحوه کارکرد انتساب کمک کرد."
 
 #: src/pattern-matching.md:32
 msgid "You can demonstrate matching on a reference."
-msgstr ""
+msgstr "می‌توانید تطبیق الگو را با یک ارجاع را نشان دهید."
 
 #: src/pattern-matching.md:33
 msgid ""
 "This might be a good time to bring up the concept of irrefutable patterns, "
 "as the term can show up in error messages."
 msgstr ""
+"این ممکن است زمان خوبی برای مطرح کردن مفهوم الگوهای غیرقابل انکار "
+"(irrefutable patterns) باشد، زیرا این اصطلاح می تواند در پیام های خطا ظاهر "
+"شود."
 
 #: src/pattern-matching/destructuring-enums.md:3
 msgid ""
@@ -4827,6 +5242,9 @@ msgid ""
 "how you inspect the structure of your types. Let us start with a simple "
 "`enum` type:"
 msgstr ""
+"الگوها همچنین می توانند برای انتساب متغیرها استفاده شوند.به این ترتیب ساختار "
+"انواع (Types) خود را بررسی می‌کنید. اجازه دهید با یک نوع `enum` ساده شروع "
+"کنیم:"
 
 #: src/pattern-matching/destructuring-enums.md:6
 msgid ""
@@ -4860,12 +5278,16 @@ msgid ""
 "arm, `half` is bound to the value inside the `Ok` variant. In the second "
 "arm, `msg` is bound to the error message."
 msgstr ""
+"در اینجا ما از شاخه‌ها برای `destructure` کردن مقدار `Result` استفاده "
+"کرده‌ایم. در شاخه اول، `half` به مقداری داخل نوع `Ok` متصل می شود. در شاخه "
+"دوم، `msg` به نوع`Err` متصل می‌شود."
 
 #: src/pattern-matching/destructuring-enums.md:36
 msgid ""
 "The `if`/`else` expression is returning an enum that is later unpacked with "
 "a `match`."
 msgstr ""
+"عبارت `if`/`else` یک `enum` را برمی گرداند که بعداً با `match` باز می شود."
 
 #: src/pattern-matching/destructuring-enums.md:37
 msgid ""
@@ -4873,10 +5295,13 @@ msgid ""
 "errors when running the code. Point out the places where your code is now "
 "inexhaustive and how the compiler tries to give you hints."
 msgstr ""
+"می توانید با اضافه کردن یک فیلد دیگر `None` به `enum`  اضافه کنید و نمایش "
+"خطاها هنگام اجرای کد، را تست کنید. مکان هایی را که کد شما اکنون ناقص است و "
+"نحوه تلاش کامپایلر برای ارائه نکاتی به شما را نشان دهید."
 
 #: src/pattern-matching/destructuring-structs.md:3
 msgid "You can also destructure `structs`:"
-msgstr ""
+msgstr "همچنین می‌توانید `structs` را destructure کنید:"
 
 #: src/pattern-matching/destructuring-structs.md:5
 msgid ""
@@ -4901,11 +5326,11 @@ msgstr ""
 
 #: src/pattern-matching/destructuring-structs.md:23
 msgid "Change the literal values in `foo` to match with the other patterns."
-msgstr ""
+msgstr "تغییر مقادیر لیترال در foo برای مطابقت با سایر الگوها."
 
 #: src/pattern-matching/destructuring-structs.md:24
 msgid "Add a new field to `Foo` and make changes to the pattern as needed."
-msgstr ""
+msgstr "اضافه کردن یک فیلد جدید به Foo و ایجاد تغییرات مورد نیاز."
 
 #: src/pattern-matching/destructuring-structs.md:25
 msgid ""
@@ -4913,11 +5338,15 @@ msgid ""
 "spot. Try changing the `2` in the second arm to a variable, and see that it "
 "subtly doesn't work. Change it to a `const` and see it working again."
 msgstr ""
+"تشخیص تفاوت بین یک گرفتن متغییر و یک عبارت ثابت می‌تواند دشوار باشد. سعی کنید "
+"‍`2` را در شاخه دوم به یک متغیر تغییر دهید و خواهید دید که  کار نمی‌کند. آن را "
+"به یک `const` تغییر دهید و خواهید دید که دوباره کار می‌کند."
 
 #: src/pattern-matching/destructuring-arrays.md:3
 msgid ""
 "You can destructure arrays, tuples, and slices by matching on their elements:"
 msgstr ""
+"می توانید آرایه‌ها، تاپل‌ها و برش‌ها را با تطابق با عناصر آنها destructure کنید."
 
 #: src/pattern-matching/destructuring-arrays.md:5
 msgid ""
@@ -4940,6 +5369,8 @@ msgid ""
 "Destructuring of slices of unknown length also works with patterns of fixed "
 "length."
 msgstr ""
+"برای destructure کردن برش هایی با طول ناشناخته نیز با الگوهای طول ثابت کار "
+"می کند."
 
 #: src/pattern-matching/destructuring-arrays.md:24
 msgid ""
@@ -4963,27 +5394,33 @@ msgstr ""
 
 #: src/pattern-matching/destructuring-arrays.md:41
 msgid "Create a new pattern using `_` to represent an element. "
-msgstr ""
+msgstr "یک الگوی جدید با استفاده از `_` برای نمایش یک عنصر ایجاد کنید."
 
 #: src/pattern-matching/destructuring-arrays.md:42
 msgid "Add more values to the array."
-msgstr ""
+msgstr "مقادیر بیشتری را به آرایه اضافه کنید."
 
 #: src/pattern-matching/destructuring-arrays.md:43
 msgid ""
 "Point out that how `..` will expand to account for different number of "
 "elements."
 msgstr ""
+"اشاره کنید که چگونه `..` برای در نظر گرفتن تعداد عناصر مختلف، گسترش خواهد "
+"یافت."
 
 #: src/pattern-matching/destructuring-arrays.md:44
 msgid "Show matching against the tail with patterns `[.., b]` and `[a@..,b]`"
 msgstr ""
+"مطابقت با انتهای آرایه رو با با الگوهای <span dir=ltr>`[.., b]`</span>  و "
+"<span dir=ltr>`[a@..,b]`</span> را نشان دهید."
 
 #: src/pattern-matching/match-guards.md:3
 msgid ""
 "When matching, you can add a _guard_ to a pattern. This is an arbitrary "
 "Boolean expression which will be executed if the pattern matches:"
 msgstr ""
+"هنگام تطابق، می توانید یک _guard_ به یک الگو اضافه کنید. این یک عبارت بولین "
+"دلخواه است که در صورت مطابقت الگو اجرا می شود."
 
 #: src/pattern-matching/match-guards.md:6
 msgid ""
@@ -5008,6 +5445,8 @@ msgid ""
 "we wish to concisely express more complex ideas than patterns alone would "
 "allow."
 msgstr ""
+"گارد های تطبیق  به عنوان یک ویژگی سینتکس جداگانه دسته بندی می‌شوند, زمانی مهم "
+"و ضروری هستند که بخواهیم ایده های پیچیده تر از الگوهای ساده بیان کنیم."
 
 #: src/pattern-matching/match-guards.md:24
 msgid ""
@@ -5016,33 +5455,37 @@ msgid ""
 "match arm is selected. Failing the `if` condition inside of that block won't "
 "result in other arms of the original `match` expression being considered."
 msgstr ""
+"آنها با عبارت `if` جداگانه ای در داخل یک شاخه تطبیق هستند یکسان نیستند. یک "
+"عبارت `if` در داخل بلاک شاخه (پس از <span dir=ltr>`=>`</span>) پس از ورود به "
+"اون شاخه خاص صدا زده میشود. اگر شرط `if` برقرار نباشد کاری به  سایر شاخه های "
+"عبارت `match` اصلی ندارد."
 
 #: src/pattern-matching/match-guards.md:26
 msgid "You can use the variables defined in the pattern in your if expression."
 msgstr ""
+"می توانید از متغیرهای تعریف شده در الگو در عبارت `if` خود استفاده کنید."
 
 #: src/pattern-matching/match-guards.md:27
 msgid ""
 "The condition defined in the guard applies to every expression in a pattern "
 "with an `|`."
-msgstr ""
+msgstr "شرط تعریف شده در guard با کمک `|` به شرط های تطبیق الگو اضافه می‌شود."
 
 #: src/exercises/day-1/afternoon.md:1
 msgid "Day 1: Afternoon Exercises"
-msgstr ""
+msgstr "روز ۱: تمرین‌های عصر"
 
 #: src/exercises/day-1/afternoon.md:3
 msgid "We will look at two things:"
-msgstr ""
+msgstr "ما روی ۲ تا چیز نگاهی می‌اندازیم:"
 
 #: src/exercises/day-1/afternoon.md:5
-#, fuzzy
 msgid "The Luhn algorithm,"
 msgstr "الگوریتم  Luhn"
 
 #: src/exercises/day-1/afternoon.md:7
 msgid "An exercise on pattern matching."
-msgstr ""
+msgstr "تمرینی درباره تطبیق الگو"
 
 #: src/exercises/day-1/afternoon.md:11 src/exercises/day-2/afternoon.md:7
 #: src/exercises/bare-metal/afternoon.md:7
@@ -5051,6 +5494,8 @@ msgid ""
 "After looking at the exercises, you can look at the [solutions](solutions-"
 "afternoon.md) provided."
 msgstr ""
+"پس از بررسی تمرین‌ها، می‌توانید به [راه‌حل ها](solutions-afternoon.md) ارائه "
+"شده نگاهی بیندازید."
 
 #: src/exercises/day-1/luhn.md:3
 msgid ""
@@ -5058,42 +5503,56 @@ msgid ""
 "to validate credit card numbers. The algorithm takes a string as input and "
 "does the following to validate the credit card number:"
 msgstr ""
+"[الگوریتم Luhn](https://en.wikipedia.org/wiki/Luhn_algorithm) برای "
+"اعتبارسنجی شماره‌های کارت اعتباری استفاده می‌شود. این الگوریتم یک رشته را به "
+"عنوان ورودی دریافت می‌کند و برای اعتبارسنجی شماره کارت اعتباری مراحل زیر را "
+"انجام می‌دهد:"
 
 #: src/exercises/day-1/luhn.md:7
 msgid "Ignore all spaces. Reject number with less than two digits."
-msgstr ""
+msgstr "تمام فضاها را نادیده بگیرید.شماره‌هایی با کمتر از دو رقم را رد کنید."
 
 #: src/exercises/day-1/luhn.md:9
 msgid ""
 "Moving from **right to left**, double every second digit: for the number "
 "`1234`, we double `3` and `1`. For the number `98765`, we double `6` and `8`."
 msgstr ""
+"با حرکت از سمت راست رشته به چپ، هر دومین رقم را دوبل کنید: برای شماره "
+"`1234`، `3` و `1` را دوبل می‌کنیم. برای شماره `98765`، `6` و `8` را دوبل "
+"می‌کنیم."
 
 #: src/exercises/day-1/luhn.md:12
 msgid ""
 "After doubling a digit, sum the digits if the result is greater than 9. So "
 "doubling `7` becomes `14` which becomes `1 + 4 = 5`."
 msgstr ""
+"پس از دوبل کردن یک عدد، اگر اون جفت خروجی بیش از 9 باشد، ارقام را جمع کنید. "
+"بنابراین، دوبل کردن `7` به `14` تبدیل می‌شود که به <span dir=ltr>`1 + 4 = 5`</"
+"span> تبدیل می‌شود."
 
 #: src/exercises/day-1/luhn.md:15
 msgid "Sum all the undoubled and doubled digits."
-msgstr ""
+msgstr "تمام ارقام دو برابر نشده و دو برابر شده را جمع کنید."
 
 #: src/exercises/day-1/luhn.md:17
 msgid "The credit card number is valid if the sum ends with `0`."
-msgstr ""
+msgstr "اگر مجموع با ‍`0` خاتمه یابد، شماره کارت اعتباری معتبر است."
 
 #: src/exercises/day-1/luhn.md:19
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and implement the "
 "function."
 msgstr ""
+"کد زیر را به <span dir=ltr><https://play.rust-lang.org/></span>  کپی کنید و "
+"تابع را پیاده‌سازی کنید."
 
 #: src/exercises/day-1/luhn.md:21
 msgid ""
 "Try to solve the problem the \"simple\" way first, using `for` loops and "
 "integers. Then, revisit the solution and try to implement it with iterators."
 msgstr ""
+"ابتدا سعی کنید مشکل را به روش «ساده» با استفاده از حلقه‌های `for` و اعداد "
+"صحیح حل کنید. سپس،  سعی کنید آن را با استفاده از `iterator`ها پیاده‌سازی کنید."
 
 #: src/exercises/day-1/luhn.md:25
 msgid ""
@@ -5150,11 +5609,11 @@ msgstr ""
 
 #: src/exercises/day-1/pattern-matching.md:1
 msgid "Exercise: Expression Evaluation"
-msgstr ""
+msgstr "تمرین: عبارت را بسنجید"
 
 #: src/exercises/day-1/pattern-matching.md:3
 msgid "Let's write a simple recursive evaluator for arithmetic expressions. "
-msgstr ""
+msgstr "بیایید یک ارزیاب بازگشتی ساده برای عبارات حسابی بنویسیم."
 
 #: src/exercises/day-1/pattern-matching.md:5
 msgid ""
@@ -5261,6 +5720,11 @@ msgid ""
 "tests. To evaluate a boxed expression, use the deref operator to \"unbox\" "
 "it: `eval(*boxed_expr)`."
 msgstr ""
+"نوع `Box` در اینجا یک اشاره گر هوشمند است و در ادامه دوره به طور مفصل مورد "
+"بحث قرار خواهد گرفت. یک عبارت را می‌توان با <span dir=ltr>`Box::new`</span> "
+"مانند آنچه در تست‌ها دیده می‌شود، «جعبه‌ای» کرد. برای ارزیابی یک عبارت جعبه‌ای، "
+"از عملگر `deref` برای «خارج کردن» آن استفاده کنید: <span "
+"dir=ltr>`eval(*boxed_expr)`</span>"
 
 #: src/exercises/day-1/pattern-matching.md:105
 msgid ""
@@ -5268,6 +5732,9 @@ msgid ""
 "type represents either a successful value or an error with a message. This "
 "is very similar to the standard-library `Result` which we will see later."
 msgstr ""
+"برخی از عبارات قابل ارزیابی نیستند و خطایی را برمی‌گردانند. نوع `Res` "
+"نشان‌دهنده یک مقدار موفقیت‌آمیز یا یک خطا با پیام است. این بسیار شبیه به "
+"`Result` کتابخانه استاندارد است که بعداً خواهیم دید."
 
 #: src/exercises/day-1/pattern-matching.md:109
 msgid ""
@@ -5275,28 +5742,36 @@ msgid ""
 "`eval`. The final product should pass the tests. It may be helpful to use "
 "`todo!()` and get the tests to pass one-by-one."
 msgstr ""
+"کد را کپی و در زمین بازی Rust پیست کنید و شروع به پیاده‌سازی `eval` کنید. "
+"محصول نهایی باید تست‌ها را پشت سر بگذارد. ممکن است مفید باشد از <span "
+"dir=ltr>`todo!()`</span> استفاده کنید و تست‌ها را یکی یکی پاس دهید."
 
 #: src/exercises/day-1/pattern-matching.md:113
 msgid ""
 "If you finish early, try writing a test that results in an integer overflow. "
 "How could you handle this with `Res::Err` instead of a panic?"
 msgstr ""
+"اگر زود تموم شد، سعی کنید تست‌ای بنویسید که منجر به سرریز عدد صحیح (integer "
+"overflow) شود. چگونه می توانید این مشکل را با <span dir=ltr>`Res::Err`</"
+"span>  به جای `panic` برطرف کنید؟"
 
 #: src/welcome-day-2.md:1
 msgid "Welcome to Day 2"
-msgstr ""
+msgstr "به روز دوم خوش آمدید"
 
 #: src/welcome-day-2.md:3
 msgid "Now that we have seen a fair amount of Rust, we will continue with:"
 msgstr ""
+"حالا که از زبان راست به اندازه کافی چیز های مختلفی دیده ایم وقت ادامه با "
+"توجه به موارد زیر "
 
 #: src/welcome-day-2.md:5
 msgid ""
 "Memory management: stack vs heap, manual memory management, scope-based "
 "memory management, and garbage collection."
 msgstr ""
-"Memory management: stack vs heap, manual memory management, scope-based "
-"memory management, و garbage collection."
+"مدیریت حافظه: پشته (Stack) در مقابل انباشت (Heap)، مدیریت دستی حافظه، مدیریت "
+"حافظه مبتنی بر اسکوپ و جمع آوری زباله. "
 
 #: src/welcome-day-2.md:8
 msgid ""
@@ -5304,101 +5779,112 @@ msgid ""
 msgstr "Ownership: حرکت semantics،copying و cloning, borrowing  و lifetimes."
 
 #: src/welcome-day-2.md:10
-#, fuzzy
 msgid "Structs and methods."
-msgstr "رشته‌ها و تکرارکننده‌ها (Strings and Iterators)"
+msgstr "ساختارها و متدها."
 
 #: src/welcome-day-2.md:12
 msgid ""
 "The Standard Library: `String`, `Option` and `Result`, `Vec`, `HashMap`, "
 "`Rc` and `Arc`."
 msgstr ""
+"کتابخانه استاندارد:  `String`, `Option` و `Result`, `Vec`, `HashMap`, `Rc` و "
+"`Arc`."
 
 #: src/welcome-day-2.md:15
 msgid "Modules: visibility, paths, and filesystem hierarchy."
-msgstr ""
+msgstr "ماژول‌ها: قابل دیدن بودن, مسیرها و مدیریت سلسله مراتبی فایل‌سیستم"
 
 #: src/memory-management.md:3
 msgid "Traditionally, languages have fallen into two broad categories:"
-msgstr ""
+msgstr "به طور سنتی، زبان‌ها به دو دسته کلی تقسیم می شوند:"
 
 #: src/memory-management.md:5
 msgid "Full control via manual memory management: C, C++, Pascal, ..."
 msgstr ""
+"کنترل کامل از طریق مدیریت دستی حافظه: <span dir=ltr>C، C++</span> ، "
+"پاسکال، ..."
 
 #: src/memory-management.md:6
 msgid ""
 "Full safety via automatic memory management at runtime: Java, Python, Go, "
 "Haskell, ..."
 msgstr ""
+"ایمنی کامل از طریق مدیریت حافظه خودکار در زمان اجرا: جاوا، پایتون، Go، "
+"Haskell، ..."
 
 #: src/memory-management.md:8
 msgid "Rust offers a new mix:"
-msgstr ""
+msgstr "زبان Rust یک ترکیبی از هر را ارائه میدهد:"
 
 #: src/memory-management.md:10
 msgid ""
 "Full control _and_ safety via compile time enforcement of correct memory "
 "management."
-msgstr ""
+msgstr "مدیریت کامل و ایمنی حافظه با مدیریت درست حافظه در زمان کامپایل"
 
 #: src/memory-management.md:13
 msgid "It does this with an explicit ownership concept."
-msgstr ""
+msgstr "این کار رو با کمک مفهوم مالکیت صریح انجام میدهد."
 
 #: src/memory-management.md:15
 msgid "First, let's refresh how memory management works."
-msgstr ""
+msgstr "قبل از هر چیزی, آنچه درباره مدیریت حافظه میدونیم رو بروز رسانی کنیم."
 
 #: src/memory-management/stack-vs-heap.md:1
 msgid "The Stack vs The Heap"
-msgstr ""
+msgstr "پشته (Stack) در مقابل انباشت (Heap)"
 
 #: src/memory-management/stack-vs-heap.md:3
 msgid "Stack: Continuous area of memory for local variables."
 msgstr ""
+"پشته: مقادیر پشت سر هم در حافظه که برای متغییر محلی (داخل یک تابع) استفاده "
+"میشود."
 
 #: src/memory-management/stack-vs-heap.md:4
 msgid "Values have fixed sizes known at compile time."
 msgstr ""
+"مقادیر دارای سایز یکسان در طول کل پشته هستند که در زمان کامپایل تعیین می‌شود."
 
 #: src/memory-management/stack-vs-heap.md:5
 msgid "Extremely fast: just move a stack pointer."
-msgstr ""
+msgstr "بسیار سریع: فقط کافیه یک اشاره‌گر را جا به جا کنیم."
 
 #: src/memory-management/stack-vs-heap.md:6
 msgid "Easy to manage: follows function calls."
-msgstr ""
+msgstr "مدیریت آسان: از فراخوانی توابع پیروی میکنند."
 
 #: src/memory-management/stack-vs-heap.md:7
 msgid "Great memory locality."
-msgstr ""
+msgstr "بهره‌وری عالی از حافظه"
 
 #: src/memory-management/stack-vs-heap.md:9
 msgid "Heap: Storage of values outside of function calls."
 msgstr ""
+"انباشت: حافظه از از مقادیر که خارج از جایی که فراخوانی میشود وجود دارد."
 
 #: src/memory-management/stack-vs-heap.md:10
 msgid "Values have dynamic sizes determined at runtime."
-msgstr ""
+msgstr "مقادیر سایز‌های مختلفی دارند که در زمان اجرا تعیین می‌شوند."
 
 #: src/memory-management/stack-vs-heap.md:11
 msgid "Slightly slower than the stack: some book-keeping needed."
-msgstr ""
+msgstr "به طور محسوسی کندتر از پشته است: نیاز به یک چی-کجاست دارد."
 
 #: src/memory-management/stack-vs-heap.md:12
 msgid "No guarantee of memory locality."
-msgstr ""
+msgstr "هیچ تضمینی برای بهره‌وری بالا از حافظه ندارد"
 
 #: src/memory-management/stack.md:1
 msgid "Stack and Heap Example"
-msgstr ""
+msgstr "یک مثال از پشته و انباشت"
 
 #: src/memory-management/stack.md:3
 msgid ""
 "Creating a `String` puts fixed-sized metadata on the stack and dynamically "
 "sized data, the actual string, on the heap:"
 msgstr ""
+"یک `String` بسازید که متادیتا با سایزثابت را روی استک قرار دهد و متن اصلی "
+"سایزپویا را در انباشت قرار دهد."
 
 #: src/memory-management/stack.md:6
 msgid ""
@@ -5414,6 +5900,8 @@ msgid ""
 "Mention that a `String` is backed by a `Vec`, so it has a capacity and "
 "length and can grow if mutable via reallocation on the heap."
 msgstr ""
+"اشاره کنید که یک `String` بر پایه `Vec` است، بنابراین دارای ظرفیت و طول است "
+"و می تواند در صورت قابل تغییر بودن از طریق تخصیص مجدد در انباش بزرگتر کند."
 
 #: src/memory-management/stack.md:30
 msgid ""
@@ -5422,12 +5910,19 @@ msgid ""
 "struct.System.html) and custom allocators can be implemented using the "
 "[Allocator API](https://doc.rust-lang.org/std/alloc/index.html)"
 msgstr ""
+"اگر دانشجویان در مورد آن بپرسند، می توانید اشاره کنید که حافظه زیربنایی "
+"انباشت (heap) است که با استفاده از [System Allocator](https://doc.rust-lang."
+"org/std/alloc/struct.System.html) تخصیص داده می شود و تخصیص‌دهنده‌های سفارشی "
+"را می‌توان با استفاده از [Allocator API](https://doc.rust-lang.org/std/alloc/"
+"index.html) اجرا کرد."
 
 #: src/memory-management/stack.md:34
 msgid ""
 "We can inspect the memory layout with `unsafe` Rust. However, you should "
 "point out that this is rightfully unsafe!"
 msgstr ""
+"می‌توان با استفاده از `unsafe` در زبان راست چیدمان حافظه را بررسی کنیم. البته "
+"که به این موضوع که این کار خیلی ناایمن است هم اشاره کنید."
 
 #: src/memory-management/stack.md:37
 msgid ""
@@ -5451,21 +5946,24 @@ msgstr ""
 
 #: src/memory-management/manual.md:3
 msgid "You allocate and deallocate heap memory yourself."
-msgstr ""
+msgstr "شما خودتان حافظه انباشت را تخصیص داده و تخصیص‌زدایی می‌کنید."
 
 #: src/memory-management/manual.md:5
 msgid ""
 "If not done with care, this can lead to crashes, bugs, security "
 "vulnerabilities, and memory leaks."
 msgstr ""
+"اگر با دقت انجام نشود، این می تواند منجر به خرابی، اشکال، آسیب‌پذیری‌های "
+"امنیتی و نشتی حافظه شود."
 
 #: src/memory-management/manual.md:7
 msgid "C Example"
-msgstr ""
+msgstr "مثالی در زبان C"
 
 #: src/memory-management/manual.md:9
 msgid "You must call `free` on every pointer you allocate with `malloc`:"
 msgstr ""
+"باید `free` را برای هر اشاره‌گری که با `malloc` تخصیص می‌دهید، فراخوانی کنید:"
 
 #: src/memory-management/manual.md:11
 msgid ""
@@ -5487,11 +5985,16 @@ msgid ""
 "pointer twice, or accessing a freed pointer can lead to exploitable security "
 "vulnerabilities."
 msgstr ""
+"اگر تابع بین `malloc` و `free` مقداری را بازگرداند و از تابع خارج شویم، "
+"حافظه نشت می‌کند: اشاره گر گم می‌شود و نمی‌توانیم حافظه را تخصیص‌زدایی کنیم. "
+"بدتر از آن، آزاد کردن مجدد اشاره گر یا دسترسی به یک اشاره گر که قبلا آزاد "
+"شده می‌تواند منجر به آسیب‌پذیری‌های امنیتی قابل سوءاستفاده شود."
 
 #: src/memory-management/scope-based.md:3
 msgid ""
 "Constructors and destructors let you hook into the lifetime of an object."
 msgstr ""
+"سازنده‌ها و مخرب‌ها به شما امکان می‌دهند تا به طول‌عمر یک شیء متصل (hook) شوید."
 
 #: src/memory-management/scope-based.md:5
 msgid ""
@@ -5499,16 +6002,21 @@ msgid ""
 "destroyed. The compiler guarantees that this happens, even if an exception "
 "is raised."
 msgstr ""
+"با پیچیدن (wrapping) یک اشاره گر در یک شیء، می‌توانید هنگام تخریب شیء، حافظه "
+"را آزاد کنید. کامپایلر تضمین می‌کند که این اتفاق می‌افتد، حتی اگر یک exception "
+"ایجاد شود."
 
 #: src/memory-management/scope-based.md:9
 msgid ""
 "This is often called _resource acquisition is initialization_ (RAII) and "
 "gives you smart pointers."
 msgstr ""
+"این اغلب به عنوان _resource acquisition is initialization_  (RAII) نامیده "
+"می‌شود و به شما اشاره گرهای هوشمند می‌دهد."
 
 #: src/memory-management/scope-based.md:12
 msgid "C++ Example"
-msgstr ""
+msgstr "مثالی در <span dir=ltr>C++</span>"
 
 #: src/memory-management/scope-based.md:14
 msgid ""
@@ -5524,47 +6032,55 @@ msgid ""
 "The `std::unique_ptr` object is allocated on the stack, and points to memory "
 "allocated on the heap."
 msgstr ""
+"ابجکت <span dir=ltr>`std::unique_ptr`</span> در پشته تخصیص داده می‌شود و به "
+"حافظه‌ای که روی انباشت تخصیص داده شده اشاره می‌کند."
 
 #: src/memory-management/scope-based.md:22
 msgid "At the end of `say_hello`, the `std::unique_ptr` destructor will run."
 msgstr ""
+"در پایان `say_hello`، تابع مخرب <span dir=ltr>`std::unique_ptr`</span> اجرا "
+"می‌شود."
 
 #: src/memory-management/scope-based.md:23
 msgid "The destructor frees the `Person` object it points to."
-msgstr ""
+msgstr "مخرب شیء `Person` را که به آن اشاره می‌کند، آزاد می‌کند."
 
 #: src/memory-management/scope-based.md:25
 msgid ""
 "Special move constructors are used when passing ownership to a function:"
 msgstr ""
+"هنگام انتقال مالکیت به یک تابع از سازنده‌های مخصوص انتقال استفاده می‌شود:"
 
 #: src/memory-management/garbage-collection.md:1
 msgid "Automatic Memory Management"
-msgstr ""
+msgstr "مدیریت حافظه خودکار"
 
 #: src/memory-management/garbage-collection.md:3
 msgid ""
 "An alternative to manual and scope-based memory management is automatic "
 "memory management:"
 msgstr ""
+"یک جایگزین برای مدیریت حافظه دستی و مبتنی بر اسکوپ، مدیریت حافظه خودکار است:"
 
 #: src/memory-management/garbage-collection.md:6
 msgid "The programmer never allocates or deallocates memory explicitly."
-msgstr ""
+msgstr "برنامه نویس هیچ وقت به صورت صریح حافظه را تخصیص یا آزاد نمیکند."
 
 #: src/memory-management/garbage-collection.md:7
 msgid ""
 "A garbage collector finds unused memory and deallocates it for the "
 "programmer."
 msgstr ""
+"یک جمع‌آوری زباله حافظه استفاده نشده را پیدا می‌کند و آن را برای برنامه‌نویس "
+"تخصیص‌زدایی (آزاد) می‌کند."
 
 #: src/memory-management/garbage-collection.md:9
 msgid "Java Example"
-msgstr ""
+msgstr "مثالی در Java"
 
 #: src/memory-management/garbage-collection.md:11
 msgid "The `person` object is not deallocated after `sayHello` returns:"
-msgstr ""
+msgstr "شیء `person` پس از بازگشت `sayHello` تخصیص‌زدایی نمی‌شود:"
 
 #: src/memory-management/garbage-collection.md:13
 msgid ""
@@ -5577,29 +6093,33 @@ msgstr ""
 
 #: src/memory-management/rust.md:1
 msgid "Memory Management in Rust"
-msgstr ""
+msgstr "مدیریت حافظه در Rust"
 
 #: src/memory-management/rust.md:3
 msgid "Memory management in Rust is a mix:"
-msgstr ""
+msgstr "مدیریت حافظه در Rust ترکیبی از موارد زیر است:"
 
 #: src/memory-management/rust.md:5
 msgid "Safe and correct like Java, but without a garbage collector."
-msgstr ""
+msgstr "ایمن و صحیح مانند جاوا، اما بدون جمع‌آوری زباله."
 
 #: src/memory-management/rust.md:6
 msgid "Scope-based like C++, but the compiler enforces full adherence."
 msgstr ""
+"مبتنی بر اسکوپ مانند <span dir=ltr>C++</span>، اما کامپایلر همه موارد را "
+"رعایت می‌کند."
 
 #: src/memory-management/rust.md:7
 msgid ""
 "A Rust user can choose the right abstraction for the situation, some even "
 "have no cost at runtime like C."
 msgstr ""
+"کاربر Rust می‌تواند انتخاب کند که کدام انتزاع برای وضعیت مورد نظر مناسب است، "
+"برخی مانند C  هزینه‌ای در زمان اجرا ندارند."
 
 #: src/memory-management/rust.md:9
 msgid "Rust achieves this by modeling _ownership_ explicitly."
-msgstr ""
+msgstr "زبان Rust این کار را با مدل‌سازی صریح مالکیت انجام می‌دهد."
 
 #: src/memory-management/rust.md:13
 msgid ""
@@ -5611,35 +6131,46 @@ msgid ""
 "ownership and memory allocation via various means, and prevent the potential "
 "errors in C."
 msgstr ""
+"اگر توی این مرحله از شما پرسیده شد که چطوری این کار انجام می‌شود, میتوانید به "
+"این موضوع که زبان راست معمولاً توسط انواع `wrapper RAII` مانند [`Box`]"
+"(https://doc.rust-lang.org/std/boxed/struct.Box.html), [`Vec`](https://doc."
+"rust-lang.org/std/vec/struct.Vec.html), [`Rc`](https://doc.rust-lang.org/std/"
+"rc/struct.Rc.html), یا [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc."
+"html) مدیریت را انجام میدهد. این‌ها مالکیت و تخصیص حافظه را از طریق روش‌های "
+"مختلف دربرمی‌گیرند و از خطاهای بالقوه در C جلوگیری می‌کنند."
 
 #: src/memory-management/rust.md:15
 msgid ""
 "You may be asked about destructors here, the [Drop](https://doc.rust-lang."
 "org/std/ops/trait.Drop.html) trait is the Rust equivalent."
 msgstr ""
+"اگر درباره مخرب‌ها (destructors) از شما پرسیدند, مخرب ها معادل پیاده‌سازی "
+"[Drop](https://doc.rust-lang.org/std/ops/trait.Drop.html) هستند."
 
 #: src/ownership.md:3
 msgid ""
 "All variable bindings have a _scope_ where they are valid and it is an error "
 "to use a variable outside its scope:"
 msgstr ""
+"همه انتساب متغیر دارای یک *اسکوپ* هستند که در آن معتبر هستند و استفاده از یک "
+"متغیر خارج از اسکوپ آن خطا است."
 
 #: src/ownership.md:19
 msgid ""
 "At the end of the scope, the variable is _dropped_ and the data is freed."
-msgstr ""
+msgstr "در پایان اسکوپ، متغیر حذف می‌شود و داده‌ها آزاد می‌شوند."
 
 #: src/ownership.md:20
 msgid "A destructor can run here to free up resources."
-msgstr ""
+msgstr "یک مخرب می‌تواند در اینجا اجرا شود تا منابع را آزاد کند."
 
 #: src/ownership.md:21
 msgid "We say that the variable _owns_ the value."
-msgstr ""
+msgstr "ما می‌گوییم که متغیر *مالکیت* یک مقدار است."
 
 #: src/ownership/move-semantics.md:3
 msgid "An assignment will transfer _ownership_ between variables:"
-msgstr ""
+msgstr "انتساب, *مالکیت* را بین متغیرها منتقل می‌کند:"
 
 #: src/ownership/move-semantics.md:5
 msgid ""
@@ -5655,25 +6186,30 @@ msgstr ""
 
 #: src/ownership/move-semantics.md:14
 msgid "The assignment of `s1` to `s2` transfers ownership."
-msgstr ""
+msgstr "انتساب `s1`به `s2` مالکیت را منتقل می‌کند."
 
 #: src/ownership/move-semantics.md:15
 msgid "When `s1` goes out of scope, nothing happens: it does not own anything."
 msgstr ""
+"زمانی که دیگر در اسکوپ `s1` نیستیم,  هیچ اتفاقی نمی‌افتد: چون `s1` مالک چیزی "
+"نیست."
 
 #: src/ownership/move-semantics.md:16
 msgid "When `s2` goes out of scope, the string data is freed."
-msgstr ""
+msgstr "زمانی که دیگر در اسکوپ `s2` نیستیم, داده‌های رشته آزاد می‌شوند."
 
 #: src/ownership/move-semantics.md:17
 msgid "There is always _exactly_ one variable binding which owns a value."
-msgstr ""
+msgstr "همیشه مالکیت یک مقدار را یک متغییر که بهش انتساب میدیم دارد"
 
 #: src/ownership/move-semantics.md:21
 msgid ""
 "Mention that this is the opposite of the defaults in C++, which copies by "
 "value unless you use `std::move` (and the move constructor is defined!)."
 msgstr ""
+"اشاره کنید که این رویه راست بر خلاف پیش‌فرض زبان <span dir=ltr>C++</span>  "
+"است که در ان مقدار کپی میشود مگر که از <span dir=ltr>`std::move`</span> "
+"استفاده کنیم ( تا یک مقدار را جا به جا کنیم!)"
 
 #: src/ownership/move-semantics.md:23
 msgid ""
@@ -5681,31 +6217,36 @@ msgid ""
 "to manipulate the data itself is a matter of optimization, and such copies "
 "are aggressively optimized away."
 msgstr ""
+"این رویه فقط برای انتقال مالکیت است. اینکه آیا هیچ کد ماشینی برای دستکاری "
+"خود داده‌ها تولید می‌شود یا خیر، موضوعی برای بهینه‌سازی است و چنین کپی‌هایی "
+"به‌طور تهاجمی (aggressively) بهینه‌سازی می‌شوند."
 
 #: src/ownership/move-semantics.md:25
 msgid ""
 "Simple values (such as integers) can be marked `Copy` (see later slides)."
 msgstr ""
+"مقادیر ساده (مانند اعداد صحیح) را می‌توان `Copy` کرد (اسلایدهای بعدی را "
+"ببینید)."
 
 #: src/ownership/move-semantics.md:27
 msgid "In Rust, clones are explicit (by using `clone`)."
-msgstr ""
+msgstr "در Rust، کلون‌ها واضح بیان می‌شوند (با استفاده از `clone`)."
 
 #: src/ownership/moved-strings-rust.md:11
 msgid "The heap data from `s1` is reused for `s2`."
-msgstr ""
+msgstr "داده‌های انباشت از `s1` دوباره  برای `s2` استفاده می‌شود."
 
 #: src/ownership/moved-strings-rust.md:12
 msgid "When `s1` goes out of scope, nothing happens (it has been moved from)."
-msgstr ""
+msgstr "وقتی از اسکوپ `s1` خارج می‌شویم، هیچ اتفاقی نمی‌افتد."
 
 #: src/ownership/moved-strings-rust.md:14
 msgid "Before move to `s2`:"
-msgstr ""
+msgstr "قبل از انتقال به `s2` :"
 
 #: src/ownership/moved-strings-rust.md:31
 msgid "After move to `s2`:"
-msgstr ""
+msgstr "بعد از انتقال به `s2` :"
 
 #: src/ownership/moved-strings-rust.md:33
 msgid ""
@@ -5732,13 +6273,12 @@ msgid ""
 msgstr ""
 
 #: src/ownership/double-free-modern-cpp.md:1
-#, fuzzy
 msgid "Defensive Copies in Modern C++"
-msgstr "آزاد سازی مضاعف در مدرن سی++"
+msgstr "کپی‌های تدافعی در <span dir=ltr>C++</span> مدرن"
 
 #: src/ownership/double-free-modern-cpp.md:3
 msgid "Modern C++ solves this differently:"
-msgstr ""
+msgstr "<span dir=ltr>C++</span> مدرن این مشکل را به شیوه متفاوتی حل می‌کند:"
 
 #: src/ownership/double-free-modern-cpp.md:5
 msgid ""
@@ -5752,18 +6292,22 @@ msgstr ""
 msgid ""
 "The heap data from `s1` is duplicated and `s2` gets its own independent copy."
 msgstr ""
+"داده‌های انباشت از داده‌های `s1`  یک کپی برابر اصل برای  `s2` گرفته می‌شود که "
+"این کپی به صورت مستقل است."
 
 #: src/ownership/double-free-modern-cpp.md:11
 msgid "When `s1` and `s2` go out of scope, they each free their own memory."
 msgstr ""
+"حالا هر موقع `s1` یا `s2` از اسکوپ موردنظرشون خارج شوند هر کدام به صورت "
+"جداگانه‌ای حافظه خود را آزاد میکنند."
 
 #: src/ownership/double-free-modern-cpp.md:13
 msgid "Before copy-assignment:"
-msgstr ""
+msgstr "قبل از انتساب همراه کپی:"
 
 #: src/ownership/double-free-modern-cpp.md:30
 msgid "After copy-assignment:"
-msgstr ""
+msgstr "بعد از انتساب همراه کپی:"
 
 #: src/ownership/double-free-modern-cpp.md:57
 msgid ""
@@ -5771,6 +6315,10 @@ msgid ""
 "the string data has to be cloned. Otherwise we would get a double-free when "
 "either string goes out of scope."
 msgstr ""
+"زبان <span dir=ltr>C++</span> انتخاب کمی متفاوت نسبت به  زبان Rust انجام "
+"داده است. زیرا `=` داده‌ها را کپی می‌کند، داده‌های رشته باید کلون شوند. در غیر "
+"این صورت، هر موقع از اسکوپ یکی از آنها خارج شویم امکان به وجود آمدن اشتباه "
+"آزادسازی مجدد حافظه رخ دهد."
 
 #: src/ownership/double-free-modern-cpp.md:61
 msgid ""
@@ -5780,18 +6328,28 @@ msgid ""
 "move, `s1` would be in a valid but unspecified state. Unlike Rust, the "
 "programmer is allowed to keep using `s1`."
 msgstr ""
+"البته که زبان <span dir=ltr>C++</span> دارای  [<span dir=ltr>`std::move`</"
+"span>](https://en.cppreference.com/w/cpp/utility/move)  است که برای انتقال "
+"یک متغییر استفاده میشود. اگر مثال ما <span dir=ltr>`s2 = std::move(s1)`</"
+"span> بود هیچ تخصیص انباشتی صورت نمیگرفت بلکه `s1` در یک وضعیت معتبر البته "
+"نامشخص قرار میگرفت و برخلاف زبان Rust, توی زبان <span dir=ltr>C++</span> "
+"برنامه‌نویس مجاز است که دوباره از `s1` استفاده کند."
 
 #: src/ownership/double-free-modern-cpp.md:66
 msgid ""
 "Unlike Rust, `=` in C++ can run arbitrary code as determined by the type "
 "which is being copied or moved."
 msgstr ""
+"بر خلاف Rust، `=` در <span dir=ltr>C++</span> می‌تواند برای کپی کردن و هم "
+"انتقال دادن استفاده شود."
 
 #: src/ownership/moves-function-calls.md:3
 msgid ""
 "When you pass a value to a function, the value is assigned to the function "
 "parameter. This transfers ownership:"
 msgstr ""
+"هنگامی که یک مقدار را به یک تابع منتقل می‌کنید، مقدار به آرگمان تابع اختصاص "
+"داده می‌شود. به این شکل مالکیت را منتقل می‌کند:"
 
 #: src/ownership/moves-function-calls.md:6
 msgid ""
@@ -5813,96 +6371,123 @@ msgid ""
 "With the first call to `say_hello`, `main` gives up ownership of `name`. "
 "Afterwards, `name` cannot be used anymore within `main`."
 msgstr ""
+"با اولین فراخوانی `say_hello`، تابع `main` مالکیت `name` را انتقال می‌دهد. پس "
+"از آن، `name` دیگر نمی‌تواند در `main` استفاده شود."
 
 #: src/ownership/moves-function-calls.md:21
 msgid ""
 "The heap memory allocated for `name` will be freed at the end of the "
 "`say_hello` function."
 msgstr ""
+"حافظه انباشت اختصاص داده شده برای `name` در انتهای تابع `say_hello` آزاد "
+"خواهد شد."
 
 #: src/ownership/moves-function-calls.md:22
 msgid ""
 "`main` can retain ownership if it passes `name` as a reference (`&name`) and "
 "if `say_hello` accepts a reference as a parameter."
 msgstr ""
+"تابع `main` می‌تواند مالکیت `name` را حفظ کند اگر آن را به عنوان یک مرجع "
+"(<span dir=ltr>`&name`</span>) منتقل کند و صد البته که `say_hello` یک مرجع "
+"را به عنوان پارامتر باید بپذیرد."
 
 #: src/ownership/moves-function-calls.md:23
 msgid ""
 "Alternatively, `main` can pass a clone of `name` in the first call (`name."
 "clone()`)."
 msgstr ""
+"به عنوان گزینه دیگر، `main` می‌تواند یک کلون از `name` را در فراخوانی اولیه "
+"تابع ای که در نظر داریم (<span dir=ltr>`name.clone()`</span>) منتقل کند."
 
 #: src/ownership/moves-function-calls.md:24
 msgid ""
 "Rust makes it harder than C++ to inadvertently create copies by making move "
 "semantics the default, and by forcing programmers to make clones explicit."
 msgstr ""
+"در زبان Rust سخت‌تر از <span dir=ltr>C++</span> است که سهوا کپی ایجاد کنیم, "
+"زیر به صورت پیش‌فرض از مفهوم «انتقال» استفاده میکنیم و برنامه نویس مجبور است "
+"هر جا که لازم هست به صورت صریح کلون را ایجاد کند."
 
 #: src/ownership/copy-clone.md:3
 msgid ""
 "While move semantics are the default, certain types are copied by default:"
 msgstr ""
+"در حالی که مفهوم انتقال  به صورت پیش‌فرض است، در زبان راست چند نوع خاص به "
+"صورت پیش‌فرض کپی می‌شوند:"
 
 #: src/ownership/copy-clone.md:15
 msgid "These types implement the `Copy` trait."
-msgstr ""
+msgstr "این انواع‌داده ویژگی `Copy` را پیاده‌سازی کرده‌اند:"
 
 #: src/ownership/copy-clone.md:17
 msgid "You can opt-in your own types to use copy semantics:"
-msgstr ""
+msgstr "البته که میتوان برای نوع‌هایی که میسازید هم مفهوم کپی را داشته باشید:"
 
 #: src/ownership/copy-clone.md:32
 msgid "After the assignment, both `p1` and `p2` own their own data."
-msgstr ""
+msgstr "پس از انتساب، هر دو `p1` و `p2` داده‌های خود مستقل خود را دارند.‌"
 
 #: src/ownership/copy-clone.md:33
 msgid "We can also use `p1.clone()` to explicitly copy the data."
 msgstr ""
+"همچنین می‌توانیم از <span dir=ltr>`p1.clone()`</span>  برای کپی صریح داده‌ها "
+"استفاده کنیم."
 
 #: src/ownership/copy-clone.md:37
 msgid "Copying and cloning are not the same thing:"
-msgstr ""
+msgstr "کپی‌برداری و کلون‌سازی یکسان نیستند:"
 
 #: src/ownership/copy-clone.md:39
 msgid ""
 "Copying refers to bitwise copies of memory regions and does not work on "
 "arbitrary objects."
 msgstr ""
+"کپی‌برداری به کپی‌های بیت به بیت از مناطق حافظه اشاره دارد و روی همه انواع "
+"تعریف شده توسط شما کار نمی‌کند."
 
 #: src/ownership/copy-clone.md:40
 msgid ""
 "Copying does not allow for custom logic (unlike copy constructors in C++)."
 msgstr ""
+"کپی‌برداری اجازه منطق سفارشی را نمی‌دهد (بر خلاف کپی constructors در <span "
+"dir=ltr>C++</span>)."
 
 #: src/ownership/copy-clone.md:41
 msgid ""
 "Cloning is a more general operation and also allows for custom behavior by "
 "implementing the `Clone` trait."
 msgstr ""
+"کلون‌سازی یک عملیات عمومی‌تر است و همچنین با پیاده‌سازی ویژگی `Clone` امکان "
+"رفتار سفارشی را فراهم می‌کند."
 
 #: src/ownership/copy-clone.md:42
 msgid "Copying does not work on types that implement the `Drop` trait."
 msgstr ""
+"کپی‌برداری روی انواع داده‌ای که ویژگی Drop را پیاده سازی کرده اند کار نمی‌کند."
 
 #: src/ownership/copy-clone.md:44 src/ownership/lifetimes-function-calls.md:30
 msgid "In the above example, try the following:"
-msgstr ""
+msgstr "در مثال بالا، موارد زیر را امتحان کنید:"
 
 #: src/ownership/copy-clone.md:46
 msgid ""
 "Add a `String` field to `struct Point`. It will not compile because `String` "
 "is not a `Copy` type."
 msgstr ""
+"یک فیلد `String` به `struct Point` اضافه کنید. کامپایل نمی‌شود زیرا `String` "
+"یک نوع `Copy` نیست."
 
 #: src/ownership/copy-clone.md:47
 msgid ""
 "Remove `Copy` from the `derive` attribute. The compiler error is now in the "
 "`println!` for  `p1`."
 msgstr ""
+"ویژگی `Copy` را از ویژگی‌های `derive` حذف کنید. خطای کامپایلر اکنون در <span "
+"dir=ltr>`println!`</span> برای  `p1` است."
 
 #: src/ownership/copy-clone.md:48
 msgid "Show that it works if you clone `p1` instead."
-msgstr ""
+msgstr "نشان دهید که اگر `p1` را به جای کپی آن کلون کنید، کار می‌کند."
 
 #: src/ownership/copy-clone.md:50
 msgid ""
@@ -5910,6 +6495,9 @@ msgid ""
 "to generate code in Rust at compile time. In this case the default "
 "implementations of `Copy` and `Clone` traits are generated."
 msgstr ""
+"اگر دانشجویان در مورد `derive` پرسیدند، کافی است بگوییم که این راهی برای "
+"تولید کد در`Rust` در زمان کامپایل است. در این مورد، پیاده‌سازی‌های پیش‌فرض "
+"صفت‌های `Copy` و `Clone` تولید می‌شوند."
 
 #: src/ownership/borrowing.md:3
 msgid ""
