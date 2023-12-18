@@ -61,9 +61,7 @@ impl<'a> Iterator for Tokenizer<'a> {
     type Item = Result<Token, TokenizerError>;
 
     fn next(&mut self) -> Option<Result<Token, TokenizerError>> {
-        let Some(c) = self.0.next() else {
-            return None;
-        };
+        let c = self.0.next()?;
         match c {
             '0'..='9' => {
                 let mut num = String::from(c);
@@ -75,7 +73,7 @@ impl<'a> Iterator for Tokenizer<'a> {
             }
             'a'..='z' => {
                 let mut ident = String::from(c);
-                while let Some(c @ 'a'..='z' | c @ '_' | c @ '0'..='9') = self.0.peek() {
+                while let Some(c @ ('a'..='z' | '_' | '0'..='9')) = self.0.peek() {
                     ident.push(*c);
                     self.0.next();
                 }
@@ -104,9 +102,7 @@ fn parse(input: &str) -> Result<Expression, ParserError> {
     let mut tokens = tokenize(input);
 
     fn parse_expr<'a>(tokens: &mut Tokenizer<'a>) -> Result<Expression, ParserError> {
-        let Some(tok) = tokens.next().transpose()? else {
-            return Err(ParserError::UnexpectedEOF);
-        };
+        let tok = tokens.next().ok_or(ParserError::UnexpectedEOF)??;
         let expr = match tok {
             Token::Number(num) => {
                 let v = num.parse()?;
@@ -148,9 +144,7 @@ impl<'a> Iterator for Tokenizer<'a> {
     type Item = Token;
 
     fn next(&mut self) -> Option<Token> {
-        let Some(c) = self.0.next() else {
-            return None;
-        };
+        let c = self.0.next()?;
         match c {
             '0'..='9' => {
                 let mut num = String::from(c);
@@ -162,7 +156,7 @@ impl<'a> Iterator for Tokenizer<'a> {
             }
             'a'..='z' => {
                 let mut ident = String::from(c);
-                while let Some(c @ 'a'..='z' | c @ '_' | c @ '0'..='9') = self.0.peek() {
+                while let Some(c @ ('a'..='z' | '_' | '0'..='9')) = self.0.peek() {
                     ident.push(*c);
                     self.0.next();
                 }
