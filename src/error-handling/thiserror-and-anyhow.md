@@ -5,7 +5,7 @@ minutes: 5
 # `thiserror`  and `anyhow`
 
 The [`thiserror`](https://docs.rs/thiserror/)  and [`anyhow`](https://docs.rs/anyhow/)
-crates are widley used to simplify error handling. `thiserror` helps
+crates are widely used to simplify error handling. `thiserror` helps
 create custom error types that implement `From<T>`. `anyhow` helps with error
 handling in functions, including adding contextual information to your errors.
 
