@@ -28,7 +28,7 @@ higher-level errors.
 ```rust,editable
 use std::error::Error;
 use std::fmt::{self, Display, Formatter};
-use std::fs::{self, File};
+use std::fs::File;
 use std::io::{self, Read};
 
 #[derive(Debug)]
@@ -49,8 +49,8 @@ impl Display for ReadUsernameError {
 }
 
 impl From<io::Error> for ReadUsernameError {
-    fn from(err: io::Error) -> ReadUsernameError {
-        ReadUsernameError::IoError(err)
+    fn from(err: io::Error) -> Self {
+        Self::IoError(err)
     }
 }
 
@@ -72,22 +72,21 @@ fn main() {
 
 <details>
 
-The return type of the function has to be compatible with the nested functions it calls. For instance,
-a function returning a `Result<T, Err>` can only apply the `?` operator on a function returning a
-`Result<AnyT, Err>`. It cannot apply the `?` operator on a function returning an `Option<AnyT>` or `Result<T, OtherErr>`
-unless `OtherErr` implements `From<Err>`. Reciprocally, a function returning an `Option<T>` can only apply the `?` operator
-on a function returning an `Option<AnyT>`.
+The `?` operator must return a value compatible with the return type of the
+function. For `Result`, it means that the error types have to be compatible.
+A function that returns `Result<T, ErrorOuter>` can only use `?` on a value of
+type `Result<U, ErrorInner>` if `ErrorOuter` and `ErrorInner` are the same type
+or if `ErrorOuter` implements `From<ErrorInner>`.
 
-You can convert incompatible types into one another with the different `Option` and `Result` methods
-such as `Option::ok_or`, `Result::ok`, `Result::err`.
+A common alternative to a `From` implementation is `Result::map_err`,
+especially when the conversion only happens in one place.
 
+There is no compatibility requirement for `Option`. A function returning
+`Option<T>` can use the `?` operator on `Option<U>` for arbitrary `T` and `U`
+types.
 
-It is good practice for all error types that don't need to be `no_std` to implement `std::error::Error`, which requires `Debug` and `Display`. The `Error` crate for `core` is only available in [nightly](https://github.com/rust-lang/rust/issues/103765), so not fully `no_std` compatible yet.
-
-It's generally helpful for them to implement `Clone` and `Eq` too where possible, to make
-life easier for tests and consumers of your library. In this case we can't easily do so, because
-`io::Error` doesn't implement them.
-
-A common alternative to a `From` implementation is `Result::map_err`, especially when the conversion only happens in one place.
+A function that returns `Result` cannot use `?` on `Option` and vice versa.
+However, `Option::ok_or` converts `Option` to `Result` whereas `Result::ok`
+turns `Result` into `Option`.
 
 </details>
