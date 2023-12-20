@@ -3,13 +3,13 @@
 We can now build, push, and start the service:
 
 ```shell
-{{#include ../build_all.sh:birthday_server}}
+{{#include ../../build_all.sh:birthday_server}}
 ```
 
 In another terminal, check that the service runs:
 
 ```shell
-{{#include ../build_all.sh:service_check_birthday_server}}
+{{#include ../../build_all.sh:service_check_birthday_server}}
 ```
 
 ```text
@@ -19,7 +19,7 @@ Service birthdayservice: found
 You can also call the service with `service call`:
 
 ```shell
-{{#include ../build_all.sh:service_call_birthday_server}}
+{{#include ../../build_all.sh:service_call_birthday_server}}
 ```
 
 ```text

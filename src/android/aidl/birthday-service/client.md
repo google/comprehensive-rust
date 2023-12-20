@@ -19,7 +19,7 @@ Notice that the client does not depend on `libbirthdayservice`.
 Build, push, and run the client on your device:
 
 ```shell
-{{#include ../build_all.sh:birthday_client}}
+{{#include ../../build_all.sh:birthday_client}}
 ```
 
 ```text
