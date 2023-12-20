@@ -11,8 +11,8 @@ to the same data from multiple places:
 use std::rc::Rc;
 
 fn main() {
-    let mut a = Rc::new(10);
-    let mut b = Rc::clone(&a);
+    let a = Rc::new(10);
+    let b = Rc::clone(&a);
 
     println!("a: {a}");
     println!("b: {b}");
