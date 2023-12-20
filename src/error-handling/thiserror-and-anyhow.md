@@ -41,13 +41,22 @@ fn main() {
 
 <details>
 
+## `thiserror`
+
 * The `Error` derive macro is provided by `thiserror`, and has lots of useful
-  attributes like `#[error]` to help define a useful error type.
-* `anyhow::Result<V>` is a type alias for `Result<V, anyhow::Error>`.
+  attributes to help define error types in a compact way.
+* The `std::error::Error` trait is derived automatically.
+* The message from `#[error]` is used to derive the `Display` trait.
+
+## `anyhow`
+
 * `anyhow::Error` is essentially a wrapper around `Box<dyn Error>`. As such it's again generally not
   a good choice for the public API of a library, but is widely used in applications.
+* `anyhow::Result<V>` is a type alias for `Result<V, anyhow::Error>`.
 * Actual error type inside of it can be extracted for examination if necessary.
 * Functionality provided by `anyhow::Result<T>` may be familiar to Go developers, as it provides
   similar usage patterns and ergonomics to `(T, error)` from Go.
+* `anyhow::Context` is a trait implemented for the standard `Result` and `Option` types.
+  `use anyhow::Context` is necessary to enable `.context()` and `.with_context()` on those types.
 
 </details>
