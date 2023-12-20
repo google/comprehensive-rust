@@ -48,7 +48,7 @@ impl<T: Ord> BinaryTree<T> {
         self.root.insert(value);
     }
 
-    fn has(&self, value: T) -> bool {
+    fn has(&self, value: &T) -> bool {
         self.root.has(value)
     }
 
@@ -73,7 +73,7 @@ impl<T: Ord> Subtree<T> {
         }
     }
 
-    fn has(&self, value: T) -> bool {
+    fn has(&self, value: &T) -> bool {
         match &self.0 {
             None => false,
             Some(n) => match value.cmp(&n.value) {
@@ -107,7 +107,7 @@ fn main() {
     tree.insert("foo");
     assert_eq!(tree.len(), 1);
     tree.insert("bar");
-    assert!(tree.has("foo"));
+    assert!(tree.has(&"foo"));
 }
 
 // ANCHOR: tests
@@ -131,7 +131,7 @@ mod tests {
     fn has() {
         let mut tree = BinaryTree::new();
         fn check_has(tree: &BinaryTree<i32>, exp: &[bool]) {
-            let got: Vec<bool> = (0..exp.len()).map(|i| tree.has(i as i32)).collect();
+            let got: Vec<bool> = (0..exp.len()).map(|i| tree.has(&(i as i32))).collect();
             assert_eq!(&got, exp);
         }
 
@@ -153,7 +153,7 @@ mod tests {
             tree.insert(i);
         }
         assert_eq!(tree.len(), 100);
-        assert!(tree.has(50));
+        assert!(tree.has(&50));
     }
 }
 // ANCHOR_END: tests
