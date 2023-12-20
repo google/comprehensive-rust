@@ -16,6 +16,16 @@
 // limitations under the License.
 -->
 
+```ignore
+src
+├── main.rs
+├── widgets
+│   ├── button.rs
+│   ├── label.rs
+│   └── window.rs
+└── widgets.rs
+```
+
 ```rust,ignore
 // ---- src/widgets.rs ----
 mod button;
