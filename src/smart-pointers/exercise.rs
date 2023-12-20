@@ -18,7 +18,7 @@ use std::cmp::Ordering;
 // ANCHOR: types
 /// A node in the binary tree.
 #[derive(Debug)]
-struct Node<T: Ord + Copy> {
+struct Node<T: Ord> {
     value: T,
     left: Subtree<T>,
     right: Subtree<T>,
@@ -26,18 +26,18 @@ struct Node<T: Ord + Copy> {
 
 /// A possibly-empty subtree.
 #[derive(Debug)]
-struct Subtree<T: Ord + Copy>(Option<Box<Node<T>>>);
+struct Subtree<T: Ord>(Option<Box<Node<T>>>);
 
 /// A container storing a set of values, using a binary tree.
 ///
 /// If the same value is added multiple times, it is only stored once.
 #[derive(Debug)]
-pub struct BinaryTree<T: Ord + Copy> {
+pub struct BinaryTree<T: Ord> {
     root: Subtree<T>,
 }
 // ANCHOR_END: types
 
-impl<T: Ord + Copy> BinaryTree<T> {
+impl<T: Ord> BinaryTree<T> {
     fn new() -> Self {
         Self {
             root: Subtree::new(),
@@ -57,7 +57,7 @@ impl<T: Ord + Copy> BinaryTree<T> {
     }
 }
 
-impl<T: Ord + Copy> Subtree<T> {
+impl<T: Ord> Subtree<T> {
     fn new() -> Self {
         Self(None)
     }
@@ -92,7 +92,7 @@ impl<T: Ord + Copy> Subtree<T> {
     }
 }
 
-impl<T: Ord + Copy> Node<T> {
+impl<T: Ord> Node<T> {
     fn new(value: T) -> Self {
         Self {
             value,
