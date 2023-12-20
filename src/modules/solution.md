@@ -1,6 +1,6 @@
 # Solution
 
-<!-- 
+<!--
 // Copyright 2023 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,6 +18,10 @@
 
 ```rust,ignore
 // ---- src/widgets.rs ----
+mod button;
+mod label;
+mod window;
+
 pub trait Widget {
     /// Natural width of `self`.
     fn width(&self) -> usize;
@@ -172,6 +176,8 @@ impl Widget for Window {
 
 ```rust,ignore
 // ---- src/main.rs ----
+mod widgets;
+
 use widgets::Widget;
 
 fn main() {
