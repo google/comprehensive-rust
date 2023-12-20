@@ -135,10 +135,10 @@ fn unpack_tag(tag: u64) -> Result<(u64, WireType), Error> {
 // ANCHOR: parse_field
 /// Parse a field, returning the remaining bytes
 fn parse_field(data: &[u8]) -> Result<(Field, &[u8]), Error> {
-    // ANCHOR_END: parse_field
     let (tag, remainder) = parse_varint(data)?;
     let (field_num, wire_type) = unpack_tag(tag)?;
     let (fieldvalue, remainder) = match wire_type {
+        // ANCHOR_END: parse_field
         WireType::Varint => {
             let (value, remainder) = parse_varint(remainder)?;
             (FieldValue::Varint(value), remainder)

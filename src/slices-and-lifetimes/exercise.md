@@ -48,11 +48,9 @@ What remains for you is to implement the `parse_field` function and the
 
 
 {{#include exercise.rs:parse_field }}
-    // 1. Read and unpack the tag, which is a varint.
-    // 2. Based on the wire type, build a Field, consuming as many bytes as
-    //    necessary.
-    // 3. Return the field, and any un-consumed bytes.
-    todo!()
+        _ => todo!("Based on the wire type, build a Field, consuming as many bytes as necessary.")
+    };
+    todo!("Return the field, and any un-consumed bytes.")
 }
 
 {{#include exercise.rs:parse_message }}
