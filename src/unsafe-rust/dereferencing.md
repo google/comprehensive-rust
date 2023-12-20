@@ -51,7 +51,7 @@ In the case of pointer dereferences, this means that the pointers must be
 
 In most cases the pointer must also be properly aligned.
 
-The "NOT SAFE" sectoin gives an example of a common kind of UB bug: `*r1` has
+The "NOT SAFE" section gives an example of a common kind of UB bug: `*r1` has
 the `'static` lifetime, so `r3` has type `&'static String`, and thus outlives
 `s`. Creating a reference from a pointer requires _great care_.
 

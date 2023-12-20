@@ -206,7 +206,7 @@
         }
         break;
       case "speakerNotes":
-        // When nagigating to another page, we see two state changes in rapid
+        // When navigating to another page, we see two state changes in rapid
         // succession:
         //
         // - "popup" -> "inline-open"
