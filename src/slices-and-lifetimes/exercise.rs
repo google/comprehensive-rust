@@ -172,7 +172,8 @@ fn parse_field(data: &[u8]) -> Result<(Field, &[u8]), Error> {
 }
 
 // ANCHOR: parse_message
-/// Parse a message in the given data, calling `field_callback` for each field in the message.
+/// Parse a message in the given data, calling `T::add_field` for each field in
+/// the message.
 ///
 /// The entire input is consumed.
 fn parse_message<'a, T: ProtoMessage<'a>>(mut data: &'a [u8]) -> Result<T, Error> {
