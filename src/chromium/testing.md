@@ -39,7 +39,7 @@ used:
 
 * QR has very little functionality in the first-party Rust layer (it's just a
   thin FFI glue) and therefore uses the existing C++ unit tests for testing
-  both the C++ and the Rust implementation (parametrizing the tests so they
+  both the C++ and the Rust implementation (parameterizing the tests so they
   enable or disable Rust using a `ScopedFeatureList`).
 
 * Hypothetical/WIP PNG integration may need to implement memory-safe

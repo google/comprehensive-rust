@@ -24,6 +24,6 @@ few handy features:
 As students head into the break, encourage them to open up the playground and
 experiment a little. Encourage them to keep the tab open and try things out
 during the rest of the course. This is particularly helpful for advanced
-students who want to know more about Rust's optimzations or generated assembly.
+students who want to know more about Rust's optimizations or generated assembly.
 
 </details>

@@ -36,7 +36,7 @@ Discussion points:
         call site.
 * Why is `Output` an associated type? Could it be made a type parameter of the method?
     * Short answer: Function type parameters are controlled by the caller, but
-        associated types (like `Output`) are controlled by the implementor of a
+        associated types (like `Output`) are controlled by the implementer of a
         trait.
 * You could implement `Add` for two different types, e.g.
   `impl Add<(i32, i32)> for Point` would add a tuple to a `Point`.
