@@ -20,13 +20,13 @@ use std::error::Error;
 use std::net::SocketAddr;
 use tokio::net::{TcpListener, TcpStream};
 use tokio::sync::broadcast::{channel, Sender};
-use tokio_websockets::{Message, ServerBuilder, WebsocketStream};
+use tokio_websockets::{Message, ServerBuilder, WebSocketStream};
 // ANCHOR_END: setup
 
 // ANCHOR: handle_connection
 async fn handle_connection(
     addr: SocketAddr,
-    mut ws_stream: WebsocketStream<TcpStream>,
+    mut ws_stream: WebSocketStream<TcpStream>,
     bcast_tx: Sender<String>,
 ) -> Result<(), Box<dyn Error + Send + Sync>> {
     // ANCHOR_END: handle_connection
