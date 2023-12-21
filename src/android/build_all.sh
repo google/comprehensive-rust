@@ -56,7 +56,6 @@ source build/envsetup.sh
 lunch aosp_cf_x86_64_phone-userdebug
 #acloud reconnect --autoconnect adb
 
-adb root
 adb shell rm -rf '/data/local/tmp/*'
 
 run_example <<EOF
@@ -80,6 +79,7 @@ function birthday_server() {
 # ANCHOR: birthday_server
 m birthday_server
 adb push "$ANDROID_PRODUCT_OUT/system/bin/birthday_server" /data/local/tmp
+adb root
 adb shell /data/local/tmp/birthday_server
 # ANCHOR_END: birthday_server
 EOF
