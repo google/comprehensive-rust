@@ -17,7 +17,7 @@ use my_rust_lib::my_function_under_test;
 
 Under the covers the macro expands to something similar to:
 
-```
+```rust,ignore
 extern crate ui_sbase_cmy_urust_ulib as my_rust_lib;
 
 use my_rust_lib::my_function_under_test;
