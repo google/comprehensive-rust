@@ -255,6 +255,7 @@
 - [Testing](chromium/testing.md)
   - [`rust_gtest_interop` Library](chromium/testing/rust-gtest-interop.md)
   - [GN Rules for Rust Tests](chromium/testing/build-gn.md)
+  - [`chromium::import!` Macro](chromium/testing/chromium-import-macro.md)
   - [Exercise](exercises/chromium/testing.md)
 - [Interoperability with C++](chromium/interoperability-with-cpp.md)
   - [Example Bindings](chromium/interoperability-with-cpp/example-bindings.md)
