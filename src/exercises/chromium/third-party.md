@@ -28,7 +28,7 @@ more than that, they probably forgot to turn off the default features.
 
 Thanks to [Daniel Liu][3] for this crate!
 
-</detail>
+</details>
 
 
 [0]: https://crates.io/crates/uwuify
