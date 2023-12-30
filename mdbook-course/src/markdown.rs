@@ -14,8 +14,8 @@
 
 use std::path::Path;
 
-/// Given a source_path for the markdown file being rendered and a source_path for the target,
-/// generate a relative link.
+/// Given a source_path for the markdown file being rendered and a source_path
+/// for the target, generate a relative link.
 pub fn relative_link(
     doc_path: impl AsRef<Path>,
     target_path: impl AsRef<Path>,
@@ -72,7 +72,10 @@ mod test {
     #[test]
     fn relative_link_subdir() {
         assert_eq!(
-            relative_link(Path::new("hello-world.md"), Path::new("hello-world/foo.md")),
+            relative_link(
+                Path::new("hello-world.md"),
+                Path::new("hello-world/foo.md")
+            ),
             "./hello-world/foo.md".to_string()
         );
     }
@@ -80,7 +83,10 @@ mod test {
     #[test]
     fn relative_link_parent_dir() {
         assert_eq!(
-            relative_link(Path::new("references/foo.md"), Path::new("hello-world.md")),
+            relative_link(
+                Path::new("references/foo.md"),
+                Path::new("hello-world.md")
+            ),
             "../hello-world.md".to_string()
         );
     }

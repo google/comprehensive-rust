@@ -78,9 +78,9 @@ cargo run
 
 ## Tasks
 
-* Use threads to check the links in parallel: send the URLs to be checked to a
+- Use threads to check the links in parallel: send the URLs to be checked to a
   channel and let a few threads check the URLs in parallel.
-* Extend this to recursively extract links from all pages on the
+- Extend this to recursively extract links from all pages on the
   `www.google.org` domain. Put an upper limit of 100 pages or so so that you
   don't end up being blocked by the site.
 

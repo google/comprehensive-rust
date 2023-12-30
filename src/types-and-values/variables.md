@@ -18,10 +18,10 @@ fn main() {
 
 <details>
 
-* Uncomment the `x = 20` to demonstrate that variables are immutable by default.
+- Uncomment the `x = 20` to demonstrate that variables are immutable by default.
   Add the `mut` keyword to allow changes.
 
-* The `i32` here is the type of the variable. This must be known at compile
+- The `i32` here is the type of the variable. This must be known at compile
   time, but type inference (covered later) allows the programmer to omit it in
   many cases.
 

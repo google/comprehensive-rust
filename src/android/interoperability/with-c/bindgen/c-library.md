@@ -17,4 +17,3 @@ _interoperability/c/libbirthday/libbirthday.c_:
 ```c
 {{#include c/libbirthday/libbirthday.c}}
 ```
-

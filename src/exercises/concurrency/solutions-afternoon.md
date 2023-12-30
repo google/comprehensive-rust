@@ -23,4 +23,3 @@ _src/bin/client.rs_:
 ```rust,compile_fail
 {{#include chat-async/src/bin/client.rs:solution}}
 ```
-

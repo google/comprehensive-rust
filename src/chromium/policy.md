@@ -1,9 +1,11 @@
 # Chromium Rust policy
 
-Chromium does not yet allow first-party Rust except in rare cases as approved
-by Chromium's [Area Tech Leads](https://source.chromium.org/chromium/chromium/src/+/main:ATL_OWNERS).
+Chromium does not yet allow first-party Rust except in rare cases as approved by
+Chromium's
+[Area Tech Leads](https://source.chromium.org/chromium/chromium/src/+/main:ATL_OWNERS).
 
-Chromium's policy on third party libraries is outlined [here](https://chromium.googlesource.com/chromium/src/+/main/docs/adding_to_third_party.md#rust) -
+Chromium's policy on third party libraries is outlined
+[here](https://chromium.googlesource.com/chromium/src/+/main/docs/adding_to_third_party.md#rust) -
 Rust is allowed for third party libraries under various circumstances, including
 if they're the best option for performance or for security.
 
@@ -25,13 +27,12 @@ all such libraries will require a small amount of first-party glue code.
 `- - - - - - - - - -'           `- - - - - - - - - - - - - - - - - - - - - - -'
 ```
 
-> First-party Rust glue code for a particular third-party crate should
-> normally be kept in `third_party/rust/<crate>/<version>/wrapper`.
+> First-party Rust glue code for a particular third-party crate should normally
+> be kept in `third_party/rust/<crate>/<version>/wrapper`.
 
 Because of this, today's course will be heavily focused on:
 
-* Bringing in third-party Rust libraries ("crates")
-* Writing glue code to be able to use those crates from Chromium C++.
+- Bringing in third-party Rust libraries ("crates")
+- Writing glue code to be able to use those crates from Chromium C++.
 
 If this policy changes over time, the course will evolve to keep up.
-

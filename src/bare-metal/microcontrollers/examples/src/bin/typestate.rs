@@ -20,7 +20,8 @@ extern crate panic_halt as _;
 use cortex_m_rt::entry;
 use nrf52833_hal::gpio::p0::{self, P0_01, P0_02, P0_03};
 use nrf52833_hal::gpio::{
-    Disconnected, Floating, Input, Level, OpenDrain, OpenDrainConfig, Output, PushPull,
+    Disconnected, Floating, Input, Level, OpenDrain, OpenDrainConfig, Output,
+    PushPull,
 };
 use nrf52833_hal::pac::Peripherals;
 use nrf52833_hal::prelude::*;
@@ -46,7 +47,8 @@ fn main() -> ! {
     let _pin2: P0_02<Output<OpenDrain>> = gpio0
         .p0_02
         .into_open_drain_output(OpenDrainConfig::Disconnect0Standard1, Level::Low);
-    let _pin3: P0_03<Output<PushPull>> = gpio0.p0_03.into_push_pull_output(Level::Low);
+    let _pin3: P0_03<Output<PushPull>> =
+        gpio0.p0_03.into_push_pull_output(Level::Low);
 
     loop {}
 }

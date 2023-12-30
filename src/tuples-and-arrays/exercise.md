@@ -16,6 +16,7 @@ Use an array such as the above to write a function `transpose` which will
 transpose a matrix (turn rows into columns):
 
 <!-- mdbook-xgettext: skip -->
+
 ```bob
            ⎛⎡1 2 3⎤⎞      ⎡1 4 7⎤
 "transpose"⎜⎢4 5 6⎥⎟  "=="⎢2 5 8⎥

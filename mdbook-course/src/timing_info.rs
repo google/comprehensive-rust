@@ -23,11 +23,7 @@ pub fn insert_timing_info(slide: &Slide, chapter: &mut Chapter) {
     {
         // Include the minutes in the speaker notes.
         let minutes = slide.minutes;
-        let plural = if slide.minutes == 1 {
-            "minute"
-        } else {
-            "minutes"
-        };
+        let plural = if slide.minutes == 1 { "minute" } else { "minutes" };
         let mut subslides = "";
         if slide.source_paths.len() > 1 {
             subslides = "and its sub-slides ";

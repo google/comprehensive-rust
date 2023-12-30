@@ -35,9 +35,7 @@ pub struct Label {
 
 impl Label {
     fn new(label: &str) -> Label {
-        Label {
-            label: label.to_owned(),
-        }
+        Label { label: label.to_owned() }
     }
 }
 
@@ -47,9 +45,7 @@ pub struct Button {
 
 impl Button {
     fn new(label: &str) -> Button {
-        Button {
-            label: Label::new(label),
-        }
+        Button { label: Label::new(label) }
     }
 }
 
@@ -60,10 +56,7 @@ pub struct Window {
 
 impl Window {
     fn new(title: &str) -> Window {
-        Window {
-            title: title.to_owned(),
-            widgets: Vec::new(),
-        }
+        Window { title: title.to_owned(), widgets: Vec::new() }
     }
 
     fn add_widget(&mut self, widget: Box<dyn Widget>) {
@@ -126,11 +119,7 @@ impl Widget for Button {
 
 impl Widget for Label {
     fn width(&self) -> usize {
-        self.label
-            .lines()
-            .map(|line| line.chars().count())
-            .max()
-            .unwrap_or(0)
+        self.label.lines().map(|line| line.chars().count()).max().unwrap_or(0)
     }
 
     fn draw_into(&self, buffer: &mut dyn std::fmt::Write) {

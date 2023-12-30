@@ -35,7 +35,9 @@ fn main() -> anyhow::Result<()> {
     let output_directory = Path::new(
         config
             .get("output-directory")
-            .context("Missing output.exerciser.output-directory configuration value")?
+            .context(
+                "Missing output.exerciser.output-directory configuration value",
+            )?
             .as_str()
             .context("Expected a string for output.exerciser.output-directory")?,
     );
@@ -55,8 +57,8 @@ fn process_all(book: &Book, output_directory: &Path) -> anyhow::Result<()> {
         if let BookItem::Chapter(chapter) = item {
             trace!("Chapter {:?} / {:?}", chapter.path, chapter.source_path);
             if let Some(chapter_path) = &chapter.path {
-                // Put the exercises in a subdirectory named after the chapter file, without its
-                // parent directories.
+                // Put the exercises in a subdirectory named after the chapter file,
+                // without its parent directories.
                 let chapter_output_directory =
                     output_directory.join(chapter_path.file_stem().with_context(
                         || format!("Chapter {:?} has no file stem", chapter_path),

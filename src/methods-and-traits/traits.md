@@ -7,8 +7,13 @@ minutes: 10
 Rust lets you abstract over types with traits. They're similar to interfaces:
 
 ```rust,editable
-struct Dog { name: String, age: i8 }
-struct Cat { lives: i8 } // No name needed, cats won't respond anyway.
+struct Dog {
+    name: String,
+    age: i8,
+}
+struct Cat {
+    lives: i8,
+}
 
 trait Pet {
     fn talk(&self) -> String;
@@ -19,11 +24,15 @@ trait Pet {
 }
 
 impl Pet for Dog {
-    fn talk(&self) -> String { format!("Woof, my name is {}!", self.name) }
+    fn talk(&self) -> String {
+        format!("Woof, my name is {}!", self.name)
+    }
 }
 
 impl Pet for Cat {
-    fn talk(&self) -> String { String::from("Miau!") }
+    fn talk(&self) -> String {
+        String::from("Miau!")
+    }
 }
 
 fn main() {
@@ -37,12 +46,12 @@ fn main() {
 
 <details>
 
-* A trait defines a number of methods that types must have in order to implement
+- A trait defines a number of methods that types must have in order to implement
   the trait.
 
-* Traits are implemented in an `impl <trait> for <type> { .. }` block.
+- Traits are implemented in an `impl <trait> for <type> { .. }` block.
 
-* Traits may specify pre-implemented (provided) methods and methods that users
+- Traits may specify pre-implemented (provided) methods and methods that users
   are required to implement themselves. Provided methods can rely on required
   methods. In this case, `greet` is provided, and relies on `talk`.
 

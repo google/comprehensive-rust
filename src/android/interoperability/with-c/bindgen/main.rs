@@ -19,10 +19,7 @@ use birthday_bindgen::{card, print_card};
 
 fn main() {
     let name = std::ffi::CString::new("Peter").unwrap();
-    let card = card {
-        name: name.as_ptr(),
-        years: 42,
-    };
+    let card = card { name: name.as_ptr(), years: 42 };
     // SAFETY: `print_card` is safe to call with a valid `card` pointer.
     unsafe {
         print_card(&card as *const card);

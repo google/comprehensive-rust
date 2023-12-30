@@ -4,9 +4,9 @@ See [dining philosophers](dining-philosophers.md) for a description of the
 problem.
 
 As before, you will need a local
-[Cargo installation](../../cargo/running-locally.md) for this exercise. Copy
-the code below to a file called `src/main.rs`, fill out the blanks, and test
-that `cargo run` does not deadlock:
+[Cargo installation](../../cargo/running-locally.md) for this exercise. Copy the
+code below to a file called `src/main.rs`, fill out the blanks, and test that
+`cargo run` does not deadlock:
 
 <!-- File src/main.rs -->
 
@@ -32,8 +32,8 @@ that `cargo run` does not deadlock:
 }
 ```
 
-Since this time you are using Async Rust, you'll need a `tokio` dependency.
-You can use the following `Cargo.toml`:
+Since this time you are using Async Rust, you'll need a `tokio` dependency. You
+can use the following `Cargo.toml`:
 
 <!-- File Cargo.toml -->
 
@@ -44,14 +44,14 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-tokio = {version = "1.26.0", features = ["sync", "time", "macros", "rt-multi-thread"]}
+tokio = { version = "1.26.0", features = ["sync", "time", "macros", "rt-multi-thread"] }
 ```
 
-Also note that this time you have to use the `Mutex` and the `mpsc` module
-from the `tokio` crate.
+Also note that this time you have to use the `Mutex` and the `mpsc` module from
+the `tokio` crate.
 
 <details>
 
-* Can you make your implementation single-threaded? 
+- Can you make your implementation single-threaded?
 
 </details>

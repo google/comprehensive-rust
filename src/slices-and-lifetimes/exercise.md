@@ -4,10 +4,10 @@ minutes: 30
 
 # Exercise: Protobuf Parsing
 
-In this exercise, you will build a parser for the [protobuf binary
-encoding](https://protobuf.dev/programming-guides/encoding/). Don't worry, it's
-simpler than it seems! This illustrates a common parsing pattern, passing slices
-of data. The underlying data itself is never copied.
+In this exercise, you will build a parser for the
+[protobuf binary encoding](https://protobuf.dev/programming-guides/encoding/).
+Don't worry, it's simpler than it seems! This illustrates a common parsing
+pattern, passing slices of data. The underlying data itself is never copied.
 
 Fully parsing a protobuf message requires knowing the types of the fields,
 indexed by their field numbers. That is typically provided in a `proto` file. In
@@ -43,6 +43,7 @@ What remains for you is to implement the `parse_field` function and the
 `ProtoMessage` trait for `Person` and `PhoneNumber`.
 
 <!-- compile_fail because `mdbook test` does not allow use of `thiserror` -->
+
 ```rust,editable,compile_fail
 {{#include exercise.rs:preliminaries }}
 

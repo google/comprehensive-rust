@@ -14,8 +14,8 @@ fn main() {
 }
 ```
 
-We already saw this in the [Safe FFI Wrapper
-exercise](../../exercises/day-3/safe-ffi-wrapper.md).
+We already saw this in the
+[Safe FFI Wrapper exercise](../../exercises/day-3/safe-ffi-wrapper.md).
 
 > This assumes full knowledge of the target platform. Not recommended for
 > production.

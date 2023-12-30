@@ -20,15 +20,14 @@ use com_example_birthdayservice::binder;
 const SERVICE_IDENTIFIER: &str = "birthdayservice";
 
 /// Connect to the BirthdayService.
-pub fn connect() -> Result<binder::Strong<dyn IBirthdayService>, binder::StatusCode> {
+pub fn connect() -> Result<binder::Strong<dyn IBirthdayService>, binder::StatusCode>
+{
     binder::get_interface(SERVICE_IDENTIFIER)
 }
 
 /// Call the birthday service.
 fn main() -> Result<(), binder::Status> {
-    let name = std::env::args()
-        .nth(1)
-        .unwrap_or_else(|| String::from("Bob"));
+    let name = std::env::args().nth(1).unwrap_or_else(|| String::from("Bob"));
     let years = std::env::args()
         .nth(2)
         .and_then(|arg| arg.parse::<i32>().ok())

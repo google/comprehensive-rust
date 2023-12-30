@@ -48,10 +48,7 @@ impl Iterator for GridIter {
 }
 
 fn main() {
-    let grid = Grid {
-        x_coords: vec![3, 5, 7, 9],
-        y_coords: vec![10, 20, 30, 40],
-    };
+    let grid = Grid { x_coords: vec![3, 5, 7, 9], y_coords: vec![10, 20, 30, 40] };
     for (x, y) in grid {
         println!("point = {x}, {y}");
     }
@@ -63,8 +60,8 @@ fn main() {
 Click through to the docs for `IntoIterator`. Every implementation of
 `IntoIterator` must declare two types:
 
-* `Item`: the type to iterate over, such as `i8`,
-* `IntoIter`: the `Iterator` type returned by the `into_iter` method.
+- `Item`: the type to iterate over, such as `i8`,
+- `IntoIter`: the `Iterator` type returned by the `into_iter` method.
 
 Note that `IntoIter` and `Item` are linked: the iterator must have the same
 `Item` type, which means that it returns `Option<Item>`

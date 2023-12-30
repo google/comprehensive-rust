@@ -6,11 +6,11 @@ minutes: 5
 
 Rust and Cargo come with a simple unit test framework:
 
-* Unit tests are supported throughout your code.
+- Unit tests are supported throughout your code.
 
-* Integration tests are supported via the `tests/` directory.
+- Integration tests are supported via the `tests/` directory.
 
-Tests are marked with `#[test]`.  Unit tests are often put in a nested `tests`
+Tests are marked with `#[test]`. Unit tests are often put in a nested `tests`
 module, using `#[cfg(test)]` to conditionally compile them only when building
 tests.
 
@@ -43,8 +43,8 @@ mod test {
 }
 ```
 
-* This lets you unit test private helpers.
-* The `#[cfg(test)]` attribute is only active when you run `cargo test`.
+- This lets you unit test private helpers.
+- The `#[cfg(test)]` attribute is only active when you run `cargo test`.
 
 <details>
 

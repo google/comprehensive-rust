@@ -27,11 +27,11 @@ actually undefined, and might do different things on different platforms or
 compilers. In Rust, it's defined.
 
 Change the `i32`'s to `i16` to see an integer overflow, which panics (checked)
-in a debug build and wraps in a release build.  There are other options, such
-as overflowing, saturating, and carrying.  These are accessed with method
-syntax, e.g., `(a * b).saturating_add(b * c).saturating_add(c * a)`.
+in a debug build and wraps in a release build. There are other options, such as
+overflowing, saturating, and carrying. These are accessed with method syntax,
+e.g., `(a * b).saturating_add(b * c).saturating_add(c * a)`.
 
-In fact, the compiler will detect overflow of constant expressions, which is
-why the example requires a separate function.
+In fact, the compiler will detect overflow of constant expressions, which is why
+the example requires a separate function.
 
 </details>

@@ -62,20 +62,14 @@ pub struct Label {
 
 impl Label {
     pub fn new(label: &str) -> Label {
-        Label {
-            label: label.to_owned(),
-        }
+        Label { label: label.to_owned() }
     }
 }
 
 impl Widget for Label {
     fn width(&self) -> usize {
         // ANCHOR_END: Label-width
-        self.label
-            .lines()
-            .map(|line| line.chars().count())
-            .max()
-            .unwrap_or(0)
+        self.label.lines().map(|line| line.chars().count()).max().unwrap_or(0)
     }
 
     // ANCHOR: Label-draw_into
@@ -96,9 +90,7 @@ pub struct Button {
 
 impl Button {
     pub fn new(label: &str) -> Button {
-        Button {
-            label: Label::new(label),
-        }
+        Button { label: Label::new(label) }
     }
 }
 
@@ -135,10 +127,7 @@ pub struct Window {
 
 impl Window {
     pub fn new(title: &str) -> Window {
-        Window {
-            title: title.to_owned(),
-            widgets: Vec::new(),
-        }
+        Window { title: title.to_owned(), widgets: Vec::new() }
     }
 
     pub fn add_widget(&mut self, widget: Box<dyn Widget>) {
@@ -192,9 +181,8 @@ use widgets::Widget;
 
 fn main() {
     let mut window = widgets::Window::new("Rust GUI Demo 1.23");
-    window.add_widget(Box::new(widgets::Label::new(
-        "This is a small text GUI demo.",
-    )));
+    window
+        .add_widget(Box::new(widgets::Label::new("This is a small text GUI demo.")));
     window.add_widget(Box::new(widgets::Button::new("Click me!")));
     window.draw();
 }

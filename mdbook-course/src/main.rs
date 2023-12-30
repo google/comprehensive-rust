@@ -30,7 +30,9 @@ fn main() {
     pretty_env_logger::init();
     let app = Command::new("mdbook-course")
         .about("mdbook preprocessor for Comprehensive Rust")
-        .subcommand(Command::new("supports").arg(Arg::new("renderer").required(true)));
+        .subcommand(
+            Command::new("supports").arg(Arg::new("renderer").required(true)),
+        );
     let matches = app.get_matches();
 
     if let Some(_) = matches.subcommand_matches("supports") {
@@ -65,18 +67,11 @@ fn timediff(actual: u64, target: u64) -> String {
 }
 
 fn print_summary(fundamentals: &Course) {
-    eprintln!(
-        "Fundamentals: {}",
-        timediff(fundamentals.minutes(), 8 * 3 * 60)
-    );
+    eprintln!("Fundamentals: {}", timediff(fundamentals.minutes(), 8 * 3 * 60));
 
     eprintln!("Sessions:");
     for session in fundamentals {
-        eprintln!(
-            "  {}: {}",
-            session.name,
-            timediff(session.minutes(), 3 * 60)
-        );
+        eprintln!("  {}: {}", session.name, timediff(session.minutes(), 3 * 60));
         for segment in session {
             eprintln!("    {}: {}", segment.name, duration(segment.minutes()));
         }
@@ -95,7 +90,9 @@ fn preprocess() -> anyhow::Result<()> {
 
     book.for_each_mut(|chapter| {
         if let BookItem::Chapter(chapter) = chapter {
-            if let Some((course, session, segment, slide)) = courses.find_slide(chapter) {
+            if let Some((course, session, segment, slide)) =
+                courses.find_slide(chapter)
+            {
                 timing_info::insert_timing_info(slide, chapter);
                 replacements::replace(
                     &courses,

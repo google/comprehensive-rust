@@ -39,9 +39,7 @@ pub struct BinaryTree<T: Ord> {
 
 impl<T: Ord> BinaryTree<T> {
     fn new() -> Self {
-        Self {
-            root: Subtree::new(),
-        }
+        Self { root: Subtree::new() }
     }
 
     fn insert(&mut self, value: T) {
@@ -94,11 +92,7 @@ impl<T: Ord> Subtree<T> {
 
 impl<T: Ord> Node<T> {
     fn new(value: T) -> Self {
-        Self {
-            value,
-            left: Subtree::new(),
-            right: Subtree::new(),
-        }
+        Self { value, left: Subtree::new(), right: Subtree::new() }
     }
 }
 
@@ -131,7 +125,8 @@ mod tests {
     fn has() {
         let mut tree = BinaryTree::new();
         fn check_has(tree: &BinaryTree<i32>, exp: &[bool]) {
-            let got: Vec<bool> = (0..exp.len()).map(|i| tree.has(&(i as i32))).collect();
+            let got: Vec<bool> =
+                (0..exp.len()).map(|i| tree.has(&(i as i32))).collect();
             assert_eq!(&got, exp);
         }
 

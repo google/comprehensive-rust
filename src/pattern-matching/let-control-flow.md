@@ -10,10 +10,11 @@ are used for pattern matching:
 - `if let` expressions
 - `while let` expressions
 - `match` expressions
+
 # `if let` expressions
 
-The [`if let`
-expression](https://doc.rust-lang.org/reference/expressions/if-expr.html#if-let-expressions)
+The
+[`if let` expression](https://doc.rust-lang.org/reference/expressions/if-expr.html#if-let-expressions)
 lets you execute different code depending on whether a value matches a pattern:
 
 ```rust,editable
@@ -33,12 +34,12 @@ fn main() {
 }
 ```
 
-# `let else` expressions 
+# `let else` expressions
+
 For the common case of matching a pattern and returning from the function, use
-[`let
-else`](https://doc.rust-lang.org/rust-by-example/flow_control/let_else.html).
-The "else" case must diverge (`return`, `break`, or panic - anything but
-falling off the end of the block).
+[`let else`](https://doc.rust-lang.org/rust-by-example/flow_control/let_else.html).
+The "else" case must diverge (`return`, `break`, or panic - anything but falling
+off the end of the block).
 
 ```rust,editable
 fn hex_or_die_trying(maybe_string: Option<String>) -> Result<u32, String> {
@@ -66,10 +67,12 @@ fn main() {
 }
 ```
 
-Like with `if let`, there is a [`while let`](https://doc.rust-lang.org/reference/expressions/loop-expr.html#predicate-pattern-loops)
+Like with `if let`, there is a
+[`while let`](https://doc.rust-lang.org/reference/expressions/loop-expr.html#predicate-pattern-loops)
 variant which repeatedly tests a value against a pattern:
 
 <!-- mdbook-xgettext: skip -->
+
 ```rust,editable
 fn main() {
     let mut name = String::from("Comprehensive Rust 🦀");
@@ -89,16 +92,19 @@ The `while let` lets us keep iterating through all items.
 
 ## if-let
 
-* Unlike `match`, `if let` does not have to cover all branches. This can make it more concise than `match`.
-* A common usage is handling `Some` values when working with `Option`.
-* Unlike `match`, `if let` does not support guard clauses for pattern matching.
+- Unlike `match`, `if let` does not have to cover all branches. This can make it
+  more concise than `match`.
+- A common usage is handling `Some` values when working with `Option`.
+- Unlike `match`, `if let` does not support guard clauses for pattern matching.
 
 ## let-else
 
-`if-let`s can pile up, as shown.  The `let-else` construct supports flattening this nested code.
-Rewrite the awkward version for students, so they can see the transformation.
+`if-let`s can pile up, as shown. The `let-else` construct supports flattening
+this nested code. Rewrite the awkward version for students, so they can see the
+transformation.
 
 The rewritten version is:
+
 ```rust
 fn hex_or_die_trying(maybe_string: Option<String>) -> Result<u32, String> {
     let Some(s) = maybe_string else {
@@ -119,7 +125,10 @@ fn hex_or_die_trying(maybe_string: Option<String>) -> Result<u32, String> {
 
 # while-let
 
-* Point out that the `while let` loop will keep going as long as the value matches the pattern.
-* You could rewrite the `while let` loop as an infinite loop with an if statement that breaks when there is no value to unwrap for `name.pop()`. The `while let` provides syntactic sugar for the above scenario.
+- Point out that the `while let` loop will keep going as long as the value
+  matches the pattern.
+- You could rewrite the `while let` loop as an infinite loop with an if
+  statement that breaks when there is no value to unwrap for `name.pop()`. The
+  `while let` provides syntactic sugar for the above scenario.
 
 </details>

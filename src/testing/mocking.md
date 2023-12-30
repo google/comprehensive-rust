@@ -4,8 +4,8 @@ minutes: 5
 
 # Mocking
 
-For mocking, [Mockall] is a widely used library. You need to refactor your
-code to use traits, which you can then quickly mock:
+For mocking, [Mockall] is a widely used library. You need to refactor your code
+to use traits, which you can then quickly mock:
 
 ```rust,ignore
 {{#include mockall.rs:simple_example}}
@@ -15,16 +15,17 @@ code to use traits, which you can then quickly mock:
 
 <details>
 
-- The advice here is for Android (AOSP) where Mockall is the recommended mocking library.
-  There are other [mocking libraries available on crates.io](https://crates.io/keywords/mock),
-  in particular in the area of mocking HTTP services. The other mocking libraries work
-  in a similar fashion as Mockall, meaning that they make it easy to get a mock implementation
-  of a given trait.
+- The advice here is for Android (AOSP) where Mockall is the recommended mocking
+  library. There are other
+  [mocking libraries available on crates.io](https://crates.io/keywords/mock),
+  in particular in the area of mocking HTTP services. The other mocking
+  libraries work in a similar fashion as Mockall, meaning that they make it easy
+  to get a mock implementation of a given trait.
 
-- Note that mocking is somewhat *controversial*: mocks allow you to completely isolate a
-  test from its dependencies. The immediate result is faster and more stable
-  test execution. On the other hand, the mocks can be configured wrongly and
-  return output different from what the real dependencies would do.
+- Note that mocking is somewhat _controversial_: mocks allow you to completely
+  isolate a test from its dependencies. The immediate result is faster and more
+  stable test execution. On the other hand, the mocks can be configured wrongly
+  and return output different from what the real dependencies would do.
 
   If at all possible, it is recommended that you use the real dependencies. As
   an example, many databases allow you to configure an in-memory backend. This

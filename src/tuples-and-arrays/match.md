@@ -10,6 +10,7 @@ comparisons are done from top to bottom and the first match wins.
 The patterns can be simple values, similarly to `switch` in C and C++:
 
 ```rust,editable
+#[rustfmt::skip]
 fn main() {
     let input = 'x';
     match input {
@@ -23,28 +24,36 @@ fn main() {
 ```
 
 The `_` pattern is a wildcard pattern which matches any value. The expressions
-_must_ be irrefutable, meaning that it covers every possibility, so `_` is
-often used as the final catch-all case.
+_must_ be irrefutable, meaning that it covers every possibility, so `_` is often
+used as the final catch-all case.
 
-Match can be used as an expression. Just like `if`, each match arm must have the same type. The type is the last
-expression of the block, if any. In the example above, the type is `()`.
+Match can be used as an expression. Just like `if`, each match arm must have the
+same type. The type is the last expression of the block, if any. In the example
+above, the type is `()`.
 
-A variable in the pattern (`key` in this example) will create a binding that
-can be used within the match arm.
+A variable in the pattern (`key` in this example) will create a binding that can
+be used within the match arm.
 
 A match guard causes the arm to match only if the condition is true.
 
 <details>
 
 Key Points:
-* You might point out how some specific characters are being used when in a pattern
-  * `|` as an `or`
-  * `..` can expand as much as it needs to be
-  * `1..=5` represents an inclusive range
-  * `_` is a wild card
 
-* Match guards as a separate syntax feature are important and necessary when we wish to concisely express more complex ideas than patterns alone would allow.
-* They are not the same as separate `if` expression inside of the match arm. An `if` expression inside of the branch block (after `=>`) happens after the match arm is selected. Failing the `if` condition inside of that block won't result in other arms
-of the original `match` expression being considered.
-* The condition defined in the guard applies to every expression in a pattern with an `|`.
+- You might point out how some specific characters are being used when in a
+  pattern
+  - `|` as an `or`
+  - `..` can expand as much as it needs to be
+  - `1..=5` represents an inclusive range
+  - `_` is a wild card
+
+- Match guards as a separate syntax feature are important and necessary when we
+  wish to concisely express more complex ideas than patterns alone would allow.
+- They are not the same as separate `if` expression inside of the match arm. An
+  `if` expression inside of the branch block (after `=>`) happens after the
+  match arm is selected. Failing the `if` condition inside of that block won't
+  result in other arms of the original `match` expression being considered.
+- The condition defined in the guard applies to every expression in a pattern
+  with an `|`.
+
 </details>

@@ -6,16 +6,16 @@ minutes: 5
 
 Programs allocate memory in two ways:
 
-* Stack: Continuous area of memory for local variables.
-  * Values have fixed sizes known at compile time.
-  * Extremely fast: just move a stack pointer.
-  * Easy to manage: follows function calls.
-  * Great memory locality.
+- Stack: Continuous area of memory for local variables.
+  - Values have fixed sizes known at compile time.
+  - Extremely fast: just move a stack pointer.
+  - Easy to manage: follows function calls.
+  - Great memory locality.
 
-* Heap: Storage of values outside of function calls.
-  * Values have dynamic sizes determined at runtime.
-  * Slightly slower than the stack: some book-keeping needed.
-  * No guarantee of memory locality.
+- Heap: Storage of values outside of function calls.
+  - Values have dynamic sizes determined at runtime.
+  - Slightly slower than the stack: some book-keeping needed.
+  - No guarantee of memory locality.
 
 ## Example
 
@@ -44,9 +44,12 @@ fn main() {
 
 <details>
 
-* Mention that a `String` is backed by a `Vec`, so it has a capacity and length and can grow if mutable via reallocation on the heap.
+- Mention that a `String` is backed by a `Vec`, so it has a capacity and length
+  and can grow if mutable via reallocation on the heap.
 
-* If students ask about it, you can mention that the underlying memory is heap allocated using the [System Allocator] and custom allocators can be implemented using the [Allocator API]
+- If students ask about it, you can mention that the underlying memory is heap
+  allocated using the [System Allocator] and custom allocators can be
+  implemented using the [Allocator API]
 
 ## More to Explore
 

@@ -5,15 +5,18 @@ minutes: 5
 # Lifetimes in Function Calls
 
 Lifetimes for function arguments and return values must be fully specified, but
-Rust allows lifetimes to be elided in most cases with [a few simple
-rules](https://doc.rust-lang.org/nomicon/lifetime-elision.html). This is not
-inference -- it is just a syntactic shorthand.
+Rust allows lifetimes to be elided in most cases with
+[a few simple rules](https://doc.rust-lang.org/nomicon/lifetime-elision.html).
+This is not inference -- it is just a syntactic shorthand.
 
-* Each argument which does not have a lifetime annotation is given one.
-* If there is only one argument lifetime, it is given to all un-annotated return values.
-* If there are multiple argument lifetimes, but the first one is for `self`, that lifetime is given to all un-annotated return values.
+- Each argument which does not have a lifetime annotation is given one.
+- If there is only one argument lifetime, it is given to all un-annotated return
+  values.
+- If there are multiple argument lifetimes, but the first one is for `self`,
+  that lifetime is given to all un-annotated return values.
 
 <!-- mdbook-xgettext: skip -->
+
 ```rust,editable
 #[derive(Debug)]
 struct Point(i32, i32);
@@ -52,7 +55,8 @@ fn main() {
 
 In this example, `cab_distance` is trivially elided.
 
-The `nearest` function provides another example of a function with multiple references in its arguments that requires explicit annotation.
+The `nearest` function provides another example of a function with multiple
+references in its arguments that requires explicit annotation.
 
 Try adjusting the signature to "lie" about the lifetimes returned:
 
@@ -61,7 +65,7 @@ fn nearest<'a, 'q'>(points: &'a [Point], query: &'q Point) -> Option<&'q Point> 
 ```
 
 This won't compile, demonstrating that the annotations are checked for validity
-by the compiler.  Note that this is not the case for raw pointers (unsafe), and
+by the compiler. Note that this is not the case for raw pointers (unsafe), and
 this is a common source of errors with unsafe Rust.
 
 </details>

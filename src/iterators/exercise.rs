@@ -16,8 +16,8 @@
 
 // ANCHOR: solution
 // ANCHOR: offset_differences
-/// Calculate the differences between elements of `values` offset by `offset`, wrapping
-/// around from the end of `values` to the beginning.
+/// Calculate the differences between elements of `values` offset by `offset`,
+/// wrapping around from the end of `values` to the beginning.
 ///
 /// Element `n` of the result is `values[(n+offset)%len] - values[n]`.
 fn offset_differences<N>(offset: usize, values: Vec<N>) -> Vec<N>

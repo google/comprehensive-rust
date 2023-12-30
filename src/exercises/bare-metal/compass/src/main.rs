@@ -91,8 +91,10 @@ fn main() -> ! {
         let mut image = [[0; 5]; 5];
         let (x, y) = match mode {
             Mode::Compass => (
-                scale(-compass_reading.x, -COMPASS_SCALE, COMPASS_SCALE, 0, 4) as usize,
-                scale(compass_reading.y, -COMPASS_SCALE, COMPASS_SCALE, 0, 4) as usize,
+                scale(-compass_reading.x, -COMPASS_SCALE, COMPASS_SCALE, 0, 4)
+                    as usize,
+                scale(compass_reading.y, -COMPASS_SCALE, COMPASS_SCALE, 0, 4)
+                    as usize,
             ),
             Mode::Accelerometer => (
                 scale(
@@ -114,7 +116,8 @@ fn main() -> ! {
         image[y][x] = 255;
         display.show(&mut timer, image, 100);
 
-        // If button A is pressed, switch to the next mode and briefly blink all LEDs on.
+        // If button A is pressed, switch to the next mode and briefly blink all LEDs
+        // on.
         if board.buttons.button_a.is_low().unwrap() {
             if !button_pressed {
                 mode = mode.next();
@@ -145,11 +148,7 @@ impl Mode {
 fn scale(value: i32, min_in: i32, max_in: i32, min_out: i32, max_out: i32) -> i32 {
     let range_in = max_in - min_in;
     let range_out = max_out - min_out;
-    cap(
-        min_out + range_out * (value - min_in) / range_in,
-        min_out,
-        max_out,
-    )
+    cap(min_out + range_out * (value - min_in) / range_in, min_out, max_out)
 }
 
 fn cap(value: i32, min_value: i32, max_value: i32) -> i32 {

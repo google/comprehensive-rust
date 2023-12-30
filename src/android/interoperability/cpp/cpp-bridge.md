@@ -43,10 +43,10 @@ impl BlobstoreClient {
 
 <details>
 
-* The programmer does not need to promise that the signatures they have typed in
+- The programmer does not need to promise that the signatures they have typed in
   are accurate. CXX performs static assertions that the signatures exactly
   correspond with what is declared in C++.
-* `unsafe extern` blocks allow you to declare C++ functions that are safe to
+- `unsafe extern` blocks allow you to declare C++ functions that are safe to
   call from Rust.
 
 </details>

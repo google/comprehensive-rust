@@ -4,9 +4,9 @@ minutes: 5
 
 # Compiler Lints and Clippy
 
-The Rust compiler produces fantastic error messages, as well as helpful
-built-in lints. [Clippy](https://doc.rust-lang.org/clippy/) provides even more
-lints, organized into groups that can be enabled per-project.
+The Rust compiler produces fantastic error messages, as well as helpful built-in
+lints. [Clippy](https://doc.rust-lang.org/clippy/) provides even more lints,
+organized into groups that can be enabled per-project.
 
 ```rust,editable,should_panic
 #[deny(clippy::cast_possible_truncation)]

@@ -1,10 +1,12 @@
 # `tinyvec`
 
-Sometimes you want something which can be resized like a `Vec`, but without heap allocation.
-[`tinyvec`][1] provides this: a vector backed by an array or slice, which could be statically
-allocated or on the stack, which keeps track of how many elements are used and panics if you try to
-use more than are allocated.
+Sometimes you want something which can be resized like a `Vec`, but without heap
+allocation. [`tinyvec`][1] provides this: a vector backed by an array or slice,
+which could be statically allocated or on the stack, which keeps track of how
+many elements are used and panics if you try to use more than are allocated.
+
 <!-- mdbook-xgettext: skip -->
+
 ```rust,editable,compile_fail
 use tinyvec::{array_vec, ArrayVec};
 
@@ -20,8 +22,9 @@ fn main() {
 
 <details>
 
-* `tinyvec` requires that the element type implement `Default` for initialisation.
-* The Rust Playground includes `tinyvec`, so this example will run fine inline.
+- `tinyvec` requires that the element type implement `Default` for
+  initialisation.
+- The Rust Playground includes `tinyvec`, so this example will run fine inline.
 
 </details>
 

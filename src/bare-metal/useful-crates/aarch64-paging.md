@@ -1,7 +1,7 @@
 # `aarch64-paging`
 
-The [`aarch64-paging`][1] crate lets you create page tables according to the AArch64 Virtual Memory
-System Architecture.
+The [`aarch64-paging`][1] crate lets you create page tables according to the
+AArch64 Virtual Memory System Architecture.
 
 ```rust,editable,compile_fail
 use aarch64_paging::{
@@ -25,10 +25,11 @@ idmap.activate();
 
 <details>
 
-* For now it only supports EL1, but support for other exception levels should be straightforward to
-  add.
-* This is used in Android for the [Protected VM Firmware][2].
-* There's no easy way to run this example, as it needs to run on real hardware or under QEMU.
+- For now it only supports EL1, but support for other exception levels should be
+  straightforward to add.
+- This is used in Android for the [Protected VM Firmware][2].
+- There's no easy way to run this example, as it needs to run on real hardware
+  or under QEMU.
 
 </details>
 

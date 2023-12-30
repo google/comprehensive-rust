@@ -13,7 +13,10 @@ types containing fields that implement these traits.
 provided method `ne`. The `==` and `!=` operators will call these methods.
 
 ```rust,editable
-struct Key { id: u32, metadata: Option<String> }
+struct Key {
+    id: u32,
+    metadata: Option<String>,
+}
 impl PartialEq for Key {
     fn eq(&self, other: &Self) -> bool {
         self.id == other.id
@@ -22,18 +25,21 @@ impl PartialEq for Key {
 ```
 
 `Eq` is a full equivalence relation (reflexive, symmetric, and transitive) and
-implies `PartialEq`.  Functions that require full equivalence will use `Eq` as
-a trait bound.
+implies `PartialEq`. Functions that require full equivalence will use `Eq` as a
+trait bound.
 
 ## `PartialOrd` and `Ord`
 
-`PartialOrd` defines a partial ordering, with a `partial_cmp` method. It is
-used to implement the `<`, `<=`, `>=`, and `>` operators.
+`PartialOrd` defines a partial ordering, with a `partial_cmp` method. It is used
+to implement the `<`, `<=`, `>=`, and `>` operators.
 
 ```rust,editable
 use std::cmp::Ordering;
 #[derive(Eq, PartialEq)]
-struct Citation { author: String, year: u32 }
+struct Citation {
+    author: String,
+    year: u32,
+}
 impl PartialOrd for Citation {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         match self.author.partial_cmp(&other.author) {
@@ -48,10 +54,14 @@ impl PartialOrd for Citation {
 
 <details>
 
-`PartialEq` can be implemented between different types, but `Eq` cannot, because it is reflexive:
+`PartialEq` can be implemented between different types, but `Eq` cannot, because
+it is reflexive:
 
 ```rust,editable
-struct Key { id: u32, metadata: Option<String> }
+struct Key {
+    id: u32,
+    metadata: Option<String>,
+}
 impl PartialEq<u32> for Key {
     fn eq(&self, other: &u32) -> bool {
         self.id == *other

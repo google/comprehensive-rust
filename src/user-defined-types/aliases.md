@@ -4,7 +4,8 @@ minutes: 2
 
 # Type Aliases
 
-A type alias creates a name for another type. The two types can be used interchangeably.
+A type alias creates a name for another type. The two types can be used
+interchangeably.
 
 ```rust,editable
 enum CarryableConcreteItem {
@@ -15,7 +16,8 @@ enum CarryableConcreteItem {
 type Item = CarryableConcreteItem;
 
 // Aliases are more useful with long, complex types:
-use std::{sync::{Arc, RwLock}, cell::RefCell};
+use std::cell::RefCell;
+use std::sync::{Arc, RwLock};
 type PlayerInventory = RwLock<Vec<Arc<RefCell<Item>>>>;
 ```
 

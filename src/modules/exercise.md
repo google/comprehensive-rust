@@ -4,13 +4,13 @@ minutes: 20
 
 # Exercise: Modules for the GUI Library
 
-In this exercise, you will reorganize the GUI Library exercise from the
-"Methods and Traits" segment of the course into a collection of modules. It is
-typical to put each type or set of closely-related types into its own module,
-so each widget type should get its own module.
+In this exercise, you will reorganize the GUI Library exercise from the "Methods
+and Traits" segment of the course into a collection of modules. It is typical to
+put each type or set of closely-related types into its own module, so each
+widget type should get its own module.
 
-If you no longer have your version, that's fine - refer back to the [provided
-solution](../methods-and-traits/solution.html).
+If you no longer have your version, that's fine - refer back to the
+[provided solution](../methods-and-traits/solution.html).
 
 ## Cargo Setup
 

@@ -5,11 +5,12 @@ minutes: 5
 <!-- NOTES:
 The Iterator trait and basic usage
 -->
+
 # `Iterator`
 
 The [`Iterator`][1] trait supports iterating over values in a collection. It
-requires a `next` method and provides lots of methods. Many standard library types
-implement `Iterator`, and you can implement it yourself, too:
+requires a `next` method and provides lots of methods. Many standard library
+types implement `Iterator`, and you can implement it yourself, too:
 
 ```rust,editable
 struct Fibonacci {
@@ -38,15 +39,15 @@ fn main() {
 
 <details>
 
-* The `Iterator` trait implements many common functional programming operations over collections
-  (e.g. `map`, `filter`, `reduce`, etc). This is the trait where you can find all the documentation
-  about them. In Rust these functions should produce the code as efficient as equivalent imperative
-  implementations.
+- The `Iterator` trait implements many common functional programming operations
+  over collections (e.g. `map`, `filter`, `reduce`, etc). This is the trait
+  where you can find all the documentation about them. In Rust these functions
+  should produce the code as efficient as equivalent imperative implementations.
 
-* `IntoIterator` is the trait that makes for loops work. It is implemented by collection types such as
-  `Vec<T>` and references to them such as `&Vec<T>` and `&[T]`. Ranges also implement it. This is why
-  you can iterate over a vector with `for i in some_vec { .. }` but
-  `some_vec.next()` doesn't exist.
+- `IntoIterator` is the trait that makes for loops work. It is implemented by
+  collection types such as `Vec<T>` and references to them such as `&Vec<T>` and
+  `&[T]`. Ranges also implement it. This is why you can iterate over a vector
+  with `for i in some_vec { .. }` but `some_vec.next()` doesn't exist.
 
 </details>
 

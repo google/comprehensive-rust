@@ -4,7 +4,8 @@ minutes: 2
 
 # Clone
 
-Sometimes you _want_ to make a copy of a value. The `Clone` trait accomplishes this.
+Sometimes you _want_ to make a copy of a value. The `Clone` trait accomplishes
+this.
 
 ```rust,editable
 #[derive(Default)]

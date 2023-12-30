@@ -15,9 +15,9 @@ fn main() {
 }
 ```
 
-* The assignment of `s1` to `s2` transfers ownership.
-* When `s1` goes out of scope, nothing happens: it does not own anything.
-* When `s2` goes out of scope, the string data is freed.
+- The assignment of `s1` to `s2` transfers ownership.
+- When `s1` goes out of scope, nothing happens: it does not own anything.
+- When `s2` goes out of scope, the string data is freed.
 
 Before move to `s2`:
 
@@ -76,21 +76,29 @@ fn main() {
 
 <details>
 
-* Mention that this is the opposite of the defaults in C++, which copies by value unless you use `std::move` (and the move constructor is defined!).
+- Mention that this is the opposite of the defaults in C++, which copies by
+  value unless you use `std::move` (and the move constructor is defined!).
 
-* It is only the ownership that moves. Whether any machine code is generated to manipulate the data itself is a matter of optimization, and such copies are aggressively optimized away.
+- It is only the ownership that moves. Whether any machine code is generated to
+  manipulate the data itself is a matter of optimization, and such copies are
+  aggressively optimized away.
 
-* Simple values (such as integers) can be marked `Copy` (see later slides).
+- Simple values (such as integers) can be marked `Copy` (see later slides).
 
-* In Rust, clones are explicit (by using `clone`).
+- In Rust, clones are explicit (by using `clone`).
 
 In the `say_hello` example:
 
-* With the first call to `say_hello`, `main` gives up ownership of `name`. Afterwards, `name` cannot be used anymore within `main`.
-* The heap memory allocated for `name` will be freed at the end of the `say_hello` function.
-* `main` can retain ownership if it passes `name` as a reference (`&name`) and if `say_hello` accepts a reference as a parameter.
-* Alternatively, `main` can pass a clone of `name` in the first call (`name.clone()`).
-* Rust makes it harder than C++ to inadvertently create copies by making move semantics the default, and by forcing programmers to make clones explicit.
+- With the first call to `say_hello`, `main` gives up ownership of `name`.
+  Afterwards, `name` cannot be used anymore within `main`.
+- The heap memory allocated for `name` will be freed at the end of the
+  `say_hello` function.
+- `main` can retain ownership if it passes `name` as a reference (`&name`) and
+  if `say_hello` accepts a reference as a parameter.
+- Alternatively, `main` can pass a clone of `name` in the first call
+  (`name.clone()`).
+- Rust makes it harder than C++ to inadvertently create copies by making move
+  semantics the default, and by forcing programmers to make clones explicit.
 
 # More to Explore
 
@@ -103,11 +111,10 @@ std::string s1 = "Cpp";
 std::string s2 = s1;  // Duplicate the data in s1.
 ```
 
-* The heap data from `s1` is duplicated and `s2` gets its own independent copy.
-* When `s1` and `s2` go out of scope, they each free their own memory.
+- The heap data from `s1` is duplicated and `s2` gets its own independent copy.
+- When `s1` and `s2` go out of scope, they each free their own memory.
 
 Before copy-assignment:
-
 
 ```bob
  Stack                             Heap
@@ -146,7 +153,6 @@ After copy-assignment:
 `- - - - - - - - - - - - - -'
 ```
 
-
 Key points:
 
 - C++ has made a slightly different choice than Rust. Because `=` copies data,
@@ -158,8 +164,8 @@ Key points:
   would take place. After the move, `s1` would be in a valid but unspecified
   state. Unlike Rust, the programmer is allowed to keep using `s1`.
 
-- Unlike Rust, `=` in C++ can run arbitrary code as determined by the type
-  which is being copied or moved.
+- Unlike Rust, `=` in C++ can run arbitrary code as determined by the type which
+  is being copied or moved.
 
 [`std::move`]: https://en.cppreference.com/w/cpp/utility/move
 
