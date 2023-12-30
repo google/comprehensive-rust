@@ -9,10 +9,7 @@ minutes: 5
 ```rust,editable
 fn main() {
     let primes = vec![2, 3, 5, 7];
-    let prime_squares = primes
-        .into_iter()
-        .map(|prime| prime * prime)
-        .collect::<Vec<_>>();
+    let prime_squares = primes.into_iter().map(|p| p * p).collect::<Vec<_>>();
     println!("prime_squares: {prime_squares:?}");
 }
 ```
@@ -30,11 +27,10 @@ where
 
 There are two ways to specify `B` for this method:
 
- * With the "turbofish": `some_iterator.collect::<COLLECTION_TYPE>()`, as
-   shown. The `_` shorthand used here lets Rust infer the type of the `Vec`
-   elements. 
- * With type inference: `let prime_squares: Vec<_> =
-   some_iterator.collect()`. Rewrite the example to use this form.
+- With the "turbofish": `some_iterator.collect::<COLLECTION_TYPE>()`, as shown.
+  The `_` shorthand used here lets Rust infer the type of the `Vec` elements.
+- With type inference: `let prime_squares: Vec<_> = some_iterator.collect()`.
+  Rewrite the example to use this form.
 
 There are basic implementations of `FromIterator` for `Vec`, `HashMap`, etc.
 There are also more specialized implementations which let you do cool things

@@ -47,10 +47,18 @@ fn main() -> ! {
     // no aliases exist.
     unsafe {
         pin_cnf_21.write_volatile(
-            DIR_OUTPUT | INPUT_DISCONNECT | PULL_DISABLED | DRIVE_S0S1 | SENSE_DISABLED,
+            DIR_OUTPUT
+                | INPUT_DISCONNECT
+                | PULL_DISABLED
+                | DRIVE_S0S1
+                | SENSE_DISABLED,
         );
         pin_cnf_28.write_volatile(
-            DIR_OUTPUT | INPUT_DISCONNECT | PULL_DISABLED | DRIVE_S0S1 | SENSE_DISABLED,
+            DIR_OUTPUT
+                | INPUT_DISCONNECT
+                | PULL_DISABLED
+                | DRIVE_S0S1
+                | SENSE_DISABLED,
         );
     }
 

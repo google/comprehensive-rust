@@ -34,7 +34,6 @@ _interoperability/rust/analyze/Android.bp_
 {{#include rust/analyze/Android.bp}}
 ```
 
-
 Build, push, and run the binary on your device:
 
 ```shell
@@ -43,7 +42,8 @@ Build, push, and run the binary on your device:
 
 <details>
 
-`#[no_mangle]` disables Rust's usual name mangling, so the exported symbol will just be the name of
-the function. You can also use `#[export_name = "some_name"]` to specify whatever name you want.
+`#[no_mangle]` disables Rust's usual name mangling, so the exported symbol will
+just be the name of the function. You can also use
+`#[export_name = "some_name"]` to specify whatever name you want.
 
 </details>

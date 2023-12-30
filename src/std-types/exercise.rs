@@ -25,9 +25,7 @@ struct Counter<T: Eq + Hash> {
 impl<T: Eq + Hash> Counter<T> {
     /// Create a new Counter.
     fn new() -> Self {
-        Counter {
-            values: HashMap::new(),
-        }
+        Counter { values: HashMap::new() }
     }
 
     /// Count an occurrence of the given value.

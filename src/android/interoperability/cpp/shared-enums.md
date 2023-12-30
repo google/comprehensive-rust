@@ -18,7 +18,7 @@ Generated C++:
 
 <details>
 
-* On the Rust side, the code generated for shared enums is actually a struct
+- On the Rust side, the code generated for shared enums is actually a struct
   wrapping a numeric value. This is because it is not UB in C++ for an enum
   class to hold a value different from all of the listed variants, and our Rust
   representation needs to have the same behavior.

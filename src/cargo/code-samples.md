@@ -21,15 +21,14 @@ text box.
 
 <details>
 
-Most code samples are editable like shown above. A few code samples
-are not editable for various reasons:
+Most code samples are editable like shown above. A few code samples are not
+editable for various reasons:
 
-* The embedded playgrounds cannot execute unit tests. Copy-paste the
-  code and open it in the real Playground to demonstrate unit tests.
+- The embedded playgrounds cannot execute unit tests. Copy-paste the code and
+  open it in the real Playground to demonstrate unit tests.
 
-* The embedded playgrounds lose their state the moment you navigate
-  away from the page! This is the reason that the students should
-  solve the exercises using a local Rust installation or via the
-  Playground.
+- The embedded playgrounds lose their state the moment you navigate away from
+  the page! This is the reason that the students should solve the exercises
+  using a local Rust installation or via the Playground.
 
 </details>

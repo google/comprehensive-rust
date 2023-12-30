@@ -6,10 +6,11 @@ minutes: 5
 
 If you want to exit any kind of loop early, use
 [`break`](https://doc.rust-lang.org/reference/expressions/loop-expr.html#break-expressions).
-For `loop`, this can take an optional expression that becomes the value of the `loop` expression.
+For `loop`, this can take an optional expression that becomes the value of the
+`loop` expression.
 
-If you want to immediately start
-the next iteration use [`continue`](https://doc.rust-lang.org/reference/expressions/loop-expr.html#continue-expressions).
+If you want to immediately start the next iteration use
+[`continue`](https://doc.rust-lang.org/reference/expressions/loop-expr.html#continue-expressions).
 
 ```rust,editable
 fn main() {
@@ -51,9 +52,8 @@ In this case we break the outer loop after 3 iterations of the inner loop.
 
 <details>
 
-* Note that `loop` is the only looping construct which returns a non-trivial
+- Note that `loop` is the only looping construct which returns a non-trivial
   value. This is because it's guaranteed to be entered at least once (unlike
   `while` and `for` loops).
 
 </details>
-

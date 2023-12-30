@@ -18,9 +18,7 @@ use core::fmt::Write;
 use log::{LevelFilter, Log, Metadata, Record, SetLoggerError};
 use spin::mutex::SpinMutex;
 
-static LOGGER: Logger = Logger {
-    uart: SpinMutex::new(None),
-};
+static LOGGER: Logger = Logger { uart: SpinMutex::new(None) };
 
 struct Logger {
     uart: SpinMutex<Option<Uart>>,

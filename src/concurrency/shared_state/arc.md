@@ -3,8 +3,8 @@
 [`Arc<T>`][1] allows shared read-only access via `Arc::clone`:
 
 ```rust,editable
-use std::thread;
 use std::sync::Arc;
+use std::thread;
 
 fn main() {
     let v = Arc::new(vec![10, 20, 30]);
@@ -26,13 +26,14 @@ fn main() {
 
 <details>
 
-* `Arc` stands for "Atomic Reference Counted", a thread safe version of `Rc` that uses atomic
-  operations.
-* `Arc<T>` implements `Clone` whether or not `T` does. It implements `Send` and `Sync` if
-  and only if `T` implements them both.
-* `Arc::clone()` has the cost of atomic operations that get executed, but after that the use of the
-  `T` is free.
-* Beware of reference cycles, `Arc` does not use a garbage collector to detect them.
-    * `std::sync::Weak` can help.
+- `Arc` stands for "Atomic Reference Counted", a thread safe version of `Rc`
+  that uses atomic operations.
+- `Arc<T>` implements `Clone` whether or not `T` does. It implements `Send` and
+  `Sync` if and only if `T` implements them both.
+- `Arc::clone()` has the cost of atomic operations that get executed, but after
+  that the use of the `T` is free.
+- Beware of reference cycles, `Arc` does not use a garbage collector to detect
+  them.
+  - `std::sync::Weak` can help.
 
 </details>

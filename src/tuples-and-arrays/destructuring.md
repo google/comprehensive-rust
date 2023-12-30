@@ -36,9 +36,10 @@ fn describe_point(point: (i32, i32)) {
 
 <details>
 
-* Create a new array pattern using `_` to represent an element.
-* Add more values to the array.
-* Point out that how `..` will expand to account for different number of elements.
-* Show matching against the tail with patterns `[.., b]` and `[a@..,b]`
+- Create a new array pattern using `_` to represent an element.
+- Add more values to the array.
+- Point out that how `..` will expand to account for different number of
+  elements.
+- Show matching against the tail with patterns `[.., b]` and `[a@..,b]`
 
 </details>

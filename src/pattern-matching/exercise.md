@@ -12,15 +12,13 @@ To evaluate a boxed expression, use the deref operator (`*`) to "unbox" it:
 `eval(*boxed_expr)`.
 
 Some expressions cannot be evaluated and will return an error. The standard
-[`Result<Value,
-String>`](https://doc.rust-lang.org/std/result/enum.Result.html) type is an
-enum that represents either a successful value (`Ok(Value)`) or an error
-(`Err(String)`). We will cover this type in detail later.
+[`Result<Value, String>`](https://doc.rust-lang.org/std/result/enum.Result.html)
+type is an enum that represents either a successful value (`Ok(Value)`) or an
+error (`Err(String)`). We will cover this type in detail later.
 
-Copy and paste the code into the Rust playground, and begin implementing
-`eval`. The final product should pass the tests. It may be helpful to use
-`todo!()` and get the tests to pass one-by-one. You can also skip a test
-temporarily with
+Copy and paste the code into the Rust playground, and begin implementing `eval`.
+The final product should pass the tests. It may be helpful to use `todo!()` and
+get the tests to pass one-by-one. You can also skip a test temporarily with
 `#[ignore]`:
 
 ```none
@@ -43,4 +41,3 @@ integer overflow. How could you handle this with `Result` instead of a panic?
 
 {{#include exercise.rs:tests}}
 ```
-

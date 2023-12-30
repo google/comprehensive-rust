@@ -101,7 +101,9 @@ enum ParserError {
 fn parse(input: &str) -> Result<Expression, ParserError> {
     let mut tokens = tokenize(input);
 
-    fn parse_expr<'a>(tokens: &mut Tokenizer<'a>) -> Result<Expression, ParserError> {
+    fn parse_expr<'a>(
+        tokens: &mut Tokenizer<'a>,
+    ) -> Result<Expression, ParserError> {
         let tok = tokens.next().ok_or(ParserError::UnexpectedEOF)??;
         let expr = match tok {
             Token::Number(num) => {
@@ -114,9 +116,11 @@ fn parse(input: &str) -> Result<Expression, ParserError> {
         // Look ahead to parse a binary operation if present.
         Ok(match tokens.next() {
             None => expr,
-            Some(Ok(Token::Operator(op))) => {
-                Expression::Operation(Box::new(expr), op, Box::new(parse_expr(tokens)?))
-            }
+            Some(Ok(Token::Operator(op))) => Expression::Operation(
+                Box::new(expr),
+                op,
+                Box::new(parse_expr(tokens)?),
+            ),
             Some(Err(e)) => return Err(e.into()),
             Some(Ok(tok)) => return Err(ParserError::UnexpectedToken(tok)),
         })
@@ -187,9 +191,11 @@ fn parse(input: &str) -> Expression {
         // Look ahead to parse a binary operation if present.
         match tokens.next() {
             None => expr,
-            Some(Token::Operator(op)) => {
-                Expression::Operation(Box::new(expr), op, Box::new(parse_expr(tokens)))
-            }
+            Some(Token::Operator(op)) => Expression::Operation(
+                Box::new(expr),
+                op,
+                Box::new(parse_expr(tokens)),
+            ),
             Some(tok) => panic!("Unexpected token {tok:?}"),
         }
     }

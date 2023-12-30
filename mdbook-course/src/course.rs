@@ -22,16 +22,18 @@
 //!         Slide -- a single topic (may be represented by multiple mdBook chapters)
 //! ```
 //!
-//! This structure is parsed from the format of the book using a combination of the order in which
-//! chapters are listed in `SUMMARY.md` and annotations in the frontmatter of each chapter.
+//! This structure is parsed from the format of the book using a combination of
+//! the order in which chapters are listed in `SUMMARY.md` and annotations in
+//! the frontmatter of each chapter.
 //!
-//! A book contains a sequence of BookItems, each of which can contain sub-items. A top-level item
-//! can potentially introduce a new course, session, segment, and slide all in the same item. If
-//! the item has a `course` property in its frontmatter, then it introduces a new course. If it has
-//! a `session` property, then it introduces a new session. A top-level item always corresponds
-//! 1-to-1 with a segment (as long as it is a chapter), and that item becomes the first slide in
-//! that segment. Any other sub-items of the top-level item are treated as further slides in the
-//! same segment.
+//! A book contains a sequence of BookItems, each of which can contain
+//! sub-items. A top-level item can potentially introduce a new course, session,
+//! segment, and slide all in the same item. If the item has a `course` property
+//! in its frontmatter, then it introduces a new course. If it has a `session`
+//! property, then it introduces a new session. A top-level item always
+//! corresponds 1-to-1 with a segment (as long as it is a chapter), and that
+//! item becomes the first slide in that segment. Any other sub-items of the
+//! top-level item are treated as further slides in the same segment.
 
 use crate::frontmatter::{split_frontmatter, Frontmatter};
 use crate::markdown::{duration, relative_link};
@@ -53,19 +55,19 @@ pub struct Courses {
 
 /// A Course is the level of content at which students enroll.
 ///
-/// Courses are identified by the `course` property in a session's frontmatter. All
-/// sessions with the same value for `course` are grouped into a Course.
+/// Courses are identified by the `course` property in a session's frontmatter.
+/// All sessions with the same value for `course` are grouped into a Course.
 #[derive(Default, Debug)]
 pub struct Course {
     pub name: String,
     pub sessions: Vec<Session>,
 }
 
-/// A Session is a block of instructional time, containing segments. Typically a full day of
-/// instruction contains two sessions: morning and afternoon.
+/// A Session is a block of instructional time, containing segments. Typically a
+/// full day of instruction contains two sessions: morning and afternoon.
 ///
-/// A session is identified by the `session` property in the session's frontmatter. There can be
-/// only one session with a given name in a course.
+/// A session is identified by the `session` property in the session's
+/// frontmatter. There can be only one session with a given name in a course.
 #[derive(Default, Debug)]
 pub struct Session {
     pub name: String,
@@ -95,8 +97,8 @@ pub struct Slide {
 }
 
 impl Courses {
-    /// Extract the course structure from the book. As a side-effect, the frontmatter is stripped
-    /// from each slide.
+    /// Extract the course structure from the book. As a side-effect, the
+    /// frontmatter is stripped from each slide.
     pub fn extract_structure(mut book: Book) -> anyhow::Result<(Self, Book)> {
         let mut courses = Courses::default();
         let mut current_course_name = None;
@@ -111,7 +113,8 @@ impl Courses {
             let (frontmatter, content) = split_frontmatter(chapter)?;
             chapter.content = content;
 
-            // If 'course' is given, use that course (if not 'none') and reset the session.
+            // If 'course' is given, use that course (if not 'none') and reset the
+            // session.
             if let Some(course_name) = &frontmatter.course {
                 current_session_name = None;
                 if course_name == "none" {
@@ -133,7 +136,8 @@ impl Courses {
                 );
             }
 
-            // If we have a course and session, then add this chapter to it as a segment.
+            // If we have a course and session, then add this chapter to it as a
+            // segment.
             if let (Some(course_name), Some(session_name)) =
                 (&current_course_name, &current_session_name)
             {
@@ -145,7 +149,8 @@ impl Courses {
         Ok((courses, book))
     }
 
-    /// Get a reference to a course, adding a new one if none by this name exists.
+    /// Get a reference to a course, adding a new one if none by this name
+    /// exists.
     fn course_mut(&mut self, name: impl AsRef<str>) -> &mut Course {
         let name = name.as_ref();
         if let Some(found_idx) =
@@ -164,8 +169,8 @@ impl Courses {
         self.courses.iter().find(|c| c.name == name)
     }
 
-    /// Find the slide generated from the given Chapter within these courses, returning the "path"
-    /// to that slide.
+    /// Find the slide generated from the given Chapter within these courses,
+    /// returning the "path" to that slide.
     pub fn find_slide(
         &self,
         chapter: &Chapter,
@@ -201,19 +206,15 @@ impl<'a> IntoIterator for &'a Courses {
 
 impl Course {
     fn new(name: impl Into<String>) -> Self {
-        Course {
-            name: name.into(),
-            ..Default::default()
-        }
+        Course { name: name.into(), ..Default::default() }
     }
 
-    /// Get a reference to a session, adding a new one if none by this name exists.
+    /// Get a reference to a session, adding a new one if none by this name
+    /// exists.
     fn session_mut(&mut self, name: impl AsRef<str>) -> &mut Session {
         let name = name.as_ref();
-        if let Some(found_idx) = self
-            .sessions
-            .iter()
-            .position(|session| &session.name == name)
+        if let Some(found_idx) =
+            self.sessions.iter().position(|session| &session.name == name)
         {
             return &mut self.sessions[found_idx];
         }
@@ -222,15 +223,17 @@ impl Course {
         self.sessions.last_mut().unwrap()
     }
 
-    /// Return the total duration of this course, as the sum of all segment durations.
+    /// Return the total duration of this course, as the sum of all segment
+    /// durations.
     ///
-    /// This includes breaks between segments, but does not count time between between
-    /// sessions.
+    /// This includes breaks between segments, but does not count time between
+    /// between sessions.
     pub fn minutes(&self) -> u64 {
         self.into_iter().map(|s| s.minutes()).sum()
     }
 
-    /// Generate a Markdown schedule for this course, for placement at the given path.
+    /// Generate a Markdown schedule for this course, for placement at the given
+    /// path.
     pub fn schedule(&self, at_source_path: impl AsRef<Path>) -> String {
         let mut outline = String::from("Course schedule:\n");
         for session in self {
@@ -249,7 +252,10 @@ impl Course {
                     &mut outline,
                     "   * [{}]({}) ({})",
                     segment.name,
-                    relative_link(&at_source_path, &segment.slides[0].source_paths[0]),
+                    relative_link(
+                        &at_source_path,
+                        &segment.slides[0].source_paths[0]
+                    ),
                     duration(segment.minutes())
                 )
                 .unwrap();
@@ -270,10 +276,7 @@ impl<'a> IntoIterator for &'a Course {
 
 impl Session {
     fn new(name: impl Into<String>) -> Self {
-        Session {
-            name: name.into(),
-            ..Default::default()
-        }
+        Session { name: name.into(), ..Default::default() }
     }
 
     /// Add a new segment to the session, representing sub-items as slides.
@@ -297,7 +300,8 @@ impl Session {
         Ok(())
     }
 
-    /// Generate a Markdown outline for this session, for placement at the given path.
+    /// Generate a Markdown outline for this session, for placement at the given
+    /// path.
     pub fn outline(&self, at_source_path: impl AsRef<Path>) -> String {
         let mut outline = String::from("In this session:\n");
         for segment in self {
@@ -324,7 +328,8 @@ impl Session {
         if instructional_time == 0 {
             return instructional_time;
         }
-        let breaks = (self.into_iter().filter(|s| s.minutes() > 0).count() - 1) as u64
+        let breaks = (self.into_iter().filter(|s| s.minutes() > 0).count() - 1)
+            as u64
             * BREAK_DURATION;
         instructional_time + breaks
     }
@@ -341,14 +346,11 @@ impl<'a> IntoIterator for &'a Session {
 
 impl Segment {
     fn new(name: impl Into<String>) -> Self {
-        Segment {
-            name: name.into(),
-            ..Default::default()
-        }
+        Segment { name: name.into(), ..Default::default() }
     }
 
-    /// Create a slide from a chapter. If `recurse` is true, sub-items of this chapter are
-    /// included in this slide as well.
+    /// Create a slide from a chapter. If `recurse` is true, sub-items of this
+    /// chapter are included in this slide as well.
     fn add_slide(
         &mut self,
         frontmatter: Frontmatter,
@@ -364,8 +366,8 @@ impl Segment {
         Ok(())
     }
 
-    /// Return the total duration of this segment (the sum of the durations of the enclosed
-    /// slides).
+    /// Return the total duration of this segment (the sum of the durations of
+    /// the enclosed slides).
     pub fn minutes(&self) -> u64 {
         self.into_iter().map(|s| s.minutes()).sum()
     }
@@ -406,10 +408,7 @@ impl<'a> IntoIterator for &'a Segment {
 
 impl Slide {
     fn new(frontmatter: Frontmatter, chapter: &Chapter) -> Self {
-        let mut slide = Self {
-            name: chapter.name.clone(),
-            ..Default::default()
-        };
+        let mut slide = Self { name: chapter.name.clone(), ..Default::default() };
         slide.add_frontmatter(&frontmatter);
         slide.push_source_path(&chapter.source_path);
         slide

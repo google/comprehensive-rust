@@ -32,9 +32,7 @@ pub fn entry() {
     // Safe because `HEAP` is only used here and `entry` is only called once.
     unsafe {
         // Give the allocator some memory to allocate.
-        HEAP_ALLOCATOR
-            .lock()
-            .init(HEAP.as_mut_ptr() as usize, HEAP.len());
+        HEAP_ALLOCATOR.lock().init(HEAP.as_mut_ptr() as usize, HEAP.len());
     }
 
     // Now we can do things that require heap allocation.

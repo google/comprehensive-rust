@@ -19,9 +19,9 @@ fn main() {
 }
 ```
 
-* See [`Arc`][2] and [`Mutex`][3] if you are in a multi-threaded context.
-* You can *downgrade* a shared pointer into a [`Weak`][4] pointer to create cycles
-  that will get dropped.
+- See [`Arc`][2] and [`Mutex`][3] if you are in a multi-threaded context.
+- You can _downgrade_ a shared pointer into a [`Weak`][4] pointer to create
+  cycles that will get dropped.
 
 [1]: https://doc.rust-lang.org/std/rc/struct.Rc.html
 [2]: ../concurrency/shared_state/arc.md
@@ -30,13 +30,16 @@ fn main() {
 
 <details>
 
-* `Rc`'s count ensures that its contained value is valid for as long as there are references.
-* `Rc` in Rust is like `std::shared_ptr` in C++.
-* `Rc::clone` is cheap: it creates a pointer to the same allocation and increases the reference count. Does not make a deep clone and can generally be ignored when looking for performance issues in code.
-* `make_mut` actually clones the inner value if necessary ("clone-on-write") and returns a mutable reference.
-* Use `Rc::strong_count` to check the reference count.
-* `Rc::downgrade` gives you a *weakly reference-counted* object to
-  create cycles that will be dropped properly (likely in combination with
-  `RefCell`).
+- `Rc`'s count ensures that its contained value is valid for as long as there
+  are references.
+- `Rc` in Rust is like `std::shared_ptr` in C++.
+- `Rc::clone` is cheap: it creates a pointer to the same allocation and
+  increases the reference count. Does not make a deep clone and can generally be
+  ignored when looking for performance issues in code.
+- `make_mut` actually clones the inner value if necessary ("clone-on-write") and
+  returns a mutable reference.
+- Use `Rc::strong_count` to check the reference count.
+- `Rc::downgrade` gives you a _weakly reference-counted_ object to create cycles
+  that will be dropped properly (likely in combination with `RefCell`).
 
 </details>

@@ -5,7 +5,7 @@ minutes: 5
 # Try Operator
 
 Runtime errors like connection-refused or file-not-found are handled with the
-`Result` type, but matching this type on every call can be cumbersome.  The
+`Result` type, but matching this type on every call can be cumbersome. The
 try-operator `?` is used to return errors to the caller. It lets you turn the
 common
 
@@ -25,8 +25,8 @@ some_expression?
 We can use this to simplify our error handling code:
 
 ```rust,editable
-use std::{fs, io};
 use std::io::Read;
+use std::{fs, io};
 
 fn read_username(path: &str) -> Result<String, io::Error> {
     let username_file_result = fs::File::open(path);
@@ -55,8 +55,12 @@ Simplify the `read_username` function to use `?`.
 
 Key points:
 
-* The `username` variable can be either `Ok(string)` or `Err(error)`.
-* Use the `fs::write` call to test out the different scenarios: no file, empty file, file with username.
-* Note that `main` can return a `Result<(), E>` as long as it implements `std::process:Termination`. In practice, this means that `E` implements `Debug`. The executable will print the `Err` variant and return a nonzero exit status on error.
+- The `username` variable can be either `Ok(string)` or `Err(error)`.
+- Use the `fs::write` call to test out the different scenarios: no file, empty
+  file, file with username.
+- Note that `main` can return a `Result<(), E>` as long as it implements
+  `std::process:Termination`. In practice, this means that `E` implements
+  `Debug`. The executable will print the `Err` variant and return a nonzero exit
+  status on error.
 
 </details>

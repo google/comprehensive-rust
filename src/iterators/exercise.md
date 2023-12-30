@@ -11,7 +11,6 @@ Copy the following code to <https://play.rust-lang.org/> and make the tests
 pass. Use an iterator expression and `collect` the result to construct the
 return value.
 
-
 ```rust
 {{#include exercise.rs:offset_differences}}
     unimplemented!()
@@ -19,4 +18,5 @@ return value.
 
 {{#include exercise.rs:unit-tests}}
 ```
+
 [1]: https://doc.rust-lang.org/std/iter/trait.Iterator.html

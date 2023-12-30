@@ -114,9 +114,7 @@ impl Uart {
     /// PL011 device, which must be mapped into the address space of the process
     /// as device memory and not have any other aliases.
     pub unsafe fn new(base_address: *mut u32) -> Self {
-        Self {
-            registers: base_address as *mut Registers,
-        }
+        Self { registers: base_address as *mut Registers }
     }
 
     /// Writes a single byte to the UART.
@@ -135,7 +133,8 @@ impl Uart {
         while self.read_flag_register().contains(Flags::BUSY) {}
     }
 
-    /// Reads and returns a pending byte, or `None` if nothing has been received.
+    /// Reads and returns a pending byte, or `None` if nothing has been
+    /// received.
     pub fn read_byte(&self) -> Option<u8> {
         if self.read_flag_register().contains(Flags::RXFE) {
             None

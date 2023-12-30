@@ -48,18 +48,9 @@ fn min<T: LessThan>(l: T, r: T) -> T {
 
 // ANCHOR: main
 fn main() {
-    let cit1 = Citation {
-        author: "Shapiro",
-        year: 2011,
-    };
-    let cit2 = Citation {
-        author: "Baumann",
-        year: 2010,
-    };
-    let cit3 = Citation {
-        author: "Baumann",
-        year: 2019,
-    };
+    let cit1 = Citation { author: "Shapiro", year: 2011 };
+    let cit2 = Citation { author: "Baumann", year: 2010 };
+    let cit3 = Citation { author: "Baumann", year: 2019 };
     debug_assert_eq!(min(cit1, cit2), cit2);
     debug_assert_eq!(min(cit2, cit3), cit2);
     debug_assert_eq!(min(cit1, cit3), cit3);

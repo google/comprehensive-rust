@@ -96,10 +96,7 @@ fn main() {
         "A ground floor passenger has pressed the up button: {:?}",
         lobby_call_button_pressed(0, Direction::Up)
     );
-    println!(
-        "The car has arrived on the ground floor: {:?}",
-        car_arrived(0)
-    );
+    println!("The car has arrived on the ground floor: {:?}", car_arrived(0));
     println!("The car door opened: {:?}", car_door_opened());
     println!(
         "A passenger has pressed the 3rd floor button: {:?}",

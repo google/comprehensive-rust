@@ -86,7 +86,8 @@ impl DirectoryIterator {
         // Call opendir and return a Ok value if that worked,
         // otherwise return Err with a message.
         // ANCHOR_END: DirectoryIterator
-        let path = CString::new(path).map_err(|err| format!("Invalid path: {err}"))?;
+        let path =
+            CString::new(path).map_err(|err| format!("Invalid path: {err}"))?;
         // SAFETY: path.as_ptr() cannot be NULL.
         let dir = unsafe { ffi::opendir(path.as_ptr()) };
         if dir.is_null() {

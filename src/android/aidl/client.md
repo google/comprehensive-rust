@@ -2,13 +2,13 @@
 
 Finally, we can create a Rust client for our new service.
 
-*birthday_service/src/client.rs*:
+_birthday_service/src/client.rs_:
 
 ```rust,ignore
 {{#include birthday_service/src/client.rs:main}}
 ```
 
-*birthday_service/Android.bp*:
+_birthday_service/Android.bp_:
 
 ```javascript
 {{#include birthday_service/Android.bp:birthday_client}}

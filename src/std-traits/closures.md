@@ -35,33 +35,35 @@ fn main() {
 
 <details>
 
-An `Fn` (e.g. `add_3`) neither consumes nor mutates captured values, or perhaps captures
-nothing at all. It can be called multiple times concurrently.
+An `Fn` (e.g. `add_3`) neither consumes nor mutates captured values, or perhaps
+captures nothing at all. It can be called multiple times concurrently.
 
-An `FnMut` (e.g. `accumulate`) might mutate captured values. You can call it multiple times,
-but not concurrently.
+An `FnMut` (e.g. `accumulate`) might mutate captured values. You can call it
+multiple times, but not concurrently.
 
-If you have an `FnOnce` (e.g. `multiply_sum`), you may only call it once. It might consume
-captured values.
+If you have an `FnOnce` (e.g. `multiply_sum`), you may only call it once. It
+might consume captured values.
 
-`FnMut` is a subtype of `FnOnce`. `Fn` is a subtype of `FnMut` and `FnOnce`. I.e. you can use an
-`FnMut` wherever an `FnOnce` is called for, and you can use an `Fn` wherever an `FnMut` or `FnOnce`
-is called for.
+`FnMut` is a subtype of `FnOnce`. `Fn` is a subtype of `FnMut` and `FnOnce`.
+I.e. you can use an `FnMut` wherever an `FnOnce` is called for, and you can use
+an `Fn` wherever an `FnMut` or `FnOnce` is called for.
 
-When you define a function that takes a closure, you should take `FnOnce` if you can (i.e. you call it once), or `FnMut`
-else, and last `Fn`. This allows the most flexibility for the caller.
+When you define a function that takes a closure, you should take `FnOnce` if you
+can (i.e. you call it once), or `FnMut` else, and last `Fn`. This allows the
+most flexibility for the caller.
 
-In contrast, when you have a closure, the most flexible you can have is `Fn` (it can be passed everywhere), then `FnMut`,
-and lastly `FnOnce`.
+In contrast, when you have a closure, the most flexible you can have is `Fn` (it
+can be passed everywhere), then `FnMut`, and lastly `FnOnce`.
 
-The compiler also infers `Copy` (e.g. for `add_3`) and `Clone` (e.g. `multiply_sum`),
-depending on what the closure captures.
+The compiler also infers `Copy` (e.g. for `add_3`) and `Clone` (e.g.
+`multiply_sum`), depending on what the closure captures.
 
-By default, closures will capture by reference if they can. The `move` keyword makes them capture
-by value.
+By default, closures will capture by reference if they can. The `move` keyword
+makes them capture by value.
+
 ```rust,editable
 fn make_greeter(prefix: String) -> impl Fn(&str) {
-    return move |name| println!("{} {}", prefix, name)
+    return move |name| println!("{} {}", prefix, name);
 }
 
 fn main() {

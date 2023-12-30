@@ -24,8 +24,6 @@ impl binder::Interface for BirthdayService {}
 
 impl IBirthdayService for BirthdayService {
     fn wishHappyBirthday(&self, name: &str, years: i32) -> binder::Result<String> {
-        Ok(format!(
-            "Happy Birthday {name}, congratulations with the {years} years!"
-        ))
+        Ok(format!("Happy Birthday {name}, congratulations with the {years} years!"))
     }
 }

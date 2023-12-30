@@ -2,13 +2,13 @@
 
 You declare the API of your service using an AIDL interface:
 
-*birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl*:
+_birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:
 
 ```java
 {{#include birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:IBirthdayService}}
 ```
 
-*birthday_service/aidl/Android.bp*:
+_birthday_service/aidl/Android.bp_:
 
 ```javascript
 {{#include birthday_service/aidl/Android.bp}}

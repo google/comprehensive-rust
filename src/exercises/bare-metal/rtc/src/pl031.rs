@@ -56,9 +56,7 @@ impl Rtc {
     /// PL031 device, which must be mapped into the address space of the process
     /// as device memory and not have any other aliases.
     pub unsafe fn new(base_address: *mut u32) -> Self {
-        Self {
-            registers: base_address as *mut Registers,
-        }
+        Self { registers: base_address as *mut Registers }
     }
 
     /// Reads the current RTC value.

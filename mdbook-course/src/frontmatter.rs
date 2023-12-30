@@ -25,10 +25,12 @@ pub struct Frontmatter {
 }
 
 /// Split a chapter's contents into frontmatter and the remaining contents.
-pub fn split_frontmatter(chapter: &Chapter) -> anyhow::Result<(Frontmatter, String)> {
+pub fn split_frontmatter(
+    chapter: &Chapter,
+) -> anyhow::Result<(Frontmatter, String)> {
     if let Some((frontmatter, content)) = matter(&chapter.content) {
-        let frontmatter: Frontmatter =
-            serde_yaml::from_str(&frontmatter).with_context(|| {
+        let frontmatter: Frontmatter = serde_yaml::from_str(&frontmatter)
+            .with_context(|| {
                 format!("error parsing frontmatter in {:?}", chapter.source_path)
             })?;
 

@@ -4,7 +4,8 @@ minutes: 5
 
 # Try Conversions
 
-The effective expansion of `?` is a little more complicated than previously indicated:
+The effective expansion of `?` is a little more complicated than previously
+indicated:
 
 ```rust,ignore
 expression?
@@ -43,7 +44,7 @@ impl Display for ReadUsernameError {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         match self {
             Self::IoError(e) => write!(f, "IO error: {e}"),
-            Self::EmptyUsername(filename) => write!(f, "Found no username in {filename}"),
+            Self::EmptyUsername(path) => write!(f, "Found no username in {path}"),
         }
     }
 }
@@ -73,13 +74,13 @@ fn main() {
 <details>
 
 The `?` operator must return a value compatible with the return type of the
-function. For `Result`, it means that the error types have to be compatible.
-A function that returns `Result<T, ErrorOuter>` can only use `?` on a value of
+function. For `Result`, it means that the error types have to be compatible. A
+function that returns `Result<T, ErrorOuter>` can only use `?` on a value of
 type `Result<U, ErrorInner>` if `ErrorOuter` and `ErrorInner` are the same type
 or if `ErrorOuter` implements `From<ErrorInner>`.
 
-A common alternative to a `From` implementation is `Result::map_err`,
-especially when the conversion only happens in one place.
+A common alternative to a `From` implementation is `Result::map_err`, especially
+when the conversion only happens in one place.
 
 There is no compatibility requirement for `Option`. A function returning
 `Option<T>` can use the `?` operator on `Option<U>` for arbitrary `T` and `U`

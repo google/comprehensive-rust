@@ -47,21 +47,22 @@ Error: See failure output above
 {{#include googletest.rs:test_multiline_string_diff}}
 ```
 
-  shows a color-coded diff (colors not shown here):
+shows a color-coded diff (colors not shown here):
 
-  <!-- mdbook-xgettext: skip -->
-  ```text
-      Value of: haiku
-  Expected: is equal to "Memory safety found,\nRust's silly humor guides the way,\nSecure code you'll write."
-  Actual: "Memory safety found,\nRust's strong typing guides the way,\nSecure code you'll write.",
-    which isn't equal to "Memory safety found,\nRust's silly humor guides the way,\nSecure code you'll write."
-  Difference(-actual / +expected):
-   Memory safety found,
-  -Rust's strong typing guides the way,
-  +Rust's silly humor guides the way,
-   Secure code you'll write.
-    at src/testing/googletest.rs:17:5
-  ```
+<!-- mdbook-xgettext: skip -->
+
+```text
+    Value of: haiku
+Expected: is equal to "Memory safety found,\nRust's silly humor guides the way,\nSecure code you'll write."
+Actual: "Memory safety found,\nRust's strong typing guides the way,\nSecure code you'll write.",
+  which isn't equal to "Memory safety found,\nRust's silly humor guides the way,\nSecure code you'll write."
+Difference(-actual / +expected):
+ Memory safety found,
+-Rust's strong typing guides the way,
++Rust's silly humor guides the way,
+ Secure code you'll write.
+  at src/testing/googletest.rs:17:5
+```
 
 - The crate is a Rust port of
   [GoogleTest for C++](https://google.github.io/googletest/).
