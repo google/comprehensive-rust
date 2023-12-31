@@ -68,4 +68,10 @@ This won't compile, demonstrating that the annotations are checked for validity
 by the compiler. Note that this is not the case for raw pointers (unsafe), and
 this is a common source of errors with unsafe Rust.
 
+Students may ask when to use lifetimes. Rust borrows _always_ have lifetimes.
+Most of the time, elision and type inference mean these don't need to be
+written out. In more complicated cases, lifetime annotations can help resolve
+ambiguity. Often, especially when prototyping, it's easier to just work with
+owned data by cloning values where necessary.
+
 </details>
