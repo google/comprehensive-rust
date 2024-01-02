@@ -15,8 +15,21 @@
 // ANCHOR: IBirthdayService
 package com.example.birthdayservice;
 
+import com.example.birthdayservice.IBirthdayInfoProvider;
+
+// ANCHOR: with_info_provider
 /** Birthday service interface. */
 interface IBirthdayService {
     /** Generate a Happy Birthday message. */
     String wishHappyBirthday(String name, int years);
+
+    /** The same thing, but using more Binder features. */
+    String wishWithProvider(IBirthdayInfoProvider provider);
+
+    /** The same thing, but using `IBinder`. */
+    String wishWithErasedProvider(IBinder provider);
+    // ANCHOR_END: with_info_provider
+
+    /** The same thing, but loads info from a file. */
+    String wishFromFile(in ParcelFileDescriptor infoFile);
 }

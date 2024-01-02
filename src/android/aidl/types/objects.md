@@ -3,29 +3,30 @@
 AIDL objects can be sent either as a concrete AIDL type or as the type-erased
 `IBinder` interface:
 
-**IBirthdayService.aidl**:
+**birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider.aidl**:
 
 ```java
-interface IBDayInfoProvider {
-    String getName();
-    int getYears();
-}
-
-interface IBirthdayService {
-    String wishHappyBirthday(IBDayInfoProvider provider);
-    String wishHbdErased(IBinder anyType);
+{{#include ../birthday-service/birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider.aidl:IBirthdayInfoProvider}}
 }
 ```
 
-**client/src/main.rs**:
+**birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl**:
+
+```java
+{{#include ../birthday-service/birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:with_info_provider}}
+}
+```
+
+**birthday_service/src/client.rs**:
 
 ```rust,ignore
-impl IBDayInfoProvider for MyProvider {
-    fn getName(&self) -> String { "Alice".into() }
-    fn getYears(&self) -> i32 { 29 }
+{{#include ../birthday-service/birthday_service/src/client.rs:InfoProvider}}
 }
 
-let provider = MyProvider::new();
-let msg = service.wishHappyBirthday(MyProvider)?; // TODO: Is this correct?
-service.wishHbdErased(MyProvider)?; // TODO: Is this correct?
+fn main() {
+    binder::ProcessState::start_thread_pool();
+    let service = connect().expect("Failed to connect to BirthdayService");
+
+{{#include ../birthday-service/birthday_service/src/client.rs:wish_with_provider}}
+}
 ```

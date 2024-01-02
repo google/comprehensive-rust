@@ -21,6 +21,7 @@ trait to talk to the service.
 
 <details>
 
+* The generated bindings can be found at `out/soong/.intermediates/<path to module>/`.
 * Point out how the generated function signature, specifically the argument and
   return types, correspond the interface definition.
     * `String` for an argument results in a different Rust type than `String` as
