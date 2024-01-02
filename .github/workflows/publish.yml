@@ -41,45 +41,13 @@ jobs:
         uses: ./.github/workflows/install-mdbook
 
       - name: Install mdbook-pandoc
-        run: curl --proto '=https' --tlsv1.2 -LsSf https://github.com/max-heller/mdbook-pandoc/releases/download/v0.2.0/mdbook-pandoc-installer.sh | sh
+        run: cargo install mdbook-pandoc
       - name: Install pandoc
         run: |
           curl -LsSf https://github.com/jgm/pandoc/releases/download/3.1.9/pandoc-3.1.9-linux-amd64.tar.gz | tar zxf -
           echo "$PWD/pandoc-3.1.9/bin" >> $GITHUB_PATH
       - name: Install mdbook-pandoc dependencies
-        run: sudo apt-get install -y librsvg2-bin
-      - name: Install TeX Live
-        uses: teatimeguest/setup-texlive-action@v3
-        with:
-          packages: >-
-            scheme-basic
-            amsfonts
-            amsmath
-            babel
-            bookmark
-            booktabs
-            fancyvrb
-            fontawesome
-            fontspec
-            geometry
-            graphics
-            hyperref
-            iftex
-            listings
-            lm
-            luacolor
-            luatexbase
-            lualatex-math
-            lua-ul
-            mdwtools
-            parskip
-            selnolig
-            setspace
-            soul
-            tools
-            unicode-math
-            xcolor
-            xurl
+        run: sudo apt-get install -y texlive texlive-luatex librsvg2-bin
 
       - name: Build course in English
         run: |
