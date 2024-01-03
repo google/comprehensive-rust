@@ -34,7 +34,7 @@ Key points:
 - Rust is modern with full support for things like Unicode.
 
 - Rust uses macros for situations where you want to have a variable number of
-  arguments (no function [overloading](basic-syntax/functions-interlude.md)).
+  arguments (no function [overloading](../control-flow-basics/functions.md)).
 
 - Macros being 'hygienic' means they don't accidentally capture identifiers from
   the scope they are used in. Rust macros are actually only
