@@ -469,7 +469,7 @@ msgstr "デフォルトメソッド"
 
 #: src/SUMMARY.md:144 src/traits/trait-bounds.md:1
 msgid "Trait Bounds"
-msgstr "トレイト境界"
+msgstr "トレイト制約"
 
 #: src/SUMMARY.md:145
 msgid "impl Trait"
@@ -7611,6 +7611,8 @@ msgstr ""
 msgid ""
 "Rust lets you abstract over types with traits. They're similar to interfaces:"
 msgstr ""
+"Rustでは、型に関しての抽象化をトレイトを用いて行うことができます。トレイトは"
+"インターフェースに似ています："
 
 #: src/traits.md:7 src/traits/trait-objects.md:7
 msgid "// No name needed, cats won't respond anyway.\n"
@@ -7631,20 +7633,80 @@ msgstr ""
 #: src/traits.md:27 src/traits/trait-objects.md:24
 msgid "\"Fido\""
 msgstr ""
+"```rust,editable\n"
+"struct Dog { name: String, age: i8 }\n"
+"struct Cat { lives: i8 } // 猫に名前は必要ありません。どのみち猫は名前に反応"
+"しないからです。\n"
+"\n"
+"trait Pet {\n"
+"    fn talk(&self) -> String;\n"
+"}\n"
+"\n"
+"impl Pet for Dog {\n"
+"    fn talk(&self) -> String { format!(\"Woof, my name is {}!\", self."
+"name) }\n"
+"}\n"
+"\n"
+"impl Pet for Cat {\n"
+"    fn talk(&self) -> String { String::from(\"Miau!\") }\n"
+"}\n"
+"\n"
+"fn greet<P: Pet>(pet: &P) {\n"
+"    println!(\"Oh you're a cutie! What's your name? {}\", pet.talk());\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let captain_floof = Cat { lives: 9 };\n"
+"    let fido = Dog { name: String::from(\"Fido\"), age: 5 };\n"
+"\n"
+"    greet(&captain_floof);\n"
+"    greet(&fido);\n"
+"}\n"
+"```"
 
 #: src/traits/trait-objects.md:3
 msgid ""
 "Trait objects allow for values of different types, for instance in a "
 "collection:"
 msgstr ""
+"トレイトオブジェクトは異なる型の値をひとつのコレクションにまとめることを可能"
+"にします："
 
 #: src/traits/trait-objects.md:27
 msgid "\"Hello, who are you? {}\""
 msgstr ""
+"```rust,editable\n"
+"struct Dog { name: String, age: i8 }\n"
+"struct Cat { lives: i8 } // 猫に名前は必要ありません。どのみち猫は名前に反応"
+"しないからです。\n"
+"\n"
+"trait Pet {\n"
+"    fn talk(&self) -> String;\n"
+"}\n"
+"\n"
+"impl Pet for Dog {\n"
+"    fn talk(&self) -> String { format!(\"Woof, my name is {}!\", self."
+"name) }\n"
+"}\n"
+"\n"
+"impl Pet for Cat {\n"
+"    fn talk(&self) -> String { String::from(\"Miau!\") }\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let pets: Vec<Box<dyn Pet>> = vec![\n"
+"        Box::new(Cat { lives: 9 }),\n"
+"        Box::new(Dog { name: String::from(\"Fido\"), age: 5 }),\n"
+"    ];\n"
+"    for pet in pets {\n"
+"        println!(\"Hello, who are you? {}\", pet.talk());\n"
+"    }\n"
+"}\n"
+"```"
 
 #: src/traits/trait-objects.md:32
 msgid "Memory layout after allocating `pets`:"
-msgstr ""
+msgstr "`pets`を割り当てた後のメモリレイアウト："
 
 #: src/traits/trait-objects.md:34
 msgid ""
@@ -7712,18 +7774,24 @@ msgid ""
 "Types that implement a given trait may be of different sizes. This makes it "
 "impossible to have things like `Vec<dyn Pet>` in the example above."
 msgstr ""
+"同じトレイトを実装する型であってもそのサイズは異なることがあります。そのた"
+"め、上の例でVec<dyn Pet>と書くことはできません。"
 
 #: src/traits/trait-objects.md:70
 msgid ""
 "`dyn Pet` is a way to tell the compiler about a dynamically sized type that "
 "implements `Pet`."
 msgstr ""
+"`dyn Pet` はコンパイラに、この型が`Pet`トレイトを実装する動的なサイズの型であ"
+"ることを伝えます。"
 
 #: src/traits/trait-objects.md:72
 msgid ""
 "In the example, `pets` is allocated on the stack and the vector data is on "
 "the heap. The two vector elements are _fat pointers_:"
 msgstr ""
+"上の例では `pets` はスタックに確保され、ベクターのデータはヒープ上にありま"
+"す。二つのベクターの要素は _ファットポインタ_ です："
 
 #: src/traits/trait-objects.md:74
 msgid ""
@@ -7732,16 +7800,26 @@ msgid ""
 "wikipedia.org/wiki/Virtual_method_table) (vtable) for the `Pet` "
 "implementation of that particular object."
 msgstr ""
+"ファットポインタはdouble-widthポインタです。これは二つの要素からなります：実"
+"際のオブジェクトへのポインタと、そのオブジェクトの`Pet`の実装のための[仮想関"
+"数テーブル](https://ja.wikipedia.org/wiki/"
+"%E4%BB%AE%E6%83%B3%E9%96%A2%E6%95%B0%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB) "
+"(vtable)です。"
 
 #: src/traits/trait-objects.md:77
 msgid ""
 "The data for the `Dog` named Fido is the `name` and `age` fields. The `Cat` "
 "has a `lives` field."
 msgstr ""
+"\"Fido\"と名付けられた`Dog`のデータは`name` と `age` のフィールドに対応しま"
+"す。（訳注: \"Fido\"とはよくある犬の愛称で、日本語でいう「ポチ」のような名前"
+"です。）例の`Cat`には`lives` フィールドがあります。（訳注: ここで`Cat`が"
+"`lives`というフィールドを持ち、9で初期化しているのは\"A cat has nine lives\" "
+"—猫は９つの命を持つ—ということわざに由来します。）"
 
 #: src/traits/trait-objects.md:79
 msgid "Compare these outputs in the above example:"
-msgstr ""
+msgstr "上の例において、下のコードによる出力結果を比べてみましょう："
 
 #: src/traits/trait-objects.md:81 src/traits/trait-objects.md:82
 #: src/traits/closures.md:54
@@ -7760,10 +7838,12 @@ msgid ""
 "Rust derive macros work by automatically generating code that implements the "
 "specified traits for a data structure."
 msgstr ""
+"Rustのderiveマクロは、データ構造体に対して、指定されたトレイトを実装するコー"
+"ドを自動的に生成します。"
 
 #: src/traits/deriving-traits.md:5
 msgid "You can let the compiler derive a number of traits as follows:"
-msgstr ""
+msgstr "コンパイラには、以下のような多くのトレイトを導出させることができます："
 
 #: src/traits/deriving-traits.md:18
 msgid "\"Is {:?}\\nequal to {:?}?\\nThe answer is {}!\""
@@ -7782,6 +7862,7 @@ msgstr ""
 #: src/traits/default-methods.md:3
 msgid "Traits can implement behavior in terms of other trait methods:"
 msgstr ""
+"トレイトでは、別のトレイトメソッドを用いて挙動を定義することが可能です："
 
 #: src/traits/default-methods.md:25
 msgid "\"{a:?} equals {b:?}: {}\""
@@ -7797,34 +7878,46 @@ msgid ""
 "are required to implement themselves. Methods with default implementations "
 "can rely on required methods."
 msgstr ""
+"トレイトは予め実装された（デフォルトの）メソッドと、ユーザが自身で実装する必"
+"要のあるメソッドを指定することができます。デフォルトの実装のあるメソッドは、"
+"その定義を実装必須のメソットに依存することができます。"
 
 #: src/traits/default-methods.md:35
 msgid "Move method `not_equals` to a new trait `NotEquals`."
 msgstr ""
+"メソッド `not_equals` を新しいトレイト `NotEquals` に移してみましょう。"
 
 #: src/traits/default-methods.md:37
 msgid "Make `Equals` a super trait for `NotEquals`."
-msgstr ""
+msgstr "`Equals` を `NotEquals` のスーパートレイトにしてみましょう。"
 
 #: src/traits/default-methods.md:46
 msgid "Provide a blanket implementation of `NotEquals` for `Equals`."
-msgstr ""
+msgstr "`Equals`に対する`NotEquals`のブランケット実装を示してみましょう。"
 
 #: src/traits/default-methods.md:58
 msgid ""
 "With the blanket implementation, you no longer need `Equals` as a super "
 "trait for `NotEqual`."
 msgstr ""
+"ブランケット実装を用いれば、`Equals` を`NotEqual`のスーパートレイトとする必要"
+"はなくなります。"
 
 #: src/traits/trait-bounds.md:3
 msgid ""
 "When working with generics, you often want to require the types to implement "
 "some trait, so that you can call this trait's methods."
 msgstr ""
+"ジェネリクスを用いるとき、あるトレイトのメソッドを呼び出せるように、型がその"
+"トレイトを実装していることを要求したいことがよくあります。（脚注：本教材では"
+"\"Trait bounds\"を「トレイト制約」と翻訳しましたが、Rustの日本語翻訳コミュニ"
+"ティでは「トレイト境界」と呼ぶ流派もあり、どちらの翻訳を採用するかについては"
+"[議論がなされています](https://github.com/rust-lang-ja/book-ja/"
+"issues/172)。）"
 
 #: src/traits/trait-bounds.md:6
 msgid "You can do this with `T: Trait` or `impl Trait`:"
-msgstr ""
+msgstr "そうしたことは`T: Trait` や `impl Trait`を用いて行えます："
 
 #: src/traits/trait-bounds.md:12
 msgid ""
@@ -7847,24 +7940,54 @@ msgstr ""
 #: src/traits/trait-bounds.md:29
 msgid "\"{many_more}\""
 msgstr ""
+"```rust,editable\n"
+"fn duplicate<T: Clone>(a: T) -> (T, T) {\n"
+"    (a.clone(), a.clone())\n"
+"}\n"
+"\n"
+"// 以下の糖衣構文です：\n"
+"//   fn add_42_millions<T: Into<i32>>(x: T) -> i32 {\n"
+"fn add_42_millions(x: impl Into<i32>) -> i32 {\n"
+"    x.into() + 42_000_000\n"
+"}\n"
+"\n"
+"// struct NotClonable;\n"
+"\n"
+"fn main() {\n"
+"    let foo = String::from(\"foo\");\n"
+"    let pair = duplicate(foo);\n"
+"    println!(\"{pair:?}\");\n"
+"\n"
+"    let many = add_42_millions(42_i8);\n"
+"    println!(\"{many}\");\n"
+"    let many_more = add_42_millions(10_000_000);\n"
+"    println!(\"{many_more}\");\n"
+"}\n"
+"```"
 
 #: src/traits/trait-bounds.md:35
 msgid "Show a `where` clause, students will encounter it when reading code."
 msgstr ""
+"`where` 節の使い方を示しましょう。受講生はコードを読んでいるときに、この"
+"`where`節に遭遇します。"
 
 #: src/traits/trait-bounds.md:46
 msgid "It declutters the function signature if you have many parameters."
 msgstr ""
+"たくさんのパラメタがある場合に、`where`節は関数のシグネチャを整理整頓してくれ"
+"ます。"
 
 #: src/traits/trait-bounds.md:47
 msgid "It has additional features making it more powerful."
-msgstr ""
+msgstr "`where`節には更に強力な機能があります。"
 
 #: src/traits/trait-bounds.md:48
 msgid ""
 "If someone asks, the extra feature is that the type on the left of \":\" can "
 "be arbitrary, like `Option<T>`."
 msgstr ""
+"誰かに聞かれた場合で良いですが、その機能というのは、\":\" の左側には "
+"`Option<T>` のように任意の型を表現できるというものです。"
 
 #: src/traits/impl-trait.md:1
 msgid "`impl Trait`"
@@ -7875,21 +7998,25 @@ msgid ""
 "Similar to trait bounds, an `impl Trait` syntax can be used in function "
 "arguments and return values:"
 msgstr ""
+"トレイト境界と似たように、構文 `impl Trait`は関数の引数と返り値においてのみ利"
+"用可能です："
 
 #: src/traits/impl-trait.md:19
 msgid "`impl Trait` allows you to work with types which you cannot name."
-msgstr ""
+msgstr "`impl Trait`を用いれば、型名を明示せずに型を限定することができます。"
 
 #: src/traits/impl-trait.md:23
 msgid ""
 "The meaning of `impl Trait` is a bit different in the different positions."
-msgstr ""
+msgstr "`impl Trait`の意味は、位置によって少し異なります。"
 
 #: src/traits/impl-trait.md:25
 msgid ""
 "For a parameter, `impl Trait` is like an anonymous generic parameter with a "
 "trait bound."
 msgstr ""
+"パラメタに対しては、`impl Trait`は、トレイト境界を持つ匿名のジェネリックパラ"
+"メタのようなものです。"
 
 #: src/traits/impl-trait.md:27
 msgid ""
@@ -7897,6 +8024,9 @@ msgid ""
 "implements the trait, without naming the type. This can be useful when you "
 "don't want to expose the concrete type in a public API."
 msgstr ""
+"返り値の型に用いる場合は、特定のトレイトを実装する何らかの具象型を返すが、具"
+"体的な型名は明示しないということを意味します。このことは公開されるAPIに具象型"
+"を晒したくない場合に便利です。"
 
 #: src/traits/impl-trait.md:31
 msgid ""
@@ -7907,6 +8037,12 @@ msgid ""
 "`let x: Vec<_> = foo.collect()` or with the turbofish, `foo.collect::"
 "<Vec<_>>()`."
 msgstr ""
+"返り値の位置における型推論は困難です。`impl Foo`を返す関数は、それが返す具象"
+"型はソースコードに書かれることないまま、具象型を選びます。`collect<B>() -> B`"
+"のようなジェネリック型を返す関数は、`B`を満たすどのような型でも返すことがあり"
+"ます。 また、関数の呼び出し元はそのような型を一つを選ぶ必要があるかもしれませ"
+"ん。 それは、 `let x: Vec<_> = foo.collect()`としたり、turbofishを用いて`foo."
+"collect::<Vec<_>>()`とすることで行えます。"
 
 #: src/traits/impl-trait.md:37
 msgid ""
@@ -7918,6 +8054,13 @@ msgid ""
 "`format!` returns. If we wanted to do the same via `: Display` syntax, we'd "
 "need two independent generic parameters."
 msgstr ""
+"この例は素晴らしい例です。なぜなら、 `impl Display`を２回用いているからで"
+"す。 ここでは `impl Display` の型が同一になることを強制するものはない、という"
+"説明をするのに役立ちます。もし単一の`T: Display`を用いた場合、入力の`T`と返り"
+"値の`T`が同一の型であることが強制されてしまいます。例で示した関数ではうまくい"
+"かないでしょう。なぜなら、我々が期待する入力の型は、`format!`が返すものではお"
+"そらくないからです。もしも同じことを`: Display`の構文で行いたい場合、２つの独"
+"立したジェネリックなパラメタが必要となるでしょう。"
 
 #: src/traits/important-traits.md:3
 msgid ""
