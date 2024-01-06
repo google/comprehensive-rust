@@ -86,8 +86,9 @@ header (the first entry with `msgid ""`) to the correct language.
 Next, please update the file `.github/labeler.yml` to include the new language:
 
 ```diff
-+ 'translation/xx':
-+ - po/xx.po
++"translation/xx":
++  - changed-files:
++      - any-glob-to-any-file: po/xx.po
 ```
 
 ### Refreshing an Existing Translation

@@ -32,8 +32,8 @@ fn fizzbuzz(n: u32) -> u32 {
 }
 
 fn main() {
-    let n = 13;
-    println!("{n}! = {}", factorial(4));
+    let n = 4;
+    println!("{n}! = {}", factorial(n));
 }
 ```
 
