@@ -32,7 +32,7 @@ else
 fi
 
 mdbook build -d "$dest_dir"
-mv "$dest_dir/pandoc/pdf/comprehensive-rust.pdf" "$dest_dir/html/"
+[ -f "$dest_dir/pandoc/pdf/comprehensive-rust.pdf" ] && mv "$dest_dir/pandoc/pdf/comprehensive-rust.pdf" "$dest_dir/html/"
 (cd "$dest_dir/exerciser" && zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/)
 
 echo "::endgroup::"
