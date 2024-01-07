@@ -29,6 +29,9 @@ else
     export MDBOOK_BOOK__LANGUAGE=$book_lang
     export MDBOOK_OUTPUT__HTML__SITE_URL=/comprehensive-rust/$book_lang/
     export MDBOOK_OUTPUT__HTML__REDIRECT='{}'
+
+    # Include language-specific Pandoc configuration
+    [ -f "pandoc/$book_lang.yaml" ] && export MDBOOK_OUTPUT__PANDOC__PROFILE__PDF__DEFAULTS="pandoc/$book_lang.yaml"
 fi
 
 mdbook build -d "$dest_dir"
