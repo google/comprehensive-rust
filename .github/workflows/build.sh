@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 set -Eeuo pipefail
 
 # Usage: build.sh <book-lang> <dest-dir>
