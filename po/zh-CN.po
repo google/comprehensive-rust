@@ -6890,21 +6890,21 @@ msgstr "欢迎参加第 3 天的课程"
 
 #: src/welcome-day-3.md:3
 msgid "Today, we will cover:"
-msgstr ""
+msgstr "今日内容："
 
 #: src/welcome-day-3.md:5
 msgid ""
 "Memory management, lifetimes, and the borrow checker: how Rust ensures "
 "memory safety."
-msgstr ""
+msgstr "内存管理、生命周期和借用检查器：Rust 如何确保内存安全。"
 
 #: src/welcome-day-3.md:7
 msgid "Smart pointers: standard library pointer types."
-msgstr ""
+msgstr "智能指针：标准库指针类型。"
 
 #: src/memory-management/review.md:3
 msgid "Programs allocate memory in two ways:"
-msgstr ""
+msgstr "程序通过以下两种方式分配内存："
 
 #: src/memory-management/review.md:5
 msgid "Stack: Continuous area of memory for local variables."
@@ -6979,11 +6979,12 @@ msgstr ""
 
 #: src/memory-management/review.md:58 src/testing/unit-tests.md:15
 msgid "' '"
-msgstr ""
+msgstr "' '"
 
 #: src/memory-management/review.md:59
+#, fuzzy
 msgid "\"world\""
-msgstr ""
+msgstr "\"world\""
 
 #: src/memory-management/review.md:60
 msgid ""
@@ -6992,10 +6993,14 @@ msgid ""
 "to\n"
 "    // undefined behavior.\n"
 msgstr ""
+"// DON'T DO THIS AT HOME!For educational purposes only.\n"
+"    // String provides no guarantees about its layout, so this could lead "
+"to\n"
+"    // undefined behavior.\n"
 
 #: src/memory-management/review.md:65
 msgid "\"ptr = {ptr:#x}, len = {len}, capacity = {capacity}\""
-msgstr ""
+msgstr "\"ptr = {ptr:#x}, len = {len}, capacity = {capacity}\""
 
 #: src/memory-management/approaches.md:3
 msgid "Traditionally, languages have fallen into two broad categories:"
@@ -7007,16 +7012,16 @@ msgstr "通过手动内存管理实现完全控制：C、C++、Pascal…"
 
 #: src/memory-management/approaches.md:6
 msgid "Programmer decides when to allocate or free heap memory."
-msgstr ""
+msgstr "程序员决定何时分配或释放堆内存。"
 
 #: src/memory-management/approaches.md:7
 msgid ""
 "Programmer must determine whether a pointer still points to valid memory."
-msgstr ""
+msgstr "程序员必须确定指针是否仍指向有效内存。"
 
 #: src/memory-management/approaches.md:8
 msgid "Studies show, programmers make mistakes."
-msgstr ""
+msgstr "研究表明，程序员难免会犯错。"
 
 #: src/memory-management/approaches.md:9
 msgid ""
@@ -7028,12 +7033,12 @@ msgstr "运行时通过自动内存管理实现完全安全：Java、Python、Go
 msgid ""
 "A runtime system ensures that memory is not freed until it can no longer be "
 "referenced."
-msgstr ""
+msgstr "运行时系统可确保在无法引用内存时，不会释放该内存。"
 
 #: src/memory-management/approaches.md:13
 msgid ""
 "Typically implemented with reference counting, garbage collection, or RAII."
-msgstr ""
+msgstr "通常通过引用计数、垃圾回收或 RAII 实现。"
 
 #: src/memory-management/approaches.md:15
 msgid "Rust offers a new mix:"
@@ -7053,7 +7058,7 @@ msgstr "它通过一个明确的所有权（ownership）概念来实现此目的
 msgid ""
 "This slide is intended to help students coming from other languages to put "
 "Rust in context."
-msgstr ""
+msgstr "本幻灯片旨在帮助学习其他语言的学生更好地了解 Rust。"
 
 #: src/memory-management/approaches.md:27
 msgid ""
@@ -7061,6 +7066,8 @@ msgid ""
 "forgetting to call `free`, calling it multiple times for the same pointer, "
 "or dereferencing a pointer after the memory it points to has been freed."
 msgstr ""
+"C 语言必须使用 `malloc` 和 `free` 函数手动管理堆。常见错误包括忘记调用 "
+"`free`、针对同一指针多次调用它，或在释放某指针所指向的内存后解引用它。"
 
 #: src/memory-management/approaches.md:31
 msgid ""
@@ -7069,6 +7076,9 @@ msgid ""
 "is freed when a function returns. It is still quite easy to mis-use these "
 "tools and create similar bugs to C."
 msgstr ""
+"C++ 具有智能指针（`unique_ptr`、`shared_ptr`）等工具，可以利用与调用析构函数"
+"相关的语言保证来确保在函数返回时释放内存。这些工具仍然很容易被滥用并导致与 C "
+"语言类似的 bug。"
 
 #: src/memory-management/approaches.md:36
 msgid ""
@@ -7077,6 +7087,9 @@ msgid ""
 "be dereferenced, eliminating use-after-free and other classes of bugs. But, "
 "GC has a runtime cost and is difficult to tune properly."
 msgstr ""
+"Java、Go 和 Python 依赖垃圾回收器来识别无法再访问的内存并将其舍弃。这保证可对"
+"所有指针进行解引用操作，从而消除了释放后使用等各类 bug但是，垃圾回收 (GC) 会"
+"产生运行时成本，并且很难进行适当调优。"
 
 #: src/memory-management/approaches.md:41
 msgid ""
@@ -7087,6 +7100,10 @@ msgid ""
 "are even third-party crates available to support runtime garbage collection "
 "(not covered in this class)."
 msgstr ""
+"在许多情况下，Rust 的所有权和借用模型可以实现 C 语言的性能，能够精确地在所需"
+"位置执行分配和释放操作，且为零成本。它还提供类似于 C++ 智能指针的工具。必要"
+"时，它还提供引用计数等其他选项，甚至还有第三方 crate 可以支持运行时垃圾回收"
+"（本课程中不作介绍）。"
 
 #: src/memory-management/ownership.md:3
 msgid ""
@@ -7114,6 +7131,8 @@ msgid ""
 "garbage collector starts with a set of \"roots\" to find all reachable "
 "memory. Rust's \"single owner\" principle is a similar idea."
 msgstr ""
+"熟悉垃圾回收实现的学生知道，垃圾回收器从一组 “根”开始查找所有可访问内存。"
+"Rust 的 “单一所有者”原则与此类似。"
 
 #: src/memory-management/move.md:3
 #, fuzzy
@@ -7123,16 +7142,16 @@ msgstr "赋值操作将在变量之间转移所有权："
 #: src/memory-management/move.md:7
 #, fuzzy
 msgid "\"Hello!\""
-msgstr "Hello World!"
+msgstr "b\"hello\""
 
 #: src/memory-management/move.md:9 src/slices-and-lifetimes/str.md:16
 #: src/slices-and-lifetimes/str.md:18
 msgid "\"s2: {s2}\""
-msgstr ""
+msgstr "\"s2: {s2}\""
 
 #: src/memory-management/move.md:10
 msgid "// println!(\"s1: {s1}\");\n"
-msgstr ""
+msgstr "// println!(\"s1: {s1}\");\n"
 
 #: src/memory-management/move.md:14
 msgid "The assignment of `s1` to `s2` transfers ownership."
@@ -7156,6 +7175,7 @@ msgid "After move to `s2`:"
 msgstr "移动到 `s2` 中之后："
 
 #: src/memory-management/move.md:37
+#, fuzzy
 msgid ""
 "```bob\n"
 " Stack                             Heap\n"
@@ -7179,24 +7199,22 @@ msgid ""
 "```"
 msgstr ""
 "```bob\n"
-" 栈                             堆\n"
-".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - -.\n"
-":                           :     :                           :\n"
-":    s1 \"（无法访问）\"    :     :                           :\n"
-":   +-----------+-------+   :     :   +----+----+----+----+   :\n"
-":   | ptr       |   o---+---+--+--+-->| R  | u  | s  | t  |   :\n"
-":   | len       |     4 |   :  |  :   +----+----+----+----+   :\n"
-":   | capacity  |     4 |   :  |  :                           :\n"
-":   +-----------+-------+   :  |  :                           :\n"
-":                           :  |  `- - - - - - - - - - - - - -'\n"
-":    s2                     :  |\n"
-":   +-----------+-------+   :  |\n"
-":   | ptr       |   o---+---+--'\n"
-":   | len       |     4 |   :\n"
-":   | capacity  |     4 |   :\n"
-":   +-----------+-------+   :\n"
-":                           :\n"
-"`- - - - - - - - - - - - - -'\n"
+" Stack                           Heap\n"
+".- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - "
+"-.\n"
+":                         :     :                                             :\n"
+":    "
+"list                 :     :                                             :\n"
+":   +----+----+           :     :    +----+----+    +----+------"
+"+             :\n"
+":   | 1  | o--+-----------+-----+--->| 2  | o--+--->| // | null "
+"|             :\n"
+":   +----+----+           :     :    +----+----+    +----+------"
+"+             :\n"
+":                         :     :                                             :\n"
+":                         :     :                                             :\n"
+"`- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - "
+"-'\n"
 "```"
 
 #: src/memory-management/move.md:58
@@ -7206,8 +7224,9 @@ msgid ""
 msgstr "你将值传递给函数时，该值会被赋给函数 参数。这就转移了所有权："
 
 #: src/memory-management/move.md:63
+#, fuzzy
 msgid "\"Hello {name}\""
-msgstr ""
+msgstr "\"Hello {name}\""
 
 #: src/memory-management/move.md:67 src/android/interoperability/java.md:57
 #, fuzzy
@@ -7216,7 +7235,7 @@ msgstr "切片"
 
 #: src/memory-management/move.md:69
 msgid "// say_hello(name);\n"
-msgstr ""
+msgstr "// say_hello(name);\n"
 
 #: src/memory-management/move.md:75
 msgid ""
@@ -7246,7 +7265,7 @@ msgstr "在 Rust 中，克隆是显式的（通过使用 `clone`）。"
 
 #: src/memory-management/move.md:86
 msgid "In the `say_hello` example:"
-msgstr ""
+msgstr "在 `say_hello` 示例中："
 
 #: src/memory-management/move.md:88
 msgid ""
@@ -7295,11 +7314,11 @@ msgstr "现代 C++ 以不同的方式解决此问题："
 
 #: src/memory-management/move.md:106
 msgid "\"Cpp\""
-msgstr ""
+msgstr "\"Cpp\""
 
 #: src/memory-management/move.md:107
 msgid "// Duplicate the data in s1.\n"
-msgstr ""
+msgstr "// Duplicate the data in s1.\n"
 
 #: src/memory-management/move.md:110
 msgid ""
@@ -7349,13 +7368,13 @@ msgstr ""
 
 #: src/memory-management/clone.md:1
 msgid "Clone"
-msgstr ""
+msgstr "克隆"
 
 #: src/memory-management/clone.md:3
 msgid ""
 "Sometimes you _want_ to make a copy of a value. The `Clone` trait "
 "accomplishes this."
-msgstr ""
+msgstr "有时，_如需_ 复制某个值。`Clone` trait 可以完成此操作。"
 
 #: src/memory-management/clone.md:23
 msgid ""
@@ -7363,12 +7382,16 @@ msgid ""
 "occurring. Look for `.clone()` and a few others like `Vec::new` or `Box::"
 "new`."
 msgstr ""
+"`Clone` 的设计理念是让您轻松发现堆分配的位置。查找 `.clone()` 和其他一些内"
+"容，例如 `Vec::new` 或 `Box::new`。"
 
 #: src/memory-management/clone.md:26
 msgid ""
 "It's common to \"clone your way out\" of problems with the borrow checker, "
 "and return later to try to optimize those clones away."
 msgstr ""
+"通常的做法是，先使用 “克隆操作”解决借用检查器问题，在后续通过优化消除这些克隆"
+"操作。"
 
 #: src/memory-management/copy-types.md:7
 msgid ""
@@ -7454,56 +7477,58 @@ msgstr ""
 
 #: src/memory-management/drop.md:13
 msgid "\"Dropping {}\""
-msgstr ""
+msgstr "\"Dropping {}\""
 
 #: src/memory-management/drop.md:18
 #: src/exercises/concurrency/link-checker.md:93
 #: src/exercises/concurrency/solutions-morning.md:125
 msgid "\"a\""
-msgstr ""
+msgstr "\"a\""
 
 #: src/memory-management/drop.md:20 src/testing/googletest.md:12
 msgid "\"b\""
-msgstr ""
+msgstr "\"b\""
 
 #: src/memory-management/drop.md:22
+#, fuzzy
 msgid "\"c\""
-msgstr ""
+msgstr "\"c\""
 
 #: src/memory-management/drop.md:23
 msgid "\"d\""
-msgstr ""
+msgstr "\"d\""
 
 #: src/memory-management/drop.md:24
 msgid "\"Exiting block B\""
-msgstr ""
+msgstr "\"Exiting block B\""
 
 #: src/memory-management/drop.md:26
 msgid "\"Exiting block A\""
-msgstr ""
+msgstr "\"Exiting block A\""
 
 #: src/memory-management/drop.md:29
 msgid "\"Exiting main\""
-msgstr ""
+msgstr "\"Exiting main\""
 
 #: src/memory-management/drop.md:35
 msgid "Note that `std::mem::drop` is not the same as `std::ops::Drop::drop`."
-msgstr ""
+msgstr "请注意，`std::mem::drop` 与 `std::ops::Drop::drop` 不同。"
 
 #: src/memory-management/drop.md:36
 msgid "Values are automatically dropped when they go out of scope."
-msgstr ""
+msgstr "当值超出范围时，系统会自动将其删除。"
 
 #: src/memory-management/drop.md:37
 msgid ""
 "When a value is dropped, if it implements `std::ops::Drop` then its `Drop::"
 "drop` implementation will be called."
 msgstr ""
+"丢弃某个值时，如果该值实现了 `std::ops::Drop`，则会调用其 `Drop::drop` 实现。"
 
 #: src/memory-management/drop.md:39
 msgid ""
 "All its fields will then be dropped too, whether or not it implements `Drop`."
-msgstr ""
+msgstr "然后，该值所有字段也会被丢弃，无论其是否实现了 `Drop`。"
 
 #: src/memory-management/drop.md:40
 msgid ""
@@ -7512,12 +7537,15 @@ msgid ""
 "scope it gets dropped. This makes it a convenient way to explicitly drop "
 "values earlier than they would otherwise go out of scope."
 msgstr ""
+"`std::mem::drop` 只是一个采用任何值的空函数。重要的是它获得了值的所有权，因此"
+"在其作用域结束时便会被丢弃。如此您可以轻松提前明确地丢弃值，而不必等到值超过"
+"范围的时候。"
 
 #: src/memory-management/drop.md:44
 msgid ""
 "This can be useful for objects that do some work on `drop`: releasing locks, "
 "closing files, etc."
-msgstr ""
+msgstr "这对于通过 `drop` 执行任务的对象来说非常有用，例如释放锁、关闭文件等。"
 
 #: src/memory-management/drop.md:49
 msgid "Why doesn't `Drop::drop` take `self`?"
@@ -7541,14 +7569,16 @@ msgid ""
 "data. We will use the \"builder pattern\" to support building a new value "
 "piece-by-piece, using convenience functions."
 msgstr ""
+"在此示例中，我们将实现一个拥有全部数据所有权的复杂数据类型。我们将使用 “构建"
+"器模式”来支持逐步构建新值，通过便捷函数来实现。"
 
 #: src/memory-management/exercise.md:7
 msgid "Fill in the missing pieces."
-msgstr ""
+msgstr "填补缺失的内容。"
 
 #: src/memory-management/exercise.md:22 src/memory-management/solution.md:16
 msgid "/// A representation of a software package.\n"
-msgstr ""
+msgstr "/// A representation of a software package.\n"
 
 #: src/memory-management/exercise.md:34 src/memory-management/solution.md:28
 msgid ""
@@ -7558,56 +7588,57 @@ msgstr ""
 
 #: src/memory-management/exercise.md:37
 msgid "\"1\""
-msgstr ""
+msgstr "\"1\""
 
 #: src/memory-management/exercise.md:40 src/memory-management/solution.md:37
 msgid ""
 "/// A builder for a Package. Use `build()` to create the `Package` itself.\n"
 msgstr ""
+"/// A builder for a Package. Use `build()` to create the `Package` itself.\n"
 
 #: src/memory-management/exercise.md:46
 msgid "\"2\""
-msgstr ""
+msgstr "\"2\""
 
 #: src/memory-management/exercise.md:49 src/memory-management/solution.md:52
 msgid "/// Set the package version.\n"
-msgstr ""
+msgstr "/// Set the package version.\n"
 
 #: src/memory-management/exercise.md:55 src/memory-management/solution.md:58
 msgid "/// Set the package authors.\n"
-msgstr ""
+msgstr "/// Set the package authors.\n"
 
 #: src/memory-management/exercise.md:57
 msgid "\"3\""
-msgstr ""
+msgstr "\"3\""
 
 #: src/memory-management/exercise.md:60 src/memory-management/solution.md:64
 msgid "/// Add an additional dependency.\n"
-msgstr ""
+msgstr "/// Add an additional dependency.\n"
 
 #: src/memory-management/exercise.md:62
 msgid "\"4\""
-msgstr ""
+msgstr "\"4\""
 
 #: src/memory-management/exercise.md:65 src/memory-management/solution.md:70
 msgid "/// Set the language. If not set, language defaults to None.\n"
-msgstr ""
+msgstr "/// Set the language. If not set, language defaults to None.\n"
 
 #: src/memory-management/exercise.md:67
 msgid "\"5\""
-msgstr ""
+msgstr "\"5\""
 
 #: src/memory-management/exercise.md:76 src/memory-management/solution.md:82
 msgid "\"base64\""
-msgstr ""
+msgstr "\"base64\""
 
 #: src/memory-management/exercise.md:76 src/memory-management/solution.md:82
 msgid "\"0.13\""
-msgstr ""
+msgstr "\"0.13\""
 
 #: src/memory-management/exercise.md:77 src/memory-management/solution.md:83
 msgid "\"base64: {base64:?}\""
-msgstr ""
+msgstr "\"base64: {base64:?}\""
 
 #: src/memory-management/exercise.md:79 src/memory-management/solution.md:85
 msgid "\"log\""
@@ -7615,11 +7646,11 @@ msgstr ""
 
 #: src/memory-management/exercise.md:79 src/memory-management/solution.md:85
 msgid "\"0.4\""
-msgstr ""
+msgstr "\"0.4\""
 
 #: src/memory-management/exercise.md:80 src/memory-management/solution.md:86
 msgid "\"log: {log:?}\""
-msgstr ""
+msgstr "\"log: {log:?}\""
 
 #: src/memory-management/exercise.md:81 src/memory-management/solution.md:87
 msgid "\"serde\""
@@ -7627,19 +7658,19 @@ msgstr ""
 
 #: src/memory-management/exercise.md:82 src/memory-management/solution.md:88
 msgid "\"djmitche\""
-msgstr ""
+msgstr "\"djmitche\""
 
 #: src/memory-management/exercise.md:83 src/memory-management/solution.md:89
 msgid "\"4.0\""
-msgstr ""
+msgstr "\"4.0\""
 
 #: src/memory-management/exercise.md:87 src/memory-management/solution.md:93
 msgid "\"serde: {serde:?}\""
-msgstr ""
+msgstr "\"serde: {serde:?}\""
 
 #: src/memory-management/solution.md:45
 msgid "\"0.1\""
-msgstr ""
+msgstr "\"0.1\""
 
 #: src/smart-pointers/box.md:3
 msgid ""
@@ -7651,7 +7682,7 @@ msgstr ""
 
 #: src/smart-pointers/box.md:9
 msgid "\"five: {}\""
-msgstr ""
+msgstr "\"five: {}\""
 
 #: src/smart-pointers/box.md:26
 msgid ""
@@ -7678,7 +7709,7 @@ msgstr ""
 
 #: src/smart-pointers/box.md:44 src/smart-pointers/box.md:97
 msgid "\"{list:?}\""
-msgstr ""
+msgstr "\"{list:?}\""
 
 #: src/smart-pointers/box.md:48
 #, fuzzy
@@ -7703,24 +7734,22 @@ msgid ""
 "```"
 msgstr ""
 "```bob\n"
-" 栈                             堆\n"
-".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - -.\n"
-":                           :     :                           :\n"
-":    s1 \"（无法访问）\"    :     :                           :\n"
-":   +-----------+-------+   :     :   +----+----+----+----+   :\n"
-":   | ptr       |   o---+---+--+--+-->| R  | u  | s  | t  |   :\n"
-":   | len       |     4 |   :  |  :   +----+----+----+----+   :\n"
-":   | capacity  |     4 |   :  |  :                           :\n"
-":   +-----------+-------+   :  |  :                           :\n"
-":                           :  |  `- - - - - - - - - - - - - -'\n"
-":    s2                     :  |\n"
-":   +-----------+-------+   :  |\n"
-":   | ptr       |   o---+---+--'\n"
-":   | len       |     4 |   :\n"
-":   | capacity  |     4 |   :\n"
-":   +-----------+-------+   :\n"
-":                           :\n"
-"`- - - - - - - - - - - - - -'\n"
+" Stack                           Heap\n"
+".- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - "
+"- -.\n"
+":                         :     :                                               :\n"
+":    "
+"list                 :     :                                               :\n"
+":   +------+----+----+    :     :    +------+----+----+    +------+----+----"
+"+   :\n"
+":   | Cons | 1  | o--+----+-----+--->| Cons | 2  | o--+--->| Nil  | // | // "
+"|   :\n"
+":   +------+----+----+    :     :    +------+----+----+    +------+----+----"
+"+   :\n"
+":                         :     :                                               :\n"
+":                         :     :                                               :\n"
+"'- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - "
+"- -'\n"
 "```"
 
 #: src/smart-pointers/box.md:63
@@ -7807,24 +7836,22 @@ msgid ""
 "```"
 msgstr ""
 "```bob\n"
-" 栈                             堆\n"
-".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - -.\n"
-":                           :     :                           :\n"
-":    s1 \"（无法访问）\"    :     :                           :\n"
-":   +-----------+-------+   :     :   +----+----+----+----+   :\n"
-":   | ptr       |   o---+---+--+--+-->| R  | u  | s  | t  |   :\n"
-":   | len       |     4 |   :  |  :   +----+----+----+----+   :\n"
-":   | capacity  |     4 |   :  |  :                           :\n"
-":   +-----------+-------+   :  |  :                           :\n"
-":                           :  |  `- - - - - - - - - - - - - -'\n"
-":    s2                     :  |\n"
-":   +-----------+-------+   :  |\n"
-":   | ptr       |   o---+---+--'\n"
-":   | len       |     4 |   :\n"
-":   | capacity  |     4 |   :\n"
-":   +-----------+-------+   :\n"
-":                           :\n"
-"`- - - - - - - - - - - - - -'\n"
+" Stack                           Heap\n"
+".- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - "
+"- -.\n"
+":                         :     :                                               :\n"
+":    "
+"list                 :     :                                               :\n"
+":   +------+----+----+    :     :    +------+----+----+    +------+----+----"
+"+   :\n"
+":   | Cons | 1  | o--+----+-----+--->| Cons | 2  | o--+--->| Nil  | // | // "
+"|   :\n"
+":   +------+----+----+    :     :    +------+----+----+    +------+----+----"
+"+   :\n"
+":                         :     :                                               :\n"
+":                         :     :                                               :\n"
+"'- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - "
+"- -'\n"
 "```"
 
 #: src/smart-pointers/rc.md:3
@@ -7838,11 +7865,11 @@ msgstr ""
 
 #: src/smart-pointers/rc.md:13
 msgid "\"a: {a}\""
-msgstr ""
+msgstr "\"a: {a}\""
 
 #: src/smart-pointers/rc.md:14
 msgid "\"b: {b}\""
-msgstr ""
+msgstr "\"b: {b}\""
 
 #: src/smart-pointers/rc.md:18
 #, fuzzy
@@ -7908,16 +7935,19 @@ msgid ""
 "value. For a given node N, all nodes in a N's left subtree contain smaller "
 "values, and all nodes in N's right subtree will contain larger values."
 msgstr ""
+"二元树是一种树型数据结构，其中每个节点都有两个子节点（左侧和右侧）。我们将创"
+"建一个树状结构，其中每个节点存储一个值。对于给定的节点 N，N 的左侧子树中的所"
+"有节点都包含较小的值，而 N 的右侧子树中的所有节点都将包含较大的值。"
 
 #: src/smart-pointers/exercise.md:8
 msgid "Implement the following types, so that the given tests pass."
-msgstr ""
+msgstr "实现以下类型，以便通过指定的测试。"
 
 #: src/smart-pointers/exercise.md:10
 msgid ""
 "Extra Credit: implement an iterator over a binary tree that returns the "
 "values in order."
-msgstr ""
+msgstr "额外提示：对按顺序返回值的二元树实现迭代器。"
 
 #: src/smart-pointers/exercise.md:14 src/smart-pointers/solution.md:5
 msgid "/// A node in the binary tree.\n"
@@ -7933,18 +7963,22 @@ msgid ""
 "///\n"
 "/// If the same value is added multiple times, it is only stored once.\n"
 msgstr ""
+"/// A container storing a set of values, using a binary tree.\n"
+"///\n"
+"/// If the same value is added multiple times, it is only stored once.\n"
 
 #: src/smart-pointers/exercise.md:33
+#, fuzzy
 msgid "// Implement `new`, `insert`, `len`, and `has`.\n"
-msgstr ""
+msgstr "// Implement `new`, `insert`, and `has`.\n"
 
 #: src/smart-pointers/exercise.md:48 src/smart-pointers/solution.md:105
 msgid "// not a unique item\n"
-msgstr ""
+msgstr "// not a unique item\n"
 
 #: src/smart-pointers/solution.md:89 src/testing/googletest.md:11
 msgid "\"bar\""
-msgstr ""
+msgstr "\"bar\""
 
 #: src/borrowing/shared.md:3
 #, fuzzy
@@ -7966,6 +8000,7 @@ msgid ""
 "This slide is a review of the material on references from day 1, expanding "
 "slightly to include function arguments and return values."
 msgstr ""
+"此幻灯片是对第 1 天引用材料的回顾，并稍作了扩展，添加了函数参数和返回值。"
 
 #: src/borrowing/shared.md:34
 msgid "Notes on stack returns:"
@@ -8024,6 +8059,7 @@ msgid ""
 "Note that the requirement is that conflicting references not _exist_ at the "
 "same point. It does not matter where the reference is dereferenced."
 msgstr ""
+"请注意，要求是相冲突的引用不能 _同时存在_。而引用的解引用位置无关紧要。"
 
 #: src/borrowing/borrowck.md:30
 msgid ""
@@ -8050,12 +8086,16 @@ msgstr ""
 "是借用检查器的一个功能，名为“非词法作用域生命周期”。"
 
 #: src/borrowing/borrowck.md:37
+#, fuzzy
 msgid ""
 "The exclusive reference constraint is quite strong. Rust uses it to ensure "
 "that data races do not occur. Rust also _relies_ on this constraint to "
 "optimize code. For example, a value behind a shared reference can be safely "
 "cached in a register for the lifetime of that reference."
 msgstr ""
+"独占引用的约束条件非常严格。Rust 使用它来确保不会发生数据争用。Rust 还会 _依"
+"赖_ 此约束条件来优化代码。例如，共享引用背后的值可以安全地缓存在寄存器中，并"
+"在该引用的生命周期内保持有效。"
 
 #: src/borrowing/borrowck.md:41
 msgid ""
@@ -8064,13 +8104,19 @@ msgid ""
 "time. But, there are some situations where it doesn't quite \"get it\" and "
 "this often results in \"fighting with the borrow checker.\""
 msgstr ""
+"借用检查器专用于处理许多常见模式，例如同时对结构体中的不同字段进行独占引用。"
+"但在某些情况下，它并不能完全 “领会”您的意图，这往往会导致 “与借用检查器进行一"
+"番斗争”。"
 
 #: src/borrowing/interior-mutability.md:7
+#, fuzzy
 msgid ""
 "Rust provides a few safe means of modifying a value given only a shared "
 "reference to that value. All of these replace compile-time checks with "
 "runtime checks."
 msgstr ""
+"Rust 提供了一些安全的方法，只需对指定值拥有共享引用，即可修改该值。所有这些方"
+"法都用运行时检查取代了编译时检查。"
 
 #: src/borrowing/interior-mutability.md:11
 msgid "`Cell` and `RefCell`"
@@ -8098,11 +8144,11 @@ msgstr ""
 
 #: src/borrowing/interior-mutability.md:50
 msgid "\"graph: {root:#?}\""
-msgstr ""
+msgstr "\"graph: {root:#?}\""
 
 #: src/borrowing/interior-mutability.md:51
 msgid "\"graph sum: {}\""
-msgstr ""
+msgstr "\"graph sum: {}\""
 
 #: src/borrowing/interior-mutability.md:57
 msgid ""
@@ -8172,17 +8218,19 @@ msgid ""
 "\"Update a user's statistics based on measurements from a visit to the "
 "doctor\""
 msgstr ""
+"\"Update a user's statistics based on measurements from a visit to the "
+"doctor\""
 
 #: src/borrowing/exercise.md:56 src/borrowing/exercise.md:62
 #: src/borrowing/exercise.md:68 src/borrowing/solution.md:58
 #: src/borrowing/solution.md:64 src/borrowing/solution.md:70
 #: src/android/build-rules/library.md:44 src/android/aidl/client.md:22
 msgid "\"Bob\""
-msgstr ""
+msgstr "\"Bob\""
 
 #: src/borrowing/exercise.md:57 src/borrowing/solution.md:59
 msgid "\"I'm {} and my age is {}\""
-msgstr ""
+msgstr "\"I'm {} and my age is {}\""
 
 #: src/slices-and-lifetimes/slices.md:1
 msgid "Slices"
@@ -8271,19 +8319,21 @@ msgid ""
 "We can now understand the two string types in Rust: `&str` is almost like "
 "`&[char]`, but with its data stored in a variable-length encoding (UTF-8)."
 msgstr ""
+"现在，我们能够理解 Rust 中的两种字符串类型：`&str` 几乎与 `&[char]` 一样，只"
+"不过其数据存储在可变长度编码 (UTF-8) 中。"
 
 #: src/slices-and-lifetimes/str.md:13
 msgid "\"s1: {s1}\""
-msgstr ""
+msgstr "\"s1: {s1}\""
 
 #: src/slices-and-lifetimes/str.md:15
 #, fuzzy
 msgid "\"Hello \""
-msgstr "Hello World!"
+msgstr "b\"hello\""
 
 #: src/slices-and-lifetimes/str.md:21
 msgid "\"s3: {s3}\""
-msgstr ""
+msgstr "\"s3: {s3}\""
 
 #: src/slices-and-lifetimes/str.md:25
 msgid "Rust terminology:"
@@ -8336,12 +8386,16 @@ msgstr ""
 "同的格式规范。"
 
 #: src/slices-and-lifetimes/str.md:46
+#, fuzzy
 msgid ""
 "You can borrow `&str` slices from `String` via `&` and optionally range "
 "selection. If you select a byte range that is not aligned to character "
 "boundaries, the expression will panic. The `chars` iterator iterates over "
 "characters and is preferred over trying to get character boundaries right."
 msgstr ""
+"您可以通过 `&` 和范围选择（可选）来从 `String` 借用 `&str` slice。如果选择的"
+"字节范围未与字符边界对齐，则表达式会 panic。`chars` 迭代器会迭代字符，比尝试"
+"正确获取字符边界更为推荐。"
 
 #: src/slices-and-lifetimes/str.md:51
 #, fuzzy
@@ -8362,18 +8416,25 @@ msgid "Byte strings literals allow you to create a `&[u8]` value directly:"
 msgstr "字节串可以用于直接创建 `&[u8]` 类型的值："
 
 #: src/slices-and-lifetimes/lifetime-annotations.md:3
+#, fuzzy
 msgid ""
 "A reference has a _lifetime_, which must not \"outlive\" the value it refers "
 "to. This is verified by the borrow checker."
 msgstr ""
+"引用具有 _生命周期_，该生命周期必须比其所引用的值 “存在得更久”。这由借用检查"
+"器进行验证。"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md:6
+#, fuzzy
 msgid ""
 "The lifetime can be implicit - this is what we have seen so far. Lifetimes "
 "can also be explicit: `&'a Point`, `&'document str`. Lifetimes start with "
 "`'` and `'a` is a typical default name. Read `&'a Point` as \"a borrowed "
 "`Point` which is valid for at least the lifetime `a`\"."
 msgstr ""
+"生命周期可以是隐式的，我们目前所看到的便是如此。生命周期也可以是显式的：`&'a "
+"Point` 和 `&'document str`。生命周期以 `'` 开头，`'a` 是典型的默认名称。将 "
+"`&'a Point` 读取为 “一个借用的 `Point`，至少在生命周期 `a` 内有效”。"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md:11
 #, fuzzy
@@ -8387,15 +8448,15 @@ msgstr "生命周期注释会创建约束条件；编译器会验证 是否存�
 msgid ""
 "Lifetimes become more complicated when considering passing values to and "
 "returning values from functions."
-msgstr ""
+msgstr "当考虑向函数传递值和从函数返回值时，生命周期会变得更加复杂。"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md:36
 msgid "// What is the lifetime of p3?\n"
-msgstr ""
+msgstr "// What is the lifetime of p3?\n"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md:37
 msgid "\"p3: {p3:?}\""
-msgstr ""
+msgstr "\"p3: {p3:?}\""
 
 #: src/slices-and-lifetimes/lifetime-annotations.md:43
 msgid ""
@@ -8405,21 +8466,26 @@ msgid ""
 "Rust requires explicit annotations of lifetimes on function arguments and "
 "return values."
 msgstr ""
+"在此示例中，编译器无法推理出 `p3` 的生命周期。查看函数体内部后则可放心地假"
+"定，`p3` 的生命周期是 `p1` 和 `p2` 中的较短者。但与类型一样，Rust 需要对函数"
+"参数和返回值进行明确的生命周期注解。"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md:49
 msgid "Add `'a` appropriately to `left_most`:"
-msgstr ""
+msgstr "将 `'a` 适当添加到 `left_most` 中："
 
 #: src/slices-and-lifetimes/lifetime-annotations.md:55
 msgid ""
 "This says, \"given p1 and p2 which both outlive `'a`, the return value lives "
 "for at least `'a`."
 msgstr ""
+"这表示.，“假设 p1 和 p2 的存在时间都比 `'a` 更长，则返回值至少在 `'a` 内有"
+"效”。"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md:58
 msgid ""
 "In common cases, lifetimes can be elided, as described on the next slide."
-msgstr ""
+msgstr "在一般情况下，可以省略生命周期，如下一张幻灯片中所述。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md:1
 msgid "Lifetimes in Function Calls"
@@ -8439,40 +8505,47 @@ msgstr ""
 
 #: src/slices-and-lifetimes/lifetime-elision.md:8
 msgid "Each argument which does not have a lifetime annotation is given one."
-msgstr ""
+msgstr "每个没有生命周期注解的参数都会添加一个生命周期注解。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md:9
 msgid ""
 "If there is only one argument lifetime, it is given to all un-annotated "
 "return values."
-msgstr ""
+msgstr "如果只有一个参数生命周期，则将其赋予所有未加注解的返回值。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md:11
 msgid ""
 "If there are multiple argument lifetimes, but the first one is for `self`, "
 "that lifetime is given to all un-annotated return values."
 msgstr ""
+"如果有多个参数生命周期，但第一个是用于 `self` 的，则将该生命周期赋予所有未加"
+"注解的返回值。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md:52
 msgid "In this example, `cab_distance` is trivially elided."
-msgstr ""
+msgstr "在此示例中，`cab_distance` 被轻易省略掉了。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md:54
 msgid ""
 "The `nearest` function provides another example of a function with multiple "
 "references in its arguments that requires explicit annotation."
 msgstr ""
+"`nearest` 函数提供了另一个函数示例，该函数的参数中包含多个引用，需要显式注"
+"解。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md:57
 msgid "Try adjusting the signature to \"lie\" about the lifetimes returned:"
-msgstr ""
+msgstr "请尝试将签名调整为 “谎报”了返回的生命周期："
 
 #: src/slices-and-lifetimes/lifetime-elision.md:63
+#, fuzzy
 msgid ""
 "This won't compile, demonstrating that the annotations are checked for "
 "validity by the compiler. Note that this is not the case for raw pointers "
 "(unsafe), and this is a common source of errors with unsafe Rust."
 msgstr ""
+"这将无法编译，表面编译器会检查注解是否有效。请注意，原始指针并非如此（不安"
+"全），这是不安全 Rust 中导致错误的常见原因。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md:67
 msgid ""
@@ -8494,23 +8567,23 @@ msgstr "如果数据类型存储了借用的数据，则必须对其添加生命
 
 #: src/slices-and-lifetimes/struct-lifetimes.md:10
 msgid "\"Bye {text}!\""
-msgstr ""
+msgstr "\"Bye {text}!\""
 
 #: src/slices-and-lifetimes/struct-lifetimes.md:14
 msgid "\"The quick brown fox jumps over the lazy dog.\""
-msgstr ""
+msgstr "\"The quick brown fox jumps over the lazy dog.\""
 
 #: src/slices-and-lifetimes/struct-lifetimes.md:17
 msgid "// erase(text);\n"
-msgstr ""
+msgstr "// erase(text);\n"
 
 #: src/slices-and-lifetimes/struct-lifetimes.md:18
 msgid "\"{fox:?}\""
-msgstr ""
+msgstr "\"{fox:?}\""
 
 #: src/slices-and-lifetimes/struct-lifetimes.md:19
 msgid "\"{dog:?}\""
-msgstr ""
+msgstr "\"{dog:?}\""
 
 #: src/slices-and-lifetimes/struct-lifetimes.md:25
 msgid ""
@@ -8560,6 +8633,9 @@ msgid ""
 "simpler than it seems! This illustrates a common parsing pattern, passing "
 "slices of data. The underlying data itself is never copied."
 msgstr ""
+"在本练习中，您将为 [protobuf 二进制编码](https://protobuf.dev/programming-"
+"guides/encoding/) 构建一个解析器。别担心，其实非常简单！这展示了一种常见的解"
+"析模式，即传递数据 slice。底层数据本身永远不会被复制。"
 
 #: src/slices-and-lifetimes/exercise.md:8
 msgid ""
@@ -8568,10 +8644,13 @@ msgid ""
 "file. In this exercise, we'll encode that information into `match` "
 "statements in functions that get called for each field."
 msgstr ""
+"如要完整解析 protobuf 消息，需要知道字段的类型（按字段编号编入索引）。这通常"
+"会在 `proto` 文件中提供。在本练习中，我们将把这些信息编码成处理每个字段所调用"
+"的函数中的 `match` 语句。"
 
 #: src/slices-and-lifetimes/exercise.md:13
 msgid "We'll use the following proto:"
-msgstr ""
+msgstr "我们将使用以下 proto："
 
 #: src/slices-and-lifetimes/exercise.md:28
 msgid ""
@@ -8580,6 +8659,9 @@ msgid ""
 "number (e.g., `2` for the `id` field of a `Person` message) and a wire type "
 "defining how the payload should be determined from the byte stream."
 msgstr ""
+"proto 消息被编码为连续的一系列字段。每个字段都通过 “标签”后面紧跟值的形式来实"
+"现。标签包含一个字段编号（例如`Person` 消息的 `id` 字段的值为 `2`）和线型（用"
+"于定义应如何从字节流确定载荷）。"
 
 #: src/slices-and-lifetimes/exercise.md:33
 msgid ""
@@ -8588,94 +8670,108 @@ msgid ""
 "code also defines callbacks to handle `Person` and `PhoneNumber` fields, and "
 "to parse a message into a series of calls to those callbacks."
 msgstr ""
+"整数（包括标签）使用名为 VARINT 的可变长度编码表示。幸运的是，下面为您提供了 "
+"`parse_varint` 的定义。该指定代码还定义了一些回调，用于处理 `Person` 和 "
+"`PhoneNumber` 字段，并将消息解析为对这些回调的一系列调用。"
 
 #: src/slices-and-lifetimes/exercise.md:38
+#, fuzzy
 msgid ""
 "What remains for you is to implement the `parse_field` function and the "
 "`ProtoMessage` trait for `Person` and `PhoneNumber`."
-msgstr ""
+msgstr "您要做的是实现 `parse_field` 函数。"
 
 #: src/slices-and-lifetimes/exercise.md:49
 #: src/slices-and-lifetimes/solution.md:11
 msgid "\"Invalid varint\""
-msgstr ""
+msgstr "\"Invalid varint\""
 
 #: src/slices-and-lifetimes/exercise.md:51
 #: src/slices-and-lifetimes/solution.md:13
 msgid "\"Invalid wire-type\""
-msgstr ""
+msgstr "\"Invalid wire-type\""
 
 #: src/slices-and-lifetimes/exercise.md:53
 #: src/slices-and-lifetimes/solution.md:15
 msgid "\"Unexpected EOF\""
-msgstr ""
+msgstr "\"Unexpected EOF\""
 
 #: src/slices-and-lifetimes/exercise.md:55
 #: src/slices-and-lifetimes/solution.md:17
 msgid "\"Invalid length\""
-msgstr ""
+msgstr "\"Invalid length\""
 
 #: src/slices-and-lifetimes/exercise.md:57
 #: src/slices-and-lifetimes/solution.md:19
 msgid "\"Unexpected wire-type)\""
-msgstr ""
+msgstr "\"Unexpected wire-type)\""
 
 #: src/slices-and-lifetimes/exercise.md:59
 #: src/slices-and-lifetimes/solution.md:21
 msgid "\"Invalid string (not UTF-8)\""
-msgstr ""
+msgstr "\"Invalid string (not UTF-8)\""
 
 #: src/slices-and-lifetimes/exercise.md:62
 #: src/slices-and-lifetimes/solution.md:24
 msgid "/// A wire type as seen on the wire.\n"
-msgstr ""
+msgstr "/// A wire type as seen on the wire.\n"
 
 #: src/slices-and-lifetimes/exercise.md:65
 #: src/slices-and-lifetimes/solution.md:27
 msgid "/// The Varint WireType indicates the value is a single VARINT.\n"
-msgstr ""
+msgstr "/// Varint WireType 表明该值为单个 VARINT。\n"
 
 #: src/slices-and-lifetimes/exercise.md:67
 #: src/slices-and-lifetimes/solution.md:29
+#, fuzzy
 msgid ""
 "//I64,  -- not needed for this exercise\n"
 "    /// The Len WireType indicates that the value is a length represented as "
 "a\n"
 "    /// VARINT followed by exactly that number of bytes.\n"
 msgstr ""
+"//I64,  -- not needed for this exercise\n"
+"    /// The Len WireType indicates that the value is a length represented as "
+"a VARINT\n"
+"    /// followed by exactly that number of bytes.\n"
 
 #: src/slices-and-lifetimes/exercise.md:71
 #: src/slices-and-lifetimes/solution.md:33
+#, fuzzy
 msgid ""
 "/// The I32 WireType indicates that the value is precisely 4 bytes in\n"
 "    /// little-endian order containing a 32-bit signed integer.\n"
 msgstr ""
+"/// The I32 WireType indicates that the value is precisely 4 bytes in little-"
+"endian order\n"
+"    /// containing a 32-bit signed integer.\n"
 
 #: src/slices-and-lifetimes/exercise.md:76
 #: src/slices-and-lifetimes/solution.md:38
 msgid "/// A field's value, typed based on the wire type.\n"
-msgstr ""
+msgstr "/// A field's value, typed based on the wire type.\n"
 
 #: src/slices-and-lifetimes/exercise.md:80
 #: src/slices-and-lifetimes/solution.md:42
 msgid "//I64(i64),  -- not needed for this exercise\n"
-msgstr ""
+msgstr "//I64(i64),  -- not needed for this exercise\n"
 
 #: src/slices-and-lifetimes/exercise.md:85
 #: src/slices-and-lifetimes/solution.md:47
 msgid "/// A field, containing the field number and its value.\n"
-msgstr ""
+msgstr "/// A field, containing the field number and its value.\n"
 
 #: src/slices-and-lifetimes/exercise.md:102
 #: src/slices-and-lifetimes/solution.md:64
 msgid "//1 => WireType::I64,  -- not needed for this exercise\n"
-msgstr ""
+msgstr "//1 => WireType::I64,  -- not needed for this exercise\n"
 
 #: src/slices-and-lifetimes/exercise.md:132
 #: src/slices-and-lifetimes/solution.md:94
 msgid ""
 "/// Parse a VARINT, returning the parsed value and the remaining bytes.\n"
 msgstr ""
+"/// Parse a VARINT, returning the parsed value and the remaining bytes.\n"
 
 #: src/slices-and-lifetimes/exercise.md:140
 #: src/slices-and-lifetimes/solution.md:102
@@ -8683,21 +8779,23 @@ msgid ""
 "// This is the last byte of the VARINT, so convert it to\n"
 "            // a u64 and return it.\n"
 msgstr ""
+"// This is the last byte of the VARINT, so convert it to\n"
+"            // a u64 and return it.\n"
 
 #: src/slices-and-lifetimes/exercise.md:150
 #: src/slices-and-lifetimes/solution.md:112
 msgid "// More than 7 bytes is invalid.\n"
-msgstr ""
+msgstr "// More than 7 bytes is invalid.\n"
 
 #: src/slices-and-lifetimes/exercise.md:153
 #: src/slices-and-lifetimes/solution.md:115
 msgid "/// Convert a tag into a field number and a WireType.\n"
-msgstr ""
+msgstr "/// Convert a tag into a field number and a WireType.\n"
 
 #: src/slices-and-lifetimes/exercise.md:161
 #: src/slices-and-lifetimes/solution.md:122
 msgid "/// Parse a field, returning the remaining bytes\n"
-msgstr ""
+msgstr "/// Parse a field, returning the remaining bytes\n"
 
 #: src/slices-and-lifetimes/exercise.md:167
 msgid ""
@@ -8711,6 +8809,7 @@ msgstr ""
 
 #: src/slices-and-lifetimes/exercise.md:171
 #: src/slices-and-lifetimes/solution.md:153
+#, fuzzy
 msgid ""
 "/// Parse a message in the given data, calling `T::add_field` for each field "
 "in\n"
@@ -8718,6 +8817,10 @@ msgid ""
 "///\n"
 "/// The entire input is consumed.\n"
 msgstr ""
+"/// Parse a message in the given data, calling `field_callback` for each "
+"field in the message.\n"
+"///\n"
+"/// The entire input is consumed.\n"
 
 #: src/slices-and-lifetimes/exercise.md:198
 msgid "// TODO: Implement ProtoMessage for Person and PhoneNumber.\n"
@@ -8725,12 +8828,12 @@ msgstr ""
 
 #: src/slices-and-lifetimes/solution.md:146
 msgid "// Unwrap error because `value` is definitely 4 bytes long.\n"
-msgstr ""
+msgstr "// Unwrap error because `value` is definitely 4 bytes long.\n"
 
 #: src/slices-and-lifetimes/solution.md:187
 #: src/slices-and-lifetimes/solution.md:198
 msgid "// skip everything else\n"
-msgstr ""
+msgstr "// skip everything else\n"
 
 #: src/slices-and-lifetimes/solution.md:225
 #: src/slices-and-lifetimes/solution.md:232
