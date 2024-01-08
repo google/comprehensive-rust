@@ -221,7 +221,7 @@
   - [With C](android/interoperability/with-c.md)
     - [Calling C with Bindgen](android/interoperability/with-c/bindgen.md)
     - [Calling Rust from C](android/interoperability/with-c/rust.md)
-  - [With C++](android/interoperability/cpp.md))
+  - [With C++](android/interoperability/cpp.md)
     - [The Bridge Module](android/interoperability/cpp/bridge.md)
     - [Rust Bridge](android/interoperability/cpp/rust-bridge.md)
     - [Generated C++](android/interoperability/cpp/generated-cpp.md)
