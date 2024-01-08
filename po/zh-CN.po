@@ -17524,11 +17524,11 @@ msgstr "Rust 线程的运作方式与其他语言中的线程类似："
 
 #: src/concurrency/threads.md:12
 msgid "\"Count in thread: {i}!\""
-msgstr ""
+msgstr "\"Count in thread: {i}!\""
 
 #: src/concurrency/threads.md:18
 msgid "\"Main thread: {i}\""
-msgstr ""
+msgstr "\"Main thread: {i}\""
 
 #: src/concurrency/threads.md:24
 msgid "Threads are all daemon threads, the main thread does not wait for them."
@@ -17609,7 +17609,7 @@ msgstr ""
 #: src/concurrency/channels.md:15 src/concurrency/channels.md:16
 #: src/concurrency/channels.md:20
 msgid "\"Received: {:?}\""
-msgstr ""
+msgstr "\"Received: {:?}\""
 
 #: src/concurrency/channels.md:26
 msgid ""
@@ -17635,22 +17635,22 @@ msgstr "你可以使用 `mpsc::channel()` 获得无边界的异步通道："
 #: src/concurrency/channels/unbounded.md:16
 #: src/concurrency/channels/bounded.md:16
 msgid "\"Message {i}\""
-msgstr ""
+msgstr "\"Message {i}\""
 
 #: src/concurrency/channels/unbounded.md:17
 #: src/concurrency/channels/bounded.md:17
 msgid "\"{thread_id:?}: sent Message {i}\""
-msgstr ""
+msgstr "\"{thread_id:?}: sent Message {i}\""
 
 #: src/concurrency/channels/unbounded.md:19
 #: src/concurrency/channels/bounded.md:19
 msgid "\"{thread_id:?}: done\""
-msgstr ""
+msgstr "\"{thread_id:?}: done\""
 
 #: src/concurrency/channels/unbounded.md:24
 #: src/concurrency/channels/bounded.md:24
 msgid "\"Main: got {msg}\""
-msgstr ""
+msgstr "\"Main: got {msg}\""
 
 #: src/concurrency/channels/bounded.md:3
 #, fuzzy
@@ -17664,18 +17664,24 @@ msgid ""
 "channel for the new message. The thread can be blocked indefinitely if there "
 "is nobody who reads from the channel."
 msgstr ""
+"调用 `send` 将阻塞当前线程，直到通道中有足够的空间放置新消息。如果无人从通道"
+"读取数据，线程会被无限期地阻塞。"
 
 #: src/concurrency/channels/bounded.md:34
 msgid ""
 "A call to `send` will abort with an error (that is why it returns `Result`) "
 "if the channel is closed. A channel is closed when the receiver is dropped."
 msgstr ""
+"如果通道关闭，调用 `send` 将中止并返回错误（这就是它会返回 `Result` 的原"
+"因）。当接收器被丢弃时，通道将关闭。"
 
 #: src/concurrency/channels/bounded.md:36
 msgid ""
 "A bounded channel with a size of zero is called a \"rendezvous channel\". "
 "Every send will block the current thread until another thread calls `read`."
 msgstr ""
+"大小为零的有界通道称为 “集合通道”。每次调用 send 都会阻塞当前线程，直到另一个"
+"线程调用 `read`。"
 
 #: src/concurrency/send-sync.md:3
 #, fuzzy
@@ -17920,13 +17926,13 @@ msgstr ""
 
 #: src/concurrency/shared_state/arc.md:16
 msgid "\"{thread_id:?}: {v:?}\""
-msgstr ""
+msgstr "\"{thread_id:?}: {v:?}\""
 
 #: src/concurrency/shared_state/arc.md:21
 #: src/concurrency/shared_state/example.md:17
 #: src/concurrency/shared_state/example.md:45
 msgid "\"v: {v:?}\""
-msgstr ""
+msgstr "\"v: {v:?}\""
 
 #: src/concurrency/shared_state/arc.md:29
 msgid ""
@@ -17973,7 +17979,7 @@ msgstr ""
 #: src/concurrency/shared_state/mutex.md:11
 #: src/concurrency/shared_state/mutex.md:18
 msgid "\"v: {:?}\""
-msgstr ""
+msgstr "\"v: {:?}\""
 
 #: src/concurrency/shared_state/mutex.md:22
 msgid ""
@@ -18042,7 +18048,7 @@ msgstr "让我们看看 `Arc` 和 `Mutex` 的实际效果："
 
 #: src/concurrency/shared_state/example.md:6
 msgid "// use std::sync::{Arc, Mutex};\n"
-msgstr ""
+msgstr "// use std::sync::{Arc, Mutex};\n"
 
 #: src/concurrency/shared_state/example.md:23
 msgid "Possible solution:"
@@ -18080,21 +18086,22 @@ msgstr "我们引入了块，以尽可能缩小 `LockGuard` 的作用域。"
 
 #: src/exercises/concurrency/morning.md:3
 msgid "Let us practice our new concurrency skills with"
-msgstr ""
+msgstr "现在通过"
 
 #: src/exercises/concurrency/morning.md:5
 msgid "Dining philosophers: a classic problem in concurrency."
-msgstr ""
+msgstr "哲学家用餐示例来练习我们的新并发技巧：该示例是典型的并发问题。"
 
 #: src/exercises/concurrency/morning.md:7
 msgid ""
 "Multi-threaded link checker: a larger project where you'll use Cargo to "
 "download dependencies and then check links in parallel."
 msgstr ""
+"多线程链接检查器：对于大型项目，需要使用 Cargo 下载依赖项，然后并行检查链接。"
 
 #: src/exercises/concurrency/dining-philosophers.md:3
 msgid "The dining philosophers problem is a classic problem in concurrency:"
-msgstr ""
+msgstr "哲学家用餐示例是一个典型的并发问题："
 
 #: src/exercises/concurrency/dining-philosophers.md:5
 msgid ""
@@ -18107,6 +18114,11 @@ msgid ""
 "not eating. After an individual philosopher finishes eating, they will put "
 "down both forks."
 msgstr ""
+"五位哲学家在同一桌子上用餐。每位哲学家在桌前都有自己的座位。每个盘子之间都有"
+"一把叉子。上的菜品是一种意大利面，需要用两把叉子才能吃。每位哲学家只能交替进"
+"行思考和用餐此外，只有当哲学家们同时拿到左边和右边的叉子才能吃这个意大利面。"
+"因此，只有当两旁坐着的人在思考，而非在吃面时，他们才能使用两把叉子。每位哲学"
+"家吃完饭后，就会放下手中的两把叉子。"
 
 #: src/exercises/concurrency/dining-philosophers.md:13
 msgid ""
@@ -18114,6 +18126,9 @@ msgid ""
 "for this exercise. Copy the code below to a file called `src/main.rs`, fill "
 "out the blanks, and test that `cargo run` does not deadlock:"
 msgstr ""
+"在本练习中，需要使用本地 [Cargo 安装](../../cargo/running-locally.md)。将以下"
+"代码复制到名为 `src/main.rs` 的文件中，并填写空白的地方，然后测试 `cargo "
+"run` 不会死锁："
 
 #: src/exercises/concurrency/dining-philosophers.md:28
 #: src/exercises/concurrency/dining-philosophers-async.md:23
@@ -18122,87 +18137,91 @@ msgid ""
 "    // right_fork: ...\n"
 "    // thoughts: ...\n"
 msgstr ""
+"// left_fork: ...\n"
+"    // right_fork: ...\n"
+"    // thoughts: ...\n"
 
 #: src/exercises/concurrency/dining-philosophers.md:36
 #: src/exercises/concurrency/solutions-morning.md:24
 #: src/exercises/concurrency/dining-philosophers-async.md:31
 #: src/exercises/concurrency/solutions-afternoon.md:25
 msgid "\"Eureka! {} has a new idea!\""
-msgstr ""
+msgstr "\"Eureka! {} has a new idea!\""
 
 #: src/exercises/concurrency/dining-philosophers.md:41
 #: src/exercises/concurrency/dining-philosophers-async.md:37
 #: src/exercises/concurrency/solutions-afternoon.md:31
 msgid "// Pick up forks...\n"
-msgstr ""
+msgstr "// Pick up forks...\n"
 
 #: src/exercises/concurrency/dining-philosophers.md:42
 #: src/exercises/concurrency/solutions-morning.md:33
 #: src/exercises/concurrency/dining-philosophers-async.md:38
 #: src/exercises/concurrency/solutions-afternoon.md:38
 msgid "\"{} is eating...\""
-msgstr ""
+msgstr "\"{} is eating...\""
 
 #: src/exercises/concurrency/dining-philosophers.md:48
 #: src/exercises/concurrency/solutions-morning.md:39
 #: src/exercises/concurrency/dining-philosophers-async.md:44
 #: src/exercises/concurrency/solutions-afternoon.md:46
+#, fuzzy
 msgid "\"Socrates\""
-msgstr ""
+msgstr "\"Socrates\""
 
 #: src/exercises/concurrency/dining-philosophers.md:48
 #: src/exercises/concurrency/solutions-morning.md:39
 #: src/exercises/concurrency/dining-philosophers-async.md:44
 #: src/exercises/concurrency/solutions-afternoon.md:46
 msgid "\"Hypatia\""
-msgstr ""
+msgstr "\"Hypatia\""
 
 #: src/exercises/concurrency/dining-philosophers.md:48
 #: src/exercises/concurrency/solutions-morning.md:39
 #: src/exercises/concurrency/dining-philosophers-async.md:44
 #: src/exercises/concurrency/solutions-afternoon.md:46
 msgid "\"Plato\""
-msgstr ""
+msgstr "\"Plato\""
 
 #: src/exercises/concurrency/dining-philosophers.md:48
 #: src/exercises/concurrency/solutions-morning.md:39
 #: src/exercises/concurrency/dining-philosophers-async.md:44
 #: src/exercises/concurrency/solutions-afternoon.md:46
 msgid "\"Aristotle\""
-msgstr ""
+msgstr "\"Aristotle\""
 
 #: src/exercises/concurrency/dining-philosophers.md:48
 #: src/exercises/concurrency/solutions-morning.md:39
 #: src/exercises/concurrency/dining-philosophers-async.md:44
 #: src/exercises/concurrency/solutions-afternoon.md:46
 msgid "\"Pythagoras\""
-msgstr ""
+msgstr "\"Pythagoras\""
 
 #: src/exercises/concurrency/dining-philosophers.md:51
 #: src/exercises/concurrency/dining-philosophers-async.md:48
 #: src/exercises/concurrency/solutions-afternoon.md:50
 msgid "// Create forks\n"
-msgstr ""
+msgstr "// Create forks\n"
 
 #: src/exercises/concurrency/dining-philosophers.md:53
 #: src/exercises/concurrency/dining-philosophers-async.md:50
 #: src/exercises/concurrency/solutions-afternoon.md:54
 msgid "// Create philosophers\n"
-msgstr ""
+msgstr "// Create philosophers\n"
 
 #: src/exercises/concurrency/dining-philosophers.md:55
 msgid "// Make each of them think and eat 100 times\n"
-msgstr ""
+msgstr "// Make each of them think and eat 100 times\n"
 
 #: src/exercises/concurrency/dining-philosophers.md:57
 #: src/exercises/concurrency/dining-philosophers-async.md:54
 #: src/exercises/concurrency/solutions-afternoon.md:88
 msgid "// Output their thoughts\n"
-msgstr ""
+msgstr "// Output their thoughts\n"
 
 #: src/exercises/concurrency/dining-philosophers.md:61
 msgid "You can use the following `Cargo.toml`:"
-msgstr ""
+msgstr "您可以使用以下 `Cargo.toml`："
 
 #: src/exercises/concurrency/dining-philosophers.md:65
 msgid ""
@@ -18213,6 +18232,12 @@ msgid ""
 "edition = \"2021\"\n"
 "```"
 msgstr ""
+"```toml\n"
+"[package]\n"
+"name = \"dining-philosophers\"\n"
+"version = \"0.1.0\"\n"
+"edition = \"2021\"\n"
+"```"
 
 #: src/exercises/concurrency/link-checker.md:3
 msgid ""
@@ -18221,35 +18246,46 @@ msgid ""
 "should recursively check other pages on the same domain and keep doing this "
 "until all pages have been validated."
 msgstr ""
+"运用掌握的新知识创建一个多线程链接检查工具。应先从网页入手，并检查网页上的链"
+"接是否有效。该工具应以递归方式检查同一网域中的其他网页，并且一直执行此操作，"
+"直到所有网页都通过验证。"
 
 #: src/exercises/concurrency/link-checker.md:8
 msgid ""
 "For this, you will need an HTTP client such as [`reqwest`](https://docs.rs/"
 "reqwest/). Create a new Cargo project and `reqwest` it as a dependency with:"
 msgstr ""
+"为此，需要创建一个 HTTP 客户端，例如 [`reqwest`](https://docs.rs/reqwest/)。"
+"创建新的 Cargo 项目，并使用以下命令通过 `reqwest` 将其作为依赖项："
 
 #: src/exercises/concurrency/link-checker.md:17
 msgid ""
 "If `cargo add` fails with `error: no such subcommand`, then please edit the "
 "`Cargo.toml` file by hand. Add the dependencies listed below."
 msgstr ""
+"如果 `cargo add` 操作失败并显示 `error: no such subcommand`，请手动修改 "
+"`Cargo.toml` 文件。添加下面列出的依赖项。"
 
 #: src/exercises/concurrency/link-checker.md:20
 msgid ""
 "You will also need a way to find links. We can use [`scraper`](https://docs."
 "rs/scraper/) for that:"
 msgstr ""
+"您还需要一种查找链接的方法。为此，我们可以使用 [`scraper`](https://docs.rs/"
+"scraper/)："
 
 #: src/exercises/concurrency/link-checker.md:26
 msgid ""
 "Finally, we'll need some way of handling errors. We use [`thiserror`]"
 "(https://docs.rs/thiserror/) for that:"
 msgstr ""
+"最后，我们需要某种处理错误的方法。为此，可以使用 [`thiserror`](https://docs."
+"rs/thiserror/)："
 
 #: src/exercises/concurrency/link-checker.md:33
 msgid ""
 "The `cargo add` calls will update the `Cargo.toml` file to look like this:"
-msgstr ""
+msgstr "`cargo add` 调用会将 `Cargo.toml` 文件更新为如下所示："
 
 #: src/exercises/concurrency/link-checker.md:37
 msgid ""
@@ -18267,64 +18303,81 @@ msgid ""
 "thiserror = \"1.0.37\"\n"
 "```"
 msgstr ""
+"```toml\n"
+"[package]\n"
+"name = \"link-checker\"\n"
+"version = \"0.1.0\"\n"
+"edition = \"2021\"\n"
+"publish = false\n"
+"\n"
+"[dependencies]\n"
+"reqwest = { version = \"0.11.12\", features = [\"blocking\", \"rustls-"
+"tls\"] }\n"
+"scraper = \"0.13.0\"\n"
+"thiserror = \"1.0.37\"\n"
+"```"
 
 #: src/exercises/concurrency/link-checker.md:50
 msgid ""
 "You can now download the start page. Try with a small site such as `https://"
 "www.google.org/`."
 msgstr ""
+"您现在可以下载初始页了。请尝试使用一个小网站，例如 `https://www.google.org/"
+"`。"
 
 #: src/exercises/concurrency/link-checker.md:53
 msgid "Your `src/main.rs` file should look something like this:"
-msgstr ""
+msgstr "您的 `src/main.rs` 文件应如下所示："
 
 #: src/exercises/concurrency/link-checker.md:65
 #: src/exercises/concurrency/solutions-morning.md:97
 msgid "\"request error: {0}\""
-msgstr ""
+msgstr "\"request error: {0}\""
 
 #: src/exercises/concurrency/link-checker.md:67
 #: src/exercises/concurrency/solutions-morning.md:99
 msgid "\"bad http response: {0}\""
-msgstr ""
+msgstr "\"bad http response: {0}\""
 
 #: src/exercises/concurrency/link-checker.md:78
 #: src/exercises/concurrency/solutions-morning.md:110
 msgid "\"Checking {:#}\""
-msgstr ""
+msgstr "\"Checking {:#}\""
 
 #: src/exercises/concurrency/link-checker.md:96
 #: src/exercises/concurrency/solutions-morning.md:128
 msgid "\"href\""
-msgstr ""
+msgstr "\"href\""
 
 #: src/exercises/concurrency/link-checker.md:103
 #: src/exercises/concurrency/solutions-morning.md:135
 msgid "\"On {base_url:#}: ignored unparsable {href:?}: {err}\""
-msgstr ""
+msgstr "\"On {base_url:#}: ignored unparsable {href:?}: {err}\""
 
 #: src/exercises/concurrency/link-checker.md:112
 #: src/exercises/concurrency/solutions-morning.md:245
 msgid "\"https://www.google.org\""
-msgstr ""
+msgstr "\"https://www.google.org\""
 
 #: src/exercises/concurrency/link-checker.md:115
 msgid "\"Links: {links:#?}\""
-msgstr ""
+msgstr "\"Links: {links:#?}\""
 
 #: src/exercises/concurrency/link-checker.md:116
 msgid "\"Could not extract links: {err:#}\""
-msgstr ""
+msgstr "\"Could not extract links: {err:#}\""
 
 #: src/exercises/concurrency/link-checker.md:121
 msgid "Run the code in `src/main.rs` with"
-msgstr ""
+msgstr "使用以下命令运行 `src/main.rs` 中的代码"
 
 #: src/exercises/concurrency/link-checker.md:129
 msgid ""
 "Use threads to check the links in parallel: send the URLs to be checked to a "
 "channel and let a few threads check the URLs in parallel."
 msgstr ""
+"通过线程并行检查链接：将要检查的网址发送到某个通道，然后使用多个线程并行检查"
+"这些网址。"
 
 #: src/exercises/concurrency/link-checker.md:131
 msgid ""
@@ -18332,6 +18385,8 @@ msgid ""
 "org` domain. Put an upper limit of 100 pages or so so that you don't end up "
 "being blocked by the site."
 msgstr ""
+"您可以对此进行扩展，以递归方式从 `www.google.org` 网域的所有网页中提取链接。"
+"设置网页上限（例如 100 个），以免被网站屏蔽。"
 
 #: src/exercises/concurrency/solutions-morning.md:1
 msgid "Concurrency Morning Exercise"
@@ -18343,7 +18398,7 @@ msgstr "([返回练习](dining-philosophers.md))"
 
 #: src/exercises/concurrency/solutions-morning.md:29
 msgid "\"{} is trying to eat\""
-msgstr ""
+msgstr "\"{} is trying to eat\""
 
 #: src/exercises/concurrency/solutions-morning.md:53
 msgid ""
@@ -18351,10 +18406,13 @@ msgid ""
 "        // somewhere. This will swap the forks without deinitializing\n"
 "        // either of them.\n"
 msgstr ""
+"// To avoid a deadlock, we have to break the symmetry\n"
+"        // somewhere. This will swap the forks without deinitializing\n"
+"        // either of them.\n"
 
 #: src/exercises/concurrency/solutions-morning.md:77
 msgid "\"{thought}\""
-msgstr ""
+msgstr "\"{thought}\""
 
 #: src/exercises/concurrency/solutions-morning.md:82
 #, fuzzy
@@ -18370,28 +18428,31 @@ msgstr "([返回练习](luhn.md))"
 msgid ""
 "/// Determine whether links within the given page should be extracted.\n"
 msgstr ""
+"/// Determine whether links within the given page should be extracted.\n"
 
 #: src/exercises/concurrency/solutions-morning.md:162
 msgid ""
 "/// Mark the given page as visited, returning false if it had already\n"
 "    /// been visited.\n"
 msgstr ""
+"/// Mark the given page as visited, returning false if it had already\n"
+"    /// been visited.\n"
 
 #: src/exercises/concurrency/solutions-morning.md:188
 msgid "// The sender got dropped. No more commands coming in.\n"
-msgstr ""
+msgstr "// The sender got dropped. No more commands coming in.\n"
 
 #: src/exercises/concurrency/solutions-morning.md:229
 msgid "\"Got crawling error: {:#}\""
-msgstr ""
+msgstr "\"Got crawling error: {:#}\""
 
 #: src/exercises/concurrency/solutions-morning.md:247
 msgid "\"Bad URLs: {:#?}\""
-msgstr ""
+msgstr "\"Bad URLs: {:#?}\""
 
 #: src/async.md:1
 msgid "Async Rust"
-msgstr ""
+msgstr "异步 Rust"
 
 #: src/async.md:3
 msgid ""
@@ -18402,6 +18463,10 @@ msgid ""
 "per-task overhead is typically very low and operating systems provide "
 "primitives for efficiently identifying I/O that is able to proceed."
 msgstr ""
+"“异步”是一种并发模型，可以同时执行多个任务。具体做法是逐个执行任务直至阻塞，"
+"然后切换到另一项可以继续进行的任务。该模型支持在有限数量的线程上运行更多任"
+"务。原因在于，每个任务的开销通常很低，并且操作系统提供了基元来高效识别能够执"
+"行的 I/O 任务。"
 
 #: src/async.md:10
 msgid ""
@@ -18409,12 +18474,14 @@ msgid ""
 "that may be completed in the future. Futures are \"polled\" until they "
 "signal that they are complete."
 msgstr ""
+"Rust 的异步操作基于 \"Futures\" 来实现，即表示未来可能完成的工作。系统会对这"
+"些 Future 进行 “轮询”，直到显示全部已完成。"
 
 #: src/async.md:14
 msgid ""
 "Futures are polled by an async runtime, and several different runtimes are "
 "available."
-msgstr ""
+msgstr "由异步运行时对这些 Future 进行轮询，并且有多种不同的运行时可供选择。"
 
 #: src/async.md:19
 msgid ""
@@ -18422,6 +18489,9 @@ msgid ""
 "callback-based, and not polled. Async Python programs require a \"loop\", "
 "similar to a runtime in Rust."
 msgstr ""
+"Python 的 `asyncio` 中也有类似的模型。不过，其 `Future` 类型基于回调的实现方"
+"式，而非通过轮询。使用异步 Python 程序需要类似于 Rust 中运行时的 “循环” 进行"
+"管理。"
 
 #: src/async.md:23
 msgid ""
@@ -18429,6 +18499,8 @@ msgid ""
 "runtime implements the event loop, so many of the details of Promise "
 "resolution are hidden."
 msgstr ""
+"JavaScript 的 `Promise` 与之类似，但同样基于回调的实现方式。语言运行时实现了"
+"事件循环，因此许多与 Promise 解析相关的细节被隐藏起来。"
 
 #: src/async/async-await.md:3
 msgid ""
@@ -18438,7 +18510,7 @@ msgstr "从高层次上看，异步 Rust 代码与“正常”的顺序代码非
 
 #: src/async/async-await.md:10
 msgid "\"Count is: {i}!\""
-msgstr ""
+msgstr "\"Count is: {i}!\""
 
 #: src/async/async-await.md:27
 msgid ""
@@ -18502,6 +18574,9 @@ msgid ""
 "complete yet. A future can be polled, and `poll` returns a [`Poll`](https://"
 "doc.rust-lang.org/std/task/enum.Poll.html)."
 msgstr ""
+"[`Future`](https://doc.rust-lang.org/std/future/trait.Future.html) 是一种 "
+"trait，由表示尚未完成的操作的对象所实现。可以轮询 Future，并且 `poll` 会返回 "
+"一个 [`Poll`](https://doc.rust-lang.org/std/task/enum.Poll.html) 对象。"
 
 #: src/async/futures.md:23
 msgid ""
@@ -18510,30 +18585,38 @@ msgid ""
 "`JoinHandle` returned from `tokio::spawn` implements `Future` to allow "
 "joining to it."
 msgstr ""
+"异步函数会返回 `impl Future`。对于自定义的类型，也可以实现 `Future`（但不常"
+"见）。例如，从 `tokio::spawn` 返回的 `JoinHandle` 会实现 `Future`，以允许加入"
+"该任务。"
 
 #: src/async/futures.md:27
 msgid ""
 "The `.await` keyword, applied to a Future, causes the current async function "
 "to pause until that Future is ready, and then evaluates to its output."
 msgstr ""
+"在 Future 中使用 `.await` 关键字会导致当前异步函数暂停，直到该 Future 准备就"
+"绪，然后计算其输出。"
 
 #: src/async/futures.md:32
 msgid ""
 "The `Future` and `Poll` types are implemented exactly as shown; click the "
 "links to show the implementations in the docs."
 msgstr ""
+"`Future` 和 `Poll` 类型的实现完全如下所示：请点击链接查看文档中的实现。"
 
 #: src/async/futures.md:35
 msgid ""
 "We will not get to `Pin` and `Context`, as we will focus on writing async "
 "code, rather than building new async primitives. Briefly:"
 msgstr ""
+"我们的重点在于编写异步代码，而不是构建新的异步基元，因此不会涉及 `Pin` 和 "
+"`Context`。简言之："
 
 #: src/async/futures.md:38
 msgid ""
 "`Context` allows a Future to schedule itself to be polled again when an "
 "event occurs."
-msgstr ""
+msgstr "通过 `Context`，Future 在事件发生时可自行安排重新进行轮询。"
 
 #: src/async/futures.md:41
 msgid ""
@@ -18541,6 +18624,8 @@ msgid ""
 "that future remain valid. This is required to allow references to remain "
 "valid after an `.await`."
 msgstr ""
+"`Pin` 确保 Future 不会移到内存中，以便指向该 Future 的指针仍然有效。为了确保"
+"使用 `.await` 之后引用依然有效，必须执行此操作。"
 
 #: src/async/runtimes.md:3
 msgid ""
@@ -18548,6 +18633,8 @@ msgid ""
 "_reactor_) and is responsible for executing futures (an _executor_). Rust "
 "does not have a \"built-in\" runtime, but several options are available:"
 msgstr ""
+"_运行时_ 支持异步执行操作（即 _反应器），并负责执行 Future （即 _执行器）。"
+"Rust 没有 “内置”运行时，但有以下几个选项可供选择："
 
 #: src/async/runtimes.md:7
 msgid ""
@@ -18555,16 +18642,21 @@ msgid ""
 "functionality like [Hyper](https://hyper.rs/) for HTTP or [Tonic](https://"
 "github.com/hyperium/tonic) for gRPC."
 msgstr ""
+"[Tokio](https://tokio.rs/)：性能出色，拥有成熟的功能生态系统，例如适用于 "
+"HTTP 的 [Hyper](https://hyper.rs/) 或 适用于 gRPC 的 [Tonic](https://github."
+"com/hyperium/tonic)。"
 
 #: src/async/runtimes.md:10
 msgid ""
 "[async-std](https://async.rs/): aims to be a \"std for async\", and includes "
 "a basic runtime in `async::task`."
 msgstr ""
+"[async-std](https://async.rs/)：旨在成为 “异步编程的标准库”，并在 `async::"
+"task` 中包含基本运行时。"
 
 #: src/async/runtimes.md:12
 msgid "[smol](https://docs.rs/smol/latest/smol/): simple and lightweight"
-msgstr ""
+msgstr "[smol](https://docs.rs/smol/latest/smol/)：简单且轻量"
 
 #: src/async/runtimes.md:14
 msgid ""
@@ -18572,6 +18664,9 @@ msgid ""
 "(https://fuchsia.googlesource.com/fuchsia/+/refs/heads/main/src/lib/fuchsia-"
 "async/src/lib.rs) already has one."
 msgstr ""
+"有些大型应用具有自己的运行时。例如，[Fuchsia](https://fuchsia.googlesource."
+"com/fuchsia/+/refs/heads/main/src/lib/fuchsia-async/src/lib.rs) 已有一个运行"
+"时。"
 
 #: src/async/runtimes.md:20
 msgid ""
@@ -18579,6 +18674,8 @@ msgid ""
 "playground. The playground also does not permit any I/O, so most interesting "
 "async things can't run in the playground."
 msgstr ""
+"请注意，在列出的运行时中，Rust Playground 仅支持 Tokio。该 Playground 也不支"
+"持任何 I/O 操作，因此大多数有趣的异步操作无法在该平台上运行。"
 
 #: src/async/runtimes.md:24
 msgid ""
@@ -18587,46 +18684,52 @@ msgid ""
 "Promises, for example, which will run to completion even if they are never "
 "used."
 msgstr ""
+"Future 是 “惯性”的，除非有执行程序对其进行轮询，否则它们不会执行任何操作（甚"
+"至不会启动 I/O 操作）。这与 JS promise 不同，例如，后者即使从未使用也会完成运"
+"行过程。"
 
 #: src/async/runtimes/tokio.md:3
+#, fuzzy
 msgid "Tokio provides:"
-msgstr ""
+msgstr "Tokio 提供："
 
 #: src/async/runtimes/tokio.md:5
 msgid "A multi-threaded runtime for executing asynchronous code."
-msgstr ""
+msgstr "用于执行异步代码的多线程运行时。"
 
 #: src/async/runtimes/tokio.md:6
+#, fuzzy
 msgid "An asynchronous version of the standard library."
-msgstr ""
+msgstr "异步版本的标准库。"
 
 #: src/async/runtimes/tokio.md:7
 msgid "A large ecosystem of libraries."
-msgstr ""
+msgstr "庞大的库生态系统。"
 
 #: src/async/runtimes/tokio.md:14
 msgid "\"Count in task: {i}!\""
-msgstr ""
+msgstr "\"Count in task: {i}!\""
 
 #: src/async/runtimes/tokio.md:24
 msgid "\"Main task: {i}\""
-msgstr ""
+msgstr "\"Main task: {i}\""
 
 #: src/async/runtimes/tokio.md:32
 msgid "With the `tokio::main` macro we can now make `main` async."
-msgstr ""
+msgstr "借助 `tokio::main` 宏，我们现在可以将 `main` 设为异步函数。"
 
 #: src/async/runtimes/tokio.md:34
 msgid "The `spawn` function creates a new, concurrent \"task\"."
-msgstr ""
+msgstr "`spawn` 函数会创建新的并发 “任务”。"
 
 #: src/async/runtimes/tokio.md:36
 msgid "Note: `spawn` takes a `Future`, you don't call `.await` on `count_to`."
 msgstr ""
+"注意：`spawn` 使用 `Future` 方法实现，而不是对 `count_to` 调用 `.await`。"
 
 #: src/async/runtimes/tokio.md:38
 msgid "**Further exploration:**"
-msgstr ""
+msgstr "**深入探索**："
 
 #: src/async/runtimes/tokio.md:40
 msgid ""
@@ -18634,18 +18737,20 @@ msgid ""
 "cancellation. `tokio::spawn` returns a handle which can be awaited to wait "
 "until it finishes."
 msgstr ""
+"为何 `count_to` 通常无法计数到 10？这是一个异步取消的示例。`tokio::spawn` 会"
+"返回一个句柄，可以等待该句柄直至其代表的任务执行完毕。"
 
 #: src/async/runtimes/tokio.md:44
 msgid "Try `count_to(10).await` instead of spawning."
-msgstr ""
+msgstr "尝试使用 `count_to(10).await`，而不是派生方法。"
 
 #: src/async/runtimes/tokio.md:46
 msgid "Try awaiting the task returned from `tokio::spawn`."
-msgstr ""
+msgstr "尝试等待 `tokio::spawn` 返回的任务执行完毕。"
 
 #: src/async/tasks.md:3
 msgid "Rust has a task system, which is a form of lightweight threading."
-msgstr ""
+msgstr "Rust 有一个任务系统，这是一种轻量级线程处理形式。"
 
 #: src/async/tasks.md:5
 msgid ""
@@ -18655,35 +18760,42 @@ msgid ""
 "task is possible by polling multiple child futures, such as racing a timer "
 "and an I/O operation."
 msgstr ""
+"每个任务只有一个顶级 Future，执行器会对此进行轮询来推进任务进度。该 Future 可"
+"能包含一个或多个嵌套的 Future，可以通过其 `poll` 方法对它们进行轮询，类似于调"
+"用堆栈。可以通过轮询多个子 Future（例如争用定时器和 I/O 操作）在任务内部实现"
+"并发操作。"
 
 #: src/async/tasks.md:16
+#, fuzzy
 msgid "\"127.0.0.1:0\""
-msgstr ""
+msgstr "\"127.0.0.1:2000\""
 
 #: src/async/tasks.md:17
+#, fuzzy
 msgid "\"listening on port {}\""
-msgstr ""
+msgstr "\"listening on port 6142\""
 
 #: src/async/tasks.md:22
 msgid "\"connection from {addr:?}\""
-msgstr ""
+msgstr "\"connection from {addr:?}\""
 
 #: src/async/tasks.md:25
 msgid "b\"Who are you?\\n\""
-msgstr ""
+msgstr "b\"Who are you?\\n\""
 
 #: src/async/tasks.md:25 src/async/tasks.md:28 src/async/tasks.md:31
+#, fuzzy
 msgid "\"socket error\""
-msgstr ""
+msgstr "\"socket error: {e:?}\""
 
 #: src/async/tasks.md:30
 msgid "\"Thanks for dialing in, {name}!\\n\""
-msgstr ""
+msgstr "\"Thanks for dialing in, {name}!\\n\""
 
 #: src/async/tasks.md:39 src/async/control-flow/join.md:36
 msgid ""
 "Copy this example into your prepared `src/main.rs` and run it from there."
-msgstr ""
+msgstr "将此示例复制到准备好的 `src/main.rs` 文件中，并从该文件运行它。"
 
 #: src/async/tasks.md:41
 msgid ""
@@ -18691,64 +18803,74 @@ msgid ""
 "com/man-page/linux/1/nc/) or [telnet](https://www.unix.com/man-page/linux/1/"
 "telnet/)."
 msgstr ""
+"请尝试使用像 [nc](https://www.unix.com/man-page/linux/1/nc/) 或 [telnet]"
+"(https://www.unix.com/man-page/linux/1/telnet/) 这样的 TCP 连接工具进行连接。"
 
 #: src/async/tasks.md:45
 msgid ""
 "Ask students to visualize what the state of the example server would be with "
 "a few connected clients. What tasks exist? What are their Futures?"
 msgstr ""
+"让学生想象一下，当连接多个客户端时，示例服务器会达到怎样的状态。存在哪些任"
+"务？具有哪些 Future？"
 
 #: src/async/tasks.md:48
+#, fuzzy
 msgid ""
 "This is the first time we've seen an `async` block. This is similar to a "
 "closure, but does not take any arguments. Its return value is a Future, "
 "similar to an `async fn`."
 msgstr ""
+"这是我们首次看到 `async` 代码块。这与闭包类似，但不采用任何参数。该代码块的返"
+"回值是 Future，类似于 `async fn`。"
 
 #: src/async/tasks.md:52
+#, fuzzy
 msgid ""
 "Refactor the async block into a function, and improve the error handling "
 "using `?`."
-msgstr ""
+msgstr "将 async 代码块重构为一个函数，并使用 `?` 优化错误处理。"
 
 #: src/async/channels.md:3
 msgid ""
 "Several crates have support for asynchronous channels. For instance `tokio`:"
-msgstr ""
+msgstr "有些 crate 支持使用异步通道。例如 `tokio`："
 
 #: src/async/channels.md:13
 msgid "\"Received {count} pings so far.\""
-msgstr ""
+msgstr "\"Received {count} pings so far.\""
 
 #: src/async/channels.md:16
 msgid "\"ping_handler complete\""
-msgstr ""
+msgstr "\"ping_handler complete\""
 
 #: src/async/channels.md:24
 msgid "\"Failed to send ping.\""
-msgstr ""
+msgstr "\"Failed to send ping.\""
 
 #: src/async/channels.md:25
 msgid "\"Sent {} pings so far.\""
-msgstr ""
+msgstr "\"Sent {} pings so far.\""
 
 #: src/async/channels.md:29
 msgid "\"Something went wrong in ping handler task.\""
-msgstr ""
+msgstr "\"Something went wrong in ping handler task.\""
 
 #: src/async/channels.md:35
 msgid "Change the channel size to `3` and see how it affects the execution."
-msgstr ""
+msgstr "将通道大小更改为 `3`，然后看看对操作执行会有什么影响。"
 
 #: src/async/channels.md:37
 msgid ""
 "Overall, the interface is similar to the `sync` channels as seen in the "
 "[morning class](concurrency/channels.md)."
 msgstr ""
+"总体而言，该接口类似于 [上午课程](concurrency/channels.md) 中所讲的 `sync` 通"
+"道。"
 
 #: src/async/channels.md:40
 msgid "Try removing the `std::mem::drop` call. What happens? Why?"
-msgstr ""
+msgstr "尝试移除 `std::mem::drop` 调用。会出现什么情况？这是为什么？"
 
 #: src/async/channels.md:42
 msgid ""
@@ -18756,6 +18878,9 @@ msgid ""
 "implement both `sync` and `async` `send` and `recv`. This can be convenient "
 "for complex applications with both IO and heavy CPU processing tasks."
 msgstr ""
+"[Flume](https://docs.rs/flume/latest/flume/) crate 包含可以同时实现 `sync`、"
+"`async` `send` 和 `recv` 的渠道，为涉及 IO 和大量 CPU 处理任务的复杂应用提供"
+"了极大便利。"
 
 #: src/async/channels.md:46
 msgid ""
@@ -18763,10 +18888,13 @@ msgid ""
 "combine them with other `future`s to combine them and create complex control "
 "flow."
 msgstr ""
+"使用 `async` 通道的优势在于，我们能够将它们与其他 `future` 结合起来，从而创建"
+"复杂的控制流。"
 
 #: src/async/control-flow.md:1
+#, fuzzy
 msgid "Futures Control Flow"
-msgstr ""
+msgstr "Furture 控制流"
 
 #: src/async/control-flow.md:3
 msgid ""
@@ -18774,14 +18902,16 @@ msgid ""
 "We have already seen tasks, that function as independent threads of "
 "execution."
 msgstr ""
+"可以将很多 Future 组合在一起生成并发计算流图。我们已经介绍过用作独立线程的任"
+"务类型。"
 
 #: src/async/control-flow.md:6
 msgid "[Join](control-flow/join.md)"
-msgstr ""
+msgstr "[联接](control-flow/join.md)"
 
 #: src/async/control-flow.md:7
 msgid "[Select](control-flow/select.md)"
-msgstr ""
+msgstr "[选择](control-flow/select.md)"
 
 #: src/async/control-flow/join.md:3
 msgid ""
@@ -18789,22 +18919,24 @@ msgid ""
 "a collection of their results. This is similar to `Promise.all` in "
 "JavaScript or `asyncio.gather` in Python."
 msgstr ""
+"联接操作会等待一组 Future 全部就绪，然后返回它们的结果集合。这类似于 "
+"JavaScript 中的 `Promise.al` 或 Python 中的 `asyncio.gather`。"
 
 #: src/async/control-flow/join.md:21
 msgid "\"https://google.com\""
-msgstr ""
+msgstr "\"https://google.com\""
 
 #: src/async/control-flow/join.md:22
 msgid "\"https://httpbin.org/ip\""
-msgstr ""
+msgstr "\"https://httpbin.org/ip\""
 
 #: src/async/control-flow/join.md:23
 msgid "\"https://play.rust-lang.org/\""
-msgstr ""
+msgstr "\"https://play.rust-lang.org/\""
 
 #: src/async/control-flow/join.md:24
 msgid "\"BAD_URL\""
-msgstr ""
+msgstr "\"BAD_URL\""
 
 #: src/async/control-flow/join.md:38
 msgid ""
@@ -18812,12 +18944,18 @@ msgid ""
 "you must know how many futures you will have at compile time. This is "
 "currently in the `futures` crate, soon to be stabilised in `std::future`."
 msgstr ""
+"对于多个类型不相交的 Future，可以使用 `std::future::join!` 进行处理，但必须要"
+"确定在编译时 Future 的数量。目前，可在 `futures` crate 中使用该功能，但很快也"
+"会在 `std::future` 中正式发布。"
 
 #: src/async/control-flow/join.md:42
+#, fuzzy
 msgid ""
 "The risk of `join` is that one of the futures may never resolve, this would "
 "cause your program to stall."
 msgstr ""
+"使用 `join` 的风险在于，可能永远无法解析其中某个 Future，这会导致程序停滞不"
+"前。"
 
 #: src/async/control-flow/join.md:45
 msgid ""
@@ -18827,6 +18965,10 @@ msgid ""
 "timeout (that requires `select!`, explained in the next chapter), but "
 "demonstrates `join!`."
 msgstr ""
+"还可以将 `join_all` 与 `join!` 结合使用，并行处理所有对 http 服务的请求和数据"
+"库查询。尝试使用 `futures::join!` 将 `tokio::time::sleep` 添加到 Future 中。"
+"这不是一个超时操作（其需要使用 `select!`，下一章会详细介绍），而是展示了 "
+"`join!` 的使用方式。"
 
 #: src/async/control-flow/select.md:3
 msgid ""
@@ -18835,6 +18977,9 @@ msgid ""
 "race`. In Python, it compares to `asyncio.wait(task_set, return_when=asyncio."
 "FIRST_COMPLETED)`."
 msgstr ""
+"选择操作会等待一组 Future 中的任意一个就绪，并对 Future 产生的结果进行响应。"
+"在 JavaScript 中，该操作类似于 `Promise.race`。在 Python 中，它相当于 "
+"`asyncio.wait(task_set, return_when=asyncio.FIRST_COMPLETED)`。"
 
 #: src/async/control-flow/select.md:8
 msgid ""
@@ -18843,30 +18988,33 @@ msgid ""
 "ready, the `statement` is executed with the variables in `pattern` bound to "
 "the `future`'s result."
 msgstr ""
+"与 match 语句类似，`select!` 的正文也包含多个分支，每个分支的形式为 `pattern "
+"= future => statement`。当 `future` 就绪时，系统会执行 `statement`，并将 "
+"`pattern` 中的变量绑定到 `future` 所产生的结果。"
 
 #: src/async/control-flow/select.md:39
 msgid "\"Felix\""
-msgstr ""
+msgstr "\"Felix\""
 
 #: src/async/control-flow/select.md:39
 msgid "\"Failed to send cat.\""
-msgstr ""
+msgstr "\"Failed to send cat.\""
 
 #: src/async/control-flow/select.md:43
 msgid "\"Rex\""
-msgstr ""
+msgstr "\"Rex\""
 
 #: src/async/control-flow/select.md:43
 msgid "\"Failed to send dog.\""
-msgstr ""
+msgstr "\"Failed to send dog.\""
 
 #: src/async/control-flow/select.md:48
 msgid "\"Failed to receive winner\""
-msgstr ""
+msgstr "\"Failed to receive winner\""
 
 #: src/async/control-flow/select.md:50
 msgid "\"Winner is {winner:?}\""
-msgstr ""
+msgstr "\"Winner is {winner:?}\""
 
 #: src/async/control-flow/select.md:56
 msgid ""
@@ -18875,34 +19023,42 @@ msgid ""
 "whichever arrives first. Since the dog takes 50ms, it wins against the cat "
 "that take 500ms."
 msgstr ""
+"在本示例中，猫和狗之间进行了一场比赛。`first_animal_to_finish_race` 会同时监"
+"听这两个通道，并选择最先到达终点的作为胜者。由于狗用时 50 毫秒，而猫用时 500 "
+"毫秒，前者在此比赛中大获全胜。"
 
 #: src/async/control-flow/select.md:61
 msgid ""
 "You can use `oneshot` channels in this example as the channels are supposed "
 "to receive only one `send`."
 msgstr ""
+"在本示例中，可以使用 `oneshot` 通道，因为这些通道只能接收一次 `send` 信号。"
 
 #: src/async/control-flow/select.md:64
 msgid ""
 "Try adding a deadline to the race, demonstrating selecting different sorts "
 "of futures."
-msgstr ""
+msgstr "尝试为比赛添加截至时间，演示如何选择不同类型的 Future。"
 
 #: src/async/control-flow/select.md:67
 msgid ""
 "Note that `select!` drops unmatched branches, which cancels their futures. "
 "It is easiest to use when every execution of `select!` creates new futures."
 msgstr ""
+"请注意，`select!` 会丢弃不匹配的分支，相对应的 Future 也会随之取消。最简单的"
+"方法是，每次执行 `select!` 时创建新的 Future。"
 
 #: src/async/control-flow/select.md:70
 msgid ""
 "An alternative is to pass `&mut future` instead of the future itself, but "
 "this can lead to issues, further discussed in the pinning slide."
 msgstr ""
+"另一种方法是传递 `&mut future` 而不是 future 本身，但这可能会导致问题，在本幻"
+"灯片的 “固定” 部分进行了详细介绍。"
 
 #: src/async/pitfalls.md:1
 msgid "Pitfalls of async/await"
-msgstr ""
+msgstr "关于 async/await 的误区"
 
 #: src/async/pitfalls.md:3
 msgid ""
@@ -18911,26 +19067,28 @@ msgid ""
 "with its share of pitfalls and footguns. We illustrate some of them in this "
 "chapter:"
 msgstr ""
+"async / await 为处理并发异步编程提供了一种方便高效的抽象方法。然而，Rust 中"
+"的 async/await 模型也存在一些误区和隐患。本章将展示其中的部分内容："
 
 #: src/async/pitfalls.md:7
 msgid "[Blocking the Executor](pitfalls/blocking-executor.md)"
-msgstr ""
+msgstr "[阻塞执行器](pitfalls/blocking-executor.md)"
 
 #: src/async/pitfalls.md:8
 msgid "[Pin](pitfalls/pin.md)"
-msgstr ""
+msgstr "[固定](pitfalls/pin.md)"
 
 #: src/async/pitfalls.md:9
 msgid "[Async Traits](pitfalls/async-traits.md)"
-msgstr ""
+msgstr "[异步 trait](pitfalls/async-traits.md)"
 
 #: src/async/pitfalls.md:10
 msgid "[Cancellation](pitfalls/cancellation.md)"
-msgstr ""
+msgstr "[取消](pitfalls/cancellation.md)"
 
 #: src/async/pitfalls/blocking-executor.md:1
 msgid "Blocking the executor"
-msgstr ""
+msgstr "阻塞执行器"
 
 #: src/async/pitfalls/blocking-executor.md:3
 msgid ""
@@ -18939,20 +19097,22 @@ msgid ""
 "being executed. An easy workaround is to use async equivalent methods where "
 "possible."
 msgstr ""
+"大多数异步运行时支持并发运行 IO 任务。这意味着 CPU 的阻塞性任务会阻塞执行器，"
+"并阻止执行其他任务。最简单的方法是，尽可能使用异步等效方法。"
 
 #: src/async/pitfalls/blocking-executor.md:14
 msgid "\"future {id} slept for {duration_ms}ms, finished after {}ms\""
-msgstr ""
+msgstr "\"future {id} slept for {duration_ms}ms, finished after {}ms\""
 
 #: src/async/pitfalls/blocking-executor.md:19
 msgid "\"current_thread\""
-msgstr ""
+msgstr "\"current_thread\""
 
 #: src/async/pitfalls/blocking-executor.md:29
 msgid ""
 "Run the code and see that the sleeps happen consecutively rather than "
 "concurrently."
-msgstr ""
+msgstr "运行该代码，您会发现休眠操作是连续发生的，而不是并发进行的。"
 
 #: src/async/pitfalls/blocking-executor.md:32
 msgid ""
@@ -18960,17 +19120,21 @@ msgid ""
 "makes the effect more obvious, but the bug is still present in the multi-"
 "threaded flavor."
 msgstr ""
+"`\"current_thread\"` 变种将所有任务放在单个线程上。这样做效果会更明显，但 "
+"bug 仍然存在于多线程变种中。"
 
 #: src/async/pitfalls/blocking-executor.md:36
 msgid ""
 "Switch the `std::thread::sleep` to `tokio::time::sleep` and await its result."
-msgstr ""
+msgstr "将 `std::thread::sleep` 切换为 `tokio::time::sleep`，并等待结果。"
 
 #: src/async/pitfalls/blocking-executor.md:38
 msgid ""
 "Another fix would be to `tokio::task::spawn_blocking` which spawns an actual "
 "thread and transforms its handle into a future without blocking the executor."
 msgstr ""
+"另一个修复方案是 `tokio::task::spawn_blocking`，其会生成实际线程并将句柄转换"
+"为 Future，且不会阻塞执行器。"
 
 #: src/async/pitfalls/blocking-executor.md:41
 msgid ""
@@ -18981,12 +19145,18 @@ msgid ""
 "OS threads (e.g., CUDA). Prefer `tokio::task::spawn_blocking` in such "
 "situations."
 msgstr ""
+"不应将任务视为操作系统线程。它们之间并非一对一的映射关系，并且大多数执行器都"
+"支持在单个操作系统线程上运行多个任务。尤其是通过 FFI 与其他库交互时，会更容易"
+"出现问题，因为在 FFI 中，因为该库可能依赖于线程本地存储或映射到特定的操作系统"
+"线程（例如，CUDA）。在这些情况下，首选 `tokio::task::spawn_blocking`。"
 
 #: src/async/pitfalls/blocking-executor.md:47
 msgid ""
 "Use sync mutexes with care. Holding a mutex over an `.await` may cause "
 "another task to block, and that task may be running on the same thread."
 msgstr ""
+"请谨慎使用同步互斥操作。对 `.await` 一直执行互斥操作能会导致另一个任务阻塞，"
+"并且该任务可能与其在同一线程上运行。"
 
 #: src/async/pitfalls/pin.md:3
 msgid ""
@@ -18995,6 +19165,9 @@ msgid ""
 "async block. If your future has pointers to data on the stack, those "
 "pointers might get invalidated. This is unsafe."
 msgstr ""
+"在等待 Future 就绪时，所有局部变量（通常存储在堆栈帧上）将改为存储在当前异步"
+"代码块的 Future 中。如果您的 Future 中有指向堆栈上数据的指针，这些指针可能会"
+"失效。这很不安全。"
 
 #: src/async/pitfalls/pin.md:8
 msgid ""
@@ -19002,67 +19175,74 @@ msgid ""
 "change. That is why we need to \"pin\" futures. Using the same future "
 "repeatedly in a `select!` often leads to issues with pinned values."
 msgstr ""
+"因此，必须保证 Future 指向的地址不会发生更改。这就是为何需要对 Future 执行 "
+"“固定”操作。在 `select!` 中反复使用相同的 Future 通常会导致已固定的值出现问"
+"题。"
 
 #: src/async/pitfalls/pin.md:16
 msgid ""
 "// A work item. In this case, just sleep for the given time and respond\n"
 "// with a message on the `respond_on` channel.\n"
 msgstr ""
+"// A work item. In this case, just sleep for the given time and respond\n"
+"// with a message on the `respond_on` channel.\n"
 
 #: src/async/pitfalls/pin.md:24
 msgid "// A worker which listens for work on a queue and performs it.\n"
-msgstr ""
+msgstr "// A worker which listens for work on a queue and performs it.\n"
 
 #: src/async/pitfalls/pin.md:31
 msgid "// Pretend to work.\n"
-msgstr ""
+msgstr "// Pretend to work.\n"
 
 #: src/async/pitfalls/pin.md:34
 msgid "\"failed to send response\""
-msgstr ""
+msgstr "\"failed to send response\""
 
 #: src/async/pitfalls/pin.md:37
 msgid "// TODO: report number of iterations every 100ms\n"
-msgstr ""
+msgstr "// TODO: report number of iterations every 100ms\n"
 
 #: src/async/pitfalls/pin.md:41
 msgid "// A requester which requests work and waits for it to complete.\n"
-msgstr ""
+msgstr "// A requester which requests work and waits for it to complete.\n"
 
 #: src/async/pitfalls/pin.md:48
 msgid "\"failed to send on work queue\""
-msgstr ""
+msgstr "\"failed to send on work queue\""
 
 #: src/async/pitfalls/pin.md:49
 msgid "\"failed waiting for response\""
-msgstr ""
+msgstr "\"failed waiting for response\""
 
 #: src/async/pitfalls/pin.md:58
 msgid "\"work result for iteration {i}: {resp}\""
-msgstr ""
+msgstr "\"work result for iteration {i}: {resp}\""
 
 #: src/async/pitfalls/pin.md:65
 msgid ""
 "You may recognize this as an example of the actor pattern. Actors typically "
 "call `select!` in a loop."
-msgstr ""
+msgstr "您可能认为这是执行器模式的一个示例。执行器通常会循环调用 `select!`。"
 
 #: src/async/pitfalls/pin.md:68
 msgid ""
 "This serves as a summation of a few of the previous lessons, so take your "
 "time with it."
-msgstr ""
+msgstr "本部分是对前面几节课的总结，因此请多花时间用心学习。"
 
 #: src/async/pitfalls/pin.md:71
 msgid ""
 "Naively add a `_ = sleep(Duration::from_millis(100)) => { println!(..) }` to "
 "the `select!`. This will never execute. Why?"
 msgstr ""
+"只是单纯地在 `select!` 中添加 `_ = sleep(Duration::from_millis(100)) => "
+"{ println!(..) }`，该行代码将不会执行任何操作。这是为什么？"
 
 #: src/async/pitfalls/pin.md:74
 msgid ""
 "Instead, add a `timeout_fut` containing that future outside of the `loop`:"
-msgstr ""
+msgstr "请改为在 `loop` 外部添加包含该 Future 的 `timeout_fut`："
 
 #: src/async/pitfalls/pin.md:85
 msgid ""
@@ -19070,6 +19250,8 @@ msgid ""
 "`timeout_fut` in the `select!` to work around the move, then using `Box::"
 "pin`:"
 msgstr ""
+"这仍然不起作用。根据编译器提示的错误，通过向 `select!` 中的 `timeout_fut` 添"
+"加 `&mut` 解决移动问题，然后使用 `Box::pin`："
 
 #: src/async/pitfalls/pin.md:99
 msgid ""
@@ -19077,6 +19259,8 @@ msgid ""
 "iteration (a fused future would help with this). Update to reset "
 "`timeout_fut` every time it expires."
 msgstr ""
+"可以编译这段代码了，但超时过期后，每次迭代都会变为 `Poll::Ready`（使用混合 "
+"Future 有助于解决此问题）。每次超时过期后，通过更新重置 `timeout_fut`。"
 
 #: src/async/pitfalls/pin.md:103
 msgid ""
@@ -19084,12 +19268,17 @@ msgid ""
 "stabilized, with older code often using `tokio::pin!`) is also an option, "
 "but that is difficult to use for a future that is reassigned."
 msgstr ""
+"Box 在堆上进行分配。在某些情况下，也可以选择使用 `std::pin::pin!`（最近才正式"
+"发布，较旧的代码通常使用 `tokio::pin!`），但对于重新分配的 Future，使用此功能"
+"较为困难。"
 
 #: src/async/pitfalls/pin.md:107
 msgid ""
 "Another alternative is to not use `pin` at all but spawn another task that "
 "will send to a `oneshot` channel every 100ms."
 msgstr ""
+"另一种替代方案是完全不使用 `pin`，而是生成另一个任务，该任务每隔 100 毫秒就会"
+"发送到 `oneshot` 通道。"
 
 #: src/async/pitfalls/async-traits.md:3
 msgid ""
@@ -19098,26 +19287,33 @@ msgid ""
 "term.](https://blog.rust-lang.org/inside-rust/2022/11/17/async-fn-in-trait-"
 "nightly.html))"
 msgstr ""
+"稳定版尚不支持在 trait 中使用异步方法（[夜间版提供此项功能，但正处于试验阶"
+"段，预计在中期正式发布。](https://blog.rust-lang.org/inside-rust/2022/11/17/"
+"async-fn-in-trait-nightly.html)）"
 
 #: src/async/pitfalls/async-traits.md:6
 msgid ""
 "The crate [async_trait](https://docs.rs/async-trait/latest/async_trait/) "
 "provides a workaround through a macro:"
 msgstr ""
+"crate [async_trait](https://docs.rs/async-trait/latest/async_trait/) 通过宏提"
+"供了一种解决方法："
 
 #: src/async/pitfalls/async-traits.md:35
 msgid "\"running all sleepers..\""
-msgstr ""
+msgstr "\"running all sleepers..\""
 
 #: src/async/pitfalls/async-traits.md:39
 msgid "\"slept for {}ms\""
-msgstr ""
+msgstr "\"slept for {}ms\""
 
 #: src/async/pitfalls/async-traits.md:56
 msgid ""
 "`async_trait` is easy to use, but note that it's using heap allocations to "
 "achieve this. This heap allocation has performance overhead."
 msgstr ""
+"`async_trait` 易于使用，但请注意，它通过堆分配来实现这一点。这种堆分配会产生"
+"性能开销。"
 
 #: src/async/pitfalls/async-traits.md:59
 msgid ""
@@ -19146,6 +19342,9 @@ msgid ""
 "ensure the system works correctly even when futures are cancelled. For "
 "example, it shouldn't deadlock or lose data."
 msgstr ""
+"丢弃 Future 意味着无法再对其进行轮询。这称为 _取消_，在任何 `await` 点都可能"
+"发生。请务必小心谨慎，确保即使 Future 任务被取消，系统也能正常运行。例如，系"
+"统不应死锁或丢失数据。"
 
 #: src/async/pitfalls/cancellation.md:35
 #, fuzzy
@@ -19154,43 +19353,45 @@ msgstr "UTF-8"
 
 #: src/async/pitfalls/cancellation.md:51
 msgid "\"hi\\nthere\\n\""
-msgstr ""
+msgstr "\"hi\\nthere\\n\""
 
 #: src/async/pitfalls/cancellation.md:57
 msgid "\"tick!\""
-msgstr ""
+msgstr "\"tick!\""
 
 #: src/async/pitfalls/cancellation.md:72
 msgid ""
 "The compiler doesn't help with cancellation-safety. You need to read API "
 "documentation and consider what state your `async fn` holds."
 msgstr ""
+"编译器无法确保取消操作的安全性。您需要阅读 API 文档，并考虑 `async fn` 所持状"
+"态。"
 
 #: src/async/pitfalls/cancellation.md:75
 msgid ""
 "Unlike `panic` and `?`, cancellation is part of normal control flow (vs "
 "error-handling)."
-msgstr ""
+msgstr "与 `panic` 和 `?` 不同，取消属于正常控制流的一部分（而非错误处理）。"
 
 #: src/async/pitfalls/cancellation.md:78
 msgid "The example loses parts of the string."
-msgstr ""
+msgstr "该示例丢失了字符串的某些部分。"
 
 #: src/async/pitfalls/cancellation.md:80
 msgid ""
 "Whenever the `tick()` branch finishes first, `next()` and its `buf` are "
 "dropped."
-msgstr ""
+msgstr "每当 `tick()` 分支先完成操作时，`next() 及其 `buf` 均会被丢弃。"
 
 #: src/async/pitfalls/cancellation.md:83
 msgid ""
 "`LinesReader` can be made cancellation-safe by making `buf` part of the "
 "struct:"
-msgstr ""
+msgstr "通过将 `buf` 整合到结构体中，`LinesReader 可以确保取消操作的安全性："
 
 #: src/async/pitfalls/cancellation.md:97
 msgid "// prefix buf and bytes with self.\n"
-msgstr ""
+msgstr "// prefix buf and bytes with self.\n"
 
 #: src/async/pitfalls/cancellation.md:106
 #, fuzzy
@@ -19253,19 +19454,20 @@ msgid ""
 msgstr "查看[哲学家进餐](dining-philosophers.md)以获取问题的描述。"
 
 #: src/exercises/concurrency/dining-philosophers-async.md:6
+#, fuzzy
 msgid ""
 "As before, you will need a local [Cargo installation](../../cargo/running-"
 "locally.md) for this exercise. Copy the code below to a file called `src/"
 "main.rs`, fill out the blanks, and test that `cargo run` does not deadlock:"
 msgstr ""
-"与之前一样，您需要一个本地的 [Cargo 安装](../../cargo/running-locally.md)来进"
-"行这个练习。将下面的代码复制到一个名为 `src/main.rs` 的文件中，填写空白部分，"
-"并测试确保 `cargo run` 不会死锁："
+"在本练习中，需要使用本地 [Cargo 安装](../../cargo/running-locally.md)。将以下"
+"代码复制到名为 `src/main.rs` 的文件中，并填写空白的地方，然后测试 `cargo "
+"run` 不会死锁："
 
 #: src/exercises/concurrency/dining-philosophers-async.md:52
 #: src/exercises/concurrency/solutions-afternoon.md:78
 msgid "// Make them think and eat\n"
-msgstr ""
+msgstr "// Make them think and eat\n"
 
 #: src/exercises/concurrency/dining-philosophers-async.md:58
 msgid ""
@@ -19276,6 +19478,7 @@ msgstr ""
 "`Cargo.toml`："
 
 #: src/exercises/concurrency/dining-philosophers-async.md:63
+#, fuzzy
 msgid ""
 "```toml\n"
 "[package]\n"
@@ -19288,6 +19491,16 @@ msgid ""
 "\"rt-multi-thread\"] }\n"
 "```"
 msgstr ""
+"```toml\n"
+"[package]\n"
+"name = \"dining-philosophers-async-dine\"\n"
+"version = \"0.1.0\"\n"
+"edition = \"2021\"\n"
+"\n"
+"[dependencies]\n"
+"tokio = {version = \"1.26.0\", features = [\"sync\", \"time\", \"macros\", "
+"\"rt-multi-thread\"]}\n"
+"```"
 
 #: src/exercises/concurrency/dining-philosophers-async.md:73
 msgid ""
@@ -19335,6 +19548,7 @@ msgid "_Cargo.toml_:"
 msgstr "`Cargo.toml`："
 
 #: src/exercises/concurrency/chat-app.md:18
+#, fuzzy
 msgid ""
 "```toml\n"
 "[package]\n"
@@ -19350,6 +19564,19 @@ msgid ""
 "\"fastrand\", \"server\", \"sha1_smol\"] }\n"
 "```"
 msgstr ""
+"```toml\n"
+"[package]\n"
+"name = \"chat-async\"\n"
+"version = \"0.1.0\"\n"
+"edition = \"2021\"\n"
+"\n"
+"[dependencies]\n"
+"futures-util = { version = \"0.3.28\", features = [\"sink\"] }\n"
+"http = \"0.2.9\"\n"
+"tokio = { version = \"1.28.1\", features = [\"full\"] }\n"
+"tokio-websockets = { version = \"0.4.0\", features = [\"client\", "
+"\"fastrand\", \"server\", \"sha1_smol\"] }\n"
+"```"
 
 #: src/exercises/concurrency/chat-app.md:31
 msgid "The required APIs"
@@ -19446,27 +19673,27 @@ msgstr "`src/bin/server.rs`:"
 #: src/exercises/concurrency/chat-app.md:77
 #: src/exercises/concurrency/chat-app.md:124
 msgid "// TODO: For a hint, see the description of the task below.\n"
-msgstr ""
+msgstr "// TODO: For a hint, see the description of the task below.\n"
 
 #: src/exercises/concurrency/chat-app.md:85
 #: src/exercises/concurrency/solutions-afternoon.md:147
 msgid "\"127.0.0.1:2000\""
-msgstr ""
+msgstr "\"127.0.0.1:2000\""
 
 #: src/exercises/concurrency/chat-app.md:86
 #: src/exercises/concurrency/solutions-afternoon.md:148
 msgid "\"listening on port 2000\""
-msgstr ""
+msgstr "\"listening on port 2000\""
 
 #: src/exercises/concurrency/chat-app.md:90
 #: src/exercises/concurrency/solutions-afternoon.md:152
 msgid "\"New connection from {addr:?}\""
-msgstr ""
+msgstr "\"New connection from {addr:?}\""
 
 #: src/exercises/concurrency/chat-app.md:93
 #: src/exercises/concurrency/solutions-afternoon.md:155
 msgid "// Wrap the raw TCP stream into a websocket.\n"
-msgstr ""
+msgstr "// Wrap the raw TCP stream into a websocket.\n"
 
 #: src/exercises/concurrency/chat-app.md:102
 #: src/exercises/concurrency/solutions-afternoon.md:164
@@ -19477,19 +19704,20 @@ msgstr "`src/bin/client.rs`:"
 #: src/exercises/concurrency/chat-app.md:116
 #: src/exercises/concurrency/solutions-afternoon.md:176
 msgid "\"ws://127.0.0.1:2000\""
-msgstr ""
+msgstr "\"ws://127.0.0.1:2000\""
 
 #: src/exercises/concurrency/chat-app.md:129
 msgid "Running the binaries"
 msgstr "运行可执行文件"
 
 #: src/exercises/concurrency/chat-app.md:131
+#, fuzzy
 msgid "Run the server with:"
-msgstr "使用以下命令运行服务器："
+msgstr "and the client with:"
 
 #: src/exercises/concurrency/chat-app.md:137
 msgid "and the client with:"
-msgstr ""
+msgstr "and the client with:"
 
 #: src/exercises/concurrency/chat-app.md:145
 msgid "Implement the `handle_connection` function in `src/bin/server.rs`."
@@ -19540,10 +19768,12 @@ msgid ""
 "// Add a delay before picking the second fork to allow the execution\n"
 "        // to transfer to another task\n"
 msgstr ""
+"// Add a delay before picking the second fork to allow the execution\n"
+"        // to transfer to another task\n"
 
 #: src/exercises/concurrency/solutions-afternoon.md:41
 msgid "// The locks are dropped here\n"
-msgstr ""
+msgstr "// The locks are dropped here\n"
 
 #: src/exercises/concurrency/solutions-afternoon.md:61
 msgid ""
@@ -19551,14 +19781,17 @@ msgid ""
 "            // somewhere. This will swap the forks without deinitializing\n"
 "            // either of them.\n"
 msgstr ""
+"// To avoid a deadlock, we have to break the symmetry\n"
+"            // somewhere. This will swap the forks without deinitializing\n"
+"            // either of them.\n"
 
 #: src/exercises/concurrency/solutions-afternoon.md:75
 msgid "// tx is dropped here, so we don't need to explicitly drop it later\n"
-msgstr ""
+msgstr "// tx is dropped here, so we don't need to explicitly drop it later\n"
 
 #: src/exercises/concurrency/solutions-afternoon.md:90
 msgid "\"Here is a thought: {thought}\""
-msgstr ""
+msgstr "\"Here is a thought: {thought}\""
 
 #: src/exercises/concurrency/solutions-afternoon.md:97
 msgid "([back to exercise](chat-app.md))"
@@ -19566,7 +19799,7 @@ msgstr "([返回练习](chat-app.md))"
 
 #: src/exercises/concurrency/solutions-afternoon.md:116
 msgid "\"Welcome to chat! Type a message\""
-msgstr ""
+msgstr "\"Welcome to chat! Type a message\""
 
 #: src/exercises/concurrency/solutions-afternoon.md:119
 #, fuzzy
@@ -19581,15 +19814,15 @@ msgstr ""
 
 #: src/exercises/concurrency/solutions-afternoon.md:128
 msgid "\"From client {addr:?} {text:?}\""
-msgstr ""
+msgstr "\"From client {addr:?} {text:?}\""
 
 #: src/exercises/concurrency/solutions-afternoon.md:183
 msgid "// Continuous loop for concurrently sending and receiving messages.\n"
-msgstr ""
+msgstr "// Continuous loop for concurrently sending and receiving messages.\n"
 
 #: src/exercises/concurrency/solutions-afternoon.md:190
 msgid "\"From server: {}\""
-msgstr ""
+msgstr "\"From server: {}\""
 
 #: src/thanks.md:3
 #, fuzzy
@@ -19615,18 +19848,24 @@ msgid ""
 "Rust terms. For translations, this also serves to connect the term back to "
 "the English original."
 msgstr ""
+"以下为术语表，旨在提供针对许多 Rust 术语的简要定义。此外，翻译过程中也可结合"
+"该术语定义来理解英语原文。"
 
 #: src/glossary.md:30
 msgid ""
 "allocate:  \n"
 "Dynamic memory allocation on [the heap](memory-management/stack-vs-heap.md)."
 msgstr ""
+"分配：\n"
+"指在 [堆](memory-management/stack-vs-heap.md) 上进行动态内存分配。"
 
 #: src/glossary.md:32
 msgid ""
 "argument:  \n"
 "Information that is passed into a function or method."
 msgstr ""
+"参数：\n"
+"指传入某个函数或方法中的信息。"
 
 #: src/glossary.md:34
 msgid ""
@@ -19634,30 +19873,41 @@ msgid ""
 "Low-level Rust development, often deployed to a system without an operating "
 "system. See [Bare-metal Rust](bare-metal.md)."
 msgstr ""
+"裸机 Rust：\n"
+"一种低级别的 Rust 开发方式，通常部署于没有操作系统的系统。请参阅 [裸机 Rust]"
+"(bare-metal.md)。"
 
 #: src/glossary.md:37
 msgid ""
 "block:  \n"
 "See [Blocks](control-flow/blocks.md) and _scope_."
 msgstr ""
+"代码块：\n"
+"请参阅 [代码块](control-flow/blocks.md) 和 _作用域_。"
 
 #: src/glossary.md:39
 msgid ""
 "borrow:  \n"
 "See [Borrowing](ownership/borrowing.md)."
 msgstr ""
+"借用：\n"
+"请参阅 [借用](ownership/borrowing.md)。"
 
 #: src/glossary.md:41
 msgid ""
 "borrow checker:  \n"
 "The part of the Rust compiler which checks that all borrows are valid."
 msgstr ""
+"借用检查器：\n"
+"Rust 编译器的一部分，用于检查所有借用操作是否有效。"
 
 #: src/glossary.md:43
 msgid ""
 "brace:  \n"
 "`{` and `}`. Also called _curly brace_, they delimit _blocks_."
 msgstr ""
+"括号：\n"
+"`{` and `}`。也称为 _大括号_，用于分隔 _代码块_。"
 
 #: src/glossary.md:45
 msgid ""
@@ -19665,18 +19915,24 @@ msgid ""
 "The process of converting source code into executable code or a usable "
 "program."
 msgstr ""
+"build：\n"
+" 将源代码转换为可执行代码或可用程序的过程。"
 
 #: src/glossary.md:48
 msgid ""
 "call:  \n"
 "To invoke or execute a function or method."
 msgstr ""
+"调用：\n"
+"调用或执行某个函数或方法。"
 
 #: src/glossary.md:50
 msgid ""
 "channel:  \n"
 "Used to safely pass messages [between threads](concurrency/channels.md)."
 msgstr ""
+"通道：\n"
+"用于安全地 [在线程之间](concurrency/channels.md) 传递消息。"
 
 #: src/glossary.md:52
 #, fuzzy
@@ -19690,6 +19946,8 @@ msgid ""
 "concurrency:  \n"
 "The execution of multiple tasks or processes at the same time."
 msgstr ""
+"并发：\n"
+"同时执行多个任务或进程。"
 
 #: src/glossary.md:56
 #, fuzzy
@@ -19703,6 +19961,8 @@ msgid ""
 "constant:  \n"
 "A value that does not change during the execution of a program."
 msgstr ""
+"常量：\n"
+"在程序执行期间不会发生的值。"
 
 #: src/glossary.md:60
 msgid ""
@@ -19710,24 +19970,32 @@ msgid ""
 "The order in which the individual statements or instructions are executed in "
 "a program."
 msgstr ""
+"控制流：\n"
+"程序中各个语句或指令的执行顺序。"
 
 #: src/glossary.md:63
 msgid ""
 "crash:  \n"
 "An unexpected and unhandled failure or termination of a program."
 msgstr ""
+"崩溃：\n"
+"未处理的意外故障或程序终止。"
 
 #: src/glossary.md:65
 msgid ""
 "enumeration:  \n"
 "A data type that consists of named constant values."
 msgstr ""
+"枚举：\n"
+"一种由命名常量值组成的数据类型。"
 
 #: src/glossary.md:67
 msgid ""
 "error:  \n"
 "An unexpected condition or result that deviates from the expected behavior."
 msgstr ""
+"错误：\n"
+"与预期行为存在偏差的意外情况或结果。"
 
 #: src/glossary.md:69
 msgid ""
@@ -19735,18 +20003,24 @@ msgid ""
 "The process of managing and responding to errors that occur during program "
 "execution."
 msgstr ""
+"错误处理：\n"
+"对程序执行期间发生的错误进行管理和响应的过程。"
 
 #: src/glossary.md:72
 msgid ""
 "exercise:  \n"
 "A task or problem designed to practice and test programming skills."
 msgstr ""
+"练习：\n"
+"专为练习和测试编程技能而设计的任务或问题。"
 
 #: src/glossary.md:74
 msgid ""
 "function:  \n"
 "A reusable block of code that performs a specific task."
 msgstr ""
+"函数：\n"
+"用于执行特定任务且可重复使用的代码块。"
 
 #: src/glossary.md:76
 msgid ""
@@ -19754,6 +20028,8 @@ msgid ""
 "A mechanism that automatically frees up memory occupied by objects that are "
 "no longer in use."
 msgstr ""
+"垃圾回收器：\n"
+"一种自动释放不再使用的对象所占内存的机制。"
 
 #: src/glossary.md:79
 msgid ""
@@ -19761,12 +20037,16 @@ msgid ""
 "A feature that allows writing code with placeholders for types, enabling "
 "code reuse with different data types."
 msgstr ""
+"泛型：\n"
+"这项功能支持使用类型占位符编写代码，支持对不同数据类型的代码进行重复使用。"
 
 #: src/glossary.md:82
 msgid ""
 "immutable:  \n"
 "Unable to be changed after creation."
 msgstr ""
+"不可变：\n"
+"创建后无法再进行更改。"
 
 #: src/glossary.md:84
 msgid ""
@@ -19774,6 +20054,8 @@ msgid ""
 "A type of test that verifies the interactions between different parts or "
 "components of a system."
 msgstr ""
+"集成测试：\n"
+"一种测试，用于验证系统的不同部分或组件之间是否能够交互。"
 
 #: src/glossary.md:87
 msgid ""
@@ -19781,12 +20063,16 @@ msgid ""
 "A reserved word in a programming language that has a specific meaning and "
 "cannot be used as an identifier."
 msgstr ""
+"关键字：\n"
+"编程语言中的保留字，具有特定含义且不能用作标识符。"
 
 #: src/glossary.md:90
 msgid ""
 "library:  \n"
 "A collection of precompiled routines or code that can be used by programs."
 msgstr ""
+"库：\n"
+"程序可以使用的一组预编译例程或代码。"
 
 #: src/glossary.md:92
 msgid ""
@@ -19795,12 +20081,17 @@ msgid ""
 "normal functions are not enough. A typical example is `format!`, which takes "
 "a variable number of arguments, which isn't supported by Rust functions."
 msgstr ""
+"宏：\n"
+"Rust 宏可通过名称中的 `!` 符号识别。当普通函数无法满足需求时，可以使用宏。一"
+"个典型示例是 `format!`，其接受可变数量的参数，但 Rust 函数不支持这种类型。"
 
 #: src/glossary.md:96
 msgid ""
 "`main` function:  \n"
 "Rust programs start executing with the `main` function."
 msgstr ""
+"`main` 函数：\n"
+"Rust 程序使用 `main` 函数开始执行操作。"
 
 #: src/glossary.md:98
 msgid ""
@@ -19808,6 +20099,8 @@ msgid ""
 "A control flow construct in Rust that allows for pattern matching on the "
 "value of an expression."
 msgstr ""
+"匹配：\n"
+"Rust 中的控制流结构，允许对表达式的值进行模式匹配。"
 
 #: src/glossary.md:101
 msgid ""
@@ -19815,12 +20108,16 @@ msgid ""
 "A situation where a program fails to release memory that is no longer "
 "needed, leading to a gradual increase in memory usage."
 msgstr ""
+"内存泄漏：\n"
+"指程序无法释放不再不要的内存的情况，导致内存用量不断增加。"
 
 #: src/glossary.md:104
 msgid ""
 "method:  \n"
 "A function associated with an object or a type in Rust."
 msgstr ""
+"方法：\n"
+"与 Rust 中的某个对象或类型相关联的函数。"
 
 #: src/glossary.md:106
 msgid ""
@@ -19828,12 +20125,16 @@ msgid ""
 "A namespace that contains definitions, such as functions, types, or traits, "
 "to organize code in Rust."
 msgstr ""
+"模块：\n"
+"Rust 中用于归纳整理代码的命名空间，其中包含函数、类型或特性等定义。"
 
 #: src/glossary.md:109
 msgid ""
 "move:  \n"
 "The transfer of ownership of a value from one variable to another in Rust."
 msgstr ""
+"移动：\n"
+"在 Rust 中，将值的所有权从一个变量转移到另一个变量。"
 
 #: src/glossary.md:111
 msgid ""
@@ -19841,6 +20142,8 @@ msgid ""
 "A property in Rust that allows variables to be modified after they have been "
 "declared."
 msgstr ""
+"可变：\n"
+"Rust 中的一个属性，支持在声明变量后对其进行修改。"
 
 #: src/glossary.md:114
 msgid ""
@@ -19848,6 +20151,8 @@ msgid ""
 "The concept in Rust that defines which part of the code is responsible for "
 "managing the memory associated with a value."
 msgstr ""
+"所有权：\n"
+"Rust 中的概念，用于定义代码中的哪一部分负责管理与值关联的内存。"
 
 #: src/glossary.md:117
 msgid ""
@@ -19855,12 +20160,16 @@ msgid ""
 "An unrecoverable error condition in Rust that results in the termination of "
 "the program."
 msgstr ""
+"panic：\n"
+"Rust 中导致程序终止且不可恢复的错误情况。"
 
 #: src/glossary.md:120
 msgid ""
 "parameter:  \n"
 "A value that is passed into a function or method when it is called."
 msgstr ""
+"参数：\n"
+"在调用函数或方法时传入函数或方法的值。"
 
 #: src/glossary.md:122
 msgid ""
@@ -19868,12 +20177,16 @@ msgid ""
 "A combination of values, literals, or structures that can be matched against "
 "an expression in Rust."
 msgstr ""
+"模式：\n"
+"Rust 中可与表达式匹配的值、字面量或结构的组合。"
 
 #: src/glossary.md:125
 msgid ""
 "payload:  \n"
 "The data or information carried by a message, event, or data structure."
 msgstr ""
+"载荷：\n"
+"消息、事件或数据结构所携带的数据或信息。"
 
 #: src/glossary.md:127
 msgid ""
@@ -19881,12 +20194,16 @@ msgid ""
 "A set of instructions that a computer can execute to perform a specific task "
 "or solve a particular problem."
 msgstr ""
+"程序：\n"
+"计算机为执行特定任务或解决特定问题而执行的一组指令。"
 
 #: src/glossary.md:130
 msgid ""
 "programming language:  \n"
 "A formal system used to communicate instructions to a computer, such as Rust."
 msgstr ""
+"编程语言：\n"
+"用于向计算机传递指令的正式系统，例如 Rust。"
 
 #: src/glossary.md:132
 msgid ""
@@ -19894,6 +20211,8 @@ msgid ""
 "The first parameter in a Rust method that represents the instance on which "
 "the method is called."
 msgstr ""
+"接收器：\n"
+"Rust 方法中的首个参数，表示正在调用该方法的实例。"
 
 #: src/glossary.md:135
 msgid ""
@@ -19901,12 +20220,16 @@ msgid ""
 "A memory management technique in which the number of references to an object "
 "is tracked, and the object is deallocated when the count reaches zero."
 msgstr ""
+"引用计数：\n"
+"一种内存管理方法，可以跟踪某个对象的引用数量，并在计数为零时释放该对象。"
 
 #: src/glossary.md:138
 msgid ""
 "return:  \n"
 "A keyword in Rust used to indicate the value to be returned from a function."
 msgstr ""
+"返回：\n"
+"Rust 中的一个关键字，用于表示从函数返回的值。"
 
 #: src/glossary.md:140
 msgid ""
@@ -19914,12 +20237,16 @@ msgid ""
 "A systems programming language that focuses on safety, performance, and "
 "concurrency."
 msgstr ""
+"Rust：\n"
+"一种系统编程语言，专注于安全性、性能和并发性。"
 
 #: src/glossary.md:143
 msgid ""
 "Rust Fundamentals:  \n"
 "Days 1 to 3 of this course."
 msgstr ""
+"Rust 基础知识：\n"
+" 本课程第 1 天到第 3 天的授课内容。"
 
 #: src/glossary.md:145
 #, fuzzy
@@ -19941,18 +20268,24 @@ msgid ""
 "Refers to code that adheres to Rust's ownership and borrowing rules, "
 "preventing memory-related errors."
 msgstr ""
+"安全：\n"
+"指代码遵循 Rust 的所有权和借用规则，以防止出现与内存相关的错误。"
 
 #: src/glossary.md:152
 msgid ""
 "scope:  \n"
 "The region of a program where a variable is valid and can be used."
 msgstr ""
+"作用域：\n"
+"程序中变量有效且可使用的区域。"
 
 #: src/glossary.md:154
 msgid ""
 "standard library:  \n"
 "A collection of modules providing essential functionality in Rust."
 msgstr ""
+"标准库：\n"
+"Rust 中提供基本功能的一系列模块。"
 
 #: src/glossary.md:156
 msgid ""
@@ -19960,6 +20293,8 @@ msgid ""
 "A keyword in Rust used to define static variables or items with a `'static` "
 "lifetime."
 msgstr ""
+"静态：\n"
+"Rust 中的关键字，用于定义具有 `'static` 生命周期的静态变量或项。"
 
 #: src/glossary.md:159
 msgid ""
@@ -19967,6 +20302,9 @@ msgid ""
 "A data type storing textual data. See [`String` vs `str`](basic-syntax/"
 "string-slices.html) for more."
 msgstr ""
+"字符串：\n"
+"一种存储文本数据的数据类型。如需了解详情，请参阅 [`String` 与 `str`](basic-"
+"syntax/string-slices.html)。"
 
 #: src/glossary.md:162
 msgid ""
@@ -19974,6 +20312,8 @@ msgid ""
 "A composite data type in Rust that groups together variables of different "
 "types under a single name."
 msgstr ""
+"结构体：\n"
+"Rust 中的复合数据类型，可将不同类型的变量归到同一名称下。"
 
 #: src/glossary.md:165
 msgid ""
@@ -19981,12 +20321,16 @@ msgid ""
 "A Rust module containing functions that test the correctness of other "
 "functions."
 msgstr ""
+"test：\n"
+"Rust 中的模块，其中包含用于测试其他函数是否正确的函数。"
 
 #: src/glossary.md:168
 msgid ""
 "thread:  \n"
 "A separate sequence of execution in a program, allowing concurrent execution."
 msgstr ""
+"线程：\n"
+"程序中的单独执行顺序，支持并发执行。"
 
 #: src/glossary.md:170
 msgid ""
@@ -19994,6 +20338,8 @@ msgid ""
 "The property of a program that ensures correct behavior in a multithreaded "
 "environment."
 msgstr ""
+"线程安全：\n"
+"一种程序属性，用于确保多线程环境中的行为正确无误。"
 
 #: src/glossary.md:173
 msgid ""
@@ -20001,6 +20347,8 @@ msgid ""
 "A collection of methods defined for an unknown type, providing a way to "
 "achieve polymorphism in Rust."
 msgstr ""
+"trait：\n"
+"用于定义未知类型的一系列方法，为在 Rust 中实现多态性提供了方法。"
 
 #: src/glossary.md:176
 msgid ""
@@ -20015,6 +20363,8 @@ msgid ""
 "A classification that specifies which operations can be performed on values "
 "of a particular kind in Rust."
 msgstr ""
+"类型：\n"
+"一种分类方式，用于指定可以对 Rust 中特定类型的值执行哪些操作。"
 
 #: src/glossary.md:182
 msgid ""
@@ -20022,6 +20372,8 @@ msgid ""
 "The ability of the Rust compiler to deduce the type of a variable or "
 "expression."
 msgstr ""
+"类型推理：\n"
+"Rust 编译器能够推断变量或表达式的类型。"
 
 #: src/glossary.md:185
 msgid ""
@@ -20029,12 +20381,16 @@ msgid ""
 "Actions or conditions in Rust that have no specified result, often leading "
 "to unpredictable program behavior."
 msgstr ""
+"未定义的行为：\n"
+"Rust 中未指定结果的操作或条件，通常会导致不可预测的程序行为。"
 
 #: src/glossary.md:188
 msgid ""
 "union:  \n"
 "A data type that can hold values of different types but only one at a time."
 msgstr ""
+"并集：\n"
+"一种数据类型，可以存储不同类型的值，但一次只能保存一个值。"
 
 #: src/glossary.md:190
 msgid ""
@@ -20042,6 +20398,9 @@ msgid ""
 "Rust comes with built-in support for running small unit tests and larger "
 "integration tests. See [Unit Tests](testing/unit-tests.html)."
 msgstr ""
+"单元测试：\n"
+"Rust 内置了运行小型单元测试和大型集成测试的支持功能。请参阅 [单元测试]"
+"(testing/unit-tests.html)。"
 
 #: src/glossary.md:193
 msgid ""
@@ -20049,12 +20408,17 @@ msgid ""
 "The subset of Rust which allows you to trigger _undefined behavior_. See "
 "[Unsafe Rust](unsafe.html)."
 msgstr ""
+"不安全：\n"
+"Rust 的子集，允许您触发 _未定义_ 的行为。请参阅 [不安全 Rust](unsafe.html)。"
 
 #: src/glossary.md:196
+#, fuzzy
 msgid ""
 "variable:  \n"
 "A memory location storing data. Variables are valid in a _scope_."
 msgstr ""
+"变量：\n"
+"用于存储数据的内存位置。变量在 _作用域_ 内有效。"
 
 #: src/other-resources.md:1
 msgid "Other Rust Resources"
@@ -20286,9 +20650,6 @@ msgstr ""
 #~ msgid "Small Example"
 #~ msgstr "简短示例"
 
-#~ msgid "Why Rust?"
-#~ msgstr "为什么选择 Rust？"
-
 #~ msgid "An Example in C"
 #~ msgstr "C语言示例"
 
@@ -20336,9 +20697,6 @@ msgstr ""
 
 #~ msgid "Enum Sizes"
 #~ msgstr "枚举大小"
-
-#~ msgid "Novel Control Flow"
-#~ msgstr "新式控制流"
 
 #~ msgid "if let expressions"
 #~ msgstr "if let 表达式"
@@ -20511,9 +20869,6 @@ msgstr ""
 
 #~ msgid "Mutex"
 #~ msgstr "Mutex"
-
-#~ msgid "async/await"
-#~ msgstr "async/await"
 
 #~ msgid "Pin"
 #~ msgstr "固定"
@@ -24385,10 +24740,6 @@ msgstr ""
 #~ msgstr "`const`"
 
 #, fuzzy
-#~ msgid "control flow:"
-#~ msgstr "控制流"
-
-#, fuzzy
 #~ msgid "enumeration:"
 #~ msgstr "实现"
 
@@ -24579,3 +24930,22 @@ msgstr ""
 
 #~ msgid "([back to exercise](safe-ffi-wrapper.md))"
 #~ msgstr "([返回练习](safe-ffi-wrapper.md))"
+
+#, fuzzy
+#~ msgid "Why Rust?"
+#~ msgstr "异步 Rust"
+
+#, fuzzy
+#~ msgid "Novel Control Flow"
+#~ msgstr "Furture 控制流"
+
+#, fuzzy
+#~ msgid "async/await"
+#~ msgstr "关于 async/await 的误区"
+
+#, fuzzy
+#~ msgid "control flow:"
+#~ msgstr "Furture 控制流"
+
+#~ msgid "\"127.0.0.1:6142\""
+#~ msgstr "\"127.0.0.1:6142\""
