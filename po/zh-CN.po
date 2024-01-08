@@ -12527,6 +12527,8 @@ msgid ""
 "Rust is supported for third-party libraries in Chromium, with first-party "
 "glue code to connect between Rust and existing Chromium C++ code."
 msgstr ""
+"Chromium 中的第三方库支持 Rust，并使用第一方粘合代码连接 Rust 和现有 "
+"Chromium C++ 代码。"
 
 #: src/chromium.md:6
 msgid ""
@@ -12535,6 +12537,9 @@ msgid ""
 "feel free to follow this recipe in your part of the codebase instead of the "
 "exact part we talk about."
 msgstr ""
+"今天，我们将调用 Rust 对字符串进行一些有趣的操作。如果您的代码中某个部分是用"
+"于向用户展示 UTF8 字符串，那么可以在代码库中的对应部分按照这个步骤来操作，而"
+"不一定要在我们所讨论的确切部分。"
 
 #: src/chromium/setup.md:3
 msgid ""
@@ -12542,12 +12547,14 @@ msgid ""
 "flags is OK, so long as your code is relatively recent (commit position "
 "1223636 onwards, corresponding to November 2023):"
 msgstr ""
+"请确保您可以构建并运行 Chromium。只要您的代码较新（提交位置始于 1223636，对应"
+"于 2023 年 11 月），则可在任何平台和任何一组 build 标志下运行。"
 
 #: src/chromium/setup.md:13
 msgid ""
 "(A component, debug build is recommended for quickest iteration time. This "
 "is the default!)"
-msgstr ""
+msgstr "（建议使用调试 build 组件，以缩短迭代时间。这是默认值！）"
 
 #: src/chromium/setup.md:16
 msgid ""
@@ -12555,14 +12562,17 @@ msgid ""
 "the-code/) if you aren't already at that point. Be warned: setting up to "
 "build Chromium takes time."
 msgstr ""
+"如果您不具备这点，请参阅 [如何构建 Chromium](https://www.chromium.org/"
+"developers/how-tos/get-the-code/)。注意：设置 build Chromium 需要花些时间。"
 
 #: src/chromium/setup.md:21
 msgid "It's also recommended that you have Visual Studio code installed."
-msgstr ""
+msgstr "此外，我们还建议您安装 Visual Studio 代码。"
 
 #: src/chromium/setup.md:23
+#, fuzzy
 msgid "About the exercises"
-msgstr ""
+msgstr "练习简介"
 
 #: src/chromium/setup.md:25
 msgid ""
@@ -12571,6 +12581,9 @@ msgid ""
 "If you don't have time to complete a certain part, don't worry: you can "
 "catch up in the next slot."
 msgstr ""
+"本课程的这一部分包含一系列练习，它们之间是相辅相成的。我们将在整个课程中进行"
+"这些练习，而不仅仅是在最后阶段完成。如果您没有时间完成某个部分，也无需担心："
+"可以在下一阶段赶上进度。"
 
 #: src/chromium/cargo.md:3
 msgid ""
@@ -12578,10 +12591,12 @@ msgid ""
 "crates.io/). Chromium is built using `gn` and `ninja` and a curated set of "
 "dependencies."
 msgstr ""
+"Rust 社区通常使用 `cargo` 和 [crates.io](https://crates.io/) 中的库。"
+"Chromium 是使用 `gn` 和 `ninja` 以及一组精选依赖项而构建。"
 
 #: src/chromium/cargo.md:6
 msgid "When writing code in Rust, your choices are:"
-msgstr ""
+msgstr "使用 Rust 编写代码时，您可以选择："
 
 #: src/chromium/cargo.md:8
 msgid ""
@@ -12589,6 +12604,8 @@ msgid ""
 "gni` (e.g. `rust_static_library` that we'll meet later). This uses "
 "Chromium's audited toolchain and crates."
 msgstr ""
+"借助 `//build/rust/*.gni` 模板（例如 `rust_static_library`，我们稍后会介绍）"
+"使用 `gn` 和 `ninja`。该操作会使用经过审核的 Chromium 工具链和 crate。"
 
 #: src/chromium/cargo.md:11
 msgid ""
@@ -12596,19 +12613,27 @@ msgid ""
 "crates](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/"
 "docs/rust.md#Using-cargo)"
 msgstr ""
+"使用 `cargo`，但 [仅限于经过审核的 Chromium 工具链和 crate](https://chromium."
+"googlesource.com/chromium/src/+/refs/heads/main/docs/rust.md#Using-cargo)"
 
 #: src/chromium/cargo.md:13
 msgid ""
 "Use `cargo`, trusting a [toolchain](https://rustup.rs/) and/or [crates "
 "downloaded from the internet](https://crates.io/)"
 msgstr ""
+"使用 `cargo`，信任 [工具链](https://rustup.rs/) 和/或 [从互联网下载的 crate]"
+"(https://crates.io/)"
 
 #: src/chromium/cargo.md:16
+#, fuzzy
 msgid ""
 "From here on we'll be focusing on `gn` and `ninja`, because this is how Rust "
 "code can be built into the Chromium browser. At the same time, Cargo is an "
 "important part of the Rust ecosystem and you should keep it in your toolbox."
 msgstr ""
+"从现在开始，我们将重点介绍 `gn` 和 `ninja`，因为这是在 Chromium 浏览器构建 "
+"Rust 代码时必会用到的两种方式。同时，Cargo 是 Rust 生态系统的重要组成部分，您"
+"应将其视为必备工具。"
 
 #: src/chromium/cargo.md:20
 #, fuzzy
@@ -12617,34 +12642,40 @@ msgstr "习题"
 
 #: src/chromium/cargo.md:22
 msgid "Split into small groups and:"
-msgstr ""
+msgstr "分成各个小组开展以下活动："
 
 #: src/chromium/cargo.md:24
 msgid ""
 "Brainstorm scenarios where `cargo` may offer an advantage and assess the "
 "risk profile of these scenarios."
-msgstr ""
+msgstr "思考 `cargo` 在哪些场景下具有优势，并评估这些场景的风险状况。"
 
 #: src/chromium/cargo.md:26
 msgid ""
 "Discuss which tools, libraries, and groups of people need to be trusted when "
 "using `gn` and `ninja`, offline `cargo`, etc."
 msgstr ""
+"讨论在使用 `gn` 和 `ninja` 以及离线 `cargo` 等时，需要信任哪些工具、库和人"
+"群。"
 
 #: src/chromium/cargo.md:31
+#, fuzzy
 msgid ""
 "Ask students to avoid peeking at the speaker notes before completing the "
 "exercise. Assuming folks taking the course are physically together, ask them "
 "to discuss in small groups of 3-4 people."
 msgstr ""
+"请要求学生在完成练习前先不要看演讲者备注。假设参加课程的学员们同处一室，请让"
+"他们以 3-4 人的小组进行讨论。"
 
 #: src/chromium/cargo.md:35
 msgid ""
 "Notes/hints related to the first part of the exercise (\"scenarios where "
 "Cargo may offer an advantage\"):"
-msgstr ""
+msgstr "与第一部分练习相关的备注/提示（“Cargo 可能具有优势的场景”）："
 
 #: src/chromium/cargo.md:38
+#, fuzzy
 msgid ""
 "It's fantastic that when writing a tool, or prototyping a part of Chromium, "
 "one has access to the rich ecosystem of crates.io libraries. There is a "
@@ -12652,20 +12683,29 @@ msgid ""
 "(`clap` for command-line parsing, `serde` for serializing/deserializing to/"
 "from various formats, `itertools` for working with iterators, etc.)."
 msgstr ""
+"很棒的是，当我们在编写工具或对 Chromium 的某个部分进行原型设计时，可以轻松访"
+"问丰富的 crate.io 库生态系统。几乎可以找到适用于任何需求的 crate，而且非常简"
+"单易用。（例如，`clap` 用于命令行解析，`serde 用于序列化/反序列化各种格式，"
+"`itertools` 用于和迭代器搭配使用等）。"
 
 #: src/chromium/cargo.md:44
 msgid ""
 "`cargo` makes it easy to try a library (just add a single line to `Cargo."
 "toml` and start writing code)"
 msgstr ""
+"借助 `cargo`，您便可以轻松试用库（只需向 `Cargo.toml`` 添加一行代码然后开始编"
+"写即可）"
 
 #: src/chromium/cargo.md:46
 msgid ""
 "It may be worth comparing how CPAN helped make `perl` a popular choice. Or "
 "comparing with `python` + `pip`."
 msgstr ""
+"不妨比较下 CPAN 是如何帮助 `perl` 成为热门之选的。或者与 `python` + `pip` 进"
+"行比较。"
 
 #: src/chromium/cargo.md:49
+#, fuzzy
 msgid ""
 "Development experience is made really nice not only by core Rust tools (e.g. "
 "using `rustup` to switch to a different `rustc` version when testing a crate "
@@ -12674,22 +12714,28 @@ msgid ""
 "streamlining and sharing security audits; `criterion` crate gives a "
 "streamlined way to run benchmarks)."
 msgstr ""
+"良好的开发体验不仅得益于核心 Rust 工具（例如，在测试需要在夜间版、当前稳定版"
+"和较旧稳定版上运行的 crate 时，使用 `rustup` 切换到不同的 `rustc` 版本），还"
+"得益于第三方工具生态系统（例如，Mozilla 提供的 `cargo vet` 用于简化和共享安全"
+"审核流程；`criterion` crate 为运行基准审核提供了便捷方式）。"
 
 #: src/chromium/cargo.md:56
 msgid ""
 "`cargo` makes it easy to add a tool via `cargo install --locked cargo-vet`."
 msgstr ""
+"借助 `cargo`，您可通过 `cargo install --locked cargo-vet` 轻松添加工具。"
 
 #: src/chromium/cargo.md:57
 msgid "It may be worth comparing with Chrome Extensions or VScode extensions."
-msgstr ""
+msgstr "不妨与 Chrome 扩展程序或 VScode 扩展程序进行比较。"
 
 #: src/chromium/cargo.md:59
 msgid ""
 "Broad, generic examples of projects where `cargo` may be the right choice:"
-msgstr ""
+msgstr "以下是一些适合选用 `cargo`，较为宽泛的通用项目示例："
 
 #: src/chromium/cargo.md:61
+#, fuzzy
 msgid ""
 "Perhaps surprisingly, Rust is becoming increasingly popular in the industry "
 "for writing command line tools. The breadth and ergonomics of libraries is "
@@ -12697,6 +12743,9 @@ msgid ""
 "typesystem) and running faster (as a compiled, rather than interpreted "
 "language)."
 msgstr ""
+"可能令人惊讶的是，Rust 在编写命令行工具方面越来越受到业界的欢迎。库在广度和工"
+"效学设计方面与 Python 相当，同时更稳健（得益于丰富的类型系统）且运行速度更快"
+"（作为编译语言而不是解释型语言）。"
 
 #: src/chromium/cargo.md:66
 msgid ""
@@ -12705,26 +12754,33 @@ msgid ""
 "used outside of Chromium (e.g. in Bazel or Android/Soong build environments) "
 "should probably use Cargo."
 msgstr ""
+"如要加入 Rust 生态系统，必须使用 Cargo 等标准 Rust 工具。如果希望库获得外部贡"
+"献，并且能够用于除 Chromium 之外（例如用于 Bazel 或 Android/Soong 构建环境）"
+"的项目，则应该使用 Cargo。"
 
 #: src/chromium/cargo.md:71
 msgid "Examples of Chromium-related projects that are `cargo`\\-based:"
-msgstr ""
+msgstr "基于 `cargo`\\ 的 Chromium 相关项目示例："
 
 #: src/chromium/cargo.md:72
 msgid ""
 "`serde_json_lenient` (experimented with in other parts of Google which "
 "resulted in PRs with performance improvements)"
 msgstr ""
+"`serde_json_lenient`（已在 Google 的其他部分进行了实验，结果是能使 PR 性能得"
+"到提升）"
 
 #: src/chromium/cargo.md:74
 msgid "Fontations libraries like `font-types`"
-msgstr ""
+msgstr "字体库（例如 `font-types`）"
 
 #: src/chromium/cargo.md:75
 msgid ""
 "`gnrt` tool (we will meet it later in the course) which depends on `clap` "
 "for command-line parsing and on `toml` for configuration files."
 msgstr ""
+"`gnrt` 工具（我们将在本课程稍后的部分中加以介绍）使用 `clap` 进行命令行解析，"
+"使用 `toml` 处理配置文件。"
 
 #: src/chromium/cargo.md:77
 msgid ""
@@ -12732,6 +12788,8 @@ msgid ""
 "when building and bootstrapping Rust standard library when building Rust "
 "toolchain.)"
 msgstr ""
+"免责声明：必须使用 `cargo` 的一个原因是在构建 Rust 工具链时，无法使用 `gn` 来"
+"构建和引导 Rust 标准库。）"
 
 #: src/chromium/cargo.md:80
 msgid ""
@@ -12739,12 +12797,15 @@ msgid ""
 "third-party libraries downloaded from the internet, by `run_gnrt.py` asks "
 "`cargo` that only `--locked` content is allowed via `Cargo.lock`.)"
 msgstr ""
+"`run_gnrt.py` 使用 Chromium 的 `cargo` 和 `rustc` 副本。虽然 `gnrt` 依赖于从"
+"互联网下载的第三方库，但 `run_gnrt.py` 规定 `cargo` 仅允许使用 `Cargo.lock` "
+"中以 `--locked` 标记的内容。"
 
 #: src/chromium/cargo.md:84
 msgid ""
 "Students may identify the following items as being implicitly or explicitly "
 "trusted:"
-msgstr ""
+msgstr "学生可将以下内容认定为隐式信任或明确信任："
 
 #: src/chromium/cargo.md:87
 msgid ""
@@ -12752,40 +12813,47 @@ msgid ""
 "Clang compiler, the `rustc` sources (fetched from GitHub, reviewed by Rust "
 "compiler team), binary Rust compiler downloaded for bootstrapping"
 msgstr ""
+"`rustc`（Rust 编译器）则依赖于 LLVM 库、Clang 编译器、“rustc”源代码（从 "
+"GitHub 获取，并由 Rust 编译器团队审核）、为引导而下载的二进制 Rust 编译器"
 
 #: src/chromium/cargo.md:90
 msgid ""
 "`rustup` (it may be worth pointing out that `rustup` is developed under the "
 "umbrella of the https://github.com/rust-lang/ organization - same as `rustc`)"
 msgstr ""
+"`rustup`（值得注意的是，`rustup` 是在 https://github.com/rust-lang/ 保护下组"
+"织开发的，与 `rustc` 相同。）"
 
 #: src/chromium/cargo.md:92
 msgid "`cargo`, `rustfmt`, etc."
-msgstr ""
+msgstr "`cargo`、`rustfmt` 等"
 
 #: src/chromium/cargo.md:93
 msgid ""
 "Various internal infrastructure (bots that build `rustc`, system for "
 "distributing the prebuilt toolchain to Chromium engineers, etc.)"
 msgstr ""
+"各种内部基础架构（用于构建 `rustc` 的聊天机器人、用于将预构建工具链分发给 "
+"Chromium 工程师的系统等。）"
 
 #: src/chromium/cargo.md:95
 msgid "Cargo tools like `cargo audit`, `cargo vet`, etc."
-msgstr ""
+msgstr "`cargo Audit`、`cargo vet` 等 Cargo 工具"
 
 #: src/chromium/cargo.md:96
 msgid ""
 "Rust libraries vendored into `//third_party/rust` (audited by "
 "security@chromium.org)"
 msgstr ""
+"包含到 `//third_party/rust` 的 Rust 库（由 security@chromium.org 进行审核）"
 
 #: src/chromium/cargo.md:98
 msgid "Other Rust libraries (some niche, some quite popular and commonly used)"
-msgstr ""
+msgstr "其他 Rust 库（一些小众但很受欢迎又常用的库）"
 
 #: src/chromium/policy.md:1
 msgid "Chromium Rust policy"
-msgstr ""
+msgstr "Chromium Rust 政策"
 
 #: src/chromium/policy.md:3
 msgid ""
@@ -12793,6 +12861,8 @@ msgid ""
 "approved by Chromium's [Area Tech Leads](https://source.chromium.org/"
 "chromium/chromium/src/+/main:ATL_OWNERS)."
 msgstr ""
+"Chromium 尚不支持使用第一方 Rust，除非是经过 [区域技术主管](https://source."
+"chromium.org/chromium/chromium/src/+/main:ATL_OWNERS) 批准的特殊情况。"
 
 #: src/chromium/policy.md:7
 msgid ""
@@ -12802,6 +12872,10 @@ msgid ""
 "circumstances, including if they're the best option for performance or for "
 "security."
 msgstr ""
+"有关 Chromium 的第三方库政策，请参阅 [此处](https://chromium.googlesource."
+"com/chromium/src/+/main/docs/adding_to_third_party.md#rust)。根据该这些政策，"
+"在很多情况下允许将 Rust 作为第三方库使用，包括无论是在性能还是安全方面，它们"
+"都是理想之选。"
 
 #: src/chromium/policy.md:12
 msgid ""
@@ -12809,6 +12883,8 @@ msgid ""
 "nearly all such libraries will require a small amount of first-party glue "
 "code."
 msgstr ""
+"鲜少有 Rust 库会直接公开 C/C++ API，这意味着几乎所有此类库都需要使用少量的第"
+"一方粘合代码。"
 
 #: src/chromium/policy.md:15
 #, fuzzy
@@ -12863,27 +12939,29 @@ msgid ""
 "First-party Rust glue code for a particular third-party crate should "
 "normally be kept in `third_party/rust/<crate>/<version>/wrapper`."
 msgstr ""
+"特定第三方 crate 的第一方 Rust 粘合代码通常应放在 `third_party/rust/<crate>/"
+"<version>/wrapper` 目录中。"
 
 #: src/chromium/policy.md:33
 msgid "Because of this, today's course will be heavily focused on:"
-msgstr ""
+msgstr "因此，今天的课程将重点介绍以下内容："
 
 #: src/chromium/policy.md:35
 msgid "Bringing in third-party Rust libraries (\"crates\")"
-msgstr ""
+msgstr "引入第三方 Rust 库 (\"crates\")"
 
 #: src/chromium/policy.md:36
 msgid "Writing glue code to be able to use those crates from Chromium C++."
-msgstr ""
+msgstr "编写粘合代码，以便能够从 Chromium C++ 中使用这些 crate。"
 
 #: src/chromium/policy.md:38
 msgid "If this policy changes over time, the course will evolve to keep up."
-msgstr ""
+msgstr "如果此政策随时间而发生变化，则本课程也会随之更新。"
 
 #: src/chromium/build-rules.md:1
 #, fuzzy
 msgid "Build rules"
-msgstr "构建规则"
+msgstr "构建并运行！"
 
 #: src/chromium/build-rules.md:3
 msgid ""
@@ -12891,15 +12969,18 @@ msgid ""
 "`ninja` for efficiency --- its static rules allow maximum parallelism. Rust "
 "is no exception."
 msgstr ""
+"Rust 代码通常使用 `cargo` 构建而成。为提高效率，Chromium 使用 `gn` 和 "
+"`ninja` 进行构建，其静态规则支持实现最大程度的并行处理。Rust 也不例外。"
 
 #: src/chromium/build-rules.md:7
+#, fuzzy
 msgid "Adding Rust code to Chromium"
-msgstr ""
+msgstr "在 Chromium 中添加 Rust 代码"
 
 #: src/chromium/build-rules.md:9
 msgid ""
 "In some existing Chromium `BUILD.gn` file, declare a `rust_static_library`:"
-msgstr ""
+msgstr "在一些现有的 Chromium `BUILD.gn` 文件中，声明 `rust_static_library`："
 
 #: src/chromium/build-rules.md:11
 msgid ""
@@ -12912,12 +12993,21 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"import(\"//build/rust/rust_static_library.gni\")\n"
+"\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [ \"lib.rs\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/build-rules.md:20
 msgid ""
 "You can also add `deps` on other Rust targets. Later we'll use this to "
 "depend upon third party code."
 msgstr ""
+"您还可以在其他 Rust 目标上添加 `deps`。稍后，我们通过该操作来使用第三方代码。"
 
 #: src/chromium/build-rules.md:25
 msgid ""
@@ -12927,12 +13017,17 @@ msgid ""
 "list of all source files which `ninja` needs in order to determine when "
 "rebuilds are necessary."
 msgstr ""
+"您必须 _同时_ 指定 crate 根目录 _和_ 完整的源代码列表。`crate_root` 是供 "
+"Rust 编译器使用的文件，表示编译单元的根文件，通常为 `lib.rs`。`sources` 是所"
+"有源文件的完整列表，`ninja` 需要用它来确定何时该进行重新构建。"
 
 #: src/chromium/build-rules.md:31
 msgid ""
 "(There's no such thing as a Rust `source_set`, because in Rust, an entire "
 "crate is a compilation unit. A `static_library` is the smallest unit.)"
 msgstr ""
+"（在 Rust 中，并不存在所谓的 Rust `source_set`，因为整个 crate 就是一个编译单"
+"元。`static_library` 是最小的单元。）"
 
 #: src/chromium/build-rules.md:34
 msgid ""
@@ -12942,10 +13037,15 @@ msgid ""
 "this template provides support for CXX interop, Rust features, and unit "
 "tests, some of which we'll use later."
 msgstr ""
+"学生可能会疑惑为何我们需要 gn 模板，而不使用 [gn 内置的 Rust 静态库支持]"
+"(https://gn.googlesource.com/gn/+/main/docs/reference."
+"md#func_static_library) 进行操作。原因是此模板支持 CXX 互操作性、各项 Rust 功"
+"能以及单元测试，我们稍后便会用到其中的一些功能。"
 
 #: src/chromium/build-rules/unsafe.md:1
+#, fuzzy
 msgid "Including `unsafe` Rust Code"
-msgstr ""
+msgstr "添加 `unsafe` Rust 代码"
 
 #: src/chromium/build-rules/unsafe.md:3
 msgid ""
@@ -12954,6 +13054,9 @@ msgid ""
 "the gn target. (Later in the course we'll see circumstances where this is "
 "necessary.)"
 msgstr ""
+"默认情况下，禁止在 `rust_static_library` 中使用不安全的 Rust 代码，因为此类代"
+"码无法编译。如需使用不安全的 Rust 代码，请将 `allow_unsafe = true` 添加到 gn "
+"目标中。（在本课程的稍后部分，我们将介绍在哪些情形下必须这样做。）"
 
 #: src/chromium/build-rules/unsafe.md:7
 msgid ""
@@ -12970,10 +13073,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"import(\"//build/rust/rust_static_library.gni\")\n"
+"\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [\n"
+"    \"lib.rs\",\n"
+"    \"hippopotamus.rs\"\n"
+"  ]\n"
+"  allow_unsafe = true\n"
+"}\n"
+"```"
 
 #: src/chromium/build-rules/depending.md:3
 msgid "Simply add the above target to the `deps` of some Chromium C++ target."
-msgstr ""
+msgstr "只需将上述目标添加到某些 Chromium C++ 目标的 `deps` 中即可。"
 
 #: src/chromium/build-rules/depending.md:5
 msgid ""
@@ -12991,62 +13106,90 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"import(\"//build/rust/rust_static_library.gni\")\n"
+"\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [ \"lib.rs\" ]\n"
+"}\n"
+"\n"
+"# or source_set, static_library etc.\n"
+"component(\"preexisting_cpp\") {\n"
+"  deps = [ \":my_rust_lib\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/build-rules/vscode.md:3
 msgid ""
 "Types are elided in Rust code, which makes a good IDE even more useful than "
 "for C++. Visual Studio code works well for Rust in Chromium. To use it,"
 msgstr ""
+"在 Rust 代码中，通常会省略类型，这使得拥有强大的 IDE 甚至比 C++ 更为有用。"
+"Visual Studio Code 非常适用于在 Chromium 中处理 Rust 代码。如需使用此功能，"
 
 #: src/chromium/build-rules/vscode.md:6
 msgid ""
 "Ensure your VSCode has the `rust-analyzer` extension, not earlier forms of "
 "Rust support"
 msgstr ""
+"请确保您的 VSCode 安装了 `rust-analyzer` 扩展程序，而不是较早版本的 Rust 支持"
+"插件。"
 
 #: src/chromium/build-rules/vscode.md:8
 msgid ""
 "`gn gen out/Debug --export-rust-project` (or equivalent for your output "
 "directory)"
-msgstr ""
+msgstr "`gn gen out/Debug --export-rust-project`（或输出目录的等效项）"
 
 #: src/chromium/build-rules/vscode.md:10
 msgid "`ln -s out/Debug/rust-project.json rust-project.json`"
-msgstr ""
+msgstr "`In -s out/Debug/rust-project.json rust-project.json`"
 
 #: src/chromium/build-rules/vscode.md:16
 msgid ""
 "A demo of some of the code annotation and exploration features of rust-"
 "analyzer might be beneficial if the audience are naturally skeptical of IDEs."
 msgstr ""
+"如果受众群体对 IDE 持有怀疑态度，不妨演示下 rust-analyzer 的部分代码注解和探"
+"索功能，或许能让他们改观。"
 
 #: src/chromium/build-rules/vscode.md:19
 msgid ""
 "The following steps may help with the demo (but feel free to instead use a "
 "piece of Chromium-related Rust that you are most familiar with):"
 msgstr ""
+"以下步骤可能会对演示有所帮助（但您也可以选用一段最为熟悉的 Chromium 相关 "
+"Rust 代码）："
 
 #: src/chromium/build-rules/vscode.md:22
 msgid "Open `components/qr_code_generator/qr_code_generator_ffi_glue.rs`"
-msgstr ""
+msgstr "打开 `components/qr_code_generator/qr_code_generator_ffi_glue.rs`"
 
 #: src/chromium/build-rules/vscode.md:23
 msgid ""
 "Place the cursor over the `QrCode::new` call (around line 26) in "
 "\\`qr_code_generator_ffi_glue.rs"
 msgstr ""
+"将光标置于 \\`qr_code_generator_ffi_glue.rs 中的 `QrCode::new` 调用（大约第 "
+"26 行）上"
 
 #: src/chromium/build-rules/vscode.md:25
+#, fuzzy
 msgid ""
 "Demo **show documentation** (typical bindings: vscode = ctrl k i; vim/CoC = "
 "K)."
 msgstr ""
+"演示 **show documentation**（典型绑定：vscode = ctrl ki；vim/CoC = K）。"
 
 #: src/chromium/build-rules/vscode.md:27
+#, fuzzy
 msgid ""
 "Demo **go to definition** (typical bindings: vscode = F12; vim/CoC = g d). "
 "(This will take you to `//third_party/rust/.../qr_code-.../src/lib.rs`.)"
 msgstr ""
+"演示 **go to definition**（典型绑定：vscode = F12；vim/CoC = gd）。（然后您会"
+"前往 `//third_party/rust/.../qr_code-.../src/lib.rs`。）"
 
 #: src/chromium/build-rules/vscode.md:29
 msgid ""
@@ -13054,12 +13197,15 @@ msgid ""
 "164; the outline is in the file explorer pane in vscode; typical vim/CoC "
 "bindings = space o)"
 msgstr ""
+"演示 **outline** 并前往 `QrCode::with_bits` 方法（大约第 164 行；大纲位于 "
+"vscode 中的文件资源管理器窗格中；典型绑定：vim/CoC = space o）"
 
 #: src/chromium/build-rules/vscode.md:32
 msgid ""
 "Demo **type annotations** (there are quote a few nice examples in the "
 "`QrCode::with_bits` method)"
 msgstr ""
+"演示 **type annotations**（`QrCode::with_bits` 方法中提供了一些很好的示例）"
 
 #: src/chromium/build-rules/vscode.md:35
 msgid ""
@@ -13067,17 +13213,20 @@ msgid ""
 "need to be rerun after editing `BUILD.gn` files (which we will do a few "
 "times throughout the exercises in this session)."
 msgstr ""
+"值得注意的是，修改 `BUILD.gn` 文件后，需要重新运行 `gn gen ... --export-rust-"
+"project`（我们将在本课程的练习中多次执行该操作）。"
 
 #: src/exercises/chromium/build-rules.md:1
 #, fuzzy
 msgid "Build rules exercise"
-msgstr "构建规则"
+msgstr "练习简介"
 
 #: src/exercises/chromium/build-rules.md:3
 msgid ""
 "In your Chromium build, add a new Rust target to `//ui/base/BUILD.gn` "
 "containing:"
 msgstr ""
+"在 Chromium build 中，向 `//ui/base/BUILD.gn` 添加新的 Rust 目标，其中包含："
 
 #: src/exercises/chromium/build-rules.md:13
 msgid ""
@@ -13085,6 +13234,8 @@ msgid ""
 "by the Rust compiler, so you'll need to to allow unsafe code in your `gn` "
 "target."
 msgstr ""
+"**重要提示**：请注意，在此处使用 `no_mangle` 会被Rust 编译器视为一种不安全行"
+"为，因此需要允许在“gn”目标中使用不安全的代码。"
 
 #: src/exercises/chromium/build-rules.md:16
 msgid ""
@@ -13092,6 +13243,9 @@ msgid ""
 "function at the top of `ui/base/resource/resource_bundle.cc` (later, we'll "
 "see how this can be automated by bindings generation tools):"
 msgstr ""
+"将这个新的 Rust 目标添加为 `//ui/base:base` 的依赖项。在 `ui/base/resource/"
+"resource_bundle.cc` 顶部声明此函数（稍后，我们将介绍如何通过绑定生成工具来自"
+"动执行此操作）："
 
 #: src/exercises/chromium/build-rules.md:24
 msgid ""
@@ -13100,6 +13254,9 @@ msgid ""
 "and run Chromium, and ensure that \"Hello from Rust!\" is printed lots of "
 "times."
 msgstr ""
+"从 `ui/base/resource/resource_bundle.cc` 中的某个位置调用此函数，我们建议在"
+"从 `ResourceBundle::MaybeMangleLocalizedString` 的顶部调用此函数。构建并运行 "
+"Chromium，并确保多次显示 \"Hello from Rust!\"。"
 
 #: src/exercises/chromium/build-rules.md:28
 msgid ""
@@ -13107,11 +13264,14 @@ msgid ""
 "in subsequent exercises. If you've succeeded, you will be able to use right-"
 "click \"Go to definition\" on `println!`."
 msgstr ""
+"如果您使用 VSCode，现在就请设置 Rust，以便其能在 VSCode 中正常运行。这对后续"
+"练习会很有帮助。如果操作成功，则可使用右键点击 `println!` 上的 \"Go to "
+"definition\"。"
 
 #: src/exercises/chromium/build-rules.md:32
 #: src/exercises/chromium/interoperability-with-cpp.md:48
 msgid "Where to find help"
-msgstr ""
+msgstr "如何获取帮助"
 
 #: src/exercises/chromium/build-rules.md:34
 msgid ""
@@ -13119,30 +13279,40 @@ msgid ""
 "source.chromium.org/chromium/chromium/src/+/main:build/rust/"
 "rust_static_library.gni;l=16)"
 msgstr ""
+"适用于 [`rust_static_library` gn 模板] 的选项 (https://source.chromium.org/"
+"chromium/chromium/src/+/main:build/rust/rust_static_library.gni;l=16)"
 
 #: src/exercises/chromium/build-rules.md:35
 msgid ""
 "Information about [`#[no_mangle]`](https://doc.rust-lang.org/beta/reference/"
 "abi.html#the-no_mangle-attribute)"
 msgstr ""
+"关于 [`#[no_mangle]`] 的详细信息 (https://doc.rust-lang.org/beta/reference/"
+"abi.html#the-no_mangle-attribute)"
 
 #: src/exercises/chromium/build-rules.md:36
 msgid ""
 "Information about [`extern \"C\"`](https://doc.rust-lang.org/std/keyword."
 "extern.html)"
 msgstr ""
+"关于 [`extern \"C\"`] 的详细信息 (https://doc.rust-lang.org/std/keyword."
+"extern.html)"
 
 #: src/exercises/chromium/build-rules.md:37
 msgid ""
 "Information about gn's [`--export-rust-project`](https://gn.googlesource.com/"
 "gn/+/main/docs/reference.md#compilation-database) switch"
 msgstr ""
+"关于 gn 的 [`--export-rust-project`] 开关的详细信息 (https://gn.googlesource."
+"com/gn/+/main/docs/reference.md#compilation-database) "
 
 #: src/exercises/chromium/build-rules.md:38
 msgid ""
 "[How to install rust-analyzer in VSCode](https://code.visualstudio.com/docs/"
 "languages/rust)"
 msgstr ""
+"[如何在 VSCode 中安装 rust-analyzer](https://code.visualstudio.com/docs/"
+"languages/rust)"
 
 #: src/exercises/chromium/build-rules.md:44
 msgid ""
@@ -13151,6 +13321,9 @@ msgid ""
 "call C ABI functions. Later in the course, we'll connect C++ directly to "
 "Rust."
 msgstr ""
+"此示例很独特，因为其归根结底是最通用的互操作语言，即 C 语言。C++ 和 Rust 本身"
+"都可以声明和调用 C ABI 函数。在本课程的稍后部分，我们会直接将 C++ 和 Rust 关"
+"联起来。"
 
 #: src/exercises/chromium/build-rules.md:48
 msgid ""
@@ -13158,12 +13331,15 @@ msgid ""
 "Rust to generate two functions with the same name, and Rust can no longer "
 "guarantee that the right one is called."
 msgstr ""
+"此处需要使用 `allow_unsafe = true`，因为 `#[no_mangle]` 可能会支持 Rust 生成"
+"两个同名函数，而 Rust 无法保证会调用正确的函数。"
 
 #: src/exercises/chromium/build-rules.md:52
 msgid ""
 "If you need a pure Rust executable, you can also do that using the "
 "`rust_executable` gn template."
 msgstr ""
+"如果需要纯 Rust 可执行文件，也可以使用 `rust_executable` gn 模板执行此操作。"
 
 #: src/chromium/testing.md:3
 msgid ""
@@ -13312,8 +13488,9 @@ msgid ""
 msgstr ""
 
 #: src/chromium/testing/chromium-import-macro.md:12
+#, fuzzy
 msgid "\"//ui/base:my_rust_lib\""
-msgstr ""
+msgstr "\"ui/base/my_rust_file.rs.h\""
 
 #: src/chromium/testing/chromium-import-macro.md:18
 msgid "Under the covers the macro expands to something similar to:"
@@ -13342,8 +13519,9 @@ msgid "Testing exercise"
 msgstr "习题"
 
 #: src/exercises/chromium/testing.md:3
+#, fuzzy
 msgid "Time for another exercise!"
-msgstr ""
+msgstr "练习简介"
 
 #: src/exercises/chromium/testing.md:5
 msgid "In your Chromium build:"
@@ -13374,6 +13552,8 @@ msgid ""
 "tools being developed all the time. At the moment, Chromium uses a tool "
 "called CXX."
 msgstr ""
+"Rust 社区提供了多种 C++/Rust 互操作选项，并且一直在不断开发新工具。目前，"
+"Chromium 使用一种名为 CXX 的工具。"
 
 #: src/chromium/interoperability-with-cpp.md:6
 msgid ""
@@ -13381,6 +13561,8 @@ msgid ""
 "language (which looks a lot like Rust) and then CXX tools generate "
 "declarations for functions and types in both Rust and C++."
 msgstr ""
+"您可以使用接口定义语言（与 Rust 极为相似）描述整个语言边界，然后 CXX 工具会据"
+"此生成 Rust 和 C++ 函数及类型的声明。"
 
 #: src/chromium/interoperability-with-cpp.md:12
 #, fuzzy
@@ -13397,6 +13579,8 @@ msgid ""
 "the same as you previously did. Point out that automating the process has "
 "the following benefits:"
 msgstr ""
+"请仔细研究这个图表。解释背后的原理和您之前所做的完全相同。说明自动执行这一流"
+"程具有以下好处："
 
 #: src/chromium/interoperability-with-cpp.md:23
 msgid ""
@@ -13405,6 +13589,9 @@ msgid ""
 "definitions, but with out-of-sync manual bindings you'd get Undefined "
 "Behavior)"
 msgstr ""
+"使用该工具可保证 C++ 端和 Rust 端相匹配（例如，如果 `#[cxx::bridge]` 与实际"
+"的 C++ 或 Rust 定义不匹配，则会出现编译错误。但使用不同步的手动绑定，可能会导"
+"致未定义行为）"
 
 #: src/chromium/interoperability-with-cpp.md:27
 msgid ""
@@ -13413,10 +13600,13 @@ msgid ""
 "methods; manual bindings would require authoring such top-level, free "
 "functions manually)"
 msgstr ""
+"该工具还可自动生成 FFI thunk（即小型但可兼容 C-ABI 的自由函数），以便适应非 "
+"C 语言特性（例如，启用对 Rust 或 C++ 方法的 FFI 调用；而手动实现绑定一般需要"
+"自行编写这种顶级的自由函数）"
 
 #: src/chromium/interoperability-with-cpp.md:31
 msgid "The tool and the library can handle a set of core types - for example:"
-msgstr ""
+msgstr "该工具和库可以处理一系列核心类型，例如："
 
 #: src/chromium/interoperability-with-cpp.md:32
 msgid ""
@@ -13426,6 +13616,9 @@ msgid ""
 "pointer and length - this is error-prone given that each language represents "
 "empty slices slightly differently)"
 msgstr ""
+"`&[T]` 可以跨 FFI 边界进行传递，即使它无法保证任何特定的 ABI 或内存布局一致无"
+"误。进行手动绑定时，必须手动解构 `std::span<T>` / `&[T]`，并根据指针和长度进"
+"行重新构建，但这很容易出错，因为每种语言对于空 slice 的表示方式略有不同"
 
 #: src/chromium/interoperability-with-cpp.md:37
 msgid ""
@@ -13434,6 +13627,9 @@ msgid ""
 "compatible raw pointers, which would increase lifetime and memory-safety "
 "risks."
 msgstr ""
+"系统对 `std::unique_ptr<T>`、`std::shared_ptr<T>` 和/或 `Box` 等智能指针提供"
+"原生支持。如果使用手动绑定，则必须传递可兼容 C-ABI 的原始指针，这会增加生命周"
+"期和内存安全风险。"
 
 #: src/chromium/interoperability-with-cpp.md:41
 msgid ""
@@ -13442,24 +13638,30 @@ msgid ""
 "build a Rust string from non-UTF8 input and `rust::String::c_str` can NUL-"
 "terminate a string)."
 msgstr ""
+"`rust::String` 和 `CxxString` 类型能够识别并处理不同语言之间在字符串表示方面"
+"的差异（例如，`rust::String::lossy` 可以通过非 UTF8 输入构建 Rust 字符串；"
+"`rust::String::c_str` 可以为字符串加上 NUL 终止符）。"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:3
+#, fuzzy
 msgid ""
 "CXX requires that the whole C++/Rust boundary is declared in `cxx::bridge` "
 "modules inside `.rs` source code."
 msgstr ""
+"根据 CXX 要求，在 `.rs` 源代码内的 `cxx::bridge` “模块”中声明整个 C++/Rust 边"
+"界。"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:16
 msgid "\"example/include/blobstore.h\""
-msgstr ""
+msgstr "\"example/include/blobstore.h\""
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:24
 msgid "// Definitions of Rust types and functions go here\n"
-msgstr ""
+msgstr "// Definitions of Rust types and functions go here\n"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:30
 msgid "Point out:"
-msgstr ""
+msgstr "指出："
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:32
 msgid ""
@@ -13470,21 +13672,22 @@ msgid ""
 msgstr ""
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:36
+#, fuzzy
 msgid "Native support for C++'s `std::unique_ptr` in Rust"
-msgstr ""
+msgstr "RRust 对 C++ 的 `std::unique_ptr` 提供原生支持"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:37
 #, fuzzy
 msgid "Native support for Rust slices in C++"
-msgstr "对测试的内置支持。"
+msgstr "RRust 对 C++ 的 `std::unique_ptr` 提供原生支持"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:38
 msgid "Calls from C++ to Rust, and Rust types (in the top part)"
-msgstr ""
+msgstr "从 C++ 调用 Rust，并使用 Rust 类型（顶部位置）"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:39
 msgid "Calls from Rust to C++, and C++ types (in the bottom part)"
-msgstr ""
+msgstr "从 Rust 调用 C++，并使用 C++ 类型（底部位置）"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:41
 msgid ""
@@ -13493,6 +13696,9 @@ msgid ""
 "simply `#include`d in the generated C++ code for the benefit of C++ "
 "compilers."
 msgstr ""
+"**常见误解**：这 _看似_ Rust 在解析 C++ 头文件，其实具有误导性。Rust 不会对此"
+"头文件进行解释，只是在生成的 C++ 代码中添加 `#include`，以便于 C++ 编译器 使"
+"用。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:3
 #, fuzzy
@@ -13503,25 +13709,27 @@ msgstr "展示 [Rust 和 C++类型](https://cxx.rs/bindings.html) 之间的对�
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:5
 msgid "CXX fundamentally suits cases where:"
-msgstr ""
+msgstr "CXX 基本适用于以下情况："
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:7
 msgid ""
 "Your Rust-C++ interface is sufficiently simple that you can declare all of "
 "it."
-msgstr ""
+msgstr "您的 Rust-C++ 接口非常简单，可以声明其中的全部内容。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:8
 msgid ""
 "You're using only the types natively supported by CXX already, for example "
 "`std::unique_ptr`, `std::string`, `&[u8]` etc."
 msgstr ""
+"目前，您只使用了 CXX 提供原生支持的类型，例如 `std::unique_ptr`、`std::"
+"string`、`&[u8]` 等。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:11
 msgid ""
 "It has many limitations --- for example lack of support for Rust's `Option` "
 "type."
-msgstr ""
+msgstr "这样具有很多局限性，例如缺少对 Rust 的 `Option` 类型的支持。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:14
 msgid ""
@@ -13531,27 +13739,33 @@ msgid ""
 "draft the CXX bindings for the language boundary to see if it appears simple "
 "enough."
 msgstr ""
+"由于这些局限，我们在 Chromium 中只能将 Rust 用于隔离紧密的 “叶节点”，而无法用"
+"于任意的 Rust-C++ 互操作。当您打算在 Chromium 中探索 Rust 的应用场景时，推荐"
+"先从拟定针对语言边界的 CXX 绑定入手，以查看该语言边界是否足够简单明了。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:26
 msgid ""
 "You should also discuss some of the other sticky points with CXX, for "
 "example:"
-msgstr ""
+msgstr "此外，还应讨论使用 CXX 时的其他一些困难之处，例如："
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:28
 msgid ""
 "Its error handling is based around C++ exceptions (given on the next slide)"
-msgstr ""
+msgstr "其根据 C++ 异常来进行错误处理（下一张幻灯片中将加以介绍）"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:29
 msgid "Function pointers are awkward to use."
-msgstr ""
+msgstr "函数指针使用起来很不方便。"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md:3
+#, fuzzy
 msgid ""
 "CXX's [support for `Result<T,E>`](https://cxx.rs/binding/result.html) relies "
 "on C++ exceptions, so we can't use that in Chromium. Alternatives:"
 msgstr ""
+"CXX 对于 `Result<T,E>` 类型的支持取决于 C++ 异常机制，因此无法在 Chromium 中"
+"使用该功能。替代选项："
 
 #: src/chromium/interoperability-with-cpp/error-handling.md:6
 msgid "The `T` part of `Result<T, E>` can be:"
@@ -13602,6 +13816,7 @@ msgid "CXX Error Handling: QR Example"
 msgstr "错误处理"
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md:3
+#, fuzzy
 msgid ""
 "The QR code generator is [an example](https://source.chromium.org/chromium/"
 "chromium/src/+/main:components/qr_code_generator/qr_code_generator_ffi_glue."
@@ -13609,10 +13824,14 @@ msgid ""
 "used to communicate success vs failure, and where the successful result can "
 "be passed across the FFI boundary:"
 msgstr ""
+"如果操作成功，则可用简单的布尔值进行表示，如 [二维码生成器](https://source."
+"chromium.org/chromium/chromium/src/+/main:components/qr_code_generator/"
+"qr_code_generator_ffi_glue.rs;l=10) 中的原理一样：返回表示操作成功的布尔值，"
+"并使用输出参数记录结果："
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md:8
 msgid "\"qr_code_generator\""
-msgstr ""
+msgstr "\"qr_code_generator\""
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md:23
 msgid ""
@@ -13685,8 +13904,9 @@ msgid ""
 msgstr ""
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:1
+#, fuzzy
 msgid "Using cxx in Chromium"
-msgstr ""
+msgstr "在 Chromium 中使用 CXX"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:3
 msgid ""
@@ -13694,6 +13914,8 @@ msgid ""
 "node where we want to use Rust. You'd typically have one for each "
 "`rust_static_library`. Just add"
 msgstr ""
+"在 Chromium 中，针对每个需要使用 Rust 的叶节点，我们定义独立的 `#[cxx::"
+"bridge] mod`。通常，每个 `rust_static_library` 都有对应的定义。只需将"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:7
 msgid ""
@@ -13703,20 +13925,27 @@ msgid ""
 "allow_unsafe = true\n"
 "```"
 msgstr ""
+"```gn\n"
+"cxx_bindings = [ \"my_rust_file.rs\" ]\n"
+"   # list of files containing #[cxx::bridge], not all source files\n"
+"allow_unsafe = true\n"
+"```"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:13
 msgid ""
 "to your existing `rust_static_library` target alongside `crate_root` and "
 "`sources`."
 msgstr ""
+"添加到您现有的 `rust_static_library` 以及 `crate_root` 和 `sources` 的目标"
+"中。"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:16
 msgid "C++ headers will be generated at a sensible location, so you can just"
-msgstr ""
+msgstr "C++ 头文件会在合理的位置生成，因此您只需"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:19
 msgid "\"ui/base/my_rust_file.rs.h\""
-msgstr ""
+msgstr "\"ui/base/my_rust_file.rs.h\""
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:22
 msgid ""
@@ -13725,10 +13954,13 @@ msgid ""
 "source.chromium.org/chromium/chromium/src/+/main:base/containers/span_rust.h;"
 "l=21)."
 msgstr ""
+"您会发现，`//base` 中提供了一些实用函数，可将 Chromium C++ 类型与 CXX Rust 类"
+"型相互转换，例如 [`SpanToRustSlice`](https://source.chromium.org/chromium/"
+"chromium/src/+/main:base/containers/span_rust.h;l=21)。"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:27
 msgid "Students may ask --- why do we still need `allow_unsafe = true`?"
-msgstr ""
+msgstr "学生可能会问：为什么我们仍然需要 `allow_unsafe = true`？"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:29
 msgid ""
@@ -13740,14 +13972,22 @@ msgid ""
 "writing/the-cxx-debate), but strictly, bringing any foreign code into a Rust "
 "binary can cause unexpected behavior from Rust's perspective."
 msgstr ""
+"总的来说，按照常规 Rust 标准，没有任何 C/C++ 代码是 “安全”的。在 Rust 中来回"
+"调用 C/C++ 可能会对内存执行任意操作，并危及 Rust 自身数据布局的安全性。如果 "
+"C/C++ 互操作性中出现 _过多_ 的 `unsafe` 关键字，可能会损害此类关键字的信噪"
+"比，并且 [存在争议](https://steveklabnik.com/writing/the-cxx-debate)。但严格"
+"地说，将任何外部代码引入 Rust 二进制文件可能会导致 Rust 中出现意外行为。"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:36
+#, fuzzy
 msgid ""
 "The narrow answer lies in the diagram at the top of [this page](../"
 "interoperability-with-cpp.md) --- behind the scenes, CXX generates Rust "
 "`unsafe` and `extern \"C\"` functions just like we did manually in the "
 "previous section."
 msgstr ""
+"具体答案可在本页顶部的图表中找到：CXX 会在后台生成 Rust `unsafe` 和 `extern "
+"\"C\"` 函数，与我们在上一部分手动生成的函数类似。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:1
 #, fuzzy
@@ -13756,7 +13996,7 @@ msgstr "与 C 的互操作性"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:3
 msgid "Part one"
-msgstr ""
+msgstr "第一部分"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:5
 msgid ""
@@ -13764,36 +14004,43 @@ msgid ""
 "specifies a single function, to be called from C++, called "
 "`hello_from_rust`, taking no parameters and returning no value."
 msgstr ""
+"在您之前创建的 Rust 文件中，添加 `#[cxx::bridge]` 来指定一个将从 C++ 调用的函"
+"数（名为 `hello_from_rust`），该函数不接受任何参数也不返回任何值。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:8
 msgid ""
 "Modify your previous `hello_from_rust` function to remove `extern \"C\"` and "
 "`#[no_mangle]`. This is now just a standard Rust function."
 msgstr ""
+"修改之前的 `hello_from_rust` 函数，移除 `extern \"C\"` 和 `#[no_mangle]`。现"
+"在，这只是一个标准的 Rust 函数。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:10
 msgid "Modify your `gn` target to build these bindings."
-msgstr ""
+msgstr "请修改 `gn` 目标以构建这些绑定。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:11
 msgid ""
 "In your C++ code, remove the forward-declaration of `hello_from_rust`. "
 "Instead, include the generated header file."
 msgstr ""
+"在 C++ 代码中，移除 `hello_from_rust` 的正向声明，然后添加生成的头文件。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:13
+#, fuzzy
 msgid "Build and run!"
-msgstr ""
+msgstr "构建并运行！"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:15
 msgid "Part two"
-msgstr ""
+msgstr "第二部分"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:17
 msgid ""
 "It's a good idea to play with CXX a little. It helps you think about how "
 "flexible Rust in Chromium actually is."
 msgstr ""
+"建议尝试操作一下 CXX。这有助于您更好地理解 Rust 在Chromium 中的灵活性。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:20
 #, fuzzy
@@ -13802,13 +14049,15 @@ msgstr "一些注意事项："
 
 #: src/exercises/chromium/interoperability-with-cpp.md:22
 msgid "Call back into C++ from Rust. You will need:"
-msgstr ""
+msgstr "从 Rust 回调到 C++。您需要执行以下操作："
 
 #: src/exercises/chromium/interoperability-with-cpp.md:23
 msgid ""
 "An additional header file which you can `include!` from your `cxx::bridge`. "
 "You'll need to declare your C++ function in that new header file."
 msgstr ""
+"创建一个附加头文件，且您可以从 `cxx::bridge` 对其进行 `include!` 操作。您需要"
+"在这个新的头文件中声明要调用的 C++ 函数。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:25
 msgid ""
@@ -13816,56 +14065,65 @@ msgid ""
 "`unsafe` keyword in your `#[cxx::bridge]` [as described here](https://cxx.rs/"
 "extern-c++.html#functions-and-member-functions)."
 msgstr ""
+"创建一个 `unsafe` 代码块，用于调用此类函数，也可以在 `#[cxx::bridge]` 中指定 "
+"`unsafe` 关键字，[如此处所述](https://cxx.rs/extern-c++.html#functions-and-"
+"member-functions)。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:27
 msgid ""
 "You may also need to `#include \"third_party/rust/cxx/v1/crate/include/cxx."
 "h\"`"
 msgstr ""
+"您可能还需要添加 `#include \"third_party/rust/cxx/v1/crate/include/cxx.h\"`"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:29
 msgid "Pass a C++ string from C++ into Rust."
-msgstr ""
+msgstr "将 C++ 字符串从 C++ 传递到 Rust。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:30
 msgid "Pass a reference to a C++ object into Rust."
-msgstr ""
+msgstr "将对 C++ 对象的引用传递到 Rust。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:31
 msgid ""
 "Intentionally get the Rust function signatures mismatched from the `#[cxx::"
 "bridge]`, and get used to the errors you see."
 msgstr ""
+"刻意让 Rust 函数签名与 `#[cxx::bridge]` 不匹配，并逐渐熟悉所看到的错误信息。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:33
 msgid ""
 "Intentionally get the C++ function signatures mismatched from the `#[cxx::"
 "bridge]`, and get used to the errors you see."
-msgstr ""
+msgstr "刻意让 C++ 函数签名与 `#[cxx::bridge]` 不匹配，并适应您看到的错误。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:35
 msgid ""
 "Pass a `std::unique_ptr` of some type from C++ into Rust, so that Rust can "
 "own some C++ object."
 msgstr ""
+"将某个类型的 `std::unique_ptr` 从 C++ 传递到 Rust，以便 Rust 拥有某个 C++ 对"
+"象的所有权。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:37
 msgid ""
 "Create a Rust object and pass it into C++, so that C++ owns it. (Hint: you "
 "need a `Box`)."
 msgstr ""
+"创建一个 Rust 对象并将其传递到 C++，以便 C++ 拥有它的所有权。（提示：您需要使"
+"用 `Box`）。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:39
 msgid "Declare some methods on a C++ type. Call them from Rust."
-msgstr ""
+msgstr "声明调用某个 C++ 类型的方法。从 Rust 调用它们。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:40
 msgid "Declare some methods on a Rust type. Call them from C++."
-msgstr ""
+msgstr "声明调用某个 Rust 类型的方法。从 C++ 调用它们。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:42
 msgid "Part three"
-msgstr ""
+msgstr "第三部分"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:44
 msgid ""
@@ -13873,6 +14131,8 @@ msgid ""
 "couple of use-cases for Rust in Chromium where the interface would be "
 "sufficiently simple. Sketch how you might define that interface."
 msgstr ""
+"现在，您已经了解了 CXX 互操作性的优势和局限，请思考几个 Rust 在 Chromium 中的"
+"应用场景，其中接口要足够简单构思该如何定义该接口。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:50
 #, fuzzy
@@ -13884,10 +14144,12 @@ msgid ""
 "The [`rust_static_library` gn template](https://source.chromium.org/chromium/"
 "chromium/src/+/main:build/rust/rust_static_library.gni;l=16)"
 msgstr ""
+"[`rust_static_library` gn 模板](https://source.chromium.org/chromium/"
+"chromium/src/+/main:build/rust/rust_static_library.gni;l=16)"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:57
 msgid "Some of the questions you may encounter:"
-msgstr ""
+msgstr "您可能会遇到以下问题："
 
 #: src/exercises/chromium/interoperability-with-cpp.md:59
 msgid ""
@@ -13895,6 +14157,8 @@ msgid ""
 "and Y are both function types. This is because your C++ function doesn't "
 "quite match the declaration in your `cxx::bridge`."
 msgstr ""
+"当我用类型 Y 初始化类型 X 的变量时，出现了初始化问题，其中 X 和 Y 都是函数类"
+"型。这是因为您的 C++ 函数实现与 `cxx::bridge` 中的声明并不完全一致。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:62
 msgid ""
@@ -13903,6 +14167,9 @@ msgid ""
 "sized. For CXX trivial types yes, it's _possible_ to cause UB, although "
 "CXX's design makes it quite difficult to craft such an example."
 msgstr ""
+"我好像能随意将 C++ 引用转换为 Rust 引用。这样不会导致 UB 风险吗？对于 CXX 的_"
+"不透明_类型，答案为否，因为它们的大小为零。对于 CXX 的基本类型，确实_有可能_"
+"导致 UB，但鉴于 CXX 的设计策略，要构建能导致这种情况的示例颇为困难。"
 
 #: src/chromium/adding-third-party-crates.md:3
 msgid ""
@@ -13910,6 +14177,8 @@ msgid ""
 "crates.io). It's _very easy_ for Rust crates to depend upon one another. So "
 "they do!"
 msgstr ""
+"Rust 库被称为 `crate`，可在 [crates.io](https://crates.io) 中找到。Rust 的 "
+"crate 之间非常容易相互依赖。事实证明，他们确实如此！"
 
 #: src/chromium/adding-third-party-crates.md:6
 #, fuzzy
@@ -13929,67 +14198,68 @@ msgstr "Rust 生态系统"
 #: src/chromium/adding-third-party-crates.md:8
 #: src/chromium/adding-third-party-crates.md:10
 msgid "Lots"
-msgstr ""
+msgstr "超过十亿"
 
 #: src/chromium/adding-third-party-crates.md:8
 msgid "Consistent: `Cargo.toml`"
-msgstr ""
+msgstr "保持一致：`Cargo.toml`"
 
 #: src/chromium/adding-third-party-crates.md:9
 msgid "Typical library size"
-msgstr ""
+msgstr "典型库的大小"
 
 #: src/chromium/adding-third-party-crates.md:9
 msgid "Large-ish"
-msgstr ""
+msgstr "大"
 
 #: src/chromium/adding-third-party-crates.md:9
 msgid "Small"
-msgstr ""
+msgstr "小"
 
 #: src/chromium/adding-third-party-crates.md:10
 msgid "Transitive dependencies"
-msgstr ""
+msgstr "传递依赖项"
 
 #: src/chromium/adding-third-party-crates.md:10
 msgid "Few"
-msgstr ""
+msgstr "很少"
 
 #: src/chromium/adding-third-party-crates.md:12
 msgid "For a Chromium engineer, this has pros and cons:"
-msgstr ""
+msgstr "对于 Chromium 工程师来说，这种依赖关系具有以下利弊："
 
 #: src/chromium/adding-third-party-crates.md:14
 msgid ""
 "All crates use a common build system so we can automate their inclusion into "
 "Chromium..."
 msgstr ""
+"所有 crate 都使用共同的构建系统，这样我们就可以自动将其收录到 Chromium 中..."
 
 #: src/chromium/adding-third-party-crates.md:16
 msgid ""
 "... but, crates typically have transitive dependencies, so you will likely "
 "have to bring in multiple libraries."
-msgstr ""
+msgstr "...但是，crate 通常具有传递依赖项，因此可能需要引入多个库。"
 
 #: src/chromium/adding-third-party-crates.md:19
 msgid "We'll discuss:"
-msgstr ""
+msgstr "我们将讨论以下内容："
 
 #: src/chromium/adding-third-party-crates.md:21
 msgid "How to put a crate in the Chromium source code tree"
-msgstr ""
+msgstr "如何将 crate 添加到 Chromium 源代码树中"
 
 #: src/chromium/adding-third-party-crates.md:22
 msgid "How to make `gn` build rules for it"
-msgstr ""
+msgstr "如何为其制定 `gn` 构建规则"
 
 #: src/chromium/adding-third-party-crates.md:23
 msgid "How to audit its source code for sufficient safety."
-msgstr ""
+msgstr "如何审核其源代码以确保足够的安全性。"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md:1
 msgid "Configuring the `Cargo.toml` file to add crates"
-msgstr ""
+msgstr "配置 `Cargo.tom` 文件以添加 crate"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md:3
 msgid ""
@@ -13998,6 +14268,9 @@ msgid ""
 "org/chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/Cargo."
 "toml):"
 msgstr ""
+"Chromium 具有一组集中管理的直接 crate 依赖项。这些依赖项通过单独的 [`Cargo."
+"toml`](https://source.chromium.org/chromium/chromium/src/+/main:third_party/"
+"rust/chromium_crates_io/Cargo.toml) 文件进行管理："
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md:6
 msgid ""
@@ -14009,6 +14282,13 @@ msgid ""
 "# lots more...\n"
 "```"
 msgstr ""
+"```toml\n"
+"[dependencies]\n"
+"bitflags = \"1\"\n"
+"cfg-if = \"1\"\n"
+"cxx = \"1\"\n"
+"# lots more...\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md:14
 msgid ""
@@ -14017,12 +14297,17 @@ msgid ""
 "dependencies.html) --- most commonly, you'll want to specify the `features` "
 "that you wish to enable in the crate."
 msgstr ""
+"与任何其他 `Cargo.toml` 一样，您可以指定 [有关依赖项的更多详细信息](https://"
+"doc.rust-lang.org/cargo/reference/specifying-dependencies.html)。最常见的是，"
+"您需要指定要在 crate 中启用的 `features`。"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md:18
 msgid ""
 "When adding a crate to Chromium, you'll often need to provide some extra "
 "information in an additional file, `gnrt_config.toml`, which we'll meet next."
 msgstr ""
+"向 Chromium 中添加 crate 时，通常需要在附加文件 `gnrt_config.toml` 中提供一些"
+"额外的信息，我们将在下文中加以介绍。"
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md:3
 msgid ""
@@ -14030,39 +14315,45 @@ msgid ""
 "chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/gnrt_config."
 "toml). This contains Chromium-specific extensions to crate handling."
 msgstr ""
+"与 `Cargo.toml` 一起使用的是 [`gnrt_config.toml`](https://source.chromium."
+"org/chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/"
+"gnrt_config.toml)。此文件包含 Chromium 专用扩展程序，可用于处理 crate。"
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md:6
 msgid ""
 "If you add a new crate, you should specify at least the `group`. This is one "
 "of:"
-msgstr ""
+msgstr "如果添加新的 crate，至少要明确指定 `group`。可以为以下选项之一："
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md:15
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md:15
 msgid "For instance,"
-msgstr ""
+msgstr "例如："
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md:22
 msgid ""
 "Depending on the crate source code layout, you may also need to use this "
 "file to specify where its `LICENSE` file(s) can be found."
 msgstr ""
+"根据 crate 源代码布局，您可能还需要使用此文件指定其 `LICENSE` 文件的所在位"
+"置。"
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md:25
 msgid ""
 "Later, we'll see some other things you will need to configure in this file "
 "to resolve problems."
-msgstr ""
+msgstr "稍后，我们将介绍需要在此文件中配置的其他内容，以便能够解决问题。"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md:3
 msgid ""
 "A tool called `gnrt` knows how to download crates and how to generate `BUILD."
 "gn` rules."
 msgstr ""
+"有一款名为 `gnrt` 的工具，具有下载 crate 以及生成 `BUILD.gn` 规则的功能。"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md:6
 msgid "To start, download the crate you want like this:"
-msgstr ""
+msgstr "首先，按如下所示下载所需的 crate："
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md:13
 msgid ""
@@ -14071,10 +14362,13 @@ msgid ""
 "`crates.io`. See [the earlier section](../cargo.md) discussing this security "
 "decision."
 msgstr ""
+"虽然 `gnrt` 工具是 Chromium 源代码的一部分，但通过运行此命令，您可以从 "
+"`crates.io` 下载并运行其依赖项。有关该安全决策的讨论，请参阅 [前面的部分](../"
+"cargo.md)。"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md:17
 msgid "This `vendor` command may download:"
-msgstr ""
+msgstr "运行此 `vendor` 命令可能会下载以下内容："
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md:19
 #, fuzzy
@@ -14083,13 +14377,14 @@ msgstr "实用 crate"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md:20
 msgid "Direct and transitive dependencies"
-msgstr ""
+msgstr "直接依赖项和传递依赖项"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md:21
 msgid ""
 "New versions of other crates, as required by `cargo` to resolve the complete "
 "set of crates required by Chromium."
 msgstr ""
+"`cargo` 要求的其他 crate 的新版本，用于解析 Chromium 所需的全部 crate。"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md:24
 msgid ""
@@ -14097,31 +14392,37 @@ msgid ""
 "chromium_crates_io/patches`. These will be reapplied automatically, but if "
 "patching fails you may need to take manual action."
 msgstr ""
+"Chromium 会修复一些 crate 的补丁，并将其保存在 `//third_party/rust/"
+"chromium_crates_io/patches` 中。系统会自动重新应用这些补丁，但如果补丁应用失"
+"败，您可能需要进行手动操作。"
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:3
 msgid ""
 "Once you've downloaded the crate, generate the `BUILD.gn` files like this:"
-msgstr ""
+msgstr "下载 crate 后，按如下方式生成 `BUILD.gn` 文件："
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:9
 msgid "Now run `git status`. You should find:"
-msgstr ""
+msgstr "现在，运行 `git status`。您应该会看到："
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:11
 msgid ""
 "At least one new crate source code in `third_party/rust/chromium_crates_io/"
 "vendor`"
 msgstr ""
+"`third_party/rust/chromium_crates_io/vendor` 中至少包含一个新的 crate 源代码"
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:13
 msgid ""
 "At least one new `BUILD.gn` in `third_party/rust/<crate name>/v<major semver "
 "version>`"
 msgstr ""
+"`third_party/rust/<crate name>/v<major semver version>` 中至少包含一个新的 "
+"`BUILD.gn`"
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:15
 msgid "An appropriate `README.chromium`"
-msgstr ""
+msgstr "相应的 `README.chromium`"
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:17
 #, fuzzy
@@ -14134,7 +14435,7 @@ msgstr ""
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:19
 msgid ""
 "Take a close look, especially at the things generated in `third_party/rust`."
-msgstr ""
+msgstr "请仔细观察，尤其是 `third_party/rust` 中生成的内容。"
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:23
 msgid ""
@@ -14142,6 +14443,8 @@ msgid ""
 "it's to allow multiple incompatible versions of a crate, which is "
 "discouraged but sometimes necessary in the Cargo ecosystem."
 msgstr ""
+"浅谈下 semver，特别是在 Chromium 中，它支持使用多个不兼容的 crate 版本。虽然"
+"在 Cargo 生态系统中不鼓励这种方式，但在某些情况下却是必要的。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:3
 msgid ""
@@ -14150,70 +14453,76 @@ msgid ""
 "design of `gn` and `ninja` which aim for static, deterministic, build rules "
 "to maximize parallelism and repeatability of builds."
 msgstr ""
+"如果构建失败，可能是 `build.rs` 文件所致：这些程序在构建过程中执行了任意操"
+"作。这与 `gn` 和 `ninja` 的设计完全不相符，它们旨在实现静态、确定性的构建规"
+"则，以最大限度地提高构建的并行性和可重复性。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:8
 msgid ""
 "Some `build.rs` actions are automatically supported; others require action:"
-msgstr ""
+msgstr "系统支持自动进行某些 `build.rs` 操作；而有些需要进行额外的处理："
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:10
 msgid "build script effect"
-msgstr ""
+msgstr "构建脚本效果"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:10
 msgid "Supported by our gn templates"
-msgstr ""
+msgstr "我们的 gn 模板均支持"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:10
 msgid "Work required by you"
-msgstr ""
+msgstr "您需要完成的工作"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:12
 msgid "Checking rustc version to configure features on and off"
-msgstr ""
+msgstr "检查 rustc 版本以配置启用和停用功能"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:12
 #: src/chromium/adding-third-party-crates/resolving-problems.md:13
 msgid "None"
-msgstr ""
+msgstr "无"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:13
 msgid "Checking platform or CPU to configure features on and off"
-msgstr ""
+msgstr "检查平台或 CPU 以配置启用和停用功能"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:14
 #, fuzzy
 msgid "Generating code"
-msgstr "泛型"
+msgstr "生成 `gn` 构建规则"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:14
 msgid "Yes - specify in `gnrt_config.toml`"
-msgstr ""
+msgstr "是的，在 `gnrt_config.toml` 中指定"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:15
 msgid "Building C/C++"
-msgstr ""
+msgstr "构建 C/C++"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:15
 #: src/chromium/adding-third-party-crates/resolving-problems.md:16
 msgid "Patch around it"
-msgstr ""
+msgstr "进行补丁修复"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:16
+#, fuzzy
 msgid "Arbitrary other actions"
-msgstr ""
+msgstr "任意其他操作"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:18
 msgid ""
 "Fortunately, most crates don't contain a build script, and fortunately, most "
 "build scripts only do the top two actions."
 msgstr ""
+"幸运的是，大多数 crate 不包含构建脚本，而且大多数的构建脚本只执行前两项操作。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md:3
 msgid ""
 "If `ninja` complains about missing files, check the `build.rs` to see if it "
 "writes source code files."
 msgstr ""
+"如果 `ninja` 提示有文件缺失，请检查 `build.rs`，确认其是否写入了源代码文件。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md:6
 msgid ""
@@ -14223,8 +14532,13 @@ msgid ""
 "`allow-first-party-usage=false`. There are several examples already in that "
 "file:"
 msgstr ""
+"如果是，请修改 [`gnrt_config.toml`](../configuration-gnrt-config-toml.md)，"
+"将 `build-script-outputs` 添加到 crate。如果这是一个传递依赖项（即 Chromium "
+"代码不应直接依赖的依赖项），还要添加 `allow-first-party-usage=false`。该文件"
+"中已经提供了若干示例："
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md:11
+#, fuzzy
 msgid ""
 "```toml\n"
 "[crate.unicode-linebreak]\n"
@@ -14232,6 +14546,11 @@ msgid ""
 "build-script-outputs = [\"tables.rs\"]\n"
 "```"
 msgstr ""
+"```toml\n"
+"[crate.unicode-linebreak]\n"
+"allow-first-party-usage = false\n"
+"build-script-outputs = [ \"tables.rs\" ]\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md:17
 msgid ""
@@ -14239,6 +14558,8 @@ msgid ""
 "`BUILD.gn` files to inform ninja that this particular output file is input "
 "to subsequent build steps."
 msgstr ""
+"现在，请重新运行 [`gnrt.py -- gen`](../generating-gn-build-rules.md)，重新生"
+"成 `BUILD.gn` 文件，以通知 ninja 此特定输出文件将被用作后续构建步骤的输入。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md:3
 msgid ""
@@ -14248,18 +14569,22 @@ msgid ""
 "supported in a Chromium context --- our gn, ninja and LLVM build system is "
 "very specific in expressing relationships between build actions."
 msgstr ""
+"有些 crate 使用 [`cc`](https://crates.io/crates/cc) crate 来构建和关联 C/C++ "
+"库。其他 crate 会在其构建脚本中使用 [`bindgen`](https://crates.io/crates/"
+"bindgen) 解析 C/C++。Chromium 环境中不支持进行这些操作，因为我们的 gn、ninja "
+"和 LLVM 构建系统在表达构建操作之间的关系方面具有非常严格具体的要求。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md:8
 msgid "So, your options are:"
-msgstr ""
+msgstr "因此，您可以选择："
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md:10
 msgid "Avoid these crates"
-msgstr ""
+msgstr "避开这些 crate"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md:11
 msgid "Apply a patch to the crate."
-msgstr ""
+msgstr "对 crate 应用补丁。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md:13
 msgid ""
@@ -14269,6 +14594,10 @@ msgid ""
 "chromium_crates_io/patches/cxx/) - and will be applied automatically by "
 "`gnrt` each time it upgrades the crate."
 msgstr ""
+"补丁应保存在 `third_party/rust/chromium_crates_io/patches/<crate>` 中，请参"
+"阅 [面向 `cxx` crate 的补丁](https://source.chromium.org/chromium/chromium/"
+"src/+/main:third_party/rust/chromium_crates_io/patches/cxx/) 中的示例。每当 "
+"`gnrt` 升级该 crate 时，将会自动应用补丁文件。"
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md:3
 msgid ""
@@ -14276,6 +14605,8 @@ msgid ""
 "on a crate is simple. Find your `rust_static_library` target, and add a "
 "`dep` on the `:lib` target within your crate."
 msgstr ""
+"添加第三方 crate 并生成构建规则后，就可轻松使用该 crate。请找到 "
+"`rust_static_library` 目标，并在 crate 中的 `:lib` 目标上添加 `dep`。"
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md:7
 #, fuzzy
@@ -14283,6 +14614,7 @@ msgid "Specifically,"
 msgstr "特定于操作系统"
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md:9
+#, fuzzy
 msgid ""
 "```bob\n"
 "                     +------------+      +----------------------+\n"
@@ -14291,6 +14623,12 @@ msgid ""
 "                     +------------+      +----------------------+\n"
 "```"
 msgstr ""
+"```bob\n"
+"                     +------------+      +----------------------+\n"
+"\"//third_party/rust\" | crate name | \"/v\" | major semver version | \"/:"
+"lib\"\n"
+"                     +------------+      +----------------------+\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md:17
 msgid ""
@@ -14302,10 +14640,18 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [ \"lib.rs\" ]\n"
+"  deps = [ \"//third_party/rust/example_rust_crate/v1:lib\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:1
+#, fuzzy
 msgid "Auditing Third Party Crates"
-msgstr ""
+msgstr "审核第三方 crate"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:3
 msgid ""
@@ -14316,17 +14662,24 @@ msgid ""
 "dependencies, there may be a lot of code to review. On the other hand, safe "
 "Rust code can have limited negative side effects. How should you review it?"
 msgstr ""
+"添加新库须遵守 Chromium 的标准 [政策](https://chromium.googlesource.com/"
+"chromium/src/+/refs/heads/main/docs/rust.md#Third_party-review)，当然也要遵守"
+"安全审核标准。您可能不仅要引入单个 crate，而且还要引入传递依赖项，因此可能需"
+"要审核大量代码。另一方面，安全的 Rust 代码可能产生的副作用有限。应如何对其进"
+"行审核？"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:9
 msgid ""
 "Over time Chromium aims to move to a process based around [cargo vet]"
 "(https://mozilla.github.io/cargo-vet/)."
 msgstr ""
+"随着时间的推移，Chromium 计划逐步采用以 [cargo vet](https://mozilla.github."
+"io/cargo-vet/) 为核心的处理流程。"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:11
 msgid ""
 "Meanwhile, for each new crate addition, we are checking for the following:"
-msgstr ""
+msgstr "与此同时，每当添加新的 crate 时，我们都会检查以下内容："
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:13
 msgid ""
@@ -14335,10 +14688,13 @@ msgid ""
 "macros, work out what they're for. Are they compatible with the way Chromium "
 "is normally built?"
 msgstr ""
+"了解每个 crate 的用途。crate 之间存在什么关系？如果每个 crate 的构建系统都包"
+"含 `build.rs` 或过程宏，请确定它们的用途。它们能否与 Chromium 的正常构建方式"
+"相兼容。"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:17
 msgid "Check each crate seems to be reasonably well maintained"
-msgstr ""
+msgstr "检查每个 crate 是否得到合理维护。"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:18
 msgid ""
@@ -14347,6 +14703,9 @@ msgid ""
 "ironically involves downloading lots of dependencies from the internet[2](../"
 "cargo.md))"
 msgstr ""
+"使用 `cd third-party/rust/chromium_crates_io; cargo review` 检查已知漏洞（首"
+"先需要运行 `cargo install cargo-audit`，令人意外的是，这个过程中需要从互联网"
+"下载大量的依赖项 [2](../cargo.md)）"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:21
 msgid ""
@@ -14354,10 +14713,13 @@ msgid ""
 "chromium.googlesource.com/chromium/src/+/main/docs/security/rule-of-2."
 "md#unsafe-code-in-safe-languages)"
 msgstr ""
+"确保所有 `unsafe` 代码都符合 [两大规则](https://chromium.googlesource.com/"
+"chromium/src/+/main/docs/security/rule-of-2.md#unsafe-code-in-safe-"
+"languages) 的要求"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:22
 msgid "Check for any use of `fs` or `net` APIs"
-msgstr ""
+msgstr "检查是否使用了 `fs` 或 `net` API"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:23
 msgid ""
@@ -14365,46 +14727,57 @@ msgid ""
 "that might have been maliciously inserted. (You can't realistically aim for "
 "100% perfection here: there's often just too much code.)"
 msgstr ""
+"尽可能地仔细阅读所有代码，查找任何可能属于恶意插入，稍显异常的地方。（但现实"
+"中，您不可能做到百无遗漏，因为代码量通常太庞大了。）"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:27
 msgid ""
 "These are just guidelines --- work with reviewers from `security@chromium."
 "org` to work out the right way to become confident of the crate."
 msgstr ""
+"以下只是一些指导建议，请与 `security@chromium.org` 的审核者合租，共同找出能够"
+"确保 crate 安全的正确方法。"
 
 #: src/chromium/adding-third-party-crates/checking-in.md:1
+#, fuzzy
 msgid "Checking Crates into Chromium Source Code"
-msgstr ""
+msgstr "将 crate 签入 Chromium 源代码"
 
 #: src/chromium/adding-third-party-crates/checking-in.md:3
 msgid "`git status` should reveal:"
-msgstr ""
+msgstr "`git status` 应显示以下内容："
 
 #: src/chromium/adding-third-party-crates/checking-in.md:5
 msgid "Crate code in `//third_party/rust/chromium_crates_io`"
-msgstr ""
+msgstr "`//third_party/rust/chromium_crates_io` 中的 crate 代码"
 
 #: src/chromium/adding-third-party-crates/checking-in.md:6
 msgid ""
 "Metadata (`BUILD.gn` and `README.chromium`) in `//third_party/rust/<crate>/"
 "<version>`"
 msgstr ""
+"`//third_party/rust/<crate>/<version>` 中的元数据（`BUILD.gn` 和 `README."
+"chromium`）"
 
 #: src/chromium/adding-third-party-crates/checking-in.md:9
 msgid "Please also add an `OWNERS` file in the latter location."
-msgstr ""
+msgstr "此外，请在后面的位置添加 `OWNERS` 文件。"
 
 #: src/chromium/adding-third-party-crates/checking-in.md:11
 msgid ""
 "You should land all this, along with your `Cargo.toml` and `gnrt_config."
 "toml` changes, into the Chromium repo."
 msgstr ""
+"您应将所有这些内容，以及对 `Cargo.toml` 和 `gnrt_config.toml` 的更改一起提交"
+"到 Chromium 仓库中。"
 
 #: src/chromium/adding-third-party-crates/checking-in.md:14
 msgid ""
 "**Important**: you need to use `git add -f` because otherwise `.gitignore` "
 "files may result in some files being skipped."
 msgstr ""
+"**重要提示**：您需要使用 `git add -f` 命令，否则 `.gitignore` 文件可能会导致"
+"某些文件被跳过。"
 
 #: src/chromium/adding-third-party-crates/checking-in.md:17
 msgid ""
@@ -14413,6 +14786,9 @@ msgid ""
 "branches, and many projects still use non-inclusive terminology there. So "
 "you may need to run:"
 msgstr ""
+"在此过程中，您可能会发现由于使用了非包容性语言，导致提交前检查失败。这是因为 "
+"Rust crate 数据往往包含 git 分支的名称，而许多项目仍然在使用非包容性术语。因"
+"此，您需要运行以下命令："
 
 #: src/chromium/adding-third-party-crates/keeping-up-to-date.md:3
 msgid ""
@@ -14422,6 +14798,10 @@ msgid ""
 "hoped that we will soon automate this for Rust crates, but for now, it's "
 "still your responsibility just as it is for any other third party dependency."
 msgstr ""
+"作为任何第三方 Chromium 依赖项的所有者，您 [应使用任何安全修复程序，确保该依"
+"赖项处于最新状态](https://chromium.googlesource.com/chromium/src/+/main/docs/"
+"adding_to_third_party.md#add-owners)。我们希望能够尽快实现对 Rust crate 自动"
+"执行此操作，但目前仍由您负责执行，就像对待任何其他第三方依赖项一样。"
 
 #: src/exercises/chromium/third-party.md:3
 msgid ""
@@ -14430,6 +14810,10 @@ msgid ""
 "features.html#the-default-feature). Assume that the crate will be used in "
 "shipping Chromium, but won't be used to handle untrustworthy input."
 msgstr ""
+"将 [uwuify](https://crates.io/crates/uwuify) 添加到 Chromium，以停用 crate "
+"的 [默认功能](https://doc.rust-lang.org/cargo/reference/features.html#the-"
+"default-feature)。假设该 crate 会交付 Chromium 时被使用，但不会用于处理不可信"
+"的输入内容。"
 
 #: src/exercises/chromium/third-party.md:7
 msgid ""
@@ -14438,10 +14822,15 @@ msgid ""
 "[`rust_executable` target](https://source.chromium.org/chromium/chromium/src/"
 "+/main:build/rust/rust_executable.gni) which uses `uwuify`)."
 msgstr ""
+"（在下一个练习中，我们将使用 Chromium 中的 uwuify；但您也可以跳过这一步，现在"
+"就开始此操作。或者，您可以创建一个使用 `uwuify` 的新 [`rust_executable` 目标]"
+"(https://source.chromium.org/chromium/chromium/src/+/main:build/rust/"
+"rust_executable.gni)。"
 
 #: src/exercises/chromium/third-party.md:13
+#, fuzzy
 msgid "Students will need to download lots of transitive dependencies."
-msgstr ""
+msgstr "直接依赖项和传递依赖项"
 
 #: src/exercises/chromium/third-party.md:15
 msgid "The total crates needed are:"
@@ -14450,7 +14839,7 @@ msgstr ""
 #: src/exercises/chromium/third-party.md:17
 #, fuzzy
 msgid "`instant`,"
-msgstr "常量"
+msgstr "例如："
 
 #: src/exercises/chromium/third-party.md:18
 msgid "`lock_api`,"
@@ -14481,29 +14870,37 @@ msgid "`uwuify`."
 msgstr ""
 
 #: src/exercises/chromium/third-party.md:26
+#, fuzzy
 msgid ""
 "If students are downloading even more than that, they probably forgot to "
 "turn off the default features."
 msgstr ""
+"所需的全部 crate 包括：uwuify、smallvec、scopeguard、parking_lot、"
+"park_lot_core、lock_api 和 Instant。如果学生下载的 crate 数目比这还多，则他们"
+"可能忘了停用默认功能。"
 
 #: src/exercises/chromium/third-party.md:29
+#, fuzzy
 msgid ""
 "Thanks to [Daniel Liu](https://github.com/Daniel-Liu-c0deb0t) for this crate!"
 msgstr ""
+"感谢 [Daniel Liu](https://github.com/Daniel-Liu-c0deb0t) 提供此 crate！"
 
 #: src/exercises/chromium/bringing-it-together.md:1
+#, fuzzy
 msgid "Bringing It Together --- Exercise"
-msgstr ""
+msgstr "综合应用练习"
 
 #: src/exercises/chromium/bringing-it-together.md:3
 msgid ""
 "In this exercise, you're going to add a whole new Chromium feature, bringing "
 "together everything you already learned."
-msgstr ""
+msgstr "在本练习中，您将运用之前所学的全部知识，添加一项全新的 Chromium 功能。"
 
 #: src/exercises/chromium/bringing-it-together.md:6
+#, fuzzy
 msgid "The Brief from Product Management"
-msgstr ""
+msgstr "“产品管理”简介"
 
 #: src/exercises/chromium/bringing-it-together.md:8
 msgid ""
@@ -14511,12 +14908,14 @@ msgid ""
 "It's important that we get Chromium for Pixies delivered to them as soon as "
 "possible."
 msgstr ""
+"在偏僻的热带雨林中，发现住着一群小精灵。我们务必尽快创建一款精灵版 Chromium，"
+"交付给他们。"
 
 #: src/exercises/chromium/bringing-it-together.md:11
 msgid ""
 "The requirement is to translate all Chromium's UI strings into Pixie "
 "language."
-msgstr ""
+msgstr "要求是将 Chromium 的所有界面字符串翻译为精灵语。"
 
 #: src/exercises/chromium/bringing-it-together.md:13
 msgid ""
@@ -14524,22 +14923,28 @@ msgid ""
 "language is very close to English, and it turns out there's a Rust crate "
 "which does the translation."
 msgstr ""
+"由于时间紧迫，无法等待准确的翻译。但幸运的是，精灵语与英语非常接近，然后我们"
+"发现有一个 Rust crate 可以执行此翻译任务。"
 
 #: src/exercises/chromium/bringing-it-together.md:17
 msgid ""
 "In fact, you already [imported that crate in the previous exercise](https://"
 "crates.io/crates/uwuify)."
 msgstr ""
+"事实上，您已经 [在上一个练习中导入了该 crate](https://crates.io/crates/"
+"uwuify)。"
 
 #: src/exercises/chromium/bringing-it-together.md:19
 msgid ""
 "(Obviously, real translations of Chrome require incredible care and "
 "diligence. Don't ship this!)"
 msgstr ""
+"（显然，对 Chrome 进行准确恰当的翻译，需要做到极度细致和全力以赴。请勿交付此"
+"产品！）"
 
 #: src/exercises/chromium/bringing-it-together.md:22
 msgid "Steps"
-msgstr ""
+msgstr "步骤"
 
 #: src/exercises/chromium/bringing-it-together.md:24
 msgid ""
@@ -14547,12 +14952,17 @@ msgid ""
 "strings before display. In this special build of Chromium, it should always "
 "do this irrespective of the setting of `mangle_localized_strings_`."
 msgstr ""
+"修改 `ResourceBundle::MaybeMangleLocalizedString`，在显示之前对所有字符串进"
+"行 uwu 处理。在这个特殊的 Chromium 版本中，无论 `mangle_localized_strings_` "
+"的设置如何，都应该始终执行此操作。"
 
 #: src/exercises/chromium/bringing-it-together.md:28
 msgid ""
 "If you've done everything right across all these exercises, congratulations, "
 "you should have created Chrome for pixies!"
 msgstr ""
+"如果您正确完成了这些练习中的所有操作，那么恭喜您已经成功创建了一款精灵版 "
+"Chrome！"
 
 #: src/exercises/chromium/bringing-it-together.md:36
 msgid ""
@@ -14560,6 +14970,8 @@ msgid ""
 "and will probably decide that it's better to do the conversion on the C++ "
 "side using `base::UTF16ToUTF8` and back again."
 msgstr ""
+"UTF16 与 UTF8。学生应注意，Rust 字符串始终采用 UTF8 编码，它们可能会决定在 C+"
+"+ 端使用 `base::UTF16ToUTF8` 进行转换，然后再进行反向转换。"
 
 #: src/exercises/chromium/bringing-it-together.md:39
 msgid ""
@@ -14569,6 +14981,10 @@ msgid ""
 "[CXX supported types can transfer a lot of u16s](https://cxx.rs/binding/"
 "slice.html)."
 msgstr ""
+"如果学生决定在 Rust 端进行转换，则需要考虑使用 [`String::from_utf16`]"
+"(https://doc.rust-lang.org/std/string/struct.String.html#method.from_utf16) "
+"方法，同时注意错误处理，并确定哪些 [CXX 支持的类型可以传输大量 u16s](https://"
+"cxx.rs/binding/slice.html)。"
 
 #: src/exercises/chromium/bringing-it-together.md:42
 msgid ""
@@ -14580,6 +14996,11 @@ msgid ""
 "mutable references to C++ data: the answer is that C++ data can't be moved "
 "around like Rust data, because it may contain self-referential pointers."
 msgstr ""
+"学生可以通过多种方式设计 C++/Rust 边界，例如按值传递和返回字符串，或对字符串"
+"采取可变引用。如果使用可变引用，CXX 可能会提示学生需要使用 [`Pin`](https://"
+"doc.rust-lang.org/std/pin/) 方法。您可能需要解释“Pin”的用途，以及为何 CXX 需"
+"要它来对 C++ 数据进行可变引用：原因是 C++ 数据无法像 Rust 数据那样自由移动，"
+"它可能包含自引用指针。"
 
 #: src/exercises/chromium/bringing-it-together.md:49
 msgid ""
@@ -14587,12 +15008,15 @@ msgid ""
 "need to depend on a `rust_static_library` target. The student probably "
 "already did this."
 msgstr ""
+"对于包含 `ResourceBundle::MaybeMangleLocalizedString` 的 C++ 目标，需要依赖"
+"于 `rust_static_library` 目标。学生可能已经执行了此操作。"
 
 #: src/exercises/chromium/bringing-it-together.md:52
 msgid ""
 "The `rust_static_library` target will need to depend on `//third_party/rust/"
 "uwuify/v0_2:lib`."
 msgstr ""
+"`rust_static_library` 目标需要依赖于 `//third_party/rust/uwuify/v0_2:lib`。"
 
 #: src/exercises/chromium/solutions.md:3
 msgid ""
