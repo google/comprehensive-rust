@@ -1,16 +1,15 @@
 ---
-minutes: 20
+minutes: 15
 ---
 
-# Exercise: Modules for the GUI Library
+# Exercise: Modules for a GUI Library
 
-In this exercise, you will reorganize the GUI Library exercise from the "Methods
-and Traits" segment of the course into a collection of modules. It is typical to
-put each type or set of closely-related types into its own module, so each
-widget type should get its own module.
+In this exercise, you will reorganize a small GUI Library implementation. This
+library defines a `Widget` trait and a few implementations of that trait, as
+well as a `main` function.
 
-If you no longer have your version, that's fine - refer back to the
-[provided solution](../methods-and-traits/solution.html).
+It is typical to put each type or set of closely-related types into its own
+module, so each widget type should get its own module.
 
 ## Cargo Setup
 
@@ -23,8 +22,16 @@ cd gui-modules
 cargo run
 ```
 
-Edit `src/main.rs` to add `mod` statements, and add additional files in the
-`src` directory.
+Edit the resulting `src/main.rs` to add `mod` statements, and add additional
+files in the `src` directory.
+
+## Source
+
+Here's the single-module implementation of the GUI library:
+
+```rust
+{{#include exercise.rs:single-module}}
+```
 
 <details>
 

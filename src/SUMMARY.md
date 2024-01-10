@@ -167,7 +167,7 @@
   - [Filesystem Hierarchy](modules/filesystem.md)
   - [Visibility](modules/visibility.md)
   - [`use`, `super`, `self`](modules/paths.md)
-  - [Exercise: Modules for the GUI Library](modules/exercise.md)
+  - [Exercise: Modules for a GUI Library](modules/exercise.md)
     - [Solution](modules/solution.md)
 - [Testing](testing.md)
   - [Test Modules](testing/unit-tests.md)
