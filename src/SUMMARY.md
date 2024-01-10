@@ -78,7 +78,7 @@
   - [Traits](methods-and-traits/traits.md)
   - [Deriving](methods-and-traits/deriving.md)
   - [Trait Objects](methods-and-traits/trait-objects.md)
-  - [Exercise: GUI Library](methods-and-traits/exercise.md)
+  - [Exercise: Generic Logger](methods-and-traits/exercise.md)
     - [Solution](methods-and-traits/solution.md)
 - [Generics](generics.md)
   - [Generic Functions](generics/generic-functions.md)
