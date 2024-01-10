@@ -38,11 +38,7 @@ fn timediff(actual: u64, target: u64, slop: u64) -> String {
             duration(actual - target),
         )
     } else if actual < target - slop {
-        format!(
-            "{}: ({} short)",
-            duration(actual),
-            duration(target - actual),
-        )
+        format!("{}: ({} short)", duration(actual), duration(target - actual),)
     } else {
         format!("{}", duration(actual))
     }
@@ -53,10 +49,7 @@ fn print_summary(course: &Course) {
         return;
     }
     println!("### {}", course.name);
-    println!(
-        "_{}_",
-        timediff(course.minutes(), course.target_minutes(), 15)
-    );
+    println!("_{}_", timediff(course.minutes(), course.target_minutes(), 15));
 
     for session in course {
         println!(
