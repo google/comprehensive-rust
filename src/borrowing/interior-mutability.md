@@ -2,73 +2,59 @@
 minutes: 10
 ---
 
-<!-- NOTES:
-Introduce the concept, with an example based on Mutex showing an `&self` method doing mutation; reference Cell/RefCell without detail.
--->
-
 # Interior Mutability
 
-Rust provides a few safe means of modifying a value given only a shared
-reference to that value. All of these replace compile-time checks with runtime
-checks.
+In some situations, exclusive (`mut`) access cannot be represented at compile
+time. For example, data might be accessed from multiple threads. The "interior
+mutability" pattern allows exclusive access behind a shared reference, using
+a runtime check to enforce the borrowing rules.
 
-## `Cell` and `RefCell`
+## `Mutex`
 
-[`Cell`](https://doc.rust-lang.org/std/cell/struct.Cell.html) and
-[`RefCell`](https://doc.rust-lang.org/std/cell/struct.RefCell.html) implement
-what Rust calls _interior mutability:_ mutation of values in an immutable
-context.
-
-`Cell` is typically used for simple types, as it requires copying or moving
-values. More complex interior types typically use `RefCell`, which tracks shared
-and exclusive references at runtime and panics if they are misused.
+One standard type that supports interior mutability is `Mutex` (known as a lock
+in some other languages). Many threads can have a shared reference to a
+`Mutex`, and the lock operation performs a _runtime_ check that no other thread
+holds the lock before granting access to the value inside.
 
 ```rust,editable
-use std::cell::RefCell;
-use std::rc::Rc;
+use std::sync::Mutex;
 
-#[derive(Debug, Default)]
-struct Node {
-    value: i64,
-    children: Vec<Rc<RefCell<Node>>>,
+fn handle_hit(hit_counter: &Mutex<u32>) {
+    let mut num_hits = hit_counter.lock().unwrap();
+    *num_hits += 1;
 }
 
-impl Node {
-    fn new(value: i64) -> Rc<RefCell<Node>> {
-        Rc::new(RefCell::new(Node { value, ..Node::default() }))
-    }
-
-    fn sum(&self) -> i64 {
-        self.value + self.children.iter().map(|c| c.borrow().sum()).sum::<i64>()
-    }
+fn current_hit_count(hit_counter: &Mutex<u32>) -> u32 {
+    *hit_counter.lock().unwrap()
 }
 
 fn main() {
-    let root = Node::new(1);
-    root.borrow_mut().children.push(Node::new(5));
-    let subtree = Node::new(10);
-    subtree.borrow_mut().children.push(Node::new(11));
-    subtree.borrow_mut().children.push(Node::new(12));
-    root.borrow_mut().children.push(subtree);
-
-    println!("graph: {root:#?}");
-    println!("graph sum: {}", root.borrow().sum());
+    let hit_counter = Mutex::new(0);
+    handle_hit(&hit_counter);
+    println!("{} hits", current_hit_count(&hit_counter));
 }
 ```
 
+## `Cell` and `RefCell`
+
+`Cell` wraps a value and allows getting or setting the value, even with a
+shared reference to the `Cell`. Howerver, it does not allow any references to
+the value. If there are no references, then borrowing rules cannot be broken.
+
+The `RefCell` type also provides interior mutability. Its `borrow` method
+allows multiple shared references to the data it contains, while its
+`borrow_mut` allows a single exclusive reference. It checks the borrowing rules
+at runtime and panics if they are violated.
+
+Neither `Cell` nor `RefCell` can be shared between threads.
+
 <details>
 
-- If we were using `Cell` instead of `RefCell` in this example, we would have to
-  move the `Node` out of the `Rc` to push children, then move it back in. This
-  is safe because there's always one, un-referenced value in the cell, but it's
-  not ergonomic.
-- To do anything with a Node, you must call a `RefCell` method, usually `borrow`
-  or `borrow_mut`.
-- Demonstrate that reference loops can be created by adding `root` to
-  `subtree.children` (don't try to print it!).
-- To demonstrate a runtime panic, add a `fn inc(&mut self)` that increments
-  `self.value` and calls the same method on its children. This will panic in the
-  presence of the reference loop, with
-  `thread 'main' panicked at 'already borrowed: BorrowMutError'`.
+- While the fundamentals course doesn't cover concurrency, most students will
+  have seen a mutex or lock before, and understand that it checks for an existing
+  lock at runtime, which is the key to interior mutability.
+
+- The cell types are more unusual, if simpler.  `RefCell` is, in effect, a
+  `RWMutex` that panics instead of blocking.
 
 </details>
