@@ -63,7 +63,8 @@ Also, please keep the hard line breaks to ensure a nice formatting.
 - crash:\
   An unexpected and unhandled failure or termination of a program.
 - enumeration:\
-  A data type that consists of named constant values.
+  A data type that holds one of several named constants, possibly with an
+  associated tuple or struct.
 - error:\
   An unexpected condition or result that deviates from the expected behavior.
 - error handling:\
@@ -176,6 +177,9 @@ Also, please keep the hard line breaks to ensure a nice formatting.
 - trait bound:\
   An abstraction where you can require types to implement some traits of your
   interest.
+- tuple:\
+  A composite data type that contains variables of different types. Tuple fields
+  have no names, and are accessed by their ordinal numbers.
 - type:\
   A classification that specifies which operations can be performed on values of
   a particular kind in Rust.
@@ -190,6 +194,8 @@ Also, please keep the hard line breaks to ensure a nice formatting.
 - unit test:\
   Rust comes with built-in support for running small unit tests and larger
   integration tests. See [Unit Tests](testing/unit-tests.html).
+- unit type:\
+  Type that holds no data, written as a tuple with no members.
 - unsafe:\
   The subset of Rust which allows you to trigger _undefined behavior_. See
   [Unsafe Rust](unsafe.html).
