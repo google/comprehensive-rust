@@ -2,6 +2,7 @@
 minutes: 3
 course: Fundamentals
 session: Day 3 Morning
+target_minutes: 180
 ---
 
 # Welcome to Day 3
