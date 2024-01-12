@@ -179,7 +179,7 @@ Also, please keep the hard line breaks to ensure a nice formatting.
   interest.
 - tuple:\
   A composite data type that contains variables of different types. Tuple fields
-  have no names, they are accessed by their ordinal numbers.
+  have no names, and are accessed by their ordinal numbers.
 - type:\
   A classification that specifies which operations can be performed on values of
   a particular kind in Rust.
