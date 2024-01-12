@@ -14,11 +14,13 @@
 
 // ANCHOR: main
 //! Birthday service.
+use binder::{BinderFeatures};
 use com_example_birthdayservice::aidl::com::example::birthdayservice::BirthdayInfo::BirthdayInfo;
-use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayInfoProvider::IBirthdayInfoProvider;
+use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayInfoProvider::{
+    BnBirthdayInfoProvider, IBirthdayInfoProvider,
+};
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
 use com_example_birthdayservice::binder;
-use binder::Strong;
 
 const SERVICE_IDENTIFIER: &str = "birthdayservice";
 
@@ -46,8 +48,14 @@ fn main() -> Result<(), binder::Status> {
     // ANCHOR: wish_with_provider
     // Perform the same operation by sending an `InfoProvider` object as a `dyn
     // IBirthdayInfoProvider`.
-    let provider = Strong::new(Box::new(InfoProvider { name, age: years as u8 }));
-    service.wishWithProvider(&provider);
+    let provider = BnBirthdayInfoProvider::new_binder(
+        InfoProvider {
+            name,
+            age: years as u8,
+        },
+        BinderFeatures::default(),
+    );
+    service.wishWithProvider(&provider)?;
     // ANCHOR_END: wish_with_provider
 
     // TODO: Perform the same operation but passing the provider as an `SpIBinder`.
@@ -77,8 +85,8 @@ impl IBirthdayInfoProvider for InfoProvider {
 
     fn getInfo(&self) -> binder::Result<BirthdayInfo> {
         Ok(BirthdayInfo {
-            name: self.name(),
-            years: self.years(),
+            name: self.name.clone(),
+            years: self.age as i32,
         })
     }
 }
