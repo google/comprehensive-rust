@@ -4974,37 +4974,41 @@ msgid "Welcome to Day 2"
 msgstr "Bem-vindos ao Dia 2"
 
 #: src/welcome-day-2.md:3
-#, fuzzy
 msgid ""
 "Now that we have seen a fair amount of Rust, today will focus on Rust's type "
 "system:"
-msgstr "Agora que vimos uma boa quantidade de Rust, continuaremos com:"
+msgstr ""
+"Agora que vimos uma boa quantidade de Rust, hoje focaremos no sistema de "
+"tipos do Rust:"
 
 #: src/welcome-day-2.md:6
-#, fuzzy
 msgid "Pattern matching: extracting data from structures."
-msgstr "Correspondência de padrões: desestruturando enums, structs, e arrays."
+msgstr "Correspondência de padrões: extração de dados de estruturas."
 
 #: src/welcome-day-2.md:7
 msgid "Methods: associating functions with types."
-msgstr ""
+msgstr "Métodos: associando funções com tipos."
 
 #: src/welcome-day-2.md:8
 msgid "Traits: behaviors shared by multiple types."
-msgstr ""
+msgstr "Traits: comportamentos compartilhados por múltiplos tipos."
 
 #: src/welcome-day-2.md:9
 msgid "Generics: parameterizing types on other types."
-msgstr ""
+msgstr "Genéricos: parametrizando tipos em outros tipos."
 
 #: src/welcome-day-2.md:10
 msgid ""
 "Standard library types and traits: a tour of Rust's rich standard library."
 msgstr ""
+"Tipos e traits da biblioteca padrão: um passeio pela rica biblioteca padrão "
+"do Rust."
 
 #: src/pattern-matching/destructuring.md:3
 msgid "Like tuples, structs and enums can also be destructured by matching:"
 msgstr ""
+"Como tuplas, _structs_ e _enums_ também podem ser desestruturados por meio "
+"de correspondência:"
 
 #: src/pattern-matching/destructuring.md:5
 #: src/pattern-matching/destructuring.md:58
@@ -5096,24 +5100,21 @@ msgstr ""
 "agora é \"não exaustivo\" e como o compilador tenta lhe dar dicas."
 
 #: src/pattern-matching/destructuring.md:75
-#, fuzzy
 msgid ""
 "The values in the enum variants can only be accessed after being pattern "
 "matched."
 msgstr ""
 "Os valores nas variantes de uma _enum_ só podem ser acessados após uma "
-"correspondência de padrão. O padrão vincula referências aos campos no "
-"\"braço\" do _match_ após `=>`."
+"correspondência de padrão."
 
 #: src/pattern-matching/destructuring.md:77
-#, fuzzy
 msgid ""
 "Demonstrate what happens when the search is inexhaustive. Note the advantage "
 "the Rust compiler provides by confirming when all cases are handled."
 msgstr ""
 "Demonstre o que acontece quando a busca não abrange todas as possibilidades. "
-"Mencione a vantagem que o compilador do Rust oferece confirmando quando "
-"todos os casos foram tratados. "
+"Observe a vantagem que o compilador Rust fornece ao confirmar quando todos "
+"os casos são tratados."
 
 #: src/pattern-matching/destructuring.md:79
 msgid ""
@@ -5124,12 +5125,22 @@ msgid ""
 "io/rfcs/2005-match-ergonomics.html) appeared in Rust 2018. If you want to "
 "support older Rust, replace `msg` with `ref msg` in the pattern."
 msgstr ""
+"Salve o resultado de `divide_in_two` na variável `result` e faça uma "
+"correspondência de padrão (`match`) em um loop. Isso não irá compilar porque "
+"`msg` é consumido quando correspondido. Para corrigir, faça uma "
+"correspondência de padrão em `&result` ao invés de `result`. Isso fará com "
+"que `msg` seja uma referência, de forma que não será consumido. Essa "
+"[\"ergonomia de correspondência\"](https://rust-lang.github.io/rfcs/2005-"
+"match-ergonomics.html) apareceu no Rust 2018. Se você quiser suportar "
+"versões mais antigas do Rust, substitua `msg` por `ref msg` no padrão."
 
 #: src/pattern-matching/let-control-flow.md:3
 msgid ""
 "Rust has a few control flow constructs which differ from other languages. "
 "They are used for pattern matching:"
 msgstr ""
+"Rust possui algumas construções de fluxo de controle que diferem de outras "
+"linguagens. Elas são usadas para correspondência de padrões:"
 
 #: src/pattern-matching/let-control-flow.md:6
 #: src/pattern-matching/let-control-flow.md:10
@@ -5137,13 +5148,12 @@ msgid "`if let` expressions"
 msgstr "Expressões `if let`"
 
 #: src/pattern-matching/let-control-flow.md:7
-#, fuzzy
 msgid "`while let` expressions"
-msgstr "Loops while let"
+msgstr "Expressões `while let`"
 
 #: src/pattern-matching/let-control-flow.md:8
 msgid "`match` expressions"
-msgstr "Expressões `match` (Correspondência)"
+msgstr "Expressões `match` (correspondência)"
 
 #: src/pattern-matching/let-control-flow.md:12
 msgid ""
@@ -5152,18 +5162,16 @@ msgid ""
 "whether a value matches a pattern:"
 msgstr ""
 "A [expressão `if let` ](https://doc.rust-lang.org/reference/expressions/if-"
-"expr.html#if-let-expressions) lhe permite que você execute um código "
-"diferente, dependendo se um valor corresponde a um padrão:"
+"expr.html#if-let-expressions) lhe permite executar um código diferente caso "
+"um valor corresponde a um padrão:"
 
 #: src/pattern-matching/let-control-flow.md:24
-#, fuzzy
 msgid "\"slept for {:?}\""
-msgstr "\"Ponto mais à esquerda: {:?}\""
+msgstr "\"dormiu por {s:?}\""
 
 #: src/pattern-matching/let-control-flow.md:33
-#, fuzzy
 msgid "`let else` expressions"
-msgstr "Expressões `if let`"
+msgstr "Expressões `let else`"
 
 #: src/pattern-matching/let-control-flow.md:35
 msgid ""
@@ -5172,28 +5180,31 @@ msgid ""
 "let_else.html). The \"else\" case must diverge (`return`, `break`, or panic "
 "- anything but falling off the end of the block)."
 msgstr ""
+"Para o caso comum de corresponder a um padrão e retornar da função, use "
+"[`let else`](https://doc.rust-lang.org/rust-by-example/flow_control/let_else."
+"html). O caso \"else\" deve divergir (`return`, `break` ou pânico - qualquer "
+"coisa, exceto cair no final do bloco)."
 
 #: src/pattern-matching/let-control-flow.md:45
 #: src/pattern-matching/let-control-flow.md:107
-#, fuzzy
 msgid "\"got None\""
-msgstr "\"none\""
+msgstr "\"obteve None\""
 
 #: src/pattern-matching/let-control-flow.md:51
 #: src/pattern-matching/let-control-flow.md:111
 msgid "\"got empty string\""
-msgstr ""
+msgstr "\"obteve uma string vazia\""
 
 #: src/pattern-matching/let-control-flow.md:57
 #: src/pattern-matching/let-control-flow.md:115
 msgid "\"not a hex digit\""
-msgstr ""
+msgstr "\"não é um dígito hexadecimal\""
 
 #: src/pattern-matching/let-control-flow.md:62
 #: src/pattern-matching/solution.md:113
 #, fuzzy
 msgid "\"result: {:?}\""
-msgstr "\"s: {s:?}\""
+msgstr "\"result: {:?}\""
 
 #: src/pattern-matching/let-control-flow.md:62
 #: src/methods-and-traits/exercise.md:114
@@ -5216,21 +5227,20 @@ msgstr ""
 "repetidamente se um valor corresponde a um padrão:"
 
 #: src/pattern-matching/let-control-flow.md:82
-#, fuzzy
 msgid ""
 "Here [`String::pop`](https://doc.rust-lang.org/stable/std/string/struct."
 "String.html#method.pop) returns `Some(c)` until the string is empty, after "
 "which it will return `None`. The `while let` lets us keep iterating through "
 "all items."
 msgstr ""
-"Aqui o iterador retornado por `v.into_iter()` retornará uma `Option<i32>` em "
-"cada chamada para `next()`. Ele retorna `Some(x)` até que seja concluído e, "
-"em seguida, retorna  `None`. O `while let` nos permite continuar iterando "
-"por todos os itens."
+"Aqui [`String::pop`](https://doc.rust-lang.org/stable/std/string/struct."
+"String.html#method.pop) retorna `Some(c)` até que a string esteja vazia e "
+"depois ela retornará `None`. O `while let` nos permite iterar por todos os "
+"itens."
 
 #: src/pattern-matching/let-control-flow.md:89
 msgid "if-let"
-msgstr ""
+msgstr "if-let"
 
 #: src/pattern-matching/let-control-flow.md:91
 msgid ""
@@ -5242,7 +5252,7 @@ msgstr ""
 
 #: src/pattern-matching/let-control-flow.md:93
 msgid "A common usage is handling `Some` values when working with `Option`."
-msgstr "Um uso comum é lidar com valores `Some` ao trabalhar com `Option`."
+msgstr "Um uso comum é lidar com valores `Some` ao trabalhar-se com `Option`."
 
 #: src/pattern-matching/let-control-flow.md:94
 msgid ""
@@ -5253,7 +5263,7 @@ msgstr ""
 
 #: src/pattern-matching/let-control-flow.md:96
 msgid "let-else"
-msgstr ""
+msgstr "let-else"
 
 #: src/pattern-matching/let-control-flow.md:98
 msgid ""
@@ -5261,15 +5271,17 @@ msgid ""
 "flattening this nested code. Rewrite the awkward version for students, so "
 "they can see the transformation."
 msgstr ""
+"`if-let`s podem se acumular, como mostrado. O construção `let-else` suporta "
+"o \"achatamento\" desse código aninhado. Reescreva a versão \"estranha\" "
+"para os alunos, para que eles possam ver a transformação."
 
 #: src/pattern-matching/let-control-flow.md:102
 msgid "The rewritten version is:"
-msgstr ""
+msgstr "A versão reescrita é:"
 
 #: src/pattern-matching/let-control-flow.md:122
-#, fuzzy
 msgid "while-let"
-msgstr "_Loops_ (Laços) `while let`"
+msgstr "while-let"
 
 #: src/pattern-matching/let-control-flow.md:124
 msgid ""
@@ -5280,7 +5292,6 @@ msgstr ""
 "corresponder ao padrão."
 
 #: src/pattern-matching/let-control-flow.md:126
-#, fuzzy
 msgid ""
 "You could rewrite the `while let` loop as an infinite loop with an if "
 "statement that breaks when there is no value to unwrap for `name.pop()`. The "
@@ -5288,12 +5299,13 @@ msgid ""
 msgstr ""
 "Você pode reescrever o loop `while let` como um loop infinito com uma "
 "instrução `if` que é interrompido quando não houver mais nenhum valor para "
-"desempacotar (_unwrap_) para `iter.next()`. O `while let` fornece um atalho "
+"_unwrap_ (desempacotar) para `name.pop()`. O `while let` fornece um atalho "
 "para o cenário acima."
 
 #: src/pattern-matching/exercise.md:3
 msgid "Let's write a simple recursive evaluator for arithmetic expressions."
 msgstr ""
+"Vamos escrever um avaliador recursivo simples para expressões aritméticas."
 
 #: src/pattern-matching/exercise.md:5
 msgid ""
@@ -5302,6 +5314,11 @@ msgid ""
 "tests. To evaluate a boxed expression, use the deref operator (`*`) to "
 "\"unbox\" it: `eval(*boxed_expr)`."
 msgstr ""
+"O tipo `Box` aqui é um ponteiro inteligente (_smart pointer_) e será "
+"abordado em detalhes mais adiante no curso. Uma expressão pode ser "
+"\"encaixotada\" com `Box::new` como visto nos testes. Para avaliar uma "
+"expressão encaixotada, use o operador de desreferência (`*`) para o "
+"\"desencaixotar\": `eval(*boxed_expr)`."
 
 #: src/pattern-matching/exercise.md:10
 msgid ""
@@ -5311,6 +5328,10 @@ msgid ""
 "(`Ok(Value)`) or an error (`Err(String)`). We will cover this type in detail "
 "later."
 msgstr ""
+"Algumas expressões não podem ser avaliadas e retornarão um erro. O tipo "
+"padrão [`Result<Value, String>`](https://doc.rust-lang.org/std/result/enum."
+"Result.html) é um enum que representa um valor de sucesso (`Ok(Value)`) ou "
+"um erro (`Err(String)`). Abordaremos esse tipo em detalhes mais adiante."
 
 #: src/pattern-matching/exercise.md:15
 msgid ""
@@ -5319,39 +5340,44 @@ msgid ""
 "`todo!()` and get the tests to pass one-by-one. You can also skip a test "
 "temporarily with `#[ignore]`:"
 msgstr ""
+"Copie e cole o código no playground do Rust e comece a implementar `eval`. O "
+"produto final deve passar nos testes. Pode ser útil usar `todo!()` e fazer "
+"os testes passarem um por um. Você também pode ignorar um teste "
+"temporariamente com `#[ignore]`:"
 
 #: src/pattern-matching/exercise.md:26
 msgid ""
 "If you finish early, try writing a test that results in division by zero or "
 "integer overflow. How could you handle this with `Result` instead of a panic?"
 msgstr ""
+"Se você terminar cedo, tente escrever um teste que resulte em divisão por "
+"zero ou _integer overflow_. Como você poderia lidar com isso com `Result` em "
+"vez de um pânico?"
 
 #: src/pattern-matching/exercise.md:30 src/pattern-matching/solution.md:4
 msgid "/// An operation to perform on two subexpressions.\n"
-msgstr ""
+msgstr "/// Uma operação a ser realizada em duas subexpressões.\n"
 
 #: src/pattern-matching/exercise.md:38 src/pattern-matching/solution.md:12
 msgid "/// An expression, in tree form.\n"
-msgstr ""
+msgstr "/// Uma expressão, em forma de árvore.\n"
 
 #: src/pattern-matching/exercise.md:42 src/pattern-matching/solution.md:16
-#, fuzzy
 msgid "/// An operation on two subexpressions.\n"
-msgstr "// Sem parênteses ao redor de expressões\n"
+msgstr "/// Uma operação em duas subexpressões.\n"
 
 #: src/pattern-matching/exercise.md:45 src/pattern-matching/solution.md:19
 msgid "/// A literal value\n"
-msgstr ""
+msgstr "/// Um valor literal\n"
 
 #: src/pattern-matching/exercise.md:104 src/pattern-matching/solution.md:40
 #: src/pattern-matching/solution.md:102
 msgid "\"division by zero\""
-msgstr ""
+msgstr "\"divisão por zero\""
 
 #: src/pattern-matching/solution.md:112
-#, fuzzy
 msgid "\"expr: {:?}\""
-msgstr "\"a: {:?}\""
+msgstr "\"expr: {:?}\""
 
 #: src/methods-and-traits/methods.md:3
 msgid ""
@@ -5363,7 +5389,7 @@ msgstr ""
 
 #: src/methods-and-traits/methods.md:14
 msgid "// No receiver, a static method\n"
-msgstr "// Sem receptor, método estático\n"
+msgstr "// Sem receptor, um método estático\n"
 
 #: src/methods-and-traits/methods.md:19
 msgid "// Exclusive borrowed read-write access to self\n"
@@ -5387,7 +5413,7 @@ msgstr "// Propriedade exclusiva de self\n"
 
 #: src/methods-and-traits/methods.md:35
 msgid "\"Race {} is finished, total lap time: {}\""
-msgstr "\"Corrida {} foi encerrada, tempo de voltas total: {}\""
+msgstr "\"Corrida {} foi encerrada, tempo total de voltas: {}\""
 
 #: src/methods-and-traits/methods.md:40
 msgid "\"Monaco Grand Prix\""
@@ -5398,13 +5424,12 @@ msgid "// race.add_lap(42);\n"
 msgstr "// race.add_lap(42);\n"
 
 #: src/methods-and-traits/methods.md:51
-#, fuzzy
 msgid ""
 "The `self` arguments specify the \"receiver\" - the object the method acts "
 "on. There are several common receivers for a method:"
 msgstr ""
-"O `&self` acima indica que o método toma emprestado o objeto imutavelmente. "
-"Existem outros receptores possíveis para um método:"
+"Os argumentos `self` especificam o \"receptor\" - o objeto em que o método "
+"age. Existem vários receptores comuns para um método:"
 
 #: src/methods-and-traits/methods.md:54
 msgid ""
@@ -5435,18 +5460,15 @@ msgstr ""
 "transmitida. Posse completa não significa automaticamente mutabilidade."
 
 #: src/methods-and-traits/methods.md:62
-#, fuzzy
 msgid "`mut self`: same as above, but the method can mutate the object."
-msgstr ""
-"`mut self`: o mesmo que acima, mas enquanto o método possui o objeto, ele "
-"pode alterá-lo também."
+msgstr "`mut self`: o mesmo que acima, mas o método pode modificar o objeto."
 
 #: src/methods-and-traits/methods.md:63
 msgid ""
 "No receiver: this becomes a static method on the struct. Typically used to "
 "create constructors which are called `new` by convention."
 msgstr ""
-"Sem receptor: isso se torna um método estático (_static_) na estrutura. "
+"Sem receptor: isso se torna um método estático (_static_) no struct. "
 "Normalmente usado para criar construtores que, por convenção, são chamados "
 "`new`."
 
@@ -5468,7 +5490,7 @@ msgid ""
 "syntax and to help keep them more organized. By using methods we can keep "
 "all the implementation code in one predictable place."
 msgstr ""
-"Os desenvolvedores podem optar por usar métodos para aproveitar a sintaxe do "
+"Desenvolvedores podem optar por usar métodos para aproveitar a sintaxe do "
 "receptor do método e ajudar a mantê-los mais organizados. Usando métodos, "
 "podemos manter todo o código de implementação em um local previsível."
 
@@ -5481,15 +5503,15 @@ msgid ""
 "Show that it is an abbreviated term for `self: Self` and perhaps show how "
 "the struct name could also be used."
 msgstr ""
-"Mostre que é um termo abreviado para `self:Self` e talvez mostre como o nome "
-"da _struct_ também poderia ser usado."
+"Mostre que é um termo abreviado para `self: Self` e talvez mostre como o "
+"nome da _struct_ também poderia ser usado."
 
 #: src/methods-and-traits/methods.md:79
 msgid ""
 "Explain that `Self` is a type alias for the type the `impl` block is in and "
 "can be used elsewhere in the block."
 msgstr ""
-"Explique que `Self` é um apelido de tipo para o tipo em que o bloco `impl` "
+"Explique que `Self` é um alias de tipo para o tipo em que o bloco `impl` "
 "está e pode ser usado em qualquer outro lugar no bloco."
 
 #: src/methods-and-traits/methods.md:81
@@ -5497,17 +5519,16 @@ msgid ""
 "Note how `self` is used like other structs and dot notation can be used to "
 "refer to individual fields."
 msgstr ""
-"Observe como `self` é usado como outras _Structs_ e a notação de ponto pode "
+"Observe como `self` é usado como outras _structs_ e a notação de ponto pode "
 "ser usada para se referir a campos individuais."
 
 #: src/methods-and-traits/methods.md:83
-#, fuzzy
 msgid ""
 "This might be a good time to demonstrate how the `&self` differs from `self` "
 "by trying to run `finish` twice."
 msgstr ""
 "Este pode ser um bom momento para demonstrar como `&self` difere de `self` "
-"modificando o código e tentando executar `dizer_ola` duas vezes."
+"modificando o código e tentando executar `finish` duas vezes."
 
 #: src/methods-and-traits/methods.md:85
 msgid ""
@@ -5528,18 +5549,17 @@ msgstr ""
 
 #: src/methods-and-traits/traits.md:18
 msgid "\"Oh you're a cutie! What's your name? {}\""
-msgstr ""
+msgstr "\"Oh, você é adorável! Qual é o seu nome? {}\""
 
 #: src/methods-and-traits/traits.md:24
 #: src/methods-and-traits/trait-objects.md:20
-#, fuzzy
 msgid "\"Woof, my name is {}!\""
-msgstr "\"Olá, meu nome é {}\""
+msgstr "\"Auau, meu nome é {}\""
 
 #: src/methods-and-traits/traits.md:30
 #: src/methods-and-traits/trait-objects.md:26
 msgid "\"Miau!\""
-msgstr ""
+msgstr "\"Miau!\""
 
 #: src/methods-and-traits/traits.md:36
 #: src/methods-and-traits/trait-objects.md:33
@@ -5551,13 +5571,15 @@ msgid ""
 "A trait defines a number of methods that types must have in order to "
 "implement the trait."
 msgstr ""
+"Um _trait_ define um número de métodos que os tipos devem ter para "
+"implementar o _trait_."
 
 #: src/methods-and-traits/traits.md:48
 msgid "Traits are implemented in an `impl <trait> for <type> { .. }` block."
 msgstr ""
+"_Traits_ são implementados em um bloco `impl <trait> for <type> { .. }`."
 
 #: src/methods-and-traits/traits.md:50
-#, fuzzy
 msgid ""
 "Traits may specify pre-implemented (provided) methods and methods that users "
 "are required to implement themselves. Provided methods can rely on required "
@@ -5565,34 +5587,36 @@ msgid ""
 msgstr ""
 "_Traits_ podem especificar métodos pré-implementados (padrão) e métodos que "
 "os usuários são obrigados a implementar. Os métodos com implementações "
-"padrão podem contar com os métodos requeridos."
+"padrão podem contar com os métodos requeridos. Neste caso, `greet` é "
+"implementado por padrão e conta com `talk`."
 
 #: src/methods-and-traits/deriving.md:3
 msgid ""
 "Supported traits can be automatically implemented for your custom types, as "
 "follows:"
 msgstr ""
+"Os _traits_ suportados podem ser implementados automaticamente para seus "
+"tipos personalizados, como segue:"
 
 #: src/methods-and-traits/deriving.md:15
 msgid "// Default trait adds `default` constructor.\n"
-msgstr ""
+msgstr "// O _trait_ `Default` adiciona um construtor `default`.\n"
 
 #: src/methods-and-traits/deriving.md:16
 msgid "// Clone trait adds `clone` method.\n"
-msgstr ""
+msgstr "// O _trait_ `Clone` adiciona um método `clone`.\n"
 
 #: src/methods-and-traits/deriving.md:17
 msgid "\"EldurScrollz\""
-msgstr ""
+msgstr "\"EldurScrollz\""
 
 #: src/methods-and-traits/deriving.md:18
 msgid "// Debug trait adds support for printing with `{:?}`.\n"
-msgstr ""
+msgstr "// O _trait_ `Debug` adiciona suporte para impressão com `{:?}`.\n"
 
 #: src/methods-and-traits/deriving.md:19
-#, fuzzy
 msgid "\"{:?} vs. {:?}\""
-msgstr "\"a: {:?}\""
+msgstr "\"{:?} vs. {:?}\""
 
 #: src/methods-and-traits/deriving.md:25
 msgid ""
@@ -5600,6 +5624,10 @@ msgid ""
 "macros to add useful functionality. For example, `serde` can derive "
 "serialization support for a struct using `#[derive(Serialize)]`."
 msgstr ""
+"A derivação é implementada com macros e muitas _crates_ fornecem macros de "
+"derivação úteis para adicionar funcionalidades úteis. Por exemplo, `serde` "
+"pode derivar suporte de serialização para uma _struct_ usando "
+"`#[derive(Serialize)]`."
 
 #: src/methods-and-traits/trait-objects.md:3
 msgid ""
@@ -5610,16 +5638,14 @@ msgstr ""
 "coleção:"
 
 #: src/methods-and-traits/trait-objects.md:36
-#, fuzzy
 msgid "\"Hello, who are you? {}\""
-msgstr "\"Olá, meu nome é {}\""
+msgstr "\"Olá, quem é você? {}\""
 
 #: src/methods-and-traits/trait-objects.md:41
 msgid "Memory layout after allocating `pets`:"
 msgstr "Layout da memória após alocar `pets`:"
 
 #: src/methods-and-traits/trait-objects.md:43
-#, fuzzy
 msgid ""
 "```bob\n"
 " Stack                             Heap\n"
@@ -5682,60 +5708,68 @@ msgstr ""
 "```bob\n"
 " Pilha                             Heap\n"
 ".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - "
-"- - -.\n"
-":                           :     :                                               :\n"
-":    "
-"pets                   :     :                                               :\n"
-":   +-----------+-------+   :     :   +-----+-----"
-"+                               :\n"
-":   | ptr       |   o---+---+-----+-->| o o | o o "
-"|                               :\n"
-":   | tamanho   |     2 |   :     :   +-|-|-+-|-|-"
-"+                               :\n"
-":   | capac.    |     2 |   :     :     | |   | |   +---------------"
-"+             :\n"
-":   +-----------+-------+   :     :     | |   | '-->| nome: \"Bidu\"  "
-"|             :\n"
-":                           :     :     | |   |     +---------------"
-"+             :\n"
-"`- - - - - - - - - - - - - -'     :     | |   "
-"|                                   :\n"
-"                                  :     | |   |     "
-"+--------------------------+  :\n"
-"                                  :     | |   '---->| \"<Cachorro as Pet>::"
-"nome\"|  :\n"
-"                                  :     | |         "
-"+--------------------------+  :\n"
+"- -.\n"
+":                           :     :                                             :\n"
+":    pets                   :     :                     +----+----+----+----"
+"+   :\n"
+":   +-----------+-------+   :     :   +-----+-----+  .->| F  | i  | d  | o  "
+"|   :\n"
+":   | ptr       |   o---+---+-----+-->| o o | o o |  |  +----+----+----+----"
+"+   :\n"
+":   | tam       |     2 |   :     :   +-|-|-+-|-|-+  "
+"`---------.                :\n"
+":   | capacid.  |     2 |   :     :     | |   | |    data      "
+"|                :\n"
+":   +-----------+-------+   :     :     | |   | |   +-------+--|-------"
+"+        :\n"
+":                           :     :     | |   | '-->| name  |  o, 4, 4 "
+"|        :\n"
+":                           :     :     | |   |     | age   |        5 "
+"|        :\n"
+"`- - - - - - - - - - - - - -'     :     | |   |     +-------+----------"
+"+        :\n"
+"                                  :     | |   "
+"|                                 :\n"
+"                                  :     | |   |      "
+"vtable                     :\n"
+"                                  :     | |   |     +----------------------"
+"+    :\n"
+"                                  :     | |   '---->| \"<Dog as Pet>::talk\" "
+"|    :\n"
+"                                  :     | |         +----------------------"
+"+    :\n"
 "                                  :     | "
-"|                                       : \n"
-"                                  :     | |   +-"
-"+                                 : \n"
-"                                  :     | '-->|"
-"\\|                                 : \n"
-"                                  :     |     +-"
-"+                                 : \n"
+"|                                     :\n"
+"                                  :     | |    "
+"data                             :\n"
+"                                  :     | |   +-------+-------"
+"+                 :\n"
+"                                  :     | '-->| lives |     9 "
+"|                 :\n"
+"                                  :     |     +-------+-------"
+"+                 :\n"
 "                                  :     "
-"|                                         : \n"
-"                                  :     |     +-----------------------"
-"+           : \n"
-"                                  :     '---->| \"<Gato as Pet>::nome\" "
-"|           : \n"
-"                                  :           +-----------------------"
-"+           :\n"
-"                                  :                                               :\n"
+"|                                       :\n"
+"                                  :     |      "
+"vtable                           :\n"
+"                                  :     |     +----------------------"
+"+          :\n"
+"                                  :     '---->| \"<Cat as Pet>::talk\" "
+"|          :\n"
+"                                  :           +----------------------"
+"+          :\n"
+"                                  :                                             :\n"
 "                                  '- - - - - - - - - - - - - - - - - - - - - "
-"- - -'\n"
-"\n"
+"- -'\n"
 "```"
 
 #: src/methods-and-traits/trait-objects.md:77
-#, fuzzy
 msgid ""
 "Types that implement a given trait may be of different sizes. This makes it "
 "impossible to have things like `Vec<dyn Pet>` in the example above."
 msgstr ""
 "Tipos que implementam um dado `trait` podem ter tamanhos diferentes. Isto "
-"torna impossível haver coisas como `Vec<Pet>` no exemplo anterior."
+"torna impossível haver coisas como `Vec<dyn Pet>` no exemplo anterior."
 
 #: src/methods-and-traits/trait-objects.md:79
 msgid ""
@@ -5750,25 +5784,28 @@ msgid ""
 "In the example, `pets` is allocated on the stack and the vector data is on "
 "the heap. The two vector elements are _fat pointers_:"
 msgstr ""
+"No exemplo, `pets` é alocado na pilha e os dados do vetor estão no heap. Os "
+"dois elementos do vetor são _fat pointers_ (ponteiros \"gordos\"):"
 
 #: src/methods-and-traits/trait-objects.md:83
-#, fuzzy
 msgid ""
 "A fat pointer is a double-width pointer. It has two components: a pointer to "
 "the actual object and a pointer to the [virtual method table](https://en."
 "wikipedia.org/wiki/Virtual_method_table) (vtable) for the `Pet` "
 "implementation of that particular object."
 msgstr ""
-"No exemplo, `pets` possui _fat pointers_ para objetos que implementam `Pet`. "
-"O _fat pointer_ consiste em dois componentes, um ponteiro para o objeto "
-"propriamente dito e um ponteiro para a tabela de métodos virtuais para a "
-"implementação de `Pet` do objeto em particular."
+"Um _fat pointer_ é um ponteiro de dupla largura. Ele tem dois componentes: "
+"um ponteiro para o objeto real e um ponteiro para a [tabela de métodos "
+"virtuais](https://en.wikipedia.org/wiki/Virtual_method_table) (vtable) para "
+"a implementação `Pet` desse objeto em particular."
 
 #: src/methods-and-traits/trait-objects.md:86
 msgid ""
 "The data for the `Dog` named Fido is the `name` and `age` fields. The `Cat` "
 "has a `lives` field."
 msgstr ""
+"Os dados para o `Dog` chamado Fido são os campos `name` e `age`. O `Cat` tem "
+"um campo `lives`."
 
 #: src/methods-and-traits/trait-objects.md:88
 msgid "Compare these outputs in the above example:"
@@ -5790,14 +5827,14 @@ msgid "\"{}\""
 msgstr "\"{}\""
 
 #: src/methods-and-traits/exercise.md:3
-#, fuzzy
 msgid ""
 "Let us design a classical GUI library using our new knowledge of traits and "
 "trait objects. We'll only implement the drawing of it (as text) for "
 "simplicity."
 msgstr ""
 "Vamos projetar uma biblioteca GUI clássica usando nosso novo conhecimento de "
-"_traits_ e objetos de `trait`."
+"_traits_ e objetos de `trait`. Implementaremos apenas o desenho (como texto) "
+"para simplificar."
 
 #: src/methods-and-traits/exercise.md:6
 msgid "We will have a number of widgets in our library:"
@@ -5813,10 +5850,14 @@ msgid ""
 "to allow the program to do something when the button is clicked but we won't "
 "include that since we're only drawing the GUI."
 msgstr ""
+"`Button`: tem um `label` (rótulo). Na realidade, ele também receberia uma "
+"função de retorno de chamada para permitir que o programa faça algo quando o "
+"botão é clicado, mas não incluiremos isso, pois estamos apenas desenhando a "
+"GUI."
 
 #: src/methods-and-traits/exercise.md:12
 msgid "`Label`: has a `label`."
-msgstr "`Label`: tem um `rótulo`."
+msgstr "`Label`: tem um `label`."
 
 #: src/methods-and-traits/exercise.md:14
 msgid "The widgets will implement a `Widget` trait, see below."
@@ -5833,49 +5874,49 @@ msgstr ""
 #: src/methods-and-traits/exercise.md:24 src/methods-and-traits/solution.md:5
 #: src/modules/solution.md:36
 msgid "/// Natural width of `self`.\n"
-msgstr ""
+msgstr "/// Largura natural de `self`.\n"
 
 #: src/methods-and-traits/exercise.md:27 src/methods-and-traits/solution.md:8
 #: src/modules/solution.md:39
 msgid "/// Draw the widget into a buffer.\n"
-msgstr ""
+msgstr "/// Desenha o _widget_ em um buffer.\n"
 
 #: src/methods-and-traits/exercise.md:30 src/methods-and-traits/solution.md:11
 #: src/modules/solution.md:42
 msgid "/// Draw the widget on standard output.\n"
-msgstr ""
+msgstr "/// Desenha o _widget_ na saída padrão.\n"
 
 #: src/methods-and-traits/exercise.md:34 src/methods-and-traits/solution.md:15
 #: src/modules/solution.md:46
 msgid "\"{buffer}\""
-msgstr ""
+msgstr "\"{buffer}\""
 
 #: src/methods-and-traits/exercise.md:79
 msgid "// TODO: Implement `Widget` for `Label`.\n"
-msgstr ""
+msgstr "// TODO: Implemente `Widget` para `Label`.\n"
 
 #: src/methods-and-traits/exercise.md:81
 msgid "// TODO: Implement `Widget` for `Button`.\n"
-msgstr ""
+msgstr "// TODO: Implemente `Widget` para `Button`.\n"
 
 #: src/methods-and-traits/exercise.md:83
 msgid "// TODO: Implement `Widget` for `Window`.\n"
-msgstr ""
+msgstr "// TODO: Implemente `Widget` para `Window`.\n"
 
 #: src/methods-and-traits/exercise.md:87 src/methods-and-traits/solution.md:117
 #: src/modules/solution.md:183
 msgid "\"Rust GUI Demo 1.23\""
-msgstr ""
+msgstr "\"Rust GUI Demo 1.23\""
 
 #: src/methods-and-traits/exercise.md:88 src/methods-and-traits/solution.md:118
 #: src/modules/solution.md:185
 msgid "\"This is a small text GUI demo.\""
-msgstr ""
+msgstr "\"Este é um pequeno demo de GUI em texto.\""
 
 #: src/methods-and-traits/exercise.md:89 src/methods-and-traits/solution.md:119
 #: src/modules/solution.md:186
 msgid "\"Click me!\""
-msgstr ""
+msgstr "\"Clique em mim!\""
 
 #: src/methods-and-traits/exercise.md:94
 msgid "The output of the above program can be something simple like this:"
@@ -5915,7 +5956,7 @@ msgstr ""
 
 #: src/methods-and-traits/solution.md:63
 msgid "// Add 4 paddings for borders\n"
-msgstr ""
+msgstr "// Adiciona 4 preenchimentos para as bordas\n"
 
 #: src/methods-and-traits/solution.md:75 src/modules/solution.md:162
 msgid ""
@@ -5923,11 +5964,14 @@ msgid ""
 "        // draw_into to return Result<(), std::fmt::Error>. Then use\n"
 "        // the ?-operator here instead of .unwrap().\n"
 msgstr ""
+"// TODO: depois de aprender sobre tratamento de erros, você pode alterar\n"
+"        // draw_into para retornar Result<(), std::fmt::Error>. Então use\n"
+"        // o operador ? aqui em vez de .unwrap().\n"
 
 #: src/methods-and-traits/solution.md:78 src/methods-and-traits/solution.md:84
 #: src/modules/solution.md:165 src/modules/solution.md:171
 msgid "\"+-{:-<inner_width$}-+\""
-msgstr ""
+msgstr "\"+-{:-<inner_width$}-+\""
 
 #: src/methods-and-traits/solution.md:78 src/methods-and-traits/solution.md:80
 #: src/methods-and-traits/solution.md:84 src/methods-and-traits/solution.md:98
@@ -5940,19 +5984,19 @@ msgstr "\"\""
 
 #: src/methods-and-traits/solution.md:79 src/modules/solution.md:166
 msgid "\"| {:^inner_width$} |\""
-msgstr ""
+msgstr "\"| {:^inner_width$} |\""
 
 #: src/methods-and-traits/solution.md:80 src/modules/solution.md:167
 msgid "\"+={:=<inner_width$}=+\""
-msgstr ""
+msgstr "\"+={:=<inner_width$}=+\""
 
 #: src/methods-and-traits/solution.md:82 src/modules/solution.md:169
 msgid "\"| {:inner_width$} |\""
-msgstr ""
+msgstr "\"| {:inner_width$} |\""
 
 #: src/methods-and-traits/solution.md:90 src/modules/solution.md:100
 msgid "// add a bit of padding\n"
-msgstr ""
+msgstr "// adicione um pouco de preenchimento\n"
 
 #: src/methods-and-traits/solution.md:98 src/methods-and-traits/solution.md:102
 #: src/modules/solution.md:110 src/modules/solution.md:114
@@ -5964,14 +6008,13 @@ msgid "\"|{:^width$}|\""
 msgstr "\"|{:^width$}|\""
 
 #: src/generics/generic-functions.md:3
-#, fuzzy
 msgid ""
 "Rust supports generics, which lets you abstract algorithms or data "
 "structures (such as sorting or a binary tree) over the types used or stored."
 msgstr ""
-"Rust oferece suporte a tipos genéricos, que permitem algoritmos ou "
-"estruturas de dados (como ordenação ou árvore binária) abstrair os tipos de "
-"dados usados ou armazenados."
+"Rust suporta genéricos, o que permite abstrair algoritmos ou estruturas de "
+"dados (como ordenação ou uma árvore binária) sobre os tipos usados ou "
+"armazenados."
 
 #: src/generics/generic-functions.md:7
 msgid "/// Pick `even` or `odd` depending on the value of `n`.\n"
@@ -5979,16 +6022,15 @@ msgstr ""
 
 #: src/generics/generic-functions.md:17
 msgid "\"picked a number: {:?}\""
-msgstr ""
+msgstr "\"escolheu um número: {:?}\""
 
 #: src/generics/generic-functions.md:18
-#, fuzzy
 msgid "\"picked a tuple: {:?}\""
-msgstr "\"files: {:#?}\""
+msgstr "\"escolheu uma tupla: {:?}\""
 
 #: src/generics/generic-functions.md:18
 msgid "\"dog\""
-msgstr ""
+msgstr "\"cachorro\""
 
 #: src/generics/generic-functions.md:18
 msgid "\"cat\""
@@ -5999,6 +6041,8 @@ msgid ""
 "Rust infers a type for T based on the types of the arguments and return "
 "value."
 msgstr ""
+"Rust infere um tipo para T com base nos tipos dos argumentos e valor de "
+"retorno."
 
 #: src/generics/generic-functions.md:26
 msgid ""
@@ -6008,21 +6052,26 @@ msgid ""
 "`n == 0`. Even if only the `pick` instantiation with integers is used, Rust "
 "still considers it invalid. C++ would let you do this."
 msgstr ""
+"Isto é semelhante aos _templates_ C++, mas Rust compila parcialmente a "
+"função genérica imediatamente, de modo que a função deve ser válida para "
+"todos os tipos que correspondem às restrições. Por exemplo, tente modificar "
+"`pick` para retornar `even + odd` se `n == 0`. Mesmo que apenas a instância "
+"`pick` com inteiros seja usada, Rust ainda a considera inválida. C++ "
+"permitiria que você fizesse isso."
 
 #: src/generics/generic-functions.md:32
-#, fuzzy
 msgid ""
 "Generic code is turned into non-generic code based on the call sites. This "
 "is a zero-cost abstraction: you get exactly the same result as if you had "
 "hand-coded the data structures without the abstraction."
 msgstr ""
-"Esta é uma abstração de custo zero: você obtém exatamente o mesmo resultado "
-"como se tivesse codificado manualmente as estruturas de dados sem utilizar a "
-"abstração."
+"O código genérico é transformado em código não genérico com base nos locais "
+"de chamada. Esta é uma abstração sem custo: você obtém exatamente o mesmo "
+"resultado como se tivesse codificado as estruturas de dados sem a abstração."
 
 #: src/generics/generic-data.md:3
 msgid "You can use generics to abstract over the concrete field type:"
-msgstr "Você pode usar tipos genéricos para abstrair o tipo concreto do campo:"
+msgstr "Você pode usar genéricos para abstrair o tipo concreto do campo:"
 
 #: src/generics/generic-data.md:17
 msgid "// fn set_x(&mut self, x: T)\n"
@@ -6033,9 +6082,8 @@ msgid "\"{integer:?} and {float:?}\""
 msgstr "\"{integer:?} e {float:?}\""
 
 #: src/generics/generic-data.md:24
-#, fuzzy
 msgid "\"coords: {:?}\""
-msgstr "\"s: {s:?}\""
+msgstr "\"coords: {:?}\""
 
 #: src/generics/generic-data.md:30
 msgid ""
@@ -6058,9 +6106,8 @@ msgid "It means these methods are defined for any `T`."
 msgstr "Significa que esses métodos são definidos para qualquer `T`."
 
 #: src/generics/generic-data.md:35
-#, fuzzy
 msgid "It is possible to write `impl Point<u32> { .. }`."
-msgstr "É possível escrever `Impl Point<u32> { .. }`."
+msgstr "É possível escrever `impl Point<u32> { .. }`."
 
 #: src/generics/generic-data.md:36
 msgid ""
@@ -6076,6 +6123,9 @@ msgid ""
 "code to allow points that have elements of different types, by using two "
 "type variables, e.g., `T` and `U`."
 msgstr ""
+"Tente declarar uma nova variável `let p = Point { x: 5, y: 10.0 };`. "
+"Atualize o código para permitir pontos que tenham elementos de tipos "
+"diferentes, usando duas variáveis de tipo, por exemplo, `T` e `U`."
 
 #: src/generics/trait-bounds.md:3
 msgid ""
@@ -6091,25 +6141,24 @@ msgstr "Você consegue fazer isso com `T:Trait` ou `impl Trait`:"
 
 #: src/generics/trait-bounds.md:12
 msgid "// struct NotClonable;\n"
-msgstr ""
+msgstr "// struct NotClonable;\n"
 
 #: src/generics/trait-bounds.md:18
 msgid "\"{pair:?}\""
-msgstr ""
+msgstr "\"{pair:?}\""
 
 #: src/generics/trait-bounds.md:24
 msgid "Try making a `NonClonable` and passing it to `duplicate`."
-msgstr ""
+msgstr "Tente criar um `NonClonable` e passá-lo para `duplicate`."
 
 #: src/generics/trait-bounds.md:26
 msgid "When multiple traits are necessary, use `+` to join them."
-msgstr ""
+msgstr "Quando vários _traits_ são necessários, use `+` para uni-los."
 
 #: src/generics/trait-bounds.md:28
 msgid "Show a `where` clause, students will encounter it when reading code."
 msgstr ""
-"Mostre uma cláusula `where`, os estudantes irão encontrá-la quando lerem "
-"código."
+"Mostre uma cláusula `where`, estudantes irão encontrá-la quando lerem código."
 
 #: src/generics/trait-bounds.md:39
 msgid "It declutters the function signature if you have many parameters."
@@ -6132,13 +6181,16 @@ msgid ""
 "Note that Rust does not (yet) support specialization. For example, given the "
 "original `duplicate`, it is invalid to add a specialized `duplicate(a: u32)`."
 msgstr ""
+"Observe que o Rust ainda não suporta especialização. Por exemplo, dada a "
+"função `duplicate` original, é inválido adicionar uma especialização "
+"`duplicate(a: u32)`."
 
 #: src/generics/impl-trait.md:3
 msgid ""
 "Similar to trait bounds, an `impl Trait` syntax can be used in function "
 "arguments and return values:"
 msgstr ""
-"Semelhante aos limites do _trait_, a sintaxe do _trait_ `impl` pode ser "
+"Semelhante aos limites de _trait_, a sintaxe do _trait_ `impl` pode ser "
 "usada em argumentos de funções e em valores de retorno:"
 
 #: src/generics/impl-trait.md:7
@@ -6146,29 +6198,30 @@ msgid ""
 "// Syntactic sugar for:\n"
 "//   fn add_42_millions<T: Into<i32>>(x: T) -> i32 {\n"
 msgstr ""
+"// Código simplificado para:\n"
+"//   fn add_42_millions<T: Into<i32>>(x: T) -> i32 {\n"
 
 #: src/generics/impl-trait.md:19
 msgid "\"{many}\""
-msgstr ""
+msgstr "\"{many}\""
 
 #: src/generics/impl-trait.md:21
 msgid "\"{many_more}\""
-msgstr ""
+msgstr "\"{many_more}\""
 
 #: src/generics/impl-trait.md:23
 msgid "\"debuggable: {debuggable:?}\""
-msgstr ""
+msgstr "\"debuggable: {debuggable:?}\""
 
 #: src/generics/impl-trait.md:29
-#, fuzzy
 msgid ""
 "`impl Trait` allows you to work with types which you cannot name. The "
 "meaning of `impl Trait` is a bit different in the different positions."
 msgstr ""
-"O significado do _trait_ `impl` é um pouco difere de acordo com sua posição."
+"O `impl Trait` permite que você trabalhe com tipos que você não pode nomear. "
+"O significado de `impl Trait` é um pouco diferente nas diferentes posições."
 
 #: src/generics/impl-trait.md:32
-#, fuzzy
 msgid ""
 "For a parameter, `impl Trait` is like an anonymous generic parameter with a "
 "trait bound."
@@ -6177,14 +6230,13 @@ msgstr ""
 "limitador de características (trait)."
 
 #: src/generics/impl-trait.md:35
-#, fuzzy
 msgid ""
 "For a return type, it means that the return type is some concrete type that "
 "implements the trait, without naming the type. This can be useful when you "
 "don't want to expose the concrete type in a public API."
 msgstr ""
 "Como tipo de retorno, significa que o tipo de retorno é algum tipo concreto "
-"que implementa o _trait_, sem namear o tipo. Isso pode ser útil quando você "
+"que implementa o _trait_, sem nomear o tipo. Isso pode ser útil quando você "
 "não deseja expor o tipo concreto em uma API pública."
 
 #: src/generics/impl-trait.md:39
@@ -6196,35 +6248,45 @@ msgid ""
 "`let x: Vec<_> = foo.collect()` or with the turbofish, `foo.collect::"
 "<Vec<_>>()`."
 msgstr ""
+"A inferência é difícil na posição de retorno. Uma função que retorna `impl "
+"Foo` escolhe o tipo concreto que retorna, sem escrevê-lo na fonte. Uma "
+"função que retorna um tipo genérico como `collect<B>() -> B` pode retornar "
+"qualquer tipo que satisfaça `B`, e o chamador pode precisar escolher um, "
+"como com `let x: Vec<_> = foo.collect()` ou com o _turbofish_, `foo.collect::"
+"<Vec<_>>()`."
 
 #: src/generics/impl-trait.md:46
 msgid ""
 "What is the type of `debuggable`? Try `let debuggable: () = ..` to see what "
 "the error message shows."
 msgstr ""
+"Qual é o tipo de `debuggable`? Tente `let debuggable: () = ..` para ver o "
+"que a mensagem de erro mostra."
 
 #: src/generics/exercise.md:3
 msgid ""
 "In this short exercise, you will implement a generic `min` function that "
 "determines the minimum of two values, using a `LessThan` trait."
 msgstr ""
+"Neste exercício curto, você implementará uma função genérica `min` que "
+"determina o mínimo de dois valores, usando um _trait_ `LessThan`."
 
 #: src/generics/exercise.md:8 src/generics/solution.md:5
 msgid "/// Return true if self is less than other.\n"
-msgstr ""
+msgstr "/// Retorna verdadeiro se self for menor que other.\n"
 
 #: src/generics/exercise.md:29
 msgid "// TODO: implement the `min` function used in `main`.\n"
-msgstr ""
+msgstr "// TODO: implemente a função `min` usada em `main`.\n"
 
 #: src/generics/exercise.md:33 src/generics/solution.md:36
 msgid "\"Shapiro\""
-msgstr ""
+msgstr "\"Shapiro\""
 
 #: src/generics/exercise.md:34 src/generics/exercise.md:35
 #: src/generics/solution.md:37 src/generics/solution.md:38
 msgid "\"Baumann\""
-msgstr ""
+msgstr "\"Baumann\""
 
 #: src/std-types.md:7
 msgid ""
@@ -6233,7 +6295,6 @@ msgid ""
 msgstr ""
 
 #: src/std-types/std.md:3
-#, fuzzy
 msgid ""
 "Rust comes with a standard library which helps establish a set of common "
 "types used by Rust libraries and programs. This way, two libraries can work "
@@ -6245,7 +6306,6 @@ msgstr ""
 "porque ambas usam o mesmo tipo `String`."
 
 #: src/std-types/std.md:7
-#, fuzzy
 msgid ""
 "In fact, Rust contains several layers of the Standard Library: `core`, "
 "`alloc` and `std`."
@@ -6254,7 +6314,6 @@ msgstr ""
 "`alloc` e `std`. "
 
 #: src/std-types/std.md:10
-#, fuzzy
 msgid ""
 "`core` includes the most basic types and functions that don't depend on "
 "`libc`, allocator or even the presence of an operating system."
@@ -6267,8 +6326,8 @@ msgid ""
 "`alloc` includes types which require a global heap allocator, such as `Vec`, "
 "`Box` and `Arc`."
 msgstr ""
-"`alloc` inclui tipos que requerem um alocador de heap global, como `Vec`, "
-"`Box` e `Arc`."
+"`alloc` inclui tipos que requerem um alocador de heap global, tais como "
+"`Vec`, `Box` e `Arc`."
 
 #: src/std-types/std.md:14
 msgid ""
@@ -6279,36 +6338,37 @@ msgstr ""
 
 #: src/std-types/docs.md:3
 msgid "Rust comes with extensive documentation. For example:"
-msgstr ""
+msgstr "O Rust vem com uma extensa documentação. Por exemplo:"
 
 #: src/std-types/docs.md:5
-#, fuzzy
 msgid ""
 "All of the details about [loops](https://doc.rust-lang.org/stable/reference/"
 "expressions/loop-expr.html)."
 msgstr ""
-"Se você quiser sair de um loop cedo, use [`break`](https://doc.rust-lang.org/"
-"reference/expressions/loop-expr.html#break-expressions),"
+"Todos os detalhes sobre [loops](https://doc.rust-lang.org/stable/reference/"
+"expressions/loop-expr.html)."
 
 #: src/std-types/docs.md:7
 msgid ""
 "Primitive types like [`u8`](https://doc.rust-lang.org/stable/std/primitive."
 "u8.html)."
 msgstr ""
+"Tipos primitivos como [`u8`](https://doc.rust-lang.org/stable/std/primitive."
+"u8.html)."
 
 #: src/std-types/docs.md:9
-#, fuzzy
 msgid ""
 "Standard library types like [`Option`](https://doc.rust-lang.org/stable/std/"
 "option/enum.Option.html) or [`BinaryHeap`](https://doc.rust-lang.org/stable/"
 "std/collections/struct.BinaryHeap.html)."
 msgstr ""
-"[`str`](https://doc.rust-lang.org/std/primitive.str.html) e [`String`]"
-"(https://doc.rust-lang.org/std/string/struct.String.html)"
+"Tipos da biblioteca padrão como [`Option`](https://doc.rust-lang.org/stable/"
+"std/option/enum.Option.html) ou [`BinaryHeap`](https://doc.rust-lang.org/"
+"stable/std/collections/struct.BinaryHeap.html)."
 
 #: src/std-types/docs.md:13
 msgid "In fact, you can document your own code:"
-msgstr ""
+msgstr "Na verdade, você pode documentar seu próprio código:"
 
 #: src/std-types/docs.md:16
 msgid ""
@@ -6328,7 +6388,7 @@ msgid ""
 "(https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html) tool. It is "
 "idiomatic to document all public items in an API using this pattern."
 msgstr ""
-"O conteúdio é tratado como _Markdown_. Todos os _crates_ publicados na "
+"O conteúdo é tratado como _Markdown_. Todos os _crates_ publicados na "
 "biblioteca Rust são documentados automaticamente em [`docs.rs`](https://docs."
 "rs) utilizando a ferramenta [rustdoc](https://doc.rust-lang.org/rustdoc/what-"
 "is-rustdoc.html). É idiomático documentar todos os itens públicos em uma API "
@@ -6339,26 +6399,28 @@ msgid ""
 "To document an item from inside the item (such as inside a module), use `//!"
 "` or `/*! .. */`, called \"inner doc comments\":"
 msgstr ""
+"Para documentar um item de dentro do item (como dentro de um módulo), use "
+"`//!` ou `/*! .. */`, chamado de \"comentários de documentação interna\":"
 
 #: src/std-types/docs.md:36
 msgid ""
 "//! This module contains functionality relating to divisibility of "
 "integers.\n"
 msgstr ""
+"//! Este módulo contém funcionalidades relacionadas à divisibilidade de "
+"inteiros.\n"
 
 #: src/std-types/docs.md:41
-#, fuzzy
 msgid ""
 "Show students the generated docs for the `rand` crate at <https://docs.rs/"
 "rand>."
 msgstr ""
-"Mostre aos alunos os documentos gerados para o crate `rand` em [`docs.rs/"
-"rand`](https://docs.rs/rand)."
+"Mostre aos alunos os documentos gerados para o crate `rand` em [<https://"
+"docs.rs/rand>."
 
 #: src/std-types/option.md:1
-#, fuzzy
 msgid "Option"
-msgstr "Exceções"
+msgstr "Option"
 
 #: src/std-types/option.md:3
 msgid ""
@@ -6369,58 +6431,63 @@ msgstr ""
 
 #: src/std-types/option.md:10
 msgid "\"Löwe 老虎 Léopard Gepardi\""
-msgstr ""
+msgstr "\"Löwe 老虎 Léopard Gepardi\""
 
 #: src/std-types/option.md:11
 msgid "'é'"
-msgstr ""
+msgstr "'é'"
 
 #: src/std-types/option.md:12 src/std-types/option.md:15
 msgid "\"find returned {position:?}\""
-msgstr ""
+msgstr "\"find retornou {position:?}\""
 
 #: src/std-types/option.md:14
-#, fuzzy
 msgid "'Z'"
-msgstr "' '"
+msgstr "'Z'"
 
 #: src/std-types/option.md:16
 msgid "\"Character not found\""
-msgstr ""
+msgstr "\"Caractere não encontrado\""
 
 #: src/std-types/option.md:22
-#, fuzzy
 msgid "`Option` is widely used, not just in the standard library."
-msgstr ""
-"`Option` e `Result` são amplamente usados não apenas na biblioteca padrão."
+msgstr "`Option` é amplamente utilizado, não apenas na biblioteca padrão."
 
 #: src/std-types/option.md:23
 msgid ""
 "`unwrap` will return the value in an `Option`, or panic. `expect` is similar "
 "but takes an error message."
 msgstr ""
+"`unwrap` retornará o valor em um `Option`, ou entrará em pânico. `expect` é "
+"semelhante, mas recebe uma mensagem de erro."
 
 #: src/std-types/option.md:25
 msgid ""
 "You can panic on None, but you can't \"accidentally\" forget to check for "
 "None."
 msgstr ""
+"Você pode entrar em pânico em `None`, mas não pode \"acidentalmente\" "
+"esquecer de verificar `None`."
 
 #: src/std-types/option.md:27
 msgid ""
 "It's common to `unwrap`/`expect` all over the place when hacking something "
 "together, but production code typically handles `None` in a nicer fashion."
 msgstr ""
+"É comum `unwrap`/`expect` em todos os lugares ao hackear algo, mas o código "
+"de produção normalmente lida com `None` de uma maneira mais elegante."
 
 #: src/std-types/option.md:29
 msgid ""
 "The niche optimization means that `Option<T>` often has the same size in "
 "memory as `T`."
 msgstr ""
+"A otimização de nicho significa que `Option<T>` muitas vezes tem o mesmo "
+"tamanho na memória que `T`."
 
 #: src/std-types/result.md:1
 msgid "Result"
-msgstr ""
+msgstr "Result"
 
 #: src/std-types/result.md:3
 msgid ""
@@ -6429,20 +6496,22 @@ msgid ""
 "in the expression exercise, but generic: `Result<T, E>` where `T` is used in "
 "the `Ok` variant and `E` appears in the `Err` variant."
 msgstr ""
+"`Result` é semelhante a `Option`, mas indica o sucesso ou falha de uma "
+"operação, cada um com um tipo diferente. Isso é semelhante ao `Res` definido "
+"no exercício de expressão, mas genérico: `Result<T, E>` onde `T` é usado na "
+"variante `Ok` e `E` aparece na variante `Err`."
 
 #: src/std-types/result.md:13
 msgid "\"diary.txt\""
-msgstr "\"diario.txt\""
+msgstr "\"diary.txt\""
 
 #: src/std-types/result.md:18
-#, fuzzy
 msgid "\"Dear diary: {contents} ({bytes} bytes)\""
-msgstr "\"Querido diário: {contents}\""
+msgstr "\"Querido diário: {contents} ({bytes} bytes)\""
 
 #: src/std-types/result.md:20
-#, fuzzy
 msgid "\"Could not read file content\""
-msgstr "\"Não é possivel ler: {0}\""
+msgstr "\"Não é possivel ler o conteúdo do arquivo\""
 
 #: src/std-types/result.md:24
 msgid "\"The diary could not be opened: {err}\""
@@ -6461,7 +6530,6 @@ msgstr ""
 "podem ser chamados, e isso também sinaliza a intenção do desenvolvedor."
 
 #: src/std-types/result.md:36
-#, fuzzy
 msgid ""
 "`Result` documentation is a recommended read. Not during the course, but it "
 "is worth mentioning. It contains a lot of convenience methods and functions "
@@ -6577,6 +6645,8 @@ msgid ""
 "We haven't discussed the `Deref` trait yet, so at this point this mostly "
 "explains the structure of the sidebar in the documentation."
 msgstr ""
+"Ainda não discutimos o _trait_ `Deref`, então, neste ponto, isso explica "
+"principalmente a estrutura da barra lateral na documentação."
 
 #: src/std-types/string.md:42
 msgid ""
@@ -6587,7 +6657,6 @@ msgstr ""
 "acesso aos métodos de `str`."
 
 #: src/std-types/string.md:44
-#, fuzzy
 msgid "Write and compare `let s3 = s1.deref();` and `let s3 = &*s1;`."
 msgstr "Escreva e compare `let s3 = s1.deref();` e `let s3 = &*s1;`."
 
@@ -6598,7 +6667,7 @@ msgid ""
 "with some extra guarantees."
 msgstr ""
 "`String` é implementado como um wrapper em torno de um vetor de bytes, "
-"muitas das operações que você vê suportados em vetores também são suportadas "
+"muitas das operações que você vê suportadas em vetores também são suportadas "
 "em `String`, mas com algumas garantias extras."
 
 #: src/std-types/string.md:48
@@ -6664,7 +6733,6 @@ msgstr ""
 "métodos de _slice_ em um `Vec`."
 
 #: src/std-types/vec.md:37
-#, fuzzy
 msgid ""
 "`Vec` is a type of collection, along with `String` and `HashMap`. The data "
 "it contains is stored on the heap. This means the amount of data doesn't "
@@ -6709,6 +6777,9 @@ msgid ""
 "Slices are covered on day 3. For now, students only need to know that a "
 "value of type `Vec` gives access to all of the documented slice methods, too."
 msgstr ""
+"Os _slices_ são abordados no dia 3. Por enquanto, os alunos só precisam "
+"saber que um valor do tipo `Vec` dá acesso a todos os métodos de _slice_ "
+"documentados, também."
 
 #: src/std-types/hashmap.md:3
 msgid "Standard hash map with protection against HashDoS attacks:"
@@ -6833,6 +6904,10 @@ msgid ""
 "Rust docs. Show students the docs for this type, and the helpful link back "
 "to the `keys` method."
 msgstr ""
+"Este tipo tem vários tipos de retorno \"específicos do método\", como `std::"
+"collections::hash_map::Keys`. Esses tipos geralmente aparecem em pesquisas "
+"nos documentos do Rust. Mostre aos alunos os documentos para este tipo e o "
+"link útil de volta ao método `keys`."
 
 #: src/std-types/exercise.md:3
 msgid ""
@@ -6841,6 +6916,10 @@ msgid ""
 "stable/std/collections/struct.HashMap.html) to keep track of which values "
 "have been seen and how many times each one has appeared."
 msgstr ""
+"Neste exercício, você usará uma estrutura de dados muito simples e a tornará "
+"genérica. Ela usa um [`std::collections::HashMap`](https://doc.rust-lang.org/"
+"stable/std/collections/struct.HashMap.html) para acompanhar quais valores "
+"foram vistos e quantas vezes cada um apareceu."
 
 #: src/std-types/exercise.md:9
 msgid ""
@@ -6848,6 +6927,10 @@ msgid ""
 "values. Make the struct and its methods generic over the type of value being "
 "tracked, that way `Counter` can track any type of value."
 msgstr ""
+"A versão inicial de `Counter` é codificada para funcionar apenas para "
+"valores `u32`. Faça a estrutura e seus métodos genéricos sobre o tipo de "
+"valor sendo rastreado, dessa forma `Counter` pode rastrear qualquer tipo de "
+"valor."
 
 #: src/std-types/exercise.md:13
 msgid ""
@@ -6855,67 +6938,79 @@ msgid ""
 "stable/std/collections/struct.HashMap.html#method.entry) method to halve the "
 "number of hash lookups required to implement the `count` method."
 msgstr ""
+"Se você terminar cedo, tente usar o método [`entry`](https://doc.rust-lang."
+"org/stable/std/collections/struct.HashMap.html#method.entry) para reduzir "
+"pela metade o número de pesquisas de hash necessárias para implementar o "
+"método `count`."
 
 #: src/std-types/exercise.md:20 src/std-types/solution.md:6
 msgid ""
 "/// Counter counts the number of times each value of type T has been seen.\n"
 msgstr ""
+"/// Counter conta o número de vezes que cada valor do tipo T foi visto.\n"
 
 #: src/std-types/exercise.md:27 src/std-types/solution.md:13
 msgid "/// Create a new Counter.\n"
-msgstr ""
+msgstr "/// Cria um novo Counter.\n"
 
 #: src/std-types/exercise.md:34 src/std-types/solution.md:18
 msgid "/// Count an occurrence of the given value.\n"
-msgstr ""
+msgstr "/// Conta uma ocorrência do valor fornecido.\n"
 
 #: src/std-types/exercise.md:43 src/std-types/solution.md:23
 msgid "/// Return the number of times the given value has been seen.\n"
-msgstr ""
+msgstr "/// Retorna o número de vezes que o valor fornecido foi visto.\n"
 
 #: src/std-types/exercise.md:59 src/std-types/solution.md:39
 msgid "\"saw {} values equal to {}\""
-msgstr ""
+msgstr "\"viu {} valores iguais a {}\""
 
 #: src/std-types/exercise.md:63 src/std-types/exercise.md:65
 #: src/std-types/exercise.md:66 src/std-types/solution.md:43
 #: src/std-types/solution.md:45 src/std-types/solution.md:46
 msgid "\"apple\""
-msgstr ""
+msgstr "\"apple\""
 
 #: src/std-types/exercise.md:64 src/std-types/solution.md:44
 msgid "\"orange\""
-msgstr ""
+msgstr "\"orange\""
 
 #: src/std-types/exercise.md:66 src/std-types/solution.md:46
 msgid "\"got {} apples\""
-msgstr ""
+msgstr "\"obteve {} maçãs\""
 
 #: src/std-traits.md:7
 msgid ""
 "As with the standard-library types, spend time reviewing the documentation "
 "for each trait."
 msgstr ""
+"Como nos tipos da biblioteca padrão, reserve um tempo para revisar a "
+"documentação de cada `trait`."
 
 #: src/std-traits.md:10
 msgid "This section is long. Take a break midway through."
-msgstr ""
+msgstr "Esta seção é longa. Faça uma pausa no meio."
 
 #: src/std-traits/comparisons.md:3
 msgid ""
 "These traits support comparisons between values. All traits can be derived "
 "for types containing fields that implement these traits."
 msgstr ""
+"Esses `traits` suportam comparações entre valores. Todos os `traits` podem "
+"ser derivados para tipos que contêm campos que implementam esses `traits`."
 
 #: src/std-traits/comparisons.md:6
 msgid "`PartialEq` and `Eq`"
-msgstr ""
+msgstr "`PartialEq` e `Eq`"
 
 #: src/std-traits/comparisons.md:8
 msgid ""
 "`PartialEq` is a partial equivalence relation, with required method `eq` and "
 "provided method `ne`. The `==` and `!=` operators will call these methods."
 msgstr ""
+"`PartialEq` é uma relação de equivalência parcial, com o método `eq` "
+"obrigatório e o método `ne` fornecido. Os operadores `==` e `!=` chamarão "
+"esses métodos."
 
 #: src/std-traits/comparisons.md:23
 msgid ""
@@ -6923,33 +7018,40 @@ msgid ""
 "and implies `PartialEq`. Functions that require full equivalence will use "
 "`Eq` as a trait bound."
 msgstr ""
+"`Eq` é uma relação de equivalência completa (reflexiva, simétrica e "
+"transitiva) e implica `PartialEq`. Funções que exigem equivalência completa "
+"usarão `Eq` como um limite de `trait`."
 
 #: src/std-traits/comparisons.md:27
-#, fuzzy
 msgid "`PartialOrd` and `Ord`"
-msgstr "`Read` e `Write`"
+msgstr "`PartialOrd` e `Ord`"
 
 #: src/std-traits/comparisons.md:29
 msgid ""
 "`PartialOrd` defines a partial ordering, with a `partial_cmp` method. It is "
 "used to implement the `<`, `<=`, `>=`, and `>` operators."
 msgstr ""
+"`PartialOrd` define uma ordenação parcial, com um método `partial_cmp`. Ele "
+"é usado para implementar os operadores `<`, `<=`, `>=` e `>`."
 
 #: src/std-traits/comparisons.md:49
 msgid "`Ord` is a total ordering, with `cmp` returning `Ordering`."
-msgstr ""
+msgstr "`Ord` é uma ordenação total, com `cmp` retornando `Ordering`."
 
 #: src/std-traits/comparisons.md:53
 msgid ""
 "`PartialEq` can be implemented between different types, but `Eq` cannot, "
 "because it is reflexive:"
 msgstr ""
+"`PartialEq` pode ser implementado entre diferentes tipos, mas `Eq` não pode, "
+"porque é reflexivo:"
 
 #: src/std-traits/comparisons.md:68
 msgid ""
 "In practice, it's common to derive these traits, but uncommon to implement "
 "them."
 msgstr ""
+"Na prática, é comum derivar esses `traits`, mas incomum implementá-los."
 
 #: src/std-traits/operators.md:3
 msgid ""
@@ -6961,55 +7063,54 @@ msgstr ""
 
 #: src/std-traits/operators.md:23
 msgid "\"{:?} + {:?} = {:?}\""
-msgstr ""
+msgstr "\"{:?} + {:?} = {:?}\""
 
 #: src/std-traits/operators.md:29 src/memory-management/drop.md:47
 msgid "Discussion points:"
 msgstr "Pontos de discussão:"
 
 #: src/std-traits/operators.md:31
-#, fuzzy
 msgid ""
 "You could implement `Add` for `&Point`. In which situations is that useful?"
 msgstr ""
 "Você pode implementar `Add` para `&Point`. Em quais situações isso é útil?"
 
 #: src/std-traits/operators.md:32
-#, fuzzy
 msgid ""
 "Answer: `Add:add` consumes `self`. If type `T` for which you are overloading "
 "the operator is not `Copy`, you should consider overloading the operator for "
 "`&T` as well. This avoids unnecessary cloning on the call site."
 msgstr ""
-"Resposta: `Add:add` consome `self`. Se digitar `T` para o qual você está "
+"Resposta: `Add:add` consome `self`. Se o tipo `T` para o qual você está "
 "sobrecarregando o operador não implementa `Copy`, você deve considerar "
 "sobrecarregar o operador para `&T` também. Isso evita a clonagem "
 "desnecessária no local da chamada."
 
 #: src/std-traits/operators.md:35
-#, fuzzy
 msgid ""
 "Why is `Output` an associated type? Could it be made a type parameter of the "
 "method?"
 msgstr ""
-"Por que `Output` é um tipo associado? Poderia ser feito um parâmetro de tipo?"
+"Por que `Output` é um tipo associado? Poderia ser feito um parâmetro de tipo "
+"do método?"
 
 #: src/std-traits/operators.md:37
-#, fuzzy
 msgid ""
 "Short answer: Function type parameters are controlled by the caller, but "
 "associated types (like `Output`) are controlled by the implementer of a "
 "trait."
 msgstr ""
-"Resposta curta: os parâmetros de tipo são controlados pelo chamador, mas "
-"tipos associados (como `Output`) são controlados pelo implementador do "
-"`trait`."
+"Resposta curta: os parâmetros de tipo de função são controlados pelo "
+"chamador, mas os tipos associados (como `Output`) são controlados pelo "
+"implementador de um `trait`."
 
 #: src/std-traits/operators.md:40
 msgid ""
 "You could implement `Add` for two different types, e.g. `impl Add<(i32, "
 "i32)> for Point` would add a tuple to a `Point`."
 msgstr ""
+"Você pode implementar `Add` para dois tipos diferentes, por exemplo, `impl "
+"Add<(i32, i32)> for Point` adicionaria uma tupla a um `Point`."
 
 #: src/std-traits/from-and-into.md:3
 msgid ""
@@ -7017,7 +7118,9 @@ msgid ""
 "html) and [`Into`](https://doc.rust-lang.org/std/convert/trait.Into.html) to "
 "facilitate type conversions:"
 msgstr ""
-"Os tipos implementam `From` e `Into` para facilitar as conversões de tipo:"
+"Os tipos implementam [`From`](https://doc.rust-lang.org/std/convert/trait."
+"From.html) e [`Into`](https://doc.rust-lang.org/std/convert/trait.Into.html) "
+"para facilitar as conversões de tipo:"
 
 #: src/std-traits/from-and-into.md:11 src/std-traits/from-and-into.md:23
 msgid "\"{s}, {addr}, {one}, {bigger}\""
@@ -7058,21 +7161,21 @@ msgid ""
 "Rust has no _implicit_ type conversions, but does support explicit casts "
 "with `as`. These generally follow C semantics where those are defined."
 msgstr ""
+"O Rust não tem conversões de tipo _implícitas_, mas suporta conversões "
+"explícitas com `as`. Essas geralmente seguem a semântica de C onde elas são "
+"definidas."
 
 #: src/std-traits/casting.md:9
-#, fuzzy
 msgid "\"as u16: {}\""
-msgstr "\"graph sum: {}\""
+msgstr "\"como u16: {}\""
 
 #: src/std-traits/casting.md:10
-#, fuzzy
 msgid "\"as i16: {}\""
-msgstr "\"prêmio em dinheiro: {}\""
+msgstr "\"como i16: {}\""
 
 #: src/std-traits/casting.md:11
-#, fuzzy
 msgid "\"as u8: {}\""
-msgstr "\"i8: {y}\""
+msgstr "\"como u8: {}\""
 
 #: src/std-traits/casting.md:15
 msgid ""
@@ -7080,6 +7183,9 @@ msgid ""
 "platforms. This might not match your intuition for changing sign or casting "
 "to a smaller type -- check the docs, and comment for clarity."
 msgstr ""
+"Os resultados de `as` são _sempre_ definidos no Rust e consistentes em todas "
+"as plataformas. Isso pode não corresponder à sua intuição para alterar o "
+"sinal ou converter para um tipo menor - verifique a documentação e comente "
 
 #: src/std-traits/casting.md:19
 msgid ""
@@ -7090,6 +7196,13 @@ msgid ""
 "selecting the bottom 32 bits of a `u64` with `as u32`, regardless of what "
 "was in the high bits)."
 msgstr ""
+"Converter com `as` é uma ferramenta relativamente afiada que é fácil de usar "
+"incorretamente e pode ser uma fonte de bugs sutis à medida que o trabalho de "
+"manutenção futuro altera os tipos que são usados ou os intervalos de valores "
+"nos tipos. As conversões são melhores usadas apenas quando a intenção é "
+"indicar truncamento incondicional (por exemplo, selecionar os 32 bits "
+"inferiores de um `u64` com `as u32`, independentemente do que estava nos "
+"bits altos)."
 
 #: src/std-traits/casting.md:25
 msgid ""
@@ -7098,10 +7211,15 @@ msgid ""
 "casts, `TryFrom` and `TryInto` are available when you want to handle casts "
 "that fit differently from those that don't."
 msgstr ""
+"Para conversões infalíveis (por exemplo, `u32` para `u64`), prefira usar "
+"`From` ou `Into` em vez de `as` para confirmar que a conversão é de fato "
+"infalível. Para conversões falíveis, `TryFrom` e `TryInto` estão disponíveis "
+"quando você deseja lidar com conversões que se encaixam de maneira diferente "
+"daquelas que não se encaixam."
 
 #: src/std-traits/casting.md:32
 msgid "Consider taking a break after this slide."
-msgstr ""
+msgstr "Considere fazer uma pausa após este slide."
 
 #: src/std-traits/casting.md:34
 msgid ""
@@ -7109,10 +7227,14 @@ msgid ""
 "be lost is generally discouraged, or at least deserves an explanatory "
 "comment."
 msgstr ""
+"`as` é semelhante a um _cast_ estático do C++. O uso de `as` em casos em que "
+"os dados podem ser perdidos geralmente é desencorajado, ou pelo menos merece "
+"um comentário explicativo."
 
 #: src/std-traits/casting.md:37
 msgid "This is common in casting integers to `usize` for use as an index."
 msgstr ""
+"Isso é comum na conversão de inteiros para `usize` para uso como índice."
 
 #: src/std-traits/read-and-write.md:3
 msgid ""
@@ -7120,20 +7242,21 @@ msgid ""
 "[`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html), you can "
 "abstract over `u8` sources:"
 msgstr ""
-"Usando `Read` e `BufRead`, você pode abstrair a leitura de conteúdos do tipo "
-"`u8`:"
+"Usando [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html) e "
+"[`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html), você pode "
+"abstrair as fontes de dados do tipo `u8`:"
 
 #: src/std-traits/read-and-write.md:14
 msgid "b\"foo\\nbar\\nbaz\\n\""
-msgstr ""
+msgstr "b\"foo\\nbar\\nbaz\\n\""
 
 #: src/std-traits/read-and-write.md:15
 msgid "\"lines in slice: {}\""
-msgstr ""
+msgstr "\"linhas na _slice_: {}\""
 
 #: src/std-traits/read-and-write.md:18
 msgid "\"lines in file: {}\""
-msgstr ""
+msgstr "\"linhas no arquivo: {}\""
 
 #: src/std-traits/read-and-write.md:23
 msgid ""
@@ -7144,12 +7267,8 @@ msgstr ""
 "permite abstrair a escrita de dados do tipo `u8`:"
 
 #: src/std-traits/read-and-write.md:30
-#, fuzzy
 msgid "\"\\n\""
-msgstr ""
-"fn main() -> Result\\<()> { let mut buffer = Vec::new(); log(&mut buffer, "
-"\"Olá\")?; log(&mut buffer, \"Mundo\")?; println!(\"Logado: {:?}\", buffer); "
-"Ok(()) }"
+msgstr "\"\\n\""
 
 #: src/std-traits/read-and-write.md:36 src/slices-and-lifetimes/str.md:12
 msgid "\"World\""
@@ -7157,7 +7276,7 @@ msgstr "\"Mundo\""
 
 #: src/std-traits/read-and-write.md:37
 msgid "\"Logged: {:?}\""
-msgstr ""
+msgstr "\"Registrado: {:?}\""
 
 #: src/std-traits/default.md:1
 msgid "The `Default` Trait"
@@ -7173,24 +7292,24 @@ msgstr ""
 
 #: src/std-traits/default.md:18
 msgid "\"John Smith\""
-msgstr ""
+msgstr "\"John Smith\""
 
 #: src/std-traits/default.md:24
 msgid "\"{default_struct:#?}\""
-msgstr ""
+msgstr "\"{default_struct:#?}\""
 
 #: src/std-traits/default.md:27
 msgid "\"Y is set!\""
-msgstr ""
+msgstr "\"Y está definido!\""
 
 #: src/std-traits/default.md:28
 msgid "\"{almost_default_struct:#?}\""
-msgstr ""
+msgstr "\"{almost_default_struct:#?}\""
 
 #: src/std-traits/default.md:31 src/slices-and-lifetimes/exercise.md:211
 #: src/slices-and-lifetimes/solution.md:214
 msgid "\"{:#?}\""
-msgstr ""
+msgstr "\"{:#?}\""
 
 #: src/std-traits/default.md:37
 msgid ""
@@ -7210,7 +7329,7 @@ msgstr ""
 #: src/std-traits/default.md:40
 msgid "This means all types in the struct must implement `Default` too."
 msgstr ""
-"Consequentemente, todos os tipos usados na estrutuda devem implementar "
+"Consequentemente, todos os tipos usados no struct devem implementar "
 "`Default` também."
 
 #: src/std-traits/default.md:41
@@ -7219,15 +7338,13 @@ msgid ""
 "`0`, `\"\"`, etc)."
 msgstr ""
 "Frequentemente, os tipos padrão do Rust implementam `Default` com valores "
-"razoáveis (ex: `0`, `\"\"`, etc)."
+"razoáveis (p.ex.: `0`, `\"\"`, etc)."
 
 #: src/std-traits/default.md:43
-#, fuzzy
 msgid "The partial struct initialization works nicely with default."
-msgstr "A cópia parcial de estrututas funciona bem em conjunto com _default_."
+msgstr "A inicialização parcial do struct funciona bem com o default."
 
 #: src/std-traits/default.md:44
-#, fuzzy
 msgid ""
 "The Rust standard library is aware that types can implement `Default` and "
 "provides convenience methods that use it."
@@ -7241,6 +7358,9 @@ msgid ""
 "book/ch05-01-defining-structs.html#creating-instances-from-other-instances-"
 "with-struct-update-syntax)."
 msgstr ""
+"A sintaxe `..` é chamada de [sintaxe de atualização de struct](https://doc."
+"rust-lang.org/book/ch05-01-defining-structs.html#creating-instances-from-"
+"other-instances-with-struct-update-syntax)."
 
 #: src/std-traits/closures.md:3
 msgid ""
@@ -7256,21 +7376,20 @@ msgstr ""
 "FnOnce.html):"
 
 #: src/std-traits/closures.md:10
-#, fuzzy
 msgid "\"Calling function on {input}\""
 msgstr "\"Chamando a função com {entrada}\""
 
 #: src/std-traits/closures.md:16 src/std-traits/closures.md:17
 msgid "\"add_3: {}\""
-msgstr ""
+msgstr "\"add_3: {}\""
 
 #: src/std-traits/closures.md:24 src/std-traits/closures.md:25
 msgid "\"accumulate: {}\""
-msgstr ""
+msgstr "\"accumulate: {}\""
 
 #: src/std-traits/closures.md:28
 msgid "\"multiply_sum: {}\""
-msgstr ""
+msgstr "\"multiply_sum: {}\""
 
 #: src/std-traits/closures.md:34
 msgid ""
@@ -7278,24 +7397,24 @@ msgid ""
 "perhaps captures nothing at all. It can be called multiple times "
 "concurrently."
 msgstr ""
-"Um `Fn` não consome nem muda os valores capturados ou talvez não capture "
-"nada, então, pode ser chamado várias vezes simultaneamente."
+"Um `Fn` (p.ex. `add_3`) não consome nem muda os valores capturados ou talvez "
+"não capture nada, podendo então ser chamado várias vezes simultaneamente."
 
 #: src/std-traits/closures.md:37
 msgid ""
 "An `FnMut` (e.g. `accumulate`) might mutate captured values. You can call it "
 "multiple times, but not concurrently."
 msgstr ""
-"Um `FnMut` pode alterar os valores capturados, então você pode chamá-lo "
-"várias vezes, mas não simultaneamente."
+"Um `FnMut` (p.ex. `accumulate`) pode alterar os valores capturados, logo "
+"você pode chamá-lo várias vezes, mas não simultaneamente."
 
 #: src/std-traits/closures.md:40
 msgid ""
 "If you have an `FnOnce` (e.g. `multiply_sum`), you may only call it once. It "
 "might consume captured values."
 msgstr ""
-"Se você tiver um `FnOnce`, poderá chamá-lo apenas uma vez. Pode consumir os "
-"valores capturados."
+"Se você tiver um `FnOnce` (p.ex. `multiply_sum`), poderá chamá-lo apenas uma "
+"vez. Ele pode consumir os valores capturados."
 
 #: src/std-traits/closures.md:43
 msgid ""
@@ -7304,7 +7423,7 @@ msgid ""
 "use an `Fn` wherever an `FnMut` or `FnOnce` is called for."
 msgstr ""
 "`FnMut` é um subtipo de `FnOnce`. `Fn` é um subtipo de `FnMut` e `FnOnce`. "
-"Ou seja você pode usar um `FnMut` sempre que um `FnOnce` é chamado e você "
+"Ou seja, você pode usar um `FnMut` sempre que um `FnOnce` é chamado e você "
 "pode usar um `Fn` sempre que um `FnMut` ou um `FnOnce` é chamado."
 
 #: src/std-traits/closures.md:47
@@ -7313,32 +7432,41 @@ msgid ""
 "you can (i.e. you call it once), or `FnMut` else, and last `Fn`. This allows "
 "the most flexibility for the caller."
 msgstr ""
+"Quando você define uma função que recebe um _closure_, você deve usar "
+"`FnOnce` se puder (ou seja, você o chama uma vez) ou `FnMut` caso contrário, "
+"e por último `Fn`. Isso permite a maior flexibilidade para o chamador."
 
 #: src/std-traits/closures.md:51
 msgid ""
 "In contrast, when you have a closure, the most flexible you can have is `Fn` "
 "(it can be passed everywhere), then `FnMut`, and lastly `FnOnce`."
 msgstr ""
+"Em contraste, quando você tem um _closure_, o mais flexível que você pode "
+"ter é `Fn` (ele pode ser passado para qualquer lugar), então `FnMut` e, por "
+"último, `FnOnce`."
 
 #: src/std-traits/closures.md:54
 msgid ""
 "The compiler also infers `Copy` (e.g. for `add_3`) and `Clone` (e.g. "
 "`multiply_sum`), depending on what the closure captures."
 msgstr ""
+"O compilador também infere `Copy` (p.ex. para `add_3`) e `Clone` (p.ex. "
 
 #: src/std-traits/closures.md:57
 msgid ""
 "By default, closures will capture by reference if they can. The `move` "
 "keyword makes them capture by value."
 msgstr ""
+"Por padrão, os _closures_ capturam por referência se puderem. A palavra-"
+"chave `move` faz com que eles capturem por valor."
 
 #: src/std-traits/closures.md:66
 msgid "\"Hi\""
-msgstr ""
+msgstr "\"Olá\""
 
 #: src/std-traits/closures.md:67
 msgid "\"there\""
-msgstr ""
+msgstr "\"tudo bem\""
 
 #: src/std-traits/exercise.md:3
 msgid ""
@@ -7347,30 +7475,35 @@ msgid ""
 "implement the missing bits. Only rotate ASCII alphabetic characters, to "
 "ensure the result is still valid UTF-8."
 msgstr ""
+"Neste exemplo, você implementará o clássico [cifra \"ROT13\"](https://pt."
+"wikipedia.org/wiki/ROT13). Copie este código para o playground e implemente "
+"as partes que faltam. Apenas rotacione caracteres alfabéticos ASCII para "
+"garantir que o resultado ainda seja UTF-8 válido."
 
 #: src/std-traits/exercise.md:15
 msgid "// Implement the `Read` trait for `RotDecoder`.\n"
-msgstr ""
+msgstr "// Implemente o trait `Read` para `RotDecoder`.\n"
 
 #: src/std-traits/exercise.md:20 src/std-traits/exercise.md:33
 #: src/std-traits/solution.md:26 src/std-traits/solution.md:39
 msgid "\"Gb trg gb gur bgure fvqr!\""
-msgstr ""
+msgstr "\"Gb trg gb gur bgure fvqr!\""
 
 #: src/std-traits/exercise.md:36 src/std-traits/solution.md:42
 msgid "\"To get to the other side!\""
-msgstr ""
+msgstr "\"To get to the other side!\""
 
 #: src/std-traits/exercise.md:55
 msgid ""
 "What happens if you chain two `RotDecoder` instances together, each rotating "
 "by 13 characters?"
 msgstr ""
+"O que acontece se você encadear duas instâncias de `RotDecoder`, cada uma "
+"rotacionando 13 caracteres?"
 
 #: src/std-traits/solution.md:16
-#, fuzzy
 msgid "'A'"
-msgstr "' '"
+msgstr "'A'"
 
 #: src/welcome-day-3.md:1
 msgid "Welcome to Day 3"
