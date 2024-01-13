@@ -47,6 +47,13 @@ fn main() -> Result<(), binder::Status> {
     let msg = service.wishHappyBirthday(&name, years)?;
     println!("{msg}");
 
+    // ANCHOR: wish_with_info
+    service.wishWithInfo(&BirthdayInfo {
+        name: name.clone(),
+        years,
+    })?;
+    // ANCHOR_END: wish_with_info
+
     // ANCHOR: wish_with_provider
 
     // Create a binder object for the `IBirthdayInfoProvider` interface.
@@ -97,12 +104,5 @@ impl IBirthdayInfoProvider for InfoProvider {
     fn years(&self) -> binder::Result<i32> {
         Ok(self.age as i32)
     }
-    // ANCHOR_END: InfoProvider
-
-    fn getInfo(&self) -> binder::Result<BirthdayInfo> {
-        Ok(BirthdayInfo {
-            name: self.name.clone(),
-            years: self.age as i32,
-        })
-    }
 }
+// ANCHOR_END: InfoProvider

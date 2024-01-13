@@ -17,6 +17,7 @@
 use binder::{ParcelFileDescriptor, SpIBinder, Strong};
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayInfoProvider::IBirthdayInfoProvider;
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
+use com_example_birthdayservice::aidl::com::example::birthdayservice::BirthdayInfo::BirthdayInfo;
 use com_example_birthdayservice::binder;
 
 /// The `IBirthdayService` implementation.
@@ -27,6 +28,10 @@ impl binder::Interface for BirthdayService {}
 impl IBirthdayService for BirthdayService {
     fn wishHappyBirthday(&self, name: &str, years: i32) -> binder::Result<String> {
         Ok(format!("Happy Birthday {name}, congratulations with the {years} years!"))
+    }
+
+    fn wishWithInfo(&self, _info: &BirthdayInfo) -> binder::Result<String> {
+        todo!()
     }
 
     fn wishWithProvider(

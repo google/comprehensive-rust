@@ -12,15 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// ANCHOR: IBirthdayService
 package com.example.birthdayservice;
 
 import com.example.birthdayservice.IBirthdayInfoProvider;
+import com.example.birthdayservice.BirthdayInfo;
 
+// ANCHOR: IBirthdayService
 /** Birthday service interface. */
 interface IBirthdayService {
     /** Generate a Happy Birthday message. */
     String wishHappyBirthday(String name, int years);
+
+    // ANCHOR: with_info
+    /** The same thing, but with a parcelable. */
+    String wishWithInfo(in BirthdayInfo info);
+    // ANCHOR_END: with_info
 
     // ANCHOR: with_info_provider
     /** The same thing, but using more Binder features. */

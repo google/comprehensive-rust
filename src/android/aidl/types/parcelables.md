@@ -2,26 +2,31 @@
 
 Binder for Rust supports sending parcelables directly:
 
-**IBirthdayService.aidl**:
+**birthday_service/aidl/com/example/birthdayservice/BirthdayInfo.aidl**:
 
 ```java
-parcelable BirthdayInfo {
-    String name;
-    int years;
-}
+{{#include ../birthday-service/birthday_service/aidl/com/example/birthdayservice/BirthdayInfo.aidl}}
+```
+
+**birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl**:
+
+```java
+import com.example.birthdayservice.BirthdayInfo;
 
 interface IBirthdayService {
-    String wishHappyBirthday(BirthdayInfo info);
+{{#include ../birthday-service/birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:with_info}}
 }
 ```
 
 **client/src/main.rs**:
 
 ```rust,ignore
-let msg = service.wishHappyBirthday(BirthdayInfo {
-    name: String::from("Alice"),
-    years: 29,
-})?;
+fn main() {
+    binder::ProcessState::start_thread_pool();
+    let service = connect().expect("Failed to connect to BirthdayService");
+
+{{#include ../birthday-service/birthday_service/src/client.rs:wish_with_info}}
+}
 ```
 
 <details>

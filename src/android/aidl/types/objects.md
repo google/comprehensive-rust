@@ -6,15 +6,14 @@ AIDL objects can be sent either as a concrete AIDL type or as the type-erased
 **birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider.aidl**:
 
 ```java
-package com.example.birthdayservice;
-
 {{#include ../birthday-service/birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider.aidl:IBirthdayInfoProvider}}
-}
 ```
 
 **birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl**:
 
 ```java
+import com.example.birthdayservice.IBirthdayInfoProvider;
+
 interface IBirthdayService {
 {{#include ../birthday-service/birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:with_info_provider}}
 }
@@ -24,7 +23,6 @@ interface IBirthdayService {
 
 ```rust,ignore
 {{#include ../birthday-service/birthday_service/src/client.rs:InfoProvider}}
-}
 
 fn main() {
     binder::ProcessState::start_thread_pool();
