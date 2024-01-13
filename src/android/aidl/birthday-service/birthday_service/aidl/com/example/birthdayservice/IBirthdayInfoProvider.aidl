@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// ANCHOR: IBirthdayInfoProvider
 package com.example.birthdayservice;
 
 import com.example.birthdayservice.BirthdayInfo;
 
+// ANCHOR: IBirthdayInfoProvider
 interface IBirthdayInfoProvider {
     String name();
     int years();

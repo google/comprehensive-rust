@@ -14,13 +14,15 @@
 
 // ANCHOR: main
 //! Birthday service.
-use binder::{BinderFeatures};
+use binder::{BinderFeatures, ParcelFileDescriptor};
 use com_example_birthdayservice::aidl::com::example::birthdayservice::BirthdayInfo::BirthdayInfo;
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayInfoProvider::{
     BnBirthdayInfoProvider, IBirthdayInfoProvider,
 };
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
 use com_example_birthdayservice::binder;
+use std::fs::File;
+use std::io::prelude::*;
 
 const SERVICE_IDENTIFIER: &str = "birthdayservice";
 
@@ -46,26 +48,40 @@ fn main() -> Result<(), binder::Status> {
     println!("{msg}");
 
     // ANCHOR: wish_with_provider
-    // Perform the same operation by sending an `InfoProvider` object as a `dyn
-    // IBirthdayInfoProvider`.
+
+    // Create a binder object for the `IBirthdayInfoProvider` interface.
     let provider = BnBirthdayInfoProvider::new_binder(
         InfoProvider {
-            name,
+            name: name.clone(),
             age: years as u8,
         },
         BinderFeatures::default(),
     );
+
+    // Send the binder object to the service.
     service.wishWithProvider(&provider)?;
+
+    // Perform the same operation but passing the provider as an `SpIBinder`.
+    service.wishWithErasedProvider(&provider.as_binder())?;
     // ANCHOR_END: wish_with_provider
 
-    // TODO: Perform the same operation but passing the provider as an `SpIBinder`.
+    // ANCHOR: wish_with_file
 
-    // TODO: Send a file descriptor containing the birthday info.
+    // Open a file and put the birthday info in it.
+    let mut file = File::create("/data/local/tmp/birthday.info").unwrap();
+    writeln!(file, "{name}").unwrap();
+    writeln!(file, "{years}").unwrap();
+
+    // Create a `ParcelFileDescriptor` from the file and send it.
+    let file = ParcelFileDescriptor::new(file);
+    service.wishFromFile(&file)?;
+    // ANCHOR_END: wish_with_file
 
     Ok(())
 }
 
 // ANCHOR: InfoProvider
+/// Rust struct implementing the `IBirthdayInfoProvider` interface.
 struct InfoProvider {
     name: String,
     age: u8,
