@@ -15,7 +15,7 @@ For example, beginning with _n<sub>1</sub>_ = 3:
 
 - 3 is odd, so _n<sub>2</sub>_ = 3 * 3 + 1 = 10;
 - 10 is even, so _n<sub>3</sub>_ = 10 / 2 = 5;
-- 5 is odd, so _n<sub>4</sub>_ = 3 * 15 + 1 = 16;
+- 5 is odd, so _n<sub>4</sub>_ = 3 * 5 + 1 = 16;
 - 16 is even, so _n<sub>5</sub>_ = 16 / 2 = 8;
 - 8 is even, so _n<sub>6</sub>_ = 8 / 2 = 4;
 - 4 is even, so _n<sub>7</sub>_ = 4 / 2 = 2;
