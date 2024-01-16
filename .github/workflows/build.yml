@@ -34,6 +34,17 @@ jobs:
         with:
           config: ./.github/typos.toml
 
+  typos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check for typos
+        uses: crate-ci/typos@v1.17.1
+        with:
+          config: ./.github/typos.toml
+
   cargo:
     strategy:
       matrix:
