@@ -13,6 +13,7 @@ below:
 
 ```yaml
 minutes: NNN
+target_minutes: NNN
 course: COURSE NAME
 session: SESSION NAME
 ```
@@ -59,6 +60,9 @@ require in the `minutes` field. This information is summed, with breaks
 automatically added between segments, to give time estimates for segments,
 sessions, and courses.
 
+Each session should list a `target_minutes` that is the target duration of the
+session.
+
 ## Directives
 
 Within the course material, the following directives can be used:
@@ -73,3 +77,9 @@ Within the course material, the following directives can be used:
 These will be replaced with a markdown outline of the current segment, session,
 or course. The last directive can refer to another course by name and is used in
 the "Running the Course" section.
+
+# Course-Schedule Comments
+
+The `course-schedule` binary generates Markdown output that is included in a
+GitHub pull request comment, based on the information provided in the above
+format.
