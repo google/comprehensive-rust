@@ -10,7 +10,7 @@ and wish to update that cache from read-only methods.
 
 The "interior mutability" pattern allows exclusive (mutable) access behind a
 shared reference. The standard library provides several ways to do this, all
-ensuring safety by performing a runtime check.
+while still ensuring safety, typically by performing a runtime check.
 
 ## `RefCell`
 
@@ -55,6 +55,10 @@ value. Since there are no references, borrowing rules cannot be broken.
 
 <details>
 
+The main thing to take away from this slide is that Rust provides _safe_ ways to
+modify data behind a shared reference. There are a variety of ways to ensure
+that safety, and `RefCell` and `Cell` are two of them.
+
 - `RefCell` enforces Rust's usual borrowing rules (either multiple shared
   references or a single exclusive reference) with a runtime check. In this
   case, all borrows are very short and never overlap, so the checks always
@@ -64,8 +68,12 @@ value. Since there are no references, borrowing rules cannot be broken.
   is to allow (and count) many references. But we want to modify the value, so
   we need interior mutability.
 
+- `Cell` is a simpler means to ensure safety: it has a `set` method that takes
+  `&self`. This needs no runtime check, but requires moving values, which can
+  have its own cost.
+
 - Demonstrate that reference loops can be created by adding `root` to
-  `subtree.children` (don't try to print it!).
+  `subtree.children`.
 
 - To demonstrate a runtime panic, add a `fn inc(&mut self)` that increments
   `self.value` and calls the same method on its children. This will panic in the
