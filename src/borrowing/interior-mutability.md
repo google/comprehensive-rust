@@ -50,8 +50,8 @@ fn main() {
 ## `Cell`
 
 `Cell` wraps a value and allows getting or setting the value, even with a shared
-reference to the `Cell`. However, it does not allow any references to the
-value. Since there are no references, borrowing rules cannot be broken.
+reference to the `Cell`. However, it does not allow any references to the value.
+Since there are no references, borrowing rules cannot be broken.
 
 <details>
 
