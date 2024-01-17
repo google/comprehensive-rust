@@ -31,7 +31,9 @@ async fn handle_connection(
 ) -> Result<(), Box<dyn Error + Send + Sync>> {
     // ANCHOR_END: handle_connection
 
-    ws_stream.send(Message::text("Welcome to chat! Type a message".into())).await?;
+    ws_stream
+        .send(Message::text("Welcome to chat! Type a message".to_string()))
+        .await?;
     let mut bcast_rx = bcast_tx.subscribe();
 
     // A continuous loop for concurrently performing two tasks: (1) receiving
