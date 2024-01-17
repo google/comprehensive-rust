@@ -31,11 +31,15 @@ else
     export MDBOOK_OUTPUT__HTML__REDIRECT='{}'
 
     # Include language-specific Pandoc configuration
-    [ -f "pandoc/$book_lang.yaml" ] && export MDBOOK_OUTPUT__PANDOC__PROFILE__PDF__DEFAULTS="pandoc/$book_lang.yaml"
+    if [ -f ".github/pandoc/$book_lang.yaml" ]; then
+        export MDBOOK_OUTPUT__PANDOC__PROFILE__PDF__DEFAULTS=".github/pandoc/$book_lang.yaml"
+    fi
 fi
 
 mdbook build -d "$dest_dir"
-[ -f "$dest_dir/pandoc/pdf/comprehensive-rust.pdf" ] && mv "$dest_dir/pandoc/pdf/comprehensive-rust.pdf" "$dest_dir/html/"
+if [ -f "$dest_dir/pandoc/pdf/comprehensive-rust.pdf" ]; then
+    mv "$dest_dir/pandoc/pdf/comprehensive-rust.pdf" "$dest_dir/html/"
+fi
 (cd "$dest_dir/exerciser" && zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/)
 
 echo "::endgroup::"
