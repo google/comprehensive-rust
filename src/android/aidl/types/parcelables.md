@@ -18,7 +18,7 @@ interface IBirthdayService {
 }
 ```
 
-**client/src/main.rs**:
+**birthday_service/src/client.rs**:
 
 ```rust,ignore
 fn main() {

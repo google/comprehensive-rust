@@ -5,13 +5,22 @@ Files can be sent between Binder clients/servers using the
 
 ```java
 interface IBirthdayService {
-    String wishHappyBirthday(ParcelFileDescriptor infoFile);
+{{#include ../birthday-service/birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:with_file}}
 }
 ```
 
-**client/src/main.rs**:
+**birthday_service/src/client.rs**:
 
 ```rust,ignore
-let info_file = File::open("info.txt")?;
-let msg = service.wishHappyBirthday(info_file)?; // TODO: Is this correct? How do we convert to a `ParcelFileDescriptor`?
+fn main() {
+    binder::ProcessState::start_thread_pool();
+    let service = connect().expect("Failed to connect to BirthdayService");
+{{#include ../birthday-service/birthday_service/src/client.rs:wish_with_file}}
+}
 ```
+
+<details>
+
+* `ParcelFileDescriptor` can be created from a regular `std::fs::File`.
+
+</details>

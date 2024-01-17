@@ -15,8 +15,8 @@
 // ANCHOR: IBirthdayService
 //! Implementation of the `IBirthdayService` AIDL interface.
 use binder::{ParcelFileDescriptor, SpIBinder, Strong};
-use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayInfoProvider::IBirthdayInfoProvider;
-use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
+use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayInfoProvider::{IBirthdayInfoProvider, BpBirthdayInfoProvider};
+use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::{IBirthdayService};
 use com_example_birthdayservice::aidl::com::example::birthdayservice::BirthdayInfo::BirthdayInfo;
 use com_example_birthdayservice::binder;
 
@@ -30,22 +30,39 @@ impl IBirthdayService for BirthdayService {
         Ok(format!("Happy Birthday {name}, congratulations with the {years} years!"))
     }
 
-    fn wishWithInfo(&self, _info: &BirthdayInfo) -> binder::Result<String> {
-        todo!()
+    fn wishWithInfo(&self, info: &BirthdayInfo) -> binder::Result<String> {
+        Ok(format!(
+            "Happy Birthday {}, congratulations with the {} years!",
+            info.name,
+            info.years,
+        ))
     }
 
     fn wishWithProvider(
         &self,
-        _provider: &Strong<dyn IBirthdayInfoProvider>,
+        provider: &Strong<dyn IBirthdayInfoProvider>,
     ) -> binder::Result<String> {
-        todo!()
+        Ok(format!(
+            "Happy Birthday {}, congratulations with the {} years!",
+            provider.name()?,
+            provider.years()?,
+        ))
     }
 
-    fn wishWithErasedProvider(&self, _provider: &SpIBinder) -> binder::Result<String> {
-        todo!()
+    fn wishWithErasedProvider(&self, provider: &SpIBinder) -> binder::Result<String> {
+        use binder::binder_impl::Proxy;
+
+        // Convert the `IBinder` to a concrete interface.
+        let provider = BpBirthdayInfoProvider::from_binder(provider.clone())?;
+
+        Ok(format!(
+            "Happy Birthday {}, congratulations with the {} years!",
+            provider.name()?,
+            provider.years()?,
+        ))
     }
 
     fn wishFromFile(&self, _info_file: &ParcelFileDescriptor) -> binder::Result<String> {
-        todo!()
+        todo!("Convert the `ParcelFileDescriptor`");
     }
 }
