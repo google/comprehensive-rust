@@ -84,8 +84,8 @@ impl Widget for Window {
 
         let inner_width = self.inner_width();
 
-        // TODO: Change draw_into to return Result<(), std::fmt::Error>. Then use the ?-operator
-        // here instead of .unwrap().
+        // TODO: Change draw_into to return Result<(), std::fmt::Error>. Then use the
+        // ?-operator here instead of .unwrap().
         writeln!(buffer, "+-{:-<inner_width$}-+", "").unwrap();
         writeln!(buffer, "| {:^inner_width$} |", &self.title).unwrap();
         writeln!(buffer, "+={:=<inner_width$}=+", "").unwrap();
