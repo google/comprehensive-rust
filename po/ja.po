@@ -18290,6 +18290,8 @@ msgid ""
 "Rust uses the type system to enforce synchronization of shared data. This is "
 "primarily done via two types:"
 msgstr ""
+"Rustは共有データを確実に同期するために型システムを利用します。これは主に2つの"
+"型により行われます："
 
 #: src/concurrency/shared_state.md:6
 msgid ""
@@ -18297,18 +18299,25 @@ msgid ""
 "reference counted `T`: handles sharing between threads and takes care to "
 "deallocate `T` when the last reference is dropped,"
 msgstr ""
+"[`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html), atomic "
+"reference counted `T` : スレッド間の共有を扱い、最後の参照がドロップされたと"
+"き `T` をデアロケートすることを担当する、"
 
 #: src/concurrency/shared_state.md:8
 msgid ""
 "[`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html): ensures "
 "mutually exclusive access to the `T` value."
 msgstr ""
+"[`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html): `T`型の値"
+"への相互排他的なアクセスを保証する。"
 
 #: src/concurrency/shared_state/arc.md:3
 msgid ""
 "[`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html) allows shared "
 "read-only access via `Arc::clone`:"
 msgstr ""
+"[`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html) は読み取り専用"
+"の共有アクセスを`Arc::clone`により可能にします："
 
 #: src/concurrency/shared_state/arc.md:16
 msgid "\"{thread_id:?}: {v:?}\""
@@ -18325,28 +18334,37 @@ msgid ""
 "`Arc` stands for \"Atomic Reference Counted\", a thread safe version of `Rc` "
 "that uses atomic operations."
 msgstr ""
+"`Arc` は\"Atomic Reference Counted\"の略で、アトミック操作を利用するという点"
+"で、`Rc`がスレッド安全になったバージョンのようなものです。"
 
 #: src/concurrency/shared_state/arc.md:31
 msgid ""
 "`Arc<T>` implements `Clone` whether or not `T` does. It implements `Send` "
 "and `Sync` if and only if `T` implements them both."
 msgstr ""
+"`Arc<T>` は `Clone` を実装します。このことは`T`が`Clone`を実装するしないに関"
+"係ありません。`T`が`Send`と`Sync`の両方を実装している場合で、かつその場合に限"
+"り、`Arc<T>` は両者を実装します。"
 
 #: src/concurrency/shared_state/arc.md:33
 msgid ""
 "`Arc::clone()` has the cost of atomic operations that get executed, but "
 "after that the use of the `T` is free."
 msgstr ""
+"`Arc::clone()`にはアトミック操作のコストがかかります。ただ、その後は、`T`の利"
+"用に関するコストはかかりません。"
 
 #: src/concurrency/shared_state/arc.md:35
 msgid ""
 "Beware of reference cycles, `Arc` does not use a garbage collector to detect "
 "them."
 msgstr ""
+"参照サイクルに気をつけてください。`Arc` には参照サイクルを検知するためのガ"
+"ベージコレクタはありません。"
 
 #: src/concurrency/shared_state/arc.md:37
 msgid "`std::sync::Weak` can help."
-msgstr ""
+msgstr "`std::sync::Weak` が役立ちます。"
 
 #: src/concurrency/shared_state/mutex.md:3
 msgid ""
@@ -18354,6 +18372,9 @@ msgid ""
 "mutual exclusion _and_ allows mutable access to `T` behind a read-only "
 "interface:"
 msgstr ""
+"[`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html) は相互排他"
+"を保証し、 _かつ_ 読み取り専用のインターフェースの裏側で `T` へのミュータブル"
+"なアクセスを可能にします："
 
 #: src/concurrency/shared_state/mutex.md:11
 #: src/concurrency/shared_state/mutex.md:18
@@ -18366,38 +18387,50 @@ msgid ""
 "lang.org/std/sync/struct.Mutex.html#impl-Sync-for-Mutex%3CT%3E) blanket "
 "implementation."
 msgstr ""
+"[`impl<T: Send> Sync for Mutex<T>`](https://doc.rust-lang.org/std/sync/"
+"struct.Mutex.html#impl-Sync-for-Mutex%3CT%3E) のブランケット実装があることに"
+"注目してください。"
 
 #: src/concurrency/shared_state/mutex.md:31
 msgid ""
 "`Mutex` in Rust looks like a collection with just one element --- the "
 "protected data."
 msgstr ""
+"Rustにおける`Mutex`とは、保護されるデータである、たった一つの要素から構成され"
+"たコレクションのようなものです。"
 
 #: src/concurrency/shared_state/mutex.md:33
 msgid ""
 "It is not possible to forget to acquire the mutex before accessing the "
 "protected data."
 msgstr ""
+"保護されたデータにアクセスする前に、ミューテックスを確保し忘れることはありま"
+"せん。"
 
 #: src/concurrency/shared_state/mutex.md:35
 msgid ""
 "You can get an `&mut T` from an `&Mutex<T>` by taking the lock. The "
 "`MutexGuard` ensures that the `&mut T` doesn't outlive the lock being held."
 msgstr ""
+"`&Mutex<T>` からロックを取得することで、`&mut T`を得ることができます。この"
+"`MutexGuard`は`&mut T`が保持されているロックよりも長く存続しないことを保証し"
+"ます。"
 
 #: src/concurrency/shared_state/mutex.md:37
 msgid ""
 "`Mutex<T>` implements both `Send` and `Sync` iff (if and only if) `T` "
 "implements `Send`."
 msgstr ""
+"`T`が`Send`を実装している場合で、かつその場合に限り、`Mutex<T>` は`Send`と"
+"`Sync`の両方を実装します。"
 
 #: src/concurrency/shared_state/mutex.md:39
 msgid "A read-write lock counterpart: `RwLock`."
-msgstr ""
+msgstr "読み書きのロックの場合に対応するものがあります： `RwLock`。"
 
 #: src/concurrency/shared_state/mutex.md:40
 msgid "Why does `lock()` return a `Result`?"
-msgstr ""
+msgstr "なぜ`lock()`は`Result`を返すのでしょう？"
 
 #: src/concurrency/shared_state/mutex.md:41
 msgid ""
@@ -18407,10 +18440,16 @@ msgid ""
 "[`PoisonError`](https://doc.rust-lang.org/std/sync/struct.PoisonError.html). "
 "You can call `into_inner()` on the error to recover the data regardless."
 msgstr ""
+"Mutex`を保持したスレッドがパニックを起こした場合、保護すべきデータが整合性の"
+"欠けた状態にある可能性を伝えるため、`Mutex`は「ポイゾンされた」"
+"（\"poisoned\"）状態になります。ポイゾンされたMutexに対して `lock()` をコール"
+"すると、[`PoisonError`](https://doc.rust-lang.org/std/sync/struct."
+"PoisonError.html)とともに失敗します。`into_inner()` を用いることで、そのエ"
+"ラーにおいて、とりあえずデータを回復することはできます。"
 
 #: src/concurrency/shared_state/example.md:3
 msgid "Let us see `Arc` and `Mutex` in action:"
-msgstr ""
+msgstr "`Arc` と `Mutex` の動作を見てみましょう："
 
 #: src/concurrency/shared_state/example.md:6
 msgid "// use std::sync::{Arc, Mutex};\n"
@@ -18418,35 +18457,42 @@ msgstr ""
 
 #: src/concurrency/shared_state/example.md:23
 msgid "Possible solution:"
-msgstr ""
+msgstr "考えられる対処法："
 
 #: src/concurrency/shared_state/example.md:49
 msgid "Notable parts:"
-msgstr ""
+msgstr "注目するとよい箇所："
 
 #: src/concurrency/shared_state/example.md:51
 msgid ""
 "`v` is wrapped in both `Arc` and `Mutex`, because their concerns are "
 "orthogonal."
 msgstr ""
+"`v`は `Arc` と `Mutex`の両方でラップされています。なぜなら、それらの関心は互"
+"いに独立なものであるからです。"
 
 #: src/concurrency/shared_state/example.md:53
 msgid ""
 "Wrapping a `Mutex` in an `Arc` is a common pattern to share mutable state "
 "between threads."
 msgstr ""
+"`Mutex`を`Arc`でラップすることは、スレッド間でミュータブルな状態を共有するた"
+"めによく見られるパターンです。"
 
 #: src/concurrency/shared_state/example.md:55
 msgid ""
 "`v: Arc<_>` needs to be cloned as `v2` before it can be moved into another "
 "thread. Note `move` was added to the lambda signature."
 msgstr ""
+"`v: Arc<_>`は別のスレッドにムーブされる前に、`v2`としてクローンされる必要があ"
+"ります。`move` がラムダ式に追加されたことに注意してください。"
 
 #: src/concurrency/shared_state/example.md:57
 msgid ""
 "Blocks are introduced to narrow the scope of the `LockGuard` as much as "
 "possible."
 msgstr ""
+"ブロックは`LockGuard`のスコープを可能な限り狭めるために導入されています。"
 
 #: src/exercises/concurrency/morning.md:3
 msgid "Let us practice our new concurrency skills with"
