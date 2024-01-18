@@ -1,4 +1,4 @@
-// Copyright 2022 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,124 +14,44 @@
 
 // ANCHOR: solution
 // ANCHOR: setup
-pub trait Widget {
-    /// Natural width of `self`.
-    fn width(&self) -> usize;
+use std::fmt::Display;
 
-    /// Draw the widget into a buffer.
-    fn draw_into(&self, buffer: &mut dyn std::fmt::Write);
+pub trait Logger {
+    /// Log a message at the given verbosity level.
+    fn log(&self, verbosity: u8, message: impl Display);
+}
 
-    /// Draw the widget on standard output.
-    fn draw(&self) {
-        let mut buffer = String::new();
-        self.draw_into(&mut buffer);
-        println!("{buffer}");
+struct StderrLogger;
+
+impl Logger for StderrLogger {
+    fn log(&self, verbosity: u8, message: impl Display) {
+        eprintln!("verbosity={verbosity}: {message}");
     }
 }
 
-pub struct Label {
-    label: String,
-}
-
-impl Label {
-    fn new(label: &str) -> Label {
-        Label { label: label.to_owned() }
-    }
-}
-
-pub struct Button {
-    label: Label,
-}
-
-impl Button {
-    fn new(label: &str) -> Button {
-        Button { label: Label::new(label) }
-    }
-}
-
-pub struct Window {
-    title: String,
-    widgets: Vec<Box<dyn Widget>>,
-}
-
-impl Window {
-    fn new(title: &str) -> Window {
-        Window { title: title.to_owned(), widgets: Vec::new() }
-    }
-
-    fn add_widget(&mut self, widget: Box<dyn Widget>) {
-        self.widgets.push(widget);
-    }
-
-    fn inner_width(&self) -> usize {
-        std::cmp::max(
-            self.title.chars().count(),
-            self.widgets.iter().map(|w| w.width()).max().unwrap_or(0),
-        )
-    }
+fn do_things(logger: &impl Logger) {
+    logger.log(5, "FYI");
+    logger.log(2, "Uhoh");
 }
 // ANCHOR_END: setup
 
-impl Widget for Window {
-    fn width(&self) -> usize {
-        // Add 4 paddings for borders
-        self.inner_width() + 4
-    }
-
-    fn draw_into(&self, buffer: &mut dyn std::fmt::Write) {
-        let mut inner = String::new();
-        for widget in &self.widgets {
-            widget.draw_into(&mut inner);
-        }
-
-        let inner_width = self.inner_width();
-
-        // TODO: after learning about error handling, you can change
-        // draw_into to return Result<(), std::fmt::Error>. Then use
-        // the ?-operator here instead of .unwrap().
-        writeln!(buffer, "+-{:-<inner_width$}-+", "").unwrap();
-        writeln!(buffer, "| {:^inner_width$} |", &self.title).unwrap();
-        writeln!(buffer, "+={:=<inner_width$}=+", "").unwrap();
-        for line in inner.lines() {
-            writeln!(buffer, "| {:inner_width$} |", line).unwrap();
-        }
-        writeln!(buffer, "+-{:-<inner_width$}-+", "").unwrap();
-    }
+/// Only log messages up to the given verbosity level.
+struct VerbosityFilter<L: Logger> {
+    max_verbosity: u8,
+    inner: L,
 }
 
-impl Widget for Button {
-    fn width(&self) -> usize {
-        self.label.width() + 8 // add a bit of padding
-    }
-
-    fn draw_into(&self, buffer: &mut dyn std::fmt::Write) {
-        let width = self.width();
-        let mut label = String::new();
-        self.label.draw_into(&mut label);
-
-        writeln!(buffer, "+{:-<width$}+", "").unwrap();
-        for line in label.lines() {
-            writeln!(buffer, "|{:^width$}|", &line).unwrap();
+impl<L: Logger> Logger for VerbosityFilter<L> {
+    fn log(&self, verbosity: u8, message: impl Display) {
+        if verbosity <= self.max_verbosity {
+            self.inner.log(verbosity, message);
         }
-        writeln!(buffer, "+{:-<width$}+", "").unwrap();
-    }
-}
-
-impl Widget for Label {
-    fn width(&self) -> usize {
-        self.label.lines().map(|line| line.chars().count()).max().unwrap_or(0)
-    }
-
-    fn draw_into(&self, buffer: &mut dyn std::fmt::Write) {
-        writeln!(buffer, "{}", &self.label).unwrap();
     }
 }
 
 // ANCHOR: main
 fn main() {
-    let mut window = Window::new("Rust GUI Demo 1.23");
-    window.add_widget(Box::new(Label::new("This is a small text GUI demo.")));
-    window.add_widget(Box::new(Button::new("Click me!")));
-    window.draw();
+    let l = VerbosityFilter { max_verbosity: 3, inner: StderrLogger };
+    do_things(&l);
 }
 // ANCHOR_END: main
