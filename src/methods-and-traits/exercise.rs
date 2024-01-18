@@ -17,7 +17,7 @@
 use std::fmt::Display;
 
 pub trait Logger {
-    /// Log a mesage at the given verbosity level.
+    /// Log a message at the given verbosity level.
     fn log(&self, verbosity: u8, message: impl Display);
 }
 
