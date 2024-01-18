@@ -6,9 +6,12 @@ minutes: 5
 
 The [`thiserror`](https://docs.rs/thiserror/) and
 [`anyhow`](https://docs.rs/anyhow/) crates are widely used to simplify error
-handling. `thiserror` helps create custom error types that implement `From<T>`.
-`anyhow` helps with error handling in functions, including adding contextual
-information to your errors.
+handling.
+
+- `thiserror` is often used in libraries to create custom error types that
+  implement `From<T>`.
+- `anyhow` is often used by applications to help with error handling in
+  functions, including adding contextual information to your errors.
 
 ```rust,editable,compile_fail
 use anyhow::{bail, Context, Result};
