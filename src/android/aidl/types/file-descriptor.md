@@ -3,6 +3,8 @@
 Files can be sent between Binder clients/servers using the
 `ParcelFileDescriptor` type:
 
+**birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl**:
+
 ```java
 interface IBirthdayService {
 {{#include ../birthday-service/birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:with_file}}

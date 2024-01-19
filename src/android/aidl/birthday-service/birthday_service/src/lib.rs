@@ -19,6 +19,8 @@ use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayI
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::{IBirthdayService};
 use com_example_birthdayservice::aidl::com::example::birthdayservice::BirthdayInfo::BirthdayInfo;
 use com_example_birthdayservice::binder;
+use std::fs::File;
+use std::io::Read;
 
 /// The `IBirthdayService` implementation.
 pub struct BirthdayService;
@@ -33,8 +35,7 @@ impl IBirthdayService for BirthdayService {
     fn wishWithInfo(&self, info: &BirthdayInfo) -> binder::Result<String> {
         Ok(format!(
             "Happy Birthday {}, congratulations with the {} years!",
-            info.name,
-            info.years,
+            info.name, info.years,
         ))
     }
 
@@ -62,7 +63,22 @@ impl IBirthdayService for BirthdayService {
         ))
     }
 
-    fn wishFromFile(&self, _info_file: &ParcelFileDescriptor) -> binder::Result<String> {
-        todo!("Convert the `ParcelFileDescriptor`");
+    fn wishFromFile(&self, info_file: &ParcelFileDescriptor) -> binder::Result<String> {
+        let mut info_file = info_file
+            .as_ref()
+            .try_clone()
+            .map(File::from)
+            .expect("Invalid file handle");
+
+        let mut contents = String::new();
+        info_file.read_to_string(&mut contents).unwrap();
+
+        let mut lines = contents.lines();
+        let name = lines.next().unwrap();
+        let years: i32 = lines.next().unwrap().parse().unwrap();
+
+        Ok(format!(
+            "Happy Birthday {name}, congratulations with the {years} years!"
+        ))
     }
 }
