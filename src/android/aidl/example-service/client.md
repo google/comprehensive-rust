@@ -36,7 +36,7 @@ Happy Birthday Charlie, congratulations with the 60 years!
   that the client has connected to.
     * `Strong` is a custom smart pointer type for Binder. It handles both an
       in-process ref count for the service trait object, and the global Binder
-      ref count that tracks how many clients are connected to a given service.
+      ref count that tracks how many processes have a reference to the object.
     * Note that the trait object that the client uses to talk to the service
       uses the exact same trait that the server implements. For a given Binder
       interface, there is a single Rust trait generated that both client and
