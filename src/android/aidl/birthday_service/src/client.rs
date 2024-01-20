@@ -13,13 +13,12 @@
 // limitations under the License.
 
 //! Birthday service.
-use binder::{BinderFeatures, ParcelFileDescriptor};
 use com_example_birthdayservice::aidl::com::example::birthdayservice::BirthdayInfo::BirthdayInfo;
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayInfoProvider::{
     BnBirthdayInfoProvider, IBirthdayInfoProvider,
 };
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
-use com_example_birthdayservice::binder;
+use com_example_birthdayservice::binder::{self, BinderFeatures, ParcelFileDescriptor};
 use std::fs::File;
 use std::io::prelude::*;
 

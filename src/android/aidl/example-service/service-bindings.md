@@ -1,6 +1,6 @@
 # Generated Service API
 
-Binder generates a trait corresponding to the interface defintion. trait to talk
+Binder generates a trait corresponding to the interface definition. trait to talk
 to the service.
 
 *birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl*:
