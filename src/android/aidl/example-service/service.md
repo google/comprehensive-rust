@@ -8,14 +8,14 @@ We can now implement the AIDL service:
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
 use com_example_birthdayservice::binder;
 
-{{#include birthday_service/src/lib.rs:IBirthdayService}}
+{{#include ../birthday_service/src/lib.rs:IBirthdayService}}
 }
 ```
 
 *birthday_service/Android.bp*:
 
 ```javascript
-{{#include birthday_service/Android.bp:libbirthdayservice}}
+{{#include ../birthday_service/Android.bp:libbirthdayservice}}
 ```
 
 <details>

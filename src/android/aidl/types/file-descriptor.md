@@ -7,7 +7,7 @@ Files can be sent between Binder clients/servers using the
 
 ```java
 interface IBirthdayService {
-{{#include ../birthday-service/birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:with_file}}
+{{#include ../birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:with_file}}
 }
 ```
 
@@ -17,7 +17,7 @@ interface IBirthdayService {
 fn main() {
     binder::ProcessState::start_thread_pool();
     let service = connect().expect("Failed to connect to BirthdayService");
-{{#include ../birthday-service/birthday_service/src/client.rs:wish_with_file}}
+{{#include ../birthday_service/src/client.rs:wish_with_file}}
 }
 ```
 
@@ -25,7 +25,7 @@ fn main() {
 
 ```rust,ignore
 impl IBirthdayService for BirthdayService {
-{{#include ../birthday-service/birthday_service/src/lib.rs:wishFromFile}}
+{{#include ../birthday_service/src/lib.rs:wishFromFile}}
 }
 ```
 

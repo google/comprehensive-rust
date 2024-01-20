@@ -5,7 +5,7 @@ Binder for Rust supports sending parcelables directly:
 **birthday_service/aidl/com/example/birthdayservice/BirthdayInfo.aidl**:
 
 ```java
-{{#include ../birthday-service/birthday_service/aidl/com/example/birthdayservice/BirthdayInfo.aidl}}
+{{#include ../birthday_service/aidl/com/example/birthdayservice/BirthdayInfo.aidl}}
 ```
 
 **birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl**:
@@ -14,7 +14,7 @@ Binder for Rust supports sending parcelables directly:
 import com.example.birthdayservice.BirthdayInfo;
 
 interface IBirthdayService {
-{{#include ../birthday-service/birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:with_info}}
+{{#include ../birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:with_info}}
 }
 ```
 
@@ -25,7 +25,7 @@ fn main() {
     binder::ProcessState::start_thread_pool();
     let service = connect().expect("Failed to connect to BirthdayService");
 
-{{#include ../birthday-service/birthday_service/src/client.rs:wish_with_info}}
+{{#include ../birthday_service/src/client.rs:wish_with_info}}
 }
 ```
 

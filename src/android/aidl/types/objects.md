@@ -6,7 +6,7 @@ AIDL objects can be sent either as a concrete AIDL type or as the type-erased
 **birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider.aidl**:
 
 ```java
-{{#include ../birthday-service/birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider.aidl:IBirthdayInfoProvider}}
+{{#include ../birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider.aidl:IBirthdayInfoProvider}}
 ```
 
 **birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl**:
@@ -15,19 +15,19 @@ AIDL objects can be sent either as a concrete AIDL type or as the type-erased
 import com.example.birthdayservice.IBirthdayInfoProvider;
 
 interface IBirthdayService {
-{{#include ../birthday-service/birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:with_info_provider}}
+{{#include ../birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:with_info_provider}}
 }
 ```
 
 **birthday_service/src/client.rs**:
 
 ```rust,ignore
-{{#include ../birthday-service/birthday_service/src/client.rs:InfoProvider}}
+{{#include ../birthday_service/src/client.rs:InfoProvider}}
 
 fn main() {
     binder::ProcessState::start_thread_pool();
     let service = connect().expect("Failed to connect to BirthdayService");
-{{#include ../birthday-service/birthday_service/src/client.rs:wish_with_provider}}
+{{#include ../birthday_service/src/client.rs:wish_with_provider}}
 }
 ```
 

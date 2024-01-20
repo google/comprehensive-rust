@@ -6,7 +6,7 @@ to the service.
 *birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl*:
 
 ```java
-{{#include birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:IBirthdayService}}
+{{#include ../birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:IBirthdayService}}
 }
 ```
 

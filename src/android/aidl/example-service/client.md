@@ -8,14 +8,14 @@ _birthday_service/src/client.rs_:
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
 use com_example_birthdayservice::binder;
 
-{{#include birthday_service/src/client.rs:main}}
+{{#include ../birthday_service/src/client.rs:main}}
 }
 ```
 
 _birthday_service/Android.bp_:
 
 ```javascript
-{{#include birthday_service/Android.bp:birthday_client}}
+{{#include ../birthday_service/Android.bp:birthday_client}}
 ```
 
 Notice that the client does not depend on `libbirthdayservice`.
