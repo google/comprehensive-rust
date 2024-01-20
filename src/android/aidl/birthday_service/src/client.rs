@@ -34,8 +34,9 @@ fn main() -> Result<(), binder::Status> {
         .unwrap_or(42);
 
     binder::ProcessState::start_thread_pool();
-    let service: binder::Strong<dyn IBirthdayService> = binder::get_interface(SERVICE_IDENTIFIER)
-        .expect("Failed to connect to BirthdayService");
+    let service: binder::Strong<dyn IBirthdayService> =
+        binder::get_interface(SERVICE_IDENTIFIER)
+            .expect("Failed to connect to BirthdayService");
 
     // Call the service.
     let msg = service.wishHappyBirthday(&name, years)?;
@@ -43,20 +44,14 @@ fn main() -> Result<(), binder::Status> {
     // ANCHOR_END: main
 
     // ANCHOR: wish_with_info
-    service.wishWithInfo(&BirthdayInfo {
-        name: name.clone(),
-        years,
-    })?;
+    service.wishWithInfo(&BirthdayInfo { name: name.clone(), years })?;
     // ANCHOR_END: wish_with_info
 
     // ANCHOR: wish_with_provider
 
     // Create a binder object for the `IBirthdayInfoProvider` interface.
     let provider = BnBirthdayInfoProvider::new_binder(
-        InfoProvider {
-            name: name.clone(),
-            age: years as u8,
-        },
+        InfoProvider { name: name.clone(), age: years as u8 },
         BinderFeatures::default(),
     );
 

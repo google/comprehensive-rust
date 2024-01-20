@@ -2,7 +2,7 @@
 
 We can now implement the AIDL service:
 
-*birthday_service/src/lib.rs*:
+_birthday_service/src/lib.rs_:
 
 ```rust,ignore
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
@@ -12,7 +12,7 @@ use com_example_birthdayservice::binder;
 }
 ```
 
-*birthday_service/Android.bp*:
+_birthday_service/Android.bp_:
 
 ```javascript
 {{#include ../birthday_service/Android.bp:libbirthdayservice}}
@@ -20,9 +20,9 @@ use com_example_birthdayservice::binder;
 
 <details>
 
-* Point out the path to the generated `IBirthdayService` trait, and explain why
+- Point out the path to the generated `IBirthdayService` trait, and explain why
   each of the segments is necessary.
-* TODO: What does the `binder::Interface` trait do? Are there methods to
+- TODO: What does the `binder::Interface` trait do? Are there methods to
   override? Where source?
 
 </details>

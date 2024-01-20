@@ -2,11 +2,16 @@
 
 Update the client and server code to account for the new API.
 
-*birthday_service/src/lib.rs*:
+_birthday_service/src/lib.rs_:
 
 ```rust
 impl IBirthdayService for BirthdayService {
-    fn wishHappyBirthday(&self, name: &str, years: i32, text: &[String]) -> binder::Result<String> {
+    fn wishHappyBirthday(
+        &self,
+        name: &str,
+        years: i32,
+        text: &[String],
+    ) -> binder::Result<String> {
         let mut msg = format!(
             "Happy Birthday {name}, congratulations with the {years} years!",
         );
@@ -21,7 +26,7 @@ impl IBirthdayService for BirthdayService {
 }
 ```
 
-*birthday_service/src/client.rs*:
+_birthday_service/src/client.rs_:
 
 ```rust
 let msg = service.wishHappyBirthday(
@@ -36,6 +41,6 @@ let msg = service.wishHappyBirthday(
 
 <details>
 
-* TODO: Move code snippets into project files where they'll actually be built?
+- TODO: Move code snippets into project files where they'll actually be built?
 
 </details>

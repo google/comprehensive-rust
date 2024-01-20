@@ -20,7 +20,7 @@ partition.
 
 <details>
 
-* Note that the directory structure under the `aidl/` directory needs to match
+- Note that the directory structure under the `aidl/` directory needs to match
   the package name used in the AIDL file, i.e. the package is
   `com.example.birthdayservice` and the file is at
   `aidl/com/example/IBirthdayService.aidl`.

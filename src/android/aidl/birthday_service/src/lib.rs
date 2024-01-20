@@ -50,7 +50,10 @@ impl IBirthdayService for BirthdayService {
         ))
     }
 
-    fn wishWithErasedProvider(&self, provider: &SpIBinder) -> binder::Result<String> {
+    fn wishWithErasedProvider(
+        &self,
+        provider: &SpIBinder,
+    ) -> binder::Result<String> {
         use binder::binder_impl::Proxy;
 
         // Convert the `IBinder` to a concrete interface.
@@ -64,7 +67,10 @@ impl IBirthdayService for BirthdayService {
     }
 
     // ANCHOR: wishFromFile
-    fn wishFromFile(&self, info_file: &ParcelFileDescriptor) -> binder::Result<String> {
+    fn wishFromFile(
+        &self,
+        info_file: &ParcelFileDescriptor,
+    ) -> binder::Result<String> {
         let mut info_file = info_file
             .as_ref()
             .try_clone()
@@ -78,9 +84,7 @@ impl IBirthdayService for BirthdayService {
         let name = lines.next().unwrap();
         let years: i32 = lines.next().unwrap().parse().unwrap();
 
-        Ok(format!(
-            "Happy Birthday {name}, congratulations with the {years} years!"
-        ))
+        Ok(format!("Happy Birthday {name}, congratulations with the {years} years!"))
     }
     // ANCHOR_END: wishFromFile
 }

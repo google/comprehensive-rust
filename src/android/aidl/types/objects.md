@@ -33,7 +33,7 @@ fn main() {
 
 <details>
 
-* Note the usage of `BnBirthdayInfoProvider`. This serves the same purpose as
+- Note the usage of `BnBirthdayInfoProvider`. This serves the same purpose as
   `BnBirthdayService` that we saw previously.
 
 </details>
