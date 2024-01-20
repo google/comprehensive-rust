@@ -15759,8 +15759,9 @@ msgid ""
 msgstr ""
 
 #: src/bare-metal.md:1
+#, fuzzy
 msgid "Welcome to Bare Metal Rust"
-msgstr ""
+msgstr "欢迎来学习裸机 Rust"
 
 #: src/bare-metal.md:3
 msgid ""
@@ -15769,28 +15770,33 @@ msgid ""
 "Comprehensive Rust course), and ideally also have some experience with bare-"
 "metal programming in some other language such as C."
 msgstr ""
+"这是单独为裸机 Rust 开设的课程，为期一天，主要面向熟悉 Rust 基础知识的人员"
+"（例如已学完 Comprehensive Rust），最好也有一些使用其他语言（例如 C）进行裸机"
+"编程的经验。"
 
 #: src/bare-metal.md:8
 msgid ""
 "Today we will talk about 'bare-metal' Rust: running Rust code without an OS "
 "underneath us. This will be divided into several parts:"
 msgstr ""
+"今天，我们将探讨 `bare-metal` Rust：即在没有操作系统支持的情况下运行 Rust 代"
+"码。该部分主要分为以下内容："
 
 #: src/bare-metal.md:11
 msgid "What is `no_std` Rust?"
-msgstr ""
+msgstr "什么是 `no_std` Rust？"
 
 #: src/bare-metal.md:12
 msgid "Writing firmware for microcontrollers."
-msgstr ""
+msgstr "编写微控制器固件。"
 
 #: src/bare-metal.md:13
 msgid "Writing bootloader / kernel code for application processors."
-msgstr ""
+msgstr "为应用处理器编写引导加载程序 / 内核代码。"
 
 #: src/bare-metal.md:14
 msgid "Some useful crates for bare-metal Rust development."
-msgstr ""
+msgstr "有助于裸机 Rust 开发的一些实用 crate。"
 
 #: src/bare-metal.md:16
 msgid ""
@@ -15800,142 +15806,150 @@ msgid ""
 "with some LEDs and buttons, an I2C-connected accelerometer and compass, and "
 "an on-board SWD debugger."
 msgstr ""
+"在本课程的微控制器部分，我们将使用 [BBC micro:bit](https://microbit.org/) v2 "
+"作为示例。这是一款基于 Nordic nRF51822 微控制器的 [开发板](https://tech."
+"microbit.org/hardware/)，配有一些 LED 和按钮、连接 I2C 的加速度计和罗盘，以及"
+"板载 SWD 调试程序。"
 
 #: src/bare-metal.md:22
 msgid ""
 "To get started, install some tools we'll need later. On gLinux or Debian:"
-msgstr ""
+msgstr "首先，请安装我们稍后需要用到的一些工具。在 gLinux 或 Debian 上："
 
 #: src/bare-metal.md:34
 msgid ""
 "And give users in the `plugdev` group access to the micro:bit programmer:"
-msgstr ""
+msgstr "然后，向 `plugdev` 组中的用户授予 micro:bit 编程器的访问权限："
 
 #: src/bare-metal.md:44 src/bare-metal/microcontrollers/debugging.md:33
 msgid "On MacOS:"
-msgstr ""
+msgstr "在 MacOS 上："
 
 #: src/bare-metal/no_std.md:7
 msgid "`core`"
-msgstr ""
+msgstr "`core`"
 
 #: src/bare-metal/no_std.md:17
 msgid "`std`"
-msgstr ""
+msgstr "`std`"
 
 #: src/bare-metal/no_std.md:24
 msgid "Slices, `&str`, `CStr`"
-msgstr ""
+msgstr "Slice、`&str`、`CStr`"
 
 #: src/bare-metal/no_std.md:25
 msgid "`NonZeroU8`..."
-msgstr ""
+msgstr "`NonZeroU8`..."
 
 #: src/bare-metal/no_std.md:26
 msgid "`Option`, `Result`"
-msgstr ""
+msgstr "`Option`、`Result`"
 
 #: src/bare-metal/no_std.md:27
 msgid "`Display`, `Debug`, `write!`..."
-msgstr ""
+msgstr "`Display`、`Debug`、`write!`..."
 
 #: src/bare-metal/no_std.md:29
 msgid "`panic!`, `assert_eq!`..."
-msgstr ""
+msgstr "`panic!`、`assert_eq!`..."
 
 #: src/bare-metal/no_std.md:30
 msgid "`NonNull` and all the usual pointer-related functions"
-msgstr ""
+msgstr "`NonNull` 和所有常见的指针相关函数"
 
 #: src/bare-metal/no_std.md:31
 msgid "`Future` and `async`/`await`"
-msgstr ""
+msgstr "`Future` 和 `async`/`await`"
 
 #: src/bare-metal/no_std.md:32
 msgid "`fence`, `AtomicBool`, `AtomicPtr`, `AtomicU32`..."
-msgstr ""
+msgstr "`fence`、`AtomicBool`、`AtomicPtr`、`AtomicU32`..."
 
 #: src/bare-metal/no_std.md:33
 msgid "`Duration`"
-msgstr ""
+msgstr "`Duration`"
 
 #: src/bare-metal/no_std.md:38
 msgid "`Box`, `Cow`, `Arc`, `Rc`"
-msgstr ""
+msgstr "`Box`、`Cow`、`Arc`、`Rc`"
 
 #: src/bare-metal/no_std.md:39
 msgid "`Vec`, `BinaryHeap`, `BtreeMap`, `LinkedList`, `VecDeque`"
-msgstr ""
+msgstr "`Vec`、`BinaryHeap`、`BtreeMap`、`LinkedList`、`VecDeque`"
 
 #: src/bare-metal/no_std.md:40
 msgid "`String`, `CString`, `format!`"
-msgstr ""
+msgstr "`String`、`CString`、`format!`"
 
 #: src/bare-metal/no_std.md:45
+#, fuzzy
 msgid "`Error`"
-msgstr ""
+msgstr "`Error`"
 
 #: src/bare-metal/no_std.md:47
 msgid "`Mutex`, `Condvar`, `Barrier`, `Once`, `RwLock`, `mpsc`"
-msgstr ""
+msgstr "`Mutex`、`Condvar`、`Barrier`、`Once`、`RwLock`、`mpsc`"
 
 #: src/bare-metal/no_std.md:48
 msgid "`File` and the rest of `fs`"
-msgstr ""
+msgstr "`File` 和 `fs` 的其余部分"
 
 #: src/bare-metal/no_std.md:49
 msgid "`println!`, `Read`, `Write`, `Stdin`, `Stdout` and the rest of `io`"
-msgstr ""
+msgstr "`println!`、`Read`、`Write`、`Stdin`、`Stdout` 以及 `io` 的其余部分"
 
 #: src/bare-metal/no_std.md:50
+#, fuzzy
 msgid "`Path`, `OsString`"
-msgstr ""
+msgstr "`Path`、`OsString`"
 
 #: src/bare-metal/no_std.md:51
 msgid "`net`"
-msgstr ""
+msgstr "`net`"
 
 #: src/bare-metal/no_std.md:52
 msgid "`Command`, `Child`, `ExitCode`"
-msgstr ""
+msgstr "`Command`、`Child`、`ExitCode`"
 
 #: src/bare-metal/no_std.md:53
 msgid "`spawn`, `sleep` and the rest of `thread`"
-msgstr ""
+msgstr "`spawn`、`sleep` 和 `thread` 的其余部分"
 
 #: src/bare-metal/no_std.md:54
 msgid "`SystemTime`, `Instant`"
-msgstr ""
+msgstr "`SystemTime`、`Instant`"
 
 #: src/bare-metal/no_std.md:62
 msgid "`HashMap` depends on RNG."
-msgstr ""
+msgstr "`HashMap` 依赖于 RNG。"
 
 #: src/bare-metal/no_std.md:63
 msgid "`std` re-exports the contents of both `core` and `alloc`."
-msgstr ""
+msgstr "`std` 会重新导出 `core` 和 `alloc` 的内容。"
 
 #: src/bare-metal/minimal.md:1
 msgid "A minimal `no_std` program"
-msgstr ""
+msgstr "极小的 `no_std` 程序"
 
 #: src/bare-metal/minimal.md:19
 msgid "This will compile to an empty binary."
-msgstr ""
+msgstr "这将编译为空二进制文件。"
 
 #: src/bare-metal/minimal.md:20
 msgid "`std` provides a panic handler; without it we must provide our own."
-msgstr ""
+msgstr "`std` 提供了一个 panic 处理程序；如果没有它，我们就必须自行提供。"
 
 #: src/bare-metal/minimal.md:21
 msgid "It can also be provided by another crate, such as `panic-halt`."
-msgstr ""
+msgstr "其他 crate（例如 `panic-halt`）也可以提供该处理程序。"
 
 #: src/bare-metal/minimal.md:22
 msgid ""
 "Depending on the target, you may need to compile with `panic = \"abort\"` to "
 "avoid an error about `eh_personality`."
 msgstr ""
+"根据目标不同，可能需要使用 `panic = \"abort\"` 进行编译，以避免出现与 "
+"`eh_personality` 相关的错误。"
 
 #: src/bare-metal/minimal.md:24
 msgid ""
@@ -15943,25 +15957,30 @@ msgid ""
 "define your own entry point. This will typically involve a linker script and "
 "some assembly code to set things up ready for Rust code to run."
 msgstr ""
+"请注意，未提供 `main` 函数或任何其他入口点；您可以自行定义入口点。通常需要使"
+"用链接器脚本和一些汇编代码进行设置工作，以便 Rust 代码能够顺利运行。"
 
 #: src/bare-metal/alloc.md:3
 msgid ""
 "To use `alloc` you must implement a [global (heap) allocator](https://doc."
 "rust-lang.org/stable/std/alloc/trait.GlobalAlloc.html)."
 msgstr ""
+"如需使用 `alloc`，您必须实现 [全局（堆）分配器](https://doc.rust-lang.org/"
+"stable/std/alloc/trait.GlobalAlloc.html)。"
 
 #: src/bare-metal/alloc.md:23
 msgid ""
 "// Safe because `HEAP` is only used here and `entry` is only called once.\n"
 msgstr ""
+"// Safe because `HEAP` is only used here and `entry` is only called once.\n"
 
 #: src/bare-metal/alloc.md:25
 msgid "// Give the allocator some memory to allocate.\n"
-msgstr ""
+msgstr "// Give the allocator some memory to allocate.\n"
 
 #: src/bare-metal/alloc.md:29
 msgid "// Now we can do things that require heap allocation.\n"
-msgstr ""
+msgstr "// Now we can do things that require heap allocation.\n"
 
 #: src/bare-metal/alloc.md:31
 #, fuzzy
@@ -15974,12 +15993,16 @@ msgid ""
 "system allocator. Other crates are available, or you can write your own or "
 "hook into your existing allocator."
 msgstr ""
+"`buddy_system_allocator` 是第三方 crate，用于实现基本伙伴系统分配器。还可以使"
+"用其他 crate，或者自行编写 crate，或者接入现有分配器。"
 
 #: src/bare-metal/alloc.md:40
 msgid ""
 "The const parameter of `LockedHeap` is the max order of the allocator; i.e. "
 "in this case it can allocate regions of up to 2\\*\\*32 bytes."
 msgstr ""
+"`LockedHeap` 的常量参数是分配器的最大阶数；即在本例中，它可以最多分配 "
+"2\\*\\*32 字节大小的区域。"
 
 #: src/bare-metal/alloc.md:42
 msgid ""
@@ -15987,62 +16010,72 @@ msgid ""
 "exactly one global allocator defined in your binary. Usually this is done in "
 "the top-level binary crate."
 msgstr ""
+"如果依赖项树中的所有 crate 都依赖于 `alloc`，则您必须在二进制文件中明确定义一"
+"个全局分配器。通常，在顶级二进制 crate 中完成此操作。"
 
 #: src/bare-metal/alloc.md:45
 msgid ""
 "`extern crate panic_halt as _` is necessary to ensure that the `panic_halt` "
 "crate is linked in so we get its panic handler."
 msgstr ""
+"为了确保能够成功关联 `panic_halt` crate，以便我们获取其 panic 处理程序，必须"
+"使用 `extern crate panic_halt as _` 方法。"
 
 #: src/bare-metal/alloc.md:47
 msgid "This example will build but not run, as it doesn't have an entry point."
-msgstr ""
+msgstr "我们可以构建该示例，但由于没有入口点，无法运行。"
 
 #: src/bare-metal/microcontrollers.md:3
 msgid ""
 "The `cortex_m_rt` crate provides (among other things) a reset handler for "
 "Cortex M microcontrollers."
 msgstr ""
+"`cortex_m_rt` crate 提供针对 Cortex M 微控制器的重置处理程序（以及其他内"
+"容）。"
 
 #: src/bare-metal/microcontrollers.md:24
 msgid ""
 "Next we'll look at how to access peripherals, with increasing levels of "
 "abstraction."
-msgstr ""
+msgstr "接下来，我们看看随着抽象层级的不断提升，该如何访问外围设备。"
 
 #: src/bare-metal/microcontrollers.md:29
 msgid ""
 "The `cortex_m_rt::entry` macro requires that the function have type `fn() -"
 "> !`, because returning to the reset handler doesn't make sense."
 msgstr ""
+"`cortex_m_rt::entry` 宏要求函数的类型为 `fn() -> !`，因为返回重置处理程序会毫"
+"无意义。"
 
 #: src/bare-metal/microcontrollers.md:31
 msgid "Run the example with `cargo embed --bin minimal`"
-msgstr ""
+msgstr "使用 `cargo embed --bin minimum` 运行该示例"
 
 #: src/bare-metal/microcontrollers/mmio.md:3
 msgid ""
 "Most microcontrollers access peripherals via memory-mapped IO. Let's try "
 "turning on an LED on our micro:bit:"
 msgstr ""
+"大多数微控制器通过内存映射 IO 访问外围设备。现在试着开启 micro:bit 上的 LED "
+"指示灯："
 
 #: src/bare-metal/microcontrollers/mmio.md:16
 msgid "/// GPIO port 0 peripheral address\n"
-msgstr ""
+msgstr "/// GPIO port 0 peripheral address\n"
 
 #: src/bare-metal/microcontrollers/mmio.md:19
 msgid "// GPIO peripheral offsets\n"
-msgstr ""
+msgstr "// GPIO peripheral offsets\n"
 
 #: src/bare-metal/microcontrollers/mmio.md:24
 msgid "// PIN_CNF fields\n"
-msgstr ""
+msgstr "// PIN_CNF fields\n"
 
 #: src/bare-metal/microcontrollers/mmio.md:34
 #: src/bare-metal/microcontrollers/pacs.md:21
 #: src/bare-metal/microcontrollers/hals.md:26
 msgid "// Configure GPIO 0 pins 21 and 28 as push-pull outputs.\n"
-msgstr ""
+msgstr "// Configure GPIO 0 pins 21 and 28 as push-pull outputs.\n"
 
 #: src/bare-metal/microcontrollers/mmio.md:37
 #: src/bare-metal/microcontrollers/mmio.md:59
@@ -16050,29 +16083,31 @@ msgid ""
 "// Safe because the pointers are to valid peripheral control registers, and\n"
 "    // no aliases exist.\n"
 msgstr ""
+"// Safe because the pointers are to valid peripheral control registers, and\n"
+"    // no aliases exist.\n"
 
 #: src/bare-metal/microcontrollers/mmio.md:56
 #: src/bare-metal/microcontrollers/pacs.md:39
 #: src/bare-metal/microcontrollers/hals.md:30
 msgid "// Set pin 28 low and pin 21 high to turn the LED on.\n"
-msgstr ""
+msgstr "// Set pin 28 low and pin 21 high to turn the LED on.\n"
 
 #: src/bare-metal/microcontrollers/mmio.md:72
 msgid ""
 "GPIO 0 pin 21 is connected to the first column of the LED matrix, and pin 28 "
 "to the first row."
-msgstr ""
+msgstr "将 GPIO 0 的引脚 21 连接到 LED 矩阵的第一列，将引脚 28 连接到第一行。"
 
 #: src/bare-metal/microcontrollers/mmio.md:75
 #: src/bare-metal/microcontrollers/pacs.md:61
 #: src/bare-metal/microcontrollers/hals.md:44
 #: src/bare-metal/microcontrollers/board-support.md:37
 msgid "Run the example with:"
-msgstr ""
+msgstr "使用以下命令运行该示例："
 
 #: src/bare-metal/microcontrollers/pacs.md:1
 msgid "Peripheral Access Crates"
-msgstr ""
+msgstr "外围设备访问 crate"
 
 #: src/bare-metal/microcontrollers/pacs.md:3
 msgid ""
@@ -16080,18 +16115,25 @@ msgid ""
 "wrappers for memory-mapped peripherals from [CMSIS-SVD](https://www.keil.com/"
 "pack/doc/CMSIS/SVD/html/index.html) files."
 msgstr ""
+"[`svd2rust`](https://crates.io/crates/svd2rust) 使用 [CMSIS-SVD](https://www."
+"keil.com/pack/doc/CMSIS/SVD/html/index.html) 文件为内存映射外围设备生成了大部"
+"分安全的 Rust 封装容器。"
 
 #: src/bare-metal/microcontrollers/pacs.md:49
 msgid ""
 "SVD (System View Description) files are XML files typically provided by "
 "silicon vendors which describe the memory map of the device."
 msgstr ""
+"SVD（系统视图描述）文件通常是由芯片供应商提供的 XML 文件，用于描述设备的内存"
+"映射。"
 
 #: src/bare-metal/microcontrollers/pacs.md:51
 msgid ""
 "They are organised by peripheral, register, field and value, with names, "
 "descriptions, addresses and so on."
 msgstr ""
+"这些文件按照外围设备、寄存器、字段和值进行组织分类，其中包含名称、内容描述、"
+"地址等信息。"
 
 #: src/bare-metal/microcontrollers/pacs.md:53
 msgid ""
@@ -16099,20 +16141,25 @@ msgid ""
 "which patch the mistakes, add missing details, and publish the generated "
 "crates."
 msgstr ""
+"由于 SVD 文件常常存在错误和不完整的情况，因此有许多项目会修复这些错误，补充缺"
+"失的相关信息，并发布生成的 crate。"
 
 #: src/bare-metal/microcontrollers/pacs.md:56
 msgid "`cortex-m-rt` provides the vector table, among other things."
-msgstr ""
+msgstr "`cortex-m-rt` 提供矢量表以及其他功能。"
 
 #: src/bare-metal/microcontrollers/pacs.md:57
 msgid ""
 "If you `cargo install cargo-binutils` then you can run `cargo objdump --bin "
 "pac -- -d --no-show-raw-insn` to see the resulting binary."
 msgstr ""
+"如果您使用 `cargo install cargo-binutils`，则可以运行 `cargo objdump --bin "
+"pac -- -d --no-show-raw-insn`，查看生成的二进制文件。"
 
 #: src/bare-metal/microcontrollers/hals.md:1
+#, fuzzy
 msgid "HAL crates"
-msgstr ""
+msgstr "HAL crate"
 
 #: src/bare-metal/microcontrollers/hals.md:3
 msgid ""
@@ -16121,71 +16168,80 @@ msgid ""
 "various peripherals. These generally implement traits from [`embedded-hal`]"
 "(https://crates.io/crates/embedded-hal)."
 msgstr ""
+"许多微控制器的 [HAL crate](https://github.com/rust-embedded/awesome-embedded-"
+"rust#hal-implementation-crates) 为各种外围设备提供了封装容器。通常，这些封装"
+"容器可以实现 [`embedded-hal`](https://crates.io/crates/embedded-hal) 中的各"
+"种 trait。"
 
 #: src/bare-metal/microcontrollers/hals.md:23
 msgid "// Create HAL wrapper for GPIO port 0.\n"
-msgstr ""
+msgstr "// Create HAL wrapper for GPIO port 0.\n"
 
 #: src/bare-metal/microcontrollers/hals.md:40
 msgid ""
 "`set_low` and `set_high` are methods on the `embedded_hal` `OutputPin` trait."
-msgstr ""
+msgstr "`set_low` 和 `set_high` 是 `embedded_hal` `OutputPin` trait 上的方法。"
 
 #: src/bare-metal/microcontrollers/hals.md:41
 msgid ""
 "HAL crates exist for many Cortex-M and RISC-V devices, including various "
 "STM32, GD32, nRF, NXP, MSP430, AVR and PIC microcontrollers."
 msgstr ""
+"HAL crate 被广泛用于许多 Cortex-M 和 RISC-V 设备，包括各种 STM32、GD32、nRF、"
+"NXP、MSP430、AVR 和 PIC 微控制器。"
 
 #: src/bare-metal/microcontrollers/board-support.md:1
+#, fuzzy
 msgid "Board support crates"
-msgstr ""
+msgstr "板级支持 crate"
 
 #: src/bare-metal/microcontrollers/board-support.md:3
 msgid ""
 "Board support crates provide a further level of wrapping for a specific "
 "board for convenience."
-msgstr ""
+msgstr "为了方便使用，板级支持 crate 为特定开发板提供了更高级别的封装功能。"
 
 #: src/bare-metal/microcontrollers/board-support.md:31
 msgid ""
 "In this case the board support crate is just providing more useful names, "
 "and a bit of initialisation."
-msgstr ""
+msgstr "在本例中，该板级支持 crate 仅提供了一些实用的名称和初始化功能。"
 
 #: src/bare-metal/microcontrollers/board-support.md:33
 msgid ""
 "The crate may also include drivers for some on-board devices outside of the "
 "microcontroller itself."
-msgstr ""
+msgstr "除微控制器以外，该 crate 还包含一些可用于板载设备的驱动程序。"
 
 #: src/bare-metal/microcontrollers/board-support.md:35
 msgid "`microbit-v2` includes a simple driver for the LED matrix."
-msgstr ""
+msgstr "`microbit-v2` 包含一个可用于 LED 矩阵的简单驱动程序。"
 
 #: src/bare-metal/microcontrollers/type-state.md:1
 msgid "The type state pattern"
-msgstr ""
+msgstr "类型状态模式"
 
 #: src/bare-metal/microcontrollers/type-state.md:11
 msgid "// let gpio0_01_again = gpio0.p0_01; // Error, moved.\n"
-msgstr ""
+msgstr "// let gpio0_01_again = gpio0.p0_01; // Error, moved.\n"
 
 #: src/bare-metal/microcontrollers/type-state.md:19
 msgid "// pin_input.is_high(); // Error, moved.\n"
-msgstr ""
+msgstr "// pin_input.is_high(); // Error, moved.\n"
 
 #: src/bare-metal/microcontrollers/type-state.md:33
 msgid ""
 "Pins don't implement `Copy` or `Clone`, so only one instance of each can "
 "exist. Once a pin is moved out of the port struct nobody else can take it."
 msgstr ""
+"引脚无法实现 `Copy` 或 `Clone`，因此，每个引脚只能存在一个实例。一旦某个引脚"
+"从端口结构体移出，任何人都无法再使用它。"
 
 #: src/bare-metal/microcontrollers/type-state.md:35
 msgid ""
 "Changing the configuration of a pin consumes the old pin instance, so you "
 "can’t keep use the old instance afterwards."
-msgstr ""
+msgstr "更改引脚的配置会使旧的引脚实例失效，因此您无法再继续使用旧实例。"
 
 #: src/bare-metal/microcontrollers/type-state.md:37
 msgid ""
@@ -16195,46 +16251,52 @@ msgid ""
 "way without properly configuring it first. Illegal state transitions are "
 "caught at compile time."
 msgstr ""
+"值的类型表示其所处状态：例如，在本例中，表示 GPIO 引脚的配置状态。通过这种方"
+"式，可将状态机编码成类型系统，并确保在未正确完成引脚配置之前，不会尝试以某种"
+"方式使用引脚。编译时捕获了非法状态转换。"
 
 #: src/bare-metal/microcontrollers/type-state.md:42
 msgid ""
 "You can call `is_high` on an input pin and `set_high` on an output pin, but "
 "not vice-versa."
 msgstr ""
+"您可以在输入引脚上调用 `is_high`，在输出引脚上调用 `set_high`，反之则不行。"
 
 #: src/bare-metal/microcontrollers/type-state.md:44
 msgid "Many HAL crates follow this pattern."
-msgstr ""
+msgstr "许多 HAL crate 都遵循此模式。"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:3
 msgid ""
 "The [`embedded-hal`](https://crates.io/crates/embedded-hal) crate provides a "
 "number of traits covering common microcontroller peripherals."
 msgstr ""
+"[`embedded-hal`](https://crates.io/crates/embedded-hal) crate 提供许多适用于"
+"常见微控制器外围设备的 trait。"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:6
 msgid "GPIO"
-msgstr ""
+msgstr "GPIO"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:7
 msgid "ADC"
-msgstr ""
+msgstr "ADC"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:8
 msgid "I2C, SPI, UART, CAN"
-msgstr ""
+msgstr "I2C、SPI、UART、CAN"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:9
 msgid "RNG"
-msgstr ""
+msgstr "RNG"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:10
 msgid "Timers"
-msgstr ""
+msgstr "定时器"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:11
 msgid "Watchdogs"
-msgstr ""
+msgstr "监控定时器"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:13
 msgid ""
@@ -16242,37 +16304,44 @@ msgid ""
 "awesome-embedded-rust#driver-crates) in terms of these traits, e.g. an "
 "accelerometer driver might need an I2C or SPI bus implementation."
 msgstr ""
+"然后，其他 crate 可以根据这些 trait 实现 [驱动程序](https://github.com/rust-"
+"embedded/awesome-embedded-rust#driver-crates)，例如加速度计驱动程序可能需要通"
+"过 I2C 或 SPI 总线实现。"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:20
 msgid ""
 "There are implementations for many microcontrollers, as well as other "
 "platforms such as Linux on Raspberry Pi."
 msgstr ""
+"还有适用于许多微控制器以及其他平台（例如 Raspberry Pi 上的 Linux）的实现。"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md:22
 msgid ""
 "There is work in progress on an `async` version of `embedded-hal`, but it "
 "isn't stable yet."
-msgstr ""
+msgstr "我们正在开发 `async` 版本的 `embedded-hal`，但目前还欠缺稳定性。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:3
 msgid ""
 "[probe-rs](https://probe.rs/) is a handy toolset for embedded debugging, "
 "like OpenOCD but better integrated."
 msgstr ""
+"[probe-rs](https://probe.rs/) 是一个方便的嵌入式调试工具集，跟 OpenOCD 较为相"
+"似，但集成度更高。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:6
 msgid ""
 "SWD (Serial Wire Debug) and JTAG via CMSIS-DAP, ST-Link and J-Link probes"
-msgstr ""
+msgstr "通过 CMSIS-DAP、ST-Link 和 J-Link 探针实现 SWD（串行调试）和 JTAG"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:7
 msgid "GDB stub and Microsoft DAP (Debug Adapter Protocol) server"
-msgstr ""
+msgstr "GDB 桩和 Microsoft DAP（调试适配器协议）服务器"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:8
+#, fuzzy
 msgid "Cargo integration"
-msgstr ""
+msgstr "Cargo 集成"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:10
 msgid ""
@@ -16280,6 +16349,8 @@ msgid ""
 "(Real Time Transfers) output and connect GDB. It's configured by an `Embed."
 "toml` file in your project directory."
 msgstr ""
+"`cargo-embed` 是一个 cargo 子命令，用于构建和刷写二进制文件、记录 RTT（实时传"
+"输）输出以及连接 GDB。您可通过项目目录中的 `Embed.toml` 文件对其进行配置。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:16
 msgid ""
@@ -16288,24 +16359,27 @@ msgid ""
 "CoreSight Debug Access Port of various Arm Cortex processors. It's what the "
 "on-board debugger on the BBC micro:bit uses."
 msgstr ""
+"[CMSIS-DAP](https://arm-software.github.io/CMSIS_5/DAP/html/index.html) 是一"
+"项基于 USB 的 Arm 标准协议，使得电路内调试程序能够接入各种 Arm Cortex 处理器"
+"的 CoreSight 调试访问端口。BBC micro:bit 的板载调试程序所使用的便是此协议。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:20
 msgid ""
 "ST-Link is a range of in-circuit debuggers from ST Microelectronics, J-Link "
 "is a range from SEGGER."
-msgstr ""
+msgstr "ST-Link 属于 ST Microelectronics 产品系列，J-Link 是 SEGGER 系列。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:22
 msgid ""
 "The Debug Access Port is usually either a 5-pin JTAG interface or 2-pin "
 "Serial Wire Debug."
-msgstr ""
+msgstr "调试访问端口通常为 5 针 JTAG 接口或 2 针串行线调试接口。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:24
 msgid ""
 "probe-rs is a library which you can integrate into your own tools if you "
 "want to."
-msgstr ""
+msgstr "probe-rs 是一个库，如有需要，可以将其集成到您的工具中。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:26
 msgid ""
@@ -16313,127 +16387,138 @@ msgid ""
 "adapter-protocol/) lets VSCode and other IDEs debug code running on any "
 "supported microcontroller."
 msgstr ""
+"借助 [Microsoft 调试适配器协议](https://microsoft.github.io/debug-adapter-"
+"protocol/)，VSCode 和其他 IDE 可以调试任何受支持的微控制器上运行的代码。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:30
 msgid "cargo-embed is a binary built using the probe-rs library."
-msgstr ""
+msgstr "cargo-embed 是使用 probe-rs 库构建的二进制文件。"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:31
 msgid ""
 "RTT (Real Time Transfers) is a mechanism to transfer data between the debug "
 "host and the target through a number of ringbuffers."
 msgstr ""
+"RTT（实时传输）是一种通过多个环形缓冲区，在调试主机和目标之间进行数据传输的机"
+"制。"
 
 #: src/bare-metal/microcontrollers/debugging.md:3
+#, fuzzy
 msgid "_Embed.toml_:"
-msgstr ""
+msgstr "_Embed.toml_:"
 
 #: src/bare-metal/microcontrollers/debugging.md:15
 msgid "In one terminal under `src/bare-metal/microcontrollers/examples/`:"
-msgstr ""
+msgstr "在 `src/bare-metal/microcontrollers/examples/` 目录下某个终端中："
 
 #: src/bare-metal/microcontrollers/debugging.md:23
 msgid "In another terminal in the same directory:"
-msgstr ""
+msgstr "在同一目录下的另一个终端中："
 
 #: src/bare-metal/microcontrollers/debugging.md:25
 msgid "On gLinux or Debian:"
-msgstr ""
+msgstr "在 gLinux 或 Debian 上："
 
 #: src/bare-metal/microcontrollers/debugging.md:43
 msgid "In GDB, try running:"
-msgstr ""
+msgstr "在 GDB 中，请尝试运行以下命令："
 
 #: src/bare-metal/microcontrollers/other-projects.md:1
 #: src/bare-metal/aps/other-projects.md:1
+#, fuzzy
 msgid "Other projects"
-msgstr ""
+msgstr "其他项目"
 
 #: src/bare-metal/microcontrollers/other-projects.md:3
 msgid "[RTIC](https://rtic.rs/)"
-msgstr ""
+msgstr "[RTIC](https://rtic.rs/)"
 
 #: src/bare-metal/microcontrollers/other-projects.md:4
 msgid "\"Real-Time Interrupt-driven Concurrency\""
-msgstr ""
+msgstr "\"Real-Time Interrupt-driven Concurrency\""
 
 #: src/bare-metal/microcontrollers/other-projects.md:5
 msgid ""
 "Shared resource management, message passing, task scheduling, timer queue"
-msgstr ""
+msgstr "共享资源管理、消息传递、任务调度、定时器队列"
 
 #: src/bare-metal/microcontrollers/other-projects.md:6
 msgid "[Embassy](https://embassy.dev/)"
-msgstr ""
+msgstr "[Embassy](https://embassy.dev/)"
 
 #: src/bare-metal/microcontrollers/other-projects.md:7
 msgid "`async` executors with priorities, timers, networking, USB"
-msgstr ""
+msgstr "具有优先级、计时器、网络和 USB 功能的 `async` 执行器"
 
 #: src/bare-metal/microcontrollers/other-projects.md:8
 msgid "[TockOS](https://www.tockos.org/documentation/getting-started)"
-msgstr ""
+msgstr "[TockOS](https://www.tockos.org/documentation/getting-started)"
 
 #: src/bare-metal/microcontrollers/other-projects.md:9
 msgid ""
 "Security-focused RTOS with preemptive scheduling and Memory Protection Unit "
 "support"
-msgstr ""
+msgstr "以安全为中心的 RTOS，具有抢占式调度功能和提供内存保护单元支持"
 
 #: src/bare-metal/microcontrollers/other-projects.md:11
 msgid "[Hubris](https://hubris.oxide.computer/)"
-msgstr ""
+msgstr "[Hubris](https://hubris.oxide.computer/)"
 
 #: src/bare-metal/microcontrollers/other-projects.md:12
 msgid ""
 "Microkernel RTOS from Oxide Computer Company with memory protection, "
 "unprivileged drivers, IPC"
 msgstr ""
+"Oxide Computer Company 开发的微内核 RTOS，提供内存保护、非特权驱动程序和 IPC "
+"功能"
 
 #: src/bare-metal/microcontrollers/other-projects.md:14
 msgid "[Bindings for FreeRTOS](https://github.com/lobaro/FreeRTOS-rust)"
-msgstr ""
+msgstr "[FreeRTOS 的绑定](https://github.com/lobaro/FreeRTOS-rust)"
 
 #: src/bare-metal/microcontrollers/other-projects.md:15
 msgid ""
 "Some platforms have `std` implementations, e.g. [esp-idf](https://esp-rs."
 "github.io/book/overview/using-the-standard-library.html)."
 msgstr ""
+"有些平台可以实现 `std`，例如 [esp-idf](https://esp-rs.github.io/book/"
+"overview/using-the-standard-library.html)。"
 
 #: src/bare-metal/microcontrollers/other-projects.md:20
 msgid "RTIC can be considered either an RTOS or a concurrency framework."
-msgstr ""
+msgstr "RTIC 可被视为 RTOS 或并发框架，"
 
 #: src/bare-metal/microcontrollers/other-projects.md:21
 msgid "It doesn't include any HALs."
-msgstr ""
+msgstr "但不包含任何 HAL。"
 
 #: src/bare-metal/microcontrollers/other-projects.md:22
 msgid ""
 "It uses the Cortex-M NVIC (Nested Virtual Interrupt Controller) for "
 "scheduling rather than a proper kernel."
 msgstr ""
+"它使用 Cortex-M NVIC（嵌套虚拟中断控制器）进行调度，而不是选用适合的内核。"
 
 #: src/bare-metal/microcontrollers/other-projects.md:24
 msgid "Cortex-M only."
-msgstr ""
+msgstr "仅限 Cortex-M。"
 
 #: src/bare-metal/microcontrollers/other-projects.md:25
 msgid ""
 "Google uses TockOS on the Haven microcontroller for Titan security keys."
-msgstr ""
+msgstr "Google 在 Haven 微控制器上使用 TockOS 作为 Titan 安全密钥的操作系统。"
 
 #: src/bare-metal/microcontrollers/other-projects.md:26
 msgid ""
 "FreeRTOS is mostly written in C, but there are Rust bindings for writing "
 "applications."
-msgstr ""
+msgstr "FreeRTOS 主要使用 C 语言编写，但也提供了专用于编写应用的 Rust 绑定。"
 
 #: src/exercises/bare-metal/morning.md:3
 msgid ""
 "We will read the direction from an I2C compass, and log the readings to a "
 "serial port."
-msgstr ""
+msgstr "我们将从 I2C 罗盘读取方向，并将读数记录到串行端口。"
 
 #: src/exercises/bare-metal/morning.md:8
 #: src/exercises/concurrency/morning.md:12
@@ -16449,10 +16534,12 @@ msgid ""
 "serial port. If you have time, try displaying it on the LEDs somehow too, or "
 "use the buttons somehow."
 msgstr ""
+"我们将从 I2C 罗盘读取方向，并将读数记录到串行端口。如有时间，请尝试通过 LED "
+"灯亮起的方式，或者使用按钮来显示方向。"
 
 #: src/exercises/bare-metal/compass.md:7
 msgid "Hints:"
-msgstr ""
+msgstr "提示："
 
 #: src/exercises/bare-metal/compass.md:9
 msgid ""
@@ -16461,16 +16548,19 @@ msgid ""
 "microbit/) crates, as well as the [micro:bit hardware](https://tech.microbit."
 "org/hardware/)."
 msgstr ""
+"请参阅 [`lsm303agr`](https://docs.rs/lsm303agr/latest/lsm303agr/) 和 "
+"[`microbit-v2`](https://docs.rs/microbit-v2/latest/microbit/) crate，以及 "
+"[micro:bit 硬件](https://tech.microbit.org/hardware/) 相关文档。"
 
 #: src/exercises/bare-metal/compass.md:13
 msgid ""
 "The LSM303AGR Inertial Measurement Unit is connected to the internal I2C bus."
-msgstr ""
+msgstr "LSM303AGR 惯性测量装置与内部 I2C 总线相连接。"
 
 #: src/exercises/bare-metal/compass.md:14
 msgid ""
 "TWI is another name for I2C, so the I2C master peripheral is called TWIM."
-msgstr ""
+msgstr "TWI 是 I2C 的别称，因此 I2C 主外围设备称为 TWIM。"
 
 #: src/exercises/bare-metal/compass.md:15
 msgid ""
@@ -16478,12 +16568,17 @@ msgid ""
 "blocking::i2c::WriteRead` trait. The [`microbit::hal::Twim`](https://docs.rs/"
 "microbit-v2/latest/microbit/hal/struct.Twim.html) struct implements this."
 msgstr ""
+"LSM303AGR 驱动程序需要使用某种方法来实现 `embedded_hal::blocking::i2c::"
+"WriteRead` trait。[`microbit::hal::Twim`](https://docs.rs/microbit-v2/latest/"
+"microbit/hal/struct.Twim.html) 结构体便可以做到这一点。"
 
 #: src/exercises/bare-metal/compass.md:19
 msgid ""
 "You have a [`microbit::Board`](https://docs.rs/microbit-v2/latest/microbit/"
 "struct.Board.html) struct with fields for the various pins and peripherals."
 msgstr ""
+"您拥有一个 [`microbit::Board`](https://docs.rs/microbit-v2/latest/microbit/"
+"struct.Board.html) 结构体，其中包含各种引脚和外围设备的字段。"
 
 #: src/exercises/bare-metal/compass.md:22
 msgid ""
@@ -16491,12 +16586,16 @@ msgid ""
 "com/pdf/nRF52833_PS_v1.5.pdf) if you want, but it shouldn't be necessary for "
 "this exercise."
 msgstr ""
+"如有需要，您还可以查看 [nRF52833 数据表](https://infocenter.nordicsemi.com/"
+"pdf/nRF52833_PS_v1.5.pdf)，但对本练习来说这不是必需的。"
 
 #: src/exercises/bare-metal/compass.md:26
 msgid ""
 "Download the [exercise template](../../comprehensive-rust-exercises.zip) and "
 "look in the `compass` directory for the following files."
 msgstr ""
+"下载 [练习模板](../../comprehensive-rust-exercises.zip) 并在 `compass` 目录中"
+"查找以下文件。"
 
 #: src/exercises/bare-metal/compass.md:29 src/exercises/bare-metal/rtc.md:22
 #, fuzzy
@@ -16506,49 +16605,53 @@ msgstr "_hello_rust/src/main.rs_:"
 #: src/exercises/bare-metal/compass.md:47
 #: src/exercises/bare-metal/solutions-morning.md:32
 msgid "// Configure serial port.\n"
-msgstr ""
+msgstr "// Configure serial port.\n"
 
 #: src/exercises/bare-metal/compass.md:55
 msgid ""
 "// Set up the I2C controller and Inertial Measurement Unit.\n"
 "    // TODO\n"
 msgstr ""
+"// Set up the I2C controller and Inertial Measurement Unit.\n"
+"    // TODO\n"
 
 #: src/exercises/bare-metal/compass.md:58
 #: src/exercises/bare-metal/solutions-morning.md:56
 msgid "\"Ready.\""
-msgstr ""
+msgstr "\"Ready.\""
 
 #: src/exercises/bare-metal/compass.md:61
 msgid ""
 "// Read compass data and log it to the serial port.\n"
 "        // TODO\n"
 msgstr ""
+"// Read compass data and log it to the serial port.\n"
+"        // TODO\n"
 
 #: src/exercises/bare-metal/compass.md:67 src/exercises/bare-metal/rtc.md:387
 msgid "_Cargo.toml_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_Cargo.toml_（无需对此进行更改）："
 
 #: src/exercises/bare-metal/compass.md:89
 msgid "_Embed.toml_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_Embed.toml_（无需对此进行更改）："
 
 #: src/exercises/bare-metal/compass.md:105 src/exercises/bare-metal/rtc.md:988
 msgid "_.cargo/config.toml_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_.cargo/config.toml_（无需对此进行更改）："
 
 #: src/exercises/bare-metal/compass.md:118
 msgid "See the serial output on Linux with:"
-msgstr ""
+msgstr "运行以下命令查看 Linux 上的串行输出："
 
 #: src/exercises/bare-metal/compass.md:126
 msgid ""
 "Or on Mac OS something like (the device name may be slightly different):"
-msgstr ""
+msgstr "或者在 Mac OS 上，如下所示（设备名称可能略有不同）："
 
 #: src/exercises/bare-metal/compass.md:134
 msgid "Use Ctrl+A Ctrl+Q to quit picocom."
-msgstr ""
+msgstr "使用 Ctrl+A Ctrl+Q 退出 picocom。"
 
 #: src/exercises/bare-metal/solutions-morning.md:1
 msgid "Bare Metal Rust Morning Exercise"
@@ -16560,34 +16663,37 @@ msgstr "([返回练习](compass.md))"
 
 #: src/exercises/bare-metal/solutions-morning.md:40
 msgid "// Set up the I2C controller and Inertial Measurement Unit.\n"
-msgstr ""
+msgstr "// Set up the I2C controller and Inertial Measurement Unit.\n"
 
 #: src/exercises/bare-metal/solutions-morning.md:41
 msgid "\"Setting up IMU...\""
-msgstr ""
+msgstr "\"Setting up IMU...\""
 
 #: src/exercises/bare-metal/solutions-morning.md:49
 msgid "// Set up display and timer.\n"
-msgstr ""
+msgstr "// Set up display and timer.\n"
 
 #: src/exercises/bare-metal/solutions-morning.md:59
 msgid "// Read compass data and log it to the serial port.\n"
-msgstr ""
+msgstr "// Read compass data and log it to the serial port.\n"
 
 #: src/exercises/bare-metal/solutions-morning.md:67
 msgid "\"{},{},{}\\t{},{},{}\""
-msgstr ""
+msgstr "\"{},{},{}\\t{},{},{}\""
 
 #: src/exercises/bare-metal/solutions-morning.md:105
+#, fuzzy
 msgid ""
 "// If button A is pressed, switch to the next mode and briefly blink all "
 "LEDs\n"
 "        // on.\n"
 msgstr ""
+"// If button A is pressed, switch to the next mode and briefly blink all "
+"LEDs on.\n"
 
 #: src/bare-metal/aps.md:1
 msgid "Application processors"
-msgstr ""
+msgstr "应用处理器"
 
 #: src/bare-metal/aps.md:3
 msgid ""
@@ -16596,6 +16702,9 @@ msgid ""
 "with QEMU's aarch64 ['virt'](https://qemu-project.gitlab.io/qemu/system/arm/"
 "virt.html) board."
 msgstr ""
+"到目前为止，我们已经讨论了微控制器，例如 Arm Cortex-M 系列。现在，尝试为 "
+"Cortex-A 编写一些代码。为简单起见，我们只使用 QEMU 的 aarch64 [`virt`]"
+"(https://qemu-project.gitlab.io/qemu/system/arm/virt.html) 开发板 进行编写。"
 
 #: src/bare-metal/aps.md:10
 msgid ""
@@ -16603,6 +16712,8 @@ msgid ""
 "privilege (exception levels on Arm CPUs, rings on x86), while application "
 "processors do."
 msgstr ""
+"一般来说，微控制器不具备 MMU 或多级特权（例如，Arm CPU 中的异常级别，x86 中的"
+"铃声级别）的功能，而应用处理器则具备这些功能。"
 
 #: src/bare-metal/aps.md:13
 msgid ""
@@ -16610,11 +16721,13 @@ msgid ""
 "architecture. The 'virt' board doesn't correspond to any particular real "
 "hardware, but is designed purely for virtual machines."
 msgstr ""
+"QEMU 支持针对每种架构模拟不同的机器或板级模型。“虚拟”开发板并不适用于任何特定"
+"的真实硬件，而是专为虚拟机设计的。"
 
 #: src/bare-metal/aps/entry-point.md:3
 msgid ""
 "Before we can start running Rust code, we need to do some initialisation."
-msgstr ""
+msgstr "在开始运行 Rust 代码之前，我们需要进行一些初始化设置。"
 
 #: src/bare-metal/aps/entry-point.md:5
 msgid ""
@@ -16691,12 +16804,85 @@ msgid ""
 "    b 2b\n"
 "```"
 msgstr ""
+"```armasm\n"
+".section .init.entry, \"ax\"\n"
+".global entry\n"
+"entry:\n"
+"    /*\n"
+"     * Load and apply the memory management configuration, ready to enable "
+"MMU and\n"
+"     * caches.\n"
+"     */\n"
+"    adrp x30, idmap\n"
+"    msr ttbr0_el1, x30\n"
+"\n"
+"    mov_i x30, .Lmairval\n"
+"    msr mair_el1, x30\n"
+"\n"
+"    mov_i x30, .Ltcrval\n"
+"    /* Copy the supported PA range into TCR_EL1.IPS.*/\n"
+"    mrs x29, id_aa64mmfr0_el1\n"
+"    bfi x30, x29, #32, #4\n"
+"\n"
+"    msr tcr_el1, x30\n"
+"\n"
+"    mov_i x30, .Lsctlrval\n"
+"\n"
+"    /*\n"
+"     * Ensure everything before this point has completed, then invalidate "
+"any\n"
+"     * potentially stale local TLB entries before they start being used.\n"
+"     */\n"
+"    isb\n"
+"    tlbi vmalle1\n"
+"    ic iallu\n"
+"    dsb nsh\n"
+"    isb\n"
+"\n"
+"    /*\n"
+"     * Configure sctlr_el1 to enable MMU and cache and don't proceed until "
+"this\n"
+"     * has completed.\n"
+"     */\n"
+"    msr sctlr_el1, x30\n"
+"    isb\n"
+"\n"
+"    /* Disable trapping floating point access in EL1.*/\n"
+"    mrs x30, cpacr_el1\n"
+"    orr x30, x30, #(0x3 << 20)\n"
+"    msr cpacr_el1, x30\n"
+"    isb\n"
+"\n"
+"    /* Zero out the bss section.*/\n"
+"    adr_l x29, bss_begin\n"
+"    adr_l x30, bss_end\n"
+"0:  cmp x29, x30\n"
+"    b.hs 1f\n"
+"    stp xzr, xzr, [x29], #16\n"
+"    b 0b\n"
+"\n"
+"1:  /* Prepare the stack.*/\n"
+"    adr_l x30, boot_stack_end\n"
+"    mov sp, x30\n"
+"\n"
+"    /* Set up exception vector.*/\n"
+"    adr x30, vector_table_el1\n"
+"    msr vbar_el1, x30\n"
+"\n"
+"    /* Call into Rust code.*/\n"
+"    bl main\n"
+"\n"
+"    /* Loop forever waiting for interrupts.*/\n"
+"2:  wfi\n"
+"    b 2b\n"
+"```"
 
 #: src/bare-metal/aps/entry-point.md:77
 msgid ""
 "This is the same as it would be for C: initialising the processor state, "
 "zeroing the BSS, and setting up the stack pointer."
 msgstr ""
+"这与 C 语言的情况相同：初始化处理器状态，将 BSS 清零，然后设置堆栈指针。"
 
 #: src/bare-metal/aps/entry-point.md:79
 msgid ""
@@ -16706,18 +16892,23 @@ msgid ""
 "on zeroes. The compiler assumes that the loader will take care of zeroing "
 "them."
 msgstr ""
+"BSS（由于历史原因，称为代码块起始符）属于对象文件的一部分，其中包含静态分配的"
+"变量，这些变量被初始化为零。图像中省略了这些符号，以避免因存储零值而占用过多"
+"空间。编译器假定加载器会负责将它们清零。"
 
 #: src/bare-metal/aps/entry-point.md:84
 msgid ""
 "The BSS may already be zeroed, depending on how memory is initialised and "
 "the image is loaded, but we zero it to be sure."
 msgstr ""
+"BSS 可能已经被清零，具体取决于内存的初始化方式以及图像的加载方式，但为了确保"
+"起见，我们会将其手动清零。"
 
 #: src/bare-metal/aps/entry-point.md:86
 msgid ""
 "We need to enable the MMU and cache before reading or writing any memory. If "
 "we don't:"
-msgstr ""
+msgstr "我们需要先启用 MMU 和缓存功能，然后才能读取或写入任何内存。否则："
 
 #: src/bare-metal/aps/entry-point.md:88
 msgid ""
@@ -16726,6 +16917,9 @@ msgid ""
 "generating unaligned accesses, so it should be fine in this case, but this "
 "is not necessarily the case in general."
 msgstr ""
+"非对齐访问将会出错。我们为 `aarch64-unknown-none` 目标构建 Rust 代码，该目标"
+"会设置 `+Strict-align` 以防止编译器生成非对齐访问，因此在本例中应该没有问题，"
+"但一般情况下并不一定如此。"
 
 #: src/bare-metal/aps/entry-point.md:92
 msgid ""
@@ -16737,6 +16931,11 @@ msgid ""
 "is cleaned or the VM enables the cache. (Cache is keyed by physical address, "
 "not VA or IPA.)"
 msgstr ""
+"如果是在虚拟机中运行该命令，可能会导致缓存一致性问题。问题在于，虚拟机是在禁"
+"用缓存的情况下直接访问内存，而主机具有同一内存的缓存别名。即使主机并没有明确"
+"访问该内存，推测性访问仍然会导致缓存被填充，然后在清除缓存或虚拟机启用缓存"
+"时，任何一方对于该内存进行的更改就会丢失。（使用物理地址来键控缓存，而 VA 或 "
+"IPA。）"
 
 #: src/bare-metal/aps/entry-point.md:99
 msgid ""
@@ -16745,12 +16944,15 @@ msgid ""
 "for DRAM, and another 1 GiB higher up for more devices. This matches the "
 "memory layout that QEMU uses."
 msgstr ""
+"为简单起见，我们只使用硬编码的分页表（请参阅 `dmap.S`），其通过身份映射将前一"
+"个 1 GiB 的地址空间用于设备，紧接着的 1 GiB 用于 DRAM，然后在更高位置预留了 "
+"1 GiB 给其他设备。这与 QEMU 使用的内存布局一致。"
 
 #: src/bare-metal/aps/entry-point.md:103
 msgid ""
 "We also set up the exception vector (`vbar_el1`), which we'll see more about "
 "later."
-msgstr ""
+msgstr "我们还设置了异常矢量 (`vbar_el1`)，稍后会对此进行详细介绍。"
 
 #: src/bare-metal/aps/entry-point.md:105
 msgid ""
@@ -16758,10 +16960,12 @@ msgid ""
 "(EL1). If you need to run at a different exception level you'll need to "
 "modify `entry.S` accordingly."
 msgstr ""
+"今天下午的所有示例都假定我们将在异常级别 1 (EL1) 下运行。如果您需要在其他异常"
+"级别下运行，则需要修改相应的 `entry.S`。"
 
 #: src/bare-metal/aps/inline-assembly.md:1
 msgid "Inline assembly"
-msgstr ""
+msgstr "内嵌汇编"
 
 #: src/bare-metal/aps/inline-assembly.md:3
 msgid ""
@@ -16769,54 +16973,60 @@ msgid ""
 "Rust code. For example, to make an HVC (hypervisor call) to tell the "
 "firmware to power off the system:"
 msgstr ""
+"有时，如果无法通过 Rust 代码实现某些操作，我们就需要使用汇编来解决。例如，如"
+"需发出 HVC（Hypervisor 调用）来指示固件关闭系统，请使用以下命令："
 
 #: src/bare-metal/aps/inline-assembly.md:20
 msgid ""
 "// Safe because this only uses the declared registers and doesn't do\n"
 "    // anything with memory.\n"
 msgstr ""
+"// Safe because this only uses the declared registers and doesn't do\n"
+"    // anything with memory.\n"
 
 #: src/bare-metal/aps/inline-assembly.md:23
 msgid "\"hvc #0\""
-msgstr ""
+msgstr "\"hvc #0\""
 
 #: src/bare-metal/aps/inline-assembly.md:24
 msgid "\"w0\""
-msgstr ""
+msgstr "\"w0\""
 
 #: src/bare-metal/aps/inline-assembly.md:25
 msgid "\"w1\""
-msgstr ""
+msgstr "\"w1\""
 
 #: src/bare-metal/aps/inline-assembly.md:26
 msgid "\"w2\""
-msgstr ""
+msgstr "\"w2\""
 
 #: src/bare-metal/aps/inline-assembly.md:27
 msgid "\"w3\""
-msgstr ""
+msgstr "\"w3\""
 
 #: src/bare-metal/aps/inline-assembly.md:28
 msgid "\"w4\""
-msgstr ""
+msgstr "\"w4\""
 
 #: src/bare-metal/aps/inline-assembly.md:29
 msgid "\"w5\""
-msgstr ""
+msgstr "\"w5\""
 
 #: src/bare-metal/aps/inline-assembly.md:30
 msgid "\"w6\""
-msgstr ""
+msgstr "\"w6\""
 
 #: src/bare-metal/aps/inline-assembly.md:31
 msgid "\"w7\""
-msgstr ""
+msgstr "\"w7\""
 
 #: src/bare-metal/aps/inline-assembly.md:40
 msgid ""
 "(If you actually want to do this, use the [`smccc`](https://crates.io/crates/"
 "smccc) crate which has wrappers for all these functions.)"
 msgstr ""
+"（如果确实想要这样做，请使用 [`smccc`](https://crates.io/crates/smccc) "
+"crate，其中包含适用于所有这些函数的封装容器。）"
 
 #: src/bare-metal/aps/inline-assembly.md:45
 msgid ""
@@ -16824,6 +17034,8 @@ msgid ""
 "functions to manage system and CPU power states, among other things. It is "
 "implemented by EL3 firmware and hypervisors on many systems."
 msgstr ""
+"PSCI 是 Arm 电源状态协调接口，为一组标准函数，用于管理系统和 CPU 电源状态等。"
+"在许多系统中，通过 EL3 固件和 Hypervisor 来实现该函数。"
 
 #: src/bare-metal/aps/inline-assembly.md:48
 msgid ""
@@ -16832,12 +17044,17 @@ msgid ""
 "`inout` rather than `in` because the call could potentially clobber the "
 "contents of the registers."
 msgstr ""
+"`0 => _` 语法表示在运行内嵌汇编代码之前将寄存器初始化为 0，并在之后忽略寄存器"
+"中的内容。我们需要使用 `inout` 而非 `in`，因为该调用操作可能会破坏寄存器中的"
+"内容。"
 
 #: src/bare-metal/aps/inline-assembly.md:52
 msgid ""
 "This `main` function needs to be `#[no_mangle]` and `extern \"C\"` because "
 "it is called from our entry point in `entry.S`."
 msgstr ""
+"所用 `main` 函数必须是 `#[no_mangle]` 和 `extern \"C\"`，因为是从 `entry.S` "
+"中的入口点调用该函数。"
 
 #: src/bare-metal/aps/inline-assembly.md:54
 msgid ""
@@ -16848,36 +17065,44 @@ msgid ""
 "arguments passed to a function, so `entry.S` doesn't need to do anything "
 "special except make sure it doesn't change these registers."
 msgstr ""
+"`_x0`–`_x3` 表示寄存器 `x0`-`x3` 的值，引导加载程序通常使用这些值来传递各种内"
+"容（例如将指针传递到设备树）。根据标准的 aarch64 调用规范（`extern \"C\"`指定"
+"使用此规范），需要使用寄存器 `x0`-`x7` 将前 8 个参数传递给函数，因此 `entry."
+"S` 无需执行任何特殊操作，只要确保不会更改这些寄存器。"
 
 #: src/bare-metal/aps/inline-assembly.md:60
 msgid ""
 "Run the example in QEMU with `make qemu_psci` under `src/bare-metal/aps/"
 "examples`."
 msgstr ""
+"在 QEMU 中，使用 `src/bare-metal/aps/examples` 目录下的 `make qemu_psci` 运行"
+"该示例。"
 
 #: src/bare-metal/aps/mmio.md:1
 msgid "Volatile memory access for MMIO"
-msgstr ""
+msgstr "MMIO 的易失性内存访问"
 
 #: src/bare-metal/aps/mmio.md:3
 msgid "Use `pointer::read_volatile` and `pointer::write_volatile`."
-msgstr ""
+msgstr "使用 `pointer::read_volatile` 和 `pointer::write_volatile`。"
 
 #: src/bare-metal/aps/mmio.md:4
 msgid "Never hold a reference."
-msgstr ""
+msgstr "切勿提及引用。"
 
 #: src/bare-metal/aps/mmio.md:5
 msgid ""
 "`addr_of!` lets you get fields of structs without creating an intermediate "
 "reference."
-msgstr ""
+msgstr "借助 `addr_of!`，您无需创建中间引用即可获取结构体字段。"
 
 #: src/bare-metal/aps/mmio.md:10
 msgid ""
 "Volatile access: read or write operations may have side-effects, so prevent "
 "the compiler or hardware from reordering, duplicating or eliding them."
 msgstr ""
+"易失性访问：执行读取或写入操作可能会产生副作用，因此应阻止编译器或硬件对这些"
+"操作进行重新排序、复制或省略。"
 
 #: src/bare-metal/aps/mmio.md:12
 msgid ""
@@ -16885,6 +17110,8 @@ msgid ""
 "compiler may assume that the value read is the same as the value just "
 "written, and not bother actually reading memory."
 msgstr ""
+"通常情况下，如果您先写入操作，紧接着进行读取操作（例如通过可变引用），则编译"
+"器可能会认为读取的值是最新写入的值，就不再执行实际的内存读取过程。"
 
 #: src/bare-metal/aps/mmio.md:15
 msgid ""
@@ -16892,26 +17119,30 @@ msgid ""
 "this is unsound. Whenever a reference exist, the compiler may choose to "
 "dereference it."
 msgstr ""
+"虽然在对硬件进行易失性访问时，一些 crate 确实会提及引用，但这很不安全。只要存"
+"在引用，编译器就会选择对其进行解引用操作。"
 
 #: src/bare-metal/aps/mmio.md:18
 msgid ""
 "Use the `addr_of!` macro to get struct field pointers from a pointer to the "
 "struct."
-msgstr ""
+msgstr "使用 `addr_of!` 宏可以从结构体指针中获取结构体字段的指针。"
 
 #: src/bare-metal/aps/uart.md:1
 msgid "Let's write a UART driver"
-msgstr ""
+msgstr "编写 UART 驱动程序"
 
 #: src/bare-metal/aps/uart.md:3
 msgid ""
 "The QEMU 'virt' machine has a [PL011](https://developer.arm.com/"
 "documentation/ddi0183/g) UART, so let's write a driver for that."
 msgstr ""
+"QEMU “虚拟机”具有 [PL011](https://developer.arm.com/documentation/ddi0183/g) "
+"UART，现在为其编写驱动程序。"
 
 #: src/bare-metal/aps/uart.md:9
 msgid "/// Minimal driver for a PL011 UART.\n"
-msgstr ""
+msgstr "/// Minimal driver for a PL011 UART.\n"
 
 #: src/bare-metal/aps/uart.md:17 src/bare-metal/aps/better-uart/driver.md:13
 msgid ""
@@ -16926,32 +17157,44 @@ msgid ""
 "process\n"
 "    /// as device memory and not have any other aliases.\n"
 msgstr ""
+"/// Constructs a new instance of the UART driver for a PL011 device at the\n"
+"    /// given base address.\n"
+"    ///\n"
+"    /// # Safety\n"
+"    ///\n"
+"    /// The given base address must point to the 8 MMIO control registers of "
+"a\n"
+"    /// PL011 device, which must be mapped into the address space of the "
+"process\n"
+"    /// as device memory and not have any other aliases.\n"
 
 #: src/bare-metal/aps/uart.md:29 src/bare-metal/aps/better-uart/driver.md:25
 #: src/exercises/bare-metal/rtc.md:337
 msgid "/// Writes a single byte to the UART.\n"
-msgstr ""
+msgstr "/// Writes a single byte to the UART.\n"
 
 #: src/bare-metal/aps/uart.md:31 src/bare-metal/aps/better-uart/driver.md:27
 #: src/exercises/bare-metal/rtc.md:339
 msgid "// Wait until there is room in the TX buffer.\n"
-msgstr ""
+msgstr "// Wait until there is room in the TX buffer.\n"
 
 #: src/bare-metal/aps/uart.md:34 src/bare-metal/aps/uart.md:46
 msgid ""
 "// Safe because we know that the base address points to the control\n"
 "        // registers of a PL011 device which is appropriately mapped.\n"
 msgstr ""
+"// Safe because we know that the base address points to the control\n"
+"        // registers of a PL011 device which is appropriately mapped.\n"
 
 #: src/bare-metal/aps/uart.md:37 src/bare-metal/aps/better-uart/driver.md:33
 #: src/exercises/bare-metal/rtc.md:345
 msgid "// Write to the TX buffer.\n"
-msgstr ""
+msgstr "// Write to the TX buffer.\n"
 
 #: src/bare-metal/aps/uart.md:41 src/bare-metal/aps/better-uart/driver.md:37
 #: src/exercises/bare-metal/rtc.md:349
 msgid "// Wait until the UART is no longer busy.\n"
-msgstr ""
+msgstr "// Wait until the UART is no longer busy.\n"
 
 #: src/bare-metal/aps/uart.md:55
 msgid ""
@@ -16962,6 +17205,10 @@ msgid ""
 "it is always safe to call `write_byte` later because we can assume the "
 "necessary preconditions."
 msgstr ""
+"请注意，使用 `Uart::new` 方法不安全，而其他方法则安全。原因在于，只要 `Uart::"
+"new` 的调用方保证满足其安全要求（即所指定的 UART 只有一个驱动程序实例，且没有"
+"其他内容与其地址空间存在重叠），那么后续调用 `write_byte` 始终是安全的，因为"
+"我们假定需要满足的前提条件。"
 
 #: src/bare-metal/aps/uart.md:61
 msgid ""
@@ -16969,6 +17216,8 @@ msgid ""
 "`write_byte` unsafe), but that would be much less convenient to use as every "
 "place that calls `write_byte` would need to reason about the safety"
 msgstr ""
+"我们也可以采用相反的方式（即确保 `new` 安全，但 `write_byte` 不安全），不过这"
+"样会很不方便，因为每当调用 `write_byte` 时都需要推断是否安全。"
 
 #: src/bare-metal/aps/uart.md:64
 msgid ""
@@ -16976,16 +17225,18 @@ msgid ""
 "the burden of proof for soundness from a large number of places to a smaller "
 "number of places."
 msgstr ""
+"这是安全地封装不安全代码时常见的策略：即在少数调用代码的地方进行安全验证，而"
+"不是在很多地方进行。"
 
 #: src/bare-metal/aps/uart/traits.md:1
 msgid "More traits"
-msgstr ""
+msgstr "更多 trait"
 
 #: src/bare-metal/aps/uart/traits.md:3
 msgid ""
 "We derived the `Debug` trait. It would be useful to implement a few more "
 "traits too."
-msgstr ""
+msgstr "已经派生了 `Debug` trait。如果再实现更多 trait，会大有帮助。"
 
 #: src/bare-metal/aps/uart/traits.md:17 src/exercises/bare-metal/rtc.md:381
 #: src/exercises/bare-metal/solutions-afternoon.md:223
@@ -16993,22 +17244,28 @@ msgid ""
 "// Safe because it just contains a pointer to device memory, which can be\n"
 "// accessed from any context.\n"
 msgstr ""
+"// Safe because it just contains a pointer to device memory, which can be\n"
+"// accessed from any context.\n"
 
 #: src/bare-metal/aps/uart/traits.md:25
 msgid ""
 "Implementing `Write` lets us use the `write!` and `writeln!` macros with our "
 "`Uart` type."
 msgstr ""
+"通过实现 `Write`，我们可以将 `write!` 和 `writeln!` 宏与 `Uart` 类型搭配使"
+"用。"
 
 #: src/bare-metal/aps/uart/traits.md:27
 msgid ""
 "Run the example in QEMU with `make qemu_minimal` under `src/bare-metal/aps/"
 "examples`."
 msgstr ""
+"在 QEMU 中，使用 `src/bare-metal/aps/examples` 目录下的 `make qemu_minimal` "
+"运行该示例。"
 
 #: src/bare-metal/aps/better-uart.md:1
 msgid "A better UART driver"
-msgstr ""
+msgstr "更好的 UART 驱动程序"
 
 #: src/bare-metal/aps/better-uart.md:3
 msgid ""
@@ -17018,222 +17275,230 @@ msgid ""
 "read. Plus, some of them are bit fields which would be nice to access in a "
 "structured way."
 msgstr ""
+"事实上，PL011 具有 [很多额外的寄存器](https://developer.arm.com/"
+"documentation/ddi0183/g/programmers-model/summary-of-registers)，但通过添加偏"
+"移量构建指针的方式来访问这些寄存器，既容易出错又难以读取。此外，其中有些寄存"
+"器是位字段，非常便于以结构化方式访问。"
 
 #: src/bare-metal/aps/better-uart.md:7
 msgid "Offset"
-msgstr ""
+msgstr "偏移"
 
 #: src/bare-metal/aps/better-uart.md:7
 msgid "Register name"
-msgstr ""
+msgstr "寄存器名称"
 
 #: src/bare-metal/aps/better-uart.md:7
 msgid "Width"
-msgstr ""
+msgstr "宽度"
 
 #: src/bare-metal/aps/better-uart.md:9
 msgid "0x00"
-msgstr ""
+msgstr "0x00"
 
 #: src/bare-metal/aps/better-uart.md:9
 msgid "DR"
-msgstr ""
+msgstr "DR"
 
 #: src/bare-metal/aps/better-uart.md:9
 msgid "12"
-msgstr ""
+msgstr "12"
 
 #: src/bare-metal/aps/better-uart.md:10
 msgid "0x04"
-msgstr ""
+msgstr "0x04"
 
 #: src/bare-metal/aps/better-uart.md:10
 msgid "RSR"
-msgstr ""
+msgstr "RSR"
 
 #: src/bare-metal/aps/better-uart.md:11
 msgid "0x18"
-msgstr ""
+msgstr "0x18"
 
 #: src/bare-metal/aps/better-uart.md:11
 msgid "FR"
-msgstr ""
+msgstr "FR"
 
 #: src/bare-metal/aps/better-uart.md:11
 msgid "9"
-msgstr ""
+msgstr "9"
 
 #: src/bare-metal/aps/better-uart.md:12
 msgid "0x20"
-msgstr ""
+msgstr "0x20"
 
 #: src/bare-metal/aps/better-uart.md:12
 msgid "ILPR"
-msgstr ""
+msgstr "ILPR"
 
 #: src/bare-metal/aps/better-uart.md:13
 msgid "0x24"
-msgstr ""
+msgstr "0x24"
 
 #: src/bare-metal/aps/better-uart.md:13
 msgid "IBRD"
-msgstr ""
+msgstr "IBRD"
 
 #: src/bare-metal/aps/better-uart.md:13 src/bare-metal/aps/better-uart.md:16
 msgid "16"
-msgstr ""
+msgstr "16"
 
 #: src/bare-metal/aps/better-uart.md:14
 msgid "0x28"
-msgstr ""
+msgstr "0x28"
 
 #: src/bare-metal/aps/better-uart.md:14
 msgid "FBRD"
-msgstr ""
+msgstr "FBRD"
 
 #: src/bare-metal/aps/better-uart.md:15
 msgid "0x2c"
-msgstr ""
+msgstr "0x2c"
 
 #: src/bare-metal/aps/better-uart.md:15
 msgid "LCR_H"
-msgstr ""
+msgstr "LCR_H"
 
 #: src/bare-metal/aps/better-uart.md:16
 msgid "0x30"
-msgstr ""
+msgstr "0x30"
 
 #: src/bare-metal/aps/better-uart.md:16
 msgid "CR"
-msgstr ""
+msgstr "CR"
 
 #: src/bare-metal/aps/better-uart.md:17
 msgid "0x34"
-msgstr ""
+msgstr "0x34"
 
 #: src/bare-metal/aps/better-uart.md:17
 msgid "IFLS"
-msgstr ""
+msgstr "IFLS"
 
 #: src/bare-metal/aps/better-uart.md:18
 msgid "0x38"
-msgstr ""
+msgstr "0x38"
 
 #: src/bare-metal/aps/better-uart.md:18
 msgid "IMSC"
-msgstr ""
+msgstr "IMSC"
 
 #: src/bare-metal/aps/better-uart.md:18 src/bare-metal/aps/better-uart.md:19
 #: src/bare-metal/aps/better-uart.md:20 src/bare-metal/aps/better-uart.md:21
 msgid "11"
-msgstr ""
+msgstr "11"
 
 #: src/bare-metal/aps/better-uart.md:19
 msgid "0x3c"
-msgstr ""
+msgstr "0x3c"
 
 #: src/bare-metal/aps/better-uart.md:19
 msgid "RIS"
-msgstr ""
+msgstr "RIS"
 
 #: src/bare-metal/aps/better-uart.md:20
 msgid "0x40"
-msgstr ""
+msgstr "0x40"
 
 #: src/bare-metal/aps/better-uart.md:20
 msgid "MIS"
-msgstr ""
+msgstr "MIS"
 
 #: src/bare-metal/aps/better-uart.md:21
 msgid "0x44"
-msgstr ""
+msgstr "0x44"
 
 #: src/bare-metal/aps/better-uart.md:21
 msgid "ICR"
-msgstr ""
+msgstr "ICR"
 
 #: src/bare-metal/aps/better-uart.md:22
 msgid "0x48"
-msgstr ""
+msgstr "0x48"
 
 #: src/bare-metal/aps/better-uart.md:22
 msgid "DMACR"
-msgstr ""
+msgstr "DMACR"
 
 #: src/bare-metal/aps/better-uart.md:26
 msgid "There are also some ID registers which have been omitted for brevity."
-msgstr ""
+msgstr "为简洁起见，我们省略了一些 ID 寄存器。"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:3
 msgid ""
 "The [`bitflags`](https://crates.io/crates/bitflags) crate is useful for "
 "working with bitflags."
 msgstr ""
+"[`bitflags`](https://crates.io/crates/bitflags) crate 非常适用于处理 "
+"bitflag。"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:10
 #: src/exercises/bare-metal/rtc.md:241
 msgid "/// Flags from the UART flag register.\n"
-msgstr ""
+msgstr "/// Flags from the UART flag register.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:14
 #: src/exercises/bare-metal/rtc.md:245
 msgid "/// Clear to send.\n"
-msgstr ""
+msgstr "/// Clear to send.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:16
 #: src/exercises/bare-metal/rtc.md:247
 msgid "/// Data set ready.\n"
-msgstr ""
+msgstr "/// Data set ready.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:18
 #: src/exercises/bare-metal/rtc.md:249
 msgid "/// Data carrier detect.\n"
-msgstr ""
+msgstr "/// Data carrier detect.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:20
 #: src/exercises/bare-metal/rtc.md:251
 msgid "/// UART busy transmitting data.\n"
-msgstr ""
+msgstr "/// UART busy transmitting data.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:22
 #: src/exercises/bare-metal/rtc.md:253
 msgid "/// Receive FIFO is empty.\n"
-msgstr ""
+msgstr "/// Receive FIFO is empty.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:24
 #: src/exercises/bare-metal/rtc.md:255
 msgid "/// Transmit FIFO is full.\n"
-msgstr ""
+msgstr "/// Transmit FIFO is full.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:26
 #: src/exercises/bare-metal/rtc.md:257
 msgid "/// Receive FIFO is full.\n"
-msgstr ""
+msgstr "/// Receive FIFO is full.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:28
 #: src/exercises/bare-metal/rtc.md:259
 msgid "/// Transmit FIFO is empty.\n"
-msgstr ""
+msgstr "/// Transmit FIFO is empty.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:30
 #: src/exercises/bare-metal/rtc.md:261
 msgid "/// Ring indicator.\n"
-msgstr ""
+msgstr "/// Ring indicator.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:38
 msgid ""
 "The `bitflags!` macro creates a newtype something like `Flags(u16)`, along "
 "with a bunch of method implementations to get and set flags."
 msgstr ""
+"`bitflags!` 宏会创建类似于 `Flags(u16)` 的新类型，以及一系列用于获取和设置标"
+"记的方法实现。"
 
 #: src/bare-metal/aps/better-uart/registers.md:1
 msgid "Multiple registers"
-msgstr ""
+msgstr "多个寄存器"
 
 #: src/bare-metal/aps/better-uart/registers.md:3
 msgid ""
 "We can use a struct to represent the memory layout of the UART's registers."
-msgstr ""
+msgstr "我们可以使用结构体来表示 UART 寄存器的内存布局。"
 
 #: src/bare-metal/aps/better-uart/registers.md:43
 msgid ""
@@ -17243,14 +17508,18 @@ msgid ""
 "predictable layout, as default Rust representation allows the compiler to "
 "(among other things) reorder fields however it sees fit."
 msgstr ""
+"通过运行 [`#[repr(C)]`](https://doc.rust-lang.org/reference/type-layout."
+"html#the-c-representation) 命令，指示编译器按顺序布置结构体字段，遵循与 C 语"
+"言相同的规则。这是确保结构体具有可预测布局的必要条件，因为默认的 Rust 表示法"
+"允许编译器（以及其他内容）按照其认为合适的方式重新排列字段。"
 
 #: src/bare-metal/aps/better-uart/driver.md:3
 msgid "Now let's use the new `Registers` struct in our driver."
-msgstr ""
+msgstr "现在将新的 `Registers` 结构体用于我们的驱动程序。"
 
 #: src/bare-metal/aps/better-uart/driver.md:6
 msgid "/// Driver for a PL011 UART.\n"
-msgstr ""
+msgstr "/// Driver for a PL011 UART.\n"
 
 #: src/bare-metal/aps/better-uart/driver.md:30
 #: src/bare-metal/aps/better-uart/driver.md:54
@@ -17259,41 +17528,48 @@ msgid ""
 "// Safe because we know that self.registers points to the control\n"
 "        // registers of a PL011 device which is appropriately mapped.\n"
 msgstr ""
+"// Safe because we know that self.registers points to the control\n"
+"        // registers of a PL011 device which is appropriately mapped.\n"
 
 #: src/bare-metal/aps/better-uart/driver.md:41
 #: src/exercises/bare-metal/rtc.md:353
+#, fuzzy
 msgid ""
 "/// Reads and returns a pending byte, or `None` if nothing has been\n"
 "    /// received.\n"
 msgstr ""
+"/// Reads and returns a pending byte, or `None` if nothing has been "
+"received.\n"
 
 #: src/bare-metal/aps/better-uart/driver.md:48
 #: src/exercises/bare-metal/rtc.md:360
 msgid "// TODO: Check for error conditions in bits 8-11.\n"
-msgstr ""
+msgstr "// TODO: Check for error conditions in bits 8-11.\n"
 
 #: src/bare-metal/aps/better-uart/driver.md:63
 msgid ""
 "Note the use of `addr_of!` / `addr_of_mut!` to get pointers to individual "
 "fields without creating an intermediate reference, which would be unsound."
 msgstr ""
+"请注意，只使用 `addr_of!` / `addr_of_mut!` 获取指向各个字段的指针，而不创建中"
+"间引用，这样很不安全。"
 
 #: src/bare-metal/aps/better-uart/using.md:1
 #: src/bare-metal/aps/logging/using.md:1
 msgid "Using it"
-msgstr ""
+msgstr "开始使用"
 
 #: src/bare-metal/aps/better-uart/using.md:3
 msgid ""
 "Let's write a small program using our driver to write to the serial console, "
 "and echo incoming bytes."
-msgstr ""
+msgstr "使用驱动程序编写一个小程序，将数据写入串行控制台，并回显传入的字节。"
 
 #: src/bare-metal/aps/better-uart/using.md:19
 #: src/bare-metal/aps/logging/using.md:18 src/exercises/bare-metal/rtc.md:44
 #: src/exercises/bare-metal/solutions-afternoon.md:33
 msgid "/// Base address of the primary PL011 UART.\n"
-msgstr ""
+msgstr "/// Base address of the primary PL011 UART.\n"
 
 #: src/bare-metal/aps/better-uart/using.md:25
 #: src/bare-metal/aps/logging/using.md:24 src/exercises/bare-metal/rtc.md:50
@@ -17302,28 +17578,30 @@ msgid ""
 "// Safe because `PL011_BASE_ADDRESS` is the base address of a PL011 device,\n"
 "    // and nothing else accesses that address range.\n"
 msgstr ""
+"// Safe because `PL011_BASE_ADDRESS` is the base address of a PL011 device,\n"
+"    // and nothing else accesses that address range.\n"
 
 #: src/bare-metal/aps/better-uart/using.md:29
 #: src/bare-metal/aps/logging/using.md:29
 msgid "\"main({x0:#x}, {x1:#x}, {x2:#x}, {x3:#x})\""
-msgstr ""
+msgstr "\"main({x0:#x}, {x1:#x}, {x2:#x}, {x3:#x})\""
 
 #: src/bare-metal/aps/better-uart/using.md:35
 msgid "b'\\r'"
-msgstr ""
+msgstr "b'\\r'"
 
 #: src/bare-metal/aps/better-uart/using.md:36
 #: src/async/pitfalls/cancellation.md:27
 msgid "b'\\n'"
-msgstr ""
+msgstr "b'\\n'"
 
 #: src/bare-metal/aps/better-uart/using.md:38
 msgid "b'q'"
-msgstr ""
+msgstr "b'q'"
 
 #: src/bare-metal/aps/better-uart/using.md:44
 msgid "\"Bye!\""
-msgstr ""
+msgstr "\"Bye!\""
 
 #: src/bare-metal/aps/better-uart/using.md:51
 msgid ""
@@ -17331,11 +17609,15 @@ msgid ""
 "function is called from our entry point code in `entry.S`. See the speaker "
 "notes there for details."
 msgstr ""
+"与 [内嵌汇编](../inline-assembly.md) 示例一样，从 `entry.S` 中的入口点代码调"
+"用此 `main` 函数。如需了解详情，请参阅演讲者备注。"
 
 #: src/bare-metal/aps/better-uart/using.md:54
 msgid ""
 "Run the example in QEMU with `make qemu` under `src/bare-metal/aps/examples`."
 msgstr ""
+"在 QEMU 中，使用 `src/bare-metal/aps/examples` 目录下的 `make qemu` 运行该示"
+"例。"
 
 #: src/bare-metal/aps/logging.md:3
 msgid ""
@@ -17343,39 +17625,45 @@ msgid ""
 "(https://crates.io/crates/log) crate. We can do this by implementing the "
 "`Log` trait."
 msgstr ""
+"最好能够使用 [`log`](https://crates.io/crates/log) crate 中的日志记录宏。可以"
+"通过实现“Log”trait 来做到这一点。"
 
 #: src/bare-metal/aps/logging.md:26 src/exercises/bare-metal/rtc.md:193
 msgid "\"[{}] {}\""
-msgstr ""
+msgstr "\"[{}] {}\""
 
 #: src/bare-metal/aps/logging.md:35 src/exercises/bare-metal/rtc.md:202
 msgid "/// Initialises UART logger.\n"
-msgstr ""
+msgstr "/// Initialises UART logger.\n"
 
 #: src/bare-metal/aps/logging.md:48
 msgid ""
 "The unwrap in `log` is safe because we initialise `LOGGER` before calling "
 "`set_logger`."
 msgstr ""
+"使用 `log` 进行解封装是安全的，因为我们会在调用 `set_logger` 之前初始化 "
+"`LOGGER`。"
 
 #: src/bare-metal/aps/logging/using.md:3
 msgid "We need to initialise the logger before we use it."
-msgstr ""
+msgstr "需要先初始化日志记录器，然后才能使用它。"
 
 #: src/bare-metal/aps/logging/using.md:38 src/exercises/bare-metal/rtc.md:72
 #: src/exercises/bare-metal/solutions-afternoon.md:115
 msgid "\"{info}\""
-msgstr ""
+msgstr "\"{info}\""
 
 #: src/bare-metal/aps/logging/using.md:46
 msgid "Note that our panic handler can now log details of panics."
-msgstr ""
+msgstr "请注意，panic 紧急处理程序现在可以记录各类 panic 详细信息。"
 
 #: src/bare-metal/aps/logging/using.md:47
 msgid ""
 "Run the example in QEMU with `make qemu_logger` under `src/bare-metal/aps/"
 "examples`."
 msgstr ""
+"在 QEMU 中，使用 `src/bare-metal/aps/examples` 目录下的 `make qemu_logger` 运"
+"行该示例。"
 
 #: src/bare-metal/aps/exceptions.md:3
 msgid ""
@@ -17385,22 +17673,28 @@ msgid ""
 "We implement this in assembly to save volatile registers to the stack before "
 "calling into Rust code:"
 msgstr ""
+"AArch64 定义了一个包含 16 个条目的异常矢量表，适用于处理 4 种状态（当前 EL 使"
+"用 SP0，当前 EL 使用 SPx，较低 EL 使用 AArch64，较低 EL 使用 AArch32）下的 4 "
+"种异常（同步、IRQ、FIQ、SError）。可以通过汇编方式实现这一操作，以便在调用 "
+"Rust 代码之前将易失性寄存器保存到堆栈："
 
 #: src/bare-metal/aps/exceptions.md:67
 msgid "EL is exception level; all our examples this afternoon run in EL1."
-msgstr ""
+msgstr "EL 指异常级别；我们今天下午的所有示例都在 EL1 级别下运行。"
 
 #: src/bare-metal/aps/exceptions.md:68
 msgid ""
 "For simplicity we aren't distinguishing between SP0 and SPx for the current "
 "EL exceptions, or between AArch32 and AArch64 for the lower EL exceptions."
 msgstr ""
+"为简单起见，我们没有区分当前 EL 异常中的 SP0 和 SPx，也没有区分较低 EL 异常中"
+"的 AArch32 和 AArch64。"
 
 #: src/bare-metal/aps/exceptions.md:70
 msgid ""
 "For this example we just log the exception and power down, as we don't "
 "expect any of them to actually happen."
-msgstr ""
+msgstr "在本示例中，只需记录异常并进行关机操作，因为预计不会发生任何此类异常。"
 
 #: src/bare-metal/aps/exceptions.md:72
 msgid ""
@@ -17411,54 +17705,66 @@ msgid ""
 "rest of the program, and it's `Send` but not `Sync`, then we'll need to wrap "
 "it in something like a `Mutex` and put it in a static."
 msgstr ""
+"我们可以将异常处理程序和主执行上下文视为不同的线程。通过 [`Send` 和 `Sync`]"
+"(../../concurrency/send-sync.md) 控制它们之间可以共享的内容，就像使用线程进行"
+"共享一样。例如，如果想在异常处理程序和程序的其余部分之间共享某个值，并且使用 "
+"`Send` 而非 `Sync`，则需要将该值封装在诸如 `Mutex` 之类的内容中，并放入静态变"
+"量。"
 
 #: src/bare-metal/aps/other-projects.md:3
 msgid "[oreboot](https://github.com/oreboot/oreboot)"
-msgstr ""
+msgstr "[oreboot](https://github.com/oreboot/oreboot)"
 
 #: src/bare-metal/aps/other-projects.md:4
 msgid "\"coreboot without the C\""
-msgstr ""
+msgstr "\"coreboot without the C\""
 
 #: src/bare-metal/aps/other-projects.md:5
 msgid "Supports x86, aarch64 and RISC-V."
-msgstr ""
+msgstr "支持 x86、aarch64 和 RISC-V。"
 
 #: src/bare-metal/aps/other-projects.md:6
 msgid "Relies on LinuxBoot rather than having many drivers itself."
-msgstr ""
+msgstr "依赖于 LinuxBoot，而不是许多驱动程序本身。"
 
 #: src/bare-metal/aps/other-projects.md:7
 msgid ""
 "[Rust RaspberryPi OS tutorial](https://github.com/rust-embedded/rust-"
 "raspberrypi-OS-tutorials)"
 msgstr ""
+"[Rust RaspberryPi 操作系统教程](https://github.com/rust-embedded/rust-"
+"raspberrypi-OS-tutorials)"
 
 #: src/bare-metal/aps/other-projects.md:8
 msgid ""
 "Initialisation, UART driver, simple bootloader, JTAG, exception levels, "
 "exception handling, page tables"
 msgstr ""
+"初始化、UART 驱动程序、简单引导加载程序、JTAG、异常级别、异常处理、分页表"
 
 #: src/bare-metal/aps/other-projects.md:10
 msgid ""
 "Some dodginess around cache maintenance and initialisation in Rust, not "
 "necessarily a good example to copy for production code."
 msgstr ""
+"在 Rust 中，有些用于处理缓存维护和初始化的方法并不安全，不适宜照搬到正式版代"
+"码中。"
 
 #: src/bare-metal/aps/other-projects.md:12
 msgid "[`cargo-call-stack`](https://crates.io/crates/cargo-call-stack)"
-msgstr ""
+msgstr "[`cargo-call-stack`](https://crates.io/crates/cargo-call-stack)"
 
 #: src/bare-metal/aps/other-projects.md:13
 msgid "Static analysis to determine maximum stack usage."
-msgstr ""
+msgstr "使用静态分析来确定堆栈用量上限。"
 
 #: src/bare-metal/aps/other-projects.md:17
 msgid ""
 "The RaspberryPi OS tutorial runs Rust code before the MMU and caches are "
 "enabled. This will read and write memory (e.g. the stack). However:"
 msgstr ""
+"在 RaspberryPi 操作系统教程中，先运行 Rust 代码然后启用 MMU 和缓存。此操作会"
+"读取和写入内存（例如堆栈）。不过："
 
 #: src/bare-metal/aps/other-projects.md:19
 msgid ""
@@ -17467,6 +17773,9 @@ msgid ""
 "generating unaligned accesses so it should be alright, but this is not "
 "necessarily the case in general."
 msgstr ""
+"如果不启用 MMU 和缓存，非对齐访问将会出错。它使用 `aarch64-unknown-none` 进行"
+"构建，后者会设置 `+strict-align` 以防止编译器生成非对齐访问，因此应该没有问"
+"题，但一般情况下并不一定如此。"
 
 #: src/bare-metal/aps/other-projects.md:23
 msgid ""
@@ -17478,16 +17787,22 @@ msgid ""
 "alright in this particular case (running directly on the hardware with no "
 "hypervisor), but isn't a good pattern in general."
 msgstr ""
+"如果是在虚拟机中运行该命令，可能会导致缓存一致性问题。问题在于，虚拟机是在禁"
+"用缓存的情况下直接访问内存，而主机具有同一内存的缓存别名。即使主机并没有明确"
+"访问该内存，推测性访问仍然会导致缓存被填充，然后任何一方对于该内存进行的更改"
+"就会丢失。再次强调，尽管在此特定示例中（即在硬件上直接运行且无 Hypervisor）这"
+"种做法是可行的，但总的来说，这并非一种良好策略。"
 
 #: src/bare-metal/useful-crates.md:1
+#, fuzzy
 msgid "Useful crates"
-msgstr "实用 crate"
+msgstr "有用的 crate"
 
 #: src/bare-metal/useful-crates.md:3
 msgid ""
 "We'll go over a few crates which solve some common problems in bare-metal "
 "programming."
-msgstr ""
+msgstr "接下来介绍几个 crate，用于解决裸机编程中的一些常见问题。"
 
 #: src/bare-metal/useful-crates/zerocopy.md:3
 msgid ""
@@ -17495,6 +17810,8 @@ msgid ""
 "traits and macros for safely converting between byte sequences and other "
 "types."
 msgstr ""
+"[`zerocopy`](https://docs.rs/zerocopy/) crate（源自 Fuchsia）提供了 trait 和"
+"宏，用于确保在字节序列和其他类型之间进行安全转换。"
 
 #: src/bare-metal/useful-crates/zerocopy.md:42
 msgid ""
@@ -17502,12 +17819,16 @@ msgid ""
 "but can be useful for working with structures shared with hardware e.g. by "
 "DMA, or sent over some external interface."
 msgstr ""
+"这不适用于 MMIO（因为它不使用易失性读取和写入），但在与硬件共享的结构（例如通"
+"过 DMA 传输或发送到外部接口）中进行操作时会很有用。"
 
 #: src/bare-metal/useful-crates/zerocopy.md:48
 msgid ""
 "`FromBytes` can be implemented for types for which any byte pattern is "
 "valid, and so can safely be converted from an untrusted sequence of bytes."
 msgstr ""
+"对于可以接受任何字节模式的类型，都可以实现 `FromBytes`方法，因此可以对不受信"
+"任的字节序列进行安全转换。"
 
 #: src/bare-metal/useful-crates/zerocopy.md:50
 msgid ""
@@ -17515,11 +17836,13 @@ msgid ""
 "`RequestType` doesn't use all possible u32 values as discriminants, so not "
 "all byte patterns are valid."
 msgstr ""
+"如果尝试为这些类型派生 `FromBytes`，都将会失败，因为 `RequestType` 不会将所有"
+"可能的 u32 值用作判别标识，所以并非所有的字节模式都有效。"
 
 #: src/bare-metal/useful-crates/zerocopy.md:53
 msgid ""
 "`zerocopy::byteorder` has types for byte-order aware numeric primitives."
-msgstr ""
+msgstr "`zerocopy::byteorder` 提供了适用于字节顺序感知的数字基元类型。"
 
 #: src/bare-metal/useful-crates/zerocopy.md:54
 msgid ""
@@ -17527,6 +17850,8 @@ msgid ""
 "zerocopy-example/`. (It won't run in the Playground because of the crate "
 "dependency.)"
 msgstr ""
+"使用 `src/bare-metal/useful-crates/zerocopy-example/` 目录下的 `cargo run` 运"
+"行该示例。（由于存在 crate 依赖项，无法在 Playground 中运行该示例。）"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:3
 msgid ""
@@ -17534,24 +17859,26 @@ msgid ""
 "you create page tables according to the AArch64 Virtual Memory System "
 "Architecture."
 msgstr ""
+"借助 [`aarch64-paging`](https://crates.io/crates/aarch64-paging) crate，您可"
+"根据 AArch64 虚拟内存系统架构创建分页表。"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:14
 msgid "// Create a new page table with identity mapping.\n"
-msgstr ""
+msgstr "// Create a new page table with identity mapping.\n"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:16
 msgid "// Map a 2 MiB region of memory as read-only.\n"
-msgstr ""
+msgstr "// Map a 2 MiB region of memory as read-only.\n"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:21
 msgid "// Set `TTBR0_EL1` to activate the page table.\n"
-msgstr ""
+msgstr "// Set `TTBR0_EL1` to activate the page table.\n"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:28
 msgid ""
 "For now it only supports EL1, but support for other exception levels should "
 "be straightforward to add."
-msgstr ""
+msgstr "目前，该方法仅支持 EL1 级别，但也可以直接添加对其他异常级别的支持。"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:30
 msgid ""
@@ -17559,12 +17886,16 @@ msgid ""
 "com/android/platform/superproject/+/master:packages/modules/Virtualization/"
 "pvmfw/)."
 msgstr ""
+"在 Android 中，该方法适用于 [受保护的虚拟机固件](https://cs.android.com/"
+"android/platform/superproject/+/master:packages/modules/Virtualization/"
+"pvmfw/)。"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:31
 msgid ""
 "There's no easy way to run this example, as it needs to run on real hardware "
 "or under QEMU."
 msgstr ""
+"由于此示例需要在真实硬件上或在 QEMU 中运行，因此没有简单的运行方法可用。"
 
 #: src/bare-metal/useful-crates/buddy_system_allocator.md:3
 msgid ""
@@ -17577,10 +17908,17 @@ msgid ""
 "allocating other address space. For example, we might want to allocate MMIO "
 "space for PCI BARs:"
 msgstr ""
+"[`buddy_system_allocator`](https://crates.io/crates/buddy_system_allocator) "
+"是第三方 crate，用于实现基本伙伴系统分配器。同时，也可将其用于 [`LockedHeap`]"
+"(https://docs.rs/buddy_system_allocator/0.9.0/buddy_system_allocator/struct."
+"LockedHeap.html) 以实现 [`GlobalAlloc`](https://doc.rust-lang.org/core/alloc/"
+"trait.GlobalAlloc.html)，这样便可以使用标准的 `alloc` crate（正如在 [之前部"
+"分](../alloc.md) 中所示），或者用于分配其他地址空间。例如，我们可能需要为 "
+"PCI BAR 分配 MMIO 空间："
 
 #: src/bare-metal/useful-crates/buddy_system_allocator.md:29
 msgid "PCI BARs always have alignment equal to their size."
-msgstr ""
+msgstr "PCI BAR 的对齐方式始终与其大小相等。"
 
 #: src/bare-metal/useful-crates/buddy_system_allocator.md:30
 msgid ""
@@ -17588,6 +17926,8 @@ msgid ""
 "allocator-example/`. (It won't run in the Playground because of the crate "
 "dependency.)"
 msgstr ""
+"使用 `src/bare-metal/useful-crates/allocator-example/` 目录下的 `cargo run` "
+"运行该示例。（由于存在 crate 依赖项，无法在 Playground 中运行该示例。）"
 
 #: src/bare-metal/useful-crates/tinyvec.md:3
 msgid ""
@@ -17597,17 +17937,21 @@ msgid ""
 "allocated or on the stack, which keeps track of how many elements are used "
 "and panics if you try to use more than are allocated."
 msgstr ""
+"有时，需要一些像 `Vec` 一样能够调整大小的特性，但无需进行堆分配。[`tinyvec`]"
+"(https://crates.io/crates/tinyvec) 提供了以下特性：由数组或 slice 支持的矢"
+"量，该矢量支持进行静态分配或堆分配；用于跟踪使用的元素数量，如果元素使用量超"
+"过了分配额度，则会出现 panic。"
 
 #: src/bare-metal/useful-crates/tinyvec.md:25
 msgid ""
 "`tinyvec` requires that the element type implement `Default` for "
 "initialisation."
-msgstr ""
+msgstr "根据 `tinyvec`要求，元素类型需实现初始化 `Default`。"
 
 #: src/bare-metal/useful-crates/tinyvec.md:27
 msgid ""
 "The Rust Playground includes `tinyvec`, so this example will run fine inline."
-msgstr ""
+msgstr "Rust Playground 中包含 `tinyvec`，因此本示例将以内嵌方式正常运行。"
 
 #: src/bare-metal/useful-crates/spin.md:3
 msgid ""
@@ -17615,22 +17959,29 @@ msgid ""
 "are not available in `core` or `alloc`. How can we manage synchronisation or "
 "interior mutability, such as for sharing state between different CPUs?"
 msgstr ""
+"在 `core` 或 `alloc` 中无法使用 `std::sync::Mutex` 和 `std::sync` 中的其他同"
+"步基元。那么该如何管理同步或内部可变性，例如在不同 CPU 之间共享状态？"
 
 #: src/bare-metal/useful-crates/spin.md:7
 msgid ""
 "The [`spin`](https://crates.io/crates/spin) crate provides spinlock-based "
 "equivalents of many of these primitives."
 msgstr ""
+"[`spin`](https://crates.io/crates/spin) crate 为许多基元提供了基于自旋锁的等"
+"效方法。"
 
 #: src/bare-metal/useful-crates/spin.md:26
 msgid "Be careful to avoid deadlock if you take locks in interrupt handlers."
-msgstr ""
+msgstr "在中断处理程序中进行锁定操作时，请注意避免出现死锁的情况。"
 
 #: src/bare-metal/useful-crates/spin.md:27
+#, fuzzy
 msgid ""
 "`spin` also has a ticket lock mutex implementation; equivalents of `RwLock`, "
 "`Barrier` and `Once` from `std::sync`; and `Lazy` for lazy initialisation."
 msgstr ""
+"`spin` 还提供了一种票卡锁互斥实现，等同于 `std::sync` 中的 `RwLock`、"
+"`Barrier` 和 `Once`，以及用于用于延迟初始化的 `Lazy`。"
 
 #: src/bare-metal/useful-crates/spin.md:29
 msgid ""
@@ -17638,11 +17989,13 @@ msgid ""
 "useful types for late initialisation with a slightly different approach to "
 "`spin::once::Once`."
 msgstr ""
+"[`once_cell`](https://crates.io/crates/once_cell) crate 也提供了一些适用于延"
+"迟初始化的实用类型，它们与 `spin::once::Once` 所用方法略有不同。"
 
 #: src/bare-metal/useful-crates/spin.md:31
 msgid ""
 "The Rust Playground includes `spin`, so this example will run fine inline."
-msgstr ""
+msgstr "Rust Playground 中包含 `spin`，因此本示例将以内嵌方式正常运行。"
 
 #: src/bare-metal/android.md:3
 msgid ""
@@ -17651,6 +18004,9 @@ msgid ""
 "with a linker script to produce the binary itself, and then a `raw_binary` "
 "to convert the ELF to a raw binary ready to be run."
 msgstr ""
+"如需在 AOSP 中构建裸机 Rust 二进制文件，应使用 `rust_ffi_static` Soong 规则来"
+"构建 Rust 代码，然后通过 `cc_binary` 和链接器脚本生成二进制文件本身，再使用 "
+"`raw_binary` 将 ELF 转换为可以正常运行的原始二进制文件。"
 
 #: src/bare-metal/android/vmbase.md:1
 msgid "vmbase"
@@ -17663,22 +18019,28 @@ msgid ""
 "master/vmbase/) library provides a linker script and useful defaults for the "
 "build rules, along with an entry point, UART console logging and more."
 msgstr ""
+"对于在 aarch64 上使用 crosvm 运行的虚拟机，[vmbase](https://android."
+"googlesource.com/platform/packages/modules/Virtualization/+/refs/heads/"
+"master/vmbase/) 库提供了链接器脚本和实用的默认构建规则，以及入口点、UART 控制"
+"台日志记录等功能。"
 
 #: src/bare-metal/android/vmbase.md:24
 msgid ""
 "The `main!` macro marks your main function, to be called from the `vmbase` "
 "entry point."
-msgstr ""
+msgstr "`main!` 宏用于标记需从 `vmbase` 入口点调用的 main 函数。"
 
 #: src/bare-metal/android/vmbase.md:26
 msgid ""
 "The `vmbase` entry point handles console initialisation, and issues a "
 "PSCI_SYSTEM_OFF to shutdown the VM if your main function returns."
 msgstr ""
+"`vmbase` 入口点用于处理控制台初始化，并在 main 函数返回时发送 "
+"PSCI_SYSTEM_OFF 命令以关闭虚拟机。"
 
 #: src/exercises/bare-metal/afternoon.md:3
 msgid "We will write a driver for the PL031 real-time clock device."
-msgstr ""
+msgstr "我们将为 PL031 实时时钟设备编写驱动程序。"
 
 #: src/exercises/bare-metal/afternoon.md:7
 #: src/exercises/concurrency/afternoon.md:13
@@ -17691,7 +18053,7 @@ msgstr "读完习题后，可以阅读本书提供的 \\[题解\\]。"
 #: src/exercises/bare-metal/rtc.md:1
 #: src/exercises/bare-metal/solutions-afternoon.md:3
 msgid "RTC driver"
-msgstr ""
+msgstr "RTC 驱动程序"
 
 #: src/exercises/bare-metal/rtc.md:3
 msgid ""
@@ -17699,12 +18061,16 @@ msgid ""
 "documentation/ddi0224/c) real-time clock at 0x9010000. For this exercise, "
 "you should write a driver for it."
 msgstr ""
+"QEMU aarch64 虚拟机在 0x9010000 地址处 配备了 [PL031](https://developer.arm."
+"com/documentation/ddi0224/c) 实时时钟。对于本练习，应该为其编写驱动程序。"
 
 #: src/exercises/bare-metal/rtc.md:6
 msgid ""
 "Use it to print the current time to the serial console. You can use the "
 "[`chrono`](https://crates.io/crates/chrono) crate for date/time formatting."
 msgstr ""
+"使用该时钟可将当前时间输出到串行控制台。您可以使用 [`chrono`](https://crates."
+"io/crates/chrono) crate 设置日期/时间格式。"
 
 #: src/exercises/bare-metal/rtc.md:8
 msgid ""
@@ -17712,6 +18078,9 @@ msgid ""
 "time, e.g. 3 seconds in the future. (Call [`core::hint::spin_loop`](https://"
 "doc.rust-lang.org/core/hint/fn.spin_loop.html) inside the loop.)"
 msgstr ""
+"通过匹配寄存器和原始中断状态，使得系统在某段指定的时间内一直进行繁忙等待（例"
+"如 3 秒后）。（在循环操作中调用 [`core::hint::spin_loop`](https://doc.rust-"
+"lang.org/core/hint/fn.spin_loop.html)。）"
 
 #: src/exercises/bare-metal/rtc.md:11
 msgid ""
@@ -17719,32 +18088,38 @@ msgid ""
 "the RTC match. You can use the driver provided in the [`arm-gic`](https://"
 "docs.rs/arm-gic/) crate to configure the Arm Generic Interrupt Controller."
 msgstr ""
+"_进行扩展（如有时间）：_启用并处理由 RTC 匹配产生的中断。可以使用 [`arm-gic`]"
+"(https://docs.rs/arm-gic/) crate 中提供的驱动程序来配置 Arm 通用中断控制器。"
 
 #: src/exercises/bare-metal/rtc.md:14
 msgid "Use the RTC interrupt, which is wired to the GIC as `IntId::spi(2)`."
-msgstr ""
+msgstr "请使用 RTC 中断，将其作为 `IntId::spi(2)` 连接到 GIC。"
 
 #: src/exercises/bare-metal/rtc.md:15
 msgid ""
 "Once the interrupt is enabled, you can put the core to sleep via `arm_gic::"
 "wfi()`, which will cause the core to sleep until it receives an interrupt."
 msgstr ""
+"启用中断后，可以通过 `arm_gic::wfi()` 让核心进入休眠状态，直到它收到中断信"
+"号。"
 
 #: src/exercises/bare-metal/rtc.md:19
 msgid ""
 "Download the [exercise template](../../comprehensive-rust-exercises.zip) and "
 "look in the `rtc` directory for the following files."
 msgstr ""
+"下载 [练习模板](../../comprehensive-rust-exercises.zip) 并在 `rtc` 目录中查找"
+"以下文件。"
 
 #: src/exercises/bare-metal/rtc.md:40
 #: src/exercises/bare-metal/solutions-afternoon.md:29
 msgid "/// Base addresses of the GICv3.\n"
-msgstr ""
+msgstr "/// Base addresses of the GICv3.\n"
 
 #: src/exercises/bare-metal/rtc.md:55
 #: src/exercises/bare-metal/solutions-afternoon.md:49
 msgid "\"main({:#x}, {:#x}, {:#x}, {:#x})\""
-msgstr ""
+msgstr "\"main({:#x}, {:#x}, {:#x}, {:#x})\""
 
 #: src/exercises/bare-metal/rtc.md:57
 #: src/exercises/bare-metal/solutions-afternoon.md:51
@@ -17753,20 +18128,23 @@ msgid ""
 "    // addresses of a GICv3 distributor and redistributor respectively, and\n"
 "    // nothing else accesses those address ranges.\n"
 msgstr ""
+"// Safe because `GICD_BASE_ADDRESS` and `GICR_BASE_ADDRESS` are the base\n"
+"    // addresses of a GICv3 distributor and redistributor respectively, and\n"
+"    // nothing else accesses those address ranges.\n"
 
 #: src/exercises/bare-metal/rtc.md:63
 msgid "// TODO: Create instance of RTC driver and print current time.\n"
-msgstr ""
+msgstr "// TODO: Create instance of RTC driver and print current time.\n"
 
 #: src/exercises/bare-metal/rtc.md:65
 msgid "// TODO: Wait for 3 seconds.\n"
-msgstr ""
+msgstr "// TODO: Wait for 3 seconds.\n"
 
 #: src/exercises/bare-metal/rtc.md:78
 msgid ""
 "_src/exceptions.rs_ (you should only need to change this for the 3rd part of "
 "the exercise):"
-msgstr ""
+msgstr "_src/exceptions.rs_（只需在本练习的第 3 部分更改此项）："
 
 #: src/exercises/bare-metal/rtc.md:84 src/exercises/bare-metal/rtc.md:159
 #: src/exercises/bare-metal/rtc.md:218 src/exercises/bare-metal/rtc.md:418
@@ -17785,101 +18163,118 @@ msgid ""
 "// See the License for the specific language governing permissions and\n"
 "// limitations under the License.\n"
 msgstr ""
+"// Copyright 2023 Google LLC\n"
+"//\n"
+"// Licensed under the Apache License, Version 2.0 (the \"License\");\n"
+"// you may not use this file except in compliance with the License.\n"
+"// You may obtain a copy of the License at\n"
+"//\n"
+"//      http://www.apache.org/licenses/LICENSE-2.0\n"
+"//\n"
+"// Unless required by applicable law or agreed to in writing, software\n"
+"// distributed under the License is distributed on an \"AS IS\" BASIS,\n"
+"// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n"
+"// See the License for the specific language governing permissions and\n"
+"// limitations under the License.\n"
 
 #: src/exercises/bare-metal/rtc.md:105
 msgid "\"sync_exception_current\""
-msgstr ""
+msgstr "\"sync_exception_current\""
 
 #: src/exercises/bare-metal/rtc.md:111
+#, fuzzy
 msgid "\"irq_current\""
-msgstr ""
+msgstr "\"irq_current\""
 
 #: src/exercises/bare-metal/rtc.md:113
 msgid "\"No pending interrupt\""
-msgstr ""
+msgstr "\"No pending interrupt\""
 
 #: src/exercises/bare-metal/rtc.md:114
 msgid "\"IRQ {intid:?}\""
-msgstr ""
+msgstr "\"IRQ {intid:?}\""
 
 #: src/exercises/bare-metal/rtc.md:119
 msgid "\"fiq_current\""
-msgstr ""
+msgstr "\"fiq_current\""
 
 #: src/exercises/bare-metal/rtc.md:125
 msgid "\"serr_current\""
-msgstr ""
+msgstr "\"serr_current\""
 
 #: src/exercises/bare-metal/rtc.md:131
 msgid "\"sync_lower\""
-msgstr ""
+msgstr "\"sync_lower\""
 
 #: src/exercises/bare-metal/rtc.md:137
 msgid "\"irq_lower\""
-msgstr ""
+msgstr "\"irq_lower\""
 
 #: src/exercises/bare-metal/rtc.md:143
 msgid "\"fiq_lower\""
-msgstr ""
+msgstr "\"fiq_lower\""
 
 #: src/exercises/bare-metal/rtc.md:149
 msgid "\"serr_lower\""
-msgstr ""
+msgstr "\"serr_lower\""
 
 #: src/exercises/bare-metal/rtc.md:154
 msgid "_src/logger.rs_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_src/logger.rs_（无需对此进行更改）："
 
 #: src/exercises/bare-metal/rtc.md:172
 msgid "// ANCHOR: main\n"
-msgstr ""
+msgstr "// ANCHOR: main\n"
 
 #: src/exercises/bare-metal/rtc.md:213
 msgid "_src/pl011.rs_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_src/pl011.rs_（无需对此进行更改）："
 
 #: src/exercises/bare-metal/rtc.md:236
 msgid "// ANCHOR: Flags\n"
-msgstr ""
+msgstr "// ANCHOR: Flags\n"
 
 #: src/exercises/bare-metal/rtc.md:264
 msgid "// ANCHOR_END: Flags\n"
-msgstr ""
+msgstr "// ANCHOR_END: Flags\n"
 
 #: src/exercises/bare-metal/rtc.md:268
 msgid ""
 "/// Flags from the UART Receive Status Register / Error Clear Register.\n"
 msgstr ""
+"/// Flags from the UART Receive Status Register / Error Clear Register.\n"
 
 #: src/exercises/bare-metal/rtc.md:272
 msgid "/// Framing error.\n"
-msgstr ""
+msgstr "/// Framing error.\n"
 
 #: src/exercises/bare-metal/rtc.md:274
 msgid "/// Parity error.\n"
-msgstr ""
+msgstr "/// Parity error.\n"
 
 #: src/exercises/bare-metal/rtc.md:276
 msgid "/// Break error.\n"
-msgstr ""
+msgstr "/// Break error.\n"
 
 #: src/exercises/bare-metal/rtc.md:278
 msgid "/// Overrun error.\n"
-msgstr ""
+msgstr "/// Overrun error.\n"
 
 #: src/exercises/bare-metal/rtc.md:282
 msgid "// ANCHOR: Registers\n"
-msgstr ""
+msgstr "// ANCHOR: Registers\n"
 
 #: src/exercises/bare-metal/rtc.md:314
 msgid "// ANCHOR_END: Registers\n"
-msgstr ""
+msgstr "// ANCHOR_END: Registers\n"
 
 #: src/exercises/bare-metal/rtc.md:316
 msgid ""
 "// ANCHOR: Uart\n"
 "/// Driver for a PL011 UART.\n"
 msgstr ""
+"// ANCHOR: Uart\n"
+"/// Driver for a PL011 UART.\n"
 
 #: src/exercises/bare-metal/rtc.md:325
 msgid ""
@@ -17894,35 +18289,46 @@ msgid ""
 "process\n"
 "    /// as device memory and not have any other aliases.\n"
 msgstr ""
+"/// Constructs a new instance of the UART driver for a PL011 device at the\n"
+"    /// given base address.\n"
+"    ///\n"
+"    /// # Safety\n"
+"    ///\n"
+"    /// The given base address must point to the MMIO control registers of "
+"a\n"
+"    /// PL011 device, which must be mapped into the address space of the "
+"process\n"
+"    /// as device memory and not have any other aliases.\n"
 
 #: src/exercises/bare-metal/rtc.md:370
 msgid "// ANCHOR_END: Uart\n"
-msgstr ""
+msgstr "// ANCHOR_END: Uart\n"
 
 #: src/exercises/bare-metal/rtc.md:413
 msgid "_build.rs_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_build.rs_（无需对此进行更改）："
 
 #: src/exercises/bare-metal/rtc.md:436 src/exercises/bare-metal/rtc.md:438
 msgid "\"linux\""
-msgstr ""
+msgstr "\"linux\""
 
 #: src/exercises/bare-metal/rtc.md:437 src/exercises/bare-metal/rtc.md:439
 msgid "\"CROSS_COMPILE\""
-msgstr ""
+msgstr "\"CROSS_COMPILE\""
 
 #: src/exercises/bare-metal/rtc.md:437
 #, fuzzy
 msgid "\"aarch64-linux-gnu\""
-msgstr "aarch64-paging"
+msgstr "\"aarch64-none-elf\""
 
 #: src/exercises/bare-metal/rtc.md:439
+#, fuzzy
 msgid "\"aarch64-none-elf\""
-msgstr ""
+msgstr "\"aarch64-none-elf\""
 
 #: src/exercises/bare-metal/rtc.md:442
 msgid "\"entry.S\""
-msgstr ""
+msgstr "\"entry.S\""
 
 #: src/exercises/bare-metal/rtc.md:443
 #, fuzzy
@@ -17931,15 +18337,15 @@ msgstr "异常"
 
 #: src/exercises/bare-metal/rtc.md:444
 msgid "\"idmap.S\""
-msgstr ""
+msgstr "\"idmap.S\""
 
 #: src/exercises/bare-metal/rtc.md:445
 msgid "\"empty\""
-msgstr ""
+msgstr "\"empty\""
 
 #: src/exercises/bare-metal/rtc.md:449
 msgid "_entry.S_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_entry.S_（无需对此进行更改）："
 
 #: src/exercises/bare-metal/rtc.md:453
 msgid ""
@@ -18102,10 +18508,168 @@ msgid ""
 "\tb 2b\n"
 "```"
 msgstr ""
+"```armasm\n"
+"/*\n"
+" * Copyright 2023 Google LLC\n"
+" *\n"
+" * Licensed under the Apache License, Version 2.0 (the \"License\");\n"
+" * you may not use this file except in compliance with the License.\n"
+" * You may obtain a copy of the License at\n"
+" *\n"
+" *     https://www.apache.org/licenses/LICENSE-2.0\n"
+" *\n"
+" * Unless required by applicable law or agreed to in writing, software\n"
+" * distributed under the License is distributed on an \"AS IS\" BASIS,\n"
+" * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n"
+" * See the License for the specific language governing permissions and\n"
+" * limitations under the License.\n"
+" */\n"
+"\n"
+".macro adr_l, reg:req, sym:req\n"
+"\tadrp \\reg, \\sym\n"
+"\tadd \\reg, \\reg, :lo12:\\sym\n"
+".endm\n"
+"\n"
+".macro mov_i, reg:req, imm:req\n"
+"\tmovz \\reg, :abs_g3:\\imm\n"
+"\tmovk \\reg, :abs_g2_nc:\\imm\n"
+"\tmovk \\reg, :abs_g1_nc:\\imm\n"
+"\tmovk \\reg, :abs_g0_nc:\\imm\n"
+".endm\n"
+"\n"
+".set .L_MAIR_DEV_nGnRE,\t0x04\n"
+".set .L_MAIR_MEM_WBWA,\t0xff\n"
+".set .Lmairval, .L_MAIR_DEV_nGnRE | (.L_MAIR_MEM_WBWA << 8)\n"
+"\n"
+"/* 4 KiB granule size for TTBR0_EL1. */\n"
+".set .L_TCR_TG0_4KB, 0x0 << 14\n"
+"/* 4 KiB granule size for TTBR1_EL1. */\n"
+".set .L_TCR_TG1_4KB, 0x2 << 30\n"
+"/* Disable translation table walk for TTBR1_EL1, generating a translation "
+"fault instead. */\n"
+".set .L_TCR_EPD1, 0x1 << 23\n"
+"/* Translation table walks for TTBR0_EL1 are inner sharable. */\n"
+".set .L_TCR_SH_INNER, 0x3 << 12\n"
+"/*\n"
+" * Translation table walks for TTBR0_EL1 are outer write-back read-allocate "
+"write-allocate\n"
+" * cacheable.\n"
+" */\n"
+".set .L_TCR_RGN_OWB, 0x1 << 10\n"
+"/*\n"
+" * Translation table walks for TTBR0_EL1 are inner write-back read-allocate "
+"write-allocate\n"
+" * cacheable.\n"
+" */\n"
+".set .L_TCR_RGN_IWB, 0x1 << 8\n"
+"/* Size offset for TTBR0_EL1 is 2**39 bytes (512 GiB). */\n"
+".set .L_TCR_T0SZ_512, 64 - 39\n"
+".set .Ltcrval, .L_TCR_TG0_4KB | .L_TCR_TG1_4KB | .L_TCR_EPD1 | ."
+"L_TCR_RGN_OWB\n"
+".set .Ltcrval, .Ltcrval | .L_TCR_RGN_IWB | .L_TCR_SH_INNER | ."
+"L_TCR_T0SZ_512\n"
+"\n"
+"/* Stage 1 instruction access cacheability is unaffected. */\n"
+".set .L_SCTLR_ELx_I, 0x1 << 12\n"
+"/* SP alignment fault if SP is not aligned to a 16 byte boundary. */\n"
+".set .L_SCTLR_ELx_SA, 0x1 << 3\n"
+"/* Stage 1 data access cacheability is unaffected. */\n"
+".set .L_SCTLR_ELx_C, 0x1 << 2\n"
+"/* EL0 and EL1 stage 1 MMU enabled. */\n"
+".set .L_SCTLR_ELx_M, 0x1 << 0\n"
+"/* Privileged Access Never is unchanged on taking an exception to EL1. */\n"
+".set .L_SCTLR_EL1_SPAN, 0x1 << 23\n"
+"/* SETEND instruction disabled at EL0 in aarch32 mode. */\n"
+".set .L_SCTLR_EL1_SED, 0x1 << 8\n"
+"/* Various IT instructions are disabled at EL0 in aarch32 mode. */\n"
+".set .L_SCTLR_EL1_ITD, 0x1 << 7\n"
+".set .L_SCTLR_EL1_RES1, (0x1 << 11) | (0x1 << 20) | (0x1 << 22) | (0x1 << "
+"28) | (0x1 << 29)\n"
+".set .Lsctlrval, .L_SCTLR_ELx_M | .L_SCTLR_ELx_C | .L_SCTLR_ELx_SA | ."
+"L_SCTLR_EL1_ITD | .L_SCTLR_EL1_SED\n"
+".set .Lsctlrval, .Lsctlrval | .L_SCTLR_ELx_I | .L_SCTLR_EL1_SPAN | ."
+"L_SCTLR_EL1_RES1\n"
+"\n"
+"/**\n"
+" * This is a generic entry point for an image. It carries out the operations "
+"required to prepare the\n"
+" * loaded image to be run. Specifically, it zeroes the bss section using "
+"registers x25 and above,\n"
+" * prepares the stack, enables floating point, and sets up the exception "
+"vector. It preserves x0-x3\n"
+" * for the Rust entry point, as these may contain boot parameters.\n"
+" */\n"
+".section .init.entry, \"ax\"\n"
+".global entry\n"
+"entry:\n"
+"\t/* Load and apply the memory management configuration, ready to enable MMU "
+"and caches. */\n"
+"\tadrp x30, idmap\n"
+"\tmsr ttbr0_el1, x30\n"
+"\n"
+"\tmov_i x30, .Lmairval\n"
+"\tmsr mair_el1, x30\n"
+"\n"
+"\tmov_i x30, .Ltcrval\n"
+"\t/* Copy the supported PA range into TCR_EL1.IPS. */\n"
+"\tmrs x29, id_aa64mmfr0_el1\n"
+"\tbfi x30, x29, #32, #4\n"
+"\n"
+"\tmsr tcr_el1, x30\n"
+"\n"
+"\tmov_i x30, .Lsctlrval\n"
+"\n"
+"\t/*\n"
+"\t * Ensure everything before this point has completed, then invalidate any "
+"potentially stale\n"
+"\t * local TLB entries before they start being used.\n"
+"\t */\n"
+"\tisb\n"
+"\ttlbi vmalle1\n"
+"\tic iallu\n"
+"\tdsb nsh\n"
+"\tisb\n"
+"\n"
+"\t/*\n"
+"\t * Configure sctlr_el1 to enable MMU and cache and don't proceed until "
+"this has completed.\n"
+"\t */\n"
+"\tmsr sctlr_el1, x30\n"
+"\tisb\n"
+"\n"
+"\t/* Disable trapping floating point access in EL1. */\n"
+"\tmrs x30, cpacr_el1\n"
+"\torr x30, x30, #(0x3 << 20)\n"
+"\tmsr cpacr_el1, x30\n"
+"\tisb\n"
+"\n"
+"\t/* Zero out the bss section. */\n"
+"\tadr_l x29, bss_begin\n"
+"\tadr_l x30, bss_end\n"
+"0:\tcmp x29, x30\n"
+"\tb.hs 1f\n"
+"\tstp xzr, xzr, [x29], #16\n"
+"\tb 0b\n"
+"\n"
+"1:\t/* Prepare the stack. */\n"
+"\tadr_l x30, boot_stack_end\n"
+"\tmov sp, x30\n"
+"\n"
+"\t/* Set up exception vector. */\n"
+"\tadr x30, vector_table_el1\n"
+"\tmsr vbar_el1, x30\n"
+"\n"
+"\t/* Call into Rust code. */\n"
+"\tbl main\n"
+"\n"
+"\t/* Loop forever waiting for interrupts. */\n"
+"2:\twfi\n"
+"\tb 2b\n"
+"```"
 
 #: src/exercises/bare-metal/rtc.md:598
 msgid "_exceptions.S_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_exceptions.S_（无需对此进行更改）："
 
 #: src/exercises/bare-metal/rtc.md:602
 msgid ""
@@ -18300,10 +18864,200 @@ msgid ""
 "\tcurrent_exception_spx serr_lower\n"
 "```"
 msgstr ""
+"```armasm\n"
+"/*\n"
+" * Copyright 2023 Google LLC\n"
+" *\n"
+" * Licensed under the Apache License, Version 2.0 (the \"License\");\n"
+" * you may not use this file except in compliance with the License.\n"
+" * You may obtain a copy of the License at\n"
+" *\n"
+" *     https://www.apache.org/licenses/LICENSE-2.0\n"
+" *\n"
+" * Unless required by applicable law or agreed to in writing, software\n"
+" * distributed under the License is distributed on an \"AS IS\" BASIS,\n"
+" * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n"
+" * See the License for the specific language governing permissions and\n"
+" * limitations under the License.\n"
+" */\n"
+"\n"
+"/**\n"
+" * Saves the volatile registers onto the stack. This currently takes 14\n"
+" * instructions, so it can be used in exception handlers with 18 "
+"instructions\n"
+" * left.\n"
+" *\n"
+" * On return, x0 and x1 are initialised to elr_el2 and spsr_el2 "
+"respectively,\n"
+" * which can be used as the first and second arguments of a subsequent "
+"call.\n"
+" */\n"
+".macro save_volatile_to_stack\n"
+"\t/* Reserve stack space and save registers x0-x18, x29 & x30. */\n"
+"\tstp x0, x1, [sp, #-(8 * 24)]!\n"
+"\tstp x2, x3, [sp, #8 * 2]\n"
+"\tstp x4, x5, [sp, #8 * 4]\n"
+"\tstp x6, x7, [sp, #8 * 6]\n"
+"\tstp x8, x9, [sp, #8 * 8]\n"
+"\tstp x10, x11, [sp, #8 * 10]\n"
+"\tstp x12, x13, [sp, #8 * 12]\n"
+"\tstp x14, x15, [sp, #8 * 14]\n"
+"\tstp x16, x17, [sp, #8 * 16]\n"
+"\tstr x18, [sp, #8 * 18]\n"
+"\tstp x29, x30, [sp, #8 * 20]\n"
+"\n"
+"\t/*\n"
+"\t * Save elr_el1 & spsr_el1. This such that we can take nested exception\n"
+"\t * and still be able to unwind.\n"
+"\t */\n"
+"\tmrs x0, elr_el1\n"
+"\tmrs x1, spsr_el1\n"
+"\tstp x0, x1, [sp, #8 * 22]\n"
+".endm\n"
+"\n"
+"/**\n"
+" * Restores the volatile registers from the stack. This currently takes 14\n"
+" * instructions, so it can be used in exception handlers while still leaving "
+"18\n"
+" * instructions left; if paired with save_volatile_to_stack, there are 4\n"
+" * instructions to spare.\n"
+" */\n"
+".macro restore_volatile_from_stack\n"
+"\t/* Restore registers x2-x18, x29 & x30. */\n"
+"\tldp x2, x3, [sp, #8 * 2]\n"
+"\tldp x4, x5, [sp, #8 * 4]\n"
+"\tldp x6, x7, [sp, #8 * 6]\n"
+"\tldp x8, x9, [sp, #8 * 8]\n"
+"\tldp x10, x11, [sp, #8 * 10]\n"
+"\tldp x12, x13, [sp, #8 * 12]\n"
+"\tldp x14, x15, [sp, #8 * 14]\n"
+"\tldp x16, x17, [sp, #8 * 16]\n"
+"\tldr x18, [sp, #8 * 18]\n"
+"\tldp x29, x30, [sp, #8 * 20]\n"
+"\n"
+"\t/* Restore registers elr_el1 & spsr_el1, using x0 & x1 as scratch. */\n"
+"\tldp x0, x1, [sp, #8 * 22]\n"
+"\tmsr elr_el1, x0\n"
+"\tmsr spsr_el1, x1\n"
+"\n"
+"\t/* Restore x0 & x1, and release stack space. */\n"
+"\tldp x0, x1, [sp], #8 * 24\n"
+".endm\n"
+"\n"
+"/**\n"
+" * This is a generic handler for exceptions taken at the current EL while "
+"using\n"
+" * SP0. It behaves similarly to the SPx case by first switching to SPx, "
+"doing\n"
+" * the work, then switching back to SP0 before returning.\n"
+" *\n"
+" * Switching to SPx and calling the Rust handler takes 16 instructions. To\n"
+" * restore and return we need an additional 16 instructions, so we can "
+"implement\n"
+" * the whole handler within the allotted 32 instructions.\n"
+" */\n"
+".macro current_exception_sp0 handler:req\n"
+"\tmsr spsel, #1\n"
+"\tsave_volatile_to_stack\n"
+"\tbl \\handler\n"
+"\trestore_volatile_from_stack\n"
+"\tmsr spsel, #0\n"
+"\teret\n"
+".endm\n"
+"\n"
+"/**\n"
+" * This is a generic handler for exceptions taken at the current EL while "
+"using\n"
+" * SPx. It saves volatile registers, calls the Rust handler, restores "
+"volatile\n"
+" * registers, then returns.\n"
+" *\n"
+" * This also works for exceptions taken from EL0, if we don't care about\n"
+" * non-volatile registers.\n"
+" *\n"
+" * Saving state and jumping to the Rust handler takes 15 instructions, and\n"
+" * restoring and returning also takes 15 instructions, so we can fit the "
+"whole\n"
+" * handler in 30 instructions, under the limit of 32.\n"
+" */\n"
+".macro current_exception_spx handler:req\n"
+"\tsave_volatile_to_stack\n"
+"\tbl \\handler\n"
+"\trestore_volatile_from_stack\n"
+"\teret\n"
+".endm\n"
+"\n"
+".section .text.vector_table_el1, \"ax\"\n"
+".global vector_table_el1\n"
+".balign 0x800\n"
+"vector_table_el1:\n"
+"sync_cur_sp0:\n"
+"\tcurrent_exception_sp0 sync_exception_current\n"
+"\n"
+".balign 0x80\n"
+"irq_cur_sp0:\n"
+"\tcurrent_exception_sp0 irq_current\n"
+"\n"
+".balign 0x80\n"
+"fiq_cur_sp0:\n"
+"\tcurrent_exception_sp0 fiq_current\n"
+"\n"
+".balign 0x80\n"
+"serr_cur_sp0:\n"
+"\tcurrent_exception_sp0 serr_current\n"
+"\n"
+".balign 0x80\n"
+"sync_cur_spx:\n"
+"\tcurrent_exception_spx sync_exception_current\n"
+"\n"
+".balign 0x80\n"
+"irq_cur_spx:\n"
+"\tcurrent_exception_spx irq_current\n"
+"\n"
+".balign 0x80\n"
+"fiq_cur_spx:\n"
+"\tcurrent_exception_spx fiq_current\n"
+"\n"
+".balign 0x80\n"
+"serr_cur_spx:\n"
+"\tcurrent_exception_spx serr_current\n"
+"\n"
+".balign 0x80\n"
+"sync_lower_64:\n"
+"\tcurrent_exception_spx sync_lower\n"
+"\n"
+".balign 0x80\n"
+"irq_lower_64:\n"
+"\tcurrent_exception_spx irq_lower\n"
+"\n"
+".balign 0x80\n"
+"fiq_lower_64:\n"
+"\tcurrent_exception_spx fiq_lower\n"
+"\n"
+".balign 0x80\n"
+"serr_lower_64:\n"
+"\tcurrent_exception_spx serr_lower\n"
+"\n"
+".balign 0x80\n"
+"sync_lower_32:\n"
+"\tcurrent_exception_spx sync_lower\n"
+"\n"
+".balign 0x80\n"
+"irq_lower_32:\n"
+"\tcurrent_exception_spx irq_lower\n"
+"\n"
+".balign 0x80\n"
+"fiq_lower_32:\n"
+"\tcurrent_exception_spx fiq_lower\n"
+"\n"
+".balign 0x80\n"
+"serr_lower_32:\n"
+"\tcurrent_exception_spx serr_lower\n"
+"```"
 
 #: src/exercises/bare-metal/rtc.md:783
 msgid "_idmap.S_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_idmap.S_（无需对此进行更改）"
 
 #: src/exercises/bare-metal/rtc.md:787
 msgid ""
@@ -18353,10 +19107,55 @@ msgid ""
 "\t.fill\t\t255, 8, 0x0\t\t\t// 255 GiB of remaining VA space\n"
 "```"
 msgstr ""
+"```armasm\n"
+"/*\n"
+" * Copyright 2023 Google LLC\n"
+" *\n"
+" * Licensed under the Apache License, Version 2.0 (the \"License\");\n"
+" * you may not use this file except in compliance with the License.\n"
+" * You may obtain a copy of the License at\n"
+" *\n"
+" *     https://www.apache.org/licenses/LICENSE-2.0\n"
+" *\n"
+" * Unless required by applicable law or agreed to in writing, software\n"
+" * distributed under the License is distributed on an \"AS IS\" BASIS,\n"
+" * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n"
+" * See the License for the specific language governing permissions and\n"
+" * limitations under the License.\n"
+" */\n"
+"\n"
+".set .L_TT_TYPE_BLOCK, 0x1\n"
+".set .L_TT_TYPE_PAGE,  0x3\n"
+".set .L_TT_TYPE_TABLE, 0x3\n"
+"\n"
+"/* Access flag. */\n"
+".set .L_TT_AF, 0x1 << 10\n"
+"/* Not global. */\n"
+".set .L_TT_NG, 0x1 << 11\n"
+".set .L_TT_XN, 0x3 << 53\n"
+"\n"
+".set .L_TT_MT_DEV, 0x0 << 2\t\t\t// MAIR #0 (DEV_nGnRE)\n"
+".set .L_TT_MT_MEM, (0x1 << 2) | (0x3 << 8)\t// MAIR #1 (MEM_WBWA), inner "
+"shareable\n"
+"\n"
+".set .L_BLOCK_DEV, .L_TT_TYPE_BLOCK | .L_TT_MT_DEV | .L_TT_AF | .L_TT_XN\n"
+".set .L_BLOCK_MEM, .L_TT_TYPE_BLOCK | .L_TT_MT_MEM | .L_TT_AF | .L_TT_NG\n"
+"\n"
+".section \".rodata.idmap\", \"a\", %progbits\n"
+".global idmap\n"
+".align 12\n"
+"idmap:\n"
+"\t/* level 1 */\n"
+"\t.quad\t\t.L_BLOCK_DEV | 0x0\t\t    // 1 GiB of device mappings\n"
+"\t.quad\t\t.L_BLOCK_MEM | 0x40000000\t// 1 GiB of DRAM\n"
+"\t.fill\t\t254, 8, 0x0\t\t\t// 254 GiB of unmapped VA space\n"
+"\t.quad\t\t.L_BLOCK_DEV | 0x4000000000 // 1 GiB of device mappings\n"
+"\t.fill\t\t255, 8, 0x0\t\t\t// 255 GiB of remaining VA space\n"
+"```"
 
 #: src/exercises/bare-metal/rtc.md:832
 msgid "_image.ld_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_image.ld_（无需对此进行更改）："
 
 #: src/exercises/bare-metal/rtc.md:836
 msgid ""
@@ -18468,18 +19267,125 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```ld\n"
+"/*\n"
+" * Copyright 2023 Google LLC\n"
+" *\n"
+" * Licensed under the Apache License, Version 2.0 (the \"License\");\n"
+" * you may not use this file except in compliance with the License.\n"
+" * You may obtain a copy of the License at\n"
+" *\n"
+" *     https://www.apache.org/licenses/LICENSE-2.0\n"
+" *\n"
+" * Unless required by applicable law or agreed to in writing, software\n"
+" * distributed under the License is distributed on an \"AS IS\" BASIS,\n"
+" * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n"
+" * See the License for the specific language governing permissions and\n"
+" * limitations under the License.\n"
+" */\n"
+"\n"
+"/*\n"
+" * Code will start running at this symbol which is placed at the start of "
+"the\n"
+" * image.\n"
+" */\n"
+"ENTRY(entry)\n"
+"\n"
+"MEMORY\n"
+"{\n"
+"\timage : ORIGIN = 0x40080000, LENGTH = 2M\n"
+"}\n"
+"\n"
+"SECTIONS\n"
+"{\n"
+"\t/*\n"
+"\t * Collect together the code.\n"
+"\t */\n"
+"\t.init : ALIGN(4096) {\n"
+"\t\ttext_begin = .;\n"
+"\t\t*(.init.entry)\n"
+"\t\t*(.init.*)\n"
+"\t} >image\n"
+"\t.text : {\n"
+"\t\t*(.text.*)\n"
+"\t} >image\n"
+"\ttext_end = .;\n"
+"\n"
+"\t/*\n"
+"\t * Collect together read-only data.\n"
+"\t */\n"
+"\t.rodata : ALIGN(4096) {\n"
+"\t\trodata_begin = .;\n"
+"\t\t*(.rodata.*)\n"
+"\t} >image\n"
+"\t.got : {\n"
+"\t\t*(.got)\n"
+"\t} >image\n"
+"\trodata_end = .;\n"
+"\n"
+"\t/*\n"
+"\t * Collect together the read-write data including .bss at the end which\n"
+"\t * will be zero'd by the entry code.\n"
+"\t */\n"
+"\t.data : ALIGN(4096) {\n"
+"\t\tdata_begin = .;\n"
+"\t\t*(.data.*)\n"
+"\t\t/*\n"
+"\t\t * The entry point code assumes that .data is a multiple of 32\n"
+"\t\t * bytes long.\n"
+"\t\t */\n"
+"\t\t. = ALIGN(32);\n"
+"\t\tdata_end = .;\n"
+"\t} >image\n"
+"\n"
+"\t/* Everything beyond this point will not be included in the binary. */\n"
+"\tbin_end = .;\n"
+"\n"
+"\t/* The entry point code assumes that .bss is 16-byte aligned. */\n"
+"\t.bss : ALIGN(16)  {\n"
+"\t\tbss_begin = .;\n"
+"\t\t*(.bss.*)\n"
+"\t\t*(COMMON)\n"
+"\t\t. = ALIGN(16);\n"
+"\t\tbss_end = .;\n"
+"\t} >image\n"
+"\n"
+"\t.stack (NOLOAD) : ALIGN(4096) {\n"
+"\t\tboot_stack_begin = .;\n"
+"\t\t. += 40 * 4096;\n"
+"\t\t. = ALIGN(4096);\n"
+"\t\tboot_stack_end = .;\n"
+"\t} >image\n"
+"\n"
+"\t. = ALIGN(4K);\n"
+"\tPROVIDE(dma_region = .);\n"
+"\n"
+"\t/*\n"
+"\t * Remove unused sections from the image.\n"
+"\t */\n"
+"\t/DISCARD/ : {\n"
+"\t\t/* The image loads itself so doesn't need these sections. */\n"
+"\t\t*(.gnu.hash)\n"
+"\t\t*(.hash)\n"
+"\t\t*(.interp)\n"
+"\t\t*(.eh_frame_hdr)\n"
+"\t\t*(.eh_frame)\n"
+"\t\t*(.note.gnu.build-id)\n"
+"\t}\n"
+"}\n"
+"```"
 
 #: src/exercises/bare-metal/rtc.md:943
 msgid "_Makefile_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_Makefile_（无需对此进行更改）："
 
 #: src/exercises/bare-metal/rtc.md:948
 msgid "# Copyright 2023 Google LLC"
-msgstr ""
+msgstr "# 版权所有 2023 Google LLC。"
 
 #: src/exercises/bare-metal/rtc.md:962
 msgid "$(shell uname -s)"
-msgstr ""
+msgstr "$(shell uname -s)"
 
 #: src/exercises/bare-metal/rtc.md:964
 #, fuzzy
@@ -18488,15 +19394,15 @@ msgstr "aarch64-paging"
 
 #: src/exercises/bare-metal/rtc.md:981
 msgid "stdio -display none -kernel $< -s"
-msgstr ""
+msgstr "stdio -display none -kernel $< -s"
 
 #: src/exercises/bare-metal/rtc.md:984
 msgid "cargo clean"
-msgstr ""
+msgstr "cargo 清理"
 
 #: src/exercises/bare-metal/rtc.md:999
 msgid "Run the code in QEMU with `make qemu`."
-msgstr ""
+msgstr "使用 `make qemu` 在 QEMU 中运行代码。"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:1
 msgid "Bare Metal Rust Afternoon"
@@ -18513,86 +19419,88 @@ msgstr "`main.rs`:"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:36
 msgid "/// Base address of the PL031 RTC.\n"
-msgstr ""
+msgstr "/// Base address of the PL031 RTC.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:38
 msgid "/// The IRQ used by the PL031 RTC.\n"
-msgstr ""
+msgstr "/// The IRQ used by the PL031 RTC.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:57
 msgid ""
 "// Safe because `PL031_BASE_ADDRESS` is the base address of a PL031 device,\n"
 "    // and nothing else accesses that address range.\n"
 msgstr ""
+"// Safe because `PL031_BASE_ADDRESS` is the base address of a PL031 device,\n"
+"    // and nothing else accesses that address range.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:62
 msgid "\"RTC: {time}\""
-msgstr ""
+msgstr "\"RTC: {time}\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md:70
 msgid "// Wait for 3 seconds, without interrupts.\n"
-msgstr ""
+msgstr "// Wait for 3 seconds, without interrupts.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:73
 #: src/exercises/bare-metal/solutions-afternoon.md:91
 msgid "\"Waiting for {}\""
-msgstr ""
+msgstr "\"Waiting for {}\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md:75
 #: src/exercises/bare-metal/solutions-afternoon.md:83
 #: src/exercises/bare-metal/solutions-afternoon.md:96
 #: src/exercises/bare-metal/solutions-afternoon.md:104
 msgid "\"matched={}, interrupt_pending={}\""
-msgstr ""
+msgstr "\"matched={}, interrupt_pending={}\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md:87
 #: src/exercises/bare-metal/solutions-afternoon.md:108
 msgid "\"Finished waiting\""
-msgstr ""
+msgstr "\"Finished waiting\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md:89
 msgid "// Wait another 3 seconds for an interrupt.\n"
-msgstr ""
+msgstr "// Wait another 3 seconds for an interrupt.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:121
 msgid "_pl031.rs_:"
-msgstr ""
+msgstr "_pl031.rs_："
 
 #: src/exercises/bare-metal/solutions-afternoon.md:128
 msgid "/// Data register\n"
-msgstr ""
+msgstr "/// Data register\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:130
 msgid "/// Match register\n"
-msgstr ""
+msgstr "/// Match register\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:132
 msgid "/// Load register\n"
-msgstr ""
+msgstr "/// Load register\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:134
 msgid "/// Control register\n"
-msgstr ""
+msgstr "/// Control register\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:137
 msgid "/// Interrupt Mask Set or Clear register\n"
-msgstr ""
+msgstr "/// Interrupt Mask Set or Clear register\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:140
 msgid "/// Raw Interrupt Status\n"
-msgstr ""
+msgstr "/// Raw Interrupt Status\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:143
 msgid "/// Masked Interrupt Status\n"
-msgstr ""
+msgstr "/// Masked Interrupt Status\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:146
 msgid "/// Interrupt Clear Register\n"
-msgstr ""
+msgstr "/// Interrupt Clear Register\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:150
 msgid "/// Driver for a PL031 real-time clock.\n"
-msgstr ""
+msgstr "/// Driver for a PL031 real-time clock.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:158
 msgid ""
@@ -18607,10 +19515,20 @@ msgid ""
 "process\n"
 "    /// as device memory and not have any other aliases.\n"
 msgstr ""
+"/// Constructs a new instance of the RTC driver for a PL031 device at the\n"
+"    /// given base address.\n"
+"    ///\n"
+"    /// # Safety\n"
+"    ///\n"
+"    /// The given base address must point to the MMIO control registers of "
+"a\n"
+"    /// PL031 device, which must be mapped into the address space of the "
+"process\n"
+"    /// as device memory and not have any other aliases.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:170
 msgid "/// Reads the current RTC value.\n"
-msgstr ""
+msgstr "/// Reads the current RTC value.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:172
 #: src/exercises/bare-metal/solutions-afternoon.md:180
@@ -18622,12 +19540,16 @@ msgid ""
 "// Safe because we know that self.registers points to the control\n"
 "        // registers of a PL031 device which is appropriately mapped.\n"
 msgstr ""
+"// Safe because we know that self.registers points to the control\n"
+"        // registers of a PL031 device which is appropriately mapped.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:177
 msgid ""
 "/// Writes a match value. When the RTC value matches this then an interrupt\n"
 "    /// will be generated (if it is enabled).\n"
 msgstr ""
+"/// Writes a match value. When the RTC value matches this then an interrupt\n"
+"    /// will be generated (if it is enabled).\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:185
 msgid ""
@@ -18635,6 +19557,9 @@ msgid ""
 "not\n"
 "    /// the interrupt is enabled.\n"
 msgstr ""
+"/// Returns whether the match register matches the RTC value, whether or "
+"not\n"
+"    /// the interrupt is enabled.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:194
 msgid ""
@@ -18643,6 +19568,10 @@ msgid ""
 "    /// This should be true if and only if `matched` returns true and the\n"
 "    /// interrupt is masked.\n"
 msgstr ""
+"/// Returns whether there is currently an interrupt pending.\n"
+"    ///\n"
+"    /// This should be true if and only if `matched` returns true and the\n"
+"    /// interrupt is masked.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:205
 msgid ""
@@ -18652,10 +19581,15 @@ msgid ""
 "the\n"
 "    /// interrupt is disabled.\n"
 msgstr ""
+"/// Sets or clears the interrupt mask.\n"
+"    ///\n"
+"    /// When the mask is true the interrupt is enabled; when it is false "
+"the\n"
+"    /// interrupt is disabled.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:216
 msgid "/// Clears a pending interrupt, if any.\n"
-msgstr ""
+msgstr "/// Clears a pending interrupt, if any.\n"
 
 #: src/concurrency.md:1
 msgid "Welcome to Concurrency in Rust"
