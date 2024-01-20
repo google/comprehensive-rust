@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// ANCHOR: IBirthdayService
 //! Implementation of the `IBirthdayService` AIDL interface.
 use binder::{ParcelFileDescriptor, SpIBinder, Strong};
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayInfoProvider::{IBirthdayInfoProvider, BpBirthdayInfoProvider};
-use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::{IBirthdayService};
+use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
 use com_example_birthdayservice::aidl::com::example::birthdayservice::BirthdayInfo::BirthdayInfo;
 use com_example_birthdayservice::binder;
 use std::fs::File;
 use std::io::Read;
 
+// ANCHOR: IBirthdayService
 /// The `IBirthdayService` implementation.
 pub struct BirthdayService;
 
@@ -31,6 +31,7 @@ impl IBirthdayService for BirthdayService {
     fn wishHappyBirthday(&self, name: &str, years: i32) -> binder::Result<String> {
         Ok(format!("Happy Birthday {name}, congratulations with the {years} years!"))
     }
+    // ANCHOR_END: IBirthdayService
 
     fn wishWithInfo(&self, info: &BirthdayInfo) -> binder::Result<String> {
         Ok(format!(
@@ -63,6 +64,7 @@ impl IBirthdayService for BirthdayService {
         ))
     }
 
+    // ANCHOR: wishFromFile
     fn wishFromFile(&self, info_file: &ParcelFileDescriptor) -> binder::Result<String> {
         let mut info_file = info_file
             .as_ref()
@@ -81,4 +83,5 @@ impl IBirthdayService for BirthdayService {
             "Happy Birthday {name}, congratulations with the {years} years!"
         ))
     }
+    // ANCHOR_END: wishFromFile
 }

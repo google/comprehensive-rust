@@ -7,6 +7,7 @@ to the service.
 
 ```java
 {{#include birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:IBirthdayService}}
+}
 ```
 
 *Generated trait*:

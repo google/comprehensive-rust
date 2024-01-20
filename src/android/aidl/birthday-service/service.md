@@ -5,7 +5,11 @@ We can now implement the AIDL service:
 *birthday_service/src/lib.rs*:
 
 ```rust,ignore
+use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
+use com_example_birthdayservice::binder;
+
 {{#include birthday_service/src/lib.rs:IBirthdayService}}
+}
 ```
 
 *birthday_service/Android.bp*:

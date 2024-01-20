@@ -21,8 +21,18 @@ fn main() {
 }
 ```
 
+**birthday_service/src/lib.rs**:
+
+```rust,ignore
+impl IBirthdayService for BirthdayService {
+{{#include ../birthday-service/birthday_service/src/lib.rs:wishFromFile}}
+}
+```
+
 <details>
 
-* `ParcelFileDescriptor` can be created from a regular `std::fs::File`.
+* `ParcelFileDescriptor` wraps an `OwnedFd`, and so can be created from a `File`
+  (or any other type that wraps an `OwnedFd`), and can be used to create a new
+  `File` handle on the other side.
 
 </details>

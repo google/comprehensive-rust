@@ -22,6 +22,7 @@ import com.example.birthdayservice.BirthdayInfo;
 interface IBirthdayService {
     /** Generate a Happy Birthday message. */
     String wishHappyBirthday(String name, int years);
+    // ANCHOR_END: IBirthdayService
 
     // ANCHOR: with_info
     /** The same thing, but with a parcelable. */
@@ -29,7 +30,7 @@ interface IBirthdayService {
     // ANCHOR_END: with_info
 
     // ANCHOR: with_info_provider
-    /** The same thing, but using more Binder features. */
+    /** The same thing, but using a binder object. */
     String wishWithProvider(IBirthdayInfoProvider provider);
 
     /** The same thing, but using `IBinder`. */

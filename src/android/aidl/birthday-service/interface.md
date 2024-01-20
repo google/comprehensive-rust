@@ -6,6 +6,7 @@ _birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:
 
 ```java
 {{#include birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:IBirthdayService}}
+}
 ```
 
 _birthday_service/aidl/Android.bp_:

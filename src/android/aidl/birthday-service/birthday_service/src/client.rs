@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// ANCHOR: main
 //! Birthday service.
 use binder::{BinderFeatures, ParcelFileDescriptor};
 use com_example_birthdayservice::aidl::com::example::birthdayservice::BirthdayInfo::BirthdayInfo;
@@ -24,13 +23,8 @@ use com_example_birthdayservice::binder;
 use std::fs::File;
 use std::io::prelude::*;
 
+// ANCHOR: main
 const SERVICE_IDENTIFIER: &str = "birthdayservice";
-
-/// Connect to the BirthdayService.
-pub fn connect() -> Result<binder::Strong<dyn IBirthdayService>, binder::StatusCode>
-{
-    binder::get_interface(SERVICE_IDENTIFIER)
-}
 
 /// Call the birthday service.
 fn main() -> Result<(), binder::Status> {
@@ -41,11 +35,13 @@ fn main() -> Result<(), binder::Status> {
         .unwrap_or(42);
 
     binder::ProcessState::start_thread_pool();
-    let service = connect().expect("Failed to connect to BirthdayService");
+    let service: binder::Strong<dyn IBirthdayService> = binder::get_interface(SERVICE_IDENTIFIER)
+        .expect("Failed to connect to BirthdayService");
 
-    // Call the simple API:
+    // Call the service.
     let msg = service.wishHappyBirthday(&name, years)?;
     println!("{msg}");
+    // ANCHOR_END: main
 
     // ANCHOR: wish_with_info
     service.wishWithInfo(&BirthdayInfo {
