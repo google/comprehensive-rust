@@ -19,7 +19,7 @@ _interoperability/java/Android.bp_:
 {{#include java/Android.bp:libhello_jni}}
 ```
 
-Finally, we can call this function from Java:
+We then call this function from Java:
 
 _interoperability/java/HelloWorld.java_:
 
