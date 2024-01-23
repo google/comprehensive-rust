@@ -3692,6 +3692,9 @@ msgid ""
 "elements of an array have the same type, while tuples can accommodate "
 "different types. Both types have a size fixed at compile time."
 msgstr ""
+"Кортежі та масиви є першими \"складеними\" типами, з якими ми познайомилися. "
+"Всі елементи масиву мають однаковий тип, тоді як кортежі можуть мати різні "
+"типи. Обидва типи мають розмір, фіксований під час компіляції."
 
 #: src\tuples-and-arrays/tuples-and-arrays.md:9
 #: src\tuples-and-arrays/destructuring.md:27
@@ -3700,11 +3703,11 @@ msgstr "Масиви"
 
 #: src\tuples-and-arrays/tuples-and-arrays.md:9
 msgid "`[T; N]`"
-msgstr ""
+msgstr "`[T; N]`"
 
 #: src\tuples-and-arrays/tuples-and-arrays.md:9
 msgid "`[20, 30, 40]`, `[0; 3]`"
-msgstr ""
+msgstr "`[20, 30, 40]`, `[0; 3]`"
 
 #: src\tuples-and-arrays/tuples-and-arrays.md:10
 #: src\tuples-and-arrays/destructuring.md:9
@@ -3713,7 +3716,7 @@ msgstr "Кортежі"
 
 #: src\tuples-and-arrays/tuples-and-arrays.md:10
 msgid "`()`, `(T,)`, `(T1, T2)`, ..."
-msgstr "\"()\", \"(T,)\", \"(T1, T2)\", ..."
+msgstr "`()`, `(T,)`, `(T1, T2)`, ..."
 
 #: src\tuples-and-arrays/tuples-and-arrays.md:10
 msgid "`()`, `('x',)`, `('x', 1.2)`, ..."
@@ -3732,7 +3735,6 @@ msgid "Arrays:"
 msgstr "Масиви:"
 
 #: src\tuples-and-arrays/tuples-and-arrays.md:40
-#, fuzzy
 msgid ""
 "A value of the array type `[T; N]` holds `N` (a compile-time constant) "
 "elements of the same type `T`. Note that the length of the array is _part of "
@@ -3743,7 +3745,8 @@ msgstr ""
 "Значення типу масиву `[T; N]` містить `N` (константа часу компіляції) "
 "елементів того самого типу `T`. Зверніть увагу, що довжина масиву є "
 "_частиною його типу_, що означає, що `[u8; 3]` і `[u8; 4]` вважаються двома "
-"різними типами."
+"різними типами. Зрізи, розмір яких визначається під час виконання, "
+"покриваються пізніше."
 
 #: src\tuples-and-arrays/tuples-and-arrays.md:45
 msgid ""
@@ -3751,13 +3754,15 @@ msgid ""
 "runtime. Rust can usually optimize these checks away, and they can be "
 "avoided using unsafe Rust."
 msgstr ""
+"Спробуйте доступ до елементу масиву, що знаходиться за межами масиву. Доступ "
+"до масиву перевіряється під час виконання. Зазвичай Rust може оптимізувати "
+"ці перевірки, і їх можна уникнути, використовуючи небезпечний Rust."
 
 #: src\tuples-and-arrays/tuples-and-arrays.md:49
 msgid "We can use literals to assign values to arrays."
 msgstr "Ми можемо використовувати літерали для присвоєння значень масивам."
 
 #: src\tuples-and-arrays/tuples-and-arrays.md:51
-#, fuzzy
 msgid ""
 "The `println!` macro asks for the debug implementation with the `?` format "
 "parameter: `{}` gives the default output, `{:?}` gives the debug output. "
@@ -3765,10 +3770,11 @@ msgid ""
 "only implement the debug output. This means that we must use debug output "
 "here."
 msgstr ""
-"У головній функції оператор print запитує реалізацію налагодження за "
-"допомогою параметра формату `?`: `{}` дає вихід за замовчуванням, `{:?}` дає "
-"вихід налагодження. Ми також могли використовувати `{a}` і `{a:?}` без "
-"вказівки значення після рядку формату."
+"Макрос `println!` запитує реалізацію налагодження за допомогою параметра "
+"формату `?`: `{}` - виведення за замовчуванням, `{:?}` - виведення "
+"налагодження. Такі типи, як цілі числа і рядки, реалізують виведення за "
+"замовчуванням, але масиви реалізують лише виведення для налагодження. Це "
+"означає, що тут ми повинні використовувати налагоджувальний вивід."
 
 #: src\tuples-and-arrays/tuples-and-arrays.md:56
 msgid ""
@@ -3799,20 +3805,19 @@ msgstr ""
 "наприклад. `t.0`, `t.1`."
 
 #: src\tuples-and-arrays/tuples-and-arrays.md:66
-#, fuzzy
 msgid ""
 "The empty tuple `()` is also known as the \"unit type\". It is both a type, "
 "and the only valid value of that type --- that is to say both the type and "
 "its value are expressed as `()`. It is used to indicate, for example, that a "
 "function or expression has no return value, as we'll see in a future slide."
 msgstr ""
-"Порожній кортеж `()` також відомий як \"тип агрегату\". Це і тип, і єдине "
-"дійсне значення цього типу, тобто і тип, і його значення виражаються як "
-"`()`. Він використовується, наприклад, щоб вказати, що функція або вираз не "
-"мають значення що повертається, як ми побачимо на наступному слайді."
+"Порожній кортеж `()` також відомий як \"тип одиниці\". Це одночасно і тип, і "
+"єдине допустиме значення цього типу --- тобто і тип, і його значення "
+"виражаються як `()`. Він використовується, наприклад, для позначення того, "
+"що функція або вираз не має значення, яке повертається, як ми побачимо на "
+"наступному слайді."
 
 #: src\tuples-and-arrays/tuples-and-arrays.md:70
-#, fuzzy
 msgid ""
 "You can think of it as `void` that can be familiar to you from other "
 "programming languages."
@@ -3822,13 +3827,15 @@ msgstr ""
 
 #: src\tuples-and-arrays/iteration.md:3
 msgid "The `for` statement supports iterating over arrays (but not tuples)."
-msgstr ""
+msgstr "Оператор `for` підтримує ітерацію над масивами (але не кортежами)."
 
 #: src\tuples-and-arrays/iteration.md:18
 msgid ""
 "This functionality uses the `IntoIterator` trait, but we haven't covered "
 "that yet."
 msgstr ""
+"Ця функціональність використовує трейт `IntoIterator`, але ми ще не "
+"розглядали його."
 
 #: src\tuples-and-arrays/iteration.md:20
 msgid ""
@@ -3836,15 +3843,17 @@ msgid ""
 "` macros. These are always checked while, debug-only variants like "
 "`debug_assert!` compile to nothing in release builds."
 msgstr ""
+"Макрос `assert_ne!` тут новий. Існують також макроси `assert_eq!` та `assert!"
+"`. Вони завжди перевіряються під час виконання, варіанти лише для "
+"налагодження, такі як `debug_assert!`, не компілюються у релізних збірках."
 
 #: src\tuples-and-arrays/match.md:3
-#, fuzzy
 msgid ""
 "The `match` keyword lets you match a value against one or more _patterns_. "
 "The comparisons are done from top to bottom and the first match wins."
 msgstr ""
 "Ключове слово `match` дозволяє зіставити значення з одним або декількома "
-"_шаблонами_. Порівняння відбувається зверху вниз, і виграє перший збіг."
+"_шаблонами_. Порівняння відбуваються зверху вниз, і виграє перший збіг."
 
 #: src\tuples-and-arrays/match.md:6
 msgid "The patterns can be simple values, similarly to `switch` in C and C++:"
@@ -3853,63 +3862,63 @@ msgstr ""
 
 #: src\tuples-and-arrays/match.md:10
 msgid "'x'"
-msgstr ""
+msgstr "'x'"
 
 #: src\tuples-and-arrays/match.md:12
 msgid "'q'"
-msgstr ""
+msgstr "'q'"
 
 #: src\tuples-and-arrays/match.md:12
 msgid "\"Quitting\""
-msgstr ""
+msgstr "\"Виходжу\""
 
 #: src\tuples-and-arrays/match.md:13 src\std-traits/solution.md:16
 #: src\error-handling/exercise.md:62 src\error-handling/exercise.md:64
 #: src\error-handling/solution.md:61 src\error-handling/solution.md:63
 msgid "'a'"
-msgstr ""
+msgstr "'a'"
 
 #: src\tuples-and-arrays/match.md:13
 msgid "'s'"
-msgstr ""
+msgstr "'s'"
 
 #: src\tuples-and-arrays/match.md:13
 msgid "'w'"
-msgstr ""
+msgstr "'w'"
 
 #: src\tuples-and-arrays/match.md:13
 msgid "'d'"
-msgstr ""
+msgstr "'d'"
 
 #: src\tuples-and-arrays/match.md:13
 msgid "\"Moving around\""
-msgstr ""
+msgstr "Пересування"
 
 #: src\tuples-and-arrays/match.md:14 src\error-handling/exercise.md:54
 #: src\error-handling/exercise.md:56 src\error-handling/exercise.md:64
 #: src\error-handling/solution.md:53 src\error-handling/solution.md:55
 #: src\error-handling/solution.md:63
 msgid "'0'"
-msgstr ""
+msgstr "'0'"
 
 #: src\tuples-and-arrays/match.md:14 src\error-handling/exercise.md:54
 #: src\error-handling/exercise.md:56 src\error-handling/exercise.md:64
 #: src\error-handling/solution.md:53 src\error-handling/solution.md:55
 #: src\error-handling/solution.md:63
 msgid "'9'"
-msgstr ""
+msgstr "'9'"
 
 #: src\tuples-and-arrays/match.md:14
 msgid "\"Number input\""
-msgstr ""
+msgstr "\"Введення числа\""
 
 #: src\tuples-and-arrays/match.md:15
 msgid "\"Lowercase: {key}\""
-msgstr ""
+msgstr "\"Нижній регістр: {key}\""
 
 #: src\tuples-and-arrays/match.md:16
 msgid "\"Something else\""
-msgstr ""
+msgstr "\"Щось інше\""
 
 #: src\tuples-and-arrays/match.md:21
 msgid ""
@@ -3917,26 +3926,33 @@ msgid ""
 "expressions _must_ be irrefutable, meaning that it covers every possibility, "
 "so `_` is often used as the final catch-all case."
 msgstr ""
+"Шаблон `_` - це шаблон підстановки, який відповідає будь-якому значенню. "
+"Вирази _повинні_ бути неспростовними, тобто охоплювати всі можливі варіанти, "
+"тому `_` часто використовується як остаточний всеохоплюючий випадок."
 
 #: src\tuples-and-arrays/match.md:25
-#, fuzzy
 msgid ""
 "Match can be used as an expression. Just like like `if`, each match arm must "
 "have the same type. The type is the last expression of the block, if any. In "
 "the example above, the type is `()`."
 msgstr ""
-"Як і `if let`, кожна рука збігу повинна мати той самий тип. Тип — останній "
-"вираз блоку, якщо такий є. У наведеному вище прикладі тип `()`."
+"Match можна використовувати як вираз. Як і у випадку з `if`, кожна гілка "
+"зіставлення повинно мати однаковий тип. Тип - це останній вираз у блоці, "
+"якщо такий є. У наведеному вище прикладі тип `()`."
 
 #: src\tuples-and-arrays/match.md:28
 msgid ""
 "A variable in the pattern (`key` in this example) will create a binding that "
 "can be used within the match arm."
 msgstr ""
+"Змінна у шаблоні (у цьому прикладі - `key`) створить прив'язку, яку можна "
+"використовувати у гілці зіставлення."
 
 #: src\tuples-and-arrays/match.md:31
 msgid "A match guard causes the arm to match only if the condition is true."
 msgstr ""
+"Запобіжник зіставлення призводить до гілці зіставлення, тільки якщо умова "
+"істинна."
 
 #: src\tuples-and-arrays/match.md:35 src\user-defined-types/named-structs.md:40
 #: src\user-defined-types/enums.md:28 src\methods-and-traits/methods.md:64
@@ -3952,7 +3968,7 @@ msgstr ""
 
 #: src\tuples-and-arrays/match.md:37
 msgid "`|` as an `or`"
-msgstr "`|` як `або`"
+msgstr "`|` як `or`"
 
 #: src\tuples-and-arrays/match.md:38
 msgid "`..` can expand as much as it needs to be"
@@ -3972,7 +3988,7 @@ msgid ""
 "we wish to concisely express more complex ideas than patterns alone would "
 "allow."
 msgstr ""
-"Захисники відповідності як окрема функція синтаксису є важливою та "
+"Запобіжники зіставлення як окрема функція синтаксису є важливою та "
 "необхідною, коли ми хочемо стисло висловити більш складні ідеї, ніж це "
 "дозволили б самі шаблони."
 
@@ -3983,9 +3999,9 @@ msgid ""
 "match arm is selected. Failing the `if` condition inside of that block won't "
 "result in other arms of the original `match` expression being considered."
 msgstr ""
-"Це не те саме, що окремий вираз if всередині плеча збігу. Вираз `if` "
-"всередині блоку розгалуження (після `=>`) виникає після вибору плеча "
-"відповідності. Невиконання умови `if` всередині цього блоку не призведе до "
+"Це не те саме, що окремий вираз `if` всередині гілкі зіставлення. Вираз `if` "
+"всередині блоку розгалуження (після `=>`) виникає після вибору гілкі "
+"зіставлення. Невиконання умови `if` всередині цього блоку не призведе до "
 "розгляду інших частин вихідного виразу `match`."
 
 #: src\tuples-and-arrays/match.md:45
@@ -3993,7 +4009,8 @@ msgid ""
 "The condition defined in the guard applies to every expression in a pattern "
 "with an `|`."
 msgstr ""
-"Умова, визначена в guard, застосовується до кожного виразу в шаблоні з `|`."
+"Умова, визначена в запобіжнику, застосовується до кожного виразу в шаблоні з "
+"`|`."
 
 #: src\tuples-and-arrays/destructuring.md:3
 msgid ""
@@ -4001,54 +4018,55 @@ msgid ""
 "pattern that is matched up to the data structure, binding variables to "
 "subcomponents of the data structure."
 msgstr ""
+"Деструктуризація - це спосіб вилучення даних зі структури даних шляхом "
+"написання шаблону, який відповідає структурі даних, прив'язуючи змінні до "
+"підкомпонентів структури даних."
 
 #: src\tuples-and-arrays/destructuring.md:7
-#, fuzzy
 msgid "You can destructure tuples and arrays by matching on their elements:"
 msgstr ""
-"Ви можете деструктурувати масиви, кортежі та фрагменти, зіставляючи їхні "
-"елементи:"
+"Ви можете деструктурувати кортежі та масиви, зіставляючи їхні елементи:"
 
 #: src\tuples-and-arrays/destructuring.md:18
 msgid "\"on Y axis\""
-msgstr ""
+msgstr "\"по осі Y\""
 
 #: src\tuples-and-arrays/destructuring.md:19
 msgid "\"on X axis\""
-msgstr ""
+msgstr "\"по осі X\""
 
 #: src\tuples-and-arrays/destructuring.md:20
 msgid "\"left of Y axis\""
-msgstr ""
+msgstr "\"зліва від осі Y\""
 
 #: src\tuples-and-arrays/destructuring.md:21
 msgid "\"below X axis\""
-msgstr ""
+msgstr "\"нижче осі X\""
 
 #: src\tuples-and-arrays/destructuring.md:22
 msgid "\"first quadrant\""
-msgstr ""
+msgstr "\"перший квадрант\""
 
 #: src\tuples-and-arrays/destructuring.md:33
 msgid "\"Tell me about {triple:?}\""
-msgstr ""
+msgstr "\"Розкажи мені про {triple:?}\""
 
 #: src\tuples-and-arrays/destructuring.md:35
 msgid "\"First is 0, y = {y}, and z = {z}\""
-msgstr ""
+msgstr "\"Перше число 0, y = {y}, and z = {z}\""
 
 #: src\tuples-and-arrays/destructuring.md:36
 msgid "\"First is 1 and the rest were ignored\""
-msgstr ""
+msgstr "\"Перший число 1, а решту проігноровано\""
 
 #: src\tuples-and-arrays/destructuring.md:37
 msgid "\"All elements were ignored\""
-msgstr ""
+msgstr "\"Всі елементи були проігноровані\""
 
 #: src\tuples-and-arrays/destructuring.md:44
-#, fuzzy
 msgid "Create a new array pattern using `_` to represent an element."
-msgstr "Створіть новий шаблон, використовуючи `_` для представлення елемента."
+msgstr ""
+"Створіть новий шаблон масиву, використовуючи `_` для представлення елемента."
 
 #: src\tuples-and-arrays/destructuring.md:45
 msgid "Add more values to the array."
@@ -4059,32 +4077,30 @@ msgid ""
 "Point out that how `..` will expand to account for different number of "
 "elements."
 msgstr ""
-"Зверніть увагу на те, як «..» буде розширюватися, щоб враховувати різну "
+"Зверніть увагу на те, як `..` буде розширюватися, щоб врахувати різну "
 "кількість елементів."
 
 #: src\tuples-and-arrays/destructuring.md:47
 msgid "Show matching against the tail with patterns `[.., b]` and `[a@..,b]`"
 msgstr ""
-"Показати відповідність проти хвоста за шаблонами \"[.., b]\" і \"[a@..,b]\""
+"Покажіть  зіставлення  проти хвоста з хвостом за допомогою шаблонів `[.., "
+"b]` і `[a@..,b]`"
 
 #: src\tuples-and-arrays/exercise.md:3
 msgid "Arrays can contain other arrays:"
-msgstr ""
+msgstr "Масиви можуть містити інші масиви:"
 
 #: src\tuples-and-arrays/exercise.md:9
-#, fuzzy
 msgid "What is the type of this variable?"
-msgstr "Який тип слова в кожному циклі?"
+msgstr "Який тип цієї змінної?"
 
 #: src\tuples-and-arrays/exercise.md:11
-#, fuzzy
 msgid ""
 "Use an array such as the above to write a function `transpose` which will "
 "transpose a matrix (turn rows into columns):"
 msgstr ""
-"Використовуйте наведене вище, щоб написати функцію `pretty_print`, яка "
-"красиво друкує матрицю, і функцію `transpose`, яка транспонує матрицю "
-"(перетворює рядки на стовпці):"
+"Використовуйте масив, подібний до наведеного вище, для написання функції "
+"`transpose`, яка транспонує матрицю (перетворює рядки у стовпці):"
 
 #: src\tuples-and-arrays/exercise.md:21
 msgid "Hard-code both functions to operate on 3 × 3 matrices."
@@ -4101,23 +4117,23 @@ msgstr ""
 #: src\tuples-and-arrays/exercise.md:27 src\methods-and-traits/exercise.md:20
 #: src\borrowing/exercise.md:14 src\unsafe-rust/exercise.md:49
 msgid "// TODO: remove this when you're done with your implementation.\n"
-msgstr ""
+msgstr "// TODO: видаліть це, коли закінчите реалізацію.\n"
 
 #: src\tuples-and-arrays/exercise.md:36 src\tuples-and-arrays/solution.md:34
 msgid "// <-- the comment makes rustfmt add a newline\n"
-msgstr ""
+msgstr "// <-- коментар змушує rustfmt додати новий рядок\n"
 
 #: src\tuples-and-arrays/exercise.md:41 src\tuples-and-arrays/solution.md:39
 msgid "\"matrix: {:#?}\""
-msgstr ""
+msgstr "\"матриця: {:#?}\""
 
 #: src\tuples-and-arrays/exercise.md:43 src\tuples-and-arrays/solution.md:41
 msgid "\"transposed: {:#?}\""
-msgstr ""
+msgstr "\"транспонована: {:#?}\""
 
 #: src\tuples-and-arrays/solution.md:17 src\tuples-and-arrays/solution.md:25
 msgid "//\n"
-msgstr ""
+msgstr "//\n"
 
 #: src\references/shared.md:3
 msgid ""
@@ -4125,6 +4141,10 @@ msgid ""
 "responsibility for the value, and is also called \"borrowing\". Shared "
 "references are read-only, and the referenced data cannot change."
 msgstr ""
+"Посилання дає змогу отримати доступ до іншого значення, не беручи на себе "
+"відповідальність за це значення, і також називається \"запозиченням\". "
+"Спільні посилання доступні лише для читання, і дані, на які вони "
+"посилаються, не можуть бути змінені."
 
 #: src\references/shared.md:19
 msgid ""
@@ -4132,6 +4152,9 @@ msgid ""
 "with the `&` operator. The `*` operator \"dereferences\" a reference, "
 "yielding its value."
 msgstr ""
+"Спільне посилання на тип `T` має тип `&T`. Значення посилання робиться за "
+"допомогою оператора `&`. Оператор `*` \"розіменовує\" посилання, повертаючи "
+"його значення."
 
 #: src\references/shared.md:22
 msgid "Rust will statically forbid dangling references:"
@@ -4144,6 +4167,11 @@ msgid ""
 "access the value, but is still \"owned\" by the original variable. The "
 "course will get into more detail on ownership in day 3."
 msgstr ""
+"Кажуть, що посилання \"позичає\" значення, на яке воно посилається, і це "
+"гарна модель для слухачів, які не знайомі з вказівниками: код може "
+"використовувати посилання для доступу до значення, але все одно залишається "
+"\"власністю\" вихідної змінної. Більш детально про володіння буде розглянуто "
+"на третьому дні курсу."
 
 #: src\references/shared.md:39
 msgid ""
@@ -4153,22 +4181,28 @@ msgid ""
 "cover how Rust prevents the memory-safety bugs that come from using raw "
 "pointers."
 msgstr ""
+"Посилання реалізовано як вказівники, і ключовою перевагою є те, що вони "
+"можуть бути набагато меншими за об'єкт, на який вони вказують. Слухачі, "
+"знайомі з C або C++, розпізнають посилання як вказівники. У наступних "
+"частинах курсу буде розглянуто, як Rust запобігає помилкам, пов'язаним з "
+"безпекою пам'яті, які виникають при використанні сирих вказівників."
 
 #: src\references/shared.md:44
 msgid ""
 "Rust does not automatically create references for you - the `&` is always "
 "required."
 msgstr ""
+"Rust не створює посилання автоматично - завжди потрібно використовувати `&`."
 
 #: src\references/shared.md:47
-#, fuzzy
 msgid ""
 "Rust will auto-dereference in some cases, in particular when invoking "
 "methods (try `r.count_ones()`). There is no need for an `->` operator like "
 "in C++."
 msgstr ""
 "У деяких випадках Rust виконує автоматичне розіменування, зокрема під час "
-"виклику методів (спробуйте `ref_x.count_ones()`)."
+"виклику методів (спробуйте `ref_x.count_ones()`).  Тут не потрібен оператор "
+"`->`, як у C++."
 
 #: src\references/shared.md:51
 msgid ""
@@ -4177,12 +4211,18 @@ msgid ""
 "different from C++, where assignment to a reference changes the referenced "
 "value."
 msgstr ""
+"У цьому прикладі `r` є мутабельним, тому його можна перепризначити (`r = "
+"&b`). Зверніть увагу, що це повторно зв'язує `r`, так що він посилається на "
+"щось інше. Це відрізняється від C++, де присвоювання посилання змінює "
+"значення, на яке воно посилається."
 
 #: src\references/shared.md:56
 msgid ""
 "A shared reference does not allow modifying the value it refers to, even if "
 "that value was mutable. Try `*r = 'X'`."
 msgstr ""
+"Спільне посилання не дозволяє змінювати значення, на яке воно посилається, "
+"навіть якщо це значення було змінним. Спробуйте `*r = 'X'`."
 
 #: src\references/shared.md:59
 msgid ""
@@ -4191,6 +4231,10 @@ msgid ""
 "a reference to `point`, but `point` will be deallocated when the function "
 "returns, so this will not compile."
 msgstr ""
+"Rust відстежує час життя всіх посилань, щоб переконатися, що вони живуть "
+"достатньо довго. У безпечному Rust'і не може бути \"висячих\" посилань. "
+"Функція `x_axis` поверне посилання на `point`, але `point` буде звільнено, "
+"коли функція повернеться, тому це не буде скомпільовано."
 
 #: src\references/shared.md:64
 msgid "We will talk more about borrowing when we get to ownership."
@@ -4201,6 +4245,8 @@ msgid ""
 "Exclusive references, also known as mutable references, allow changing the "
 "value they refer to. They have type `&mut T`."
 msgstr ""
+"Ексклюзивні посилання, також відомі як мутабельні посилання, дозволяють "
+"змінювати значення, на яке вони посилаються. Вони мають тип `&mut T`."
 
 #: src\references/exclusive.md:20
 msgid ""
@@ -4210,19 +4256,23 @@ msgid ""
 "exists. Try making an `&point.0` or changing `point.0` while `x_coord` is "
 "alive."
 msgstr ""
+"\"Ексклюзивне\" означає, що тільки це посилання може бути використане для "
+"доступу до значення. Жодні інші посилання (спільні або ексклюзивні) не "
+"можуть існувати одночасно, і до значення, на яке посилаються, не можна "
+"отримати доступ, поки існує ексклюзивне посилання. Спробуйте створити "
+"`&point.0` або змінити `point.0`, поки існує `x_coord`."
 
 #: src\references/exclusive.md:25
-#, fuzzy
 msgid ""
 "Be sure to note the difference between `let mut x_coord: &i32` and `let "
 "x_coord: &mut i32`. The first one represents a shared reference which can be "
 "bound to different values, while the second represents an exclusive "
 "reference to a mutable value."
 msgstr ""
-"Обов’язково зверніть увагу на різницю між `let mut ref_x: &i32` і `let "
-"ref_x: &mut i32`. Перше представляє змінне посилання, яке може бути "
-"прив’язане до різних значень, тоді як друге представляє посилання на змінне "
-"значення."
+"Обов’язково зверніть увагу на різницю між `let mut x_coord: &i32` і `let "
+"x_coord: &mut i32`. Перший представляє спільне посилання, яке можна "
+"прив'язати до різних значень, тоді як другий представляє ексклюзивне "
+"посилання на значення, що змінюється."
 
 #: src\references/exercise.md:3
 msgid ""
@@ -4230,6 +4280,8 @@ msgid ""
 "representing a point as `[f64;3]`. It is up to you to determine the function "
 "signatures."
 msgstr ""
+"Ми створимо декілька утиліт для тривимірної геометрії, що представляють "
+"точку у вигляді `[f64;3]`. Ви самі визначаєте сигнатури функцій."
 
 #: src\references/exercise.md:7
 msgid ""
@@ -4239,38 +4291,44 @@ msgid ""
 "square\n"
 "// root, like `v.sqrt()`.\n"
 msgstr ""
+"// Обчисліть величину вектора шляхом додавання квадратів його координат\n"
+"// і вилучення квадратного кореня. Використовуйте метод `qrt()` для для "
+"обчислення квадратного\n"
+"// кореня, наприклад `v.sqrt()`.\n"
 
 #: src\references/exercise.md:15
 msgid ""
 "// Normalize a vector by calculating its magnitude and dividing all of its\n"
 "// coordinates by that magnitude.\n"
 msgstr ""
+"// Нормалізуйте вектор, обчисливши його величину і поділивши всі його\n"
+"// координати на цю величину.\n"
 
 #: src\references/exercise.md:23
 msgid "// Use the following `main` to test your work.\n"
-msgstr ""
+msgstr "Використовуйте наступний `main` для тестування вашої роботи.\n"
 
 #: src\references/exercise.md:28 src\references/solution.md:23
 msgid "\"Magnitude of a unit vector: {}\""
-msgstr ""
+msgstr "\"Величина одиничного вектора: {}\""
 
 #: src\references/exercise.md:33 src\references/solution.md:28
 msgid "\"Magnitude of {v:?}: {}\""
-msgstr ""
+msgstr "\"Величина {v:?}: {}\""
 
 #: src\references/exercise.md:35 src\references/solution.md:30
 msgid "\"Magnitude of {v:?} after normalization: {}\""
-msgstr ""
+msgstr "\"Величина {v:?} після нормалізації: {}\""
 
 #: src\references/solution.md:4
 msgid "/// Calculate the magnitude of the given vector.\n"
-msgstr ""
+msgstr "/// Обчисліть величину заданого вектора.\n"
 
 #: src\references/solution.md:12
 msgid ""
 "/// Change the magnitude of the vector to 1.0 without changing its "
 "direction.\n"
-msgstr ""
+msgstr "/// Змініть величину вектора на 1.0, не змінюючи його напрямок.\n"
 
 #: src\user-defined-types/named-structs.md:3
 msgid "Like C and C++, Rust has support for custom structs:"
@@ -4278,20 +4336,20 @@ msgstr "Подібно до C і C++, Rust підтримує користува
 
 #: src\user-defined-types/named-structs.md:12
 msgid "\"{} is {} years old\""
-msgstr ""
+msgstr "\"{} віком {} років\""
 
 #: src\user-defined-types/named-structs.md:17
 #: src\android/interoperability/with-c/bindgen.md:87
 msgid "\"Peter\""
-msgstr ""
+msgstr "\"Peter\""
 
 #: src\user-defined-types/named-structs.md:25
 msgid "\"Avery\""
-msgstr ""
+msgstr "\"Avery\""
 
 #: src\user-defined-types/named-structs.md:31
 msgid "\"Jackie\""
-msgstr ""
+msgstr "\"Jackie\""
 
 #: src\user-defined-types/named-structs.md:42
 msgid "Structs work like in C or C++."
@@ -4307,7 +4365,6 @@ msgid "Unlike in C++, there is no inheritance between structs."
 msgstr "На відміну від C++, між структурами немає успадкування."
 
 #: src\user-defined-types/named-structs.md:45
-#, fuzzy
 msgid ""
 "This may be a good time to let people know there are different types of "
 "structs."
@@ -4321,6 +4378,9 @@ msgid ""
 "trait on some type but don’t have any data that you want to store in the "
 "value itself."
 msgstr ""
+"Структури нульового розміру (наприклад, `struct Foo;`) можуть бути "
+"використані при реалізації трейту на якомусь типі, але не мають даних, які "
+"ви хочете зберігати у самому значенні."
 
 #: src\user-defined-types/named-structs.md:47
 msgid ""
@@ -4331,7 +4391,6 @@ msgstr ""
 "використовуються, коли імена полів не важливі."
 
 #: src\user-defined-types/named-structs.md:48
-#, fuzzy
 msgid ""
 "If you already have variables with the right names, then you can create the "
 "struct using a shorthand."
@@ -4340,14 +4399,13 @@ msgstr ""
 "за допомогою скорочення:"
 
 #: src\user-defined-types/named-structs.md:50
-#, fuzzy
 msgid ""
 "The syntax `..avery` allows us to copy the majority of the fields from the "
 "old struct without having to explicitly type it all out. It must always be "
 "the last element."
 msgstr ""
-"Синтаксис `..peter` дозволяє нам скопіювати більшість полів зі старої "
-"структури без необхідності явного введення всього. Це завжди має бути "
+"Синтаксис `..avery` дозволяє нам скопіювати більшість полів зі старої "
+"структури без необхідності явного введення всіх полів. Це завжди має бути "
 "останнім елементом."
 
 #: src\user-defined-types/tuple-structs.md:6
@@ -4356,23 +4414,23 @@ msgstr "Якщо імена полів неважливі, ви можете в�
 
 #: src\user-defined-types/tuple-structs.md:13
 msgid "\"({}, {})\""
-msgstr ""
+msgstr "\"({}, {})\""
 
 #: src\user-defined-types/tuple-structs.md:17
 msgid "This is often used for single-field wrappers (called newtypes):"
 msgstr ""
-"Це часто використовується для обгорток з одним полем (так звані нові типи):"
+"Це часто використовується для обгорток з одним полем (так званих newtypes):"
 
 #: src\user-defined-types/tuple-structs.md:24
 msgid "\"Ask a rocket scientist at NASA\""
-msgstr ""
+msgstr "\"Запитайте вченого-ракетника з NASA\""
 
 #: src\user-defined-types/tuple-structs.md:28
 #: src\android/interoperability/cpp/cpp-bridge.md:50
 #: src\bare-metal/microcontrollers/type-state.md:14
 #: src\async/pitfalls/cancellation.md:96 src\async/pitfalls/cancellation.md:99
 msgid "// ...\n"
-msgstr ""
+msgstr "// ...\n"
 
 #: src\user-defined-types/tuple-structs.md:40
 msgid ""
@@ -4385,17 +4443,16 @@ msgstr ""
 #: src\user-defined-types/tuple-structs.md:41
 msgid "The number is measured in some units: `Newtons` in the example above."
 msgstr ""
-"Число вимірюється в деяких одиницях: у наведеному вище прикладі \"Ньютон\"."
+"Число вимірюється в деяких одиницях: у наведеному вище прикладі `Newtons`."
 
 #: src\user-defined-types/tuple-structs.md:42
-#, fuzzy
 msgid ""
 "The value passed some validation when it was created, so you no longer have "
 "to validate it again at every use: `PhoneNumber(String)` or `OddNumber(u32)`."
 msgstr ""
 "Значення пройшло певну перевірку під час створення, тому вам більше не "
-"потрібно перевіряти його знову під час кожного використання: «Номер телефону "
-"(рядок)» або «Непарний номер (u32)»."
+"потрібно перевіряти його знову при кожному використанні: "
+"`PhoneNumber(String)` або `OddNumber(u32)`."
 
 #: src\user-defined-types/tuple-structs.md:43
 msgid ""
@@ -4415,7 +4472,7 @@ msgstr ""
 
 #: src\user-defined-types/tuple-structs.md:45
 msgid "Operator overloading is discussed on Day 3 (generics)."
-msgstr "Перевантаження операторів обговорюється в день 3 (генерики)."
+msgstr "Перевантаження операторів обговорюється в день 3 (дженерики)."
 
 #: src\user-defined-types/tuple-structs.md:46
 msgid ""
@@ -4434,30 +4491,31 @@ msgstr ""
 
 #: src\user-defined-types/enums.md:15
 msgid "// Simple variant\n"
-msgstr ""
+msgstr "// Простий варіант\n"
 
 #: src\user-defined-types/enums.md:16
 msgid "// Tuple variant\n"
-msgstr ""
+msgstr "// Варіант кортежу\n"
 
 #: src\user-defined-types/enums.md:17
 msgid "// Struct variant\n"
-msgstr ""
+msgstr "// Варіант структури\n"
 
 #: src\user-defined-types/enums.md:22
 msgid "\"On this turn: {:?}\""
-msgstr ""
+msgstr "\"На цьому повороті: {:?}\""
 
 #: src\user-defined-types/enums.md:30
-#, fuzzy
 msgid "Enumerations allow you to collect a set of values under one type."
-msgstr "Перерахування дозволяють зібрати набір значень під один тип"
+msgstr "Переліки дозволяють збирати набір значень під одним типом."
 
 #: src\user-defined-types/enums.md:31
 msgid ""
 "`Direction` is a type with variants. There are two values of `Direction`: "
 "`Direction::Left` and `Direction::Right`."
 msgstr ""
+"Напрямок - це тип з варіантами. Існує два значення `Direction`: `Direction::"
+"Left` та `Direction::Right`."
 
 #: src\user-defined-types/enums.md:32
 msgid ""
@@ -4465,39 +4523,40 @@ msgid ""
 "Rust will store a discriminant so that it knows at runtime which variant is "
 "in a `PlayerMove` value."
 msgstr ""
+"`PlayerMove` - це тип з трьома варіантами. На додаток до корисного "
+"навантаження, Rust зберігатиме дискримінант, щоб під час виконання знати, "
+"який варіант є у значенні `PlayerMove`."
 
 #: src\user-defined-types/enums.md:33
-#, fuzzy
 msgid "This might be a good time to compare structs and enums:"
-msgstr "Це може бути гарний час для порівняння Structs і Enum:"
+msgstr "Це може бути гарний час для порівняння структури та переліки:"
 
 #: src\user-defined-types/enums.md:34
-#, fuzzy
 msgid ""
 "In both, you can have a simple version without fields (unit struct) or one "
 "with different types of fields (variant payloads)."
 msgstr ""
 "В обох ви можете мати просту версію без полів (структура одиниць) або з "
-"різними типами полів (варіантні корисні навантаження)."
+"різними типами полів (різні варіанти корисного навантаження)."
 
 #: src\user-defined-types/enums.md:35
-#, fuzzy
 msgid ""
 "You could even implement the different variants of an enum with separate "
 "structs but then they wouldn’t be the same type as they would if they were "
 "all defined in an enum."
 msgstr ""
-"Ви навіть можете реалізувати різні варіанти enum за допомогою окремих "
-"структур, але тоді вони не будуть того самого типу, якби вони були визначені "
-"в enum."
+"Ви навіть можете реалізувати різні варіанти переліку окремими структурами, "
+"але тоді вони не будуть одного типу, як якщо б всі вони були визначені в "
+"переліку."
 
 #: src\user-defined-types/enums.md:36
 msgid "Rust uses minimal space to store the discriminant."
 msgstr ""
+"Rust використовує мінімальний обсяг пам'яті для зберігання дискримінанта."
 
 #: src\user-defined-types/enums.md:37
 msgid "If necessary, it stores an integer of the smallest required size"
-msgstr ""
+msgstr "Якщо потрібно, він зберігає ціле число найменшого необхідного розміру"
 
 #: src\user-defined-types/enums.md:38
 msgid ""
@@ -4506,6 +4565,10 @@ msgid ""
 "optimization\"). For example, `Option<&u8>` stores either a pointer to an "
 "integer or `NULL` for the `None` variant."
 msgstr ""
+"Якщо допустимі значення варіантів не покривають усіх бітових шаблонів, для "
+"кодування дискримінанта буде використано неприпустимі бітові шаблони "
+"(\"нішева оптимізація\"). Наприклад, `Option<&u8>` зберігає або вказівник на "
+"ціле число, або `NULL` для варіанта `None`."
 
 #: src\user-defined-types/enums.md:42
 msgid ""
@@ -4525,13 +4588,15 @@ msgstr ""
 #: src\memory-management/review.md:47 src\memory-management/move.md:91
 #: src\smart-pointers/box.md:73 src\borrowing/shared.md:31
 msgid "More to Explore"
-msgstr ""
+msgstr "Більше інформації для вивчення"
 
 #: src\user-defined-types/enums.md:65
 msgid ""
 "Rust has several optimizations it can employ to make enums take up less "
 "space."
 msgstr ""
+"Rust має декілька оптимізацій, які можна застосувати, щоб зменшити розмір "
+"переліків."
 
 #: src\user-defined-types/enums.md:67
 msgid ""
@@ -4549,12 +4614,11 @@ msgid ""
 "like in practice. It's important to note that the compiler provides no "
 "guarantees regarding this representation, therefore this is totally unsafe."
 msgstr ""
-"Приклад коду, якщо ви хочете показати, як _може_ виглядати порозрядне "
+"Приклад коду, якщо ви хочете показати, як _може_ виглядати  побітове "
 "представлення на практиці. Важливо зазначити, що компілятор не надає жодних "
 "гарантій щодо цього представлення, тому це абсолютно небезпечно."
 
 #: src\user-defined-types/static-and-const.md:3
-#, fuzzy
 msgid ""
 "Static and constant variables are two different ways to create globally-"
 "scoped values that cannot be moved or reallocated during the execution of "
@@ -4573,7 +4637,7 @@ msgid ""
 "Constant variables are evaluated at compile time and their values are "
 "inlined wherever they are used:"
 msgstr ""
-"Константні змінні оцінюються під час компіляції, а їхні значення "
+"Константні змінні піддаються оцінці під час компіляції, а їхні значення "
 "вставляються скрізь, де вони використовуються:"
 
 #: src\user-defined-types/static-and-const.md:30
@@ -4581,8 +4645,8 @@ msgid ""
 "According to the [Rust RFC Book](https://rust-lang.github.io/rfcs/0246-const-"
 "vs-static.html) these are inlined upon use."
 msgstr ""
-"Відповідно до [Книги RFC RFC] (https://rust-lang.github.io/rfcs/0246-const-"
-"vs-static.html) вони додаються під час використання."
+"Відповідно до [Книги Rust RFC] (https://rust-lang.github.io/rfcs/0246-const-"
+"vs-static.html) вони підставляються під час використання."
 
 #: src\user-defined-types/static-and-const.md:32
 msgid ""
@@ -4595,27 +4659,25 @@ msgstr ""
 
 #: src\user-defined-types/static-and-const.md:34
 msgid "`static`"
-msgstr "`статичний`"
+msgstr "`static`"
 
 #: src\user-defined-types/static-and-const.md:36
 msgid ""
 "Static variables will live during the whole execution of the program, and "
 "therefore will not move:"
 msgstr ""
-"Статичні змінні будуть жити протягом усього виконання програми, тому не "
+"Статичні змінні будуть жити протягом усього часу виконання програми, тому не "
 "будуть переміщатися:"
 
 #: src\user-defined-types/static-and-const.md:39
-#, fuzzy
 msgid "\"Welcome to RustOS 3.14\""
-msgstr "Ласкаво просимо до Дня 1"
+msgstr "\"Ласкаво просимо до RustOS 3.14\""
 
 #: src\user-defined-types/static-and-const.md:42
 msgid "\"{BANNER}\""
-msgstr ""
+msgstr "\"{BANNER}\""
 
 #: src\user-defined-types/static-and-const.md:46
-#, fuzzy
 msgid ""
 "As noted in the [Rust RFC Book](https://rust-lang.github.io/rfcs/0246-const-"
 "vs-static.html), these are not inlined upon use and have an actual "
@@ -4625,11 +4687,11 @@ msgid ""
 "`const` is generally preferred."
 msgstr ""
 "Як зазначено в [Книзі Rust RFC](https://rust-lang.github.io/rfcs/0246-const-"
-"vs-static.html), вони не вбудовуються під час використання та мають фактичне "
-"пов’язане розташування в пам’яті. Це корисно для небезпечного та вбудованого "
-"коду, і змінна живе протягом усього виконання програми. Якщо значення "
-"глобальної області видимості не потребує ідентичності об’єкта, перевага "
-"надається `const`."
+"vs-static.html), вони не підставляються під час використання та мають "
+"реальну асоційовану ділянку пам'яті. Це корисно для небезпечного та "
+"вбудованого коду, і змінна живе протягом усього виконання програми. Якщо "
+"значення глобальної області видимості не потребує ідентичності об’єкта, "
+"перевага надається `const`."
 
 #: src\user-defined-types/static-and-const.md:52
 msgid "Mention that `const` behaves semantically similar to C++'s `constexpr`."
@@ -4640,7 +4702,7 @@ msgid ""
 "`static`, on the other hand, is much more similar to a `const` or mutable "
 "global variable in C++."
 msgstr ""
-"`static`, з іншого боку, набагато більше схожий на `const` або змінну "
+"`static`, з іншого боку, набагато більше схожий на `const` або мутабельну "
 "глобальну змінну в C++."
 
 #: src\user-defined-types/static-and-const.md:54
@@ -4656,8 +4718,8 @@ msgid ""
 "It isn't super common that one would need a runtime evaluated constant, but "
 "it is helpful and safer than using a static."
 msgstr ""
-"Це не надто поширене явище, коли потрібна константа з оцінкою часу "
-"виконання, але це корисно та безпечніше, ніж використовувати static."
+"Не так часто виникає потреба у константі, що обчислюється під час виконання, "
+"але це корисно та безпечніше, ніж використовувати static."
 
 #: src\user-defined-types/static-and-const.md:57
 msgid "Properties table:"
@@ -4666,15 +4728,15 @@ msgstr "Таблиця властивостей:"
 #: src\user-defined-types/static-and-const.md:59
 #: src\chromium/adding-third-party-crates.md:6
 msgid "Property"
-msgstr "Власність"
+msgstr "Власивість"
 
 #: src\user-defined-types/static-and-const.md:59
 msgid "Static"
-msgstr "Статичний"
+msgstr "Статична"
 
 #: src\user-defined-types/static-and-const.md:59
 msgid "Constant"
-msgstr "Постійний"
+msgstr "Постійна"
 
 #: src\user-defined-types/static-and-const.md:61
 msgid "Has an address in memory"
@@ -4692,7 +4754,7 @@ msgstr "Так"
 
 #: src\user-defined-types/static-and-const.md:61
 msgid "No (inlined)"
-msgstr "Ні (вставлено)"
+msgstr "Ні (підставлена)"
 
 #: src\user-defined-types/static-and-const.md:62
 msgid "Lives for the entire duration of the program"
@@ -4716,18 +4778,17 @@ msgstr "Так (небезпечно)"
 
 #: src\user-defined-types/static-and-const.md:64
 msgid "Evaluated at compile time"
-msgstr "Оцінюється під час компіляції"
+msgstr "Обчислюється під час компіляції"
 
 #: src\user-defined-types/static-and-const.md:64
 msgid "Yes (initialised at compile time)"
-msgstr "Так (ініціалізовано під час компіляції)"
+msgstr "Так (ініціалізуэться під час компіляції)"
 
 #: src\user-defined-types/static-and-const.md:65
 msgid "Inlined wherever it is used"
-msgstr "Вбудований скрізь, де він використовується"
+msgstr "Підставляеться скрізь, де використовується"
 
 #: src\user-defined-types/static-and-const.md:69
-#, fuzzy
 msgid ""
 "Because `static` variables are accessible from any thread, they must be "
 "`Sync`. Interior mutability is possible through a [`Mutex`](https://doc.rust-"
@@ -4735,30 +4796,28 @@ msgid ""
 msgstr ""
 "Оскільки `static` змінні доступні з будь-якого потоку, вони повинні бути "
 "`Sync`. Внутрішня змінність можлива через [`Mutex`](https://doc.rust-lang."
-"org/std/sync/struct.Mutex.html), атомарний або подібний. Також можна мати "
-"змінну статику, але вона потребує ручної синхронізації, тому будь-який "
-"доступ до них потребує `небезпечного` коду. Ми розглянемо [змінну статику]"
-"(../unsafe/mutable-static-variables.md) у розділі про небезпечний Rust."
+"org/std/sync/struct.Mutex.html), atomic або подібні до них."
 
 #: src\user-defined-types/static-and-const.md:73
-#, fuzzy
 msgid "Thread-local data can be created with the macro `std::thread_local`."
 msgstr ""
-"Дані `thread_local` можна створити за допомогою макросу `std::thread_local`."
+"Локальні дані потоку можна створити за допомогою макросу `std::thread_local`."
 
 #: src\user-defined-types/aliases.md:3
 msgid ""
 "A type alias creates a name for another type. The two types can be used "
 "interchangeably."
 msgstr ""
+"Псевдонім типу створює ім'я для іншого типу. Ці два типи можна "
+"використовувати взаємозамінно."
 
 #: src\user-defined-types/aliases.md:12
 msgid "// Aliases are more useful with long, complex types:\n"
-msgstr ""
+msgstr "// Псевдоніми більш корисні для довгих, складних типів:\n"
 
 #: src\user-defined-types/aliases.md:20
 msgid "C programmers will recognize this as similar to a `typedef`."
-msgstr ""
+msgstr "Програмісти на C впізнають це як схоже на `typedef`."
 
 #: src\user-defined-types/exercise.md:3
 msgid ""
@@ -4767,6 +4826,10 @@ msgid ""
 "various events. Use `#[derive(Debug)]` to allow the types to be formatted "
 "with `{:?}`."
 msgstr ""
+"Ми створимо структуру даних для представлення події в системі керування "
+"ліфтом. Ви самі визначаєте типи та функції для створення різних подій. "
+"Використовуйте `#[derive(Debug)]`, щоб дозволити форматування типів за "
+"допомогою `{:?}`."
 
 #: src\user-defined-types/exercise.md:7
 msgid ""
@@ -4774,97 +4837,102 @@ msgid ""
 "`main` runs without errors. The next part of the course will cover getting "
 "data out of these structures."
 msgstr ""
+"У цій вправі потрібно лише створити і заповнити структури даних так, щоб "
+"`main` працював без помилок. Наступна частина курсу буде присвячена "
+"отриманню даних з цих структур."
 
 #: src\user-defined-types/exercise.md:12 src\user-defined-types/solution.md:4
 msgid ""
 "/// An event in the elevator system that the controller must react to.\n"
-msgstr ""
+msgstr "/// Подія в ліфтовій системі, на яку повинен реагувати контролер.\n"
 
 #: src\user-defined-types/exercise.md:15
 msgid "// TODO: add required variants\n"
-msgstr ""
+msgstr "// TODO: додайте необхідні варіанти\n"
 
 #: src\user-defined-types/exercise.md:17 src\user-defined-types/solution.md:22
 msgid "/// A direction of travel.\n"
-msgstr ""
+msgstr "/// Напрямок руху.\n"
 
 #: src\user-defined-types/exercise.md:24 src\user-defined-types/solution.md:39
 msgid "/// The car has arrived on the given floor.\n"
-msgstr ""
+msgstr "/// Кабіна ліфта прибув на вказаний поверх.\n"
 
 #: src\user-defined-types/exercise.md:29 src\user-defined-types/solution.md:44
 msgid "/// The car doors have opened.\n"
-msgstr ""
+msgstr "/// Двері у кабіні ліфта відчинилися.\n"
 
 #: src\user-defined-types/exercise.md:34 src\user-defined-types/solution.md:49
 msgid "/// The car doors have closed.\n"
-msgstr ""
+msgstr "/// Двері у кабіні ліфта зачинилися.\n"
 
 #: src\user-defined-types/exercise.md:39 src\user-defined-types/solution.md:54
 msgid ""
 "/// A directional button was pressed in an elevator lobby on the given "
 "floor.\n"
 msgstr ""
+"/// У ліфтовому холі на даному поверсі була натиснута кнопка виклику в "
+"заданому напрямку.\n"
 
 #: src\user-defined-types/exercise.md:44 src\user-defined-types/solution.md:59
 msgid "/// A floor button was pressed in the elevator car.\n"
-msgstr ""
+msgstr "/// У кабіні ліфта була натиснута кнопка поверху.\n"
 
 #: src\user-defined-types/exercise.md:52 src\user-defined-types/solution.md:67
 msgid "\"A ground floor passenger has pressed the up button: {:?}\""
-msgstr ""
+msgstr "\"Пасажир першого поверху натиснув кнопку вгору: {:?}\""
 
 #: src\user-defined-types/exercise.md:56 src\user-defined-types/solution.md:71
 msgid "\"The car has arrived on the ground floor: {:?}\""
-msgstr ""
+msgstr "\"Кабіна ліфта заїхала на перший поверх: {:?}\""
 
 #: src\user-defined-types/exercise.md:59 src\user-defined-types/solution.md:74
 msgid "\"The car door opened: {:?}\""
-msgstr ""
+msgstr "\"Двері у кабіні ліфта відчинилися: {:?}\""
 
 #: src\user-defined-types/exercise.md:61 src\user-defined-types/solution.md:76
 msgid "\"A passenger has pressed the 3rd floor button: {:?}\""
-msgstr ""
+msgstr "\"Пасажир натиснув кнопку 3-го поверху: {:?}\""
 
 #: src\user-defined-types/exercise.md:64 src\user-defined-types/solution.md:79
 msgid "\"The car door closed: {:?}\""
-msgstr ""
+msgstr "\"Двері у кабіні ліфта зачинилися: {:?}\""
 
 #: src\user-defined-types/exercise.md:65 src\user-defined-types/solution.md:80
 msgid "\"The car has arrived on the 3rd floor: {:?}\""
-msgstr ""
+msgstr "\"Кабіна ліфта заїхала на 3-й поверх: {:?}\"і"
 
 #: src\user-defined-types/solution.md:7
 msgid "/// A button was pressed.\n"
-msgstr ""
+msgstr "/// Була натиснута кнопка.\n"
 
 #: src\user-defined-types/solution.md:10
 msgid "/// The car has arrived at the given floor.\n"
-msgstr ""
+msgstr "/// Кабіна ліфта прибула на вказаний поверх.\n"
 
 #: src\user-defined-types/solution.md:13
 msgid "/// The car's doors have opened.\n"
-msgstr ""
+msgstr "/// Двері кабіни ліфта відчинилися.\n"
 
 #: src\user-defined-types/solution.md:16
 msgid "/// The car's doors have closed.\n"
-msgstr ""
+msgstr "/// Двері кабіни ліфта зачинилися.\n"
 
 #: src\user-defined-types/solution.md:19
 msgid "/// A floor is represented as an integer.\n"
-msgstr ""
+msgstr "/// Поверх задається цілим числом.\n"
 
 #: src\user-defined-types/solution.md:29
 msgid "/// A user-accessible button.\n"
-msgstr ""
+msgstr "/// Кнопка, доступна для користувача.\n"
 
 #: src\user-defined-types/solution.md:33
 msgid "/// A button in the elevator lobby on the given floor.\n"
-msgstr ""
+msgstr "/// Кнопка в холі ліфта на даному поверсі.\n"
 
 #: src\user-defined-types/solution.md:36
 msgid "/// A floor button within the car.\n"
-msgstr ""
+msgstr "/// Кнопка поверху в кабіни ліфта.\n"
 
 #: src\welcome-day-2.md:1
 msgid "Welcome to Day 2"
