@@ -53,7 +53,7 @@ To extract the original English text and generate a `messages.pot` file, you run
 `mdbook` with a special renderer:
 
 ```shell
-MDBOOK_OUTPUT='{"xgettext": {"pot-file": "messages.pot"}}' \
+MDBOOK_OUTPUT='{"xgettext": {"pot-file": "messages.pot", "granularity": 0}}' \
   mdbook build -d po
 ```
 
