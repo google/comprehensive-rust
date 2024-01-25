@@ -3,6 +3,12 @@
 This is an mdBook preprocessor to handle some specific details of Comprehensive
 Rust.
 
+It provides three binaries:
+
+- `mdbook-course` -- the actual preprocessor
+- `course-schedule` -- prints the course schedule with timings
+- `course-content` -- dumps all course content to stdout, in order
+
 ## Frontmatter
 
 The preprocessor parses "frontmatter" -- YAML between `---` at the beginning of
