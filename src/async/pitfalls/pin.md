@@ -1,13 +1,17 @@
 # `Pin`
 
-When you await a future, all local variables (that would ordinarily be stored on
-a stack frame) are instead stored in the Future for the current async block. If
-your future has pointers to data on the stack, those pointers might get
-invalidated. This is unsafe.
+Async blocks and functions return types implementing the `Future` trait. The
+type returned is the result of a compiler transformation which turns local
+variables into data stored inside the future.
 
-Therefore, you must guarantee that the addresses your future points to don't
-change. That is why we need to "pin" futures. Using the same future repeatedly
-in a `select!` often leads to issues with pinned values.
+Some of those variables can hold pointers to other local variables. Because of
+that, the future should never be moved to a different memory location, as it
+would invalidate those pointers.
+
+To prevent moving the future type in memory, it can only be polled through a
+pinned pointer. `Pin` is a wrapper around a reference that disallows all
+operations that would move the instance it points to into a different memory
+location.
 
 ```rust,editable,compile_fail
 use tokio::sync::{mpsc, oneshot};
@@ -106,5 +110,19 @@ async fn main() {
 
 - Another alternative is to not use `pin` at all but spawn another task that
   will send to a `oneshot` channel every 100ms.
+
+- Data that contains pointers to itself is called self-referential. Normally,
+  the Rust borrow checker would prevent self-referential data from being moved,
+  as the references cannot outlive the data they point to. However, the code
+  transformation for async blocks and functions is not verified by the borrow
+  checker.
+
+- `Pin` is a wrapper around a reference. An object cannot be moved from its
+  place using a pinned pointer. However, it can still be moved through an
+  unpinned pointer.
+
+- The `poll` method of the `Future` trait uses `Pin<&mut Self>` instead of
+  `&mut Self` to refer to the instance. That's why it can only be called on a
+  pinned pointer.
 
 </details>

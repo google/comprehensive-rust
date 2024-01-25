@@ -64,9 +64,15 @@ Key points:
   errors when running the code. Point out the places where your code is now
   inexhaustive and how the compiler tries to give you hints.
 - The values in the enum variants can only be accessed after being pattern
-  matched. The pattern binds references to the fields in the "match arm" after
-  the `=>`.
+  matched.
 - Demonstrate what happens when the search is inexhaustive. Note the advantage
   the Rust compiler provides by confirming when all cases are handled.
+- Save the result of `divide_in_two` in the `result` variable and `match` it in
+  a loop. That won't compile because `msg` is consumed when matched. To fix it,
+  match `&result` instead of `result`. That will make `msg` a reference so it
+  won't be consumed. This
+  ["match ergonomics"](https://rust-lang.github.io/rfcs/2005-match-ergonomics.html)
+  appeared in Rust 2018. If you want to support older Rust, replace `msg` with
+  `ref msg` in the pattern.
 
 </details>

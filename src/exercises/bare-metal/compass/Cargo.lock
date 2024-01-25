@@ -30,6 +30,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "46afbd2983a5d5a7bd740ccb198caf5b82f45c40c09c0eed36052d91cb92e719"
 
 [[package]]
+name = "bitflags"
+version = "2.4.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ed570934406eb16438a4e976b1b4500774099c13b8cb96eec99f620f05090ddf"
+
+[[package]]
 name = "bytemuck"
 version = "1.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -52,7 +58,7 @@ name = "compass"
 version = "0.1.0"
 dependencies = [
  "cortex-m-rt",
- "embedded-hal",
+ "embedded-hal 1.0.0",
  "lsm303agr",
  "microbit-v2",
  "panic-halt",
@@ -66,7 +72,7 @@ checksum = "8ec610d8f49840a5b376c69663b6369e71f4b34484b9b2eb29fb918d92516cb9"
 dependencies = [
  "bare-metal 0.2.5",
  "bitfield",
- "embedded-hal",
+ "embedded-hal 0.2.7",
  "volatile-register",
 ]
 
@@ -132,6 +138,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "embedded-hal"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "361a90feb7004eca4019fb28352a9465666b24f840f5c3cddf0ff13920590b89"
+
+[[package]]
 name = "embedded-storage"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -161,11 +173,12 @@ dependencies = [
 
 [[package]]
 name = "lsm303agr"
-version = "0.2.2"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aab0b8c3a75dfdebe9f79c738458da139e8111207d176e9fb6b360117432ac4f"
+checksum = "82d672443f0535384ea86fff40c50156c5fae3fe0446242edeb9ff993b63e0dc"
 dependencies = [
- "embedded-hal",
+ "bitflags",
+ "embedded-hal 0.2.7",
  "nb 1.1.0",
 ]
 
@@ -175,7 +188,7 @@ version = "0.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "45651d001be4281a6f4536c30f3d8522f231bc56fd58d5baf2c630f565d31256"
 dependencies = [
- "embedded-hal",
+ "embedded-hal 0.2.7",
  "nrf52833-hal",
  "tiny-led-matrix",
 ]
@@ -214,7 +227,7 @@ dependencies = [
  "cfg-if",
  "cortex-m",
  "embedded-dma",
- "embedded-hal",
+ "embedded-hal 0.2.7",
  "embedded-storage",
  "fixed",
  "nb 1.1.0",
@@ -243,7 +256,7 @@ version = "0.14.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "87f76d269c9a239ffe24edaa5ee0972b102c04e898b464e3e9a12ab0eacd5f76"
 dependencies = [
- "embedded-hal",
+ "embedded-hal 0.2.7",
  "nrf-hal-common",
  "nrf52833-pac",
 ]

@@ -23,6 +23,7 @@ recently updated translations:
 - [French][fr] by [@KookaS] and [@vcaen].
 - [German][de] by [@Throvn] and [@ronaldfw].
 - [Japanese][ja] by [@CoinEZ-JPN] and [@momotaro1105].
+- [Italian][it] by [@henrythebuilder] and [@detro].
 
 If you want to help with this effort, please see [our instructions] for how to
 get going. Translations are coordinated on the [issue tracker].
@@ -31,6 +32,7 @@ get going. Translations are coordinated on the [issue tracker].
 [de]: https://google.github.io/comprehensive-rust/de/
 [es]: https://google.github.io/comprehensive-rust/es/
 [fr]: https://google.github.io/comprehensive-rust/fr/
+[it]: https://google.github.io/comprehensive-rust/it/
 [ja]: https://google.github.io/comprehensive-rust/ja/
 [ko]: https://google.github.io/comprehensive-rust/ko/
 [pt-BR]: https://google.github.io/comprehensive-rust/pt-BR/
@@ -39,7 +41,9 @@ get going. Translations are coordinated on the [issue tracker].
 [@anlunx]: https://github.com/anlunx
 [@CoinEZ-JPN]: https://github.com/CoinEZ
 [@deavid]: https://github.com/deavid
+[@detro]: https://github.com/detro
 [@henrif75]: https://github.com/henrif75
+[@henrythebuilder]: https://github.com/henrythebuilder
 [@hueich]: https://github.com/hueich
 [@hugojacob]: https://github.com/hugojacob
 [@jiyongp]: https://github.com/jiyongp

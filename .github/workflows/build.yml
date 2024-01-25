@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install formatting dependencies
         run: |
@@ -29,8 +29,14 @@ jobs:
       - name: Check formatting
         uses: dprint/check@v2.2
 
+  typos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Check for typos
-        uses: crate-ci/typos@v1.16.26
+        uses: crate-ci/typos@v1.17.2
         with:
           config: ./.github/typos.toml
 
@@ -43,7 +49,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
@@ -71,7 +77,7 @@ jobs:
             target: aarch64-unknown-none
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
@@ -94,7 +100,7 @@ jobs:
       languages: ${{ steps.find-languages.outputs.languages }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Find languages
         id: find-languages
@@ -116,7 +122,7 @@ jobs:
       fail-fast: false
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0 # We need the full history for build.sh below.
 

@@ -6,9 +6,10 @@ Python, it compares to
 `asyncio.wait(task_set, return_when=asyncio.FIRST_COMPLETED)`.
 
 Similar to a match statement, the body of `select!` has a number of arms, each
-of the form `pattern = future => statement`. When the `future` is ready, the
-`statement` is executed with the variables in `pattern` bound to the `future`'s
-result.
+of the form `pattern = future => statement`. When a `future` is ready, its
+return value is destructured by the `pattern`. The `statement` is then run with
+the resulting variables. The `statement` result becomes the result of the
+`select!` macro.
 
 ```rust,editable,compile_fail
 use tokio::sync::mpsc::{self, Receiver};

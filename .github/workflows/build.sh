@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 set -Eeuo pipefail
 
 # Usage: build.sh <book-lang> <dest-dir>
@@ -29,9 +29,17 @@ else
     export MDBOOK_BOOK__LANGUAGE=$book_lang
     export MDBOOK_OUTPUT__HTML__SITE_URL=/comprehensive-rust/$book_lang/
     export MDBOOK_OUTPUT__HTML__REDIRECT='{}'
+
+    # Include language-specific Pandoc configuration
+    if [ -f ".github/pandoc/$book_lang.yaml" ]; then
+        export MDBOOK_OUTPUT__PANDOC__PROFILE__PDF__DEFAULTS=".github/pandoc/$book_lang.yaml"
+    fi
 fi
 
 mdbook build -d "$dest_dir"
+if [ -f "$dest_dir/pandoc/pdf/comprehensive-rust.pdf" ]; then
+    mv "$dest_dir/pandoc/pdf/comprehensive-rust.pdf" "$dest_dir/html/"
+fi
 (cd "$dest_dir/exerciser" && zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/)
 
 echo "::endgroup::"
