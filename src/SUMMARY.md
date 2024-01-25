@@ -77,7 +77,6 @@
   - [Methods](methods-and-traits/methods.md)
   - [Traits](methods-and-traits/traits.md)
   - [Deriving](methods-and-traits/deriving.md)
-  - [Trait Objects](methods-and-traits/trait-objects.md)
   - [Exercise: Generic Logger](methods-and-traits/exercise.md)
     - [Solution](methods-and-traits/solution.md)
 - [Generics](generics.md)
@@ -130,6 +129,7 @@
 - [Smart Pointers](smart-pointers.md)
   - [`Box<T>`](smart-pointers/box.md)
   - [`Rc`](smart-pointers/rc.md)
+  - [Trait Objects](smart-pointers/trait-objects.md)
   - [Exercise: Binary Tree](smart-pointers/exercise.md)
     - [Solution](smart-pointers/solution.md)
 
