@@ -2163,7 +2163,7 @@ msgstr "이 강의 자료의 코드 블록들은 전부 인터엑티브 합니�
 
 #: src/cargo/code-samples.md:15 src/cargo/running-locally.md:46
 msgid "\"Edit me!\""
-msgstr "'수정해 주세요!'"
+msgstr "\"수정해 주세요!\""
 
 #: src/cargo/code-samples.md:19
 msgid "You can use "
@@ -2501,7 +2501,7 @@ msgstr ""
 #: src/hello-world/hello-world.md:8
 #, fuzzy
 msgid "\"Hello 🌍!\""
-msgstr "'Hello 🌍!'"
+msgstr "\"Hello 🌍!\""
 
 #: src/hello-world/hello-world.md:12
 msgid "What you see:"
@@ -2786,7 +2786,7 @@ msgstr ""
 #: src/control-flow-basics/break-continue.md:34
 #: src/control-flow-basics/blocks-and-scopes.md:16
 msgid "\"x: {x}\""
-msgstr "'x: {x}'"
+msgstr "\"x: {x}\""
 
 #: src/types-and-values/variables.md:10
 msgid ""
@@ -2925,7 +2925,7 @@ msgstr ""
 
 #: src/types-and-values/arithmetic.md:9
 msgid "\"result: {}\""
-msgstr "'결과: {}'"
+msgstr "\"결과: {}\""
 
 #: src/types-and-values/arithmetic.md:15
 msgid ""
@@ -2938,7 +2938,7 @@ msgstr ""
 
 #: src/types-and-values/arithmetic.md:19
 msgid "Arithmetic is very similar to other languages, with similar precedence."
-msgstr "산술은 다른 언어와 매우 유사하며 우선순위가 비슷합니다."
+msgstr "산술연산은 다른 언어와 매우 유사하며 우선순위가 비슷합니다."
 
 #: src/types-and-values/arithmetic.md:21
 msgid ""
@@ -2946,9 +2946,9 @@ msgid ""
 "actually undefined, and might do different things on different platforms or "
 "compilers. In Rust, it's defined."
 msgstr ""
-"정수 오버플로는 어떻게 되나요? C 및 C++에서 _signed_ 정수의 오버플로는 실제"
+"정수 오버플로는 어떻게 되나요? C 및 C++에서 _부호있는_ 정수의 오버플로는 실제"
 "로 정의되지 않으며, 다른 플랫폼이나 컴파일러에서 다른 작업을 실행할 수 있습니"
-"다. Rust에서는 정의되어 있습니다."
+"다. Rust에서는 정수 오버플로 시의 동작이 정의되어 있습니다."
 
 #: src/types-and-values/arithmetic.md:25
 #, fuzzy
@@ -2959,9 +2959,10 @@ msgid ""
 "with method syntax, e.g., `(a * b).saturating_add(b * c).saturating_add(c * "
 "a)`."
 msgstr ""
-"`i32`를 `i16`으로 변경하여 디버그 빌드에서 패닉(확인됨)되고 출시 빌드에서 래"
-"핑되는 정수 오버플로를 확인합니다.  오버플로, 포화, 이동과 같은 다른 옵션도 "
-"있습니다.  이는 메서드 문법을 사용하여 액세스합니다. 예: `(a * b)."
+"`i32`를 `i16`으로 변경하여 정수 오버플로 시의 동작을 확인해 봅니다. 디버그 빌"
+"드에서는 패닉(확인됨)이 발생하고 출시 빌드에서는 래핑(wrap)이 일어납니다.  오"
+"버플로(overflowing), 포화(saturating), 이동(carrying)과 같은 다른 옵션도 있습"
+"니다.  이는 메서드 문법을 사용하여 액세스합니다. 예: `(a * b)."
 "saturating_add(b * c).saturating_add(c * a)`"
 
 #: src/types-and-values/arithmetic.md:30
@@ -2988,27 +2989,27 @@ msgstr "`String`은 문자열을 담을 수 있는 버퍼입니다."
 
 #: src/types-and-values/strings.md:7
 msgid "`&str` - a read-only string. String literals have this type."
-msgstr "`&str` - 읽기 전용 문자열입니다. 문자열 리터럴에 이 타입이 있습니다."
+msgstr "`&str` - 읽기 전용 문자열입니다. 문자열 리터럴은 이 타입을 가집니다."
 
 #: src/types-and-values/strings.md:11
 msgid "\"Greetings\""
-msgstr "'인사말'"
+msgstr "\"인사말\""
 
 #: src/types-and-values/strings.md:12
 msgid "\"🪐\""
-msgstr "'🪐'"
+msgstr "\"🪐\""
 
 #: src/types-and-values/strings.md:15
 msgid "\", \""
-msgstr "', '"
+msgstr "\", \""
 
 #: src/types-and-values/strings.md:17
 msgid "\"final sentence: {}\""
-msgstr "'마지막 문장: {}'"
+msgstr "\"마지막 문장: {}\""
 
 #: src/types-and-values/strings.md:18 src/async/control-flow/join.md:30
 msgid "\"{:?}\""
-msgstr "'{:?}'"
+msgstr "\"{:?}\""
 
 #: src/types-and-values/strings.md:19
 msgid "//println!(\"{:?}\", &sentence[12..13]);\n"
@@ -3026,7 +3027,8 @@ msgstr ""
 #: src/types-and-values/strings.md:28
 msgid "Invalid UTF-8 in a string is UB, and this not allowed in safe Rust."
 msgstr ""
-"문자열의 잘못된 UTF-8은 UB이며 이는 안전한 Rust에서는 허용되지 않습니다."
+"문자열 내에 잘못된 UTF-8 인코딩이 있는 것은 정의되지 않은 동작이며, 이는 안전"
+"한 Rust에서는 허용되지 않습니다."
 
 #: src/types-and-values/strings.md:30
 msgid ""
@@ -3141,7 +3143,7 @@ msgstr "// 재귀 사례입니다.\n"
 
 #: src/types-and-values/exercise.md:23 src/types-and-values/solution.md:14
 msgid "\"fib(n) = {}\""
-msgstr "'fib(n) = {}'"
+msgstr "\"fib(n) = {}\""
 
 #: src/control-flow-basics/conditionals.md:3
 msgid "Much of the Rust syntax will be familiar to you from C, C++ or Java:"
@@ -3181,15 +3183,15 @@ msgstr ""
 #: src/control-flow-basics/conditionals.md:21
 #: src/control-flow-basics/conditionals.md:36
 msgid "\"small\""
-msgstr "'작은'"
+msgstr "\"작은\""
 
 #: src/control-flow-basics/conditionals.md:23
 msgid "\"biggish\""
-msgstr "'큰'"
+msgstr "\"큰\""
 
 #: src/control-flow-basics/conditionals.md:25
 msgid "\"huge\""
-msgstr "'거대한'"
+msgstr "\"거대한\""
 
 #: src/control-flow-basics/conditionals.md:30
 msgid ""
@@ -3200,11 +3202,11 @@ msgstr ""
 
 #: src/control-flow-basics/conditionals.md:36
 msgid "\"large\""
-msgstr "'대형'"
+msgstr "\"대형\""
 
 #: src/control-flow-basics/conditionals.md:37
 msgid "\"number size: {}\""
-msgstr "'숫자 크기: {}'"
+msgstr "\"숫자 크기: {}\""
 
 #: src/control-flow-basics/conditionals.md:43
 #, fuzzy
@@ -3247,7 +3249,7 @@ msgstr ""
 
 #: src/control-flow-basics/loops.md:18
 msgid "\"Final x: {x}\""
-msgstr "'최종 x: {x}'"
+msgstr "\"최종 x: {x}\""
 
 #: src/control-flow-basics/loops.md:22
 #, fuzzy
@@ -3278,21 +3280,22 @@ msgstr ""
 
 #: src/control-flow-basics/loops.md:45
 msgid "\"{i}\""
-msgstr "'{i}'"
+msgstr "\"{i}\""
 
 #: src/control-flow-basics/loops.md:55
 msgid ""
 "We will discuss iteration later; for now, just stick to range expressions."
 msgstr ""
-"반복에 관해서는 나중에 설명하겠습니다. 지금은 범위 표현식에 집중합니다."
+"반복(iteration)에 관해서는 나중에 설명하겠습니다. 지금은 범위 표현식에 집중합"
+"니다."
 
 #: src/control-flow-basics/loops.md:56
 msgid ""
 "Note that the `for` loop only iterates to `4`. Show the `1..=5` syntax for "
 "an inclusive range."
 msgstr ""
-"`for` 루프는 `4`까지만 반복됩니다. 포함 범위에 관해 `1..=5` 문법을 표시합니"
-"다."
+"`for` 반복문은 `4`까지만 실행됩니다. 마지막 값을 포함시키는 방법으로 `1..=5`"
+"와 같은 문법을 보여주세요."
 
 #: src/control-flow-basics/break-continue.md:3
 #, fuzzy
@@ -3315,19 +3318,17 @@ msgstr ""
 
 #: src/control-flow-basics/break-continue.md:24
 msgid "\"{result}\""
-msgstr "'{result}'"
+msgstr "\"{result}\""
 
 #: src/control-flow-basics/break-continue.md:28
 msgid ""
 "Both `continue` and `break` can optionally take a label argument which is "
 "used to break out of nested loops:"
-msgstr ""
-"루프를 빠져나가려면 `break`를, 다음 반복으로 넘어가기 위해서는 `continue`를 "
-"사용합니다. 중첩 루프에서는 레이블과 함께 사용할 수 있습니다:"
+msgstr "사용합니다. 중첩 루프에서는 레이블과 함께 사용할 수 있습니다:"
 
 #: src/control-flow-basics/break-continue.md:37
 msgid "\"x: {x}, i: {i}\""
-msgstr "'x: {x}, i: {i}'"
+msgstr "\"x: {x}, i: {i}\""
 
 #: src/control-flow-basics/break-continue.md:47
 msgid ""
@@ -3359,7 +3360,7 @@ msgstr ""
 
 #: src/control-flow-basics/blocks-and-scopes.md:13
 msgid "\"y: {y}\""
-msgstr "'y: {y}'"
+msgstr "\"y: {y}\""
 
 #: src/control-flow-basics/blocks-and-scopes.md:20
 msgid ""
@@ -3375,7 +3376,7 @@ msgstr "범위(Scopes)와 쉐도잉(Shadowing)"
 
 #: src/control-flow-basics/blocks-and-scopes.md:24
 msgid "A variable's scope is limited to the enclosing block."
-msgstr "변수의 범위는 인클로징 블록으로 제한됩니다."
+msgstr "변수의 범위는 자신을 포함하는 블록으로 제한됩니다."
 
 #: src/control-flow-basics/blocks-and-scopes.md:26
 msgid ""
@@ -3386,26 +3387,26 @@ msgstr ""
 
 #: src/control-flow-basics/blocks-and-scopes.md:32
 msgid "\"before: {a}\""
-msgstr "'이전: {a}'"
+msgstr "\"이전: {a}\""
 
 #: src/control-flow-basics/blocks-and-scopes.md:34
 #: src/std-traits/from-and-into.md:7 src/std-traits/from-and-into.md:19
 #: src/slices-and-lifetimes/solution.md:225
 #, fuzzy
 msgid "\"hello\""
-msgstr "'안녕하세요'"
+msgstr "\"안녕하세요\""
 
 #: src/control-flow-basics/blocks-and-scopes.md:35
 msgid "\"inner scope: {a}\""
-msgstr "'내부 범위: {a}'"
+msgstr "\"내부 범위: {a}\""
 
 #: src/control-flow-basics/blocks-and-scopes.md:38
 msgid "\"shadowed in inner scope: {a}\""
-msgstr "'내부 범위 섀도 처리됨: {a}'"
+msgstr "\"내부 범위 섀도 처리됨: {a}\""
 
 #: src/control-flow-basics/blocks-and-scopes.md:41
 msgid "\"after: {a}\""
-msgstr "'이후: {a}'"
+msgstr "\"이후: {a}\""
 
 #: src/control-flow-basics/blocks-and-scopes.md:47
 msgid ""
@@ -3421,8 +3422,8 @@ msgid ""
 "Show that a variable's scope is limited by adding a `b` in the inner block "
 "in the last example, and then trying to access it outside that block."
 msgstr ""
-"마지막 예에서 안쪽 블록에 b\\`를 추가한 다음 블록 외부에서 액세스하려고 하면 "
-"변수 범위가 제한된다는 것을 보여줍니다."
+"변수의 범위가 제한된다는 것을 보여주기 위해 마지막 예제의 안쪽 블록에 `b` 라"
+"는 변수를 추가하고 블록의 밖에서 이를 사용하도록 해 봅니다."
 
 #: src/control-flow-basics/blocks-and-scopes.md:51
 #, fuzzy
@@ -3546,7 +3547,7 @@ msgstr ""
 
 #: src/control-flow-basics/macros.md:32
 msgid "\"{n}! = {}\""
-msgstr "'{n}! = {}'"
+msgstr "\"{n}! = {}\""
 
 #: src/control-flow-basics/macros.md:38
 msgid ""
@@ -3751,7 +3752,7 @@ msgstr "/// `n`에서 시작하는 콜라츠 수열의 길이를 결정합니다
 #: src/control-flow-basics/solution.md:20 src/concurrency/scoped-threads.md:11
 #: src/concurrency/scoped-threads.md:30
 msgid "\"Length: {}\""
-msgstr "'길이: {}'"
+msgstr "\"길이: {}\""
 
 #: src/welcome-day-1-afternoon.md:1 src/welcome-day-2-afternoon.md:1
 #: src/welcome-day-3-afternoon.md:1 src/welcome-day-4-afternoon.md:1
@@ -3765,9 +3766,9 @@ msgid ""
 "elements of an array have the same type, while tuples can accommodate "
 "different types. Both types have a size fixed at compile time."
 msgstr ""
-"튜플과 배열은 처음으로 접하는 '복합' 타입입니다. 배열의 모든 요소는 동일한 유"
-"형을 가지지만 튜플은 서로 다른 타입을 수용할 수 있습니다. 두 타입 모두 컴파"
-"일 시간에 고정된 크기를 갖습니다."
+"튜플과 배열은 처음으로 접하는 '복합' 타입입니다. 배열의 모든 요소는 동일한 타"
+"입 가지지만 튜플은 서로 다른 타입을 수용할 수 있습니다. 두 타입 모두 컴파일 "
+"시간에 고정된 크기를 갖습니다."
 
 #: src/tuples-and-arrays/tuples-and-arrays.md:9
 #: src/tuples-and-arrays/destructuring.md:27
@@ -3828,7 +3829,7 @@ msgid ""
 msgstr ""
 "범위를 벗어난 배열 요소에 액세스해 보세요. 배열 액세스는 런타임에 확인됩니"
 "다. Rust는 일반적으로 이러한 확인을 최적화할 수 있으며, 안전하지 않은 Rust를 "
-"사용하면 이를 방지할 수 있습니다."
+"사용하면 범위 확인을 하지 않을 수도 있습니다."
 
 #: src/tuples-and-arrays/tuples-and-arrays.md:52
 msgid "We can use literals to assign values to arrays."
@@ -3909,8 +3910,8 @@ msgid ""
 "`debug_assert!` compile to nothing in release builds."
 msgstr ""
 "`assert_ne!` 매크로가 여기에 새로 추가되었습니다. `assert_eq!` 및 `assert!` "
-"매크로도 있습니다. 이는 `debug_assert!`와 같은 디버그 전용 변형이 출시 빌드에"
-"서 어떤 것으로도 컴파일되지 않는 동안 항상 확인됩니다."
+"매크로도 있습니다. 이 매크로들은 항상 값을 확인하지만, `debug_assert!`와 같"
+"은 디버그 전용 매크로는 출시 빌드에서 컴파일되지 않고 사라집니다."
 
 #: src/tuples-and-arrays/match.md:3
 #, fuzzy
@@ -3927,64 +3928,64 @@ msgstr "C/C++의 `switch`와 비슷하게 값을 패턴으로 사용할 수도 �
 
 #: src/tuples-and-arrays/match.md:11
 msgid "'x'"
-msgstr "'x'"
+msgstr "\"x\""
 
 #: src/tuples-and-arrays/match.md:13
 msgid "'q'"
-msgstr "'q'"
+msgstr "\"q\""
 
 #: src/tuples-and-arrays/match.md:13
 #, fuzzy
 msgid "\"Quitting\""
-msgstr "'종료'"
+msgstr "\"종료\""
 
 #: src/tuples-and-arrays/match.md:14 src/std-traits/solution.md:16
 #: src/error-handling/exercise.md:62 src/error-handling/exercise.md:64
 #: src/error-handling/solution.md:62 src/error-handling/solution.md:64
 msgid "'a'"
-msgstr "'a'"
+msgstr "\"a\""
 
 #: src/tuples-and-arrays/match.md:14
 msgid "'s'"
-msgstr "'s'"
+msgstr "\"s\""
 
 #: src/tuples-and-arrays/match.md:14
 msgid "'w'"
-msgstr "'w'"
+msgstr "\"w\""
 
 #: src/tuples-and-arrays/match.md:14
 msgid "'d'"
-msgstr "'d'"
+msgstr "\"d\""
 
 #: src/tuples-and-arrays/match.md:14
 msgid "\"Moving around\""
-msgstr "'이리저리 이동'"
+msgstr "\"이리저리 이동\""
 
 #: src/tuples-and-arrays/match.md:15 src/error-handling/exercise.md:54
 #: src/error-handling/exercise.md:56 src/error-handling/exercise.md:64
 #: src/error-handling/solution.md:54 src/error-handling/solution.md:56
 #: src/error-handling/solution.md:64
 msgid "'0'"
-msgstr "'0'"
+msgstr "\"0\""
 
 #: src/tuples-and-arrays/match.md:15 src/error-handling/exercise.md:54
 #: src/error-handling/exercise.md:56 src/error-handling/exercise.md:64
 #: src/error-handling/solution.md:54 src/error-handling/solution.md:56
 #: src/error-handling/solution.md:64
 msgid "'9'"
-msgstr "'9'"
+msgstr "\"9\""
 
 #: src/tuples-and-arrays/match.md:15
 msgid "\"Number input\""
-msgstr "'숫자 입력'"
+msgstr "\"숫자 입력\""
 
 #: src/tuples-and-arrays/match.md:16
 msgid "\"Lowercase: {key}\""
-msgstr "'소문자: {key}'"
+msgstr "\"소문자: {key}\""
 
 #: src/tuples-and-arrays/match.md:17
 msgid "\"Something else\""
-msgstr "'기타'"
+msgstr "\"기타\""
 
 #: src/tuples-and-arrays/match.md:22
 msgid ""
@@ -4089,39 +4090,39 @@ msgstr ""
 
 #: src/tuples-and-arrays/destructuring.md:18
 msgid "\"on Y axis\""
-msgstr "'Y축'"
+msgstr "\"Y축\""
 
 #: src/tuples-and-arrays/destructuring.md:19
 msgid "\"on X axis\""
-msgstr "'X축'"
+msgstr "\"X축\""
 
 #: src/tuples-and-arrays/destructuring.md:20
 msgid "\"left of Y axis\""
-msgstr "'Y축 왼쪽'"
+msgstr "\"Y축 왼쪽\""
 
 #: src/tuples-and-arrays/destructuring.md:21
 msgid "\"below X axis\""
-msgstr "'X축 아래'"
+msgstr "\"X축 아래\""
 
 #: src/tuples-and-arrays/destructuring.md:22
 msgid "\"first quadrant\""
-msgstr "'1사분면'"
+msgstr "\"1사분면\""
 
 #: src/tuples-and-arrays/destructuring.md:33
 msgid "\"Tell me about {triple:?}\""
-msgstr "'{triple:?}에 관해 말해 주세요.'"
+msgstr "\"{triple:?}에 관해 말해 주세요.\""
 
 #: src/tuples-and-arrays/destructuring.md:35
 msgid "\"First is 0, y = {y}, and z = {z}\""
-msgstr "'첫 번째는 0, y = {y}, z = {z}입니다.'"
+msgstr "\"첫 번째는 0, y = {y}, z = {z}입니다.\""
 
 #: src/tuples-and-arrays/destructuring.md:36
 msgid "\"First is 1 and the rest were ignored\""
-msgstr "'첫 번째는 1이고 나머지는 무시되었습니다.'"
+msgstr "\"첫 번째는 1이고 나머지는 무시되었습니다.\""
 
 #: src/tuples-and-arrays/destructuring.md:37
 msgid "\"All elements were ignored\""
-msgstr "'모든 요소가 무시되었습니다.'"
+msgstr "\"모든 요소가 무시되었습니다.\""
 
 #: src/tuples-and-arrays/destructuring.md:44
 #, fuzzy
@@ -4183,11 +4184,11 @@ msgstr "// <-- 주석으로 rustfmt가 줄바꿈을 추가합니다.\n"
 
 #: src/tuples-and-arrays/exercise.md:42 src/tuples-and-arrays/solution.md:39
 msgid "\"matrix: {:#?}\""
-msgstr "'행렬: {:#?}'"
+msgstr "\"행렬: {:#?}\""
 
 #: src/tuples-and-arrays/exercise.md:44 src/tuples-and-arrays/solution.md:41
 msgid "\"transposed: {:#?}\""
-msgstr "'전치: {:#?}'"
+msgstr "\"전치: {:#?}\""
 
 #: src/tuples-and-arrays/solution.md:17 src/tuples-and-arrays/solution.md:25
 msgid "//\n"
@@ -4361,15 +4362,15 @@ msgstr "// 다음 `main`을 사용하여 작업을 테스트합니다.\n"
 
 #: src/references/exercise.md:27 src/references/solution.md:22
 msgid "\"Magnitude of a unit vector: {}\""
-msgstr "'단위 벡터의 크기: {}'"
+msgstr "\"단위 벡터의 크기: {}\""
 
 #: src/references/exercise.md:30 src/references/solution.md:25
 msgid "\"Magnitude of {v:?}: {}\""
-msgstr "'{v:?} 크기: {}'"
+msgstr "\"{v:?} 크기: {}\""
 
 #: src/references/exercise.md:32 src/references/solution.md:27
 msgid "\"Magnitude of {v:?} after normalization: {}\""
-msgstr "'정규화 후 {v:?}의 크기: {}'"
+msgstr "\"정규화 후 {v:?}의 크기: {}\""
 
 #: src/references/solution.md:4
 msgid "/// Calculate the magnitude of the given vector.\n"
@@ -4387,20 +4388,20 @@ msgstr "C/C++ 와 마찬가지로 러스트는 커스텀 구조체를 지원합�
 
 #: src/user-defined-types/named-structs.md:12
 msgid "\"{} is {} years old\""
-msgstr "'{}은(는) {}세입니다.'"
+msgstr "\"{}은(는) {}세입니다.\""
 
 #: src/user-defined-types/named-structs.md:16
 #: src/android/interoperability/with-c/bindgen.md:87
 msgid "\"Peter\""
-msgstr "'피터'"
+msgstr "\"피터\""
 
 #: src/user-defined-types/named-structs.md:22
 msgid "\"Avery\""
-msgstr "'에이버리'"
+msgstr "\"에이버리\""
 
 #: src/user-defined-types/named-structs.md:27
 msgid "\"Jackie\""
-msgstr "'재키'"
+msgstr "\"재키\""
 
 #: src/user-defined-types/named-structs.md:36
 msgid "Structs work like in C or C++."
@@ -4466,7 +4467,7 @@ msgstr "각 필드 이름이 중요하지 않다면 튜플 구조체를 사용�
 
 #: src/user-defined-types/tuple-structs.md:14
 msgid "\"({}, {})\""
-msgstr "'({}, {})'"
+msgstr "\"({}, {})\""
 
 #: src/user-defined-types/tuple-structs.md:18
 msgid "This is often used for single-field wrappers (called newtypes):"
@@ -4476,7 +4477,7 @@ msgstr ""
 
 #: src/user-defined-types/tuple-structs.md:25
 msgid "\"Ask a rocket scientist at NASA\""
-msgstr "'NASA 로켓 과학자에게 물어보세요'"
+msgstr "\"NASA 로켓 과학자에게 물어보세요\""
 
 #: src/user-defined-types/tuple-structs.md:29
 #: src/android/interoperability/cpp/cpp-bridge.md:50
@@ -4551,7 +4552,7 @@ msgstr "// 구조체 변형\n"
 
 #: src/user-defined-types/enums.md:22
 msgid "\"On this turn: {:?}\""
-msgstr "'이번 차례: {:?}'"
+msgstr "\"이번 차례: {:?}\""
 
 #: src/user-defined-types/enums.md:30
 #, fuzzy
@@ -4724,7 +4725,7 @@ msgstr "1일차 개요"
 
 #: src/user-defined-types/static-and-const.md:45
 msgid "\"{BANNER}\""
-msgstr "'{BANNER}'"
+msgstr "\"{BANNER}\""
 
 #: src/user-defined-types/static-and-const.md:49
 #, fuzzy
@@ -4935,27 +4936,27 @@ msgstr "/// 엘리베이터에서 층 버튼을 눌렀습니다.\n"
 
 #: src/user-defined-types/exercise.md:52 src/user-defined-types/solution.md:67
 msgid "\"A ground floor passenger has pressed the up button: {:?}\""
-msgstr "'1층 승객이 위로 버튼을 눌렀습니다. {:?}'"
+msgstr "\"1층 승객이 위로 버튼을 눌렀습니다. {:?}\""
 
 #: src/user-defined-types/exercise.md:55 src/user-defined-types/solution.md:70
 msgid "\"The car has arrived on the ground floor: {:?}\""
-msgstr "'엘리베이터가 1층에 도착했습니다: {:?}'"
+msgstr "\"엘리베이터가 1층에 도착했습니다: {:?}\""
 
 #: src/user-defined-types/exercise.md:56 src/user-defined-types/solution.md:71
 msgid "\"The car door opened: {:?}\""
-msgstr "'엘리베이터 문이 열렸습니다. {:?}'"
+msgstr "\"엘리베이터 문이 열렸습니다. {:?}\""
 
 #: src/user-defined-types/exercise.md:58 src/user-defined-types/solution.md:73
 msgid "\"A passenger has pressed the 3rd floor button: {:?}\""
-msgstr "'승객이 3층 버튼을 눌렀습니다. {:?}'"
+msgstr "\"승객이 3층 버튼을 눌렀습니다. {:?}\""
 
 #: src/user-defined-types/exercise.md:61 src/user-defined-types/solution.md:76
 msgid "\"The car door closed: {:?}\""
-msgstr "'엘리베이터 문이 닫혔습니다: {:?}'"
+msgstr "\"엘리베이터 문이 닫혔습니다: {:?}\""
 
 #: src/user-defined-types/exercise.md:62 src/user-defined-types/solution.md:77
 msgid "\"The car has arrived on the 3rd floor: {:?}\""
-msgstr "'엘리베이터가 3층에 도착했습니다. {:?}'"
+msgstr "\"엘리베이터가 3층에 도착했습니다. {:?}\""
 
 #: src/user-defined-types/solution.md:7
 msgid "/// A button was pressed.\n"
@@ -21565,7 +21566,7 @@ msgstr ""
 #~ msgstr "구조화된 오류처리"
 
 #~ msgid "Propagating Errors with ?"
-#~ msgstr "'?'를 이용한 오류 전파"
+#~ msgstr "\"?'를 이용한 오류 전파"
 
 #~ msgid "Converting Error Types"
 #~ msgstr "오류타입 변환"
