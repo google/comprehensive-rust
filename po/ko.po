@@ -3928,11 +3928,11 @@ msgstr "C/C++의 `switch`와 비슷하게 값을 패턴으로 사용할 수도 �
 
 #: src/tuples-and-arrays/match.md:11
 msgid "'x'"
-msgstr "\"x\""
+msgstr "'x'"
 
 #: src/tuples-and-arrays/match.md:13
 msgid "'q'"
-msgstr "\"q\""
+msgstr "'q'"
 
 #: src/tuples-and-arrays/match.md:13
 #, fuzzy
@@ -3943,19 +3943,19 @@ msgstr "\"종료\""
 #: src/error-handling/exercise.md:62 src/error-handling/exercise.md:64
 #: src/error-handling/solution.md:62 src/error-handling/solution.md:64
 msgid "'a'"
-msgstr "\"a\""
+msgstr "'a'"
 
 #: src/tuples-and-arrays/match.md:14
 msgid "'s'"
-msgstr "\"s\""
+msgstr "'s'"
 
 #: src/tuples-and-arrays/match.md:14
 msgid "'w'"
-msgstr "\"w\""
+msgstr "'w'"
 
 #: src/tuples-and-arrays/match.md:14
 msgid "'d'"
-msgstr "\"d\""
+msgstr "'d'"
 
 #: src/tuples-and-arrays/match.md:14
 msgid "\"Moving around\""
@@ -3966,14 +3966,14 @@ msgstr "\"이리저리 이동\""
 #: src/error-handling/solution.md:54 src/error-handling/solution.md:56
 #: src/error-handling/solution.md:64
 msgid "'0'"
-msgstr "\"0\""
+msgstr "'0'"
 
 #: src/tuples-and-arrays/match.md:15 src/error-handling/exercise.md:54
 #: src/error-handling/exercise.md:56 src/error-handling/exercise.md:64
 #: src/error-handling/solution.md:54 src/error-handling/solution.md:56
 #: src/error-handling/solution.md:64
 msgid "'9'"
-msgstr "\"9\""
+msgstr "'9'"
 
 #: src/tuples-and-arrays/match.md:15
 msgid "\"Number input\""
@@ -4188,7 +4188,7 @@ msgstr "\"행렬: {:#?}\""
 
 #: src/tuples-and-arrays/exercise.md:44 src/tuples-and-arrays/solution.md:41
 msgid "\"transposed: {:#?}\""
-msgstr "\"전치: {:#?}\""
+msgstr "\"전치행렬: {:#?}\""
 
 #: src/tuples-and-arrays/solution.md:17 src/tuples-and-arrays/solution.md:25
 msgid "//\n"
@@ -4332,8 +4332,8 @@ msgid ""
 "representing a point as `[f64;3]`. It is up to you to determine the function "
 "signatures."
 msgstr ""
-"점을 `[f64;3]`으로 나타내는 3차원 도형을 위한 몇 가지 유틸리티 함수를 만들어 "
-"보겠습니다. 함수 서명은 개발자가 결정합니다."
+"3차원 도형을 위한 몇 가지 유틸리티 함수를 만들어 보겠습니다. 3차원 상의 한 점"
+"을 `[f64;3]`으로 나타내도록 합니다. 함수 서명은 개발자가 결정합니다."
 
 #: src/references/exercise.md:7
 msgid ""
@@ -4536,7 +4536,8 @@ msgstr ""
 msgid ""
 "The `enum` keyword allows the creation of a type which has a few different "
 "variants:"
-msgstr "`enum` 키워드는 몇가지 타입(variant)으로 표현되는 타입을 생성합니다:"
+msgstr ""
+"`enum` 키워드는 몇가지 변형(variant)으로 표현되는 열거형 타입을 생성합니다:"
 
 #: src/user-defined-types/enums.md:15
 msgid "// Simple variant\n"
@@ -4564,6 +4565,8 @@ msgid ""
 "`Direction` is a type with variants. There are two values of `Direction`: "
 "`Direction::Left` and `Direction::Right`."
 msgstr ""
+"`Direction`은 변형을 가지는 열거형 타입입니다. 여기에는 `Direction::Left`와 "
+"`Direction::Right`의 두 값이 포함됩니다."
 
 #: src/user-defined-types/enums.md:33
 #, fuzzy
@@ -4572,8 +4575,9 @@ msgid ""
 "Rust will store a discriminant so that it knows at runtime which variant is "
 "in a `PlayerMove` value."
 msgstr ""
-"PlayerMove는 세 가지 타입의 변형을 보여줍니다. 또한 Rust는 런타임에 어떤 변형"
-"이 값에 포함되어 있는지 판별할 수 있도록 판별식을 저장합니다."
+"`PlayerMove`는 세 가지 변형을 가지는 열거형 타입입니다. Rust는 각 변형에 속"
+"한 데이터 뿐 아니라, 어떤 종류의 변형이 값에 포함되어 있는지 런타임에 판별할 "
+"수 있는 판별식(discriminant)도 저장합니다."
 
 #: src/user-defined-types/enums.md:36
 #, fuzzy
@@ -4616,7 +4620,7 @@ msgid ""
 msgstr ""
 "허용된 변형 값이 모든 비트 패턴을 포함하지 않는 경우 잘못된 비트 패턴을 사용"
 "하여 판별식을 인코딩합니다('틈새 최적화'). 예를 들어 `Option<&u8>`은 정수를 "
-"가리키는 포인터나 'None' 변형의 'NULL'을 저장합니다."
+"가리키는 포인터나 `None` 변형의 경우 `NULL`을 저장합니다."
 
 #: src/user-defined-types/enums.md:48
 msgid ""
@@ -4886,17 +4890,17 @@ msgid ""
 msgstr ""
 "엘리베이터 제어 시스템의 이벤트를 나타내는 데이터 구조를 만들어 보겠습니다. "
 "다양한 이벤트를 구성하기 위해 타입과 함수를 정의하는 것은 개발자의 몫입니다. "
-"`#[derive(Debug)]`를 사용하여 타입의 형식을 `{:?}`로 지정할 수 있습니다."
+"해당 타입을 `{:?}` 문법을 통해 출력할 수 있도록 `#[derive(Debug)]`를 사용합시"
+"다."
 
 #: src/user-defined-types/exercise.md:7
-#, fuzzy
 msgid ""
 "This exercise only requires creating and populating data structures so that "
 "`main` runs without errors. The next part of the course will cover getting "
 "data out of these structures."
 msgstr ""
-"이 연습에서는 데이터 구조만 만들면 됩니다. 과정의 다음 부분에서는 이러한 구조"
-"에서 데이터를 가져오는 방법을 다룹니다."
+"이 연습에서는 `main` 함수가 에러없이 동작하도록 데이터 구조만 만들면 됩니다. "
+"이 과정의 다음 부분에서는 이러한 구조에서 데이터를 가져오는 방법을 다룹니다."
 
 #: src/user-defined-types/exercise.md:12 src/user-defined-types/solution.md:4
 msgid ""
@@ -4904,9 +4908,8 @@ msgid ""
 msgstr "/// 컨트롤러가 반응해야 하는 엘리베이터 시스템의 이벤트입니다.\n"
 
 #: src/user-defined-types/exercise.md:15
-#, fuzzy
 msgid "// TODO: add required variants\n"
-msgstr "// 튜플 변형\n"
+msgstr "// TODO: 필요한 변형들을 추가하세요.\n"
 
 #: src/user-defined-types/exercise.md:17 src/user-defined-types/solution.md:22
 msgid "/// A direction of travel.\n"
@@ -4936,7 +4939,7 @@ msgstr "/// 엘리베이터에서 층 버튼을 눌렀습니다.\n"
 
 #: src/user-defined-types/exercise.md:52 src/user-defined-types/solution.md:67
 msgid "\"A ground floor passenger has pressed the up button: {:?}\""
-msgstr "\"1층 승객이 위로 버튼을 눌렀습니다. {:?}\""
+msgstr "\"1층 승객이 위쪽 버튼을 눌렀습니다. {:?}\""
 
 #: src/user-defined-types/exercise.md:55 src/user-defined-types/solution.md:70
 msgid "\"The car has arrived on the ground floor: {:?}\""
