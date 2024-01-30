@@ -41,13 +41,28 @@ impl Philosopher {
 
     // ANCHOR: Philosopher-eat
     async fn eat(&self) {
-        // Pick up forks...
+        // Keep trying until we have both forks
         // ANCHOR_END: Philosopher-eat
-        let _first_lock = self.left_fork.lock().await;
-        // Add a delay before picking the second fork to allow the execution
-        // to transfer to another task
-        time::sleep(time::Duration::from_millis(1)).await;
-        let _second_lock = self.right_fork.lock().await;
+        let (_left_fork, _right_fork) = loop {
+            // Pick up forks...
+            let left_fork = self.left_fork.try_lock();
+            let right_fork = self.right_fork.try_lock();
+            let Ok(left_fork) = left_fork else {
+                // If we didn't get the left fork, drop the right fork if we
+                // have it and let other tasks make progress.
+                drop(right_fork);
+                time::sleep(time::Duration::from_millis(1)).await;
+                continue;
+            };
+            let Ok(right_fork) = right_fork else {
+                // If we didn't get the right fork, drop the left fork and let
+                // other tasks make progress.
+                drop(left_fork);
+                time::sleep(time::Duration::from_millis(1)).await;
+                continue;
+            };
+            break (left_fork, right_fork);
+        };
 
         // ANCHOR: Philosopher-eat-body
         println!("{} is eating...", &self.name);
@@ -76,12 +91,6 @@ async fn main() {
         for (i, name) in PHILOSOPHERS.iter().enumerate() {
             let left_fork = Arc::clone(&forks[i]);
             let right_fork = Arc::clone(&forks[(i + 1) % PHILOSOPHERS.len()]);
-            // To avoid a deadlock, we have to break the symmetry
-            // somewhere. This will swap the forks without deinitializing
-            // either of them.
-            if i == 0 {
-                std::mem::swap(&mut left_fork, &mut right_fork);
-            }
             philosophers.push(Philosopher {
                 name: name.to_string(),
                 left_fork,
