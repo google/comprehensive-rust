@@ -19,6 +19,7 @@ use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayI
 };
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
 use com_example_birthdayservice::binder::{self, BinderFeatures, ParcelFileDescriptor};
+use std::error::Error;
 use std::fs::File;
 use std::io::prelude::*;
 
@@ -26,7 +27,7 @@ use std::io::prelude::*;
 const SERVICE_IDENTIFIER: &str = "birthdayservice";
 
 /// Call the birthday service.
-fn main() -> Result<(), binder::Status> {
+fn main() -> Result<(), Box<dyn Error>> {
     let name = std::env::args().nth(1).unwrap_or_else(|| String::from("Bob"));
     let years = std::env::args()
         .nth(2)
@@ -34,9 +35,8 @@ fn main() -> Result<(), binder::Status> {
         .unwrap_or(42);
 
     binder::ProcessState::start_thread_pool();
-    let service: binder::Strong<dyn IBirthdayService> =
-        binder::get_interface(SERVICE_IDENTIFIER)
-            .expect("Failed to connect to BirthdayService");
+    let service = binder::get_interface::<dyn IBirthdayService>(SERVICE_IDENTIFIER)
+        .map_err(|_| "Failed to connect to BirthdayService")?;
 
     // Call the service.
     let msg = service.wishHappyBirthday(&name, years)?;
@@ -66,8 +66,8 @@ fn main() -> Result<(), binder::Status> {
 
     // Open a file and put the birthday info in it.
     let mut file = File::create("/data/local/tmp/birthday.info").unwrap();
-    writeln!(file, "{name}").unwrap();
-    writeln!(file, "{years}").unwrap();
+    writeln!(file, "{name}")?;
+    writeln!(file, "{years}")?;
 
     // Create a `ParcelFileDescriptor` from the file and send it.
     let file = ParcelFileDescriptor::new(file);
