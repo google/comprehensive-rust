@@ -71,6 +71,9 @@ impl IBirthdayService for BirthdayService {
         &self,
         info_file: &ParcelFileDescriptor,
     ) -> binder::Result<String> {
+        // Convert the file descriptor to a `File`. `ParcelFileDescriptor` wraps
+        // an `OwnedFd`, which can be cloned and then used to create a `File`
+        // object.
         let mut info_file = info_file
             .as_ref()
             .try_clone()

@@ -28,11 +28,3 @@ fn main() {
 {{#include ../birthday_service/src/client.rs:wish_with_info}}
 }
 ```
-
-<details>
-
-- Parcelables work similarly to serde types in the broader Rust ecosystem: You
-  get a concrete Rust type to work with in your Rust code, and that type can be
-  serializied without you needing to write any serialization logic yourself.
-
-</details>

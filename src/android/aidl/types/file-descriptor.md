@@ -34,5 +34,7 @@ impl IBirthdayService for BirthdayService {
 - `ParcelFileDescriptor` wraps an `OwnedFd`, and so can be created from a `File`
   (or any other type that wraps an `OwnedFd`), and can be used to create a new
   `File` handle on the other side.
+- Other types of file descriptors can be wrapped and sent, e.g. TCP, UDP, and
+  UNIX sockets.
 
 </details>
