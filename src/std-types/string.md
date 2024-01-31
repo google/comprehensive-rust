@@ -2,57 +2,63 @@
 minutes: 10
 ---
 
-# String
+# Strings
 
-[`String`][1] is the standard heap-allocated growable UTF-8 string buffer:
+Rust has two types to represent strings, both of which will be covered in more
+depth later. Both _always_ store UTF-8 encoded strings.
+
+- `String` - a modifiable, owned string.
+- `&str` - a read-only string. String literals have this type.
 
 ```rust,editable
 fn main() {
-    let mut s1 = String::new();
-    s1.push_str("Hello");
-    println!("s1: len = {}, capacity = {}", s1.len(), s1.capacity());
-
-    let mut s2 = String::with_capacity(s1.len() + 1);
-    s2.push_str(&s1);
-    s2.push('!');
-    println!("s2: len = {}, capacity = {}", s2.len(), s2.capacity());
-
-    let s3 = String::from("🇨🇭");
-    println!("s3: len = {}, number of chars = {}", s3.len(), s3.chars().count());
+    let greeting: &str = "Greetings";
+    let planet: &str = "🪐";
+    let mut sentence = String::new();
+    sentence.push_str(greeting);
+    sentence.push_str(", ");
+    sentence.push_str(planet);
+    println!("final sentence: {}", sentence);
+    println!("{:?}", &sentence[0..5]);
+    //println!("{:?}", &sentence[12..13]);
 }
 ```
 
-`String` implements [`Deref<Target = str>`][2], which means that you can call
-all `str` methods on a `String`.
-
-[1]: https://doc.rust-lang.org/std/string/struct.String.html
-[2]: https://doc.rust-lang.org/std/string/struct.String.html#deref-methods-str
-
 <details>
 
-- `String::new` returns a new empty string, use `String::with_capacity` when you
-  know how much data you want to push to the string.
-- `String::len` returns the size of the `String` in bytes (which can be
-  different from its length in characters).
-- `String::chars` returns an iterator over the actual characters. Note that a
-  `char` can be different from what a human will consider a "character" due to
-  [grapheme clusters](https://docs.rs/unicode-segmentation/latest/unicode_segmentation/struct.Graphemes.html).
-- When people refer to strings they could either be talking about `&str` or
-  `String`.
-- When a type implements `Deref<Target = T>`, the compiler will let you
-  transparently call methods from `T`.
-  - We haven't discussed the `Deref` trait yet, so at this point this mostly
-    explains the structure of the sidebar in the documentation.
-  - `String` implements `Deref<Target = str>` which transparently gives it
-    access to `str`'s methods.
-  - Write and compare `let s3 = s1.deref();` and `let s3 = &*s1;`.
-- `String` is implemented as a wrapper around a vector of bytes, many of the
-  operations you see supported on vectors are also supported on `String`, but
-  with some extra guarantees.
-- Compare the different ways to index a `String`:
-  - To a character by using `s3.chars().nth(i).unwrap()` where `i` is in-bound,
-    out-of-bounds.
-  - To a substring by using `s3[0..4]`, where that slice is on character
-    boundaries or not.
+This slide introduces strings. Everything here will be covered in more depth
+later, but this is enough for subsequent slides and exercises to use strings.
+
+- Invalid UTF-8 in a string is UB, and this not allowed in safe Rust.
+
+- `String` is a user-defined type with a constructor (`::new()`) and methods
+  like `s.push_str(..)`.
+
+- The `&` in `&str` indicates that this is a reference. We will cover references
+  later, so for now just think of `&str` as a unit meaning "a read-only string".
+  
+  ```rust,editable
+  let greeting = "Greetings" // -> This type of string declaration is by default comes under &str type.
+  let mut sentence:String = greeting; // Output : Error because `greeting` is &str type. 
+  // You can convert `&str` to `String` by `to_string()` function.
+  // i.e 
+  let mut sentence = greeting.to_string()
+  ```
+- The commented-out line is indexing into the string by byte position. `12..13`
+  does not end on a character boundary, so the program panics. Adjust it to a
+  range that does, based on the error message.
+
+- Raw strings allow you to create a `&str` value with escapes disabled:
+  `r"\n" == "\\n"`. You can embed double-quotes by using an equal amount of `#`
+  on either side of the quotes:
+
+  <!-- mdbook-xgettext: skip -->
+  ```rust,editable
+  fn main() {
+      println!(r#"<a href="link.html">link</a>"#);
+      println!("<a href=\"link.html\">link</a>");
+  }
+  ```
+- ``` println!("{:?}",person)``` -> This way you can print the complete struct object,array,vector or any type of large data.Here ```person``` can be array,struct or vector
 
 </details>
