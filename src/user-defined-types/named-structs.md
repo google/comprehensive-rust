@@ -14,10 +14,13 @@ struct Person {
 
 fn describe(person: &Person) {
     println!("{} is {} years old", person.name, person.age);
+        // Or 
+    println!("{:?}",person) // This way you can print the complete struct object.
+     
 }
 
 fn main() {
-    let mut peter = Person { name: String::from("Peter"), age: 27 };
+    let mut peter = Person { name: String::from("Peter"), age: 27 }; // This can also be done by -> let mut peter = Person { name:"Peter".to_string(),age:27 }
     describe(&peter);
 
     peter.age = 28;
