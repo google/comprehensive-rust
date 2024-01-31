@@ -12,7 +12,7 @@ _birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:
 
 _Generated trait_:
 
-```rust
+```rust,ignore
 trait IBirthdayService {
     fn wishHappyBirthday(&self, name: &str, years: i32) -> binder::Result<String>;
 }

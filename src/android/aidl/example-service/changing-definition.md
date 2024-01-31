@@ -15,7 +15,7 @@ interface IBirthdayService {
 
 This results in an updated trait definition for `IBirthdayService`:
 
-```rust
+```rust,ignore
 trait IBirthdayService {
     fn wishHappyBirthday(
         &self,

@@ -4,7 +4,7 @@ Update the client and server code to account for the new API.
 
 _birthday_service/src/lib.rs_:
 
-```rust
+```rust,ignore
 impl IBirthdayService for BirthdayService {
     fn wishHappyBirthday(
         &self,
@@ -28,7 +28,7 @@ impl IBirthdayService for BirthdayService {
 
 _birthday_service/src/client.rs_:
 
-```rust
+```rust,ignore
 let msg = service.wishHappyBirthday(
     &name,
     years,
