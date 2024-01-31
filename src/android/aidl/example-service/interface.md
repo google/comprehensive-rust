@@ -15,9 +15,6 @@ _birthday_service/aidl/Android.bp_:
 {{#include ../birthday_service/aidl/Android.bp}}
 ```
 
-Add `vendor_available: true` if your AIDL file is used by a binary in the vendor
-partition.
-
 <details>
 
 - Note that the directory structure under the `aidl/` directory needs to match
