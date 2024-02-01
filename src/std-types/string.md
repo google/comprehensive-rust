@@ -54,8 +54,6 @@ all `str` methods on a `String`.
     out-of-bounds.
   - To a substring by using `s3[0..4]`, where that slice is on character
     boundaries or not.
-- let s4 = "Greetings"; // -> This type of string declaration is by default comes under &str type.
-- let mut s5:String = s4; // Output : Error because `greeting` is &str type.  
-- let mut s5:String = s4.to_string(); // This way you can convert `&str` to `String` by `to_string()` function.
+- Many types can be converted to a string with the [`to_string`](https://doc.rust-lang.org/std/string/trait.ToString.html#tymethod.to_string) method. This trait is automatically implemented for all types that implement `Display`, so anything that can be formatted can also be converted to a string.
 
 </details>
