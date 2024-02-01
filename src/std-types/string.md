@@ -20,9 +20,9 @@ fn main() {
     let s3 = String::from("🇨🇭");
     println!("s3: len = {}, number of chars = {}", s3.len(), s3.chars().count());
 
-    let s4 = "Greetings" // -> This type of string declaration is by default comes under &str type.
-    let mut s5:String = greeting; // Output : Error because `greeting` is &str type.  
-    let mut s5:String = greeting.to_string() // This way you can convert `&str` to `String` by `to_string()` function.
+    let s4 = "Greetings"; // -> This type of string declaration is by default comes under &str type.
+    let mut s5:String = s4; // Output : Error because `greeting` is &str type.  
+    let mut s5:String = s4.to_string(); // This way you can convert `&str` to `String` by `to_string()` function.
 }
 ```
 
