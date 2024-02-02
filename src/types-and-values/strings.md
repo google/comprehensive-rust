@@ -52,5 +52,4 @@ later, but this is enough for subsequent slides and exercises to use strings.
       println!("<a href=\"link.html\">link</a>");
   }
   ```
-
 </details>
