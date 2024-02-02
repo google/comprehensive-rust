@@ -7,11 +7,6 @@ minutes: 10
 [`Vec`][1] is the standard resizable heap-allocated buffer:
 
 ```rust,editable
-#[derive(Debug)]
-struct Student{
-  name:String,
-  id:u32,
-}
 fn main() {
     let mut v1 = Vec::new();
     v1.push(42);
@@ -32,11 +27,6 @@ fn main() {
     // Remove consecutive duplicates.
     v3.dedup();
     println!("{v3:?}");
-
-    // Usage of structs in vectors
-    let mut students = Vec::new();
-    students.push(Student{name:"Roy".to_string(),id:1});
-    println!("{:?}",students);
 }
 ```
 
