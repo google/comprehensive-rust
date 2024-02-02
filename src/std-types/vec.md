@@ -50,9 +50,6 @@ methods on a `Vec`.
   Alternatively, using `get` will return an `Option`. The `pop` function will
   remove the last element.
 - Slices are covered on day 3. For now, students only need to know that a value
-  of type `Vec` gives access to all of the documented slice methods, too. 
-- let mut v4 = Vec::new();    
-- v4.push(User{username:"Ron".to_string(),email:"ron@mail.com".to_string(),password:"******".to_string()}); // We can add as many - users we want in this vector.
-- println!("{:?}",v4)
+  of type `Vec` gives access to all of the documented slice methods, too.
 
 </details>
