@@ -53,4 +53,7 @@ later, but this is enough for subsequent slides and exercises to use strings.
   }
   ```
 
+- Using `{:?}` is a convenient way to print array/vector/struct of values for
+  debugging purposes, and it's commonly used in code.
+
 </details>
