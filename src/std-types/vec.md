@@ -51,7 +51,10 @@ methods on a `Vec`.
   remove the last element.
 - Slices are covered on day 3. For now, students only need to know that a value
   of type `Vec` gives access to all of the documented slice methods, too.
-- To create a vector of structs in Rust, start by declaring a struct using the struct keyword. After defining the struct, 
-  initialize an empty vector of that struct type. You can then populate the vector by using the push method, adding instances of the struct i.e ```vector_variable_name.push(struct_varible_name{field1: value1,....})```
- 
+- To create a vector of structs in Rust, start by declaring a struct using the
+  struct keyword. After defining the struct, initialize an empty vector of that
+  struct type. You can then populate the vector by using the push method,adding
+  instances of the struct.
+  i.e `vector_variable_name.push(struct_variable_name{field1: value1,....})`
+
 </details>
