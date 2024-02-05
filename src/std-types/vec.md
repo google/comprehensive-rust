@@ -55,6 +55,6 @@ methods on a `Vec`.
   struct keyword. After defining the struct, initialize an empty vector of that
   struct type. You can then populate the vector by using the push method,adding
   instances of the struct.
-  i.e `vector_variable_name.push(struct_variable_name{field1: value1,....})`
+  i.e`vector_variable_name.push(struct_variable_name{field1: value1,....})`
 
 </details>
