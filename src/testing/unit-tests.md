@@ -23,7 +23,7 @@ fn first_word(text: &str) -> &str {
 }
 
 #[cfg(test)]
-mod test {
+mod tests {
     use super::*;
 
     #[test]
