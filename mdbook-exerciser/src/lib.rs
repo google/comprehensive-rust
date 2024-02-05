@@ -13,7 +13,7 @@
 // limitations under the License.
 
 use log::{info, trace};
-use pulldown_cmark::{Event, Parser, Tag};
+use pulldown_cmark::{Event, Parser, Tag, TagEnd};
 use std::fs::{create_dir_all, File};
 use std::io::Write;
 use std::path::Path;
@@ -61,8 +61,8 @@ pub fn process(output_directory: &Path, input_contents: &str) -> anyhow::Result<
                     output_file.write(text.as_bytes())?;
                 }
             }
-            Event::End(Tag::CodeBlock(x)) => {
-                info!("End   {:?}", x);
+            Event::End(TagEnd::CodeBlock) => {
+                info!("End");
                 current_file = None;
             }
             _ => {}
