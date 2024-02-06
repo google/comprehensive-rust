@@ -20,6 +20,9 @@ fn main() {
     // Canonical macro to initialize a vector with elements.
     let mut v3 = vec![0, 0, 1, 2, 3, 4];
 
+    // specifying the type when initializing a vector.
+    let mut v4 = Vec::<String>::new();
+
     // Retain only the even elements.
     v3.retain(|x| x % 2 == 0);
     println!("{v3:?}");
