@@ -4,7 +4,8 @@ minutes: 5
 
 ## `for`
 
-The [`for` loop](https://doc.rust-lang.org/std/keyword.for.html) iterates over ranges of values:
+The [`for` loop](https://doc.rust-lang.org/std/keyword.for.html) iterates over
+ranges of values:
 
 ```rust,editable
 fn main() {
