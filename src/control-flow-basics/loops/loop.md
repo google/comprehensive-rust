@@ -4,8 +4,8 @@ minutes: 5
 
 ## `loop`
 
-The [`loop` statement](https://doc.rust-lang.org/std/keyword.loop.html)
-just loops forever, until a `break`.
+The [`loop` statement](https://doc.rust-lang.org/std/keyword.loop.html) just
+loops forever, until a `break`.
 
 ```rust,editable
 fn main() {
