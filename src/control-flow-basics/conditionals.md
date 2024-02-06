@@ -1,5 +1,5 @@
 ---
-minutes: 5
+minutes: 4
 ---
 
 # Conditionals
