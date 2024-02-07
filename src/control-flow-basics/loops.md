@@ -22,11 +22,3 @@ fn main() {
     println!("Final x: {x}");
 }
 ```
-
-## `for`
-
-The [`for` loop](loops/for.md)
-
-## `loop`
-
-The [`loop` statement](loops/loop.md)

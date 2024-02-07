@@ -1,4 +1,4 @@
-## `loop`
+# `loop`
 
 The [`loop` statement](https://doc.rust-lang.org/std/keyword.loop.html) just
 loops forever, until a `break`.

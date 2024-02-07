@@ -1,8 +1,4 @@
----
-minutes: 5
----
-
-## `for`
+# `for`
 
 The [`for` loop](https://doc.rust-lang.org/std/keyword.for.html) iterates over
 ranges of values:
