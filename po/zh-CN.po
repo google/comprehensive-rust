@@ -4396,16 +4396,14 @@ msgid "Rust has several optimizations it can employ to make enums take up less s
 msgstr "Rust 具有多种优化措施，可以减少枚举占用的空间。"
 
 #: src/user-defined-types/enums.md
-#, fuzzy
 msgid ""
 "Null pointer optimization: For [some types](https://doc.rust-lang.org/std/option/"
 "#representation), Rust guarantees that `size_of::<T>()` equals `size_of::<Option<T>>()`."
 msgstr ""
-"Null 指针优化：对于[某些 类型](https://doc.rust-lang.org/std/option/#representation)，"
+"Null 指针优化：对于[某些类型](https://doc.rust-lang.org/std/option/#representation)，"
 "Rust 保证 `size_of::<T>()` 等效于 `size_of::<Option<T>>()`。"
 
 #: src/user-defined-types/enums.md
-#, fuzzy
 msgid ""
 "Example code if you want to show how the bitwise representation _may_ look like in "
 "practice. It's important to note that the compiler provides no guarantees regarding this "
@@ -4415,7 +4413,6 @@ msgstr ""
 "表示法不提供任何保证，因此这是完全不安全的。"
 
 #: src/user-defined-types/static-and-const.md
-#, fuzzy
 msgid ""
 "Static and constant variables are two different ways to create globally-scoped values "
 "that cannot be moved or reallocated during the execution of the program."
@@ -4424,7 +4421,7 @@ msgstr ""
 
 #: src/user-defined-types/static-and-const.md
 msgid "`const`"
-msgstr "`const`"
+msgstr ""
 
 #: src/user-defined-types/static-and-const.md
 msgid ""
@@ -4449,7 +4446,7 @@ msgstr ""
 
 #: src/user-defined-types/static-and-const.md
 msgid "`static`"
-msgstr "`static`"
+msgstr ""
 
 #: src/user-defined-types/static-and-const.md
 msgid ""
@@ -4458,16 +4455,14 @@ msgid ""
 msgstr "静态变量在程序的整个执行过程中始终有效，因此不会移动："
 
 #: src/user-defined-types/static-and-const.md
-#, fuzzy
 msgid "\"Welcome to RustOS 3.14\""
-msgstr "欢迎来到第一天"
+msgstr ""
 
 #: src/user-defined-types/static-and-const.md
 msgid "\"{BANNER}\""
-msgstr "\"{BANNER}\""
+msgstr ""
 
 #: src/user-defined-types/static-and-const.md
-#, fuzzy
 msgid ""
 "As noted in the [Rust RFC Book](https://rust-lang.github.io/rfcs/0246-const-vs-static."
 "html), these are not inlined upon use and have an actual associated memory location. "
@@ -4476,8 +4471,9 @@ msgid ""
 "object identity, `const` is generally preferred."
 msgstr ""
 "正如 [Rust RFC Book](https://rust-lang.github.io/rfcs/0246-const-vs-static.html) 中所述，"
-"这些变量在使用时并不是内联的，而且还具有实际相关联的内存位置。这对于不安全的嵌入式代码是"
-"有用的，并且这些变量存在于整个程序的执行过程之中。"
+"这些变量在使用时并不是内联的，而且还具有实际相关联的内存位置。这对于不安全的和嵌入式代码"
+"是有用的，并且这些变量存在于整个程序的执行过程之中。当一个全局值不需要一个对象标识时。"
+"`const` 通常是推荐的。"
 
 #: src/user-defined-types/static-and-const.md
 msgid "Mention that `const` behaves semantically similar to C++'s `constexpr`."
@@ -4490,14 +4486,12 @@ msgid ""
 msgstr "另一方面，`static` 远远更类似于C++中的 `const` 或可改变的全局变量。"
 
 #: src/user-defined-types/static-and-const.md
-#, fuzzy
 msgid ""
 "`static` provides object identity: an address in memory and state as required by types "
 "with interior mutability such as `Mutex<T>`."
 msgstr ""
-"“static”提供对象标识：内存中的一个地址及具有内部可变性的类型（如“Mutex\n"
-"\n"
-"”）所需的状态。"
+"`static` 提供对象标识：内存中的一个地址及具有内部可变性的类型（如 `Mutex<T>`）所需的状"
+"态。"
 
 #: src/user-defined-types/static-and-const.md
 msgid ""
@@ -4516,13 +4510,12 @@ msgid "Property"
 msgstr "属性"
 
 #: src/user-defined-types/static-and-const.md
-#, fuzzy
 msgid "Static"
-msgstr "`static`"
+msgstr ""
 
 #: src/user-defined-types/static-and-const.md
 msgid "Constant"
-msgstr "常量"
+msgstr ""
 
 #: src/user-defined-types/static-and-const.md
 msgid "Has an address in memory"
@@ -4538,9 +4531,8 @@ msgid "No (inlined)"
 msgstr "否（内嵌）"
 
 #: src/user-defined-types/static-and-const.md
-#, fuzzy
 msgid "Lives for the entire duration of the program"
-msgstr "`main` 函数是程序的入口。"
+msgstr "存在于整个程序执行期"
 
 #: src/user-defined-types/static-and-const.md
 #: src/chromium/adding-third-party-crates/resolving-problems.md
@@ -4556,9 +4548,8 @@ msgid "Yes (unsafe)"
 msgstr "是（不安全）"
 
 #: src/user-defined-types/static-and-const.md
-#, fuzzy
 msgid "Evaluated at compile time"
-msgstr "值在编译时具有已知的固定大小。"
+msgstr "编译期求值"
 
 #: src/user-defined-types/static-and-const.md
 msgid "Yes (initialised at compile time)"
@@ -4569,21 +4560,18 @@ msgid "Inlined wherever it is used"
 msgstr "内嵌在使用它的任何位置"
 
 #: src/user-defined-types/static-and-const.md
-#, fuzzy
 msgid ""
 "Because `static` variables are accessible from any thread, they must be `Sync`. Interior "
 "mutability is possible through a [`Mutex`](https://doc.rust-lang.org/std/sync/struct."
 "Mutex.html), atomic or similar."
 msgstr ""
-"由于“static”变量可从任何线程访问，因此它们必须是“Sync”。内部可变性可通过[“互斥量”]"
-"(https://doc.rust-lang.org/std/sync/struct.Mutex.html)、原子性或类似对象实现。也可能具有"
-"可变静态项，但它们需要手动同步，因此对它们的任何访问都需要“unsafe”代码。我们将在“不安全 "
-"Rust”章节中探讨[可变静态项](../unsafe/mutable-static-variables.md)。"
+"由于 `static` 变量可从任何线程访问，因此它们必须是 `Sync`。内部可变性可通过 [`互斥量`"
+"（Mutex）](https://doc.rust-lang.org/std/sync/struct.Mutex.html)、原子性或类似的东西实"
+"现。"
 
 #: src/user-defined-types/static-and-const.md
-#, fuzzy
 msgid "Thread-local data can be created with the macro `std::thread_local`."
-msgstr "可以使用宏“std::thread_local”创建“thread_local”数据。"
+msgstr "可以使用宏 `std::thread_local` 创建 `thread_local` 数据。"
 
 #: src/user-defined-types/aliases.md
 msgid ""
@@ -4591,9 +4579,8 @@ msgid ""
 msgstr "类型别名为另一种类型创建名称。这两种类型可以互换使用。"
 
 #: src/user-defined-types/aliases.md
-#, fuzzy
 msgid "// Aliases are more useful with long, complex types:"
-msgstr "// Aliases are more useful with long, complex types:\n"
+msgstr "// 对于长而复杂的类型，这很有用"
 
 #: src/user-defined-types/aliases.md
 msgid "C programmers will recognize this as similar to a `typedef`."
@@ -4609,21 +4596,21 @@ msgstr ""
 "函数。使用 `#[derive(Debug)]` 以允许通过 `{:?}` 设置类型格式。"
 
 #: src/user-defined-types/exercise.md
-#, fuzzy
 msgid ""
 "This exercise only requires creating and populating data structures so that `main` runs "
 "without errors. The next part of the course will cover getting data out of these "
 "structures."
-msgstr "此次练习只需创建数据结构。本课程的下一部分将介绍如何从这些结构中获取数据。"
+msgstr ""
+"此次练习只需创建数据结构并填充数据，以使 `main` 顺利执行。本课程的下一部分将介绍如何从结"
+"构外获取数据。"
 
 #: src/user-defined-types/exercise.md src/user-defined-types/solution.md
 msgid "/// An event in the elevator system that the controller must react to.\n"
 msgstr "/// An event in the elevator system that the controller must react to.\n"
 
 #: src/user-defined-types/exercise.md
-#, fuzzy
 msgid "// TODO: add required variants"
-msgstr "// Tuple variant\n"
+msgstr ""
 
 #: src/user-defined-types/exercise.md src/user-defined-types/solution.md
 msgid "/// A direction of travel.\n"
@@ -4710,10 +4697,9 @@ msgid "Welcome to Day 2"
 msgstr "欢迎来到第二天"
 
 #: src/welcome-day-2.md
-#, fuzzy
 msgid ""
 "Now that we have seen a fair amount of Rust, today will focus on Rust's type system:"
-msgstr "现在我们已经了解了相当多的Rust，接下来我们将学习："
+msgstr "现在我们已经了解了 Rust 中相当多的东西；今天我们将关注 Rust 的类型系统："
 
 #: src/welcome-day-2.md
 #, fuzzy
