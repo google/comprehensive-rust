@@ -1,5 +1,5 @@
 ---
-minutes: 15
+minutes: 10
 ---
 
 # Generic Data Types

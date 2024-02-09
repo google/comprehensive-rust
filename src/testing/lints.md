@@ -1,5 +1,5 @@
 ---
-minutes: 5
+minutes: 3
 ---
 
 # Compiler Lints and Clippy
