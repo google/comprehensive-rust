@@ -13,7 +13,7 @@
 // limitations under the License.
 
 //! Implementation of the `IBirthdayService` AIDL interface.
-use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayInfoProvider::{IBirthdayInfoProvider, BpBirthdayInfoProvider};
+use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayInfoProvider::IBirthdayInfoProvider;
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
 use com_example_birthdayservice::aidl::com::example::birthdayservice::BirthdayInfo::BirthdayInfo;
 use com_example_birthdayservice::binder::{self, ParcelFileDescriptor, SpIBinder, Strong};
@@ -54,10 +54,9 @@ impl IBirthdayService for BirthdayService {
         &self,
         provider: &SpIBinder,
     ) -> binder::Result<String> {
-        use binder::binder_impl::Proxy;
-
-        // Convert the `IBinder` to a concrete interface.
-        let provider = BpBirthdayInfoProvider::from_binder(provider.clone())?;
+        // Convert the `SpIBinder` to a concrete interface.
+        let provider =
+            provider.clone().into_interface::<dyn IBirthdayInfoProvider>()?;
 
         Ok(format!(
             "Happy Birthday {}, congratulations with the {} years!",
