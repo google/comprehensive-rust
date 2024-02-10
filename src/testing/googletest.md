@@ -40,7 +40,7 @@ Error: See failure output above
 
 - This just scratches the surface, there are many builtin matchers.
 
-- A particularly nice feature is that mismatches in multi-line strings strings
+- A particularly nice feature is that mismatches in multi-line strings
   are shown as a diff:
 
 ```rust,ignore
