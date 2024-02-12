@@ -10,7 +10,7 @@ from basic syntax to generics and error handling. It also includes deep dives on
 [Android], [Chromium], [bare-metal], and [concurrency].
 
 [Android]: https://google.github.io/comprehensive-rust/android.html
-[Chromium]: https://google.github.io/comprehensive-rust/comprehensive.html
+[Chromium]: https://google.github.io/comprehensive-rust/chromium.html
 [bare-metal]: https://google.github.io/comprehensive-rust/bare-metal.html
 [concurrency]: https://google.github.io/comprehensive-rust/concurrency.html
 
