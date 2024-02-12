@@ -52,7 +52,7 @@ fn x_axis(x: i32) -> &(i32, i32) {
   required.
 
 - Rust will auto-dereference in some cases, in particular when invoking methods
-  (try `r.count_ones()`). There is no need for an `->` operator like in C++.
+  (try `r.is_ascii()`). There is no need for an `->` operator like in C++.
 
 - In this example, `r` is mutable so that it can be reassigned (`r = &b`). Note
   that this re-binds `r`, so that it refers to something else. This is different
