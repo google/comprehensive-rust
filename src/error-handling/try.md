@@ -59,7 +59,7 @@ Key points:
 - Use the `fs::write` call to test out the different scenarios: no file, empty
   file, file with username.
 - Note that `main` can return a `Result<(), E>` as long as it implements
-  `std::process:Termination`. In practice, this means that `E` implements
+  `std::process::Termination`. In practice, this means that `E` implements
   `Debug`. The executable will print the `Err` variant and return a nonzero exit
   status on error.
 
