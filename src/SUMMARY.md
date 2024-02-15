@@ -35,6 +35,7 @@
     - [`for`](control-flow-basics/loops/for.md)
     - [`loop`](control-flow-basics/loops/loop.md)
   - [`break` and `continue`](control-flow-basics/break-continue.md)
+    - [Labels](control-flow-basics/break-continue/labels.md)
   - [Blocks and Scopes](control-flow-basics/blocks-and-scopes.md)
   - [Functions](control-flow-basics/functions.md)
   - [Macros](control-flow-basics/macros.md)
