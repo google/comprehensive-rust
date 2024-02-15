@@ -7114,8 +7114,7 @@ msgstr "오늘 다룰 내용은 다음과 같습니다."
 msgid ""
 "Memory management, lifetimes, and the borrow checker: how Rust ensures "
 "memory safety."
-msgstr ""
-"메모리 관리, 전체 기간, 빌림 검사기: Rust가 메모리 안전을 보장하는 방법"
+msgstr "메모리 관리, 수명, 빌림 검사기: Rust가 메모리 안전을 보장하는 방법"
 
 #: src/welcome-day-3.md:7
 msgid "Smart pointers: standard library pointer types."
@@ -8370,8 +8369,8 @@ msgid ""
 msgstr ""
 "배타적인 참조 제약 조건은 매우 강력합니다. Rust는 이를 사용하여 데이터 경합"
 "이 발생하지 않도록 합니다. Rust는 또한 이 제약 조건을 _사용_하여 코드를 최적"
-"화합니다. 예를 들어 공유 참조 뒤에 있는 값은 해당 참조의 전체 기간 동안 레지"
-"스터에 안전하게 캐시될 수 있습니다."
+"화합니다. 예를 들어 공유 참조 뒤에 있는 값은 해당 참조의 수명 동안 레지스터"
+"에 안전하게 캐시될 수 있습니다."
 
 #: src/borrowing/borrowck.md:41
 msgid ""
@@ -8507,7 +8506,7 @@ msgstr "\"병원 방문에 따른 측정값을 기반으로 사용자 통계를 
 #: src/borrowing/solution.md:64 src/borrowing/solution.md:70
 #: src/android/build-rules/library.md:44 src/android/aidl/client.md:22
 msgid "\"Bob\""
-msgstr "\"밥\""
+msgstr "\"Bob\""
 
 #: src/borrowing/exercise.md:57 src/borrowing/solution.md:59
 msgid "\"I'm {} and my age is {}\""
@@ -8673,9 +8672,8 @@ msgid ""
 "characters and is preferred over trying to get character boundaries right."
 msgstr ""
 "`&` 및 선택적으로 범위 선택을 통해 `String`에서 `&str` 슬라이스를 빌릴 수 있"
-"습니다.  문자 경계에 정렬되지 않은 바이트 범위를 선택하면 표현식이 패닉 상태"
-"가 됩니다.  `chars` 반복자는 문자를 반복하며 문자 경계를 올바르게 하려는 것보"
-"다 선호됩니다."
+"습니다.  문자 경계 범위를 올바로 선택하는 것보다, 문자 단위로 동작하는 "
+"`chars` 반복자를 사용하는 것이 좋습니다."
 
 #: src/slices-and-lifetimes/str.md:51
 #, fuzzy
@@ -8702,8 +8700,8 @@ msgid ""
 "A reference has a _lifetime_, which must not \"outlive\" the value it refers "
 "to. This is verified by the borrow checker."
 msgstr ""
-"참조에는 참조하는 값보다 '오래 지속'되어야 하는 _전체 기간_이 있습니다. 이는 "
-"빌림 검사기에서 확인합니다."
+"참조에는 참조하는 값보다 '오래 지속'되어야 하는 _수명_이 있습니다. 이는 빌림 "
+"검사기에서 확인합니다."
 
 #: src/slices-and-lifetimes/lifetime-annotations.md:6
 #, fuzzy
@@ -8713,10 +8711,11 @@ msgid ""
 "`'` and `'a` is a typical default name. Read `&'a Point` as \"a borrowed "
 "`Point` which is valid for at least the lifetime `a`\"."
 msgstr ""
-"전체 기간은 암시적일 수 있으며 이는 지금까지 확인한 것입니다.  전체 기간은 명"
-"시적일 수도 있습니다(예: `&'a Point`, `&'document str`). 전체 기간은 `'`로 시"
-"작하고 `'a`는 일반적인 기본 이름입니다.  `&'a Point`를 '최소한 전체 기간 `a` "
-"동안 유효한 빌린 `Point` 로 읽습니다."
+"수명은 암시적으로 표현할 수 있습니다 - 지금까지 이러한 경우들을 살펴보았습니"
+"다. 수명을 다음과 같이 명시적으로 표현할 수도 있습니다: &'a Point, "
+"&'document str. 수명은 ' 기호를 시작하며 일반적으로 'a 라는 이름을 사용합니"
+"다. &'a Point는 \"최소한 a의 수명만큼 유효한 Point의 참조\"라고 이해할 수 있"
+"습니다."
 
 #: src/slices-and-lifetimes/lifetime-annotations.md:11
 #, fuzzy
@@ -8733,12 +8732,12 @@ msgid ""
 "Lifetimes become more complicated when considering passing values to and "
 "returning values from functions."
 msgstr ""
-"전체 기간은 함수에 값을 전달하고 함수에서 값을 반환하는 경우를 고려할 때 더 "
-"복잡해집니다."
+"수명은 함수에 값을 전달하고 함수에서 값을 반환하는 경우를 고려할 때 더 복잡해"
+"집니다."
 
 #: src/slices-and-lifetimes/lifetime-annotations.md:36
 msgid "// What is the lifetime of p3?\n"
-msgstr "// p3의 전체 기간은 어떻게 되나요?\n"
+msgstr "// p3의 수명은 어떻게 되나요?\n"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md:37
 msgid "\"p3: {p3:?}\""
@@ -8752,10 +8751,10 @@ msgid ""
 "Rust requires explicit annotations of lifetimes on function arguments and "
 "return values."
 msgstr ""
-"이 예에서 컴파일러는 'p3'에 관해 어떤 전체 기간을 추론할지 알지 못합니다. 함"
-"수 본문을 살펴보면 `p3`의 전체 기간이 `p1`과 `p2`보다 더 짧다고만 가정할 수 "
-"있다는 것을 알 수 있습니다. 그러나 타입과 마찬가지로 Rust는 함수 인수와 반환 "
-"값에 관한 전체 기간의 명시적 주석이 필요합니다."
+"이 예에서 컴파일러는 'p3'에 관해 어떤 수명을 추론할지 알지 못합니다. 함수 본"
+"문을 살펴보면 `p3`의 수명이 `p1`과 `p2`보다 더 짧다고만 가정할 수 있다는 것"
+"을 알 수 있습니다. 그러나 타입과 마찬가지로 Rust는 함수 인수와 반환 값에 관"
+"한 수명의 명시적 주석이 필요합니다."
 
 #: src/slices-and-lifetimes/lifetime-annotations.md:49
 msgid "Add `'a` appropriately to `left_most`:"
@@ -8772,7 +8771,7 @@ msgstr ""
 #: src/slices-and-lifetimes/lifetime-annotations.md:58
 msgid ""
 "In common cases, lifetimes can be elided, as described on the next slide."
-msgstr "일반적으로 전체 기간은 다음 슬라이드에 설명된 대로 생략될 수 있습니다."
+msgstr "일반적으로 수명은 다음 슬라이드에 설명된 대로 생략될 수 있습니다."
 
 #: src/slices-and-lifetimes/lifetime-elision.md:1
 msgid "Lifetimes in Function Calls"
@@ -8792,23 +8791,22 @@ msgstr ""
 
 #: src/slices-and-lifetimes/lifetime-elision.md:8
 msgid "Each argument which does not have a lifetime annotation is given one."
-msgstr "전체 기간 주석이 없는 각 인수에 하나씩 제공됩니다."
+msgstr "수명 주석이 없는 각 인수에 하나씩 제공됩니다."
 
 #: src/slices-and-lifetimes/lifetime-elision.md:9
 msgid ""
 "If there is only one argument lifetime, it is given to all un-annotated "
 "return values."
 msgstr ""
-"인수 전체 기간이 하나만 있는 경우 주석 처리되지 않은 모든 반환 값에 제공됩니"
-"다."
+"인수 수명이 하나만 있는 경우 주석 처리되지 않은 모든 반환 값에 제공됩니다."
 
 #: src/slices-and-lifetimes/lifetime-elision.md:11
 msgid ""
 "If there are multiple argument lifetimes, but the first one is for `self`, "
 "that lifetime is given to all un-annotated return values."
 msgstr ""
-"인수 전체 기간이 여러 개 있지만 첫 번째가 'self'의 전체 기간이면 해당 전체 기"
-"간은 주석 처리되지 않은 모든 반환 값에 제공됩니다."
+"인수 수명이 여러 개 있지만 첫 번째가 'self'의 수명이면 해당 전체 기간은 주석 "
+"처리되지 않은 모든 반환 값에 제공됩니다."
 
 #: src/slices-and-lifetimes/lifetime-elision.md:52
 msgid "In this example, `cab_distance` is trivially elided."
@@ -8824,7 +8822,7 @@ msgstr ""
 
 #: src/slices-and-lifetimes/lifetime-elision.md:57
 msgid "Try adjusting the signature to \"lie\" about the lifetimes returned:"
-msgstr "반환된 전체 기간에 관해 '거짓말'하도록 서명을 조정해 보세요."
+msgstr "반환된 수명에 관해 '거짓말'하도록 서명을 조정해 보세요."
 
 #: src/slices-and-lifetimes/lifetime-elision.md:63
 #, fuzzy
@@ -8862,7 +8860,7 @@ msgstr "\"안녕 {text}!\""
 
 #: src/slices-and-lifetimes/struct-lifetimes.md:14
 msgid "\"The quick brown fox jumps over the lazy dog.\""
-msgstr "\"빠른 갈색 여우가 게으른 개를 뛰어넘습니다.\""
+msgstr "\"The quick brown fox jumps over the lazy dog.\""
 
 #: src/slices-and-lifetimes/struct-lifetimes.md:17
 msgid "// erase(text);\n"
@@ -8973,11 +8971,12 @@ msgstr ""
 "의 호출로 파싱합니다."
 
 #: src/slices-and-lifetimes/exercise.md:38
-#, fuzzy
 msgid ""
 "What remains for you is to implement the `parse_field` function and the "
 "`ProtoMessage` trait for `Person` and `PhoneNumber`."
-msgstr "이제 `parse_field` 함수만 구현하면 됩니다."
+msgstr ""
+"이제 `parse_field` 함수를 구현하고 `Person`과 `PhoneNumber` 구조체애 대해 "
+"`ProtoMessage` 트레잇만 구현하면 됩니다."
 
 #: src/slices-and-lifetimes/exercise.md:49
 #: src/slices-and-lifetimes/solution.md:11
@@ -9104,7 +9103,6 @@ msgstr ""
 
 #: src/slices-and-lifetimes/exercise.md:171
 #: src/slices-and-lifetimes/solution.md:153
-#, fuzzy
 msgid ""
 "/// Parse a message in the given data, calling `T::add_field` for each field "
 "in\n"
@@ -9112,8 +9110,8 @@ msgid ""
 "///\n"
 "/// The entire input is consumed.\n"
 msgstr ""
-"/// 주어진 데이터에서 메시지를 파싱하여 메시지의 각 필드에 대해 "
-"`field_callback`을 호출합니다.\n"
+"/// 주어진 데이터에서 메시지를 파싱하여 메시지의 각 필드에 대해 `T::"
+"add_field`를 호출합니다.\n"
 "///\n"
 "/// 전체 입력이 사용됩니다.\n"
 
@@ -9133,9 +9131,8 @@ msgstr "// 나머지는 모두 건너뜁니다.\n"
 #: src/slices-and-lifetimes/solution.md:225
 #: src/slices-and-lifetimes/solution.md:232
 #: src/slices-and-lifetimes/solution.md:239
-#, fuzzy
 msgid "b\"hello\""
-msgstr "b'hello'"
+msgstr "b\"hello\""
 
 #: src/welcome-day-4.md:1
 #, fuzzy
