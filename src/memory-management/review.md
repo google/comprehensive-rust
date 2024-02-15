@@ -29,17 +29,17 @@ fn main() {
 ```
 
 ```bob
- Stack                             Heap
-.- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - -.
-:                           :     :                               :
+ Stack
+.- - - - - - - - - - - - - -.      Heap
+:                           :     .- - - - - - - - - - - - - - - -.
 :    s1                     :     :                               :
-:   +-----------+-------+   :     :   +----+----+----+----+----+  :
-:   | ptr       |   o---+---+-----+-->| H  | e  | l  | l  | o  |  :
-:   | len       |     5 |   :     :   +----+----+----+----+----+  :
-:   | capacity  |     5 |   :     :                               :
 :   +-----------+-------+   :     :                               :
-:                           :     `- - - - - - - - - - - - - - - -'
-`- - - - - - - - - - - - - -'
+:   | capacity  |     5 |   :     :   +----+----+----+----+----+  :
+:   | ptr       |     o-+---+-----+-->| H  | e  | l  | l  | o  |  :
+:   | len       |     5 |   :     :   +----+----+----+----+----+  :
+:   +-----------+-------+   :     :                               :
+:                           :     :                               :
+`- - - - - - - - - - - - - -'     `- - - - - - - - - - - - - - - -'
 ```
 
 <details>
@@ -65,8 +65,8 @@ fn main() {
     // String provides no guarantees about its layout, so this could lead to
     // undefined behavior.
     unsafe {
-        let (ptr, capacity, len): (usize, usize, usize) = std::mem::transmute(s1);
-        println!("ptr = {ptr:#x}, len = {len}, capacity = {capacity}");
+        let (capacity, ptr, len): (usize, usize, usize) = std::mem::transmute(s1);
+        println!("capacity = {capacity}, ptr = {ptr:#x}, len = {len}");
     }
 }
 ```
