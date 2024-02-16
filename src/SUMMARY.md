@@ -52,6 +52,7 @@
 - [Welcome](welcome-day-1-afternoon.md)
 - [Tuples and Arrays](tuples-and-arrays.md)
   - [Tuples and Arrays](tuples-and-arrays/tuples-and-arrays.md)
+    - [Arrays](tuples-and-arrays/arrays/arrays.md)
   - [Array Iteration](tuples-and-arrays/iteration.md)
   - [Pattern Matching](tuples-and-arrays/match.md)
   - [Destructuring](tuples-and-arrays/destructuring.md)
