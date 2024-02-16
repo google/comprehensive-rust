@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## Scopes and Shadowing
+=======
+# Scopes and Shadowing
+>>>>>>> fccdc0d (Added blocks and scopes section (#1822))
 
 A variable's scope is limited to the enclosing block.
 

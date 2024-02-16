@@ -37,7 +37,11 @@
   - [`break` and `continue`](control-flow-basics/break-continue.md)
     - [Labels](control-flow-basics/break-continue/labels.md)
   - [Blocks and Scopes](control-flow-basics/blocks-and-scopes.md)
+<<<<<<< HEAD
     - [Scopes](control-flow-basics/blocks-and-scopes/scopes.md)
+=======
+    - [Scopes and Shadowing](control-flow-basics/blocks-and-scopes/scopes.md)
+>>>>>>> fccdc0d (Added blocks and scopes section (#1822))
   - [Functions](control-flow-basics/functions.md)
   - [Macros](control-flow-basics/macros.md)
   - [Exercise: Collatz Sequence](control-flow-basics/exercise.md)
