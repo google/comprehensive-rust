@@ -1,4 +1,4 @@
-## Scopes and Shadowing
+# Scopes and Shadowing
 
 A variable's scope is limited to the enclosing block.
 
