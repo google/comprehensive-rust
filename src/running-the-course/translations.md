@@ -9,7 +9,7 @@ volunteers:
   [@noahdragon], [@superwhd], [@SketchK], and [@nodmp].
 - [Chinese (Traditional)][zh-TW] by [@hueich], [@victorhsieh], [@mingyc],
   [@kuanhungchen], and [@johnathan79717].
-- [Korean][ko] by [@keispace], [@jiyongp], and [@jooyunghan].
+- [Korean][ko] by [@keispace], [@jiyongp], [@jooyunghan], an [@namhyung]
 - [Spanish][es] by [@deavid].
 
 Use the language picker in the top-right corner to switch between languages.
@@ -56,6 +56,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@kuanhungchen]: https://github.com/kuanhungchen
 [@mingyc]: https://github.com/mingyc
 [@momotaro1105]: https://github.com/momotaro1105
+[@namhyung]: https://github.com/namhyung
 [@noahdragon]: https://github.com/noahdragon
 [@nodmp]: https://github.com/nodmp
 [@raselmandol]: https://github.com/raselmandol
