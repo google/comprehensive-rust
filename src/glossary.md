@@ -5,19 +5,19 @@ terms. For translations, this also serves to connect the term back to the
 English original.
 
 <style>
-h1#glossary ~ ul {
+h1 ~ ul {
     list-style: none;
     padding-inline-start: 0;
 }
 
-h1#glossary ~ ul > li {
+h1 ~ ul > li {
     /* Simplify with "text-indent: 2em hanging" when supported:
        https://caniuse.com/mdn-css_properties_text-indent_hanging */
     padding-left: 2em;
     text-indent: -2em;
 }
 
-h1#glossary ~ ul > li:first-line {
+h1 ~ ul > li:first-line {
     font-weight: bold;
 }
 </style>
