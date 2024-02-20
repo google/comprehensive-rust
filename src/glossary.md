@@ -1,3 +1,5 @@
+<!-- i18n:comment Please keep { #glossary } untranslated. -->
+
 # Glossary { #glossary }
 
 The following is a glossary which aims to give a short definition of many Rust
