@@ -28,7 +28,11 @@ fn main() {
 
 <details>
 
-- Traits are implemented in an `impl <trait> for <type> { .. }` block.
+- Types must implement the trait with an `impl <trait> for <type> { .. }` block.
+
+- Unlike Go interfaces, just having matching methods is not enough: a `Cat` type
+  with a `talk()` method would not automatically satisfy `Pet` unless it is in
+  an `impl Pet` block.
 
 - Traits may specify pre-implemented (provided) methods and methods that users
   are required to implement themselves. Provided methods can rely on required
