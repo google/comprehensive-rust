@@ -1,23 +1,23 @@
-# Glossary
+# Glossary { #glossary }
 
 The following is a glossary which aims to give a short definition of many Rust
 terms. For translations, this also serves to connect the term back to the
 English original.
 
 <style>
-h1 ~ ul {
+h1#glossary ~ ul {
     list-style: none;
     padding-inline-start: 0;
 }
 
-h1 ~ ul > li {
+h1#glossary ~ ul > li {
     /* Simplify with "text-indent: 2em hanging" when supported:
        https://caniuse.com/mdn-css_properties_text-indent_hanging */
     padding-left: 2em;
     text-indent: -2em;
 }
 
-h1 ~ ul > li:first-line {
+h1#glossary ~ ul > li:first-line {
     font-weight: bold;
 }
 </style>
