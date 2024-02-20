@@ -61,6 +61,8 @@ jobs:
             var upstream = fs.readFileSync('upstream-schedule').toString();
             var schedule = fs.readFileSync('schedule').toString();
             if (upstream != schedule) {
+              schedule = schedule + "# New Course Schedule\n";
+              schedule = schedule + "This PR changes the course schedule. The new schedule is shown below.";
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
