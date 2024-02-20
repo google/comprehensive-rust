@@ -28,14 +28,15 @@ fn main() {
 
 <details>
 
-- To implement `Trait` for `Type`, you use an `impl Trait for Type { .. }` block.
+- To implement `Trait` for `Type`, you use an `impl Trait for Type { .. }`
+  block.
 
 - Unlike Go interfaces, just having matching methods is not enough: a `Cat` type
   with a `talk()` method would not automatically satisfy `Pet` unless it is in
   an `impl Pet` block.
 
 - Traits may provide default implementations of some methods. Default
-  implementations can rely on all the methods of the trait. In this
-  case, `greet` is provided, and relies on `talk`.
+  implementations can rely on all the methods of the trait. In this case,
+  `greet` is provided, and relies on `talk`.
 
 </details>
