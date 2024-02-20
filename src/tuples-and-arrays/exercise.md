@@ -36,5 +36,7 @@ functions:
     unimplemented!()
 }
 
+{{#include exercise.rs:tests}}
+
 {{#include exercise.rs:main}}
 ```
