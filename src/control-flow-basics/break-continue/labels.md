@@ -16,7 +16,7 @@ fn main() {
             }
         }
     }
-    print!("elements searched: {}", elements_searched);
+    print!("elements searched: {elements_searched}");
 }
 ```
 
