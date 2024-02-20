@@ -9,7 +9,7 @@ volunteers:
   [@noahdragon], [@superwhd], [@SketchK], and [@nodmp].
 - [Chinese (Traditional)][zh-TW] by [@hueich], [@victorhsieh], [@mingyc],
   [@kuanhungchen], and [@johnathan79717].
-- [Korean][ko] by [@keispace], [@jiyongp], [@jooyunghan], an [@namhyung]
+- [Korean][ko] by [@keispace], [@jiyongp], [@jooyunghan], and [@namhyung].
 - [Spanish][es] by [@deavid].
 
 Use the language picker in the top-right corner to switch between languages.
