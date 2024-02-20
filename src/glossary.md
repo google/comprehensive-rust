@@ -22,10 +22,9 @@ h1 ~ ul > li:first-line {
 }
 </style>
 
-<!--
-Translators: please add the English term in italic after your translated term.
-Also, please keep the hard line breaks to ensure a nice formatting.
--->
+<!-- i18n:comment Please add the English term in italic after your -->
+<!-- i18n:comment translated term. Also, please keep the hard line -->
+<!-- i18n:comment breaks to ensure a nice formatting. -->
 
 - allocate:\
   Dynamic memory allocation on [the heap](memory-management/stack-vs-heap.md).
