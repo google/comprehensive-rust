@@ -30,7 +30,7 @@
   - [Exercise: Fibonacci](types-and-values/exercise.md)
     - [Solution](types-and-values/solution.md)
 - [Control Flow Basics](control-flow-basics.md)
-  - [Conditionals](control-flow-basics/conditionals.md)
+  - [`if` Expressions](control-flow-basics/if.md)
   - [Loops](control-flow-basics/loops.md)
     - [`for`](control-flow-basics/loops/for.md)
     - [`loop`](control-flow-basics/loops/loop.md)
