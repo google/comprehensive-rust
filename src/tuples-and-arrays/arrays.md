@@ -1,4 +1,10 @@
+---
+minutes: 10
+---
+
 # Arrays
+
+<!-- mdbook-xgettext: skip -->
 
 ```rust,editable
 fn main() {
