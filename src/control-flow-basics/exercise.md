@@ -1,5 +1,5 @@
 ---
-minutes: 30
+minutes: 15
 ---
 
 # Exercise: Collatz Sequence
