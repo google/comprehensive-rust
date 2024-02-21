@@ -1,5 +1,5 @@
 ---
-minutes: 20
+minutes: 30
 ---
 
 # Exercise: Rewriting with Result

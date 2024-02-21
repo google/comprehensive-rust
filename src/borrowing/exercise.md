@@ -1,5 +1,5 @@
 ---
-minutes: 30
+minutes: 20
 ---
 
 # Exercise: Health Statistics
