@@ -9508,9 +9508,8 @@ msgid "b\"hello\""
 msgstr "b\"hello\""
 
 #: src/welcome-day-4.md:1
-#, fuzzy
 msgid "Welcome to Day 4"
-msgstr "1일차 개요"
+msgstr "4일차 개요"
 
 #: src/welcome-day-4.md:3
 #, fuzzy
@@ -9520,11 +9519,11 @@ msgstr "오늘은 몇 가지 고급 주제를 다룹니다:"
 
 #: src/welcome-day-4.md:5
 msgid "Iterators: a deep dive on the `Iterator` trait."
-msgstr ""
+msgstr "반복자: `Iterator` 트레잇 심층 분석"
 
 #: src/welcome-day-4.md:6
 msgid "Modules and visibility."
-msgstr ""
+msgstr "모듈과 가시성"
 
 #: src/welcome-day-4.md:7
 #, fuzzy
@@ -9539,6 +9538,8 @@ msgstr "오류처리(에러 핸들링): 패닉, `Result`, `?` 연산자."
 msgid ""
 "Unsafe Rust: the escape hatch when you can't express yourself in safe Rust."
 msgstr ""
+"안전하지 않은 Rust: 안전한 Rust로 원하는 것을 표현할 수 없을 때에만 사용하세"
+"요."
 
 #: src/iterators/iterator.md:7
 msgid ""
@@ -9547,10 +9548,15 @@ msgid ""
 "method and provides lots of methods. Many standard library types implement "
 "`Iterator`, and you can implement it yourself, too:"
 msgstr ""
+"컬랙션에 있는 값들을 접근하기 위해서는 [`Iterator`](https://doc.rust-lang."
+"org/std/iter/trait.Iterator.html) 트레잇을 사용합니다. 이 트레잇은 `next` 메"
+"서드를 비롯한 많은 메서드를 제공합니다. 많은 표준 라이브러리 타입이 "
+"`Iterator`를 구현하고 있으며, 여러분도 여러분의 타입이 이 트레잇을 직접 구현"
+"하도록 할 수 있습니다."
 
 #: src/iterators/iterator.md:31
 msgid "\"fib({i}): {n}\""
-msgstr ""
+msgstr "\"fib({i}): {n}\""
 
 #: src/iterators/iterator.md:38
 #, fuzzy
@@ -9574,7 +9580,7 @@ msgid ""
 "vector with `for i in some_vec { .. }` but `some_vec.next()` doesn't exist."
 msgstr ""
 "`IntoIterator`는 루프를 작동하게 만드는 트레잇입니다. 이는 `Vec<T>`와 같은 컬"
-"렉션 유형과 `&Vec<T>` 및 `&[T]`와 같은 이에 대한 참조에 의해 구현됩니다. 범위"
+"렉션 타입과 `&Vec<T>` 및 `&[T]`와 같은 이에 대한 참조에 의해 구현됩니다. 범위"
 "도 이를 구현합니다. 이런 이유로 `for i in some_vec { .. }`를 사용하여 벡터를 "
 "반복할 수 있지만 `some_vec.next()`는 존재하지 않습니다."
 
@@ -9591,7 +9597,7 @@ msgstr ""
 
 #: src/iterators/intoiterator.md:49
 msgid "\"point = {x}, {y}\""
-msgstr ""
+msgstr "\"point = {x}, {y}\""
 
 #: src/iterators/intoiterator.md:56
 #, fuzzy
@@ -9620,19 +9626,23 @@ msgstr ""
 
 #: src/iterators/intoiterator.md:65
 msgid "The example iterates over all combinations of x and y coordinates."
-msgstr ""
+msgstr "이 예는 x 및 y 좌표의 모든 조합을 순회합니다."
 
 #: src/iterators/intoiterator.md:67
 msgid ""
 "Try iterating over the grid twice in `main`. Why does this fail? Note that "
 "`IntoIterator::into_iter` takes ownership of `self`."
 msgstr ""
+"`main`에서 그리드를 두 번 반복해 보세요. 왜 실패하나요? `IntoIterator::"
+"into_iter`는 'self'의 소유권을 가져옵니다."
 
 #: src/iterators/intoiterator.md:70
 msgid ""
 "Fix this issue by implementing `IntoIterator` for `&Grid` and storing a "
 "reference to the `Grid` in `GridIter`."
 msgstr ""
+"`&Grid`에 `IntoIterator`를 구현하고 `GridIter`에 `Grid` 참조를 저장하여 이 문"
+"제를 해결하세요."
 
 #: src/iterators/intoiterator.md:73
 msgid ""
@@ -9641,6 +9651,10 @@ msgid ""
 "elements from that vector. Use `for e in &some_vector` instead, to iterate "
 "over references to elements of `some_vector`."
 msgstr ""
+"표준 라이브러리 타입에서 동일한 문제가 발생할 수 있습니다. `for e in "
+"some_vector`는 `some_vector`의 소유권을 가져와 해당 벡터에서 소유한 요소를 반"
+"복합니다. `some_vector`의 요소에 대한 참조를 반복하려면 대신 `for e in "
+"&some_vector`를 사용하세요."
 
 #: src/iterators/fromiterator.md:1
 msgid "FromIterator"
@@ -9658,7 +9672,7 @@ msgstr ""
 
 #: src/iterators/fromiterator.md:9
 msgid "\"prime_squares: {prime_squares:?}\""
-msgstr ""
+msgstr "\"prime_squares: {prime_squares:?}\""
 
 #: src/iterators/fromiterator.md:15
 #, fuzzy
@@ -9667,20 +9681,26 @@ msgstr "`Iterator`"
 
 #: src/iterators/fromiterator.md:24
 msgid "There are two ways to specify `B` for this method:"
-msgstr ""
+msgstr "이 메서드에 `B`를 지정하는 방법에는 두 가지가 있습니다."
 
 #: src/iterators/fromiterator.md:26
+#, fuzzy
 msgid ""
 "With the \"turbofish\": `some_iterator.collect::<COLLECTION_TYPE>()`, as "
 "shown. The `_` shorthand used here lets Rust infer the type of the `Vec` "
 "elements."
 msgstr ""
+"\"turbofish' 사용: 다음과 같이 `some_iterator.collect::<COLLECTION_TYPE>()`"
+"을 사용합니다. 여기에 사용된 `_` 는 Rust가 `Vec` 에 들어갈 요소들의 타입을 추"
+"론하도록합니다. "
 
 #: src/iterators/fromiterator.md:28
 msgid ""
 "With type inference: `let prime_squares: Vec<_> = some_iterator.collect()`. "
 "Rewrite the example to use this form."
 msgstr ""
+"타입 추론 사용: `let prime_squares: Vec<_> = some_iterator.collect()`를 사용"
+"합니다. 이 방법으로 예제를 다시 작성해 보세요."
 
 #: src/iterators/fromiterator.md:31
 #, fuzzy
@@ -9711,6 +9731,7 @@ msgstr ""
 "바랍니다. 중간 결과값을 `Vec`에 할당하지 않도록 주의 하시기 바랍니다:"
 
 #: src/iterators/exercise.md:11 src/iterators/solution.md:4
+#, fuzzy
 msgid ""
 "/// Calculate the differences between elements of `values` offset by "
 "`offset`,\n"
@@ -9718,6 +9739,11 @@ msgid ""
 "///\n"
 "/// Element `n` of the result is `values[(n+offset)%len] - values[n]`.\n"
 msgstr ""
+"/// `values`의 끝에서 시작까지\n"
+"/// 래핑하여 `offset`을 기준으로 `values` 오프셋 요소 간의 차이를 계산합니"
+"다.\n"
+"///\n"
+"/// 결과의 요소 `n`은 `values[(n+offset)%len] - values[n]`입니다.\n"
 
 #: src/modules/modules.md:3
 msgid "We have seen how `impl` blocks let us namespace functions to a type."
@@ -9729,11 +9755,11 @@ msgstr "마찬가지로, `mod`는 타입과 함수들에 대해 네임스페이�
 
 #: src/modules/modules.md:10
 msgid "\"In the foo module\""
-msgstr ""
+msgstr "\"foo 모듈 내부\""
 
 #: src/modules/modules.md:16
 msgid "\"In the bar module\""
-msgstr ""
+msgstr "\"bar 모듈 내부\""
 
 #: src/modules/modules.md:28
 msgid ""
@@ -9797,19 +9823,19 @@ msgid ""
 "//! This module implements the garden, including a highly performant "
 "germination\n"
 "//! implementation.\n"
-msgstr ""
+msgstr "//! 이 모듈은 정원을 구현합니다.\n"
 
 #: src/modules/filesystem.md:24
 msgid "// Re-export types from this module.\n"
-msgstr ""
+msgstr "// 이 모듈에서 타입을 다시 내보냅니다.\n"
 
 #: src/modules/filesystem.md:28
 msgid "/// Sow the given seed packets.\n"
-msgstr ""
+msgstr "/// 주어진 씨앗 패킷을 뿌립니다.\n"
 
 #: src/modules/filesystem.md:33
 msgid "/// Harvest the produce in the garden that is ready.\n"
-msgstr ""
+msgstr "/// 준비된 농작물을 정원에서 수확합니다.\n"
 
 #: src/modules/filesystem.md:42
 msgid ""
@@ -9841,8 +9867,9 @@ msgid ""
 msgstr "러스트가 어디서 모듈들을 찾을지는 컴파일러 디렉티브로 변경 가능합니다:"
 
 #: src/modules/filesystem.md:61
+#, fuzzy
 msgid "\"some/path.rs\""
-msgstr ""
+msgstr "\"some/path.rs\""
 
 #: src/modules/filesystem.md:65
 msgid ""
@@ -9874,19 +9901,19 @@ msgstr ""
 
 #: src/modules/visibility.md:13
 msgid "\"outer::private\""
-msgstr ""
+msgstr "\"outer::private\""
 
 #: src/modules/visibility.md:17
 msgid "\"outer::public\""
-msgstr ""
+msgstr "\"outer::public\""
 
 #: src/modules/visibility.md:22
 msgid "\"outer::inner::private\""
-msgstr ""
+msgstr "\"outer::inner::private\""
 
 #: src/modules/visibility.md:26
 msgid "\"outer::inner::public\""
-msgstr ""
+msgstr "\"outer::inner::public\""
 
 #: src/modules/visibility.md:39
 msgid "Use the `pub` keyword to make modules public."
@@ -9926,7 +9953,7 @@ msgstr ""
 
 #: src/modules/paths.md:1
 msgid "use, super, self"
-msgstr ""
+msgstr "use, super, self"
 
 #: src/modules/paths.md:3
 msgid ""
@@ -9973,12 +10000,16 @@ msgid ""
 "It is common to \"re-export\" symbols at a shorter path. For example, the "
 "top-level `lib.rs` in a crate might have"
 msgstr ""
+"더 짧은 경로에서 기호를 '다시 내보내기'하는 것이 일반적입니다. 예를 들어 크레"
+"이트의 최상위 `lib.rs`는"
 
 #: src/modules/paths.md:35
 msgid ""
 "making `DiskStorage` and `NetworkStorage` available to other crates with a "
 "convenient, short path."
 msgstr ""
+"편리하고 짧은 경로로 다른 크레이트에서 `DiskStorage` 및 `NetworkStorage`를 사"
+"용할 수 있도록 할 수 있습니다."
 
 #: src/modules/paths.md:38
 msgid ""
@@ -9988,6 +10019,11 @@ msgid ""
 "`read_to_string` method on a type implementing the `Read` trait, you need to "
 "`use std::io::Read`."
 msgstr ""
+"대부분의 경우 모듈에 나타나는 항목만 'use' 처리 되어야 합니다. 그러나 트레잇"
+"을 구현하는 타입이 이미 범위 내에 있더라도 해당 트레잇에서 메서드를 호출하려"
+"면 트레잇이 범위 내에 있어야 합니다. 예를 들어 `Read` 트레잇을 구현하는 타입"
+"에서 `read_to_string` 메서드를 사용하려면 `use std::io::Read`를 사용해야 합니"
+"다."
 
 #: src/modules/paths.md:44
 msgid ""
@@ -9995,6 +10031,9 @@ msgid ""
 "discouraged because it is not clear which items are imported, and those "
 "might change over time."
 msgstr ""
+"`use` 문에는 와일드 카드(`use std::io::*`)를 사용할 수 있습니다. 이는 가져오"
+"는 항목이 명확하지 않고 시간이 지남에 따라 변경될 수 있으므로 권장되지 않습니"
+"다."
 
 #: src/modules/exercise.md:3
 msgid ""
@@ -10003,12 +10042,17 @@ msgid ""
 "It is typical to put each type or set of closely-related types into its own "
 "module, so each widget type should get its own module."
 msgstr ""
+"이 연습에서는 '메서드 및 트레잇' 세그먼트의 GUI 라이브러리 연습을 모듈 컬렉션"
+"으로 재구성합니다. 각 타입 또는 밀접하게 관련된 타입 집합을 자체 모듈에 배치"
+"하는 것이 일반적이므로 각 위젯 타입은 자체 모듈을 가져야 합니다."
 
 #: src/modules/exercise.md:8
 msgid ""
 "If you no longer have your version, that's fine - refer back to the "
 "[provided solution](../methods-and-traits/solution.html)."
 msgstr ""
+"예전에 작업했던 버전이 없어도 괜찮습니다. [제공된 솔루션](../methods-and-"
+"traits/solution.html)을 다시 참고하세요."
 
 #: src/modules/exercise.md:11
 #, fuzzy
@@ -10020,12 +10064,16 @@ msgid ""
 "The Rust playground only supports one file, so you will need to make a Cargo "
 "project on your local filesystem:"
 msgstr ""
+"Rust 플레이그라운드는 하나의 파일만 지원하므로 로컬 파일 시스템에 Cargo 프로"
+"젝트를 만들어야 합니다."
 
 #: src/modules/exercise.md:22
 msgid ""
 "Edit `src/main.rs` to add `mod` statements, and add additional files in the "
 "`src` directory."
 msgstr ""
+"`src/main.rs`를 수정하여 `mod` 문을 추가하고 `src` 디렉터리에 파일을 추가합니"
+"다."
 
 #: src/modules/exercise.md:27
 msgid ""
@@ -10033,64 +10081,69 @@ msgid ""
 "and get accustomed to the required `mod`, `use`, and `pub` declarations. "
 "Afterward, discuss what organizations are most idiomatic."
 msgstr ""
+"학생들에게는 본인에게 자연스러운 방식으로 코드를 나누도록 권장하세요. 그리고"
+"나서 필요한 `mod`, `use`, `pub` 선언에 익숙해지도록 합니다. 그런 다음 어떤 구"
+"성이 가장 자연스러운지 논의합니다."
 
 #: src/modules/solution.md:30
 msgid "// ---- src/widgets.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets.rs ----\n"
 
 #: src/modules/solution.md:56
 msgid "// ---- src/widgets/label.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets/label.rs ----\n"
 
 #: src/modules/solution.md:71
 msgid "// ANCHOR_END: Label-width\n"
-msgstr ""
+msgstr "// ANCHOR_END: Label-width\n"
 
 #: src/modules/solution.md:75
 msgid "// ANCHOR: Label-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR: Label-draw_into\n"
 
 #: src/modules/solution.md:77
 msgid "// ANCHOR_END: Label-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR_END: Label-draw_into\n"
 
 #: src/modules/solution.md:84
 msgid "// ---- src/widgets/button.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets/button.rs ----\n"
 
 #: src/modules/solution.md:99
 msgid "// ANCHOR_END: Button-width\n"
-msgstr ""
+msgstr "// ANCHOR_END: Button-width\n"
 
 #: src/modules/solution.md:103
 msgid "// ANCHOR: Button-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR: Button-draw_into\n"
 
 #: src/modules/solution.md:105
 msgid "// ANCHOR_END: Button-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR_END: Button-draw_into\n"
 
 #: src/modules/solution.md:120
 msgid "// ---- src/widgets/window.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets/window.rs ----\n"
 
 #: src/modules/solution.md:147
 msgid ""
 "// ANCHOR_END: Window-width\n"
 "        // Add 4 paddings for borders\n"
 msgstr ""
+"// ANCHOR_END: Window-width\n"
+"        // 테두리에 패딩 4개 추가\n"
 
 #: src/modules/solution.md:152
 msgid "// ANCHOR: Window-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR: Window-draw_into\n"
 
 #: src/modules/solution.md:154
 msgid "// ANCHOR_END: Window-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR_END: Window-draw_into\n"
 
 #: src/modules/solution.md:177
 msgid "// ---- src/main.rs ----\n"
-msgstr ""
+msgstr "// ---- src/main.rs ----\n"
 
 #: src/testing/unit-tests.md:1
 msgid "Unit Tests"
@@ -10110,11 +10163,14 @@ msgid "Integration tests are supported via the `tests/` directory."
 msgstr "통합 테스트는 `tests/` 디렉터리를 통해 지원됩니다."
 
 #: src/testing/unit-tests.md:9
+#, fuzzy
 msgid ""
 "Tests are marked with `#[test]`. Unit tests are often put in a nested "
 "`tests` module, using `#[cfg(test)]` to conditionally compile them only when "
 "building tests."
 msgstr ""
+"테스트는 `#[test]`로 표시됩니다.  단위 테스트는 종종 중첩된 `tests` 모듈에 배"
+"치되며 테스트를 빌드할 때만 `#[cfg(test)]`를 사용하여 조건부로 컴파일합니다."
 
 #: src/testing/unit-tests.md:37
 #, fuzzy
@@ -10135,7 +10191,7 @@ msgstr ""
 
 #: src/testing/unit-tests.md:47
 msgid "Run the tests in the playground in order to show their results."
-msgstr ""
+msgstr "플레이그라운드에서 테스트를 실행하여 결과를 표시합니다."
 
 #: src/testing/other.md:3
 msgid "Integration Tests"
@@ -10151,7 +10207,7 @@ msgstr "`test/`디렉터리 아래에 `.rs`파일을 하나 만드세요:"
 
 #: src/testing/other.md:10
 msgid "// tests/my_library.rs\n"
-msgstr ""
+msgstr "// tests/my_library.rs\n"
 
 #: src/testing/other.md:19
 msgid "These tests only have access to the public API of your crate."
@@ -10198,10 +10254,11 @@ msgid "The code will be compiled and executed as part of `cargo test`."
 msgstr "이 코드 블록은 `cargo test` 호출하면 자동으로 컴파일되고 실행됩니다."
 
 #: src/testing/other.md:40
+#, fuzzy
 msgid ""
 "Adding `#` in the code will hide it from the docs, but will still compile/"
 "run it."
-msgstr ""
+msgstr "코드에 `# `을 추가하면 문서에서는 숨겨지지만 컴파일/실행됩니다."
 
 #: src/testing/other.md:42
 msgid ""
@@ -10250,17 +10307,19 @@ msgstr ""
 
 #: src/testing/googletest.md:11
 msgid "\"baz\""
-msgstr ""
+msgstr "\"baz\""
 
 #: src/testing/googletest.md:12
 msgid "\"xyz\""
-msgstr ""
+msgstr "\"xyz\""
 
 #: src/testing/googletest.md:16
 msgid ""
 "If we change the last element to `\"!\"`, the test fails with a structured "
 "error message pin-pointing the error:"
 msgstr ""
+"마지막 요소를 `'!'`로 변경하면 테스트가 실패하고 오류를 정확히 가리키는 구조"
+"화된 오류 메시지가 표시됩니다."
 
 #: src/testing/googletest.md:36
 msgid ""
@@ -10268,6 +10327,9 @@ msgid ""
 "example in a local environment. Use `cargo add googletest` to quickly add it "
 "to an existing Cargo project."
 msgstr ""
+"GoogleTest는 Rust 플레이그라운드의 일부가 아니므로 로컬 환경에서 이 예를 실행"
+"해야 합니다. `cargo add googletest`를 사용하여 기존 Cargo 프로젝트에 빠르게 "
+"추가하세요."
 
 #: src/testing/googletest.md:40
 msgid ""
@@ -10275,16 +10337,19 @@ msgid ""
 "macros and types](https://docs.rs/googletest/latest/googletest/prelude/index."
 "html)."
 msgstr ""
+"`use googletest::prelude::*;` 줄은 [일반적으로 사용되는 매크로 및 타입]"
+"(https://docs.rs/googletest/latest/googletest/prelude/index.html)을 여러 개 "
+"가져옵니다."
 
 #: src/testing/googletest.md:43
 msgid "This just scratches the surface, there are many builtin matchers."
-msgstr ""
+msgstr "이는 일부일 뿐이며 내장된 매처가 많이 있습니다."
 
 #: src/testing/googletest.md:45
 msgid ""
 "A particularly nice feature is that mismatches in multi-line strings strings "
 "are shown as a diff:"
-msgstr ""
+msgstr "특히 좋은 기능은 여러 줄 문자열의 불일치가 diff로 표시된다는 것입니다."
 
 #: src/testing/googletest.md:51
 msgid ""
@@ -10292,6 +10357,9 @@ msgid ""
 "                 Rust's strong typing guides the way,\\n\\\n"
 "                 Secure code you'll write.\""
 msgstr ""
+"\"Memory safete found,\\n\\\n"
+"                 Rust's strong typing guides the way,\\n\\\n"
+"                 Secure code you'll write.\""
 
 #: src/testing/googletest.md:56
 msgid ""
@@ -10299,20 +10367,26 @@ msgid ""
 "            Rust's silly humor guides the way,\\n\\\n"
 "            Secure code you'll write.\""
 msgstr ""
+"\"Memory safety found,\\n\\\n"
+"            Rust's silly humor guides the way,\\n\\\n"
+"            Secure code you'll write.\""
 
 #: src/testing/googletest.md:63
 msgid "shows a color-coded diff (colors not shown here):"
 msgstr ""
+"색상으로 구분된 diff를 표시합니다(여기에서는 색상이 표시되지 않습니다)."
 
 #: src/testing/googletest.md:80
 msgid ""
 "The crate is a Rust port of [GoogleTest for C++](https://google.github.io/"
 "googletest/)."
 msgstr ""
+"크레이트는 [C++용 GoogleTest](https://google.github.io/googletest/)의 Rust 포"
+"트입니다."
 
 #: src/testing/googletest.md:85
 msgid "GoogleTest is available for use in AOSP."
-msgstr ""
+msgstr "GoogleTest는 AOSP에서 사용할 수 있습니다."
 
 #: src/testing/mocking.md:3
 msgid ""
@@ -10320,6 +10394,9 @@ msgid ""
 "You need to refactor your code to use traits, which you can then quickly "
 "mock:"
 msgstr ""
+"모의 처리의 경우 널리 사용되는 라이브러리인 [Mockall](https://docs.rs/"
+"mockall/)이 있습니다. 트레잇을 사용하도록 코드를 리팩터링해야 합니다. 그런 다"
+"음 빠르게 모의 처리할 수 있습니다."
 
 #: src/testing/mocking.md:26
 msgid ""
@@ -10329,6 +10406,11 @@ msgid ""
 "services. The other mocking libraries work in a similar fashion as Mockall, "
 "meaning that they make it easy to get a mock implementation of a given trait."
 msgstr ""
+"이 권장사항은 Mockall이 권장되는 모의 라이브러리인 Android(AOSP)를 위한 것입"
+"니다. 특히 HTTP 서비스를 모의 처리하는 영역에는 다른 [crates.io에서 사용 가능"
+"한 모의 라이브러리](https://crates.io/keywords/mock)가 있습니다. 다른 모의 라"
+"이브러리는 Mockall과 비슷한 방식으로 작동합니다. 즉, 특정 트레잇의 모의 구현"
+"을 쉽게 얻을 수 있습니다."
 
 #: src/testing/mocking.md:33
 msgid ""
@@ -10337,6 +10419,10 @@ msgid ""
 "more stable test execution. On the other hand, the mocks can be configured "
 "wrongly and return output different from what the real dependencies would do."
 msgstr ""
+"모의 처리는 다소 _논란의 여지가 있습니다_. 모의를 사용하면 테스트를 종속 항목"
+"에서 완전히 분리할 수 있습니다. 그 결과 테스트 실행이 더욱 빠르고 안정적으로 "
+"이루어집니다. 반면에 모의는 잘못 구성되어 실제 종속 항목이 실행하는 것과 다"
+"른 출력을 반환할 수 있습니다."
 
 #: src/testing/mocking.md:38
 msgid ""
@@ -10345,6 +10431,9 @@ msgid ""
 "means that you get the correct behavior in your tests, plus they are fast "
 "and will automatically clean up after themselves."
 msgstr ""
+"가능하면 실제 종속 항목을 사용하는 것이 좋습니다. 예를 들어 많은 데이터베이스"
+"에서는 메모리 내 백엔드를 구성할 수 있습니다. 즉, 테스트에서 올바른 동작을 가"
+"져올 뿐만 아니라 속도가 빠르고 자동으로 정리됩니다."
 
 #: src/testing/mocking.md:43
 msgid ""
@@ -10352,6 +10441,10 @@ msgid ""
 "binds to a random port on `localhost`. Always prefer this over mocking away "
 "the framework since it helps you test your code in the real environment."
 msgstr ""
+"마찬가지로 많은 웹 프레임워크에서도 `localhost`의 임의 포트에 바인딩되는 프로"
+"세스 내 서버를 시작할 수 있습니다. 프레임워크를 모의 처리하는 것보다는 항상 "
+"이 방법을 사용하는 것이 좋습니다. 실제 환경에서 코드를 테스트하는 데 도움이 "
+"됩니다."
 
 #: src/testing/mocking.md:47
 msgid ""
@@ -10359,6 +10452,9 @@ msgid ""
 "in a local environment. Use `cargo add mockall` to quickly add Mockall to an "
 "existing Cargo project."
 msgstr ""
+"Mockall은 Rust 플레이그라운드의 일부가 아니므로 로컬 환경에서 이 예를 실행해"
+"야 합니다. Mockall을 기존 Cargo 프로젝트에 빠르게 추가하려면 `cargo add "
+"mockall`을 사용합니다."
 
 #: src/testing/mocking.md:51
 msgid ""
@@ -10366,6 +10462,9 @@ msgid ""
 "expectations which depend on the arguments passed. Here we use this to mock "
 "a cat which becomes hungry 3 hours after the last time it was fed:"
 msgstr ""
+"Mockall에는 더 많은 기능이 있습니다. 특히 전달된 인수에 따라 기대치를 설정할 "
+"수 있습니다. 여기서는 마지막으로 먹이를 먹고 3시간이 지나면 배고파지는 고양이"
+"를 모의하는 데 이를 사용합니다."
 
 #: src/testing/mocking.md:69
 msgid ""
@@ -10373,6 +10472,9 @@ msgid ""
 "called to `n` --- the mock will automatically panic when dropped if this "
 "isn't satisfied."
 msgstr ""
+"`.times(n)`를 사용하여 모의 메서드가 호출될 수 있는 횟수를 `n`으로 제한할 수 "
+"있습니다. 이 조건이 충족되지 않으면 모의 메서드가 삭제될 때 자동으로 패닉 상"
+"태가 됩니다."
 
 #: src/testing/lints.md:3
 msgid ""
@@ -10380,10 +10482,13 @@ msgid ""
 "built-in lints. [Clippy](https://doc.rust-lang.org/clippy/) provides even "
 "more lints, organized into groups that can be enabled per-project."
 msgstr ""
+"Rust 컴파일러는 유용한 내장 린트뿐 아니라 멋진 오류 메시지를 생성합니다. "
+"[Clippy](https://doc.rust-lang.org/clippy/)는 프로젝트별로 사용 설정할 수 있"
+"는 그룹으로 구성된 더 많은 린트를 제공합니다."
 
 #: src/testing/lints.md:14
 msgid "\"X probably fits in a u16, right? {}\""
-msgstr ""
+msgstr "\"X는 u16에 맞지 않을까요? {}\""
 
 #: src/testing/lints.md:20
 msgid ""
@@ -10391,6 +10496,9 @@ msgid ""
 "visible here, but those will not be shown once the code compiles. Switch to "
 "the Playground site to show those lints."
 msgstr ""
+"코드 샘플을 실행하고 오류 메시지를 확인합니다. 여기에도 린트가 표시되지만 코"
+"드가 컴파일되고 나면 표시되지 않습니다. 플레이그라운드 사이트로 전환하여 이러"
+"한 린트를 표시합니다."
 
 #: src/testing/lints.md:24
 msgid ""
@@ -10398,12 +10506,17 @@ msgid ""
 "clippy warnings. Clippy has extensive documentation of its lints, and adds "
 "new lints (including default-deny lints) all the time."
 msgstr ""
+"린트를 해결한 후 플레이그라운드 사이트에서 `clippy`를 실행하여 clippy 경고를 "
+"표시합니다. Clippy는 린트에 관한 광범위한 문서를 보유하고 있으며 항상 새로운 "
+"린트(default-deny 린트 포함)를 추가합니다."
 
 #: src/testing/lints.md:28
 msgid ""
 "Note that errors or warnings with `help: ...` can be fixed with `cargo fix` "
 "or via your editor."
 msgstr ""
+"`help: ...`가 포함된 오류나 경고는 `cargo fix` 또는 편집기를 통해 수정할 수 "
+"있습니다."
 
 #: src/testing/exercise.md:3
 msgid "Luhn Algorithm"
@@ -10455,6 +10568,8 @@ msgid ""
 "along with two basic unit tests that confirm that most the algorithm is "
 "implemented correctly."
 msgstr ""
+"제공된 코드는 대부분의 알고리즘이 올바르게 구현되었는지 확인하는 두 가지 기"
+"본 단위 테스트와 함께 luhn 알고리즘의 버그가 있는 구현을 제공합니다."
 
 #: src/testing/exercise.md:25
 #, fuzzy
@@ -10468,79 +10583,79 @@ msgstr ""
 
 #: src/testing/exercise.md:57 src/testing/solution.md:69
 msgid "\"4263 9826 4026 9299\""
-msgstr ""
+msgstr "\"4263 9826 4026 9299\""
 
 #: src/testing/exercise.md:58 src/testing/solution.md:70
 msgid "\"4539 3195 0343 6467\""
-msgstr ""
+msgstr "\"4539 3195 0343 6467\""
 
 #: src/testing/exercise.md:59 src/testing/solution.md:71
 msgid "\"7992 7398 713\""
-msgstr ""
+msgstr "\"7992 7398 713\""
 
 #: src/testing/exercise.md:64 src/testing/solution.md:76
 msgid "\"4223 9826 4026 9299\""
-msgstr ""
+msgstr "\"4223 9826 4026 9299\""
 
 #: src/testing/exercise.md:65 src/testing/solution.md:77
 msgid "\"4539 3195 0343 6476\""
-msgstr ""
+msgstr "\"4539 3195 0343 6476\""
 
 #: src/testing/exercise.md:66 src/testing/solution.md:78
 msgid "\"8273 1232 7352 0569\""
-msgstr ""
+msgstr "\"8273 1232 7352 0569\""
 
 #: src/testing/solution.md:4
 msgid "// This is the buggy version that appears in the problem.\n"
-msgstr ""
+msgstr "// 문제에 표시되는 버그가 있는 버전입니다.\n"
 
 #: src/testing/solution.md:27
 msgid "// This is the solution and passes all of the tests below.\n"
-msgstr ""
+msgstr "// 솔루션이며 아래의 모든 테스트를 통과합니다.\n"
 
 #: src/testing/solution.md:56
 msgid "\"1234 5678 1234 5670\""
-msgstr ""
+msgstr "\"1234 5678 1234 5670\""
 
 #: src/testing/solution.md:58
 msgid "\"Is {cc_number} a valid credit card number? {}\""
-msgstr ""
+msgstr "\"{cc_number}은(는) 유효한 신용카드 번호인가요? {}\""
 
 #: src/testing/solution.md:59
 msgid "\"yes\""
-msgstr ""
+msgstr "\"예\""
 
 #: src/testing/solution.md:59
 msgid "\"no\""
-msgstr ""
+msgstr "\"아니요\""
 
 #: src/testing/solution.md:84
 msgid "\"foo 0 0\""
-msgstr ""
+msgstr "\"foo 0 0\""
 
 #: src/testing/solution.md:90
 msgid "\" \""
-msgstr ""
+msgstr "\" \""
 
 #: src/testing/solution.md:91
 msgid "\"  \""
-msgstr ""
+msgstr "\"  \""
 
 #: src/testing/solution.md:92
 msgid "\"    \""
-msgstr ""
+msgstr "\"    \""
 
 #: src/testing/solution.md:97
 msgid "\"0\""
-msgstr ""
+msgstr "\"0\""
 
 #: src/testing/solution.md:102
 msgid "\" 0 0 \""
-msgstr ""
+msgstr "\" 0 0 \""
 
 #: src/error-handling/panics.md:3
 msgid "Rust handles fatal errors with a \"panic\"."
-msgstr ""
+msgstr "Rust는 '패닉'으로 치명적인 오류를 처리합니다."
 
 #: src/error-handling/panics.md:5
 msgid "Rust will trigger a panic if a fatal error happens at runtime:"
@@ -10548,7 +10663,7 @@ msgstr "러스트는 수행 중 치명적인 오류를 만나면 패닉을 발�
 
 #: src/error-handling/panics.md:10
 msgid "\"v[100]: {}\""
-msgstr ""
+msgstr "\"v[100]: {}\""
 
 #: src/error-handling/panics.md:14
 msgid "Panics are for unrecoverable and unexpected errors."
@@ -10560,21 +10675,21 @@ msgstr "패닉은 프로그램에 버그가 있다는 것을 나타냅니다."
 
 #: src/error-handling/panics.md:16
 msgid "Runtime failures like failed bounds checks can panic"
-msgstr ""
+msgstr "경계 검사 실패와 같은 런타임 실패로 인해 패닉이 발생할 수 있습니다."
 
 #: src/error-handling/panics.md:17
 msgid "Assertions (such as `assert!`) panic on failure"
-msgstr ""
+msgstr "실패 시 어설션(예: `assert!`) 패닉"
 
 #: src/error-handling/panics.md:18
 msgid "Purpose-specific panics can use the `panic!` macro."
-msgstr ""
+msgstr "목적별 패닉은 `panic!` 매크로를 사용할 수 있습니다."
 
 #: src/error-handling/panics.md:19
 msgid ""
 "A panic will \"unwind\" the stack, dropping values just as if the functions "
 "had returned."
-msgstr ""
+msgstr "패닉은 스택을 '해제'하여 함수가 반환된 것처럼 값을 삭제합니다."
 
 #: src/error-handling/panics.md:21
 msgid ""
@@ -10593,21 +10708,22 @@ msgstr ""
 
 #: src/error-handling/panics.md:31
 msgid "\"No problem here!\""
-msgstr ""
+msgstr "\"괜찮습니다.\""
 
 #: src/error-handling/panics.md:32 src/error-handling/panics.md:37
 msgid "\"{result:?}\""
-msgstr ""
+msgstr "\"{result:?}\""
 
 #: src/error-handling/panics.md:35
 msgid "\"oh no!\""
-msgstr ""
+msgstr "\"이런\""
 
 #: src/error-handling/panics.md:41
 msgid ""
 "Catching is unusual; do not attempt to implement exceptions with "
 "`catch_unwind`!"
 msgstr ""
+"포착은 흔하지 않습니다. `catch_unwind`로 예외를 구현하려고 시도하지 마세요."
 
 #: src/error-handling/panics.md:43
 msgid ""
@@ -10624,12 +10740,16 @@ msgstr ""
 "없습니다."
 
 #: src/error-handling/try.md:3
+#, fuzzy
 msgid ""
 "Runtime errors like connection-refused or file-not-found are handled with "
 "the `Result` type, but matching this type on every call can be cumbersome. "
 "The try-operator `?` is used to return errors to the caller. It lets you "
 "turn the common"
 msgstr ""
+"연결 거부 또는 파일을 찾을 수 없음과 같은 런타임 오류는 `Result` 타입으로 처"
+"리되지만 모든 호출에서 이 타입을 일치시키는 것은 번거로울 수 있습니다.  try "
+"연산자 `?`는 호출자에게 오류를 반환하는 데 사용됩니다. 이를 통해 일반적인"
 
 #: src/error-handling/try.md:15
 msgid "into the much simpler"
@@ -10641,20 +10761,20 @@ msgstr "이제 우리 예제에 적용해 보겠습니다:"
 
 #: src/error-handling/try.md:42
 msgid "//fs::write(\"config.dat\", \"alice\").unwrap();\n"
-msgstr ""
+msgstr "//fs::write(\"config.dat\", \"alice\").unwrap();\n"
 
 #: src/error-handling/try.md:43 src/error-handling/try-conversions.md:65
 #: src/error-handling/thiserror-and-anyhow.md:33
 msgid "\"config.dat\""
-msgstr ""
+msgstr "\"config.dat\""
 
 #: src/error-handling/try.md:44 src/error-handling/try-conversions.md:66
 msgid "\"username or error: {username:?}\""
-msgstr ""
+msgstr "\"사용자 이름 또는 오류: {username:?}\""
 
 #: src/error-handling/try.md:50
 msgid "Simplify the `read_username` function to use `?`."
-msgstr ""
+msgstr "`?`를 사용하도록 `read_username` 함수를 단순화합니다."
 
 #: src/error-handling/try.md:54
 msgid "The `username` variable can be either `Ok(string)` or `Err(error)`."
@@ -10675,6 +10795,9 @@ msgid ""
 "The executable will print the `Err` variant and return a nonzero exit status "
 "on error."
 msgstr ""
+"`main`은 `std::process:Termination`을 구현하는 한 `Result<(), E>`를 반환할 "
+"수 있습니다. 실제로는 `E`가 `Debug`를 구현한다는 것을 의미합니다. 실행 파일"
+"은 `Err` 변형을 출력하고 오류 발생 시 0이 아닌 종료 상태를 반환합니다."
 
 #: src/error-handling/try-conversions.md:3
 msgid ""
@@ -10698,16 +10821,17 @@ msgstr ""
 
 #: src/error-handling/try-conversions.md:42
 msgid "\"IO error: {e}\""
-msgstr ""
+msgstr "\"IO 오류: {e}\""
 
 #: src/error-handling/try-conversions.md:43
+#, fuzzy
 msgid "\"Found no username in {path}\""
-msgstr ""
+msgstr "\"{0}에서 사용자 이름을 찾을 수 없습니다.\""
 
 #: src/error-handling/try-conversions.md:64
 #: src/error-handling/thiserror-and-anyhow.md:32
 msgid "//fs::write(\"config.dat\", \"\").unwrap();\n"
-msgstr ""
+msgstr "//fs::write(\"config.dat\", \"\").unwrap();\n"
 
 #: src/error-handling/try-conversions.md:72
 msgid ""
@@ -10723,6 +10847,8 @@ msgid ""
 "A common alternative to a `From` implementation is `Result::map_err`, "
 "especially when the conversion only happens in one place."
 msgstr ""
+"`From` 구현의 일반적인 대안은 특히 변환이 한 곳에서만 발생하는 경우 `Result::"
+"map_err`입니다."
 
 #: src/error-handling/try-conversions.md:81
 msgid ""
@@ -10756,25 +10882,27 @@ msgstr ""
 
 #: src/error-handling/error.md:20 src/error-handling/error.md:21
 msgid "\"count.dat\""
-msgstr ""
+msgstr "\"count.dat\""
 
 #: src/error-handling/error.md:20
 msgid "\"1i3\""
-msgstr ""
+msgstr "\"1i3\""
 
 #: src/error-handling/error.md:22
 msgid "\"Count: {count}\""
-msgstr ""
+msgstr "\"개수: {count}\""
 
 #: src/error-handling/error.md:23
 msgid "\"Error: {err}\""
-msgstr ""
+msgstr "\"오류: {err}\""
 
 #: src/error-handling/error.md:30
 msgid ""
 "The `read_count` function can return `std::io::Error` (from file operations) "
 "or `std::num::ParseIntError` (from `String::parse`)."
 msgstr ""
+"`read_count` 함수는 `std::io::Error`(파일 작업에서) 또는 `std::num::"
+"ParseIntError`(`String::parse`에서)를 반환할 수 있습니다."
 
 #: src/error-handling/error.md:33
 #, fuzzy
@@ -10800,6 +10928,7 @@ msgid ""
 msgstr ""
 
 #: src/error-handling/thiserror-and-anyhow.md:3
+#, fuzzy
 msgid ""
 "The [`thiserror`](https://docs.rs/thiserror/) and [`anyhow`](https://docs.rs/"
 "anyhow/) crates are widely used to simplify error handling. `thiserror` "
@@ -10807,26 +10936,30 @@ msgid ""
 "with error handling in functions, including adding contextual information to "
 "your errors."
 msgstr ""
+"[`thiserror`](https://docs.rs/thiserror/) 및 [`anyhow`](https://docs.rs/"
+"anyhow/) 크레이트는 오류 처리를 단순화하는 데 널리 사용됩니다. `thiserror`는 "
+"`From<T>`를 구현하는 맞춤 오류 타입을 만드는 데 도움이 됩니다. `anyhow`를 사"
+"용하면 오류에 컨텍스트 정보를 추가하는 등 함수의 오류 처리에 도움이 됩니다."
 
 #: src/error-handling/thiserror-and-anyhow.md:16
 msgid "\"Found no username in {0}\""
-msgstr ""
+msgstr "\"{0}에서 사용자 이름을 찾을 수 없습니다.\""
 
 #: src/error-handling/thiserror-and-anyhow.md:22
 msgid "\"Failed to open {path}\""
-msgstr ""
+msgstr "\"{path}을(를) 열지 못했습니다.\""
 
 #: src/error-handling/thiserror-and-anyhow.md:24
 msgid "\"Failed to read\""
-msgstr ""
+msgstr "\"읽지 못했습니다.\""
 
 #: src/error-handling/thiserror-and-anyhow.md:34
 msgid "\"Username: {username}\""
-msgstr ""
+msgstr "\"사용자 이름: {username}\""
 
 #: src/error-handling/thiserror-and-anyhow.md:35
 msgid "\"Error: {err:?}\""
-msgstr ""
+msgstr "\"오류: {err:?}\""
 
 #: src/error-handling/thiserror-and-anyhow.md:42
 #, fuzzy
@@ -10834,10 +10967,13 @@ msgid "`thiserror`"
 msgstr "`Error`"
 
 #: src/error-handling/thiserror-and-anyhow.md:44
+#, fuzzy
 msgid ""
 "The `Error` derive macro is provided by `thiserror`, and has lots of useful "
 "attributes to help define error types in a compact way."
 msgstr ""
+"`Error` 파생 매크로는 `thiserror`에서 제공하며 유용한 오류 타입을 정의하는 "
+"데 도움이 되는 `#[error]`와 같은 유용한 속성이 많습니다."
 
 #: src/error-handling/thiserror-and-anyhow.md:46
 msgid "The `std::error::Error` trait is derived automatically."
@@ -10891,8 +11027,9 @@ msgid ""
 msgstr ""
 
 #: src/error-handling/exercise.md:1
+#, fuzzy
 msgid "Exercise: Rewriting with Result"
-msgstr ""
+msgstr "연습문제: 결과로 다시 작성"
 
 #: src/error-handling/exercise.md:3
 msgid ""
@@ -10901,6 +11038,9 @@ msgid ""
 "error handling and propagate errors to a return from `main`. Feel free to "
 "use `thiserror` and `anyhow`."
 msgstr ""
+"다음은 표현식 언어의 매우 간단한 파서를 구현합니다. 그러나 패닉을 통해 오류"
+"를 처리합니다. 대신 관용적인 오류 처리를 사용하고 오류를 `main`의 반환으로 전"
+"파하도록 다시 작성합니다. `thiserror` 및 `anyhow`를 얼마든지 사용하세요."
 
 #: src/error-handling/exercise.md:8
 msgid ""
@@ -10908,91 +11048,94 @@ msgid ""
 "working correctly, update `Tokenizer` to implement "
 "`Iterator<Item=Result<Token, TokenizerError>>` and handle that in the parser."
 msgstr ""
+"힌트: 먼저 `parse` 함수에서 오류 처리를 수정하세요. 제대로 작동하면 "
+"`Iterator<Item=Result<Token, TokenizerError>>`를 구현하도록 `Tokenizer`를 업"
+"데이트하고 파서에서 처리합니다."
 
 #: src/error-handling/exercise.md:15 src/error-handling/solution.md:9
 msgid "/// An arithmetic operator.\n"
-msgstr ""
+msgstr "/// 산술 연산자입니다.\n"
 
 #: src/error-handling/exercise.md:22 src/error-handling/solution.md:16
 msgid "/// A token in the expression language.\n"
-msgstr ""
+msgstr "/// 표현식 언어의 토큰입니다.\n"
 
 #: src/error-handling/exercise.md:30 src/error-handling/solution.md:24
 msgid "/// An expression in the expression language.\n"
-msgstr ""
+msgstr "/// 표현식 언어의 표현식입니다.\n"
 
 #: src/error-handling/exercise.md:34 src/error-handling/solution.md:28
 msgid "/// A reference to a variable.\n"
-msgstr ""
+msgstr "/// 변수 참조입니다.\n"
 
 #: src/error-handling/exercise.md:36 src/error-handling/solution.md:30
 msgid "/// A literal number.\n"
-msgstr ""
+msgstr "/// 리터럴 숫자입니다.\n"
 
 #: src/error-handling/exercise.md:38 src/error-handling/solution.md:32
 msgid "/// A binary operation.\n"
-msgstr ""
+msgstr "/// 이진 연산입니다.\n"
 
 #: src/error-handling/exercise.md:62 src/error-handling/exercise.md:64
 #: src/error-handling/solution.md:62 src/error-handling/solution.md:64
 msgid "'z'"
-msgstr ""
+msgstr "'z'"
 
 #: src/error-handling/exercise.md:64 src/error-handling/solution.md:64
 msgid "'_'"
-msgstr ""
+msgstr "'_'"
 
 #: src/error-handling/exercise.md:70 src/error-handling/solution.md:70
 msgid "'+'"
-msgstr ""
+msgstr "'+'"
 
 #: src/error-handling/exercise.md:71 src/error-handling/solution.md:71
 msgid "'-'"
-msgstr ""
+msgstr "'-'"
 
 #: src/error-handling/exercise.md:72
 msgid "\"Unexpected character {c}\""
-msgstr ""
+msgstr "\"예기치 않은 문자 {c}\""
 
 #: src/error-handling/exercise.md:82 src/error-handling/solution.md:81
 msgid "\"Unexpected end of input\""
-msgstr ""
+msgstr "\"예기치 않은 입력 종료\""
 
 #: src/error-handling/exercise.md:86
 msgid "\"Invalid 32-bit integer'\""
-msgstr ""
+msgstr "\"잘못된 32비트 정수입니다.'\""
 
 #: src/error-handling/exercise.md:90 src/error-handling/exercise.md:100
 msgid "\"Unexpected token {tok:?}\""
-msgstr ""
+msgstr "\"예기치 않은 토큰 {tok:?}\""
 
 #: src/error-handling/exercise.md:92 src/error-handling/solution.md:104
 msgid "// Look ahead to parse a binary operation if present.\n"
-msgstr ""
+msgstr "// 이진 연산이 있는 경우 이를 파싱합니다.\n"
 
 #: src/error-handling/exercise.md:108 src/error-handling/solution.md:121
 msgid "\"10+foo+20-30\""
-msgstr ""
+msgstr "\"10+foo+20-30\""
 
 #: src/error-handling/exercise.md:109 src/error-handling/solution.md:122
 msgid "\"{expr:?}\""
-msgstr ""
+msgstr "\"{expr:?}\""
 
 #: src/error-handling/solution.md:42
 msgid "\"Unexpected character '{0}' in input\""
-msgstr ""
+msgstr "\"입력에 예상치 못한 문자 '{0}'이(가) 있습니다.\""
 
 #: src/error-handling/solution.md:79
 msgid "\"Tokenizer error: {0}\""
-msgstr ""
+msgstr "\"토큰나이저 오류: {0}\""
 
 #: src/error-handling/solution.md:83
 msgid "\"Unexpected token {0:?}\""
-msgstr ""
+msgstr "\"예기치 않은 토큰 {0:?}\""
 
 #: src/error-handling/solution.md:85
 msgid "\"Invalid number\""
-msgstr ""
+msgstr "\"잘못된 번호\""
 
 #: src/unsafe-rust/unsafe.md:3
 msgid "The Rust language has two parts:"
@@ -11085,7 +11228,7 @@ msgstr ""
 
 #: src/unsafe-rust/dereferencing.md:7
 msgid "\"careful!\""
-msgstr ""
+msgstr "\"조심하세요!\""
 
 #: src/unsafe-rust/dereferencing.md:12
 #, fuzzy
@@ -11120,15 +11263,15 @@ msgstr ""
 
 #: src/unsafe-rust/dereferencing.md:18
 msgid "\"r1 is: {}\""
-msgstr ""
+msgstr "\"r1은 {}입니다.\""
 
 #: src/unsafe-rust/dereferencing.md:19
 msgid "\"uhoh\""
-msgstr ""
+msgstr "\"이런\""
 
 #: src/unsafe-rust/dereferencing.md:20
 msgid "\"r2 is: {}\""
-msgstr ""
+msgstr "\"r2는 {}입니다.\""
 
 #: src/unsafe-rust/dereferencing.md:23
 msgid ""
@@ -11139,6 +11282,12 @@ msgid ""
 "    println!(\"r3 is: {}\", *r3);\n"
 "    */"
 msgstr ""
+"// 안전하지 않음. 이렇게 하지 마세요.\n"
+"    /*\n"
+"    let r3: &String = unsafe { &*r1 };\n"
+"    drop(s);\n"
+"    println!(\"r3 is: {}\", *r3);\n"
+"    */"
 
 #: src/unsafe-rust/dereferencing.md:34
 msgid ""
@@ -11191,11 +11340,15 @@ msgid "In most cases the pointer must also be properly aligned."
 msgstr "대부분의 경우 포인터는 align되어 있어야 합니다."
 
 #: src/unsafe-rust/dereferencing.md:51
+#, fuzzy
 msgid ""
 "The \"NOT SAFE\" section gives an example of a common kind of UB bug: `*r1` "
 "has the `'static` lifetime, so `r3` has type `&'static String`, and thus "
 "outlives `s`. Creating a reference from a pointer requires _great care_."
 msgstr ""
+"\"안전하지 않음' 섹션은 일반적인 UB 버그의 예를 제공합니다. `*r1`은 "
+"`'static` 전체 기간을 가지므로 `r3`의 타입은 `&'static String`이며 `s`보다 오"
+"래 지속됩니다. 포인터에서 참조를 만들려면 _주의가 필요합니다_."
 
 #: src/unsafe-rust/mutable-static.md:3
 msgid "It is safe to read an immutable static variable:"
@@ -11208,7 +11361,7 @@ msgstr "Hello World!"
 
 #: src/unsafe-rust/mutable-static.md:9
 msgid "\"HELLO_WORLD: {HELLO_WORLD}\""
-msgstr ""
+msgstr "\"HELLO_WORLD: {HELLO_WORLD}\""
 
 #: src/unsafe-rust/mutable-static.md:13
 msgid ""
@@ -11220,7 +11373,7 @@ msgstr ""
 
 #: src/unsafe-rust/mutable-static.md:29
 msgid "\"COUNTER: {COUNTER}\""
-msgstr ""
+msgstr "\"COUNTER: {COUNTER}\""
 
 #: src/unsafe-rust/mutable-static.md:36
 msgid ""
@@ -11229,6 +11382,10 @@ msgid ""
 "`unsafe` and see how the compiler explains that it is undefined behavior to "
 "mutate a static from multiple threads."
 msgstr ""
+"이 프로그램은 단일 스레드이므로 안전합니다. 그러나 Rust 컴파일러는 보수적이"
+"며 최악의 상황을 가정합니다. `unsafe`를 삭제해 보고 컴파일러가 여러 스레드에"
+"서 static을 변경하는 것이 정의되지 않은 동작이라고 어떻게 설명하는지 확인하세"
+"요."
 
 #: src/unsafe-rust/mutable-static.md:41
 msgid ""
@@ -11248,11 +11405,11 @@ msgstr ""
 
 #: src/unsafe-rust/unions.md:14
 msgid "\"int: {}\""
-msgstr ""
+msgstr "\"int: {}\""
 
 #: src/unsafe-rust/unions.md:15
 msgid "\"bool: {}\""
-msgstr ""
+msgstr "\"부울: {}\""
 
 #: src/unsafe-rust/unions.md:15
 #, fuzzy
@@ -11307,27 +11464,29 @@ msgstr ""
 #: src/exercises/bare-metal/rtc.md:142 src/exercises/bare-metal/rtc.md:148
 #: src/exercises/bare-metal/solutions-afternoon.md:43
 msgid "\"C\""
-msgstr ""
+msgstr "\"C\""
 
 #: src/unsafe-rust/unsafe-functions.md:14
 msgid "\"🗻∈🌏\""
-msgstr ""
+msgstr "\"🗻∈🌏\""
 
 #: src/unsafe-rust/unsafe-functions.md:16
 msgid ""
 "// Safe because the indices are in the correct order, within the bounds of\n"
 "    // the string slice, and lie on UTF-8 sequence boundaries.\n"
 msgstr ""
+"// 색인이 올바른 순서이고 문자열 슬라이스의 경계 내에\n"
+"    // 있으며 UTF-8 시퀀스 경계에 있으므로 안전합니다.\n"
 
 #: src/unsafe-rust/unsafe-functions.md:19
 #: src/unsafe-rust/unsafe-functions.md:20
 #: src/unsafe-rust/unsafe-functions.md:21
 msgid "\"emoji: {}\""
-msgstr ""
+msgstr "\"이모티콘: {}\""
 
 #: src/unsafe-rust/unsafe-functions.md:24
 msgid "\"char count: {}\""
-msgstr ""
+msgstr "\"문자 수: {}\""
 
 #: src/unsafe-rust/unsafe-functions.md:27
 #, fuzzy
@@ -11336,15 +11495,20 @@ msgstr "런타임 시 정의되지 않음(undefined) 동작 없음:"
 
 #: src/unsafe-rust/unsafe-functions.md:28
 msgid "\"Absolute value of -3 according to C: {}\""
-msgstr ""
+msgstr "\"C에 따른 절댓값 -3: {}\""
 
 #: src/unsafe-rust/unsafe-functions.md:31
+#, fuzzy
 msgid ""
 "// Not upholding the UTF-8 encoding requirement breaks memory safety!\n"
 "    // println!(\"emoji: {}\", unsafe { emojis.get_unchecked(0..3) });\n"
 "    // println!(\"char count: {}\", count_chars(unsafe {\n"
 "    // emojis.get_unchecked(0..3) }));\n"
 msgstr ""
+"// UTF-8 인코딩 요구사항을 준수하지 않으면 메모리 안전이 중단됩니다.\n"
+"    // println!(\"emoji: {}\", unsafe { emojis.get_unchecked(0..3) });\n"
+"    // println!(\"char count: {}\", count_chars(unsafe { emojis."
+"get_unchecked(0..3) }));\n"
 
 #: src/unsafe-rust/unsafe-functions.md:42
 #: src/unsafe-rust/unsafe-functions.md:86
@@ -11367,14 +11531,19 @@ msgid ""
 "///\n"
 "/// The pointers must be valid and properly aligned.\n"
 msgstr ""
+"/// 지정된 포인터가 가리키는 값을 바꿉니다.\n"
+"///\n"
+"/// # Safety\n"
+"///\n"
+"/// 포인터는 유효하고 올바르게 정렬되어야 합니다.\n"
 
 #: src/unsafe-rust/unsafe-functions.md:63
 msgid "// Safe because ...\n"
-msgstr ""
+msgstr "// 다음과 같은 이유로 안전합니다.\n"
 
 #: src/unsafe-rust/unsafe-functions.md:68
 msgid "\"a = {}, b = {}\""
-msgstr ""
+msgstr "\"a = {}, b = {}\""
 
 #: src/unsafe-rust/unsafe-functions.md:76
 #, fuzzy
@@ -11446,10 +11615,13 @@ msgid ""
 "/// # Safety\n"
 "/// The type must have a defined representation and no padding.\n"
 msgstr ""
+"/// ...\n"
+"/// # Safety\n"
+"/// 타입에는 정의된 표현이 있어야 하며 패딩은 없어야 합니다.\n"
 
 #: src/unsafe-rust/unsafe-traits.md:26
 msgid "// Safe because u32 has a defined representation and no padding.\n"
-msgstr ""
+msgstr "// u32에 정의된 표현이 있고 패딩이 없으므로 안전합니다.\n"
 
 #: src/unsafe-rust/unsafe-traits.md:33
 msgid ""
@@ -11641,11 +11813,13 @@ msgstr ""
 #: src/unsafe-rust/solution.md:19 src/unsafe-rust/solution.md:30
 #: src/unsafe-rust/solution.md:44 src/unsafe-rust/solution.md:52
 msgid "\"macos\""
-msgstr ""
+msgstr "\"매크로\""
 
 #: src/unsafe-rust/exercise.md:59 src/unsafe-rust/solution.md:9
 msgid "// Opaque type. See https://doc.rust-lang.org/nomicon/ffi.html.\n"
 msgstr ""
+"// 불투명 타입입니다. https://doc.rust-lang.org/nomicon/ffi.html을 참고하세"
+"요.\n"
 
 #: src/unsafe-rust/exercise.md:66 src/unsafe-rust/solution.md:16
 msgid ""
@@ -11653,15 +11827,19 @@ msgid ""
 "    // off_t are resolved according to the definitions in\n"
 "    // /usr/include/x86_64-linux-gnu/{sys/types.h, bits/typesizes.h}.\n"
 msgstr ""
+"// readdir(3)의 Linux man 페이지에 따른 레이아웃입니다.\n"
+"    // 여기서 ino_t 및 off_t는\n"
+"    // /usr/include/x86_64-linux-gnu/{sys/types.h, bits/typesizes.h}의 정의"
+"에 따라 확인됩니다.\n"
 
 #: src/unsafe-rust/exercise.md:79 src/unsafe-rust/solution.md:29
 msgid "// Layout according to the macOS man page for dir(5).\n"
-msgstr ""
+msgstr "// dir(5)의 macOS man 페이지에 따른 레이아웃입니다.\n"
 
 #: src/unsafe-rust/exercise.md:94 src/unsafe-rust/exercise.md:102
 #: src/unsafe-rust/solution.md:44 src/unsafe-rust/solution.md:52
 msgid "\"x86_64\""
-msgstr ""
+msgstr "\"x86_64\""
 
 #: src/unsafe-rust/exercise.md:97 src/unsafe-rust/solution.md:47
 msgid ""
@@ -11673,106 +11851,119 @@ msgid ""
 "        // to macOS (as opposed to iOS / wearOS / etc.) on Intel and "
 "PowerPC.\n"
 msgstr ""
+"// https://github.com/rust-lang/libc/issues/414 및\n"
+" // stat(2)에 관한 macOS man 페이지의 _DARWIN_FEATURE_64_BIT_INODE 섹션을 참"
+"고하세요.\n"
+" //\n"
+" // ' 이 업데이트가 제공되기 전에 존재했던 플랫폼은'\n"
+" // Intel 및 PowerPC의 macOS (iOS/wearOS 등이 아님)를 의미합니다.\n"
 
 #: src/unsafe-rust/exercise.md:103 src/unsafe-rust/solution.md:53
 msgid "\"readdir$INODE64\""
-msgstr ""
+msgstr "\"readdir$INODE64\""
 
 #: src/unsafe-rust/exercise.md:121 src/unsafe-rust/solution.md:71
 msgid ""
 "// Call opendir and return a Ok value if that worked,\n"
 "        // otherwise return Err with a message.\n"
 msgstr ""
+"// opendir을 호출하고 제대로 작동하면 Ok 값을 반환하고\n"
+"        // 그렇지 않으면 메시지와 함께 Err을 반환합니다.\n"
 
 #: src/unsafe-rust/exercise.md:130
 msgid "// Keep calling readdir until we get a NULL pointer back.\n"
-msgstr ""
+msgstr "// NULL 포인터를 다시 가져올 때까지 readdir을 계속 호출합니다.\n"
 
 #: src/unsafe-rust/exercise.md:137 src/unsafe-rust/solution.md:105
 msgid "// Call closedir as needed.\n"
-msgstr ""
+msgstr "// 필요에 따라 closedir을 호출합니다.\n"
 
 #: src/unsafe-rust/exercise.md:143 src/unsafe-rust/solution.md:116
 #: src/unsafe-rust/solution.md:140 src/unsafe-rust/solution.md:155
 #: src/android/interoperability/with-c/rust.md:44
 msgid "\".\""
-msgstr ""
+msgstr "\".\""
 
 #: src/unsafe-rust/exercise.md:144 src/unsafe-rust/solution.md:117
 msgid "\"files: {:#?}\""
-msgstr ""
+msgstr "\"파일: {:#?}\""
 
 #: src/unsafe-rust/solution.md:74
 msgid "\"Invalid path: {err}\""
-msgstr ""
+msgstr "\"잘못된 경로: {err}\""
 
 #: src/unsafe-rust/solution.md:75
 msgid "// SAFETY: path.as_ptr() cannot be NULL.\n"
-msgstr ""
+msgstr "// SAFETY: path.as_ptr()은 NULL일 수 없습니다.\n"
 
 #: src/unsafe-rust/solution.md:78
 msgid "\"Could not open {:?}\""
-msgstr ""
+msgstr "\"{:?}을(를) 열 수 없습니다.\""
 
 #: src/unsafe-rust/solution.md:88
 msgid ""
 "// Keep calling readdir until we get a NULL pointer back.\n"
 "        // SAFETY: self.dir is never NULL.\n"
 msgstr ""
+"// NULL 포인터를 다시 얻을 때까지 readdir을 계속 호출합니다.\n"
+"        // SAFETY: self.dir은 NULL이 아닙니다.\n"
 
 #: src/unsafe-rust/solution.md:92
 msgid "// We have reached the end of the directory.\n"
-msgstr ""
+msgstr "// 디렉터리의 끝에 도달했습니다.\n"
 
 #: src/unsafe-rust/solution.md:95
 msgid ""
 "// SAFETY: dirent is not NULL and dirent.d_name is NUL\n"
 "        // terminated.\n"
 msgstr ""
+"// SAFETY: dirent는 NULL이 아니며 dirent.d_name은 NUL\n"
+"        // 종료됩니다.\n"
 
 #: src/unsafe-rust/solution.md:107
 msgid "// SAFETY: self.dir is not NULL.\n"
-msgstr ""
+msgstr "// SAFETY: self.dir은 NULL이 아닙니다.\n"
 
 #: src/unsafe-rust/solution.md:109
 msgid "\"Could not close {:?}\""
-msgstr ""
+msgstr "\"{:?}을(를) 닫을 수 없습니다.\""
 
 #: src/unsafe-rust/solution.md:128
 msgid "\"no-such-directory\""
-msgstr ""
+msgstr "\"no-such-directory\""
 
 #: src/unsafe-rust/solution.md:136 src/unsafe-rust/solution.md:151
 msgid "\"Non UTF-8 character in path\""
-msgstr ""
+msgstr "\"경로에 UTF-8이 아닌 문자가 있음\""
 
 #: src/unsafe-rust/solution.md:140 src/unsafe-rust/solution.md:155
 msgid "\"..\""
-msgstr ""
+msgstr "\"..\""
 
 #: src/unsafe-rust/solution.md:147 src/unsafe-rust/solution.md:155
 msgid "\"foo.txt\""
-msgstr ""
+msgstr "\"foo.txt\""
 
 #: src/unsafe-rust/solution.md:147
 msgid "\"The Foo Diaries\\n\""
-msgstr ""
+msgstr "\"Foo 다이어리\\n\""
 
 #: src/unsafe-rust/solution.md:148 src/unsafe-rust/solution.md:155
 msgid "\"bar.png\""
-msgstr ""
+msgstr "\"bar.png\""
 
 #: src/unsafe-rust/solution.md:148
 msgid "\"<PNG>\\n\""
-msgstr ""
+msgstr "\"<PNG>\\n\""
 
 #: src/unsafe-rust/solution.md:149 src/unsafe-rust/solution.md:155
+#, fuzzy
 msgid "\"crab.rs\""
-msgstr ""
+msgstr "\"crab.rs\""
 
 #: src/unsafe-rust/solution.md:149
 msgid "\"//! Crab\\n\""
-msgstr ""
+msgstr "\"//! Crab\\n\""
 
 #: src/android.md:1
 #, fuzzy
