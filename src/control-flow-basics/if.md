@@ -11,8 +11,8 @@ exactly like `if` statements in other languages:
 ```rust,editable
 fn main() {
     let x = 10;
-    if x < 20 {
-        println!("small");
+    if x == 0 {
+        println!("zero!");
     } else if x < 100 {
         println!("biggish");
     } else {
