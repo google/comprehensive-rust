@@ -76,7 +76,7 @@ may offer an advantage"):
     for command-line parsing and on `toml` for configuration files.
     - Disclaimer: a unique reason for using `cargo` was unavailability of `gn`
       when building and bootstrapping Rust standard library when building Rust
-      toolchain.)
+      toolchain.
     - `run_gnrt.py` uses Chromium's copy of `cargo` and `rustc`. `gnrt` depends
       on third-party libraries downloaded from the internet, by `run_gnrt.py`
       asks `cargo` that only `--locked` content is allowed via `Cargo.lock`.)
