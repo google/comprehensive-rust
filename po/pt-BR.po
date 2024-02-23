@@ -19466,16 +19466,15 @@ msgid "/// Clears a pending interrupt, if any.\n"
 msgstr ""
 
 #: src/concurrency.md:1
-#, fuzzy
 msgid "Welcome to Concurrency in Rust"
-msgstr "Bem-vindo ao Comprehensive Rust 🦀"
+msgstr "Bem-vindo à Concorrência em Rust"
 
 #: src/concurrency.md:3
 msgid ""
 "Rust has full support for concurrency using OS threads with mutexes and "
 "channels."
 msgstr ""
-"Rust tem suporte total para concorrência usando _threads_ do SO com "
+"Rust tem suporte completo para concorrência usando _threads_ do SO com "
 "_mutexes_ e _channels_ (canais)."
 
 #: src/concurrency.md:6
@@ -19484,10 +19483,10 @@ msgid ""
 "compile time bugs. This is often referred to as _fearless concurrency_ since "
 "you can rely on the compiler to ensure correctness at runtime."
 msgstr ""
-"O sistema de tipos do Rust desempenha um papel importante na conversão de "
-"muitos erros de concorrência em erros de tempo de compilação. Isso "
+"O sistema de tipos do Rust desempenha um papel importante, convertendo "
+"muitos erros de concorrência em erros em tempo de compilação. Isso "
 "geralmente é chamado de _concorrência sem medo_, pois você pode confiar no "
-"compilador para garantir a exatidão no tempo de execução."
+"compilador para garantir a exatidão em tempo de execução."
 
 #: src/concurrency/threads.md:3
 msgid "Rust threads work similarly to threads in other languages:"
@@ -19496,20 +19495,17 @@ msgstr ""
 "linguagens:"
 
 #: src/concurrency/threads.md:12
-#, fuzzy
 msgid "\"Count in thread: {i}!\""
-msgstr ""
-"fn main() { thread::spawn(|| { for i in 1..10 { println!(\"Contador na "
-"thread: {i}!\"); thread::sleep(Duration::from_millis(5)); } });"
+msgstr "\"Contagem na _thread_: {i}!\""
 
 #: src/concurrency/threads.md:18
 msgid "\"Main thread: {i}\""
-msgstr ""
+msgstr "\"_Thread_ principal: {i}\""
 
 #: src/concurrency/threads.md:24
 msgid "Threads are all daemon threads, the main thread does not wait for them."
 msgstr ""
-"_Threads_ são todas \"_daemon threads_\", o _thread_ principal não espera "
+"_Threads_ são todas \"_daemon threads_\", a _thread_ principal não espera "
 "por elas."
 
 #: src/concurrency/threads.md:25
@@ -19527,16 +19523,20 @@ msgid ""
 "Notice that the thread is stopped before it reaches 10 --- the main thread "
 "is not waiting."
 msgstr ""
+"Observe que a _thread_ é interrompida antes de atingir 10 --- a _thread_ "
+"principal não está esperando."
 
 #: src/concurrency/threads.md:35
 msgid ""
 "Use `let handle = thread::spawn(...)` and later `handle.join()` to wait for "
 "the thread to finish."
 msgstr ""
+"Use `let handle = thread::spawn(...)` e depois `handle.join()` para esperar "
+"que a _thread_ termine."
 
 #: src/concurrency/threads.md:38
 msgid "Trigger a panic in the thread, notice how this doesn't affect `main`."
-msgstr ""
+msgstr "Dispare um _panic_ na _thread_, observe como isso não afeta `main`."
 
 #: src/concurrency/threads.md:40
 msgid ""
@@ -19544,6 +19544,9 @@ msgid ""
 "panic payload. This is a good time to talk about [`Any`](https://doc.rust-"
 "lang.org/std/any/index.html)."
 msgstr ""
+"Use o valor de retorno `Result` de `handle.join()` para obter acesso ao "
+"_payload_ do _panic_. Este é um bom momento para falar sobre [`Any`](https://"
+"doc.rust-lang.org/std/any/index.html)."
 
 #: src/concurrency/scoped-threads.md:3
 msgid "Normal threads cannot borrow from their environment:"
@@ -19558,7 +19561,6 @@ msgstr ""
 "org/std/thread/fn.scope.html) para isso:"
 
 #: src/concurrency/scoped-threads.md:40
-#, fuzzy
 msgid ""
 "The reason for that is that when the `thread::scope` function completes, all "
 "the threads are guaranteed to be joined, so they can return borrowed data."
@@ -19567,13 +19569,13 @@ msgstr ""
 "todas as _threads_ serão unidas, para que possam retornar dados emprestados."
 
 #: src/concurrency/scoped-threads.md:42
-#, fuzzy
 msgid ""
 "Normal Rust borrowing rules apply: you can either borrow mutably by one "
 "thread, or immutably by any number of threads."
 msgstr ""
-"Aplicam-se as regras normais de empréstimo do Rust: o empréstimo pode ser "
-"mutável, para uma `thread` ou imutável para qualquer número de _threads_."
+"As regras normais de empréstimo do Rust se aplicam: você pode emprestar "
+"mutavelmente por uma _thread_, ou imutavelmente por qualquer número de "
+"_threads_."
 
 #: src/concurrency/channels.md:3
 msgid ""
@@ -19587,7 +19589,7 @@ msgstr ""
 #: src/concurrency/channels.md:15 src/concurrency/channels.md:16
 #: src/concurrency/channels.md:20
 msgid "\"Received: {:?}\""
-msgstr ""
+msgstr "\"Recebido: {:?}\""
 
 #: src/concurrency/channels.md:26
 msgid ""
@@ -19613,41 +19615,29 @@ msgstr "Você obtém um canal ilimitado e assíncrono com `mpsc::channel()`:"
 
 #: src/concurrency/channels/unbounded.md:16
 #: src/concurrency/channels/bounded.md:16
-#, fuzzy
 msgid "\"Message {i}\""
-msgstr ""
-"```\n"
-"thread::spawn(move || {\n"
-"    let thread_id = thread::current().id();\n"
-"    for i in 1..10 {\n"
-"        tx.send(format!(\"Mensagem {i}\")).unwrap();\n"
-"        println!(\"{thread_id:?}: enviando a mensagem: {i}\");\n"
-"    }\n"
-"    println!(\"{thread_id:?}: feito\");\n"
-"});\n"
-"thread::sleep(Duration::from_millis(100));\n"
-"```"
+msgstr "\"Mensagem {i}\""
 
 #: src/concurrency/channels/unbounded.md:17
 #: src/concurrency/channels/bounded.md:17
 msgid "\"{thread_id:?}: sent Message {i}\""
-msgstr ""
+msgstr "\"{thread_id:?}: Mensagem {i} enviada\""
 
 #: src/concurrency/channels/unbounded.md:19
 #: src/concurrency/channels/bounded.md:19
 msgid "\"{thread_id:?}: done\""
-msgstr ""
+msgstr "\"{thread_id:?}: terminado\""
 
 #: src/concurrency/channels/unbounded.md:24
 #: src/concurrency/channels/bounded.md:24
 msgid "\"Main: got {msg}\""
-msgstr ""
+msgstr "\"Main: obteve {msg}\""
 
 #: src/concurrency/channels/bounded.md:3
-#, fuzzy
 msgid ""
 "With bounded (synchronous) channels, `send` can block the current thread:"
-msgstr "Canais limitados e síncronos fazem `send` bloquear o _thread_ atual:"
+msgstr ""
+"Com canais limitados e síncronos, `send` pode bloquear a _thread_ atual:"
 
 #: src/concurrency/channels/bounded.md:31
 msgid ""
@@ -19655,27 +19645,34 @@ msgid ""
 "channel for the new message. The thread can be blocked indefinitely if there "
 "is nobody who reads from the channel."
 msgstr ""
+"Chamar `send` bloqueará a _thread_ atual até que haja espaço no canal para a "
+"nova mensagem. A _thread_ pode ser bloqueada indefinidamente se não houver "
+"ninguém que leia do canal."
 
 #: src/concurrency/channels/bounded.md:34
 msgid ""
 "A call to `send` will abort with an error (that is why it returns `Result`) "
 "if the channel is closed. A channel is closed when the receiver is dropped."
 msgstr ""
+"Uma chamada para `send` será abortada com um erro (é por isso que retorna "
+"`Result`) se o canal estiver fechado. Um canal é fechado quando o receptor é "
+"descartado."
 
 #: src/concurrency/channels/bounded.md:36
 msgid ""
 "A bounded channel with a size of zero is called a \"rendezvous channel\". "
 "Every send will block the current thread until another thread calls `read`."
 msgstr ""
+"Um canal limitado com um tamanho de zero é chamado de \"canal de encontro\". "
+"Cada envio bloqueará a _thread_ atual até que outra _thread_ chame `read`."
 
 #: src/concurrency/send-sync.md:3
-#, fuzzy
 msgid ""
 "How does Rust know to forbid shared access across threads? The answer is in "
 "two traits:"
 msgstr ""
 "Como o Rust sabe proibir o acesso compartilhado entre threads? A resposta "
-"está em duas características:"
+"está em dois _traits_:"
 
 #: src/concurrency/send-sync.md:6
 msgid ""
@@ -19706,7 +19703,6 @@ msgstr ""
 "quando souber que são válidos."
 
 #: src/concurrency/send-sync.md:21
-#, fuzzy
 msgid ""
 "One can think of these traits as markers that the type has certain thread-"
 "safety properties."
@@ -19715,7 +19711,6 @@ msgstr ""
 "propriedades de segurança de _threads_."
 
 #: src/concurrency/send-sync.md:23
-#, fuzzy
 msgid "They can be used in the generic constraints as normal traits."
 msgstr "Eles podem ser usados nas restrições genéricas como _traits_ normais."
 
@@ -19742,6 +19737,8 @@ msgid ""
 "As an example, a connection to the SQLite library must only be accessed from "
 "a single thread."
 msgstr ""
+"Como exemplo, uma conexão com a biblioteca SQLite só pode ser acessada de um "
+"único _thread_."
 
 #: src/concurrency/send-sync/sync.md:3
 msgid ""
@@ -19864,7 +19861,6 @@ msgstr ""
 "Esses tipos são _thread-safe_, mas não podem ser movidos para outro _thread_:"
 
 #: src/concurrency/send-sync/examples.md:31
-#, fuzzy
 msgid ""
 "`MutexGuard<T: Sync>`: Uses OS level primitives which must be deallocated on "
 "the thread which created them."
@@ -19925,22 +19921,16 @@ msgstr ""
 "acesso mutuamente exclusivo ao valor `T`."
 
 #: src/concurrency/shared_state/arc.md:3
-#, fuzzy
 msgid ""
 "[`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html) allows shared "
 "read-only access via `Arc::clone`:"
 msgstr ""
 "[`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html) permite "
-"acesso somente leitura compartilhado por meio de seu método `clone`:"
+"acesso somente-leitura compartilhado por meio de `Arc::clone`:"
 
 #: src/concurrency/shared_state/arc.md:16
-#, fuzzy
 msgid "\"{thread_id:?}: {v:?}\""
-msgstr ""
-"fn main() { let v = Arc::new(vec![10, 20, 30\\]); let mut handles = Vec::"
-"new(); for _ in 1..5 { let v = v.clone(); handles.push(thread::spawn(move || "
-"{ let thread_id = thread::current().id(); println!(\"{thread_id:?}: "
-"{v:?}\"); })); }"
+msgstr "\"{thread_id:?}: {v:?}\""
 
 #: src/concurrency/shared_state/arc.md:21
 #: src/concurrency/shared_state/example.md:17
@@ -19957,13 +19947,12 @@ msgstr ""
 "`Rc` que usa operações atômicas."
 
 #: src/concurrency/shared_state/arc.md:31
-#, fuzzy
 msgid ""
 "`Arc<T>` implements `Clone` whether or not `T` does. It implements `Send` "
 "and `Sync` if and only if `T` implements them both."
 msgstr ""
 "`Arc<T>` implementa `Clone` quer `T` o faça ou não. Ele implementa `Send` e "
-"`Sync` se `T` implementa os dois."
+"`Sync` se e somente se `T` implementa os dois."
 
 #: src/concurrency/shared_state/arc.md:33
 msgid ""
@@ -19998,7 +19987,7 @@ msgstr ""
 #: src/concurrency/shared_state/mutex.md:11
 #: src/concurrency/shared_state/mutex.md:18
 msgid "\"v: {:?}\""
-msgstr ""
+msgstr "\"v: {:?}\""
 
 #: src/concurrency/shared_state/mutex.md:22
 msgid ""
@@ -20011,16 +20000,14 @@ msgstr ""
 "Mutex%3CT%3E) encoberta."
 
 #: src/concurrency/shared_state/mutex.md:31
-#, fuzzy
 msgid ""
 "`Mutex` in Rust looks like a collection with just one element --- the "
 "protected data."
 msgstr ""
-"`Mutex` em Rust parece uma coleção com apenas um elemento - os dados "
-"protegidos."
+"`Mutex` em Rust é semelhante a uma coleção com apenas um elemento --- os "
+"dados protegidos."
 
 #: src/concurrency/shared_state/mutex.md:33
-#, fuzzy
 msgid ""
 "It is not possible to forget to acquire the mutex before accessing the "
 "protected data."
@@ -20029,34 +20016,30 @@ msgstr ""
 "protegidos."
 
 #: src/concurrency/shared_state/mutex.md:35
-#, fuzzy
 msgid ""
 "You can get an `&mut T` from an `&Mutex<T>` by taking the lock. The "
 "`MutexGuard` ensures that the `&mut T` doesn't outlive the lock being held."
 msgstr ""
-"Você pode obter um `&mut T` de um `&Mutex<T>` obtendo um bloqueio (_lock_). "
-"O `MutexGuard` garante que o `&mut T` não sobrevive além do bloqueio "
-"(_lock_)."
+"Você pode obter um `&mut T` de um `&Mutex<T>` obtendo um  _lock_. O "
+"`MutexGuard` garante que o `&mut T` não sobrevive além do _lock_ obtido."
 
 #: src/concurrency/shared_state/mutex.md:37
-#, fuzzy
 msgid ""
 "`Mutex<T>` implements both `Send` and `Sync` iff (if and only if) `T` "
 "implements `Send`."
-msgstr "`Mutex<T>` implementa `Send` e `Sync` se `T` implementa `Send`."
+msgstr ""
+"`Mutex<T>` implementa ambos `Send` e `Sync` sse (se e somente se) `T` "
+"implementa `Send`."
 
 #: src/concurrency/shared_state/mutex.md:39
-#, fuzzy
 msgid "A read-write lock counterpart: `RwLock`."
-msgstr "O bloqueio para leitura e gravação - `RwLock`."
+msgstr "Um _lock_ para leitura e gravação: `RwLock`."
 
 #: src/concurrency/shared_state/mutex.md:40
-#, fuzzy
 msgid "Why does `lock()` return a `Result`?"
 msgstr "Por que `lock()` retorna um `Result`?"
 
 #: src/concurrency/shared_state/mutex.md:41
-#, fuzzy
 msgid ""
 "If the thread that held the `Mutex` panicked, the `Mutex` becomes "
 "\"poisoned\" to signal that the data it protected might be in an "
@@ -20066,32 +20049,28 @@ msgid ""
 msgstr ""
 "Se o thread que manteve o `Mutex` entrou em pânico, o `Mutex` torna-se "
 "\"envenenado\" para sinalizar que os dados protegidos podem estar em um "
-"estado inconsistente. Ao chamar `lock()` em um mutex envenenado o retorno é "
-"uma falha com um [`PoisonError`](https://doc.rust-lang.org/std/sync/struct."
-"PoisonError.html). Você pode chamar `into_inner()` no erro para recuperar os "
-"dados independentemente."
+"estado inconsistente. Chamar `lock()` em um mutex envenenado falha com um "
+"[`PoisonError`](https://doc.rust-lang.org/std/sync/struct.PoisonError.html). "
+"Você pode chamar `into_inner()` no erro para recuperar os dados de qualquer "
+"maneira."
 
 #: src/concurrency/shared_state/example.md:3
 msgid "Let us see `Arc` and `Mutex` in action:"
 msgstr "Vamos ver `Arc` e `Mutex` em ação:"
 
 #: src/concurrency/shared_state/example.md:6
-#, fuzzy
 msgid "// use std::sync::{Arc, Mutex};\n"
-msgstr ""
-"fn main() { let mut v = vec![10, 20, 30\\]; let handle = thread::spawn(|| "
-"{ v.push(10); }); v.push(1000);"
+msgstr "// use std::sync::{Arc, Mutex};\n"
 
 #: src/concurrency/shared_state/example.md:23
 msgid "Possible solution:"
-msgstr ""
+msgstr "Solução possível:"
 
 #: src/concurrency/shared_state/example.md:49
 msgid "Notable parts:"
-msgstr ""
+msgstr "Partes notáveis:"
 
 #: src/concurrency/shared_state/example.md:51
-#, fuzzy
 msgid ""
 "`v` is wrapped in both `Arc` and `Mutex`, because their concerns are "
 "orthogonal."
@@ -20100,12 +20079,11 @@ msgstr ""
 "ortogonais."
 
 #: src/concurrency/shared_state/example.md:53
-#, fuzzy
 msgid ""
 "Wrapping a `Mutex` in an `Arc` is a common pattern to share mutable state "
 "between threads."
 msgstr ""
-"Envolver um `Mutex` em um `Arc` é um padrão comum para compartilhar o estado "
+"Envolver um `Mutex` em um `Arc` é um padrão comum para compartilhar estado "
 "mutável entre threads."
 
 #: src/concurrency/shared_state/example.md:55
@@ -20118,32 +20096,28 @@ msgstr ""
 "outro thread. Note que `move` foi adicionado à assinatura lambda."
 
 #: src/concurrency/shared_state/example.md:57
-#, fuzzy
 msgid ""
 "Blocks are introduced to narrow the scope of the `LockGuard` as much as "
 "possible."
 msgstr ""
 "Os blocos são introduzidos para restringir o escopo do `LockGuard` tanto "
-"quanto possível.\n"
-"\n"
-"Ainda precisamos adquirir o `Mutex` para imprimir nosso `Vec`."
+"quanto possível."
 
 #: src/exercises/concurrency/morning.md:3
 msgid "Let us practice our new concurrency skills with"
-msgstr "Vamos praticar nossas novas habilidades de concorrência com:"
+msgstr "Vamos praticar nossas novas habilidades em concorrência com"
 
 #: src/exercises/concurrency/morning.md:5
-#, fuzzy
 msgid "Dining philosophers: a classic problem in concurrency."
-msgstr ""
-"Verificador de link _multi-threads_: um projeto maior  no qual você usará o "
-"Cargo para baixar as dependências e também verificar os links em paralelo."
+msgstr "Filósofos jantando: um problema clássico em concorrência."
 
 #: src/exercises/concurrency/morning.md:7
 msgid ""
 "Multi-threaded link checker: a larger project where you'll use Cargo to "
 "download dependencies and then check links in parallel."
 msgstr ""
+"Verificador de links multithread: um projeto maior onde você usará o Cargo "
+"para baixar dependências e, em seguida, verificar links em paralelo."
 
 #: src/exercises/concurrency/dining-philosophers.md:3
 msgid "The dining philosophers problem is a classic problem in concurrency:"
@@ -20171,16 +20145,15 @@ msgstr ""
 "dois garfos."
 
 #: src/exercises/concurrency/dining-philosophers.md:13
-#, fuzzy
 msgid ""
 "You will need a local [Cargo installation](../../cargo/running-locally.md) "
 "for this exercise. Copy the code below to a file called `src/main.rs`, fill "
 "out the blanks, and test that `cargo run` does not deadlock:"
 msgstr ""
-"Você precisará de uma \\[instalação do Cargo\\]\\[../../cargo/running-"
-"locally.md\\] local para esse exercício. Copie o código abaixo para o "
-"arquivo `src/main.rs`, preencha os espaços em branco, e teste se `cargo run` "
-"não trava:"
+"Você precisará de uma [instalação local do Cargo](../../cargo/running-"
+"locally.md) para esse exercício. Copie o código abaixo para um arquivo "
+"chamado `src/main.rs`, preencha os espaços em branco e teste se `cargo run` "
+"não entra em _deadlock_:"
 
 #: src/exercises/concurrency/dining-philosophers.md:28
 #: src/exercises/concurrency/dining-philosophers-async.md:23
@@ -20189,87 +20162,90 @@ msgid ""
 "    // right_fork: ...\n"
 "    // thoughts: ...\n"
 msgstr ""
+"// left_fork: ...\n"
+"    // right_fork: ...\n"
+"    // thoughts: ...\n"
 
 #: src/exercises/concurrency/dining-philosophers.md:36
 #: src/exercises/concurrency/solutions-morning.md:24
 #: src/exercises/concurrency/dining-philosophers-async.md:31
 #: src/exercises/concurrency/solutions-afternoon.md:25
 msgid "\"Eureka! {} has a new idea!\""
-msgstr ""
+msgstr "\"Eureka! {} tem uma nova ideia!\""
 
 #: src/exercises/concurrency/dining-philosophers.md:41
 #: src/exercises/concurrency/dining-philosophers-async.md:37
 #: src/exercises/concurrency/solutions-afternoon.md:31
 msgid "// Pick up forks...\n"
-msgstr ""
+msgstr "// Peguem os garfos...\n"
 
 #: src/exercises/concurrency/dining-philosophers.md:42
 #: src/exercises/concurrency/solutions-morning.md:33
 #: src/exercises/concurrency/dining-philosophers-async.md:38
 #: src/exercises/concurrency/solutions-afternoon.md:38
 msgid "\"{} is eating...\""
-msgstr ""
+msgstr "\"{} está comendo...\""
 
 #: src/exercises/concurrency/dining-philosophers.md:48
 #: src/exercises/concurrency/solutions-morning.md:39
 #: src/exercises/concurrency/dining-philosophers-async.md:44
 #: src/exercises/concurrency/solutions-afternoon.md:46
 msgid "\"Socrates\""
-msgstr ""
+msgstr "\"Sócrates\""
 
 #: src/exercises/concurrency/dining-philosophers.md:48
 #: src/exercises/concurrency/solutions-morning.md:39
 #: src/exercises/concurrency/dining-philosophers-async.md:44
 #: src/exercises/concurrency/solutions-afternoon.md:46
 msgid "\"Hypatia\""
-msgstr ""
+msgstr "\"Hipátia\""
 
 #: src/exercises/concurrency/dining-philosophers.md:48
 #: src/exercises/concurrency/solutions-morning.md:39
 #: src/exercises/concurrency/dining-philosophers-async.md:44
 #: src/exercises/concurrency/solutions-afternoon.md:46
 msgid "\"Plato\""
-msgstr ""
+msgstr "\"Platão\""
 
 #: src/exercises/concurrency/dining-philosophers.md:48
 #: src/exercises/concurrency/solutions-morning.md:39
 #: src/exercises/concurrency/dining-philosophers-async.md:44
 #: src/exercises/concurrency/solutions-afternoon.md:46
 msgid "\"Aristotle\""
-msgstr ""
+msgstr "\"Aristóteles\""
 
 #: src/exercises/concurrency/dining-philosophers.md:48
 #: src/exercises/concurrency/solutions-morning.md:39
 #: src/exercises/concurrency/dining-philosophers-async.md:44
 #: src/exercises/concurrency/solutions-afternoon.md:46
 msgid "\"Pythagoras\""
-msgstr ""
+msgstr "\"Pitágoras\""
 
 #: src/exercises/concurrency/dining-philosophers.md:51
 #: src/exercises/concurrency/dining-philosophers-async.md:48
 #: src/exercises/concurrency/solutions-afternoon.md:50
 msgid "// Create forks\n"
-msgstr ""
+msgstr "// Criem os garfos\n"
 
 #: src/exercises/concurrency/dining-philosophers.md:53
 #: src/exercises/concurrency/dining-philosophers-async.md:50
 #: src/exercises/concurrency/solutions-afternoon.md:54
 msgid "// Create philosophers\n"
-msgstr ""
+msgstr "// Criem os filósofos\n"
 
 #: src/exercises/concurrency/dining-philosophers.md:55
 msgid "// Make each of them think and eat 100 times\n"
-msgstr ""
+msgstr "// Façam cada um deles pensar e comer 100 vezes\n"
 
 #: src/exercises/concurrency/dining-philosophers.md:57
 #: src/exercises/concurrency/dining-philosophers-async.md:54
 #: src/exercises/concurrency/solutions-afternoon.md:88
 msgid "// Output their thoughts\n"
-msgstr ""
+msgstr "// Imprimam seus pensamentos\n"
 
 #: src/exercises/concurrency/dining-philosophers.md:61
 msgid "You can use the following `Cargo.toml`:"
-msgstr ""
+msgstr "Você pode usar o seguinte `Cargo.toml`"
 
 #: src/exercises/concurrency/dining-philosophers.md:65
 msgid ""
@@ -20280,6 +20256,12 @@ msgid ""
 "edition = \"2021\"\n"
 "```"
 msgstr ""
+"```toml\n"
+"[package]\n"
+"name = \"dining-philosophers\"\n"
+"version = \"0.1.0\"\n"
+"edition = \"2021\"\n"
+"```"
 
 #: src/exercises/concurrency/link-checker.md:3
 msgid ""
@@ -20334,7 +20316,6 @@ msgstr ""
 "assim:"
 
 #: src/exercises/concurrency/link-checker.md:37
-#, fuzzy
 msgid ""
 "```toml\n"
 "[package]\n"
@@ -20351,7 +20332,13 @@ msgid ""
 "```"
 msgstr ""
 "```toml\n"
-"[dependências]\n"
+"[package]\n"
+"name = \"link-checker\"\n"
+"version = \"0.1.0\"\n"
+"edition = \"2021\"\n"
+"publish = false\n"
+"\n"
+"[dependencies]\n"
 "reqwest = { version = \"0.11.12\", features = [\"blocking\", \"rustls-"
 "tls\"] }\n"
 "scraper = \"0.13.0\"\n"
@@ -20373,40 +20360,40 @@ msgstr "Seu arquivo `src/main.rs` deve se parecer com isto:"
 #: src/exercises/concurrency/link-checker.md:65
 #: src/exercises/concurrency/solutions-morning.md:97
 msgid "\"request error: {0}\""
-msgstr ""
+msgstr "\"request error: {0}\""
 
 #: src/exercises/concurrency/link-checker.md:67
 #: src/exercises/concurrency/solutions-morning.md:99
 msgid "\"bad http response: {0}\""
-msgstr ""
+msgstr "\"bad http response: {0}\""
 
 #: src/exercises/concurrency/link-checker.md:78
 #: src/exercises/concurrency/solutions-morning.md:110
 msgid "\"Checking {:#}\""
-msgstr ""
+msgstr "\"Verificando {:#}\""
 
 #: src/exercises/concurrency/link-checker.md:96
 #: src/exercises/concurrency/solutions-morning.md:128
 msgid "\"href\""
-msgstr ""
+msgstr "\"href\""
 
 #: src/exercises/concurrency/link-checker.md:103
 #: src/exercises/concurrency/solutions-morning.md:135
 msgid "\"On {base_url:#}: ignored unparsable {href:?}: {err}\""
-msgstr ""
+msgstr "\"Em {base_url:#}: ignorado não analisável {href:?}: {err}\""
 
 #: src/exercises/concurrency/link-checker.md:112
 #: src/exercises/concurrency/solutions-morning.md:245
 msgid "\"https://www.google.org\""
-msgstr ""
+msgstr "\"https://www.google.org\""
 
 #: src/exercises/concurrency/link-checker.md:115
 msgid "\"Links: {links:#?}\""
-msgstr ""
+msgstr "\"Links: {links:#?}\""
 
 #: src/exercises/concurrency/link-checker.md:116
 msgid "\"Could not extract links: {err:#}\""
-msgstr ""
+msgstr "\"Não foi possível extrair links: {err:#}\""
 
 #: src/exercises/concurrency/link-checker.md:121
 msgid "Run the code in `src/main.rs` with"
@@ -20432,9 +20419,8 @@ msgstr ""
 "para que você não acabe sendo bloqueado pelo site."
 
 #: src/exercises/concurrency/solutions-morning.md:1
-#, fuzzy
 msgid "Concurrency Morning Exercise"
-msgstr "Dia 3 Exercício matinal"
+msgstr "Exercício Matinal sobre Concorrência"
 
 #: src/exercises/concurrency/solutions-morning.md:5
 msgid "([back to exercise](dining-philosophers.md))"
@@ -20442,7 +20428,7 @@ msgstr "([voltar ao exercício](dining-philosophers.md))"
 
 #: src/exercises/concurrency/solutions-morning.md:29
 msgid "\"{} is trying to eat\""
-msgstr ""
+msgstr "\"{} está tentando comer\""
 
 #: src/exercises/concurrency/solutions-morning.md:53
 msgid ""
@@ -20450,48 +20436,51 @@ msgid ""
 "        // somewhere. This will swap the forks without deinitializing\n"
 "        // either of them.\n"
 msgstr ""
+"// Para evitar um _deadlock_, temos que quebrar a simetria\n"
+"        // em algum lugar. Isso trocará os garfos sem desinicializar\n"
+"        // nenhum deles.\n"
 
 #: src/exercises/concurrency/solutions-morning.md:77
 msgid "\"{thought}\""
-msgstr ""
+msgstr "\"{thought}\""
 
 #: src/exercises/concurrency/solutions-morning.md:82
-#, fuzzy
 msgid "Link Checker"
-msgstr "Verificador de links _multi-threads_"
+msgstr "Verificador de Links"
 
 #: src/exercises/concurrency/solutions-morning.md:84
-#, fuzzy
 msgid "([back to exercise](link-checker.md))"
-msgstr "([voltar ao exercício](luhn.md))"
+msgstr "([voltar ao exercício](link-checker.md))"
 
 #: src/exercises/concurrency/solutions-morning.md:154
 msgid ""
 "/// Determine whether links within the given page should be extracted.\n"
 msgstr ""
+"/// Determine se os links dentro da página fornecida devem ser extraídos.\n"
 
 #: src/exercises/concurrency/solutions-morning.md:162
 msgid ""
 "/// Mark the given page as visited, returning false if it had already\n"
 "    /// been visited.\n"
 msgstr ""
+"/// Marque a página fornecida como visitada, retornando falso se ela já\n"
+"    /// tiver sido visitada.\n"
 
 #: src/exercises/concurrency/solutions-morning.md:188
 msgid "// The sender got dropped. No more commands coming in.\n"
-msgstr ""
+msgstr "// O remetente foi descartado. Não há mais comandos chegando.\n"
 
 #: src/exercises/concurrency/solutions-morning.md:229
 msgid "\"Got crawling error: {:#}\""
-msgstr ""
+msgstr "\"Erro de crawling: {:#}\""
 
 #: src/exercises/concurrency/solutions-morning.md:247
 msgid "\"Bad URLs: {:#?}\""
-msgstr ""
+msgstr "\"URLs ruins: {:#?}\""
 
 #: src/async.md:1
-#, fuzzy
 msgid "Async Rust"
-msgstr "Por que Rust?"
+msgstr "Rust _Async_"
 
 #: src/async.md:3
 msgid ""
@@ -20502,6 +20491,13 @@ msgid ""
 "per-task overhead is typically very low and operating systems provide "
 "primitives for efficiently identifying I/O that is able to proceed."
 msgstr ""
+"\"_Async_\" é um modelo de concorrência onde várias tarefas são executadas "
+"concorrentemente, executando cada tarefa até que ela bloqueie, e então "
+"mudando para outra tarefa que está pronta para fazer progresso. O modelo "
+"permite executar um número maior de tarefas em um número limitado de "
+"threads. Isso ocorre porque o custo por tarefa é tipicamente muito baixo e "
+"os sistemas operacionais fornecem primitivas para identificar eficientemente "
+"I/O que é capaz de prosseguir."
 
 #: src/async.md:10
 msgid ""
@@ -20509,12 +20505,17 @@ msgid ""
 "that may be completed in the future. Futures are \"polled\" until they "
 "signal that they are complete."
 msgstr ""
+"A operação assíncrona do Rust é baseada em \"futures\", que representam "
+"trabalho que pode ser concluído no futuro. As _futures_ são \"polled\" até "
+"que elas sinalizem que estão completas."
 
 #: src/async.md:14
 msgid ""
 "Futures are polled by an async runtime, and several different runtimes are "
 "available."
 msgstr ""
+"As _futures_ são _polled_ por um _runtime_ assíncrono, e vários _runtimes_ "
+"diferentes estão disponíveis."
 
 #: src/async.md:19
 msgid ""
@@ -20522,6 +20523,9 @@ msgid ""
 "callback-based, and not polled. Async Python programs require a \"loop\", "
 "similar to a runtime in Rust."
 msgstr ""
+"O Python tem um modelo semelhante em seu `asyncio`. No entanto, seu tipo "
+"`Future` é baseado em _callback_, e não _polled_. Programas _async_ em "
+"Python requerem um \"loop\", semelhante a um _runtime_ em Rust."
 
 #: src/async.md:23
 msgid ""
@@ -20529,60 +20533,78 @@ msgid ""
 "runtime implements the event loop, so many of the details of Promise "
 "resolution are hidden."
 msgstr ""
+"O `Promise` do JavaScript é semelhante, mas novamente baseado em _callback_. "
+"O _runtime_ da linguagem implementa o _event loop_, então muitos dos "
+"detalhes da resolução de _Promise_ são ocultos."
 
 #: src/async/async-await.md:3
 msgid ""
 "At a high level, async Rust code looks very much like \"normal\" sequential "
 "code:"
 msgstr ""
+"De maneira geral, o código _async_ do Rust se parece muito com o código "
+"sequencial \"normal\":"
 
 #: src/async/async-await.md:10
 msgid "\"Count is: {i}!\""
-msgstr ""
+msgstr "\"Contador é: {i}!\""
 
 #: src/async/async-await.md:27
 msgid ""
 "Note that this is a simplified example to show the syntax. There is no long "
 "running operation or any real concurrency in it!"
 msgstr ""
+"Observe que este é um exemplo simplificado para mostrar a sintaxe. Não há "
+"operação de longa duração ou qualquer concorrência real nele!"
 
 #: src/async/async-await.md:30
 msgid "What is the return type of an async call?"
-msgstr ""
+msgstr "Qual é o tipo de retorno de uma chamada _async_?"
 
 #: src/async/async-await.md:31
 msgid "Use `let future: () = async_main(10);` in `main` to see the type."
-msgstr ""
+msgstr "Use `let future: () = async_main(10);` em `main` para ver o tipo."
 
 #: src/async/async-await.md:33
 msgid ""
 "The \"async\" keyword is syntactic sugar. The compiler replaces the return "
 "type with a future."
 msgstr ""
+"A palavra-chave \"async\" é açúcar sintático. O compilador substitui o tipo "
+"de retorno por uma _future_."
 
 #: src/async/async-await.md:36
 msgid ""
 "You cannot make `main` async, without additional instructions to the "
 "compiler on how to use the returned future."
 msgstr ""
+"Você não pode tornar `main` _async_, sem instruções adicionais para o "
+"compilador sobre como usar a _future_ retornada."
 
 #: src/async/async-await.md:39
 msgid ""
 "You need an executor to run async code. `block_on` blocks the current thread "
 "until the provided future has run to completion."
 msgstr ""
+"Você precisa de um executor para executar código _async_. `block_on` "
+"bloqueia o thread atual até que a _future_ fornecida tenha sido executada "
+"até a conclusão."
 
 #: src/async/async-await.md:42
 msgid ""
 "`.await` asynchronously waits for the completion of another operation. "
 "Unlike `block_on`, `.await` doesn't block the current thread."
 msgstr ""
+"`.await` espera assincronamente pela conclusão de outra operação. Ao "
+"contrário de `block_on`, `.await` não bloqueia o thread atual."
 
 #: src/async/async-await.md:45
 msgid ""
 "`.await` can only be used inside an `async` function (or block; these are "
 "introduced later)."
 msgstr ""
+"`.await` só pode ser usado dentro de uma função `async` (ou bloco; estes são "
+"introduzidos mais tarde)."
 
 #: src/async/futures.md:3
 msgid ""
@@ -20591,6 +20613,10 @@ msgid ""
 "complete yet. A future can be polled, and `poll` returns a [`Poll`](https://"
 "doc.rust-lang.org/std/task/enum.Poll.html)."
 msgstr ""
+"[`Future`](https://doc.rust-lang.org/std/future/trait.Future.html) é um "
+"traço, implementado por objetos que representam uma operação que pode ainda "
+"não estar completa. Uma _future_ pode ser _polled_, e `poll` retorna um "
+"[`Poll`](https://doc.rust-lang.org/std/task/enum.Poll.html)."
 
 #: src/async/futures.md:23
 msgid ""
@@ -20599,30 +20625,43 @@ msgid ""
 "`JoinHandle` returned from `tokio::spawn` implements `Future` to allow "
 "joining to it."
 msgstr ""
+"Uma função _async_ retorna um `impl Future`. Também é possível (mas pouco "
+"comum) implementar `Future` para seus próprios tipos. Por exemplo, o "
+"`JoinHandle` retornado de `tokio::spawn` implementa `Future` para permitir "
+"juntar-se a ele."
 
 #: src/async/futures.md:27
 msgid ""
 "The `.await` keyword, applied to a Future, causes the current async function "
 "to pause until that Future is ready, and then evaluates to its output."
 msgstr ""
+"A palavra-chave `.await`, aplicada a uma _Future_, faz com que a função "
+"assíncrona atual pause até que essa _Future_ esteja pronta, e então avalia "
+"para sua saída."
 
 #: src/async/futures.md:32
 msgid ""
 "The `Future` and `Poll` types are implemented exactly as shown; click the "
 "links to show the implementations in the docs."
 msgstr ""
+"Os tipos `Future` e `Poll` são implementados exatamente como mostrado; "
+"clique nos links para mostrar as implementações na documentação."
 
 #: src/async/futures.md:35
 msgid ""
 "We will not get to `Pin` and `Context`, as we will focus on writing async "
 "code, rather than building new async primitives. Briefly:"
 msgstr ""
+"Não chegaremos a `Pin` e `Context`, pois nos concentraremos em escrever "
+"código _async_, em vez de construir novas primitivas _async_. Brevemente:"
 
 #: src/async/futures.md:38
 msgid ""
 "`Context` allows a Future to schedule itself to be polled again when an "
 "event occurs."
 msgstr ""
+"`Context` permite que uma _Future_ agende-se para ser _polled_ novamente "
+"quando um evento ocorre."
 
 #: src/async/futures.md:41
 msgid ""
@@ -20630,6 +20669,9 @@ msgid ""
 "that future remain valid. This is required to allow references to remain "
 "valid after an `.await`."
 msgstr ""
+"`Pin` garante que a _Future_ não seja movida na memória, para que os "
+"ponteiros para essa _future_ permaneçam válidos. Isso é necessário para "
+"permitir que as referências permaneçam válidas após um `.await`."
 
 #: src/async/runtimes.md:3
 msgid ""
@@ -20637,6 +20679,9 @@ msgid ""
 "_reactor_) and is responsible for executing futures (an _executor_). Rust "
 "does not have a \"built-in\" runtime, but several options are available:"
 msgstr ""
+"Um _runtime_ fornece suporte para realizar operações de forma assíncrona (um "
+"_reator_) e é responsável por executar _futures_ (um _executor_). Rust não "
+"tem um _runtime_ \"integrado\", mas várias opções estão disponíveis:"
 
 #: src/async/runtimes.md:7
 msgid ""
@@ -20644,16 +20689,21 @@ msgid ""
 "functionality like [Hyper](https://hyper.rs/) for HTTP or [Tonic](https://"
 "github.com/hyperium/tonic) for gRPC."
 msgstr ""
+"[Tokio](https://tokio.rs/): performante, com um ecossistema bem desenvolvido "
+"de funcionalidades como [Hyper](https://hyper.rs/) para HTTP ou [Tonic]"
+"(https://github.com/hyperium/tonic) para gRPC."
 
 #: src/async/runtimes.md:10
 msgid ""
 "[async-std](https://async.rs/): aims to be a \"std for async\", and includes "
 "a basic runtime in `async::task`."
 msgstr ""
+"[async-std](https://async.rs/): tem como objetivo ser um \"std para "
+"_async_\", e inclui um _runtime_ básico em `async::task`."
 
 #: src/async/runtimes.md:12
 msgid "[smol](https://docs.rs/smol/latest/smol/): simple and lightweight"
-msgstr ""
+msgstr "[smol](https://docs.rs/smol/latest/smol/): simples e leve"
 
 #: src/async/runtimes.md:14
 msgid ""
@@ -20661,6 +20711,9 @@ msgid ""
 "(https://fuchsia.googlesource.com/fuchsia/+/refs/heads/main/src/lib/fuchsia-"
 "async/src/lib.rs) already has one."
 msgstr ""
+"Várias aplicações maiores têm seus próprios _runtimes_. Por exemplo, "
+"[Fuchsia](https://fuchsia.googlesource.com/fuchsia/+/refs/heads/main/src/lib/"
+"fuchsia-async/src/lib.rs) já tem um."
 
 #: src/async/runtimes.md:20
 msgid ""
@@ -20668,6 +20721,9 @@ msgid ""
 "playground. The playground also does not permit any I/O, so most interesting "
 "async things can't run in the playground."
 msgstr ""
+"Observe que, dos _runtimes_ listados, apenas Tokio é suportado no _Rust "
+"playground_. O _playground_ também não permite nenhum I/O, então a maioria "
+"das coisas _async_ interessantes não pode ser executada no _playground_."
 
 #: src/async/runtimes.md:24
 msgid ""
@@ -20676,46 +20732,51 @@ msgid ""
 "Promises, for example, which will run to completion even if they are never "
 "used."
 msgstr ""
+"As _futures_ são \"inertes\" no sentido de que elas não fazem nada (nem "
+"mesmo iniciam uma operação de I/O) a menos que haja um _executor_ _polling_. "
+"Isso difere das _Promises_ do JS, por exemplo, que serão executadas até o "
+"final mesmo que nunca sejam usadas."
 
 #: src/async/runtimes/tokio.md:3
 msgid "Tokio provides:"
-msgstr ""
+msgstr "Tokio fornece:"
 
 #: src/async/runtimes/tokio.md:5
 msgid "A multi-threaded runtime for executing asynchronous code."
-msgstr ""
+msgstr "Um _runtime multi-threaded_ para executar código assíncrono."
 
 #: src/async/runtimes/tokio.md:6
 msgid "An asynchronous version of the standard library."
-msgstr ""
+msgstr "Uma versão assíncrona da biblioteca padrão."
 
 #: src/async/runtimes/tokio.md:7
 msgid "A large ecosystem of libraries."
-msgstr ""
+msgstr "Um grande ecossistema de bibliotecas."
 
 #: src/async/runtimes/tokio.md:14
 msgid "\"Count in task: {i}!\""
-msgstr ""
+msgstr "\"Contador na tarefa: {i}!\""
 
 #: src/async/runtimes/tokio.md:24
 msgid "\"Main task: {i}\""
-msgstr ""
+msgstr "\"Tarefa principal: {i}\""
 
 #: src/async/runtimes/tokio.md:32
 msgid "With the `tokio::main` macro we can now make `main` async."
-msgstr ""
+msgstr "Com a macro `tokio::main` agora podemos tornar `main` _async_."
 
 #: src/async/runtimes/tokio.md:34
 msgid "The `spawn` function creates a new, concurrent \"task\"."
-msgstr ""
+msgstr "A função `spawn` cria uma nova \"tarefa\" concorrente."
 
 #: src/async/runtimes/tokio.md:36
 msgid "Note: `spawn` takes a `Future`, you don't call `.await` on `count_to`."
 msgstr ""
+"Nota: `spawn` recebe uma `Future`, você não chama `.await` em `count_to`."
 
 #: src/async/runtimes/tokio.md:38
 msgid "**Further exploration:**"
-msgstr ""
+msgstr "**Exploração adicional:**"
 
 #: src/async/runtimes/tokio.md:40
 msgid ""
@@ -20723,18 +20784,21 @@ msgid ""
 "cancellation. `tokio::spawn` returns a handle which can be awaited to wait "
 "until it finishes."
 msgstr ""
+"Por que `count_to` (geralmente) não chega a 10? Este é um exemplo de "
+"cancelamento _async_. `tokio::spawn` retorna um _handle_ que pode ser "
+"aguardado para esperar que ele termine."
 
 #: src/async/runtimes/tokio.md:44
 msgid "Try `count_to(10).await` instead of spawning."
-msgstr ""
+msgstr "Tente `count_to(10).await` em vez de _spawn_."
 
 #: src/async/runtimes/tokio.md:46
 msgid "Try awaiting the task returned from `tokio::spawn`."
-msgstr ""
+msgstr "Tente aguardar a tarefa retornada de `tokio::spawn`."
 
 #: src/async/tasks.md:3
 msgid "Rust has a task system, which is a form of lightweight threading."
-msgstr ""
+msgstr "Rust tem um sistema de tarefas, que é uma forma de _threading_ leve."
 
 #: src/async/tasks.md:5
 msgid ""
@@ -20744,35 +20808,42 @@ msgid ""
 "task is possible by polling multiple child futures, such as racing a timer "
 "and an I/O operation."
 msgstr ""
+"Uma tarefa tem uma única _future_ de nível superior que o _executor_ _polls_ "
+"para fazer progresso. Essa _future_ pode ter uma ou mais _futures_ aninhadas "
+"que seu método `poll` _polls_, correspondendo vagamente a uma pilha de "
+"chamadas. A concorrência dentro de uma tarefa é possível _polling_ várias "
+"_futures_ filhas, como correr um temporizador e uma operação de I/O."
 
 #: src/async/tasks.md:16
 msgid "\"127.0.0.1:0\""
-msgstr ""
+msgstr "\"127.0.0.1:0\""
 
 #: src/async/tasks.md:17
 msgid "\"listening on port {}\""
-msgstr ""
+msgstr "\"escutando na porta {}\""
 
 #: src/async/tasks.md:22
 msgid "\"connection from {addr:?}\""
-msgstr ""
+msgstr "\"conexão de {addr:?}\""
 
 #: src/async/tasks.md:25
 msgid "b\"Who are you?\\n\""
-msgstr ""
+msgstr "b\"Quem é você?\\n\""
 
 #: src/async/tasks.md:25 src/async/tasks.md:28 src/async/tasks.md:31
 msgid "\"socket error\""
-msgstr ""
+msgstr "\"erro de _socket_\""
 
 #: src/async/tasks.md:30
 msgid "\"Thanks for dialing in, {name}!\\n\""
-msgstr ""
+msgstr "\"Obrigado por ligar, {name}!\\n\""
 
 #: src/async/tasks.md:39 src/async/control-flow/join.md:36
 msgid ""
 "Copy this example into your prepared `src/main.rs` and run it from there."
 msgstr ""
+"Copie este exemplo para o seu `src/main.rs` preparado e execute-o a partir "
+"daí."
 
 #: src/async/tasks.md:41
 msgid ""
@@ -20780,12 +20851,18 @@ msgid ""
 "com/man-page/linux/1/nc/) or [telnet](https://www.unix.com/man-page/linux/1/"
 "telnet/)."
 msgstr ""
+"Tente se conectar a ele com uma ferramenta de conexão TCP como [nc](https://"
+"www.unix.com/man-page/linux/1/nc/) ou [telnet](https://www.unix.com/man-page/"
+"linux/1/telnet/)."
 
 #: src/async/tasks.md:45
 msgid ""
 "Ask students to visualize what the state of the example server would be with "
 "a few connected clients. What tasks exist? What are their Futures?"
 msgstr ""
+"Pergunte aos alunos para visualizar qual seria o estado do servidor de "
+"exemplo com alguns clientes conectados. Quais tarefas existem? Quais são "
+"suas _futures_?"
 
 #: src/async/tasks.md:48
 msgid ""
@@ -20793,51 +20870,59 @@ msgid ""
 "closure, but does not take any arguments. Its return value is a Future, "
 "similar to an `async fn`."
 msgstr ""
+"Esta é a primeira vez que vemos um bloco `async`. Isso é semelhante a um "
+"_closure_, mas não aceita argumentos. Seu valor de retorno é uma _future_, "
+"semelhante a um `async fn`."
 
 #: src/async/tasks.md:52
 msgid ""
 "Refactor the async block into a function, and improve the error handling "
 "using `?`."
 msgstr ""
+"Refatore o bloco _async_ em uma função e melhore o tratamento de erros "
+"usando `?`."
 
 #: src/async/channels.md:3
 msgid ""
 "Several crates have support for asynchronous channels. For instance `tokio`:"
 msgstr ""
+"Vários _crates_ têm suporte para canais assíncronos. Por exemplo, `tokio`:"
 
 #: src/async/channels.md:13
 msgid "\"Received {count} pings so far.\""
-msgstr ""
+msgstr "\"Recebido {count} pings até agora.\""
 
 #: src/async/channels.md:16
 msgid "\"ping_handler complete\""
-msgstr ""
+msgstr "\"_ping_handler_ completo\""
 
 #: src/async/channels.md:24
 msgid "\"Failed to send ping.\""
-msgstr ""
+msgstr "\"Falha ao enviar _ping_\""
 
 #: src/async/channels.md:25
 msgid "\"Sent {} pings so far.\""
-msgstr ""
+msgstr "\"Enviado {} pings até agora.\""
 
 #: src/async/channels.md:29
 msgid "\"Something went wrong in ping handler task.\""
-msgstr ""
+msgstr "\"Algo deu errado na tarefa do gerenciador de _ping_\""
 
 #: src/async/channels.md:35
 msgid "Change the channel size to `3` and see how it affects the execution."
-msgstr ""
+msgstr "Altere o tamanho do canal para `3` e veja como isso afeta a execução."
 
 #: src/async/channels.md:37
 msgid ""
 "Overall, the interface is similar to the `sync` channels as seen in the "
 "[morning class](concurrency/channels.md)."
 msgstr ""
+"No geral, a interface é semelhante aos canais `sync` vistos na [aula da "
+"manhã](concurrency/channels.md)."
 
 #: src/async/channels.md:40
 msgid "Try removing the `std::mem::drop` call. What happens? Why?"
-msgstr ""
+msgstr "Tente remover a chamada `std::mem::drop`. O que acontece? Por quê?"
 
 #: src/async/channels.md:42
 msgid ""
@@ -20845,6 +20930,10 @@ msgid ""
 "implement both `sync` and `async` `send` and `recv`. This can be convenient "
 "for complex applications with both IO and heavy CPU processing tasks."
 msgstr ""
+"O _crate_ [Flume](https://docs.rs/flume/latest/flume/) tem canais que "
+"implementam tanto `sync` quanto `async` `send` e `recv`. Isso pode ser "
+"conveniente para aplicações complexas com tarefas de processamento de I/O e "
+"CPU pesadas."
 
 #: src/async/channels.md:46
 msgid ""
@@ -20852,11 +20941,13 @@ msgid ""
 "combine them with other `future`s to combine them and create complex control "
 "flow."
 msgstr ""
+"O que torna o trabalho com canais `async` preferível é a capacidade de "
+"combiná-los com outras _futures_ para combiná-los e criar um fluxo de "
+"controle complexo."
 
 #: src/async/control-flow.md:1
-#, fuzzy
 msgid "Futures Control Flow"
-msgstr "Controle de fluxo"
+msgstr "Fluxo de Controle de _Futures_"
 
 #: src/async/control-flow.md:3
 msgid ""
@@ -20864,14 +20955,17 @@ msgid ""
 "We have already seen tasks, that function as independent threads of "
 "execution."
 msgstr ""
+"As _futures_ podem ser combinadas para produzir gráficos de fluxo de "
+"computação concorrente. Já vimos tarefas, que funcionam como _threads_ de "
+"execução independentes."
 
 #: src/async/control-flow.md:6
 msgid "[Join](control-flow/join.md)"
-msgstr ""
+msgstr "[Join](control-flow/join.md)"
 
 #: src/async/control-flow.md:7
 msgid "[Select](control-flow/select.md)"
-msgstr ""
+msgstr "[Select](control-flow/select.md)"
 
 #: src/async/control-flow/join.md:3
 msgid ""
@@ -20879,22 +20973,25 @@ msgid ""
 "a collection of their results. This is similar to `Promise.all` in "
 "JavaScript or `asyncio.gather` in Python."
 msgstr ""
+"Uma operação de _join_ espera até que todas as _futures_ de um conjunto "
+"estejam prontas e retorna uma coleção de seus resultados. Isso é semelhante "
+"a `Promise.all` em JavaScript ou `asyncio.gather` em Python."
 
 #: src/async/control-flow/join.md:21
 msgid "\"https://google.com\""
-msgstr ""
+msgstr "\"https://google.com\""
 
 #: src/async/control-flow/join.md:22
 msgid "\"https://httpbin.org/ip\""
-msgstr ""
+msgstr "\"https://httpbin.org/ip\""
 
 #: src/async/control-flow/join.md:23
 msgid "\"https://play.rust-lang.org/\""
-msgstr ""
+msgstr "\"https://play.rust-lang.org/\""
 
 #: src/async/control-flow/join.md:24
 msgid "\"BAD_URL\""
-msgstr ""
+msgstr "\"BAD_URL\""
 
 #: src/async/control-flow/join.md:38
 msgid ""
@@ -20902,12 +20999,18 @@ msgid ""
 "you must know how many futures you will have at compile time. This is "
 "currently in the `futures` crate, soon to be stabilised in `std::future`."
 msgstr ""
+"Para várias _futures_ de tipos disjuntos, você pode usar `std::future::join!"
+"` mas deve saber quantas _futures_ você terá em tempo de compilação. Isso "
+"atualmente está no _crate_ `futures`, em breve será estabilizado em `std::"
+"future`."
 
 #: src/async/control-flow/join.md:42
 msgid ""
 "The risk of `join` is that one of the futures may never resolve, this would "
 "cause your program to stall."
 msgstr ""
+"O risco do `join` é que uma das _futures_ pode nunca ser resolvida, o que "
+"faria seu programa travar."
 
 #: src/async/control-flow/join.md:45
 msgid ""
@@ -20917,6 +21020,11 @@ msgid ""
 "timeout (that requires `select!`, explained in the next chapter), but "
 "demonstrates `join!`."
 msgstr ""
+"Você também pode combinar `join_all` com `join!`, por exemplo, para unir "
+"todas as solicitações a um serviço http, bem como uma consulta ao banco de "
+"dados. Tente adicionar um `tokio::time::sleep` para o futuro, usando "
+"`futures::join!`. Isso não é um _timeout_ (isso requer `select!`, explicado "
+"no próximo capítulo), mas demonstra `join!`."
 
 #: src/async/control-flow/select.md:3
 msgid ""
@@ -20925,6 +21033,10 @@ msgid ""
 "race`. In Python, it compares to `asyncio.wait(task_set, return_when=asyncio."
 "FIRST_COMPLETED)`."
 msgstr ""
+"Uma operação de _select_ espera até que qualquer uma das _futures_ de um "
+"conjunto esteja pronta e responde ao resultado dessa _future_. Em "
+"JavaScript, isso é semelhante a `Promise.race`. Em Python, compara-se a "
+"`asyncio.wait(task_set, return_when=asyncio.FIRST_COMPLETED)`."
 
 #: src/async/control-flow/select.md:8
 msgid ""
@@ -20933,30 +21045,34 @@ msgid ""
 "ready, the `statement` is executed with the variables in `pattern` bound to "
 "the `future`'s result."
 msgstr ""
+"Semelhante a uma instrução _match_, o corpo de `select!` tem um número de "
+"ramos, cada um da forma `pattern = future => statement`. Quando a `future` "
+"está pronta, o `statement` é executado com as variáveis em `pattern` ligadas "
+"ao resultado da `future`."
 
 #: src/async/control-flow/select.md:39
 msgid "\"Felix\""
-msgstr ""
+msgstr "\"Felix\""
 
 #: src/async/control-flow/select.md:39
 msgid "\"Failed to send cat.\""
-msgstr ""
+msgstr "\"Falha ao enviar gato.\""
 
 #: src/async/control-flow/select.md:43
 msgid "\"Rex\""
-msgstr ""
+msgstr "\"Rex\""
 
 #: src/async/control-flow/select.md:43
 msgid "\"Failed to send dog.\""
-msgstr ""
+msgstr "\"Falha ao enviar cachorro.\""
 
 #: src/async/control-flow/select.md:48
 msgid "\"Failed to receive winner\""
-msgstr ""
+msgstr "\"Falha ao receber vencedor\""
 
 #: src/async/control-flow/select.md:50
 msgid "\"Winner is {winner:?}\""
-msgstr ""
+msgstr "\"O vencedor é {winner:?}\""
 
 #: src/async/control-flow/select.md:56
 msgid ""
@@ -20965,34 +21081,47 @@ msgid ""
 "whichever arrives first. Since the dog takes 50ms, it wins against the cat "
 "that take 500ms."
 msgstr ""
+"Neste exemplo, temos uma corrida entre um gato e um cachorro. "
+"`first_animal_to_finish_race` escuta ambos os canais e escolherá o que "
+"chegar primeiro. Como o cachorro leva 50ms, ele vence contra o gato que leva "
+"500ms."
 
 #: src/async/control-flow/select.md:61
 msgid ""
 "You can use `oneshot` channels in this example as the channels are supposed "
 "to receive only one `send`."
 msgstr ""
+"Você pode usar canais `oneshot` neste exemplo, já que os canais devem "
+"receber apenas um `send`."
 
 #: src/async/control-flow/select.md:64
 msgid ""
 "Try adding a deadline to the race, demonstrating selecting different sorts "
 "of futures."
 msgstr ""
+"Tente adicionar um prazo para a corrida, demonstrando a seleção de "
+"diferentes tipos de _futures_."
 
 #: src/async/control-flow/select.md:67
 msgid ""
 "Note that `select!` drops unmatched branches, which cancels their futures. "
 "It is easiest to use when every execution of `select!` creates new futures."
 msgstr ""
+"Observe que `select!` descarta ramos não correspondidos, o que cancela suas "
+"_futures_. É mais fácil de usar quando cada execução de `select!` cria novas "
+"_futures_."
 
 #: src/async/control-flow/select.md:70
 msgid ""
 "An alternative is to pass `&mut future` instead of the future itself, but "
 "this can lead to issues, further discussed in the pinning slide."
 msgstr ""
+"Uma alternativa é passar `&mut future` em vez da própria _future_, mas isso "
+"pode levar a problemas, discutidos mais adiante no slide de _pinning_."
 
 #: src/async/pitfalls.md:1
 msgid "Pitfalls of async/await"
-msgstr ""
+msgstr "Armadilhas do _async/await_"
 
 #: src/async/pitfalls.md:3
 msgid ""
@@ -21001,26 +21130,30 @@ msgid ""
 "with its share of pitfalls and footguns. We illustrate some of them in this "
 "chapter:"
 msgstr ""
+"O _async/await_ fornece uma abstração conveniente e eficiente para "
+"programação assíncrona concorrente. No entanto, o modelo _async/await_ em "
+"Rust também vem com sua parcela de armadilhas e _footguns_. Ilustramos "
+"alguns deles neste capítulo:"
 
 #: src/async/pitfalls.md:7
 msgid "[Blocking the Executor](pitfalls/blocking-executor.md)"
-msgstr ""
+msgstr "[Bloqueando o Executor](pitfalls/blocking-executor.md)"
 
 #: src/async/pitfalls.md:8
 msgid "[Pin](pitfalls/pin.md)"
-msgstr ""
+msgstr "[Pin](pitfalls/pin.md)"
 
 #: src/async/pitfalls.md:9
 msgid "[Async Traits](pitfalls/async-traits.md)"
-msgstr ""
+msgstr "[_Async Traits_](pitfalls/async-traits.md)"
 
 #: src/async/pitfalls.md:10
 msgid "[Cancellation](pitfalls/cancellation.md)"
-msgstr ""
+msgstr "[Cancelamento](pitfalls/cancellation.md)"
 
 #: src/async/pitfalls/blocking-executor.md:1
 msgid "Blocking the executor"
-msgstr ""
+msgstr "Bloqueando o _executor_"
 
 #: src/async/pitfalls/blocking-executor.md:3
 msgid ""
@@ -21029,20 +21162,26 @@ msgid ""
 "being executed. An easy workaround is to use async equivalent methods where "
 "possible."
 msgstr ""
+"A maioria dos _runtimes_ _async_ só permite que tarefas de I/O sejam "
+"executadas concorrentemente. Isso significa que tarefas que bloqueiam a CPU "
+"bloquearão o _executor_ e impedirão que outras tarefas sejam executadas. Uma "
+"solução fácil é usar métodos equivalentes _async_ sempre que possível."
 
 #: src/async/pitfalls/blocking-executor.md:14
 msgid "\"future {id} slept for {duration_ms}ms, finished after {}ms\""
-msgstr ""
+msgstr "\"_future_ {id} dormiu por {duration_ms}ms, terminou após {}ms\""
 
 #: src/async/pitfalls/blocking-executor.md:19
 msgid "\"current_thread\""
-msgstr ""
+msgstr "\"current_thread\""
 
 #: src/async/pitfalls/blocking-executor.md:29
 msgid ""
 "Run the code and see that the sleeps happen consecutively rather than "
 "concurrently."
 msgstr ""
+"Execute o código e veja que os _sleeps_ acontecem consecutivamente em vez de "
+"concorrentemente."
 
 #: src/async/pitfalls/blocking-executor.md:32
 msgid ""
@@ -21050,17 +21189,24 @@ msgid ""
 "makes the effect more obvious, but the bug is still present in the multi-"
 "threaded flavor."
 msgstr ""
+"A variante `\"current_thread\"` coloca todas as tarefas em um único "
+"_thread_. Isso torna o efeito mais óbvio, mas o bug ainda está presente na "
+"variante multi-threaded."
 
 #: src/async/pitfalls/blocking-executor.md:36
 msgid ""
 "Switch the `std::thread::sleep` to `tokio::time::sleep` and await its result."
 msgstr ""
+"Troque o `std::thread::sleep` por `tokio::time::sleep` e aguarde seu "
+"resultado."
 
 #: src/async/pitfalls/blocking-executor.md:38
 msgid ""
 "Another fix would be to `tokio::task::spawn_blocking` which spawns an actual "
 "thread and transforms its handle into a future without blocking the executor."
 msgstr ""
+"Outra correção seria `tokio::task::spawn_blocking` que inicia um _thread_ "
+"real e transforma seu _handle_ em uma _future_ sem bloquear o _executor_."
 
 #: src/async/pitfalls/blocking-executor.md:41
 msgid ""
@@ -21071,12 +21217,22 @@ msgid ""
 "OS threads (e.g., CUDA). Prefer `tokio::task::spawn_blocking` in such "
 "situations."
 msgstr ""
+"Você não deve pensar em tarefas como _threads_ do SO. Elas não mapeiam 1 "
+"para 1 e a maioria dos _executors_ permitirá que muitas tarefas sejam "
+"executadas em um único _thread_ do SO. Isso é particularmente problemático "
+"ao interagir com outras bibliotecas via FFI, onde essa biblioteca pode "
+"depender de armazenamento local de _thread_ ou mapear para _threads_ "
+"específicos do SO (por exemplo, CUDA). Prefira `tokio::task::spawn_blocking` "
+"em tais situações."
 
 #: src/async/pitfalls/blocking-executor.md:47
 msgid ""
 "Use sync mutexes with care. Holding a mutex over an `.await` may cause "
 "another task to block, and that task may be running on the same thread."
 msgstr ""
+"Use _mutexes sync_ com cuidado. Manter um _mutex_ sobre um `.await` pode "
+"fazer com que outra tarefa bloqueie, e essa tarefa pode estar sendo "
+"executada no mesmo _thread_."
 
 #: src/async/pitfalls/pin.md:3
 msgid ""
@@ -21085,6 +21241,10 @@ msgid ""
 "async block. If your future has pointers to data on the stack, those "
 "pointers might get invalidated. This is unsafe."
 msgstr ""
+"Quando você aguarda uma _future_, todas as variáveis locais (que normalmente "
+"seriam armazenadas em um quadro de pilha) são armazenadas na _Future_ para o "
+"bloco _async_ atual. Se sua _future_ tiver ponteiros para dados na pilha, "
+"esses ponteiros podem ser invalidados. Isso é inseguro."
 
 #: src/async/pitfalls/pin.md:8
 msgid ""
@@ -21092,67 +21252,81 @@ msgid ""
 "change. That is why we need to \"pin\" futures. Using the same future "
 "repeatedly in a `select!` often leads to issues with pinned values."
 msgstr ""
+"Portanto, você deve garantir que os endereços para os quais sua _future_ "
+"aponta não mudem. É por isso que precisamos \"fixar\" _futures_. Usar a "
+"mesma _future_ repetidamente em um `select!` frequentemente leva a problemas "
+"com valores fixados."
 
 #: src/async/pitfalls/pin.md:16
 msgid ""
 "// A work item. In this case, just sleep for the given time and respond\n"
 "// with a message on the `respond_on` channel.\n"
 msgstr ""
+"// Um item de trabalho. Neste caso, apenas dormir pelo tempo dado e "
+"responder com uma mensagem no canal `respond_on`.\n"
 
 #: src/async/pitfalls/pin.md:24
 msgid "// A worker which listens for work on a queue and performs it.\n"
-msgstr ""
+msgstr "// Um trabalhador que escuta o trabalho em uma fila e o executa.\n"
 
 #: src/async/pitfalls/pin.md:31
 msgid "// Pretend to work.\n"
-msgstr ""
+msgstr "// Fingir trabalhar.\n"
 
 #: src/async/pitfalls/pin.md:34
 msgid "\"failed to send response\""
-msgstr ""
+msgstr "\"falha ao enviar resposta\""
 
 #: src/async/pitfalls/pin.md:37
 msgid "// TODO: report number of iterations every 100ms\n"
-msgstr ""
+msgstr "// TODO: relatar o número de iterações a cada 100ms\n"
 
 #: src/async/pitfalls/pin.md:41
 msgid "// A requester which requests work and waits for it to complete.\n"
-msgstr ""
+msgstr "// Um solicitante que solicita trabalho e aguarda sua conclusão.\n"
 
 #: src/async/pitfalls/pin.md:48
 msgid "\"failed to send on work queue\""
-msgstr ""
+msgstr "\"falha ao enviar na fila de trabalho\""
 
 #: src/async/pitfalls/pin.md:49
 msgid "\"failed waiting for response\""
-msgstr ""
+msgstr "\"falha ao esperar pela resposta\""
 
 #: src/async/pitfalls/pin.md:58
 msgid "\"work result for iteration {i}: {resp}\""
-msgstr ""
+msgstr "\"resultado do trabalho para a iteração {i}: {resp}\""
 
 #: src/async/pitfalls/pin.md:65
 msgid ""
 "You may recognize this as an example of the actor pattern. Actors typically "
 "call `select!` in a loop."
 msgstr ""
+"Você pode reconhecer isso como um exemplo do padrão _actor_. Os _actors_ "
+"tipicamente chamam `select!` em um loop."
 
 #: src/async/pitfalls/pin.md:68
 msgid ""
 "This serves as a summation of a few of the previous lessons, so take your "
 "time with it."
 msgstr ""
+"Isso serve como uma síntese de algumas das lições anteriores, então leve seu "
+"tempo com isso."
 
 #: src/async/pitfalls/pin.md:71
 msgid ""
 "Naively add a `_ = sleep(Duration::from_millis(100)) => { println!(..) }` to "
 "the `select!`. This will never execute. Why?"
 msgstr ""
+"Adicione ingenuamente um `_ = sleep(Duration::from_millis(100)) => { println!"
+"(..) }` ao `select!`. Isso nunca será executado. Por quê?"
 
 #: src/async/pitfalls/pin.md:74
 msgid ""
 "Instead, add a `timeout_fut` containing that future outside of the `loop`:"
 msgstr ""
+"Em vez disso, adicione um `timeout_fut` contendo essa _future_ fora do "
+"`loop`:"
 
 #: src/async/pitfalls/pin.md:85
 msgid ""
@@ -21160,6 +21334,9 @@ msgid ""
 "`timeout_fut` in the `select!` to work around the move, then using `Box::"
 "pin`:"
 msgstr ""
+"Isso ainda não funciona. Siga os erros do compilador, adicionando `&mut` ao "
+"`timeout_fut` no `select!` para contornar a movimentação, e então usando "
+"`Box::pin`."
 
 #: src/async/pitfalls/pin.md:99
 msgid ""
@@ -21167,6 +21344,9 @@ msgid ""
 "iteration (a fused future would help with this). Update to reset "
 "`timeout_fut` every time it expires."
 msgstr ""
+"Isso compila, mas uma vez que o _timeout_ expira, ele é `Poll::Ready` em "
+"cada iteração (uma _fused future_ ajudaria com isso). Atualize para "
+"redefinir `timeout_fut` toda vez que expirar."
 
 #: src/async/pitfalls/pin.md:103
 msgid ""
@@ -21174,12 +21354,18 @@ msgid ""
 "stabilized, with older code often using `tokio::pin!`) is also an option, "
 "but that is difficult to use for a future that is reassigned."
 msgstr ""
+"O _Box_ aloca na pilha. Em alguns casos, `std::pin::pin!` (apenas "
+"recentemente estabilizado, com código mais antigo frequentemente usando "
+"`tokio::pin!`) também é uma opção, mas é difícil de usar para uma _future_ "
+"que é reatribuída."
 
 #: src/async/pitfalls/pin.md:107
 msgid ""
 "Another alternative is to not use `pin` at all but spawn another task that "
 "will send to a `oneshot` channel every 100ms."
 msgstr ""
+"Outra alternativa é não usar `pin` de forma alguma, mas iniciar outra tarefa "
+"que enviará para um canal `oneshot` a cada 100ms."
 
 #: src/async/pitfalls/async-traits.md:3
 msgid ""
@@ -21188,26 +21374,34 @@ msgid ""
 "term.](https://blog.rust-lang.org/inside-rust/2022/11/17/async-fn-in-trait-"
 "nightly.html))"
 msgstr ""
+"Métodos _async_ em _traits_ ainda não são suportados no canal estável ([Um "
+"recurso experimental existe no _nightly_ e deve ser estabilizado a médio "
+"prazo.](https://blog.rust-lang.org/inside-rust/2022/11/17/async-fn-in-trait-"
+"nightly.html))"
 
 #: src/async/pitfalls/async-traits.md:6
 msgid ""
 "The crate [async_trait](https://docs.rs/async-trait/latest/async_trait/) "
 "provides a workaround through a macro:"
 msgstr ""
+"O _crate_ [async_trait](https://docs.rs/async-trait/latest/async_trait/) "
+"fornece uma solução alternativa por meio de um _macro_:"
 
 #: src/async/pitfalls/async-traits.md:35
 msgid "\"running all sleepers..\""
-msgstr ""
+msgstr "\"executando todos os dormentes..\""
 
 #: src/async/pitfalls/async-traits.md:39
 msgid "\"slept for {}ms\""
-msgstr ""
+msgstr "\"dormiu por {}ms\""
 
 #: src/async/pitfalls/async-traits.md:56
 msgid ""
 "`async_trait` is easy to use, but note that it's using heap allocations to "
 "achieve this. This heap allocation has performance overhead."
 msgstr ""
+"`async_trait` é fácil de usar, mas observe que ele está usando alocações de "
+"pilha para alcançar isso. Essa alocação de pilha impacta o desempenho."
 
 #: src/async/pitfalls/async-traits.md:59
 msgid ""
@@ -21217,12 +21411,19 @@ msgid ""
 "blog/2019/10/26/async-fn-in-traits-are-hard/) if you are interested in "
 "digging deeper."
 msgstr ""
+"Os desafios no suporte da linguagem para `async trait` são profundos em Rust "
+"e provavelmente não valem a pena descrever em detalhes. Niko Matsakis fez um "
+"bom trabalho ao explicá-los em [este post](https://smallcultfollowing.com/"
+"babysteps/blog/2019/10/26/async-fn-in-traits-are-hard/) se você estiver "
+"interessado em aprofundar."
 
 #: src/async/pitfalls/async-traits.md:65
 msgid ""
 "Try creating a new sleeper struct that will sleep for a random amount of "
 "time and adding it to the Vec."
 msgstr ""
+"Tente criar uma nova estrutura _sleeper_ que dormirá por uma quantidade "
+"aleatória de tempo e adicioná-la ao _Vec_."
 
 #: src/async/pitfalls/cancellation.md:3
 msgid ""
@@ -21231,50 +21432,63 @@ msgid ""
 "ensure the system works correctly even when futures are cancelled. For "
 "example, it shouldn't deadlock or lose data."
 msgstr ""
+"Descartar uma _future_ implica que ela nunca pode ser consultada novamente. "
+"Isso é chamado de _cancelamento_ e pode ocorrer em qualquer ponto de "
+"`await`. Cuidado é necessário para garantir que o sistema funcione "
+"corretamente mesmo quando as _futures_ são canceladas. Por exemplo, não deve "
+"travar ou perder dados."
 
 #: src/async/pitfalls/cancellation.md:35
 msgid "\"not UTF-8\""
-msgstr ""
+msgstr "\"não UTF-8\""
 
 #: src/async/pitfalls/cancellation.md:51
 msgid "\"hi\\nthere\\n\""
-msgstr ""
+msgstr "\"oi\\nali\\n\""
 
 #: src/async/pitfalls/cancellation.md:57
 msgid "\"tick!\""
-msgstr ""
+msgstr "\"tick!\""
 
 #: src/async/pitfalls/cancellation.md:72
 msgid ""
 "The compiler doesn't help with cancellation-safety. You need to read API "
 "documentation and consider what state your `async fn` holds."
 msgstr ""
+"O compilador não ajuda com a segurança do cancelamento. Você precisa ler a "
+"documentação da API e considerar qual estado sua `async fn` mantém."
 
 #: src/async/pitfalls/cancellation.md:75
 msgid ""
 "Unlike `panic` and `?`, cancellation is part of normal control flow (vs "
 "error-handling)."
 msgstr ""
+"Diferentemente de `panic` e `?`, o cancelamento faz parte do fluxo de "
+"controle normal (vs tratamento de erros)."
 
 #: src/async/pitfalls/cancellation.md:78
 msgid "The example loses parts of the string."
-msgstr ""
+msgstr "O exemplo perde partes da _string_."
 
 #: src/async/pitfalls/cancellation.md:80
 msgid ""
 "Whenever the `tick()` branch finishes first, `next()` and its `buf` are "
 "dropped."
 msgstr ""
+"Sempre que o ramo `tick()` termina primeiro, `next()` e seu `buf` são "
+"descartados."
 
 #: src/async/pitfalls/cancellation.md:83
 msgid ""
 "`LinesReader` can be made cancellation-safe by making `buf` part of the "
 "struct:"
 msgstr ""
+"`LinesReader` pode ser tornado seguro para cancelamento tornando `buf` parte "
+"da estrutura:"
 
 #: src/async/pitfalls/cancellation.md:97
 msgid "// prefix buf and bytes with self.\n"
-msgstr ""
+msgstr "// prefixe buf e bytes com self.\n"
 
 #: src/async/pitfalls/cancellation.md:106
 msgid ""
@@ -21282,6 +21496,9 @@ msgid ""
 "html#method.tick) is cancellation-safe because it keeps track of whether a "
 "tick has been 'delivered'."
 msgstr ""
+"[`Interval::tick`](https://docs.rs/tokio/latest/tokio/time/struct.Interval."
+"html#method.tick) é seguro para cancelamento porque mantém o controle de se "
+"um _tick_ foi 'entregue'."
 
 #: src/async/pitfalls/cancellation.md:110
 msgid ""
@@ -21289,6 +21506,9 @@ msgid ""
 "AsyncReadExt.html#method.read) is cancellation-safe because it either "
 "returns or doesn't read data."
 msgstr ""
+"[`AsyncReadExt::read`](https://docs.rs/tokio/latest/tokio/io/trait."
+"AsyncReadExt.html#method.read) é seguro para cancelamento porque ou retorna "
+"ou não lê dados."
 
 #: src/async/pitfalls/cancellation.md:113
 msgid ""
@@ -21296,61 +21516,72 @@ msgid ""
 "AsyncBufReadExt.html#method.read_line) is similar to the example and _isn't_ "
 "cancellation-safe. See its documentation for details and alternatives."
 msgstr ""
+"[`AsyncBufReadExt::read_line`](https://docs.rs/tokio/latest/tokio/io/trait."
+"AsyncBufReadExt.html#method.read_line) é semelhante ao exemplo e _não_ é "
+"seguro para cancelamento. Consulte sua documentação para detalhes e "
+"alternativas."
 
 #: src/exercises/concurrency/afternoon.md:3
 msgid ""
 "To practice your Async Rust skills, we have again two exercises for you:"
 msgstr ""
+"Para praticar suas habilidades em Rust Async, temos novamente dois "
+"exercícios para você:"
 
 #: src/exercises/concurrency/afternoon.md:5
 msgid ""
 "Dining philosophers: we already saw this problem in the morning. This time "
 "you are going to implement it with Async Rust."
 msgstr ""
+"Filósofos jantando: já vimos esse problema de manhã. Desta vez, você vai "
+"implementá-lo com Rust Async."
 
 #: src/exercises/concurrency/afternoon.md:8
 msgid ""
 "A Broadcast Chat Application: this is a larger project that allows you "
 "experiment with more advanced Async Rust features."
 msgstr ""
+"Um aplicativo de bate-papo por _broadcast_: este é um projeto maior que "
+"permite experimentar com recursos mais avançados de Rust Async."
 
 #: src/exercises/concurrency/dining-philosophers-async.md:1
 #: src/exercises/concurrency/solutions-afternoon.md:3
-#, fuzzy
 msgid "Dining Philosophers --- Async"
-msgstr "Filósofos jantando"
+msgstr "Filósofos jantando --- Async"
 
 #: src/exercises/concurrency/dining-philosophers-async.md:3
 msgid ""
 "See [dining philosophers](dining-philosophers.md) for a description of the "
 "problem."
 msgstr ""
+"Veja [filósofos jantando](dining-philosophers.md) para uma descrição do "
+"problema."
 
 #: src/exercises/concurrency/dining-philosophers-async.md:6
-#, fuzzy
 msgid ""
 "As before, you will need a local [Cargo installation](../../cargo/running-"
 "locally.md) for this exercise. Copy the code below to a file called `src/"
 "main.rs`, fill out the blanks, and test that `cargo run` does not deadlock:"
 msgstr ""
-"Você precisará de uma \\[instalação do Cargo\\]\\[../../cargo/running-"
-"locally.md\\] local para esse exercício. Copie o código abaixo para o "
-"arquivo `src/main.rs`, preencha os espaços em branco, e teste se `cargo run` "
-"não trava:"
+"Como antes, você precisará de uma [instalação local do Cargo](../../cargo/"
+"running-locally.md) para este exercício. Copie o código abaixo para um "
+"arquivo chamado `src/main.rs`, preencha os espaços em branco e teste se "
+"`cargo run` não trava:"
 
 #: src/exercises/concurrency/dining-philosophers-async.md:52
 #: src/exercises/concurrency/solutions-afternoon.md:78
 msgid "// Make them think and eat\n"
-msgstr ""
+msgstr "// Faça-os pensar e comer\n"
 
 #: src/exercises/concurrency/dining-philosophers-async.md:58
 msgid ""
 "Since this time you are using Async Rust, you'll need a `tokio` dependency. "
 "You can use the following `Cargo.toml`:"
 msgstr ""
+"Como desta vez você está usando Rust Async, você precisará de uma "
+"dependência `tokio`. Você pode usar o seguinte `Cargo.toml`:"
 
 #: src/exercises/concurrency/dining-philosophers-async.md:63
-#, fuzzy
 msgid ""
 "```toml\n"
 "[package]\n"
@@ -21364,11 +21595,14 @@ msgid ""
 "```"
 msgstr ""
 "```toml\n"
-"[dependências]\n"
-"reqwest = { version = \"0.11.12\", features = [\"blocking\", \"rustls-"
-"tls\"] }\n"
-"scraper = \"0.13.0\"\n"
-"thiserror = \"1.0.37\"\n"
+"[package]\n"
+"name = \"dining-philosophers-async-dine\"\n"
+"version = \"0.1.0\"\n"
+"edition = \"2021\"\n"
+"\n"
+"[dependencies]\n"
+"tokio = { version = \"1.26.0\", features = [\"sync\", \"time\", \"macros\", "
+"\"rt-multi-thread\"] }\n"
 "```"
 
 #: src/exercises/concurrency/dining-philosophers-async.md:73
@@ -21376,10 +21610,12 @@ msgid ""
 "Also note that this time you have to use the `Mutex` and the `mpsc` module "
 "from the `tokio` crate."
 msgstr ""
+"Também observe que desta vez você tem que usar o módulo `Mutex` e o módulo "
+"`mpsc` do _crate_ `tokio`."
 
 #: src/exercises/concurrency/dining-philosophers-async.md:78
 msgid "Can you make your implementation single-threaded?"
-msgstr ""
+msgstr "Você pode fazer sua implementação single-threaded?"
 
 #: src/exercises/concurrency/chat-app.md:3
 msgid ""
@@ -21389,6 +21625,12 @@ msgid ""
 "input, and sends them to the server. The chat server broadcasts each message "
 "that it receives to all the clients."
 msgstr ""
+"Neste exercício, queremos usar nosso novo conhecimento para implementar um "
+"aplicativo de bate-papo por _broadcast_. Temos um servidor de bate-papo ao "
+"qual os clientes se conectam e publicam suas mensagens. O cliente lê as "
+"mensagens do usuário da entrada padrão e as envia para o servidor. O "
+"servidor de bate-papo transmite cada mensagem que recebe para todos os "
+"clientes."
 
 #: src/exercises/concurrency/chat-app.md:9
 msgid ""
@@ -21397,17 +21639,20 @@ msgid ""
 "(https://docs.rs/tokio-websockets/) for the communication between the client "
 "and the server."
 msgstr ""
+"Para isso, usamos [um canal de _broadcast_](https://docs.rs/tokio/latest/"
+"tokio/sync/broadcast/fn.channel.html) no servidor e [`tokio_websockets`]"
+"(https://docs.rs/tokio-websockets/) para a comunicação entre o cliente e o "
+"servidor."
 
 #: src/exercises/concurrency/chat-app.md:12
 msgid "Create a new Cargo project and add the following dependencies:"
-msgstr ""
+msgstr "Crie um novo projeto Cargo e adicione as seguintes dependências:"
 
 #: src/exercises/concurrency/chat-app.md:14
 msgid "_Cargo.toml_:"
-msgstr ""
+msgstr "_Cargo.toml_:"
 
 #: src/exercises/concurrency/chat-app.md:18
-#, fuzzy
 msgid ""
 "```toml\n"
 "[package]\n"
@@ -21424,16 +21669,22 @@ msgid ""
 "```"
 msgstr ""
 "```toml\n"
-"[dependências]\n"
-"reqwest = { version = \"0.11.12\", features = [\"blocking\", \"rustls-"
-"tls\"] }\n"
-"scraper = \"0.13.0\"\n"
-"thiserror = \"1.0.37\"\n"
+"[package]\n"
+"name = \"chat-async\"\n"
+"version = \"0.1.0\"\n"
+"edition = \"2021\"\n"
+"\n"
+"[dependencies]\n"
+"futures-util = { version = \"0.3.30\", features = [\"sink\"] }\n"
+"http = \"1.0.0\"\n"
+"tokio = { version = \"1.28.1\", features = [\"full\"] }\n"
+"tokio-websockets = { version = \"0.5.0\", features = [\"client\", "
+"\"fastrand\", \"server\", \"sha1_smol\"] }\n"
 "```"
 
 #: src/exercises/concurrency/chat-app.md:31
 msgid "The required APIs"
-msgstr ""
+msgstr "As APIs necessárias"
 
 #: src/exercises/concurrency/chat-app.md:33
 msgid ""
@@ -21441,6 +21692,9 @@ msgid ""
 "[`tokio_websockets`](https://docs.rs/tokio-websockets/). Spend a few minutes "
 "to familiarize yourself with the API."
 msgstr ""
+"Você vai precisar das seguintes funções de `tokio` e [`tokio_websockets`]"
+"(https://docs.rs/tokio-websockets/). Dedique alguns minutos para se "
+"familiarizar com a API."
 
 #: src/exercises/concurrency/chat-app.md:37
 msgid ""
@@ -21448,6 +21702,9 @@ msgid ""
 "trait.StreamExt.html#method.next) implemented by `WebSocketStream`: for "
 "asynchronously reading messages from a Websocket Stream."
 msgstr ""
+"[StreamExt::next()](https://docs.rs/futures-util/0.3.28/futures_util/stream/"
+"trait.StreamExt.html#method.next) implementado por `WebSocketStream`: para "
+"ler mensagens de forma assíncrona de um _stream_ de _Websocket_."
 
 #: src/exercises/concurrency/chat-app.md:39
 msgid ""
@@ -21455,6 +21712,9 @@ msgid ""
 "trait.SinkExt.html#method.send) implemented by `WebSocketStream`: for "
 "asynchronously sending messages on a Websocket Stream."
 msgstr ""
+"[SinkExt::send()](https://docs.rs/futures-util/0.3.28/futures_util/sink/"
+"trait.SinkExt.html#method.send) implementado por `WebSocketStream`: para "
+"enviar mensagens de forma assíncrona em um _stream_ de _Websocket_."
 
 #: src/exercises/concurrency/chat-app.md:41
 msgid ""
@@ -21462,17 +21722,22 @@ msgid ""
 "html#method.next_line): for asynchronously reading user messages from the "
 "standard input."
 msgstr ""
+"[Lines::next_line()](https://docs.rs/tokio/latest/tokio/io/struct.Lines."
+"html#method.next_line): para ler mensagens de forma assíncrona do usuário da "
+"entrada padrão."
 
 #: src/exercises/concurrency/chat-app.md:43
 msgid ""
 "[Sender::subscribe()](https://docs.rs/tokio/latest/tokio/sync/broadcast/"
 "struct.Sender.html#method.subscribe): for subscribing to a broadcast channel."
 msgstr ""
+"[Sender::subscribe()](https://docs.rs/tokio/latest/tokio/sync/broadcast/"
+"struct.Sender.html#method.subscribe): para se inscrever em um canal de "
+"transmissão."
 
 #: src/exercises/concurrency/chat-app.md:45
-#, fuzzy
 msgid "Two binaries"
-msgstr "Binários Rust"
+msgstr "Dois binários"
 
 #: src/exercises/concurrency/chat-app.md:47
 msgid ""
@@ -21484,6 +21749,13 @@ msgid ""
 "(see the [documentation](https://doc.rust-lang.org/cargo/reference/cargo-"
 "targets.html#binaries))."
 msgstr ""
+"Normalmente em um projeto Cargo, você pode ter apenas um binário e um "
+"arquivo `src/main.rs`. Neste projeto, precisamos de dois binários. Um para o "
+"cliente e outro para o servidor. Você poderia potencialmente torná-los dois "
+"projetos Cargo separados, mas vamos colocá-los em um único projeto Cargo com "
+"dois binários. Para que isso funcione, o código do cliente e do servidor "
+"deve ir em `src/bin` (consulte a [documentação](https://doc.rust-lang.org/"
+"cargo/reference/cargo-targets.html#binaries))."
 
 #: src/exercises/concurrency/chat-app.md:54
 msgid ""
@@ -21491,65 +21763,65 @@ msgid ""
 "bin/client.rs`, respectively. Your task is to complete these files as "
 "described below."
 msgstr ""
+"Copie o seguinte código do servidor e do cliente para `src/bin/server.rs` e "
+"`src/bin/client.rs`, respectivamente. Sua tarefa é completar esses arquivos "
+"conforme descrito abaixo."
 
 #: src/exercises/concurrency/chat-app.md:58
 #: src/exercises/concurrency/solutions-afternoon.md:99
-#, fuzzy
 msgid "_src/bin/server.rs_:"
-msgstr "\"src/server.rs\""
+msgstr "_src/bin/server.rs_:"
 
 #: src/exercises/concurrency/chat-app.md:77
 #: src/exercises/concurrency/chat-app.md:124
 msgid "// TODO: For a hint, see the description of the task below.\n"
-msgstr ""
+msgstr "// TODO: Para uma dica, veja a descrição da tarefa abaixo.\n"
 
 #: src/exercises/concurrency/chat-app.md:85
 #: src/exercises/concurrency/solutions-afternoon.md:147
 msgid "\"127.0.0.1:2000\""
-msgstr ""
+msgstr "\"127.0.0.1:2000\""
 
 #: src/exercises/concurrency/chat-app.md:86
 #: src/exercises/concurrency/solutions-afternoon.md:148
 msgid "\"listening on port 2000\""
-msgstr ""
+msgstr "\"ouvindo na porta 2000\""
 
 #: src/exercises/concurrency/chat-app.md:90
 #: src/exercises/concurrency/solutions-afternoon.md:152
 msgid "\"New connection from {addr:?}\""
-msgstr ""
+msgstr "\"Nova conexão de {addr:?}\""
 
 #: src/exercises/concurrency/chat-app.md:93
 #: src/exercises/concurrency/solutions-afternoon.md:155
 msgid "// Wrap the raw TCP stream into a websocket.\n"
-msgstr ""
+msgstr "// Envolver o _stream_ TCP bruto em um _websocket_.\n"
 
 #: src/exercises/concurrency/chat-app.md:102
 #: src/exercises/concurrency/solutions-afternoon.md:164
-#, fuzzy
 msgid "_src/bin/client.rs_:"
-msgstr "\"src/client.rs\""
+msgstr "_src/bin/client.rs_:"
 
 #: src/exercises/concurrency/chat-app.md:116
 #: src/exercises/concurrency/solutions-afternoon.md:176
 msgid "\"ws://127.0.0.1:2000\""
-msgstr ""
+msgstr "\"ws://127.0.0.1:2000\""
 
 #: src/exercises/concurrency/chat-app.md:129
-#, fuzzy
 msgid "Running the binaries"
-msgstr "Executando o curso"
+msgstr "Executando os binários"
 
 #: src/exercises/concurrency/chat-app.md:131
 msgid "Run the server with:"
-msgstr ""
+msgstr "Execute o servidor com:"
 
 #: src/exercises/concurrency/chat-app.md:137
 msgid "and the client with:"
-msgstr ""
+msgstr "e o cliente com:"
 
 #: src/exercises/concurrency/chat-app.md:145
 msgid "Implement the `handle_connection` function in `src/bin/server.rs`."
-msgstr ""
+msgstr "Implemente a função `handle_connection` em `src/bin/server.rs`."
 
 #: src/exercises/concurrency/chat-app.md:146
 msgid ""
@@ -21557,10 +21829,13 @@ msgid ""
 "continuous loop. One task receives messages from the client and broadcasts "
 "them. The other sends messages received by the server to the client."
 msgstr ""
+"Dica: Use `tokio::select!` para realizar concorrentemente duas tarefas em um "
+"loop contínuo. Uma tarefa recebe mensagens do cliente e as transmite. A "
+"outra envia mensagens recebidas pelo servidor para o cliente."
 
 #: src/exercises/concurrency/chat-app.md:149
 msgid "Complete the main function in `src/bin/client.rs`."
-msgstr ""
+msgstr "Complete a função principal em `src/bin/client.rs`."
 
 #: src/exercises/concurrency/chat-app.md:150
 msgid ""
@@ -21569,32 +21844,39 @@ msgid ""
 "sending them to the server, and (2) receiving messages from the server, and "
 "displaying them for the user."
 msgstr ""
+"Dica: Como antes, use `tokio::select!` em um loop contínuo para realizar "
+"concorrentemente duas tarefas: (1) ler mensagens do usuário da entrada "
+"padrão e enviá-las para o servidor, e (2) receber mensagens do servidor e "
+"exibi-las para o usuário."
 
 #: src/exercises/concurrency/chat-app.md:154
 msgid ""
 "Optional: Once you are done, change the code to broadcast messages to all "
 "clients, but the sender of the message."
 msgstr ""
+"Opcional: Depois de terminar, altere o código para transmitir mensagens para "
+"todos os clientes, exceto o remetente da mensagem."
 
 #: src/exercises/concurrency/solutions-afternoon.md:1
-#, fuzzy
 msgid "Concurrency Afternoon Exercise"
-msgstr "Dia 1 Exercícios da Tarde"
+msgstr "Exercício de Concorrência da Tarde"
 
 #: src/exercises/concurrency/solutions-afternoon.md:5
-#, fuzzy
 msgid "([back to exercise](dining-philosophers-async.md))"
-msgstr "([voltar ao exercício](dining-philosophers.md))"
+msgstr "([voltar ao exercício](dining-philosophers-async.md))"
 
 #: src/exercises/concurrency/solutions-afternoon.md:33
 msgid ""
 "// Add a delay before picking the second fork to allow the execution\n"
 "        // to transfer to another task\n"
 msgstr ""
+"// Adicione um atraso antes de pegar o segundo garfo para permitir a "
+"execução\n"
+"        // transferir para outra tarefa\n"
 
 #: src/exercises/concurrency/solutions-afternoon.md:41
 msgid "// The locks are dropped here\n"
-msgstr ""
+msgstr "// Os _locks_ são descartados aqui\n"
 
 #: src/exercises/concurrency/solutions-afternoon.md:61
 msgid ""
@@ -21602,23 +21884,27 @@ msgid ""
 "            // somewhere. This will swap the forks without deinitializing\n"
 "            // either of them.\n"
 msgstr ""
+"// Para evitar um travamento, temos que quebrar a simetria\n"
+"            // em algum lugar. Isso trocará os garfos sem desinicializar\n"
+"            // nenhum deles.\n"
 
 #: src/exercises/concurrency/solutions-afternoon.md:75
 msgid "// tx is dropped here, so we don't need to explicitly drop it later\n"
 msgstr ""
+"// tx é descartado aqui, então não precisamos descartá-lo explicitamente "
+"mais tarde\n"
 
 #: src/exercises/concurrency/solutions-afternoon.md:90
 msgid "\"Here is a thought: {thought}\""
-msgstr ""
+msgstr "\"Aqui está um pensamento: {thought}\""
 
 #: src/exercises/concurrency/solutions-afternoon.md:97
-#, fuzzy
 msgid "([back to exercise](chat-app.md))"
-msgstr "([voltar ao exercício](luhn.md))"
+msgstr "([voltar ao exercício](chat-app.md))"
 
 #: src/exercises/concurrency/solutions-afternoon.md:116
 msgid "\"Welcome to chat! Type a message\""
-msgstr ""
+msgstr "\"Bem-vindo ao bate-papo! Digite uma mensagem\""
 
 #: src/exercises/concurrency/solutions-afternoon.md:119
 msgid ""
@@ -21626,18 +21912,22 @@ msgid ""
 "    // messages from `ws_stream` and broadcasting them, and (2) receiving\n"
 "    // messages on `bcast_rx` and sending them to the client.\n"
 msgstr ""
+"// Um loop contínuo para realizar concorrentemente duas tarefas: (1) "
+"recebendo\n"
+"    // mensagens de `ws_stream` e transmitindo-as, e (2) recebendo\n"
+"    // mensagens em `bcast_rx` e enviando-as para o cliente.\n"
 
 #: src/exercises/concurrency/solutions-afternoon.md:128
 msgid "\"From client {addr:?} {text:?}\""
-msgstr ""
+msgstr "\"Do cliente {addr:?} {text:?}\""
 
 #: src/exercises/concurrency/solutions-afternoon.md:183
 msgid "// Continuous loop for concurrently sending and receiving messages.\n"
-msgstr ""
+msgstr "// Loop contínuo para enviar e receber mensagens concorrentemente.\n"
 
 #: src/exercises/concurrency/solutions-afternoon.md:190
 msgid "\"From server: {}\""
-msgstr ""
+msgstr "\"Do servidor: {}\""
 
 #: src/thanks.md:3
 msgid ""
@@ -21656,7 +21946,7 @@ msgid ""
 msgstr ""
 "Nós nos divertimos muito montando o curso. O curso não é perfeito, portanto, "
 "se você identificou algum erro ou tem ideias para melhorias, entre em [entre "
-"em contato conosco em GitHub](https://github.com/google/comprehensive-rust/"
+"em contato conosco no GitHub](https://github.com/google/comprehensive-rust/"
 "discussions). Nós adoraríamos ouvir você."
 
 #: src/glossary.md:3
@@ -21665,18 +21955,25 @@ msgid ""
 "Rust terms. For translations, this also serves to connect the term back to "
 "the English original."
 msgstr ""
+"A seguir, há um glossário que tem como objetivo fornecer uma definição breve "
+"de muitos termos de Rust. Para traduções, isso também serve para conectar o "
+"termo de volta ao original em inglês."
 
 #: src/glossary.md:30
 msgid ""
 "allocate:  \n"
 "Dynamic memory allocation on [the heap](memory-management/stack-vs-heap.md)."
 msgstr ""
+"alocar:  \n"
+"Alocação dinâmica de memória no [_heap_](memory-management/stack-vs-heap.md)."
 
 #: src/glossary.md:32
 msgid ""
 "argument:  \n"
 "Information that is passed into a function or method."
 msgstr ""
+"argumento:  \n"
+"Informação que é passada para uma função ou método."
 
 #: src/glossary.md:34
 msgid ""
@@ -21684,30 +21981,41 @@ msgid ""
 "Low-level Rust development, often deployed to a system without an operating "
 "system. See [Bare-metal Rust](bare-metal.md)."
 msgstr ""
+"Rust _bare-metal_:  \n"
+"Desenvolvimento de baixo nível em Rust, frequentemente implantado em um "
+"sistema sem um sistema operacional. Veja [Rust _bare-metal_](bare-metal.md)."
 
 #: src/glossary.md:37
 msgid ""
 "block:  \n"
 "See [Blocks](control-flow/blocks.md) and _scope_."
 msgstr ""
+"bloco:  \n"
+"Veja [Blocos](control-flow/blocks.md) e _escopo_."
 
 #: src/glossary.md:39
 msgid ""
 "borrow:  \n"
 "See [Borrowing](ownership/borrowing.md)."
 msgstr ""
+"empréstimo:  \n"
+"Veja [Empréstimo](ownership/borrowing.md)."
 
 #: src/glossary.md:41
 msgid ""
 "borrow checker:  \n"
 "The part of the Rust compiler which checks that all borrows are valid."
 msgstr ""
+"verificador de empréstimo:  \n"
+"A parte do compilador Rust que verifica se todos os empréstimos são válidos."
 
 #: src/glossary.md:43
 msgid ""
 "brace:  \n"
 "`{` and `}`. Also called _curly brace_, they delimit _blocks_."
 msgstr ""
+"chaves:  \n"
+"`{` e `}`. Elas delimitam _blocos_."
 
 #: src/glossary.md:45
 msgid ""
@@ -21715,42 +22023,58 @@ msgid ""
 "The process of converting source code into executable code or a usable "
 "program."
 msgstr ""
+"compilar:  \n"
+"O processo de converter o código-fonte em código executável ou um programa "
+"usável."
 
 #: src/glossary.md:48
 msgid ""
 "call:  \n"
 "To invoke or execute a function or method."
 msgstr ""
+"chamada:  \n"
+"Para invocar ou executar uma função ou método."
 
 #: src/glossary.md:50
 msgid ""
 "channel:  \n"
 "Used to safely pass messages [between threads](concurrency/channels.md)."
 msgstr ""
+"canal:  \n"
+"Usado para passar mensagens com segurança [entre _threads_](concurrency/"
+"channels.md)."
 
 #: src/glossary.md:52
 msgid ""
 "Comprehensive Rust 🦀:  \n"
 "The courses here are jointly called Comprehensive Rust 🦀."
 msgstr ""
+"Comprehensive Rust 🦀:  \n"
+"Os cursos aqui são chamados conjuntamente de Comprehensive Rust 🦀."
 
 #: src/glossary.md:54
 msgid ""
 "concurrency:  \n"
 "The execution of multiple tasks or processes at the same time."
 msgstr ""
+"concorrência:  \n"
+"A execução de várias tarefas ou processos ao mesmo tempo."
 
 #: src/glossary.md:56
 msgid ""
 "Concurrency in Rust:  \n"
 "See [Concurrency in Rust](concurrency.md)."
 msgstr ""
+"Concorrência em Rust:  \n"
+"Veja [Concorrência em Rust](concurrency.md)."
 
 #: src/glossary.md:58
 msgid ""
 "constant:  \n"
 "A value that does not change during the execution of a program."
 msgstr ""
+"constante:  \n"
+"Um valor que não muda durante a execução de um programa."
 
 #: src/glossary.md:60
 msgid ""
@@ -21758,24 +22082,32 @@ msgid ""
 "The order in which the individual statements or instructions are executed in "
 "a program."
 msgstr ""
+"fluxo de controle:  \n"
+"A ordem na qual as instruções individuais são executadas em um programa."
 
 #: src/glossary.md:63
 msgid ""
 "crash:  \n"
 "An unexpected and unhandled failure or termination of a program."
 msgstr ""
+"falha (_crash_):  \n"
+"Uma falha ou término inesperado e não tratado de um programa."
 
 #: src/glossary.md:65
 msgid ""
 "enumeration:  \n"
 "A data type that consists of named constant values."
 msgstr ""
+"enumeração:  \n"
+"Um tipo de dado que consiste em valores constantes nomeados."
 
 #: src/glossary.md:67
 msgid ""
 "error:  \n"
 "An unexpected condition or result that deviates from the expected behavior."
 msgstr ""
+"erro:  \n"
+"Uma condição ou resultado inesperado que desvia do comportamento esperado."
 
 #: src/glossary.md:69
 msgid ""
@@ -21783,18 +22115,26 @@ msgid ""
 "The process of managing and responding to errors that occur during program "
 "execution."
 msgstr ""
+"tratamento de erro:  \n"
+"O processo de gerenciar e responder a erros que ocorrem durante a execução "
+"do programa."
 
 #: src/glossary.md:72
 msgid ""
 "exercise:  \n"
 "A task or problem designed to practice and test programming skills."
 msgstr ""
+"exercício:  \n"
+"Uma tarefa ou problema projetado para praticar e testar habilidades de "
+"programação."
 
 #: src/glossary.md:74
 msgid ""
 "function:  \n"
 "A reusable block of code that performs a specific task."
 msgstr ""
+"função:  \n"
+"Um bloco de código reutilizável que executa uma tarefa específica."
 
 #: src/glossary.md:76
 msgid ""
@@ -21802,6 +22142,9 @@ msgid ""
 "A mechanism that automatically frees up memory occupied by objects that are "
 "no longer in use."
 msgstr ""
+"coletor de lixo:  \n"
+"Um mecanismo que libera automaticamente a memória ocupada por objetos que "
+"não estão mais em uso."
 
 #: src/glossary.md:79
 msgid ""
@@ -21809,12 +22152,17 @@ msgid ""
 "A feature that allows writing code with placeholders for types, enabling "
 "code reuse with different data types."
 msgstr ""
+"genéricos:  \n"
+"Um recurso que permite escrever código com espaços reservados para tipos, "
+"possibilitando a reutilização de código com diferentes tipos de dados."
 
 #: src/glossary.md:82
 msgid ""
 "immutable:  \n"
 "Unable to be changed after creation."
 msgstr ""
+"imutável:  \n"
+"Incapaz de ser alterado após a criação."
 
 #: src/glossary.md:84
 msgid ""
@@ -21822,6 +22170,9 @@ msgid ""
 "A type of test that verifies the interactions between different parts or "
 "components of a system."
 msgstr ""
+"teste de integração:  \n"
+"Um tipo de teste que verifica as interações entre diferentes partes ou "
+"componentes de um sistema."
 
 #: src/glossary.md:87
 msgid ""
@@ -21829,12 +22180,18 @@ msgid ""
 "A reserved word in a programming language that has a specific meaning and "
 "cannot be used as an identifier."
 msgstr ""
+"palavra-chave:  \n"
+"Uma palavra reservada em uma linguagem de programação que tem um significado "
+"específico e não pode ser usada como um identificador."
 
 #: src/glossary.md:90
 msgid ""
 "library:  \n"
 "A collection of precompiled routines or code that can be used by programs."
 msgstr ""
+"biblioteca:  \n"
+"Uma coleção de rotinas ou código pré-compilado que pode ser usado por "
+"programas."
 
 #: src/glossary.md:92
 msgid ""
@@ -21843,12 +22200,19 @@ msgid ""
 "normal functions are not enough. A typical example is `format!`, which takes "
 "a variable number of arguments, which isn't supported by Rust functions."
 msgstr ""
+"macro:  \n"
+"Macros Rust podem ser reconhecidas por um `!` no nome. Macros são usadas "
+"quando funções normais não são suficientes. Um exemplo típico é `format!`, "
+"que aceita um número variável de argumentos, o que não é suportado por "
+"funções Rust."
 
 #: src/glossary.md:96
 msgid ""
 "`main` function:  \n"
 "Rust programs start executing with the `main` function."
 msgstr ""
+"função `main`:  \n"
+"Programas Rust começam a executar a partir da função `main`."
 
 #: src/glossary.md:98
 msgid ""
@@ -21856,6 +22220,9 @@ msgid ""
 "A control flow construct in Rust that allows for pattern matching on the "
 "value of an expression."
 msgstr ""
+"correspondência:  \n"
+"Uma construção de fluxo de controle em Rust que permite a correspondência de "
+"padrões no valor de uma expressão."
 
 #: src/glossary.md:101
 msgid ""
@@ -21863,12 +22230,17 @@ msgid ""
 "A situation where a program fails to release memory that is no longer "
 "needed, leading to a gradual increase in memory usage."
 msgstr ""
+"vazamento de memória:  \n"
+"Uma situação em que um programa falha em liberar memória que não é mais "
+"necessária, levando a um aumento gradual no uso de memória."
 
 #: src/glossary.md:104
 msgid ""
 "method:  \n"
 "A function associated with an object or a type in Rust."
 msgstr ""
+"método:  \n"
+"Uma função associada a um objeto ou a um tipo em Rust."
 
 #: src/glossary.md:106
 msgid ""
@@ -21876,12 +22248,18 @@ msgid ""
 "A namespace that contains definitions, such as functions, types, or traits, "
 "to organize code in Rust."
 msgstr ""
+"módulo:  \n"
+"Um espaço de nomes que contém definições, como funções, tipos ou _traits_, "
+"para organizar o código em Rust."
 
 #: src/glossary.md:109
 msgid ""
 "move:  \n"
 "The transfer of ownership of a value from one variable to another in Rust."
 msgstr ""
+"mover:  \n"
+"A transferência de propriedade de um valor de uma variável para outra em "
+"Rust."
 
 #: src/glossary.md:111
 msgid ""
@@ -21889,6 +22267,9 @@ msgid ""
 "A property in Rust that allows variables to be modified after they have been "
 "declared."
 msgstr ""
+"mutável:  \n"
+"Uma propriedade em Rust que permite que variáveis sejam modificadas depois "
+"de terem sido declaradas."
 
 #: src/glossary.md:114
 msgid ""
@@ -21896,6 +22277,9 @@ msgid ""
 "The concept in Rust that defines which part of the code is responsible for "
 "managing the memory associated with a value."
 msgstr ""
+"propriedade (_ownership_):  \n"
+"O conceito em Rust que define qual parte do código é responsável por "
+"gerenciar a memória associada a um valor."
 
 #: src/glossary.md:117
 msgid ""
@@ -21903,12 +22287,16 @@ msgid ""
 "An unrecoverable error condition in Rust that results in the termination of "
 "the program."
 msgstr ""
+"pânico:  \n"
+"Uma condição de erro irreversível em Rust que resulta no término do programa."
 
 #: src/glossary.md:120
 msgid ""
 "parameter:  \n"
 "A value that is passed into a function or method when it is called."
 msgstr ""
+"parâmetro:  \n"
+"Um valor que é passado para uma função ou método quando é chamado."
 
 #: src/glossary.md:122
 msgid ""
@@ -21916,12 +22304,18 @@ msgid ""
 "A combination of values, literals, or structures that can be matched against "
 "an expression in Rust."
 msgstr ""
+"padrão:  \n"
+"Uma combinação de valores, literais ou estruturas que podem ser "
+"correspondidos a uma expressão em Rust."
 
 #: src/glossary.md:125
 msgid ""
 "payload:  \n"
 "The data or information carried by a message, event, or data structure."
 msgstr ""
+"carga (_payload_):  \n"
+"Os dados ou informações transportados por uma mensagem, evento ou estrutura "
+"de dados."
 
 #: src/glossary.md:127
 msgid ""
@@ -21929,12 +22323,17 @@ msgid ""
 "A set of instructions that a computer can execute to perform a specific task "
 "or solve a particular problem."
 msgstr ""
+"programa:  \n"
+"Um conjunto de instruções que um computador pode executar para realizar uma "
+"tarefa específica ou resolver um problema particular."
 
 #: src/glossary.md:130
 msgid ""
 "programming language:  \n"
 "A formal system used to communicate instructions to a computer, such as Rust."
 msgstr ""
+"linguagem de programação:  \n"
+"Um sistema formal usado para comunicar instruções a um computador, como Rust."
 
 #: src/glossary.md:132
 msgid ""
@@ -21942,6 +22341,9 @@ msgid ""
 "The first parameter in a Rust method that represents the instance on which "
 "the method is called."
 msgstr ""
+"receptor:  \n"
+"O primeiro parâmetro em um método Rust que representa a instância na qual o "
+"método é chamado."
 
 #: src/glossary.md:135
 msgid ""
@@ -21949,12 +22351,18 @@ msgid ""
 "A memory management technique in which the number of references to an object "
 "is tracked, and the object is deallocated when the count reaches zero."
 msgstr ""
+"contagem de referências:  \n"
+"Uma técnica de gerenciamento de memória na qual o número de referências a um "
+"objeto é rastreado, e o objeto é desalocado quando a contagem atinge zero."
 
 #: src/glossary.md:138
 msgid ""
 "return:  \n"
 "A keyword in Rust used to indicate the value to be returned from a function."
 msgstr ""
+"_return_:  \n"
+"Uma palavra-chave em Rust usada para indicar o valor a ser retornado de uma "
+"função."
 
 #: src/glossary.md:140
 msgid ""
@@ -21962,24 +22370,33 @@ msgid ""
 "A systems programming language that focuses on safety, performance, and "
 "concurrency."
 msgstr ""
+"Rust:  \n"
+"Uma linguagem de programação de sistemas que se concentra em segurança, "
+"desempenho e concorrência."
 
 #: src/glossary.md:143
 msgid ""
 "Rust Fundamentals:  \n"
-"Days 1 to 3 of this course."
+"Days 1 to 4 of this course."
 msgstr ""
+"Fundamentos de Rust:  \n"
+"Dias 1 a 4 deste curso."
 
 #: src/glossary.md:145
 msgid ""
 "Rust in Android:  \n"
 "See [Rust in Android](android.md)."
 msgstr ""
+"Rust no Android:  \n"
+"Veja [Rust no Android](android.md)."
 
 #: src/glossary.md:147
 msgid ""
 "Rust in Chromium:  \n"
 "See [Rust in Chromium](chromium.md)."
 msgstr ""
+"Rust no Chromium:  \n"
+"Veja [Rust no Chromium](chromium.md)."
 
 #: src/glossary.md:149
 msgid ""
@@ -21987,18 +22404,25 @@ msgid ""
 "Refers to code that adheres to Rust's ownership and borrowing rules, "
 "preventing memory-related errors."
 msgstr ""
+"seguro (_safe_):  \n"
+"Refere-se a código que adere às regras de propriedade e empréstimo de Rust, "
+"prevenindo erros relacionados à memória."
 
 #: src/glossary.md:152
 msgid ""
 "scope:  \n"
 "The region of a program where a variable is valid and can be used."
 msgstr ""
+"escopo:  \n"
+"A região de um programa onde uma variável é válida e pode ser usada."
 
 #: src/glossary.md:154
 msgid ""
 "standard library:  \n"
 "A collection of modules providing essential functionality in Rust."
 msgstr ""
+"biblioteca padrão:  \n"
+"Uma coleção de módulos que fornecem funcionalidades essenciais em Rust."
 
 #: src/glossary.md:156
 msgid ""
@@ -22006,6 +22430,9 @@ msgid ""
 "A keyword in Rust used to define static variables or items with a `'static` "
 "lifetime."
 msgstr ""
+"static:  \n"
+"Uma palavra-chave em Rust usada para definir variáveis estáticas ou itens "
+"com um tempo de vida `'static`."
 
 #: src/glossary.md:159
 msgid ""
@@ -22013,6 +22440,9 @@ msgid ""
 "A data type storing textual data. See [`String` vs `str`](basic-syntax/"
 "string-slices.html) for more."
 msgstr ""
+"string:  \n"
+"Um tipo de dado que armazena dados textuais. Veja [`String` vs `str`](basic-"
+"syntax/string-slices.html) para mais informações."
 
 #: src/glossary.md:162
 msgid ""
@@ -22020,6 +22450,9 @@ msgid ""
 "A composite data type in Rust that groups together variables of different "
 "types under a single name."
 msgstr ""
+"estrutura (_struct_):  \n"
+"Um tipo de dado composto em Rust que agrupa variáveis de diferentes tipos "
+"sob um único nome."
 
 #: src/glossary.md:165
 msgid ""
@@ -22027,12 +22460,17 @@ msgid ""
 "A Rust module containing functions that test the correctness of other "
 "functions."
 msgstr ""
+"_test_:  \n"
+"Um módulo Rust contendo funções que testam a correção de outras funções."
 
 #: src/glossary.md:168
 msgid ""
 "thread:  \n"
 "A separate sequence of execution in a program, allowing concurrent execution."
 msgstr ""
+"_thread_:  \n"
+"Uma sequência de execução separada em um programa, permitindo execução "
+"concorrente."
 
 #: src/glossary.md:170
 msgid ""
@@ -22040,6 +22478,9 @@ msgid ""
 "The property of a program that ensures correct behavior in a multithreaded "
 "environment."
 msgstr ""
+"segurança de _thread_:  \n"
+"A propriedade de um programa que garante comportamento correto em um "
+"ambiente multithread."
 
 #: src/glossary.md:173
 msgid ""
@@ -22047,6 +22488,9 @@ msgid ""
 "A collection of methods defined for an unknown type, providing a way to "
 "achieve polymorphism in Rust."
 msgstr ""
+"trait:  \n"
+"Uma coleção de métodos definidos para um tipo desconhecido, fornecendo uma "
+"maneira de alcançar polimorfismo em Rust."
 
 #: src/glossary.md:176
 msgid ""
@@ -22054,6 +22498,9 @@ msgid ""
 "An abstraction where you can require types to implement some traits of your "
 "interest."
 msgstr ""
+"restrição de _trait_:  \n"
+"Uma abstração onde você pode exigir que os tipos implementem alguns _traits_ "
+"de seu interesse."
 
 #: src/glossary.md:179
 msgid ""
@@ -22061,6 +22508,9 @@ msgid ""
 "A classification that specifies which operations can be performed on values "
 "of a particular kind in Rust."
 msgstr ""
+"tipo:  \n"
+"Uma classificação que especifica quais operações podem ser realizadas em "
+"valores de um tipo particular em Rust."
 
 #: src/glossary.md:182
 msgid ""
@@ -22068,6 +22518,9 @@ msgid ""
 "The ability of the Rust compiler to deduce the type of a variable or "
 "expression."
 msgstr ""
+"inferência de tipo:  \n"
+"A capacidade do compilador Rust de deduzir o tipo de uma variável ou "
+"expressão."
 
 #: src/glossary.md:185
 msgid ""
@@ -22075,12 +22528,18 @@ msgid ""
 "Actions or conditions in Rust that have no specified result, often leading "
 "to unpredictable program behavior."
 msgstr ""
+"comportamento indefinido:  \n"
+"Ações ou condições em Rust que não têm um resultado especificado, "
+"frequentemente levando a comportamento imprevisível do programa."
 
 #: src/glossary.md:188
 msgid ""
 "union:  \n"
 "A data type that can hold values of different types but only one at a time."
 msgstr ""
+"união (_union_):  \n"
+"Um tipo de dado que pode conter valores de diferentes tipos, mas apenas um "
+"de cada vez."
 
 #: src/glossary.md:190
 msgid ""
@@ -22088,6 +22547,10 @@ msgid ""
 "Rust comes with built-in support for running small unit tests and larger "
 "integration tests. See [Unit Tests](testing/unit-tests.html)."
 msgstr ""
+"teste unitário:  \n"
+"Rust vem com suporte embutido para executar pequenos testes unitários e "
+"testes de integração maiores. Veja [Testes Unitários](testing/unit-tests."
+"html)."
 
 #: src/glossary.md:193
 msgid ""
@@ -22095,12 +22558,18 @@ msgid ""
 "The subset of Rust which allows you to trigger _undefined behavior_. See "
 "[Unsafe Rust](unsafe.html)."
 msgstr ""
+"não seguro (_unsafe_):  \n"
+"O subconjunto de Rust que permite que você acione _comportamentos "
+"indefinidos_. Veja [Rust não seguro](unsafe.html)."
 
 #: src/glossary.md:196
 msgid ""
 "variable:  \n"
 "A memory location storing data. Variables are valid in a _scope_."
 msgstr ""
+"variável:  \n"
+"Uma localização de memória que armazena dados. Variáveis são válidas em um "
+"_escopo_."
 
 #: src/other-resources.md:1
 msgid "Other Rust Resources"
@@ -22203,60 +22672,54 @@ msgid "A small selection of other guides and tutorial for Rust:"
 msgstr "Uma pequena seleção de outros guias e tutoriais para Rust:"
 
 #: src/other-resources.md:37
-#, fuzzy
 msgid ""
 "[Learn Rust the Dangerous Way](http://cliffle.com/p/dangerust/): covers Rust "
 "from the perspective of low-level C programmers."
 msgstr ""
-"[Aprenda Rust da maneira perigosa](http://cliffle.com/p/dangerust/): cobre "
-"Rust da perspectiva de programadores C de baixo nível."
+"[ALearn Rust the Dangerous Way](http://cliffle.com/p/dangerust/): cobre Rust "
+"da perspectiva de programadores C de baixo nível."
 
 #: src/other-resources.md:39
-#, fuzzy
 msgid ""
 "[Rust for Embedded C Programmers](https://docs.opentitan.org/doc/ug/"
 "rust_for_c/): covers Rust from the perspective of developers who write "
 "firmware in C."
 msgstr ""
-"[Rust para Programadores Embedded C](https://docs.opentitan.org/doc/ug/"
+"[Rust for Embedded C Programmers](https://docs.opentitan.org/doc/ug/"
 "rust_for_c/): cobre Rust da perspectiva dos desenvolvedores que escrevem "
 "firmware em C."
 
 #: src/other-resources.md:41
-#, fuzzy
 msgid ""
 "[Rust for professionals](https://overexact.com/rust-for-professionals/): "
 "covers the syntax of Rust using side-by-side comparisons with other "
 "languages such as C, C++, Java, JavaScript, and Python."
 msgstr ""
-"[Rust para profissionais](https://overexact.com/rust-for-professionals/): "
+"[Rust for professionals](https://overexact.com/rust-for-professionals/): "
 "cobre a sintaxe do Rust usando comparações lado a lado com outras linguagens "
 "como C, C++, Java, JavaScript e Python."
 
 #: src/other-resources.md:44
-#, fuzzy
 msgid ""
 "[Rust on Exercism](https://exercism.org/tracks/rust): 100+ exercises to help "
 "you learn Rust."
 msgstr ""
 "[Rust on Exercism](https://exercism.org/tracks/rust): mais de 100 exercícios "
-"para ajudar você aprende Rust."
+"para lhe ajudar a aprender Rust."
 
 #: src/other-resources.md:46
-#, fuzzy
 msgid ""
 "[Ferrous Teaching Material](https://ferrous-systems.github.io/teaching-"
 "material/index.html): a series of small presentations covering both basic "
 "and advanced part of the Rust language. Other topics such as WebAssembly, "
 "and async/await are also covered."
 msgstr ""
-"[Ensino Ferroso Material](https://ferrous-systems.github.io/teaching-"
+"[Ferrous Teaching Material](https://ferrous-systems.github.io/teaching-"
 "material/index.html): uma série de pequenas apresentações abrangendo tanto a "
 "parte básica quanto a avançada da Linguagem Rust. Outros tópicos como "
 "WebAssembly e async/await também são abordados."
 
 #: src/other-resources.md:50
-#, fuzzy
 msgid ""
 "[Beginner's Series to Rust](https://docs.microsoft.com/en-us/shows/beginners-"
 "series-to-rust/) and [Take your first steps with Rust](https://docs."
@@ -22264,12 +22727,11 @@ msgid ""
 "new developers. The first is a set of 35 videos and the second is a set of "
 "11 modules which covers Rust syntax and basic constructs."
 msgstr ""
-"[Série Iniciante a Rust](https://docs.microsoft.com/en-us/shows/beginners-"
-"series-to-rust/) e [Dê seus primeiros passos com Rust](https://docs."
-"microsoft.com/en-us/learn/paths/rust-first-steps/): dois guias Rust voltados "
-"para novos desenvolvedores. O primeiro é um conjunto de 35 vídeos e o o "
-"segundo é um conjunto de 11 módulos que cobrem a sintaxe Rust e as "
-"construções básicas."
+"[Beginner's Series to Rust](https://docs.microsoft.com/en-us/shows/beginners-"
+"series-to-rust/) e [Take your first steps with Rust](https://docs.microsoft."
+"com/en-us/learn/paths/rust-first-steps/): dois guias Rust voltados para "
+"novos desenvolvedores. O primeiro é um conjunto de 35 vídeos e o o segundo é "
+"um conjunto de 11 módulos que cobrem a sintaxe Rust e as construções básicas."
 
 #: src/other-resources.md:56
 msgid ""
@@ -22277,6 +22739,10 @@ msgid ""
 "github.io/too-many-lists/): in-depth exploration of Rust's memory management "
 "rules, through implementing a few different types of list structures."
 msgstr ""
+"[Learn Rust With Entirely Too Many Linked Lists](https://rust-unofficial."
+"github.io/too-many-lists/): exploração aprofundada das regras de "
+"gerenciamento de memória do Rust, através da implementação de alguns tipos "
+"diferentes de estruturas de lista."
 
 #: src/other-resources.md:61
 msgid ""
@@ -22284,7 +22750,7 @@ msgid ""
 "for even more Rust books."
 msgstr ""
 "Consulte o [Little Book of Rust Books](https://lborb.github.io/book/) para "
-"ainda mais livros Rust."
+"ainda mais livros em Rust."
 
 #: src/credits.md:3
 msgid ""
@@ -22297,14 +22763,14 @@ msgstr ""
 "uma lista completa de recursos úteis ."
 
 #: src/credits.md:7
-#, fuzzy
 msgid ""
 "The material of Comprehensive Rust is licensed under the terms of the Apache "
 "2.0 license, please see [`LICENSE`](https://github.com/google/comprehensive-"
 "rust/blob/main/LICENSE) for details."
 msgstr ""
 "O material do Comprehensive Rust é licenciado sob os termos da licença "
-"Apache 2.0 , consulte [`LICENSE`](../LICENSE) para obter detalhes."
+"Apache 2.0 , consulte [`LICENSE`](https://github.com/google/comprehensive-"
+"rust/blob/main/LICENSE) para obter detalhes."
 
 #: src/credits.md:12
 msgid "Rust by Example"
@@ -22345,9 +22811,9 @@ msgid ""
 "uses an image from [CXX](https://cxx.rs/). Please see the `third_party/cxx/` "
 "directory for details, including the license terms."
 msgstr ""
-"A seção [Interoperability with C++](android/interoperability/cpp.md) usa uma "
-"imagem de [CXX](https://cxx.rs/). Consulte o diretório `third_party/cxx/` "
-"para obter detalhes, incluindo os termos da licença."
+"A seção [Interoperabilidade com C++](android/interoperability/cpp.md) usa "
+"uma imagem de [CXX](https://cxx.rs/). Consulte o diretório `third_party/cxx/"
+"` para obter detalhes, incluindo os termos da licença."
 
 #~ msgid "Small Example"
 #~ msgstr "Um Pequeno Exemplo"
