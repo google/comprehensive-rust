@@ -143,7 +143,7 @@ h1#glossary ~ ul > li:first-line {
   A systems programming language that focuses on safety, performance, and
   concurrency.
 - Rust Fundamentals:\
-  Days 1 to 3 of this course.
+  Days 1 to 4 of this course.
 - Rust in Android:\
   See [Rust in Android](android.md).
 - Rust in Chromium:\
