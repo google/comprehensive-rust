@@ -15987,14 +15987,15 @@ msgstr ""
 msgid ""
 "// Safe because `HEAP` is only used here and `entry` is only called once.\n"
 msgstr ""
+"// `HEAP`이 여기서만 사용되고 `entry`가 한 번만 호출되므로 안전합니다.\n"
 
 #: src/bare-metal/alloc.md:25
 msgid "// Give the allocator some memory to allocate.\n"
-msgstr ""
+msgstr "// 할당자에게 할당할 메모리를 제공합니다.\n"
 
 #: src/bare-metal/alloc.md:29
 msgid "// Now we can do things that require heap allocation.\n"
-msgstr ""
+msgstr "// 이제 힙 할당이 필요한 작업을 할 수 있습니다.\n"
 
 #: src/bare-metal/alloc.md:31
 #, fuzzy
@@ -16048,7 +16049,7 @@ msgid ""
 "The `cortex_m_rt` crate provides (among other things) a reset handler for "
 "Cortex M microcontrollers."
 msgstr ""
-"'cortex_m_rt' 크레이트는 Cortex M 마이크로컨트롤러를 초기화 하는 핸들러를 제"
+"`cortex_m_rt` 크레이트는 Cortex M 마이크로컨트롤러를 초기화 하는 핸들러를 제"
 "공합니다."
 
 #: src/bare-metal/microcontrollers.md:24
@@ -16082,21 +16083,21 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/mmio.md:16
 msgid "/// GPIO port 0 peripheral address\n"
-msgstr ""
+msgstr "/// GPIO 포트 0 주변기기 주소\n"
 
 #: src/bare-metal/microcontrollers/mmio.md:19
 msgid "// GPIO peripheral offsets\n"
-msgstr ""
+msgstr "// GPIO 주변기기 오프셋\n"
 
 #: src/bare-metal/microcontrollers/mmio.md:24
 msgid "// PIN_CNF fields\n"
-msgstr ""
+msgstr "// PIN_CNF 필드\n"
 
 #: src/bare-metal/microcontrollers/mmio.md:34
 #: src/bare-metal/microcontrollers/pacs.md:21
 #: src/bare-metal/microcontrollers/hals.md:26
 msgid "// Configure GPIO 0 pins 21 and 28 as push-pull outputs.\n"
-msgstr ""
+msgstr "// GPIO 0 핀 21 및 28을 푸시-풀 출력으로 구성합니다.\n"
 
 #: src/bare-metal/microcontrollers/mmio.md:37
 #: src/bare-metal/microcontrollers/mmio.md:59
@@ -16104,12 +16105,14 @@ msgid ""
 "// Safe because the pointers are to valid peripheral control registers, and\n"
 "    // no aliases exist.\n"
 msgstr ""
+"// 유효한 주변기기 제어 레지스터에 대한 포인터이고\n"
+"    // 별칭이 없으므로 안전합니다.\n"
 
 #: src/bare-metal/microcontrollers/mmio.md:56
 #: src/bare-metal/microcontrollers/pacs.md:39
 #: src/bare-metal/microcontrollers/hals.md:30
 msgid "// Set pin 28 low and pin 21 high to turn the LED on.\n"
-msgstr ""
+msgstr "// 핀 28을 낮게, 핀 21을 높게 설정하여 LED를 켭니다.\n"
 
 #: src/bare-metal/microcontrollers/mmio.md:72
 msgid ""
@@ -16194,7 +16197,7 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/hals.md:23
 msgid "// Create HAL wrapper for GPIO port 0.\n"
-msgstr ""
+msgstr "// GPIO 포트 0의 HAL 래퍼를 만듭니다.\n"
 
 #: src/bare-metal/microcontrollers/hals.md:40
 msgid ""
@@ -16251,10 +16254,11 @@ msgstr "타입 상태 패턴"
 #: src/bare-metal/microcontrollers/type-state.md:11
 msgid "// let gpio0_01_again = gpio0.p0_01; // Error, moved.\n"
 msgstr ""
+"// let gpio0_01_again = gpio0.p0_01; // 오류가 발생하여 이동했습니다.\n"
 
 #: src/bare-metal/microcontrollers/type-state.md:19
 msgid "// pin_input.is_high(); // Error, moved.\n"
-msgstr ""
+msgstr "// pin_input.is_high(); // 오류가 발생하여 이동했습니다.\n"
 
 #: src/bare-metal/microcontrollers/type-state.md:33
 msgid ""
@@ -16280,8 +16284,8 @@ msgid ""
 "way without properly configuring it first. Illegal state transitions are "
 "caught at compile time."
 msgstr ""
-"값 유형은 현재 상태를 나타냅니다. 예를 들어 이 경우에는 GPIO 핀의 구성 상태입"
-"니다. 이렇게 하면 상태 머신이 유형 시스템으로 인코딩되며, 먼저 올바르게 구성"
+"값 타입은 현재 상태를 나타냅니다. 예를 들어 이 경우에는 GPIO 핀의 구성 상태입"
+"니다. 이렇게 하면 상태 머신이 타입 시스템으로 인코딩되며, 먼저 올바르게 구성"
 "한 후 특정 방식으로 핀을 사용하도록 합니다. 잘못된 상태 전환은 컴파일 시간에 "
 "포착됩니다."
 
@@ -16372,7 +16376,7 @@ msgstr " 및 JTAG(CMSIS-DAP, ST-Link, J-Link 프로브를 통함)"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:7
 msgid "GDB stub and Microsoft DAP (Debug Adapter Protocol) server"
-msgstr ""
+msgstr "GDB 스텁 및 Microsoft DAP(디버그 어댑터 프로토콜) 서버"
 
 #: src/bare-metal/microcontrollers/probe-rs.md:8
 msgid "Cargo integration"
@@ -16446,13 +16450,12 @@ msgstr ""
 "터를 전송하는 메커니즘입니다."
 
 #: src/bare-metal/microcontrollers/debugging.md:3
-#, fuzzy
 msgid "_Embed.toml_:"
-msgstr "Embed.toml:"
+msgstr "_Embed.toml_:"
 
 #: src/bare-metal/microcontrollers/debugging.md:15
 msgid "In one terminal under `src/bare-metal/microcontrollers/examples/`:"
-msgstr "`src/bare-metal/microcontrollers/examples/` 아래 하나의 터미널에서:"
+msgstr "`src/bare-metal/microcontrollers/example/` 에 터미널을 열고:"
 
 #: src/bare-metal/microcontrollers/debugging.md:23
 #, fuzzy
@@ -16461,7 +16464,7 @@ msgstr "다른 터미널을 띄워서 서비스가 잘 수행되고 있는지 �
 
 #: src/bare-metal/microcontrollers/debugging.md:25
 msgid "On gLinux or Debian:"
-msgstr ""
+msgstr "gLinux 또는 Debian에서:"
 
 #: src/bare-metal/microcontrollers/debugging.md:43
 msgid "In GDB, try running:"
@@ -16569,7 +16572,7 @@ msgstr ""
 msgid ""
 "We will read the direction from an I2C compass, and log the readings to a "
 "serial port."
-msgstr ""
+msgstr "I2C 나침반에서 방향을 읽고, 읽은 값을 직렬 포트에 기록하세요."
 
 #: src/exercises/bare-metal/morning.md:8
 #: src/exercises/concurrency/morning.md:12
@@ -16587,10 +16590,12 @@ msgid ""
 "serial port. If you have time, try displaying it on the LEDs somehow too, or "
 "use the buttons somehow."
 msgstr ""
+"I2C 나침반에서 방향을 읽고 판독값을 직렬 포트에 기록하세요. 시간이 있으면 어"
+"떻게든 LED에 표시하거나 버튼을 사용하세요."
 
 #: src/exercises/bare-metal/compass.md:7
 msgid "Hints:"
-msgstr ""
+msgstr "힌트:"
 
 #: src/exercises/bare-metal/compass.md:9
 msgid ""
@@ -16599,16 +16604,20 @@ msgid ""
 "microbit/) crates, as well as the [micro:bit hardware](https://tech.microbit."
 "org/hardware/)."
 msgstr ""
+"[`lsm303agr`](https://docs.rs/lsm303agr/latest/lsm303agr/) 및 [`microbit-v2`]"
+"(https://docs.rs/microbit-v2/latest/microbit/) 크레이트 및 [micro:bit 하드웨"
+"어](https://tech.microbit.org/hardware/)의 문서를 확인하세요."
 
 #: src/exercises/bare-metal/compass.md:13
 msgid ""
 "The LSM303AGR Inertial Measurement Unit is connected to the internal I2C bus."
-msgstr ""
+msgstr "LSM303AGR 관성 측정 장치는 내부 I2C 버스에 연결됩니다."
 
 #: src/exercises/bare-metal/compass.md:14
 msgid ""
 "TWI is another name for I2C, so the I2C master peripheral is called TWIM."
 msgstr ""
+"TWI는 I2C의 또 다른 이름이므로 I2C 마스터 주변기기는 TWIM이라고 합니다."
 
 #: src/exercises/bare-metal/compass.md:15
 msgid ""
@@ -16616,12 +16625,17 @@ msgid ""
 "blocking::i2c::WriteRead` trait. The [`microbit::hal::Twim`](https://docs.rs/"
 "microbit-v2/latest/microbit/hal/struct.Twim.html) struct implements this."
 msgstr ""
+"LSM303AGR 드라이버에는 `embedded_hal::blocking::i2c::WriteRead` 트레잇을 구현"
+"하는 것이 필요합니다. [`microbit::hal::Twim`](https://docs.rs/microbit-v2/"
+"latest/microbit/hal/struct.Twim.html) 구조체가 이를 구현합니다."
 
 #: src/exercises/bare-metal/compass.md:19
 msgid ""
 "You have a [`microbit::Board`](https://docs.rs/microbit-v2/latest/microbit/"
 "struct.Board.html) struct with fields for the various pins and peripherals."
 msgstr ""
+"다양한 핀과 주변기기에 관한 필드가 있는 [`microbit::Board`](https://docs.rs/"
+"microbit-v2/latest/microbit/struct.Board.html) 구조체가 있습니다."
 
 #: src/exercises/bare-metal/compass.md:22
 msgid ""
@@ -16629,12 +16643,17 @@ msgid ""
 "com/pdf/nRF52833_PS_v1.5.pdf) if you want, but it shouldn't be necessary for "
 "this exercise."
 msgstr ""
+"원하는 경우 [nRF52833 데이터시트](https://infocenter.nordicsemi.com/pdf/"
+"nRF52833_PS_v1.5.pdf)를 확인할 수도 있지만 이 연습에서 반드시 필요한 것은 아"
+"닙니다."
 
 #: src/exercises/bare-metal/compass.md:26
 msgid ""
 "Download the [exercise template](../../comprehensive-rust-exercises.zip) and "
 "look in the `compass` directory for the following files."
 msgstr ""
+"[연습 템플릿](../../comprehensive-rust-exercises.zip)을 다운로드하고 "
+"`compass` 디렉터리에서 다음 파일을 찾습니다."
 
 #: src/exercises/bare-metal/compass.md:29 src/exercises/bare-metal/rtc.md:22
 #, fuzzy
@@ -16644,49 +16663,53 @@ msgstr "_hello_rust/src/main.rs_:"
 #: src/exercises/bare-metal/compass.md:47
 #: src/exercises/bare-metal/solutions-morning.md:32
 msgid "// Configure serial port.\n"
-msgstr ""
+msgstr "// 직렬 포트를 설정하세요.\n"
 
 #: src/exercises/bare-metal/compass.md:55
 msgid ""
 "// Set up the I2C controller and Inertial Measurement Unit.\n"
 "    // TODO\n"
 msgstr ""
+"// I2C 컨트롤러 및 관성 측정 장치를 설정합니다.\n"
+"    // TODO\n"
 
 #: src/exercises/bare-metal/compass.md:58
 #: src/exercises/bare-metal/solutions-morning.md:56
 msgid "\"Ready.\""
-msgstr ""
+msgstr "\"Ready\""
 
 #: src/exercises/bare-metal/compass.md:61
 msgid ""
 "// Read compass data and log it to the serial port.\n"
 "        // TODO\n"
 msgstr ""
+"// 나침반 데이터를 읽고 직렬 포트에 기록합니다.\n"
+"        // TODO\n"
 
 #: src/exercises/bare-metal/compass.md:67 src/exercises/bare-metal/rtc.md:387
 msgid "_Cargo.toml_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_Cargo.toml_ (변경할 필요가 없음):"
 
 #: src/exercises/bare-metal/compass.md:89
 msgid "_Embed.toml_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_Embed.toml_ (변경할 필요가 없음):"
 
 #: src/exercises/bare-metal/compass.md:105 src/exercises/bare-metal/rtc.md:988
 msgid "_.cargo/config.toml_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_.cargo/config.toml_ (변경할 필요가 없음):"
 
 #: src/exercises/bare-metal/compass.md:118
 msgid "See the serial output on Linux with:"
-msgstr ""
+msgstr "다음을 사용하여 Linux에서 직렬 출력을 확인하세요."
 
 #: src/exercises/bare-metal/compass.md:126
 msgid ""
 "Or on Mac OS something like (the device name may be slightly different):"
-msgstr ""
+msgstr "또는 다음과 같이 Mac OS(기기 이름은 약간 다를 수 있음)에서 확인하세요."
 
 #: src/exercises/bare-metal/compass.md:134
 msgid "Use Ctrl+A Ctrl+Q to quit picocom."
-msgstr ""
+msgstr "Ctrl+A Ctrl+Q를 사용하여 picocom을 종료합니다."
 
 #: src/exercises/bare-metal/solutions-morning.md:1
 #, fuzzy
@@ -16695,34 +16718,34 @@ msgstr "Bare Metal Rust 오전 연습"
 
 #: src/exercises/bare-metal/solutions-morning.md:5
 msgid "([back to exercise](compass.md))"
-msgstr ""
+msgstr "([연습문제로 돌아가기](compass.md))"
 
 #: src/exercises/bare-metal/solutions-morning.md:40
 msgid "// Set up the I2C controller and Inertial Measurement Unit.\n"
-msgstr ""
+msgstr "// I2C 컨트롤러와 관성 측정 장치를 설정합니다.\n"
 
 #: src/exercises/bare-metal/solutions-morning.md:41
 msgid "\"Setting up IMU...\""
-msgstr ""
+msgstr "\"IMU 설정 중...\""
 
 #: src/exercises/bare-metal/solutions-morning.md:49
 msgid "// Set up display and timer.\n"
-msgstr ""
+msgstr "// 디스플레이 및 타이머를 설정합니다.\n"
 
 #: src/exercises/bare-metal/solutions-morning.md:59
 msgid "// Read compass data and log it to the serial port.\n"
-msgstr ""
+msgstr "// 나침반 데이터를 읽고 직렬 포트에 기록합니다.\n"
 
 #: src/exercises/bare-metal/solutions-morning.md:67
 msgid "\"{},{},{}\\t{},{},{}\""
-msgstr ""
+msgstr "\"{},{},{}\\t{},{},{}\""
 
 #: src/exercises/bare-metal/solutions-morning.md:105
 msgid ""
 "// If button A is pressed, switch to the next mode and briefly blink all "
 "LEDs\n"
 "        // on.\n"
-msgstr ""
+msgstr "// 버튼 A를 누르면 다음 모드로 전환되고 모든 LED가 잠시 깜박입니다.\n"
 
 #: src/bare-metal/aps.md:1
 msgid "Application processors"
@@ -16763,7 +16786,7 @@ msgstr ""
 #: src/bare-metal/aps/entry-point.md:3
 msgid ""
 "Before we can start running Rust code, we need to do some initialisation."
-msgstr ""
+msgstr "Rust 코드 실행을 시작하기 전에 몇 가지 초기화를 실행해야 합니다."
 
 #: src/bare-metal/aps/entry-point.md:5
 msgid ""
@@ -16840,12 +16863,83 @@ msgid ""
 "    b 2b\n"
 "```"
 msgstr ""
+"```armasm\n"
+".section .init.entry, \"ax\"\n"
+".global entry\n"
+"entry:\n"
+"    /*\n"
+"     * 메모리 관리 구성을 로드하고 적용합니다. MMU와 캐시를\n"
+"     * 사용 설정할 준비가 되었습니다. .\n"
+"     */\n"
+" adrp x30, idmap\n"
+"    msr ttbr0_el1, x30\n"
+"\n"
+"    mov_i x30, .Lmairval\n"
+"    msr mair_el1, x30\n"
+"\n"
+"    mov_i x30, .Ltcrval\n"
+"    /* 지원되는 PA 범위를 TCR_EL1.IPS에 복사합니다. */\n"
+"    mrs x29, id_aa64mmfr0_el1\n"
+"    bfi x30, x29, #32, #4\n"
+"\n"
+"    msr tcr_el1, x30\n"
+"\n"
+"    mov_i x30, .Lsctlrval\n"
+"\n"
+"    /*\n"
+"     * 이 지점 앞에 오는 모든 내용이 완료되었는지 확인하고\n"
+"     * 오래된 로컬 TLB 항목을 사용하기 전에 무효화합니다.\n"
+"     */\n"
+"    isb\n"
+"    tlbi vmalle1\n"
+"    ic iallu\n"
+"    dsb nsh\n"
+"    isb\n"
+"\n"
+"    /*\n"
+"     * MMU와 캐시를 사용하도록 sctlr_el1을 구성하고 이 작업이\n"
+"     * 완료될 때까지 진행하지 않습니다.\n"
+"     */\n"
+"    msr sctlr_el1, x30\n"
+"    isb\n"
+"\n"
+"    /* EL1에서 트래핑 부동 소수점 액세스를 사용 중지합니다. */\n"
+"    mrs x30, cpacr_el1\n"
+"    orr x30, x30, #(0x3 << 20)\n"
+"    msr cpacr_el1, x30\n"
+"    isb\n"
+"\n"
+"    /* bss 섹션을 0으로 만듭니다. */\n"
+"    adr_l x29, bss_begin\n"
+"    adr_l x30, bss_end\n"
+"0:  cmp x29, x30\n"
+"    b.hs 1f\n"
+"    stp xzr, xzr, [x29], #16\n"
+"    b 0b\n"
+"\n"
+"1:  /* 스택을 준비합니다. */\n"
+"    adr_l x30, boot_stack_end\n"
+"    mov sp, x30\n"
+"\n"
+"    /* 예외 벡터를 설정합니다. */\n"
+"    adr x30, vector_table_el1\n"
+"    msr vbar_el1, x30\n"
+"\n"
+"    /* Rust 코드를 호출합니다. */\n"
+"    bl main\n"
+"\n"
+"    /* 루프가 인터럽트를 영원히 기다립니다. */\n"
+"2:  wfi\n"
+"    b 2b\n"
+"```"
 
 #: src/bare-metal/aps/entry-point.md:77
 msgid ""
 "This is the same as it would be for C: initialising the processor state, "
 "zeroing the BSS, and setting up the stack pointer."
 msgstr ""
+"이는 C의 경우와 동일합니다. 프로세서 상태를 초기화하고 BSS를 0으로 설정하고 "
+"스택 포인터를 설정합니다."
 
 #: src/bare-metal/aps/entry-point.md:79
 msgid ""
@@ -16855,18 +16949,27 @@ msgid ""
 "on zeroes. The compiler assumes that the loader will take care of zeroing "
 "them."
 msgstr ""
+"BSS(역사적인 이유로, 블록 시작 기호 block starting symbol 이라고 불림)는 오브"
+"젝트 파일에서 0으로 초기화된 정적으로 할당된 변수들을 담고 있습니다. BSS는 실"
+"제로 이미지에 포함되지는 않습니다. 어차피 0으로 초기화 될 것이기 때문입니다. "
+"컴파일러는 로더 프로그램이 BSS에 속하는 변수들을 0으로 초기화 할 것으로기대하"
+"고 오브젝트 파일을 만듭니다."
 
 #: src/bare-metal/aps/entry-point.md:84
 msgid ""
 "The BSS may already be zeroed, depending on how memory is initialised and "
 "the image is loaded, but we zero it to be sure."
 msgstr ""
+"메모리가 초기화되고 이미지가 로드되는 방식에 따라 BSS가 이미 0으로 설정되었"
+"을 수도 있지만 확실히 하기 위해 0으로 설정합니다."
 
 #: src/bare-metal/aps/entry-point.md:86
 msgid ""
 "We need to enable the MMU and cache before reading or writing any memory. If "
 "we don't:"
 msgstr ""
+"메모리를 읽거나 쓰기 전에 MMU와 캐시를 사용 설정해야 합니다. 그러지 않으면 다"
+"음과 같은 상황이 발생할 수 있습니다."
 
 #: src/bare-metal/aps/entry-point.md:88
 msgid ""
@@ -16875,6 +16978,10 @@ msgid ""
 "generating unaligned accesses, so it should be fine in this case, but this "
 "is not necessarily the case in general."
 msgstr ""
+"정렬되지 않은 액세스에 오류가 발생합니다. 컴파일러가 정렬되지 않은 액세스를 "
+"생성하지 않도록 `+strict-align`을 설정하는 `aarch64-unknown-none` 타겟의 "
+"Rust 코드를 빌드하므로 이 경우에는 문제가 없지만, 일반적으로 반드시 그런 것"
+"은 아닙니다."
 
 #: src/bare-metal/aps/entry-point.md:92
 msgid ""
@@ -16886,6 +16993,12 @@ msgid ""
 "is cleaned or the VM enables the cache. (Cache is keyed by physical address, "
 "not VA or IPA.)"
 msgstr ""
+"VM에서 실행한다면 캐시 일관성 문제가 발생할 수 있습니다. 문제는 VM은 캐시가 "
+"사용 중지된 상태로 메모리에 직접 액세스하는 반면 호스트에는 동일한 메모리에 "
+"대해 캐시할 수 있는 별칭이 있다는 점입니다. 호스트가 메모리에 명시적으로 액세"
+"스하지 않더라도 추측 액세스는 캐시 채우기로 이어질 수 있으며, 캐시가 정리되거"
+"나 VM이 캐시를 사용 설정하면 둘 중 하나의 변경사항이 손실됩니다. 캐시는 VA 또"
+"는 IPA가 아닌 실제 주소로 키가 지정됩니다."
 
 #: src/bare-metal/aps/entry-point.md:99
 msgid ""
@@ -16894,12 +17007,16 @@ msgid ""
 "for DRAM, and another 1 GiB higher up for more devices. This matches the "
 "memory layout that QEMU uses."
 msgstr ""
+"편의상 기기용 주소 공간의 처음 1GiB, DRAM용 다음 1GiB, 더 많은 기기를 위한 "
+"또 다른 1GiB를 ID 매핑하는 하드코딩된 페이지 테이블(`idmap.S` 참고)을 사용합"
+"니다. 이는 QEMU에서 사용하는 메모리 레이아웃과 일치합니다."
 
 #: src/bare-metal/aps/entry-point.md:103
 msgid ""
 "We also set up the exception vector (`vbar_el1`), which we'll see more about "
 "later."
 msgstr ""
+"예외 벡터(`vbar_el1`)도 설정합니다. 이에 관해서는 나중에 자세히 알아봅니다."
 
 #: src/bare-metal/aps/entry-point.md:105
 msgid ""
@@ -16907,6 +17024,8 @@ msgid ""
 "(EL1). If you need to run at a different exception level you'll need to "
 "modify `entry.S` accordingly."
 msgstr ""
+"오늘 오후의 모든 예에서는 예외 수준 1(EL1)에서 실행한다고 가정합니다. 다른 예"
+"외 수준에서 실행해야 하는 경우 이에 따라 `entry.S`를 수정해야 합니다."
 
 #: src/bare-metal/aps/inline-assembly.md:1
 msgid "Inline assembly"
@@ -16927,42 +17046,44 @@ msgid ""
 "// Safe because this only uses the declared registers and doesn't do\n"
 "    // anything with memory.\n"
 msgstr ""
+"// 선언된 레지스터만 사용하고 메모리로는\n"
+"    // 아무것도 하지 않으므로 안전합니다.\n"
 
 #: src/bare-metal/aps/inline-assembly.md:23
 msgid "\"hvc #0\""
-msgstr ""
+msgstr "\"hvc #0\""
 
 #: src/bare-metal/aps/inline-assembly.md:24
 msgid "\"w0\""
-msgstr ""
+msgstr "\"w0\""
 
 #: src/bare-metal/aps/inline-assembly.md:25
 msgid "\"w1\""
-msgstr ""
+msgstr "\"w1\""
 
 #: src/bare-metal/aps/inline-assembly.md:26
 msgid "\"w2\""
-msgstr ""
+msgstr "\"w2\""
 
 #: src/bare-metal/aps/inline-assembly.md:27
 msgid "\"w3\""
-msgstr ""
+msgstr "\"w3\""
 
 #: src/bare-metal/aps/inline-assembly.md:28
 msgid "\"w4\""
-msgstr ""
+msgstr "\"w4\""
 
 #: src/bare-metal/aps/inline-assembly.md:29
 msgid "\"w5\""
-msgstr ""
+msgstr "\"w5\""
 
 #: src/bare-metal/aps/inline-assembly.md:30
 msgid "\"w6\""
-msgstr ""
+msgstr "\"w6\""
 
 #: src/bare-metal/aps/inline-assembly.md:31
 msgid "\"w7\""
-msgstr ""
+msgstr "\"w7\""
 
 #: src/bare-metal/aps/inline-assembly.md:40
 msgid ""
@@ -17021,8 +17142,8 @@ msgid ""
 "Run the example in QEMU with `make qemu_psci` under `src/bare-metal/aps/"
 "examples`."
 msgstr ""
-"`src/bare-metal/aps/examples`에서 `make qemu_psci`를 사용하여 QEMU에서 예시"
-"를 실행합니다."
+"`src/bare-metal/aps/examples`에서 `make qemu_psci`를 입력하면 예제 코드가 "
+"QEMU에서 수행됩니다."
 
 #: src/bare-metal/aps/mmio.md:1
 msgid "Volatile memory access for MMIO"
@@ -17041,7 +17162,7 @@ msgid ""
 "`addr_of!` lets you get fields of structs without creating an intermediate "
 "reference."
 msgstr ""
-"`addr_of!`를 사용하면 임시 용도의 참조를 만들지 않고도 구조체 필드를 가져올 "
+"`addr_of!` 를 사용하면 임시 용도의 참조를 만들지 않고도 구조체의 필드를 읽을 "
 "수 있습니다."
 
 #: src/bare-metal/aps/mmio.md:10
@@ -17094,7 +17215,7 @@ msgstr ""
 
 #: src/bare-metal/aps/uart.md:9
 msgid "/// Minimal driver for a PL011 UART.\n"
-msgstr ""
+msgstr "/// PL011 UART의 최소 드라이버입니다.\n"
 
 #: src/bare-metal/aps/uart.md:17 src/bare-metal/aps/better-uart/driver.md:13
 msgid ""
@@ -17109,32 +17230,43 @@ msgid ""
 "process\n"
 "    /// as device memory and not have any other aliases.\n"
 msgstr ""
+"/// 지정된 기본 주소에 PL011 기기에 대한 UART 드라이버의 새 인스턴스를\n"
+" /// 생성합니다.\n"
+" ///\n"
+" /// # 안전\n"
+" ///\n"
+" /// 지정된 기본 주소는 PL011 기기의\n"
+" /// MMIO 제어 레지스터 8개를 가리켜야 하며,\n"
+" /// 이는 프로세스의 주소 공간에 기기 메모리로\n"
+" /// 매핑되어야 하며 다른 별칭은 없어야 합니다.\n"
 
 #: src/bare-metal/aps/uart.md:29 src/bare-metal/aps/better-uart/driver.md:25
 #: src/exercises/bare-metal/rtc.md:337
 msgid "/// Writes a single byte to the UART.\n"
-msgstr ""
+msgstr "/// UART에 단일 바이트를 씁니다.\n"
 
 #: src/bare-metal/aps/uart.md:31 src/bare-metal/aps/better-uart/driver.md:27
 #: src/exercises/bare-metal/rtc.md:339
 msgid "// Wait until there is room in the TX buffer.\n"
-msgstr ""
+msgstr "// TX 버퍼에 공간이 확보될 때까지 기다립니다.\n"
 
 #: src/bare-metal/aps/uart.md:34 src/bare-metal/aps/uart.md:46
 msgid ""
 "// Safe because we know that the base address points to the control\n"
 "        // registers of a PL011 device which is appropriately mapped.\n"
 msgstr ""
+"// 기본 주소가 적절하게 매핑된 PL011 기기의 제어 레지스터를\n"
+"        // 가리키고 있으므로 안전합니다.\n"
 
 #: src/bare-metal/aps/uart.md:37 src/bare-metal/aps/better-uart/driver.md:33
 #: src/exercises/bare-metal/rtc.md:345
 msgid "// Write to the TX buffer.\n"
-msgstr ""
+msgstr "// TX 버퍼에 씁니다.\n"
 
 #: src/bare-metal/aps/uart.md:41 src/bare-metal/aps/better-uart/driver.md:37
 #: src/exercises/bare-metal/rtc.md:349
 msgid "// Wait until the UART is no longer busy.\n"
-msgstr ""
+msgstr "// UART가 더 이상 사용 중이 아닐 때까지 기다립니다.\n"
 
 #: src/bare-metal/aps/uart.md:55
 msgid ""
@@ -17180,6 +17312,8 @@ msgid ""
 "We derived the `Debug` trait. It would be useful to implement a few more "
 "traits too."
 msgstr ""
+"`Debug` 트레잇을 상속했습니다. 몇 가지 트레잇을 추가로 더 구현하는 것도 유용"
+"할 수 있습니다."
 
 #: src/bare-metal/aps/uart/traits.md:17 src/exercises/bare-metal/rtc.md:381
 #: src/exercises/bare-metal/solutions-afternoon.md:223
@@ -17187,18 +17321,24 @@ msgid ""
 "// Safe because it just contains a pointer to device memory, which can be\n"
 "// accessed from any context.\n"
 msgstr ""
+"// 모든 컨텍스트에서 액세스할 수 있는 기기 메모리에 대한\n"
+"// 포인터만 포함하므로 안전합니다.\n"
 
 #: src/bare-metal/aps/uart/traits.md:25
 msgid ""
 "Implementing `Write` lets us use the `write!` and `writeln!` macros with our "
 "`Uart` type."
 msgstr ""
+"`Write`를 구현하면 `write!` 및 `writeln!` 매크로를 `Uart` 타입과 함께 사용할 "
+"수 있습니다."
 
 #: src/bare-metal/aps/uart/traits.md:27
 msgid ""
 "Run the example in QEMU with `make qemu_minimal` under `src/bare-metal/aps/"
 "examples`."
 msgstr ""
+"`src/bare-metal/aps/examples`에서 `make qemu_minimal`을 사용하여 QEMU에서 예"
+"를 실행합니다."
 
 #: src/bare-metal/aps/better-uart.md:1
 msgid "A better UART driver"
@@ -17368,62 +17508,66 @@ msgid ""
 "The [`bitflags`](https://crates.io/crates/bitflags) crate is useful for "
 "working with bitflags."
 msgstr ""
+"[`bitflags`](https://crates.io/crates/bitflags) 크레이트는 비트플래그를 사용"
+"하는 데 유용합니다."
 
 #: src/bare-metal/aps/better-uart/bitflags.md:10
 #: src/exercises/bare-metal/rtc.md:241
 msgid "/// Flags from the UART flag register.\n"
-msgstr ""
+msgstr "/// UART 플래그 레지스터의 플래그입니다.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:14
 #: src/exercises/bare-metal/rtc.md:245
 msgid "/// Clear to send.\n"
-msgstr ""
+msgstr "/// 보내려면 지웁니다.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:16
 #: src/exercises/bare-metal/rtc.md:247
 msgid "/// Data set ready.\n"
-msgstr ""
+msgstr "/// 데이터 세트가 준비되었습니다.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:18
 #: src/exercises/bare-metal/rtc.md:249
 msgid "/// Data carrier detect.\n"
-msgstr ""
+msgstr "/// 데이터 이동통신사 감지\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:20
 #: src/exercises/bare-metal/rtc.md:251
 msgid "/// UART busy transmitting data.\n"
-msgstr ""
+msgstr "/// UART에서 데이터를 전송 중입니다.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:22
 #: src/exercises/bare-metal/rtc.md:253
 msgid "/// Receive FIFO is empty.\n"
-msgstr ""
+msgstr "/// 수신 FIFO가 비어 있습니다.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:24
 #: src/exercises/bare-metal/rtc.md:255
 msgid "/// Transmit FIFO is full.\n"
-msgstr ""
+msgstr "/// 전송 FIFO가 가득 찼습니다.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:26
 #: src/exercises/bare-metal/rtc.md:257
 msgid "/// Receive FIFO is full.\n"
-msgstr ""
+msgstr "/// 수신 FIFO가 가득 찼습니다.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:28
 #: src/exercises/bare-metal/rtc.md:259
 msgid "/// Transmit FIFO is empty.\n"
-msgstr ""
+msgstr "/// 전송 FIFO가 비어 있습니다.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:30
 #: src/exercises/bare-metal/rtc.md:261
 msgid "/// Ring indicator.\n"
-msgstr ""
+msgstr "/// 벨소리 표시기입니다.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:38
 msgid ""
 "The `bitflags!` macro creates a newtype something like `Flags(u16)`, along "
 "with a bunch of method implementations to get and set flags."
 msgstr ""
+"`bitflags!` 매크로는 플래그를 가져오고 설정하기 위한 여러 메서드 구현과 함께 "
+"`Flags(u16)`와 같은 새로운 타입을 생성합니다."
 
 #: src/bare-metal/aps/better-uart/registers.md:1
 #, fuzzy
@@ -17434,6 +17578,7 @@ msgstr "더 많은 레지스터"
 msgid ""
 "We can use a struct to represent the memory layout of the UART's registers."
 msgstr ""
+"구조체를 사용하여 UART 레지스터의 메모리 레이아웃을 나타낼 수 있습니다."
 
 #: src/bare-metal/aps/better-uart/registers.md:43
 msgid ""
@@ -17443,14 +17588,19 @@ msgid ""
 "predictable layout, as default Rust representation allows the compiler to "
 "(among other things) reorder fields however it sees fit."
 msgstr ""
+"[`#[repr(C)]`](https://doc.rust-lang.org/reference/type-layout.html#the-c-"
+"representation)는 C와 동일한 규칙에 따라 구조체 필드를 순서대로 배치하도록 컴"
+"파일러에 지시합니다. 기본 Rust 표현을 사용하면 컴파일러가 원하는 대로 필드의 "
+"순서를 변경할 수 있으므로 구조체에서 예측 가능한 레이아웃을 사용하는 데 필요"
+"합니다."
 
 #: src/bare-metal/aps/better-uart/driver.md:3
 msgid "Now let's use the new `Registers` struct in our driver."
-msgstr ""
+msgstr "이제 드라이버에서 새로운 `Registers` 구조체를 사용해 보겠습니다."
 
 #: src/bare-metal/aps/better-uart/driver.md:6
 msgid "/// Driver for a PL011 UART.\n"
-msgstr ""
+msgstr "/// PL011 UART용 드라이버\n"
 
 #: src/bare-metal/aps/better-uart/driver.md:30
 #: src/bare-metal/aps/better-uart/driver.md:54
@@ -17459,24 +17609,31 @@ msgid ""
 "// Safe because we know that self.registers points to the control\n"
 "        // registers of a PL011 device which is appropriately mapped.\n"
 msgstr ""
+"// self.registers가 적절하게 매핑된 PL011 기기의 제어 레지스터를\n"
+"        // 가리키고 있으므로 안전합니다.\n"
 
 #: src/bare-metal/aps/better-uart/driver.md:41
 #: src/exercises/bare-metal/rtc.md:353
+#, fuzzy
 msgid ""
 "/// Reads and returns a pending byte, or `None` if nothing has been\n"
 "    /// received.\n"
 msgstr ""
+"/// 대기 중인 바이트를 읽고 반환하거나, 아무것도 수신되지 않은 경우 `None`을 "
+"반환합니다.\n"
 
 #: src/bare-metal/aps/better-uart/driver.md:48
 #: src/exercises/bare-metal/rtc.md:360
 msgid "// TODO: Check for error conditions in bits 8-11.\n"
-msgstr ""
+msgstr "// TODO: 비트 8~11에서 오류 상태를 확인합니다.\n"
 
 #: src/bare-metal/aps/better-uart/driver.md:63
 msgid ""
 "Note the use of `addr_of!` / `addr_of_mut!` to get pointers to individual "
 "fields without creating an intermediate reference, which would be unsound."
 msgstr ""
+"`addr_of!` / `addr_of_mut!`를 사용하여 중간 참조를 만들지 않고 개별 필드 포인"
+"터를 가져오는 것은 불안정할 수 있습니다."
 
 #: src/bare-metal/aps/better-uart/using.md:1
 #: src/bare-metal/aps/logging/using.md:1
@@ -17489,12 +17646,14 @@ msgid ""
 "Let's write a small program using our driver to write to the serial console, "
 "and echo incoming bytes."
 msgstr ""
+"드라이버를 사용하여 직렬 콘솔에 쓰고 수신되는 바이트를 에코하는 간단한 프로그"
+"램을 작성해 보겠습니다."
 
 #: src/bare-metal/aps/better-uart/using.md:19
 #: src/bare-metal/aps/logging/using.md:18 src/exercises/bare-metal/rtc.md:44
 #: src/exercises/bare-metal/solutions-afternoon.md:33
 msgid "/// Base address of the primary PL011 UART.\n"
-msgstr ""
+msgstr "/// 기본 PL011 UART의 기본 주소입니다.\n"
 
 #: src/bare-metal/aps/better-uart/using.md:25
 #: src/bare-metal/aps/logging/using.md:24 src/exercises/bare-metal/rtc.md:50
@@ -17503,28 +17662,30 @@ msgid ""
 "// Safe because `PL011_BASE_ADDRESS` is the base address of a PL011 device,\n"
 "    // and nothing else accesses that address range.\n"
 msgstr ""
+"// `PL011_BASE_ADDRESS`가 PL011 기기의 기본 주소이고\n"
+"    // 이 주소 범위에 액세스하는 다른 항목이 없으므로 안전합니다.\n"
 
 #: src/bare-metal/aps/better-uart/using.md:29
 #: src/bare-metal/aps/logging/using.md:29
 msgid "\"main({x0:#x}, {x1:#x}, {x2:#x}, {x3:#x})\""
-msgstr ""
+msgstr "\"main({x0:#x}, {x1:#x}, {x2:#x}, {x3:#x})\""
 
 #: src/bare-metal/aps/better-uart/using.md:35
-msgid "b'\\r'"
-msgstr ""
+msgid "b'\\r\""
+msgstr "b'\\r\""
 
 #: src/bare-metal/aps/better-uart/using.md:36
 #: src/async/pitfalls/cancellation.md:27
-msgid "b'\\n'"
-msgstr ""
+msgid "b'\\n\""
+msgstr "b'\\n\""
 
 #: src/bare-metal/aps/better-uart/using.md:38
 msgid "b'q'"
-msgstr ""
+msgstr "b'q'"
 
 #: src/bare-metal/aps/better-uart/using.md:44
 msgid "\"Bye!\""
-msgstr ""
+msgstr "\"안녕!\""
 
 #: src/bare-metal/aps/better-uart/using.md:51
 msgid ""
@@ -17532,11 +17693,16 @@ msgid ""
 "function is called from our entry point code in `entry.S`. See the speaker "
 "notes there for details."
 msgstr ""
+"[인라인 어셈블리](../inline-assembly.md) 예에서와 같이 이 `main` 함수는 "
+"`entry.S`의 진입점 코드에서 호출됩니다. 자세한 내용은 해당 발표자 노트를 참고"
+"하세요."
 
 #: src/bare-metal/aps/better-uart/using.md:54
 msgid ""
 "Run the example in QEMU with `make qemu` under `src/bare-metal/aps/examples`."
 msgstr ""
+"`src/bare-metal/aps/examples`에서 `make qemu`를 사용하여 QEMU에서 예를 실행합"
+"니다."
 
 #: src/bare-metal/aps/logging.md:3
 msgid ""
@@ -17549,11 +17715,11 @@ msgstr ""
 
 #: src/bare-metal/aps/logging.md:26 src/exercises/bare-metal/rtc.md:193
 msgid "\"[{}] {}\""
-msgstr ""
+msgstr "\"[{}] {}\""
 
 #: src/bare-metal/aps/logging.md:35 src/exercises/bare-metal/rtc.md:202
 msgid "/// Initialises UART logger.\n"
-msgstr ""
+msgstr "/// UART 로거를 초기화합니다.\n"
 
 #: src/bare-metal/aps/logging.md:48
 msgid ""
@@ -17565,22 +17731,24 @@ msgstr ""
 
 #: src/bare-metal/aps/logging/using.md:3
 msgid "We need to initialise the logger before we use it."
-msgstr ""
+msgstr "로거를 사용하려면 먼저 초기화해야 합니다."
 
 #: src/bare-metal/aps/logging/using.md:38 src/exercises/bare-metal/rtc.md:72
 #: src/exercises/bare-metal/solutions-afternoon.md:115
 msgid "\"{info}\""
-msgstr ""
+msgstr "\"{info}\""
 
 #: src/bare-metal/aps/logging/using.md:46
 msgid "Note that our panic handler can now log details of panics."
-msgstr ""
+msgstr "패닉 핸들러가 이제 패닉의 세부정보를 기록할 수 있습니다."
 
 #: src/bare-metal/aps/logging/using.md:47
 msgid ""
 "Run the example in QEMU with `make qemu_logger` under `src/bare-metal/aps/"
 "examples`."
 msgstr ""
+"`src/bare-metal/aps/examples`에서 `make qemu_logger`를 사용하여 QEMU에서 예"
+"를 실행합니다."
 
 #: src/bare-metal/aps/exceptions.md:3
 msgid ""
@@ -17590,22 +17758,31 @@ msgid ""
 "We implement this in assembly to save volatile registers to the stack before "
 "calling into Rust code:"
 msgstr ""
+"AArch64는 4개 상태(SP0을 사용하는 현재 EL, SPx를 사용하는 현재 EL, AArch64를 "
+"사용하는 하위 EL, AArch32를 사용하는 하위 EL)의 4가지 예외 타입(동기, IRQ, "
+"FIQ, SError)에 대해 16개 항목이 있는 예외 벡터 테이블을 정의합니다. Rust 코드"
+"를 호출하기 전에 휘발성 레지스터를 스택에 저장하기 위해 어셈블리에서 이를 구"
+"현합니다."
 
 #: src/bare-metal/aps/exceptions.md:67
 msgid "EL is exception level; all our examples this afternoon run in EL1."
-msgstr ""
+msgstr "EL은 예외 수준입니다. 오늘 오후의 모든 예는 EL1에서 실행됩니다."
 
 #: src/bare-metal/aps/exceptions.md:68
 msgid ""
 "For simplicity we aren't distinguishing between SP0 and SPx for the current "
 "EL exceptions, or between AArch32 and AArch64 for the lower EL exceptions."
 msgstr ""
+"편의상 현재 EL 예외의 SP0과 SPx를 구별하거나 하위 EL 예외의 AArch32와 AArch64"
+"를 구별하지 않습니다."
 
 #: src/bare-metal/aps/exceptions.md:70
 msgid ""
 "For this example we just log the exception and power down, as we don't "
 "expect any of them to actually happen."
 msgstr ""
+"이 예에서는 예외가 실제로 발생할 것으로 예상되지 않으므로 예외를 기록하고 전"
+"원을 끕니다."
 
 #: src/bare-metal/aps/exceptions.md:72
 msgid ""
@@ -17616,6 +17793,11 @@ msgid ""
 "rest of the program, and it's `Send` but not `Sync`, then we'll need to wrap "
 "it in something like a `Mutex` and put it in a static."
 msgstr ""
+"예외 핸들러와 기본 실행 컨텍스트는 서로 다른 스레드와 거의 비슷하다고 생각할 "
+"수 있습니다. [`Send` 및 `Sync`](../../concurrency/send-sync.md)는 스레드와 마"
+"찬가지로 이들 간에 공유할 수 있는 항목을 제어합니다. 예를 들어 예외 핸들러와 "
+"프로그램의 나머지 부분 간에 값을 공유하려고 하는데 `Send`이지만 `Sync`는 아"
+"닌 경우, `Mutex`와 같은 것으로 래핑하고 정적인 것으로 배치해야 합니다."
 
 #: src/bare-metal/aps/other-projects.md:3
 #, fuzzy
@@ -17677,6 +17859,9 @@ msgid ""
 "The RaspberryPi OS tutorial runs Rust code before the MMU and caches are "
 "enabled. This will read and write memory (e.g. the stack). However:"
 msgstr ""
+"RaspberryPi OS 튜토리얼에서는 MMU와 캐시가 사용 설정되기 전에 Rust 코드를 실"
+"행합니다. 이렇게 하면 메모리(예: 스택)를 읽고 쓸 수 있습니다. 하지만 다음과 "
+"같은 예외가 적용됩니다."
 
 #: src/bare-metal/aps/other-projects.md:19
 msgid ""
@@ -17685,6 +17870,10 @@ msgid ""
 "generating unaligned accesses so it should be alright, but this is not "
 "necessarily the case in general."
 msgstr ""
+"MMU와 캐시가 없으면 정렬되지 않은 액세스에 오류가 발생합니다. 컴파일러가 정렬"
+"되지 않은 액세스를 생성하지 않도록 `+strict-align`을 설정하는 `aarch64-"
+"unknown-none`으로 빌드되므로 문제가 없지만, 일반적으로 반드시 그런 것은 아닙"
+"니다."
 
 #: src/bare-metal/aps/other-projects.md:23
 msgid ""
@@ -17696,6 +17885,12 @@ msgid ""
 "alright in this particular case (running directly on the hardware with no "
 "hypervisor), but isn't a good pattern in general."
 msgstr ""
+"VM에서 실행한다면 캐시 일관성 문제가 발생할 수 있습니다. 문제는 VM은 캐시가 "
+"사용 중지된 상태로 메모리에 직접 액세스하는 반면 호스트에는 동일한 메모리에 "
+"대해 캐시할 수 있는 별칭이 있다는 점입니다. 호스트가 메모리에 명시적으로 액세"
+"스하지 않더라도 추측 액세스는 캐시 채우기로 이어질 수 있으며 둘 중 하나의 변"
+"경사항이 손실됩니다. 이번에도 하이퍼바이저 없이 하드웨어에서 직접 실행되는 "
+"이 특정 경우에는 문제가 없지만, 일반적으로 좋은 패턴은 아닙니다."
 
 #: src/bare-metal/useful-crates.md:1
 msgid "Useful crates"
@@ -17775,15 +17970,15 @@ msgstr ""
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:14
 msgid "// Create a new page table with identity mapping.\n"
-msgstr ""
+msgstr "// ID 매핑을 사용하여 새 페이지 테이블을 만듭니다.\n"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:16
 msgid "// Map a 2 MiB region of memory as read-only.\n"
-msgstr ""
+msgstr "// 2MiB 메모리 영역을 읽기 전용으로 매핑합니다.\n"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:21
 msgid "// Set `TTBR0_EL1` to activate the page table.\n"
-msgstr ""
+msgstr "// `TTBR0_EL1`을 설정하여 페이지 테이블을 활성화합니다.\n"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:28
 msgid ""
@@ -17967,7 +18162,7 @@ msgstr ""
 
 #: src/exercises/bare-metal/afternoon.md:3
 msgid "We will write a driver for the PL031 real-time clock device."
-msgstr ""
+msgstr "PL031 실시간 시계 기기용 드라이버를 작성합니다."
 
 #: src/exercises/bare-metal/afternoon.md:7
 #: src/exercises/concurrency/afternoon.md:13
@@ -18000,6 +18195,8 @@ msgid ""
 "Use it to print the current time to the serial console. You can use the "
 "[`chrono`](https://crates.io/crates/chrono) crate for date/time formatting."
 msgstr ""
+"직렬 콘솔에 현재 시간을 출력하는 데 사용합니다. 날짜/시간 형식 지정에는 "
+"[`chrono`](https://crates.io/crates/chrono) 크레이트를 사용할 수 있습니다."
 
 #: src/exercises/bare-metal/rtc.md:8
 msgid ""
@@ -18007,6 +18204,9 @@ msgid ""
 "time, e.g. 3 seconds in the future. (Call [`core::hint::spin_loop`](https://"
 "doc.rust-lang.org/core/hint/fn.spin_loop.html) inside the loop.)"
 msgstr ""
+"일치 레지스터와 원시 인터럽트 상태를 사용하여 특정 시간(예: 향후 3초)까지 바"
+"쁜 대기합니다. 루프 내에서 [`core::hint::spin_loop`](https://doc.rust-lang."
+"org/core/hint/fn.spin_loop.html)를 호출합니다."
 
 #: src/exercises/bare-metal/rtc.md:11
 msgid ""
@@ -18014,32 +18214,40 @@ msgid ""
 "the RTC match. You can use the driver provided in the [`arm-gic`](https://"
 "docs.rs/arm-gic/) crate to configure the Arm Generic Interrupt Controller."
 msgstr ""
+"_시간이 있는 경우 연장:_ RTC 일치로 생성된 인터럽트를 사용 설정하고 처리합니"
+"다. [`arm-gic`](https://docs.rs/arm-gic/) 크레이트에 제공된 드라이버를 사용하"
+"여 Arm 일반 인터럽트 컨트롤러를 구성할 수 있습니다."
 
 #: src/exercises/bare-metal/rtc.md:14
 msgid "Use the RTC interrupt, which is wired to the GIC as `IntId::spi(2)`."
-msgstr ""
+msgstr "GIC에 `IntId::spi(2)`로 연결된 RTC 인터럽트를 사용합니다."
 
 #: src/exercises/bare-metal/rtc.md:15
 msgid ""
 "Once the interrupt is enabled, you can put the core to sleep via `arm_gic::"
 "wfi()`, which will cause the core to sleep until it receives an interrupt."
 msgstr ""
+"인터럽트를 사용 설정한 후에는 `arm_gic::wfi()`를 통해 코어를 절전 모드로 전환"
+"할 수 있습니다. 이 경우 인터럽트를 수신할 때까지 코어가 절전 모드로 전환됩니"
+"다."
 
 #: src/exercises/bare-metal/rtc.md:19
 msgid ""
 "Download the [exercise template](../../comprehensive-rust-exercises.zip) and "
 "look in the `rtc` directory for the following files."
 msgstr ""
+"[연습 템플릿](../../comprehensive-rust-exercises.zip)을 다운로드하고 `rtc` 디"
+"렉터리에서 다음 파일을 찾습니다."
 
 #: src/exercises/bare-metal/rtc.md:40
 #: src/exercises/bare-metal/solutions-afternoon.md:29
 msgid "/// Base addresses of the GICv3.\n"
-msgstr ""
+msgstr "/// GICv3의 기본 주소입니다.\n"
 
 #: src/exercises/bare-metal/rtc.md:55
 #: src/exercises/bare-metal/solutions-afternoon.md:49
 msgid "\"main({:#x}, {:#x}, {:#x}, {:#x})\""
-msgstr ""
+msgstr "\"main({:#x}, {:#x}, {:#x}, {:#x})\""
 
 #: src/exercises/bare-metal/rtc.md:57
 #: src/exercises/bare-metal/solutions-afternoon.md:51
@@ -18048,20 +18256,24 @@ msgid ""
 "    // addresses of a GICv3 distributor and redistributor respectively, and\n"
 "    // nothing else accesses those address ranges.\n"
 msgstr ""
+"// `GICD_BASE_ADDRESS` 및 `GICR_BASE_ADDRESS`가 각각 GICv3 배포자 및 재배포자"
+"의\n"
+" // 기본 주소이이고\n"
+"    // 이러한 주소 범위에 액세스하는 다른 항목이 없으므로 안전합니다.\n"
 
 #: src/exercises/bare-metal/rtc.md:63
 msgid "// TODO: Create instance of RTC driver and print current time.\n"
-msgstr ""
+msgstr "// TODO: RTC 드라이버의 인스턴스를 만들고 현재 시간을 출력합니다.\n"
 
 #: src/exercises/bare-metal/rtc.md:65
 msgid "// TODO: Wait for 3 seconds.\n"
-msgstr ""
+msgstr "// TODO: 3초 동안 기다립니다.\n"
 
 #: src/exercises/bare-metal/rtc.md:78
 msgid ""
 "_src/exceptions.rs_ (you should only need to change this for the 3rd part of "
 "the exercise):"
-msgstr ""
+msgstr "_src/exceptions.rs_는 연습의 세 번째 부분에서만 변경하면 됩니다."
 
 #: src/exercises/bare-metal/rtc.md:84 src/exercises/bare-metal/rtc.md:159
 #: src/exercises/bare-metal/rtc.md:218 src/exercises/bare-metal/rtc.md:418
@@ -18080,101 +18292,118 @@ msgid ""
 "// See the License for the specific language governing permissions and\n"
 "// limitations under the License.\n"
 msgstr ""
+"// Copyright 2023 Google LLC\n"
+"//\n"
+"// Apache 라이선스 버전 2.0('라이선스')에 따라 라이선스가 부여되었습니다.\n"
+"// 라이선스를 준수하지 않으면 이 파일을 사용할 수 없습니다.\n"
+"// 다음 주소에서 라이선스 사본을 가져올 수 있습니다.\n"
+"//\n"
+"//      http://www.apache.org/licenses/LICENSE-2.0\n"
+"//\n"
+"// 관련법에서 요구하거나 서면으로 동의한 경우를 제외하고\n"
+"// 본 라이선스에 따라 배포되는 소프트웨어는 어떠한 종류의 명시적 또는 묵시적 "
+"보증 또는 조건도 없이\n"
+"// '있는 그대로' 배포됩니다.\n"
+"// 라이선스에 따른 권한과 제한사항에 관한\n"
+"// 특정 언어의 라이선스를 확인하세요.\n"
 
 #: src/exercises/bare-metal/rtc.md:105
 msgid "\"sync_exception_current\""
-msgstr ""
+msgstr "\"sync_exception_current\""
 
 #: src/exercises/bare-metal/rtc.md:111
+#, fuzzy
 msgid "\"irq_current\""
-msgstr ""
+msgstr "\"irq_current\""
 
 #: src/exercises/bare-metal/rtc.md:113
 msgid "\"No pending interrupt\""
-msgstr ""
+msgstr "\"대기 중인 인터럽트 없음\""
 
 #: src/exercises/bare-metal/rtc.md:114
 msgid "\"IRQ {intid:?}\""
-msgstr ""
+msgstr "\"IRQ {intid:?}\""
 
 #: src/exercises/bare-metal/rtc.md:119
 msgid "\"fiq_current\""
-msgstr ""
+msgstr "\"fiq_current\""
 
 #: src/exercises/bare-metal/rtc.md:125
 msgid "\"serr_current\""
-msgstr ""
+msgstr "\"serr_current\""
 
 #: src/exercises/bare-metal/rtc.md:131
 msgid "\"sync_lower\""
-msgstr ""
+msgstr "\"sync_lower\""
 
 #: src/exercises/bare-metal/rtc.md:137
 msgid "\"irq_lower\""
-msgstr ""
+msgstr "\"irq_lower\""
 
 #: src/exercises/bare-metal/rtc.md:143
 msgid "\"fiq_lower\""
-msgstr ""
+msgstr "\"fiq_lower\""
 
 #: src/exercises/bare-metal/rtc.md:149
 msgid "\"serr_lower\""
-msgstr ""
+msgstr "\"serr_lower\""
 
 #: src/exercises/bare-metal/rtc.md:154
 msgid "_src/logger.rs_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_src/logger.rs_(변경할 필요가 없음):"
 
 #: src/exercises/bare-metal/rtc.md:172
 msgid "// ANCHOR: main\n"
-msgstr ""
+msgstr "// ANCHOR: main\n"
 
 #: src/exercises/bare-metal/rtc.md:213
 msgid "_src/pl011.rs_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_src/pl011.rs_ (변경할 필요가 없음):"
 
 #: src/exercises/bare-metal/rtc.md:236
 msgid "// ANCHOR: Flags\n"
-msgstr ""
+msgstr "// ANCHOR: 플래그\n"
 
 #: src/exercises/bare-metal/rtc.md:264
 msgid "// ANCHOR_END: Flags\n"
-msgstr ""
+msgstr "// ANCHOR_END: 플래그\n"
 
 #: src/exercises/bare-metal/rtc.md:268
 msgid ""
 "/// Flags from the UART Receive Status Register / Error Clear Register.\n"
-msgstr ""
+msgstr "/// UART 수신 상태 레지스터 / 오류 정리 레지스터의 플래그\n"
 
 #: src/exercises/bare-metal/rtc.md:272
 msgid "/// Framing error.\n"
-msgstr ""
+msgstr "/// 프레임 오류\n"
 
 #: src/exercises/bare-metal/rtc.md:274
 msgid "/// Parity error.\n"
-msgstr ""
+msgstr "/// 패리티 오류\n"
 
 #: src/exercises/bare-metal/rtc.md:276
 msgid "/// Break error.\n"
-msgstr ""
+msgstr "/// 중단 오류\n"
 
 #: src/exercises/bare-metal/rtc.md:278
 msgid "/// Overrun error.\n"
-msgstr ""
+msgstr "/// 오버런 오류\n"
 
 #: src/exercises/bare-metal/rtc.md:282
 msgid "// ANCHOR: Registers\n"
-msgstr ""
+msgstr "// ANCHOR: 레지스터\n"
 
 #: src/exercises/bare-metal/rtc.md:314
 msgid "// ANCHOR_END: Registers\n"
-msgstr ""
+msgstr "// ANCHOR_END: 레지스터\n"
 
 #: src/exercises/bare-metal/rtc.md:316
 msgid ""
 "// ANCHOR: Uart\n"
 "/// Driver for a PL011 UART.\n"
 msgstr ""
+"// ANCHOR: Uart\n"
+"/// PL011 UART의 드라이버입니다.\n"
 
 #: src/exercises/bare-metal/rtc.md:325
 msgid ""
@@ -18189,52 +18418,59 @@ msgid ""
 "process\n"
 "    /// as device memory and not have any other aliases.\n"
 msgstr ""
+"/// 지정된 기본 주소에 PL011 기기에 대한 UART 드라이버의 새 인스턴스를\n"
+" /// 생성합니다.\n"
+" ///\n"
+" /// # 안전\n"
+" ///\n"
+" /// 지정된 기본 주소는 PL011 기기의\n"
+" /// MMIO 제어 레지스터를 가리켜야 하며,\n"
+" /// 이는 프로세스의 주소 공간에 기기 메모리로\n"
+" /// 매핑되어야 하며 다른 별칭은 없어야 합니다.\n"
 
 #: src/exercises/bare-metal/rtc.md:370
 msgid "// ANCHOR_END: Uart\n"
-msgstr ""
+msgstr "// ANCHOR_END: Uart\n"
 
 #: src/exercises/bare-metal/rtc.md:413
 msgid "_build.rs_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_build.rs_(변경할 필요가 없음):"
 
 #: src/exercises/bare-metal/rtc.md:436 src/exercises/bare-metal/rtc.md:438
 msgid "\"linux\""
-msgstr ""
+msgstr "\"linux\""
 
 #: src/exercises/bare-metal/rtc.md:437 src/exercises/bare-metal/rtc.md:439
 msgid "\"CROSS_COMPILE\""
-msgstr ""
+msgstr "\"CROSS_COMPILE\""
 
 #: src/exercises/bare-metal/rtc.md:437
-#, fuzzy
 msgid "\"aarch64-linux-gnu\""
-msgstr "aarch64-paging"
+msgstr "\"aarch64-linux-gnu\""
 
 #: src/exercises/bare-metal/rtc.md:439
 msgid "\"aarch64-none-elf\""
-msgstr ""
+msgstr "\"aarch64-none-elf\""
 
 #: src/exercises/bare-metal/rtc.md:442
 msgid "\"entry.S\""
-msgstr ""
+msgstr "\"entry.S\""
 
 #: src/exercises/bare-metal/rtc.md:443
-#, fuzzy
 msgid "\"exceptions.S\""
-msgstr "예외"
+msgstr "\"exceptions.S\""
 
 #: src/exercises/bare-metal/rtc.md:444
 msgid "\"idmap.S\""
-msgstr ""
+msgstr "\"idmap.S\""
 
 #: src/exercises/bare-metal/rtc.md:445
 msgid "\"empty\""
-msgstr ""
+msgstr "\"비어 있음\""
 
 #: src/exercises/bare-metal/rtc.md:449
 msgid "_entry.S_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_entry.S_(변경할 필요가 없음):"
 
 #: src/exercises/bare-metal/rtc.md:453
 msgid ""
@@ -18397,10 +18633,167 @@ msgid ""
 "\tb 2b\n"
 "```"
 msgstr ""
+"```armasm\n"
+"/*\n"
+" * Copyright 2023 Google LLC\n"
+" *\n"
+" * Apache 라이선스 버전 2.0(\"라이선스\")에 따라 라이선스가 부여되었습니다.\n"
+" * 라이선스를 준수하지 않으면 이 파일을 사용할 수 없습니다.\n"
+" * 다음 주소에서 라이선스 사본을 가져올 수 있습니다.\n"
+" *\n"
+" *     https://www.apache.org/licenses/LICENSE-2.0\n"
+" *\n"
+" * 관련법에서 요구하거나 서면으로 동의한 경우를 제외하고\n"
+" * 본 라이선스에 따라 배포되는 소프트웨어는 어떠한 종류의 명시적 또는 묵시적 "
+"보증 또는 조건도 없이\n"
+" * \"있는 그대로\" 배포됩니다.\n"
+" * 라이선스에 따른 권한과 제한사항에 관한\n"
+" * 특정 언어의 라이선스를 확인하세요.\n"
+" */\n"
+"\n"
+".macro adr_l, reg:req, sym:req\n"
+"\tadrp \\reg, \\sym\n"
+"\tadd \\reg, \\reg, :lo12:\\sym\n"
+".endm\n"
+"\n"
+".macro mov_i, reg:req, imm:req\n"
+"\tmovz \\reg, :abs_g3:\\imm\n"
+"\tmovk \\reg, :abs_g2_nc:\\imm\n"
+"\tmovk \\reg, :abs_g1_nc:\\imm\n"
+"\tmovk \\reg, :abs_g0_nc:\\imm\n"
+".endm\n"
+"\n"
+".set .L_MAIR_DEV_nGnRE,\t0x04\n"
+".set .L_MAIR_MEM_WBWA,\t0xff\n"
+".set .Lmairval, .L_MAIR_DEV_nGnRE | (.L_MAIR_MEM_WBWA << 8)\n"
+"\n"
+"/* TTBR0_EL1의 경우 4KiB 그래뉼 크기 */\n"
+".set .L_TCR_TG0_4KB, 0x0 << 14\n"
+"/* TTBR1_EL1의 경우 4KiB 그래뉼 크기 */\n"
+".set .L_TCR_TG1_4KB, 0x2 << 30\n"
+"/* TTBR1_EL1의 변환 테이블 워크를 사용 중지하여 변환 오류를 대신 발생시킵니"
+"다. */\n"
+".set .L_TCR_EPD1, 0x1 << 23\n"
+"/* TTBR0_EL1의 변환 테이블 워크는 내부 공유가 가능합니다. */\n"
+".set .L_TCR_SH_INNER, 0x3 << 12\n"
+"/*\n"
+" * TTBR0_EL1의 변환 테이블 워크는 외부 write-back read-allocate write-"
+"allocate\n"
+" * cacheable입니다.\n"
+" */\n"
+".set .L_TCR_RGN_OWB, 0x1 << 10\n"
+"/*\n"
+" * TTBR0_EL1의 변환 테이블은 내부 write-back read-allocate write-allocate\n"
+" * cacheable 입니다.\n"
+" */\n"
+".set .L_TCR_RGN_IWB, 0x1 << 8\n"
+"/* TTBR0_EL1의 크기 오프셋은 2**39바이트(512GiB)입니다. */\n"
+".set .L_TCR_T0SZ_512, 64 - 39\n"
+".set .Ltcrval, .L_TCR_TG0_4KB | .L_TCR_TG1_4KB | .L_TCR_EPD1 | ."
+"L_TCR_RGN_OWB\n"
+".set .Ltcrval, .Ltcrval | .L_TCR_RGN_IWB | .L_TCR_SH_INNER | ."
+"L_TCR_T0SZ_512\n"
+"\n"
+"/* 1단계 명령 액세스 캐시 가능성은 영향을 받지 않습니다. */\n"
+".set .L_SCTLR_ELx_I, 0x1 << 12\n"
+"/* SP가 16바이트 경계에 맞게 정렬되지 않으면 SP 정렬 오류가 발생합니다. */\n"
+".set .L_SCTLR_ELx_SA, 0x1 << 3\n"
+"/* 1단계 데이터 액세스 캐시 가능성은 영향을 받지 않습니다. */\n"
+".set .L_SCTLR_ELx_C, 0x1 << 2\n"
+"/* EL0 및 EL1 1단계 MMU가 사용 설정됩니다. */\n"
+".set .L_SCTLR_ELx_M, 0x1 << 0\n"
+"/* Privileged Access Never는 EL1에 예외를 적용할 때 변경되지 않습니다. */\n"
+".set .L_SCTLR_EL1_SPAN, 0x1 << 23\n"
+"/* SETEND 명령이 aarch32 모드의 EL0에서 사용 중지됩니다. */\n"
+".set .L_SCTLR_EL1_SED, 0x1 << 8\n"
+"/* aarch32 모드에서는 EL0에서 다양한 IT 명령이 사용 중지됩니다. */\n"
+".set .L_SCTLR_EL1_ITD, 0x1 << 7\n"
+".set .L_SCTLR_EL1_RES1, (0x1 << 11) | (0x1 << 20) | (0x1 << 22) | (0x1 << "
+"28) | (0x1 << 29)\n"
+".set .Lsctlrval, .L_SCTLR_ELx_M | .L_SCTLR_ELx_C | .L_SCTLR_ELx_SA | ."
+"L_SCTLR_EL1_ITD | .L_SCTLR_EL1_SED\n"
+".set .Lsctlrval, .Lsctlrval | .L_SCTLR_ELx_I | .L_SCTLR_EL1_SPAN | ."
+"L_SCTLR_EL1_RES1\n"
+"\n"
+"/**\n"
+" * 이는 이미지의 일반 진입점입니다. 로드된 이미지를\n"
+"실행하기 위해 준비하는 데 필요한 작업을 실행합니다. 특히 x25 이상의 레지스터"
+"를 사용하여 bss 섹션을 0으로 설정하고\n"
+" * 스택을 준비하고 부동 소수점을 사용 설정하며 예외 벡터를 설정합니다. Rust "
+"진입점\n"
+" * x0-x3을 보존합니다. 부팅 매개변수가 포함될 수 있기 때문입니다.\n"
+" */\n"
+".section .init.entry, \"ax\"\n"
+".global entry\n"
+"entry:\n"
+"\t/* MMU 및 캐시를 사용 설정할 준비가 된 메모리 관리 구성을 로드 및 적용합니"
+"다. */\n"
+"\tadrp x30, idmap\n"
+"\tmsr ttbr0_el1, x30\n"
+"\n"
+"\tmov_i x30, .Lmairval\n"
+"\tmsr mair_el1, x30\n"
+"\n"
+"\tmov_i x30, .Ltcrval\n"
+"\t/* 지원되는 PA 범위를 TCR_EL1.IPS로 복사합니다. */\n"
+"\tmrs x29, id_aa64mmfr0_el1\n"
+"\tbfi x30, x29, #32, #4\n"
+"\n"
+"\tmsr tcr_el1, x30\n"
+"\n"
+"\tmov_i x30, .Lsctlrval\n"
+"\n"
+"\t/*\n"
+"\t 이 시점 전의 모든 내용이 완료되었는지 확인한 후 사용하기 전에 잠재적으로 "
+"오래된\n"
+"\t * 로컬 TLB 항목을 무효화합니다.\n"
+"\t */\n"
+"\tisb\n"
+"\ttlbi vmalle1\n"
+"\tic iallu\n"
+"\tdsb nsh\n"
+"\tisb\n"
+"\n"
+"\t/*\n"
+"\t * sctlr_el1을 구성하여 MMU와 캐시를 사용 설정하고 이 과정이 완료될 때까지 "
+"진행하지 않습니다.\n"
+"\t */\n"
+"\tmsr sctlr_el1, x30\n"
+"\tisb\n"
+"\n"
+"\t/* EL1에서 부동 소수점 액세스 트래핑을 사용 중지합니다. */\n"
+"\tmrs x30, cpacr_el1\n"
+"\torr x30, x30, #(0x3 << 20)\n"
+"\tmsr cpacr_el1, x30\n"
+"\tisb\n"
+"\n"
+"\t/* bss 섹션을 0으로 만듭니다. */\n"
+"\tadr_l x29, bss_begin\n"
+"\tadr_l x30, bss_end\n"
+"0:\tcmp x29, x30\n"
+"\tb.hs 1f\n"
+"\tstp xzr, xzr, [x29], #16\n"
+"\tb 0b\n"
+"\n"
+"1:\t/* 스택을 준비합니다. */\n"
+"\tadr_l x30, boot_stack_end\n"
+"\tmov sp, x30\n"
+"\n"
+"\t/* 예외 벡터를 설정합니다. */\n"
+"\tadr x30, vector_table_el1\n"
+"\tmsr vbar_el1, x30\n"
+"\n"
+"\t/* Rust 코드를 호출합니다. */\n"
+"\tbl main\n"
+"\n"
+"\t/* 루프가 인터럽트를 기다리고 있습니다. */\n"
+"2:\twfi\n"
+"\tb 2b\n"
+"```"
 
 #: src/exercises/bare-metal/rtc.md:598
 msgid "_exceptions.S_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_exceptions.S_(변경할 필요가 없음):"
 
 #: src/exercises/bare-metal/rtc.md:602
 msgid ""
@@ -18595,10 +18988,200 @@ msgid ""
 "\tcurrent_exception_spx serr_lower\n"
 "```"
 msgstr ""
+"```armasm\n"
+"/*\n"
+" * Copyright 2023 Google LLC\n"
+" *\n"
+" * Licensed under the Apache License, Version 2.0 (the \"License\");\n"
+" * you may not use this file except in compliance with the License.\n"
+" * You may obtain a copy of the License at\n"
+" *\n"
+" *     https://www.apache.org/licenses/LICENSE-2.0\n"
+" *\n"
+" * Unless required by applicable law or agreed to in writing, software\n"
+" * distributed under the License is distributed on an \"AS IS\" BASIS,\n"
+" * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n"
+" * See the License for the specific language governing permissions and\n"
+" * limitations under the License.\n"
+" */\n"
+"\n"
+"/**\n"
+" * Saves the volatile registers onto the stack. This currently takes 14\n"
+" * instructions, so it can be used in exception handlers with 18 "
+"instructions\n"
+" * left.\n"
+" *\n"
+" * On return, x0 and x1 are initialised to elr_el2 and spsr_el2 "
+"respectively,\n"
+" * which can be used as the first and second arguments of a subsequent "
+"call.\n"
+" */\n"
+".macro save_volatile_to_stack\n"
+"\t/* Reserve stack space and save registers x0-x18, x29 & x30. */\n"
+"\tstp x0, x1, [sp, #-(8 * 24)]!\n"
+"\tstp x2, x3, [sp, #8 * 2]\n"
+"\tstp x4, x5, [sp, #8 * 4]\n"
+"\tstp x6, x7, [sp, #8 * 6]\n"
+"\tstp x8, x9, [sp, #8 * 8]\n"
+"\tstp x10, x11, [sp, #8 * 10]\n"
+"\tstp x12, x13, [sp, #8 * 12]\n"
+"\tstp x14, x15, [sp, #8 * 14]\n"
+"\tstp x16, x17, [sp, #8 * 16]\n"
+"\tstr x18, [sp, #8 * 18]\n"
+"\tstp x29, x30, [sp, #8 * 20]\n"
+"\n"
+"\t/*\n"
+"\t * Save elr_el1 & spsr_el1. This such that we can take nested exception\n"
+"\t * and still be able to unwind.\n"
+"\t */\n"
+"\tmrs x0, elr_el1\n"
+"\tmrs x1, spsr_el1\n"
+"\tstp x0, x1, [sp, #8 * 22]\n"
+".endm\n"
+"\n"
+"/**\n"
+" * Restores the volatile registers from the stack. This currently takes 14\n"
+" * instructions, so it can be used in exception handlers while still leaving "
+"18\n"
+" * instructions left; if paired with save_volatile_to_stack, there are 4\n"
+" * instructions to spare.\n"
+" */\n"
+".macro restore_volatile_from_stack\n"
+"\t/* Restore registers x2-x18, x29 & x30. */\n"
+"\tldp x2, x3, [sp, #8 * 2]\n"
+"\tldp x4, x5, [sp, #8 * 4]\n"
+"\tldp x6, x7, [sp, #8 * 6]\n"
+"\tldp x8, x9, [sp, #8 * 8]\n"
+"\tldp x10, x11, [sp, #8 * 10]\n"
+"\tldp x12, x13, [sp, #8 * 12]\n"
+"\tldp x14, x15, [sp, #8 * 14]\n"
+"\tldp x16, x17, [sp, #8 * 16]\n"
+"\tldr x18, [sp, #8 * 18]\n"
+"\tldp x29, x30, [sp, #8 * 20]\n"
+"\n"
+"\t/* Restore registers elr_el1 & spsr_el1, using x0 & x1 as scratch. */\n"
+"\tldp x0, x1, [sp, #8 * 22]\n"
+"\tmsr elr_el1, x0\n"
+"\tmsr spsr_el1, x1\n"
+"\n"
+"\t/* Restore x0 & x1, and release stack space. */\n"
+"\tldp x0, x1, [sp], #8 * 24\n"
+".endm\n"
+"\n"
+"/**\n"
+" * This is a generic handler for exceptions taken at the current EL while "
+"using\n"
+" * SP0. It behaves similarly to the SPx case by first switching to SPx, "
+"doing\n"
+" * the work, then switching back to SP0 before returning.\n"
+" *\n"
+" * Switching to SPx and calling the Rust handler takes 16 instructions. To\n"
+" * restore and return we need an additional 16 instructions, so we can "
+"implement\n"
+" * the whole handler within the allotted 32 instructions.\n"
+" */\n"
+".macro current_exception_sp0 handler:req\n"
+"\tmsr spsel, #1\n"
+"\tsave_volatile_to_stack\n"
+"\tbl \\handler\n"
+"\trestore_volatile_from_stack\n"
+"\tmsr spsel, #0\n"
+"\teret\n"
+".endm\n"
+"\n"
+"/**\n"
+" * This is a generic handler for exceptions taken at the current EL while "
+"using\n"
+" * SPx. It saves volatile registers, calls the Rust handler, restores "
+"volatile\n"
+" * registers, then returns.\n"
+" *\n"
+" * This also works for exceptions taken from EL0, if we don't care about\n"
+" * non-volatile registers.\n"
+" *\n"
+" * Saving state and jumping to the Rust handler takes 15 instructions, and\n"
+" * restoring and returning also takes 15 instructions, so we can fit the "
+"whole\n"
+" * handler in 30 instructions, under the limit of 32.\n"
+" */\n"
+".macro current_exception_spx handler:req\n"
+"\tsave_volatile_to_stack\n"
+"\tbl \\handler\n"
+"\trestore_volatile_from_stack\n"
+"\teret\n"
+".endm\n"
+"\n"
+".section .text.vector_table_el1, \"ax\"\n"
+".global vector_table_el1\n"
+".balign 0x800\n"
+"vector_table_el1:\n"
+"sync_cur_sp0:\n"
+"\tcurrent_exception_sp0 sync_exception_current\n"
+"\n"
+".balign 0x80\n"
+"irq_cur_sp0:\n"
+"\tcurrent_exception_sp0 irq_current\n"
+"\n"
+".balign 0x80\n"
+"fiq_cur_sp0:\n"
+"\tcurrent_exception_sp0 fiq_current\n"
+"\n"
+".balign 0x80\n"
+"serr_cur_sp0:\n"
+"\tcurrent_exception_sp0 serr_current\n"
+"\n"
+".balign 0x80\n"
+"sync_cur_spx:\n"
+"\tcurrent_exception_spx sync_exception_current\n"
+"\n"
+".balign 0x80\n"
+"irq_cur_spx:\n"
+"\tcurrent_exception_spx irq_current\n"
+"\n"
+".balign 0x80\n"
+"fiq_cur_spx:\n"
+"\tcurrent_exception_spx fiq_current\n"
+"\n"
+".balign 0x80\n"
+"serr_cur_spx:\n"
+"\tcurrent_exception_spx serr_current\n"
+"\n"
+".balign 0x80\n"
+"sync_lower_64:\n"
+"\tcurrent_exception_spx sync_lower\n"
+"\n"
+".balign 0x80\n"
+"irq_lower_64:\n"
+"\tcurrent_exception_spx irq_lower\n"
+"\n"
+".balign 0x80\n"
+"fiq_lower_64:\n"
+"\tcurrent_exception_spx fiq_lower\n"
+"\n"
+".balign 0x80\n"
+"serr_lower_64:\n"
+"\tcurrent_exception_spx serr_lower\n"
+"\n"
+".balign 0x80\n"
+"sync_lower_32:\n"
+"\tcurrent_exception_spx sync_lower\n"
+"\n"
+".balign 0x80\n"
+"irq_lower_32:\n"
+"\tcurrent_exception_spx irq_lower\n"
+"\n"
+".balign 0x80\n"
+"fiq_lower_32:\n"
+"\tcurrent_exception_spx fiq_lower\n"
+"\n"
+".balign 0x80\n"
+"serr_lower_32:\n"
+"\tcurrent_exception_spx serr_lower\n"
+"```"
 
 #: src/exercises/bare-metal/rtc.md:783
 msgid "_idmap.S_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_idmap.S_(변경할 필요가 없음):"
 
 #: src/exercises/bare-metal/rtc.md:787
 msgid ""
@@ -18648,10 +19231,55 @@ msgid ""
 "\t.fill\t\t255, 8, 0x0\t\t\t// 255 GiB of remaining VA space\n"
 "```"
 msgstr ""
+"```armasm\n"
+"/*\n"
+" * Copyright 2023 Google LLC\n"
+" *\n"
+" * Licensed under the Apache License, Version 2.0 (the \"License\");\n"
+" * you may not use this file except in compliance with the License.\n"
+" * You may obtain a copy of the License at\n"
+" *\n"
+" *     https://www.apache.org/licenses/LICENSE-2.0\n"
+" *\n"
+" * Unless required by applicable law or agreed to in writing, software\n"
+" * distributed under the License is distributed on an \"AS IS\" BASIS,\n"
+" * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n"
+" * See the License for the specific language governing permissions and\n"
+" * limitations under the License.\n"
+" */\n"
+"\n"
+".set .L_TT_TYPE_BLOCK, 0x1\n"
+".set .L_TT_TYPE_PAGE,  0x3\n"
+".set .L_TT_TYPE_TABLE, 0x3\n"
+"\n"
+"/* Access flag. */\n"
+".set .L_TT_AF, 0x1 << 10\n"
+"/* Not global. */\n"
+".set .L_TT_NG, 0x1 << 11\n"
+".set .L_TT_XN, 0x3 << 53\n"
+"\n"
+".set .L_TT_MT_DEV, 0x0 << 2\t\t\t// MAIR #0 (DEV_nGnRE)\n"
+".set .L_TT_MT_MEM, (0x1 << 2) | (0x3 << 8)\t// MAIR #1 (MEM_WBWA), inner "
+"shareable\n"
+"\n"
+".set .L_BLOCK_DEV, .L_TT_TYPE_BLOCK | .L_TT_MT_DEV | .L_TT_AF | .L_TT_XN\n"
+".set .L_BLOCK_MEM, .L_TT_TYPE_BLOCK | .L_TT_MT_MEM | .L_TT_AF | .L_TT_NG\n"
+"\n"
+".section \".rodata.idmap\", \"a\", %progbits\n"
+".global idmap\n"
+".align 12\n"
+"idmap:\n"
+"\t/* level 1 */\n"
+"\t.quad\t\t.L_BLOCK_DEV | 0x0\t\t    // 1 GiB of device mappings\n"
+"\t.quad\t\t.L_BLOCK_MEM | 0x40000000\t// 1 GiB of DRAM\n"
+"\t.fill\t\t254, 8, 0x0\t\t\t// 254 GiB of unmapped VA space\n"
+"\t.quad\t\t.L_BLOCK_DEV | 0x4000000000 // 1 GiB of device mappings\n"
+"\t.fill\t\t255, 8, 0x0\t\t\t// 255 GiB of remaining VA space\n"
+"```"
 
 #: src/exercises/bare-metal/rtc.md:832
 msgid "_image.ld_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_image.ld_(변경할 필요가 없음):"
 
 #: src/exercises/bare-metal/rtc.md:836
 msgid ""
@@ -18763,18 +19391,125 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```ld\n"
+"/*\n"
+" * Copyright 2023 Google LLC\n"
+" *\n"
+" * Licensed under the Apache License, Version 2.0 (the \"License\");\n"
+" * you may not use this file except in compliance with the License.\n"
+" * You may obtain a copy of the License at\n"
+" *\n"
+" *     https://www.apache.org/licenses/LICENSE-2.0\n"
+" *\n"
+" * Unless required by applicable law or agreed to in writing, software\n"
+" * distributed under the License is distributed on an \"AS IS\" BASIS,\n"
+" * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n"
+" * See the License for the specific language governing permissions and\n"
+" * limitations under the License.\n"
+" */\n"
+"\n"
+"/*\n"
+" * Code will start running at this symbol which is placed at the start of "
+"the\n"
+" * image.\n"
+" */\n"
+"ENTRY(entry)\n"
+"\n"
+"MEMORY\n"
+"{\n"
+"\timage : ORIGIN = 0x40080000, LENGTH = 2M\n"
+"}\n"
+"\n"
+"SECTIONS\n"
+"{\n"
+"\t/*\n"
+"\t * Collect together the code.\n"
+"\t */\n"
+"\t.init : ALIGN(4096) {\n"
+"\t\ttext_begin = .;\n"
+"\t\t*(.init.entry)\n"
+"\t\t*(.init.*)\n"
+"\t} >image\n"
+"\t.text : {\n"
+"\t\t*(.text.*)\n"
+"\t} >image\n"
+"\ttext_end = .;\n"
+"\n"
+"\t/*\n"
+"\t * Collect together read-only data.\n"
+"\t */\n"
+"\t.rodata : ALIGN(4096) {\n"
+"\t\trodata_begin = .;\n"
+"\t\t*(.rodata.*)\n"
+"\t} >image\n"
+"\t.got : {\n"
+"\t\t*(.got)\n"
+"\t} >image\n"
+"\trodata_end = .;\n"
+"\n"
+"\t/*\n"
+"\t * Collect together the read-write data including .bss at the end which\n"
+"\t * will be zero'd by the entry code.\n"
+"\t */\n"
+"\t.data : ALIGN(4096) {\n"
+"\t\tdata_begin = .;\n"
+"\t\t*(.data.*)\n"
+"\t\t/*\n"
+"\t\t * The entry point code assumes that .data is a multiple of 32\n"
+"\t\t * bytes long.\n"
+"\t\t */\n"
+"\t\t. = ALIGN(32);\n"
+"\t\tdata_end = .;\n"
+"\t} >image\n"
+"\n"
+"\t/* Everything beyond this point will not be included in the binary. */\n"
+"\tbin_end = .;\n"
+"\n"
+"\t/* The entry point code assumes that .bss is 16-byte aligned. */\n"
+"\t.bss : ALIGN(16)  {\n"
+"\t\tbss_begin = .;\n"
+"\t\t*(.bss.*)\n"
+"\t\t*(COMMON)\n"
+"\t\t. = ALIGN(16);\n"
+"\t\tbss_end = .;\n"
+"\t} >image\n"
+"\n"
+"\t.stack (NOLOAD) : ALIGN(4096) {\n"
+"\t\tboot_stack_begin = .;\n"
+"\t\t. += 40 * 4096;\n"
+"\t\t. = ALIGN(4096);\n"
+"\t\tboot_stack_end = .;\n"
+"\t} >image\n"
+"\n"
+"\t. = ALIGN(4K);\n"
+"\tPROVIDE(dma_region = .);\n"
+"\n"
+"\t/*\n"
+"\t * Remove unused sections from the image.\n"
+"\t */\n"
+"\t/DISCARD/ : {\n"
+"\t\t/* The image loads itself so doesn't need these sections. */\n"
+"\t\t*(.gnu.hash)\n"
+"\t\t*(.hash)\n"
+"\t\t*(.interp)\n"
+"\t\t*(.eh_frame_hdr)\n"
+"\t\t*(.eh_frame)\n"
+"\t\t*(.note.gnu.build-id)\n"
+"\t}\n"
+"}\n"
+"```"
 
 #: src/exercises/bare-metal/rtc.md:943
 msgid "_Makefile_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_Makefile_(변경할 필요가 없음):"
 
 #: src/exercises/bare-metal/rtc.md:948
 msgid "# Copyright 2023 Google LLC"
-msgstr ""
+msgstr "# Copyright 2023 Google LLC"
 
 #: src/exercises/bare-metal/rtc.md:962
 msgid "$(shell uname -s)"
-msgstr ""
+msgstr "$(shell uname -s)"
 
 #: src/exercises/bare-metal/rtc.md:964
 #, fuzzy
@@ -18783,15 +19518,15 @@ msgstr "aarch64-paging"
 
 #: src/exercises/bare-metal/rtc.md:981
 msgid "stdio -display none -kernel $< -s"
-msgstr ""
+msgstr "stdio -display none -kernel $< -s"
 
 #: src/exercises/bare-metal/rtc.md:984
 msgid "cargo clean"
-msgstr ""
+msgstr "cargo clean"
 
 #: src/exercises/bare-metal/rtc.md:999
 msgid "Run the code in QEMU with `make qemu`."
-msgstr ""
+msgstr "`make qemu`를 사용하여 QEMU에서 코드를 실행합니다."
 
 #: src/exercises/bare-metal/solutions-afternoon.md:1
 msgid "Bare Metal Rust Afternoon"
@@ -18799,7 +19534,7 @@ msgstr "전Bare Metal 오후"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:5
 msgid "([back to exercise](rtc.md))"
-msgstr ""
+msgstr "([연습문제로 돌아가기](rtc.md))"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:7
 #, fuzzy
@@ -18808,86 +19543,88 @@ msgstr "_hello_rust/src/main.rs_:"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:36
 msgid "/// Base address of the PL031 RTC.\n"
-msgstr ""
+msgstr "/// PL031 RTC의 기본 주소입니다.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:38
 msgid "/// The IRQ used by the PL031 RTC.\n"
-msgstr ""
+msgstr "/// PL031 RTC에서 사용하는 IRQ입니다.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:57
 msgid ""
 "// Safe because `PL031_BASE_ADDRESS` is the base address of a PL031 device,\n"
 "    // and nothing else accesses that address range.\n"
 msgstr ""
+"// `PL031_BASE_ADDRESS`가 PL031 기기의 기본 주소이고\n"
+"    // 이 주소 범위에 액세스하는 다른 항목이 없으므로 안전합니다.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:62
 msgid "\"RTC: {time}\""
-msgstr ""
+msgstr "\"RTC: {time}\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md:70
 msgid "// Wait for 3 seconds, without interrupts.\n"
-msgstr ""
+msgstr "// 인터럽트 없이 3초간 기다립니다.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:73
 #: src/exercises/bare-metal/solutions-afternoon.md:91
 msgid "\"Waiting for {}\""
-msgstr ""
+msgstr "\"{}을(를) 기다리는 중\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md:75
 #: src/exercises/bare-metal/solutions-afternoon.md:83
 #: src/exercises/bare-metal/solutions-afternoon.md:96
 #: src/exercises/bare-metal/solutions-afternoon.md:104
 msgid "\"matched={}, interrupt_pending={}\""
-msgstr ""
+msgstr "\"matched={}, interrupt_pending={}\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md:87
 #: src/exercises/bare-metal/solutions-afternoon.md:108
 msgid "\"Finished waiting\""
-msgstr ""
+msgstr "\"대기 완료됨\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md:89
 msgid "// Wait another 3 seconds for an interrupt.\n"
-msgstr ""
+msgstr "// 인터럽트를 위해 3초 더 기다립니다.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:121
 msgid "_pl031.rs_:"
-msgstr ""
+msgstr "_pl031.rs_:"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:128
 msgid "/// Data register\n"
-msgstr ""
+msgstr "/// 데이터 레지스터\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:130
 msgid "/// Match register\n"
-msgstr ""
+msgstr "/// 일치 레지스터\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:132
 msgid "/// Load register\n"
-msgstr ""
+msgstr "/// 로드 레지스터\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:134
 msgid "/// Control register\n"
-msgstr ""
+msgstr "/// 제어 레지스터\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:137
 msgid "/// Interrupt Mask Set or Clear register\n"
-msgstr ""
+msgstr "/// 인터럽트 마스크 세트 또는 정리 레지스터\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:140
 msgid "/// Raw Interrupt Status\n"
-msgstr ""
+msgstr "/// 원시 인터럽트 상태\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:143
 msgid "/// Masked Interrupt Status\n"
-msgstr ""
+msgstr "/// 마스킹된 인터럽트 상태\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:146
 msgid "/// Interrupt Clear Register\n"
-msgstr ""
+msgstr "/// 인터럽트 정리 레지스터\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:150
 msgid "/// Driver for a PL031 real-time clock.\n"
-msgstr ""
+msgstr "/// PL031 실시간 시계용 드라이버\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:158
 msgid ""
@@ -18902,10 +19639,19 @@ msgid ""
 "process\n"
 "    /// as device memory and not have any other aliases.\n"
 msgstr ""
+"/// 지정된 기본 주소에 PL031 기기에 대한 RTC 드라이버의 새 인스턴스를\n"
+" /// 생성합니다.\n"
+" ///\n"
+" /// # 안전\n"
+" ///\n"
+" /// 지정된 기본 주소는 PL031 기기의\n"
+" /// MMIO 제어 레지스터를 가리켜야 하며,\n"
+" /// 이는 프로세스의 주소 공간에 기기 메모리로\n"
+" /// 매핑되어야 하며 다른 별칭은 없어야 합니다.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:170
 msgid "/// Reads the current RTC value.\n"
-msgstr ""
+msgstr "/// 현재 RTC 값을 읽습니다.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:172
 #: src/exercises/bare-metal/solutions-afternoon.md:180
@@ -18917,12 +19663,16 @@ msgid ""
 "// Safe because we know that self.registers points to the control\n"
 "        // registers of a PL031 device which is appropriately mapped.\n"
 msgstr ""
+"// self.registers가 적절하게 매핑된 PL031 기기의 제어 레지스터를\n"
+"        // 가리키고 있으므로 안전합니다.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:177
 msgid ""
 "/// Writes a match value. When the RTC value matches this then an interrupt\n"
 "    /// will be generated (if it is enabled).\n"
 msgstr ""
+"/// 일치 값을 작성합니다. RTC 값이 이 값과 일치하면 인터럽트가\n"
+"    /// 생성됩니다(사용 설정된 경우).\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:185
 msgid ""
@@ -18930,6 +19680,9 @@ msgid ""
 "not\n"
 "    /// the interrupt is enabled.\n"
 msgstr ""
+"/// 인터럽트가 활성화되었는지 여부와 관계없이 일치 레지스터가 RTC 값과 일치하"
+"는지 여부를\n"
+"    /// 반환합니다.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:194
 msgid ""
@@ -18938,6 +19691,10 @@ msgid ""
 "    /// This should be true if and only if `matched` returns true and the\n"
 "    /// interrupt is masked.\n"
 msgstr ""
+"/// 현재 대기 중인 인터럽트가 있는지 여부를 반환합니다.\n"
+"    ///\n"
+"    /// 이는 'matched'가 true를 반환하고 인터럽트가 마스킹된 경우에만\n"
+"    /// true여야 합니다.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:205
 msgid ""
@@ -18947,10 +19704,14 @@ msgid ""
 "the\n"
 "    /// interrupt is disabled.\n"
 msgstr ""
+"/// 인터럽트 마스크를 설정하거나 지웁니다.\n"
+"    ///\n"
+"    /// 마스크가 true인 경우 인터럽트가 사용 설정됩니다. false이면\n"
+"    /// 인터럽트가 사용 중지됩니다.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:216
 msgid "/// Clears a pending interrupt, if any.\n"
-msgstr ""
+msgstr "/// 대기 중인 인터럽트가 있는 경우 이를 지웁니다.\n"
 
 #: src/concurrency.md:1
 #, fuzzy
