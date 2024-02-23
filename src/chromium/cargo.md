@@ -1,6 +1,6 @@
 # Comparing Chromium and Cargo Ecosystems
 
-Rust community typically uses `cargo` and libraries from [crates.io][2].
+The Rust community typically uses `cargo` and libraries from [crates.io][2].
 Chromium is built using `gn` and `ninja` and a curated set of dependencies.
 
 When writing code in Rust, your choices are:
@@ -78,7 +78,7 @@ may offer an advantage"):
       when building and bootstrapping Rust standard library when building Rust
       toolchain.
     - `run_gnrt.py` uses Chromium's copy of `cargo` and `rustc`. `gnrt` depends
-      on third-party libraries downloaded from the internet, by `run_gnrt.py`
+      on third-party libraries downloaded from the internet, but `run_gnrt.py`
       asks `cargo` that only `--locked` content is allowed via `Cargo.lock`.)
 
 Students may identify the following items as being implicitly or explicitly
