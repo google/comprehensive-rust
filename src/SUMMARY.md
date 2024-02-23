@@ -49,8 +49,7 @@
 - [Tuples and Arrays](tuples-and-arrays.md)
   - [Tuples and Arrays](tuples-and-arrays/tuples-and-arrays.md)
   - [Array Iteration](tuples-and-arrays/iteration.md)
-  - [Pattern Matching](tuples-and-arrays/match.md)
-  - [Destructuring](tuples-and-arrays/destructuring.md)
+  - [Patterns and Destructuring](tuples-and-arrays/destructuring.md)
   - [Exercise: Nested Arrays](tuples-and-arrays/exercise.md)
     - [Solution](tuples-and-arrays/solution.md)
 - [References](references.md)
@@ -73,6 +72,7 @@
 
 - [Welcome](welcome-day-2.md)
 - [Pattern Matching](pattern-matching.md)
+  - [Matching Values](pattern-matching/match.md)
   - [Destructuring](pattern-matching/destructuring.md)
   - [Let Control Flow](pattern-matching/let-control-flow.md)
   - [Exercise: Expression Evaluation](pattern-matching/exercise.md)
