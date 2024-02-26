@@ -1,0 +1,21 @@
+div#aspect-ratio-helper {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    z-index: 1000;
+    pointer-events: none;
+
+}
+
+div#aspect-ratio-helper div {
+    outline: 3px dashed red;
+    margin: 0 auto;
+    /* At this width, the theme fonts are readable in a 16
+       person conference room. If the browser is wider, the
+       text becomes too small to be legible. */
+    max-width: 980px;
+    /* On a standard 16/9 monitor, we expect to lose a bit
+       of vertical space to borders. */
+    aspect-ratio: 16/8.5;
+}

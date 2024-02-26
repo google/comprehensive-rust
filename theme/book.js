@@ -6,10 +6,10 @@ window.onunload = function () { };
 function isPlaygroundModified(playground) {
     let code_block = playground.querySelector("code");
     if (window.ace && code_block.classList.contains("editable")) {
-        let editor = window.ace.edit(code_block);
-        return editor.getValue() != editor.originalCode;
+      let editor = window.ace.edit(code_block);
+      return editor.getValue() != editor.originalCode;
     } else {
-        return false;
+      return false;
     }
 }
 
@@ -44,12 +44,12 @@ function playground_text(playground, hidden = true) {
             method: 'POST',
             mode: 'cors',
         })
-            .then(response => response.json())
-            .then(response => {
-                // get list of crates available in the rust playground
-                let playground_crates = response.crates.map(item => item["id"]);
-                playgrounds.forEach(block => handle_crate_list_update(block, playground_crates));
-            });
+        .then(response => response.json())
+        .then(response => {
+            // get list of crates available in the rust playground
+            let playground_crates = response.crates.map(item => item["id"]);
+            playgrounds.forEach(block => handle_crate_list_update(block, playground_crates));
+        });
     }
 
     function handle_crate_list_update(playground_block, playground_crates) {
@@ -149,32 +149,32 @@ function playground_text(playground, hidden = true) {
             mode: 'cors',
             body: JSON.stringify(params)
         })
-            .then(response => response.json())
-            .then(response => {
-                const endTime = window.performance.now();
-                gtag("event", "playground", {
-                    "modified": playgroundModified,
-                    "error": (response.error == null) ? null : 'compilation_error',
-                    "latency": (endTime - startTime) / 1000,
-                });
-
-                if (response.result.trim() === '') {
-                    result_block.innerText = "No output";
-                    result_block.classList.add("result-no-output");
-                } else {
-                    result_block.innerText = response.result;
-                    result_block.classList.remove("result-no-output");
-                }
-            })
-            .catch(error => {
-                const endTime = window.performance.now();
-                gtag("event", "playground", {
-                    "modified": playgroundModified,
-                    "error": error.message,
-                    "latency": (endTime - startTime) / 1000,
-                });
-                result_block.innerText = "Playground Communication: " + error.message
+        .then(response => response.json())
+        .then(response => {
+            const endTime = window.performance.now();
+            gtag("event", "playground", {
+                "modified": playgroundModified,
+                "error": (response.error == null) ? null : 'compilation_error',
+                "latency": (endTime - startTime) / 1000,
             });
+
+            if (response.result.trim() === '') {
+                result_block.innerText = "No output";
+                result_block.classList.add("result-no-output");
+            } else {
+                result_block.innerText = response.result;
+                result_block.classList.remove("result-no-output");
+            }
+        })
+        .catch(error => {
+            const endTime = window.performance.now();
+            gtag("event", "playground", {
+                "modified": playgroundModified,
+                "error": error.message,
+                "latency": (endTime - startTime) / 1000,
+            });
+            result_block.innerText = "Playground Communication: " + error.message
+        });
     }
 
     // Syntax highlighting Configuration
@@ -311,51 +311,6 @@ function playground_text(playground, hidden = true) {
     });
 })();
 
-// Create a new div element
-var newDiv = document.createElement("div");
-// Set the id attribute of the new div
-newDiv.id = "aspect-ratio-helper";
-
-// Create a nested div inside the new div
-var nestedDiv = document.createElement("div");
-
-// Append the nested div to the new div
-newDiv.appendChild(nestedDiv, newDiv.firstChild);
-// Get the parent element where you want to append the new div
-var parentElement = document.body; // Change this to your desired parent element
-// Append the new div to the parent element
-parentElement.insertBefore(newDiv, parentElement.firstChild);
-// Create the li element
-var li = document.createElement("li");
-// Create the button element
-var hideShowButton = document.createElement("button");
-hideShowButton.textContent = "Dev"; // Set button text
-hideShowButton.className = "theme";
-hideShowButton.id = "dev";
-hideShowButton.setAttribute("role", "menuitem");
-// Append the button to the li element
-li.insertBefore(hideShowButton, li.firstChild);
-li.setAttribute("role", "none");
-// Get the ul element with class "theme-popup"
-var ul = document.querySelector(".theme-popup");
-// Append the li element to the ul element
-ul.insertBefore(li, ul.firstChild);
-
-function devTheme() {
-    // Set the styles for the new div
-    newDiv.style.position = "";
-    newDiv.style.top = "";
-    newDiv.style.left = "";
-    newDiv.style.right = "";
-    newDiv.style.zIndex = "";
-    newDiv.style.pointerEvents = "";
-
-    // Set styles for the nested div
-    nestedDiv.style.outline = "";
-    nestedDiv.style.margin = "";
-    nestedDiv.style.maxWidth = "";
-    nestedDiv.style.aspectRatio = "";
-}
 (function themes() {
     var html = document.querySelector('html');
     var themeToggleButton = document.getElementById('theme-toggle');
@@ -405,35 +360,16 @@ function devTheme() {
             stylesheets.highlight.disabled = true;
 
             ace_theme = "ace/theme/tomorrow_night";
-            devTheme()
-        } else if (theme == 'dev') {
-            stylesheets.ayuHighlight.disabled = true;
-            stylesheets.tomorrowNight.disabled = true;
-            stylesheets.highlight.disabled = false;
-            ace_theme = "ace/theme/dawn";
-            newDiv.style.position = "fixed";
-            newDiv.style.top = "8px";
-            newDiv.style.left = "8px";
-            newDiv.style.right = "8px";
-            newDiv.style.zIndex = "1000";
-            newDiv.style.pointerEvents = "none";
-
-            nestedDiv.style.outline = "3px dashed red";
-            nestedDiv.style.margin = "0 auto";
-            nestedDiv.style.maxWidth = "980px";
-            nestedDiv.style.aspectRatio = "16/8.5";
         } else if (theme == 'ayu') {
             stylesheets.ayuHighlight.disabled = false;
             stylesheets.tomorrowNight.disabled = true;
             stylesheets.highlight.disabled = true;
             ace_theme = "ace/theme/tomorrow_night";
-            devTheme()
         } else {
             stylesheets.ayuHighlight.disabled = true;
             stylesheets.tomorrowNight.disabled = true;
             stylesheets.highlight.disabled = false;
             ace_theme = "ace/theme/dawn";
-            devTheme()
         }
 
         setTimeout(function () {
