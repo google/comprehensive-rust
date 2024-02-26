@@ -22,6 +22,7 @@ look in the `rtc` directory for the following files.
 _src/main.rs_:
 
 <!-- File src/main.rs -->
+<!-- mdbook-xgettext: skip -->
 
 ```rust,compile_fail
 {{#include rtc/src/main.rs:top}}
@@ -41,6 +42,7 @@ _src/exceptions.rs_ (you should only need to change this for the 3rd part of the
 exercise):
 
 <!-- File src/exceptions.rs -->
+<!-- mdbook-xgettext: skip -->
 
 ```rust,compile_fail
 {{#include rtc/src/exceptions.rs}}
@@ -49,6 +51,7 @@ exercise):
 _src/logger.rs_ (you shouldn't need to change this):
 
 <!-- File src/logger.rs -->
+<!-- mdbook-xgettext: skip -->
 
 ```rust,compile_fail
 {{#include rtc/src/logger.rs}}
@@ -57,6 +60,7 @@ _src/logger.rs_ (you shouldn't need to change this):
 _src/pl011.rs_ (you shouldn't need to change this):
 
 <!-- File src/pl011.rs -->
+<!-- mdbook-xgettext: skip -->
 
 ```rust,compile_fail
 {{#include rtc/src/pl011.rs}}
@@ -74,6 +78,7 @@ _Cargo.toml_ (you shouldn't need to change this):
 _build.rs_ (you shouldn't need to change this):
 
 <!-- File build.rs -->
+<!-- mdbook-xgettext: skip -->
 
 ```rust,compile_fail
 {{#include rtc/build.rs}}
@@ -82,6 +87,7 @@ _build.rs_ (you shouldn't need to change this):
 _entry.S_ (you shouldn't need to change this):
 
 <!-- File entry.S -->
+<!-- mdbook-xgettext: skip -->
 
 ```armasm
 {{#include rtc/entry.S}}
@@ -90,6 +96,7 @@ _entry.S_ (you shouldn't need to change this):
 _exceptions.S_ (you shouldn't need to change this):
 
 <!-- File exceptions.S -->
+<!-- mdbook-xgettext: skip -->
 
 ```armasm
 {{#include rtc/exceptions.S}}
@@ -98,6 +105,7 @@ _exceptions.S_ (you shouldn't need to change this):
 _idmap.S_ (you shouldn't need to change this):
 
 <!-- File idmap.S -->
+<!-- mdbook-xgettext: skip -->
 
 ```armasm
 {{#include rtc/idmap.S}}
@@ -106,6 +114,7 @@ _idmap.S_ (you shouldn't need to change this):
 _image.ld_ (you shouldn't need to change this):
 
 <!-- File image.ld -->
+<!-- mdbook-xgettext: skip -->
 
 ```ld
 {{#include rtc/image.ld}}
@@ -114,6 +123,7 @@ _image.ld_ (you shouldn't need to change this):
 _Makefile_ (you shouldn't need to change this):
 
 <!-- File Makefile -->
+<!-- mdbook-xgettext: skip -->
 
 ```makefile
 {{#include rtc/Makefile}}
