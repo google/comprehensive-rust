@@ -8892,43 +8892,46 @@ msgstr "\"bar\""
 
 #: src/welcome-day-3-afternoon.md
 msgid "[Borrowing](./borrowing.md) (1 hour)"
-msgstr ""
+msgstr "[Запозичення](./borrowing.md) (1 година)"
 
 #: src/welcome-day-3-afternoon.md
 msgid ""
 "[Slices and Lifetimes](./slices-and-lifetimes.md) (1 hour and 10 minutes)"
 msgstr ""
+"[Зрізи та тривалість життя](./slices-and-lifetimes.md) (1 година 10 хвилин)"
 
 #: src/welcome-day-3-afternoon.md
 msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 20 "
 "minutes"
 msgstr ""
+"Враховуючи 10-хвилинні перерви, ця сесія має тривати близько 2 годин 20 "
+"хвилин."
 
 #: src/borrowing.md
 msgid "[Borrowing a Value](./borrowing/shared.md) (10 minutes)"
-msgstr ""
+msgstr "[Запозичення значення](./borrowing/shared.md) (10 хвилин)"
 
 #: src/borrowing.md
 msgid "[Borrow Checking](./borrowing/borrowck.md) (10 minutes)"
-msgstr ""
+msgstr "[Перевірка запозичень](./borrowing/borrowck.md) (10 хвилин)"
 
 #: src/borrowing.md
 msgid "[Interior Mutability](./borrowing/interior-mutability.md) (10 minutes)"
 msgstr ""
+"[Внутрішня мутабельність](./borrowing/interior-mutability.md) (10 хвилин)"
 
 #: src/borrowing.md
 msgid "[Exercise: Health Statistics](./borrowing/exercise.md) (30 minutes)"
-msgstr ""
+msgstr "[Вправа: Статистика здоров'я](./borrowing/exercise.md) (30 хвилин)"
 
 #: src/borrowing/shared.md
-#, fuzzy
 msgid ""
 "As we saw before, instead of transferring ownership when calling a function, "
 "you can let a function _borrow_ the value:"
 msgstr ""
-"Замість того, щоб передавати право власності під час виклику функції, ви "
-"можете дозволити функції _позичити_ значення:"
+"Як ми бачили раніше, замість того, щоб передавати право власності при "
+"виклику функції, ви можете дозволити функції _позичити_ значення:"
 
 #: src/borrowing/shared.md
 msgid "The `add` function _borrows_ two points and returns a new point."
@@ -8936,20 +8939,21 @@ msgstr "Функція `add` _позичає_ дві точки та повер�
 
 #: src/borrowing/shared.md
 msgid "The caller retains ownership of the inputs."
-msgstr "Абонент зберігає право власності на введені дані."
+msgstr "Викликач зберігає право власності на вхідні дані."
 
 #: src/borrowing/shared.md
 msgid ""
 "This slide is a review of the material on references from day 1, expanding "
 "slightly to include function arguments and return values."
 msgstr ""
+"Цей слайд є оглядом матеріалу про посилання з першого дня, дещо розширеного "
+"за рахунок включення аргументів функцій та значень, що повертаються."
 
 #: src/borrowing/shared.md
 msgid "Notes on stack returns:"
-msgstr "Примітки щодо повернення стека:"
+msgstr "Примітки щодо повернення стеку:"
 
 #: src/borrowing/shared.md
-#, fuzzy
 msgid ""
 "Demonstrate that the return from `add` is cheap because the compiler can "
 "eliminate the copy operation. Change the above code to print stack addresses "
@@ -8959,16 +8963,16 @@ msgid ""
 "\"DEBUG\" optimization level, the addresses should change, while they stay "
 "the same when changing to the \"RELEASE\" setting:"
 msgstr ""
-"Продемонструйте, що повернення від `add` є дешевим, оскільки компілятор може "
-"виключити операцію копіювання. Змініть наведений вище код, щоб надрукувати "
-"адреси стеків, і запустіть його на [Playground](https://play.rust-lang.org/) "
-"або перегляньте збірку в [Godbolt](https://rust.godbolt.org/ ). На рівні "
-"оптимізації \"DEBUG\" адреси мають змінитися, але вони залишаються "
-"незмінними під час переходу до параметра \"RELEASE\":"
+"Продемонструйте, що повернення з `add` є дешевим, оскільки компілятор може "
+"виключити операцію копіювання. Змініть наведений вище код так, щоб він "
+"виводив адреси стеку, і запустіть його на [Playground](https://play.rust-"
+"lang.org/) або перегляньте збірку в [Godbolt](https://rust.godbolt.org/). На "
+"рівні оптимізації \"DEBUG\" адреси мають змінитися, але вони залишаються "
+"незмінними під час переходу до налаштування \"RELEASE\":"
 
 #: src/borrowing/shared.md
 msgid "The Rust compiler can do return value optimization (RVO)."
-msgstr "Компілятор Rust може оптимізувати значення повернення (RVO)."
+msgstr "Компілятор Rust може оптимізувати значення, що повертається (RVO)."
 
 #: src/borrowing/shared.md
 msgid ""
@@ -8983,44 +8987,45 @@ msgstr ""
 "ефективну копію `memcpy`."
 
 #: src/borrowing/borrowck.md
-#, fuzzy
 msgid ""
 "Rust's _borrow checker_ puts constraints on the ways you can borrow values. "
 "For a given value, at any time:"
-msgstr "Rust накладає обмеження на способи запозичення значень:"
-
-#: src/borrowing/borrowck.md
-#, fuzzy
-msgid "You can have one or more shared references to the value, _or_"
 msgstr ""
-"Ви можете мати одне або кілька значень `&T` в будь-який момент часу, _або_"
+"Перевірка запозичень у Rust'і накладає обмеження на способи, якими ви можете "
+"запозичувати значення. Для певного значення, у будь-який час:"
 
 #: src/borrowing/borrowck.md
-#, fuzzy
+msgid "You can have one or more shared references to the value, _or_"
+msgstr "Ви можете мати одне або декілька спільних посилань на значення, _або_"
+
+#: src/borrowing/borrowck.md
 msgid "You can have exactly one exclusive reference to the value."
-msgstr "Ви можете мати лише одне значення `&mut T`."
+msgstr "Ви можете мати лише одне ексклюзивне посилання на значення."
 
 #: src/borrowing/borrowck.md
 msgid ""
 "Note that the requirement is that conflicting references not _exist_ at the "
 "same point. It does not matter where the reference is dereferenced."
 msgstr ""
+"Зверніть увагу, що вимога полягає в тому, що конфліктуючі посилання не "
+"повинні _існувати_ в тій самій момент часу. Не має значення, де посилання "
+"буде розіменовано."
 
 #: src/borrowing/borrowck.md
 msgid ""
 "The above code does not compile because `a` is borrowed as mutable (through "
 "`c`) and as immutable (through `b`) at the same time."
 msgstr ""
-"Наведений вище код не компілюється, оскільки `a` запозичено як змінний "
-"(через `c`) і як незмінний (через `b`) одночасно."
+"Наведений вище код не компілюється, оскільки `a` запозичено як мутабельну "
+"змінну (через `c`) і як немутабельну (через `b`) одночасно."
 
 #: src/borrowing/borrowck.md
 msgid ""
 "Move the `println!` statement for `b` before the scope that introduces `c` "
 "to make the code compile."
 msgstr ""
-"Перемістіть оператор `println!` для `b` перед областю, яка вводить `c`, щоб "
-"компілювати код."
+"Перемістіть інструкцію `println!` для `b` перед областю видимості, яка "
+"вводить `c`, щоб забезпечити компіляцію коду."
 
 #: src/borrowing/borrowck.md
 msgid ""
@@ -9029,8 +9034,8 @@ msgid ""
 "checker called \"non-lexical lifetimes\"."
 msgstr ""
 "Після цієї зміни компілятор розуміє, що `b` використовується тільки перед "
-"новим змінним запозиченням `a` через `c`. Це функція перевірки запозичень "
-"під назвою «нелексичні терміни життя»."
+"новим мутабельним запозиченням `a` через `c`. Це функція перевірки "
+"запозичень під назвою \"нелексичні терміни життя\"."
 
 #: src/borrowing/borrowck.md
 msgid ""
@@ -9039,6 +9044,10 @@ msgid ""
 "optimize code. For example, a value behind a shared reference can be safely "
 "cached in a register for the lifetime of that reference."
 msgstr ""
+"Обмеження ексклюзивного посилання є досить сильним. Rust використовує його "
+"для запобігання гонці даних. Rust також _покладається_ на це обмеження для "
+"оптимізації коду. Наприклад, значення за спільним посиланням можна безпечно "
+"кешувати у регістрі на весь час існування цього посилання."
 
 #: src/borrowing/borrowck.md
 msgid ""
@@ -9047,6 +9056,11 @@ msgid ""
 "time. But, there are some situations where it doesn't quite \"get it\" and "
 "this often results in \"fighting with the borrow checker.\""
 msgstr ""
+"Перевірку запозичень розроблено з урахуванням багатьох поширених шаблонів, "
+"таких як одночасне отримання ексклюзивних посилань на різні поля у "
+"структурі. Але бувають ситуації, коли вона не зовсім \"розуміє що "
+"відбувається\", і це часто призводить до \"боротьби з перевіряльником "
+"запозичень\"."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9054,6 +9068,10 @@ msgid ""
 "only) reference. For example, a shared data structure might have an internal "
 "cache, and wish to update that cache from read-only methods."
 msgstr ""
+"У деяких ситуаціях необхідно модифікувати дані за спільним (доступним лише "
+"для читання) посиланням. Наприклад, структура даних зі спільним доступом "
+"може мати внутрішній кеш, і ви хочете оновити цей кеш методами, доступними "
+"лише для читання."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9061,24 +9079,26 @@ msgid ""
 "a shared reference. The standard library provides several ways to do this, "
 "all while still ensuring safety, typically by performing a runtime check."
 msgstr ""
+"Паттерн \"внутрішня мутабельність\" дозволяє ексклюзивний (мутабельний) "
+"доступ за спільним посиланням. Стандартна бібліотека надає декілька способів "
+"зробити це, забезпечуючи при цьому безпеку, як правило, шляхом виконання "
+"перевірки під час виконання."
 
 #: src/borrowing/interior-mutability.md
-#, fuzzy
 msgid "`RefCell`"
-msgstr "`RefCell<T>`"
+msgstr "`RefCell`"
 
 #: src/borrowing/interior-mutability.md
 msgid "\"graph: {root:#?}\""
-msgstr ""
+msgstr "\"граф: {root:#?}\""
 
 #: src/borrowing/interior-mutability.md
 msgid "\"graph sum: {}\""
-msgstr ""
+msgstr "\"сума графа: {}\""
 
 #: src/borrowing/interior-mutability.md
-#, fuzzy
 msgid "`Cell`"
-msgstr "`Клітинка<T>`"
+msgstr "`Cell`"
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9086,6 +9106,10 @@ msgid ""
 "shared reference to the `Cell`. However, it does not allow any references to "
 "the value. Since there are no references, borrowing rules cannot be broken."
 msgstr ""
+"`Cell` обгортає значення і дозволяє отримати або встановити значення, навіть "
+"за допомогою спільного посилання на `Cell`. Однак, він не дозволяє "
+"посилатися на значення. Оскільки посилань немає, правила запозичення не "
+"можуть бути порушені."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9093,6 +9117,9 @@ msgid ""
 "ways to modify data behind a shared reference. There are a variety of ways "
 "to ensure that safety, and `RefCell` and `Cell` are two of them."
 msgstr ""
+"Основне, що можна винести з цього слайду, це те, що Rust надає _безпечні_ "
+"способи модифікації даних за спільним посиланням. Існує безліч способів "
+"забезпечити цю захищеність, і `RefCell` та `Cell` - два з них."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9101,6 +9128,10 @@ msgid ""
 "case, all borrows are very short and never overlap, so the checks always "
 "succeed."
 msgstr ""
+"`RefCell`застосовує звичайні правила запозичень Rust (або декілька спільних "
+"посилань, або одне ексклюзивне посилання) з перевіркою під час виконання. У "
+"цьому випадку всі запозичення дуже короткі і ніколи не перетинаються, тому "
+"перевірки завжди проходять успішно."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9108,6 +9139,9 @@ msgid ""
 "purpose is to allow (and count) many references. But we want to modify the "
 "value, so we need interior mutability."
 msgstr ""
+"`Rc` дозволяє лише спільний (тільки для читання) доступ до свого вмісту, "
+"оскільки його призначення - дозволяти (і рахувати) декілька посилань. Але ми "
+"хочемо змінювати значення, тому нам потрібна внутрішня мутабельність."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9115,15 +9149,17 @@ msgid ""
 "`&self`. This needs no runtime check, but requires moving values, which can "
 "have its own cost."
 msgstr ""
+"`Cell` є найпростішим засобом гарантування безпеки: він має метод `set`, "
+"який приймає значення `&self`. Це не потребує перевірки під час виконання, "
+"але вимагає переміщення значень, що може мати свою ціну."
 
 #: src/borrowing/interior-mutability.md
-#, fuzzy
 msgid ""
 "Demonstrate that reference loops can be created by adding `root` to `subtree."
 "children`."
 msgstr ""
 "Продемонструйте, що цикли посилань можна створити, додавши `root` до "
-"`subtree.children` (не намагайтеся його надрукувати!)."
+"`subtree.children`."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9134,8 +9170,8 @@ msgid ""
 msgstr ""
 "Щоб продемонструвати паніку під час виконання, додайте `fn inc(&mut self)`, "
 "який збільшує `self.value` і викликає той самий метод для його дітей. Це "
-"призведе до паніки за наявності циклу посилання, з `потоком 'main' паніки "
-"від 'вже запозичено: BorrowMutError'`."
+"призведе до паніки за наявності циклу посилання, з `потоком 'main', який "
+"панікує з 'already borrowed: BorrowMutError'`."
 
 #: src/borrowing/exercise.md
 msgid ""
@@ -9146,76 +9182,84 @@ msgstr ""
 "вам потрібно відстежувати статистику здоров’я користувачів."
 
 #: src/borrowing/exercise.md
-#, fuzzy
 msgid ""
 "You'll start with a stubbed function in an `impl` block as well as a `User` "
 "struct definition. Your goal is to implement the stubbed out method on the "
 "`User` `struct` defined in the `impl` block."
 msgstr ""
-"Ви почнете з деяких заглушених функцій у блоці `impl`, а також з визначення "
-"структури `User`. Ваша мета — реалізувати заглушені методи в структурі "
-"`User`, визначеній у блоці `impl`."
+"Ви почнете із заглушки функції у блоці `impl`, а також з визначення "
+"структури `User`. Ваша мета — рреалізувати заглушений метод в структурі "
+"`User`, визначений у блоці `impl`."
 
 #: src/borrowing/exercise.md
-#, fuzzy
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and fill in the missing "
 "method:"
 msgstr ""
-"Скопіюйте код нижче на <https://play.rust-lang.org/> і заповніть відсутні "
-"методи:"
+"Скопіюйте код нижче в <https://play.rust-lang.org/> та заповніть відсутній "
+"метод:"
 
 #: src/borrowing/exercise.md
 msgid ""
 "\"Update a user's statistics based on measurements from a visit to the "
 "doctor\""
 msgstr ""
+"\" Оновити статистику користувача на основі вимірювань під час візиту до "
+"лікаря\""
 
 #: src/borrowing/exercise.md src/borrowing/solution.md
 #: src/android/build-rules/library.md src/android/aidl/client.md
 msgid "\"Bob\""
-msgstr ""
+msgstr "\"Bob\""
 
 #: src/borrowing/exercise.md src/borrowing/solution.md
 msgid "\"I'm {} and my age is {}\""
-msgstr ""
+msgstr "\"Мене звуть {}, а мій вік - {}\""
 
 #: src/slices-and-lifetimes.md
 msgid "[Slices: &\\[T\\]](./slices-and-lifetimes/slices.md) (10 minutes)"
-msgstr ""
+msgstr "[Зрізи: &\\[T\\]](./slices-and-lifetimes/slices.md) (10 хвилин)"
 
 #: src/slices-and-lifetimes.md
 msgid "[String References](./slices-and-lifetimes/str.md) (10 minutes)"
-msgstr ""
+msgstr "[Посилання на рядки](./slices-and-lifetimes/str.md) (10 хвилин)"
 
 #: src/slices-and-lifetimes.md
 msgid ""
 "[Lifetime Annotations](./slices-and-lifetimes/lifetime-annotations.md) (10 "
 "minutes)"
 msgstr ""
+"[Анотації тривалісті життя](./slices-and-lifetimes/lifetime-annotations.md) "
+"(10 хвилин)"
 
 #: src/slices-and-lifetimes.md
 msgid ""
 "[Lifetime Elision](./slices-and-lifetimes/lifetime-elision.md) (5 minutes)"
 msgstr ""
+"[Усунення тривалості життя](./slices-and-lifetimes/lifetime-elision.md) (5 "
+"хвилин)"
 
 #: src/slices-and-lifetimes.md
 msgid ""
 "[Struct Lifetimes](./slices-and-lifetimes/struct-lifetimes.md) (5 minutes)"
 msgstr ""
+"[Тривалість життя структур](./slices-and-lifetimes/struct-lifetimes.md) (5 "
+"хвилин)"
 
 #: src/slices-and-lifetimes.md
 msgid ""
 "[Exercise: Protobuf Parsing](./slices-and-lifetimes/exercise.md) (30 minutes)"
 msgstr ""
+"[Вправа: Синтаксичний розбір Protobuf](./slices-and-lifetimes/exercise.md) "
+"(30 хвилин)"
 
 #: src/slices-and-lifetimes/slices.md
 msgid "Slices"
-msgstr "Слайси"
+msgstr "Зрізи"
 
 #: src/slices-and-lifetimes/slices.md
 msgid "A slice gives you a view into a larger collection:"
-msgstr "Зріз дає змогу переглянути більшу колекцію:"
+msgstr "Зріз дає змогу поглянути на більшу колекцію:"
 
 #: src/slices-and-lifetimes/slices.md
 msgid "Slices borrow data from the sliced type."
@@ -9256,7 +9300,7 @@ msgstr ""
 msgid ""
 "To easily create a slice of the full array, we can therefore use `&a[..]`."
 msgstr ""
-"Щоб легко створити зріз повного масиву, ми можемо використовувати `&a[..]`."
+"Щоб легко створити повний зріз масиву, ми можемо використовувати `&a[..]`."
 
 #: src/slices-and-lifetimes/slices.md
 msgid ""
@@ -9264,22 +9308,20 @@ msgid ""
 "(`&[i32]`) no longer mentions the array length. This allows us to perform "
 "computation on slices of different sizes."
 msgstr ""
-"`s` є посиланням на зріз `i32`s. Зверніть увагу, що тип `s` (`&[i32]`) "
-"більше не згадує довжину масиву. Це дозволяє нам виконувати обчислення на "
-"зрізах різного розміру."
+"`s` є посиланням на зріз `i32`. Зверніть увагу, що тип `s` (`&[i32]`) більше "
+"не згадує довжину масиву. Це дозволяє нам виконувати обчислення на зрізах "
+"різного розміру."
 
 #: src/slices-and-lifetimes/slices.md
-#, fuzzy
 msgid ""
 "Slices always borrow from another object. In this example, `a` has to remain "
 "'alive' (in scope) for at least as long as our slice."
 msgstr ""
 "Зрізи завжди запозичуються з іншого об'єкта. У цьому прикладі `a` має "
-"залишатися 'живим' (в області застосування) принаймні стільки ж, скільки наш "
-"зріз."
+"залишатися 'живим' (в області застосування) принаймні стільки ж, скільки і "
+"наш зріз."
 
 #: src/slices-and-lifetimes/slices.md
-#, fuzzy
 msgid ""
 "The question about modifying `a[3]` can spark an interesting discussion, but "
 "the answer is that for memory safety reasons you cannot do it through `a` at "
@@ -9291,27 +9333,27 @@ msgstr ""
 "полягає в тому, що з міркувань безпеки пам’яті ви не можете зробити це через "
 "`a` на цьому етапі виконання, але ви можете читати дані з обох `a ` і `s` "
 "безпечно. Це спрацьовує до того, як ви створили зріз, і знову після "
-"`println`, коли зріз більше не використовується. Докладніше буде описано у "
-"розділі перевірки запозичень."
+"`println`, коли зріз більше не використовується."
 
 #: src/slices-and-lifetimes/str.md
 msgid ""
 "We can now understand the two string types in Rust: `&str` is almost like "
 "`&[char]`, but with its data stored in a variable-length encoding (UTF-8)."
 msgstr ""
+"Тепер ми можемо зрозуміти два типи рядків у Rust: `&str` - це майже як "
+"`&[char]`, але його дані зберігаються у кодуванні змінної довжини (UTF-8)."
 
 #: src/slices-and-lifetimes/str.md
 msgid "\"s1: {s1}\""
-msgstr ""
+msgstr "\"s1: {s1}\""
 
 #: src/slices-and-lifetimes/str.md
-#, fuzzy
 msgid "\"Hello \""
-msgstr "Hello World!"
+msgstr "\"Привіт \""
 
 #: src/slices-and-lifetimes/str.md
 msgid "\"s3: {s3}\""
-msgstr ""
+msgstr "\"s3: {s3}\""
 
 #: src/slices-and-lifetimes/str.md
 msgid "Rust terminology:"
@@ -9326,7 +9368,6 @@ msgid "`String` a mutable string buffer."
 msgstr "`String` змінний буфер рядка."
 
 #: src/slices-and-lifetimes/str.md
-#, fuzzy
 msgid ""
 "`&str` introduces a string slice, which is an immutable reference to UTF-8 "
 "encoded string data stored in a block of memory. String literals "
@@ -9342,28 +9383,26 @@ msgid ""
 "`Vec<T>`, it is owned."
 msgstr ""
 "Тип `String` в Rust — це оболонка навколо вектора байтів. Як і у випадку з "
-"`Vec<T>`, він є власністю."
+"`Vec<T>`, він знаходиться у володінні."
 
 #: src/slices-and-lifetimes/str.md
-#, fuzzy
 msgid ""
 "As with many other types `String::from()` creates a string from a string "
 "literal; `String::new()` creates a new empty string, to which string data "
 "can be added using the `push()` and `push_str()` methods."
 msgstr ""
-"Як і багато інших типів, `String::from()` створює рядок із рядкового "
+"Як і у багатьох інших типів, `String::from()` створює рядок із рядкового "
 "літералу; `String::new()` створює новий порожній рядок, до якого дані рядка "
 "можна додати за допомогою методів `push()` і `push_str()`."
 
 #: src/slices-and-lifetimes/str.md
-#, fuzzy
 msgid ""
 "The `format!()` macro is a convenient way to generate an owned string from "
 "dynamic values. It accepts the same format specification as `println!()`."
 msgstr ""
-"Макрос `format!()` — це зручний спосіб генерувати власний рядок із "
-"динамічних значень. Він приймає ту саму специфікацію формату, що й `println!"
-"()`."
+"Макрос `format!()` є зручним способом створення рядка, яким володіють, з "
+"динамічних значень. Він приймає таку саму специфікацію формату, як і "
+"`println!()`."
 
 #: src/slices-and-lifetimes/str.md
 msgid ""
@@ -9372,31 +9411,37 @@ msgid ""
 "boundaries, the expression will panic. The `chars` iterator iterates over "
 "characters and is preferred over trying to get character boundaries right."
 msgstr ""
+"Ви можете запозичувати зрізки `&str` з `String` за допомогою `&` і, за "
+"бажанням, вибору діапазону. Якщо ви виберете діапазон байт, який не "
+"вирівняно за межами символів, вираз запанікує. Ітератор `chars` перебирає "
+"символи, і йому надається перевага перед спробами вирівняти межі символів."
 
 #: src/slices-and-lifetimes/str.md
-#, fuzzy
 msgid ""
 "For C++ programmers: think of `&str` as `std::string_view` from C++, but the "
 "one that always points to a valid string in memory. Rust `String` is a rough "
 "equivalent of `std::string` from C++ (main difference: it can only contain "
 "UTF-8 encoded bytes and will never use a small-string optimization)."
 msgstr ""
-"Для програмістів C++: думайте про `&str` як про `const char*` із C++, але "
-"той, який завжди вказує на дійсний рядок у пам’яті. Rust `String` — це "
-"приблизний еквівалент `std::string` з C++ (головна відмінність: він може "
-"містити лише байти в кодуванні UTF-8 і ніколи не використовуватиме "
-"оптимізацію малих рядків)."
+"Для програмістів на C++: думайте про `&str` як про `std::string_view` з C++, "
+"але такий, що завжди вказує на дійсний рядок у пам'яті. Rust `String` є "
+"приблизним еквівалентом `std::string` з C++ (головна відмінність: він може "
+"містити лише байти у кодуванні UTF-8 і ніколи не використовує оптимізацію "
+"малих рядків).."
 
 #: src/slices-and-lifetimes/str.md
-#, fuzzy
 msgid "Byte strings literals allow you to create a `&[u8]` value directly:"
-msgstr "Рядки байтів дозволяють безпосередньо створювати значення `&[u8]`:"
+msgstr ""
+"Літерали байтових рядків дозволяють створювати значення `&[u8]` "
+"безпосередньо:"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid ""
 "A reference has a _lifetime_, which must not \"outlive\" the value it refers "
 "to. This is verified by the borrow checker."
 msgstr ""
+"Посилання має _тривалість життя_, яка не повинна \"пережити\" значення, на "
+"яке воно посилається. Це перевіряється чекером запозичень."
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid ""
@@ -9405,6 +9450,11 @@ msgid ""
 "`'` and `'a` is a typical default name. Read `&'a Point` as \"a borrowed "
 "`Point` which is valid for at least the lifetime `a`\"."
 msgstr ""
+"Тривалість життя може бути неявною - це те, що ми бачили досі. Часи життя "
+"також можуть бути явними: `&'a Point'', `&'document str''. Тривалість життя "
+"починається з `'`, а `'a` є типовим іменем за замовчуванням. Читати `&'a "
+"Point` як \"запозичений `Point`, який є дійсним принаймні протягом "
+"тривалості життя `a`\"."
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid ""
@@ -9412,20 +9462,25 @@ msgid ""
 "yourself. Explicit lifetime annotations create constraints where there is "
 "ambiguity; the compiler verifies that there is a valid solution."
 msgstr ""
+"Тривалість життя завжди визначається компілятором: ви не можете призначити "
+"час життя самостійно. Явні анотації часу життя створюють обмеження там, де "
+"існує неоднозначність; компілятор перевіряє, чи існує правильний розв'язок."
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid ""
 "Lifetimes become more complicated when considering passing values to and "
 "returning values from functions."
 msgstr ""
+"Часи життя ускладнюються, якщо врахувати передачу значень у функції та "
+"повернення значень з них."
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid "// What is the lifetime of p3?\n"
-msgstr ""
+msgstr "// Яка тривалість життя p3?\n"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid "\"p3: {p3:?}\""
-msgstr ""
+msgstr "\"p3: {p3:?}\""
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid ""
@@ -9435,68 +9490,85 @@ msgid ""
 "Rust requires explicit annotations of lifetimes on function arguments and "
 "return values."
 msgstr ""
+"У цьому прикладі компілятор не знає, яку тривалість життя виводити для `p3`. "
+"Якщо зазирнути у тіло функції, то можна з упевненістю припустити, що час "
+"життя `p3` є меншим з двох: `p1` та `p2`. Але так само, як і типи, Rust "
+"вимагає явних анотацій тривалості життя для аргументів функції та значень, "
+"що повертаються."
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid "Add `'a` appropriately to `left_most`:"
-msgstr ""
+msgstr "Додає `'a` відповідним чином до `left_most`:"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid ""
 "This says, \"given p1 and p2 which both outlive `'a`, the return value lives "
 "for at least `'a`."
 msgstr ""
+"Це говорить, що \"за умови, що p1 і p2 живуть довше за `'a`, значення, що "
+"повертається, живе принаймні `'a`."
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid ""
 "In common cases, lifetimes can be elided, as described on the next slide."
 msgstr ""
+"У поширених випадках час життя можна опустити, як описано на наступному "
+"слайді."
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid "Lifetimes in Function Calls"
 msgstr "Тривалість життя у викликах функцій"
 
 #: src/slices-and-lifetimes/lifetime-elision.md
-#, fuzzy
 msgid ""
 "Lifetimes for function arguments and return values must be fully specified, "
 "but Rust allows lifetimes to be elided in most cases with [a few simple "
 "rules](https://doc.rust-lang.org/nomicon/lifetime-elision.html). This is not "
 "inference -- it is just a syntactic shorthand."
 msgstr ""
-"Тривалість життя для аргументів функції та повернених значень має бути "
-"повністю визначена, але Rust дозволяє у більшості випадків виключати "
+"Тривалість життя аргументів функції та значень, що повертаються, має бути "
+"повністю вказана, але Rust дозволяє у більшості випадків не вказувати "
 "тривалість життя за допомогою [кількох простих правил](https://doc.rust-lang."
-"org/nomicon/lifetime-elision.html) ."
+"org/nomicon/lifetime-elision.html). Це не виведення - це просто синтаксичне "
+"скорочення."
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid "Each argument which does not have a lifetime annotation is given one."
 msgstr ""
+"Кожному аргументу, який не має анотації тривалості життя, присвоюється одна."
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid ""
 "If there is only one argument lifetime, it is given to all un-annotated "
 "return values."
 msgstr ""
+"Якщо існує лише одна тривалість життя аргументу, то вона надається всім "
+"неанотованим значенням, що повертаються."
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid ""
 "If there are multiple argument lifetimes, but the first one is for `self`, "
 "that lifetime is given to all un-annotated return values."
 msgstr ""
+"Якщо існує декілька тривалостей життя аргументів, але перша з них призначена "
+"для `self`, ця тривалість надається усім неанотованим значенням повернення."
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid "In this example, `cab_distance` is trivially elided."
-msgstr ""
+msgstr "У цьому прикладі `cab_distance` тривіально вилучено."
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid ""
 "The `nearest` function provides another example of a function with multiple "
 "references in its arguments that requires explicit annotation."
 msgstr ""
+"Функція `nearest` є ще одним прикладом функції з декількома посиланнями в "
+"аргументах, яка потребує явної анотації."
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid "Try adjusting the signature to \"lie\" about the lifetimes returned:"
 msgstr ""
+"Спробуйте налаштувати сигнатуру на \"брехню\" про повернуту тривалість життя:"
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid ""
@@ -9504,6 +9576,9 @@ msgid ""
 "validity by the compiler. Note that this is not the case for raw pointers "
 "(unsafe), and this is a common source of errors with unsafe Rust."
 msgstr ""
+"Це не скомпілюється, демонструючи, що компілятор перевіряє анотації на "
+"валідність. Зауважте, що це не стосується сирих вказівників (небезпечних), і "
+"це є поширеним джерелом помилок у небезпечному Rust."
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid ""
@@ -9513,6 +9588,12 @@ msgid ""
 "help resolve ambiguity. Often, especially when prototyping, it's easier to "
 "just work with owned data by cloning values where necessary."
 msgstr ""
+"Учні можуть запитати, коли слід використовувати тривалість життя. Rust "
+"запозичення _завжди_ мають тривалість життя. Здебільшого, опускання та "
+"виведення типу означають, що їх не потрібно прописувати. У більш складних "
+"випадках, анотації тривалості життя можуть допомогти вирішити "
+"неоднозначність. Часто, особливо при створенні прототипів, простіше просто "
+"працювати з данними якими володіють, клонуючи значення там, де це необхідно."
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid "Lifetimes in Data Structures"
@@ -9522,28 +9603,28 @@ msgstr "Тривалість життя в структурах даних"
 msgid ""
 "If a data type stores borrowed data, it must be annotated with a lifetime:"
 msgstr ""
-"Якщо тип даних зберігає запозичені дані, він повинен бути анотований часом "
-"життя:"
+"Якщо тип даних зберігає запозичені дані, він повинен мати анотацію із "
+"зазначенням тривалості життя:"
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid "\"Bye {text}!\""
-msgstr ""
+msgstr "\"Bye {text}!\""
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid "\"The quick brown fox jumps over the lazy dog.\""
-msgstr ""
+msgstr "\"The quick brown fox jumps over the lazy dog.\""
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid "// erase(text);\n"
-msgstr ""
+msgstr "// erase(text);\n"
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid "\"{fox:?}\""
-msgstr ""
+msgstr "\"{fox:?}\""
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid "\"{dog:?}\""
-msgstr ""
+msgstr "\"{dog:?}\""
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid ""
@@ -9551,8 +9632,8 @@ msgid ""
 "underlying the contained `&str` lives at least as long as any instance of "
 "`Highlight` that uses that data."
 msgstr ""
-"У наведеному вище прикладі анотація на `Highlight` забезпечує те, що дані, "
-"що лежать в основі `&str`, живуть принаймні стільки ж, скільки будь-який "
+"У наведеному вище прикладі анотація до `Highlight` гарантує, що дані, які "
+"лежать в основі `&str`, існують принаймні стільки, скільки існує будь-який "
 "екземпляр `Highlight`, який використовує ці дані."
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
@@ -9560,8 +9641,8 @@ msgid ""
 "If `text` is consumed before the end of the lifetime of `fox` (or `dog`), "
 "the borrow checker throws an error."
 msgstr ""
-"Якщо `text` споживається до кінця життя `fox` (або `dog`), засіб перевірки "
-"запозичень видає помилку."
+"Якщо `text` буде спожито до закінчення життя `fox` (або `dog`), перевірка "
+"запозичень видасть помилку."
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid ""
@@ -9569,9 +9650,9 @@ msgid ""
 "can be useful for creating lightweight views, but it generally makes them "
 "somewhat harder to use."
 msgstr ""
-"Типи з запозиченими даними змушують користувачів зберігати вихідні дані. Це "
-"може бути корисним для створення легких переглядів, але зазвичай ускладнює "
-"їх використання."
+"Типи з запозиченими даними змушують користувачів зберігати оригінальні дані. "
+"Це може бути корисно для створення полегшених представлень, але загалом "
+"робить їх дещо складнішими у використанні."
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid "When possible, make data structures own their data directly."
@@ -9586,10 +9667,10 @@ msgid ""
 "relationships between the references themselves, in addition to the lifetime "
 "of the struct itself. Those are very advanced use cases."
 msgstr ""
-"Деякі структури з декількома посиланнями всередині можуть мати більше однієї "
-"анотації за весь час існування. Це може бути необхідним, якщо є потреба "
-"описати зв’язки між самими посиланнями на додаток до часу життя самої "
-"структури. Це дуже складні випадки використання."
+"Деякі структури з декількома посиланнями всередині можуть мати більше ніж "
+"одну анотацію про тривалість життя. Це може знадобитися, якщо потрібно "
+"описати зв'язки між самими посиланнями впродовж тривалості життя, на додачу "
+"до тривалості життя самої структури. Це дуже просунуті випадки використання."
 
 #: src/slices-and-lifetimes/exercise.md
 msgid ""
@@ -9598,6 +9679,10 @@ msgid ""
 "simpler than it seems! This illustrates a common parsing pattern, passing "
 "slices of data. The underlying data itself is never copied."
 msgstr ""
+"У цій вправі ви створите синтаксичний аналізатор для [бінарного кодування "
+"protobuf](https://protobuf.dev/programming-guides/encoding/). Не хвилюйтеся, "
+"це простіше, ніж здається! Це ілюструє загальну схему синтаксичного аналізу, "
+"передаючи зрізи даних. Самі дані ніколи не копіюються."
 
 #: src/slices-and-lifetimes/exercise.md
 msgid ""
@@ -9606,11 +9691,14 @@ msgid ""
 "file. In this exercise, we'll encode that information into `match` "
 "statements in functions that get called for each field."
 msgstr ""
+"Повноцінний розбір повідомлення protobuf вимагає знання типів полів, "
+"проіндексованих за номерами полів. Зазвичай ця інформація міститься у файлі "
+"`proto`. У цій вправі ми закодуємо цю інформацію у оператори `match` у "
+"функціях, які викликаються для кожного поля."
 
 #: src/slices-and-lifetimes/exercise.md
-#, fuzzy
 msgid "We'll use the following proto:"
-msgstr "Ви можете використовувати наступний `Cargo.toml`:"
+msgstr "Ми використаємо наступний proto:"
 
 #: src/slices-and-lifetimes/exercise.md
 msgid ""
@@ -9619,6 +9707,11 @@ msgid ""
 "number (e.g., `2` for the `id` field of a `Person` message) and a wire type "
 "defining how the payload should be determined from the byte stream."
 msgstr ""
+"Повідомлення  proto кодується як серія полів, що йдуть одне за одним. Кожне "
+"з них реалізовано у вигляді \"тегу\", за яким слідує значення. Тег містить "
+"номер поля (наприклад, `2` для поля `id` у повідомленні `Person`) і тип "
+"передачі, який визначає спосіб визначення корисного навантаження з потоку "
+"байт."
 
 #: src/slices-and-lifetimes/exercise.md
 msgid ""
@@ -9627,44 +9720,51 @@ msgid ""
 "code also defines callbacks to handle `Person` and `PhoneNumber` fields, and "
 "to parse a message into a series of calls to those callbacks."
 msgstr ""
+"Цілі числа, включаючи тег, подаються у кодуванні змінної довжини, яке "
+"називається VARINT. На щастя, нижче визначено `parse_varint` для вас. "
+"Наведений код також визначає виклики для обробки полів `Person` і "
+"`PhoneNumber`, а також для розбору повідомлення на серію викликів цих "
+"зворотних викликів."
 
 #: src/slices-and-lifetimes/exercise.md
 msgid ""
 "What remains for you is to implement the `parse_field` function and the "
 "`ProtoMessage` trait for `Person` and `PhoneNumber`."
 msgstr ""
+"Вам залишається реалізувати функцію `parse_field` та трейт `ProtoMessage` "
+"для `Person` та `PhoneNumber`."
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "\"Invalid varint\""
-msgstr ""
+msgstr "\"Неправильний varint\""
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "\"Invalid wire-type\""
-msgstr ""
+msgstr "\"Неправильний wire-type\""
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "\"Unexpected EOF\""
-msgstr ""
+msgstr "\"Несподіваний EOF\""
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "\"Invalid length\""
-msgstr ""
+msgstr "\"Неправильна довжина\""
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "\"Unexpected wire-type)\""
-msgstr ""
+msgstr "\"Несподіваний wire-type)\""
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "\"Invalid string (not UTF-8)\""
-msgstr ""
+msgstr "\"Неправильний рядок (не UTF-8)\""
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "/// A wire type as seen on the wire.\n"
-msgstr ""
+msgstr "/// wire type як він приходить по дроту.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "/// The Varint WireType indicates the value is a single VARINT.\n"
-msgstr ""
+msgstr "/// Varint WireType вказує на те, що значення є одним VARINT.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid ""
@@ -9673,61 +9773,72 @@ msgid ""
 "a\n"
 "    /// VARINT followed by exactly that number of bytes.\n"
 msgstr ""
+"//I64,  -- не потрібно для цієї вправи\n"
+"    /// Len WireType вказує на те, що значення є довжиною, представленою у "
+"вигляді \n"
+"    /// VARINT за яким слідує рівно стільки байт.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid ""
 "/// The I32 WireType indicates that the value is precisely 4 bytes in\n"
 "    /// little-endian order containing a 32-bit signed integer.\n"
 msgstr ""
+"/// Тип WireType I32 вказує на те, що значення - це рівно 4 байти в\n"
+"    /// little-endian порядку, що містять 32-бітне ціле число зі знаком.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "/// A field's value, typed based on the wire type.\n"
-msgstr ""
+msgstr "/// Значення поля, введене на основі wire type.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "//I64(i64),  -- not needed for this exercise\n"
-msgstr ""
+msgstr "//I64(i64),  -- не потрібно для цієї вправи\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "/// A field, containing the field number and its value.\n"
-msgstr ""
+msgstr "/// Поле, що містить номер поля та його значення.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "//1 => WireType::I64,  -- not needed for this exercise\n"
-msgstr ""
+msgstr "//1 => WireType::I64,  -- не потрібно для цієї вправи\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid ""
 "/// Parse a VARINT, returning the parsed value and the remaining bytes.\n"
 msgstr ""
+"/// Розбір VARINT з поверненням розібраного значення та решти байтів.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid ""
 "// This is the last byte of the VARINT, so convert it to\n"
 "            // a u64 and return it.\n"
 msgstr ""
+"// Це останній байт VARINT, тому перетворюємо його\n"
+"            // в u64 і повертаємо.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "// More than 7 bytes is invalid.\n"
-msgstr ""
+msgstr "// Більше 7 байт є неприпустимим.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "/// Convert a tag into a field number and a WireType.\n"
-msgstr ""
+msgstr "/// Перетворити тег у номер поля та WireType.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "/// Parse a field, returning the remaining bytes\n"
-msgstr ""
+msgstr "/// Розбір поля з поверненням залишку байтів\n"
 
 #: src/slices-and-lifetimes/exercise.md
 msgid ""
 "\"Based on the wire type, build a Field, consuming as many bytes as "
 "necessary.\""
 msgstr ""
+"\"На основі wire type побудуйте Field, використовуючи стільки байт, скільки "
+"потрібно.\""
 
 #: src/slices-and-lifetimes/exercise.md
 msgid "\"Return the field, and any un-consumed bytes.\""
-msgstr ""
+msgstr "\"Повернути поле та всі невикористані байти.\""
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid ""
@@ -9737,22 +9848,27 @@ msgid ""
 "///\n"
 "/// The entire input is consumed.\n"
 msgstr ""
+"/// Розбір повідомлення за заданими даними, викликаючи `T::add_field` для "
+"кожного поля в\n"
+"/// повідомленні.\n"
+"///\n"
+"/// Споживаються всі вхідні дані.\n"
 
 #: src/slices-and-lifetimes/exercise.md
 msgid "// TODO: Implement ProtoMessage for Person and PhoneNumber.\n"
-msgstr ""
+msgstr "// TODO: Реалізувати ProtoMessage для Person та PhoneNumber.\n"
 
 #: src/slices-and-lifetimes/solution.md
 msgid "// Unwrap error because `value` is definitely 4 bytes long.\n"
-msgstr ""
+msgstr "// Помилка розгортання, оскільки `value` точно має довжину 4 байти.\n"
 
 #: src/slices-and-lifetimes/solution.md
 msgid "// skip everything else\n"
-msgstr ""
+msgstr "// пропустити все інше\n"
 
 #: src/slices-and-lifetimes/solution.md
 msgid "b\"hello\""
-msgstr ""
+msgstr "b\"привіт\""
 
 #: src/welcome-day-4.md
 #, fuzzy
