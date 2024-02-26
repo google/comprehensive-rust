@@ -12,20 +12,20 @@ var parentElement = document.body; // Change this to your desired parent element
 parentElement.insertBefore(newDiv, parentElement.firstChild);
 // Create the button element
 var hideShowButton = document.createElement("button");
-hideShowButton.innerHTML = "redbox"
-hideShowButton.className = "icon-button"
-hideShowButton.type = "button"
-hideShowButton.title = "showing/hiding red box"
-hideShowButton.id = "Dev"
-var navbarButtons = document.getElementsByClassName('left-buttons')
+hideShowButton.innerHTML = "redbox";
+hideShowButton.className = "icon-button";
+hideShowButton.type = "button";
+hideShowButton.title = "showing/hiding red box";
+hideShowButton.id = "Dev";
+var navbarButtons = document.getElementsByClassName("left-buttons");
 navbarButtons[0].insertBefore(hideShowButton, navbarButtons.firstChild);
 document.getElementById("aspect-ratio-helper").style.display = "none";
 hideShowButton.addEventListener("click", function () {
-    if (document.getElementById("aspect-ratio-helper").style.display === "none") {
-        document.getElementById("aspect-ratio-helper").style.display = "block";
-        hideShowButton.innerHTML = "User"
-    } else {
-        document.getElementById("aspect-ratio-helper").style.display = "none";
-        hideShowButton.innerHTML = "Dev"
-    }
-})
+  if (document.getElementById("aspect-ratio-helper").style.display === "none") {
+    document.getElementById("aspect-ratio-helper").style.display = "block";
+    hideShowButton.innerHTML = "User";
+  } else {
+    document.getElementById("aspect-ratio-helper").style.display = "none";
+    hideShowButton.innerHTML = "Dev";
+  }
+});
