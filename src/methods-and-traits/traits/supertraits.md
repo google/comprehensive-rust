@@ -22,7 +22,7 @@ impl Animal for Dog {
 
 impl Pet for Dog {
     fn name(&self) -> String {
-        string.name.clone()
+        self.0.clone()
     }
 }
 
