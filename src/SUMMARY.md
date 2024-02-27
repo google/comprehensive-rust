@@ -90,6 +90,7 @@
 - [Generics](generics.md)
   - [Generic Functions](generics/generic-functions.md)
   - [Generic Data Types](generics/generic-data.md)
+  - [Generic Traits](generics/generic-traits.md)
   - [Trait Bounds](generics/trait-bounds.md)
   - [`impl Trait`](generics/impl-trait.md)
   - [Exercise: Generic `min`](generics/exercise.md)
