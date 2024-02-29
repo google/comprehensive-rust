@@ -5133,63 +5133,71 @@ msgstr ""
 
 #: src/welcome-day-2.md
 msgid "Methods: associating functions with types."
-msgstr ""
+msgstr "Métodos: asociar funciones a tipos."
 
 #: src/welcome-day-2.md
 msgid "Traits: behaviors shared by multiple types."
-msgstr ""
+msgstr "Traits: comportamientos que comparten varios tipos."
 
 #: src/welcome-day-2.md
 msgid "Generics: parameterizing types on other types."
-msgstr ""
+msgstr "Genéricos: parametrizar tipos en otros tipos."
 
 #: src/welcome-day-2.md
 msgid ""
 "Standard library types and traits: a tour of Rust's rich standard library."
 msgstr ""
+"Tipos y traits de bibliotecas estándar: un recorrido por la amplia "
+"biblioteca estándar de Rust."
 
 #: src/welcome-day-2.md
 msgid "[Welcome](./welcome-day-2.md) (3 minutes)"
-msgstr ""
+msgstr "[Bienvenida](./welcome-day-2.md) (3 minutos)"
 
 #: src/welcome-day-2.md
 #, fuzzy
 msgid "[Pattern Matching](./pattern-matching.md) (50 minutes)"
-msgstr ""
-"Consulta de nuevo la sección de [coincidencia de patrones](../pattern-"
-"matching.md) para obtener más información sobre los patrones de Rust."
+msgstr "[Métodos](./methods-and-traits/methods.md) (10 minutos)"
 
 #: src/welcome-day-2.md
+#, fuzzy
 msgid "[Methods and Traits](./methods-and-traits.md) (55 minutes)"
-msgstr ""
+msgstr "[Métodos y traits](./methods-and-traits.md) (45 minutos)"
 
 #: src/welcome-day-2.md
 msgid "[Generics](./generics.md) (45 minutes)"
-msgstr ""
+msgstr "[Genéricos](./generics.md) (45 minutos)"
 
 #: src/welcome-day-2.md src/welcome-day-4.md
+#, fuzzy
 msgid ""
 "Including 10 minute breaks, this session should take about 3 hours and 5 "
 "minutes"
-msgstr ""
+msgstr "Esta sección tiene una duración aproximada de 1 hora y 10 minutos."
 
 #: src/pattern-matching.md
 msgid "[Destructuring](./pattern-matching/destructuring.md) (10 minutes)"
-msgstr ""
+msgstr "[Desestructuración](./pattern-matching/destructuring.md) (10 minutos)"
 
 #: src/pattern-matching.md
 msgid "[Let Control Flow](./pattern-matching/let-control-flow.md) (10 minutes)"
 msgstr ""
+"[Permitir el flujo de control](./pattern-matching/let-control-flow.md) (10 "
+"minutos)"
 
 #: src/pattern-matching.md
 msgid ""
 "[Exercise: Expression Evaluation](./pattern-matching/exercise.md) (30 "
 "minutes)"
 msgstr ""
+"[Ejercicio: evaluación de expresiones](./pattern-matching/exercise.md) (30 "
+"minutos)"
 
 #: src/pattern-matching/destructuring.md
 msgid "Like tuples, structs and enums can also be destructured by matching:"
 msgstr ""
+"Al igual que las tuplas, las estructuras y las enumeraciones también se "
+"pueden desestructurar con la coincidencia:"
 
 #: src/pattern-matching/destructuring.md
 msgid "Structs"
@@ -5197,15 +5205,15 @@ msgstr "Structs"
 
 #: src/pattern-matching/destructuring.md
 msgid "\"x.0 = 1, b = {b}, y = {y}\""
-msgstr ""
+msgstr "\"x.0 = 1, b = {b}, y = {y}\""
 
 #: src/pattern-matching/destructuring.md
 msgid "\"y = 2, x = {i:?}\""
-msgstr ""
+msgstr "\"y = 2, x = {i:?}\""
 
 #: src/pattern-matching/destructuring.md
 msgid "\"y = {y}, other fields were ignored\""
-msgstr ""
+msgstr "\"y = {y}, se han ignorado otros campos\""
 
 #: src/pattern-matching/destructuring.md
 msgid ""
@@ -5219,15 +5227,15 @@ msgstr ""
 
 #: src/pattern-matching/destructuring.md
 msgid "\"cannot divide {n} into two equal parts\""
-msgstr ""
+msgstr "\"no se puede dividir {n} en dos partes iguales\""
 
 #: src/pattern-matching/destructuring.md
 msgid "\"{n} divided in two is {half}\""
-msgstr ""
+msgstr "\"{n} dividido entre dos es {half}\""
 
 #: src/pattern-matching/destructuring.md
 msgid "\"sorry, an error happened: {msg}\""
-msgstr ""
+msgstr "\"se ha producido un error: {msg}\""
 
 #: src/pattern-matching/destructuring.md
 msgid ""
@@ -5308,6 +5316,14 @@ msgid ""
 "io/rfcs/2005-match-ergonomics.html) appeared in Rust 2018. If you want to "
 "support older Rust, replace `msg` with `ref msg` in the pattern."
 msgstr ""
+"Guarda el resultado de `divide_in_two` en la variable `result` y hazlo "
+"coincidir mediante `match` en un bucle. No se compilará porque se utilizará "
+"`msg` cuando coincida. Para solucionarlo, haz coincidir `&result` en lugar "
+"de `result`. De esta forma, `msg` se convertirá en una referencia y no se "
+"utilizará. Esta [\"ergonomía de coincidencia\"](https://rust-lang.github.io/"
+"rfcs/2005-match-ergonomics.html) apareció en Rust 2018. Si quieres que sea "
+"compatible con las versiones anteriores de Rust, sustituye `msg` por `ref "
+"msg` en el patrón."
 
 #: src/pattern-matching/let-control-flow.md
 msgid ""
@@ -5341,7 +5357,7 @@ msgstr ""
 
 #: src/pattern-matching/let-control-flow.md
 msgid "\"slept for {:?}\""
-msgstr ""
+msgstr "\"Horas de sueño: {:?}\""
 
 #: src/pattern-matching/let-control-flow.md
 #, fuzzy
@@ -5355,28 +5371,32 @@ msgid ""
 "let_else.html). The \"else\" case must diverge (`return`, `break`, or panic "
 "- anything but falling off the end of the block)."
 msgstr ""
+"En el caso habitual de coincidencia con un patrón y retorno de la función, "
+"utiliza [`let else`](https://doc.rust-lang.org/rust-by-example/flow_control/"
+"let_else.html). El caso \"else\" debe divergir (`return`, `break` o pánico; "
+"cualquier acción es válida menos colocarlo al final del bloque)."
 
 #: src/pattern-matching/let-control-flow.md
 msgid "\"got None\""
-msgstr ""
+msgstr "\"no se ha encontrado ningún elemento\""
 
 #: src/pattern-matching/let-control-flow.md
 msgid "\"got empty string\""
-msgstr ""
+msgstr "\"se ha encontrado una cadena vacía\""
 
 #: src/pattern-matching/let-control-flow.md
 msgid "\"not a hex digit\""
-msgstr ""
+msgstr "\"no es un dígito hexadecimal\""
 
 #: src/pattern-matching/let-control-flow.md src/pattern-matching/solution.md
 msgid "\"result: {:?}\""
-msgstr ""
+msgstr "\"resultado: {:?}\""
 
 #: src/pattern-matching/let-control-flow.md src/generics/trait-bounds.md
 #: src/smart-pointers/solution.md src/testing/googletest.md
 #: src/testing/solution.md
 msgid "\"foo\""
-msgstr ""
+msgstr "\"foo\""
 
 #: src/pattern-matching/let-control-flow.md
 msgid ""
@@ -5403,7 +5423,7 @@ msgstr ""
 
 #: src/pattern-matching/let-control-flow.md
 msgid "if-let"
-msgstr ""
+msgstr "if-let"
 
 #: src/pattern-matching/let-control-flow.md
 msgid ""
@@ -5428,7 +5448,7 @@ msgstr ""
 
 #: src/pattern-matching/let-control-flow.md
 msgid "let-else"
-msgstr ""
+msgstr "let-else"
 
 #: src/pattern-matching/let-control-flow.md
 msgid ""
@@ -5436,15 +5456,18 @@ msgid ""
 "flattening this nested code. Rewrite the awkward version for students, so "
 "they can see the transformation."
 msgstr ""
+"Las instrucciones `if-let` se pueden apilar, tal y como se muestra. La "
+"construcción `let-else` permite aplanar este código anidado. Reescribe esta "
+"rara versión para que los participantes puedan ver la transformación."
 
 #: src/pattern-matching/let-control-flow.md
 msgid "The rewritten version is:"
-msgstr ""
+msgstr "La versión reescrita es la siguiente:"
 
 #: src/pattern-matching/let-control-flow.md
 #, fuzzy
 msgid "while-let"
-msgstr "Bucles `while let`"
+msgstr "if-let"
 
 #: src/pattern-matching/let-control-flow.md
 msgid ""
@@ -5469,6 +5492,7 @@ msgstr ""
 #: src/pattern-matching/exercise.md
 msgid "Let's write a simple recursive evaluator for arithmetic expressions."
 msgstr ""
+"Vamos a escribir un sencillo evaluador recursivo de expresiones aritméticas."
 
 #: src/pattern-matching/exercise.md
 msgid ""
@@ -5477,6 +5501,11 @@ msgid ""
 "tests. To evaluate a boxed expression, use the deref operator (`*`) to "
 "\"unbox\" it: `eval(*boxed_expr)`."
 msgstr ""
+"El tipo `Box` es un puntero inteligente y lo veremos con detalle más "
+"adelante en el curso. Una expresión puede \"estar delimitada\" con `Box::"
+"new`, tal como se observa en las pruebas. Para evaluar una expresión "
+"delimitada, usa el operador de desreferencia (`*`) para \"eliminar la "
+"delimitación\": `eval(*boxed_expr)`."
 
 #: src/pattern-matching/exercise.md
 msgid ""
@@ -5486,6 +5515,11 @@ msgid ""
 "(`Ok(Value)`) or an error (`Err(String)`). We will cover this type in detail "
 "later."
 msgstr ""
+"Algunas expresiones no se pueden evaluar y devuelven un error. El tipo "
+"estándar [`Result<Value, String>`](https://doc.rust-lang.org/std/result/enum."
+"Result.html) es una enumeración que representa un valor correcto "
+"(`Ok(Value)`) o un error (`Err(String)`). Más adelante hablaremos de este "
+"tipo en profundidad."
 
 #: src/pattern-matching/exercise.md
 msgid ""
@@ -5494,61 +5528,73 @@ msgid ""
 "`todo!()` and get the tests to pass one-by-one. You can also skip a test "
 "temporarily with `#[ignore]`:"
 msgstr ""
+"Copia y pega el código en el playground de Rust y comienza a implementar "
+"`eval`. El producto final debe superar las pruebas. Recomendamos utilizar "
+"`todo!()` y hacer las pruebas para superar todas las pruebas de forma "
+"individual. También puedes saltarte una prueba de forma temporal con "
+"`#[ignore]`:"
 
 #: src/pattern-matching/exercise.md
 msgid ""
 "If you finish early, try writing a test that results in division by zero or "
 "integer overflow. How could you handle this with `Result` instead of a panic?"
 msgstr ""
+"Si terminas antes, prueba a escribir una prueba que dé como resultado la "
+"división entre cero o un desbordamiento de números enteros. ¿Cómo podrías "
+"gestionarlo con `Result` en vez de con un pánico?"
 
 #: src/pattern-matching/exercise.md src/pattern-matching/solution.md
 msgid "/// An operation to perform on two subexpressions.\n"
-msgstr ""
+msgstr "/// Operación que se puede llevar a cabo en dos subexpresiones.\n"
 
 #: src/pattern-matching/exercise.md src/pattern-matching/solution.md
 msgid "/// An expression, in tree form.\n"
-msgstr ""
+msgstr "/// Una expresión en forma de árbol.\n"
 
 #: src/pattern-matching/exercise.md src/pattern-matching/solution.md
 msgid "/// An operation on two subexpressions.\n"
-msgstr ""
+msgstr "/// Operación en dos subexpresiones.\n"
 
 #: src/pattern-matching/exercise.md src/pattern-matching/solution.md
 msgid "/// A literal value\n"
-msgstr ""
+msgstr "/// Un valor literal\n"
 
 #: src/pattern-matching/exercise.md src/pattern-matching/solution.md
 msgid "\"division by zero\""
-msgstr ""
+msgstr "\"división entre cero\""
 
 #: src/pattern-matching/solution.md
 msgid "\"expr: {:?}\""
-msgstr ""
+msgstr "\"expr: {:?}\""
 
 #: src/methods-and-traits.md
 msgid "[Methods](./methods-and-traits/methods.md) (10 minutes)"
-msgstr ""
+msgstr "[Métodos](./methods-and-traits/methods.md) (10 minutos)"
 
 #: src/methods-and-traits.md
 msgid "[Traits](./methods-and-traits/traits.md) (10 minutes)"
-msgstr ""
+msgstr "[Traits](./methods-and-traits/traits.md) (10 minutos)"
 
 #: src/methods-and-traits.md
 msgid "[Deriving](./methods-and-traits/deriving.md) (5 minutes)"
-msgstr ""
+msgstr "[Derivación](./methods-and-traits/deriving.md) (5 minutos)"
 
 #: src/methods-and-traits.md
+#, fuzzy
 msgid "[Trait Objects](./methods-and-traits/trait-objects.md) (10 minutes)"
-msgstr ""
+msgstr "[Traits](./methods-and-traits/traits.md) (10 minutos)"
 
 #: src/methods-and-traits.md
 msgid ""
 "[Exercise: Generic Logger](./methods-and-traits/exercise.md) (20 minutes)"
 msgstr ""
+"[Ejercicio: registrador genérico](./methods-and-traits/exercise.md) (20 "
+"minutos)"
 
 #: src/methods-and-traits.md
+#, fuzzy
 msgid "This segment should take about 55 minutes"
-msgstr ""
+msgstr "Esta sección tiene una duración aproximada de 45 minutos."
 
 #: src/methods-and-traits/methods.md
 msgid ""
@@ -5560,39 +5606,39 @@ msgstr ""
 
 #: src/methods-and-traits/methods.md
 msgid "// No receiver, a static method\n"
-msgstr ""
+msgstr "// No hay receptor, método estático\n"
 
 #: src/methods-and-traits/methods.md
 msgid "// Exclusive borrowed read-write access to self\n"
-msgstr ""
+msgstr "// Acceso exclusivo de lectura/escritura prestado a self\n"
 
 #: src/methods-and-traits/methods.md
 msgid "// Shared and read-only borrowed access to self\n"
-msgstr ""
+msgstr "// Acceso compartido y de solo lectura prestado a self\n"
 
 #: src/methods-and-traits/methods.md
 msgid "\"Recorded {} laps for {}:\""
-msgstr ""
+msgstr "\"Se han registrado {} vueltas de {}:\""
 
 #: src/methods-and-traits/methods.md
 msgid "\"Lap {idx}: {lap} sec\""
-msgstr ""
+msgstr "\"Vuelta {idx}: {lap} s\""
 
 #: src/methods-and-traits/methods.md
 msgid "// Exclusive ownership of self\n"
-msgstr ""
+msgstr "// Propiedad exclusiva de self\n"
 
 #: src/methods-and-traits/methods.md
 msgid "\"Race {} is finished, total lap time: {}\""
-msgstr ""
+msgstr "\"La carrera {} ha terminado. Duración total de la vuelta: {}.\""
 
 #: src/methods-and-traits/methods.md
 msgid "\"Monaco Grand Prix\""
-msgstr ""
+msgstr "\"Gran Premio de Mónaco\""
 
 #: src/methods-and-traits/methods.md
 msgid "// race.add_lap(42);\n"
-msgstr ""
+msgstr "// race.add_lap(42);\n"
 
 #: src/methods-and-traits/methods.md
 #, fuzzy
@@ -5726,29 +5772,32 @@ msgstr ""
 
 #: src/methods-and-traits/traits.md
 msgid "\"Oh you're a cutie! What's your name? {}\""
-msgstr ""
+msgstr "\"¡Eres una monada! ¿Cómo te llamas? {}\""
 
 #: src/methods-and-traits/traits.md src/methods-and-traits/trait-objects.md
 msgid "\"Woof, my name is {}!\""
-msgstr ""
+msgstr "\"¡Guau, me llamo {}!\""
 
 #: src/methods-and-traits/traits.md src/methods-and-traits/trait-objects.md
 msgid "\"Miau!\""
-msgstr ""
+msgstr "\"¡Miau!\""
 
 #: src/methods-and-traits/traits.md src/methods-and-traits/trait-objects.md
 msgid "\"Fido\""
-msgstr ""
+msgstr "\"Fido\""
 
 #: src/methods-and-traits/traits.md
 msgid ""
 "A trait defines a number of methods that types must have in order to "
 "implement the trait."
 msgstr ""
+"Un trait define una serie de métodos que los tipos deben tener para "
+"implementar el trait."
 
 #: src/methods-and-traits/traits.md
 msgid "Traits are implemented in an `impl <trait> for <type> { .. }` block."
 msgstr ""
+"Los traits se implementan en un bloque `impl <trait> for <type> { .. }`."
 
 #: src/methods-and-traits/traits.md
 #, fuzzy
@@ -5767,26 +5816,30 @@ msgid ""
 "Supported traits can be automatically implemented for your custom types, as "
 "follows:"
 msgstr ""
+"Los traits compatibles se pueden implementar de forma automática en los "
+"tipos personalizados de la siguiente manera:"
 
 #: src/methods-and-traits/deriving.md
 msgid "// Default trait adds `default` constructor.\n"
-msgstr ""
+msgstr "// El trait predeterminado añade el constructor `default`.\n"
 
 #: src/methods-and-traits/deriving.md
 msgid "// Clone trait adds `clone` method.\n"
-msgstr ""
+msgstr "// El trait clonado añade el método `clone`.\n"
 
 #: src/methods-and-traits/deriving.md
 msgid "\"EldurScrollz\""
-msgstr ""
+msgstr "\"EldurScrollz\""
 
 #: src/methods-and-traits/deriving.md
 msgid "// Debug trait adds support for printing with `{:?}`.\n"
 msgstr ""
+"// El trait de depuración permite que sea compatible con imprimir con `{:?}"
+"`.\n"
 
 #: src/methods-and-traits/deriving.md
 msgid "\"{:?} vs. {:?}\""
-msgstr ""
+msgstr "\"{:?} contra {:?}\""
 
 #: src/methods-and-traits/deriving.md
 msgid ""
@@ -5794,6 +5847,10 @@ msgid ""
 "macros to add useful functionality. For example, `serde` can derive "
 "serialization support for a struct using `#[derive(Serialize)]`."
 msgstr ""
+"La derivación se implementa con macros y muchos crates ofrecen macros de "
+"derivación útiles para añadir funciones. Por ejemplo, `serde` puede derivar "
+"la compatibilidad con la serialización para una struct con "
+"`#[derive(Serialize)]`."
 
 #: src/methods-and-traits/trait-objects.md
 msgid ""
@@ -5970,7 +6027,7 @@ msgstr "Compara estas salidas en el ejemplo anterior:"
 
 #: src/methods-and-traits/trait-objects.md src/std-traits/closures.md
 msgid "\"{} {}\""
-msgstr ""
+msgstr "\"{} {}\""
 
 #: src/methods-and-traits/trait-objects.md src/std-traits/exercise.md
 #: src/std-traits/solution.md src/modules/exercise.md src/modules/solution.md
@@ -5978,7 +6035,7 @@ msgstr ""
 #: src/android/interoperability/cpp/rust-bridge.md
 #: src/async/pitfalls/cancellation.md
 msgid "\"{}\""
-msgstr ""
+msgstr "\"{}\""
 
 #: src/methods-and-traits/exercise.md
 msgid ""
@@ -5987,6 +6044,11 @@ msgid ""
 "In testing, this might put messages in the test logfile, while in a "
 "production build it would send messages to a log server."
 msgstr ""
+"Vamos a diseñar una sencilla utilidad de registro mediante un trait `Logger` "
+"con un método `log`. El código que podría registrar su progreso puede usar "
+"`&impl Logger`. En las pruebas, esta acción colocaría mensajes en el archivo "
+"de registro de la prueba, mientras que en una compilación de producción "
+"enviaría los mensajes a un servidor de registro."
 
 #: src/methods-and-traits/exercise.md
 msgid ""
@@ -5994,6 +6056,10 @@ msgid ""
 "verbosity. Your task is to write a `VerbosityFilter` type that will ignore "
 "messages above a maximum verbosity."
 msgstr ""
+"Sin embargo, el elemento `StderrLogger` que aparece a continuación registra "
+"todos los mensajes, independientemente de su verbosidad. Tu tarea es "
+"escribir un tipo `VerbosityFilter` que ignore los mensajes que superen el "
+"máximo de verbosidad."
 
 #: src/methods-and-traits/exercise.md
 msgid ""
@@ -6001,54 +6067,60 @@ msgid ""
 "implementing that same trait, adding behavior in the process. What other "
 "kinds of wrappers might be useful in a logging utility?"
 msgstr ""
+"Este es un patrón común: una struct que envuelve una implementación de "
+"traits e implementa ese mismo trait, añadiendo comportamiento en el proceso. "
+"¿Qué otros tipos de envoltorios pueden ser útiles en una utilidad de "
+"registro?"
 
 #: src/methods-and-traits/exercise.md src/methods-and-traits/solution.md
 msgid "/// Log a message at the given verbosity level.\n"
-msgstr ""
+msgstr "/// Registra un mensaje con el nivel de verbosidad determinado.\n"
 
 #: src/methods-and-traits/exercise.md src/methods-and-traits/solution.md
 msgid "\"verbosity={verbosity}: {message}\""
-msgstr ""
+msgstr "\"verbosidad={verbosity}: {message}\""
 
 #: src/methods-and-traits/exercise.md src/methods-and-traits/solution.md
 msgid "\"FYI\""
-msgstr ""
+msgstr "\"Para tu información\""
 
 #: src/methods-and-traits/exercise.md src/methods-and-traits/solution.md
 msgid "\"Uhoh\""
-msgstr ""
+msgstr "\"Oh, oh\""
 
 #: src/methods-and-traits/exercise.md
 msgid "// TODO: Define and implement `VerbosityFilter`.\n"
-msgstr ""
+msgstr "// TAREA: Define e implementa `VerbosityFilter`.\n"
 
 #: src/methods-and-traits/solution.md
 msgid "/// Only log messages up to the given verbosity level.\n"
 msgstr ""
+"/// Registra solo los mensajes que cumplan el nivel de verbosidad "
+"determinado.\n"
 
 #: src/generics.md
 msgid "[Generic Functions](./generics/generic-functions.md) (5 minutes)"
-msgstr ""
+msgstr "[Funciones genéricas](./generics/generic-functions.md) (5 minutos)"
 
 #: src/generics.md
 msgid "[Generic Data Types](./generics/generic-data.md) (15 minutes)"
-msgstr ""
+msgstr "[Tipos de datos genéricos](./generics/generic-data.md) (15 minutos)"
 
 #: src/generics.md
 msgid "[Trait Bounds](./generics/trait-bounds.md) (10 minutes)"
-msgstr ""
+msgstr "[Límites de traits](./generics/trait-bounds.md) (10 minutos)"
 
 #: src/generics.md
 msgid "[impl Trait](./generics/impl-trait.md) (5 minutes)"
-msgstr ""
+msgstr "[impl Trait](./generics/impl-trait.md) (5 minutos)"
 
 #: src/generics.md
 msgid "[Exercise: Generic min](./generics/exercise.md) (10 minutes)"
-msgstr ""
+msgstr "[Ejercicio: min genérico](./generics/exercise.md) (10 minutos)"
 
 #: src/generics.md src/smart-pointers.md src/iterators.md src/error-handling.md
 msgid "This segment should take about 45 minutes"
-msgstr ""
+msgstr "Esta sección tiene una duración aproximada de 45 minutos."
 
 #: src/generics/generic-functions.md
 #, fuzzy
@@ -6063,28 +6135,32 @@ msgstr ""
 #: src/generics/generic-functions.md
 msgid "/// Pick `even` or `odd` depending on the value of `n`.\n"
 msgstr ""
+"/// Elige `even` u `odd` en función de si `n` es par o impar.\n"
+" "
 
 #: src/generics/generic-functions.md
 msgid "\"picked a number: {:?}\""
-msgstr ""
+msgstr "\"número elegido: {:?}\""
 
 #: src/generics/generic-functions.md
 msgid "\"picked a tuple: {:?}\""
-msgstr ""
+msgstr "\"tupla elegida: {:?}\""
 
 #: src/generics/generic-functions.md
 msgid "\"dog\""
-msgstr ""
+msgstr "\"perro\""
 
 #: src/generics/generic-functions.md
 msgid "\"cat\""
-msgstr ""
+msgstr "\"gato\""
 
 #: src/generics/generic-functions.md
 msgid ""
 "Rust infers a type for T based on the types of the arguments and return "
 "value."
 msgstr ""
+"Rust infiere un tipo para T en función de los tipos de los argumentos y del "
+"valor devuelto."
 
 #: src/generics/generic-functions.md
 msgid ""
@@ -6094,6 +6170,12 @@ msgid ""
 "`n == 0`. Even if only the `pick` instantiation with integers is used, Rust "
 "still considers it invalid. C++ would let you do this."
 msgstr ""
+"Es similar a las plantillas de C++, pero Rust compila de forma parcial la "
+"función genérica de forma inmediata, por lo que debe ser válida para todos "
+"los tipos que coincidan con las restricciones. Por ejemplo, prueba a "
+"modificar `pick` para que devuelva `even + odd` si `n == 0`. Aunque solo se "
+"use la instanciación `pick` con números enteros, Rust seguirá considerando "
+"que no es válida. Con C++ sí se podría hacer."
 
 #: src/generics/generic-functions.md
 #, fuzzy
@@ -6112,15 +6194,15 @@ msgstr "Puedes usar genéricos para abstraer el tipo de campo concreto:"
 
 #: src/generics/generic-data.md
 msgid "// fn set_x(&mut self, x: T)\n"
-msgstr ""
+msgstr "// fn set_x(&mut self, x: T)\n"
 
 #: src/generics/generic-data.md
 msgid "\"{integer:?} and {float:?}\""
-msgstr ""
+msgstr "\"{integer:?} y {float:?}\""
 
 #: src/generics/generic-data.md
 msgid "\"coords: {:?}\""
-msgstr ""
+msgstr "\"coordenadas: {:?}\""
 
 #: src/generics/generic-data.md
 msgid ""
@@ -6161,6 +6243,9 @@ msgid ""
 "code to allow points that have elements of different types, by using two "
 "type variables, e.g., `T` and `U`."
 msgstr ""
+"Prueba a declarar una nueva variable `let p = Punto { x: 5, y: 10.0 };`. "
+"Actualiza el código para permitir que haya puntos que tengan elementos de "
+"diferentes tipos con dos variables de tipo, por ejemplo, `T` y `U`."
 
 #: src/generics/trait-bounds.md
 msgid ""
@@ -6177,19 +6262,19 @@ msgstr "Puedes hacerlo con `T: Trait` o `impl Trait`:"
 
 #: src/generics/trait-bounds.md
 msgid "// struct NotClonable;\n"
-msgstr ""
+msgstr "// struct NotClonable;\n"
 
 #: src/generics/trait-bounds.md
 msgid "\"{pair:?}\""
-msgstr ""
+msgstr "\"{pair:?}\""
 
 #: src/generics/trait-bounds.md
 msgid "Try making a `NonClonable` and passing it to `duplicate`."
-msgstr ""
+msgstr "Prueba a crear un `NonClonable` y pásalo a `duplicable`."
 
 #: src/generics/trait-bounds.md
 msgid "When multiple traits are necessary, use `+` to join them."
-msgstr ""
+msgstr "Si se necesitan varios traits, usa `+` para unirlos."
 
 #: src/generics/trait-bounds.md
 msgid "Show a `where` clause, students will encounter it when reading code."
@@ -6218,6 +6303,9 @@ msgid ""
 "Note that Rust does not (yet) support specialization. For example, given the "
 "original `duplicate`, it is invalid to add a specialized `duplicate(a: u32)`."
 msgstr ""
+"Ten en cuenta que Rust (todavía) no admite especialización. Por ejemplo, "
+"dado el `duplicate`, original, no es válido añadir un `duplicate(a: u32)` "
+"especializado."
 
 #: src/generics/impl-trait.md
 msgid ""
@@ -6232,18 +6320,20 @@ msgid ""
 "// Syntactic sugar for:\n"
 "//   fn add_42_millions<T: Into<i32>>(x: T) -> i32 {\n"
 msgstr ""
+"// Azúcar sintáctico para:\n"
+"//   fn add_42_millions<T: Into<i32>>(x: T) -> i32 {\n"
 
 #: src/generics/impl-trait.md
 msgid "\"{many}\""
-msgstr ""
+msgstr "\"{many}\""
 
 #: src/generics/impl-trait.md
 msgid "\"{many_more}\""
-msgstr ""
+msgstr "\"{many_more}\""
 
 #: src/generics/impl-trait.md
 msgid "\"debuggable: {debuggable:?}\""
-msgstr ""
+msgstr "\"depurable: {debuggable:?}\""
 
 #: src/generics/impl-trait.md
 #, fuzzy
@@ -6291,78 +6381,85 @@ msgid ""
 "What is the type of `debuggable`? Try `let debuggable: () = ..` to see what "
 "the error message shows."
 msgstr ""
+"¿Cuál es el tipo de `debuggable`? Prueba con `letdebuggable: () = ..` para "
+"ver lo que muestra el mensaje de error."
 
 #: src/generics/exercise.md
 msgid ""
 "In this short exercise, you will implement a generic `min` function that "
 "determines the minimum of two values, using a `LessThan` trait."
 msgstr ""
+"En este breve ejercicio, implementarás una función `min` genérica que "
+"determina el mínimo de dos valores mediante un trait `lessThan`."
 
 #: src/generics/exercise.md src/generics/solution.md
 msgid "/// Return true if self is less than other.\n"
-msgstr ""
+msgstr "/// Devuelve true si el valor de self es menor que el de other.\n"
 
 #: src/generics/exercise.md
 msgid "// TODO: implement the `min` function used in `main`.\n"
-msgstr ""
+msgstr "// TAREA: implementar la función `min` usada en `main`.\n"
 
 #: src/generics/exercise.md src/generics/solution.md
 msgid "\"Shapiro\""
-msgstr ""
+msgstr "\"Shapiro\""
 
 #: src/generics/exercise.md src/generics/solution.md
 msgid "\"Baumann\""
-msgstr ""
+msgstr "\"Baumann\""
 
 #: src/welcome-day-2-afternoon.md
 msgid "[Standard Library Types](./std-types.md) (1 hour and 10 minutes)"
-msgstr ""
+msgstr "[Tipos de bibliotecas estándar](./std-types.md) (1 hora y 10 minutos)"
 
 #: src/welcome-day-2-afternoon.md
 msgid "[Standard Library Traits](./std-traits.md) (1 hour and 40 minutes)"
-msgstr ""
+msgstr "[Traits de biblioteca estándar](./std-traits.md) (1 hora y 40 minutos)"
 
 #: src/std-types.md
 msgid "[Standard Library](./std-types/std.md) (3 minutes)"
-msgstr ""
+msgstr "[Biblioteca estándar](./std-types/std.md) (3 minutos)"
 
 #: src/std-types.md
 msgid "[Documentation](./std-types/docs.md) (5 minutes)"
-msgstr ""
+msgstr "[Documentación](./std-types/docs.md) (5 minutos)"
 
 #: src/std-types.md
 msgid "[Option](./std-types/option.md) (10 minutes)"
-msgstr ""
+msgstr "[Option (Opción)](./std-types/option.md) (10 minutos)"
 
 #: src/std-types.md
 msgid "[Result](./std-types/result.md) (10 minutes)"
-msgstr ""
+msgstr "[Result (Resultado)](./std-types/result.md) (10 minutos)"
 
 #: src/std-types.md
 msgid "[String](./std-types/string.md) (10 minutes)"
-msgstr ""
+msgstr "[String (Cadena de texto)](./std-types/string.md) (10 minutos)"
 
 #: src/std-types.md
 msgid "[Vec](./std-types/vec.md) (10 minutes)"
-msgstr ""
+msgstr "[Vec (Vectores)](./std-types/vec.md) (10 minutos)"
 
 #: src/std-types.md
 msgid "[HashMap](./std-types/hashmap.md) (10 minutes)"
-msgstr ""
+msgstr "[HashMap](./std-types/hashmap.md) (10 minutos)"
 
 #: src/std-types.md
 msgid "[Exercise: Counter](./std-types/exercise.md) (10 minutes)"
-msgstr ""
+msgstr "[Ejercicio: contador](./std-types/exercise.md) (10 minutos)"
 
 #: src/std-types.md src/memory-management.md src/slices-and-lifetimes.md
 msgid "This segment should take about 1 hour and 10 minutes"
-msgstr ""
+msgstr "Esta sección tiene una duración aproximada de 1 hora y 10 minutos."
 
 #: src/std-types.md
 msgid ""
 "For each of the slides in this section, spend some time reviewing the "
 "documentation pages, highlighting some of the more common methods."
 msgstr ""
+"Dedica un tiempo a revisar las páginas de la documentación de cada una de "
+"las diapositivas de esta sección para destacar algunos de los métodos que "
+"más se usan."
 
 #: src/std-types/std.md
 #, fuzzy
@@ -6412,7 +6509,7 @@ msgstr ""
 
 #: src/std-types/docs.md
 msgid "Rust comes with extensive documentation. For example:"
-msgstr ""
+msgstr "Rust incluye una amplia documentación. Por ejemplo:"
 
 #: src/std-types/docs.md
 #, fuzzy
@@ -6428,6 +6525,8 @@ msgid ""
 "Primitive types like [`u8`](https://doc.rust-lang.org/stable/std/primitive."
 "u8.html)."
 msgstr ""
+"Tipos primitivos como [`u8`](https://doc.rust-lang.org/stable/std/primitive."
+"u8.html)."
 
 #: src/std-types/docs.md
 #, fuzzy
@@ -6441,7 +6540,7 @@ msgstr ""
 
 #: src/std-types/docs.md
 msgid "In fact, you can document your own code:"
-msgstr ""
+msgstr "De hecho, puedes documentar tu propio código:"
 
 #: src/std-types/docs.md
 msgid ""
@@ -6450,6 +6549,9 @@ msgid ""
 "///\n"
 "/// If the second argument is zero, the result is false.\n"
 msgstr ""
+"/// Determina si el primer argumento es divisible por el segundo argumento.\n"
+"///\n"
+"/// Si el segundo es cero, el resultado será false.\n"
 
 #: src/std-types/docs.md
 msgid ""
@@ -6470,12 +6572,17 @@ msgid ""
 "To document an item from inside the item (such as inside a module), use `//!"
 "` or `/*! .. */`, called \"inner doc comments\":"
 msgstr ""
+"Para documentar un elemento desde dentro (por ejemplo, dentro de un módulo), "
+"utiliza `//!` o `/*! .. */`, denominado como \"comentarios internos del "
+"documento\":"
 
 #: src/std-types/docs.md
 msgid ""
 "//! This module contains functionality relating to divisibility of "
 "integers.\n"
 msgstr ""
+"//! Este módulo contiene funciones relacionadas con la divisibilidad de "
+"números enteros.\n"
 
 #: src/std-types/docs.md
 #, fuzzy
@@ -6497,26 +6604,29 @@ msgid ""
 "type `T` or nothing. For example, [`String::find`](https://doc.rust-lang.org/"
 "stable/std/string/struct.String.html#method.find) returns an `Option<usize>`."
 msgstr ""
+"Ya hemos visto algunos usos de `Option<T>`. Almacena un valor de tipo `T` o "
+"nada. Por ejemplo, [`String::find`](https://doc.rust-lang.org/stable/std/"
+"string/struct.String.html#method.find) devuelve un `Option<usize>`."
 
 #: src/std-types/option.md
 msgid "\"Löwe 老虎 Léopard Gepardi\""
-msgstr ""
+msgstr "\"Löwe 老虎 Léopard Gepardi\""
 
 #: src/std-types/option.md
 msgid "'é'"
-msgstr ""
+msgstr "'é'"
 
 #: src/std-types/option.md
 msgid "\"find returned {position:?}\""
-msgstr ""
+msgstr "\"buscar {position:?} devuelto\""
 
 #: src/std-types/option.md
 msgid "'Z'"
-msgstr ""
+msgstr "'Z'"
 
 #: src/std-types/option.md
 msgid "\"Character not found\""
-msgstr ""
+msgstr "\"No se ha encontrado el carácter\""
 
 #: src/std-types/option.md
 #, fuzzy
@@ -6528,28 +6638,36 @@ msgid ""
 "`unwrap` will return the value in an `Option`, or panic. `expect` is similar "
 "but takes an error message."
 msgstr ""
+"`unwrap` devolverá el valor en un elemento `Option` o un error pánico. "
+"`expect` funciona de forma similar, pero muestra un mensaje de error."
 
 #: src/std-types/option.md
 msgid ""
 "You can panic on None, but you can't \"accidentally\" forget to check for "
 "None."
 msgstr ""
+"Puedes obtener un pánico en None, pero no puedes olvidarte \"de forma "
+"accidental\" de seleccionar None."
 
 #: src/std-types/option.md
 msgid ""
 "It's common to `unwrap`/`expect` all over the place when hacking something "
 "together, but production code typically handles `None` in a nicer fashion."
 msgstr ""
+"Es habitual usar `unwrap`/`expect` por todas partes, pero el código de "
+"producción suele gestionar `None` de una forma más sencilla."
 
 #: src/std-types/option.md
 msgid ""
 "The niche optimization means that `Option<T>` often has the same size in "
 "memory as `T`."
 msgstr ""
+"La optimización de nicho significa que `Option<T>` a menudo tiene el mismo "
+"tamaño en memoria que `T`."
 
 #: src/std-types/result.md
 msgid "Result"
-msgstr ""
+msgstr "Resultado"
 
 #: src/std-types/result.md
 msgid ""
@@ -6558,22 +6676,27 @@ msgid ""
 "in the expression exercise, but generic: `Result<T, E>` where `T` is used in "
 "the `Ok` variant and `E` appears in the `Err` variant."
 msgstr ""
+"`Result` es similar a `Option`, pero indica si una operación se ha "
+"completado de forma correcta o ha fallado, cada una con un tipo diferente. "
+"Es similar a `Res`, que se definió en el ejercicio de expresiones, pero "
+"genérico: `Result<T, E>`, donde `T` se usa en la variante `Ok` y `E` aparece "
+"en la variante `Err`."
 
 #: src/std-types/result.md
 msgid "\"diary.txt\""
-msgstr ""
+msgstr "\"diary.txt\""
 
 #: src/std-types/result.md
 msgid "\"Dear diary: {contents} ({bytes} bytes)\""
-msgstr ""
+msgstr "\"Querido diario: {contents} ({bytes} bytes)\""
 
 #: src/std-types/result.md
 msgid "\"Could not read file content\""
-msgstr ""
+msgstr "\"No se ha podido leer el contenido del archivo\""
 
 #: src/std-types/result.md
 msgid "\"The diary could not be opened: {err}\""
-msgstr ""
+msgstr "\"No se ha podido abrir el diario: {err}\""
 
 #: src/std-types/result.md
 msgid ""
@@ -6623,27 +6746,27 @@ msgstr ""
 #: src/memory-management/review.md src/testing/unit-tests.md
 #: src/concurrency/scoped-threads.md
 msgid "\"Hello\""
-msgstr ""
+msgstr "\"Hola\""
 
 #: src/std-types/string.md
 msgid "\"s1: len = {}, capacity = {}\""
-msgstr ""
+msgstr "\"s1: longitud = {}, capacidad = {}\""
 
 #: src/std-types/string.md
 msgid "'!'"
-msgstr ""
+msgstr "'!'"
 
 #: src/std-types/string.md
 msgid "\"s2: len = {}, capacity = {}\""
-msgstr ""
+msgstr "\"s2: longitud= {}, capacidad = {}\""
 
 #: src/std-types/string.md
 msgid "\"🇨🇭\""
-msgstr ""
+msgstr "\"🇨🇭\""
 
 #: src/std-types/string.md
 msgid "\"s3: len = {}, number of chars = {}\""
-msgstr ""
+msgstr "\"s3: longitud = {}, número de caracteres = {}\""
 
 #: src/std-types/string.md
 msgid ""
@@ -6703,6 +6826,8 @@ msgid ""
 "We haven't discussed the `Deref` trait yet, so at this point this mostly "
 "explains the structure of the sidebar in the documentation."
 msgstr ""
+"Todavía no hemos abordado el trait `Deref`, por lo que en este momento esto "
+"explica principalmente la estructura de la barra lateral de la documentación."
 
 #: src/std-types/string.md
 msgid ""
@@ -6757,27 +6882,27 @@ msgstr ""
 
 #: src/std-types/vec.md
 msgid "\"v1: len = {}, capacity = {}\""
-msgstr ""
+msgstr "\"v1: longitud= {}, capacidad = {}\""
 
 #: src/std-types/vec.md
 msgid "\"v2: len = {}, capacity = {}\""
-msgstr ""
+msgstr "\"v2: longitud= {}, capacidad = {}\""
 
 #: src/std-types/vec.md
 msgid "// Canonical macro to initialize a vector with elements.\n"
-msgstr ""
+msgstr "// Macro canónica para inicializar un vector con elementos.\n"
 
 #: src/std-types/vec.md
 msgid "// Retain only the even elements.\n"
-msgstr ""
+msgstr "// Conserva solo los elementos pares.\n"
 
 #: src/std-types/vec.md
 msgid "\"{v3:?}\""
-msgstr ""
+msgstr "\"{v3:?}\""
 
 #: src/std-types/vec.md
 msgid "// Remove consecutive duplicates.\n"
-msgstr ""
+msgstr "// Elimina los duplicados consecutivos.\n"
 
 #: src/std-types/vec.md
 msgid ""
@@ -6834,6 +6959,9 @@ msgid ""
 "Slices are covered on day 3. For now, students only need to know that a "
 "value of type `Vec` gives access to all of the documented slice methods, too."
 msgstr ""
+"Se estudiarán los slices el tercer día del curso. Por ahora, los "
+"participantes solo necesitan saber que un valor del tipo `Vec` también da "
+"acceso a todos los métodos de slice documentados."
 
 #: src/std-types/hashmap.md
 msgid "Standard hash map with protection against HashDoS attacks:"
@@ -6841,43 +6969,46 @@ msgstr "Mapa hash estándar con protección frente a ataques HashDoS:"
 
 #: src/std-types/hashmap.md
 msgid "\"Adventures of Huckleberry Finn\""
-msgstr ""
+msgstr "\"Las aventuras de Huckleberry Finn\""
 
 #: src/std-types/hashmap.md
 msgid "\"Grimms' Fairy Tales\""
-msgstr ""
+msgstr "\"Los cuentos de los hermanos Grimm\""
 
 #: src/std-types/hashmap.md
 msgid "\"Pride and Prejudice\""
-msgstr ""
+msgstr "\"Orgullo y prejuicio\""
 
 #: src/std-types/hashmap.md
 msgid "\"Les Misérables\""
-msgstr ""
+msgstr "\"Los miserables\""
 
 #: src/std-types/hashmap.md
 msgid "\"We know about {} books, but not Les Misérables.\""
 msgstr ""
+"\"Tenemos información acerca de {} libros, pero no de Los miserables\"."
 
 #: src/std-types/hashmap.md
 msgid "\"Alice's Adventure in Wonderland\""
-msgstr ""
+msgstr "\"Las aventuras de Alicia en el país de las maravillas\""
 
 #: src/std-types/hashmap.md
 msgid "\"{book}: {count} pages\""
-msgstr ""
+msgstr "\"{book}: {count} páginas\""
 
 #: src/std-types/hashmap.md
 msgid "\"{book} is unknown.\""
-msgstr ""
+msgstr "\"{book} es desconocido.\""
 
 #: src/std-types/hashmap.md
 msgid "// Use the .entry() method to insert a value if nothing is found.\n"
 msgstr ""
+"// Utiliza el método .entry() para insertar un valor si no se encuentra "
+"ningún resultado.\n"
 
 #: src/std-types/hashmap.md
 msgid "\"{page_counts:#?}\""
-msgstr ""
+msgstr "\"{page_counts:#?}\""
 
 #: src/std-types/hashmap.md
 msgid ""
@@ -6897,11 +7028,11 @@ msgstr ""
 
 #: src/std-types/hashmap.md
 msgid "\"Harry Potter and the Sorcerer's Stone\""
-msgstr ""
+msgstr "\"Harry Potter y la piedra filosofal\""
 
 #: src/std-types/hashmap.md
 msgid "\"The Hunger Games\""
-msgstr ""
+msgstr "\"Los juegos del hambre\""
 
 #: src/std-types/hashmap.md
 msgid "Unlike `vec!`, there is unfortunately no standard `hashmap!` macro."
@@ -6967,6 +7098,11 @@ msgid ""
 "stable/std/collections/struct.HashMap.html) to keep track of which values "
 "have been seen and how many times each one has appeared."
 msgstr ""
+"En este ejercicio habrá una estructura de datos muy sencilla y la "
+"convertirás en genérica. Utiliza un [`std::collections::HashMap`](https://"
+"doc.rust-lang.org/stable/std/collections/struct.HashMap.html) para hacer un "
+"seguimiento de los valores se han visto y cuántas veces ha aparecido cada "
+"uno."
 
 #: src/std-types/exercise.md
 msgid ""
@@ -6974,6 +7110,10 @@ msgid ""
 "values. Make the struct and its methods generic over the type of value being "
 "tracked, that way `Counter` can track any type of value."
 msgstr ""
+"La versión inicial de `Counter` está codificada para que solo funcione con "
+"los valores `u32`. Haz que struct y sus métodos sean genéricos sobre el tipo "
+"de valor del que se está haciendo un seguimiento, de manera que `Counter` "
+"pueda hacer el seguimiento de cualquier tipo de valor."
 
 #: src/std-types/exercise.md
 msgid ""
@@ -6981,101 +7121,117 @@ msgid ""
 "stable/std/collections/struct.HashMap.html#method.entry) method to halve the "
 "number of hash lookups required to implement the `count` method."
 msgstr ""
+"Si te sobra tiempo, prueba a usar el método [`entry`](https://doc.rust-lang."
+"org/stable/std/collections/struct.HashMap.html#method.entry) para reducir a "
+"la mitad el número de búsquedas de hash que se necesita para implementar el "
+"método `count`."
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid ""
 "/// Counter counts the number of times each value of type T has been seen.\n"
 msgstr ""
+"/// Counter cuenta el número de veces que se ha visto cada valor de tipo T.\n"
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "/// Create a new Counter.\n"
-msgstr ""
+msgstr "/// Crea un nuevo Counter.\n"
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "/// Count an occurrence of the given value.\n"
-msgstr ""
+msgstr "/// Cuenta una repetición del valor dado.\n"
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "/// Return the number of times the given value has been seen.\n"
-msgstr ""
+msgstr "/// Devuelve el número de veces que se ha visto el valor dado.\n"
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "\"saw {} values equal to {}\""
-msgstr ""
+msgstr "\"se han visto {} valores iguales a {}\""
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "\"apple\""
-msgstr ""
+msgstr "\"manzana\""
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "\"orange\""
-msgstr ""
+msgstr "\"naranja\""
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "\"got {} apples\""
-msgstr ""
+msgstr "\"se han visto {} manzanas\""
 
 #: src/std-traits.md
 msgid "[Comparisons](./std-traits/comparisons.md) (10 minutes)"
-msgstr ""
+msgstr "[Comparaciones](./std-traits/comparisons.md) (10 minutos)"
 
 #: src/std-traits.md
 msgid "[Operators](./std-traits/operators.md) (10 minutes)"
-msgstr ""
+msgstr "[Operadores](./std-traits/operators.md) (10 minutos)"
 
 #: src/std-traits.md
 msgid "[From and Into](./std-traits/from-and-into.md) (10 minutes)"
-msgstr ""
+msgstr "[From e Into](./std-traits/from-and-into.md) (10 minutos)"
 
 #: src/std-traits.md
 msgid "[Casting](./std-traits/casting.md) (5 minutes)"
-msgstr ""
+msgstr "[Conversiones](./std-traits/casting.md) (5 minutos)"
 
 #: src/std-traits.md
 msgid "[Read and Write](./std-traits/read-and-write.md) (10 minutes)"
-msgstr ""
+msgstr "[Read y Write](./std-traits/read-and-write.md) (10 minutos)"
 
 #: src/std-traits.md
 msgid "[Default, struct update syntax](./std-traits/default.md) (5 minutes)"
 msgstr ""
+"[Default, sintaxis de actualización de structs](./std-traits/default.md) (5 "
+"minutos)"
 
 #: src/std-traits.md
 msgid "[Closures](./std-traits/closures.md) (20 minutes)"
-msgstr ""
+msgstr "[Cierres](./std-traits/closures.md) (20 minutos)"
 
 #: src/std-traits.md
 msgid "[Exercise: ROT13](./std-traits/exercise.md) (30 minutes)"
-msgstr ""
+msgstr "[Ejercicio: ROT13](./std-traits/exercise.md) (30 minutos)"
 
 #: src/std-traits.md
 msgid "This segment should take about 1 hour and 40 minutes"
-msgstr ""
+msgstr "Esta sección tiene una duración aproximada de 1 hora y 40 minutos."
 
 #: src/std-traits.md
 msgid ""
 "As with the standard-library types, spend time reviewing the documentation "
 "for each trait."
 msgstr ""
+"Al igual que con los tipos de biblioteca estándar, dedica tiempo a revisar "
+"la documentación de cada trait."
 
 #: src/std-traits.md
 msgid "This section is long. Take a break midway through."
 msgstr ""
+"Esta parte es larga, por lo que recomendamos tomar un descanso al llegar a "
+"la mitad."
 
 #: src/std-traits/comparisons.md
 msgid ""
 "These traits support comparisons between values. All traits can be derived "
 "for types containing fields that implement these traits."
 msgstr ""
+"Estos traits permiten comparar valores. Se pueden derivar todos los traits "
+"de los tipos que contengan campos que implementen estos traits."
 
 #: src/std-traits/comparisons.md
 msgid "`PartialEq` and `Eq`"
-msgstr ""
+msgstr "`PartialEq` y `Eq`"
 
 #: src/std-traits/comparisons.md
 msgid ""
 "`PartialEq` is a partial equivalence relation, with required method `eq` and "
 "provided method `ne`. The `==` and `!=` operators will call these methods."
 msgstr ""
+"`PartialEq` es una relación de equivalencia parcial, con el método requerido "
+"`eq` y el método proporcionado `ne`. Los operadores `==` y `!=` llamarán a "
+"estos métodos."
 
 #: src/std-traits/comparisons.md
 msgid ""
@@ -7083,33 +7239,42 @@ msgid ""
 "and implies `PartialEq`. Functions that require full equivalence will use "
 "`Eq` as a trait bound."
 msgstr ""
+"`Eq` es una relación de equivalencia completa (reflexiva, simétrica y "
+"transitiva) e implica `PartialEq`. Las funciones que requieren una "
+"equivalencia total usan `Eq` como límite del trait."
 
 #: src/std-traits/comparisons.md
 #, fuzzy
 msgid "`PartialOrd` and `Ord`"
-msgstr "`Read` y `Write`"
+msgstr "`PartialEq` y `Eq`"
 
 #: src/std-traits/comparisons.md
 msgid ""
 "`PartialOrd` defines a partial ordering, with a `partial_cmp` method. It is "
 "used to implement the `<`, `<=`, `>=`, and `>` operators."
 msgstr ""
+"`PartialOrd` define un orden parcial, con un método `partial_cmp`. Se usa "
+"para implementar los operadores `<`, `<=`, `>=` y `>`."
 
 #: src/std-traits/comparisons.md
 msgid "`Ord` is a total ordering, with `cmp` returning `Ordering`."
-msgstr ""
+msgstr "`Ord` es un orden total en el que `cmp` devuelve `Ordering`."
 
 #: src/std-traits/comparisons.md
 msgid ""
 "`PartialEq` can be implemented between different types, but `Eq` cannot, "
 "because it is reflexive:"
 msgstr ""
+"`PartialEq` se puede implementar entre diferentes tipos, pero `Eq` no, ya "
+"que es reflexivo:"
 
 #: src/std-traits/comparisons.md
 msgid ""
 "In practice, it's common to derive these traits, but uncommon to implement "
 "them."
 msgstr ""
+"En la práctica, es habitual derivar estos traits, aunque no se suelen "
+"implementar."
 
 #: src/std-traits/operators.md
 msgid ""
@@ -7121,7 +7286,7 @@ msgstr ""
 
 #: src/std-traits/operators.md
 msgid "\"{:?} + {:?} = {:?}\""
-msgstr ""
+msgstr "\"{:?} + {:?} = {:?}\""
 
 #: src/std-traits/operators.md src/memory-management/drop.md
 msgid "Discussion points:"
@@ -7183,7 +7348,7 @@ msgstr ""
 
 #: src/std-traits/from-and-into.md
 msgid "\"{s}, {addr}, {one}, {bigger}\""
-msgstr ""
+msgstr "\"{s}, {addr}, {one}, {bigger}\""
 
 #: src/std-traits/from-and-into.md
 msgid ""
@@ -7220,18 +7385,20 @@ msgid ""
 "Rust has no _implicit_ type conversions, but does support explicit casts "
 "with `as`. These generally follow C semantics where those are defined."
 msgstr ""
+"Rust no tiene conversiones de tipo _implícitas_, pero admite conversiones "
+"explícitas con `as`. Por lo general, se definen según la semántica de C."
 
 #: src/std-traits/casting.md
 msgid "\"as u16: {}\""
-msgstr ""
+msgstr "\"ya que u16: {}\""
 
 #: src/std-traits/casting.md
 msgid "\"as i16: {}\""
-msgstr ""
+msgstr "\"ya que i16: {}\""
 
 #: src/std-traits/casting.md
 msgid "\"as u8: {}\""
-msgstr ""
+msgstr "\"ya que u8: {}\""
 
 #: src/std-traits/casting.md
 msgid ""
@@ -7239,6 +7406,10 @@ msgid ""
 "platforms. This might not match your intuition for changing sign or casting "
 "to a smaller type -- check the docs, and comment for clarity."
 msgstr ""
+"Los resultados de `as` se definen _siempre_ en Rust y son coherentes en "
+"todas las plataformas. Es posible que no coincida con tu idea de cambiar el "
+"signo o convertirlo a otro de menor tamaño. Consulta los documentos y añade "
+"comentarios para mayor claridad."
 
 #: src/std-traits/casting.md
 msgid ""
@@ -7249,6 +7420,13 @@ msgid ""
 "selecting the bottom 32 bits of a `u64` with `as u32`, regardless of what "
 "was in the high bits)."
 msgstr ""
+"La conversión con `as` es una herramienta relativamente precisa y fácil de "
+"usar de forma incorrecta. Puede ser una fuente de pequeños errores, ya que "
+"los futuros trabajos de mantenimiento cambian los tipos que se usan o los "
+"intervalos de valores de los tipos. Las conversiones se utilizan únicamente "
+"cuando se quiere indicar un truncamiento incondicional (por ejemplo, "
+"seleccionando los 32 bits inferiores de un `u64` con `as u32`, "
+"independientemente del elemento que se encontrase en los bits altos)."
 
 #: src/std-traits/casting.md
 msgid ""
@@ -7257,10 +7435,16 @@ msgid ""
 "casts, `TryFrom` and `TryInto` are available when you want to handle casts "
 "that fit differently from those that don't."
 msgstr ""
+"En el caso de las conversiones que no sean falibles (por ejemplo, `u32` a "
+"`u64`), se recomienda utilizar `From` o `Into` en lugar de `as` para "
+"confirmar que la conversión es precisamente infalible. En el caso de las "
+"conversiones falibles, `TryFrom` y `TryInto` están disponibles cuando "
+"necesitas gestionar conversiones que se ajustan de forma diferente a las que "
+"no lo hacen."
 
 #: src/std-traits/casting.md
 msgid "Consider taking a break after this slide."
-msgstr ""
+msgstr "Plantéate hacer una pausa después de esta diapositiva."
 
 #: src/std-traits/casting.md
 msgid ""
@@ -7268,10 +7452,15 @@ msgid ""
 "be lost is generally discouraged, or at least deserves an explanatory "
 "comment."
 msgstr ""
+"`as` es similar a una conversión estática de C++. En general, se desaconseja "
+"el uso de `as` en los casos en los que puedan perderse datos, o al menos se "
+"recomienda dejar un comentario explicativo."
 
 #: src/std-traits/casting.md
 msgid "This is common in casting integers to `usize` for use as an index."
 msgstr ""
+"Esto es habitual al convertir números enteros a `usize` para usarlos como "
+"índice."
 
 #: src/std-traits/read-and-write.md
 msgid ""
@@ -7285,15 +7474,15 @@ msgstr ""
 
 #: src/std-traits/read-and-write.md
 msgid "b\"foo\\nbar\\nbaz\\n\""
-msgstr ""
+msgstr "b\"foo\\nbar\\nbaz\\n\""
 
 #: src/std-traits/read-and-write.md
 msgid "\"lines in slice: {}\""
-msgstr ""
+msgstr "\"líneas en el slice: {}\""
 
 #: src/std-traits/read-and-write.md
 msgid "\"lines in file: {}\""
-msgstr ""
+msgstr "\"líneas en el archivo: {}\""
 
 #: src/std-traits/read-and-write.md
 msgid ""
@@ -7305,15 +7494,15 @@ msgstr ""
 
 #: src/std-traits/read-and-write.md
 msgid "\"\\n\""
-msgstr ""
+msgstr "\"\\n\""
 
 #: src/std-traits/read-and-write.md src/slices-and-lifetimes/str.md
 msgid "\"World\""
-msgstr ""
+msgstr "\"mundo\""
 
 #: src/std-traits/read-and-write.md
 msgid "\"Logged: {:?}\""
-msgstr ""
+msgstr "\"Registrado: {:?}\""
 
 #: src/std-traits/default.md
 msgid "The `Default` Trait"
@@ -7329,24 +7518,24 @@ msgstr ""
 
 #: src/std-traits/default.md
 msgid "\"John Smith\""
-msgstr ""
+msgstr "\"John Smith\""
 
 #: src/std-traits/default.md
 msgid "\"{default_struct:#?}\""
-msgstr ""
+msgstr "\"{default_struct:#?}\""
 
 #: src/std-traits/default.md
 msgid "\"Y is set!\""
-msgstr ""
+msgstr "\"Ya está configurado.\""
 
 #: src/std-traits/default.md
 msgid "\"{almost_default_struct:#?}\""
-msgstr ""
+msgstr "\"{almost_default_struct:#?}\""
 
 #: src/std-traits/default.md src/slices-and-lifetimes/exercise.md
 #: src/slices-and-lifetimes/solution.md
 msgid "\"{:#?}\""
-msgstr ""
+msgstr "\"{:#?}\""
 
 #: src/std-traits/default.md
 msgid ""
@@ -7425,15 +7614,15 @@ msgstr "Llamar Funciones Unsafe (Inseguras)"
 
 #: src/std-traits/closures.md
 msgid "\"add_3: {}\""
-msgstr ""
+msgstr "\"add_3: {}\""
 
 #: src/std-traits/closures.md
 msgid "\"accumulate: {}\""
-msgstr ""
+msgstr "\"accumulate: {}\""
 
 #: src/std-traits/closures.md
 msgid "\"multiply_sum: {}\""
-msgstr ""
+msgstr "\"multiply_sum: {}\""
 
 #: src/std-traits/closures.md
 msgid ""
@@ -7478,12 +7667,19 @@ msgid ""
 "you can (i.e. you call it once), or `FnMut` else, and last `Fn`. This allows "
 "the most flexibility for the caller."
 msgstr ""
+"Cuando defines una función que lleva un cierre, debes usar `FnOnce` si es "
+"posible (es decir, se llama una vez) o, en su defecto, `FnMut`. En último "
+"lugar estaría `Fn`. De esta forma, se ofrece la máxima flexibilidad al "
+"llamador."
 
 #: src/std-traits/closures.md
 msgid ""
 "In contrast, when you have a closure, the most flexible you can have is `Fn` "
 "(it can be passed everywhere), then `FnMut`, and lastly `FnOnce`."
 msgstr ""
+"Por el contrario, cuando tienes un cierre (closure), lo más flexible que "
+"puedes tener es `Fn` (se puede transmitir en todas partes), a continuación "
+"`FnMut` y, por último, `FnOnce`."
 
 #: src/std-traits/closures.md
 msgid ""
@@ -7503,11 +7699,11 @@ msgstr ""
 
 #: src/std-traits/closures.md
 msgid "\"Hi\""
-msgstr ""
+msgstr "\"¿Qué\""
 
 #: src/std-traits/closures.md
 msgid "\"there\""
-msgstr ""
+msgstr "\"pasa?\""
 
 #: src/std-traits/exercise.md
 msgid ""
@@ -7516,28 +7712,34 @@ msgid ""
 "implement the missing bits. Only rotate ASCII alphabetic characters, to "
 "ensure the result is still valid UTF-8."
 msgstr ""
+"En este ejemplo, implementaremos el algoritmo de cifrado clásico [\"ROT13\"]"
+"(https://en.wikipedia.org/wiki/ROT13). Copia este código en el playground e "
+"implementa los bits que faltan. Rota únicamente los caracteres alfabéticos "
+"ASCII para asegurarte de que el resultado sigue siendo válido en UTF-8."
 
 #: src/std-traits/exercise.md
 msgid "// Implement the `Read` trait for `RotDecoder`.\n"
-msgstr ""
+msgstr "// Implementa el trait `Read` para `RotDecoder`.\n"
 
 #: src/std-traits/exercise.md src/std-traits/solution.md
 msgid "\"Gb trg gb gur bgure fvqr!\""
-msgstr ""
+msgstr "\"Gb trg gb gur bgure fvqr!\""
 
 #: src/std-traits/exercise.md src/std-traits/solution.md
 msgid "\"To get to the other side!\""
-msgstr ""
+msgstr "\"Para llegar al otro lado\""
 
 #: src/std-traits/exercise.md
 msgid ""
 "What happens if you chain two `RotDecoder` instances together, each rotating "
 "by 13 characters?"
 msgstr ""
+"¿Qué ocurre si encadenas dos instancias `RotDecoder` y cada una de ellas "
+"rota 13 posiciones?"
 
 #: src/std-traits/solution.md
 msgid "'A'"
-msgstr ""
+msgstr "'A'"
 
 #: src/welcome-day-3.md
 msgid "Welcome to Day 3"
