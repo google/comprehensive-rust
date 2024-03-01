@@ -13,7 +13,7 @@
   parentElement.insertBefore(newDiv, parentElement.firstChild);
   // Create the button element
   var hideShowButton = document.createElement("button");
-  hideShowButton.innerHTML = '<i class="fa-solid fa-square"></i>';
+  hideShowButton.innerHTML = '<i class="fa-solid fa-square fa-lg"></i>';
   hideShowButton.className = "icon-button";
   hideShowButton.type = "button";
   hideShowButton.title =
@@ -29,10 +29,10 @@
       document.getElementById("aspect-ratio-helper").style.display === "none"
     ) {
       document.getElementById("aspect-ratio-helper").style.display = "block";
-      hideShowButton.innerHTML = '<i class="fa-thin fa-square"></i>';
+      hideShowButton.innerHTML = '<i class="fa-thin fa-square fa-lg "></i>';
     } else {
       document.getElementById("aspect-ratio-helper").style.display = "none";
-      hideShowButton.innerHTML = "Dev";
+      hideShowButton.innerHTML = '<i class="fa-solid fa-square fa-lg "></i>';
     }
   });
 })();
