@@ -13,10 +13,11 @@
   parentElement.insertBefore(newDiv, parentElement.firstChild);
   // Create the button element
   var hideShowButton = document.createElement("button");
-  hideShowButton.innerHTML = '<i class=\"fa-solid fa-square\"></i>';
+  hideShowButton.innerHTML = '<i class="fa-solid fa-square"></i>';
   hideShowButton.className = "icon-button";
   hideShowButton.type = "button";
-  hideShowButton.title = "Outline the area that fits on one screen while teaching the course.";
+  hideShowButton.title =
+    "Outline the area that fits on one screen while teaching the course.";
   hideShowButton.id = "Dev";
   var navbarButtons = document.getElementsByClassName("left-buttons");
   navbarButtons[0].insertBefore(hideShowButton, navbarButtons.firstChild);
@@ -24,9 +25,11 @@
   document.getElementById("aspect-ratio-helper").style.display = "none";
   //Add Event listener to button to perform on click action.
   hideShowButton.addEventListener("click", function () {
-    if (document.getElementById("aspect-ratio-helper").style.display === "none") {
+    if (
+      document.getElementById("aspect-ratio-helper").style.display === "none"
+    ) {
       document.getElementById("aspect-ratio-helper").style.display = "block";
-      hideShowButton.innerHTML = '<i class=\"fa-thin fa-square\"></i>';
+      hideShowButton.innerHTML = '<i class="fa-thin fa-square"></i>';
     } else {
       document.getElementById("aspect-ratio-helper").style.display = "none";
       hideShowButton.innerHTML = "Dev";
