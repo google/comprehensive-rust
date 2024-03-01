@@ -16,8 +16,8 @@ vertical space. Scrolling up and down should be avoided since it is very jarring
 for people who attend the class.
 
 You can test the amount of space available using a simple tool.This tool can
-be used by clicking a toggle button right to the search button on left side of 
-navbar. 
+be used by clicking a toggle button right to the search button on left side of
+navbar.
 
 The rectangle has an aspect ratio similar to what you can see when you share
 your screen on a 16:9 display or projector.
@@ -86,6 +86,7 @@ This section is about what you write in the translation. We describe
 When translating the course, please take the following into account:
 
 - Do not translate:
+
   - The course name ("Comprehensive Rust 🦀"). If the name is not easily
     understood in your language, please add the translated version after the
     original name.
