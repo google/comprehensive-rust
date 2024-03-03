@@ -82,7 +82,7 @@ fn main() {
 
 - Remove the `Box` in the List definition and show the compiler error. We get
   the message "recursive without indirection", because for data recursion, we
-  have to use indirection, a Box or reference of some kind, instead of storing
+  have to use indirection, a `Box` or reference of some kind, instead of storing
   the value directly.
 
 # More to Explore
