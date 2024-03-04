@@ -10,7 +10,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4\n"
 
 #: src/SUMMARY.md src/index.md
 msgid "Welcome to Comprehensive Rust 🦀"
@@ -14758,15 +14757,17 @@ msgstr ""
 "tenga un fragmento de código que se pueda convertir en Rust sobre la marcha."
 
 #: src/chromium.md
-#, fuzzy
 msgid "Welcome to Rust in Chromium"
-msgstr "Te Damos la Bienvenida a Rust en Android"
+msgstr "Te Damos la Bienvenida a Rust en Chromium"
 
 #: src/chromium.md
 msgid ""
 "Rust is supported for third-party libraries in Chromium, with first-party "
 "glue code to connect between Rust and existing Chromium C++ code."
 msgstr ""
+"Rust es compatible con bibliotecas de terceros en Chromium, con código "
+"pegamento propio para conectar Rust y el código de C++ de Chromium ya "
+"existente."
 
 #: src/chromium.md
 msgid ""
@@ -14775,6 +14776,10 @@ msgid ""
 "feel free to follow this recipe in your part of the codebase instead of the "
 "exact part we talk about."
 msgstr ""
+"Hoy vamos a llamar a Rust para que haga algo divertido con las cadenas. Si "
+"tienes una esquina del código donde se muestra una cadena UTF8 al usuario, "
+"no dudes en seguir estas instrucciones en tu parte del código base en lugar "
+"de la parte exacta de la que hablamos."
 
 #: src/chromium/setup.md
 msgid ""
@@ -14782,12 +14787,18 @@ msgid ""
 "flags is OK, so long as your code is relatively recent (commit position "
 "1223636 onwards, corresponding to November 2023):"
 msgstr ""
+"Asegúrate de que puedes compilar y ejecutar Chromium. Cualquier plataforma y "
+"conjunto de marcas de compilación es apto, siempre que tu código sea "
+"relativamente reciente (posición de commit 1223636 en adelante, "
+"correspondiente a noviembre del 2023):"
 
 #: src/chromium/setup.md
 msgid ""
 "(A component, debug build is recommended for quickest iteration time. This "
 "is the default!)"
 msgstr ""
+"(Se recomienda una versión de depuración de componentes para que el tiempo "
+"de iteración sea más rápido. Esta es la opción predeterminada)."
 
 #: src/chromium/setup.md
 msgid ""
@@ -14795,14 +14806,17 @@ msgid ""
 "the-code/) if you aren't already at that point. Be warned: setting up to "
 "build Chromium takes time."
 msgstr ""
+"Consulta [cómo compilar Chromium](https://www.chromium.org/developers/how-"
+"tos/get-the-code/) si aún no lo has hecho. Advertencia: el proceso de "
+"configuración para compilar Chromium puede tardar."
 
 #: src/chromium/setup.md
 msgid "It's also recommended that you have Visual Studio code installed."
-msgstr ""
+msgstr "Se recomienda que tengas instalado Visual Studio Code."
 
 #: src/chromium/setup.md
 msgid "About the exercises"
-msgstr ""
+msgstr "Información sobre los ejercicios"
 
 #: src/chromium/setup.md
 msgid ""
@@ -14811,6 +14825,10 @@ msgid ""
 "If you don't have time to complete a certain part, don't worry: you can "
 "catch up in the next slot."
 msgstr ""
+"Esta parte del curso consta de una serie de ejercicios que se complementan "
+"entre sí. Las iremos repartiendo a lo largo del curso en lugar de hacerlos "
+"todo al final. Si no tienes tiempo para completar una parte concreta, no te "
+"preocupes, podrás ponerte al día en la siguiente clase."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14818,10 +14836,13 @@ msgid ""
 "crates.io/). Chromium is built using `gn` and `ninja` and a curated set of "
 "dependencies."
 msgstr ""
+"La comunidad de Rust suele usar `cargo` y bibliotecas de [crates.io](https://"
+"crates.io/). Chromium se compila usando `gn` y `ninja`, además de un "
+"conjunto seleccionado de dependencias."
 
 #: src/chromium/cargo.md
 msgid "When writing code in Rust, your choices are:"
-msgstr ""
+msgstr "A la hora de escribir código en Rust, hay disponibles varias opciones:"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14829,6 +14850,9 @@ msgid ""
 "gni` (e.g. `rust_static_library` that we'll meet later). This uses "
 "Chromium's audited toolchain and crates."
 msgstr ""
+"Usar `gn` y `ninja` con la ayuda de las plantillas de `//build/rust/*.gni` "
+"(por ejemplo, `rust_static_library`, que veremos más adelante). Se usan la "
+"cadena de herramientas y los crates auditados de Chromium."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14836,12 +14860,17 @@ msgid ""
 "crates](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/"
 "docs/rust.md#Using-cargo)"
 msgstr ""
+"Usar `cargo`, pero [restringiendo el uso de la cadena de herramientas y los "
+"crates auditados de Chromium](https://chromium.googlesource.com/chromium/src/"
+"+/refs/heads/main/docs/rust.md#Using-cargo)."
 
 #: src/chromium/cargo.md
 msgid ""
 "Use `cargo`, trusting a [toolchain](https://rustup.rs/) and/or [crates "
 "downloaded from the internet](https://crates.io/)"
 msgstr ""
+"Usa `cargo` con una [cadena de herramientas](https://rustup.rs/) o [crates "
+"descargados de Internet](https://crates.io/)."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14849,27 +14878,34 @@ msgid ""
 "code can be built into the Chromium browser. At the same time, Cargo is an "
 "important part of the Rust ecosystem and you should keep it in your toolbox."
 msgstr ""
+"A partir de ahora, nos centraremos en `gn` y `ninja`, ya que así es como se "
+"puede compilar el código de Rust en el navegador Chromium. De igual forma, "
+"Cargo es una parte importante del ecosistema de Rust y deberías conservarlo "
+"en tu caja de herramientas."
 
 #: src/chromium/cargo.md
-#, fuzzy
 msgid "Mini exercise"
-msgstr "Ejercicios"
+msgstr "Ejercicio rápido"
 
 #: src/chromium/cargo.md
 msgid "Split into small groups and:"
-msgstr ""
+msgstr "Formad grupos pequeños para:"
 
 #: src/chromium/cargo.md
 msgid ""
 "Brainstorm scenarios where `cargo` may offer an advantage and assess the "
 "risk profile of these scenarios."
 msgstr ""
+"Hacer una lluvia de ideas sobre situaciones en las que `cargo` pueda ofrecer "
+"ventajas y evaluar el perfil de riesgo."
 
 #: src/chromium/cargo.md
 msgid ""
 "Discuss which tools, libraries, and groups of people need to be trusted when "
 "using `gn` and `ninja`, offline `cargo`, etc."
 msgstr ""
+"Debatir en qué herramientas, bibliotecas y grupos de personas hay que "
+"confiar al usar `gn` y `ninja`, `cargo` offline, etc."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14877,12 +14913,18 @@ msgid ""
 "exercise. Assuming folks taking the course are physically together, ask them "
 "to discuss in small groups of 3-4 people."
 msgstr ""
+"Pide a los participantes que eviten mirar las notas del orador antes de "
+"completar el ejercicio. Suponiendo que todas las personas que hacen el curso "
+"están en la misma sala, pídeles que hablen en grupos pequeños de 3 a 4 "
+"personas."
 
 #: src/chromium/cargo.md
 msgid ""
 "Notes/hints related to the first part of the exercise (\"scenarios where "
 "Cargo may offer an advantage\"):"
 msgstr ""
+"Notas y sugerencias relacionadas con la primera parte del ejercicio "
+"(\"situaciones en las que Cargo puede ofrecer ventajas\"):"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14892,18 +14934,28 @@ msgid ""
 "(`clap` for command-line parsing, `serde` for serializing/deserializing to/"
 "from various formats, `itertools` for working with iterators, etc.)."
 msgstr ""
+"Es genial que al escribir una herramienta o crear prototipos de una parte de "
+"Chromium se pueda acceder al extenso ecosistema de bibliotecas crates.io. "
+"Hay un crate para casi cualquier cosa y suelen ser muy fáciles de usar "
+"(`clap` para el análisis de la línea de comandos, `serde` para la "
+"serialización y deserialización a/desde varios formatos, `itertools` para "
+"trabajar con iteradores, etc.)."
 
 #: src/chromium/cargo.md
 msgid ""
 "`cargo` makes it easy to try a library (just add a single line to `Cargo."
 "toml` and start writing code)"
 msgstr ""
+"`cargo` permite probar una biblioteca fácilmente (solo hay que añadir una "
+"línea a `Cargo.toml` y empezar a escribir el código)."
 
 #: src/chromium/cargo.md
 msgid ""
 "It may be worth comparing how CPAN helped make `perl` a popular choice. Or "
 "comparing with `python` + `pip`."
 msgstr ""
+"Merece la pena comparar cómo la CPAN ayudó a que `perl` fuera una opción "
+"popular o compararlo con `python` + `pip`."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14914,20 +14966,32 @@ msgid ""
 "streamlining and sharing security audits; `criterion` crate gives a "
 "streamlined way to run benchmarks)."
 msgstr ""
+"La experiencia de desarrollo no solo es agradable gracias a las herramientas "
+"principales de Rust (por ejemplo, al usar `rustup` para cambiar a una "
+"versión diferente de `rustc` cuando se prueba un crate que necesita "
+"funcionar en nightly, stable actual y antiguas versiones de stable), sino "
+"también a un ecosistema de herramientas de terceros (por ejemplo, Mozilla "
+"proporciona `cargo vet` para optimizar y compartir auditorías de seguridad; "
+"el crate `criterion` ofrece un método optimizado para ejecutar comparativas)."
 
 #: src/chromium/cargo.md
 msgid ""
 "`cargo` makes it easy to add a tool via `cargo install --locked cargo-vet`."
 msgstr ""
+"`cargo` permite añadir fácilmente una herramienta mediante `cargoinstall --"
+"locked cargo-vet`."
 
 #: src/chromium/cargo.md
 msgid "It may be worth comparing with Chrome Extensions or VScode extensions."
 msgstr ""
+"Merece la pena compararlo con las extensiones de Chrome o con las de VScode."
 
 #: src/chromium/cargo.md
 msgid ""
 "Broad, generic examples of projects where `cargo` may be the right choice:"
 msgstr ""
+"Ejemplos generales y genéricos de proyectos en los que `cargo` puede ser la "
+"opción más adecuada:"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14937,6 +15001,11 @@ msgid ""
 "typesystem) and running faster (as a compiled, rather than interpreted "
 "language)."
 msgstr ""
+"Sorprendentemente, Rust se está volviendo cada vez más popular en el sector "
+"por su función de escritura de herramientas de línea de comandos. La "
+"amplitud y la ergonomía de las bibliotecas son similares a las de Python, "
+"pero son más sólidas (gracias al sistema de tipos enriquecido) y funcionan "
+"más rápido (como lenguaje compilado en lugar de interpretado)."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14945,26 +15014,36 @@ msgid ""
 "used outside of Chromium (e.g. in Bazel or Android/Soong build environments) "
 "should probably use Cargo."
 msgstr ""
+"Para participar en el ecosistema de Rust, es necesario usar herramientas "
+"estándar de Rust, como Cargo. Las bibliotecas que quieran recibir "
+"contribuciones externas y actuar fuera de Chromium (por ejemplo, en entornos "
+"de desarrollo de Bazel o Android/Soong) deberían utilizar Cargo."
 
 #: src/chromium/cargo.md
 msgid "Examples of Chromium-related projects that are `cargo`\\-based:"
 msgstr ""
+"Ejemplos de proyectos relacionados con Chromium que se basan en `cargo`\\:"
 
 #: src/chromium/cargo.md
 msgid ""
 "`serde_json_lenient` (experimented with in other parts of Google which "
 "resulted in PRs with performance improvements)"
 msgstr ""
+"`serde_json_lenient` (experimentado en otras partes de Google que ha dado "
+"lugar a PRs con mejoras de rendimiento)."
 
 #: src/chromium/cargo.md
 msgid "Fontations libraries like `font-types`"
-msgstr ""
+msgstr "Bibliotecas de fuentes, como `font-types`."
 
 #: src/chromium/cargo.md
 msgid ""
 "`gnrt` tool (we will meet it later in the course) which depends on `clap` "
 "for command-line parsing and on `toml` for configuration files."
 msgstr ""
+"La herramienta `gnrt` (la veremos más adelante en el curso), que depende de "
+"`clap` para el análisis de la línea de comandos y de `toml` para los "
+"archivos de configuración."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14972,6 +15051,9 @@ msgid ""
 "when building and bootstrapping Rust standard library when building Rust "
 "toolchain.)"
 msgstr ""
+"Aclaración: una razón principal para usar `cargo` es que `gn` no está "
+"disponible al compilar e iniciar la biblioteca estándar de Rust cuando se "
+"compila su cadena de herramientas."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14979,12 +15061,17 @@ msgid ""
 "third-party libraries downloaded from the internet, by `run_gnrt.py` asks "
 "`cargo` that only `--locked` content is allowed via `Cargo.lock`.)"
 msgstr ""
+"`run_gnrt.py` usa la copia de Chromium de `cargo` y `rustc`. `gnrt` depende "
+"de las bibliotecas de terceros descargadas de Internet. `run_gnrt.py` pide a "
+"`cargo` que solo se permita el contenido `--locked` a través de `Cargo.lock`."
 
 #: src/chromium/cargo.md
 msgid ""
 "Students may identify the following items as being implicitly or explicitly "
 "trusted:"
 msgstr ""
+"Los participantes pueden tratar de identificar si los siguientes elementos "
+"son de confianza implícita o explícita:"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14992,40 +15079,53 @@ msgid ""
 "Clang compiler, the `rustc` sources (fetched from GitHub, reviewed by Rust "
 "compiler team), binary Rust compiler downloaded for bootstrapping"
 msgstr ""
+"`rustc` (el compilador de Rust), que a su vez depende de las bibliotecas "
+"LLVM, el compilador Clang, las fuentes `rustc` (obtenidas de GitHub y "
+"revisadas por el equipo de compilación de Rust), y el compilador binario de "
+"Rust descargado para el bootstrapping."
 
 #: src/chromium/cargo.md
 msgid ""
 "`rustup` (it may be worth pointing out that `rustup` is developed under the "
 "umbrella of the https://github.com/rust-lang/ organization - same as `rustc`)"
 msgstr ""
+"`rustup` (merece la pena destacar que `rustup` se desarrolla en la misma "
+"organización que `rustc`, https://github.com/rust-lang/)."
 
 #: src/chromium/cargo.md
 msgid "`cargo`, `rustfmt`, etc."
-msgstr ""
+msgstr "`cargo`, `rustfmt`, etc."
 
 #: src/chromium/cargo.md
 msgid ""
 "Various internal infrastructure (bots that build `rustc`, system for "
 "distributing the prebuilt toolchain to Chromium engineers, etc.)"
 msgstr ""
+"Varias infraestructuras internas (bots que compilan `rustc`, sistemas para "
+"distribuir la cadena de herramientas precompiladas a los ingenieros de "
+"Chromium, etc.)"
 
 #: src/chromium/cargo.md
 msgid "Cargo tools like `cargo audit`, `cargo vet`, etc."
-msgstr ""
+msgstr "Herramientas de Cargo, como `cargo audit`, `cargo vet`, etc."
 
 #: src/chromium/cargo.md
 msgid ""
 "Rust libraries vendored into `//third_party/rust` (audited by "
 "security@chromium.org)"
 msgstr ""
+"Bibliotecas de Rust incluidas en `//third_party/rust` (auditoría de "
+"security@chromium.org)."
 
 #: src/chromium/cargo.md
 msgid "Other Rust libraries (some niche, some quite popular and commonly used)"
 msgstr ""
+"Otras bibliotecas de Rust (algunas de nicho, otras bastante populares y de "
+"uso común)."
 
 #: src/chromium/policy.md
 msgid "Chromium Rust policy"
-msgstr ""
+msgstr "Política de Chromium Rust"
 
 #: src/chromium/policy.md
 msgid ""
@@ -15033,6 +15133,9 @@ msgid ""
 "approved by Chromium's [Area Tech Leads](https://source.chromium.org/"
 "chromium/chromium/src/+/main:ATL_OWNERS)."
 msgstr ""
+"Chromium aún no permite usar Rust propio, excepto en casos excepcionales, "
+"según lo aprobado por [Area Tech Leads](https://source.chromium.org/chromium/"
+"chromium/src/+/main:ATL_OWNERS)."
 
 #: src/chromium/policy.md
 msgid ""
@@ -15042,6 +15145,11 @@ msgid ""
 "circumstances, including if they're the best option for performance or for "
 "security."
 msgstr ""
+"La política de Chromium sobre bibliotecas de terceros se describe [aquí]"
+"(https://chromium.googlesource.com/chromium/src/+/main/docs/"
+"adding_to_third_party.md#rust). Se permite el uso de Rust para bibliotecas "
+"de terceros en algunos casos, incluido si son la mejor opción en cuanto al "
+"rendimiento o seguridad."
 
 #: src/chromium/policy.md
 msgid ""
@@ -15049,9 +15157,11 @@ msgid ""
 "nearly all such libraries will require a small amount of first-party glue "
 "code."
 msgstr ""
+"Muy pocas bibliotecas de Rust exponen directamente una API de C o C++, por "
+"lo que casi todas estas bibliotecas necesitarán una pequeña parte de código "
+"pegamento propio."
 
 #: src/chromium/policy.md
-#, fuzzy
 msgid ""
 "```bob\n"
 "\"C++\"                           Rust\n"
@@ -15078,21 +15188,26 @@ msgid ""
 "```"
 msgstr ""
 "```bob\n"
-" _Stack_                        _Heap_\n"
-".- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - "
+"\"C++\"                           Rust\n"
+".- - - - - - - - - -.           .- - - - - - - - - - - - - - - - - - - - - - "
 "-.\n"
-":                         :     :                                             :\n"
-":    "
-"list                 :     :                                             :\n"
-":   +----+----+           :     :    +----+----+    +----+------"
-"+             :\n"
-":   | 1  | o--+-----------+-----+--->| 2  | o--+--->| // | null "
-"|             :\n"
-":   +----+----+           :     :    +----+----+    +----+------"
-"+             :\n"
-":                         :     :                                             :\n"
-":                         :     :                                             :\n"
-"`- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - "
+":                   :           :                                             :\n"
+": Existing Chromium :           :  Chromium Rust              Existing "
+"Rust   :\n"
+": \"C++\"             :           :  \"wrapper\"                  "
+"crate           :\n"
+": +---------------+ :           : +----------------+          +-------------"
+"+ :\n"
+": |               | :           : |                |          |             "
+"| :\n"
+": |         o-----+-+-----------+-+->            o-+----------+-->          "
+"| :\n"
+": |               | : Language  : |                | Crate    |             "
+"| :\n"
+": +---------------+ : boundary  : +----------------+ API      +-------------"
+"+ :\n"
+":                   :           :                                             :\n"
+"`- - - - - - - - - -'           `- - - - - - - - - - - - - - - - - - - - - - "
 "-'\n"
 "```"
 
@@ -15101,27 +15216,31 @@ msgid ""
 "First-party Rust glue code for a particular third-party crate should "
 "normally be kept in `third_party/rust/<crate>/<version>/wrapper`."
 msgstr ""
+"El código pegamento propio de Rust para un crate de terceros concreto "
+"normalmente debe guardarse en `third_party/rust/<crate>/<version>/wrapper`."
 
 #: src/chromium/policy.md
 msgid "Because of this, today's course will be heavily focused on:"
-msgstr ""
+msgstr "Por este motivo, el curso de hoy se centrará en los siguientes temas:"
 
 #: src/chromium/policy.md
 msgid "Bringing in third-party Rust libraries (\"crates\")"
-msgstr ""
+msgstr "Incorporación de bibliotecas Rust de terceros (\"crates\")."
 
 #: src/chromium/policy.md
 msgid "Writing glue code to be able to use those crates from Chromium C++."
 msgstr ""
+"Escribir código pegamento para poder usar esos crates desde Chromium C++."
 
 #: src/chromium/policy.md
 msgid "If this policy changes over time, the course will evolve to keep up."
 msgstr ""
+"Si esta política cambia con el tiempo, el curso irá evolucionando para "
+"adaptarse al cambio."
 
 #: src/chromium/build-rules.md
-#, fuzzy
 msgid "Build rules"
-msgstr "Reglas de Compilación (Build)"
+msgstr "Reglas de Compilación (_Build_)"
 
 #: src/chromium/build-rules.md
 msgid ""
@@ -15129,15 +15248,20 @@ msgid ""
 "`ninja` for efficiency --- its static rules allow maximum parallelism. Rust "
 "is no exception."
 msgstr ""
+"El código de Rust se suele compilar con `cargo`. Chromium se compila con "
+"`gn` y `ninja` para aumentar la eficiencia. Sus reglas estáticas permiten el "
+"máximo paralelismo. Rust no es una excepción."
 
 #: src/chromium/build-rules.md
 msgid "Adding Rust code to Chromium"
-msgstr ""
+msgstr "Añadir código de Rust a Chromium"
 
 #: src/chromium/build-rules.md
 msgid ""
 "In some existing Chromium `BUILD.gn` file, declare a `rust_static_library`:"
 msgstr ""
+"En algunos archivos `BUILD.gn` de Chromium, declara una "
+"`rust_static_library`:"
 
 #: src/chromium/build-rules.md
 msgid ""
@@ -15150,12 +15274,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"import(\"//build/rust/rust_static_library.gni\")\n"
+"\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [ \"lib.rs\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/build-rules.md
 msgid ""
 "You can also add `deps` on other Rust targets. Later we'll use this to "
 "depend upon third party code."
 msgstr ""
+"También puedes añadir `deps` en otros segmentos de Rust. Más adelante, lo "
+"usaremos en función del código de terceros."
 
 #: src/chromium/build-rules.md
 msgid ""
@@ -15165,12 +15299,19 @@ msgid ""
 "list of all source files which `ninja` needs in order to determine when "
 "rebuilds are necessary."
 msgstr ""
+"Debes especificar _tanto_ la raíz del crate _como_ una lista completa de "
+"recursos. `crate_root` es el archivo proporcionado al compilador de Rust que "
+"representa el archivo raíz de la unidad de compilación, que suele ser `lib."
+"rs`. `sources` es una lista completa de todos los archivos de origen que "
+"necesita `ninja` para determinar cuándo es necesario compilar de nuevo."
 
 #: src/chromium/build-rules.md
 msgid ""
 "(There's no such thing as a Rust `source_set`, because in Rust, an entire "
 "crate is a compilation unit. A `static_library` is the smallest unit.)"
 msgstr ""
+"(No existe `source_set` en Rust porque un crate completo ya es una unidad de "
+"compilación. Una `static_library` es la unidad más pequeña)."
 
 #: src/chromium/build-rules.md
 msgid ""
@@ -15180,10 +15321,16 @@ msgid ""
 "this template provides support for CXX interop, Rust features, and unit "
 "tests, some of which we'll use later."
 msgstr ""
+"Puede que los participantes se pregunten por qué necesitamos una plantilla "
+"gn en vez de usar [la compatibilidad integrada de gn para las bibliotecas "
+"estáticas de Rust](https://gn.googlesource.com/gn/+/main/docs/reference."
+"md#func_static_library). La respuesta es que esta plantilla es compatible "
+"con la interoperabilidad de CXX, las funciones de Rust y las pruebas "
+"unitarias, algunas de las cuales usaremos más adelante."
 
 #: src/chromium/build-rules/unsafe.md
 msgid "Including `unsafe` Rust Code"
-msgstr ""
+msgstr "Incluir código de Rust `unsafe`"
 
 #: src/chromium/build-rules/unsafe.md
 msgid ""
@@ -15192,6 +15339,10 @@ msgid ""
 "the gn target. (Later in the course we'll see circumstances where this is "
 "necessary.)"
 msgstr ""
+"El código de Rust inseguro está prohibido en `rust_static_library` de forma "
+"predeterminada, por lo que no se podrá compilar. Si necesitas código de Rust "
+"inseguro, añade `allow_unsafe = true` al elemento de destino de gn. (Más "
+"adelante en el curso veremos circunstancias en las que es necesario hacerlo)."
 
 #: src/chromium/build-rules/unsafe.md
 msgid ""
@@ -15208,10 +15359,24 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"import(\"//build/rust/rust_static_library.gni\")\n"
+"\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [\n"
+"    \"lib.rs\",\n"
+"    \"hippopotamus.rs\"\n"
+"  ]\n"
+"  allow_unsafe = true\n"
+"}\n"
+"```"
 
 #: src/chromium/build-rules/depending.md
 msgid "Simply add the above target to the `deps` of some Chromium C++ target."
 msgstr ""
+"Solo tienes que añadir el elemento de destino que aparece arriba a los "
+"`deps` de algún elemento de destino de Chromium C++."
 
 #: src/chromium/build-rules/depending.md
 msgid ""
@@ -15229,62 +15394,93 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"import(\"//build/rust/rust_static_library.gni\")\n"
+"\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [ \"lib.rs\" ]\n"
+"}\n"
+"\n"
+"# or source_set, static_library etc.\n"
+"component(\"preexisting_cpp\") {\n"
+"  deps = [ \":my_rust_lib\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Types are elided in Rust code, which makes a good IDE even more useful than "
 "for C++. Visual Studio code works well for Rust in Chromium. To use it,"
 msgstr ""
+"Los tipos se omiten en el código de Rust, lo que hace que un buen IDE sea "
+"aún más útil para C++. El código de Visual Studio funciona bien con Rust en "
+"Chromium. Para utilizarlo, haz lo siguiente:"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Ensure your VSCode has the `rust-analyzer` extension, not earlier forms of "
 "Rust support"
 msgstr ""
+"Asegúrate de que VSCode tenga la extensión `rust-analyzer`, no versiones "
+"anteriores de compatibilidad con Rust."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "`gn gen out/Debug --export-rust-project` (or equivalent for your output "
 "directory)"
 msgstr ""
+"`gn gen out/Debug --export-rust-project` (o el equivalente en tu directorio "
+"de salida)."
 
 #: src/chromium/build-rules/vscode.md
 msgid "`ln -s out/Debug/rust-project.json rust-project.json`"
-msgstr ""
+msgstr "`ln -s out/Debug/rust-project.json rust-project.json`."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "A demo of some of the code annotation and exploration features of rust-"
 "analyzer might be beneficial if the audience are naturally skeptical of IDEs."
 msgstr ""
+"Una demo de algunas de las funciones de anotación de código y exploración de "
+"rust-analyzer puede ser útil si los asistentes se muestran escépticos por "
+"los IDE."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "The following steps may help with the demo (but feel free to instead use a "
 "piece of Chromium-related Rust that you are most familiar with):"
 msgstr ""
+"Los siguientes pasos pueden servir de ayuda con la demo (aunque puedes usar "
+"un fragmento de Rust relacionado con Chromium que te resulte más familiar):"
 
 #: src/chromium/build-rules/vscode.md
 msgid "Open `components/qr_code_generator/qr_code_generator_ffi_glue.rs`"
-msgstr ""
+msgstr "Abre `components/qr_code_generator/qr_code_generator_ffi_glue.rs`."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Place the cursor over the `QrCode::new` call (around line 26) in "
 "\\`qr_code_generator_ffi_glue.rs"
 msgstr ""
+"Coloca el cursor sobre la llamada `QrCode::new` (aproximadamente en la línea "
+"26) en \\`qr_code_generator_ffi_glue.rs."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Demo **show documentation** (typical bindings: vscode = ctrl k i; vim/CoC = "
 "K)."
 msgstr ""
+"Demo **mostrar la documentación** (enlaces típicos: vscode = ctrl ki; vim/"
+"CoC = K)."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Demo **go to definition** (typical bindings: vscode = F12; vim/CoC = g d). "
 "(This will take you to `//third_party/rust/.../qr_code-.../src/lib.rs`.)"
 msgstr ""
+"Demo **ir a la definición** (enlaces típicos: vscode = F12; vim/CoC = gd) "
+"(Esta acción te llevará a `//third_party/rust/.../qr_code-.../src/lib.rs`)."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
@@ -15292,12 +15488,17 @@ msgid ""
 "164; the outline is in the file explorer pane in vscode; typical vim/CoC "
 "bindings = space o)"
 msgstr ""
+"Demo **esquema** y desplázate hasta el método `QrCode::with_bits` (en la "
+"línea 164. El esquema se encuentra en el panel del explorador de archivos de "
+"vscode. Enlaces típicos de vim/CoC = espacio o)."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Demo **type annotations** (there are quote a few nice examples in the "
 "`QrCode::with_bits` method)"
 msgstr ""
+"Demo **anotaciones de tipos** (hay varios ejemplos en el método `QrCode::"
+"with_bits`)."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
@@ -15305,17 +15506,21 @@ msgid ""
 "need to be rerun after editing `BUILD.gn` files (which we will do a few "
 "times throughout the exercises in this session)."
 msgstr ""
+"Es necesario destacar que hay que volver a ejecutar `gn gen ... --export-"
+"rust-project` después de editar los archivos `BUILD.gn` (lo haremos varias "
+"veces a lo largo de los ejercicios de esta sesión)."
 
 #: src/exercises/chromium/build-rules.md
-#, fuzzy
 msgid "Build rules exercise"
-msgstr "Reglas de Compilación (Build)"
+msgstr "Ejercicio de reglas de compilación"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "In your Chromium build, add a new Rust target to `//ui/base/BUILD.gn` "
 "containing:"
 msgstr ""
+"En tu compilación de Chromium, añade un nuevo elemento de destino de Rust a "
+"`//ui/base/build.gn` que contenga lo siguiente:"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -15323,6 +15528,9 @@ msgid ""
 "by the Rust compiler, so you'll need to to allow unsafe code in your `gn` "
 "target."
 msgstr ""
+"**Importante:** Ten en cuenta que `no_mangle` en este caso se considera un "
+"tipo de inseguridad según el compilador de Rust, por lo que tendrás que "
+"permitir código inseguro en el elemento de destino `gn`."
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -15330,6 +15538,10 @@ msgid ""
 "function at the top of `ui/base/resource/resource_bundle.cc` (later, we'll "
 "see how this can be automated by bindings generation tools):"
 msgstr ""
+"Añade este nuevo elemento de destino de Rust como una dependencia de `//ui/"
+"base:base`. Declara esta función en la parte superior de `ui/base/resource/"
+"resource_bundle.cc` (más adelante veremos cómo se puede automatizar mediante "
+"herramientas de generación de enlaces):"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -15338,6 +15550,10 @@ msgid ""
 "and run Chromium, and ensure that \"Hello from Rust!\" is printed lots of "
 "times."
 msgstr ""
+"Llama a esta función desde algún lugar de `ui/base/resource/resource_bundle."
+"cc`. Recomendamos hacerlo en la parte superior de `ResourceBundle::"
+"RSMangleLocalizedString`. Compila y ejecuta Chromium y asegúrate de que se "
+"imprima \"¡Rust te manda un saludo!\" muchas veces."
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -15345,11 +15561,15 @@ msgid ""
 "in subsequent exercises. If you've succeeded, you will be able to use right-"
 "click \"Go to definition\" on `println!`."
 msgstr ""
+"Si usas VSCode, ahora debes configurar Rust para que funcione correctamente "
+"en VSCode. Nos será útil en ejercicios posteriores. Si lo has completado "
+"correctamente, podrás hacer clic con el botón derecho y pulsar \"Ir a la "
+"definición\" en `println!`."
 
 #: src/exercises/chromium/build-rules.md
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Where to find help"
-msgstr ""
+msgstr "Dónde obtener ayuda"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -15357,30 +15577,41 @@ msgid ""
 "source.chromium.org/chromium/chromium/src/+/main:build/rust/"
 "rust_static_library.gni;l=16)"
 msgstr ""
+"Opciones disponibles de la [plantilla gn `rust_static_library`](https://"
+"source.chromium.org/chromium/chromium/src/+/main:build/rust/"
+"rust_static_library.gni;l=16)"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "Information about [`#[no_mangle]`](https://doc.rust-lang.org/beta/reference/"
 "abi.html#the-no_mangle-attribute)"
 msgstr ""
+"Información sobre [`#[no_mangle]`](https://doc.rust-lang.org/beta/reference/"
+"abi.html#the-no_mangle-attribute)"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "Information about [`extern \"C\"`](https://doc.rust-lang.org/std/keyword."
 "extern.html)"
 msgstr ""
+"Información sobre [`extern \"C\"`](https://doc.rust-lang.org/std/keyword."
+"extern.html)"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "Information about gn's [`--export-rust-project`](https://gn.googlesource.com/"
 "gn/+/main/docs/reference.md#compilation-database) switch"
 msgstr ""
+"Información sobre el interruptor [`--export-rust-project`](https://gn."
+"googlesource.com/gn/+/main/docs/reference.md#compilation-database) de gn"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "[How to install rust-analyzer in VSCode](https://code.visualstudio.com/docs/"
 "languages/rust)"
 msgstr ""
+"[Cómo instalar rust-analyzer en VSCode](https://code.visualstudio.com/docs/"
+"languages/rust)"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -15389,6 +15620,10 @@ msgid ""
 "call C ABI functions. Later in the course, we'll connect C++ directly to "
 "Rust."
 msgstr ""
+"Este ejemplo no es habitual porque se reduce al lenguaje de "
+"interoperabilidad con el mínimo común denominador, C. Tanto C++ como Rust "
+"pueden declarar y llamar de forma nativa funciones ABI de C. Más adelante, "
+"conectaremos C++ directamente con Rust."
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -15396,12 +15631,17 @@ msgid ""
 "Rust to generate two functions with the same name, and Rust can no longer "
 "guarantee that the right one is called."
 msgstr ""
+"`allow_unsafe = true` es obligatorio porque `#[no_mangle]` podría permitir "
+"que Rust genere dos funciones con el mismo nombre, y Rust ya no puede "
+"asegurar que se llame a la correcta."
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "If you need a pure Rust executable, you can also do that using the "
 "`rust_executable` gn template."
 msgstr ""
+"Si necesitas un ejecutable puro de Rust, también puedes hacerlo con la "
+"plantilla gn `rust_executable`."
 
 #: src/chromium/testing.md
 msgid ""
@@ -15409,6 +15649,9 @@ msgid ""
 "source file as the code being tested. This was covered [earlier](../testing."
 "md) in the course and looks like this:"
 msgstr ""
+"La comunidad de Rust suele crear las pruebas unitarias en un módulo situado "
+"en el mismo archivo fuente que el código que se está probando. Este tema ya "
+"se ha tratado [antes](../testing.md) en el curso y tiene este aspecto:"
 
 #: src/chromium/testing.md
 msgid ""
@@ -15417,17 +15660,25 @@ msgid ""
 "and helps to avoid rebuilding `.rs` files a second time (in the `test` "
 "configuration)."
 msgstr ""
+"En Chromium colocamos las pruebas unitarias en un archivo fuente "
+"independiente y continuamos con esta práctica con Rust. De esta forma, las "
+"pruebas se pueden encontrar de forma coherente y se evita volver a crear "
+"archivos `.rs` (en la configuración `test`)."
 
 #: src/chromium/testing.md
 msgid ""
 "This results in the following options for testing Rust code in Chromium:"
 msgstr ""
+"Esta acción genera las siguientes opciones para probar el código de Rust en "
+"Chromium:"
 
 #: src/chromium/testing.md
 msgid ""
 "Native Rust tests (i.e. `#[test]`). Discouraged outside of `//third_party/"
 "rust`."
 msgstr ""
+"Pruebas nativas de Rust (es decir, `#[test]`). No se recomienda hacerlas "
+"fuera de `//third_party/rust`."
 
 #: src/chromium/testing.md
 msgid ""
@@ -15435,6 +15686,10 @@ msgid ""
 "when Rust code is just a thin FFI layer and the existing unit tests provide "
 "sufficient coverage for the feature."
 msgstr ""
+"Pruebas `gtest` escritas en C++ y ejercicios con Rust mediante llamadas de "
+"FFI. Suficiente cuando el código de Rust es solo una capa fina de FFI y las "
+"pruebas unitarias existentes proporcionan suficiente cobertura para la "
+"función."
 
 #: src/chromium/testing.md
 msgid ""
@@ -15442,6 +15697,9 @@ msgid ""
 "public API (using `pub mod for_testing { ... }` if needed). This is the "
 "subject of the next few slides."
 msgstr ""
+"Pruebas `gtest` creadas en Rust y usando el crate en prueba a través de su "
+"API pública (mediante `pub mod for_testing { ... }` si es necesario). Este "
+"es el tema de las siguientes diapositivas."
 
 #: src/chromium/testing.md
 msgid ""
@@ -15449,12 +15707,17 @@ msgid ""
 "exercised by Chromium bots. (Such testing is needed rarely --- only after "
 "adding or updating third-party crates.)"
 msgstr ""
+"Menciona que los bots de Chromium deberían hacer pruebas nativas de Rust de "
+"crates de terceros tarde o temprano. (Estas pruebas rara vez son necesarias, "
+"solo después de añadir o actualizar crates de terceros)."
 
 #: src/chromium/testing.md
 msgid ""
 "Some examples may help illustrate when C++ `gtest` vs Rust `gtest` should be "
 "used:"
 msgstr ""
+"Algunos ejemplos pueden ayudarte a ilustrar cuándo se debe usar `gtest` de C+"
+"+ o `gtest` de Rust:"
 
 #: src/chromium/testing.md
 msgid ""
@@ -15463,6 +15726,11 @@ msgid ""
 "both the C++ and the Rust implementation (parameterizing the tests so they "
 "enable or disable Rust using a `ScopedFeatureList`)."
 msgstr ""
+"QR cuenta con muy pocas funciones en la capa de Rust propia (solo es un "
+"código pegamento de FFI) y, por lo tanto, utiliza las pruebas unitarias de C+"
+"+ existentes para probar la implementación de C++ y la de Rust "
+"(parametrizando las pruebas de modo que habiliten o inhabiliten Rust "
+"mediante un `ScopedFeatureList`)."
 
 #: src/chromium/testing.md
 msgid ""
@@ -15471,35 +15739,48 @@ msgid ""
 "missing in the `png` crate - e.g. RGBA => BGRA, or gamma correction. Such "
 "functionality may benefit from separate tests authored in Rust."
 msgstr ""
+"La integración hipotética/WIP de PNG puede necesitar una implementación "
+"segura en memoria de las transformaciones de píxeles que proporciona "
+"`libpng` pero que faltan en el crate `png`, como por ejemplo, RGBA => BGRA o "
+"corrección gamma. Dicha función puede beneficiarse de pruebas independientes "
+"creadas en Rust."
 
 #: src/chromium/testing/rust-gtest-interop.md
 msgid ""
 "The [`rust_gtest_interop`](https://chromium.googlesource.com/chromium/src/+/"
 "main/testing/rust_gtest_interop/README.md) library provides a way to:"
 msgstr ""
+"La biblioteca [`rust_gtest_interop`](https://chromium.googlesource.com/"
+"chromium/src/+/main/testing/rust_gtest_interop/README.md) permite hacer lo "
+"siguiente:"
 
 #: src/chromium/testing/rust-gtest-interop.md
 msgid ""
 "Use a Rust function as a `gtest` testcase (using the `#[gtest(...)]` "
 "attribute)"
 msgstr ""
+"Usar una función de Rust como caso de prueba `gtest` (con el atributo "
+"`#[gtest(...)]`)."
 
 #: src/chromium/testing/rust-gtest-interop.md
 msgid ""
 "Use `expect_eq!` and similar macros (similar to `assert_eq!` but not "
 "panicking and not terminating the test when the assertion fails)."
 msgstr ""
+"Usar `expect_eq!` y macros similares (similares a `assert_eq!`, pero sin que "
+"se produzcan pánicos o sin finalizar la prueba cuando la aserción falle)."
 
 #: src/chromium/testing/rust-gtest-interop.md
-#, fuzzy
 msgid "Example:"
-msgstr "Ejemplo"
+msgstr "Ejemplo:"
 
 #: src/chromium/testing/build-gn.md
 msgid ""
 "The simplest way to build Rust `gtest` tests is to add them to an existing "
 "test binary that already contains tests authored in C++. For example:"
 msgstr ""
+"La forma más sencilla de compilar pruebas `gtest` de Rust es añadirlas a un "
+"binario de prueba que ya contenga pruebas creadas en C++. Por ejemplo:"
 
 #: src/chromium/testing/build-gn.md
 msgid ""
@@ -15511,12 +15792,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"test(\"ui_base_unittests\") {\n"
+"  ...\n"
+"  sources += [ \"my_rust_lib_unittest.rs\" ]\n"
+"  deps += [ \":my_rust_lib\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/testing/build-gn.md
 msgid ""
 "Authoring Rust tests in a separate `static_library` also works, but requires "
 "manually declaring the dependency on the support libraries:"
 msgstr ""
+"La creación de pruebas de Rust en una `static_library` independiente también "
+"funciona, pero es necesario declarar manualmente la dependencia en las "
+"bibliotecas de compatibilidad:"
 
 #: src/chromium/testing/build-gn.md
 msgid ""
@@ -15538,6 +15829,23 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"rust_static_library(\"my_rust_lib_unittests\") {\n"
+"  testonly = true\n"
+"  is_gtest_unittests = true\n"
+"  crate_root = \"my_rust_lib_unittest.rs\"\n"
+"  sources = [ \"my_rust_lib_unittest.rs\" ]\n"
+"  deps = [\n"
+"    \":my_rust_lib\",\n"
+"    \"//testing/rust_gtest_interop\",\n"
+"  ]\n"
+"}\n"
+"\n"
+"test(\"ui_base_unittests\") {\n"
+"  ...\n"
+"  deps += [ \":my_rust_lib_unittests\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/testing/chromium-import-macro.md
 msgid ""
@@ -15548,14 +15856,22 @@ msgid ""
 "working with such an unwieldy name by using the `chromium::import!` macro "
 "from the automatically-imported `chromium` crate:"
 msgstr ""
+"Después de añadir `:my_rust_lib` a GN `deps`, tenemos que aprender a "
+"importar y usar `my_rust_lib` desde `my_rust_lib_unittest.rs`. No hemos "
+"proporcionado un `crate_name` explícito para `my_rust_lib`, por lo que el "
+"nombre del crate se calcula en función de la ruta y el nombre de destino "
+"completos. Por suerte, podemos evitar trabajar con un nombre tan poco "
+"práctico usando la macro `chromium::import!` del crate `chromium` importado "
+"automáticamente:"
 
 #: src/chromium/testing/chromium-import-macro.md
 msgid "\"//ui/base:my_rust_lib\""
-msgstr ""
+msgstr "\"//ui/base:my_rust_lib\""
 
 #: src/chromium/testing/chromium-import-macro.md
 msgid "Under the covers the macro expands to something similar to:"
 msgstr ""
+"En un segundo plano, la macro se expande a algo parecido a lo siguiente:"
 
 #: src/chromium/testing/chromium-import-macro.md
 msgid ""
@@ -15564,6 +15880,10 @@ msgid ""
 "chromium_prelude.rs?q=f:chromium_prelude.rs%20pub.use.*%5Cbimport%5Cb;%20-f:"
 "third_party&ss=chromium%2Fchromium%2Fsrc) of the `chromium::import` macro."
 msgstr ""
+"Puedes obtener más información en [el comentario del documento](https://"
+"source.chromium.org/chromium/chromium/src/+/main:build/rust/chromium_prelude/"
+"chromium_prelude.rs?q=f:chromium_prelude.rs%20pub.use.*%5Cbimport%5Cb;%20-f:"
+"third_party&ss=chromium%2Fchromium%2Fsrc) de la macro `chromium::import`."
 
 #: src/chromium/testing/chromium-import-macro.md
 msgid ""
@@ -15573,19 +15893,24 @@ msgid ""
 "crate names so `cargo_crate` GN targets (generated by the `gnrt` tool "
 "covered in a later section) use short crate names."
 msgstr ""
+"`rust_static_library` permite especificar un nombre explícito mediante la "
+"propiedad `crate_name`, pero no se recomienda hacerlo. El motivo es porque "
+"el nombre del crate debe ser único en todo el mundo. crates.io garantiza la "
+"exclusividad de sus nombres de crate, de modo que los elementos de destino "
+"de GN `cargo_crate` (generados por la herramienta `gnrt` que se explican en "
+"una sección posterior) usan nombres de crate cortos."
 
 #: src/exercises/chromium/testing.md
-#, fuzzy
 msgid "Testing exercise"
-msgstr "Rust on Exercism"
+msgstr "Ejercicio de pruebas"
 
 #: src/exercises/chromium/testing.md
 msgid "Time for another exercise!"
-msgstr ""
+msgstr "¡Vamos a hacer otro ejercicio!"
 
 #: src/exercises/chromium/testing.md
 msgid "In your Chromium build:"
-msgstr ""
+msgstr "En tu compilación de Chromium:"
 
 #: src/exercises/chromium/testing.md
 msgid ""
@@ -15593,18 +15918,25 @@ msgid ""
 "two integers received as arguments, computing the nth Fibonacci number, "
 "summing integers in a slice, etc."
 msgstr ""
+"Añade una función que se pueda probar junto a `hello_from_rust`. Aquí tienes "
+"algunas sugerencias: añadir dos números enteros recibidos como argumentos, "
+"calcular el enésimo número de la serie Fibonacci, sumar los enteros en un "
+"slice, etc."
 
 #: src/exercises/chromium/testing.md
 msgid "Add a separate `..._unittest.rs` file with a test for the new function."
 msgstr ""
+"Añade un archivo `..._unittest.rs` independiente con una prueba de la nueva "
+"función."
 
 #: src/exercises/chromium/testing.md
 msgid "Add the new tests to `BUILD.gn`."
-msgstr ""
+msgstr "Añade las nuevas pruebas a `BUILD.gn`."
 
 #: src/exercises/chromium/testing.md
 msgid "Build the tests, run them, and verify that the new test works."
 msgstr ""
+"Compila las pruebas, ejecútalas y comprueba que la nueva prueba funciona."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15612,6 +15944,9 @@ msgid ""
 "tools being developed all the time. At the moment, Chromium uses a tool "
 "called CXX."
 msgstr ""
+"La comunidad de Rust ofrece muchas opciones para la interoperabilidad de C++ "
+"y Rust, y continuamente se están desarrollando nuevas herramientas. "
+"Actualmente, Chromium usa la herramienta CXX."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15619,9 +15954,11 @@ msgid ""
 "language (which looks a lot like Rust) and then CXX tools generate "
 "declarations for functions and types in both Rust and C++."
 msgstr ""
+"Describe todos los límites de tu lenguaje en un lenguaje de definición de "
+"interfaz (que se parece mucho a Rust) y, a continuación, las herramientas "
+"CXX generarán declaraciones de funciones y tipos tanto en Rust como en C++."
 
 #: src/chromium/interoperability-with-cpp.md
-#, fuzzy
 msgid ""
 "See the [CXX tutorial](https://cxx.rs/tutorial.html) for a full example of "
 "using this."
@@ -15635,6 +15972,9 @@ msgid ""
 "the same as you previously did. Point out that automating the process has "
 "the following benefits:"
 msgstr ""
+"Aclara el diagrama. Explica que, en segundo plano, esto hace lo mismo que "
+"hemos hecho antes. Señala que automatizar el proceso supone las siguientes "
+"ventajas:"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15643,6 +15983,10 @@ msgid ""
 "definitions, but with out-of-sync manual bindings you'd get Undefined "
 "Behavior)"
 msgstr ""
+"La herramienta asegura que C++ y Rust coincidan (por ejemplo, se producen "
+"errores de compilación si `#[cxx::bridge]` no coincide con las definiciones "
+"de C++ o Rust reales, pero con enlaces manuales no sincronizados, se "
+"obtendría un comportamiento no definido)"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15651,10 +15995,17 @@ msgid ""
 "methods; manual bindings would require authoring such top-level, free "
 "functions manually)"
 msgstr ""
+"La herramienta automatiza la generación de thunks FFI (funciones pequeñas, "
+"compatibles con la ABI de C y gratuitas) para funciones que no son de C (por "
+"ejemplo, habilitar llamadas de FFI en métodos de Rust o C++. Los enlaces "
+"manuales requerirían la creación manual de estas funciones gratuitas de "
+"nivel superior)."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid "The tool and the library can handle a set of core types - for example:"
 msgstr ""
+"La herramienta y la biblioteca pueden gestionar un conjunto de tipos "
+"principales, como por ejemplo:"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15664,6 +16015,11 @@ msgid ""
 "pointer and length - this is error-prone given that each language represents "
 "empty slices slightly differently)"
 msgstr ""
+"`&[T]` se puede transferir a través del límite de FFI, aunque no garantiza "
+"ningún diseño concreto de ABI o de memoria. Con los enlaces manuales, `std::"
+"span<T>` y `&[T]` se tienen que desestructurar manualmente y compilarlos a "
+"partir de un puntero y una longitud. Esto suele acarrear errores, ya que "
+"cada lenguaje representa los slices vacíos de forma ligeramente distinta."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15672,6 +16028,10 @@ msgid ""
 "compatible raw pointers, which would increase lifetime and memory-safety "
 "risks."
 msgstr ""
+"Los punteros inteligentes como `std::unique_ptr<T>`, `std::shared_ptr<T>` o "
+"`Box` se admiten de forma nativa. Con los enlaces manuales, sería necesario "
+"pasar punteros sin formato compatibles con ABI de C, lo que aumentaría los "
+"riesgos de tiempo de vida y de seguridad en la memoria."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15680,24 +16040,32 @@ msgid ""
 "build a Rust string from non-UTF8 input and `rust::String::c_str` can NUL-"
 "terminate a string)."
 msgstr ""
+"Los tipos `rust::String` y `CxxString` entienden y mantienen las diferencias "
+"en la representación de cadenas en los distintos lenguajes (por ejemplo, "
+"`rust::String::lossy` puede crear una cadena de Rust a partir de una entrada "
+"que no sea UTF8 y `rust::String::: c_str` puede terminar una cadena con un "
+"carácter nulo)."
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid ""
 "CXX requires that the whole C++/Rust boundary is declared in `cxx::bridge` "
 "modules inside `.rs` source code."
 msgstr ""
+"CXX necesita que se declare todo el límite de C++ o Rust en los módulos "
+"`cxx::bridge` del código fuente `.rs`."
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "\"example/include/blobstore.h\""
-msgstr ""
+msgstr "\"example/include/blobstore.h\""
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "// Definitions of Rust types and functions go here\n"
 msgstr ""
+"// Las definiciones de los tipos y las funciones de Rust se colocan aquí\n"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "Point out:"
-msgstr ""
+msgstr "Señala lo siguiente:"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid ""
@@ -15706,23 +16074,26 @@ msgid ""
 "bit more sophisticated - though this does still result in a `mod` called "
 "`ffi` in your code."
 msgstr ""
+"Aunque parece un `mod` de Rust habitual, la macro de procedimiento `#[cxx::"
+"bridge]` es capaz de desempeñar tareas complejas. El código generado es "
+"bastante más sofisticado, aunque aun así da como resultado un `mod` llamado "
+"`ffi` en el código."
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "Native support for C++'s `std::unique_ptr` in Rust"
-msgstr ""
+msgstr "Compatibilidad nativa con `std::unique_ptr` de C++ en Rust."
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
-#, fuzzy
 msgid "Native support for Rust slices in C++"
-msgstr "Asistencia integrada para pruebas."
+msgstr "Compatibilidad nativa con los slices de Rust en C++."
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "Calls from C++ to Rust, and Rust types (in the top part)"
-msgstr ""
+msgstr "Llamadas de C++ a Rust y tipos de Rust (en la parte superior)."
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "Calls from Rust to C++, and C++ types (in the bottom part)"
-msgstr ""
+msgstr "Llamadas de Rust a C++ y tipos de C++ (en la parte inferior)."
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid ""
@@ -15731,6 +16102,9 @@ msgid ""
 "simply `#include`d in the generated C++ code for the benefit of C++ "
 "compilers."
 msgstr ""
+"**Error común**: _Parece_ que Rust está analizando un encabezado de C++, "
+"pero no es así. Rust nunca interpreta este encabezado, sino que simplifica "
+"`#include`d en el código C++ generado para ayudar a los compiladores de C++."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 #, fuzzy
@@ -15743,25 +16117,31 @@ msgstr ""
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid "CXX fundamentally suits cases where:"
-msgstr ""
+msgstr "CXX se adapta básicamente a los casos en los que:"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "Your Rust-C++ interface is sufficiently simple that you can declare all of "
 "it."
 msgstr ""
+"La interfaz de Rust-C++ es lo suficientemente sencilla como para se pueda "
+"declarar por completo."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "You're using only the types natively supported by CXX already, for example "
 "`std::unique_ptr`, `std::string`, `&[u8]` etc."
 msgstr ""
+"Solo estás usando los tipos compatibles de forma nativa con CXX, como `std::"
+"unique_ptr`, `std::string` o `&[u8]`, entre otros."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "It has many limitations --- for example lack of support for Rust's `Option` "
 "type."
 msgstr ""
+"Tiene muchas limitaciones, por ejemplo, la falta de compatibilidad con el "
+"tipo `Option` de Rust."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
@@ -15771,47 +16151,65 @@ msgid ""
 "draft the CXX bindings for the language boundary to see if it appears simple "
 "enough."
 msgstr ""
+"Estas restricciones nos limitan a usar Rust en Chromium solo para \"nodos "
+"hoja\" muy aislados, en lugar de para la interoperabilidad arbitraria de "
+"Rust-C++. Si te planteas un caso práctico de Rust en Chromium, un buen punto "
+"de partida es hacer un borrador de los enlaces de CXX para el límite del "
+"lenguaje para ver si te parece lo suficientemente sencillo."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "You should also discuss some of the other sticky points with CXX, for "
 "example:"
 msgstr ""
+"También debes hablar de algunos de los otros aspectos delicados con CXX, "
+"como los siguientes:"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "Its error handling is based around C++ exceptions (given on the next slide)"
 msgstr ""
+"Su gestión de errores se basa en las excepciones de C++ (como se muestra en "
+"la siguiente diapositiva)."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid "Function pointers are awkward to use."
-msgstr ""
+msgstr "Los punteros de función no son muy fáciles de usar."
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid ""
 "CXX's [support for `Result<T,E>`](https://cxx.rs/binding/result.html) relies "
 "on C++ exceptions, so we can't use that in Chromium. Alternatives:"
 msgstr ""
+"La [compatibilidad con `Result<T,E>`](https://cxx.rs/binding/result.html) de "
+"CXX se basa en excepciones de C++, por lo que no podemos usarlo en Chromium. "
+"Alternativas:"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid "The `T` part of `Result<T, E>` can be:"
-msgstr ""
+msgstr "La parte `T` de `Result<T, E>` puede:"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid ""
 "Returned via out parameters (e.g. via `&mut T`). This requires that `T` can "
 "be passed across the FFI boundary - for example `T` has to be:"
 msgstr ""
+"Devolverse a través de parámetros externos (por ejemplo, mediante `&mut T`). "
+"Esto requiere que `T` se pueda transferir a través del límite de FFI. Por "
+"ejemplo, `T` tiene que ser:"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid "A primitive type (like `u32` or `usize`)"
-msgstr ""
+msgstr "Un tipo primitivo (como `u32` o `usize`)."
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid ""
 "A type natively supported by `cxx` (like `UniquePtr<T>`) that has a suitable "
 "default value to use in a failure case (_unlike_ `Box<T>`)."
 msgstr ""
+"Un tipo compatible de forma nativa con `cxx` (como `UniquePtr<T>`) que tiene "
+"un valor predeterminado adecuado para usarlo en caso de fallo (_a diferencia "
+"de_ `Box<T>`)."
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid ""
@@ -15819,27 +16217,33 @@ msgid ""
 "when `T` is a Rust type, which cannot be passed across the FFI boundary, and "
 "cannot be stored in `UniquePtr<T>`."
 msgstr ""
+"Mantenerse en el lado de Rust y mostrarse mediante referencia. Esto puede "
+"ser necesario cuando `T` es un tipo de Rust, que no se puede transmitir "
+"mediante el límite de FFI ni se puede almacenar en `UniquePtr<T>`."
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid "The `E` part of `Result<T, E>` can be:"
-msgstr ""
+msgstr "La parte `E` de `Result<T, E>` puede:"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid ""
 "Returned as a boolean (e.g. `true` representing success, and `false` "
 "representing failure)"
 msgstr ""
+"Devolverse como un valor booleano (por ejemplo, `true` representa el éxito y "
+"`false` representa el error)."
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid ""
 "Preserving error details is in theory possible, but so far hasn't been "
 "needed in practice."
 msgstr ""
+"En teoría, es posible conservar los detalles de los errores, pero hasta "
+"ahora no se ha necesitado en la práctica."
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
-#, fuzzy
 msgid "CXX Error Handling: QR Example"
-msgstr "Manejo de Errores"
+msgstr "Manejo de Errores en CXX: Ejemplo de QR"
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 msgid ""
@@ -15849,10 +16253,16 @@ msgid ""
 "used to communicate success vs failure, and where the successful result can "
 "be passed across the FFI boundary:"
 msgstr ""
+"El generador de código QR es [un ejemplo](https://source.chromium.org/"
+"chromium/chromium/src/+/main:components/qr_code_generator/"
+"qr_code_generator_ffi_glue.rs;l=13-18;"
+"drc=7bf1b75b910ca430501b9c6a74c1d18a0223ecca) en el que el valor booleano se "
+"utiliza para comunicar que el resultado es correcto o no, y dónde se puede "
+"transmitir el resultado correcto a través del límite de FFI:"
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 msgid "\"qr_code_generator\""
-msgstr ""
+msgstr "\"qr_code_generator\""
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 msgid ""
@@ -15861,6 +16271,10 @@ msgid ""
 "admittedly it is a bit redundant - this is the square root of the size of "
 "the vector)."
 msgstr ""
+"Puede que los participantes sientan curiosidad acerca de la semántica del "
+"resultado de salida `out_qr_size`. No se trata del tamaño del vector, sino "
+"del tamaño del código QR (y admitimos que es un poco redundante, ya que se "
+"trata de la raíz cuadrada del tamaño del vector)."
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 msgid ""
@@ -15869,6 +16283,11 @@ msgid ""
 "points to uninitialized memory results in Undefined Behavior (unlike in C++, "
 "when only the act of dereferencing such memory results in UB)."
 msgstr ""
+"Cabe destacar la importancia de inicializar `out_qr_size` antes de llamar a "
+"la función de Rust. La creación de una referencia de Rust que apunte a una "
+"memoria no inicializada tiene como resultado un comportamiento indefinido (a "
+"diferencia de C++, cuando solo el acto de desreferenciar la memoria resulta "
+"en comportamiento indefinido)."
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 msgid ""
@@ -15876,6 +16295,10 @@ msgid ""
 "references to C++ data: the answer is that C++ data can’t be moved around "
 "like Rust data, because it may contain self-referential pointers."
 msgstr ""
+"Si los participantes preguntan por `Pin`, explica por qué CXX lo necesita "
+"para referencias mutables a datos de C++. Los datos de C++ no se pueden "
+"mover como los datos de Rust, ya que pueden contener punteros de "
+"autorreferencia."
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 #, fuzzy
@@ -15887,24 +16310,28 @@ msgid ""
 "A prototype of a PNG decoder illustrates what can be done when the "
 "successful result cannot be passed across the FFI boundary:"
 msgstr ""
+"Un prototipo de un decodificador PNG ilustra lo que se puede hacer cuando el "
+"resultado correcto no se puede transmitir a través del límite de FFI:"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 msgid "\"gfx::rust_bindings\""
-msgstr ""
+msgstr "\"gfx::rust_bindings\""
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 msgid ""
 "/// This returns an FFI-friendly equivalent of `Result<PngReader<'a>,\n"
 "        /// ()>`.\n"
 msgstr ""
+"/// Esto devuelve un equivalente de `Result<PngReader<'a>,\n"
+"        /// ()>`, compatible con FFI.\n"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 msgid "/// C++ bindings for the `crate::png::ResultOfPngReader` type.\n"
-msgstr ""
+msgstr "/// Enlaces de C++ para el tipo `crate::png::ResultOfPngReader`.\n"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 msgid "/// C++ bindings for the `crate::png::PngReader` type.\n"
-msgstr ""
+msgstr "/// Enlaces de C++ para el tipo `crate::png::PngReader`.\n"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 msgid ""
@@ -15913,6 +16340,10 @@ msgid ""
 "can't have an `out_parameter: &mut PngReader`, because CXX doesn't allow C++ "
 "to store Rust objects by value."
 msgstr ""
+"`PngReader` y `ResultOfPngReader` son tipos de Rust. Los objetos de estos "
+"tipos no pueden cruzar el límite de FFI sin la indirección de un `Box<T>`. "
+"No se puede tener un `out_parameter: &mut PngReader`, ya que CXX no permite "
+"que C++ almacene objetos de Rust por valor."
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 msgid ""
@@ -15923,10 +16354,16 @@ msgid ""
 "appropriate methods of `Result<T, E>` (e.g. into `is_err`, `unwrap`, and/or "
 "`as_mut`)."
 msgstr ""
+"Este ejemplo ilustra que, aunque CXX no es compatible con plantillas ni "
+"genéricos arbitrarios, podemos transmitirlos a través de los límites de FFI "
+"si los especializamos de forma manual o los monomorfizamos en un tipo no "
+"genérico. En el ejemplo, `ResultOfPngReader` es un tipo no genérico que "
+"redirige los métodos adecuados de `Result<T, E>` (por ejemplo, a `is_err`, "
+"`unwrap` o `as_mut`)."
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid "Using cxx in Chromium"
-msgstr ""
+msgstr "Usar cxx en Chromium"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
@@ -15934,6 +16371,9 @@ msgid ""
 "node where we want to use Rust. You'd typically have one for each "
 "`rust_static_library`. Just add"
 msgstr ""
+"En Chromium, definimos un `#[cxx::bridge] mod` independiente para cada nodo "
+"hoja en el que queremos usar Rust. Normalmente hay uno por cada "
+"`rust_static_library`. Solo tienes que añadir"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
@@ -15943,20 +16383,29 @@ msgid ""
 "allow_unsafe = true\n"
 "```"
 msgstr ""
+"```gn\n"
+"cxx_bindings = [ \"my_rust_file.rs\" ]\n"
+"   # list of files containing #[cxx::bridge], not all source files\n"
+"allow_unsafe = true\n"
+"```"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
 "to your existing `rust_static_library` target alongside `crate_root` and "
 "`sources`."
 msgstr ""
+"al elemento `rust_static_library` que ya tengas junto con `crate_root` y "
+"`sources`."
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid "C++ headers will be generated at a sensible location, so you can just"
 msgstr ""
+"Los encabezados de C++ se generarán en una ubicación razonable, por lo que "
+"puedes simplemente incluir"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid "\"ui/base/my_rust_file.rs.h\""
-msgstr ""
+msgstr "\"ui/base/my_rust_file.rs.h\""
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
@@ -15965,10 +16414,16 @@ msgid ""
 "source.chromium.org/chromium/chromium/src/+/main:base/containers/span_rust.h;"
 "l=21)."
 msgstr ""
+"Encontrarás algunas funciones de utilidad en `//base` para convertir a y "
+"desde los tipos de Chromium C++ en tipos CXX de Rust y viceversa. Por "
+"ejemplo, [`SpanToRustSlice`](https://source.chromium.org/chromium/chromium/"
+"src/+/main:base/containers/span_rust.h;l=21)."
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid "Students may ask --- why do we still need `allow_unsafe = true`?"
 msgstr ""
+"Los participantes pueden preguntarse: \"¿por qué sigue siendo necesario "
+"`allow_unsafe = true`?\""
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
@@ -15980,6 +16435,15 @@ msgid ""
 "writing/the-cxx-debate), but strictly, bringing any foreign code into a Rust "
 "binary can cause unexpected behavior from Rust's perspective."
 msgstr ""
+"La respuesta es que ningún código de C o C++ es \"seguro\" según los "
+"estándares normales de Rust. Si se llama a C o C++ desde Rust, se pueden "
+"llevar a cabo acciones arbitrarias en la memoria y se puede poner en peligro "
+"la seguridad de los propios diseños de datos de Rust. La presencia de "
+"_demasiadas_ palabras clave `unsafe` en la interoperabilidad de C o C++ "
+"puede perjudicar la relación señal-ruido de dicha palabra clave, algo "
+"[polémico](https://steveklabnik.com/writing/the-cxx-debate). No obstante, en "
+"términos estrictos, introducir código externo en un binario de Rust puede "
+"provocar un comportamiento inesperado desde el punto de vista de Rust."
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
@@ -15988,15 +16452,18 @@ msgid ""
 "`unsafe` and `extern \"C\"` functions just like we did manually in the "
 "previous section."
 msgstr ""
+"La respuesta exacta se encuentra en el diagrama de la parte superior de "
+"[esta página](../Interop-with-cpp.md): en segundo plano, CXX genera "
+"funciones de Rust `unsafe` y `extern \"C\"`, igual que hicimos de forma "
+"manual en la sección anterior."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
-#, fuzzy
 msgid "Exercise: Interoperability with C++"
-msgstr "Interoperabilidad con C"
+msgstr "Ejercicio: Interoperabilidad con C++"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Part one"
-msgstr ""
+msgstr "Primera parte"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
@@ -16004,51 +16471,62 @@ msgid ""
 "specifies a single function, to be called from C++, called "
 "`hello_from_rust`, taking no parameters and returning no value."
 msgstr ""
+"En el archivo de Rust que has creado anteriormente, añade un `#[cxx::"
+"bridge]`, que especifica una sola función, denominada `hello_from_rust`, a "
+"la que se llamará desde C++, sin parámetros y sin devolver ningún valor."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "Modify your previous `hello_from_rust` function to remove `extern \"C\"` and "
 "`#[no_mangle]`. This is now just a standard Rust function."
 msgstr ""
+"Modifica la función `hello_from_rust` anterior para eliminar `extern \"C\"` "
+"y `#[no_mangle]`. Ahora es solo una función estándar de Rust."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Modify your `gn` target to build these bindings."
-msgstr ""
+msgstr "Modifica el elemento de destino de `gn` para compilar estos enlaces."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "In your C++ code, remove the forward-declaration of `hello_from_rust`. "
 "Instead, include the generated header file."
 msgstr ""
+"En el código C++, elimina la declaración de `hello_from_rust`. En su lugar, "
+"incluye el archivo de encabezado que se ha generado."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Build and run!"
-msgstr ""
+msgstr "Compila y ejecuta."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Part two"
-msgstr ""
+msgstr "Segunda parte"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "It's a good idea to play with CXX a little. It helps you think about how "
 "flexible Rust in Chromium actually is."
 msgstr ""
+"Se recomienda jugar un poco con CXX, ya que nos ayuda a pensar en la "
+"flexibilidad que tiene Rust en Chromium."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
-#, fuzzy
 msgid "Some things to try:"
-msgstr "Algunas notas:"
+msgstr "Algunas cosas que probar:"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Call back into C++ from Rust. You will need:"
-msgstr ""
+msgstr "Vuelve a llamar a C++ desde Rust. Necesitarás lo siguiente:"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "An additional header file which you can `include!` from your `cxx::bridge`. "
 "You'll need to declare your C++ function in that new header file."
 msgstr ""
+"Un archivo de encabezado adicional que puedes `include!` desde tu `cxx::"
+"bridge`. Deberás declarar la función de C++ en el nuevo archivo de "
+"encabezado."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
@@ -16056,56 +16534,70 @@ msgid ""
 "`unsafe` keyword in your `#[cxx::bridge]` [as described here](https://cxx.rs/"
 "extern-c++.html#functions-and-member-functions)."
 msgstr ""
+"Un bloque `unsafe` para llamar a una función de este tipo, o bien "
+"especificar la palabra clave `unsafe` en el `#[cxx::bridge]`, [como se "
+"describe aquí](https://cxx.rs/extern-c++.html#functions-and-member-"
+"functions)."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "You may also need to `#include \"third_party/rust/cxx/v1/crate/include/cxx."
 "h\"`"
 msgstr ""
+"Es posible que también tengas que incluir `#include \"third_party/rust/cxx/"
+"v1/crate/include/cxx.h\"`"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Pass a C++ string from C++ into Rust."
-msgstr ""
+msgstr "Transfiere una cadena de C++ desde C++ a Rust."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Pass a reference to a C++ object into Rust."
-msgstr ""
+msgstr "Pasa una referencia a un objeto de C++ en Rust."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "Intentionally get the Rust function signatures mismatched from the `#[cxx::"
 "bridge]`, and get used to the errors you see."
 msgstr ""
+"Obtén de forma intencional las firmas de la función de Rust que no coincidan "
+"con el `#[cxx::bridge]` y familiarízate con los errores que veas."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "Intentionally get the C++ function signatures mismatched from the `#[cxx::"
 "bridge]`, and get used to the errors you see."
 msgstr ""
+"Obtén de forma intencional las firmas de la función de C++ que no coincidan "
+"con el `#[cxx::bridge]` y familiarízate con los errores que veas."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "Pass a `std::unique_ptr` of some type from C++ into Rust, so that Rust can "
 "own some C++ object."
 msgstr ""
+"Transfiere un `std::unique_ptr` de algún tipo de C++ a Rust, para que a Rust "
+"le pertenezca algún objeto de C++."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "Create a Rust object and pass it into C++, so that C++ owns it. (Hint: you "
 "need a `Box`)."
 msgstr ""
+"Crea un objeto de Rust y transmítelo a C++ para que sea su propietario. "
+"(Nota: necesitas utilizar un `Box`)."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Declare some methods on a C++ type. Call them from Rust."
-msgstr ""
+msgstr "Declara algunos métodos en un tipo de C++. Llámalos desde Rust."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Declare some methods on a Rust type. Call them from C++."
-msgstr ""
+msgstr "Declara algunos métodos en un tipo de Rust. Llámalos desde C++."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Part three"
-msgstr ""
+msgstr "Tercera parte"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
@@ -16113,6 +16605,10 @@ msgid ""
 "couple of use-cases for Rust in Chromium where the interface would be "
 "sufficiently simple. Sketch how you might define that interface."
 msgstr ""
+"Ahora que conoces los puntos fuertes y las limitaciones de la "
+"interoperabilidad de CXX, piensa en un par de casos prácticos de Rust en "
+"Chromium en los que la interfaz sea bastante sencilla. Haz un boceto sobre "
+"cómo definirías esa interfaz."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 #, fuzzy
@@ -16126,10 +16622,12 @@ msgid ""
 "The [`rust_static_library` gn template](https://source.chromium.org/chromium/"
 "chromium/src/+/main:build/rust/rust_static_library.gni;l=16)"
 msgstr ""
+"La [plantilla gn `rust_static_library`](https://source.chromium.org/chromium/"
+"chromium/src/+/main:build/rust/rust_static_library.gni;l=16)"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Some of the questions you may encounter:"
-msgstr ""
+msgstr "Estas son algunas de las preguntas que pueden surgir:"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
@@ -16137,6 +16635,9 @@ msgid ""
 "and Y are both function types. This is because your C++ function doesn't "
 "quite match the declaration in your `cxx::bridge`."
 msgstr ""
+"Veo un problema al inicializar una variable de tipo X con el tipo Y, donde X "
+"e Y son tipos de funciones. Esto se debe a que la función de C++ no coincide "
+"exactamente con la declaración de `cxx::bridge`."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
@@ -16145,6 +16646,12 @@ msgid ""
 "sized. For CXX trivial types yes, it's _possible_ to cause UB, although "
 "CXX's design makes it quite difficult to craft such an example."
 msgstr ""
+"Parece que puedo convertir libremente referencias de C++ en referencias de "
+"Rust. ¿Eso no supone ningún riesgo de comportamiento indefinido? En el caso "
+"de los tipos _opacos_ de CXX, no, porque su tamaño es cero. Sí supondría un "
+"problema de comportamiento indefinido en el caso de los tipos triviales de "
+"CXX, aunque el diseño de CXX hace que sea bastante difícil crear un ejemplo "
+"así."
 
 #: src/chromium/adding-third-party-crates.md
 msgid ""
@@ -16152,86 +16659,89 @@ msgid ""
 "crates.io). It's _very easy_ for Rust crates to depend upon one another. So "
 "they do!"
 msgstr ""
+"Las bibliotecas de Rust se llaman \"crates\" y se encuentran en [crates.io]"
+"(https://crates.io). _Es habitual_ que los crates de Rust dependen los unos "
+"de otros."
 
 #: src/chromium/adding-third-party-crates.md
-#, fuzzy
 msgid "C++ library"
-msgstr "Biblioteca"
+msgstr "Biblioteca C++"
 
 #: src/chromium/adding-third-party-crates.md
-#, fuzzy
 msgid "Rust crate"
-msgstr "Ecosistema Rust"
+msgstr "Crate de Rust"
 
 #: src/chromium/adding-third-party-crates.md
-#, fuzzy
 msgid "Build system"
-msgstr "Ecosistema Rust"
+msgstr "Sistema de compilación"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Lots"
-msgstr ""
+msgstr "Muchos"
 
 #: src/chromium/adding-third-party-crates.md
-#, fuzzy
 msgid "Consistent: `Cargo.toml`"
-msgstr "`Cargo.toml`:"
+msgstr "Consistente: `Cargo.toml`"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Typical library size"
-msgstr ""
+msgstr "Tamaño habitual de la biblioteca"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Large-ish"
-msgstr ""
+msgstr "Grande"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Small"
-msgstr ""
+msgstr "Pequeño"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Transitive dependencies"
-msgstr ""
+msgstr "Dependencias transitivas"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Few"
-msgstr ""
+msgstr "Pocos"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "For a Chromium engineer, this has pros and cons:"
-msgstr ""
+msgstr "Para un ingeniero de Chromium, existen ventajas e inconvenientes:"
 
 #: src/chromium/adding-third-party-crates.md
 msgid ""
 "All crates use a common build system so we can automate their inclusion into "
 "Chromium..."
 msgstr ""
+"Todos los crates usan un sistema de compilación común, así que podemos "
+"automatizar su inclusión en Chromium..."
 
 #: src/chromium/adding-third-party-crates.md
 msgid ""
 "... but, crates typically have transitive dependencies, so you will likely "
 "have to bring in multiple libraries."
 msgstr ""
+"... pero los crates suelen tener dependencias transitivas, por lo que es "
+"probable que tengas que introducir varias bibliotecas."
 
 #: src/chromium/adding-third-party-crates.md
 msgid "We'll discuss:"
-msgstr ""
+msgstr "Hablaremos sobre los siguientes temas:"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "How to put a crate in the Chromium source code tree"
-msgstr ""
+msgstr "Cómo colocar un crate en el árbol de código fuente de Chromium."
 
 #: src/chromium/adding-third-party-crates.md
 msgid "How to make `gn` build rules for it"
-msgstr ""
+msgstr "Cómo aplicarle reglas de compilación `gn`."
 
 #: src/chromium/adding-third-party-crates.md
 msgid "How to audit its source code for sufficient safety."
-msgstr ""
+msgstr "Cómo auditar su código fuente para obtener la seguridad suficiente."
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
 msgid "Configuring the `Cargo.toml` file to add crates"
-msgstr ""
+msgstr "Configurar el archivo `Cargo.toml` para añadir crates"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
 msgid ""
@@ -16240,6 +16750,10 @@ msgid ""
 "org/chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/Cargo."
 "toml):"
 msgstr ""
+"Chromium tiene un único conjunto de dependencias directas de crate "
+"gestionadas de forma centralizada. Se gestionan mediante un único elemento "
+"[`Cargo.toml`](https://source.chromium.org/chromium/chromium/src/+/main:"
+"third_party/rust/chromium_crates_io/Cargo.toml):"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
 msgid ""
@@ -16251,6 +16765,13 @@ msgid ""
 "# lots more...\n"
 "```"
 msgstr ""
+"```toml\n"
+"[dependencies]\n"
+"bitflags = \"1\"\n"
+"cfg-if = \"1\"\n"
+"cxx = \"1\"\n"
+"# lots more...\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
 msgid ""
@@ -16259,12 +16780,19 @@ msgid ""
 "dependencies.html) --- most commonly, you'll want to specify the `features` "
 "that you wish to enable in the crate."
 msgstr ""
+"Al igual que con cualquier otro archivo `Cargo.toml`, puedes especificar "
+"[más información sobre las dependencias](https://doc.rust-lang.org/cargo/"
+"reference/specifying-dependencies.html). Lo más habitual es que se "
+"especifiquen las funciones `features` que se quieran habilitar en el crate."
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
 msgid ""
 "When adding a crate to Chromium, you'll often need to provide some extra "
 "information in an additional file, `gnrt_config.toml`, which we'll meet next."
 msgstr ""
+"Al añadir un crate a Chromium, a menudo será necesario proporcionar "
+"información adicional en un archivo adicional, `gnrt_config.toml`, que "
+"veremos a continuación."
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md
 msgid ""
@@ -16272,39 +16800,51 @@ msgid ""
 "chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/gnrt_config."
 "toml). This contains Chromium-specific extensions to crate handling."
 msgstr ""
+"Junto a `Cargo.toml`, se encuentra [`gnrt_config.toml`](https://source."
+"chromium.org/chromium/chromium/src/+/main:third_party/rust/"
+"chromium_crates_io/gnrt_config.toml). Contiene extensiones específicas de "
+"Chromium para la gestión de crates."
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md
 msgid ""
 "If you add a new crate, you should specify at least the `group`. This is one "
 "of:"
 msgstr ""
+"Si añades un nuevo crate, debes especificar al menos el atributo `group`. "
+"Puede ser uno de los siguientes:"
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md
 msgid "For instance,"
-msgstr ""
+msgstr "Por ejemplo:"
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md
 msgid ""
 "Depending on the crate source code layout, you may also need to use this "
 "file to specify where its `LICENSE` file(s) can be found."
 msgstr ""
+"En función del diseño del código fuente del crate, es posible que también "
+"tengas que usar este archivo para especificar dónde se pueden encontrar los "
+"archivos `LICENSE`."
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md
 msgid ""
 "Later, we'll see some other things you will need to configure in this file "
 "to resolve problems."
 msgstr ""
+"Más adelante, veremos otros elementos que tendrás que configurar en este "
+"archivo para solucionar los problemas."
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid ""
 "A tool called `gnrt` knows how to download crates and how to generate `BUILD."
 "gn` rules."
 msgstr ""
+"La herramienta `gnrt` puede descargar crates y generar reglas `BUILD.gn`."
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid "To start, download the crate you want like this:"
-msgstr ""
+msgstr "Para empezar, descarga el crate de esta forma:"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid ""
@@ -16313,25 +16853,30 @@ msgid ""
 "`crates.io`. See [the earlier section](../cargo.md) discussing this security "
 "decision."
 msgstr ""
+"Aunque la herramienta `gnrt` forma parte del código fuente de Chromium, al "
+"ejecutar este comando, se descargarán y ejecutarán sus dependencias desde "
+"`crates.io`. Consulta [la sección anterior](../cargo.md) sobre la decisión "
+"de seguridad."
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid "This `vendor` command may download:"
-msgstr ""
+msgstr "Este comando `vendor` puede descargar los siguientes elementos:"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
-#, fuzzy
 msgid "Your crate"
-msgstr "Crates Útiles"
+msgstr "Tu crate"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid "Direct and transitive dependencies"
-msgstr ""
+msgstr "Dependencias directas y transitivas."
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid ""
 "New versions of other crates, as required by `cargo` to resolve the complete "
 "set of crates required by Chromium."
 msgstr ""
+"Nuevas versiones de otros crates, según lo requiera `cargo` para resolver el "
+"conjunto completo de crates que requiere Chromium."
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid ""
@@ -16339,45 +16884,56 @@ msgid ""
 "chromium_crates_io/patches`. These will be reapplied automatically, but if "
 "patching fails you may need to take manual action."
 msgstr ""
+"Chromium mantiene parches para algunos crates, que se conservan en `//"
+"third_party/rust/chromium_crates_io/patches`. Se volverán a aplicar "
+"automáticamente pero, si no se puede aplicar el parche, es posible que "
+"tengas que realizar una acción manual."
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
 "Once you've downloaded the crate, generate the `BUILD.gn` files like this:"
 msgstr ""
+"Una vez que hayas descargado el crate, genera los archivos `BUILD.gn` como "
+"se indica a continuación:"
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid "Now run `git status`. You should find:"
-msgstr ""
+msgstr "Ahora, ejecuta `git status`. Deberías encontrar lo siguiente:"
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
 "At least one new crate source code in `third_party/rust/chromium_crates_io/"
 "vendor`"
 msgstr ""
+"Al menos un nuevo código fuente de crate en `third_party/rust/"
+"chromium_crates_io/vendor`."
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
 "At least one new `BUILD.gn` in `third_party/rust/<crate name>/v<major semver "
 "version>`"
 msgstr ""
+"Al menos un nuevo `BUILD.gn` en `third_party/rust/<crate name>/v<major "
+"semver version>`."
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid "An appropriate `README.chromium`"
-msgstr ""
+msgstr "Un archivo `README.chromium` adecuado."
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
-#, fuzzy
 msgid ""
 "The \"major semver version\" is a [Rust \"semver\" version number](https://"
 "doc.rust-lang.org/cargo/reference/semver.html)."
 msgstr ""
-"Consulta el libro [Rust Reference](https://doc.rust-lang.org/reference/type-"
-"layout.html)."
+"La \"versión semver mayor\" es un [número de versión \"semver\" de Rust]"
+"(https://doc.rust-lang.org/cargo/reference/semver.html)."
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
 "Take a close look, especially at the things generated in `third_party/rust`."
 msgstr ""
+"Analiza la situación con detalle, sobre todo los elementos generados en "
+"`third_party/rust`."
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
@@ -16385,6 +16941,10 @@ msgid ""
 "it's to allow multiple incompatible versions of a crate, which is "
 "discouraged but sometimes necessary in the Cargo ecosystem."
 msgstr ""
+"Habla un poco sobre el semver y, concretamente, sobre la forma en que "
+"Chromium permite que existan varias versiones incompatibles de un crate. No "
+"es una situación recomendable, pero a veces es necesaria en el ecosistema de "
+"Cargo."
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid ""
@@ -16393,68 +16953,79 @@ msgid ""
 "design of `gn` and `ninja` which aim for static, deterministic, build rules "
 "to maximize parallelism and repeatability of builds."
 msgstr ""
+"Si la compilación falla, puede deberse a un `build.rs`, programas que llevan "
+"a cabo acciones arbitrarias durante la compilación. Esto difiere de los "
+"diseños de `gn` y `ninja`, que tienen como objetivo crear reglas de "
+"compilación estáticas y deterministas para maximizar el paralelismo y la "
+"repetibilidad de las compilaciones."
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid ""
 "Some `build.rs` actions are automatically supported; others require action:"
 msgstr ""
+"Algunas acciones `build.rs` son admitidas automáticamente, pero otras deben "
+"llevar a cabo alguna acción:"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "build script effect"
-msgstr ""
+msgstr "efecto de scripts de compilación"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Supported by our gn templates"
-msgstr ""
+msgstr "Compatible con nuestras plantillas de gn"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Work required by you"
-msgstr ""
+msgstr "Acciones que debes llevar a cabo"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Checking rustc version to configure features on and off"
-msgstr ""
+msgstr "Comprobar la versión de rustc para activar y desactivar funciones"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "None"
-msgstr ""
+msgstr "Ninguno"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Checking platform or CPU to configure features on and off"
-msgstr ""
+msgstr "Comprobar la plataforma o la CPU para activar y desactivar funciones"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
-#, fuzzy
 msgid "Generating code"
-msgstr "Genéricos"
+msgstr "Generar código"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Yes - specify in `gnrt_config.toml`"
-msgstr ""
+msgstr "Sí: especificar en `gnrt_config.toml`"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Building C/C++"
-msgstr ""
+msgstr "Compilar en C o C++"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Patch around it"
-msgstr ""
+msgstr "Poner un parche"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Arbitrary other actions"
-msgstr ""
+msgstr "Otras acciones arbitrarias"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid ""
 "Fortunately, most crates don't contain a build script, and fortunately, most "
 "build scripts only do the top two actions."
 msgstr ""
+"Por suerte, la mayoría de los crates no contienen scripts de compilación y "
+"la mayoría de estos scripts de compilación solo llevan a cabo dos acciones "
+"principales."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md
 msgid ""
 "If `ninja` complains about missing files, check the `build.rs` to see if it "
 "writes source code files."
 msgstr ""
+"Si `ninja` se queja de que faltan archivos, comprueba `build.rs` para ver si "
+"escribe archivos de código fuente."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md
 msgid ""
@@ -16464,6 +17035,11 @@ msgid ""
 "`allow-first-party-usage=false`. There are several examples already in that "
 "file:"
 msgstr ""
+"Si es así, modifica [`gnrt_config.toml`](../configuring-gnrt-config-toml.md) "
+"para añadir `build-script-outputs` al crate. Si se trata de una dependencia "
+"transitiva, de la que el código Chromium no debería depender de forma "
+"directa, añade también `allow-first-party-usage=false`. En ese archivo ya "
+"hay varios ejemplos:"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md
 msgid ""
@@ -16473,6 +17049,11 @@ msgid ""
 "build-script-outputs = [\"tables.rs\"]\n"
 "```"
 msgstr ""
+"```toml\n"
+"[crate.unicode-linebreak]\n"
+"allow-first-party-usage = false\n"
+"build-script-outputs = [\"tables.rs\"]\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md
 msgid ""
@@ -16480,6 +17061,10 @@ msgid ""
 "`BUILD.gn` files to inform ninja that this particular output file is input "
 "to subsequent build steps."
 msgstr ""
+"A continuación, vuelve a ejecutar [`gnrt.py -- gen`](../generating-gn-build-"
+"rules.md) para generar de nuevo los archivos `build.gn` e informar al ninja "
+"de que este archivo de salida concreto se usa como entrada en los pasos de "
+"compilación posteriores."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid ""
@@ -16489,18 +17074,25 @@ msgid ""
 "supported in a Chromium context --- our gn, ninja and LLVM build system is "
 "very specific in expressing relationships between build actions."
 msgstr ""
+"Algunos crates usan el crate [`cc`](https://crates.io/crates/cc) para "
+"compilar y vincular bibliotecas de C y C++. Otros crates analizan C y C++ "
+"mediante [`bindgen`](https://crates.io/crates/bindgen) en sus scripts de "
+"compilación. Estas acciones no se pueden llevar a cabo en un contexto de "
+"Chromium, ya que nuestro sistema de compilación gn, ninja y LLVM es muy "
+"específico a la hora de expresar las relaciones entre las acciones de "
+"compilación."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid "So, your options are:"
-msgstr ""
+msgstr "Por lo tanto, las opciones son las siguientes:"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid "Avoid these crates"
-msgstr ""
+msgstr "Evitar estos crates."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid "Apply a patch to the crate."
-msgstr ""
+msgstr "Aplicar un parche al crate."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid ""
@@ -16510,6 +17102,10 @@ msgid ""
 "chromium_crates_io/patches/cxx/) - and will be applied automatically by "
 "`gnrt` each time it upgrades the crate."
 msgstr ""
+"Los parches deben guardarse en `third_party/rust/chromium_crates_io/patches/"
+"<crate>`, como los [parches para el crate `cxx`](https://source.chromium.org/"
+"chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/patches/"
+"cxx/), y `gnrt` lo aplicará automáticamente cada vez que actualice el crate."
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md
 msgid ""
@@ -16517,11 +17113,13 @@ msgid ""
 "on a crate is simple. Find your `rust_static_library` target, and add a "
 "`dep` on the `:lib` target within your crate."
 msgstr ""
+"Una vez que se ha añadido un crate de terceros y se han generado reglas de "
+"compilación, utilizar un crate es sencillo. Busca tu elemento de destino "
+"`rust_static_library` y añade un `dep` en el `:lib` dentro del crate."
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md
-#, fuzzy
 msgid "Specifically,"
-msgstr "Específico del SO"
+msgstr "Específicamente:"
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md
 msgid ""
@@ -16532,6 +17130,12 @@ msgid ""
 "                     +------------+      +----------------------+\n"
 "```"
 msgstr ""
+"```bob\n"
+"                     +------------+      +----------------------+\n"
+"\"//third_party/rust\" | crate name | \"/v\" | major semver version | \":"
+"lib\"\n"
+"                     +------------+      +----------------------+\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md
 msgid ""
@@ -16543,10 +17147,17 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [ \"lib.rs\" ]\n"
+"  deps = [ \"//third_party/rust/example_rust_crate/v1:lib\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid "Auditing Third Party Crates"
-msgstr ""
+msgstr "Auditoría de Crates de Terceros"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -16557,17 +17168,26 @@ msgid ""
 "dependencies, there may be a lot of code to review. On the other hand, safe "
 "Rust code can have limited negative side effects. How should you review it?"
 msgstr ""
+"Añadir nuevas bibliotecas está sujeto a las [políticas](https://chromium."
+"googlesource.com/chromium/src/+/refs/heads/main/docs/rust.md#Third_party-"
+"review) estándar de Chromium, pero también a la revisión de seguridad. Como "
+"puede que no solo incluyas un único crate sino también dependencias "
+"transitivas, es posible que haya mucho código que revisar. Por otro lado, el "
+"código de Rust seguro puede tener efectos secundarios negativos limitados. "
+"¿Cómo se revisa?"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
 "Over time Chromium aims to move to a process based around [cargo vet]"
 "(https://mozilla.github.io/cargo-vet/)."
 msgstr ""
+"Con el tiempo, Chromium intentará adoptar un proceso basado en [cargo vet]"
+"(https://mozilla.github.io/cargo-vet/)."
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
 "Meanwhile, for each new crate addition, we are checking for the following:"
-msgstr ""
+msgstr "Mientras tanto, se debe hacer lo siguiente para cada nuevo crate:"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -16576,10 +17196,14 @@ msgid ""
 "macros, work out what they're for. Are they compatible with the way Chromium "
 "is normally built?"
 msgstr ""
+"Entender por qué se usa cada crate. ¿Cuál es la relación entre los crates? "
+"Si el sistema de compilación de cada crate contiene un archivo `build.rs` o "
+"macros de procedimiento, averigua para qué sirven. ¿Son compatibles con la "
+"forma en la que se compila normalmente Chromium?"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid "Check each crate seems to be reasonably well maintained"
-msgstr ""
+msgstr "Comprobar que cada crate tenga un mantenimiento razonable."
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -16588,6 +17212,10 @@ msgid ""
 "ironically involves downloading lots of dependencies from the internet[2](../"
 "cargo.md))"
 msgstr ""
+"Usar `cd third-party/rust/chromium_crates_io; cargo audit` para comprobar si "
+"existen vulnerabilidades (primero se tiene que usar `cargo install cargo-"
+"audit`, lo que, irónicamente, implica descargar muchas dependencias de "
+"Internet[2](../cargo.md))."
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -16595,10 +17223,13 @@ msgid ""
 "chromium.googlesource.com/chromium/src/+/main/docs/security/rule-of-2."
 "md#unsafe-code-in-safe-languages)"
 msgstr ""
+"Asegúrate de que cualquier código `unsafe` sea adecuado para la [Regla de "
+"dos](https://chromium.googlesource.com/chromium/src/+/main/docs/security/"
+"rule-of-2.md#unsafe-code-in-safe-languages)."
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid "Check for any use of `fs` or `net` APIs"
-msgstr ""
+msgstr "Comprobar si se usan las APIs `fs` o `net`."
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -16606,46 +17237,58 @@ msgid ""
 "that might have been maliciously inserted. (You can't realistically aim for "
 "100% perfection here: there's often just too much code.)"
 msgstr ""
+"Leer todo el código con suficiente profundidad para comprobar si hay algo "
+"fuera de lugar que pueda haberse insertado de forma malintencionada. (Es "
+"imposible hacerlo perfecto, ya que, a menudo, hay demasiado código)."
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
 "These are just guidelines --- work with reviewers from `security@chromium."
 "org` to work out the right way to become confident of the crate."
 msgstr ""
+"Estas son solo algunas directrices, trabaja con revisores de "
+"`security@chromium.org` para determinar la forma adecuada de utilizar los "
+"crates."
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid "Checking Crates into Chromium Source Code"
-msgstr ""
+msgstr "Comprobar crates en el código fuente de Chromium"
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid "`git status` should reveal:"
-msgstr ""
+msgstr "`git status` debe revelar lo siguiente:"
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid "Crate code in `//third_party/rust/chromium_crates_io`"
-msgstr ""
+msgstr "Código del crate en `//third_party/rust/chromium_crates_io`."
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid ""
 "Metadata (`BUILD.gn` and `README.chromium`) in `//third_party/rust/<crate>/"
 "<version>`"
 msgstr ""
+"Metadatos (`BUILD.gn` y `README.chromium`) en `//third_party/rust/<crate>/"
+"<version>`."
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid "Please also add an `OWNERS` file in the latter location."
-msgstr ""
+msgstr "Añade también un archivo `OWNERS` en esta última ubicación."
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid ""
 "You should land all this, along with your `Cargo.toml` and `gnrt_config."
 "toml` changes, into the Chromium repo."
 msgstr ""
+"Deberías llevar todo esto, junto con los cambios de `Cargo.toml` y "
+"`gnrt_config.toml`, al repositorio de Chromium."
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid ""
 "**Important**: you need to use `git add -f` because otherwise `.gitignore` "
 "files may result in some files being skipped."
 msgstr ""
+"**Importante**: Debes usar `git add -f`, de lo contrario, los archivos `."
+"gitignore` pueden provocar que se omitan algunos archivos."
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid ""
@@ -16654,6 +17297,11 @@ msgid ""
 "branches, and many projects still use non-inclusive terminology there. So "
 "you may need to run:"
 msgstr ""
+"Si lo haces, es posible que veas que las comprobaciones presubmit no se han "
+"completado porque incluyen lenguaje no inclusivo. Esto se debe a que los "
+"datos de crate de Rust suelen incluir nombres de ramas en git y muchos "
+"proyectos siguen empleando terminología no inclusiva. Por lo tanto, puede "
+"que debas ejecutar lo siguiente:"
 
 #: src/chromium/adding-third-party-crates/keeping-up-to-date.md
 msgid ""
@@ -16663,6 +17311,12 @@ msgid ""
 "hoped that we will soon automate this for Rust crates, but for now, it's "
 "still your responsibility just as it is for any other third party dependency."
 msgstr ""
+"Como PROPIETARIO de cualquier dependencia de Chromium de terceros, [se "
+"espera que la actualices con las correcciones de seguridad](https://chromium."
+"googlesource.com/chromium/src/+/main/docs/adding_to_third_party.md#add-"
+"owners). La idea es que pronto automaticemos esto para los crates de Rust, "
+"pero por ahora sigue siendo tu responsabilidad, igual que cualquier otra "
+"dependencia de terceros."
 
 #: src/exercises/chromium/third-party.md
 msgid ""
@@ -16671,6 +17325,10 @@ msgid ""
 "features.html#the-default-feature). Assume that the crate will be used in "
 "shipping Chromium, but won't be used to handle untrustworthy input."
 msgstr ""
+"Añade [uwuify](https://crates.io/crates/uwuify) a Chromium para desactivar "
+"las [funciones predeterminadas] del crate (https://doc.rust-lang.org/cargo/"
+"reference/features.html#the-default-feature). Supongamos que el crate se "
+"usará en el envío de Chromium, pero no para gestionar entradas no fiables."
 
 #: src/exercises/chromium/third-party.md
 msgid ""
@@ -16679,72 +17337,82 @@ msgid ""
 "[`rust_executable` target](https://source.chromium.org/chromium/chromium/src/"
 "+/main:build/rust/rust_executable.gni) which uses `uwuify`)."
 msgstr ""
+"(En el siguiente ejercicio, usaremos uwuify de Chromium, pero puedes "
+"saltarte este paso y hacerlo ahora si quieres. También puedes crear un nuevo "
+"[destino `rust_executable`](https://source.chromium.org/chromium/chromium/"
+"src/+/main:build/rust/rust_executable.gni) que utilice `uwuify`)."
 
 #: src/exercises/chromium/third-party.md
 msgid "Students will need to download lots of transitive dependencies."
 msgstr ""
+"Los participantes tendrán que descargar muchas dependencias transitivas."
 
 #: src/exercises/chromium/third-party.md
 msgid "The total crates needed are:"
-msgstr ""
+msgstr "Estos son los crates que se necesitan:"
 
 #: src/exercises/chromium/third-party.md
 #, fuzzy
 msgid "`instant`,"
-msgstr "Constante"
+msgstr "Por ejemplo:"
 
 #: src/exercises/chromium/third-party.md
 msgid "`lock_api`,"
-msgstr ""
+msgstr "`lock_api`"
 
 #: src/exercises/chromium/third-party.md
 msgid "`parking_lot`,"
-msgstr ""
+msgstr "`parking_lot`"
 
 #: src/exercises/chromium/third-party.md
 msgid "`parking_lot_core`,"
-msgstr ""
+msgstr "`parking_lot_core`"
 
 #: src/exercises/chromium/third-party.md
 msgid "`redox_syscall`,"
-msgstr ""
+msgstr "`redox_syscall`"
 
 #: src/exercises/chromium/third-party.md
 msgid "`scopeguard`,"
-msgstr ""
+msgstr "`scopeguard`"
 
 #: src/exercises/chromium/third-party.md
 msgid "`smallvec`, and"
-msgstr ""
+msgstr "`smallvec`"
 
 #: src/exercises/chromium/third-party.md
 msgid "`uwuify`."
-msgstr ""
+msgstr "`uwuify`"
 
 #: src/exercises/chromium/third-party.md
 msgid ""
 "If students are downloading even more than that, they probably forgot to "
 "turn off the default features."
 msgstr ""
+"Si los alumnos se descargan más datos, seguramente habrán olvidado "
+"desactivar las funciones predeterminadas."
 
 #: src/exercises/chromium/third-party.md
 msgid ""
 "Thanks to [Daniel Liu](https://github.com/Daniel-Liu-c0deb0t) for this crate!"
 msgstr ""
+"Gracias a [Daniel Liu](https://github.com/Daniel-Liu-c0deb0t) por este crate."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid "Bringing It Together --- Exercise"
-msgstr ""
+msgstr "Poner en práctica todo lo aprendido: ejercicio"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "In this exercise, you're going to add a whole new Chromium feature, bringing "
 "together everything you already learned."
 msgstr ""
+"En este ejercicio, vas a añadir una función de Chromium completamente nueva "
+"que pondrá en práctica todo lo que hemos aprendido."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid "The Brief from Product Management"
-msgstr ""
+msgstr "Resumen de la gestión de productos"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16752,12 +17420,17 @@ msgid ""
 "It's important that we get Chromium for Pixies delivered to them as soon as "
 "possible."
 msgstr ""
+"Se ha descubierto una comunidad de hadas que habita en una selva tropical "
+"remota. Es importante que les enviemos la versión Chromium para hadas lo "
+"antes posible."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "The requirement is to translate all Chromium's UI strings into Pixie "
 "language."
 msgstr ""
+"El requisito es traducir todas las cadenas de la IU de Chromium al idioma de "
+"las hadas."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16765,22 +17438,29 @@ msgid ""
 "language is very close to English, and it turns out there's a Rust crate "
 "which does the translation."
 msgstr ""
+"No hay tiempo para obtener las traducciones adecuadas pero, por suerte, el "
+"lenguaje de las hadas se parece mucho al inglés y hay un crate de Rust que "
+"hace las traducciones."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "In fact, you already [imported that crate in the previous exercise](https://"
 "crates.io/crates/uwuify)."
 msgstr ""
+"De hecho, ya [importamos ese crate en el ejercicio anterior](https://crates."
+"io/crates/uwuify)."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "(Obviously, real translations of Chrome require incredible care and "
 "diligence. Don't ship this!)"
 msgstr ""
+"(Obviamente, las traducciones reales de Chrome requieren mucha atención y "
+"diligencia. No envíes nada de esto)."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid "Steps"
-msgstr ""
+msgstr "Pasos"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16788,12 +17468,17 @@ msgid ""
 "strings before display. In this special build of Chromium, it should always "
 "do this irrespective of the setting of `mangle_localized_strings_`."
 msgstr ""
+"Modifica `ResourceBundle::RSMangleLocalizedString` para que traduzca todas "
+"las cadenas antes de que se muestren. En esta compilación especial de "
+"Chromium, siempre se debe hacer esto independientemente de la configuración "
+"de `mangle_localized_strings_`."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "If you've done everything right across all these exercises, congratulations, "
 "you should have created Chrome for pixies!"
 msgstr ""
+"Si has hecho correctamente los ejercicios, habrás creado Chrome para hadas."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16801,6 +17486,9 @@ msgid ""
 "and will probably decide that it's better to do the conversion on the C++ "
 "side using `base::UTF16ToUTF8` and back again."
 msgstr ""
+"UTF16 y UTF8. Los alumnos deben tener en cuenta que las cadenas de Rust "
+"siempre son UTF8. Probablemente decidirán que es mejor hacer la conversión "
+"en C++ usando `base::UTF16ToUTF8` y viceversa."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16810,6 +17498,11 @@ msgid ""
 "[CXX supported types can transfer a lot of u16s](https://cxx.rs/binding/"
 "slice.html)."
 msgstr ""
+"Si los participantes deciden hacer la conversión en Rust, deberán tener en "
+"cuenta [`String::from_utf16`](https://doc.rust-lang.org/std/string/struct."
+"String.html#method.from_utf16), la gestión de errores y los [tipos "
+"compatibles con CXX que pueden transferir un gran número de u16s](https://"
+"cxx.rs/binding/slice.html)."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16821,6 +17514,14 @@ msgid ""
 "mutable references to C++ data: the answer is that C++ data can't be moved "
 "around like Rust data, because it may contain self-referential pointers."
 msgstr ""
+"Los alumnos pueden diseñar el límite de C++ o Rust de varias formas "
+"diferentes, por ejemplo, tomando y devolviendo cadenas por valor o colocando "
+"una referencia mutable en una cadena. Si se utiliza una referencia mutable, "
+"es probable que CXX indique que se debe usar [`Pin`](https://doc.rust-lang."
+"org/std/pin/). Puede que debas explicar qué hace `Pin` y, a continuación, "
+"explicar por qué CXX lo necesita para referencias mutables a datos de C++. "
+"La respuesta es que los datos de C++ no se pueden mover como los datos de "
+"Rust, ya que pueden contener punteros de autorreferencia."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16828,18 +17529,26 @@ msgid ""
 "need to depend on a `rust_static_library` target. The student probably "
 "already did this."
 msgstr ""
+"El elemento de destino de C++ que contiene `ResourceBundle::"
+"MaybeMangleLocalizedString` deberá depender de un elemento "
+"`rust_static_library`. Seguramente los alumnos ya lo hayan hecho."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "The `rust_static_library` target will need to depend on `//third_party/rust/"
 "uwuify/v0_2:lib`."
 msgstr ""
+"`rust_static_library` deberá depender de `//third_party/rust/uwuify/v0_2:"
+"lib`."
 
 #: src/exercises/chromium/solutions.md
 msgid ""
 "Solutions to the Chromium exercises can be found in [this series of CLs]"
 "(https://chromium-review.googlesource.com/c/chromium/src/+/5096560)."
 msgstr ""
+"Las soluciones a los ejercicios de Chromium están en [esta serie de listas "
+"de cambios](https://chromium-review.googlesource.com/c/chromium/src/"
+"+/5096560)."
 
 #: src/bare-metal.md
 msgid "Welcome to Bare Metal Rust"
