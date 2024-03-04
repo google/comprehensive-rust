@@ -37,7 +37,10 @@ else
 fi
 
 mdbook build -d "$dest_dir"
-mv "$dest_dir/pandoc/pdf/comprehensive-rust.pdf" "$dest_dir/html/"
+sed -i '/<!-- MARKER_START -->./../../theme/redbox.js<!-- MARKER_END -->/d' ./../../theme/redbox.js
+if [ -f "$dest_dir/pandoc/pdf/comprehensive-rust.pdf" ]; then
+    mv "$dest_dir/pandoc/pdf/comprehensive-rust.pdf" "$dest_dir/html/"
+fi
 (cd "$dest_dir/exerciser" && zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/)
 
 echo "::endgroup::"
