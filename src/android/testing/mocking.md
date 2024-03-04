@@ -15,8 +15,7 @@ to use traits, which you can then quickly mock:
 
 <details>
 
-- The advice here is for Android (AOSP) where Mockall is the recommended mocking
-  library. There are other
+- Mockall is the recommended mocking library in Android (AOSP). There are other
   [mocking libraries available on crates.io](https://crates.io/keywords/mock),
   in particular in the area of mocking HTTP services. The other mocking
   libraries work in a similar fashion as Mockall, meaning that they make it easy
