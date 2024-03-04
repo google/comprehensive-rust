@@ -1,0 +1,21 @@
+[package]
+name = "android-testing"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[example]]
+name = "googletest-example"
+crate-type = ["staticlib"]
+path = "googletest.rs"
+test = true
+
+[[example]]
+name = "mockall-example"
+crate-type = ["staticlib"]
+path = "mockall.rs"
+test = true
+
+[dependencies]
+googletest = "0.11.0"
+mockall = "0.12.1"

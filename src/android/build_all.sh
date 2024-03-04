@@ -117,6 +117,11 @@ EOF
 
 pkill -f birthday_server
 
+run_example <<EOF
+# ANCHOR: libleftpad_test
+atest --host libleftpad_test
+# ANCHOR_END: libleftpad_test
+EOF
 
 run_example <<EOF
 # ANCHOR: hello_rust_logs
