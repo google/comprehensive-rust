@@ -24,13 +24,7 @@ pub struct HealthReport<'a> {
 
 impl User {
     pub fn new(name: String, age: u32, height: f32) -> Self {
-        Self {
-            name,
-            age,
-            height,
-            visit_count: 0,
-            last_blood_pressure: None,
-        }
+        Self { name, age, height, visit_count: 0, last_blood_pressure: None }
     }
     // ANCHOR_END: setup
 
@@ -68,18 +62,14 @@ fn main() {
 fn test_visit() {
     let mut bob = User::new(String::from("Bob"), 32, 155.2);
     assert_eq!(bob.visit_count, 0);
-    let report = bob.visit_doctor(Measurements {
-        height: 156.1,
-        blood_pressure: (120, 80),
-    });
+    let report =
+        bob.visit_doctor(Measurements { height: 156.1, blood_pressure: (120, 80) });
     assert_eq!(report.patient_name, "Bob");
     assert_eq!(report.visit_count, 1);
     assert_eq!(report.blood_pressure_change, None);
 
-    let report = bob.visit_doctor(Measurements {
-        height: 156.1,
-        blood_pressure: (115, 76),
-    });
+    let report =
+        bob.visit_doctor(Measurements { height: 156.1, blood_pressure: (115, 76) });
 
     assert_eq!(report.visit_count, 2);
     assert_eq!(report.blood_pressure_change, Some((-5, -4)));

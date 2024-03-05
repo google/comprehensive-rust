@@ -1,5 +1,5 @@
 ---
-minutes: 10
+minutes: 5
 ---
 
 # Strings
@@ -52,5 +52,8 @@ later, but this is enough for subsequent slides and exercises to use strings.
       println!("<a href=\"link.html\">link</a>");
   }
   ```
+
+- Using `{:?}` is a convenient way to print array/vector/struct of values for
+  debugging purposes, and it's commonly used in code.
 
 </details>

@@ -2,10 +2,6 @@
 minutes: 5
 ---
 
-<!-- NOTES:
-Present Copy as added functionality on top of the default move semantics: with Copy, the old value does not become invalid; Can derive Copy for a type if it implements Clone
--->
-
 # Copy Types
 
 While move semantics are the default, certain types are copied by default:

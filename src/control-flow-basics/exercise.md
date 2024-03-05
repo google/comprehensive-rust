@@ -1,5 +1,5 @@
 ---
-minutes: 30
+minutes: 15
 ---
 
 # Exercise: Collatz Sequence
@@ -25,7 +25,7 @@ For example, beginning with _n<sub>1</sub>_ = 3:
 Write a function to calculate the length of the collatz sequence for a given
 initial `n`.
 
-```rust,should_panic
+```rust,editable,should_panic
 {{#include exercise.rs:collatz_length}}
   todo!("Implement this")
 }

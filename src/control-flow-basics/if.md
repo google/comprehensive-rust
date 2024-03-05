@@ -1,18 +1,8 @@
 ---
-minutes: 5
+minutes: 4
 ---
 
-# Conditionals
-
-Much of the Rust syntax will be familiar to you from C, C++ or Java:
-
-- Blocks are delimited by curly braces.
-- Line comments are started with `//`, block comments are delimited by
-  `/* ... */`.
-- Keywords like `if` and `while` work the same.
-- Variable assignment is done with `=`, comparison is done with `==`.
-
-## `if` expressions
+# `if` expressions
 
 You use
 [`if` expressions](https://doc.rust-lang.org/reference/expressions/if-expr.html#if-expressions)
@@ -21,8 +11,8 @@ exactly like `if` statements in other languages:
 ```rust,editable
 fn main() {
     let x = 10;
-    if x < 20 {
-        println!("small");
+    if x == 0 {
+        println!("zero!");
     } else if x < 100 {
         println!("biggish");
     } else {

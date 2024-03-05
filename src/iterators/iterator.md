@@ -2,10 +2,6 @@
 minutes: 5
 ---
 
-<!-- NOTES:
-The Iterator trait and basic usage
--->
-
 # `Iterator`
 
 The [`Iterator`][1] trait supports iterating over values in a collection. It

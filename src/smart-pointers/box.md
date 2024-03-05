@@ -1,5 +1,5 @@
 ---
-minutes: 10
+minutes: 8
 ---
 
 # `Box<T>`
@@ -74,15 +74,16 @@ fn main() {
     so only the pointer is moved.
 
 - If `Box` was not used and we attempted to embed a `List` directly into the
-  `List`, the compiler would not compute a fixed size of the struct in memory
-  (`List` would be of infinite size).
+  `List`, the compiler would not be able to compute a fixed size for the struct
+  in memory (the `List` would be of infinite size).
 
 - `Box` solves this problem as it has the same size as a regular pointer and
   just points at the next element of the `List` in the heap.
 
-- Remove the `Box` in the List definition and show the compiler error.
-  "Recursive with indirection" is a hint you might want to use a Box or
-  reference of some kind, instead of storing a value directly.
+- Remove the `Box` in the List definition and show the compiler error. We get
+  the message "recursive without indirection", because for data recursion, we
+  have to use indirection, a `Box` or reference of some kind, instead of storing
+  the value directly.
 
 # More to Explore
 

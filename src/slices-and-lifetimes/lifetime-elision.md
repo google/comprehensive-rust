@@ -61,7 +61,7 @@ references in its arguments that requires explicit annotation.
 Try adjusting the signature to "lie" about the lifetimes returned:
 
 ```rust,ignore
-fn nearest<'a, 'q'>(points: &'a [Point], query: &'q Point) -> Option<&'q Point> {
+fn nearest<'a, 'q>(points: &'a [Point], query: &'q Point) -> Option<&'q Point> {
 ```
 
 This won't compile, demonstrating that the annotations are checked for validity

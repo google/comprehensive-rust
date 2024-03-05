@@ -36,9 +36,9 @@ mod ffi {
 
 /// An iterator over contiguous chunks of a discontiguous file object.
 ///
-/// Toy implementation uses a Vec<Vec<u8>> but in reality this might be iterating
-/// over some more complex Rust data structure like a rope, or maybe loading
-/// chunks lazily from somewhere.
+/// Toy implementation uses a Vec<Vec<u8>> but in reality this might be
+/// iterating over some more complex Rust data structure like a rope, or maybe
+/// loading chunks lazily from somewhere.
 pub struct MultiBuf {
     chunks: Vec<Vec<u8>>,
     pos: usize,

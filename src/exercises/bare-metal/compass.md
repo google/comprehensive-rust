@@ -29,6 +29,7 @@ look in the `compass` directory for the following files.
 _src/main.rs_:
 
 <!-- File src/main.rs -->
+<!-- mdbook-xgettext: skip -->
 
 ```rust,compile_fail
 {{#include compass/src/main.rs:top}}
