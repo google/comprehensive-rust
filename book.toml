@@ -22,13 +22,6 @@ class = "bob"
 [preprocessor.course]
 verbose = false # Report timing information.
 
-# Enable this preprocessor to overlay a large red rectangle on the
-# pages. This will show you an estimate of what the course
-# participants can see during the presentation.
-#
-# [preprocessor.aspect-ratio-helper]
-# command = "./aspect-ratio-helper.py"
-
 [output.pandoc]
 optional = true
 hosted-html = "https://google.github.io/comprehensive-rust/"
@@ -47,9 +40,10 @@ urlcolor = "red"
 
 [output.html]
 curly-quotes = true
-additional-js = ["theme/speaker-notes.js"]
+additional-js = ["theme/speaker-notes.js", "theme/redbox.js"]
 additional-css = [
   "theme/css/svgbob.css",
+  "theme/css/redbox.css",
   "theme/css/speaker-notes.css",
   "theme/css/language-picker.css",
   "theme/css/rtl.css",
