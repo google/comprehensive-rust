@@ -44,7 +44,7 @@ fn main() {
 
 <details>
 
-In this example, the the compiler does not know what lifetime to infer for `p3`.
+In this example, the compiler does not know what lifetime to infer for `p3`.
 Looking inside the function body shows that it can only safely assume that
 `p3`'s lifetime is the shorter of `p1` and `p2`. But just like types, Rust
 requires explicit annotations of lifetimes on function arguments and return
