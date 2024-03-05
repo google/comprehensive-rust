@@ -39,7 +39,7 @@ fi
 mdbook build -d "$dest_dir"
 
 # Disable the redbox button in built versions of the course
-echo '// disabled' > "${dest_dir}/html/theme/redbox.js"
+echo '// Disabled in published builds, see build.sh' > "${dest_dir}/html/theme/redbox.js"
 
 mv "$dest_dir/pandoc/pdf/comprehensive-rust.pdf" "$dest_dir/html/"
 (cd "$dest_dir/exerciser" && zip --recurse-paths ../html/comprehensive-rust-exercises.zip comprehensive-rust-exercises/)
