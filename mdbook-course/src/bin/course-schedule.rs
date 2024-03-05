@@ -45,7 +45,7 @@ fn timediff(actual: u64, target: u64, slop: u64) -> String {
             duration(actual),
             duration(actual - target),
         )
-    } else if actual < target - slop {
+    } else if actual + slop < target {
         format!("{}: ({} short)", duration(actual), duration(target - actual),)
     } else {
         format!("{}", duration(actual))
