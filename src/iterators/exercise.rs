@@ -27,7 +27,7 @@ where
     // ANCHOR_END: offset_differences
     let a = (&values).into_iter();
     let b = (&values).into_iter().cycle().skip(offset);
-    a.zip(b).map(|(a, b)| *b - *a).take(values.len()).collect()
+    a.zip(b).map(|(a, b)| *b - *a).collect()
 }
 
 // ANCHOR: unit-tests
