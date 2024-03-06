@@ -28,12 +28,10 @@ generally preferred.
 
 <details>
 
-- `static`, on the other hand, is much more similar to or mutable global
-  variable in C++.
+- `static`, on the other hand, is much more similar to mutable global variable
+  in C++.
 - `static` provides object identity: an address in memory and state as required
   by types with interior mutability such as `Mutex<T>`.
-- It isn't super common that one would need a runtime evaluated constant, but it
-  is helpful and safer than using a static.
 
 </details>
 
