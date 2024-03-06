@@ -47,7 +47,7 @@ fn main() {
 - Now what if we want to return a value?
 - Look at docs again:
   - [`thread::spawn`]'s closure returns `T`
-  - `JoinHandle`[`.join()`] returns `thread::Result<T>`
+  - `JoinHandle` [`.join()`] returns `thread::Result<T>`
 
 - Use the `Result` return value from `handle.join()` to get access to the
   returned value.
