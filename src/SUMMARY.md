@@ -47,8 +47,8 @@
 
 - [Welcome](welcome-day-1-afternoon.md)
 - [Tuples and Arrays](tuples-and-arrays.md)
-  - [Tuples](tuples-and-arrays/tuples.md)
   - [Arrays](tuples-and-arrays/arrays.md)
+  - [Tuples](tuples-and-arrays/tuples.md)
   - [Array Iteration](tuples-and-arrays/iteration.md)
   - [Patterns and Destructuring](tuples-and-arrays/destructuring.md)
   - [Exercise: Nested Arrays](tuples-and-arrays/exercise.md)
