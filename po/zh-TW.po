@@ -7109,73 +7109,73 @@ msgstr "歡迎參加第 3 天課程"
 
 #: src/welcome-day-3.md
 msgid "Today, we will cover:"
-msgstr ""
+msgstr "今天我們將講解以下內容："
 
 #: src/welcome-day-3.md
 msgid ""
 "Memory management, lifetimes, and the borrow checker: how Rust ensures "
 "memory safety."
-msgstr ""
+msgstr "記憶體管理、生命週期和借用檢查器：Rust 如何確保記憶體安全。"
 
 #: src/welcome-day-3.md
 msgid "Smart pointers: standard library pointer types."
-msgstr ""
+msgstr "智慧指標：標準程式庫指標型別。"
 
 #: src/welcome-day-3.md
 msgid "[Welcome](./welcome-day-3.md) (3 minutes)"
-msgstr ""
+msgstr "[歡迎](./welcome-day-3.md) (3 分鐘)"
 
 #: src/welcome-day-3.md
 msgid "[Memory Management](./memory-management.md) (1 hour)"
-msgstr ""
+msgstr "[記憶體管理](./memory-management.md) (1 小時)"
 
 #: src/welcome-day-3.md
 msgid "[Smart Pointers](./smart-pointers.md) (55 minutes)"
-msgstr ""
+msgstr "[智慧指標](./smart-pointers.md) (55 分鐘)"
 
 #: src/welcome-day-3.md
 msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 20 "
 "minutes"
-msgstr ""
+msgstr "加上 10 分鐘的休息時間，這個課程大約需要 2 小時 20 分鐘"
 
 #: src/memory-management.md
 msgid "[Review of Program Memory](./memory-management/review.md) (5 minutes)"
-msgstr ""
+msgstr "[檢查程式記憶體](./memory-management/review.md) (5 分鐘)"
 
 #: src/memory-management.md
 msgid ""
 "[Approaches to Memory Management](./memory-management/approaches.md) (10 "
 "minutes)"
-msgstr ""
+msgstr "[管理記憶體的方法](./memory-management/approaches.md) (10 分鐘)"
 
 #: src/memory-management.md
 msgid "[Ownership](./memory-management/ownership.md) (5 minutes)"
-msgstr ""
+msgstr "[擁有權](./memory-management/ownership.md) (5 分鐘)"
 
 #: src/memory-management.md
 msgid "[Move Semantics](./memory-management/move.md) (5 minutes)"
-msgstr ""
+msgstr "[轉移語意](./memory-management/move.md) (5 分鐘)"
 
 #: src/memory-management.md
 msgid "[Clone](./memory-management/clone.md) (2 minutes)"
-msgstr ""
+msgstr "[複製](./memory-management/clone.md) (2 分鐘)"
 
 #: src/memory-management.md
 msgid "[Copy Types](./memory-management/copy-types.md) (5 minutes)"
-msgstr ""
+msgstr "[複製型別](./memory-management/copy-types.md) (5 分鐘)"
 
 #: src/memory-management.md
 msgid "[Drop](./memory-management/drop.md) (10 minutes)"
-msgstr ""
+msgstr "[拖放](./memory-management/drop.md) (10 分鐘)"
 
 #: src/memory-management.md
 msgid "[Exercise: Builder Type](./memory-management/exercise.md) (20 minutes)"
-msgstr ""
+msgstr "[練習：建構工具型別](./memory-management/exercise.md) (20 分鐘)"
 
 #: src/memory-management/review.md
 msgid "Programs allocate memory in two ways:"
-msgstr ""
+msgstr "程式分配記憶體的方式有兩種："
 
 #: src/memory-management/review.md
 msgid "Stack: Continuous area of memory for local variables."
@@ -7250,11 +7250,11 @@ msgstr ""
 
 #: src/memory-management/review.md src/testing/unit-tests.md
 msgid "' '"
-msgstr ""
+msgstr "' '"
 
 #: src/memory-management/review.md
 msgid "\"world\""
-msgstr ""
+msgstr "\"world\""
 
 #: src/memory-management/review.md
 msgid ""
@@ -7263,10 +7263,14 @@ msgid ""
 "to\n"
 "    // undefined behavior.\n"
 msgstr ""
+"// DON'T DO THIS AT HOME! For educational purposes only.\n"
+"    // String provides no guarantees about its layout, so this could lead "
+"to\n"
+"    // undefined behavior.\n"
 
 #: src/memory-management/review.md
 msgid "\"capacity = {capacity}, ptr = {ptr:#x}, len = {len}\""
-msgstr ""
+msgstr "\"capacity = {capacity}, ptr = {ptr:#x}, len = {len}\""
 
 #: src/memory-management/approaches.md
 msgid "Traditionally, languages have fallen into two broad categories:"
@@ -7278,16 +7282,16 @@ msgstr "透過手動管理記憶體，取得完整掌控權：C、C++、Pascal..
 
 #: src/memory-management/approaches.md
 msgid "Programmer decides when to allocate or free heap memory."
-msgstr ""
+msgstr "程式設計師會決定何時分配或釋出堆積記憶體。"
 
 #: src/memory-management/approaches.md
 msgid ""
 "Programmer must determine whether a pointer still points to valid memory."
-msgstr ""
+msgstr "程式設計師必須判斷指標是否仍指向有效記憶體。"
 
 #: src/memory-management/approaches.md
 msgid "Studies show, programmers make mistakes."
-msgstr ""
+msgstr "研究顯示，程式設計師難免會出錯。"
 
 #: src/memory-management/approaches.md
 msgid ""
@@ -7300,12 +7304,12 @@ msgstr ""
 msgid ""
 "A runtime system ensures that memory is not freed until it can no longer be "
 "referenced."
-msgstr ""
+msgstr "執行階段系統會確保在可以參照記憶體之後，才釋出記憶體。"
 
 #: src/memory-management/approaches.md
 msgid ""
 "Typically implemented with reference counting, garbage collection, or RAII."
-msgstr ""
+msgstr "通常透過參照計算、垃圾收集或 RAII 的方式實作。"
 
 #: src/memory-management/approaches.md
 msgid "Rust offers a new mix:"
@@ -7326,7 +7330,7 @@ msgstr "Rust 運用明確所有權的概念實現這一點。"
 msgid ""
 "This slide is intended to help students coming from other languages to put "
 "Rust in context."
-msgstr ""
+msgstr "這張投影片的目的，在於協助其他語言的學員瞭解 Rust。"
 
 #: src/memory-management/approaches.md
 msgid ""
@@ -7334,6 +7338,9 @@ msgid ""
 "forgetting to call `free`, calling it multiple times for the same pointer, "
 "or dereferencing a pointer after the memory it points to has been freed."
 msgstr ""
+"如果是 C 語言，必須透過 `malloc` 和 `free` 手動管理堆積。常見的錯誤包括忘記呼"
+"叫 `free`、針對同一指標多次呼叫 `free`，或在其指向的記憶體釋出後取消參照指"
+"標。"
 
 #: src/memory-management/approaches.md
 msgid ""
@@ -7342,6 +7349,9 @@ msgid ""
 "is freed when a function returns. It is still quite easy to mis-use these "
 "tools and create similar bugs to C."
 msgstr ""
+"C++ 提供智慧指標 (`unique_ptr`、`shared_ptr`) 等工具，可利用有關呼叫解構函式"
+"的語言保證，確保在函式傳回時釋出記憶體。但這些工具仍很容易遭到濫用，並且會產"
+"生類似 C 語言中的那些錯誤。"
 
 #: src/memory-management/approaches.md
 msgid ""
@@ -7350,6 +7360,9 @@ msgid ""
 "be dereferenced, eliminating use-after-free and other classes of bugs. But, "
 "GC has a runtime cost and is difficult to tune properly."
 msgstr ""
+"Java、Go 和 Python 會利用垃圾收集器來識別並捨棄無法再存取的記憶體。這能確保任"
+"何指標都可以取消參照，進而消除 UAF (使用已釋放記憶體)和其他類別的錯誤。不過，"
+"GC 會耗費執行階段成本，且很難正確調整。"
 
 #: src/memory-management/approaches.md
 msgid ""
@@ -7360,6 +7373,10 @@ msgid ""
 "are even third-party crates available to support runtime garbage collection "
 "(not covered in this class)."
 msgstr ""
+"在許多情況下，Rust 的擁有權和借用模型效能都能媲美 C 語言，並在必要處精準分配"
+"及釋放，達成零成本作業。Rust 也提供類似 C++ 智慧指標的工具。如有需要，您還可"
+"以使用參照計數等其他選項，而且甚至還有第三方 Crate，可支援執行階段的垃圾收集"
+"作業 (本課程不會討論這部分)。"
 
 #: src/memory-management/ownership.md
 msgid ""
@@ -7387,6 +7404,8 @@ msgid ""
 "garbage collector starts with a set of \"roots\" to find all reachable "
 "memory. Rust's \"single owner\" principle is a similar idea."
 msgstr ""
+"熟悉垃圾收集實作的學員會知道，垃圾收集器是從一組「根」開始尋找所有可存取的記"
+"憶體。Rust 的「單一擁有者」原則也是類似的概念。"
 
 #: src/memory-management/move.md
 #, fuzzy
@@ -7394,17 +7413,16 @@ msgid "An assignment will transfer _ownership_ between variables:"
 msgstr "指派會在變數之間轉移所有權："
 
 #: src/memory-management/move.md
-#, fuzzy
 msgid "\"Hello!\""
-msgstr "Hello World!"
+msgstr "\"Hello!\""
 
 #: src/memory-management/move.md src/slices-and-lifetimes/str.md
 msgid "\"s2: {s2}\""
-msgstr ""
+msgstr "\"s2: {s2}\""
 
 #: src/memory-management/move.md
 msgid "// println!(\"s1: {s1}\");\n"
-msgstr ""
+msgstr "// println!(\"s1: {s1}\");\n"
 
 #: src/memory-management/move.md
 msgid "The assignment of `s1` to `s2` transfers ownership."
@@ -7480,16 +7498,15 @@ msgstr "將值傳遞至函式時，該值會指派給函式參數。這麼做會
 
 #: src/memory-management/move.md
 msgid "\"Hello {name}\""
-msgstr ""
+msgstr "\"Hello {name}\""
 
 #: src/memory-management/move.md src/android/interoperability/java.md
-#, fuzzy
 msgid "\"Alice\""
-msgstr "切片"
+msgstr "\"Alice\""
 
 #: src/memory-management/move.md
 msgid "// say_hello(name);\n"
-msgstr ""
+msgstr "// say_hello(name);\n"
 
 #: src/memory-management/move.md
 msgid ""
@@ -7519,7 +7536,7 @@ msgstr "在 Rust 中，克隆作業皆為明確設定，方法為使用 `clone`�
 
 #: src/memory-management/move.md
 msgid "In the `say_hello` example:"
-msgstr ""
+msgstr "在 `say_hello` 範例中："
 
 #: src/memory-management/move.md
 msgid ""
@@ -7568,11 +7585,11 @@ msgstr "現代 C++ 可使用不同方式解決這個問題："
 
 #: src/memory-management/move.md
 msgid "\"Cpp\""
-msgstr ""
+msgstr "\"Cpp\""
 
 #: src/memory-management/move.md
 msgid "// Duplicate the data in s1.\n"
-msgstr ""
+msgstr "// Duplicate the data in s1.\n"
 
 #: src/memory-management/move.md
 msgid ""
@@ -7622,13 +7639,13 @@ msgstr ""
 
 #: src/memory-management/clone.md
 msgid "Clone"
-msgstr ""
+msgstr "複製"
 
 #: src/memory-management/clone.md
 msgid ""
 "Sometimes you _want_ to make a copy of a value. The `Clone` trait "
 "accomplishes this."
-msgstr ""
+msgstr "有時候，您可能會「想要」__複製值。`Clone` 特徵可完成這項作業。"
 
 #: src/memory-management/clone.md
 msgid ""
@@ -7636,12 +7653,16 @@ msgid ""
 "occurring. Look for `.clone()` and a few others like `Vec::new` or `Box::"
 "new`."
 msgstr ""
+"`Clone` 的概念是要輕鬆找出堆積分配量的發生位置。請尋找 `.clone()` 和 `Vec::"
+"new` 或 `Box::new` 等其他字詞。"
 
 #: src/memory-management/clone.md
 msgid ""
 "It's common to \"clone your way out\" of problems with the borrow checker, "
 "and return later to try to optimize those clones away."
 msgstr ""
+"我們往往會使用借用檢查器「複製解決問題的方法」，稍後再回來試著將這些複製內容"
+"最佳化。"
 
 #: src/memory-management/copy-types.md
 msgid ""
@@ -7727,55 +7748,56 @@ msgstr ""
 
 #: src/memory-management/drop.md
 msgid "\"Dropping {}\""
-msgstr ""
+msgstr "\"Dropping {}\""
 
 #: src/memory-management/drop.md src/exercises/concurrency/link-checker.md
 #: src/exercises/concurrency/solutions-morning.md
 msgid "\"a\""
-msgstr ""
+msgstr "\"a\""
 
 #: src/memory-management/drop.md src/android/testing/googletest.md
 msgid "\"b\""
-msgstr ""
+msgstr "\"b\""
 
 #: src/memory-management/drop.md
 msgid "\"c\""
-msgstr ""
+msgstr "\"c\""
 
 #: src/memory-management/drop.md
 msgid "\"d\""
-msgstr ""
+msgstr "\"d\""
 
 #: src/memory-management/drop.md
 msgid "\"Exiting block B\""
-msgstr ""
+msgstr "\"Exiting block B\""
 
 #: src/memory-management/drop.md
 msgid "\"Exiting block A\""
-msgstr ""
+msgstr "\"Exiting block A\""
 
 #: src/memory-management/drop.md
 msgid "\"Exiting main\""
-msgstr ""
+msgstr "\"Exiting main\""
 
 #: src/memory-management/drop.md
 msgid "Note that `std::mem::drop` is not the same as `std::ops::Drop::drop`."
-msgstr ""
+msgstr "請注意，`std::mem::drop` 和 `std::ops::Drop::drop` 不同。"
 
 #: src/memory-management/drop.md
 msgid "Values are automatically dropped when they go out of scope."
-msgstr ""
+msgstr "值超出範圍時，系統會自動捨棄。"
 
 #: src/memory-management/drop.md
 msgid ""
 "When a value is dropped, if it implements `std::ops::Drop` then its `Drop::"
 "drop` implementation will be called."
 msgstr ""
+"捨棄值時，如果值實作的是 `std::ops::Drop`，系統會呼叫值的 `Drop::drop` 實作。"
 
 #: src/memory-management/drop.md
 msgid ""
 "All its fields will then be dropped too, whether or not it implements `Drop`."
-msgstr ""
+msgstr "如此一來，無論值是否實作 `Drop`，系統都會一併捨棄值的所有欄位。"
 
 #: src/memory-management/drop.md
 msgid ""
@@ -7784,12 +7806,16 @@ msgid ""
 "scope it gets dropped. This makes it a convenient way to explicitly drop "
 "values earlier than they would otherwise go out of scope."
 msgstr ""
+"`std::mem::drop` 只是一個可接受任何值的空白函式。此函式之所以重要，是能夠取得"
+"值的擁有權，因此在其範圍結束時會遭到捨棄。這有利於在值超出範圍之前，明確捨棄"
+"這些值。"
 
 #: src/memory-management/drop.md
 msgid ""
 "This can be useful for objects that do some work on `drop`: releasing locks, "
 "closing files, etc."
 msgstr ""
+"如果物件會對 `drop` 執行某些工作 (例如釋放鎖、關閉檔案等)，這就相當實用。"
 
 #: src/memory-management/drop.md
 msgid "Why doesn't `Drop::drop` take `self`?"
@@ -7813,129 +7839,134 @@ msgid ""
 "data. We will use the \"builder pattern\" to support building a new value "
 "piece-by-piece, using convenience functions."
 msgstr ""
+"在本範例中，我們將實作一個包含自身所有資料的複雜資料型別。透過「建構工具模"
+"式」，我們會以便利函式逐段建構新值。"
 
 #: src/memory-management/exercise.md
 msgid "Fill in the missing pieces."
-msgstr ""
+msgstr "請填補缺漏的片段。"
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "/// A representation of a software package.\n"
-msgstr ""
+msgstr "/// A representation of a software package.\n"
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid ""
 "/// Return a representation of this package as a dependency, for use in\n"
 "    /// building other packages.\n"
 msgstr ""
+"/// Return a representation of this package as a dependency, for use in\n"
+"    /// building other packages.\n"
 
 #: src/memory-management/exercise.md
 msgid "\"1\""
-msgstr ""
+msgstr "\"1\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid ""
 "/// A builder for a Package. Use `build()` to create the `Package` itself.\n"
 msgstr ""
+"/// A builder for a Package. Use `build()` to create the `Package` itself.\n"
 
 #: src/memory-management/exercise.md
 msgid "\"2\""
-msgstr ""
+msgstr "\"2\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "/// Set the package version.\n"
-msgstr ""
+msgstr "/// Set the package version.\n"
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "/// Set the package authors.\n"
-msgstr ""
+msgstr "/// Set the package authors.\n"
 
 #: src/memory-management/exercise.md
 msgid "\"3\""
-msgstr ""
+msgstr "\"3\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "/// Add an additional dependency.\n"
-msgstr ""
+msgstr "/// Add an additional dependency.\n"
 
 #: src/memory-management/exercise.md
 msgid "\"4\""
-msgstr ""
+msgstr "\"4\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "/// Set the language. If not set, language defaults to None.\n"
-msgstr ""
+msgstr "/// Set the language. If not set, language defaults to None.\n"
 
 #: src/memory-management/exercise.md
 msgid "\"5\""
-msgstr ""
+msgstr "\"5\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"base64\""
-msgstr ""
+msgstr "\"base64\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"0.13\""
-msgstr ""
+msgstr "\"0.13\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"base64: {base64:?}\""
-msgstr ""
+msgstr "\"base64: {base64:?}\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"log\""
-msgstr ""
+msgstr "\"log\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"0.4\""
-msgstr ""
+msgstr "\"0.4\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"log: {log:?}\""
-msgstr ""
+msgstr "\"log: {log:?}\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"serde\""
-msgstr ""
+msgstr "\"serde\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"djmitche\""
-msgstr ""
+msgstr "\"djmitche\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"4.0\""
-msgstr ""
+msgstr "\"4.0\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"serde: {serde:?}\""
-msgstr ""
+msgstr "\"serde: {serde:?}\""
 
 #: src/memory-management/solution.md
 msgid "\"0.1\""
-msgstr ""
+msgstr "\"0.1\""
 
 #: src/smart-pointers.md
 msgid "[Box"
-msgstr ""
+msgstr "[Box"
 
 #: src/smart-pointers.md
 msgid "](./smart-pointers/box.md) (10 minutes)"
-msgstr ""
+msgstr "](./smart-pointers/box.md) (10 分鐘)"
 
 #: src/smart-pointers.md
 msgid "[Rc](./smart-pointers/rc.md) (5 minutes)"
-msgstr ""
+msgstr "[Rc](./smart-pointers/rc.md) (5 分鐘)"
 
 #: src/smart-pointers.md
 msgid "[Trait Objects](./smart-pointers/trait-objects.md) (10 minutes)"
-msgstr ""
+msgstr "[特徵物件](./smart-pointers/trait-objects.md) (10 分鐘)"
 
 #: src/smart-pointers.md
 msgid "[Exercise: Binary Tree](./smart-pointers/exercise.md) (30 minutes)"
-msgstr ""
+msgstr "[練習：二元樹](./smart-pointers/exercise.md) (30 分鐘)"
 
 #: src/smart-pointers.md src/error-handling.md
 msgid "This segment should take about 55 minutes"
-msgstr ""
+msgstr "講解這個主題大約需要 55 分鐘"
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -7947,7 +7978,7 @@ msgstr ""
 
 #: src/smart-pointers/box.md
 msgid "\"five: {}\""
-msgstr ""
+msgstr "\"five: {}\""
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -7966,15 +7997,15 @@ msgstr "遞迴資料型別或含有動態大小的資料型別必須使用 `Box`
 
 #: src/smart-pointers/box.md
 msgid "/// A non-empty list: first element and the rest of the list.\n"
-msgstr ""
+msgstr "/// A non-empty list: first element and the rest of the list.\n"
 
 #: src/smart-pointers/box.md
 msgid "/// An empty list.\n"
-msgstr ""
+msgstr "/// An empty list.\n"
 
 #: src/smart-pointers/box.md
 msgid "\"{list:?}\""
-msgstr ""
+msgstr "\"{list:?}\""
 
 #: src/smart-pointers/box.md
 #, fuzzy
@@ -8122,11 +8153,11 @@ msgstr ""
 
 #: src/smart-pointers/rc.md
 msgid "\"a: {a}\""
-msgstr ""
+msgstr "\"a: {a}\""
 
 #: src/smart-pointers/rc.md
 msgid "\"b: {b}\""
-msgstr ""
+msgstr "\"b: {b}\""
 
 #: src/smart-pointers/rc.md
 msgid ""
@@ -8196,13 +8227,14 @@ msgstr ""
 
 #: src/smart-pointers/trait-objects.md
 msgid "\"Hello, who are you? {}\""
-msgstr ""
+msgstr "\"Hello, who are you? {}\""
 
 #: src/smart-pointers/trait-objects.md
 msgid "Memory layout after allocating `pets`:"
 msgstr "以下是配置 `pets` 後的記憶體配置："
 
 #: src/smart-pointers/trait-objects.md
+#, fuzzy
 msgid ""
 "```bob\n"
 " Stack                             Heap\n"
@@ -8261,6 +8293,63 @@ msgid ""
 "- -'\n"
 "```"
 msgstr ""
+"```bob\n"
+" 堆疊                             堆積\n"
+".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - "
+"- -.\n"
+":                           :     :                                             :\n"
+":    pets                   :     :                     +----+----+----+----"
+"+   :\n"
+":   +-----------+-------+   :     :   +-----+-----+  .->| F  | i  | d  | o  "
+"|   :\n"
+":   | ptr       |   o---+---+-----+-->| o o | o o |  |  +----+----+----+----"
+"+   :\n"
+":   | len       |     2 |   :     :   +-|-|-+-|-|-+  "
+"`---------.                :\n"
+":   | capacity  |     2 |   :     :     | |   | |    data      "
+"|                :\n"
+":   +-----------+-------+   :     :     | |   | |   +-------+--|-------"
+"+        :\n"
+":                           :     :     | |   | '-->| name  |  o, 4, 4 "
+"|        :\n"
+":                           :     :     | |   |     | age   |        5 "
+"|        :\n"
+"`- - - - - - - - - - - - - -'     :     | |   |     +-------+----------"
+"+        :\n"
+"                                  :     | |   "
+"|                                 :\n"
+"                                  :     | |   |      "
+"vtable                     :\n"
+"                                  :     | |   |     +----------------------"
+"+    :\n"
+"                                  :     | |   '---->| \"<Dog as Pet>::talk\" "
+"|    :\n"
+"                                  :     | |         +----------------------"
+"+    :\n"
+"                                  :     | "
+"|                                     :\n"
+"                                  :     | |    "
+"data                             :\n"
+"                                  :     | |   +-------+-------"
+"+                 :\n"
+"                                  :     | '-->| lives |     9 "
+"|                 :\n"
+"                                  :     |     +-------+-------"
+"+                 :\n"
+"                                  :     "
+"|                                       :\n"
+"                                  :     |      "
+"vtable                           :\n"
+"                                  :     |     +----------------------"
+"+          :\n"
+"                                  :     '---->| \"<Cat as Pet>::talk\" "
+"|          :\n"
+"                                  :           +----------------------"
+"+          :\n"
+"                                  :                                             :\n"
+"                                  '- - - - - - - - - - - - - - - - - - - - - "
+"- -'\n"
+"```"
 
 #: src/smart-pointers/trait-objects.md
 #, fuzzy
@@ -8282,6 +8371,8 @@ msgid ""
 "In the example, `pets` is allocated on the stack and the vector data is on "
 "the heap. The two vector elements are _fat pointers_:"
 msgstr ""
+"在本例中，`pets` 和向量資料分別在堆疊和堆積上分配。這兩個向量元素都是「虛指"
+"標」__："
 
 #: src/smart-pointers/trait-objects.md
 #, fuzzy
@@ -8300,6 +8391,7 @@ msgid ""
 "The data for the `Dog` named Fido is the `name` and `age` fields. The `Cat` "
 "has a `lives` field."
 msgstr ""
+"名為 Fido 的 `Dog` 資料是 `name` 和 `age` 欄位。`Cat` 則有 `lives` 欄位。"
 
 #: src/smart-pointers/trait-objects.md
 msgid "Compare these outputs in the above example:"
@@ -8312,24 +8404,27 @@ msgid ""
 "value. For a given node N, all nodes in a N's left subtree contain smaller "
 "values, and all nodes in N's right subtree will contain larger values."
 msgstr ""
+"二元樹是一種樹狀資料結構，其中每個節點都有左右兩個子項。我們會建立每個節點都"
+"儲存一個值的樹狀結構。以指定節點 N 來說，N 左側子樹狀結構中的所有節點都包含較"
+"小的值，而 N 右側子樹狀結構中的所有節點都含有較大的值。"
 
 #: src/smart-pointers/exercise.md
 msgid "Implement the following types, so that the given tests pass."
-msgstr ""
+msgstr "請實作以下型別，讓指定的測試通過。"
 
 #: src/smart-pointers/exercise.md
 msgid ""
 "Extra Credit: implement an iterator over a binary tree that returns the "
 "values in order."
-msgstr ""
+msgstr "加分題：在二元數上實作疊代器，依序傳回值。"
 
 #: src/smart-pointers/exercise.md src/smart-pointers/solution.md
 msgid "/// A node in the binary tree.\n"
-msgstr ""
+msgstr "/// A node in the binary tree.\n"
 
 #: src/smart-pointers/exercise.md src/smart-pointers/solution.md
 msgid "/// A possibly-empty subtree.\n"
-msgstr ""
+msgstr "/// A possibly-empty subtree.\n"
 
 #: src/smart-pointers/exercise.md src/smart-pointers/solution.md
 msgid ""
@@ -8337,43 +8432,46 @@ msgid ""
 "///\n"
 "/// If the same value is added multiple times, it is only stored once.\n"
 msgstr ""
+"/// A container storing a set of values, using a binary tree.\n"
+"///\n"
+"/// If the same value is added multiple times, it is only stored once.\n"
 
 #: src/smart-pointers/exercise.md
 msgid "// Implement `new`, `insert`, `len`, and `has`.\n"
-msgstr ""
+msgstr "// Implement `new`, `insert`, `len`, and `has`.\n"
 
 #: src/smart-pointers/exercise.md src/smart-pointers/solution.md
 msgid "// not a unique item\n"
-msgstr ""
+msgstr "// not a unique item\n"
 
 #: src/smart-pointers/solution.md src/android/testing/googletest.md
 msgid "\"bar\""
-msgstr ""
+msgstr "\"bar\""
 
 #: src/welcome-day-3-afternoon.md
 msgid "[Borrowing](./borrowing.md) (50 minutes)"
-msgstr ""
+msgstr "[借用](./borrowing.md) (50 分鐘)"
 
 #: src/welcome-day-3-afternoon.md
 msgid ""
 "[Slices and Lifetimes](./slices-and-lifetimes.md) (1 hour and 10 minutes)"
-msgstr ""
+msgstr "[切片和生命週期](./slices-and-lifetimes.md) (1 小時 10 分鐘)"
 
 #: src/borrowing.md
 msgid "[Borrowing a Value](./borrowing/shared.md) (10 minutes)"
-msgstr ""
+msgstr "[如何借用值](./borrowing/shared.md) (10 分鐘)"
 
 #: src/borrowing.md
 msgid "[Borrow Checking](./borrowing/borrowck.md) (10 minutes)"
-msgstr ""
+msgstr "[借用檢查](./borrowing/borrowck.md) (10 分鐘)"
 
 #: src/borrowing.md
 msgid "[Interior Mutability](./borrowing/interior-mutability.md) (10 minutes)"
-msgstr ""
+msgstr "[內部可變動性](./borrowing/interior-mutability.md) (10 分鐘)"
 
 #: src/borrowing.md
 msgid "[Exercise: Health Statistics](./borrowing/exercise.md) (20 minutes)"
-msgstr ""
+msgstr "[練習：健康統計資料](./borrowing/exercise.md) (20 分鐘)"
 
 #: src/borrowing/shared.md
 #, fuzzy
@@ -8395,6 +8493,7 @@ msgid ""
 "This slide is a review of the material on references from day 1, expanding "
 "slightly to include function arguments and return values."
 msgstr ""
+"這張投影片會複習第 1 天講解過的參照，並略微延伸討論何謂函式引數和回傳值。"
 
 #: src/borrowing/shared.md
 msgid "Notes on stack returns:"
@@ -8453,6 +8552,8 @@ msgid ""
 "Note that the requirement is that conflicting references not _exist_ at the "
 "same point. It does not matter where the reference is dereferenced."
 msgstr ""
+"請注意，這裡的規定是同一點上不得「存在」__衝突的參照，在何處解除參照並不重"
+"要。"
 
 #: src/borrowing/borrowck.md
 msgid ""
@@ -8485,6 +8586,9 @@ msgid ""
 "optimize code. For example, a value behind a shared reference can be safely "
 "cached in a register for the lifetime of that reference."
 msgstr ""
+"專屬參照的約束力很強。Rust 會利用這類參照，確保資料競爭的情形不會發生；此外，"
+"也會「透過」__這項約束，將程式碼最佳化。舉例來說，共用參照背後的值可以在該參"
+"照的生命週期內，安全地快取到暫存器中。"
 
 #: src/borrowing/borrowck.md
 msgid ""
@@ -8493,6 +8597,9 @@ msgid ""
 "time. But, there are some situations where it doesn't quite \"get it\" and "
 "this often results in \"fighting with the borrow checker.\""
 msgstr ""
+"借用檢查器在設計上涵蓋了許多常見模式，例如同時對結構體中的不同欄位進行專屬參"
+"照。但可能也是有某些無法完全「理解」的情況，這通常會導致「與借用檢查器衝"
+"突」。"
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -8500,6 +8607,8 @@ msgid ""
 "only) reference. For example, a shared data structure might have an internal "
 "cache, and wish to update that cache from read-only methods."
 msgstr ""
+"在某些情況下，您必須修改共用 (唯讀) 參照背後的資料。比方說，共用的資料結構可"
+"能含有內部快取，並想透過唯讀方法更新該快取，就屬於這種情況。"
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -8507,6 +8616,8 @@ msgid ""
 "a shared reference. The standard library provides several ways to do this, "
 "all while still ensuring safety, typically by performing a runtime check."
 msgstr ""
+"「內部可變動性」模式可以在共用參照背後提供專屬 (可變動的) 存取權。標準程式庫"
+"支援以多種方式執行此操作，同時仍可確保安全，做法通常是執行執行階段檢查。"
 
 #: src/borrowing/interior-mutability.md
 #, fuzzy
@@ -8515,16 +8626,15 @@ msgstr "`RefCell<T>`"
 
 #: src/borrowing/interior-mutability.md
 msgid "\"graph: {root:#?}\""
-msgstr ""
+msgstr "\"graph: {root:#?}\""
 
 #: src/borrowing/interior-mutability.md
 msgid "\"graph sum: {}\""
-msgstr ""
+msgstr "\"graph sum: {}\""
 
 #: src/borrowing/interior-mutability.md
-#, fuzzy
 msgid "`Cell`"
-msgstr "`Cell<T>`"
+msgstr "`Cell`"
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -8532,6 +8642,8 @@ msgid ""
 "shared reference to the `Cell`. However, it does not allow any references to "
 "the value. Since there are no references, borrowing rules cannot be broken."
 msgstr ""
+"`Cell` 會納入值，並允許取得或設定該值，即使具有對 `Cell` 的共用參照也一樣。但"
+"是，它不允許對該值進行任何參照。由於沒有參照，因此借用規則不得違反。"
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -8539,6 +8651,8 @@ msgid ""
 "ways to modify data behind a shared reference. There are a variety of ways "
 "to ensure that safety, and `RefCell` and `Cell` are two of them."
 msgstr ""
+"這張投影片的重點是 Rust 提供「安全的」__方法，可讓您修改共用參照背後的資料。"
+"要確保安全性有許多方式，而 `RefCell` 和 `Cell` 是其中兩種方法。"
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -8547,6 +8661,8 @@ msgid ""
 "case, all borrows are very short and never overlap, so the checks always "
 "succeed."
 msgstr ""
+"`RefCell` 會透過執行階段檢查，強制使用 Rust 的一般借用規則 (多個共用參照或單"
+"一專屬參照)。在本例中，所有借用都非常短暫且永遠不會重疊，因此檢查一律會成功。"
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -8554,6 +8670,8 @@ msgid ""
 "purpose is to allow (and count) many references. But we want to modify the "
 "value, so we need interior mutability."
 msgstr ""
+"`Rc` 只允許對自身內容的共用 (唯讀) 存取行為，因為允許 (並計算) 多個參照才是它"
+"的用途。但是，由於我們要修改這個值，因此內部可變動性不可或缺。"
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -8561,6 +8679,8 @@ msgid ""
 "`&self`. This needs no runtime check, but requires moving values, which can "
 "have its own cost."
 msgstr ""
+"如要確保安全，`Cell` 是較簡單的做法，因為其中的 `set` 方法可接受 `&self`。這"
+"無需動用執行階段檢查，但需要移動值，因此可能有其相應成本。"
 
 #: src/borrowing/interior-mutability.md
 #, fuzzy
@@ -8609,49 +8729,52 @@ msgid ""
 "\"Update a user's statistics based on measurements from a visit to the "
 "doctor\""
 msgstr ""
+"\"Update a user's statistics based on measurements from a visit to the "
+"doctor\""
 
 #: src/borrowing/exercise.md src/borrowing/solution.md
 #: src/android/build-rules/library.md
 #: src/android/aidl/example-service/client.md
 msgid "\"Bob\""
-msgstr ""
+msgstr "\"Bob\""
 
 #: src/borrowing/exercise.md src/borrowing/solution.md
 msgid "\"I'm {} and my age is {}\""
-msgstr ""
+msgstr "\"I'm {} and my age is {}\""
 
 #: src/slices-and-lifetimes.md
 msgid "[Slices: &\\[T\\]](./slices-and-lifetimes/slices.md) (10 minutes)"
-msgstr ""
+msgstr "[切片: &\\[T\\]](./slices-and-lifetimes/slices.md) (10 分鐘)"
 
 #: src/slices-and-lifetimes.md
 msgid "[String References](./slices-and-lifetimes/str.md) (10 minutes)"
-msgstr ""
+msgstr "[字串參照](./slices-and-lifetimes/str.md) (10 分鐘)"
 
 #: src/slices-and-lifetimes.md
 msgid ""
 "[Lifetime Annotations](./slices-and-lifetimes/lifetime-annotations.md) (10 "
 "minutes)"
 msgstr ""
+"[生命週期註解](./slices-and-lifetimes/lifetime-annotations.md) (10 分鐘)"
 
 #: src/slices-and-lifetimes.md
 msgid ""
 "[Lifetime Elision](./slices-and-lifetimes/lifetime-elision.md) (5 minutes)"
-msgstr ""
+msgstr "[生命週期省略](./slices-and-lifetimes/lifetime-elision.md) (5 分鐘)"
 
 #: src/slices-and-lifetimes.md
 msgid ""
 "[Struct Lifetimes](./slices-and-lifetimes/struct-lifetimes.md) (5 minutes)"
-msgstr ""
+msgstr "[結構體生命週期](./slices-and-lifetimes/struct-lifetimes.md) (5 分鐘)"
 
 #: src/slices-and-lifetimes.md
 msgid ""
 "[Exercise: Protobuf Parsing](./slices-and-lifetimes/exercise.md) (30 minutes)"
-msgstr ""
+msgstr "[練習：Protobuf 剖析](./slices-and-lifetimes/exercise.md) (30 分鐘)"
 
 #: src/slices-and-lifetimes.md
 msgid "This segment should take about 1 hour and 10 minutes"
-msgstr ""
+msgstr "講解這個主題大約需要 1 小時 10 分鐘"
 
 #: src/slices-and-lifetimes/slices.md
 msgid "Slices"
@@ -8733,19 +8856,20 @@ msgid ""
 "We can now understand the two string types in Rust: `&str` is almost like "
 "`&[char]`, but with its data stored in a variable-length encoding (UTF-8)."
 msgstr ""
+"我們現在可以瞭解 Rust 中有兩種字串型別，`&str` 幾近於 `&[char]`，但其資料是以"
+"可變長度編碼 (UTF-8) 儲存。"
 
 #: src/slices-and-lifetimes/str.md
 msgid "\"s1: {s1}\""
-msgstr ""
+msgstr "\"s1: {s1}\""
 
 #: src/slices-and-lifetimes/str.md
-#, fuzzy
 msgid "\"Hello \""
-msgstr "Hello World!"
+msgstr "\"Hello \""
 
 #: src/slices-and-lifetimes/str.md
 msgid "\"s3: {s3}\""
-msgstr ""
+msgstr "\"s3: {s3}\""
 
 #: src/slices-and-lifetimes/str.md
 msgid "Rust terminology:"
@@ -8804,6 +8928,9 @@ msgid ""
 "boundaries, the expression will panic. The `chars` iterator iterates over "
 "characters and is preferred over trying to get character boundaries right."
 msgstr ""
+"您可以透過 `&str` 和可選的範圍選項，從 `String` 借用 `&str` 切片。如果所選位"
+"元組範圍未與字元邊界對齊，運算式會發生恐慌。比起嘗試設定正確的字元邊界，建議"
+"優先使用會對字元進行疊代的 `chars` 疊代器。"
 
 #: src/slices-and-lifetimes/str.md
 #, fuzzy
@@ -8827,7 +8954,7 @@ msgstr "位元組字串可讓您直接建立 `&[u8]` 值："
 msgid ""
 "A reference has a _lifetime_, which must not \"outlive\" the value it refers "
 "to. This is verified by the borrow checker."
-msgstr ""
+msgstr "參照的「生命週期」__不得「超過」其所參照的值。此由借用檢查器負責驗證。"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid ""
@@ -8836,6 +8963,9 @@ msgid ""
 "`'` and `'a` is a typical default name. Read `&'a Point` as \"a borrowed "
 "`Point` which is valid for at least the lifetime `a`\"."
 msgstr ""
+"按照我們目前所見，生命週期可以隱晦表示。不過，`&'a Point`、`&'document str` "
+"也可以明確表示生命週期。生命週期的開頭為 `'`，一般預設名稱為 `'a``。請將 "
+"`&'a Point` 讀做「至少對生命週期 `a` 有效的借用 `Point`」。"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 #, fuzzy
@@ -8849,17 +8979,18 @@ msgstr "生命週期註解會建立限制；編譯器會驗證是否有有效的
 msgid ""
 "Lifetimes become more complicated when considering passing values to and "
 "returning values from functions."
-msgstr ""
+msgstr "在考慮與函式間傳遞值時，生命週期會變得比較複雜。"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid "// What is the lifetime of p3?\n"
-msgstr ""
+msgstr "// What is the lifetime of p3?\n"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid "\"p3: {p3:?}\""
-msgstr ""
+msgstr "\"p3: {p3:?}\""
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
+#, fuzzy
 msgid ""
 "In this example, the compiler does not know what lifetime to infer for `p3`. "
 "Looking inside the function body shows that it can only safely assume that "
@@ -8867,21 +8998,25 @@ msgid ""
 "requires explicit annotations of lifetimes on function arguments and return "
 "values."
 msgstr ""
+"在本例中，編譯器不知道要對 `p3` 推論多長的生命週期。查看函式主體內部後顯示，"
+"編譯器只能把握假設 `p3` 的生命週期是 `p1` 和 `p2` 中的較短那個。但就像型別一"
+"樣，Rust 規定要對函式引數和回傳值的生命週期加上明確註解。"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid "Add `'a` appropriately to `left_most`:"
-msgstr ""
+msgstr "請將 `'a` 妥善新增至 `left_most`："
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid ""
 "This says, \"given p1 and p2 which both outlive `'a`, the return value lives "
 "for at least `'a`."
 msgstr ""
+"這表示，「假設 p1 和 p2 都比 `'a` 長」，回傳值的生命週期至少會為 `'a`。"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid ""
 "In common cases, lifetimes can be elided, as described on the next slide."
-msgstr ""
+msgstr "一般情況下可以省略生命週期，詳情請見下一張投影片。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid "Lifetimes in Function Calls"
@@ -8901,33 +9036,35 @@ msgstr ""
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid "Each argument which does not have a lifetime annotation is given one."
-msgstr ""
+msgstr "凡是沒有生命週期註解的引數都會獲得一個註解。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid ""
 "If there is only one argument lifetime, it is given to all un-annotated "
 "return values."
-msgstr ""
+msgstr "如果只有一個引數生命週期，則會提供給所有未加註的回傳值。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid ""
 "If there are multiple argument lifetimes, but the first one is for `self`, "
 "that lifetime is given to all un-annotated return values."
 msgstr ""
+"如果有多個引數生命週期，但第一個是要給 `self`，這個生命週期會提供給所有未加註"
+"的回傳值。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid "In this example, `cab_distance` is trivially elided."
-msgstr ""
+msgstr "您可看到本例中隨意省略了 `cab_distance`。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid ""
 "The `nearest` function provides another example of a function with multiple "
 "references in its arguments that requires explicit annotation."
-msgstr ""
+msgstr "`nearest` 函式提供另一個函式範例，其引數具有多個需要明確註解的參照。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid "Try adjusting the signature to \"lie\" about the lifetimes returned:"
-msgstr ""
+msgstr "請試著調整簽章，「謊報」傳回的生命週期："
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid ""
@@ -8935,6 +9072,8 @@ msgid ""
 "validity by the compiler. Note that this is not the case for raw pointers "
 "(unsafe), and this is a common source of errors with unsafe Rust."
 msgstr ""
+"由於這不會執行編譯，表示編譯器已檢查註解是否有效。請注意，原始指標 (不安全) "
+"的情況並非如此，這是不安全 Rust 的常見錯誤來源。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid ""
@@ -8944,6 +9083,10 @@ msgid ""
 "help resolve ambiguity. Often, especially when prototyping, it's easier to "
 "just work with owned data by cloning values where necessary."
 msgstr ""
+"學生可能會詢問何時該使用生命週期。Rust 的借用「一律」__具有生命週期。在大多數"
+"情況下，如果採取省略和型別推論的方式，表示您不必編寫這些內容。但在較複雜的情"
+"況下，生命週期註解可以協助解決模稜兩可的情況。一般而言，只要在有必要時複製"
+"值，即可輕鬆處理所擁有的資料，特別是在原型設計階段更是如此。"
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid "Lifetimes in Data Structures"
@@ -8956,23 +9099,23 @@ msgstr "如果資料型別會儲存借用的資料，則必須使用生命週期
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid "\"Bye {text}!\""
-msgstr ""
+msgstr "\"Bye {text}!\""
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid "\"The quick brown fox jumps over the lazy dog.\""
-msgstr ""
+msgstr "\"The quick brown fox jumps over the lazy dog.\""
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid "// erase(text);\n"
-msgstr ""
+msgstr "// erase(text);\n"
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid "\"{fox:?}\""
-msgstr ""
+msgstr "\"{fox:?}\""
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid "\"{dog:?}\""
-msgstr ""
+msgstr "\"{dog:?}\""
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid ""
@@ -9021,6 +9164,9 @@ msgid ""
 "simpler than it seems! This illustrates a common parsing pattern, passing "
 "slices of data. The underlying data itself is never copied."
 msgstr ""
+"在本練習中，您將建構 [protobuf 二進位編碼](https://protobuf.dev/programming-"
+"guides/encoding/)的剖析器。請放心，這比看起來容易！這個練習也會舉例說明常見的"
+"剖析模式，也就是傳遞資料切片。基礎資料本身一律不會複製。"
 
 #: src/slices-and-lifetimes/exercise.md
 msgid ""
@@ -9029,10 +9175,13 @@ msgid ""
 "file. In this exercise, we'll encode that information into `match` "
 "statements in functions that get called for each field."
 msgstr ""
+"如要完整剖析 protobuf 訊息，您必須瞭解欄位型別，這會依欄位編號建立索引，通常"
+"位於 `proto` 檔案內。在本練習中，我們會在針對各欄位呼叫的函式中，將該資訊編碼"
+"為 `match` 陳述式。"
 
 #: src/slices-and-lifetimes/exercise.md
 msgid "We'll use the following proto:"
-msgstr ""
+msgstr "我們將使用以下 proto："
 
 #: src/slices-and-lifetimes/exercise.md
 msgid ""
@@ -9041,6 +9190,9 @@ msgid ""
 "number (e.g., `2` for the `id` field of a `Person` message) and a wire type "
 "defining how the payload should be determined from the byte stream."
 msgstr ""
+"proto 訊息會編碼為一系列的欄位，一個接著一個。每個欄位都以後方加上值的「標"
+"記」形式實作。此標記含有欄位編號 (例如 `Person` 訊息的 `id` 欄位編號是 `2`) "
+"以及有線型別，後者負責定義應如何從位元組資料流中決定酬載。"
 
 #: src/slices-and-lifetimes/exercise.md
 msgid ""
@@ -9049,44 +9201,49 @@ msgid ""
 "code also defines callbacks to handle `Person` and `PhoneNumber` fields, and "
 "to parse a message into a series of calls to those callbacks."
 msgstr ""
+"整數 (包含標記) 會以稱為 VARINT 的可變長度編碼表示。好消息是，以下程式碼已為"
+"您定義 `parse_varint`。該程式碼也定義了回呼，藉此處理 `Person` 和 "
+"`PhoneNumber` 欄位，並將訊息剖析為對這些回呼的一系列呼叫。"
 
 #: src/slices-and-lifetimes/exercise.md
 msgid ""
 "What remains for you is to implement the `parse_field` function and the "
 "`ProtoMessage` trait for `Person` and `PhoneNumber`."
 msgstr ""
+"您剩下的就只是為 `Person` 和 `PhoneNumber` 實作 `parse_field` 函式和 "
+"`ProtoMessage` 特徵即可。"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "\"Invalid varint\""
-msgstr ""
+msgstr "\"Invalid varint\""
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "\"Invalid wire-type\""
-msgstr ""
+msgstr "\"Invalid wire-type\""
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "\"Unexpected EOF\""
-msgstr ""
+msgstr "\"Unexpected EOF\""
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "\"Invalid length\""
-msgstr ""
+msgstr "\"Invalid length\""
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "\"Unexpected wire-type)\""
-msgstr ""
+msgstr "\"Unexpected wire-type)\""
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "\"Invalid string (not UTF-8)\""
-msgstr ""
+msgstr "\"Invalid string (not UTF-8)\""
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "/// A wire type as seen on the wire.\n"
-msgstr ""
+msgstr "/// A wire type as seen on the wire.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "/// The Varint WireType indicates the value is a single VARINT.\n"
-msgstr ""
+msgstr "/// The Varint WireType indicates the value is a single VARINT.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid ""
@@ -9095,61 +9252,72 @@ msgid ""
 "a\n"
 "    /// VARINT followed by exactly that number of bytes.\n"
 msgstr ""
+"//I64,  -- not needed for this exercise\n"
+"    /// The Len WireType indicates that the value is a length represented as "
+"a\n"
+"    /// VARINT followed by exactly that number of bytes.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid ""
 "/// The I32 WireType indicates that the value is precisely 4 bytes in\n"
 "    /// little-endian order containing a 32-bit signed integer.\n"
 msgstr ""
+"/// The I32 WireType indicates that the value is precisely 4 bytes in\n"
+"    /// little-endian order containing a 32-bit signed integer.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "/// A field's value, typed based on the wire type.\n"
-msgstr ""
+msgstr "/// A field's value, typed based on the wire type.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "//I64(i64),  -- not needed for this exercise\n"
-msgstr ""
+msgstr "//I64(i64),  -- not needed for this exercise\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "/// A field, containing the field number and its value.\n"
-msgstr ""
+msgstr "/// A field, containing the field number and its value.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "//1 => WireType::I64,  -- not needed for this exercise\n"
-msgstr ""
+msgstr "//1 => WireType::I64,  -- not needed for this exercise\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid ""
 "/// Parse a VARINT, returning the parsed value and the remaining bytes.\n"
 msgstr ""
+"/// Parse a VARINT, returning the parsed value and the remaining bytes.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid ""
 "// This is the last byte of the VARINT, so convert it to\n"
 "            // a u64 and return it.\n"
 msgstr ""
+"// This is the last byte of the VARINT, so convert it to\n"
+"            // a u64 and return it.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "// More than 7 bytes is invalid.\n"
-msgstr ""
+msgstr "// More than 7 bytes is invalid.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "/// Convert a tag into a field number and a WireType.\n"
-msgstr ""
+msgstr "/// Convert a tag into a field number and a WireType.\n"
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid "/// Parse a field, returning the remaining bytes\n"
-msgstr ""
+msgstr "/// Parse a field, returning the remaining bytes\n"
 
 #: src/slices-and-lifetimes/exercise.md
 msgid ""
 "\"Based on the wire type, build a Field, consuming as many bytes as "
 "necessary.\""
 msgstr ""
+"\"Based on the wire type, build a Field, consuming as many bytes as "
+"necessary.\""
 
 #: src/slices-and-lifetimes/exercise.md
 msgid "\"Return the field, and any un-consumed bytes.\""
-msgstr ""
+msgstr "\"Return the field, and any un-consumed bytes.\""
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid ""
@@ -9159,22 +9327,27 @@ msgid ""
 "///\n"
 "/// The entire input is consumed.\n"
 msgstr ""
+"/// Parse a message in the given data, calling `T::add_field` for each field "
+"in\n"
+"/// the message.\n"
+"///\n"
+"/// The entire input is consumed.\n"
 
 #: src/slices-and-lifetimes/exercise.md
 msgid "// TODO: Implement ProtoMessage for Person and PhoneNumber.\n"
-msgstr ""
+msgstr "// TODO: Implement ProtoMessage for Person and PhoneNumber.\n"
 
 #: src/slices-and-lifetimes/solution.md
 msgid "// Unwrap error because `value` is definitely 4 bytes long.\n"
-msgstr ""
+msgstr "// Unwrap error because `value` is definitely 4 bytes long.\n"
 
 #: src/slices-and-lifetimes/solution.md
 msgid "// skip everything else\n"
-msgstr ""
+msgstr "// skip everything else\n"
 
 #: src/slices-and-lifetimes/solution.md
 msgid "b\"hello\""
-msgstr ""
+msgstr "b\"hello\""
 
 #: src/welcome-day-4.md
 #, fuzzy
