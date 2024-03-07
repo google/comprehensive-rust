@@ -11413,7 +11413,7 @@ msgstr ""
 
 #: src/android.md
 msgid "Welcome to Rust in Android"
-msgstr ""
+msgstr "歡迎在 Android 中使用 Rust"
 
 #: src/android.md
 msgid ""
@@ -11421,6 +11421,8 @@ msgid ""
 "write new services, libraries, drivers or even firmware in Rust (or improve "
 "existing code as needed)."
 msgstr ""
+"Android 的系統軟體支援 Rust。也就是說，您可以在 Rust 中編寫新的服務、程式庫、"
+"驅動程式，甚至是韌體，也可以視需要強化現有程式碼。"
 
 #: src/android.md
 msgid ""
@@ -11429,60 +11431,79 @@ msgid ""
 "to Rust. The fewer dependencies and \"exotic\" types the better. Something "
 "that parses some raw bytes would be ideal."
 msgstr ""
+"今天我們會嘗試在您擁有的其中一項專案中呼叫 Rust。因此，請盡量在程式碼集中找出"
+"一小段來改寫成 Rust。請注意，依附元件和「獨特」型別越少越好。理想情況是確保程"
+"式碼能剖析部分原始位元組。"
 
 #: src/android.md
 msgid ""
 "The speaker may mention any of the following given the increased use of Rust "
 "in Android:"
-msgstr ""
+msgstr "由於 Rust 在 Android 中越來越廣為使用，講者可能可以提到以下議題："
 
 #: src/android.md
 msgid ""
 "Service example: [DNS over HTTP](https://security.googleblog.com/2022/07/dns-"
 "over-http3-in-android.html)"
 msgstr ""
+"服務範例：[DNS_over_HTTP](https://security.googleblog.com/2022/07/dns-over-"
+"http3-in-android.html)"
 
 #: src/android.md
 msgid ""
 "Libraries: [Rutabaga Virtual Graphics Interface](https://crosvm.dev/book/"
 "appendix/rutabaga_gfx.html)"
 msgstr ""
+"程式庫：[Rutabaga 虛擬圖形介面](https://crosvm.dev/book/appendix/"
+"rutabaga_gfx.html)"
 
 #: src/android.md
 msgid ""
 "Kernel Drivers: [Binder](https://lore.kernel.org/rust-for-linux/20231101-"
 "rust-binder-v1-0-08ba9197f637@google.com/)"
 msgstr ""
+"核心驅動程式：[Binder](https://lore.kernel.org/rust-for-linux/20231101-rust-"
+"binder-v1-0-08ba9197f637@google.com/)"
 
 #: src/android.md
 msgid ""
 "Firmware: [pKVM firmware](https://security.googleblog.com/2023/10/bare-metal-"
 "rust-in-android.html)"
 msgstr ""
+"韌體：[pKVM 韌體](https://security.googleblog.com/2023/10/bare-metal-rust-in-"
+"android.html)"
 
 #: src/android/setup.md
 msgid ""
 "We will be using a Cuttlefish Android Virtual Device to test our code. Make "
 "sure you have access to one or create a new one with:"
 msgstr ""
+"我們會使用 Cuttlefish Android 虛擬裝置來測試程式碼。請確認您可以存取這項裝"
+"置，或是使用下方程式碼建立新裝置："
 
 #: src/android/setup.md
 msgid ""
 "Please see the [Android Developer Codelab](https://source.android.com/docs/"
 "setup/start) for details."
 msgstr ""
+"詳情請參閱 [Android 開發人員程式碼研究室](https://source.android.com/docs/"
+"setup/start)。"
 
 #: src/android/setup.md
 msgid ""
 "Cuttlefish is a reference Android device designed to work on generic Linux "
 "desktops. MacOS support is also planned."
 msgstr ""
+"Cuttlefish 是參考用的 Android 裝置，可在一般 Linux 電腦上運作。日後也計劃支"
+"援 MacOS。"
 
 #: src/android/setup.md
 msgid ""
 "The Cuttlefish system image maintains high fidelity to real devices, and is "
 "the ideal emulator to run many Rust use cases."
 msgstr ""
+"Cuttlefish 系統映像檔能維持媲美實體裝置的高保真度，是可用於許多 Rust 用途的理"
+"想模擬器。"
 
 #: src/android/build-rules.md
 msgid "The Android build system (Soong) supports Rust via a number of modules:"
@@ -11574,25 +11595,29 @@ msgstr "接下來我們會探討 `rust_binary` 及 `rust_library`。"
 
 #: src/android/build-rules.md
 msgid "Additional items speaker may mention:"
-msgstr ""
+msgstr "講者可以提及以下其他事項："
 
 #: src/android/build-rules.md
 msgid ""
 "Cargo is not optimized for multi-language repos, and also downloads packages "
 "from the internet."
-msgstr ""
+msgstr "Cargo 未針對多語言存放區進行最佳化調整，還是會從網際網路下載套件。"
 
 #: src/android/build-rules.md
 msgid ""
 "For compliance and performance, Android must have crates in-tree. It must "
 "also interop with C/C++/Java code. Soong fills that gap."
 msgstr ""
+"為了遵循法規並確保效能，Android 必須在樹狀結構內提供 Crate。此外，也必須保有"
+"與 C/C++/Java 程式碼的互通性。Soong 可以彌補這中間的落差。"
 
 #: src/android/build-rules.md
 msgid ""
 "Soong has many similarities to Bazel, which is the open-source variant of "
 "Blaze (used in google3)."
 msgstr ""
+"Soong 與 Bazel 有許多相似之處，後者是 Blaze 的開放原始碼變化版本 (用於 "
+"google3)。"
 
 #: src/android/build-rules.md
 msgid ""
@@ -11601,58 +11626,63 @@ msgid ""
 "com/chromiumos/bazel/), and [Fuchsia](https://source.android.com/docs/setup/"
 "build/bazel/introduction) to Bazel."
 msgstr ""
+"Google 有將 [Android](https://source.android.com/docs/setup/build/bazel/"
+"introduction)、[ChromeOS](https://chromium.googlesource.com/chromiumos/"
+"bazel/) 和 [Fuchsia](https://source.android.com/docs/setup/build/bazel/"
+"introduction) 轉移到 Bazel 的規畫。"
 
 #: src/android/build-rules.md
 msgid "Learning Bazel-like build rules is useful for all Rust OS developers."
-msgstr ""
+msgstr "對所有 Rust OS 開發人員來說，學習類似 Bazel 的建構規則都能派上用場。"
 
 #: src/android/build-rules.md
 msgid "Fun fact: Data from Star Trek is a Soong-type Android."
-msgstr ""
+msgstr "趣味小知識：《星艦迷航記》中的「百科」是 Soong 型的仿生機器人。"
 
 #: src/android/build-rules/binary.md
 msgid "Rust Binaries"
-msgstr ""
+msgstr "Rust 二進位檔"
 
 #: src/android/build-rules/binary.md
 msgid ""
 "Let us start with a simple application. At the root of an AOSP checkout, "
 "create the following files:"
 msgstr ""
+"我們從一個簡單的應用程式開始著手。請在 Android 開放原始碼計畫檢查的根層級，建"
+"立下列檔案："
 
 #: src/android/build-rules/binary.md src/android/build-rules/library.md
 msgid "_hello_rust/Android.bp_:"
-msgstr ""
+msgstr "_hello_rust/Android.bp_："
 
 #: src/android/build-rules/binary.md
 msgid "\"hello_rust\""
-msgstr ""
+msgstr "\"hello_rust\""
 
 #: src/android/build-rules/binary.md src/android/build-rules/library.md
 #: src/android/logging.md
-#, fuzzy
 msgid "\"src/main.rs\""
-msgstr "`main.rs`："
+msgstr "\"src/main.rs\""
 
 #: src/android/build-rules/binary.md src/android/build-rules/library.md
 msgid "_hello_rust/src/main.rs_:"
-msgstr ""
+msgstr "_hello_rust/src/main.rs_："
 
 #: src/android/build-rules/binary.md src/android/build-rules/library.md
 msgid "//! Rust demo.\n"
-msgstr ""
+msgstr "//! Rust demo.\n"
 
 #: src/android/build-rules/binary.md src/android/build-rules/library.md
 msgid "/// Prints a greeting to standard output.\n"
-msgstr ""
+msgstr "/// Prints a greeting to standard output.\n"
 
 #: src/android/build-rules/binary.md src/exercises/chromium/build-rules.md
 msgid "\"Hello from Rust!\""
-msgstr ""
+msgstr "\"Hello from Rust!\""
 
 #: src/android/build-rules/binary.md
 msgid "You can now build, push, and run the binary:"
-msgstr ""
+msgstr "您現在可以建構、推送及執行二進位檔："
 
 #: src/android/build-rules/binary.md
 msgid ""
@@ -11662,22 +11692,27 @@ msgid ""
 "adb shell /data/local/tmp/hello_rust\n"
 "```"
 msgstr ""
+"```shell\n"
+"m hello_rust\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/hello_rust\" /data/local/tmp\n"
+"adb shell /data/local/tmp/hello_rust\n"
+"```"
 
 #: src/android/build-rules/library.md
 msgid "Rust Libraries"
-msgstr ""
+msgstr "Rust 程式庫"
 
 #: src/android/build-rules/library.md
 msgid "You use `rust_library` to create a new Rust library for Android."
-msgstr ""
+msgstr "您可以使用 `rust_library` 為 Android 建立一個新的 Rust 程式庫。"
 
 #: src/android/build-rules/library.md
 msgid "Here we declare a dependency on two libraries:"
-msgstr ""
+msgstr "這裡，我們會在兩個程式庫上宣告依附元件："
 
 #: src/android/build-rules/library.md
 msgid "`libgreeting`, which we define below,"
-msgstr ""
+msgstr "`libgreeting` (定義如下)"
 
 #: src/android/build-rules/library.md
 msgid ""
@@ -11685,52 +11720,54 @@ msgid ""
 "(https://cs.android.com/android/platform/superproject/+/master:external/rust/"
 "crates/)."
 msgstr ""
+"`libtextwrap` (隨附於 [`external/rust/crates/`](https://cs.android.com/"
+"android/platform/superproject/+/master:external/rust/crates/) 的 Crate 中)"
 
 #: src/android/build-rules/library.md
 msgid "\"hello_rust_with_dep\""
-msgstr ""
+msgstr "\"hello_rust_with_dep\""
 
 #: src/android/build-rules/library.md
 msgid "\"libgreetings\""
-msgstr ""
+msgstr "\"libgreetings\""
 
 #: src/android/build-rules/library.md
 msgid "\"libtextwrap\""
-msgstr ""
+msgstr "\"libtextwrap\""
 
 #: src/android/build-rules/library.md
 msgid "// Need this to avoid dynamic link error.\n"
-msgstr ""
+msgstr "// Need this to avoid dynamic link error.\n"
 
 #: src/android/build-rules/library.md
 msgid "\"greetings\""
-msgstr ""
+msgstr "\"greetings\""
 
 #: src/android/build-rules/library.md
 #: src/android/aidl/example-service/service.md src/android/testing.md
 #: src/android/interoperability/java.md
 msgid "\"src/lib.rs\""
-msgstr ""
+msgstr "\"src/lib.rs\""
 
 #: src/android/build-rules/library.md
 msgid "_hello_rust/src/lib.rs_:"
-msgstr ""
+msgstr "_hello_rust/src/lib.rs_："
 
 #: src/android/build-rules/library.md
 msgid "//! Greeting library.\n"
-msgstr ""
+msgstr "//! Greeting library.\n"
 
 #: src/android/build-rules/library.md
 msgid "/// Greet `name`.\n"
-msgstr ""
+msgstr "/// Greet `name`.\n"
 
 #: src/android/build-rules/library.md
 msgid "\"Hello {name}, it is very nice to meet you!\""
-msgstr ""
+msgstr "\"Hello {name}, it is very nice to meet you!\""
 
 #: src/android/build-rules/library.md
 msgid "You build, push, and run the binary like before:"
-msgstr ""
+msgstr "請按照之前的方式，建構、推送及執行二進位檔："
 
 #: src/android/build-rules/library.md
 msgid ""
@@ -11741,20 +11778,28 @@ msgid ""
 "adb shell /data/local/tmp/hello_rust_with_dep\n"
 "```"
 msgstr ""
+"```shell\n"
+"m hello_rust_with_dep\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/hello_rust_with_dep\" /data/local/"
+"tmp\n"
+"adb shell /data/local/tmp/hello_rust_with_dep\n"
+"```"
 
 #: src/android/aidl.md
 msgid ""
 "The [Android Interface Definition Language (AIDL)](https://developer.android."
 "com/guide/components/aidl) is supported in Rust:"
 msgstr ""
+"Rust 支援 [Android 介面定義語言 (AIDL)](https://developer.android.com/guide/"
+"components/aidl)："
 
 #: src/android/aidl.md
 msgid "Rust code can call existing AIDL servers,"
-msgstr ""
+msgstr "Rust 程式碼可以呼叫現有的 AIDL 伺服器。"
 
 #: src/android/aidl.md
 msgid "You can create new AIDL servers in Rust."
-msgstr ""
+msgstr "您可以在 Rust 中建立新的 AIDL 伺服器。"
 
 #: src/android/aidl/birthday-service.md
 msgid ""
@@ -11765,45 +11810,46 @@ msgstr ""
 
 #: src/android/aidl/example-service/interface.md
 msgid "AIDL Interfaces"
-msgstr ""
+msgstr "AIDL 介面"
 
 #: src/android/aidl/example-service/interface.md
 msgid "You declare the API of your service using an AIDL interface:"
-msgstr ""
+msgstr "您可以使用 AIDL 介面宣告服務的 API："
 
 #: src/android/aidl/example-service/interface.md
 #: src/android/aidl/example-service/service-bindings.md
 msgid ""
 "_birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:"
 msgstr ""
+"_birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_："
 
 #: src/android/aidl/example-service/interface.md
 #: src/android/aidl/example-service/service-bindings.md
 #: src/android/aidl/example-service/changing-definition.md
 msgid "/** Birthday service interface. */"
-msgstr ""
+msgstr "/** Birthday service interface. */"
 
 #: src/android/aidl/example-service/interface.md
 #: src/android/aidl/example-service/service-bindings.md
 #: src/android/aidl/example-service/changing-definition.md
 msgid "/** Generate a Happy Birthday message. */"
-msgstr ""
+msgstr "/** Generate a Happy Birthday message. */"
 
 #: src/android/aidl/example-service/interface.md
 msgid "_birthday_service/aidl/Android.bp_:"
-msgstr ""
+msgstr "_birthday_service/aidl/Android.bp_："
 
 #: src/android/aidl/example-service/interface.md
 msgid "\"com.example.birthdayservice\""
-msgstr ""
+msgstr "\"com.example.birthdayservice\""
 
 #: src/android/aidl/example-service/interface.md
 msgid "\"com/example/birthdayservice/*.aidl\""
-msgstr ""
+msgstr "\"com/example/birthdayservice/*.aidl\""
 
 #: src/android/aidl/example-service/interface.md
 msgid "// Rust is not enabled by default\n"
-msgstr ""
+msgstr "// Rust is not enabled by default\n"
 
 #: src/android/aidl/example-service/interface.md
 msgid ""
@@ -11823,8 +11869,9 @@ msgid ""
 msgstr ""
 
 #: src/android/aidl/example-service/service-bindings.md
+#, fuzzy
 msgid "_Generated trait_:"
-msgstr ""
+msgstr "產生的 C++："
 
 #: src/android/aidl/example-service/service-bindings.md
 msgid ""
@@ -11852,55 +11899,55 @@ msgstr ""
 
 #: src/android/aidl/example-service/service.md
 msgid "Service Implementation"
-msgstr ""
+msgstr "服務實作"
 
 #: src/android/aidl/example-service/service.md
 msgid "We can now implement the AIDL service:"
-msgstr ""
+msgstr "我們現在可以實作 AIDL 服務了："
 
 #: src/android/aidl/example-service/service.md
 #: src/android/aidl/example-service/changing-implementation.md
 msgid "_birthday_service/src/lib.rs_:"
-msgstr ""
+msgstr "_birthday_service/src/lib.rs_："
 
 #: src/android/aidl/example-service/service.md
 msgid "/// The `IBirthdayService` implementation.\n"
-msgstr ""
+msgstr "/// The `IBirthdayService` implementation.\n"
 
 #: src/android/aidl/example-service/service.md
 #: src/android/aidl/example-service/changing-implementation.md
 #: src/android/aidl/types/file-descriptor.md
 msgid "\"Happy Birthday {name}, congratulations with the {years} years!\""
-msgstr ""
+msgstr "\"Happy Birthday {name}, congratulations with the {years} years!\""
 
 #: src/android/aidl/example-service/service.md
 #: src/android/aidl/example-service/server.md
 #: src/android/aidl/example-service/client.md
 msgid "_birthday_service/Android.bp_:"
-msgstr ""
+msgstr "_birthday_service/Android.bp_："
 
 #: src/android/aidl/example-service/service.md
 #: src/android/aidl/example-service/server.md
 msgid "\"libbirthdayservice\""
-msgstr ""
+msgstr "\"libbirthdayservice\""
 
 #: src/android/aidl/example-service/service.md
 #: src/android/aidl/example-service/server.md
 #: src/android/aidl/example-service/client.md
 msgid "\"birthdayservice\""
-msgstr ""
+msgstr "\"birthdayservice\""
 
 #: src/android/aidl/example-service/service.md
 #: src/android/aidl/example-service/server.md
 #: src/android/aidl/example-service/client.md
 msgid "\"com.example.birthdayservice-rust\""
-msgstr ""
+msgstr "\"com.example.birthdayservice-rust\""
 
 #: src/android/aidl/example-service/service.md
 #: src/android/aidl/example-service/server.md
 #: src/android/aidl/example-service/client.md
 msgid "\"libbinder_rs\""
-msgstr ""
+msgstr "\"libbinder_rs\""
 
 #: src/android/aidl/example-service/service.md
 msgid ""
@@ -11916,41 +11963,40 @@ msgstr ""
 
 #: src/android/aidl/example-service/server.md
 msgid "AIDL Server"
-msgstr ""
+msgstr "AIDL 伺服器"
 
 #: src/android/aidl/example-service/server.md
 msgid "Finally, we can create a server which exposes the service:"
-msgstr ""
+msgstr "最後，我們可以建立伺服器來公開服務："
 
 #: src/android/aidl/example-service/server.md
 msgid "_birthday_service/src/server.rs_:"
-msgstr ""
+msgstr "_birthday_service/src/server.rs_："
 
 #: src/android/aidl/example-service/server.md
 msgid "//! Birthday service.\n"
-msgstr ""
+msgstr "//! Birthday service.\n"
 
 #: src/android/aidl/example-service/server.md
 msgid "/// Entry point for birthday service.\n"
-msgstr ""
+msgstr "/// Entry point for birthday service.\n"
 
 #: src/android/aidl/example-service/server.md
 msgid "\"Failed to register service\""
-msgstr ""
+msgstr "\"Failed to register service\""
 
 #: src/android/aidl/example-service/server.md
 msgid "\"birthday_server\""
-msgstr ""
+msgstr "\"birthday_server\""
 
 #: src/android/aidl/example-service/server.md
-#, fuzzy
 msgid "\"src/server.rs\""
-msgstr "伺服器。"
+msgstr "\"src/server.rs\""
 
 #: src/android/aidl/example-service/server.md
 #: src/android/aidl/example-service/client.md
 msgid "// To avoid dynamic link error.\n"
-msgstr ""
+msgstr "// To avoid dynamic link error.\n"
 
 #: src/android/aidl/example-service/server.md
 msgid ""
@@ -11988,7 +12034,7 @@ msgstr ""
 
 #: src/android/aidl/example-service/deploy.md
 msgid "We can now build, push, and start the service:"
-msgstr ""
+msgstr "現在我們可以建構、推送及啟動服務："
 
 #: src/android/aidl/example-service/deploy.md
 msgid ""
@@ -12000,61 +12046,69 @@ msgid ""
 "adb shell /data/local/tmp/birthday_server\n"
 "```"
 msgstr ""
+"```shell\n"
+"m birthday_server\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/birthday_server\" /data/local/"
+"tmp\n"
+"adb root\n"
+"adb shell /data/local/tmp/birthday_server\n"
+"```"
 
 #: src/android/aidl/example-service/deploy.md
 msgid "In another terminal, check that the service runs:"
-msgstr ""
+msgstr "在另一個終端機中，檢查服務是否能執行："
 
 #: src/android/aidl/example-service/deploy.md
 msgid "You can also call the service with `service call`:"
-msgstr ""
+msgstr "藉由 `service call` 呼叫，您也可以呼叫服務："
 
 #: src/android/aidl/example-service/client.md
 msgid "AIDL Client"
-msgstr ""
+msgstr "AIDL 用戶端"
 
 #: src/android/aidl/example-service/client.md
 msgid "Finally, we can create a Rust client for our new service."
-msgstr ""
+msgstr "最後，我們可以為新服務建立 Rust 用戶端。"
 
 #: src/android/aidl/example-service/client.md
 #: src/android/aidl/example-service/changing-implementation.md
 msgid "_birthday_service/src/client.rs_:"
-msgstr ""
+msgstr "_birthday_service/src/client.rs_："
 
 #: src/android/aidl/example-service/client.md
 msgid "/// Call the birthday service.\n"
-msgstr ""
+msgstr "/// Call the birthday service.\n"
 
 #: src/android/aidl/example-service/client.md src/android/aidl/types/objects.md
 #: src/android/aidl/types/parcelables.md
 #: src/android/aidl/types/file-descriptor.md
 msgid "\"Failed to connect to BirthdayService\""
-msgstr ""
+msgstr "\"Failed to connect to BirthdayService\""
 
 #: src/android/aidl/example-service/client.md
+#, fuzzy
 msgid "// Call the service.\n"
-msgstr ""
+msgstr "/// Call the birthday service.\n"
 
 #: src/android/aidl/example-service/client.md
 msgid "\"{msg}\""
-msgstr ""
+msgstr "\"{msg}\""
 
 #: src/android/aidl/example-service/client.md
 msgid "\"birthday_client\""
-msgstr ""
+msgstr "\"birthday_client\""
 
 #: src/android/aidl/example-service/client.md
 msgid "\"src/client.rs\""
-msgstr ""
+msgstr "\"src/client.rs\""
 
 #: src/android/aidl/example-service/client.md
 msgid "Notice that the client does not depend on `libbirthdayservice`."
-msgstr ""
+msgstr "請注意，用戶端並未依附於 `libbirthdayservice`。"
 
 #: src/android/aidl/example-service/client.md
 msgid "Build, push, and run the client on your device:"
-msgstr ""
+msgstr "在裝置上建構、推送及執行用戶端："
 
 #: src/android/aidl/example-service/client.md
 msgid ""
@@ -12065,6 +12119,12 @@ msgid ""
 "adb shell /data/local/tmp/birthday_client Charlie 60\n"
 "```"
 msgstr ""
+"```shell\n"
+"m birthday_client\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/birthday_client\" /data/local/"
+"tmp\n"
+"adb shell /data/local/tmp/birthday_client Charlie 60\n"
+"```"
 
 #: src/android/aidl/example-service/client.md
 msgid ""
@@ -12179,32 +12239,29 @@ msgid "Primitive types map (mostly) idiomatically:"
 msgstr ""
 
 #: src/android/aidl/types/primitives.md
-#, fuzzy
 msgid "AIDL Type"
-msgstr "AIDL"
+msgstr "AIDL 介面"
 
 #: src/android/aidl/types/primitives.md src/android/aidl/types/arrays.md
 #: src/android/interoperability/cpp/type-mapping.md
-#, fuzzy
 msgid "Rust Type"
-msgstr "Rust by Example"
+msgstr "Rust 函式庫"
 
 #: src/android/aidl/types/primitives.md
 msgid "Note"
 msgstr ""
 
 #: src/android/aidl/types/primitives.md
-#, fuzzy
 msgid "`boolean`"
-msgstr "`bool`"
+msgstr "`boolean`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`byte`"
-msgstr ""
+msgstr "`byte`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`i8`"
-msgstr ""
+msgstr "`i8`"
 
 #: src/android/aidl/types/primitives.md
 msgid "Note that bytes are signed."
@@ -12212,7 +12269,7 @@ msgstr ""
 
 #: src/android/aidl/types/primitives.md
 msgid "`u16`"
-msgstr ""
+msgstr "`u16`"
 
 #: src/android/aidl/types/primitives.md
 msgid "Note the usage of `u16`, NOT `u32`."
@@ -12220,35 +12277,35 @@ msgstr ""
 
 #: src/android/aidl/types/primitives.md
 msgid "`int`"
-msgstr ""
+msgstr "`int`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`i32`"
-msgstr ""
+msgstr "`i32`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`long`"
-msgstr ""
+msgstr "`long`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`i64`"
-msgstr ""
+msgstr "`i64`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`float`"
-msgstr ""
+msgstr "`float`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`f32`"
-msgstr ""
+msgstr "`f32`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`double`"
-msgstr ""
+msgstr "`double`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`f64`"
-msgstr ""
+msgstr "`f64`"
 
 #: src/android/aidl/types/arrays.md
 msgid ""
@@ -12268,7 +12325,7 @@ msgstr ""
 
 #: src/android/aidl/types/arrays.md
 msgid "`&[T]`"
-msgstr ""
+msgstr "`&[T]`"
 
 #: src/android/aidl/types/arrays.md
 msgid "`out`/`inout` argument"
@@ -12276,7 +12333,7 @@ msgstr ""
 
 #: src/android/aidl/types/arrays.md
 msgid "`&mut Vec<T>`"
-msgstr ""
+msgstr "`&mut Vec<T>`"
 
 #: src/android/aidl/types/arrays.md
 msgid "Return"
@@ -12284,9 +12341,8 @@ msgstr ""
 
 #: src/android/aidl/types/arrays.md
 #: src/android/interoperability/cpp/type-mapping.md
-#, fuzzy
 msgid "`Vec<T>`"
-msgstr "`Vec`"
+msgstr "`Vec<T>`"
 
 #: src/android/aidl/types/arrays.md
 msgid ""
@@ -12311,42 +12367,46 @@ msgid ""
 "**birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider."
 "aidl**:"
 msgstr ""
+"**birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider."
+"aidl**:"
 
 #: src/android/aidl/types/objects.md src/android/aidl/types/parcelables.md
 #: src/android/aidl/types/file-descriptor.md
 msgid ""
 "**birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl**:"
 msgstr ""
+"**birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl**:"
 
 #: src/android/aidl/types/objects.md
 msgid "/** The same thing, but using a binder object. */"
-msgstr ""
+msgstr "/** The same thing, but using a binder object. */"
 
 #: src/android/aidl/types/objects.md
 msgid "/** The same thing, but using `IBinder`. */"
-msgstr ""
+msgstr "/** The same thing, but using `IBinder`. */"
 
 #: src/android/aidl/types/objects.md src/android/aidl/types/parcelables.md
 #: src/android/aidl/types/file-descriptor.md
 msgid "**birthday_service/src/client.rs**:"
-msgstr ""
+msgstr "**birthday_service/src/client.rs**:"
 
 #: src/android/aidl/types/objects.md
 msgid "/// Rust struct implementing the `IBirthdayInfoProvider` interface.\n"
-msgstr ""
+msgstr "/// Rust struct implementing the `IBirthdayInfoProvider` interface.\n"
 
 #: src/android/aidl/types/objects.md
 msgid "// Create a binder object for the `IBirthdayInfoProvider` interface.\n"
-msgstr ""
+msgstr "// Create a binder object for the `IBirthdayInfoProvider` interface.\n"
 
 #: src/android/aidl/types/objects.md
 msgid "// Send the binder object to the service.\n"
-msgstr ""
+msgstr "// Send the binder object to the service.\n"
 
 #: src/android/aidl/types/objects.md
 msgid ""
 "// Perform the same operation but passing the provider as an `SpIBinder`.\n"
 msgstr ""
+"// Perform the same operation but passing the provider as an `SpIBinder`.\n"
 
 #: src/android/aidl/types/objects.md
 msgid ""
@@ -12362,10 +12422,11 @@ msgstr ""
 msgid ""
 "**birthday_service/aidl/com/example/birthdayservice/BirthdayInfo.aidl**:"
 msgstr ""
+"**birthday_service/aidl/com/example/birthdayservice/BirthdayInfo.aidl**:"
 
 #: src/android/aidl/types/parcelables.md
 msgid "/** The same thing, but with a parcelable. */"
-msgstr ""
+msgstr "/** The same thing, but with a parcelable. */"
 
 #: src/android/aidl/types/file-descriptor.md
 msgid ""
@@ -12375,31 +12436,31 @@ msgstr ""
 
 #: src/android/aidl/types/file-descriptor.md
 msgid "/** The same thing, but loads info from a file. */"
-msgstr ""
+msgstr "/** The same thing, but loads info from a file. */"
 
 #: src/android/aidl/types/file-descriptor.md
 msgid "// Open a file and put the birthday info in it.\n"
-msgstr ""
+msgstr "// Open a file and put the birthday info in it.\n"
 
 #: src/android/aidl/types/file-descriptor.md
 msgid "\"/data/local/tmp/birthday.info\""
-msgstr ""
+msgstr "\"/data/local/tmp/birthday.info\""
 
 #: src/android/aidl/types/file-descriptor.md
 msgid "\"{name}\""
-msgstr ""
+msgstr "\"{name}\""
 
 #: src/android/aidl/types/file-descriptor.md
 msgid "\"{years}\""
-msgstr ""
+msgstr "\"{years}\""
 
 #: src/android/aidl/types/file-descriptor.md
 msgid "// Create a `ParcelFileDescriptor` from the file and send it.\n"
-msgstr ""
+msgstr "// Create a `ParcelFileDescriptor` from the file and send it.\n"
 
 #: src/android/aidl/types/file-descriptor.md
 msgid "**birthday_service/src/lib.rs**:"
-msgstr ""
+msgstr "**birthday_service/src/lib.rs**:"
 
 #: src/android/aidl/types/file-descriptor.md
 msgid ""
@@ -12408,6 +12469,10 @@ msgid ""
 "`File`\n"
 "        // object.\n"
 msgstr ""
+"// Convert the file descriptor to a `File`. `ParcelFileDescriptor` wraps\n"
+"        // an `OwnedFd`, which can be cloned and then used to create a "
+"`File`\n"
+"        // object.\n"
 
 #: src/android/aidl/types/file-descriptor.md
 msgid "\"Invalid file handle\""
@@ -12427,8 +12492,9 @@ msgid ""
 msgstr ""
 
 #: src/android/testing.md
+#, fuzzy
 msgid "Testing in Android"
-msgstr ""
+msgstr "在 Android 中建構"
 
 #: src/android/testing.md
 msgid ""
@@ -12438,59 +12504,61 @@ msgstr ""
 
 #: src/android/testing.md
 msgid "_testing/Android.bp_:"
-msgstr ""
+msgstr "_testing/Android.bp_:"
 
 #: src/android/testing.md
 msgid "\"libleftpad\""
-msgstr ""
+msgstr "\"libleftpad\""
 
 #: src/android/testing.md
 msgid "\"leftpad\""
-msgstr ""
+msgstr "\"leftpad\""
 
 #: src/android/testing.md
 msgid "\"libleftpad_test\""
-msgstr ""
+msgstr "\"libleftpad_test\""
 
 #: src/android/testing.md
 msgid "\"leftpad_test\""
-msgstr ""
+msgstr "\"leftpad_test\""
 
 #: src/android/testing.md src/android/interoperability/with-c/bindgen.md
 msgid "\"general-tests\""
-msgstr ""
+msgstr "\"general-tests\""
 
 #: src/android/testing.md
 msgid "_testing/src/lib.rs_:"
-msgstr ""
+msgstr "_testing/src/lib.rs_:"
 
 #: src/android/testing.md
 msgid "//! Left-padding library.\n"
-msgstr ""
+msgstr "//! Left-padding library.\n"
 
 #: src/android/testing.md
 msgid "/// Left-pad `s` to `width`.\n"
-msgstr ""
+msgstr "/// Left-pad `s` to `width`.\n"
 
 #: src/android/testing.md
 msgid "\"{s:>width$}\""
-msgstr ""
+msgstr "\"{s:>width$}\""
 
 #: src/android/testing.md
 msgid "\"  foo\""
-msgstr ""
+msgstr "\"  foo\""
 
 #: src/android/testing.md
 msgid "\"foobar\""
-msgstr ""
+msgstr "\"foobar\""
 
 #: src/android/testing.md
+#, fuzzy
 msgid "You can now run the test with"
-msgstr ""
+msgstr "您現在可以自動產生繫結："
 
 #: src/android/testing.md
+#, fuzzy
 msgid "The output looks like this:"
-msgstr ""
+msgstr "整體方法大致如下："
 
 #: src/android/testing.md
 msgid ""
@@ -12505,6 +12573,16 @@ msgid ""
 "Test cases: finished with 2 passing and 0 failing out of 2 test cases\n"
 "```"
 msgstr ""
+"```text\n"
+"INFO: Elapsed time: 2.666s, Critical Path: 2.40s\n"
+"INFO: 3 processes: 2 internal, 1 linux-sandbox.\n"
+"INFO: Build completed successfully, 3 total actions\n"
+"//comprehensive-rust-android/testing:libleftpad_test_host            PASSED "
+"in 2.3s\n"
+"    PASSED  libleftpad_test.tests::long_string (0.0s)\n"
+"    PASSED  libleftpad_test.tests::short_string (0.0s)\n"
+"Test cases: finished with 2 passing and 0 failing out of 2 test cases\n"
+"```"
 
 #: src/android/testing.md
 msgid ""
@@ -12523,11 +12601,11 @@ msgstr ""
 
 #: src/android/testing/googletest.md
 msgid "\"baz\""
-msgstr ""
+msgstr "\"baz\""
 
 #: src/android/testing/googletest.md
 msgid "\"xyz\""
-msgstr ""
+msgstr "\"xyz\""
 
 #: src/android/testing/googletest.md
 msgid ""
@@ -12648,55 +12726,57 @@ msgid ""
 "You should use the `log` crate to automatically log to `logcat` (on-device) "
 "or `stdout` (on-host):"
 msgstr ""
+"您應使用 `log` Crate，自動將記錄存放到 `logcat` (裝置端) 或 `stdout` (主機"
+"端)："
 
 #: src/android/logging.md
 msgid "_hello_rust_logs/Android.bp_:"
-msgstr ""
+msgstr "_hello_rust_logs/Android.bp_："
 
 #: src/android/logging.md
 msgid "\"hello_rust_logs\""
-msgstr ""
+msgstr "\"hello_rust_logs\""
 
 #: src/android/logging.md
 msgid "\"liblog_rust\""
-msgstr ""
+msgstr "\"liblog_rust\""
 
 #: src/android/logging.md
 msgid "\"liblogger\""
-msgstr ""
+msgstr "\"liblogger\""
 
 #: src/android/logging.md
 msgid "_hello_rust_logs/src/main.rs_:"
-msgstr ""
+msgstr "_hello_rust_logs/src/main.rs_："
 
 #: src/android/logging.md
 msgid "//! Rust logging demo.\n"
-msgstr ""
+msgstr "//! Rust logging demo.\n"
 
 #: src/android/logging.md
 msgid "/// Logs a greeting.\n"
-msgstr ""
+msgstr "/// Logs a greeting.\n"
 
 #: src/android/logging.md
 msgid "\"rust\""
-msgstr ""
+msgstr "\"rust\""
 
 #: src/android/logging.md
 msgid "\"Starting program.\""
-msgstr ""
+msgstr "\"Starting program.\""
 
 #: src/android/logging.md
 msgid "\"Things are going fine.\""
-msgstr ""
+msgstr "\"Things are going fine.\""
 
 #: src/android/logging.md
 msgid "\"Something went wrong!\""
-msgstr ""
+msgstr "\"Something went wrong!\""
 
 #: src/android/logging.md src/android/interoperability/with-c/bindgen.md
 #: src/android/interoperability/with-c/rust.md
 msgid "Build, push, and run the binary on your device:"
-msgstr ""
+msgstr "在裝置上建構、推送及執行二進位檔："
 
 #: src/android/logging.md
 msgid ""
@@ -12707,178 +12787,189 @@ msgid ""
 "adb shell /data/local/tmp/hello_rust_logs\n"
 "```"
 msgstr ""
+"```shell\n"
+"m hello_rust_logs\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/hello_rust_logs\" /data/local/"
+"tmp\n"
+"adb shell /data/local/tmp/hello_rust_logs\n"
+"```"
 
 #: src/android/logging.md
 msgid "The logs show up in `adb logcat`:"
-msgstr ""
+msgstr "記錄會顯示在 `adb logcat` 中："
 
 #: src/android/interoperability.md
 msgid ""
 "Rust has excellent support for interoperability with other languages. This "
 "means that you can:"
-msgstr ""
+msgstr "Rust 能充分支援與其他程式語言互通。也就是說，您可以："
 
 #: src/android/interoperability.md
 msgid "Call Rust functions from other languages."
-msgstr ""
+msgstr "透過其他語言呼叫 Rust 函式。"
 
 #: src/android/interoperability.md
 msgid "Call functions written in other languages from Rust."
-msgstr ""
+msgstr "透過 Rust 呼叫以其他語言編寫的函式。"
 
 #: src/android/interoperability.md
 msgid ""
 "When you call functions in a foreign language we say that you're using a "
 "_foreign function interface_, also known as FFI."
-msgstr ""
+msgstr "當您以其他語言呼叫函式時，我們稱之為使用「外部函式介面__」(亦稱 FFI)。"
 
 #: src/android/interoperability/with-c.md
 msgid "Interoperability with C"
-msgstr ""
+msgstr "與 C 的互通性"
 
 #: src/android/interoperability/with-c.md
 msgid ""
 "Rust has full support for linking object files with a C calling convention. "
 "Similarly, you can export Rust functions and call them from C."
 msgstr ""
+"Rust 能完整支援以 C 語言的呼叫慣例來連結物件檔案。同樣地，您可以匯出 Rust 函"
+"式，然後透過 C 語言呼叫這些函式。"
 
 #: src/android/interoperability/with-c.md
 msgid "You can do it by hand if you want:"
-msgstr ""
+msgstr "您可以視需要手動完成操作："
 
 #: src/android/interoperability/with-c.md
 msgid "\"{x}, {abs_x}\""
-msgstr ""
+msgstr "\"{x}, {abs_x}\""
 
 #: src/android/interoperability/with-c.md
 msgid ""
 "We already saw this in the [Safe FFI Wrapper exercise](../../exercises/day-3/"
 "safe-ffi-wrapper.md)."
 msgstr ""
+"我們已在[「安全的 FFI 包裝函式」練習](../../exercises/day-3/safe-ffi-wrapper."
+"md)中看過此例。"
 
 #: src/android/interoperability/with-c.md
 msgid ""
 "This assumes full knowledge of the target platform. Not recommended for "
 "production."
-msgstr ""
+msgstr "執行這項操作的前提是要充分瞭解目標平台。此法不建議用於正式環境。"
 
 #: src/android/interoperability/with-c.md
 msgid "We will look at better options next."
-msgstr ""
+msgstr "我們接下來會討論更好的選項。"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "Using Bindgen"
-msgstr ""
+msgstr "使用 Bindgen"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid ""
 "The [bindgen](https://rust-lang.github.io/rust-bindgen/introduction.html) "
 "tool can auto-generate bindings from a C header file."
 msgstr ""
+"[bindgen](https://rust-lang.github.io/rust-bindgen/introduction.html) 工具可"
+"從 C 標頭檔案自動產生繫結。"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "First create a small C library:"
-msgstr ""
+msgstr "首先，請建立小型 C 程式庫："
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "_interoperability/bindgen/libbirthday.h_:"
-msgstr ""
+msgstr "__interoperability/bindgen/libbirthday.h："
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "_interoperability/bindgen/libbirthday.c_:"
-msgstr ""
+msgstr "__interoperability/bindgen/libbirthday.c："
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "<stdio.h>"
-msgstr ""
+msgstr "<stdio.h>"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"libbirthday.h\""
-msgstr ""
+msgstr "\"libbirthday.h\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"+--------------\\n\""
-msgstr ""
+msgstr "\"+--------------\\n\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"| Happy Birthday %s!\\n\""
-msgstr ""
+msgstr "\"| Happy Birthday %s!\\n\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"| Congratulations with the %i years!\\n\""
-msgstr ""
+msgstr "\"| Congratulations with the %i years!\\n\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "Add this to your `Android.bp` file:"
-msgstr ""
+msgstr "請將以下內容加入 `Android.bp` 檔案："
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "_interoperability/bindgen/Android.bp_:"
-msgstr ""
+msgstr "__interoperability/bindgen/Android.bp："
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"libbirthday\""
-msgstr ""
+msgstr "\"libbirthday\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"libbirthday.c\""
-msgstr ""
+msgstr "\"libbirthday.c\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid ""
 "Create a wrapper header file for the library (not strictly needed in this "
 "example):"
-msgstr ""
+msgstr "為程式庫建立包裝函式標頭檔案 (在此範例中不一定需要)："
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "_interoperability/bindgen/libbirthday_wrapper.h_:"
-msgstr ""
+msgstr "__interoperability/bindgen/libbirthday_wrapper.h："
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "You can now auto-generate the bindings:"
-msgstr ""
+msgstr "您現在可以自動產生繫結："
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"libbirthday_bindgen\""
-msgstr ""
+msgstr "\"libbirthday_bindgen\""
 
 #: src/android/interoperability/with-c/bindgen.md
 #, fuzzy
 msgid "\"birthday_bindgen\""
-msgstr "`rust_bindgen`"
+msgstr "\"libbirthday_bindgen\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"libbirthday_wrapper.h\""
-msgstr ""
+msgstr "\"libbirthday_wrapper.h\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"bindings\""
-msgstr ""
+msgstr "\"bindings\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "Finally, we can use the bindings in our Rust program:"
-msgstr ""
+msgstr "最後，我們可以在 Rust 程式中使用繫結："
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"print_birthday_card\""
-msgstr ""
+msgstr "\"print_birthday_card\""
 
 #: src/android/interoperability/with-c/bindgen.md
-#, fuzzy
 msgid "\"main.rs\""
-msgstr "`main.rs`："
+msgstr "\"main.rs\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "_interoperability/bindgen/main.rs_:"
-msgstr ""
+msgstr "__interoperability/bindgen/main.rs："
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "//! Bindgen demo.\n"
-msgstr ""
+msgstr "//! Bindgen demo.\n"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "// SAFETY: `print_card` is safe to call with a valid `card` pointer.\n"
-msgstr ""
+msgstr "// SAFETY: `print_card` is safe to call with a valid `card` pointer.\n"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid ""
@@ -12889,98 +12980,104 @@ msgid ""
 "adb shell /data/local/tmp/print_birthday_card\n"
 "```"
 msgstr ""
+"```shell\n"
+"m print_birthday_card\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/print_birthday_card\" /data/local/"
+"tmp\n"
+"adb shell /data/local/tmp/print_birthday_card\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "Finally, we can run auto-generated tests to ensure the bindings work:"
-msgstr ""
+msgstr "最後，我們可以執行自動產生的測試，確保繫結正常運作："
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"libbirthday_bindgen_test\""
-msgstr ""
+msgstr "\"libbirthday_bindgen_test\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\":libbirthday_bindgen\""
-msgstr ""
+msgstr "\":libbirthday_bindgen\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"none\""
-msgstr ""
+msgstr "\"none\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "// Generated file, skip linting\n"
-msgstr ""
+msgstr "// Generated file, skip linting\n"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "Calling Rust"
-msgstr ""
+msgstr "呼叫 Rust"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "Exporting Rust functions and types to C is easy:"
-msgstr ""
+msgstr "您可以輕鬆將 Rust 函式和型別匯出至 C："
 
 #: src/android/interoperability/with-c/rust.md
 msgid "_interoperability/rust/libanalyze/analyze.rs_"
-msgstr ""
+msgstr "__interoperability/rust/libanalyze/analyze.rs"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "//! Rust FFI demo.\n"
-msgstr ""
+msgstr "//! Rust FFI demo.\n"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "/// Analyze the numbers.\n"
-msgstr ""
+msgstr "/// Analyze the numbers.\n"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"x ({x}) is smallest!\""
-msgstr ""
+msgstr "\"x ({x}) is smallest!\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"y ({y}) is probably larger than x ({x})\""
-msgstr ""
+msgstr "\"y ({y}) is probably larger than x ({x})\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid "_interoperability/rust/libanalyze/analyze.h_"
-msgstr ""
+msgstr "__interoperability/rust/libanalyze/analyze.h"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "_interoperability/rust/libanalyze/Android.bp_"
-msgstr ""
+msgstr "__interoperability/rust/libanalyze/Android.bp"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"libanalyze_ffi\""
-msgstr ""
+msgstr "\"libanalyze_ffi\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"analyze_ffi\""
-msgstr ""
+msgstr "\"analyze_ffi\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"analyze.rs\""
-msgstr ""
+msgstr "\"analyze.rs\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid "We can now call this from a C binary:"
-msgstr ""
+msgstr "我們現在可以從 C 二進位檔呼叫此項目："
 
 #: src/android/interoperability/with-c/rust.md
 msgid "_interoperability/rust/analyze/main.c_"
-msgstr ""
+msgstr "__interoperability/rust/analyze/main.c"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"analyze.h\""
-msgstr ""
+msgstr "\"analyze.h\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid "_interoperability/rust/analyze/Android.bp_"
-msgstr ""
+msgstr "__interoperability/rust/analyze/Android.bp"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"analyze_numbers\""
-msgstr ""
+msgstr "\"analyze_numbers\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"main.c\""
-msgstr ""
+msgstr "\"main.c\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid ""
@@ -12991,6 +13088,12 @@ msgid ""
 "adb shell /data/local/tmp/analyze_numbers\n"
 "```"
 msgstr ""
+"```shell\n"
+"m analyze_numbers\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/analyze_numbers\" /data/local/"
+"tmp\n"
+"adb shell /data/local/tmp/analyze_numbers\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md
 msgid ""
@@ -12998,16 +13101,20 @@ msgid ""
 "will just be the name of the function. You can also use `#[export_name = "
 "\"some_name\"]` to specify whatever name you want."
 msgstr ""
+"`#[no_mangle]` 會停用 Rust 的一般名稱改編功能，因此匯出的符號將只是函式名稱。"
+"您也可以使用 `#[export_name = \"some_name\"]` 指定任何名稱。"
 
 #: src/android/interoperability/cpp.md
 msgid ""
 "The [CXX crate](https://cxx.rs/) makes it possible to do safe "
 "interoperability between Rust and C++."
 msgstr ""
+"透過 [CXX Crate](https://cxx.rs/)，您可以在 Rust 和 C++ 之間實現安全的互通"
+"性。"
 
 #: src/android/interoperability/cpp.md
 msgid "The overall approach looks like this:"
-msgstr ""
+msgstr "整體方法大致如下："
 
 #: src/android/interoperability/cpp/bridge.md
 msgid ""
@@ -13015,19 +13122,21 @@ msgid ""
 "from each language to the other. You provide this description using extern "
 "blocks in a Rust module annotated with the `#[cxx::bridge]` attribute macro."
 msgstr ""
+"CXX 依賴的函式簽章說明會從一種語言公開至另一種語言。您會在具有 `#[cxx::"
+"bridge]` 屬性巨集註解的 Rust 模組中，使用外部區塊提供這項說明。"
 
 #: src/android/interoperability/cpp/bridge.md
 msgid "\"org::blobstore\""
-msgstr ""
+msgstr "\"org::blobstore\""
 
 #: src/android/interoperability/cpp/bridge.md
 msgid "// Shared structs with fields visible to both languages.\n"
-msgstr ""
+msgstr "// Shared structs with fields visible to both languages.\n"
 
 #: src/android/interoperability/cpp/bridge.md
 #: src/android/interoperability/cpp/generated-cpp.md
 msgid "// Rust types and signatures exposed to C++.\n"
-msgstr ""
+msgstr "// Rust types and signatures exposed to C++.\n"
 
 #: src/android/interoperability/cpp/bridge.md
 #: src/android/interoperability/cpp/rust-bridge.md
@@ -13036,30 +13145,29 @@ msgstr ""
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
-#, fuzzy
 msgid "\"Rust\""
-msgstr "Rustdoc"
+msgstr "\"Rust\""
 
 #: src/android/interoperability/cpp/bridge.md
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid "// C++ types and signatures exposed to Rust.\n"
-msgstr ""
+msgstr "// C++ types and signatures exposed to Rust.\n"
 
 #: src/android/interoperability/cpp/bridge.md
 #: src/android/interoperability/cpp/cpp-bridge.md
 #: src/android/interoperability/cpp/cpp-exception.md
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "\"C++\""
-msgstr ""
+msgstr "\"C++\""
 
 #: src/android/interoperability/cpp/bridge.md
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid "\"include/blobstore.h\""
-msgstr ""
+msgstr "\"include/blobstore.h\""
 
 #: src/android/interoperability/cpp/bridge.md
 msgid "The bridge is generally declared in an `ffi` module within your crate."
-msgstr ""
+msgstr "橋接器通常是在 Crate 中的 `ffi` 模組中宣告。"
 
 #: src/android/interoperability/cpp/bridge.md
 msgid ""
@@ -13067,6 +13175,8 @@ msgid ""
 "Rust and C++ type/function definitions in order to expose those items to "
 "both languages."
 msgstr ""
+"透過在橋接模組中建立宣告，CXX 會產生相符的 Rust 和 C++ 型別/函式定義，以便向"
+"這兩種語言公開這些項目。"
 
 #: src/android/interoperability/cpp/bridge.md
 msgid ""
@@ -13075,33 +13185,35 @@ msgid ""
 "examples you would use `cargo expand ::ffi` to expand just the `ffi` module "
 "(though this doesn't apply for Android projects)."
 msgstr ""
+"如要查看產生的 Rust 程式碼，請使用 [cargo-expand](https://github.com/dtolnay/"
+"cargo-expand) 檢視已展開的程序巨集。在大多數範例中，您都會使用 `cargo "
+"expand ::ffi`，這樣就能只展開 `ffi` 模組 (但這不適用於 Android 專案)。"
 
 #: src/android/interoperability/cpp/bridge.md
 msgid "To view the generated C++ code, look in `target/cxxbridge`."
-msgstr ""
+msgstr "如要檢視產生的 C++ 程式碼，請查看 `target/cxxbridge`。"
 
 #: src/android/interoperability/cpp/rust-bridge.md
 msgid "Rust Bridge Declarations"
-msgstr ""
+msgstr "Rust 橋接器宣告"
 
 #: src/android/interoperability/cpp/rust-bridge.md
 msgid "// Opaque type\n"
-msgstr ""
+msgstr "// Opaque type\n"
 
 #: src/android/interoperability/cpp/rust-bridge.md
 msgid "// Method on `MyType`\n"
-msgstr ""
+msgstr "// Method on `MyType`\n"
 
 #: src/android/interoperability/cpp/rust-bridge.md
-#, fuzzy
 msgid "// Free function\n"
-msgstr "函式"
+msgstr "// Free function\n"
 
 #: src/android/interoperability/cpp/rust-bridge.md
 msgid ""
 "Items declared in the `extern \"Rust\"` reference items that are in scope in "
 "the parent module."
-msgstr ""
+msgstr "在 `extern \"Rust\"` 參照項目中宣告的項目皆位於父項模組的範圍。"
 
 #: src/android/interoperability/cpp/rust-bridge.md
 msgid ""
@@ -13110,26 +13222,29 @@ msgid ""
 "header has the same path as the Rust source file containing the bridge, "
 "except with a .rs.h file extension."
 msgstr ""
+"CXX 程式碼產生器會使用您的 `extern \"Rust\"` 區段，產生含有相對應 C++ 宣告的 "
+"C++ 標頭檔案。產生的標頭與包含橋接器的 Rust 來源檔案具有相同路徑，但副檔名"
+"為 .rs.h。"
 
 #: src/android/interoperability/cpp/generated-cpp.md
 msgid "Results in (roughly) the following C++:"
-msgstr ""
+msgstr "(大致) 產生下列 C++："
 
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid "C++ Bridge Declarations"
-msgstr ""
+msgstr "C++ 橋接器宣告"
 
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid "Results in (roughly) the following Rust:"
-msgstr ""
+msgstr "(大致) 產生下列 Rust："
 
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid "\"org$blobstore$cxxbridge1$new_blobstore_client\""
-msgstr ""
+msgstr "\"org$blobstore$cxxbridge1$new_blobstore_client\""
 
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid "\"org$blobstore$cxxbridge1$BlobstoreClient$put\""
-msgstr ""
+msgstr "\"org$blobstore$cxxbridge1$BlobstoreClient$put\""
 
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid ""
@@ -13137,20 +13252,22 @@ msgid ""
 "in are accurate. CXX performs static assertions that the signatures exactly "
 "correspond with what is declared in C++."
 msgstr ""
+"程式設計師不需要保證已輸入的簽章正確無誤。CXX 會執行靜態斷言，保證簽章與 C++ "
+"中宣告的內容完全相符。"
 
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid ""
 "`unsafe extern` blocks allow you to declare C++ functions that are safe to "
 "call from Rust."
-msgstr ""
+msgstr "`unsafe extern` 區塊可用來宣告能從 Rust 安全呼叫的 C++ 函式。"
 
 #: src/android/interoperability/cpp/shared-types.md
 msgid "// A=1, J=11, Q=12, K=13\n"
-msgstr ""
+msgstr "// A=1, J=11, Q=12, K=13\n"
 
 #: src/android/interoperability/cpp/shared-types.md
 msgid "Only C-like (unit) enums are supported."
-msgstr ""
+msgstr "只支援與 C 類似的 (單元) 列舉。"
 
 #: src/android/interoperability/cpp/shared-types.md
 msgid ""
@@ -13159,15 +13276,17 @@ msgid ""
 "derive `Hash` also generates an implementation of `std::hash` for the "
 "corresponding C++ type."
 msgstr ""
+"共用型別上的 `#[derive()]` 只支援部分特徵。系統也會為 C++ 程式碼產生相對應的"
+"功能。舉例來說，如果衍生出 `Hash`，也會為相應的 C++ 型別產生 `std::hash` 的實"
+"作項目。"
 
 #: src/android/interoperability/cpp/shared-enums.md
-#, fuzzy
 msgid "Generated Rust:"
-msgstr "不安全的 Rust"
+msgstr "產生的 Rust："
 
 #: src/android/interoperability/cpp/shared-enums.md
 msgid "Generated C++:"
-msgstr ""
+msgstr "產生的 C++："
 
 #: src/android/interoperability/cpp/shared-enums.md
 msgid ""
@@ -13176,20 +13295,22 @@ msgid ""
 "class to hold a value different from all of the listed variants, and our "
 "Rust representation needs to have the same behavior."
 msgstr ""
+"在 Rust 端，為共用列舉產生的程式碼其實是包裝數值的結構體。這是因為在 C++ 中，"
+"列舉類別保留與所有所列變數不同的值並不屬於 UB，而 Rust 表示法需具有相同行為。"
 
 #: src/android/interoperability/cpp/rust-result.md
 msgid "\"fallible1 requires depth > 0\""
-msgstr ""
+msgstr "\"fallible1 requires depth > 0\""
 
 #: src/android/interoperability/cpp/rust-result.md
 msgid "\"Success!\""
-msgstr ""
+msgstr "\"Success!\""
 
 #: src/android/interoperability/cpp/rust-result.md
 msgid ""
 "Rust functions that return `Result` are translated to exceptions on the C++ "
 "side."
-msgstr ""
+msgstr "傳回 `Result` 的 Rust 函式會轉譯為 C++ 端的例外狀況。"
 
 #: src/android/interoperability/cpp/rust-result.md
 msgid ""
@@ -13197,26 +13318,30 @@ msgid ""
 "exposes a way to get the error message string. The error message will come "
 "from the error type's `Display` impl."
 msgstr ""
+"擲回的例外狀況一律屬於 `rust::Error` 類型，這主要用來公開取得錯誤訊息字串的方"
+"法。錯誤訊息會來自錯誤類型的 `Display` 實作項目。"
 
 #: src/android/interoperability/cpp/rust-result.md
 msgid ""
 "A panic unwinding from Rust to C++ will always cause the process to "
 "immediately terminate."
-msgstr ""
+msgstr "從 Rust 恐慌解開至 C++ 一律會導致程序立即終止。"
 
 #: src/android/interoperability/cpp/cpp-exception.md
 msgid "\"example/include/example.h\""
-msgstr ""
+msgstr "\"example/include/example.h\""
 
 #: src/android/interoperability/cpp/cpp-exception.md
 msgid "\"Error: {}\""
-msgstr ""
+msgstr "\"Error: {}\""
 
 #: src/android/interoperability/cpp/cpp-exception.md
 msgid ""
 "C++ functions declared to return a `Result` will catch any thrown exception "
 "on the C++ side and return it as an `Err` value to the calling Rust function."
 msgstr ""
+"所宣告用來傳回 `Result` 的 C++ 函式會擷取 C++ 端的任何擲回例外狀況，並將其當"
+"做 `Err` 值傳回至發出呼叫的 Rust 函式。"
 
 #: src/android/interoperability/cpp/cpp-exception.md
 msgid ""
@@ -13225,6 +13350,9 @@ msgid ""
 "terminate`. The behavior is equivalent to the same exception being thrown "
 "through a `noexcept` C++ function."
 msgstr ""
+"假使例外狀況是從 CXX 橋接器未宣告的外部「C++」函式擲回，藉此傳回 `Result`，則"
+"程式會呼叫 C++ 的 `std::terminate`。此行為等同於透過 `noexcept` C++ 函式擲回"
+"的相同例外狀況。"
 
 #: src/android/interoperability/cpp/type-mapping.md
 #, fuzzy
@@ -13232,127 +13360,125 @@ msgid "C++ Type"
 msgstr "C++ 範例"
 
 #: src/android/interoperability/cpp/type-mapping.md
-#, fuzzy
 msgid "`rust::String`"
-msgstr "`rust_bindgen`"
+msgstr "`rust::String`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`&str`"
 msgstr "`&str`"
 
 #: src/android/interoperability/cpp/type-mapping.md
-#, fuzzy
 msgid "`rust::Str`"
-msgstr "`rust_test`"
+msgstr "`rust::Str`"
 
 #: src/android/interoperability/cpp/type-mapping.md
-#, fuzzy
 msgid "`CxxString`"
-msgstr "String"
+msgstr "`CxxString`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`std::string`"
-msgstr ""
+msgstr "`std::string`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`&[T]`/`&mut [T]`"
-msgstr ""
+msgstr "`&[T]`/`&mut [T]`"
 
 #: src/android/interoperability/cpp/type-mapping.md
-#, fuzzy
 msgid "`rust::Slice`"
-msgstr "`rust_ffi`"
+msgstr "`rust::Slice`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`rust::Box<T>`"
-msgstr ""
+msgstr "`rust::Box<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`UniquePtr<T>`"
-msgstr ""
+msgstr "`UniquePtr<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`std::unique_ptr<T>`"
-msgstr ""
+msgstr "`std::unique_ptr<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md
-#, fuzzy
 msgid "`rust::Vec<T>`"
-msgstr "`mpsc::Receiver<T>`"
+msgstr "`rust::Vec<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md
-#, fuzzy
 msgid "`CxxVector<T>`"
-msgstr "`Cell<T>`"
+msgstr "`CxxVector<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md
-#, fuzzy
 msgid "`std::vector<T>`"
-msgstr "`mpsc::Receiver<T>`"
+msgstr "`std::vector<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid ""
 "These types can be used in the fields of shared structs and the arguments "
 "and returns of extern functions."
-msgstr ""
+msgstr "這些型別可用於共用結構體的欄位，以及外部函式的引數和回傳內容。"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid ""
 "Note that Rust's `String` does not map directly to `std::string`. There are "
 "a few reasons for this:"
 msgstr ""
+"請注意，Rust 的 `String` 不會直接對應至 `std::string`。以下列舉幾個原因："
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid ""
 "`std::string` does not uphold the UTF-8 invariant that `String` requires."
-msgstr ""
+msgstr "`std::string` 不會維護 `String` 所需的 UTF-8 不變體。"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid ""
 "The two types have different layouts in memory and so can't be passed "
 "directly between languages."
-msgstr ""
+msgstr "這兩種型別的記憶體布局不同，因此無法在語言之間直接傳遞。"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid ""
 "`std::string` requires move constructors that don't match Rust's move "
 "semantics, so a `std::string` can't be passed by value to Rust."
 msgstr ""
+"`std::string` 需要的移動建構函式與 Rust 的移動語意不相符，因此 `std::string` "
+"無法透過值傳遞至 Rust。"
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 #: src/android/interoperability/cpp/android-build-rust.md
 msgid "Building in Android"
-msgstr ""
+msgstr "在 Android 中建構"
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 msgid ""
 "Create a `cc_library_static` to build the C++ library, including the CXX "
 "generated header and source file."
 msgstr ""
+"建立 `cc_library_static` 來建構 C++ 程式庫，包括 CXX 產生的標頭檔案和來源檔"
+"案。"
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 #: src/android/interoperability/cpp/android-build-rust.md
 msgid "\"libcxx_test_cpp\""
-msgstr ""
+msgstr "\"libcxx_test_cpp\""
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 msgid "\"cxx_test.cpp\""
-msgstr ""
+msgstr "\"cxx_test.cpp\""
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 msgid "\"cxx-bridge-header\""
-msgstr ""
+msgstr "\"cxx-bridge-header\""
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "\"libcxx_test_bridge_header\""
-msgstr ""
+msgstr "\"libcxx_test_bridge_header\""
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "\"libcxx_test_bridge_code\""
-msgstr ""
+msgstr "\"libcxx_test_bridge_code\""
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 msgid ""
@@ -13360,12 +13486,15 @@ msgid ""
 "the dependencies for the CXX-generated C++ bindings. We'll show how these "
 "are setup on the next slide."
 msgstr ""
+"指出 `libcxx_test_bridge_header 和 `libcxx_test_bridge_code` 是 CXX 產生的 C+"
+"+ 繫結依附元件。下一張投影片將說明相關設定方法。"
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 msgid ""
 "Note that you also need to depend on the `cxx-bridge-header` library in "
 "order to pull in common CXX definitions."
 msgstr ""
+"請注意，您也需要依賴 `cxx-bridge-header` 程式庫，才能提取常見的 CXX 定義。"
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 msgid ""
@@ -13375,53 +13504,63 @@ msgid ""
 "that link with the class so that students know where they can find these "
 "instructions again in the future."
 msgstr ""
+"如需介紹如何在 Android 中使用 CXX 的完整文件，請參閱 [Android 說明文件]"
+"(https://source.android.com/docs/setup/build/rust/building-rust-modules/"
+"android-rust-patterns#rust-cpp-interop-using-cxx)。您可以與全班分享該連結，這"
+"樣學生就知道以後能在哪裡找到這些說明。"
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid ""
 "Create two genrules: One to generate the CXX header, and one to generate the "
 "CXX source file. These are then used as inputs to the `cc_library_static`."
 msgstr ""
+"建立兩項 genrule，分別用來產生 CXX 標頭和 CXX 來源檔案。這些項目之後會用做 "
+"`cc_library_static` 的輸入內容。"
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid ""
 "// Generate a C++ header containing the C++ bindings\n"
 "// to the Rust exported functions in lib.rs.\n"
 msgstr ""
+"// Generate a C++ header containing the C++ bindings\n"
+"// to the Rust exported functions in lib.rs.\n"
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "\"cxxbridge\""
-msgstr ""
+msgstr "\"cxxbridge\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "\"$(location cxxbridge) $(in) --header > $(out)\""
-msgstr ""
+msgstr "\"$(location cxxbridge) $(in) --header > $(out)\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 #: src/android/interoperability/cpp/android-build-rust.md
 msgid "\"lib.rs\""
-msgstr ""
+msgstr "\"lib.rs\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "\"lib.rs.h\""
-msgstr ""
+msgstr "\"lib.rs.h\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "// Generate the C++ code that Rust calls into.\n"
-msgstr ""
+msgstr "// Generate the C++ code that Rust calls into.\n"
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "\"$(location cxxbridge) $(in) > $(out)\""
-msgstr ""
+msgstr "\"$(location cxxbridge) $(in) > $(out)\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "\"lib.rs.cc\""
-msgstr ""
+msgstr "\"lib.rs.cc\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid ""
 "The `cxxbridge` tool is a standalone tool that generates the C++ side of the "
 "bridge module. It is included in Android and available as a Soong tool."
 msgstr ""
+"`cxxbridge` 是用來產生 C++ 端橋接模組的獨立工具，屬於 Android 的一部分，並以 "
+"Soong 工具的形式提供。"
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid ""
@@ -13429,23 +13568,25 @@ msgid ""
 "named `lib.rs.h` and your source file will be named `lib.rs.cc`. This naming "
 "convention isn't enforced, though."
 msgstr ""
+"按照慣例，如果 Rust 來源檔案是 `lib.rs`，標頭檔案會命名為 `lib.rs.h`，來源檔"
+"案的名稱則是 `lib.rs.cc`。不過，系統不會強制執行這項命名慣例。"
 
 #: src/android/interoperability/cpp/android-build-rust.md
 msgid ""
 "Create a `rust_binary` that depends on `libcxx` and your `cc_library_static`."
-msgstr ""
+msgstr "建立依附於 `libcxx` 和 `cc_library_static` 的 rust_binary`。"
 
 #: src/android/interoperability/cpp/android-build-rust.md
 msgid "\"cxx_test\""
-msgstr ""
+msgstr "\"cxx_test\""
 
 #: src/android/interoperability/cpp/android-build-rust.md
 msgid "\"libcxx\""
-msgstr ""
+msgstr "\"libcxx\""
 
 #: src/android/interoperability/java.md
 msgid "Interoperability with Java"
-msgstr ""
+msgstr "與 Java 的互通性"
 
 #: src/android/interoperability/java.md
 msgid ""
@@ -13453,92 +13594,97 @@ msgid ""
 "wikipedia.org/wiki/Java_Native_Interface). The [`jni` crate](https://docs.rs/"
 "jni/) allows you to create a compatible library."
 msgstr ""
+"Java 可透過 [Java 原生介面 (JNI)](https://en.wikipedia.org/wiki/"
+"Java_Native_Interface) 載入共用物件。[`jni` Crate](https://docs.rs/jni/) 可用"
+"來建立相容的程式庫。"
 
 #: src/android/interoperability/java.md
 msgid "First, we create a Rust function to export to Java:"
-msgstr ""
+msgstr "首先，要建立用來匯出至 Java 的 Rust 函式："
 
 #: src/android/interoperability/java.md
 msgid "_interoperability/java/src/lib.rs_:"
-msgstr ""
+msgstr "__interoperability/java/src/lib.rs："
 
 #: src/android/interoperability/java.md
 msgid "//! Rust <-> Java FFI demo.\n"
-msgstr ""
+msgstr "//! Rust <-> Java FFI demo.\n"
 
 #: src/android/interoperability/java.md
 msgid "/// HelloWorld::hello method implementation.\n"
-msgstr ""
+msgstr "/// HelloWorld::hello method implementation.\n"
 
 #: src/android/interoperability/java.md
 msgid "\"system\""
-msgstr ""
+msgstr "\"system\""
 
 #: src/android/interoperability/java.md
 msgid "\"Hello, {input}!\""
-msgstr ""
+msgstr "\"Hello, {input}!\""
 
 #: src/android/interoperability/java.md
 msgid "_interoperability/java/Android.bp_:"
-msgstr ""
+msgstr "__interoperability/java/Android.bp："
 
 #: src/android/interoperability/java.md
 msgid "\"libhello_jni\""
-msgstr ""
+msgstr "\"libhello_jni\""
 
 #: src/android/interoperability/java.md
 msgid "\"hello_jni\""
-msgstr ""
+msgstr "\"hello_jni\""
 
 #: src/android/interoperability/java.md
 msgid "\"libjni\""
-msgstr ""
+msgstr "\"libjni\""
 
 #: src/android/interoperability/java.md
 msgid "We then call this function from Java:"
-msgstr ""
+msgstr "接著，我們會從 Java 呼叫這個函式："
 
 #: src/android/interoperability/java.md
 msgid "_interoperability/java/HelloWorld.java_:"
-msgstr ""
+msgstr "__interoperability/java/HelloWorld.java："
 
 #: src/android/interoperability/java.md
 msgid "\"helloworld_jni\""
-msgstr ""
+msgstr "\"helloworld_jni\""
 
 #: src/android/interoperability/java.md
-#, fuzzy
 msgid "\"HelloWorld.java\""
-msgstr "Hello World!"
+msgstr "\"HelloWorld.java\""
 
 #: src/android/interoperability/java.md
-#, fuzzy
 msgid "\"HelloWorld\""
-msgstr "Hello World!"
+msgstr "\"HelloWorld\""
 
 #: src/android/interoperability/java.md
 msgid "Finally, you can build, sync, and run the binary:"
-msgstr ""
+msgstr "最後，您可以建構、同步處理及執行二進位檔："
 
 #: src/exercises/android/morning.md
 msgid ""
 "This is a group exercise: We will look at one of the projects you work with "
 "and try to integrate some Rust into it. Some suggestions:"
 msgstr ""
+"這是小組練習：我們會查看您的其中一項專案，嘗試將一些 Rust 整合至該專案。建議"
+"事項："
 
 #: src/exercises/android/morning.md
 msgid "Call your AIDL service with a client written in Rust."
-msgstr ""
+msgstr "使用以 Rust 編寫的用戶端呼叫 AIDL 服務。"
 
 #: src/exercises/android/morning.md
 msgid "Move a function from your project to Rust and call it."
-msgstr ""
+msgstr "將函式從專案移至 Rust，並呼叫該函式。"
 
 #: src/exercises/android/morning.md
 msgid ""
 "No solution is provided here since this is open-ended: it relies on someone "
 "in the class having a piece of code which you can turn in to Rust on the fly."
 msgstr ""
+"這裡未提供解決方案，因為這是開放式練習：您需要使用班上同學的程式碼當場轉換為 "
+"Rust。"
 
 #: src/chromium.md
 msgid "Welcome to Rust in Chromium"
