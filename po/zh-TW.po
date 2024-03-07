@@ -9177,9 +9177,8 @@ msgid "b\"hello\""
 msgstr ""
 
 #: src/welcome-day-4.md
-#, fuzzy
 msgid "Welcome to Day 4"
-msgstr "歡迎參加第 1 天課程"
+msgstr "歡迎參加第 4 天課程"
 
 #: src/welcome-day-4.md
 #, fuzzy
@@ -9189,16 +9188,15 @@ msgstr "今天我們會探討一些有關 Rust 的進階主題："
 
 #: src/welcome-day-4.md
 msgid "Iterators: a deep dive on the `Iterator` trait."
-msgstr ""
+msgstr "疊代器：深入探討 `Iterator` 特徵。"
 
 #: src/welcome-day-4.md
 msgid "Modules and visibility."
-msgstr ""
+msgstr "模組和可見性。"
 
 #: src/welcome-day-4.md
-#, fuzzy
 msgid "Testing."
-msgstr "測試"
+msgstr "測試。"
 
 #: src/welcome-day-4.md
 msgid "Error handling: panics, `Result`, and the try operator `?`."
@@ -9207,46 +9205,46 @@ msgstr "錯誤處理：恐慌、`Result`，以及 try 運算子 `?`。"
 #: src/welcome-day-4.md
 msgid ""
 "Unsafe Rust: the escape hatch when you can't express yourself in safe Rust."
-msgstr ""
+msgstr "不安全的 Rust：不能用安全的 Rust 表示時的應急方法。"
 
 #: src/welcome-day-4.md
 msgid "[Welcome](./welcome-day-4.md) (3 minutes)"
-msgstr ""
+msgstr "[歡迎](./welcome-day-4.md) (3 分鐘)"
 
 #: src/welcome-day-4.md
 msgid "[Iterators](./iterators.md) (45 minutes)"
-msgstr ""
+msgstr "[疊代器](./iterators.md) (45 分鐘)"
 
 #: src/welcome-day-4.md
 msgid "[Modules](./modules.md) (40 minutes)"
-msgstr ""
+msgstr "[模組](./modules.md) (40 分鐘)"
 
 #: src/welcome-day-4.md
 msgid "[Testing](./testing.md) (45 minutes)"
-msgstr ""
+msgstr "[測試](./testing.md) (45 分鐘)"
 
 #: src/welcome-day-4.md
 msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 40 "
 "minutes"
-msgstr ""
+msgstr "加上 10 分鐘的休息時間，這個課程大約需要 2 小時 40 分鐘"
 
 #: src/iterators.md
 msgid "[Iterator](./iterators/iterator.md) (5 minutes)"
-msgstr ""
+msgstr "[疊代器](./iterators/iterator.md) (5 分鐘)"
 
 #: src/iterators.md
 msgid "[IntoIterator](./iterators/intoiterator.md) (5 minutes)"
-msgstr ""
+msgstr "[IntoIterator](./iterators/intoiterator.md) (5 分鐘)"
 
 #: src/iterators.md
 msgid "[FromIterator](./iterators/fromiterator.md) (5 minutes)"
-msgstr ""
+msgstr "[FromIterator](./iterators/fromiterator.md) (5 分鐘)"
 
 #: src/iterators.md
 msgid ""
 "[Exercise: Iterator Method Chaining](./iterators/exercise.md) (30 minutes)"
-msgstr ""
+msgstr "[練習：疊代器方法鏈結](./iterators/exercise.md) (30 分鐘)"
 
 #: src/iterators/iterator.md
 msgid ""
@@ -9255,10 +9253,13 @@ msgid ""
 "method and provides lots of methods. Many standard library types implement "
 "`Iterator`, and you can implement it yourself, too:"
 msgstr ""
+"[`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) 特徵可讓"
+"您對集合中的值進行疊代作業。這需要用到 `next` 方法，且會提供大量方法。許多標"
+"準程式庫型別都能實作 `Iterator`，而您也可以自行實作："
 
 #: src/iterators/iterator.md
 msgid "\"fib({i}): {n}\""
-msgstr ""
+msgstr "\"fib({i}): {n}\""
 
 #: src/iterators/iterator.md
 #, fuzzy
@@ -9298,7 +9299,7 @@ msgstr ""
 
 #: src/iterators/intoiterator.md
 msgid "\"point = {x}, {y}\""
-msgstr ""
+msgstr "\"point = {x}, {y}\""
 
 #: src/iterators/intoiterator.md
 #, fuzzy
@@ -9326,19 +9327,23 @@ msgstr ""
 
 #: src/iterators/intoiterator.md
 msgid "The example iterates over all combinations of x and y coordinates."
-msgstr ""
+msgstr "此範例會對 x 和 y 座標的所有組合進行疊代。"
 
 #: src/iterators/intoiterator.md
 msgid ""
 "Try iterating over the grid twice in `main`. Why does this fail? Note that "
 "`IntoIterator::into_iter` takes ownership of `self`."
 msgstr ""
+"請嘗試在 `main` 中對格線疊代兩次。想想為什麼這樣會失敗？請注意，"
+"`IntoIterator::into_iter` 會取得 `self` 的擁有權。"
 
 #: src/iterators/intoiterator.md
 msgid ""
 "Fix this issue by implementing `IntoIterator` for `&Grid` and storing a "
 "reference to the `Grid` in `GridIter`."
 msgstr ""
+"如要修正此問題，請針對 `&Grid` 實作 `IntoIterator`，並將 `Grid` 的參照儲存在 "
+"`GridIter` 中。"
 
 #: src/iterators/intoiterator.md
 msgid ""
@@ -9347,6 +9352,9 @@ msgid ""
 "elements from that vector. Use `for e in &some_vector` instead, to iterate "
 "over references to elements of `some_vector`."
 msgstr ""
+"標準程式庫型別可能會發生同樣的問題，也就是 `for e in some_vector` 會取得 "
+"`some_vector` 的擁有權，並對該向量內擁有的元素進行疊代。因此，請改用 `for e "
+"in &some_vector` 疊代處理對 `some_vector` 元素的參照。"
 
 #: src/iterators/fromiterator.md
 msgid "FromIterator"
@@ -9364,7 +9372,7 @@ msgstr ""
 
 #: src/iterators/fromiterator.md
 msgid "\"prime_squares: {prime_squares:?}\""
-msgstr ""
+msgstr "\"prime_squares: {prime_squares:?}\""
 
 #: src/iterators/fromiterator.md
 #, fuzzy
@@ -9373,7 +9381,7 @@ msgstr "`Iterator`"
 
 #: src/iterators/fromiterator.md
 msgid "There are two ways to specify `B` for this method:"
-msgstr ""
+msgstr "您可以透過兩種方式為這個方法指定 `B`："
 
 #: src/iterators/fromiterator.md
 msgid ""
@@ -9381,12 +9389,16 @@ msgid ""
 "shown. The `_` shorthand used here lets Rust infer the type of the `Vec` "
 "elements."
 msgstr ""
+"依指示使用「turbofish」：`some_iterator.collect::<COLLECTION_TYPE>()`。在這裡"
+"使用 `_` 簡寫，可讓 Rust 推論 `Vec` 元素的型別。"
 
 #: src/iterators/fromiterator.md
 msgid ""
 "With type inference: `let prime_squares: Vec<_> = some_iterator.collect()`. "
 "Rewrite the example to use this form."
 msgstr ""
+"使用型別推論：`let prime_squares: Vec<_> = some_iterator.collect()`。請重新編"
+"寫這個例子，採用這個形式。"
 
 #: src/iterators/fromiterator.md
 #, fuzzy
@@ -9426,27 +9438,32 @@ msgid ""
 "///\n"
 "/// Element `n` of the result is `values[(n+offset)%len] - values[n]`.\n"
 msgstr ""
+"/// Calculate the differences between elements of `values` offset by "
+"`offset`,\n"
+"/// wrapping around from the end of `values` to the beginning.\n"
+"///\n"
+"/// Element `n` of the result is `values[(n+offset)%len] - values[n]`.\n"
 
 #: src/modules.md
 msgid "[Modules](./modules/modules.md) (3 minutes)"
-msgstr ""
+msgstr "[模組](./modules/modules.md) (3 分鐘)"
 
 #: src/modules.md
 msgid "[Filesystem Hierarchy](./modules/filesystem.md) (5 minutes)"
-msgstr ""
+msgstr "[檔案系統階層](./modules/filesystem.md) (5 分鐘)"
 
 #: src/modules.md
 msgid "[Visibility](./modules/visibility.md) (5 minutes)"
-msgstr ""
+msgstr "[可見性](./modules/visibility.md) (5 分鐘)"
 
 #: src/modules.md
 msgid "[use, super, self](./modules/paths.md) (10 minutes)"
-msgstr ""
+msgstr "[use、super、self](./modules/paths.md) (10 分鐘)"
 
 #: src/modules.md
 msgid ""
 "[Exercise: Modules for a GUI Library](./modules/exercise.md) (15 minutes)"
-msgstr ""
+msgstr "[練習：GUI 程式庫的模組](./modules/exercise.md) (15 分鐘)"
 
 #: src/modules/modules.md
 msgid "We have seen how `impl` blocks let us namespace functions to a type."
@@ -9458,11 +9475,11 @@ msgstr "同樣地，`mod` 可讓我們建立型別和函式的命名空間："
 
 #: src/modules/modules.md
 msgid "\"In the foo module\""
-msgstr ""
+msgstr "\"In the foo module\""
 
 #: src/modules/modules.md
 msgid "\"In the bar module\""
-msgstr ""
+msgstr "\"In the bar module\""
 
 #: src/modules/modules.md
 msgid ""
@@ -9525,18 +9542,21 @@ msgid ""
 "germination\n"
 "//! implementation.\n"
 msgstr ""
+"//! This module implements the garden, including a highly performant "
+"germination\n"
+"//! implementation.\n"
 
 #: src/modules/filesystem.md
 msgid "// Re-export types from this module.\n"
-msgstr ""
+msgstr "// Re-export types from this module.\n"
 
 #: src/modules/filesystem.md
 msgid "/// Sow the given seed packets.\n"
-msgstr ""
+msgstr "/// Sow the given seed packets.\n"
 
 #: src/modules/filesystem.md
 msgid "/// Harvest the produce in the garden that is ready.\n"
-msgstr ""
+msgstr "/// Harvest the produce in the garden that is ready.\n"
 
 #: src/modules/filesystem.md
 msgid ""
@@ -9566,7 +9586,7 @@ msgstr "Rust 尋找模組的位置可透過編譯器指令變更："
 
 #: src/modules/filesystem.md
 msgid "\"some/path.rs\""
-msgstr ""
+msgstr "\"some/path.rs\""
 
 #: src/modules/filesystem.md
 msgid ""
@@ -9596,19 +9616,19 @@ msgstr "換句話說，如果項目顯示在 `foo` 模組中，則會出現在 `
 
 #: src/modules/visibility.md
 msgid "\"outer::private\""
-msgstr ""
+msgstr "\"outer::private\""
 
 #: src/modules/visibility.md
 msgid "\"outer::public\""
-msgstr ""
+msgstr "\"outer::public\""
 
 #: src/modules/visibility.md
 msgid "\"outer::inner::private\""
-msgstr ""
+msgstr "\"outer::inner::private\""
 
 #: src/modules/visibility.md
 msgid "\"outer::inner::public\""
-msgstr ""
+msgstr "\"outer::inner::public\""
 
 #: src/modules/visibility.md
 msgid "Use the `pub` keyword to make modules public."
@@ -9644,7 +9664,7 @@ msgstr "無論如何，都請務必將瀏覽權限授予祖系模組 (及其所�
 
 #: src/modules/paths.md
 msgid "use, super, self"
-msgstr ""
+msgstr "use、super、self"
 
 #: src/modules/paths.md
 msgid ""
@@ -9691,12 +9711,14 @@ msgid ""
 "It is common to \"re-export\" symbols at a shorter path. For example, the "
 "top-level `lib.rs` in a crate might have"
 msgstr ""
+"常見的方式是在較短的路徑上「重新導出」符號。舉例來說，Crate 中的頂層 `lib."
+"rs` 可能有"
 
 #: src/modules/paths.md
 msgid ""
 "making `DiskStorage` and `NetworkStorage` available to other crates with a "
 "convenient, short path."
-msgstr ""
+msgstr "透過便捷的短路徑，向其他 Crate 提供 `DiskStorage` 和`NetworkStorage`。"
 
 #: src/modules/paths.md
 msgid ""
@@ -9706,6 +9728,10 @@ msgid ""
 "`read_to_string` method on a type implementing the `Read` trait, you need to "
 "`use std::io::Read`."
 msgstr ""
+"在大部分情況下，只有顯示在模組中的項目需要 `use`。但是，如要呼叫特徵的任何方"
+"法，該特徵必須處於範圍之內，即使實作該特徵的型別已在範圍內也一樣。舉例來說，"
+"如要在實作 `Read` 特徵的型別上使用 `read_to_string` 方法，您需要 `use std::"
+"io::Read`。"
 
 #: src/modules/paths.md
 msgid ""
@@ -9713,6 +9739,8 @@ msgid ""
 "discouraged because it is not clear which items are imported, and those "
 "might change over time."
 msgstr ""
+"`use` 陳述式可能包含萬用字元，例如 `use std::io::*`。不過，這不是建議的做法，"
+"因為我們無法確定匯入了哪些項目，而且這些項目可能隨著時間改變。"
 
 #: src/modules/exercise.md
 msgid ""
@@ -9720,12 +9748,16 @@ msgid ""
 "This library defines a `Widget` trait and a few implementations of that "
 "trait, as well as a `main` function."
 msgstr ""
+"在本練習中，您將重新編排小型的 GUI 程式庫實作項目。這個程式庫定義了 `Widget` "
+"特徵、該特徵的幾個實作項目，以及 `main` 函式。"
 
 #: src/modules/exercise.md
 msgid ""
 "It is typical to put each type or set of closely-related types into its own "
 "module, so each widget type should get its own module."
 msgstr ""
+"通常，每種型別 (或一組密切相關的型別) 會放入各自的模組中，因此每個小工具型別"
+"應該都有自己的模組。"
 
 #: src/modules/exercise.md
 #, fuzzy
@@ -9737,40 +9769,42 @@ msgid ""
 "The Rust playground only supports one file, so you will need to make a Cargo "
 "project on your local filesystem:"
 msgstr ""
+"Rust Playground 僅支援一個檔案，因此您需要在本機檔案系統中建立 Cargo 專案："
 
 #: src/modules/exercise.md
 msgid ""
 "Edit the resulting `src/main.rs` to add `mod` statements, and add additional "
 "files in the `src` directory."
 msgstr ""
+"請編輯產生的 `src/main.rs`，新增 `mod` 陳述式並在 `src` 目錄中新增其他檔案。"
 
 #: src/modules/exercise.md
 msgid "Source"
-msgstr ""
+msgstr "來源"
 
 #: src/modules/exercise.md
 msgid "Here's the single-module implementation of the GUI library:"
-msgstr ""
+msgstr "以下是 GUI 程式庫的單一模組實作項目："
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "/// Natural width of `self`.\n"
-msgstr ""
+msgstr "/// Natural width of `self`.\n"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "/// Draw the widget into a buffer.\n"
-msgstr ""
+msgstr "/// Draw the widget into a buffer.\n"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "/// Draw the widget on standard output.\n"
-msgstr ""
+msgstr "/// Draw the widget on standard output.\n"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"{buffer}\""
-msgstr ""
+msgstr "\"{buffer}\""
 
 #: src/modules/exercise.md
 msgid "// Add 4 paddings for borders\n"
-msgstr ""
+msgstr "// Add 4 paddings for borders\n"
 
 #: src/modules/exercise.md
 msgid ""
@@ -9778,51 +9812,54 @@ msgid ""
 "the\n"
 "        // ?-operator here instead of .unwrap().\n"
 msgstr ""
+"// TODO: Change draw_into to return Result<(), std::fmt::Error>. Then use "
+"the\n"
+"        // ?-operator here instead of .unwrap().\n"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"+-{:-<inner_width$}-+\""
-msgstr ""
+msgstr "\"+-{:-<inner_width$}-+\""
 
 #: src/modules/exercise.md src/modules/solution.md src/testing/unit-tests.md
 #: src/testing/solution.md
 msgid "\"\""
-msgstr ""
+msgstr "\"\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"| {:^inner_width$} |\""
-msgstr ""
+msgstr "\"| {:^inner_width$} |\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"+={:=<inner_width$}=+\""
-msgstr ""
+msgstr "\"+={:=<inner_width$}=+\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"| {:inner_width$} |\""
-msgstr ""
+msgstr "\"| {:inner_width$} |\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "// add a bit of padding\n"
-msgstr ""
+msgstr "// add a bit of padding\n"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"+{:-<width$}+\""
-msgstr ""
+msgstr "\"+{:-<width$}+\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"|{:^width$}|\""
-msgstr ""
+msgstr "\"|{:^width$}|\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"Rust GUI Demo 1.23\""
-msgstr ""
+msgstr "\"Rust GUI Demo 1.23\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"This is a small text GUI demo.\""
-msgstr ""
+msgstr "\"This is a small text GUI demo.\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"Click me!\""
-msgstr ""
+msgstr "\"Click me!\""
 
 #: src/modules/exercise.md
 msgid ""
@@ -9830,60 +9867,64 @@ msgid ""
 "and get accustomed to the required `mod`, `use`, and `pub` declarations. "
 "Afterward, discuss what organizations are most idiomatic."
 msgstr ""
+"請鼓勵學生以自在的方式分割程式碼，習慣必要的 `mod`、`use` 和 `pub` 宣告。之"
+"後，討論哪些組織結構最為慣用。"
 
 #: src/modules/solution.md
 msgid "// ---- src/widgets.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets.rs ----\n"
 
 #: src/modules/solution.md
 msgid "// ---- src/widgets/label.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets/label.rs ----\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR_END: Label-width\n"
-msgstr ""
+msgstr "// ANCHOR_END: Label-width\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR: Label-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR: Label-draw_into\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR_END: Label-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR_END: Label-draw_into\n"
 
 #: src/modules/solution.md
 msgid "// ---- src/widgets/button.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets/button.rs ----\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR_END: Button-width\n"
-msgstr ""
+msgstr "// ANCHOR_END: Button-width\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR: Button-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR: Button-draw_into\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR_END: Button-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR_END: Button-draw_into\n"
 
 #: src/modules/solution.md
 msgid "// ---- src/widgets/window.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets/window.rs ----\n"
 
 #: src/modules/solution.md
 msgid ""
 "// ANCHOR_END: Window-width\n"
 "        // Add 4 paddings for borders\n"
 msgstr ""
+"// ANCHOR_END: Window-width\n"
+"        // Add 4 paddings for borders\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR: Window-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR: Window-draw_into\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR_END: Window-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR_END: Window-draw_into\n"
 
 #: src/modules/solution.md
 msgid ""
@@ -9891,26 +9932,29 @@ msgid ""
 "        // draw_into to return Result<(), std::fmt::Error>. Then use\n"
 "        // the ?-operator here instead of .unwrap().\n"
 msgstr ""
+"// TODO: after learning about error handling, you can change\n"
+"        // draw_into to return Result<(), std::fmt::Error>. Then use\n"
+"        // the ?-operator here instead of .unwrap().\n"
 
 #: src/modules/solution.md
 msgid "// ---- src/main.rs ----\n"
-msgstr ""
+msgstr "// ---- src/main.rs ----\n"
 
 #: src/testing.md
 msgid "[Test Modules](./testing/unit-tests.md) (5 minutes)"
-msgstr ""
+msgstr "[測試模組](./testing/unit-tests.md) (5 分鐘)"
 
 #: src/testing.md
 msgid "[Other Types of Tests](./testing/other.md) (5 minutes)"
-msgstr ""
+msgstr "[其他測試類型](./testing/other.md) (5 分鐘)"
 
 #: src/testing.md
 msgid "[Compiler Lints and Clippy](./testing/lints.md) (3 minutes)"
-msgstr ""
+msgstr "[編譯器 Lint 和 Clippy](./testing/lints.md) (3 分鐘)"
 
 #: src/testing.md
 msgid "[Exercise: Luhn Algorithm](./testing/exercise.md) (30 minutes)"
-msgstr ""
+msgstr "[練習：盧恩演算法](./testing/exercise.md) (30 分鐘)"
 
 #: src/testing/unit-tests.md
 msgid "Unit Tests"
@@ -9934,6 +9978,8 @@ msgid ""
 "`tests` module, using `#[cfg(test)]` to conditionally compile them only when "
 "building tests."
 msgstr ""
+"測試會以 `#[test]` 標示。單元測試通常會位於巢狀的 `tests` 模組中，使用 "
+"`#[cfg(test)]` 可有條件地編譯測試 (僅限在建構測試時)。"
 
 #: src/testing/unit-tests.md
 #, fuzzy
@@ -9950,7 +9996,7 @@ msgstr "只有在執行 `cargo test` 時，`#[cfg(test)]` 屬性才會生效。"
 
 #: src/testing/unit-tests.md
 msgid "Run the tests in the playground in order to show their results."
-msgstr ""
+msgstr "請在 Playground 中執行測試以顯示結果。"
 
 #: src/testing/other.md
 msgid "Integration Tests"
@@ -9966,7 +10012,7 @@ msgstr "在 `tests/` 之下建立一個 `.rs` 檔案："
 
 #: src/testing/other.md
 msgid "// tests/my_library.rs\n"
-msgstr ""
+msgstr "// tests/my_library.rs\n"
 
 #: src/testing/other.md
 msgid "These tests only have access to the public API of your crate."
@@ -9990,6 +10036,13 @@ msgid ""
 "/// assert_eq!(shorten_string(\"Hello World\", 20), \"Hello World\");\n"
 "/// ```\n"
 msgstr ""
+"/// Shortens a string to the given length.\n"
+"///\n"
+"/// ```\n"
+"/// # use playground::shorten_string;\n"
+"/// assert_eq!(shorten_string(\"Hello World\", 5), \"Hello\");\n"
+"/// assert_eq!(shorten_string(\"Hello World\", 20), \"Hello World\");\n"
+"/// ```\n"
 
 #: src/testing/other.md
 msgid "Code blocks in `///` comments are automatically seen as Rust code."
@@ -10003,7 +10056,7 @@ msgstr "系統會編譯程式碼，執行 `cargo test` 時會一併執行這些�
 msgid ""
 "Adding `#` in the code will hide it from the docs, but will still compile/"
 "run it."
-msgstr ""
+msgstr "程式碼中新增 `#` 後，即可從文件中隱藏，但仍會編譯/執行。"
 
 #: src/testing/other.md
 msgid ""
@@ -10020,10 +10073,12 @@ msgid ""
 "built-in lints. [Clippy](https://doc.rust-lang.org/clippy/) provides even "
 "more lints, organized into groups that can be enabled per-project."
 msgstr ""
+"Rust 編譯器會產生高品質的錯誤訊息，以及實用的內建 Lint。[Clippy](https://doc."
+"rust-lang.org/clippy/) 則提供更多 Lint，且會整理成可供每個專案啟用的群組。"
 
 #: src/testing/lints.md
 msgid "\"X probably fits in a u16, right? {}\""
-msgstr ""
+msgstr "\"X probably fits in a u16, right? {}\""
 
 #: src/testing/lints.md
 msgid ""
@@ -10031,6 +10086,8 @@ msgid ""
 "visible here, but those will not be shown once the code compiles. Switch to "
 "the Playground site to show those lints."
 msgstr ""
+"請執行程式碼範例並查看錯誤訊息。雖然這裡也能看到 Lint，但程式碼開始編譯後，"
+"Lint 就不會再顯示。因此若要查看這些 Lint，請改用 Playground 網站。"
 
 #: src/testing/lints.md
 msgid ""
@@ -10038,12 +10095,15 @@ msgid ""
 "clippy warnings. Clippy has extensive documentation of its lints, and adds "
 "new lints (including default-deny lints) all the time."
 msgstr ""
+"解析 Lint 後，請在 Playground 網站上執行 `clippy`，顯示 clippy 警告。Clippy "
+"提供大量 Lint 說明文件，且會一直添加新的 Lint (包括預設拒絕的 Lint)。"
 
 #: src/testing/lints.md
 msgid ""
 "Note that errors or warnings with `help: ...` can be fixed with `cargo fix` "
 "or via your editor."
 msgstr ""
+"請注意，您可以使用 `cargo fix` 或編輯器，修正含有 `help: ...` 的錯誤或警告。"
 
 #: src/testing/exercise.md
 msgid "Luhn Algorithm"
@@ -10093,6 +10153,8 @@ msgid ""
 "along with two basic unit tests that confirm that most the algorithm is "
 "implemented correctly."
 msgstr ""
+"這裡提供的程式碼是盧恩演算法的錯誤實作示例，另外還有兩個基本單元測試，用於確"
+"認大部分演算法已正確實作。"
 
 #: src/testing/exercise.md
 #, fuzzy
@@ -10105,113 +10167,114 @@ msgstr ""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"4263 9826 4026 9299\""
-msgstr ""
+msgstr "\"4263 9826 4026 9299\""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"4539 3195 0343 6467\""
-msgstr ""
+msgstr "\"4539 3195 0343 6467\""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"7992 7398 713\""
-msgstr ""
+msgstr "\"7992 7398 713\""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"4223 9826 4026 9299\""
-msgstr ""
+msgstr "\"4223 9826 4026 9299\""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"4539 3195 0343 6476\""
-msgstr ""
+msgstr "\"4539 3195 0343 6476\""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"8273 1232 7352 0569\""
-msgstr ""
+msgstr "\"8273 1232 7352 0569\""
 
 #: src/testing/solution.md
 msgid "// This is the buggy version that appears in the problem.\n"
-msgstr ""
+msgstr "// This is the buggy version that appears in the problem.\n"
 
 #: src/testing/solution.md
 msgid "// This is the solution and passes all of the tests below.\n"
-msgstr ""
+msgstr "// This is the solution and passes all of the tests below.\n"
 
 #: src/testing/solution.md
 msgid "\"1234 5678 1234 5670\""
-msgstr ""
+msgstr "\"1234 5678 1234 5670\""
 
 #: src/testing/solution.md
 msgid "\"Is {cc_number} a valid credit card number? {}\""
-msgstr ""
+msgstr "\"Is {cc_number} a valid credit card number? {}\""
 
 #: src/testing/solution.md
 msgid "\"yes\""
-msgstr ""
+msgstr "\"yes\""
 
 #: src/testing/solution.md
 msgid "\"no\""
-msgstr ""
+msgstr "\"no\""
 
 #: src/testing/solution.md
 msgid "\"foo 0 0\""
-msgstr ""
+msgstr "\"foo 0 0\""
 
 #: src/testing/solution.md
 msgid "\" \""
-msgstr ""
+msgstr "\" \""
 
 #: src/testing/solution.md
 msgid "\"  \""
-msgstr ""
+msgstr "\"  \""
 
 #: src/testing/solution.md
 msgid "\"    \""
-msgstr ""
+msgstr "\"    \""
 
 #: src/testing/solution.md
 msgid "\"0\""
-msgstr ""
+msgstr "\"0\""
 
 #: src/testing/solution.md
 msgid "\" 0 0 \""
-msgstr ""
+msgstr "\" 0 0 \""
 
 #: src/welcome-day-4-afternoon.md
 msgid "[Error Handling](./error-handling.md) (55 minutes)"
-msgstr ""
+msgstr "[錯誤處理](./error-handling.md) (55 分鐘)"
 
 #: src/welcome-day-4-afternoon.md
 msgid "[Unsafe Rust](./unsafe-rust.md) (1 hour and 5 minutes)"
-msgstr ""
+msgstr "[不安全的 Rust](./unsafe-rust.md) (1 小時 5 分鐘)"
 
 #: src/error-handling.md
 msgid "[Panics](./error-handling/panics.md) (3 minutes)"
-msgstr ""
+msgstr "[恐慌](./error-handling/panics.md) (3 分鐘)"
 
 #: src/error-handling.md
 msgid "[Try Operator](./error-handling/try.md) (5 minutes)"
-msgstr ""
+msgstr "[嘗試運算子](./error-handling/try.md) (5 分鐘)"
 
 #: src/error-handling.md
 msgid "[Try Conversions](./error-handling/try-conversions.md) (5 minutes)"
-msgstr ""
+msgstr "[嘗試轉換](./error-handling/try-conversions.md) (5 分鐘)"
 
 #: src/error-handling.md
 msgid "[Error Trait](./error-handling/error.md) (5 minutes)"
-msgstr ""
+msgstr "[錯誤特徵](./error-handling/error.md) (5 分鐘)"
 
 #: src/error-handling.md
 msgid ""
 "[thiserror and anyhow](./error-handling/thiserror-and-anyhow.md) (5 minutes)"
 msgstr ""
+"[thiserror 和 anyhow](./error-handling/thiserror-and-anyhow.md) (5 分鐘)"
 
 #: src/error-handling.md
 msgid ""
 "[Exercise: Rewriting with Result](./error-handling/exercise.md) (30 minutes)"
-msgstr ""
+msgstr "[練習：根據結果重新編寫](./error-handling/exercise.md) (30 分鐘)"
 
 #: src/error-handling/panics.md
 msgid "Rust handles fatal errors with a \"panic\"."
-msgstr ""
+msgstr "Rust 會透過「恐慌」來處理嚴重錯誤。"
 
 #: src/error-handling/panics.md
 msgid "Rust will trigger a panic if a fatal error happens at runtime:"
@@ -10219,7 +10282,7 @@ msgstr "如果執行階段發生重大錯誤，Rust 就會觸發恐慌："
 
 #: src/error-handling/panics.md
 msgid "\"v[100]: {}\""
-msgstr ""
+msgstr "\"v[100]: {}\""
 
 #: src/error-handling/panics.md
 msgid "Panics are for unrecoverable and unexpected errors."
@@ -10231,21 +10294,21 @@ msgstr "恐慌可以反映程式中的錯誤。"
 
 #: src/error-handling/panics.md
 msgid "Runtime failures like failed bounds checks can panic"
-msgstr ""
+msgstr "執行階段失敗 (例如失敗的邊界檢查) 可能會觸發恐慌"
 
 #: src/error-handling/panics.md
 msgid "Assertions (such as `assert!`) panic on failure"
-msgstr ""
+msgstr "斷言 (例如 `assert!`) 會在失敗時發生恐慌"
 
 #: src/error-handling/panics.md
 msgid "Purpose-specific panics can use the `panic!` macro."
-msgstr ""
+msgstr "針對特定用途的恐慌可以使用 `panic!` 巨集。"
 
 #: src/error-handling/panics.md
 msgid ""
 "A panic will \"unwind\" the stack, dropping values just as if the functions "
 "had returned."
-msgstr ""
+msgstr "恐慌會「解開」堆疊，此行為捨棄值的方式就像函式已傳回一樣。"
 
 #: src/error-handling/panics.md
 msgid ""
@@ -10260,21 +10323,21 @@ msgstr "根據預設，恐慌會造成解開堆疊。您可以擷取這類動作
 
 #: src/error-handling/panics.md
 msgid "\"No problem here!\""
-msgstr ""
+msgstr "\"No problem here!\""
 
 #: src/error-handling/panics.md
 msgid "\"{result:?}\""
-msgstr ""
+msgstr "\"{result:?}\""
 
 #: src/error-handling/panics.md
 msgid "\"oh no!\""
-msgstr ""
+msgstr "\"oh no!\""
 
 #: src/error-handling/panics.md
 msgid ""
 "Catching is unusual; do not attempt to implement exceptions with "
 "`catch_unwind`!"
-msgstr ""
+msgstr "捕獲是異常行為；請勿嘗試以 `catch_unwind` 實作例外狀況！"
 
 #: src/error-handling/panics.md
 msgid ""
@@ -10294,6 +10357,9 @@ msgid ""
 "The try-operator `?` is used to return errors to the caller. It lets you "
 "turn the common"
 msgstr ""
+"連線遭拒或找不到檔案等執行階段錯誤，都是透過 `Result` 型別來處理，但每次呼叫"
+"時都比對此類型可能相當麻煩。try 運算子 `?` 的用途是將錯誤傳回呼叫端，可讓您將"
+"下列常見的程式碼"
 
 #: src/error-handling/try.md
 msgid "into the much simpler"
@@ -10306,20 +10372,20 @@ msgstr "我們可以使用這個運算子，簡化錯誤處理程式碼："
 
 #: src/error-handling/try.md
 msgid "//fs::write(\"config.dat\", \"alice\").unwrap();\n"
-msgstr ""
+msgstr "//fs::write(\"config.dat\", \"alice\").unwrap();\n"
 
 #: src/error-handling/try.md src/error-handling/try-conversions.md
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "\"config.dat\""
-msgstr ""
+msgstr "\"config.dat\""
 
 #: src/error-handling/try.md src/error-handling/try-conversions.md
 msgid "\"username or error: {username:?}\""
-msgstr ""
+msgstr "\"username or error: {username:?}\""
 
 #: src/error-handling/try.md
 msgid "Simplify the `read_username` function to use `?`."
-msgstr ""
+msgstr "請簡化 `read_username` 函式，以便使用 `?`。"
 
 #: src/error-handling/try.md
 msgid "The `username` variable can be either `Ok(string)` or `Err(error)`."
@@ -10340,6 +10406,9 @@ msgid ""
 "The executable will print the `Err` variant and return a nonzero exit status "
 "on error."
 msgstr ""
+"請注意，只要 `main` 實作 `std::process:Termination`，便可傳回 `Result<(), "
+"E>`。實務上，這表示 `E` 會實作 `Debug`。執行檔將顯示 `Err` 變體，並在發生錯誤"
+"時傳回非零的結束狀態。"
 
 #: src/error-handling/try-conversions.md
 msgid ""
@@ -10362,16 +10431,16 @@ msgstr ""
 
 #: src/error-handling/try-conversions.md
 msgid "\"IO error: {e}\""
-msgstr ""
+msgstr "\"IO error: {e}\""
 
 #: src/error-handling/try-conversions.md
 msgid "\"Found no username in {path}\""
-msgstr ""
+msgstr "\"Found no username in {path}\""
 
 #: src/error-handling/try-conversions.md
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "//fs::write(\"config.dat\", \"\").unwrap();\n"
-msgstr ""
+msgstr "//fs::write(\"config.dat\", \"\").unwrap();\n"
 
 #: src/error-handling/try-conversions.md
 msgid ""
@@ -10381,12 +10450,18 @@ msgid ""
 "of type `Result<U, ErrorInner>` if `ErrorOuter` and `ErrorInner` are the "
 "same type or if `ErrorOuter` implements `From<ErrorInner>`."
 msgstr ""
+"`?` 運算子必須傳回與函式傳回類型相容的值。如果是 `Result`，表示錯誤類型必須相"
+"容。如果是傳回 `Result<T, ErrorOuter>` 的函式，當 `ErrorOuter` 和 "
+"`ErrorInner` 的型別相同、或者 `ErrorOuter` 實作 `From<ErrorInner>` 時，就只能"
+"在 `Result<U, ErrorInner>` 型別的值上使用 `?`。"
 
 #: src/error-handling/try-conversions.md
 msgid ""
 "A common alternative to a `From` implementation is `Result::map_err`, "
 "especially when the conversion only happens in one place."
 msgstr ""
+"`From` 實作的常見的替代方案是 `Result::map_err`，特別是當轉換只在單一位置發生"
+"時更是如此。"
 
 #: src/error-handling/try-conversions.md
 msgid ""
@@ -10394,6 +10469,8 @@ msgid ""
 "`Option<T>` can use the `?` operator on `Option<U>` for arbitrary `T` and "
 "`U` types."
 msgstr ""
+"`Option` 並沒有相容性規定。如果函式會傳回 `Option<T>`，可以在 `Option<U>` 上"
+"將 `?` 運算子用於任意的 `T` 和 `U` 型別。"
 
 #: src/error-handling/try-conversions.md
 msgid ""
@@ -10401,6 +10478,9 @@ msgid ""
 "However, `Option::ok_or` converts `Option` to `Result` whereas `Result::ok` "
 "turns `Result` into `Option`."
 msgstr ""
+"傳回 `Result` 的函式無法在 `Option` 上使用 `?`，反之亦然。不過，`Option::"
+"ok_or` 會將 `Option` 轉換為 `Result`，而 `Result::ok` 則將 `Result` 轉換為 "
+"`Option`。"
 
 #: src/error-handling/error.md
 msgid "Dynamic Error Types"
@@ -10419,25 +10499,27 @@ msgstr ""
 
 #: src/error-handling/error.md
 msgid "\"count.dat\""
-msgstr ""
+msgstr "\"count.dat\""
 
 #: src/error-handling/error.md
 msgid "\"1i3\""
-msgstr ""
+msgstr "\"1i3\""
 
 #: src/error-handling/error.md
 msgid "\"Count: {count}\""
-msgstr ""
+msgstr "\"Count: {count}\""
 
 #: src/error-handling/error.md
 msgid "\"Error: {err}\""
-msgstr ""
+msgstr "\"Error: {err}\""
 
 #: src/error-handling/error.md
 msgid ""
 "The `read_count` function can return `std::io::Error` (from file operations) "
 "or `std::num::ParseIntError` (from `String::parse`)."
 msgstr ""
+"`read_count` 函式可以傳回 `std::io::Error` (透過檔案作業) 或 `std::num::"
+"ParseIntError` (透過 `String::parse`)。"
 
 #: src/error-handling/error.md
 #, fuzzy
@@ -10460,6 +10542,9 @@ msgid ""
 "compatible with `no_std` in [nightly](https://github.com/rust-lang/rust/"
 "issues/103765) only."
 msgstr ""
+"定義自訂錯誤型別時，請務必實作 `std::error::Error` 特徵，這樣才能裝箱。不過，"
+"如果您需要支援 `no_std` 屬性，請留意 `std::error::Error` 特徵目前僅與[每夜版]"
+"(https://github.com/rust-lang/rust/issues/103765)中的 `no_std` 相容。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 #, fuzzy
@@ -10475,54 +10560,59 @@ msgid ""
 "`thiserror` is often used in libraries to create custom error types that "
 "implement `From<T>`."
 msgstr ""
+"`thiserror` 經常在程式庫中使用，目的是建立可實作 `From<T>` 的自訂錯誤型別。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid ""
 "`anyhow` is often used by applications to help with error handling in "
 "functions, including adding contextual information to your errors."
 msgstr ""
+"`anyhow` 經常由應用程式使用，目的是協助函式中的錯誤處理機制，包括為錯誤加上背"
+"景資訊。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "\"Found no username in {0}\""
-msgstr ""
+msgstr "\"Found no username in {0}\""
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "\"Failed to open {path}\""
-msgstr ""
+msgstr "\"Failed to open {path}\""
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "\"Failed to read\""
-msgstr ""
+msgstr "\"Failed to read\""
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "\"Username: {username}\""
-msgstr ""
+msgstr "\"Username: {username}\""
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "\"Error: {err:?}\""
-msgstr ""
+msgstr "\"Error: {err:?}\""
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "`thiserror`"
-msgstr ""
+msgstr "`thiserror`"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid ""
 "The `Error` derive macro is provided by `thiserror`, and has lots of useful "
 "attributes to help define error types in a compact way."
 msgstr ""
+"`Error` 衍生巨集是由 `thiserror` 提供，附有許多實用的屬性，有助於以精簡方式定"
+"義錯誤型別。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "The `std::error::Error` trait is derived automatically."
-msgstr ""
+msgstr "`std::error::Error` 特徵會自動衍生。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "The message from `#[error]` is used to derive the `Display` trait."
-msgstr ""
+msgstr "`#[error]` 的訊息則用於衍生 `Display` 特徵。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "`anyhow`"
-msgstr ""
+msgstr "`anyhow`"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid ""
@@ -10557,10 +10647,12 @@ msgid ""
 "`Option` types. `use anyhow::Context` is necessary to enable `.context()` "
 "and `.with_context()` on those types."
 msgstr ""
+"`anyhow::Context` 是針對標準 `Result` 和 `Option` 型別實作的特徵。如要啟用這"
+"些型別的 `.context()` 和 `.with_context()`，就必須使用 anyhow::Context。"
 
 #: src/error-handling/exercise.md
 msgid "Exercise: Rewriting with Result"
-msgstr ""
+msgstr "練習：根據結果重新編寫"
 
 #: src/error-handling/exercise.md
 msgid ""
@@ -10569,6 +10661,9 @@ msgid ""
 "error handling and propagate errors to a return from `main`. Feel free to "
 "use `thiserror` and `anyhow`."
 msgstr ""
+"以下程式碼實作一個非常簡單的運算式語言剖析器，但會藉由恐慌來處理錯誤。請重新"
+"編寫，改用慣用的錯誤處理機制，並將錯誤傳播至 `main` 的回傳陳述式。您可以自由"
+"使用 `thiserror` 和 `anyhow`。"
 
 #: src/error-handling/exercise.md
 msgid ""
@@ -10576,123 +10671,126 @@ msgid ""
 "working correctly, update `Tokenizer` to implement "
 "`Iterator<Item=Result<Token, TokenizerError>>` and handle that in the parser."
 msgstr ""
+"提示：首先請修正 `parse` 函式中的錯誤處理機制。確認一切正常運作後，更新 "
+"`Tokenizer` 即可實作 `Iterator<Item=Result<Token, TokenizerError>>`，並在剖析"
+"器中處理。"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "/// An arithmetic operator.\n"
-msgstr ""
+msgstr "/// An arithmetic operator.\n"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "/// A token in the expression language.\n"
-msgstr ""
+msgstr "/// A token in the expression language.\n"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "/// An expression in the expression language.\n"
-msgstr ""
+msgstr "/// An expression in the expression language.\n"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "/// A reference to a variable.\n"
-msgstr ""
+msgstr "/// A reference to a variable.\n"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "/// A literal number.\n"
-msgstr ""
+msgstr "/// A literal number.\n"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "/// A binary operation.\n"
-msgstr ""
+msgstr "/// A binary operation.\n"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "'z'"
-msgstr ""
+msgstr "'z'"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "'_'"
-msgstr ""
+msgstr "'_'"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "'+'"
-msgstr ""
+msgstr "'+'"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "'-'"
-msgstr ""
+msgstr "'-'"
 
 #: src/error-handling/exercise.md
 msgid "\"Unexpected character {c}\""
-msgstr ""
+msgstr "\"Unexpected character {c}\""
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "\"Unexpected end of input\""
-msgstr ""
+msgstr "\"Unexpected end of input\""
 
 #: src/error-handling/exercise.md
 msgid "\"Invalid 32-bit integer'\""
-msgstr ""
+msgstr "\"Invalid 32-bit integer'\""
 
 #: src/error-handling/exercise.md
 msgid "\"Unexpected token {tok:?}\""
-msgstr ""
+msgstr "\"Unexpected token {tok:?}\""
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "// Look ahead to parse a binary operation if present.\n"
-msgstr ""
+msgstr "// Look ahead to parse a binary operation if present.\n"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "\"10+foo+20-30\""
-msgstr ""
+msgstr "\"10+foo+20-30\""
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "\"{expr:?}\""
-msgstr ""
+msgstr "\"{expr:?}\""
 
 #: src/error-handling/solution.md
 msgid "\"Unexpected character '{0}' in input\""
-msgstr ""
+msgstr "\"Unexpected character '{0}' in input\""
 
 #: src/error-handling/solution.md
 msgid "\"Tokenizer error: {0}\""
-msgstr ""
+msgstr "\"Tokenizer error: {0}\""
 
 #: src/error-handling/solution.md
 msgid "\"Unexpected token {0:?}\""
-msgstr ""
+msgstr "\"Unexpected token {0:?}\""
 
 #: src/error-handling/solution.md
 msgid "\"Invalid number\""
-msgstr ""
+msgstr "\"Invalid number\""
 
 #: src/unsafe-rust.md
 msgid "[Unsafe](./unsafe-rust/unsafe.md) (5 minutes)"
-msgstr ""
+msgstr "[不安全](./unsafe-rust/unsafe.md) (5 分鐘)"
 
 #: src/unsafe-rust.md
 msgid ""
 "[Dereferencing Raw Pointers](./unsafe-rust/dereferencing.md) (10 minutes)"
-msgstr ""
+msgstr "[將原始指標解除參照](./unsafe-rust/dereferencing.md) (10 分鐘)"
 
 #: src/unsafe-rust.md
 msgid "[Mutable Static Variables](./unsafe-rust/mutable-static.md) (5 minutes)"
-msgstr ""
+msgstr "[可變動的靜態變數](./unsafe-rust/mutable-static.md) (5 分鐘)"
 
 #: src/unsafe-rust.md
 msgid "[Unions](./unsafe-rust/unions.md) (5 minutes)"
-msgstr ""
+msgstr "[聯集](./unsafe-rust/unions.md) (5 minutes)"
 
 #: src/unsafe-rust.md
 msgid "[Unsafe Functions](./unsafe-rust/unsafe-functions.md) (5 minutes)"
-msgstr ""
+msgstr "[不安全的函式](./unsafe-rust/unsafe-functions.md) (5 分鐘)"
 
 #: src/unsafe-rust.md
 msgid "[Unsafe Traits](./unsafe-rust/unsafe-traits.md) (5 minutes)"
-msgstr ""
+msgstr "[不安全的特徵](./unsafe-rust/unsafe-traits.md) (5 分鐘)"
 
 #: src/unsafe-rust.md
 msgid "[Exercise: FFI Wrapper](./unsafe-rust/exercise.md) (30 minutes)"
-msgstr ""
+msgstr "[練習：FFI 包裝函式](./unsafe-rust/exercise.md) (30 分鐘)"
 
 #: src/unsafe-rust.md
 msgid "This segment should take about 1 hour and 5 minutes"
-msgstr ""
+msgstr "講解這個主題大約需要 1 小時  5 分鐘"
 
 #: src/unsafe-rust/unsafe.md
 msgid "The Rust language has two parts:"
@@ -10776,7 +10874,7 @@ msgstr "建立指標相當安全，不過對指標解參考就需要使用 `unsa
 
 #: src/unsafe-rust/dereferencing.md
 msgid "\"careful!\""
-msgstr ""
+msgstr "\"careful!\""
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
@@ -10787,18 +10885,24 @@ msgid ""
 "    // whole unsafe block, and they are not accessed either through the\n"
 "    // references or concurrently through any other pointers.\n"
 msgstr ""
+"// Safe because r1 and r2 were obtained from references and so are\n"
+"    // guaranteed to be non-null and properly aligned, the objects "
+"underlying\n"
+"    // the references from which they were obtained are live throughout the\n"
+"    // whole unsafe block, and they are not accessed either through the\n"
+"    // references or concurrently through any other pointers.\n"
 
 #: src/unsafe-rust/dereferencing.md
 msgid "\"r1 is: {}\""
-msgstr ""
+msgstr "\"r1 is: {}\""
 
 #: src/unsafe-rust/dereferencing.md
 msgid "\"uhoh\""
-msgstr ""
+msgstr "\"uhoh\""
 
 #: src/unsafe-rust/dereferencing.md
 msgid "\"r2 is: {}\""
-msgstr ""
+msgstr "\"r2 is: {}\""
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
@@ -10809,6 +10913,12 @@ msgid ""
 "    println!(\"r3 is: {}\", *r3);\n"
 "    */"
 msgstr ""
+"// NOT SAFE. DO NOT DO THIS.\n"
+"    /*\n"
+"    let r3: &String = unsafe { &*r1 };\n"
+"    drop(s);\n"
+"    println!(\"r3 is: {}\", *r3);\n"
+"    */"
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
@@ -10866,6 +10976,9 @@ msgid ""
 "has the `'static` lifetime, so `r3` has type `&'static String`, and thus "
 "outlives `s`. Creating a reference from a pointer requires _great care_."
 msgstr ""
+"「NOT SAFE」部分提供了常見的 UB 錯誤示例：`*r1` 具有 `'static` 生命週期，因"
+"此 `r3` 具有 `&'static String` 這個型別，從而會超過 `s`。從指標建立參照需要"
+"「格外謹慎」__。"
 
 #: src/unsafe-rust/mutable-static.md
 msgid "It is safe to read an immutable static variable:"
@@ -10878,7 +10991,7 @@ msgstr "Hello World!"
 
 #: src/unsafe-rust/mutable-static.md
 msgid "\"HELLO_WORLD: {HELLO_WORLD}\""
-msgstr ""
+msgstr "\"HELLO_WORLD: {HELLO_WORLD}\""
 
 #: src/unsafe-rust/mutable-static.md
 msgid ""
@@ -10888,7 +11001,7 @@ msgstr "不過，讀取並寫入可變的靜態變數並不安全，因為可能
 
 #: src/unsafe-rust/mutable-static.md
 msgid "\"COUNTER: {COUNTER}\""
-msgstr ""
+msgstr "\"COUNTER: {COUNTER}\""
 
 #: src/unsafe-rust/mutable-static.md
 msgid ""
@@ -10897,6 +11010,9 @@ msgid ""
 "`unsafe` and see how the compiler explains that it is undefined behavior to "
 "mutate a static from multiple threads."
 msgstr ""
+"這裡的程式採用單一執行緒，因此安全無虞。不過，Rust 編譯器較為保守，會設想最糟"
+"的情況。請嘗試移除 `unsafe`，看看編譯器如何解釋為什麼從多個執行緒變更 "
+"static，屬於未定義的行為。"
 
 #: src/unsafe-rust/mutable-static.md
 msgid ""
@@ -10914,11 +11030,11 @@ msgstr "聯合體和列舉很像，但您需要自行追蹤可用欄位："
 
 #: src/unsafe-rust/unions.md
 msgid "\"int: {}\""
-msgstr ""
+msgstr "\"int: {}\""
 
 #: src/unsafe-rust/unions.md
 msgid "\"bool: {}\""
-msgstr ""
+msgstr "\"bool: {}\""
 
 #: src/unsafe-rust/unions.md
 #, fuzzy
@@ -10965,25 +11081,27 @@ msgstr ""
 #: src/bare-metal/aps/better-uart/using.md src/bare-metal/aps/logging/using.md
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "\"C\""
-msgstr ""
+msgstr "\"C\""
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "\"🗻∈🌏\""
-msgstr ""
+msgstr "\"🗻∈🌏\""
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid ""
 "// Safe because the indices are in the correct order, within the bounds of\n"
 "    // the string slice, and lie on UTF-8 sequence boundaries.\n"
 msgstr ""
+"// Safe because the indices are in the correct order, within the bounds of\n"
+"    // the string slice, and lie on UTF-8 sequence boundaries.\n"
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "\"emoji: {}\""
-msgstr ""
+msgstr "\"emoji: {}\""
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "\"char count: {}\""
-msgstr ""
+msgstr "\"char count: {}\""
 
 #: src/unsafe-rust/unsafe-functions.md
 #, fuzzy
@@ -10992,7 +11110,7 @@ msgstr "在執行階段不會產生未定義的行為，好處如下："
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "\"Absolute value of -3 according to C: {}\""
-msgstr ""
+msgstr "\"Absolute value of -3 according to C: {}\""
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid ""
@@ -11001,6 +11119,10 @@ msgid ""
 "    // println!(\"char count: {}\", count_chars(unsafe {\n"
 "    // emojis.get_unchecked(0..3) }));\n"
 msgstr ""
+"// Not upholding the UTF-8 encoding requirement breaks memory safety!\n"
+"    // println!(\"emoji: {}\", unsafe { emojis.get_unchecked(0..3) });\n"
+"    // println!(\"char count: {}\", count_chars(unsafe {\n"
+"    // emojis.get_unchecked(0..3) }));\n"
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "Writing Unsafe Functions"
@@ -11021,14 +11143,19 @@ msgid ""
 "///\n"
 "/// The pointers must be valid and properly aligned.\n"
 msgstr ""
+"/// Swaps the values pointed to by the given pointers.\n"
+"///\n"
+"/// # Safety\n"
+"///\n"
+"/// The pointers must be valid and properly aligned.\n"
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "// Safe because ...\n"
-msgstr ""
+msgstr "// Safe because ...\n"
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "\"a = {}, b = {}\""
-msgstr ""
+msgstr "\"a = {}, b = {}\""
 
 #: src/unsafe-rust/unsafe-functions.md
 #, fuzzy
@@ -11099,10 +11226,13 @@ msgid ""
 "/// # Safety\n"
 "/// The type must have a defined representation and no padding.\n"
 msgstr ""
+"/// ...\n"
+"/// # Safety\n"
+"/// The type must have a defined representation and no padding.\n"
 
 #: src/unsafe-rust/unsafe-traits.md
 msgid "// Safe because u32 has a defined representation and no padding.\n"
-msgstr ""
+msgstr "// Safe because u32 has a defined representation and no padding.\n"
 
 #: src/unsafe-rust/unsafe-traits.md
 msgid ""
@@ -11280,11 +11410,11 @@ msgstr ""
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "\"macos\""
-msgstr ""
+msgstr "\"macos\""
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "// Opaque type. See https://doc.rust-lang.org/nomicon/ffi.html.\n"
-msgstr ""
+msgstr "// Opaque type. See https://doc.rust-lang.org/nomicon/ffi.html.\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid ""
@@ -11292,14 +11422,17 @@ msgid ""
 "    // off_t are resolved according to the definitions in\n"
 "    // /usr/include/x86_64-linux-gnu/{sys/types.h, bits/typesizes.h}.\n"
 msgstr ""
+"// Layout according to the Linux man page for readdir(3), where ino_t and\n"
+"    // off_t are resolved according to the definitions in\n"
+"    // /usr/include/x86_64-linux-gnu/{sys/types.h, bits/typesizes.h}.\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "// Layout according to the macOS man page for dir(5).\n"
-msgstr ""
+msgstr "// Layout according to the macOS man page for dir(5).\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "\"x86_64\""
-msgstr ""
+msgstr "\"x86_64\""
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid ""
@@ -11311,105 +11444,118 @@ msgid ""
 "        // to macOS (as opposed to iOS / wearOS / etc.) on Intel and "
 "PowerPC.\n"
 msgstr ""
+"// See https://github.com/rust-lang/libc/issues/414 and the section on\n"
+"        // _DARWIN_FEATURE_64_BIT_INODE in the macOS man page for stat(2).\n"
+"        //\n"
+"        // \"Platforms that existed before these updates were available\" "
+"refers\n"
+"        // to macOS (as opposed to iOS / wearOS / etc.) on Intel and "
+"PowerPC.\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "\"readdir$INODE64\""
-msgstr ""
+msgstr "\"readdir$INODE64\""
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid ""
 "// Call opendir and return a Ok value if that worked,\n"
 "        // otherwise return Err with a message.\n"
 msgstr ""
+"// Call opendir and return a Ok value if that worked,\n"
+"        // otherwise return Err with a message.\n"
 
 #: src/unsafe-rust/exercise.md
 msgid "// Keep calling readdir until we get a NULL pointer back.\n"
-msgstr ""
+msgstr "// Keep calling readdir until we get a NULL pointer back.\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "// Call closedir as needed.\n"
-msgstr ""
+msgstr "// Call closedir as needed.\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 #: src/android/interoperability/with-c/rust.md
 msgid "\".\""
-msgstr ""
+msgstr "\".\""
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "\"files: {:#?}\""
-msgstr ""
+msgstr "\"files: {:#?}\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"Invalid path: {err}\""
-msgstr ""
+msgstr "\"Invalid path: {err}\""
 
 #: src/unsafe-rust/solution.md
 msgid "// SAFETY: path.as_ptr() cannot be NULL.\n"
-msgstr ""
+msgstr "// SAFETY: path.as_ptr() cannot be NULL.\n"
 
 #: src/unsafe-rust/solution.md
 msgid "\"Could not open {:?}\""
-msgstr ""
+msgstr "\"Could not open {:?}\""
 
 #: src/unsafe-rust/solution.md
 msgid ""
 "// Keep calling readdir until we get a NULL pointer back.\n"
 "        // SAFETY: self.dir is never NULL.\n"
 msgstr ""
+"// Keep calling readdir until we get a NULL pointer back.\n"
+"        // SAFETY: self.dir is never NULL.\n"
 
 #: src/unsafe-rust/solution.md
 msgid "// We have reached the end of the directory.\n"
-msgstr ""
+msgstr "// We have reached the end of the directory.\n"
 
 #: src/unsafe-rust/solution.md
 msgid ""
 "// SAFETY: dirent is not NULL and dirent.d_name is NUL\n"
 "        // terminated.\n"
 msgstr ""
+"// SAFETY: dirent is not NULL and dirent.d_name is NUL\n"
+"        // terminated.\n"
 
 #: src/unsafe-rust/solution.md
 msgid "// SAFETY: self.dir is not NULL.\n"
-msgstr ""
+msgstr "// SAFETY: self.dir is not NULL.\n"
 
 #: src/unsafe-rust/solution.md
 msgid "\"Could not close {:?}\""
-msgstr ""
+msgstr "\"Could not close {:?}\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"no-such-directory\""
-msgstr ""
+msgstr "\"no-such-directory\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"Non UTF-8 character in path\""
-msgstr ""
+msgstr "\"Non UTF-8 character in path\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"..\""
-msgstr ""
+msgstr "\"..\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"foo.txt\""
-msgstr ""
+msgstr "\"foo.txt\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"The Foo Diaries\\n\""
-msgstr ""
+msgstr "\"The Foo Diaries\\n\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"bar.png\""
-msgstr ""
+msgstr "\"bar.png\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"<PNG>\\n\""
-msgstr ""
+msgstr "\"<PNG>\\n\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"crab.rs\""
-msgstr ""
+msgstr "\"crab.rs\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"//! Crab\\n\""
-msgstr ""
+msgstr "\"//! Crab\\n\""
 
 #: src/android.md
 msgid "Welcome to Rust in Android"
