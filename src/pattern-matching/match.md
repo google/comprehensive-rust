@@ -2,7 +2,7 @@
 minutes: 10
 ---
 
-# Pattern Matching
+# Matching Values
 
 The `match` keyword lets you match a value against one or more _patterns_. The
 comparisons are done from top to bottom and the first match wins.
@@ -24,7 +24,7 @@ fn main() {
 ```
 
 The `_` pattern is a wildcard pattern which matches any value. The expressions
-_must_ be irrefutable, meaning that it covers every possibility, so `_` is often
+_must_ be exhaustive, meaning that it covers every possibility, so `_` is often
 used as the final catch-all case.
 
 Match can be used as an expression. Just like `if`, each match arm must have the

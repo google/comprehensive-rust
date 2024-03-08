@@ -1,5 +1,5 @@
 ---
-minutes: 30
+minutes: 15
 ---
 
 # Exercise: Nested Arrays
@@ -35,6 +35,8 @@ functions:
 {{#include exercise.rs:transpose}}
     unimplemented!()
 }
+
+{{#include exercise.rs:tests}}
 
 {{#include exercise.rs:main}}
 ```

@@ -1,4 +1,6 @@
-# Glossary
+<!-- i18n:comment Please keep { #glossary } untranslated. -->
+
+# Glossary { #glossary }
 
 The following is a glossary which aims to give a short definition of many Rust
 terms. For translations, this also serves to connect the term back to the
@@ -22,10 +24,9 @@ h1#glossary ~ ul > li:first-line {
 }
 </style>
 
-<!--
-Translators: please add the English term in italic after your translated term.
-Also, please keep the hard line breaks to ensure a nice formatting.
--->
+<!-- i18n:comment Please add the English term in italic after your -->
+<!-- i18n:comment translated term. Also, please keep the hard line -->
+<!-- i18n:comment breaks to ensure a nice formatting. -->
 
 - allocate:\
   Dynamic memory allocation on [the heap](memory-management/stack-vs-heap.md).
@@ -142,7 +143,7 @@ Also, please keep the hard line breaks to ensure a nice formatting.
   A systems programming language that focuses on safety, performance, and
   concurrency.
 - Rust Fundamentals:\
-  Days 1 to 3 of this course.
+  Days 1 to 4 of this course.
 - Rust in Android:\
   See [Rust in Android](android.md).
 - Rust in Chromium:\

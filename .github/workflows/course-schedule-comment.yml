@@ -56,15 +56,40 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            var fs = require('fs');
-            var pr_number = Number(fs.readFileSync('pr-number'));
-            var upstream = fs.readFileSync('upstream-schedule').toString();
-            var schedule = fs.readFileSync('schedule').toString();
-            if (upstream != schedule) {
+            const fs = require('fs');
+            const pr_number = Number(fs.readFileSync('pr-number'));
+            const upstream = fs.readFileSync('upstream-schedule').toString();
+            const schedule = fs.readFileSync('schedule').toString();
+            const new_schedule = "<!-- course-schedule -->\n" +
+                       "# Changes to Course Schedule\n" +
+                       "This PR changes the course schedule. The new schedule is shown below.\n\n" +
+                       schedule;
+
+            // Look for existing comments
+            var existing_comment;
+            for await ({ data: comments } of github.paginate.iterator(github.rest.issues.listComments, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr_number
+            })) {
+              existing_comment = comments.find((c) => c.body.includes("<!-- course-schedule -->"));
+              if (existing_comment) {
+                break;
+              }
+            }
+
+            if (existing_comment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing_comment.id,
+                body: new_schedule,
+              });
+            } else if (upstream != schedule) {
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: pr_number,
-                body: schedule,
+                body: new_schedule,
               });
             }

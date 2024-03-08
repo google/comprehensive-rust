@@ -1,10 +1,21 @@
 # Async Traits
 
-Async methods in traits are not yet supported in the stable channel
-([An experimental feature exists in nightly and should be stabilized in the mid term.](https://blog.rust-lang.org/inside-rust/2022/11/17/async-fn-in-trait-nightly.html))
+Async methods in traits are were stabilized only recently, in the 1.75 release.
+This required support for using return-position `impl Trait` (RPIT) in traits,
+as the desugaring for `async fn` includes `-> impl Future<Output = ...>`.
 
-The crate [async_trait](https://docs.rs/async-trait/latest/async_trait/)
-provides a workaround through a macro:
+However, even with the native support today there are some pitfalls around
+`async fn` and RPIT in traits:
+
+- Return-position impl Trait captures all in-scope lifetimes (so some patterns
+  of borrowing cannot be expressed)
+
+- Traits whose methods use return-position `impl trait` or `async` are not `dyn`
+  compatible.
+
+If we do need `dyn` support, the crate
+[async_trait](https://docs.rs/async-trait/latest/async_trait/) provides a
+workaround through a macro, with some caveats:
 
 ```rust,editable,compile_fail
 use async_trait::async_trait;

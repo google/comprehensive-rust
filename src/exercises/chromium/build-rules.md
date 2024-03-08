@@ -11,7 +11,7 @@ pub extern "C" fn hello_from_rust() {
 ```
 
 **Important**: note that `no_mangle` here is considered a type of unsafety by
-the Rust compiler, so you'll need to to allow unsafe code in your `gn` target.
+the Rust compiler, so you'll need to allow unsafe code in your `gn` target.
 
 Add this new Rust target as a dependency of `//ui/base:base`. Declare this
 function at the top of `ui/base/resource/resource_bundle.cc` (later, we'll see

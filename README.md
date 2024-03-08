@@ -10,7 +10,7 @@ from basic syntax to generics and error handling. It also includes deep dives on
 [Android], [Chromium], [bare-metal], and [concurrency].
 
 [Android]: https://google.github.io/comprehensive-rust/android.html
-[Chromium]: https://google.github.io/comprehensive-rust/comprehensive.html
+[Chromium]: https://google.github.io/comprehensive-rust/chromium.html
 [bare-metal]: https://google.github.io/comprehensive-rust/bare-metal.html
 [concurrency]: https://google.github.io/comprehensive-rust/concurrency.html
 
@@ -65,10 +65,10 @@ Then install these tools with:
 
 ```shell
 cargo install mdbook
-cargo install mdbook-svgbob
-cargo install mdbook-i18n-helpers
-cargo install --path mdbook-exerciser
-cargo install --path mdbook-course
+cargo install --locked mdbook-svgbob
+cargo install --locked mdbook-i18n-helpers
+cargo install --locked --path mdbook-exerciser
+cargo install --locked --path mdbook-course
 ```
 
 Run
