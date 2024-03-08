@@ -8695,22 +8695,23 @@ msgid "b\"hello\""
 msgstr ""
 
 #: src/welcome-day-4.md
-#, fuzzy
 msgid "Welcome to Day 4"
-msgstr "Day 1へようこそ"
+msgstr "4 日目のトレーニングにようこそ"
 
 #: src/welcome-day-4.md
 msgid ""
 "Today we will cover topics relating to building large-scale software in Rust:"
 msgstr ""
+"本日は、Rust での大規模なソフトウェアのビルドに関連するトピックを取り上げま"
+"す。"
 
 #: src/welcome-day-4.md
 msgid "Iterators: a deep dive on the `Iterator` trait."
-msgstr ""
+msgstr "イテレータ: `Iterator` トレイトの詳細。"
 
 #: src/welcome-day-4.md
 msgid "Modules and visibility."
-msgstr ""
+msgstr "モジュールと可視性。"
 
 #: src/welcome-day-4.md
 #, fuzzy
@@ -8719,45 +8720,46 @@ msgstr "テスト"
 
 #: src/welcome-day-4.md
 msgid "Error handling: panics, `Result`, and the try operator `?`."
-msgstr ""
+msgstr "エラー処理: パニック、`Result`、try 演算子 `?`。"
 
 #: src/welcome-day-4.md
 msgid ""
 "Unsafe Rust: the escape hatch when you can't express yourself in safe Rust."
-msgstr ""
+msgstr "安全でない Rust: 安全な Rust では目的を果たせない場合の回避策。"
 
 #: src/welcome-day-4.md
 msgid "[Welcome](./welcome-day-4.md) (3 minutes)"
-msgstr ""
+msgstr "[ようこそ](./welcome-day-4.md)（3 分）"
 
 #: src/welcome-day-4.md
 msgid "[Iterators](./iterators.md) (45 minutes)"
-msgstr ""
+msgstr "[イテレータ](./iterators.md)（45 分）"
 
 #: src/welcome-day-4.md
 msgid "[Modules](./modules.md) (40 minutes)"
-msgstr ""
+msgstr "[モジュール](./modules.md)（40 分）"
 
 #: src/welcome-day-4.md
 msgid "[Testing](./testing.md) (1 hour and 5 minutes)"
-msgstr ""
+msgstr "[テスト](./testing.md)（1 時間 5 分）"
 
 #: src/iterators.md
 msgid "[Iterator](./iterators/iterator.md) (5 minutes)"
-msgstr ""
+msgstr "[Iterator](./iterators/iterator.md)（5 分）"
 
 #: src/iterators.md
 msgid "[IntoIterator](./iterators/intoiterator.md) (5 minutes)"
-msgstr ""
+msgstr "[IntoIterator](./iterators/intoiterator.md)（5 分）"
 
 #: src/iterators.md
 msgid "[FromIterator](./iterators/fromiterator.md) (5 minutes)"
-msgstr ""
+msgstr "[FromIterator](./iterators/fromiterator.md)（5 分）"
 
 #: src/iterators.md
 msgid ""
 "[Exercise: Iterator Method Chaining](./iterators/exercise.md) (30 minutes)"
 msgstr ""
+"[演習: イテレータ メソッドのチェーン化](./iterators/exercise.md)（30 分）"
 
 #: src/iterators/iterator.md
 msgid ""
@@ -8766,10 +8768,14 @@ msgid ""
 "method and provides lots of methods. Many standard library types implement "
 "`Iterator`, and you can implement it yourself, too:"
 msgstr ""
+"[`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) トレイト"
+"は、コレクション内の値の反復処理をサポートしています。これには `next` メソッ"
+"ドが必要で、多くのメソッドが用意されています。多くの標準ライブラリ型で "
+"`Iterator` が実装されていますが、自分で実装することもできます。"
 
 #: src/iterators/iterator.md
 msgid "\"fib({i}): {n}\""
-msgstr ""
+msgstr "\"fib({i}): {n}\""
 
 #: src/iterators/iterator.md
 msgid ""
@@ -8779,6 +8785,10 @@ msgid ""
 "functions should produce the code as efficient as equivalent imperative "
 "implementations."
 msgstr ""
+"`Iterator` トレイトは、コレクションに対する多くの一般的な関数型プログラミン"
+"グ オペレーション（例: `map`、`filter`、`reduce` など）を実装します。このトレ"
+"イトに関するすべてのドキュメントを確認できます。Rust では、これらの関数によ"
+"り、同等の命令型実装と同じくらい効率的にコードが生成されます。"
 
 #: src/iterators/iterator.md
 msgid ""
@@ -8787,6 +8797,10 @@ msgid ""
 "and `&[T]`. Ranges also implement it. This is why you can iterate over a "
 "vector with `for i in some_vec { .. }` but `some_vec.next()` doesn't exist."
 msgstr ""
+"`IntoIterator` は、ループを機能させるためのトレイトです。コレクション型"
+"（`Vec<T>` など）と、それらに対する参照（`&Vec<T>`、`&[T]` など）によって実装"
+"され、範囲でも実装されます。`for i in some_vec { .. }` を使用してベクターを反"
+"復処理できるのに、`some_vec.next()` が存在しないのはこのためです。"
 
 #: src/iterators/intoiterator.md
 msgid ""
@@ -8795,46 +8809,58 @@ msgid ""
 "iter/trait.IntoIterator.html) defines how to create an iterator for a type. "
 "It is used automatically by the `for` loop."
 msgstr ""
+"`Iterator` トレイトは、イテレータを作成した後に反復処理を行う方法を示します。"
+"関連するトレイト [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait."
+"IntoIterator.html) は、型のイテレータを作成する方法を定義します。これは "
+"`for` ループによって自動的に使用されます。"
 
 #: src/iterators/intoiterator.md
 msgid "\"point = {x}, {y}\""
-msgstr ""
+msgstr "\"point = {x}, {y}\""
 
 #: src/iterators/intoiterator.md
 msgid ""
 "Click through to the docs for `IntoIterator`. Every implementation of "
 "`IntoIterator` must declare two types:"
 msgstr ""
+"クリックして `IntoIterator` のドキュメントをご覧ください。`IntoIterator` のす"
+"べての実装で、次の 2 つの型を宣言する必要があります。"
 
 #: src/iterators/intoiterator.md
 msgid "`Item`: the type to iterate over, such as `i8`,"
-msgstr ""
+msgstr "`Item`: 反復処理する型（`i8` など）。"
 
 #: src/iterators/intoiterator.md
 msgid "`IntoIter`: the `Iterator` type returned by the `into_iter` method."
-msgstr ""
+msgstr "`IntoIter`: `into_iter` メソッドによって返される `Iterator` 型。"
 
 #: src/iterators/intoiterator.md
 msgid ""
 "Note that `IntoIter` and `Item` are linked: the iterator must have the same "
 "`Item` type, which means that it returns `Option<Item>`"
 msgstr ""
+"`IntoIter` と `Item` はリンクされており、イテレータの `Item` 型は同じである必"
+"要があります（`Option<Item>` を返します）。"
 
 #: src/iterators/intoiterator.md
 msgid "The example iterates over all combinations of x and y coordinates."
-msgstr ""
+msgstr "この例は、x 座標と y 座標のすべての組み合わせを反復処理しています。"
 
 #: src/iterators/intoiterator.md
 msgid ""
 "Try iterating over the grid twice in `main`. Why does this fail? Note that "
 "`IntoIterator::into_iter` takes ownership of `self`."
 msgstr ""
+"`main` でグリッドを 2 回反復処理してみましょう。これはなぜ失敗するのでしょう"
+"か。`IntoIterator::into_iter` は `self` の所有権を取得します。"
 
 #: src/iterators/intoiterator.md
 msgid ""
 "Fix this issue by implementing `IntoIterator` for `&Grid` and storing a "
 "reference to the `Grid` in `GridIter`."
 msgstr ""
+"この問題を修正するには、`&Grid` に `IntoIterator` を実装し、`Grid` への参照"
+"を `GridIter` に保存します。"
 
 #: src/iterators/intoiterator.md
 msgid ""
@@ -8843,6 +8869,10 @@ msgid ""
 "elements from that vector. Use `for e in &some_vector` instead, to iterate "
 "over references to elements of `some_vector`."
 msgstr ""
+"標準ライブラリ型でも同じ問題が発生する可能性があります。`for e in "
+"some_vector` は、`some_vector` の所有権を取得し、そのベクターの所有要素を反復"
+"処理します。`some_vector` の要素への参照を反復処理するには、代わりに `for e "
+"in &some_vector` を使用します。"
 
 #: src/iterators/fromiterator.md
 msgid "FromIterator"
@@ -8854,18 +8884,21 @@ msgid ""
 "lets you build a collection from an [`Iterator`](https://doc.rust-lang.org/"
 "std/iter/trait.Iterator.html)."
 msgstr ""
+"[`FromIterator`](https://doc.rust-lang.org/std/iter/trait.FromIterator.html) "
+"を使用すると、[`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator."
+"html) からコレクションを作成できます。"
 
 #: src/iterators/fromiterator.md
 msgid "\"prime_squares: {prime_squares:?}\""
-msgstr ""
+msgstr "\"prime_squares: {prime_squares:?}\""
 
 #: src/iterators/fromiterator.md
 msgid "`Iterator` implements"
-msgstr ""
+msgstr "`Iterator` の実装"
 
 #: src/iterators/fromiterator.md
 msgid "There are two ways to specify `B` for this method:"
-msgstr ""
+msgstr "このメソッドで `B` を指定するには、次の 2 つの方法があります。"
 
 #: src/iterators/fromiterator.md
 msgid ""
@@ -8873,12 +8906,17 @@ msgid ""
 "shown. The `_` shorthand used here lets Rust infer the type of the `Vec` "
 "elements."
 msgstr ""
+"「turbofish」を使用する場合: 上記のとおり、`some_iterator.collect::"
+"<COLLECTION_TYPE>()`。ここで使用されている省略形 `_` により、Rust は `Vec` 要"
+"素の型を推測できます。"
 
 #: src/iterators/fromiterator.md
 msgid ""
 "With type inference: `let prime_squares: Vec<_> = some_iterator.collect()`. "
 "Rewrite the example to use this form."
 msgstr ""
+"型推論を使用する場合: `let prime_squares: Vec<_> = some_iterator.collect()`。"
+"この形式を使用するように例を書き換えてください。"
 
 #: src/iterators/fromiterator.md
 msgid ""
@@ -8886,6 +8924,9 @@ msgid ""
 "There are also more specialized implementations which let you do cool things "
 "like convert an `Iterator<Item = Result<V, E>>` into a `Result<Vec<V>, E>`."
 msgstr ""
+"`Vec` や `HashMap` などに `FromIterator` の基本的な実装が用意されています。ま"
+"た、`Iterator<Item = Result<V, E>>` を `Result<Vec<V>, E>` に変換できるものな"
+"ど、より特化した実装もあります。"
 
 #: src/iterators/exercise.md
 msgid ""
@@ -8893,6 +8934,9 @@ msgid ""
 "in the [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) "
 "trait to implement a complex calculation."
 msgstr ""
+"この演習では、[`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator."
+"html) トレイトで提供されているメソッドをいくつかを見つけて使用し、複雑な計算"
+"を実装する必要があります。"
 
 #: src/iterators/exercise.md
 msgid ""
@@ -8900,6 +8944,8 @@ msgid ""
 "pass. Use an iterator expression and `collect` the result to construct the "
 "return value."
 msgstr ""
+"次のコードを <https://play.rust-lang.org/> にコピーし、テストをパスしてくださ"
+"い。イテレータ式を使用して結果を `collect` し、戻り値を構成します。"
 
 #: src/iterators/exercise.md src/iterators/solution.md
 msgid ""
@@ -8909,68 +8955,80 @@ msgid ""
 "///\n"
 "/// Element `n` of the result is `values[(n+offset)%len] - values[n]`.\n"
 msgstr ""
+"/// `values` オフセットの要素間の違いを `offset` で計算し、\n"
+"/// `values` の最後から先頭まで戻ります。\n"
+"///\n"
+"/// 結果の要素 `n` は `values[(n+offset)%len] - values[n]` です。\n"
 
 #: src/modules.md
 msgid "[Modules](./modules/modules.md) (5 minutes)"
-msgstr ""
+msgstr "[モジュール](./modules/modules.md)（5 分）"
 
 #: src/modules.md
 msgid "[Filesystem Hierarchy](./modules/filesystem.md) (5 minutes)"
-msgstr ""
+msgstr "[ファイル システム階層](./modules/filesystem.md)（5 分）"
 
 #: src/modules.md
 msgid "[Visibility](./modules/visibility.md) (5 minutes)"
-msgstr ""
+msgstr "[可視性](./modules/visibility.md)（5 分）"
 
 #: src/modules.md
 msgid "[use, super, self](./modules/paths.md) (10 minutes)"
-msgstr ""
+msgstr "[use、super、self](./modules/paths.md)（10 分）"
 
 #: src/modules.md
 msgid ""
 "[Exercise: Modules for a GUI Library](./modules/exercise.md) (15 minutes)"
-msgstr ""
+msgstr "[演習: GUI ライブラリのモジュール](./modules/exercise.md)（15 分）"
 
 #: src/modules.md
 msgid "This segment should take about 40 minutes"
-msgstr ""
+msgstr "このセグメントの所要時間は約 40 分です"
 
 #: src/modules/modules.md
 msgid "We have seen how `impl` blocks let us namespace functions to a type."
 msgstr ""
+"`impl` ブロックで関数の名前空間を型に指定する方法はすでに見てきました。"
 
 #: src/modules/modules.md
 msgid "Similarly, `mod` lets us namespace types and functions:"
-msgstr ""
+msgstr "同様に、`mod` を使用して型と関数の名前空間を指定できます。"
 
 #: src/modules/modules.md
 msgid "\"In the foo module\""
-msgstr ""
+msgstr "\"In the foo module\""
 
 #: src/modules/modules.md
 msgid "\"In the bar module\""
-msgstr ""
+msgstr "\"In the bar module\""
 
 #: src/modules/modules.md
 msgid ""
 "Packages provide functionality and include a `Cargo.toml` file that "
 "describes how to build a bundle of 1+ crates."
 msgstr ""
+"パッケージは機能を提供するとともに、1 個以上のクレートのバンドルを作成する方"
+"法が記述された `Cargo.toml` ファイルを備えています。"
 
 #: src/modules/modules.md
 msgid ""
 "Crates are a tree of modules, where a binary crate creates an executable and "
 "a library crate compiles to a library."
 msgstr ""
+"クレートはモジュールのツリーです。そこでバイナリ クレートが実行可能ファイルを"
+"作成し、ライブラリ クレートがライブラリにコンパイルします。"
 
 #: src/modules/modules.md
 msgid "Modules define organization, scope, and are the focus of this section."
 msgstr ""
+"モジュールによって組織とスコープが定義されます。このセクションではモジュール"
+"に焦点を当てます。"
 
 #: src/modules/filesystem.md
 msgid ""
 "Omitting the module content will tell Rust to look for it in another file:"
 msgstr ""
+"モジュールのコンテンツを省略すると、Rust はそれを別のファイルで探します。"
 
 #: src/modules/filesystem.md
 msgid ""
@@ -8978,18 +9036,21 @@ msgid ""
 "rs`. Similarly, a `garden::vegetables` module can be found at `src/garden/"
 "vegetables.rs`."
 msgstr ""
+"これにより、`garden` モジュールのコンテンツが `src/garden.rs` にあることを "
+"Rust に伝えます。同様に、`garden::vegetables` モジュールは `src/garden/"
+"vegetables.rs` にあります。"
 
 #: src/modules/filesystem.md
 msgid "The `crate` root is in:"
-msgstr ""
+msgstr "`crate` ルートは以下の場所にあります。"
 
 #: src/modules/filesystem.md
 msgid "`src/lib.rs` (for a library crate)"
-msgstr ""
+msgstr "`src/lib.rs`（ライブラリ クレートの場合）"
 
 #: src/modules/filesystem.md
 msgid "`src/main.rs` (for a binary crate)"
-msgstr ""
+msgstr "`src/main.rs`（バイナリ クレートの場合）"
 
 #: src/modules/filesystem.md
 msgid ""
@@ -8997,6 +9058,9 @@ msgid ""
 "comments\". These document the item that contains them -- in this case, a "
 "module."
 msgstr ""
+"ファイルで定義されたモジュールは、「内部ドキュメントのコメント」を使用して文"
+"書化することもできます。これらのコメントは、それらを含むアイテム（この場合は"
+"モジュール）を文書化します。"
 
 #: src/modules/filesystem.md
 msgid ""
@@ -9004,124 +9068,146 @@ msgid ""
 "germination\n"
 "//! implementation.\n"
 msgstr ""
+"//! このモジュールは畑を実装します（パフォーマンスの高い発芽の\n"
+"//! 実装を含む）。\n"
 
 #: src/modules/filesystem.md
 msgid "// Re-export types from this module.\n"
-msgstr ""
+msgstr "// このモジュールから型を再エクスポートします。\n"
 
 #: src/modules/filesystem.md
 msgid "/// Sow the given seed packets.\n"
-msgstr ""
+msgstr "/// 指定された種をまきます。\n"
 
 #: src/modules/filesystem.md
 msgid "/// Harvest the produce in the garden that is ready.\n"
-msgstr ""
+msgstr "/// 準備が整っている畑で作物を収穫します。\n"
 
 #: src/modules/filesystem.md
 msgid ""
 "Before Rust 2018, modules needed to be located at `module/mod.rs` instead of "
 "`module.rs`, and this is still a working alternative for editions after 2018."
 msgstr ""
+"Rust 2018 より前では、モジュールを `module.rs` ではなく `module/mod.rs` に配"
+"置する必要がありましたが、これは 2018 以降のエディションでも有効な代替手段で"
+"す。"
 
 #: src/modules/filesystem.md
 msgid ""
 "The main reason to introduce `filename.rs` as alternative to `filename/mod."
 "rs` was because many files named `mod.rs` can be hard to distinguish in IDEs."
 msgstr ""
+"`filename/mod.rs` の代わりに `filename.rs` が導入された主な理由は、`mod.rs` "
+"という名前のファイルは IDE で区別するのが難しい場合が多いためです。"
 
 #: src/modules/filesystem.md
 msgid "Deeper nesting can use folders, even if the main module is a file:"
 msgstr ""
+"より深いネストでは、メイン モジュールがファイルであっても、フォルダを使用でき"
+"ます。"
 
 #: src/modules/filesystem.md
 msgid ""
 "The place rust will look for modules can be changed with a compiler "
 "directive:"
 msgstr ""
+"Rust がモジュールを検索する場所は、コンパイラ ディレクティブで変更できます。"
 
 #: src/modules/filesystem.md
 msgid "\"some/path.rs\""
-msgstr ""
+msgstr "\"some/path.rs\""
 
 #: src/modules/filesystem.md
 msgid ""
 "This is useful, for example, if you would like to place tests for a module "
 "in a file named `some_module_test.rs`, similar to the convention in Go."
 msgstr ""
+"これは、たとえば Go の規則と同様に、`some_module_test.rs` という名前のファイ"
+"ルにモジュールのテストを配置する場合に便利です。"
 
 #: src/modules/visibility.md
 msgid "Modules are a privacy boundary:"
-msgstr ""
+msgstr "モジュールはプライバシーの境界です。"
 
 #: src/modules/visibility.md
 msgid "Module items are private by default (hides implementation details)."
 msgstr ""
+"モジュール アイテムはデフォルトで非公開です（実装の詳細は表示されません）。"
 
 #: src/modules/visibility.md
 msgid "Parent and sibling items are always visible."
-msgstr ""
+msgstr "親アイテムと兄弟アイテムは常に表示されます。"
 
 #: src/modules/visibility.md
 msgid ""
 "In other words, if an item is visible in module `foo`, it's visible in all "
 "the descendants of `foo`."
 msgstr ""
+"言い換えれば、あるアイテムがモジュール `foo` で表示されている場合、そのアイテ"
+"ムは `foo` のすべての子孫で表示されます。"
 
 #: src/modules/visibility.md
 msgid "\"outer::private\""
-msgstr ""
+msgstr "\"outer::private\""
 
 #: src/modules/visibility.md
 msgid "\"outer::public\""
-msgstr ""
+msgstr "\"outer::public\""
 
 #: src/modules/visibility.md
 msgid "\"outer::inner::private\""
-msgstr ""
+msgstr "\"outer::inner::private\""
 
 #: src/modules/visibility.md
 msgid "\"outer::inner::public\""
-msgstr ""
+msgstr "\"outer::inner::public\""
 
 #: src/modules/visibility.md
 msgid "Use the `pub` keyword to make modules public."
-msgstr ""
+msgstr "モジュールを公開するには `pub` キーワードを使用します。"
 
 #: src/modules/visibility.md
 msgid ""
 "Additionally, there are advanced `pub(...)` specifiers to restrict the scope "
 "of public visibility."
 msgstr ""
+"また、高度な `pub(...)` 指定子を使用して、公開範囲を制限することもできます。"
 
 #: src/modules/visibility.md
 msgid ""
 "See the [Rust Reference](https://doc.rust-lang.org/reference/visibility-and-"
 "privacy.html#pubin-path-pubcrate-pubsuper-and-pubself)."
 msgstr ""
+"[Rust リファレンス](https://doc.rust-lang.org/reference/visibility-and-"
+"privacy.html#pubin-path-pubcrate-pubsuper-and-pubself) をご覧ください。"
 
 #: src/modules/visibility.md
 msgid "Configuring `pub(crate)` visibility is a common pattern."
-msgstr ""
+msgstr "`pub(crate)` の可視性を設定するのが一般的なパターンです。"
 
 #: src/modules/visibility.md
 msgid "Less commonly, you can give visibility to a specific path."
-msgstr ""
+msgstr "それほど一般的ではありませんが、特定のパスを可視化できます。"
 
 #: src/modules/visibility.md
 msgid ""
 "In any case, visibility must be granted to an ancestor module (and all of "
 "its descendants)."
 msgstr ""
+"いずれの場合も、祖先モジュール（およびそのすべての子孫）に可視性を付与する必"
+"要があります。"
 
 #: src/modules/paths.md
 msgid "use, super, self"
-msgstr ""
+msgstr "use、super、self"
 
 #: src/modules/paths.md
 msgid ""
 "A module can bring symbols from another module into scope with `use`. You "
 "will typically see something like this at the top of each module:"
 msgstr ""
+"モジュールは、`use` を使用して別のモジュールのシンボルをスコープに取り込むこ"
+"とができます。通常、各モジュールの一番上には次のように記述されています。"
 
 #: src/modules/paths.md
 msgid "Paths"
@@ -9129,43 +9215,47 @@ msgstr "パス"
 
 #: src/modules/paths.md
 msgid "Paths are resolved as follows:"
-msgstr ""
+msgstr "パスは次のように解決されます。"
 
 #: src/modules/paths.md
 msgid "As a relative path:"
-msgstr ""
+msgstr "相対パスの場合:"
 
 #: src/modules/paths.md
 msgid "`foo` or `self::foo` refers to `foo` in the current module,"
-msgstr ""
+msgstr "`foo` または `self::foo` は、現在のモジュール内の `foo` を参照します。"
 
 #: src/modules/paths.md
 msgid "`super::foo` refers to `foo` in the parent module."
-msgstr ""
+msgstr "`super::foo` は、親モジュール内の `foo` を参照します。"
 
 #: src/modules/paths.md
 msgid "As an absolute path:"
-msgstr ""
+msgstr "絶対パスの場合:"
 
 #: src/modules/paths.md
 msgid "`crate::foo` refers to `foo` in the root of the current crate,"
-msgstr ""
+msgstr "`crate::foo` は、現在のクレートのルート内の `foo` を参照します。"
 
 #: src/modules/paths.md
 msgid "`bar::foo` refers to `foo` in the `bar` crate."
-msgstr ""
+msgstr "`bar::foo` は、`bar` クレート内の `foo` を参照します。"
 
 #: src/modules/paths.md
 msgid ""
 "It is common to \"re-export\" symbols at a shorter path. For example, the "
 "top-level `lib.rs` in a crate might have"
 msgstr ""
+"シンボルは、より短いパスで「再エクスポート」するのが一般的です。たとえば、ク"
+"レート内の最上位の `lib.rs` に、以下のように記述します。"
 
 #: src/modules/paths.md
 msgid ""
 "making `DiskStorage` and `NetworkStorage` available to other crates with a "
 "convenient, short path."
 msgstr ""
+"これにより、短く使いやすいパスを使用して、`DiskStorage` と `NetworkStorage` "
+"を他のクレートで使用できるようになります。"
 
 #: src/modules/paths.md
 msgid ""
@@ -9175,6 +9265,12 @@ msgid ""
 "`read_to_string` method on a type implementing the `Read` trait, you need to "
 "`use std::io::Read`."
 msgstr ""
+"ほとんどの場合、`use` を指定する必要があるのはモジュール内に表示されるアイテ"
+"ムのみです。ただし、そのトレイトを実装する型がすでにスコープに含まれている場"
+"合でも、そのトレイトのメソッドを呼び出すには、そのトレイトがスコープに含まれ"
+"ている必要があります。たとえば、`Read` トレイトを実装する型で "
+"`read_to_string` メソッドを使用するには、`use std::io::Read` を使用する必要が"
+"あります。"
 
 #: src/modules/paths.md
 msgid ""
@@ -9182,6 +9278,9 @@ msgid ""
 "discouraged because it is not clear which items are imported, and those "
 "might change over time."
 msgstr ""
+"`use` ステートメントには `use std::io::*` というワイルドカードを含めることが"
+"できます。どのアイテムがインポートされるのかが明確ではなく、時間の経過ととも"
+"に変化する可能性があるため、この方法はおすすめしません。"
 
 #: src/modules/exercise.md
 msgid ""
@@ -9189,12 +9288,17 @@ msgid ""
 "This library defines a `Widget` trait and a few implementations of that "
 "trait, as well as a `main` function."
 msgstr ""
+"この演習では、小規模な GUI ライブラリ実装を再編成します。このライブラリでは、"
+"`Widget` トレイト、そのトレイトのいくつかの実装、`main` 関数を定義していま"
+"す。"
 
 #: src/modules/exercise.md
 msgid ""
 "It is typical to put each type or set of closely-related types into its own "
 "module, so each widget type should get its own module."
 msgstr ""
+"通常は、各型または密接に関連する型のセットを独自のモジュールに配置するので、"
+"ウィジェット タイプごとに独自のモジュールを用意する必要があります。"
 
 #: src/modules/exercise.md
 #, fuzzy
@@ -9206,40 +9310,44 @@ msgid ""
 "The Rust playground only supports one file, so you will need to make a Cargo "
 "project on your local filesystem:"
 msgstr ""
+"Rust プレイグラウンドは 1 つのファイルしかサポートしないため、ローカル ファイ"
+"ル システムで Cargo プロジェクトを作成する必要があります。"
 
 #: src/modules/exercise.md
 msgid ""
 "Edit the resulting `src/main.rs` to add `mod` statements, and add additional "
 "files in the `src` directory."
 msgstr ""
+"結果の `src/main.rs` を編集して `mod` ステートメントを追加し、`src` ディレク"
+"トリにファイルを追加します。"
 
 #: src/modules/exercise.md
 msgid "Source"
-msgstr ""
+msgstr "ソース"
 
 #: src/modules/exercise.md
 msgid "Here's the single-module implementation of the GUI library:"
-msgstr ""
+msgstr "GUI ライブラリの単一モジュール実装は次のとおりです。"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "/// Natural width of `self`.\n"
-msgstr ""
+msgstr "/// `self` の自然な幅。\n"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "/// Draw the widget into a buffer.\n"
-msgstr ""
+msgstr "/// ウィジェットをバッファに描画します。\n"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "/// Draw the widget on standard output.\n"
-msgstr ""
+msgstr "/// 標準出力にウィジェットを描画します。\n"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"{buffer}\""
-msgstr ""
+msgstr "\"{buffer}\""
 
 #: src/modules/exercise.md
 msgid "// Add 4 paddings for borders\n"
-msgstr ""
+msgstr "// 枠線用に 4 つのパディングを追加します。\n"
 
 #: src/modules/exercise.md
 msgid ""
@@ -9247,51 +9355,54 @@ msgid ""
 "the\n"
 "        // ?-operator here instead of .unwrap().\n"
 msgstr ""
+"// TODO: Result<(), std::fmt::Error> を返すように draw_into を変更します。次"
+"に、.unwrap() の代わりに\n"
+"        // ? 演算子を使用します。\n"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"+-{:-<inner_width$}-+\""
-msgstr ""
+msgstr "\"+-{:-<inner_width$}-+\""
 
 #: src/modules/exercise.md src/modules/solution.md src/testing/unit-tests.md
 #: src/testing/solution.md
 msgid "\"\""
-msgstr ""
+msgstr "\"\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"| {:^inner_width$} |\""
-msgstr ""
+msgstr "\"| {:^inner_width$} |\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"+={:=<inner_width$}=+\""
-msgstr ""
+msgstr "\"+={:=<inner_width$}=+\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"| {:inner_width$} |\""
-msgstr ""
+msgstr "\"| {:inner_width$} |\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "// add a bit of padding\n"
-msgstr ""
+msgstr "// パディングを少し追加します。\n"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"+{:-<width$}+\""
-msgstr ""
+msgstr "\"+{:-<width$}+\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"|{:^width$}|\""
-msgstr ""
+msgstr "\"|{:^width$}|\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"Rust GUI Demo 1.23\""
-msgstr ""
+msgstr "\"Rust GUI Demo 1.23\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"This is a small text GUI demo.\""
-msgstr ""
+msgstr "\"This is a small text GUI demo.\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"Click me!\""
-msgstr ""
+msgstr "\"Click me!\""
 
 #: src/modules/exercise.md
 msgid ""
@@ -9299,60 +9410,65 @@ msgid ""
 "and get accustomed to the required `mod`, `use`, and `pub` declarations. "
 "Afterward, discuss what organizations are most idiomatic."
 msgstr ""
+"自分にとって自然な方法でコードを分割し、必要な `mod`、`use`、`pub` 宣言に慣れ"
+"るよう受講者に促します。その後、どの構成が最も慣用的であるかについて話し合い"
+"ます。"
 
 #: src/modules/solution.md
 msgid "// ---- src/widgets.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets.rs ----\n"
 
 #: src/modules/solution.md
 msgid "// ---- src/widgets/label.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets/label.rs ----\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR_END: Label-width\n"
-msgstr ""
+msgstr "// ANCHOR_END: Label-width\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR: Label-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR: Label-draw_into\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR_END: Label-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR_END: Label-draw_into\n"
 
 #: src/modules/solution.md
 msgid "// ---- src/widgets/button.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets/button.rs ----\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR_END: Button-width\n"
-msgstr ""
+msgstr "// ANCHOR_END: Button-width\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR: Button-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR: Button-draw_into\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR_END: Button-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR_END: Button-draw_into\n"
 
 #: src/modules/solution.md
 msgid "// ---- src/widgets/window.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets/window.rs ----\n"
 
 #: src/modules/solution.md
 msgid ""
 "// ANCHOR_END: Window-width\n"
 "        // Add 4 paddings for borders\n"
 msgstr ""
+"// ANCHOR_END: Window-width\n"
+"        // 枠線に 4 つのパディングを追加します。\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR: Window-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR: Window-draw_into\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR_END: Window-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR_END: Window-draw_into\n"
 
 #: src/modules/solution.md
 msgid ""
@@ -9360,38 +9476,42 @@ msgid ""
 "        // draw_into to return Result<(), std::fmt::Error>. Then use\n"
 "        // the ?-operator here instead of .unwrap().\n"
 msgstr ""
+"// TODO: エラー処理について学習した後で、\n"
+"        // Result<(), std::fmt::Error> を返すように draw_into を変更できま"
+"す。次に、ここで\n"
+"        // .unwrap() の代わりに ? 演算子を使用します。\n"
 
 #: src/modules/solution.md
 msgid "// ---- src/main.rs ----\n"
-msgstr ""
+msgstr "// ---- src/main.rs ----\n"
 
 #: src/testing.md
 msgid "[Test Modules](./testing/unit-tests.md) (5 minutes)"
-msgstr ""
+msgstr "[テスト] モジュール(./testing/unit-tests.md)（5 分）"
 
 #: src/testing.md
 msgid "[Other Types of Tests](./testing/other.md) (10 minutes)"
-msgstr ""
+msgstr "[その他の種類のテスト](./testing/other.md)（10 分）"
 
 #: src/testing.md
 msgid "[Useful Crates](./testing/useful-crates.md) (3 minutes)"
-msgstr ""
+msgstr "[便利なクレート](./testing/useful-crates.md)（3 分）"
 
 #: src/testing.md
 msgid "[GoogleTest](./testing/googletest.md) (5 minutes)"
-msgstr ""
+msgstr "[GoogleTest](./testing/googletest.md)（5 分）"
 
 #: src/testing.md
 msgid "[Mocking](./testing/mocking.md) (5 minutes)"
-msgstr ""
+msgstr "[モック](./testing/mocking.md)（5 分）"
 
 #: src/testing.md
 msgid "[Compiler Lints and Clippy](./testing/lints.md) (5 minutes)"
-msgstr ""
+msgstr "[コンパイラの lint と Clippy](./testing/lints.md)（5 分）"
 
 #: src/testing.md
 msgid "[Exercise: Luhn Algorithm](./testing/exercise.md) (30 minutes)"
-msgstr ""
+msgstr "[演習: Luhn アルゴリズム](./testing/exercise.md)（30 分）"
 
 #: src/testing/unit-tests.md
 msgid "Unit Tests"
@@ -9400,14 +9520,15 @@ msgstr "ユニットテスト"
 #: src/testing/unit-tests.md
 msgid "Rust and Cargo come with a simple unit test framework:"
 msgstr ""
+"Rust と Cargo には、シンプルな単体テスト フレームワークが付属しています。"
 
 #: src/testing/unit-tests.md
 msgid "Unit tests are supported throughout your code."
-msgstr ""
+msgstr "単体テストはコード全体でサポートされます。"
 
 #: src/testing/unit-tests.md
 msgid "Integration tests are supported via the `tests/` directory."
-msgstr ""
+msgstr "統合テストは `tests/` ディレクトリを介してサポートされます。"
 
 #: src/testing/unit-tests.md
 msgid ""
@@ -9415,22 +9536,25 @@ msgid ""
 "`tests` module, using `#[cfg(test)]` to conditionally compile them only when "
 "building tests."
 msgstr ""
+"テストには `#[test]` のマークが付きます。多くの場合、単体テストはネストされ"
+"た `tests` モジュールに配置され、テストのビルド時にのみ `#[cfg(test)]` を使用"
+"して条件付きでコンパイルします。"
 
 #: src/testing/unit-tests.md
 msgid "\"Hello World\""
-msgstr ""
+msgstr "\"Hello World\""
 
 #: src/testing/unit-tests.md
 msgid "This lets you unit test private helpers."
-msgstr ""
+msgstr "これにより、プライベート ヘルパーの単体テストを行えます。"
 
 #: src/testing/unit-tests.md
 msgid "The `#[cfg(test)]` attribute is only active when you run `cargo test`."
-msgstr ""
+msgstr "`#[cfg(test)]` 属性は、`cargo test` の実行時にのみ有効になります。"
 
 #: src/testing/unit-tests.md
 msgid "Run the tests in the playground in order to show their results."
-msgstr ""
+msgstr "結果を表示するには、プレイグラウンドでテストを実行します。"
 
 #: src/testing/other.md
 msgid "Integration Tests"
@@ -9439,18 +9563,19 @@ msgstr "インテグレーションテスト"
 #: src/testing/other.md
 msgid "If you want to test your library as a client, use an integration test."
 msgstr ""
+"ライブラリをクライアントとしてテストする場合は、統合テストを使用します。"
 
 #: src/testing/other.md
 msgid "Create a `.rs` file under `tests/`:"
-msgstr ""
+msgstr "`tests/` の下に `.rs` ファイルを作成します。"
 
 #: src/testing/other.md
 msgid "// tests/my_library.rs\n"
-msgstr ""
+msgstr "// tests/my_library.rs\n"
 
 #: src/testing/other.md
 msgid "These tests only have access to the public API of your crate."
-msgstr ""
+msgstr "これらのテストでは、クレートの公開 API にのみアクセスできます。"
 
 #: src/testing/other.md
 msgid "Documentation Tests"
@@ -9458,7 +9583,7 @@ msgstr "ドキュメンテーションテスト"
 
 #: src/testing/other.md
 msgid "Rust has built-in support for documentation tests:"
-msgstr ""
+msgstr "Rust には、ドキュメント テストの組み込みサポートがあります。"
 
 #: src/testing/other.md
 msgid ""
@@ -9470,70 +9595,92 @@ msgid ""
 "/// assert_eq!(shorten_string(\"Hello World\", 20), \"Hello World\");\n"
 "/// ```\n"
 msgstr ""
+"/// 指定した長さに文字列を短縮します。\n"
+"///\n"
+"/// ```\n"
+"/// # use playground::shorten_string;\n"
+"/// assert_eq!(shorten_string(\"Hello World\", 5), \"Hello\");\n"
+"/// assert_eq!(shorten_string(\"Hello World\", 20), \"Hello World\");\n"
+"/// ```\n"
 
 #: src/testing/other.md
 msgid "Code blocks in `///` comments are automatically seen as Rust code."
 msgstr ""
+"`///` コメント内のコードブロックは、自動的に Rust コードとみなされます。"
 
 #: src/testing/other.md
 msgid "The code will be compiled and executed as part of `cargo test`."
-msgstr ""
+msgstr "コードは `cargo test` の一環としてコンパイルされ、実行されます。"
 
 #: src/testing/other.md
 msgid ""
 "Adding `#` in the code will hide it from the docs, but will still compile/"
 "run it."
 msgstr ""
+"コードに `#` を追加すると、ドキュメントには表示されなくなりますが、コンパイル"
+"と実行は引き続き行われます。"
 
 #: src/testing/other.md
 msgid ""
 "Test the above code on the [Rust Playground](https://play.rust-lang.org/?"
 "version=stable&mode=debug&edition=2021&gist=3ce2ad13ea1302f6572cb15cd96becf0)."
 msgstr ""
+"[Rust プレイグラウンド](https://play.rust-lang.org/?"
+"version=stable&mode=debug&edition=2021&gist=3ce2ad13ea1302f6572cb15cd96becf0) "
+"で上記のコードをテストします。"
 
 #: src/testing/useful-crates.md
 msgid "Rust comes with only basic support for writing tests."
-msgstr ""
+msgstr "Rust は、テストを作成するための基本的なサポートのみを提供します。"
 
 #: src/testing/useful-crates.md
 msgid "Here are some additional crates which we recommend for writing tests:"
-msgstr ""
+msgstr "テストを作成する際に推奨されるその他のクレートを以下に示します。"
 
 #: src/testing/useful-crates.md
 msgid ""
 "[googletest](https://docs.rs/googletest): Comprehensive test assertion "
 "library in the tradition of GoogleTest for C++."
 msgstr ""
+"[googletest](https://docs.rs/googletest): 従来の C++ 向け GoogleTest の包括的"
+"なテスト アサーション ライブラリです。"
 
 #: src/testing/useful-crates.md
 msgid "[proptest](https://docs.rs/proptest): Property-based testing for Rust."
 msgstr ""
+"[proptest](https://docs.rs/proptest): Rust のプロパティ ベースのテストです。"
 
 #: src/testing/useful-crates.md
 msgid ""
 "[rstest](https://docs.rs/rstest): Support for fixtures and parameterised "
 "tests."
 msgstr ""
+"[rstest](https://docs.rs/rstest): フィクスチャとパラメータ化されたテストをサ"
+"ポートします。"
 
 #: src/testing/googletest.md
 msgid ""
 "The [GoogleTest](https://docs.rs/googletest/) crate allows for flexible test "
 "assertions using _matchers_:"
 msgstr ""
+"[GoogleTest](https://docs.rs/googletest/) クレートにより、マッチャーを使用し"
+"た柔軟なテスト アサーションが可能になります。"
 
 #: src/testing/googletest.md
 msgid "\"baz\""
-msgstr ""
+msgstr "\"baz\""
 
 #: src/testing/googletest.md
 msgid "\"xyz\""
-msgstr ""
+msgstr "\"xyz\""
 
 #: src/testing/googletest.md
 msgid ""
 "If we change the last element to `\"!\"`, the test fails with a structured "
 "error message pin-pointing the error:"
 msgstr ""
+"最後の要素を `\"!\"` に変更すると、テストは失敗し、エラーを示す構造化されたエ"
+"ラー メッセージが表示されます。"
 
 #: src/testing/googletest.md
 msgid ""
@@ -9541,6 +9688,9 @@ msgid ""
 "example in a local environment. Use `cargo add googletest` to quickly add it "
 "to an existing Cargo project."
 msgstr ""
+"GoogleTest は Rust プレイグラウンドの一部ではないため、この例はローカル環境で"
+"実行する必要があります。`cargo add googletest` を使用して、既存の Cargo プロ"
+"ジェクトにすばやく追加します。"
 
 #: src/testing/googletest.md
 msgid ""
@@ -9548,16 +9698,18 @@ msgid ""
 "macros and types](https://docs.rs/googletest/latest/googletest/prelude/index."
 "html)."
 msgstr ""
+"`use googletest::prelude::*;` 行は、[一般的に使用されるマクロと型](https://"
+"docs.rs/googletest/latest/googletest/prelude/index.html)をインポートします。"
 
 #: src/testing/googletest.md
 msgid "This just scratches the surface, there are many builtin matchers."
-msgstr ""
+msgstr "ここで使用しているもの以外にも、多くの組み込みマッチャーがあります。"
 
 #: src/testing/googletest.md
 msgid ""
 "A particularly nice feature is that mismatches in multi-line strings strings "
 "are shown as a diff:"
-msgstr ""
+msgstr "特に便利なのは、複数行の文字列の不一致が差分として表示される機能です。"
 
 #: src/testing/googletest.md
 msgid ""
@@ -9565,6 +9717,9 @@ msgid ""
 "                 Rust's strong typing guides the way,\\n\\\n"
 "                 Secure code you'll write.\""
 msgstr ""
+"\"Memory safety found,\\n\\\n"
+"                 Rust's strong typing guides the way,\\n\\\n"
+"                 Secure code you'll write.\""
 
 #: src/testing/googletest.md
 msgid ""
@@ -9572,20 +9727,25 @@ msgid ""
 "            Rust's silly humor guides the way,\\n\\\n"
 "            Secure code you'll write.\""
 msgstr ""
+"\"Memory safety found,\\n\\\n"
+"            Rust's silly humor guides the way,\\n\\\n"
+"            Secure code you'll write.\""
 
 #: src/testing/googletest.md
 msgid "shows a color-coded diff (colors not shown here):"
-msgstr ""
+msgstr "これにより、差分が色分けされます（ここでは色分けされていません）。"
 
 #: src/testing/googletest.md
 msgid ""
 "The crate is a Rust port of [GoogleTest for C++](https://google.github.io/"
 "googletest/)."
 msgstr ""
+"このクレートは [GoogleTest for C++](https://google.github.io/googletest/) の "
+"Rust ポートです。"
 
 #: src/testing/googletest.md
 msgid "GoogleTest is available for use in AOSP."
-msgstr ""
+msgstr "GoogleTest は AOSP で使用できます。"
 
 #: src/testing/mocking.md
 msgid ""
@@ -9593,6 +9753,9 @@ msgid ""
 "You need to refactor your code to use traits, which you can then quickly "
 "mock:"
 msgstr ""
+"モックには、[Mockall](https://docs.rs/mockall/) というライブラリが広く使用さ"
+"れています。トレイトを使用するようにコードをリファクタリングする必要がありま"
+"す。これにより、すぐにモックできるようになります。"
 
 #: src/testing/mocking.md
 msgid ""
@@ -9602,6 +9765,11 @@ msgid ""
 "services. The other mocking libraries work in a similar fashion as Mockall, "
 "meaning that they make it easy to get a mock implementation of a given trait."
 msgstr ""
+"ここでは、Mockall が推奨モック ライブラリである Android（AOSP）向けのアドバイ"
+"スを行います。特に HTTP サービスのモックに関しては、[crates.io で他のモック "
+"ライブラリが公開されています](https://crates.io/keywords/mock)。他のモック ラ"
+"イブラリも Mockall と同様に動作するので、特定のトレイトのモック実装を簡単に取"
+"得できます。"
 
 #: src/testing/mocking.md
 msgid ""
@@ -9610,6 +9778,10 @@ msgid ""
 "more stable test execution. On the other hand, the mocks can be configured "
 "wrongly and return output different from what the real dependencies would do."
 msgstr ""
+"モックを使用する際は少し注意が必要です。モックを使用すると、テストを依存関係"
+"から完全に分離できます。その結果、より高速で安定したテスト実行が可能になりま"
+"す。一方、モックが誤って構成され、実際の依存関係の動作とは異なる出力が返され"
+"る可能性があります。"
 
 #: src/testing/mocking.md
 msgid ""
@@ -9618,6 +9790,9 @@ msgid ""
 "means that you get the correct behavior in your tests, plus they are fast "
 "and will automatically clean up after themselves."
 msgstr ""
+"可能な限り、実際の依存関係を使用することをおすすめします。たとえば、多くの"
+"データベースではインメモリ バックエンドを構成できます。つまり、テストで正しい"
+"動作が得られ、しかも高速で、テスト後は自動的にクリーンアップされます。"
 
 #: src/testing/mocking.md
 msgid ""
@@ -9625,6 +9800,10 @@ msgid ""
 "binds to a random port on `localhost`. Always prefer this over mocking away "
 "the framework since it helps you test your code in the real environment."
 msgstr ""
+"同様に、多くのウェブ フレームワークでは、`localhost` 上のランダムなポートにバ"
+"インドするプロセス内サーバーを起動できます。実際の環境でコードをテストする際"
+"に役立つため、フレームワークをモックするのではなく、常にこの方法をおすすめし"
+"ます。"
 
 #: src/testing/mocking.md
 msgid ""
@@ -9632,6 +9811,9 @@ msgid ""
 "in a local environment. Use `cargo add mockall` to quickly add Mockall to an "
 "existing Cargo project."
 msgstr ""
+"Mockall は Rust プレイグラウンドの一部ではないため、この例はローカル環境で実"
+"行する必要があります。`cargo add mockall` を使用して、Mockall を既存の Cargo "
+"プロジェクトにすばやく追加します。"
 
 #: src/testing/mocking.md
 msgid ""
@@ -9639,6 +9821,9 @@ msgid ""
 "expectations which depend on the arguments passed. Here we use this to mock "
 "a cat which becomes hungry 3 hours after the last time it was fed:"
 msgstr ""
+"Mockall にはさらに多くの機能があります。特に、渡される引数に応じて期待値を設"
+"定できます。ここでは、最後に餌を与えてらえてから 3 時間後に空腹になる猫をモッ"
+"クするためにこれを使用します。"
 
 #: src/testing/mocking.md
 msgid ""
@@ -9646,6 +9831,9 @@ msgid ""
 "called to `n` --- the mock will automatically panic when dropped if this "
 "isn't satisfied."
 msgstr ""
+"`.times(n)` を使用すると、`n` に対してモックメソッドを呼び出す回数を制限でき"
+"ます。これが満たされない場合、モックはドロップ時に自動的にパニックになりま"
+"す。"
 
 #: src/testing/lints.md
 msgid ""
@@ -9653,10 +9841,13 @@ msgid ""
 "built-in lints. [Clippy](https://doc.rust-lang.org/clippy/) provides even "
 "more lints, organized into groups that can be enabled per-project."
 msgstr ""
+"Rust コンパイラは、読みやすいエラー メッセージと便利な組み込み lint を生成し"
+"ます。[Clippy](https://doc.rust-lang.org/clippy/) では、さらに多くの lint が"
+"グループにまとめられており、プロジェクトごとに有効にできます。"
 
 #: src/testing/lints.md
 msgid "\"X probably fits in a u16, right? {}\""
-msgstr ""
+msgstr "\"X probably fits in a u16, right? {}\""
 
 #: src/testing/lints.md
 msgid ""
@@ -9664,6 +9855,9 @@ msgid ""
 "visible here, but those will not be shown once the code compiles. Switch to "
 "the Playground site to show those lints."
 msgstr ""
+"コードサンプルを実行してエラー メッセージを確認します。ここにも lint が表示さ"
+"れますが、コードがコンパイルされると、それらは表示されません。これらの lint "
+"を表示するには、プレイグラウンド サイトに切り替えます。"
 
 #: src/testing/lints.md
 msgid ""
@@ -9671,12 +9865,17 @@ msgid ""
 "clippy warnings. Clippy has extensive documentation of its lints, and adds "
 "new lints (including default-deny lints) all the time."
 msgstr ""
+"lint を解決した後、プレイグラウンド サイトで `clippy` を実行して、Clippy の警"
+"告を表示します。Clippy には、lint に関する広範なドキュメントがあり、新しい "
+"lint（デフォルト拒否 lint を含む）が常に追加されています。"
 
 #: src/testing/lints.md
 msgid ""
 "Note that errors or warnings with `help: ...` can be fixed with `cargo fix` "
 "or via your editor."
 msgstr ""
+"`help: ...` が付くエラーや警告は、`cargo fix` またはエディタを使用して修正で"
+"きます。"
 
 #: src/testing/exercise.md
 msgid "Luhn Algorithm"
@@ -9688,30 +9887,37 @@ msgid ""
 "to validate credit card numbers. The algorithm takes a string as input and "
 "does the following to validate the credit card number:"
 msgstr ""
+"[Luhn アルゴリズム](https://en.wikipedia.org/wiki/Luhn_algorithm) は、クレ"
+"ジット カード番号の検証に使用されます。このアルゴリズムは文字列を入力として受"
+"け取り、以下の処理を行ってクレジット カード番号を検証します。"
 
 #: src/testing/exercise.md
 msgid "Ignore all spaces. Reject number with less than two digits."
-msgstr ""
+msgstr "すべてのスペースを無視し、2 桁未満の番号を拒否します。"
 
 #: src/testing/exercise.md
 msgid ""
 "Moving from **right to left**, double every second digit: for the number "
 "`1234`, we double `3` and `1`. For the number `98765`, we double `6` and `8`."
 msgstr ""
+"**右から左に**移動して、2 桁ごとに 2 倍にします。数値 `1234` の場合、`3` と "
+"`1` を 2 倍にします。数値 `98765` の場合、`6` と `8` を 2 倍にします。"
 
 #: src/testing/exercise.md
 msgid ""
 "After doubling a digit, sum the digits if the result is greater than 9. So "
 "doubling `7` becomes `14` which becomes `1 + 4 = 5`."
 msgstr ""
+"桁を 2 倍にした後、結果が 9 より大きい場合はその桁を合計します。したがって、"
+"`7` を 2 倍すると `14` になり、`1 + 4 = 5` になります。"
 
 #: src/testing/exercise.md
 msgid "Sum all the undoubled and doubled digits."
-msgstr ""
+msgstr "2 倍にしていない数字と 2 倍にした数字をすべて合計します。"
 
 #: src/testing/exercise.md
 msgid "The credit card number is valid if the sum ends with `0`."
-msgstr ""
+msgstr "クレジット カード番号は、合計が `0` で終わる場合に有効です。"
 
 #: src/testing/exercise.md
 msgid ""
@@ -9719,6 +9925,9 @@ msgid ""
 "along with two basic unit tests that confirm that most the algorithm is "
 "implemented correctly."
 msgstr ""
+"提供されているコードでは、luhn アルゴリズムのバグのある実装と、ほとんどのアル"
+"ゴリズムが正しく実装されていることを確認する 2 つの基本的な単体テストを提供し"
+"ています。"
 
 #: src/testing/exercise.md
 msgid ""
@@ -9726,193 +9935,210 @@ msgid ""
 "tests to uncover bugs in the provided implementation, fixing any bugs you "
 "find."
 msgstr ""
+"以下のコードを <https://play.rust-lang.org/> にコピーし、提供された実装のバグ"
+"を発見するための追加のテストを記述し、見つけたバグを修正してください。"
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"4263 9826 4026 9299\""
-msgstr ""
+msgstr "\"4263 9826 4026 9299\""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"4539 3195 0343 6467\""
-msgstr ""
+msgstr "\"4539 3195 0343 6467\""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"7992 7398 713\""
-msgstr ""
+msgstr "\"7992 7398 713\""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"4223 9826 4026 9299\""
-msgstr ""
+msgstr "\"4223 9826 4026 9299\""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"4539 3195 0343 6476\""
-msgstr ""
+msgstr "\"4539 3195 0343 6476\""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"8273 1232 7352 0569\""
-msgstr ""
+msgstr "\"8273 1232 7352 0569\""
 
 #: src/testing/solution.md
 msgid "// This is the buggy version that appears in the problem.\n"
-msgstr ""
+msgstr "// これは問題に記述されているバグのあるバージョンです。\n"
 
 #: src/testing/solution.md
 msgid "// This is the solution and passes all of the tests below.\n"
-msgstr ""
+msgstr "// これは解答で、以下のすべてのテストに合格します。\n"
 
 #: src/testing/solution.md
 msgid "\"1234 5678 1234 5670\""
-msgstr ""
+msgstr "\"1234 5678 1234 5670\""
 
 #: src/testing/solution.md
 msgid "\"Is {cc_number} a valid credit card number? {}\""
-msgstr ""
+msgstr "\"Is {cc_number} a valid credit card number? {}\""
 
 #: src/testing/solution.md
 msgid "\"yes\""
-msgstr ""
+msgstr "\"yes\""
 
 #: src/testing/solution.md
 msgid "\"no\""
-msgstr ""
+msgstr "\"no\""
 
 #: src/testing/solution.md
 msgid "\"foo 0 0\""
-msgstr ""
+msgstr "\"foo 0 0\""
 
 #: src/testing/solution.md
 msgid "\" \""
-msgstr ""
+msgstr "\" \""
 
 #: src/testing/solution.md
 msgid "\"  \""
-msgstr ""
+msgstr "\"  \""
 
 #: src/testing/solution.md
 msgid "\"    \""
-msgstr ""
+msgstr "\"    \""
 
 #: src/testing/solution.md
 msgid "\"0\""
-msgstr ""
+msgstr "\"0\""
 
 #: src/testing/solution.md
 msgid "\" 0 0 \""
-msgstr ""
+msgstr "\" 0 0 \""
 
 #: src/welcome-day-4-afternoon.md
 msgid "[Error Handling](./error-handling.md) (45 minutes)"
-msgstr ""
+msgstr "[エラー処理](./error-handling.md)（45 分）"
 
 #: src/welcome-day-4-afternoon.md
 msgid "[Unsafe Rust](./unsafe-rust.md) (1 hour and 5 minutes)"
-msgstr ""
+msgstr "[安全でない Rust](./unsafe-rust.md)（1 時間 5 分）"
 
 #: src/welcome-day-4-afternoon.md
 msgid "Including 10 minute breaks, this session should take about 2 hours"
-msgstr ""
+msgstr "このセッションの所要時間は、10 分間の休憩を入れて約 2 時間です。"
 
 #: src/error-handling.md
 msgid "[Panics](./error-handling/panics.md) (3 minutes)"
-msgstr ""
+msgstr "[パニック](./error-handling/panics.md)（3 分）"
 
 #: src/error-handling.md
 msgid "[Try Operator](./error-handling/try.md) (5 minutes)"
-msgstr ""
+msgstr "[try 演算子](./error-handling/try.md)（5 分）"
 
 #: src/error-handling.md
 msgid "[Try Conversions](./error-handling/try-conversions.md) (5 minutes)"
-msgstr ""
+msgstr "[try 変換](./error-handling/try-conversions.md)（5 分）"
 
 #: src/error-handling.md
 msgid "[Error Trait](./error-handling/error.md) (5 minutes)"
-msgstr ""
+msgstr "[エラートレイト](./error-handling/error.md)（5 分）"
 
 #: src/error-handling.md
 msgid ""
 "[thiserror and anyhow](./error-handling/thiserror-and-anyhow.md) (5 minutes)"
 msgstr ""
+"[thiserror と anyhow](./error-handling/thiserror-and-anyhow.md)（5 分）"
 
 #: src/error-handling.md
 msgid ""
 "[Exercise: Rewriting with Result](./error-handling/exercise.md) (20 minutes)"
 msgstr ""
+"[演習: Result を使用した書き換え](./error-handling/exercise.md)（20 分）"
 
 #: src/error-handling/panics.md
 msgid "Rust handles fatal errors with a \"panic\"."
-msgstr ""
+msgstr "Rust は「パニック」を使用して致命的なエラーを処理します。"
 
 #: src/error-handling/panics.md
 msgid "Rust will trigger a panic if a fatal error happens at runtime:"
-msgstr ""
+msgstr "実行時に致命的なエラーが発生すると、Rust はパニックをトリガーします。"
 
 #: src/error-handling/panics.md
 msgid "\"v[100]: {}\""
-msgstr ""
+msgstr "\"v[100]: {}\""
 
 #: src/error-handling/panics.md
 msgid "Panics are for unrecoverable and unexpected errors."
-msgstr ""
+msgstr "パニックは、回復不能なエラーや予期しないエラーに使用します。"
 
 #: src/error-handling/panics.md
 msgid "Panics are symptoms of bugs in the program."
-msgstr ""
+msgstr "パニックはプログラムのバグの兆候です。"
 
 #: src/error-handling/panics.md
 msgid "Runtime failures like failed bounds checks can panic"
 msgstr ""
+"ランタイム エラー（境界チェックの失敗など）は、パニックになる場合があります。"
 
 #: src/error-handling/panics.md
 msgid "Assertions (such as `assert!`) panic on failure"
-msgstr ""
+msgstr "アサーション（`assert!` など）は失敗時にパニックになります。"
 
 #: src/error-handling/panics.md
 msgid "Purpose-specific panics can use the `panic!` macro."
-msgstr ""
+msgstr "目的に応じたパニックでは、`panic!` マクロを使用できます。"
 
 #: src/error-handling/panics.md
 msgid ""
 "A panic will \"unwind\" the stack, dropping values just as if the functions "
 "had returned."
 msgstr ""
+"パニックが発生すると、スタックが「アンワインド」され、関数が返されたかのよう"
+"に値がドロップされます。"
 
 #: src/error-handling/panics.md
 msgid ""
 "Use non-panicking APIs (such as `Vec::get`) if crashing is not acceptable."
 msgstr ""
+"クラッシュが許容されない場合は、パニックが発生しない API（`Vec::get` など）を"
+"使用します。"
 
 #: src/error-handling/panics.md
 msgid ""
 "By default, a panic will cause the stack to unwind. The unwinding can be "
 "caught:"
 msgstr ""
+"デフォルトでは、パニックが発生するとスタックはアンワインドされます。アンワイ"
+"ンドは以下のようにキャッチできます。"
 
 #: src/error-handling/panics.md
 msgid "\"No problem here!\""
-msgstr ""
+msgstr "\"No problem here!\""
 
 #: src/error-handling/panics.md
 msgid "\"{result:?}\""
-msgstr ""
+msgstr "\"{result:?}\""
 
 #: src/error-handling/panics.md
 msgid "\"oh no!\""
-msgstr ""
+msgstr "\"oh no!\""
 
 #: src/error-handling/panics.md
 msgid ""
 "Catching is unusual; do not attempt to implement exceptions with "
 "`catch_unwind`!"
 msgstr ""
+"キャッチは一般的ではないため、`catch_unwind` を使用して例外を実装しようとしな"
+"いでください。"
 
 #: src/error-handling/panics.md
 msgid ""
 "This can be useful in servers which should keep running even if a single "
 "request crashes."
 msgstr ""
+"これは、1 つのリクエストがクラッシュした場合でも実行し続ける必要があるサー"
+"バーで有用です。"
 
 #: src/error-handling/panics.md
 msgid "This does not work if `panic = 'abort'` is set in your `Cargo.toml`."
 msgstr ""
+"これは、`Cargo.toml` で `panic = 'abort'` が設定されている場合は機能しませ"
+"ん。"
 
 #: src/error-handling/try.md
 msgid ""
@@ -9921,41 +10147,48 @@ msgid ""
 "The try-operator `?` is used to return errors to the caller. It lets you "
 "turn the common"
 msgstr ""
+"connection-refused や file-not-found などのランタイム エラーは `Result` 型で"
+"処理されますが、すべての呼び出しでこの型を照合するのは面倒な場合があります。"
+"try 演算子 `?` は、呼び出し元にエラーを返すのに使用されます。これにより、一般"
+"的な以下のコードを、はるかにシンプルなコードに変換できます。"
 
 #: src/error-handling/try.md
 msgid "into the much simpler"
-msgstr ""
+msgstr "変換後のコード:"
 
 #: src/error-handling/try.md
 msgid "We can use this to simplify our error handling code:"
-msgstr ""
+msgstr "この演算子を使用することで、エラー処理コードを簡素化できます。"
 
 #: src/error-handling/try.md
 msgid "//fs::write(\"config.dat\", \"alice\").unwrap();\n"
-msgstr ""
+msgstr "//fs::write(\"config.dat\", \"alice\").unwrap();\n"
 
 #: src/error-handling/try.md src/error-handling/try-conversions.md
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "\"config.dat\""
-msgstr ""
+msgstr "\"config.dat\""
 
 #: src/error-handling/try.md src/error-handling/try-conversions.md
 msgid "\"username or error: {username:?}\""
-msgstr ""
+msgstr "\"username or error: {username:?}\""
 
 #: src/error-handling/try.md
 msgid "Simplify the `read_username` function to use `?`."
-msgstr ""
+msgstr "? を使用して `read_username` 関数を簡素化します。"
 
 #: src/error-handling/try.md
 msgid "The `username` variable can be either `Ok(string)` or `Err(error)`."
 msgstr ""
+"`username` 変数は、`Ok(string)` または `Err(error)` のいずれかになります。"
 
 #: src/error-handling/try.md
 msgid ""
 "Use the `fs::write` call to test out the different scenarios: no file, empty "
 "file, file with username."
 msgstr ""
+"`fs::write` 呼び出しを使用して、さまざまなシナリオ（ファイルがない、空のファ"
+"イル、ユーザー名のあるファイルなど）をテストします。"
 
 #: src/error-handling/try.md
 msgid ""
@@ -9964,16 +10197,22 @@ msgid ""
 "The executable will print the `Err` variant and return a nonzero exit status "
 "on error."
 msgstr ""
+"なお、`main` は `std::process:Termination` を実装している限り、Result<(), "
+"E>` を返すことができます。つまり、実際には `E` は `Debug` を実装します。この"
+"実行可能ファイルは `Err` バリアントを出力し、エラー時にはゼロ以外の終了ステー"
+"タスを返します。"
 
 #: src/error-handling/try-conversions.md
 msgid ""
 "The effective expansion of `?` is a little more complicated than previously "
 "indicated:"
 msgstr ""
+"`?` を効果的に展開するには、前述のコードよりも少し複雑なコードが必要になりま"
+"す。"
 
 #: src/error-handling/try-conversions.md
 msgid "works the same as"
-msgstr ""
+msgstr "上のコードは、以下と同じように動作します。"
 
 #: src/error-handling/try-conversions.md
 msgid ""
@@ -9981,19 +10220,22 @@ msgid ""
 "type returned by the function. This makes it easy to encapsulate errors into "
 "higher-level errors."
 msgstr ""
+"ここでの `From::from` 呼び出しは、エラー型を関数が返す型に変換しようとしてい"
+"ることを意味します。これにより、エラーを上位レベルのエラーに簡単にカプセル化"
+"できます。"
 
 #: src/error-handling/try-conversions.md
 msgid "\"IO error: {e}\""
-msgstr ""
+msgstr "\"IO error: {e}\""
 
 #: src/error-handling/try-conversions.md
 msgid "\"Found no username in {path}\""
-msgstr ""
+msgstr "\"Found no username in {path}\""
 
 #: src/error-handling/try-conversions.md
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "//fs::write(\"config.dat\", \"\").unwrap();\n"
-msgstr ""
+msgstr "//fs::write(\"config.dat\", \"\").unwrap();\n"
 
 #: src/error-handling/try-conversions.md
 msgid ""
@@ -10003,12 +10245,19 @@ msgid ""
 "of type `Result<U, ErrorInner>` if `ErrorOuter` and `ErrorInner` are the "
 "same type or if `ErrorOuter` implements `From<ErrorInner>`."
 msgstr ""
+"`?` 演算子は、関数の戻り値の型と互換性のある値を返す必要があります。つまり、"
+"`Result` の場合、エラー型に互換性がなければなりません。`Result<T, "
+"ErrorOuter>` を返す関数は、`ErrorOuter` と `ErrorInner` が同じ型であるか、"
+"`ErrorOuter` が `From<ErrorInner>` を実装している場合にのみ、型 `Result<U, "
+"ErrorInner>` の値に `?` を使用できます。"
 
 #: src/error-handling/try-conversions.md
 msgid ""
 "A common alternative to a `From` implementation is `Result::map_err`, "
 "especially when the conversion only happens in one place."
 msgstr ""
+"特に変換が 1 か所でのみ発生する場合は、`From` を実装する代わりに Result::"
+"map_err を使用するのが一般的です。"
 
 #: src/error-handling/try-conversions.md
 msgid ""
@@ -10016,6 +10265,8 @@ msgid ""
 "`Option<T>` can use the `?` operator on `Option<U>` for arbitrary `T` and "
 "`U` types."
 msgstr ""
+"`Option` には互換性の要件はありません。`Option<T>` を返す関数は、`Option<U>` "
+"の任意の `T` 型と `U` 型に対して、`?` 演算子を使用できます。"
 
 #: src/error-handling/try-conversions.md
 msgid ""
@@ -10023,6 +10274,9 @@ msgid ""
 "However, `Option::ok_or` converts `Option` to `Result` whereas `Result::ok` "
 "turns `Result` into `Option`."
 msgstr ""
+"Result` を返す関数では `Option` に `?` を使用できません。その逆も同様です。た"
+"だし、`Option::ok_or` は `Option` を `Result` に変換しますが、`Result::ok` "
+"は `Result` を `Option` に変換します。"
 
 #: src/error-handling/error.md
 msgid "Dynamic Error Types"
@@ -10035,28 +10289,34 @@ msgid ""
 "Error` trait makes it easy to create a trait object that can contain any "
 "error."
 msgstr ""
+"さまざまな可能性をカバーする独自の列挙型を記述することなく、あらゆる種類のエ"
+"ラーを返せるようにしたい場合があります。`std::error::Error` トレイトを使用す"
+"ると、あらゆるエラーを含めることができるトレイト オブジェクトを簡単に作成でき"
+"ます。"
 
 #: src/error-handling/error.md
 msgid "\"count.dat\""
-msgstr ""
+msgstr "\"count.dat\""
 
 #: src/error-handling/error.md
 msgid "\"1i3\""
-msgstr ""
+msgstr "\"1i3\""
 
 #: src/error-handling/error.md
 msgid "\"Count: {count}\""
-msgstr ""
+msgstr "\"Count: {count}\""
 
 #: src/error-handling/error.md
 msgid "\"Error: {err}\""
-msgstr ""
+msgstr "\"Error: {err}\""
 
 #: src/error-handling/error.md
 msgid ""
 "The `read_count` function can return `std::io::Error` (from file operations) "
 "or `std::num::ParseIntError` (from `String::parse`)."
 msgstr ""
+"`read_count` 関数は、`std::io::Error`（ファイル オペレーションから）または "
+"`std::num::ParseIntError`（`String::parse` から）を返すことができます。"
 
 #: src/error-handling/error.md
 msgid ""
@@ -10066,6 +10326,11 @@ msgid ""
 "can be a good option in a program where you just want to display the error "
 "message somewhere."
 msgstr ""
+"エラーをボックス化することでコードを節約できますが、プログラムで異なるエラー"
+"ケースを異なる方法で適切に処理する機能が失われます。そのため、ライブラリの公"
+"開 API で `Box<dyn Error>` を使用することは通常おすすめしませんが、エラー "
+"メッセージをどこかに表示したいだけのプログラムでは適切なオプションとなる場合"
+"があります。"
 
 #: src/error-handling/error.md
 msgid ""
@@ -10075,66 +10340,81 @@ msgid ""
 "compatible with `no_std` in [nightly](https://github.com/rust-lang/rust/"
 "issues/103765) only."
 msgstr ""
+"カスタムのエラー型を定義する際は、必ず `std::error::Error` トレイトを実装し、"
+"ボックス化できるようにしてください。ただし `no_std` 属性をサポートする必要が"
+"ある場合は、`std::error::Error` トレイトは現在、[ナイトリー](https://github."
+"com/rust-lang/rust/issues/103765) の `no_std` とのみ互換性があることに注意し"
+"てください。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid ""
 "The [`thiserror`](https://docs.rs/thiserror/) and [`anyhow`](https://docs.rs/"
 "anyhow/) crates are widely used to simplify error handling."
 msgstr ""
+"[`thiserror`](https://docs.rs/thiserror/) クレートと [`anyhow`](https://docs."
+"rs/anyhow/) クレートは、エラー処理を簡素化するために広く使用されています。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid ""
 "`thiserror` is often used in libraries to create custom error types that "
 "implement `From<T>`."
 msgstr ""
+"`thiserror`は、`From<T>` を実装するカスタムのエラー型を作成するためにライブラ"
+"リで頻繁に使用されます。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid ""
 "`anyhow` is often used by applications to help with error handling in "
 "functions, including adding contextual information to your errors."
 msgstr ""
+"`anyhow` は、エラーにコンテキスト情報を追加するなど、関数でのエラー処理をサ"
+"ポートするためにアプリでよく使用されます。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "\"Found no username in {0}\""
-msgstr ""
+msgstr "\"Found no username in {0}\""
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "\"Failed to open {path}\""
-msgstr ""
+msgstr "\"Failed to open {path}\""
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "\"Failed to read\""
-msgstr ""
+msgstr "\"Failed to read\""
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "\"Username: {username}\""
-msgstr ""
+msgstr "\"Username: {username}\""
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "\"Error: {err:?}\""
-msgstr ""
+msgstr "\"Error: {err:?}\""
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "`thiserror`"
-msgstr ""
+msgstr "`thiserror`"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid ""
 "The `Error` derive macro is provided by `thiserror`, and has lots of useful "
 "attributes to help define error types in a compact way."
 msgstr ""
+"`Error` 導出マクロは `thiserror` によって提供されます。このマクロには、エラー"
+"型を簡潔に定義するのに役立つ属性が数多く用意されています。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "The `std::error::Error` trait is derived automatically."
-msgstr ""
+msgstr "`std::error::Error` トレイトは自動的に導出されます。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "The message from `#[error]` is used to derive the `Display` trait."
 msgstr ""
+"`#[error]` からのメッセージは、`Display` トレイトを導出するために使用されま"
+"す。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "`anyhow`"
-msgstr ""
+msgstr "`anyhow`"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid ""
@@ -10142,15 +10422,18 @@ msgid ""
 "it's again generally not a good choice for the public API of a library, but "
 "is widely used in applications."
 msgstr ""
+"`anyhow::Error` は基本的に `Box<dyn Error>` のラッパーです。そのため、ライブ"
+"ラリの公開 API としては一般的には適していませんが、アプリでは広く使用されてい"
+"ます。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "`anyhow::Result<V>` is a type alias for `Result<V, anyhow::Error>`."
-msgstr ""
+msgstr "`anyhow::Result<V>` は `Result<V, anyhow::Error>` の型エイリアスです。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid ""
 "Actual error type inside of it can be extracted for examination if necessary."
-msgstr ""
+msgstr "必要に応じて、内部の実際のエラー型を抽出して調査できます。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid ""
@@ -10158,6 +10441,9 @@ msgid ""
 "developers, as it provides similar usage patterns and ergonomics to `(T, "
 "error)` from Go."
 msgstr ""
+"`anyhow::Result<T>` が提供する機能は、Go の `(T, error)` と同様の使用パターン"
+"とエルゴノミクスを備えているため、Go デベロッパーにはなじみがあるかもしれませ"
+"ん。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid ""
@@ -10165,10 +10451,13 @@ msgid ""
 "`Option` types. `use anyhow::Context` is necessary to enable `.context()` "
 "and `.with_context()` on those types."
 msgstr ""
+"`anyhow::Context` は、標準の `Result` 型と `Option` 型に実装されたトレイトで"
+"す。これらの型で `.context()` と `.with_context()` を有効にするには、`use "
+"anyhow::Context` が必要です。"
 
 #: src/error-handling/exercise.md
 msgid "Exercise: Rewriting with Result"
-msgstr ""
+msgstr "演習: Result を使用した書き換え"
 
 #: src/error-handling/exercise.md
 msgid ""
@@ -10177,6 +10466,10 @@ msgid ""
 "error handling and propagate errors to a return from `main`. Feel free to "
 "use `thiserror` and `anyhow`."
 msgstr ""
+"ここでは、式言語の非常にシンプルなパーサーを実装します。ただし、エラーに対し"
+"てはパニックで対処します。代わりに慣用的なエラー処理を使用し、`main` からの戻"
+"り値にエラーを伝播するように書き換えてください。`thiserror` と `anyhow`を自由"
+"に使用してかまいません。"
 
 #: src/error-handling/exercise.md
 msgid ""
@@ -10184,170 +10477,179 @@ msgid ""
 "working correctly, update `Tokenizer` to implement "
 "`Iterator<Item=Result<Token, TokenizerError>>` and handle that in the parser."
 msgstr ""
+"ヒント: まず、`parse` 関数のエラー処理を修正します。関数が正しく機能するよう"
+"になったら、`Iterator<Item=Result<Token, TokenizerError>>` を実装し、それを"
+"パーサーで処理するように `Tokenizer` を更新してください。"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "/// An arithmetic operator.\n"
-msgstr ""
+msgstr "/// 算術演算子。\n"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 #, fuzzy
 msgid "/// A token in the expression language.\n"
-msgstr "// 他の言語と同様の演算\n"
+msgstr "/// 式言語の式\n"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "/// An expression in the expression language.\n"
-msgstr ""
+msgstr "/// 式言語の式\n"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "/// A reference to a variable.\n"
-msgstr ""
+msgstr "/// 変数への参照。\n"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "/// A literal number.\n"
-msgstr ""
+msgstr "/// リテラル数値。\n"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "/// A binary operation.\n"
-msgstr ""
+msgstr "/// バイナリ演算。\n"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "'z'"
-msgstr ""
+msgstr "'z'"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "'_'"
-msgstr ""
+msgstr "'_'"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "'+'"
-msgstr ""
+msgstr "'+'"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "'-'"
-msgstr ""
+msgstr "'-'"
 
 #: src/error-handling/exercise.md
 msgid "\"Unexpected character {c}\""
-msgstr ""
+msgstr "\"Unexpected character {c}\""
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "\"Unexpected end of input\""
-msgstr ""
+msgstr "\"Unexpected end of input\""
 
 #: src/error-handling/exercise.md
 msgid "\"Invalid 32-bit integer'\""
-msgstr ""
+msgstr "\"Invalid 32-bit integer'\""
 
 #: src/error-handling/exercise.md
 msgid "\"Unexpected token {tok:?}\""
-msgstr ""
+msgstr "\"Unexpected token {tok:?}\""
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "// Look ahead to parse a binary operation if present.\n"
-msgstr ""
+msgstr "// バイナリ演算が存在する場合はパースします。\n"
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "\"10+foo+20-30\""
-msgstr ""
+msgstr "\"10+foo+20-30\""
 
 #: src/error-handling/exercise.md src/error-handling/solution.md
 msgid "\"{expr:?}\""
-msgstr ""
+msgstr "\"{expr:?}\""
 
 #: src/error-handling/solution.md
 msgid "\"Unexpected character '{0}' in input\""
-msgstr ""
+msgstr "\"Unexpected character '{0}' in input\""
 
 #: src/error-handling/solution.md
 msgid "\"Tokenizer error: {0}\""
-msgstr ""
+msgstr "\"Tokenizer error: {0}\""
 
 #: src/error-handling/solution.md
 msgid "\"Unexpected token {0:?}\""
-msgstr ""
+msgstr "\"Unexpected token {0:?}\""
 
 #: src/error-handling/solution.md
 msgid "\"Invalid number\""
-msgstr ""
+msgstr "\"Invalid number\""
 
 #: src/unsafe-rust.md
 msgid "[Unsafe](./unsafe-rust/unsafe.md) (5 minutes)"
-msgstr ""
+msgstr "[安全でない Rust](./unsafe-rust/unsafe.md)（5 分）"
 
 #: src/unsafe-rust.md
 msgid ""
 "[Dereferencing Raw Pointers](./unsafe-rust/dereferencing.md) (10 minutes)"
-msgstr ""
+msgstr "[未加工ポインタの逆参照](./unsafe-rust/dereferencing.md)（10 分）"
 
 #: src/unsafe-rust.md
 msgid "[Mutable Static Variables](./unsafe-rust/mutable-static.md) (5 minutes)"
-msgstr ""
+msgstr "[可変の静的変数](./unsafe-rust/mutable-static.md)（5 分）"
 
 #: src/unsafe-rust.md
 msgid "[Unions](./unsafe-rust/unions.md) (5 minutes)"
-msgstr ""
+msgstr "[共用体](./unsafe-rust/unions.md)（5 分）"
 
 #: src/unsafe-rust.md
 msgid "[Unsafe Functions](./unsafe-rust/unsafe-functions.md) (5 minutes)"
-msgstr ""
+msgstr "[安全でない関数](./unsafe-rust/unsafe-functions.md)（5 分）"
 
 #: src/unsafe-rust.md
 msgid "[Unsafe Traits](./unsafe-rust/unsafe-traits.md) (5 minutes)"
-msgstr ""
+msgstr "[安全でないトレイト](./unsafe-rust/unsafe-traits.md)（5 分）"
 
 #: src/unsafe-rust.md
 msgid "[Exercise: FFI Wrapper](./unsafe-rust/exercise.md) (30 minutes)"
-msgstr ""
+msgstr "[演習: FFI ラッパー](./unsafe-rust/exercise.md)（30 分）"
 
 #: src/unsafe-rust/unsafe.md
 msgid "The Rust language has two parts:"
-msgstr ""
+msgstr "Rust 言語は 2 つの部分で構成されています。"
 
 #: src/unsafe-rust/unsafe.md
 msgid "**Safe Rust:** memory safe, no undefined behavior possible."
-msgstr ""
+msgstr "**安全な Rust:** メモリセーフで、未定義の動作はできません。"
 
 #: src/unsafe-rust/unsafe.md
 msgid ""
 "**Unsafe Rust:** can trigger undefined behavior if preconditions are "
 "violated."
 msgstr ""
+"**安全でない Rust:** 前提条件に違反した場合、未定義の動作がトリガーされる可能"
+"性があります。"
 
 #: src/unsafe-rust/unsafe.md
 msgid ""
 "We saw mostly safe Rust in this course, but it's important to know what "
 "Unsafe Rust is."
 msgstr ""
+"このコースでは主に安全な Rust を見てきましたが、安全でない Rust とは何かを理"
+"解しておくことが重要です。"
 
 #: src/unsafe-rust/unsafe.md
 msgid ""
 "Unsafe code is usually small and isolated, and its correctness should be "
 "carefully documented. It is usually wrapped in a safe abstraction layer."
 msgstr ""
+"安全でないコードは通常、小規模で分離されているため、その正確性は慎重に文書化"
+"する必要があります。通常は安全な抽象化レイヤでラップされます。"
 
 #: src/unsafe-rust/unsafe.md
 msgid "Unsafe Rust gives you access to five new capabilities:"
-msgstr ""
+msgstr "安全でない Rust では、次の 5 つの新機能を利用できます。"
 
 #: src/unsafe-rust/unsafe.md
 msgid "Dereference raw pointers."
-msgstr ""
+msgstr "未加工ポインタの逆参照。"
 
 #: src/unsafe-rust/unsafe.md
 msgid "Access or modify mutable static variables."
-msgstr ""
+msgstr "可変の静的変数へのアクセスまたは変更。"
 
 #: src/unsafe-rust/unsafe.md
 msgid "Access `union` fields."
-msgstr ""
+msgstr "`union` フィールドへのアクセス。"
 
 #: src/unsafe-rust/unsafe.md
 msgid "Call `unsafe` functions, including `extern` functions."
-msgstr ""
+msgstr "`extern` 関数を含む `unsafe` 関数の呼び出し。"
 
 #: src/unsafe-rust/unsafe.md
 msgid "Implement `unsafe` traits."
-msgstr ""
+msgstr "`unsafe` トレイトの実装。"
 
 #: src/unsafe-rust/unsafe.md
 msgid ""
@@ -10355,6 +10657,9 @@ msgid ""
 "[Chapter 19.1 in the Rust Book](https://doc.rust-lang.org/book/ch19-01-"
 "unsafe-rust.html) and the [Rustonomicon](https://doc.rust-lang.org/nomicon/)."
 msgstr ""
+"次に、安全でない機能について簡単に説明します。詳しくは、[Rust Book の第 19.1 "
+"章](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html)と、"
+"[Rustonomicon](https://doc.rust-lang.org/nomicon/) をご覧ください。"
 
 #: src/unsafe-rust/unsafe.md
 msgid ""
@@ -10363,14 +10668,18 @@ msgid ""
 "by themselves. It means the compiler no longer enforces Rust's memory-safety "
 "rules."
 msgstr ""
+"安全でない Rust は、コードが正しくないことを意味するものではありません。デベ"
+"ロッパーは一部のコンパイラ安全性機能をオフにしているため、自分で正しいコード"
+"を記述する必要があります。つまり、コンパイラが Rust のメモリ安全性ルールを適"
+"用しなくなるということです。"
 
 #: src/unsafe-rust/dereferencing.md
 msgid "Creating pointers is safe, but dereferencing them requires `unsafe`:"
-msgstr ""
+msgstr "ポインタの作成は安全ですが、逆参照には `unsafe` が必要です。"
 
 #: src/unsafe-rust/dereferencing.md
 msgid "\"careful!\""
-msgstr ""
+msgstr "\"careful!\""
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
@@ -10381,18 +10690,23 @@ msgid ""
 "    // whole unsafe block, and they are not accessed either through the\n"
 "    // references or concurrently through any other pointers.\n"
 msgstr ""
+"//次の理由により安全: r1 と r2 は参照から取得されており、\n"
+"    // 非 null で適切に配置されていることが保証されています。\n"
+"    // 取得元である参照の基になるオブジェクトは、\n"
+"    // 安全でないブロック全体を通じて存続します。参照を介したアクセスや、\n"
+"    // 他のポインタを介した同時アクセスは行われません。\n"
 
 #: src/unsafe-rust/dereferencing.md
 msgid "\"r1 is: {}\""
-msgstr ""
+msgstr "\"r1 is: {}\""
 
 #: src/unsafe-rust/dereferencing.md
 msgid "\"uhoh\""
-msgstr ""
+msgstr "\"uhoh\""
 
 #: src/unsafe-rust/dereferencing.md
 msgid "\"r2 is: {}\""
-msgstr ""
+msgstr "\"r2 is: {}\""
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
@@ -10403,6 +10717,12 @@ msgid ""
 "    println!(\"r3 is: {}\", *r3);\n"
 "    */"
 msgstr ""
+"// 安全でないため、これは実行しないでください。\n"
+"    /*\n"
+"    let r3: &String = unsafe { &*r1 };\n"
+"    drop(s);\n"
+"    println!(\"r3 is: {}\", *r3);\n"
+"    */"
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
@@ -10410,40 +10730,50 @@ msgid ""
 "a comment for each `unsafe` block explaining how the code inside it "
 "satisfies the safety requirements of the unsafe operations it is doing."
 msgstr ""
+"実行している安全でないオペレーションの安全性要件を内部のコードがどのように満"
+"たしているかを説明するコメントを、`unsafe` ブロックごとに記述することをおすす"
+"めします（Android Rust スタイルガイドでも必須とされています）。"
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
 "In the case of pointer dereferences, this means that the pointers must be "
 "[_valid_](https://doc.rust-lang.org/std/ptr/index.html#safety), i.e.:"
 msgstr ""
+"ポインタ逆参照の場合、これはポインタが [_valid_](https://doc.rust-lang.org/"
+"std/ptr/index.html#safety) でなければならないことを意味します。つまり、次のよ"
+"うになります。"
 
 #: src/unsafe-rust/dereferencing.md
 msgid "The pointer must be non-null."
-msgstr ""
+msgstr "ポインタは null 以外にする必要があります。"
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
 "The pointer must be _dereferenceable_ (within the bounds of a single "
 "allocated object)."
 msgstr ""
+"ポインタは、（割り当てられた単一のオブジェクトの境界内で）逆参照可能でなけれ"
+"ばなりません。"
 
 #: src/unsafe-rust/dereferencing.md
 msgid "The object must not have been deallocated."
-msgstr ""
+msgstr "オブジェクトの割り当てが解除されていない必要があります。"
 
 #: src/unsafe-rust/dereferencing.md
 msgid "There must not be concurrent accesses to the same location."
-msgstr ""
+msgstr "同じロケーションに同時アクセスすることはできません。"
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
 "If the pointer was obtained by casting a reference, the underlying object "
 "must be live and no reference may be used to access the memory."
 msgstr ""
+"参照をキャストしてポインタを取得した場合、基になるオブジェクトが存続しなけれ"
+"ばならず、メモリへのアクセスに参照を使用することはできません。"
 
 #: src/unsafe-rust/dereferencing.md
 msgid "In most cases the pointer must also be properly aligned."
-msgstr ""
+msgstr "ほとんどの場合、ポインタも適切に配置される必要があります。"
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
@@ -10451,28 +10781,33 @@ msgid ""
 "has the `'static` lifetime, so `r3` has type `&'static String`, and thus "
 "outlives `s`. Creating a reference from a pointer requires _great care_."
 msgstr ""
+"「安全でない」セクションは、一般的な種類の UB バグの例を示しています。`*r1` "
+"のライフタイムは `'static` であるため、`r3` の型は `&'static String` となり、"
+"`s` より長く存続します。ポインタからの参照の作成には細心の注意が必要です。"
 
 #: src/unsafe-rust/mutable-static.md
 msgid "It is safe to read an immutable static variable:"
-msgstr ""
+msgstr "不変の静的変数は安全に読み取ることができます。"
 
 #: src/unsafe-rust/mutable-static.md
 msgid "\"Hello, world!\""
-msgstr ""
+msgstr "\"Hello, world!\""
 
 #: src/unsafe-rust/mutable-static.md
 msgid "\"HELLO_WORLD: {HELLO_WORLD}\""
-msgstr ""
+msgstr "\"HELLO_WORLD: {HELLO_WORLD}\""
 
 #: src/unsafe-rust/mutable-static.md
 msgid ""
 "However, since data races can occur, it is unsafe to read and write mutable "
 "static variables:"
 msgstr ""
+"ただし、データ競合が発生する可能性があるため、可変の静的変数の読み取りと書き"
+"込みは安全ではありません。"
 
 #: src/unsafe-rust/mutable-static.md
 msgid "\"COUNTER: {COUNTER}\""
-msgstr ""
+msgstr "\"COUNTER: {COUNTER}\""
 
 #: src/unsafe-rust/mutable-static.md
 msgid ""
@@ -10481,6 +10816,10 @@ msgid ""
 "`unsafe` and see how the compiler explains that it is undefined behavior to "
 "mutate a static from multiple threads."
 msgstr ""
+"このプログラムはシングルスレッドなので安全です。しかし、Rust コンパイラは保守"
+"的で、最悪の事態を想定しています。`unsafe` を削除すると、複数のスレッドから静"
+"的変数を変更する動作が未定義の動作であることを説明するメッセージがコンパイラ"
+"に表示されるはずです。"
 
 #: src/unsafe-rust/mutable-static.md
 msgid ""
@@ -10488,28 +10827,35 @@ msgid ""
 "where it might make sense in low-level `no_std` code, such as implementing a "
 "heap allocator or working with some C APIs."
 msgstr ""
+"一般的に、可変の静的変数を使用することはおすすめしませんが、ヒープ アロケータ"
+"の実装や一部の C API の操作など、低レベルの `no_std` コードで適している場合も"
+"あります。"
 
 #: src/unsafe-rust/unions.md
 msgid "Unions are like enums, but you need to track the active field yourself:"
 msgstr ""
+"共用体は列挙型に似ていますが、アクティブ フィールドを自分でトラッキングする必"
+"要があります。"
 
 #: src/unsafe-rust/unions.md
 msgid "\"int: {}\""
-msgstr ""
+msgstr "\"int: {}\""
 
 #: src/unsafe-rust/unions.md
 msgid "\"bool: {}\""
-msgstr ""
+msgstr "\"bool: {}\""
 
 #: src/unsafe-rust/unions.md
 msgid "// Undefined behavior!\n"
-msgstr ""
+msgstr "// 未定義の動作\n"
 
 #: src/unsafe-rust/unions.md
 msgid ""
 "Unions are very rarely needed in Rust as you can usually use an enum. They "
 "are occasionally needed for interacting with C library APIs."
 msgstr ""
+"Rust では、通常は列挙型を使用できるため、共用体はほとんど必要ありません。共用"
+"体は、C ライブラリ API とのやり取りで必要になることがあります。"
 
 #: src/unsafe-rust/unions.md
 msgid ""
@@ -10518,6 +10864,10 @@ msgid ""
 "transmute.html) or a safe wrapper such as the [`zerocopy`](https://crates.io/"
 "crates/zerocopy) crate."
 msgstr ""
+"バイトを別の型として再解釈したい場合は、[`std::mem::transmute`](https://doc."
+"rust-lang.org/stable/std/mem/fn.transmute.html) か、[`zerocopy`](https://"
+"crates.io/crates/zerocopy) クレートのような安全なラッパーを使用することをおす"
+"すめします。"
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "Calling Unsafe Functions"
@@ -10528,6 +10878,8 @@ msgid ""
 "A function or method can be marked `unsafe` if it has extra preconditions "
 "you must uphold to avoid undefined behaviour:"
 msgstr ""
+"未定義の動作を回避するために満たす必要がある追加の前提条件がある関数またはメ"
+"ソッドは、`unsafe` とマークできます。"
 
 #: src/unsafe-rust/unsafe-functions.md src/unsafe-rust/exercise.md
 #: src/unsafe-rust/solution.md src/android/interoperability/with-c.md
@@ -10538,33 +10890,35 @@ msgstr ""
 #: src/exercises/bare-metal/rtc.md
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "\"C\""
-msgstr ""
+msgstr "\"C\""
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "\"🗻∈🌏\""
-msgstr ""
+msgstr "\"🗻∈🌏\""
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid ""
 "// Safe because the indices are in the correct order, within the bounds of\n"
 "    // the string slice, and lie on UTF-8 sequence boundaries.\n"
 msgstr ""
+"// インデックスが正しい順序で文字列スライスの境界内にあり、\n"
+"    // UTF-8 シーケンスの境界上にあるため、安全です。\n"
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "\"emoji: {}\""
-msgstr ""
+msgstr "\"emoji: {}\""
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "\"char count: {}\""
-msgstr ""
+msgstr "\"char count: {}\""
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "// Undefined behavior if abs misbehaves.\n"
-msgstr ""
+msgstr "// abs 誤動作の場合の動作は未定義。\n"
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "\"Absolute value of -3 according to C: {}\""
-msgstr ""
+msgstr "\"Absolute value of -3 according to C: {}\""
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid ""
@@ -10573,6 +10927,10 @@ msgid ""
 "    // println!(\"char count: {}\", count_chars(unsafe {\n"
 "    // emojis.get_unchecked(0..3) }));\n"
 msgstr ""
+"// UTF-8 エンコード要件を満たさない場合、メモリの安全性が損なわれます。\n"
+"    // println!(\"emoji: {}\", unsafe { emojis.get_unchecked(0..3) });\n"
+"    // println!(\"char count: {}\", count_chars(unsafe {\n"
+"    // emojis.get_unchecked(0..3) }));\n"
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "Writing Unsafe Functions"
@@ -10583,6 +10941,8 @@ msgid ""
 "You can mark your own functions as `unsafe` if they require particular "
 "conditions to avoid undefined behaviour."
 msgstr ""
+"未定義の動作を回避するために特定の条件が必要な場合は、独自の関数を `unsafe` "
+"とマークできます。"
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid ""
@@ -10592,14 +10952,19 @@ msgid ""
 "///\n"
 "/// The pointers must be valid and properly aligned.\n"
 msgstr ""
+"/// 指定されたポインタが指す値をスワップします。\n"
+"///\n"
+"/// # 安全性\n"
+"///\n"
+"/// ポインタが有効で、適切に配置されている必要があります。\n"
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "// Safe because ...\n"
-msgstr ""
+msgstr "// 安全です。理由は...\n"
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "\"a = {}, b = {}\""
-msgstr ""
+msgstr "\"a = {}, b = {}\""
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid ""
@@ -10610,18 +10975,28 @@ msgid ""
 "might violate Rust's memory model, but in general any C function might have "
 "undefined behaviour under any arbitrary circumstances."
 msgstr ""
+"`get_unchecked` は多くの`_unchecked` 関数と同様に、範囲が正しくない場合に UB "
+"が作成される可能性があるため、安全ではありません。また、`abs` は外部関数"
+"（FFI）であるため、正しくありません。通常、外部関数の呼び出しが問題になるの"
+"は、それらの関数が Rust のメモリモデルに違反する可能性のあるポインタを使用し"
+"て処理を行う場合のみです。しかし、一般的に C 関数には任意の状況下で未定義の動"
+"作が含まれる可能性があります。"
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid ""
 "The `\"C\"` in this example is the ABI; [other ABIs are available too]"
 "(https://doc.rust-lang.org/reference/items/external-blocks.html)."
 msgstr ""
+"この例の `\"C\"` は ABI です（[他の ABI も使用できます](https://doc.rust-"
+"lang.org/reference/items/external-blocks.html)）。"
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid ""
 "We wouldn't actually use pointers for a `swap` function - it can be done "
 "safely with references."
 msgstr ""
+"実際には、`swap` 関数ではポインタは使用しません。これは参照を使用することで安"
+"全に実行できます。"
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid ""
@@ -10630,6 +11005,9 @@ msgid ""
 "Try adding it and see what happens. This will likely change in a future Rust "
 "edition."
 msgstr ""
+"安全でないコードは、`unsafe` ブロックのない安全でない関数内で許可されます。こ"
+"れは `#[deny(unsafe_op_in_unsafe_fn)]` で禁止できます。追加するとどうなるか見"
+"てみましょう。これは、今後の Rust エディションで変更される可能性があります。"
 
 #: src/unsafe-rust/unsafe-traits.md
 msgid "Implementing Unsafe Traits"
@@ -10640,12 +11018,16 @@ msgid ""
 "Like with functions, you can mark a trait as `unsafe` if the implementation "
 "must guarantee particular conditions to avoid undefined behaviour."
 msgstr ""
+"関数と同様に、未定義の動作を回避するために実装で特定の条件を保証する必要があ"
+"る場合は、トレイトを `unsafe` としてマークできます。"
 
 #: src/unsafe-rust/unsafe-traits.md
 msgid ""
 "For example, the `zerocopy` crate has an unsafe trait that looks [something "
 "like this](https://docs.rs/zerocopy/latest/zerocopy/trait.AsBytes.html):"
 msgstr ""
+"たとえば、`zerocopy` クレートには [このような](https://docs.rs/zerocopy/"
+"latest/zerocopy/trait.AsBytes.html) 安全でないトレイトがあります。"
 
 #: src/unsafe-rust/unsafe-traits.md
 msgid ""
@@ -10653,26 +11035,31 @@ msgid ""
 "/// # Safety\n"
 "/// The type must have a defined representation and no padding.\n"
 msgstr ""
+"/// ...\n"
+"/// # 安全性\n"
+"/// 型には定義された表現が必要で、パディングがあってはなりません。\n"
 
 #: src/unsafe-rust/unsafe-traits.md
 msgid "// Safe because u32 has a defined representation and no padding.\n"
-msgstr ""
+msgstr "// u32 には定義された表現があり、パディングがないため、安全です。\n"
 
 #: src/unsafe-rust/unsafe-traits.md
 msgid ""
 "There should be a `# Safety` section on the Rustdoc for the trait explaining "
 "the requirements for the trait to be safely implemented."
 msgstr ""
+"Rustdoc には、トレイトを安全に実装するための要件について説明した `# Safety` "
+"セクションが必要です。"
 
 #: src/unsafe-rust/unsafe-traits.md
 msgid ""
 "The actual safety section for `AsBytes` is rather longer and more "
 "complicated."
-msgstr ""
+msgstr "`AsBytes` の実際の安全性セクションはかなり長く、より複雑です。"
 
 #: src/unsafe-rust/unsafe-traits.md
 msgid "The built-in `Send` and `Sync` traits are unsafe."
-msgstr ""
+msgstr "組み込みの `Send` トレイトと `Sync` トレイトは安全ではありません。"
 
 #: src/unsafe-rust/exercise.md
 msgid "Safe FFI Wrapper"
@@ -10684,22 +11071,25 @@ msgid ""
 "interface_ (FFI). We will use this to build a safe wrapper for the `libc` "
 "functions you would use from C to read the names of files in a directory."
 msgstr ""
+"Rust は、外部関数インターフェース（FFI）を介した関数呼び出しを強力にサポート"
+"しています。これを使用して、ディレクトリ内のファイル名を読み取るために C から"
+"使用する `libc` 関数の安全なラッパーを作成します。"
 
 #: src/unsafe-rust/exercise.md
 msgid "You will want to consult the manual pages:"
-msgstr ""
+msgstr "以下のマニュアル ページをご覧ください。"
 
 #: src/unsafe-rust/exercise.md
 msgid "[`opendir(3)`](https://man7.org/linux/man-pages/man3/opendir.3.html)"
-msgstr ""
+msgstr "[`opendir(3)`](https://man7.org/linux/man-pages/man3/opendir.3.html)"
 
 #: src/unsafe-rust/exercise.md
 msgid "[`readdir(3)`](https://man7.org/linux/man-pages/man3/readdir.3.html)"
-msgstr ""
+msgstr "[`readdir(3)`](https://man7.org/linux/man-pages/man3/readdir.3.html)"
 
 #: src/unsafe-rust/exercise.md
 msgid "[`closedir(3)`](https://man7.org/linux/man-pages/man3/closedir.3.html)"
-msgstr ""
+msgstr "[`closedir(3)`](https://man7.org/linux/man-pages/man3/closedir.3.html)"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
@@ -10707,114 +11097,137 @@ msgid ""
 "ffi/) module. There you find a number of string types which you need for the "
 "exercise:"
 msgstr ""
+"[`std::ffi`](https://doc.rust-lang.org/std/ffi/) モジュールも参照してくださ"
+"い。ここには、この演習で必要な文字列型が多数掲載されています。"
 
 #: src/unsafe-rust/exercise.md
 msgid "Encoding"
-msgstr ""
+msgstr "エンコード"
 
 #: src/unsafe-rust/exercise.md
 msgid "Use"
-msgstr ""
+msgstr "使う"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "[`str`](https://doc.rust-lang.org/std/primitive.str.html) and [`String`]"
 "(https://doc.rust-lang.org/std/string/struct.String.html)"
 msgstr ""
+"[`str`](https://doc.rust-lang.org/std/primitive.str.html) と [`String`]"
+"(https://doc.rust-lang.org/std/string/struct.String.html)"
 
 #: src/unsafe-rust/exercise.md
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: src/unsafe-rust/exercise.md
 msgid "Text processing in Rust"
-msgstr ""
+msgstr "Rust でのテキスト処理"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "[`CStr`](https://doc.rust-lang.org/std/ffi/struct.CStr.html) and [`CString`]"
 "(https://doc.rust-lang.org/std/ffi/struct.CString.html)"
 msgstr ""
+"[`CStr`](https://doc.rust-lang.org/std/ffi/struct.CStr.html) と [`CString`]"
+"(https://doc.rust-lang.org/std/ffi/struct.CString.html)"
 
 #: src/unsafe-rust/exercise.md
 msgid "NUL-terminated"
-msgstr ""
+msgstr "null 終端"
 
 #: src/unsafe-rust/exercise.md
 msgid "Communicating with C functions"
-msgstr ""
+msgstr "C 関数との通信"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "[`OsStr`](https://doc.rust-lang.org/std/ffi/struct.OsStr.html) and "
 "[`OsString`](https://doc.rust-lang.org/std/ffi/struct.OsString.html)"
 msgstr ""
+"[`OsStr`](https://doc.rust-lang.org/std/ffi/struct.OsStr.html) と "
+"[`OsString`](https://doc.rust-lang.org/std/ffi/struct.OsString.html)"
 
 #: src/unsafe-rust/exercise.md
 msgid "OS-specific"
-msgstr ""
+msgstr "OS 固有"
 
 #: src/unsafe-rust/exercise.md
 msgid "Communicating with the OS"
-msgstr ""
+msgstr "OS との通信"
 
 #: src/unsafe-rust/exercise.md
 msgid "You will convert between all these types:"
-msgstr ""
+msgstr "以下のすべての型間で変換を行います。"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "`&str` to `CString`: you need to allocate space for a trailing `\\0` "
 "character,"
 msgstr ""
+"`&str` から `CString`: 末尾の `\\0` 文字にスペースを割り当てる必要がありま"
+"す。"
 
 #: src/unsafe-rust/exercise.md
 msgid "`CString` to `*const i8`: you need a pointer to call C functions,"
-msgstr ""
+msgstr "`CString` から `*const i8`: C 関数を呼び出すためのポインタが必要です。"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "`*const i8` to `&CStr`: you need something which can find the trailing `\\0` "
 "character,"
 msgstr ""
+"`*const i8` から `&CStr`: 末尾の `\\0` 文字を検出できるものが必要です。"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "`&CStr` to `&[u8]`: a slice of bytes is the universal interface for \"some "
 "unknown data\","
 msgstr ""
+"`&CStr` から `&[u8]`: バイトのスライスは「不明なデータ」用のユニバーサル イン"
+"ターフェースです。"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "`&[u8]` to `&OsStr`: `&OsStr` is a step towards `OsString`, use [`OsStrExt`]"
 "(https://doc.rust-lang.org/std/os/unix/ffi/trait.OsStrExt.html) to create it,"
 msgstr ""
+"`&[u8]` から `&OsStr`: `&OsStr` は `OsString` に変換でき、[`OsStrExt`]"
+"(https://doc.rust-lang.org/std/os/unix/ffi/trait.OsStrExt.html) を使用して作"
+"成します。"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "`&OsStr` to `OsString`: you need to clone the data in `&OsStr` to be able to "
 "return it and call `readdir` again."
 msgstr ""
+"`&OsStr` から `OsString`: `&OsStr` にデータのクローンを作成し、そのクローンを"
+"返して `readdir` を再度呼び出せるようにします。"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "The [Nomicon](https://doc.rust-lang.org/nomicon/ffi.html) also has a very "
 "useful chapter about FFI."
 msgstr ""
+"[Nomicon](https://doc.rust-lang.org/nomicon/ffi.html) にも、FFI に関する有益"
+"な章があります。"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and fill in the missing "
 "functions and methods:"
 msgstr ""
+"以下のコードを <https://play.rust-lang.org/> にコピーし、不足している関数とメ"
+"ソッドを記入します。"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "\"macos\""
-msgstr ""
+msgstr "\"macos\""
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "// Opaque type. See https://doc.rust-lang.org/nomicon/ffi.html.\n"
 msgstr ""
+"// 不透明型。https://doc.rust-lang.org/nomicon/ffi.html をご覧ください。\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid ""
@@ -10822,14 +11235,18 @@ msgid ""
 "    // off_t are resolved according to the definitions in\n"
 "    // /usr/include/x86_64-linux-gnu/{sys/types.h, bits/typesizes.h}.\n"
 msgstr ""
+"// readdir(3) の Linux マニュアル ページに沿ったレイアウト。ino_t と\n"
+"    // off_t は\n"
+"    // /usr/include/x86_64-linux-gnu/{sys/types.h, bits/typesizes.h} の定義に"
+"従って解決されます。\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "// Layout according to the macOS man page for dir(5).\n"
-msgstr ""
+msgstr "// dir(5) の macOS マニュアル ページに沿ったレイアウト。\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "\"x86_64\""
-msgstr ""
+msgstr "\"x86_64\""
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid ""
@@ -10841,105 +11258,119 @@ msgid ""
 "        // to macOS (as opposed to iOS / wearOS / etc.) on Intel and "
 "PowerPC.\n"
 msgstr ""
+"// https://github.com/rust-lang/libc/issues/414、および  stat(2) の macOS 版"
+"のマニュアル ページの\n"
+"        // _DARWIN_FEATURE_64_BIT_INODE に関するセクションをご覧ください。\n"
+"        //\n"
+"        // 「これらのアップデートが利用可能になる前に存在していたプラット"
+"フォーム」とは、\n"
+"        // Intel および PowerPC 上の macOS（iOS / wearOS などではない）を指し"
+"ます。\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "\"readdir$INODE64\""
-msgstr ""
+msgstr "\"readdir$INODE64\""
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid ""
 "// Call opendir and return a Ok value if that worked,\n"
 "        // otherwise return Err with a message.\n"
 msgstr ""
+"// opendir を呼び出し、成功した場合は Ok 値を返し、\n"
+"        // それ以外の場合はメッセージとともに Err を返します。\n"
 
 #: src/unsafe-rust/exercise.md
 msgid "// Keep calling readdir until we get a NULL pointer back.\n"
-msgstr ""
+msgstr "// NULL ポインタが返されるまで readdir を呼び出し続けます。\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "// Call closedir as needed.\n"
-msgstr ""
+msgstr "// 必要に応じて closedir を呼び出します。\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 #: src/android/interoperability/with-c/rust.md
 msgid "\".\""
-msgstr ""
+msgstr "\".\""
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "\"files: {:#?}\""
-msgstr ""
+msgstr "\"files: {:#?}\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"Invalid path: {err}\""
-msgstr ""
+msgstr "\"Invalid path: {err}\""
 
 #: src/unsafe-rust/solution.md
 msgid "// SAFETY: path.as_ptr() cannot be NULL.\n"
-msgstr ""
+msgstr "// 安全: path.as_ptr() を NULL にすることはできません。\n"
 
 #: src/unsafe-rust/solution.md
 msgid "\"Could not open {:?}\""
-msgstr ""
+msgstr "\"Could not open {:?}\""
 
 #: src/unsafe-rust/solution.md
 msgid ""
 "// Keep calling readdir until we get a NULL pointer back.\n"
 "        // SAFETY: self.dir is never NULL.\n"
 msgstr ""
+"// NULL ポインタが返されるまで readdir を呼び出し続けます。\n"
+"        // 安全: self.dir は決して NULL になりません。\n"
 
 #: src/unsafe-rust/solution.md
 msgid "// We have reached the end of the directory.\n"
-msgstr ""
+msgstr "// ディレクトリの最後に到達しました。\n"
 
 #: src/unsafe-rust/solution.md
 msgid ""
 "// SAFETY: dirent is not NULL and dirent.d_name is NUL\n"
 "        // terminated.\n"
 msgstr ""
+"// 安全: dirent は NULL ではなく、dirent.d_name は NULL\n"
+"        // 終端です。\n"
 
 #: src/unsafe-rust/solution.md
 msgid "// SAFETY: self.dir is not NULL.\n"
-msgstr ""
+msgstr "// 安全: self.dir は NULL ではありません。\n"
 
 #: src/unsafe-rust/solution.md
 msgid "\"Could not close {:?}\""
-msgstr ""
+msgstr "\"Could not close {:?}\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"no-such-directory\""
-msgstr ""
+msgstr "\"no-such-directory\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"Non UTF-8 character in path\""
-msgstr ""
+msgstr "\"Non UTF-8 character in path\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"..\""
-msgstr ""
+msgstr "\"..\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"foo.txt\""
-msgstr ""
+msgstr "\"foo.txt\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"The Foo Diaries\\n\""
-msgstr ""
+msgstr "\"The Foo Diaries\\n\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"bar.png\""
-msgstr ""
+msgstr "\"bar.png\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"<PNG>\\n\""
-msgstr ""
+msgstr "\"<PNG>\\n\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"crab.rs\""
-msgstr ""
+msgstr "\"crab.rs\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"//! Crab\\n\""
-msgstr ""
+msgstr "\"//! Crab\\n\""
 
 #: src/android.md
 msgid "Welcome to Rust in Android"
