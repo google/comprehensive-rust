@@ -42,6 +42,7 @@
   - [Macros](control-flow-basics/macros.md)
   - [Exercise: Collatz Sequence](control-flow-basics/exercise.md)
     - [Solution](control-flow-basics/solution.md)
+  - [Tuples and Arrays](tuples-and-arrays/tuples-and-arrays.md)
 
 # Day 1: Afternoon
 
@@ -62,8 +63,9 @@
   - [Named Structs](user-defined-types/named-structs.md)
   - [Tuple Structs](user-defined-types/tuple-structs.md)
   - [Enums](user-defined-types/enums.md)
+  - [`Option`](std-types/option.md)
+  - [`Result`](std-types/result.md)
   - [Static and Const](user-defined-types/static-and-const.md)
-  - [Type Aliases](user-defined-types/aliases.md)
   - [Exercise: Elevator Events](user-defined-types/exercise.md)
     - [Solution](user-defined-types/solution.md)
 
@@ -86,13 +88,16 @@
   - [Deriving](methods-and-traits/deriving.md)
   - [Exercise: Generic Logger](methods-and-traits/exercise.md)
     - [Solution](methods-and-traits/solution.md)
-- [Generics](generics.md)
-  - [Generic Functions](generics/generic-functions.md)
-  - [Generic Data Types](generics/generic-data.md)
-  - [Trait Bounds](generics/trait-bounds.md)
-  - [`impl Trait`](generics/impl-trait.md)
-  - [Exercise: Generic `min`](generics/exercise.md)
-    - [Solution](generics/solution.md)
+- [Memory Management](memory-management.md)
+  - [Review of Program Memory](memory-management/review.md)
+  - [Approaches to Memory Management](memory-management/approaches.md)
+  - [Ownership](memory-management/ownership.md)
+  - [Move Semantics](memory-management/move.md)
+  - [`Clone`](memory-management/clone.md)
+  - [Copy Types](memory-management/copy-types.md)
+  - [`Drop`](memory-management/drop.md)
+  - [Exercise: Builder Type](memory-management/exercise.md)
+    - [Solution](memory-management/solution.md)
 
 # Day 2: Afternoon
 
@@ -100,8 +105,6 @@
 - [Standard Library Types](std-types.md)
   - [Standard Library](std-types/std.md)
   - [Documentation](std-types/docs.md)
-  - [`Option`](std-types/option.md)
-  - [`Result`](std-types/result.md)
   - [`String`](std-types/string.md)
   - [`Vec`](std-types/vec.md)
   - [`HashMap`](std-types/hashmap.md)
@@ -118,21 +121,24 @@
   - [Exercise: ROT13](std-traits/exercise.md)
     - [Solution](std-traits/solution.md)
 
+
+---
+
+# Day X: Bonus
+
+- [Generics](generics.md)
+  - [Generic Functions](generics/generic-functions.md)
+  - [Generic Data Types](generics/generic-data.md)
+  - [Trait Bounds](generics/trait-bounds.md)
+  - [`impl Trait`](generics/impl-trait.md)
+  - [Exercise: Generic `min`](generics/exercise.md)
+    - [Solution](generics/solution.md)
+
 ---
 
 # Day 3: Morning
 
 - [Welcome](welcome-day-3.md)
-- [Memory Management](memory-management.md)
-  - [Review of Program Memory](memory-management/review.md)
-  - [Approaches to Memory Management](memory-management/approaches.md)
-  - [Ownership](memory-management/ownership.md)
-  - [Move Semantics](memory-management/move.md)
-  - [`Clone`](memory-management/clone.md)
-  - [Copy Types](memory-management/copy-types.md)
-  - [`Drop`](memory-management/drop.md)
-  - [Exercise: Builder Type](memory-management/exercise.md)
-    - [Solution](memory-management/solution.md)
 - [Smart Pointers](smart-pointers.md)
   - [`Box<T>`](smart-pointers/box.md)
   - [`Rc`](smart-pointers/rc.md)

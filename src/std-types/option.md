@@ -4,8 +4,17 @@ minutes: 10
 
 # Option
 
-We have already seen some use of `Option<T>`. It stores either a value of type
-`T` or nothing. For example,
+An example of an enum from the standard library is the `Option`.
+This also introduces generics.
+
+```rust,editable
+enum Option<T> {
+  None,
+  Some(T)
+}
+```
+
+It stores either a value of type `T` or nothing. For example,
 [`String::find`](https://doc.rust-lang.org/stable/std/string/struct.String.html#method.find)
 returns an `Option<usize>`.
 
