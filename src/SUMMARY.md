@@ -42,7 +42,6 @@
   - [Macros](control-flow-basics/macros.md)
   - [Exercise: Collatz Sequence](control-flow-basics/exercise.md)
     - [Solution](control-flow-basics/solution.md)
-  - [Tuples and Arrays](tuples-and-arrays/tuples-and-arrays.md)
 
 # Day 1: Afternoon
 
