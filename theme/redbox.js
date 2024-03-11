@@ -39,65 +39,66 @@
 
 function setCodeToPlayground() {
   const code = JSON.parse(localStorage.getItem(window.location.href));
-  console.log(code)
+  console.log(code);
   if (code) {
-    const playground = document.getElementsByClassName('ace_text-layer')[0]
+    const playground = document.getElementsByClassName("ace_text-layer")[0];
     while (playground.firstElementChild) {
-      console.log(playground.firstElementChild.innerText.replace(/\s+/g, ' '))
+      console.log(playground.firstElementChild.innerText.replace(/\s+/g, " "));
       playground.removeChild(playground.firstElementChild);
     }
-    console.log(playground, "after removal")
+    console.log(playground, "after removal");
     for (let i = 0; i < code.length; i++) {
-      let parentDiv = code[i][0]
-      let spanChild = code[i][1]
-      let div = document.createElement(parentDiv.tag)
-      div.style.height = "17.5938px"
-      div.style.top = `${17.5938 * i}px`
+      let parentDiv = code[i][0];
+      let spanChild = code[i][1];
+      let div = document.createElement(parentDiv.tag);
+      div.style.height = "17.5938px";
+      div.style.top = `${17.5938 * i}px`;
       for (let cls in parentDiv.classes) {
-        div.classList.add(parentDiv.classes[cls])
+        div.classList.add(parentDiv.classes[cls]);
       }
       for (let j = 0; j < spanChild.length; j++) {
         //console.log(spanChild[j].styles,typeof(spanChild[j].styles))
-        let span = document.createElement(spanChild[j].tag)
+        let span = document.createElement(spanChild[j].tag);
         //span.classList = spanChild[j].classes
         for (let cls in spanChild[j].classes) {
-          span.classList.add(spanChild[j].classes[cls])
+          span.classList.add(spanChild[j].classes[cls]);
         }
-        span.innerText = spanChild[j].text
-        div.insertBefore(span, div.lastChild)
+        span.innerText = spanChild[j].text;
+        div.insertBefore(span, div.lastChild);
       }
-      playground.insertBefore(div, playground.lastChild)
+      playground.insertBefore(div, playground.lastChild);
     }
   }
-  localStorage.removeItem(window.location.href)
+  localStorage.removeItem(window.location.href);
 }
 
-window.onunload = setTimeout(setCodeToPlayground, 5000)
+window.onunload = setTimeout(setCodeToPlayground, 5000);
 function getCodeFromPlayground() {
-  console.log("getCodeFromPlayground")
-  const playground = document.getElementsByClassName('ace_text-layer')[0].children
-  var code = []
+  console.log("getCodeFromPlayground");
+  const playground =
+    document.getElementsByClassName("ace_text-layer")[0].children;
+  var code = [];
   for (let i = 0; i < playground.length; i++) {
     let parentCodeList = {
       tag: playground[i].tagName,
       classes: playground[i].classList,
-      styles: playground[i].style
-    }
-    var line = []
+      styles: playground[i].style,
+    };
+    var line = [];
     for (let j = 0; j < playground[i].children.length; j++) {
-      console.log(playground[i].innerHTML)
+      console.log(playground[i].innerHTML);
       let codeList = {
         tag: playground[i].children[j].tagName,
         text: playground[i].children[j].innerText,
         classes: playground[i].children[j].classList,
         styles: playground[i].children[j].style,
-      }
-      line.push(codeList)
+      };
+      line.push(codeList);
     }
-    code.push([parentCodeList, line])
+    code.push([parentCodeList, line]);
   }
-  console.log(code)
+  console.log(code);
   //localStorage.removeItem(window.location.href)
-  localStorage.setItem(window.location.href, JSON.stringify(code))
+  localStorage.setItem(window.location.href, JSON.stringify(code));
 }
-addEventListener('beforeunload', getCodeFromPlayground())
+addEventListener("beforeunload", getCodeFromPlayground());
