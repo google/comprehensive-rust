@@ -2,7 +2,7 @@
 minutes: 20
 ---
 
-# Exercise: Generic Logger
+# Exercise: Logger Trait
 
 Let's design a simple logging utility, using a trait `Logger` with a `log`
 method. Code which might log its progress can then take an `&impl Logger`. In
