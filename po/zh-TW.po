@@ -4819,7 +4819,7 @@ msgstr "[歡迎](./welcome-day-2.md) (3 分鐘)"
 #: src/welcome-day-2.md
 #, fuzzy
 msgid "[Pattern Matching](./pattern-matching.md) (1 hour)"
-msgstr "[解構](./pattern-matching/destructuring.md) (10 分鐘)"
+msgstr "[模式配對](./pattern-matching.md) (10 分鐘)"
 
 #: src/welcome-day-2.md
 msgid "[Methods and Traits](./methods-and-traits.md) (45 minutes)"
@@ -4838,7 +4838,7 @@ msgstr "講解這個主題大約需要 2 小時 50 分鐘"
 #: src/pattern-matching.md
 #, fuzzy
 msgid "[Matching Values](./pattern-matching/match.md) (10 minutes)"
-msgstr "[解構](./pattern-matching/destructuring.md) (10 分鐘)"
+msgstr "[配對](./pattern-matching/match.md) (10 分鐘)"
 
 #: src/pattern-matching.md
 msgid "[Destructuring](./pattern-matching/destructuring.md) (10 minutes)"
@@ -5277,8 +5277,8 @@ msgid ""
 "tests. To evaluate a boxed expression, use the deref operator (`*`) to "
 "\"unbox\" it: `eval(*boxed_expr)`."
 msgstr ""
-"這裡的 `Box` 型別是智慧指標，我們會在本課程的後續部分詳細說明。運算式可透過 "
-"`Box::new`「裝箱」，如測試中所示。如要求裝箱運算式的值，請使用 deref 運算子 "
+"這裡的 `Box` 型別是一種智慧指標，我們會在本課程的後續部分詳細說明。如測試中所示，運算式可被 "
+"`Box::new`「裝箱」。如要求裝箱運算式的值，請使用 deref 運算子 "
 "(`*`) 來「開箱」：`eval(*boxed_expr)`。"
 
 #: src/pattern-matching/exercise.md
@@ -6910,10 +6910,10 @@ msgid ""
 "selecting the bottom 32 bits of a `u64` with `as u32`, regardless of what "
 "was in the high bits)."
 msgstr ""
-"使用 `as` 進行轉換，可說是採用相對鋒利的一種工具，使用上並不容易；而且要是日"
-"後的維護作業改變了所用型別或型別中值的範圍，此工具就可能會成為導致細微錯誤的"
-"來源。只有在意圖用於指明無條件截斷時，我們才建議轉換。舉例來說，如果無論高位"
-"元中的內容為何，您都要透過 `as u32` 選取 `u64` 的底部 32 位元，就可以這麼做。"
+"雖然使用 `as` 進行型別相當簡單，但是非常容易出錯；舉例來說，"
+"如果往後的維護作業改變了所用型別或型別中值的範圍，這常常就是某些細微錯誤的來源。"
+"只有在意圖用於指明無條件截斷時，我們才建議使用型別轉換。舉例來說，如果無論高位"
+"元中的內容為何，您都只需要 `u64` 的底部 32 位元，就可以使用 `as u32`。"
 
 #: src/std-traits/casting.md
 msgid ""
@@ -6922,7 +6922,7 @@ msgid ""
 "casts, `TryFrom` and `TryInto` are available when you want to handle casts "
 "that fit differently from those that don't."
 msgstr ""
-"如果是 `u32` 到 `u64` 這類絕對無誤的轉換，適合先使用 `From` 或 `Into` (而非 "
+"如果是 `u32` 到 `u64` 這類絕對無誤的型別轉換，適合先使用 `From` 或 `Into` (而非 "
 "`as`) 確認轉換確實無誤。對於容易出錯的轉換，如果您想以不同的方式處理，可以使"
 "用 `TryFrom` 和 `TryInto`。"
 
