@@ -13784,7 +13784,7 @@ msgid ""
 "resulted in PRs with performance improvements)"
 msgstr ""
 "`serde_json_lenient` (在 Google 的其他部分中經過實驗，產生了一些可提升效能的 "
-"PR)"
+"PR (Pull Request))"
 
 #: src/chromium/cargo.md
 msgid "Fontations libraries like `font-types`"
@@ -14755,16 +14755,15 @@ msgid ""
 "simply `#include`d in the generated C++ code for the benefit of C++ "
 "compilers."
 msgstr ""
-"**常見誤解**：它「看似」是由 Rust 剖析的 C++ 標頭，但這會造成誤導。這種標頭"
-"一律不會由 Rust 解譯，只是為了 C++ 編譯器的好處，而在產生的 C++ 程式碼中設為 "
+"**常見誤解**：它「看似」是由 Rust 剖析的 C++ 標頭，但這會造成誤導。這種標頭一"
+"律不會由 Rust 解譯，只是為了 C++ 編譯器的好處，而在產生的 C++ 程式碼中設為 "
 "`#include`。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "By far the most useful page when using CXX is the [type reference](https://"
 "cxx.rs/bindings.html)."
-msgstr ""
-"使用 CXX 時，最實用的頁面是[型別參照](https://cxx.rs/bindings.html)。"
+msgstr "使用 CXX 時，最實用的頁面是[型別參照](https://cxx.rs/bindings.html)。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid "CXX fundamentally suits cases where:"
@@ -14873,11 +14872,10 @@ msgid ""
 "Preserving error details is in theory possible, but so far hasn't been "
 "needed in practice."
 msgstr "理論上可保留錯誤詳細資料，但目前在實際情況中並不需要。"
-msgstr "CXX 錯誤處理：QR Code 範例"
+
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
-#, fuzzy
 msgid "CXX Error Handling: QR Example"
-msgstr "錯誤處理"
+msgstr "CXX 錯誤處理：QR Code 範例"
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 msgid ""
@@ -14889,8 +14887,8 @@ msgid ""
 msgstr ""
 "在 QR code 產生器這個[範例](https://source.chromium.org/chromium/chromium/"
 "src/+/main:components/qr_code_generator/qr_code_generator_ffi_glue.rs;"
-"l=13-18;drc=7bf1b75b910ca430501b9c6a74c1d18a0223ecca)中，布林值是用來表示成功與失敗，"
-"且成功結果可跨越 FFI 邊界傳遞："
+"l=13-18;drc=7bf1b75b910ca430501b9c6a74c1d18a0223ecca)中，布林值是用來表示成功"
+"與失敗，且成功結果可跨越 FFI 邊界傳遞："
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 msgid "\"qr_code_generator\""
@@ -14913,9 +14911,9 @@ msgid ""
 "points to uninitialized memory results in Undefined Behavior (unlike in C++, "
 "when only the act of dereferencing such memory results in UB)."
 msgstr ""
-"可考慮說明先初始化 `out_qr_size` 再呼叫 Rust 函式的重要性。建立指向未初始化"
-"記憶體的 Rust 參照時，會導致「未定義的行為」(不同的是，在 C++ 中只有解除參照"
-"這類記憶體時才會導致「未定義的行為」)。"
+"可考慮說明先初始化 `out_qr_size` 再呼叫 Rust 函式的重要性。建立指向未初始化記"
+"憶體的 Rust 參照時，會導致「未定義的行為」(不同的是，在 C++ 中只有解除參照這"
+"類記憶體時才會導致「未定義的行為」)。"
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 msgid ""
@@ -14925,11 +14923,10 @@ msgid ""
 msgstr ""
 "如有學生詢問 `Pin`，請說明為何 CXX 需要這個項目來處理 C++ 資料的可變動參照："
 "答案是因為 C++ 資料可能包含自我參照指標，無法像 Rust 資料一樣移動。"
-msgstr "CXX 錯誤處理：PNG 範例"
+
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
-#, fuzzy
 msgid "CXX Error Handling: PNG Example"
-msgstr "錯誤處理"
+msgstr "CXX 錯誤處理：PNG 範例"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 msgid ""
@@ -14946,8 +14943,7 @@ msgstr "\"gfx::rust_bindings\""
 msgid ""
 "/// This returns an FFI-friendly equivalent of `Result<PngReader<'a>,\n"
 "        /// ()>`.\n"
-msgstr ""
-"/// 這回傳一個 FFI 友好的型別，等同於 `Result<PngReader<'a>, ()>`.\n"
+msgstr "/// 這回傳一個 FFI 友好的型別，等同於 `Result<PngReader<'a>, ()>`.\n"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 msgid "/// C++ bindings for the `crate::png::ResultOfPngReader` type.\n"
@@ -15032,8 +15028,8 @@ msgid ""
 "l=21)."
 msgstr ""
 "您會在 `//base` 中發現一些公用函式，可將 Chromium C++ 型別轉換成 CXX Rust 型"
-"別，逆向轉換也可以，例如 [`SpanToRustSlice`](https://source.chromium.org/chromium/chromium/"
-"src/+/main:base/containers/span_rust.h;l=21)。"
+"別，逆向轉換也可以，例如 [`SpanToRustSlice`](https://source.chromium.org/"
+"chromium/chromium/src/+/main:base/containers/span_rust.h;l=21)。"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid "Students may ask --- why do we still need `allow_unsafe = true`?"
@@ -15049,10 +15045,10 @@ msgid ""
 "writing/the-cxx-debate), but strictly, bringing any foreign code into a Rust "
 "binary can cause unexpected behavior from Rust's perspective."
 msgstr ""
-"籠統的答案是根據一般 Rust 標準，任何 C/C++ 程式碼都不「安全」。從 Rust 來回呼叫 C/"
-"C++ 可能會對記憶體執行任何作業，進而破壞 Rust 本身資料布局的安全性。在 C/C++ "
-"互通性中如果出現「過多」`unsafe` 關鍵字，可能會傷害這類關鍵字的訊噪比，且"
-"[具有爭議性](https://steveklabnik.com/writing/the-cxx-debate)，但嚴格來說，"
+"籠統的答案是根據一般 Rust 標準，任何 C/C++ 程式碼都不「安全」。從 Rust 來回呼"
+"叫 C/C++ 可能會對記憶體執行任何作業，進而破壞 Rust 本身資料布局的安全性。在 "
+"C/C++ 互通性中如果出現「過多」`unsafe` 關鍵字，可能會傷害這類關鍵字的訊噪比，"
+"且[具有爭議性](https://steveklabnik.com/writing/the-cxx-debate)，但嚴格來說，"
 "在 Rust 二進位檔中導入任何外來程式碼，都可能對 Rust 造成非預期行為。"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
@@ -15066,10 +15062,9 @@ msgstr ""
 "幕後產生 Rust `unsafe` 和 `extern \"C\"` 函式，如同前一節中的手動操作。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
-#, fuzzy
 msgid "Exercise: Interoperability with C++"
-msgstr "互通性"
 msgstr "練習：與 C++ 的互通性"
+
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Part one"
 msgstr "第一部分"
@@ -15117,10 +15112,9 @@ msgid ""
 msgstr "您可以試著玩玩 CXX，這有助於瞭解 Chromium 中的 Rust 有多靈活。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
-#, fuzzy
 msgid "Some things to try:"
-msgstr "注意事項："
 msgstr "可嘗試的事項："
+
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Call back into C++ from Rust. You will need:"
 msgstr "從 Rust 呼叫 C++。您會需要以下項目："
@@ -15169,7 +15163,8 @@ msgstr ""
 msgid ""
 "Intentionally get the C++ function signatures mismatched from the `#[cxx::"
 "bridge]`, and get used to the errors you see."
-msgstr "刻意從 `#[cxx::bridge]` 中取得不相符的 C++ 函式簽章，並熟悉看到的錯誤。"
+msgstr ""
+"刻意從 `#[cxx::bridge]` 中取得不相符的 C++ 函式簽章，並熟悉看到的錯誤。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
