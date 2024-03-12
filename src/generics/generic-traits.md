@@ -12,13 +12,13 @@ get concrete types when it is used.
 struct Foo(String);
 
 impl From<u32> for Foo {
-    fn from(from: u32) {
+    fn from(from: u32) -> Foo {
         Foo(format!("Converted from integer: {from}"));
     }
 }
 
 impl From<bool> for Foo {
-    fn from(from: bool) {
+    fn from(from: bool) -> Foo {
         Foo(format!("Converted from bool: {from}"));
     }
 }
