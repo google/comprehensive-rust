@@ -1,6 +1,6 @@
 # Associated Types
 
-Associated types are placeholder types which are filled in by the trait
+Associated types are placeholder types which are supplied by the trait
 implementation.
 
 ```rust,editable
