@@ -52,7 +52,7 @@ function setCodeToPlayground() {
     });
   }
 }
-setTimeout(setCodeToPlayground, 100);
+setCodeToPlayground()
 function getCodeFromPlayground() {
   var codes = [];
   Array.from(document.querySelectorAll(".playground")).forEach(function (
