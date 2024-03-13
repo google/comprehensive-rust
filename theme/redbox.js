@@ -38,67 +38,27 @@
 })();
 
 function setCodeToPlayground() {
-  const code = JSON.parse(localStorage.getItem(window.location.href));
-  console.log(code);
-  if (code) {
-    const playground = document.getElementsByClassName("ace_text-layer")[0];
-    while (playground.firstElementChild) {
-      console.log(playground.firstElementChild.innerText.replace(/\s+/g, " "));
-      playground.removeChild(playground.firstElementChild);
-    }
-    console.log(playground, "after removal");
-    for (let i = 0; i < code.length; i++) {
-      let parentDiv = code[i][0];
-      let spanChild = code[i][1];
-      let div = document.createElement(parentDiv.tag);
-      div.style.height = "17.5938px";
-      div.style.top = `${17.5938 * i}px`;
-      for (let cls in parentDiv.classes) {
-        div.classList.add(parentDiv.classes[cls]);
-      }
-      for (let j = 0; j < spanChild.length; j++) {
-        //console.log(spanChild[j].styles,typeof(spanChild[j].styles))
-        let span = document.createElement(spanChild[j].tag);
-        //span.classList = spanChild[j].classes
-        for (let cls in spanChild[j].classes) {
-          span.classList.add(spanChild[j].classes[cls]);
-        }
-        span.innerText = spanChild[j].text;
-        div.insertBefore(span, div.lastChild);
-      }
-      playground.insertBefore(div, playground.lastChild);
-    }
+  var codes = JSON.parse(localStorage.getItem(window.location.href));
+  if(codes){
+    var i = 0;
+    Array.from(document.querySelectorAll(".playground")).forEach(function (pre_block) {
+    let code_block = pre_block.querySelector("code");
+    let editor = window.ace.edit(code_block);
+    editor.setValue(codes[i]);
+    editor.clearSelection();
+    i += 1
+    })
   }
-  localStorage.removeItem(window.location.href);
 }
-
-window.onunload = setTimeout(setCodeToPlayground, 5000);
+setTimeout(setCodeToPlayground, 100);
 function getCodeFromPlayground() {
-  console.log("getCodeFromPlayground");
-  const playground =
-    document.getElementsByClassName("ace_text-layer")[0].children;
-  var code = [];
-  for (let i = 0; i < playground.length; i++) {
-    let parentCodeList = {
-      tag: playground[i].tagName,
-      classes: playground[i].classList,
-      styles: playground[i].style,
-    };
-    var line = [];
-    for (let j = 0; j < playground[i].children.length; j++) {
-      console.log(playground[i].innerHTML);
-      let codeList = {
-        tag: playground[i].children[j].tagName,
-        text: playground[i].children[j].innerText,
-        classes: playground[i].children[j].classList,
-        styles: playground[i].children[j].style,
-      };
-      line.push(codeList);
-    }
-    code.push([parentCodeList, line]);
-  }
-  console.log(code);
-  //localStorage.removeItem(window.location.href)
-  localStorage.setItem(window.location.href, JSON.stringify(code));
-}
-addEventListener("beforeunload", getCodeFromPlayground());
+  var codes = []
+  Array.from(document.querySelectorAll(".playground")).forEach(function (pre_block) {
+    let code_block = pre_block.querySelector("code");
+    let editor = window.ace.edit(code_block);
+    let code = editor.getValue();
+    codes.push(code)
+  })
+  localStorage.setItem(window.location.href,JSON.stringify(codes));
+};
+setInterval(getCodeFromPlayground,900)
