@@ -15245,26 +15245,23 @@ msgid ""
 "they do!"
 msgstr ""
 "Rust 程式庫稱為「Crate」，位於 [crates.io](https://crates.io)。Rust Crate「非"
-"常容易」__彼此依附，所以確實會出現這種情況！"
+"常容易」互相依附，所以它們也確實常常這麼做！"
 
 #: src/chromium/adding-third-party-crates.md
-#, fuzzy
 msgid "C++ library"
-msgstr "函式庫"
+msgstr "C++ 函式庫"
 
 #: src/chromium/adding-third-party-crates.md
-#, fuzzy
 msgid "Rust crate"
-msgstr "Rust 生態系統"
+msgstr "Rust crate"
 
 #: src/chromium/adding-third-party-crates.md
-#, fuzzy
 msgid "Build system"
-msgstr "Rust 生態系統"
+msgstr "建構系統"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Lots"
-msgstr "超過十億"
+msgstr "非常多"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Consistent: `Cargo.toml`"
@@ -15316,7 +15313,7 @@ msgstr "如何在 Chromium 原始碼樹中加入 Crate"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "How to make `gn` build rules for it"
-msgstr "如何建立 `gn` 建構規則"
+msgstr "如何為其建立 `gn` 建構規則"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "How to audit its source code for sufficient safety."
@@ -15352,7 +15349,7 @@ msgstr ""
 "bitflags = \"1\"\n"
 "cfg-if = \"1\"\n"
 "cxx = \"1\"\n"
-"# lots more...\n"
+"# 還有更多...\n"
 "```"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
@@ -15406,7 +15403,7 @@ msgstr ""
 msgid ""
 "Later, we'll see some other things you will need to configure in this file "
 "to resolve problems."
-msgstr "稍後我們會看到您需在這個檔案中設定哪些項目，才能解決問題。"
+msgstr "稍後我們會看到一些其他您需在這個檔案中設定的項目，才能解決問題。"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid ""
@@ -15416,7 +15413,7 @@ msgstr "`gnrt` 這項工具瞭解如何下載 Crate，以及如何產生 `BUILD.
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid "To start, download the crate you want like this:"
-msgstr "首先，請按照以下方式下載 Crate："
+msgstr "首先，請按照以下方式下載任何你想要的 Crate："
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid ""
@@ -15426,17 +15423,16 @@ msgid ""
 "decision."
 msgstr ""
 "雖然 `gnrt` 工具屬於 Chromium 原始碼的一部分，但透過執行這項指令，您可以從 "
-"`crates.io` 下載並執行其依附元件。請參閱[前一節](../cargo.md)中有關這項安全性"
-"決策的討論。"
+"`crates.io` 下載並執行其依附元件。請參閱[前面的章節](../cargo.md)中有關這項安"
+"全性決策的討論。"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid "This `vendor` command may download:"
 msgstr "這項 `vendor` 指令可能會下載以下項目："
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
-#, fuzzy
 msgid "Your crate"
-msgstr "實用的 Crate"
+msgstr "您的 Crate"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid "Direct and transitive dependencies"
@@ -15463,7 +15459,7 @@ msgstr ""
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
 "Once you've downloaded the crate, generate the `BUILD.gn` files like this:"
-msgstr "下載 Crate 後，請產生類似下方的 `BUILD.gn` 檔案："
+msgstr "下載 Crate 後，請如下產生 `BUILD.gn` 檔案："
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid "Now run `git status`. You should find:"
@@ -15494,6 +15490,8 @@ msgid ""
 "The \"major semver version\" is a [Rust \"semver\" version number](https://"
 "doc.rust-lang.org/cargo/reference/semver.html)."
 msgstr ""
+"「major semver version」是 [Rust「Semver」版本號碼](https://doc.rust-lang."
+"org/cargo/reference/semver.html)."
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
@@ -15535,7 +15533,7 @@ msgstr "gn 範本是否支援"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Work required by you"
-msgstr "您要求的工作"
+msgstr "您需要做的"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Checking rustc version to configure features on and off"
@@ -15550,9 +15548,8 @@ msgid "Checking platform or CPU to configure features on and off"
 msgstr "檢查平台或 CPU，將功能設為開啟/關閉"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
-#, fuzzy
 msgid "Generating code"
-msgstr "泛型"
+msgstr "產生程式碼"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Yes - specify in `gnrt_config.toml`"
@@ -15564,7 +15561,7 @@ msgstr "建構 C/C++"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Patch around it"
-msgstr "修補周圍項目"
+msgstr "撰寫修補程式"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Arbitrary other actions"
@@ -15593,8 +15590,8 @@ msgid ""
 "file:"
 msgstr ""
 "如果是，請修改 [`gnrt_config.toml`](../configuring-gnrt-config-toml.md)，將 "
-"`build-script-outputs` 新增至 Crate。若是遞移依附元件，也就是不應直接依附 "
-"Chromium 程式碼的依附元件，請一併加上 `allow-first-party-usage=false`。該檔案"
+"`build-script-outputs` 新增至 Crate。若是遞移依附元件，也就是 Chromium 程式"
+"碼 不應直接依附的依附元件，請一併加上 `allow-first-party-usage=false`。該檔案"
 "中已有幾個範例："
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md
@@ -15618,7 +15615,7 @@ msgid ""
 "to subsequent build steps."
 msgstr ""
 "現在請重新執行 [`gnrt.py -- gen`](../generating-gn-build-rules.md)，重新產生 "
-"`BUILD.gn` 檔案，通知 ninja 這個輸出檔案會輸入至後續建構步驟。"
+"`BUILD.gn` 檔案以通知 ninja 這個輸出檔案會輸入至後續建構步驟。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid ""
@@ -15760,9 +15757,9 @@ msgid ""
 "ironically involves downloading lots of dependencies from the internet[2](../"
 "cargo.md))"
 msgstr ""
-"使用 `cd third-party/rust/chromium_crates_io; cargo audit`，檢查是否有已知的"
-"安全漏洞 (您首先需要執行 `cargo install cargo-audit`，諷刺的是，這麼做需要從"
-"網際網路下載大量依附元件[2](../cargo.md))"
+"使用 `cd third-party/rust/chromium_crates_io; cargo audit` 檢查是否有已知的安"
+"全漏洞 (您首先需要執行 `cargo install cargo-audit`，諷刺的是，這麼做需要從網"
+"際網路下載大量依附元件[2](../cargo.md))"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -15792,8 +15789,8 @@ msgid ""
 "These are just guidelines --- work with reviewers from `security@chromium."
 "org` to work out the right way to become confident of the crate."
 msgstr ""
-"上述內容只是指南，請與 `security@chromium.org` 的審查人員合作，瞭解如何正確使"
-"用 Crate。"
+"上述內容只是指南，請與 `security@chromium.org` 的審查人員合作，瞭解如何正確地"
+"確保 Crate 是可信的。"
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid "Checking Crates into Chromium Source Code"
@@ -15842,7 +15839,7 @@ msgid ""
 "branches, and many projects still use non-inclusive terminology there. So "
 "you may need to run:"
 msgstr ""
-"這時，由於並非使用包容性的語言，預先提交的檢查作業可能會失敗。這是因為 Rust "
+"這時，預先提交的檢查作業可能會因使用非包容性的語言而失敗。這是因為 Rust "
 "Crate 資料通常會包含 Git 分支版本的名稱，而許多專案仍使用非包容性的術語。因"
 "此，您可能需要執行以下項目："
 
@@ -15868,8 +15865,8 @@ msgid ""
 msgstr ""
 "在 Chromium 中新增 [uwuify](https://crates.io/crates/uwuify)，關閉 Crate 的"
 "[預設功能](https://doc.rust-lang.org/cargo/reference/features.html#the-"
-"default-feature)。假設提交 Chromium 會使用 Crate，但不會用於處理不可靠的輸入"
-"資料。"
+"default-feature)。假設提交 Chromium 時會使用這個 Crate，但不會用於處理不可靠"
+"的輸入資料。"
 
 #: src/exercises/chromium/third-party.md
 msgid ""
@@ -15987,7 +15984,7 @@ msgstr "(想當然耳，實際翻譯 Chrome 時必須非常審慎認真。千萬
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid "Steps"
-msgstr "步數"
+msgstr "步驟"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16011,8 +16008,8 @@ msgid ""
 "and will probably decide that it's better to do the conversion on the C++ "
 "side using `base::UTF16ToUTF8` and back again."
 msgstr ""
-"比較 UTF16 與 UTF8。學生應瞭解 Rust 字串一律為 UTF8，且可能判斷出較適合在 C+"
-"+ 端使用 `base::UTF16ToUTF8` 完成轉換再返回。"
+"UTF16 與 UTF8：學生應瞭解 Rust 字串一律為 UTF8，且可能判斷出較適合在 C++ 端使"
+"用 `base::UTF16ToUTF8` 完成轉換再返回。"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
