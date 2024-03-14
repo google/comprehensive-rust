@@ -1,7 +1,7 @@
 # `const`
 
-Constant variables are evaluated at compile time and their values are inlined
-wherever they are used:
+Constants are evaluated at compile time and their values are inlined wherever
+they are used:
 
 <!-- mdbook-xgettext: skip -->
 

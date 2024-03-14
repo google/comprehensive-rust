@@ -2,12 +2,7 @@
 minutes: 5
 ---
 
-# Static and Const
-
-Static and constant variables are two different ways to create globally-scoped
-values that cannot be moved or reallocated during the execution of the program.
-
-## `static`
+# `static`
 
 Static variables will live during the whole execution of the program, and
 therefore will not move:
@@ -28,10 +23,18 @@ generally preferred.
 
 <details>
 
-- `static`, on the other hand, is much more similar to mutable global variable
-  in C++.
+- `static` is similar to mutable global variables in C++.
 - `static` provides object identity: an address in memory and state as required
   by types with interior mutability such as `Mutex<T>`.
+
+# More to Explore
+
+Because `static` variables are accessible from any thread, they must be `Sync`.
+Interior mutability is possible through a
+[`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html), atomic or
+similar.
+
+Thread-local data can be created with the macro `std::thread_local`.
 
 </details>
 
