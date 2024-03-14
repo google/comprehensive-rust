@@ -6,10 +6,12 @@ minutes: 10
 Including `&str` as a way of representing a slice of valid utf-8
 -->
 
-# String References
+# Strings
 
-We can now understand the two string types in Rust: `&str` is almost like
-`&[char]`, but with its data stored in a variable-length encoding (UTF-8).
+We can now understand the two string types in Rust:
+
+- `&str` is a slice of UTF-8 encoded bytes, similar to `&[u8]`.
+- `String` is an owned, heap-allocated buffer of UTF-8 bytes.
 
 ```rust,editable
 fn main() {
@@ -26,18 +28,13 @@ fn main() {
 }
 ```
 
-Rust terminology:
-
-- `&str` an immutable reference to a string slice.
-- `String` a mutable string buffer.
-
 <details>
 
 - `&str` introduces a string slice, which is an immutable reference to UTF-8
-  encoded string data stored in a block of memory. String literals (`”Hello”`),
+  encoded string data stored in a block of memory. String literals (`"Hello"`),
   are stored in the program’s binary.
 
-- Rust’s `String` type is a wrapper around a vector of bytes. As with a
+- Rust's `String` type is a wrapper around a vector of bytes. As with a
   `Vec<T>`, it is owned.
 
 - As with many other types `String::from()` creates a string from a string
@@ -64,6 +61,18 @@ Rust terminology:
   fn main() {
       println!("{:?}", b"abc");
       println!("{:?}", &[97, 98, 99]);
+  }
+  ```
+
+- Raw strings allow you to create a `&str` value with escapes disabled:
+  `r"\n" == "\\n"`. You can embed double-quotes by using an equal amount of `#`
+  on either side of the quotes:
+
+  <!-- mdbook-xgettext: skip -->
+  ```rust,editable
+  fn main() {
+      println!(r#"<a href="link.html">link</a>"#);
+      println!("<a href=\"link.html\">link</a>");
   }
   ```
 
