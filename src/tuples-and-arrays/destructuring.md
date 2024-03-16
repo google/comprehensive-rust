@@ -26,7 +26,6 @@ fn print_tuple(tuple: (i32, i32)) {
 }
 ```
 
-
 <details>
 
 - The patterns used here are "irrefutable", meaning that the compiler can
