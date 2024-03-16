@@ -26,19 +26,6 @@ fn print_tuple(tuple: (i32, i32)) {
 }
 ```
 
-This works with any kind of structured value:
-
-```rust,editable
-struct Foo {
-    a: i32,
-    b: bool,
-}
-
-fn print_foo(foo: Foo) {
-    let Foo { a, b } = foo;
-    println!("a: {a}, b: {b}");
-}
-```
 
 <details>
 
