@@ -7163,7 +7163,7 @@ msgstr "[複製](./memory-management/clone.md) (2 分鐘)"
 
 #: src/memory-management.md
 msgid "[Copy Types](./memory-management/copy-types.md) (5 minutes)"
-msgstr "[複製型別](./memory-management/copy-types.md) (5 分鐘)"
+msgstr "[拷貝 (Copy) 型別](./memory-management/copy-types.md) (5 分鐘)"
 
 #: src/memory-management.md
 msgid "[Drop](./memory-management/drop.md) (10 minutes)"
@@ -7645,7 +7645,7 @@ msgstr "複製"
 msgid ""
 "Sometimes you _want_ to make a copy of a value. The `Clone` trait "
 "accomplishes this."
-msgstr "有時候，您可能會「想要」__複製值。`Clone` 特徵可完成這項作業。"
+msgstr "有時候，您可能會「想要」複製一個值。`Clone` 特徵可完成這項作業。"
 
 #: src/memory-management/clone.md
 msgid ""
@@ -8372,7 +8372,7 @@ msgid ""
 "the heap. The two vector elements are _fat pointers_:"
 msgstr ""
 "在本例中，`pets` 和向量資料分別在堆疊和堆積上分配。這兩個向量元素都是「虛指"
-"標」__："
+"標」："
 
 #: src/smart-pointers/trait-objects.md
 #, fuzzy
@@ -8404,7 +8404,7 @@ msgid ""
 "value. For a given node N, all nodes in a N's left subtree contain smaller "
 "values, and all nodes in N's right subtree will contain larger values."
 msgstr ""
-"二元樹是一種樹狀資料結構，其中每個節點都有左右兩個子項。我們會建立每個節點都"
+"二元樹是一種樹狀資料結構，其中每個節點都有左右兩個子節點。我們會建立每個節點都"
 "儲存一個值的樹狀結構。以指定節點 N 來說，N 左側子樹狀結構中的所有節點都包含較"
 "小的值，而 N 右側子樹狀結構中的所有節點都含有較大的值。"
 
@@ -8552,7 +8552,7 @@ msgid ""
 "Note that the requirement is that conflicting references not _exist_ at the "
 "same point. It does not matter where the reference is dereferenced."
 msgstr ""
-"請注意，這裡的規定是同一點上不得「存在」__衝突的參照，在何處解除參照並不重"
+"請注意，這裡的規定是同一點上不得「存在」衝突的參照，在何處解除參照並不重"
 "要。"
 
 #: src/borrowing/borrowck.md
@@ -8587,7 +8587,7 @@ msgid ""
 "cached in a register for the lifetime of that reference."
 msgstr ""
 "專屬參照的約束力很強。Rust 會利用這類參照，確保資料競爭的情形不會發生；此外，"
-"也會「透過」__這項約束，將程式碼最佳化。舉例來說，共用參照背後的值可以在該參"
+"也會「透過」這項約束，將程式碼最佳化。舉例來說，共用參照背後的值可以在該參"
 "照的生命週期內，安全地快取到暫存器中。"
 
 #: src/borrowing/borrowck.md
@@ -8597,8 +8597,8 @@ msgid ""
 "time. But, there are some situations where it doesn't quite \"get it\" and "
 "this often results in \"fighting with the borrow checker.\""
 msgstr ""
-"借用檢查器在設計上涵蓋了許多常見模式，例如同時對結構體中的不同欄位進行專屬參"
-"照。但可能也是有某些無法完全「理解」的情況，這通常會導致「與借用檢查器衝"
+"借用檢查器在設計上考量了許多常見模式，例如同時對結構體中的不同欄位進行專屬參"
+"照。但檢查器也可能無法完全「理解」某些的情況，這通常會導致「與借用檢查器衝"
 "突」。"
 
 #: src/borrowing/interior-mutability.md
@@ -8607,8 +8607,8 @@ msgid ""
 "only) reference. For example, a shared data structure might have an internal "
 "cache, and wish to update that cache from read-only methods."
 msgstr ""
-"在某些情況下，您必須修改共用 (唯讀) 參照背後的資料。比方說，共用的資料結構可"
-"能含有內部快取，並想透過唯讀方法更新該快取，就屬於這種情況。"
+"在某些情況下，您必須修改共用 (唯讀) 參照背後的資料：比方說，共用的資料結構可"
+"能含有內部快取，並想透過唯讀方法更新該快取。"
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -8651,7 +8651,7 @@ msgid ""
 "ways to modify data behind a shared reference. There are a variety of ways "
 "to ensure that safety, and `RefCell` and `Cell` are two of them."
 msgstr ""
-"這張投影片的重點是 Rust 提供「安全的」__方法，可讓您修改共用參照背後的資料。"
+"這張投影片的重點是 Rust 提供「安全的」方法，可讓您修改共用參照背後的資料。"
 "要確保安全性有許多方式，而 `RefCell` 和 `Cell` 是其中兩種方法。"
 
 #: src/borrowing/interior-mutability.md
@@ -8954,7 +8954,7 @@ msgstr "位元組字串可讓您直接建立 `&[u8]` 值："
 msgid ""
 "A reference has a _lifetime_, which must not \"outlive\" the value it refers "
 "to. This is verified by the borrow checker."
-msgstr "參照的「生命週期」__不得「超過」其所參照的值。此由借用檢查器負責驗證。"
+msgstr "參照的「生命週期」不得「超過」其所參照的值。此由借用檢查器負責驗證。"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid ""
@@ -9083,7 +9083,7 @@ msgid ""
 "help resolve ambiguity. Often, especially when prototyping, it's easier to "
 "just work with owned data by cloning values where necessary."
 msgstr ""
-"學生可能會詢問何時該使用生命週期。Rust 的借用「一律」__具有生命週期。在大多數"
+"學生可能會詢問何時該使用生命週期。Rust 的借用「一律」具有生命週期。在大多數"
 "情況下，如果採取省略和型別推論的方式，表示您不必編寫這些內容。但在較複雜的情"
 "況下，生命週期註解可以協助解決模稜兩可的情況。一般而言，只要在有必要時複製"
 "值，即可輕鬆處理所擁有的資料，特別是在原型設計階段更是如此。"
