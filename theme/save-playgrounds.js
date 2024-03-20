@@ -1,6 +1,8 @@
 (function savePlaygrounds() {
   function setCodeToPlayground() {
-    var codes = JSON.parse(localStorage.getItem(window.location.href));
+    var codes = JSON.parse(
+      localStorage.getItem(`${window.location.href}₹code`)
+    );
     if (codes) {
       var i = 0;
       Array.from(document.querySelectorAll(".playground")).forEach(function (
@@ -24,7 +26,7 @@
       let code = editor.getValue();
       codes.push(code);
     });
-    localStorage.setItem(window.location.href, JSON.stringify(codes));
+    localStorage.setItem(`${window.location.href}₹code`, JSON.stringify(codes));
   }
   setCodeToPlayground();
   addEventListener("pagehide", getCodeFromPlayground);
