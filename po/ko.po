@@ -15018,6 +15018,8 @@ msgid ""
 "Rust is supported for third-party libraries in Chromium, with first-party "
 "glue code to connect between Rust and existing Chromium C++ code."
 msgstr ""
+"Rust는 Chromium의 서드 파티 라이브러리에 대해 지원되며, Rust와 기존 Chromium "
+"C++ 코드 간에 연결하는 퍼스트 파티 글루 코드를 포함합니다."
 
 #: src/chromium.md
 msgid ""
@@ -15026,6 +15028,9 @@ msgid ""
 "feel free to follow this recipe in your part of the codebase instead of the "
 "exact part we talk about."
 msgstr ""
+"오늘은 Rust를 호출하여 문자열로 우스꽝스러운 작업을 해 보겠습니다. 사용자에"
+"게 UTF8 문자열을 표시하는 코드 부분이 있는 경우, 언급되는 정확한 부분 대신 코"
+"드베이스에서 이 레시피를 따르시면 됩니다."
 
 #: src/chromium/setup.md
 msgid ""
@@ -15033,12 +15038,17 @@ msgid ""
 "flags is OK, so long as your code is relatively recent (commit position "
 "1223636 onwards, corresponding to November 2023):"
 msgstr ""
+"Chromium을 빌드하고 실행할 수 있는지 확인합니다. 코드가 비교적 최신이라면(커"
+"밋 위치 1223636 이후, 2023년 11월에 해당) 어떤 플랫폼이나 빌드 플래그 집합도 "
+"괜찮습니다."
 
 #: src/chromium/setup.md
 msgid ""
 "(A component, debug build is recommended for quickest iteration time. This "
 "is the default!)"
 msgstr ""
+"개발 속도를 빠르게 하고 싶다면 디버그 빌드를 사용하는 것이 좋습니다. 이게 기"
+"본값입니다."
 
 #: src/chromium/setup.md
 msgid ""
@@ -15046,14 +15056,18 @@ msgid ""
 "the-code/) if you aren't already at that point. Be warned: setting up to "
 "build Chromium takes time."
 msgstr ""
+"아직 빌드하지 않았다면 [Chromium 빌드 방법](https://www.chromium.org/"
+"developers/how-tos/get-the-code/)을 참고하세요. 주의: Chromium 빌드 환경 셋업"
+"은 시간이 걸립니다."
 
 #: src/chromium/setup.md
 msgid "It's also recommended that you have Visual Studio code installed."
-msgstr ""
+msgstr "또한 Visual Studio Code가 설치되어 있는 것이 좋습니다."
 
 #: src/chromium/setup.md
+#, fuzzy
 msgid "About the exercises"
-msgstr ""
+msgstr "연습문제 정보"
 
 #: src/chromium/setup.md
 msgid ""
@@ -15062,6 +15076,9 @@ msgid ""
 "If you don't have time to complete a certain part, don't worry: you can "
 "catch up in the next slot."
 msgstr ""
+"과정의 이 부분에는 서로 연계되는 일련의 연습문제가 있습니다. 마지막에 한꺼번"
+"에 하지 않고 과정 전반에 연습문제가 흩어져 있습니다. 특정 부분을 완료할 시간"
+"이 없더라도 걱정하지 마세요. 다음번에 따라잡을 수 있습니다."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -15069,10 +15086,13 @@ msgid ""
 "(https://crates.io/). Chromium is built using `gn` and `ninja` and a curated "
 "set of dependencies."
 msgstr ""
+"Rust 커뮤니티는 일반적으로 [crates.io](https://crates.io/)의 `cargo` 및 라이"
+"브러리를 사용합니다. Chromium은 세심하게 선별된 의존성들과 함께 `gn`, `ninja`"
+"을 이용하여 빌드됩니다."
 
 #: src/chromium/cargo.md
 msgid "When writing code in Rust, your choices are:"
-msgstr ""
+msgstr "Rust로 코드를 작성할 때 선택할 수 있는 옵션은 다음과 같습니다."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -15080,6 +15100,9 @@ msgid ""
 "gni` (e.g. `rust_static_library` that we'll meet later). This uses "
 "Chromium's audited toolchain and crates."
 msgstr ""
+"`//build/rust/*.gni`의 템플릿(예: 나중에 다룰 `rust_static_library`)을 통해 "
+"`gn` 및 `ninja`를 사용합니다. 이는 Chromium의 감사 도구 모음 및 크레이트를 사"
+"용합니다."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -15087,12 +15110,17 @@ msgid ""
 "crates](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/"
 "docs/rust.md#Using-cargo)"
 msgstr ""
+"`cargo`를 사용하되 [Chromium의 감사 도구 모음 및 크레이트로 제한]합니다"
+"(https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/rust."
+"md#Using-cargo)."
 
 #: src/chromium/cargo.md
 msgid ""
 "Use `cargo`, trusting a [toolchain](https://rustup.rs/) and/or [crates "
 "downloaded from the internet](https://crates.io/)"
 msgstr ""
+"`cargo`를 사용하여 [도구 모음](https://rustup.rs/) 또는 [인터넷에서 다운로드"
+"한 크레이트](https://crates.io/)를 신뢰합니다."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -15100,6 +15128,9 @@ msgid ""
 "code can be built into the Chromium browser. At the same time, Cargo is an "
 "important part of the Rust ecosystem and you should keep it in your toolbox."
 msgstr ""
+"여기서부터는 `gn`과 `ninja`에 집중할 겁니다. 그 도구들을 써야만 Chromium 브라"
+"우저에 Rust 코드를빌드해서 넣을 수 있기 때문입니다.  이와 동시에, Cargo는 "
+"Rust 생태계에서 중요한 부분이므로 Cargo에도 익숙해야 합니다."
 
 #: src/chromium/cargo.md
 #, fuzzy
@@ -15108,19 +15139,23 @@ msgstr "연습문제"
 
 #: src/chromium/cargo.md
 msgid "Split into small groups and:"
-msgstr ""
+msgstr "소규모 그룹으로 나눈 다음:"
 
 #: src/chromium/cargo.md
 msgid ""
 "Brainstorm scenarios where `cargo` may offer an advantage and assess the "
 "risk profile of these scenarios."
 msgstr ""
+"'cargo'가 유리할 수 있는 시나리오를 브레인스토밍하고 이러한 시나리오의 위험 "
+"프로필을 평가합니다."
 
 #: src/chromium/cargo.md
 msgid ""
 "Discuss which tools, libraries, and groups of people need to be trusted when "
 "using `gn` and `ninja`, offline `cargo`, etc."
 msgstr ""
+"`gn` 및 `ninja`, 오프라인 `cargo` 등을 사용할 때 신뢰해야 하는 도구, 라이브러"
+"리, 사용자 그룹을 논의합니다."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -15128,12 +15163,17 @@ msgid ""
 "exercise. Assuming folks taking the course are physically together, ask them "
 "to discuss in small groups of 3-4 people."
 msgstr ""
+"학생들에게 연습문제를 완료하기 전에 발표자 노트를 엿보지 말라고 합니다.  과정"
+"을 수강하는 학생들이 실제로 함께 있다고 가정하고 3~4명으로 구성된 소그룹으로 "
+"토론하도록 합니다."
 
 #: src/chromium/cargo.md
 msgid ""
 "Notes/hints related to the first part of the exercise (\"scenarios where "
 "Cargo may offer an advantage\"):"
 msgstr ""
+"연습문제의 첫 부분과 관련된 참고사항/힌트('Cargo가 이점을 제공할 수 있는 시나"
+"리오'):"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -15143,18 +15183,27 @@ msgid ""
 "(`clap` for command-line parsing, `serde` for serializing/deserializing to/"
 "from various formats, `itertools` for working with iterators, etc.)."
 msgstr ""
+"도구를 작성하거나 Chromium 일부의 프로토타입을 제작할 때 crates.io 라이브러리"
+"의 풍부한 생태계에 액세스할 수 있다는 것은 멋진 일입니다.  거의 모든 것을 위"
+"해 크레이트가 있으며 일반적으로 사용하기 매우 좋습니다. 명령줄 파싱을 위한 "
+"`clap`, 다양한 형식 간 직렬화/역직렬화를 위한 `serde`, 반복자를 사용하는 경우"
+"의 `itertools` 등이 있습니다."
 
 #: src/chromium/cargo.md
 msgid ""
 "`cargo` makes it easy to try a library (just add a single line to `Cargo."
 "toml` and start writing code)"
 msgstr ""
+"`cargo`를 사용하면 라이브러리를 쉽게 사용해 볼 수 있습니다. `Cargo.toml`에 "
+"한 줄을 추가하고 코드 작성을 시작하면 됩니다."
 
 #: src/chromium/cargo.md
 msgid ""
 "It may be worth comparing how CPAN helped make `perl` a popular choice. Or "
 "comparing with `python` + `pip`."
 msgstr ""
+"`perl`이 인기를 얻게 된 데 CPAN이 어떤 도움이 되었는지 비교해 보는 것도 좋습"
+"니다. `python` + `pip`와 비교해도 됩니다."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -15165,20 +15214,28 @@ msgid ""
 "streamlining and sharing security audits; `criterion` crate gives a "
 "streamlined way to run benchmarks)."
 msgstr ""
+"핵심 Rust 도구(예: 나이틀리, 최신 안정화 버전, 이전 안정화 버전에서 작동해야 "
+"하는 크레이트를 테스트할 때 `rustup`을 사용하여 다른 `rustc` 버전으로 전환)뿐"
+"만 아니라 서드 파티 도구의 생태계(예: Mozilla는 보안 감사 간소화 및 공유를 위"
+"해 `cargo vet` 제공, `criterion` 크레이트는 간소화된 벤치마크 실행 방법을 제"
+"공함)를 통해서도 개발 환경이 개선됩니다."
 
 #: src/chromium/cargo.md
 msgid ""
 "`cargo` makes it easy to add a tool via `cargo install --locked cargo-vet`."
 msgstr ""
+"`cargo`를 사용하면 `cargo install --locked cargo-vet`를 통해 도구를 쉽게 추가"
+"할 수 있습니다."
 
 #: src/chromium/cargo.md
 msgid "It may be worth comparing with Chrome Extensions or VScode extensions."
 msgstr ""
+"Chrome 확장 프로그램 또는 VScode 확장 프로그램과 비교해 보는 것이 좋습니다."
 
 #: src/chromium/cargo.md
 msgid ""
 "Broad, generic examples of projects where `cargo` may be the right choice:"
-msgstr ""
+msgstr "`cargo`가 적합할 수 있는 프로젝트의 광범위하고 일반적인 예:"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -15188,6 +15245,9 @@ msgid ""
 "typesystem) and running faster (as a compiled, rather than interpreted "
 "language)."
 msgstr ""
+"놀랍게도 업계에서 Rust가 명령줄 도구 작성으로 점점 인기를 얻고 있습니다.  라"
+"이브러리의 다양함과 사용편의성은 Python과 유사하지만 풍부한 타입 시스템 덕분"
+"에 더 안전하고 더 빠르게 실행됩니다(인터프리트 언어가 아닌 컴파일된 언어로)."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -15196,26 +15256,32 @@ msgid ""
 "used outside of Chromium (e.g. in Bazel or Android/Soong build environments) "
 "should probably use Cargo."
 msgstr ""
+"Rust 생태계에 참여하려면 Cargo와 같은 표준 Rust 도구를 사용해야 합니다. 외부 "
+"기여를 원하고 Chromium 외부(예: Bazel 또는 Android/Soong 빌드 환경)에서 사용"
+"하고자 하는 라이브러리는 Cargo를 사용해야 할 수 있습니다."
 
 #: src/chromium/cargo.md
 msgid "Examples of Chromium-related projects that are `cargo`\\-based:"
-msgstr ""
+msgstr "`cargo`\\ 기반 Chromium 관련 프로젝트의 예는 다음과 같습니다."
 
 #: src/chromium/cargo.md
 msgid ""
 "`serde_json_lenient` (experimented with in other parts of Google which "
 "resulted in PRs with performance improvements)"
 msgstr ""
+"`serde_json_lenient`(Google의 다른 부분에서 실험하여 성능이 개선된 PR이 나옴)"
 
 #: src/chromium/cargo.md
 msgid "Fontations libraries like `font-types`"
-msgstr ""
+msgstr "`font-types`와 같은 글꼴 라이브러리"
 
 #: src/chromium/cargo.md
 msgid ""
 "`gnrt` tool (we will meet it later in the course) which depends on `clap` "
 "for command-line parsing and on `toml` for configuration files."
 msgstr ""
+"`gnrt` 도구(과정 후반부에서 설명)는 명령줄 파싱의 경우 `clap`, 구성 파일의 경"
+"우 `toml`에 종속됩니다."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -15223,6 +15289,9 @@ msgid ""
 "when building and bootstrapping Rust standard library when building Rust "
 "toolchain."
 msgstr ""
+"주의: 여기서 `cargo`를 사용하는 유일한 이유는 Rust 도구 모음을 빌드할 때 "
+"Rust 표준 라이브러리를 빌드하고 부트스트랩하는 경우 `gn`을 사용할 수 없기 때"
+"문입니다."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -15230,12 +15299,17 @@ msgid ""
 "third-party libraries downloaded from the internet, but `run_gnrt.py` asks "
 "`cargo` that only `--locked` content is allowed via `Cargo.lock`.)"
 msgstr ""
+"`run_gnrt.py`는 Chromium의 `cargo` 및 `rustc` 사본을 사용합니다. `gnrt`는 인"
+"터넷에서 다운로드한 서드 파티 라이브러리에 종속되며 `run_gnrt.py`는 `cargo`"
+"에 `Cargo.lock`을 통해 `--locked` 콘텐츠만 허용된다고 합니다."
 
 #: src/chromium/cargo.md
 msgid ""
 "Students may identify the following items as being implicitly or explicitly "
 "trusted:"
 msgstr ""
+"학생은 다음 항목을 암시적 또는 명시적으로 신뢰할 수 있는 것으로 식별할 수 있"
+"습니다."
 
 #: src/chromium/cargo.md
 msgid ""
@@ -15243,40 +15317,50 @@ msgid ""
 "Clang compiler, the `rustc` sources (fetched from GitHub, reviewed by Rust "
 "compiler team), binary Rust compiler downloaded for bootstrapping"
 msgstr ""
+"`rustc`(Rust 컴파일러)는 차례로 LLVM 라이브러리, Clang 컴파일러, `rustc` 소스"
+"(GitHub에서 가져옴, Rust 컴파일러팀에서 검토), 부트스트랩을 위해 다운로드한 "
+"바이너리 Rust 컴파일러에 종속됩니다."
 
 #: src/chromium/cargo.md
 msgid ""
 "`rustup` (it may be worth pointing out that `rustup` is developed under the "
 "umbrella of the https://github.com/rust-lang/ organization - same as `rustc`)"
 msgstr ""
+"`rustup`(`rustup`은 https://github.com/rust-lang/ 조직 산하에서 개발되었으며 "
+"`rustc`와 동일함)"
 
 #: src/chromium/cargo.md
 msgid "`cargo`, `rustfmt`, etc."
-msgstr ""
+msgstr "`cargo`, `rustfmt` 등"
 
 #: src/chromium/cargo.md
 msgid ""
 "Various internal infrastructure (bots that build `rustc`, system for "
 "distributing the prebuilt toolchain to Chromium engineers, etc.)"
 msgstr ""
+"다양한 내부 인프라('rustc'를 빌드하는 봇, 사전 빌드된 도구 모음을 Chromium 엔"
+"지니어에게 배포하기 위한 시스템 등)"
 
 #: src/chromium/cargo.md
 msgid "Cargo tools like `cargo audit`, `cargo vet`, etc."
-msgstr ""
+msgstr "`cargo audit`, `cargo vet` 등과 같은 Cargo 도구"
 
 #: src/chromium/cargo.md
 msgid ""
 "Rust libraries vendored into `//third_party/rust` (audited by "
 "security@chromium.org)"
 msgstr ""
+"`//third_party/rust`에 공급되는 Rust 라이브러리(security@chromium.org에서 감"
+"사)"
 
 #: src/chromium/cargo.md
 msgid "Other Rust libraries (some niche, some quite popular and commonly used)"
 msgstr ""
+"기타 Rust 라이브러리(일부는 틈새시장용, 일부는 매우 인기 있으며 흔히 사용됨)"
 
 #: src/chromium/policy.md
 msgid "Chromium Rust policy"
-msgstr ""
+msgstr "Chromium Rust 정책"
 
 #: src/chromium/policy.md
 msgid ""
@@ -15284,6 +15368,9 @@ msgid ""
 "approved by Chromium's [Area Tech Leads](https://source.chromium.org/"
 "chromium/chromium/src/+/main:ATL_OWNERS)."
 msgstr ""
+"Chromium에서는 아직 퍼스트 파티 Rust를 허용하지 않습니다. 단, Chromium의 "
+"[Area Tech Leads](https://source.chromium.org/chromium/chromium/src/+/main:"
+"ATL_OWNERS)에서 승인한 드문 경우는 예외입니다."
 
 #: src/chromium/policy.md
 msgid ""
@@ -15293,6 +15380,10 @@ msgid ""
 "circumstances, including if they're the best option for performance or for "
 "security."
 msgstr ""
+"서드 파티 라이브러리에 관한 Chromium의 정책은 [여기](https://chromium."
+"googlesource.com/chromium/src/+/main/docs/adding_to_third_party.md#rust)에 설"
+"명되어 있습니다. Rust는 성능이나 보안을 위해 최상의 옵션인 경우 등 다양한 상"
+"황에서 서드 파티 라이브러리에 허용됩니다."
 
 #: src/chromium/policy.md
 msgid ""
@@ -15300,6 +15391,8 @@ msgid ""
 "nearly all such libraries will require a small amount of first-party glue "
 "code."
 msgstr ""
+"C/C++ API를 직접 노출하는 Rust 라이브러리는 극소수이므로 이러한 거의 모든 라"
+"이브러리에는 소량의 퍼스트 파티 글루 코드가 필요합니다."
 
 #: src/chromium/policy.md
 #, fuzzy
@@ -15352,25 +15445,27 @@ msgid ""
 "First-party Rust glue code for a particular third-party crate should "
 "normally be kept in `third_party/rust/<crate>/<version>/wrapper`."
 msgstr ""
+"특정 서드 파티 크레이트의 퍼스트 파티 Rust 글루 코드는 일반적으로 "
+"`third_party/rust/<crate>/<version>/wrapper`에 보관해야 합니다."
 
 #: src/chromium/policy.md
 msgid "Because of this, today's course will be heavily focused on:"
-msgstr ""
+msgstr "따라서 오늘 과정에서는 다음과 같은 내용을 중점적으로 다룹니다."
 
 #: src/chromium/policy.md
 msgid "Bringing in third-party Rust libraries (\"crates\")"
-msgstr ""
+msgstr "서드 파티 Rust 라이브러리('crates') 가져오기"
 
 #: src/chromium/policy.md
 msgid "Writing glue code to be able to use those crates from Chromium C++."
 msgstr ""
+"Chromium C++에서 이러한 크레이트를 사용할 수 있도록 글루 코드를 작성합니다."
 
 #: src/chromium/policy.md
 msgid "If this policy changes over time, the course will evolve to keep up."
-msgstr ""
+msgstr "시간이 지나면서 이 정책이 변경되면 교육 과정도 이에 맞게 변경됩니다."
 
 #: src/chromium/build-rules.md
-#, fuzzy
 msgid "Build rules"
 msgstr "빌드 규칙"
 
@@ -15380,15 +15475,19 @@ msgid ""
 "`ninja` for efficiency --- its static rules allow maximum parallelism. Rust "
 "is no exception."
 msgstr ""
+"Rust 코드는 일반적으로 `cargo`를 사용하여 빌드됩니다. Chromium은 효율성을 위"
+"해 `gn` 및 `ninja`로 빌드됩니다. 정적 규칙은 최대 동시 로드를 허용합니다. "
+"Rust도 예외는 아닙니다."
 
 #: src/chromium/build-rules.md
 msgid "Adding Rust code to Chromium"
-msgstr ""
+msgstr "Chromium에 Rust 코드 추가"
 
 #: src/chromium/build-rules.md
 msgid ""
 "In some existing Chromium `BUILD.gn` file, declare a `rust_static_library`:"
 msgstr ""
+"일부 기존 Chromium `BUILD.gn` 파일에서 `rust_static_library`를 선언합니다."
 
 #: src/chromium/build-rules.md
 msgid ""
@@ -15401,12 +15500,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"import(\"//build/rust/rust_static_library.gni\")\n"
+"\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [ \"lib.rs\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/build-rules.md
 msgid ""
 "You can also add `deps` on other Rust targets. Later we'll use this to "
 "depend upon third party code."
 msgstr ""
+"다른 Rust 타겟에도 `deps`를 추가할 수 있습니다. 나중에 서드 파티 코드에 의존"
+"하기 위해 이를 사용합니다."
 
 #: src/chromium/build-rules.md
 msgid ""
@@ -15416,12 +15525,18 @@ msgid ""
 "list of all source files which `ninja` needs in order to determine when "
 "rebuilds are necessary."
 msgstr ""
+"크레이트 루트 _및_ 소스 전체 목록 _둘 다_를 지정해야 합니다. `crate_root`는 "
+"컴파일 단위의 루트 파일(일반적으로 `lib.rs`)을 나타내는 Rust 컴파일러에 제공"
+"되는 파일입니다. `sources`는 재빌드가 필요한 시점을 결정하기 위해 `ninja`에 "
+"필요한 모든 소스 파일의 전체 목록입니다."
 
 #: src/chromium/build-rules.md
 msgid ""
 "(There's no such thing as a Rust `source_set`, because in Rust, an entire "
 "crate is a compilation unit. A `static_library` is the smallest unit.)"
 msgstr ""
+"(Rust에서는 크레이트 전체가 컴파일 단위이므로 Rust `source_set`와 같은 것은 "
+"없습니다. `static_library`가 최소 단위입니다.)"
 
 #: src/chromium/build-rules.md
 msgid ""
@@ -15431,10 +15546,14 @@ msgid ""
 "this template provides support for CXX interop, Rust features, and unit "
 "tests, some of which we'll use later."
 msgstr ""
+"학생들은 [gn의 내장 Rust 정적 라이브러리 지원](https://gn.googlesource.com/"
+"gn/+/main/docs/reference.md#func_static_library)을 사용하는 대신 gn 템플릿이 "
+"필요한 이유를 궁금해할 수 있습니다. 대답은 이 템플릿이 CXX 상호 운용성, Rust "
+"기능, 단위 테스트를 지원한다는 것입니다. 이 중 일부는 나중에 사용하게 됩니다."
 
 #: src/chromium/build-rules/unsafe.md
 msgid "Including `unsafe` Rust Code"
-msgstr ""
+msgstr "`unsafe` Rust 코드 포함"
 
 #: src/chromium/build-rules/unsafe.md
 msgid ""
@@ -15443,6 +15562,10 @@ msgid ""
 "the gn target. (Later in the course we'll see circumstances where this is "
 "necessary.)"
 msgstr ""
+"`rust_static_library`에는 안전하지 않은 Rust 코드가 기본적으로 금지되어 있으"
+"므로 컴파일되지 않습니다. 안전하지 않은 Rust 코드가 필요하면 gn 타겟에 "
+"`allow_unsafe = true`를 추가하세요. (이 과정의 후반부에 이것이 필요한 상황을 "
+"살펴봅니다.)"
 
 #: src/chromium/build-rules/unsafe.md
 msgid ""
@@ -15459,10 +15582,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"import(\"//build/rust/rust_static_library.gni\")\n"
+"\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [\n"
+"    \"lib.rs\",\n"
+"    \"hippopotamus.rs\"\n"
+"  ]\n"
+"  allow_unsafe = true\n"
+"}\n"
+"```"
 
 #: src/chromium/build-rules/depending.md
 msgid "Simply add the above target to the `deps` of some Chromium C++ target."
-msgstr ""
+msgstr "위의 타겟을 일부 Chromium C++ 타겟의 `deps`에 추가하기만 하면 됩니다."
 
 #: src/chromium/build-rules/depending.md
 msgid ""
@@ -15480,62 +15615,88 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"import(\"//build/rust/rust_static_library.gni\")\n"
+"\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [ \"lib.rs\" ]\n"
+"}\n"
+"\n"
+"# or source_set, static_library etc.\n"
+"component(\"preexisting_cpp\") {\n"
+"  deps = [ \":my_rust_lib\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Types are elided in Rust code, which makes a good IDE even more useful than "
 "for C++. Visual Studio code works well for Rust in Chromium. To use it,"
 msgstr ""
+"Rust 코드에서는 타입이 생략되므로 우수한 IDE가 C++보다 훨씬 더 유용해집니다. "
+"Visual Studio Code는 Chromium의 Rust에서 잘 작동합니다. 사용하려면 다음을 실"
+"행합니다."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Ensure your VSCode has the `rust-analyzer` extension, not earlier forms of "
 "Rust support"
 msgstr ""
+"VSCode에 이전 형태의 Rust 지원이 아닌 `rust-analyzer` 확장 프로그램이 있는지 "
+"확인하세요."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "`gn gen out/Debug --export-rust-project` (or equivalent for your output "
 "directory)"
-msgstr ""
+msgstr "`gn gen out/Debug --export-rust-project`(또는 출력 디렉터리에 상응)"
 
 #: src/chromium/build-rules/vscode.md
 msgid "`ln -s out/Debug/rust-project.json rust-project.json`"
-msgstr ""
+msgstr "`ln -s out/Debug/rust-project.json rust-project.json`"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "A demo of some of the code annotation and exploration features of rust-"
 "analyzer might be beneficial if the audience are naturally skeptical of IDEs."
 msgstr ""
+"누군가가 IDE에 대해 회의적인 경우 rust-analyzer의 코드 주석 및 탐색 기능 중 "
+"일부를 시연해 보면 생각을 바꾸는데 유용할 수 있습니다."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "The following steps may help with the demo (but feel free to instead use a "
 "piece of Chromium-related Rust that you are most familiar with):"
 msgstr ""
+"다음 단계는 데모에 도움이 될 수 있습니다. 하지만 가장 익숙한 Chromium 관련 "
+"Rust를 대신 사용해도 됩니다."
 
 #: src/chromium/build-rules/vscode.md
 msgid "Open `components/qr_code_generator/qr_code_generator_ffi_glue.rs`"
-msgstr ""
+msgstr "`components/qr_code_generator/qr_code_generator_ffi_glue.rs`를 엽니다."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Place the cursor over the `QrCode::new` call (around line 26) in "
 "\\`qr_code_generator_ffi_glue.rs"
 msgstr ""
+"커서를 `qr_code_generator_ffi_glue.rs의 \\`QrCode::new` 호출(26번 줄 부근) 위"
+"로 이동합니다."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Demo **show documentation** (typical bindings: vscode = ctrl k i; vim/CoC = "
 "K)."
-msgstr ""
+msgstr "데모 **문서 표시**(일반적인 바인딩: vscode = ctrl k i;  vim/CoC = K)"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Demo **go to definition** (typical bindings: vscode = F12; vim/CoC = g d). "
 "(This will take you to `//third_party/rust/.../qr_code-.../src/lib.rs`.)"
 msgstr ""
+"데모 **정의로 이동**(일반적인 바인딩: vscode = F12;  vim/CoC = g d) 그러면 "
+"`//third_party/rust/.../qr_code-.../src/lib.rs`로 이동합니다."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
@@ -15543,12 +15704,16 @@ msgid ""
 "164; the outline is in the file explorer pane in vscode; typical vim/CoC "
 "bindings = space o)"
 msgstr ""
+"**개요** 데모를 실행하고 `QrCode::with_bits` 메서드(164번 줄 근처, 개요는 "
+"vscode의 파일 탐색기 창에 있음, 일반적인 vim/CoC 바인딩 = space o)로 이동합니"
+"다."
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Demo **type annotations** (there are quote a few nice examples in the "
 "`QrCode::with_bits` method)"
 msgstr ""
+"데모 **유형 주석**(`QrCode::with_bits` 메서드에 몇 가지 좋은 예가 있음)"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
@@ -15556,9 +15721,11 @@ msgid ""
 "need to be rerun after editing `BUILD.gn` files (which we will do a few "
 "times throughout the exercises in this session)."
 msgstr ""
+"`BUILD.gn` 파일을 수정한 후 `gn gen ... --export-rust-project`를 다시 실행해"
+"야 한다는 점은 주목할 필요가 있습니다. 이 작업은 이 세션의 연습 전반에 걸쳐 "
+"몇 번 반복하게 됩니다."
 
 #: src/exercises/chromium/build-rules.md
-#, fuzzy
 msgid "Build rules exercise"
 msgstr "빌드 규칙"
 
@@ -15567,6 +15734,8 @@ msgid ""
 "In your Chromium build, add a new Rust target to `//ui/base/BUILD.gn` "
 "containing:"
 msgstr ""
+"Chromium 빌드에서 다음을 포함하는 `//ui/base/BUILD.gn`에 새 Rust 타겟을 추가"
+"합니다."
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -15574,6 +15743,8 @@ msgid ""
 "by the Rust compiler, so you'll need to allow unsafe code in your `gn` "
 "target."
 msgstr ""
+"**중요**: 여기서 `no_mangle`은 Rust 컴파일러에 의해 안전하지 않은 유형으로 간"
+"주되므로 `gn` 타겟에서 안전하지 않은 코드를 허용해야 합니다."
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -15581,6 +15752,9 @@ msgid ""
 "function at the top of `ui/base/resource/resource_bundle.cc` (later, we'll "
 "see how this can be automated by bindings generation tools):"
 msgstr ""
+"이 새로운 Rust 타겟을 `//ui/base:base`의 종속 항목으로 추가합니다. 이 함수를 "
+"`ui/base/resource/resource_bundle.cc`의 맨 위에서 선언합니다. 나중에 바인딩 "
+"생성 도구로 자동화하는 방법을 살펴봅니다."
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -15589,6 +15763,9 @@ msgid ""
 "and run Chromium, and ensure that \"Hello from Rust!\" is printed lots of "
 "times."
 msgstr ""
+"`ui/base/resource/resource_bundle.cc`의 어딘가에서 이 함수를 호출합니다. "
+"`ResourceBundle::MaybeMangleLocalizedString`의 상단이 좋습니다. Chromium을 빌"
+"드하고 실행하여 'Hello from Rust!'가 여러 번 출력되는지 확인합니다."
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -15596,11 +15773,14 @@ msgid ""
 "in subsequent exercises. If you've succeeded, you will be able to use right-"
 "click \"Go to definition\" on `println!`."
 msgstr ""
+"VSCode를 사용하는 경우 이제 VSCode에서 잘 작동하도록 Rust를 설정합니다. 이후 "
+"연습에서 유용합니다. 성공하면 `println!`에서 '정의로 이동'을 마우스 오른쪽 버"
+"튼으로 클릭할 수 있습니다."
 
 #: src/exercises/chromium/build-rules.md
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Where to find help"
-msgstr ""
+msgstr "도움을 받을 수 있는 곳"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -15608,30 +15788,41 @@ msgid ""
 "source.chromium.org/chromium/chromium/src/+/main:build/rust/"
 "rust_static_library.gni;l=16)"
 msgstr ""
+"[`rust_static_library` gn 템플릿](https://source.chromium.org/chromium/"
+"chromium/src/+/main:build/rust/rust_static_library.gni;l=16)에서 사용 가능한 "
+"옵션"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "Information about [`#[no_mangle]`](https://doc.rust-lang.org/beta/reference/"
 "abi.html#the-no_mangle-attribute)"
 msgstr ""
+"[`#[no_mangle]`](https://doc.rust-lang.org/beta/reference/abi.html#the-"
+"no_mangle-attribute)에 관한 정보"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "Information about [`extern \"C\"`](https://doc.rust-lang.org/std/keyword."
 "extern.html)"
 msgstr ""
+"[`extern \"C\"`](https://doc.rust-lang.org/std/keyword.extern.html)에 관한 정"
+"보"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "Information about gn's [`--export-rust-project`](https://gn.googlesource.com/"
 "gn/+/main/docs/reference.md#compilation-database) switch"
 msgstr ""
+"gn의 [`--export-rust-project`](https://gn.googlesource.com/gn/+/main/docs/"
+"reference.md#compilation-database) 전환 정보"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "[How to install rust-analyzer in VSCode](https://code.visualstudio.com/docs/"
 "languages/rust)"
 msgstr ""
+"[VSCode에서 rust-analyzer를 설치하는 방법](https://code.visualstudio.com/"
+"docs/languages/rust)"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -15640,6 +15831,9 @@ msgid ""
 "call C ABI functions. Later in the course, we'll connect C++ directly to "
 "Rust."
 msgstr ""
+"이 예는 최소 공통분모 상호 운용성 언어인 C로 귀결되기 때문에 일반적이지 않습"
+"니다. C++와 Rust 모두 기본적으로 C ABI 함수를 선언하고 호출할 수 있습니다. "
+"이 과정의 후반부에서 C++를 Rust에 직접 연결합니다."
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -15647,12 +15841,17 @@ msgid ""
 "Rust to generate two functions with the same name, and Rust can no longer "
 "guarantee that the right one is called."
 msgstr ""
+"여기서 `allow_unsafe = true`가 필요한 이유는 `#[no_mangle]`이 Rust가 이름이 "
+"같은 함수 두 개를 생성할 수 있도록 할 수 있고 Rust는 더 이상 올바른 함수가 호"
+"출된다고 보장할 수 없기 때문입니다."
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "If you need a pure Rust executable, you can also do that using the "
 "`rust_executable` gn template."
 msgstr ""
+"순수한 Rust 실행 파일이 필요하면 `rust_executable` gn 템플릿을 사용하면 됩니"
+"다."
 
 #: src/chromium/testing.md
 msgid ""
@@ -15801,8 +16000,9 @@ msgid ""
 msgstr ""
 
 #: src/chromium/testing/chromium-import-macro.md
+#, fuzzy
 msgid "\"//ui/base:my_rust_lib\""
-msgstr ""
+msgstr "'ui/base/my_rust_file.rs.h'"
 
 #: src/chromium/testing/chromium-import-macro.md
 msgid "Under the covers the macro expands to something similar to:"
@@ -15832,7 +16032,7 @@ msgstr "Rust on Exercism"
 
 #: src/exercises/chromium/testing.md
 msgid "Time for another exercise!"
-msgstr ""
+msgstr "새로운 연습문제를 풀어봅시다!"
 
 #: src/exercises/chromium/testing.md
 msgid "In your Chromium build:"
@@ -15863,6 +16063,8 @@ msgid ""
 "tools being developed all the time. At the moment, Chromium uses a tool "
 "called CXX."
 msgstr ""
+"Rust 커뮤니티는 C++/Rust 상호 운용성을 위한 여러 옵션을 제공하며, 새로운 도구"
+"가 계속 개발되고 있습니다. 현재 Chromium은 CXX라는 도구를 사용합니다."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15870,6 +16072,8 @@ msgid ""
 "language (which looks a lot like Rust) and then CXX tools generate "
 "declarations for functions and types in both Rust and C++."
 msgstr ""
+"인터페이스 정의 언어(Rust와 매우 유사함)에서 전체 언어 경계를 설명하면 CXX 도"
+"구가 Rust 및 C++ 모두에서 함수와 유형에 관한 선언을 생성합니다."
 
 #: src/chromium/interoperability-with-cpp.md
 #, fuzzy
@@ -15886,6 +16090,8 @@ msgid ""
 "the same as you previously did. Point out that automating the process has "
 "the following benefits:"
 msgstr ""
+"다이어그램을 통해 설명합니다. 내부적으로는 이전과 동일한 작업을 실행한다고 설"
+"명합니다. 프로세스를 자동화하면 다음과 같은 이점이 있습니다."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15894,6 +16100,9 @@ msgid ""
 "definitions, but with out-of-sync manual bindings you'd get Undefined "
 "Behavior)"
 msgstr ""
+"이 도구는 C++와 Rust 측의 일치를 보장합니다. 예를 들어 `#[cxx::bridge]`가 실"
+"제 C++ 또는 Rust 정의와 일치하지 않는 경우 컴파일 오류가 발생하지만 동기화되"
+"지 않은 수동 바인딩을 사용하면 정의되지 않은 동작이 발생합니다."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15902,10 +16111,15 @@ msgid ""
 "methods; manual bindings would require authoring such top-level, free "
 "functions manually)"
 msgstr ""
+"이 도구는 비 C 기능의 FFI thunk(소형, C-ABI 호환, 무료 함수) 생성을 자동화합"
+"니다(예: Rust 또는 C++ 메서드에 대한 FFI 호출 사용 설정, 수동 바인딩의 경우 "
+"이러한 최상위 무료 함수를 수동으로 작성해야 함)."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid "The tool and the library can handle a set of core types - for example:"
 msgstr ""
+"도구와 라이브러리는 핵심 유형 집합을 처리할 수 있습니다. 예를 들면 다음과 같"
+"습니다."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15915,6 +16129,10 @@ msgid ""
 "pointer and length - this is error-prone given that each language represents "
 "empty slices slightly differently)"
 msgstr ""
+"`&[T]`는 특정 ABI나 메모리 레이아웃을 보장하지 않더라도 FFI 경계를 넘어 전달"
+"될 수 있습니다. 수동 바인딩을 사용하면 `std::span<T>` / `&[T]`는 수동으로 디"
+"스트럭처링해야 하고 포인터와 길이로 다시 빌드해야 합니다. 이는 각 언어가 빈 "
+"슬라이스를 약간 다르게 표현하는 점을 고려할 때 오류가 발생하기 쉽습니다."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15923,6 +16141,9 @@ msgid ""
 "compatible raw pointers, which would increase lifetime and memory-safety "
 "risks."
 msgstr ""
+"`std::unique_ptr<T>`, `std::shared_ptr<T>`, `Box` 등의 스마트 포인터가 기본적"
+"으로 지원됩니다. 수동 바인딩을 사용하면 C-ABI 호환 원시 포인터를 전달해야 하"
+"므로 전체 기간 및 메모리 안전 위험이 증가합니다."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15931,24 +16152,29 @@ msgid ""
 "build a Rust string from non-UTF8 input and `rust::String::c_str` can NUL-"
 "terminate a string)."
 msgstr ""
+"`rust::String` 및 `CxxString` 유형은 언어 간 문자열 표현의 차이를 이해하고 유"
+"지합니다. 예를 들어 `rust::String::lossy`는 UTF8이 아닌 입력에서 Rust 문자열"
+"을 빌드할 수 있고 `rust::String::c_str`은 문자열을 NUL 종료할 수 있습니다."
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid ""
 "CXX requires that the whole C++/Rust boundary is declared in `cxx::bridge` "
 "modules inside `.rs` source code."
 msgstr ""
+"CXX에서는 전체 C++/Rust 경계가 `.rs` 소스 코드 내의 `cxx::bridge` "
+"'modules'에 선언되어야 합니다."
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "\"example/include/blobstore.h\""
-msgstr ""
+msgstr "\"example/include/blobstore.h\""
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "// Definitions of Rust types and functions go here\n"
-msgstr ""
+msgstr "// Rust 유형 및 함수의 정의는 여기를 참고하세요.\n"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "Point out:"
-msgstr ""
+msgstr "참고:"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid ""
@@ -15960,20 +16186,20 @@ msgstr ""
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "Native support for C++'s `std::unique_ptr` in Rust"
-msgstr ""
+msgstr "Rust에서 C++'의 `std::unique_ptr` 기본 지원"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 #, fuzzy
 msgid "Native support for Rust slices in C++"
-msgstr "내장 테스트 지원."
+msgstr "Rust에서 C++'의 `std::unique_ptr` 기본 지원"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "Calls from C++ to Rust, and Rust types (in the top part)"
-msgstr ""
+msgstr "C++에서 Rust 호출 및 Rust 유형(상단)"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "Calls from Rust to C++, and C++ types (in the bottom part)"
-msgstr ""
+msgstr "Rust에서 C++ 호출 및 C++ 유형(하단)"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid ""
@@ -15982,34 +16208,42 @@ msgid ""
 "simply `#include`d in the generated C++ code for the benefit of C++ "
 "compilers."
 msgstr ""
+"**일반적인 오해**: C++ 헤더가 Rust에서 파싱되는 _것처럼 보이지만_ 오해의 소지"
+"가 있습니다. 이 헤더는 Rust에서 해석되지 않으며 C++ 컴파일러의 이점을 위해 생"
+"성된 C++ 코드에 단순히 `#include`됩니다."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "By far the most useful page when using CXX is the [type reference](https://"
 "cxx.rs/bindings.html)."
 msgstr ""
+"CXX를 사용할 때 단연 가장 유용한 페이지는 [유형 참조](https://cxx.rs/"
+"bindings.html)입니다."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid "CXX fundamentally suits cases where:"
-msgstr ""
+msgstr "CXX는 기본적으로 다음과 같은 사례에 적합합니다."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "Your Rust-C++ interface is sufficiently simple that you can declare all of "
 "it."
-msgstr ""
+msgstr "Rust-C++ 인터페이스는 매우 단순하여 모두 선언할 수 있습니다."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "You're using only the types natively supported by CXX already, for example "
 "`std::unique_ptr`, `std::string`, `&[u8]` etc."
 msgstr ""
+"이미 CXX에서 기본적으로 지원하는 유형만 사용하고 있습니다(예: `std::"
+"unique_ptr`, `std::string`, `&[u8]` 등)."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "It has many limitations --- for example lack of support for Rust's `Option` "
 "type."
 msgstr ""
+"많은 제한이 있습니다. 예를 들어 Rust의 `Option` 유형은 지원되지 않습니다."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
@@ -16019,27 +16253,34 @@ msgid ""
 "draft the CXX bindings for the language boundary to see if it appears simple "
 "enough."
 msgstr ""
+"이러한 제한사항으로 인해 임의의 Rust-C++ 상호 운용성이 아닌 잘 격리된 '리프 "
+"노드'의 경우에만 Chromium에서 Rust를 사용할 수 있습니다. Chromium에서 Rust 사"
+"용 사례를 고려할 때 좋은 출발점은 언어 경계의 CXX 바인딩 초안을 작성하여 충분"
+"히 단순하게 표시되는지 확인하는 것입니다."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "You should also discuss some of the other sticky points with CXX, for "
 "example:"
-msgstr ""
+msgstr "CXX의 다른 어려운 문제도 논의해야 합니다. 예를 들면 다음과 같습니다."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "Its error handling is based around C++ exceptions (given on the next slide)"
-msgstr ""
+msgstr "오류 처리는 C++ 예외를 기반으로 합니다(다음 슬라이드에 나와 있음)."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid "Function pointers are awkward to use."
-msgstr ""
+msgstr "함수 포인터는 사용하기 어색합니다."
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
+#, fuzzy
 msgid ""
 "CXX's [support for `Result<T,E>`](https://cxx.rs/binding/result.html) relies "
 "on C++ exceptions, so we can't use that in Chromium. Alternatives:"
 msgstr ""
+"CXX의 `Result<T,E>` 지원은 C++ 예외를 사용하므로 Chromium에서 사용할 수 없습"
+"니다. 대안:"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid "The `T` part of `Result<T, E>` can be:"
@@ -16097,10 +16338,14 @@ msgid ""
 "used to communicate success vs failure, and where the successful result can "
 "be passed across the FFI boundary:"
 msgstr ""
+"[QR 코드 생성기](https://source.chromium.org/chromium/chromium/src/+/main:"
+"components/qr_code_generator/qr_code_generator_ffi_glue.rs;l=10)에서와 같이 "
+"간단한 부울로 성공을 나타낼 수 있는 경우: 성공을 나타내는 부울을 반환하고 "
+"out 매개변수를 사용하여 결과를 기록합니다."
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 msgid "\"qr_code_generator\""
-msgstr ""
+msgstr "\"qr_code_generator\""
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 msgid ""
@@ -16174,7 +16419,7 @@ msgstr ""
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid "Using cxx in Chromium"
-msgstr ""
+msgstr "Chromium에서 cxx 사용"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
@@ -16182,6 +16427,9 @@ msgid ""
 "node where we want to use Rust. You'd typically have one for each "
 "`rust_static_library`. Just add"
 msgstr ""
+"Chromium에서는 Rust를 사용하려는 리프 노드마다 독립적인 `#[cxx::bridge] mod`"
+"를 정의합니다. 일반적으로 `rust_static_library`마다 하나씩 있습니다. 추가하기"
+"만 하면 됩니다."
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
@@ -16191,20 +16439,27 @@ msgid ""
 "allow_unsafe = true\n"
 "```"
 msgstr ""
+"```gn\n"
+"cxx_bindings = [ \"my_rust_file.rs\" ]\n"
+"   # 모든 소스 파일이 아닌 #[cxx::bridge]가 포함된 파일 목록\n"
+"allow_unsafe = true\n"
+"```"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
 "to your existing `rust_static_library` target alongside `crate_root` and "
 "`sources`."
 msgstr ""
+"`crate_root` 및 `sources`와 함께 기존 `rust_static_library` 타겟에 추가합니"
+"다."
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid "C++ headers will be generated at a sensible location, so you can just"
-msgstr ""
+msgstr "C++ 헤더는 적절한 위치에 생성됩니다. 따라서"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid "\"ui/base/my_rust_file.rs.h\""
-msgstr ""
+msgstr "'ui/base/my_rust_file.rs.h'"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
@@ -16213,10 +16468,14 @@ msgid ""
 "source.chromium.org/chromium/chromium/src/+/main:base/containers/span_rust.h;"
 "l=21)."
 msgstr ""
+"`//base`에서 Chromium C++ 유형으로 변환하는 또는 Chromium C++ 유형에서 CXX "
+"Rust 유형으로 변환하는 유틸리티 함수를 확인할 수 있습니다. 예: "
+"[`SpanToRustSlice`](https://source.chromium.org/chromium/chromium/src/+/main:"
+"base/containers/span_rust.h;l=21)"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid "Students may ask --- why do we still need `allow_unsafe = true`?"
-msgstr ""
+msgstr "`allow_unsafe = true`가 계속 필요한 이유가 궁금할 수 있습니다."
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
@@ -16228,14 +16487,25 @@ msgid ""
 "writing/the-cxx-debate), but strictly, bringing any foreign code into a Rust "
 "binary can cause unexpected behavior from Rust's perspective."
 msgstr ""
+"광범위한 의미의 답변은 일반적인 Rust 표준에서는 C/C++ 코드가 '안전하지' 않다"
+"는 것입니다. Rust에서 C/C++를 여기저기 호출하면 메모리에 임의적인 작업을 할 "
+"수 있으며 Rust 자체 데이터 레이아웃의 안전성이 손상될 수 있습니다. C/C++ 상"
+"호 운용성에 `unsafe` 키워드가 _너무 많으면_ 이러한 키워드의 신호대 잡음비에 "
+"해를 끼칠 수 있으며 [논란의 소지가 있습니다](https://steveklabnik.com/"
+"writing/the-cxx-debate). 그러나 엄격하게는 외부 코드를 Rust 바이너리로 가져오"
+"면 Rust의 관점에서 예기치 않은 동작이 발생할 수 있습니다."
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
+#, fuzzy
 msgid ""
 "The narrow answer lies in the diagram at the top of [this page](../"
 "interoperability-with-cpp.md) --- behind the scenes, CXX generates Rust "
 "`unsafe` and `extern \"C\"` functions just like we did manually in the "
 "previous section."
 msgstr ""
+"좁은 의미의 답변은 이 페이지 상단의 다이어그램에 있습니다. 내부적으로 CXX는 "
+"이전 섹션에서 수동으로 했던 것처럼 Rust `unsafe` 및 `extern \"C\"` 함수를 생"
+"성합니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 #, fuzzy
@@ -16244,7 +16514,7 @@ msgstr "C와의 상호운용성"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Part one"
-msgstr ""
+msgstr "1부"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
@@ -16252,36 +16522,45 @@ msgid ""
 "specifies a single function, to be called from C++, called "
 "`hello_from_rust`, taking no parameters and returning no value."
 msgstr ""
+"이전에 만든 Rust 파일에서, C++에서 호출할 `hello_from_rust`라는 단일 함수를 "
+"지정하는 `#[cxx::bridge]`를 추가합니다. 이 함수는 매개변수를 사용하지 않고 값"
+"을 반환하지 않습니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "Modify your previous `hello_from_rust` function to remove `extern \"C\"` and "
 "`#[no_mangle]`. This is now just a standard Rust function."
 msgstr ""
+"이전의 `hello_from_rust` 함수를 수정하여 `extern \"C\"` 및 `#[no_mangle]`을 "
+"삭제합니다. 이 함수는 이제 표준 Rust 함수입니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Modify your `gn` target to build these bindings."
-msgstr ""
+msgstr "`gn` 타겟을 수정하여 이러한 바인딩을 빌드합니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "In your C++ code, remove the forward-declaration of `hello_from_rust`. "
 "Instead, include the generated header file."
 msgstr ""
+"C++ 코드에서 `hello_from_rust`의 정방향 선언을 삭제합니다. 대신 생성된 헤더 "
+"파일을 포함합니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Build and run!"
-msgstr ""
+msgstr "빌드 및 실행"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Part two"
-msgstr ""
+msgstr "2부"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "It's a good idea to play with CXX a little. It helps you think about how "
 "flexible Rust in Chromium actually is."
 msgstr ""
+"CXX를 사용해 보는 것도 좋은 방법입니다. Chromium의 Rust가 실제로 얼마나 유연"
+"한지 생각해 보는 데 도움이 됩니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 #, fuzzy
@@ -16290,13 +16569,15 @@ msgstr "참고사항:"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Call back into C++ from Rust. You will need:"
-msgstr ""
+msgstr "Rust에서 C++로 다시 호출 필요한 사항은 다음과 같습니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "An additional header file which you can `include!` from your `cxx::bridge`. "
 "You'll need to declare your C++ function in that new header file."
 msgstr ""
+"`cxx::bridge`에서 `include!`할 수 있는 추가 헤더 파일입니다. 새 헤더 파일에"
+"서 C++ 함수를 선언해야 합니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
@@ -16304,56 +16585,68 @@ msgid ""
 "`unsafe` keyword in your `#[cxx::bridge]` [as described here](https://cxx.rs/"
 "extern-c++.html#functions-and-member-functions)."
 msgstr ""
+"이러한 함수를 호출하거나 [여기에 설명된 대로](https://cxx.rs/extern-c++."
+"html#functions-and-member-functions) `#[cxx::bridge]`에서 `unsafe` 키워드를 "
+"지정하는 `unsafe` 블록입니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "You may also need to `#include \"third_party/rust/cxx/v1/crate/include/cxx."
 "h\"`"
 msgstr ""
+"`#include \"third_party/rust/cxx/v1/crate/include/cxx.h\"`가 필요할 수도 있습"
+"니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Pass a C++ string from C++ into Rust."
-msgstr ""
+msgstr "C++에서 Rust로 C++ 문자열을 전달합니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Pass a reference to a C++ object into Rust."
-msgstr ""
+msgstr "C++ 객체 참조를 Rust로 전달합니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "Intentionally get the Rust function signatures mismatched from the `#[cxx::"
 "bridge]`, and get used to the errors you see."
 msgstr ""
+"의도적으로 `#[cxx::bridge]`에서 일치하지 않는 Rust 함수 서명을 가져와서 표시"
+"되는 오류에 익숙해집니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "Intentionally get the C++ function signatures mismatched from the `#[cxx::"
 "bridge]`, and get used to the errors you see."
 msgstr ""
+"의도적으로 `#[cxx::bridge]`에서 일치하지 않는 C++ 함수 서명을 가져와서 표시되"
+"는 오류에 익숙해집니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "Pass a `std::unique_ptr` of some type from C++ into Rust, so that Rust can "
 "own some C++ object."
 msgstr ""
+"Rust가 C++ 객체를 소유할 수 있도록 C++에서 일부 유형의 `std::unique_ptr`을 "
+"Rust로 전달합니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "Create a Rust object and pass it into C++, so that C++ owns it. (Hint: you "
 "need a `Box`)."
 msgstr ""
+"Rust 객체를 만들어 C++로 전달하여 C++에서 소유하도록 합니다. 힌트: `Box` 필요"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Declare some methods on a C++ type. Call them from Rust."
-msgstr ""
+msgstr "C++ 유형에 일부 메서드를 선언합니다. Rust에서 이를 호출하세요."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Declare some methods on a Rust type. Call them from C++."
-msgstr ""
+msgstr "Rust 유형에 일부 메서드를 선언합니다. C++에서 이를 호출하세요."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Part three"
-msgstr ""
+msgstr "3부"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
@@ -16361,20 +16654,25 @@ msgid ""
 "couple of use-cases for Rust in Chromium where the interface would be "
 "sufficiently simple. Sketch how you might define that interface."
 msgstr ""
+"지금까지 CXX 상호 운용성의 강점과 한계를 이해했으니, 인터페이스가 충분히 간단"
+"한 Chromium의 Rust 사용 사례를 생각해 보세요. 해당 인터페이스를 정의하는 방법"
+"을 스케치합니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "The [`cxx` binding reference](https://cxx.rs/bindings.html)"
-msgstr ""
+msgstr "[`cxx` 바인딩 참조](https://cxx.rs/bindings.html)"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "The [`rust_static_library` gn template](https://source.chromium.org/chromium/"
 "chromium/src/+/main:build/rust/rust_static_library.gni;l=16)"
 msgstr ""
+"[`rust_static_library` gn 템플릿](https://source.chromium.org/chromium/"
+"chromium/src/+/main:build/rust/rust_static_library.gni;l=16)"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Some of the questions you may encounter:"
-msgstr ""
+msgstr "다음과 같은 문제가 있을 수 있습니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
@@ -16382,6 +16680,9 @@ msgid ""
 "and Y are both function types. This is because your C++ function doesn't "
 "quite match the declaration in your `cxx::bridge`."
 msgstr ""
+"유형 Y로 유형 X의 변수를 초기화하는 데 문제가 있습니다. 여기서 X와 Y는 모두 "
+"함수 유형입니다. 이는 C++ 함수가 `cxx::bridge`의 선언과 일치하지 않기 때문입"
+"니다."
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
@@ -16390,6 +16691,10 @@ msgid ""
 "sized. For CXX trivial types yes, it's _possible_ to cause UB, although "
 "CXX's design makes it quite difficult to craft such an example."
 msgstr ""
+"C++ 참조를 Rust 참조로 자유롭게 변환할 수 있는 것 같습니다. 이렇게 하면 UB가 "
+"발생하지 않을까요? CXX의 _불투명_ 유형의 경우 발생하지 않습니다. 크기가 0이"
+"기 때문입니다. CXX 사소한 유형의 경우 UB를 유발하는 것이 _가능_하지만 CXX의 "
+"설계상 이러한 예를 만들기가 상당히 어렵습니다."
 
 #: src/chromium/adding-third-party-crates.md
 msgid ""
@@ -16397,6 +16702,9 @@ msgid ""
 "crates.io). It's _very easy_ for Rust crates to depend upon one another. So "
 "they do!"
 msgstr ""
+"Rust 라이브러리는 '크레이트'라고 하며 [crates.io](https://crates.io)에서 찾"
+"을 수 있습니다. Rust 크레이트가 서로 종속되는 것은 _아주 쉽습니다_. 따라서 서"
+"로 종속됩니다."
 
 #: src/chromium/adding-third-party-crates.md
 #, fuzzy
@@ -16415,67 +16723,71 @@ msgstr "러스트 생태계"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Lots"
-msgstr ""
+msgstr "1억+"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Consistent: `Cargo.toml`"
-msgstr ""
+msgstr "일관성: `Cargo.toml`"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Typical library size"
-msgstr ""
+msgstr "일반적인 라이브러리 크기"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Large-ish"
-msgstr ""
+msgstr "큰 편"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Small"
-msgstr ""
+msgstr "작게"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Transitive dependencies"
-msgstr ""
+msgstr "모든 종속성들"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Few"
-msgstr ""
+msgstr "적음"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "For a Chromium engineer, this has pros and cons:"
-msgstr ""
+msgstr "Chromium 엔지니어에게는 다음과 같은 장단점이 있습니다."
 
 #: src/chromium/adding-third-party-crates.md
 msgid ""
 "All crates use a common build system so we can automate their inclusion into "
 "Chromium..."
 msgstr ""
+"모든 크레이트는 공통 빌드 시스템을 사용하므로 Chromium에 자동으로 포함할 수 "
+"있습니다."
 
 #: src/chromium/adding-third-party-crates.md
 msgid ""
 "... but, crates typically have transitive dependencies, so you will likely "
 "have to bring in multiple libraries."
 msgstr ""
+"그러나 크레이트에는 일반적으로 전이 종속 항목이 있으므로 여러 라이브러리를 가"
+"져와야 할 수 있습니다."
 
 #: src/chromium/adding-third-party-crates.md
 msgid "We'll discuss:"
-msgstr ""
+msgstr "다룰 내용은 다음과 같습니다."
 
 #: src/chromium/adding-third-party-crates.md
 msgid "How to put a crate in the Chromium source code tree"
-msgstr ""
+msgstr "Chromium 소스 코드 트리에 크레이트를 추가하는 방법"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "How to make `gn` build rules for it"
-msgstr ""
+msgstr "이를 위해 `gn` 빌드 규칙을 만드는 방법"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "How to audit its source code for sufficient safety."
-msgstr ""
+msgstr "충분한 안전성을 위해 소스 코드를 감사하는 방법"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
 msgid "Configuring the `Cargo.toml` file to add crates"
-msgstr ""
+msgstr "크레이트를 추가하도록 `Cargo.toml` 파일 구성"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
 msgid ""
@@ -16484,6 +16796,9 @@ msgid ""
 "org/chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/Cargo."
 "toml):"
 msgstr ""
+"Chromium에는 중앙에서 관리되는 직접 크레이트 종속 항목의 단일 세트가 있습니"
+"다. 이는 단일 [`Cargo.toml`](https://source.chromium.org/chromium/chromium/"
+"src/+/main:third_party/rust/chromium_crates_io/Cargo.toml)을 통해 관리됩니다."
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
 msgid ""
@@ -16495,6 +16810,13 @@ msgid ""
 "# lots more...\n"
 "```"
 msgstr ""
+"```toml\n"
+"[dependencies]\n"
+"bitflags = \"1\"\n"
+"cfg-if = \"1\"\n"
+"cxx = \"1\"\n"
+"# lots more...\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
 msgid ""
@@ -16503,12 +16825,18 @@ msgid ""
 "dependencies.html) --- most commonly, you'll want to specify the `features` "
 "that you wish to enable in the crate."
 msgstr ""
+"다른 `Cargo.toml`과 마찬가지로 [종속 항목에 관한 자세한 내용](https://doc."
+"rust-lang.org/cargo/reference/specifying-dependencies.html)을 지정할 수 있습"
+"니다. 가장 흔하게는 크레이트에서 사용 설정하려는 `features`를 지정하는 것이 "
+"좋습니다."
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
 msgid ""
 "When adding a crate to Chromium, you'll often need to provide some extra "
 "information in an additional file, `gnrt_config.toml`, which we'll meet next."
 msgstr ""
+"Chromium에 크레이트를 추가할 때는 다음 단계에서 다룰 추가 파일 `gnrt_config."
+"toml`에 몇 가지 정보를 추가로 제공해야 하는 경우가 많습니다."
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md
 msgid ""
@@ -16516,39 +16844,51 @@ msgid ""
 "chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/gnrt_config."
 "toml). This contains Chromium-specific extensions to crate handling."
 msgstr ""
+"`Cargo.toml`과 함께 [`gnrt_config.toml`](https://source.chromium.org/"
+"chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/gnrt_config."
+"toml)이 있습니다. 여기에는 크레이트 처리를 위한 Chromium 전용 확장 프로그램"
+"이 포함되어 있습니다."
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md
 msgid ""
 "If you add a new crate, you should specify at least the `group`. This is one "
 "of:"
 msgstr ""
+"새 크레이트를 추가하는 경우 적어도 `group`을 지정해야 합니다. 다음 중 하나입"
+"니다."
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md
 msgid "For instance,"
-msgstr ""
+msgstr "예를 들면 다음과 같습니다."
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md
 msgid ""
 "Depending on the crate source code layout, you may also need to use this "
 "file to specify where its `LICENSE` file(s) can be found."
 msgstr ""
+"크레이트 소스 코드 레이아웃에 따라 이 파일을 사용하여 `LICENSE` 파일을 찾을 "
+"수 있는 위치를 지정해야 할 수도 있습니다."
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md
 msgid ""
 "Later, we'll see some other things you will need to configure in this file "
 "to resolve problems."
 msgstr ""
+"나중에 문제를 해결하기 위해 이 파일에서 구성해야 하는 몇 가지 사항을 살펴봅니"
+"다."
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid ""
 "A tool called `gnrt` knows how to download crates and how to generate `BUILD."
 "gn` rules."
 msgstr ""
+"`gnrt`라는 도구는 크레이트를 다운로드하는 방법과 `BUILD.gn` 규칙을 생성하는 "
+"방법을 알고 있습니다."
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid "To start, download the crate you want like this:"
-msgstr ""
+msgstr "시작하려면 다음과 같이 원하는 크레이트를 다운로드합니다."
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid ""
@@ -16557,10 +16897,13 @@ msgid ""
 "`crates.io`. See [the earlier section](../cargo.md) discussing this security "
 "decision."
 msgstr ""
+"`gnrt` 도구는 Chromium 소스 코드의 일부이지만 이 명령어를 실행하면 `crates."
+"io`에서 종속 항목을 다운로드하고 실행하게 됩니다. 이 보안 관련 결정에 관해서"
+"는 [이전 섹션](../cargo.md)을 참고하세요."
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid "This `vendor` command may download:"
-msgstr ""
+msgstr "이 `vendor` 명령어는 다음을 다운로드할 수 있습니다."
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 #, fuzzy
@@ -16569,13 +16912,15 @@ msgstr "유용한 크레이트"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid "Direct and transitive dependencies"
-msgstr ""
+msgstr "직접 및 임시 종속 항목"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid ""
 "New versions of other crates, as required by `cargo` to resolve the complete "
 "set of crates required by Chromium."
 msgstr ""
+"Chromium에서 필요한 전체 크레이트 세트를 해결하기 위해 `cargo`에서 요구하는 "
+"다른 크레이트의 새 버전입니다."
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid ""
@@ -16583,31 +16928,38 @@ msgid ""
 "chromium_crates_io/patches`. These will be reapplied automatically, but if "
 "patching fails you may need to take manual action."
 msgstr ""
+"Chromium은 `//third_party/rust/chromium_crates_io/patches`에 보관되는 일부 크"
+"레이트의 패치를 유지관리합니다. 이는 자동으로 다시 적용되지만 패치에 실패하"
+"면 직접 조치를 취해야 할 수도 있습니다."
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
 "Once you've downloaded the crate, generate the `BUILD.gn` files like this:"
-msgstr ""
+msgstr "크레이트를 다운로드한 후에는 다음과 같이 `BUILD.gn` 파일을 생성합니다."
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid "Now run `git status`. You should find:"
-msgstr ""
+msgstr "이제 `git status`를 실행합니다. 다음을 확인할 수 있습니다."
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
 "At least one new crate source code in `third_party/rust/chromium_crates_io/"
 "vendor`"
 msgstr ""
+"`third_party/rust/chromium_crates_io/vendor`에 하나 이상의 새 크레이트 소스 "
+"코드가 있습니다."
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
 "At least one new `BUILD.gn` in `third_party/rust/<crate name>/v<major semver "
 "version>`"
 msgstr ""
+"`third_party/rust/<crate name>/v<major semver version>`에 새 `BUILD.gn`이 하"
+"나 이상 있습니다."
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid "An appropriate `README.chromium`"
-msgstr ""
+msgstr "적절한 `README.chromium`"
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 #, fuzzy
@@ -16621,7 +16973,7 @@ msgstr ""
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
 "Take a close look, especially at the things generated in `third_party/rust`."
-msgstr ""
+msgstr "특히 `third_party/rust`에서 생성된 항목을 자세히 살펴보세요."
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
@@ -16629,6 +16981,9 @@ msgid ""
 "it's to allow multiple incompatible versions of a crate, which is "
 "discouraged but sometimes necessary in the Cargo ecosystem."
 msgstr ""
+"semver에 관해 좀 더 이야기합니다. 특히 Chromium에서는 호환되지 않는 크레이트 "
+"버전을 여러 개 허용하는 방식이 있는데 이는 권장되지 않지만 Cargo 생태계에서"
+"는 때때로 필요합니다."
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid ""
@@ -16637,68 +16992,76 @@ msgid ""
 "design of `gn` and `ninja` which aim for static, deterministic, build rules "
 "to maximize parallelism and repeatability of builds."
 msgstr ""
+"빌드가 실패하는 경우, 이는 빌드 시간에 임의의 작업을 실행하는 프로그램인 "
+"`build.rs` 때문일 수 있습니다. 이는 빌드의 병렬성과 재현성을 최대화하기 위해 "
+"정적인 빌드 규칙을 목표로 하는 `gn` 및 `ninja`의 설계와 근본적으로 상충됩니"
+"다."
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid ""
 "Some `build.rs` actions are automatically supported; others require action:"
-msgstr ""
+msgstr "일부 `build.rs` 작업은 자동으로 지원됩니다. 그 외는 조치가 필요합니다."
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "build script effect"
-msgstr ""
+msgstr "빌드 스크립트 효과"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Supported by our gn templates"
-msgstr ""
+msgstr "Google의 gn 템플릿에서 지원"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Work required by you"
-msgstr ""
+msgstr "필요한 작업"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Checking rustc version to configure features on and off"
-msgstr ""
+msgstr "기능을 사용 및 사용 중지로 구성하기 위해 rustc 버전 확인"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "None"
-msgstr ""
+msgstr "없음"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Checking platform or CPU to configure features on and off"
-msgstr ""
+msgstr "기능을 사용 및 사용 중지로 구성하기 위해 플랫폼 또는 CPU 확인"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 #, fuzzy
 msgid "Generating code"
-msgstr "제네릭"
+msgstr "`gn` 빌드 규칙 생성"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Yes - specify in `gnrt_config.toml`"
-msgstr ""
+msgstr "예 - `gnrt_config.toml`에 지정"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Building C/C++"
-msgstr ""
+msgstr "C/C++ 빌드"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Patch around it"
-msgstr ""
+msgstr "주변에 패치를 적용합니다."
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Arbitrary other actions"
-msgstr ""
+msgstr "임의의 기타 작업"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid ""
 "Fortunately, most crates don't contain a build script, and fortunately, most "
 "build scripts only do the top two actions."
 msgstr ""
+"다행히 대부분의 크레이트에는 빌드 스크립트가 포함되어 있지 않으며, 다행히 대"
+"부분의 빌드 스크립트는 상위 두 가지 작업만 실행합니다."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md
 msgid ""
 "If `ninja` complains about missing files, check the `build.rs` to see if it "
 "writes source code files."
 msgstr ""
+"`ninja`가 파일 누락에 관한 불만을 제기하는 경우 `build.rs`에서 소스 코드 파일"
+"을 작성하는지 확인합니다."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md
 msgid ""
@@ -16708,6 +17071,11 @@ msgid ""
 "`allow-first-party-usage=false`. There are several examples already in that "
 "file:"
 msgstr ""
+"그렇다면 [`gnrt_config.toml`](../configuring-gnrt-config-toml.md)을 수정하여 "
+"`build-script-outputs`를 크레이트에 추가합니다. 이것이 전이 종속 항목, 즉 "
+"Chromium 코드가 직접 종속되면 안 되는 종속 항목인 경우 `allow-first-party-"
+"usage=false`도 추가합니다. 이 파일에는 이미 다음과 같은 몇 가지 예가 있습니"
+"다."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md
 msgid ""
@@ -16717,6 +17085,11 @@ msgid ""
 "build-script-outputs = [\"tables.rs\"]\n"
 "```"
 msgstr ""
+"```toml\n"
+"[crate.unicode-linebreak]\n"
+"allow-first-party-usage = false\n"
+"build-script-outputs = [ \"tables.rs\" ]\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md
 msgid ""
@@ -16724,6 +17097,9 @@ msgid ""
 "`BUILD.gn` files to inform ninja that this particular output file is input "
 "to subsequent build steps."
 msgstr ""
+"이제 [`gnrt.py -- gen`](../generating-gn-build-rules.md)을 다시 실행하여 "
+"`BUILD.gn` 파일을 다시 생성하고 이 특정 출력 파일이 후속 빌드 단계의 입력이라"
+"고 ninja에 알립니다."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid ""
@@ -16733,18 +17109,23 @@ msgid ""
 "supported in a Chromium context --- our gn, ninja and LLVM build system is "
 "very specific in expressing relationships between build actions."
 msgstr ""
+"일부 크레이트는 [`cc`](https://crates.io/crates/cc) 크레이트를 사용하여 C/C+"
+"+ 라이브러리를 빌드하고 연결합니다. 다른 크레이트는 빌드 스크립트 내에서 "
+"[`bindgen`](https://crates.io/crates/bindgen)을 사용하여 C/C++를 파싱합니다. "
+"이러한 작업은 Chromium 컨텍스트에서는 지원되지 않습니다. --- Google의 gn, "
+"ninja, LLVM 빌드 시스템은 빌드 작업 간의 관계를 매우 구체적으로 표현합니다."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid "So, your options are:"
-msgstr ""
+msgstr "옵션은 다음과 같습니다."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid "Avoid these crates"
-msgstr ""
+msgstr "이 크레이트는 피하세요."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid "Apply a patch to the crate."
-msgstr ""
+msgstr "크레이트에 패치를 적용합니다."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid ""
@@ -16754,6 +17135,11 @@ msgid ""
 "chromium_crates_io/patches/cxx/) - and will be applied automatically by "
 "`gnrt` each time it upgrades the crate."
 msgstr ""
+"패치는 `third_party/rust/chromium_crates_io/patches/<crate>`에 보관해야 합니"
+"다. 예는 [`cxx` 크레이트에 대한 패치](https://source.chromium.org/chromium/"
+"chromium/src/+/main:third_party/rust/chromium_crates_io/patches/cxx/)를 참고"
+"하세요. 그리고 크레이트를 업그레이드할 때마다 `gnrt`에 의해 자동으로 적용됩니"
+"다."
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md
 msgid ""
@@ -16761,6 +17147,9 @@ msgid ""
 "on a crate is simple. Find your `rust_static_library` target, and add a "
 "`dep` on the `:lib` target within your crate."
 msgstr ""
+"서드 파티 크레이트를 추가하고 빌드 규칙을 생성하고 나면 크레이트에 따른 작업"
+"은 간단합니다. `rust_static_library` 타겟을 찾고 크레이트 내의 `:lib` 타겟에 "
+"`dep`를 추가합니다."
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md
 #, fuzzy
@@ -16776,6 +17165,12 @@ msgid ""
 "                     +------------+      +----------------------+\n"
 "```"
 msgstr ""
+"```bob\n"
+"                     +------------+      +----------------------+\n"
+"\"//서드 파티/rust\" | 크레이트 이름 | \"/v\" | 메이저 semver 버전 | \"/:"
+"lib\"\n"
+"                     +------------+      +----------------------+\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md
 msgid ""
@@ -16787,10 +17182,17 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [ \"lib.rs\" ]\n"
+"  deps = [ \"//third_party/rust/example_rust_crate/v1:lib\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid "Auditing Third Party Crates"
-msgstr ""
+msgstr "서드 파티 크레이트 감사"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -16801,17 +17203,24 @@ msgid ""
 "dependencies, there may be a lot of code to review. On the other hand, safe "
 "Rust code can have limited negative side effects. How should you review it?"
 msgstr ""
+"새 라이브러리 추가에는 Chromium의 표준 [정책](https://chromium.googlesource."
+"com/chromium/src/+/refs/heads/main/docs/rust.md#Third_party-review)이 적용되"
+"지만 또한 보안 검토도 적용됩니다. 단일 크레이트뿐만 아니라 전이 종속 항목도 "
+"가져올 수 있으므로 검토할 코드가 많을 수 있습니다. 반면에 안전한 Rust 코드에"
+"서는 부정적인 부작용이 제한될 수 있습니다. 어떻게 검토해야 할까요?"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
 "Over time Chromium aims to move to a process based around [cargo vet]"
 "(https://mozilla.github.io/cargo-vet/)."
 msgstr ""
+"Chromium은 시간이 지남에 따라 [cargo vet](https://mozilla.github.io/cargo-"
+"vet/)를 기반으로 한 프로세스로 전환하는 것을 목표로 합니다."
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
 "Meanwhile, for each new crate addition, we are checking for the following:"
-msgstr ""
+msgstr "한편 새로운 크레이트가 추가될 때마다 다음 사항을 확인하고 있습니다."
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -16820,10 +17229,13 @@ msgid ""
 "macros, work out what they're for. Are they compatible with the way Chromium "
 "is normally built?"
 msgstr ""
+"각 크레이트가 사용되는 이유를 이해합니다. 크레이트 간 관계는 어떠한가요? 각 "
+"크레이트의 빌드 시스템에 `build.rs` 또는 절차 매크로가 포함된 경우 그 용도를 "
+"파악해야 합니다. Chromium이 일반적으로 빌드되는 방식과 호환되나요?"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid "Check each crate seems to be reasonably well maintained"
-msgstr ""
+msgstr "각 크레이트가 적절히 잘 유지관리되는지 확인합니다."
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -16832,6 +17244,10 @@ msgid ""
 "ironically involves downloading lots of dependencies from the internet[2](../"
 "cargo.md))"
 msgstr ""
+"`cd third-party/rust/chromium_crates_io; cargo audit`을 사용하여 알려진 취약"
+"점을 확인합니다. 먼저 `cargo install cargo-audit`을 실행해야 합니다. 여기에"
+"는 인터넷[2](../cargo.md)에서 여러 종속 항목을 다운로드하는 작업이 포함되어 "
+"있습니다."
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -16839,10 +17255,13 @@ msgid ""
 "chromium.googlesource.com/chromium/src/+/main/docs/security/rule-of-2."
 "md#unsafe-code-in-safe-languages)"
 msgstr ""
+"`unsafe` 코드가 [2의 법칙](https://chromium.googlesource.com/chromium/src/+/"
+"main/docs/security/rule-of-2.md#unsafe-code-in-safe-languages)에 적합한지 확"
+"인합니다."
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid "Check for any use of `fs` or `net` APIs"
-msgstr ""
+msgstr "`fs` 또는 `net` API의 사용 확인"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -16850,46 +17269,57 @@ msgid ""
 "that might have been maliciously inserted. (You can't realistically aim for "
 "100% perfection here: there's often just too much code.)"
 msgstr ""
+"악의적으로 삽입되었을 수 있는 잘못된 코드를 찾을 수 있는 충분한 수준으로 모"
+"든 코드를 읽습니다. 현실적으로 100% 완벽을 추구할 수는 없습니다. 코드가 너무 "
+"많을 때가 많습니다."
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
 "These are just guidelines --- work with reviewers from `security@chromium."
 "org` to work out the right way to become confident of the crate."
 msgstr ""
+"이 내용은 가이드라인에 불과합니다. `security@chromium.org`의 검토자와 협력하"
+"여 크레이트에 관한 확신을 가질 수 있는 올바른 방법을 찾아보세요."
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid "Checking Crates into Chromium Source Code"
-msgstr ""
+msgstr "Chromium 소스 코드로 크레이트 확인"
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid "`git status` should reveal:"
-msgstr ""
+msgstr "`git status`는 다음을 표시해야 합니다."
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid "Crate code in `//third_party/rust/chromium_crates_io`"
-msgstr ""
+msgstr "`//third_party/rust/chromium_crates_io`의 크레이트 코드"
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid ""
 "Metadata (`BUILD.gn` and `README.chromium`) in `//third_party/rust/<crate>/"
 "<version>`"
 msgstr ""
+"`//third_party/rust/<crate>/<version>`의 메타데이터(`BUILD.gn` 및 `README."
+"chromium`)"
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid "Please also add an `OWNERS` file in the latter location."
-msgstr ""
+msgstr "후자의 위치에 `OWNERS` 파일도 추가하세요."
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid ""
 "You should land all this, along with your `Cargo.toml` and `gnrt_config."
 "toml` changes, into the Chromium repo."
 msgstr ""
+"이 모든 것을 `Cargo.toml` 및 `gnrt_config.toml` 변경사항과 함께 Chromium 저장"
+"소에 배치해야 합니다."
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid ""
 "**Important**: you need to use `git add -f` because otherwise `.gitignore` "
 "files may result in some files being skipped."
 msgstr ""
+"**중요**: `git add -f`를 사용해야 합니다. 그러지 않으면 `.gitignore` 파일로 "
+"인해 일부 파일을 건너뛸 수 있습니다."
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid ""
@@ -16898,6 +17328,10 @@ msgid ""
 "branches, and many projects still use non-inclusive terminology there. So "
 "you may need to run:"
 msgstr ""
+"이렇게 하면 포용적이지 않은 언어로 인해 사전 제출 검사가 실패할 수도 있습니"
+"다. 이는 Rust 크레이트 데이터에는 git 브랜치 이름이 포함되는 경향이 있고, 많"
+"은 프로젝트에서는 여전히 포용적이지 않은 용어를 거기서 사용하기 때문입니다. "
+"따라서 다음을 실행해야 할 수 있습니다."
 
 #: src/chromium/adding-third-party-crates/keeping-up-to-date.md
 msgid ""
@@ -16907,6 +17341,11 @@ msgid ""
 "hoped that we will soon automate this for Rust crates, but for now, it's "
 "still your responsibility just as it is for any other third party dependency."
 msgstr ""
+"서드 파티 Chromium 종속 항목의 OWNER이므로 [모든 보안 수정사항을 통해 최신 상"
+"태로 유지해야 합니다](https://chromium.googlesource.com/chromium/src/+/main/"
+"docs/adding_to_third_party.md#add-owners). 곧 Rust 크레이트의 경우 이 작업을 "
+"자동화할 수 있기를 바라지만, 당분간은 다른 서드 파티 종속 항목과 마찬가지로 "
+"개발자의 책임입니다."
 
 #: src/exercises/chromium/third-party.md
 msgid ""
@@ -16915,6 +17354,10 @@ msgid ""
 "features.html#the-default-feature). Assume that the crate will be used in "
 "shipping Chromium, but won't be used to handle untrustworthy input."
 msgstr ""
+"Chromium에 [uwuify](https://crates.io/crates/uwuify)를 추가하여 크레이트의 "
+"[기본 기능](https://doc.rust-lang.org/cargo/reference/features.html#the-"
+"default-feature)을 사용 중지합니다. 크레이트가 Chromium 배송에 사용되지만 신"
+"뢰할 수 없는 입력을 처리하는 데는 사용되지 않는다고 가정합니다."
 
 #: src/exercises/chromium/third-party.md
 msgid ""
@@ -16923,72 +17366,85 @@ msgid ""
 "[`rust_executable` target](https://source.chromium.org/chromium/chromium/src/"
 "+/main:build/rust/rust_executable.gni) which uses `uwuify`)."
 msgstr ""
+"다음 연습에서는 Chromium의 uwuify를 사용합니다. 원한다면 건너뛰고 지금 해 봐"
+"도 됩니다. 또는 `uwuify`를 사용하는 새로운 [`rust_executable` 타겟](https://"
+"source.chromium.org/chromium/chromium/src/+/main:build/rust/rust_executable."
+"gni)을 만들 수 있습니다."
 
 #: src/exercises/chromium/third-party.md
 msgid "Students will need to download lots of transitive dependencies."
-msgstr ""
+msgstr "직접 및 임시 종속 항목"
 
 #: src/exercises/chromium/third-party.md
 msgid "The total crates needed are:"
 msgstr ""
 
 #: src/exercises/chromium/third-party.md
-#, fuzzy
 msgid "`instant`,"
-msgstr "상수(constant)"
+msgstr "`instant`,"
 
 #: src/exercises/chromium/third-party.md
 msgid "`lock_api`,"
-msgstr ""
+msgstr "`lock_api`,"
 
 #: src/exercises/chromium/third-party.md
 msgid "`parking_lot`,"
-msgstr ""
+msgstr "`parking_lot`,"
 
 #: src/exercises/chromium/third-party.md
 msgid "`parking_lot_core`,"
-msgstr ""
+msgstr "`parking_lot_core`,"
 
 #: src/exercises/chromium/third-party.md
 msgid "`redox_syscall`,"
-msgstr ""
+msgstr "`redox_syscall`,"
 
 #: src/exercises/chromium/third-party.md
 msgid "`scopeguard`,"
-msgstr ""
+msgstr "`scopeguard`,"
 
 #: src/exercises/chromium/third-party.md
 msgid "`smallvec`, and"
-msgstr ""
+msgstr "`smallvec`, and"
 
 #: src/exercises/chromium/third-party.md
 msgid "`uwuify`."
-msgstr ""
+msgstr "`uwuify`."
 
 #: src/exercises/chromium/third-party.md
+#, fuzzy
 msgid ""
 "If students are downloading even more than that, they probably forgot to "
 "turn off the default features."
 msgstr ""
+"필요한 총 크레이트는 uwuify, smallvec, scopeguard, parking_lot, "
+"parking_lot_core, lock_api, instant입니다. 이보다 더 많이 다운로드하는 경우 "
+"기본 기능을 사용 중지하는 것을 잊었을 수 있습니다."
 
 #: src/exercises/chromium/third-party.md
 msgid ""
 "Thanks to [Daniel Liu](https://github.com/Daniel-Liu-c0deb0t) for this crate!"
 msgstr ""
+"이 크레이트를 제공해 주신 [다니엘 리우](https://github.com/Daniel-Liu-"
+"c0deb0t)에게 감사드립니다. "
 
 #: src/exercises/chromium/bringing-it-together.md
+#, fuzzy
 msgid "Bringing It Together --- Exercise"
-msgstr ""
+msgstr "총정리 - 연습문제"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "In this exercise, you're going to add a whole new Chromium feature, bringing "
 "together everything you already learned."
 msgstr ""
+"이 연습에서는 이미 학습한 모든 내용을 종합하는 완전히 새로운 Chromium 기능을 "
+"추가합니다."
 
 #: src/exercises/chromium/bringing-it-together.md
+#, fuzzy
 msgid "The Brief from Product Management"
-msgstr ""
+msgstr "제품 관리 브리핑"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16996,12 +17452,14 @@ msgid ""
 "It's important that we get Chromium for Pixies delivered to them as soon as "
 "possible."
 msgstr ""
+"외딴 열대 우림에 사는 pixie 커뮤니티가 발견되었습니다. Pixie용 Chromium을 최"
+"대한 빨리 배송하는 것이 중요합니다."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "The requirement is to translate all Chromium's UI strings into Pixie "
 "language."
-msgstr ""
+msgstr "Chromium의 모든 UI 문자열을 Pixie 언어로 번역해야 합니다."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -17009,22 +17467,28 @@ msgid ""
 "language is very close to English, and it turns out there's a Rust crate "
 "which does the translation."
 msgstr ""
+"제대로 번역될 때까지 기다릴 시간은 없지만, 다행히 pixie 언어는 영어와 매우 유"
+"사한 데다 번역을 하는 Rust 크레이트가 있습니다."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "In fact, you already [imported that crate in the previous exercise](https://"
 "crates.io/crates/uwuify)."
 msgstr ""
+"사실 [이전 연습에서 이 크레이트를 이미 가져왔습니다](https://crates.io/"
+"crates/uwuify)."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "(Obviously, real translations of Chrome require incredible care and "
 "diligence. Don't ship this!)"
 msgstr ""
+"물론 Chrome의 실제 번역 작업을 위해서는 상당한 주의와 노력이 필요합니다. 배송"
+"하지 마세요."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid "Steps"
-msgstr ""
+msgstr "걸음수"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -17032,12 +17496,17 @@ msgid ""
 "strings before display. In this special build of Chromium, it should always "
 "do this irrespective of the setting of `mangle_localized_strings_`."
 msgstr ""
+"표시하기 전에 모든 문자열을 uwuify하도록 `ResourceBundle::"
+"MaybeMangleLocalizedString`을 수정합니다. 이 특수 Chromium 빌드에서는 "
+"`mangle_localized_strings_`의 설정과 관계없이 항상 이 작업을 실행해야 합니다."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "If you've done everything right across all these exercises, congratulations, "
 "you should have created Chrome for pixies!"
 msgstr ""
+"이 모든 연습에서 모든 작업을 제대로 완료했다면 축하합니다. pixie용 Chrome을 "
+"만드셨을 것입니다."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -17045,6 +17514,9 @@ msgid ""
 "and will probably decide that it's better to do the conversion on the C++ "
 "side using `base::UTF16ToUTF8` and back again."
 msgstr ""
+"UTF16과 UTF8. 학생들은 Rust 문자열이 항상 UTF8이라는 점을 알고 있어야 하며, "
+"`base::UTF16ToUTF8`을 사용하여 C++ 측에서 변환을 실행하고 다시 그 반대로 변환"
+"하는 것이 더 낫다고 결정할 수 있습니다."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -17054,6 +17526,10 @@ msgid ""
 "[CXX supported types can transfer a lot of u16s](https://cxx.rs/binding/"
 "slice.html)."
 msgstr ""
+"Rust 측에서 변환하기로 결정한 학생들은 [`String::from_utf16`](https://doc."
+"rust-lang.org/std/string/struct.String.html#method.from_utf16)을 고려하고 오"
+"류 처리를 고려하고 [많은 u16을 전송할 수 있는 CXX 지원 유형](https://cxx.rs/"
+"binding/slice.html)을 고려해야 합니다."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -17065,6 +17541,13 @@ msgid ""
 "mutable references to C++ data: the answer is that C++ data can't be moved "
 "around like Rust data, because it may contain self-referential pointers."
 msgstr ""
+"학생들은 여러 가지 방법으로 C++/Rust 경계를 설계할 수 있습니다. 예를 들어 값"
+"으로 문자열을 가져와 반환하거나 문자열에 대한 변경 가능한 참조를 사용할 수 있"
+"습니다. 변경 가능한 참조를 사용하면 CXX에서 학생에게[`Pin`](https://doc.rust-"
+"lang.org/std/pin/)을 사용해야 한다고 알릴 가능성이 높습니다. `Pin`의 역할을 "
+"설명하고 이것이 C++ 데이터에 대한 변경 가능한 참조를 위해 CXX에 필요한 이유"
+"를 설명해야 할 수도 있습니다. 대답은 C++ 데이터는 Rust 데이터처럼 이동할 수 "
+"없다는 것입니다. 자체 참조 포인터가 포함되어 있을 수 있기 때문입니다."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -17072,12 +17555,17 @@ msgid ""
 "need to depend on a `rust_static_library` target. The student probably "
 "already did this."
 msgstr ""
+"`ResourceBundle::MaybeMangleLocalizedString`이 포함된 C++ 타겟은 "
+"`rust_static_library` 타겟에 종속되어야 합니다. 학생은 이미 이를 실행했을 것"
+"입니다."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "The `rust_static_library` target will need to depend on `//third_party/rust/"
 "uwuify/v0_2:lib`."
 msgstr ""
+"`rust_static_library` 타겟은 `//third_party/rust/uwuify/v0_2:lib`에 종속되어"
+"야 합니다."
 
 #: src/exercises/chromium/solutions.md
 msgid ""
