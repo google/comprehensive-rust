@@ -9,6 +9,7 @@ Most types you come across are `Send + Sync`:
 - `String`, `Option<T>`, `Vec<T>`, `Box<T>`, ...
 - `Arc<T>`: Explicitly thread-safe via atomic reference count.
 - `Mutex<T>`: Explicitly thread-safe via internal locking.
+- `mpsc::Sender<T>`: As of 1.72.0.
 - `AtomicBool`, `AtomicU8`, ...: Uses special atomic instructions.
 
 The generic types are typically `Send + Sync` when the type parameters are
@@ -19,7 +20,6 @@ The generic types are typically `Send + Sync` when the type parameters are
 These types can be moved to other threads, but they're not thread-safe.
 Typically because of interior mutability:
 
-- `mpsc::Sender<T>`
 - `mpsc::Receiver<T>`
 - `Cell<T>`
 - `RefCell<T>`
