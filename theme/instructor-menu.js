@@ -45,24 +45,13 @@
 
     redBoxButton.id = "redbox";
     instructorMenuList.id = "instructor-menu-list";
+    playgroundStateButton.id = "playground-state";
 
     instructorMenu.addEventListener("click", () => {
       if (instructorMenuList.style.display === "none") {
         instructorMenuList.style.display = "block";
       } else {
         instructorMenuList.style.display = "none";
-      }
-    });
-
-    playgroundStateButton.addEventListener("click", () => {
-      let keys = [];
-      for (var i = 0, len = localStorage.length; i < len; i++) {
-        if (localStorage.key(i).includes("₹code")) {
-          keys.push(localStorage.key(i));
-        }
-      }
-      for (let j = 0; j < keys.length; j++) {
-        localStorage.removeItem(keys[j]);
       }
     });
 
@@ -76,5 +65,10 @@
     });
   }
   handleInstructorMenu();
-  window.redBoxButton();
+  var redBoxButton = document.getElementById("redbox");
+  var playgroundStateButton = document.getElementById("playground-state");
+  redBoxButton.addEventListener("click", () => window.redboxButtonClicked());
+  playgroundStateButton.addEventListener("click", () =>
+    window.resetPlaygroundsClicked()
+  );
 })();

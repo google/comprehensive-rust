@@ -1,4 +1,4 @@
-function redBoxButton() {
+(function redBoxButton() {
   // Create a new div element
   var newDiv = document.createElement("div");
   // Set the id attribute of the new div
@@ -11,20 +11,19 @@ function redBoxButton() {
   var parentElement = document.body; // Change this to your desired parent element
   // Append the new div to the parent element
   parentElement.insertBefore(newDiv, parentElement.firstChild);
-  // Create the button element
-  var hideShowButton = document.getElementById("redbox");
   //Default hiding the redbox
   document.getElementById("aspect-ratio-helper").style.display = "none";
-  //Add Event listener to button to perform on click action.
-  hideShowButton.addEventListener("click", function () {
-    if (
-      document.getElementById("aspect-ratio-helper").style.display === "none"
-    ) {
-      document.getElementById("aspect-ratio-helper").style.display = "block";
-      hideShowButton.innerHTML = "aspect-ratio box";
-    } else {
-      document.getElementById("aspect-ratio-helper").style.display = "none";
-      hideShowButton.innerHTML = "aspect-ratio box";
-    }
-  });
+})();
+
+//Create a function to button to perform on click action.
+function redboxButtonClicked() {
+  var hideShowButton = document.getElementById("redbox");
+  if (document.getElementById("aspect-ratio-helper").style.display === "none") {
+    document.getElementById("aspect-ratio-helper").style.display = "block";
+    hideShowButton.innerHTML = "aspect-ratio box";
+  } else {
+    document.getElementById("aspect-ratio-helper").style.display = "none";
+    hideShowButton.innerHTML = "aspect-ratio box";
+  }
 }
+window.redboxButtonClicked = redboxButtonClicked;

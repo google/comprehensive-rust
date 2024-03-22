@@ -31,3 +31,16 @@
   setCodeToPlayground();
   addEventListener("pagehide", getCodeFromPlayground);
 })();
+
+function resetPlaygroundsClicked() {
+  let keys = [];
+  for (var i = 0, len = localStorage.length; i < len; i++) {
+    if (localStorage.key(i).includes("₹code")) {
+      keys.push(localStorage.key(i));
+    }
+  }
+  for (let j = 0; j < keys.length; j++) {
+    localStorage.removeItem(keys[j]);
+  }
+}
+window.resetPlaygroundsClicked = resetPlaygroundsClicked;
