@@ -56,10 +56,7 @@
     });
 
     document.addEventListener("click", (e) => {
-      if (
-        !instructorMenu.contains(e.target) &&
-        !instructorMenuList.contains(e.target)
-      ) {
+      if (!instructorMenu.contains(e.target)) {
         instructorMenuList.style.display = "none";
       }
     });
