@@ -305,6 +305,7 @@
 ---
 
 - [Welcome](bare-metal.md)
+- [Setup](bare-metal/setup.md)
 - [`no_std`](bare-metal/no_std.md)
   - [A Minimal Example](bare-metal/minimal.md)
   - [`alloc`](bare-metal/alloc.md)
@@ -356,6 +357,7 @@
 ---
 
 - [Welcome](concurrency/welcome.md)
+- [Fearless Concurrency](concurrency/fearless.md)
 - [Threads](concurrency/threads.md)
   - [Plain Threads](concurrency/threads/plain.md)
   - [Scoped Threads](concurrency/threads/scoped.md)
