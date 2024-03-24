@@ -4,8 +4,8 @@ minutes: 14
 
 # `Mutex`
 
-[`Mutex<T>`][1] ensures mutual exclusion _and_ allows mutable access to `T`
-behind a read-only interface (another form of
+[`Mutex<T>`] ensures mutual exclusion _and_ allows mutable access to `T` behind
+a read-only interface (another form of
 [interior mutability](../../borrowing/interior-mutability.md)):
 
 ```rust,editable
@@ -27,9 +27,7 @@ fn main() {
 Notice how we have a [`impl<T: Send> Sync for Mutex<T>`][2] blanket
 implementation.
 
-[1]: https://doc.rust-lang.org/std/sync/struct.Mutex.html
 [2]: https://doc.rust-lang.org/std/sync/struct.Mutex.html#impl-Sync-for-Mutex%3CT%3E
-[3]: https://doc.rust-lang.org/std/sync/struct.Arc.html
 
 <details>
 
@@ -41,13 +39,15 @@ implementation.
   `MutexGuard` ensures that the `&mut T` doesn't outlive the lock being held.
 - `Mutex<T>` implements both `Send` and `Sync` if and only if `T` implements
   `Send`.
-- A read-write lock counterpart: `RwLock`.
+- Rust has a multi-reader single-writer lock counterpart: [`RwLock<T>`].
 - Why does `lock()` return a `Result`?
   - If the thread that held the `Mutex` panicked, the `Mutex` becomes "poisoned"
     to signal that the data it protected might be in an inconsistent state.
     Calling `lock()` on a poisoned mutex fails with a [`PoisonError`]. You can
     call `into_inner()` on the error to recover the data regardless.
 
-[`PoisonError`]: https://doc.rust-lang.org/std/sync/struct.PoisonError.html
-
 </details>
+
+[`Mutex<T>`]: https://doc.rust-lang.org/std/sync/struct.Mutex.html
+[`RwLock<T>`]: https://doc.rust-lang.org/std/sync/struct.RwLock.html
+[`PoisonError`]: https://doc.rust-lang.org/std/sync/struct.PoisonError.html
