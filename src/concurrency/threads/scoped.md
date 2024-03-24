@@ -26,14 +26,17 @@ However, you can use a [scoped thread][1] for this:
 ```rust,editable
 use std::thread;
 
-fn main() {
+fn foo() {
     let s = String::from("Hello");
-
     thread::scope(|scope| {
         scope.spawn(|| {
             println!("Length: {}", s.len());
         });
     });
+}
+
+fn main() {
+    foo();
 }
 ```
 
