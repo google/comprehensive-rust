@@ -36,7 +36,7 @@ code below to a file called `src/main.rs`, fill out the blanks, and test that
 }
 ```
 
-Since this time you are using Async Rust, you'll need a `tokio` dependency. You
+Since this time you are using async Rust, you'll need a `tokio` dependency. You
 can use the following `Cargo.toml`:
 
 <!-- File Cargo.toml -->
