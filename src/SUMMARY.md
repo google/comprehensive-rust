@@ -83,7 +83,7 @@
 - [Methods and Traits](methods-and-traits.md)
   - [Methods](methods-and-traits/methods.md)
   - [Traits](methods-and-traits/traits.md)
-    - [Implmementing Traits](methods-and-traits/traits/implementing.md)
+    - [Implementing Traits](methods-and-traits/traits/implementing.md)
     - [Supertraits](methods-and-traits/traits/supertraits.md)
     - [Associated Types](methods-and-traits/traits/associated-types.md)
   - [Deriving](methods-and-traits/deriving.md)
