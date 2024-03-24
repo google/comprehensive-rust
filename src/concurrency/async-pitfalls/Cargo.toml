@@ -1,0 +1,24 @@
+[package]
+name = "async-pitfalls"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "async-traits"
+path = "async-traits.rs"
+
+[[bin]]
+name = "cancellation"
+path = "cancellation.rs"
+
+[[bin]]
+name = "pin"
+path = "pin.rs"
+
+[dependencies]
+anyhow = "1.0.81"
+async-trait = "0.1.79"
+futures = { version = "0.3.30", default-features = false }
+reqwest = { version = "0.12.1", default-features = false }
+tokio = { version = "1.36.0", features = ["full"] }
