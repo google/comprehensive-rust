@@ -2,10 +2,10 @@
 minutes: 8
 ---
 
-# `Box<T>`
+# `Box`
 
-[`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) is an owned pointer
-to data on the heap:
+[`Box<T>`](https://doc.rust-lang.org/std/boxed/struct.Box.html) is an owned
+pointer to a `T` on the heap:
 
 ```rust,editable
 fn main() {
@@ -28,8 +28,7 @@ fn main() {
 ```
 
 `Box<T>` implements `Deref<Target = T>`, which means that you can
-[call methods
-from `T` directly on a `Box<T>`](https://doc.rust-lang.org/std/ops/trait.Deref.html#more-on-deref-coercion).
+[call methods from `T` directly](https://doc.rust-lang.org/std/ops/trait.Deref.html#more-on-deref-coercion).
 
 Recursive data types or data types with dynamic sizes need to use a `Box`:
 

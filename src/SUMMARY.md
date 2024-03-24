@@ -140,7 +140,7 @@
   - [Exercise: Builder Type](memory-management/exercise.md)
     - [Solution](memory-management/solution.md)
 - [Smart Pointers](smart-pointers.md)
-  - [`Box<T>`](smart-pointers/box.md)
+  - [`Box`](smart-pointers/box.md)
   - [`Rc`](smart-pointers/rc.md)
   - [Owned Trait Objects](smart-pointers/trait-objects.md)
   - [Exercise: Binary Tree](smart-pointers/exercise.md)
