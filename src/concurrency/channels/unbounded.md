@@ -30,4 +30,17 @@ fn main() {
 }
 ```
 
+<details>
+
+- The channel is called asynchronous because there is no synchronization between
+  sending and receiving.
+- The channel buffers the values. The buffer grows automatically, similar to how
+  a `Vec` grows when you push data to it.
+- The channel takes ownership of the values when you call [`send()`]. This is
+  seen in the signature: it takes `T` by value. You thus lose access to the
+  value you send into a channel.
+
+</details>
+
 [`mpsc::channel()`]: https://doc.rust-lang.org/std/sync/mpsc/fn.channel.html
+[`send()`]: https://doc.rust-lang.org/std/sync/mpsc/struct.Sender.html#method.send
