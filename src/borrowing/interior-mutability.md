@@ -14,6 +14,8 @@ while still ensuring safety, typically by performing a runtime check.
 
 ## `RefCell`
 
+A [`RefCell<T>`] gives you mutable access to a value behind a shared reference:
+
 ```rust,editable
 use std::cell::RefCell;
 
@@ -36,9 +38,9 @@ fn main() {
 
 ## `Cell`
 
-`Cell` wraps a value and allows getting or setting the value, even with a shared
-reference to the `Cell`. However, it does not allow any references to the value.
-Since there are no references, borrowing rules cannot be broken.
+[`Cell<T>`] wraps a `T` value. It allows getting or setting the value, even with
+a shared reference to the `Cell`. However, it does not allow any references to
+the value. Since there are no references, the borrowing rules cannot be broken.
 
 ```rust,editable
 use std::cell::Cell;
@@ -72,3 +74,6 @@ that safety, and `RefCell` and `Cell` are two of them.
   have its own cost.
 
 </details>
+
+[`Cell<T>`]: https://doc.rust-lang.org/std/cell/struct.Cell.html
+[`RefCell<T>`]: https://doc.rust-lang.org/std/cell/struct.RefCell.html
