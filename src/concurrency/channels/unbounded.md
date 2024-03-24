@@ -4,7 +4,7 @@ minutes: 2
 
 # Unbounded Channels
 
-You get an unbounded and asynchronous channel with `mpsc::channel()`:
+You get an unbounded and asynchronous channel with [`mpsc::channel()`]:
 
 ```rust,editable
 use std::sync::mpsc;
@@ -29,3 +29,5 @@ fn main() {
     }
 }
 ```
+
+[`mpsc::channel()`]: https://doc.rust-lang.org/std/sync/mpsc/fn.channel.html
