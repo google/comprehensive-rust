@@ -5,9 +5,9 @@ start at a webpage and check that links on the page are valid. It should
 recursively check other pages on the same domain and keep doing this until all
 pages have been validated.
 
-For this, you will need an HTTP client such as [`reqwest`][1].\
-You will also need a way to find links, we can use [`scraper`][2].\
-Finally, we'll need some way of handling errors, we will use [`thiserror`][3].
+For this, you will need an HTTP client such as [`reqwest`][1]. You will also
+need a way to find links, we can use [`scraper`][2]. Finally, we'll need some
+way of handling errors, we will use [`thiserror`][3].
 
 Create a new Cargo project and `reqwest` it as a dependency with:
 
