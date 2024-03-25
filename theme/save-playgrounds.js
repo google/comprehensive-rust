@@ -23,13 +23,18 @@
     ) {
       let code_block = pre_block.querySelector("code");
       let editor = window.ace.edit(code_block);
-      let code = editor.getValue();
-      codes.push(code);
+      editor.session.on("change", function () {
+        let code = editor.getValue();
+        codes.push(code);
+        localStorage.setItem(
+          `${window.location.href}₹code`,
+          JSON.stringify(codes)
+        );
+      });
     });
-    localStorage.setItem(`${window.location.href}₹code`, JSON.stringify(codes));
   }
   setCodeToPlayground();
-  addEventListener("pagehide", getCodeFromPlayground);
+  getCodeFromPlayground();
 })();
 
 function resetPlaygroundsClicked() {
