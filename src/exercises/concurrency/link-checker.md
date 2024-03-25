@@ -5,30 +5,22 @@ start at a webpage and check that links on the page are valid. It should
 recursively check other pages on the same domain and keep doing this until all
 pages have been validated.
 
-For this, you will need an HTTP client such as [`reqwest`][1]. Create a new
-Cargo project and `reqwest` it as a dependency with:
+For this, you will need an HTTP client such as [`reqwest`][1]. You will also
+need a way to find links, we can use [`scraper`][2]. Finally, we'll need some
+way of handling errors, we will use [`thiserror`][3].
+
+Create a new Cargo project and `reqwest` it as a dependency with:
 
 ```shell
 cargo new link-checker
 cd link-checker
 cargo add --features blocking,rustls-tls reqwest
+cargo add scraper
+cargo add thiserror
 ```
 
 > If `cargo add` fails with `error: no such subcommand`, then please edit the
 > `Cargo.toml` file by hand. Add the dependencies listed below.
-
-You will also need a way to find links. We can use [`scraper`][2] for that:
-
-```shell
-cargo add scraper
-```
-
-Finally, we'll need some way of handling errors. We use [`thiserror`][3] for
-that:
-
-```shell
-cargo add thiserror
-```
 
 The `cargo add` calls will update the `Cargo.toml` file to look like this:
 
