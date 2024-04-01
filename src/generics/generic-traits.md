@@ -41,7 +41,7 @@ fn main() {
   `From<&str>` implementation for `Foo`.
 
 - Generic traits take types as "input", while associated types are a kind of
-  "output type. A trait can have multiple implementations for different input
+  "output" type. A trait can have multiple implementations for different input
   types.
 
 - In fact, Rust requires that at most one implementation of a trait match for
