@@ -36,16 +36,16 @@
 })();
 
 function resetPlaygroundsClicked() {
-    Array.from(document.querySelectorAll(".playground")).forEach(function (
+  Array.from(document.querySelectorAll(".playground")).forEach(function (
     pre_block,
     index
   ) {
     let code_block = pre_block.querySelector("code");
     let editor = window.ace.edit(code_block);
-    editor.setValue(editor.originalCode)
+    editor.setValue(editor.originalCode);
     editor.clearSelection();
   });
-  
+
   let keys = [];
   for (var i = 0, len = localStorage.length; i < len; i++) {
     if (localStorage.key(i).includes("₹")) {
