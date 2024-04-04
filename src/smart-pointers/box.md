@@ -89,34 +89,32 @@ fn main() {
 
 ## Niche Optimization
 
+Though `Box` looks like `std::unique_ptr` in C++, it cannot be empty/null. This
+makes `Box` one of the types that allow the compiler to optimize storage of some
+enums.
+
+For example, `Option<Box<T>>` has the same size, as just `Box<T>`, because
+compiler uses NULL-value to discriminate variants instead of using explicit tag
+(["Null Pointer Optimization"](https://doc.rust-lang.org/std/option/#representation)):
+
 ```rust,editable
-#[derive(Debug)]
-enum List<T> {
-    Element(T, Box<List<T>>),
-    Nil,
-}
+use std::mem::size_of_val;
+
+struct Item(String);
 
 fn main() {
-    let list: List<i32> =
-        List::Element(1, Box::new(List::Element(2, Box::new(List::Nil))));
-    println!("{list:?}");
+    let just_box: Box<Item> = Box::new(Item("Just box".into()));
+    let optional_box: Option<Box<Item>> =
+        Some(Box::new(Item("Optional box".into())));
+    let none: Option<Box<Item>> = None;
+
+    assert_eq!(size_of_val(&just_box), size_of_val(&optional_box));
+    assert_eq!(size_of_val(&just_box), size_of_val(&none));
+
+    println!("Size of just_box: {}", size_of_val(&just_box));
+    println!("Size of optional_box: {}", size_of_val(&optional_box));
+    println!("Size of none: {}", size_of_val(&none));
 }
-```
-
-A `Box` cannot be empty, so the pointer is always valid and non-`null`. This
-allows the compiler to optimize the memory layout:
-
-```bob
- Stack                           Heap
-.- - - - - - - - - - - - - - .     .- - - - - - - - - - - - - -.
-:                            :     :                           :
-:    list                    :     :                           :
-:   +---------+----+----+    :     :    +---------+----+----+  :
-:   | Element | 1  | o--+----+-----+--->| Element | 2  | // |  :
-:   +---------+----+----+    :     :    +---------+----+----+  :
-:                            :     :                           :
-:                            :     :                           :
-'- - - - - - - - - - - - - - '     '- - - - - - - - - - - - - -'
 ```
 
 </details>
