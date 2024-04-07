@@ -1,20 +1,11 @@
 name: Publish
 
 on:
+  pull_request:
   push:
     branches:
       - main
   workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow one concurrent deployment
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 env:
   CARGO_TERM_COLOR: always
@@ -23,10 +14,7 @@ env:
 
 jobs:
   publish:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-64core
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -56,7 +44,3 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: book/html
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
