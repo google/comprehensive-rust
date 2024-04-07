@@ -1,9 +1,10 @@
 # Fearless Concurrency
 
-Rust has great support for concurrency and its powerful type system is able to
-prevent many concurrency bugs at compile time. This is often referred to as
-_fearless concurrency_ since you can rely on the compiler to ensure correctness
-at runtime.
+Rust has great support for concurrency:
+
+- The type system is able to prevent many concurrency bugs at compile time.
+- This is often referred to as _fearless concurrency_. You can refactor without
+  fear of introducing concurrency issues.
 
 <details>
 
