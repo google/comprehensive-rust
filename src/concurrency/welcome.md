@@ -32,3 +32,8 @@ well as concepts such as:
   capture values from their environment.
 - [`Rc`](../smart-pointers/rc.md): we will use a similar type for shared
   ownership.
+
+## Class Format
+
+The class is meant to be very interactive! Please ask questions to drive the
+exploration of Rust!
