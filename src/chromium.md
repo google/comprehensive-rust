@@ -18,3 +18,8 @@ code to connect between Rust and existing Chromium C++ code.
 This course builds on [Rust Fundamentals](welcome-day-1.md) and we expect you
 are familiar with the basics of Rust. You should also be familiar with Chromium
 development.
+
+## Class Format
+
+The class is meant to be very interactive! Please ask questions to drive the
+exploration of Rust!

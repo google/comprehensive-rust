@@ -20,3 +20,8 @@ The class is divided into several parts:
 This course builds on [Rust Fundamentals](welcome-day-1.md) and we expect you
 are familiar with the basics of Rust. You should ideally also have some
 experience with bare-metal programming in some other language such as C.
+
+## Class Format
+
+The class is meant to be very interactive! Please ask questions to drive the
+exploration of Rust!
