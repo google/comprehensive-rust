@@ -159,4 +159,6 @@ jobs:
           path: book/
 
       - name: Test code snippets
+        env:
+          MDBOOK_BOOK__LANGUAGE: ${{ matrix.language }}
         run: mdbook test
