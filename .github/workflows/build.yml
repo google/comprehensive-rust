@@ -11,7 +11,7 @@ env:
 
 jobs:
   format:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -30,7 +30,7 @@ jobs:
         uses: dprint/check@v2.2
 
   typos:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,7 +44,7 @@ jobs:
     strategy:
       matrix:
         os:
-          - ubuntu-latest
+          - ubuntu-22.04-64core
           - macos-latest
     runs-on: ${{ matrix.os }}
     steps:
@@ -61,7 +61,7 @@ jobs:
         run: cargo test
 
   bare-metal:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-16core
     strategy:
       matrix:
         include:
@@ -95,7 +95,7 @@ jobs:
         run: cargo build
 
   find-languages:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     outputs:
       languages: ${{ steps.find-languages.outputs.languages }}
     steps:
@@ -113,7 +113,7 @@ jobs:
           json.dump(sorted(languages), github_output)
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-64core
     needs:
       - find-languages
     strategy:
