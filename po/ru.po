@@ -58,6 +58,8 @@ msgstr "Добро пожаловать"
 
 #: src/SUMMARY.md src/hello-world.md src/types-and-values/hello-world.md
 #, fuzzy
+# There should be two separate keys (or additional context): Hello Rust and Hello, World.
+# And translations should be accordingly: Знакомство с Rust и Привет, мир!
 msgid "Hello, World"
 msgstr "Привет, мир!"
 
@@ -66,36 +68,43 @@ msgid "What is Rust?"
 msgstr "Что такое Rust?"
 
 #: src/SUMMARY.md src/hello-world/benefits.md
+# Alternative translation: Достоинства. I'd rather not use преимущества, as it can be read as advantages over smth else,
+# but we also describe here modern language features (generics, unpacking and other syntax sugar),
+# which other languages have a plenty
 msgid "Benefits of Rust"
-msgstr ""
+msgstr "Сильные стороны"
 
 #: src/SUMMARY.md src/hello-world/playground.md
 msgid "Playground"
-msgstr ""
+msgstr "Песочница"
 
 #: src/SUMMARY.md src/types-and-values.md
 msgid "Types and Values"
-msgstr ""
+msgstr "Типы и значения"
 
 #: src/SUMMARY.md src/types-and-values/variables.md
 msgid "Variables"
-msgstr ""
+msgstr "Переменные"
 
 #: src/SUMMARY.md src/types-and-values/values.md
+# Direct translation is Значения, but section is about Литералы or Литералы значений
 msgid "Values"
-msgstr ""
+msgstr "Литералы"
 
 #: src/SUMMARY.md src/types-and-values/arithmetic.md
+# Операции are chosen over Операторы since description is about how to do simple arithmetics,
+# not the definition of operators
 msgid "Arithmetic"
-msgstr ""
+msgstr "Арифметические операции"
 
 #: src/SUMMARY.md src/types-and-values/inference.md
+# Вывод типов is also possible, but the chosen Выведение типов is less ambiguous
 msgid "Type Inference"
-msgstr ""
+msgstr "Выведение типов"
 
 #: src/SUMMARY.md src/types-and-values/exercise.md
 msgid "Exercise: Fibonacci"
-msgstr ""
+msgstr "Упражнение: Числа Фибоначчи"
 
 #: src/SUMMARY.md src/types-and-values/solution.md
 #: src/control-flow-basics/solution.md src/tuples-and-arrays/solution.md
@@ -108,12 +117,13 @@ msgstr ""
 #: src/testing/solution.md src/error-handling/solution.md
 #: src/unsafe-rust/solution.md
 msgid "Solution"
-msgstr ""
+msgstr "Решение"
 
 #: src/SUMMARY.md src/control-flow-basics.md
 #, fuzzy
+# Управляющие конструкции is used in rust-lang book translation
 msgid "Control Flow Basics"
-msgstr "Поток управления"
+msgstr "Управляющие конструкции"
 
 #: src/SUMMARY.md
 #, fuzzy
@@ -122,31 +132,31 @@ msgstr "Выражение `if`"
 
 #: src/SUMMARY.md src/control-flow-basics/loops.md
 msgid "Loops"
-msgstr ""
+msgstr "Циклы"
 
 #: src/SUMMARY.md src/control-flow-basics/loops/for.md
 msgid "`for`"
-msgstr ""
+msgstr "`for`"
 
 #: src/SUMMARY.md src/control-flow-basics/loops/loop.md
 msgid "`loop`"
-msgstr ""
+msgstr "`loop`"
 
 #: src/SUMMARY.md src/control-flow-basics/break-continue.md
 msgid "`break` and `continue`"
-msgstr ""
+msgstr "`break` и `continue`"
 
 #: src/SUMMARY.md src/control-flow-basics/break-continue/labels.md
 msgid "Labels"
-msgstr ""
+msgstr "Метки"
 
 #: src/SUMMARY.md src/control-flow-basics/blocks-and-scopes.md
 msgid "Blocks and Scopes"
-msgstr ""
+msgstr "Блоки и области видимости"
 
 #: src/SUMMARY.md src/control-flow-basics/blocks-and-scopes/scopes.md
 msgid "Scopes and Shadowing"
-msgstr ""
+msgstr "Области видимости и затенение"
 
 #: src/SUMMARY.md src/control-flow-basics/functions.md
 msgid "Functions"
@@ -154,19 +164,21 @@ msgstr "Функции"
 
 #: src/SUMMARY.md src/control-flow-basics/macros.md
 msgid "Macros"
-msgstr ""
+msgstr "Макросы"
 
 #: src/SUMMARY.md src/control-flow-basics/exercise.md
+# Alternative translation: Сиракузская последовательность - frequently used in Russian sources
 msgid "Exercise: Collatz Sequence"
-msgstr ""
+msgstr "Упражнение: Последовательность Коллатца"
 
 #: src/SUMMARY.md
+# Утро - После обеда provides better schedule context, than Утро - Вторая половина дня
 msgid "Day 1: Afternoon"
-msgstr ""
+msgstr "День 1: После обеда"
 
 #: src/SUMMARY.md src/tuples-and-arrays.md
 msgid "Tuples and Arrays"
-msgstr ""
+msgstr "Кортежи и массивы"
 
 #: src/SUMMARY.md src/tuples-and-arrays/arrays.md
 msgid "Arrays"
@@ -178,16 +190,16 @@ msgstr "Кортежи"
 
 #: src/SUMMARY.md src/tuples-and-arrays/iteration.md
 msgid "Array Iteration"
-msgstr ""
+msgstr "Обход массивов"
 
 #: src/SUMMARY.md src/tuples-and-arrays/destructuring.md
 #, fuzzy
 msgid "Patterns and Destructuring"
-msgstr "Перечисления и сопоставление с образцом."
+msgstr "Деструктуризация"
 
 #: src/SUMMARY.md src/tuples-and-arrays/exercise.md
 msgid "Exercise: Nested Arrays"
-msgstr ""
+msgstr "Упражнение: Вложенные массивы"
 
 #: src/SUMMARY.md src/references.md
 msgid "References"
@@ -195,18 +207,20 @@ msgstr "Ссылки"
 
 #: src/SUMMARY.md src/references/shared.md
 #, fuzzy
+# Section describes borrowing, so that was used as a translation source
 msgid "Shared References"
-msgstr "Ссылки"
+msgstr "Заимствование"
 
 #: src/SUMMARY.md src/references/exclusive.md
 #, fuzzy
+# Section describes mutable borrowing o_O, so: Изменяемые ссылки
 msgid "Exclusive References"
-msgstr "Висячие ссылки"
+msgstr "Изменяемые ссылки"
 
 #: src/SUMMARY.md
 #, fuzzy
 msgid "Slices: `&[T]`"
-msgstr "Срезы"
+msgstr "Срезы: `&[T]`"
 
 #: src/SUMMARY.md src/references/strings.md
 msgid "Strings"
@@ -214,44 +228,46 @@ msgstr "Строки"
 
 #: src/SUMMARY.md src/references/exercise.md
 msgid "Exercise: Geometry"
-msgstr ""
+msgstr "Упражнение: Геометрия"
 
 #: src/SUMMARY.md src/user-defined-types.md
 msgid "User-Defined Types"
-msgstr ""
+msgstr "Определяемые пользователем типы"
 
 #: src/SUMMARY.md src/user-defined-types/named-structs.md
 msgid "Named Structs"
-msgstr ""
+msgstr "Именованные структуры"
 
 #: src/SUMMARY.md src/user-defined-types/tuple-structs.md
 msgid "Tuple Structs"
-msgstr ""
+msgstr "Кортежи"
 
 #: src/SUMMARY.md src/user-defined-types/enums.md
 #: src/pattern-matching/destructuring.md
 msgid "Enums"
-msgstr ""
+msgstr "Перечисления"
 
 #: src/SUMMARY.md
+# Rust documentation calls them Static items, that is why translation is: Статические объекты
 msgid "Static"
-msgstr ""
+msgstr "Статические объекты"
 
 #: src/SUMMARY.md
 msgid "Const"
-msgstr ""
+msgstr "Константы"
 
 #: src/SUMMARY.md src/user-defined-types/aliases.md
 msgid "Type Aliases"
-msgstr ""
+msgstr "Псевдонимы типов"
 
 #: src/SUMMARY.md src/user-defined-types/exercise.md
+# События лифта - weird, События системы управления лифтом - too long, so Управление лифтом was chosen;
 msgid "Exercise: Elevator Events"
-msgstr ""
+msgstr "Упражнение: Управление лифтом"
 
 #: src/SUMMARY.md
 msgid "Day 2: Morning"
-msgstr ""
+msgstr "День 2: Утро"
 
 #: src/SUMMARY.md src/pattern-matching.md
 msgid "Pattern Matching"
@@ -339,7 +355,7 @@ msgstr ""
 
 #: src/SUMMARY.md
 msgid "Day 2: Afternoon"
-msgstr "День 2: Вторая половина дня"
+msgstr "День 2: После обеда"
 
 #: src/SUMMARY.md src/std-types.md
 msgid "Standard Library Types"
@@ -419,7 +435,7 @@ msgstr "Упражнения"
 
 #: src/SUMMARY.md
 msgid "Day 3: Morning"
-msgstr ""
+msgstr "День 3: Утро"
 
 #: src/SUMMARY.md src/memory-management.md
 msgid "Memory Management"
@@ -481,7 +497,7 @@ msgstr ""
 
 #: src/SUMMARY.md
 msgid "Day 3: Afternoon"
-msgstr ""
+msgstr "День 3: После обеда"
 
 #: src/SUMMARY.md src/borrowing.md
 msgid "Borrowing"
@@ -526,7 +542,7 @@ msgstr ""
 #: src/SUMMARY.md
 #, fuzzy
 msgid "Day 4: Morning"
-msgstr "День 1: Утро"
+msgstr "День 4: Утро"
 
 #: src/SUMMARY.md src/iterators.md
 msgid "Iterators"
@@ -591,7 +607,7 @@ msgstr ""
 #: src/SUMMARY.md
 #, fuzzy
 msgid "Day 4: Afternoon"
-msgstr "День 2: Вторая половина дня"
+msgstr "День 4: После обеда"
 
 #: src/SUMMARY.md src/error-handling.md
 msgid "Error Handling"
@@ -965,7 +981,7 @@ msgstr "Упражнения"
 
 #: src/SUMMARY.md
 msgid "Bare Metal: Morning"
-msgstr ""
+msgstr "Bare Metal: Утро"
 
 #: src/SUMMARY.md src/bare-metal/no_std.md
 msgid "`no_std`"
@@ -1030,7 +1046,7 @@ msgstr ""
 
 #: src/SUMMARY.md
 msgid "Bare Metal: Afternoon"
-msgstr ""
+msgstr "Bare Metal: После обеда"
 
 #: src/SUMMARY.md
 msgid "Application Processors"
@@ -1114,7 +1130,7 @@ msgstr ""
 
 #: src/SUMMARY.md
 msgid "Concurrency: Morning"
-msgstr ""
+msgstr "Concurrency: Утро"
 
 #: src/SUMMARY.md src/concurrency/threads.md
 msgid "Threads"
@@ -1181,7 +1197,7 @@ msgstr ""
 
 #: src/SUMMARY.md
 msgid "Concurrency: Afternoon"
-msgstr ""
+msgstr "Concurrency: После обеда"
 
 #: src/SUMMARY.md
 msgid "Async Basics"
