@@ -4836,7 +4836,7 @@ msgstr ""
 
 #: src/welcome-day-2.md
 msgid "Welcome to Day 2"
-msgstr "2 日目のトレーニングにようこそ"
+msgstr "2日目の講座へようこそ"
 
 #: src/welcome-day-2.md
 msgid ""
@@ -4856,7 +4856,7 @@ msgstr "メソッド: 関数と型の関連付け。"
 
 #: src/welcome-day-2.md
 msgid "Traits: behaviors shared by multiple types."
-msgstr "トレイト: 複数の型で共有される行動。"
+msgstr "トレイト: 複数の型で共有される挙動。"
 
 #: src/welcome-day-2.md
 msgid "Generics: parameterizing types on other types."
@@ -4892,7 +4892,7 @@ msgstr "このセッションの所要時間は、10 分間の休憩を入れて
 
 #: src/pattern-matching.md
 msgid "[Destructuring](./pattern-matching/destructuring.md) (10 minutes)"
-msgstr "[分解](./pattern-matching/destructuring.md)（10 分）"
+msgstr "[デストラクト](./pattern-matching/destructuring.md)（10 分）"
 
 #: src/pattern-matching.md
 msgid "[Let Control Flow](./pattern-matching/let-control-flow.md) (10 minutes)"
@@ -4907,7 +4907,7 @@ msgstr "[演習: 式の評価](./pattern-matching/exercise.md)（30 分）"
 
 #: src/pattern-matching/destructuring.md
 msgid "Like tuples, structs and enums can also be destructured by matching:"
-msgstr "タプルと同様に、構造体と列挙型も照合することで分解できます。"
+msgstr "タプルと同様に、構造体と列挙型もパターンマッチによりデストラクトできます。"
 
 #: src/pattern-matching/destructuring.md
 msgid "Structs"
@@ -4952,7 +4952,7 @@ msgid ""
 "arm, `half` is bound to the value inside the `Ok` variant. In the second "
 "arm, `msg` is bound to the error message."
 msgstr ""
-"ここでは、アームを使用して `Result` 値の分解を行っています。最初のアームで"
+"ここでは、アーム（arm, パターンを並べたもの）を使用して `Result` 値の分解を行っています。最初のアームで"
 "は、`half` は `Ok` バリアント内の値にバインドされます。2 つ目のアームでは "
 "`msg` がエラー メッセージにバインドされます。"
 
@@ -4988,7 +4988,7 @@ msgid ""
 "errors when running the code. Point out the places where your code is now "
 "inexhaustive and how the compiler tries to give you hints."
 msgstr ""
-"列挙型の定義に 3 つ目のバリアントを追加し、コード実行時にエラーを表示してみま"
+"列挙型の定義に 3 つ目のバリアント（列挙型の要素のこと）を追加し、コード実行時にエラーを表示してみま"
 "しょう。コードが網羅されていない箇所を示し、コンパイラがどのようにヒントを提"
 "供しようとしているかを説明します。"
 
@@ -5018,10 +5018,10 @@ msgid ""
 msgstr ""
 "`divide_in_two` の結果を `result` 変数に保存し、ループで `match` します。一致"
 "した場合は `msg` が使用されるため、コンパイルされません。これを修正するには、"
-"`result` ではなく `&result` を照合します。これにより、`msg` は参照になるた"
-"め、使用されなくなります。この [「一致エルゴノミクス」](https://rust-lang."
+"`result` ではなく `&result` でマッチします。これにより、`msg` は参照になるた"
+"め、使用されなくなります。この [「マッチエルゴノミクス」](https://rust-lang."
 "github.io/rfcs/2005-match-ergonomics.html) は、Rust 2018 で登場しました。古"
-"い Rust をサポートする場合は、パターン内の `msg` を `ref msg` に置き換えてく"
+"いRustをサポートする場合は、パターン内の`msg`を`ref msg` に置き換えてく"
 "ださい。"
 
 #: src/pattern-matching/let-control-flow.md
@@ -5069,7 +5069,7 @@ msgid ""
 "let_else.html). The \"else\" case must diverge (`return`, `break`, or panic "
 "- anything but falling off the end of the block)."
 msgstr ""
-"パターンを照合して関数から戻るという一般的なケースでは、[`let else`](https://"
+"パターンをマッチして関数から戻るという一般的なケースでは、[`let else`](https://"
 "doc.rust-lang.org/rust-by-example/flow_control/let_else.html) を使用します。"
 "「else」ケースは発散する必要があります（`return`、`break`、パニックなど、ブ"
 "ロックから抜けるもの以外のすべて）。"
@@ -5103,7 +5103,7 @@ msgid ""
 "repeatedly tests a value against a pattern:"
 msgstr ""
 "`if let` に似た [`while let`](https://doc.rust-lang.org/reference/"
-"expressions/loop-expr.html#predicate-pattern-loops) バリアントもあります。こ"
+"expressions/loop-expr.html#predicate-pattern-loops) 派生物もあります。こ"
 "れは、パターンに照らして値をテストします。"
 
 #: src/pattern-matching/let-control-flow.md
@@ -5139,7 +5139,7 @@ msgstr ""
 msgid ""
 "Unlike `match`, `if let` does not support guard clauses for pattern matching."
 msgstr ""
-"`match` とは異なり、`if let` はパターン マッチングでガード句をサポートしてい"
+"`match` とは異なり、`if let` はパターン マッチングでガード節をサポートしてい"
 "ません。"
 
 #: src/pattern-matching/let-control-flow.md
@@ -5152,8 +5152,8 @@ msgid ""
 "flattening this nested code. Rewrite the awkward version for students, so "
 "they can see the transformation."
 msgstr ""
-"次に示すように、`if let` は積み重ねることができます。`let-else` の構成は、こ"
-"のネストされたコードのフラット化をサポートしています。読みづらいバージョンを"
+"次に示すように、`if let` は積み重なってしまうことがあります。`let-else` の構成は、こ"
+"のネストされたコードを平坦にする助けとなります。読みづらいバージョンを"
 "受講者向けに書き直して、受講者が変化を確認できるようにします。"
 
 #: src/pattern-matching/let-control-flow.md
@@ -5178,7 +5178,7 @@ msgid ""
 "statement that breaks when there is no value to unwrap for `name.pop()`. The "
 "`while let` provides syntactic sugar for the above scenario."
 msgstr ""
-"`name.pop()` でラップ解除する値がない場合に中断する if ステートメントを使用し"
+"`name.pop()` でunwrapする値がない場合に中断する if ステートメントを使用し"
 "て、`while let` ループを無限ループに書き換えることができます。`while let` "
 "は、上記のシナリオの糖衣構文として使用できます。"
 
@@ -5193,7 +5193,7 @@ msgid ""
 "tests. To evaluate a boxed expression, use the deref operator (`*`) to "
 "\"unbox\" it: `eval(*boxed_expr)`."
 msgstr ""
-"ここでの `Box` 型はスマート ポインタです。詳細はこのコースで後ほど説明しま"
+"ここでの `Box` 型はスマート ポインタです。詳細はこの講座で後ほど説明しま"
 "す。テストで見られるように、式は `Box::new` で「ボックス化」できます。ボック"
 "ス化された式を評価するには、逆参照演算子（`*`）を使用して「ボックス化解除」し"
 "ます（`eval(*boxed_expr)`）。"
@@ -5269,9 +5269,8 @@ msgid "[Deriving](./methods-and-traits/deriving.md) (5 minutes)"
 msgstr "[導出](./methods-and-train/deriving.md)（5 分）"
 
 #: src/methods-and-traits.md
-#, fuzzy
 msgid "[Trait Objects](./methods-and-traits/trait-objects.md) (10 minutes)"
-msgstr "[トレイト](./methods-and-features/train.md)（10 分）"
+msgstr "[トレイトオブジェクト](./methods-and-features/train.md)（10 分）"
 
 #: src/methods-and-traits.md
 msgid ""
@@ -5359,7 +5358,7 @@ msgid ""
 msgstr ""
 "`self`: オブジェクトの所有権を取得し、呼び出し元から遠ざけます。メソッドがオ"
 "ブジェクトの所有者になります。所有権が明示的に送信されない限り、メソッドが戻"
-"ると、オブジェクトは破棄（割り当て解除）されます。完全な所有権は、必ずしも可"
+"ると、オブジェクトは破棄（デアロケート）されます。完全な所有権は、必ずしも可"
 "変性を意味するわけではありません。"
 
 #: src/methods-and-traits/methods.md
@@ -5528,11 +5527,11 @@ msgstr ""
 "用して、構造体のシリアル化のサポートを導出できます。"
 
 #: src/methods-and-traits/trait-objects.md
-#, fuzzy
 msgid ""
 "Trait objects allow for values of different types, for instance in a "
 "collection:"
-msgstr "タプルは、異なる型の値を複合型にグループ化します。"
+msgstr "トレイトオブジェクトは異なる型の値をひとつのコレクションにまとめることを可能"
+"にします："
 
 #: src/methods-and-traits/trait-objects.md
 msgid "\"Hello, who are you? {}\""
@@ -5731,9 +5730,9 @@ msgid ""
 "In testing, this might put messages in the test logfile, while in a "
 "production build it would send messages to a log server."
 msgstr ""
-"トレイト `Logger` と `log` メソッドを使用して、シンプルなロギング ユーティリ"
+"トレイト `Logger` と `log` メソッドを使用して、シンプルなロギングユーティリ"
 "ティを設計してみましょう。進行状況をログに記録するコードは、その後に `&impl "
-"Logger` を受け取ることができます。この場合、テストではテスト ログファイルに"
+"Logger` を受け取ることができます。この場合、テストではテストログファイルに"
 "メッセージが書き込まれますが、本番環境ビルドではログサーバーにメッセージが送"
 "信されます。"
 
@@ -5743,7 +5742,7 @@ msgid ""
 "verbosity. Your task is to write a `VerbosityFilter` type that will ignore "
 "messages above a maximum verbosity."
 msgstr ""
-"ただし、以下の `StderrLogger` は、詳細度に関係なく、すべてのメッセージをログ"
+"ただし、以下の `StderrLogger` は、詳細度(verbosity)に関係なく、すべてのメッセージをログ"
 "に記録します。ここでのタスクは、最大の詳細度を超えるメッセージを無視する "
 "`VerbosityFilter` 型を作成することです。"
 
@@ -5754,7 +5753,7 @@ msgid ""
 "kinds of wrappers might be useful in a logging utility?"
 msgstr ""
 "これは一般的なパターンです。つまり、トレイト実装をラップして同じトレイトを実"
-"装し、プロセスに動作を追加する構造体です。ロギング ユーティリティでは他にどの"
+"装し、その過程で挙動を追加していく構造体です。ロギングユーティリティでは他にどの"
 "ような種類のラッパーが役立つでしょうか。"
 
 #: src/methods-and-traits/exercise.md src/methods-and-traits/solution.md
@@ -5945,7 +5944,7 @@ msgstr "そうしたことは`T: Trait` や `impl Trait`を用いて行えます
 
 #: src/generics/trait-bounds.md
 msgid "// struct NotClonable;\n"
-msgstr "// 構造体 NotClonable;\n"
+msgstr "// struct NotClonable;\n"
 
 #: src/generics/trait-bounds.md
 msgid "\"{pair:?}\""
@@ -5988,7 +5987,7 @@ msgid ""
 "Note that Rust does not (yet) support specialization. For example, given the "
 "original `duplicate`, it is invalid to add a specialized `duplicate(a: u32)`."
 msgstr ""
-"なお、Rust はまだ特化をサポートしていません。たとえば、元の `duplicate` があ"
+"なお、Rust はまだ特化(specialization)をサポートしていません。たとえば、元の `duplicate` があ"
 "る場合は、特化された `duplicate(a: u32)` を追加することはできません。"
 
 #: src/generics/impl-trait.md
@@ -6004,7 +6003,7 @@ msgid ""
 "// Syntactic sugar for:\n"
 "//   fn add_42_millions<T: Into<i32>>(x: T) -> i32 {\n"
 msgstr ""
-"// 糖衣構文:\n"
+"// 以下の糖衣構文:\n"
 "//   fn add_42_millions<T: Into<i32>>(x: T) -> i32 {\n"
 
 #: src/generics/impl-trait.md
@@ -6110,15 +6109,15 @@ msgstr "[ドキュメント](./std-types/docs.md)（5 分）"
 
 #: src/std-types.md
 msgid "[Option](./std-types/option.md) (10 minutes)"
-msgstr "[オプション](./std-types/option.md)（10 分）"
+msgstr "[Option](./std-types/option.md)（10 分）"
 
 #: src/std-types.md
 msgid "[Result](./std-types/result.md) (10 minutes)"
-msgstr "[結果](./std-types/result.md)（10 分）"
+msgstr "[Result](./std-types/result.md)（10 分）"
 
 #: src/std-types.md
 msgid "[String](./std-types/string.md) (10 minutes)"
-msgstr "[文字列](./std-types/string.md)（10 分）"
+msgstr "[String](./std-types/string.md)（10 分）"
 
 #: src/std-types.md
 msgid "[Vec](./std-types/vec.md) (10 minutes)"
@@ -6176,7 +6175,7 @@ msgid ""
 "`alloc` includes types which require a global heap allocator, such as `Vec`, "
 "`Box` and `Arc`."
 msgstr ""
-"`alloc` には、`Vec`、`Box`、`Arc` など、グローバル ヒープ アロケータを必要と"
+"`alloc` には、`Vec`、`Box`、`Arc` など、グローバルヒープアロケータを必要と"
 "する型が含まれます。"
 
 #: src/std-types/std.md
@@ -6219,7 +6218,7 @@ msgstr ""
 
 #: src/std-types/docs.md
 msgid "In fact, you can document your own code:"
-msgstr "実際、独自のコードを文書化できます。"
+msgstr "実際、独自のコードにドキュメントをつけることができます。"
 
 #: src/std-types/docs.md
 msgid ""
@@ -6241,8 +6240,8 @@ msgid ""
 msgstr ""
 "コンテンツはマークダウンとして扱われます。公開されたすべての Rust ライブラリ "
 "クレートは、[rustdoc](https://doc.rust-lang.org/rustdoc/what-is-rustdoc."
-"html) ツールを使用して、[`docs.rs`](https://docs.rs) で自動的に文書化されま"
-"す。このパターンを使用して、すべての公開アイテムを API で文書化するのが慣用的"
+"html) ツールを使用して、[`docs.rs`](https://docs.rs) で自動的にドキュメントがまとめられま"
+"す。このパターンを使用して、すべての公開アイテムを API でドキュメント化するのが慣用的"
 "です。"
 
 #: src/std-types/docs.md
@@ -6250,7 +6249,7 @@ msgid ""
 "To document an item from inside the item (such as inside a module), use `//!"
 "` or `/*! .. */`, called \"inner doc comments\":"
 msgstr ""
-"アイテム内（モジュール内など）からアイテムを文書化するには、「内部ドキュメン"
+"アイテム内（モジュール内など）からアイテムをドキュメント化するには、「内部ドキュメン"
 "トのコメント」と呼ばれる `//!` または `/*! .. */` を使用します。"
 
 #: src/std-types/docs.md
@@ -6313,7 +6312,7 @@ msgid ""
 "but takes an error message."
 msgstr ""
 "`unwrap` は `Option` 内の値を返すか、パニックになります。`expect` も同様です"
-"が、エラー メッセージを受け取ります。"
+"が、エラーメッセージを受け取ります。"
 
 #: src/std-types/option.md
 msgid ""
@@ -6341,7 +6340,7 @@ msgstr ""
 
 #: src/std-types/result.md
 msgid "Result"
-msgstr "結果"
+msgstr "Result"
 
 #: src/std-types/result.md
 msgid ""
@@ -6389,7 +6388,7 @@ msgid ""
 "is worth mentioning. It contains a lot of convenience methods and functions "
 "that help functional-style programming."
 msgstr ""
-"`Result` のドキュメントを読むことをすすめましょう。このコースでは取り上げませ"
+"`Result` のドキュメントを読むことをすすめましょう。この講座では取り上げませ"
 "んが、言及する価値があります。このドキュメントには、関数型プログラミングに役"
 "立つ便利なメソッドや関数が多数含まれています。"
 
