@@ -7,3 +7,8 @@ runs:
   steps:
     - name: Setup Rust cache
       uses: Swatinem/rust-cache@v2
+      with:
+        # Only save the cache on the main branch to avoid PRs filling
+        # up the cache. Further, only save it if we are working on the
+        # English source (or if no language has been set).
+        save-if: ${{ github.ref == 'refs/heads/main' && (matrix.language == 'en' || matrix.language == '') }}
