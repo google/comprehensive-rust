@@ -6531,8 +6531,7 @@ msgid ""
 "To a character by using `s3.chars().nth(i).unwrap()` where `i` is in-bound, "
 "out-of-bounds."
 msgstr ""
-"文字には `s3.chars().nth(i).unwrap()` を使用します。ここで `i` は境界外のイン"
-"バウンドを示します。"
+"文字には `s3.chars().nth(i).unwrap()` を使用します。ここで `i` は境界内の場合や境界外の場合を表します。"
 
 #: src/std-types/string.md
 msgid ""
@@ -6628,7 +6627,7 @@ msgid ""
 "value of type `Vec` gives access to all of the documented slice methods, too."
 msgstr ""
 "スライスについては 3 日目に説明します。受講者は現時点では、型 `Vec` の値によ"
-"り、文書化されたすべてのスライス メソッドにアクセスできることだけを知っていれ"
+"り、ドキュメントに記されたすべてのスライスメソッドにアクセスできることだけを知っていれ"
 "ば十分です。"
 
 #: src/std-types/hashmap.md
@@ -6843,7 +6842,7 @@ msgstr "[読み取りと書き込み](./std-train/read-and-write.md)（10 分）
 
 #: src/std-traits.md
 msgid "[Default, struct update syntax](./std-traits/default.md) (5 minutes)"
-msgstr "[Default、構造体更新構文](./std-lets/default.md)（5 分）"
+msgstr "[Default、構造体更新記法](./std-lets/default.md)（5 分）"
 
 #: src/std-traits.md
 msgid "[Closures](./std-traits/closures.md) (20 minutes)"
@@ -6894,7 +6893,7 @@ msgid ""
 "and implies `PartialEq`. Functions that require full equivalence will use "
 "`Eq` as a trait bound."
 msgstr ""
-"`Eq` は完全な等価関係（再帰的、対称的、推移的）であり、`PartialEq` を意味しま"
+"`Eq` は完全な等価関係（反射的、対称的、推移的）であり、`PartialEq` を意味しま"
 "す。完全な等価関係を必要とする関数は、トレイト境界として `Eq` を使用します。"
 
 #: src/std-traits/comparisons.md
@@ -6918,7 +6917,7 @@ msgid ""
 "`PartialEq` can be implemented between different types, but `Eq` cannot, "
 "because it is reflexive:"
 msgstr ""
-"`PartialEq` は異なる型の間で実装できますが、`Eq` は再帰的であるため、実装でき"
+"`PartialEq` は異なる型の間で実装できますが、`Eq` は反射的であるため、実装でき"
 "ません。"
 
 #: src/std-traits/comparisons.md
@@ -6959,14 +6958,14 @@ msgid ""
 msgstr ""
 "回答: `Add:add` は `self` を使用します。演算子をオーバーロードする型 `T` が "
 "`Copy` でない場合は、`&T` の演算子もオーバーロードすることを検討する必要があ"
-"ります。これにより、コールサイトでの不要なクローン作成を回避できます。"
+"ります。これにより、呼び出し箇所での不要なクローン作成を回避できます。"
 
 #: src/std-traits/operators.md
 msgid ""
 "Why is `Output` an associated type? Could it be made a type parameter of the "
 "method?"
 msgstr ""
-"`Output` が関連する型であるのはなぜですか？これをメソッドの型パラメータにでき"
+"`Output` が関連型であるのはなぜですか？これをメソッドの型パラメータにでき"
 "るでしょうか？"
 
 #: src/std-traits/operators.md
@@ -6975,7 +6974,7 @@ msgid ""
 "associated types (like `Output`) are controlled by the implementer of a "
 "trait."
 msgstr ""
-"短い回答: 関数型のパラメータは呼び出し元によって制御されますが、関連する型"
+"短い回答: 関数型のパラメータは呼び出し元によって制御されますが、関連型"
 "（`Output` など）はトレイトの実装者によって制御されます。"
 
 #: src/std-traits/operators.md
@@ -7027,14 +7026,14 @@ msgid ""
 msgstr ""
 "「`String` に変換できるすべて」のような関数引数の入力型を宣言する場合、この"
 "ルールは逆となり、`Into`を使用する必要があります。関数は、`From` を実装する型"
-"と、`Into` のみを実装する型を受け入れます。"
+"と、`Into` _のみ_ を実装する型を受け入れます。"
 
 #: src/std-traits/casting.md
 msgid ""
 "Rust has no _implicit_ type conversions, but does support explicit casts "
 "with `as`. These generally follow C semantics where those are defined."
 msgstr ""
-"Rust には暗黙的な型変換はありませんが、`as` による明示的なキャストはサポート"
+"Rust には _暗黙的_ な型変換はありませんが、`as` による明示的なキャストはサポート"
 "されています。これらのキャストは通常、それらが定義されている C セマンティクス"
 "に従います。"
 
@@ -7056,8 +7055,8 @@ msgid ""
 "platforms. This might not match your intuition for changing sign or casting "
 "to a smaller type -- check the docs, and comment for clarity."
 msgstr ""
-"`as` の結果は Rust で常に定義され、プラットフォーム間で一貫しています。これ"
-"は、署名を変更したり、より小さな型にキャストしたりする際に得られる直感に反し"
+"`as` の結果は Rust で _常に_ 定義され、プラットフォーム間で一貫しています。これ"
+"は、正負の符号を変えたり、より小さな型にキャストしたりする際に得られる直感に反し"
 "ているかもしれません。ドキュメントを確認し、明確にするためにコメントを記述し"
 "てください。"
 
