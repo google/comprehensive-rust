@@ -13,6 +13,9 @@ We can now understand the two string types in Rust:
 - `&str` is a slice of UTF-8 encoded bytes, similar to `&[u8]`.
 - `String` is an owned, heap-allocated buffer of UTF-8 bytes.
 
+<!-- Avoid using fixed integers when slicing since this breaks
+translations. Using the length of s1 and s2 is safe. -->
+
 ```rust,editable
 fn main() {
     let s1: &str = "World";
@@ -23,7 +26,7 @@ fn main() {
     s2.push_str(s1);
     println!("s2: {s2}");
 
-    let s3: &str = &s2[6..];
+    let s3: &str = &s2[s2.len() - s1.len()..];
     println!("s3: {s3}");
 }
 ```
