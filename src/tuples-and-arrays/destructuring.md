@@ -2,44 +2,41 @@
 minutes: 5
 ---
 
-# Destructuring
+# Patterns and Destructuring
 
-Destructuring is a way of extracting data from a data structure by writing a
-pattern that is matched up to the data structure, binding variables to
-subcomponents of the data structure.
-
-You can destructure tuples and arrays by matching on their elements:
-
-## Tuples
+When working with tuples and other structured values it's common to want to
+extract the inner values into local variables. This can be done manually by
+directly accessing the inner values:
 
 ```rust,editable
-fn main() {
-    describe_point((1, 0));
-}
-
-fn describe_point(point: (i32, i32)) {
-    match point {
-        (0, _) => println!("on Y axis"),
-        (_, 0) => println!("on X axis"),
-        (x, _) if x < 0 => println!("left of Y axis"),
-        (_, y) if y < 0 => println!("below X axis"),
-        _ => println!("first quadrant"),
-    }
+fn print_tuple(tuple: (i32, i32)) {
+    let left = tuple.0;
+    let right = tuple.1;
+    println!("left: {left}, right: {right}");
 }
 ```
 
-## Arrays
+However, Rust also supports using pattern matching to destructure a larger value
+into its constituent parts:
 
 ```rust,editable
-{{#include ../../third_party/rust-by-example/destructuring-arrays.rs}}
+fn print_tuple(tuple: (i32, i32)) {
+    let (left, right) = tuple;
+    println!("left: {left}, right: {right}");
+}
 ```
 
 <details>
 
-- Create a new array pattern using `_` to represent an element.
-- Add more values to the array.
-- Point out that how `..` will expand to account for different number of
-  elements.
-- Show matching against the tail with patterns `[.., b]` and `[a@..,b]`
+- The patterns used here are "irrefutable", meaning that the compiler can
+  statically verify that the value on the right of `=` has the same structure as
+  the pattern.
+- A variable name is an irrefutable pattern that always matches any value, hence
+  why we can also use `let` to declare a single variable.
+- Rust also supports using patterns in conditionals, allowing for equality
+  comparison and destructuring to happen at the same time. This form of pattern
+  matching will be discussed in more detail later.
+- Edit the examples above to show the compiler error when the pattern doesn't
+  match the value being matched on.
 
 </details>

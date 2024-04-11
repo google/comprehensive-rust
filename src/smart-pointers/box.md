@@ -74,48 +74,47 @@ fn main() {
     so only the pointer is moved.
 
 - If `Box` was not used and we attempted to embed a `List` directly into the
-  `List`, the compiler would not compute a fixed size of the struct in memory
-  (`List` would be of infinite size).
+  `List`, the compiler would not be able to compute a fixed size for the struct
+  in memory (the `List` would be of infinite size).
 
 - `Box` solves this problem as it has the same size as a regular pointer and
   just points at the next element of the `List` in the heap.
 
-- Remove the `Box` in the List definition and show the compiler error.
-  "Recursive with indirection" is a hint you might want to use a Box or
-  reference of some kind, instead of storing a value directly.
+- Remove the `Box` in the List definition and show the compiler error. We get
+  the message "recursive without indirection", because for data recursion, we
+  have to use indirection, a `Box` or reference of some kind, instead of storing
+  the value directly.
 
 # More to Explore
 
 ## Niche Optimization
 
+Though `Box` looks like `std::unique_ptr` in C++, it cannot be empty/null. This
+makes `Box` one of the types that allow the compiler to optimize storage of some
+enums.
+
+For example, `Option<Box<T>>` has the same size, as just `Box<T>`, because
+compiler uses NULL-value to discriminate variants instead of using explicit tag
+(["Null Pointer Optimization"](https://doc.rust-lang.org/std/option/#representation)):
+
 ```rust,editable
-#[derive(Debug)]
-enum List<T> {
-    Element(T, Box<List<T>>),
-    Nil,
-}
+use std::mem::size_of_val;
+
+struct Item(String);
 
 fn main() {
-    let list: List<i32> =
-        List::Element(1, Box::new(List::Element(2, Box::new(List::Nil))));
-    println!("{list:?}");
+    let just_box: Box<Item> = Box::new(Item("Just box".into()));
+    let optional_box: Option<Box<Item>> =
+        Some(Box::new(Item("Optional box".into())));
+    let none: Option<Box<Item>> = None;
+
+    assert_eq!(size_of_val(&just_box), size_of_val(&optional_box));
+    assert_eq!(size_of_val(&just_box), size_of_val(&none));
+
+    println!("Size of just_box: {}", size_of_val(&just_box));
+    println!("Size of optional_box: {}", size_of_val(&optional_box));
+    println!("Size of none: {}", size_of_val(&none));
 }
-```
-
-A `Box` cannot be empty, so the pointer is always valid and non-`null`. This
-allows the compiler to optimize the memory layout:
-
-```bob
- Stack                           Heap
-.- - - - - - - - - - - - - - .     .- - - - - - - - - - - - - -.
-:                            :     :                           :
-:    list                    :     :                           :
-:   +---------+----+----+    :     :    +---------+----+----+  :
-:   | Element | 1  | o--+----+-----+--->| Element | 2  | // |  :
-:   +---------+----+----+    :     :    +---------+----+----+  :
-:                            :     :                           :
-:                            :     :                           :
-'- - - - - - - - - - - - - - '     '- - - - - - - - - - - - - -'
 ```
 
 </details>

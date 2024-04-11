@@ -1,0 +1,35 @@
+# Based on https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
+name: Generate Course Schedule
+
+on:
+  pull_request:
+    paths:
+      - "src/**.md"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Rust cache
+        uses: ./.github/workflows/setup-rust-cache
+
+      - name: Generate Schedule
+        run: |
+          mkdir -p ./course-schedule
+          cargo run -p mdbook-course --bin course-schedule > course-schedule/schedule
+
+          # GitHub does not provide a reliable way to determine the PR number from which
+          # a workflow_run was triggered (https://github.com/orgs/community/discussions/25220),
+          # so we'll do the slightly awkward thing and put that in the artifact. This means
+          # schedules could potentially be spammed to any PR in the repository, but that is
+          # not an awful outcome (and clear, reportable evidence of abuse).
+          echo ${{ github.event.number }} > ./course-schedule/pr-number
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: course-schedule
+          path: course-schedule/

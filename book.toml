@@ -22,15 +22,9 @@ class = "bob"
 [preprocessor.course]
 verbose = false # Report timing information.
 
-# Enable this preprocessor to overlay a large red rectangle on the
-# pages. This will show you an estimate of what the course
-# participants can see during the presentation.
-#
-# [preprocessor.aspect-ratio-helper]
-# command = "./aspect-ratio-helper.py"
-
 [output.pandoc]
 optional = true
+hosted-html = "https://google.github.io/comprehensive-rust/"
 
 [output.pandoc.profile.pdf]
 output-file = "comprehensive-rust.pdf"
@@ -40,15 +34,24 @@ pdf-engine = "lualatex"
 mainfont = "Noto Serif"
 sansfont = "Noto Sans"
 monofont = "Noto Sans Mono"
+mainfontfallback = ["NotoColorEmoji:mode=harf"]
+monofontfallback = [
+  "NotoColorEmoji:mode=harf",
+  "NotoSansMath:",
+  "NotoSansMonoCJKSC:",
+]
 geometry = ["margin=1.25in"]
 linkcolor = "blue"
 urlcolor = "red"
 
 [output.html]
 curly-quotes = true
-additional-js = ["theme/speaker-notes.js"]
+additional-js = [
+  "theme/speaker-notes.js",
+]
 additional-css = [
   "theme/css/svgbob.css",
+  "theme/css/redbox.css",
   "theme/css/speaker-notes.css",
   "theme/css/language-picker.css",
   "theme/css/rtl.css",
@@ -68,16 +71,79 @@ line-numbers = true
 [output.html.search]
 use-boolean-and = true
 
-[output.html.redirect]
 # Redirects in the form of "old-path" = "new-path", where the new path
 # is relative to the old path.
+#
+# Please keep the table sorted and avoid multi-step redirects.
+[output.html.redirect]
+"tuples-and-arrays/tuples-and-arrays.html" = "tuples.html"
 "async/concurrency/channels.html" = "../channels.html"
 "async/pitfall/async-traits.html" = "../pitfalls/async-traits.html"
+"basic-syntax.html" = "control-flow-basics.html"
+"basic-syntax/compound-types.html" = "../tuples-and-arrays/tuples-and-arrays.html"
+"basic-syntax/functions-interlude.html" = "../control-flow-basics/functions.html"
+"basic-syntax/functions.html" = "../control-flow-basics/functions.html"
+"basic-syntax/methods.html" = "../control-flow-basics/functions.html"
+"basic-syntax/references-dangling.html" = "../references/shared.html"
+"basic-syntax/references.html" = "../references/shared.html"
+"basic-syntax/rustdoc.html" = "../std-types/docs.html"
+"basic-syntax/scalar-types.html" = "../types-and-values/values.html"
+"basic-syntax/scopes-shadowing.html" = "../control-flow-basics/blocks-and-scopes.html"
+"basic-syntax/slices.html" = "../references/slices.html"
+"basic-syntax/static-and-const.html" = "../unsafe-rust/static-and-const.html"
+"basic-syntax/string-slices.html" = "../references/strings.html"
+"basic-syntax/type-inference.html" = "../types-and-values/inference.html"
+"basic-syntax/variables.html" = "../types-and-values/variables.html"
+"control-flow-basics/conditionals.html" = "if.html"
+"control-flow.html" = "control-flow-basics.html"
+"control-flow/blocks.html" = "../control-flow-basics/blocks-and-scopes.html"
+"control-flow/break-continue.html" = "../control-flow-basics/break-continue.html"
+"control-flow/for-expressions.html" = "../control-flow-basics/loops.html"
+"control-flow/if-expressions.html" = "../control-flow-basics/conditionals.html"
+"control-flow/if-let-expressions.html" = "../pattern-matching/let-control-flow.html"
+"control-flow/loop-expressions.html" = "../control-flow-basics/loops.html"
+"control-flow/match-expressions.html" = "../tuples-and-arrays/match.html"
+"control-flow/novel.html" = "../pattern-matching/let-control-flow.html"
+"control-flow/while-expressions.html" = "../control-flow-basics/loops.html"
 "control-flow/while-let-expression.html" = "while-let-expressions.html"
+"control-flow/while-let-expressions.html" = "../pattern-matching/let-control-flow.html"
+"enums.html" = "user-defined-types/enums.html"
+"enums/sizes.html" = "../user-defined-types/enums.html"
+"enums/variant-payloads.html" = "../user-defined-types/enums.html"
+"error-handling/converting-error-types-example.html" = "../error-handling/try-conversions.html"
+"error-handling/converting-error-types.html" = "../error-handling/try-conversions.html"
+"error-handling/deriving-error-enums.html" = "../error-handling/error.html"
+"error-handling/dynamic-errors.html" = "../error-handling/thiserror-and-anyhow.html"
+"error-handling/error-contexts.html" = "../error-handling/thiserror-and-anyhow.html"
+"error-handling/panic-unwind.html" = "../error-handling/panics.html"
+"error-handling/result.html" = "../std-types/result.html"
+"error-handling/try-operator.html" = "../error-handling/try.html"
+"exercises/concurrency/elevator.html" = "chat-app.html"
+"exercises/day-1/afternoon.html" = "../../control-flow-basics/exercise.html"
+"exercises/day-1/book-library.html" = "../day-2/book-library.html"
+"exercises/day-1/for-loops.html" = "../../tuples-and-arrays/exercise.html"
+"exercises/day-1/implicit-conversions.html" = "../../std-traits/exercise.html"
+"exercises/day-1/iterators-and-ownership.html" = "../day-2/iterators-and-ownership.html"
+"exercises/day-1/luhn.html" = "../../testing/exercise.html"
+"exercises/day-1/morning.html" = "../../control-flow-basics/exercise.html"
+"exercises/day-1/pattern-matching.html" = "../../user-defined-types/exercise.html"
 "exercises/day-1/soluções-tarde.html" = "solutions-afternoon.html"
+"exercises/day-2/afternoon.html" = "../../control-flow-basics/exercise.html"
+"exercises/day-2/book-library.html" = "../../std-types/exercise.html"
+"exercises/day-2/health-statistics.html" = "../../borrowing/exercise.html"
+"exercises/day-2/iterators-and-ownership.html" = "../../iterators/intoiterator.html"
+"exercises/day-2/luhn.html" = "../day-1/luhn.html"
+"exercises/day-2/morning.html" = "../../control-flow-basics/exercise.html"
+"exercises/day-2/points-polygons.html" = "../day-3/points-polygons.html"
 "exercises/day-2/soluções-tarde.html" = "solutions-afternoon.html"
-"exercises/day-3/soluções-tarde.html" = "solutions-afternoon.html"
+"exercises/day-2/strings-iterators.html" = "../../iterators/exercise.html"
+"exercises/day-3/afternoon.html" = "../../control-flow-basics/exercise.html"
+"exercises/day-3/morning.html" = "../../control-flow-basics/exercise.html"
+"exercises/day-3/points-polygons.html" = "../../references/exercise.html"
+"exercises/day-3/safe-ffi-wrapper.html" = "../../unsafe-rust/exercise.html"
+"exercises/day-3/simple-gui.html" = "../../methods-and-traits/exercise.html"
 "exercises/day-3/simples-gui.html" = "simple-gui.html"
+"exercises/day-3/soluções-tarde.html" = "solutions-afternoon.html"
 "exercises/day-4/afternoon.html" = "../android/morning.html"
 "exercises/day-4/android.html" = "../android/morning.html"
 "exercises/day-4/dining-philosophers.html" = "../concurrency/dining-philosophers.html"
@@ -85,153 +151,103 @@ use-boolean-and = true
 "exercises/day-4/link-checker.html" = "../concurrency/link-checker.html"
 "exercises/day-4/morning.html" = "../concurrency/morning.html"
 "exercises/day-4/solutions-morning.html" = "../concurrency/solutions-morning.html"
-"exercises/concurrency/elevator.html" = "chat-app.html"
 "generics/closures.html" = "../traits/closures.html"
+"generics/data-types.html" = "../generics/generic-data.html"
+"generics/methods.html" = "../generics/generic-data.html"
+"generics/monomorphization.html" = "../generics/generic-functions.html"
 "generics/trait-objects.html" = "../traits/trait-objects.html"
 "hello-world/basic-syntax/functions-interlude.html" = "../../control-flow-basics/functions.html"
+"hello-world/hello-world.html" = "../types-and-values/hello-world.html"
+"memory-management/manual.html" = "../memory-management/approaches.html"
+"memory-management/rust.html" = "../memory-management/ownership.html"
+"memory-management/scope-based.html" = "../memory-management/approaches.html"
+"memory-management/stack-vs-heap.html" = "../memory-management/review.html"
+"memory-management/stack.html" = "../memory-management/review.html"
+"methods-and-traits/trait-objects.html" = "../smart-pointers/trait-objects.html"
+"methods.html" = "methods-and-traits/methods.html"
+"methods/example.html" = "../methods-and-traits/methods.html"
+"methods/receiver.html" = "../methods-and-traits/methods.html"
 "outros-recursos.html" = "other-resources.html"
+"ownership.html" = "memory-management/ownership.html"
+"ownership/borrowing.html" = "../borrowing/shared.html"
+"ownership/copy-clone.html" = "../memory-management/copy-types.html"
+"ownership/double-free-modern-cpp.html" = "../memory-management/move.html"
+"ownership/lifetimes-data-structures.html" = "../lifetimes/struct-lifetimes.html"
+"ownership/lifetimes-function-calls.html" = "../lifetimes/lifetime-elision.html"
+"ownership/lifetimes.html" = "../lifetimes/lifetime-annotations.html"
+"ownership/move-semantics.html" = "../memory-management/move.html"
+"ownership/moved-strings-rust.html" = "../memory-management/move.html"
+"ownership/moves-function-calls.html" = "../memory-management/move.html"
+"ownership/shared-unique-borrows.html" = "../borrowing/shared.html"
+"pattern-matching/destructuring-arrays.html" = "../tuples-and-arrays/destructuring.html"
+"pattern-matching/destructuring-enums.html" = "../pattern-matching/destructuring.html"
+"pattern-matching/destructuring-structs.html" = "../pattern-matching/destructuring.html"
+"pattern-matching/match-guards.html" = "../tuples-and-arrays/match.html"
 "running-the-course/day-4.html" = "course-structure.html"
 "sintaxe-básica/funções-interlude.html" = "../basic-syntax/functions-interlude.html"
+"slices-and-lifetimes.html" = "lifetimes.html"
+"slices-and-lifetimes/exercise.html" = "../lifetimes/exercise.html"
+"slices-and-lifetimes/lifetime-annotations.html" = "../lifetimes/lifetime-annotations.html"
+"slices-and-lifetimes/lifetime-elision.html" = "../lifetimes/lifetime-elision.html"
+"slices-and-lifetimes/slices.html" = "../references/slices.html"
+"slices-and-lifetimes/solution.html" = "../lifetimes/solution.html"
+"slices-and-lifetimes/str.html" = "../references/strings.html"
+"slices-and-lifetimes/struct-lifetimes.html" = "../lifetimes/struct-lifetimes.html"
+"std.html" = "std-types/std.html"
+"std/box-niche.html" = "../smart-pointers/box.html"
+"std/box-recursive.html" = "../smart-pointers/box.html"
+"std/box.html" = "../smart-pointers/box.html"
+"std/cell.html" = "../borrowing/interior-mutability.html"
+"std/hashmap.html" = "../std-types/hashmap.html"
+"std/option-result.html" = "../std-types/option.html"
+"std/rc.html" = "../smart-pointers/rc.html"
+"std/string.html" = "../std-types/string.html"
+"std/vec.html" = "../std-types/vec.html"
+"structs.html" = "user-defined-types/named-structs.html"
+"structs/field-shorthand.html" = "../user-defined-types/named-structs.html"
+"structs/tuple-structs.html" = "../user-defined-types/tuple-structs.html"
 "structure.html" = "running-the-course/course-structure.html"
+"testing/doc-tests.html" = "../testing/other.html"
+"testing/googletest.html" = "../android/testing/googletest.html"
+"testing/integration-tests.html" = "../testing/other.html"
+"testing/mockall.html" = "../android/testing/mockall.html"
+"testing/useful-crates.html" = "../testing.html"
+"traits.html" = "methods-and-traits/traits.html"
+"traits/closures.html" = "../std-traits/closures.html"
+"traits/default-methods.html" = "../methods-and-traits/traits.html"
+"traits/default.html" = "../std-traits/default.html"
+"traits/deriving-traits.html" = "../methods-and-traits/deriving.html"
+"traits/drop.html" = "../memory-management/drop.html"
+"traits/from-into.html" = "../std-traits/from-and-into.html"
+"traits/from-iterator.html" = "../iterators/fromiterator.html"
+"traits/impl-trait.html" = "../generics/impl-trait.html"
+"traits/important-traits.html" = "../std-traits/comparisons.html"
+"traits/iterator.html" = "../iterators/iterators.html"
+"traits/operators.html" = "../std-traits/operators.html"
+"traits/read-write.html" = "../std-traits/read-and-write.html"
+"traits/trait-bounds.html" = "../generics/trait-bounds.html"
+"traits/trait-objects.html" = "../smart-pointers/trait-objects.html"
+"tuples-and-arrays/match.html" = "../pattern-matching/match.html"
+"types-and-values/strings.html" = "../references/strings.html"
+"unsafe.html" = "unsafe-rust/unsafe.html"
+"unsafe/calling-unsafe-functions.html" = "../unsafe-rust/unsafe-functions.html"
+"unsafe/extern-functions.html" = "../unsafe-rust/unsafe-functions.html"
+"unsafe/mutable-static-variables.html" = "../unsafe-rust/mutable-static.html"
 "unsafe/mutable-static-variables.md" = "mutable-static-variables.html"
+"unsafe/raw-pointers.html" = "../unsafe-rust/dereferencing.html"
+"unsafe/unions.html" = "../unsafe-rust/unions.html"
 "unsafe/unsafe-functions.html" = "calling-unsafe-functions.html"
+"unsafe/unsafe-traits.html" = "../unsafe-rust/unsafe-traits.html"
+"unsafe/writing-unsafe-functions.html" = "../unsafe-rust/unsafe-functions.html"
+"user-defined-types/static-and-const.html" = "../user-defined-types/static.html"
 "welcome-bare-metal.html" = "bare-metal.html"
-# Moving exercises between days
-"exercises/day-2/luhn.html" = "../day-1/luhn.html"
-"exercises/day-2/points-polygons.html" = "../day-3/points-polygons.html"
-"exercises/day-1/book-library.html" = "../day-2/book-library.html"
-"exercises/day-1/iterators-and-ownership.html" = "../day-2/iterators-and-ownership.html"
-# Send people to canonical URL instead of index.html
+"welcome-day-1/what-is-rust.html" = "../hello-world/what-is-rust.html"
 "welcome.html" = "./"
-
-# redirects from course v1 to v2
-'welcome-day-1/what-is-rust.html' = '../hello-world/what-is-rust.html'
-'hello-world/small-example.html' = '../hello-world/hello-world.html'
-'why-rust.html' = 'hello-world/benefits.html'
-'why-rust/compile-time.html' = '../hello-world/benefits.html'
-'why-rust/runtime.html' = '../hello-world/benefits.html'
-'why-rust/modern.html' = '../hello-world/benefits.html'
-'why-rust/an-example-in-c.html' = '../hello-world/example.html'
-'basic-syntax/variables.html' = '../types-and-values/variables.html'
-'basic-syntax/scalar-types.html' = '../types-and-values/values.html'
-'basic-syntax/type-inference.html' = '../types-and-values/inference.html'
-'basic-syntax.html' = 'control-flow-basics.html'
-'control-flow.html' = 'control-flow-basics.html'
-'control-flow/if-expressions.html' = '../control-flow-basics/conditionals.html'
-'control-flow/while-expressions.html' = '../control-flow-basics/loops.html'
-'control-flow/for-expressions.html' = '../control-flow-basics/loops.html'
-'control-flow/break-continue.html' = '../control-flow-basics/break-continue.html'
-'control-flow/loop-expressions.html' = '../control-flow-basics/loops.html'
-'basic-syntax/scopes-shadowing.html' = '../control-flow-basics/blocks-and-scopes.html'
-'control-flow/blocks.html' = '../control-flow-basics/blocks-and-scopes.html'
-'basic-syntax/functions.html' = '../control-flow-basics/functions.html'
-'basic-syntax/rustdoc.html' = '../std-types/docs.html'
-'basic-syntax/methods.html' = '../control-flow-basics/functions.html'
-'basic-syntax/functions-interlude.html' = '../control-flow-basics/functions.html'
-'exercises/day-1/morning.html' = '../../control-flow-basics/exercise.html'
-'exercises/day-1/afternoon.html' = '../../control-flow-basics/exercise.html'
-'exercises/day-2/morning.html' = '../../control-flow-basics/exercise.html'
-'exercises/day-2/afternoon.html' = '../../control-flow-basics/exercise.html'
-'exercises/day-3/morning.html' = '../../control-flow-basics/exercise.html'
-'exercises/day-3/afternoon.html' = '../../control-flow-basics/exercise.html'
-'basic-syntax/compound-types.html' = '../tuples-and-arrays/tuples-and-arrays.html'
-'control-flow/match-expressions.html' = '../tuples-and-arrays/match.html'
-'pattern-matching/match-guards.html' = '../tuples-and-arrays/match.html'
-'pattern-matching/destructuring-arrays.html' = '../tuples-and-arrays/destructuring.html'
-'exercises/day-1/for-loops.html' = '../../tuples-and-arrays/exercise.html'
-'basic-syntax/references.html' = '../references/shared.html'
-'basic-syntax/references-dangling.html' = '../references/shared.html'
-'exercises/day-3/points-polygons.html' = '../../references/exercise.html'
-'structs.html' = 'user-defined-types/named-structs.html'
-'structs/field-shorthand.html' = '../user-defined-types/named-structs.html'
-'structs/tuple-structs.html' = '../user-defined-types/tuple-structs.html'
-'enums.html' = 'user-defined-types/enums.html'
-'enums/variant-payloads.html' = '../user-defined-types/enums.html'
-'enums/sizes.html' = '../user-defined-types/enums.html'
-'traits/deriving-traits.html' = '../methods-and-traits/deriving.html'
-'pattern-matching/destructuring-structs.html' = '../pattern-matching/destructuring.html'
-'pattern-matching/destructuring-enums.html' = '../pattern-matching/destructuring.html'
-'control-flow/novel.html' = '../pattern-matching/let-control-flow.html'
-'control-flow/if-let-expressions.html' = '../pattern-matching/let-control-flow.html'
-'control-flow/while-let-expressions.html' = '../pattern-matching/let-control-flow.html'
-'exercises/day-1/pattern-matching.html' = '../../user-defined-types/exercise.html'
-'methods.html' = 'methods-and-traits/methods.html'
-'methods/receiver.html' = '../methods-and-traits/methods.html'
-'methods/example.html' = '../methods-and-traits/methods.html'
-'traits.html' = 'methods-and-traits/traits.html'
-'traits/default-methods.html' = '../methods-and-traits/traits.html'
-'methods-and-traits/trait-objects.html' = '../smart-pointers/trait-objects.html'
-'traits/trait-objects.html' = '../smart-pointers/trait-objects.html'
-'exercises/day-3/simple-gui.html' = '../../methods-and-traits/exercise.html'
-'generics/monomorphization.html' = '../generics/generic-functions.html'
-'generics/data-types.html' = '../generics/generic-data.html'
-'generics/methods.html' = '../generics/generic-data.html'
-'traits/trait-bounds.html' = '../generics/trait-bounds.html'
-'traits/impl-trait.html' = '../generics/impl-trait.html'
-'std.html' = 'std-types/std.html'
-'std/option-result.html' = '../std-types/option.html'
-'error-handling/result.html' = '../std-types/result.html'
-'std/string.html' = '../std-types/string.html'
-'std/vec.html' = '../std-types/vec.html'
-'std/hashmap.html' = '../std-types/hashmap.html'
-'exercises/day-2/book-library.html' = '../../std-types/exercise.html'
-'traits/important-traits.html' = '../std-traits/comparisons.html'
-'traits/operators.html' = '../std-traits/operators.html'
-'traits/from-into.html' = '../std-traits/from-and-into.html'
-'traits/read-write.html' = '../std-traits/read-and-write.html'
-'traits/default.html' = '../std-traits/default.html'
-'traits/closures.html' = '../std-traits/closures.html'
-'exercises/day-1/implicit-conversions.html' = '../../std-traits/exercise.html'
-'traits/iterator.html' = '../iterators/iterators.html'
-'exercises/day-2/iterators-and-ownership.html' = '../../iterators/intoiterator.html'
-'traits/from-iterator.html' = '../iterators/fromiterator.html'
-'exercises/day-2/strings-iterators.html' = '../../iterators/exercise.html'
-'testing/integration-tests.html' = '../testing/other.html'
-'testing/doc-tests.html' = '../testing/other.html'
-'exercises/day-1/luhn.html' = '../../testing/exercise.html'
-'memory-management/stack-vs-heap.html' = '../memory-management/review.html'
-'memory-management/stack.html' = '../memory-management/review.html'
-'memory-management/manual.html' = '../memory-management/approaches.html'
-'memory-management/scope-based.html' = '../memory-management/approaches.html'
-'memory-management/garbage-collection.html' = '../memory-management/approaches.html'
-'ownership.html' = 'memory-management/ownership.html'
-'memory-management/rust.html' = '../memory-management/ownership.html'
-'ownership/move-semantics.html' = '../memory-management/move.html'
-'ownership/moved-strings-rust.html' = '../memory-management/move.html'
-'ownership/double-free-modern-cpp.html' = '../memory-management/move.html'
-'ownership/moves-function-calls.html' = '../memory-management/move.html'
-'ownership/copy-clone.html' = '../memory-management/copy-types.html'
-'traits/drop.html' = '../memory-management/drop.html'
-'std/box.html' = '../smart-pointers/box.html'
-'std/box-recursive.html' = '../smart-pointers/box.html'
-'std/box-niche.html' = '../smart-pointers/box.html'
-'std/rc.html' = '../smart-pointers/rc.html'
-'ownership/borrowing.html' = '../borrowing/shared.html'
-'ownership/shared-unique-borrows.html' = '../borrowing/shared.html'
-'std/cell.html' = '../borrowing/interior-mutability.html'
-'exercises/day-2/health-statistics.html' = '../../borrowing/exercise.html'
-'error-handling/panic-unwind.html' = '../error-handling/panics.html'
-'error-handling/try-operator.html' = '../error-handling/try.html'
-'error-handling/converting-error-types.html' = '../error-handling/try-conversions.html'
-'error-handling/converting-error-types-example.html' = '../error-handling/try-conversions.html'
-'error-handling/deriving-error-enums.html' = '../error-handling/error.html'
-'error-handling/error-contexts.html' = '../error-handling/thiserror-and-anyhow.html'
-'error-handling/dynamic-errors.html' = '../error-handling/thiserror-and-anyhow.html'
-'basic-syntax/slices.html' = '../slices-and-lifetimes/slices.html'
-'basic-syntax/string-slices.html' = '../slices-and-lifetimes/str.html'
-'ownership/lifetimes.html' = '../slices-and-lifetimes/lifetime-annotations.html'
-'ownership/lifetimes-function-calls.html' = '../slices-and-lifetimes/lifetime-elision.html'
-'ownership/lifetimes-data-structures.html' = '../slices-and-lifetimes/struct-lifetimes.html'
-'unsafe.html' = 'unsafe-rust/unsafe.html'
-'unsafe/raw-pointers.html' = '../unsafe-rust/dereferencing.html'
-'basic-syntax/static-and-const.html' = '../unsafe-rust/static-and-const.html'
-'unsafe/mutable-static-variables.html' = '../unsafe-rust/mutable-static.html'
-'unsafe/unions.html' = '../unsafe-rust/unions.html'
-'unsafe/calling-unsafe-functions.html' = '../unsafe-rust/unsafe-functions.html'
-'unsafe/writing-unsafe-functions.html' = '../unsafe-rust/unsafe-functions.html'
-'unsafe/extern-functions.html' = '../unsafe-rust/unsafe-functions.html'
-'unsafe/unsafe-traits.html' = '../unsafe-rust/unsafe-traits.html'
-'exercises/day-3/safe-ffi-wrapper.html' = '../../unsafe-rust/exercise.html'
+"why-rust.html" = "hello-world/benefits.html"
+"why-rust/an-example-in-c.html" = "../hello-world/example.html"
+"why-rust/compile-time.html" = "../hello-world/benefits.html"
+"why-rust/modern.html" = "../hello-world/benefits.html"
+"why-rust/runtime.html" = "../hello-world/benefits.html"
 
 [output.exerciser]
 output-directory = "comprehensive-rust-exercises"

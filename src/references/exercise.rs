@@ -25,9 +25,9 @@ fn magnitude(vector: &[f64; 3]) -> f64 {
 /// Change the magnitude of the vector to 1.0 without changing its direction.
 fn normalize(vector: &mut [f64; 3]) {
     let mag = magnitude(vector);
-    vector[0] /= mag;
-    vector[1] /= mag;
-    vector[2] /= mag;
+    for item in vector {
+        *item /= mag;
+    }
 }
 
 // ANCHOR: main

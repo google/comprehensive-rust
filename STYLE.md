@@ -15,14 +15,9 @@ important to keep this in mind when adding content: we only have limited
 vertical space. Scrolling up and down should be avoided since it is very jarring
 for people who attend the class.
 
-You can test the amount of space available using a simple tool. Uncomment these
-lines in the `book.toml` file to have a red rectangle rendered on top of all
-pages:
-
-```toml
-[preprocessor.aspect-ratio-helper]
-command = "./aspect-ratio-helper.py"
-```
+You can test the amount of space available using a simple tool. This tool can be
+used by clicking a toggle button next to the search button on left side of the
+navbar.
 
 The rectangle has an aspect ratio similar to what you can see when you share
 your screen on a 16:9 display or projector.

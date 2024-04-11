@@ -1,0 +1,95 @@
+# Based on https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
+#
+# This runs with the full repo permissions, but checks out the upstream branch, not the PR.
+# Do not run arbitrary code from the PR here!
+name: Comment PR with Course Schedule
+on:
+  workflow_run:
+    workflows: ["Generate Course Schedule"]
+    types: [completed]
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    if: >
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success'
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Setup Rust cache"
+        uses: ./.github/workflows/setup-rust-cache
+
+      - name: "Generate Schedule on upstream branch"
+        run: |
+          cargo run -p mdbook-course --bin course-schedule > upstream-schedule
+
+      - name: "Download artifact from PR workflow"
+        # actions/download-artifact@v4 cannot do this without being given a PAT, although that
+        # is not required for public forked repositories.
+        uses: actions/github-script@v7.0.1
+        with:
+          script: |
+            var artifacts = await github.rest.actions.listWorkflowRunArtifacts({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               run_id: ${{github.event.workflow_run.id }},
+            });
+            var matchArtifact = artifacts.data.artifacts.filter((artifact) => {
+              return artifact.name == "course-schedule"
+            })[0];
+            var download = await github.rest.actions.downloadArtifact({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               artifact_id: matchArtifact.id,
+               archive_format: 'zip',
+            });
+            var fs = require('fs');
+            fs.writeFileSync('${{github.workspace}}/course-schedule.zip', Buffer.from(download.data));
+
+      - name: "Unzip artifact"
+        run: unzip course-schedule.zip
+
+      - name: "Comment on PR if schedules differ"
+        uses: actions/github-script@v7.0.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const pr_number = Number(fs.readFileSync('pr-number'));
+            const upstream = fs.readFileSync('upstream-schedule').toString();
+            const schedule = fs.readFileSync('schedule').toString();
+            const new_schedule = "<!-- course-schedule -->\n" +
+                       "# Changes to Course Schedule\n" +
+                       "This PR changes the course schedule. The new schedule is shown below.\n\n" +
+                       schedule;
+
+            // Look for existing comments
+            var existing_comment;
+            for await ({ data: comments } of github.paginate.iterator(github.rest.issues.listComments, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr_number
+            })) {
+              existing_comment = comments.find((c) => c.body.includes("<!-- course-schedule -->"));
+              if (existing_comment) {
+                break;
+              }
+            }
+
+            if (existing_comment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing_comment.id,
+                body: new_schedule,
+              });
+            } else if (upstream != schedule) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr_number,
+                body: new_schedule,
+              });
+            }

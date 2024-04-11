@@ -26,6 +26,6 @@ fn fib(n: u32) -> u32 {
 // ANCHOR: main
 fn main() {
     let n = 20;
-    println!("fib(n) = {}", fib(n));
+    println!("fib({n}) = {}", fib(n));
 }
 // ANCHOR_END: main
