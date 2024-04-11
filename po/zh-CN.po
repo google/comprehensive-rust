@@ -4932,17 +4932,16 @@ msgstr ""
 "expr.html#predicate-pattern-loops) 变体会针对一个模式重复测试一个值："
 
 #: src/pattern-matching/let-control-flow.md
-#, fuzzy
 msgid ""
 "Here [`String::pop`](https://doc.rust-lang.org/stable/std/string/struct.String."
 "html#method.pop) returns `Some(c)` until the string is empty, after which it will return "
 "`None`. The `while let` lets us keep iterating through all items."
 msgstr ""
-"在这里，每次 调用 `next()` 时，`v.iter()` 返回的迭代器都会返回一个 `Option<i32>`。它将一"
-"直返回 `Some(x)`，直到完成。 之后它将返回 `None`。`while let`能让我们持续迭代所有项。"
+"在这里，[`String::pop`](https://doc.rust-lang.org/stable/std/string/struct.String."
+"html#method.pop) 会持续返回 `Some(c)`，直至字符串为空（此时返回 `None`）。`while let` 使"
+"我们遍历（一个数据结构中的）所有项目。"
 
 #: src/pattern-matching/let-control-flow.md
-#, fuzzy
 msgid "if-let"
 msgstr "if-let"
 
@@ -4965,21 +4964,19 @@ msgid "let-else"
 msgstr "let-else"
 
 #: src/pattern-matching/let-control-flow.md
-#, fuzzy
 msgid ""
 "`if-let`s can pile up, as shown. The `let-else` construct supports flattening this "
 "nested code. Rewrite the awkward version for students, so they can see the "
 "transformation."
 msgstr ""
 "`if-let` 可以堆叠使用，如下所示。`let-else` 结构支持展平此嵌套代码。将不通顺的版本重写，"
-"以便学生们能够理解其中的变化。"
+"以便学员们能够理解其中的变化。"
 
 #: src/pattern-matching/let-control-flow.md
 msgid "The rewritten version is:"
 msgstr "重写后的版本为："
 
 #: src/pattern-matching/let-control-flow.md
-#, fuzzy
 msgid "while-let"
 msgstr "while-let"
 
@@ -4990,41 +4987,38 @@ msgid ""
 msgstr "指出只要值与模式匹配，`while let` 循环就会一直进行下去。"
 
 #: src/pattern-matching/let-control-flow.md
-#, fuzzy
 msgid ""
 "You could rewrite the `while let` loop as an infinite loop with an if statement that "
 "breaks when there is no value to unwrap for `name.pop()`. The `while let` provides "
 "syntactic sugar for the above scenario."
 msgstr ""
-"你可以使用 if 语句将 `while let` 循环重写为无限循环，当 `iter.next()` 没有值可以解封时中"
-"断。`while let` 为上述情况提供了语法糖。"
+"你可以使用 if 语句将 `while let` 循环重写为无限循环，并在 `name.pop()` 没有值可以解封时 "
+"break。`while let` 为上述情况提供了语法糖。"
 
 #: src/pattern-matching/exercise.md
-#, fuzzy
 msgid "Let's write a simple recursive evaluator for arithmetic expressions."
-msgstr "为算术表达式编写一个简单的递归评估器。先从定义二进制操作的枚举开始："
+msgstr "让我们为算术表达式编写一个简单的递归求值器。"
 
 #: src/pattern-matching/exercise.md
-#, fuzzy
 msgid ""
 "The `Box` type here is a smart pointer, and will be covered in detail later in the "
 "course. An expression can be \"boxed\" with `Box::new` as seen in the tests. To evaluate "
 "a boxed expression, use the deref operator (`*`) to \"unbox\" it: `eval(*boxed_expr)`."
 msgstr ""
 "这里的 `Box` 类型是智能指针，本课程稍后会详细介绍。可以使用 `Box::new` 对表达式进行 “封"
-"装”操作，如测试中所示。如需对已封装的表达式求值，请使用 deref 运算符将其 “解封装”："
+"装”，如测试中所示。如需对已封装的表达式求值，请使用 `*` 将其 “解封装”："
 "`eval(*boxed_expr)`。"
 
 #: src/pattern-matching/exercise.md
-#, fuzzy
 msgid ""
 "Some expressions cannot be evaluated and will return an error. The standard "
 "[`Result<Value, String>`](https://doc.rust-lang.org/std/result/enum.Result.html) type is "
 "an enum that represents either a successful value (`Ok(Value)`) or an error "
 "(`Err(String)`). We will cover this type in detail later."
 msgstr ""
-"部分表达式无法求值，将返回错误。`Res` 类型表示有效值或错误消息。这与我们后面将看到的标准"
-"库的“Result”非常类似。"
+"部分表达式无法求值，将返回错误。标准 [`Result<Value, String>`](https://doc.rust-lang.org/"
+"std/result/enum.Result.html) 类型是一个表示成功（`Ok(Value)`）或错误（`Err(String)`）的枚"
+"举。该类型将在之后详细介绍。"
 
 #: src/pattern-matching/exercise.md
 msgid ""
@@ -5036,12 +5030,11 @@ msgstr ""
 "()` 并使测试逐个通过可能会很有帮助。您还可以使用 `#[ignore]` 暂时跳过测试："
 
 #: src/pattern-matching/exercise.md
-#, fuzzy
 msgid ""
 "If you finish early, try writing a test that results in division by zero or integer "
 "overflow. How could you handle this with `Result` instead of a panic?"
 msgstr ""
-"如果提前完成测试，请尝试编写一项可导致被零除或整数溢出的测试。如何使用 `Res::Err` 而非 "
+"如果提前完成测试，请尝试编写一项可导致被零除或整数溢出的测试。试想如何使用 `Result` 而非 "
 "panic 来应对这种情况？"
 
 #: src/pattern-matching/exercise.md src/pattern-matching/solution.md
@@ -5077,9 +5070,8 @@ msgid "[Traits](./methods-and-traits/traits.md) (10 minutes)"
 msgstr ""
 
 #: src/methods-and-traits.md
-#, fuzzy
 msgid "[Deriving](./methods-and-traits/deriving.md) (3 minutes)"
-msgstr "如需详细了解 Rust 中 的模式，请参阅[模式匹配](../pattern-matching.md)。"
+msgstr ""
 
 #: src/methods-and-traits.md
 msgid "[Exercise: Generic Logger](./methods-and-traits/exercise.md) (20 minutes)"
@@ -5093,35 +5085,31 @@ msgstr ""
 msgid ""
 "Rust allows you to associate functions with your new types. You do this with an `impl` "
 "block:"
-msgstr "Rust 允许您将函数与新类型相关联。您可以使用“impl”块来执行此操作："
+msgstr "Rust 允许您将函数与新类型相关联。您可以使用 `impl` 块来执行此操作："
 
 #: src/methods-and-traits/methods.md
-#, fuzzy
 msgid "// No receiver, a static method"
-msgstr "// No receiver, a static method\n"
+msgstr ""
 
 #: src/methods-and-traits/methods.md
-#, fuzzy
 msgid "// Exclusive borrowed read-write access to self"
-msgstr "// Exclusive borrowed read-write access to self\n"
+msgstr ""
 
 #: src/methods-and-traits/methods.md
-#, fuzzy
 msgid "// Shared and read-only borrowed access to self"
-msgstr "// Shared and read-only borrowed access to self\n"
+msgstr ""
 
 #: src/methods-and-traits/methods.md
 msgid "\"Recorded {} laps for {}:\""
-msgstr "\"Recorded {} laps for {}:\""
+msgstr ""
 
 #: src/methods-and-traits/methods.md
 msgid "\"Lap {idx}: {lap} sec\""
-msgstr "\"Lap {idx}: {lap} sec\""
+msgstr ""
 
 #: src/methods-and-traits/methods.md
-#, fuzzy
 msgid "// Exclusive ownership of self"
-msgstr "// Exclusive ownership of self\n"
+msgstr ""
 
 #: src/methods-and-traits/methods.md
 msgid "\"Race {} is finished, total lap time: {}\""
@@ -5132,9 +5120,8 @@ msgid "\"Monaco Grand Prix\""
 msgstr "\"Monaco Grand Prix\""
 
 #: src/methods-and-traits/methods.md
-#, fuzzy
 msgid "// race.add_lap(42);"
-msgstr "// race.add_lap(42);\n"
+msgstr ""
 
 #: src/methods-and-traits/methods.md
 #, fuzzy
