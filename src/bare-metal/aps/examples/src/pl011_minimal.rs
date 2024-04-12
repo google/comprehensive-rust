@@ -41,7 +41,7 @@ impl Uart {
         // Wait until there is room in the TX buffer.
         while self.read_flag_register() & FR_TXFF != 0 {}
 
-        // Safe because we know that the base address points to the control
+        // SAFETY: We know that the base address points to the control
         // registers of a PL011 device which is appropriately mapped.
         unsafe {
             // Write to the TX buffer.
@@ -53,7 +53,7 @@ impl Uart {
     }
 
     fn read_flag_register(&self) -> u8 {
-        // Safe because we know that the base address points to the control
+        // SAFETY: We know that the base address points to the control
         // registers of a PL011 device which is appropriately mapped.
         unsafe { self.base_address.add(FLAG_REGISTER_OFFSET).read_volatile() }
     }
@@ -72,7 +72,7 @@ impl Write for Uart {
     }
 }
 
-// Safe because it just contains a pointer to device memory, which can be
+// SAFETY: `Uart` just contains a pointer to device memory, which can be
 // accessed from any context.
 unsafe impl Send for Uart {}
 // ANCHOR_END: Traits
