@@ -25,8 +25,8 @@ const PSCI_SYSTEM_OFF: u32 = 0x84000008;
 
 #[no_mangle]
 extern "C" fn main(_x0: u64, _x1: u64, _x2: u64, _x3: u64) {
-    // Safe because this only uses the declared registers and doesn't do
-    // anything with memory.
+    // SAFETY: this only uses the declared registers and doesn't do anything
+    // with memory.
     unsafe {
         asm!("hvc #0",
             inout("w0") PSCI_SYSTEM_OFF => _,

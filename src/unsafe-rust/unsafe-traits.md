@@ -28,7 +28,7 @@ pub unsafe trait AsBytes {
     }
 }
 
-// Safe because u32 has a defined representation and no padding.
+// SAFETY: `u32` has a defined representation and no padding.
 unsafe impl AsBytes for u32 {}
 ```
 
