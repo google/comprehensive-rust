@@ -29,7 +29,7 @@ higher-level errors.
 ```rust,editable
 use std::error::Error;
 use std::fmt::{self, Display, Formatter};
-use std::fs::File;
+use std::fs::{self, File};
 use std::io::{self, Read};
 
 #[derive(Debug)]
