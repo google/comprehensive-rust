@@ -19,9 +19,9 @@
 extern crate panic_halt as _;
 
 use cortex_m_rt::entry;
+use embedded_hal::digital::OutputPin;
 use nrf52833_hal::gpio::{p0, Level};
 use nrf52833_hal::pac::Peripherals;
-use nrf52833_hal::prelude::*;
 
 #[entry]
 fn main() -> ! {
