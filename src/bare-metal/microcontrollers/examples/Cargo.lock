@@ -136,6 +136,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "361a90feb7004eca4019fb28352a9465666b24f840f5c3cddf0ff13920590b89"
 
 [[package]]
+name = "embedded-io"
+version = "0.6.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "edd0f118536f44f5ccd48bcb8b111bdc3de888b58c74639dfb034a357d0f206d"
+
+[[package]]
 name = "embedded-storage"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -149,9 +155,9 @@ checksum = "a21dea9854beb860f3062d10228ce9b976da520a73474aed3171ec276bc0c032"
 
 [[package]]
 name = "fixed"
-version = "1.24.0"
+version = "1.27.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "02c69ce7e7c0f17aa18fdd9d0de39727adb9c6281f2ad12f57cbe54ae6e76e7d"
+checksum = "2fc715d38bea7b5bf487fcd79bcf8c209f0b58014f3018a7a19c2b855f472048"
 dependencies = [
  "az",
  "bytemuck",
@@ -196,7 +202,7 @@ dependencies = [
  "cortex-m-rt",
  "embedded-hal 1.0.0",
  "microbit-v2",
- "nrf52833-hal 0.16.1",
+ "nrf52833-hal 0.17.0",
  "nrf52833-pac 0.12.2",
  "panic-halt",
 ]
@@ -238,15 +244,17 @@ dependencies = [
 
 [[package]]
 name = "nrf-hal-common"
-version = "0.16.1"
+version = "0.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1ea48ed7f0843fe6ec5aac0c42701e9194adfa1ee82ce6d028d64e5f68542be4"
+checksum = "2f0280b48785ca132a353c2fc12e307d361eae4608aa8139768728bea6a05b25"
 dependencies = [
  "cast",
  "cfg-if",
  "cortex-m",
  "embedded-dma 0.2.0",
  "embedded-hal 0.2.7",
+ "embedded-hal 1.0.0",
+ "embedded-io",
  "embedded-storage 0.3.1",
  "fixed",
  "nb 1.1.0",
@@ -294,12 +302,11 @@ dependencies = [
 
 [[package]]
 name = "nrf52833-hal"
-version = "0.16.1"
+version = "0.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c1965a8f3bec7cdf3753128a09fac5019d8eb212a8fcff58014368db148daf06"
+checksum = "edad8621582cbdb935c4db94e1ba66fd4975883a4b7477fdb2b4a5ae537e761a"
 dependencies = [
- "embedded-hal 0.2.7",
- "nrf-hal-common 0.16.1",
+ "nrf-hal-common 0.17.0",
  "nrf52833-pac 0.12.2",
 ]
 
