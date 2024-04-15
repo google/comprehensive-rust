@@ -21,6 +21,7 @@ static variables:
 static mut COUNTER: u32 = 0;
 
 fn add_to_counter(inc: u32) {
+    // SAFETY: There are no other threads which could be accessing `COUNTER`.
     unsafe {
         COUNTER += inc;
     }
@@ -29,6 +30,7 @@ fn add_to_counter(inc: u32) {
 fn main() {
     add_to_counter(42);
 
+    // SAFETY: There are no other threads which could be accessing `COUNTER`.
     unsafe {
         println!("COUNTER: {COUNTER}");
     }

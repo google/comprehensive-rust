@@ -31,8 +31,8 @@ const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
 
 #[no_mangle]
 extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
-    // Safe because `PL011_BASE_ADDRESS` is the base address of a PL011 device,
-    // and nothing else accesses that address range.
+    // SAFETY: `PL011_BASE_ADDRESS` is the base address of a PL011 device, and
+    // nothing else accesses that address range.
     let uart = unsafe { Uart::new(PL011_BASE_ADDRESS) };
     logger::init(uart, LevelFilter::Trace).unwrap();
 

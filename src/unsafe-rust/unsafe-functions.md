@@ -17,8 +17,8 @@ extern "C" {
 fn main() {
     let emojis = "🗻∈🌏";
 
-    // Safe because the indices are in the correct order, within the bounds of
-    // the string slice, and lie on UTF-8 sequence boundaries.
+    // SAFETY: The indices are in the correct order, within the bounds of the
+    // string slice, and lie on UTF-8 sequence boundaries.
     unsafe {
         println!("emoji: {}", emojis.get_unchecked(0..4));
         println!("emoji: {}", emojis.get_unchecked(4..7));
@@ -27,8 +27,9 @@ fn main() {
 
     println!("char count: {}", count_chars(unsafe { emojis.get_unchecked(0..7) }));
 
+    // SAFETY: `abs` doesn't deal with pointers and doesn't have any safety
+    // requirements.
     unsafe {
-        // Undefined behavior if abs misbehaves.
         println!("Absolute value of -3 according to C: {}", abs(-3));
     }
 
@@ -64,7 +65,7 @@ fn main() {
     let mut a = 42;
     let mut b = 66;
 
-    // Safe because ...
+    // SAFETY: ...
     unsafe {
         swap(&mut a, &mut b);
     }

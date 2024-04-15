@@ -20,7 +20,10 @@ use birthday_bindgen::{card, print_card};
 fn main() {
     let name = std::ffi::CString::new("Peter").unwrap();
     let card = card { name: name.as_ptr(), years: 42 };
-    // SAFETY: `print_card` is safe to call with a valid `card` pointer.
+    // SAFETY: The pointer we pass is valid because it came from a Rust
+    // reference, and the `name` it contains refers to `name` above which also
+    // remains valid. `print_card` doesn't store either pointer to use later
+    // after it returns.
     unsafe {
         print_card(&card as *const card);
     }
