@@ -6964,7 +6964,7 @@ msgstr ""
 
 #: src/welcome-day-3.md
 msgid "Smart pointers: standard library pointer types."
-msgstr "スマート ポインタ: 標準のライブラリ ポインタ型。"
+msgstr "スマートポインタ: 標準ライブラリのポインタ型。"
 
 #: src/welcome-day-3.md
 msgid "[Welcome](./welcome-day-3.md) (3 minutes)"
@@ -6986,7 +6986,7 @@ msgstr "このセッションの所要時間は、10 分間の休憩を入れて
 
 #: src/memory-management.md
 msgid "[Review of Program Memory](./memory-management/review.md) (5 minutes)"
-msgstr "[プログラム メモリの見直し](./memory-management/review.md)（5 分）"
+msgstr "[プログラム メモリの復習](./memory-management/review.md)（5 分）"
 
 #: src/memory-management.md
 msgid ""
@@ -7036,7 +7036,7 @@ msgstr "非常に高速: スタック ポインタを移動するだけです。
 
 #: src/memory-management/review.md
 msgid "Easy to manage: follows function calls."
-msgstr "関数呼び出しに従うため、管理が容易です。"
+msgstr "関数呼び出しによって行われるのでため、管理が容易です。"
 
 #: src/memory-management/review.md
 msgid "Great memory locality."
@@ -7044,7 +7044,7 @@ msgstr "メモリ局所性に優れています。"
 
 #: src/memory-management/review.md
 msgid "Heap: Storage of values outside of function calls."
-msgstr "ヒープ: 関数呼び出し以外の値の保存。"
+msgstr "ヒープ: 関数呼び出しに依存しない値の保持領域。"
 
 #: src/memory-management/review.md
 msgid "Values have dynamic sizes determined at runtime."
@@ -7052,7 +7052,7 @@ msgstr "値のサイズは動的で、実行時に決定されます。"
 
 #: src/memory-management/review.md
 msgid "Slightly slower than the stack: some book-keeping needed."
-msgstr "スタックよりやや低速で、ある程度のブックキーピングが必要です。"
+msgstr "スタックよりやや低速で、何らかののブックキーピングが必要です。"
 
 #: src/memory-management/review.md
 msgid "No guarantee of memory locality."
@@ -7064,15 +7064,15 @@ msgid ""
 "sized data, the actual string, on the heap:"
 msgstr ""
 "`String` を作成すると、スタックには固定サイズのメタデータが配置され、ヒープに"
-"はサイズが動的に変更されたデータ（実際の文字列）が配置されます。"
+"はサイズが動的に決定されるデータ（実際の文字列）が配置されます。"
 
 #: src/memory-management/review.md
 msgid ""
 "Mention that a `String` is backed by a `Vec`, so it has a capacity and "
 "length and can grow if mutable via reallocation on the heap."
 msgstr ""
-"`String` は `Vec` を基盤としているため、容量と長さがあり、可変であればヒープ"
-"上の再割り当てによって拡張できることを説明します。"
+"`String` は `Vec` により実現されているため、容量と長さがあり、可変であれば"
+"ヒープ上の再割り当てによって拡張できることを説明します。"
 
 #: src/memory-management/review.md
 msgid ""
@@ -7082,17 +7082,17 @@ msgid ""
 "[Allocator API](https://doc.rust-lang.org/std/alloc/index.html)"
 msgstr ""
 "受講者から尋ねられた場合は、[システム アロケータ](https://doc.rust-lang.org/"
-"std/alloc/struct.System.html)を使用して基盤となるメモリがヒープに割り当てられ"
-"ること、[Allocator API](https://doc.rust-lang.org/std/alloc/index.html) を使"
-"用してカスタム アロケータを実装できることを説明してください。"
+"std/alloc/struct.System.html)を使用してメモリ領域がヒープから割り当てられるこ"
+"と、[Allocator API](https://doc.rust-lang.org/std/alloc/index.html) を使用し"
+"てカスタム アロケータを実装できることを説明してください。"
 
 #: src/memory-management/review.md
 msgid ""
 "We can inspect the memory layout with `unsafe` Rust. However, you should "
 "point out that this is rightfully unsafe!"
 msgstr ""
-"`unsafe` Rust を使用してメモリ レイアウトを検査できます。ただし、これは当然な"
-"がら安全でないことを指摘する必要があります。"
+"`unsafe` Rust を使用してメモリ レイアウトを調べることが出来ます。ただし、これ"
+"は当然ながら安全でないことを指摘する必要があります。"
 
 #: src/memory-management/review.md src/testing/unit-tests.md
 msgid "' '"
@@ -7164,7 +7164,7 @@ msgstr ""
 
 #: src/memory-management/approaches.md
 msgid "Rust offers a new mix:"
-msgstr "Rust ではこの 2 つを融合することで、以下を実現しています。"
+msgstr "Rust ではこの 2 つを融合することで、新たに以下の特徴を提供します。"
 
 #: src/memory-management/approaches.md
 msgid ""
@@ -7174,7 +7174,7 @@ msgstr "コンパイル時の適切なメモリ管理の適用による、完全
 
 #: src/memory-management/approaches.md
 msgid "It does this with an explicit ownership concept."
-msgstr "これは、明示的な所有権の概念によって行われます。"
+msgstr "これは、明示的な所有権の概念によって実現されます。"
 
 #: src/memory-management/approaches.md
 msgid ""
@@ -7191,9 +7191,9 @@ msgid ""
 "or dereferencing a pointer after the memory it points to has been freed."
 msgstr ""
 "C では、`malloc` と `free` を使用してヒープを手動で管理する必要があります。よ"
-"くあるエラーとしては、`free` の呼び出しを忘れる、同じポインタに対して複数回呼"
-"び出す、ポイントしているメモリが解放された後にポインタを逆参照する、などがあ"
-"ります。"
+"くあるエラーとしては、複数回`free`をの呼び出しを忘れる、同じポインタに対して"
+"複数回呼び出す、ポイントしているメモリが解放された後にポインタを逆参照する、"
+"などがあります。"
 
 #: src/memory-management/approaches.md
 msgid ""
@@ -7216,8 +7216,8 @@ msgid ""
 msgstr ""
 "Java、Go、Python では、ガベージ コレクタを使用して、アクセスできなくなったメ"
 "モリを特定し、破棄します。これにより、あらゆるポインタの逆参照が可能になり、"
-"解放後の使用などのバグがなくなります。ただし、GC にはランタイム コストがかか"
-"り、適切なチューニングが困難です。"
+"解放後の使用などのバグがなくなります。ただし、GC (ガーベジコレクション) には"
+"ランタイム コストがかかり、適切なチューニングが困難です。"
 
 #: src/memory-management/approaches.md
 msgid ""
@@ -7240,24 +7240,24 @@ msgid ""
 "All variable bindings have a _scope_ where they are valid and it is an error "
 "to use a variable outside its scope:"
 msgstr ""
-"すべての変数バインディングには有効なスコープがありますが、スコープ外で変数を"
-"使用するとエラーになります。"
+"すべての変数バインディングには有効なスコープがあり、スコープ外で変数を使用す"
+"るとエラーになります。"
 
 #: src/memory-management/ownership.md
 msgid ""
 "We say that the variable _owns_ the value. Every Rust value has precisely "
 "one owner at all times."
 msgstr ""
-"これを、変数が値を所有していると表現します。すべての Rust 値の所有者は常に 1 "
-"人です。"
+"これを、変数が値を_所有_していると表現します。すべての Rustの値所有者は常に "
+"1 人です。"
 
 #: src/memory-management/ownership.md
 msgid ""
 "At the end of the scope, the variable is _dropped_ and the data is freed. A "
 "destructor can run here to free up resources."
 msgstr ""
-"スコープから外れると変数が破棄され、データが解放されます。ここでデストラクタ"
-"を実行してリソースを解放できます。"
+"スコープから外れると変数が破棄_(drop)_され、データが解放されます。ここでデス"
+"トラクタを実行してリソースを解放できます。"
 
 #: src/memory-management/ownership.md
 msgid ""
@@ -7271,7 +7271,7 @@ msgstr ""
 
 #: src/memory-management/move.md
 msgid "An assignment will transfer _ownership_ between variables:"
-msgstr "代入すると、変数間で所有権が移動します。"
+msgstr "代入すると、変数間で_所有権_が移動します。"
 
 #: src/memory-management/move.md
 msgid "\"Hello!\""
@@ -7291,7 +7291,8 @@ msgstr "`s1` を `s2` に代入すると、所有権が移動します。"
 
 #: src/memory-management/move.md
 msgid "When `s1` goes out of scope, nothing happens: it does not own anything."
-msgstr "`s1` がスコープ外になると、何も起こりません（何も所有しません）。"
+msgstr ""
+"`s1` がスコープ外になると、何も所有してないからです（何も所有しません）。"
 
 #: src/memory-management/move.md
 msgid "When `s2` goes out of scope, the string data is freed."
@@ -7354,8 +7355,8 @@ msgid ""
 "When you pass a value to a function, the value is assigned to the function "
 "parameter. This transfers ownership:"
 msgstr ""
-"関数に値を渡すと、その値は関数パラメータに代入されます。これにより、次のよう"
-"に所有権が移動します。"
+"次の例のように、関数に値を渡すと、その値は関数パラメータに代入されます。これ"
+"により、所有権が移動します。"
 
 #: src/memory-management/move.md
 msgid "\"Hello {name}\""
@@ -7385,7 +7386,8 @@ msgid ""
 "are aggressively optimized away."
 msgstr ""
 "移動するのは所有権のみです。データ自体を操作するためにマシンコードが生成され"
-"るかどうかは最適化の問題であり、そのようなコピーは積極的に最適化されます。"
+"るかどうかは最適化の問題であり、そのようなコピーのためのマシンコードは積極的"
+"に最適化されてなくなります。"
 
 #: src/memory-management/move.md
 msgid ""
@@ -7396,7 +7398,7 @@ msgstr ""
 
 #: src/memory-management/move.md
 msgid "In Rust, clones are explicit (by using `clone`)."
-msgstr "Rust では、クローンは `clone` を使用して明示されます。"
+msgstr "Rust では、クローンは明示的に `clone` を使用して行われます。"
 
 #: src/memory-management/move.md
 msgid "In the `say_hello` example:"
@@ -7415,7 +7417,7 @@ msgid ""
 "The heap memory allocated for `name` will be freed at the end of the "
 "`say_hello` function."
 msgstr ""
-"`name` に割り当てられたヒープメモリは、`say_hello` 関数の最後に解放されます。"
+"`name` に割り当てられたヒープメモリは、`say_hello` 関数の最後で解放されます。"
 
 #: src/memory-management/move.md
 msgid ""
@@ -7438,9 +7440,9 @@ msgid ""
 "Rust makes it harder than C++ to inadvertently create copies by making move "
 "semantics the default, and by forcing programmers to make clones explicit."
 msgstr ""
-"Rust では、ムーブ セマンティクスをデフォルトにするとともに、クローンを明示的"
-"にすることをプログラマーに強制しています。これにより、C++ に比べて誤ってコ"
-"ピーを作成するリスクが低減されています。"
+"Rust では、ムーブ セマンティクスをデフォルトにし、クローンをプログラマに明示"
+"的に行わせています。これにより、C++ に比べて意図せずコピーを作成するリスクが"
+"低減されています。"
 
 #: src/memory-management/move.md
 #, fuzzy
@@ -7496,10 +7498,10 @@ msgid ""
 "programmer is allowed to keep using `s1`."
 msgstr ""
 "C++ には [`std::move`](https://en.cppreference.com/w/cpp/utility/move) もあり"
-"ますが、これは値を移動できるタイミングを示すために使用されます。この例で `s2 "
-"= std::move(s1)` となっていた場合は、ヒープ割り当ては行われません。移動後、"
-"`s1` は有効であるものの、未指定の状態になります。Rust とは異なり、プログラ"
-"マーは `s1` を引き続き使用できます。"
+"ますが、これは値をムーブできるタイミングを示すために使用されます。この例で "
+"`s2 = std::move(s1)` となっていた場合は、ヒープ割り当ては行われません。ムーブ"
+"後、`s1` は有効であるものの、未指定の状態になります。Rust とは異なり、プログ"
+"ラマーは `s1` を引き続き使用できます。"
 
 #: src/memory-management/move.md
 msgid ""
@@ -7525,31 +7527,33 @@ msgid ""
 "occurring. Look for `.clone()` and a few others like `Vec::new` or `Box::"
 "new`."
 msgstr ""
-"`Clone` を使うことで、ヒープ割り当てが発生している場所を簡単に見つけることが"
-"できます。`.clone()` のほか、`Vec::new` や `Box::new` などを探してください。"
+"`Clone` はヒープ割当が起きる場所を見つけやすくすることを目的としたものです。"
+"`.clone()` のほか、`Vec::new` や `Box::new` などを探してください。"
 
 #: src/memory-management/clone.md
 msgid ""
 "It's common to \"clone your way out\" of problems with the borrow checker, "
 "and return later to try to optimize those clones away."
 msgstr ""
-"借用チェッカーに関する問題の「解決方法のクローンを作成」し、後で戻ってクロー"
-"ンの最適化を試みるのが一般的です。"
+"借用チェッカーが通らない場合に「とりあえずクローンを作成して切り抜けておい"
+"て」、あとからクッローンのないコードへの最適化を試みるのもよくあることです。"
 
 #: src/memory-management/copy-types.md
 msgid ""
 "While move semantics are the default, certain types are copied by default:"
 msgstr ""
-"ムーブ セマンティクスはデフォルトで設定されていますが、特定の型はデフォルトで"
-"コピーされます。"
+"言語としてのデフォルトはムーブセマンティクスですが、特定の型ではデフォルトで"
+"コピーが行われます。"
 
 #: src/memory-management/copy-types.md
 msgid "These types implement the `Copy` trait."
-msgstr "これらの型は `Copy` トレイトを実装します。"
+msgstr "これらの型は `Copy` トレイトを実装しているからです。"
 
 #: src/memory-management/copy-types.md
 msgid "You can opt-in your own types to use copy semantics:"
-msgstr "コピー セマンティクスを使用するために、独自の型をオプトインできます。"
+msgstr ""
+"あなたが定義した独自の型のデフォルトをコピーセマンティクスにすることが出来ま"
+"す。"
 
 #: src/memory-management/copy-types.md
 msgid "After the assignment, both `p1` and `p2` own their own data."
@@ -7588,7 +7592,7 @@ msgstr ""
 
 #: src/memory-management/copy-types.md
 msgid "Copying does not work on types that implement the `Drop` trait."
-msgstr "`Drop` トレイトを実装している型では、コピーは機能しません。"
+msgstr "`Drop` トレイトを実装している型では、コピーは出来ません。"
 
 #: src/memory-management/copy-types.md
 msgid "In the above example, try the following:"
@@ -7600,7 +7604,7 @@ msgid ""
 "is not a `Copy` type."
 msgstr ""
 "`String` フィールドを`struct Point` に追加します。`String` が `Copy` 型ではな"
-"いため、コンパイルされません。"
+"いため、コンパイルできなくなります。"
 
 #: src/memory-management/copy-types.md
 msgid ""
@@ -7612,9 +7616,9 @@ msgstr ""
 
 #: src/memory-management/copy-types.md
 msgid "Show that it works if you clone `p1` instead."
-msgstr "代わりに `p1` のクローンを作成しても動作することを示します。"
+msgstr "代わりに `p1` のクローンを作成すれば解決できることを示します。"
 
-#: src/memory-management/drop.md
+#: src/memory-management/drop.mdmd
 msgid "The `Drop` Trait"
 msgstr "`Drop` トレイト"
 
@@ -7699,12 +7703,12 @@ msgid ""
 "This can be useful for objects that do some work on `drop`: releasing locks, "
 "closing files, etc."
 msgstr ""
-"この方法は、`drop` に関する処理（ロックの解放、ファイルのクローズなど）を行う"
-"オブジェクトに使用すると便利です。"
+"この方法は、`drop` で何らかの処理（ロックの解放、ファイルのクローズなど）を行"
+"うオブジェクトに使用すると便利です。"
 
 #: src/memory-management/drop.md
 msgid "Why doesn't `Drop::drop` take `self`?"
-msgstr "`Drop::drop` が `self` を取得しないのはなぜですか？"
+msgstr "`Drop::drop` が `self` をパラメータとして取らないのはなぜですか？"
 
 #: src/memory-management/drop.md
 msgid ""
@@ -7729,7 +7733,7 @@ msgstr ""
 
 #: src/memory-management/exercise.md
 msgid "Fill in the missing pieces."
-msgstr "欠けている部分を記入してください。"
+msgstr "抜けている部分を記入してください。"
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "/// A representation of a software package.\n"
@@ -7864,8 +7868,8 @@ msgid ""
 "methods from `T` directly on a `Box<T>`](https://doc.rust-lang.org/std/ops/"
 "trait.Deref.html#more-on-deref-coercion)."
 msgstr ""
-"`Box<T>` は `Deref<Target = T>` を実装しているため、[`Box<T>` 上で `T` から直"
-"接メソッドを呼び出す](https://doc.rust-lang.org/std/ops/trait.Deref."
+"`Box<T>` は `Deref<Target = T>` を実装しているため、[`Box<T>` に対して T のメ"
+"ソッドを直接呼び出す](https://doc.rust-lang.org/std/ops/trait.Deref."
 "html#more-on-deref-coercion)ことができます。"
 
 #: src/smart-pointers/box.md
@@ -7944,8 +7948,8 @@ msgid ""
 "have a type whose size that can't be known at compile time, but the Rust "
 "compiler wants to know an exact size."
 msgstr ""
-"コンパイル時にサイズを把握できない型があるが、Rust コンパイラでその正確なサイ"
-"ズを把握する必要がある場合。"
+"コンパイル時にサイズを把握できない型があるが、Rust コンパイラがその正確なサイ"
+"ズを知る必要がある場合。"
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -7953,9 +7957,9 @@ msgid ""
 "amounts of data on the stack, instead store the data on the heap in a `Box` "
 "so only the pointer is moved."
 msgstr ""
-"大量のデータの所有権を移動したい場合。スタック上に大量のデータがコピーされな"
-"いようにするには、代わりにヒープ上のデータを `Box` に保存し、ポインタのみが移"
-"動されるようにします。"
+"大量のデータの所有権をムーブしたい場合。スタック上の大量のデータがコピーされ"
+"ないようにするには、代わりに`Box` によりヒープ上にデータを格納し、ポインタの"
+"みが移動されるようにします。"
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -7963,8 +7967,8 @@ msgid ""
 "`List`, the compiler would not compute a fixed size of the struct in memory "
 "(`List` would be of infinite size)."
 msgstr ""
-"`Box` が使用されていない場合に `List` を `List` に直接埋め込もうとすると、コ"
-"ンパイラはメモリ内の構造体の固定サイズを計算しません（`List` は無限サイズにな"
+" 仮に`Box` を使用せずに `List` を `List` に直接埋め込もうとすると、コンパイラ"
+"はメモリ内の構造体の固定サイズを計算しようとしません（`List` は無限サイズにな"
 "ります）。"
 
 #: src/smart-pointers/box.md
@@ -7972,8 +7976,8 @@ msgid ""
 "`Box` solves this problem as it has the same size as a regular pointer and "
 "just points at the next element of the `List` in the heap."
 msgstr ""
-"`Box` は通常のポインタと同じサイズで、ヒープ内の `List` の次の要素だけを指す"
-"ため、この問題を解決できます。"
+"`Box` がこの問題を解決できるのは、そのサイズが通常のポインタと同じであり、単"
+"にヒープ内の List の次の要素を指すだけだけだからです。"
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -7981,9 +7985,9 @@ msgid ""
 "\"Recursive with indirection\" is a hint you might want to use a Box or "
 "reference of some kind, instead of storing a value directly."
 msgstr ""
-"List 定義の `Box` を削除して、コンパイラ エラーを表示します。「再帰性と間接"
-"性」を確保するため、値を直接格納するのではなく、Box またはなんらかの参照を使"
-"用することをおすすめします。"
+"List 定義の `Box` を削除して、コンパイラ エラーを表示します。\"Recursive "
+"with indirection\" は、値を直接保持するのではなく、Boxや何らかの参照を使用し"
+"たら良いことを示唆するものです。"
 
 #: src/smart-pointers/box.md
 msgid "Niche Optimization"
@@ -8049,9 +8053,9 @@ msgid ""
 "rust-lang.org/std/sync/struct.Mutex.html) if you are in a multi-threaded "
 "context."
 msgstr ""
-"マルチスレッドのコンテキストで使用している場合は、[`Arc`](../concurrency/"
-"shared_state/arc.md) と [`Mutex`](https://doc.rust-lang.org/std/sync/struct."
-"Mutex.html) をご覧ください。"
+"マルチスレッドのコンテキストに関しては、[`Arc`](../concurrency/shared_state/"
+"arc.md) と [`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html) を"
+"ご覧ください。"
 
 #: src/smart-pointers/rc.md
 msgid ""
@@ -8059,14 +8063,14 @@ msgid ""
 "org/std/rc/struct.Weak.html) pointer to create cycles that will get dropped."
 msgstr ""
 "共有ポインタを [`Weak`](https://doc.rust-lang.org/std/rc/struct.Weak.html) ポ"
-"インタにダウングレードすると、ドロップされるサイクルを作成できます。"
+"インタにダウングレード_(downgrade)_すると、ドロップされるサイクルを作成できま"
+"す。"
 
 #: src/smart-pointers/rc.md
 msgid ""
 "`Rc`'s count ensures that its contained value is valid for as long as there "
 "are references."
-msgstr ""
-"`Rc` のカウントにより、参照が存在する限り、そこに含まれる値が有効になります。"
+msgstr "`Rc` のカウントは、参照がある限り有効であることを保証します。"
 
 #: src/smart-pointers/rc.md
 msgid "`Rc` in Rust is like `std::shared_ptr` in C++."
@@ -8078,9 +8082,9 @@ msgid ""
 "increases the reference count. Does not make a deep clone and can generally "
 "be ignored when looking for performance issues in code."
 msgstr ""
-"`Rc::clone` を使用することで、低コストで同じ割り当てへのポインタを作成し、参"
-"照カウントを増やすことができます。ディープ クローンが作成されないため、コード"
-"のパフォーマンスの問題を探す際は一般的に無視できます。"
+"`Rc::clone`の動作は軽量です。同じ割り当て領域へのポインタを作成し、参照カウン"
+"トを増やすだけです。デープクローンを作成しないので、性能上の問題箇所をコード"
+"から探す場合には通常無視することが出来ます。"
 
 #: src/smart-pointers/rc.md
 msgid ""
@@ -8100,7 +8104,8 @@ msgid ""
 "cycles that will be dropped properly (likely in combination with `RefCell`)."
 msgstr ""
 "`Rc::downgrade` は、（多くの場合、`RefCell` と組み合わせて）適切にドロップさ"
-"れるサイクルを作成するための弱参照カウント オブジェクトを提供します。"
+"れるサイクルを作成するための弱参照カウント_(weakly reference-counted)_オブ"
+"ジェクトを提供します。"
 
 #: src/smart-pointers/exercise.md
 msgid ""
@@ -8116,13 +8121,13 @@ msgstr ""
 
 #: src/smart-pointers/exercise.md
 msgid "Implement the following types, so that the given tests pass."
-msgstr "次の型を実装して、指定されたテストに合格するようにします。"
+msgstr "次の型を実装して、指定されたテストが通るようにします。"
 
 #: src/smart-pointers/exercise.md
 msgid ""
 "Extra Credit: implement an iterator over a binary tree that returns the "
 "values in order."
-msgstr "追加の実習: 値を順番に返すバイナリツリーにイテレータを実装します。"
+msgstr "追加の実習: バイナリツリーに値を順番に返すイテレータを実装します。"
 
 #: src/smart-pointers/exercise.md src/smart-pointers/solution.md
 msgid "/// A node in the binary tree.\n"
@@ -8195,7 +8200,7 @@ msgstr ""
 
 #: src/borrowing/shared.md
 msgid "The `add` function _borrows_ two points and returns a new point."
-msgstr "`add` 関数は 2 つのポイントを借用し、新しいポイントを返します。"
+msgstr "`add` 関数は 2 つのポイントを_借用_し、新しいポイントを返します。"
 
 #: src/borrowing/shared.md
 msgid "The caller retains ownership of the inputs."
@@ -8206,8 +8211,8 @@ msgid ""
 "This slide is a review of the material on references from day 1, expanding "
 "slightly to include function arguments and return values."
 msgstr ""
-"このスライドでは、1 日目の参照に関する資料を振り返るとともに、少し対象を広"
-"げ、関数の引数と戻り値についても説明します。"
+"このスライドでは、1 日目の参照に関する資料を振り返りですが、少し対象を広げ、"
+"関数の引数と戻り値も含めています。"
 
 #: src/borrowing/shared.md
 msgid "Notes on stack returns:"
@@ -8223,9 +8228,9 @@ msgid ""
 "\"DEBUG\" optimization level, the addresses should change, while they stay "
 "the same when changing to the \"RELEASE\" setting:"
 msgstr ""
-"コンパイラによるコピー オペレーションを省略できるため、`add` からの戻り値が低"
-"コストになることを示します。スタック アドレスを出力するように上記のコードを変"
-"更し、[プレイグラウンド](https://play.rust-lang.org/?"
+"コンパイラはコピー オペレーションを省略できるため、`add` からのリターンはコス"
+"トであることを示します。スタック アドレスを出力するように上記のコードを変更"
+"し、[Playground](https://play.rust-lang.org/?"
 "version=stable&mode=release&edition=2021&gist=0cb13be1c05d7e3446686ad9947c4671)"
 "で実行するか、[Godbolt](https://rust.godbolt.org/) のアセンブリを確認します。"
 "「DEBUG」最適化レベルではアドレスが変更されますが、「RELEASE」設定に変更した"
@@ -8244,24 +8249,24 @@ msgid ""
 msgstr ""
 "C++ では、コンストラクタが副作用をもたらす可能性があるため、言語仕様でコピー"
 "省略を定義する必要があります。Rust では、これはまったく問題になりません。RVO "
-"が実行されなかった場合、Rust は常にシンプルで効率的な `memcpy` コピーを実行し"
-"ます。"
+"が行われなかった場合でも、Rust は常にシンプルで効率的な `memcpy` コピーを実行"
+"します。"
 
 #: src/borrowing/borrowck.md
 msgid ""
 "Rust's _borrow checker_ puts constraints on the ways you can borrow values. "
 "For a given value, at any time:"
 msgstr ""
-"Rust の借用チェッカーは、値を借用する方法に制限を設けます。任意の値に対して、"
-"常に次の制限が課されます。"
+"Rust の_借用チェッカー_は、値を借用する方法に制限を設けます。任意の値に対し"
+"て、常に次の制限が課されます。"
 
 #: src/borrowing/borrowck.md
 msgid "You can have one or more shared references to the value, _or_"
-msgstr "値への共有参照を 1 つ以上設定できます。または、"
+msgstr "値への共有参照を 1 つ以上持つことが出来ます。または、"
 
 #: src/borrowing/borrowck.md
 msgid "You can have exactly one exclusive reference to the value."
-msgstr "値への排他参照を 1 つだけ設定できます。"
+msgstr "値への排他参照を 1 つだけ持つことが出来ます。"
 
 #: src/borrowing/borrowck.md
 msgid ""
@@ -8277,7 +8282,7 @@ msgid ""
 "`c`) and as immutable (through `b`) at the same time."
 msgstr ""
 "上記のコードは、`a` が `c` を通じて可変として借用されていると同時に、`b` を通"
-"じて不変として借用されているため、コンパイルされません。"
+"じて不変として借用されているため、コンパイルできません。"
 
 #: src/borrowing/borrowck.md
 msgid ""
@@ -8285,7 +8290,7 @@ msgid ""
 "to make the code compile."
 msgstr ""
 "`b` の `println!` ステートメントを `c` を導入するスコープの前に移動して、コー"
-"ドをコンパイルします。"
+"ドをコンパイル出来るようにします。"
 
 #: src/borrowing/borrowck.md
 msgid ""
@@ -8293,9 +8298,9 @@ msgid ""
 "the new mutable borrow of `a` through `c`. This is a feature of the borrow "
 "checker called \"non-lexical lifetimes\"."
 msgstr ""
-"この変更後、コンパイラは `b` が `a` から `c` までの新しい可変の借用の前にのみ"
-"使用されていることに気づきます。これは「ノンレキシカル ライフタイム」と呼ばれ"
-"る借用チェッカーの機能です。"
+"この変更後、コンパイラは c を通じたa の可変参照よりも前にしかbが使われていな"
+"いことを認識します。これは「ノンレキシカル ライフタイム」と呼ばれる借用チェッ"
+"カーの機能です。"
 
 #: src/borrowing/borrowck.md
 msgid ""
@@ -8304,9 +8309,9 @@ msgid ""
 "optimize code. For example, a value behind a shared reference can be safely "
 "cached in a register for the lifetime of that reference."
 msgstr ""
-"排他参照制約は非常に強力です。Rust はこの制約を使用して、データ競合が発生しな"
-"いようにするとともに、コードを最適化しています。たとえば、共有参照の背後にあ"
-"る値を、その参照の存続期間中に安全にレジスタにキャッシュできます。"
+"排他参照制約は非常に強力です。Rust はこの制約を使用して、データへの競合が発生"
+"しないようにするとともに、コードを最適化しています。たとえば、共有参照の背後"
+"にある値を、その参照の存続期間中に安全にレジスタにキャッシュできます。"
 
 #: src/borrowing/borrowck.md
 msgid ""
@@ -8315,10 +8320,10 @@ msgid ""
 "time. But, there are some situations where it doesn't quite \"get it\" and "
 "this often results in \"fighting with the borrow checker.\""
 msgstr ""
-"借用チェッカーは、構造体内のさまざまなフィールドへの排他参照を同時に取得する"
-"など、多くの一般的なパターンに対応するように設計されています。しかし、状況に"
-"よっては借用チェッカーが競合を正しく判断できず、「借用チェッカーとの戦い」に"
-"発展することが多くあります。"
+"借用チェッカーは、構造体内の異なるフィールドへの排他参照を同時に取得するな"
+"ど、多くの一般的なパターンに対応するように設計されています。しかし、状況に"
+"よっては借用チェッカーがコードを正しく理解できず、「借用チェッカーとの戦い」"
+"に発展することが多くあります。"
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -8336,7 +8341,7 @@ msgid ""
 "a shared reference. The standard library provides several ways to do this, "
 "all while still ensuring safety, typically by performing a runtime check."
 msgstr ""
-"「内部可変性」パターンは、共有参照の背後で排他的（可変）アクセスを可能にしま"
+"「内部可変性」パターンは、共有参照を通した排他的（可変）アクセスを可能にしま"
 "す。標準ライブラリには、これを行うための方法がいくつか用意されていますが、通"
 "常はランタイム チェックを実行することで安全性を確保します。"
 
@@ -8362,9 +8367,8 @@ msgid ""
 "shared reference to the `Cell`. However, it does not allow any references to "
 "the value. Since there are no references, borrowing rules cannot be broken."
 msgstr ""
-"`Cell` は、値をラップして、その値を取得または設定できるようにします。`Cell `"
-"への共有参照があってもかまいませんが、値を参照することはできません。参照がな"
-"いため、借用ルールの違反はありません。"
+"`Cell` は、値をラップし、`Cell` の共有参照を通してでもその値を取得または設定"
+"可能にしています。ただし、その内包する値への参照は許していません。"
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -8403,7 +8407,7 @@ msgid ""
 "`&self`. This needs no runtime check, but requires moving values, which can "
 "have its own cost."
 msgstr ""
-"`Cell` は安全性を確保するためのよりシンプルな手段で、`&self` を受け取る "
+"`Cell` は安全性を確保するためのよりシンプルな手段であり、`&self` を受け取る "
 "`set` メソッドを備えています。ランタイム チェックは必要ありませんが、値を移動"
 "する必要があり、それによってコストが発生することがあります。"
 
@@ -8440,17 +8444,16 @@ msgid ""
 "struct definition. Your goal is to implement the stubbed out method on the "
 "`User` `struct` defined in the `impl` block."
 msgstr ""
-"`impl` ブロックのスタブ関数と、`User` 構造体の定義から着手します。目標は、"
-"`impl` ブロックで定義された `User` `struct` にスタブメソッドを実装することで"
-"す。"
+"`impl` ブロックのスタブ関数と、`User` 構造体の定義がある状態から開始します。"
+"`User` 構造体の `impl` ブロックにおいてスタブ化された関数を実装することです。"
 
 #: src/borrowing/exercise.md
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and fill in the missing "
 "method:"
 msgstr ""
-"以下のコードを <https://play.rust-lang.org/> にコピーし、欠落しているメソッド"
-"を記入します。"
+"以下のコードを <https://play.rust-lang.org/> にコピーし、実体がないメソッドの"
+"中身を実装します。"
 
 #: src/borrowing/exercise.md
 msgid ""
@@ -8534,8 +8537,7 @@ msgid ""
 "identical."
 msgstr ""
 "スライスがインデックス 0 から始まる場合、Rust の範囲構文により開始インデック"
-"スをドロップできます。つまり、`&a[0..a.len()]` と `&a[..a.len()]` は同じで"
-"す。"
+"スを省略できます。つまり、`&a[0..a.len()]` と `&a[..a.len()]` は同じです。"
 
 #: src/slices-and-lifetimes/slices.md
 msgid ""
@@ -8548,7 +8550,8 @@ msgstr ""
 #: src/slices-and-lifetimes/slices.md
 msgid ""
 "To easily create a slice of the full array, we can therefore use `&a[..]`."
-msgstr "配列全体のスライスを簡単に作成するには、`&a[..]` を使用します。"
+msgstr ""
+"配列全体のスライスを簡単に作成するには、`&a[..]` と書くことが出来ます。"
 
 #: src/slices-and-lifetimes/slices.md
 msgid ""
@@ -8566,7 +8569,7 @@ msgid ""
 "'alive' (in scope) for at least as long as our slice."
 msgstr ""
 "スライスは常に別のオブジェクトから借用します。この例では、`a` は少なくともス"
-"ライスが存在する間は（スコープ内で）「存続」している必要があります。"
+"ライスが存在する間は「存続」 している（スコープ内にある)必要があります。"
 
 #: src/slices-and-lifetimes/slices.md
 msgid ""
@@ -8577,10 +8580,10 @@ msgid ""
 "`println`, when the slice is no longer used."
 msgstr ""
 "`a[3]` の変更に関する質問は興味深い議論のきっかけになるかもしれませんが、メモ"
-"リ安全性上の理由から、この時点では実行で `a` を使用して変更することはできな"
-"い、という回答になります。ただし、`a` と `s` の両方のデータを安全に読み取るこ"
-"とはできます。これは、スライスを作成する前と、`println` の後でスライスが使用"
-"されなくなったときに機能します。"
+"リ安全性上の理由から、この時点では `a` を使用して変更することはできない、とい"
+"う回答になります。ただし、`a` と `s` の両方のデータを安全に読み取ることはでき"
+"ます。これは、スライスを作成する前と、`println` の後でスライスが使用されなく"
+"なったあとであれば、変更することが出来ます。"
 
 #: src/slices-and-lifetimes/str.md
 msgid ""
@@ -8659,9 +8662,9 @@ msgid ""
 "characters and is preferred over trying to get character boundaries right."
 msgstr ""
 "`&` を使用して `String` から `&str` スライスを借用し、必要に応じて範囲を選択"
-"できます。文字境界に揃えられていないバイト範囲を選択すると、式がパニックを起"
-"こします。`chars` イテレータは文字を反復処理するため、正しい文字境界を取得し"
-"ようとすることよりも、このイテレータが優先されます。"
+"できます。文字境界に揃えられていないバイト範囲を選択すると、その式でパニック"
+"を起こします。`chars` イテレータは文字単位で処理するため、正しい文字境界を取"
+"得しようとすることよりも、このイテレータを使用するほうが望ましいです。"
 
 #: src/slices-and-lifetimes/str.md
 msgid ""
@@ -8670,10 +8673,10 @@ msgid ""
 "equivalent of `std::string` from C++ (main difference: it can only contain "
 "UTF-8 encoded bytes and will never use a small-string optimization)."
 msgstr ""
-"C++ プログラマーは `&str` を C++ の `std::string_view` だと考えますが、これは"
-"常にメモリ内の有効な文字列を指します。Rust の `String` は、C++ の `std::"
-"string` とおおむね同等です（主な違いは、UTF-8 でエンコードされたバイトのみを"
-"含めることができ、短い文字列の最適化が使用されないことです）。"
+"C++ プログラマー向けの説明：`&str` は常にメモリ上の有効な文字列を指しているよ"
+"うなC++ の std::string_view と考えられます。Rust の `String` は、C++ の "
+"`std::string` とおおむね同等です（主な違いは、UTF-8 でエンコードされたバイト"
+"のみを含めることができ、短い文字列に対する最適化が行われないことです）。"
 
 #: src/slices-and-lifetimes/str.md
 msgid "Byte strings literals allow you to create a `&[u8]` value directly:"
@@ -8684,8 +8687,8 @@ msgid ""
 "A reference has a _lifetime_, which must not \"outlive\" the value it refers "
 "to. This is verified by the borrow checker."
 msgstr ""
-"参照にはライフタイムがありますが、これは参照する値よりも「長く存続」してはな"
-"りません。これは借用チェッカーによって検証されます。"
+"参照にはライフタイムがあり、これは参照する値よりも「長く存続」してはなりませ"
+"ん。これは借用チェッカーによって検証されます。"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid ""
@@ -8694,10 +8697,10 @@ msgid ""
 "`'` and `'a` is a typical default name. Read `&'a Point` as \"a borrowed "
 "`Point` which is valid for at least the lifetime `a`\"."
 msgstr ""
-"これまで見てきたとおり、ライフタイムは暗黙的に指定できますが、`&'a Point`、"
+"これまで見てきたとおり、ライフタイムは暗黙に扱えますが、`&'a Point`、"
 "`&'document str` のように明示的に指定することもできます。ライフタイムは `'` "
 "で始まり、`'a` が一般的なデフォルト名です。`&'a Point` は、「少なくともライフ"
-"タイム `a` の間は有効な、借用した `Point`」という意味です。"
+"タイム `a` の間は有効な、借用した `Point`」とと解釈します。"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid ""
@@ -8707,8 +8710,8 @@ msgid ""
 msgstr ""
 "ライフタイムは常にコンパイラによって推測されます。自分でライフタイムを割り当"
 "てることはできません。明示的なライフタイム アノテーションを使用すると、あいま"
-"いなところに制約を課すことができます。コンパイラは、有効な解が存在することを"
-"確認します。"
+"いなところに制約を課すことができます。それに対し、コンパイラはその制約を満た"
+"すライフタイムを設定できることを検証します。"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid ""
@@ -8734,10 +8737,10 @@ msgid ""
 "Rust requires explicit annotations of lifetimes on function arguments and "
 "return values."
 msgstr ""
-"この例では、コンパイラは `p3` について推測するライフタイムを把握していませ"
-"ん。関数本体の内部を見ると、`p3` のライフタイムは `p1` と `p2` のいずれか短い"
-"方だと想定できることがわかります。ただし、型と同様に、Rust では関数の引数や戻"
-"り値にライフタイムの明示的なアノテーションが必要です。"
+"この例では、コンパイラは `p3` のライフライムを推測するこが出来ませんん。関数"
+"本体の内部を見ると、`p3` のライフタイムは `p1` と `p2` のいずれか短いしかし想"
+"定できることがわかります。ただし、型と同様に、Rust では関数の引数や戻り値にラ"
+"イフタイムの明示的なアノテーションが必要です。"
 
 #: src/slices-and-lifetimes/lifetime-annotations.md
 msgid "Add `'a` appropriately to `left_most`:"
@@ -8797,7 +8800,8 @@ msgstr ""
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid "In this example, `cab_distance` is trivially elided."
-msgstr "この例では、`cab_distance` は省略されています。"
+msgstr ""
+"この例では、`cab_distance` に関するライフタイムの記述は省略されています。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid ""
@@ -8810,8 +8814,8 @@ msgstr ""
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid "Try adjusting the signature to \"lie\" about the lifetimes returned:"
 msgstr ""
-"返されるライフタイムについて誤ったアノテーションを付けるようにシグネチャを調"
-"整してみましょう。"
+"返されるライフタイムについて嘘のアノテーションを付けるようにシグネチャを調整"
+"してみましょう。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid ""
@@ -8820,9 +8824,9 @@ msgid ""
 "(unsafe), and this is a common source of errors with unsafe Rust."
 msgstr ""
 "これはコンパイルされないため、コンパイラによってアノテーションの有効性が"
-"チェックされることがわかります。ただし、これは未加工のポインタ（安全ない）に"
-"は当てはまりません。安全でない Rust を使用する場合に、これはよくあるエラーの"
-"原因となっています。"
+"チェックされることがわかります。ただし、これは生のポインタ（安全ない）には当"
+"てはまりません。アンセーフRust を使用する場合に、これはよくあるエラーの原因と"
+"なっています。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md
 msgid ""
@@ -8833,11 +8837,11 @@ msgid ""
 "just work with owned data by cloning values where necessary."
 msgstr ""
 "ライフタイムをどのような場合に使うべきか、受講者から質問を受けるかもしれませ"
-"ん。Rust の借用では常にライフタイムを使用します。ほとんどの場合、省略や型推論"
-"を使用するため、ライフタイムを記述する必要はありません。より複雑なケースで"
-"は、ライフタイム アノテーションを使用することであいまいさを解決できます。多く"
-"の場合、特にプロトタイピングでは、必要に応じて値をクローニングして所有データ"
-"を処理する方が簡単です。"
+"ん。Rust の借用では常にライフタイムを使用します。ほとんどの場合、省略や型推"
+"論 により、ライフタイムを記述する必要はありません。より複雑なケースでは、ライ"
+"フタイム アノテーションを使用することであいまいさを解決できます。多くの場合、"
+"特にプロトタイピングでは、必要に応じて値をクローニングして所有データを処理す"
+"る方が簡単です。"
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid "Lifetimes in Data Structures"
@@ -8847,8 +8851,8 @@ msgstr "データ構造とライフタイム"
 msgid ""
 "If a data type stores borrowed data, it must be annotated with a lifetime:"
 msgstr ""
-"借用したデータがデータ型に格納されている場合は、ライフタイム アノテーションを"
-"付ける必要があります。"
+"データ型が借用データを内部に保持する場合、ライフタイムアノテーションを付ける"
+"必要があります。"
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid "\"Bye {text}!\""
@@ -8876,9 +8880,9 @@ msgid ""
 "underlying the contained `&str` lives at least as long as any instance of "
 "`Highlight` that uses that data."
 msgstr ""
-"上記の例では、`Highlight` のアノテーションにより、含まれる `&str` の基になる"
+"上記の例では、`Highlight` のアノテーションにより、内包される`&str` の参照先の"
 "データは、少なくともそのデータを使用する `Highlight` のインスタンスが存在する"
-"限り存続します。"
+"限り存続しなければならなくなります。"
 
 #: src/slices-and-lifetimes/struct-lifetimes.md
 msgid ""
@@ -8894,7 +8898,7 @@ msgid ""
 "can be useful for creating lightweight views, but it generally makes them "
 "somewhat harder to use."
 msgstr ""
-"借用したデータが含まれる型では、ユーザーは元のデータを保持せざるを得なくなり"
+"消費したデータが含まれる型では、ユーザーは元のデータを保持せざるを得なくなり"
 "ます。これは軽量のビューを作成する場合に便利ですが、一般的には使いにくくなり"
 "ます。"
 
@@ -8952,7 +8956,7 @@ msgstr ""
 "proto メッセージは、連続するフィールドとしてエンコードされます。それぞれが"
 "「タグ」として実装され、その後に値が続きます。タグにはフィールド番号（例: "
 "`Person` メッセージの `id` フィールドには `2`）と、バイト ストリームからペイ"
-"ロードがどのように決定されるかを定義するワイヤータイプを指定します。"
+"ロードがどのように決定されるかを定義するワイヤータイプが含まれます。"
 
 #: src/slices-and-lifetimes/exercise.md
 msgid ""
@@ -9074,12 +9078,12 @@ msgid ""
 "\"Based on the wire type, build a Field, consuming as many bytes as "
 "necessary.\""
 msgstr ""
-"\"ワイヤータイプに応じて、必要な量のバイトを使用するフィールドを構築しま"
+"\"ワイヤータイプに応じて、フィールドを構築し、必要な量のバイトを消費しま"
 "す。\""
 
 #: src/slices-and-lifetimes/exercise.md
 msgid "\"Return the field, and any un-consumed bytes.\""
-msgstr "\"フィールドと、未使用のバイトを返します。\""
+msgstr "\"フィールドと、未消費のバイトを返します。\""
 
 #: src/slices-and-lifetimes/exercise.md src/slices-and-lifetimes/solution.md
 msgid ""
@@ -9092,7 +9096,7 @@ msgstr ""
 "/// 指定されたデータ内のメッセージを解析し、メッセージのフィールドごとに\n"
 "/// `T::add_field` を呼び出します。\n"
 "///\n"
-"/// 入力全体が使用されます。\n"
+"/// 入力全体が消費されます。\n"
 
 #: src/slices-and-lifetimes/exercise.md
 msgid "// TODO: Implement ProtoMessage for Person and PhoneNumber.\n"
@@ -9101,7 +9105,7 @@ msgstr "// TODO: Person と PhoneNumber の ProtoMessage を実装します。\n
 #: src/slices-and-lifetimes/solution.md
 msgid "// Unwrap error because `value` is definitely 4 bytes long.\n"
 msgstr ""
-"// `value` の長さは明らかに 4 バイトであるため、エラーをラップ解除します。\n"
+"// `value` の長さは明らかに 4 バイトであるため、エラーをアンラップします。\n"
 
 #: src/slices-and-lifetimes/solution.md
 msgid "// skip everything else\n"
