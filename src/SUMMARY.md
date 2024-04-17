@@ -89,6 +89,10 @@
   - [Deriving](methods-and-traits/deriving.md)
   - [Exercise: Generic Logger](methods-and-traits/exercise.md)
     - [Solution](methods-and-traits/solution.md)
+
+# Day 2: Afternoon
+
+- [Welcome](welcome-day-2-afternoon.md)
 - [Generics](generics.md)
   - [Generic Functions](generics/generic-functions.md)
   - [Generic Data Types](generics/generic-data.md)
@@ -97,10 +101,6 @@
   - [`impl Trait`](generics/impl-trait.md)
   - [Exercise: Generic `min`](generics/exercise.md)
     - [Solution](generics/solution.md)
-
-# Day 2: Afternoon
-
-- [Welcome](welcome-day-2-afternoon.md)
 - [Standard Library Types](std-types.md)
   - [Standard Library](std-types/std.md)
   - [Documentation](std-types/docs.md)
