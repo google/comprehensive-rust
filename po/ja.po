@@ -8273,7 +8273,7 @@ msgid ""
 "Note that the requirement is that conflicting references not _exist_ at the "
 "same point. It does not matter where the reference is dereferenced."
 msgstr ""
-"要件は、競合する参照が同じ時点に存在しないことです。参照がどこで逆参照されて"
+"要件は、競合する参照が同じ時点に存在しないことです。参照がどこで外されていて"
 "も構いません。"
 
 #: src/borrowing/borrowck.md
@@ -8342,7 +8342,7 @@ msgid ""
 "all while still ensuring safety, typically by performing a runtime check."
 msgstr ""
 "「内部可変性」パターンは、共有参照を通した排他的（可変）アクセスを可能にしま"
-"す。標準ライブラリには、これを行うための方法がいくつか用意されていますが、通"
+"す。標準ライブラリには、これを安全に行うための方法がいくつか用意されており、通"
 "常はランタイム チェックを実行することで安全性を確保します。"
 
 #: src/borrowing/interior-mutability.md
@@ -8506,9 +8506,8 @@ msgid ""
 msgstr "[演習: Protobuf の解析](./slices-and-lifetimes/exercise.md)（30 分）"
 
 #: src/slices-and-lifetimes/slices.md
-#, fuzzy
 msgid "Slices"
-msgstr "\"Alice\""
+msgstr "Slices"
 
 #: src/slices-and-lifetimes/slices.md
 msgid "A slice gives you a view into a larger collection:"
@@ -8795,7 +8794,7 @@ msgid ""
 "If there are multiple argument lifetimes, but the first one is for `self`, "
 "that lifetime is given to all un-annotated return values."
 msgstr ""
-"引数のライフタイムが複数あり、最初のライフタイムが `self` である場合、そアノ"
+"引数のライフタイムが複数あり、最初のライフタイムが `self` である場合、アノ"
 "テーションのない戻り値すべてにそのライフタイムが与えられます。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md
@@ -8823,8 +8822,7 @@ msgid ""
 "validity by the compiler. Note that this is not the case for raw pointers "
 "(unsafe), and this is a common source of errors with unsafe Rust."
 msgstr ""
-"これはコンパイルされないため、コンパイラによってアノテーションの有効性が"
-"チェックされることがわかります。ただし、これは生のポインタ（安全ない）には当"
+"そうするとコンパイルが通らなくなります。これは、すなわち、コンパイラがアノテーションの妥当性をチェックしているということを示すものです。ただし、これは生のポインタ（安全ない）には当"
 "てはまりません。アンセーフRust を使用する場合に、これはよくあるエラーの原因と"
 "なっています。"
 
