@@ -1,3 +1,3 @@
-# Channels
+# Shared State
 
 {{%segment outline}}

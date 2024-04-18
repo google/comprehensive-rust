@@ -2,15 +2,11 @@
 
 ## Dining Philosophers --- Async
 
-([back to exercise](dining-philosophers-async.md))
-
 ```rust,compile_fail
-{{#include dining-philosophers-async.rs:solution}}
+{{#include dining-philosophers.rs:solution}}
 ```
 
 ## Broadcast Chat Application
-
-([back to exercise](chat-app.md))
 
 _src/bin/server.rs_:
 

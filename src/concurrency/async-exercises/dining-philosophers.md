@@ -11,17 +11,17 @@ code below to a file called `src/main.rs`, fill out the blanks, and test that
 <!-- File src/main.rs -->
 
 ```rust,compile_fail
-{{#include dining-philosophers-async.rs:Philosopher}}
+{{#include dining-philosophers.rs:Philosopher}}
     // left_fork: ...
     // right_fork: ...
     // thoughts: ...
 }
 
-{{#include dining-philosophers-async.rs:Philosopher-think}}
+{{#include dining-philosophers.rs:Philosopher-think}}
 
-{{#include dining-philosophers-async.rs:Philosopher-eat}}
-{{#include dining-philosophers-async.rs:Philosopher-eat-body}}
-{{#include dining-philosophers-async.rs:Philosopher-eat-end}}
+{{#include dining-philosophers.rs:Philosopher-eat}}
+{{#include dining-philosophers.rs:Philosopher-eat-body}}
+{{#include dining-philosophers.rs:Philosopher-eat-end}}
     // Create forks
 
     // Create philosophers
