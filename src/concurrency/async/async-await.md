@@ -1,3 +1,7 @@
+---
+minutes: 6
+---
+
 # `async`/`await`
 
 At a high level, async Rust code looks very much like "normal" sequential code:

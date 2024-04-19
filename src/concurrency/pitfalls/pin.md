@@ -1,3 +1,7 @@
+---
+minutes: 20
+---
+
 # `Pin`
 
 Async blocks and functions return types implementing the `Future` trait. The

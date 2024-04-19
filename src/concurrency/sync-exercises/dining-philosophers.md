@@ -1,3 +1,7 @@
+---
+minutes: 20
+---
+
 # Dining Philosophers
 
 The dining philosophers problem is a classic problem in concurrency:

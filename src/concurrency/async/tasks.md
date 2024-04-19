@@ -1,3 +1,7 @@
+---
+minutes: 6
+---
+
 # Tasks
 
 Rust has a task system, which is a form of lightweight threading.

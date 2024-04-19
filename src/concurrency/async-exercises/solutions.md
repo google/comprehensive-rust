@@ -1,4 +1,8 @@
-# Concurrency Afternoon Exercise
+---
+minutes: 20
+---
+
+# Solutions
 
 ## Dining Philosophers --- Async
 

@@ -1,6 +1,7 @@
 ---
 course: Concurrency
 session: Morning
+target_minutes: 180
 ---
 
 # Welcome to Concurrency in Rust
@@ -11,6 +12,10 @@ channels.
 The Rust type system plays an important role in making many concurrency bugs
 compile time bugs. This is often referred to as _fearless concurrency_ since you
 can rely on the compiler to ensure correctness at runtime.
+
+## Schedule
+
+{{%session outline}}
 
 <details>
 

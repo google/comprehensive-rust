@@ -1,8 +1,9 @@
 ---
 session: Afternoon
+target_minutes: 180
 ---
 
-# Async Rust
+# Welcome
 
 "Async" is a concurrency model where multiple tasks are executed concurrently by
 executing each task until it would block, then switching to another task that is
@@ -27,3 +28,7 @@ available.
 - JavaScript's `Promise` is similar, but again callback-based. The language
   runtime implements the event loop, so many of the details of Promise
   resolution are hidden.
+
+## Schedule
+
+{{%session outline}}

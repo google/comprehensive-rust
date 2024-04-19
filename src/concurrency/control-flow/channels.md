@@ -1,3 +1,7 @@
+---
+minutes: 8
+---
+
 # Async Channels
 
 Several crates have support for asynchronous channels. For instance `tokio`:

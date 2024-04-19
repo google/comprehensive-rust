@@ -1,3 +1,7 @@
+---
+minutes: 4
+---
+
 # Futures
 
 [`Future`](https://doc.rust-lang.org/std/future/trait.Future.html) is a trait,

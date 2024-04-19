@@ -1,3 +1,7 @@
+---
+minutes: 2
+---
+
 # Marker Traits
 
 How does Rust know to forbid shared access across threads? The answer is in two

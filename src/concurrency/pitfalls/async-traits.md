@@ -1,3 +1,7 @@
+---
+minutes: 5
+---
+
 # Async Traits
 
 Async methods in traits are were stabilized only recently, in the 1.75 release.

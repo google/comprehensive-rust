@@ -1,4 +1,8 @@
-# Channels
+---
+minutes: 9
+---
+
+# Senders and Receivers
 
 Rust channels have two parts: a `Sender<T>` and a `Receiver<T>`. The two parts
 are connected via the channel, but you only see the end-points.

@@ -1,3 +1,7 @@
+---
+minutes: 10
+---
+
 # Runtimes
 
 A _runtime_ provides support for performing operations asynchronously (a

@@ -1,3 +1,7 @@
+---
+minutes: 10
+---
+
 # Blocking the executor
 
 Most async runtimes only allow IO tasks to run concurrently. This means that CPU

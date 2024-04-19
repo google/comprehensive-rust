@@ -1,3 +1,7 @@
+---
+minutes: 8
+---
+
 # Example
 
 Let us see `Arc` and `Mutex` in action:

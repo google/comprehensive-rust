@@ -1,4 +1,8 @@
-# Threads
+---
+minutes: 15
+---
+
+# Plain Threads
 
 Rust threads work similarly to threads in other languages:
 

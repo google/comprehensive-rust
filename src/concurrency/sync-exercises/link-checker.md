@@ -1,3 +1,7 @@
+---
+minutes: 20
+---
+
 # Multi-threaded Link Checker
 
 Let us use our new knowledge to create a multi-threaded link checker. It should
