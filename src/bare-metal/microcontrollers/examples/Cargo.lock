@@ -18,12 +18,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "bare-metal"
-version = "1.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f8fe8f5a8a398345e52358e18ff07cc17a568fbca5c6f73873d3a62056309603"
-
-[[package]]
 name = "bitfield"
 version = "0.13.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -53,7 +47,7 @@ version = "0.7.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8ec610d8f49840a5b376c69663b6369e71f4b34484b9b2eb29fb918d92516cb9"
 dependencies = [
- "bare-metal 0.2.5",
+ "bare-metal",
  "bitfield",
  "embedded-hal 0.2.7",
  "volatile-register",
@@ -81,16 +75,6 @@ dependencies = [
 
 [[package]]
 name = "critical-section"
-version = "0.2.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c1706d332edc22aef4d9f23a6bb1c92360a403013c291af51247a737472dcae6"
-dependencies = [
- "bare-metal 1.0.0",
- "critical-section 1.1.2",
-]
-
-[[package]]
-name = "critical-section"
 version = "1.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7059fff8937831a9ae6f0fe4d658ffabf58f2ca96aa9dec1c889f936f705f216"
@@ -100,15 +84,6 @@ name = "crunchy"
 version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7a81dae078cea95a014a339291cec439d2f232ebe854a9d672b796c6afafa9b7"
-
-[[package]]
-name = "embedded-dma"
-version = "0.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "46c8c02e4347a0267ca60813c952017f4c5948c232474c6010a381a337f1bda4"
-dependencies = [
- "stable_deref_trait",
-]
 
 [[package]]
 name = "embedded-dma"
@@ -143,12 +118,6 @@ checksum = "edd0f118536f44f5ccd48bcb8b111bdc3de888b58c74639dfb034a357d0f206d"
 
 [[package]]
 name = "embedded-storage"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "723dce4e9f25b6e6c5f35628e144794e5b459216ed7da97b7c4b66cdb3fa82ca"
-
-[[package]]
-name = "embedded-storage"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a21dea9854beb860f3062d10228ce9b976da520a73474aed3171ec276bc0c032"
@@ -177,20 +146,20 @@ dependencies = [
 
 [[package]]
 name = "microbit-common"
-version = "0.13.0"
+version = "0.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "45651d001be4281a6f4536c30f3d8522f231bc56fd58d5baf2c630f565d31256"
+checksum = "37409f40befaa165d8a94255955475337422f5fe2fecaeeeedde170562ee114b"
 dependencies = [
- "embedded-hal 0.2.7",
- "nrf52833-hal 0.14.1",
+ "embedded-hal 1.0.0",
+ "nrf52833-hal",
  "tiny-led-matrix",
 ]
 
 [[package]]
 name = "microbit-v2"
-version = "0.13.0"
+version = "0.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a9895242259950730bc112623e4a2e37345dc51ddb5fc8878c110489260d84e7"
+checksum = "ba72e1c5b286e8374734e345a1c3b3d3768d77c9004bf905d2ca86e7c47088a9"
 dependencies = [
  "microbit-common",
 ]
@@ -202,8 +171,8 @@ dependencies = [
  "cortex-m-rt",
  "embedded-hal 1.0.0",
  "microbit-v2",
- "nrf52833-hal 0.17.0",
- "nrf52833-pac 0.12.2",
+ "nrf52833-hal",
+ "nrf52833-pac",
  "panic-halt",
 ]
 
@@ -224,57 +193,24 @@ checksum = "8d5439c4ad607c3c23abf66de8c8bf57ba8adcd1f129e699851a6e43935d339d"
 
 [[package]]
 name = "nrf-hal-common"
-version = "0.14.1"
+version = "0.17.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bd37b3fd039327b4005cc0d4ef20bce0a41bf521071774d5adb854e4b1230639"
+checksum = "56fbecd598c7f16e32bd4783447ca023aa7897d4a4c8e70f6b7c5739c81b4ceb"
 dependencies = [
  "cast",
  "cfg-if",
  "cortex-m",
- "embedded-dma 0.1.2",
- "embedded-hal 0.2.7",
- "embedded-storage 0.2.0",
- "fixed",
- "nb 1.1.0",
- "nrf-usbd 0.1.1",
- "nrf52833-pac 0.10.1",
- "rand_core",
- "void",
-]
-
-[[package]]
-name = "nrf-hal-common"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2f0280b48785ca132a353c2fc12e307d361eae4608aa8139768728bea6a05b25"
-dependencies = [
- "cast",
- "cfg-if",
- "cortex-m",
- "embedded-dma 0.2.0",
+ "embedded-dma",
  "embedded-hal 0.2.7",
  "embedded-hal 1.0.0",
  "embedded-io",
- "embedded-storage 0.3.1",
+ "embedded-storage",
  "fixed",
  "nb 1.1.0",
- "nrf-usbd 0.2.0",
- "nrf52833-pac 0.12.2",
+ "nrf-usbd",
+ "nrf52833-pac",
  "rand_core",
  "void",
-]
-
-[[package]]
-name = "nrf-usbd"
-version = "0.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "640e88d4c108743c667f03320d0c9ab24a20f183a7a1b18bde7891ee13fd92c5"
-dependencies = [
- "bare-metal 1.0.0",
- "cortex-m",
- "critical-section 0.2.8",
- "usb-device",
- "vcell",
 ]
 
 [[package]]
@@ -284,41 +220,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "66b2907c0b3ec4d264981c1fc5a2321d51c463d5a63d386e573f00e84d5495e6"
 dependencies = [
  "cortex-m",
- "critical-section 1.1.2",
+ "critical-section",
  "usb-device",
  "vcell",
 ]
 
 [[package]]
 name = "nrf52833-hal"
-version = "0.14.1"
+version = "0.17.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "87f76d269c9a239ffe24edaa5ee0972b102c04e898b464e3e9a12ab0eacd5f76"
+checksum = "10409e4c7a9af33161da0ac7329ea50d94bec24c9184cdec6138fd2bd590bdd3"
 dependencies = [
- "embedded-hal 0.2.7",
- "nrf-hal-common 0.14.1",
- "nrf52833-pac 0.10.1",
-]
-
-[[package]]
-name = "nrf52833-hal"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "edad8621582cbdb935c4db94e1ba66fd4975883a4b7477fdb2b4a5ae537e761a"
-dependencies = [
- "nrf-hal-common 0.17.0",
- "nrf52833-pac 0.12.2",
-]
-
-[[package]]
-name = "nrf52833-pac"
-version = "0.10.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cd69bdb25903e18e098c040ef31dc863814437af010dea8bd55aa31f686cb461"
-dependencies = [
- "cortex-m",
- "cortex-m-rt",
- "vcell",
+ "nrf-hal-common",
+ "nrf52833-pac",
 ]
 
 [[package]]
