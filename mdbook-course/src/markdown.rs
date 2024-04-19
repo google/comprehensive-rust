@@ -193,4 +193,15 @@ mod test {
     fn duration_hours_mins() {
         assert_eq!(duration(130), "2 hours and 10 minutes")
     }
+
+    #[test]
+    fn table() {
+        let mut table = Table::new(["a".into(), "b".into()]);
+        table.add_row(["a1".into(), "b1".into()]);
+        table.add_row(["a2".into(), "b2".into()]);
+        assert_eq!(
+            format!("{}", table),
+            "| a | b |\n| - | - |\n| a1 | b1 |\n| a2 | b2 |\n"
+        );
+    }
 }
