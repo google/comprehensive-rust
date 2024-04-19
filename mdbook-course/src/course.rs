@@ -255,7 +255,7 @@ impl Course {
                 duration(session.minutes())
             )
             .unwrap();
-            let mut segments = Table::new(["Segment".into(), "Time".into()]);
+            let mut segments = Table::new(["Segment".into(), "Duration".into()]);
             for segment in session {
                 // Skip short segments (welcomes, wrap-up, etc.)
                 if segment.minutes() == 0 {
@@ -308,7 +308,7 @@ impl Session {
     /// Generate a Markdown outline for this session, for placement at the given
     /// path.
     pub fn outline(&self) -> String {
-        let mut segments = Table::new(["Segment".into(), "Time".into()]);
+        let mut segments = Table::new(["Segment".into(), "Duration".into()]);
         for segment in self {
             // Skip short segments (welcomes, wrap-up, etc.)
             if segment.minutes() == 0 {
@@ -318,7 +318,7 @@ impl Session {
         }
         format!(
             "Including {BREAK_DURATION} minute breaks, this session should take about {}. It contains:\n\n{}",
-            duration(self.minutes()),segments)
+            duration(self.minutes()), segments)
     }
 
     /// Return the total duration of this session.
@@ -383,7 +383,7 @@ impl Segment {
     }
 
     pub fn outline(&self) -> String {
-        let mut slides = Table::new(["Slide".into(), "Time".into()]);
+        let mut slides = Table::new(["Slide".into(), "Duration".into()]);
         for slide in self {
             if slide.minutes() == 0 {
                 continue;
