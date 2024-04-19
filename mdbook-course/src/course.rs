@@ -36,10 +36,10 @@
 //! top-level item are treated as further slides in the same segment.
 
 use crate::frontmatter::{split_frontmatter, Frontmatter};
-use crate::markdown::{duration, relative_link};
+use crate::markdown::{duration, Table};
 use mdbook::book::{Book, BookItem, Chapter};
 use std::fmt::Write;
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 
 /// Duration, in minutes, of breaks between segments in the course.
 const BREAK_DURATION: u64 = 10;
@@ -245,32 +245,26 @@ impl Course {
 
     /// Generate a Markdown schedule for this course, for placement at the given
     /// path.
-    pub fn schedule(&self, at_source_path: impl AsRef<Path>) -> String {
+    pub fn schedule(&self) -> String {
         let mut outline = String::from("Course schedule:\n");
         for session in self {
             writeln!(
                 &mut outline,
-                " * {} ({}, including breaks)",
+                " * {} ({}, including breaks)\n",
                 session.name,
                 duration(session.minutes())
             )
             .unwrap();
+            let mut segments = Table::new(["Segment".into(), "Duration".into()]);
             for segment in session {
+                // Skip short segments (welcomes, wrap-up, etc.)
                 if segment.minutes() == 0 {
                     continue;
                 }
-                writeln!(
-                    &mut outline,
-                    "   * [{}]({}) ({})",
-                    segment.name,
-                    relative_link(
-                        &at_source_path,
-                        &segment.slides[0].source_paths[0]
-                    ),
-                    duration(segment.minutes())
-                )
-                .unwrap();
+                segments
+                    .add_row([segment.name.clone(), duration(segment.minutes())]);
             }
+            writeln!(&mut outline, "{}\n", segments).unwrap();
         }
         outline
     }
@@ -313,24 +307,18 @@ impl Session {
 
     /// Generate a Markdown outline for this session, for placement at the given
     /// path.
-    pub fn outline(&self, at_source_path: impl AsRef<Path>) -> String {
-        let mut outline = String::from("In this session:\n");
+    pub fn outline(&self) -> String {
+        let mut segments = Table::new(["Segment".into(), "Duration".into()]);
         for segment in self {
             // Skip short segments (welcomes, wrap-up, etc.)
             if segment.minutes() == 0 {
                 continue;
             }
-            writeln!(
-                &mut outline,
-                " * [{}]({}) ({})",
-                segment.name,
-                relative_link(&at_source_path, &segment.slides[0].source_paths[0]),
-                duration(segment.minutes())
-            )
-            .unwrap();
+            segments.add_row([segment.name.clone(), duration(segment.minutes())]);
         }
-        writeln!(&mut outline,"\nIncluding {BREAK_DURATION} minute breaks, this session should take about {}", duration(self.minutes())).unwrap();
-        outline
+        format!(
+            "Including {BREAK_DURATION} minute breaks, this session should take about {}. It contains:\n\n{}",
+            duration(self.minutes()), segments)
     }
 
     /// Return the total duration of this session.
@@ -394,28 +382,19 @@ impl Segment {
         self.into_iter().map(|s| s.minutes()).sum()
     }
 
-    pub fn outline(&self, at_source_path: impl AsRef<Path>) -> String {
-        let mut outline = String::from("In this segment:\n");
+    pub fn outline(&self) -> String {
+        let mut slides = Table::new(["Slide".into(), "Duration".into()]);
         for slide in self {
             if slide.minutes() == 0 {
                 continue;
             }
-            writeln!(
-                &mut outline,
-                " * [{}]({}) ({})",
-                slide.name,
-                relative_link(&at_source_path, &slide.source_paths[0]),
-                duration(slide.minutes())
-            )
-            .unwrap();
+            slides.add_row([slide.name.clone(), duration(slide.minutes())]);
         }
-        writeln!(
-            &mut outline,
-            "\nThis segment should take about {}",
-            duration(self.minutes())
+        format!(
+            "This segment should take about {}. It contains:\n\n{}",
+            duration(self.minutes()),
+            slides,
         )
-        .unwrap();
-        outline
     }
 }
 
