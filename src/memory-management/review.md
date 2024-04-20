@@ -65,7 +65,8 @@ fn main() {
     // String provides no guarantees about its layout, so this could lead to
     // undefined behavior.
     unsafe {
-        let (capacity, ptr, len): (usize, usize, usize) = std::mem::transmute(s1);
+        let (capacity, ptr, len): (usize, usize, usize) = 
+            std::mem::transmute(s1);
         println!("capacity = {capacity}, ptr = {ptr:#x}, len = {len}");
     }
 }

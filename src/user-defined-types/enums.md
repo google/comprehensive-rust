@@ -88,7 +88,11 @@ Rust has several optimizations it can employ to make enums take up less space.
 
   macro_rules! dbg_bits {
       ($e:expr, $bit_type:ty) => {
-          println!("- {}: {:#x}", stringify!($e), transmute::<_, $bit_type>($e));
+          println!(
+              "- {}: {:#x}", 
+              stringify!($e), 
+              transmute::<_, $bit_type>($e)
+          );
       };
   }
 
