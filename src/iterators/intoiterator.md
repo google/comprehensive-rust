@@ -48,7 +48,8 @@ impl Iterator for GridIter {
 }
 
 fn main() {
-    let grid = Grid { x_coords: vec![3, 5, 7, 9], y_coords: vec![10, 20, 30, 40] };
+    let grid = 
+        Grid { x_coords: vec![3, 5, 7, 9], y_coords: vec![10, 20, 30, 40] };
     for (x, y) in grid {
         println!("point = {x}, {y}");
     }

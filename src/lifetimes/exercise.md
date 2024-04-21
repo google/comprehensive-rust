@@ -49,7 +49,10 @@ What remains for you is to implement the `parse_field` function and the
 
 
 {{#include exercise.rs:parse_field }}
-        _ => todo!("Based on the wire type, build a Field, consuming as many bytes as necessary.")
+        _ => todo!(
+            "Based on the wire type, build a Field, consuming as many bytes as \
+             necessary."
+        )
     };
     todo!("Return the field, and any un-consumed bytes.")
 }

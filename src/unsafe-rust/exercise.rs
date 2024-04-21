@@ -23,7 +23,8 @@ mod ffi {
     #[repr(C)]
     pub struct DIR {
         _data: [u8; 0],
-        _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
+        _marker:
+            core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
     }
 
     // Layout according to the Linux man page for readdir(3), where ino_t and

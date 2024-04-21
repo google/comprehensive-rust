@@ -73,7 +73,8 @@ impl<'a> Iterator for Tokenizer<'a> {
             }
             'a'..='z' => {
                 let mut ident = String::from(c);
-                while let Some(c @ ('a'..='z' | '_' | '0'..='9')) = self.0.peek() {
+                while let Some(c @ ('a'..='z' | '_' | '0'..='9')) = self.0.peek()
+                {
                     ident.push(*c);
                     self.0.next();
                 }
@@ -160,7 +161,8 @@ impl<'a> Iterator for Tokenizer<'a> {
             }
             'a'..='z' => {
                 let mut ident = String::from(c);
-                while let Some(c @ ('a'..='z' | '_' | '0'..='9')) = self.0.peek() {
+                while let Some(c @ ('a'..='z' | '_' | '0'..='9')) = self.0.peek()
+                {
                     ident.push(*c);
                     self.0.next();
                 }

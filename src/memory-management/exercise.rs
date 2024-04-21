@@ -114,8 +114,10 @@ impl PackageBuilder {
 fn main() {
     let base64 = PackageBuilder::new("base64").version("0.13").build();
     println!("base64: {base64:?}");
-    let log =
-        PackageBuilder::new("log").version("0.4").language(Language::Rust).build();
+    let log = PackageBuilder::new("log")
+        .version("0.4")
+        .language(Language::Rust)
+        .build();
     println!("log: {log:?}");
     let serde = PackageBuilder::new("serde")
         .authors(vec!["djmitche".into()])

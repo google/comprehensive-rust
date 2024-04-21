@@ -170,7 +170,9 @@ fn parse_field(data: &[u8]) -> Result<(Field, &[u8]), Error> {
 /// the message.
 ///
 /// The entire input is consumed.
-fn parse_message<'a, T: ProtoMessage<'a>>(mut data: &'a [u8]) -> Result<T, Error> {
+fn parse_message<'a, T: ProtoMessage<'a>>(
+    mut data: &'a [u8],
+) -> Result<T, Error> {
     let mut result = T::default();
     while !data.is_empty() {
         let parsed = parse_field(data)?;

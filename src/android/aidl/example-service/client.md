@@ -5,7 +5,9 @@ Finally, we can create a Rust client for our new service.
 _birthday_service/src/client.rs_:
 
 ```rust,ignore
-use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
+use com_example_birthdayservice::aidl::com::example::birthdayservice::{
+    IBirthdayService::IBirthdayService
+};
 use com_example_birthdayservice::binder;
 
 {{#include ../birthday_service/src/client.rs:main}}

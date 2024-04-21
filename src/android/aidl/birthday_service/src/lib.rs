@@ -13,9 +13,11 @@
 // limitations under the License.
 
 //! Implementation of the `IBirthdayService` AIDL interface.
-use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayInfoProvider::IBirthdayInfoProvider;
-use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
-use com_example_birthdayservice::aidl::com::example::birthdayservice::BirthdayInfo::BirthdayInfo;
+use com_example_birthdayservice::aidl::com::example::birthdayservice::{
+    IBirthdayInfoProvider::IBirthdayInfoProvider,
+    IBirthdayService::IBirthdayService,
+    BirthdayInfo::BirthdayInfo
+};
 use com_example_birthdayservice::binder::{self, ParcelFileDescriptor, SpIBinder, Strong};
 use std::fs::File;
 use std::io::Read;

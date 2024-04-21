@@ -16,7 +16,10 @@ method:
 {{#include ../../third_party/rust-on-exercism/health-statistics.rs:setup}}
 
 {{#include ../../third_party/rust-on-exercism/health-statistics.rs:User_visit_doctor}}
-        todo!("Update a user's statistics based on measurements from a visit to the doctor")
+        todo!(
+            "Update a user's statistics based on measurements from a visit to \
+                the doctor"
+        )
     }
 }
 
