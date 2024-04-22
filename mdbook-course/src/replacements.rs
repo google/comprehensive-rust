@@ -38,7 +38,7 @@ pub fn replace(
         .replace_all(&chapter.content, |captures: &regex::Captures| {
             let directive_str = captures[1].trim();
             let directive: Vec<_> = directive_str.split_whitespace().collect();
-            match dbg!(directive).as_slice() {
+            match directive.as_slice() {
                 ["session", "outline"] if session.is_some() => {
                     session.unwrap().outline()
                 }
