@@ -76,7 +76,8 @@
 - [Welcome](welcome-day-2.md)
 - [Pattern Matching](pattern-matching.md)
   - [Matching Values](pattern-matching/match.md)
-  - [Destructuring](pattern-matching/destructuring.md)
+  - [Structs](pattern-matching/Structs.md)
+  - [Enums](pattern-matching/Enums.md)
   - [Let Control Flow](pattern-matching/let-control-flow.md)
   - [Exercise: Expression Evaluation](pattern-matching/exercise.md)
     - [Solution](pattern-matching/solution.md)
@@ -89,10 +90,6 @@
   - [Deriving](methods-and-traits/deriving.md)
   - [Exercise: Generic Logger](methods-and-traits/exercise.md)
     - [Solution](methods-and-traits/solution.md)
-
-# Day 2: Afternoon
-
-- [Welcome](welcome-day-2-afternoon.md)
 - [Generics](generics.md)
   - [Generic Functions](generics/generic-functions.md)
   - [Generic Data Types](generics/generic-data.md)
@@ -101,6 +98,10 @@
   - [`impl Trait`](generics/impl-trait.md)
   - [Exercise: Generic `min`](generics/exercise.md)
     - [Solution](generics/solution.md)
+
+# Day 2: Afternoon
+
+- [Welcome](welcome-day-2-afternoon.md)
 - [Standard Library Types](std-types.md)
   - [Standard Library](std-types/std.md)
   - [Documentation](std-types/docs.md)
@@ -150,7 +151,6 @@
 - [Borrowing](borrowing.md)
   - [Borrowing a Value](borrowing/shared.md)
   - [Borrow Checking](borrowing/borrowck.md)
-  - [Borrow Errors](borrowing/examples.md)
   - [Interior Mutability](borrowing/interior-mutability.md)
   - [Exercise: Health Statistics](borrowing/exercise.md)
     - [Solution](borrowing/solution.md)

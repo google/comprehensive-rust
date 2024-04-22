@@ -1,18 +1,6 @@
----
-minutes: 8
----
+# Enums
 
-# Destructuring
-
-Like tuples, structs and enums can also be destructured by matching:
-
-## Structs
-
-```rust,editable
-{{#include ../../third_party/rust-by-example/destructuring-structs.rs}}
-```
-
-## Enums
+Like tuples, enums can also be destructured by matching:
 
 Patterns can also be used to bind variables to parts of your values. This is how
 you inspect the structure of your types. Let us start with a simple `enum` type:
@@ -45,18 +33,6 @@ arm, `half` is bound to the value inside the `Ok` variant. In the second arm,
 `msg` is bound to the error message.
 
 <details>
-
-# Structs
-
-- Change the literal values in `foo` to match with the other patterns.
-- Add a new field to `Foo` and make changes to the pattern as needed.
-- The distinction between a capture and a constant expression can be hard to
-  spot. Try changing the `2` in the second arm to a variable, and see that it
-  subtly doesn't work. Change it to a `const` and see it working again.
-
-# Enums
-
-Key points:
 
 - The `if`/`else` expression is returning an enum that is later unpacked with a
   `match`.
