@@ -1,3 +1,3 @@
-# Channels
+# Exercises
 
 {{%segment outline}}

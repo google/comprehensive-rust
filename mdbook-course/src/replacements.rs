@@ -35,7 +35,7 @@ pub fn replace(
         return;
     };
     chapter.content = DIRECTIVE
-        .replace(&chapter.content, |captures: &regex::Captures| {
+        .replace_all(&chapter.content, |captures: &regex::Captures| {
             let directive_str = captures[1].trim();
             let directive: Vec<_> = directive_str.split_whitespace().collect();
             match directive.as_slice() {
@@ -50,7 +50,7 @@ pub fn replace(
                 }
                 ["course", "outline", course_name] => {
                     let Some(course) = courses.find_course(course_name) else {
-                        return captures[0].to_string();
+                        return format!("not found - {}", captures[0].to_string());
                     };
                     course.schedule()
                 }
