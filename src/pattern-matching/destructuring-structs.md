@@ -1,5 +1,5 @@
 ---
-minutes: 8
+minutes: 4
 ---
 
 # Structs

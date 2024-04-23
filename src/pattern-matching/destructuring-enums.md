@@ -1,3 +1,7 @@
+---
+minutes: 4
+---
+
 # Enums
 
 Like tuples, enums can also be destructured by matching:
