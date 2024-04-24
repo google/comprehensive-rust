@@ -19,7 +19,7 @@
 extern crate panic_halt as _;
 
 use cortex_m_rt::entry;
-use microbit::hal::prelude::*;
+use embedded_hal::digital::OutputPin;
 use microbit::Board;
 
 #[entry]

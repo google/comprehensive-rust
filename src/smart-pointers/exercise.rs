@@ -35,7 +35,6 @@ struct Subtree<T: Ord>(Option<Box<Node<T>>>);
 pub struct BinaryTree<T: Ord> {
     root: Subtree<T>,
 }
-// ANCHOR_END: types
 
 impl<T: Ord> BinaryTree<T> {
     fn new() -> Self {
@@ -54,6 +53,7 @@ impl<T: Ord> BinaryTree<T> {
         self.root.len()
     }
 }
+// ANCHOR_END: types
 
 impl<T: Ord> Subtree<T> {
     fn new() -> Self {

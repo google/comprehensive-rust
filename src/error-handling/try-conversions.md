@@ -65,7 +65,7 @@ fn read_username(path: &str) -> Result<String, ReadUsernameError> {
 }
 
 fn main() {
-    //fs::write("config.dat", "").unwrap();
+    //std::fs::write("config.dat", "").unwrap();
     let username = read_username("config.dat");
     println!("username or error: {username:?}");
 }
