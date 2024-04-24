@@ -18,13 +18,13 @@
 extern crate panic_halt as _;
 
 use cortex_m_rt::entry;
+use embedded_hal::digital::{InputPin, OutputPin};
 use nrf52833_hal::gpio::p0::{self, P0_01, P0_02, P0_03};
 use nrf52833_hal::gpio::{
     Disconnected, Floating, Input, Level, OpenDrain, OpenDrainConfig, Output,
     PushPull,
 };
 use nrf52833_hal::pac::Peripherals;
-use nrf52833_hal::prelude::*;
 
 // ANCHOR: Example
 #[entry]
@@ -35,7 +35,7 @@ fn main() -> ! {
     let pin: P0_01<Disconnected> = gpio0.p0_01;
 
     // let gpio0_01_again = gpio0.p0_01; // Error, moved.
-    let pin_input: P0_01<Input<Floating>> = pin.into_floating_input();
+    let mut pin_input: P0_01<Input<Floating>> = pin.into_floating_input();
     if pin_input.is_high().unwrap() {
         // ...
     }

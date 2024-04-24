@@ -20,7 +20,7 @@ There is a large number of in-progress translations. We link to the most
 recently updated translations:
 
 - [Bengali][bn] by [@raselmandol].
-- [French][fr] by [@KookaS] and [@vcaen].
+- [French][fr] by [@KookaS], [@vcaen] and [@AdrienBaudemont].
 - [German][de] by [@Throvn] and [@ronaldfw].
 - [Japanese][ja] by [@CoinEZ-JPN] and [@momotaro1105].
 - [Italian][it] by [@henrythebuilder] and [@detro].
@@ -38,6 +38,7 @@ get going. Translations are coordinated on the [issue tracker].
 [pt-BR]: https://google.github.io/comprehensive-rust/pt-BR/
 [zh-CN]: https://google.github.io/comprehensive-rust/zh-CN/
 [zh-TW]: https://google.github.io/comprehensive-rust/zh-TW/
+[@AdrienBaudemont]: https://github.com/AdrienBaudemont
 [@anlunx]: https://github.com/anlunx
 [@CoinEZ-JPN]: https://github.com/CoinEZ
 [@deavid]: https://github.com/deavid

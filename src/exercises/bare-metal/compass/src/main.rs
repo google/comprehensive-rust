@@ -23,11 +23,11 @@ use core::fmt::Write;
 use cortex_m_rt::entry;
 // ANCHOR_END: top
 use core::cmp::{max, min};
+use embedded_hal::digital::InputPin;
 use lsm303agr::{
     AccelMode, AccelOutputDataRate, Lsm303agr, MagMode, MagOutputDataRate,
 };
 use microbit::display::blocking::Display;
-use microbit::hal::prelude::*;
 use microbit::hal::twim::Twim;
 use microbit::hal::uarte::{Baudrate, Parity, Uarte};
 use microbit::hal::{Delay, Timer};
@@ -40,7 +40,7 @@ const ACCELEROMETER_SCALE: i32 = 700;
 // ANCHOR: main
 #[entry]
 fn main() -> ! {
-    let board = Board::take().unwrap();
+    let mut board = Board::take().unwrap();
 
     // Configure serial port.
     let mut serial = Uarte::new(

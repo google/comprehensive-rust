@@ -70,6 +70,8 @@ cargo add tokio --features full
 cargo run
 ```
 
+{{%course outline Concurrency}}
+
 ## Format
 
 The course is meant to be very interactive and we recommend letting the
