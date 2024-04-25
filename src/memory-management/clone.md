@@ -22,7 +22,7 @@ fn main() {
 <details>
 
 - The idea of `Clone` is to make it easy to spot where heap allocations are
-  occurring. Look for `.clone()` and a few others like `Vec::new` or `Box::new`.
+  occurring. Look for `.clone()` and a few others like `vec!` or `Box::new`.
 
 - It's common to "clone your way out" of problems with the borrow checker, and
   return later to try to optimize those clones away.
