@@ -39,6 +39,11 @@ Error: See failure output above
   [commonly used macros and types][prelude].
 
 - This just scratches the surface, there are many builtin matchers.
+  Consider going through the first chapter of
+  ["Advanced testing for Rust applications"](https://github.com/mainmatter/rust-advanced-testing-workshop),
+  a self-guided Rust course: it provides a guided introduction to the library,
+  with exercises to help you get comfortable with `googletest` macros,
+  its matchers and its overall philosophy.
 
 - A particularly nice feature is that mismatches in multi-line strings are shown
   as a diff:
