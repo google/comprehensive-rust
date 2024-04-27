@@ -151,6 +151,7 @@
 - [Borrowing](borrowing.md)
   - [Borrowing a Value](borrowing/shared.md)
   - [Borrow Checking](borrowing/borrowck.md)
+  - [Borrow Errors](borrowing/examples.md)
   - [Interior Mutability](borrowing/interior-mutability.md)
   - [Exercise: Health Statistics](borrowing/exercise.md)
     - [Solution](borrowing/solution.md)
