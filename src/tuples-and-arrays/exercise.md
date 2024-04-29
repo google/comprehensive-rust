@@ -23,10 +23,8 @@ transpose a matrix (turn rows into columns):
            ⎝⎣7 8 9⎦⎠      ⎣3 6 9⎦
 ```
 
-Hard-code both functions to operate on 3 × 3 matrices.
-
-Copy the code below to <https://play.rust-lang.org/> and implement the
-functions:
+Copy the code below to <https://play.rust-lang.org/> and implement the function.
+This function only operates on 3x3 matrices.
 
 ```rust,should_panic
 // TODO: remove this when you're done with your implementation.

@@ -18,7 +18,9 @@ impl<T> Point<T> {
         (&self.x, &self.y)
     }
 
-    // fn set_x(&mut self, x: T)
+    fn set_x(&mut self, x: T) {
+        self.x = x;
+    }
 }
 
 fn main() {

@@ -1,3 +1,7 @@
+---
+minutes: 2
+---
+
 # Unbounded Channels
 
 You get an unbounded and asynchronous channel with `mpsc::channel()`:

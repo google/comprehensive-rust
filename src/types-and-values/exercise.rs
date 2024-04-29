@@ -16,8 +16,8 @@
 // ANCHOR: fib
 fn fib(n: u32) -> u32 {
     // ANCHOR_END: fib
-    if n <= 2 {
-        return 1;
+    if n < 2 {
+        return n;
     } else {
         return fib(n - 1) + fib(n - 2);
     }
@@ -26,6 +26,6 @@ fn fib(n: u32) -> u32 {
 // ANCHOR: main
 fn main() {
     let n = 20;
-    println!("fib(n) = {}", fib(n));
+    println!("fib({n}) = {}", fib(n));
 }
 // ANCHOR_END: main

@@ -41,6 +41,6 @@ fn main() {
   worth mentioning. It contains a lot of convenience methods and functions that
   help functional-style programming.
 - `Result` is the standard type to implement error handling as we will see on
-  Day 3.
+  Day 4.
 
 </details>

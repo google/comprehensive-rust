@@ -1,3 +1,7 @@
+---
+minutes: 8
+---
+
 # Bounded Channels
 
 With bounded (synchronous) channels, `send` can block the current thread:
@@ -34,6 +38,6 @@ fn main() {
 - A call to `send` will abort with an error (that is why it returns `Result`) if
   the channel is closed. A channel is closed when the receiver is dropped.
 - A bounded channel with a size of zero is called a "rendezvous channel". Every
-  send will block the current thread until another thread calls `read`.
+  send will block the current thread until another thread calls `recv`.
 
 </details>
