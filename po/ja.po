@@ -9103,7 +9103,7 @@ msgid ""
 "rs` was because many files named `mod.rs` can be hard to distinguish in IDEs."
 msgstr ""
 "`filename/mod.rs` の代わりに `filename.rs` が導入された主な理由は、`mod.rs` "
-"という名前のファイルは IDE で区別するのが難しい場合が多いためです。"
+"という名前のファイルがが多くあると、それらをIDEで区別するのが難しい場合があるからです。"
 
 #: src/modules/filesystem.md
 msgid "Deeper nesting can use folders, even if the main module is a file:"
@@ -9536,7 +9536,7 @@ msgstr "単体テストはコードのあらゆる場所に記述可能です。
 
 #: src/testing/unit-tests.md
 msgid "Integration tests are supported via the `tests/` directory."
-msgstr "統合テストは `tests/` ディレクトリを介してサポートされます。"
+msgstr "統合テストは`tests/`ディレクトリ内に記述します。"
 
 #: src/testing/unit-tests.md
 msgid ""
@@ -9544,9 +9544,9 @@ msgid ""
 "`tests` module, using `#[cfg(test)]` to conditionally compile them only when "
 "building tests."
 msgstr ""
-"テストには `#[test]` のマークが付きます。多くの場合、単体テストはネストされ"
-"た `tests` モジュールに配置され、テストのビルド時にのみ `#[cfg(test)]` を使用"
-"して条件付きでコンパイルします。"
+"テストには `#[test]` のマークが付きます。多くの場合、単体テストは通常ネストされ"
+"た`tests`モジュールに配置され、`#[cfg(test)]`によりテストのビルド時にのみ"
+"コンパイルされるようになります。
 
 #: src/testing/unit-tests.md
 msgid "\"Hello World\""
@@ -10277,8 +10277,8 @@ msgid ""
 "`Option<T>` can use the `?` operator on `Option<U>` for arbitrary `T` and "
 "`U` types."
 msgstr ""
-"`Option` には互換性の要件はありません。`Option<T>` を返す関数は、`Option<U>` "
-"の任意の `T` 型と `U` 型に対して、`?` 演算子を使用できます。"
+"`Option`には互換性の要件はありません。`Option<T>`を返す関数は、"
+"任意のT型とU型に対して、?演算子をOption<T>に適用できます。"
 
 #: src/error-handling/try-conversions.md
 msgid ""
@@ -11215,8 +11215,8 @@ msgid ""
 "`&OsStr` to `OsString`: you need to clone the data in `&OsStr` to be able to "
 "return it and call `readdir` again."
 msgstr ""
-"`&OsStr` から `OsString`: `&OsStr` にデータのクローンを作成し、そのクローンを"
-"返して `readdir` を再度呼び出せるようにします。"
+"`&OsStr`内のデータを返し、さらに再びreaddirを呼び出せるようにするためには"
+"`&OsStr`内のデータをクローンする必要があります。"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
@@ -11277,7 +11277,7 @@ msgstr ""
 "        // _DARWIN_FEATURE_64_BIT_INODE に関するセクションをご覧ください。\n"
 "        //\n"
 "        // 「これらのアップデートが利用可能になる前に存在していたプラット"
-"フォーム」とは、\n"
+"フォーム(\"Platforms that existed before these updates were available\")」とは、\n"
 "        // Intel および PowerPC 上の macOS（iOS / wearOS などではない）を指し"
 "ます。\n"
 
