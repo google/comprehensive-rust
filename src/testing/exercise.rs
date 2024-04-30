@@ -24,8 +24,11 @@ pub fn luhn(cc_number: &str) -> bool {
         if let Some(digit) = c.to_digit(10) {
             if double {
                 let double_digit = digit * 2;
-                sum +=
-                    if double_digit > 9 { double_digit - 9 } else { double_digit };
+                sum += if double_digit > 9 {
+                    double_digit - 9
+                } else {
+                    double_digit
+                };
             } else {
                 sum += digit;
             }
@@ -50,8 +53,11 @@ pub fn luhn(cc_number: &str) -> bool {
             digits += 1;
             if double {
                 let double_digit = digit * 2;
-                sum +=
-                    if double_digit > 9 { double_digit - 9 } else { double_digit };
+                sum += if double_digit > 9 {
+                    double_digit - 9
+                } else {
+                    double_digit
+                };
             } else {
                 sum += digit;
             }

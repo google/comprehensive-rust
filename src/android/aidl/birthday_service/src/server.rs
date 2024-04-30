@@ -15,7 +15,9 @@
 // ANCHOR: main
 //! Birthday service.
 use birthdayservice::BirthdayService;
-use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::BnBirthdayService;
+use com_example_birthdayservice::aidl::com::example::birthdayservice::{
+    IBirthdayService::BnBirthdayService
+};
 use com_example_birthdayservice::binder;
 
 const SERVICE_IDENTIFIER: &str = "birthdayservice";

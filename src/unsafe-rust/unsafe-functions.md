@@ -25,7 +25,9 @@ fn main() {
         println!("emoji: {}", emojis.get_unchecked(7..11));
     }
 
-    println!("char count: {}", count_chars(unsafe { emojis.get_unchecked(0..7) }));
+    println!(
+        "char count: {}", 
+        count_chars(unsafe { emojis.get_unchecked(0..7) }));
 
     // SAFETY: `abs` doesn't deal with pointers and doesn't have any safety
     // requirements.

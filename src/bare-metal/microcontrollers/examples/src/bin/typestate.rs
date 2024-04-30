@@ -40,13 +40,17 @@ fn main() -> ! {
         // ...
     }
     let mut pin_output: P0_01<Output<OpenDrain>> = pin_input
-        .into_open_drain_output(OpenDrainConfig::Disconnect0Standard1, Level::Low);
+        .into_open_drain_output(
+            OpenDrainConfig::Disconnect0Standard1,
+            Level::Low,
+        );
     pin_output.set_high().unwrap();
     // pin_input.is_high(); // Error, moved.
 
-    let _pin2: P0_02<Output<OpenDrain>> = gpio0
-        .p0_02
-        .into_open_drain_output(OpenDrainConfig::Disconnect0Standard1, Level::Low);
+    let _pin2: P0_02<Output<OpenDrain>> = gpio0.p0_02.into_open_drain_output(
+        OpenDrainConfig::Disconnect0Standard1,
+        Level::Low,
+    );
     let _pin3: P0_03<Output<PushPull>> =
         gpio0.p0_03.into_push_pull_output(Level::Low);
 
