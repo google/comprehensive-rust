@@ -7036,7 +7036,7 @@ msgstr "非常に高速: スタック ポインタを移動するだけです。
 
 #: src/memory-management/review.md
 msgid "Easy to manage: follows function calls."
-msgstr "関数呼び出しによって行われるのでため、管理が容易です。"
+msgstr "関数呼び出しによって行われるため、管理が容易です。"
 
 #: src/memory-management/review.md
 msgid "Great memory locality."
@@ -7191,7 +7191,7 @@ msgid ""
 "or dereferencing a pointer after the memory it points to has been freed."
 msgstr ""
 "C では、`malloc` と `free` を使用してヒープを手動で管理する必要があります。よ"
-"くあるエラーとしては、複数回`free`をの呼び出しを忘れる、同じポインタに対して"
+"くあるエラーとしては、`free`の呼び出しを忘れる、同じポインタに対して"
 "複数回呼び出す、ポイントしているメモリが解放された後にポインタを逆参照する、"
 "などがあります。"
 
@@ -7217,7 +7217,7 @@ msgstr ""
 "Java、Go、Pythonでは、アクセスできなくなったメモリの特定と破棄をガーベジコレ"
 "クタに依存します。これにより、あらゆるポインタの逆参照が可能になり、解放後の"
 "使用などのバグがなくなります。ただし、GC (ガーベジコレクション) にはランタイ"
-"ム コストがかかり、適切なチューニングが困難です。"
+"ムコストがかかり、適切なチューニングが困難です。"
 
 #: src/memory-management/approaches.md
 msgid ""
@@ -7230,9 +7230,9 @@ msgid ""
 msgstr ""
 "Rust の所有権と借用モデルは、多くの場合、割り当てオペレーションと解放オペレー"
 "ションを正確に必要な場所で行うことにより、ゼロコストで C のパフォーマンスを実"
-"現できます。また、C++ のスマート ポインタに似たツールも用意されています。必要"
-"に応じて、参照カウントなどの他のオプションを利用できます。また、ランタイム ガ"
-"ベージ コレクションをサポートするためのサードパーティのクレートも使用できます"
+"現できます。また、C++ のスマートポインタに似たツールも用意されています。必要"
+"に応じて、参照カウントなどの他のオプションを利用できます。また、ランタイムガ"
+"ベージコレクションをサポートするためのサードパーティのクレートも使用できます"
 "（このクラスでは扱いません）。"
 
 #: src/memory-management/ownership.md
@@ -7248,7 +7248,7 @@ msgid ""
 "We say that the variable _owns_ the value. Every Rust value has precisely "
 "one owner at all times."
 msgstr ""
-"これを、変数が値を_所有_していると表現します。すべての Rustの値所有者は常に "
+"これを、変数が値を _所有_ していると表現します。すべての Rustの値所有者は常に "
 "1 人です。"
 
 #: src/memory-management/ownership.md
@@ -7256,7 +7256,7 @@ msgid ""
 "At the end of the scope, the variable is _dropped_ and the data is freed. A "
 "destructor can run here to free up resources."
 msgstr ""
-"スコープから外れると変数が破棄_(drop)_され、データが解放されます。ここでデス"
+"スコープから外れると変数が破棄 _(drop)_ され、データが解放されます。ここでデス"
 "トラクタを実行してリソースを解放できます。"
 
 #: src/memory-management/ownership.md
@@ -7271,7 +7271,7 @@ msgstr ""
 
 #: src/memory-management/move.md
 msgid "An assignment will transfer _ownership_ between variables:"
-msgstr "代入すると、変数間で_所有権_が移動します。"
+msgstr "代入すると、変数間で _所有権_ が移動します。"
 
 #: src/memory-management/move.md
 msgid "\"Hello!\""
@@ -7376,7 +7376,7 @@ msgid ""
 "value unless you use `std::move` (and the move constructor is defined!)."
 msgstr ""
 "これは、`std::move` を使用しない限り（かつムーブ コンストラクタが定義されてい"
-"ない限り）値によってコピーする、C++ のデフォルトとは逆であることを説明しま"
+"ない限り）値をコピーする、C++ のデフォルトとは逆であることを説明しま"
 "す。"
 
 #: src/memory-management/move.md
@@ -7536,7 +7536,7 @@ msgid ""
 "and return later to try to optimize those clones away."
 msgstr ""
 "借用チェッカーが通らない場合に「とりあえずクローンを作成して切り抜けておい"
-"て」、あとからクッローンのないコードへの最適化を試みるのもよくあることです。"
+"て」、あとからクローンのないコードへの最適化を試みるのもよくあることです。"
 
 #: src/memory-management/copy-types.md
 msgid ""
@@ -7579,7 +7579,7 @@ msgstr ""
 msgid ""
 "Copying does not allow for custom logic (unlike copy constructors in C++)."
 msgstr ""
-"コピーではカスタム ロジックは使用できません（C++ のコピー コンストラクタとは"
+"コピーではカスタムロジックは使用できません（C++ のコピーコンストラクタとは"
 "異なります）。"
 
 #: src/memory-management/copy-types.md
@@ -8063,7 +8063,7 @@ msgid ""
 "org/std/rc/struct.Weak.html) pointer to create cycles that will get dropped."
 msgstr ""
 "共有ポインタを [`Weak`](https://doc.rust-lang.org/std/rc/struct.Weak.html) ポ"
-"インタにダウングレード_(downgrade)_すると、ドロップされるサイクルを作成できま"
+"インタにダウングレード _(downgrade)_ すると、ドロップされるサイクルを作成できま"
 "す。"
 
 #: src/smart-pointers/rc.md
@@ -8104,7 +8104,7 @@ msgid ""
 "cycles that will be dropped properly (likely in combination with `RefCell`)."
 msgstr ""
 "`Rc::downgrade` は、（多くの場合、`RefCell` と組み合わせて）適切にドロップさ"
-"れるサイクルを作成するための弱参照カウント_(weakly reference-counted)_オブ"
+"れるサイクルを作成するための弱参照カウント _(weakly reference-counted)_ オブ"
 "ジェクトを提供します。"
 
 #: src/smart-pointers/exercise.md
@@ -8200,7 +8200,7 @@ msgstr ""
 
 #: src/borrowing/shared.md
 msgid "The `add` function _borrows_ two points and returns a new point."
-msgstr "`add` 関数は 2 つのポイントを_借用_し、新しいポイントを返します。"
+msgstr "`add` 関数は 2 つのポイントを _借用_ し、新しいポイントを返します。"
 
 #: src/borrowing/shared.md
 msgid "The caller retains ownership of the inputs."
@@ -8257,7 +8257,7 @@ msgid ""
 "Rust's _borrow checker_ puts constraints on the ways you can borrow values. "
 "For a given value, at any time:"
 msgstr ""
-"Rust の_借用チェッカー_は、値を借用する方法に制限を設けます。任意の値に対し"
+"Rust の _借用チェッカー_ は、値を借用する方法に制限を設けます。任意の値に対し"
 "て、常に次の制限が課されます。"
 
 #: src/borrowing/borrowck.md
@@ -8825,7 +8825,7 @@ msgid ""
 msgstr ""
 "そうするとコンパイルが通らなくなります。これは、すなわち、コンパイラがアノ"
 "テーションの妥当性をチェックしているということを示すものです。ただし、これは"
-"生のポインタ（安全ない）には当てはまりません。アンセーフRust を使用する場合"
+"生のポインタ（安全ではない）には当てはまりません。アンセーフRustを使用する場合"
 "に、これはよくあるエラーの原因となっています。"
 
 #: src/slices-and-lifetimes/lifetime-elision.md
