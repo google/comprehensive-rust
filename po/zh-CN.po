@@ -1021,7 +1021,7 @@ msgstr "并发：上午"
 msgid "Threads"
 msgstr "线程"
 
-#: src/SUMMARY.md src/concurrency/scoped-threads.md
+#: src/SUMMARY.md src/concurrency/threads/scoped.md
 msgid "Scoped Threads"
 msgstr "范围线程"
 
@@ -3732,7 +3732,7 @@ msgstr "编写一个函数，用于计算给定初始 `n` 的考拉兹序列的�
 msgid "/// Determine the length of the collatz sequence beginning at `n`.\n"
 msgstr "/// Determine the length of the collatz sequence beginning at `n`.\n"
 
-#: src/control-flow-basics/solution.md src/concurrency/scoped-threads.md
+#: src/control-flow-basics/solution.md src/concurrency/threads/scoped.md
 msgid "\"Length: {}\""
 msgstr "\"Length: {}\""
 
@@ -6356,7 +6356,7 @@ msgstr ""
 
 #: src/std-types/string.md src/std-traits/read-and-write.md
 #: src/memory-management/review.md src/testing/unit-tests.md
-#: src/concurrency/scoped-threads.md
+#: src/concurrency/threads/scoped.md
 #, fuzzy
 msgid "\"Hello\""
 msgstr "\"Hello\""
@@ -20348,11 +20348,11 @@ msgstr ""
 "使用 `handle.join()` 的 `Result` 返回值来获取对紧急警报 载荷的访问权限。现在"
 "有必要介绍一下 [`Any`](https://doc.rust-lang.org/std/any/index.html) 了。"
 
-#: src/concurrency/scoped-threads.md
+#: src/concurrency/threads/scoped.md
 msgid "Normal threads cannot borrow from their environment:"
 msgstr "常规线程不能从它们所处的环境中借用："
 
-#: src/concurrency/scoped-threads.md
+#: src/concurrency/threads/scoped.md
 msgid ""
 "However, you can use a [scoped thread](https://doc.rust-lang.org/std/thread/"
 "fn.scope.html) for this:"
@@ -20360,7 +20360,7 @@ msgstr ""
 "不过，你可以使用[范围线程](https://doc.rust-lang.org/std/thread/fn.scope."
 "html)来实现此目的："
 
-#: src/concurrency/scoped-threads.md
+#: src/concurrency/threads/scoped.md
 msgid ""
 "The reason for that is that when the `thread::scope` function completes, all "
 "the threads are guaranteed to be joined, so they can return borrowed data."
@@ -20368,7 +20368,7 @@ msgstr ""
 "其原因在于，在 `thread::scope` 函数完成后，可保证所有线程都已联结在一起，使得"
 "线程能够返回借用的数据。"
 
-#: src/concurrency/scoped-threads.md
+#: src/concurrency/threads/scoped.md
 msgid ""
 "Normal Rust borrowing rules apply: you can either borrow mutably by one "
 "thread, or immutably by any number of threads."

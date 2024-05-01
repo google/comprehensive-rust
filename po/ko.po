@@ -1205,7 +1205,7 @@ msgstr "동시성 오전"
 msgid "Threads"
 msgstr "스레드"
 
-#: src/SUMMARY.md src/concurrency/scoped-threads.md
+#: src/SUMMARY.md src/concurrency/threads/scoped.md
 msgid "Scoped Threads"
 msgstr "범위 스레드(Scoped Threads)"
 
@@ -4042,7 +4042,7 @@ msgstr ""
 msgid "/// Determine the length of the collatz sequence beginning at `n`.\n"
 msgstr "/// `n`에서 시작하는 콜라츠 수열의 길이를 결정합니다.\n"
 
-#: src/control-flow-basics/solution.md src/concurrency/scoped-threads.md
+#: src/control-flow-basics/solution.md src/concurrency/threads/scoped.md
 msgid "\"Length: {}\""
 msgstr "\"길이: {}\""
 
@@ -6802,7 +6802,7 @@ msgstr ""
 
 #: src/std-types/string.md src/std-traits/read-and-write.md
 #: src/memory-management/review.md src/testing/unit-tests.md
-#: src/concurrency/scoped-threads.md
+#: src/concurrency/threads/scoped.md
 msgid "\"Hello\""
 msgstr "\"안녕하세요\""
 
@@ -20455,11 +20455,11 @@ msgstr ""
 msgid "How do we avoid this? see next slide."
 msgstr ""
 
-#: src/concurrency/scoped-threads.md
+#: src/concurrency/threads/scoped.md
 msgid "Normal threads cannot borrow from their environment:"
 msgstr "보통, 스레드는 스레드 밖에서 데이터를 빌릴 수 없습니다:"
 
-#: src/concurrency/scoped-threads.md
+#: src/concurrency/threads/scoped.md
 msgid ""
 "However, you can use a [scoped thread](https://doc.rust-lang.org/std/thread/"
 "fn.scope.html) for this:"
@@ -20467,7 +20467,7 @@ msgstr ""
 "하지만, [scoped thread](https://doc.rust-lang.org/std/thread/fn.scope.html)에"
 "서는 가능합니다:"
 
-#: src/concurrency/scoped-threads.md
+#: src/concurrency/threads/scoped.md
 msgid ""
 "The reason for that is that when the `thread::scope` function completes, all "
 "the threads are guaranteed to be joined, so they can return borrowed data."
@@ -20475,7 +20475,7 @@ msgstr ""
 "`thread::scope` 함수가 완료되면 그 안에서 생성된 모든 스레드들이 종료했음이 "
 "보장되기 때문에, 그 때 빌렸던 데이터들을 다시 반환할 수 있기 때문입니다."
 
-#: src/concurrency/scoped-threads.md
+#: src/concurrency/threads/scoped.md
 msgid ""
 "Normal Rust borrowing rules apply: you can either borrow mutably by one "
 "thread, or immutably by any number of threads."

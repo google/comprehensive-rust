@@ -833,7 +833,7 @@ msgstr "並行：上午"
 msgid "Threads"
 msgstr "執行緒"
 
-#: src/SUMMARY.md:261 src/concurrency/scoped-threads.md:1
+#: src/SUMMARY.md:261 src/concurrency/threads/scoped.md:1
 msgid "Scoped Threads"
 msgstr "限定範圍執行緒"
 
@@ -17054,11 +17054,11 @@ msgstr ""
 "使用 `handle.join()` 的 `Result` 傳回值，取得恐慌酬載的 存取權。這個階段是提"
 "起 [`Any`](https://doc.rust-lang.org/std/any/index.html) 的好時機。"
 
-#: src/concurrency/scoped-threads.md:3
+#: src/concurrency/threads/scoped.md:3
 msgid "Normal threads cannot borrow from their environment:"
 msgstr "一般執行緒無法借用環境的資源："
 
-#: src/concurrency/scoped-threads.md:5
+#: src/concurrency/threads/scoped.md:5
 msgid ""
 "```rust,editable,compile_fail\n"
 "use std::thread;\n"
@@ -17084,7 +17084,7 @@ msgstr ""
 "}\n"
 "```"
 
-#: src/concurrency/scoped-threads.md:17
+#: src/concurrency/threads/scoped.md:17
 msgid ""
 "However, you can use a [scoped thread](https://doc.rust-lang.org/std/thread/"
 "fn.scope.html) for this:"
@@ -17092,7 +17092,7 @@ msgstr ""
 "但是，你可以使用[限定範圍執行緒](https://doc.rust-lang.org/std/thread/fn."
 "scope.html)執行這項功能："
 
-#: src/concurrency/scoped-threads.md:19
+#: src/concurrency/threads/scoped.md:19
 msgid ""
 "```rust,editable\n"
 "use std::thread;\n"
@@ -17122,7 +17122,7 @@ msgstr ""
 "}\n"
 "```"
 
-#: src/concurrency/scoped-threads.md:37
+#: src/concurrency/threads/scoped.md:37
 msgid ""
 "The reason for that is that when the `thread::scope` function completes, all "
 "the threads are guaranteed to be joined, so they can return borrowed data."
@@ -17130,7 +17130,7 @@ msgstr ""
 "原因在於 `thread::scope` 函式完成時，能保證所有執行緒都已加入，因此能夠傳回借"
 "用的資料。"
 
-#: src/concurrency/scoped-threads.md:38
+#: src/concurrency/threads/scoped.md:38
 msgid ""
 "Normal Rust borrowing rules apply: you can either borrow mutably by one "
 "thread, or immutably by any number of threads."
