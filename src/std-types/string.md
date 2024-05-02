@@ -4,7 +4,8 @@ minutes: 10
 
 # String
 
-[`String`][1] represents a widely used heap-allocated growable UTF-8 encoded string buffer:
+[`String`][1] represents a widely used heap-allocated growable UTF-8 encoded
+string buffer:
 
 ```rust,editable
 fn main() {
