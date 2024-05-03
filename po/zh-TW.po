@@ -16534,7 +16534,7 @@ msgid ""
 "privilege (exception levels on Arm CPUs, rings on x86), while application "
 "processors do."
 msgstr ""
-"普遍來說，微控制器並沒有 MMU 或多個權限層級 (Arm CPU 例外狀況層級、x86 環)，"
+"普遍來說，微控制器並沒有 MMU 或多個權限層級 (Arm CPU 上的例外狀況層級、x86 上的環)，"
 "但應用程式處理器有。"
 
 #: src/bare-metal/aps.md
@@ -16765,7 +16765,7 @@ msgid ""
 "for DRAM, and another 1 GiB higher up for more devices. This matches the "
 "memory layout that QEMU uses."
 msgstr ""
-"為求簡單，我們只使用硬式編碼的分頁表 (見 `idmap.S`)，其中前 1 GiB 的位址空間"
+"為求簡單，我們只使用寫死的分頁表 (見 `idmap.S`)，其中前 1 GiB 的位址空間"
 "是對應至裝置、接下來 1 GiB 是對應至 DRAM，另外 1 GiB 以上則適用更多裝置。這符"
 "合 QEMU 使用的記憶體布局。"
 
@@ -17090,8 +17090,8 @@ msgid ""
 "structured way."
 msgstr ""
 "PL011 實際上還有[許多暫存器](https://developer.arm.com/documentation/ddi0183/"
-"g/programmers-model/summary-of-registers)，若為了存取偏移值而將其新增至建構指"
-"標，不僅容易發生錯誤，還難以讀取。此外，部分偏移值是位元欄位，適合以結構化方"
+"g/programmers-model/summary-of-registers)，若為了存取這些暫存器而將偏移值新增至建構指"
+"標，不僅容易發生錯誤，還難以讀取。此外，部分暫存器是位元欄位，適合以結構化方"
 "式存取。"
 
 #: src/bare-metal/aps/better-uart.md
@@ -17132,7 +17132,7 @@ msgstr "0x18"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "FR"
-msgstr "法文"
+msgstr "FR"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "9"
@@ -17311,8 +17311,8 @@ msgid ""
 "(among other things) reorder fields however it sees fit."
 msgstr ""
 "[`#[repr(C)]`](https://doc.rust-lang.org/reference/type-layout.html#the-c-"
-"representation) 會指示編譯器依序排列結構體欄位，遵循與 C 相同的規則。結構體必"
-"須具有可預測的布局，因為預設的 Rust 表示法允許編譯器依自身判斷重新排序欄位 "
+"representation) 會指示編譯器依序排列結構體欄位，遵循與 C 相同的規則。以確保結構體"
+"具有可預測的布局，因為預設的 Rust 表示法允許編譯器依自身判斷重新排序欄位 "
 "(和執行其他操作)。"
 
 #: src/bare-metal/aps/better-uart/driver.md
@@ -17556,7 +17556,7 @@ msgid ""
 "The RaspberryPi OS tutorial runs Rust code before the MMU and caches are "
 "enabled. This will read and write memory (e.g. the stack). However:"
 msgstr ""
-"在啟用 MMU 和快取之前，RaspberryPi OS 教學課程會執行 Rust 程式碼。這會讀取及"
+"RaspberryPi OS 教學課程會在啟用 MMU 和快取之前，執行 Rust 程式碼。這會讀取及"
 "寫入記憶體，例如堆疊。不過，請注意以下幾點："
 
 #: src/bare-metal/aps/other-projects.md
@@ -17586,9 +17586,8 @@ msgstr ""
 "成問題 (直接在硬體上執行，沒有管理程序)，但一般不建議採用這種模式。"
 
 #: src/bare-metal/useful-crates.md
-#, fuzzy
 msgid "Useful crates"
-msgstr "HAL Crate"
+msgstr "實用的 Crate"
 
 #: src/bare-metal/useful-crates.md
 msgid ""
@@ -17699,11 +17698,11 @@ msgid ""
 "space for PCI BARs:"
 msgstr ""
 "[`buddy_system_allocator`](https://crates.io/crates/buddy_system_allocator) "
-"是實作基本夥伴系統分配器的第三方 Crate。這可用來分配其他位址空間，或供 "
+"是實作基本夥伴系統分配器的第三方 Crate。這可供 "
 "[`LockedHeap`](https://docs.rs/buddy_system_allocator/0.9.0/"
 "buddy_system_allocator/struct.LockedHeap.html) 實作 [`GlobalAlloc`](https://"
 "doc.rust-lang.org/core/alloc/trait.GlobalAlloc.html)，以便使用標準 `alloc` "
-"Crate，如[先前](../alloc.md)所見。例如，我們可能會想針對 PCI BAR 分配 MMIO 空"
+"Crate，如[先前](../alloc.md)所見，或用來分配其他位址空間。例如，我們可能會想針對 PCI BAR 分配 MMIO 空"
 "間："
 
 #: src/bare-metal/useful-crates/buddy_system_allocator.md
@@ -17876,7 +17875,7 @@ msgid ""
 "the RTC match. You can use the driver provided in the [`arm-gic`](https://"
 "docs.rs/arm-gic/) crate to configure the Arm Generic Interrupt Controller."
 msgstr ""
-"__擴充功能 (如有時間)：啟用並處理因 RTC 比對而產生的中斷情形。您可以使用 "
+"擴充功能 (如有時間)：啟用並處理因 RTC 比對而產生的中斷情形。您可以使用 "
 "[`arm-gic`](https://docs.rs/arm-gic/) Crate 中提供的驅動程式，設定 Arm 泛型中"
 "斷控制器。"
 
@@ -17904,39 +17903,39 @@ msgstr ""
 msgid ""
 "_src/exceptions.rs_ (you should only need to change this for the 3rd part of "
 "the exercise):"
-msgstr "__src/exceptions.rs (您應該只需為練習的第 3 部分變更此項目)："
+msgstr "src/exceptions.rs (您應該只需為練習的第 3 部分變更此項目)："
 
 #: src/exercises/bare-metal/rtc.md
 msgid "_src/logger.rs_ (you shouldn't need to change this):"
-msgstr "__src/logger.rs (您應該不需要變更此項目)："
+msgstr "src/logger.rs (您應該不需要變更此項目)："
 
 #: src/exercises/bare-metal/rtc.md
 msgid "_src/pl011.rs_ (you shouldn't need to change this):"
-msgstr "__src/pl011.rs (您應該不需要變更此項目)："
+msgstr "src/pl011.rs (您應該不需要變更此項目)："
 
 #: src/exercises/bare-metal/rtc.md
 msgid "_build.rs_ (you shouldn't need to change this):"
-msgstr "__build.rs (您應該不需要變更此項目)："
+msgstr "build.rs (您應該不需要變更此項目)："
 
 #: src/exercises/bare-metal/rtc.md
 msgid "_entry.S_ (you shouldn't need to change this):"
-msgstr "__entry.S (您應該不需要變更此項目)："
+msgstr "entry.S (您應該不需要變更此項目)："
 
 #: src/exercises/bare-metal/rtc.md
 msgid "_exceptions.S_ (you shouldn't need to change this):"
-msgstr "__exceptions.S (您應該不需要變更此項目)："
+msgstr "exceptions.S (您應該不需要變更此項目)："
 
 #: src/exercises/bare-metal/rtc.md
 msgid "_idmap.S_ (you shouldn't need to change this):"
-msgstr "__idmap.S (您應該不需要變更此項目)："
+msgstr "idmap.S (您應該不需要變更此項目)："
 
 #: src/exercises/bare-metal/rtc.md
 msgid "_image.ld_ (you shouldn't need to change this):"
-msgstr "__image.ld (您應該不需要變更此項目)："
+msgstr "image.ld (您應該不需要變更此項目)："
 
 #: src/exercises/bare-metal/rtc.md
 msgid "_Makefile_ (you shouldn't need to change this):"
-msgstr "__Makefile (您應該不需要變更此項目)："
+msgstr "Makefile (您應該不需要變更此項目)："
 
 #: src/exercises/bare-metal/rtc.md
 msgid "Run the code in QEMU with `make qemu`."
