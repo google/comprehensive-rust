@@ -11,7 +11,7 @@ Including `&str` as a way of representing a slice of valid utf-8
 We can now understand the two string types in Rust:
 
 - `&str` is a slice of UTF-8 encoded bytes, similar to `&[u8]`.
-- `String` has ownership over its heap-allocated buffer of UTF-8 encoded bytes.
+- `String` is an owned buffer of UTF-8 encoded bytes, similar to `Vec<T>`.
 
 <!-- Avoid using fixed integers when slicing since this breaks
 translations. Using the length of s1 and s2 is safe. -->
