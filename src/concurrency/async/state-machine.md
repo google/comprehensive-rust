@@ -9,7 +9,7 @@ Rust transforms an async function or block to a hidden type that implements
 this transform are complex, but it helps to have a schematic understanding of
 what is happening.
 
-```rust,editable
+```rust,editable,compile_fail
 use futures::executor::block_on;
 use std::future::Future;
 use std::pin::Pin;
