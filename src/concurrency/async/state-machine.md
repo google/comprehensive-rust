@@ -83,7 +83,7 @@ would do. The important things to notice here are:
 - Calling an async function does nothing but construct a value, ready to start
   on the first call to `poll`.
 - All local variables are stored in the function's future struct, including an
-  enum to identify where exection is currently suspended. The real generated
+  enum to identify where execution is currently suspended. The real generated
   state machine would not initialize `i` to 0.
 - An `.await` in the async function is translated into a call to that async
   function, then polling the future it returns until it is `Poll::Ready`. The
