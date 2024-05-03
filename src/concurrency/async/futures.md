@@ -36,14 +36,9 @@ pause until that Future is ready, and then evaluates to its output.
 - The `Future` and `Poll` types are implemented exactly as shown; click the
   links to show the implementations in the docs.
 
-- We will not get to `Pin` and `Context`, as we will focus on writing async
-  code, rather than building new async primitives. Briefly:
+- We will address `Pin` in the "Pitfalls" segment.
 
-  - `Context` allows a Future to schedule itself to be polled again when an
-    event occurs.
-
-  - `Pin` ensures that the Future isn't moved in memory, so that pointers into
-    that future remain valid. This is required to allow references to remain
-    valid after an `.await`.
+- `Context` allows a Future to schedule itself to be polled again when an event
+  such as a timeout occurs.
 
 </details>
