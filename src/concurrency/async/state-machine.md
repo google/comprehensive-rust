@@ -1,5 +1,5 @@
 ---
-minutes: 5
+minutes: 7
 ---
 
 # State Machine
@@ -87,7 +87,8 @@ would do. The important things to notice here are:
   state machine would not initialize `i` to 0.
 - An `.await` in the async function is translated into a call to that async
   function, then polling the future it returns until it is `Poll::Ready`. The
-  real generated state machine would not box this future.
+  real generated state machine would contain the future type defined by `send`,
+  but that cannot be expressed in Rust syntax.
 - Execution continues eagerly until there's some reason to block. Try returning
   `Poll::Pending` in the `CountToState::Init` branch of the match, in hopes that
   `poll` will be called again with state `CountToState::Sending`. `block_on`
