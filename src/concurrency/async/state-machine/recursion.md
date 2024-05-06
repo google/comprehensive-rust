@@ -26,9 +26,18 @@ fn main() {
 
 This is a quick illustration of how understanding the state machine helps to
 understand errors. Recursion would require `CountToFuture` to contain a field of
-type `CountToFuture`, which is impossible.
+type `CountToFuture`, which is impossible. Compare to the common Rust error of
+building an `enum` that contains itself, such as
+
+```rust
+enum BinTree<T> {
+    Node { value: T, left: BinTree<T>, right: BinTree<T> },
+    Nil,
+}
+```
 
 Fix this with `Box::pin(count_to(n-1)).await;`, boxing the future returned from
-`count_to`.
+`count_to`. This only became possible recently (Rust 1.77.0), before which all
+recursion was prohibited.
 
 </details>
