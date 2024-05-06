@@ -11,57 +11,72 @@ what is happening.
 
 ```rust,editable,compile_fail
 use futures::executor::block_on;
+use pin_project::pin_project;
 use std::future::Future;
 use std::pin::Pin;
 use std::task::{Context, Poll};
 
-async fn send(s: &str) {
-    println!("{s}");
+async fn send(s: String) -> usize {
+    println!("{}", s);
+    s.len()
 }
 
 /*
-async fn count_to(count: i32) {
-    for i in 1..=count {
-        send("tick").await;
-    }
+async fn example(x: i32) -> usize {
+    let double_x = x*2;
+    let mut count = send(format!("x = {x}")).await;
+    count += send(format!("double_x = {double_x}")).await;
+    count
 }
 */
 
-fn count_to(count: i32) -> CountToFuture {
-    CountToFuture { state: CountToState::Init, count, i: 0 }
+fn example(x: i32) -> ExampleFuture {
+    ExampleFuture::Init { x }
 }
 
-struct CountToFuture {
-    state: CountToState,
-    count: i32,
-    i: i32,
+#[pin_project(project=ExampleFutureProjected)]
+enum ExampleFuture {
+    Init {
+        x: i32,
+    },
+    FirstSend {
+        double_x: i32,
+        #[pin]
+        fut: Pin<Box<dyn Future<Output = usize>>>,
+    },
+    SecondSend {
+        count: usize,
+        #[pin]
+        fut: Pin<Box<dyn Future<Output = usize>>>,
+    },
 }
 
-enum CountToState {
-    Init,
-    Sending(Pin<Box<dyn Future<Output = ()>>>),
-}
-
-impl std::future::Future for CountToFuture {
-    type Output = ();
+impl std::future::Future for ExampleFuture {
+    type Output = usize;
     fn poll(mut self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<Self::Output> {
         loop {
-            match &mut self.state {
-                CountToState::Init => {
-                    self.i = 1;
-                    self.state = CountToState::Sending(Box::pin(send("tick")));
+            match self.as_mut().project() {
+                ExampleFutureProjected::Init { x } => {
+                    let double_x = *x * 2;
+                    let fut = Box::pin(send(format!("x = {x}")));
+                    *self = ExampleFuture::FirstSend { double_x, fut };
                 }
-                CountToState::Sending(send_future) => {
-                    match send_future.as_mut().poll(cx) {
+                ExampleFutureProjected::FirstSend { double_x, mut fut } => {
+                    match fut.as_mut().poll(cx) {
                         Poll::Pending => return Poll::Pending,
-                        Poll::Ready(_) => {
-                            self.i += 1;
-                            if self.i > self.count {
-                                return Poll::Ready(());
-                            } else {
-                                self.state =
-                                    CountToState::Sending(Box::pin(send("tick")));
-                            }
+                        Poll::Ready(count) => {
+                            let fut =
+                                Box::pin(send(format!("double_x = {double_x}")));
+                            *self = ExampleFuture::SecondSend { count, fut };
+                        }
+                    }
+                }
+                ExampleFutureProjected::SecondSend { count, mut fut } => {
+                    match fut.as_mut().poll(cx) {
+                        Poll::Pending => return Poll::Pending,
+                        Poll::Ready(tmp) => {
+                            *count += tmp;
+                            return Poll::Ready(*count);
                         }
                     }
                 }
@@ -71,7 +86,7 @@ impl std::future::Future for CountToFuture {
 }
 
 fn main() {
-    block_on(count_to(5));
+    println!("result: {}", block_on(example(5)));
 }
 ```
 
@@ -90,8 +105,8 @@ would do. The important things to notice here are:
   real generated state machine would contain the future type defined by `send`,
   but that cannot be expressed in Rust syntax.
 - Execution continues eagerly until there's some reason to block. Try returning
-  `Poll::Pending` in the `CountToState::Init` branch of the match, in hopes that
-  `poll` will be called again with state `CountToState::Sending`. `block_on`
+  `Poll::Pending` in the `ExampleState::Init` branch of the match, in hopes that
+  `poll` will be called again with state `ExampleState::Sending`. `block_on`
   will not do so!
 
 </details>
