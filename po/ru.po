@@ -2892,27 +2892,27 @@ msgstr ""
 
 #: src/types-and-values.md
 msgid "[Hello, World](./types-and-values/hello-world.md) (5 minutes)"
-msgstr ""
+msgstr "[Привет, мир](./types-and-values/hello-world.md) (5 минут)"
 
 #: src/types-and-values.md
 msgid "[Variables](./types-and-values/variables.md) (5 minutes)"
-msgstr ""
+msgstr "[Переменные](./types-and-values/variables.md) (5 минут)"
 
 #: src/types-and-values.md
 msgid "[Values](./types-and-values/values.md) (5 minutes)"
-msgstr ""
+msgstr "[Литералы](./types-and-values/values.md) (5 minutes)"
 
 #: src/types-and-values.md
 msgid "[Arithmetic](./types-and-values/arithmetic.md) (3 minutes)"
-msgstr ""
+msgstr "[Арифметические операции](./types-and-values/arithmetic.md) (3 минуты)"
 
 #: src/types-and-values.md
 msgid "[Type Inference](./types-and-values/inference.md) (3 minutes)"
-msgstr ""
+msgstr "[Выведение типов](./types-and-values/inference.md) (3 минуты)"
 
 #: src/types-and-values.md
 msgid "[Exercise: Fibonacci](./types-and-values/exercise.md) (15 minutes)"
-msgstr ""
+msgstr "[Упражнение: Числа Фибоначчи](./types-and-values/exercise.md) (15 minutes)"
 
 #: src/types-and-values.md src/control-flow-basics.md src/generics.md
 #: src/modules.md
@@ -3185,14 +3185,18 @@ msgstr ""
 
 #: src/types-and-values/inference.md
 msgid "Rust will look at how the variable is _used_ to determine the type:"
-msgstr ""
+msgstr "Rust анализует _использование_ переменной для определения её типа:"
 
 #: src/types-and-values/inference.md
 msgid ""
 "This slide demonstrates how the Rust compiler infers types based on "
 "constraints given by variable declarations and usages."
 msgstr ""
+"Слайд показывает, что компилятор языка выводит неявно заданный тип значения "
+"переменной, основываясь на её объявлении и дальнейшем использовании."
 
+# Alternative: скомпилированный машинный код
+# but it's too many compile-rooted words around.
 #: src/types-and-values/inference.md
 msgid ""
 "It is very important to emphasize that variables declared like this are not "
@@ -3201,17 +3205,43 @@ msgid ""
 "of a type. The compiler does the job for us and helps us write more concise "
 "code."
 msgstr ""
+"Здесь очень важно отметить, что это отнюдь не динамическая типизация; тип "
+"есть и неизменен. Для переменных, объявленных таким образом, сгенерированный "
+"машинный код будет идентичен варианту с явным указанием типа. Компилятор "
+"лишь берёт на себя часть работы, позволяя писать более лаконичный код."
 
+# A note about floating-point numbers.
+# A translation used in Rust book: число с плавающей точкой
+# Broadly used alternative: число с плавающей запятой
+# But. It's a literal value, which never has a comma in representation.
+# Number i18n seems inapplicable here.
 #: src/types-and-values/inference.md
 msgid ""
 "When nothing constrains the type of an integer literal, Rust defaults to "
 "`i32`. This sometimes appears as `{integer}` in error messages. Similarly, "
 "floating-point literals default to `f64`."
 msgstr ""
+"По умолчанию, в отсутствие ограничений, тип целочисленого литерала будет "
+"выведен как `i32`. Что в сообщениях об ошибках иногда показывается как "
+"`{integer}`. Аналогично, умолчание для литералов чисел с плавающей точкой "
+"--- `f64`"
 
+# Localization of Rust error messages doesn't seem to be complete.
+# https://github.com/rust-lang/rfcs/issues/1843
+#
+# So keep the messages as close to the actual compiler output as possible:
+# error[E0277]: can't compare `{float}` with `{integer}`
+# ...
+# ...^^^^ no implementation for `{float} == {integer}`
+# ...
+# error[E0308]: mismatched types
+# ...
+# ...^^^^ expected floating-point number, found integer
+#
+# ERROR word is not included in the cited cause, so maybe translated
 #: src/types-and-values/inference.md
 msgid "// ERROR: no implementation for `{float} == {integer}`\n"
-msgstr ""
+msgstr "// ОШИБКА: no implementation for `{float} == {integer}`\n"
 
 #: src/types-and-values/exercise.md
 msgid ""
