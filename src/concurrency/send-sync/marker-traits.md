@@ -18,7 +18,7 @@ can also implement them manually when you know it is valid.
 
 [1]: https://doc.rust-lang.org/std/marker/trait.Send.html
 [2]: https://doc.rust-lang.org/std/marker/trait.Sync.html
-[3]: ../unsafe/unsafe-traits.md
+[3]: ../../unsafe-rust/unsafe-traits.md
 
 <details>
 
