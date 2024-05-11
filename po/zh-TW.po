@@ -18633,7 +18633,7 @@ msgid ""
 "reqwest/). Create a new Cargo project and `reqwest` it as a dependency with:"
 msgstr ""
 "為此，您需要使用 HTTP 用戶端，例如 [`reqwest`](https://docs.rs/reqwest/)。請"
-"建立新的 Cargo 專案，並使用以下指令，將該專案 `reqwest` 為依附元件："
+"建立新的 Cargo 專案，並使用以下指令，將 `reqwest` 設為依附元件："
 
 #: src/exercises/concurrency/link-checker.md
 msgid ""
@@ -18961,7 +18961,7 @@ msgid ""
 "`JoinHandle` returned from `tokio::spawn` implements `Future` to allow "
 "joining to it."
 msgstr ""
-"非同步函式會傳回 `impl Future`。也有可能會為自己的型別實作 `Future`，但不常"
+"非同步函式會傳回 `impl Future`。您也可以為自己的型別實作 `Future`，但不常"
 "見。舉例來說，從 `tokio::spawn` 傳回的 `JoinHandle` 會實作 `Future`，以便允許"
 "會合。"
 
@@ -18971,7 +18971,7 @@ msgid ""
 "to pause until that Future is ready, and then evaluates to its output."
 msgstr ""
 "套用至 Future 的 `.await` 關鍵字會暫停目前的非同步函式，直到 Future 準備就"
-"緒，接著則會評估其輸出內容。"
+"緒，接著則會計算其輸出內容。"
 
 #: src/async/futures.md
 msgid ""
@@ -19000,7 +19000,7 @@ msgid ""
 "that future remain valid. This is required to allow references to remain "
 "valid after an `.await`."
 msgstr ""
-"`Pin` 可確保 Future 不會移動至記憶體，這樣該 Future 的指標仍維持有效。如要允"
+"`Pin` 可確保 Future 在記憶體中不被移動，這樣該 Future 的指標仍維持有效。如要允"
 "許參照在 `.await` 後持續有效，這麼做就有必要。"
 
 #: src/async/runtimes.md
@@ -19009,7 +19009,7 @@ msgid ""
 "_reactor_) and is responsible for executing futures (an _executor_). Rust "
 "does not have a \"built-in\" runtime, but several options are available:"
 msgstr ""
-"__「執行階段」支援以非同步方式執行作業 (__「反應器」)，並負責執行 Future (__"
+"「執行環境」支援以非同步方式執行作業 (「反應器」)，並負責執行 Future ("
 "「執行器」)。Rust 沒有「內建」執行階段，但提供多種選項："
 
 #: src/async/runtimes.md
@@ -19028,7 +19028,7 @@ msgid ""
 "a basic runtime in `async::task`."
 msgstr ""
 "[async-std](https://async.rs/)：目標是成為「async 的 std」，並在 `async::"
-"task` 中含有基本執行階段。"
+"task` 中含有基本執行環境。"
 
 #: src/async/runtimes.md
 msgid "[smol](https://docs.rs/smol/latest/smol/): simple and lightweight"
@@ -19040,9 +19040,9 @@ msgid ""
 "(https://fuchsia.googlesource.com/fuchsia/+/refs/heads/main/src/lib/fuchsia-"
 "async/src/lib.rs) already has one."
 msgstr ""
-"許多大型應用程式都有專屬的執行階段。例如，[Fuchsia](https://fuchsia."
+"許多大型應用程式都有專屬的執行環境。例如，[Fuchsia](https://fuchsia."
 "googlesource.com/fuchsia/+/refs/heads/main/src/lib/fuchsia-async/src/lib.rs) "
-"已有一個執行階段。"
+"已有一個執行環境。"
 
 #: src/async/runtimes.md
 msgid ""
@@ -19050,7 +19050,7 @@ msgid ""
 "playground. The playground also does not permit any I/O, so most interesting "
 "async things can't run in the playground."
 msgstr ""
-"請注意，在列出的執行階段中，Rust Playground 只支援 Tokio。Playground 也不允許"
+"請注意，在列出的執行環境中，Rust Playground 只支援 Tokio。Playground 也不允許"
 "任何 I/O，因此大部分有趣的非同步作業皆無法在 Playground 中執行。"
 
 #: src/async/runtimes.md
