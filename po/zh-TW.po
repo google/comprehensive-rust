@@ -19268,8 +19268,8 @@ msgid ""
 "We have already seen tasks, that function as independent threads of "
 "execution."
 msgstr ""
-"Future 可以合併，產生並行運算流程圖。我們已介紹過工作，工作的功能類似於獨立的執行作業執"
-"行緒。"
+"Future 可以合併，產生並行運算流程圖。我們已介紹過工作，工作的功能類似於獨立的"
+"執行作業執行緒。"
 
 #: src/async/control-flow.md
 msgid "[Join](control-flow/join.md)"
@@ -19606,8 +19606,8 @@ msgid ""
 "Naively add a `_ = sleep(Duration::from_millis(100)) => { println!(..) }` to "
 "the `select!`. This will never execute. Why?"
 msgstr ""
-"直接的將 `_ = sleep(Duration::from_millis(100)) => { println!(..) }` 新增"
-"至 `select!`。這永遠不會執行。為什麼？"
+"直接的將 `_ = sleep(Duration::from_millis(100)) => { println!(..) }` 新增至 "
+"`select!`。這永遠不會執行。為什麼？"
 
 #: src/async/pitfalls/pin.md
 msgid ""
@@ -19629,8 +19629,8 @@ msgid ""
 "iteration (a fused future would help with this). Update to reset "
 "`timeout_fut` every time it expires."
 msgstr ""
-"這樣可以編譯，但逾時到期後，每次疊代都會是 `Poll::Ready` (熔斷型 Future 有"
-"助解決這個問題)。更新即可在每次到期時重設 `timeout_fut`。"
+"這樣可以編譯，但逾時到期後，每次疊代都會是 `Poll::Ready` (熔斷型 Future 有助"
+"解決這個問題)。更新即可在每次到期時重設 `timeout_fut`。"
 
 #: src/async/pitfalls/pin.md
 msgid ""
@@ -19657,9 +19657,9 @@ msgid ""
 "code transformation for async blocks and functions is not verified by the "
 "borrow checker."
 msgstr ""
-"包含指向自己的指標的資料稱為自我參照。一般而言，Rust 借用檢查器會禁止移動自我參照資料，"
-"因為參照的留存時間不會超過其指向的資料。不過，非同步區塊和函式的程式碼轉換不"
-"會由借用檢查器驗證。"
+"包含指向自己的指標的資料稱為自我參照。一般而言，Rust 借用檢查器會禁止移動自我"
+"參照資料，因為參照的留存時間不會超過其指向的資料。不過，非同步區塊和函式的程"
+"式碼轉換不會由借用檢查器驗證。"
 
 #: src/async/pitfalls/pin.md
 msgid ""
@@ -19711,8 +19711,8 @@ msgid ""
 "trait/latest/async_trait/) provides a workaround through a macro, with some "
 "caveats:"
 msgstr ""
-"如果需要 `dyn` 支援，Crate [async_trait](https://docs.rs/async-trait/latest/async_trait/) 提供採用"
-"巨集的解決方法（但有些要注意的地方）："
+"如果需要 `dyn` 支援，Crate [async_trait](https://docs.rs/async-trait/latest/"
+"async_trait/) 提供採用巨集的解決方法（但有些要注意的地方）："
 
 #: src/async/pitfalls/async-traits.md
 msgid "\"running all sleepers..\""
@@ -19727,8 +19727,8 @@ msgid ""
 "`async_trait` is easy to use, but note that it's using heap allocations to "
 "achieve this. This heap allocation has performance overhead."
 msgstr ""
-"`async_trait` 相當容易使用，但請注意，它是運用堆積分配來達成此效果。這種堆"
-"積分配會造成效能負擔。"
+"`async_trait` 相當容易使用，但請注意，它是運用堆積分配來達成此效果。這種堆積"
+"分配會造成效能負擔。"
 
 #: src/async/pitfalls/async-traits.md
 msgid ""
@@ -19757,14 +19757,14 @@ msgid ""
 "ensure the system works correctly even when futures are cancelled. For "
 "example, it shouldn't deadlock or lose data."
 msgstr ""
-"捨棄 Future 表示 Future 無法再供輪詢。這稱為「取消」，可能發生在任何 "
-"`await` 時間點。即使 Future 遭到取消，也需審慎確保系統正常運作，例如不應出現"
-"死結或遺失資料。"
+"捨棄 Future 表示 Future 無法再供輪詢。這稱為「取消」，可能發生在任何 `await` "
+"時間點。即使 Future 遭到取消，也需審慎確保系統正常運作，例如不應出現死結或遺"
+"失資料。"
 
 #: src/async/pitfalls/cancellation.md
 msgid "\"not UTF-8\""
-msgstr "UTF-8"
-msgstr "非 UTF-8"
+msgstr "\"非 UTF-8\""
+
 #: src/async/pitfalls/cancellation.md
 msgid "\"hi\\nthere\\n\""
 msgstr "\"hi\\nthere\\n\""
@@ -19857,10 +19857,8 @@ msgstr ""
 "能。"
 
 #: src/exercises/concurrency/dining-philosophers-async.md
-msgstr "哲學家就餐問題 --- 非同步"
-#, fuzzy
 msgid "Dining Philosophers --- Async"
-msgstr "哲學家就餐問題"
+msgstr "哲學家就餐問題 --- 非同步"
 
 #: src/exercises/concurrency/dining-philosophers-async.md
 msgid ""
@@ -20001,8 +19999,8 @@ msgid ""
 "[`tokio_websockets`](https://docs.rs/tokio-websockets/). Spend a few minutes "
 "to familiarize yourself with the API."
 msgstr ""
-"您會需要 `tokio` 和 [`tokio_websockets`](https://docs.rs/tokio-"
-"websockets/) 中的以下函式。請花幾分鐘熟悉此 API。"
+"您會需要 `tokio` 和 [`tokio_websockets`](https://docs.rs/tokio-websockets/) "
+"中的以下函式。請花幾分鐘熟悉此 API。"
 
 #: src/exercises/concurrency/chat-app.md
 msgid ""
