@@ -19246,7 +19246,7 @@ msgid ""
 "for complex applications with both IO and heavy CPU processing tasks."
 msgstr ""
 "[Flume](https://docs.rs/flume/latest/flume/) Crate 具有同時實作 `sync` 和 "
-"`async`、`send` 和 `recv` 的管道。對於有 IO 和大量 CPU 處理工作的複雜應用程"
+"`async` 的 `send` 和 `recv` 的管道。對於有 IO 和大量 CPU 處理工作的複雜應用程"
 "式，這相當便利。"
 
 #: src/async/channels.md
@@ -19268,7 +19268,7 @@ msgid ""
 "We have already seen tasks, that function as independent threads of "
 "execution."
 msgstr ""
-"Future 可以合併，產生並行運算流程圖。我們已介紹過工作，工作是獨立的執行作業執"
+"Future 可以合併，產生並行運算流程圖。我們已介紹過工作，工作的功能類似於獨立的執行作業執"
 "行緒。"
 
 #: src/async/control-flow.md
@@ -19285,7 +19285,7 @@ msgid ""
 "a collection of their results. This is similar to `Promise.all` in "
 "JavaScript or `asyncio.gather` in Python."
 msgstr ""
-"會合作業會等待整個 Future 集合準備就緒，然後傳回一系列結果。這類似於 "
+"會合作業會等待整個 Future 集合準備就緒，然後蒐集多個結果一次回傳。這類似於 "
 "JavaScript 中的 `Promise.all` 或 Python 中的 `asyncio.gather`。"
 
 #: src/async/control-flow/join.md
@@ -19310,7 +19310,7 @@ msgid ""
 "you must know how many futures you will have at compile time. This is "
 "currently in the `futures` crate, soon to be stabilised in `std::future`."
 msgstr ""
-"若是多個不相交型的 Future，您可以使用 `std::future::join!`，但必須知道編譯時"
+"若是多個不同型別的 Future，您可以使用 `std::future::join!`，但必須知道編譯時"
 "會有多少 Future。這目前位於 `futures` Crate 中，不久後就會在 `std::future` 中"
 "推出穩定版。"
 
@@ -19318,7 +19318,7 @@ msgstr ""
 msgid ""
 "The risk of `join` is that one of the futures may never resolve, this would "
 "cause your program to stall."
-msgstr "`join` 的風險是某個 Future 可能無法解析，導致程式停滯。"
+msgstr "`join` 的風險是某個 Future 可能無法解決，導致程式停滯。"
 
 #: src/async/control-flow/join.md
 msgid ""
@@ -19329,7 +19329,7 @@ msgid ""
 "demonstrates `join!`."
 msgstr ""
 "舉例來說，您也可以併用 `join_all` 和 `join!`，讓所有要求會合至 HTTP 服務和資"
-"料庫查詢。請使用 `futures::join!`，嘗試將 `tokio::time::sleep` 新增至 "
+"料庫查詢。請嘗試使用 `futures::join!`，將 `tokio::time::sleep` 新增至 "
 "Future。這並非逾時 (逾時需要 `select!`，下一章會說明)，而是示範 `join!`。"
 
 #: src/async/control-flow/select.md
@@ -19430,7 +19430,7 @@ msgid ""
 "chapter:"
 msgstr ""
 "async/await 為並行非同步程式設計提供了便利有效率的抽象機制。不過，Rust 中的 "
-"async/await 模型也會造成問題和困擾。本章會說明其中幾種情形："
+"async/await 模型也會造成問題和犯錯的機會。本章會說明其中幾種情形："
 
 #: src/async/pitfalls.md
 msgid "[Blocking the Executor](pitfalls/blocking-executor.md)"
@@ -19459,7 +19459,7 @@ msgid ""
 "being executed. An easy workaround is to use async equivalent methods where "
 "possible."
 msgstr ""
-"大多數非同步執行階段只允許並行執行 IO 工作。這表示阻塞 CPU 的工作會阻塞執行"
+"大多數非同步執行環境只允許並行執行 IO 工作。這表示阻塞 CPU 的工作會阻塞執行"
 "器，不讓其他工作執行。一個簡單的解決方法，就是盡可能使用與非同步機制同等的方"
 "法。"
 
@@ -19606,8 +19606,8 @@ msgid ""
 "Naively add a `_ = sleep(Duration::from_millis(100)) => { println!(..) }` to "
 "the `select!`. This will never execute. Why?"
 msgstr ""
-"以原生方式將 `_ = sleep(Duration::from_millis(100)) => { println!(..) }` 新增"
-"至 `select!`。這絕對不會執行。為什麼？"
+"直接的將 `_ = sleep(Duration::from_millis(100)) => { println!(..) }` 新增"
+"至 `select!`。這永遠不會執行。為什麼？"
 
 #: src/async/pitfalls/pin.md
 msgid ""
@@ -19629,7 +19629,7 @@ msgid ""
 "iteration (a fused future would help with this). Update to reset "
 "`timeout_fut` every time it expires."
 msgstr ""
-"這些內容會編譯，但逾時到期後，每次疊代都會是 `Poll::Ready` (熔斷型 Future 有"
+"這樣可以編譯，但逾時到期後，每次疊代都會是 `Poll::Ready` (熔斷型 Future 有"
 "助解決這個問題)。更新即可在每次到期時重設 `timeout_fut`。"
 
 #: src/async/pitfalls/pin.md
@@ -19657,7 +19657,7 @@ msgid ""
 "code transformation for async blocks and functions is not verified by the "
 "borrow checker."
 msgstr ""
-"包含指標的資料稱為自我參照。一般而言，Rust 借用檢查器會禁止移動自我參照資料，"
+"包含指向自己的指標的資料稱為自我參照。一般而言，Rust 借用檢查器會禁止移動自我參照資料，"
 "因為參照的留存時間不會超過其指向的資料。不過，非同步區塊和函式的程式碼轉換不"
 "會由借用檢查器驗證。"
 
@@ -19706,14 +19706,13 @@ msgid ""
 msgstr ""
 
 #: src/async/pitfalls/async-traits.md
-#, fuzzy
 msgid ""
 "If we do need `dyn` support, the crate [async_trait](https://docs.rs/async-"
 "trait/latest/async_trait/) provides a workaround through a macro, with some "
 "caveats:"
 msgstr ""
-"Crate [async_trait](https://docs.rs/async-trait/latest/async_trait/) 提供採用"
-"巨集的解決方法："
+"如果需要 `dyn` 支援，Crate [async_trait](https://docs.rs/async-trait/latest/async_trait/) 提供採用"
+"巨集的解決方法（但有些要注意的地方）："
 
 #: src/async/pitfalls/async-traits.md
 msgid "\"running all sleepers..\""
@@ -19728,8 +19727,8 @@ msgid ""
 "`async_trait` is easy to use, but note that it's using heap allocations to "
 "achieve this. This heap allocation has performance overhead."
 msgstr ""
-"`async_trait` 相當容易使用，但請注意，它是運用堆積分配量來達成此效果。這種堆"
-"積分配量會造成效能負擔。"
+"`async_trait` 相當容易使用，但請注意，它是運用堆積分配來達成此效果。這種堆"
+"積分配會造成效能負擔。"
 
 #: src/async/pitfalls/async-traits.md
 msgid ""
@@ -19758,15 +19757,14 @@ msgid ""
 "ensure the system works correctly even when futures are cancelled. For "
 "example, it shouldn't deadlock or lose data."
 msgstr ""
-"捨棄 Future 表示 Future 無法再供輪詢。這稱為「取消」__，可能發生在任何 "
+"捨棄 Future 表示 Future 無法再供輪詢。這稱為「取消」，可能發生在任何 "
 "`await` 時間點。即使 Future 遭到取消，也需審慎確保系統正常運作，例如不應出現"
 "死結或遺失資料。"
 
 #: src/async/pitfalls/cancellation.md
-#, fuzzy
 msgid "\"not UTF-8\""
 msgstr "UTF-8"
-
+msgstr "非 UTF-8"
 #: src/async/pitfalls/cancellation.md
 msgid "\"hi\\nthere\\n\""
 msgstr "\"hi\\nthere\\n\""
@@ -19791,13 +19789,13 @@ msgstr "與 `panic` 和 `?` 不同，取消是正常控制流程的一部分 (�
 
 #: src/async/pitfalls/cancellation.md
 msgid "The example loses parts of the string."
-msgstr "此範例會失去字串的某些部分。"
+msgstr "此範例失去字串的某些部分。"
 
 #: src/async/pitfalls/cancellation.md
 msgid ""
 "Whenever the `tick()` branch finishes first, `next()` and its `buf` are "
 "dropped."
-msgstr "每當 `tick()` 分支版本首次完成後，`next()` 和其 `buf` 都會遭到捨棄。"
+msgstr "每當 `tick()` 分支版本先完成時，`next()` 和其 `buf` 都會遭到捨棄。"
 
 #: src/async/pitfalls/cancellation.md
 msgid ""
@@ -19859,7 +19857,7 @@ msgstr ""
 "能。"
 
 #: src/exercises/concurrency/dining-philosophers-async.md
-#: src/exercises/concurrency/solutions-afternoon.md
+msgstr "哲學家就餐問題 --- 非同步"
 #, fuzzy
 msgid "Dining Philosophers --- Async"
 msgstr "哲學家就餐問題"
@@ -19961,7 +19959,7 @@ msgstr "請建立新的 Cargo 專案，並新增下列依附元件："
 
 #: src/exercises/concurrency/chat-app.md
 msgid "_Cargo.toml_:"
-msgstr "__Cargo.toml："
+msgstr "Cargo.toml："
 
 #: src/exercises/concurrency/chat-app.md
 msgid ""
@@ -20003,8 +20001,8 @@ msgid ""
 "[`tokio_websockets`](https://docs.rs/tokio-websockets/). Spend a few minutes "
 "to familiarize yourself with the API."
 msgstr ""
-"您會需要 `tokio` 中的函式和 [`tokio_websockets`](https://docs.rs/tokio-"
-"websockets/)。請花幾分鐘熟悉此 API。"
+"您會需要 `tokio` 和 [`tokio_websockets`](https://docs.rs/tokio-"
+"websockets/) 中的以下函式。請花幾分鐘熟悉此 API。"
 
 #: src/exercises/concurrency/chat-app.md
 msgid ""
@@ -20075,7 +20073,7 @@ msgstr ""
 #: src/exercises/concurrency/chat-app.md
 #: src/exercises/concurrency/solutions-afternoon.md
 msgid "_src/bin/server.rs_:"
-msgstr "__src/bin/server.rs："
+msgstr "src/bin/server.rs："
 
 #: src/exercises/concurrency/chat-app.md
 msgid "// TODO: For a hint, see the description of the task below.\n"
@@ -20104,7 +20102,7 @@ msgstr "// Wrap the raw TCP stream into a websocket.\n"
 #: src/exercises/concurrency/chat-app.md
 #: src/exercises/concurrency/solutions-afternoon.md
 msgid "_src/bin/client.rs_:"
-msgstr "__src/bin/client.rs："
+msgstr "src/bin/client.rs："
 
 #: src/exercises/concurrency/chat-app.md
 #: src/exercises/concurrency/solutions-afternoon.md
@@ -20280,7 +20278,7 @@ msgid ""
 "See [Blocks](control-flow/blocks.md) and _scope_."
 msgstr ""
 "區塊：\n"
-"請參閱[區塊](control-flow/blocks.md)和「範圍」__相關課程。"
+"請參閱[區塊](control-flow/blocks.md)和「範圍」相關課程。"
 
 #: src/glossary.md
 msgid ""
@@ -20304,7 +20302,7 @@ msgid ""
 "`{` and `}`. Also called _curly brace_, they delimit _blocks_."
 msgstr ""
 "大括號：\n"
-"`{` and `}`，用於分隔「區塊」__。"
+"`{` and `}`，用於分隔「區塊」。"
 
 #: src/glossary.md
 msgid ""
@@ -20313,7 +20311,7 @@ msgid ""
 "program."
 msgstr ""
 "建構：\n"
-"這項程序是將原始碼轉換為可執行的程式碼或可使用的程式。"
+"將原始碼轉換為可執行的程式碼或可使用的程式的程序。"
 
 #: src/glossary.md
 msgid ""
@@ -20387,7 +20385,7 @@ msgid ""
 "associated tuple or struct."
 msgstr ""
 "列舉：\n"
-"保留其中一個已命名常數的資料型別，可能具有相關聯的元組或結構體。"
+"儲存多個具名常數之一的資料型別，可能具有相關聯的元組或結構體。"
 
 #: src/glossary.md
 msgid ""
@@ -20465,7 +20463,7 @@ msgid ""
 "cannot be used as an identifier."
 msgstr ""
 "關鍵字：\n"
-"程式設計語言中具有特定意義的保留字，無法用於 ID。"
+"程式設計語言中具有特定意義的保留字，無法用於命名。"
 
 #: src/glossary.md
 msgid ""
@@ -20642,13 +20640,12 @@ msgstr ""
 "著重安全性、效能和並行的系統程式設計語言。"
 
 #: src/glossary.md
-#, fuzzy
 msgid ""
 "Rust Fundamentals:  \n"
 "Days 1 to 4 of this course."
 msgstr ""
 "Rust 基礎知識：\n"
-"本課程第 1 到 3 天的內容。"
+"本課程第 1 到 4 天的內容。"
 
 #: src/glossary.md
 msgid ""
@@ -20797,7 +20794,7 @@ msgid ""
 "to unpredictable program behavior."
 msgstr ""
 "未定義的行為：\n"
-"Rust 中不含指定結果的動作或條件，經常導致無法預測的程式行為。"
+"Rust 中未定義結果的動作或條件，經常導致無法預測的程式行為。"
 
 #: src/glossary.md
 msgid ""
@@ -20832,7 +20829,7 @@ msgid ""
 "[Unsafe Rust](unsafe.html)."
 msgstr ""
 "不安全：\n"
-"這個 Rust 子集可觸發「未定義的行為」__。請參閱「[不安全的 Rust](unsafe."
+"這個 Rust 子集可觸發「未定義的行為」。請參閱「[不安全的 Rust](unsafe."
 "html)」。"
 
 #: src/glossary.md
@@ -20841,7 +20838,7 @@ msgid ""
 "A memory location storing data. Variables are valid in a _scope_."
 msgstr ""
 "變數：\n"
-"儲存資料的記憶體位置。變數在「範圍」__內有效。"
+"儲存資料的記憶體位置。變數在「範圍」內有效。"
 
 #: src/other-resources.md
 msgid "Other Rust Resources"
