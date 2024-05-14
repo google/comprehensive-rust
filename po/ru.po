@@ -190,8 +190,8 @@ msgstr "Кортежи"
 msgid "Array Iteration"
 msgstr "Обход массивов"
 
+# Alternative: Распаковка
 #: src/SUMMARY.md src/tuples-and-arrays/destructuring.md
-#, fuzzy
 msgid "Patterns and Destructuring"
 msgstr "Деструктуризация"
 
@@ -274,6 +274,7 @@ msgstr "Шаблоны и сопоставление"
 msgid "Matching Values"
 msgstr "Сопоставление"
 
+# Alternative: Распаковка
 #: src/SUMMARY.md src/pattern-matching/destructuring.md
 msgid "Destructuring"
 msgstr "Деструктуризация"
@@ -2518,7 +2519,7 @@ msgstr "Расписание"
 #: src/welcome-day-4-afternoon.md src/concurrency/welcome.md
 #: src/concurrency/welcome-async.md
 msgid "In this session:"
-msgstr "В этом занятии"
+msgstr "В этом занятии:"
 
 #: src/welcome-day-1.md
 msgid "[Welcome](./welcome-day-1.md) (5 minutes)"
@@ -2541,7 +2542,7 @@ msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 5 "
 "minutes"
 msgstr ""
-"Вместе с 10-ти минутными паузами урок займёт около 2 часов и 5 минут."
+"Вместе с 10-ти минутными паузами урок займёт около 2-х часов и 5-и минут."
 
 #: src/welcome-day-1.md
 msgid "Please remind the students that:"
@@ -3828,7 +3829,7 @@ msgstr "Добро пожаловать"
 
 #: src/welcome-day-1-afternoon.md
 msgid "[Tuples and Arrays](./tuples-and-arrays.md) (35 minutes)"
-msgstr ""
+msgstr "[Кортежи и массивы](./tuples-and-arrays.md) (35 минут)"
 
 #: src/welcome-day-1-afternoon.md
 msgid "[References](./references.md) (55 minutes)"
@@ -3836,13 +3837,14 @@ msgstr "[Ссылки](./references.md) (55 минут)"
 
 #: src/welcome-day-1-afternoon.md
 msgid "[User-Defined Types](./user-defined-types.md) (50 minutes)"
-msgstr ""
+msgstr "[Определяемые пользователем типы](./user-defined-types.md) (50 минут)"
 
 #: src/welcome-day-1-afternoon.md
 msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 35 "
 "minutes"
 msgstr ""
+"Вместе с 10-ти минутными паузами урок займёт около 2-х часов и 35-и минут."
 
 #: src/tuples-and-arrays.md
 msgid "[Arrays](./tuples-and-arrays/arrays.md) (5 minutes)"
@@ -3903,8 +3905,10 @@ msgstr ""
 msgid "We can use literals to assign values to arrays."
 msgstr "Мы можем использовать литералы для присваивания значений массивам."
 
+# Struggled to make a clear translation without explicitly mentioning
+# the formatting traits...
+# Should not that much confuse attendees, since it's in the speaker notes.
 #: src/tuples-and-arrays/arrays.md
-#, fuzzy
 msgid ""
 "The `println!` macro asks for the debug implementation with the `?` format "
 "parameter: `{}` gives the default output, `{:?}` gives the debug output. "
@@ -3912,10 +3916,12 @@ msgid ""
 "only implement the debug output. This means that we must use debug output "
 "here."
 msgstr ""
-"В функции main оператор print запрашивает отладочную реализацию используя "
-"параметр форматирования `?`: `{}` выдает представление по умолчанию, `{:?}` "
-"выдает отладочное представление. Мы также могли бы использовать `{a}` и "
-"`{a:?}` без указания значений после строки формата."
+"Параметр форматирования `?` предписывает макросу `println!` запросить "
+"реализацию трейта отладочного вывода: `{}` запрашивает форматирование по "
+"умолчанию (`std::fmt::Display`), `{:?}` -- отладочное представление "
+"(`std::fmt::Debug`). Другие, например, целочисленные типы и строки "
+"реализуют трейт `Display`, но для массовов реализован только трейт `Debug`. "
+"Поэтому использование `{:?}` здесь обязательно."
 
 #: src/tuples-and-arrays/arrays.md
 msgid ""
@@ -3947,18 +3953,19 @@ msgid ""
 "absence of a return value, akin to `void` in other languages."
 msgstr ""
 "Пустой кортеж `()` называется _единичным типом_ и обозначает пустое значение "
-"или пустой возвращаемый тип. Похоже на использование `void` в других языках."
+"или пустой возвращаемый тип. Сходно с использованием `void` в других языках."
 
 #: src/tuples-and-arrays/iteration.md
 msgid "The `for` statement supports iterating over arrays (but not tuples)."
 msgstr "Выражение `for` позволяет обходить элементы массива (но не кортежа)."
 
+# Could it be "на четвёртый день курса"?
 #: src/tuples-and-arrays/iteration.md
 msgid ""
 "This functionality uses the `IntoIterator` trait, but we haven't covered "
 "that yet."
 msgstr ""
-"Здесь используется типаж `IntoIterator`, который подробно рассматривается "
+"Циклы используют типаж `IntoIterator`, который подробно рассматривается "
 "в четвёртый день курса."
 
 #: src/tuples-and-arrays/iteration.md
@@ -3967,6 +3974,10 @@ msgid ""
 "` macros. These are always checked while, debug-only variants like "
 "`debug_assert!` compile to nothing in release builds."
 msgstr ""
+"Нововведение здесь -- это макрос `assert_ne!`. Он, а также макросы "
+"`assert_eq!` and `assert!` проверяются всегда. В то время как отладочные "
+"варианты, например `debug_assert!`, исключаются при компиляции релизных "
+"сборок."
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
@@ -3974,16 +3985,22 @@ msgid ""
 "extract the inner values into local variables. This can be done manually by "
 "directly accessing the inner values:"
 msgstr ""
+"При работе с кортежами и другими структурированными значениями часто "
+"возникает потребность извлечь внутренние значения в локальные переменные. "
+"Это можно сделать непосредственно обратившись к внутренним значениям:"
 
+# left & right - are variables names - no translation needed
 #: src/tuples-and-arrays/destructuring.md
 msgid "\"left: {left}, right: {right}\""
-msgstr ""
+msgstr "\"left: {left}, right: {right}\""
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
 "However, Rust also supports using pattern matching to destructure a larger "
 "value into its constituent parts:"
 msgstr ""
+"Rust, однако, поддерживает синтаксис присваивания с разложением по шаблону "
+"большего значения на составные части:"
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
@@ -3991,25 +4008,40 @@ msgid ""
 "statically verify that the value on the right of `=` has the same structure "
 "as the pattern."
 msgstr ""
+"Используемые здесь шаблоны являются \"неопровержимыми\", что означает, что "
+"компилятор может статически проверить, что значение справа от `=` имеет ту "
+"же структуру, что и шаблон."
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
 "A variable name is an irrefutable pattern that always matches any value, "
 "hence why we can also use `let` to declare a single variable."
 msgstr ""
+"Имя переменной -- это неопровержимый шаблон, который всегда соответствует "
+"любому значению, отсюда возможность использовать `let` для объявления "
+"единственной переменной."
 
+# Alternative to деструктуризацию: распаковку
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
 "Rust also supports using patterns in conditionals, allowing for equality "
 "comparison and destructuring to happen at the same time. This form of "
 "pattern matching will be discussed in more detail later."
 msgstr ""
+"Rust также поддерживает использование шаблонов в условных выражениях, "
+"позволяя одновременно выполнять сравнение на равенство и деструктуризацию. "
+"Этот вариант использования шаблонов подробно рассматривается позднее.
 
+# It seems weird to edit the first chunk of code with indexed access.
+# Hence example is translated in singular,
+# referring to the only last (second) code snippet
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
 "Edit the examples above to show the compiler error when the pattern doesn't "
 "match the value being matched on."
 msgstr ""
+"Отредактируйте пример, чтобы показать ошибку компиляции, когда шаблон не "
+"соответствует сопоставляемому значению."
 
 #: src/tuples-and-arrays/exercise.md
 msgid "Arrays can contain other arrays:"
@@ -4027,14 +4059,15 @@ msgstr ""
 "Используя приведенное выше, реализуйте функцию `transpose`, которая "
 "транспонирует матрицу (заменит строки в столбцы):"
 
+# Multiplication sign "×" looks better than just "x"
 #: src/tuples-and-arrays/exercise.md
-#, fuzzy
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and implement the "
 "function. This function only operates on 3x3 matrices."
 msgstr ""
-"Скопируйте приведенный ниже код в <https://play.rust-lang.org/> и реализуйте "
-"функции:"
+"Скопируйте приведенный ниже код в <https://play.rust-lang.org/> и напишите "
+"реализацию функции транспинирования. Считать, что размер передаваемой на "
+"вход матрицы -- всегда 3×3."
 
 #: src/tuples-and-arrays/exercise.md src/borrowing/exercise.md
 #: src/unsafe-rust/exercise.md
@@ -4961,6 +4994,7 @@ msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 10 "
 "minutes"
 msgstr ""
+"Вместе с 10-ти минутными паузами урок займёт около 2-х часов и 10-и минут."
 
 #: src/pattern-matching.md
 #, fuzzy
@@ -5788,6 +5822,7 @@ msgstr ""
 #: src/welcome-day-2-afternoon.md
 msgid "Including 10 minute breaks, this session should take about 4 hours"
 msgstr ""
+"Вместе с 10-ти минутными паузами урок займёт около 4-х часов."
 
 #: src/generics.md
 msgid "[Generic Functions](./generics/generic-functions.md) (5 minutes)"
@@ -7188,6 +7223,7 @@ msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 20 "
 "minutes"
 msgstr ""
+"Вместе с 10-ти минутными паузами урок займёт около 2-х часов и 20-и минут."
 
 #: src/memory-management.md
 msgid "[Review of Program Memory](./memory-management/review.md) (5 minutes)"
@@ -8303,6 +8339,7 @@ msgid ""
 "Including 10 minute breaks, this session should take about 1 hour and 55 "
 "minutes"
 msgstr ""
+"Вместе с 10-ти минутными паузами урок займёт около 1-го часа и 55-и минут."
 
 #: src/borrowing.md
 msgid "[Borrowing a Value](./borrowing/shared.md) (10 minutes)"
@@ -8969,6 +9006,7 @@ msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 40 "
 "minutes"
 msgstr ""
+"Вместе с 10-ти минутными паузами урок займёт около 2-х часов и 40-и минут."
 
 #: src/iterators.md
 msgid "[Iterator](./iterators/iterator.md) (5 minutes)"
@@ -17407,6 +17445,7 @@ msgid ""
 "Including 10 minute breaks, this session should take about 3 hours and 20 "
 "minutes"
 msgstr ""
+"Вместе с 10-ти минутными паузами урок займёт около 3-х часов и 20-и минут."
 
 #: src/concurrency/welcome.md
 msgid ""
