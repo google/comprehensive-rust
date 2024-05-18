@@ -9143,7 +9143,7 @@ msgstr ""
 
 #: src/modules/visibility.md
 msgid "Parent and sibling items are always visible."
-msgstr "親アイテムと兄弟アイテムは常に表示されます。"
+msgstr "親アイテムと兄弟アイテムは常に見えます。"
 
 #: src/modules/visibility.md
 msgid ""
@@ -9203,7 +9203,7 @@ msgid ""
 "In any case, visibility must be granted to an ancestor module (and all of "
 "its descendants)."
 msgstr ""
-"いずれの場合も、祖先モジュール（およびそのすべての子孫）に可視性を付与する必"
+"どのような場合も、祖先モジュール（およびそのすべての子孫）に可視性を与える必"
 "要があります。"
 
 #: src/modules/paths.md
@@ -9288,8 +9288,8 @@ msgid ""
 "might change over time."
 msgstr ""
 "`use` ステートメントには `use std::io::*` というようにワイルドカードを含める"
-"ことができます。どのアイテムがインポートされるのかが明確ではなく、時間の経過"
-"とともに変化する可能性があるため、この方法はおすすめしません。"
+"ことができます。この方法は、どのアイテムがインポートされるのかが明確ではなく、時間の経過"
+"とともに変化する可能性があるため、おすすめしません。"
 
 #: src/modules/exercise.md
 msgid ""
@@ -10342,8 +10342,8 @@ msgstr ""
 "エラーをボックス化することでコードを節約できますが、プログラムで異なるエラー"
 "ケースを異なる方法で適切に処理する機能が失われます。そのため、ライブラリの公"
 "開 API で `Box<dyn Error>` を使用することは通常おすすめしませんが、エラー "
-"メッセージをどこかに表示したいだけのプログラムでは適切な選択肢となりえますが"
-"あります。"
+"メッセージをどこかに表示したいだけのプログラムでは適切な選択肢となりえます"
+"。"
 
 #: src/error-handling/error.md
 msgid ""
@@ -10742,10 +10742,10 @@ msgid ""
 "a comment for each `unsafe` block explaining how the code inside it "
 "satisfies the safety requirements of the unsafe operations it is doing."
 msgstr ""
-"実行している安全でないオペレーションの安全性要件を内部のコードがどのように満"
-"`unsafe` ブロックごとにコメントを記述し、そのブロック内のコードが行うアンセー"
+"`unsafe`ブロックごとにコメントを記述し、そのブロック内のコードが行うアンセー"
 "フな操作がどのように安全性要件を満たしているのかを記述することをおすすめしま"
-"す（Android Rust スタイルガイドでも必須とされています）。"
+"す"
+"（Android Rust スタイルガイドでも必須とされています）。"
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
@@ -10758,7 +10758,7 @@ msgstr ""
 
 #: src/unsafe-rust/dereferencing.md
 msgid "The pointer must be non-null."
-msgstr "ポインタは null 以外でなければならない。"
+msgstr "ポインタは null 以外でなければならないこと。"
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
@@ -10770,11 +10770,11 @@ msgstr ""
 
 #: src/unsafe-rust/dereferencing.md
 msgid "The object must not have been deallocated."
-msgstr "オブジェクトの割り当てが解除されていないこと。"
+msgstr "オブジェクトが解放されていないこと。"
 
 #: src/unsafe-rust/dereferencing.md
 msgid "There must not be concurrent accesses to the same location."
-msgstr "同じロケーションに同時アクセスすることはがない。"
+msgstr "同じロケーションに同時アクセスすることがないこと。"
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
@@ -10782,8 +10782,8 @@ msgid ""
 "must be live and no reference may be used to access the memory."
 msgstr ""
 "参照をキャストしてポインタを取得した場合、基になるオブジェクトが存続しなけれ"
-"ばならず、他のいかなる参照を通してそのメモリにアクセスされることがあってもい"
-"けません。"
+"ばならず、他のいかなる参照を通してもそのメモリにアクセスがない"
+"こと"
 
 #: src/unsafe-rust/dereferencing.md
 msgid "In most cases the pointer must also be properly aligned."
@@ -10817,7 +10817,7 @@ msgid ""
 "However, since data races can occur, it is unsafe to read and write mutable "
 "static variables:"
 msgstr ""
-"ただし、データ競合が発生する可能性があるため、可変の静的変数の読み取りと書き"
+"ただし、データ競合が発生する可能性があるため、可変静的変数の読み取りと書き"
 "込みは安全ではありません。"
 
 #: src/unsafe-rust/mutable-static.md
@@ -10832,7 +10832,7 @@ msgid ""
 "mutate a static from multiple threads."
 msgstr ""
 "このプログラムはシングルスレッドなので安全です。しかし、Rust コンパイラは保守"
-"的で、最悪の事態を想定しています。`unsafe` を削除すると、複数のスレッドから静"
+"的で、最悪の事態を想定します。`unsafe` を削除すると、複数のスレッドから静"
 "的変数を変更することは未定義の動作であることを説明するメッセージがコンパイラ"
 "により表示されるはずです。"
 
@@ -10842,7 +10842,7 @@ msgid ""
 "where it might make sense in low-level `no_std` code, such as implementing a "
 "heap allocator or working with some C APIs."
 msgstr ""
-"一般的に、可変の静的変数を使用することはおすすめしませんが、ヒープ アロケータ"
+"一般的に、可変静的変数を使用することはおすすめしませんが、ヒープ アロケータ"
 "の実装や一部の C API の操作など、低レベルの `no_std` コードでは適している場合"
 "もあります。"
 
@@ -10991,10 +10991,10 @@ msgid ""
 "undefined behaviour under any arbitrary circumstances."
 msgstr ""
 "`get_unchecked` は多くの`_unchecked` 関数と同様に、範囲が正しくない場合に UB "
-"となる可能性があるため、安全ではありません。また、`abs` は外部関数（FFI）であ"
-"るため、正しくありません。通常、外部関数の呼び出しが問題になるのポインタを使"
-"用してRustのメモリモデルに違反する処理を行う場合のみですて処理を行う場合のみ"
-"です。しかし、一般的に C 関数には任意の状況下で未定義の動作が含まれる可能性が"
+"となる可能性があるため、安全ではありません。また、`abs`が安全でないのは、外部関数（FFI）であ"
+"るからです。通常、外部関数の呼び出しが問題になるのポインタを使"
+"用してRustのメモリモデルに違反する処理を行う場合のみです"
+"。しかし、一般的に C 関数には任意の状況下で未定義の動作が含まれる可能性が"
 "あります。"
 
 #: src/unsafe-rust/unsafe-functions.md
