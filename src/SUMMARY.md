@@ -359,7 +359,7 @@
   - [Plain Threads](concurrency/threads/plain.md)
   - [Scoped Threads](concurrency/threads/scoped.md)
 - [Channels](concurrency/channels.md)
-  - [Senders and Reveivers](concurrency/channels/senders-receivers.md)
+  - [Senders and Receivers](concurrency/channels/senders-receivers.md)
   - [Unbounded Channels](concurrency/channels/unbounded.md)
   - [Bounded Channels](concurrency/channels/bounded.md)
 - [`Send` and `Sync`](concurrency/send-sync.md)
