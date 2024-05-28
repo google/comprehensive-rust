@@ -21,7 +21,7 @@ underneath us. This will be divided into several parts:
 For the microcontroller part of the course we will use the
 [BBC micro:bit](https://microbit.org/) v2 as an example. It's a
 [development board](https://tech.microbit.org/hardware/) based on the Nordic
-nRF51822 microcontroller with some LEDs and buttons, an I2C-connected
+nRF52833 microcontroller with some LEDs and buttons, an I2C-connected
 accelerometer and compass, and an on-board SWD debugger.
 
 To get started, install some tools we'll need later. On gLinux or Debian:
