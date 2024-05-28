@@ -12572,7 +12572,7 @@ msgstr "\"//! Crab\\n\""
 
 #: src/android.md
 msgid "Welcome to Rust in Android"
-msgstr ""
+msgstr "Android での Rust へようこそ"
 
 #: src/android.md
 msgid ""
@@ -12580,6 +12580,9 @@ msgid ""
 "write new services, libraries, drivers or even firmware in Rust (or improve "
 "existing code as needed)."
 msgstr ""
+"Rust は Android のシステム ソフトウェアでサポートされています。つまり、新しい"
+"サービス、ライブラリ、ドライバ、さらにはファームウェアを Rust で作成できます"
+"（または、必要に応じて既存のコードを改善できます）。"
 
 #: src/android.md
 msgid ""
@@ -12588,170 +12591,211 @@ msgid ""
 "to Rust. The fewer dependencies and \"exotic\" types the better. Something "
 "that parses some raw bytes would be ideal."
 msgstr ""
+"本日は、皆さんのプロジェクトの一つから Rust を呼び出してみたいと思います。"
+"コードベースの小さな隅を見つけて、数行のコードを Rust に書き換えてみましょ"
+"う。依存関係が少なく、「珍しい」型がよいでしょう。未加工のバイトを解析するも"
+"のが理想的です。"
 
 #: src/android.md
 msgid ""
 "The speaker may mention any of the following given the increased use of Rust "
 "in Android:"
 msgstr ""
+"Android で Rust が使用されることが増えているため、次のいずれかに言及すること"
+"をおすすめします。"
 
 #: src/android.md
 msgid ""
 "Service example: [DNS over HTTP](https://security.googleblog.com/2022/07/dns-"
 "over-http3-in-android.html)"
 msgstr ""
+"サービスの例: [DNS over HTTP](https://security.googleblog.com/2022/07/dns-"
+"over-http3-in-android.html)"
 
 #: src/android.md
 msgid ""
 "Libraries: [Rutabaga Virtual Graphics Interface](https://crosvm.dev/book/"
 "appendix/rutabaga_gfx.html)"
 msgstr ""
+"ライブラリ: [Rutabaga Virtual Graphics Interface](https://crosvm.dev/book/"
+"appendix/rutabaga_gfx.html)"
 
 #: src/android.md
 msgid ""
 "Kernel Drivers: [Binder](https://lore.kernel.org/rust-for-linux/20231101-"
 "rust-binder-v1-0-08ba9197f637@google.com/)"
 msgstr ""
+"カーネル ドライバ: [Binder](https://lore.kernel.org/rust-for-linux/20231101-"
+"rust-binder-v1-0-08ba9197f637@google.com/)"
 
 #: src/android.md
 msgid ""
 "Firmware: [pKVM firmware](https://security.googleblog.com/2023/10/bare-metal-"
 "rust-in-android.html)"
 msgstr ""
+"ファームウェア: [pKVM ファームウェア](https://security.googleblog."
+"com/2023/10/bare-metal-rust-in-android.html)"
 
 #: src/android/setup.md
 msgid ""
 "We will be using a Cuttlefish Android Virtual Device to test our code. Make "
 "sure you have access to one or create a new one with:"
 msgstr ""
+"コードのテストのためにCuttlefish Android Virtual Device を使用します。既存の"
+"Deviceがあればそれにアクセスできることを確認し、そうでなければ以下のコマンド"
+"により作成しておいてください。"
 
 #: src/android/setup.md
 msgid ""
 "Please see the [Android Developer Codelab](https://source.android.com/docs/"
 "setup/start) for details."
 msgstr ""
+"詳しくは、[Android デベロッパー Codelab](https://source.android.com/docs/"
+"setup/start) をご覧ください。"
 
 #: src/android/setup.md
 msgid ""
 "Cuttlefish is a reference Android device designed to work on generic Linux "
 "desktops. MacOS support is also planned."
 msgstr ""
+"Cuttlefish は、一般的な Linux デスクトップで動作するように設計されたリファレ"
+"ンス Android デバイスです。macOS のサポートも予定されています。"
 
 #: src/android/setup.md
 msgid ""
 "The Cuttlefish system image maintains high fidelity to real devices, and is "
 "the ideal emulator to run many Rust use cases."
 msgstr ""
+"Cuttlefish システム イメージは、実際のデバイスに対する高い忠実度を維持してい"
+"るため、多くの Rust ユースケースを実行するのに理想的なエミュレータです。"
 
 #: src/android/build-rules.md
 msgid "The Android build system (Soong) supports Rust via a number of modules:"
 msgstr ""
+"Android ビルドシステム（Soong）は、さまざまなモジュールを通じて Rust をサポー"
+"トしています。"
 
 #: src/android/build-rules.md
 msgid "Module Type"
-msgstr ""
+msgstr "モジュール タイプ"
 
 #: src/android/build-rules.md
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: src/android/build-rules.md
 msgid "`rust_binary`"
-msgstr ""
+msgstr "`rust_binary`"
 
 #: src/android/build-rules.md
 msgid "Produces a Rust binary."
-msgstr ""
+msgstr "Rust バイナリを生成します。"
 
 #: src/android/build-rules.md
 msgid "`rust_library`"
-msgstr ""
+msgstr "`rust_library`"
 
 #: src/android/build-rules.md
 msgid "Produces a Rust library, and provides both `rlib` and `dylib` variants."
 msgstr ""
+"Rust ライブラリを生成し、`rlib` と `dylib` の両方のバリアントを提供します。"
 
 #: src/android/build-rules.md
 msgid "`rust_ffi`"
-msgstr ""
+msgstr "`rust_ffi`"
 
 #: src/android/build-rules.md
 msgid ""
 "Produces a Rust C library usable by `cc` modules, and provides both static "
 "and shared variants."
 msgstr ""
+"`cc` モジュールで使用できる Rust C ライブラリを生成し、静的バリアントと共有バ"
+"リアントの両方を提供します。"
 
 #: src/android/build-rules.md
 msgid "`rust_proc_macro`"
-msgstr ""
+msgstr "`rust_proc_macro`"
 
 #: src/android/build-rules.md
 msgid ""
 "Produces a `proc-macro` Rust library. These are analogous to compiler "
 "plugins."
 msgstr ""
+"`proc-macro` Rust ライブラリを生成します。これらはコンパイラ プラグインに似て"
+"います。"
 
 #: src/android/build-rules.md
 msgid "`rust_test`"
-msgstr ""
+msgstr "`rust_test`"
 
 #: src/android/build-rules.md
 msgid "Produces a Rust test binary that uses the standard Rust test harness."
-msgstr ""
+msgstr "標準の Rust テストハーネスを使用する Rust テストバイナリを生成します。"
 
 #: src/android/build-rules.md
 msgid "`rust_fuzz`"
-msgstr ""
+msgstr "`rust_fuzz`"
 
 #: src/android/build-rules.md
 msgid "Produces a Rust fuzz binary leveraging `libfuzzer`."
-msgstr ""
+msgstr "`libfuzzer` を利用して、Rust ファズバイナリを生成します。"
 
 #: src/android/build-rules.md
 msgid "`rust_protobuf`"
-msgstr ""
+msgstr "`rust_protobuf`"
 
 #: src/android/build-rules.md
 msgid ""
 "Generates source and produces a Rust library that provides an interface for "
 "a particular protobuf."
 msgstr ""
+"ソースを生成し、特定の protobuf 用のインターフェースを提供する Rust ライブラ"
+"リを生成します。"
 
 #: src/android/build-rules.md
 msgid "`rust_bindgen`"
-msgstr ""
+msgstr "`rust_bindgen`"
 
 #: src/android/build-rules.md
 msgid ""
 "Generates source and produces a Rust library containing Rust bindings to C "
 "libraries."
 msgstr ""
+"ソースを生成し、C ライブラリへの Rust バインディングを含む Rust ライブラリを"
+"生成します。"
 
 #: src/android/build-rules.md
 msgid "We will look at `rust_binary` and `rust_library` next."
-msgstr ""
+msgstr "次に `rust_binary` と `rust_library` を見ていきます。"
 
 #: src/android/build-rules.md
 msgid "Additional items speaker may mention:"
-msgstr ""
+msgstr "追加で次の項目に言及することをおすすめします。"
 
 #: src/android/build-rules.md
 msgid ""
 "Cargo is not optimized for multi-language repos, and also downloads packages "
 "from the internet."
 msgstr ""
+"Cargo は多言語リポジトリ用に最適化されていません。また、インターネットから"
+"パッケージをダウンロードします。"
 
 #: src/android/build-rules.md
 msgid ""
 "For compliance and performance, Android must have crates in-tree. It must "
 "also interop with C/C++/Java code. Soong fills that gap."
 msgstr ""
+"コンプライアンスおよびパフォーマンス上の理由から、Android ではクレートをツ"
+"リー内に配置する必要があります。また、C /C++ / Java コードとの相互運用性も必"
+"要です。Soong を使用することで、そのギャップを埋めることができます。"
 
 #: src/android/build-rules.md
 msgid ""
 "Soong has many similarities to Bazel, which is the open-source variant of "
 "Blaze (used in google3)."
 msgstr ""
+"Soong には、Blaze（google3 で使用）のオープンソース版である Bazel と多くの類"
+"似点があります。"
 
 #: src/android/build-rules.md
 msgid ""
@@ -12760,57 +12804,66 @@ msgid ""
 "com/chromiumos/bazel/), and [Fuchsia](https://source.android.com/docs/setup/"
 "build/bazel/introduction) to Bazel."
 msgstr ""
+"[Android](https://source.android.com/docs/setup/build/bazel/introduction)、"
+"[ChromeOS](https://chromium.googlesource.com/chromiumos/bazel/)、[Fuchsia]"
+"(https://source.android.com/docs/setup/build/bazel/introduction) を Bazel に"
+"移行する計画があります。"
 
 #: src/android/build-rules.md
 msgid "Learning Bazel-like build rules is useful for all Rust OS developers."
 msgstr ""
+"Bazel のようなビルドルールを学ぶことは、すべての Rust OS デベロッパーに役立ち"
+"ます。"
 
 #: src/android/build-rules.md
 msgid "Fun fact: Data from Star Trek is a Soong-type Android."
 msgstr ""
+"豆知識: スタートレックの「データ」は、スン（Soong）型アンドロイドです。"
 
 #: src/android/build-rules/binary.md
 msgid "Rust Binaries"
-msgstr ""
+msgstr "Rust バイナリ"
 
 #: src/android/build-rules/binary.md
 msgid ""
 "Let us start with a simple application. At the root of an AOSP checkout, "
 "create the following files:"
 msgstr ""
+"簡単なアプリから始めましょう。AOSP チェックアウトのルートで、次のファイルを作"
+"成します。"
 
 #: src/android/build-rules/binary.md src/android/build-rules/library.md
 msgid "_hello_rust/Android.bp_:"
-msgstr ""
+msgstr "_hello_rust/Android.bp_:"
 
 #: src/android/build-rules/binary.md
 msgid "\"hello_rust\""
-msgstr ""
+msgstr "\"hello_rust\""
 
 #: src/android/build-rules/binary.md src/android/build-rules/library.md
 #: src/android/logging.md
 msgid "\"src/main.rs\""
-msgstr ""
+msgstr "\"src/main.rs\""
 
 #: src/android/build-rules/binary.md src/android/build-rules/library.md
 msgid "_hello_rust/src/main.rs_:"
-msgstr ""
+msgstr "_hello_rust/src/main.rs_:"
 
 #: src/android/build-rules/binary.md src/android/build-rules/library.md
 msgid "//! Rust demo.\n"
-msgstr ""
+msgstr "//! Rust のデモ。\n"
 
 #: src/android/build-rules/binary.md src/android/build-rules/library.md
 msgid "/// Prints a greeting to standard output.\n"
-msgstr ""
+msgstr "/// 挨拶を標準出力に出力します。\n"
 
 #: src/android/build-rules/binary.md src/exercises/chromium/build-rules.md
 msgid "\"Hello from Rust!\""
-msgstr ""
+msgstr "\"Hello from Rust!\""
 
 #: src/android/build-rules/binary.md
 msgid "You can now build, push, and run the binary:"
-msgstr ""
+msgstr "これで、バイナリをビルド、push、実行できます。"
 
 #: src/android/build-rules/binary.md
 msgid ""
@@ -12820,22 +12873,28 @@ msgid ""
 "adb shell /data/local/tmp/hello_rust\n"
 "```"
 msgstr ""
+"```shell\n"
+"m hello_rust\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/hello_rust\" /data/local/tmp\n"
+"adb shell /data/local/tmp/hello_rust\n"
+"```"
 
 #: src/android/build-rules/library.md
 msgid "Rust Libraries"
-msgstr ""
+msgstr "Rust ライブラリ"
 
 #: src/android/build-rules/library.md
 msgid "You use `rust_library` to create a new Rust library for Android."
 msgstr ""
+"`rust_library` を使用して、Android 用の新しい Rust ライブラリを作成します。"
 
 #: src/android/build-rules/library.md
 msgid "Here we declare a dependency on two libraries:"
-msgstr ""
+msgstr "ここでは、2 つのライブラリへの依存関係を宣言します。"
 
 #: src/android/build-rules/library.md
 msgid "`libgreeting`, which we define below,"
-msgstr ""
+msgstr "`libgreeting`: 以下で定義します。"
 
 #: src/android/build-rules/library.md
 msgid ""
@@ -12843,51 +12902,54 @@ msgid ""
 "(https://cs.android.com/android/platform/superproject/+/master:external/rust/"
 "crates/)."
 msgstr ""
+"`libtextwrap`: すでに[`external/rust/crates/`](https://cs.android.com/"
+"android/platform/superproject/+/master:external/rust/crates/) に取り込まれて"
+"いるクレートです。"
 
 #: src/android/build-rules/library.md
 msgid "\"hello_rust_with_dep\""
-msgstr ""
+msgstr "\"hello_rust_with_dep\""
 
 #: src/android/build-rules/library.md
 msgid "\"libgreetings\""
-msgstr ""
+msgstr "\"libgreetings\""
 
 #: src/android/build-rules/library.md
 msgid "\"libtextwrap\""
-msgstr ""
+msgstr "\"libtextwrap\""
 
 #: src/android/build-rules/library.md
 msgid "// Need this to avoid dynamic link error.\n"
-msgstr ""
+msgstr "// ダイナミック リンク エラーを回避するために必要です。\n"
 
 #: src/android/build-rules/library.md
 msgid "\"greetings\""
-msgstr ""
+msgstr "\"greetings\""
 
 #: src/android/build-rules/library.md src/android/aidl/implementation.md
 #: src/android/interoperability/java.md
 msgid "\"src/lib.rs\""
-msgstr ""
+msgstr "\"src/lib.rs\""
 
 #: src/android/build-rules/library.md
 msgid "_hello_rust/src/lib.rs_:"
-msgstr ""
+msgstr "_hello_rust/src/lib.rs_:"
 
 #: src/android/build-rules/library.md
 msgid "//! Greeting library.\n"
-msgstr ""
+msgstr "//! 挨拶ライブラリ。\n"
 
 #: src/android/build-rules/library.md
 msgid "/// Greet `name`.\n"
-msgstr ""
+msgstr "/// `name` に挨拶します。\n"
 
 #: src/android/build-rules/library.md
 msgid "\"Hello {name}, it is very nice to meet you!\""
-msgstr ""
+msgstr "\"Hello {name}, it is very nice to meet you!\""
 
 #: src/android/build-rules/library.md
 msgid "You build, push, and run the binary like before:"
-msgstr ""
+msgstr "前と同じようにバイナリをビルド、push、実行します。"
 
 #: src/android/build-rules/library.md
 msgid ""
@@ -12898,151 +12960,162 @@ msgid ""
 "adb shell /data/local/tmp/hello_rust_with_dep\n"
 "```"
 msgstr ""
+"```shell\n"
+"m hello_rust_with_dep\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/hello_rust_with_dep\" /data/local/"
+"tmp\n"
+"adb shell /data/local/tmp/hello_rust_with_dep\n"
+"```"
 
 #: src/android/aidl.md
 msgid ""
 "The [Android Interface Definition Language (AIDL)](https://developer.android."
 "com/guide/components/aidl) is supported in Rust:"
 msgstr ""
+"Rust では [Android インターフェース定義言語（AIDL）](https://developer."
+"android.com/guide/components/aidl) がサポートされています。"
 
 #: src/android/aidl.md
 msgid "Rust code can call existing AIDL servers,"
-msgstr ""
+msgstr "Rust コードは既存の AIDL サーバーを呼び出すことができます。"
 
 #: src/android/aidl.md
 msgid "You can create new AIDL servers in Rust."
-msgstr ""
+msgstr "Rust では新しい AIDL サーバーを作成できます。"
 
 #: src/android/aidl/interface.md
 msgid "AIDL Interfaces"
-msgstr ""
+msgstr "AIDL インターフェース"
 
 #: src/android/aidl/interface.md
 msgid "You declare the API of your service using an AIDL interface:"
-msgstr ""
+msgstr "サービスの API を宣言するには、AIDL インターフェースを使用します。"
 
 #: src/android/aidl/interface.md
 msgid ""
 "_birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:"
 msgstr ""
+"_birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:"
 
 #: src/android/aidl/interface.md src/android/aidl/changing.md
 msgid "/** Birthday service interface. */"
-msgstr ""
+msgstr "/** 誕生日サービスのインターフェース。*/"
 
 #: src/android/aidl/interface.md src/android/aidl/changing.md
 msgid "/** Generate a Happy Birthday message. */"
-msgstr ""
+msgstr "/** 「お誕生日おめでとう」というメッセージを生成します。*/"
 
 #: src/android/aidl/interface.md
 msgid "_birthday_service/aidl/Android.bp_:"
-msgstr ""
+msgstr "_birthday_service/aidl/Android.bp_:"
 
 #: src/android/aidl/interface.md
 msgid "\"com.example.birthdayservice\""
-msgstr ""
+msgstr "\"com.example.birthdayservice\""
 
 #: src/android/aidl/interface.md
 msgid "\"com/example/birthdayservice/*.aidl\""
-msgstr ""
+msgstr "\"com/example/birthdayservice/*.aidl\""
 
 #: src/android/aidl/interface.md
 msgid "// Rust is not enabled by default\n"
-msgstr ""
+msgstr "// Rust はデフォルトでは無効です。\n"
 
 #: src/android/aidl/interface.md
 msgid ""
 "Add `vendor_available: true` if your AIDL file is used by a binary in the "
 "vendor partition."
 msgstr ""
+"AIDL ファイルがベンダー パーティション内のバイナリで使用されている場合は、"
+"`vendor_available: true` を追加します。"
 
 #: src/android/aidl/implementation.md
 msgid "Service Implementation"
-msgstr ""
+msgstr "サービスの実装"
 
 #: src/android/aidl/implementation.md
 msgid "We can now implement the AIDL service:"
-msgstr ""
+msgstr "次に、AIDL サービスを実装します。"
 
 #: src/android/aidl/implementation.md
 msgid "_birthday_service/src/lib.rs_:"
-msgstr ""
+msgstr "_birthday_service/src/lib.rs_:"
 
 #: src/android/aidl/implementation.md
 msgid "//! Implementation of the `IBirthdayService` AIDL interface.\n"
-msgstr ""
+msgstr "//! `IBirthdayService` AIDL インターフェースの実装。\n"
 
 #: src/android/aidl/implementation.md
 msgid "/// The `IBirthdayService` implementation.\n"
-msgstr ""
+msgstr "/// `IBirthdayService` の実装。\n"
 
 #: src/android/aidl/implementation.md
 msgid "\"Happy Birthday {name}, congratulations with the {years} years!\""
-msgstr ""
+msgstr "\"Happy Birthday {name}, congratulations with the {years} years!\""
 
 #: src/android/aidl/implementation.md src/android/aidl/server.md
 #: src/android/aidl/client.md
 msgid "_birthday_service/Android.bp_:"
-msgstr ""
+msgstr "_birthday_service/Android.bp_:"
 
 #: src/android/aidl/implementation.md src/android/aidl/server.md
 msgid "\"libbirthdayservice\""
-msgstr ""
+msgstr "\"libbirthdayservice\""
 
 #: src/android/aidl/implementation.md src/android/aidl/server.md
 #: src/android/aidl/client.md
 msgid "\"birthdayservice\""
-msgstr ""
+msgstr "\"birthdayservice\""
 
 #: src/android/aidl/implementation.md src/android/aidl/server.md
 #: src/android/aidl/client.md
 msgid "\"com.example.birthdayservice-rust\""
-msgstr ""
+msgstr "\"com.example.birthdayservice-rust\""
 
 #: src/android/aidl/implementation.md src/android/aidl/server.md
 #: src/android/aidl/client.md
 msgid "\"libbinder_rs\""
-msgstr ""
+msgstr "\"libbinder_rs\""
 
 #: src/android/aidl/server.md
 msgid "AIDL Server"
-msgstr ""
+msgstr "AIDL サーバー"
 
 #: src/android/aidl/server.md
 msgid "Finally, we can create a server which exposes the service:"
-msgstr ""
+msgstr "次に、サービスを公開するサーバーを作成します。"
 
 #: src/android/aidl/server.md
 msgid "_birthday_service/src/server.rs_:"
-msgstr ""
+msgstr "_birthday_service/src/server.rs_:"
 
 #: src/android/aidl/server.md src/android/aidl/client.md
 msgid "//! Birthday service.\n"
-msgstr ""
+msgstr "//! 誕生日サービス。\n"
 
 #: src/android/aidl/server.md
 msgid "/// Entry point for birthday service.\n"
-msgstr ""
+msgstr "/// 誕生日サービスのエントリ ポイント。\n"
 
 #: src/android/aidl/server.md
 msgid "\"Failed to register service\""
-msgstr ""
+msgstr "\"Failed to register service\""
 
 #: src/android/aidl/server.md
 msgid "\"birthday_server\""
-msgstr ""
+msgstr "\"birthday_server\""
 
 #: src/android/aidl/server.md
 msgid "\"src/server.rs\""
-msgstr ""
+msgstr "\"src/server.rs\""
 
 #: src/android/aidl/server.md src/android/aidl/client.md
 msgid "// To avoid dynamic link error.\n"
-msgstr ""
+msgstr "// ダイナミック リンク エラーを回避するためです。\n"
 
 #: src/android/aidl/deploy.md
 msgid "We can now build, push, and start the service:"
-msgstr ""
+msgstr "次に、サービスをビルド、push、開始します。"
 
 #: src/android/aidl/deploy.md
 msgid ""
@@ -13054,58 +13127,66 @@ msgid ""
 "adb shell /data/local/tmp/birthday_server\n"
 "```"
 msgstr ""
+"```shell\n"
+"m birthday_server\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/birthday_server\" /data/local/"
+"tmp\n"
+"adb root\n"
+"adb shell /data/local/tmp/birthday_server\n"
+"```"
 
 #: src/android/aidl/deploy.md
 msgid "In another terminal, check that the service runs:"
-msgstr ""
+msgstr "別のターミナルで、サービスが実行されていることを確認します。"
 
 #: src/android/aidl/deploy.md
 msgid "You can also call the service with `service call`:"
-msgstr ""
+msgstr "`service call` を使用してサービスを呼び出すこともできます。"
 
 #: src/android/aidl/client.md
 msgid "AIDL Client"
-msgstr ""
+msgstr "AIDL クライアント"
 
 #: src/android/aidl/client.md
 msgid "Finally, we can create a Rust client for our new service."
-msgstr ""
+msgstr "ようやくここで、新しいサービス用の Rust クライアントを作成します。"
 
 #: src/android/aidl/client.md
 msgid "_birthday_service/src/client.rs_:"
-msgstr ""
+msgstr "_birthday_service/src/client.rs_:"
 
 #: src/android/aidl/client.md
 msgid "/// Connect to the BirthdayService.\n"
-msgstr ""
+msgstr "/// BirthdayService に接続します。\n"
 
 #: src/android/aidl/client.md
 msgid "/// Call the birthday service.\n"
-msgstr ""
+msgstr "/// 誕生日サービスを呼び出します。\n"
 
 #: src/android/aidl/client.md
 msgid "\"Failed to connect to BirthdayService\""
-msgstr ""
+msgstr "\"Failed to connect to BirthdayService\""
 
 #: src/android/aidl/client.md
 msgid "\"{msg}\""
-msgstr ""
+msgstr "\"{msg}\""
 
 #: src/android/aidl/client.md
 msgid "\"birthday_client\""
-msgstr ""
+msgstr "\"birthday_client\""
 
 #: src/android/aidl/client.md
 msgid "\"src/client.rs\""
-msgstr ""
+msgstr "\"src/client.rs\""
 
 #: src/android/aidl/client.md
 msgid "Notice that the client does not depend on `libbirthdayservice`."
 msgstr ""
+"クライアントが `libbirthdayservice` に依存していないことに注目してください。"
 
 #: src/android/aidl/client.md
 msgid "Build, push, and run the client on your device:"
-msgstr ""
+msgstr "デバイスでクライアントをビルド、push、実行します。"
 
 #: src/android/aidl/client.md
 msgid ""
@@ -13116,67 +13197,77 @@ msgid ""
 "adb shell /data/local/tmp/birthday_client Charlie 60\n"
 "```"
 msgstr ""
+"```shell\n"
+"m birthday_client\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/birthday_client\" /data/local/"
+"tmp\n"
+"adb shell /data/local/tmp/birthday_client Charlie 60\n"
+"```"
 
 #: src/android/aidl/changing.md
 msgid ""
 "Let us extend the API with more functionality: we want to let clients "
 "specify a list of lines for the birthday card:"
 msgstr ""
+"APIを拡張して、クライアントが誕生日カードに追加する複数行のメッセージを指定で"
+"きるようにします。"
 
 #: src/android/logging.md
 msgid ""
 "You should use the `log` crate to automatically log to `logcat` (on-device) "
 "or `stdout` (on-host):"
 msgstr ""
+"`log` クレートを使用して、自動的に （デバイス上では）`logcat` または （ホスト"
+"上では）`stdout`にログを記録するようにします。"
 
 #: src/android/logging.md
 msgid "_hello_rust_logs/Android.bp_:"
-msgstr ""
+msgstr "_hello_rust_logs/Android.bp_:"
 
 #: src/android/logging.md
 msgid "\"hello_rust_logs\""
-msgstr ""
+msgstr "\"hello_rust_logs\""
 
 #: src/android/logging.md
 msgid "\"liblog_rust\""
-msgstr ""
+msgstr "\"liblog_rust\""
 
 #: src/android/logging.md
 msgid "\"liblogger\""
-msgstr ""
+msgstr "\"liblogger\""
 
 #: src/android/logging.md
 msgid "_hello_rust_logs/src/main.rs_:"
-msgstr ""
+msgstr "_hello_rust_logs/src/main.rs_:"
 
 #: src/android/logging.md
 msgid "//! Rust logging demo.\n"
-msgstr ""
+msgstr "//! Rust ロギングのデモ。\n"
 
 #: src/android/logging.md
 msgid "/// Logs a greeting.\n"
-msgstr ""
+msgstr "/// 挨拶をログに記録します。\n"
 
 #: src/android/logging.md
 msgid "\"rust\""
-msgstr ""
+msgstr "\"rust\""
 
 #: src/android/logging.md
 msgid "\"Starting program.\""
-msgstr ""
+msgstr "\"Starting program.\""
 
 #: src/android/logging.md
 msgid "\"Things are going fine.\""
-msgstr ""
+msgstr "\"Things are going fine.\""
 
 #: src/android/logging.md
 msgid "\"Something went wrong!\""
-msgstr ""
+msgstr "\"Something went wrong!\""
 
 #: src/android/logging.md src/android/interoperability/with-c/bindgen.md
 #: src/android/interoperability/with-c/rust.md
 msgid "Build, push, and run the binary on your device:"
-msgstr ""
+msgstr "デバイスでバイナリをビルド、push、実行します。"
 
 #: src/android/logging.md
 msgid ""
@@ -13187,176 +13278,196 @@ msgid ""
 "adb shell /data/local/tmp/hello_rust_logs\n"
 "```"
 msgstr ""
+"```shell\n"
+"m hello_rust_logs\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/hello_rust_logs\" /data/local/"
+"tmp\n"
+"adb shell /data/local/tmp/hello_rust_logs\n"
+"```"
 
 #: src/android/logging.md
 msgid "The logs show up in `adb logcat`:"
-msgstr ""
+msgstr "`adb logcat` でログを表示できます。"
 
 #: src/android/interoperability.md
 msgid ""
 "Rust has excellent support for interoperability with other languages. This "
 "means that you can:"
-msgstr ""
+msgstr "Rust は他の言語との相互運用性に優れているため、次のことが可能です。"
 
 #: src/android/interoperability.md
 msgid "Call Rust functions from other languages."
-msgstr ""
+msgstr "他の言語から Rust 関数を呼び出す。"
 
 #: src/android/interoperability.md
 msgid "Call functions written in other languages from Rust."
-msgstr ""
+msgstr "Rust から他の言語で記述された関数を呼び出す。"
 
 #: src/android/interoperability.md
 msgid ""
 "When you call functions in a foreign language we say that you're using a "
 "_foreign function interface_, also known as FFI."
 msgstr ""
+"他の言語の関数を呼び出す場合は、外部関数インターフェース（FFI: _foreign "
+"function interface_）を使用します。"
 
 #: src/android/interoperability/with-c.md
 msgid "Interoperability with C"
-msgstr ""
+msgstr "C との相互運用性"
 
 #: src/android/interoperability/with-c.md
 msgid ""
 "Rust has full support for linking object files with a C calling convention. "
 "Similarly, you can export Rust functions and call them from C."
 msgstr ""
+"Rust は、C の呼び出し規則によるオブジェクト ファイルのリンクを完全にサポート"
+"しています。同様に、Rust 関数をエクスポートして C から呼び出すことができま"
+"す。"
 
 #: src/android/interoperability/with-c.md
 msgid "You can do it by hand if you want:"
-msgstr ""
+msgstr "これは手動で行うこともできます。"
 
 #: src/android/interoperability/with-c.md
 msgid "\"{x}, {abs_x}\""
-msgstr ""
+msgstr "\"{x}, {abs_x}\""
 
 #: src/android/interoperability/with-c.md
 msgid ""
 "We already saw this in the [Safe FFI Wrapper exercise](../../exercises/day-3/"
 "safe-ffi-wrapper.md)."
 msgstr ""
+"これは、[安全な FFI ラッパーの演習](../../exercises/day-3/safe-ffi-wrapper."
+"md)ですでに取り扱いました。"
 
 #: src/android/interoperability/with-c.md
 msgid ""
 "This assumes full knowledge of the target platform. Not recommended for "
 "production."
 msgstr ""
+"これは、ターゲット プラットフォームを完全に理解していることを前提としていま"
+"す。本番環境での使用推奨されません。"
 
 #: src/android/interoperability/with-c.md
 msgid "We will look at better options next."
-msgstr ""
+msgstr "次に、より良い選択肢を見ていきます。"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "Using Bindgen"
-msgstr ""
+msgstr "Bindgen の使用"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid ""
 "The [bindgen](https://rust-lang.github.io/rust-bindgen/introduction.html) "
 "tool can auto-generate bindings from a C header file."
 msgstr ""
+"[bindgen](https://rust-lang.github.io/rust-bindgen/introduction.html) ツール"
+"を使用すると、C ヘッダー ファイルからバインディングを自動生成できます。"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "First create a small C library:"
-msgstr ""
+msgstr "まず、小さな C ライブラリを作成します。"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "_interoperability/bindgen/libbirthday.h_:"
-msgstr ""
+msgstr "_interoperability/bindgen/libbirthday.h_:"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "_interoperability/bindgen/libbirthday.c_:"
-msgstr ""
+msgstr "_interoperability/bindgen/libbirthday.c_:"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "<stdio.h>"
-msgstr ""
+msgstr "<stdio.h>"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"libbirthday.h\""
-msgstr ""
+msgstr "\"libbirthday.h\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"+--------------\\n\""
-msgstr ""
+msgstr "\"+--------------\\n\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"| Happy Birthday %s!\\n\""
-msgstr ""
+msgstr "\"| Happy Birthday %s!\\n\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"| Congratulations with the %i years!\\n\""
-msgstr ""
+msgstr "\"| Congratulations with the %i years!\\n\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "Add this to your `Android.bp` file:"
-msgstr ""
+msgstr "これを `Android.bp` ファイルに追加します。"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "_interoperability/bindgen/Android.bp_:"
-msgstr ""
+msgstr "_interoperability/bindgen/Android.bp_:"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"libbirthday\""
-msgstr ""
+msgstr "\"libbirthday\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"libbirthday.c\""
-msgstr ""
+msgstr "\"libbirthday.c\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid ""
 "Create a wrapper header file for the library (not strictly needed in this "
 "example):"
 msgstr ""
+"ライブラリのラッパー ヘッダー ファイルを作成します（この例では必須ではありま"
+"せん）。"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "_interoperability/bindgen/libbirthday_wrapper.h_:"
-msgstr ""
+msgstr "_interoperability/bindgen/libbirthday_wrapper.h_:"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "You can now auto-generate the bindings:"
-msgstr ""
+msgstr "これで、バインディングを自動生成できます。"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"libbirthday_bindgen\""
-msgstr ""
+msgstr "\"libbirthday_bindgen\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"birthday_bindgen\""
-msgstr ""
+msgstr "\"birthday_bindgen\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"libbirthday_wrapper.h\""
-msgstr ""
+msgstr "\"libbirthday_wrapper.h\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"bindings\""
-msgstr ""
+msgstr "\"bindings\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "Finally, we can use the bindings in our Rust program:"
-msgstr ""
+msgstr "これで、Rust プログラムでバインディングを使用できます。"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"print_birthday_card\""
-msgstr ""
+msgstr "\"print_birthday_card\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"main.rs\""
-msgstr ""
+msgstr "\"main.rs\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "_interoperability/bindgen/main.rs_:"
-msgstr ""
+msgstr "_interoperability/bindgen/main.rs_:"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "//! Bindgen demo.\n"
-msgstr ""
+msgstr "//! Bindgen のデモ。\n"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "// SAFETY: `print_card` is safe to call with a valid `card` pointer.\n"
 msgstr ""
+"// SAFETY: `print_card` は有効な `card` ポインタで安全に呼び出せます。\n"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid ""
@@ -13367,102 +13478,110 @@ msgid ""
 "adb shell /data/local/tmp/print_birthday_card\n"
 "```"
 msgstr ""
+"```shell\n"
+"m print_birthday_card\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/print_birthday_card\" /data/local/"
+"tmp\n"
+"adb shell /data/local/tmp/print_birthday_card\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "Finally, we can run auto-generated tests to ensure the bindings work:"
 msgstr ""
+"これで、自動生成されたテストを実行して、バインディングが機能していることを確"
+"認できます。"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"libbirthday_bindgen_test\""
-msgstr ""
+msgstr "\"libbirthday_bindgen_test\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\":libbirthday_bindgen\""
-msgstr ""
+msgstr "\":libbirthday_bindgen\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"general-tests\""
-msgstr ""
+msgstr "\"general-tests\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"none\""
-msgstr ""
+msgstr "\"none\""
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid "// Generated file, skip linting\n"
-msgstr ""
+msgstr "// 生成されたファイル、lint チェックをスキップ\n"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "Calling Rust"
-msgstr ""
+msgstr "Rust の呼び出し"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "Exporting Rust functions and types to C is easy:"
-msgstr ""
+msgstr "Rust の関数と型は、C に簡単にエクスポートできます。"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "_interoperability/rust/libanalyze/analyze.rs_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/analyze.rs_"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "//! Rust FFI demo.\n"
-msgstr ""
+msgstr "//! Rust FFI のデモ。\n"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "/// Analyze the numbers.\n"
-msgstr ""
+msgstr "/// 数値を分析します。\n"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"x ({x}) is smallest!\""
-msgstr ""
+msgstr "\"x ({x}) is smallest!\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"y ({y}) is probably larger than x ({x})\""
-msgstr ""
+msgstr "\"y ({y}) is probably larger than x ({x})\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid "_interoperability/rust/libanalyze/analyze.h_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/analyze.h_"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "_interoperability/rust/libanalyze/Android.bp_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/Android.bp_"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"libanalyze_ffi\""
-msgstr ""
+msgstr "\"libanalyze_ffi\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"analyze_ffi\""
-msgstr ""
+msgstr "\"analyze_ffi\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"analyze.rs\""
-msgstr ""
+msgstr "\"analyze.rs\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid "We can now call this from a C binary:"
-msgstr ""
+msgstr "これで、これを C バイナリから呼び出せるようになりました。"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "_interoperability/rust/analyze/main.c_"
-msgstr ""
+msgstr "_interoperability/rust/analyze/main.c_"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"analyze.h\""
-msgstr ""
+msgstr "\"analyze.h\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid "_interoperability/rust/analyze/Android.bp_"
-msgstr ""
+msgstr "_interoperability/rust/analyze/Android.bp_"
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"analyze_numbers\""
-msgstr ""
+msgstr "\"analyze_numbers\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid "\"main.c\""
-msgstr ""
+msgstr "\"main.c\""
 
 #: src/android/interoperability/with-c/rust.md
 msgid ""
@@ -13473,6 +13592,12 @@ msgid ""
 "adb shell /data/local/tmp/analyze_numbers\n"
 "```"
 msgstr ""
+"```shell\n"
+"m analyze_numbers\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/analyze_numbers\" /data/local/"
+"tmp\n"
+"adb shell /data/local/tmp/analyze_numbers\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md
 msgid ""
@@ -13480,16 +13605,21 @@ msgid ""
 "will just be the name of the function. You can also use `#[export_name = "
 "\"some_name\"]` to specify whatever name you want."
 msgstr ""
+"`#[no_mangle]` により Rust の通常の名前のマングリングが無効になるため、エクス"
+"ポートされたシンボルは単に関数の名前になります。`#[export_name = "
+"\"some_name\"]` を使用して任意の名前を指定することもできます。"
 
 #: src/android/interoperability/cpp.md
 msgid ""
 "The [CXX crate](https://cxx.rs/) makes it possible to do safe "
 "interoperability between Rust and C++."
 msgstr ""
+"[CXX クレート](https://cxx.rs/)を使用すると、Rust と C++ の間で安全な相互運用"
+"性を確保できます。"
 
 #: src/android/interoperability/cpp.md
 msgid "The overall approach looks like this:"
-msgstr ""
+msgstr "全体的なアプローチは次のようになります。"
 
 #: src/android/interoperability/cpp/bridge.md
 msgid ""
@@ -13497,19 +13627,22 @@ msgid ""
 "from each language to the other. You provide this description using extern "
 "blocks in a Rust module annotated with the `#[cxx::bridge]` attribute macro."
 msgstr ""
+"CXX は、各言語から他の言語に公開される関数シグネチャの記述に依存します。この"
+"記述は、`#[cxx::bridge]` 属性マクロでアノテーションされた Rust モジュール内"
+"の extern ブロックを使用して指定します。"
 
 #: src/android/interoperability/cpp/bridge.md
 msgid "\"org::blobstore\""
-msgstr ""
+msgstr "\"org::blobstore\""
 
 #: src/android/interoperability/cpp/bridge.md
 msgid "// Shared structs with fields visible to both languages.\n"
-msgstr ""
+msgstr "// 両方の言語からアクセスできるフィールドを持つ共有構造体。\n"
 
 #: src/android/interoperability/cpp/bridge.md
 #: src/android/interoperability/cpp/generated-cpp.md
 msgid "// Rust types and signatures exposed to C++.\n"
-msgstr ""
+msgstr "// C++ に公開される Rust の型とシグネチャ。\n"
 
 #: src/android/interoperability/cpp/bridge.md
 #: src/android/interoperability/cpp/rust-bridge.md
@@ -13518,30 +13651,29 @@ msgstr ""
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
-#, fuzzy
 msgid "\"Rust\""
-msgstr "Rustdoc"
+msgstr "\"Rust\""
 
 #: src/android/interoperability/cpp/bridge.md
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid "// C++ types and signatures exposed to Rust.\n"
-msgstr ""
+msgstr "// Rust に公開される C++ の型とシグネチャ。\n"
 
 #: src/android/interoperability/cpp/bridge.md
 #: src/android/interoperability/cpp/cpp-bridge.md
 #: src/android/interoperability/cpp/cpp-exception.md
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "\"C++\""
-msgstr ""
+msgstr "\"C++\""
 
 #: src/android/interoperability/cpp/bridge.md
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid "\"include/blobstore.h\""
-msgstr ""
+msgstr "\"include/blobstore.h\""
 
 #: src/android/interoperability/cpp/bridge.md
 msgid "The bridge is generally declared in an `ffi` module within your crate."
-msgstr ""
+msgstr "ブリッジは通常、クレート内の `ffi` モジュールで宣言します。"
 
 #: src/android/interoperability/cpp/bridge.md
 msgid ""
@@ -13549,6 +13681,8 @@ msgid ""
 "Rust and C++ type/function definitions in order to expose those items to "
 "both languages."
 msgstr ""
+"ブリッジ モジュールで行われた宣言から、CXX はマッチする Rust と C++ の型 / 関"
+"数の定義を生成し、これらのアイテムを両方の言語に公開します。"
 
 #: src/android/interoperability/cpp/bridge.md
 msgid ""
@@ -13557,22 +13691,26 @@ msgid ""
 "examples you would use `cargo expand ::ffi` to expand just the `ffi` module "
 "(though this doesn't apply for Android projects)."
 msgstr ""
+"生成された Rust コードを表示するには、[cargo-expand](https://github.com/"
+"dtolnay/cargo-expand) を使用して、展開された proc マクロを表示します。ほとん"
+"どの例では、`cargo expand ::ffi` を使用して `ffi` モジュールのみを展開します"
+"（ただし、これは Android プロジェクトには当てはまりません）。"
 
 #: src/android/interoperability/cpp/bridge.md
 msgid "To view the generated C++ code, look in `target/cxxbridge`."
-msgstr ""
+msgstr "生成された C++ コードを表示するには、`target/cxxbridge` を確認します。"
 
 #: src/android/interoperability/cpp/rust-bridge.md
 msgid "Rust Bridge Declarations"
-msgstr ""
+msgstr "Rust のブリッジ宣言"
 
 #: src/android/interoperability/cpp/rust-bridge.md
 msgid "// Opaque type\n"
-msgstr ""
+msgstr "// オペーク型\n"
 
 #: src/android/interoperability/cpp/rust-bridge.md
 msgid "// Method on `MyType`\n"
-msgstr ""
+msgstr "// `MyType` のメソッド\n"
 
 #: src/android/interoperability/cpp/rust-bridge.md
 #, fuzzy
@@ -13584,6 +13722,8 @@ msgid ""
 "Items declared in the `extern \"Rust\"` reference items that are in scope in "
 "the parent module."
 msgstr ""
+"親モジュールのスコープ内にある `extern \"Rust\"` 参照アイテムで宣言されたアイ"
+"テム。"
 
 #: src/android/interoperability/cpp/rust-bridge.md
 msgid ""
@@ -13592,26 +13732,30 @@ msgid ""
 "header has the same path as the Rust source file containing the bridge, "
 "except with a .rs.h file extension."
 msgstr ""
+"CXX コード ジェネレータは、`extern \"Rust\"` セクションを使用して、対応する "
+"C++ 宣言を含む C++ ヘッダー ファイルを生成します。生成されるヘッダーのパス"
+"は、rs.hというファイル拡張子部分を除き、ブリッジを含む Rust ソースファイルと"
+"同じになります。"
 
 #: src/android/interoperability/cpp/generated-cpp.md
 msgid "Results in (roughly) the following C++:"
-msgstr ""
+msgstr "おおよそ次のような C++ が生成されます。"
 
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid "C++ Bridge Declarations"
-msgstr ""
+msgstr "C++ のブリッジ宣言"
 
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid "Results in (roughly) the following Rust:"
-msgstr ""
+msgstr "おおよそ次のような Rust が生成されます。"
 
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid "\"org$blobstore$cxxbridge1$new_blobstore_client\""
-msgstr ""
+msgstr "\"org$blobstore$cxxbridge1$new_blobstore_client\""
 
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid "\"org$blobstore$cxxbridge1$BlobstoreClient$put\""
-msgstr ""
+msgstr "\"org$blobstore$cxxbridge1$BlobstoreClient$put\""
 
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid ""
@@ -13619,20 +13763,25 @@ msgid ""
 "in are accurate. CXX performs static assertions that the signatures exactly "
 "correspond with what is declared in C++."
 msgstr ""
+"プログラマーは、入力したシグネチャが正確であることを保証する必要はありませ"
+"ん。CXX は、シグネチャが C++ で宣言されたものと完全に対応するということを静的"
+"に保証します。"
 
 #: src/android/interoperability/cpp/cpp-bridge.md
 msgid ""
 "`unsafe extern` blocks allow you to declare C++ functions that are safe to "
 "call from Rust."
 msgstr ""
+"`unsafe extern` ブロックを使用すると、Rust から安全に呼び出せる C++ 関数を宣"
+"言できます。"
 
 #: src/android/interoperability/cpp/shared-types.md
 msgid "// A=1, J=11, Q=12, K=13\n"
-msgstr ""
+msgstr "// A=1、J=11、Q=12、K=13\n"
 
 #: src/android/interoperability/cpp/shared-types.md
 msgid "Only C-like (unit) enums are supported."
-msgstr ""
+msgstr "C のような（単位）列挙型のみがサポートされています。"
 
 #: src/android/interoperability/cpp/shared-types.md
 msgid ""
@@ -13641,15 +13790,17 @@ msgid ""
 "derive `Hash` also generates an implementation of `std::hash` for the "
 "corresponding C++ type."
 msgstr ""
+"共有型の `#[derive()]` では、サポートされるトレイトの数が限られています。対応"
+"する機能は C++ コードでも生成されます。たとえば、`Hash` を導出すると、対応す"
+"る C++ 型の `std::hash` の実装も生成されます。"
 
 #: src/android/interoperability/cpp/shared-enums.md
-#, fuzzy
 msgid "Generated Rust:"
-msgstr "Unsafe Rust"
+msgstr "生成された Rust:"
 
 #: src/android/interoperability/cpp/shared-enums.md
 msgid "Generated C++:"
-msgstr ""
+msgstr "生成された C++:"
 
 #: src/android/interoperability/cpp/shared-enums.md
 msgid ""
@@ -13658,20 +13809,24 @@ msgid ""
 "class to hold a value different from all of the listed variants, and our "
 "Rust representation needs to have the same behavior."
 msgstr ""
+"Rust 側では、共有列挙型に対して生成されるコードは、実際には数値をラップした構"
+"造体です。これは、列挙型クラスがリストされたすべてのバリアントとは異なる値を"
+"保持することは C++ では UB ではなく、Rust 表現は同じ動作をする必要があるため"
+"です。"
 
 #: src/android/interoperability/cpp/rust-result.md
 msgid "\"fallible1 requires depth > 0\""
-msgstr ""
+msgstr "\"fallible1 requires depth > 0\""
 
 #: src/android/interoperability/cpp/rust-result.md
 msgid "\"Success!\""
-msgstr ""
+msgstr "\"Success!\""
 
 #: src/android/interoperability/cpp/rust-result.md
 msgid ""
 "Rust functions that return `Result` are translated to exceptions on the C++ "
 "side."
-msgstr ""
+msgstr "`Result` を返す Rust 関数は、C++ 側で例外に変換されます。"
 
 #: src/android/interoperability/cpp/rust-result.md
 msgid ""
@@ -13679,26 +13834,33 @@ msgid ""
 "exposes a way to get the error message string. The error message will come "
 "from the error type's `Display` impl."
 msgstr ""
+"スローされる例外は常に `rust::Error` 型で、主にエラー メッセージの文字列を取"
+"得する手段を提供します。エラー メッセージは、エラー型の `Display` の実装から"
+"取得されます。"
 
 #: src/android/interoperability/cpp/rust-result.md
 msgid ""
 "A panic unwinding from Rust to C++ will always cause the process to "
 "immediately terminate."
 msgstr ""
+"Rust から C++ にパニック アンワインドを行うと、プロセスは必ず直ちに終了しま"
+"す。"
 
 #: src/android/interoperability/cpp/cpp-exception.md
 msgid "\"example/include/example.h\""
-msgstr ""
+msgstr "\"example/include/example.h\""
 
 #: src/android/interoperability/cpp/cpp-exception.md
 msgid "\"Error: {}\""
-msgstr ""
+msgstr "\"Error: {}\""
 
 #: src/android/interoperability/cpp/cpp-exception.md
 msgid ""
 "C++ functions declared to return a `Result` will catch any thrown exception "
 "on the C++ side and return it as an `Err` value to the calling Rust function."
 msgstr ""
+"`Result` を返すように宣言された C++ 関数は、C++ 側でスローされたあらゆる例外"
+"をキャッチし、呼び出し元の Rust 関数に `Err` 値として返します。"
 
 #: src/android/interoperability/cpp/cpp-exception.md
 msgid ""
@@ -13707,139 +13869,150 @@ msgid ""
 "terminate`. The behavior is equivalent to the same exception being thrown "
 "through a `noexcept` C++ function."
 msgstr ""
+"CXX ブリッジでResultを返すように宣言されていないextern \"C++\"関数から例外が"
+"スローされると、`Result`が返されると、プログラムは C++ の`std::terminate`を呼"
+"び出します。この動作は、同じ例外が`noexcept` C++ 関数でスローされた場合と同等"
+"です。"
 
 #: src/android/interoperability/cpp/type-mapping.md
-#, fuzzy
 msgid "Rust Type"
-msgstr "再帰的データ型"
+msgstr "Rust 型"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "C++ Type"
-msgstr ""
+msgstr "C++ 型"
 
 #: src/android/interoperability/cpp/type-mapping.md
-#, fuzzy
 msgid "`rust::String`"
-msgstr "文字列（String）"
+msgstr "`rust::String`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`&str`"
-msgstr ""
+msgstr "`&str`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`rust::Str`"
-msgstr ""
+msgstr "`rust::Str`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 #, fuzzy
 msgid "`CxxString`"
-msgstr "文字列（String）"
+msgstr "`CxxString`"
 
 #: src/android/interoperability/cpp/type-mapping.md
-#, fuzzy
 msgid "`std::string`"
-msgstr "文字列（String）"
+msgstr "`std::string`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`&[T]`/`&mut [T]`"
-msgstr ""
+msgstr "`&[T]`/`&mut [T]`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`rust::Slice`"
-msgstr ""
+msgstr "`rust::Slice`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`rust::Box<T>`"
-msgstr ""
+msgstr "`rust::Box<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`UniquePtr<T>`"
-msgstr ""
+msgstr "`UniquePtr<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`std::unique_ptr<T>`"
-msgstr ""
+msgstr "`std::unique_ptr<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`Vec<T>`"
-msgstr ""
+msgstr "`Vec<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`rust::Vec<T>`"
-msgstr ""
+msgstr "`rust::Vec<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`CxxVector<T>`"
-msgstr ""
+msgstr "`CxxVector<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid "`std::vector<T>`"
-msgstr ""
+msgstr "`std::vector<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid ""
 "These types can be used in the fields of shared structs and the arguments "
 "and returns of extern functions."
 msgstr ""
+"これらの型は、共有構造体のフィールドと、extern 関数の引数と戻り値で使用できま"
+"す。"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid ""
 "Note that Rust's `String` does not map directly to `std::string`. There are "
 "a few reasons for this:"
 msgstr ""
+"Rust の `String` は `std::string` に直接マッピングされません。これには次のよ"
+"うな理由があります。"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid ""
 "`std::string` does not uphold the UTF-8 invariant that `String` requires."
-msgstr ""
+msgstr "`std::string` は、`String` が必要とする UTF-8 不変条件を満たしません。"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid ""
 "The two types have different layouts in memory and so can't be passed "
 "directly between languages."
 msgstr ""
+"この 2 つの型はメモリ内のレイアウトが異なるため、言語間で直接渡すことはできま"
+"せん。"
 
 #: src/android/interoperability/cpp/type-mapping.md
 msgid ""
 "`std::string` requires move constructors that don't match Rust's move "
 "semantics, so a `std::string` can't be passed by value to Rust."
 msgstr ""
+"`std::string` は、Rust のムーブ セマンティクスと一致しないムーブコンストラク"
+"タを必要とするため、`std::string` を Rust に値で渡すことはできません。"
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 #: src/android/interoperability/cpp/android-build-rust.md
 #, fuzzy
 msgid "Building in Android"
-msgstr "Android"
+msgstr "Android 向けのビルド"
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 msgid ""
 "Create a `cc_library_static` to build the C++ library, including the CXX "
 "generated header and source file."
 msgstr ""
+"`cc_library_static` を作成して、CXX で生成されたヘッダーとソースファイルを含"
+"む C++ ライブラリをビルドします。"
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 #: src/android/interoperability/cpp/android-build-rust.md
 msgid "\"libcxx_test_cpp\""
-msgstr ""
+msgstr "\"libcxx_test_cpp\""
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 msgid "\"cxx_test.cpp\""
-msgstr ""
+msgstr "\"cxx_test.cpp\""
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 msgid "\"cxx-bridge-header\""
-msgstr ""
+msgstr "\"cxx-bridge-header\""
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "\"libcxx_test_bridge_header\""
-msgstr ""
+msgstr "\"libcxx_test_bridge_header\""
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "\"libcxx_test_bridge_code\""
-msgstr ""
+msgstr "\"libcxx_test_bridge_code\""
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 msgid ""
@@ -13847,12 +14020,17 @@ msgid ""
 "the dependencies for the CXX-generated C++ bindings. We'll show how these "
 "are setup on the next slide."
 msgstr ""
+"`libcxx_test_bridge_header` と `libcxx_test_bridge_code` が、CXX CXXにより生"
+"成される C++ バインディングに対する依存関係であることを説明します。次のスライ"
+"ドで、これらがどのような記述になっているかを説明します。"
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 msgid ""
 "Note that you also need to depend on the `cxx-bridge-header` library in "
 "order to pull in common CXX definitions."
 msgstr ""
+"また、一般的な CXX 定義を取得するためには、`cxx-bridge-header` ライブラリに依"
+"存する必要があることにも注意してください。"
 
 #: src/android/interoperability/cpp/android-build-cpp.md
 msgid ""
@@ -13862,53 +14040,65 @@ msgid ""
 "that link with the class so that students know where they can find these "
 "instructions again in the future."
 msgstr ""
+"Android で CXX を使用するための詳細なドキュメントについては、[Android のド"
+"キュメント](https://source.android.com/docs/setup/build/rust/building-rust-"
+"modules/android-rust-patterns#rust-cpp-interop-using-cxx)をご覧ください。その"
+"リンクをクラスと共有して、受講者が後で手順を確認できるようにすることをおすす"
+"めします。"
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid ""
 "Create two genrules: One to generate the CXX header, and one to generate the "
 "CXX source file. These are then used as inputs to the `cc_library_static`."
 msgstr ""
+"genrule を 2 つ作成します。1 つは CXX ヘッダーの生成用、もう 1 つは CXX ソー"
+"スファイルの生成用です。これらは `cc_library_static` への入力として使用されま"
+"す。"
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid ""
 "// Generate a C++ header containing the C++ bindings\n"
 "// to the Rust exported functions in lib.rs.\n"
 msgstr ""
+"// lib.rs にある Rustからエクスポートされた関数に対する\n"
+"// C++ バインディングを含む C++ ヘッダーを生成します。\n"
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "\"cxxbridge\""
-msgstr ""
+msgstr "\"cxxbridge\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "\"$(location cxxbridge) $(in) --header > $(out)\""
-msgstr ""
+msgstr "\"$(location cxxbridge) $(in) --header > $(out)\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 #: src/android/interoperability/cpp/android-build-rust.md
 msgid "\"lib.rs\""
-msgstr ""
+msgstr "\"lib.rs\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "\"lib.rs.h\""
-msgstr ""
+msgstr "\"lib.rs.h\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "// Generate the C++ code that Rust calls into.\n"
-msgstr ""
+msgstr "// Rust が呼び出す C++ コードを生成します。\n"
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "\"$(location cxxbridge) $(in) > $(out)\""
-msgstr ""
+msgstr "\"$(location cxxbridge) $(in) > $(out)\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid "\"lib.rs.cc\""
-msgstr ""
+msgstr "\"lib.rs.cc\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid ""
 "The `cxxbridge` tool is a standalone tool that generates the C++ side of the "
 "bridge module. It is included in Android and available as a Soong tool."
 msgstr ""
+"`cxxbridge` ツールは、ブリッジ モジュールの C++ 側を生成するスタンドアロン "
+"ツールです。Android に組み込まれており、Soong ツールとして利用できます。"
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md
 msgid ""
@@ -13916,23 +14106,26 @@ msgid ""
 "named `lib.rs.h` and your source file will be named `lib.rs.cc`. This naming "
 "convention isn't enforced, though."
 msgstr ""
+"慣例として、Rust ソースファイルが `lib.rs` の場合、ヘッダー ファイルの名前は "
+"`lib.rs.h`、ソースファイルの名前は `lib.rs.cc` となります。ただし、この命名規"
+"則は強制ではありません。"
 
 #: src/android/interoperability/cpp/android-build-rust.md
 msgid ""
 "Create a `rust_binary` that depends on `libcxx` and your `cc_library_static`."
-msgstr ""
+msgstr "`libcxx` と `cc_library_static`に依存する `rust_binary` を作成します。"
 
 #: src/android/interoperability/cpp/android-build-rust.md
 msgid "\"cxx_test\""
-msgstr ""
+msgstr "\"cxx_test\""
 
 #: src/android/interoperability/cpp/android-build-rust.md
 msgid "\"libcxx\""
-msgstr ""
+msgstr "\"libcxx\""
 
 #: src/android/interoperability/java.md
 msgid "Interoperability with Java"
-msgstr ""
+msgstr "Java との相互運用性"
 
 #: src/android/interoperability/java.md
 msgid ""
@@ -13940,90 +14133,98 @@ msgid ""
 "wikipedia.org/wiki/Java_Native_Interface). The [`jni` crate](https://docs.rs/"
 "jni/) allows you to create a compatible library."
 msgstr ""
+"Java では、[Java Native Interface（JNI）](https://en.wikipedia.org/wiki/"
+"Java_Native_Interface) を介して共有オブジェクトを読み込むことができます。"
+"[`jni` クレート](https://docs.rs/jni/) を使用すると、互換性のあるライブラリを"
+"作成できます。"
 
 #: src/android/interoperability/java.md
 msgid "First, we create a Rust function to export to Java:"
-msgstr ""
+msgstr "まず、Java にエクスポートする Rust 関数を作成します。"
 
 #: src/android/interoperability/java.md
 msgid "_interoperability/java/src/lib.rs_:"
-msgstr ""
+msgstr "_interoperability/java/src/lib.rs_:"
 
 #: src/android/interoperability/java.md
 msgid "//! Rust <-> Java FFI demo.\n"
-msgstr ""
+msgstr "//! Rust <-> Java FFI のデモ。\n"
 
 #: src/android/interoperability/java.md
 msgid "/// HelloWorld::hello method implementation.\n"
-msgstr ""
+msgstr "/// HelloWorld::hello メソッドの実装。\n"
 
 #: src/android/interoperability/java.md
 msgid "\"system\""
-msgstr ""
+msgstr "\"system\""
 
 #: src/android/interoperability/java.md
 msgid "\"Hello, {input}!\""
-msgstr ""
+msgstr "\"Hello, {input}!\""
 
 #: src/android/interoperability/java.md
 msgid "_interoperability/java/Android.bp_:"
-msgstr ""
+msgstr "_interoperability/java/Android.bp_:"
 
 #: src/android/interoperability/java.md
 msgid "\"libhello_jni\""
-msgstr ""
+msgstr "\"libhello_jni\""
 
 #: src/android/interoperability/java.md
 msgid "\"hello_jni\""
-msgstr ""
+msgstr "\"hello_jni\""
 
 #: src/android/interoperability/java.md
 msgid "\"libjni\""
-msgstr ""
+msgstr "\"libjni\""
 
 #: src/android/interoperability/java.md
 msgid "We then call this function from Java:"
-msgstr ""
+msgstr "次に、Java からこの関数を呼び出します。"
 
 #: src/android/interoperability/java.md
 msgid "_interoperability/java/HelloWorld.java_:"
-msgstr ""
+msgstr "_interoperability/java/HelloWorld.java_:"
 
 #: src/android/interoperability/java.md
 msgid "\"helloworld_jni\""
-msgstr ""
+msgstr "\"helloworld_jni\""
 
 #: src/android/interoperability/java.md
 msgid "\"HelloWorld.java\""
-msgstr ""
+msgstr "\"HelloWorld.java\""
 
 #: src/android/interoperability/java.md
 msgid "\"HelloWorld\""
-msgstr ""
+msgstr "\"HelloWorld\""
 
 #: src/android/interoperability/java.md
 msgid "Finally, you can build, sync, and run the binary:"
-msgstr ""
+msgstr "最後に、バイナリをビルド、同期、実行します。"
 
 #: src/exercises/android/morning.md
 msgid ""
 "This is a group exercise: We will look at one of the projects you work with "
 "and try to integrate some Rust into it. Some suggestions:"
 msgstr ""
+"これはグループ演習です。皆さんが取り組んでいるプロジェクトの一つを題材に、そ"
+"こに Rust を統合してみましょう。以下にヒントを示します。"
 
 #: src/exercises/android/morning.md
 msgid "Call your AIDL service with a client written in Rust."
-msgstr ""
+msgstr "Rust で記述されたクライアントを使用して AIDL サービスを呼び出します。"
 
 #: src/exercises/android/morning.md
 msgid "Move a function from your project to Rust and call it."
-msgstr ""
+msgstr "プロジェクトから Rust に関数を移動して呼び出します。"
 
 #: src/exercises/android/morning.md
 msgid ""
 "No solution is provided here since this is open-ended: it relies on someone "
 "in the class having a piece of code which you can turn in to Rust on the fly."
 msgstr ""
+"この演習は自由回答形式であるため、解答は用意されていません。クラスの誰かが"
+"コードを持っていて、その場で Rust に変換できることを前提としています。"
 
 #: src/chromium.md
 msgid "Welcome to Rust in Chromium"
