@@ -1,41 +1,54 @@
 (function savePlaygrounds() {
   function setCodeToPlayground() {
-    var codes = JSON.parse(
-      localStorage.getItem(`${window.location.href}₹code`)
-    );
-    if (codes) {
-      var i = 0;
-      Array.from(document.querySelectorAll(".playground")).forEach(function (
-        pre_block
-      ) {
-        let code_block = pre_block.querySelector("code");
-        let editor = window.ace.edit(code_block);
-        editor.setValue(codes[i]);
-        editor.clearSelection();
-        i += 1;
-      });
-    }
-  }
-  function getCodeFromPlayground() {
-    var codes = [];
     Array.from(document.querySelectorAll(".playground")).forEach(function (
-      pre_block
+      pre_block,
+      index
     ) {
       let code_block = pre_block.querySelector("code");
       let editor = window.ace.edit(code_block);
-      let code = editor.getValue();
-      codes.push(code);
+      code = JSON.parse(
+        localStorage.getItem(`${window.location.href}₹${index}`)
+      );
+      if (code) {
+        editor.setValue(code);
+        editor.clearSelection();
+      }
     });
-    localStorage.setItem(`${window.location.href}₹code`, JSON.stringify(codes));
+  }
+  function getCodeFromPlayground() {
+    Array.from(document.querySelectorAll(".playground")).forEach(function (
+      pre_block,
+      index
+    ) {
+      let code_block = pre_block.querySelector("code");
+      let editor = window.ace.edit(code_block);
+      editor.session.on("change", function () {
+        let code = editor.getValue();
+        localStorage.setItem(
+          `${window.location.href}₹${index}`,
+          JSON.stringify(code)
+        );
+      });
+    });
   }
   setCodeToPlayground();
-  addEventListener("pagehide", getCodeFromPlayground);
+  getCodeFromPlayground();
 })();
 
 function resetPlaygroundsClicked() {
+  Array.from(document.querySelectorAll(".playground")).forEach(function (
+    pre_block,
+    index
+  ) {
+    let code_block = pre_block.querySelector("code");
+    let editor = window.ace.edit(code_block);
+    editor.setValue(editor.originalCode);
+    editor.clearSelection();
+  });
+
   let keys = [];
   for (var i = 0, len = localStorage.length; i < len; i++) {
-    if (localStorage.key(i).includes("₹code")) {
+    if (localStorage.key(i).includes("₹")) {
       keys.push(localStorage.key(i));
     }
   }
