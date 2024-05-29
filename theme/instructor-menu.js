@@ -24,10 +24,10 @@
     instructorMenu.title = "Utilities for course instructors";
     instructorMenu.innerHTML =
       '<i class="fa fa-ellipsis-v" aria-hidden="true"></i>';
-    redBoxButton.innerHTML = "Toggle aspect-ratio box";
+    redBoxButton.innerHTML = "aspect-ratio box";
     redBoxButton.title =
       "Outline the area that fits on one screen while teaching the course.";
-    playgroundStateButton.innerHTML = "Reset all playgrounds";
+    playgroundStateButton.innerHTML = "reset all playgrounds";
     playgroundStateButton.title =
       "Reset code in all playgrounds to its original value.";
 
