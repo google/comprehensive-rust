@@ -30,8 +30,8 @@ Rust will statically forbid dangling references:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
-fn x_axis(x: i32) -> &(i32, i32) {
-    let point = (x, 0);
+fn x_axis(x: &i32) -> &(i32, i32) {
+    let point = (*x, 0);
     return &point;
 }
 ```

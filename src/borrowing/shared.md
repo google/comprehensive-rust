@@ -35,14 +35,14 @@ slightly to include function arguments and return values.
 
 # More to Explore
 
-Notes on stack returns:
+Notes on stack returns and inlining:
 
 - Demonstrate that the return from `add` is cheap because the compiler can
-  eliminate the copy operation. Change the above code to print stack addresses
-  and run it on the [Playground] or look at the assembly in
-  [Godbolt](https://rust.godbolt.org/). In the "DEBUG" optimization level, the
-  addresses should change, while they stay the same when changing to the
-  "RELEASE" setting:
+  eliminate the copy operation, by inlining the call to add into main. Change
+  the above code to print stack addresses and run it on the [Playground] or look
+  at the assembly in [Godbolt](https://rust.godbolt.org/). In the "DEBUG"
+  optimization level, the addresses should change, while they stay the same when
+  changing to the "RELEASE" setting:
 
   <!-- mdbook-xgettext: skip -->
   ```rust,editable
@@ -63,11 +63,12 @@ Notes on stack returns:
       println!("{p1:?} + {p2:?} = {p3:?}");
   }
   ```
-- The Rust compiler can do return value optimization (RVO).
-- In C++, copy elision has to be defined in the language specification because
-  constructors can have side effects. In Rust, this is not an issue at all. If
-  RVO did not happen, Rust will always perform a simple and efficient `memcpy`
-  copy.
+- The Rust compiler can do automatic inlining, that can be disabled on a
+  function level with `#[inline(never)]`.
+- Once disabled, the printed address will change on all optimization levels.
+  Looking at Godbolt or Playground, one can see that in this case, the return of
+  the value depends on the ABI, e.g. on amd64 the two i32 that is making up the
+  point will be returned in 2 registers (eax and edx).
 
 </details>
 
