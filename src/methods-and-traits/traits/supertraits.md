@@ -38,4 +38,4 @@ This is sometimes called "trait inheritance" but students should not expect this
 to behave like OO inheritance. It just specifies an additional requirement on
 implementations of a trait.
 
-<details>
+</details>
