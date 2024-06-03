@@ -159,8 +159,8 @@ h1#glossary ~ ul > li:first-line {
   A keyword in Rust used to define static variables or items with a `'static`
   lifetime.
 - string:\
-  A data type storing textual data. See
-  [`String` vs `str`](basic-syntax/string-slices.html) for more.
+  A data type storing textual data. See [Strings](references/strings.html) for
+  more.
 - struct:\
   A composite data type in Rust that groups together variables of different
   types under a single name.
