@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Comprehensive Rust 🦀\n"
 "POT-Creation-Date: 2024-04-05T16:37:18-04:00\n"
-"PO-Revision-Date: 2024-04-23 15:32-0400\n"
+"PO-Revision-Date: 2024-05-24 15:14-0400\n"
 "Last-Translator: Olivier Charrez <olivier.charrez@hotmail.com>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -2021,11 +2021,12 @@ msgid ""
 "Cargo is and how it fits into the wider ecosystem and how it fits into this "
 "training."
 msgstr ""
-"Lorsque vous commencerez à lire sur Rust, vous rencontrerez bientôt [Cargo]"
-"(https://doc.rust-lang.org/cargo/), l'outil standard utilisé dans "
-"l'écosystème Rust pour créer et exécuter des applications Rust. Ici, nous "
-"voulons donner un bref aperçu de ce qu'est Cargo et comment il s'intègre "
-"dans le large écosystème et comment cela s'inscrit dans cette formation."
+"Lorsque vous commencerez à vous documenter sur Rust, vous rencontrerez "
+"rapidement [Cargo](https://doc.rust-lang.org/cargo/), l'outil standard "
+"utilisé dans l'écosystème Rust pour créer et exécuter des applications Rust. "
+"Dans cette section, nous voulons donner un bref aperçu de ce qu'est Cargo, "
+"comment il s'intègre dans le large écosystème de Rust et comment il "
+"s'inscrit dans cette formation."
 
 #: src/cargo.md
 msgid "Installation"
@@ -2034,17 +2035,19 @@ msgstr "Installation"
 #: src/cargo.md
 msgid "**Please follow the instructions on <https://rustup.rs/>.**"
 msgstr ""
+"**Veuillez suivre les instructions sur <https://rustup.rs/>** (en anglais)."
 
 #: src/cargo.md
-#, fuzzy
 msgid ""
 "This will give you the Cargo build tool (`cargo`) and the Rust compiler "
 "(`rustc`). You will also get `rustup`, a command line utility that you can "
 "use to install to different compiler versions."
 msgstr ""
-"Avec cargo et rustc, Rustup s'installera en tant qu'utilitaire de ligne de "
-"commande que vous pourrez utiliser pour installer/changer de chaînes "
-"d'outils, configurer une compilation croisée, etc."
+"Une fois que vous aurez suivi ces instructions, vous disposerez du "
+"gestionnaire de dépendances et système de compilation `cargo` et du "
+"compilateur `rustc`. `rustup` sera également installé : il s'agit d'un "
+"utilitaire en ligne de commande que vous pourrez utiliser pour installer "
+"différentes versions du compilateur."
 
 #: src/cargo.md
 msgid ""
@@ -2056,17 +2059,29 @@ msgid ""
 "analyzer.github.io/manual.html#vimneovim), and many others. There is also a "
 "different IDE available called [RustRover](https://www.jetbrains.com/rust/)."
 msgstr ""
+"Après avoir installé Rust, il vous faudra configurer votre éditeur de texte "
+"ou votre IDE (environnement de développement) pour travailler avec Rust. La "
+"plupart des éditeurs reposent, pour ce faire, sur le [rust-analyzer](https://"
+"rust-analyzer.github.io/), un outil qui fournit les fonctionnalités de "
+"complétion automatique et de lien vers les définitions des symboles, "
+"notamment pour [VS Code](https://code.visualstudio.com/), [Emacs](https://"
+"rust-analyzer.github.io/manual.html#emacs), [Vim/Neovim](https://rust-"
+"analyzer.github.io/manual.html#vimneovim), et bien d'autres. Il existe "
+"également un IDE appelé [RustRover](https://www.jetbrains.com/rust/)."
 
 #: src/cargo.md
-#, fuzzy
 msgid ""
 "On Debian/Ubuntu, you can also install Cargo, the Rust source and the [Rust "
 "formatter](https://github.com/rust-lang/rustfmt) via `apt`. However, this "
 "gets you an outdated rust version and may lead to unexpected behavior. The "
 "command would be:"
 msgstr ""
-"Sur Debian/Ubuntu, vous pouvez installer Cargo, la source Rust et le "
-"[formateur Rust](https://github.com/rust-lang/rustfmt) avec"
+"Sur Debian/Ubuntu, vous pouvez installer Cargo, les sources Rust (`rust-"
+"src`: compilateur et bibliothèques standards) et l'outil de [formatage Rust]"
+"(https://github.com/rust-lang/rustfmt) via `apt`. Veuillez noter toutefois "
+"que l'installation via `apt` ne vous procurera pas la dernière version de "
+"Rust, ce qui pourrait conduire à des problèmes de comportement indéterminé "
+"(undefined behavior). La ligne de commande à utiliser serait :"
 
 #: src/cargo/rust-ecosystem.md
 msgid "The Rust Ecosystem"
@@ -2088,21 +2103,19 @@ msgstr ""
 "et autres formats intermédiaires."
 
 #: src/cargo/rust-ecosystem.md
-#, fuzzy
 msgid ""
 "`cargo`: the Rust dependency manager and build tool. Cargo knows how to "
 "download dependencies, usually hosted on <https://crates.io>, and it will "
 "pass them to `rustc` when building your project. Cargo also comes with a "
 "built-in test runner which is used to execute unit tests."
 msgstr ""
-"`cargo` : le gestionnaire de dépendances Rust et l'outil de construction. "
-"Cargo sait comment télécharger les dépendances hébergées sur <https://crates."
-"io> et il les transmettra à `rustc` lors de la construction de votre projet. "
-"Cargo est également livré avec un exécuteur de test qui est utilisé pour "
-"exécuter des tests unitaires."
+"`cargo` : le gestionnaire de dépendances Rust et l'outil de compilation. "
+"Cargo peut télécharger les dépendances, en général hébergées sur <https://"
+"crates.io>, et les rendre disponibles pour `rustc` lors de la compilation de "
+"votre projet. Cargo intègre également un outil pour exécuter des tests "
+"unitaires."
 
 #: src/cargo/rust-ecosystem.md
-#, fuzzy
 msgid ""
 "`rustup`: the Rust toolchain installer and updater. This tool is used to "
 "install and update `rustc` and `cargo` when new versions of Rust are "
@@ -2111,9 +2124,9 @@ msgid ""
 "and `rustup` will let you switch between them as needed."
 msgstr ""
 "`rustup` : le programme d'installation et de mise à jour de la chaîne "
-"d'outils Rust. Cet outil sert à installer et mettez à jour `rustc` et "
+"d'outils Rust. Cet outil sert à installer et mettre à jour `rustc` et "
 "`cargo` lorsque de nouvelles versions de Rust sont publiées. De plus, "
-"`rustup` peut également télécharger la documentation de la  bibliothèque "
+"`rustup` peut également télécharger la documentation de la bibliothèque "
 "standard. Vous pouvez avoir plusieurs versions de Rust installées à la fois "
 "et `rustup` vous permettra de basculer entre elles au besoin."
 
@@ -2130,23 +2143,23 @@ msgid ""
 "weeks. New releases maintain backwards compatibility with old releases --- "
 "plus they enable new functionality."
 msgstr ""
-"Rust a un calendrier de publication rapide avec une nouvelle version qui "
-"sort toutes les six semaines. Les nouvelles versions maintiennent la "
-"rétrocompatibilité avec les anciennes versions --- en plus, elles activent "
+"Rust a un calendrier de publication rapide : une nouvelle version est "
+"disponible toutes les six semaines. Les nouvelles versions maintiennent la "
+"rétrocompatibilité avec les anciennes versions --- en plus, elles proposent "
 "de nouvelles fonctionnalités."
 
 #: src/cargo/rust-ecosystem.md
 msgid ""
 "There are three release channels: \"stable\", \"beta\", and \"nightly\"."
 msgstr ""
-"Il existe trois canaux de sortie : \"stable\", \"beta\" et \"nightly\"."
+"Il existe trois types de publication : \"stable\", \"beta\" et \"nightly\"."
 
 #: src/cargo/rust-ecosystem.md
 msgid ""
 "New features are being tested on \"nightly\", \"beta\" is what becomes "
 "\"stable\" every six weeks."
 msgstr ""
-"De nouvelles fonctionnalités sont testées sur \"nightly\", \"beta\" est ce "
+"Les nouvelles fonctionnalités sont testées sur \"nightly\". \"beta\" est ce "
 "qui devient \"stable\" toutes les six semaines."
 
 #: src/cargo/rust-ecosystem.md
@@ -2154,30 +2167,35 @@ msgid ""
 "Dependencies can also be resolved from alternative [registries](https://doc."
 "rust-lang.org/cargo/reference/registries.html), git, folders, and more."
 msgstr ""
+"Les dépendances peuvent aussi être obtenues sur des [dépôts alternatifs]"
+"(https://doc.rust-lang.org/cargo/reference/registries.html), via `git`, dans "
+"des répertoires système, et autres."
 
 #: src/cargo/rust-ecosystem.md
 msgid ""
 "Rust also has [editions](https://doc.rust-lang.org/edition-guide/): the "
 "current edition is Rust 2021. Previous editions were Rust 2015 and Rust 2018."
 msgstr ""
-"Rust a également des \\[éditions\\] : l'édition actuelle est Rust 2021. Les "
-"éditions passées étaient Rust 2015 et Rust 2018."
+"Rust a également des [éditions](https://doc.rust-lang.org/edition-guide/) : "
+"l'édition actuelle est Rust 2021. Les éditions passées étaient Rust 2015 et "
+"Rust 2018."
 
 #: src/cargo/rust-ecosystem.md
 msgid ""
 "The editions are allowed to make backwards incompatible changes to the "
 "language."
 msgstr ""
-"Les éditions sont autorisées à apporter des modifications rétrocompatibles à "
-"la langue."
+"Les éditions sont autorisées à apporter des modifications **non** "
+"rétrocompatibles au langage."
 
 #: src/cargo/rust-ecosystem.md
 msgid ""
 "To prevent breaking code, editions are opt-in: you select the edition for "
 "your crate via the `Cargo.toml` file."
 msgstr ""
-"Pour éviter de casser le code, les éditions sont opt-in : vous sélectionnez "
-"l'édition pour votre crate via le fichier `Cargo.toml`."
+"Pour éviter de casser vos dépendances et empêcher la compilation de votre "
+"projet, les éditions sont laissées au choix : vous sélectionnez l'édition "
+"pour chaque crate via le fichier `Cargo.toml`."
 
 #: src/cargo/rust-ecosystem.md
 msgid ""
@@ -2185,7 +2203,7 @@ msgid ""
 "different editions."
 msgstr ""
 "Pour éviter de diviser l'écosystème, les compilateurs Rust peuvent mélanger "
-"le code écrit pour différentes éditions."
+"du code écrit pour différentes éditions."
 
 #: src/cargo/rust-ecosystem.md
 msgid ""
@@ -2196,15 +2214,14 @@ msgstr ""
 "non via `cargo` (la plupart des utilisateurs ne le font jamais)."
 
 #: src/cargo/rust-ecosystem.md
-#, fuzzy
 msgid ""
 "It might be worth alluding that Cargo itself is an extremely powerful and "
 "comprehensive tool. It is capable of many advanced features including but "
 "not limited to:"
 msgstr ""
-"Il peut être utile de mentionner que Cargo lui-même est un outil extrêmement "
-"puissant et complet. Il est capable de nombreuses fonctionnalités avancées, "
-"y compris, mais sans s'y limiter :"
+"Il peut être utile de mentionner que Cargo est un outil extrêmement puissant "
+"et complet. Il est capable de nombreuses fonctionnalités avancées, y "
+"compris, mais sans s'y limiter :"
 
 #: src/cargo/rust-ecosystem.md
 msgid "Project/package structure"
@@ -2212,7 +2229,9 @@ msgstr "Structure du projet/paquets"
 
 #: src/cargo/rust-ecosystem.md
 msgid "[workspaces](https://doc.rust-lang.org/cargo/reference/workspaces.html)"
-msgstr "\\[espaces de travail\\]"
+msgstr ""
+"[Espaces de travail](https://doc.rust-lang.org/cargo/reference/workspaces."
+"html)"
 
 #: src/cargo/rust-ecosystem.md
 msgid "Dev Dependencies and Runtime Dependency management/caching"
@@ -2224,13 +2243,17 @@ msgstr ""
 msgid ""
 "[build scripting](https://doc.rust-lang.org/cargo/reference/build-scripts."
 "html)"
-msgstr "\\[créer des scripts\\]"
+msgstr ""
+"[Créer des scripts](https://doc.rust-lang.org/cargo/reference/build-scripts."
+"html)"
 
 #: src/cargo/rust-ecosystem.md
 msgid ""
 "[global installation](https://doc.rust-lang.org/cargo/commands/cargo-install."
 "html)"
-msgstr "\\[installation globale\\]"
+msgstr ""
+"[Installation globale](https://doc.rust-lang.org/cargo/commands/cargo-"
+"install.html)"
 
 #: src/cargo/rust-ecosystem.md
 msgid ""
@@ -2243,7 +2266,9 @@ msgstr ""
 #: src/cargo/rust-ecosystem.md
 msgid ""
 "Read more from the [official Cargo Book](https://doc.rust-lang.org/cargo/)"
-msgstr "En savoir plus sur le \\[livre officiel de Cargo\\]"
+msgstr ""
+"Pour en savoir plus, vous pouvez lire le [livre officiel de Cargo - en "
+"anglais](https://doc.rust-lang.org/cargo/)"
 
 #: src/cargo/code-samples.md
 msgid "Code Samples in This Training"
@@ -2267,9 +2292,9 @@ msgid ""
 "how to work with dependencies and for that you need Cargo."
 msgstr ""
 "L'installation de Cargo est tout de même encouragée : elle vous facilitera "
-"la tâche des exercices. Le dernier jour, nous ferons un exercice plus large "
-"qui vous montrera comment travailler avec des dépendances et pour cela vous "
-"avez besoin de Cargo."
+"la tâche pour les exercices. Le dernier jour, nous ferons un exercice plus "
+"conséquent qui vous montrera comment travailler avec des dépendances et, "
+"pour cela, vous avez besoin de Cargo."
 
 #: src/cargo/code-samples.md
 msgid "The code blocks in this course are fully interactive:"
@@ -2300,9 +2325,9 @@ msgid ""
 "The embedded playgrounds cannot execute unit tests. Copy-paste the code and "
 "open it in the real Playground to demonstrate unit tests."
 msgstr ""
-"Les terrains de jeu intégrés ne peuvent pas exécuter de tests unitaires. "
-"Copiez-collez le code et ouvrez-le dans le vrai terrain de jeu pour "
-"démontrer les tests unitaires."
+"Les environnements d'exécution intégrés ne peuvent pas exécuter de tests "
+"unitaires. Copiez-collez le code et ouvrez-le dans l'environnement "
+"d'exécution complet pour valider les tests unitaires."
 
 #: src/cargo/code-samples.md
 msgid ""
@@ -2310,14 +2335,14 @@ msgid ""
 "the page! This is the reason that the students should solve the exercises "
 "using a local Rust installation or via the Playground."
 msgstr ""
-"Les terrains de jeux intégrées perdent leur état au moment où vous naviguez "
-"loin de la page! C'est la raison pour laquelle les élèves doivent résoudre "
-"les exercices en utilisant une installation Rust locale ou via le terrain de "
-"jeu."
+"Les environnements d'exécution intégrés sont réinitialisés dès que vous "
+"quittez la page! C'est la raison pour laquelle les élèves doivent résoudre "
+"les exercices en utilisant une installation Rust locale ou via "
+"l'environnement d'exécution complet."
 
 #: src/cargo/running-locally.md
 msgid "Running Code Locally with Cargo"
-msgstr "Exécuter le code localement avec Cargo"
+msgstr "Exécuter du code localement avec Cargo"
 
 #: src/cargo/running-locally.md
 msgid ""
@@ -2327,51 +2352,61 @@ msgid ""
 "should give you a working `rustc` and `cargo`. At the time of writing, the "
 "latest stable Rust release has these version numbers:"
 msgstr ""
-"Si vous souhaitez expérimenter le code sur votre propre système, vous aurez "
-"besoin pour installer d'abord de Rust. Pour ce faire, suivez les "
-"[instructions dans le livre Rust](https://doc.rust-lang.org/book/ch01-01-"
-"installation.html). Cela devrait vous donner un \"rustc\" et un \"cargo\" "
-"fonctionnels. Au moment de l'écriture, la dernière version stable de Rust a "
-"ces numéros de version:"
+"Si vous souhaitez expérimenter le code sur votre propre système, il vous "
+"faudra d'abord installer Rust. Pour ce faire, suivez les [instructions dans "
+"le livre Rust - en anglais](https://doc.rust-lang.org/book/ch01-01-"
+"installation.html). Vous disposerez alors de `rustc` et `cargo`. Au moment "
+"de l'écriture, la dernière version stable de Rust a ces numéros de version :"
 
 #: src/cargo/running-locally.md
 msgid ""
 "You can use any later version too since Rust maintains backwards "
 "compatibility."
 msgstr ""
+"N'importe quelle version plus récente peut également être utilisée, étant "
+"donné que les versions de Rust sont rétrocompatibles."
 
 #: src/cargo/running-locally.md
-#, fuzzy
 msgid ""
 "With this in place, follow these steps to build a Rust binary from one of "
 "the examples in this training:"
 msgstr ""
-"Une fois cela en place, suivez ces étapes pour créer un binaire Rust à "
-"partir d'un des exemples dans cette formation :"
+"Suivez ensuite ces étapes pour créer un binaire Rust à partir d'un des "
+"exemples dans cette formation :"
 
 #: src/cargo/running-locally.md
 msgid "Click the \"Copy to clipboard\" button on the example you want to copy."
 msgstr ""
+"Cliquez sur le bouton \"Copy to clipboard\" sur l'exemple que vous souhaitez "
+"copier."
 
 #: src/cargo/running-locally.md
 msgid ""
 "Use `cargo new exercise` to create a new `exercise/` directory for your code:"
 msgstr ""
+"Exécutez `cargo new exercise` pour créer un nouveau répertoire `exercise/` "
+"pour héberger votre code :"
 
 #: src/cargo/running-locally.md
 msgid ""
 "Navigate into `exercise/` and use `cargo run` to build and run your binary:"
 msgstr ""
+"Rendez vous dans le répertoire `exercise/` et exécutez `cargo run` pour "
+"compiler et exécuter votre binaire :"
 
 #: src/cargo/running-locally.md
 msgid ""
 "Replace the boiler-plate code in `src/main.rs` with your own code. For "
 "example, using the example on the previous page, make `src/main.rs` look like"
 msgstr ""
+"Remplacez le code standard sous `src/main.rs` par votre propre code. Par "
+"exemple, en suivant l'exemple de la page précédente, modifiez `src/main.rs` "
+"comme ceci :"
 
 #: src/cargo/running-locally.md
 msgid "Use `cargo run` to build and run your updated binary:"
 msgstr ""
+"Exécutez `cargo run` pour compiler et exécuter votre binaire mis à jour :"
 
 #: src/cargo/running-locally.md
 msgid ""
@@ -2380,6 +2415,12 @@ msgid ""
 "debug/` for a normal debug build. Use `cargo build --release` to produce an "
 "optimized release build in `target/release/`."
 msgstr ""
+"Exécutez `cargo check` afin de rapidement déterminer si votre projet "
+"contient des erreurs. Exécutez `cargo build` pour le compiler sans "
+"l'exécuter. Pour une compilation normale en mode debug, le résultat se "
+"trouvera dans le répertoire `target/debug/`. Enfin, vous pouvez exécuter "
+"`cargo build --release` pour générer un binaire optimisé qui se trouvera "
+"dans le répertoire `target/release/`."
 
 #: src/cargo/running-locally.md
 msgid ""
@@ -2387,6 +2428,9 @@ msgid ""
 "run `cargo` commands, it will automatically download and compile missing "
 "dependencies for you."
 msgstr ""
+"Vous pouvez déclarer des dépendances pour votre projet dans le fichier "
+"`Cargo.toml`. Quand vous lancez des commandes `cargo`, Cargo se charge de "
+"télécharger et compiler les dépendances manquantes."
 
 #: src/cargo/running-locally.md
 msgid ""
