@@ -8,8 +8,8 @@ Rust has a few control flow constructs which differ from other languages. They
 are used for pattern matching:
 
 - `if let` expressions
+- `let else` expressions
 - `while let` expressions
-- `match` expressions
 
 # `if let` expressions
 

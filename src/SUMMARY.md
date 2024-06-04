@@ -100,6 +100,7 @@
   - [Generic Traits](generics/generic-traits.md)
   - [Trait Bounds](generics/trait-bounds.md)
   - [`impl Trait`](generics/impl-trait.md)
+  - [`dyn Trait`](generics/dyn-trait.md)
   - [Exercise: Generic `min`](generics/exercise.md)
     - [Solution](generics/solution.md)
 - [Standard Library Types](std-types.md)
@@ -141,7 +142,7 @@
 - [Smart Pointers](smart-pointers.md)
   - [`Box<T>`](smart-pointers/box.md)
   - [`Rc`](smart-pointers/rc.md)
-  - [Trait Objects](smart-pointers/trait-objects.md)
+  - [Owned Trait Objects](smart-pointers/trait-objects.md)
   - [Exercise: Binary Tree](smart-pointers/exercise.md)
     - [Solution](smart-pointers/solution.md)
 

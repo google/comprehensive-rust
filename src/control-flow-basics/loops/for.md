@@ -20,7 +20,7 @@ fn main() {
 - Under the hood `for` loops use a concept called "iterators" to handle
   iterating over different kinds of ranges/collections. Iterators will be
   discussed in more detail later.
-- Note that the `for` loop only iterates to `4`. Show the `1..=5` syntax for an
-  inclusive range.
+- Note that the first `for` loop only iterates to `4`. Show the `1..=5` syntax
+  for an inclusive range.
 
 </details>
