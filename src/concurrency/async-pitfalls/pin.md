@@ -82,7 +82,7 @@ async fn main() {
   - Instead, add a `timeout_fut` containing that future outside of the `loop`:
 
     ```rust,compile_fail
-    let mut timeout_fut = sleep(Duration::from_millis(100));
+    let timeout_fut = sleep(Duration::from_millis(100));
     loop {
         select! {
             ..,
@@ -106,7 +106,18 @@ async fn main() {
 
   - This compiles, but once the timeout expires it is `Poll::Ready` on every
     iteration (a fused future would help with this). Update to reset
-    `timeout_fut` every time it expires.
+    `timeout_fut` every time it expires:
+    ```rust,compile_fail
+    let mut timeout_fut = Box::pin(sleep(Duration::from_millis(100)));
+    loop {
+        select! {
+            _ = &mut timeout_fut => {
+                println!(..);
+                timeout_fut = Box::pin(sleep(Duration::from_millis(100)));
+            },
+        }
+    }
+    ```
 
 - Box allocates on the heap. In some cases, `std::pin::pin!` (only recently
   stabilized, with older code often using `tokio::pin!`) is also an option, but
