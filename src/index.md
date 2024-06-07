@@ -12,6 +12,11 @@ generics and error handling.
 > <https://google.github.io/comprehensive-rust/>. If you are reading somewhere
 > else, please check there for updates.
 >
+> The course is available in other languages. Select your preferred language in
+> the top right corner of the page or check the
+> [Translations](running-the-course/translations.md) page for a list of all
+> available translations.
+>
 > The course is also available [as a PDF](comprehensive-rust.pdf).
 
 The goal of the course is to teach you Rust. We assume you don't know anything
