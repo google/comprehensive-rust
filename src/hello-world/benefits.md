@@ -48,6 +48,6 @@ on the answer you can highlight different features of Rust:
 - Experience with Java, Go, Python, JavaScript...: You get the same memory
   safety as in those languages, plus a similar high-level language feeling. In
   addition you get fast and predictable performance like C and C++ (no garbage
-  collector) as well as access to low-level hardware (should you need it)
+  collector) as well as access to low-level hardware (should you need it).
 
 </details>
