@@ -6064,32 +6064,35 @@ msgid ""
 "[`String`](https://doc.rust-lang.org/std/string/struct.String.html) is a "
 "growable UTF-8 encoded string:"
 msgstr ""
+"[`String`](https://doc.rust-lang.org/std/string/struct.String.html) là kiểu "
+"dữ liệu chuẩn sử dụng để lưu trữ chuỗi UTF-8 trên bộ nhớ heap, có thể được "
+"mở rộng:"
 
 #: src/std-types/string.md src/std-traits/read-and-write.md
 #: src/memory-management/review.md src/testing/unit-tests.md
 #: src/concurrency/threads/scoped.md
 msgid "\"Hello\""
-msgstr ""
+msgstr "\"Xin chào\""
 
 #: src/std-types/string.md
 msgid "\"s1: len = {}, capacity = {}\""
-msgstr ""
+msgstr "\"s1: độ dài = {}, kích thước = {}\""
 
 #: src/std-types/string.md
 msgid "'!'"
-msgstr ""
+msgstr "'!'"
 
 #: src/std-types/string.md
 msgid "\"s2: len = {}, capacity = {}\""
-msgstr ""
+msgstr "\"s2: độ dài = {}, kích thước = {}\""
 
 #: src/std-types/string.md
 msgid "\"🇨🇭\""
-msgstr ""
+msgstr "\"🇻🇳\""
 
 #: src/std-types/string.md
 msgid "\"s3: len = {}, number of chars = {}\""
-msgstr ""
+msgstr "\"s3: độ dài = {}, số ký tự = {}\""
 
 #: src/std-types/string.md
 msgid ""
@@ -6097,18 +6100,25 @@ msgid ""
 "string/struct.String.html#deref-methods-str), which means that you can call "
 "all `str` methods on a `String`."
 msgstr ""
+"`String` implement [`Deref<Target = str>`](https://doc.rust-lang.org/std/"
+"string/struct.String.html#deref-methods-str), có nghĩa tất cả các hàm của "
+"`str` đều có thể được gọi trên một biến kiểu `String`."
 
 #: src/std-types/string.md
 msgid ""
 "`String::new` returns a new empty string, use `String::with_capacity` when "
 "you know how much data you want to push to the string."
 msgstr ""
+"`String::new` trả về một chuỗi rỗng. Khi dữ liệu cần đẩy vào chuỗi đã được "
+"xác định trước, hãy sử dụng `String::with_capacity`."
 
 #: src/std-types/string.md
 msgid ""
 "`String::len` returns the size of the `String` in bytes (which can be "
 "different from its length in characters)."
 msgstr ""
+"`String::len` trả về kích thước của `String` theo byte (có thể khác với số "
+"ký tự trong chuỗi)."
 
 #: src/std-types/string.md
 msgid ""
@@ -6117,34 +6127,45 @@ msgid ""
 "to [grapheme clusters](https://docs.rs/unicode-segmentation/latest/"
 "unicode_segmentation/struct.Graphemes.html)."
 msgstr ""
+"`String::chars` trả về một con trỏ chạy dọc theo các ký tự của chuỗi. Lưu ý "
+"rằng một `char` có thể khác với một \"ký tự\" thông thường bởi vì một khái "
+"niệm gọi là [grapheme clusters](https://docs.rs/unicode-segmentation/latest/"
+"unicode_segmentation/struct.Graphemes.html)."
 
 #: src/std-types/string.md
 msgid ""
 "When people refer to strings they could either be talking about `&str` or "
 "`String`."
-msgstr ""
+msgstr "Khi nói đến chuỗi, ta có thể sử dụng `&str` hoặc `String` đều được."
 
 #: src/std-types/string.md
 msgid ""
 "When a type implements `Deref<Target = T>`, the compiler will let you "
 "transparently call methods from `T`."
 msgstr ""
+"Khi một kiểu dữ liệu implement `Deref<Target = T>`, trình biên dịch sẽ cho "
+"phép gọi các hàm thuộc về `T` trên kiểu dữ liệu đó."
 
 #: src/std-types/string.md
 msgid ""
 "We haven't discussed the `Deref` trait yet, so at this point this mostly "
 "explains the structure of the sidebar in the documentation."
 msgstr ""
+"Chúng ta chưa đi sâu vào `Deref` trait, việc đề cập đến `Deref` ở đây chủ "
+"yếu là để giải thích cấu trúc của mục lục tài liệu."
 
 #: src/std-types/string.md
 msgid ""
 "`String` implements `Deref<Target = str>` which transparently gives it "
 "access to `str`'s methods."
 msgstr ""
+"`String` implement `Deref<Target = str>`, nên các hàm của `str` đều có thể "
+"được gọi trên các biến kiểu `String`."
 
 #: src/std-types/string.md
 msgid "Write and compare `let s3 = s1.deref();` and `let s3 = &*s1;`."
 msgstr ""
+"So sánh `let s3 = s1.deref();` và `let s3 = &*s1;`. Cái nào dễ hiểu hơn?"
 
 #: src/std-types/string.md
 msgid ""
@@ -6152,22 +6173,31 @@ msgid ""
 "operations you see supported on vectors are also supported on `String`, but "
 "with some extra guarantees."
 msgstr ""
+"`String` được được viết dựa trên một vector gồm nhiều byte, nên những hàm "
+"gọi được trên vector cũng có thể được gọi trên `String`, nhưng đi kèm với "
+"một số điều kiện để đảm bảo các tính chất của chuỗi."
 
 #: src/std-types/string.md
 msgid "Compare the different ways to index a `String`:"
-msgstr ""
+msgstr "So sánh các cách truy cập phần tử trong một biến kiểu `String`:"
 
 #: src/std-types/string.md
 msgid ""
 "To a character by using `s3.chars().nth(i).unwrap()` where `i` is in-bound, "
 "out-of-bounds."
 msgstr ""
+"Truy cập một ký tự bằng cách sử dụng `s3.chars().nth(i).unwrap()` với `i` "
+"nằm trong phạm vi của chuỗi, và với `i` nằm ngoài phạm vi của chuỗi."
 
 #: src/std-types/string.md
 msgid ""
 "To a substring by using `s3[0..4]`, where that slice is on character "
 "boundaries or not."
 msgstr ""
+"Truy cập một xâu con bằng cách sử dụng `s3[0..4]`, với phạm vi của xâu con "
+"con giao thoa với ranh giới của các ký tự cận biên, hoặc với các ký tự cận "
+"biên hoàn toàn nằm bên trong xâu con. Ví dụ, truy cập `s[5..7] với `s = "
+"\"Xin chào\"`."
 
 #: src/std-types/string.md
 msgid ""
@@ -6177,6 +6207,11 @@ msgid ""
 "`Display`, so anything that can be formatted can also be converted to a "
 "string."
 msgstr ""
+"Nhiều kiểu dữ liệu có thể được chuyển đổi thành chuỗi bằng phương thức "
+"[`to_string`](https://doc.rust-lang.org/std/string/trait.ToString."
+"html#tymethod.to_string). Trait này đã được implement sẵn cho tất cả các "
+"kiểu dữ liệu implement `Display`, nên bất cứ giá trị nào có thể được định "
+"dạng cũng có thể được chuyển thành chuỗi."
 
 #: src/std-types/vec.md
 msgid ""
