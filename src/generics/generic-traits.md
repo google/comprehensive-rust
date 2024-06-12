@@ -37,7 +37,7 @@ fn main() {
   is simple.
 
 - Implementations of the trait do not need to cover all possible type
-  parameters. Here, `Foo::From("hello")` would not compile because there is no
+  parameters. Here, `Foo::from("hello")` would not compile because there is no
   `From<&str>` implementation for `Foo`.
 
 - Generic traits take types as "input", while associated types are a kind of
