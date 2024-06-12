@@ -224,6 +224,18 @@
                                   lang.href = `${full_path_to_root}${lang.id}/${path}`;
                               }
                           }
+
+                          // When the user clicks a list item, the page jump is performed, just like clicking the internal <a> tag.
+                          langList.querySelectorAll("li").forEach(function(li) {
+                            li.addEventListener("click", function(event) {
+                              event.preventDefault();
+        
+                              let link = this.querySelector("a");
+                              if (link && window.location.href !== link.href) {
+                                window.location.href = link.href;
+                              }
+                            });
+                          });
                         </script>
 
                         {{#if print_enable}}
