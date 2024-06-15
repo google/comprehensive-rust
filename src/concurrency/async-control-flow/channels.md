@@ -39,7 +39,7 @@ async fn main() {
 - Change the channel size to `3` and see how it affects the execution.
 
 - Overall, the interface is similar to the `sync` channels as seen in the
-  [morning class](concurrency/channels.md).
+  [morning class](../channels.md).
 
 - Try removing the `std::mem::drop` call. What happens? Why?
 
