@@ -10,6 +10,7 @@
   - [Rust Ecosystem](cargo/rust-ecosystem.md)
   - [Code Samples](cargo/code-samples.md)
   - [Running Cargo Locally](cargo/running-locally.md)
+- [Playground](playground.md)
 
 ---
 
@@ -19,7 +20,6 @@
 - [Hello, World](hello-world.md)
   - [What is Rust?](hello-world/what-is-rust.md)
   - [Benefits of Rust](hello-world/benefits.md)
-  - [Playground](hello-world/playground.md)
 - [Types and Values](types-and-values.md)
   - [Hello, World](types-and-values/hello-world.md)
   - [Variables](types-and-values/variables.md)
