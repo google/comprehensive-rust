@@ -44,22 +44,11 @@ impl Philosopher {
         // Keep trying until we have both forks
         // ANCHOR_END: Philosopher-eat
         let (_left_fork, _right_fork) = loop {
+            tokio::task::yield_now().await;
             // Pick up forks...
-            let left_fork = self.left_fork.try_lock();
-            let right_fork = self.right_fork.try_lock();
-            let Ok(left_fork) = left_fork else {
-                // If we didn't get the left fork, drop the right fork if we
-                // have it and let other tasks make progress.
-                drop(right_fork);
-                time::sleep(time::Duration::from_millis(1)).await;
-                continue;
-            };
-            let Ok(right_fork) = right_fork else {
-                // If we didn't get the right fork, drop the left fork and let
-                // other tasks make progress.
-                drop(left_fork);
-                time::sleep(time::Duration::from_millis(1)).await;
-                continue;
+            match (self.left_fork.try_lock(), self.right_fork.try_lock()) {
+                (Ok(left_fork), Ok(right_fork)) => (left_fork, right_fork),
+                (_, _) => continue,
             };
             break (left_fork, right_fork);
         };
