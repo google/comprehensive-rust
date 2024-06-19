@@ -1,7 +1,7 @@
-use tokio::sync::mpsc::{self, Receiver};
+use tokio::sync::mpsc;
 
-async fn ping_handler(mut input: Receiver<()>) {
-    let mut count: usize = 0;
+async fn ping_handler(mut input: mpsc::Receiver<()>) {
+    let mut count = 0;
 
     while let Some(_) = input.recv().await {
         count += 1;
