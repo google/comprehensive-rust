@@ -1,24 +1,17 @@
-use anyhow::Result;
-use futures::future;
+use futures::future::join_all;
 use reqwest;
-use std::collections::HashMap;
 
-async fn size_of_page(url: &str) -> Result<usize> {
+async fn size_of_page(url: &str) -> reqwest::Result<usize> {
     let resp = reqwest::get(url).await?;
     Ok(resp.text().await?.len())
 }
 
 #[tokio::main]
 async fn main() {
-    let urls: [&str; 4] = [
-        "https://google.com",
-        "https://httpbin.org/ip",
-        "https://play.rust-lang.org/",
-        "BAD_URL",
-    ];
-    let futures_iter = urls.into_iter().map(size_of_page);
-    let results = future::join_all(futures_iter).await;
-    let page_sizes_dict: HashMap<&str, Result<usize>> =
-        urls.into_iter().zip(results.into_iter()).collect();
-    println!("{:?}", page_sizes_dict);
+    let urls = ["https://rust-lang.org", "https://httpbin.org/ip", "BAD_URL"];
+    let futures = urls.into_iter().map(size_of_page);
+    let results = join_all(futures).await;
+    for (url, result) in urls.into_iter().zip(results) {
+        println!("{url}: {result:?}");
+    }
 }
