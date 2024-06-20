@@ -12,3 +12,14 @@ code to connect between Rust and existing Chromium C++ code.
 > a corner of the code where you're displaying a UTF8 string to the user, feel
 > free to follow this recipe in your part of the codebase instead of the exact
 > part we talk about.
+
+## Target Audience
+
+This course builds on [Rust Fundamentals](welcome-day-1.md) and we expect you
+are familiar with the basics of Rust. You should also be familiar with Chromium
+development.
+
+## Class Format
+
+The class is meant to be very interactive! Please ask questions to drive the
+exploration of Rust!

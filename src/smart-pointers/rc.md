@@ -4,8 +4,8 @@ minutes: 5
 
 # `Rc`
 
-[`Rc`][1] is a reference-counted shared pointer. Use this when you need to refer
-to the same data from multiple places:
+[`Rc<T>`][1] is a reference-counted shared pointer to `T`. Use this when you
+need to refer to the same data from multiple places:
 
 ```rust,editable
 use std::rc::Rc;
@@ -24,8 +24,8 @@ fn main() {
   cycles that will get dropped.
 
 [1]: https://doc.rust-lang.org/std/rc/struct.Rc.html
-[2]: ../concurrency/shared_state/arc.md
-[3]: https://doc.rust-lang.org/std/sync/struct.Mutex.html
+[2]: ../concurrency/shared-state/arc.md
+[3]: ../concurrency/shared-state/mutex.md
 [4]: https://doc.rust-lang.org/std/rc/struct.Weak.html
 
 <details>

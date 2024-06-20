@@ -140,7 +140,7 @@
   - [Exercise: Builder Type](memory-management/exercise.md)
     - [Solution](memory-management/solution.md)
 - [Smart Pointers](smart-pointers.md)
-  - [`Box<T>`](smart-pointers/box.md)
+  - [`Box`](smart-pointers/box.md)
   - [`Rc`](smart-pointers/rc.md)
   - [Owned Trait Objects](smart-pointers/trait-objects.md)
   - [Exercise: Binary Tree](smart-pointers/exercise.md)
@@ -306,6 +306,7 @@
 ---
 
 - [Welcome](bare-metal.md)
+- [Setup](bare-metal/setup.md)
 - [`no_std`](bare-metal/no_std.md)
   - [A Minimal Example](bare-metal/minimal.md)
   - [`alloc`](bare-metal/alloc.md)
@@ -357,6 +358,7 @@
 ---
 
 - [Welcome](concurrency/welcome.md)
+- [Fearless Concurrency](concurrency/fearless.md)
 - [Threads](concurrency/threads.md)
   - [Plain Threads](concurrency/threads/plain.md)
   - [Scoped Threads](concurrency/threads/scoped.md)
