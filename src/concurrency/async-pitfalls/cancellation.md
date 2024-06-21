@@ -101,7 +101,7 @@ async fn main() -> std::io::Result<()> {
             // prefix buf and bytes with self.
             // ...
             let raw = std::mem::take(&mut self.bytes);
-            let s = String::from_utf8(raw)
+            let s = String::from_utf8(raw).unwrap();
             // ...
         }
     }
