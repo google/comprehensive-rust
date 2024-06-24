@@ -102,6 +102,7 @@ async fn main() -> std::io::Result<()> {
             // ...
             let raw = std::mem::take(&mut self.bytes);
             let s = String::from_utf8(raw)
+                .map_err(|_| io::Error::new(ErrorKind::InvalidData, "not UTF-8"))?;
             // ...
         }
     }
