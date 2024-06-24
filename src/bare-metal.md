@@ -33,7 +33,8 @@ sudo apt install gcc-aarch64-linux-gnu gdb-multiarch libudev-dev picocom pkg-con
 rustup update
 rustup target add aarch64-unknown-none thumbv7em-none-eabihf
 rustup component add llvm-tools-preview
-cargo install cargo-binutils cargo-embed
+cargo install cargo-binutils
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/probe-rs/probe-rs/releases/latest/download/probe-rs-tools-installer.sh | sh
 ```
 
 And give users in the `plugdev` group access to the micro:bit programmer:
@@ -57,5 +58,6 @@ brew install --cask gcc-aarch64-embedded
 rustup update
 rustup target add aarch64-unknown-none thumbv7em-none-eabihf
 rustup component add llvm-tools-preview
-cargo install cargo-binutils cargo-embed
+cargo install cargo-binutils
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/probe-rs/probe-rs/releases/latest/download/probe-rs-tools-installer.sh | sh
 ```
