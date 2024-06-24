@@ -171,20 +171,20 @@ dependencies = [
 
 [[package]]
 name = "microbit-common"
-version = "0.14.0"
+version = "0.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "37409f40befaa165d8a94255955475337422f5fe2fecaeeeedde170562ee114b"
+checksum = "26d84d7858bbe6cdd89c429be9aa62f2820d1a271e66580df22fe9093bb63c51"
 dependencies = [
  "embedded-hal 1.0.0",
- "nrf52833-hal 0.17.1",
+ "nrf52833-hal",
  "tiny-led-matrix",
 ]
 
 [[package]]
 name = "microbit-v2"
-version = "0.14.0"
+version = "0.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ba72e1c5b286e8374734e345a1c3b3d3768d77c9004bf905d2ca86e7c47088a9"
+checksum = "0729395e7ffd39a515e9e5bcaacc282623ad7630fbe5c39b7a0fa656ec24918b"
 dependencies = [
  "microbit-common",
 ]
@@ -196,7 +196,7 @@ dependencies = [
  "cortex-m-rt",
  "embedded-hal 1.0.0",
  "microbit-v2",
- "nrf52833-hal 0.18.0",
+ "nrf52833-hal",
  "nrf52833-pac",
  "panic-halt",
 ]
@@ -218,27 +218,6 @@ checksum = "8d5439c4ad607c3c23abf66de8c8bf57ba8adcd1f129e699851a6e43935d339d"
 
 [[package]]
 name = "nrf-hal-common"
-version = "0.17.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "56fbecd598c7f16e32bd4783447ca023aa7897d4a4c8e70f6b7c5739c81b4ceb"
-dependencies = [
- "cast",
- "cfg-if",
- "cortex-m",
- "embedded-dma",
- "embedded-hal 1.0.0",
- "embedded-io",
- "embedded-storage",
- "fixed",
- "nb 1.1.0",
- "nrf-usbd 0.2.0",
- "nrf52833-pac",
- "rand_core",
- "void",
-]
-
-[[package]]
-name = "nrf-hal-common"
 version = "0.18.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0c134de1f2f0191aed3fc24d3831da8808d1e636b06edf81a5717103095f625d"
@@ -253,22 +232,10 @@ dependencies = [
  "embedded-storage",
  "fixed",
  "nb 1.1.0",
- "nrf-usbd 0.3.0",
+ "nrf-usbd",
  "nrf52833-pac",
  "rand_core",
  "void",
-]
-
-[[package]]
-name = "nrf-usbd"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "66b2907c0b3ec4d264981c1fc5a2321d51c463d5a63d386e573f00e84d5495e6"
-dependencies = [
- "cortex-m",
- "critical-section",
- "usb-device 0.2.9",
- "vcell",
 ]
 
 [[package]]
@@ -279,18 +246,8 @@ checksum = "aedf862f941154442271ae9914777bd1c93f6d2e0dc9db4cafa160e55ffb9085"
 dependencies = [
  "cortex-m",
  "critical-section",
- "usb-device 0.3.2",
+ "usb-device",
  "vcell",
-]
-
-[[package]]
-name = "nrf52833-hal"
-version = "0.17.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "10409e4c7a9af33161da0ac7329ea50d94bec24c9184cdec6138fd2bd590bdd3"
-dependencies = [
- "nrf-hal-common 0.17.1",
- "nrf52833-pac",
 ]
 
 [[package]]
@@ -299,7 +256,7 @@ version = "0.18.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "12fab00e54c93792dddaf623a021feaa84933bbad12c3b76f08ea201df91f36c"
 dependencies = [
- "nrf-hal-common 0.18.0",
+ "nrf-hal-common",
  "nrf52833-pac",
 ]
 
@@ -408,12 +365,6 @@ name = "unicode-ident"
 version = "1.0.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b"
-
-[[package]]
-name = "usb-device"
-version = "0.2.9"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1f6cc3adc849b5292b4075fc0d5fdcf2f24866e88e336dd27a8943090a520508"
 
 [[package]]
 name = "usb-device"
