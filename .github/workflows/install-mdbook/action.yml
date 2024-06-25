@@ -18,6 +18,7 @@ runs:
     - name: Install mdbook-pandoc and related dependencies
       run: |
         cargo install mdbook-pandoc --locked --version 0.6.4
+        sudo apt-get update
         sudo apt-get install -y texlive texlive-luatex texlive-lang-cjk librsvg2-bin fonts-noto
         curl -LsSf https://github.com/jgm/pandoc/releases/download/3.2/pandoc-3.2-linux-amd64.tar.gz | tar zxf -
         echo "$PWD/pandoc-3.2/bin" >> $GITHUB_PATH
