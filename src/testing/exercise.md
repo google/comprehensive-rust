@@ -23,7 +23,7 @@ following to validate the credit card number:
 - The credit card number is valid if the sum ends with `0`.
 
 The provided code provides a buggy implementation of the luhn algorithm, along
-with two basic unit tests that confirm that most the algorithm is implemented
+with two basic unit tests that confirm that most of the algorithm is implemented
 correctly.
 
 Copy the code below to <https://play.rust-lang.org/> and write additional tests
