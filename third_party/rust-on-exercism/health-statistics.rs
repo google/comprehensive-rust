@@ -67,11 +67,13 @@ fn test_visit() {
     assert_eq!(report.patient_name, "Bob");
     assert_eq!(report.visit_count, 1);
     assert_eq!(report.blood_pressure_change, None);
+    assert!((report.height_change - 0.9).abs() < 0.00001);
 
     let report =
         bob.visit_doctor(Measurements { height: 156.1, blood_pressure: (115, 76) });
 
     assert_eq!(report.visit_count, 2);
     assert_eq!(report.blood_pressure_change, Some((-5, -4)));
+    assert_eq!(report.height_change, 0.0);
 }
 // ANCHOR_END: tests
