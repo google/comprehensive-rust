@@ -33,7 +33,7 @@ _src/main.rs_:
 
 ```rust,compile_fail
 {{#include compass/src/main.rs:top}}
-use microbit::{hal::uarte::{Baudrate, Parity, Uarte}, Board};
+use microbit::{hal::{Delay, uarte::{Baudrate, Parity, Uarte}}, Board};
 
 {{#include compass/src/main.rs:main}}
     // TODO
