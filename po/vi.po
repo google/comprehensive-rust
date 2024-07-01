@@ -6218,30 +6218,32 @@ msgid ""
 "[`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html) is the standard "
 "resizable heap-allocated buffer:"
 msgstr ""
+"[`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html) là kiểu dữ liệu "
+"chuẩn dạng mảng có thể tự thay đổi kích thước:"
 
 #: src/std-types/vec.md
 msgid "\"v1: len = {}, capacity = {}\""
-msgstr ""
+msgstr "\"v1: độ dài = {}, kích thước = {}\""
 
 #: src/std-types/vec.md
 msgid "\"v2: len = {}, capacity = {}\""
-msgstr ""
+msgstr "\"v2: độ dài = {}, kích thước = {}\""
 
 #: src/std-types/vec.md
 msgid "// Canonical macro to initialize a vector with elements.\n"
-msgstr ""
+msgstr "// Macro để khởi tạo một vector với nhiều phần tử cho trước.\n"
 
 #: src/std-types/vec.md
 msgid "// Retain only the even elements.\n"
-msgstr ""
+msgstr "// Chỉ giữ lại các phần tử chẵn.\n"
 
 #: src/std-types/vec.md
 msgid "\"{v3:?}\""
-msgstr ""
+msgstr "\"{v3:?}\""
 
 #: src/std-types/vec.md
 msgid "// Remove consecutive duplicates.\n"
-msgstr ""
+msgstr "// Loại bỏ các phần tử liên tiếp giống nhau.\n"
 
 #: src/std-types/vec.md
 msgid ""
@@ -6249,6 +6251,9 @@ msgid ""
 "struct.Vec.html#deref-methods-%5BT%5D), which means that you can call slice "
 "methods on a `Vec`."
 msgstr ""
+"`Vec` implement [`Deref<Target = [T]>`](https://doc.rust-lang.org/std/vec/"
+"struct.Vec.html#deref-methods-%5BT%5D), nên tất cả các hàm của slice đều có "
+"thể được gọi trên một biến kiểu `Vec`."
 
 #: src/std-types/vec.md
 msgid ""
@@ -6256,6 +6261,10 @@ msgid ""
 "it contains is stored on the heap. This means the amount of data doesn't "
 "need to be known at compile time. It can grow or shrink at runtime."
 msgstr ""
+"Tương tự `String` và `HashMap`, `Vec` là một kiểu dữ liệu sử dụng để lưu trữ "
+"nhiều phần tử. Dữ liệu được lưu trữ trên bộ nhớ heap, nên không cần phải "
+"biết trước kích thước của dữ liệu tại thời điểm compile. Kích thước của "
+"`Vec` có thể thay đổi tại trong quá trình chạy."
 
 #: src/std-types/vec.md
 msgid ""
@@ -6263,12 +6272,18 @@ msgid ""
 "explicitly. As always with Rust type inference, the `T` was established "
 "during the first `push` call."
 msgstr ""
+"`Vec<T>` cũng là một kiểu dữ liệu generic, nhưng trong đa số trường hợp ta "
+"không cần phải chỉ rõ ra `T`. Hệ thống nội suy kiểu dữ liệu của Rust sẽ tự "
+"động xác định `T` trong lần đầu tiên gọi hàm `push`."
 
 #: src/std-types/vec.md
 msgid ""
 "`vec![...]` is a canonical macro to use instead of `Vec::new()` and it "
 "supports adding initial elements to the vector."
 msgstr ""
+"Ta có thể sử dụng macro `vec![...]` thay vì gọi hàm `Vec::new()` để khởi tạo "
+"một `Vec`. `vec![...]` còn có thể được dùng để khởi tạo vector với một số "
+"phần tử cho trước."
 
 #: src/std-types/vec.md
 msgid ""
@@ -6276,61 +6291,73 @@ msgid ""
 "Alternatively, using `get` will return an `Option`. The `pop` function will "
 "remove the last element."
 msgstr ""
+"Để truy cập phần tử của một vector ta có thể sử dụng `[` `]`, nhưng nếu phần "
+"tử được truy cập cập nằm ngoài phạm vi của vector, chương trình sẽ panic. "
+"Trong trường hợp này, ta có thể sử dụng hàm `get` để trả về một `Option`. "
+"Hàm `pop` sẽ loại bỏ phần tử cuối cùng của vector."
 
 #: src/std-types/vec.md
 msgid ""
 "Slices are covered on day 3. For now, students only need to know that a "
 "value of type `Vec` gives access to all of the documented slice methods, too."
 msgstr ""
+"Chúng ta sẽ đi sâu vào chi tiết về slice trong ngày 3. Bây giờ, học viên chỉ "
+"cần biết rằng một biến kiểu `Vec` cũng có thể sử dụng tất cả các hàm của "
+"slice."
 
 #: src/std-types/hashmap.md
 msgid "Standard hash map with protection against HashDoS attacks:"
 msgstr ""
+"Một bảng băm chuẩn với cơ chế bảo vệ chống lại các cuộc tấn công HashDoS:"
 
 #: src/std-types/hashmap.md
 msgid "\"Adventures of Huckleberry Finn\""
-msgstr ""
+msgstr "\"Những cuộc phiêu lưu của Huckleberry Finn\""
 
 #: src/std-types/hashmap.md
 msgid "\"Grimms' Fairy Tales\""
-msgstr ""
+msgstr "\"Truyện cổ tích của Grimms\""
 
 #: src/std-types/hashmap.md
 msgid "\"Pride and Prejudice\""
-msgstr ""
+msgstr "\"Kiêu hãnh và định kiến\""
 
 #: src/std-types/hashmap.md
 msgid "\"Les Misérables\""
-msgstr ""
+msgstr "\"Những người khốn khổ\""
 
 #: src/std-types/hashmap.md
 msgid "\"We know about {} books, but not Les Misérables.\""
-msgstr ""
+msgstr "\"Chúng ta biết {} cuốn sách, nhưng không biết về Les Misérables.\""
 
 #: src/std-types/hashmap.md
 msgid "\"Alice's Adventure in Wonderland\""
-msgstr ""
+msgstr "\"Alice lạc vào xứ sở thần tiên\""
 
 #: src/std-types/hashmap.md
 msgid "\"{book}: {count} pages\""
-msgstr ""
+msgstr "\"{book}: {count} trang\""
 
 #: src/std-types/hashmap.md
 msgid "\"{book} is unknown.\""
-msgstr ""
+msgstr "\"{book} không tồn tại.\""
 
 #: src/std-types/hashmap.md
 msgid "// Use the .entry() method to insert a value if nothing is found.\n"
 msgstr ""
+"// Sử dụng phương thức .entry() để chèn một giá trị nếu giá trị đó chưa tồn "
+"tại trong hashmap.\n"
 
 #: src/std-types/hashmap.md
 msgid "\"{page_counts:#?}\""
-msgstr ""
+msgstr "\"{page_counts:#?}\""
 
 #: src/std-types/hashmap.md
 msgid ""
 "`HashMap` is not defined in the prelude and needs to be brought into scope."
 msgstr ""
+"`HashMap` không được định nghĩa trong prelude và cần phải được import vào "
+"scope trước khi sử dụng."
 
 #: src/std-types/hashmap.md
 msgid ""
@@ -6338,18 +6365,21 @@ msgid ""
 "hashmap and if not return an alternative value. The second line will insert "
 "the alternative value in the hashmap if the book is not found."
 msgstr ""
+"Thử chạy đoạn code sau. Dòng đầu tiên sẽ kiểm tra xem một cuốn sách có tồn "
+"tại trong hashmap không, và nếu không trả về một giá trị thay thế. Dòng thứ "
+"hai sẽ chèn giá trị thay thế vào hashmap nếu cuốn sách không tồn tại."
 
 #: src/std-types/hashmap.md
 msgid "\"Harry Potter and the Sorcerer's Stone\""
-msgstr ""
+msgstr "\"Harry Potter và hòn đá phù thủy\""
 
 #: src/std-types/hashmap.md
 msgid "\"The Hunger Games\""
-msgstr ""
+msgstr "\"Trò chơi sinh tử\""
 
 #: src/std-types/hashmap.md
 msgid "Unlike `vec!`, there is unfortunately no standard `hashmap!` macro."
-msgstr ""
+msgstr "Khác với `vec!`, Rust không cung cấp macro `hashmap!`."
 
 #: src/std-types/hashmap.md
 msgid ""
@@ -6358,12 +6388,18 @@ msgid ""
 "From%3C%5B(K,+V);+N%5D%3E-for-HashMap%3CK,+V,+RandomState%3E), which allows "
 "us to easily initialize a hash map from a literal array:"
 msgstr ""
+"Thay vào đó, kể từ phiên bản Rust 1.56, HashMap implement [`From<[(K, V); "
+"N]>`](https://doc.rust-lang.org/std/collections/hash_map/struct.HashMap."
+"html#impl-From%3C%5B(K,+V);+N%5D%3E-for-HashMap%3CK,+V,+RandomState%3E), cho "
+"phép chúng ta dễ dàng khởi tạo một hashmap từ một mảng giá trị:"
 
 #: src/std-types/hashmap.md
 msgid ""
 "Alternatively HashMap can be built from any `Iterator` which yields key-"
 "value tuples."
 msgstr ""
+"HashMap cũng có thể được khởi tạo từ bất kỳ `Iterator` nào trả về các cặp "
+"key-value."
 
 #: src/std-types/hashmap.md
 msgid ""
@@ -6371,12 +6407,18 @@ msgid ""
 "examples easier. Using references in collections can, of course, be done, "
 "but it can lead into complications with the borrow checker."
 msgstr ""
+"Trong những ví dụ trên, `HashMap<String, i32>` được sử dụng thay vì `&str` "
+"để làm cho ví dụ dễ hiểu hơn. Ta tất nhiên có thể sử dụng tham chiếu trong "
+"các cấu trúc dữ liệu, nhưng có thể gặp nhiều vấn đề với hệ thống kiểm tra "
+"vay mượn của Rust."
 
 #: src/std-types/hashmap.md
 msgid ""
 "Try removing `to_string()` from the example above and see if it still "
 "compiles. Where do you think we might run into issues?"
 msgstr ""
+"Thử xoá hàm `to_string()` từ ví dụ trên và xem chương trình có vẫn chạy "
+"không. Bạn nghĩ chúng ta sẽ gặp vấn đề ở đâu?"
 
 #: src/std-types/hashmap.md
 msgid ""
@@ -6385,6 +6427,10 @@ msgid ""
 "Rust docs. Show students the docs for this type, and the helpful link back "
 "to the `keys` method."
 msgstr ""
+"HashMap đi kèm với nhiều kiểu dữ liệu chỉ sử dụng làm kiểu trả về của một số "
+"hàm, như `std::collections::hash_map::Keys`. Những kiểu dữ liệu này thường "
+"xuất hiện trong tài liệu của Rust. Hãy cho học viên xem tài liệu về kiểu dữ "
+"liệu `Keys`, và liên hệ với hàm `keys`."
 
 #: src/std-types/exercise.md
 msgid ""
@@ -6393,6 +6439,10 @@ msgid ""
 "stable/std/collections/struct.HashMap.html) to keep track of which values "
 "have been seen and how many times each one has appeared."
 msgstr ""
+"Trong bài tập này, ta sẽ chuyển một cấu trúc dữ liệu đơn giản thành một cấu "
+"trúc dữ liệu generic. Chúng ta sẽ sử dụng một [`std::collections::HashMap`]"
+"(https://doc.rust-lang.org/stable/std/collections/struct.HashMap.html) để "
+"theo dõi các giá trị đã xuất hiện và số lần xuất hiện của mỗi giá trị."
 
 #: src/std-types/exercise.md
 msgid ""
@@ -6400,6 +6450,9 @@ msgid ""
 "values. Make the struct and its methods generic over the type of value being "
 "tracked, that way `Counter` can track any type of value."
 msgstr ""
+"Phiên bản đầu tiên của `Counter` chỉ hoạt động với các giá trị kiểu `u32`. "
+"Hãy biến struct `Counter` và các hàm của nó thành generic, để `Counter` có "
+"thể theo dõi bất kỳ kiểu dữ liệu nào."
 
 #: src/std-types/exercise.md
 msgid ""
@@ -6407,39 +6460,42 @@ msgid ""
 "stable/std/collections/struct.HashMap.html#method.entry) method to halve the "
 "number of hash lookups required to implement the `count` method."
 msgstr ""
+"Nếu bạn hoàn thành sớm, hãy thử sử dụng hàm [`entry`](https://doc.rust-lang."
+"org/stable/std/collections/struct.HashMap.html#method.entry) để giảm đi một "
+"nửa số lần thực hiện hash lookup cần thiết để thực hiện hàm `count`."
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid ""
 "/// Counter counts the number of times each value of type T has been seen.\n"
-msgstr ""
+msgstr "/// Counter đếm số lần mỗi giá trị kiểu T xuất hiện.\n"
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "/// Create a new Counter.\n"
-msgstr ""
+msgstr "/// Khởi tạo một Counter mới.\n"
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "/// Count an occurrence of the given value.\n"
-msgstr ""
+msgstr "/// Tăng số lần xuất hiện của giá trị đã cho.\n"
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "/// Return the number of times the given value has been seen.\n"
-msgstr ""
+msgstr "/// Trả về số lần mà giá trị đã cho đã xuất hiện.\n"
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "\"saw {} values equal to {}\""
-msgstr ""
+msgstr "\"{} xuất hiện {} lần\""
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "\"apple\""
-msgstr ""
+msgstr "\"táo\""
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "\"orange\""
-msgstr ""
+msgstr "\"cam\""
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "\"got {} apples\""
-msgstr ""
+msgstr "\"có {} quả táo\""
 
 #: src/std-traits.md
 msgid "This segment should take about 1 hour and 40 minutes. It contains:"
