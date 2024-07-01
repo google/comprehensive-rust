@@ -13,7 +13,7 @@ volunteers:
   [@kantasv].
 - [Korean][ko] by [@keispace], [@jiyongp], [@jooyunghan], and [@namhyung].
 - [Spanish][es] by [@deavid].
-- [Ukrainian][uk] by [@yaremam] and [@reta].
+- [Ukrainian][uk] by [@git-user-cpp], [@yaremam] and [@reta].
 
 Use the language picker in the top-right corner to switch between languages.
 
@@ -46,6 +46,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@CoinEZ-JPN]: https://github.com/CoinEZ
 [@deavid]: https://github.com/deavid
 [@detro]: https://github.com/detro
+[@git-user-cpp]: https://github.com/git-user-cpp
 [@henrif75]: https://github.com/henrif75
 [@henrythebuilder]: https://github.com/henrythebuilder
 [@HidenoriKobayashi]: https://github.com/HidenoriKobayashi
