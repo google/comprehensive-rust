@@ -9,6 +9,8 @@ volunteers:
   [@noahdragon], [@superwhd], [@SketchK], and [@nodmp].
 - [Chinese (Traditional)][zh-TW] by [@hueich], [@victorhsieh], [@mingyc],
   [@kuanhungchen], and [@johnathan79717].
+- [Japanese][ja] by [@CoinEZ-JPN], [@momotaro1105], [@HidenoriKobayashi] and
+  [@kantasv].
 - [Korean][ko] by [@keispace], [@jiyongp], [@jooyunghan], and [@namhyung].
 - [Spanish][es] by [@deavid].
 
@@ -22,7 +24,6 @@ recently updated translations:
 - [Bengali][bn] by [@raselmandol].
 - [French][fr] by [@KookaS], [@vcaen] and [@AdrienBaudemont].
 - [German][de] by [@Throvn] and [@ronaldfw].
-- [Japanese][ja] by [@CoinEZ-JPN] and [@momotaro1105].
 - [Italian][it] by [@henrythebuilder] and [@detro].
 
 If you want to help with this effort, please see [our instructions] for how to
@@ -45,12 +46,14 @@ get going. Translations are coordinated on the [issue tracker].
 [@detro]: https://github.com/detro
 [@henrif75]: https://github.com/henrif75
 [@henrythebuilder]: https://github.com/henrythebuilder
+[@HidenoriKobayashi]: https://github.com/HidenoriKobayashi
 [@hueich]: https://github.com/hueich
 [@hugojacob]: https://github.com/hugojacob
 [@jiyongp]: https://github.com/jiyongp
 [@joaovicmendes]: https://github.com/joaovicmendes
 [@johnathan79717]: https://github.com/johnathan79717
 [@jooyunghan]: https://github.com/jooyunghan
+[@kantasv]: https://github.com/kantasv
 [@keispace]: https://github.com/keispace
 [@kongy]: https://github.com/kongy
 [@KookaS]: https://github.com/KookaS
