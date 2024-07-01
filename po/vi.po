@@ -6654,18 +6654,20 @@ msgid ""
 "Rust has no _implicit_ type conversions, but does support explicit casts "
 "with `as`. These generally follow C semantics where those are defined."
 msgstr ""
+"Rust không hỗ trợ ép kiểu ngầm định, nhưng hỗ trợ ép kiểu một cách tường "
+"minh với `as`. Cú pháp này khá giống với cách ép kiểu trong ngôn ngữ C."
 
 #: src/std-traits/casting.md
 msgid "\"as u16: {}\""
-msgstr ""
+msgstr "\"ép về u16: {}\""
 
 #: src/std-traits/casting.md
 msgid "\"as i16: {}\""
-msgstr ""
+msgstr "\"ép về i16: {}\""
 
 #: src/std-traits/casting.md
 msgid "\"as u8: {}\""
-msgstr ""
+msgstr "\"ép về u8: {}\""
 
 #: src/std-traits/casting.md
 msgid ""
@@ -6673,6 +6675,10 @@ msgid ""
 "platforms. This might not match your intuition for changing sign or casting "
 "to a smaller type -- check the docs, and comment for clarity."
 msgstr ""
+"Kết quả của việc ép kiểu bằng `as` _luôn_ được định nghĩa rõ ràng trong "
+"Rust, cố định trên mọi nền tảng. Vì vậy, đôi lúc kết quả có thể không giống "
+"với dự kiến của bạn, ví dụ như khi đổi dấu hoặc chuyển về kiểu dữ liệu nhỏ "
+"hơn -- hãy kiểm tra tài liệu cho chắc chắn."
 
 #: src/std-traits/casting.md
 msgid ""
@@ -6683,6 +6689,11 @@ msgid ""
 "selecting the bottom 32 bits of a `u64` with `as u32`, regardless of what "
 "was in the high bits)."
 msgstr ""
+"Ép kiểu dữ liệu với `as` là một công cụ khá mạnh nên dễ bị sử dụng sai, có "
+"thể gây ra những lỗi khó phát hiện khi thay đổi kiểu dữ liệu hoặc phạm vi "
+"giá trị của biến. Ép kiểu với `as` nên được sử dụng chỉ khi ta chắc chắn "
+"rằng lỗi không thể xảy ra (ví dụ: lấy 32 bit cuối của một `u64` với `as "
+"u32`, bỏ qua giá trị của 32 bit đầu)."
 
 #: src/std-traits/casting.md
 msgid ""
@@ -6691,10 +6702,15 @@ msgid ""
 "casts, `TryFrom` and `TryInto` are available when you want to handle casts "
 "that fit differently from those that don't."
 msgstr ""
+"Nên sử dụng `From` hoặc `Into` thay vì `as` cho những trường hợp ép kiểu "
+"không thể thất bại (ví dụ: `u32` sang `u64`), để đảm bảo rằng quá trình "
+"chuyển đổi thật sự không thể thất bại. Đối với những trường hợp ép kiểu có "
+"thể thất bại, nên sử dụng `TryFrom` và `TryInto` để xử lý lỗi khi ép kiểu "
+"(khi một giá trị không hoàn toàn phù hợp với kiểu dữ liệu đích)."
 
 #: src/std-traits/casting.md
 msgid "Consider taking a break after this slide."
-msgstr ""
+msgstr "Hãy cân nhắc cho học viên nghỉ giải lao sau slide này."
 
 #: src/std-traits/casting.md
 msgid ""
@@ -6702,10 +6718,15 @@ msgid ""
 "be lost is generally discouraged, or at least deserves an explanatory "
 "comment."
 msgstr ""
+"`as` hoạt động tương tự như static cast trong C++. Không nên sử dụng `as` "
+"nếu dữ liệu có thể bị mất khi ép kiểu, ít nhất phải có một comment giải "
+"thích rõ ràng lý do sử dụng `as`."
 
 #: src/std-traits/casting.md
 msgid "This is common in casting integers to `usize` for use as an index."
 msgstr ""
+"Một trường hợp ngoại lệ là khi ép kiểu số nguyên sang `usize` để sử dụng làm "
+"index trong array."
 
 #: src/std-traits/read-and-write.md
 msgid ""
@@ -6713,32 +6734,37 @@ msgid ""
 "[`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html), you can "
 "abstract over `u8` sources:"
 msgstr ""
+"Bằng cách sử dụng [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html) "
+"và [`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html), ta có "
+"thể đọc dữ liệu văn bản từ một mảng `u8`:"
 
 #: src/std-traits/read-and-write.md
 msgid "b\"foo\\nbar\\nbaz\\n\""
-msgstr ""
+msgstr "b\"foo\\nbar\\nbaz\\n\""
 
 #: src/std-traits/read-and-write.md
 msgid "\"lines in slice: {}\""
-msgstr ""
+msgstr "\"số dòng trong mảng: {}\""
 
 #: src/std-traits/read-and-write.md
 msgid "\"lines in file: {}\""
-msgstr ""
+msgstr "\"số dòng trong file: {}\""
 
 #: src/std-traits/read-and-write.md
 msgid ""
 "Similarly, [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) lets "
 "you abstract over `u8` sinks:"
 msgstr ""
+"Tương tự, [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) cho "
+"phép ta ghi dữ liệu văn bản vào một mảng `u8`:"
 
 #: src/std-traits/read-and-write.md
 msgid "\"\\n\""
-msgstr ""
+msgstr "\"\\n\""
 
 #: src/std-traits/read-and-write.md
 msgid "\"Logged: {:?}\""
-msgstr ""
+msgstr "\"Dữ liệu đã được ghi: {:?}\""
 
 #: src/std-traits/default.md
 msgid "The `Default` Trait"
