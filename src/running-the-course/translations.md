@@ -13,6 +13,7 @@ volunteers:
   [@kantasv].
 - [Korean][ko] by [@keispace], [@jiyongp], [@jooyunghan], and [@namhyung].
 - [Spanish][es] by [@deavid].
+- [Ukrainian][uk] by [@git-user-cpp], [@yaremam] and [@reta].
 
 Use the language picker in the top-right corner to switch between languages.
 
@@ -37,6 +38,7 @@ get going. Translations are coordinated on the [issue tracker].
 [ja]: https://google.github.io/comprehensive-rust/ja/
 [ko]: https://google.github.io/comprehensive-rust/ko/
 [pt-BR]: https://google.github.io/comprehensive-rust/pt-BR/
+[uk]: https://google.github.io/comprehensive-rust/uk/]
 [zh-CN]: https://google.github.io/comprehensive-rust/zh-CN/
 [zh-TW]: https://google.github.io/comprehensive-rust/zh-TW/
 [@AdrienBaudemont]: https://github.com/AdrienBaudemont
@@ -44,6 +46,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@CoinEZ-JPN]: https://github.com/CoinEZ
 [@deavid]: https://github.com/deavid
 [@detro]: https://github.com/detro
+[@git-user-cpp]: https://github.com/git-user-cpp
 [@henrif75]: https://github.com/henrif75
 [@henrythebuilder]: https://github.com/henrythebuilder
 [@HidenoriKobayashi]: https://github.com/HidenoriKobayashi
@@ -65,6 +68,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@nodmp]: https://github.com/nodmp
 [@raselmandol]: https://github.com/raselmandol
 [@rastringer]: https://github.com/rastringer
+[@reta]: https://github.com/reta
 [@ronaldfw]: https://github.com/ronaldfw
 [@SketchK]: https://github.com/SketchK
 [@suetfei]: https://github.com/suetfei
@@ -73,5 +77,6 @@ get going. Translations are coordinated on the [issue tracker].
 [@vcaen]: https://github.com/vcaen
 [@victorhsieh]: https://github.com/victorhsieh
 [@wnghl]: https://github.com/wnghl
+[@yaremam]: https://github.com/yaremam
 [our instructions]: https://github.com/google/comprehensive-rust/blob/main/TRANSLATIONS.md
 [issue tracker]: https://github.com/google/comprehensive-rust/issues/282
