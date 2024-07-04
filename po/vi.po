@@ -6524,41 +6524,50 @@ msgstr "Phần này sẽ kéo dài khoảng 1 giờ và 40 phút, bao gồm:"
 
 #: src/std-traits.md
 msgid "From and Into"
-msgstr ""
+msgstr "From và Into"
 
 #: src/std-traits.md
 msgid "Read and Write"
-msgstr ""
+msgstr "Read và Write"
 
 #: src/std-traits.md
 msgid "Default, struct update syntax"
-msgstr ""
+msgstr "Default, cú pháp cập nhật struct"
 
 #: src/std-traits.md
 msgid ""
 "As with the standard-library types, spend time reviewing the documentation "
 "for each trait."
 msgstr ""
+"Tương tự như trong chương về các kiểu dữ liệu chuẩn, hãy dành thời gian để "
+"ôn lại tài liệu cho mỗi trait."
 
 #: src/std-traits.md
 msgid "This section is long. Take a break midway through."
 msgstr ""
+"Nội dung của chương này khá dài, hãy cho học sinh nghỉ giải lao giữa chương."
 
 #: src/std-traits/comparisons.md
 msgid ""
 "These traits support comparisons between values. All traits can be derived "
 "for types containing fields that implement these traits."
 msgstr ""
+"Kiểu dữ liệu implement các trait này có thể được so sánh với nhau. Tất cả "
+"các trait này có thể được derive nếu các trường của kiểu dữ liệu sử dụng "
+"derive cũng implement các trait này."
 
 #: src/std-traits/comparisons.md
 msgid "`PartialEq` and `Eq`"
-msgstr ""
+msgstr "`PartialEq` và `Eq`"
 
 #: src/std-traits/comparisons.md
 msgid ""
 "`PartialEq` is a partial equivalence relation, with required method `eq` and "
 "provided method `ne`. The `==` and `!=` operators will call these methods."
 msgstr ""
+"`PartialEq` là một quan hệ tương đương một phần. Kiểu dữ liệu implement "
+"trait này phải định nghĩa hàm `eq`, hàm `ne` tự được định nghĩa dựa trên "
+"`eq`. Các toán tử `==` và `!=` sẽ gọi đến các hàm này."
 
 #: src/std-traits/comparisons.md
 msgid ""
@@ -6566,51 +6575,67 @@ msgid ""
 "and implies `PartialEq`. Functions that require full equivalence will use "
 "`Eq` as a trait bound."
 msgstr ""
+"`Eq` là một quan hệ tương đương toàn phần (tính phản xạ, đối xứng và bắc "
+"cầu). Kiểu dữ liệu implement trait này mặc định implement `PartialEq`. Các "
+"hàm yêu cầu quan hệ tương đương toàn phần sẽ sử dụng `Eq` dưới dạng một "
+"trait bound."
 
 #: src/std-traits/comparisons.md
 msgid "`PartialOrd` and `Ord`"
-msgstr ""
+msgstr "`PartialOrd` và `Ord`"
 
 #: src/std-traits/comparisons.md
 msgid ""
 "`PartialOrd` defines a partial ordering, with a `partial_cmp` method. It is "
 "used to implement the `<`, `<=`, `>=`, and `>` operators."
 msgstr ""
+"`PartialOrd` định nghĩa một quan hệ thứ tự một phần, với hàm `partial_cmp`. "
+"Trait này được sử dụng để implement các toán tử `<`, `<=`, `>=`, và `>`."
 
 #: src/std-traits/comparisons.md
 msgid "`Ord` is a total ordering, with `cmp` returning `Ordering`."
 msgstr ""
+"`Ord` là một quan hệ thứ tự toàn phần, với hàm `cmp` trả về kiểu dữ liệu "
+"`Ordering`."
 
 #: src/std-traits/comparisons.md
 msgid ""
 "`PartialEq` can be implemented between different types, but `Eq` cannot, "
 "because it is reflexive:"
 msgstr ""
+"`PartialEq` có thể được implement để so sánh giữa các kiểu dữ liệu khác "
+"nhau, nhưng `Eq` thì không, vì `Eq` có tính phản xạ:"
 
 #: src/std-traits/comparisons.md
 msgid ""
 "In practice, it's common to derive these traits, but uncommon to implement "
 "them."
 msgstr ""
+"Trong thực tế, các trait này thường thường được derive, ít khi được "
+"implement."
 
 #: src/std-traits/operators.md
 msgid ""
 "Operator overloading is implemented via traits in [`std::ops`](https://doc."
 "rust-lang.org/std/ops/index.html):"
 msgstr ""
+"Ta có thể thực hiện overloading toán tử thông qua các trait trong [`std::"
+"ops`](https://doc.rust-lang.org/std/ops/index.html):"
 
 #: src/std-traits/operators.md
 msgid "\"{:?} + {:?} = {:?}\""
-msgstr ""
+msgstr "\"{:?} + {:?} = {:?}\""
 
 #: src/std-traits/operators.md src/memory-management/drop.md
 msgid "Discussion points:"
-msgstr ""
+msgstr "Một số điểm cần thảo luận:"
 
 #: src/std-traits/operators.md
 msgid ""
 "You could implement `Add` for `&Point`. In which situations is that useful?"
 msgstr ""
+"Ta có thể implement `Add` cho `&Point`. Việc này có ích trong những tình "
+"huống nào?"
 
 #: src/std-traits/operators.md
 msgid ""
@@ -6618,12 +6643,17 @@ msgid ""
 "the operator is not `Copy`, you should consider overloading the operator for "
 "`&T` as well. This avoids unnecessary cloning on the call site."
 msgstr ""
+"Trả lời: `Add:add` tiêu thụ `self`. Nếu kiểu `T` mà ta muốn overloading toán "
+"tử không implement `Copy`, ta cũng nên cân nhắc overload toán tử cho `&T`. "
+"Như vậy ta có thể tránh việc clone không cần thiết tại thời điểm gọi hàm."
 
 #: src/std-traits/operators.md
 msgid ""
 "Why is `Output` an associated type? Could it be made a type parameter of the "
 "method?"
 msgstr ""
+"Tại sao `Output` là một associated type? Có thể thay thế `Output` bằng một "
+"tham số generic cho hàm không?"
 
 #: src/std-traits/operators.md
 msgid ""
@@ -6631,12 +6661,16 @@ msgid ""
 "associated types (like `Output`) are controlled by the implementer of a "
 "trait."
 msgstr ""
+"Trả lời: Tham số generic của hàm được quyết định bởi người gọi hàm, nhưng "
+"associated types (như `Output`) được quyết định bởi người implement trait."
 
 #: src/std-traits/operators.md
 msgid ""
 "You could implement `Add` for two different types, e.g. `impl Add<(i32, "
 "i32)> for Point` would add a tuple to a `Point`."
 msgstr ""
+"Ta có thể implement `Add` cho hai kiểu dữ liệu khác nhau, ví dụ `impl "
+"Add<(i32, i32)> for Point` sẽ cộng một tuple vào một `Point`."
 
 #: src/std-traits/from-and-into.md
 msgid ""
@@ -6644,10 +6678,13 @@ msgid ""
 "html) and [`Into`](https://doc.rust-lang.org/std/convert/trait.Into.html) to "
 "facilitate type conversions:"
 msgstr ""
+"Ta có thể implement trait [`From`](https://doc.rust-lang.org/std/convert/"
+"trait.From.html) và [`Into`](https://doc.rust-lang.org/std/convert/trait."
+"Into.html) để đơn giản hoá việc chuyển đổi kiểu dữ liệu:"
 
 #: src/std-traits/from-and-into.md
 msgid "\"{s}, {addr}, {one}, {bigger}\""
-msgstr ""
+msgstr "\"{s}, {addr}, {one}, {bigger}\""
 
 #: src/std-traits/from-and-into.md
 msgid ""
@@ -6655,12 +6692,17 @@ msgid ""
 "automatically implemented when [`From`](https://doc.rust-lang.org/std/"
 "convert/trait.From.html) is implemented:"
 msgstr ""
+"[`Into`](https://doc.rust-lang.org/std/convert/trait.Into.html) sẽ tự động "
+"được implement khi [`From`](https://doc.rust-lang.org/std/convert/trait.From."
+"html) được implement:"
 
 #: src/std-traits/from-and-into.md
 msgid ""
 "That's why it is common to only implement `From`, as your type will get "
 "`Into` implementation too."
 msgstr ""
+"Vì vậy, thông thường ta chỉ cần implement `From`, vì kiểu dữ liệu của bạn sẽ "
+"tự động có `Into`."
 
 #: src/std-traits/from-and-into.md
 msgid ""
@@ -6669,6 +6711,10 @@ msgid ""
 "Your function will accept types that implement `From` and those that _only_ "
 "implement `Into`."
 msgstr ""
+"Ngược lại, khi ta muốn khai báo 1 hàm nhận \"bất kỳ kiểu dữ liệu nào có thể "
+"chuyển đổi thành `String`\", ta nên sử dụng `Into`. Như vậy, hàm được khai "
+"báo sẽ chấp nhận các kiểu dữ liệu implement `From` và những kiểu dữ liệu chỉ "
+"implement `Into`."
 
 #: src/std-traits/casting.md
 msgid ""
