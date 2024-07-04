@@ -49,6 +49,9 @@ jobs:
               mv book/$po_lang/html book/html/$po_lang
           done
 
+      - name: Build translation report
+        run: i18n-report book/html/translation_report.html po/*.po
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
