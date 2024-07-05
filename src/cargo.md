@@ -31,8 +31,8 @@ auto-completion and jump-to-definition functionality for [VS Code], [Emacs],
   ```
 
 - On macOS, you can use [Homebrew](https://brew.sh/) to install Rust, but this
-  may provide an outdated version. Therefore, it is recommended to install
-  Rust from the official site.
+  may provide an outdated version. Therefore, it is recommended to install Rust
+  from the official site.
 
 </details>
 
