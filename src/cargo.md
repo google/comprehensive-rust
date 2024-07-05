@@ -30,6 +30,8 @@ auto-completion and jump-to-definition functionality for [VS Code], [Emacs],
   sudo apt install cargo rust-src rustfmt
   ```
 
+- On macOS, you can use [Homebrew](https://brew.sh/) to install Rust, but this may provide an outdated version. Therefore, it is recommended to install Rust from the official site.
+
 </details>
 
 [rust-analyzer]: https://rust-analyzer.github.io/
