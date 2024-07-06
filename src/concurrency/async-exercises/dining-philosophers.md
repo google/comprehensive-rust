@@ -4,7 +4,7 @@ minutes: 20
 
 # Dining Philosophers --- Async
 
-See [dining philosophers](concurrency/sync-exercises/dining-philosophers.md) for
+See [dining philosophers](../sync-exercises/dining-philosophers.md) for
 a description of the problem.
 
 As before, you will need a local
