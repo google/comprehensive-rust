@@ -22,6 +22,7 @@ Use the language picker in the top-right corner to switch between languages.
 There is a large number of in-progress translations. We link to the most
 recently updated translations:
 
+- [Arabic][ar] by [@younies]
 - [Bengali][bn] by [@raselmandol].
 - [French][fr] by [@KookaS], [@vcaen] and [@AdrienBaudemont].
 - [German][de] by [@Throvn] and [@ronaldfw].
