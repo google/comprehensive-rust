@@ -53,8 +53,9 @@ The course is built using a few tools:
 - [mdbook-exerciser](mdbook-exerciser/)
 - [mdbook-course](mdbook-course/)
 
-In addition, [mdbook-linkcheck](https://github.com/Michael-F-Bryan/mdbook-linkcheck)
-checks the internal links.
+In addition,
+[mdbook-linkcheck](https://github.com/Michael-F-Bryan/mdbook-linkcheck) checks
+the internal links.
 
 First install Rust by following the instructions on https://rustup.rs/. Then
 clone this repository:
