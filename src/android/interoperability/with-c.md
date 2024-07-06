@@ -19,7 +19,7 @@ fn main() {
 ```
 
 We already saw this in the
-[Safe FFI Wrapper exercise](../../exercises/day-3/safe-ffi-wrapper.md).
+[Safe FFI Wrapper exercise](../../unsafe-rust/exercise.md).
 
 > This assumes full knowledge of the target platform. Not recommended for
 > production.

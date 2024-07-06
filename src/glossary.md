@@ -29,16 +29,16 @@ h1#glossary ~ ul > li:first-line {
 <!-- i18n:comment breaks to ensure a nice formatting. -->
 
 - allocate:\
-  Dynamic memory allocation on [the heap](memory-management/stack-vs-heap.md).
+  Dynamic memory allocation on [the heap](memory-management/review.md).
 - argument:\
   Information that is passed into a function or method.
 - Bare-metal Rust:\
   Low-level Rust development, often deployed to a system without an operating
   system. See [Bare-metal Rust](bare-metal.md).
 - block:\
-  See [Blocks](control-flow/blocks.md) and _scope_.
+  See [Blocks](control-flow-basics/blocks-and-scopes.md) and _scope_.
 - borrow:\
-  See [Borrowing](ownership/borrowing.md).
+  See [Borrowing](borrowing/shared.md).
 - borrow checker:\
   The part of the Rust compiler which checks that all borrows are valid.
 - brace:\
@@ -55,7 +55,7 @@ h1#glossary ~ ul > li:first-line {
 - concurrency:\
   The execution of multiple tasks or processes at the same time.
 - Concurrency in Rust:\
-  See [Concurrency in Rust](concurrency.md).
+  See [Concurrency in Rust](concurrency/welcome.md).
 - constant:\
   A value that does not change during the execution of a program.
 - control flow:\
@@ -199,6 +199,6 @@ h1#glossary ~ ul > li:first-line {
   Type that holds no data, written as a tuple with no members.
 - unsafe:\
   The subset of Rust which allows you to trigger _undefined behavior_. See
-  [Unsafe Rust](unsafe.html).
+  [Unsafe Rust](unsafe-rust/unsafe.md).
 - variable:\
   A memory location storing data. Variables are valid in a _scope_.

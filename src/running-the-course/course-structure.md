@@ -56,7 +56,7 @@ Everybody will need to install a number of packages as described on the
 
 ### Concurrency in Rust
 
-The [Concurrency in Rust](../concurrency.md) deep dive is a full day class on
+The [Concurrency in Rust](../concurrency/welcome.md) deep dive is a full day class on
 classical as well as `async`/`await` concurrency.
 
 You will need a fresh crate set up and the dependencies downloaded and ready to
