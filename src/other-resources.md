@@ -36,7 +36,7 @@ A small selection of other guides and tutorial for Rust:
 
 - [Learn Rust the Dangerous Way](http://cliffle.com/p/dangerust/): covers Rust
   from the perspective of low-level C programmers.
-- [Rust for Embedded C Programmers](https://docs.opentitan.org/doc/ug/rust_for_c/):
+- [Rust for Embedded C Programmers](https://opentitan.org/book/doc/rust_for_c_devs.html):
   covers Rust from the perspective of developers who write firmware in C.
 - [Rust for professionals](https://overexact.com/rust-for-professionals/):
   covers the syntax of Rust using side-by-side comparisons with other languages
