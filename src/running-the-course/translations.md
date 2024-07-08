@@ -40,7 +40,7 @@ get going. Translations are coordinated on the [issue tracker].
 [ja]: https://google.github.io/comprehensive-rust/ja/
 [ko]: https://google.github.io/comprehensive-rust/ko/
 [pt-BR]: https://google.github.io/comprehensive-rust/pt-BR/
-[uk]: https://google.github.io/comprehensive-rust/uk/]
+[uk]: https://google.github.io/comprehensive-rust/uk/
 [zh-CN]: https://google.github.io/comprehensive-rust/zh-CN/
 [zh-TW]: https://google.github.io/comprehensive-rust/zh-TW/
 [@AdrienBaudemont]: https://github.com/AdrienBaudemont
