@@ -31,6 +31,7 @@ recently updated translations:
 If you want to help with this effort, please see [our instructions] for how to
 get going. Translations are coordinated on the [issue tracker].
 
+[ar]: https://google.github.io/comprehensive-rust/ar/
 [bn]: https://google.github.io/comprehensive-rust/bn/
 [de]: https://google.github.io/comprehensive-rust/de/
 [es]: https://google.github.io/comprehensive-rust/es/
@@ -79,5 +80,6 @@ get going. Translations are coordinated on the [issue tracker].
 [@victorhsieh]: https://github.com/victorhsieh
 [@wnghl]: https://github.com/wnghl
 [@yaremam]: https://github.com/yaremam
+[@younies]: https://github.com/younies
 [our instructions]: https://github.com/google/comprehensive-rust/blob/main/TRANSLATIONS.md
 [issue tracker]: https://github.com/google/comprehensive-rust/issues/282
