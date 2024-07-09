@@ -30,4 +30,4 @@ Derivation is implemented with macros, and many crates provide useful derive
 macros to add useful functionality. For example, `serde` can derive
 serialization support for a struct using `#[derive(Serialize)]`.
 
-</detail>
+</details>
