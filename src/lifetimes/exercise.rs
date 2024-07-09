@@ -43,7 +43,7 @@ struct Field<'a> {
     value: FieldValue<'a>,
 }
 
-trait ProtoMessage<'a>: Default + 'a {
+trait ProtoMessage<'a>: Default {
     fn add_field(&mut self, field: Field<'a>);
 }
 
