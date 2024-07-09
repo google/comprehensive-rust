@@ -55,14 +55,14 @@ jobs:
           done
 
       - name: Build translation report
-        run: i18n-report book/html/translation_report.html po/*.po
+        run: i18n-report book/html/translation-report.html po/*.po
 
       - name: Build synced translation report
         run: |
           cp -r po synced-po
           MDBOOK_OUTPUT='{"xgettext": {"pot-file": "messages.pot", "granularity": 0}}' mdbook build -d synced-po
           for file in synced-po/*.po; do msgmerge --update $file synced-po/messages.pot ; done
-          i18n-report book/html/synced_translation_report.html synced-po/*.po
+          i18n-report book/html/synced-translation-report.html synced-po/*.po
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
