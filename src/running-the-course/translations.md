@@ -28,6 +28,10 @@ recently updated translations:
 - [German][de] by [@Throvn] and [@ronaldfw].
 - [Italian][it] by [@henrythebuilder] and [@detro].
 
+The full list of translations with their current status is also available either
+[as of their last update][translation-report] or
+[synced to the latest version of the course][synced-translation-report].
+
 If you want to help with this effort, please see [our instructions] for how to
 get going. Translations are coordinated on the [issue tracker].
 
@@ -81,5 +85,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@wnghl]: https://github.com/wnghl
 [@yaremam]: https://github.com/yaremam
 [@younies]: https://github.com/younies
+[translation-report]: https://google.github.io/comprehensive-rust/translation-report.html
+[synced-translation-report]: https://google.github.io/comprehensive-rust/synced-translation-report.html
 [our instructions]: https://github.com/google/comprehensive-rust/blob/main/TRANSLATIONS.md
 [issue tracker]: https://github.com/google/comprehensive-rust/issues/282
