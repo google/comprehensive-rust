@@ -42,7 +42,7 @@ And give users in the `plugdev` group access to the micro:bit programmer:
 <!-- mdbook-xgettext: skip -->
 
 ```bash
-echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", MODE="0664", GROUP="plugdev"' |\
+echo 'SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0d28", MODE="0660", GROUP="logindev", TAG+="uaccess"' |\
   sudo tee /etc/udev/rules.d/50-microbit.rules
 sudo udevadm control --reload-rules
 ```
