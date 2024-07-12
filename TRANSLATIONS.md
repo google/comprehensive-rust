@@ -214,3 +214,20 @@ translation and link it from the [translations page]. The idea is to celebrate
 the hard work, even if it is incomplete.
 
 [CODEOWNERS]: https://github.com/google/comprehensive-rust/blob/main/.github/CODEOWNERS
+
+## Status reports
+
+Two translation status reports are automatically generated:
+
+- [Translation status as checked in][translation-report]
+- [Translation status after syncing to the latest version of the source with msgmerge][synced-translation-report]
+
+You can also generate this report locally to see the effect of your local
+changes:
+
+```shell
+i18n-report translation-report.html po/*.po
+```
+
+[translation-report]: https://google.github.io/comprehensive-rust/translation-report.html
+[synced-translation-report]: https://google.github.io/comprehensive-rust/synced-translation-report.html
