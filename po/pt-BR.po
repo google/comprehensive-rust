@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Comprehensive Rust 🦀\n"
-"POT-Creation-Date: 2024-07-11T11:58:36-07:00\n"
+"POT-Creation-Date: 2024-07-09T12:20:23-07:00\n"
 "PO-Revision-Date: 2023-08-25 09:32-0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -8028,7 +8028,7 @@ msgstr "'A'"
 
 #: src/welcome-day-3.md
 msgid "Welcome to Day 3"
-msgstr "Bem-vindo ao Dia 3"
+msgstr "Bem-vindos ao Dia 3"
 
 #: src/welcome-day-3.md
 msgid "Today, we will cover:"
@@ -8050,55 +8050,62 @@ msgstr ""
 
 #: src/welcome-day-3.md
 msgid "[Welcome](./welcome-day-3.md) (3 minutes)"
-msgstr ""
+msgstr "[Bem-vindos](./welcome-day-3.md) (3 minutos)"
 
 #: src/welcome-day-3.md
 msgid "[Memory Management](./memory-management.md) (1 hour)"
-msgstr ""
+msgstr "[Gerenciamento de Memória](./memory-management.md) (1 hora)"
 
 #: src/welcome-day-3.md
 msgid "[Smart Pointers](./smart-pointers.md) (55 minutes)"
 msgstr ""
+"[Ponteiros Inteligentes (_Smart Pointers_)](./smart-pointers.md) (55 minutos)"
 
 #: src/welcome-day-3.md
 msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 20 "
 "minutes"
 msgstr ""
+"Incluindo pausas de 10 minutos, esta sessão deve levar cerca de 2 horas e 20 "
+"minutos"
 
 #: src/memory-management.md
 msgid "[Review of Program Memory](./memory-management/review.md) (5 minutes)"
 msgstr ""
+"[Revisão da Memória do Programa](./memory-management/review.md) (5 minutos)"
 
 #: src/memory-management.md
 msgid ""
 "[Approaches to Memory Management](./memory-management/approaches.md) (10 "
 "minutes)"
 msgstr ""
+"[Abordagens para o Gerenciamento de Memória](./memory-management/approaches."
+"md) (10 minutos)"
 
 #: src/memory-management.md
 msgid "[Ownership](./memory-management/ownership.md) (5 minutes)"
-msgstr ""
+msgstr "[Propriedade](./memory-management/ownership.md) (5 minutos)"
 
 #: src/memory-management.md
 msgid "[Move Semantics](./memory-management/move.md) (5 minutes)"
-msgstr ""
+msgstr "[Semântica de _Move_](./memory-management/move.md) (5 minutos)"
 
 #: src/memory-management.md
 msgid "[Clone](./memory-management/clone.md) (2 minutes)"
-msgstr ""
+msgstr "[Clone](./memory-management/clone.md) (2 minutos)"
 
 #: src/memory-management.md
 msgid "[Copy Types](./memory-management/copy-types.md) (5 minutes)"
-msgstr ""
+msgstr "[Tipos de Cópia](./memory-management/copy-types.md) (5 minutos)"
 
 #: src/memory-management.md
 msgid "[Drop](./memory-management/drop.md) (10 minutes)"
-msgstr ""
+msgstr "[Drop](./memory-management/drop.md) (10 minutos)"
 
 #: src/memory-management.md
 msgid "[Exercise: Builder Type](./memory-management/exercise.md) (20 minutes)"
 msgstr ""
+"[Exercício: Tipo _Builder_](./memory-management/exercise.md) (20 minutos)"
 
 #: src/memory-management/review.md
 msgid "Programs allocate memory in two ways:"
@@ -8202,7 +8209,7 @@ msgstr ""
 
 #: src/memory-management/review.md
 msgid "\"capacity = {capacity}, ptr = {ptr:#x}, len = {len}\""
-msgstr ""
+msgstr "\"capacidade = {capacity}, ptr = {ptr:#x}, compr = {len}\""
 
 #: src/memory-management/approaches.md
 msgid "Traditionally, languages have fallen into two broad categories:"
@@ -8397,7 +8404,6 @@ msgid "After move to `s2`:"
 msgstr "Depois de mover para `s2`:"
 
 #: src/memory-management/move.md
-#, fuzzy
 msgid ""
 "```bob\n"
 " Stack                             Heap\n"
@@ -8421,22 +8427,22 @@ msgid ""
 "```"
 msgstr ""
 "```bob\n"
-" Pilha                             Heap\n"
-".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - -.\n"
-":                           :     :                           :\n"
-":    s1 \"(inacessível)\"     :     :                           :\n"
-":   +------------+------+   :     :   +----+----+----+----+   :\n"
-":   | ponteiro   |  o---+---+--+--+-->| R  | u  | s  | t  |   :\n"
-":   | tamanho    |    4 |   :  |  :   +----+----+----+----+   :\n"
-":   | capacidade |    4 |   :  |  :                           :\n"
-":   +------------+------+   :  |  :                           :\n"
-":                           :  |  `- - - - - - - - - - - - - -'\n"
+" Stack                             Heap\n"
+".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - -.\n"
+":                           :     :                                     :\n"
+":    s1 \"(inacessível)\"     :     :                                     :\n"
+":   +-----------+-------+   :     :   +----+----+----+----+----+----+   :\n"
+":   | ptr       |   o---+---+--+--+-->| H  | e  | l  | l  | o  | !  |   :\n"
+":   | tam       |     6 |   :  |  :   +----+----+----+----+----+----+   :\n"
+":   | capacid   |     6 |   :  |  :                                     :\n"
+":   +-----------+-------+   :  |  :                                     :\n"
+":                           :  |  `- - - - - - - - - - - - - - - - - - -'\n"
 ":    s2                     :  |\n"
-":   +------------+------+   :  |\n"
-":   | ponteiro   |  o---+---+--'\n"
-":   | tamanho    |    4 |   :\n"
-":   | capacidade |    4 |   :\n"
-":   +------------+------+   :\n"
+":   +-----------+-------+   :  |\n"
+":   | ptr       |   o---+---+--'\n"
+":   | tam       |     6 |   :\n"
+":   | capacid   |     6 |   :\n"
+":   +-----------+-------+   :\n"
 ":                           :\n"
 "`- - - - - - - - - - - - - -'\n"
 "```"
@@ -8616,34 +8622,38 @@ msgstr ""
 "isso."
 
 #: src/memory-management/clone.md
-#, fuzzy
 msgid ""
 "The idea of `Clone` is to make it easy to spot where heap allocations are "
 "occurring. Look for `.clone()` and a few others like `vec!` or `Box::new`."
 msgstr ""
 "A ideia de `Clone` é tornar fácil identificar onde as alocações de heap "
-"estão ocorrendo. Procure por `.clone()` e alguns outros como `Vec::new` ou "
-"`Box::new`."
+"estão ocorrendo. Procure por `.clone()` e alguns outros como `vec!` ou `Box::"
+"new`."
 
 #: src/memory-management/clone.md
 msgid ""
 "It's common to \"clone your way out\" of problems with the borrow checker, "
 "and return later to try to optimize those clones away."
 msgstr ""
-"É comum \"clonar seu caminho para fora\" de problemas com o verificador de "
-"empréstimo, e retornar mais tarde para tentar otimizar esses clones."
+"É comum \"clonar sua saída\" de problemas com o verificador de empréstimo e "
+"retornar mais tarde para tentar otimizar esses clones."
 
 #: src/memory-management/clone.md
 msgid ""
 "`clone` generally performs a deep copy of the value, meaning that if you e."
 "g. clone an array, all of the elements of the array are cloned as well."
 msgstr ""
+"`clone` geralmente realiza uma cópia profunda do valor, o que significa que "
+"se você, por exemplo, clonar um array, todos os elementos do array também "
+"são clonados."
 
 #: src/memory-management/clone.md
 msgid ""
 "The behavior for `clone` is user-defined, so it can perform custom cloning "
 "logic if needed."
 msgstr ""
+"O comportamento para `clone` é definido pelo(a) usuário(a), então ele(a) "
+"pode executar lógica de clonagem personalizada, se necessário."
 
 #: src/memory-management/copy-types.md
 msgid ""
@@ -8731,6 +8741,10 @@ msgid ""
 "valid to make a copy of a shared reference, creating a copy of a mutable "
 "reference would violate Rust's borrowing rules."
 msgstr ""
+"Referências compartilhadas são `Copy`/`Clone`, referências mutáveis não. "
+"Isso porque Rust requer que referências mutáveis sejam exclusivas, então, "
+"embora seja válido fazer uma cópia de uma referência compartilhada, criar "
+"uma cópia de uma referência mutável violaria as regras de empréstimo do Rust."
 
 #: src/memory-management/drop.md
 msgid "The `Drop` Trait"
@@ -8953,23 +8967,24 @@ msgstr "\"0.1\""
 
 #: src/smart-pointers.md
 msgid "[Box"
-msgstr ""
+msgstr "[Box"
 
 #: src/smart-pointers.md
 msgid "](./smart-pointers/box.md) (10 minutes)"
-msgstr ""
+msgstr "](./smart-pointers/box.md) (10 minutos)"
 
 #: src/smart-pointers.md
 msgid "[Rc](./smart-pointers/rc.md) (5 minutes)"
-msgstr ""
+msgstr "[Rc](./smart-pointers/rc.md) (5 minutos)"
 
 #: src/smart-pointers.md
 msgid "[Owned Trait Objects](./smart-pointers/trait-objects.md) (10 minutes)"
 msgstr ""
+"[Objetos de Trait _Owned_](./smart-pointers/trait-objects.md) (10 minutos)"
 
 #: src/smart-pointers.md
 msgid "[Exercise: Binary Tree](./smart-pointers/exercise.md) (30 minutes)"
-msgstr ""
+msgstr "[Exercício: Árvore Binária](./smart-pointers/exercise.md) (30 minutos)"
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -9083,15 +9098,14 @@ msgstr ""
 "`Box` no _heap_ e apenas o ponteiro é movido."
 
 #: src/smart-pointers/box.md
-#, fuzzy
 msgid ""
 "If `Box` was not used and we attempted to embed a `List` directly into the "
 "`List`, the compiler would not be able to compute a fixed size for the "
 "struct in memory (the `List` would be of infinite size)."
 msgstr ""
-"Se a `Box` não for usada e tentarmos incorporar uma `List` diretamente na "
+"Se `Box` não for usado e tentarmos incorporar um `List` diretamente no "
 "`List`, o compilador não conseguiria calcular um tamanho fixo da _struct_ na "
-"memória (`List` teria tamanho infinito)   ."
+"memória (`List` teria tamanho infinito)."
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -9102,17 +9116,16 @@ msgstr ""
 "e apenas aponta para o próximo elemento da `List` no _heap_."
 
 #: src/smart-pointers/box.md
-#, fuzzy
 msgid ""
 "Remove the `Box` in the List definition and show the compiler error. We get "
 "the message \"recursive without indirection\", because for data recursion, "
 "we have to use indirection, a `Box` or reference of some kind, instead of "
 "storing the value directly."
 msgstr ""
-"Remova o `Box` na definição de `List` e mostre o erro de compilação. "
-"\"Recursive with indirection\" (recursivo com indireção) é uma dica para que "
-"você talvez queira usar uma `Box` ou referência de alguma forma, ao invés de "
-"armazenar um valor diretamente."
+"Remova o `Box` na definição de `List` e mostre o erro de compilação. Nós "
+"obtemos a mensagem \"recursive without indirection\" (recursivo sem "
+"indireção), porque para recursão de dados, temos que usar indireção, um "
+"`Box` ou referência de algum tipo, ao invés de armazenar o valor diretamente."
 
 #: src/smart-pointers/box.md
 msgid "Niche Optimization"
@@ -9124,6 +9137,9 @@ msgid ""
 "This makes `Box` one of the types that allow the compiler to optimize "
 "storage of some enums."
 msgstr ""
+"Embora `Box` pareça com `std::unique_ptr` em C++, ele não pode ser vazio/"
+"nulo. Isso faz com que `Box` seja um dos tipos que permitem ao compilador "
+"otimizar o armazenamento de alguns _enums_."
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -9132,28 +9148,30 @@ msgid ""
 "tag ([\"Null Pointer Optimization\"](https://doc.rust-lang.org/std/option/"
 "#representation)):"
 msgstr ""
+"Por exemplo, `Option<Box<T>>` tem o mesmo tamanho que apenas `Box<T>`, "
+"porque o compilador usa o valor NULL para discriminar as variantes em vez de "
+"usar uma tag explícita ([\"Null Pointer Optimization\"](https://doc.rust-"
+"lang.org/std/option/#representation)):"
 
 #: src/smart-pointers/box.md
 msgid "\"Just box\""
-msgstr ""
+msgstr "\"Apenas box\""
 
 #: src/smart-pointers/box.md
-#, fuzzy
 msgid "\"Optional box\""
-msgstr "Option"
+msgstr "\"Box opcional\""
 
 #: src/smart-pointers/box.md
 msgid "\"Size of just_box: {}\""
-msgstr ""
+msgstr "\"Tamanho de just_box: {}\""
 
 #: src/smart-pointers/box.md
 msgid "\"Size of optional_box: {}\""
-msgstr ""
+msgstr "\"Tamanho de optional_box: {}\""
 
 #: src/smart-pointers/box.md
-#, fuzzy
 msgid "\"Size of none: {}\""
-msgstr "\"antes: {a}\""
+msgstr "\"Tamanho de none: {}\""
 
 #: src/smart-pointers/rc.md
 msgid ""
@@ -9241,13 +9259,16 @@ msgid ""
 "Pet`. However, we can also use trait objects with smart pointers like `Box` "
 "to create an owned trait object: `Box<dyn Pet>`."
 msgstr ""
+"Anteriormente vimos como objetos de trait podem ser usados com referências, "
+"por exemplo, `&dyn Pet`. No entanto, também podemos usar objetos de trait "
+"com ponteiros inteligentes como `Box` para criar um objeto de trait _owned_: "
+"`Box<dyn Pet>`."
 
 #: src/smart-pointers/trait-objects.md
 msgid "Memory layout after allocating `pets`:"
 msgstr "Layout da memória após alocar `pets`:"
 
 #: src/smart-pointers/trait-objects.md
-#, fuzzy
 msgid ""
 "```bob\n"
 " Stack                             Heap\n"
@@ -9458,9 +9479,8 @@ msgstr ""
 "uma vez.\n"
 
 #: src/smart-pointers/exercise.md
-#, fuzzy
 msgid "// Implement `new`, `insert`, `len`, and `has` for `Subtree`.\n"
-msgstr "// Implemente `new`, `insert`, `len` e `has`.\n"
+msgstr "// Implemente `new`, `insert`, `len` e `has` para `Subtree`.\n"
 
 #: src/smart-pointers/exercise.md src/smart-pointers/solution.md
 msgid "// not a unique item\n"
@@ -9471,45 +9491,42 @@ msgid "\"bar\""
 msgstr "\"bar\""
 
 #: src/welcome-day-3-afternoon.md
-#, fuzzy
 msgid "[Borrowing](./borrowing.md) (55 minutes)"
-msgstr ""
-"empréstimo:  \n"
-"Veja [Empréstimo](ownership/borrowing.md)."
+msgstr "[Empréstimo](./borrowing.md) (55 minutos)"
 
 #: src/welcome-day-3-afternoon.md
 msgid "[Lifetimes](./lifetimes.md) (50 minutes)"
-msgstr ""
+msgstr "[Tempos de Vida](./lifetimes.md) (50 minutos)"
 
 #: src/welcome-day-3-afternoon.md
 msgid ""
 "Including 10 minute breaks, this session should take about 1 hour and 55 "
 "minutes"
 msgstr ""
+"Incluindo pausas de 10 minutos, esta sessão deve durar cerca de 1 hora e 55 "
+"minutos"
 
 #: src/borrowing.md
 msgid "[Borrowing a Value](./borrowing/shared.md) (10 minutes)"
-msgstr ""
+msgstr "[Emprestar um Valor](./borrowing/shared.md) (10 minutos)"
 
 #: src/borrowing.md
 msgid "[Borrow Checking](./borrowing/borrowck.md) (10 minutes)"
-msgstr ""
+msgstr "[Verificação de Empréstimo](./borrowing/borrowck.md) (10 minutos)"
 
 #: src/borrowing.md
-#, fuzzy
 msgid "[Borrow Errors](./borrowing/examples.md) (3 minutes)"
-msgstr ""
-"empréstimo:  \n"
-"Veja [Empréstimo](ownership/borrowing.md)."
+msgstr "[Erros de Empréstimo](./borrowing/examples.md) (3 minutos)"
 
 #: src/borrowing.md
 msgid "[Interior Mutability](./borrowing/interior-mutability.md) (10 minutes)"
 msgstr ""
+"[Mutabilidade Interna](./borrowing/interior-mutability.md) (10 minutos)"
 
 #: src/borrowing.md
-#, fuzzy
 msgid "[Exercise: Health Statistics](./borrowing/exercise.md) (20 minutes)"
-msgstr "Exercício: Encadeamento de Métodos de Iterador"
+msgstr ""
+"[Exercício: Estatísticas de Saúde](./borrowing/exercise.md) (20 minutos)"
 
 #: src/borrowing/shared.md
 msgid ""
@@ -9538,12 +9555,10 @@ msgstr ""
 "um pouco para incluir argumentos e valores de retorno de funções."
 
 #: src/borrowing/shared.md
-#, fuzzy
 msgid "Notes on stack returns and inlining:"
-msgstr "Notas sobre os retornos da pilha:"
+msgstr "Notas sobre os retornos da pilha e inlining:"
 
 #: src/borrowing/shared.md
-#, fuzzy
 msgid ""
 "Demonstrate that the return from `add` is cheap because the compiler can "
 "eliminate the copy operation, by inlining the call to add into main. Change "
@@ -9566,6 +9581,8 @@ msgid ""
 "The Rust compiler can do automatic inlining, that can be disabled on a "
 "function level with `#[inline(never)]`."
 msgstr ""
+"O compilador Rust pode fazer inlining automático, que pode ser desativado em "
+"um nível de função com `#[inline(never)]`."
 
 #: src/borrowing/shared.md
 msgid ""
@@ -9574,6 +9591,10 @@ msgid ""
 "of the value depends on the ABI, e.g. on amd64 the two i32 that is making up "
 "the point will be returned in 2 registers (eax and edx)."
 msgstr ""
+"Uma vez desativado, o endereço impresso mudará em todos os níveis de "
+"otimização. Olhando para Godbolt ou Playground, pode-se ver que, neste caso, "
+"o retorno do valor depende do ABI, por exemplo, no amd64 os dois i32 que "
+"compõem o ponto serão retornados em 2 registradores (eax e edx)."
 
 #: src/borrowing/borrowck.md
 msgid ""
@@ -9659,14 +9680,17 @@ msgid ""
 "consider the case of modifying a collection while there are references to "
 "its elements:"
 msgstr ""
+"Como um exemplo concreto de como essas regras de empréstimo evitam erros de "
+"memória, considere o caso de modificar uma coleção enquanto há referências "
+"para os seus elementos:"
 
 #: src/borrowing/examples.md
 msgid "\"{elem}\""
-msgstr ""
+msgstr "\"{elem}\""
 
 #: src/borrowing/examples.md
 msgid "Similarly, consider the case of iterator invalidation:"
-msgstr ""
+msgstr "Da mesma forma, considere o caso de invalidação do iterador:"
 
 #: src/borrowing/examples.md
 msgid ""
@@ -9674,6 +9698,9 @@ msgid ""
 "into it can potentially invalidate existing references to the collection's "
 "elements if the collection has to reallocate."
 msgstr ""
+"Em ambos os casos, modificar a coleção ao adicionar novos elementos a ela "
+"pode potencialmente invalidar referências existentes para os elementos da "
+"coleção se a coleção tiver que realocar."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9681,6 +9708,10 @@ msgid ""
 "only) reference. For example, a shared data structure might have an internal "
 "cache, and wish to update that cache from read-only methods."
 msgstr ""
+"Em algumas situações, é necessário modificar dados atrás de uma referência "
+"compartilhada (somente leitura). Por exemplo, uma estrutura de dados "
+"compartilhada pode ter um cache interno e desejar atualizar esse cache a "
+"partir de métodos somente leitura."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9688,15 +9719,18 @@ msgid ""
 "a shared reference. The standard library provides several ways to do this, "
 "all while still ensuring safety, typically by performing a runtime check."
 msgstr ""
+"O padrão de \"mutabilidade interna\" permite acesso exclusivo (mutável) por "
+"trás de uma referência compartilhada. A biblioteca padrão fornece várias "
+"maneiras de fazer isso, garantindo segurança, geralmente realizando uma "
+"verificação em tempo de execução."
 
 #: src/borrowing/interior-mutability.md
-#, fuzzy
 msgid "`RefCell`"
-msgstr "`RefCell<T>`"
+msgstr "`RefCell`"
 
 #: src/borrowing/interior-mutability.md
 msgid "// Note that `cell` is NOT declared as mutable.\n"
-msgstr ""
+msgstr "// Observe que `cell` NÃO é declarado como mutável.\n"
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9704,16 +9738,17 @@ msgid ""
 "        // let other = cell.borrow();\n"
 "        // println!(\"{}\", *other);\n"
 msgstr ""
+"// Isso gera um erro em tempo de execução.\n"
+"        // let other = cell.borrow();\n"
+"        // println!(\"{}\", *other);\n"
 
 #: src/borrowing/interior-mutability.md
-#, fuzzy
 msgid "\"{cell:?}\""
-msgstr "\"{:?}\""
+msgstr "\"{cell:?}\""
 
 #: src/borrowing/interior-mutability.md
-#, fuzzy
 msgid "`Cell`"
-msgstr "`Cell<T>`"
+msgstr "`Cell`"
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9721,6 +9756,10 @@ msgid ""
 "shared reference to the `Cell`. However, it does not allow any references to "
 "the value. Since there are no references, borrowing rules cannot be broken."
 msgstr ""
+"`Cell` envolve um valor e permite obter ou definir o valor, mesmo com uma "
+"referência compartilhada para o `Cell`. No entanto, não permite nenhuma "
+"referência ao valor. Como não há referências, as regras de empréstimo não "
+"podem ser quebradas."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9728,6 +9767,10 @@ msgid ""
 "ways to modify data behind a shared reference. There are a variety of ways "
 "to ensure that safety, and `RefCell` and `Cell` are two of them."
 msgstr ""
+"O principal a ser observado neste slide é que o Rust fornece maneiras "
+"_seguras_ de modificar dados por trás de uma referência compartilhada. Há "
+"uma variedade de maneiras de garantir essa segurança, e `RefCell` e `Cell` "
+"são duas delas."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9736,6 +9779,10 @@ msgid ""
 "case, all borrows are very short and never overlap, so the checks always "
 "succeed."
 msgstr ""
+"`RefCell` faz cumprir as regras de empréstimo usuais do Rust (ou várias "
+"referências compartilhadas ou uma única referência exclusiva) com uma "
+"verificação em tempo de execução. Neste caso, todos os empréstimos são muito "
+"curtos e nunca se sobrepõem, então as verificações sempre têm sucesso."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9743,6 +9790,9 @@ msgid ""
 "call to `borrow_mut` before we print the cell. Trying to print a borrowed "
 "`RefCell` just shows the message `\"{borrowed}\"`."
 msgstr ""
+"O bloco extra no exemplo de `RefCell` é para encerrar o empréstimo criado "
+"pela chamada a `borrow_mut` antes de imprimir o `cell`. Tentar imprimir um "
+"`RefCell` emprestado mostra apenas a mensagem `\"{borrowed}\"`."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9750,6 +9800,9 @@ msgid ""
 "`&self`. This needs no runtime check, but requires moving values, which can "
 "have its own cost."
 msgstr ""
+"`Cell` é um meio mais simples de garantir a segurança: ele tem um método "
+"`set` que recebe `&self`. Isso não precisa de uma verificação em tempo de "
+"execução, mas requer mover valores, o que pode ter seu próprio custo."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9757,6 +9810,9 @@ msgid ""
 "can't be passed between threads. This prevents two threads trying to access "
 "the cell at once."
 msgstr ""
+"Tanto `RefCell` quanto `Cell` são `!Sync`, o que significa que `&RefCell` e "
+"`&Cell` não podem ser passados entre threads. Isso impede que duas threads "
+"tentem acessar o `cell` ao mesmo tempo."
 
 #: src/borrowing/exercise.md
 msgid ""
@@ -9800,7 +9856,6 @@ msgid "\"Bob\""
 msgstr "\"Bob\""
 
 #: src/borrowing/exercise.md src/borrowing/solution.md
-#, fuzzy
 msgid "\"I'm {} and my age is {}\""
 msgstr "\"Eu sou {} e minha idade é {}\""
 
@@ -9808,19 +9863,21 @@ msgstr "\"Eu sou {} e minha idade é {}\""
 msgid ""
 "[Lifetime Annotations](./lifetimes/lifetime-annotations.md) (10 minutes)"
 msgstr ""
+"[Anotações de Tempo de Vida](./lifetimes/lifetime-annotations.md) (10 "
+"minutos)"
 
 #: src/lifetimes.md
 msgid "[Lifetime Elision](./lifetimes/lifetime-elision.md) (5 minutes)"
-msgstr ""
+msgstr "[Elisão de Tempo de Vida](./lifetimes/lifetime-elision.md) (5 minutos)"
 
 #: src/lifetimes.md
 msgid "[Struct Lifetimes](./lifetimes/struct-lifetimes.md) (5 minutes)"
 msgstr ""
+"[Tempos de Vida de Struct](./lifetimes/struct-lifetimes.md) (5 minutos)"
 
 #: src/lifetimes.md
-#, fuzzy
 msgid "[Exercise: Protobuf Parsing](./lifetimes/exercise.md) (30 minutes)"
-msgstr "Exercício: Encadeamento de Métodos de Iterador"
+msgstr "[Exercício: Análise de Protobuf](./lifetimes/exercise.md) (30 minutos)"
 
 #: src/lifetimes/lifetime-annotations.md
 msgid ""
@@ -9872,7 +9929,6 @@ msgid "\"p3: {p3:?}\""
 msgstr "\"p3: {p3:?}\""
 
 #: src/lifetimes/lifetime-annotations.md
-#, fuzzy
 msgid ""
 "In this example, the compiler does not know what lifetime to infer for `p3`. "
 "Looking inside the function body shows that it can only safely assume that "
@@ -9881,7 +9937,7 @@ msgid ""
 "values."
 msgstr ""
 "Neste exemplo, o compilador não sabe qual tempo de vida inferir para `p3`. "
-"Olhando dentro do corpo da função, mostra que ele só pode assumir com "
+"Olhando dentro do corpo da função nos mostra que ele só pode assumir com "
 "segurança que o tempo de vida de `p3` é o mais curto de `p1` e `p2`. Mas "
 "assim como os tipos, o Rust requer anotações explícitas de tempos de vida "
 "nos argumentos e valores de retorno da função."
@@ -10175,30 +10231,28 @@ msgid "//1 => WireType::I64,  -- not needed for this exercise\n"
 msgstr "//1 => WireType::I64,  -- não é necessário para este exercício\n"
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
-#, fuzzy
 msgid "\"Invalid wire type: {value}\""
-msgstr "\"Wire-type inválido\""
+msgstr "\"Wire-type inválido: {value}\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "\"Expected string to be a `Len` field\""
-msgstr ""
+msgstr "\"Esperava-se que a string fosse um campo `Len`\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
-#, fuzzy
 msgid "\"Invalid string\""
-msgstr "\"Varint inválido\""
+msgstr "\"String inválida\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "\"Expected bytes to be a `Len` field\""
-msgstr ""
+msgstr "\"Esperava-se que os bytes fossem um campo `Len`\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "\"Expected `u64` to be a `Varint` field\""
-msgstr ""
+msgstr "\"Esperava-se que `u64` fosse um campo `Varint\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "\"Expected `i32` to be an `I32` field\""
-msgstr ""
+msgstr "\"Esperava-se que `i32` fosse um campo `I32\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid ""
@@ -10209,7 +10263,7 @@ msgstr ""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "\"Not enough bytes for varint\""
-msgstr ""
+msgstr "\"Não há bytes suficientes para o varint\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid ""
@@ -10225,7 +10279,7 @@ msgstr "// Mais de 7 bytes é inválido.\n"
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "\"Too many bytes for varint\""
-msgstr ""
+msgstr "\"Bytes demais para varint\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "/// Convert a tag into a field number and a WireType.\n"
@@ -10273,10 +10327,16 @@ msgid ""
 "enum, but for simplicity in this exercise we panic if any errors are "
 "encountered. On day 4 we'll cover error handling in Rust in more detail."
 msgstr ""
+"Neste exercício, há vários casos em que a análise de protobuf pode falhar, "
+"por exemplo, se você tentar analisar um `i32` quando houver menos de 4 bytes "
+"restantes no buffer de dados. Em código Rust normal, lidaríamos com isso com "
+"o enum `Result`, mas para simplicidade neste exercício, lançamos um pânico "
+"se ocorrerem erros. No dia 4, abordaremos o tratamento de erros em Rust com "
+"mais detalhes."
 
 #: src/lifetimes/solution.md
 msgid "\"len not a valid `usize`\""
-msgstr ""
+msgstr "\"len não é um `usize` válido\""
 
 #: src/lifetimes/solution.md
 msgid "\"Unexpected EOF\""
