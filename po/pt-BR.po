@@ -20858,7 +20858,7 @@ msgstr ""
 
 #: src/concurrency/welcome.md
 msgid "Welcome to Concurrency in Rust"
-msgstr "Bem-vindo à Concorrência em Rust"
+msgstr "Bem-vindos à Concorrência em Rust"
 
 #: src/concurrency/welcome.md
 msgid ""
@@ -20881,39 +20881,45 @@ msgstr ""
 
 #: src/concurrency/welcome.md
 msgid "[Threads](./concurrency/threads.md) (30 minutes)"
-msgstr ""
+msgstr "[_Threads_](./concurrency/threads.md) (30 minutos)"
 
 #: src/concurrency/welcome.md
 msgid "[Channels](./concurrency/channels.md) (20 minutes)"
-msgstr ""
+msgstr "[Canais](./concurrency/channels.md) (20 minutos)"
 
 #: src/concurrency/welcome.md
 msgid "[Send and Sync](./concurrency/send-sync.md) (15 minutes)"
-msgstr ""
+msgstr "[Send e Sync](./concurrency/send-sync.md) (15 minutos)"
 
 #: src/concurrency/welcome.md
 msgid "[Shared State](./concurrency/shared-state.md) (30 minutes)"
-msgstr ""
+msgstr "[Estado Compartilhado](./concurrency/shared-state.md) (30 minutos)"
 
 #: src/concurrency/welcome.md
 msgid "[Exercises](./concurrency/sync-exercises.md) (1 hour and 10 minutes)"
-msgstr ""
+msgstr "[Exercícios](./concurrency/sync-exercises.md) (1 hora e 10 minutos)"
 
 #: src/concurrency/welcome.md src/concurrency/welcome-async.md
 msgid ""
 "Including 10 minute breaks, this session should take about 3 hours and 20 "
 "minutes"
 msgstr ""
+"Incluindo pausas de 10 minutos, esta sessão deve levar cerca de 3 horas e 20 "
+"minutos"
 
 #: src/concurrency/welcome.md
 msgid ""
 "Rust lets us access OS concurrency toolkit: threads, sync. primitives, etc."
 msgstr ""
+"Rust nos permite acessar o conjunto de ferramentas de concorrência do SO: "
+"_threads_, primitivas de sincronização, etc."
 
 #: src/concurrency/welcome.md
 msgid ""
 "The type system gives us safety for concurrency without any special features."
 msgstr ""
+"O sistema de tipos nos dá segurança para concorrência sem nenhum recurso "
+"especial."
 
 #: src/concurrency/welcome.md
 msgid ""
@@ -20921,19 +20927,23 @@ msgid ""
 "g., a called function that might mutate an argument or save references to it "
 "to read later) save us from multi-threading issues."
 msgstr ""
+"As mesmas ferramentas que ajudam com acesso \"concorrente\" em uma única "
+"_thread_ (por exemplo, uma função chamada que pode mutar um argumento ou "
+"salvar referências a ele para ler mais tarde) nos poupam de problemas de "
+"multi-threading."
 
 #: src/concurrency/threads.md
 msgid "[Plain Threads](./concurrency/threads/plain.md) (15 minutes)"
-msgstr ""
+msgstr "[_Threads_ Simples](./concurrency/threads/plain.md) (15 minutos)"
 
 #: src/concurrency/threads.md
 msgid "[Scoped Threads](./concurrency/threads/scoped.md) (15 minutes)"
-msgstr ""
+msgstr "[_Threads_ Escopadas](./concurrency/threads/scoped.md) (15 minutos)"
 
 #: src/concurrency/threads.md src/concurrency/shared-state.md
 #: src/concurrency/async.md
 msgid "This segment should take about 30 minutes"
-msgstr ""
+msgstr "Este segmento deve levar cerca de 30 minutos"
 
 #: src/concurrency/threads/plain.md
 msgid "Rust threads work similarly to threads in other languages:"
@@ -20967,146 +20977,149 @@ msgstr ""
 
 #: src/concurrency/threads/plain.md
 msgid "Rust thread APIs look not too different from e.g. C++ ones."
-msgstr ""
+msgstr "As APIs de _threads_ do Rust não parecem muito diferentes das de C++."
 
 #: src/concurrency/threads/plain.md
-#, fuzzy
 msgid "Run the example."
-msgstr "Execute o exemplo com:"
+msgstr "Execute o exemplo."
 
 #: src/concurrency/threads/plain.md
 msgid ""
 "5ms timing is loose enough that main and spawned threads stay mostly in "
 "lockstep."
 msgstr ""
+"O tempo de 5ms é suficientemente folgado para que a _thread_ principal e as "
+"_threads_ filhas permaneçam principalmente em sincronia."
 
 #: src/concurrency/threads/plain.md
 msgid "Notice that the program ends before the spawned thread reaches 10!"
-msgstr ""
+msgstr "Observe que o programa termina antes que a _thread_ filha alcance 10!"
 
 #: src/concurrency/threads/plain.md
 msgid ""
 "This is because main ends the program and spawned threads do not make it "
 "persist."
 msgstr ""
+"Isso ocorre porque o _main_ termina o programa e as _threads_ filhas não o "
+"mantêm."
 
 #: src/concurrency/threads/plain.md
 msgid "Compare to pthreads/C++ std::thread/boost::thread if desired."
-msgstr ""
+msgstr "Compare com pthreads/C++ std::thread/boost::thread se desejar."
 
 #: src/concurrency/threads/plain.md
 msgid "How do we wait around for the spawned thread to complete?"
-msgstr ""
+msgstr "Como esperamos a _thread_ filha terminar?"
 
 #: src/concurrency/threads/plain.md
-#, fuzzy
 msgid ""
 "[`thread::spawn`](https://doc.rust-lang.org/std/thread/fn.spawn.html) "
 "returns a `JoinHandle`. Look at the docs."
 msgstr ""
-"[`Default`](https://doc.rust-lang.org/std/default/trait.Default.html) usado "
-"para construir uma instância padrão para um tipo."
+"[`thread::spawn`](https://doc.rust-lang.org/std/thread/fn.spawn.html) "
+"retorna um `JoinHandle`. Veja a documentação."
 
 #: src/concurrency/threads/plain.md
 msgid ""
 "`JoinHandle` has a [`.join()`](https://doc.rust-lang.org/std/thread/struct."
 "JoinHandle.html#method.join) method that blocks."
 msgstr ""
+"`JoinHandle` tem um método [`.join()`](https://doc.rust-lang.org/std/thread/"
+"struct.JoinHandle.html#method.join) bloqueante."
 
 #: src/concurrency/threads/plain.md
-#, fuzzy
 msgid ""
 "Use `let handle = thread::spawn(...)` and later `handle.join()` to wait for "
 "the thread to finish and have the program count all the way to 10."
 msgstr ""
 "Use `let handle = thread::spawn(...)` e depois `handle.join()` para esperar "
-"que a _thread_ termine."
+"que a _thread_ termine e fazer o programa contar até 10."
 
 #: src/concurrency/threads/plain.md
 msgid "Now what if we want to return a value?"
-msgstr ""
+msgstr "Agora, e se quisermos retornar um valor?"
 
 #: src/concurrency/threads/plain.md
 msgid "Look at docs again:"
-msgstr ""
+msgstr "Olhe a documentação novamente:"
 
 #: src/concurrency/threads/plain.md
-#, fuzzy
 msgid ""
 "[`thread::spawn`](https://doc.rust-lang.org/std/thread/fn.spawn.html)'s "
 "closure returns `T`"
 msgstr ""
-"No entanto, você pode usar uma [_thread_ com escopo](https://doc.rust-lang."
-"org/std/thread/fn.scope.html) para isso:"
+"O encerramento de [`thread::spawn`](https://doc.rust-lang.org/std/thread/fn."
+"spawn.html) retorna `T`"
 
 #: src/concurrency/threads/plain.md
 msgid ""
 "`JoinHandle` [`.join()`](https://doc.rust-lang.org/std/thread/struct."
 "JoinHandle.html#method.join) returns `thread::Result<T>`"
 msgstr ""
+"`JoinHandle` [`.join()`](https://doc.rust-lang.org/std/thread/struct."
+"JoinHandle.html#method.join) retorna `thread::Result<T>`"
 
 #: src/concurrency/threads/plain.md
-#, fuzzy
 msgid ""
 "Use the `Result` return value from `handle.join()` to get access to the "
 "returned value."
 msgstr ""
 "Use o valor de retorno `Result` de `handle.join()` para obter acesso ao "
-"_payload_ do _panic_. Este é um bom momento para falar sobre [`Any`](https://"
-"doc.rust-lang.org/std/any/index.html)."
+"valor retornado."
 
 #: src/concurrency/threads/plain.md
 msgid "Ok, what about the other case?"
-msgstr ""
+msgstr "Ok, e quanto ao outro caso?"
 
 #: src/concurrency/threads/plain.md
-#, fuzzy
 msgid "Trigger a panic in the thread. Note that this doesn't panic `main`."
-msgstr "Dispare um _panic_ na _thread_, observe como isso não afeta `main`."
+msgstr "Dispare um _panic_ na _thread_. Observe como isso não afeta `main`."
 
 #: src/concurrency/threads/plain.md
-#, fuzzy
 msgid ""
 "Access the panic payload. This is a good time to talk about [`Any`](https://"
 "doc.rust-lang.org/std/any/index.html)."
 msgstr ""
-"Use o valor de retorno `Result` de `handle.join()` para obter acesso ao "
-"_payload_ do _panic_. Este é um bom momento para falar sobre [`Any`](https://"
-"doc.rust-lang.org/std/any/index.html)."
+"Acessa o _payload_ do _panic_. Este é um bom momento para falar sobre [`Any`]"
+"(https://doc.rust-lang.org/std/any/index.html)."
 
 #: src/concurrency/threads/plain.md
 msgid "Now we can return values from threads! What about taking inputs?"
 msgstr ""
+"Agora podemos retornar valores de _threads_! E quanto a receber entradas?"
 
 #: src/concurrency/threads/plain.md
 msgid "Capture something by reference in the thread closure."
-msgstr ""
+msgstr "Capture algo por referência no encerramento da _thread_."
 
 #: src/concurrency/threads/plain.md
 msgid "An error message indicates we must move it."
-msgstr ""
+msgstr "Uma mensagem de erro indica que devemos movê-lo."
 
 #: src/concurrency/threads/plain.md
 msgid "Move it in, see we can compute and then return a derived value."
-msgstr ""
+msgstr "Mova-o, veja que podemos calcular e depois retornar um valor derivado."
 
 #: src/concurrency/threads/plain.md
 msgid "If we want to borrow?"
-msgstr ""
+msgstr "E se quisermos emprestar?"
 
 #: src/concurrency/threads/plain.md
 msgid ""
 "Main kills child threads when it returns, but another function would just "
 "return and leave them running."
 msgstr ""
+"O _main_ mata as _threads_ filhas quando retorna, mas outra função apenas "
+"retornaria e as deixaria em execução."
 
 #: src/concurrency/threads/plain.md
 msgid "That would be stack use-after-return, which violates memory safety!"
 msgstr ""
+"Isso seria acesso após retorno da pilha, o que viola a segurança de memória!"
 
 #: src/concurrency/threads/plain.md
 msgid "How do we avoid this? see next slide."
-msgstr ""
+msgstr "Como evitamos isso? Veja o próximo slide."
 
 #: src/concurrency/threads/scoped.md
 msgid "Normal threads cannot borrow from their environment:"
@@ -21142,18 +21155,20 @@ msgid ""
 "[Senders and Receivers](./concurrency/channels/senders-receivers.md) (10 "
 "minutes)"
 msgstr ""
+"[Transmissores e Receptores](./concurrency/channels/senders-receivers.md) "
+"(10 minutos)"
 
 #: src/concurrency/channels.md
 msgid "[Unbounded Channels](./concurrency/channels/unbounded.md) (2 minutes)"
-msgstr ""
+msgstr "[Canais Ilimitados](./concurrency/channels/unbounded.md) (2 minutos)"
 
 #: src/concurrency/channels.md
 msgid "[Bounded Channels](./concurrency/channels/bounded.md) (10 minutes)"
-msgstr ""
+msgstr "[Canais Limitados](./concurrency/channels/bounded.md) (10 minutos)"
 
 #: src/concurrency/channels.md src/concurrency/async-control-flow.md
 msgid "This segment should take about 20 minutes"
-msgstr ""
+msgstr "Este segmento deve levar cerca de 20 minutos"
 
 #: src/concurrency/channels/senders-receivers.md
 msgid ""
@@ -21232,29 +21247,29 @@ msgstr ""
 "descartado."
 
 #: src/concurrency/channels/bounded.md
-#, fuzzy
 msgid ""
 "A bounded channel with a size of zero is called a \"rendezvous channel\". "
 "Every send will block the current thread until another thread calls `recv`."
 msgstr ""
 "Um canal limitado com um tamanho de zero é chamado de \"canal de encontro\". "
-"Cada envio bloqueará a _thread_ atual até que outra _thread_ chame `read`."
+"Cada envio bloqueará a _thread_ atual até que outra _thread_ chame `recv`."
 
 #: src/concurrency/send-sync.md
 msgid "[Marker Traits](./concurrency/send-sync/marker-traits.md) (2 minutes)"
 msgstr ""
+"[_Traits_ Marcadores](./concurrency/send-sync/marker-traits.md) (2 minutos)"
 
 #: src/concurrency/send-sync.md
 msgid "[Send](./concurrency/send-sync/send.md) (2 minutes)"
-msgstr ""
+msgstr "[Send](./concurrency/send-sync/send.md) (2 minutos)"
 
 #: src/concurrency/send-sync.md
 msgid "[Sync](./concurrency/send-sync/sync.md) (2 minutes)"
-msgstr ""
+msgstr "[Sync](./concurrency/send-sync/sync.md) (2 minutos)"
 
 #: src/concurrency/send-sync.md
 msgid "[Examples](./concurrency/send-sync/examples.md) (10 minutes)"
-msgstr ""
+msgstr "[Exemplos](./concurrency/send-sync/examples.md) (10 minutos)"
 
 #: src/concurrency/send-sync/marker-traits.md
 msgid ""
@@ -21281,14 +21296,13 @@ msgstr ""
 "é `Sync` se for seguro mover um `&T` entre _threads_"
 
 #: src/concurrency/send-sync/marker-traits.md
-#, fuzzy
 msgid ""
 "`Send` and `Sync` are [unsafe traits](../../unsafe-rust/unsafe-traits.md). "
 "The compiler will automatically derive them for your types as long as they "
 "only contain `Send` and `Sync` types. You can also implement them manually "
 "when you know it is valid."
 msgstr ""
-"`Send` e `Sync` são [`unsafe traits`](../unsafe/unsafe-traits.md). O "
+"`Send` e `Sync` são [_unsafe traits_](../unsafe/unsafe-traits.md). O "
 "compilador os derivará automaticamente para seus tipos desde que contenham "
 "apenas os tipos `Send` e `Sync`. Você também pode implementá-los manualmente "
 "quando souber que são válidos."
@@ -21402,9 +21416,8 @@ msgid "`Mutex<T>`: Explicitly thread-safe via internal locking."
 msgstr "`Mutex<T>`: Explicitamente _thread-safe_ via bloqueio interno."
 
 #: src/concurrency/send-sync/examples.md
-#, fuzzy
 msgid "`mpsc::Sender<T>`: As of 1.72.0."
-msgstr "`mpsc::Sender<T>`"
+msgstr "`mpsc::Sender<T>`: As of 1.72.0."
 
 #: src/concurrency/send-sync/examples.md
 msgid "`AtomicBool`, `AtomicU8`, ...: Uses special atomic instructions."
@@ -21488,15 +21501,15 @@ msgstr ""
 
 #: src/concurrency/shared-state.md
 msgid "[Arc](./concurrency/shared-state/arc.md) (5 minutes)"
-msgstr ""
+msgstr "[Arc](./concurrency/shared-state/arc.md) (5 minutos)"
 
 #: src/concurrency/shared-state.md
 msgid "[Mutex](./concurrency/shared-state/mutex.md) (15 minutes)"
-msgstr ""
+msgstr "[Mutex](./concurrency/shared-state/mutex.md) (15 minutos)"
 
 #: src/concurrency/shared-state.md
 msgid "[Example](./concurrency/shared-state/example.md) (10 minutes)"
-msgstr ""
+msgstr "[Exemplo](./concurrency/shared-state/example.md) (10 minutos)"
 
 #: src/concurrency/shared-state/arc.md
 msgid ""
@@ -21551,7 +21564,6 @@ msgid "`std::sync::Weak` can help."
 msgstr "`std::sync::Weak` pode ajudar."
 
 #: src/concurrency/shared-state/mutex.md
-#, fuzzy
 msgid ""
 "[`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html) ensures "
 "mutual exclusion _and_ allows mutable access to `T` behind a read-only "
@@ -21560,7 +21572,8 @@ msgid ""
 msgstr ""
 "[`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html) garante "
 "exclusão mútua _e_ permite acesso mutável a `T` por trás de uma interface "
-"somente leitura:"
+"somente de leitura (outra forma de [mutabilidade interna](../../borrowing/"
+"interior-mutability)):"
 
 #: src/concurrency/shared-state/mutex.md
 msgid "\"v: {:?}\""
@@ -21664,13 +21677,12 @@ msgstr ""
 "mutável entre threads."
 
 #: src/concurrency/shared-state/example.md
-#, fuzzy
 msgid ""
 "`v: Arc<_>` needs to be cloned as `v2` before it can be moved into another "
 "thread. Note `move` was added to the lambda signature."
 msgstr ""
 "`v: Arc<_>` precisa ser clonado como `v2` antes que possa ser movido para "
-"outro thread. Note que `move` foi adicionado à assinatura lambda."
+"outra _thread_. Note que `move` foi adicionado à assinatura lambda."
 
 #: src/concurrency/shared-state/example.md
 msgid ""
@@ -21685,16 +21697,20 @@ msgid ""
 "[Dining Philosophers](./concurrency/sync-exercises/dining-philosophers.md) "
 "(20 minutes)"
 msgstr ""
+"[Jantar dos Filósofos](./concurrency/sync-exercises/dining-philosophers.md) "
+"(20 minutos)"
 
 #: src/concurrency/sync-exercises.md
 msgid ""
 "[Multi-threaded Link Checker](./concurrency/sync-exercises/link-checker.md) "
 "(20 minutes)"
 msgstr ""
+"[Verificador de Links Multi-Threaded](./concurrency/sync-exercises/link-"
+"checker.md) (20 minutos)"
 
 #: src/concurrency/sync-exercises.md
 msgid "[Solutions](./concurrency/sync-exercises/solutions.md) (30 minutes)"
-msgstr ""
+msgstr "[Soluções](./concurrency/sync-exercises/solutions.md) (30 minutos)"
 
 #: src/concurrency/sync-exercises/dining-philosophers.md
 msgid "The dining philosophers problem is a classic problem in concurrency:"
@@ -21858,11 +21874,16 @@ msgid ""
 "(https://docs.rs/scraper/). Finally, we'll need some way of handling errors, "
 "we will use [`thiserror`](https://docs.rs/thiserror/)."
 msgstr ""
+"Para isso, você precisará de um cliente HTTP como [`reqwest`](https://docs."
+"rs/reqwest/). Você também precisará de uma maneira de encontrar links, "
+"podemos usar [`scraper`](https://docs.rs/scraper/). Por fim, precisaremos de "
+"alguma maneira de lidar com erros, usaremos [`thiserror`](https://docs.rs/"
+"thiserror/)."
 
 #: src/concurrency/sync-exercises/link-checker.md
-#, fuzzy
 msgid "Create a new Cargo project and `reqwest` it as a dependency with:"
-msgstr "Crie um novo projeto Cargo e adicione as seguintes dependências:"
+msgstr ""
+"Crie um novo projeto Cargo e adicione `reqwest` como uma dependência com:"
 
 #: src/concurrency/sync-exercises/link-checker.md
 msgid ""
@@ -22087,36 +22108,38 @@ msgstr ""
 
 #: src/concurrency/welcome-async.md
 msgid "[Async Basics](./concurrency/async.md) (30 minutes)"
-msgstr ""
+msgstr "[Fundamentos de _Async_](./concurrency/async.md) (30 minutos)"
 
 #: src/concurrency/welcome-async.md
 msgid ""
 "[Channels and Control Flow](./concurrency/async-control-flow.md) (20 minutes)"
 msgstr ""
+"[Canais e Fluxo de Controle](./concurrency/async-control-flow.md) (20 "
+"minutos)"
 
 #: src/concurrency/welcome-async.md
 msgid "[Pitfalls](./concurrency/async-pitfalls.md) (55 minutes)"
-msgstr ""
+msgstr "[Armadilhas](./concurrency/async-pitfalls.md) (55 minutos)"
 
 #: src/concurrency/welcome-async.md
 msgid "[Exercises](./concurrency/async-exercises.md) (1 hour and 10 minutes)"
-msgstr ""
+msgstr "[Exercícios](./concurrency/async-exercises.md) (1 hora e 10 minutos)"
 
 #: src/concurrency/async.md
 msgid "[async/await](./concurrency/async/async-await.md) (10 minutes)"
-msgstr ""
+msgstr "[async/await](./concurrency/async/async-await.md) (10 minutos)"
 
 #: src/concurrency/async.md
 msgid "[Futures](./concurrency/async/futures.md) (4 minutes)"
-msgstr ""
+msgstr "[Futures](./concurrency/async/futures.md) (4 minutos)"
 
 #: src/concurrency/async.md
 msgid "[Runtimes](./concurrency/async/runtimes.md) (10 minutes)"
-msgstr ""
+msgstr "[Runtimes](./concurrency/async/runtimes.md) (10 minutos)"
 
 #: src/concurrency/async.md
 msgid "[Tasks](./concurrency/async/tasks.md) (10 minutes)"
-msgstr ""
+msgstr "[Tarefas](./concurrency/async/tasks.md) (10 minutos)"
 
 #: src/concurrency/async/async-await.md
 msgid ""
@@ -22467,16 +22490,15 @@ msgstr ""
 msgid ""
 "[Async Channels](./concurrency/async-control-flow/channels.md) (10 minutes)"
 msgstr ""
+"[Canais Async](./concurrency/async-control-flow/channels.md) (10 minutos)"
 
 #: src/concurrency/async-control-flow.md
-#, fuzzy
 msgid "[Join](./concurrency/async-control-flow/join.md) (4 minutes)"
-msgstr "[Join](control-flow/join.md)"
+msgstr "[Join](./concurrency/async-control-flow/join.md) (4 minutos)"
 
 #: src/concurrency/async-control-flow.md
-#, fuzzy
 msgid "[Select](./concurrency/async-control-flow/select.md) (5 minutes)"
-msgstr "[Select](control-flow/select.md)"
+msgstr "[Select](./concurrency/async-control-flow/select.md) (5 minutos)"
 
 #: src/concurrency/async-control-flow/channels.md
 msgid ""
@@ -22509,13 +22531,12 @@ msgid "Change the channel size to `3` and see how it affects the execution."
 msgstr "Altere o tamanho do canal para `3` e veja como isso afeta a execução."
 
 #: src/concurrency/async-control-flow/channels.md
-#, fuzzy
 msgid ""
 "Overall, the interface is similar to the `sync` channels as seen in the "
 "[morning class](../channels.md)."
 msgstr ""
 "No geral, a interface é semelhante aos canais `sync` vistos na [aula da "
-"manhã](concurrency/channels.md)."
+"manhã](../channels.md)."
 
 #: src/concurrency/async-control-flow/channels.md
 msgid "Try removing the `std::mem::drop` call. What happens? Why?"
@@ -22614,7 +22635,6 @@ msgstr ""
 "`asyncio.wait(task_set, return_when=asyncio.FIRST_COMPLETED)`."
 
 #: src/concurrency/async-control-flow/select.md
-#, fuzzy
 msgid ""
 "Similar to a match statement, the body of `select!` has a number of arms, "
 "each of the form `pattern = future => statement`. When a `future` is ready, "
@@ -22623,9 +22643,10 @@ msgid ""
 "of the `select!` macro."
 msgstr ""
 "Semelhante a uma instrução _match_, o corpo de `select!` tem um número de "
-"ramos, cada um da forma `pattern = future => statement`. Quando a `future` "
-"está pronta, o `statement` é executado com as variáveis em `pattern` ligadas "
-"ao resultado da `future`."
+"ramos, cada um da forma `pattern = future => statement`. Quando um `future` "
+"está pronto, seu valor de retorno é desestruturado pelo `pattern`. O "
+"`statement` é então executado com as variáveis resultantes. O resultado do "
+"`statement` se torna o resultado da macro `select!`."
 
 #: src/concurrency/async-control-flow/select.md
 msgid "\"Felix\""
@@ -22693,40 +22714,40 @@ msgstr ""
 "pode levar a problemas, discutidos mais adiante no slide de _pinning_."
 
 #: src/concurrency/async-pitfalls.md
-#, fuzzy
 msgid ""
 "Async / await provides convenient and efficient abstraction for concurrent "
 "asynchronous programming. However, the async/await model in Rust also comes "
 "with its share of pitfalls and footguns. We illustrate some of them in this "
 "chapter."
 msgstr ""
-"O _async/await_ fornece uma abstração conveniente e eficiente para "
-"programação assíncrona concorrente. No entanto, o modelo _async/await_ em "
-"Rust também vem com sua parcela de armadilhas e _footguns_. Ilustramos "
-"alguns deles neste capítulo:"
+"_Async/await_ fornece uma abstração conveniente e eficiente para programação "
+"assíncrona concorrente. No entanto, o modelo _async/await_ em Rust também "
+"vem com sua parcela de armadilhas e \"tiros no pé\". Ilustramos alguns deles "
+"neste capítulo."
 
 #: src/concurrency/async-pitfalls.md
-#, fuzzy
 msgid ""
 "[Blocking the Executor](./concurrency/async-pitfalls/blocking-executor.md) "
 "(10 minutes)"
-msgstr "[Bloqueando o Executor](pitfalls/blocking-executor.md)"
+msgstr ""
+"[Bloqueando o _Executor_](./concurrency/async-pitfalls/blocking-executor.md) "
+"(10 minutos)"
 
 #: src/concurrency/async-pitfalls.md
 msgid "[Pin](./concurrency/async-pitfalls/pin.md) (20 minutes)"
-msgstr ""
+msgstr "[_Pin_](./concurrency/async-pitfalls/pin.md) (20 minutos)"
 
 #: src/concurrency/async-pitfalls.md
-#, fuzzy
 msgid ""
 "[Async Traits](./concurrency/async-pitfalls/async-traits.md) (5 minutes)"
-msgstr "[_Async Traits_](pitfalls/async-traits.md)"
+msgstr ""
+"[_Async Traits_](./concurrency/async-pitfalls/async-traits.md) (5 minutos)"
 
 #: src/concurrency/async-pitfalls.md
-#, fuzzy
 msgid ""
 "[Cancellation](./concurrency/async-pitfalls/cancellation.md) (20 minutes)"
-msgstr "[Cancelamento](pitfalls/cancellation.md)"
+msgstr ""
+"[Cancelamento](./concurrency/async-pitfalls/cancellation.md) (20 minutos)"
 
 #: src/concurrency/async-pitfalls/blocking-executor.md
 msgid "Blocking the executor"
@@ -22817,6 +22838,9 @@ msgid ""
 "type returned is the result of a compiler transformation which turns local "
 "variables into data stored inside the future."
 msgstr ""
+"Os blocos e funções _async_ retornam tipos que implementam o _trait_ "
+"`Future`. O tipo retornado é o resultado de uma transformação do compilador "
+"que transforma variáveis locais em dados armazenados dentro da _future_."
 
 #: src/concurrency/async-pitfalls/pin.md
 msgid ""
@@ -22824,6 +22848,9 @@ msgid ""
 "of that, the future should never be moved to a different memory location, as "
 "it would invalidate those pointers."
 msgstr ""
+"Algumas dessas variáveis podem conter ponteiros para outras variáveis "
+"locais. Por causa disso, a _future_ nunca deve ser movida para uma "
+"localização de memória diferente, pois isso invalidaria esses ponteiros."
 
 #: src/concurrency/async-pitfalls/pin.md
 msgid ""
@@ -22832,6 +22859,10 @@ msgid ""
 "operations that would move the instance it points to into a different memory "
 "location."
 msgstr ""
+"Para evitar mover o tipo de _future_ na memória, ele só pode ser _poll_ por "
+"meio de um ponteiro _pinned_. `Pin` é um invólucro em torno de uma "
+"referência que proíbe todas as operações que moveriam a instância para a "
+"qual aponta para uma localização de memória diferente."
 
 #: src/concurrency/async-pitfalls/pin.md
 msgid ""
@@ -22915,15 +22946,14 @@ msgstr ""
 "`Box::pin`."
 
 #: src/concurrency/async-pitfalls/pin.md
-#, fuzzy
 msgid ""
 "This compiles, but once the timeout expires it is `Poll::Ready` on every "
 "iteration (a fused future would help with this). Update to reset "
 "`timeout_fut` every time it expires:"
 msgstr ""
 "Isso compila, mas uma vez que o _timeout_ expira, ele é `Poll::Ready` em "
-"cada iteração (uma _fused future_ ajudaria com isso). Atualize para "
-"redefinir `timeout_fut` toda vez que expirar."
+"cada iteração (um _fused future_ ajudaria com isso). Atualize para redefinir "
+"`timeout_fut` toda vez que expirar:"
 
 #: src/concurrency/async-pitfalls/pin.md
 msgid ""
@@ -22952,6 +22982,11 @@ msgid ""
 "code transformation for async blocks and functions is not verified by the "
 "borrow checker."
 msgstr ""
+"Dados que contêm ponteiros para si mesmos são chamados auto-referenciais. "
+"Normalmente, o verificador de empréstimos do Rust impediria que dados auto-"
+"referenciais fossem movidos, pois as referências não podem sobreviver aos "
+"dados aos quais apontam. No entanto, a transformação de código para blocos e "
+"funções _async_ não é verificada pelo verificador de empréstimos."
 
 #: src/concurrency/async-pitfalls/pin.md
 msgid ""
@@ -22959,6 +22994,9 @@ msgid ""
 "place using a pinned pointer. However, it can still be moved through an "
 "unpinned pointer."
 msgstr ""
+"`Pin` é um invólucro em torno de uma referência. Um objeto não pode ser "
+"movido de seu local usando um ponteiro _pinned_. No entanto, ele ainda pode "
+"ser movido por meio de um ponteiro não _pinned_."
 
 #: src/concurrency/async-pitfalls/pin.md
 msgid ""
@@ -22966,6 +23004,9 @@ msgid ""
 "`&mut Self` to refer to the instance. That's why it can only be called on a "
 "pinned pointer."
 msgstr ""
+"O método `poll` do _trait_ `Future` usa `Pin<&mut Self>` em vez de `&mut "
+"Self` para se referir à instância. É por isso que ele só pode ser chamado em "
+"um ponteiro _pinned_."
 
 #: src/concurrency/async-pitfalls/async-traits.md
 msgid ""
@@ -22974,34 +23015,44 @@ msgid ""
 "in traits, as the desugaring for `async fn` includes `-> impl Future<Output "
 "= ...>`."
 msgstr ""
+"Métodos _async_ em _traits_ foram estabilizados apenas recentemente, no "
+"lançamento 1.75. Isso exigiu suporte para o uso de `impl Trait` em posição "
+"de retorno em _traits_, pois a \"desaçucarização\" para `async fn` inclui `-"
+"> impl Future<Output = ...>`."
 
 #: src/concurrency/async-pitfalls/async-traits.md
 msgid ""
 "However, even with the native support today there are some pitfalls around "
 "`async fn` and RPIT in traits:"
 msgstr ""
+"No entanto, mesmo com o suporte nativo hoje, existem algumas armadilhas em "
+"torno de `async fn` e RPIT em _traits:"
 
 #: src/concurrency/async-pitfalls/async-traits.md
 msgid ""
 "Return-position impl Trait captures all in-scope lifetimes (so some patterns "
 "of borrowing cannot be expressed)"
 msgstr ""
+"O `impl Trait` em posição de retorno captura todos os tempos de vida em "
+"escopo (portanto, alguns padrões de empréstimo não podem ser expressos)"
 
 #: src/concurrency/async-pitfalls/async-traits.md
 msgid ""
 "Traits whose methods use return-position `impl trait` or `async` are not "
 "`dyn` compatible."
 msgstr ""
+"Os métodos de _traits_ que usam `impl trait` em posição de retorno ou "
+"`async` não são compatíveis com `dyn`."
 
 #: src/concurrency/async-pitfalls/async-traits.md
-#, fuzzy
 msgid ""
 "If we do need `dyn` support, the crate [async_trait](https://docs.rs/async-"
 "trait/latest/async_trait/) provides a workaround through a macro, with some "
 "caveats:"
 msgstr ""
-"O _crate_ [async_trait](https://docs.rs/async-trait/latest/async_trait/) "
-"fornece uma solução alternativa por meio de um _macro_:"
+"Se precisarmos de suporte `dyn`, o _crate_ [async_trait](https://docs.rs/"
+"async-trait/latest/async_trait/) fornece uma solução alternativa por meio de "
+"um macro, com algumas ressalvas:"
 
 #: src/concurrency/async-pitfalls/async-traits.md
 msgid "\"running all sleepers..\""
@@ -23142,16 +23193,20 @@ msgid ""
 "[Dining Philosophers](./concurrency/async-exercises/dining-philosophers.md) "
 "(20 minutes)"
 msgstr ""
+"[Jantar dos Filósofos](./concurrency/async-exercises/dining-philosophers.md) "
+"(20 minutos)"
 
 #: src/concurrency/async-exercises.md
 msgid ""
 "[Broadcast Chat Application](./concurrency/async-exercises/chat-app.md) (30 "
 "minutes)"
 msgstr ""
+"[Aplicativo de Bate-papo por _Broadcast_](./concurrency/async-exercises/chat-"
+"app.md) (30 minutos)"
 
 #: src/concurrency/async-exercises.md
 msgid "[Solutions](./concurrency/async-exercises/solutions.md) (20 minutes)"
-msgstr ""
+msgstr "[Soluções](./concurrency/async-exercises/solutions.md) (20 minutos)"
 
 #: src/concurrency/async-exercises/dining-philosophers.md
 #: src/concurrency/async-exercises/solutions.md
@@ -23159,13 +23214,12 @@ msgid "Dining Philosophers --- Async"
 msgstr "Jantar dos Filósofos --- Async"
 
 #: src/concurrency/async-exercises/dining-philosophers.md
-#, fuzzy
 msgid ""
 "See [dining philosophers](concurrency/sync-exercises/dining-philosophers.md) "
 "for a description of the problem."
 msgstr ""
-"Veja [Jantar dos Filósofos](dining-philosophers.md) para uma descrição do "
-"problema."
+"Veja [Jantar dos Filósofos](concurrency/sync-exercises/dining-philosophers."
+"md) para uma descrição do problema."
 
 #: src/concurrency/async-exercises/dining-philosophers.md
 msgid ""
@@ -23181,7 +23235,7 @@ msgstr ""
 #: src/concurrency/async-exercises/dining-philosophers.md
 #: src/concurrency/async-exercises/solutions.md
 msgid "// Keep trying until we have both forks\n"
-msgstr ""
+msgstr "// Continue tentando até termos ambos os garfos\n"
 
 #: src/concurrency/async-exercises/dining-philosophers.md
 #: src/concurrency/async-exercises/solutions.md
@@ -23268,7 +23322,6 @@ msgid "_Cargo.toml_:"
 msgstr "_Cargo.toml_:"
 
 #: src/concurrency/async-exercises/chat-app.md
-#, fuzzy
 msgid ""
 "```toml\n"
 "[package]\n"
@@ -23292,9 +23345,9 @@ msgstr ""
 "\n"
 "[dependencies]\n"
 "futures-util = { version = \"0.3.30\", features = [\"sink\"] }\n"
-"http = \"1.0.0\"\n"
-"tokio = { version = \"1.28.1\", features = [\"full\"] }\n"
-"tokio-websockets = { version = \"0.5.0\", features = [\"client\", "
+"http = \"1.1.0\"\n"
+"tokio = { version = \"1.38.0\", features = [\"full\"] }\n"
+"tokio-websockets = { version = \"0.8.3\", features = [\"client\", "
 "\"fastrand\", \"server\", \"sha1_smol\"] }\n"
 "```"
 
@@ -23477,12 +23530,16 @@ msgid ""
 "// If we didn't get the left fork, drop the right fork if we\n"
 "                // have it and let other tasks make progress.\n"
 msgstr ""
+"// Se não pegamos o garfo esquerdo, solte o garfo direito se o\n"
+"                // tivermos e deixe outras tarefas progredirem.\n"
 
 #: src/concurrency/async-exercises/solutions.md
 msgid ""
 "// If we didn't get the right fork, drop the left fork and let\n"
 "                // other tasks make progress.\n"
 msgstr ""
+"// Se não pegamos o garfo direito, solte o garfo esquerdo e deixe\n"
+"                // outras tarefas progredirem.\n"
 
 #: src/concurrency/async-exercises/solutions.md
 msgid "// The locks are dropped here\n"
@@ -23500,7 +23557,7 @@ msgstr "\"Aqui está um pensamento: {thought}\""
 
 #: src/concurrency/async-exercises/solutions.md
 msgid "\"Welcome to chat! Type a message\""
-msgstr "\"Bem-vindo ao bate-papo! Digite uma mensagem\""
+msgstr "\"Bem-vindos ao bate-papo! Digite uma mensagem\""
 
 #: src/concurrency/async-exercises/solutions.md
 msgid ""
@@ -23690,14 +23747,14 @@ msgstr ""
 "Uma falha ou término inesperado e não tratado de um programa."
 
 #: src/glossary.md
-#, fuzzy
 msgid ""
 "enumeration:  \n"
 "A data type that holds one of several named constants, possibly with an "
 "associated tuple or struct."
 msgstr ""
 "enumeração:  \n"
-"Um tipo de dado que consiste em valores constantes nomeados."
+"Um tipo de dado que contém uma das várias constantes nomeadas, possivelmente "
+"com uma tupla ou _struct_ associada."
 
 #: src/glossary.md
 msgid ""
@@ -23973,7 +24030,6 @@ msgstr ""
 "desempenho e concorrência."
 
 #: src/glossary.md
-#, fuzzy
 msgid ""
 "Rust Fundamentals:  \n"
 "Days 1 to 4 of this course."
@@ -24034,15 +24090,14 @@ msgstr ""
 "com um tempo de vida `'static`."
 
 #: src/glossary.md
-#, fuzzy
 msgid ""
 "string:  \n"
 "A data type storing textual data. See [Strings](references/strings.html) for "
 "more."
 msgstr ""
 "string:  \n"
-"Um tipo de dado que armazena dados textuais. Veja [`String` vs `str`](basic-"
-"syntax/string-slices.html) para mais informações."
+"Um tipo de dado que armazena dados textuais. Veja [Strings](references/"
+"strings.html) para mais informações."
 
 #: src/glossary.md
 msgid ""
@@ -24103,15 +24158,14 @@ msgstr ""
 "de seu interesse."
 
 #: src/glossary.md
-#, fuzzy
 msgid ""
 "tuple:  \n"
 "A composite data type that contains variables of different types. Tuple "
 "fields have no names, and are accessed by their ordinal numbers."
 msgstr ""
-"estrutura (_struct_):  \n"
-"Um tipo de dado composto em Rust que agrupa variáveis de diferentes tipos "
-"sob um único nome."
+"tupla:  \n"
+"Um tipo de dado composto em Rust que agrupa variáveis de diferentes tipos. "
+"Os campos da tupla não têm nomes e são acessados por seus números ordinais."
 
 #: src/glossary.md
 msgid ""
@@ -24168,6 +24222,8 @@ msgid ""
 "unit type:  \n"
 "Type that holds no data, written as a tuple with no members."
 msgstr ""
+"tipo unitário:  \n"
+"Tipo que não contém dados, escrito como uma tupla sem membros."
 
 #: src/glossary.md
 msgid ""
@@ -24343,6 +24399,10 @@ msgid ""
 "built-in testing framework. It covers `googletest`, snapshot testing, "
 "mocking as well as how to write your own custom test harness."
 msgstr ""
+"[Testes avançados para aplicações Rust](https://github.com/mainmatter/rust-"
+"advanced-testing-workshop): um workshop autoguiado que vai além do framework "
+"de testes integrado do Rust. Ele cobre `googletest`, testes de snapshot, "
+"mocking, bem como como escrever seu próprio conjunto de testes personalizado."
 
 #: src/other-resources.md
 msgid ""
