@@ -12992,7 +12992,7 @@ msgstr "\"//! Caranguejo (Crab)\\n\""
 
 #: src/android.md
 msgid "Welcome to Rust in Android"
-msgstr "Bem-vindo ao Rust para Android"
+msgstr "Bem-vindos ao Rust para Android"
 
 #: src/android.md
 msgid ""
@@ -13408,6 +13408,9 @@ msgid ""
 "process of creating a Binder interface. We're then going to both implement "
 "the described service and write client code that talks to that service."
 msgstr ""
+"Para ilustrar como usar Rust com Binder, vamos passar pelo processo de "
+"criação de uma interface Binder. Em seguida, vamos implementar o serviço "
+"descrito e escrever código do cliente que fala com esse serviço."
 
 #: src/android/aidl/example-service/interface.md
 msgid "AIDL Interfaces"
@@ -13458,45 +13461,58 @@ msgid ""
 "the package name used in the AIDL file, i.e. the package is `com.example."
 "birthdayservice` and the file is at `aidl/com/example/IBirthdayService.aidl`."
 msgstr ""
+"Observe que a estrutura de diretórios sob o diretório `aidl/` precisa "
+"corresponder ao nome do pacote usado no arquivo AIDL, ou seja, o pacote é "
+"`com.example.birthdayservice` e o arquivo está em `aidl/com/example/"
+"IBirthdayService.aidl`."
 
 #: src/android/aidl/example-service/service-bindings.md
 msgid "Generated Service API"
-msgstr ""
+msgstr "API de Serviço Gerada"
 
 #: src/android/aidl/example-service/service-bindings.md
 msgid ""
 "Binder generates a trait corresponding to the interface definition. trait to "
 "talk to the service."
 msgstr ""
+"Binder gera um _trait_ correspondente à definição da interface. _trait_ para "
+"falar com o serviço."
 
 #: src/android/aidl/example-service/service-bindings.md
-#, fuzzy
 msgid "_Generated trait_:"
-msgstr "Rust gerado:"
+msgstr "_Trait gerado_:"
 
 #: src/android/aidl/example-service/service-bindings.md
 msgid ""
 "Your service will need to implement this trait, and your client will use "
 "this trait to talk to the service."
 msgstr ""
+"Seu serviço precisará implementar este _trait_, e seu cliente usará este "
+"_trait_ para falar com o serviço."
 
 #: src/android/aidl/example-service/service-bindings.md
 msgid ""
 "The generated bindings can be found at `out/soong/.intermediates/<path to "
 "module>/`."
 msgstr ""
+"Os vínculos gerados podem ser encontrados em `out/soong/.intermediates/"
+"<caminho para o módulo>/`."
 
 #: src/android/aidl/example-service/service-bindings.md
 msgid ""
 "Point out how the generated function signature, specifically the argument "
 "and return types, correspond the interface definition."
 msgstr ""
+"Aponte como a assinatura da função gerada, especificamente os tipos de "
+"argumento e retorno, correspondem à definição da interface."
 
 #: src/android/aidl/example-service/service-bindings.md
 msgid ""
 "`String` for an argument results in a different Rust type than `String` as a "
 "return type."
 msgstr ""
+"`String` para um argumento resulta em um tipo Rust diferente de `String` "
+"como um tipo de retorno."
 
 #: src/android/aidl/example-service/service.md
 msgid "Service Implementation"
@@ -13555,12 +13571,16 @@ msgid ""
 "Point out the path to the generated `IBirthdayService` trait, and explain "
 "why each of the segments is necessary."
 msgstr ""
+"Aponte o caminho para o _trait_ `IBirthdayService` gerado e explique por que "
+"cada um dos segmentos é necessário."
 
 #: src/android/aidl/example-service/service.md
 msgid ""
 "TODO: What does the `binder::Interface` trait do? Are there methods to "
 "override? Where source?"
 msgstr ""
+"TODO: O que o _trait_ `binder::Interface` faz? Existem métodos para "
+"substituir? Onde está o código-fonte?"
 
 #: src/android/aidl/example-service/server.md
 msgid "AIDL Server"
@@ -13597,7 +13617,7 @@ msgstr "\"src/server.rs\""
 #: src/android/aidl/example-service/server.md
 #: src/android/aidl/example-service/client.md
 msgid "// To avoid dynamic link error.\n"
-msgstr ""
+msgstr "// Para evitar erro de ligação dinâmica.\n"
 
 #: src/android/aidl/example-service/server.md
 msgid ""
@@ -13607,10 +13627,16 @@ msgid ""
 "complicated than students are used to if they've used Binder from C++ or "
 "another language. Explain to students why each step is necessary."
 msgstr ""
+"O processo de pegar uma implementação de serviço definida pelo(a) usuário(a) "
+"(neste caso o tipo `BirthdayService`, que implementa o `IBirthdayService`) e "
+"iniciá-la como um serviço Binder tem várias etapas, e pode parecer mais "
+"complicado do que os estudantes estão acostumados se eles usaram Binder a "
+"partir de C++ ou de outra linguagem. Explique aos estudantes por que cada "
+"etapa é necessária."
 
 #: src/android/aidl/example-service/server.md
 msgid "Create an instance of your service type (`BirthdayService`)."
-msgstr ""
+msgstr "Crie uma instância do seu tipo de serviço (`BirthdayService`)."
 
 #: src/android/aidl/example-service/server.md
 msgid ""
@@ -13620,18 +13646,28 @@ msgid ""
 "don't have inheritance in Rust, so instead we use composition, putting our "
 "`BirthdayService` within the generated `BnBinderService`."
 msgstr ""
+"Envolva o objeto de serviço no tipo `Bn*` correspondente "
+"(`BnBirthdayService` neste caso). Este tipo é gerado pelo Binder e fornece a "
+"funcionalidade comum do Binder que seria fornecida pela classe base "
+"`BnBinder` em C++. Não temos herança em Rust, então em vez disso usamos "
+"composição, colocando nosso `BirthdayService` dentro do `BnBinderService` "
+"gerado."
 
 #: src/android/aidl/example-service/server.md
 msgid ""
 "Call `add_service`, giving it a service identifier and your service object "
 "(the `BnBirthdayService` object in the example)."
 msgstr ""
+"Chame `add_service`, passando a ele um identificador de serviço e seu objeto "
+"de serviço (o objeto `BnBirthdayService` no exemplo)."
 
 #: src/android/aidl/example-service/server.md
 msgid ""
 "Call `join_thread_pool` to add the current thread to Binder's thread pool "
 "and start listening for connections."
 msgstr ""
+"Chame `join_thread_pool` para adicionar a thread atual ao pool de threads do "
+"Binder e começar a ouvir conexões."
 
 #: src/android/aidl/example-service/deploy.md
 msgid "We can now build, push, and start the service:"
@@ -13687,9 +13723,8 @@ msgid "\"Failed to connect to BirthdayService\""
 msgstr "\"Falha ao conectar-se a BirthdayService\""
 
 #: src/android/aidl/example-service/client.md
-#, fuzzy
 msgid "// Call the service.\n"
-msgstr "/// Chama o serviço de aniversário.\n"
+msgstr "// Chama o serviço.\n"
 
 #: src/android/aidl/example-service/client.md
 msgid "\"{msg}\""
@@ -13712,7 +13747,6 @@ msgid "Build, push, and run the client on your device:"
 msgstr "Compile, envie e execute o cliente em seu dispositivo:"
 
 #: src/android/aidl/example-service/client.md
-#, fuzzy
 msgid ""
 "```shell\n"
 "m birthday_client\n"
@@ -13733,6 +13767,8 @@ msgid ""
 "`Strong<dyn IBirthdayService>` is the trait object representing the service "
 "that the client has connected to."
 msgstr ""
+"`Strong<dyn IBirthdayService>` é o objeto de _trait_ que representa o "
+"serviço ao qual o cliente se conectou."
 
 #: src/android/aidl/example-service/client.md
 msgid ""
@@ -13740,6 +13776,10 @@ msgid ""
 "process ref count for the service trait object, and the global Binder ref "
 "count that tracks how many processes have a reference to the object."
 msgstr ""
+"`Strong` é um tipo de ponteiro inteligente personalizado para Binder. Ele "
+"manipula tanto uma contagem de referência no processo para o objeto de "
+"_trait_ do serviço, quanto a contagem de referência global do Binder que "
+"rastreia quantos processos têm uma referência ao objeto."
 
 #: src/android/aidl/example-service/client.md
 msgid ""
@@ -13748,6 +13788,10 @@ msgid ""
 "interface, there is a single Rust trait generated that both client and "
 "server use."
 msgstr ""
+"Observe que o objeto de _trait_ que o cliente usa para falar com o serviço "
+"usa exatamente o mesmo _trait_ que o servidor implementa. Para uma interface "
+"Binder dada, há um único _trait_ Rust gerado que tanto o cliente quanto o "
+"servidor usam."
 
 #: src/android/aidl/example-service/client.md
 msgid ""
@@ -13755,6 +13799,9 @@ msgid ""
 "should ideally be defined in a common crate that both the client and server "
 "can depend on."
 msgstr ""
+"Use o mesmo identificador de serviço usado ao registrar o serviço. Isso deve "
+"ser idealmente definido em uma _crate_ comum na qual tanto o cliente quanto "
+"o servidor possam depender."
 
 #: src/android/aidl/example-service/changing-definition.md
 msgid ""
@@ -13767,6 +13814,7 @@ msgstr ""
 #: src/android/aidl/example-service/changing-definition.md
 msgid "This results in an updated trait definition for `IBirthdayService`:"
 msgstr ""
+"Isso resulta em uma definição de _trait_ atualizada para `IBirthdayService`."
 
 #: src/android/aidl/example-service/changing-definition.md
 msgid ""
@@ -13774,79 +13822,86 @@ msgid ""
 "`&[String]` in Rust, i.e. that idiomatic Rust types are used in the "
 "generated bindings wherever possible:"
 msgstr ""
+"Observe como o `String[]` na definição AIDL é traduzido como um `&[String]` "
+"em Rust, ou seja, que tipos de Rust idiomáticos são usados nos vínculos "
+"gerados sempre que possível:"
 
 #: src/android/aidl/example-service/changing-definition.md
 msgid "`in` array arguments are translated to slices."
-msgstr ""
+msgstr "`in` argumentos de array são traduzidos para _slices_."
 
 #: src/android/aidl/example-service/changing-definition.md
 msgid "`out` and `inout` args are translated to `&mut Vec<T>`."
-msgstr ""
+msgstr "`out` e `inout` args são traduzidos para `&mut Vec<T>`."
 
 #: src/android/aidl/example-service/changing-definition.md
 msgid "Return values are translated to returning a `Vec<T>`."
-msgstr ""
+msgstr "Valores de retorno são traduzidos para retornar um `Vec<T>`."
 
 #: src/android/aidl/example-service/changing-implementation.md
 msgid "Updating Client and Service"
-msgstr ""
+msgstr "Atualizando Cliente e Serviço"
 
 #: src/android/aidl/example-service/changing-implementation.md
 msgid "Update the client and server code to account for the new API."
-msgstr ""
+msgstr "Atualize o código do cliente e do servidor para considerar a nova API."
 
 #: src/android/aidl/example-service/changing-implementation.md
-#, fuzzy
 msgid "'\\n'"
-msgstr "b'\\n'"
+msgstr "'\\n'"
 
 #: src/android/aidl/example-service/changing-implementation.md
 msgid "\"Habby birfday to yuuuuu\""
-msgstr ""
+msgstr "\"Felis aniversárrio para vocêêêêêê\""
 
 #: src/android/aidl/example-service/changing-implementation.md
 msgid "\"And also: many more\""
-msgstr ""
+msgstr "\"E também: muito mais\""
 
 #: src/android/aidl/example-service/changing-implementation.md
 msgid ""
 "TODO: Move code snippets into project files where they'll actually be built?"
 msgstr ""
+"TODO: Mover trechos de código para arquivos de projeto onde eles realmente "
+"serão construídos?"
 
 #: src/android/aidl/types.md
 msgid "Working With AIDL Types"
-msgstr ""
+msgstr "Trabalhando com Tipos AIDL"
 
 #: src/android/aidl/types.md
 msgid "AIDL types translate into the appropriate idiomatic Rust type:"
-msgstr ""
+msgstr "Os tipos AIDL são traduzidos para o tipo Rust idiomático apropriado:"
 
 #: src/android/aidl/types.md
 msgid "Primitive types map (mostly) to idiomatic Rust types."
 msgstr ""
+"Os tipos primitivos mapeiam (em sua maioria) para tipos Rust idiomáticos."
 
 #: src/android/aidl/types.md
 msgid "Collection types like slices, `Vec`s and string types are supported."
 msgstr ""
+"Tipos de coleção como _slices_, `Vec`s e tipos de string são suportados."
 
 #: src/android/aidl/types.md
 msgid ""
 "References to AIDL objects and file handles can be sent between clients and "
 "services."
 msgstr ""
+"Referências a objetos AIDL e identificadores de arquivo podem ser enviados "
+"entre clientes e serviços."
 
 #: src/android/aidl/types.md
 msgid "File handles and parcelables are fully supported."
-msgstr ""
+msgstr "Identificadores de arquivo e _parcelables_ são totalmente suportados."
 
 #: src/android/aidl/types/primitives.md
 msgid "Primitive types map (mostly) idiomatically:"
-msgstr ""
+msgstr "Os tipos primitivos mapeiam (em sua maioria) de forma idiomática:"
 
 #: src/android/aidl/types/primitives.md
-#, fuzzy
 msgid "AIDL Type"
-msgstr "AIDL"
+msgstr "Tipo em AIDL"
 
 #: src/android/aidl/types/primitives.md src/android/aidl/types/arrays.md
 #: src/android/interoperability/cpp/type-mapping.md
@@ -13855,65 +13910,63 @@ msgstr "Tipo em Rust"
 
 #: src/android/aidl/types/primitives.md
 msgid "Note"
-msgstr ""
+msgstr "Observe que"
 
 #: src/android/aidl/types/primitives.md
-#, fuzzy
 msgid "`boolean`"
-msgstr "`bool`"
+msgstr "`boolean`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`byte`"
-msgstr ""
+msgstr "`byte`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`i8`"
-msgstr ""
+msgstr "`i8`"
 
 #: src/android/aidl/types/primitives.md
-#, fuzzy
 msgid "Note that bytes are signed."
-msgstr "// Mais de 7 bytes é inválido.\n"
+msgstr "Observe que bytes são assinados."
 
 #: src/android/aidl/types/primitives.md
 msgid "`u16`"
-msgstr ""
+msgstr "`u16`"
 
 #: src/android/aidl/types/primitives.md
 msgid "Note the usage of `u16`, NOT `u32`."
-msgstr ""
+msgstr "Observe o uso de `u16`, NÃO `u32`."
 
 #: src/android/aidl/types/primitives.md
 msgid "`int`"
-msgstr ""
+msgstr "`int`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`i32`"
-msgstr ""
+msgstr "`i32`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`long`"
-msgstr ""
+msgstr "`long`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`i64`"
-msgstr ""
+msgstr "`i64`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`float`"
-msgstr ""
+msgstr "`float`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`f32`"
-msgstr ""
+msgstr "`f32`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`double`"
-msgstr ""
+msgstr "`double`"
 
 #: src/android/aidl/types/primitives.md
 msgid "`f64`"
-msgstr ""
+msgstr "`f64`"
 
 #: src/android/aidl/types/arrays.md
 msgid ""
@@ -13921,33 +13974,33 @@ msgid ""
 "appropriate Rust array type depending on how they are used in the function "
 "signature:"
 msgstr ""
+"Os tipos de array (`T[]`, `byte[]` e `List<T>`) são traduzidos para o tipo "
+"de array Rust apropriado, dependendo de como são usados na assinatura da "
+"função:"
 
 #: src/android/aidl/types/arrays.md
-#, fuzzy
 msgid "Position"
-msgstr "Descrição"
+msgstr "Posição"
 
 #: src/android/aidl/types/arrays.md
 msgid "`in` argument"
-msgstr ""
+msgstr "Argumento `in`"
 
 #: src/android/aidl/types/arrays.md
-#, fuzzy
 msgid "`&[T]`"
-msgstr "Slices: `&[T]`"
+msgstr "`&[T]`"
 
 #: src/android/aidl/types/arrays.md
 msgid "`out`/`inout` argument"
-msgstr ""
+msgstr "Argumento `out`/`inout`"
 
 #: src/android/aidl/types/arrays.md
-#, fuzzy
 msgid "`&mut Vec<T>`"
-msgstr "`Vec<T>`"
+msgstr "`&mut Vec<T>`"
 
 #: src/android/aidl/types/arrays.md
 msgid "Return"
-msgstr ""
+msgstr "Retorno"
 
 #: src/android/aidl/types/arrays.md
 #: src/android/interoperability/cpp/type-mapping.md
@@ -13961,123 +14014,127 @@ msgid ""
 "int\\[3\\]\\[4\\]). In the Java backend, fixed-size arrays are represented "
 "as array types."
 msgstr ""
+"No Android 13 ou superior, arrays de tamanho fixo são suportados, ou seja, "
+"`T[N]` se torna `[T; N]`. Arrays de tamanho fixo podem ter várias dimensões "
+"(por exemplo, int\\[3\\]\\[4\\]). No backend Java, arrays de tamanho fixo "
+"são representados como tipos de array."
 
 #: src/android/aidl/types/arrays.md
 msgid "Arrays in parcelable fields always get translated to `Vec<T>`."
-msgstr ""
+msgstr "Arrays em campos _parcelable_ sempre são traduzidos para `Vec<T>`."
 
 #: src/android/aidl/types/objects.md
 msgid ""
 "AIDL objects can be sent either as a concrete AIDL type or as the type-"
 "erased `IBinder` interface:"
 msgstr ""
+"Objetos AIDL podem ser enviados como um tipo AIDL concreto ou como a "
+"interface `IBinder` com tipo apagado:"
 
 #: src/android/aidl/types/objects.md
-#, fuzzy
 msgid ""
 "**birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider."
 "aidl**:"
 msgstr ""
-"_birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:"
+"**birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider."
+"aidl**:"
 
 #: src/android/aidl/types/objects.md src/android/aidl/types/parcelables.md
 #: src/android/aidl/types/file-descriptor.md
-#, fuzzy
 msgid ""
 "**birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl**:"
 msgstr ""
-"_birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:"
+"**birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl**:"
 
 #: src/android/aidl/types/objects.md
 msgid "/** The same thing, but using a binder object. */"
-msgstr ""
+msgstr "/** A mesma coisa, mas usando um objeto de ligação. */"
 
 #: src/android/aidl/types/objects.md
 msgid "/** The same thing, but using `IBinder`. */"
-msgstr ""
+msgstr "/** A mesma coisa, mas usando `IBinder`. */"
 
 #: src/android/aidl/types/objects.md src/android/aidl/types/parcelables.md
 #: src/android/aidl/types/file-descriptor.md
-#, fuzzy
 msgid "**birthday_service/src/client.rs**:"
-msgstr "_birthday_server/src/client.rs_:"
+msgstr "**birthday_service/src/client.rs**:"
 
 #: src/android/aidl/types/objects.md
-#, fuzzy
 msgid "/// Rust struct implementing the `IBirthdayInfoProvider` interface.\n"
-msgstr "//! Implementation of the `IBirthdayService` AIDL interface.\n"
+msgstr "/// _Struct_ Rust implementando a interface `IBirthdayInfoProvider`.\n"
 
 #: src/android/aidl/types/objects.md
-#, fuzzy
 msgid "// Create a binder object for the `IBirthdayInfoProvider` interface.\n"
-msgstr "//! Implementation of the `IBirthdayService` AIDL interface.\n"
+msgstr ""
+"// Cria um objeto de ligação para a interface `IBirthdayInfoProvider`.\n"
 
 #: src/android/aidl/types/objects.md
-#, fuzzy
 msgid "// Send the binder object to the service.\n"
-msgstr "/// Chama o serviço de aniversário.\n"
+msgstr "// Envia o objeto de ligação para o serviço.\n"
 
 #: src/android/aidl/types/objects.md
 msgid ""
 "// Perform the same operation but passing the provider as an `SpIBinder`.\n"
 msgstr ""
+"// Realiza a mesma operação, mas passando o provedor como um `SpIBinder`.\n"
 
 #: src/android/aidl/types/objects.md
 msgid ""
 "Note the usage of `BnBirthdayInfoProvider`. This serves the same purpose as "
 "`BnBirthdayService` that we saw previously."
 msgstr ""
+"Observe o uso de `BnBirthdayInfoProvider`. Isso serve para o mesmo propósito "
+"que `BnBirthdayService` que vimos anteriormente."
 
 #: src/android/aidl/types/parcelables.md
 msgid "Binder for Rust supports sending parcelables directly:"
-msgstr ""
+msgstr "Binder para Rust suporta o envio de _parcelables_ diretamente:"
 
 #: src/android/aidl/types/parcelables.md
-#, fuzzy
 msgid ""
 "**birthday_service/aidl/com/example/birthdayservice/BirthdayInfo.aidl**:"
 msgstr ""
-"_birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:"
+"**birthday_service/aidl/com/example/birthdayservice/BirthdayInfo.aidl**:"
 
 #: src/android/aidl/types/parcelables.md
 msgid "/** The same thing, but with a parcelable. */"
-msgstr ""
+msgstr "/** A mesma coisa, mas com um _parcelable_. */"
 
 #: src/android/aidl/types/file-descriptor.md
 msgid ""
 "Files can be sent between Binder clients/servers using the "
 "`ParcelFileDescriptor` type:"
 msgstr ""
+"Arquivos podem ser enviados entre clientes/servidores Binder usando o tipo "
+"`ParcelFileDescriptor`:"
 
 #: src/android/aidl/types/file-descriptor.md
 msgid "/** The same thing, but loads info from a file. */"
-msgstr ""
+msgstr "/** A mesma coisa, mas carrega informações de um arquivo. */"
 
 #: src/android/aidl/types/file-descriptor.md
 msgid "// Open a file and put the birthday info in it.\n"
-msgstr ""
+msgstr "// Abre um arquivo e coloca as informações de aniversário nele.\n"
 
 #: src/android/aidl/types/file-descriptor.md
 msgid "\"/data/local/tmp/birthday.info\""
-msgstr ""
+msgstr "\"/data/local/tmp/birthday.info\""
 
 #: src/android/aidl/types/file-descriptor.md
-#, fuzzy
 msgid "\"{name}\""
-msgstr "\"Olá {name}\""
+msgstr "\"{name}\""
 
 #: src/android/aidl/types/file-descriptor.md
 msgid "\"{years}\""
-msgstr ""
+msgstr "\"{years}\""
 
 #: src/android/aidl/types/file-descriptor.md
 msgid "// Create a `ParcelFileDescriptor` from the file and send it.\n"
-msgstr ""
+msgstr "// Cria um `ParcelFileDescriptor` a partir do arquivo e o envia.\n"
 
 #: src/android/aidl/types/file-descriptor.md
-#, fuzzy
 msgid "**birthday_service/src/lib.rs**:"
-msgstr "_birthday_service/src/lib.rs_:"
+msgstr "**birthday_service/src/lib.rs**:"
 
 #: src/android/aidl/types/file-descriptor.md
 msgid ""
@@ -14086,11 +14143,14 @@ msgid ""
 "`File`\n"
 "        // object.\n"
 msgstr ""
+"// Converte o descritor de arquivo para um `File`. `ParcelFileDescriptor` "
+"envolve\n"
+"        // um `OwnedFd`, que pode ser clonado e então usado para criar um "
+"objeto `File`.\n"
 
 #: src/android/aidl/types/file-descriptor.md
-#, fuzzy
 msgid "\"Invalid file handle\""
-msgstr "\"Comprimento inválido\""
+msgstr "\"Identificador de arquivo inválido\""
 
 #: src/android/aidl/types/file-descriptor.md
 msgid ""
@@ -14098,89 +14158,86 @@ msgid ""
 "`File` (or any other type that wraps an `OwnedFd`), and can be used to "
 "create a new `File` handle on the other side."
 msgstr ""
+"`ParcelFileDescriptor` envolve um `OwnedFd`, e assim pode ser criado a "
+"partir de um `File` (ou qualquer outro tipo que envolva um `OwnedFd`), e "
+"pode ser usado para criar um novo identificador de `File` no outro lado."
 
 #: src/android/aidl/types/file-descriptor.md
 msgid ""
 "Other types of file descriptors can be wrapped and sent, e.g. TCP, UDP, and "
 "UNIX sockets."
 msgstr ""
+"Outros tipos de descritores de arquivo podem ser envolvidos e enviados, por "
+"exemplo, soquetes TCP, UDP e UNIX."
 
 #: src/android/testing.md
-#, fuzzy
 msgid "Testing in Android"
-msgstr "Rust para Android"
+msgstr "Testes no Android"
 
 #: src/android/testing.md
 msgid ""
 "Building on [Testing](../testing.md), we will now look at how unit tests "
 "work in AOSP. Use the `rust_test` module for your unit tests:"
 msgstr ""
+"Continuando em [Testes](../testing.md), agora veremos como os testes "
+"unitários funcionam no AOSP. Use o módulo `rust_test` para seus testes "
+"unitários:"
 
 #: src/android/testing.md
-#, fuzzy
 msgid "_testing/Android.bp_:"
-msgstr "_hello_rust/Android.bp_:"
+msgstr "_testing/Android.bp_:"
 
 #: src/android/testing.md
-#, fuzzy
 msgid "\"libleftpad\""
-msgstr "\"libtextwrap\""
+msgstr "\"libleftpad\""
 
 #: src/android/testing.md
 msgid "\"leftpad\""
-msgstr ""
+msgstr "\"leftpad\""
 
 #: src/android/testing.md
-#, fuzzy
 msgid "\"libleftpad_test\""
-msgstr "\"libbirthday_bindgen_test\""
+msgstr "\"libleftpad_test\""
 
 #: src/android/testing.md
 msgid "\"leftpad_test\""
-msgstr ""
+msgstr "\"leftpad_test\""
 
 #: src/android/testing.md src/android/interoperability/with-c/bindgen.md
 msgid "\"general-tests\""
 msgstr "\"general-tests\""
 
 #: src/android/testing.md
-#, fuzzy
 msgid "_testing/src/lib.rs_:"
-msgstr "_hello_rust/src/lib.rs_:"
+msgstr "_testing/src/lib.rs_:"
 
 #: src/android/testing.md
-#, fuzzy
 msgid "//! Left-padding library.\n"
-msgstr "//! Greeting library.\n"
+msgstr "//! Biblioteca de preenchimento à esquerda.\n"
 
 #: src/android/testing.md
 msgid "/// Left-pad `s` to `width`.\n"
-msgstr ""
+msgstr "/// Preenche à esquerda `s` até `width`.\n"
 
 #: src/android/testing.md
-#, fuzzy
 msgid "\"{s:>width$}\""
-msgstr "\"|{:^width$}|\""
+msgstr "\"{s:>width$}\""
 
 #: src/android/testing.md
-#, fuzzy
 msgid "\"  foo\""
-msgstr "\"foo\""
+msgstr "\"  foo\""
 
 #: src/android/testing.md
-#, fuzzy
 msgid "\"foobar\""
-msgstr "\"foo bar\""
+msgstr "\"foobar\""
 
 #: src/android/testing.md
-#, fuzzy
 msgid "You can now run the test with"
-msgstr "Agora você pode gerar automaticamente as vinculações (_bindings_):"
+msgstr "Agora você pode executar o teste com"
 
 #: src/android/testing.md
-#, fuzzy
 msgid "The output looks like this:"
-msgstr "A abordagem geral é assim:"
+msgstr "A saída se parece com isso:"
 
 #: src/android/testing.md
 msgid ""
@@ -14195,12 +14252,24 @@ msgid ""
 "Test cases: finished with 2 passing and 0 failing out of 2 test cases\n"
 "```"
 msgstr ""
+"```text\n"
+"INFO: Elapsed time: 2.666s, Critical Path: 2.40s\n"
+"INFO: 3 processes: 2 internal, 1 linux-sandbox.\n"
+"INFO: Build completed successfully, 3 total actions\n"
+"//comprehensive-rust-android/testing:libleftpad_test_host            PASSED "
+"in 2.3s\n"
+"    PASSED  libleftpad_test.tests::long_string (0.0s)\n"
+"    PASSED  libleftpad_test.tests::short_string (0.0s)\n"
+"Test cases: finished with 2 passing and 0 failing out of 2 test cases\n"
+"```"
 
 #: src/android/testing.md
 msgid ""
 "Notice how you only mention the root of the library crate. Tests are found "
 "recursively in nested modules."
 msgstr ""
+"Observe como você menciona apenas a raiz da _crate_ da biblioteca. Os testes "
+"são encontrados recursivamente em módulos aninhados."
 
 #: src/android/testing/googletest.md
 msgid ""
@@ -14255,15 +14324,20 @@ msgid ""
 "the library, with exercises to help you get comfortable with `googletest` "
 "macros, its matchers and its overall philosophy."
 msgstr ""
+"Isso é apenas a ponta do iceberg, existem muitos _matchers_ embutidos. "
+"Considere passar pelo primeiro capítulo de [\"Testes avançados para "
+"aplicações Rust\"](https://github.com/mainmatter/rust-advanced-testing-"
+"workshop), um curso de Rust autoguiado: ele fornece uma introdução guiada à "
+"biblioteca, com exercícios para ajudá-lo a se sentir confortável com os "
+"macros do `googletest`, seus _matchers_ e sua filosofia geral."
 
 #: src/android/testing/googletest.md
-#, fuzzy
 msgid ""
 "A particularly nice feature is that mismatches in multi-line strings are "
 "shown as a diff:"
 msgstr ""
-"Uma característica particularmente agradável é que as diferenças em strings "
-"de várias linhas são mostradas como uma diferença:"
+"Uma característica particularmente interessante é que as diferenças em "
+"strings de várias linhas são mostradas como uma diferença:"
 
 #: src/android/testing/googletest.md
 msgid ""
@@ -14281,6 +14355,9 @@ msgid ""
 "            Rust's silly humor guides the way,\\n\\\n"
 "            Secure code you'll write.\""
 msgstr ""
+"\"Memory safety found,\\n\\\n"
+"            Rust's silly humor guides the way,\\n\\\n"
+"            Secure code you'll write.\""
 
 #: src/android/testing/googletest.md
 msgid "shows a color-coded diff (colors not shown here):"
@@ -14305,7 +14382,6 @@ msgstr ""
 "então rapidamente _\"mockar\"_:"
 
 #: src/android/testing/mocking.md
-#, fuzzy
 msgid ""
 "Mockall is the recommended mocking library in Android (AOSP). There are "
 "other [mocking libraries available on crates.io](https://crates.io/keywords/"
@@ -14313,11 +14389,12 @@ msgid ""
 "libraries work in a similar fashion as Mockall, meaning that they make it "
 "easy to get a mock implementation of a given trait."
 msgstr ""
-"O conselho aqui é para Android (AOSP), onde Mockall é a biblioteca de "
-"_mocking_ recomendada. Existem outras [bibliotecas de _mocking_ disponíveis "
-"em crates.io](https://crates.io/keywords/mock), em particular na área de "
-"_mocking_ de serviços HTTP. As outras bibliotecas de _mocking_ funcionam de "
-"maneira semelhante ao Mockall, o que significa que elas facilitam a "
+"Mockall é a biblioteca de _mocking_ recomendada para Android (AOSP). Existem "
+"outras [bibliotecas de _mocking_ disponíveis em crates.io](https://crates.io/"
+"keywords/mock), em particular na área de _mocking_ de serviços HTTP. As "
+"outras bibliotecas de _mocking_ funcionam de maneira semelhante ao Mockall, "
+"o que significa que elas facilitam a obtenção de uma implementação de _mock_ "
+"de um determinado _trait_."
 
 #: src/android/testing/mocking.md
 msgid ""
@@ -14505,7 +14582,7 @@ msgstr "Você pode fazer isso manualmente se quiser:"
 
 #: src/android/interoperability/with-c.md
 msgid "// SAFETY: `abs` doesn't have any safety requirements.\n"
-msgstr ""
+msgstr "// SEGURANÇA: `abs` não tem nenhum requisito de segurança.\n"
 
 #: src/android/interoperability/with-c.md
 msgid "\"{x}, {abs_x}\""
@@ -14654,6 +14731,13 @@ msgid ""
 "later\n"
 "    // after it returns.\n"
 msgstr ""
+"// SEGURANÇA: O ponteiro que passamos é válido porque veio de uma referência "
+"Rust,\n"
+"    // e o `name` que ele contém se refere a `name` acima, que também "
+"permanece\n"
+"    // válido. `print_card` não armazena nenhum dos ponteiros para usar "
+"depois\n"
+"    // que ele retorna.\n"
 
 #: src/android/interoperability/with-c/bindgen.md
 msgid ""
@@ -15357,9 +15441,8 @@ msgid "\"libjni\""
 msgstr "\"libjni\""
 
 #: src/android/interoperability/java.md
-#, fuzzy
 msgid "We then call this function from Java:"
-msgstr "Finalmente, podemos chamar esta função do Java:"
+msgstr "Podemos então chamar esta função do Java:"
 
 #: src/android/interoperability/java.md
 msgid "_interoperability/java/HelloWorld.java_:"
