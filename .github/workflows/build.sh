@@ -36,6 +36,9 @@ else
     fi
 fi
 
+# Enable mdbook-pandoc to build PDF version of the course
+export MDBOOK_OUTPUT__PANDOC__DISABLED=false
+
 mdbook build -d "$dest_dir"
 
 # Disable the redbox button in built versions of the course
