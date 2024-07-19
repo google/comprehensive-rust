@@ -1,0 +1,87 @@
+// Copyright 2024 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+use std::path::PathBuf;
+
+use clap::Parser;
+use mdbook_slide_evaluator::evaluator::Evaluator;
+use mdbook_slide_evaluator::slides::Book;
+use url::Url;
+
+#[derive(Parser)]
+#[command(version, about, arg_required_else_help(true))]
+struct Args {
+    /// the URI of the webdriver
+    #[arg(long, default_value_t=String::from("http://localhost:4444"))]
+    webdriver: String,
+    /// the XPath to element that is evaluated
+    #[arg(long, default_value_t=String::from(r#"//*[@id="content"]/main"#))]
+    element: String,
+    /// take screenshots of the content element if provided
+    #[arg(short, long)]
+    screenshot_dir: Option<PathBuf>,
+    /// a base url that is used to render the files (relative to source_dir).
+    /// if you mount the slides at source_dir into / in a webdriver docker
+    /// container you can use the default
+    #[arg(long, default_value_t=Url::parse("file:///").unwrap())]
+    base_url: Url,
+    /// exports to csv file if provided, otherwise to stdout
+    #[arg(long)]
+    export: Option<PathBuf>,
+    /// allows overwriting the export file
+    #[arg(long, default_value_t = false)]
+    overwrite: bool,
+    /// max width of a slide
+    #[arg(long, default_value_t = 750)]
+    width: usize,
+    /// max height of a slide
+    #[arg(long, default_value_t = 700)]
+    height: usize,
+    /// directory of the book that is evaluated
+    source_dir: PathBuf,
+}
+
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+    // pretty env receives log level from RUST_LOG env variable
+    pretty_env_logger::init();
+
+    let args = Args::parse();
+
+    // gather information about the book from the filesystem
+    let book = Book::from_html_slides(args.source_dir.clone())?;
+
+    // create a new evaluator (connects to the provided webdriver)
+    let evaluator = Evaluator::new(
+        &args.webdriver,
+        &args.element,
+        args.screenshot_dir,
+        args.base_url,
+        args.source_dir.to_path_buf(),
+    )
+    .await?;
+
+    // evaluate each slide
+    let score_results = evaluator.eval_book(book).await?;
+
+    if let Some(export_file) = args.export {
+        score_results.export_csv(&export_file, args.overwrite)?;
+    } else {
+        score_results.export_stdout();
+    }
+
+    // close webclient as otherwise the unclosed session cannot be reused
+    evaluator.close_client().await?;
+    Ok(())
+}
