@@ -179,10 +179,10 @@ jobs:
         uses: ./.github/workflows/install-mdbook
 
       - name: Copy latest version of translations
-        run: cp -r po old-po
+        run: cp -r po new-po
 
       - name: Checkout base version
         run: git checkout ${{ github.event.pull_request.base.sha }}
 
       - name: Translation diff
-        run: i18n-report diff old-po/ po/ > $GITHUB_STEP_SUMMARY
+        run: i18n-report diff po/ new-po/ > $GITHUB_STEP_SUMMARY
