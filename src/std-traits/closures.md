@@ -1,5 +1,5 @@
 ---
-minutes: 20
+minutes: 10
 ---
 
 # Closures

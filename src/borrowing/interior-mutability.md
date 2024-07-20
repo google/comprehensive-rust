@@ -71,4 +71,8 @@ that safety, and `RefCell` and `Cell` are two of them.
   `&self`. This needs no runtime check, but requires moving values, which can
   have its own cost.
 
+- Both `RefCell` and `Cell` are `!Sync`, which means `&RefCell` and `&Cell`
+  can't be passed between threads. This prevents two threads trying to access
+  the cell at once.
+
 </details>

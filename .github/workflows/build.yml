@@ -36,7 +36,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Check for typos
-        uses: crate-ci/typos@v1.21.0
+        uses: crate-ci/typos@v1.23.2
         with:
           config: ./.github/typos.toml
 
@@ -162,3 +162,27 @@ jobs:
         env:
           MDBOOK_BOOK__LANGUAGE: ${{ matrix.language }}
         run: mdbook test
+
+  po-diff:
+    name: Translation diff
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Rust cache
+        uses: ./.github/workflows/setup-rust-cache
+
+      - name: Install mdbook
+        uses: ./.github/workflows/install-mdbook
+
+      - name: Copy latest version of translations
+        run: cp -r po new-po
+
+      - name: Checkout base version
+        run: git checkout ${{ github.event.pull_request.base.sha }}
+
+      - name: Translation diff
+        run: i18n-report diff po/ new-po/ > $GITHUB_STEP_SUMMARY

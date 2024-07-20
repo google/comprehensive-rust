@@ -193,6 +193,7 @@
 - [Welcome](welcome-day-4-afternoon.md)
 - [Error Handling](error-handling.md)
   - [Panics](error-handling/panics.md)
+  - [`Result`](error-handling/result.md)
   - [Try Operator](error-handling/try.md)
   - [Try Conversions](error-handling/try-conversions.md)
   - [`Error` Trait](error-handling/error.md)

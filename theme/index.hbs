@@ -189,13 +189,18 @@
                               <a id="zh-TW">Chinese Traditional (漢語)</a>
                           </button></li>
                           <li role="none"><button role="menuitem" class="theme">
+                              <a id="ja">Japanese (日本語)</a>
+                          </button></li>
+                          <li role="none"><button role="menuitem" class="theme">
                               <a id="ko">Korean (한국어)</a>
                           </button></li>
                           <li role="none"><button role="menuitem" class="theme">
                               <a id="es">Spanish (Español)</a>
                           </button></li>
+                          <li role="none"><button role="menuitem" class="theme">
+                              <a id="uk">Ukrainian (українська)</a>
+                          </button></li>
                         </ul>
-
                         <script>
                           let langToggle = document.getElementById("language-toggle");
                           let langList = document.getElementById("language-list");
@@ -224,6 +229,18 @@
                                   lang.href = `${full_path_to_root}${lang.id}/${path}`;
                               }
                           }
+
+                          // When the user clicks a list item, the page jump is performed, just like clicking the internal <a> tag.
+                          langList.querySelectorAll("li").forEach(function(li) {
+                            li.addEventListener("click", function(event) {
+                              event.preventDefault();
+        
+                              let link = this.querySelector("a");
+                              if (link && window.location.href !== link.href) {
+                                window.location.href = link.href;
+                              }
+                            });
+                          });
                         </script>
 
                         {{#if print_enable}}

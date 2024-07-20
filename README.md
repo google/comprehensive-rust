@@ -49,7 +49,7 @@ The course is built using a few tools:
 
 - [mdbook](https://github.com/rust-lang/mdBook)
 - [mdbook-svgbob](https://github.com/boozook/mdbook-svgbob)
-- [mdbook-i18n-helpers](https://github.com/google/mdbook-i18n-helpers)
+- [mdbook-i18n-helpers and i18n-report](https://github.com/google/mdbook-i18n-helpers)
 - [mdbook-exerciser](mdbook-exerciser/)
 - [mdbook-course](mdbook-course/)
 
@@ -67,6 +67,7 @@ Then install these tools with:
 cargo install mdbook
 cargo install --locked mdbook-svgbob
 cargo install --locked mdbook-i18n-helpers
+cargo install --locked i18n-report
 cargo install --locked --path mdbook-exerciser
 cargo install --locked --path mdbook-course
 ```

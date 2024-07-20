@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Comprehensive Rust 🦀\n"
-"POT-Creation-Date: 2024-01-24T13:24:49+01:00\n"
+"POT-Creation-Date: 2024-01-30T13:24:49+01:00\n"
 "PO-Revision-Date: 2023-06-06 13:18+0900\n"
 "Last-Translator: Kenta Aratani <kentaaratani@coinez.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -14228,13 +14228,16 @@ msgstr ""
 
 #: src/chromium.md
 msgid "Welcome to Rust in Chromium"
-msgstr ""
+msgstr "Chromium の Rust へようこそ"
 
 #: src/chromium.md
 msgid ""
 "Rust is supported for third-party libraries in Chromium, with first-party "
 "glue code to connect between Rust and existing Chromium C++ code."
 msgstr ""
+"Rust は Chromium のサードパーティ ライブラリでサポートされています。Rust と既"
+"存の Chromium C++ コードを接続するには、ファースト パーティのグルーコードを使"
+"用します。"
 
 #: src/chromium.md
 msgid ""
@@ -14243,6 +14246,9 @@ msgid ""
 "feel free to follow this recipe in your part of the codebase instead of the "
 "exact part we talk about."
 msgstr ""
+"本日は、Rust で文字列を使って面白いことをしたいと思います。もし自分の担当部分"
+"にUTF8 文字列を表示するコードがある場合は、ここで述べた部分ではなく、自分の"
+"コードに対してこの手順を実行して構いません。"
 
 #: src/chromium/setup.md
 msgid ""
@@ -14250,12 +14256,17 @@ msgid ""
 "flags is OK, so long as your code is relatively recent (commit position "
 "1223636 onwards, corresponding to November 2023):"
 msgstr ""
+"Chromium をビルドして実行できることを確認します。コードが比較的最近のもの"
+"（2023 年 11 月に対応するコミット位置 1223636 以降）であれば、任意のプラット"
+"フォームとビルドフラグのセットで問題ありません。"
 
 #: src/chromium/setup.md
 msgid ""
 "(A component, debug build is recommended for quickest iteration time. This "
 "is the default!)"
 msgstr ""
+"（反復処理の時間を最短にするには、コンポーネントのデバッグビルドをおすすめし"
+"ます。これがデフォルトです）"
 
 #: src/chromium/setup.md
 msgid ""
@@ -14263,14 +14274,17 @@ msgid ""
 "the-code/) if you aren't already at that point. Be warned: setting up to "
 "build Chromium takes time."
 msgstr ""
+"まだ確認していない場合は、[Chromium のビルド方法](https://www.chromium.org/"
+"developers/how-tos/get-the-code/) を確認してください。なお、Chromium をビルド"
+"するためのセットアップには時間がかかります。"
 
 #: src/chromium/setup.md
 msgid "It's also recommended that you have Visual Studio code installed."
-msgstr ""
+msgstr "また、Visual Studio Code をインストールしておくことをおすすめします。"
 
 #: src/chromium/setup.md
 msgid "About the exercises"
-msgstr ""
+msgstr "演習について"
 
 #: src/chromium/setup.md
 msgid ""
@@ -14279,6 +14293,9 @@ msgid ""
 "If you don't have time to complete a certain part, don't worry: you can "
 "catch up in the next slot."
 msgstr ""
+"コースのこのパートには、相互に関連した一連の演習があります。コースの最後だけ"
+"でなく、全体を通して演習を行います。特定のパートを完了する時間がない場合も、"
+"後で追いつけばよいため心配はいりません。"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14286,10 +14303,13 @@ msgid ""
 "crates.io/). Chromium is built using `gn` and `ninja` and a curated set of "
 "dependencies."
 msgstr ""
+"Rust コミュニティでは通常、`cargo` と [crates.io](https://crates.io/) のライ"
+"ブラリを使用します。Chromium は、`gn` と `ninja`、および厳選された依存関係の"
+"セットを使用してビルドされています。"
 
 #: src/chromium/cargo.md
 msgid "When writing code in Rust, your choices are:"
-msgstr ""
+msgstr "Rust でコードを記述する際は、次の選択肢があります。"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14297,6 +14317,9 @@ msgid ""
 "gni` (e.g. `rust_static_library` that we'll meet later). This uses "
 "Chromium's audited toolchain and crates."
 msgstr ""
+"`//build/rust/*.gni` のテンプレート（例: 後で説明する `rust_static_library`）"
+"を参考にして、`gn` と `ninja` を使用します。これには、Chromium の監査済みの"
+"ツールチェーンとクレートが使用されます。"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14304,12 +14327,17 @@ msgid ""
 "crates](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/"
 "docs/rust.md#Using-cargo)"
 msgstr ""
+"`cargo` を使用しますが、実際の利用を[Chromium の監査済みのツールチェーンとク"
+"レートに制限します](https://chromium.googlesource.com/chromium/src/+/refs/"
+"heads/main/docs/rust.md#Using-cargo)。"
 
 #: src/chromium/cargo.md
 msgid ""
 "Use `cargo`, trusting a [toolchain](https://rustup.rs/) and/or [crates "
 "downloaded from the internet](https://crates.io/)"
 msgstr ""
+"`cargo` を使用し、[ツールチェーン](https://rustup.rs/) や [インターネットから"
+"ダウンロードしたクレート](https://crates.io/) を信頼します。"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14317,6 +14345,10 @@ msgid ""
 "code can be built into the Chromium browser. At the same time, Cargo is an "
 "important part of the Rust ecosystem and you should keep it in your toolbox."
 msgstr ""
+"ここからは、`gn` と `ninja` に焦点を当てます。これらを使用することで、"
+"Chromium ブラウザに Rust コードを組み込むことができます。それとは別に、Cargo "
+"は Rust エコシステムの重要な部分であり、使いこなせるようになっているべきで"
+"す。"
 
 #: src/chromium/cargo.md
 #, fuzzy
@@ -14325,19 +14357,23 @@ msgstr "練習問題"
 
 #: src/chromium/cargo.md
 msgid "Split into small groups and:"
-msgstr ""
+msgstr "少人数のグループに分け、以下を行います。"
 
 #: src/chromium/cargo.md
 msgid ""
 "Brainstorm scenarios where `cargo` may offer an advantage and assess the "
 "risk profile of these scenarios."
 msgstr ""
+"`cargo` がメリットをもたらす可能性のあるシナリオをブレインストーミングし、そ"
+"れらのシナリオのリスク プロファイルを評価します。"
 
 #: src/chromium/cargo.md
 msgid ""
 "Discuss which tools, libraries, and groups of people need to be trusted when "
 "using `gn` and `ninja`, offline `cargo`, etc."
 msgstr ""
+"`gn` や `ninja`、オフラインの `cargo` などを使用する際に、どのツール、ライブ"
+"ラリ、人々を信頼しなければならないかについて話し合います。"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14345,12 +14381,16 @@ msgid ""
 "exercise. Assuming folks taking the course are physically together, ask them "
 "to discuss in small groups of 3-4 people."
 msgstr ""
+"受講者に、演習を完了する前にスピーカー ノートをのぞかないようお願いしてくださ"
+"い。コースの受講者同士が地理的に集まっていると仮定して、3～4 人の少人数のグ"
+"ループで話し合ってもらうようにお願いしてください。"
 
 #: src/chromium/cargo.md
 msgid ""
 "Notes/hints related to the first part of the exercise (\"scenarios where "
 "Cargo may offer an advantage\"):"
 msgstr ""
+"演習の前半に関するメモとヒント（「Cargo がメリットをもたらすシナリオ」）:"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14360,18 +14400,28 @@ msgid ""
 "(`clap` for command-line parsing, `serde` for serializing/deserializing to/"
 "from various formats, `itertools` for working with iterators, etc.)."
 msgstr ""
+"ツールの作成時や Chromium の一部のプロトタイピング時に、crates.io ライブラリ"
+"の充実したエコシステムにアクセスできるのは素晴らしいことです。ほぼすべての事"
+"柄についてクレートが用意されており、大概の場合はとても快適に使用できます（コ"
+"マンドラインを解析するための `clap`、さまざまな形式との間でシリアル化または逆"
+"シリアル化を行うための `serde`、イテレータを操作するための `itertools` な"
+"ど）。"
 
 #: src/chromium/cargo.md
 msgid ""
 "`cargo` makes it easy to try a library (just add a single line to `Cargo."
 "toml` and start writing code)"
 msgstr ""
+"`cargo` を使用すると、ライブラリを簡単に試すことができます（`Cargo.toml` に "
+"1 行追加してコードの記述を開始するだけです）。"
 
 #: src/chromium/cargo.md
 msgid ""
 "It may be worth comparing how CPAN helped make `perl` a popular choice. Or "
 "comparing with `python` + `pip`."
 msgstr ""
+"`perl` の普及に役立った CPAN や、`python` における `pip` と比較してみると良い"
+"かもしれません。"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14382,20 +14432,31 @@ msgid ""
 "streamlining and sharing security audits; `criterion` crate gives a "
 "streamlined way to run benchmarks)."
 msgstr ""
+"主要な Rust ツール（ナイトリー、現在の安定版、古い安定版で動作する必要がある"
+"クレートをテストするときに、別の `rustc` バージョンに切り替えるのに使用する "
+"`rustup` など）だけでなく、サードパーティ ツールのエコシステム（Mozilla が提"
+"供するセキュリティ監査の容易化と共有のため `cargo vet`、ベンチマークを容易に"
+"実行する方法を提供する `criterion` クレートなど）により、開発エクスペリエンス"
+"は非常に快適となっています。"
 
 #: src/chromium/cargo.md
 msgid ""
 "`cargo` makes it easy to add a tool via `cargo install --locked cargo-vet`."
 msgstr ""
+"`cargo` を使用すると、`cargo install --locked cargo-vet` を介してツールを簡単"
+"に追加できます。"
 
 #: src/chromium/cargo.md
 msgid "It may be worth comparing with Chrome Extensions or VScode extensions."
 msgstr ""
+"Chrome 拡張機能や VScode 拡張機能と比較してみるのも良いかもしれません。"
 
 #: src/chromium/cargo.md
 msgid ""
 "Broad, generic examples of projects where `cargo` may be the right choice:"
 msgstr ""
+"`cargo` が適切な選択となるような、幅広い汎用的なプロジェクトの例を以下に示し"
+"ます。"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14405,6 +14466,10 @@ msgid ""
 "typesystem) and running faster (as a compiled, rather than interpreted "
 "language)."
 msgstr ""
+"意外かもしれませんが、業界ではコマンドライン ツールの作成に使用する言語とし"
+"て、Rust の人気が高まっています。ライブラリの幅とエルゴノミクスの点で Python "
+"に匹敵しつつも、豊富な型システムのおかげで堅牢で、（インタプリタ言語ではなく"
+"コンパイル言語なので）実行速度が高速です。"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14413,26 +14478,34 @@ msgid ""
 "used outside of Chromium (e.g. in Bazel or Android/Soong build environments) "
 "should probably use Cargo."
 msgstr ""
+"Rust エコシステムに参加するには、Cargo などの標準の Rust ツールを使用する必要"
+"があります。外部からコントリビューションを受け、Chromium 以外（Bazel や "
+"Android / Soong のビルド環境など）での使用が推奨されるライブラリでは、Cargo "
+"を使用することをおすすめします。"
 
 #: src/chromium/cargo.md
 msgid "Examples of Chromium-related projects that are `cargo`\\-based:"
-msgstr ""
+msgstr "`cargo` ベースの Chromium 関連プロジェクトの例:"
 
 #: src/chromium/cargo.md
 msgid ""
 "`serde_json_lenient` (experimented with in other parts of Google which "
 "resulted in PRs with performance improvements)"
 msgstr ""
+"`serde_json_lenient`（Google の他の部門でテストした結果、PR のパフォーマンス"
+"が向上）"
 
 #: src/chromium/cargo.md
 msgid "Fontations libraries like `font-types`"
-msgstr ""
+msgstr "`font-types` などのフォント化ライブラリ"
 
 #: src/chromium/cargo.md
 msgid ""
 "`gnrt` tool (we will meet it later in the course) which depends on `clap` "
 "for command-line parsing and on `toml` for configuration files."
 msgstr ""
+"`gnrt` ツール（このコースの後半で取り上げます）は、コマンドラインの解析には "
+"`clap` を使用し、構成ファイルには `toml` を使用します。"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14440,6 +14513,9 @@ msgid ""
 "when building and bootstrapping Rust standard library when building Rust "
 "toolchain.)"
 msgstr ""
+"免責条項: `cargo` を使用する唯一の理由は、Rust ツールチェーンのビルド中、"
+"Rust 標準ライブラリのビルドとブートストラップを行う際に `gn` を使用できないこ"
+"とでした。"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14447,12 +14523,17 @@ msgid ""
 "third-party libraries downloaded from the internet, by `run_gnrt.py` asks "
 "`cargo` that only `--locked` content is allowed via `Cargo.lock`.)"
 msgstr ""
+"`run_gnrt.py` は、Chromiumプロジェクト内の `cargo` と `rustc` のコピーを使用"
+"します。`gnrt` はインターネットからダウンロードされたサードパーティ ライブラ"
+"リに依存しており、`run_gnrt.py` で `Cargo.lock` を介して `--locked` コンテン"
+"ツのみを許可することを `cargo` に要求します。"
 
 #: src/chromium/cargo.md
 msgid ""
 "Students may identify the following items as being implicitly or explicitly "
 "trusted:"
 msgstr ""
+"以下のアイテムは、暗黙的または明示的に信頼されているとみなして構いません。"
 
 #: src/chromium/cargo.md
 msgid ""
@@ -14460,40 +14541,51 @@ msgid ""
 "Clang compiler, the `rustc` sources (fetched from GitHub, reviewed by Rust "
 "compiler team), binary Rust compiler downloaded for bootstrapping"
 msgstr ""
+"LLVM ライブラリ、Clang コンパイラ、`rustc` ソース（GitHub から取得され、Rust "
+"コンパイラ チームによるレビューを受けたもの）、ブートストラップ用にダウンロー"
+"ドされたバイナリ Rust コンパイラに依存する `rustc`（Rust コンパイラ）"
 
 #: src/chromium/cargo.md
 msgid ""
 "`rustup` (it may be worth pointing out that `rustup` is developed under the "
 "umbrella of the https://github.com/rust-lang/ organization - same as `rustc`)"
 msgstr ""
+"`rustup`（`rustup` は `rustc`と同じく https://github.com/rust-lang/ 組織の傘"
+"下で開発されていることを説明すると良いかもしれません）"
 
 #: src/chromium/cargo.md
 msgid "`cargo`, `rustfmt`, etc."
-msgstr ""
+msgstr "`cargo`、`rustfmt` など"
 
 #: src/chromium/cargo.md
 msgid ""
 "Various internal infrastructure (bots that build `rustc`, system for "
 "distributing the prebuilt toolchain to Chromium engineers, etc.)"
 msgstr ""
+"さまざまな内部インフラストラクチャ（`rustc` をビルドする bot、事前構築済みの"
+"ツールチェーンを Chromium エンジニアに配布するためのシステムなど）"
 
 #: src/chromium/cargo.md
 msgid "Cargo tools like `cargo audit`, `cargo vet`, etc."
-msgstr ""
+msgstr "`cargo audit` や `cargo vet` などの Cargo ツール"
 
 #: src/chromium/cargo.md
 msgid ""
 "Rust libraries vendored into `//third_party/rust` (audited by "
 "security@chromium.org)"
 msgstr ""
+"`//third_party/rust` に取り込まれたRust ライブラリ（security@chromium.org が"
+"監査）"
 
 #: src/chromium/cargo.md
 msgid "Other Rust libraries (some niche, some quite popular and commonly used)"
 msgstr ""
+"その他の Rust ライブラリ（ニッチなものもあれば、非常に人気がありよく使用され"
+"るものもあります）"
 
 #: src/chromium/policy.md
 msgid "Chromium Rust policy"
-msgstr ""
+msgstr "Chromium の Rust ポリシー"
 
 #: src/chromium/policy.md
 msgid ""
@@ -14501,6 +14593,9 @@ msgid ""
 "approved by Chromium's [Area Tech Leads](https://source.chromium.org/"
 "chromium/chromium/src/+/main:ATL_OWNERS)."
 msgstr ""
+"Chromium では、Chromium の [エリア テクニカル リード](https://source."
+"chromium.org/chromium/chromium/src/+/main:ATL_OWNERS) によって承認されている"
+"まれなケースを除き、ファースト パーティでのRust使用はまだ許可されていません。"
 
 #: src/chromium/policy.md
 msgid ""
@@ -14510,6 +14605,11 @@ msgid ""
 "circumstances, including if they're the best option for performance or for "
 "security."
 msgstr ""
+"サードパーティ ライブラリに関する Chromium のポリシーについては、[こちら]"
+"(https://chromium.googlesource.com/chromium/src/+/main/docs/"
+"adding_to_third_party.md#rust) をご覧ください。Rust は、パフォーマンスやセ"
+"キュリティを高めるうえで最適な選択肢である場合を含め、さまざまな状況でサード"
+"パーティ ライブラリに使用することが許可されています。"
 
 #: src/chromium/policy.md
 msgid ""
@@ -14517,6 +14617,8 @@ msgid ""
 "nearly all such libraries will require a small amount of first-party glue "
 "code."
 msgstr ""
+"C / C++ API を直接公開する Rust ライブラリはほとんどないため、こうしたライブ"
+"ラリのほぼすべてで、少量のファースト パーティ グルーコードが必要になります。"
 
 #: src/chromium/policy.md
 msgid ""
@@ -14544,28 +14646,53 @@ msgid ""
 "-'\n"
 "```"
 msgstr ""
+"```bob\n"
+"\"C++\"                           Rust\n"
+".- - - - - - - - - -.           .- - - - - - - - - - - - - - - - - - - - - - "
+"-.\n"
+":                   :           :                                             :\n"
+": 既存の Chromium   :           :  \"Chromium Rust\"             \"既存の "
+"Rust\"  :\n"
+": \"C++\"             :           :  \"ラッパー\"                  クレー"
+"ト       :\n"
+": +---------------+ :           : +----------------+          +-------------"
+"+ :\n"
+": |               | :           : |                |          |             "
+"| :\n"
+": |         o-----+-+-----------+-+->            o-+----------+-->          "
+"| :\n"
+": |               | : 言語      : |                | Crate    |             "
+"| :\n"
+": +---------------+ : 境界      : +----------------+ API      +-------------"
+"+ :\n"
+":                   :           :                                             :\n"
+"`- - - - - - - - - -'           `- - - - - - - - - - - - - - - - - - - - - - "
+"-'\n"
+"```"
 
 #: src/chromium/policy.md
 msgid ""
 "First-party Rust glue code for a particular third-party crate should "
 "normally be kept in `third_party/rust/<crate>/<version>/wrapper`."
 msgstr ""
+"特定のサードパーティ クレート用のファースト パーティ Rust グルーコードは通"
+"常、`third_party/rust/<crate>/<version>/wrapper` に置かれるべきです。"
 
 #: src/chromium/policy.md
 msgid "Because of this, today's course will be heavily focused on:"
-msgstr ""
+msgstr "以上の理由から、本日のコースでは以下に焦点を当てます。"
 
 #: src/chromium/policy.md
 msgid "Bringing in third-party Rust libraries (\"crates\")"
-msgstr ""
+msgstr "サードパーティの Rust ライブラリ（「クレート」）を導入する。"
 
 #: src/chromium/policy.md
 msgid "Writing glue code to be able to use those crates from Chromium C++."
-msgstr ""
+msgstr "Chromium C++ からクレートを使用できるようにグルーコードを記述する。"
 
 #: src/chromium/policy.md
 msgid "If this policy changes over time, the course will evolve to keep up."
-msgstr ""
+msgstr "このポリシーが変更された場合は、それに合わせてコースも変更されます。"
 
 #: src/chromium/build-rules.md
 #, fuzzy
@@ -14578,15 +14705,19 @@ msgid ""
 "`ninja` for efficiency --- its static rules allow maximum parallelism. Rust "
 "is no exception."
 msgstr ""
+"Rust コードは通常、`cargo` を使用してビルドされます。Chromium は効率を高める"
+"ために `gn` と `ninja`を使用してビルドされますが、その静的ルールによって最大"
+"限の並列処理が可能になります。Rust も例外ではありません。"
 
 #: src/chromium/build-rules.md
 msgid "Adding Rust code to Chromium"
-msgstr ""
+msgstr "Chromium に Rust コードを追加する"
 
 #: src/chromium/build-rules.md
 msgid ""
 "In some existing Chromium `BUILD.gn` file, declare a `rust_static_library`:"
 msgstr ""
+"Chromium の既存の `BUILD.gn` ファイルで、`rust_static_library` を宣言します。"
 
 #: src/chromium/build-rules.md
 msgid ""
@@ -14599,12 +14730,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"import(\"//build/rust/rust_static_library.gni\")\n"
+"\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [ \"lib.rs\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/build-rules.md
 msgid ""
 "You can also add `deps` on other Rust targets. Later we'll use this to "
 "depend upon third party code."
 msgstr ""
+"他の Rust ターゲットに `deps` を追加することもできます。後でこれを使用して、"
+"サードパーティのコードへの依存を設定します。"
 
 #: src/chromium/build-rules.md
 msgid ""
@@ -14614,12 +14755,18 @@ msgid ""
 "list of all source files which `ninja` needs in order to determine when "
 "rebuilds are necessary."
 msgstr ""
+"クレートルートとソースの完全なリストの両方を指定する必要があります。"
+"`crate_root` は Rust コンパイラに渡されるファイルで、コンパイル単位のルート"
+"ファイル（通常は `lib.rs`）を表します。`sources` はすべてのソースファイルの完"
+"全なリストで、再ビルドが必要なタイミングを `ninja` が判断するために必要です。"
 
 #: src/chromium/build-rules.md
 msgid ""
 "(There's no such thing as a Rust `source_set`, because in Rust, an entire "
 "crate is a compilation unit. A `static_library` is the smallest unit.)"
 msgstr ""
+"（Rust ではクレート全体がコンパイル単位であるため、`source_set`と呼べるような"
+"ものは存在しません。`static_library` が最小単位です）。"
 
 #: src/chromium/build-rules.md
 msgid ""
@@ -14629,10 +14776,15 @@ msgid ""
 "this template provides support for CXX interop, Rust features, and unit "
 "tests, some of which we'll use later."
 msgstr ""
+"受講者は、なぜ [Rust の静的ライブラリに対する gn の組み込みサポート](https://"
+"gn.googlesource.com/gn/+/main/docs/reference.md#func_static_library) ではな"
+"く、gn テンプレートを使用する必要があるのか疑問に思うかもしれません。その答え"
+"は、このテンプレートが CXX 相互運用、Rustのfeatures、単体テストをサポートして"
+"いるためです。その一部は後で使用します。"
 
 #: src/chromium/build-rules/unsafe.md
 msgid "Including `unsafe` Rust Code"
-msgstr ""
+msgstr "`unsafe` Rust コードの追加"
 
 #: src/chromium/build-rules/unsafe.md
 msgid ""
@@ -14641,6 +14793,10 @@ msgid ""
 "the gn target. (Later in the course we'll see circumstances where this is "
 "necessary.)"
 msgstr ""
+"安全でない Rust コードはデフォルトでは `rust_static_library` で禁止されてお"
+"り、コンパイルできません。安全でない Rust コードが必要な場合は、gn ターゲット"
+"に `allow_unsafe = true` を追加します（これが必要になる状況については、この"
+"コースの後半で説明します）。"
 
 #: src/chromium/build-rules/unsafe.md
 msgid ""
@@ -14657,10 +14813,24 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"import(\"//build/rust/rust_static_library.gni\")\n"
+"\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [\n"
+"    \"lib.rs\",\n"
+"    \"hippopotamus.rs\"\n"
+"  ]\n"
+"  allow_unsafe = true\n"
+"}\n"
+"```"
 
 #: src/chromium/build-rules/depending.md
 msgid "Simply add the above target to the `deps` of some Chromium C++ target."
 msgstr ""
+"上記のターゲットをいくつかの Chromium C++ ターゲットの `deps` に追加するだけ"
+"です。"
 
 #: src/chromium/build-rules/depending.md
 msgid ""
@@ -14678,62 +14848,94 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"import(\"//build/rust/rust_static_library.gni\")\n"
+"\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [ \"lib.rs\" ]\n"
+"}\n"
+"\n"
+"# または source_set、static_library など\n"
+"component(\"preexisting_cpp\") {\n"
+"  deps = [ \":my_rust_lib\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Types are elided in Rust code, which makes a good IDE even more useful than "
 "for C++. Visual Studio code works well for Rust in Chromium. To use it,"
 msgstr ""
+"Rust コードでは型が省略されているため、優れた IDE は C++ の場合よりもさらに有"
+"用です。Visual Studio Code は Chromium の Rust で適切に機能します。Visual "
+"Studio Code を使用するにあたり、以下の点を確認してください。"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Ensure your VSCode has the `rust-analyzer` extension, not earlier forms of "
 "Rust support"
 msgstr ""
+"VSCode に、以前の形式の Rust サポートではなく、`rust-analyzer` 拡張機能がある"
+"ことを確認"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "`gn gen out/Debug --export-rust-project` (or equivalent for your output "
 "directory)"
 msgstr ""
+"`gn gen out/Debug --export-rust-project`（またはあなたのプロジェクトにおける"
+"同様の出力ディレクトリ）"
 
 #: src/chromium/build-rules/vscode.md
 msgid "`ln -s out/Debug/rust-project.json rust-project.json`"
-msgstr ""
+msgstr "`ln -s out/Debug/rust-project.json rust-project.json`"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "A demo of some of the code annotation and exploration features of rust-"
 "analyzer might be beneficial if the audience are naturally skeptical of IDEs."
 msgstr ""
+"IDE に懐疑的な受講者に対しては、rust-analyzer のコード アノテーションと探索機"
+"能のデモを行うと良いかもしれません。"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "The following steps may help with the demo (but feel free to instead use a "
 "piece of Chromium-related Rust that you are most familiar with):"
 msgstr ""
+"以下の手順に沿ってデモを行うことをおすすめします（代わりに自分が最も精通して"
+"いる Chromium 関連の Rustコードを使用しても構いません）。"
 
 #: src/chromium/build-rules/vscode.md
 msgid "Open `components/qr_code_generator/qr_code_generator_ffi_glue.rs`"
 msgstr ""
+"`components/qr_code_generator/qr_code_generator_ffi_glue.rs` を開きます。"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Place the cursor over the `QrCode::new` call (around line 26) in "
 "\\`qr_code_generator_ffi_glue.rs"
 msgstr ""
+"\\`qr_code_generator_ffi_glue.rs の `QrCode::new` 呼び出し（26 行目付近）に"
+"カーソルを合わせます。"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Demo **show documentation** (typical bindings: vscode = ctrl k i; vim/CoC = "
 "K)."
 msgstr ""
+"**show documentation** のデモを行います（一般的なバインディング: vscode = "
+"ctrl ki、vim/CoC = K）。"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Demo **go to definition** (typical bindings: vscode = F12; vim/CoC = g d). "
 "(This will take you to `//third_party/rust/.../qr_code-.../src/lib.rs`.)"
 msgstr ""
+"**go to definition** のデモを行います（一般的なバインディング: vscode = F12、"
+"vim/CoC = g d）（これにより、`//third_party/rust/.../qr_code-.../src/lib.rs` "
+"に移動します）。"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
@@ -14741,12 +14943,17 @@ msgid ""
 "164; the outline is in the file explorer pane in vscode; typical vim/CoC "
 "bindings = space o)"
 msgstr ""
+"**outline** のデモを行い、`QrCode::with_bits` メソッドに移動します（164 行目"
+"付近。アウトラインは VSCode のファイル エクスプローラ ペインにあります。一般"
+"的な vim/CoC バインディング = space o）。"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
 "Demo **type annotations** (there are quote a few nice examples in the "
 "`QrCode::with_bits` method)"
 msgstr ""
+"**type annotations**のデモを行います（`QrCode::with_bits` メソッドにいくつか"
+"の適切な例があります）。"
 
 #: src/chromium/build-rules/vscode.md
 msgid ""
@@ -14754,17 +14961,21 @@ msgid ""
 "need to be rerun after editing `BUILD.gn` files (which we will do a few "
 "times throughout the exercises in this session)."
 msgstr ""
+"`BUILD.gn` ファイルの編集後は `gn gen ... --export-rust-project` を再実行する"
+"必要があることを説明してください（このセッションの演習全体で数回行います）。"
 
 #: src/exercises/chromium/build-rules.md
 #, fuzzy
 msgid "Build rules exercise"
-msgstr "ビルドのルール"
+msgstr "ビルドのルールに関する演習"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "In your Chromium build, add a new Rust target to `//ui/base/BUILD.gn` "
 "containing:"
 msgstr ""
+"Chromium のビルドで、以下を含む新しい Rust ターゲットを `//ui/base/BUILD.gn` "
+"に追加します。"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -14772,6 +14983,8 @@ msgid ""
 "by the Rust compiler, so you'll need to to allow unsafe code in your `gn` "
 "target."
 msgstr ""
+"**重要**: ここでの `no_mangle` は Rust コンパイラでは安全でない型とみなされる"
+"ため、`gn` ターゲットで安全でないコードを許可する必要があります。"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -14779,6 +14992,9 @@ msgid ""
 "function at the top of `ui/base/resource/resource_bundle.cc` (later, we'll "
 "see how this can be automated by bindings generation tools):"
 msgstr ""
+"この新しい Rust ターゲットを `//ui/base:base` の依存関係として追加します。こ"
+"の関数を `ui/base/resource/resource_bundle.cc` の先頭で宣言します（後ほど、バ"
+"インディング生成ツールでこれを自動化する方法を説明します）。"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -14787,6 +15003,10 @@ msgid ""
 "and run Chromium, and ensure that \"Hello from Rust!\" is printed lots of "
 "times."
 msgstr ""
+"この関数を `ui/base/resource/resource_bundle.cc` 内のどこかから呼び出します。"
+"おすすめは`ResourceBundle::MaybeMangleLocalizedString` の先頭から呼び出すこと"
+"です。Chromium をビルドして実行し、\"Hello from Rust!\" が何度も出力されてい"
+"ることを確認します。"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -14794,11 +15014,14 @@ msgid ""
 "in subsequent exercises. If you've succeeded, you will be able to use right-"
 "click \"Go to definition\" on `println!`."
 msgstr ""
+"VSCode を使用している場合は、VSCode で適切に動作するように Rust を設定しま"
+"す。これは、後続の演習で役立ちます。設定が完了したら、`println!` で \"Go to "
+"definition\" を右クリックで利用できるようになります。"
 
 #: src/exercises/chromium/build-rules.md
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Where to find help"
-msgstr ""
+msgstr "参考情報"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -14806,30 +15029,41 @@ msgid ""
 "source.chromium.org/chromium/chromium/src/+/main:build/rust/"
 "rust_static_library.gni;l=16)"
 msgstr ""
+"[`rust_static_library` gn テンプレート](https://source.chromium.org/chromium/"
+"chromium/src/+/main:build/rust/rust_static_library.gni;l=16) で使用できるオプ"
+"ション"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "Information about [`#[no_mangle]`](https://doc.rust-lang.org/beta/reference/"
 "abi.html#the-no_mangle-attribute)"
 msgstr ""
+"[`#[no_mangle]`](https://doc.rust-lang.org/beta/reference/abi.html#the-"
+"no_mangle-attribute) に関する情報"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "Information about [`extern \"C\"`](https://doc.rust-lang.org/std/keyword."
 "extern.html)"
 msgstr ""
+"[`extern \"C\"`](https://doc.rust-lang.org/std/keyword.extern.html) に関する"
+"情報"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "Information about gn's [`--export-rust-project`](https://gn.googlesource.com/"
 "gn/+/main/docs/reference.md#compilation-database) switch"
 msgstr ""
+"gn の [`--export-rust-project`](https://gn.googlesource.com/gn/+/main/docs/"
+"reference.md#compilation-database) スイッチに関する情報"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "[How to install rust-analyzer in VSCode](https://code.visualstudio.com/docs/"
 "languages/rust)"
 msgstr ""
+"[VSCode に rust-analyzer をインストールする方法](https://code.visualstudio."
+"com/docs/languages/rust)"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -14838,6 +15072,9 @@ msgid ""
 "call C ABI functions. Later in the course, we'll connect C++ directly to "
 "Rust."
 msgstr ""
+"この例は、共通の相互運用言語である C に集約されているため、一般的ではありませ"
+"ん。C++ と Rust はどちらも、C ABI 関数をネイティブに宣言して呼び出すことがで"
+"きます。コースの後半で、C++ を Rust に直接接続します。"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
@@ -14845,12 +15082,17 @@ msgid ""
 "Rust to generate two functions with the same name, and Rust can no longer "
 "guarantee that the right one is called."
 msgstr ""
+"ここで `allow_unsafe = true` は必須です。`#[no_mangle]` により、Rust は同じ名"
+"前の関数を2つ生成するようになり、Rust は正しい関数が呼び出されることを保証で"
+"きなくなるためです。"
 
 #: src/exercises/chromium/build-rules.md
 msgid ""
 "If you need a pure Rust executable, you can also do that using the "
 "`rust_executable` gn template."
 msgstr ""
+"純粋な Rust 実行可能ファイルが必要な場合は、`rust_executable` gn テンプレート"
+"を使用して行うこともできます。"
 
 #: src/chromium/testing.md
 msgid ""
@@ -14858,6 +15100,9 @@ msgid ""
 "source file as the code being tested. This was covered [earlier](../testing."
 "md) in the course and looks like this:"
 msgstr ""
+"Rust コミュニティは通常、テスト対象のコードと同じソースファイルに配置されたモ"
+"ジュールで単体テストを作成します。これは本コースの [前の部分](../testing.md) "
+"で説明しており、以下のようになります。"
 
 #: src/chromium/testing.md
 msgid ""
@@ -14866,17 +15111,23 @@ msgid ""
 "and helps to avoid rebuilding `.rs` files a second time (in the `test` "
 "configuration)."
 msgstr ""
+"Chromium では単体テストを別のソースファイルに配置しており、Rust でもこの方針"
+"を継続します。これにより、テストが常に検出可能になり、2 度目に（`test` 構成"
+"で）`.rs` ファイルを再ビルドする必要がなくなります。"
 
 #: src/chromium/testing.md
 msgid ""
 "This results in the following options for testing Rust code in Chromium:"
 msgstr ""
+"その結果、Chromium で Rust コードをテストするための次の選択肢が提供されます。"
 
 #: src/chromium/testing.md
 msgid ""
 "Native Rust tests (i.e. `#[test]`). Discouraged outside of `//third_party/"
 "rust`."
 msgstr ""
+"ネイティブ Rust テスト（例: `#[test]`）。`//third_party/rust` 以外では推奨さ"
+"れません。"
 
 #: src/chromium/testing.md
 msgid ""
@@ -14884,6 +15135,9 @@ msgid ""
 "when Rust code is just a thin FFI layer and the existing unit tests provide "
 "sufficient coverage for the feature."
 msgstr ""
+"C++ で作成され、FFI 呼び出しを介して Rust を実行する `gtest` テスト。Rust "
+"コードが単なる薄いFFI レイヤであり、既存の単体テストで今後この機能が漏れなく"
+"カバーされる場合には十分です。"
 
 #: src/chromium/testing.md
 msgid ""
@@ -14891,6 +15145,9 @@ msgid ""
 "public API (using `pub mod for_testing { ... }` if needed). This is the "
 "subject of the next few slides."
 msgstr ""
+"Rust で作成され、公開 API を介してテスト対象のクレートを使用する `gtest` テス"
+"ト（必要に応じて `pub mod for_testing { ... }` を使用）。これについては、次の"
+"数枚のスライドで説明します。"
 
 #: src/chromium/testing.md
 msgid ""
@@ -14898,12 +15155,18 @@ msgid ""
 "exercised by Chromium bots. (Such testing is needed rarely --- only after "
 "adding or updating third-party crates.)"
 msgstr ""
+"サードパーティ クレートのネイティブ Rust テストが最終的に Chromium bot によっ"
+"て実行される必要があることを説明します（このようなテストが必要になることは"
+"めったになく、サードパーティのクレートを追加または更新した後にのみ必要となり"
+"ます）。"
 
 #: src/chromium/testing.md
 msgid ""
 "Some examples may help illustrate when C++ `gtest` vs Rust `gtest` should be "
 "used:"
 msgstr ""
+"C++ の`gtest` と Rust の`gtest` をどのような場合に使うべきか、いくつかの例を"
+"使って説明するとよいでしょう。"
 
 #: src/chromium/testing.md
 msgid ""
@@ -14912,6 +15175,10 @@ msgid ""
 "both the C++ and the Rust implementation (parameterizing the tests so they "
 "enable or disable Rust using a `ScopedFeatureList`)."
 msgstr ""
+"QR には、ファースト パーティの Rust レイヤの機能はほとんどありません（単なる"
+"シン FFI グルーです）。そのため、C++ と Rust の実装の両方をテストするには、既"
+"存の C++ 単体テストを使用します（テストをパラメータ化し、`ScopedFeatureList` "
+"を使用して Rust を有効化または無効化できるようになっています）。"
 
 #: src/chromium/testing.md
 msgid ""
@@ -14920,24 +15187,35 @@ msgid ""
 "missing in the `png` crate - e.g. RGBA => BGRA, or gamma correction. Such "
 "functionality may benefit from separate tests authored in Rust."
 msgstr ""
+"仮定の、または開発中の PNG 統合では、`libpng` では提供されているのに、`png` "
+"クレートでは欠落しているピクセル変換（RGBA => BGRA、ガンマ補正など）のメモリ"
+"セーフな実装が必要となる場合があります。このような機能の開発においては、別途"
+"Rustでテストを作成することが役立つ場合があります。"
 
 #: src/chromium/testing/rust-gtest-interop.md
 msgid ""
 "The [`rust_gtest_interop`](https://chromium.googlesource.com/chromium/src/+/"
 "main/testing/rust_gtest_interop/README.md) library provides a way to:"
 msgstr ""
+"[`rust_gtest_interop`](https://chromium.googlesource.com/chromium/src/+/main/"
+"testing/rust_gtest_interop/README.md) ライブラリを使用すると、次のことができ"
+"ます。"
 
 #: src/chromium/testing/rust-gtest-interop.md
 msgid ""
 "Use a Rust function as a `gtest` testcase (using the `#[gtest(...)]` "
 "attribute)"
 msgstr ""
+"Rust 関数を `gtest` テストケースとして使用する（`#[gtest(...)]` 属性を使"
+"用）。"
 
 #: src/chromium/testing/rust-gtest-interop.md
 msgid ""
 "Use `expect_eq!` and similar macros (similar to `assert_eq!` but not "
 "panicking and not terminating the test when the assertion fails)."
 msgstr ""
+"`expect_eq!` などのマクロを使用する（`assert_eq!`と似ていますが、アサーション"
+"が失敗してもパニックせず、テストを終了しません）。"
 
 #: src/chromium/testing/rust-gtest-interop.md
 #, fuzzy
@@ -14949,6 +15227,8 @@ msgid ""
 "The simplest way to build Rust `gtest` tests is to add them to an existing "
 "test binary that already contains tests authored in C++. For example:"
 msgstr ""
+"Rust の `gtest` テストをビルドする最も簡単な方法は、C++ で作成されたテストが"
+"すでに含まれている既存のテストバイナリに追加することです。次に例を示します。"
 
 #: src/chromium/testing/build-gn.md
 msgid ""
@@ -14960,12 +15240,21 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"test(\"ui_base_unittests\") {\n"
+"  ...\n"
+"  sources += [ \"my_rust_lib_unittest.rs\" ]\n"
+"  deps += [ \":my_rust_lib\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/testing/build-gn.md
 msgid ""
 "Authoring Rust tests in a separate `static_library` also works, but requires "
 "manually declaring the dependency on the support libraries:"
 msgstr ""
+"別途、`static_library` で Rust テストを作成することも可能ですが、サポート ラ"
+"イブラリへの依存関係を手動で宣言する必要があります。"
 
 #: src/chromium/testing/build-gn.md
 msgid ""
@@ -14987,6 +15276,23 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"rust_static_library(\"my_rust_lib_unittests\") {\n"
+"  testonly = true\n"
+"  is_gtest_unittests = true\n"
+"  crate_root = \"my_rust_lib_unittest.rs\"\n"
+"  sources = [ \"my_rust_lib_unittest.rs\" ]\n"
+"  deps = [\n"
+"    \":my_rust_lib\",\n"
+"    \"//testing/rust_gtest_interop\",\n"
+"  ]\n"
+"}\n"
+"\n"
+"test(\"ui_base_unittests\") {\n"
+"  ...\n"
+"  deps += [ \":my_rust_lib_unittests\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/testing/chromium-import-macro.md
 msgid ""
@@ -14997,14 +15303,20 @@ msgid ""
 "working with such an unwieldy name by using the `chromium::import!` macro "
 "from the automatically-imported `chromium` crate:"
 msgstr ""
+"GN の `deps` に `:my_rust_lib` を追加した後も、`my_rust_lib_unittest.rs` か"
+"ら `my_rust_lib` をインポートして使用する方法について学ぶ必要があります。"
+"`my_rust_lib` には明示的な `crate_name` が指定されていないため、クレート名は"
+"ターゲットのフルパスと名前に基づいて生成されます。幸い、自動的にインポートさ"
+"れる `chromium` クレートから `chromium::import!` マクロを使用すれば、このよう"
+"な扱いにくい名前の使用を回避できます。"
 
 #: src/chromium/testing/chromium-import-macro.md
 msgid "\"//ui/base:my_rust_lib\""
-msgstr ""
+msgstr "\"//ui/base:my_rust_lib\""
 
 #: src/chromium/testing/chromium-import-macro.md
 msgid "Under the covers the macro expands to something similar to:"
-msgstr ""
+msgstr "内部で、マクロは次のように展開されます。"
 
 #: src/chromium/testing/chromium-import-macro.md
 msgid ""
@@ -15013,6 +15325,10 @@ msgid ""
 "chromium_prelude.rs?q=f:chromium_prelude.rs%20pub.use.*%5Cbimport%5Cb;%20-f:"
 "third_party&ss=chromium%2Fchromium%2Fsrc) of the `chromium::import` macro."
 msgstr ""
+"詳しくは、`chromium::import` マクロの [ドキュメント コメント](https://source."
+"chromium.org/chromium/chromium/src/+/main:build/rust/chromium_prelude/"
+"chromium_prelude.rs?q=f:chromium_prelude.rs%20pub.use.*%5Cbimport%5Cb;%20-f:"
+"third_party&ss=chromium%2Fchromium%2Fsrc) をご覧ください。"
 
 #: src/chromium/testing/chromium-import-macro.md
 msgid ""
@@ -15022,6 +15338,11 @@ msgid ""
 "crate names so `cargo_crate` GN targets (generated by the `gnrt` tool "
 "covered in a later section) use short crate names."
 msgstr ""
+"`rust_static_library` は、`crate_name` プロパティによる明示的な名前の指定をサ"
+"ポートしていますが、クレート名はグローバルに一意である必要があるため、これは"
+"推奨されません。crates.io はクレート名の一意性を保証しているため、"
+"`cargo_crate` GN ターゲット（後述の `gnrt` ツールで生成）は短いクレート名を使"
+"用します。"
 
 #: src/exercises/chromium/testing.md
 #, fuzzy
@@ -15030,11 +15351,11 @@ msgstr "練習問題"
 
 #: src/exercises/chromium/testing.md
 msgid "Time for another exercise!"
-msgstr ""
+msgstr "新たな演習の時間です！"
 
 #: src/exercises/chromium/testing.md
 msgid "In your Chromium build:"
-msgstr ""
+msgstr "Chromium ビルドで以下を行ってください。"
 
 #: src/exercises/chromium/testing.md
 msgid ""
@@ -15042,18 +15363,22 @@ msgid ""
 "two integers received as arguments, computing the nth Fibonacci number, "
 "summing integers in a slice, etc."
 msgstr ""
+"`hello_from_rust` の横にテスト可能な関数を追加します。たとえば、引数として受"
+"け取った 2 つの整数を追加する、n 番目のフィボナッチ数を計算する、スライス内の"
+"整数を合計する、などが考えられます。"
 
 #: src/exercises/chromium/testing.md
 msgid "Add a separate `..._unittest.rs` file with a test for the new function."
 msgstr ""
+"新しい関数のテストを含む別個の `..._unittest.rs` ファイルを追加します。"
 
 #: src/exercises/chromium/testing.md
 msgid "Add the new tests to `BUILD.gn`."
-msgstr ""
+msgstr "新しいテストを `BUILD.gn` に追加します。"
 
 #: src/exercises/chromium/testing.md
 msgid "Build the tests, run them, and verify that the new test works."
-msgstr ""
+msgstr "テストをビルドして実行し、新しいテストが機能することを確認します。"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15061,6 +15386,9 @@ msgid ""
 "tools being developed all the time. At the moment, Chromium uses a tool "
 "called CXX."
 msgstr ""
+"Rust コミュニティには C++ と Rust の相互運用のためのオプションが複数用意され"
+"ており、絶えず新しいツールが開発されています。現在のところ、Chromium では "
+"CXX というツールを使用しています。"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15068,12 +15396,16 @@ msgid ""
 "language (which looks a lot like Rust) and then CXX tools generate "
 "declarations for functions and types in both Rust and C++."
 msgstr ""
+"言語境界全体をインターフェース定義言語（Rust によく似ています）で記述すると、"
+"CXX ツールが Rust と C++ の両方で関数と型の宣言を生成します。"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
 "See the [CXX tutorial](https://cxx.rs/tutorial.html) for a full example of "
 "using this."
 msgstr ""
+"CXX の詳細な使用例については、[CXX チュートリアル](https://cxx.rs/tutorial."
+"html) をご覧ください。"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15081,6 +15413,8 @@ msgid ""
 "the same as you previously did. Point out that automating the process has "
 "the following benefits:"
 msgstr ""
+"図を見ながら話しましょう。裏で行われる処理は以前とまったく同じであり、このプ"
+"ロセスを自動化すると次のようなメリットがあることを説明します。"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15089,6 +15423,10 @@ msgid ""
 "definitions, but with out-of-sync manual bindings you'd get Undefined "
 "Behavior)"
 msgstr ""
+"このツールは、C++ 側と Rust 側が一致することを保証します（たとえば、`#[cxx::"
+"bridge]` が実際の C++ または Rust の定義と一致しない場合、コンパイル エラーが"
+"発生しますが、同期されていない手動バインディングを使用すると、未定義の動作が"
+"発生します）。"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15097,10 +15435,14 @@ msgid ""
 "methods; manual bindings would require authoring such top-level, free "
 "functions manually)"
 msgstr ""
+"このツールは、C 以外の機能に対する FFI サンク（小さな C-ABI 互換のフリー関"
+"数）の生成を自動化します（Rust または C++ メソッドへの FFI 呼び出しの有効化な"
+"ど。手動バインディングでは、このようなトップレベルのフリー関数を手動で作成す"
+"る必要があります）。"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid "The tool and the library can handle a set of core types - for example:"
-msgstr ""
+msgstr "ツールとライブラリは、次のような一連の主要な型を処理できます。"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15110,6 +15452,10 @@ msgid ""
 "pointer and length - this is error-prone given that each language represents "
 "empty slices slightly differently)"
 msgstr ""
+"`&[T]` は、特定の ABI やメモリ レイアウトを保証するものではありませんが、FFI "
+"の境界を超えて渡すことができます。手動バインディングでは、`std::span<T>` / "
+"`&[T]` を手動で分離し、ポインタと長さから再構築する必要があります。言語ごとに"
+"空のスライスの表現方法が若干異なるため、エラーが発生しやすくなります。"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15118,6 +15464,10 @@ msgid ""
 "compatible raw pointers, which would increase lifetime and memory-safety "
 "risks."
 msgstr ""
+"`std::unique_ptr<T>`、`std::shared_ptr<T>`、`Box` などのスマート ポインタは、"
+"ネイティブにサポートされています。手動バインディングでは、C-ABI 互換の未加工"
+"ポインタを渡す必要があるため、ライフタイムとメモリ安全性に関するリスクが高ま"
+"ります。"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15126,24 +15476,29 @@ msgid ""
 "build a Rust string from non-UTF8 input and `rust::String::c_str` can NUL-"
 "terminate a string)."
 msgstr ""
+"`rust::String` 型と `CxxString` 型は、言語間の文字列表現の違いを理解し、維持"
+"します（たとえば、`rust::String::lossy` は、非 UTF8 の入力から Rust 文字列を"
+"作成できます。また、`rust::String::c_str` は文字列を NUL 終端できます）。"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid ""
 "CXX requires that the whole C++/Rust boundary is declared in `cxx::bridge` "
 "modules inside `.rs` source code."
 msgstr ""
+"CXX では、C++ と Rust の境界全体を `.rs` ソースコード内の `cxx::bridge` モ"
+"ジュールで宣言する必要があります。"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "\"example/include/blobstore.h\""
-msgstr ""
+msgstr "\"example/include/blobstore.h\""
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "// Definitions of Rust types and functions go here\n"
-msgstr ""
+msgstr "// Rust の型と関数の定義をここに記述します。\n"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "Point out:"
-msgstr ""
+msgstr "以下を説明します。"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid ""
@@ -15152,23 +15507,26 @@ msgid ""
 "bit more sophisticated - though this does still result in a `mod` called "
 "`ffi` in your code."
 msgstr ""
+"これは通常の Rust `mod` のように見えますが、`#[cxx::bridge]` プロシージャル "
+"マクロはこれに対して複雑な処理を行います。生成されるコードはもっと洗練されて"
+"いますが、それでもコードには `ffi` という `mod` が作成されます。"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "Native support for C++'s `std::unique_ptr` in Rust"
-msgstr ""
+msgstr "Rust での C++ の `std::unique_ptr` のネイティブ サポート"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 #, fuzzy
 msgid "Native support for Rust slices in C++"
-msgstr "組み込みのテストサポート。"
+msgstr "Rust での C++ の `std::unique_ptr` のネイティブ サポート"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "Calls from C++ to Rust, and Rust types (in the top part)"
-msgstr ""
+msgstr "C++ から Rust および Rust の型への呼び出し（上部）"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid "Calls from Rust to C++, and C++ types (in the bottom part)"
-msgstr ""
+msgstr "Rust から C++ および C++ の型への呼び出し（下部）"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md
 msgid ""
@@ -15177,34 +15535,42 @@ msgid ""
 "simply `#include`d in the generated C++ code for the benefit of C++ "
 "compilers."
 msgstr ""
+"**よくある誤解**: Rust で C++ ヘッダーが解析されているように見えますが、これ"
+"は誤解です。このヘッダーは Rust では解釈されず、C++ コンパイラのために生成さ"
+"れた C++ コードに `#include` されているだけです。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "By far the most useful page when using CXX is the [type reference](https://"
 "cxx.rs/bindings.html)."
 msgstr ""
+"CXX を使用するときに最も役立つページは、[型リファレンス](https://cxx.rs/"
+"bindings.html) です。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid "CXX fundamentally suits cases where:"
-msgstr ""
+msgstr "CXX は基本的に、次のようなケースに適しています。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "Your Rust-C++ interface is sufficiently simple that you can declare all of "
 "it."
-msgstr ""
+msgstr "Rust-C++ インターフェースが十分にシンプルで、すべてを宣言できる場合。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "You're using only the types natively supported by CXX already, for example "
 "`std::unique_ptr`, `std::string`, `&[u8]` etc."
 msgstr ""
+"すでに CXX でネイティブにサポートされている型のみを使用している場合（例: "
+"`std::unique_ptr`、`std::string`、`&[u8]`）。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "It has many limitations --- for example lack of support for Rust's `Option` "
 "type."
 msgstr ""
+"Rust の `Option` 型がサポートされていないなど、CXX には多くの制限があります。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
@@ -15214,47 +15580,60 @@ msgid ""
 "draft the CXX bindings for the language boundary to see if it appears simple "
 "enough."
 msgstr ""
+"こうした制限により、Chromium では 任意の Rust と C++ の相互運用は行われず、"
+"Rustの使用は十分に独立したコードに限定されています。Chromium での Rust のユー"
+"スケースを検討する際は、まず、言語境界の CXX バインディングの下書きを作成し"
+"て、シンプルに見えるかどうかを確認することをおすすめします。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "You should also discuss some of the other sticky points with CXX, for "
 "example:"
 msgstr ""
+"また、CXX のその他の厄介な点を説明する必要があります。次に例を示します。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid ""
 "Its error handling is based around C++ exceptions (given on the next slide)"
-msgstr ""
+msgstr "エラー処理が C++ 例外に基づいて行われる（次のスライドを参照）。"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md
 msgid "Function pointers are awkward to use."
-msgstr ""
+msgstr "関数ポインタが使いにくい。"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid ""
 "CXX's [support for `Result<T,E>`](https://cxx.rs/binding/result.html) relies "
 "on C++ exceptions, so we can't use that in Chromium. Alternatives:"
 msgstr ""
+"CXX の [`Result<T,E>` のサポート](https://cxx.rs/binding/result.html) は、C+"
+"+ 例外に依存しているため、Chromium では使用できません。以下の代替手段がありま"
+"す。"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid "The `T` part of `Result<T, E>` can be:"
-msgstr ""
+msgstr "`Result<T, E>` の `T` の部分:"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid ""
 "Returned via out parameters (e.g. via `&mut T`). This requires that `T` can "
 "be passed across the FFI boundary - for example `T` has to be:"
 msgstr ""
+"out パラメータを介して返すことができます（例: `&mut T`）。そのためには、`T` "
+"を FFI の境界を越えて渡せる必要があります。たとえば、`T` には以下を指定する必"
+"要があります。"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid "A primitive type (like `u32` or `usize`)"
-msgstr ""
+msgstr "プリミティブ型（`u32`、`usize` など）"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid ""
 "A type natively supported by `cxx` (like `UniquePtr<T>`) that has a suitable "
 "default value to use in a failure case (_unlike_ `Box<T>`)."
 msgstr ""
+"(`Box<T>` とは異なり)適切なデフォルト値を持つ`cxx` でネイティブにサポートされ"
+"ている型（`UniquePtr<T>` など）。"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid ""
@@ -15262,22 +15641,29 @@ msgid ""
 "when `T` is a Rust type, which cannot be passed across the FFI boundary, and "
 "cannot be stored in `UniquePtr<T>`."
 msgstr ""
+"Rust 側で保持し、参照を介して公開できます。これは、`T` が Rust 型の場合に必要"
+"になることがあります。Rust 型は FFI の境界を超えて渡すことができず、"
+"`UniquePtr<T>` に格納することもできません。"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid "The `E` part of `Result<T, E>` can be:"
-msgstr ""
+msgstr "`Result<T, E>` の `E` の部分:"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid ""
 "Returned as a boolean (e.g. `true` representing success, and `false` "
 "representing failure)"
 msgstr ""
+"ブール値として返すことができます（たとえば、`true` は成功、`false` は失敗を表"
+"します）。"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md
 msgid ""
 "Preserving error details is in theory possible, but so far hasn't been "
 "needed in practice."
 msgstr ""
+"理論上はエラーの詳細を保持できますが、これまでは実際に必要になることはありま"
+"せんでした。"
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 #, fuzzy
@@ -15292,10 +15678,14 @@ msgid ""
 "used to communicate success vs failure, and where the successful result can "
 "be passed across the FFI boundary:"
 msgstr ""
+"QR コード生成ツールは、ブール値が成功または失敗を伝達し、成功の結果を FFI の"
+"境界を超えて受け渡すことができる [一例](https://source.chromium.org/chromium/"
+"chromium/src/+/main:components/qr_code_generator/qr_code_generator_ffi_glue."
+"rs;l=13-18;drc=7bf1b75b910ca430501b9c6a74c1d18a0223ecca) です。"
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 msgid "\"qr_code_generator\""
-msgstr ""
+msgstr "\"qr_code_generator\""
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 msgid ""
@@ -15304,6 +15694,9 @@ msgid ""
 "admittedly it is a bit redundant - this is the square root of the size of "
 "the vector)."
 msgstr ""
+"受講者は `out_qr_size` 出力のセマンティクスに関心を持っている可能性がありま"
+"す。これはベクターのサイズではなく、QR コードのサイズです（つまり、この情報は"
+"冗長であり、ベクターのサイズの平方根に相当します）。"
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 msgid ""
@@ -15312,6 +15705,9 @@ msgid ""
 "points to uninitialized memory results in Undefined Behavior (unlike in C++, "
 "when only the act of dereferencing such memory results in UB)."
 msgstr ""
+"Rust 関数を呼び出す前に `out_qr_size` を初期化することの重要性を説明しましょ"
+"う。初期化されていないメモリを指す Rust 参照を作成すると、未定義の動作となり"
+"ます（そのようなメモリを逆参照する操作のみが UB になるC++ とは異なります）。"
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md
 msgid ""
@@ -15319,6 +15715,10 @@ msgid ""
 "references to C++ data: the answer is that C++ data can’t be moved around "
 "like Rust data, because it may contain self-referential pointers."
 msgstr ""
+"`Pin` について受講者から尋ねられた場合は、CXX が C++ データへの可変参照のため"
+"に `Pin` を必要とする理由を説明します。つまり、C++ のデータには自己参照ポイン"
+"タが含まれている可能性があるため、Rust のデータのように移動することができませ"
+"ん。"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 #, fuzzy
@@ -15330,24 +15730,28 @@ msgid ""
 "A prototype of a PNG decoder illustrates what can be done when the "
 "successful result cannot be passed across the FFI boundary:"
 msgstr ""
+"PNG デコーダのプロトタイプは、成功した結果を FFI の境界を越えて渡せない場合に"
+"何ができるかを示しています。"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 msgid "\"gfx::rust_bindings\""
-msgstr ""
+msgstr "\"gfx::rust_bindings\""
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 msgid ""
 "/// This returns an FFI-friendly equivalent of `Result<PngReader<'a>,\n"
 "        /// ()>`.\n"
 msgstr ""
+"/// これは `Result<PngReader<'a>,()>` と同等の FFI 対応の結果を\n"
+"        /// 返します。\n"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 msgid "/// C++ bindings for the `crate::png::ResultOfPngReader` type.\n"
-msgstr ""
+msgstr "/// `crate::png::ResultOfPngReader` 型の C++ バインディング\n"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 msgid "/// C++ bindings for the `crate::png::PngReader` type.\n"
-msgstr ""
+msgstr "/// `crate::png::PngReader` 型の C++ バインディング\n"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 msgid ""
@@ -15356,6 +15760,10 @@ msgid ""
 "can't have an `out_parameter: &mut PngReader`, because CXX doesn't allow C++ "
 "to store Rust objects by value."
 msgstr ""
+"`PngReader` と `ResultOfPngReader`は Rust 型です。これらの型のオブジェクト"
+"は、`Box<T>` を介さずに FFI 境界を越えることはできません。CXX では Rust オブ"
+"ジェクトを値で格納できないため、`out_parameter: &mut PngReader` と書くことは"
+"できません。"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md
 msgid ""
@@ -15366,10 +15774,14 @@ msgid ""
 "appropriate methods of `Result<T, E>` (e.g. into `is_err`, `unwrap`, and/or "
 "`as_mut`)."
 msgstr ""
+"この例は、CXX が任意のジェネリクスやテンプレートをサポートしていなくても、手"
+"動で非ジェネリック型に特化 / 単相化することで、FFI 境界を越えて渡せることを示"
+"しています。この例では、`ResultOfPngReader` は`Result<T, E>` の適切なメソッド"
+"（`is_err`、`unwrap`、`as_mut` など）に渡される非ジェネリック型です。"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid "Using cxx in Chromium"
-msgstr ""
+msgstr "Chromium で cxx を使用する"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
@@ -15377,6 +15789,8 @@ msgid ""
 "node where we want to use Rust. You'd typically have one for each "
 "`rust_static_library`. Just add"
 msgstr ""
+"Chromium では、Rust を使用するリーフノードごとに独立した `#[cxx::bridge] "
+"mod` を定義します。通常は、`rust_static_library` ごとに 1 つずつになります。"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
@@ -15386,20 +15800,28 @@ msgid ""
 "allow_unsafe = true\n"
 "```"
 msgstr ""
+"```gn\n"
+"cxx_bindings = [ \"my_rust_file.rs\" ]\n"
+"   # すべてのソースファイルではなく、#[cxx::bridge] を含むファイルのリスト\n"
+"allow_unsafe = true\n"
+"```"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
 "to your existing `rust_static_library` target alongside `crate_root` and "
 "`sources`."
 msgstr ""
+"上記のコードを、`crate_root` や `sources`と並んで、既存の "
+"`rust_static_library` ターゲットに追加するだけです。"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid "C++ headers will be generated at a sensible location, so you can just"
 msgstr ""
+"C++ ヘッダーは適切な場所で生成されるため、次のようにインクルードできます。"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid "\"ui/base/my_rust_file.rs.h\""
-msgstr ""
+msgstr "\"ui/base/my_rust_file.rs.h\""
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
@@ -15408,10 +15830,16 @@ msgid ""
 "source.chromium.org/chromium/chromium/src/+/main:base/containers/span_rust.h;"
 "l=21)."
 msgstr ""
+"`//base` には、Chromium C++ 型から CXX Rust 型（およびその逆方向）への変換を"
+"行うためのユーティリティ関数がいくつかあります（例: [`SpanToRustSlice`]"
+"(https://source.chromium.org/chromium/chromium/src/+/main:base/containers/"
+"span_rust.h;l=21)）。"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid "Students may ask --- why do we still need `allow_unsafe = true`?"
 msgstr ""
+"受講者から、`allow_unsafe = true` がなぜここでも必要なのかを尋ねられる可能性"
+"があります。"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
@@ -15423,6 +15851,13 @@ msgid ""
 "writing/the-cxx-debate), but strictly, bringing any foreign code into a Rust "
 "binary can cause unexpected behavior from Rust's perspective."
 msgstr ""
+"大まかに答えると、C/C++ コードは通常の Rust 標準では「安全」ではありません。"
+"Rust から C/C++ に行ったり来たりすると、メモリに対して任意の処理が行われ、"
+"Rust 独自のデータ レイアウトの安全性が損なわれる可能性があります。C/C++ の相"
+"互運用で `unsafe` キーワードが多すぎると、`unsafe`に対する注目度が薄れるの"
+"で、これには [賛否両論があります](https://steveklabnik.com/writing/the-cxx-"
+"debate)。ただし厳密には、外部コードを Rust バイナリに取り込むと、Rust の観点"
+"からは想定していない動作が発生する可能性があります。"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md
 msgid ""
@@ -15431,15 +15866,18 @@ msgid ""
 "`unsafe` and `extern \"C\"` functions just like we did manually in the "
 "previous section."
 msgstr ""
+"具体的な答えは、[このページ](../interoperability-with-cpp.md) の上部の図にあ"
+"ります。裏では、CXX は Rust の `unsafe` 関数と `extern \"C\"` 関数を生成しま"
+"す。これは前のセクションで手動で行ったのとまったく同じです。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 #, fuzzy
 msgid "Exercise: Interoperability with C++"
-msgstr "相互運用性"
+msgstr "演習: C++との相互運用性"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Part one"
-msgstr ""
+msgstr "パート 1"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15447,50 +15885,61 @@ msgid ""
 "specifies a single function, to be called from C++, called "
 "`hello_from_rust`, taking no parameters and returning no value."
 msgstr ""
+"先ほど作成した Rust ファイルに、C++ から呼び出す単一の関数を示す `#[cxx::"
+"bridge]` を追加します。これは `hello_from_rust` という関数で、パラメータを受"
+"け取らず、値も返しません。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "Modify your previous `hello_from_rust` function to remove `extern \"C\"` and "
 "`#[no_mangle]`. This is now just a standard Rust function."
 msgstr ""
+"前の `hello_from_rust` 関数を変更して `extern \"C\"` と `#[no_mangle]` を削除"
+"します。これで標準の Rust 関数になります。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Modify your `gn` target to build these bindings."
-msgstr ""
+msgstr "`gn` ターゲットを変更して、これらのバインディングをビルドします。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "In your C++ code, remove the forward-declaration of `hello_from_rust`. "
 "Instead, include the generated header file."
 msgstr ""
+"C++ コードで、`hello_from_rust` の前方宣言を削除し、代わりに生成されたヘッ"
+"ダー ファイルをインクルードします。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Build and run!"
-msgstr ""
+msgstr "ビルドして実行します。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Part two"
-msgstr ""
+msgstr "パート 2"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "It's a good idea to play with CXX a little. It helps you think about how "
 "flexible Rust in Chromium actually is."
 msgstr ""
+"CXX を少し使ってみて、Chromium における Rust の柔軟性について理解を深めましょ"
+"う。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Some things to try:"
-msgstr ""
+msgstr "以下を試してください。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Call back into C++ from Rust. You will need:"
-msgstr ""
+msgstr "Rust から C++ を呼び出します。これには以下が必要です。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "An additional header file which you can `include!` from your `cxx::bridge`. "
 "You'll need to declare your C++ function in that new header file."
 msgstr ""
+"`cxx::bridge` から `include!` できる追加のヘッダー ファイル。その新しいヘッ"
+"ダー ファイルで C++ 関数を宣言する必要があります。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15498,56 +15947,69 @@ msgid ""
 "`unsafe` keyword in your `#[cxx::bridge]` [as described here](https://cxx.rs/"
 "extern-c++.html#functions-and-member-functions)."
 msgstr ""
+"このような関数を呼び出す `unsafe` ブロック。または [こちら](https://cxx.rs/"
+"extern-c++.html#functions-and-member-functions) に記載されているとおり、"
+"`#[cxx::bridge]` 内で `unsafe` キーワードを指定する必要があります。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "You may also need to `#include \"third_party/rust/cxx/v1/crate/include/cxx."
 "h\"`"
 msgstr ""
+"`#include \"third_party/rust/cxx/v1/crate/include/cxx.h\"` も必要になるかもし"
+"れません。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Pass a C++ string from C++ into Rust."
-msgstr ""
+msgstr "C++ から Rust に C++ 文字列を渡します。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Pass a reference to a C++ object into Rust."
-msgstr ""
+msgstr "C++ オブジェクトへの参照を Rust に渡します。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "Intentionally get the Rust function signatures mismatched from the `#[cxx::"
 "bridge]`, and get used to the errors you see."
 msgstr ""
+"意図的に`#[cxx::bridge]`と一致しないようにRust 関数のシグネチャを変更し、表示"
+"されるエラーに慣れるようにします。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "Intentionally get the C++ function signatures mismatched from the `#[cxx::"
 "bridge]`, and get used to the errors you see."
 msgstr ""
+"意図的に`#[cxx::bridge]`と一致しないようにC++ 関数のシグネチャを変更し、表示"
+"されるエラーに慣れるようにします。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "Pass a `std::unique_ptr` of some type from C++ into Rust, so that Rust can "
 "own some C++ object."
 msgstr ""
+"なんらかの型の `std::unique_ptr` を C++ から Rust に渡して、Rust がいくつか"
+"の C++ オブジェクトを所有できるようにします。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "Create a Rust object and pass it into C++, so that C++ owns it. (Hint: you "
 "need a `Box`)."
 msgstr ""
+"Rust オブジェクトを作成して C++ に渡して、C++ がそれを所有できるようにします"
+"（ヒント: `Box` が必要です）。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Declare some methods on a C++ type. Call them from Rust."
-msgstr ""
+msgstr "C++ 型でいくつかのメソッドを宣言し、Rust から呼び出します。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Declare some methods on a Rust type. Call them from C++."
-msgstr ""
+msgstr "Rust 型に対していくつかのメソッドを宣言し、C++ から呼び出します。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Part three"
-msgstr ""
+msgstr "パート 3"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15555,20 +16017,25 @@ msgid ""
 "couple of use-cases for Rust in Chromium where the interface would be "
 "sufficiently simple. Sketch how you might define that interface."
 msgstr ""
+"CXX の相互運用性の長所と制限事項について理解したところで、インターフェースが"
+"非常にシンプルな、Chromium での Rust のユースケースをいくつか考えてみましょ"
+"う。このインターフェースをどのように定義すればよいか考えてみましょう。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "The [`cxx` binding reference](https://cxx.rs/bindings.html)"
-msgstr ""
+msgstr "[`cxx` バインディング リファレンス](https://cxx.rs/bindings.html)"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
 "The [`rust_static_library` gn template](https://source.chromium.org/chromium/"
 "chromium/src/+/main:build/rust/rust_static_library.gni;l=16)"
 msgstr ""
+"[`rust_static_library` gn テンプレート](https://source.chromium.org/chromium/"
+"chromium/src/+/main:build/rust/rust_static_library.gni;l=16)"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid "Some of the questions you may encounter:"
-msgstr ""
+msgstr "次のような質問が寄せられる可能性があります。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15576,6 +16043,8 @@ msgid ""
 "and Y are both function types. This is because your C++ function doesn't "
 "quite match the declaration in your `cxx::bridge`."
 msgstr ""
+"X と Y の両方が関数型である場合に、型 X の変数を型 Y で初期化すると問題が発生"
+"します。これは、C++ 関数が `cxx::bridge` 内の宣言と完全に一致しないためです。"
 
 #: src/exercises/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15584,6 +16053,10 @@ msgid ""
 "sized. For CXX trivial types yes, it's _possible_ to cause UB, although "
 "CXX's design makes it quite difficult to craft such an example."
 msgstr ""
+"C++ 参照を Rust 参照に自由に変換できるようですが、UB のリスクはないでしょう"
+"か？CXX の不透明型の場合、サイズがゼロであるため、そのリスクはありません。"
+"CXX のトリビアル型では UB が発生する可能性がありますが、CXX の設計上、そのよ"
+"うな例を作成するのは非常に困難です。"
 
 #: src/chromium/adding-third-party-crates.md
 msgid ""
@@ -15591,6 +16064,9 @@ msgid ""
 "crates.io). It's _very easy_ for Rust crates to depend upon one another. So "
 "they do!"
 msgstr ""
+"Rust ライブラリは「クレート」と呼ばれ、[crates.io](https://crates.io) にあり"
+"ます。Rust クレートを互いに依存させるのは非常に簡単であり、実際にそのように"
+"なっています"
 
 #: src/chromium/adding-third-party-crates.md
 #, fuzzy
@@ -15600,76 +16076,80 @@ msgstr "ライブラリ"
 #: src/chromium/adding-third-party-crates.md
 #, fuzzy
 msgid "Rust crate"
-msgstr "便利クレート"
+msgstr "Rustクレート"
 
 #: src/chromium/adding-third-party-crates.md
 #, fuzzy
 msgid "Build system"
-msgstr "ビルドのルール"
+msgstr "ビルドシステム"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Lots"
-msgstr ""
+msgstr "多数"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Consistent: `Cargo.toml`"
-msgstr ""
+msgstr "一貫して `Cargo.toml`"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Typical library size"
-msgstr ""
+msgstr "一般的なライブラリ サイズ"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Large-ish"
-msgstr ""
+msgstr "やや大"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Small"
-msgstr ""
+msgstr "小"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Transitive dependencies"
-msgstr ""
+msgstr "推移的依存関係"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "Few"
-msgstr ""
+msgstr "少"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "For a Chromium engineer, this has pros and cons:"
-msgstr ""
+msgstr "Chromium のエンジニアにとって、クレートには長所と短所があります。"
 
 #: src/chromium/adding-third-party-crates.md
 msgid ""
 "All crates use a common build system so we can automate their inclusion into "
 "Chromium..."
 msgstr ""
+"すべてのクレートが共通のビルドシステムを使用しているため、Chromium への取り込"
+"みを自動化できます。"
 
 #: src/chromium/adding-third-party-crates.md
 msgid ""
 "... but, crates typically have transitive dependencies, so you will likely "
 "have to bring in multiple libraries."
 msgstr ""
+"しかし、クレートには通常、推移的依存関係があるため、複数のライブラリを取り込"
+"むことが必要になる可能性があります。"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "We'll discuss:"
-msgstr ""
+msgstr "議論する内容は次のとおりです。"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "How to put a crate in the Chromium source code tree"
-msgstr ""
+msgstr "Chromium ソースコード ツリーにクレートを配置する方法"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "How to make `gn` build rules for it"
-msgstr ""
+msgstr "クレート用の `gn` ビルドルールを作成する方法"
 
 #: src/chromium/adding-third-party-crates.md
 msgid "How to audit its source code for sufficient safety."
-msgstr ""
+msgstr "クレートのソースコードの十分な安全性を監査する方法。"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
 msgid "Configuring the `Cargo.toml` file to add crates"
-msgstr ""
+msgstr " `Cargo.toml` ファイルによりクレートを追加する方法"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
 msgid ""
@@ -15678,6 +16158,9 @@ msgid ""
 "org/chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/Cargo."
 "toml):"
 msgstr ""
+"Chromium には、一元管理される直接的なクレート依存関係が 1 セットあります。こ"
+"れらは単一の [`Cargo.toml`](https://source.chromium.org/chromium/chromium/"
+"src/+/main:third_party/rust/chromium_crates_io/Cargo.toml) で管理されます。"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
 msgid ""
@@ -15689,6 +16172,13 @@ msgid ""
 "# lots more...\n"
 "```"
 msgstr ""
+"```toml\n"
+"[dependencies]\n"
+"bitflags = \"1\"\n"
+"cfg-if = \"1\"\n"
+"cxx = \"1\"\n"
+"# lots more...\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
 msgid ""
@@ -15697,12 +16187,17 @@ msgid ""
 "dependencies.html) --- most commonly, you'll want to specify the `features` "
 "that you wish to enable in the crate."
 msgstr ""
+"他の `Cargo.toml` と同様に、[依存関係の詳細](https://doc.rust-lang.org/cargo/"
+"reference/specifying-dependencies.html) を指定できます。通常は、クレートで有"
+"効にする `features` を指定します。"
 
 #: src/chromium/adding-third-party-crates/configuring-cargo-toml.md
 msgid ""
 "When adding a crate to Chromium, you'll often need to provide some extra "
 "information in an additional file, `gnrt_config.toml`, which we'll meet next."
 msgstr ""
+"Chromium にクレートを追加する際は、多くの場合、 `gnrt_config.toml`という追加"
+"ファイルに情報を指定する必要があります。これについては後で説明します。"
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md
 msgid ""
@@ -15710,39 +16205,51 @@ msgid ""
 "chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/gnrt_config."
 "toml). This contains Chromium-specific extensions to crate handling."
 msgstr ""
+"`Cargo.toml` のほかに、[`gnrt_config.toml`](https://source.chromium.org/"
+"chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/gnrt_config."
+"toml) があります。これには、クレートを扱うための Chromium 固有の拡張機能が含"
+"まれています。"
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md
 msgid ""
 "If you add a new crate, you should specify at least the `group`. This is one "
 "of:"
 msgstr ""
+"新しいクレートを追加する場合は、少なくとも次のいずれかの `group` を指定する必"
+"要があります。"
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md
 msgid "For instance,"
-msgstr ""
+msgstr "次に例を示します。"
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md
 msgid ""
 "Depending on the crate source code layout, you may also need to use this "
 "file to specify where its `LICENSE` file(s) can be found."
 msgstr ""
+"クレートのソースコードのレイアウトによっては、このファイルを使用して "
+"`LICENSE` ファイルを見つける場所も指定する必要があります。"
 
 #: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md
 msgid ""
 "Later, we'll see some other things you will need to configure in this file "
 "to resolve problems."
 msgstr ""
+"後ほど、いくつかの問題を解決するためにこのファイルに指定する必要がある設定に"
+"ついて取り扱います。"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid ""
 "A tool called `gnrt` knows how to download crates and how to generate `BUILD."
 "gn` rules."
 msgstr ""
+"`gnrt` というツールは、クレートのダウンロード方法と `BUILD.gn` ルールの生成方"
+"法を把握しています。"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid "To start, download the crate you want like this:"
-msgstr ""
+msgstr "まず、必要なクレートを次のようにダウンロードします。"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid ""
@@ -15751,25 +16258,30 @@ msgid ""
 "`crates.io`. See [the earlier section](../cargo.md) discussing this security "
 "decision."
 msgstr ""
+"`gnrt` ツールは Chromium のソースコードの一部ですが、このコマンドを実行する"
+"と、`crates.io` から依存関係をダウンロードして実行します。これに関するセキュ"
+"リティ上の決定については、[前のセクション](../cargo.md) をご覧ください。"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid "This `vendor` command may download:"
-msgstr ""
+msgstr "この `vendor` コマンドにより、以下がダウンロードされる場合があります。"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 #, fuzzy
 msgid "Your crate"
-msgstr "便利クレート"
+msgstr "あなたのクレート"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid "Direct and transitive dependencies"
-msgstr ""
+msgstr "直接的および推移的依存関係"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid ""
 "New versions of other crates, as required by `cargo` to resolve the complete "
 "set of crates required by Chromium."
 msgstr ""
+" `cargo` によって指示される、Chromium で必要となるクレートの完全セットを得る"
+"ための他のクレートの新しいバージョン。"
 
 #: src/chromium/adding-third-party-crates/downloading-crates.md
 msgid ""
@@ -15777,31 +16289,39 @@ msgid ""
 "chromium_crates_io/patches`. These will be reapplied automatically, but if "
 "patching fails you may need to take manual action."
 msgstr ""
+"Chromium では、一部のクレートに対するパッチが `//third_party/rust/"
+"chromium_crates_io/patches` に保存されています。これらは自動的に再適用されま"
+"すが、パッチ適用が失敗した場合は、手動による解決が必要になる場合があります。"
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
 "Once you've downloaded the crate, generate the `BUILD.gn` files like this:"
 msgstr ""
+"クレートをダウンロードしたら、以下のように `BUILD.gn` ファイルを作成します。"
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid "Now run `git status`. You should find:"
-msgstr ""
+msgstr "`git status` を実行し、以下を確認します。"
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
 "At least one new crate source code in `third_party/rust/chromium_crates_io/"
 "vendor`"
 msgstr ""
+"`third_party/rust/chromium_crates_io/vendor` に 1 つ以上の新しいクレート ソー"
+"スコードがあること"
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
 "At least one new `BUILD.gn` in `third_party/rust/<crate name>/v<major semver "
 "version>`"
 msgstr ""
+"`third_party/rust/<crate name>/v<major semver version>` に 1 つ以上の新しい "
+"`BUILD.gn` があること"
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid "An appropriate `README.chromium`"
-msgstr ""
+msgstr "適切な `README.chromium` があること"
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 #, fuzzy
@@ -15815,7 +16335,7 @@ msgstr ""
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
 "Take a close look, especially at the things generated in `third_party/rust`."
-msgstr ""
+msgstr "特に `third_party/rust` 以下に生成されるものをよく確認してください。"
 
 #: src/chromium/adding-third-party-crates/generating-gn-build-rules.md
 msgid ""
@@ -15823,6 +16343,9 @@ msgid ""
 "it's to allow multiple incompatible versions of a crate, which is "
 "discouraged but sometimes necessary in the Cargo ecosystem."
 msgstr ""
+"semver について、特に Chromium では互換性のないクレートのバージョンが複数許可"
+"されることを説明しておきましょう。これは推奨されませんが、Cargo エコシステム"
+"で必要になることがあります。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid ""
@@ -15831,68 +16354,78 @@ msgid ""
 "design of `gn` and `ninja` which aim for static, deterministic, build rules "
 "to maximize parallelism and repeatability of builds."
 msgstr ""
+"ビルドが失敗した場合、`build.rs`（ビルド時に任意の処理を行うプログラム）が原"
+"因である可能性があります。これは、ビルドの並列性と再現性を最大化するために静"
+"的で決定的なビルドルールを目指す `gn` と `ninja` の設計とは、基本的に矛盾して"
+"います。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid ""
 "Some `build.rs` actions are automatically supported; others require action:"
 msgstr ""
+"一部の `build.rs` アクションは自動的にサポートされますが、他のアクションには"
+"対応が必要です。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "build script effect"
-msgstr ""
+msgstr "ビルド スクリプトの効果"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Supported by our gn templates"
-msgstr ""
+msgstr "gn テンプレートによるサポート"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Work required by you"
-msgstr ""
+msgstr "必要な作業"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Checking rustc version to configure features on and off"
-msgstr ""
+msgstr "rustc のバージョンを確認して機能を有効または無効にする"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "None"
-msgstr ""
+msgstr "なし"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Checking platform or CPU to configure features on and off"
-msgstr ""
+msgstr "プラットフォームまたは CPU を確認して機能を有効または無効にする"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 #, fuzzy
 msgid "Generating code"
-msgstr "ジェネリクス（generics）"
+msgstr "コードの生成"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Yes - specify in `gnrt_config.toml`"
-msgstr ""
+msgstr "あり - `gnrt_config.toml` で指定する"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Building C/C++"
-msgstr ""
+msgstr "C/C++ のビルド"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Patch around it"
-msgstr ""
+msgstr "パッチを適用する"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid "Arbitrary other actions"
-msgstr ""
+msgstr "その他の任意のアクション"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md
 msgid ""
 "Fortunately, most crates don't contain a build script, and fortunately, most "
 "build scripts only do the top two actions."
 msgstr ""
+"幸い、ほとんどのクレートにはビルド スクリプトが含まれておらず、ほとんどのビル"
+"ド スクリプトは上位 2 つのアクションのみを実行します。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md
 msgid ""
 "If `ninja` complains about missing files, check the `build.rs` to see if it "
 "writes source code files."
 msgstr ""
+"`ninja`がファイルを見つけられないというメッセージを表示する場合は、`build."
+"rs` がソースコード ファイルを作成しているかどうかを確認します。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md
 msgid ""
@@ -15902,6 +16435,11 @@ msgid ""
 "`allow-first-party-usage=false`. There are several examples already in that "
 "file:"
 msgstr ""
+"もしファイルが作成されるようになっていたら、[`gnrt_config.toml`](../"
+"configure-gnrt-config-toml.md) を変更して、クレートに `build-script-outputs` "
+"を追加します。これが推移的依存関係（Chromium コードが直接依存すべきでない依存"
+"関係）の場合は、`allow-first-party-usage=false` も追加します。このファイルに"
+"は、すでにいくつかの例が含まれています。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md
 msgid ""
@@ -15911,6 +16449,11 @@ msgid ""
 "build-script-outputs = [\"tables.rs\"]\n"
 "```"
 msgstr ""
+"```toml\n"
+"[crate.unicode-linebreak]\n"
+"allow-first-party-usage = false\n"
+"build-script-outputs = [\"tables.rs\"]\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md
 msgid ""
@@ -15918,6 +16461,9 @@ msgid ""
 "`BUILD.gn` files to inform ninja that this particular output file is input "
 "to subsequent build steps."
 msgstr ""
+"次に、[`gnrt.py -- gen`](../generating-gn-build-rules.md) を再実行して "
+"`BUILD.gn` ファイルを再生成し、この特定の出力ファイルが後続のビルドステップで"
+"入力されることを ninja に教えます。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid ""
@@ -15927,18 +16473,24 @@ msgid ""
 "supported in a Chromium context --- our gn, ninja and LLVM build system is "
 "very specific in expressing relationships between build actions."
 msgstr ""
+"一部のクレートは、[`cc`](https://crates.io/crates/cc) クレートを使用して、"
+"C / C++ ライブラリのビルドとリンクを行います。他のクレートは、ビルド スクリプ"
+"ト内で [`bindgen`](https://crates.io/crates/bindgen) を使用して C / C++ を解"
+"析します。これらのアクションは、Chromium のコンテキストではサポートできませ"
+"ん。Chromiumの gn、ninja、LLVM ビルドシステムは、ビルド アクション間の関係を"
+"非常に具体的に表現するためです。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid "So, your options are:"
-msgstr ""
+msgstr "したがって、次のようなオプションがあります。"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid "Avoid these crates"
-msgstr ""
+msgstr "これらのクレートを使用しない"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid "Apply a patch to the crate."
-msgstr ""
+msgstr "クレートにパッチを適用する"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md
 msgid ""
@@ -15948,6 +16500,11 @@ msgid ""
 "chromium_crates_io/patches/cxx/) - and will be applied automatically by "
 "`gnrt` each time it upgrades the crate."
 msgstr ""
+"パッチは `third_party/rust/chromium_crates_io/patches/<crate>` に保存する必要"
+"があります。たとえば、[`cxx` クレートに対するパッチ](https://source.chromium."
+"org/chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/patches/"
+"cxx/) をご覧ください。また、パッチはクレートがアップグレードされるたびに "
+"`gnrt` によって自動的に適用されます。"
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md
 msgid ""
@@ -15955,10 +16512,13 @@ msgid ""
 "on a crate is simple. Find your `rust_static_library` target, and add a "
 "`dep` on the `:lib` target within your crate."
 msgstr ""
+"サードパーティ クレートを追加してビルドルールを生成したら、クレートへの依存を"
+"簡単に設定できます。`rust_static_library` ターゲットを見つけて、クレート内の "
+"`:lib` ターゲットに `dep` を追加します。"
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md
 msgid "Specifically,"
-msgstr ""
+msgstr "具体的には次のようにします。"
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md
 msgid ""
@@ -15969,6 +16529,12 @@ msgid ""
 "                     +------------+      +----------------------+\n"
 "```"
 msgstr ""
+"```bob\n"
+"                     +------------+      +------------------------------+\n"
+"\"//third_party/rust\" | クレート名 | \"/v\" | semver のメジャー バージョン "
+"| \":lib\"\n"
+"                     +------------+      +------------------------------+\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md
 msgid ""
@@ -15980,10 +16546,17 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [ \"lib.rs\" ]\n"
+"  deps = [ \"//third_party/rust/example_rust_crate/v1:lib\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid "Auditing Third Party Crates"
-msgstr ""
+msgstr "サードパーティ クレートの監査"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -15994,17 +16567,27 @@ msgid ""
 "dependencies, there may be a lot of code to review. On the other hand, safe "
 "Rust code can have limited negative side effects. How should you review it?"
 msgstr ""
+"新しいライブラリを追加する場合、Chromium の標準の [ポリシー](https://"
+"chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/rust."
+"md#Third_party-review) が適用されますが、当然ながらセキュリティ審査の対象にも"
+"なります。1 つのクレートだけでなく推移的依存関係も取り込む場合、審査すべき"
+"コードが多数存在することがあります。その一方で、安全な Rust コードの取り込み"
+"に関しては、悪い副作用は限定的となります。クレートの審査はどのように行われる"
+"べきでしょうか。"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
 "Over time Chromium aims to move to a process based around [cargo vet]"
 "(https://mozilla.github.io/cargo-vet/)."
 msgstr ""
+"Chromium は今後 [cargo vet](https://mozilla.github.io/cargo-vet/) を中心とし"
+"たプロセスに移行されていく予定ですが、"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
 "Meanwhile, for each new crate addition, we are checking for the following:"
 msgstr ""
+"それまでの間、新しいクレートが追加されるたびに、以下のチェックを行います。"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -16013,10 +16596,14 @@ msgid ""
 "macros, work out what they're for. Are they compatible with the way Chromium "
 "is normally built?"
 msgstr ""
+"各クレートが使用されている理由と、クレート同士の関係を理解します。各クレート"
+"のビルドシステムに`build.rs` または手続き型マクロが含まれている場合は、その目"
+"的を調べます。また、Chromium の通常のビルド方法と互換性があるかどうかも確認し"
+"ます。"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid "Check each crate seems to be reasonably well maintained"
-msgstr ""
+msgstr "各クレートが十分にメンテナンスされているか確認します。"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -16025,6 +16612,10 @@ msgid ""
 "ironically involves downloading lots of dependencies from the internet[2](../"
 "cargo.md))"
 msgstr ""
+"`cd third-party/rust/chromium_crates_io; cargo audit` を使用して既知の脆弱性"
+"をチェックします（最初に `cargo install cargo-audit` を実行する必要があります"
+"が、皮肉なことに、これによってインターネットから多くの依存関係をダウンロード"
+"することになります [2](../cargo.md)）。"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -16032,10 +16623,13 @@ msgid ""
 "chromium.googlesource.com/chromium/src/+/main/docs/security/rule-of-2."
 "md#unsafe-code-in-safe-languages)"
 msgstr ""
+"`unsafe` なコードが [Rule of Two](https://chromium.googlesource.com/chromium/"
+"src/+/main/docs/security/rule-of-2.md#unsafe-code-in-safe-languages) を満たし"
+"ていることを確認します。"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid "Check for any use of `fs` or `net` APIs"
-msgstr ""
+msgstr "`fs`および`net`のAPI が使用されているかどうかを確認します。"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
@@ -16043,46 +16637,57 @@ msgid ""
 "that might have been maliciously inserted. (You can't realistically aim for "
 "100% perfection here: there's often just too much code.)"
 msgstr ""
+"悪意を持って不正に挿入された可能性のある部分がないか探すのに十分なレベルで"
+"コードを読みます（多くの場合、コードが多すぎて完璧にチェックすることはできま"
+"せん）。"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md
 msgid ""
 "These are just guidelines --- work with reviewers from `security@chromium."
 "org` to work out the right way to become confident of the crate."
 msgstr ""
+"これらはガイドラインにすぎません。`security@chromium.org` の審査担当者と協力"
+"して、自信を持ってクレートを使用するための適切な方法を見つけてください。"
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid "Checking Crates into Chromium Source Code"
-msgstr ""
+msgstr "クレートを Chromium ソースコードにチェックインする"
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid "`git status` should reveal:"
-msgstr ""
+msgstr "`git status` を実行すると、以下を確認できます。"
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid "Crate code in `//third_party/rust/chromium_crates_io`"
-msgstr ""
+msgstr "`//third_party/rust/chromium_crates_io` にあるクレートコード"
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid ""
 "Metadata (`BUILD.gn` and `README.chromium`) in `//third_party/rust/<crate>/"
 "<version>`"
 msgstr ""
+"`//third_party/rust/<crate>/<version>` にあるメタデータ（`BUILD.gn` と "
+"`README.chromium`）"
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid "Please also add an `OWNERS` file in the latter location."
-msgstr ""
+msgstr "後者の場所に `OWNERS` ファイルも追加してください。"
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid ""
 "You should land all this, along with your `Cargo.toml` and `gnrt_config."
 "toml` changes, into the Chromium repo."
 msgstr ""
+"これらすべてを、`Cargo.toml` および `gnrt_config.toml` の変更とともに "
+"Chromium リポジトリに追加する必要があります。"
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid ""
 "**Important**: you need to use `git add -f` because otherwise `.gitignore` "
 "files may result in some files being skipped."
 msgstr ""
+"**重要**: `git add -f` を使用する必要があります。そうしないと、`.gitignore` "
+"ファイルによって一部のファイルがスキップされる可能性があるためです。"
 
 #: src/chromium/adding-third-party-crates/checking-in.md
 msgid ""
@@ -16091,6 +16696,10 @@ msgid ""
 "branches, and many projects still use non-inclusive terminology there. So "
 "you may need to run:"
 msgstr ""
+"その際、インクルーシブでない表現が原因で presubmit チェックが失敗することがあ"
+"ります。これは、Rust のクレートデータには Git ブランチの名前が含まれている傾"
+"向があり、多くのプロジェクトで依然としてインクルーシブでない表現が使用されて"
+"いるためです。そのため、以下を実行する必要があります。"
 
 #: src/chromium/adding-third-party-crates/keeping-up-to-date.md
 msgid ""
@@ -16100,6 +16709,11 @@ msgid ""
 "hoped that we will soon automate this for Rust crates, but for now, it's "
 "still your responsibility just as it is for any other third party dependency."
 msgstr ""
+"サードパーティの Chromium 依存関係の所有者は、[セキュリティに関する修正を行っ"
+"て依存関係を最新の状態に保つことが求められます](https://chromium."
+"googlesource.com/chromium/src/+/main/docs/adding_to_third_party.md#add-"
+"owners)。これはまもなく自動化されることが期待されていますが、現状は他のサード"
+"パーティの依存関係の場合と同様に、デベロッパーがその責任を負います。"
 
 #: src/exercises/chromium/third-party.md
 msgid ""
@@ -16108,6 +16722,10 @@ msgid ""
 "features.html#the-default-feature). Assume that the crate will be used in "
 "shipping Chromium, but won't be used to handle untrustworthy input."
 msgstr ""
+"Chromium に [uwuify](https://crates.io/crates/uwuify) を追加し、クレートの "
+"[デフォルトの機能](https://doc.rust-lang.org/cargo/reference/features."
+"html#the-default-feature) を無効にします。クレートは Chromium の公開板で使用"
+"されますが、信頼できない入力の処理には使用されないと仮定してください。"
 
 #: src/exercises/chromium/third-party.md
 msgid ""
@@ -16116,71 +16734,81 @@ msgid ""
 "[`rust_executable` target](https://source.chromium.org/chromium/chromium/src/"
 "+/main:build/rust/rust_executable.gni) which uses `uwuify`)."
 msgstr ""
+"（次の演習で Chromium の uwuify を使用しますが、ここで行っても構いません。ま"
+"たは、`uwuify` を使用する新しい [`rust_executable` ターゲット](https://"
+"source.chromium.org/chromium/chromium/src/+/main:build/rust/rust_executable."
+"gni) を作成することもできます）。"
 
 #: src/exercises/chromium/third-party.md
 msgid "Students will need to download lots of transitive dependencies."
-msgstr ""
+msgstr "受講者は多数の推移的依存関係をダウンロードする必要があります。"
 
 #: src/exercises/chromium/third-party.md
 msgid "The total crates needed are:"
-msgstr ""
+msgstr "必要なクレートは次のとおりです。"
 
 #: src/exercises/chromium/third-party.md
 msgid "`instant`,"
-msgstr ""
+msgstr "`instant`"
 
 #: src/exercises/chromium/third-party.md
 msgid "`lock_api`,"
-msgstr ""
+msgstr "`lock_api`"
 
 #: src/exercises/chromium/third-party.md
 msgid "`parking_lot`,"
-msgstr ""
+msgstr "`parking_lot`"
 
 #: src/exercises/chromium/third-party.md
 msgid "`parking_lot_core`,"
-msgstr ""
+msgstr "`parking_lot_core`"
 
 #: src/exercises/chromium/third-party.md
 msgid "`redox_syscall`,"
-msgstr ""
+msgstr "`redox_syscall`"
 
 #: src/exercises/chromium/third-party.md
 msgid "`scopeguard`,"
-msgstr ""
+msgstr "`scopeguard`"
 
 #: src/exercises/chromium/third-party.md
 msgid "`smallvec`, and"
-msgstr ""
+msgstr "`smallvec`"
 
 #: src/exercises/chromium/third-party.md
 msgid "`uwuify`."
-msgstr ""
+msgstr "`uwuify`"
 
 #: src/exercises/chromium/third-party.md
 msgid ""
 "If students are downloading even more than that, they probably forgot to "
 "turn off the default features."
 msgstr ""
+"受講者が上記以外のクレートをダウンロードしている場合は、デフォルトの機能を無"
+"効にするのを忘れている可能性があります。"
 
 #: src/exercises/chromium/third-party.md
 msgid ""
 "Thanks to [Daniel Liu](https://github.com/Daniel-Liu-c0deb0t) for this crate!"
 msgstr ""
+"このクレートに協力してくれた [Daniel Liu](https://github.com/Daniel-Liu-"
+"c0deb0t) に感謝します。"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid "Bringing It Together --- Exercise"
-msgstr ""
+msgstr "まとめ --- 演習"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "In this exercise, you're going to add a whole new Chromium feature, bringing "
 "together everything you already learned."
 msgstr ""
+"この演習では、Chromium の新しい機能を追加しながら、これまで学んだことをまとめ"
+"ます。"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid "The Brief from Product Management"
-msgstr ""
+msgstr "プロダクト マネジメント部門からのブリーフィング"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16188,12 +16816,15 @@ msgid ""
 "It's important that we get Chromium for Pixies delivered to them as soon as "
 "possible."
 msgstr ""
+"人里離れた熱帯雨林に生息するピクシー（妖精の一種）の村が発見されました。ピク"
+"シー向けの Chromium をできるだけ早く提供することが重要です。"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "The requirement is to translate all Chromium's UI strings into Pixie "
 "language."
 msgstr ""
+"要件は、Chromium のすべての UI 文字列をピクシーの言語に翻訳することです。"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16201,22 +16832,28 @@ msgid ""
 "language is very close to English, and it turns out there's a Rust crate "
 "which does the translation."
 msgstr ""
+"正式な翻訳を行っている時間はありませんが、幸いにもピクシーの言語は英語に非常"
+"に近く、その翻訳を行う Rust クレートがあることがわかりました。"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "In fact, you already [imported that crate in the previous exercise](https://"
 "crates.io/crates/uwuify)."
 msgstr ""
+"実は、[前の演習でそのクレートをインポートしています](https://crates.io/"
+"crates/uwuify)。"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "(Obviously, real translations of Chrome require incredible care and "
 "diligence. Don't ship this!)"
 msgstr ""
+"（言うまでもなく、Chrome を実際に翻訳するには細心の注意と努力が必要ですので、"
+"これは公開しないでください）。"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid "Steps"
-msgstr ""
+msgstr "手順"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16224,12 +16861,17 @@ msgid ""
 "strings before display. In this special build of Chromium, it should always "
 "do this irrespective of the setting of `mangle_localized_strings_`."
 msgstr ""
+"表示前にすべての文字列を翻訳するように `ResourceBundle::"
+"MaybeMangleLocalizedString` を変更します。Chromium のこの特別なビルドでは、"
+"`mangle_localized_strings_` の設定に関係なく、常にこのようにします。"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "If you've done everything right across all these exercises, congratulations, "
 "you should have created Chrome for pixies!"
 msgstr ""
+"ここまでの演習をすべて正しく終わらせれていれば、これでピクシー向けの Chrome "
+"が完成しているはずです。"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16237,6 +16879,9 @@ msgid ""
 "and will probably decide that it's better to do the conversion on the C++ "
 "side using `base::UTF16ToUTF8` and back again."
 msgstr ""
+"UTF16 と UTF8 について、受講者は Rust 文字列が常に UTF8 であることに注意する"
+"必要があります。おそらく、C++ 側で `base::UTF16ToUTF8` を使用して変換、逆変換"
+"する方がよいと判断するでしょう。"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16246,6 +16891,10 @@ msgid ""
 "[CXX supported types can transfer a lot of u16s](https://cxx.rs/binding/"
 "slice.html)."
 msgstr ""
+"Rust 側で変換を行う場合は、[`String::from_utf16`](https://doc.rust-lang.org/"
+"std/string/struct.String.html#method.from_utf16)の利用、エラー処理、[多くの "
+"u16s を転送可能な CXX でサポートされている型](https://cxx.rs/binding/slice."
+"html) はどれかを検討する必要があります。"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16257,6 +16906,13 @@ msgid ""
 "mutable references to C++ data: the answer is that C++ data can't be moved "
 "around like Rust data, because it may contain self-referential pointers."
 msgstr ""
+"受講者はいくつかの異なる方法で C++ と Rust の境界を設計できます。たとえば、文"
+"字列を値で取得して返す、または文字列への可変参照を取得するなどです。可変参照"
+"が使用されている場合は、おそらく CXX は [`Pin`](https://doc.rust-lang.org/"
+"std/pin/) を使用する必要がある旨のメッセージを表示します。`Pin` の機能を説明"
+"し、C++ データへの可変参照のために CXX で `Pin` が必要になる理由を説明する必"
+"要があるかもしれません。答えは、C++ データには自己参照ポインタが含まれている"
+"可能性があるため、Rust データのように移動できないためです。"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16264,18 +16920,25 @@ msgid ""
 "need to depend on a `rust_static_library` target. The student probably "
 "already did this."
 msgstr ""
+"`ResourceBundle::MaybeMangleLocalizedString` を含む C++ ターゲットは、"
+"`rust_static_library` ターゲットに依存する必要があります。受講者はすでにこれ"
+"を行っているはずです。"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "The `rust_static_library` target will need to depend on `//third_party/rust/"
 "uwuify/v0_2:lib`."
 msgstr ""
+"`rust_static_library` ターゲットは `//third_party/rust/uwuify/v0_2:lib` に依"
+"存する必要があります。"
 
 #: src/exercises/chromium/solutions.md
 msgid ""
 "Solutions to the Chromium exercises can be found in [this series of CLs]"
 "(https://chromium-review.googlesource.com/c/chromium/src/+/5096560)."
 msgstr ""
+"Chromium の演習の解答については、[こちらの CL シリーズ](https://chromium-"
+"review.googlesource.com/c/chromium/src/+/5096560) をご覧ください。"
 
 #: src/bare-metal.md
 msgid "Welcome to Bare Metal Rust"
@@ -16349,95 +17012,95 @@ msgstr "MacOSの場合は以下のようになります:"
 
 #: src/bare-metal/no_std.md
 msgid "`core`"
-msgstr ""
+msgstr "`core`"
 
 #: src/bare-metal/no_std.md
 msgid "`std`"
-msgstr ""
+msgstr "`std`"
 
 #: src/bare-metal/no_std.md
 msgid "Slices, `&str`, `CStr`"
-msgstr ""
+msgstr "Slice、`&str`、`CStr`"
 
 #: src/bare-metal/no_std.md
 msgid "`NonZeroU8`..."
-msgstr ""
+msgstr "`NonZeroU8` など"
 
 #: src/bare-metal/no_std.md
 msgid "`Option`, `Result`"
-msgstr ""
+msgstr "`Option`、`Result`"
 
 #: src/bare-metal/no_std.md
 msgid "`Display`, `Debug`, `write!`..."
-msgstr ""
+msgstr "`Display`、`Debug`、`write!` など"
 
 #: src/bare-metal/no_std.md
 msgid "`panic!`, `assert_eq!`..."
-msgstr ""
+msgstr "`panic!`、`assert_eq!` など"
 
 #: src/bare-metal/no_std.md
 msgid "`NonNull` and all the usual pointer-related functions"
-msgstr ""
+msgstr "`NonNull` とポインターに関する全ての一般的な関数"
 
 #: src/bare-metal/no_std.md
 msgid "`Future` and `async`/`await`"
-msgstr ""
+msgstr "`Future` と `async` / `await`"
 
 #: src/bare-metal/no_std.md
 msgid "`fence`, `AtomicBool`, `AtomicPtr`, `AtomicU32`..."
-msgstr ""
+msgstr "`fence`、`AtomicBool`、`AtomicPtr`、`AtomicU32` など"
 
 #: src/bare-metal/no_std.md
 msgid "`Duration`"
-msgstr ""
+msgstr "`Duration`"
 
 #: src/bare-metal/no_std.md
 msgid "`Box`, `Cow`, `Arc`, `Rc`"
-msgstr ""
+msgstr "`Box`、`Cow`、`Arc`、`Rc`"
 
 #: src/bare-metal/no_std.md
 msgid "`Vec`, `BinaryHeap`, `BtreeMap`, `LinkedList`, `VecDeque`"
-msgstr ""
+msgstr "`Vec`、`BinaryHeap`、`BtreeMap`、`LinkedList`、`VecDeque`"
 
 #: src/bare-metal/no_std.md
 msgid "`String`, `CString`, `format!`"
-msgstr ""
+msgstr "`String`、`CString`、`format!`"
 
 #: src/bare-metal/no_std.md
 msgid "`Error`"
-msgstr ""
+msgstr "`Error`"
 
 #: src/bare-metal/no_std.md
 msgid "`Mutex`, `Condvar`, `Barrier`, `Once`, `RwLock`, `mpsc`"
-msgstr ""
+msgstr "`Mutex`、`Condvar`、`Barrier`、`Once`、`RwLock`、`mpsc`"
 
 #: src/bare-metal/no_std.md
 msgid "`File` and the rest of `fs`"
-msgstr ""
+msgstr "`File`、残りの `fs`"
 
 #: src/bare-metal/no_std.md
 msgid "`println!`, `Read`, `Write`, `Stdin`, `Stdout` and the rest of `io`"
-msgstr ""
+msgstr "`println!`、`Read`、`Write`、`Stdin`、`Stdout`、残りの `io`"
 
 #: src/bare-metal/no_std.md
 msgid "`Path`, `OsString`"
-msgstr ""
+msgstr "`Path`、`OsString`"
 
 #: src/bare-metal/no_std.md
 msgid "`net`"
-msgstr ""
+msgstr "`net`"
 
 #: src/bare-metal/no_std.md
 msgid "`Command`, `Child`, `ExitCode`"
-msgstr ""
+msgstr "`Command`、`Child`、`ExitCode`"
 
 #: src/bare-metal/no_std.md
 msgid "`spawn`, `sleep` and the rest of `thread`"
-msgstr ""
+msgstr "`spawn`、`sleep`、残りの `thread`"
 
 #: src/bare-metal/no_std.md
 msgid "`SystemTime`, `Instant`"
-msgstr ""
+msgstr "`SystemTime`、`Instant`"
 
 #: src/bare-metal/no_std.md
 msgid "`HashMap` depends on RNG."
@@ -16497,18 +17160,21 @@ msgstr ""
 msgid ""
 "// Safe because `HEAP` is only used here and `entry` is only called once.\n"
 msgstr ""
+"// `HEAP` はここでのみ使用され、`entry` は一度だけ呼び出されるため、安全で"
+"す。\n"
 
 #: src/bare-metal/alloc.md
 msgid "// Give the allocator some memory to allocate.\n"
-msgstr ""
+msgstr "// アロケーターにメモリを割り当てます。\n"
 
 #: src/bare-metal/alloc.md
 msgid "// Now we can do things that require heap allocation.\n"
 msgstr ""
+"// これで、ヒープ割り当てを必要とする処理を実行できるようになりました。\n"
 
 #: src/bare-metal/alloc.md
 msgid "\"A string\""
-msgstr ""
+msgstr "\"A string\""
 
 #: src/bare-metal/alloc.md
 msgid ""
@@ -16590,33 +17256,36 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/mmio.md
 msgid "/// GPIO port 0 peripheral address\n"
-msgstr ""
+msgstr "/// GPIO 0 番ポートの周辺アドレス\n"
 
 #: src/bare-metal/microcontrollers/mmio.md
 msgid "// GPIO peripheral offsets\n"
-msgstr ""
+msgstr "// GPIO 周辺機器オフセット\n"
 
 #: src/bare-metal/microcontrollers/mmio.md
 msgid "// PIN_CNF fields\n"
-msgstr ""
+msgstr "// PIN_CNF フィールド\n"
 
 #: src/bare-metal/microcontrollers/mmio.md
 #: src/bare-metal/microcontrollers/pacs.md
 #: src/bare-metal/microcontrollers/hals.md
 msgid "// Configure GPIO 0 pins 21 and 28 as push-pull outputs.\n"
 msgstr ""
+"// GPIO 0 の 21 番ピンと 28 番ピンをプッシュプル出力として設定します。\n"
 
 #: src/bare-metal/microcontrollers/mmio.md
 msgid ""
 "// Safe because the pointers are to valid peripheral control registers, and\n"
 "    // no aliases exist.\n"
 msgstr ""
+"// ポインタは有効な周辺機器制御レジスタを指しており、\n"
+"    // エイリアスが存在しないため、安全です。\n"
 
 #: src/bare-metal/microcontrollers/mmio.md
 #: src/bare-metal/microcontrollers/pacs.md
 #: src/bare-metal/microcontrollers/hals.md
 msgid "// Set pin 28 low and pin 21 high to turn the LED on.\n"
-msgstr ""
+msgstr "// 28 番ピンをロー、21 番ピンをハイに設定して LED をオンにします。\n"
 
 #: src/bare-metal/microcontrollers/mmio.md
 msgid ""
@@ -16703,7 +17372,7 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/hals.md
 msgid "// Create HAL wrapper for GPIO port 0.\n"
-msgstr ""
+msgstr "// GPIO 0 番ポートの HAL ラッパーを作成します。\n"
 
 #: src/bare-metal/microcontrollers/hals.md
 msgid ""
@@ -16758,11 +17427,11 @@ msgstr "タイプステートパターン"
 
 #: src/bare-metal/microcontrollers/type-state.md
 msgid "// let gpio0_01_again = gpio0.p0_01; // Error, moved.\n"
-msgstr ""
+msgstr "// let gpio0_01_again = gpio0.p0_01; // エラー、移動済み。\n"
 
 #: src/bare-metal/microcontrollers/type-state.md
 msgid "// pin_input.is_high(); // Error, moved.\n"
-msgstr ""
+msgstr "// pin_input.is_high(); // エラー、移動済み。\n"
 
 #: src/bare-metal/microcontrollers/type-state.md
 msgid ""
@@ -16817,27 +17486,27 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/embedded-hal.md
 msgid "GPIO"
-msgstr ""
+msgstr "GPIO"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md
 msgid "ADC"
-msgstr ""
+msgstr "ADC"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md
 msgid "I2C, SPI, UART, CAN"
-msgstr ""
+msgstr "I2C、SPI、UART、CAN"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md
 msgid "RNG"
-msgstr ""
+msgstr "RNG"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md
 msgid "Timers"
-msgstr ""
+msgstr "タイマー"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md
 msgid "Watchdogs"
-msgstr ""
+msgstr "ウォッチドッグ"
 
 #: src/bare-metal/microcontrollers/embedded-hal.md
 msgid ""
@@ -16956,7 +17625,7 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/debugging.md
 msgid "_Embed.toml_:"
-msgstr ""
+msgstr "_Embed.toml_:"
 
 #: src/bare-metal/microcontrollers/debugging.md
 msgid "In one terminal under `src/bare-metal/microcontrollers/examples/`:"
@@ -16983,7 +17652,7 @@ msgstr "他のプロジェクト"
 
 #: src/bare-metal/microcontrollers/other-projects.md
 msgid "[RTIC](https://rtic.rs/)"
-msgstr ""
+msgstr "[RTIC](https://rtic.rs/)"
 
 #: src/bare-metal/microcontrollers/other-projects.md
 msgid "\"Real-Time Interrupt-driven Concurrency\""
@@ -16998,7 +17667,7 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/other-projects.md
 msgid "[Embassy](https://embassy.dev/)"
-msgstr ""
+msgstr "[Embassy](https://embassy.dev/)"
 
 #: src/bare-metal/microcontrollers/other-projects.md
 msgid "`async` executors with priorities, timers, networking, USB"
@@ -17006,7 +17675,7 @@ msgstr "優先度付き`async` エグゼキュータ、タイマ、ネットワ�
 
 #: src/bare-metal/microcontrollers/other-projects.md
 msgid "[TockOS](https://www.tockos.org/documentation/getting-started)"
-msgstr ""
+msgstr "[TockOS](https://www.tockos.org/documentation/getting-started)"
 
 #: src/bare-metal/microcontrollers/other-projects.md
 msgid ""
@@ -17018,7 +17687,7 @@ msgstr ""
 
 #: src/bare-metal/microcontrollers/other-projects.md
 msgid "[Hubris](https://hubris.oxide.computer/)"
-msgstr ""
+msgstr "[Hubris](https://hubris.oxide.computer/)"
 
 #: src/bare-metal/microcontrollers/other-projects.md
 msgid ""
@@ -17165,34 +17834,38 @@ msgstr ""
 
 #: src/exercises/bare-metal/compass.md src/exercises/bare-metal/rtc.md
 msgid "_src/main.rs_:"
-msgstr ""
+msgstr "_src/main.rs_:"
 
 #: src/exercises/bare-metal/compass.md
 #: src/exercises/bare-metal/solutions-morning.md
 msgid "// Configure serial port.\n"
-msgstr ""
+msgstr "// シリアルポートを設定します。\n"
 
 #: src/exercises/bare-metal/compass.md
 #: src/exercises/bare-metal/solutions-morning.md
 msgid "// Use the system timer as a delay provider.\n"
-msgstr ""
+msgstr "// システム タイマーを遅延目的で使用します。\n"
 
 #: src/exercises/bare-metal/compass.md
 msgid ""
 "// Set up the I2C controller and Inertial Measurement Unit.\n"
 "    // TODO\n"
 msgstr ""
+"// I2C コントローラと慣性測定ユニットをセットアップします。\n"
+"    // TODO\n"
 
 #: src/exercises/bare-metal/compass.md
 #: src/exercises/bare-metal/solutions-morning.md
 msgid "\"Ready.\""
-msgstr ""
+msgstr "\"Ready.\""
 
 #: src/exercises/bare-metal/compass.md
 msgid ""
 "// Read compass data and log it to the serial port.\n"
 "        // TODO\n"
 msgstr ""
+"// コンパスデータを読み取り、シリアルポートに記録します。\n"
+"        // TODO\n"
 
 #: src/exercises/bare-metal/compass.md src/exercises/bare-metal/rtc.md
 msgid "_Cargo.toml_ (you shouldn't need to change this):"
@@ -17221,31 +17894,31 @@ msgstr "Ctrl+A Ctrl+Q でpicocomを終了します。"
 
 #: src/exercises/bare-metal/solutions-morning.md
 msgid "Bare Metal Rust Morning Exercise"
-msgstr ""
+msgstr "ベアメタル Rust の午前の演習"
 
 #: src/exercises/bare-metal/solutions-morning.md
 msgid "([back to exercise](compass.md))"
-msgstr ""
+msgstr "（[演習に戻る](compass.md)）"
 
 #: src/exercises/bare-metal/solutions-morning.md
 msgid "// Set up the I2C controller and Inertial Measurement Unit.\n"
-msgstr ""
+msgstr "// I2C コントローラと慣性測定ユニットをセットアップします。\n"
 
 #: src/exercises/bare-metal/solutions-morning.md
 msgid "\"Setting up IMU...\""
-msgstr ""
+msgstr "\"Setting up IMU...\""
 
 #: src/exercises/bare-metal/solutions-morning.md
 msgid "// Set up display and timer.\n"
-msgstr ""
+msgstr "// ディスプレイとタイマーをセットアップします。\n"
 
 #: src/exercises/bare-metal/solutions-morning.md
 msgid "// Read compass data and log it to the serial port.\n"
-msgstr ""
+msgstr "// コンパスデータを読み取り、シリアルポートに記録します。\n"
 
 #: src/exercises/bare-metal/solutions-morning.md
 msgid "\"{},{},{}\\t{},{},{}\""
-msgstr ""
+msgstr "\"{},{},{}\\t{},{},{}\""
 
 #: src/exercises/bare-metal/solutions-morning.md
 msgid ""
@@ -17253,6 +17926,8 @@ msgid ""
 "LEDs\n"
 "        // on.\n"
 msgstr ""
+"// ボタン A が押された場合、次のモードに切り替えてすべての LED を短時間点滅\n"
+"        // させます。\n"
 
 #: src/bare-metal/aps.md
 msgid "Application processors"
@@ -17370,6 +18045,77 @@ msgid ""
 "    b 2b\n"
 "```"
 msgstr ""
+"```armasm\n"
+".section .init.entry, \"ax\"\n"
+".global entry\n"
+"entry:\n"
+"    /*\n"
+"     * メモリ管理に関するコンフィギュレーションを読み込んで適用し、MMU と"
+"キャッシュを有効にする準備を\n"
+"     * します。\n"
+"     */\n"
+"    adrp x30, idmap\n"
+"    msr ttbr0_el1, x30\n"
+"\n"
+"    mov_i x30, .Lmairval\n"
+"    msr mair_el1, x30\n"
+"\n"
+"    mov_i x30, .Ltcrval\n"
+"    /* サポートされている PA 範囲を TCR_EL1.IPS にコピーします。*/\n"
+"    mrs x29, id_aa64mmfr0_el1\n"
+"    bfi x30, x29, #32, #4\n"
+"\n"
+"    msr tcr_el1, x30\n"
+"\n"
+"    mov_i x30, .Lsctlrval\n"
+"\n"
+"    /*\n"
+"     * ここより前のすべての処理が完了していることを確認してから、\n"
+"     * 古くなった可能性のあるローカル TLB エントリを使用開始前に無効にしま"
+"す。\n"
+"     */\n"
+"    isb\n"
+"    tlbi vmalle1\n"
+"    ic iallu\n"
+"    dsb nsh\n"
+"    isb\n"
+"\n"
+"    /*\n"
+"     * MMU とキャッシュを有効にするように sctlr_el1 を設定し、\n"
+"     * これが完了するまでは先に進まないようにします。\n"
+"     */\n"
+"    msr sctlr_el1, x30\n"
+"    isb\n"
+"\n"
+"    /* EL1 の浮動小数点アクセスのトラップを無効にします。*/\n"
+"    mrs x30, cpacr_el1\n"
+"    orr x30, x30, #(0x3 << 20)\n"
+"    msr cpacr_el1, x30\n"
+"    isb\n"
+"\n"
+"    /* bss セクションをゼロにします。*/\n"
+"    adr_l x29, bss_begin\n"
+"    adr_l x30, bss_end\n"
+"0:  cmp x29, x30\n"
+"    b.hs 1f\n"
+"    stp xzr, xzr, [x29], #16\n"
+"    b 0b\n"
+"\n"
+"1:  /* スタックを準備します。*/\n"
+"    adr_l x30, boot_stack_end\n"
+"    mov sp, x30\n"
+"\n"
+"    /* 例外ベクターを設定します。*/\n"
+"    adr x30, vector_table_el1\n"
+"    msr vbar_el1, x30\n"
+"\n"
+"    /* Rust コードを呼び出します。*/\n"
+"    bl main\n"
+"\n"
+"    /* 割り込みを待機して永久にループします。*/\n"
+"2:  wfi\n"
+"    b 2b\n"
+"```"
 
 #: src/bare-metal/aps/entry-point.md
 msgid ""
@@ -17487,42 +18233,44 @@ msgid ""
 "// Safe because this only uses the declared registers and doesn't do\n"
 "    // anything with memory.\n"
 msgstr ""
+"// 宣言されたレジスタのみを使用し、メモリについては\n"
+"    // 何もしないため、安全です。\n"
 
 #: src/bare-metal/aps/inline-assembly.md
 msgid "\"hvc #0\""
-msgstr ""
+msgstr "\"hvc #0\""
 
 #: src/bare-metal/aps/inline-assembly.md
 msgid "\"w0\""
-msgstr ""
+msgstr "\"w0\""
 
 #: src/bare-metal/aps/inline-assembly.md
 msgid "\"w1\""
-msgstr ""
+msgstr "\"w1\""
 
 #: src/bare-metal/aps/inline-assembly.md
 msgid "\"w2\""
-msgstr ""
+msgstr "\"w2\""
 
 #: src/bare-metal/aps/inline-assembly.md
 msgid "\"w3\""
-msgstr ""
+msgstr "\"w3\""
 
 #: src/bare-metal/aps/inline-assembly.md
 msgid "\"w4\""
-msgstr ""
+msgstr "\"w4\""
 
 #: src/bare-metal/aps/inline-assembly.md
 msgid "\"w5\""
-msgstr ""
+msgstr "\"w5\""
 
 #: src/bare-metal/aps/inline-assembly.md
 msgid "\"w6\""
-msgstr ""
+msgstr "\"w6\""
 
 #: src/bare-metal/aps/inline-assembly.md
 msgid "\"w7\""
-msgstr ""
+msgstr "\"w7\""
 
 #: src/bare-metal/aps/inline-assembly.md
 msgid ""
@@ -17657,7 +18405,7 @@ msgstr ""
 
 #: src/bare-metal/aps/uart.md
 msgid "/// Minimal driver for a PL011 UART.\n"
-msgstr ""
+msgstr "/// PL011 UARTの最小ドライバ。\n"
 
 #: src/bare-metal/aps/uart.md src/bare-metal/aps/better-uart/driver.md
 msgid ""
@@ -17672,32 +18420,44 @@ msgid ""
 "process\n"
 "    /// as device memory and not have any other aliases.\n"
 msgstr ""
+"/// 指定されたベースアドレスに存在する\n"
+"    /// PL011 デバイス用の UART ドライバの新しいインスタンスを作成します。\n"
+"    ///\n"
+"    /// # 安全性\n"
+"    ///\n"
+"    /// 指定されたベースアドレスは PL011 デバイスの 8 つの MMIO 制御レジスタ"
+"を指していなければなりません。\n"
+"    /// これらはデバイスメモリとしてプロセスのアドレス空間に\n"
+"    /// マッピングされ、他のエイリアスはありません。\n"
 
 #: src/bare-metal/aps/uart.md src/bare-metal/aps/better-uart/driver.md
 #: src/exercises/bare-metal/rtc.md
 msgid "/// Writes a single byte to the UART.\n"
-msgstr ""
+msgstr "/// UART に 1 バイトを書き込みます。\n"
 
 #: src/bare-metal/aps/uart.md src/bare-metal/aps/better-uart/driver.md
 #: src/exercises/bare-metal/rtc.md
 msgid "// Wait until there is room in the TX buffer.\n"
-msgstr ""
+msgstr "// TX バッファに空きができるまで待機します。\n"
 
 #: src/bare-metal/aps/uart.md
 msgid ""
 "// Safe because we know that the base address points to the control\n"
 "        // registers of a PL011 device which is appropriately mapped.\n"
 msgstr ""
+"// ベースアドレスが、適切にマッピングされた PL011 デバイスのコントロール レジ"
+"スタを\n"
+"        // 指していることがわかっているため、安全です。\n"
 
 #: src/bare-metal/aps/uart.md src/bare-metal/aps/better-uart/driver.md
 #: src/exercises/bare-metal/rtc.md
 msgid "// Write to the TX buffer.\n"
-msgstr ""
+msgstr "// TX バッファに書き込みます。\n"
 
 #: src/bare-metal/aps/uart.md src/bare-metal/aps/better-uart/driver.md
 #: src/exercises/bare-metal/rtc.md
 msgid "// Wait until the UART is no longer busy.\n"
-msgstr ""
+msgstr "// UART がビジーでなくなるまで待機します。\n"
 
 #: src/bare-metal/aps/uart.md
 msgid ""
@@ -17752,6 +18512,8 @@ msgid ""
 "// Safe because it just contains a pointer to device memory, which can be\n"
 "// accessed from any context.\n"
 msgstr ""
+"// デバイスメモリへのポインタのみが含まれ、どのコンテキストからでも\n"
+"// アクセスできるため、安全です。\n"
 
 #: src/bare-metal/aps/uart/traits.md
 msgid ""
@@ -17801,131 +18563,131 @@ msgstr "幅"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "0x00"
-msgstr ""
+msgstr "0x00"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "DR"
-msgstr ""
+msgstr "DR"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "12"
-msgstr ""
+msgstr "12"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "0x04"
-msgstr ""
+msgstr "0x04"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "RSR"
-msgstr ""
+msgstr "RSR"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "0x18"
-msgstr ""
+msgstr "0x18"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "FR"
-msgstr ""
+msgstr "FR"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "9"
-msgstr ""
+msgstr "9"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "0x20"
-msgstr ""
+msgstr "0x20"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "ILPR"
-msgstr ""
+msgstr "ILPR"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "0x24"
-msgstr ""
+msgstr "0x24"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "IBRD"
-msgstr ""
+msgstr "IBRD"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "16"
-msgstr ""
+msgstr "16"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "0x28"
-msgstr ""
+msgstr "0x28"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "FBRD"
-msgstr ""
+msgstr "FBRD"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "0x2c"
-msgstr ""
+msgstr "0x2c"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "LCR_H"
-msgstr ""
+msgstr "LCR_H"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "0x30"
-msgstr ""
+msgstr "0x30"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "CR"
-msgstr ""
+msgstr "CR"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "0x34"
-msgstr ""
+msgstr "0x34"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "IFLS"
-msgstr ""
+msgstr "IFLS"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "0x38"
-msgstr ""
+msgstr "0x38"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "IMSC"
-msgstr ""
+msgstr "IMSC"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "11"
-msgstr ""
+msgstr "11"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "0x3c"
-msgstr ""
+msgstr "0x3c"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "RIS"
-msgstr ""
+msgstr "RIS"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "0x40"
-msgstr ""
+msgstr "0x40"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "MIS"
-msgstr ""
+msgstr "MIS"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "0x44"
-msgstr ""
+msgstr "0x44"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "ICR"
-msgstr ""
+msgstr "ICR"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "0x48"
-msgstr ""
+msgstr "0x48"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "DMACR"
-msgstr ""
+msgstr "DMACR"
 
 #: src/bare-metal/aps/better-uart.md
 msgid "There are also some ID registers which have been omitted for brevity."
@@ -17941,43 +18703,43 @@ msgstr ""
 
 #: src/bare-metal/aps/better-uart/bitflags.md src/exercises/bare-metal/rtc.md
 msgid "/// Flags from the UART flag register.\n"
-msgstr ""
+msgstr "/// UART フラグレジスタからのフラグ。\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md src/exercises/bare-metal/rtc.md
 msgid "/// Clear to send.\n"
-msgstr ""
+msgstr "/// 送信可。\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md src/exercises/bare-metal/rtc.md
 msgid "/// Data set ready.\n"
-msgstr ""
+msgstr "/// データセット レディ。\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md src/exercises/bare-metal/rtc.md
 msgid "/// Data carrier detect.\n"
-msgstr ""
+msgstr "/// データキャリア検出。\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md src/exercises/bare-metal/rtc.md
 msgid "/// UART busy transmitting data.\n"
-msgstr ""
+msgstr "/// UART はデータ送信のためビジー状態。\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md src/exercises/bare-metal/rtc.md
 msgid "/// Receive FIFO is empty.\n"
-msgstr ""
+msgstr "/// 受信 FIFO が空。\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md src/exercises/bare-metal/rtc.md
 msgid "/// Transmit FIFO is full.\n"
-msgstr ""
+msgstr "/// 送信 FIFO が満杯。\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md src/exercises/bare-metal/rtc.md
 msgid "/// Receive FIFO is full.\n"
-msgstr ""
+msgstr "/// 受信 FIFO が満杯。\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md src/exercises/bare-metal/rtc.md
 msgid "/// Transmit FIFO is empty.\n"
-msgstr ""
+msgstr "/// 送信 FIFO が空。\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md src/exercises/bare-metal/rtc.md
 msgid "/// Ring indicator.\n"
-msgstr ""
+msgstr "/// 着呼表示。\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md
 msgid ""
@@ -18017,23 +18779,28 @@ msgstr "新しく定義した`Registers` 構造体を我々のドライバで使
 
 #: src/bare-metal/aps/better-uart/driver.md
 msgid "/// Driver for a PL011 UART.\n"
-msgstr ""
+msgstr "/// PL011 UART のドライバ。\n"
 
 #: src/bare-metal/aps/better-uart/driver.md src/exercises/bare-metal/rtc.md
 msgid ""
 "// Safe because we know that self.registers points to the control\n"
 "        // registers of a PL011 device which is appropriately mapped.\n"
 msgstr ""
+"// self.registers が、適切にマッピングされた PL011 デバイスのコントロール レ"
+"ジスタを\n"
+"        // 指していることがわかっているため、安全です。\n"
 
 #: src/bare-metal/aps/better-uart/driver.md src/exercises/bare-metal/rtc.md
 msgid ""
 "/// Reads and returns a pending byte, or `None` if nothing has been\n"
 "    /// received.\n"
 msgstr ""
+"/// 保留中のバイトを読み取り、何も受け取っていない場合は`None` を\n"
+"    /// 返します。\n"
 
 #: src/bare-metal/aps/better-uart/driver.md src/exercises/bare-metal/rtc.md
 msgid "// TODO: Check for error conditions in bits 8-11.\n"
-msgstr ""
+msgstr "// TODO: ビット 8～11 でエラー状態をチェックします。\n"
 
 #: src/bare-metal/aps/better-uart/driver.md
 msgid ""
@@ -18060,7 +18827,7 @@ msgstr ""
 #: src/exercises/bare-metal/rtc.md
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "/// Base address of the primary PL011 UART.\n"
-msgstr ""
+msgstr "/// プライマリ PL011 UART のベースアドレス。\n"
 
 #: src/bare-metal/aps/better-uart/using.md src/bare-metal/aps/logging/using.md
 #: src/exercises/bare-metal/rtc.md
@@ -18069,26 +18836,28 @@ msgid ""
 "// Safe because `PL011_BASE_ADDRESS` is the base address of a PL011 device,\n"
 "    // and nothing else accesses that address range.\n"
 msgstr ""
+"// `PL011_BASE_ADDRESS` が PL011 デバイスのベースアドレスであり、\n"
+"    // 他からこのアドレス範囲にアクセスされることがないため、安全です。\n"
 
 #: src/bare-metal/aps/better-uart/using.md src/bare-metal/aps/logging/using.md
 msgid "\"main({x0:#x}, {x1:#x}, {x2:#x}, {x3:#x})\""
-msgstr ""
+msgstr "\"main({x0:#x}, {x1:#x}, {x2:#x}, {x3:#x})\""
 
 #: src/bare-metal/aps/better-uart/using.md
 msgid "b'\\r'"
-msgstr ""
+msgstr "b'\\r'"
 
 #: src/bare-metal/aps/better-uart/using.md src/async/pitfalls/cancellation.md
 msgid "b'\\n'"
-msgstr ""
+msgstr "b'\\n'"
 
 #: src/bare-metal/aps/better-uart/using.md
 msgid "b'q'"
-msgstr ""
+msgstr "b'q'"
 
 #: src/bare-metal/aps/better-uart/using.md
 msgid "\"Bye!\""
-msgstr ""
+msgstr "\"Bye!\""
 
 #: src/bare-metal/aps/better-uart/using.md
 msgid ""
@@ -18118,11 +18887,11 @@ msgstr ""
 
 #: src/bare-metal/aps/logging.md src/exercises/bare-metal/rtc.md
 msgid "\"[{}] {}\""
-msgstr ""
+msgstr "\"[{}] {}\""
 
 #: src/bare-metal/aps/logging.md src/exercises/bare-metal/rtc.md
 msgid "/// Initialises UART logger.\n"
-msgstr ""
+msgstr "/// UART ロガーを初期化します。\n"
 
 #: src/bare-metal/aps/logging.md
 msgid ""
@@ -18139,7 +18908,7 @@ msgstr "使用前にloggerを初期化する必要があります。"
 #: src/bare-metal/aps/logging/using.md src/exercises/bare-metal/rtc.md
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "\"{info}\""
-msgstr ""
+msgstr "\"{info}\""
 
 #: src/bare-metal/aps/logging/using.md
 msgid "Note that our panic handler can now log details of panics."
@@ -18208,7 +18977,7 @@ msgstr ""
 
 #: src/bare-metal/aps/other-projects.md
 msgid "[oreboot](https://github.com/oreboot/oreboot)"
-msgstr ""
+msgstr "[oreboot](https://github.com/oreboot/oreboot)"
 
 #: src/bare-metal/aps/other-projects.md
 msgid "\"coreboot without the C\""
@@ -18227,6 +18996,8 @@ msgid ""
 "[Rust RaspberryPi OS tutorial](https://github.com/rust-embedded/rust-"
 "raspberrypi-OS-tutorials)"
 msgstr ""
+"[Rust RaspberryPi OS のチュートリアル](https://github.com/rust-embedded/rust-"
+"raspberrypi-OS-tutorials)"
 
 #: src/bare-metal/aps/other-projects.md
 msgid ""
@@ -18246,7 +19017,7 @@ msgstr ""
 
 #: src/bare-metal/aps/other-projects.md
 msgid "[`cargo-call-stack`](https://crates.io/crates/cargo-call-stack)"
-msgstr ""
+msgstr "[`cargo-call-stack`](https://crates.io/crates/cargo-call-stack)"
 
 #: src/bare-metal/aps/other-projects.md
 msgid "Static analysis to determine maximum stack usage."
@@ -18370,15 +19141,15 @@ msgstr ""
 
 #: src/bare-metal/useful-crates/aarch64-paging.md
 msgid "// Create a new page table with identity mapping.\n"
-msgstr ""
+msgstr "// 仮想物理同一となる新しいページテーブルを作成します。\n"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md
 msgid "// Map a 2 MiB region of memory as read-only.\n"
-msgstr ""
+msgstr "// 2 MiB のメモリ領域を読み取り専用としてマッピングします。\n"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md
 msgid "// Set `TTBR0_EL1` to activate the page table.\n"
-msgstr ""
+msgstr "// `TTBR0_EL1` を設定してページテーブルを有効にします。\n"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md
 msgid ""
@@ -18564,18 +19335,20 @@ msgstr ""
 
 #: src/exercises/bare-metal/afternoon.md
 msgid "We will write a driver for the PL031 real-time clock device."
-msgstr ""
+msgstr "PL031 リアルタイム クロック デバイス用のドライバを作成します。"
 
 #: src/exercises/bare-metal/afternoon.md src/exercises/concurrency/afternoon.md
 msgid ""
 "After looking at the exercises, you can look at the [solutions](solutions-"
 "afternoon.md) provided."
 msgstr ""
+"演習の終了後は、提供されている [ソリューション](solutions-afternoon.md) を確"
+"認してください。"
 
 #: src/exercises/bare-metal/rtc.md
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "RTC driver"
-msgstr ""
+msgstr "RTC ドライバ"
 
 #: src/exercises/bare-metal/rtc.md
 msgid ""
@@ -18583,12 +19356,17 @@ msgid ""
 "documentation/ddi0224/c) real-time clock at 0x9010000. For this exercise, "
 "you should write a driver for it."
 msgstr ""
+"QEMU aarch64 virt マシンの 0x9010000 には、[PL031](https://developer.arm.com/"
+"documentation/ddi0224/c) リアルタイム クロックが搭載されています。この演習で"
+"は、そのドライバを作成する必要があります。"
 
 #: src/exercises/bare-metal/rtc.md
 msgid ""
 "Use it to print the current time to the serial console. You can use the "
 "[`chrono`](https://crates.io/crates/chrono) crate for date/time formatting."
 msgstr ""
+"これを使用して現在の時刻をシリアル コンソールに出力します。日時の形式には "
+"[`chrono`](https://crates.io/crates/chrono) クレートを使用できます。"
 
 #: src/exercises/bare-metal/rtc.md
 msgid ""
@@ -18596,6 +19374,9 @@ msgid ""
 "time, e.g. 3 seconds in the future. (Call [`core::hint::spin_loop`](https://"
 "doc.rust-lang.org/core/hint/fn.spin_loop.html) inside the loop.)"
 msgstr ""
+"一致レジスタと未加工の割り込みステータスを使用して、指定時刻（たとえば 3 秒"
+"後）までビジーウェイトします（ループ内で [`core::hint::spin_loop`](https://"
+"doc.rust-lang.org/core/hint/fn.spin_loop.html) を呼び出します）。"
 
 #: src/exercises/bare-metal/rtc.md
 msgid ""
@@ -18603,32 +19384,41 @@ msgid ""
 "the RTC match. You can use the driver provided in the [`arm-gic`](https://"
 "docs.rs/arm-gic/) crate to configure the Arm Generic Interrupt Controller."
 msgstr ""
+"時間がある場合は、RTC の一致によって生成された割り込みを有効にして処理しま"
+"す。[`arm-gic`](https://docs.rs/arm-gic/) クレートで提供されているドライバを"
+"使用して、Arm 汎用割り込みコントローラを設定して構いません。"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "Use the RTC interrupt, which is wired to the GIC as `IntId::spi(2)`."
 msgstr ""
+"RTC 割り込みを使用します。この割り込みは GIC に `IntId::spi(2)` として接続さ"
+"れています。"
 
 #: src/exercises/bare-metal/rtc.md
 msgid ""
 "Once the interrupt is enabled, you can put the core to sleep via `arm_gic::"
 "wfi()`, which will cause the core to sleep until it receives an interrupt."
 msgstr ""
+"割り込みを有効にすると、`arm_gic::wfi()` を使用してコアをスリープさせることが"
+"できます。これにより、コアは割り込みを受けるまでスリープ状態になります。"
 
 #: src/exercises/bare-metal/rtc.md
 msgid ""
 "Download the [exercise template](../../comprehensive-rust-exercises.zip) and "
 "look in the `rtc` directory for the following files."
 msgstr ""
+"[演習テンプレート](../../comprehensive-rust-exercises.zip) をダウンロードし、"
+"`rtc` ディレクトリで以下のファイルを探します。"
 
 #: src/exercises/bare-metal/rtc.md
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "/// Base addresses of the GICv3.\n"
-msgstr ""
+msgstr "/// GICv3 のベースアドレス。\n"
 
 #: src/exercises/bare-metal/rtc.md
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "\"main({:#x}, {:#x}, {:#x}, {:#x})\""
-msgstr ""
+msgstr "\"main({:#x}, {:#x}, {:#x}, {:#x})\""
 
 #: src/exercises/bare-metal/rtc.md
 #: src/exercises/bare-metal/solutions-afternoon.md
@@ -18637,20 +19427,25 @@ msgid ""
 "    // addresses of a GICv3 distributor and redistributor respectively, and\n"
 "    // nothing else accesses those address ranges.\n"
 msgstr ""
+"// `GICD_BASE_ADDRESS` と `GICR_BASE_ADDRESS` がそれぞれ GICv3 の\n"
+"    // ディストリビューターと再ディストリビューターのベースアドレスであり、\n"
+"    // 他にはこれらのアドレス範囲にアクセスするものがないため、安全です。\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "// TODO: Create instance of RTC driver and print current time.\n"
 msgstr ""
+"// TODO: RTC ドライバのインスタンスを作成し、現在の時刻を出力します。\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "// TODO: Wait for 3 seconds.\n"
-msgstr ""
+msgstr "// TODO: 3 秒間待機します。\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid ""
 "_src/exceptions.rs_ (you should only need to change this for the 3rd part of "
 "the exercise):"
 msgstr ""
+"_src/exceptions.rs_（この演習の 3 番目のパートでのみ変更する必要があります）:"
 
 #: src/exercises/bare-metal/rtc.md
 msgid ""
@@ -18668,101 +19463,119 @@ msgid ""
 "// See the License for the specific language governing permissions and\n"
 "// limitations under the License.\n"
 msgstr ""
+"// Copyright 2023 Google LLC\n"
+"//\n"
+"// バージョン 2.0 の Apache ライセンス（以下「本ライセンス」）により使用が許"
+"諾されています。\n"
+"// このファイルを使用するには、本ライセンスに準拠する必要があります。\n"
+" // 本ライセンスのコピーは下記のリンクから入手できます。\n"
+"//\n"
+"//      http://www.apache.org/licenses/LICENSE-2.0\n"
+"//\n"
+"// 本ライセンスで配布されるソフトウェアは、\n"
+"// 適用される法律によって要求される場合または書面で合意した場合を除き、\n"
+"// 明示されるか黙示されるかを問わず、いかなる種類の保証も条件もなく、「現状有"
+"姿」で提供されます。\n"
+"// 本ライセンスの下で適用される具体的な許可および制限については、\n"
+"// ライセンス本文をご覧ください。\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"sync_exception_current\""
-msgstr ""
+msgstr "\"sync_exception_current\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"irq_current\""
-msgstr ""
+msgstr "\"irq_current\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"No pending interrupt\""
-msgstr ""
+msgstr "\"No pending interrupt\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"IRQ {intid:?}\""
-msgstr ""
+msgstr "\"IRQ {intid:?}\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"fiq_current\""
-msgstr ""
+msgstr "\"fiq_current\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"serr_current\""
-msgstr ""
+msgstr "\"serr_current\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"sync_lower\""
-msgstr ""
+msgstr "\"sync_lower\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"irq_lower\""
-msgstr ""
+msgstr "\"irq_lower\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"fiq_lower\""
-msgstr ""
+msgstr "\"fiq_lower\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"serr_lower\""
-msgstr ""
+msgstr "\"serr_lower\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "_src/logger.rs_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_src/logger.rs_（変更する必要はありません）:"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "// ANCHOR: main\n"
-msgstr ""
+msgstr "// ANCHOR: main\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "_src/pl011.rs_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_src/pl011.rs_（変更する必要はありません）:"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "// ANCHOR: Flags\n"
-msgstr ""
+msgstr "// ANCHOR: Flags\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "// ANCHOR_END: Flags\n"
-msgstr ""
+msgstr "// ANCHOR_END: Flags\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid ""
 "/// Flags from the UART Receive Status Register / Error Clear Register.\n"
 msgstr ""
+"/// UART 受信ステータス レジスタ / エラー クリア レジスタからのフラグ\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "/// Framing error.\n"
-msgstr ""
+msgstr "/// フレーム処理エラー。\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "/// Parity error.\n"
-msgstr ""
+msgstr "/// パリティエラー。\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "/// Break error.\n"
-msgstr ""
+msgstr "/// ブレイクエラー。\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "/// Overrun error.\n"
-msgstr ""
+msgstr "/// オーバーラン エラー。\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "// ANCHOR: Registers\n"
-msgstr ""
+msgstr "// ANCHOR: Registers\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "// ANCHOR_END: Registers\n"
-msgstr ""
+msgstr "// ANCHOR_END: Registers\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid ""
 "// ANCHOR: Uart\n"
 "/// Driver for a PL011 UART.\n"
 msgstr ""
+"// ANCHOR: Uart\n"
+"/// PL011 UART のドライバ。\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid ""
@@ -18777,50 +19590,59 @@ msgid ""
 "process\n"
 "    /// as device memory and not have any other aliases.\n"
 msgstr ""
+"/// 指定されたベースアドレスに存在する\n"
+"    /// PL011 デバイス用の UART ドライバの新しいインスタンスを作成します。\n"
+"    ///\n"
+"    /// # 安全性\n"
+"    ///\n"
+"    /// 指定されたベースアドレスは PL011 デバイスの MMIO 制御レジスタを指して"
+"いる必要があります。\n"
+"    /// これらはデバイスメモリとしてプロセスのアドレス空間に\n"
+"    /// マッピングされ、他のエイリアスはありません。\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "// ANCHOR_END: Uart\n"
-msgstr ""
+msgstr "// ANCHOR_END: Uart\n"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "_build.rs_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_build.rs_（変更する必要はありません）:"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"linux\""
-msgstr ""
+msgstr "\"linux\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"CROSS_COMPILE\""
-msgstr ""
+msgstr "\"CROSS_COMPILE\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"aarch64-linux-gnu\""
-msgstr ""
+msgstr "\"aarch64-linux-gnu\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"aarch64-none-elf\""
-msgstr ""
+msgstr "\"aarch64-none-elf\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"entry.S\""
-msgstr ""
+msgstr "\"entry.S\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"exceptions.S\""
-msgstr ""
+msgstr "\"exceptions.S\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"idmap.S\""
-msgstr ""
+msgstr "\"idmap.S\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "\"empty\""
-msgstr ""
+msgstr "\"empty\""
 
 #: src/exercises/bare-metal/rtc.md
 msgid "_entry.S_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_entry.S_（変更する必要はありません）:"
 
 #: src/exercises/bare-metal/rtc.md
 msgid ""
@@ -18983,10 +19805,171 @@ msgid ""
 "\tb 2b\n"
 "```"
 msgstr ""
+"```armasm\n"
+"/*\n"
+" * Copyright 2023 Google LLC\n"
+" *\n"
+" * バージョン 2.0 の Apache ライセンス（以下「本ライセンス」）により使用が許"
+"諾されています。\n"
+" * このファイルを使用するには、本ライセンスに準拠する必要があります。\n"
+" * 本ライセンスのコピーは下記のリンクから入手できます。\n"
+" *\n"
+" *     https://www.apache.org/licenses/LICENSE-2.0\n"
+" *\n"
+" * 本ライセンスで配布されるソフトウェアは、\n"
+" * 適用される法律によって要求される場合または書面で合意した場合を除き、\n"
+" * 明示されるか黙示されるかを問わず、いかなる種類の保証も条件もなく、「現状有"
+"姿」で提供されます。\n"
+" * 本ライセンスの下で適用される具体的な許可および制限については、\n"
+" * ライセンス本文をご覧ください。\n"
+" */\n"
+"\n"
+".macro adr_l, reg:req, sym:req\n"
+"\tadrp \\reg, \\sym\n"
+"\tadd \\reg, \\reg, :lo12:\\sym\n"
+".endm\n"
+"\n"
+".macro mov_i, reg:req, imm:req\n"
+"\tmovz \\reg, :abs_g3:\\imm\n"
+"\tmovk \\reg, :abs_g2_nc:\\imm\n"
+"\tmovk \\reg, :abs_g1_nc:\\imm\n"
+"\tmovk \\reg, :abs_g0_nc:\\imm\n"
+".endm\n"
+"\n"
+".set .L_MAIR_DEV_nGnRE,\t0x04\n"
+".set .L_MAIR_MEM_WBWA,\t0xff\n"
+".set .Lmairval, .L_MAIR_DEV_nGnRE | (.L_MAIR_MEM_WBWA << 8)\n"
+"\n"
+"/* TTBR0_EL1におけるページサイズを4KiB単位に設定。*/\n"
+".set .L_TCR_TG0_4KB, 0x0 << 14\n"
+"/* TTBR1_EL1におけるページサイズを4KiB単位に設定。*/\n"
+".set .L_TCR_TG1_4KB, 0x2 << 30\n"
+"/* TTBR1_EL1 の変換テーブル ウォークを無効にして、代わりに変換エラーを生成し"
+"ます。*/\n"
+".set .L_TCR_EPD1, 0x1 << 23\n"
+"/* TTBR0_EL1 の変換テーブル ウォークは内部共有可能です。*/\n"
+".set .L_TCR_SH_INNER, 0x3 << 12\n"
+"/*\n"
+" * TTBR0_EL1 の変換テーブル ウォークは、外部書き戻し、読み取り割り当て、書き"
+"込み割り当ての\n"
+" * キャッシュが可能です。\n"
+" */\n"
+".set . L_TCR_RGN_OWB, 0x1 << 10\n"
+"/*\n"
+" * TTBR0_EL1 の変換テーブル ウォークは、内部書き戻し、読み取り割り当て、書き"
+"込み割り当ての\n"
+" * キャッシュが可能です。\n"
+" */\n"
+".set .L_TCR_RGN_IWB, 0x1 << 8\n"
+"/* TTBR0_EL1 のサイズ オフセットは 2**39 バイト（512 GiB）です。*/\n"
+".set .L_TCR_T0SZ_512, 64 - 39\n"
+".set .Ltcrval, .L_TCR_TG0_4KB | .L_TCR_TG1_4KB | .L_TCR_EPD1 | ."
+"L_TCR_RGN_OWB\n"
+".set .Ltcrval, .Ltcrval | .L_TCR_RGN_IWB | .L_TCR_SH_INNER | ."
+"L_TCR_T0SZ_512\n"
+"\n"
+"/* ステージ 1 の命令アクセスのキャッシュ可能設定は影響を受けません。*/\n"
+".set .L_SCTLR_ELx_I, 0x1 << 12\n"
+"/* SP が 16 バイト境界にアライメントされていない場合の SP アライメント フォー"
+"ルト。*/\n"
+".set .L_SCTLR_ELx_SA, 0x1 << 3\n"
+"/* ステージ 1 のデータアクセスのキャッシュ可能性設定は影響を受けません。*/\n"
+".set .L_SCTLR_ELx_C, 0x1 << 2\n"
+"/* EL0 および EL1 ステージ 1 MMU が有効になっています。*/\n"
+".set .L_SCTLR_ELx_M, 0x1 << 0\n"
+"/* EL1 の例外を受け取っても、特権アクセスは変更されません。*/\n"
+".set .L_SCTLR_EL1_SPAN, 0x1 << 23\n"
+"/* aarch32 モードの EL0 で SETEND 命令が無効になっています。*/\n"
+".set .L_SCTLR_EL1_SED, 0x1 << 8\n"
+"/* さまざまな IT 命令が aarch32 モードの EL0 で無効になっています。*/\n"
+".set .L_SCTLR_EL1_ITD, 0x1 << 7\n"
+".set .L_SCTLR_EL1_RES1, (0x1 << 11) | (0x1 << 20) | (0x1 << 22) | (0x1 << "
+"28) | (0x1 << 29)\n"
+".set .Lsctlrval, .L_SCTLR_ELx_M | .L_SCTLR_ELx_C | .L_SCTLR_ELx_SA | ."
+"L_SCTLR_EL1_ITD | .L_SCTLR_EL1_SED\n"
+".set .Lsctlrval, .Lsctlrval | .L_SCTLR_ELx_I | .L_SCTLR_EL1_SPAN | ."
+"L_SCTLR_EL1_RES1\n"
+"\n"
+"/**\n"
+" * これはイメージの一般的なエントリ ポイントです。読み込まれたイメージの実行"
+"を\n"
+" * 準備するために必要なオペレーションを実行します。具体的には、x25 以上のレジ"
+"スタを使用して bss セクションをゼロにし、\n"
+" * スタックを準備し、浮動小数点数を有効にして、例外ベクターを設定します。"
+"Rust エントリ ポイントのために x0-x3\n"
+" * には下の値を保持します。これは起動パラメータを含む可能性があるためです。\n"
+" */\n"
+".section .init.entry, \"ax\"\n"
+".global entry\n"
+"entry:\n"
+"\t/* メモリ管理に関する設定を読み込んで適用し、MMU とキャッシュを有効にする準"
+"備をします。*/\n"
+"\tadrp x30, idmap\n"
+"\tmsr ttbr0_el1, x30\n"
+"\n"
+"\tmov_i x30, .Lmairval\n"
+"\tmsr mair_el1, x30\n"
+"\n"
+"\tmov_i x30, .Ltcrval\n"
+"\t/* サポートしている PA 範囲を TCR_EL1.IPS にコピーします。*/\n"
+"\tmrs x29, id_aa64mmfr0_el1\n"
+"\tbfi x30, x29, #32, #4\n"
+"\n"
+"\tmsr tcr_el1, x30\n"
+"\n"
+"\tmov_i x30, .Lsctlrval\n"
+"\n"
+"\t/*\n"
+"\t * ここより前のすべての処理が完了していることを確認してから、\n"
+"\t * 古くなった可能性のあるローカル TLB エントリを使用開始前に無効にしま"
+"す。\n"
+"\t */\n"
+"\tisb\n"
+"\ttlbi vmalle1\n"
+"\tic iallu\n"
+"\tdsb nsh\n"
+"\tisb\n"
+"\n"
+"\t/*\n"
+"\t * MMU とキャッシュを有効にするように sctlr_el1 を構成し、これが完了するま"
+"では先に進みません。\n"
+"\t */\n"
+"\tmsr sctlr_el1, x30\n"
+"\tisb\n"
+"\n"
+"\t/* EL1 の浮動小数点アクセスのトラップを無効にします。*/\n"
+"\tmrs x30, cpacr_el1\n"
+"\torr x30, x30, #(0x3 << 20)\n"
+"\tmsr cpacr_el1, x30\n"
+"\tisb\n"
+"\n"
+"\t/* bss セクションをゼロにします。*/\n"
+"\tadr_l x29, bss_begin\n"
+"\tadr_l x30, bss_end\n"
+"0:\tcmp x29, x30\n"
+"\tb.hs 1f\n"
+"\tstp xzr, xzr, [x29], #16\n"
+"\tb 0b\n"
+"\n"
+"1:\t/* スタックを準備します。*/\n"
+"\tadr_l x30, boot_stack_end\n"
+"\tmov sp, x30\n"
+"\n"
+"\t/* 例外ベクターを設定します。*/\n"
+"\tadr x30, vector_table_el1\n"
+"\tmsr vbar_el1, x30\n"
+"\n"
+"\t/* Rust コードを呼び出します。*/\n"
+"\tbl main\n"
+"\n"
+"\t/* 割り込みを待機して永久にループします。*/\n"
+"2:\twfi\n"
+"\tb 2b\n"
+"```"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "_exceptions.S_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_exceptions.S_（変更する必要はありません）:"
 
 #: src/exercises/bare-metal/rtc.md
 msgid ""
@@ -19181,10 +20164,194 @@ msgid ""
 "\tcurrent_exception_spx serr_lower\n"
 "```"
 msgstr ""
-
-#: src/exercises/bare-metal/rtc.md
-msgid "_idmap.S_ (you shouldn't need to change this):"
-msgstr ""
+"```armasm\n"
+"/*\n"
+" * Copyright 2023 Google LLC\n"
+" *\n"
+" * バージョン 2.0 の Apache ライセンス（以下「本ライセンス」）により使用が許"
+"諾されています。\n"
+" * このファイルを使用するには、本ライセンスに準拠する必要があります。\n"
+" * 本ライセンスのコピーは下記のリンクから入手できます。\n"
+" *\n"
+" *     https://www.apache.org/licenses/LICENSE-2.0\n"
+" *\n"
+" * 本ライセンスで配布されるソフトウェアは、\n"
+" * 適用される法律によって要求される場合または書面で合意した場合を除き、\n"
+" * 明示されるか黙示されるかを問わず、いかなる種類の保証も条件もなく、「現状有"
+"姿」で提供されます。\n"
+" * 本ライセンスの下で適用される具体的な許可および制限については、\n"
+" * ライセンス本文をご覧ください。\n"
+" */\n"
+"\n"
+"/**\n"
+" * 揮発性レジスタをスタックに保存します。この部分は現在 14 個の\n"
+" * 命令で構成されているので、例外ハンドラで\n"
+" * 使用できます。その場合、残りは18命令分になります。\n"
+" *\n"
+" * 戻った際に、x0 と x1 はそれぞれ elr_el2 と spsr_el2 に初期化され、\n"
+" * これらは後続の呼び出しの 1 つ目と 2 つ目の引数として使用できます。\n"
+" */\n"
+".macro save_volatile_to_stack\n"
+"\t/* スタック空間を予約し、レジスタ x0～x18、x29、x30 を保存します。*/\n"
+"\tstp x0, x1, [sp, #-(8 * 24)]!\n"
+"\tstp x2, x3, [sp, #8 * 2]\n"
+"\tstp x4, x5, [sp, #8 * 4]\n"
+"\tstp x6, x7, [sp, #8 * 6]\n"
+"\tstp x8, x9, [sp, #8 * 8]\n"
+"\tstp x10, x11, [sp, #8 * 10]\n"
+"\tstp x12, x13, [sp, #8 * 12]\n"
+"\tstp x14, x15, [sp, #8 * 14]\n"
+"\tstp x16, x17, [sp, #8 * 16]\n"
+"\tstr x18, [sp, #8 * 18]\n"
+"\tstp x29, x30, [sp, #8 * 20]\n"
+"\n"
+"\t/*\n"
+"\t * elr_el1 と spsr_el1 を保存します。これにより、ネストされた例外を受付可能"
+"になり、\n"
+"\t * また、アンワインドできるようになります。\n"
+"\t */\n"
+"\tmrs x0, elr_el1\n"
+"\tmrs x1, spsr_el1\n"
+"\tstp x0, x1, [sp, #8 * 22]\n"
+".endm\n"
+"\n"
+"/**\n"
+" * スタックから揮発性レジスタを復元します。この部分は現在14 個の\n"
+" * 命令で構成されているので、\n"
+" * 例外ハンドラで使用できます。また、その場合18命令分の領域が残ります。"
+"save_volatile_to_stack と組み合わせた場合、\n"
+" * 4 個の命令が残ります。\n"
+" */\n"
+".macro restore_volatile_from_stack\n"
+"\t/* レジスタ x2～x18、x29、x30 を復元します。*/\n"
+"\tldp x2, x3, [sp, #8 * 2]\n"
+"\tldp x4, x5, [sp, #8 * 4]\n"
+"\tldp x6, x7, [sp, #8 * 6]\n"
+"\tldp x8, x9, [sp, #8 * 8]\n"
+"\tldp x10, x11, [sp, #8 * 10]\n"
+"\tldp x12, x13, [sp, #8 * 12]\n"
+"\tldp x14, x15, [sp, #8 * 14]\n"
+"\tldp x16, x17, [sp, #8 * 16]\n"
+"\tldr x18, [sp, #8 * 18]\n"
+"\tldp x29, x30, [sp, #8 * 20]\n"
+"\n"
+"\t/* x0 と x1 をスクラッチとして使用して、レジスタ elr_el1 および spsr_el1 を"
+"復元します。*/\n"
+"\tldp x0, x1, [sp, #8 * 22]\n"
+"\tmsr elr_el1, x0\n"
+"\tmsr spsr_el1, x1\n"
+"\n"
+"\t/* x0 と x1 を復元し、スタック空間を解放します。*/\n"
+"\tldp x0, x1, [sp], #8 * 24\n"
+".endm\n"
+"\n"
+"/**\n"
+" * これは、SP0 の使用中に現在の EL で取得される例外の\n"
+" * 汎用ハンドラです。SPx の場合と同様に、最初に SPx に切り替えて処理を実行"
+"し、\n"
+" * 戻る前に再度 SP0 に切り替えます。\n"
+" *\n"
+" * SPx に切り替えて Rust ハンドラを呼び出すには、16 個の命令が必要です。復元"
+"して戻るには、\n"
+" * さらに 16 個の命令が必要であるため、割り当てられた 32 個の命令の中で\n"
+" * ハンドラ全体を実装できます。\n"
+" */\n"
+".macro current_exception_sp0 handler:req\n"
+"\tmsr spsel, #1\n"
+"\tsave_volatile_to_stack\n"
+"\tbl \\handler\n"
+"\trestore_volatile_from_stack\n"
+"\tmsr spsel, #0\n"
+"\teret\n"
+".endm\n"
+"\n"
+"/**\n"
+" * これは、\n"
+" * SPx の使用中に現在の EL で受け付けた例外の汎用ハンドラです。揮発性レジスタ"
+"を保存し、Rust ハンドラを呼び出し、揮発性レジスタを\n"
+" * してから戻ります。\n"
+" *\n"
+" * 不揮発性レジスタを考慮しなければ、EL0 から取得した例外に対しても\n"
+" * 機能します。\n"
+" *\n"
+" * 状態の保存と Rust ハンドラへのジャンプには 15 個の命令が必要で、\n"
+" * 復元して戻るのにも 15 個の命令が必要であるため、\n"
+" * ハンドラ全体を 32 個の制限内である 30 個の命令に収めることができます。\n"
+" */\n"
+".macro current_exception_spx handler:req\n"
+"\tsave_volatile_to_stack\n"
+"\tbl \\handler\n"
+"\trestore_volatile_from_stack\n"
+"\teret\n"
+".endm\n"
+"\n"
+".section .text.vector_table_el1, \"ax\"\n"
+".global vector_table_el1\n"
+".balign 0x800\n"
+"vector_table_el1:\n"
+"sync_cur_sp0:\n"
+"\tcurrent_exception_sp0 sync_exception_current\n"
+"\n"
+".balign 0x80\n"
+"irq_cur_sp0:\n"
+"\tcurrent_exception_sp0 irq_current\n"
+"\n"
+".balign 0x80\n"
+"fiq_cur_sp0:\n"
+"\tcurrent_exception_sp0 fiq_current\n"
+"\n"
+".balign 0x80\n"
+"serr_cur_sp0:\n"
+"\tcurrent_exception_sp0 serr_current\n"
+"\n"
+".balign 0x80\n"
+"sync_cur_spx:\n"
+"\tcurrent_exception_spx sync_exception_current\n"
+"\n"
+".balign 0x80\n"
+"irq_cur_spx:\n"
+"\tcurrent_exception_spx irq_current\n"
+"\n"
+".balign 0x80\n"
+"fiq_cur_spx:\n"
+"\tcurrent_exception_spx fiq_current\n"
+"\n"
+".balign 0x80\n"
+"serr_cur_spx:\n"
+"\tcurrent_exception_spx serr_current\n"
+"\n"
+".balign 0x80\n"
+"sync_lower_64:\n"
+"\tcurrent_exception_spx sync_lower\n"
+"\n"
+".balign 0x80\n"
+"irq_lower_64:\n"
+"\tcurrent_exception_spx irq_lower\n"
+"\n"
+".balign 0x80\n"
+"fiq_lower_64:\n"
+"\tcurrent_exception_spx fiq_lower\n"
+"\n"
+".balign 0x80\n"
+"serr_lower_64:\n"
+"\tcurrent_exception_spx serr_lower\n"
+"\n"
+".balign 0x80\n"
+"sync_lower_32:\n"
+"\tcurrent_exception_spx sync_lower\n"
+"\n"
+".balign 0x80\n"
+"irq_lower_32:\n"
+"\tcurrent_exception_spx irq_lower\n"
+"\n"
+".balign 0x80\n"
+"fiq_lower_32:\n"
+"\tcurrent_exception_spx fiq_lower\n"
+"\n"
+".balign 0x80\n"
+"serr_lower_32:\n"
+"\tcurrent_exception_spx serr_lower\n"
+"```"
 
 #: src/exercises/bare-metal/rtc.md
 msgid ""
@@ -19234,10 +20401,57 @@ msgid ""
 "\t.fill\t\t255, 8, 0x0\t\t\t// 255 GiB of remaining VA space\n"
 "```"
 msgstr ""
+"```armasm\n"
+"/*\n"
+" * Copyright 2023 Google LLC\n"
+" *\n"
+" * バージョン 2.0 の Apache ライセンス（以下「本ライセンス」）により使用が許"
+"諾されています。\n"
+" * このファイルを使用するには、本ライセンスに準拠する必要があります。\n"
+" * 本ライセンスのコピーは下記のリンクから入手できます。\n"
+" *\n"
+" *     https://www.apache.org/licenses/LICENSE-2.0\n"
+" *\n"
+" * 本ライセンスで配布されるソフトウェアは、\n"
+" * 適用される法律によって要求される場合または書面で合意した場合を除き、\n"
+" * 明示されるか黙示されるかを問わず、いかなる種類の保証も条件もなく、「現状有"
+"姿」で提供されます。\n"
+" * 本ライセンスの下で適用される具体的な許可および制限については、\n"
+" * ライセンス本文をご覧ください。\n"
+" */\n"
+"\n"
+".set .L_TT_TYPE_BLOCK, 0x1\n"
+".set .L_TT_TYPE_PAGE,  0x3\n"
+".set .L_TT_TYPE_TABLE, 0x3\n"
+"\n"
+"/* アクセスフラグ。*/\n"
+".set .L_TT_AF, 0x1 << 10\n"
+"/* グローバルではありません。*/\n"
+".set .L_TT_NG, 0x1 << 11\n"
+".set .L_TT_XN, 0x3 << 53\n"
+"\n"
+".set .L_TT_MT_DEV, 0x0 << 2\t\t\t// MAIR #0 (DEV_nGnRE)\n"
+".set .L_TT_MT_MEM, (0x1 << 2) | (0x3 << 8)\t// MAIR #1 (MEM_WBWA)、内部共有可"
+"能\n"
+"\n"
+".set .L_BLOCK_DEV, .L_TT_TYPE_BLOCK | .L_TT_MT_DEV | .L_TT_AF | .L_TT_XN\n"
+".set .L_BLOCK_MEM, .L_TT_TYPE_BLOCK | .L_TT_MT_MEM | .L_TT_AF | .L_TT_NG\n"
+"\n"
+".section \".rodata.idmap\", \"a\", %progbits\n"
+".global idmap\n"
+".align 12\n"
+"idmap:\n"
+"\t/* レベル 1 */\n"
+"\t.quad\t\t.L_BLOCK_DEV | 0x0\t\t    //  1 GiB のデバイス マッピング\n"
+"\t.quad\t\t.L_BLOCK_MEM | 0x40000000\t// 1 GiB の DRAM\n"
+"\t.fill\t\t254, 8, 0x0\t\t\t// 254 GiB のマッピングされていない VA 空間\n"
+"\t.quad\t\t.L_BLOCK_DEV | 0x4000000000 // 1 GiB のデバイス マッピング\n"
+"\t.fill\t\t255, 8, 0x0\t\t\t// 255 GiB の残りの VA 空間\n"
+"```"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "_image.ld_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_image.ld_（変更する必要はありません）:"
 
 #: src/exercises/bare-metal/rtc.md
 msgid ""
@@ -19349,34 +20563,144 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```ld\n"
+"/*\n"
+" * Copyright 2023 Google LLC\n"
+" *\n"
+" * バージョン 2.0 の Apache ライセンス（以下「本ライセンス」）により使用が許"
+"諾されています。\n"
+" * このファイルを使用するには、本ライセンスに準拠する必要があります。\n"
+" * 本ライセンスのコピーは下記のリンクから入手できます。\n"
+" *\n"
+" *     https://www.apache.org/licenses/LICENSE-2.0\n"
+" *\n"
+" * 本ライセンスで配布されるソフトウェアは、\n"
+" * 適用される法律によって要求される場合または書面で合意した場合を除き、\n"
+" * 明示されるか黙示されるかを問わず、いかなる種類の保証も条件もなく、「現状有"
+"姿」で提供されます。\n"
+" * 本ライセンスの下で適用される具体的な許可および制限については、\n"
+" * ライセンス本文をご覧ください。\n"
+" */\n"
+"\n"
+"/*\n"
+" * コードの実行は、イメージの先頭にあるこのシンボルから\n"
+" * 開始されます。\n"
+" */\n"
+"ENTRY(entry)\n"
+"\n"
+"MEMORY\n"
+"{\n"
+"\timage : ORIGIN = 0x40080000, LENGTH = 2M\n"
+"}\n"
+"\n"
+"SECTIONS\n"
+"{\n"
+"\t/*\n"
+"\t * コードを集約します\n"
+"\t */\n"
+"\t.init : ALIGN(4096) {\n"
+"\t\ttext_begin = .;\n"
+"\t\t*(.init.entry)\n"
+"\t\t*(.init.*)\n"
+"\t} >image\n"
+"\t.text : {\n"
+"\t\t*(.text.*)\n"
+"\t} >image\n"
+"\ttext_end = .;\n"
+"\n"
+"\t/*\n"
+"\t * 読み取り専用データを集約します。\n"
+"\t */\n"
+"\t.rodata : ALIGN(4096) {\n"
+"\t\trodata_begin = .;\n"
+"\t\t*(.rodata.*)\n"
+"\t} >image\n"
+"\t.got : {\n"
+"\t\t*(.got)\n"
+"\t} >image\n"
+"\trodata_end = .;\n"
+"\n"
+"\t/*\n"
+"\t * エントリコードによってゼロ初期化される.bssを末尾に含む、書き込み可能デー"
+"タを集約します。\n"
+"\t */\n"
+"\t.data : ALIGN(4096) {\n"
+"\t\tdata_begin = .;\n"
+"\t\t*(.data.*)\n"
+"\t\t/*\n"
+"\t\t * このエントリポイントは.dataの大きさが32バイトの倍数になっていることを"
+"前提としています。\n"
+"\t\t */\n"
+"\t\t. = ALIGN(32);\n"
+"\t\tdata_end = .;\n"
+"\t} >image\n"
+"\n"
+"\t/* これ以降はすべてバイナリに含まれません。*/\n"
+"\tbin_end = .;\n"
+"\n"
+"\t/* このエントリ ポイント コードは、.bss が 16 バイトでアラインされているこ"
+"とを前提としています。*/\n"
+"\t.bss : ALIGN(16)  {\n"
+"\t\tbss_begin = .;\n"
+"\t\t*(.bss.*)\n"
+"\t\t*(COMMON)\n"
+"\t\t. = ALIGN(16);\n"
+"\t\tbss_end = .;\n"
+"\t} >image\n"
+"\n"
+"\t.stack (NOLOAD) : ALIGN(4096) {\n"
+"\t\tboot_stack_begin = .;\n"
+"\t\t. += 40 * 4096;\n"
+"\t\t. = ALIGN(4096);\n"
+"\t\tboot_stack_end = .;\n"
+"\t} >image\n"
+"\n"
+"\t. = ALIGN(4K);\n"
+"\tPROVIDE(dma_region = .);\n"
+"\n"
+"\t/*\n"
+"\t * 使用されていないセクションをイメージから削除します。\n"
+"\t */\n"
+"\t/DISCARD/ : {\n"
+"\t\t/* イメージは自分自身によりロードされるのでこれらのセクションは不要です。"
+"*/\n"
+"\t\t*(.gnu.hash)\n"
+"\t\t*(.hash)\n"
+"\t\t*(.interp)\n"
+"\t\t*(.eh_frame_hdr)\n"
+"\t\t*(.eh_frame)\n"
+"\t\t*(.note.gnu.build-id)\n"
+"\t}\n"
+"}\n"
+"```"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "_Makefile_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_Makefile_（変更する必要はありません）:"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "# Copyright 2023 Google LLC"
-msgstr ""
+msgstr "# Copyright 2023 Google LLC"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "$(shell uname -s)"
-msgstr ""
+msgstr "$(shell uname -s)"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "aarch64-linux-gnu"
-msgstr ""
+msgstr "aarch64-linux-gnu"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "stdio -display none -kernel $< -s"
-msgstr ""
+msgstr "stdio -display none -kernel $< -s"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "cargo clean"
-msgstr ""
+msgstr "cargo clean"
 
 #: src/exercises/bare-metal/rtc.md
 msgid "Run the code in QEMU with `make qemu`."
-msgstr ""
+msgstr "`make qemu`によりQEMU でコードを実行します。"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "Bare Metal Rust Afternoon"
@@ -19384,89 +20708,91 @@ msgstr "ベアメタルRust PM"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "([back to exercise](rtc.md))"
-msgstr ""
+msgstr "（[演習に戻る](rtc.md)）"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "_main.rs_:"
-msgstr ""
+msgstr "_main.rs_:"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "/// Base address of the PL031 RTC.\n"
-msgstr ""
+msgstr "/// PL031 RTC のベースアドレス。\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "/// The IRQ used by the PL031 RTC.\n"
-msgstr ""
+msgstr "/// PL031 RTC が使用する IRQ。\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid ""
 "// Safe because `PL031_BASE_ADDRESS` is the base address of a PL031 device,\n"
 "    // and nothing else accesses that address range.\n"
 msgstr ""
+"// `PL031_BASE_ADDRESS` が PL031 デバイスのベースアドレスであり、\n"
+"    // それ以外はこのアドレス範囲にアクセスしないため、安全です。\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "\"RTC: {time}\""
-msgstr ""
+msgstr "\"RTC: {time}\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "// Wait for 3 seconds, without interrupts.\n"
-msgstr ""
+msgstr "// 割り込みなしで 3 秒間待機します。\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "\"Waiting for {}\""
-msgstr ""
+msgstr "\"Waiting for {}\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "\"matched={}, interrupt_pending={}\""
-msgstr ""
+msgstr "\"matched={}, interrupt_pending={}\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "\"Finished waiting\""
-msgstr ""
+msgstr "\"Finished waiting\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "// Wait another 3 seconds for an interrupt.\n"
-msgstr ""
+msgstr "// 割り込みまでさらに 3 秒待ちます。\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "_pl031.rs_:"
-msgstr ""
+msgstr "_pl031.rs_:"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "/// Data register\n"
-msgstr ""
+msgstr "/// データレジスタ\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "/// Match register\n"
-msgstr ""
+msgstr "/// 一致レジスタ\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "/// Load register\n"
-msgstr ""
+msgstr "/// 読み込みレジスタ\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "/// Control register\n"
-msgstr ""
+msgstr "/// 制御レジスタ\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "/// Interrupt Mask Set or Clear register\n"
-msgstr ""
+msgstr "/// 割り込みマスクセットまたはクリアレジスタ\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "/// Raw Interrupt Status\n"
-msgstr ""
+msgstr "/// 未加工の割り込みステータス\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "/// Masked Interrupt Status\n"
-msgstr ""
+msgstr "/// マスクされた割り込みステータス\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "/// Interrupt Clear Register\n"
-msgstr ""
+msgstr "/// 割り込みクリアレジスタ\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "/// Driver for a PL031 real-time clock.\n"
-msgstr ""
+msgstr "/// PL031 リアルタイム クロック用のドライバ。\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid ""
@@ -19481,22 +20807,36 @@ msgid ""
 "process\n"
 "    /// as device memory and not have any other aliases.\n"
 msgstr ""
+"/// 指定されたベースアドレスに\n"
+"    /// PL031 デバイス用の RTC ドライバの新しいインスタンスを作成します。\n"
+"    ///\n"
+"    /// # 安全性\n"
+"    ///\n"
+"    /// 指定されたベースアドレスは PL031 デバイスの MMIO 制御レジスタを指して"
+"いる必要があります。\n"
+"    /// これらはデバイスメモリとしてプロセスのアドレス空間に\n"
+"    /// マッピングされ、他のエイリアスはありません。\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "/// Reads the current RTC value.\n"
-msgstr ""
+msgstr "/// 現在の RTC 値を読み取ります。\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid ""
 "// Safe because we know that self.registers points to the control\n"
 "        // registers of a PL031 device which is appropriately mapped.\n"
 msgstr ""
+"// self.registers が、適切にマッピングされた PL031 デバイスのコントロール レ"
+"ジスタを\n"
+"        // 指していることがわかっているため、安全です。\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid ""
 "/// Writes a match value. When the RTC value matches this then an interrupt\n"
 "    /// will be generated (if it is enabled).\n"
 msgstr ""
+"/// 一致値を書き込みます。RTC 値がこれに一致すると、割り込みが生成されます\n"
+"    /// （割り込みが有効になっている場合）。\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid ""
@@ -19504,6 +20844,8 @@ msgid ""
 "not\n"
 "    /// the interrupt is enabled.\n"
 msgstr ""
+"/// 割り込みが有効になっているかどうかに関係なく、一致レジスタが RTC 値と\n"
+"    /// 一致するかどうかを返します。\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid ""
@@ -19512,6 +20854,11 @@ msgid ""
 "    /// This should be true if and only if `matched` returns true and the\n"
 "    /// interrupt is masked.\n"
 msgstr ""
+"/// 現在保留中の割り込みがあるかどうかを返します。\n"
+"    ///\n"
+"    /// これは `matched` が true を返し、割り込みがマスクされている場合にの"
+"み\n"
+"    /// true になります。\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid ""
@@ -19521,10 +20868,14 @@ msgid ""
 "the\n"
 "    /// interrupt is disabled.\n"
 msgstr ""
+"/// 割り込みマスクを設定またはクリアします。\n"
+"    ///\n"
+"    /// マスクが true の場合、割り込みは有効になります。false の場合、\n"
+"    /// 割り込みは無効になります。\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md
 msgid "/// Clears a pending interrupt, if any.\n"
-msgstr ""
+msgstr "/// 保留中の割り込みがあればクリアします。\n"
 
 #: src/concurrency.md
 msgid "Welcome to Concurrency in Rust"

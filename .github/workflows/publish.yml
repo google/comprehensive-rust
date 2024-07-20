@@ -19,7 +19,7 @@ concurrency:
 env:
   CARGO_TERM_COLOR: always
   # Update the language picker in index.hbs to link new languages.
-  LANGUAGES: bn da de es fa fr it ja ko pt-BR vi zh-CN zh-TW
+  LANGUAGES: ar bn da de el es fa fr id it ja ko pl pt-BR ro ru tr uk vi zh-CN zh-TW
 
 jobs:
   publish:
@@ -36,6 +36,11 @@ jobs:
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
 
+      - name: Install Gettext
+        run: |
+          sudo apt update
+          sudo apt install gettext
+
       - name: Install mdbook
         uses: ./.github/workflows/install-mdbook
 
@@ -48,6 +53,16 @@ jobs:
               .github/workflows/build.sh $po_lang book/$po_lang
               mv book/$po_lang/html book/html/$po_lang
           done
+
+      - name: Build translation report
+        run: i18n-report report book/html/translation-report.html po/*.po
+
+      - name: Build synced translation report
+        run: |
+          cp -r po synced-po
+          MDBOOK_OUTPUT='{"xgettext": {"pot-file": "messages.pot", "granularity": 0}}' mdbook build -d synced-po
+          for file in synced-po/*.po; do msgmerge --update $file synced-po/messages.pot ; done
+          i18n-report report book/html/synced-translation-report.html synced-po/*.po
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
