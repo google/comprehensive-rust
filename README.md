@@ -53,6 +53,10 @@ The course is built using a few tools:
 - [mdbook-exerciser](mdbook-exerciser/)
 - [mdbook-course](mdbook-course/)
 
+In addition,
+[mdbook-linkcheck](https://github.com/Michael-F-Bryan/mdbook-linkcheck) checks
+the internal links.
+
 First install Rust by following the instructions on https://rustup.rs/. Then
 clone this repository:
 
@@ -68,6 +72,7 @@ cargo install mdbook
 cargo install --locked mdbook-svgbob
 cargo install --locked mdbook-i18n-helpers
 cargo install --locked i18n-report
+cargo install --locked mdbook-linkcheck
 cargo install --locked --path mdbook-exerciser
 cargo install --locked --path mdbook-course
 ```

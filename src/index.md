@@ -38,9 +38,10 @@ Building on this, you're invited to dive into one or more specialized topics:
 - [Bare-metal](bare-metal.md): a whole-day class on using Rust for bare-metal
   (embedded) development. Both microcontrollers and application processors are
   covered.
-- [Concurrency](concurrency.md): a whole-day class on concurrency in Rust. We
-  cover both classical concurrency (preemptively scheduling using threads and
-  mutexes) and async/await concurrency (cooperative multitasking using futures).
+- [Concurrency](concurrency/welcome.md): a whole-day class on concurrency in
+  Rust. We cover both classical concurrency (preemptively scheduling using
+  threads and mutexes) and async/await concurrency (cooperative multitasking
+  using futures).
 
 ## Non-Goals
 

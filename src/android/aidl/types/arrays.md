@@ -13,8 +13,8 @@ signature:
 <details>
 
 - In Android 13 or higher, fixed-size arrays are supported, i.e. `T[N]` becomes
-  `[T; N]`. Fixed-size arrays can have multiple dimensions (e.g. int[3][4]). In
-  the Java backend, fixed-size arrays are represented as array types.
+  `[T; N]`. Fixed-size arrays can have multiple dimensions (e.g. `int[3][4]`).
+  In the Java backend, fixed-size arrays are represented as array types.
 - Arrays in parcelable fields always get translated to `Vec<T>`.
 
 </details>

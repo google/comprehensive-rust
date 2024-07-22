@@ -46,7 +46,7 @@ linkcolor = "blue"
 urlcolor = "red"
 
 [output.html]
-curly-quotes = true
+smart-punctuation = true
 additional-js = [
   "theme/speaker-notes.js",
 ]
@@ -278,3 +278,12 @@ use-boolean-and = true
 
 [output.exerciser]
 output-directory = "comprehensive-rust-exercises"
+
+[output.linkcheck]
+optional = true
+follow-web-links = false # change to true to check web links
+exclude = [
+  "comprehensive-rust.pdf",
+  "comprehensive-rust-exercises.zip",
+  # "crates.io", # uncomment when follow-web-links is true
+]
