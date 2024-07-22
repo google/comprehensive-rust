@@ -6,7 +6,7 @@ volunteers:
 - [Brazilian Portuguese][pt-BR] by [@rastringer], [@hugojacob],
   [@joaovicmendes], and [@henrif75].
 - [Chinese (Simplified)][zh-CN] by [@suetfei], [@wnghl], [@anlunx], [@kongy],
-  [@noahdragon], [@superwhd], [@SketchK], and [@nodmp].
+  [@noahdragon], [@superwhd], @SketchK, and [@nodmp].
 - [Chinese (Traditional)][zh-TW] by [@hueich], [@victorhsieh], [@mingyc],
   [@kuanhungchen], and [@johnathan79717].
 - [Japanese][ja] by [@CoinEZ-JPN], [@momotaro1105], [@HidenoriKobayashi] and
@@ -76,7 +76,6 @@ get going. Translations are coordinated on the [issue tracker].
 [@rastringer]: https://github.com/rastringer
 [@reta]: https://github.com/reta
 [@ronaldfw]: https://github.com/ronaldfw
-[@SketchK]: https://github.com/SketchK
 [@suetfei]: https://github.com/suetfei
 [@superwhd]: https://github.com/superwhd
 [@Throvn]: https://github.com/Throvn
