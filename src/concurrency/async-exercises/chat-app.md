@@ -29,13 +29,13 @@ You are going to need the following functions from `tokio` and
 [`tokio_websockets`][2]. Spend a few minutes to familiarize yourself with the
 API.
 
-- [StreamExt::next()][3] implemented by `WebSocketStream`: for asynchronously
+- [`StreamExt::next()`][3] implemented by `WebSocketStream`: for asynchronously
   reading messages from a Websocket Stream.
-- [SinkExt::send()][4] implemented by `WebSocketStream`: for asynchronously
+- [`SinkExt::send()`][4] implemented by `WebSocketStream`: for asynchronously
   sending messages on a Websocket Stream.
-- [Lines::next_line()][5]: for asynchronously reading user messages from the
+- [`Lines::next_line()`][5]: for asynchronously reading user messages from the
   standard input.
-- [Sender::subscribe()][6]: for subscribing to a broadcast channel.
+- [`Sender::subscribe()`][6]: for subscribing to a broadcast channel.
 
 ## Two binaries
 
@@ -58,9 +58,8 @@ _src/bin/server.rs_:
 {{#include chat-async/src/bin/server.rs:setup}}
 
 {{#include chat-async/src/bin/server.rs:handle_connection}}
-
     // TODO: For a hint, see the description of the task below.
-
+    Ok(())
 {{#include chat-async/src/bin/server.rs:main}}
 ```
 
@@ -72,7 +71,7 @@ _src/bin/client.rs_:
 {{#include chat-async/src/bin/client.rs:setup}}
 
     // TODO: For a hint, see the description of the task below.
-
+    Ok(())
 }
 ```
 

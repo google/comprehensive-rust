@@ -2,12 +2,10 @@ use tokio::sync::mpsc;
 
 async fn ping_handler(mut input: mpsc::Receiver<()>) {
     let mut count = 0;
-
     while let Some(_) = input.recv().await {
         count += 1;
         println!("Received {count} pings so far.");
     }
-
     println!("ping_handler complete");
 }
 

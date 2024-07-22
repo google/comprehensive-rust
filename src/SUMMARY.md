@@ -387,7 +387,7 @@
   - [Futures](concurrency/async/futures.md)
   - [Runtimes](concurrency/async/runtimes.md)
     - [Tokio](concurrency/async/runtimes/tokio.md)
-  - [Tasks](concurrency/async/tasks.md)
+    <!-- - [Tasks](concurrency/async/tasks.md) -->
 - [Channels and Control Flow](concurrency/async-control-flow.md)
   - [Async Channels](concurrency/async-control-flow/channels.md)
   - [Join](concurrency/async-control-flow/join.md)

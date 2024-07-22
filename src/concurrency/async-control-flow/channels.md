@@ -4,7 +4,7 @@ minutes: 8
 
 # Async Channels
 
-Several crates have support for asynchronous channels. For instance `tokio`:
+Asynchronous channels are very similar to synchronous channels:
 
 ```rust,editable,compile_fail
 {{#include channels.rs}}

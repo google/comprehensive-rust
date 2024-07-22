@@ -44,13 +44,11 @@ impl Philosopher {
         // Keep trying until we have both forks
         // ANCHOR_END: Philosopher-eat
         let (_left_fork, _right_fork) = loop {
-            tokio::task::yield_now().await;
             // Pick up forks...
             match (self.left_fork.try_lock(), self.right_fork.try_lock()) {
-                (Ok(left_fork), Ok(right_fork)) => (left_fork, right_fork),
+                (Ok(left_fork), Ok(right_fork)) => break (left_fork, right_fork),
                 (_, _) => continue,
             };
-            break (left_fork, right_fork);
         };
 
         // ANCHOR: Philosopher-eat-body

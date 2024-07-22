@@ -5,8 +5,10 @@ minutes: 20
 # `Pin`
 
 Async blocks and functions return types implementing the `Future` trait. The
-type returned is the result of a compiler transformation which turns local
+type returned is the result of a [compiler transformation] which turns local
 variables into data stored inside the future.
+
+[compiler transformation]: https://tokio.rs/tokio/tutorial/async
 
 Some of those variables can hold pointers to other local variables. Because of
 that, the future should never be moved to a different memory location, as it
