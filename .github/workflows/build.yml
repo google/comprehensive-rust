@@ -121,6 +121,9 @@ jobs:
       matrix:
         language: ${{ fromJSON(needs.find-languages.outputs.languages) }}
       fail-fast: false
+    env:
+      # Opt-in for checking links in translations - add the language below.
+      LINK_CHECKED_LANGUAGES: '["en", ]'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -149,8 +152,7 @@ jobs:
           msgfmt -o /dev/null --statistics po/messages.pot
 
       - name: Install mdbook-linkcheck
-        # Opt-in for checking links in translations - add the language below.
-        if: contains(fromJSON('["en", ]'), matrix.language)
+        if: contains(fromJSON(env.LINK_CHECKED_LANGUAGES), matrix.language)
         run: cargo install mdbook-linkcheck --locked --version 0.7.7
 
       - name: Build ${{ matrix.language }} translation
