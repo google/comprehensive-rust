@@ -39,37 +39,38 @@ need the `msgmerge` and `msgcat` Gettext tool installed. Please see our
 
 First, you need to know how to update the `.pot` and `.po` files.
 
-You should never touch the auto-generated `po/messages.pot` file. You should
-also not never the `msgid` entries in a `po/xx.po` file. If you find mistakes,
-you need to update the original English text instead. The fixes to the English
-text will flow into the `.po` files the next time the translators update them.
+You should never touch the auto-generated `book/xgettext/messages.pot` file. You
+should also not never the `msgid` entries in a `po/xx.po` file. If you find
+mistakes, you need to update the original English text instead. The fixes to the
+English text will flow into the `.po` files the next time the translators update
+them.
 
 > **Tip:** See our [style guide](STYLE.md) for some things to keep in mind when
 > writing the translation.
 
 ### Generating the PO Template
 
-To extract the original English text and generate a `messages.pot` file, you run
-`mdbook` with a special renderer:
+To extract the original English text and generate a `messages.pot` file, you
+build the book. This will automatically invoke the `mdbook-xgettext` renderer:
 
 ```shell
-MDBOOK_OUTPUT='{"xgettext": {"pot-file": "messages.pot", "granularity": 0}}' \
-  mdbook build -d po
+mdbook build
 ```
 
-You will find the generated POT file as `po/messages.pot`.
+You will find the generated POT file as `book/xgettext/messages.pot`.
 
 ### Initialize a New Translation
 
-To start a new translation, first generate the `po/messages.pot` file. Then use
-`msginit` to create a `xx.po` file for the fictional `xx` language:
+To start a new translation, first generate the `book/xgettext/messages.pot`
+file. Then use `msginit` to create a `xx.po` file for the fictional `xx`
+language:
 
 ```shell
-msginit -i po/messages.pot -l xx -o po/xx.po
+msginit -i book/xgettext/messages.pot -l xx -o po/xx.po
 ```
 
-You can also simply copy `po/messages.pot` to `po/xx.po`. Then update the file
-header (the first entry with `msgid ""`) to the correct language.
+You can also simply copy `book/xgettext/messages.pot` to `po/xx.po`. Then update
+the file header (the first entry with `msgid ""`) to the correct language.
 
 > **Tip:** You can use the
 > [`cloud-translate`](https://github.com/mgeisler/cloud-translate) tool to
@@ -98,10 +99,10 @@ translations contain a POT-Creation-Date header which tells you when they were
 last updated with new English messages.
 
 To update the `po/xx.po` file with new messages, first extract the English text
-into a `po/messages.pot` template file. Then run
+into a `book/xgettext/messages.pot` template file. Then run
 
 ```shell
-msgmerge --update po/xx.po po/messages.pot
+msgmerge --update po/xx.po book/xgettext/messages.pot
 ```
 
 Notice that the POT-Creation-Date field is updated to the current time and date.
@@ -162,9 +163,8 @@ To use the `po/xx.po` file for your output, run the following command:
 MDBOOK_BOOK__LANGUAGE=xx mdbook build -d book/xx
 ```
 
-This will update the book's language to `xx`, it will make the `mdbook-gettext`
-preprocessor become active and tell it to use the `po/xx.po` file, and finally
-it will redirect the output to `book/xx`.
+This will tell the `mdbook-gettext` preprocessor to translate the book using the
+`po/xx.po` file. The HTML output can be found in `book/xx/html/`.
 
 ### Serving a Translation
 
