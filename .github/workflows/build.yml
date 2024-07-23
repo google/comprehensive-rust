@@ -132,6 +132,8 @@ jobs:
 
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
+        with:
+          key: ${{ contains(fromJSON(env.LINK_CHECKED_LANGUAGES), matrix.language) }}
 
       - name: Install Gettext
         run: |
