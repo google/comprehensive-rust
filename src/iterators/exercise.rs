@@ -25,8 +25,8 @@ where
     N: Copy + std::ops::Sub<Output = N>,
 {
     // ANCHOR_END: offset_differences
-    let a = (&values).into_iter();
-    let b = (&values).into_iter().cycle().skip(offset);
+    let a = values.iter();
+    let b = values.iter().cycle().skip(offset);
     a.zip(b).map(|(a, b)| *b - *a).collect()
 }
 

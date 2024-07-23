@@ -83,7 +83,7 @@ impl<const N: usize> Table<N> {
         for cell in iter {
             write!(f, " {} |", cell)?;
         }
-        write!(f, "\n")
+        writeln!(f)
     }
 }
 

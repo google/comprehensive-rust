@@ -37,12 +37,9 @@ impl User {
             patient_name: &self.name,
             visit_count: self.visit_count as u32,
             height_change: measurements.height - self.height,
-            blood_pressure_change: match self.last_blood_pressure {
-                Some(lbp) => {
-                    Some((bp.0 as i32 - lbp.0 as i32, bp.1 as i32 - lbp.1 as i32))
-                }
-                None => None,
-            },
+            blood_pressure_change: self
+                .last_blood_pressure
+                .map(|lbp| (bp.0 as i32 - lbp.0 as i32, bp.1 as i32 - lbp.1 as i32)),
         };
         self.height = measurements.height;
         self.last_blood_pressure = Some(bp);

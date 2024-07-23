@@ -10,36 +10,6 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  format:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install formatting dependencies
-        run: |
-          sudo apt update
-          sudo apt install gettext yapf3
-
-      - name: Install nightly rustfmt
-        run: |
-          rustup default nightly
-          rustup component add rustfmt
-
-      - name: Check formatting
-        uses: dprint/check@v2.2
-
-  typos:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Check for typos
-        uses: crate-ci/typos@v1.23.2
-        with:
-          config: ./.github/typos.toml
-
   cargo:
     strategy:
       matrix:

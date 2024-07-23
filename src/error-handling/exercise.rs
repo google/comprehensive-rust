@@ -107,9 +107,7 @@ enum ParserError {
 fn parse(input: &str) -> Result<Expression, ParserError> {
     let mut tokens = tokenize(input);
 
-    fn parse_expr<'a>(
-        tokens: &mut Tokenizer<'a>,
-    ) -> Result<Expression, ParserError> {
+    fn parse_expr(tokens: &mut Tokenizer<'_>) -> Result<Expression, ParserError> {
         let tok = tokens.next().ok_or(ParserError::UnexpectedEOF)??;
         let expr = match tok {
             Token::Number(num) => {

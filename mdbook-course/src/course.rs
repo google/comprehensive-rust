@@ -156,7 +156,7 @@ impl Courses {
     fn course_mut(&mut self, name: impl AsRef<str>) -> &mut Course {
         let name = name.as_ref();
         if let Some(found_idx) =
-            self.courses.iter().position(|course| &course.name == name)
+            self.courses.iter().position(|course| course.name == name)
         {
             return &mut self.courses[found_idx];
         }
@@ -177,9 +177,7 @@ impl Courses {
         &self,
         chapter: &Chapter,
     ) -> Option<(&Course, &Session, &Segment, &Slide)> {
-        let Some(ref source_path) = chapter.source_path else {
-            return None;
-        };
+        let source_path = chapter.source_path.as_ref()?;
 
         for course in self {
             for session in course {
@@ -193,7 +191,7 @@ impl Courses {
             }
         }
 
-        return None;
+        None
     }
 }
 
@@ -202,7 +200,7 @@ impl<'a> IntoIterator for &'a Courses {
     type IntoIter = std::slice::Iter<'a, Course>;
 
     fn into_iter(self) -> Self::IntoIter {
-        (&self.courses).into_iter()
+        self.courses.iter()
     }
 }
 
@@ -216,7 +214,7 @@ impl Course {
     fn session_mut(&mut self, name: impl AsRef<str>) -> &mut Session {
         let name = name.as_ref();
         if let Some(found_idx) =
-            self.sessions.iter().position(|session| &session.name == name)
+            self.sessions.iter().position(|session| session.name == name)
         {
             return &mut self.sessions[found_idx];
         }
@@ -275,7 +273,7 @@ impl<'a> IntoIterator for &'a Course {
     type IntoIter = std::slice::Iter<'a, Session>;
 
     fn into_iter(self) -> Self::IntoIter {
-        (&self.sessions).into_iter()
+        self.sessions.iter()
     }
 }
 
@@ -350,7 +348,7 @@ impl<'a> IntoIterator for &'a Session {
     type IntoIter = std::slice::Iter<'a, Segment>;
 
     fn into_iter(self) -> Self::IntoIter {
-        (&self.segments).into_iter()
+        self.segments.iter()
     }
 }
 
@@ -403,7 +401,7 @@ impl<'a> IntoIterator for &'a Segment {
     type IntoIter = std::slice::Iter<'a, Slide>;
 
     fn into_iter(self) -> Self::IntoIter {
-        (&self.slides).into_iter()
+        self.slides.iter()
     }
 }
 
@@ -451,7 +449,7 @@ impl Slide {
     pub fn is_sub_chapter(&self, chapter: &Chapter) -> bool {
         // The first `source_path` in the slide is the "parent" chapter, so anything
         // else is a sub-chapter.
-        chapter.source_path.as_ref() != self.source_paths.get(0)
+        chapter.source_path.as_ref() != self.source_paths.first()
     }
 
     /// Return the total duration of this slide.

@@ -29,7 +29,7 @@ fn main() {
         );
     let matches = app.get_matches();
 
-    if let Some(_) = matches.subcommand_matches("supports") {
+    if matches.subcommand_matches("supports").is_some() {
         // Support all renderers.
         process::exit(0);
     }

@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Omitting `return` is covered later.
+#[allow(clippy::needless_return)]
 // ANCHOR: solution
 // ANCHOR: fib
 fn fib(n: u32) -> u32 {

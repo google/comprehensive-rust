@@ -50,7 +50,7 @@ pub fn replace(
                 }
                 ["course", "outline", course_name] => {
                     let Some(course) = courses.find_course(course_name) else {
-                        return format!("not found - {}", captures[0].to_string());
+                        return format!("not found - {}", &captures[0]);
                     };
                     course.schedule()
                 }
