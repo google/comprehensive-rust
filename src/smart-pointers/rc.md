@@ -24,7 +24,7 @@ fn main() {
   cycles that will get dropped.
 
 [1]: https://doc.rust-lang.org/std/rc/struct.Rc.html
-[2]: ../concurrency/shared_state/arc.md
+[2]: ../concurrency/shared-state/arc.md
 [3]: https://doc.rust-lang.org/std/sync/struct.Mutex.html
 [4]: https://doc.rust-lang.org/std/rc/struct.Weak.html
 

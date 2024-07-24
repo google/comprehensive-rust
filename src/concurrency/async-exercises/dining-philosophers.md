@@ -4,8 +4,8 @@ minutes: 20
 
 # Dining Philosophers --- Async
 
-See [dining philosophers](concurrency/sync-exercises/dining-philosophers.md) for
-a description of the problem.
+See [dining philosophers](../sync-exercises/dining-philosophers.md) for a
+description of the problem.
 
 As before, you will need a local
 [Cargo installation](../../cargo/running-locally.md) for this exercise. Copy the
