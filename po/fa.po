@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Comprehensive Rust 🦀\n"
-"POT-Creation-Date: 2024-07-22T13:51:25+03:30\n"
+"POT-Creation-Date: 2024-07-24T09:42:45+03:30\n"
 "PO-Revision-Date: 2024-05-04 17:23+0330\n"
 "Last-Translator: alix1383 <dev.alix13@gmail.com>\n"
 "Language-Team: Persian\n"
@@ -1471,11 +1471,12 @@ msgstr ""
 "داده شده اند."
 
 #: src/index.md
+#, fuzzy
 msgid ""
-"[Concurrency](concurrency.md): a whole-day class on concurrency in Rust. We "
-"cover both classical concurrency (preemptively scheduling using threads and "
-"mutexes) and async/await concurrency (cooperative multitasking using "
-"futures)."
+"[Concurrency](concurrency/welcome.md): a whole-day class on concurrency in "
+"Rust. We cover both classical concurrency (preemptively scheduling using "
+"threads and mutexes) and async/await concurrency (cooperative multitasking "
+"using futures)."
 msgstr ""
 "[Concurrency](concurrency.md):  یک کلاس تمام روز درباره همزمانی در Rust. ما "
 "هر  همزمانی کلاسیک (برنامه ریزی پیشگیرانه با استفاده از موضوعات و mutexes) و "
@@ -1955,9 +1956,10 @@ msgid "Concurrency in Rust"
 msgstr "همزمانی در Rust"
 
 #: src/running-the-course/course-structure.md:132
+#, fuzzy
 msgid ""
-"The [Concurrency in Rust](../concurrency.md) deep dive is a full day class "
-"on classical as well as `async`/`await` concurrency."
+"The [Concurrency in Rust](../concurrency/welcome.md) deep dive is a full day "
+"class on classical as well as `async`/`await` concurrency."
 msgstr ""
 "دوره [همزمانی در Rust ](../concurrency.md) یک روزه با تمرکز بر همزمانی  "
 "کلاسیک و همچنین همزمانی `async`/`await` است."
@@ -2060,13 +2062,13 @@ msgstr ""
 "[@henrif75](https://github.com/henrif75)."
 
 #: src/running-the-course/translations.md:8
+#, fuzzy
 msgid ""
 "[Chinese (Simplified)](https://google.github.io/comprehensive-rust/zh-CN/) "
 "by [@suetfei](https://github.com/suetfei), [@wnghl](https://github.com/"
 "wnghl), [@anlunx](https://github.com/anlunx), [@kongy](https://github.com/"
 "kongy), [@noahdragon](https://github.com/noahdragon), [@superwhd](https://"
-"github.com/superwhd), [@SketchK](https://github.com/SketchK), and [@nodmp]"
-"(https://github.com/nodmp)."
+"github.com/superwhd), @SketchK, and [@nodmp](https://github.com/nodmp)."
 msgstr ""
 "[چینی (ساده‌شده)](https://google.github.io/comprehensive-rust/zh-CN/) توسط "
 "[@suetfei](https://github.com/suetfei), [@wnghl](https://github.com/wnghl), "
@@ -4005,9 +4007,10 @@ msgstr ""
 "پرداخته‌ایم."
 
 #: src/tuples-and-arrays/iteration.md:22
+#, fuzzy
 msgid ""
 "The `assert_ne!` macro is new here. There are also `assert_eq!` and `assert!"
-"` macros. These are always checked while, debug-only variants like "
+"` macros. These are always checked, while debug-only variants like "
 "`debug_assert!` compile to nothing in release builds."
 msgstr ""
 "ماکرو `assert_ne!` در اینجا جدید است. همچنین ماکروهای `assert_eq!` و `assert!"
@@ -8279,7 +8282,7 @@ msgstr ""
 
 #: src/smart-pointers/rc.md:18
 msgid ""
-"See [`Arc`](../concurrency/shared_state/arc.md) and [`Mutex`](https://doc."
+"See [`Arc`](../concurrency/shared-state/arc.md) and [`Mutex`](https://doc."
 "rust-lang.org/std/sync/struct.Mutex.html) if you are in a multi-threaded "
 "context."
 msgstr ""
@@ -12066,8 +12069,8 @@ msgstr ""
 msgid ""
 "In Android 13 or higher, fixed-size arrays are supported, i.e. `T[N]` "
 "becomes `[T; N]`. Fixed-size arrays can have multiple dimensions (e.g. "
-"int\\[3\\]\\[4\\]). In the Java backend, fixed-size arrays are represented "
-"as array types."
+"`int[3][4]`). In the Java backend, fixed-size arrays are represented as "
+"array types."
 msgstr ""
 
 #: src/android/aidl/types/arrays.md:18
@@ -12537,8 +12540,8 @@ msgstr ""
 
 #: src/android/interoperability/with-c.md:21
 msgid ""
-"We already saw this in the [Safe FFI Wrapper exercise](../../exercises/day-3/"
-"safe-ffi-wrapper.md)."
+"We already saw this in the [Safe FFI Wrapper exercise](../../unsafe-rust/"
+"exercise.md)."
 msgstr ""
 
 #: src/android/interoperability/with-c.md:24
@@ -18156,7 +18159,7 @@ msgid ""
 "[`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html) ensures "
 "mutual exclusion _and_ allows mutable access to `T` behind a read-only "
 "interface (another form of [interior mutability](../../borrowing/interior-"
-"mutability)):"
+"mutability.md)):"
 msgstr ""
 
 #: src/concurrency/shared-state/mutex.md:12
@@ -19357,8 +19360,8 @@ msgstr "فلسفه Dining"
 
 #: src/concurrency/async-exercises/dining-philosophers.md:3
 msgid ""
-"See [dining philosophers](concurrency/sync-exercises/dining-philosophers.md) "
-"for a description of the problem."
+"See [dining philosophers](../sync-exercises/dining-philosophers.md) for a "
+"description of the problem."
 msgstr ""
 
 #: src/concurrency/async-exercises/dining-philosophers.md:6
@@ -19444,7 +19447,7 @@ msgid ""
 "[dependencies]\n"
 "futures-util = { version = \"0.3.30\", features = [\"sink\"] }\n"
 "http = \"1.1.0\"\n"
-"tokio = { version = \"1.38.0\", features = [\"full\"] }\n"
+"tokio = { version = \"1.38.1\", features = [\"full\"] }\n"
 "tokio-websockets = { version = \"0.8.3\", features = [\"client\", "
 "\"fastrand\", \"server\", \"sha1_smol\"] }\n"
 "```"
@@ -19663,7 +19666,7 @@ msgstr ""
 #: src/glossary.md
 msgid ""
 "allocate:  \n"
-"Dynamic memory allocation on [the heap](memory-management/stack-vs-heap.md)."
+"Dynamic memory allocation on [the heap](memory-management/review.md)."
 msgstr ""
 
 #: src/glossary.md
@@ -19682,13 +19685,13 @@ msgstr ""
 #: src/glossary.md
 msgid ""
 "block:  \n"
-"See [Blocks](control-flow/blocks.md) and _scope_."
+"See [Blocks](control-flow-basics/blocks-and-scopes.md) and _scope_."
 msgstr ""
 
 #: src/glossary.md
 msgid ""
 "borrow:  \n"
-"See [Borrowing](ownership/borrowing.md)."
+"See [Borrowing](borrowing/shared.md)."
 msgstr ""
 
 #: src/glossary.md
@@ -19737,7 +19740,7 @@ msgstr ""
 #: src/glossary.md
 msgid ""
 "Concurrency in Rust:  \n"
-"See [Concurrency in Rust](concurrency.md)."
+"See [Concurrency in Rust](concurrency/welcome.md)."
 msgstr ""
 
 #: src/glossary.md
@@ -20101,7 +20104,7 @@ msgstr ""
 msgid ""
 "unsafe:  \n"
 "The subset of Rust which allows you to trigger _undefined behavior_. See "
-"[Unsafe Rust](unsafe.html)."
+"[Unsafe Rust](unsafe-rust/unsafe.md)."
 msgstr ""
 
 #: src/glossary.md
@@ -20196,9 +20199,9 @@ msgstr ""
 
 #: src/other-resources.md
 msgid ""
-"[Rust for Embedded C Programmers](https://docs.opentitan.org/doc/ug/"
-"rust_for_c/): covers Rust from the perspective of developers who write "
-"firmware in C."
+"[Rust for Embedded C Programmers](https://opentitan.org/book/doc/"
+"rust_for_c_devs.html): covers Rust from the perspective of developers who "
+"write firmware in C."
 msgstr ""
 
 #: src/other-resources.md
