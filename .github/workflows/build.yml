@@ -149,7 +149,7 @@ jobs:
 
       - name: Install mdbook-linkcheck
         # Opt-in for checking links in translations - add the language below.
-        if: contains(fromJSON('["en", ]'), matrix.language)
+        if: contains(fromJSON('["en", "fa"]'), matrix.language)
         run: cargo install mdbook-linkcheck --locked --version 0.7.7
 
       - name: Build ${{ matrix.language }} translation
