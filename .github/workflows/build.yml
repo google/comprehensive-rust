@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 env:
   CARGO_TERM_COLOR: always
@@ -36,7 +37,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Check for typos
-        uses: crate-ci/typos@v1.23.2
+        uses: crate-ci/typos@v1.23.5
         with:
           config: ./.github/typos.toml
 
@@ -120,6 +121,9 @@ jobs:
       matrix:
         language: ${{ fromJSON(needs.find-languages.outputs.languages) }}
       fail-fast: false
+    env:
+      # Opt-in for checking links in translations - add the language below.
+      LINK_CHECKED_LANGUAGES: '["en", ]'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -128,6 +132,8 @@ jobs:
 
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
+        with:
+          key: ${{ contains(fromJSON(env.LINK_CHECKED_LANGUAGES), matrix.language) }}
 
       - name: Install Gettext
         run: |
@@ -148,8 +154,7 @@ jobs:
           msgfmt -o /dev/null --statistics po/messages.pot
 
       - name: Install mdbook-linkcheck
-        # Opt-in for checking links in translations - add the language below.
-        if: contains(fromJSON('["en", ]'), matrix.language)
+        if: contains(fromJSON(env.LINK_CHECKED_LANGUAGES), matrix.language)
         run: cargo install mdbook-linkcheck --locked --version 0.7.7
 
       - name: Build ${{ matrix.language }} translation
