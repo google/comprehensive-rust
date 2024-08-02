@@ -151,15 +151,6 @@ impl<'a> Evaluator<'_> {
         Ok(coordinates)
     }
 
-    /// take a screenshot of the given element
-    async fn take_screenshot_of_element(
-        &self,
-        element: &Element,
-    ) -> anyhow::Result<Vec<u8>> {
-        let screenshot = element.screenshot().await?;
-        Ok(screenshot)
-    }
-
     /// store the screenshot as png to the given path
     fn store_screenshot(
         &self,
@@ -201,8 +192,7 @@ impl<'a> Evaluator<'_> {
         let content_element = self.get_content_element_from_slide().await?;
         let size = self.get_element_coordinates(&content_element).await?;
         if self.screenshot_dir.is_some() {
-            let screenshot =
-                self.take_screenshot_of_element(&content_element).await?;
+            let screenshot = content_element.screenshot().await?;
             self.store_screenshot(screenshot, &slide.filename)?;
         }
         let result = EvaluationResult { slide: slide.clone(), element_size: size };
