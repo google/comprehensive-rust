@@ -5247,24 +5247,21 @@ msgstr ""
 "sugerencias."
 
 #: src/pattern-matching/destructuring-enums.md
-#, fuzzy
 msgid ""
 "The values in the enum variants can only be accessed after being pattern "
 "matched."
 msgstr ""
 "Solo se puede acceder a los valores de las variantes de enumeración una vez que "
-"coincidan con el patrón. El patrón vincula referencias a los campos del \"brazo "
-"de coincidencias\" después de `=>`."
+"coincidan con el patrón."
 
 #: src/pattern-matching/destructuring-enums.md
-#, fuzzy
 msgid ""
 "Demonstrate what happens when the search is inexhaustive. Note the advantage "
 "the Rust compiler provides by confirming when all cases are handled."
 msgstr ""
 "Demuestra lo que pasa cuando la búsqueda no es exhaustiva. Ten en cuenta la "
-"ventaja que ofrece el compilador de Rust al confirmar cuándo se gestionan todos "
-"los casos. "
+"ventaja que ofrece el compilador de Rust al confirmar que se gestionan todos "
+"los casos."
 
 #: src/pattern-matching/destructuring-enums.md
 msgid ""
@@ -5363,16 +5360,15 @@ msgstr ""
 "repetidamente un valor con respecto a un patrón:"
 
 #: src/pattern-matching/let-control-flow.md
-#, fuzzy
 msgid ""
 "Here [`String::pop`](https://doc.rust-lang.org/stable/std/string/struct.String."
 "html#method.pop) returns `Some(c)` until the string is empty, after which it "
 "will return `None`. The `while let` lets us keep iterating through all items."
 msgstr ""
-"Aquí, el iterador devuelto por `v.into_iter()` devolverá `Option<i32>` en cada "
-"llamada a `next()`. Devuelve `Some(x)` hasta que finaliza y, a continuación, "
-"devuelve `None`. `while let` nos permite seguir iterando a través de todos los "
-"elementos."
+"Aquí, [`String::pop`](https://doc.rust-lang.org/stable/std/string/struct.String."
+"html#method.pop) devolverá `Some(c)` hasta que la cadena este vacía, cuando "
+"empezara a devolver `None`. `while let` nos permite seguir iterando a través de "
+"todos los elementos."
 
 #: src/pattern-matching/let-control-flow.md
 msgid "if-let"
@@ -5429,15 +5425,14 @@ msgstr ""
 "coincida con el patrón."
 
 #: src/pattern-matching/let-control-flow.md
-#, fuzzy
 msgid ""
 "You could rewrite the `while let` loop as an infinite loop with an if statement "
 "that breaks when there is no value to unwrap for `name.pop()`. The `while let` "
 "provides syntactic sugar for the above scenario."
 msgstr ""
 "Puedes reescribir el bucle `while let` como un ciclo infinito con una "
-"instrucción if que deje de funcionar si `iter.next()` no tienen ningún valor "
-"que desenvolver. `while let` proporciona azúcar sintáctico en la situación "
+"instrucción if que rompe el bucle si `name.pop()` no devuelve un valor para "
+"desenvolver. `while let` proporciona azúcar sintáctico para la situación "
 "anterior."
 
 #: src/pattern-matching/exercise.md
@@ -5560,13 +5555,12 @@ msgid "// race.add_lap(42);\n"
 msgstr "// race.add_lap(42);\n"
 
 #: src/methods-and-traits/methods.md
-#, fuzzy
 msgid ""
 "The `self` arguments specify the \"receiver\" - the object the method acts on. "
 "There are several common receivers for a method:"
 msgstr ""
-"`&self` indica que el método toma prestado el objeto de forma inmutable. Hay "
-"otros posibles receptores para un método:"
+"El argumento `self` denomina el \"receiver\" (receptor) - el objeto sobre cual "
+"el método actuará. Hay varios receivers comunes para un método:"
 
 #: src/methods-and-traits/methods.md
 msgid ""
@@ -5598,9 +5592,8 @@ msgstr ""
 "automáticamente una mutabilidad."
 
 #: src/methods-and-traits/methods.md
-#, fuzzy
 msgid "`mut self`: same as above, but the method can mutate the object."
-msgstr "`mut self`: igual que lo anterior, pero el método puede mutar el objeto. "
+msgstr "`mut self`: igual que lo anterior, pero el método puede mutar el objeto."
 
 #: src/methods-and-traits/methods.md
 msgid ""
@@ -5662,13 +5655,12 @@ msgstr ""
 "de puntos puede utilizarse para referirse a campos concretos."
 
 #: src/methods-and-traits/methods.md
-#, fuzzy
 msgid ""
 "This might be a good time to demonstrate how the `&self` differs from `self` by "
 "trying to run `finish` twice."
 msgstr ""
 "Puede ser un buen momento para mostrar la diferencia entre `&self` y `self` "
-"modificando el código e intentando ejecutar say_hello dos veces."
+"modificando el código e intentando ejecutar `finish` dos veces."
 
 #: src/methods-and-traits/methods.md
 msgid ""
@@ -5688,14 +5680,12 @@ msgstr ""
 "interfaces:"
 
 #: src/methods-and-traits/traits.md
-#, fuzzy
 msgid "/// Return a sentence from this pet.\n"
-msgstr "// Vuelve a exportar los tipos de este módulo.\n"
+msgstr "/// Devuelve una frase de esta mascota.\n"
 
 #: src/methods-and-traits/traits.md
-#, fuzzy
 msgid "/// Print a string to the terminal greeting this pet.\n"
-msgstr "/// Imprime un saludo en una salida estándar.\n"
+msgstr "/// Imprime un saludo a la mascota en una salida estándar.\n"
 
 #: src/methods-and-traits/traits.md
 msgid ""
@@ -5710,6 +5700,8 @@ msgid ""
 "In the \"Generics\" segment, next, we will see how to build functionality that "
 "is generic over all types implementing a trait."
 msgstr ""
+"En la sección de \"Genéricos\" a seguir, veremos como construir funcionalidad "
+"que es genérico sobre todos los tipos implementando un trait."
 
 #: src/methods-and-traits/traits/implementing.md
 msgid "\"Oh you're a cutie! What's your name? {}\""
@@ -5726,10 +5718,11 @@ msgid "\"Fido\""
 msgstr "\"Fido\""
 
 #: src/methods-and-traits/traits/implementing.md
-#, fuzzy
 msgid ""
 "To implement `Trait` for `Type`, you use an `impl Trait for Type { .. }` block."
-msgstr "Los traits se implementan en un bloque `impl <trait> for <type> { .. }`."
+msgstr ""
+"Para implementar `Trait` para un tipo `Type`, utiliza un bloque `impl Trait for "
+"Type { .. }`."
 
 #: src/methods-and-traits/traits/implementing.md
 msgid ""
@@ -5737,24 +5730,29 @@ msgid ""
 "with a `talk()` method would not automatically satisfy `Pet` unless it is in an "
 "`impl Pet` block."
 msgstr ""
+"A diferencia de los interfases de Go, tener los métodos adecuados no es "
+"suficiente: un tipo `Cat` con un método `talk()` no satisface `Pet` "
+"automáticamente al menos que este en un bloque `impl Pet`."
 
 #: src/methods-and-traits/traits/implementing.md
-#, fuzzy
 msgid ""
 "Traits may provide default implementations of some methods. Default "
 "implementations can rely on all the methods of the trait. In this case, `greet` "
 "is provided, and relies on `talk`."
 msgstr ""
-"Los _traits_ pueden especificar los métodos implementados previamente "
-"(predeterminados) y los métodos que los usuarios deben implementar ellos "
-"mismos. Los métodos con implementaciones predeterminadas pueden basarse en "
-"métodos obligatorios."
+"Los _traits_ pueden especificar implementaciones predeterminadas de algunos "
+"métodos. Implementaciones predeterminadas pueden usar todos los métodos de un "
+"trait (incluso los métodos que los usuarios deben implementar ellos mismos). En "
+"este caso, `greet` es predeterminado y utiliza `talk`."
 
 #: src/methods-and-traits/traits/supertraits.md
 msgid ""
 "A trait can require that types implementing it also implement other traits, "
 "called _supertraits_. Here, any type implementing `Pet` must implement `Animal`."
 msgstr ""
+"Un trait puede requerir que los tipos que lo implementan también implementen "
+"otros traits, llamados _supertraits_. Aquí, cualquier tipo implementando `Pet` "
+"también debe implementar `Animal`."
 
 #: src/methods-and-traits/traits/supertraits.md
 #: src/concurrency/async-control-flow/select.md
@@ -5762,9 +5760,8 @@ msgid "\"Rex\""
 msgstr "\"Rex\""
 
 #: src/methods-and-traits/traits/supertraits.md
-#, fuzzy
 msgid "\"{} has {} legs\""
-msgstr "\"{} tiene {} años\""
+msgstr "\"{} tiene {} piernas\""
 
 #: src/methods-and-traits/traits/supertraits.md
 msgid ""
@@ -5772,12 +5769,17 @@ msgid ""
 "this to behave like OO inheritance. It just specifies an additional requirement "
 "on implementations of a trait."
 msgstr ""
+"Algunas veces esto es llamado \"herencia de traits\", pero los estudiantes no "
+"deben esperar que esto se comporte como la herencia OO (object-oriented). Solo "
+"especifica un requerimiento adicional sobre las implementaciones de un trait."
 
 #: src/methods-and-traits/traits/associated-types.md
 msgid ""
 "Associated types are placeholder types which are supplied by the trait "
 "implementation."
 msgstr ""
+"Tipos asociados son tipos guarda-espacio que han sido proveídos por la "
+"implementación del trait."
 
 #: src/methods-and-traits/traits/associated-types.md
 #: src/concurrency/async-control-flow/join.md
@@ -5789,12 +5791,16 @@ msgid ""
 "Associated types are sometimes also called \"output types\". The key "
 "observation is that the implementer, not the caller, chooses this type."
 msgstr ""
+"Tipos asociados también son llamados \"tipos de salida\". La observación clave "
+"es que el implementador, no el ejecutor, escoge este tipo."
 
 #: src/methods-and-traits/traits/associated-types.md
 msgid ""
 "Many standard library traits have associated types, including arithmetic "
 "operators and `Iterator`."
 msgstr ""
+"Muchos traits de la biblioteca estándar tienen tipos asociados, incluyendo "
+"operadores aritméticos y `Iterator`."
 
 #: src/methods-and-traits/deriving.md
 msgid ""
@@ -5835,9 +5841,8 @@ msgstr ""
 "compatibilidad con la serialización para una struct con `#[derive(Serialize)]`."
 
 #: src/methods-and-traits/exercise.md
-#, fuzzy
 msgid "Exercise: Logger Trait"
-msgstr "Ejercicio: registro genérico"
+msgstr "Ejercicio: trait de registro"
 
 #: src/methods-and-traits/exercise.md
 msgid ""
@@ -5899,41 +5904,36 @@ msgstr ""
 "/// Registra solo los mensajes que cumplan el nivel de verbosidad determinado.\n"
 
 #: src/welcome-day-2-afternoon.md
-#, fuzzy
 msgid ""
 "Including 10 minute breaks, this session should take about 3 hours and 15 "
 "minutes. It contains:"
 msgstr ""
-"Incluyendo descansos de 10 minutos, esta sesión debería durar unas 3 horas y 5 "
-"minutos"
+"Incluyendo descansos de 10 minutos, esta sesión debería durar unas 3 horas y 15 "
+"minutos. Contiene:"
 
 #: src/generics.md src/iterators.md src/testing.md
-#, fuzzy
 msgid "This segment should take about 45 minutes. It contains:"
-msgstr "Esta sección tiene una duración aproximada de 45 minutos."
+msgstr "Esta sección tiene una duración aproximada de 45 minutos. Contiene:"
 
 #: src/generics.md
 msgid "impl Trait"
 msgstr "impl Trait"
 
 #: src/generics.md
-#, fuzzy
 msgid "dyn Trait"
-msgstr "Traits asíncronos"
+msgstr "Traits dyn"
 
 #: src/generics.md
-#, fuzzy
 msgid "Exercise: Generic min"
 msgstr "Ejercicio: `min` genérico"
 
 #: src/generics/generic-functions.md
-#, fuzzy
 msgid ""
 "Rust supports generics, which lets you abstract algorithms or data structures "
 "(such as sorting or a binary tree) over the types used or stored."
 msgstr ""
 "Rust admite el uso de genéricos, lo que permite abstraer los algoritmos o las "
-"estructuras de datos (como el orden o un árbol binario) sobre los tipos "
+"estructuras de datos (como el ordenamiento o un árbol binario) sobre los tipos "
 "utilizados o almacenados."
 
 #: src/generics/generic-functions.md
@@ -5979,15 +5979,15 @@ msgstr ""
 "válida. En cambio, C++ lo permitiría."
 
 #: src/generics/generic-functions.md
-#, fuzzy
 msgid ""
 "Generic code is turned into non-generic code based on the call sites. This is a "
 "zero-cost abstraction: you get exactly the same result as if you had hand-coded "
 "the data structures without the abstraction."
 msgstr ""
-"Se trata de una abstracción sin coste: se obtiene exactamente el mismo "
-"resultado que si se hubiesen programado de forma manual las estructuras de "
-"datos sin la abstracción."
+"Código genérico es convertido en código no genérico basada en los sitios de "
+"ejecución .Se trata de una abstracción sin coste: se obtiene exactamente el "
+"mismo resultado que si se hubiesen programado de forma manual las estructuras "
+"de datos sin la abstracción."
 
 #: src/generics/generic-data.md
 msgid "You can use generics to abstract over the concrete field type:"
@@ -6021,9 +6021,8 @@ msgid "It means these methods are defined for any `T`."
 msgstr "Significa que estos métodos están definidos para cualquier `T`."
 
 #: src/generics/generic-data.md
-#, fuzzy
 msgid "It is possible to write `impl Point<u32> { .. }`."
-msgstr "Es posible escribir `impl Point<u32> { .. }`. "
+msgstr "Es posible escribir `impl Point<u32> { .. }`."
 
 #: src/generics/generic-data.md
 msgid ""
@@ -6048,18 +6047,20 @@ msgid ""
 "Traits can also be generic, just like types and functions. A trait's parameters "
 "get concrete types when it is used."
 msgstr ""
+"Los traits también pueden ser genéricos, como los tipos y las funciones. Los "
+"parámetros de un trait obtienen tipos concretos cuando es usado."
 
 #: src/generics/generic-traits.md
 msgid "\"Converted from integer: {from}\""
-msgstr ""
+msgstr "\"Convertido del numero entero: {from}\""
 
 #: src/generics/generic-traits.md
 msgid "\"Converted from bool: {from}\""
-msgstr ""
+msgstr "\"Convertido del bool: {from}\""
 
 #: src/generics/generic-traits.md
 msgid "\"{from_int:?}, {from_bool:?}\""
-msgstr ""
+msgstr "\"{from_int:?}, {from_bool:?}\""
 
 #: src/generics/generic-traits.md
 msgid ""
@@ -6067,6 +6068,9 @@ msgid ""
 "the `std` docs](https://doc.rust-lang.org/std/convert/trait.From.html) is "
 "simple."
 msgstr ""
+"El trait `From` sera discutido mas tarde, pero su definición en [la "
+"documentación `std`](https://doc.rust-lang.org/std/convert/trait.From.html) es "
+"simple."
 
 #: src/generics/generic-traits.md
 msgid ""
@@ -6074,6 +6078,9 @@ msgid ""
 "Here, `Foo::from(\"hello\")` would not compile because there is no `From<&str>` "
 "implementation for `Foo`."
 msgstr ""
+"Las implementaciones del trait no necesitan cubrir todos los parámetros de tipo "
+"posibles. Aquí, `Foo::from(\"hello\")` no compilaría porque no hay una "
+"implementación `From<&str>` para `Foo`."
 
 #: src/generics/generic-traits.md
 msgid ""
@@ -6081,6 +6088,9 @@ msgid ""
 "\"output\" type. A trait can have multiple implementations for different input "
 "types."
 msgstr ""
+"Tipos genéricos toman tipos como entradas, mientras tipos asociados son tipos "
+"de salida. Un trait puede tener varias implementaciones para diferentes tipos "
+"de entrada."
 
 #: src/generics/generic-traits.md
 msgid ""
@@ -6090,6 +6100,11 @@ msgid ""
 "[specialization](https://rust-lang.github.io/rfcs/1210-impl-specialization."
 "html)."
 msgstr ""
+"De hecho, Rust requiere que a lo más solo una implementación de un trait "
+"coincida con cualquier tipo T. A diferencia de otros lenguajes, Rust no tiene "
+"una heurística para escoger la coincidencia \"más especifica\". Hay trabajo "
+"corriente para implementar esta heurística, llamado [especialización](https://"
+"rust-lang.github.io/rfcs/1210-impl-specialization.html)."
 
 #: src/generics/trait-bounds.md
 msgid ""
@@ -6179,11 +6194,12 @@ msgid "\"debuggable: {debuggable:?}\""
 msgstr "\"depurable: {debuggable:?}\""
 
 #: src/generics/impl-trait.md
-#, fuzzy
 msgid ""
 "`impl Trait` allows you to work with types which you cannot name. The meaning "
 "of `impl Trait` is a bit different in the different positions."
-msgstr "La naturaleza de `impl Trait` varía ligeramente según la posición."
+msgstr ""
+"`impl Trait` te deja trabajar con tipos que no puedes nombrar. El significado "
+"de `impl Trait` es un poco diferente dependiendo de su posición."
 
 #: src/generics/impl-trait.md
 msgid ""
@@ -6231,6 +6247,8 @@ msgid ""
 "In addition to using traits for static dispatch via generics, Rust also "
 "supports using them for type-erased, dynamic dispatch via trait objects:"
 msgstr ""
+"En adición a ser usados para despacho estático con genéricos, los traits "
+"también se pueden usar para despacho dinámico/tipo-borrado con objetos de trait:"
 
 #: src/generics/dyn-trait.md src/smart-pointers/trait-objects.md
 msgid "\"Miau!\""
@@ -6238,15 +6256,15 @@ msgstr "\"¡Miau!\""
 
 #: src/generics/dyn-trait.md
 msgid "// Uses generics and static dispatch.\n"
-msgstr ""
+msgstr "// Utiliza genéricos y despacho estático.\n"
 
 #: src/generics/dyn-trait.md src/smart-pointers/trait-objects.md
 msgid "\"Hello, who are you? {}\""
-msgstr ""
+msgstr "\"Hola, quien eres? {}\""
 
 #: src/generics/dyn-trait.md
 msgid "// Uses type-erasure and dynamic dispatch.\n"
-msgstr ""
+msgstr "// Utiliza borradura de tipos y despacho dinámico.\n"
 
 #: src/generics/dyn-trait.md
 msgid ""
@@ -6256,6 +6274,12 @@ msgid ""
 "function still uses static dispatch, as the compiler has full type information "
 "and can resolve which type's trait implementation to use."
 msgstr ""
+"Genéricos, incluyendo `impl Trait`, utilizan monomorphización para crear una "
+"instancia especializada de la funcionan para cada tipo con el cual el genérico "
+"es instanciando. Esto significa que llamar un método de trait dentro de una "
+"función generica todavía usa despacho estático, ya que el compilador tiene todo "
+"la información necesaria para determinar el tipo cuya implementación debería de "
+"usar."
 
 #: src/generics/dyn-trait.md
 msgid ""
@@ -6264,6 +6288,10 @@ msgid ""
 "This means that there's a single version of `fn dynamic` that is used "
 "regardless of what type of `Pet` is passed in."
 msgstr ""
+"`dyn Trait` utiliza despacho dinámico con una [tabla virtual de metodos]"
+"(https://en.wikipedia.org/wiki/Virtual_method_table) (vtable). Esto significa "
+"que solo hay una sola version de `fn dynamic` que es utilizado "
+"independientemente del tipo de `Pet` que es proveído."
 
 #: src/generics/dyn-trait.md
 msgid ""
@@ -6271,6 +6299,10 @@ msgid ""
 "indirection. In this case it's a reference, though smart pointer types like "
 "`Box` can also be used (this will be demonstrated on day 3)."
 msgstr ""
+"Cuando uno usa `dyn Trait`, el objeto trait necesita estar detrás algún tipo de "
+"indirección. En este caso es una referencia, pero tipos de puntador "
+"inteligentes como `Box` también pueden ser usados (demostraremos este durante "
+"el día 3)."
 
 #: src/generics/dyn-trait.md
 msgid ""
