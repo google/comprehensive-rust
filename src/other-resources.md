@@ -47,7 +47,7 @@ A small selection of other guides and tutorial for Rust:
   a series of small presentations covering both basic and advanced part of the
   Rust language. Other topics such as WebAssembly, and async/await are also
   covered.
-- [Advanced testing for Rust applications](https://github.com/mainmatter/rust-advanced-testing-workshop):
+- [Advanced testing for Rust applications](https://rust-exercises.com/advanced-testing/):
   a self-paced workshop that goes beyond Rust's built-in testing framework. It
   covers `googletest`, snapshot testing, mocking as well as how to write your
   own custom test harness.
