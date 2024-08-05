@@ -6314,22 +6314,31 @@ msgid ""
 "pointer to the `Dog` or `Cat` into that function. The compiler doesn't need to "
 "know the concrete type of the `Pet` in order to do this."
 msgstr ""
+"Durante el tiempo de ejecución, un `&dyn Pet` es representado como un "
+"\"puntador gordo\", es decir un par de dos puntadores: Un puntador apunta al "
+"objeto concreto que implementa `Pet`, y el otra apunta al vtable para la "
+"implementación del trait para ese tipo. Cuando uno llama el método `talk` sobre "
+"`&dyn Pet`, el compilador busca el puntador de función para `talk` en el vtable "
+"y ejecuta la función, pasando el puntador al `Dog` o `Cat` a esa función. El "
+"compilador no necesita saber el tipo concreto del `Pet` para hacer esto."
 
 #: src/generics/dyn-trait.md
 msgid ""
 "A `dyn Trait` is considered to be \"type-erased\", because we no longer have "
 "compile-time knowledge of what the concrete type is."
 msgstr ""
+"Un `dyn Trait` es considerado ser \"tipo-borrado\", ya que no tenemos "
+"información sobre el tipo concreto del objeto al tiempo de compilación."
 
 #: src/generics/exercise.md
-#, fuzzy
 msgid ""
 "In this short exercise, you will implement a generic `min` function that "
 "determines the minimum of two values, using the [`Ord`](https://doc.rust-lang."
 "org/stable/std/cmp/trait.Ord.html) trait."
 msgstr ""
 "En este breve ejercicio, implementarás una función `min` genérica que determina "
-"el mínimo de dos valores mediante un trait `lessThan`."
+"el mínimo de dos valores mediante el trait [`Ord`](https://doc.rust-lang.org/"
+"stable/std/cmp/trait.Ord.html)."
 
 #: src/generics/exercise.md
 msgid "// TODO: implement the `min` function used in `main`.\n"
@@ -6341,41 +6350,38 @@ msgid "'z'"
 msgstr "'z'"
 
 #: src/generics/exercise.md src/generics/solution.md
-#, fuzzy
 msgid "'7'"
-msgstr "'x'"
+msgstr "'7'"
 
 #: src/generics/exercise.md src/generics/solution.md
-#, fuzzy
 msgid "'1'"
-msgstr "'x'"
+msgstr "'1'"
 
 #: src/generics/exercise.md src/generics/solution.md
 msgid "\"goodbye\""
-msgstr ""
+msgstr "\"adios\""
 
 #: src/generics/exercise.md src/generics/solution.md
 msgid "\"bat\""
-msgstr ""
+msgstr "\"murciélago\""
 
 #: src/generics/exercise.md src/generics/solution.md
 msgid "\"armadillo\""
-msgstr ""
+msgstr "\"armadillo\""
 
 #: src/generics/exercise.md
-#, fuzzy
 msgid ""
 "Show students the [`Ord`](https://doc.rust-lang.org/stable/std/cmp/trait.Ord."
 "html) trait and [`Ordering`](https://doc.rust-lang.org/stable/std/cmp/enum."
 "Ordering.html) enum."
 msgstr ""
-"[`OsStr`](https://doc.rust-lang.org/std/ffi/struct.OsStr.html) y [`OsString`]"
-"(https://doc.rust-lang.org/std/ffi/struct.OsString.html)"
+"Enseña a los estudiantes el trait [`Ord`](https://doc.rust-lang.org/stable/std/"
+"cmp/trait.Ord.html) y el enum [`Ordering`](https://doc.rust-lang.org/stable/std/"
+"cmp/enum.Ordering.html)."
 
 #: src/std-types.md src/std-types/option.md
-#, fuzzy
 msgid "Option"
-msgstr "Excepciones"
+msgstr "Opción"
 
 #: src/std-types.md src/std-types/result.md src/error-handling.md
 msgid "Result"
@@ -6403,7 +6409,6 @@ msgstr ""
 "usan."
 
 #: src/std-types/std.md
-#, fuzzy
 msgid ""
 "Rust comes with a standard library which helps establish a set of common types "
 "used by Rust libraries and programs. This way, two libraries can work together "
@@ -6415,23 +6420,21 @@ msgstr ""
 "utilizan el mismo tipo `String`."
 
 #: src/std-types/std.md
-#, fuzzy
 msgid ""
 "In fact, Rust contains several layers of the Standard Library: `core`, `alloc` "
 "and `std`."
 msgstr ""
 "De hecho, Rust contiene varias capas de la biblioteca estándar: `core`, `alloc` "
-"y `std`. "
+"y `std`."
 
 #: src/std-types/std.md
-#, fuzzy
 msgid ""
 "`core` includes the most basic types and functions that don't depend on `libc`, "
 "allocator or even the presence of an operating system."
 msgstr ""
 "`core` incluye los tipos y funciones más básicos que no dependen de `libc`, de "
 "un _allocator_ (asignador de memoria) ni de la presencia de un sistema "
-"operativo. "
+"operativo."
 
 #: src/std-types/std.md
 msgid ""
@@ -6452,13 +6455,12 @@ msgid "Rust comes with extensive documentation. For example:"
 msgstr "Rust incluye una amplia documentación. Por ejemplo:"
 
 #: src/std-types/docs.md
-#, fuzzy
 msgid ""
 "All of the details about [loops](https://doc.rust-lang.org/stable/reference/"
 "expressions/loop-expr.html)."
 msgstr ""
-"Si quieres salir de un bucle antes, usa [`break`](https://doc.rust-lang.org/"
-"reference/expressions/loop-expr.html#break-expressions)."
+"Todos los detalles sobre [bucles](https://doc.rust-lang.org/stable/reference/"
+"expressions/loop-expr.html)."
 
 #: src/std-types/docs.md
 msgid ""
@@ -6469,14 +6471,14 @@ msgstr ""
 "html)."
 
 #: src/std-types/docs.md
-#, fuzzy
 msgid ""
 "Standard library types like [`Option`](https://doc.rust-lang.org/stable/std/"
 "option/enum.Option.html) or [`BinaryHeap`](https://doc.rust-lang.org/stable/std/"
 "collections/struct.BinaryHeap.html)."
 msgstr ""
-"[`str`](https://doc.rust-lang.org/std/primitive.str.html) y [`String`](https://"
-"doc.rust-lang.org/std/string/struct.String.html)"
+"Tipos de la biblioteca estándar como [`Option`](https://doc.rust-lang.org/"
+"stable/std/option/enum.Option.html) o [`BinaryHeap`](https://doc.rust-lang.org/"
+"stable/std/collections/struct.BinaryHeap.html)."
 
 #: src/std-types/docs.md
 msgid "In fact, you can document your own code:"
@@ -6522,12 +6524,11 @@ msgstr ""
 "enteros.\n"
 
 #: src/std-types/docs.md
-#, fuzzy
 msgid ""
 "Show students the generated docs for the `rand` crate at <https://docs.rs/rand>."
 msgstr ""
-"Muestra a los alumnos los documentos generados para el crate `rand` en [`docs."
-"rs/rand`](https://docs.rs/rand)."
+"Muestra a los alumnos los documentos generados para el crate `rand` en <https://"
+"docs.rs/rand>."
 
 #: src/std-types/option.md
 msgid ""
@@ -6560,9 +6561,8 @@ msgid "\"Character not found\""
 msgstr "\"No se ha encontrado el carácter\""
 
 #: src/std-types/option.md
-#, fuzzy
 msgid "`Option` is widely used, not just in the standard library."
-msgstr "`Option` y `Result` se usan mucho, no solo en la biblioteca estándar."
+msgstr "`Option` se usa en muchos contextos, no solo en la biblioteca estándar."
 
 #: src/std-types/option.md
 msgid ""
@@ -6596,16 +6596,15 @@ msgstr ""
 "tamaño en memoria que `T`."
 
 #: src/std-types/result.md
-#, fuzzy
 msgid ""
 "`Result` is similar to `Option`, but indicates the success or failure of an "
 "operation, each with a different enum variant. It is generic: `Result<T, E>` "
 "where `T` is used in the `Ok` variant and `E` appears in the `Err` variant."
 msgstr ""
-"`Result` es similar a `Option`, pero indica si una operación se ha completado "
-"de forma correcta o ha fallado, cada una con un tipo diferente. Es similar a "
-"`Res`, que se definió en el ejercicio de expresiones, pero genérico: `Result<T, "
-"E>`, donde `T` se usa en la variante `Ok` y `E` aparece en la variante `Err`."
+"`Result` es parecido a `Option`, pero indica si una operación se ha completado "
+"de forma correcta o ha fallado, cada una con un tipo diferente. Es genérico: "
+"`Result<T, E>` donde `T` es usado en el variante `Ok` y `E` en el variante "
+"`Err`."
 
 #: src/std-types/result.md src/error-handling/result.md
 msgid "\"diary.txt\""
@@ -6637,33 +6636,30 @@ msgstr ""
 "del desarrollador."
 
 #: src/std-types/result.md
-#, fuzzy
 msgid ""
 "`Result` documentation is a recommended read. Not during the course, but it is "
 "worth mentioning. It contains a lot of convenience methods and functions that "
 "help functional-style programming."
 msgstr ""
 "La documentación sobre `Result` es una lectura recomendada. Aunque no se vea "
-"durante este curso, merece la pena mencinarlo.  Contiene muchos métodos y "
-"funciones prácticos que ayudan a seguir una programación funcional. "
+"durante este curso, merece la pena mencionarlo. Contiene muchos métodos y "
+"funciones prácticos que ayudan a seguir un estilo de programación funcional."
 
 #: src/std-types/result.md
-#, fuzzy
 msgid ""
 "`Result` is the standard type to implement error handling as we will see on Day "
 "4."
 msgstr ""
 "`Result` es el tipo estándar para implementar la gestión de errores, tal y como "
-"veremos el día 3."
+"veremos el día 4."
 
 #: src/std-types/string.md
-#, fuzzy
 msgid ""
 "[`String`](https://doc.rust-lang.org/std/string/struct.String.html) is a "
 "growable UTF-8 encoded string:"
 msgstr ""
 "[`String`](https://doc.rust-lang.org/std/string/struct.String.html) es el búfer "
-"de cadena UTF-8 estándar, ampliable y asignado a un _heap_:"
+"de cadena ampliable UTF-8 estándar:"
 
 #: src/std-types/string.md src/std-traits/read-and-write.md
 #: src/memory-management/review.md src/testing/unit-tests.md
@@ -6761,9 +6757,8 @@ msgstr ""
 "transparente a los métodos de `str`."
 
 #: src/std-types/string.md
-#, fuzzy
 msgid "Write and compare `let s3 = s1.deref();` and `let s3 = &*s1;`."
-msgstr "Escribe y compara `let s3 = s1.deref();` y `let s3 = &*s1`;."
+msgstr "Escribe y compara `let s3 = s1.deref();` y `let s3 = &*s1;`."
 
 #: src/std-types/string.md
 msgid ""
@@ -6802,6 +6797,11 @@ msgid ""
 "is automatically implemented for all types that implement `Display`, so "
 "anything that can be formatted can also be converted to a string."
 msgstr ""
+"Muchos tipos pueden ser convertidos a una cadena con el método [`to_string`]"
+"(https://doc.rust-lang.org/std/string/trait.ToString.html#tymethod.to_string). "
+"Este trait es automáticamente implementado para cualquier tipo que implemente "
+"`Display`, entonces cualquier objeto que pueda ser formateado también puede ser "
+"convertido a una cadena."
 
 #: src/std-types/vec.md
 msgid ""
@@ -6846,7 +6846,6 @@ msgstr ""
 "métodos slice en un `Vec`."
 
 #: src/std-types/vec.md
-#, fuzzy
 msgid ""
 "`Vec` is a type of collection, along with `String` and `HashMap`. The data it "
 "contains is stored on the heap. This means the amount of data doesn't need to "
@@ -6854,8 +6853,8 @@ msgid ""
 msgstr ""
 "`Vec` es un tipo de colección, junto con `String` y `HashMap`. Los datos que "
 "contiene se almacenan en el _heap_. Esto significa que no es necesario conocer "
-"la cantidad de datos durante la compilación. Puede aumentar o disminuir durante "
-"la ejecución."
+"el tamaño de los datos durante la compilación. Puede aumentar o disminuir "
+"durante la ejecución."
 
 #: src/std-types/vec.md
 msgid ""
@@ -7090,23 +7089,21 @@ msgstr "\"se han visto {} manzanas\""
 
 #: src/std-traits.md src/concurrency/sync-exercises.md
 #: src/concurrency/async-exercises.md
-#, fuzzy
 msgid "This segment should take about 1 hour and 10 minutes. It contains:"
-msgstr "Esta sección tiene una duración aproximada de 1 hora y 10 minutos."
+msgstr ""
+"Esta sección tiene una duración aproximada de 1 hora y 10 minutos. Contiene:"
 
 #: src/std-traits.md
 msgid "From and Into"
 msgstr "From e Into"
 
 #: src/std-traits.md
-#, fuzzy
 msgid "Read and Write"
-msgstr "`Read` y `Write`"
+msgstr "Read y Write"
 
 #: src/std-traits.md
-#, fuzzy
 msgid "Default, struct update syntax"
-msgstr "`Default`, sintaxis de actualización de structs"
+msgstr "Default, sintaxis de actualización de structs"
 
 #: src/std-traits.md
 msgid ""
@@ -7154,9 +7151,8 @@ msgstr ""
 "total usan `Eq` como límite del trait."
 
 #: src/std-traits/comparisons.md
-#, fuzzy
 msgid "`PartialOrd` and `Ord`"
-msgstr "`PartialEq` y `Eq`"
+msgstr "`PartialOrd` y `Ord`"
 
 #: src/std-traits/comparisons.md
 msgid ""
@@ -7202,10 +7198,9 @@ msgid "Discussion points:"
 msgstr "Cuestiones de debate:"
 
 #: src/std-traits/operators.md
-#, fuzzy
 msgid ""
 "You could implement `Add` for `&Point`. In which situations is that useful?"
-msgstr "¿En qué situaciones sería útil implementar `Add` para `&Point`? "
+msgstr "¿En qué situaciones sería útil implementar `Add` para `&Point`?"
 
 #: src/std-traits/operators.md
 msgid ""
@@ -7226,13 +7221,13 @@ msgstr ""
 "tipo del método?"
 
 #: src/std-traits/operators.md
-#, fuzzy
 msgid ""
 "Short answer: Function type parameters are controlled by the caller, but "
 "associated types (like `Output`) are controlled by the implementer of a trait."
 msgstr ""
 "Respuesta corta: el llamador controla los parámetros tipo de la función, pero "
-"los tipos asociados (como `Output`) los controla el implementador de un trait ."
+"los tipos asociados (como `Output`) son controlados por el implementador de un "
+"trait."
 
 #: src/std-traits/operators.md
 msgid ""
@@ -7465,14 +7460,12 @@ msgstr ""
 "(por ejemplo, `0`, `\"\"`, etc.)."
 
 #: src/std-traits/default.md
-#, fuzzy
 msgid "The partial struct initialization works nicely with default."
 msgstr ""
-"La copia parcial de la estructura funciona correctamente con los valores "
-"predeterminados. ."
+"La inicialización parcial de estructuras funciona bien con los valores "
+"predeterminados."
 
 #: src/std-traits/default.md
-#, fuzzy
 msgid ""
 "The Rust standard library is aware that types can implement `Default` and "
 "provides convenience methods that use it."
@@ -7481,7 +7474,6 @@ msgstr ""
 "`Default` y, por ello, proporciona métodos prácticos que lo utilizan."
 
 #: src/std-traits/default.md
-#, fuzzy
 msgid ""
 "The `..` syntax is called [struct update syntax](https://doc.rust-lang.org/book/"
 "ch05-01-defining-structs.html#creating-instances-from-other-instances-with-"
@@ -7489,7 +7481,7 @@ msgid ""
 msgstr ""
 "la sintaxis `..` se denomina [sintaxis de actualización de estructuras](https://"
 "doc.rust-lang.org/book/ch05-01-defining-structs.html#creating-instances-from-"
-"other-instances-with-struct-update-syntax)"
+"other-instances-with-struct-update-syntax)."
 
 #: src/std-traits/closures.md
 msgid ""
@@ -7504,9 +7496,8 @@ msgstr ""
 "html) y [`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html):"
 
 #: src/std-traits/closures.md
-#, fuzzy
 msgid "\"Calling function on {input}\""
-msgstr "Llamar Funciones Unsafe (Inseguras)"
+msgstr "\"Llamado función sobre {input}\""
 
 #: src/std-traits/closures.md
 msgid "\"add_3: {}\""
@@ -7600,9 +7591,8 @@ msgid "\"Hi\""
 msgstr "\"¿Qué\""
 
 #: src/std-traits/closures.md
-#, fuzzy
 msgid "\"Greg\""
-msgstr "\"Saludos\""
+msgstr "\"Greg\""
 
 #: src/std-traits/exercise.md
 msgid ""
@@ -7661,22 +7651,20 @@ msgid "Smart pointers: standard library pointer types."
 msgstr "Punteros inteligentes: tipos de punteros de biblioteca estándar."
 
 #: src/welcome-day-3.md
-#, fuzzy
 msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 20 "
 "minutes. It contains:"
 msgstr ""
 "Contando con los descansos de 10 minutos, la duración prevista de la sesión es "
-"de unas 2 horas y 20 minutos."
+"de unas 2 horas y 20 minutos. Contiene:"
 
 #: src/memory-management.md src/memory-management/clone.md
 msgid "Clone"
 msgstr "Clone"
 
 #: src/memory-management.md
-#, fuzzy
 msgid "Drop"
-msgstr "Trait `Drop`"
+msgstr "`Drop`"
 
 #: src/memory-management/review.md
 msgid "Programs allocate memory in two ways:"
@@ -7749,7 +7737,6 @@ msgstr ""
 "alloc/index.html)."
 
 #: src/memory-management/review.md
-#, fuzzy
 msgid ""
 "We can inspect the memory layout with `unsafe` Rust. However, you should point "
 "out that this is rightfully unsafe!"
@@ -7778,7 +7765,7 @@ msgstr ""
 
 #: src/memory-management/review.md
 msgid "\"capacity = {capacity}, ptr = {ptr:#x}, len = {len}\""
-msgstr ""
+msgstr "\"capacidad = {capacity}, ptr = {ptr:#x}, len = {len}\""
 
 #: src/memory-management/approaches.md
 msgid "Traditionally, languages have fallen into two broad categories:"
@@ -7913,18 +7900,20 @@ msgstr ""
 "un error cuando se usan fuera de él:"
 
 #: src/memory-management/ownership.md
-#, fuzzy
 msgid ""
 "We say that the variable _owns_ the value. Every Rust value has precisely one "
 "owner at all times."
-msgstr "Decimos que el valor _pertenece_ a la variable."
+msgstr ""
+"Decimos que el valor _pertenece_ a la variable. Cada valor en Rust tiene "
+"exactamente un dueño en todo tiempo."
 
 #: src/memory-management/ownership.md
-#, fuzzy
 msgid ""
 "At the end of the scope, the variable is _dropped_ and the data is freed. A "
 "destructor can run here to free up resources."
-msgstr "Al final del ámbito, la variable _se elimina_ y los datos se liberan."
+msgstr ""
+"Al final del ámbito, la variable _se elimina_ y los datos se liberan. Un "
+"destructor puede correr en este momento para librar recursos."
 
 #: src/memory-management/ownership.md
 msgid ""
@@ -7970,7 +7959,6 @@ msgid "After move to `s2`:"
 msgstr "Después de mover a `s2`:"
 
 #: src/memory-management/move.md
-#, fuzzy
 msgid ""
 "```bob\n"
 " Stack                             Heap\n"
@@ -7994,21 +7982,21 @@ msgid ""
 "```"
 msgstr ""
 "```bob\n"
-" Stack                            Heap\n"
-".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - -.\n"
-":                           :     :                           :\n"
-":    s1 \"(inaccessible)\"    :     :                           :\n"
-":   +-----------+-------+   :     :   +----+----+----+----+   :\n"
-":   | ptr       |   o---+---+--+--+-->| R  | u  | s  | t  |   :\n"
-":   | len       |     4 |   :  |  :   +----+----+----+----+   :\n"
-":   | capacity  |     4 |   :  |  :                           :\n"
-":   +-----------+-------+   :  |  :                           :\n"
-":                           :  |  `- - - - - - - - - - - - - -'\n"
+" Stack                             Heap\n"
+".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - -.\n"
+":                           :     :                                     :\n"
+":    s1 \"(inaccessible)\"    :     :                                     :\n"
+":   +-----------+-------+   :     :   +----+----+----+----+----+----+   :\n"
+":   | ptr       |   o---+---+--+--+-->| H  | e  | l  | l  | o  | !  |   :\n"
+":   | len       |     6 |   :  |  :   +----+----+----+----+----+----+   :\n"
+":   | capacity  |     6 |   :  |  :                                     :\n"
+":   +-----------+-------+   :  |  :                                     :\n"
+":                           :  |  `- - - - - - - - - - - - - - - - - - -'\n"
 ":    s2                     :  |\n"
 ":   +-----------+-------+   :  |\n"
 ":   | ptr       |   o---+---+--'\n"
-":   | len       |     4 |   :\n"
-":   | capacity  |     4 |   :\n"
+":   | len       |     6 |   :\n"
+":   | capacity  |     6 |   :\n"
 ":   +-----------+-------+   :\n"
 ":                           :\n"
 "`- - - - - - - - - - - - - -'\n"
@@ -8110,9 +8098,8 @@ msgstr ""
 "a clonar sólo de forma explícita."
 
 #: src/memory-management/move.md
-#, fuzzy
 msgid "Defensive Copies in Modern C++"
-msgstr "Double free en código C++ moderno"
+msgstr "Copias Defensivas en C++ Moderno"
 
 #: src/memory-management/move.md
 msgid "Modern C++ solves this differently:"
@@ -8186,14 +8173,13 @@ msgstr ""
 "`Clone`."
 
 #: src/memory-management/clone.md
-#, fuzzy
 msgid ""
 "The idea of `Clone` is to make it easy to spot where heap allocations are "
 "occurring. Look for `.clone()` and a few others like `vec!` or `Box::new`."
 msgstr ""
 "La función de `Clone` es poder encontrar fácilmente dónde se producen las "
-"asignaciones de montículos. Busca `.clone()` y otros elementos como `Vec::new` "
-"o `Box::new`."
+"asignaciones al heap. Busca a `.clone()` y algunos otros como `vec!` o `Box::"
+"new`."
 
 #: src/memory-management/clone.md
 msgid ""
@@ -8208,12 +8194,16 @@ msgid ""
 "`clone` generally performs a deep copy of the value, meaning that if you e.g. "
 "clone an array, all of the elements of the array are cloned as well."
 msgstr ""
+"`clone` generalmente realiza una copia a fondo del valor. Por ejemplo, si "
+"clonas un array, todos los elementos del array tambien son clonados."
 
 #: src/memory-management/clone.md
 msgid ""
 "The behavior for `clone` is user-defined, so it can perform custom cloning "
 "logic if needed."
 msgstr ""
+"El comportamiento de `clone` es definido por el usuario, entonces puede "
+"realizar lógica personalizada de clonación si es necesario."
 
 #: src/memory-management/copy-types.md
 msgid "While move semantics are the default, certain types are copied by default:"
@@ -8281,7 +8271,6 @@ msgstr ""
 "de tipo `Copy`."
 
 #: src/memory-management/copy-types.md
-#, fuzzy
 msgid ""
 "Remove `Copy` from the `derive` attribute. The compiler error is now in the "
 "`println!` for `p1`."
@@ -8300,6 +8289,11 @@ msgid ""
 "to make a copy of a shared reference, creating a copy of a mutable reference "
 "would violate Rust's borrowing rules."
 msgstr ""
+"Referencias compartidas son `Copy`/`Clone`, pero referencias mutables no lo "
+"son. Esto es porque Rust requiere que las referencias mutables sean exclusivas. "
+"Esto significa que es valido hacer una copia de una referencia compartida, pero "
+"hacer lo mismo para una referencia mutable violaría las reglas de préstamo de "
+"Rust."
 
 #: src/memory-management/drop.md
 msgid "The `Drop` Trait"
@@ -8523,9 +8517,8 @@ msgid "\"0.1\""
 msgstr "\"0.1\""
 
 #: src/smart-pointers.md
-#, fuzzy
 msgid "Box<T>"
-msgstr "`Box<T>`"
+msgstr "Box<T>"
 
 #: src/smart-pointers.md
 msgid "Rc"
@@ -8572,7 +8565,6 @@ msgid "\"{list:?}\""
 msgstr "\"{list:?}\""
 
 #: src/smart-pointers/box.md
-#, fuzzy
 msgid ""
 "```bob\n"
 " Stack                           Heap\n"
@@ -8594,32 +8586,31 @@ msgid ""
 "```"
 msgstr ""
 "```bob\n"
-" Stack                          Heap\n"
-".- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - - "
-"-.\n"
-":                         :     :                                               :\n"
+" Stack                           Heap\n"
+".- - - - - - - - - - - - - - .     .- - - - - - - - - - - - - - - - - - - - - - "
+"- - -.\n"
+":                            :     :                                                 :\n"
 ":    "
-"list                 :     :                                               :\n"
-":   +------+----+----+    :     :    +------+----+----+    +------+----+----"
-"+   :\n"
-":   | Cons | 1  | o--+----+-----+--->| Cons | 2  | o--+--->| Nil  | // | // "
-"|   :\n"
-":   +------+----+----+    :     :    +------+----+----+    +------+----+----"
-"+   :\n"
-":                         :     :                                               :\n"
-":                         :     :                                               :\n"
-"'- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - - "
-"-'\n"
+"list                    :     :                                                 :\n"
+":   +---------+----+----+    :     :    +---------+----+----+    +------+----"
+"+----+  :\n"
+":   | Element | 1  | o--+----+-----+--->| Element | 2  | o--+--->| Nil  | // "
+"| // |  :\n"
+":   +---------+----+----+    :     :    +---------+----+----+    +------+----"
+"+----+  :\n"
+":                            :     :                                                 :\n"
+":                            :     :                                                 :\n"
+"'- - - - - - - - - - - - - - '     '- - - - - - - - - - - - - - - - - - - - - - "
+"- - -'\n"
 "```"
 
 #: src/smart-pointers/box.md
-#, fuzzy
 msgid ""
 "`Box` is like `std::unique_ptr` in C++, except that it's guaranteed to be not "
 "null."
 msgstr ""
 "`Box` es igual que `std::unique_ptr` en C++, salvo que está asegurado que no "
-"será nulo. "
+"será nulo."
 
 #: src/smart-pointers/box.md
 msgid "A `Box` can be useful when you:"
@@ -8639,19 +8630,18 @@ msgid ""
 "amounts of data on the stack, instead store the data on the heap in a `Box` so "
 "only the pointer is moved."
 msgstr ""
-"Si quieres transferir la propiedad de una gran cantidad de datos. Para evitar "
-"que se copien grandes cantidades de datos en la _stack_, almacena los datos del "
-"_heap_ en un `Box` para que solo se mueva el puntero."
+"quieres transferir la propiedad (\"ownership\") de una gran cantidad de datos. "
+"Para evitar que se copien grandes cantidades de datos en el _stack_, almacena "
+"los datos del _heap_ en un `Box` para que solo se mueva el puntero."
 
 #: src/smart-pointers/box.md
-#, fuzzy
 msgid ""
 "If `Box` was not used and we attempted to embed a `List` directly into the "
 "`List`, the compiler would not be able to compute a fixed size for the struct "
 "in memory (the `List` would be of infinite size)."
 msgstr ""
-"Si no se utiliza `Box` e intentamos insertar un `List` directamente dentro de "
-"`List`, el compilador no calcularía un tamaño fijo de la estructura en la "
+"Si no utilizamos `Box` e intentamos insertar un `List` directamente dentro de "
+"`List`, el compilador no podría calcular un tamaño fijo de la estructura en la "
 "memoria (`List` tendría un tamaño infinito)."
 
 #: src/smart-pointers/box.md
@@ -8663,7 +8653,6 @@ msgstr ""
 "normal y solo apunta al siguiente elemento de la `List` en el _heap_."
 
 #: src/smart-pointers/box.md
-#, fuzzy
 msgid ""
 "Remove the `Box` in the List definition and show the compiler error. We get the "
 "message \"recursive without indirection\", because for data recursion, we have "
@@ -8671,8 +8660,8 @@ msgid ""
 "value directly."
 msgstr ""
 "Elimina `Box` de la definición de la lista y muestra el error del compilador. "
-"\"Recursivo con indirección\" es una sugerencia de que puedes usar un Box o "
-"referencia de algún tipo, en lugar de almacenar un valor directamente."
+"El mensaje \"recursivo con indirección\" es una sugerencia de que debes usar un "
+"Box o referencia de algún tipo en lugar de almacenar un valor directamente."
 
 #: src/smart-pointers/box.md
 msgid "Niche Optimization"
@@ -8684,6 +8673,9 @@ msgid ""
 "makes `Box` one of the types that allow the compiler to optimize storage of "
 "some enums."
 msgstr ""
+"Aunque `Box` se parece a `std::unique_ptr` en C++, no puede ser vació o nulo. "
+"Esto hace `Box` uno de los tipos que permite que el compilador optimice el "
+"almacenaje de ciertas enumeraciones."
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -8692,28 +8684,30 @@ msgid ""
 "([\"Null Pointer Optimization\"](https://doc.rust-lang.org/std/option/"
 "#representation)):"
 msgstr ""
+"Por ejemplo, `Option<Box<T>>` tiene el mismo tamaño que `Box<T>`, ya que el "
+"compilador usa el valor nulo para discriminar variantes en vez de usar una "
+"etiqueta explicita ([\"Null Pointer Optimization\"](https://doc.rust-lang.org/"
+"std/option/#representation)):"
 
 #: src/smart-pointers/box.md
 msgid "\"Just box\""
-msgstr ""
+msgstr "\"Solo box\""
 
 #: src/smart-pointers/box.md
-#, fuzzy
 msgid "\"Optional box\""
-msgstr "Excepciones"
+msgstr "\"Box opcional\""
 
 #: src/smart-pointers/box.md
 msgid "\"Size of just_box: {}\""
-msgstr ""
+msgstr "\"Tamaño de just_box: {}\""
 
 #: src/smart-pointers/box.md
 msgid "\"Size of optional_box: {}\""
-msgstr ""
+msgstr "\"Tamaño de optional_box: {}\""
 
 #: src/smart-pointers/box.md
-#, fuzzy
 msgid "\"Size of none: {}\""
-msgstr "\"antes: {a}\""
+msgstr "\"Tamaño de none: {}\""
 
 #: src/smart-pointers/rc.md
 msgid ""
@@ -8785,13 +8779,13 @@ msgid "Use `Rc::strong_count` to check the reference count."
 msgstr "Comprueba el recuento de referencias con `Rc::strong_count`."
 
 #: src/smart-pointers/rc.md
-#, fuzzy
 msgid ""
 "`Rc::downgrade` gives you a _weakly reference-counted_ object to create cycles "
 "that will be dropped properly (likely in combination with `RefCell`)."
 msgstr ""
-"`Rc::downgrade` ofrece un objeto _de referencia contada baja_ para crear `Rc::"
-"downgrade` ofrece un objeto de _referencia contada débil_ para crear `RefCell`)."
+"`Rc::downgrade` ofrece un objeto _de referencia contada debil_ para crear "
+"ciclos que que se borraran propiamente (probablemente en combinación con "
+"`RefCell`)."
 
 #: src/smart-pointers/trait-objects.md
 msgid ""
@@ -8799,13 +8793,15 @@ msgid ""
 "Pet`. However, we can also use trait objects with smart pointers like `Box` to "
 "create an owned trait object: `Box<dyn Pet>`."
 msgstr ""
+"Previamente vimos que objetos de trait se pueden usar con referencias, e.g. "
+"`&dyn Pet`. También podemos usar objetos de trait con punteros inteligentes "
+"como `Box` para crear objetos de trait con dueño: `Box<dyn Pet>`."
 
 #: src/smart-pointers/trait-objects.md
 msgid "Memory layout after allocating `pets`:"
 msgstr "Diseño de la memoria después de asignar `pets`:"
 
 #: src/smart-pointers/trait-objects.md
-#, fuzzy
 msgid ""
 "```bob\n"
 " Stack                             Heap\n"
@@ -8869,58 +8865,65 @@ msgstr ""
 ".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - "
 "-.\n"
 ":                           :     :                                             :\n"
-":    "
-"pets                   :     :                                             :\n"
-":   +-----------+-------+   :     :   +-----+-----"
-"+                             :\n"
-":   | ptr       |   o---+---+-----+-->| o o | o o "
-"|                             :\n"
-":   | len       |     2 |   :     :   +-|-|-+-|-|-"
-"+                             :\n"
-":   | capacity  |     2 |   :     :     | |   | |   +---------------"
-"+           :\n"
-":   +-----------+-------+   :     :     | |   | '-->| name: \"Fido\"  "
-"|           :\n"
-":                           :     :     | |   |     +---------------"
-"+           :\n"
-"`- - - - - - - - - - - - - -'     :     | |   "
+":    \"pets: Vec<dyn Pet>\"   :     :   \"data: Cat\"         +----+----+----"
+"+----+ :\n"
+":   +-----------+-------+   :     :  +-------+-------+    | F  | i  | d  | o  "
+"| :\n"
+":   | ptr       |   o---+---+--.  :  | lives |     9 |    +----+----+----+----"
+"+ :\n"
+":   | len       |     2 |   :  |  :  +-------+-------+      "
+"^                   :\n"
+":   | capacity  |     2 |   :  |  :       ^                 "
+"|                   :\n"
+":   +-----------+-------+   :  |  :       |                 "
+"'-------.           :\n"
+":                           :  |  :       |               data:"
+"\"Dog\"|           :\n"
+":                           :  |  :       |              +-------+--|-------"
+"+   :\n"
+"`- - - - - - - - - - - - - -'  |  :   +---|-+-----+      | name  |  o, 4, 4 "
+"|   :\n"
+"                               `--+-->| o o | o o-|----->| age   |        5 "
+"|   :\n"
+"                                  :   +-|---+-|---+      +-------+----------"
+"+   :\n"
+"                                  :     |     "
 "|                                 :\n"
-"                                  :     | |   |     +----------------------"
-"+    :   \n"
-"                                  :     | |   '---->| \"<Dog as Pet>::name\" "
-"|    :\n"
-"                                  :     | |         +----------------------"
-"+    : \n"
-"                                  :     | "
-"|                                     : \n"
-"                                  :     | |   +-"
-"+                               :   \n"
-"                                  :     | '-->|"
-"\\|                               :     \n"
-"                                  :     |     +-"
-"+                               :    \n"
-"                                  :     "
-"|                                       : \n"
-"                                  :     |     +----------------------"
-"+          : \n"
-"                                  :     '---->| \"<Cat as Pet>::name\" "
-"|          : \n"
-"                                  :           +----------------------"
-"+          :\n"
+"                                  `- - -| - - |- - - - - - - - - - - - - - - - "
+"-'\n"
+"                                        |     |\n"
+"                                        |     |                      \"Program "
+"text\"\n"
+"                                  .- - -| - - |- - - - - - - - - - - - - - - - "
+"-.\n"
+"                                  :     |     |       "
+"vtable                    :\n"
+"                                  :     |     |      +----------------------"
+"+   :\n"
+"                                  :     |     `----->| \"<Dog as Pet>::talk\" "
+"|   :\n"
+"                                  :     |            +----------------------"
+"+   :\n"
+"                                  :     |             "
+"vtable                    :\n"
+"                                  :     |            +----------------------"
+"+   :\n"
+"                                  :     '----------->| \"<Cat as Pet>::talk\" "
+"|   :\n"
+"                                  :                  +----------------------"
+"+   :\n"
 "                                  :                                             :\n"
 "                                  '- - - - - - - - - - - - - - - - - - - - - - "
 "-'\n"
-"\n"
 "```"
 
 #: src/smart-pointers/trait-objects.md
-#, fuzzy
 msgid ""
 "Types that implement a given trait may be of different sizes. This makes it "
 "impossible to have things like `Vec<dyn Pet>` in the example above."
 msgstr ""
-"Los tipos que implementan un trait determinado pueden tener diferentes tamaños. "
-"Esto hace imposible tener elementos como `Vec<Pet>` en el ejemplo anterior."
+"Los tipos que implementan un trait pueden tener diferentes tamaños. Esto hace "
+"imposible tener elementos como `Vec<dyn Pet>` en el ejemplo anterior."
 
 #: src/smart-pointers/trait-objects.md
 msgid ""
@@ -8935,25 +8938,28 @@ msgid ""
 "In the example, `pets` is allocated on the stack and the vector data is on the "
 "heap. The two vector elements are _fat pointers_:"
 msgstr ""
+"En este ejemplo, `pets` es alocado sobre el stack y los datos del vector sobre "
+"el heap. Los dos elementos del vector son _punteros gordos_:"
 
 #: src/smart-pointers/trait-objects.md
-#, fuzzy
 msgid ""
 "A fat pointer is a double-width pointer. It has two components: a pointer to "
 "the actual object and a pointer to the [virtual method table](https://en."
 "wikipedia.org/wiki/Virtual_method_table) (vtable) for the `Pet` implementation "
 "of that particular object."
 msgstr ""
-"En el ejemplo, `pets` contiene _punteros grandes_ en los objetos que "
-"implementan `Pet`. El puntero grande consta de dos componentes: un puntero al "
-"objeto real y un puntero a la tabla de métodos virtuales para la implementación "
-"de `Pet` en ese objeto concreto."
+"Un puntero gordo es un puntero de tamaño doble. Tiene dos componentes: un "
+"puntero al objeto y un puntero a la [tabla virtual de métodos](https://en."
+"wikipedia.org/wiki/Virtual_method_table) (vtable) para la implementación de "
+"`Pet` de ese objeto."
 
 #: src/smart-pointers/trait-objects.md
 msgid ""
 "The data for the `Dog` named Fido is the `name` and `age` fields. The `Cat` has "
 "a `lives` field."
 msgstr ""
+"Los datos para el `Dog` llamado Fido son los campos `name` y `age`. El `Cat` "
+"tiene un campo `lives`."
 
 #: src/smart-pointers/trait-objects.md
 msgid "Compare these outputs in the above example:"
@@ -9004,9 +9010,8 @@ msgstr ""
 "/// Si se añade el mismo valor varias veces, solo se almacena una vez.\n"
 
 #: src/smart-pointers/exercise.md
-#, fuzzy
 msgid "// Implement `new`, `insert`, `len`, and `has` for `Subtree`.\n"
-msgstr "// Implementa `new`, `insert`, `len` y `has`.\n"
+msgstr "// Implementa `new`, `insert`, `len` y `has` para `Subtree`.\n"
 
 #: src/smart-pointers/exercise.md src/smart-pointers/solution.md
 msgid "// not a unique item\n"
@@ -9017,22 +9022,20 @@ msgid "\"bar\""
 msgstr "\"bar\""
 
 #: src/welcome-day-3-afternoon.md
-#, fuzzy
 msgid ""
 "Including 10 minute breaks, this session should take about 1 hour and 55 "
 "minutes. It contains:"
 msgstr ""
 "Contando con los descansos de 10 minutos, la duración prevista de la sesión es "
-"de unas 2 horas y 55 minutos."
+"de una horas y 55 minutos. Contiene:"
 
 #: src/borrowing/shared.md
-#, fuzzy
 msgid ""
 "As we saw before, instead of transferring ownership when calling a function, "
 "you can let a function _borrow_ the value:"
 msgstr ""
-"En lugar de transferir el _ownership_ al llamar a una función, puedes permitir "
-"que una función _tome prestado_ el valor:"
+"En lugar de transferir el _ownership_ (posesión) al llamar a una función, "
+"puedes permitir que una función _tome prestado_ el valor:"
 
 #: src/borrowing/shared.md
 msgid "The `add` function _borrows_ two points and returns a new point."
@@ -9052,12 +9055,10 @@ msgstr ""
 "devueltos."
 
 #: src/borrowing/shared.md
-#, fuzzy
 msgid "Notes on stack returns and inlining:"
 msgstr "Notas sobre la devolución de resultados de la _stack_:"
 
 #: src/borrowing/shared.md
-#, fuzzy
 msgid ""
 "Demonstrate that the return from `add` is cheap because the compiler can "
 "eliminate the copy operation, by inlining the call to add into main. Change the "
@@ -9068,18 +9069,22 @@ msgid ""
 "\"DEBUG\" optimization level, the addresses should change, while they stay the "
 "same when changing to the \"RELEASE\" setting:"
 msgstr ""
-"Demuestra que la instrucción de retorno de `add` es fácil porque el compilador "
+"Demuestra que la instrucción de retorno de `add` es barato porque el compilador "
 "puede eliminar la operación de copia. Cambia el código anterior para imprimir "
 "las direcciones de la _stack_ y ejecutarlas en el [Playground](https://play."
-"rust-lang.org/) o consulta el ensamblador en [Godbolt](https://rust.godbolt."
-"org/). En el nivel de optimización \"DEBUG\", las direcciones deberían cambiar. "
-"Sin embargo, deberían mantenerse igual modificar la configuración \"RELEASE\":"
+"rust-lang.org/?"
+"version=stable&mode=release&edition=2021&gist=0cb13be1c05d7e3446686ad9947c4671) "
+"o consulta el ensamblador en [Godbolt](https://rust.godbolt.org/). En el nivel "
+"de optimización \"DEBUG\", las direcciones deberían cambiar. Sin embargo, "
+"deberían mantenerse igual modificar la configuración \"RELEASE\":"
 
 #: src/borrowing/shared.md
 msgid ""
 "The Rust compiler can do automatic inlining, that can be disabled on a function "
 "level with `#[inline(never)]`."
 msgstr ""
+"El compilador Rust puede hacer enlineamiento automático que puede ser "
+"deshabilitado al nivel de una función con `#[inline(never)]`."
 
 #: src/borrowing/shared.md
 msgid ""
@@ -9088,23 +9093,26 @@ msgid ""
 "the value depends on the ABI, e.g. on amd64 the two i32 that is making up the "
 "point will be returned in 2 registers (eax and edx)."
 msgstr ""
+"Una vez deshabilitado, la dirección impresa cambiara en todos los niveles de "
+"optimización. Mirando en Godbolt o Playground, uno puede ver que en este caso "
+"el valor de retorno dependen del ABI, e.g. en amd64 los dos i32 que constituyen "
+"el punto son regresados en 2 registros (eax y edx)."
 
 #: src/borrowing/borrowck.md
-#, fuzzy
 msgid ""
 "Rust's _borrow checker_ puts constraints on the ways you can borrow values. For "
 "a given value, at any time:"
-msgstr "Rust limita las formas en que se pueden tomar prestados valores:"
+msgstr ""
+"El _borrow checker_ de Rust limita las formas en que se pueden tomar prestados "
+"valores. Para un dado valor, en cualquier tiempo:"
 
 #: src/borrowing/borrowck.md
-#, fuzzy
 msgid "You can have one or more shared references to the value, _or_"
-msgstr "Puedes tener uno o varios valores `&T` en un momento dado, _o_"
+msgstr "Puedes tener uno o varios valores `&T`, _o_"
 
 #: src/borrowing/borrowck.md
-#, fuzzy
 msgid "You can have exactly one exclusive reference to the value."
-msgstr "puedes tener exactamente un valor `&mut T`."
+msgstr "puedes tener exactamente una referencia exclusiva al valor."
 
 #: src/borrowing/borrowck.md
 msgid ""
@@ -9173,14 +9181,17 @@ msgid ""
 "consider the case of modifying a collection while there are references to its "
 "elements:"
 msgstr ""
+"Como un ejemplo concreto de como estas reglas de préstamo previenen errores de "
+"memoria, considera el caso de modificar una colección cuando existen "
+"referencias a sus elementos:"
 
 #: src/borrowing/examples.md
 msgid "\"{elem}\""
-msgstr ""
+msgstr "\"{elem}\""
 
 #: src/borrowing/examples.md
 msgid "Similarly, consider the case of iterator invalidation:"
-msgstr ""
+msgstr "Considera este caso parecido de invalidación de iterador:"
 
 #: src/borrowing/examples.md
 msgid ""
@@ -9188,6 +9199,9 @@ msgid ""
 "it can potentially invalidate existing references to the collection's elements "
 "if the collection has to reallocate."
 msgstr ""
+"En ambos casos, añadir elementos a la colección puede invalidar referencias pre-"
+"existentes a los elementos de la colección si es necesario realizar "
+"reasignación."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9217,7 +9231,7 @@ msgstr "`RefCell`"
 
 #: src/borrowing/interior-mutability.md
 msgid "// Note that `cell` is NOT declared as mutable.\n"
-msgstr ""
+msgstr "// Nota que `cell` NO es declarado como mutable.\n"
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9225,11 +9239,13 @@ msgid ""
 "        // let other = cell.borrow();\n"
 "        // println!(\"{}\", *other);\n"
 msgstr ""
+"// Esto causa un error al tiempo de ejecución.\n"
+"        // let other = cell.borrow();\n"
+"        // println!(\"{}\", *other);\n"
 
 #: src/borrowing/interior-mutability.md
-#, fuzzy
 msgid "\"{cell:?}\""
-msgstr "\"{:?}\""
+msgstr "\"{cell:?}\""
 
 #: src/borrowing/interior-mutability.md
 msgid "`Cell`"
@@ -9273,6 +9289,9 @@ msgid ""
 "call to `borrow_mut` before we print the cell. Trying to print a borrowed "
 "`RefCell` just shows the message `\"{borrowed}\"`."
 msgstr ""
+"El bloque extra en el ejemplo `RefCell` existe para terminar el préstamo creado "
+"por la llamada a `borrow_mut` antes de que imprimimos cal celda. Intentando "
+"imprimir una celda `RefCell` solo enseña el mensaje `\"{borrowed}\"`."
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9289,7 +9308,7 @@ msgid ""
 "Both `RefCell` and `Cell` are `!Sync`, which means `&RefCell` and `&Cell` can't "
 "be passed between threads. This prevents two threads trying to access the cell "
 "at once."
-msgstr ""
+msgstr "Ambos"
 
 #: src/borrowing/exercise.md
 msgid ""
