@@ -15,6 +15,7 @@
 use std::path::PathBuf;
 
 use clap::Parser;
+use log::debug;
 use mdbook_slide_evaluator::evaluator::Evaluator;
 use mdbook_slide_evaluator::slides::Book;
 use url::Url;
@@ -68,15 +69,19 @@ async fn main() -> anyhow::Result<()> {
     // gather information about the book from the filesystem
     let book = Book::from_html_slides(args.source_dir.clone())?;
 
+    // create a new webclient that is used by the evaluator
+    let webclient: fantoccini::Client =
+        fantoccini::ClientBuilder::native().connect(&args.webdriver).await?;
+    // use a defined window size for reproducible results
+    webclient.set_window_size(args.webclient_width, args.webclient_height).await?;
+
     // create a new evaluator (connects to the provided webdriver)
     let evaluator = Evaluator::new(
-        &args.webdriver,
+        webclient.clone(),
         &args.element,
         args.screenshot_dir,
         args.base_url,
         args.source_dir.to_path_buf(),
-        args.webclient_width,
-        args.webclient_height,
     )
     .await?;
 
@@ -90,6 +95,7 @@ async fn main() -> anyhow::Result<()> {
     }
 
     // close webclient as otherwise the unclosed session cannot be reused
-    evaluator.close_client().await?;
+    debug!("closing webclient");
+    webclient.close().await?;
     Ok(())
 }
