@@ -21,6 +21,7 @@ use fantoccini::elements::Element;
 use fantoccini::Client;
 use log::{debug, info, warn};
 use serde::Serialize;
+use tokio_util::sync::CancellationToken;
 use url::Url;
 
 use crate::slides::{Book, Slide};
@@ -40,6 +41,8 @@ pub struct Evaluator<'a> {
     html_base_url: Url,
     /// base directory for all processed files
     source_dir: PathBuf,
+    /// if this token is cancelled, the process needs to end gracefully
+    cancellation_token: CancellationToken,
 }
 
 /// element coordinates returned by the browser
@@ -125,6 +128,7 @@ impl<'a> Evaluator<'_> {
         screenshot_dir: Option<PathBuf>,
         html_base_url: Url,
         source_dir: PathBuf,
+        cancellation_token: CancellationToken,
     ) -> anyhow::Result<Evaluator<'a>> {
         let element_selector = fantoccini::Locator::XPath(element_selector);
         Ok(Evaluator {
@@ -133,6 +137,7 @@ impl<'a> Evaluator<'_> {
             screenshot_dir,
             html_base_url,
             source_dir,
+            cancellation_token,
         })
     }
 
@@ -215,6 +220,10 @@ impl<'a> Evaluator<'_> {
         let mut results = vec![];
         debug!("slide count: {}", book.slides().len());
         for slide in book.slides().iter() {
+            if self.cancellation_token.is_cancelled() {
+                debug!("received cancel request, return already completed results");
+                break;
+            }
             let Result::Ok(result) = self.eval_slide(slide).await else {
                 warn!("slide with no content - ignore: {:?}", slide);
                 continue;

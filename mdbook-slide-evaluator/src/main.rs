@@ -15,9 +15,10 @@
 use std::path::PathBuf;
 
 use clap::Parser;
-use log::debug;
+use log::{debug, info};
 use mdbook_slide_evaluator::evaluator::Evaluator;
 use mdbook_slide_evaluator::slides::Book;
+use tokio_util::sync::CancellationToken;
 use url::Url;
 
 #[derive(Parser)]
@@ -75,6 +76,8 @@ async fn main() -> anyhow::Result<()> {
     // use a defined window size for reproducible results
     webclient.set_window_size(args.webclient_width, args.webclient_height).await?;
 
+    let cancellation_token = CancellationToken::new();
+
     // create a new evaluator (connects to the provided webdriver)
     let evaluator = Evaluator::new(
         webclient.clone(),
@@ -82,8 +85,16 @@ async fn main() -> anyhow::Result<()> {
         args.screenshot_dir,
         args.base_url,
         args.source_dir.to_path_buf(),
+        cancellation_token.clone(),
     )
     .await?;
+
+    tokio::spawn(async move {
+        tokio::signal::ctrl_c().await.unwrap();
+        info!("received CTRL+C");
+        // send a cancel signal
+        cancellation_token.cancel();
+    });
 
     // evaluate each slide
     let score_results = evaluator.eval_book(book).await?;
