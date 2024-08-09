@@ -125,11 +125,13 @@ impl<'a> Evaluator<'_> {
         screenshot_dir: Option<PathBuf>,
         html_base_url: Url,
         source_dir: PathBuf,
+        webclient_width: u32,
+        webclient_height: u32,
     ) -> anyhow::Result<Evaluator<'a>> {
         let webclient =
             fantoccini::ClientBuilder::native().connect(webdriver).await?;
-        // use fullscreen window to avoid arbitrary window size limitations
-        webclient.fullscreen_window().await?;
+        // use a defined window size for reproducible results
+        webclient.set_window_size(webclient_width, webclient_height).await?;
         let element_selector = fantoccini::Locator::XPath(element_selector);
         Ok(Evaluator {
             webclient,

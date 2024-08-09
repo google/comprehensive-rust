@@ -40,7 +40,7 @@ impl Book {
             source_dir.to_str().expect("invalid path")
         ))?;
         for file in files {
-            let slide = Slide { filename: Into::<Arc<Path>>::into(file?) };
+            let slide = Slide { filename: file?.into() };
             debug!("add {:?}", slide);
             slides.push(slide);
         }

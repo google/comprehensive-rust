@@ -42,6 +42,12 @@ struct Args {
     /// allows overwriting the export file
     #[arg(long, default_value_t = false)]
     overwrite: bool,
+    /// the height of the webclient that renders the slide
+    #[arg(long, default_value_t = 1920)]
+    webclient_width: u32,
+    /// the width of the webclient that renders the slide
+    #[arg(long, default_value_t = 1080)]
+    webclient_height: u32,
     /// max width of a slide
     #[arg(long, default_value_t = 750)]
     width: usize,
@@ -69,6 +75,8 @@ async fn main() -> anyhow::Result<()> {
         args.screenshot_dir,
         args.base_url,
         args.source_dir.to_path_buf(),
+        args.webclient_width,
+        args.webclient_height,
     )
     .await?;
 
