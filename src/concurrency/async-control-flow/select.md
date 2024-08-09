@@ -16,63 +16,33 @@ the resulting variables. The `statement` result becomes the result of the
 `select!` macro.
 
 ```rust,editable,compile_fail
-use tokio::sync::mpsc::{self, Receiver};
+use tokio::sync::mpsc;
 use tokio::time::{sleep, Duration};
-
-#[derive(Debug, PartialEq)]
-enum Animal {
-    Cat { name: String },
-    Dog { name: String },
-}
-
-async fn first_animal_to_finish_race(
-    mut cat_rcv: Receiver<String>,
-    mut dog_rcv: Receiver<String>,
-) -> Option<Animal> {
-    tokio::select! {
-        cat_name = cat_rcv.recv() => Some(Animal::Cat { name: cat_name? }),
-        dog_name = dog_rcv.recv() => Some(Animal::Dog { name: dog_name? })
-    }
-}
 
 #[tokio::main]
 async fn main() {
-    let (cat_sender, cat_receiver) = mpsc::channel(32);
-    let (dog_sender, dog_receiver) = mpsc::channel(32);
-    tokio::spawn(async move {
-        sleep(Duration::from_millis(500)).await;
-        cat_sender.send(String::from("Felix")).await.expect("Failed to send cat.");
+    let (tx, mut rx) = mpsc::channel(32);
+    let listener = tokio::spawn(async move {
+        tokio::select! {
+            Some(msg) = rx.recv() => println!("got: {msg}"),
+            _ = sleep(Duration::from_millis(50)) => println!("timeout"),
+        };
     });
-    tokio::spawn(async move {
-        sleep(Duration::from_millis(50)).await;
-        dog_sender.send(String::from("Rex")).await.expect("Failed to send dog.");
-    });
+    sleep(Duration::from_millis(10)).await;
+    tx.send(String::from("Hello!")).await.expect("Failed to send greeting");
 
-    let winner = first_animal_to_finish_race(cat_receiver, dog_receiver)
-        .await
-        .expect("Failed to receive winner");
-
-    println!("Winner is {winner:?}");
+    listener.await.expect("Listener failed");
 }
 ```
 
 <details>
 
-- In this example, we have a race between a cat and a dog.
-  `first_animal_to_finish_race` listens to both channels and will pick whichever
-  arrives first. Since the dog takes 50ms, it wins against the cat that take
-  500ms.
+- The `listener` async block here is a common form: wait for some async event,
+  or for a timeout. Change the `sleep` to sleep longer to see it fail. Why does
+  the `send` also fail in this situation?
 
-- You can use `oneshot` channels in this example as the channels are supposed to
-  receive only one `send`.
-
-- Try adding a deadline to the race, demonstrating selecting different sorts of
-  futures.
-
-- Note that `select!` drops unmatched branches, which cancels their futures. It
-  is easiest to use when every execution of `select!` creates new futures.
-
-  - An alternative is to pass `&mut future` instead of the future itself, but
-    this can lead to issues, further discussed in the pinning slide.
+- `select!` is also often used in a loop in "actor" architectures, where a task
+  reacts to events in a loop. That has some pitfalls, which will be discussed in
+  the next segment.
 
 </details>
