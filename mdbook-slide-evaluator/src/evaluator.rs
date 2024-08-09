@@ -16,10 +16,10 @@ use std::fs;
 use std::io::Write as _;
 use std::path::{Path, PathBuf};
 
-use anyhow::{anyhow, Ok};
+use anyhow::anyhow;
 use fantoccini::elements::Element;
 use fantoccini::Client;
-use log::{debug, info, warn};
+use log::{debug, warn};
 use serde::Serialize;
 use tokio_util::sync::CancellationToken;
 use url::Url;
@@ -72,7 +72,7 @@ pub struct EvaluationResult {
 /// holds all evaluation results for a book
 pub struct EvaluationResults {
     /// metadata about the book
-    book: Book,
+    _book: Book,
     /// the collected evaluation results
     results: Vec<EvaluationResult>,
 }
@@ -151,10 +151,20 @@ impl<'a> Evaluator<'_> {
     }
 
     /// evaluate the currently opened webpage return the selected content
-    /// element
-    async fn get_content_element_from_slide(&self) -> anyhow::Result<Element> {
-        let result = self.webclient.find(self.element_selector).await?;
-        Ok(result)
+    /// element if available
+    async fn get_content_element_from_slide(
+        &self,
+    ) -> anyhow::Result<Option<Element>> {
+        match self.webclient.find(self.element_selector).await {
+            Result::Ok(result) => Ok(Some(result)),
+            Result::Err(fantoccini::error::CmdError::Standard(
+                fantoccini::error::WebDriver {
+                    error: fantoccini::error::ErrorStatus::NoSuchElement,
+                    ..
+                },
+            )) => anyhow::Ok(None),
+            Result::Err(error) => Err(anyhow!(error))?,
+        }
     }
 
     /// extract the element coordinates from this element
@@ -198,13 +208,16 @@ impl<'a> Evaluator<'_> {
     pub async fn eval_slide(
         &self,
         slide: &Slide,
-    ) -> anyhow::Result<EvaluationResult> {
+    ) -> anyhow::Result<Option<EvaluationResult>> {
         debug!("evaluating {:?}", slide);
 
         let url = self.html_base_url.join(&slide.filename.display().to_string())?;
         self.webdriver_open_url(&url).await?;
 
-        let content_element = self.get_content_element_from_slide().await?;
+        let Some(content_element) = self.get_content_element_from_slide().await?
+        else {
+            return Ok(None);
+        };
         let size = self.get_element_coordinates(&content_element).await?;
         if self.screenshot_dir.is_some() {
             let screenshot = content_element.screenshot().await?;
@@ -212,7 +225,7 @@ impl<'a> Evaluator<'_> {
         }
         let result = EvaluationResult { slide: slide.clone(), element_size: size };
         debug!("information about element: {:?}", result);
-        Ok(result)
+        Ok(Some(result))
     }
 
     /// evaluate an entire book
@@ -224,12 +237,12 @@ impl<'a> Evaluator<'_> {
                 debug!("received cancel request, return already completed results");
                 break;
             }
-            let Result::Ok(result) = self.eval_slide(slide).await else {
+            let Some(result) = self.eval_slide(slide).await? else {
                 warn!("slide with no content - ignore: {:?}", slide);
                 continue;
             };
             results.push(result);
         }
-        Ok(EvaluationResults { book, results })
+        Ok(EvaluationResults { _book: book, results })
     }
 }

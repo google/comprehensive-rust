@@ -26,7 +26,7 @@ pub struct Slide {
 /// a book is a collection of slides
 pub struct Book {
     /// the path to the root directory of this book
-    source_dir: PathBuf,
+    _source_dir: PathBuf,
     /// the collection of slides
     slides: Vec<Slide>,
 }
@@ -44,7 +44,7 @@ impl Book {
             debug!("add {:?}", slide);
             slides.push(slide);
         }
-        Ok(Book { source_dir, slides })
+        Ok(Book { _source_dir: source_dir, slides })
     }
 
     /// return a reference to the slides of this book
