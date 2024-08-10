@@ -57,7 +57,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@deavid]: https://github.com/deavid
 [@detro]: https://github.com/detro
 [@git-user-cpp]: https://github.com/git-user-cpp
-[@hamidrezakp]: https://github.com/moaminsharifi
+[@hamidrezakp]: https://github.com/hamidrezakp
 [@henrif75]: https://github.com/henrif75
 [@henrythebuilder]: https://github.com/henrythebuilder
 [@HidenoriKobayashi]: https://github.com/HidenoriKobayashi
