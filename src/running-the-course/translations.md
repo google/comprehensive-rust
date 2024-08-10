@@ -24,6 +24,7 @@ recently updated translations:
 
 - [Arabic][ar] by [@younies]
 - [Bengali][bn] by [@raselmandol].
+- [Farsi][fa] by [@Alix1383], [@DannyRavi], [@javad-jafari].
 - [French][fr] by [@KookaS], [@vcaen] and [@AdrienBaudemont].
 - [German][de] by [@Throvn] and [@ronaldfw].
 - [Italian][it] by [@henrythebuilder] and [@detro].
@@ -39,6 +40,7 @@ get going. Translations are coordinated on the [issue tracker].
 [bn]: https://google.github.io/comprehensive-rust/bn/
 [de]: https://google.github.io/comprehensive-rust/de/
 [es]: https://google.github.io/comprehensive-rust/es/
+[fa]: https://google.github.io/comprehensive-rust/fa/
 [fr]: https://google.github.io/comprehensive-rust/fr/
 [it]: https://google.github.io/comprehensive-rust/it/
 [ja]: https://google.github.io/comprehensive-rust/ja/
@@ -48,8 +50,10 @@ get going. Translations are coordinated on the [issue tracker].
 [zh-CN]: https://google.github.io/comprehensive-rust/zh-CN/
 [zh-TW]: https://google.github.io/comprehensive-rust/zh-TW/
 [@AdrienBaudemont]: https://github.com/AdrienBaudemont
+[@Alix1383]: https://github.com/alix1383
 [@anlunx]: https://github.com/anlunx
 [@CoinEZ-JPN]: https://github.com/CoinEZ
+[@DannyRavi]: https://github.com/DannyRavi
 [@deavid]: https://github.com/deavid
 [@detro]: https://github.com/detro
 [@git-user-cpp]: https://github.com/git-user-cpp
@@ -58,6 +62,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@HidenoriKobayashi]: https://github.com/HidenoriKobayashi
 [@hueich]: https://github.com/hueich
 [@hugojacob]: https://github.com/hugojacob
+[@javad-jafari]: https://github.com/javad-jafari
 [@jiyongp]: https://github.com/jiyongp
 [@joaovicmendes]: https://github.com/joaovicmendes
 [@johnathan79717]: https://github.com/johnathan79717
