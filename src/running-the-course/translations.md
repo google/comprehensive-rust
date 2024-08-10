@@ -24,7 +24,7 @@ recently updated translations:
 
 - [Arabic][ar] by [@younies]
 - [Bengali][bn] by [@raselmandol].
-- [Farsi][fa] by [@Alix1383], [@DannyRavi], [@javad-jafari].
+- [Farsi][fa] by [@Alix1383], [@DannyRavi], [@hamidrezakp], [@javad-jafari] and [@moaminsharifi].
 - [French][fr] by [@KookaS], [@vcaen] and [@AdrienBaudemont].
 - [German][de] by [@Throvn] and [@ronaldfw].
 - [Italian][it] by [@henrythebuilder] and [@detro].
@@ -57,6 +57,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@deavid]: https://github.com/deavid
 [@detro]: https://github.com/detro
 [@git-user-cpp]: https://github.com/git-user-cpp
+[@hamidrezakp]: https://github.com/moaminsharifi
 [@henrif75]: https://github.com/henrif75
 [@henrythebuilder]: https://github.com/henrythebuilder
 [@HidenoriKobayashi]: https://github.com/HidenoriKobayashi
@@ -73,6 +74,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@KookaS]: https://github.com/KookaS
 [@kuanhungchen]: https://github.com/kuanhungchen
 [@mingyc]: https://github.com/mingyc
+[@moaminsharifi]: https://github.com/moaminsharifi
 [@momotaro1105]: https://github.com/momotaro1105
 [@namhyung]: https://github.com/namhyung
 [@noahdragon]: https://github.com/noahdragon
