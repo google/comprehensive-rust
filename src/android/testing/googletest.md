@@ -40,7 +40,7 @@ Error: See failure output above
 
 - This just scratches the surface, there are many builtin matchers. Consider
   going through the first chapter of
-  ["Advanced testing for Rust applications"](https://github.com/mainmatter/rust-advanced-testing-workshop),
+  ["Advanced testing for Rust applications"](https://rust-exercises.com/advanced-testing/),
   a self-guided Rust course: it provides a guided introduction to the library,
   with exercises to help you get comfortable with `googletest` macros, its
   matchers and its overall philosophy.
