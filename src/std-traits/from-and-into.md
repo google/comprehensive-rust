@@ -4,7 +4,8 @@ minutes: 5
 
 # `From` and `Into`
 
-Types implement [`From`][1] and [`Into`][2] to facilitate type conversions:
+Types implement [`From`][1] and [`Into`][2] to facilitate type conversions.
+Unlike `as`, these traits correspond to lossless, infallible conversions.
 
 ```rust,editable
 fn main() {
