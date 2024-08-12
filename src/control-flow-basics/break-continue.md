@@ -9,7 +9,7 @@ If you want to immediately start the next iteration use
 
 If you want to exit any kind of loop early, use
 [`break`](https://doc.rust-lang.org/reference/expressions/loop-expr.html#break-expressions).
-For `loop`, this can take an optional expression that becomes the value of the
+With `loop`, this can take an optional expression that becomes the value of the
 `loop` expression.
 
 ```rust,editable
