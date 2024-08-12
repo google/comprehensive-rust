@@ -44,6 +44,11 @@ Discussion points:
 - You could implement `Add` for two different types, e.g.
   `impl Add<(i32, i32)> for Point` would add a tuple to a `Point`.
 
+The `Not` trait (`!` operator) is notable because it does not "boolify" like the
+same operator in C-family languages; instead, for integer types it negates each
+bit of the number, which arithmetically is equivalent to subtracting it from -1:
+`!5 == -6`.
+
 </details>
 
 [1]: https://doc.rust-lang.org/std/ops/index.html
