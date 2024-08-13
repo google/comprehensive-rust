@@ -10,7 +10,7 @@ At a high level, async Rust code looks very much like "normal" sequential code:
 use futures::executor::block_on;
 
 async fn count_to(count: i32) {
-    for i in 1..=count {
+    for i in 0..count {
         println!("Count is: {i}!");
     }
 }
