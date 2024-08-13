@@ -25,7 +25,8 @@ fn main() {
 }
 ```
 
-- Threads are all daemon threads, the main thread does not wait for them.
+- Spawning new threads does not automatically delay program termination at the
+  end of `main`.
 - Thread panics are independent of each other.
   - Panics can carry a payload, which can be unpacked with `downcast_ref`.
 
