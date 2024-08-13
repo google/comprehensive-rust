@@ -10,7 +10,7 @@ Tokio provides:
 use tokio::time;
 
 async fn count_to(count: i32) {
-    for i in 1..=count {
+    for i in 0..count {
         println!("Count in task: {i}!");
         time::sleep(time::Duration::from_millis(5)).await;
     }
@@ -20,7 +20,7 @@ async fn count_to(count: i32) {
 async fn main() {
     tokio::spawn(count_to(10));
 
-    for i in 1..5 {
+    for i in 0..5 {
         println!("Main task: {i}");
         time::sleep(time::Duration::from_millis(5)).await;
     }
