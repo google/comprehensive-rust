@@ -4,10 +4,47 @@ can focus on the worst violations first.
 
 # How to run
 
-## start a selenium docker container
+## start a webdriver compatible browser
+
+### Alternative: Docker
+
+start a
+[selenium docker container](https://github.com/SeleniumHQ/docker-selenium?tab=readme-ov-file#quick-start)
+and mount the book folder into the container at /book/
 
 ```
-docker run -d -p 4444:4444 -p 7900:7900 --volume /path/to/my/workspace/comprehensive-rust/book:/book --shm-size="2g" selenium/standalone-chromium:latest
+$ docker run -d -p 4444:4444 -p 7900:7900 --volume /path/to/my/workspace/comprehensive-rust/book:/book --shm-size="2g" selenium/standalone-chromium:latest
+```
+
+As the tool is running with a different base directory, you can use a relative
+directory e.g. ../book/ like
+
+```
+$ cargo run -- ../book
+```
+
+### Alternative: Local webdriver browser with webdriver-manager
+
+use [webdriver-manager](https://pypi.org/project/webdriver-manager/) to install
+a e.g. a chromedriver onto your system with:
+
+```
+$ pip install selenium webdriver-manager
+$ python3
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install(), port=4444))
+# end the session when you are done.
+```
+
+You can provide the absolute path here as the browser has the same view on the
+filesystem:
+
+```
+$ cargo run -- /path/to/my/workspace/comprehensive-rust/book
 ```
 
 ## run mdbook-slide-size
@@ -17,7 +54,7 @@ evaluate this manually. The tool always recursively grabs all *.html files from
 the given directory and processes it.
 
 ```
-cargo run --screenshot-dir screenshots ../book/html/
+cargo run -- --screenshot-dir screenshots ../book/html/
 ```
 
 # Roadmap
