@@ -93,7 +93,12 @@ struct ExportFormat {
 impl EvaluationResults {
     /// export the evaluation results to the given csv file, overwrites if
     /// allowed
-    pub fn export_csv(&self, file: &Path, overwrite: bool) -> anyhow::Result<()> {
+    pub fn export_csv(
+        &self,
+        file: &Path,
+        overwrite: bool,
+        violations_only: bool,
+    ) -> anyhow::Result<()> {
         if file.exists() && !overwrite {
             Err(anyhow!(
                 "Not allowed to overwrite existing evaluation results at {}",
@@ -103,6 +108,9 @@ impl EvaluationResults {
 
         let mut csv_writer = csv::Writer::from_path(file)?;
         for result in &self.results {
+            if violations_only && result.policy_violations.is_empty() {
+                continue;
+            }
             csv_writer.serialize(ExportFormat {
                 filename: (*result.slide.filename).to_path_buf(),
                 element_width: result.element_size.width.round() as usize,
@@ -119,8 +127,11 @@ impl EvaluationResults {
     }
 
     /// dump the results to stdout
-    pub fn export_stdout(&self) {
+    pub fn export_stdout(&self, violations_only: bool) {
         for result in &self.results {
+            if violations_only && result.policy_violations.is_empty() {
+                continue;
+            }
             println!(
                 "{}: {}x{} [{}]",
                 result.slide.filename.display(),

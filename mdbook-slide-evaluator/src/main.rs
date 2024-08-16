@@ -56,6 +56,9 @@ struct Args {
     /// max height of a slide - default height/width values have 16/9 ratio
     #[arg(long, default_value_t = 1333)]
     height: usize,
+    /// if set only violating slides are shown
+    #[arg(long, default_value_t = false)]
+    violations_only: bool,
     /// directory of the book that is evaluated
     source_dir: PathBuf,
 }
@@ -103,9 +106,13 @@ async fn main() -> anyhow::Result<()> {
     let score_results = evaluator.eval_book(book).await?;
 
     if let Some(export_file) = args.export {
-        score_results.export_csv(&export_file, args.overwrite)?;
+        score_results.export_csv(
+            &export_file,
+            args.overwrite,
+            args.violations_only,
+        )?;
     } else {
-        score_results.export_stdout();
+        score_results.export_stdout(args.violations_only);
     }
 
     // close webclient as otherwise the unclosed session cannot be reused
