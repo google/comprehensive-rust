@@ -21,6 +21,7 @@ use fantoccini::elements::Element;
 use fantoccini::Client;
 use log::{debug, warn};
 use serde::Serialize;
+use strum::Display;
 use tokio_util::sync::CancellationToken;
 use url::Url;
 
@@ -43,6 +44,8 @@ pub struct Evaluator<'a> {
     source_dir: PathBuf,
     /// if this token is cancelled, the process needs to end gracefully
     cancellation_token: CancellationToken,
+    /// the policy applied to the slides
+    slide_policy: SlidePolicy,
 }
 
 /// element coordinates returned by the browser
@@ -67,6 +70,8 @@ pub struct EvaluationResult {
     slide: Slide,
     /// the size of the main content element
     element_size: ElementSize,
+    /// all policy violations
+    policy_violations: Vec<PolicyViolation>,
 }
 
 /// holds all evaluation results for a book
@@ -82,6 +87,7 @@ struct ExportFormat {
     filename: PathBuf,
     element_width: usize,
     element_height: usize,
+    policy_violations: String,
 }
 
 impl EvaluationResults {
@@ -101,6 +107,12 @@ impl EvaluationResults {
                 filename: (*result.slide.filename).to_path_buf(),
                 element_width: result.element_size.width.round() as usize,
                 element_height: result.element_size.height.round() as usize,
+                policy_violations: result
+                    .policy_violations
+                    .iter()
+                    .map(PolicyViolation::to_string)
+                    .collect::<Vec<_>>()
+                    .join(";"),
             })?;
         }
         Ok(())
@@ -110,10 +122,16 @@ impl EvaluationResults {
     pub fn export_stdout(&self) {
         for result in &self.results {
             println!(
-                "{}: {}x{}",
+                "{}: {}x{} [{}]",
                 result.slide.filename.display(),
                 result.element_size.width,
-                result.element_size.height
+                result.element_size.height,
+                result
+                    .policy_violations
+                    .iter()
+                    .map(PolicyViolation::to_string)
+                    .collect::<Vec<_>>()
+                    .join(";"),
             );
         }
     }
@@ -122,23 +140,25 @@ impl EvaluationResults {
 impl<'a> Evaluator<'_> {
     /// create a new instance with the provided config.
     /// fails if the webclient cannot be created
-    pub async fn new(
+    pub fn new(
         webclient: Client,
         element_selector: &'a str,
         screenshot_dir: Option<PathBuf>,
         html_base_url: Url,
         source_dir: PathBuf,
         cancellation_token: CancellationToken,
-    ) -> anyhow::Result<Evaluator<'a>> {
+        slide_policy: SlidePolicy,
+    ) -> Evaluator<'a> {
         let element_selector = fantoccini::Locator::XPath(element_selector);
-        Ok(Evaluator {
+        Evaluator {
             webclient,
             element_selector,
             screenshot_dir,
             html_base_url,
             source_dir,
             cancellation_token,
-        })
+            slide_policy,
+        }
     }
 
     /// navigate the webdriver to the given url.
@@ -218,12 +238,17 @@ impl<'a> Evaluator<'_> {
         else {
             return Ok(None);
         };
-        let size = self.get_element_coordinates(&content_element).await?;
+        let element_size = self.get_element_coordinates(&content_element).await?;
         if self.screenshot_dir.is_some() {
             let screenshot = content_element.screenshot().await?;
             self.store_screenshot(screenshot, &slide.filename)?;
         }
-        let result = EvaluationResult { slide: slide.clone(), element_size: size };
+        let policy_violations = self.slide_policy.eval_size(&element_size);
+        let result = EvaluationResult {
+            slide: slide.clone(),
+            element_size,
+            policy_violations,
+        };
         debug!("information about element: {:?}", result);
         Ok(Some(result))
     }
@@ -244,5 +269,48 @@ impl<'a> Evaluator<'_> {
             results.push(result);
         }
         Ok(EvaluationResults { _book: book, results })
+    }
+}
+
+/// all possible policy violations
+#[derive(Debug, Display, Serialize)]
+enum PolicyViolation {
+    /// violation of the maximum height
+    MaxWidth,
+    /// violation of the maximum width
+    MaxHeight,
+}
+
+/// the SlidePolicy struct contains all parameters for evaluating a slide
+pub struct SlidePolicy {
+    /// the maximum allowed width of a slide
+    pub max_width: usize,
+    /// the maximum allowed height of a slide
+    pub max_height: usize,
+}
+
+impl SlidePolicy {
+    /// evaluate if the width is within the policy
+    fn eval_width(&self, element_size: &ElementSize) -> Option<PolicyViolation> {
+        if element_size.width as usize > self.max_width {
+            return Some(PolicyViolation::MaxWidth);
+        }
+        return None;
+    }
+
+    /// evaluate if the width is within the policy
+    fn eval_height(&self, element_size: &ElementSize) -> Option<PolicyViolation> {
+        if element_size.height as usize > self.max_height {
+            return Some(PolicyViolation::MaxHeight);
+        }
+        return None;
+    }
+
+    /// evaluate all size policies
+    fn eval_size(&self, element_size: &ElementSize) -> Vec<PolicyViolation> {
+        [self.eval_height(element_size), self.eval_width(element_size)]
+            .into_iter()
+            .flatten()
+            .collect()
     }
 }

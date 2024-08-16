@@ -16,7 +16,7 @@ use std::path::PathBuf;
 
 use clap::Parser;
 use log::{debug, info};
-use mdbook_slide_evaluator::evaluator::Evaluator;
+use mdbook_slide_evaluator::evaluator::{Evaluator, SlidePolicy};
 use mdbook_slide_evaluator::slides::Book;
 use tokio_util::sync::CancellationToken;
 use url::Url;
@@ -53,8 +53,8 @@ struct Args {
     /// max width of a slide
     #[arg(long, default_value_t = 750)]
     width: usize,
-    /// max height of a slide
-    #[arg(long, default_value_t = 700)]
+    /// max height of a slide - default height/width values have 16/9 ratio
+    #[arg(long, default_value_t = 1333)]
     height: usize,
     /// directory of the book that is evaluated
     source_dir: PathBuf,
@@ -78,6 +78,9 @@ async fn main() -> anyhow::Result<()> {
 
     let cancellation_token = CancellationToken::new();
 
+    let slide_policy =
+        SlidePolicy { max_width: args.width, max_height: args.height };
+
     // create a new evaluator (connects to the provided webdriver)
     let evaluator = Evaluator::new(
         webclient.clone(),
@@ -86,8 +89,8 @@ async fn main() -> anyhow::Result<()> {
         args.base_url,
         args.source_dir.to_path_buf(),
         cancellation_token.clone(),
-    )
-    .await?;
+        slide_policy,
+    );
 
     tokio::spawn(async move {
         tokio::signal::ctrl_c().await.unwrap();
