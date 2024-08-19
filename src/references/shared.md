@@ -5,7 +5,7 @@ minutes: 10
 # Shared References
 
 A reference provides a way to access another value without taking ownership
-for the value, and is also called "borrowing". Shared references are read-only,
+of the value, and is also called "borrowing". Shared references are read-only,
 and the referenced data cannot change.
 
 <!-- mdbook-xgettext: skip -->
