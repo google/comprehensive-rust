@@ -6766,7 +6766,7 @@ msgstr ""
 #: src/testing/unit-tests.md:32 src/testing/unit-tests.md:37
 #: src/concurrency/threads/scoped.md:9 src/concurrency/threads/scoped.md:26
 msgid "\"Hello\""
-msgstr ""
+msgstr "\"سلام\""
 
 #: src/std-types/string.md:9
 msgid "\"s1: len = {}, capacity = {}\""
@@ -18090,177 +18090,215 @@ msgstr ""
 #: src/concurrency/threads.md src/concurrency/shared-state.md
 #: src/concurrency/async.md
 msgid "This segment should take about 30 minutes. It contains:"
-msgstr ""
+msgstr "این بخش باید حدود ۳۰ دقیقه طول بکشد و شامل موارد زیر است:"
 
 #: src/concurrency/threads/plain.md:3
 msgid "Rust threads work similarly to threads in other languages:"
-msgstr ""
+msgstr " threadهای Rust مانند threadها در زبان‌های دیگر کار می‌کنند:"
 
 #: src/concurrency/threads/plain.md:12
 msgid "\"Count in thread: {i}!\""
-msgstr ""
+msgstr "\"شمارنده thread: {i}!\""
 
 #: src/concurrency/threads/plain.md:18
 msgid "\"Main thread: {i}\""
-msgstr ""
+msgstr "\"Main thread: {i}\""
 
 #: src/concurrency/threads/plain.md:24
 msgid "Threads are all daemon threads, the main thread does not wait for them."
-msgstr ""
+msgstr "‏Thread‌ها همه daemon thread هستند و main thread منتظر آنها نیست."
 
 #: src/concurrency/threads/plain.md:25
 msgid "Thread panics are independent of each other."
-msgstr ""
+msgstr "Thread panicها مستقل از یکدیگر هستند."
 
 #: src/concurrency/threads/plain.md:26
 msgid "Panics can carry a payload, which can be unpacked with `downcast_ref`."
 msgstr ""
+"‏Panicها می‌تواند payloadای را حمل کند که می‌توان آن را با «downcast_ref» باز "
+"کرد."
 
 #: src/concurrency/threads/plain.md:31
 msgid "Rust thread APIs look not too different from e.g. C++ ones."
 msgstr ""
+"‏Rust thread API ها خیلی متفاوت از موارد دیگر به نظر نمی‌رسند. که C++ یکی از "
+"آن‌ها است."
 
 #: src/concurrency/threads/plain.md:33
 msgid "Run the example."
-msgstr ""
+msgstr "مثال را اجرا کنید."
 
 #: src/concurrency/threads/plain.md:34
 msgid ""
 "5ms timing is loose enough that main and spawned threads stay mostly in "
 "lockstep."
 msgstr ""
+"زمان‌بندی 5 میلی‌ثانیه به اندازه‌ای سست هستند که thread اصلی و spawned threadها "
+"عمدتاً همگام می‌مانند."
 
 #: src/concurrency/threads/plain.md:36
 msgid "Notice that the program ends before the spawned thread reaches 10!"
 msgstr ""
+"توجه داشته باشید که برنامه قبل از اینکه thread spawned به مقدار ۱۰ برسد به "
+"پایان می‌رسد!"
 
 #: src/concurrency/threads/plain.md:37
 msgid ""
 "This is because main ends the program and spawned threads do not make it "
 "persist."
 msgstr ""
+"این به خاطر است که انتهای main برنامه است و spawned threadها ایجاد شده باعث "
+"تداوم آن نمی‌شوند."
 
 #: src/concurrency/threads/plain.md:39
 msgid "Compare to pthreads/C++ std::thread/boost::thread if desired."
-msgstr ""
+msgstr "در مقابسه با pthreads/C++ std::thread/boost::thread اگر مطلوب باشد."
 
 #: src/concurrency/threads/plain.md:41
 msgid "How do we wait around for the spawned thread to complete?"
-msgstr ""
+msgstr "چقدر باید صبر کنیم تا یک spawned thread تکمیل شود؟"
 
 #: src/concurrency/threads/plain.md:42
 msgid ""
 "[`thread::spawn`](https://doc.rust-lang.org/std/thread/fn.spawn.html) "
 "returns a `JoinHandle`. Look at the docs."
 msgstr ""
+"[`thread::spawn`](https://doc.rust-lang.org/std/thread/fn.spawn.html) "
+"returns a `JoinHandle`. به سند نگاه کنید."
 
 #: src/concurrency/threads/plain.md:43
 msgid ""
 "`JoinHandle` has a [`.join()`](https://doc.rust-lang.org/std/thread/struct."
 "JoinHandle.html#method.join) method that blocks."
 msgstr ""
+"`JoinHandle` دارد [`.join()`](https://doc.rust-lang.org/std/thread/struct."
+"JoinHandle.html#method.join) متد آن بلاک‌ها."
 
 #: src/concurrency/threads/plain.md:45
 msgid ""
 "Use `let handle = thread::spawn(...)` and later `handle.join()` to wait for "
 "the thread to finish and have the program count all the way to 10."
 msgstr ""
+"از «let handle = thread::spawn(...)» و بعد از «handle.join()» استفاده کنید "
+"تا منتظر بمانید تا thread تمام شود و شمارنده برنامه برابر با مقدار ۱۰ باشد."
 
 #: src/concurrency/threads/plain.md:48
 msgid "Now what if we want to return a value?"
-msgstr ""
+msgstr "حالا اگر بخواهیم مقداری را برگردانیم چه؟"
 
 #: src/concurrency/threads/plain.md:49
 msgid "Look at docs again:"
-msgstr ""
+msgstr "دوباره به اسناد نگاه کنید:"
 
 #: src/concurrency/threads/plain.md:50
 msgid ""
 "[`thread::spawn`](https://doc.rust-lang.org/std/thread/fn.spawn.html)'s "
 "closure returns `T`"
 msgstr ""
+"[`thread::spawn`](https://doc.rust-lang.org/std/thread/fn.spawn.html)'s "
+"closure returns `T`"
 
 #: src/concurrency/threads/plain.md:51
 msgid ""
 "`JoinHandle` [`.join()`](https://doc.rust-lang.org/std/thread/struct."
 "JoinHandle.html#method.join) returns `thread::Result<T>`"
 msgstr ""
+"`JoinHandle` [`.join()`](https://doc.rust-lang.org/std/thread/struct."
+"JoinHandle.html#method.join) returns `thread::Result<T>`"
 
 #: src/concurrency/threads/plain.md:53
 msgid ""
 "Use the `Result` return value from `handle.join()` to get access to the "
 "returned value."
 msgstr ""
+"به کمک`Result` از «handle.join()» برای دسترسی به مقدار برگشتی استفاده کنید."
 
 #: src/concurrency/threads/plain.md:56
 msgid "Ok, what about the other case?"
-msgstr ""
+msgstr "خوب، مورد دیگر چطور؟"
 
 #: src/concurrency/threads/plain.md:57
 msgid "Trigger a panic in the thread. Note that this doesn't panic `main`."
 msgstr ""
+"فعال‌سازی یک panic در یک thread. توجه شود که این مورد panic `main` نیست."
 
 #: src/concurrency/threads/plain.md:58
 msgid ""
 "Access the panic payload. This is a good time to talk about [`Any`](https://"
 "doc.rust-lang.org/std/any/index.html)."
 msgstr ""
+"دسترسی به این panic payload. بهترین زمان برای پرداخت به این موضوع است [`Any`]"
+"(https://doc.rust-lang.org/std/any/index.html)."
 
 #: src/concurrency/threads/plain.md:60
 msgid "Now we can return values from threads! What about taking inputs?"
 msgstr ""
+"اکنون می‌توانیم مقادیر را از رشته‌ها برگردانیم! در مورد گرفتن ورودی‌ها چطور؟"
 
 #: src/concurrency/threads/plain.md:61
 msgid "Capture something by reference in the thread closure."
-msgstr ""
+msgstr "چیزی را از طریق reference در بسته‌بندی thread  ثبت کنید."
 
 #: src/concurrency/threads/plain.md:62
 msgid "An error message indicates we must move it."
-msgstr ""
+msgstr "یک پیغام خطا نشان می‌دهد که باید آن را جابجا کنیم."
 
 #: src/concurrency/threads/plain.md:63
 msgid "Move it in, see we can compute and then return a derived value."
 msgstr ""
+"آن را به داخل منتقل کنید، درنتیجه ما می توانیم محاسبه کنیم و سپس یک مقدار "
+"مشتق شده را برگردانیم."
 
 #: src/concurrency/threads/plain.md:65
 msgid "If we want to borrow?"
-msgstr ""
+msgstr "اگر بخواهیم قرض (borrow) بگیریم چطور؟"
 
 #: src/concurrency/threads/plain.md:66
 msgid ""
 "Main kills child threads when it returns, but another function would just "
 "return and leave them running."
 msgstr ""
+" تابع ‏Main در هنگام بازگشت threadهای فرزند را از بین می‌برد، اما تابع دیگری "
+"return می‌شود و آنها را در حال اجرا می‌گذارد."
 
 #: src/concurrency/threads/plain.md:68
 msgid "That would be stack use-after-return, which violates memory safety!"
 msgstr ""
+"این کار می‌تواند منجر به stack استفاده پس از return شود که memory safety را "
+"نقض می‌کند!"
 
 #: src/concurrency/threads/plain.md:69
 msgid "How do we avoid this? see next slide."
-msgstr ""
+msgstr "چگونه از آن جلوگیری کنیم؟ صفحه بعدی را ببینید."
 
 #: src/concurrency/threads/scoped.md:3
 msgid "Normal threads cannot borrow from their environment:"
-msgstr ""
+msgstr "‏thread‌های معمولی نمی‌توانند از محیط خود قرض (borrow) بگیرند:"
 
 #: src/concurrency/threads/scoped.md:20
 msgid ""
 "However, you can use a [scoped thread](https://doc.rust-lang.org/std/thread/"
 "fn.scope.html) for this:"
 msgstr ""
+"به‌هرحال, می‌توانید برای این مورد [scoped thread](https://doc.rust-lang.org/"
+"std/thread/fn.scope.html) ببینید:"
 
 #: src/concurrency/threads/scoped.md:41
 msgid ""
 "The reason for that is that when the `thread::scope` function completes, all "
 "the threads are guaranteed to be joined, so they can return borrowed data."
 msgstr ""
+"دلیل آن این است که وقتی تابع «thread::scope» کامل می‌شود، اتصال همه thread‌ها "
+"تضمین می‌شود، بنابراین می‌توانند داده‌های قرضی را برگردانند."
 
 #: src/concurrency/threads/scoped.md:43
 msgid ""
 "Normal Rust borrowing rules apply: you can either borrow mutably by one "
 "thread, or immutably by any number of threads."
 msgstr ""
+"قوانین عادی قرض‌گیری Rust اعمال می‌شود: شما می‌توانید به‌صورت تغییرپذیر(mutable) "
+"با یک thread یا غیرقابل تغییر (immutable) با هر تعداد thread قرض (borrow) "
+"بگیرید."
 
 #: src/concurrency/channels.md src/concurrency/async-control-flow.md
 msgid "This segment should take about 20 minutes. It contains:"
@@ -18969,6 +19007,12 @@ msgid ""
 "per-task overhead is typically very low and operating systems provide "
 "primitives for efficiently identifying I/O that is able to proceed."
 msgstr ""
+"‏ \"Async\" یک مدل concurrency است که در آن چندین کار به طور هم‌زمان با اجرای "
+"هر کار تا زمانی که مسدود شود، اجرا می‌شود و سپس به کار دیگری که آماده ادامه "
+"دادن است سوئیچ می‌شود. این مدل اجازه می‌دهد تا تعداد بیشتری کار را روی تعداد "
+"محدودی از رشته‌ها اجرا کنید و به این دلیل است که سربار هر task معمولاً بسیار "
+"کم است و سیستم‌‌عامل‌ها معمولاً مقدماتی را برای شناسایی مؤثر I/O که قادر به "
+"ادامه هستند فراهم می‌کنند."
 
 #: src/concurrency/welcome-async.md
 msgid ""
@@ -18976,12 +19020,17 @@ msgid ""
 "that may be completed in the future. Futures are \"polled\" until they "
 "signal that they are complete."
 msgstr ""
+"عملیات Rust asynchronous بر اساس \"futures\" است، که نشان‌دهنده کاری است که "
+"ممکن است در آینده تکمیل شود. future‌ها تا زمانی که علامت کامل بودنشان را "
+"ندهند، «polled» می‌شوند."
 
 #: src/concurrency/welcome-async.md
 msgid ""
 "Futures are polled by an async runtime, and several different runtimes are "
 "available."
 msgstr ""
+"‏ Futureها توسط یک زمان‌بندی ناهمزمان نظارت می‌شوند و چندین زمان‌بندی مختلف در "
+"دسترس هستند."
 
 #: src/concurrency/welcome-async.md
 msgid ""
@@ -18989,6 +19038,9 @@ msgid ""
 "callback-based, and not polled. Async Python programs require a \"loop\", "
 "similar to a runtime in Rust."
 msgstr ""
+"پایتون مدل مشابهی را در «asyncio» خود دارد. با‌این‌حال، تایپ «Future» آن مبتنی "
+"بر callback است و poll نشده است. برنامه‌های Async Python به یک «حلقه» شبیه به "
+"runtime در Rust نیاز دارند."
 
 #: src/concurrency/welcome-async.md
 msgid ""
@@ -18996,6 +19048,9 @@ msgid ""
 "runtime implements the event loop, so many of the details of Promise "
 "resolution are hidden."
 msgstr ""
+"این مورد شبیه \"Promise\" در جاوا اسکریپت است که دوباره مبتنی بر callback "
+"است. runtime زبان حلقه رویداد (event loop) را پیاده سازی می‌کند، بنابراین "
+"بسیاری از جزئیات واضح در Promise پنهان می‌شوند."
 
 #: src/concurrency/async.md
 msgid "async/await"
