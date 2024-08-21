@@ -24,7 +24,8 @@ recently updated translations:
 
 - [Arabic][ar] by [@younies]
 - [Bengali][bn] by [@raselmandol].
-- [Farsi][fa] by [@Alix1383], [@DannyRavi], [@hamidrezakp], [@javad-jafari] and [@moaminsharifi].
+- [Farsi][fa] by [@Alix1383], [@DannyRavi], [@hamidrezakp], [@javad-jafari] and
+  [@moaminsharifi].
 - [French][fr] by [@KookaS], [@vcaen] and [@AdrienBaudemont].
 - [German][de] by [@Throvn] and [@ronaldfw].
 - [Italian][it] by [@henrythebuilder] and [@detro].
