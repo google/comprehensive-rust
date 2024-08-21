@@ -50,8 +50,8 @@ $ cargo run -- /path/to/my/workspace/comprehensive-rust/book
 ## Run mdbook-slide-size
 
 If a screenshot directory is provided, the tool can also create screenshots to
-evaluate this manually. The tool always recursively grabs all `*.html` files from
-the given directory and processes it.
+evaluate this manually. The tool always recursively grabs all `*.html` files
+from the given directory and processes it.
 
 ```
 cargo run -- --screenshot-dir screenshots ../book/html/
@@ -59,7 +59,7 @@ cargo run -- --screenshot-dir screenshots ../book/html/
 
 # Roadmap
 
-To avoid a `docker mount`, try to build a data uri from the given slide. This has
-the challenge that this contains links to local stylesheets that have to be
+To avoid a `docker mount`, try to build a data uri from the given slide. This
+has the challenge that this contains links to local stylesheets that have to be
 included. `css_inline` can be used for that and this already works (kind of). If
 someone wants to take a stab at this, feel free to contact the author.
