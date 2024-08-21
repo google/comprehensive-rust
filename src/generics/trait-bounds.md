@@ -7,7 +7,7 @@ minutes: 8
 When working with generics, you often want to require the types to implement
 some trait, so that you can call this trait's methods.
 
-You can do this with `T: Trait` or `impl Trait`:
+You can do this with `T: Trait`:
 
 ```rust,editable
 fn duplicate<T: Clone>(a: T) -> (T, T) {

@@ -42,7 +42,7 @@ a message into a series of calls to those callbacks.
 What remains for you is to implement the `parse_field` function and the
 `ProtoMessage` trait for `Person` and `PhoneNumber`.
 
-<!-- compile_fail because `mdbook test` does not allow use of `thiserror` -->
+<!-- compile_fail because the stubbed out code has type inference errors. -->
 
 ```rust,editable,compile_fail
 {{#include exercise.rs:preliminaries }}
@@ -62,3 +62,13 @@ What remains for you is to implement the `parse_field` function and the
 
 {{#include exercise.rs:main }}
 ```
+
+<details>
+
+- In this exercise there are various cases where protobuf parsing might fail,
+  e.g. if you try to parse an `i32` when there are fewer than 4 bytes left in
+  the data buffer. In normal Rust code we'd handle this with the `Result` enum,
+  but for simplicity in this exercise we panic if any errors are encountered. On
+  day 4 we'll cover error handling in Rust in more detail.
+
+</details>

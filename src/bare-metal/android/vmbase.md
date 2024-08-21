@@ -28,4 +28,4 @@ pub fn main(arg0: u64, arg1: u64, arg2: u64, arg3: u64) {
 
 </details>
 
-[1]: https://android.googlesource.com/platform/packages/modules/Virtualization/+/refs/heads/master/vmbase/
+[1]: https://android.googlesource.com/platform/packages/modules/Virtualization/+/refs/heads/main/libs/libvmbase/

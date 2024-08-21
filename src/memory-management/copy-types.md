@@ -57,4 +57,11 @@ In the above example, try the following:
   `println!` for `p1`.
 - Show that it works if you clone `p1` instead.
 
+# More to Explore
+
+- Shared references are `Copy`/`Clone`, mutable references are not. This is
+  because rust requires that mutable references be exclusive, so while it's
+  valid to make a copy of a shared reference, creating a copy of a mutable
+  reference would violate Rust's borrowing rules.
+
 </details>

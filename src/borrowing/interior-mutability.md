@@ -12,7 +12,35 @@ The "interior mutability" pattern allows exclusive (mutable) access behind a
 shared reference. The standard library provides several ways to do this, all
 while still ensuring safety, typically by performing a runtime check.
 
+## `Cell`
+
+`Cell` wraps a value and allows getting or setting the value using only a shared
+reference to the `Cell`. However, it does not allow any references to the inner
+value. Since there are no references, borrowing rules cannot be broken.
+
+```rust,editable
+use std::cell::Cell;
+
+fn main() {
+    // Note that `cell` is NOT declared as mutable.
+    let cell = Cell::new(5);
+
+    cell.set(123);
+    println!("{}", cell.get());
+}
+```
+
 ## `RefCell`
+
+`RefCell` allows accessing and mutating a wrapped value by providing alternative
+types `Ref` and `RefMut` that emulate `&T`/`&mut T` without actually being Rust
+references.
+
+These types perform dynamic checks using a counter in the `RefCell` to prevent
+existence of a `RefMut` alongside another `Ref`/`RefMut`.
+
+By implementing `Deref` (and `DerefMut` for `RefMut`), these types allow calling
+methods on the inner value without allowing references to escape.
 
 ```rust,editable
 use std::cell::RefCell;
@@ -34,24 +62,6 @@ fn main() {
 }
 ```
 
-## `Cell`
-
-`Cell` wraps a value and allows getting or setting the value, even with a shared
-reference to the `Cell`. However, it does not allow any references to the value.
-Since there are no references, borrowing rules cannot be broken.
-
-```rust,editable
-use std::cell::Cell;
-
-fn main() {
-    // Note that `cell` is NOT declared as mutable.
-    let cell = Cell::new(5);
-
-    cell.set(123);
-    println!("{}", cell.get());
-}
-```
-
 <details>
 
 The main thing to take away from this slide is that Rust provides _safe_ ways to
@@ -70,5 +80,9 @@ that safety, and `RefCell` and `Cell` are two of them.
 - `Cell` is a simpler means to ensure safety: it has a `set` method that takes
   `&self`. This needs no runtime check, but requires moving values, which can
   have its own cost.
+
+- Both `RefCell` and `Cell` are `!Sync`, which means `&RefCell` and `&Cell`
+  can't be passed between threads. This prevents two threads trying to access
+  the cell at once.
 
 </details>

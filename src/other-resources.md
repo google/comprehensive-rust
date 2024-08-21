@@ -36,7 +36,7 @@ A small selection of other guides and tutorial for Rust:
 
 - [Learn Rust the Dangerous Way](http://cliffle.com/p/dangerust/): covers Rust
   from the perspective of low-level C programmers.
-- [Rust for Embedded C Programmers](https://docs.opentitan.org/doc/ug/rust_for_c/):
+- [Rust for Embedded C Programmers](https://opentitan.org/book/doc/rust_for_c_devs.html):
   covers Rust from the perspective of developers who write firmware in C.
 - [Rust for professionals](https://overexact.com/rust-for-professionals/):
   covers the syntax of Rust using side-by-side comparisons with other languages
@@ -47,6 +47,10 @@ A small selection of other guides and tutorial for Rust:
   a series of small presentations covering both basic and advanced part of the
   Rust language. Other topics such as WebAssembly, and async/await are also
   covered.
+- [Advanced testing for Rust applications](https://rust-exercises.com/advanced-testing/):
+  a self-paced workshop that goes beyond Rust's built-in testing framework. It
+  covers `googletest`, snapshot testing, mocking as well as how to write your
+  own custom test harness.
 - [Beginner's Series to Rust](https://docs.microsoft.com/en-us/shows/beginners-series-to-rust/)
   and
   [Take your first steps with Rust](https://docs.microsoft.com/en-us/learn/paths/rust-first-steps/):

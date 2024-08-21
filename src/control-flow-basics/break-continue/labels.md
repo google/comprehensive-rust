@@ -19,11 +19,3 @@ fn main() {
     print!("elements searched: {elements_searched}");
 }
 ```
-
-<details>
-
-- Note that `loop` is the only looping construct which returns a non-trivial
-  value. This is because it's guaranteed to be entered at least once (unlike
-  `while` and `for` loops).
-
-</details>

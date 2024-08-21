@@ -23,8 +23,8 @@ be covered in more detail later.
 Arithmetic is very similar to other languages, with similar precedence.
 
 What about integer overflow? In C and C++ overflow of _signed_ integers is
-actually undefined, and might do different things on different platforms or
-compilers. In Rust, it's defined.
+actually undefined, and might do unknown things at runtime. In Rust, it's
+defined.
 
 Change the `i32`'s to `i16` to see an integer overflow, which panics (checked)
 in a debug build and wraps in a release build. There are other options, such as

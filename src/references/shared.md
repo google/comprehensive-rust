@@ -4,9 +4,9 @@ minutes: 10
 
 # Shared References
 
-A reference provides a way to access another value without taking responsibility
-for the value, and is also called "borrowing". Shared references are read-only,
-and the referenced data cannot change.
+A reference provides a way to access another value without taking ownership of
+the value, and is also called "borrowing". Shared references are read-only, and
+the referenced data cannot change.
 
 <!-- mdbook-xgettext: skip -->
 
@@ -30,8 +30,8 @@ Rust will statically forbid dangling references:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
-fn x_axis(x: i32) -> &(i32, i32) {
-    let point = (x, 0);
+fn x_axis(x: &i32) -> &(i32, i32) {
+    let point = (*x, 0);
     return &point;
 }
 ```

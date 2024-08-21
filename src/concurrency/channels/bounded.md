@@ -1,3 +1,7 @@
+---
+minutes: 8
+---
+
 # Bounded Channels
 
 With bounded (synchronous) channels, `send` can block the current thread:
@@ -12,7 +16,7 @@ fn main() {
 
     thread::spawn(move || {
         let thread_id = thread::current().id();
-        for i in 1..10 {
+        for i in 0..10 {
             tx.send(format!("Message {i}")).unwrap();
             println!("{thread_id:?}: sent Message {i}");
         }
