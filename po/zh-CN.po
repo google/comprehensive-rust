@@ -6987,8 +6987,8 @@ msgid ""
 "Rust has no _implicit_ type conversions, but does support explicit casts "
 "with `as`. These generally follow C semantics where those are defined."
 msgstr ""
-"Rust 不支持 _implicit_ 类型转换，但支持使用 `as` 进行显式转换。这些转换通常遵"
-"循定义它们的 C 语义。"
+"Rust 没有隐式类型转换，但支持使用 `as` 进行显式转换。转换写法通常和 C 语言的"
+"写法相一致。"
 
 #: src/std-traits/casting.md
 msgid "\"as u16: {}\""
@@ -7003,14 +7003,13 @@ msgid "\"as u8: {}\""
 msgstr "\"as u8: {}\""
 
 #: src/std-traits/casting.md
-#, fuzzy
 msgid ""
 "The results of `as` are _always_ defined in Rust and consistent across "
 "platforms. This might not match your intuition for changing sign or casting "
 "to a smaller type -- check the docs, and comment for clarity."
 msgstr ""
 "使用 `as` 的结果在 Rust 中 _始终_ 定义明确，并且在不同平台上保持一致。这可能"
-"不符合您对于更改符号或转换为更小类型的直观理解。为清晰起见，请查看文档和注"
+"和您对于更改符号或转换为更小类型的直观理解不一样。为清晰起见，请查看文档和注"
 "释。"
 
 #: src/std-traits/casting.md
@@ -7022,6 +7021,9 @@ msgid ""
 "selecting the bottom 32 bits of a `u64` with `as u32`, regardless of what "
 "was in the high bits)."
 msgstr ""
+"使用 `as` 进行类型转换是一种快捷好用但容易出错的方法，也在未来进行代码更新"
+"时，比如改变了类型或类型范围时会导致潜伏的 Bug。 类型转换最好是用于明确是要进"
+"行无条件截取（比如截取低位的 `u64` 为 `u32`，忽略高位的数值）。"
 
 #: src/std-traits/casting.md
 msgid ""
@@ -7030,13 +7032,15 @@ msgid ""
 "casts, `TryFrom` and `TryInto` are available when you want to handle casts "
 "that fit differently from those that don't."
 msgstr ""
+"对于绝对不会出错的转换（比如 `u32` 转 `u64`），相比 `as`，更推荐用 `From` 或 "
+"`Into` 以肯定该转换是不会出错的。对于可能出错的转换，如果你想对这些不能成功转"
+"换的情况有不同处理方案时，可以考虑 `TryFrom` 和 `TryInto`。"
 
 #: src/std-traits/casting.md
 msgid "Consider taking a break after this slide."
 msgstr "请在这张幻灯片之后休息一下。"
 
 #: src/std-traits/casting.md
-#, fuzzy
 msgid ""
 "`as` is similar to a C++ static cast. Use of `as` in cases where data might "
 "be lost is generally discouraged, or at least deserves an explanatory "
@@ -7047,7 +7051,7 @@ msgstr ""
 
 #: src/std-traits/casting.md
 msgid "This is common in casting integers to `usize` for use as an index."
-msgstr "在将整数类型转换为 `usize` 以用作索引时，这很常见。"
+msgstr "会经常遇到的是，将整数类型转换为 `usize` 以用作索引。"
 
 #: src/std-traits/read-and-write.md
 msgid ""
@@ -15972,10 +15976,10 @@ msgid ""
 "`allow-first-party-usage=false`. There are several examples already in that "
 "file:"
 msgstr ""
-"如果是，请修改 [`gnrt_config.toml`](../configuration-gnrt-config-toml.md)，"
-"将 `build-script-outputs` 添加到 crate。如果这是一个传递依赖项（即 Chromium "
-"代码不应直接依赖的依赖项），还要添加 `allow-first-party-usage=false`。该文件"
-"中已经提供了若干示例："
+"如果是，请修改 [`gnrt_config.toml`](../configuring-gnrt-config-toml.md)，将 "
+"`build-script-outputs` 添加到 crate。如果这是一个传递依赖项（即 Chromium 代码"
+"不应直接依赖的依赖项），还要添加 `allow-first-party-usage=false`。该文件中已"
+"经提供了若干示例："
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md
 #, fuzzy
