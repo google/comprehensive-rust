@@ -57,28 +57,34 @@ enum TokenizerError {
 
 struct Tokenizer<'a>(Peekable<Chars<'a>>);
 
+impl<'a> Tokenizer<'a> {
+    fn collect_number(&mut self, first_char: char) -> Token {
+        let mut num = String::from(first_char);
+        while let Some(&c @ '0'..='9') = self.0.peek() {
+            num.push(c);
+            self.0.next();
+        }
+        Token::Number(num)
+    }
+
+    fn collect_identifier(&mut self, first_char: char) -> Token {
+        let mut ident = String::from(first_char);
+        while let Some(&c @ ('a'..='z' | '_' | '0'..='9')) = self.0.peek() {
+            ident.push(c);
+            self.0.next();
+        }
+        Token::Identifier(ident)
+    }
+}
+
 impl<'a> Iterator for Tokenizer<'a> {
     type Item = Result<Token, TokenizerError>;
 
     fn next(&mut self) -> Option<Result<Token, TokenizerError>> {
         let c = self.0.next()?;
         match c {
-            '0'..='9' => {
-                let mut num = String::from(c);
-                while let Some(c @ '0'..='9') = self.0.peek() {
-                    num.push(*c);
-                    self.0.next();
-                }
-                Some(Ok(Token::Number(num)))
-            }
-            'a'..='z' => {
-                let mut ident = String::from(c);
-                while let Some(c @ ('a'..='z' | '_' | '0'..='9')) = self.0.peek() {
-                    ident.push(*c);
-                    self.0.next();
-                }
-                Some(Ok(Token::Identifier(ident)))
-            }
+            '0'..='9' => Some(Ok(self.collect_number(c))),
+            'a'..='z' | '_' => Some(Ok(self.collect_identifier(c))),
             '+' => Some(Ok(Token::Operator(Op::Add))),
             '-' => Some(Ok(Token::Operator(Op::Sub))),
             _ => Some(Err(TokenizerError::UnexpectedCharacter(c))),
@@ -144,28 +150,34 @@ fn tokenize(input: &str) -> Tokenizer {
 
 struct Tokenizer<'a>(Peekable<Chars<'a>>);
 
+impl<'a> Tokenizer<'a> {
+    fn collect_number(&mut self, first_char: char) -> Token {
+        let mut num = String::from(first_char);
+        while let Some(&c @ '0'..='9') = self.0.peek() {
+            num.push(c);
+            self.0.next();
+        }
+        Token::Number(num)
+    }
+
+    fn collect_identifier(&mut self, first_char: char) -> Token {
+        let mut ident = String::from(first_char);
+        while let Some(&c @ ('a'..='z' | '_' | '0'..='9')) = self.0.peek() {
+            ident.push(c);
+            self.0.next();
+        }
+        Token::Identifier(ident)
+    }
+}
+
 impl<'a> Iterator for Tokenizer<'a> {
     type Item = Token;
 
     fn next(&mut self) -> Option<Token> {
         let c = self.0.next()?;
         match c {
-            '0'..='9' => {
-                let mut num = String::from(c);
-                while let Some(c @ '0'..='9') = self.0.peek() {
-                    num.push(*c);
-                    self.0.next();
-                }
-                Some(Token::Number(num))
-            }
-            'a'..='z' => {
-                let mut ident = String::from(c);
-                while let Some(c @ ('a'..='z' | '_' | '0'..='9')) = self.0.peek() {
-                    ident.push(*c);
-                    self.0.next();
-                }
-                Some(Token::Identifier(ident))
-            }
+            '0'..='9' => Some(self.collect_number(c)),
+            'a'..='z' => Some(self.collect_identifier(c)),
             '+' => Some(Token::Operator(Op::Add)),
             '-' => Some(Token::Operator(Op::Sub)),
             _ => panic!("Unexpected character {c}"),

@@ -35,24 +35,24 @@ pub fn replace(
         return;
     };
     chapter.content = DIRECTIVE
-        .replace(&chapter.content, |captures: &regex::Captures| {
+        .replace_all(&chapter.content, |captures: &regex::Captures| {
             let directive_str = captures[1].trim();
             let directive: Vec<_> = directive_str.split_whitespace().collect();
             match directive.as_slice() {
                 ["session", "outline"] if session.is_some() => {
-                    session.unwrap().outline(source_path)
+                    session.unwrap().outline()
                 }
                 ["segment", "outline"] if segment.is_some() => {
-                    segment.unwrap().outline(source_path)
+                    segment.unwrap().outline()
                 }
                 ["course", "outline"] if course.is_some() => {
-                    course.unwrap().schedule(source_path)
+                    course.unwrap().schedule()
                 }
                 ["course", "outline", course_name] => {
                     let Some(course) = courses.find_course(course_name) else {
-                        return captures[0].to_string();
+                        return format!("not found - {}", captures[0].to_string());
                     };
-                    course.schedule(source_path)
+                    course.schedule()
                 }
                 _ => directive_str.to_owned(),
             }

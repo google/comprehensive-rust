@@ -8,8 +8,8 @@ Rust has a few control flow constructs which differ from other languages. They
 are used for pattern matching:
 
 - `if let` expressions
+- `let else` expressions
 - `while let` expressions
-- `match` expressions
 
 # `if let` expressions
 
@@ -18,14 +18,13 @@ The
 lets you execute different code depending on whether a value matches a pattern:
 
 ```rust,editable
+use std::time::Duration;
+
 fn sleep_for(secs: f32) {
-    let dur = if let Ok(dur) = std::time::Duration::try_from_secs_f32(secs) {
-        dur
-    } else {
-        std::time::Duration::from_millis(500)
-    };
-    std::thread::sleep(dur);
-    println!("slept for {:?}", dur);
+    if let Ok(dur) = Duration::try_from_secs_f32(secs) {
+        std::thread::sleep(dur);
+        println!("slept for {:?}", dur);
+    }
 }
 
 fn main() {
@@ -43,22 +42,18 @@ off the end of the block).
 
 ```rust,editable
 fn hex_or_die_trying(maybe_string: Option<String>) -> Result<u32, String> {
-    let s = if let Some(s) = maybe_string {
-        s
+    if let Some(s) = maybe_string {
+        if let Some(first_byte_char) = s.chars().next() {
+            if let Some(digit) = first_byte_char.to_digit(16) {
+                Ok(digit)
+            } else {
+                return Err(String::from("not a hex digit"));
+            }
+        } else {
+            return Err(String::from("got empty string"));
+        }
     } else {
         return Err(String::from("got None"));
-    };
-
-    let first_byte_char = if let Some(first_byte_char) = s.chars().next() {
-        first_byte_char
-    } else {
-        return Err(String::from("got empty string"));
-    };
-
-    if let Some(digit) = first_byte_char.to_digit(16) {
-        Ok(digit)
-    } else {
-        Err(String::from("not a hex digit"))
     }
 }
 

@@ -2,9 +2,11 @@
 minutes: 10
 ---
 
-# Trait Objects
+# Owned Trait Objects
 
-Trait objects allow for values of different types, for instance in a collection:
+We previously saw how trait objects can be used with references, e.g `&dyn Pet`.
+However, we can also use trait objects with smart pointers like `Box` to create
+an owned trait object: `Box<dyn Pet>`.
 
 ```rust,editable
 struct Dog {

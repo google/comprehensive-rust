@@ -18,7 +18,7 @@ use std::collections::HashMap;
 use std::hash::Hash;
 
 /// Counter counts the number of times each value of type T has been seen.
-struct Counter<T: Eq + Hash> {
+struct Counter<T> {
     values: HashMap<T, u64>,
 }
 

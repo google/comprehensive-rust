@@ -12,46 +12,55 @@ The "interior mutability" pattern allows exclusive (mutable) access behind a
 shared reference. The standard library provides several ways to do this, all
 while still ensuring safety, typically by performing a runtime check.
 
-## `RefCell`
+## `Cell`
+
+`Cell` wraps a value and allows getting or setting the value using only a shared
+reference to the `Cell`. However, it does not allow any references to the inner
+value. Since there are no references, borrowing rules cannot be broken.
 
 ```rust,editable
-use std::cell::RefCell;
-use std::rc::Rc;
-
-#[derive(Debug, Default)]
-struct Node {
-    value: i64,
-    children: Vec<Rc<RefCell<Node>>>,
-}
-
-impl Node {
-    fn new(value: i64) -> Rc<RefCell<Node>> {
-        Rc::new(RefCell::new(Node { value, ..Node::default() }))
-    }
-
-    fn sum(&self) -> i64 {
-        self.value + self.children.iter().map(|c| c.borrow().sum()).sum::<i64>()
-    }
-}
+use std::cell::Cell;
 
 fn main() {
-    let root = Node::new(1);
-    root.borrow_mut().children.push(Node::new(5));
-    let subtree = Node::new(10);
-    subtree.borrow_mut().children.push(Node::new(11));
-    subtree.borrow_mut().children.push(Node::new(12));
-    root.borrow_mut().children.push(subtree);
+    // Note that `cell` is NOT declared as mutable.
+    let cell = Cell::new(5);
 
-    println!("graph: {root:#?}");
-    println!("graph sum: {}", root.borrow().sum());
+    cell.set(123);
+    println!("{}", cell.get());
 }
 ```
 
-## `Cell`
+## `RefCell`
 
-`Cell` wraps a value and allows getting or setting the value, even with a shared
-reference to the `Cell`. However, it does not allow any references to the value.
-Since there are no references, borrowing rules cannot be broken.
+`RefCell` allows accessing and mutating a wrapped value by providing alternative
+types `Ref` and `RefMut` that emulate `&T`/`&mut T` without actually being Rust
+references.
+
+These types perform dynamic checks using a counter in the `RefCell` to prevent
+existence of a `RefMut` alongside another `Ref`/`RefMut`.
+
+By implementing `Deref` (and `DerefMut` for `RefMut`), these types allow calling
+methods on the inner value without allowing references to escape.
+
+```rust,editable
+use std::cell::RefCell;
+
+fn main() {
+    // Note that `cell` is NOT declared as mutable.
+    let cell = RefCell::new(5);
+
+    {
+        let mut cell_ref = cell.borrow_mut();
+        *cell_ref = 123;
+
+        // This triggers an error at runtime.
+        // let other = cell.borrow();
+        // println!("{}", *other);
+    }
+
+    println!("{cell:?}");
+}
+```
 
 <details>
 
@@ -64,20 +73,16 @@ that safety, and `RefCell` and `Cell` are two of them.
   case, all borrows are very short and never overlap, so the checks always
   succeed.
 
-- `Rc` only allows shared (read-only) access to its contents, since its purpose
-  is to allow (and count) many references. But we want to modify the value, so
-  we need interior mutability.
+  - The extra block in the `RefCell` example is to end the borrow created by the
+    call to `borrow_mut` before we print the cell. Trying to print a borrowed
+    `RefCell` just shows the message `"{borrowed}"`.
 
 - `Cell` is a simpler means to ensure safety: it has a `set` method that takes
   `&self`. This needs no runtime check, but requires moving values, which can
   have its own cost.
 
-- Demonstrate that reference loops can be created by adding `root` to
-  `subtree.children`.
-
-- To demonstrate a runtime panic, add a `fn inc(&mut self)` that increments
-  `self.value` and calls the same method on its children. This will panic in the
-  presence of the reference loop, with
-  `thread 'main' panicked at 'already borrowed: BorrowMutError'`.
+- Both `RefCell` and `Cell` are `!Sync`, which means `&RefCell` and `&Cell`
+  can't be passed between threads. This prevents two threads trying to access
+  the cell at once.
 
 </details>

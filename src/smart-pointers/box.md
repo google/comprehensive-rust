@@ -31,7 +31,8 @@ fn main() {
 [call methods
 from `T` directly on a `Box<T>`](https://doc.rust-lang.org/std/ops/trait.Deref.html#more-on-deref-coercion).
 
-Recursive data types or data types with dynamic sizes need to use a `Box`:
+Recursive data types or data types with dynamic sizes cannot be stored inline
+without a pointer indirection, which can be worked around using `Box`:
 
 ```rust,editable
 #[derive(Debug)]

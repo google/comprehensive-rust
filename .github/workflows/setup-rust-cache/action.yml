@@ -2,8 +2,20 @@ name: Setup Rust cache
 
 description: Configure the rust-cache workflow.
 
+inputs:
+  key:
+    description: Additional caching key
+    required: false
+    default:
+
 runs:
   using: composite
   steps:
     - name: Setup Rust cache
       uses: Swatinem/rust-cache@v2
+      with:
+        # Only save the cache on the main branch to avoid PRs filling
+        # up the cache.
+        save-if: ${{ github.ref == 'refs/heads/main' }}
+        # Further, save the cache per key - e.g. language grouping.
+        key: ${{ inputs.key }}

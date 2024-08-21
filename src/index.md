@@ -12,6 +12,11 @@ generics and error handling.
 > <https://google.github.io/comprehensive-rust/>. If you are reading somewhere
 > else, please check there for updates.
 >
+> The course is available in other languages. Select your preferred language in
+> the top right corner of the page or check the
+> [Translations](running-the-course/translations.md) page for a list of all
+> available translations.
+>
 > The course is also available [as a PDF](comprehensive-rust.pdf).
 
 The goal of the course is to teach you Rust. We assume you don't know anything
@@ -33,9 +38,10 @@ Building on this, you're invited to dive into one or more specialized topics:
 - [Bare-metal](bare-metal.md): a whole-day class on using Rust for bare-metal
   (embedded) development. Both microcontrollers and application processors are
   covered.
-- [Concurrency](concurrency.md): a whole-day class on concurrency in Rust. We
-  cover both classical concurrency (preemptively scheduling using threads and
-  mutexes) and async/await concurrency (cooperative multitasking using futures).
+- [Concurrency](concurrency/welcome.md): a whole-day class on concurrency in
+  Rust. We cover both classical concurrency (preemptively scheduling using
+  threads and mutexes) and async/await concurrency (cooperative multitasking
+  using futures).
 
 ## Non-Goals
 

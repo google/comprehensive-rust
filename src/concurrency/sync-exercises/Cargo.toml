@@ -1,0 +1,21 @@
+[package]
+name = "sync-exercises"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "dining-philosophers"
+path = "dining-philosophers.rs"
+
+[[bin]]
+name = "link-checker"
+path = "link-checker.rs"
+
+[dependencies]
+reqwest = { version = "0.12.5", features = ["blocking"] }
+scraper = "0.20.0"
+thiserror = "1.0.63"
+
+[dev-dependencies]
+tempfile = "3.12.0"

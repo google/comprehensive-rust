@@ -29,7 +29,7 @@ of Chromium-related Rust that you are most familiar with):
 - Demo **outline** and navigate to the `QrCode::with_bits` method (around line
   164; the outline is in the file explorer pane in vscode; typical vim/CoC
   bindings = space o)
-- Demo **type annotations** (there are quote a few nice examples in the
+- Demo **type annotations** (there are quite a few nice examples in the
   `QrCode::with_bits` method)
 
 It may be worth pointing out that `gn gen ... --export-rust-project` will need

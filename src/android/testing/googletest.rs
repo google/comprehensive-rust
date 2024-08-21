@@ -4,7 +4,7 @@ use googletest::prelude::*;
 #[googletest::test]
 fn test_elements_are() {
     let value = vec!["foo", "bar", "baz"];
-    expect_that!(value, elements_are!(eq("foo"), lt("xyz"), starts_with("b")));
+    expect_that!(value, elements_are!(eq(&"foo"), lt(&"xyz"), starts_with("b")));
 }
 // ANCHOR_END: test_elements_are
 

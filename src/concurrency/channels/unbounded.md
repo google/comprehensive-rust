@@ -1,3 +1,7 @@
+---
+minutes: 2
+---
+
 # Unbounded Channels
 
 You get an unbounded and asynchronous channel with `mpsc::channel()`:
@@ -12,7 +16,7 @@ fn main() {
 
     thread::spawn(move || {
         let thread_id = thread::current().id();
-        for i in 1..10 {
+        for i in 0..10 {
             tx.send(format!("Message {i}")).unwrap();
             println!("{thread_id:?}: sent Message {i}");
         }
