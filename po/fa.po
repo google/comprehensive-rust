@@ -18390,18 +18390,25 @@ msgid ""
 "How does Rust know to forbid shared access across threads? The answer is in "
 "two traits:"
 msgstr ""
+"‏ Rust چگونه می‌داند که دسترسی مشترک در سراسر threadها را ممنوع می‌کند؟ پاسخ "
+"در دو ویژگی است:"
 
 #: src/concurrency/send-sync/marker-traits.md:6
 msgid ""
 "[`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html): a type `T` "
 "is `Send` if it is safe to move a `T` across a thread boundary."
 msgstr ""
+"‏[`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html): در صورتی که "
+"جابجایی `T` در امتداد thread boundary ایمن باشد، تایپ `T` از جنس `Send` است."
 
 #: src/concurrency/send-sync/marker-traits.md:8
 msgid ""
 "[`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html): a type `T` "
 "is `Sync` if it is safe to move a `&T` across a thread boundary."
 msgstr ""
+"‏[`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html): در صورتی که "
+"جابجایی یک `&T` در سراسر یک thread boundary ایمن باشد، یک تایپ `T` از جنس "
+"`Sync`  است."
 
 #: src/concurrency/send-sync/marker-traits.md:11
 msgid ""
@@ -18410,22 +18417,31 @@ msgid ""
 "only contain `Send` and `Sync` types. You can also implement them manually "
 "when you know it is valid."
 msgstr ""
+"‏`Send` و `Sync` [ویژگی‌های ناامن] هستند (../../unsafe-rust/unsafe-traits."
+"md). کامپایلر به‌طور خودکار آنها را برای تایپ‌های شما مشتق می‌کند تا زمانی که "
+"فقط دارای انواع `Send` و `Sync` باشند. شما همچنین می توانید آنها را به صورت "
+"دستی پیاده سازی کنید به‌خصوص زمانی که می دانید مقدار آن معتبر است."
 
 #: src/concurrency/send-sync/marker-traits.md:22
 msgid ""
 "One can think of these traits as markers that the type has certain thread-"
 "safety properties."
 msgstr ""
+"می‌توان این traitها را به عنوان نشانگرهایی در نظر گرفت که نوعی ویژگی thread-"
+"safety خاصی را دارد."
+
 
 #: src/concurrency/send-sync/marker-traits.md:24
 msgid "They can be used in the generic constraints as normal traits."
-msgstr ""
+msgstr "آنها را می‌توان در محدودیت‌های generic به عنوان  trait عادی استفاده کرد."
 
 #: src/concurrency/send-sync/send.md:3
 msgid ""
 "A type `T` is [`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html) "
 "if it is safe to move a `T` value to another thread."
 msgstr ""
+"اگر انتقال مقدار `T` به thread دیگری امن باشد، تایپ `T` در [`Send`](https://"
+"doc.rust-lang.org/std/marker/trait.Send.html) است."
 
 #: src/concurrency/send-sync/send.md:5
 msgid ""
@@ -18433,26 +18449,35 @@ msgid ""
 "run in that thread. So the question is when you can allocate a value in one "
 "thread and deallocate it in another."
 msgstr ""
+"تأثیر انتقال مالکیت (moving ownership) به یک thread دیگر این است که "
+"_نابودگرها_ ( _destructors_ ) در آن thread اجرا می شوند. بنابراین سوال این "
+"است که چه زمانی می‌توانید یک مقدار را در یک thread تخصیص دهید و آن را در "
+"thread دیگر توزیع کنید."
 
 #: src/concurrency/send-sync/send.md:14
 msgid ""
 "As an example, a connection to the SQLite library must only be accessed from "
 "a single thread."
 msgstr ""
+"به عنوان مثال، اتصال به کتابخانه SQLite فقط باید از یک thread قابل دسترسی "
+"باشد."
 
 #: src/concurrency/send-sync/sync.md:3
 msgid ""
 "A type `T` is [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html) "
 "if it is safe to access a `T` value from multiple threads at the same time."
 msgstr ""
+"یک تایپ `T` در واقع نوعی [`Sync`](https://doc.rust-lang.org/std/marker/trait."
+"Sync.html) است، اگر در دسترسی به یک  مقدار`T` از طریق چندین رشته به طور "
+"همزمان امن باشد."
 
 #: src/concurrency/send-sync/sync.md:6
 msgid "More precisely, the definition is:"
-msgstr ""
+msgstr "به طور دقیق‌تر، تعریف این طور است:"
 
 #: src/concurrency/send-sync/sync.md:8
 msgid "`T` is `Sync` if and only if `&T` is `Send`"
-msgstr ""
+msgstr "‏ `T` یک نوع `Sync` فقط و فقط زمانی که `&T` یک نوع `Send` باشد."
 
 #: src/concurrency/send-sync/sync.md:15
 msgid ""
@@ -18460,6 +18485,9 @@ msgid ""
 "thread-safe for shared use, it is also thread-safe to pass references of it "
 "across threads."
 msgstr ""
+"این عبارت به طور کلی روشی مختصر برای گفتن این است که اگر یک تایپ برای "
+"استفاده مشترک امن باشد، انتقال ارجاعات (pass references) آن به threadها نیز "
+"امن است."
 
 #: src/concurrency/send-sync/sync.md:19
 msgid ""
@@ -18469,109 +18497,128 @@ msgid ""
 "is also safe to move to another thread, because the data it references can "
 "be accessed from any thread safely."
 msgstr ""
+"این به خاطراست که اگر یک تایپ از جنس Sync باشد، به این معنی است که می‌توان آن "
+"را در چند thread بدون خطر در مورد وضعیت رقابتی داده یا سایر مشکلات Sync به "
+"اشتراک گذاشت، بنابراین انتقال آن به thread‌ای دیگر امن است. ارجاع به تایپ  "
+"نیز برای انتقال به threadای دیگر ایمن است، زیرا داده‌هایی که به آن ارجاع "
+"می‌دهد می‌توانند از هر threadای با خیال راحت دسترسی داشته باشند."
 
 #: src/concurrency/send-sync/examples.md:3
 msgid "`Send + Sync`"
-msgstr ""
+msgstr "`Send + Sync`"
 
 #: src/concurrency/send-sync/examples.md:5
 msgid "Most types you come across are `Send + Sync`:"
-msgstr ""
+msgstr "اکثر انواعی که با آنها روبرو می شوید `Send + Sync` هستند:"
 
 #: src/concurrency/send-sync/examples.md:7
 msgid "`i8`, `f32`, `bool`, `char`, `&str`, ..."
-msgstr ""
+msgstr "`i8`, `f32`, `bool`, `char`, `&str`, ..."
 
 #: src/concurrency/send-sync/examples.md:8
 msgid "`(T1, T2)`, `[T; N]`, `&[T]`, `struct { x: T }`, ..."
-msgstr ""
+msgstr "`i8`, `f32`, `bool`, `char`, `&str`, ..."
 
 #: src/concurrency/send-sync/examples.md:9
 msgid "`String`, `Option<T>`, `Vec<T>`, `Box<T>`, ..."
-msgstr ""
+msgstr "`(T1, T2)`, `[T; N]`, `&[T]`, `struct { x: T }`, ..."
 
 #: src/concurrency/send-sync/examples.md:10
 msgid "`Arc<T>`: Explicitly thread-safe via atomic reference count."
-msgstr ""
+msgstr "`String`, `Option<T>`, `Vec<T>`, `Box<T>`, ..."
 
 #: src/concurrency/send-sync/examples.md:11
 msgid "`Mutex<T>`: Explicitly thread-safe via internal locking."
-msgstr ""
+"‏`Arc<T>`:به طور صریح از طریق تعداد شمارش atomic reference  با thread-safe."
 
 #: src/concurrency/send-sync/examples.md:12
 msgid "`mpsc::Sender<T>`: As of 1.72.0."
-msgstr ""
+msgstr "`mpsc::Sender<T>`: از 1.72.0."
 
 #: src/concurrency/send-sync/examples.md:13
 msgid "`AtomicBool`, `AtomicU8`, ...: Uses special atomic instructions."
-msgstr ""
+msgstr "‏`AtomicBool`، `AtomicU8`، ...: از دستورالعمل های atomic ویژه استفاده می‌کند."
 
 #: src/concurrency/send-sync/examples.md:15
 msgid ""
 "The generic types are typically `Send + Sync` when the type parameters are "
 "`Send + Sync`."
 msgstr ""
+"در صورت وجود پارامترهای نوع، تایپ‌های generic معمولاً از نوع  `Send + Sync`  هستند."
+"`Send + Sync`."
 
 #: src/concurrency/send-sync/examples.md:18
 msgid "`Send + !Sync`"
-msgstr ""
+msgstr "`Send + !Sync`"
 
 #: src/concurrency/send-sync/examples.md:20
 msgid ""
 "These types can be moved to other threads, but they're not thread-safe. "
 "Typically because of interior mutability:"
 msgstr ""
+"این تایپ‌ها را می‌توان به رشته‌های دیگر منتقل کرد، اما آنها ایمن نیستند. به طور "
+"معمول به دلیل تغییرپذیری داخلی(interior mutability):"
 
 #: src/concurrency/send-sync/examples.md:23
 msgid "`mpsc::Receiver<T>`"
-msgstr ""
+msgstr "`mpsc::Receiver<T>`"
 
 #: src/concurrency/send-sync/examples.md:24
 msgid "`Cell<T>`"
-msgstr ""
+msgstr "`Cell<T>`"
 
 #: src/concurrency/send-sync/examples.md:25
 msgid "`RefCell<T>`"
-msgstr ""
+msgstr "`RefCell<T>`"
 
 #: src/concurrency/send-sync/examples.md:27
 msgid "`!Send + Sync`"
-msgstr ""
+msgstr "`!Send + Sync`"
 
 #: src/concurrency/send-sync/examples.md:29
 msgid ""
 "These types are thread-safe, but they cannot be moved to another thread:"
 msgstr ""
+"این تایپ‌ها از نظر thread ایمن هستند، اما نمی توان آنها را به thread دیگری "
+"منتقل کرد:"
 
 #: src/concurrency/send-sync/examples.md:31
 msgid ""
 "`MutexGuard<T: Sync>`: Uses OS level primitives which must be deallocated on "
 "the thread which created them."
 msgstr ""
+"‏«MutexGuard<T: Sync>»: از ابتدایی‌های سطح سیستم‌عامل استفاده می‌کند که باید در "
+"threadای که آنها را ایجاد کرده است، توزیع شوند."
 
 #: src/concurrency/send-sync/examples.md:34
 msgid "`!Send + !Sync`"
-msgstr ""
+msgstr "`!Send + !Sync`"
 
 #: src/concurrency/send-sync/examples.md:36
 msgid "These types are not thread-safe and cannot be moved to other threads:"
 msgstr ""
+"این تایپ‌ها از نظر thread ایمن نیستند و نمی توان آنها را به رشته های دیگر "
+"منتقل کرد:"
 
 #: src/concurrency/send-sync/examples.md:38
 msgid ""
 "`Rc<T>`: each `Rc<T>` has a reference to an `RcBox<T>`, which contains a non-"
 "atomic reference count."
 msgstr ""
+"‏\"Rc<T>\": هر \"Rc<T>\" دارای یک ارجاع به \"RcBox<T>\" است که حاوی تعداد "
+"مراجع غیر atomic است."
 
 #: src/concurrency/send-sync/examples.md:40
 msgid ""
 "`*const T`, `*mut T`: Rust assumes raw pointers may have special concurrency "
 "considerations."
 msgstr ""
+"درمورد `*const T`, `*mut T`: زبان فرض Rust می کند که اشاره گرهای خام ممکن "
+"است ملاحظات همزمانی خاصی داشته باشند."
 
 #: src/concurrency/shared-state.md
 msgid "Arc"
-msgstr "Shared State"
+msgstr "Arc"
 
 #: src/concurrency/shared-state.md
 msgid "Mutex"
@@ -18582,44 +18629,55 @@ msgid ""
 "[`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html) allows shared "
 "read-only access via `Arc::clone`:"
 msgstr ""
+"‏[`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html) اجازه می‌دهد "
+"تا دسترسی read-only مشترک از طریق `Arc::clone` صورت پذیرد:"
 
 #: src/concurrency/shared-state/arc.md:16
 msgid "\"{thread_id:?}: {v:?}\""
-msgstr ""
+msgstr "\"{thread_id:?}: {v:?}\""
 
 #: src/concurrency/shared-state/arc.md:21
 #: src/concurrency/shared-state/example.md:17
 #: src/concurrency/shared-state/example.md:46
 msgid "\"v: {v:?}\""
-msgstr ""
+msgstr "\"v: {v:?}\""
 
 #: src/concurrency/shared-state/arc.md:30
 msgid ""
 "`Arc` stands for \"Atomic Reference Counted\", a thread safe version of `Rc` "
 "that uses atomic operations."
 msgstr ""
+"‏\"Arc\" مخفف \"Atomic Reference Counted\" است، یک نسخه ایمن از `Rc` که از "
+"عملیات atomic استفاده می‌کند."
 
 #: src/concurrency/shared-state/arc.md:32
 msgid ""
 "`Arc<T>` implements `Clone` whether or not `T` does. It implements `Send` "
 "and `Sync` if and only if `T` implements them both."
 msgstr ""
+"‏\"Arc<T>\" به طور کلی \"Clone\" را خواه `T` انجام دهد یا نه، پیاده سازی می "
+"کند. `Send` و `Sync` را اگر و فقط در صورتی پیاده‌سازی می‌کند که `T` هر دوی "
+"آنها را پیاده‌سازی کند."
 
 #: src/concurrency/shared-state/arc.md:34
 msgid ""
 "`Arc::clone()` has the cost of atomic operations that get executed, but "
 "after that the use of the `T` is free."
 msgstr ""
+"‏'Arc::clone()' هزینه عملیات atomic را دارد که اجرا می‌شود، اما پس از آن "
+"استفاده از `T` آزاد است."
 
 #: src/concurrency/shared-state/arc.md:36
 msgid ""
 "Beware of reference cycles, `Arc` does not use a garbage collector to detect "
 "them."
 msgstr ""
+"مراقب reference cycleها باشید، `Arc` از garbage collector برای شناسایی آنها "
+"استفاده نمی‌کند."
 
 #: src/concurrency/shared-state/arc.md:38
 msgid "`std::sync::Weak` can help."
-msgstr ""
+msgstr "`std::sync::Weak` می‌تواند مفید باشد."
 
 #: src/concurrency/shared-state/mutex.md:3
 msgid ""
@@ -18628,11 +18686,15 @@ msgid ""
 "interface (another form of [interior mutability](../../borrowing/interior-"
 "mutability.md)):"
 msgstr ""
+"‏[`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html) تضمین "
+"می‌کند که حذف متقابل _و_ امکان دسترسی قابل تغییر (mutable) به \"T\" را در پشت "
+"یکread-only interface  (شکل دیگری از [تغییرپذیری (mutable) داخلی](../../"
+"borrowing/interior-mutability.md)) فراهم می‌کند."
 
 #: src/concurrency/shared-state/mutex.md:12
 #: src/concurrency/shared-state/mutex.md:19
 msgid "\"v: {:?}\""
-msgstr ""
+msgstr "\"v: {:?}\""
 
 #: src/concurrency/shared-state/mutex.md:23
 msgid ""
@@ -18640,38 +18702,49 @@ msgid ""
 "lang.org/std/sync/struct.Mutex.html#impl-Sync-for-Mutex%3CT%3E) blanket "
 "implementation."
 msgstr ""
+"توجه کنید که چگونه یک [`impl<T: Send> Sync for Mutex<T>`](https://doc.rust-"
+"lang.org/std/sync/struct.Mutex.html#impl-Sync-for-Mutex%3CT%3E) برای اجرای "
+"کامل آن داریم."
 
 #: src/concurrency/shared-state/mutex.md:33
 msgid ""
 "`Mutex` in Rust looks like a collection with just one element --- the "
 "protected data."
 msgstr ""
+"‏«Mutex» در Rust مانند مجموعه‌ای با تنها یک عنصر --- داده‌های محافظت شده "
+"(protected) به نظر می‌رسد."
 
 #: src/concurrency/shared-state/mutex.md:35
 msgid ""
 "It is not possible to forget to acquire the mutex before accessing the "
 "protected data."
 msgstr ""
+"نمی‌توان قبل از دسترسی به داده‌های محافظت شده یا protected، دسترسی mutex را "
+"فراموش کرد."
 
 #: src/concurrency/shared-state/mutex.md:37
 msgid ""
 "You can get an `&mut T` from an `&Mutex<T>` by taking the lock. The "
 "`MutexGuard` ensures that the `&mut T` doesn't outlive the lock being held."
 msgstr ""
+"با گرفتن lock می‌توانید `&mut T` را از `&Mutex<T>` دریافت کنید.`MutexGuard` "
+"تضمین می‌کند که`&mut T` بیشتر از قفل نگه‌داشته شده، موجود نمی‌ماند."
 
 #: src/concurrency/shared-state/mutex.md:39
 msgid ""
 "`Mutex<T>` implements both `Send` and `Sync` iff (if and only if) `T` "
 "implements `Send`."
 msgstr ""
+"‏`Mutex<T>` هر دوی پیاده سازی `Send` و `Sync` iff (فقط و فقط) `T` از `Send` "
+"استفاده‌ می‌کنند."
 
 #: src/concurrency/shared-state/mutex.md:41
 msgid "A read-write lock counterpart: `RwLock`."
-msgstr ""
+msgstr "‏ همتای قفل خواندن و نوشتن: `RwLock`."
 
 #: src/concurrency/shared-state/mutex.md:42
 msgid "Why does `lock()` return a `Result`?"
-msgstr ""
+msgstr "چرا `lock()` یک`Result` برمی‌گرداند؟"
 
 #: src/concurrency/shared-state/mutex.md:43
 msgid ""
@@ -18681,46 +18754,56 @@ msgid ""
 "[`PoisonError`](https://doc.rust-lang.org/std/sync/struct.PoisonError.html). "
 "You can call `into_inner()` on the error to recover the data regardless."
 msgstr ""
+"اگر threadای که  `Mutex`  را نگه می‌دارد دچار panic شود، `Mutex` «مسموم/"
+"poisoned» می‌شود تا نشان دهد که داده‌هایی که محافظت می‌کند ممکن است در وضعیت "
+"ناسازگاری باشند. فراخوانی `lock()` در یک mutex مسموم با یک [«PoisonError»] "
+"(https://doc.rust-lang.org/std/sync/struct.PoisonError.html) انجام نمی‌شود. "
+"می‌توانید `into_inner()` را در مورد خطا برای بازیابی داده‌ها بدون توجه به آن "
+"فراخوانی کنید."
 
 #: src/concurrency/shared-state/example.md:3
 msgid "Let us see `Arc` and `Mutex` in action:"
-msgstr ""
+msgstr "اجازه دهید `Arc` و `Mutex` را در عمل ببینیم:"
 
 #: src/concurrency/shared-state/example.md:6
 msgid "// use std::sync::{Arc, Mutex};\n"
-msgstr ""
+msgstr "// use std::sync::{Arc, Mutex};\n"
 
 #: src/concurrency/shared-state/example.md:24
 msgid "Possible solution:"
-msgstr ""
+msgstr "راه‌حل ممکن:"
 
 #: src/concurrency/shared-state/example.md:50
 msgid "Notable parts:"
-msgstr ""
+msgstr "بخش‌های قابل توجه:"
 
 #: src/concurrency/shared-state/example.md:52
 msgid ""
 "`v` is wrapped in both `Arc` and `Mutex`, because their concerns are "
 "orthogonal."
-msgstr ""
+msgstr "‏ `v` در `Arc` و `Mutex` احاطه می‌شود، زیرا مسائل آنها شبیه به هم است."
 
 #: src/concurrency/shared-state/example.md:54
 msgid ""
 "Wrapping a `Mutex` in an `Arc` is a common pattern to share mutable state "
 "between threads."
 msgstr ""
+"قرار دادن یک `Mutex` در یک `Arc` یک الگوی رایج برای به اشتراک گذاشتن حالت "
+"قابل تغییر (mutable) بین threadها است."
 
 #: src/concurrency/shared-state/example.md:56
 msgid ""
 "`v: Arc<_>` needs to be cloned as `v2` before it can be moved into another "
 "thread. Note `move` was added to the lambda signature."
 msgstr ""
+"‏ `v: Arc<_>` باید به عنوان `v2` کلون شود تا بتوان آن را به thread دیگری "
+"منتقل کرد. نکته `move` به  lambda signature اضافه شد."
 
 #: src/concurrency/shared-state/example.md:58
 msgid ""
 "Blocks are introduced to narrow the scope of the `LockGuard` as much as "
 "possible."
-msgstr ""
+msgstr "بلوک‌ها برای محدود کردن دامنه `LockGuard` تا حد امکان معرفی شده‌اند."
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:3
 msgid "The dining philosophers problem is a classic problem in concurrency:"
