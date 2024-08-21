@@ -20,6 +20,7 @@ We'll use the following proto:
 message PhoneNumber {
   optional string number = 1;
   optional string type = 2;
+  optional float balance = 3;
 }
 
 message Person {
@@ -35,9 +36,10 @@ implemented as a "tag" followed by the value. The tag contains a field number
 how the payload should be determined from the byte stream.
 
 Integers, including the tag, are represented with a variable-length encoding
-called VARINT. Luckily, `parse_varint` is defined for you below. The given code
-also defines callbacks to handle `Person` and `PhoneNumber` fields, and to parse
-a message into a series of calls to those callbacks.
+called VARINT. Luckily, `parse_varint` is defined for you below. And here defined 
+float type, aka "I32", there just used 4 bytes, that needed to be transformed. 
+The given code also defines callbacks to handle `Person` and `PhoneNumber` fields, 
+and to parse a message into a series of calls to those callbacks.
 
 What remains for you is to implement the `parse_field` function and the
 `ProtoMessage` trait for `Person` and `PhoneNumber`.
@@ -61,6 +63,8 @@ What remains for you is to implement the `parse_field` function and the
 // TODO: Implement ProtoMessage for Person and PhoneNumber.
 
 {{#include exercise.rs:main }}
+
+{{#include exercise.rs:test }}
 ```
 
 <details>

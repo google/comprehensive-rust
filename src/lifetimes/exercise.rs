@@ -23,7 +23,7 @@ enum WireType {
     /// VARINT followed by exactly that number of bytes.
     Len,
     /// The I32 WireType indicates that the value is precisely 4 bytes in
-    /// little-endian order containing a 32-bit signed integer.
+    /// little-endian order containing a 32-bit signed float.
     I32,
 }
 
@@ -33,7 +33,7 @@ enum FieldValue<'a> {
     Varint(u64),
     //I64(i64),  -- not needed for this exercise
     Len(&'a [u8]),
-    I32(i32),
+    I32(f32),
 }
 
 #[derive(Debug)]
@@ -82,9 +82,9 @@ impl<'a> FieldValue<'a> {
     }
 
     #[allow(dead_code)]
-    fn as_i32(&self) -> i32 {
+    fn as_f32(&self) -> f32 {
         let FieldValue::I32(value) = self else {
-            panic!("Expected `i32` to be an `I32` field");
+            panic!("Expected `f32` to be an `I32` field");
         };
         *value
     }
@@ -145,7 +145,7 @@ fn parse_field(data: &[u8]) -> (Field, &[u8]) {
             }
             let (value, remainder) = remainder.split_at(4);
             // Unwrap error because `value` is definitely 4 bytes long.
-            let value = i32::from_le_bytes(value.try_into().unwrap());
+            let value = f32::from_le_bytes(value.try_into().unwrap());
             (FieldValue::I32(value), remainder)
         }
     };
@@ -169,13 +169,14 @@ fn parse_message<'a, T: ProtoMessage<'a>>(mut data: &'a [u8]) -> T {
 // ANCHOR_END: parse_message
 
 // ANCHOR: message_types
-#[derive(Debug, Default)]
+#[derive(Debug, Default, PartialEq)]
 struct PhoneNumber<'a> {
     number: &'a str,
     type_: &'a str,
+    balance: f32,
 }
 
-#[derive(Debug, Default)]
+#[derive(Debug, Default, PartialEq)]
 struct Person<'a> {
     name: &'a str,
     id: u64,
@@ -199,6 +200,7 @@ impl<'a> ProtoMessage<'a> for PhoneNumber<'a> {
         match field.field_num {
             1 => self.number = field.value.as_string(),
             2 => self.type_ = field.value.as_string(),
+            3 => self.balance = field.value.as_f32(),
             _ => {} // skip everything else
         }
     }
@@ -207,13 +209,63 @@ impl<'a> ProtoMessage<'a> for PhoneNumber<'a> {
 // ANCHOR: main
 fn main() {
     let person: Person = parse_message(&[
-        0x0a, 0x07, 0x6d, 0x61, 0x78, 0x77, 0x65, 0x6c, 0x6c, 0x10, 0x2a, 0x1a,
-        0x16, 0x0a, 0x0e, 0x2b, 0x31, 0x32, 0x30, 0x32, 0x2d, 0x35, 0x35, 0x35,
-        0x2d, 0x31, 0x32, 0x31, 0x32, 0x12, 0x04, 0x68, 0x6f, 0x6d, 0x65, 0x1a,
-        0x18, 0x0a, 0x0e, 0x2b, 0x31, 0x38, 0x30, 0x30, 0x2d, 0x38, 0x36, 0x37,
-        0x2d, 0x35, 0x33, 0x30, 0x38, 0x12, 0x06, 0x6d, 0x6f, 0x62, 0x69, 0x6c,
-        0x65,
+        0x0a, 0x07, 0x6d, 0x61, 0x78, 0x77, 0x65, 0x6c, 0x6c, 
+        0x10, 0x2a, 0x1a, 0x1b, 0x0a, 0x0e, 0x2b, 0x31, 0x32, 
+        0x30, 0x32, 0x2d, 0x35, 0x35, 0x35, 0x2d, 0x31, 0x32, 
+        0x31, 0x32, 0x12, 0x04, 0x68, 0x6f, 0x6d, 0x65, 0x1d, 
+        0xa4, 0x70, 0xbb, 0xc1, 0x1a, 0x1d, 0x0a, 0x0e, 0x2b, 
+        0x31, 0x38, 0x30, 0x30, 0x2d, 0x38, 0x36, 0x37, 0x2d, 
+        0x35, 0x33, 0x30, 0x38, 0x12, 0x06, 0x6d, 0x6f, 0x62, 
+        0x69, 0x6c, 0x65, 0x1d, 0x9a, 0x99, 0x87, 0x42,
     ]);
     println!("{:#?}", person);
 }
 // ANCHOR_END: main
+
+// ANCHOR: tests
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_id() {
+        let person_id: Person = parse_message(&[
+            0x10, 0x2a,
+        ]);
+        assert_eq!(person_id, Person { name: "", id: 42, phone: vec![], });
+    }
+
+    #[test]
+    fn test_name() {
+        let person_name: Person = parse_message(&[
+            0x0a, 0x0e, 0x62, 0x65, 0x61, 0x75, 0x74, 0x69, 
+            0x66, 0x75, 0x6c, 0x20, 0x6e, 0x61, 0x6d, 0x65,
+        ]);
+        assert_eq!(person_name, Person { name: "beautiful name", id: 0, phone: vec![], });
+    }
+
+    #[test]
+    fn test_just_person() {
+        let person_name_id: Person = parse_message(&[
+            0x0a, 0x04, 0x45, 0x76, 0x61, 0x6e, 0x10, 0x16,
+        ]);        
+        assert_eq!(person_name_id, Person { name: "Evan", id: 22, phone: vec![], });
+    }
+
+    #[test]
+    fn test_phone() {
+        let phone: Person = parse_message(&[
+            0x1a, 0x1b, 0x0a, 0x0e, 0x2b, 0x31, 0x32, 0x33,
+            0x34, 0x2d, 0x37, 0x37, 0x37, 0x2d, 0x39, 0x30,
+            0x39, 0x30, 0x12, 0x04, 0x68, 0x6f, 0x6d, 0x65, 
+            0x1d, 0xa4, 0x70, 0xbb, 0xc1,
+        ]);        
+        assert_eq!(phone, Person { name: "", id: 0, phone: vec![
+                                                            PhoneNumber {
+                                                                number: "+1234-777-9090",
+                                                                type_: "home",
+                                                                balance: -23.43,
+                                                            },], });
+    }
+}
+// ANCHOR_END: tests
