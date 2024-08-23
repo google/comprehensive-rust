@@ -224,7 +224,7 @@ fn main() {
 // ANCHOR_END: main
 
 // ANCHOR: tests
-// Tests can be checked with appropriate option 
+// Tests can be checked with corresponding option
 #[cfg(test)]
 mod tests {
     use super::*;
