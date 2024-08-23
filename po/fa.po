@@ -19212,46 +19212,60 @@ msgid "async/await"
 msgstr "async/await"
 
 #: src/concurrency/async/async-await.md:3
+#, fuzzy
 msgid ""
 "At a high level, async Rust code looks very much like \"normal\" sequential "
 "code:"
 msgstr ""
+"در سطح بالا، کد Rust async بسیار شبیه کد متوالی \"عادی\" است (\"normal\" "
+"sequential code):"
 
 #: src/concurrency/async/async-await.md:10
+#, fuzzy
 msgid "\"Count is: {i}!\""
-msgstr ""
+msgstr "\"Count is: {i}!\""
 
 #: src/concurrency/async/async-await.md:28
 msgid ""
 "Note that this is a simplified example to show the syntax. There is no long "
 "running operation or any real concurrency in it!"
 msgstr ""
+"توجه داشته باشید که این یک مثال ساده برای نشان دادن syntax است. هیچ عملیات "
+"طولانی مدت یا هیچ هم‌زمانی(concurrency) واقعی در آن وجود ندارد!"
 
 #: src/concurrency/async/async-await.md:31
 msgid "What is the return type of an async call?"
-msgstr ""
+msgstr "نوع برگشت async call چیست؟"
 
 #: src/concurrency/async/async-await.md:32
 msgid "Use `let future: () = async_main(10);` in `main` to see the type."
 msgstr ""
+"برای مشاهده type از `let future: () = async_main(10);` در `main` استفاده "
+"کنید."
 
 #: src/concurrency/async/async-await.md:34
 msgid ""
 "The \"async\" keyword is syntactic sugar. The compiler replaces the return "
 "type with a future."
 msgstr ""
+"کلمه کلیدی \"async\" شیرینیِ syntax زبان Rust است. کامپایلر نوع بازگشتی را با "
+"یک future جایگزین می‌کند."
 
 #: src/concurrency/async/async-await.md:37
 msgid ""
 "You cannot make `main` async, without additional instructions to the "
 "compiler on how to use the returned future."
 msgstr ""
+"شما نمی‌توانید بدون دستورالعمل‌های اضافی به کامپایلر در مورد نحوه استفاده از "
+"future بازگشتی، `main` را async کنید."
 
 #: src/concurrency/async/async-await.md:40
 msgid ""
 "You need an executor to run async code. `block_on` blocks the current thread "
 "until the provided future has run to completion."
 msgstr ""
+"برای اجرای کدهای همگام به یک اجرا‌ کننده (executor) نیاز دارید.`block_on` که "
+"thread رشته فعلی را تا زمانی که future ارائه شده تکمیل شود مسدود می‌کند."
 
 #: src/concurrency/async/async-await.md:43
 msgid ""
@@ -19264,6 +19278,8 @@ msgid ""
 "`.await` can only be used inside an `async` function (or block; these are "
 "introduced later)."
 msgstr ""
+"‏ `.await` فقط می‌تواند در داخل یک تابع `async` استفاده شود (یا block؛ این "
+"مورد در آینده معرفی می‌شوند)."
 
 #: src/concurrency/async/futures.md:3
 msgid ""
@@ -19272,6 +19288,10 @@ msgid ""
 "complete yet. A future can be polled, and `poll` returns a [`Poll`](https://"
 "doc.rust-lang.org/std/task/enum.Poll.html)."
 msgstr ""
+" ‏[`Future`](https://doc.rust-lang.org/std/future/trait.Future.html) یک trait "
+"است، اجرا شده توسط objectهایی که نشان دهنده عملیاتی هستند که ممکن است هنوز "
+"کامل نشده باشد. می‌توان یک future را poll کرد و `poll` یک [`Poll`](https://"
+"doc.rust-lang.org/std/task/enum.Poll.html) را برمی‌گرداند."
 
 #: src/concurrency/async/futures.md:23
 msgid ""
@@ -19280,30 +19300,42 @@ msgid ""
 "`JoinHandle` returned from `tokio::spawn` implements `Future` to allow "
 "joining to it."
 msgstr ""
+"یک تابع async یک `impl Future` را برمی‌گرداند. همچنین امکان (اما غیرمعمول) "
+"پیاده‌سازی `Future` برای تایپ‌های خودتان نیز وجود دارد. برای مثال،  "
+"`JoinHandle`  برگردانده شده از `tokio::spawn` `Future` را پیاده‌سازی می‌کند تا "
+"امکان پیوستن (joining) به آن را فراهم کند."
 
 #: src/concurrency/async/futures.md:27
 msgid ""
 "The `.await` keyword, applied to a Future, causes the current async function "
 "to pause until that Future is ready, and then evaluates to its output."
 msgstr ""
+"کلمه کلیدی `.await` که برای Future اعمال می‌شود، باعث می‌شود که تابع async "
+"فعلی تا زمانی که Future آماده شود متوقف شود و سپس خروجی آن ارزیابی شود."
 
 #: src/concurrency/async/futures.md:33
 msgid ""
 "The `Future` and `Poll` types are implemented exactly as shown; click the "
 "links to show the implementations in the docs."
 msgstr ""
+"تایپ‌های `Future` و `Poll` دقیقاً همانطور که نشان داده شده است اجرا می شوند. "
+"برای نمایش پیاده‌سازی‌ها در اسناد، روی لینک‌ها کلیک کنید."
 
 #: src/concurrency/async/futures.md:36
 msgid ""
 "We will not get to `Pin` and `Context`, as we will focus on writing async "
 "code, rather than building new async primitives. Briefly:"
 msgstr ""
+"ما به `Pin` و `Context` نخواهیم رسید، زیرا به جای ساختن کدهای اولیه async، "
+"بر نوشتن کدهای async تمرکز خواهیم کرد. به طور خلاصه:"
 
 #: src/concurrency/async/futures.md:39
 msgid ""
 "`Context` allows a Future to schedule itself to be polled again when an "
 "event occurs."
 msgstr ""
+"‏ `Context` به Future اجازه می‌دهد تا زمانی که رویدادی رخ می دهد، خود را برای "
+"poll مجدد برنامه‌ریزی کند."
 
 #: src/concurrency/async/futures.md:42
 msgid ""
@@ -19311,6 +19343,9 @@ msgid ""
 "that future remain valid. This is required to allow references to remain "
 "valid after an `.await`."
 msgstr ""
+"‏ `Pin` تضمین می‌کند که Future در حافظه جابه‌جا نمی‌شود، بنابراین pointerهای "
+"future معتبر باقی می‌مانند. این برای اجازه دادن به referenceها برای معتبر "
+"ماندن پس از  `.await` لازم است."
 
 #: src/concurrency/async/runtimes.md:3
 msgid ""
@@ -19318,6 +19353,9 @@ msgid ""
 "_reactor_) and is responsible for executing futures (an _executor_). Rust "
 "does not have a \"built-in\" runtime, but several options are available:"
 msgstr ""
+"یک _runtime_ برای انجام عملیات به صورت ناهمزمان از (a_reactor_) پشتیبانی می "
+"کند و مسئول اجرای futureها (an _executor_) است. Rust یک runtime داخلی ندارد، "
+"اما چندین گزینه دیگر در دسترس است:"
 
 #: src/concurrency/async/runtimes.md:7
 msgid ""
@@ -19325,16 +19363,21 @@ msgid ""
 "functionality like [Hyper](https://hyper.rs/) for HTTP or [Tonic](https://"
 "github.com/hyperium/tonic) for gRPC."
 msgstr ""
+"‏[Tokio](https://tokio.rs/): کارایی(performant)، با یک اکوسیستم با کارایی "
+"بالا به خوبی توسعه یافته مانند [Hyper](https://hyper.rs/) برای HTTP یا "
+"[Tonic] (https://github) .com/hyperium/tonic) برای gRPC."
 
 #: src/concurrency/async/runtimes.md:10
 msgid ""
 "[async-std](https://async.rs/): aims to be a \"std for async\", and includes "
 "a basic runtime in `async::task`."
 msgstr ""
+"‏[async-std](https://async.rs/):: هدفش این است که یک \"std for async\" باشد و "
+"شامل یک runtime اولیه در `async::task` است."
 
 #: src/concurrency/async/runtimes.md:12
 msgid "[smol](https://docs.rs/smol/latest/smol/): simple and lightweight"
-msgstr ""
+msgstr "‏[smol](https://docs.rs/smol/latest/smol/): ساده و سبک است."
 
 #: src/concurrency/async/runtimes.md:14
 msgid ""
@@ -19342,6 +19385,9 @@ msgid ""
 "(https://fuchsia.googlesource.com/fuchsia/+/refs/heads/main/src/lib/fuchsia-"
 "async/src/lib.rs) already has one."
 msgstr ""
+"چندین برنامه بزرگتر زمان اجرا (runtime) مخصوص به خود را دارند. برای مثال، "
+"[Fuchsia](https://fuchsia.googlesource.com/fuchsia/+/refs/heads/main/src/lib/"
+"fuchsia-async/src/lib.rs) اکنون یکی runtime دارد."
 
 #: src/concurrency/async/runtimes.md:21
 msgid ""
@@ -19349,6 +19395,9 @@ msgid ""
 "playground. The playground also does not permit any I/O, so most interesting "
 "async things can't run in the playground."
 msgstr ""
+"توجه داشته باشید که از میان زمان‌های اجرا ذکر شده، فقط Tokio در playground "
+"زبان Rust پشتیبانی می‌شود.playground همچنین اجازه ورود/خروجی (I/O) را نمی "
+"دهد، بنابراین بیشتر چیزهای async جالب نمی‌توانند در playground اجرا شوند."
 
 #: src/concurrency/async/runtimes.md:25
 msgid ""
@@ -19357,46 +19406,55 @@ msgid ""
 "Promises, for example, which will run to completion even if they are never "
 "used."
 msgstr ""
+"‏ Futureها از این جهت «بی‌اثر(inert)» هستند که هیچ کاری انجام نمی‌دهند (حتی "
+"عملیات I/O را شروع نمی‌کنند) مگر اینکه یک مجری(executor) وجود داشته باشد که "
+"آنها را polling کند. به عنوان مثال، این با JS Promises متفاوت است که حتی اگر "
+"هرگز استفاده نشوند تا پایان کامل شدن برنامه اجرا خواهند شد."
 
 #: src/concurrency/async/runtimes/tokio.md:3
+#, fuzzy
 msgid "Tokio provides:"
-msgstr ""
+msgstr "Tokio provides:"
 
 #: src/concurrency/async/runtimes/tokio.md:5
 msgid "A multi-threaded runtime for executing asynchronous code."
 msgstr ""
+"یک runtime از نوع multi-thread برای اجرای کدهای ناهمزمان(asynchronous)."
 
 #: src/concurrency/async/runtimes/tokio.md:6
 msgid "An asynchronous version of the standard library."
-msgstr ""
+msgstr "یک asynchronous version کتابخانه‌ای استاندارد است."
 
 #: src/concurrency/async/runtimes/tokio.md:7
 msgid "A large ecosystem of libraries."
-msgstr ""
+msgstr "اکوسیستم بزرگی از کتابخانه‌ها."
 
 #: src/concurrency/async/runtimes/tokio.md:14
+#, fuzzy
 msgid "\"Count in task: {i}!\""
-msgstr ""
+msgstr "\"connection from {addr:?}\""
 
 #: src/concurrency/async/runtimes/tokio.md:24
+#, fuzzy
 msgid "\"Main task: {i}\""
-msgstr ""
+msgstr "\"Main task: {i}\""
 
 #: src/concurrency/async/runtimes/tokio.md:32
 msgid "With the `tokio::main` macro we can now make `main` async."
-msgstr ""
+msgstr "با ماکرو `tokio::main` اکنون می‌توانیم `main` را async کنیم."
 
 #: src/concurrency/async/runtimes/tokio.md:34
 msgid "The `spawn` function creates a new, concurrent \"task\"."
-msgstr ""
+msgstr "تابع `spawn` یک \"task\" جدید و همزمان ایجاد می‌کند."
 
 #: src/concurrency/async/runtimes/tokio.md:36
 msgid "Note: `spawn` takes a `Future`, you don't call `.await` on `count_to`."
 msgstr ""
+"توجه: `spawn` یک  `Future` می‌گیرد، شما `.await` را در `count_to` صدا نمی‌زنید."
 
 #: src/concurrency/async/runtimes/tokio.md:38
 msgid "**Further exploration:**"
-msgstr ""
+msgstr "**Further بررسی:**"
 
 #: src/concurrency/async/runtimes/tokio.md:40
 msgid ""
@@ -19404,18 +19462,20 @@ msgid ""
 "cancellation. `tokio::spawn` returns a handle which can be awaited to wait "
 "until it finishes."
 msgstr ""
+"چرا `count_to`  (معمولا) به مقدار ۱۰ نمی‌رسد؟ این نمونه‌ای از لغو async است. "
+"`tokio::spawn` یک handle را برمی‌گرداند که می‌توان مدتی منتظر ماند تا تمام شود."
 
 #: src/concurrency/async/runtimes/tokio.md:44
 msgid "Try `count_to(10).await` instead of spawning."
-msgstr ""
+msgstr "به جای  spawn مورد `count_to(10).await`» را امتحان کنید."
 
 #: src/concurrency/async/runtimes/tokio.md:46
 msgid "Try awaiting the task returned from `tokio::spawn`."
-msgstr ""
+msgstr "منتظر کار برگشتی از `tokio::spawn` باشید."
 
 #: src/concurrency/async/tasks.md:3
 msgid "Rust has a task system, which is a form of lightweight threading."
-msgstr ""
+msgstr "‏ Rust یک task system دارد که نوعی thread سبک‌ وزن است."
 
 #: src/concurrency/async/tasks.md:5
 msgid ""
@@ -19425,37 +19485,49 @@ msgid ""
 "task is possible by polling multiple child futures, such as racing a timer "
 "and an I/O operation."
 msgstr ""
+"یک task یک future در سطح بالا دارد که اجراکننده (executor) برای ادامه کار آن "
+"را poll می‌کند. آن future ممکن است یک یا چند future تودرتو داشته باشد که متد "
+"`poll` آن را `poll` می‌کند، که به طور ناپایداری با یک stack فراخوانی شده "
+"مطابقت دارد. همزمانی در یک task با poll از چندین child future، مانند رقابت "
+"یک تایمر و یک عملیات I/O امکان‌پذیر است."
 
 #: src/concurrency/async/tasks.md:16
 msgid "\"127.0.0.1:0\""
-msgstr ""
+msgstr "\"127.0.0.1:0\""
 
 #: src/concurrency/async/tasks.md:17
+#, fuzzy
 msgid "\"listening on port {}\""
-msgstr ""
+msgstr "\"listening on port {}\""
 
 #: src/concurrency/async/tasks.md:22
+#, fuzzy
 msgid "\"connection from {addr:?}\""
-msgstr ""
+msgstr "\"connection from {addr:?}\""
 
 #: src/concurrency/async/tasks.md:25
+#, fuzzy
 msgid "b\"Who are you?\\n\""
-msgstr ""
+msgstr "b\"Who are you?\\n\""
 
 #: src/concurrency/async/tasks.md:25 src/concurrency/async/tasks.md:28
 #: src/concurrency/async/tasks.md:31
+#, fuzzy
 msgid "\"socket error\""
-msgstr ""
+msgstr "\"socket error\""
 
 #: src/concurrency/async/tasks.md:30
+#, fuzzy
 msgid "\"Thanks for dialing in, {name}!\\n\""
-msgstr ""
+msgstr "\"Thanks for dialing in, {name}!\\n\""
 
 #: src/concurrency/async/tasks.md:40
 #: src/concurrency/async-control-flow/join.md:37
 msgid ""
 "Copy this example into your prepared `src/main.rs` and run it from there."
 msgstr ""
+"این مثال را در `src/main.rs` آماده شده خود کپی کنید و آن را از آنجا اجرا "
+"کنید."
 
 #: src/concurrency/async/tasks.md:42
 msgid ""
@@ -19463,64 +19535,83 @@ msgid ""
 "com/man-page/linux/1/nc/) or [telnet](https://www.unix.com/man-page/linux/1/"
 "telnet/)."
 msgstr ""
+"سعی کنید با یک ابزار اتصال TCP مانند [nc](https://www.unix.com/man-page/"
+"linux/1/nc/) یا [telnet](https://www.unix.com/) به آن متصل شوید."
 
 #: src/concurrency/async/tasks.md:46
+#, fuzzy
 msgid ""
 "Ask students to visualize what the state of the example server would be with "
 "a few connected clients. What tasks exist? What are their Futures?"
 msgstr ""
+"از دانش‌آموزان بخواهید که وضعیت سرور مورد مثال را با چند کلاینت متصل تجسم "
+"کنند. چه taskهایی وجود دارد؟ Future آنها چیست؟"
 
 #: src/concurrency/async/tasks.md:49
+#, fuzzy
 msgid ""
 "This is the first time we've seen an `async` block. This is similar to a "
 "closure, but does not take any arguments. Its return value is a Future, "
 "similar to an `async fn`."
 msgstr ""
+"این اولین بار است که بلوک `async` را می‌بینیم. این شبیه به بسته شدن است، اما "
+"هیچ استدلالی ندارد. مقدار بازگشتی آن از نوع Future است، شبیه به  `async fn`."
 
 #: src/concurrency/async/tasks.md:53
 msgid ""
 "Refactor the async block into a function, and improve the error handling "
 "using `?`."
 msgstr ""
+"بلوک async را به یک تابع تغییر دهید و مدیریت خطا را با استفاده از `?` بهبود "
+"بخشید."
 
 #: src/concurrency/async-control-flow/channels.md:3
 msgid ""
 "Several crates have support for asynchronous channels. For instance `tokio`:"
 msgstr ""
+"چندین crate از asynchronous channel پشتیبانی می‌کنند. به عنوان مثال `tokio`:"
 
 #: src/concurrency/async-control-flow/channels.md:13
+#, fuzzy
 msgid "\"Received {count} pings so far.\""
-msgstr ""
+msgstr "\"Received {count} pings so far.\""
 
 #: src/concurrency/async-control-flow/channels.md:16
+#, fuzzy
 msgid "\"ping_handler complete\""
-msgstr ""
+msgstr "\"ping_handler complete\""
 
 #: src/concurrency/async-control-flow/channels.md:24
+#, fuzzy
 msgid "\"Failed to send ping.\""
-msgstr ""
+msgstr "\"Failed to send ping.\""
 
 #: src/concurrency/async-control-flow/channels.md:25
+#, fuzzy
 msgid "\"Sent {} pings so far.\""
-msgstr ""
+msgstr "\"Sent {} pings so far.\""
 
 #: src/concurrency/async-control-flow/channels.md:29
+#, fuzzy
 msgid "\"Something went wrong in ping handler task.\""
-msgstr ""
+msgstr "\"Something went wrong in ping handler task.\""
 
 #: src/concurrency/async-control-flow/channels.md:36
 msgid "Change the channel size to `3` and see how it affects the execution."
 msgstr ""
+"اندازه کانال را به`3` تغییر دهید و ببینید که چگونه بر اجرا تأثیر می‌گذارد."
 
 #: src/concurrency/async-control-flow/channels.md:38
 msgid ""
 "Overall, the interface is similar to the `sync` channels as seen in the "
 "[morning class](../channels.md)."
 msgstr ""
+"به‌طور‌کلی، interface شبیه به channelهای `sync` است که در [کلاس صبح‌گاهی](../"
+"channels.md) دیده می‌شود."
 
 #: src/concurrency/async-control-flow/channels.md:41
 msgid "Try removing the `std::mem::drop` call. What happens? Why?"
-msgstr ""
+msgstr "تماس `std::mem::drop` را حذف کنید. چه اتفاقی می‌افتد؟ چرا؟"
 
 #: src/concurrency/async-control-flow/channels.md:43
 msgid ""
@@ -19528,6 +19619,9 @@ msgid ""
 "implement both `sync` and `async` `send` and `recv`. This can be convenient "
 "for complex applications with both IO and heavy CPU processing tasks."
 msgstr ""
+"این crate مربوط به [Flume](https://docs.rs/flume/latest/flume/) دارای "
+"کانال‌هایی است که  `sync` و `async` `send` و `recv` را اجرا می‌کنند. این کار "
+"می‌تواند برای برنامه‌های پیچیده با taskهای پردازشی IO و CPU سنگین مناسب باشد."
 
 #: src/concurrency/async-control-flow/channels.md:47
 msgid ""
@@ -19535,6 +19629,8 @@ msgid ""
 "combine them with other `future`s to combine them and create complex control "
 "flow."
 msgstr ""
+"چیزی که کار با کانال‌های `async` را ترجیح می‌دهد، توانایی ترکیب آن‌ها با دیگر "
+"`future` برای ترکیب آنها و ایجاد جریان کنترل پیچیده است."
 
 #: src/concurrency/async-control-flow/join.md:3
 msgid ""
@@ -19542,22 +19638,28 @@ msgid ""
 "a collection of their results. This is similar to `Promise.all` in "
 "JavaScript or `asyncio.gather` in Python."
 msgstr ""
+"عملیات پیوستن (join) منتظر می‌ماند تا تمام مجموعه‌ای از futureها آماده شوند و "
+"مجموعه‌ای (collection) از نتایج آنها را برمی‌گرداند. این شبیه به `Promise.all` "
+"در JavaScript یا `asyncio.gather` در پایتون است."
 
 #: src/concurrency/async-control-flow/join.md:21
+#, fuzzy
 msgid "\"https://google.com\""
-msgstr ""
+msgstr "\"https://google.com\""
 
 #: src/concurrency/async-control-flow/join.md:22
+#, fuzzy
 msgid "\"https://httpbin.org/ip\""
-msgstr ""
+msgstr "\"https://httpbin.org/ip\""
 
 #: src/concurrency/async-control-flow/join.md:23
+#, fuzzy
 msgid "\"https://play.rust-lang.org/\""
-msgstr ""
+msgstr "\"https://play.rust-lang.org/\""
 
 #: src/concurrency/async-control-flow/join.md:24
 msgid "\"BAD_URL\""
-msgstr ""
+msgstr "\"BAD_URL\""
 
 #: src/concurrency/async-control-flow/join.md:39
 msgid ""
@@ -19565,12 +19667,18 @@ msgid ""
 "you must know how many futures you will have at compile time. This is "
 "currently in the `futures` crate, soon to be stabilised in `std::future`."
 msgstr ""
+"برای چند future از تایپ‌های مختلف، می‌توانید از `std::future::join!` استفاده "
+"کنید، اما باید بدانید که در زمان کامپایل چند future خواهید داشت. این در حال "
+"حاضر در جعبه (crate از نوع `futures` است که به زودی در `std::future` تثبیت "
+"می‌شود."
 
 #: src/concurrency/async-control-flow/join.md:43
 msgid ""
 "The risk of `join` is that one of the futures may never resolve, this would "
 "cause your program to stall."
 msgstr ""
+"خطر `join` این است که یکی از future‌ها ممکن است هرگز resolve نشود، این مسئله "
+"باعث می‌شود برنامه شما متوقف شود."
 
 #: src/concurrency/async-control-flow/join.md:46
 msgid ""
@@ -19580,6 +19688,11 @@ msgid ""
 "timeout (that requires `select!`, explained in the next chapter), but "
 "demonstrates `join!`."
 msgstr ""
+"همچنین می‌توانید `join_all` را با `join!` ترکیب کنید، به‌عنوان مثال برای "
+"پیوستن (`join!`) همه درخواست‌ها به یک سرویس http و همچنین یک کوئری پایگاه "
+"داده سعی کنید `tokio::time::sleep` را با استفاده از `futures::join!` به "
+"future اضافه کنید. این یک timeout نیست (که به `select!`نیاز دارد و در فصل "
+"بعدی توضیح داده ‌می‌شود) بلکه `join!` را نشان می‌دهد."
 
 #: src/concurrency/async-control-flow/select.md:3
 msgid ""
@@ -19588,6 +19701,10 @@ msgid ""
 "race`. In Python, it compares to `asyncio.wait(task_set, return_when=asyncio."
 "FIRST_COMPLETED)`."
 msgstr ""
+"یک عملیات انتخابی منتظر می‌ماند تا هر یک از مجموعه‌ای از futureها آماده شود و "
+"به نتیجه آن future پاسخ می‌دهد. در JavaScript این مورد شبیه به `Promise.race` "
+"است و در پایتون با `asyncio.wait(task_set, return_when=asyncio."
+"FIRST_COMPLETED)` قابل مقایسه می‌باشد."
 
 #: src/concurrency/async-control-flow/select.md:8
 msgid ""
@@ -19597,26 +19714,36 @@ msgid ""
 "run with the resulting variables. The `statement` result becomes the result "
 "of the `select!` macro."
 msgstr ""
+"مانند یک عبارت تطبیقی (match statement)، بدنه `pattern` دارای تعدادی بازو "
+"است که هر کدام به شکل عبارت `pattern = future => statement` هستند. هنگامی که "
+"`future` آماده است، مقدار بازگشتی آن توسط `pattern` تخریب می‌شود. سپس "
+"`statement` با متغیرهای حاصل اجرا می‌شود. در نتیجه `statement` نتیجه‌ي ماکرو "
+"`select!` می‌شود."
 
 #: src/concurrency/async-control-flow/select.md:40
+#, fuzzy
 msgid "\"Felix\""
-msgstr ""
+msgstr "\"Felix\""
 
 #: src/concurrency/async-control-flow/select.md:40
+#, fuzzy
 msgid "\"Failed to send cat.\""
-msgstr ""
+msgstr "\"Failed to send cat.\""
 
 #: src/concurrency/async-control-flow/select.md:44
+#, fuzzy
 msgid "\"Failed to send dog.\""
-msgstr ""
+msgstr "\"Failed to send dog.\""
 
 #: src/concurrency/async-control-flow/select.md:49
+#, fuzzy
 msgid "\"Failed to receive winner\""
-msgstr ""
+msgstr "\"Failed to receive winner\""
 
 #: src/concurrency/async-control-flow/select.md:51
+#, fuzzy
 msgid "\"Winner is {winner:?}\""
-msgstr ""
+msgstr "\"Winner is {winner:?}\""
 
 #: src/concurrency/async-control-flow/select.md:58
 msgid ""
@@ -19625,30 +19752,44 @@ msgid ""
 "whichever arrives first. Since the dog takes 50ms, it wins against the cat "
 "that take 500ms."
 msgstr ""
+"در این مثال مسابقه‌ای بین گربه و سگ داریم. `first_animal_to_finish_race` به "
+"هر دو channelها گوش می‌دهد و هر کدام را زودتر وارد شوند را انتخاب می‌کند."
+"بنابراین سگ ۵۰ میلی‌ثانیه طول می‌کشد، در برابر گربه‌ای که ۵۰۰ میلی‌ثانیه طول "
+"می‌کشد تا پیروز شود."
 
 #: src/concurrency/async-control-flow/select.md:63
 msgid ""
 "You can use `oneshot` channels in this example as the channels are supposed "
 "to receive only one `send`."
 msgstr ""
+"در این مثال می‌توانید از کانال‌های `oneshot` استفاده کنید زیرا قرار است "
+"کانال‌ها فقط یک `send` را دریافت کنند."
 
 #: src/concurrency/async-control-flow/select.md:66
 msgid ""
 "Try adding a deadline to the race, demonstrating selecting different sorts "
 "of futures."
 msgstr ""
+"سعی کنید یک ضرب الاجل به رقابت اضافه کنید و انتخاب انواع مختلف future را "
+"نشان دهید."
 
 #: src/concurrency/async-control-flow/select.md:69
 msgid ""
 "Note that `select!` drops unmatched branches, which cancels their futures. "
 "It is easiest to use when every execution of `select!` creates new futures."
 msgstr ""
+"توجه داشته باشید که `select!` شاخه‌های (branch) بی‌همتا را حذف می کند و  "
+"future آنها را لغو می‌کند. زمانی که هر اجرای `select!` می‌تواند future‌های "
+"جدیدی ایجاد می‌کند، راحت‌ترین استفاده از آن است."
 
 #: src/concurrency/async-control-flow/select.md:72
 msgid ""
 "An alternative is to pass `&mut future` instead of the future itself, but "
 "this can lead to issues, further discussed in the pinning slide."
 msgstr ""
+"یک راه جایگزین این است که به جای خودِ future از `&mut future` استفاده کنید، "
+"اما این کار می‌تواند منجر به مسائلی شود که بیشتر در اسلاید سنجاق (pinning "
+"slide) شده بحث شده است."
 
 #: src/concurrency/async-pitfalls.md
 msgid ""
