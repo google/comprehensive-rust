@@ -36,16 +36,17 @@ implemented as a "tag" followed by the value. The tag contains a field number
 how the payload should be determined from the byte stream.
 
 Integers, including the tag, are represented with a variable-length encoding
-called VARINT. Luckily, `parse_varint` is defined for you below. The encoding of 
-I32 define precisely 4 bytes in little-endian order for types `fixed32`, `sfixed32` 
-and `float`. The given code also defines callbacks to handle `Person` and `PhoneNumber` 
-fields, and to parse a message into a series of calls to those callbacks.
+called VARINT. Luckily, `parse_varint` is defined for you below. The encoding of
+I32 define precisely 4 bytes in little-endian order for types `fixed32`,
+`sfixed32` and `float`. The given code also defines callbacks to handle `Person`
+and `PhoneNumber` fields, and to parse a message into a series of calls to those
+callbacks.
 
 What remains for you is to implement the `parse_field` function and the
 `ProtoMessage` trait for `Person` and `PhoneNumber`.
 
-You copy the code below to https://play.rust-lang.org/ and fill in the missing and check
-tests:
+You copy the code below to https://play.rust-lang.org/ and fill in the missing
+and check tests:
 
 <!-- compile_fail because the stubbed out code has type inference errors. -->
 
