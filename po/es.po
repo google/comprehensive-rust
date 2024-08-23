@@ -3416,7 +3416,8 @@ msgid ""
 "body as long as the condition is true."
 msgstr ""
 "La [palabra clave `while`](https://doc.rust-lang.org/reference/expressions/loop-"
-"expr.html#predicate-loops) es muy similar a la de otros lenguajes:"
+"expr.html#predicate-loops) es muy similar a la de otros lenguajes y ejecuta el "
+"cuerpo del bucle mientras que la condición sea valida."
 
 #: src/control-flow-basics/loops.md
 msgid "\"Final x: {x}\""
@@ -3645,7 +3646,7 @@ msgstr ""
 msgid "Overloading is not supported -- each function has a single implementation."
 msgstr ""
 "El sobrecargo de funciones no existe en Rust -- cada función tiene una única "
-"implementación:"
+"implementación."
 
 #: src/control-flow-basics/functions.md
 msgid ""
@@ -9112,7 +9113,7 @@ msgstr "Puedes tener uno o varios valores `&T`, _o_"
 
 #: src/borrowing/borrowck.md
 msgid "You can have exactly one exclusive reference to the value."
-msgstr "puedes tener exactamente una referencia exclusiva al valor."
+msgstr "Solo puedes tener exactamente una referencia exclusiva al valor."
 
 #: src/borrowing/borrowck.md
 msgid ""
@@ -9308,7 +9309,10 @@ msgid ""
 "Both `RefCell` and `Cell` are `!Sync`, which means `&RefCell` and `&Cell` can't "
 "be passed between threads. This prevents two threads trying to access the cell "
 "at once."
-msgstr "Ambos"
+msgstr ""
+"Ambos `RefCell` y `Cell` son `!Sync`, que significa que `&RefCell` y `&Cell` no "
+"pueden ser pasados entre hilos. Esto previene que dos hilos intenten acceder la "
+"celda al mismo tiempo."
 
 #: src/borrowing/exercise.md
 msgid ""
@@ -9320,24 +9324,22 @@ msgstr ""
 "usuarios."
 
 #: src/borrowing/exercise.md
-#, fuzzy
 msgid ""
 "You'll start with a stubbed function in an `impl` block as well as a `User` "
 "struct definition. Your goal is to implement the stubbed out method on the "
 "`User` `struct` defined in the `impl` block."
 msgstr ""
 "Comenzarás con algunas funciones stub en un bloque `impl`, así como con una "
-"definición de estructura `User`. Tu objetivo es implementar métodos con stubs "
-"en la  `struct` `User` definida en el bloque `impl`."
+"definición de estructura `User`. Tu objetivo es implementar métodos en el "
+"`struct` `User` definida en el bloque `impl`."
 
 #: src/borrowing/exercise.md
-#, fuzzy
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and fill in the missing "
 "method:"
 msgstr ""
-"Copia el fragmento de código que aparece más abajo en la página <https://play."
-"rust-lang.org/> y rellena los métodos que faltan:"
+"Copia el fragmento de código que aparece más abajo en la página a <https://play."
+"rust-lang.org/> y rellena el método que falta:"
 
 #: src/borrowing/exercise.md
 msgid ""
@@ -9378,14 +9380,15 @@ msgstr ""
 "durante el tiempo de vida `a`\"."
 
 #: src/lifetimes/lifetime-annotations.md
-#, fuzzy
 msgid ""
 "Lifetimes are always inferred by the compiler: you cannot assign a lifetime "
 "yourself. Explicit lifetime annotations create constraints where there is "
 "ambiguity; the compiler verifies that there is a valid solution."
 msgstr ""
-"Las anotaciones durante el tiempo de vida crean restricciones. El compilador "
-"verifica que hay una solución válida."
+"Los tiempos de vida siempre son inferidos por el compilador: no es posible "
+"asignar un tiempo de vida manualmente. Las anotaciones explicitas de tiempo de "
+"vida crean restricciones cuando hay ambigüedad; el compilador verifica que hay "
+"una solución válida."
 
 #: src/lifetimes/lifetime-annotations.md
 msgid ""
@@ -9404,7 +9407,6 @@ msgid "\"p3: {p3:?}\""
 msgstr "\"p3: {p3:?}\""
 
 #: src/lifetimes/lifetime-annotations.md
-#, fuzzy
 msgid ""
 "In this example, the compiler does not know what lifetime to infer for `p3`. "
 "Looking inside the function body shows that it can only safely assume that "
@@ -9413,10 +9415,10 @@ msgid ""
 "values."
 msgstr ""
 "En este ejemplo, el compilador no conoce el tiempo de vida que se debe inferir "
-"para `p3`. Al examinar el cuerpo de la función, solo se puede suponer con "
-"seguridad que el tiempo de vida de `p3` es menor que`p1` y `p2`. Sin embargo, "
-"como sucede con los tipos, Rust requiere anotaciones explícitas de los tiempos "
-"de vida en los argumentos de las funciones y los valores devueltos."
+"para `p3`. Al examinar el cuerpo de la función, se puede suponer con seguridad "
+"que el tiempo de vida de `p3` es menor que`p1` y `p2`. Sin embargo, como sucede "
+"con los tipos, Rust requiere anotaciones explícitas de los tiempos de vida en "
+"los argumentos de las funciones y los valores devueltos."
 
 #: src/lifetimes/lifetime-annotations.md
 msgid "Add `'a` appropriately to `left_most`:"
@@ -9441,17 +9443,17 @@ msgid "Lifetimes in Function Calls"
 msgstr "Tiempos de Vida en Llamadas a Función"
 
 #: src/lifetimes/lifetime-elision.md
-#, fuzzy
 msgid ""
 "Lifetimes for function arguments and return values must be fully specified, but "
 "Rust allows lifetimes to be elided in most cases with [a few simple rules]"
 "(https://doc.rust-lang.org/nomicon/lifetime-elision.html). This is not "
 "inference -- it is just a syntactic shorthand."
 msgstr ""
-"El tiempo de vida de los argumentos de las funciones y los valores devueltos "
-"deben especificarse por completo, pero Rust permite que se puedan eludir en la "
-"mayoría de los casos con [unas sencillas reglas](https://doc.rust-lang.org/"
-"nomicon/lifetime-elision.html)."
+"El tiempo de vida de los argumentos de las funciones y los valores devueltos se "
+"deben especificar de manera completa, pero Rust permite que se puedan eludir en "
+"la mayoría de los casos con [unas reglas sencillas](https://doc.rust-lang.org/"
+"nomicon/lifetime-elision.html). Esto no es inferencia -- solo es un atajo de "
+"sintaxis."
 
 #: src/lifetimes/lifetime-elision.md
 msgid "Each argument which does not have a lifetime annotation is given one."
@@ -9625,9 +9627,8 @@ msgstr ""
 "campo."
 
 #: src/lifetimes/exercise.md
-#, fuzzy
 msgid "We'll use the following proto:"
-msgstr "Puedes usar el siguiente archivo `Cargo.toml`:"
+msgstr "Usaremos el proto que sigue:"
 
 #: src/lifetimes/exercise.md
 msgid ""
@@ -9707,30 +9708,28 @@ msgid "//1 => WireType::I64,  -- not needed for this exercise\n"
 msgstr "//1 => WireType::I64, no es necesario para este ejercicio\n"
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
-#, fuzzy
 msgid "\"Invalid wire type: {value}\""
-msgstr "\"Tipo de wire no válido\""
+msgstr "\"Tipo de wire no válido: {value}\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "\"Expected string to be a `Len` field\""
-msgstr ""
+msgstr "\"Cadena era esperado ser un campo `Len`\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
-#, fuzzy
 msgid "\"Invalid string\""
-msgstr "\"Varint no válido\""
+msgstr "\"Cadena no válida\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "\"Expected bytes to be a `Len` field\""
-msgstr ""
+msgstr "\"Bytes eran esperados ser un campo `Len`\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "\"Expected `u64` to be a `Varint` field\""
-msgstr ""
+msgstr "\"`u64` era esperado ser un campo `Varint`\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "\"Expected `i32` to be an `I32` field\""
-msgstr ""
+msgstr "\"`i32` era esperado ser un campo `I32`\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "/// Parse a VARINT, returning the parsed value and the remaining bytes.\n"
@@ -9739,7 +9738,7 @@ msgstr ""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "\"Not enough bytes for varint\""
-msgstr ""
+msgstr "\"No hay suficientes bytes para un varint\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid ""
@@ -9755,7 +9754,7 @@ msgstr "// Un número mayor de 7 bytes no es válido.\n"
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "\"Too many bytes for varint\""
-msgstr ""
+msgstr "\"Demasiados bytes para un varint\""
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "/// Convert a tag into a field number and a WireType.\n"
@@ -9802,10 +9801,15 @@ msgid ""
 "for simplicity in this exercise we panic if any errors are encountered. On day "
 "4 we'll cover error handling in Rust in more detail."
 msgstr ""
+"En este ejercicio hay varios casos en los cuales la lección del protobuf puede "
+"fallar, e.g. si intentas leer un `i32` cuando hay menos de 4 bytes restantes en "
+"el buffer de datos. Normalmente usaríamos el enum `Result`, pero para "
+"simplificar el ejercicio inducimos pánico si ocurre un error. En el día 4 "
+"cubriremos el manejo de errores en Rust en mas detall"
 
 #: src/lifetimes/solution.md
 msgid "\"len not a valid `usize`\""
-msgstr ""
+msgstr "\"len no es un `usize` valido\""
 
 #: src/lifetimes/solution.md
 msgid "\"Unexpected EOF\""
@@ -9824,10 +9828,11 @@ msgid "Welcome to Day 4"
 msgstr "Bienvenido al Día 4"
 
 #: src/welcome-day-4.md
-#, fuzzy
 msgid ""
 "Today we will cover topics relating to building large-scale software in Rust:"
-msgstr "Hoy vamos a tratar algunos temas más avanzados de Rust:"
+msgstr ""
+"Hoy vamos a tratar algunos temas relacionados con la construcción de "
+"aplicaciones de grande escala en Rust:"
 
 #: src/welcome-day-4.md
 msgid "Iterators: a deep dive on the `Iterator` trait."
@@ -9853,21 +9858,18 @@ msgstr ""
 "expresarte en Rust seguro."
 
 #: src/welcome-day-4.md
-#, fuzzy
 msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 40 "
 "minutes. It contains:"
 msgstr ""
 "Contando con los descansos de 10 minutos, la duración prevista de la sesión es "
-"de unas 2 horas y 20 minutos."
+"de unas 2 horas y 40 minutos. Contiene:"
 
 #: src/iterators.md
-#, fuzzy
 msgid "Iterator"
-msgstr "Iteradores"
+msgstr "Iterador (Iterator)"
 
 #: src/iterators.md
-#, fuzzy
 msgid "IntoIterator"
 msgstr "`IntoIterator`"
 
@@ -9918,7 +9920,6 @@ msgstr ""
 "`some_vec.next()` no existe."
 
 #: src/iterators/intoiterator.md
-#, fuzzy
 msgid ""
 "The `Iterator` trait tells you how to _iterate_ once you have created an "
 "iterator. The related trait [`IntoIterator`](https://doc.rust-lang.org/std/iter/"
@@ -9926,20 +9927,21 @@ msgid ""
 "used automatically by the `for` loop."
 msgstr ""
 "El trait `Iterator` te indica cómo _iterar_ una vez que has creado un iterador. "
-"El trait relacionado `IntoIterator` indica cómo crear el iterador:"
+"El trait relacionado [`IntoIterator`](https://doc.rust-lang.org/std/iter/trait."
+"IntoIterator.html) indica cómo crear un iterador para un tipo. Es usado "
+"automáticamente por los bucles `for`."
 
 #: src/iterators/intoiterator.md
 msgid "\"point = {x}, {y}\""
 msgstr "\"punto = {x}, {y}\""
 
 #: src/iterators/intoiterator.md
-#, fuzzy
 msgid ""
 "Click through to the docs for `IntoIterator`. Every implementation of "
 "`IntoIterator` must declare two types:"
 msgstr ""
-"La sintaxis aquí significa que cada implementación de `IntoIterator` debe "
-"declarar dos tipos:"
+"Haz clic para leer la documentación para `IntoIterator`. Cada implementación de "
+"`IntoIterator` debe declarar dos tipos:"
 
 #: src/iterators/intoiterator.md
 msgid "`Item`: the type to iterate over, such as `i8`,"
@@ -10005,9 +10007,8 @@ msgid "\"prime_squares: {prime_squares:?}\""
 msgstr "\"prime_squares: {prime_squares:?}\""
 
 #: src/iterators/fromiterator.md
-#, fuzzy
 msgid "`Iterator` implements"
-msgstr "`Iterator`"
+msgstr "`Iterator` implementa"
 
 #: src/iterators/fromiterator.md
 msgid "There are two ways to specify `B` for this method:"
@@ -10031,35 +10032,35 @@ msgstr ""
 "Reescribe el ejemplo para usar esta opción."
 
 #: src/iterators/fromiterator.md
-#, fuzzy
 msgid ""
 "There are basic implementations of `FromIterator` for `Vec`, `HashMap`, etc. "
 "There are also more specialized implementations which let you do cool things "
 "like convert an `Iterator<Item = Result<V, E>>` into a `Result<Vec<V>, E>`."
 msgstr ""
-"También hay implementaciones que permiten hacer cosas interesantes, como "
-"convertir un  `Iterator<Item = Result<V, E>>` en un `Result<Vec<V>, E>`."
+"Existen implementaciones básicas de `FromIterator` para `Vec`, `HashMap`, etc. "
+"También existen implementaciones mas especializadas que te dejan hacer cosas "
+"padres como convertir un `Iterator<Item = Result<V, E>>` a un `Result<Vec<V>, "
+"E>`."
 
 #: src/iterators/exercise.md
-#, fuzzy
 msgid ""
 "In this exercise, you will need to find and use some of the provided methods in "
 "the [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) trait "
 "to implement a complex calculation."
 msgstr ""
-"Se puede implementar el trait [`Iterator`](https://doc.rust-lang.org/std/iter/"
-"trait.Iterator.html) en tus propios tipos:"
+"En este ejercicio, necesitaras encontrar y usar métodos del trait [`Iterator`]"
+"(https://doc.rust-lang.org/std/iter/trait.Iterator.html) para implementar una "
+"calculación compleja."
 
 #: src/iterators/exercise.md
-#, fuzzy
 msgid ""
 "Copy the following code to <https://play.rust-lang.org/> and make the tests "
 "pass. Use an iterator expression and `collect` the result to construct the "
 "return value."
 msgstr ""
 "Copia el siguiente fragmento de código en la página <https://play.rust-lang.org/"
-"> para hacer la prueba. Prueba a no asignar un `Vec` a los resultados "
-"intermedios:"
+"> y haz que las pruebas sucedan sin error. Usa una expresión de iterador y "
+"`collect` para construir el valor devuelto."
 
 #: src/iterators/exercise.md src/iterators/solution.md
 msgid ""
@@ -10317,7 +10318,7 @@ msgstr "Como ruta relativa:"
 
 #: src/modules/paths.md
 msgid "`foo` or `self::foo` refers to `foo` in the current module,"
-msgstr "`foo` o `self::foo` hacen referencia a `foo` en el módulo."
+msgstr "`foo` o `self::foo` hacen referencia a `foo` en el módulo corriente,"
 
 #: src/modules/paths.md
 msgid "`super::foo` refers to `foo` in the parent module."
@@ -10329,7 +10330,7 @@ msgstr "Como ruta absoluta:"
 
 #: src/modules/paths.md
 msgid "`crate::foo` refers to `foo` in the root of the current crate,"
-msgstr "`crate::foo` hace referencia a `foo` en la raíz del crate."
+msgstr "`crate::foo` hace referencia a `foo` en la raíz del crate corriente,"
 
 #: src/modules/paths.md
 msgid "`bar::foo` refers to `foo` in the `bar` crate."
@@ -10348,8 +10349,8 @@ msgid ""
 "making `DiskStorage` and `NetworkStorage` available to other crates with a "
 "convenient, short path."
 msgstr ""
-"DiskStorage` y `NetworkStorage` estén disponibles para otros crates con una "
-"ruta corta y práctica."
+"haciendo que `DiskStorage` y `NetworkStorage` estén disponibles para otros "
+"crates con una ruta corta y práctica."
 
 #: src/modules/paths.md
 msgid ""
@@ -10396,9 +10397,8 @@ msgstr ""
 "propio módulo."
 
 #: src/modules/exercise.md
-#, fuzzy
 msgid "Cargo Setup"
-msgstr "Configurar"
+msgstr "Configuración de Cargo"
 
 #: src/modules/exercise.md
 msgid ""
@@ -10756,7 +10756,6 @@ msgstr ""
 "entrada y hace lo siguiente para validar el número de la tarjeta de crédito:"
 
 #: src/testing/exercise.md
-#, fuzzy
 msgid "Ignore all spaces. Reject numbers with fewer than two digits."
 msgstr "Ignora todos los espacios. Rechaza los números con menos de dos dígitos."
 
@@ -10787,7 +10786,6 @@ msgid "The credit card number is valid if the sum ends with `0`."
 msgstr "El número de la tarjeta de crédito es válido si la suma termina en `0`."
 
 #: src/testing/exercise.md
-#, fuzzy
 msgid ""
 "The provided code provides a buggy implementation of the luhn algorithm, along "
 "with two basic unit tests that confirm that most of the algorithm is "
@@ -10798,13 +10796,13 @@ msgstr ""
 "del algoritmo se ha implementado correctamente."
 
 #: src/testing/exercise.md
-#, fuzzy
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and write additional tests "
 "to uncover bugs in the provided implementation, fixing any bugs you find."
 msgstr ""
-"Copia el fragmento de código que aparece más abajo en la página <https://play."
-"rust-lang.org/> y rellena los métodos y funciones que faltan:"
+"Copia el fragmento de código que aparece más abajo en la página a <https://play."
+"rust-lang.org/> y escribe pruebas adicionales para descubrir y arreglar errores "
+"en la implementación proveída."
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"4263 9826 4026 9299\""
@@ -10879,23 +10877,20 @@ msgid "\" 0 0 \""
 msgstr "\" 0 0 \""
 
 #: src/welcome-day-4-afternoon.md
-#, fuzzy
 msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 15 "
 "minutes. It contains:"
 msgstr ""
 "Contando con los descansos de 10 minutos, la duración prevista de la sesión es "
-"de unas 2 horas y 25 minutos."
+"de unas 2 horas y 15 minutos. Contiene:"
 
 #: src/error-handling.md
-#, fuzzy
 msgid "Error Trait"
-msgstr "`Error`"
+msgstr "Trait `Error`"
 
 #: src/error-handling.md
-#, fuzzy
 msgid "thiserror and anyhow"
-msgstr "`From` e `Into`"
+msgstr "`thiserror` y `anyhow`"
 
 #: src/error-handling.md src/error-handling/exercise.md
 msgid "Exercise: Rewriting with Result"
@@ -10925,11 +10920,11 @@ msgstr "Los _panics_ son un síntoma de que hay fallos en el programa."
 msgid "Runtime failures like failed bounds checks can panic"
 msgstr ""
 "Los fallos del tiempo de ejecución, como las comprobaciones de límites "
-"fallidas, pueden activar un pánico."
+"fallidas, pueden causar un pánico"
 
 #: src/error-handling/panics.md
 msgid "Assertions (such as `assert!`) panic on failure"
-msgstr "Las aserciones (como `assert!`) activan un pánico cuando hay fallos."
+msgstr "Las aserciones (como `assert!`) causan un pánico cuando fallan"
 
 #: src/error-handling/panics.md
 msgid "Purpose-specific panics can use the `panic!` macro."
@@ -10972,7 +10967,7 @@ msgid ""
 "Catching is unusual; do not attempt to implement exceptions with `catch_unwind`!"
 msgstr ""
 "El catching no es habitual, por lo que recomendamos no implementar excepciones "
-"con `catch_unwind`."
+"con `catch_unwind`!"
 
 #: src/error-handling/panics.md
 msgid ""
@@ -10992,18 +10987,25 @@ msgid ""
 "rust-lang.org/stable/std/result/enum.Result.html) enum, which we briefly saw "
 "when discussing standard library types."
 msgstr ""
+"El mecanismo primario para el manejo de errores en Rust es el enum [`Result`]"
+"(https://doc.rust-lang.org/stable/std/result/enum.Result.html), que vimos "
+"brevemente al discutir los tipos de la biblioteca estándar."
 
 #: src/error-handling/result.md
 msgid ""
 "`Result` has two variants: `Ok` which contains the success value, and `Err` "
 "which contains an error value of some kind."
 msgstr ""
+"`Result` tiene dos variantes: `Ok`, que contiene el valor de éxito; y `Err`, "
+"que contiene un valor de error de algún tipo."
 
 #: src/error-handling/result.md
 msgid ""
 "Whether or not a function can produce an error is encoded in the function's "
 "type signature by having the function return a `Result` value."
 msgstr ""
+"La signatura de tipo de una función indica si puede producir un error, en este "
+"caso devolverá un valor `Result`."
 
 #: src/error-handling/result.md
 msgid ""
@@ -11014,23 +11016,31 @@ msgid ""
 "handling, but means that you can always see in your source code where proper "
 "error handling is being skipped."
 msgstr ""
+"Como con `Option`, no hay manera de olvidarse de manejar un error: no puedes "
+"acceder el valor de éxito o el valor de error sin hacer coincidencia de "
+"patrones sobre el `Result` para ver que variante tienes. Métodos como `unwrap` "
+"hacen que sea mas fácil escribir código rápido-y-sucio que no maneja errores de "
+"una forma robusta, pero esto significa que siempre puedes ver en tu código "
+"donde no estas manejando errores de la manera propia."
 
 #: src/error-handling/result.md
 msgid ""
 "It may be helpful to compare error handling in Rust to error handling "
 "conventions that students may be familiar with from other programming languages."
 msgstr ""
+"Podria ayudar comparar el manejo de errores en Rust con las convenciones de "
+"manejo de errores de otros lenguajes que conocen los estudiantes."
 
 #: src/error-handling/result.md
 msgid "Many languages use exceptions, e.g. C++, Java, Python."
-msgstr ""
+msgstr "Muchos lenguajes usan excepciones, e.g. C++, Java, Python."
 
 #: src/error-handling/result.md
 msgid ""
 "In most languages with exceptions, whether or not a function can throw an "
 "exception is not visible as part of its type signature. This generally means "
 "that you can't tell when calling a function if it may throw an exception or not."
-msgstr ""
+msgstr "En la mayoria"
 
 #: src/error-handling/result.md
 msgid ""
