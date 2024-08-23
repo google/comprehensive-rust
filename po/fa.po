@@ -18390,18 +18390,25 @@ msgid ""
 "How does Rust know to forbid shared access across threads? The answer is in "
 "two traits:"
 msgstr ""
+"‏ Rust چگونه می‌داند که دسترسی مشترک در سراسر threadها را ممنوع می‌کند؟ پاسخ در "
+"دو trait است:"
 
 #: src/concurrency/send-sync/marker-traits.md:6
 msgid ""
 "[`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html): a type `T` "
 "is `Send` if it is safe to move a `T` across a thread boundary."
 msgstr ""
+"‏[`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html): در صورتی که "
+"جابجایی `T` در امتداد thread boundary ایمن باشد، تایپ `T` از جنس `Send` است."
 
 #: src/concurrency/send-sync/marker-traits.md:8
 msgid ""
 "[`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html): a type `T` "
 "is `Sync` if it is safe to move a `&T` across a thread boundary."
 msgstr ""
+"‏[`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html): در صورتی که "
+"جابجایی یک `&T` در سراسر یک thread boundary ایمن باشد، یک تایپ `T` از جنس "
+"`Sync`  است."
 
 #: src/concurrency/send-sync/marker-traits.md:11
 msgid ""
@@ -18410,22 +18417,30 @@ msgid ""
 "only contain `Send` and `Sync` types. You can also implement them manually "
 "when you know it is valid."
 msgstr ""
+"‏`Send` و `Sync` [ویژگی‌های ناامن] هستند (../../unsafe-rust/unsafe-traits.md). "
+"کامپایلر به‌طور خودکار آنها را برای تایپ‌های شما مشتق می‌کند تا زمانی که فقط "
+"دارای انواع `Send` و `Sync` باشند. شما همچنین می توانید آنها را به صورت دستی "
+"پیاده سازی کنید به‌خصوص زمانی که می دانید مقدار آن معتبر است."
 
 #: src/concurrency/send-sync/marker-traits.md:22
 msgid ""
 "One can think of these traits as markers that the type has certain thread-"
 "safety properties."
 msgstr ""
+"می‌توان این traitها را به عنوان نشانگرهایی در نظر گرفت که نوعی ویژگی thread-"
+"safety خاصی را دارد."
 
 #: src/concurrency/send-sync/marker-traits.md:24
 msgid "They can be used in the generic constraints as normal traits."
-msgstr ""
+msgstr "آنها را می‌توان در محدودیت‌های generic به عنوان  trait عادی استفاده کرد."
 
 #: src/concurrency/send-sync/send.md:3
 msgid ""
 "A type `T` is [`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html) "
 "if it is safe to move a `T` value to another thread."
 msgstr ""
+"اگر انتقال مقدار `T` به thread دیگری امن باشد، تایپ `T` در [`Send`](https://"
+"doc.rust-lang.org/std/marker/trait.Send.html) است."
 
 #: src/concurrency/send-sync/send.md:5
 msgid ""
@@ -18433,26 +18448,35 @@ msgid ""
 "run in that thread. So the question is when you can allocate a value in one "
 "thread and deallocate it in another."
 msgstr ""
+"تأثیر انتقال مالکیت (moving ownership) به یک thread دیگر این است که "
+"_نابودگرها_ ( _destructors_ ) در آن thread اجرا می شوند. بنابراین سوال این "
+"است که چه زمانی می‌توانید یک مقدار را در یک thread تخصیص دهید و آن را در "
+"thread دیگر توزیع کنید."
 
 #: src/concurrency/send-sync/send.md:14
 msgid ""
 "As an example, a connection to the SQLite library must only be accessed from "
 "a single thread."
 msgstr ""
+"به عنوان مثال، اتصال به کتابخانه SQLite فقط باید از یک thread قابل دسترسی "
+"باشد."
 
 #: src/concurrency/send-sync/sync.md:3
 msgid ""
 "A type `T` is [`Sync`](https://doc.rust-lang.org/std/marker/trait.Sync.html) "
 "if it is safe to access a `T` value from multiple threads at the same time."
 msgstr ""
+"یک تایپ `T` در واقع نوعی [`Sync`](https://doc.rust-lang.org/std/marker/trait."
+"Sync.html) است، اگر در دسترسی به یک  مقدار`T` از طریق چندین رشته به طور "
+"همزمان امن باشد."
 
 #: src/concurrency/send-sync/sync.md:6
 msgid "More precisely, the definition is:"
-msgstr ""
+msgstr "به طور دقیق‌تر، تعریف این طور است:"
 
 #: src/concurrency/send-sync/sync.md:8
 msgid "`T` is `Sync` if and only if `&T` is `Send`"
-msgstr ""
+msgstr "‏ `T` یک نوع `Sync` فقط و فقط زمانی که `&T` یک نوع `Send` باشد."
 
 #: src/concurrency/send-sync/sync.md:15
 msgid ""
@@ -18460,6 +18484,9 @@ msgid ""
 "thread-safe for shared use, it is also thread-safe to pass references of it "
 "across threads."
 msgstr ""
+"این عبارت به طور کلی روشی مختصر برای گفتن این است که اگر یک تایپ برای "
+"استفاده مشترک امن باشد، انتقال ارجاعات (pass references) آن به threadها نیز "
+"امن است."
 
 #: src/concurrency/send-sync/sync.md:19
 msgid ""
@@ -18469,109 +18496,130 @@ msgid ""
 "is also safe to move to another thread, because the data it references can "
 "be accessed from any thread safely."
 msgstr ""
+"این به خاطراست که اگر یک تایپ از جنس Sync باشد، به این معنی است که می‌توان آن "
+"را در چند thread بدون خطر در مورد وضعیت رقابتی داده یا سایر مشکلات Sync به "
+"اشتراک گذاشت، بنابراین انتقال آن به thread‌ای دیگر امن است. ارجاع به تایپ  "
+"نیز برای انتقال به threadای دیگر ایمن است، زیرا داده‌هایی که به آن ارجاع "
+"می‌دهد می‌توانند از هر threadای با خیال راحت دسترسی داشته باشند."
 
 #: src/concurrency/send-sync/examples.md:3
 msgid "`Send + Sync`"
-msgstr ""
+msgstr "`Send + Sync`"
 
 #: src/concurrency/send-sync/examples.md:5
 msgid "Most types you come across are `Send + Sync`:"
-msgstr ""
+msgstr "اکثر انواعی که با آنها روبرو می شوید `Send + Sync` هستند:"
 
 #: src/concurrency/send-sync/examples.md:7
 msgid "`i8`, `f32`, `bool`, `char`, `&str`, ..."
-msgstr ""
+msgstr "`i8`, `f32`, `bool`, `char`, `&str`, ..."
 
 #: src/concurrency/send-sync/examples.md:8
 msgid "`(T1, T2)`, `[T; N]`, `&[T]`, `struct { x: T }`, ..."
-msgstr ""
+msgstr "`i8`, `f32`, `bool`, `char`, `&str`, ..."
 
 #: src/concurrency/send-sync/examples.md:9
 msgid "`String`, `Option<T>`, `Vec<T>`, `Box<T>`, ..."
-msgstr ""
+msgstr "`(T1, T2)`, `[T; N]`, `&[T]`, `struct { x: T }`, ..."
 
 #: src/concurrency/send-sync/examples.md:10
 msgid "`Arc<T>`: Explicitly thread-safe via atomic reference count."
-msgstr ""
+msgstr "`String`, `Option<T>`, `Vec<T>`, `Box<T>`, ..."
 
 #: src/concurrency/send-sync/examples.md:11
 msgid "`Mutex<T>`: Explicitly thread-safe via internal locking."
 msgstr ""
+"‏`Arc<T>`:به طور صریح از طریق تعداد شمارش atomic reference  با thread-safe."
 
 #: src/concurrency/send-sync/examples.md:12
 msgid "`mpsc::Sender<T>`: As of 1.72.0."
-msgstr ""
+msgstr "`mpsc::Sender<T>`: از 1.72.0."
 
 #: src/concurrency/send-sync/examples.md:13
 msgid "`AtomicBool`, `AtomicU8`, ...: Uses special atomic instructions."
 msgstr ""
+"‏`AtomicBool`، `AtomicU8`، ...: از دستورالعمل های atomic ویژه استفاده می‌کند."
 
 #: src/concurrency/send-sync/examples.md:15
 msgid ""
 "The generic types are typically `Send + Sync` when the type parameters are "
 "`Send + Sync`."
 msgstr ""
+"در صورت وجود پارامترهای نوع، تایپ‌های generic معمولاً از نوع  `Send + Sync`  "
+"هستند.`Send + Sync`."
 
 #: src/concurrency/send-sync/examples.md:18
 msgid "`Send + !Sync`"
-msgstr ""
+msgstr "`Send + !Sync`"
 
 #: src/concurrency/send-sync/examples.md:20
 msgid ""
 "These types can be moved to other threads, but they're not thread-safe. "
 "Typically because of interior mutability:"
 msgstr ""
+"این تایپ‌ها را می‌توان به رشته‌های دیگر منتقل کرد، اما آنها ایمن نیستند. به طور "
+"معمول به دلیل تغییرپذیری داخلی(interior mutability):"
 
 #: src/concurrency/send-sync/examples.md:23
 msgid "`mpsc::Receiver<T>`"
-msgstr ""
+msgstr "`mpsc::Receiver<T>`"
 
 #: src/concurrency/send-sync/examples.md:24
 msgid "`Cell<T>`"
-msgstr ""
+msgstr "`Cell<T>`"
 
 #: src/concurrency/send-sync/examples.md:25
 msgid "`RefCell<T>`"
-msgstr ""
+msgstr "`RefCell<T>`"
 
 #: src/concurrency/send-sync/examples.md:27
 msgid "`!Send + Sync`"
-msgstr ""
+msgstr "`!Send + Sync`"
 
 #: src/concurrency/send-sync/examples.md:29
 msgid ""
 "These types are thread-safe, but they cannot be moved to another thread:"
 msgstr ""
+"این تایپ‌ها از نظر thread ایمن هستند، اما نمی توان آنها را به thread دیگری "
+"منتقل کرد:"
 
 #: src/concurrency/send-sync/examples.md:31
 msgid ""
 "`MutexGuard<T: Sync>`: Uses OS level primitives which must be deallocated on "
 "the thread which created them."
 msgstr ""
+"‏«MutexGuard<T: Sync>»: از ابتدایی‌های سطح سیستم‌عامل استفاده می‌کند که باید در "
+"threadای که آنها را ایجاد کرده است، توزیع شوند."
 
 #: src/concurrency/send-sync/examples.md:34
 msgid "`!Send + !Sync`"
-msgstr ""
+msgstr "`!Send + !Sync`"
 
 #: src/concurrency/send-sync/examples.md:36
 msgid "These types are not thread-safe and cannot be moved to other threads:"
 msgstr ""
+"این تایپ‌ها از نظر thread ایمن نیستند و نمی توان آنها را به رشته های دیگر "
+"منتقل کرد:"
 
 #: src/concurrency/send-sync/examples.md:38
 msgid ""
 "`Rc<T>`: each `Rc<T>` has a reference to an `RcBox<T>`, which contains a non-"
 "atomic reference count."
 msgstr ""
+"‏\"Rc<T>\": هر \"Rc<T>\" دارای یک ارجاع به \"RcBox<T>\" است که حاوی تعداد "
+"مراجع غیر atomic است."
 
 #: src/concurrency/send-sync/examples.md:40
 msgid ""
 "`*const T`, `*mut T`: Rust assumes raw pointers may have special concurrency "
 "considerations."
 msgstr ""
+"درمورد `*const T`, `*mut T`: زبان فرض Rust می کند که اشاره گرهای خام ممکن "
+"است ملاحظات همزمانی خاصی داشته باشند."
 
 #: src/concurrency/shared-state.md
 msgid "Arc"
-msgstr "Shared State"
+msgstr "Arc"
 
 #: src/concurrency/shared-state.md
 msgid "Mutex"
@@ -18582,44 +18630,55 @@ msgid ""
 "[`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html) allows shared "
 "read-only access via `Arc::clone`:"
 msgstr ""
+"‏[`Arc<T>`](https://doc.rust-lang.org/std/sync/struct.Arc.html) اجازه می‌دهد "
+"تا دسترسی read-only مشترک از طریق `Arc::clone` صورت پذیرد:"
 
 #: src/concurrency/shared-state/arc.md:16
 msgid "\"{thread_id:?}: {v:?}\""
-msgstr ""
+msgstr "\"{thread_id:?}: {v:?}\""
 
 #: src/concurrency/shared-state/arc.md:21
 #: src/concurrency/shared-state/example.md:17
 #: src/concurrency/shared-state/example.md:46
 msgid "\"v: {v:?}\""
-msgstr ""
+msgstr "\"v: {v:?}\""
 
 #: src/concurrency/shared-state/arc.md:30
 msgid ""
 "`Arc` stands for \"Atomic Reference Counted\", a thread safe version of `Rc` "
 "that uses atomic operations."
 msgstr ""
+"‏\"Arc\" مخفف \"Atomic Reference Counted\" است، یک نسخه ایمن از `Rc` که از "
+"عملیات atomic استفاده می‌کند."
 
 #: src/concurrency/shared-state/arc.md:32
 msgid ""
 "`Arc<T>` implements `Clone` whether or not `T` does. It implements `Send` "
 "and `Sync` if and only if `T` implements them both."
 msgstr ""
+"‏\"Arc<T>\" به طور کلی \"Clone\" را خواه `T` انجام دهد یا نه، پیاده سازی می "
+"کند. `Send` و `Sync` را اگر و فقط در صورتی پیاده‌سازی می‌کند که `T` هر دوی "
+"آنها را پیاده‌سازی کند."
 
 #: src/concurrency/shared-state/arc.md:34
 msgid ""
 "`Arc::clone()` has the cost of atomic operations that get executed, but "
 "after that the use of the `T` is free."
 msgstr ""
+"‏'Arc::clone()' هزینه عملیات atomic را دارد که اجرا می‌شود، اما پس از آن "
+"استفاده از `T` آزاد است."
 
 #: src/concurrency/shared-state/arc.md:36
 msgid ""
 "Beware of reference cycles, `Arc` does not use a garbage collector to detect "
 "them."
 msgstr ""
+"مراقب reference cycleها باشید، `Arc` از garbage collector برای شناسایی آنها "
+"استفاده نمی‌کند."
 
 #: src/concurrency/shared-state/arc.md:38
 msgid "`std::sync::Weak` can help."
-msgstr ""
+msgstr "`std::sync::Weak` می‌تواند مفید باشد."
 
 #: src/concurrency/shared-state/mutex.md:3
 msgid ""
@@ -18628,11 +18687,15 @@ msgid ""
 "interface (another form of [interior mutability](../../borrowing/interior-"
 "mutability.md)):"
 msgstr ""
+"‏[`Mutex<T>`](https://doc.rust-lang.org/std/sync/struct.Mutex.html) تضمین "
+"می‌کند که حذف متقابل _و_ امکان دسترسی قابل تغییر (mutable) به \"T\" را در پشت "
+"یکread-only interface  (شکل دیگری از [تغییرپذیری (mutable) داخلی](../../"
+"borrowing/interior-mutability.md)) فراهم می‌کند."
 
 #: src/concurrency/shared-state/mutex.md:12
 #: src/concurrency/shared-state/mutex.md:19
 msgid "\"v: {:?}\""
-msgstr ""
+msgstr "\"v: {:?}\""
 
 #: src/concurrency/shared-state/mutex.md:23
 msgid ""
@@ -18640,38 +18703,49 @@ msgid ""
 "lang.org/std/sync/struct.Mutex.html#impl-Sync-for-Mutex%3CT%3E) blanket "
 "implementation."
 msgstr ""
+"توجه کنید که چگونه یک [`impl<T: Send> Sync for Mutex<T>`](https://doc.rust-"
+"lang.org/std/sync/struct.Mutex.html#impl-Sync-for-Mutex%3CT%3E) برای اجرای "
+"کامل آن داریم."
 
 #: src/concurrency/shared-state/mutex.md:33
 msgid ""
 "`Mutex` in Rust looks like a collection with just one element --- the "
 "protected data."
 msgstr ""
+"‏«Mutex» در Rust مانند مجموعه‌ای با تنها یک عنصر --- داده‌های محافظت شده "
+"(protected) به نظر می‌رسد."
 
 #: src/concurrency/shared-state/mutex.md:35
 msgid ""
 "It is not possible to forget to acquire the mutex before accessing the "
 "protected data."
 msgstr ""
+"نمی‌توان قبل از دسترسی به داده‌های محافظت شده یا protected، دسترسی mutex را "
+"فراموش کرد."
 
 #: src/concurrency/shared-state/mutex.md:37
 msgid ""
 "You can get an `&mut T` from an `&Mutex<T>` by taking the lock. The "
 "`MutexGuard` ensures that the `&mut T` doesn't outlive the lock being held."
 msgstr ""
+"با گرفتن lock می‌توانید `&mut T` را از `&Mutex<T>` دریافت کنید.`MutexGuard` "
+"تضمین می‌کند که`&mut T` بیشتر از قفل نگه‌داشته شده، موجود نمی‌ماند."
 
 #: src/concurrency/shared-state/mutex.md:39
 msgid ""
 "`Mutex<T>` implements both `Send` and `Sync` iff (if and only if) `T` "
 "implements `Send`."
 msgstr ""
+"‏`Mutex<T>` هر دوی پیاده سازی `Send` و `Sync` iff (فقط و فقط) `T` از `Send` "
+"استفاده‌ می‌کنند."
 
 #: src/concurrency/shared-state/mutex.md:41
 msgid "A read-write lock counterpart: `RwLock`."
-msgstr ""
+msgstr "‏ همتای قفل خواندن و نوشتن: `RwLock`."
 
 #: src/concurrency/shared-state/mutex.md:42
 msgid "Why does `lock()` return a `Result`?"
-msgstr ""
+msgstr "چرا `lock()` یک`Result` برمی‌گرداند؟"
 
 #: src/concurrency/shared-state/mutex.md:43
 msgid ""
@@ -18681,50 +18755,60 @@ msgid ""
 "[`PoisonError`](https://doc.rust-lang.org/std/sync/struct.PoisonError.html). "
 "You can call `into_inner()` on the error to recover the data regardless."
 msgstr ""
+"اگر threadای که  `Mutex`  را نگه می‌دارد دچار panic شود، `Mutex` «مسموم/"
+"poisoned» می‌شود تا نشان دهد که داده‌هایی که محافظت می‌کند ممکن است در وضعیت "
+"ناسازگاری باشند. فراخوانی `lock()` در یک mutex مسموم با یک [«PoisonError»] "
+"(https://doc.rust-lang.org/std/sync/struct.PoisonError.html) انجام نمی‌شود. "
+"می‌توانید `into_inner()` را در مورد خطا برای بازیابی داده‌ها بدون توجه به آن "
+"فراخوانی کنید."
 
 #: src/concurrency/shared-state/example.md:3
 msgid "Let us see `Arc` and `Mutex` in action:"
-msgstr ""
+msgstr "اجازه دهید `Arc` و `Mutex` را در عمل ببینیم:"
 
 #: src/concurrency/shared-state/example.md:6
 msgid "// use std::sync::{Arc, Mutex};\n"
-msgstr ""
+msgstr "// use std::sync::{Arc, Mutex};\n"
 
 #: src/concurrency/shared-state/example.md:24
 msgid "Possible solution:"
-msgstr ""
+msgstr "راه‌حل ممکن:"
 
 #: src/concurrency/shared-state/example.md:50
 msgid "Notable parts:"
-msgstr ""
+msgstr "بخش‌های قابل توجه:"
 
 #: src/concurrency/shared-state/example.md:52
 msgid ""
 "`v` is wrapped in both `Arc` and `Mutex`, because their concerns are "
 "orthogonal."
-msgstr ""
+msgstr "‏ `v` در `Arc` و `Mutex` احاطه می‌شود، زیرا مسائل آنها شبیه به هم است."
 
 #: src/concurrency/shared-state/example.md:54
 msgid ""
 "Wrapping a `Mutex` in an `Arc` is a common pattern to share mutable state "
 "between threads."
 msgstr ""
+"قرار دادن یک `Mutex` در یک `Arc` یک الگوی رایج برای به اشتراک گذاشتن حالت "
+"قابل تغییر (mutable) بین threadها است."
 
 #: src/concurrency/shared-state/example.md:56
 msgid ""
 "`v: Arc<_>` needs to be cloned as `v2` before it can be moved into another "
 "thread. Note `move` was added to the lambda signature."
 msgstr ""
+"‏ `v: Arc<_>` باید به عنوان `v2` کلون شود تا بتوان آن را به thread دیگری "
+"منتقل کرد. نکته `move` به  lambda signature اضافه شد."
 
 #: src/concurrency/shared-state/example.md:58
 msgid ""
 "Blocks are introduced to narrow the scope of the `LockGuard` as much as "
 "possible."
-msgstr ""
+msgstr "بلوک‌ها برای محدود کردن دامنه `LockGuard` تا حد امکان معرفی شده‌اند."
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:3
 msgid "The dining philosophers problem is a classic problem in concurrency:"
-msgstr ""
+msgstr "مسئله ناهار خوردن فیلسوفان، در واقع یک مسئله کلاسیک concurrency است:"
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:5
 msgid ""
@@ -18737,6 +18821,14 @@ msgid ""
 "not eating. After an individual philosopher finishes eating, they will put "
 "down both forks."
 msgstr ""
+"پنج فیلسوف در کنار هم دور یک میز غذا می‌خورند. هر فیلسوف جایگاه خاص خود را در "
+"میز دارد. بین هر بشقاب یک چنگال قرار دارد. غذایی که سِرو می‌شود نوعی اسپاگتی "
+"است که باید با دو چنگال خورده شود. هر فیلسوف فقط می‌تواند به طور متناوب فکر "
+"کند و غذا بخورد. علاوه بر این، یک فیلسوف فقط می‌تواند اسپاگتی خود را زمانی "
+"بخورد که هم چنگال چپ و هم چنگال راست را داشته باشد؛ بنابراین دو چنگال فقط "
+"زمانی در دسترس خواهد بود که دو همسایه نزدیک آنها در حال فکرکردن باشند و نه "
+"در حال غذاخوردن. پس از اینکه یک فیلسوف غذاخوردن را تمام کرد، هر دو چنگال را "
+"پایین می‌گذارد."
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:13
 msgid ""
@@ -18744,6 +18836,9 @@ msgid ""
 "for this exercise. Copy the code below to a file called `src/main.rs`, fill "
 "out the blanks, and test that `cargo run` does not deadlock:"
 msgstr ""
+"برای این تمرین به یک [Cargo installation](../../cargo/running-locally.md) "
+"محلی نیاز دارید. کد زیر را در فایلی به نام `src/main.rs` کپی کنید، جاهای "
+"خالی را پر کنید و آزمایش کنید که `cargo run` به بن‌بست (deadlock) نمی‌خورد:"
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:28
 #: src/concurrency/async-exercises/dining-philosophers.md:23
@@ -18752,86 +18847,92 @@ msgid ""
 "    // right_fork: ...\n"
 "    // thoughts: ...\n"
 msgstr ""
+"// left_fork: ...\n"
+"    // right_fork: ...\n"
+"    // thoughts: ...\n"
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:36
 #: src/concurrency/sync-exercises/solutions.md:22
 #: src/concurrency/async-exercises/dining-philosophers.md:31
 #: src/concurrency/async-exercises/solutions.md:23
 msgid "\"Eureka! {} has a new idea!\""
-msgstr ""
+msgstr "\"ایول! {} یک ایده جدید!\""
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:41
 #: src/concurrency/async-exercises/solutions.md:31
+#, fuzzy
 msgid "// Pick up forks...\n"
-msgstr ""
+msgstr "// Pick up forks...\n"
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:42
 #: src/concurrency/sync-exercises/solutions.md:31
 #: src/concurrency/async-exercises/dining-philosophers.md:38
 #: src/concurrency/async-exercises/solutions.md:51
 msgid "\"{} is eating...\""
-msgstr ""
+msgstr "\"{} is eating...\""
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:48
 #: src/concurrency/sync-exercises/solutions.md:37
 #: src/concurrency/async-exercises/dining-philosophers.md:44
 #: src/concurrency/async-exercises/solutions.md:59
 msgid "\"Socrates\""
-msgstr ""
+msgstr "\"Socrates\""
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:48
 #: src/concurrency/sync-exercises/solutions.md:37
 #: src/concurrency/async-exercises/dining-philosophers.md:44
 #: src/concurrency/async-exercises/solutions.md:59
 msgid "\"Hypatia\""
-msgstr ""
+msgstr "\"Hypatia\""
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:48
 #: src/concurrency/sync-exercises/solutions.md:37
 #: src/concurrency/async-exercises/dining-philosophers.md:44
 #: src/concurrency/async-exercises/solutions.md:59
 msgid "\"Plato\""
-msgstr ""
+msgstr "\"Plato\""
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:48
 #: src/concurrency/sync-exercises/solutions.md:37
 #: src/concurrency/async-exercises/dining-philosophers.md:44
 #: src/concurrency/async-exercises/solutions.md:59
+#, fuzzy
 msgid "\"Aristotle\""
-msgstr ""
+msgstr "\"Aristotle\""
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:48
 #: src/concurrency/sync-exercises/solutions.md:37
 #: src/concurrency/async-exercises/dining-philosophers.md:44
 #: src/concurrency/async-exercises/solutions.md:59
 msgid "\"Pythagoras\""
-msgstr ""
+msgstr "\"Pythagoras\""
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:51
 #: src/concurrency/async-exercises/dining-philosophers.md:48
 #: src/concurrency/async-exercises/solutions.md:63
 msgid "// Create forks\n"
-msgstr ""
+msgstr "// Create forks\n"
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:53
 #: src/concurrency/async-exercises/dining-philosophers.md:50
 #: src/concurrency/async-exercises/solutions.md:67
 msgid "// Create philosophers\n"
-msgstr ""
+msgstr "// Create philosophers\n"
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:55
 msgid "// Make each of them think and eat 100 times\n"
-msgstr ""
+msgstr "// Make each of them think and eat 100 times\n"
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:57
 #: src/concurrency/async-exercises/dining-philosophers.md:54
 #: src/concurrency/async-exercises/solutions.md:95
+#, fuzzy
 msgid "// Output their thoughts\n"
-msgstr ""
+msgstr "// Output their thoughts\n"
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:61
 msgid "You can use the following `Cargo.toml`:"
-msgstr ""
+msgstr "می توانید از `Cargo.toml` زیر استفاده کنید:"
 
 #: src/concurrency/sync-exercises/dining-philosophers.md:65
 msgid ""
@@ -18842,6 +18943,12 @@ msgid ""
 "edition = \"2021\"\n"
 "```"
 msgstr ""
+"```toml\n"
+"[package]\n"
+"name = \"dining-philosophers\"\n"
+"version = \"0.1.0\"\n"
+"edition = \"2021\"\n"
+"```"
 
 #: src/concurrency/sync-exercises/link-checker.md:3
 msgid ""
@@ -18850,6 +18957,10 @@ msgid ""
 "should recursively check other pages on the same domain and keep doing this "
 "until all pages have been validated."
 msgstr ""
+"اجازه دهید از دانش جدید خود برای ایجاد یک جستجوگر لینک multi-thread استفاده "
+"کنیم. باید از یک صفحه وب شروع شود و بررسی کنید که لینک‌های موجود در صفحه "
+"معتبر هستند. باید به‌صورت بازگشتی صفحات دیگر را در همان دامنه بررسی کند و این "
+"کار را تا زمانی که همه صفحات تأیید نشده‌اند ادامه دهد."
 
 #: src/concurrency/sync-exercises/link-checker.md:8
 msgid ""
@@ -18858,21 +18969,32 @@ msgid ""
 "(https://docs.rs/scraper/). Finally, we'll need some way of handling errors, "
 "we will use [`thiserror`](https://docs.rs/thiserror/)."
 msgstr ""
+"برای این کار به یک کلاینت HTTP مانند [`reqwest`](https://docs.rs/reqwest/) "
+"نیاز دارید. شما همچنین به راهی برای یافتن لینک‌ها نیاز دارید، ما می توانیم از "
+"[`reqwest`](https://docs.rs/reqwest/) استفاده کنیم. در نهایت، ما به روشی "
+"برای رسیدگی به خطاها نیاز داریم پس درنتیجه از [`thiserror`](https://docs.rs/"
+"thiserror/) استفاده خواهیم کرد."
 
 #: src/concurrency/sync-exercises/link-checker.md:12
+#, fuzzy
 msgid "Create a new Cargo project and `reqwest` it as a dependency with:"
 msgstr ""
+"یک پروژه Cargo جدید ایجاد کنید و آن را به عنوان یک وابستگی با `reqwest` "
+"اعلام کنید:"
 
 #: src/concurrency/sync-exercises/link-checker.md:22
 msgid ""
 "If `cargo add` fails with `error: no such subcommand`, then please edit the "
 "`Cargo.toml` file by hand. Add the dependencies listed below."
 msgstr ""
+"اگر`cargo add` با `error: no such subcommand` ناموفق بود، لطفاً فایل `Cargo."
+"toml` را دستی ویرایش کنید و وابستگی‌های ذکر شده در زیر را اضافه کنید."
 
 #: src/concurrency/sync-exercises/link-checker.md:25
 msgid ""
 "The `cargo add` calls will update the `Cargo.toml` file to look like this:"
 msgstr ""
+"فراخوانی‌ها `cargo add` را در فایل `Cargo.toml` به‌صورت زیر به‌روزرسانی می‌کند:"
 
 #: src/concurrency/sync-exercises/link-checker.md:29
 msgid ""
@@ -18890,64 +19012,84 @@ msgid ""
 "thiserror = \"1.0.37\"\n"
 "```"
 msgstr ""
+"```toml\n"
+"[package]\n"
+"name = \"link-checker\"\n"
+"version = \"0.1.0\"\n"
+"edition = \"2021\"\n"
+"publish = false\n"
+"\n"
+"[dependencies]\n"
+"reqwest = { version = \"0.11.12\", features = [\"blocking\", \"rustls-"
+"tls\"] }\n"
+"scraper = \"0.13.0\"\n"
+"thiserror = \"1.0.37\"\n"
+"```"
 
 #: src/concurrency/sync-exercises/link-checker.md:42
 msgid ""
 "You can now download the start page. Try with a small site such as `https://"
 "www.google.org/`."
 msgstr ""
+"اکنون می توانید صفحه شروع را دانلود کنید. با یک سایت کوچک مانند `https://www."
+"google.org/` امتحان کنید."
 
 #: src/concurrency/sync-exercises/link-checker.md:45
 msgid "Your `src/main.rs` file should look something like this:"
-msgstr ""
+msgstr "فایل `src/main.rs` شما باید چیزی شبیه به این باشد:"
 
 #: src/concurrency/sync-exercises/link-checker.md:57
 #: src/concurrency/sync-exercises/solutions.md:93
 msgid "\"request error: {0}\""
-msgstr ""
+msgstr "\"request error: {0}\""
 
 #: src/concurrency/sync-exercises/link-checker.md:59
 #: src/concurrency/sync-exercises/solutions.md:95
+#, fuzzy
 msgid "\"bad http response: {0}\""
-msgstr ""
+msgstr "\"bad http response: {0}\""
 
 #: src/concurrency/sync-exercises/link-checker.md:70
 #: src/concurrency/sync-exercises/solutions.md:106
 msgid "\"Checking {:#}\""
-msgstr ""
+msgstr "\"بررسی {:#}\""
 
 #: src/concurrency/sync-exercises/link-checker.md:88
 #: src/concurrency/sync-exercises/solutions.md:124
 msgid "\"href\""
-msgstr ""
+msgstr "\"href\""
 
 #: src/concurrency/sync-exercises/link-checker.md:95
 #: src/concurrency/sync-exercises/solutions.md:131
+#, fuzzy
 msgid "\"On {base_url:#}: ignored unparsable {href:?}: {err}\""
-msgstr ""
+msgstr "\"On {base_url:#}: ignored unparsable {href:?}: {err}\""
 
 #: src/concurrency/sync-exercises/link-checker.md:104
 #: src/concurrency/sync-exercises/solutions.md:241
 msgid "\"https://www.google.org\""
-msgstr ""
+msgstr "\"https://www.google.org\""
 
 #: src/concurrency/sync-exercises/link-checker.md:107
 msgid "\"Links: {links:#?}\""
-msgstr ""
+msgstr "\"Links: {links:#?}\""
 
 #: src/concurrency/sync-exercises/link-checker.md:108
 msgid "\"Could not extract links: {err:#}\""
-msgstr ""
+msgstr "\"نمی‌تواند لینک را باز کند: {err:#}\""
 
 #: src/concurrency/sync-exercises/link-checker.md:113
 msgid "Run the code in `src/main.rs` with"
-msgstr ""
+msgstr "این کد را در `src/main.rs` اجرا کنید"
 
 #: src/concurrency/sync-exercises/link-checker.md:121
 msgid ""
 "Use threads to check the links in parallel: send the URLs to be checked to a "
 "channel and let a few threads check the URLs in parallel."
 msgstr ""
+"برای بررسی موازی لینک‌ها از threadها استفاده کنید: URLهایی را که باید بررسی "
+"شوند به یک channel ارسال کنید و اجازه دهید چند thread به‌صورت موازی URLها را "
+"بررسی کنند."
 
 #: src/concurrency/sync-exercises/link-checker.md:123
 msgid ""
@@ -18955,48 +19097,61 @@ msgid ""
 "org` domain. Put an upper limit of 100 pages or so so that you don't end up "
 "being blocked by the site."
 msgstr ""
+"این را به صورت بازگشتی پیوندها گسترش دهید تا از همه صفحات را در دامنه «www."
+"google.org» استخراج کنید. حد بالا را حدود ۱۰۰ صفحه یا بیشتر قرار دهید تا در "
+"نهایت توسط سایت مسدود نشوید."
 
 #: src/concurrency/sync-exercises/solutions.md:27
 msgid "\"{} is trying to eat\""
-msgstr ""
+msgstr "\"{} is trying to eat\""
 
 #: src/concurrency/sync-exercises/solutions.md:51
+#, fuzzy
 msgid ""
 "// To avoid a deadlock, we have to break the symmetry\n"
 "        // somewhere. This will swap the forks without deinitializing\n"
 "        // either of them.\n"
 msgstr ""
+"// To avoid a deadlock, we have to break the symmetry\n"
+"        // somewhere. This will swap the forks without deinitializing\n"
+"        // either of them.\n"
 
 #: src/concurrency/sync-exercises/solutions.md:75
 msgid "\"{thought}\""
-msgstr ""
+msgstr "\"{thought}\""
 
 #: src/concurrency/sync-exercises/solutions.md:80
 msgid "Link Checker"
-msgstr ""
+msgstr "جستجوگر Link"
 
 #: src/concurrency/sync-exercises/solutions.md:150
+#, fuzzy
 msgid ""
 "/// Determine whether links within the given page should be extracted.\n"
 msgstr ""
+"/// Determine whether links within the given page should be extracted.\n"
 
 #: src/concurrency/sync-exercises/solutions.md:158
+#, fuzzy
 msgid ""
 "/// Mark the given page as visited, returning false if it had already\n"
 "    /// been visited.\n"
 msgstr ""
+"/// Mark the given page as visited, returning false if it had already\n"
+"    /// been visited.\n"
 
 #: src/concurrency/sync-exercises/solutions.md:184
+#, fuzzy
 msgid "// The sender got dropped. No more commands coming in.\n"
-msgstr ""
+msgstr "// The sender got dropped. No more commands coming in.\n"
 
 #: src/concurrency/sync-exercises/solutions.md:225
 msgid "\"Got crawling error: {:#}\""
-msgstr ""
+msgstr "\"خطای crawling دریافت شد: {:#}\""
 
 #: src/concurrency/sync-exercises/solutions.md:243
 msgid "\"Bad URLs: {:#?}\""
-msgstr ""
+msgstr "\"Bad URLs: {:#?}\""
 
 #: src/concurrency/welcome-async.md
 msgid ""
