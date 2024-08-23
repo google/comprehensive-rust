@@ -44,7 +44,7 @@ fields, and to parse a message into a series of calls to those callbacks.
 What remains for you is to implement the `parse_field` function and the
 `ProtoMessage` trait for `Person` and `PhoneNumber`.
 
-You copy the code below to https://play.rust-lang.org/ and fill in the missings and check
+You copy the code below to https://play.rust-lang.org/ and fill in the missing and check
 tests:
 
 <!-- compile_fail because the stubbed out code has type inference errors. -->
