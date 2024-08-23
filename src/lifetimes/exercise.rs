@@ -23,7 +23,8 @@ enum WireType {
     /// VARINT followed by exactly that number of bytes.
     Len,
     /// The I32 WireType indicates that the value is precisely 4 bytes in
-    /// little-endian order containing a 32-bit signed float.
+    /// little-endian order containing a 32-bit signed integer or float type.
+    /// For this exersice, only implement for float type. 
     I32,
 }
 
@@ -223,6 +224,7 @@ fn main() {
 // ANCHOR_END: main
 
 // ANCHOR: tests
+// Tests can be checked with appropriate option in the playground website  
 #[cfg(test)]
 mod tests {
     use super::*;
