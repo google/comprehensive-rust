@@ -224,7 +224,7 @@ fn main() {
 // ANCHOR_END: main
 
 // ANCHOR: tests
-// Tests can be checked with appropriate option in the playground website  
+// Tests can be checked with appropriate option 
 #[cfg(test)]
 mod tests {
     use super::*;
