@@ -19798,6 +19798,10 @@ msgid ""
 "with its share of pitfalls and footguns. We illustrate some of them in this "
 "chapter."
 msgstr ""
+"‏ Async / await انتزاع راحت و کارآمدی را برای برنامه نویسی concurrent "
+"asynchronous فراهم می‌کند. با‌این‌حال، مدل async/wait در Rust نیز با سهم خود از "
+"مشکلات و pitfallها و footgunها همراه است. برخی از آنها را در این فصل توضیح "
+"می‌دهیم."
 
 #: src/concurrency/async-pitfalls.md
 msgid "Pin"
@@ -19805,7 +19809,7 @@ msgstr "Pin"
 
 #: src/concurrency/async-pitfalls/blocking-executor.md:1
 msgid "Blocking the executor"
-msgstr ""
+msgstr "مسدود کردن executor"
 
 #: src/concurrency/async-pitfalls/blocking-executor.md:3
 msgid ""
@@ -19814,20 +19818,28 @@ msgid ""
 "being executed. An easy workaround is to use async equivalent methods where "
 "possible."
 msgstr ""
+"اکثر async runtimeهای تنها به  IO task اجازه می‌دهند که به صورت همزمان "
+"(concurrent) اجرا شوند. این بدان معنی است که تسک‌های block کردن CPU باعث "
+"مسدود شدن executor و جلوگیری از اجرای سایر تسک‌ها می‌شود. یک راه حل آسان این "
+"است که در صورت امکان از متدهای معادل async استفاده کنید."
 
 #: src/concurrency/async-pitfalls/blocking-executor.md:14
+#, fuzzy
 msgid "\"future {id} slept for {duration_ms}ms, finished after {}ms\""
-msgstr ""
+msgstr "\"future {id} slept for {duration_ms}ms, finished after {}ms\""
 
 #: src/concurrency/async-pitfalls/blocking-executor.md:19
+#, fuzzy
 msgid "\"current_thread\""
-msgstr ""
+msgstr "\"current_thread\""
 
 #: src/concurrency/async-pitfalls/blocking-executor.md:30
 msgid ""
 "Run the code and see that the sleeps happen consecutively rather than "
 "concurrently."
 msgstr ""
+"کد را اجرا کنید و ببینید که sleep‌ها به طور متوالی اتفاق می‌افتند و نه به صورت "
+"همزمان (concurrent)."
 
 #: src/concurrency/async-pitfalls/blocking-executor.md:33
 msgid ""
@@ -19835,17 +19847,24 @@ msgid ""
 "makes the effect more obvious, but the bug is still present in the multi-"
 "threaded flavor."
 msgstr ""
+"این `\"current_thread\"` همه taskها را روی یک thread قرار می‌دهد. این "
+"اثرگذاری را آشکارتر می‌کند، اما این اشکال همچنان در طبیعت multi-threaded وجود "
+"دارد."
 
 #: src/concurrency/async-pitfalls/blocking-executor.md:37
 msgid ""
 "Switch the `std::thread::sleep` to `tokio::time::sleep` and await its result."
 msgstr ""
+"‏ `std::thread::sleep` را به `tokio::time::sleep` تغییر دهید و منتظر نتیجه "
+"باشید."
 
 #: src/concurrency/async-pitfalls/blocking-executor.md:39
 msgid ""
 "Another fix would be to `tokio::task::spawn_blocking` which spawns an actual "
 "thread and transforms its handle into a future without blocking the executor."
 msgstr ""
+"راه‌حل دیگر `tokio::task::spawn_blocking` است که یک thread واقعی ایجاد می‌کند "
+"و handle آن را بدون مسدود کردن executor به future تبدیل می‌کند."
 
 #: src/concurrency/async-pitfalls/blocking-executor.md:42
 msgid ""
@@ -19856,12 +19875,21 @@ msgid ""
 "OS threads (e.g., CUDA). Prefer `tokio::task::spawn_blocking` in such "
 "situations."
 msgstr ""
+"شما نباید taskها را به عنوان thread‌های سیستم عامل در نظر بگیرید. آنها از "
+"نگاشت ۱ به ۱ پشتیبانی نمی‌کنند و اکثر executorها به بسیاری از taskها اجازه "
+"می‌دهند روی یک thread سیستم عامل اجرا شوند. این امر به‌ویژه هنگام تعامل با "
+"کتابخانه‌های دیگر از طریق FFI مشکل‌ساز است، جایی که آن کتابخانه ممکن است به "
+"ذخیره‌سازی محلی thread یا نگاشت (map) به threadهای سیستم‌عامل خاص (مانند CUDA) "
+"بستگی داشته باشد. در چنین شرایطی `tokio::task::spawn_blocking` را ترجیح دهید."
 
 #: src/concurrency/async-pitfalls/blocking-executor.md:48
 msgid ""
 "Use sync mutexes with care. Holding a mutex over an `.await` may cause "
 "another task to block, and that task may be running on the same thread."
 msgstr ""
+"با احتیاط از همگام‌سازی mutexها استفاده کنید. نگه داشتن یک mutex روی یک `."
+"await` ممکن است باعث مسدود شدن task دیگری شود و آن task ممکن است در همان "
+"thread در حال اجرا باشد."
 
 #: src/concurrency/async-pitfalls/pin.md:3
 msgid ""
@@ -19869,6 +19897,9 @@ msgid ""
 "type returned is the result of a compiler transformation which turns local "
 "variables into data stored inside the future."
 msgstr ""
+"بلوک‌ها و توابع Async انواعی را برمی‌گردانند که ویژگی `Future` را پیاده‌سازی "
+"می‌کنند. نوع برگشتی نتیجه تبدیل کامپایلر است که متغیرهای محلی را به داده های "
+"ذخیره شده در future تبدیل می کند."
 
 #: src/concurrency/async-pitfalls/pin.md:7
 msgid ""
@@ -19876,6 +19907,9 @@ msgid ""
 "of that, the future should never be moved to a different memory location, as "
 "it would invalidate those pointers."
 msgstr ""
+"برخی از این متغیرها می‌توانند اشاره‌گرهایی را برای سایر متغیرهای محلی نگه "
+"دارند. به همین دلیل، future هرگز نباید به مکان حافظه دیگری منتقل شود، زیرا "
+"این pointerها را باطل می‌کند."
 
 #: src/concurrency/async-pitfalls/pin.md:11
 msgid ""
@@ -19884,74 +19918,99 @@ msgid ""
 "operations that would move the instance it points to into a different memory "
 "location."
 msgstr ""
+"برای جلوگیری از جابجایی تایپ future در حافظه، فقط از طریق یک pointer پین شده "
+"می توان آن را بررسی کرد. `Pin` یک wrapper در اطراف یک reference است که تمام "
+"عملیاتی را که می‌تواند نمونه‌ای را که به آن اشاره می‌کند به یک مکان حافظه "
+"متفاوت منتقل کند را ممنوع می‌کند."
 
 #: src/concurrency/async-pitfalls/pin.md:20
+#, fuzzy
 msgid ""
 "// A work item. In this case, just sleep for the given time and respond\n"
 "// with a message on the `respond_on` channel.\n"
 msgstr ""
+"// A work item. In this case, just sleep for the given time and respond\n"
+"// with a message on the `respond_on` channel.\n"
 
 #: src/concurrency/async-pitfalls/pin.md:28
+#, fuzzy
 msgid "// A worker which listens for work on a queue and performs it.\n"
-msgstr ""
+msgstr "// A worker which listens for work on a queue and performs it.\n"
 
 #: src/concurrency/async-pitfalls/pin.md:35
+#, fuzzy
 msgid "// Pretend to work.\n"
-msgstr ""
+msgstr "// Pretend to work.\n"
 
 #: src/concurrency/async-pitfalls/pin.md:38
+#, fuzzy
 msgid "\"failed to send response\""
-msgstr ""
+msgstr "\"failed to send response\""
 
 #: src/concurrency/async-pitfalls/pin.md:41
+#, fuzzy
 msgid "// TODO: report number of iterations every 100ms\n"
-msgstr ""
+msgstr "// TODO: report number of iterations every 100ms\n"
 
 #: src/concurrency/async-pitfalls/pin.md:45
+#, fuzzy
 msgid "// A requester which requests work and waits for it to complete.\n"
-msgstr ""
+msgstr "// A requester which requests work and waits for it to complete.\n"
 
 #: src/concurrency/async-pitfalls/pin.md:52
+#, fuzzy
 msgid "\"failed to send on work queue\""
-msgstr ""
+msgstr "\"failed to send on work queue\""
 
 #: src/concurrency/async-pitfalls/pin.md:53
+#, fuzzy
 msgid "\"failed waiting for response\""
-msgstr ""
+msgstr "\"failed waiting for response\""
 
 #: src/concurrency/async-pitfalls/pin.md:62
+#, fuzzy
 msgid "\"work result for iteration {i}: {resp}\""
-msgstr ""
+msgstr "\"Welcome to chat! Type a message\""
 
 #: src/concurrency/async-pitfalls/pin.md:70
 msgid ""
 "You may recognize this as an example of the actor pattern. Actors typically "
 "call `select!` in a loop."
 msgstr ""
+"شما ممکن است این را به عنوان نمونه ای از الگوی بازیگر (actor pattern) تشخیص "
+"دهید. بازیگران معمولاً `select!` را در یک حلقه صدا می‌زنند."
 
 #: src/concurrency/async-pitfalls/pin.md:73
 msgid ""
 "This serves as a summation of a few of the previous lessons, so take your "
 "time with it."
 msgstr ""
+"این به عنوان یک جمع‌بندی از چند درس قبلی عمل می کند، بنابراین وقت خود را صرف "
+"آن کنید."
 
 #: src/concurrency/async-pitfalls/pin.md:76
 msgid ""
 "Naively add a `_ = sleep(Duration::from_millis(100)) => { println!(..) }` to "
 "the `select!`. This will never execute. Why?"
 msgstr ""
+"به‌سادگی یک `_ = sleep(Duration::from_millis(100)) => { println!(..) }` را به "
+"`select!` اضافه کنید. این مورد هرگز اجرا نمی شود. چرا؟"
 
 #: src/concurrency/async-pitfalls/pin.md:79
 msgid ""
 "Instead, add a `timeout_fut` containing that future outside of the `loop`:"
-msgstr ""
+msgstr "درعوض، یک `timeout_fut` حاوی آن future خارج از `loop` اضافه کنید:"
 
 #: src/concurrency/async-pitfalls/pin.md:90
+#, fuzzy
 msgid ""
 "This still doesn't work. Follow the compiler errors, adding `&mut` to the "
 "`timeout_fut` in the `select!` to work around the move, then using `Box::"
 "pin`:"
 msgstr ""
+"این مورد هنوز کار نمی‌کند. خطاهای کامپایلر را دنبال کنید، `&mut` را به  "
+"`timeout_fut` در `select!` اضافه کنید تا حرکت را ادامه دهید، سپس از `Box::"
+"pin` استفاده کنید:"
 
 #: src/concurrency/async-pitfalls/pin.md:104
 msgid ""
@@ -19959,19 +20018,29 @@ msgid ""
 "iteration (a fused future would help with this). Update to reset "
 "`timeout_fut` every time it expires:"
 msgstr ""
+"این مورد کامپایل می‌شود، اما پس از انقضای timeout و در هر تکرار برابر با "
+"`Poll::Ready` است (future ترکیبی به این مسئله کمک می‌کند). به‌روزرسانی برای "
+"بازنشانی `timeout_fut` هر بار که منقضی می‌شود:"
 
 #: src/concurrency/async-pitfalls/pin.md:119
+#, fuzzy
 msgid ""
 "Box allocates on the heap. In some cases, `std::pin::pin!` (only recently "
 "stabilized, with older code often using `tokio::pin!`) is also an option, "
 "but that is difficult to use for a future that is reassigned."
 msgstr ""
+"جعبه allocateها بر روی heap. در برخی موارد، `std::pin::pin!` (فقط به تازگی "
+"تثبیت شده است، با کدهای قدیمی‌تر که اغلب از `tokio::pin!` استفاده می‌کنند) نیز "
+"یک گزینه است، اما استفاده از آن برای futureای که دوباره تخصیص داده می‌شود "
+"دشوار است."
 
 #: src/concurrency/async-pitfalls/pin.md:123
 msgid ""
 "Another alternative is to not use `pin` at all but spawn another task that "
 "will send to a `oneshot` channel every 100ms."
 msgstr ""
+"جایگزین دیگر این است که به هیچ وجه از `pin` استفاده نکنید، بلکه task دیگری "
+"ایجاد کنید که هر 100 میلی‌ثانیه به یک کانال `oneshot` ارسال می‌شود."
 
 #: src/concurrency/async-pitfalls/pin.md:126
 msgid ""
@@ -19981,6 +20050,11 @@ msgid ""
 "code transformation for async blocks and functions is not verified by the "
 "borrow checker."
 msgstr ""
+"داده‌هایی که حاوی اشاره‌گرهایی به خود هستند، خود ارجاعی ( self-referential) "
+"نامیده می شوند. به طور معمول، Rust borrow checker از جابجایی داده‌های "
+"خودارجاعی جلوگیری می‌کند، زیرا منابع نمی‌توانند بیشتر از داده‌هایی که به آنها "
+"اشاره می‌کنند زنده بمانند. با‌این‌حال، تبدیل کد برای بلوک‌ها و توابع async توسط "
+"borrow checker تأیید نمی‌شود."
 
 #: src/concurrency/async-pitfalls/pin.md:132
 msgid ""
@@ -19988,6 +20062,9 @@ msgid ""
 "place using a pinned pointer. However, it can still be moved through an "
 "unpinned pointer."
 msgstr ""
+"‏ `Pin` یک wrapper در اطراف یک reference است. یک object را نمی‌توان با استفاده "
+"از یک pointer پین شده از جای خود حرکت داد. با این حال، هنوز هم می‌توان آن را "
+"از طریق یک pointer بدون پین جابجا کرد."
 
 #: src/concurrency/async-pitfalls/pin.md:136
 msgid ""
@@ -19995,6 +20072,9 @@ msgid ""
 "`&mut Self` to refer to the instance. That's why it can only be called on a "
 "pinned pointer."
 msgstr ""
+"متد `poll` از ویژگی `Future` از `Pin<&mut Self>` به جای `&mut Self` برای "
+"اشاره به نمونه (instance) استفاده می‌‌کند. به همین دلیل است که فقط می‌توان آن "
+"را روی یک اشاره‌‌گر پین شده فراخوانی کرد."
 
 #: src/concurrency/async-pitfalls/async-traits.md:3
 msgid ""
@@ -20003,45 +20083,64 @@ msgid ""
 "in traits, as the desugaring for `async fn` includes `-> impl Future<Output "
 "= ...>`."
 msgstr ""
+"متدهای Async در traitها اخیراً در انتشار 1.75 تثبیت شده‌اند. این نیاز به "
+"پشتیبانی برای استفاده از موقعیت بازگشتی `impl Trait` (RPIT) در traitها را "
+"داشت، زیرا شیرین‌زدایی (desugaring) برای `async fn` شامل `-> impl "
+"Future<Output = ...>` است."
 
 #: src/concurrency/async-pitfalls/async-traits.md:7
 msgid ""
 "However, even with the native support today there are some pitfalls around "
 "`async fn` and RPIT in traits:"
 msgstr ""
+"با این‌حال، حتی با پشتیبانی native امروز، برخی از مشکلات در مورد `async fn` و "
+"RPIT در ویژگی‌ها وجود دارد:"
 
 #: src/concurrency/async-pitfalls/async-traits.md:10
 msgid ""
 "Return-position impl Trait captures all in-scope lifetimes (so some patterns "
 "of borrowing cannot be expressed)"
 msgstr ""
+"‏Return-position impl Trait تمام طول عمرهای درون محدوده را ثبت می کند "
+"(بنابراین برخی از الگوهای قرض کردن (borrowing) نمی توانند بیان شوند)"
 
 #: src/concurrency/async-pitfalls/async-traits.md:13
 msgid ""
 "Traits whose methods use return-position `impl trait` or `async` are not "
 "`dyn` compatible."
 msgstr ""
+"ویژگی‌هایی که متد‌های آن‌ها از موقعیت بازگشتی `impl trait` یا `async` استفاده "
+"می‌کنند با `dyn` سازگار نیستند."
 
 #: src/concurrency/async-pitfalls/async-traits.md:16
+#, fuzzy
 msgid ""
 "If we do need `dyn` support, the crate [async_trait](https://docs.rs/async-"
 "trait/latest/async_trait/) provides a workaround through a macro, with some "
 "caveats:"
 msgstr ""
+"اگر به پشتیبانی `dyn` نیاز داریم، crate [async_trait](https://docs.rs/async-"
+"trait/latest/async_trait/) راه‌حلی را از طریق یک ماکرو ارائه می‌کند، با ذکر "
+"چند نکته:"
 
 #: src/concurrency/async-pitfalls/async-traits.md:46
+#, fuzzy
 msgid "\"running all sleepers..\""
-msgstr ""
+msgstr "\"running all sleepers..\""
 
 #: src/concurrency/async-pitfalls/async-traits.md:50
+#, fuzzy
 msgid "\"slept for {}ms\""
-msgstr ""
+msgstr "\"slept for {}ms\""
 
 #: src/concurrency/async-pitfalls/async-traits.md:68
 msgid ""
 "`async_trait` is easy to use, but note that it's using heap allocations to "
 "achieve this. This heap allocation has performance overhead."
 msgstr ""
+"استفاده از `async_trait` آسان است، اما توجه داشته باشید که برای رسیدن به این "
+"هدف از heap allocationها استفاده می‌کند. این heap allocation دارای سربار "
+"عملکرد است."
 
 #: src/concurrency/async-pitfalls/async-traits.md:71
 msgid ""
@@ -20051,12 +20150,19 @@ msgid ""
 "blog/2019/10/26/async-fn-in-traits-are-hard/) if you are interested in "
 "digging deeper."
 msgstr ""
+"چالش‌های پشتیبانی برای `async trait` در زبان Rust بسیار عمیق هستند و احتمالاً "
+"ارزش توصیف عمیق در اینجا را ندارند. Niko Matsakis در [این پست](https://"
+"smallcultfollowing.com/babysteps/blog/2019/10/26/async-fn-in-traits-are-"
+"hard/) آنها را به خوبی توضیح داده است. به خصوص اگر شما به این موضوع علاقه‌مند "
+"هستید."
 
 #: src/concurrency/async-pitfalls/async-traits.md:77
 msgid ""
 "Try creating a new sleeper struct that will sleep for a random amount of "
 "time and adding it to the Vec."
 msgstr ""
+"سعی کنید یک sleep خواب جدید ایجاد کنید که برای مدت زمان تصادفی می‌خوابد و آن "
+"را به Vec اضافه کنید."
 
 #: src/concurrency/async-pitfalls/cancellation.md:3
 msgid ""
@@ -20065,51 +20171,64 @@ msgid ""
 "ensure the system works correctly even when futures are cancelled. For "
 "example, it shouldn't deadlock or lose data."
 msgstr ""
+"کنار گذاشتن future به این معنی است که دیگر هرگز نمی‌توان آن را poll کرد. به "
+"این حالت _cancellation_ می‌گویند و می‌تواند در هر نقطه `await` رخ دهد. برای "
+"اطمینان از عملکرد صحیح سیستم حتی در صورت لغو futureها، دقت مناسب لازم است. "
+"به‌عنوان ‌مثال، نباید داده‌ها را از دست بدهد یا به بن‌بست (deadlock) برسد."
 
 #: src/concurrency/async-pitfalls/cancellation.md:35
 #: src/concurrency/async-pitfalls/cancellation.md:102
+#, fuzzy
 msgid "\"not UTF-8\""
-msgstr ""
+msgstr "\"not UTF-8\""
 
 #: src/concurrency/async-pitfalls/cancellation.md:51
+#, fuzzy
 msgid "\"hi\\nthere\\n\""
-msgstr ""
+msgstr "\"hi\\nthere\\n\""
 
 #: src/concurrency/async-pitfalls/cancellation.md:57
+#, fuzzy
 msgid "\"tick!\""
-msgstr ""
+msgstr "\"tick!\""
 
 #: src/concurrency/async-pitfalls/cancellation.md:73
 msgid ""
 "The compiler doesn't help with cancellation-safety. You need to read API "
 "documentation and consider what state your `async fn` holds."
 msgstr ""
+"کامپایلر در مورد cancellation-safety کمکی نمی‌کند. باید مستندات API را "
+"بخوانید و در نظر بگیرید که `async fn` شما چه وضعیتی دارد."
 
 #: src/concurrency/async-pitfalls/cancellation.md:76
 msgid ""
 "Unlike `panic` and `?`, cancellation is part of normal control flow (vs "
 "error-handling)."
 msgstr ""
+"برخلاف `panic` و `?`، لغو یا cancellation بخشی از جریان کنترل عادی (و رسیدگی "
+"به خطا) است."
 
 #: src/concurrency/async-pitfalls/cancellation.md:79
 msgid "The example loses parts of the string."
-msgstr ""
+msgstr "اسن مثال بخش‌هایی از string را از دست می‌دهد."
 
 #: src/concurrency/async-pitfalls/cancellation.md:81
 msgid ""
 "Whenever the `tick()` branch finishes first, `next()` and its `buf` are "
 "dropped."
 msgstr ""
+"هر زمان که شاخه `tick()` اول تمام شود، `next()` و `buf` آن حذف می شوند."
 
 #: src/concurrency/async-pitfalls/cancellation.md:84
 msgid ""
 "`LinesReader` can be made cancellation-safe by making `buf` part of the "
 "struct:"
-msgstr ""
+msgstr "‏`LinesReader` را می‌توان با تبدیل `buf` به بخشی از ساختار، ایمن کرد:"
 
 #: src/concurrency/async-pitfalls/cancellation.md:98
+#, fuzzy
 msgid "// prefix buf and bytes with self.\n"
-msgstr ""
+msgstr "// prefix buf and bytes with self.\n"
 
 #: src/concurrency/async-pitfalls/cancellation.md:108
 msgid ""
@@ -20117,6 +20236,9 @@ msgid ""
 "html#method.tick) is cancellation-safe because it keeps track of whether a "
 "tick has been 'delivered'."
 msgstr ""
+"‏ ['Interval::tick'](https://docs.rs/tokio/latest/tokio/time/struct.Interval."
+"html#method.tick) برای cancellation-safe است زیرا ردیابی می‌کند که آیا یک "
+"tick  تحویل داده شده است."
 
 #: src/concurrency/async-pitfalls/cancellation.md:112
 msgid ""
@@ -20124,6 +20246,9 @@ msgid ""
 "AsyncReadExt.html#method.read) is cancellation-safe because it either "
 "returns or doesn't read data."
 msgstr ""
+"‏ [`AsyncReadExt::read`](https://docs.rs/tokio/latest/tokio/io/trait."
+"AsyncReadExt.html#method.read) برای cancellation-safe است زیرا داده‌ها را "
+"برمی‌گرداند یا نمی‌خواند."
 
 #: src/concurrency/async-pitfalls/cancellation.md:115
 msgid ""
@@ -20131,18 +20256,23 @@ msgid ""
 "AsyncBufReadExt.html#method.read_line) is similar to the example and _isn't_ "
 "cancellation-safe. See its documentation for details and alternatives."
 msgstr ""
+"‏ [`AsyncBufReadExt::read_line`](https://docs.rs/tokio/latest/tokio/io/trait."
+"AsyncBufReadExt.html#method.read_line) مشابه مثال است و شبیه cancellation-"
+"safe نیست. برای جزئیات و موارد جایگزین به مستندات آن مراجعه کنید."
 
 #: src/concurrency/async-exercises/dining-philosophers.md:1
 #: src/concurrency/async-exercises/solutions.md:3
 #, fuzzy
 msgid "Dining Philosophers --- Async"
-msgstr "فلسفه Dining"
+msgstr "فلسفه Dining  --- Async"
 
 #: src/concurrency/async-exercises/dining-philosophers.md:3
 msgid ""
 "See [dining philosophers](../sync-exercises/dining-philosophers.md) for a "
 "description of the problem."
 msgstr ""
+"برای توضیح مشکل به [dining philosophers](../sync-exercises/dining-"
+"philosophers.md) مراجعه کنید."
 
 #: src/concurrency/async-exercises/dining-philosophers.md:6
 msgid ""
@@ -20150,22 +20280,29 @@ msgid ""
 "locally.md) for this exercise. Copy the code below to a file called `src/"
 "main.rs`, fill out the blanks, and test that `cargo run` does not deadlock:"
 msgstr ""
+"مانند قبل، برای این تمرین به Cargo installation](../../cargo/running-locally."
+"md) نیاز دارید. کد زیر را در فایلی به نام `src/main.rs` کپی کنید، جاهای خالی "
+"را پر کنید و تست کنید که `cargo run` به بن بست (`src/main.rs`) نمی‌خورد:"
 
 #: src/concurrency/async-exercises/dining-philosophers.md:37
 #: src/concurrency/async-exercises/solutions.md:29
+#, fuzzy
 msgid "// Keep trying until we have both forks\n"
-msgstr ""
+msgstr "// Keep trying until we have both forks\n"
 
 #: src/concurrency/async-exercises/dining-philosophers.md:52
 #: src/concurrency/async-exercises/solutions.md:85
+#, fuzzy
 msgid "// Make them think and eat\n"
-msgstr ""
+msgstr "// Make them think and eat\n"
 
 #: src/concurrency/async-exercises/dining-philosophers.md:58
 msgid ""
 "Since this time you are using Async Rust, you'll need a `tokio` dependency. "
 "You can use the following `Cargo.toml`:"
 msgstr ""
+"از آنجایی که این بار از Async Rust استفاده می‌کنید، به وابستگی `tokio` نیاز "
+"دارید. می‌توانید از `Cargo.toml` زیر استفاده کنید:"
 
 #: src/concurrency/async-exercises/dining-philosophers.md:63
 msgid ""
@@ -20180,16 +20317,28 @@ msgid ""
 "\"rt-multi-thread\"] }\n"
 "```"
 msgstr ""
+"```toml\n"
+"[package]\n"
+"name = \"dining-philosophers-async-dine\"\n"
+"version = \"0.1.0\"\n"
+"edition = \"2021\"\n"
+"\n"
+"[dependencies]\n"
+"tokio = { version = \"1.26.0\", features = [\"sync\", \"time\", \"macros\", "
+"\"rt-multi-thread\"] }\n"
+"```"
 
 #: src/concurrency/async-exercises/dining-philosophers.md:73
 msgid ""
 "Also note that this time you have to use the `Mutex` and the `mpsc` module "
 "from the `tokio` crate."
 msgstr ""
+"همچنین توجه داشته باشید که این بار باید از ماژول `Mutex` و `mpsc` از `tokio` "
+"crate استفاده کنید."
 
 #: src/concurrency/async-exercises/dining-philosophers.md:79
 msgid "Can you make your implementation single-threaded?"
-msgstr ""
+msgstr "آیا می‌توانید پیاده‌سازی خود را تک thread ای کنید؟"
 
 #: src/concurrency/async-exercises/chat-app.md:3
 msgid ""
@@ -20199,6 +20348,11 @@ msgid ""
 "input, and sends them to the server. The chat server broadcasts each message "
 "that it receives to all the clients."
 msgstr ""
+"در این تمرین، ما می‌خواهیم از دانش جدید خود برای پیاده سازی یک برنامه "
+"broadcast chat استفاده کنیم. ما یک سرور چت داریم که کاربران به آن متصل "
+"می‌شوند و پیام‌های خود را منتشر می‌کنند. کلاینت پیام‌های کاربر را از ورودی "
+"استاندارد می‌خواند و آنها را به سرور ارسال می‌کند. سرور چت هر پیامی را که "
+"دریافت می‌کند برای همه کاربران پخش می‌کند."
 
 #: src/concurrency/async-exercises/chat-app.md:9
 msgid ""
@@ -20207,14 +20361,17 @@ msgid ""
 "(https://docs.rs/tokio-websockets/) for the communication between the client "
 "and the server."
 msgstr ""
+"برای این کار، از [ broadcast channel](https://docs.rs/tokio/latest/tokio/"
+"sync/broadcast/fn.channel.html) در سمت سرور و [`tokio_websockets`](https://"
+"docs.rs/tokio-websockets/) برای ارتباط بین کلاینت و سرور."
 
 #: src/concurrency/async-exercises/chat-app.md:12
 msgid "Create a new Cargo project and add the following dependencies:"
-msgstr ""
+msgstr "یک پروژه Cargo جدید ایجاد کنید و وابستگی‌های زیر را اضافه کنید:"
 
 #: src/concurrency/async-exercises/chat-app.md:14
 msgid "_Cargo.toml_:"
-msgstr ""
+msgstr "_Cargo.toml_:"
 
 #: src/concurrency/async-exercises/chat-app.md:18
 msgid ""
@@ -20232,10 +20389,23 @@ msgid ""
 "\"fastrand\", \"server\", \"sha1_smol\"] }\n"
 "```"
 msgstr ""
+"```toml\n"
+"[package]\n"
+"name = \"chat-async\"\n"
+"version = \"0.1.0\"\n"
+"edition = \"2021\"\n"
+"\n"
+"[dependencies]\n"
+"futures-util = { version = \"0.3.30\", features = [\"sink\"] }\n"
+"http = \"1.1.0\"\n"
+"tokio = { version = \"1.38.1\", features = [\"full\"] }\n"
+"tokio-websockets = { version = \"0.8.3\", features = [\"client\", "
+"\"fastrand\", \"server\", \"sha1_smol\"] }\n"
+"```"
 
 #: src/concurrency/async-exercises/chat-app.md:31
 msgid "The required APIs"
-msgstr ""
+msgstr "‏API‌های مورد نیاز"
 
 #: src/concurrency/async-exercises/chat-app.md:33
 msgid ""
@@ -20243,6 +20413,8 @@ msgid ""
 "[`tokio_websockets`](https://docs.rs/tokio-websockets/). Spend a few minutes "
 "to familiarize yourself with the API."
 msgstr ""
+"شما به توابع زیر از `tokio` و [`tokio_websockets`](https://docs.rs/tokio-"
+"websockets/) نیاز دارید. چند دقیقه را برای آشنایی با API اختصاص دهید."
 
 #: src/concurrency/async-exercises/chat-app.md:37
 msgid ""
@@ -20250,6 +20422,9 @@ msgid ""
 "trait.StreamExt.html#method.next) implemented by `WebSocketStream`: for "
 "asynchronously reading messages from a Websocket Stream."
 msgstr ""
+"‏ [StreamExt::next()](https://docs.rs/futures-util/0.3.28/futures_util/stream/"
+"trait.StreamExt.html#method.next) توسط `WebSocketStream`: برای خواندن "
+"ناهمزمان پیام‌ها از یک جریان وب سوکت."
 
 #: src/concurrency/async-exercises/chat-app.md:39
 msgid ""
@@ -20257,6 +20432,9 @@ msgid ""
 "trait.SinkExt.html#method.send) implemented by `WebSocketStream`: for "
 "asynchronously sending messages on a Websocket Stream."
 msgstr ""
+"‏[SinkExt::send()](https://docs.rs/futures-util/0.3.28/futures_util/sink/"
+"trait.SinkExt.html#method.send) پیاده‌سازی شده توسط `WebSocketStream`: برای "
+"ارسال ناهمزمان پیام‌ها در یک Websocket Stream."
 
 #: src/concurrency/async-exercises/chat-app.md:41
 msgid ""
@@ -20264,16 +20442,21 @@ msgid ""
 "html#method.next_line): for asynchronously reading user messages from the "
 "standard input."
 msgstr ""
+"‏[Lines::next_line()](https://docs.rs/tokio/latest/tokio/io/struct.Lines."
+"html#method.next_line): برای خواندن ناهمزمان پیام‌های کاربر از ورودی "
+"استاندارد."
 
 #: src/concurrency/async-exercises/chat-app.md:43
 msgid ""
 "[Sender::subscribe()](https://docs.rs/tokio/latest/tokio/sync/broadcast/"
 "struct.Sender.html#method.subscribe): for subscribing to a broadcast channel."
 msgstr ""
+"‏[Sender::subscribe()](https://docs.rs/tokio/latest/tokio/sync/broadcast/"
+"struct.Sender.html#method.subscribe): برای اشتراک در یک broadcast channel."
 
 #: src/concurrency/async-exercises/chat-app.md:45
 msgid "Two binaries"
-msgstr ""
+msgstr "دو باینری"
 
 #: src/concurrency/async-exercises/chat-app.md:47
 msgid ""
@@ -20285,6 +20468,13 @@ msgid ""
 "(see the [documentation](https://doc.rust-lang.org/cargo/reference/cargo-"
 "targets.html#binaries))."
 msgstr ""
+"به طور معمول در یک پروژه Cargo، شما می توانید فقط یک فایل باینری و یک فایل "
+"`src/main.rs` داشته باشید. در این پروژه به دو باینری نیاز داریم. یکی برای "
+"کلاینت و دیگری برای سرور. شما به طور بالقوه می‌توانید آنها را در دو پروژه "
+"Cargo جداگانه بسازید، اما ما آنها را در یک پروژه Cargo واحد با دو باینری "
+"قرار می‌دهیم. برای این کار، کلاینت و کد سرور باید زیر `src/bin` قرار گیرند "
+"(به[documentation](https://doc.rust-lang.org/cargo/reference/cargo-targets."
+"html#binaries) مراجعه کنید )."
 
 #: src/concurrency/async-exercises/chat-app.md:54
 msgid ""
@@ -20292,62 +20482,70 @@ msgid ""
 "bin/client.rs`, respectively. Your task is to complete these files as "
 "described below."
 msgstr ""
+"کد سرور و کلاینت زیر را به ترتیب در`src/bin/server.rs` و `src/bin/client.rs` "
+"کپی کنید. وظیفه شما این است که این فایل‌ها را همانطور که در زیر توضیح داده "
+"شده است تکمیل کنید."
 
 #: src/concurrency/async-exercises/chat-app.md:58
 #: src/concurrency/async-exercises/solutions.md:104
 msgid "_src/bin/server.rs_:"
-msgstr ""
+msgstr "_src/bin/server.rs_:"
 
 #: src/concurrency/async-exercises/chat-app.md:77
 #: src/concurrency/async-exercises/chat-app.md:124
+#, fuzzy
 msgid "// TODO: For a hint, see the description of the task below.\n"
-msgstr ""
+msgstr "// TODO: For a hint, see the description of the task below.\n"
 
 #: src/concurrency/async-exercises/chat-app.md:85
 #: src/concurrency/async-exercises/solutions.md:154
 msgid "\"127.0.0.1:2000\""
-msgstr ""
+msgstr "\"127.0.0.1:2000\""
 
 #: src/concurrency/async-exercises/chat-app.md:86
 #: src/concurrency/async-exercises/solutions.md:155
+#, fuzzy
 msgid "\"listening on port 2000\""
-msgstr ""
+msgstr "\"listening on port 2000\""
 
 #: src/concurrency/async-exercises/chat-app.md:90
 #: src/concurrency/async-exercises/solutions.md:159
+#, fuzzy
 msgid "\"New connection from {addr:?}\""
-msgstr ""
+msgstr "\"New connection from {addr:?}\""
 
 #: src/concurrency/async-exercises/chat-app.md:93
 #: src/concurrency/async-exercises/solutions.md:162
+#, fuzzy
 msgid "// Wrap the raw TCP stream into a websocket.\n"
-msgstr ""
+msgstr "// Wrap the raw TCP stream into a websocket.\n"
 
 #: src/concurrency/async-exercises/chat-app.md:102
 #: src/concurrency/async-exercises/solutions.md:171
 msgid "_src/bin/client.rs_:"
-msgstr ""
+msgstr "_src/bin/client.rs_:"
 
 #: src/concurrency/async-exercises/chat-app.md:116
 #: src/concurrency/async-exercises/solutions.md:183
+#, fuzzy
 msgid "\"ws://127.0.0.1:2000\""
-msgstr ""
+msgstr "\"ws://127.0.0.1:2000\""
 
 #: src/concurrency/async-exercises/chat-app.md:129
 msgid "Running the binaries"
-msgstr ""
+msgstr "راه‌اندازی باینری"
 
 #: src/concurrency/async-exercises/chat-app.md:131
 msgid "Run the server with:"
-msgstr ""
+msgstr "سرور را راه‌اندازی کنید با استفاده از:"
 
 #: src/concurrency/async-exercises/chat-app.md:137
 msgid "and the client with:"
-msgstr ""
+msgstr "و این کلاینت با:"
 
 #: src/concurrency/async-exercises/chat-app.md:145
 msgid "Implement the `handle_connection` function in `src/bin/server.rs`."
-msgstr ""
+msgstr "تابع `handle_connection` را در `src/bin/server.rs` پیاده‌سازی کنید."
 
 #: src/concurrency/async-exercises/chat-app.md:146
 msgid ""
@@ -20355,10 +20553,14 @@ msgid ""
 "continuous loop. One task receives messages from the client and broadcasts "
 "them. The other sends messages received by the server to the client."
 msgstr ""
+"نکته: از `tokio::select!` برای انجام همزمان دو task در یک حلقه پیوسته "
+"استفاده کنید. یک task پیام‌هایی را از کلاینت دریافت می‌کند و آنها را "
+"پخش(broadcast) می‌کند. دیگری پیام‌های دریافت شده توسط سرور را برای کاربر ارسال "
+"می‌کند."
 
 #: src/concurrency/async-exercises/chat-app.md:149
 msgid "Complete the main function in `src/bin/client.rs`."
-msgstr ""
+msgstr "تابع اصلی را در `src/bin/client.rs` تکمیل کنید."
 
 #: src/concurrency/async-exercises/chat-app.md:150
 msgid ""
@@ -20367,59 +20569,81 @@ msgid ""
 "sending them to the server, and (2) receiving messages from the server, and "
 "displaying them for the user."
 msgstr ""
+"نکته: مانند قبل، از `tokio::select!` در یک حلقه پیوسته برای انجام همزمان دو "
+"task استفاده کنید: (۱) خواندن پیام های کاربر از ورودی استاندارد و ارسال آنها "
+"به سرور و (۲) دریافت پیام از سرور و نمایش آنها برای کاربر."
 
 #: src/concurrency/async-exercises/chat-app.md:154
 msgid ""
 "Optional: Once you are done, change the code to broadcast messages to all "
 "clients, but the sender of the message."
 msgstr ""
+"اختیاری: پس از اتمام کار، کد را تغییر دهید تا پیام‌ها برای همه کلاینت‌ها، به "
+"جز فرستنده پیام، منتشر شود."
 
 #: src/concurrency/async-exercises/solutions.md:35
+#, fuzzy
 msgid ""
 "// If we didn't get the left fork, drop the right fork if we\n"
 "                // have it and let other tasks make progress.\n"
 msgstr ""
+"// If we didn't get the left fork, drop the right fork if we\n"
+"                // have it and let other tasks make progress.\n"
 
 #: src/concurrency/async-exercises/solutions.md:42
+#, fuzzy
 msgid ""
 "// If we didn't get the right fork, drop the left fork and let\n"
 "                // other tasks make progress.\n"
 msgstr ""
+"// If we didn't get the right fork, drop the left fork and let\n"
+"                // other tasks make progress.\n"
 
 #: src/concurrency/async-exercises/solutions.md:54
+#, fuzzy
 msgid "// The locks are dropped here\n"
-msgstr ""
+msgstr "// The locks are dropped here\n"
 
 #: src/concurrency/async-exercises/solutions.md:82
+#, fuzzy
 msgid "// tx is dropped here, so we don't need to explicitly drop it later\n"
-msgstr ""
+msgstr "// tx is dropped here, so we don't need to explicitly drop it later\n"
 
 #: src/concurrency/async-exercises/solutions.md:97
+#, fuzzy
 msgid "\"Here is a thought: {thought}\""
-msgstr ""
+msgstr "\"Here is a thought: {thought}\""
 
 #: src/concurrency/async-exercises/solutions.md:122
+#, fuzzy
 msgid "\"Welcome to chat! Type a message\""
-msgstr ""
+msgstr "\"Welcome to chat! Type a message\""
 
 #: src/concurrency/async-exercises/solutions.md:126
+#, fuzzy
 msgid ""
 "// A continuous loop for concurrently performing two tasks: (1) receiving\n"
 "    // messages from `ws_stream` and broadcasting them, and (2) receiving\n"
 "    // messages on `bcast_rx` and sending them to the client.\n"
 msgstr ""
+"// A continuous loop for concurrently performing two tasks: (1) receiving\n"
+"    // messages from `ws_stream` and broadcasting them, and (2) receiving\n"
+"    // messages on `bcast_rx` and sending them to the client.\n"
 
 #: src/concurrency/async-exercises/solutions.md:135
+#, fuzzy
 msgid "\"From client {addr:?} {text:?}\""
-msgstr ""
+msgstr "\"From client {addr:?} {text:?}\""
 
 #: src/concurrency/async-exercises/solutions.md:190
+#, fuzzy
 msgid "// Continuous loop for concurrently sending and receiving messages.\n"
-msgstr ""
+msgstr "// Continuous loop for concurrently sending and receiving messages.\n"
 
 #: src/concurrency/async-exercises/solutions.md:197
+#, fuzzy
 msgid "\"From server: {}\""
-msgstr ""
+msgstr "\"From server: {}\""
 
 #: src/thanks.md
 msgid ""
