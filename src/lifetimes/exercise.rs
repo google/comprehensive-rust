@@ -24,7 +24,7 @@ enum WireType {
     Len,
     /// The I32 WireType indicates that the value is precisely 4 bytes in
     /// little-endian order containing a 32-bit signed integer or float type.
-    /// For this exersice, only implement for float type.
+    /// For this exercise, only implement for float type.
     I32,
 }
 
