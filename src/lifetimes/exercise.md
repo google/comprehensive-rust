@@ -45,8 +45,11 @@ callbacks.
 What remains for you is to implement the `parse_field` function and the
 `ProtoMessage` trait for `Person` and `PhoneNumber`.
 
-You copy the code below to https://play.rust-lang.org/ and fill in the missing
-and check tests:
+For this exercise, enough working only with `VARINT` and `LEN` tpyes, but you
+finish early, try to implement `I32` type.
+
+You can copy the code below to https://play.rust-lang.org/ and fill in the
+missing and check tests:
 
 <!-- compile_fail because the stubbed out code has type inference errors. -->
 
