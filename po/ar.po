@@ -3024,9 +3024,10 @@ msgid ""
 "hygienic](https://veykril.github.io/tlborm/decl-macros/minutiae/hygiene."
 "html)."
 msgstr ""
-"كون الماكروهات 'hygienic' يعني أنها لا تلتقط المعرفات من النطاق الذي تُستخدم "
-"فيه عن طريق الخطأ. في الواقع، ماكروهات Rust هي فقط [hygienic جزئيًا](https://"
-"veykril.github.io/tlborm/decl-macros/minutiae/hygiene.html)."
+"كون الماكروهات (macros) 'hygienic' يعني أنها لا تلتقط identifiers من scope "
+"الذي تُستخدم فيه عن طريق الخطأ. في الواقع، ماكروهات Rust (macros) هي فقط "
+"[hygienic جزئيًا](https://veykril.github.io/tlborm/decl-macros/minutiae/"
+"hygiene.html)."
 
 #: src/types-and-values/hello-world.md
 msgid ""
@@ -3035,29 +3036,39 @@ msgid ""
 "while it is not a functional language, it includes a range of [functional "
 "concepts](https://doc.rust-lang.org/book/ch13-00-functional-features.html)."
 msgstr ""
+"Rust متعدد الأنماط (multi-paradigm). على سبيل المثال، يحتوي على ميزات قوية "
+"لبرمجة الكائنات (object-oriented programming features)، وعلى الرغم من أنه "
+"ليس لغة وظيفية، إلا أنه يتضمن مجموعة من المفاهيم الوظيفية (functional "
+"concepts)."
 
 #: src/types-and-values/variables.md
 msgid ""
 "Rust provides type safety via static typing. Variable bindings are made with "
 "`let`:"
 msgstr ""
+"Rust يوفر أمان النوع من خلال الكتابة الثابتة (static typing). يتم إنشاء "
+"ارتباطات المتغيرات باستخدام `let`:"
 
 #: src/types-and-values/variables.md src/control-flow-basics/loops/for.md
 #: src/control-flow-basics/blocks-and-scopes.md
 msgid "\"x: {x}\""
-msgstr ""
+msgstr "\"x: {x}\""
 
 #: src/types-and-values/variables.md
 msgid ""
 "// x = 20;\n"
 "    // println!(\"x: {x}\");\n"
 msgstr ""
+"// x = 20;\n"
+"    // println!(\"x: {x}\");\n"
 
 #: src/types-and-values/variables.md
 msgid ""
 "Uncomment the `x = 20` to demonstrate that variables are immutable by "
 "default. Add the `mut` keyword to allow changes."
 msgstr ""
+"قم بإلغاء التعليق `x = 20` لإظهار أن المتغيرات غير قابلة للتغيير بشكل "
+"افتراضي. أضف الكلمة المفتاحية `mut` للسماح بالتغييرات."
 
 #: src/types-and-values/variables.md
 msgid ""
@@ -3065,104 +3076,109 @@ msgid ""
 "time, but type inference (covered later) allows the programmer to omit it in "
 "many cases."
 msgstr ""
+"الـ `i32` هنا هو نوع المتغير (type). يجب أن يكون هذا معروفًا في وقت الترجمة "
+"(compile time)، ولكن استنباط النوع (type inference) (الذي سيتم تغطيته لاحقًا) "
+"يسمح للمبرمج بتجاهله في العديد من الحالات."
 
 #: src/types-and-values/values.md
 msgid ""
 "Here are some basic built-in types, and the syntax for literal values of "
 "each type."
 msgstr ""
+"هنا بعض الأنواع المدمجة الأساسية (built-in types)، وصيغة القيم الحرفية "
+"(literal values) لكل نوع (type)."
 
 #: src/types-and-values/values.md src/unsafe-rust/exercise.md
 msgid "Types"
-msgstr ""
+msgstr "الأنواع (Types)"
 
 #: src/types-and-values/values.md
 msgid "Literals"
-msgstr ""
+msgstr "القيم الحرفية (Literals)"
 
 #: src/types-and-values/values.md
 msgid "Signed integers"
-msgstr ""
+msgstr "الأعداد الصحيحة الموقعة، اي لها ايشارة (Signed integers)"
 
 #: src/types-and-values/values.md
 msgid "`i8`, `i16`, `i32`, `i64`, `i128`, `isize`"
-msgstr ""
+msgstr "`i8`، `i16`، `i32`، `i64`، `i128`، `isize`"
 
 #: src/types-and-values/values.md
 msgid "`-10`, `0`, `1_000`, `123_i64`"
-msgstr ""
+msgstr "`-10`، `0`، `1_000`، `123_i64`"
 
 #: src/types-and-values/values.md
 msgid "Unsigned integers"
-msgstr ""
+msgstr "الأعداد الصحيحة غير الموقعة، اي ليس لها ايشارة (Unsigned integers)"
 
 #: src/types-and-values/values.md
 msgid "`u8`, `u16`, `u32`, `u64`, `u128`, `usize`"
-msgstr ""
+msgstr "`u8`، `u16`، `u32`، `u64`، `u128`، `usize`"
 
 #: src/types-and-values/values.md
 msgid "`0`, `123`, `10_u16`"
-msgstr ""
+msgstr "`0`، `123`، `10_u16`"
 
 #: src/types-and-values/values.md
 msgid "Floating point numbers"
-msgstr ""
+msgstr "الأعداد العشرية (Floating point numbers)"
 
 #: src/types-and-values/values.md
 msgid "`f32`, `f64`"
-msgstr ""
+msgstr "`f32`، `f64`"
 
 #: src/types-and-values/values.md
 msgid "`3.14`, `-10.0e20`, `2_f32`"
-msgstr ""
+msgstr "`3.14`، `-10.0e20`، `2_f32`"
 
 #: src/types-and-values/values.md
 msgid "Unicode scalar values"
-msgstr ""
+msgstr "قيم يونيكود العددية (Unicode scalar values)"
 
 #: src/types-and-values/values.md src/android/aidl/types/primitives.md
 msgid "`char`"
-msgstr ""
+msgstr "`char`"
 
 #: src/types-and-values/values.md
 msgid "`'a'`, `'α'`, `'∞'`"
-msgstr ""
+msgstr "`'a'`، `'α'`، `'∞'`"
 
 #: src/types-and-values/values.md
 msgid "Booleans"
-msgstr ""
+msgstr "القيم المنطقية (Booleans)"
 
 #: src/types-and-values/values.md src/android/aidl/types/primitives.md
 msgid "`bool`"
-msgstr ""
+msgstr "`bool`"
 
 #: src/types-and-values/values.md
 msgid "`true`, `false`"
-msgstr ""
+msgstr "`true`، `false`"
 
 #: src/types-and-values/values.md
 msgid "The types have widths as follows:"
-msgstr ""
+msgstr "عرض الأنواع كما يلي:"
 
 #: src/types-and-values/values.md
 msgid "`iN`, `uN`, and `fN` are _N_ bits wide,"
-msgstr ""
+msgstr "`iN`، `uN`، و `fN` عرضها _N_ بت،"
 
 #: src/types-and-values/values.md
 msgid "`isize` and `usize` are the width of a pointer,"
-msgstr ""
+msgstr "`isize` و `usize` هما عرض المؤشر،"
 
 #: src/types-and-values/values.md
 msgid "`char` is 32 bits wide,"
-msgstr ""
+msgstr "`char` عرضه 32 بت،"
 
 #: src/types-and-values/values.md
 msgid "`bool` is 8 bits wide."
-msgstr ""
+msgstr "`bool` عرضه 8 بت."
 
 #: src/types-and-values/values.md
 msgid "There are a few syntaxes which are not shown above:"
-msgstr ""
+msgstr "هناك بعض الصيغ التي لم يتم عرضها أعلاه:"
 
 #: src/types-and-values/values.md
 msgid ""
@@ -3170,10 +3186,12 @@ msgid ""
 "`1_000` can be written as `1000` (or `10_00`), and `123_i64` can be written "
 "as `123i64`."
 msgstr ""
+"يمكن حذف جميع الشرطات السفلية في الأرقام، فهي فقط من أجل الوضوح. لذلك يمكن "
+"كتابة `1_000` كـ `1000` (أو `10_00`)، ويمكن كتابة `123_i64` كـ `123i64`."
 
 #: src/types-and-values/arithmetic.md
 msgid "\"result: {}\""
-msgstr ""
+msgstr "\"النتيجة: {}\""
 
 #: src/types-and-values/arithmetic.md
 msgid ""
@@ -3181,10 +3199,13 @@ msgid ""
 "meaning should be clear: it takes three integers, and returns an integer. "
 "Functions will be covered in more detail later."
 msgstr ""
+"هذه هي المرة الأولى التي نرى فيها دالة غير `main`، ولكن يجب أن يكون المعنى "
+"واضحًا: إنها تأخذ ثلاثة أعداد صحيحة (integers)، وتعيد عددًا صحيحًا (integer). "
+"سيتم تغطية الدوال (functions) بمزيد من التفصيل لاحقًا."
 
 #: src/types-and-values/arithmetic.md
 msgid "Arithmetic is very similar to other languages, with similar precedence."
-msgstr ""
+msgstr "الحساب مشابه جدًا للغات الأخرى، مع أسبقية مشابهة."
 
 #: src/types-and-values/arithmetic.md
 msgid ""
@@ -3192,6 +3213,9 @@ msgid ""
 "actually undefined, and might do unknown things at runtime. In Rust, it's "
 "defined."
 msgstr ""
+"ماذا عن تجاوز السعة للأعداد الصحيحة (integer overflow)؟ في C و C++، تجاوز "
+"السعة للأعداد الصحيحة الموقعة (signed) غير معرف فعليًا، وقد يقوم بأشياء غير "
+"معروفة أثناء التشغيل. في Rust، هو معرف."
 
 #: src/types-and-values/arithmetic.md
 msgid ""
@@ -3201,22 +3225,31 @@ msgid ""
 "with method syntax, e.g., `(a * b).saturating_add(b * c).saturating_add(c * "
 "a)`."
 msgstr ""
+"قم بتغيير `i32` إلى `i16` لرؤية تجاوز السعة للأعداد الصحيحة، والذي يسبب ذعرًا "
+"(panic) في بناء التصحيح (debug build) ويلتف في بناء الإصدار (release build). "
+"هناك خيارات أخرى، مثل التجاوز (overflowing)، التشبع (saturating)، والحمل "
+"(carrying). يتم الوصول إليها باستخدام صيغة الدالة (method syntax)، مثل `(a * "
+"b).saturating_add(b * c).saturating_add(c * a)`."
 
 #: src/types-and-values/arithmetic.md
 msgid ""
 "In fact, the compiler will detect overflow of constant expressions, which is "
 "why the example requires a separate function."
 msgstr ""
+"في الواقع، سيكتشف المترجم (compiler) تجاوز السعة (overflow) للتعابير الثابتة "
+"(constant expressions)، وهذا هو السبب في أن المثال يتطلب دالة منفصلة."
 
 #: src/types-and-values/inference.md
 msgid "Rust will look at how the variable is _used_ to determine the type:"
-msgstr ""
+msgstr "ستنظر Rust في كيفية _استخدام_ المتغير لتحديد النوع:"
 
 #: src/types-and-values/inference.md
 msgid ""
 "This slide demonstrates how the Rust compiler infers types based on "
 "constraints given by variable declarations and usages."
 msgstr ""
+"توضح هذه الشريحة كيف يستنتج مترجم Rust الأنواع بناءً على القيود المقدمة من "
+"انشاء المتغيرات (variable declarations) واستخداماتها."
 
 #: src/types-and-values/inference.md
 msgid ""
@@ -3226,6 +3259,10 @@ msgid ""
 "of a type. The compiler does the job for us and helps us write more concise "
 "code."
 msgstr ""
+"من المهم جدًا التأكيد على أن المتغيرات المعلنة بهذه الطريقة ليست من نوع "
+"ديناميكي \"أي نوع\" يمكنه الاحتفاظ بأي بيانات. الكود الآلي الناتج عن هذا "
+"التصريح مطابق للتصريح الصريح عن النوع. يقوم المترجم بالعمل نيابة عنا "
+"ويساعدنا في كتابة كود أكثر اختصارًا."
 
 #: src/types-and-values/inference.md
 msgid ""
@@ -3233,10 +3270,13 @@ msgid ""
 "`i32`. This sometimes appears as `{integer}` in error messages. Similarly, "
 "floating-point literals default to `f64`."
 msgstr ""
+"عندما لا يوجد شيء يقيد نوع العدد الصحيح (integer literal)، فإن Rust تستخدم "
+"افتراضيًا `i32`. يظهر هذا أحيانًا كـ `{integer}` في رسائل الخطأ. وبالمثل، "
+"تستخدم الأعداد العشرية (floating-point literals) افتراضيًا `f64`."
 
 #: src/types-and-values/inference.md
 msgid "// ERROR: no implementation for `{float} == {integer}`\n"
-msgstr ""
+msgstr "// خطأ: لا يوجد تنفيذ لـ `{float} == {integer}`\n"
 
 #: src/types-and-values/exercise.md
 msgid ""
@@ -3244,99 +3284,112 @@ msgid ""
 "number is calculated recursively as the sum of the n-1'th and n-2'th "
 "Fibonacci numbers."
 msgstr ""
+"تبدأ متتالية فيبوناتشي بـ `[0,1]`. بالنسبة لـ n>1، يتم حساب العدد فيبوناتشي "
+"الـ n عن طريق الاستدعاء الذاتي كمجموع للعدد فيبوناتشي الـ n-1 والعدد "
+"فيبوناتشي الـ n-2."
 
 #: src/types-and-values/exercise.md
 msgid ""
 "Write a function `fib(n)` that calculates the n'th Fibonacci number. When "
 "will this function panic?"
 msgstr ""
+"اكتب دالة `fib(n)` التي تحسب العدد فيبوناتشي الـ n. متى ستسبب هذه الدالة "
+"ذعرًا (panic)؟"
 
 #: src/types-and-values/exercise.md
 msgid "// The base case.\n"
-msgstr ""
+msgstr "// الحالة الأساسية.\n"
 
 #: src/types-and-values/exercise.md src/control-flow-basics/exercise.md
 msgid "\"Implement this\""
-msgstr ""
+msgstr "\"نفذ هذا\""
 
 #: src/types-and-values/exercise.md
 msgid "// The recursive case.\n"
-msgstr ""
+msgstr "// الحالة العودية (recursive case).\n"
 
 #: src/types-and-values/exercise.md src/types-and-values/solution.md
 msgid "\"fib({n}) = {}\""
-msgstr ""
+msgstr "\"fib({n}) = {}\""
 
 #: src/control-flow-basics.md
 msgid "[if Expressions](./control-flow-basics/if.md) (4 minutes)"
-msgstr ""
+msgstr "[تعابير if](./control-flow-basics/if.md) (4 دقائق)"
 
 #: src/control-flow-basics.md
 msgid "[Loops](./control-flow-basics/loops.md) (5 minutes)"
-msgstr ""
+msgstr "[الحلقات (Loops)](./control-flow-basics/loops.md) (5 دقائق)"
 
 #: src/control-flow-basics.md
 msgid ""
 "[break and continue](./control-flow-basics/break-continue.md) (4 minutes)"
-msgstr ""
+msgstr "[break و continue](./control-flow-basics/break-continue.md) (4 دقائق)"
 
 #: src/control-flow-basics.md
 msgid ""
 "[Blocks and Scopes](./control-flow-basics/blocks-and-scopes.md) (5 minutes)"
 msgstr ""
+"[الكتل (Blocks) والنطاقات (Scopes)](./control-flow-basics/blocks-and-scopes."
+"md) (5 دقائق)"
 
 #: src/control-flow-basics.md
 msgid "[Functions](./control-flow-basics/functions.md) (3 minutes)"
-msgstr ""
+msgstr "[الدوال (Functions)](./control-flow-basics/functions.md) (3 دقائق)"
 
 #: src/control-flow-basics.md
 msgid "[Macros](./control-flow-basics/macros.md) (2 minutes)"
-msgstr ""
+msgstr "[الماكروز (Macros)](./control-flow-basics/macros.md) (2 دقائق)"
 
 #: src/control-flow-basics.md
 msgid ""
 "[Exercise: Collatz Sequence](./control-flow-basics/exercise.md) (15 minutes)"
 msgstr ""
+"[تمرين: متتالية كولاتز (Collatz Sequence)](./control-flow-basics/exercise."
+"md) (15 دقائق)"
 
 #: src/control-flow-basics/if.md
 msgid "`if` expressions"
-msgstr ""
+msgstr "تعابير `if`"
 
 #: src/control-flow-basics/if.md
 msgid ""
 "You use [`if` expressions](https://doc.rust-lang.org/reference/expressions/"
 "if-expr.html#if-expressions) exactly like `if` statements in other languages:"
 msgstr ""
+"تستخدم [تعابير `if`](https://doc.rust-lang.org/reference/expressions/if-expr."
+"html#if-expressions) تمامًا مثل جمل `if` في اللغات الأخرى:"
 
 #: src/control-flow-basics/if.md
 msgid "\"zero!\""
-msgstr ""
+msgstr "\"صفر!\""
 
 #: src/control-flow-basics/if.md
 msgid "\"biggish\""
-msgstr ""
+msgstr "\"كبير نوعًا ما\""
 
 #: src/control-flow-basics/if.md
 msgid "\"huge\""
-msgstr ""
+msgstr "\"ضخم\""
 
 #: src/control-flow-basics/if.md
 msgid ""
 "In addition, you can use `if` as an expression. The last expression of each "
 "block becomes the value of the `if` expression:"
 msgstr ""
+"بالإضافة إلى ذلك، يمكنك استخدام `if` كتعبير. يصبح التعبير الأخير في كل كتلة "
+"هو قيمة تعبير `if`:"
 
 #: src/control-flow-basics/if.md
 msgid "\"small\""
-msgstr ""
+msgstr "\"صغير\""
 
 #: src/control-flow-basics/if.md
 msgid "\"large\""
-msgstr ""
+msgstr "\"كبير\""
 
 #: src/control-flow-basics/if.md
 msgid "\"number size: {}\""
-msgstr ""
+msgstr "\"حجم الرقم: {}\""
 
 #: src/control-flow-basics/if.md
 msgid ""
@@ -3344,6 +3397,9 @@ msgid ""
 "branch blocks must have the same type. Show what happens if you add `;` "
 "after `\"small\"` in the second example."
 msgstr ""
+"لأن `if` هو تعبير ويجب أن يكون له نوع معين، يجب أن تكون كلا الكتلتين "
+"الفرعيتين من نفس النوع. أظهر ما يحدث إذا أضفت `;` بعد `\"small\"` في المثال "
+"الثاني."
 
 #: src/control-flow-basics/if.md
 msgid ""
@@ -3351,14 +3407,16 @@ msgid ""
 "separate it from the next statement. Remove the `;` before `println!` to see "
 "the compiler error."
 msgstr ""
+"عندما يتم استخدام `if` في تعبير، يجب أن يحتوي التعبير على `;` لفصله عن "
+"الجملة التالية. قم بإزالة `;` قبل `println!` لرؤية خطأ المترجم."
 
 #: src/control-flow-basics/loops.md
 msgid "There are three looping keywords in Rust: `while`, `loop`, and `for`:"
-msgstr ""
+msgstr "هناك ثلاث كلمات مفتاحية للتكرار في Rust: `while`، `loop`، و `for`:"
 
 #: src/control-flow-basics/loops.md
 msgid "`while`"
-msgstr ""
+msgstr "`while`"
 
 #: src/control-flow-basics/loops.md
 msgid ""
@@ -3366,20 +3424,25 @@ msgid ""
 "expr.html#predicate-loops) works much like in other languages, executing the "
 "loop body as long as the condition is true."
 msgstr ""
+"تعمل [الكلمة المفتاحية `while`](https://doc.rust-lang.org/reference/"
+"expressions/loop-expr.html#predicate-loops) بشكل مشابه لما في اللغات الأخرى، "
+"حيث تنفذ جسم الحلقة طالما أن الشرط صحيح."
 
 #: src/control-flow-basics/loops.md
 msgid "\"Final x: {x}\""
-msgstr ""
+msgstr "\"القيمة النهائية لـ x: {x}\""
 
 #: src/control-flow-basics/loops/for.md
 msgid ""
 "The [`for` loop](https://doc.rust-lang.org/std/keyword.for.html) iterates "
 "over ranges of values or the items in a collection:"
 msgstr ""
+"تقوم [حلقة `for`](https://doc.rust-lang.org/std/keyword.for.html) بالتكرار "
+"عبر نطاقات القيم أو العناصر في مجموعة:"
 
 #: src/control-flow-basics/loops/for.md
 msgid "\"elem: {elem}\""
-msgstr ""
+msgstr "\"العنصر (elem): {elem}\""
 
 #: src/control-flow-basics/loops/for.md
 msgid ""
@@ -3387,28 +3450,37 @@ msgid ""
 "iterating over different kinds of ranges/collections. Iterators will be "
 "discussed in more detail later."
 msgstr ""
+"تستخدم حلقات `for` مفهوم يسمى \"المكررات (iterators)\" للتعامل مع التكرار "
+"عبر أنواع مختلفة من النطاقات/المجموعات. سيتم مناقشة المكررات بمزيد من "
+"التفصيل لاحقًا."
 
 #: src/control-flow-basics/loops/for.md
 msgid ""
 "Note that the first `for` loop only iterates to `4`. Show the `1..=5` syntax "
 "for an inclusive range."
 msgstr ""
+"لاحظ أن حلقة `for` الأولى تتكرر فقط حتى `4`. أظهر بناء الجملة `1..=5` لنطاق "
+"شامل."
 
 #: src/control-flow-basics/loops/loop.md
 msgid ""
 "The [`loop` statement](https://doc.rust-lang.org/std/keyword.loop.html) just "
 "loops forever, until a `break`."
 msgstr ""
+"تقوم [جملة `loop`](https://doc.rust-lang.org/std/keyword.loop.html) بالتكرار "
+"إلى الأبد، حتى يتم استخدام `break`."
 
 #: src/control-flow-basics/loops/loop.md
 msgid "\"{i}\""
-msgstr ""
+msgstr "\"{i}\""
 
 #: src/control-flow-basics/break-continue.md
 msgid ""
 "If you want to immediately start the next iteration use [`continue`](https://"
 "doc.rust-lang.org/reference/expressions/loop-expr.html#continue-expressions)."
 msgstr ""
+"إذا كنت تريد بدء التكرار التالي فورًا، استخدم [`continue`](https://doc.rust-"
+"lang.org/reference/expressions/loop-expr.html#continue-expressions)."
 
 #: src/control-flow-basics/break-continue.md
 msgid ""
@@ -3417,6 +3489,9 @@ msgid ""
 "`loop`, this can take an optional expression that becomes the value of the "
 "`loop` expression."
 msgstr ""
+"إذا كنت تريد الخروج من أي نوع من الحلقات مبكرًا، استخدم [`break`](https://doc."
+"rust-lang.org/reference/expressions/loop-expr.html#break-expressions). "
+"بالنسبة لـ `loop`، يمكن أن تأخذ هذه تعبيرًا اختياريًا يصبح قيمة تعبير `loop`."
 
 #: src/control-flow-basics/break-continue.md src/std-traits/exercise.md
 #: src/std-traits/solution.md src/smart-pointers/trait-objects.md
@@ -3425,17 +3500,19 @@ msgstr ""
 #: src/android/interoperability/cpp/rust-bridge.md
 #: src/concurrency/async-pitfalls/cancellation.md
 msgid "\"{}\""
-msgstr ""
+msgstr "\"{}\""
 
 #: src/control-flow-basics/break-continue/labels.md
 msgid ""
 "Both `continue` and `break` can optionally take a label argument which is "
 "used to break out of nested loops:"
 msgstr ""
+"يمكن لكل من `continue` و `break` أن يأخذوا اختياريًا وسيط تسمية يُستخدم للخروج "
+"من الحلقات المتداخلة:"
 
 #: src/control-flow-basics/break-continue/labels.md
 msgid "\"elements searched: {elements_searched}\""
-msgstr ""
+msgstr "\"العناصر التي تم البحث عنها: {elements_searched}\""
 
 #: src/control-flow-basics/break-continue/labels.md
 msgid ""
@@ -3443,10 +3520,13 @@ msgid ""
 "value. This is because it's guaranteed to be entered at least once (unlike "
 "`while` and `for` loops)."
 msgstr ""
+"لاحظ أن `loop` هو البناء التكراري الوحيد الذي يعيد قيمة غير هينة (non-"
+"trivial value). هذا لأنه مضمون الدخول إليه مرة واحدة على الأقل (على عكس "
+"حلقات `while` و `for` (while و for))."
 
 #: src/control-flow-basics/blocks-and-scopes.md
 msgid "Blocks"
-msgstr ""
+msgstr "الكتل"
 
 #: src/control-flow-basics/blocks-and-scopes.md
 msgid ""
@@ -3454,53 +3534,59 @@ msgid ""
 "Each block has a value and a type, which are those of the last expression of "
 "the block:"
 msgstr ""
+"الكتلة في Rust تحتوي على تسلسل من التعابير، محاطة بأقواس `{}`. كل كتلة لها "
+"قيمة ونوع، وهما نفسهما للعبارة الأخيرة في الكتلة:"
 
 #: src/control-flow-basics/blocks-and-scopes.md
 msgid "\"y: {y}\""
-msgstr ""
+msgstr "\"y: {y}\""
 
 #: src/control-flow-basics/blocks-and-scopes.md
 msgid ""
 "If the last expression ends with `;`, then the resulting value and type is "
 "`()`."
-msgstr ""
+msgstr "إذا انتهى التعبير الأخير بـ `;`، فإن القيمة والنوع الناتجين هما `()`."
 
 #: src/control-flow-basics/blocks-and-scopes.md
 msgid ""
 "You can show how the value of the block changes by changing the last line in "
 "the block. For instance, adding/removing a semicolon or using a `return`."
 msgstr ""
+"يمكنك إظهار كيفية تغير قيمة الكتلة عن طريق تغيير السطر الأخير في الكتلة. على "
+"سبيل المثال، إضافة/إزالة فاصلة منقوطة أو استخدام `return`."
 
 #: src/control-flow-basics/blocks-and-scopes/scopes.md
 msgid "A variable's scope is limited to the enclosing block."
-msgstr ""
+msgstr "نطاق المتغير محدود بالكتلة المحيطة به."
 
 #: src/control-flow-basics/blocks-and-scopes/scopes.md
 msgid ""
 "You can shadow variables, both those from outer scopes and variables from "
 "the same scope:"
 msgstr ""
+"يمكنك تظليل المتغيرات، سواء تلك من النطاقات الخارجية أو المتغيرات من نفس "
+"النطاق:"
 
 #: src/control-flow-basics/blocks-and-scopes/scopes.md
 msgid "\"before: {a}\""
-msgstr ""
+msgstr "\"قبل: {a}\""
 
 #: src/control-flow-basics/blocks-and-scopes/scopes.md src/generics/exercise.md
 #: src/generics/solution.md src/std-traits/from-and-into.md
 msgid "\"hello\""
-msgstr ""
+msgstr "\"hello\""
 
 #: src/control-flow-basics/blocks-and-scopes/scopes.md
 msgid "\"inner scope: {a}\""
-msgstr ""
+msgstr "\"النطاق الداخلي: {a}\""
 
 #: src/control-flow-basics/blocks-and-scopes/scopes.md
 msgid "\"shadowed in inner scope: {a}\""
-msgstr ""
+msgstr "\"مظلل في النطاق الداخلي: {a}\""
 
 #: src/control-flow-basics/blocks-and-scopes/scopes.md
 msgid "\"after: {a}\""
-msgstr ""
+msgstr "\"بعد: {a}\""
 
 #: src/control-flow-basics/blocks-and-scopes/scopes.md
 msgid ""
