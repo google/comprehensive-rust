@@ -3593,6 +3593,8 @@ msgid ""
 "Show that a variable's scope is limited by adding a `b` in the inner block "
 "in the last example, and then trying to access it outside that block."
 msgstr ""
+"أظهر أن نطاق المتغير محدود عن طريق إضافة `b` في الكتلة الداخلية في المثال "
+"الأخير، ثم محاولة الوصول إليه خارج تلك الكتلة."
 
 #: src/control-flow-basics/blocks-and-scopes/scopes.md
 msgid ""
@@ -3600,22 +3602,29 @@ msgid ""
 "variable's memory locations exist at the same time. Both are available under "
 "the same name, depending where you use it in the code."
 msgstr ""
+"التظليل (Shadowing) يختلف عن التغيير (Mutation)، لأنه بعد التظليل، كلا موقعي "
+"ذاكرة المتغيرين موجودان في نفس الوقت. كلاهما متاحان تحت نفس الاسم، اعتمادًا "
+"على مكان استخدامه في الكود."
 
 #: src/control-flow-basics/blocks-and-scopes/scopes.md
 msgid "A shadowing variable can have a different type."
-msgstr ""
+msgstr "المتغير المظلل (Shadowing) يمكن أن يكون له نوع مختلف."
 
 #: src/control-flow-basics/blocks-and-scopes/scopes.md
 msgid ""
 "Shadowing looks obscure at first, but is convenient for holding on to values "
 "after `.unwrap()`."
 msgstr ""
+"التظليل (Shadowing) يبدو غامضًا في البداية، لكنه مريح للاحتفاظ بالقيم بعد `."
+"unwrap()`."
 
 #: src/control-flow-basics/functions.md
 msgid ""
 "Declaration parameters are followed by a type (the reverse of some "
 "programming languages), then a return type."
 msgstr ""
+"معلمات التصريح (Declaration parameters) يتبعها نوع (type) (عكس بعض لغات "
+"البرمجة)، ثم نوع الإرجاع (return type)."
 
 #: src/control-flow-basics/functions.md
 msgid ""
@@ -3624,29 +3633,40 @@ msgid ""
 "keyword can be used for early return, but the \"bare value\" form is "
 "idiomatic at the end of a function (refactor `gcd` to use a `return`)."
 msgstr ""
+"آخر تعبير في جسم الدالة (function body) (أو أي كتلة) يصبح قيمة الإرجاع "
+"(return value). ببساطة احذف `;` في نهاية التعبير. يمكن استخدام الكلمة "
+"المفتاحية `return` للإرجاع المبكر (early return)، ولكن الشكل \"bare value\" "
+"هو الشكل الاصطلاحي في نهاية الدالة (refactor `gcd` to use a `return`)."
 
 #: src/control-flow-basics/functions.md
 msgid ""
 "Some functions have no return value, and return the 'unit type', `()`. The "
 "compiler will infer this if the `-> ()` return type is omitted."
 msgstr ""
+"بعض الدوال ليس لها قيمة إرجاع، وتعيد 'unit type'، `()`. سيستنتج المترجم "
+"(compiler) هذا إذا تم حذف نوع الإرجاع `-> ()`."
 
 #: src/control-flow-basics/functions.md
 msgid ""
 "Overloading is not supported -- each function has a single implementation."
-msgstr ""
+msgstr "التحميل الزائد (Overloading) غير مدعوم -- كل دالة لها تنفيذ واحد فقط."
 
 #: src/control-flow-basics/functions.md
 msgid ""
 "Always takes a fixed number of parameters. Default arguments are not "
 "supported. Macros can be used to support variadic functions."
 msgstr ""
+"دائمًا تأخذ عددًا ثابتًا من المعلمات (parameters). المعلمات الافتراضية (Default "
+"arguments) غير مدعومة. يمكن استخدام الماكروز (Macros) لدعم الدوال المتغيرة "
+"(variadic functions)."
 
 #: src/control-flow-basics/functions.md
 msgid ""
 "Always takes a single set of parameter types. These types can be generic, "
 "which will be covered later."
 msgstr ""
+"دائمًا تأخذ مجموعة واحدة من أنواع المعلمات (parameter types). يمكن أن تكون "
+"هذه الأنواع عامة (generic)، والتي سيتم تغطيتها لاحقًا."
 
 #: src/control-flow-basics/macros.md
 msgid ""
@@ -3654,38 +3674,50 @@ msgid ""
 "variable number of arguments. They are distinguished by a `!` at the end. "
 "The Rust standard library includes an assortment of useful macros."
 msgstr ""
+"الماكروز (Macros) يتم توسيعها إلى كود Rust أثناء الترجمة، ويمكن أن تأخذ عددًا "
+"متغيرًا من المعلمات (arguments). يتم تمييزها بعلامة `!` في النهاية. تتضمن "
+"مكتبة Rust القياسية مجموعة من الماكروز المفيدة."
 
 #: src/control-flow-basics/macros.md
 msgid ""
 "`println!(format, ..)` prints a line to standard output, applying formatting "
 "described in [`std::fmt`](https://doc.rust-lang.org/std/fmt/index.html)."
 msgstr ""
+"`println!(format, ..)` تطبع سطرًا إلى الإخراج القياسي (standard output)، "
+"وتطبق التنسيق (formatting) الموضح في [`std::fmt`](https://doc.rust-lang.org/"
+"std/fmt/index.html)."
 
 #: src/control-flow-basics/macros.md
 msgid ""
 "`format!(format, ..)` works just like `println!` but returns the result as a "
 "string."
 msgstr ""
+"`format!(format, ..)` تعمل تمامًا مثل `println!` ولكنها تعيد النتيجة كسلسلة "
+"نصية (string)."
 
 #: src/control-flow-basics/macros.md
 msgid "`dbg!(expression)` logs the value of the expression and returns it."
-msgstr ""
+msgstr "`dbg!(expression)` يسجل قيمة التعبير (expression) ويعيدها."
 
 #: src/control-flow-basics/macros.md
 msgid ""
 "`todo!()` marks a bit of code as not-yet-implemented. If executed, it will "
 "panic."
 msgstr ""
+"`todo!()` تشير إلى جزء من الكود على أنه لم يتم تنفيذه بعد (not-yet-"
+"implemented). إذا تم تنفيذه، سيتسبب في ذعر (panic)."
 
 #: src/control-flow-basics/macros.md
 msgid ""
 "`unreachable!()` marks a bit of code as unreachable. If executed, it will "
 "panic."
 msgstr ""
+"`unreachable!()` تشير إلى جزء من الكود على أنه غير قابل للوصول "
+"(unreachable). إذا تم تنفيذه، سيتسبب في ذعر (panic)."
 
 #: src/control-flow-basics/macros.md
 msgid "\"{n}! = {}\""
-msgstr ""
+msgstr "\"{n}! = {}\""
 
 #: src/control-flow-basics/macros.md
 msgid ""
@@ -3693,230 +3725,239 @@ msgid ""
 "how to use them. Why they are defined as macros, and what they expand to, is "
 "not especially critical."
 msgstr ""
+"الخلاصة من هذا القسم هي أن هذه التسهيلات الشائعة موجودة، وكيفية استخدامها. "
+"لماذا تم تعريفها كـ macros، وما الذي تتوسع إليه، ليس بالأمر الحاسم بشكل خاص."
 
 #: src/control-flow-basics/macros.md
 msgid ""
 "The course does not cover defining macros, but a later section will describe "
 "use of derive macros."
 msgstr ""
+"الدورة لا تغطي تعريف الماكروز (macros)، ولكن قسم لاحق سيصف استخدام الماكروز "
+"المشتقة (derive macros)."
 
 #: src/control-flow-basics/exercise.md
 msgid ""
 "The [Collatz Sequence](https://en.wikipedia.org/wiki/Collatz_conjecture) is "
 "defined as follows, for an arbitrary n"
 msgstr ""
+"تُعرّف [متتالية كولاتز (Collatz Sequence)](https://en.wikipedia.org/wiki/"
+"Collatz_conjecture) كما يلي، لأي قيمة n عشوائية:"
 
 #: src/control-flow-basics/exercise.md
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: src/control-flow-basics/exercise.md
 msgid " greater than zero:"
-msgstr ""
+msgstr "أكبر من الصفر:"
 
 #: src/control-flow-basics/exercise.md
 msgid "If _n"
-msgstr ""
+msgstr "إذا كانت _n"
 
 #: src/control-flow-basics/exercise.md
 msgid "i"
-msgstr ""
+msgstr "i"
 
 #: src/control-flow-basics/exercise.md
 msgid "_ is 1, then the sequence terminates at _n"
-msgstr ""
+msgstr "_ تساوي 1، فإن المتتالية تنتهي عند _n"
 
 #: src/control-flow-basics/exercise.md
 msgid "_."
-msgstr ""
+msgstr "."
 
 #: src/control-flow-basics/exercise.md
 msgid "_ is even, then _n"
-msgstr ""
+msgstr "_ زوجية، فإن _n"
 
 #: src/control-flow-basics/exercise.md
 msgid "i+1"
-msgstr ""
+msgstr "i+1"
 
 #: src/control-flow-basics/exercise.md
 msgid " = n"
-msgstr ""
+msgstr " = n"
 
 #: src/control-flow-basics/exercise.md
 msgid " / 2_."
-msgstr ""
+msgstr " / 2_."
 
 #: src/control-flow-basics/exercise.md
 msgid "_ is odd, then _n"
-msgstr ""
+msgstr "_ فردية، فإن _n"
 
 #: src/control-flow-basics/exercise.md
 msgid " = 3 * n"
-msgstr ""
+msgstr " = 3 * n"
 
 #: src/control-flow-basics/exercise.md
 msgid " + 1_."
-msgstr ""
+msgstr " + 1_."
 
 #: src/control-flow-basics/exercise.md
 msgid "For example, beginning with _n"
-msgstr ""
+msgstr "على سبيل المثال، بدءًا من _n"
 
 #: src/control-flow-basics/exercise.md
 msgid "_ = 3:"
-msgstr ""
+msgstr "_ = 3:"
 
 #: src/control-flow-basics/exercise.md
 msgid "3 is odd, so _n"
-msgstr ""
+msgstr "3 فردية، لذا _n"
 
 #: src/control-flow-basics/exercise.md
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: src/control-flow-basics/exercise.md
 msgid "_ = 3 * 3 + 1 = 10;"
-msgstr ""
+msgstr "_ = 3 * 3 + 1 = 10;"
 
 #: src/control-flow-basics/exercise.md
 msgid "10 is even, so _n"
-msgstr ""
+msgstr "10 زوجية، لذا _n"
 
 #: src/control-flow-basics/exercise.md src/bare-metal/aps/better-uart.md
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: src/control-flow-basics/exercise.md
 msgid "_ = 10 / 2 = 5;"
-msgstr ""
+msgstr "_ = 10 / 2 = 5;"
 
 #: src/control-flow-basics/exercise.md
 msgid "5 is odd, so _n"
-msgstr ""
+msgstr "5 فردية، لذا _n"
 
 #: src/control-flow-basics/exercise.md src/bare-metal/aps/better-uart.md
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: src/control-flow-basics/exercise.md
 msgid "_ = 3 * 5 + 1 = 16;"
-msgstr ""
+msgstr "_ = 3 * 5 + 1 = 16;"
 
 #: src/control-flow-basics/exercise.md
 msgid "16 is even, so _n"
-msgstr ""
+msgstr "16 زوجية، لذا _n"
 
 #: src/control-flow-basics/exercise.md
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: src/control-flow-basics/exercise.md
 msgid "_ = 16 / 2 = 8;"
-msgstr ""
+msgstr "_ = 16 / 2 = 8;"
 
 #: src/control-flow-basics/exercise.md
 msgid "8 is even, so _n"
-msgstr ""
+msgstr "8 زوجية، لذا _n"
 
 #: src/control-flow-basics/exercise.md src/bare-metal/aps/better-uart.md
 msgid "6"
-msgstr ""
+msgstr "6"
 
 #: src/control-flow-basics/exercise.md
 msgid "_ = 8 / 2 = 4;"
-msgstr ""
+msgstr "_ = 8 / 2 = 4;"
 
 #: src/control-flow-basics/exercise.md
 msgid "4 is even, so _n"
-msgstr ""
+msgstr "4 زوجية، لذا _n"
 
 #: src/control-flow-basics/exercise.md
 msgid "7"
-msgstr ""
+msgstr "7"
 
 #: src/control-flow-basics/exercise.md
 msgid "_ = 4 / 2 = 2;"
-msgstr ""
+msgstr "_ = 4 / 2 = 2;"
 
 #: src/control-flow-basics/exercise.md
 msgid "2 is even, so _n"
-msgstr ""
+msgstr "2 زوجية، لذا _n"
 
 #: src/control-flow-basics/exercise.md src/bare-metal/aps/better-uart.md
 msgid "8"
-msgstr ""
+msgstr "8"
 
 #: src/control-flow-basics/exercise.md
 msgid "_ = 1; and"
-msgstr ""
+msgstr "_ = 1; و"
 
 #: src/control-flow-basics/exercise.md
 msgid "the sequence terminates."
-msgstr ""
+msgstr "تنتهي السلسلة."
 
 #: src/control-flow-basics/exercise.md
 msgid ""
 "Write a function to calculate the length of the collatz sequence for a given "
 "initial `n`."
 msgstr ""
+"اكتب دالة لحساب طول سلسلة كولاتز (collatz sequence) لقيمة ابتدائية معينة `n`."
 
 #: src/control-flow-basics/exercise.md src/control-flow-basics/solution.md
 msgid "/// Determine the length of the collatz sequence beginning at `n`.\n"
-msgstr ""
+msgstr "/// تحديد طول سلسلة كولاتز (collatz sequence) بدءًا من `n`.\n"
 
 #: src/control-flow-basics/solution.md src/concurrency/threads/scoped.md
 msgid "\"Length: {}\""
-msgstr ""
+msgstr "\"الطول: {}\""
 
 #: src/welcome-day-1-afternoon.md src/welcome-day-2-afternoon.md
 #: src/welcome-day-3-afternoon.md src/welcome-day-4-afternoon.md
 #, fuzzy
 msgid "Welcome Back"
-msgstr "مرحبًا"
+msgstr "مرحبًا بعودتكم"
 
 #: src/welcome-day-1-afternoon.md
 msgid "[Tuples and Arrays](./tuples-and-arrays.md) (35 minutes)"
-msgstr ""
+msgstr "[Tuples and Arrays] (التجمعات والمصفوفات) (35 دقيقة)"
 
 #: src/welcome-day-1-afternoon.md
 msgid "[References](./references.md) (55 minutes)"
-msgstr ""
+msgstr "[References] (المراجع) (55 دقيقة)"
 
 #: src/welcome-day-1-afternoon.md
 msgid "[User-Defined Types](./user-defined-types.md) (50 minutes)"
-msgstr ""
+msgstr "[User-Defined Types] (الأنواع المعرفة من قبل المستخدم) (50 دقيقة)"
 
 #: src/welcome-day-1-afternoon.md
 msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 35 "
 "minutes"
 msgstr ""
+"بما في ذلك فترات استراحة لمدة 10 دقائق، يجب أن تستغرق هذه الجلسة حوالي "
+"ساعتين و35 دقيقة"
 
 #: src/tuples-and-arrays.md
 msgid "[Arrays](./tuples-and-arrays/arrays.md) (5 minutes)"
-msgstr ""
+msgstr "[Arrays] (المصفوفات) (5 دقائق)"
 
 #: src/tuples-and-arrays.md
 msgid "[Tuples](./tuples-and-arrays/tuples.md) (5 minutes)"
-msgstr ""
+msgstr "[Tuples] (التجمعات) (5 دقائق)"
 
 #: src/tuples-and-arrays.md
 msgid "[Array Iteration](./tuples-and-arrays/iteration.md) (3 minutes)"
-msgstr ""
+msgstr "[Array Iteration] (تكرار المصفوفة) (3 دقائق)"
 
 #: src/tuples-and-arrays.md
 msgid ""
 "[Patterns and Destructuring](./tuples-and-arrays/destructuring.md) (5 "
 "minutes)"
-msgstr ""
+msgstr "[Patterns and Destructuring] (الأنماط والتفكيك) (5 دقائق)"
 
 #: src/tuples-and-arrays.md
 msgid "[Exercise: Nested Arrays](./tuples-and-arrays/exercise.md) (15 minutes)"
-msgstr ""
+msgstr "[Exercise: Nested Arrays] (تمرين: المصفوفات المتداخلة) (15 دقيقة)"
 
 #: src/tuples-and-arrays.md
 msgid "This segment should take about 35 minutes"
-msgstr ""
+msgstr "يجب أن يستغرق هذا الجزء حوالي 35 دقيقة"
 
 #: src/tuples-and-arrays/arrays.md
 msgid ""
@@ -3926,6 +3967,10 @@ msgid ""
 "different types. Slices, which have a size determined at runtime, are "
 "covered later."
 msgstr ""
+"قيمة من نوع المصفوفة `[T; N]` تحتوي على `N` (ثابت وقت الترجمة) عناصر من نفس "
+"النوع `T`. لاحظ أن طول المصفوفة هو _جزء من نوعها_، مما يعني أن `[u8; 3]` و "
+"`[u8; 4]` يعتبران نوعين مختلفين. سيتم تغطية الشرائح (slices)، التي يتم تحديد "
+"حجمها في وقت التشغيل، لاحقًا."
 
 #: src/tuples-and-arrays/arrays.md
 msgid ""
@@ -3933,10 +3978,13 @@ msgid ""
 "runtime. Rust can usually optimize these checks away, and they can be "
 "avoided using unsafe Rust."
 msgstr ""
+"حاول الوصول إلى عنصر مصفوفة خارج الحدود. يتم التحقق من الوصول إلى المصفوفة "
+"في وقت التشغيل. يمكن لـ Rust عادةً تحسين هذه الفحوصات، ويمكن تجنبها باستخدام "
+"Rust غير الآمن (unsafe Rust)."
 
 #: src/tuples-and-arrays/arrays.md
 msgid "We can use literals to assign values to arrays."
-msgstr ""
+msgstr "يمكننا استخدام القيم الحرفية (literals) لتعيين القيم إلى المصفوفات."
 
 #: src/tuples-and-arrays/arrays.md
 msgid ""
@@ -3946,42 +3994,54 @@ msgid ""
 "only implement the debug output. This means that we must use debug output "
 "here."
 msgstr ""
+"الماكرو `println!` يطلب تنفيذ التصحيح (debug implementation) باستخدام معامل "
+"التنسيق `?`: `{}` يعطي المخرجات الافتراضية، `{:?}` يعطي مخرجات التصحيح "
+"(debug output). الأنواع مثل الأعداد الصحيحة (integers) والسلاسل النصية "
+"(strings) تنفذ المخرجات الافتراضية، لكن المصفوفات تنفذ فقط مخرجات التصحيح. "
+"هذا يعني أنه يجب علينا استخدام مخرجات التصحيح هنا."
 
 #: src/tuples-and-arrays/arrays.md
 msgid ""
 "Adding `#`, eg `{a:#?}`, invokes a \"pretty printing\" format, which can be "
 "easier to read."
 msgstr ""
+"إضافة `#`، مثل `{a:#?}`، يستدعي تنسيق \"الطباعة الجميلة\" (pretty printing)، "
+"والذي يمكن أن يكون أسهل في القراءة."
 
 #: src/tuples-and-arrays/tuples.md
 msgid "Like arrays, tuples have a fixed length."
-msgstr ""
+msgstr "مثل المصفوفات، التجمعات (tuples) لها طول ثابت."
 
 #: src/tuples-and-arrays/tuples.md
 msgid "Tuples group together values of different types into a compound type."
-msgstr ""
+msgstr "تجمع التجمعات (tuples) القيم من أنواع مختلفة في نوع مركب."
 
 #: src/tuples-and-arrays/tuples.md
 msgid ""
 "Fields of a tuple can be accessed by the period and the index of the value, "
 "e.g. `t.0`, `t.1`."
 msgstr ""
+"يمكن الوصول إلى حقول التجمع (tuple) باستخدام النقطة (period) وفهرس القيمة، "
+"مثل `t.0`، `t.1`."
 
 #: src/tuples-and-arrays/tuples.md
 msgid ""
 "The empty tuple `()` is referred to as the \"unit type\" and signifies "
 "absence of a return value, akin to `void` in other languages."
 msgstr ""
+"التجمع الفارغ `()` يُشار إليه بـ \"نوع الوحدة\" (unit type) ويشير إلى غياب "
+"قيمة الإرجاع، مشابهًا لـ `void` في لغات البرمجة الأخرى."
 
 #: src/tuples-and-arrays/iteration.md
 msgid "The `for` statement supports iterating over arrays (but not tuples)."
 msgstr ""
+"جملة `for` تدعم التكرار عبر المصفوفات (arrays) (ولكن ليس التجمعات (tuples))."
 
 #: src/tuples-and-arrays/iteration.md
 msgid ""
 "This functionality uses the `IntoIterator` trait, but we haven't covered "
 "that yet."
-msgstr ""
+msgstr "هذه الوظيفة تستخدم السمة `IntoIterator`، لكننا لم نغطي ذلك بعد."
 
 #: src/tuples-and-arrays/iteration.md
 msgid ""
@@ -3989,6 +4049,9 @@ msgid ""
 "` macros. These are always checked while, debug-only variants like "
 "`debug_assert!` compile to nothing in release builds."
 msgstr ""
+"الماكرو `assert_ne!` جديد هنا. هناك أيضًا ماكروهات `assert_eq!` و `assert!`. "
+"هذه دائمًا ما يتم التحقق منها، بينما المتغيرات الخاصة بالتصحيح فقط مثل "
+"`debug_assert!` لا يتم تجميعها في إصدارات الإنتاج (release builds)."
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
@@ -3996,16 +4059,21 @@ msgid ""
 "extract the inner values into local variables. This can be done manually by "
 "directly accessing the inner values:"
 msgstr ""
+"عند العمل مع التجمعات (tuples) والقيم المهيكلة الأخرى، من الشائع الرغبة في "
+"استخراج القيم الداخلية إلى متغيرات محلية. يمكن القيام بذلك يدويًا عن طريق "
+"الوصول المباشر إلى القيم الداخلية:"
 
 #: src/tuples-and-arrays/destructuring.md
 msgid "\"left: {left}, right: {right}\""
-msgstr ""
+msgstr "\"left: {left}, right: {right}\""
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
 "However, Rust also supports using pattern matching to destructure a larger "
 "value into its constituent parts:"
 msgstr ""
+"ومع ذلك، تدعم Rust أيضًا استخدام مطابقة الأنماط (pattern matching) لتفكيك "
+"قيمة أكبر إلى أجزائها المكونة:"
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
@@ -4013,12 +4081,16 @@ msgid ""
 "statically verify that the value on the right of `=` has the same structure "
 "as the pattern."
 msgstr ""
+"الأنماط المستخدمة هنا هي \"غير قابلة للدحض\" (irrefutable)، مما يعني أن "
+"المترجم يمكنه التحقق بشكل ثابت من أن القيمة على يمين `=` لها نفس بنية النمط."
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
 "A variable name is an irrefutable pattern that always matches any value, "
 "hence why we can also use `let` to declare a single variable."
 msgstr ""
+"اسم المتغير هو نمط غير قابل للدحض (irrefutable pattern) يطابق دائمًا أي قيمة، "
+"لذلك يمكننا أيضًا استخدام `let` لإعلان متغير واحد."
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
@@ -4026,78 +4098,87 @@ msgid ""
 "comparison and destructuring to happen at the same time. This form of "
 "pattern matching will be discussed in more detail later."
 msgstr ""
+"تدعم Rust أيضًا استخدام الأنماط في العبارات الشرطية (conditionals)، مما يسمح "
+"بمقارنة المساواة والتفكيك (destructuring) في نفس الوقت. سيتم مناقشة هذا "
+"الشكل من مطابقة الأنماط بمزيد من التفصيل لاحقًا."
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
 "Edit the examples above to show the compiler error when the pattern doesn't "
 "match the value being matched on."
 msgstr ""
+"قم بتحرير الأمثلة أعلاه لإظهار خطأ المترجم عندما لا يتطابق النمط مع القيمة "
+"التي يتم مطابقتها."
 
 #: src/tuples-and-arrays/exercise.md
 msgid "Arrays can contain other arrays:"
-msgstr ""
+msgstr "المصفوفات (arrays) يمكن أن تحتوي على مصفوفات أخرى:"
 
 #: src/tuples-and-arrays/exercise.md
 msgid "What is the type of this variable?"
-msgstr ""
+msgstr "ما هو نوع (type) هذا المتغير؟"
 
 #: src/tuples-and-arrays/exercise.md
 msgid ""
 "Use an array such as the above to write a function `transpose` which will "
 "transpose a matrix (turn rows into columns):"
 msgstr ""
+"استخدم مصفوفة مثل المذكورة أعلاه لكتابة دالة `transpose` التي ستقوم بتبديل "
+"مصفوفة (تحويل الصفوف إلى أعمدة):"
 
 #: src/tuples-and-arrays/exercise.md
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and implement the "
 "function. This function only operates on 3x3 matrices."
 msgstr ""
+"انسخ الكود أدناه إلى <https://play.rust-lang.org/> ونفذ الدالة. هذه الدالة "
+"تعمل فقط على المصفوفات 3x3."
 
 #: src/tuples-and-arrays/exercise.md src/borrowing/exercise.md
 #: src/unsafe-rust/exercise.md
 msgid "// TODO: remove this when you're done with your implementation.\n"
-msgstr ""
+msgstr "// TODO: قم بإزالة هذا عند الانتهاء من تنفيذك.\n"
 
 #: src/tuples-and-arrays/exercise.md src/tuples-and-arrays/solution.md
 msgid "//\n"
-msgstr ""
+msgstr "//\n"
 
 #: src/tuples-and-arrays/exercise.md src/tuples-and-arrays/solution.md
 msgid "// <-- the comment makes rustfmt add a newline\n"
-msgstr ""
+msgstr "// <-- التعليق يجعل rustfmt يضيف سطرًا جديدًا\n"
 
 #: src/tuples-and-arrays/exercise.md src/tuples-and-arrays/solution.md
 msgid "\"matrix: {:#?}\""
-msgstr ""
+msgstr "\"matrix: {:#?}\""
 
 #: src/tuples-and-arrays/exercise.md src/tuples-and-arrays/solution.md
 msgid "\"transposed: {:#?}\""
-msgstr ""
+msgstr "\"transposed: {:#?}\""
 
 #: src/references.md
 msgid "[Shared References](./references/shared.md) (10 minutes)"
-msgstr ""
+msgstr "[Shared References](./references/shared.md) (10 دقائق)"
 
 #: src/references.md
 msgid "[Exclusive References](./references/exclusive.md) (10 minutes)"
-msgstr ""
+msgstr "[Exclusive References] (المراجع الحصرية) (10 دقائق)"
 
 #: src/references.md
 msgid "[Slices: &\\[T\\]](./references/slices.md) (10 minutes)"
-msgstr ""
+msgstr "[Slices: &\\[T\\]] (الشرائح: &\\[T\\]) (10 دقائق)"
 
 #: src/references.md
 msgid "[Strings](./references/strings.md) (10 minutes)"
-msgstr ""
+msgstr "[Strings] (السلاسل النصية) (10 دقائق)"
 
 #: src/references.md
 msgid "[Exercise: Geometry](./references/exercise.md) (15 minutes)"
-msgstr ""
+msgstr "[Exercise: Geometry] (تمرين: الهندسة) (15 دقيقة)"
 
 #: src/references.md src/smart-pointers.md src/borrowing.md
 #: src/concurrency/async-pitfalls.md
 msgid "This segment should take about 55 minutes"
-msgstr ""
+msgstr "يجب أن يستغرق هذا الجزء حوالي 55 دقيقة"
 
 #: src/references/shared.md
 msgid ""
@@ -4105,6 +4186,9 @@ msgid ""
 "responsibility for the value, and is also called \"borrowing\". Shared "
 "references are read-only, and the referenced data cannot change."
 msgstr ""
+"المرجع (reference) يوفر طريقة للوصول إلى قيمة أخرى دون تحمل المسؤولية عن "
+"القيمة، ويُسمى أيضًا \"الاستعارة\" (borrowing). المراجع المشتركة (Shared "
+"references) هي للقراءة فقط، ولا يمكن تغيير البيانات المشار إليها."
 
 #: src/references/shared.md
 msgid ""
@@ -4112,10 +4196,13 @@ msgid ""
 "with the `&` operator. The `*` operator \"dereferences\" a reference, "
 "yielding its value."
 msgstr ""
+"المرجع المشترك (shared reference) لنوع `T` يكون من النوع `&T`. يتم إنشاء "
+"قيمة·المرجع·باستخدام·المعامل·`&`."
+"·المعامل·`*`·يقوم·بـ·\"إلغاء·المرجع\"·(dereferences)·للمرجع،·مما·يعطي·قيمته."
 
 #: src/references/shared.md
 msgid "Rust will statically forbid dangling references:"
-msgstr ""
+msgstr "سيمنع Rust بشكل ثابت المراجع المتدلية (dangling references):"
 
 #: src/references/shared.md
 msgid ""
@@ -4124,6 +4211,10 @@ msgid ""
 "access the value, but is still \"owned\" by the original variable. The "
 "course will get into more detail on ownership in day 3."
 msgstr ""
+"يُقال أن المرجع \"يستعير\" (borrow) القيمة التي يشير إليها، وهذا نموذج جيد "
+"للطلاب غير المألوفين بالمؤشرات (pointers): يمكن للكود استخدام المرجع للوصول "
+"إلى القيمة، ولكنها لا تزال \"مملوكة\" (owned) من قبل المتغير الأصلي. ستتناول "
+"الدورة مزيدًا من التفاصيل حول الملكية (ownership) في اليوم الثالث."
 
 #: src/references/shared.md
 msgid ""
@@ -4133,12 +4224,18 @@ msgid ""
 "cover how Rust prevents the memory-safety bugs that come from using raw "
 "pointers."
 msgstr ""
+"يتم تنفيذ المراجع (references) كمؤشرات (pointers)، وميزة رئيسية هي أنها يمكن "
+"أن تكون أصغر بكثير من الشيء الذي تشير إليه. الطلاب المألوفون بلغة C أو C++ "
+"سيتعرفون على المراجع (references) كمؤشرات (pointers). ستغطي الأجزاء اللاحقة "
+"من الدورة كيفية منع Rust أخطاء أمان الذاكرة (memory-safety bugs) التي تأتي "
+"من استخدام المؤشرات الخام (raw pointers)."
 
 #: src/references/shared.md
 msgid ""
 "Rust does not automatically create references for you - the `&` is always "
 "required."
 msgstr ""
+"لا يقوم Rust بإنشاء المراجع (references) تلقائيًا - المعامل `&` مطلوب دائمًا."
 
 #: src/references/shared.md
 msgid ""
@@ -4146,6 +4243,9 @@ msgid ""
 "methods (try `r.is_ascii()`). There is no need for an `->` operator like in "
 "C++."
 msgstr ""
+"سيقوم Rust بإلغاء المرجع تلقائيًا (auto-dereference) في بعض الحالات، خاصة عند "
+"استدعاء الدوال (methods) (جرب `r.is_ascii()`). لا حاجة لمعامل `->` كما في C+"
+"+."
 
 #: src/references/shared.md
 msgid ""
@@ -4154,12 +4254,17 @@ msgid ""
 "different from C++, where assignment to a reference changes the referenced "
 "value."
 msgstr ""
+"في هذا المثال، `r` قابل للتغيير (mutable) بحيث يمكن إعادة تعيينه (`r = &b`). "
+"لاحظ أن هذا يعيد ربط `r`، بحيث يشير إلى شيء آخر. هذا يختلف عن C++، حيث أن "
+"التعيين إلى مرجع يغير القيمة المشار إليها."
 
 #: src/references/shared.md
 msgid ""
 "A shared reference does not allow modifying the value it refers to, even if "
 "that value was mutable. Try `*r = 'X'`."
 msgstr ""
+"المرجع المشترك (shared reference) لا يسمح بتعديل القيمة التي يشير إليها، حتى "
+"لو كانت تلك القيمة قابلة للتغيير (mutable). جرب `*r = 'X'`."
 
 #: src/references/shared.md
 msgid ""
@@ -4168,16 +4273,24 @@ msgid ""
 "a reference to `point`, but `point` will be deallocated when the function "
 "returns, so this will not compile."
 msgstr ""
+"يقوم Rust بتتبع أعمار (lifetimes) جميع المراجع لضمان أنها تعيش لفترة كافية. "
+"لا يمكن أن تحدث المراجع المتدلية (dangling references) في Rust الآمن. ستعيد "
+"`x_axis` مرجعًا إلى `point`، ولكن سيتم إلغاء تخصيص `point` عند انتهاء الدالة، "
+"لذلك لن يتم تجميع هذا الكود."
 
 #: src/references/shared.md
 msgid "We will talk more about borrowing when we get to ownership."
 msgstr ""
+"سنتحدث أكثر عن الاستعارة (borrowing) عندما نصل إلى الملكية (ownership)."
 
 #: src/references/exclusive.md
 msgid ""
 "Exclusive references, also known as mutable references, allow changing the "
 "value they refer to. They have type `&mut T`."
 msgstr ""
+"المراجع الحصرية (Exclusive references)، والمعروفة أيضًا بالمراجع القابلة "
+"للتغيير (mutable references)، تسمح بتغيير القيمة التي تشير إليها. نوعها هو "
+"`&mut T`."
 
 #: src/references/exclusive.md
 msgid ""
@@ -4187,6 +4300,10 @@ msgid ""
 "exists. Try making an `&point.0` or changing `point.0` while `x_coord` is "
 "alive."
 msgstr ""
+"تعني \"حصرية\" (Exclusive) أن هذا المرجع فقط يمكن استخدامه للوصول إلى "
+"القيمة. لا يمكن أن توجد مراجع أخرى (مشتركة أو حصرية) في نفس الوقت، ولا يمكن "
+"الوصول إلى القيمة المشار إليها بينما المرجع الحصري موجود. جرب إنشاء "
+"`&point.0` أو تغيير `point.0` بينما `x_coord` موجود."
 
 #: src/references/exclusive.md
 msgid ""
@@ -4195,6 +4312,10 @@ msgid ""
 "bound to different values, while the second represents an exclusive "
 "reference to a mutable value."
 msgstr ""
+"تأكد من ملاحظة الفرق بين `let mut x_coord: &i32` و `let x_coord: &mut i32`. "
+"الأول يمثل مرجعًا مشتركًا (shared reference) يمكن ربطه بقيم مختلفة، بينما "
+"الثاني يمثل مرجعًا حصريًا (exclusive reference) لقيمة قابلة للتغيير (mutable "
+"value)."
 
 #: src/references/slices.md
 msgid "Slices"
