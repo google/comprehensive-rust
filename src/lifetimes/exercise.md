@@ -70,8 +70,6 @@ missing and check tests:
 // TODO: Implement ProtoMessage for Person and PhoneNumber.
 
 {{#include exercise.rs:main }}
-
-{{#include exercise.rs:test }}
 ```
 
 <details>
