@@ -14,7 +14,7 @@ Traditionally, languages have fallen into two broad categories:
   Haskell, ...
   - A runtime system ensures that memory is not freed until it can no longer be
     referenced.
-  - Typically implemented with reference counting, garbage collection, or RAII.
+  - Typically implemented with reference counting or garbage collection.
 
 Rust offers a new mix:
 
