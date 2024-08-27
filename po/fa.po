@@ -16832,7 +16832,7 @@ msgstr ""
 
 #: src/bare-metal/aps/inline-assembly.md:1
 msgid "Inline assembly"
-msgstr ""
+msgstr "Inline assembly"
 
 #: src/bare-metal/aps/inline-assembly.md:3
 msgid ""
@@ -16840,54 +16840,63 @@ msgid ""
 "Rust code. For example, to make an HVC (hypervisor call) to tell the "
 "firmware to power off the system:"
 msgstr ""
+"گاهی اوقات برای انجام کارهایی که با کد Rust امکان پذیر نیست، باید از اسمبلی "
+"استفاده کنیم. به عنوان مثال، برای برقراری یک HVC (hypervisor call) نایز است "
+"که به firmware بگویید سیستم را خاموش کند:"
 
 #: src/bare-metal/aps/inline-assembly.md:20
+#, fuzzy
 msgid ""
 "// SAFETY: this only uses the declared registers and doesn't do anything\n"
 "    // with memory.\n"
 msgstr ""
+"// SAFETY: this only uses the declared registers and doesn't do anything\n"
+"    // with memory.\n"
 
 #: src/bare-metal/aps/inline-assembly.md:23
 msgid "\"hvc #0\""
-msgstr ""
+msgstr "\"hvc #0\""
 
 #: src/bare-metal/aps/inline-assembly.md:24
 msgid "\"w0\""
-msgstr ""
+msgstr "\"w0\""
 
 #: src/bare-metal/aps/inline-assembly.md:25
 msgid "\"w1\""
-msgstr ""
+msgstr "\"w1\""
 
 #: src/bare-metal/aps/inline-assembly.md:26
 msgid "\"w2\""
-msgstr ""
+msgstr "\"w2\""
 
 #: src/bare-metal/aps/inline-assembly.md:27
 msgid "\"w3\""
-msgstr ""
+msgstr "\"w3\""
 
 #: src/bare-metal/aps/inline-assembly.md:28
 msgid "\"w4\""
-msgstr ""
+msgstr "\"w4\""
 
 #: src/bare-metal/aps/inline-assembly.md:29
 msgid "\"w5\""
-msgstr ""
+msgstr "\"w5\""
 
 #: src/bare-metal/aps/inline-assembly.md:30
 msgid "\"w6\""
-msgstr ""
+msgstr "\"w6\""
 
 #: src/bare-metal/aps/inline-assembly.md:31
 msgid "\"w7\""
-msgstr ""
+msgstr "\"w7\""
 
 #: src/bare-metal/aps/inline-assembly.md:40
 msgid ""
 "(If you actually want to do this, use the [`smccc`](https://crates.io/crates/"
 "smccc) crate which has wrappers for all these functions.)"
 msgstr ""
+"(اگر واقعاُ می‌خواهید این کار را انجام دهید، از crate مربوطه [`smccc`](https://"
+"crates.io/crates/smccc) استفاده کنید که دارای بسته‌بندی(wrapper) برای همه این "
+"عملکردها است.)"
 
 #: src/bare-metal/aps/inline-assembly.md:45
 msgid ""
@@ -16895,6 +16904,9 @@ msgid ""
 "functions to manage system and CPU power states, among other things. It is "
 "implemented by EL3 firmware and hypervisors on many systems."
 msgstr ""
+"‏ PSCI یک رابط هدایت‌گر Arm Power State است که مجموعه‌ای استاندارد از توابع "
+"برای مدیریت وضعیت‌های power در سیستم و CPU بوده، از جمله موارد دیگری از این "
+"مورد توسط میان‌افزار EL3 و hypervisor در بسیاری از سیستم‌ها پیاده سازی شده است."
 
 #: src/bare-metal/aps/inline-assembly.md:48
 msgid ""
@@ -16903,12 +16915,18 @@ msgid ""
 "`inout` rather than `in` because the call could potentially clobber the "
 "contents of the registers."
 msgstr ""
+"یک  `0 => _` syntax  به این معنی است که رجیستر را قبل از اجرای کد اسمبلی "
+"درون خطی به 0 مقداردهی کنید و پس از آن محتوای آن را نادیده بگیرید. ما باید "
+"از `inout` به جای `in` استفاده کنیم زیرا این فراخوانی به طور بالقوه می‌تواند "
+"محتویات رجیسترها را مخدوش کند."
 
 #: src/bare-metal/aps/inline-assembly.md:52
 msgid ""
 "This `main` function needs to be `#[no_mangle]` and `extern \"C\"` because "
 "it is called from our entry point in `entry.S`."
 msgstr ""
+"این تابع `main` باید به صورت`#[no_mangle]` و  `extern \"C\"` باشد زیرا از "
+"نقطه ورودی (entry point) ما در `entry.S` فراخوانی می‌شود."
 
 #: src/bare-metal/aps/inline-assembly.md:54
 msgid ""
@@ -16919,36 +16937,50 @@ msgid ""
 "arguments passed to a function, so `entry.S` doesn't need to do anything "
 "special except make sure it doesn't change these registers."
 msgstr ""
+"‏ `_x0`–`_x3` مقادیر رجیسترهای `x0`–`x3` هستند که به طور معمول توسط "
+"bootloader برای ارسال چیزهایی مانند اشاره‌گر به device tree استفاده می‌شود. "
+"طبق قرارداد فراخوانی استاندارد aarch64 (که همان چیزی است که `extern \"C\"` "
+"برای استفاده مشخص می‌کند)، رجیسترهای `x0`–`x7` برای ۸ آرگومان اول ارسال شده "
+"به یک تابع استفاده می‌شوند، بنابراین `entry.S` این کار را انجام نمی‌دهد. لازم "
+"نیست کار خاصی انجام دهید، جز اینکه مطمئن شوید که این مورد رجیسترها را تغییر "
+"نمی‌دهد."
 
 #: src/bare-metal/aps/inline-assembly.md:60
 msgid ""
 "Run the example in QEMU with `make qemu_psci` under `src/bare-metal/aps/"
 "examples`."
 msgstr ""
+"مثال را در QEMU با `make qemu_psci` در زیر `src/bare-metal/aps/examples` "
+"اجرا کنید."
 
 #: src/bare-metal/aps/mmio.md:1
 msgid "Volatile memory access for MMIO"
-msgstr ""
+msgstr "دسترسی به حافظه فرار برای MMIO"
 
 #: src/bare-metal/aps/mmio.md:3
 msgid "Use `pointer::read_volatile` and `pointer::write_volatile`."
-msgstr ""
+msgstr "از `pointer::read_volatile` و `pointer::write_volatile` استفاده کنید."
 
 #: src/bare-metal/aps/mmio.md:4
 msgid "Never hold a reference."
-msgstr ""
+msgstr "هرگز reference‌ای را نگه ندارید."
 
 #: src/bare-metal/aps/mmio.md:5
 msgid ""
 "`addr_of!` lets you get fields of structs without creating an intermediate "
 "reference."
 msgstr ""
+"‏ `addr_of!` به شما امکان می‌دهد بدون ایجاد یک مرجع میانی، فیلدهایی از "
+"ساختارها را دریافت کنید."
 
 #: src/bare-metal/aps/mmio.md:10
 msgid ""
 "Volatile access: read or write operations may have side-effects, so prevent "
 "the compiler or hardware from reordering, duplicating or eliding them."
 msgstr ""
+"دسترسی فرار (Volatile access): عملیات خواندن یا نوشتن ممکن است عوارض جانبی "
+"داشته باشد، بنابراین از کامپایلر یا سخت‌افزار از مرتب‌سازی مجدد، کپی‌کردن یا "
+"حذف آنها جلوگیری کنید."
 
 #: src/bare-metal/aps/mmio.md:12
 msgid ""
@@ -16956,6 +16988,9 @@ msgid ""
 "compiler may assume that the value read is the same as the value just "
 "written, and not bother actually reading memory."
 msgstr ""
+"معمولاً اگر بنویسید و سپس بخوانید، به عنوان مثال. از طریق یک reference، "
+"کامپایلر ممکن است فرض کند که مقدار خوانده شده همان مقداری است که نوشته شده "
+"است و در واقع خواندن memory را سخت‌تر نکند."
 
 #: src/bare-metal/aps/mmio.md:15
 msgid ""
@@ -16963,28 +16998,37 @@ msgid ""
 "this is unsound. Whenever a reference exist, the compiler may choose to "
 "dereference it."
 msgstr ""
+"برخی از crateهای موجود برای دسترسی فَرار(volatile access) به سخت‌افزار دارای "
+"referenceهایی هستند، اما این همیشه درست نیست. هر زمان که یک reference وجود "
+"داشته باشد، کامپایلر ممکن است انتخاب کند که reference آن را لغو کند."
 
 #: src/bare-metal/aps/mmio.md:18
 msgid ""
 "Use the `addr_of!` macro to get struct field pointers from a pointer to the "
 "struct."
 msgstr ""
+"از ماکرو `addr_of!` برای دریافت اشاره‌گرهای struct field از یک اشاره‌گر به "
+"ساختار استفاده کنید."
 
 #: src/bare-metal/aps/uart.md:1
 msgid "Let's write a UART driver"
-msgstr ""
+msgstr "بیایید یک درایور UART بنویسیم"
 
 #: src/bare-metal/aps/uart.md:3
 msgid ""
 "The QEMU 'virt' machine has a [PL011](https://developer.arm.com/"
 "documentation/ddi0183/g) UART, so let's write a driver for that."
 msgstr ""
+"این ماشین QEMU 'virt' یک  [PL011](https://developer.arm.com/documentation/"
+"ddi0183/g) به‌عنوان UART دارد، پس بیایید یک درایور برای آن بنویسیم."
 
 #: src/bare-metal/aps/uart.md:9
+#, fuzzy
 msgid "/// Minimal driver for a PL011 UART.\n"
-msgstr ""
+msgstr "/// Minimal driver for a PL011 UART.\n"
 
 #: src/bare-metal/aps/uart.md:17 src/bare-metal/aps/better-uart/driver.md:13
+#, fuzzy
 msgid ""
 "/// Constructs a new instance of the UART driver for a PL011 device at the\n"
 "    /// given base address.\n"
@@ -16997,28 +17041,45 @@ msgid ""
 "process\n"
 "    /// as device memory and not have any other aliases.\n"
 msgstr ""
+"/// Constructs a new instance of the UART driver for a PL011 device at the\n"
+"    /// given base address.\n"
+"    ///\n"
+"    /// # Safety\n"
+"    ///\n"
+"    /// The given base address must point to the 8 MMIO control registers of "
+"a\n"
+"    /// PL011 device, which must be mapped into the address space of the "
+"process\n"
+"    /// as device memory and not have any other aliases.\n"
 
 #: src/bare-metal/aps/uart.md:29 src/bare-metal/aps/better-uart/driver.md:25
+#, fuzzy
 msgid "/// Writes a single byte to the UART.\n"
-msgstr ""
+msgstr "/// Writes a single byte to the UART.\n"
 
 #: src/bare-metal/aps/uart.md:31 src/bare-metal/aps/better-uart/driver.md:27
+#, fuzzy
 msgid "// Wait until there is room in the TX buffer.\n"
-msgstr ""
+msgstr "// Wait until there is room in the TX buffer.\n"
 
 #: src/bare-metal/aps/uart.md:34 src/bare-metal/aps/uart.md:46
+#, fuzzy
 msgid ""
 "// SAFETY: We know that the base address points to the control\n"
 "        // registers of a PL011 device which is appropriately mapped.\n"
 msgstr ""
+"// SAFETY: We know that the base address points to the control\n"
+"        // registers of a PL011 device which is appropriately mapped.\n"
 
 #: src/bare-metal/aps/uart.md:37 src/bare-metal/aps/better-uart/driver.md:33
+#, fuzzy
 msgid "// Write to the TX buffer.\n"
-msgstr ""
+msgstr "// Write to the TX buffer.\n"
 
 #: src/bare-metal/aps/uart.md:41 src/bare-metal/aps/better-uart/driver.md:37
+#, fuzzy
 msgid "// Wait until the UART is no longer busy.\n"
-msgstr ""
+msgstr "// Wait until the UART is no longer busy.\n"
 
 #: src/bare-metal/aps/uart.md:55
 msgid ""
@@ -17029,6 +17090,12 @@ msgid ""
 "it is always safe to call `write_byte` later because we can assume the "
 "necessary preconditions."
 msgstr ""
+"توجه داشته باشید که `Uart::new` ناامن یا unsafe است در حالی که متد‌های دیگر "
+"ایمن هستند. این به‌خاطر این است که تا زمانی که تماس گیرنده `Uart::new` تضمین "
+"کند که الزامات ایمنی آن برآورده شده است (یعنی فقط یک نمونه از درایور برای یک "
+"UART مشخص وجود دارد و هیچ چیز دیگری نام مستعار فضای آدرس آن را ندارد)، پس "
+"همیشه می‌توان `write_byte` را بعداً فراخوانی کرد زیرا می‌توانیم پیش‌شرط‌های لازم "
+"را فرض کنیم."
 
 #: src/bare-metal/aps/uart.md:61
 msgid ""
@@ -17036,47 +17103,63 @@ msgid ""
 "`write_byte` unsafe), but that would be much less convenient to use as every "
 "place that calls `write_byte` would need to reason about the safety"
 msgstr ""
+"ما می‌توانستیم این کار را به صورت دیگری انجام دهیم ( ساخت `new` را ایمن کنیم، "
+"اما `write_byte` را ناامن کنیم)، اما استفاده از آن بسیار راحت‌تر خواهد بود، "
+"زیرا هر مکانی که `write_byte` را صدا می‌زند باید در مورد ایمنی یا safety "
+"استدلال کند."
 
 #: src/bare-metal/aps/uart.md:64
+#, fuzzy
 msgid ""
 "This is a common pattern for writing safe wrappers of unsafe code: moving "
 "the burden of proof for soundness from a large number of places to a smaller "
 "number of places."
 msgstr ""
+"این یک الگوی رایج برای نوشتن بسته‌های ایمن کد ناامن است: انتقال بار اثبات "
+"سلامت عملکردی از تعداد زیادی مکان به تعداد کمتری مکان."
 
 #: src/bare-metal/aps/uart/traits.md:1
 msgid "More traits"
-msgstr ""
+msgstr "‏ traitهای بیشتر"
 
 #: src/bare-metal/aps/uart/traits.md:3
 msgid ""
 "We derived the `Debug` trait. It would be useful to implement a few more "
 "traits too."
 msgstr ""
+"ما ویژگی `Debug` را استخراج کردیم. اجرای چند ویژگی دیگر نیز مفید خواهد بود."
 
 #: src/bare-metal/aps/uart/traits.md:17
+#, fuzzy
 msgid ""
 "// SAFETY: `Uart` just contains a pointer to device memory, which can be\n"
 "// accessed from any context.\n"
 msgstr ""
+"// SAFETY: `Uart` just contains a pointer to device memory, which can be\n"
+"// accessed from any context.\n"
 
 #: src/bare-metal/aps/uart/traits.md:25
 msgid ""
 "Implementing `Write` lets us use the `write!` and `writeln!` macros with our "
 "`Uart` type."
 msgstr ""
+"پیاده‌سازی `Write`به ما امکان می‌دهد از ماکروهای `write!` و `writeln!` با تایپ "
+"`Uart` خود استفاده کنیم."
 
 #: src/bare-metal/aps/uart/traits.md:27
 msgid ""
 "Run the example in QEMU with `make qemu_minimal` under `src/bare-metal/aps/"
 "examples`."
 msgstr ""
+"مثال را در QEMU با `make qemu_minimal` در زیر `src/bare-metal/aps/examples` "
+"اجرا کنید."
 
 #: src/bare-metal/aps/better-uart.md:1
 msgid "A better UART driver"
-msgstr ""
+msgstr "یک درایور UART بهتر"
 
 #: src/bare-metal/aps/better-uart.md:3
+#, fuzzy
 msgid ""
 "The PL011 actually has [a bunch more registers](https://developer.arm.com/"
 "documentation/ddi0183/g/programmers-model/summary-of-registers), and adding "
@@ -17084,228 +17167,249 @@ msgid ""
 "read. Plus, some of them are bit fields which would be nice to access in a "
 "structured way."
 msgstr ""
+"‏ PL011 در واقع [مجموعه رجیسترهای زیادی دارد](https://developer.arm.com/"
+"documentation/ddi0183/g/programmers-model/summary-of-registers) و اضافه کردن "
+"offset برای ساختن اشاره‌گرها برای دسترسی به آنها مستعدخطا است و حتی فرآبند "
+"خواندن را می‌تواند پیچیده کند، برخی از آن فیلدها از نوع bit هستند که دسترسی "
+"به آنها به روشی ساختاریافته خوب است."
 
 #: src/bare-metal/aps/better-uart.md:7
 msgid "Offset"
-msgstr ""
+msgstr "افست"
 
 #: src/bare-metal/aps/better-uart.md:7
 msgid "Register name"
-msgstr ""
+msgstr "نام رجیستر"
 
 #: src/bare-metal/aps/better-uart.md:7
 msgid "Width"
-msgstr ""
+msgstr "عرض"
 
 #: src/bare-metal/aps/better-uart.md:9
 msgid "0x00"
-msgstr ""
+msgstr "0x00"
 
 #: src/bare-metal/aps/better-uart.md:9
 msgid "DR"
-msgstr ""
+msgstr "DR"
 
 #: src/bare-metal/aps/better-uart.md:9
 msgid "12"
-msgstr ""
+msgstr "12"
 
 #: src/bare-metal/aps/better-uart.md:10
 msgid "0x04"
-msgstr ""
+msgstr "0x04"
 
 #: src/bare-metal/aps/better-uart.md:10
 msgid "RSR"
-msgstr ""
+msgstr "RSR"
 
 #: src/bare-metal/aps/better-uart.md:10
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: src/bare-metal/aps/better-uart.md:11
 msgid "0x18"
-msgstr ""
+msgstr "0x18"
 
 #: src/bare-metal/aps/better-uart.md:11
 msgid "FR"
-msgstr ""
+msgstr "FR"
 
 #: src/bare-metal/aps/better-uart.md:11
 msgid "9"
-msgstr ""
+msgstr "9"
 
 #: src/bare-metal/aps/better-uart.md:12
 msgid "0x20"
-msgstr ""
+msgstr "0x20"
 
 #: src/bare-metal/aps/better-uart.md:12
 msgid "ILPR"
-msgstr ""
+msgstr "ILPR"
 
 #: src/bare-metal/aps/better-uart.md:12 src/bare-metal/aps/better-uart.md:15
 msgid "8"
-msgstr ""
+msgstr "8"
 
 #: src/bare-metal/aps/better-uart.md:13
 msgid "0x24"
-msgstr ""
+msgstr "0x24"
 
 #: src/bare-metal/aps/better-uart.md:13
 msgid "IBRD"
-msgstr ""
+msgstr "IBRD"
 
 #: src/bare-metal/aps/better-uart.md:13 src/bare-metal/aps/better-uart.md:16
 msgid "16"
-msgstr ""
+msgstr "16"
 
 #: src/bare-metal/aps/better-uart.md:14
 msgid "0x28"
-msgstr ""
+msgstr "0x28"
 
 #: src/bare-metal/aps/better-uart.md:14
 msgid "FBRD"
-msgstr ""
+msgstr "FBRD"
 
 #: src/bare-metal/aps/better-uart.md:14 src/bare-metal/aps/better-uart.md:17
 msgid "6"
-msgstr ""
+msgstr "6"
 
 #: src/bare-metal/aps/better-uart.md:15
 msgid "0x2c"
-msgstr ""
+msgstr "0x2c"
 
 #: src/bare-metal/aps/better-uart.md:15
 msgid "LCR_H"
-msgstr ""
+msgstr "LCR_H"
 
 #: src/bare-metal/aps/better-uart.md:16
 msgid "0x30"
-msgstr ""
+msgstr "0x30"
 
 #: src/bare-metal/aps/better-uart.md:16
 msgid "CR"
-msgstr ""
+msgstr "CR"
 
 #: src/bare-metal/aps/better-uart.md:17
 msgid "0x34"
-msgstr ""
+msgstr "0x34"
 
 #: src/bare-metal/aps/better-uart.md:17
 msgid "IFLS"
-msgstr ""
+msgstr "IFLS"
 
 #: src/bare-metal/aps/better-uart.md:18
 msgid "0x38"
-msgstr ""
+msgstr "0x38"
 
 #: src/bare-metal/aps/better-uart.md:18
 msgid "IMSC"
-msgstr ""
+msgstr "IMSC"
 
 #: src/bare-metal/aps/better-uart.md:18 src/bare-metal/aps/better-uart.md:19
 #: src/bare-metal/aps/better-uart.md:20 src/bare-metal/aps/better-uart.md:21
 msgid "11"
-msgstr ""
+msgstr "11"
 
 #: src/bare-metal/aps/better-uart.md:19
 msgid "0x3c"
-msgstr ""
+msgstr "0x3c"
 
 #: src/bare-metal/aps/better-uart.md:19
 msgid "RIS"
-msgstr ""
+msgstr "RIS"
 
 #: src/bare-metal/aps/better-uart.md:20
 msgid "0x40"
-msgstr ""
+msgstr "0x40"
 
 #: src/bare-metal/aps/better-uart.md:20
 msgid "MIS"
-msgstr ""
+msgstr "MIS"
 
 #: src/bare-metal/aps/better-uart.md:21
 msgid "0x44"
-msgstr ""
+msgstr "0x44"
 
 #: src/bare-metal/aps/better-uart.md:21
 msgid "ICR"
-msgstr ""
+msgstr "ICR"
 
 #: src/bare-metal/aps/better-uart.md:22
 msgid "0x48"
-msgstr ""
+msgstr "0x48"
 
 #: src/bare-metal/aps/better-uart.md:22
 msgid "DMACR"
-msgstr ""
+msgstr "DMACR"
 
 #: src/bare-metal/aps/better-uart.md:22
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: src/bare-metal/aps/better-uart.md:26
 msgid "There are also some ID registers which have been omitted for brevity."
-msgstr ""
+msgstr "همچنین برخی از ID register هایی وجود دارد که برای اختصار حذف شده‌اند."
 
 #: src/bare-metal/aps/better-uart/bitflags.md:3
 msgid ""
 "The [`bitflags`](https://crates.io/crates/bitflags) crate is useful for "
 "working with bitflags."
 msgstr ""
+"این crate برای [`bitflags`](https://crates.io/crates/bitflags) جهت کار با "
+"bitflags مفید است."
 
 #: src/bare-metal/aps/better-uart/bitflags.md:10
+#, fuzzy
 msgid "/// Flags from the UART flag register.\n"
-msgstr ""
+msgstr "/// Flags from the UART flag register.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:14
+#, fuzzy
 msgid "/// Clear to send.\n"
-msgstr ""
+msgstr "/// Clear to send.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:16
+#, fuzzy
 msgid "/// Data set ready.\n"
-msgstr ""
+msgstr "/// Data set ready.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:18
+#, fuzzy
 msgid "/// Data carrier detect.\n"
-msgstr ""
+msgstr "/// Data carrier detect.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:20
+#, fuzzy
 msgid "/// UART busy transmitting data.\n"
-msgstr ""
+msgstr "/// UART busy transmitting data.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:22
+#, fuzzy
 msgid "/// Receive FIFO is empty.\n"
-msgstr ""
+msgstr "/// Receive FIFO is empty.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:24
+#, fuzzy
 msgid "/// Transmit FIFO is full.\n"
-msgstr ""
+msgstr "/// Transmit FIFO is full.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:26
+#, fuzzy
 msgid "/// Receive FIFO is full.\n"
-msgstr ""
+msgstr "/// Receive FIFO is full.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:28
+#, fuzzy
 msgid "/// Transmit FIFO is empty.\n"
-msgstr ""
+msgstr "/// Transmit FIFO is empty.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:30
+#, fuzzy
 msgid "/// Ring indicator.\n"
-msgstr ""
+msgstr "/// Ring indicator.\n"
 
 #: src/bare-metal/aps/better-uart/bitflags.md:38
 msgid ""
 "The `bitflags!` macro creates a newtype something like `Flags(u16)`, along "
 "with a bunch of method implementations to get and set flags."
 msgstr ""
+"ماکرو `bitflags!` یک نوع جدید چیزی مانند`Flags(u16)` را به همراه تعدادی "
+"پیاده‌سازی متد برای دریافت و تنظیم flagها ایجاد می‌کند."
 
 #: src/bare-metal/aps/better-uart/registers.md:1
 msgid "Multiple registers"
-msgstr ""
+msgstr "رجیستر چندگانه"
 
 #: src/bare-metal/aps/better-uart/registers.md:3
 msgid ""
 "We can use a struct to represent the memory layout of the UART's registers."
 msgstr ""
+"ما می‌توانیم از یک ساختار برای نمایش طرح memory layout یک رجیستر UART استفاده "
+"کنیم."
 
 #: src/bare-metal/aps/better-uart/registers.md:43
 msgid ""
