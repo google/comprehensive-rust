@@ -18,14 +18,15 @@
 enum WireType {
     /// The Varint WireType indicates the value is a single VARINT.
     Varint,
+    /// The I64 WireType indicates that the value is precisely 8 bytes in
+    /// little-endian order containing a 64-bit signed integer or double type.
     //I64,  -- not needed for this exercise
     /// The Len WireType indicates that the value is a length represented as a
     /// VARINT followed by exactly that number of bytes.
     Len,
-    /// The I32 WireType indicates that the value is precisely 4 bytes in
-    /// little-endian order containing a 32-bit signed integer or float type.
-    /// For this exercise, only implement for float type.
-    I32,
+    // The I32 WireType indicates that the value is precisely 4 bytes in
+    // little-endian order containing a 32-bit signed integer or float type.
+    //I32,  -- not needed for this exercise
 }
 
 #[derive(Debug)]
@@ -34,7 +35,7 @@ enum FieldValue<'a> {
     Varint(u64),
     //I64(i64),  -- not needed for this exercise
     Len(&'a [u8]),
-    I32(f32),
+    //I32(i32),  -- not needed for this exercise
 }
 
 #[derive(Debug)]
@@ -54,7 +55,7 @@ impl From<u64> for WireType {
             0 => WireType::Varint,
             //1 => WireType::I64,  -- not needed for this exercise
             2 => WireType::Len,
-            5 => WireType::I32,
+            //5 => WireType::I32,  -- not needed for this exercise
             _ => panic!("Invalid wire type: {value}"),
         }
     }
@@ -78,14 +79,6 @@ impl<'a> FieldValue<'a> {
     fn as_u64(&self) -> u64 {
         let FieldValue::Varint(value) = self else {
             panic!("Expected `u64` to be a `Varint` field");
-        };
-        *value
-    }
-
-    #[allow(dead_code)]
-    fn as_f32(&self) -> f32 {
-        let FieldValue::I32(value) = self else {
-            panic!("Expected `f32` to be an `I32` field");
         };
         *value
     }
@@ -140,15 +133,6 @@ fn parse_field(data: &[u8]) -> (Field, &[u8]) {
             let (value, remainder) = remainder.split_at(len);
             (FieldValue::Len(value), remainder)
         }
-        WireType::I32 => {
-            if remainder.len() < 4 {
-                panic!("Unexpected EOF");
-            }
-            let (value, remainder) = remainder.split_at(4);
-            // Unwrap error because `value` is definitely 4 bytes long.
-            let value = f32::from_le_bytes(value.try_into().unwrap());
-            (FieldValue::I32(value), remainder)
-        }
     };
     (Field { field_num, value: fieldvalue }, remainder)
 }
@@ -170,11 +154,11 @@ fn parse_message<'a, T: ProtoMessage<'a>>(mut data: &'a [u8]) -> T {
 // ANCHOR_END: parse_message
 
 // ANCHOR: message_types
-#[derive(Debug, Default, PartialEq)]
+#[derive(Debug, Default)]
+# #[derive(PartialEq)]
 struct PhoneNumber<'a> {
     number: &'a str,
     type_: &'a str,
-    balance: f32,
 }
 
 #[derive(Debug, Default, PartialEq)]
@@ -201,7 +185,6 @@ impl<'a> ProtoMessage<'a> for PhoneNumber<'a> {
         match field.field_num {
             1 => self.number = field.value.as_string(),
             2 => self.type_ = field.value.as_string(),
-            3 => self.balance = field.value.as_f32(),
             _ => {} // skip everything else
         }
     }
