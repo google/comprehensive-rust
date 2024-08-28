@@ -32,7 +32,7 @@ enum WireType {
 #[derive(Debug)]
 /// A field's value, typed based on the wire type.
 enum FieldValue<'a> {
-    Varint(i32),
+    Varint(u64),
     //I64(i64),  -- not needed for this exercise
     Len(&'a [u8]),
     //I32(i32),  -- not needed for this exercise
@@ -154,7 +154,7 @@ fn parse_message<'a, T: ProtoMessage<'a>>(mut data: &'a [u8]) -> T {
 // ANCHOR_END: parse_message
 
 #[derive(PartialEq)]
-// ANCHOR: message_phone_number_type
+// ANCHOR: message_message_phone_number_type
 #[derive(Debug, Default)]
 struct PhoneNumber<'a> {
     number: &'a str,
@@ -176,7 +176,7 @@ impl<'a> ProtoMessage<'a> for Person<'a> {
     fn add_field(&mut self, field: Field<'a>) {
         match field.field_num {
             1 => self.name = field.value.as_string(),
-            2 => self.id = field.value.as_int32(),
+            2 => self.id = field.value.as_u64(),
             3 => self.phone.push(parse_message(field.value.as_bytes())),
             _ => {} // skip everything else
         }
