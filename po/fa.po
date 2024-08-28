@@ -17419,90 +17419,116 @@ msgid ""
 "predictable layout, as default Rust representation allows the compiler to "
 "(among other things) reorder fields however it sees fit."
 msgstr ""
+"‏ [`#[repr(C)]`](https://doc.rust-lang.org/reference/type-layout.html#the-c-"
+"representation) به کامپایلر می گوید که فیلدهای ساختاری را به ترتیب قرار دهد "
+"و این پیروی از قوانین مشابه با زبان C است. این کار را برای ساختار ما برای "
+"داشتن یک طرح قابل پیش‌بینی ضروری است، زیرا نمایش پیش‌فرض Rust به کامپایلر "
+"اجازه می دهد تا (از جمله موارد دیگر) فیلدها را به هر نحوی که صلاح بداند مرتب "
+"کند."
 
 #: src/bare-metal/aps/better-uart/driver.md:3
 msgid "Now let's use the new `Registers` struct in our driver."
-msgstr ""
+msgstr "حال بیایید از ساختار جدید `Registers` در درایور خود استفاده کنیم."
 
 #: src/bare-metal/aps/better-uart/driver.md:6
+#, fuzzy
 msgid "/// Driver for a PL011 UART.\n"
-msgstr ""
+msgstr "/// Driver for a PL011 UART.\n"
 
 #: src/bare-metal/aps/better-uart/driver.md:30
 #: src/bare-metal/aps/better-uart/driver.md:56
+#, fuzzy
 msgid ""
 "// SAFETY: We know that self.registers points to the control registers\n"
 "        // of a PL011 device which is appropriately mapped.\n"
 msgstr ""
+"// SAFETY: We know that self.registers points to the control registers\n"
+"        // of a PL011 device which is appropriately mapped.\n"
 
 #: src/bare-metal/aps/better-uart/driver.md:41
+#, fuzzy
 msgid ""
 "/// Reads and returns a pending byte, or `None` if nothing has been\n"
 "    /// received.\n"
 msgstr ""
+"/// Reads and returns a pending byte, or `None` if nothing has been\n"
+"    /// received.\n"
+"\n"
 
 #: src/bare-metal/aps/better-uart/driver.md:47
+#, fuzzy
 msgid ""
 "// SAFETY: We know that self.registers points to the control\n"
 "            // registers of a PL011 device which is appropriately mapped.\n"
 msgstr ""
+"// SAFETY: We know that self.registers points to the control\n"
+"            // registers of a PL011 device which is appropriately mapped.\n"
 
 #: src/bare-metal/aps/better-uart/driver.md:50
+#, fuzzy
 msgid "// TODO: Check for error conditions in bits 8-11.\n"
-msgstr ""
+msgstr "// TODO: Check for error conditions in bits 8-11.\n"
 
 #: src/bare-metal/aps/better-uart/driver.md:65
 msgid ""
 "Note the use of `addr_of!` / `addr_of_mut!` to get pointers to individual "
 "fields without creating an intermediate reference, which would be unsound."
 msgstr ""
+"به استفاده از `addr_of!` / `addr_of_mut!` برای دریافت pointerها به فیلدهای "
+"جداگانه بدون ایجاد یک reference میانی توجه کنید، که ممکن است نادرست باشد."
 
 #: src/bare-metal/aps/better-uart/using.md:1
 #: src/bare-metal/aps/logging/using.md:1
 msgid "Using it"
-msgstr ""
+msgstr "با استفاده از آن"
 
 #: src/bare-metal/aps/better-uart/using.md:3
 msgid ""
 "Let's write a small program using our driver to write to the serial console, "
 "and echo incoming bytes."
 msgstr ""
+"بیایید یک برنامه کوچک با استفاده از درایور خود بنویسیم تا روی کنسول سریال "
+"بنویسیم و بایت‌های ورودی را echo کنیم."
 
 #: src/bare-metal/aps/better-uart/using.md:19
 #: src/bare-metal/aps/logging/using.md:18
 #: src/exercises/bare-metal/solutions-afternoon.md:33
+#, fuzzy
 msgid "/// Base address of the primary PL011 UART.\n"
-msgstr ""
+msgstr "/// Base address of the primary PL011 UART.\n"
 
 #: src/bare-metal/aps/better-uart/using.md:25
 #: src/bare-metal/aps/logging/using.md:24
 #: src/exercises/bare-metal/solutions-afternoon.md:44
+#, fuzzy
 msgid ""
 "// SAFETY: `PL011_BASE_ADDRESS` is the base address of a PL011 device, and\n"
 "    // nothing else accesses that address range.\n"
 msgstr ""
+"// SAFETY: `PL011_BASE_ADDRESS` is the base address of a PL011 device, and\n"
+"    // nothing else accesses that address range.\n"
 
 #: src/bare-metal/aps/better-uart/using.md:29
 #: src/bare-metal/aps/logging/using.md:29
 msgid "\"main({x0:#x}, {x1:#x}, {x2:#x}, {x3:#x})\""
-msgstr ""
+msgstr "\"main({x0:#x}, {x1:#x}, {x2:#x}, {x3:#x})\""
 
 #: src/bare-metal/aps/better-uart/using.md:35
 msgid "b'\\r'"
-msgstr ""
+msgstr "b'\\r'"
 
 #: src/bare-metal/aps/better-uart/using.md:36
 #: src/concurrency/async-pitfalls/cancellation.md:27
 msgid "b'\\n'"
-msgstr ""
+msgstr "b'\\n'"
 
 #: src/bare-metal/aps/better-uart/using.md:38
 msgid "b'q'"
-msgstr ""
+msgstr "b'q'"
 
 #: src/bare-metal/aps/better-uart/using.md:44
 msgid "\"Bye!\""
-msgstr ""
+msgstr "\"Bye!\""
 
 #: src/bare-metal/aps/better-uart/using.md:51
 msgid ""
@@ -17510,11 +17536,16 @@ msgid ""
 "function is called from our entry point code in `entry.S`. See the speaker "
 "notes there for details."
 msgstr ""
+"همانطور که در مثال [inline assembly]‌(../inline-assembly.md)، این تابع `main` "
+"از کد نقطه ورودی ما در `entry.S` فراخوانی می‌شود. برای جزئیات بیشتر، "
+"یادداشت‌های سخنرانی‌ها را در آنجا ببینید."
 
 #: src/bare-metal/aps/better-uart/using.md:54
 msgid ""
 "Run the example in QEMU with `make qemu` under `src/bare-metal/aps/examples`."
 msgstr ""
+"مثال را در QEMU با `make qemu` در زیر `src/bare-metal/aps/examples` اجرا "
+"کنید."
 
 #: src/bare-metal/aps/logging.md:3
 msgid ""
@@ -17522,39 +17553,48 @@ msgid ""
 "(https://crates.io/crates/log) crate. We can do this by implementing the "
 "`Log` trait."
 msgstr ""
+"خوب است که بتوانید از ماکروهای logging از crate [`log`](https://crates.io/"
+"crates/log) استفاده کنید. ما می‌توانیم این کار را با اجرای ویژگی `Log` انجام "
+"دهیم."
 
 #: src/bare-metal/aps/logging.md:26
 msgid "\"[{}] {}\""
-msgstr ""
+msgstr "\"[{}] {}\""
 
 #: src/bare-metal/aps/logging.md:35
+#, fuzzy
 msgid "/// Initialises UART logger.\n"
-msgstr ""
+msgstr "/// Initialises UART logger.\n"
 
 #: src/bare-metal/aps/logging.md:48
 msgid ""
 "The unwrap in `log` is safe because we initialise `LOGGER` before calling "
 "`set_logger`."
 msgstr ""
+"باز کردن در`log` ایمن است زیرا `LOGGER` را قبل از فراخوانی `set_logger` "
+"مقداردهی اولیه می‌کنیم."
 
 #: src/bare-metal/aps/logging/using.md:3
 msgid "We need to initialise the logger before we use it."
-msgstr ""
+msgstr "قبل از استفاده از لاگر باید مقداردهی اولیه کنیم."
 
 #: src/bare-metal/aps/logging/using.md:38
 #: src/exercises/bare-metal/solutions-afternoon.md:115
 msgid "\"{info}\""
-msgstr ""
+msgstr "\"{info}\""
 
 #: src/bare-metal/aps/logging/using.md:46
 msgid "Note that our panic handler can now log details of panics."
 msgstr ""
+"توجه داشته باشید که panic handler ما اکنون می تواند جزئیات panic را ثبت کند."
 
 #: src/bare-metal/aps/logging/using.md:47
 msgid ""
 "Run the example in QEMU with `make qemu_logger` under `src/bare-metal/aps/"
 "examples`."
 msgstr ""
+"مثال را در QEMU با `make qemu_logger` در زیر `src/bare-metal/aps/examples` "
+"اجرا کنید."
 
 #: src/bare-metal/aps/exceptions.md:3
 msgid ""
@@ -17564,24 +17604,35 @@ msgid ""
 "We implement this in assembly to save volatile registers to the stack before "
 "calling into Rust code:"
 msgstr ""
+"‏ AArch64 یک جدول برداری استثنایی با ۱۶ ورودی، برای ۴ نوع استثنا "
+"(synchronous، IRQ، FIQ، SError) از ۴ حالت (Ecurrent EL with SP0, current EL "
+"with SPx, lower EL using AArch64, lower EL using AArch32) تعریف می‌کند. ما "
+"این کار را در اسمبلی پیاده‌سازی می‌کنیم تا رجیسترهای فرار (volatile) را قبل از "
+"فراخوانی Rust در stack ذخیره کنیم:"
 
 #: src/bare-metal/aps/exceptions.md:67
 msgid "EL is exception level; all our examples this afternoon run in EL1."
 msgstr ""
+"‏ EL سطح استثنا است. تمام نمونه‌های ما امروز بعدازظهر در EL1 اجرا می‌شوند."
 
 #: src/bare-metal/aps/exceptions.md:68
 msgid ""
 "For simplicity we aren't distinguishing between SP0 and SPx for the current "
 "EL exceptions, or between AArch32 and AArch64 for the lower EL exceptions."
 msgstr ""
+"برای سادگی، ما بین SP0 و SPx برای استثناهای EL فعلی، یا بین AArch32 و "
+"AArch64 برای استثناهای پایین EL تمایز قائل نمی‌شویم."
 
 #: src/bare-metal/aps/exceptions.md:70
 msgid ""
 "For this example we just log the exception and power down, as we don't "
 "expect any of them to actually happen."
 msgstr ""
+"برای این مثال، ما فقط exception را log کرده و سپس خاموش می‌کنیم، زیرا انتظار "
+"نداریم هیچ یک از آنها واقعاً اتفاق بیفتد."
 
 #: src/bare-metal/aps/exceptions.md:72
+#, fuzzy
 msgid ""
 "We can think of exception handlers and our main execution context more or "
 "less like different threads. [`Send` and `Sync`](../../concurrency/send-sync."
@@ -17590,64 +17641,87 @@ msgid ""
 "rest of the program, and it's `Send` but not `Sync`, then we'll need to wrap "
 "it in something like a `Mutex` and put it in a static."
 msgstr ""
+"می‌توانیم به handlerهای exception و context اجرای اصلی‌مان کمابیش مانند "
+"threadهای مختلف فکر کنیم. [`Send` and `Sync`](../../concurrency/send-sync."
+"md) آنچه را که می‌توانیم بین آنها به اشتراک بگذاریم، دقیقاً مانند threadها، "
+"کنترل می‌کنند. برای مثال، اگر می‌خواهیم مقداری را بین handlerهای exception و "
+"بقیه برنامه به اشتراک بگذاریم که بیشتر در مورد `Send` است اما مربوط به "
+"`Sync` نیست، باید آن را در چیزی مانند`Mutex` محصور کرده و یک استاتیک در آن "
+"قرار دهیم."
 
 #: src/bare-metal/aps/other-projects.md:3
 msgid "[oreboot](https://github.com/oreboot/oreboot)"
-msgstr ""
+msgstr "[oreboot](https://github.com/oreboot/oreboot)"
 
 #: src/bare-metal/aps/other-projects.md:4
+#, fuzzy
 msgid "\"coreboot without the C\""
-msgstr ""
+msgstr "\"coreboot without the C\""
 
 #: src/bare-metal/aps/other-projects.md:5
 msgid "Supports x86, aarch64 and RISC-V."
-msgstr ""
+msgstr "پشتیبانی از x86، aarch64 و RISC-V."
 
 #: src/bare-metal/aps/other-projects.md:6
 msgid "Relies on LinuxBoot rather than having many drivers itself."
-msgstr ""
+msgstr "به جای اینکه خود درایورهای زیادی داشته باشد، به LinuxBoot متکی است."
 
 #: src/bare-metal/aps/other-projects.md:7
 msgid ""
 "[Rust RaspberryPi OS tutorial](https://github.com/rust-embedded/rust-"
 "raspberrypi-OS-tutorials)"
 msgstr ""
+"[Rust RaspberryPi OS tutorial](https://github.com/rust-embedded/rust-"
+"raspberrypi-OS-tutorials)"
 
 #: src/bare-metal/aps/other-projects.md:8
 msgid ""
 "Initialisation, UART driver, simple bootloader, JTAG, exception levels, "
 "exception handling, page tables"
 msgstr ""
+"راه‌اندازی، درایور UART و bootloader ساده، JTAG، سطوح exception، مدیریت "
+"exception و page tableها"
 
 #: src/bare-metal/aps/other-projects.md:10
 msgid ""
 "Some dodginess around cache maintenance and initialisation in Rust, not "
 "necessarily a good example to copy for production code."
 msgstr ""
+"برخی ابهامات در مورد نگهداری کَش و راه‌اندازی اولیه در Rust، لزوماً مثال خوبی "
+"برای کپی کردن برای کد production نیست."
 
 #: src/bare-metal/aps/other-projects.md:12
 msgid "[`cargo-call-stack`](https://crates.io/crates/cargo-call-stack)"
-msgstr ""
+msgstr "[`cargo-call-stack`](https://crates.io/crates/cargo-call-stack)"
 
 #: src/bare-metal/aps/other-projects.md:13
 msgid "Static analysis to determine maximum stack usage."
-msgstr ""
+msgstr "تجزیه‌و‌تحلیل استاتیک برای تعیین حداکثر استفاده از stack."
 
 #: src/bare-metal/aps/other-projects.md:17
 msgid ""
 "The RaspberryPi OS tutorial runs Rust code before the MMU and caches are "
 "enabled. This will read and write memory (e.g. the stack). However:"
 msgstr ""
+"آموزش سیستم عامل RaspberryPi، کد Rust را قبل از فعال شدن MMU و حافظه کَش اجرا "
+"می‌کند. این کار memory را می‌خواند و روی آن می‌نویسد (به عنوان مثال stack). "
+"بااین‌حال:"
 
 #: src/bare-metal/aps/other-projects.md:19
+#, fuzzy
 msgid ""
 "Without the MMU and cache, unaligned accesses will fault. It builds with "
 "`aarch64-unknown-none` which sets `+strict-align` to prevent the compiler "
 "generating unaligned accesses so it should be alright, but this is not "
 "necessarily the case in general."
 msgstr ""
+"بدون MMU و حافظه کَش، دسترسی‌های بدون تراز دچار خطا خواهند شد.این‌ها با "
+"`aarch64-unknown-none` ساخته می‌شود که `+strict-align` را تنظیم کنند تا از "
+"ایجاد دسترسی‌های غیرهمتراز توسط کامپایلر جلوگیری کند، بنابراین همیشه باید "
+"صحیح باشد، اما لزوماً اینطور نیست."
 
 #: src/bare-metal/aps/other-projects.md:23
+#, fuzzy
 msgid ""
 "If it were running in a VM, this can lead to cache coherency issues. The "
 "problem is that the VM is accessing memory directly with the cache disabled, "
@@ -17657,6 +17731,13 @@ msgid ""
 "alright in this particular case (running directly on the hardware with no "
 "hypervisor), but isn't a good pattern in general."
 msgstr ""
+"اگر در VM اجرا می‌شد، این می‌تواند منجر به مشکلات انسجام کَش (cache coherency) "
+"شود. مشکل این است که ماشین مجازی مستقیماً با حافظه کَش غیرفعال شده به حافظه "
+"دسترسی پیدا می‌کند، درحالی‌که host دارای alias قابل کَش برای همان حافظه است. "
+"حتی اگر host به طور صریح به حافظه دسترسی نداشته باشد، دسترسی‌های موقتی "
+"می‌تواند منجر به پر شدن حافظه کَش شود و سپس تغییرات از یکی پس از دیگری از بین "
+"می‌رود. باز هم در این مورد خاص درست است (مستقیماً روی سخت‌افزار بدون hypervisor "
+"اجرا می‌شود)، اما به‌طورکلی الگوی خوبی نیست."
 
 #: src/bare-metal/useful-crates.md
 msgid "Useful crates"
@@ -17667,6 +17748,8 @@ msgid ""
 "We'll go over a few crates which solve some common problems in bare-metal "
 "programming."
 msgstr ""
+"ما به چند crate می‌پردازیم که برخی از مشکلات رایج در برنامه‌نویسی bare-metal "
+"را حل می‌کند."
 
 #: src/bare-metal/useful-crates/zerocopy.md:3
 msgid ""
@@ -17674,6 +17757,8 @@ msgid ""
 "traits and macros for safely converting between byte sequences and other "
 "types."
 msgstr ""
+"این crate [`zerocopy`](https://docs.rs/zerocopy/) (از Fuchsia) صفات و "
+"ماکروهایی را برای تبدیل ایمن بین دنباله‌های بایت و انواع دیگر فراهم می‌کند."
 
 #: src/bare-metal/useful-crates/zerocopy.md:42
 msgid ""
@@ -17681,12 +17766,18 @@ msgid ""
 "but can be useful for working with structures shared with hardware e.g. by "
 "DMA, or sent over some external interface."
 msgstr ""
+"این برای MMIO مناسب نیست (زیرا از خواندن و نوشتن فرار یا volatile استفاده "
+"نمی‌کند)، اما می‌تواند برای کار با ساختارهای مشترک با سخت افزار مفید باشد. "
+"توسط DMA، یا از طریق برخی از رابط‌های خارجی ارسال می‌شود."
 
 #: src/bare-metal/useful-crates/zerocopy.md:48
 msgid ""
 "`FromBytes` can be implemented for types for which any byte pattern is "
 "valid, and so can safely be converted from an untrusted sequence of bytes."
 msgstr ""
+"‏ `FromBytes` را می‌توان برای انواعی که هر الگوی بایتی برای آنها معتبر است "
+"پیاده‌سازی کرد و بنابراین می‌توان با خیال راحت از یک دنباله بایت‌های نامعتبر "
+"تبدیل کرد."
 
 #: src/bare-metal/useful-crates/zerocopy.md:50
 msgid ""
@@ -17694,11 +17785,16 @@ msgid ""
 "`RequestType` doesn't use all possible u32 values as discriminants, so not "
 "all byte patterns are valid."
 msgstr ""
+"تلاش برای استخراج `FromBytes` برای این تایپ‌ها ناموفق خواهد بود، زیرا "
+"`RequestType` از همه مقادیر ممکن u32 به عنوان متمایزکننده استفاده نمی‌کند، "
+"بنابراین همه الگوهای بایت معتبر نیستند."
 
 #: src/bare-metal/useful-crates/zerocopy.md:53
+#, fuzzy
 msgid ""
 "`zerocopy::byteorder` has types for byte-order aware numeric primitives."
 msgstr ""
+"‏ `zerocopy::byteorder` دارای تایپ‌های برای اعداد اولیه مطلع از byte-order است."
 
 #: src/bare-metal/useful-crates/zerocopy.md:54
 msgid ""
@@ -17706,6 +17802,8 @@ msgid ""
 "zerocopy-example/`. (It won't run in the Playground because of the crate "
 "dependency.)"
 msgstr ""
+"مثال را با `cargo run` در `src/bare-metal/useful-crates/zerocopy-example/"
+"`اجرا کنید. (به دلیل وابستگی به crate در Playground اجرا نمی‌شود.)"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:3
 msgid ""
@@ -17713,24 +17811,32 @@ msgid ""
 "you create page tables according to the AArch64 Virtual Memory System "
 "Architecture."
 msgstr ""
+"این crate [`aarch64-paging`](https://crates.io/crates/aarch64-paging) به شما "
+"امکان می‌دهد page tableها را مطابق با معماری سیستم حافظه‌مجازی AArch64 ایجاد "
+"کنید."
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:14
+#, fuzzy
 msgid "// Create a new page table with identity mapping.\n"
-msgstr ""
+msgstr "// Create a new page table with identity mapping.\n"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:16
+#, fuzzy
 msgid "// Map a 2 MiB region of memory as read-only.\n"
-msgstr ""
+msgstr "// Map a 2 MiB region of memory as read-only.\n"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:21
+#, fuzzy
 msgid "// Set `TTBR0_EL1` to activate the page table.\n"
-msgstr ""
+msgstr "// Set `TTBR0_EL1` to activate the page table.\n"
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:28
 msgid ""
 "For now it only supports EL1, but support for other exception levels should "
 "be straightforward to add."
 msgstr ""
+"در حال حاضر فقط از EL1 پشتیبانی می‌کند، اما پشتیبانی از سایر سطوح استثنا باید "
+"ساده باشد."
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:30
 msgid ""
@@ -17738,12 +17844,17 @@ msgid ""
 "com/android/platform/superproject/+/master:packages/modules/Virtualization/"
 "pvmfw/)."
 msgstr ""
+"این مورد در Android برای [Protected VM Firmware]‌(https://cs.android.com/"
+"android/platform/superproject/+/master:packages/modules/Virtualization/"
+"pvmfw/) استفاده می‌شود."
 
 #: src/bare-metal/useful-crates/aarch64-paging.md:31
 msgid ""
 "There's no easy way to run this example, as it needs to run on real hardware "
 "or under QEMU."
 msgstr ""
+"هیچ راه آسانی برای اجرای این مثال وجود ندارد، زیرا باید روی سخت‌افزار واقعی "
+"یا تحت QEMU اجرا شود."
 
 #: src/bare-metal/useful-crates/buddy_system_allocator.md:3
 msgid ""
@@ -17756,10 +17867,19 @@ msgid ""
 "allocating other address space. For example, we might want to allocate MMIO "
 "space for PCI BARs:"
 msgstr ""
+"‏ ['buddy_system_allocator'](https://crates.io/crates/buddy_system_allocator) "
+"یک third-party crate است که یک buddy system allocator را پیاده‌سازی می‌کند. "
+"می‌توان آن را هم برای ['LockedHeap'](https://docs.rs/"
+"buddy_system_allocator/0.9.0/buddy_system_allocator/struct.LockedHeap.html) "
+"در پیاده‌سازی [`GlobalAlloc`]‌(https://doc.rust-lang.org/core/alloc/trait."
+"GlobalAlloc.html) استفاده کرد. بنابراین می‌توانید از crate استاندارد `alloc` "
+"(همانطور که [قبل از](../alloc.md) دیدیم) یا برای تخصیص فضای آدرس دیگر "
+"استفاده کنید. به عنوان مثال، ممکن است بخواهیم فضای MMIO را برای PCI BARها "
+"اختصاص دهیم:"
 
 #: src/bare-metal/useful-crates/buddy_system_allocator.md:29
 msgid "PCI BARs always have alignment equal to their size."
-msgstr ""
+msgstr "‏ PCI BAR‌ها همیشه دارای تراز برابر با اندازه خود هستند."
 
 #: src/bare-metal/useful-crates/buddy_system_allocator.md:30
 msgid ""
@@ -17767,6 +17887,8 @@ msgid ""
 "allocator-example/`. (It won't run in the Playground because of the crate "
 "dependency.)"
 msgstr ""
+"مثال را با `cargo run` در `src/bare-metal/useful-crates/allocator-example/` "
+"اجرا کنید. (به دلیل وابستگی به crate در Playground اجرا نمی‌شود.)"
 
 #: src/bare-metal/useful-crates/tinyvec.md:3
 msgid ""
@@ -17776,17 +17898,26 @@ msgid ""
 "allocated or on the stack, which keeps track of how many elements are used "
 "and panics if you try to use more than are allocated."
 msgstr ""
+"گاهی اوقات شما چیزی را می‌خواهید که بتوان آن را مانند Vec تغییر اندازه داد، "
+"اما بدون heap allocation که [`tinyvec`]  (https://crates.io/crates/tinyvec) "
+"این را فراهم می‌کند: یک برداری که توسط یک آرایه یا برش پشتیبانی می‌شود که "
+"می‌تواند به‌صورت ایستا allocate داده شود یا روی stack که تعداد عناصر استفاده "
+"شده را ردیابی می‌کند و اگر سعی کنید بیشتر از آنچه که اختصاص‌داده‌شده را استفاده "
+"کنید panic می‌کند."
 
 #: src/bare-metal/useful-crates/tinyvec.md:25
 msgid ""
 "`tinyvec` requires that the element type implement `Default` for "
 "initialisation."
 msgstr ""
+"‏ `tinyvec` نیاز دارد که تایپ عنصر `Default` را برای مقداردهی اولیه اجرا کند."
 
 #: src/bare-metal/useful-crates/tinyvec.md:27
 msgid ""
 "The Rust Playground includes `tinyvec`, so this example will run fine inline."
 msgstr ""
+"‏ Rust Playground شامل `tinyvec` می‌شود، بنابراین این مثال به‌خوبی به صورت "
+"داخلی اجرا می‌شود."
 
 #: src/bare-metal/useful-crates/spin.md:3
 msgid ""
@@ -17794,22 +17925,31 @@ msgid ""
 "are not available in `core` or `alloc`. How can we manage synchronisation or "
 "interior mutability, such as for sharing state between different CPUs?"
 msgstr ""
+"‏ `std::sync::Mutex` و دیگر موارد اولیه همگام‌سازی از `std::sync` در `core` یا "
+"`alloc` موجود نیستند. چگونه می‌توانیم هماهنگ‌سازی یا تغییرپذیری داخلی، مانند "
+"اشتراک‌گذاری وضعیت بین CPU‌های مختلف را مدیریت کنیم؟"
 
 #: src/bare-metal/useful-crates/spin.md:7
 msgid ""
 "The [`spin`](https://crates.io/crates/spin) crate provides spinlock-based "
 "equivalents of many of these primitives."
 msgstr ""
+"این crate [`spin`](https://crates.io/crates/spin) معادل‌های مبتنی بر "
+"spinlock، بسیاری از این موارد اولیه را ارائه می‌کند."
 
 #: src/bare-metal/useful-crates/spin.md:26
 msgid "Be careful to avoid deadlock if you take locks in interrupt handlers."
 msgstr ""
+"اگر در handlerهای وقفه قفل می‌کنید مراقب باشید که از بن بست(deadlock) جلوگیری "
+"کنید."
 
 #: src/bare-metal/useful-crates/spin.md:27
 msgid ""
 "`spin` also has a ticket lock mutex implementation; equivalents of `RwLock`, "
 "`Barrier` and `Once` from `std::sync`; and `Lazy` for lazy initialisation."
 msgstr ""
+"‏ `spin` همچنین دارای اجرای  ticket lock mutex است. معادل‌های `RwLock`, "
+"`Barrier` و `Once` از `std::sync`. و `Lazy` برای مقداردهی اولیه lazy."
 
 #: src/bare-metal/useful-crates/spin.md:29
 msgid ""
@@ -17817,11 +17957,16 @@ msgid ""
 "useful types for late initialisation with a slightly different approach to "
 "`spin::once::Once`."
 msgstr ""
+"این crate ['once_cell'](https://crates.io/crates/once_cell) همچنین دارای "
+"تایپ‌های مفیدی برای مقداردهی اولیه دیرهنگام با رویکرد کمی متفاوت به `spin::"
+"once::Once` است."
 
 #: src/bare-metal/useful-crates/spin.md:31
 msgid ""
 "The Rust Playground includes `spin`, so this example will run fine inline."
 msgstr ""
+"‏ Playground Rust شامل `spin` است، بنابراین این مثال به خوبی به صورت داخلی "
+"اجرا می‌شود."
 
 #: src/bare-metal/android.md
 msgid ""
