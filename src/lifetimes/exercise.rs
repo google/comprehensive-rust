@@ -32,7 +32,7 @@ enum WireType {
 #[derive(Debug)]
 /// A field's value, typed based on the wire type.
 enum FieldValue<'a> {
-    Varint(u64),
+    Varint(i32),
     //I64(i64),  -- not needed for this exercise
     Len(&'a [u8]),
     //I32(i32),  -- not needed for this exercise
@@ -62,7 +62,7 @@ impl From<u64> for WireType {
 }
 
 impl<'a> FieldValue<'a> {
-    fn as_str(&self) -> &'a str {
+    fn as_string(&self) -> &'a str {
         let FieldValue::Len(data) = self else {
             panic!("Expected string to be a `Len` field");
         };
@@ -175,8 +175,8 @@ struct Person<'a> {
 impl<'a> ProtoMessage<'a> for Person<'a> {
     fn add_field(&mut self, field: Field<'a>) {
         match field.field_num {
-            1 => self.name = field.value.as_str(),
-            2 => self.id = field.value.as_u64(),
+            1 => self.name = field.value.as_string(),
+            2 => self.id = field.value.as_int32(),
             3 => self.phone.push(parse_message(field.value.as_bytes())),
             _ => {} // skip everything else
         }
@@ -186,8 +186,8 @@ impl<'a> ProtoMessage<'a> for Person<'a> {
 impl<'a> ProtoMessage<'a> for PhoneNumber<'a> {
     fn add_field(&mut self, field: Field<'a>) {
         match field.field_num {
-            1 => self.number = field.value.as_str(),
-            2 => self.type_ = field.value.as_str(),
+            1 => self.number = field.value.as_string(),
+            2 => self.type_ = field.value.as_string(),
             _ => {} // skip everything else
         }
     }
