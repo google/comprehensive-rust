@@ -153,20 +153,24 @@ fn parse_message<'a, T: ProtoMessage<'a>>(mut data: &'a [u8]) -> T {
 }
 // ANCHOR_END: parse_message
 
-// ANCHOR: message_types
-#[derive(Debug, Default, PartialEq)]
+#[derive(PartialEq)]
+// ANCHOR: message_phone_number_type
+#[derive(Debug, Default)]
 struct PhoneNumber<'a> {
     number: &'a str,
     type_: &'a str,
 }
+// ANCHOR_END: message_phone_number_type
 
-#[derive(Debug, Default, PartialEq)]
+#[derive(PartialEq)]
+// ANCHOR: message_person_type
+#[derive(Debug, Default)]
 struct Person<'a> {
     name: &'a str,
     id: u64,
     phone: Vec<PhoneNumber<'a>>,
 }
-// ANCHOR_END: message_types
+// ANCHOR_END: message_person_type
 
 impl<'a> ProtoMessage<'a> for Person<'a> {
     fn add_field(&mut self, field: Field<'a>) {
@@ -203,8 +207,6 @@ fn main() {
 }
 // ANCHOR_END: main
 
-// ANCHOR: tests
-// Tests can be checked with corresponding option
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -251,4 +253,3 @@ mod tests {
         );
     }
 }
-// ANCHOR_END: tests
