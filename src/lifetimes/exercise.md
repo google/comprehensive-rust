@@ -56,7 +56,9 @@ What remains for you is to implement the `parse_field` function and the
 
 {{#include exercise.rs:parse_message }}
 
-{{#include exercise.rs:message_types}}
+{{#include exercise.rs:message_phone_number_type}}
+
+{{#include exercise.rs:message_person_type}}
 
 // TODO: Implement ProtoMessage for Person and PhoneNumber.
 
