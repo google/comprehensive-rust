@@ -17975,6 +17975,10 @@ msgid ""
 "with a linker script to produce the binary itself, and then a `raw_binary` "
 "to convert the ELF to a raw binary ready to be run."
 msgstr ""
+"برای ساختن یک bare-metal Rust binary در AOSP، باید از یک `rust_ffi_static` "
+"Soong برای ساخت کد Rust خود استفاده کنید، سپس از یک `cc_binary` با یک linker "
+"script برای تولید binary استفاده کرده و سپس از یک `raw_binary` برای تبدیل "
+"ELF به یک raw binary آماده اجرا استفاده کنید."
 
 #: src/bare-metal/android/vmbase.md:1
 msgid "vmbase"
@@ -17987,22 +17991,31 @@ msgid ""
 "master/vmbase/) library provides a linker script and useful defaults for the "
 "build rules, along with an entry point, UART console logging and more."
 msgstr ""
+"برای ماشین‌های مجازی که تحت crosvm در aarch64 اجرا می‌شوند، کتابخانه [vmbase]"
+"(https://android.googlesource.com/platform/packages/modules/Virtualization/+/"
+"refs/heads/master/vmbase/) یک اسکریپت linker و پیش‌فرض‌های مفیدی را ارائه "
+"می‌کند. برای این قوانین ساخت، همراه با یک نقطه ورودی، UART console logging و "
+"موارد دیگر."
 
 #: src/bare-metal/android/vmbase.md:24
 msgid ""
 "The `main!` macro marks your main function, to be called from the `vmbase` "
 "entry point."
 msgstr ""
+"این ماکرو `main!`عملکرد اصلی شما را مشخص می‌کند تا از نقطه ورودی `vmbase` "
+"فراخوانی شود."
 
 #: src/bare-metal/android/vmbase.md:26
 msgid ""
 "The `vmbase` entry point handles console initialisation, and issues a "
 "PSCI_SYSTEM_OFF to shutdown the VM if your main function returns."
 msgstr ""
+"نقطه ورودی `vmbase` مقدار دهی اولیه کنسول را کنترل می‌کند و در صورت بازگشت "
+"main function، یک PSCI_SYSTEM_OFF برای خاموش کردن VM صادر می‌کند."
 
 #: src/exercises/bare-metal/afternoon.md
 msgid "We will write a driver for the PL031 real-time clock device."
-msgstr ""
+msgstr "ما یک درایور برای دستگاه PL031 real-time clock  خواهیم نوشت."
 
 #: src/exercises/bare-metal/afternoon.md
 msgid ""
@@ -18015,27 +18028,38 @@ msgstr ""
 #: src/exercises/bare-metal/rtc.md:1
 #: src/exercises/bare-metal/solutions-afternoon.md:3
 msgid "RTC driver"
-msgstr ""
+msgstr "RTC driver"
 
 #: src/exercises/bare-metal/rtc.md:3
+#, fuzzy
 msgid ""
 "The QEMU aarch64 virt machine has a [PL031](https://developer.arm.com/"
 "documentation/ddi0224/c) real-time clock at 0x9010000. For this exercise, "
 "you should write a driver for it."
 msgstr ""
+"ماشین QEMU aarch64 virt دارای یک ساعت بلادرنگ [PL031](https://developer.arm."
+"com/documentation/ddi0224/c) در 0x9010000 است. برای این تمرین باید یک درایور "
+"برای آن بنویسید."
 
 #: src/exercises/bare-metal/rtc.md:6
 msgid ""
 "Use it to print the current time to the serial console. You can use the "
 "[`chrono`](https://crates.io/crates/chrono) crate for date/time formatting."
 msgstr ""
+"از آن برای چاپ زمان جاری در کنسول سریال استفاده کنید. می‌توانید از crate "
+"[`chrono`](https://crates.io/crates/chrono) برای قالب‌بندی date/time استفاده "
+"کنید."
 
 #: src/exercises/bare-metal/rtc.md:8
+#, fuzzy
 msgid ""
 "Use the match register and raw interrupt status to busy-wait until a given "
 "time, e.g. 3 seconds in the future. (Call [`core::hint::spin_loop`](https://"
 "doc.rust-lang.org/core/hint/fn.spin_loop.html) inside the loop.)"
 msgstr ""
+"از match register و raw interrupt status استفاده کنید تا تا زمان معینی منتظر "
+"بمانید، به عنوان مثال. ۳ ثانیه در آینده نزدیک (Call [`core::hint::spin_loop`]"
+"(https://doc.rust-lang.org/core/hint/fn.spin_loop.html) inside the loop.)"
 
 #: src/exercises/bare-metal/rtc.md:11
 msgid ""
@@ -18043,176 +18067,214 @@ msgid ""
 "the RTC match. You can use the driver provided in the [`arm-gic`](https://"
 "docs.rs/arm-gic/) crate to configure the Arm Generic Interrupt Controller."
 msgstr ""
+"ء _افزونه‌ها اگر زمان دارید:_ وقفه ایجاد شده توسط تطبیق RTC را فعال کرده و آن "
+"را مدیریت کنید. می‌توانید از درایور ارائه شده در crate [`arm-gic`](https://"
+"docs.rs/arm-gic/) برای پیکربندی Arm Generic Interrupt Controller استفاده "
+"کنید."
 
 #: src/exercises/bare-metal/rtc.md:14
 msgid "Use the RTC interrupt, which is wired to the GIC as `IntId::spi(2)`."
-msgstr ""
+msgstr "از وقفه RTC استفاده کنید که به عنوان `IntId::spi(2)` به GIC متصل است."
 
 #: src/exercises/bare-metal/rtc.md:15
 msgid ""
 "Once the interrupt is enabled, you can put the core to sleep via `arm_gic::"
 "wfi()`, which will cause the core to sleep until it receives an interrupt."
 msgstr ""
+"هنگامی که وقفه (interrupt) فعال شد، می‌توانید هسته را از طریق `arm_gic::"
+"wfi()` به حالت Sleep درآورید، که باعث می‌شود هسته تا زمانی که وقفه دریافت کند "
+"به خواب برود."
 
 #: src/exercises/bare-metal/rtc.md:19
 msgid ""
 "Download the [exercise template](../../comprehensive-rust-exercises.zip) and "
 "look in the `rtc` directory for the following files."
 msgstr ""
+"دانلود از [exercise template](../../comprehensive-rust-exercises.zip) و "
+"فایل‌های زیر را در دایرکتوری `rtc` جستجو کنید."
 
 #: src/exercises/bare-metal/rtc.md:79
 msgid ""
 "_src/exceptions.rs_ (you should only need to change this for the 3rd part of "
 "the exercise):"
 msgstr ""
+"ء _src/exceptions.rs_ (شما فقط باید این را برای بخش سوم تمرین تغییر دهید):"
 
 #: src/exercises/bare-metal/rtc.md:156
 msgid "_src/logger.rs_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "ء _src/logger.rs_ (نیازی نیست این مورد را تغییر دهید):"
 
 #: src/exercises/bare-metal/rtc.md:216
 msgid "_src/pl011.rs_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_src/pl011.rs_ (نیازی نیست این مورد را تغییر دهید):"
 
 #: src/exercises/bare-metal/rtc.md:419
 msgid "_build.rs_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_build.rs_ (نیازی نیست این مورد رو تغییر دهید):"
 
 #: src/exercises/bare-metal/rtc.md:456
 msgid "_entry.S_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_entry.S_ ( نیازی نیست این مورد را تغییر دهید):"
 
 #: src/exercises/bare-metal/rtc.md:606
 msgid "_exceptions.S_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_exceptions.S_ ( نیازی نیست این مورد را تغییر دهید):"
 
 #: src/exercises/bare-metal/rtc.md:792
 msgid "_idmap.S_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_idmap.S_ (نیازی نیست این مورد را تغییر دهید):"
 
 #: src/exercises/bare-metal/rtc.md:842
 msgid "_image.ld_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_image.ld_ (نیازی نیست این مورد را تغییر دهید):"
 
 #: src/exercises/bare-metal/rtc.md:954
 msgid "_Makefile_ (you shouldn't need to change this):"
-msgstr ""
+msgstr "_Makefile_ (نیازی نیست این مورد را تغییر دهید):"
 
 #: src/exercises/bare-metal/rtc.md:1011
 msgid "Run the code in QEMU with `make qemu`."
-msgstr ""
+msgstr "کد را در QEMU با  `make qemu` اجرا کنید."
 
 #: src/exercises/bare-metal/solutions-afternoon.md:1
 msgid "Bare Metal Rust Afternoon"
-msgstr "عصرانه با  Bare Metal Rust"
+msgstr "بعدازظهربا Bare Metal Rust"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:5
+#, fuzzy
 msgid "([back to exercise](rtc.md))"
-msgstr ""
+msgstr "([back to exercise](rtc.md))"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:7
 msgid "_main.rs_:"
-msgstr ""
+msgstr "_main.rs_:"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:29
+#, fuzzy
 msgid "/// Base addresses of the GICv3.\n"
-msgstr ""
+msgstr "/// Base addresses of the GICv3.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:36
+#, fuzzy
 msgid "/// Base address of the PL031 RTC.\n"
-msgstr ""
+msgstr "/// Base address of the PL031 RTC.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:38
+#, fuzzy
 msgid "/// The IRQ used by the PL031 RTC.\n"
-msgstr ""
+msgstr "/// The IRQ used by the PL031 RTC.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:49
+#, fuzzy
 msgid "\"main({:#x}, {:#x}, {:#x}, {:#x})\""
-msgstr ""
+msgstr "\"main({:#x}, {:#x}, {:#x}, {:#x})\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md:51
+#, fuzzy
 msgid ""
 "// SAFETY: `GICD_BASE_ADDRESS` and `GICR_BASE_ADDRESS` are the base\n"
 "    // addresses of a GICv3 distributor and redistributor respectively, and\n"
 "    // nothing else accesses those address ranges.\n"
 msgstr ""
+"// SAFETY: `GICD_BASE_ADDRESS` and `GICR_BASE_ADDRESS` are the base\n"
+"    // addresses of a GICv3 distributor and redistributor respectively, and\n"
+"    // nothing else accesses those address ranges.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:57
+#, fuzzy
 msgid ""
 "// SAFETY: `PL031_BASE_ADDRESS` is the base address of a PL031 device, and\n"
 "    // nothing else accesses that address range.\n"
 msgstr ""
+"// SAFETY: `PL031_BASE_ADDRESS` is the base address of a PL031 device, and\n"
+"    // nothing else accesses that address range.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:62
+#, fuzzy
 msgid "\"RTC: {time}\""
-msgstr ""
+msgstr "\"RTC: {time}\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md:70
+#, fuzzy
 msgid "// Wait for 3 seconds, without interrupts.\n"
-msgstr ""
+msgstr "// Wait for 3 seconds, without interrupts.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:73
 #: src/exercises/bare-metal/solutions-afternoon.md:91
+#, fuzzy
 msgid "\"Waiting for {}\""
-msgstr ""
+msgstr "\"Waiting for {}\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md:75
 #: src/exercises/bare-metal/solutions-afternoon.md:83
 #: src/exercises/bare-metal/solutions-afternoon.md:96
 #: src/exercises/bare-metal/solutions-afternoon.md:104
+#, fuzzy
 msgid "\"matched={}, interrupt_pending={}\""
-msgstr ""
+msgstr "\"matched={}, interrupt_pending={}\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md:87
 #: src/exercises/bare-metal/solutions-afternoon.md:108
+#, fuzzy
 msgid "\"Finished waiting\""
-msgstr ""
+msgstr "\"Finished waiting\""
 
 #: src/exercises/bare-metal/solutions-afternoon.md:89
+#, fuzzy
 msgid "// Wait another 3 seconds for an interrupt.\n"
-msgstr ""
+msgstr "// Wait another 3 seconds for an interrupt.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:121
 msgid "_pl031.rs_:"
-msgstr ""
+msgstr "_pl031.rs_:"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:128
+#, fuzzy
 msgid "/// Data register\n"
-msgstr ""
+msgstr "/// Data register\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:130
+#, fuzzy
 msgid "/// Match register\n"
-msgstr ""
+msgstr "/// Match register\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:132
+#, fuzzy
 msgid "/// Load register\n"
-msgstr ""
+msgstr "/// Load register\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:134
+#, fuzzy
 msgid "/// Control register\n"
-msgstr ""
+msgstr "/// Control register\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:137
+#, fuzzy
 msgid "/// Interrupt Mask Set or Clear register\n"
-msgstr ""
+msgstr "/// Interrupt Mask Set or Clear register\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:140
+#, fuzzy
 msgid "/// Raw Interrupt Status\n"
-msgstr ""
+msgstr "/// Raw Interrupt Status\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:143
+#, fuzzy
 msgid "/// Masked Interrupt Status\n"
-msgstr ""
+msgstr "/// Masked Interrupt Status\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:146
+#, fuzzy
 msgid "/// Interrupt Clear Register\n"
-msgstr ""
+msgstr "/// Interrupt Clear Register\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:150
+#, fuzzy
 msgid "/// Driver for a PL031 real-time clock.\n"
-msgstr ""
+msgstr "/// Driver for a PL031 real-time clock.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:158
+#, fuzzy
 msgid ""
 "/// Constructs a new instance of the RTC driver for a PL031 device at the\n"
 "    /// given base address.\n"
@@ -18225,10 +18287,21 @@ msgid ""
 "process\n"
 "    /// as device memory and not have any other aliases.\n"
 msgstr ""
+"/// Constructs a new instance of the RTC driver for a PL031 device at the\n"
+"    /// given base address.\n"
+"    ///\n"
+"    /// # Safety\n"
+"    ///\n"
+"    /// The given base address must point to the MMIO control registers of "
+"a\n"
+"    /// PL031 device, which must be mapped into the address space of the "
+"process\n"
+"    /// as device memory and not have any other aliases.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:170
+#, fuzzy
 msgid "/// Reads the current RTC value.\n"
-msgstr ""
+msgstr "/// Reads the current RTC value.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:172
 #: src/exercises/bare-metal/solutions-afternoon.md:180
@@ -18236,33 +18309,49 @@ msgstr ""
 #: src/exercises/bare-metal/solutions-afternoon.md:199
 #: src/exercises/bare-metal/solutions-afternoon.md:211
 #: src/exercises/bare-metal/solutions-afternoon.md:218
+#, fuzzy
 msgid ""
 "// SAFETY: We know that self.registers points to the control registers\n"
 "        // of a PL031 device which is appropriately mapped.\n"
 msgstr ""
+"// SAFETY: We know that self.registers points to the control registers\n"
+"        // of a PL031 device which is appropriately mapped.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:177
+#, fuzzy
 msgid ""
 "/// Writes a match value. When the RTC value matches this then an interrupt\n"
 "    /// will be generated (if it is enabled).\n"
 msgstr ""
+"/// Writes a match value. When the RTC value matches this then an interrupt\n"
+"    /// will be generated (if it is enabled).\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:185
+#, fuzzy
 msgid ""
 "/// Returns whether the match register matches the RTC value, whether or "
 "not\n"
 "    /// the interrupt is enabled.\n"
 msgstr ""
+"/// Returns whether the match register matches the RTC value, whether or "
+"not\n"
+"    /// the interrupt is enabled.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:194
+#, fuzzy
 msgid ""
 "/// Returns whether there is currently an interrupt pending.\n"
 "    ///\n"
 "    /// This should be true if and only if `matched` returns true and the\n"
 "    /// interrupt is masked.\n"
 msgstr ""
+"/// Returns whether there is currently an interrupt pending.\n"
+"    ///\n"
+"    /// This should be true if and only if `matched` returns true and the\n"
+"    /// interrupt is masked.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:205
+#, fuzzy
 msgid ""
 "/// Sets or clears the interrupt mask.\n"
 "    ///\n"
@@ -18270,16 +18359,25 @@ msgid ""
 "the\n"
 "    /// interrupt is disabled.\n"
 msgstr ""
+"/// Sets or clears the interrupt mask.\n"
+"    ///\n"
+"    /// When the mask is true the interrupt is enabled; when it is false "
+"the\n"
+"    /// interrupt is disabled.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:216
+#, fuzzy
 msgid "/// Clears a pending interrupt, if any.\n"
-msgstr ""
+msgstr "/// Clears a pending interrupt, if any.\n"
 
 #: src/exercises/bare-metal/solutions-afternoon.md:223
+#, fuzzy
 msgid ""
 "// SAFETY: `Rtc` just contains a pointer to device memory, which can be\n"
 "// accessed from any context.\n"
 msgstr ""
+"// SAFETY: `Rtc` just contains a pointer to device memory, which can be\n"
+"// accessed from any context.\n"
 
 #: src/concurrency/welcome.md
 msgid "Welcome to Concurrency in Rust"
