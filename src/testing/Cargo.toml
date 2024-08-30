@@ -4,6 +4,9 @@ version = "0.1.0"
 edition = "2021"
 publish = false
 
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(never)'] }
+
 [[bin]]
 name = "luhn"
 path = "exercise.rs"
