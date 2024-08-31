@@ -12222,13 +12222,15 @@ msgid "/// Entry point for birthday service.\n"
 msgstr "/// Entry point for birthday service.\n"
 
 #: src/android/aidl/example-service/server.md:23
+#, fuzzy
 msgid "\"Failed to register service\""
-msgstr ""
+msgstr "\"Failed to register service\""
 
 #: src/android/aidl/example-service/server.md:32
 #: src/android/aidl/example-service/server.md:33
+#, fuzzy
 msgid "\"birthday_server\""
-msgstr ""
+msgstr "\"birthday_server\""
 
 #: src/android/aidl/example-service/server.md:34
 #, fuzzy
@@ -12238,7 +12240,7 @@ msgstr "سرورها"
 #: src/android/aidl/example-service/server.md:40
 #: src/android/aidl/example-service/client.md:42
 msgid "// To avoid dynamic link error.\n"
-msgstr ""
+msgstr "// To avoid dynamic link error.\n"
 
 #: src/android/aidl/example-service/server.md:46
 msgid ""
@@ -12248,10 +12250,15 @@ msgid ""
 "complicated than students are used to if they've used Binder from C++ or "
 "another language. Explain to students why each step is necessary."
 msgstr ""
+"فرآیند اجرای یک سرویس تعریف‌شده توسط کاربر (در این مورد نوع `BirthdayService` "
+"که `IBirthdayService` را پیاده‌سازی می‌کند) و شروع آن به‌عنوان یک سرویس Binder "
+"چند مرحله دارد و ممکن است پیچیده‌تر از آنچه دانش‌آموزان به آن عادت کرده‌اند به "
+"نظر برسد. اگر آن‌ها از Binder برای C++ یا زبان دیگری استفاده کردند. به "
+"دانش‌آموزان توضیح دهید که چرا هر مرحله لازم است."
 
 #: src/android/aidl/example-service/server.md:52
 msgid "Create an instance of your service type (`BirthdayService`)."
-msgstr ""
+msgstr "نمونه‌ای از نوع سرویس خود (`BirthdayService`) ایجاد کنید."
 
 #: src/android/aidl/example-service/server.md:53
 msgid ""
@@ -12261,22 +12268,31 @@ msgid ""
 "don't have inheritance in Rust, so instead we use composition, putting our "
 "`BirthdayService` within the generated `BnBinderService`."
 msgstr ""
+"این service object را در `Bn*` type مربوطه قرار دهید (در این مورد،"
+"`BnBirthdayService`). این نوع توسط Binder تولید می‌شود و عملکرد رایج Binder "
+"را ارائه می‌کند که توسط کلاس پایه `BnBinder` در C++ ارائه می‌شود. ما در Rust "
+"ارث‌بری یا inheritance نداریم، بنابراین در عوض از ترکیب composition می‌کنیم و "
+"`BirthdayService` خود را در `BnBinderService` تولید شده قرار می‌دهیم."
 
 #: src/android/aidl/example-service/server.md:58
 msgid ""
 "Call `add_service`, giving it a service identifier and your service object "
 "(the `BnBirthdayService` object in the example)."
 msgstr ""
+"‏ `add_service` را فراخوانی کنید و به آن یک شناسه سرویس و شی‏ سرویس خود "
+"بدهید (شی‏ «BnBirthdayService» در مثال)."
 
 #: src/android/aidl/example-service/server.md:60
 msgid ""
 "Call `join_thread_pool` to add the current thread to Binder's thread pool "
 "and start listening for connections."
 msgstr ""
+"‏ `join_thread_pool` را فراخوانی کنید تا thread فعلی را به Binder thread "
+"اضافه کنید و شروع به گوش دادن برای connectionها کنید."
 
 #: src/android/aidl/example-service/deploy.md:3
 msgid "We can now build, push, and start the service:"
-msgstr ""
+msgstr "اکنون می‌توانیم سرویس را بسازیم، push کنیم و شروع کنیم:"
 
 #: src/android/aidl/example-service/deploy.md:5
 msgid ""
@@ -12288,63 +12304,73 @@ msgid ""
 "adb shell /data/local/tmp/birthday_server\n"
 "```"
 msgstr ""
+"```shell\n"
+"m birthday_server\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/birthday_server\" /data/local/"
+"tmp\n"
+"adb root\n"
+"adb shell /data/local/tmp/birthday_server\n"
+"```"
 
 #: src/android/aidl/example-service/deploy.md:12
 msgid "In another terminal, check that the service runs:"
-msgstr ""
+msgstr "در ترمینال دیگر، بررسی کنید که آیا سرویسی اجرا شود:"
 
 #: src/android/aidl/example-service/deploy.md:22
 msgid "You can also call the service with `service call`:"
-msgstr ""
+msgstr "همچنین می‌توانید با `service call` با سرویس تماس بگیرید:"
 
 #: src/android/aidl/example-service/client.md:1
 msgid "AIDL Client"
-msgstr ""
+msgstr "AIDL Client"
 
 #: src/android/aidl/example-service/client.md:3
 msgid "Finally, we can create a Rust client for our new service."
-msgstr ""
+msgstr "در‌نهایت، ما می‌توانیم یک Rust client برای سرویس جدید خود ایجاد کنیم."
 
 #: src/android/aidl/example-service/client.md:5
 #: src/android/aidl/example-service/changing-implementation.md:29
 msgid "_birthday_service/src/client.rs_:"
-msgstr ""
+msgstr "_birthday_service/src/client.rs_:"
 
 #: src/android/aidl/example-service/client.md:12
 msgid "/// Call the birthday service.\n"
-msgstr ""
+msgstr "/// Call the birthday service.\n"
 
 #: src/android/aidl/example-service/client.md:23
 #: src/android/aidl/types/objects.md:54
 #: src/android/aidl/types/parcelables.md:32
 #: src/android/aidl/types/file-descriptor.md:20
+#, fuzzy
 msgid "\"Failed to connect to BirthdayService\""
-msgstr ""
+msgstr "\"Failed to connect to BirthdayService\""
 
 #: src/android/aidl/example-service/client.md:25
 msgid "// Call the service.\n"
-msgstr ""
+msgstr "// Call the service.\n"
 
 #: src/android/aidl/example-service/client.md:27
 msgid "\"{msg}\""
-msgstr ""
+msgstr "\"{msg}\""
 
 #: src/android/aidl/example-service/client.md:35
 #: src/android/aidl/example-service/client.md:36
+#, fuzzy
 msgid "\"birthday_client\""
-msgstr ""
+msgstr "\"birthday_client\""
 
 #: src/android/aidl/example-service/client.md:37
+#, fuzzy
 msgid "\"src/client.rs\""
-msgstr ""
+msgstr "\"src/client.rs\""
 
 #: src/android/aidl/example-service/client.md:46
 msgid "Notice that the client does not depend on `libbirthdayservice`."
-msgstr ""
+msgstr "توجه داشته باشید که client به `libbirthdayservice` وابسته نیست."
 
 #: src/android/aidl/example-service/client.md:48
 msgid "Build, push, and run the client on your device:"
-msgstr ""
+msgstr "کلاینت را در دستگاه خود بسازید، push کرده و اجرا کنید:"
 
 #: src/android/aidl/example-service/client.md:50
 msgid ""
@@ -12355,12 +12381,20 @@ msgid ""
 "adb shell /data/local/tmp/birthday_client Charlie 60\n"
 "```"
 msgstr ""
+"```shell\n"
+"m birthday_client\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/birthday_client\" /data/local/"
+"tmp\n"
+"adb shell /data/local/tmp/birthday_client Charlie 60\n"
+"```"
 
 #: src/android/aidl/example-service/client.md:62
 msgid ""
 "`Strong<dyn IBirthdayService>` is the trait object representing the service "
 "that the client has connected to."
 msgstr ""
+"‏`Strong<dyn IBirthdayService>` یک trait object است که نشان‌دهنده سرویسی است "
+"که کلاینت به آن متصل شده است."
 
 #: src/android/aidl/example-service/client.md:64
 msgid ""
@@ -12368,14 +12402,23 @@ msgid ""
 "process ref count for the service trait object, and the global Binder ref "
 "count that tracks how many processes have a reference to the object."
 msgstr ""
+"‏ `Strong` یک نوع اشاره‌گر هوشمند سفارشی برای Binder است. هم تعداد ref های "
+"درون فرآیندی (in-process) را برای سرویس trait object مدیریت می‌کند و هم "
+"شمارنده global Binder را که تعداد فرآیندهایی را که به object ارجاع دارند را "
+"ردیابی می‌کند."
 
 #: src/android/aidl/example-service/client.md:67
+#, fuzzy
 msgid ""
 "Note that the trait object that the client uses to talk to the service uses "
 "the exact same trait that the server implements. For a given Binder "
 "interface, there is a single Rust trait generated that both client and "
 "server use."
 msgstr ""
+"توجه داشته باشید که trait object که کلاینت برای صحبت با سرویس استفاده می‌کند، "
+"دقیقاً از همان ویژگی استفاده می‌کند که سرور پیاده‌سازی می‌کند. برای یک Binder "
+"interface معین، یک trait یا ویژگی Rust ایجاد شده است که هم کلاینت و هم سرور "
+"از آن استفاده می کنند."
 
 #: src/android/aidl/example-service/client.md:71
 msgid ""
@@ -12383,16 +12426,21 @@ msgid ""
 "should ideally be defined in a common crate that both the client and server "
 "can depend on."
 msgstr ""
+"از همان شناسه سرویس استفاده شده در هنگام ثبت سرویس استفاده کنید. این به طور "
+"ایده‌آل باید در یک crate مشترک تعریف شود که هم کلاینت و هم سرور می توانند به "
+"آن وابسته باشند."
 
 #: src/android/aidl/example-service/changing-definition.md:3
 msgid ""
 "Let us extend the API with more functionality: we want to let clients "
 "specify a list of lines for the birthday card:"
 msgstr ""
+"اجازه دهید API را با عملکرد بیشتری گسترش دهیم: می‌خواهیم به مشتریان اجازه "
+"دهیم لیستی از خطوط را برای کارت تولد مشخص کنند:"
 
 #: src/android/aidl/example-service/changing-definition.md:16
 msgid "This results in an updated trait definition for `IBirthdayService`:"
-msgstr ""
+msgstr "این منجر به یک تعریف ویژگی به روز شده برای `IBirthdayService` می‌شود:"
 
 #: src/android/aidl/example-service/changing-definition.md:31
 msgid ""
@@ -12400,73 +12448,86 @@ msgid ""
 "`&[String]` in Rust, i.e. that idiomatic Rust types are used in the "
 "generated bindings wherever possible:"
 msgstr ""
+"توجه داشته باشید که چگونه `String[]`در تعریف AIDL به عنوان  `&[String]` در "
+"Rust ترجمه می‌شود، به‌عنوان مثال از idiomatic Rust type در bindingهای تولید "
+"شده تا جایی که ممکن است استفاده می‌شود:"
 
 #: src/android/aidl/example-service/changing-definition.md:34
 msgid "`in` array arguments are translated to slices."
-msgstr ""
+msgstr "آرگومان های آرایه `in` به sliceها ترجمه می‌شوند."
 
 #: src/android/aidl/example-service/changing-definition.md:35
 msgid "`out` and `inout` args are translated to `&mut Vec<T>`."
-msgstr ""
+msgstr "آرگومان‌های`out` و `inout` به  `&mut Vec<T>` ترجمه می‌شوند."
 
 #: src/android/aidl/example-service/changing-definition.md:36
 msgid "Return values are translated to returning a `Vec<T>`."
-msgstr ""
+msgstr "مقادیر بازگشتی به بازگرداندن `Vec<T>` ترجمه می‌شوند."
 
 #: src/android/aidl/example-service/changing-implementation.md:1
 msgid "Updating Client and Service"
-msgstr ""
+msgstr "به‌روزرسانی کلاینت و سرویس‌ها"
 
 #: src/android/aidl/example-service/changing-implementation.md:3
 msgid "Update the client and server code to account for the new API."
-msgstr ""
+msgstr "کد سرویس کلاینت و سرور را برای حساب کردن API جدید به‌روز کنید."
 
 #: src/android/aidl/example-service/changing-implementation.md:20
 msgid "'\\n'"
-msgstr ""
+msgstr "'\\n'"
 
 #: src/android/aidl/example-service/changing-implementation.md:36
+#, fuzzy
 msgid "\"Habby birfday to yuuuuu\""
-msgstr ""
+msgstr "\"Habby birfday to yuuuuu\""
 
 #: src/android/aidl/example-service/changing-implementation.md:37
+#, fuzzy
 msgid "\"And also: many more\""
-msgstr ""
+msgstr "\"And also: many more\""
 
 #: src/android/aidl/example-service/changing-implementation.md:44
+#, fuzzy
 msgid ""
 "TODO: Move code snippets into project files where they'll actually be built?"
 msgstr ""
+"‏TODO: قطعات کد را به فایل‌های پروژه منتقل کنید، جایی که واقعاً ساخته می‌شوند؟"
 
 #: src/android/aidl/types.md:1
 msgid "Working With AIDL Types"
-msgstr ""
+msgstr "کار با انواع AIDL"
 
 #: src/android/aidl/types.md:3
 msgid "AIDL types translate into the appropriate idiomatic Rust type:"
-msgstr ""
+msgstr "انواع AIDL به نوع اصطلاحی Rust مناسب ترجمه می‌شوند:"
 
 #: src/android/aidl/types.md:5
 msgid "Primitive types map (mostly) to idiomatic Rust types."
 msgstr ""
+"انواع اولیه یا Primitive types (بیشتر) به idiomatic Rust type نگاشت می‌شوند."
 
 #: src/android/aidl/types.md:6
 msgid "Collection types like slices, `Vec`s and string types are supported."
 msgstr ""
+"انواع Collectionها مانند sliceها،`Vec` و  string typeها پشتیبانی می‌شوند."
 
 #: src/android/aidl/types.md:7
 msgid ""
 "References to AIDL objects and file handles can be sent between clients and "
 "services."
 msgstr ""
+"ارجاع به AIDL objects و دسته فایل‌ها را می‌توان بین clientها و سرویس‌ها ارسال "
+"کرد."
 
 #: src/android/aidl/types.md:9
 msgid "File handles and parcelables are fully supported."
-msgstr ""
+msgstr "دسته‌های فایل و بسته‌بندی‌ها به طور کامل پشتیبانی می‌شوند."
 
 #: src/android/aidl/types/primitives.md:3
+#, fuzzy
 msgid "Primitive types map (mostly) idiomatically:"
 msgstr ""
+"انواع ابتدایی یا Primitive type (عمدتا) به صورت idiomatically نگاشت می‌شوند:"
 
 #: src/android/aidl/types/primitives.md:5
 #, fuzzy
@@ -12481,12 +12542,11 @@ msgstr "انواع داده‌های بازگشتی"
 
 #: src/android/aidl/types/primitives.md:5
 msgid "Note"
-msgstr ""
+msgstr "نکته"
 
 #: src/android/aidl/types/primitives.md:7
-#, fuzzy
 msgid "`boolean`"
-msgstr "بولین‌ها"
+msgstr "بولین‌ها`boolean`"
 
 #: src/android/aidl/types/primitives.md:8
 msgid "`byte`"
@@ -12494,51 +12554,51 @@ msgstr ""
 
 #: src/android/aidl/types/primitives.md:8
 msgid "`i8`"
-msgstr ""
+msgstr "`i8`"
 
 #: src/android/aidl/types/primitives.md:8
 msgid "Note that bytes are signed."
-msgstr ""
+msgstr "توجه داشته باشید که بایت‌ها امضا شده‌اند."
 
 #: src/android/aidl/types/primitives.md:9
 msgid "`u16`"
-msgstr ""
+msgstr "`u16`"
 
 #: src/android/aidl/types/primitives.md:9
 msgid "Note the usage of `u16`, NOT `u32`."
-msgstr ""
+msgstr "به استفاده از `u16` توجه کنید، نه `u32`."
 
 #: src/android/aidl/types/primitives.md:10
 msgid "`int`"
-msgstr ""
+msgstr "`int`"
 
 #: src/android/aidl/types/primitives.md:10
 msgid "`i32`"
-msgstr ""
+msgstr "`i32`"
 
 #: src/android/aidl/types/primitives.md:11
 msgid "`long`"
-msgstr ""
+msgstr "`long`"
 
 #: src/android/aidl/types/primitives.md:11
 msgid "`i64`"
-msgstr ""
+msgstr "`i64`"
 
 #: src/android/aidl/types/primitives.md:12
 msgid "`float`"
-msgstr ""
+msgstr "`float`"
 
 #: src/android/aidl/types/primitives.md:12
 msgid "`f32`"
-msgstr ""
+msgstr "`f32`"
 
 #: src/android/aidl/types/primitives.md:13
 msgid "`double`"
-msgstr ""
+msgstr "`double`"
 
 #: src/android/aidl/types/primitives.md:13
 msgid "`f64`"
-msgstr ""
+msgstr "`f64`"
 
 #: src/android/aidl/types/arrays.md:3
 msgid ""
@@ -12546,6 +12606,8 @@ msgid ""
 "appropriate Rust array type depending on how they are used in the function "
 "signature:"
 msgstr ""
+"انواع آرایه (`T[]`, `byte[]`, و `List<T>`) بسته به نحوه استفاده از آنها در "
+"function signature، به Rust array type  مناسب ترجمه می‌شوند:"
 
 #: src/android/aidl/types/arrays.md:7
 #, fuzzy
@@ -12554,29 +12616,28 @@ msgstr "راه حل"
 
 #: src/android/aidl/types/arrays.md:9
 msgid "`in` argument"
-msgstr ""
+msgstr "`in` argument"
 
 #: src/android/aidl/types/arrays.md:9
-#, fuzzy
 msgid "`&[T]`"
-msgstr "برش ها: `&[T]`"
+msgstr "`&[T]`"
 
 #: src/android/aidl/types/arrays.md:10
 msgid "`out`/`inout` argument"
-msgstr ""
+msgstr "`out`/`inout` argument"
 
 #: src/android/aidl/types/arrays.md:10
 msgid "`&mut Vec<T>`"
-msgstr ""
+msgstr "`&mut Vec<T>`"
 
 #: src/android/aidl/types/arrays.md:11
 msgid "Return"
-msgstr ""
+msgstr "Return"
 
 #: src/android/aidl/types/arrays.md:11
 #: src/android/interoperability/cpp/type-mapping.md:11
 msgid "`Vec<T>`"
-msgstr ""
+msgstr "`Vec<T>`"
 
 #: src/android/aidl/types/arrays.md:15
 msgid ""
@@ -12585,22 +12646,30 @@ msgid ""
 "`int[3][4]`). In the Java backend, fixed-size arrays are represented as "
 "array types."
 msgstr ""
+"در اندروید ۱۳ یا بالاتر، آرایه‌های با اندازه ثابت پشتیبانی می‌شوند، یعنی "
+"`T[N]` به `[T; N]`. آرایه‌های با اندازه ثابت می‌توانند چندین بعد داشته باشند "
+"(مانند ‌`int[3][4]`. در Java backend، آرایه‌های با اندازه ثابت به عنوان array "
+"type نمایش داده می‌شوند."
 
 #: src/android/aidl/types/arrays.md:18
 msgid "Arrays in parcelable fields always get translated to `Vec<T>`."
-msgstr ""
+msgstr "آرایه‌های موجود در فیلدهای parcelable همیشه به `Vec<T>` ترجمه می‌شوند."
 
 #: src/android/aidl/types/objects.md:3
 msgid ""
 "AIDL objects can be sent either as a concrete AIDL type or as the type-"
 "erased `IBinder` interface:"
 msgstr ""
+"‏ AIDL objects را می‌توان به‌عنوان یک نوع AIDL مشخص یا به عنوان `IBinder` "
+"interface پاک‌شده ارسال کرد:"
 
 #: src/android/aidl/types/objects.md:6
 msgid ""
 "**birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider."
 "aidl**:"
 msgstr ""
+"**birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider."
+"aidl**:"
 
 #: src/android/aidl/types/objects.md:17
 #: src/android/aidl/types/parcelables.md:16
@@ -12608,28 +12677,29 @@ msgstr ""
 msgid ""
 "**birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl**:"
 msgstr ""
+"**birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl**:"
 
 #: src/android/aidl/types/objects.md:23
 msgid "/** The same thing, but using a binder object. */"
-msgstr ""
+msgstr "/** The same thing, but using a binder object. */"
 
 #: src/android/aidl/types/objects.md:26
 msgid "/** The same thing, but using `IBinder`. */"
-msgstr ""
+msgstr "/** The same thing, but using `IBinder`. */"
 
 #: src/android/aidl/types/objects.md:31
 #: src/android/aidl/types/parcelables.md:27
 #: src/android/aidl/types/file-descriptor.md:15
 msgid "**birthday_service/src/client.rs**:"
-msgstr ""
+msgstr "**birthday_service/src/client.rs**:"
 
 #: src/android/aidl/types/objects.md:34
 msgid "/// Rust struct implementing the `IBirthdayInfoProvider` interface.\n"
-msgstr ""
+msgstr "/// Rust struct implementing the `IBirthdayInfoProvider` interface.\n"
 
 #: src/android/aidl/types/objects.md:56
 msgid "// Create a binder object for the `IBirthdayInfoProvider` interface.\n"
-msgstr ""
+msgstr "// Create a binder object for the `IBirthdayInfoProvider` interface.\n"
 
 #: src/android/aidl/types/objects.md:62
 msgid "// Send the binder object to the service.\n"
