@@ -32,6 +32,9 @@ h1#glossary ~ ul > li:first-line {
   Dynamic memory allocation on [the heap](memory-management/review.md).
 - argument:\
   Information that is passed into a function or method.
+- associated type:\
+  A type associated with a specific trait. Useful for defining the relationship
+  between types.
 - Bare-metal Rust:\
   Low-level Rust development, often deployed to a system without an operating
   system. See [Bare-metal Rust](bare-metal.md).
