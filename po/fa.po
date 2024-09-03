@@ -13331,51 +13331,54 @@ msgid ""
 "Create a wrapper header file for the library (not strictly needed in this "
 "example):"
 msgstr ""
+"یک فایل هدر wrapper برای کتابخانه ایجاد کنید (در این مثال به شدت مورد نیاز "
+"نیست):"
 
 #: src/android/interoperability/with-c/bindgen.md:47
 msgid "_interoperability/bindgen/libbirthday_wrapper.h_:"
-msgstr ""
+msgstr "_interoperability/bindgen/libbirthday_wrapper.h_:"
 
 #: src/android/interoperability/with-c/bindgen.md:53
 msgid "You can now auto-generate the bindings:"
-msgstr ""
+msgstr "اکنون می توانید اتصالات (bindings) را به طور خودکار ایجاد کنید:"
 
 #: src/android/interoperability/with-c/bindgen.md:59
 #: src/android/interoperability/with-c/bindgen.md:75
 msgid "\"libbirthday_bindgen\""
-msgstr ""
+msgstr "\"libbirthday_bindgen\""
 
 #: src/android/interoperability/with-c/bindgen.md:60
 msgid "\"birthday_bindgen\""
-msgstr ""
+msgstr "\"birthday_bindgen\""
 
 #: src/android/interoperability/with-c/bindgen.md:61
 msgid "\"libbirthday_wrapper.h\""
-msgstr ""
+msgstr "\"libbirthday_wrapper.h\""
 
 #: src/android/interoperability/with-c/bindgen.md:62
 msgid "\"bindings\""
-msgstr ""
+msgstr "\"bindings\""
 
 #: src/android/interoperability/with-c/bindgen.md:67
 msgid "Finally, we can use the bindings in our Rust program:"
-msgstr ""
+msgstr "در نهایت، می‌توانیم از bindingها در برنامه Rust خود استفاده کنیم:"
 
 #: src/android/interoperability/with-c/bindgen.md:73
+#, fuzzy
 msgid "\"print_birthday_card\""
-msgstr ""
+msgstr "\"print_birthday_card\""
 
 #: src/android/interoperability/with-c/bindgen.md:74
 msgid "\"main.rs\""
-msgstr ""
+msgstr "\"main.rs\""
 
 #: src/android/interoperability/with-c/bindgen.md:79
 msgid "_interoperability/bindgen/main.rs_:"
-msgstr ""
+msgstr "_interoperability/bindgen/main.rs_:"
 
 #: src/android/interoperability/with-c/bindgen.md:82
 msgid "//! Bindgen demo.\n"
-msgstr ""
+msgstr "//! Bindgen demo.\n"
 
 #: src/android/interoperability/with-c/bindgen.md:89
 msgid ""
@@ -13386,6 +13389,12 @@ msgid ""
 "later\n"
 "    // after it returns.\n"
 msgstr ""
+"// SAFETY: The pointer we pass is valid because it came from a Rust\n"
+"    // reference, and the `name` it contains refers to `name` above which "
+"also\n"
+"    // remains valid. `print_card` doesn't store either pointer to use "
+"later\n"
+"    // after it returns.\n"
 
 #: src/android/interoperability/with-c/bindgen.md:101
 msgid ""
@@ -13396,101 +13405,111 @@ msgid ""
 "adb shell /data/local/tmp/print_birthday_card\n"
 "```"
 msgstr ""
+"```shell\n"
+"m print_birthday_card\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/print_birthday_card\" /data/local/"
+"tmp\n"
+"adb shell /data/local/tmp/print_birthday_card\n"
+"```"
 
 #: src/android/interoperability/with-c/bindgen.md:107
 msgid "Finally, we can run auto-generated tests to ensure the bindings work:"
 msgstr ""
+"در نهایت، ما می‌توانیم تست‌های تولید شده خودکار را برای اطمینان از کارکرد "
+"اتصالات (bindings) اجرا کنیم:"
 
 #: src/android/interoperability/with-c/bindgen.md:113
 #: src/android/interoperability/with-c/bindgen.md:115
 msgid "\"libbirthday_bindgen_test\""
-msgstr ""
+msgstr "\"libbirthday_bindgen_test\""
 
 #: src/android/interoperability/with-c/bindgen.md:114
 msgid "\":libbirthday_bindgen\""
-msgstr ""
+msgstr "\":libbirthday_bindgen\""
 
 #: src/android/interoperability/with-c/bindgen.md:118
 #: src/android/interoperability/with-c/bindgen.md:119
 msgid "\"none\""
-msgstr ""
+msgstr "\"none\""
 
 #: src/android/interoperability/with-c/bindgen.md:118
 msgid "// Generated file, skip linting\n"
-msgstr ""
+msgstr "// Generated file, skip linting\n"
 
 #: src/android/interoperability/with-c/rust.md:1
 msgid "Calling Rust"
-msgstr ""
+msgstr "فراخوانی Rust"
 
 #: src/android/interoperability/with-c/rust.md:3
 msgid "Exporting Rust functions and types to C is easy:"
-msgstr ""
+msgstr "صدور یا Exporting توابع و تایپ‌ها از Rust به C آسان است:"
 
 #: src/android/interoperability/with-c/rust.md:5
 msgid "_interoperability/rust/libanalyze/analyze.rs_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/analyze.rs_"
 
 #: src/android/interoperability/with-c/rust.md:8
 msgid "//! Rust FFI demo.\n"
-msgstr ""
+msgstr "//! Rust FFI demo.\n"
 
 #: src/android/interoperability/with-c/rust.md:12
 msgid "/// Analyze the numbers.\n"
-msgstr ""
+msgstr "/// Analyze the numbers.\n"
 
 #: src/android/interoperability/with-c/rust.md:17
+#, fuzzy
 msgid "\"x ({x}) is smallest!\""
-msgstr ""
+msgstr "\"x ({x}) is smallest!\""
 
 #: src/android/interoperability/with-c/rust.md:19
+#, fuzzy
 msgid "\"y ({y}) is probably larger than x ({x})\""
-msgstr ""
+msgstr "\"y ({y}) is probably larger than x ({x})\""
 
 #: src/android/interoperability/with-c/rust.md:24
 msgid "_interoperability/rust/libanalyze/analyze.h_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/analyze.h_"
 
 #: src/android/interoperability/with-c/rust.md:37
 msgid "_interoperability/rust/libanalyze/Android.bp_"
-msgstr ""
+msgstr "_interoperability/rust/libanalyze/Android.bp_"
 
 #: src/android/interoperability/with-c/rust.md:41
 #: src/android/interoperability/with-c/rust.md:68
 msgid "\"libanalyze_ffi\""
-msgstr ""
+msgstr "\"libanalyze_ffi\""
 
 #: src/android/interoperability/with-c/rust.md:42
 msgid "\"analyze_ffi\""
-msgstr ""
+msgstr "\"analyze_ffi\""
 
 #: src/android/interoperability/with-c/rust.md:43
 msgid "\"analyze.rs\""
-msgstr ""
+msgstr "\"analyze.rs\""
 
 #: src/android/interoperability/with-c/rust.md:48
 msgid "We can now call this from a C binary:"
-msgstr ""
+msgstr "اکنون می توانیم این را از یک باینری C فراخوانی کنیم:"
 
 #: src/android/interoperability/with-c/rust.md:50
 msgid "_interoperability/rust/analyze/main.c_"
-msgstr ""
+msgstr "_interoperability/rust/analyze/Android.bp_"
 
 #: src/android/interoperability/with-c/rust.md:53
 msgid "\"analyze.h\""
-msgstr ""
+msgstr "\"analyze.h\""
 
 #: src/android/interoperability/with-c/rust.md:62
 msgid "_interoperability/rust/analyze/Android.bp_"
-msgstr ""
+msgstr "_interoperability/rust/analyze/Android.bp_"
 
 #: src/android/interoperability/with-c/rust.md:66
 msgid "\"analyze_numbers\""
-msgstr ""
+msgstr "\"analyze_numbers\""
 
 #: src/android/interoperability/with-c/rust.md:67
 msgid "\"main.c\""
-msgstr ""
+msgstr "\"main.c\""
 
 #: src/android/interoperability/with-c/rust.md:74
 msgid ""
@@ -13501,6 +13520,12 @@ msgid ""
 "adb shell /data/local/tmp/analyze_numbers\n"
 "```"
 msgstr ""
+"```shell\n"
+"m analyze_numbers\n"
+"adb push \"$ANDROID_PRODUCT_OUT/system/bin/analyze_numbers\" /data/local/"
+"tmp\n"
+"adb shell /data/local/tmp/analyze_numbers\n"
+"```"
 
 #: src/android/interoperability/with-c/rust.md:82
 msgid ""
@@ -13508,16 +13533,21 @@ msgid ""
 "will just be the name of the function. You can also use `#[export_name = "
 "\"some_name\"]` to specify whatever name you want."
 msgstr ""
+"‏`#[no_mangle]` نام‌گذاری معمول Rust را غیرفعال می‌کند، بنابراین نماد صادر شده "
+"فقط نام تابع خواهد بود. همچنین می‌توانید از  `#[export_name = \"some_name\"]` "
+"برای تعیین هر نامی استفاده کنید"
 
 #: src/android/interoperability/cpp.md:3
 msgid ""
 "The [CXX crate](https://cxx.rs/) makes it possible to do safe "
 "interoperability between Rust and C++."
 msgstr ""
+"این [CXX crate](https://cxx.rs/) امکان همکاری امن بین Rust و C++ را فراهم "
+"می‌کند."
 
 #: src/android/interoperability/cpp.md:6
 msgid "The overall approach looks like this:"
-msgstr ""
+msgstr "رویکرد کلی به این صورت است:"
 
 #: src/android/interoperability/cpp/bridge.md:3
 msgid ""
@@ -13525,19 +13555,23 @@ msgid ""
 "from each language to the other. You provide this description using extern "
 "blocks in a Rust module annotated with the `#[cxx::bridge]` attribute macro."
 msgstr ""
+"‏ CXX متکی به توصیفی از signatureهای تابع است که از هر زبان به زبان دیگر در "
+"معرض دید قرار می‌گیرد. شما این توضیحات را با استفاده از بلوک‌های خارجی در یک "
+"ماژول Rust ارائه می‌کنید که با attribute ماکروها `#[cxx::bridge]`  شرح داده "
+"شده است."
 
 #: src/android/interoperability/cpp/bridge.md:9
 msgid "\"org::blobstore\""
-msgstr ""
+msgstr "\"org::blobstore\""
 
 #: src/android/interoperability/cpp/bridge.md:11
 msgid "// Shared structs with fields visible to both languages.\n"
-msgstr ""
+msgstr "// Shared structs with fields visible to both languages.\n"
 
 #: src/android/interoperability/cpp/bridge.md:17
 #: src/android/interoperability/cpp/generated-cpp.md:6
 msgid "// Rust types and signatures exposed to C++.\n"
-msgstr ""
+msgstr "// Rust types and signatures exposed to C++.\n"
 
 #: src/android/interoperability/cpp/bridge.md:18
 #: src/android/interoperability/cpp/rust-bridge.md:6
@@ -13546,9 +13580,8 @@ msgstr ""
 #: src/chromium/interoperability-with-cpp/example-bindings.md:9
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md:10
 #: src/chromium/interoperability-with-cpp/error-handling-png.md:9
-#, fuzzy
 msgid "\"Rust\""
-msgstr "Rustdoc"
+msgstr "\"Rust\""
 
 #: src/android/interoperability/cpp/bridge.md:24
 #: src/android/interoperability/cpp/cpp-bridge.md:6
@@ -13560,16 +13593,16 @@ msgstr ""
 #: src/android/interoperability/cpp/cpp-exception.md:6
 #: src/chromium/interoperability-with-cpp/example-bindings.md:15
 msgid "\"C++\""
-msgstr ""
+msgstr "\"C++\""
 
 #: src/android/interoperability/cpp/bridge.md:26
 #: src/android/interoperability/cpp/cpp-bridge.md:8
 msgid "\"include/blobstore.h\""
-msgstr ""
+msgstr "\"include/blobstore.h\""
 
 #: src/android/interoperability/cpp/bridge.md:40
 msgid "The bridge is generally declared in an `ffi` module within your crate."
-msgstr ""
+msgstr "پل به طور کلی در یک ماژول `ffi`در crate شما اعلام می‌شود."
 
 #: src/android/interoperability/cpp/bridge.md:41
 msgid ""
@@ -13577,6 +13610,9 @@ msgid ""
 "Rust and C++ type/function definitions in order to expose those items to "
 "both languages."
 msgstr ""
+"از اعلان‌های (declarations) انجام شده در ماژول پل، CXX تعاریف مطابق با type/"
+"function در Rust و ++C را ایجاد می‌کند تا آن موارد را در معرض هر دو زبان قرار "
+"دهد."
 
 #: src/android/interoperability/cpp/bridge.md:44
 msgid ""
@@ -13585,22 +13621,26 @@ msgid ""
 "examples you would use `cargo expand ::ffi` to expand just the `ffi` module "
 "(though this doesn't apply for Android projects)."
 msgstr ""
+"برای مشاهده کد Rust ایجاد شده از [cargo-expand](https://github.com/dtolnay/"
+"cargo-expand) که برای مشاهده ماکرو proc توسعه یافته استفاده کنید. برای بیشتر "
+"نمونه‌ها از `cargo expand ::ffi` فقط برای گسترش ماژول `ffi` استفاده کنید "
+"(اگرچه این برای پروژه‌های Android کاربرد ندارد)."
 
 #: src/android/interoperability/cpp/bridge.md:47
 msgid "To view the generated C++ code, look in `target/cxxbridge`."
-msgstr ""
+msgstr "برای مشاهده کد  ++C  تولید شده به `target/cxxbridge` نگاه کنید."
 
 #: src/android/interoperability/cpp/rust-bridge.md:1
 msgid "Rust Bridge Declarations"
-msgstr ""
+msgstr "تعریف پل در Rust"
 
 #: src/android/interoperability/cpp/rust-bridge.md:7
 msgid "// Opaque type\n"
-msgstr ""
+msgstr "// Opaque type\n"
 
 #: src/android/interoperability/cpp/rust-bridge.md:8
 msgid "// Method on `MyType`\n"
-msgstr ""
+msgstr "// Method on `MyType`\n"
 
 #: src/android/interoperability/cpp/rust-bridge.md:9
 #, fuzzy
@@ -13612,6 +13652,8 @@ msgid ""
 "Items declared in the `extern \"Rust\"` reference items that are in scope in "
 "the parent module."
 msgstr ""
+"موارد اعلام شده در موارد  `extern \"Rust\"` reference که در محدوده ماژول "
+"والد قرار دارند."
 
 #: src/android/interoperability/cpp/rust-bridge.md:30
 msgid ""
@@ -13620,26 +13662,31 @@ msgid ""
 "header has the same path as the Rust source file containing the bridge, "
 "except with a .rs.h file extension."
 msgstr ""
+"تولیدکننده کد CXX از `extern \"Rust\"` خارجی شما برای تولید یک فایل هدر  +"
+"+C  حاوی اعلان‌های  ++C  مربوطه استفاده می‌کند. header تولید‌شده همان مسیری را "
+"دارد که فایل منبع Rust حاوی پل دارای آن است، به جز استفاده از پسوند فایل rs."
+"h."
 
 #: src/android/interoperability/cpp/generated-cpp.md:15
 msgid "Results in (roughly) the following C++:"
-msgstr ""
+msgstr "نتیجه (تقریبی) ++C در زیر است:"
 
 #: src/android/interoperability/cpp/cpp-bridge.md:1
+#, fuzzy
 msgid "C++ Bridge Declarations"
-msgstr ""
+msgstr "C++ Bridge Declarations"
 
 #: src/android/interoperability/cpp/cpp-bridge.md:20
 msgid "Results in (roughly) the following Rust:"
-msgstr ""
+msgstr "نتیجه (تقریبی) Rust در زیر است:"
 
 #: src/android/interoperability/cpp/cpp-bridge.md:30
 msgid "\"org$blobstore$cxxbridge1$new_blobstore_client\""
-msgstr ""
+msgstr "\"org$blobstore$cxxbridge1$new_blobstore_client\""
 
 #: src/android/interoperability/cpp/cpp-bridge.md:39
 msgid "\"org$blobstore$cxxbridge1$BlobstoreClient$put\""
-msgstr ""
+msgstr "\"org$blobstore$cxxbridge1$BlobstoreClient$put\""
 
 #: src/android/interoperability/cpp/cpp-bridge.md:56
 msgid ""
@@ -13647,20 +13694,25 @@ msgid ""
 "in are accurate. CXX performs static assertions that the signatures exactly "
 "correspond with what is declared in C++."
 msgstr ""
+"برنامه‌نویس نیازی به تضمینی در مورد درست بودن signatureهایی که تایپ کرده است "
+"ندارد. CXX اظهارات ثابتی را انجام می دهد که signatureها دقیقاً با آنچه در ++C "
+"اعلام شده مطابقت دارند."
 
 #: src/android/interoperability/cpp/cpp-bridge.md:59
 msgid ""
 "`unsafe extern` blocks allow you to declare C++ functions that are safe to "
 "call from Rust."
 msgstr ""
+"بلوک‌های `unsafe extern` به شما امکان می‌دهند توابع ++C را که برای فراخوانی از "
+"Rust امن هستند را اعلام کنید."
 
 #: src/android/interoperability/cpp/shared-types.md:9
 msgid "// A=1, J=11, Q=12, K=13\n"
-msgstr ""
+msgstr "// A=1, J=11, Q=12, K=13\n"
 
 #: src/android/interoperability/cpp/shared-types.md:23
 msgid "Only C-like (unit) enums are supported."
-msgstr ""
+msgstr "فقط C-like (unit) enums پشتیبانی می‌شود."
 
 #: src/android/interoperability/cpp/shared-types.md:24
 msgid ""
@@ -13669,37 +13721,45 @@ msgid ""
 "derive `Hash` also generates an implementation of `std::hash` for the "
 "corresponding C++ type."
 msgstr ""
+"تعداد محدودی از ویژگی‌ها برای `#[derive()]`در انواع مشترک پشتیبانی می‌شوند. "
+"عملکرد مربوطه نیز برای کد ++C ایجاد می شود، به عنوان مثال. اگر `Hash` را "
+"استخراج کنید، پیاده‌سازی `std::hash` برای نوع ++C مربوطه نیز ایجاد می‌کند."
 
 #: src/android/interoperability/cpp/shared-enums.md:15
-#, fuzzy
 msgid "Generated Rust:"
-msgstr "Rust ناایمن"
+msgstr "Generated Rust:"
 
 #: src/android/interoperability/cpp/shared-enums.md:33
 msgid "Generated C++:"
-msgstr ""
+msgstr "Generated C++:"
 
 #: src/android/interoperability/cpp/shared-enums.md:46
+#, fuzzy
 msgid ""
 "On the Rust side, the code generated for shared enums is actually a struct "
 "wrapping a numeric value. This is because it is not UB in C++ for an enum "
 "class to hold a value different from all of the listed variants, and our "
 "Rust representation needs to have the same behavior."
 msgstr ""
+"در سمت Rust، کد تولید شده برای enums مشترک در واقع ساختاری است که یک مقدار "
+"عددی را بسته‌بندی می‌کند. به این دلیل که UB در ++C نیست تا یک کلاس enum مقداری "
+"متفاوت از همه انواع فهرست شده داشته باشد و نمایش‌دهنده Rust مورد نظر ما باید "
+"رفتار مشابهی داشته باشد."
 
 #: src/android/interoperability/cpp/rust-result.md:13
 msgid "\"fallible1 requires depth > 0\""
-msgstr ""
+msgstr "\"fallible1 requires depth > 0\""
 
 #: src/android/interoperability/cpp/rust-result.md:16
 msgid "\"Success!\""
-msgstr ""
+msgstr "\"Success!\""
 
 #: src/android/interoperability/cpp/rust-result.md:22
 msgid ""
 "Rust functions that return `Result` are translated to exceptions on the C++ "
 "side."
 msgstr ""
+"توابع Rust که «نتیجه» را برمی‌گردانند به exceptionهای سمت  ++C  ترجمه می‌شوند."
 
 #: src/android/interoperability/cpp/rust-result.md:24
 msgid ""
@@ -13707,26 +13767,34 @@ msgid ""
 "exposes a way to get the error message string. The error message will come "
 "from the error type's `Display` impl."
 msgstr ""
+"این exception به وقوع پیوسته همیشه از نوع `rust::Error` خواهد بود که در درجه "
+"اول راهی برای دریافت string پیام خطا نشان می‌دهد. پیغام خطا از نوع "
+"خطای`Display` می‌آید."
 
 #: src/android/interoperability/cpp/rust-result.md:27
 msgid ""
 "A panic unwinding from Rust to C++ will always cause the process to "
 "immediately terminate."
 msgstr ""
+"باز شدن panic از Rust به ++C همیشه باعث می‌شود که فرآیند بلافاصله خاتمه یابد."
 
 #: src/android/interoperability/cpp/cpp-exception.md:7
 msgid "\"example/include/example.h\""
-msgstr ""
+msgstr "\"example/include/example.h\""
 
 #: src/android/interoperability/cpp/cpp-exception.md:14
 msgid "\"Error: {}\""
-msgstr ""
+msgstr "\"Error: {}\""
 
 #: src/android/interoperability/cpp/cpp-exception.md:22
+#, fuzzy
 msgid ""
 "C++ functions declared to return a `Result` will catch any thrown exception "
 "on the C++ side and return it as an `Err` value to the calling Rust function."
 msgstr ""
+"توابع ++C اعلام شده برای برگرداندن «نتیجه»، هر exception صورت گرفته شده در "
+"سمت ++C را می‌گیرند و آن را به عنوان مقدار `Err` به تابع فراخوانی Rust "
+"برمی‌گردانند."
 
 #: src/android/interoperability/cpp/cpp-exception.md:24
 msgid ""
@@ -13735,29 +13803,30 @@ msgid ""
 "terminate`. The behavior is equivalent to the same exception being thrown "
 "through a `noexcept` C++ function."
 msgstr ""
+"اگر یک exception از یک  extern \"C++\" function که توسط پل CXX برای بازگشت "
+"\"نتیجه\" اعلان نشده است، ایجاد شود، برنامه C++'  `std::terminate` را "
+"فراخوانی می‌کند. این رفتار معادل همان exception است که از طریق یک `noexcept` "
+"C++ function فعال می‌شود."
 
 #: src/android/interoperability/cpp/type-mapping.md:3
-#, fuzzy
 msgid "C++ Type"
-msgstr "مثالی در <span dir=ltr>C++</span>"
+msgstr "C++ Type"
 
 #: src/android/interoperability/cpp/type-mapping.md:5
-#, fuzzy
 msgid "`rust::String`"
-msgstr "String"
+msgstr "`rust::String`"
 
 #: src/android/interoperability/cpp/type-mapping.md:6
 msgid "`&str`"
-msgstr "<span dir=ltr><code class=hljs>&str</code></span>"
+msgstr "`&str`"
 
 #: src/android/interoperability/cpp/type-mapping.md:6
 msgid "`rust::Str`"
-msgstr ""
+msgstr "`rust::Str`"
 
 #: src/android/interoperability/cpp/type-mapping.md:7
-#, fuzzy
 msgid "`CxxString`"
-msgstr "String"
+msgstr "`CxxString`"
 
 #: src/android/interoperability/cpp/type-mapping.md:7
 #, fuzzy
