@@ -51,7 +51,7 @@ fn main() {
       .get("Harry Potter and the Sorcerer's Stone")
       .unwrap_or(&336);
   let pc2 = page_counts
-      .entry("The Hunger Games".to_string())
+      .entry("The Hunger Games")
       .or_insert(374);
   ```
 - Unlike `vec!`, there is unfortunately no standard `hashmap!` macro.
