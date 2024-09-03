@@ -30,10 +30,12 @@ Typically because of interior mutability:
 
 ## `!Send + Sync`
 
-These types are thread-safe, but they cannot be moved to another thread:
+These types are safe to access (via shared references) from multiple threads,
+but they cannot be moved to another thread:
 
 - `MutexGuard<T: Sync>`: Uses OS level primitives which must be deallocated on
-  the thread which created them.
+  the thread which created them. However, an already-locked mutex can have its
+  guarded variable read by any thread with which the guard is shared.
 
 ## `!Send + !Sync`
 
