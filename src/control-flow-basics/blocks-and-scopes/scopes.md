@@ -25,7 +25,7 @@ fn main() {
 
 - Show that a variable's scope is limited by adding a `b` in the inner block in
   the last example, and then trying to access it outside that block.
-- Shadowing is different from mutation, because after shadowing both variable's
+- Shadowing is different from mutation, because after shadowing both variables'
   memory locations exist at the same time. Both are available under the same
   name, depending where you use it in the code.
 - A shadowing variable can have a different type.
