@@ -29,7 +29,7 @@ fn main() {
   can be used for early return, but the "bare value" form is idiomatic at the
   end of a function (refactor `gcd` to use a `return`).
 - Some functions have no return value, and return the 'unit type', `()`. The
-  compiler will infer this if the `-> ()` return type is omitted.
+  compiler will infer this if the return type is omitted.
 - Overloading is not supported -- each function has a single implementation.
   - Always takes a fixed number of parameters. Default arguments are not
     supported. Macros can be used to support variadic functions.
