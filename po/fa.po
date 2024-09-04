@@ -13829,106 +13829,116 @@ msgid "`CxxString`"
 msgstr "`CxxString`"
 
 #: src/android/interoperability/cpp/type-mapping.md:7
-#, fuzzy
 msgid "`std::string`"
-msgstr "String"
+msgstr "`std::string`"
 
 #: src/android/interoperability/cpp/type-mapping.md:8
 msgid "`&[T]`/`&mut [T]`"
-msgstr ""
+msgstr "`&[T]`/`&mut [T]`"
 
 #: src/android/interoperability/cpp/type-mapping.md:8
 msgid "`rust::Slice`"
-msgstr ""
+msgstr "`rust::Slice`"
 
 #: src/android/interoperability/cpp/type-mapping.md:9
 msgid "`rust::Box<T>`"
-msgstr ""
+msgstr "`rust::Box<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md:10
 msgid "`UniquePtr<T>`"
-msgstr ""
+msgstr "`UniquePtr<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md:10
 msgid "`std::unique_ptr<T>`"
-msgstr ""
+msgstr "`std::unique_ptr<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md:11
 msgid "`rust::Vec<T>`"
-msgstr ""
+msgstr "`rust::Vec<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md:12
 msgid "`CxxVector<T>`"
-msgstr ""
+msgstr "`CxxVector<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md:12
 msgid "`std::vector<T>`"
-msgstr ""
+msgstr "`std::vector<T>`"
 
 #: src/android/interoperability/cpp/type-mapping.md:16
 msgid ""
 "These types can be used in the fields of shared structs and the arguments "
 "and returns of extern functions."
 msgstr ""
+"این typeها را می‌توان در فیلدهای ساختارهای مشترک و آرگومان‌ها و extern "
+"functionها استفاده کرد."
 
 #: src/android/interoperability/cpp/type-mapping.md:18
 msgid ""
 "Note that Rust's `String` does not map directly to `std::string`. There are "
 "a few reasons for this:"
 msgstr ""
+"توجه داشته باشید که  `String` در Rust مستقیماً به `std::string` نگاشت نمی‌شود. "
+"چند دلیل برای این وجود دارد:"
 
 #: src/android/interoperability/cpp/type-mapping.md:20
 msgid ""
 "`std::string` does not uphold the UTF-8 invariant that `String` requires."
 msgstr ""
+"‏`std::string` ثابت UTF-8 را که  `String` به آن نیاز دارد را پشتیبانی نمی‌کند."
 
 #: src/android/interoperability/cpp/type-mapping.md:21
 msgid ""
 "The two types have different layouts in memory and so can't be passed "
 "directly between languages."
 msgstr ""
+"این دو نوع طرح‌بندی‌های متفاوتی در حافظه دارند و بنابراین نمی‌توان آنها را "
+"مستقیماً بین زبان‌ها منتقل کرد."
 
 #: src/android/interoperability/cpp/type-mapping.md:23
+#, fuzzy
 msgid ""
 "`std::string` requires move constructors that don't match Rust's move "
 "semantics, so a `std::string` can't be passed by value to Rust."
 msgstr ""
+"‏ `std::string` به سازنده‌های حرکتی نیاز دارد که با معنای حرکت Rust مطابقت "
+"ندارند، بنابراین `std::string` نمی‌تواند با مقدار به Rust منتقل شود."
 
 #: src/android/interoperability/cpp/android-build-cpp.md:1
 #: src/android/interoperability/cpp/android-cpp-genrules.md:1
 #: src/android/interoperability/cpp/android-build-rust.md:1
-#, fuzzy
 msgid "Building in Android"
-msgstr "Rust در اندروید"
+msgstr "ساخت در اندروید"
 
 #: src/android/interoperability/cpp/android-build-cpp.md:3
 msgid ""
 "Create a `cc_library_static` to build the C++ library, including the CXX "
 "generated header and source file."
 msgstr ""
+"یک `cc_library_static` برای ساخت کتابخانه ++C از جمله هدر و فایل منبع تولید "
+"شده CXX ایجاد کنید."
 
 #: src/android/interoperability/cpp/android-build-cpp.md:8
 #: src/android/interoperability/cpp/android-build-rust.md:10
 msgid "\"libcxx_test_cpp\""
-msgstr ""
+msgstr "\"libcxx_test_cpp\""
 
 #: src/android/interoperability/cpp/android-build-cpp.md:9
 msgid "\"cxx_test.cpp\""
-msgstr ""
+msgstr "\"cxx_test.cpp\""
 
 #: src/android/interoperability/cpp/android-build-cpp.md:11
 msgid "\"cxx-bridge-header\""
-msgstr ""
+msgstr "\"cxx-bridge-header\""
 
 #: src/android/interoperability/cpp/android-build-cpp.md:12
 #: src/android/interoperability/cpp/android-cpp-genrules.md:10
 msgid "\"libcxx_test_bridge_header\""
-msgstr ""
+msgstr "\"libcxx_test_bridge_header\""
 
 #: src/android/interoperability/cpp/android-build-cpp.md:14
 #: src/android/interoperability/cpp/android-cpp-genrules.md:19
 msgid "\"libcxx_test_bridge_code\""
-msgstr ""
+msgstr "\"libcxx_test_bridge_code\""
 
 #: src/android/interoperability/cpp/android-build-cpp.md:20
 msgid ""
@@ -13936,12 +13946,17 @@ msgid ""
 "the dependencies for the CXX-generated C++ bindings. We'll show how these "
 "are setup on the next slide."
 msgstr ""
+"به این نکته اشاره کنید که `libcxx_test_bridge_header` و  "
+"`libcxx_test_bridge_code` وابستگی‌هایی برای پیوندهای ++C تولید شده توسط CXX ​​"
+"هستند. نحوه تنظیم اینها را در اسلاید بعدی نشان خواهیم داد."
 
 #: src/android/interoperability/cpp/android-build-cpp.md:23
 msgid ""
 "Note that you also need to depend on the `cxx-bridge-header` library in "
 "order to pull in common CXX definitions."
 msgstr ""
+"توجه داشته باشید که برای ایجاد تعاریف رایج CXX باید به کتابخانه `cxx-bridge-"
+"header` وابسته باشید."
 
 #: src/android/interoperability/cpp/android-build-cpp.md:25
 msgid ""
@@ -13951,55 +13966,68 @@ msgid ""
 "that link with the class so that students know where they can find these "
 "instructions again in the future."
 msgstr ""
+"مستندات کامل برای استفاده از CXX در Android را می‌توانید در این آدرس پیدا "
+"کنید [the Android docs](https://source.android.com/docs/setup/build/rust/"
+"building-rust-modules/android-rust-patterns#rust-cpp-interop-using-cxx). "
+"ممکن است بخواهید آن پیوند را با کلاس به اشتراک بگذارید تا دانش‌آموزان بدانند "
+"که در آینده می‌توانند این دستورالعمل‌ها را دوباره پیدا کنند."
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md:3
 msgid ""
 "Create two genrules: One to generate the CXX header, and one to generate the "
 "CXX source file. These are then used as inputs to the `cc_library_static`."
 msgstr ""
+"دو نوع ژانر ایجاد کنید: یکی برای تولید هدر CXX و دیگری برای تولید فایل منبع "
+"CXX. سپس از اینها به عنوان ورودی `cc_library_static` استفاده می‌شود."
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md:7
+#, fuzzy
 msgid ""
 "// Generate a C++ header containing the C++ bindings\n"
 "// to the Rust exported functions in lib.rs.\n"
 msgstr ""
+"// Generate a C++ header containing the C++ bindings\n"
+"// to the Rust exported functions in lib.rs.\n"
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md:11
 #: src/android/interoperability/cpp/android-cpp-genrules.md:20
 msgid "\"cxxbridge\""
-msgstr ""
+msgstr "\"cxxbridge\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md:12
 msgid "\"$(location cxxbridge) $(in) --header > $(out)\""
-msgstr ""
+msgstr "\"$(location cxxbridge) $(in) --header > $(out)\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md:13
 #: src/android/interoperability/cpp/android-cpp-genrules.md:22
 #: src/android/interoperability/cpp/android-build-rust.md:8
 msgid "\"lib.rs\""
-msgstr ""
+msgstr "\"lib.rs\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md:14
 msgid "\"lib.rs.h\""
-msgstr ""
+msgstr "\"lib.rs.h\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md:16
+#, fuzzy
 msgid "// Generate the C++ code that Rust calls into.\n"
-msgstr ""
+msgstr "// Generate the C++ code that Rust calls into.\n"
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md:21
 msgid "\"$(location cxxbridge) $(in) > $(out)\""
-msgstr ""
+msgstr "\"$(location cxxbridge) $(in) > $(out)\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md:23
 msgid "\"lib.rs.cc\""
-msgstr ""
+msgstr "\"lib.rs.cc\""
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md:29
 msgid ""
 "The `cxxbridge` tool is a standalone tool that generates the C++ side of the "
 "bridge module. It is included in Android and available as a Soong tool."
 msgstr ""
+"ابزار`cxxbridge` یک ابزار مستقل است که سمت ++C ماژول پل را تولید می‌کند. در "
+"Android گنجانده شده و به عنوان ابزار Soong در دسترس است."
 
 #: src/android/interoperability/cpp/android-cpp-genrules.md:31
 msgid ""
@@ -14007,23 +14035,28 @@ msgid ""
 "named `lib.rs.h` and your source file will be named `lib.rs.cc`. This naming "
 "convention isn't enforced, though."
 msgstr ""
+"طبق قرارداد، اگر فایل منبع Rust شما `lib.rs` باشد، فایل header شما `lib.rs."
+"h` و فایل منبع شما  `lib.rs.cc` نام خواهد داشت. اگرچه این قرارداد نامگذاری "
+"اجرا نمی‌شود."
 
 #: src/android/interoperability/cpp/android-build-rust.md:3
 msgid ""
 "Create a `rust_binary` that depends on `libcxx` and your `cc_library_static`."
 msgstr ""
+"یک`rust_binary` ایجاد کنید که به `libcxx` و `cc_library_static` شما بستگی "
+"دارد."
 
 #: src/android/interoperability/cpp/android-build-rust.md:7
 msgid "\"cxx_test\""
-msgstr ""
+msgstr "\"cxx_test\""
 
 #: src/android/interoperability/cpp/android-build-rust.md:9
 msgid "\"libcxx\""
-msgstr ""
+msgstr "\"libcxx\""
 
 #: src/android/interoperability/java.md:1
 msgid "Interoperability with Java"
-msgstr ""
+msgstr "قابلیت همکاری با جاوا"
 
 #: src/android/interoperability/java.md:3
 msgid ""
@@ -14031,95 +14064,103 @@ msgid ""
 "wikipedia.org/wiki/Java_Native_Interface). The [`jni` crate](https://docs.rs/"
 "jni/) allows you to create a compatible library."
 msgstr ""
+"جاوا می‌تواند objectهای مشترک را از طریق [واسط بومی جاوا [Java Native "
+"Interface (JNI)](https://en.wikipedia.org/wiki/Java_Native_Interface) "
+"بارگیری کند.  [`jni` crate](https://docs.rs/jni/) به شما امکان می دهد یک "
+"کتابخانه سازگار ایجاد کنید."
 
 #: src/android/interoperability/java.md:8
 msgid "First, we create a Rust function to export to Java:"
-msgstr ""
+msgstr "ابتدا یک تابع Rust برای export به Java ایجاد می‌کنیم:"
 
 #: src/android/interoperability/java.md:10
 msgid "_interoperability/java/src/lib.rs_:"
-msgstr ""
+msgstr "_interoperability/java/src/lib.rs_:"
 
 #: src/android/interoperability/java.md:13
+#, fuzzy
 msgid "//! Rust <-> Java FFI demo.\n"
-msgstr ""
+msgstr "//! Rust <-> Java FFI demo.\n"
 
 #: src/android/interoperability/java.md:18
+#, fuzzy
 msgid "/// HelloWorld::hello method implementation.\n"
-msgstr ""
+msgstr "/// HelloWorld::hello method implementation.\n"
 
 #: src/android/interoperability/java.md:21
 msgid "\"system\""
-msgstr ""
+msgstr "\"system\""
 
 #: src/android/interoperability/java.md:27
 msgid "\"Hello, {input}!\""
-msgstr ""
+msgstr "\"Hello, {input}!\""
 
 #: src/android/interoperability/java.md:33
 #: src/android/interoperability/java.md:63
 msgid "_interoperability/java/Android.bp_:"
-msgstr ""
+msgstr "_interoperability/java/Android.bp_:"
 
 #: src/android/interoperability/java.md:37
 #: src/android/interoperability/java.md:70
 msgid "\"libhello_jni\""
-msgstr ""
+msgstr "\"libhello_jni\""
 
 #: src/android/interoperability/java.md:38
 #: src/android/interoperability/java.md:53
 msgid "\"hello_jni\""
-msgstr ""
+msgstr "\"hello_jni\""
 
 #: src/android/interoperability/java.md:40
 msgid "\"libjni\""
-msgstr ""
+msgstr "\"libjni\""
 
 #: src/android/interoperability/java.md:44
 msgid "We then call this function from Java:"
-msgstr ""
+msgstr "سپس این تابع را از جاوا فراخوانی می کنیم:"
 
 #: src/android/interoperability/java.md:46
 msgid "_interoperability/java/HelloWorld.java_:"
-msgstr ""
+msgstr "_interoperability/java/HelloWorld.java_:"
 
 #: src/android/interoperability/java.md:67
 msgid "\"helloworld_jni\""
-msgstr ""
+msgstr "\"helloworld_jni\""
 
 #: src/android/interoperability/java.md:68
-#, fuzzy
 msgid "\"HelloWorld.java\""
-msgstr "سلام دنیا"
+msgstr "سلام دنیا\"HelloWorld.java\""
 
 #: src/android/interoperability/java.md:69
-#, fuzzy
 msgid "\"HelloWorld\""
-msgstr "سلام دنیا"
+msgstr "\"HelloWorld\""
 
 #: src/android/interoperability/java.md:74
 msgid "Finally, you can build, sync, and run the binary:"
-msgstr ""
+msgstr "در نهایت، می‌توانید باینری را بسازید، همگام‌سازی کنید و اجرا کنید:"
 
 #: src/exercises/android/morning.md
 msgid ""
 "This is a group exercise: We will look at one of the projects you work with "
 "and try to integrate some Rust into it. Some suggestions:"
 msgstr ""
+"این یک تمرین گروهی است: ما به یکی از پروژه‌هایی که با آن کار می‌کنید نگاه "
+"می‌کنیم و سعی می‌کنیم مقداری Rust را در آن ادغام کنیم. چند پیشنهاد:"
 
 #: src/exercises/android/morning.md
 msgid "Call your AIDL service with a client written in Rust."
-msgstr ""
+msgstr "با سرویس AIDL خود با کلاینت که در Rust نوشته شده است تماس بگیرید."
 
 #: src/exercises/android/morning.md
 msgid "Move a function from your project to Rust and call it."
-msgstr ""
+msgstr "یک تابع را از پروژه خود به Rust منتقل کنید و آن را فراخوانی کنید."
 
 #: src/exercises/android/morning.md
 msgid ""
 "No solution is provided here since this is open-ended: it relies on someone "
 "in the class having a piece of code which you can turn in to Rust on the fly."
 msgstr ""
+"هیچ راه‌حلی در اینجا ارائه نشده است زیرا این مورد باز است: به فردی در کلاس "
+"متکی است که یک قطعه کد دارد که می توانید آن را به Rust on fly تبدیل کنید."
 
 #: src/chromium.md
 msgid "Welcome to Rust in Chromium"
