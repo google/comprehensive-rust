@@ -30,7 +30,7 @@ fn main() {
 
 <details>
 
-Note that `loop` is the only looping construct which can returns a non-trivial
+Note that `loop` is the only looping construct which can return a non-trivial
 value. This is because it's guaranteed to only return at a `break` statement
 (unlike `while` and `for` loops, which can also return when the condition
 fails).
