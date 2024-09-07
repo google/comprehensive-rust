@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Comprehensive Rust 🦀\n"
 "POT-Creation-Date: 2024-07-24T09:42:45+03:30\n"
-"PO-Revision-Date: 2024-09-07 12:55+0330\n"
+"PO-Revision-Date: 2024-09-07 16:41+0330\n"
 "Last-Translator: alix1383 <dev.alix13@gmail.com>\n"
 "Language-Team: Persian\n"
 "Language: fa\n"
@@ -9053,30 +9053,36 @@ msgid ""
 "Including 10 minute breaks, this session should take about 1 hour and 55 "
 "minutes. It contains:"
 msgstr ""
+"با احتساب استراحت‌های ۱۰ دقیقه‌ای، این جلسه باید حدود ۱ ساعت و ۵۵ دقیقه طول "
+"بکشد. این شامل:"
 
 #: src/borrowing/shared.md:3
 msgid ""
 "As we saw before, instead of transferring ownership when calling a function, "
 "you can let a function _borrow_ the value:"
 msgstr ""
+"همان‌طور که پیش‌تر دیدیم، به جای انتقال مالکیت هنگام فراخوانی یک تابع، "
+"می‌توانید به تابع اجازه دهید که _ارجاعی_ به مقدار داشته باشد:"
 
 #: src/borrowing/shared.md:24
 msgid "The `add` function _borrows_ two points and returns a new point."
-msgstr ""
+msgstr "تابع `add` _ارجاع_ می‌گیرد به دو نقطه و یک نقطه جدید برمی‌گرداند."
 
 #: src/borrowing/shared.md:25
 msgid "The caller retains ownership of the inputs."
-msgstr ""
+msgstr "فراخوانی‌کننده مالکیت ورودی‌ها را حفظ می‌کند."
 
 #: src/borrowing/shared.md:30
 msgid ""
 "This slide is a review of the material on references from day 1, expanding "
 "slightly to include function arguments and return values."
 msgstr ""
+"این اسلاید مرور مطالب مربوط به ارجاعات از روز اول است که به طور جزئی به شامل "
+"آرگومان‌های تابع و مقادیر بازگشتی گسترش یافته است."
 
 #: src/borrowing/shared.md:35
 msgid "Notes on stack returns and inlining:"
-msgstr ""
+msgstr "یادداشت‌هایی در مورد بازگشت‌های stack و درون‌ریزی (inlining):"
 
 #: src/borrowing/shared.md:37
 msgid ""
@@ -9089,12 +9095,22 @@ msgid ""
 "\"DEBUG\" optimization level, the addresses should change, while they stay "
 "the same when changing to the \"RELEASE\" setting:"
 msgstr ""
+"برای نشان دادن این که بازگشت از `add` ارزان است، زیرا کامپایلر می‌تواند "
+"عملیات کپی را حذف کند، با درون‌ریزی (inlining) فراخوانی `add` به تابع `main`، "
+"کد فوق را تغییر دهید تا آدرس‌های پشته چاپ شوند و آن را در [Playground]"
+"(https://play.rust-lang.org/?"
+"version=stable&mode=release&edition=2021&gist=0cb13be1c05d7e3446686ad9947c4671) "
+"اجرا کنید یا به اسمبلی در [Godbolt](https://rust.godbolt.org/) نگاه کنید. در "
+"سطح بهینه‌سازی \"DEBUG\"، آدرس‌ها باید تغییر کنند، در حالی که با تغییر به "
+"تنظیم \"RELEASE\" ثابت می‌مانند."
 
 #: src/borrowing/shared.md:63
 msgid ""
 "The Rust compiler can do automatic inlining, that can be disabled on a "
 "function level with `#[inline(never)]`."
 msgstr ""
+"کامپایلر Rust می‌تواند به‌طور خودکار درون‌ریزی (inlining) انجام دهد، که می‌تواند "
+"در سطح تابع با `[inline(never)]#` غیرفعال شود."
 
 #: src/borrowing/shared.md:65
 msgid ""
@@ -9103,38 +9119,51 @@ msgid ""
 "of the value depends on the ABI, e.g. on amd64 the two i32 that is making up "
 "the point will be returned in 2 registers (eax and edx)."
 msgstr ""
+"پس از غیرفعال کردن درون‌ریزی، آدرس‌های چاپ شده در تمامی سطوح بهینه‌سازی تغییر "
+"خواهند کرد. با نگاه کردن به Godbolt یا Playground، می‌توان دید که در این "
+"حالت، بازگشت مقدار به ABI بستگی دارد، به عنوان مثال در amd64، دو `i32` که "
+"نقطه را تشکیل می‌دهند، در دو رجیستر (مانند `eax` و `edx`) بازگردانده خواهند "
+"شد."
 
 #: src/borrowing/borrowck.md:3
 msgid ""
 "Rust's _borrow checker_ puts constraints on the ways you can borrow values. "
 "For a given value, at any time:"
 msgstr ""
+"_بررسی‌کننده ارجاع_ (borrow checker) در Rust محدودیت‌هایی بر روی روش‌های ارجاع "
+"به مقادیر اعمال می‌کند. برای یک مقدار خاص، در هر زمان:"
 
 #: src/borrowing/borrowck.md:6
 msgid "You can have one or more shared references to the value, _or_"
-msgstr ""
+msgstr "شما می‌توانید یک یا چند ارجاع اشتراکی به مقدار داشته باشید، _یا_"
 
 #: src/borrowing/borrowck.md:7
 msgid "You can have exactly one exclusive reference to the value."
-msgstr ""
+msgstr "می‌توانید دقیقاً یک ارجاع انحصاری به مقدار داشته باشید."
 
 #: src/borrowing/borrowck.md:29
 msgid ""
 "Note that the requirement is that conflicting references not _exist_ at the "
 "same point. It does not matter where the reference is dereferenced."
 msgstr ""
+"توجه داشته باشید که نیاز این است که ارجاعات متضاد در همان نقطه _وجود_ نداشته "
+"باشند. مهم نیست که ارجاع در کجا dereferenced شود."
 
 #: src/borrowing/borrowck.md:31
 msgid ""
 "The above code does not compile because `a` is borrowed as mutable (through "
 "`c`) and as immutable (through `b`) at the same time."
 msgstr ""
+"کد بالا کامپایل نمی‌شود زیرا `a` به‌طور همزمان به‌صورت قابل تغییر (از طریق `c`) "
+"و غیرقابل تغییر (از طریق `b`) ارجاع داده شده است."
 
 #: src/borrowing/borrowck.md:33
 msgid ""
 "Move the `println!` statement for `b` before the scope that introduces `c` "
 "to make the code compile."
 msgstr ""
+"برای اینکه کد کامپایل شود، دستور `!println` مربوط به `b` را قبل از محدوده‌ای "
+"که `c` را معرفی می‌کند، منتقل کنید."
 
 #: src/borrowing/borrowck.md:35
 msgid ""
@@ -9142,6 +9171,9 @@ msgid ""
 "the new mutable borrow of `a` through `c`. This is a feature of the borrow "
 "checker called \"non-lexical lifetimes\"."
 msgstr ""
+"پس از آن تغییر، کامپایلر متوجه می‌شود که `b` تنها پیش از ارجاع جدید قابل "
+"تغییر به `a` از طریق `c` استفاده می‌شود. این ویژگی بررسی‌کننده ارجاع به نام "
+"non-lexical lifetimes است."
 
 #: src/borrowing/borrowck.md:38
 msgid ""
@@ -9150,6 +9182,10 @@ msgid ""
 "optimize code. For example, a value behind a shared reference can be safely "
 "cached in a register for the lifetime of that reference."
 msgstr ""
+"محدودیت ارجاع انحصاری بسیار قوی است. Rust از آن برای اطمینان از عدم وقوع "
+"داده‌های رقابتی (data races) استفاده می‌کند. Rust همچنین _متکی_ به این محدودیت "
+"برای بهینه‌سازی کد است. به عنوان مثال، مقدار پشت یک ارجاع اشتراکی می‌تواند "
+"به‌طور ایمن در یک رجیستر برای طول عمر آن ارجاع کش شود."
 
 #: src/borrowing/borrowck.md:42
 msgid ""
@@ -9158,6 +9194,10 @@ msgid ""
 "time. But, there are some situations where it doesn't quite \"get it\" and "
 "this often results in \"fighting with the borrow checker.\""
 msgstr ""
+"بررسی‌کننده ارجاع به‌گونه‌ای طراحی شده است که بسیاری از الگوهای رایج را "
+"پشتیبانی کند، مانند گرفتن ارجاعات انحصاری به فیلدهای مختلف در یک ساختار "
+"به‌طور همزمان. اما، در برخی موقعیت‌ها، ممکن است که به‌طور کامل متوجه وضعیت نشود "
+"و این اغلب منجر به \"مبارزه با بررسی‌کننده ارجاع\" می‌شود."
 
 #: src/borrowing/examples.md:3
 msgid ""
@@ -9165,14 +9205,17 @@ msgid ""
 "consider the case of modifying a collection while there are references to "
 "its elements:"
 msgstr ""
+"به عنوان یک مثال ملموس از چگونگی جلوگیری از خطاهای حافظه توسط این قوانین "
+"ارجاع، به حالت تغییر یک مجموعه در حالی که ارجاعاتی به عناصر آن وجود دارد، "
+"توجه کنید:"
 
 #: src/borrowing/examples.md:12
 msgid "\"{elem}\""
-msgstr ""
+msgstr "\"{elem}\""
 
 #: src/borrowing/examples.md:16
 msgid "Similarly, consider the case of iterator invalidation:"
-msgstr ""
+msgstr "به طور مشابه، به وضعیت نامعتبر شدن تکرارگر (iterator) توجه کنید:"
 
 #: src/borrowing/examples.md:30
 msgid ""
@@ -9180,6 +9223,9 @@ msgid ""
 "into it can potentially invalidate existing references to the collection's "
 "elements if the collection has to reallocate."
 msgstr ""
+"در هر دو مورد، تغییر مجموعه با اضافه کردن عناصر جدید به آن می‌تواند به‌طور "
+"بالقوه ارجاعات موجود به عناصر مجموعه را نامعتبر کند، اگر مجموعه نیاز به "
+"تخصیص مجدد حافظه داشته باشد."
 
 #: src/borrowing/interior-mutability.md:3
 msgid ""
@@ -9187,6 +9233,9 @@ msgid ""
 "only) reference. For example, a shared data structure might have an internal "
 "cache, and wish to update that cache from read-only methods."
 msgstr ""
+"در برخی موقعیت‌ها، لازم است که داده‌های پشت یک ارجاع اشتراکی (فقط خواندنی) را "
+"تغییر دهید. به عنوان مثال، یک ساختار داده اشتراکی ممکن است دارای یک کش داخلی "
+"باشد و بخواهد این کش را از روش‌های خواندنی به‌روزرسانی کند."
 
 #: src/borrowing/interior-mutability.md:7
 msgid ""
@@ -9194,10 +9243,14 @@ msgid ""
 "a shared reference. The standard library provides several ways to do this, "
 "all while still ensuring safety, typically by performing a runtime check."
 msgstr ""
+"الگوی \"تغییرپذیری داخلی\" (interior mutability) اجازه می‌دهد که دسترسی "
+"انحصاری (قابل تغییر) پشت یک ارجاع اشتراکی وجود داشته باشد. کتابخانه "
+"استاندارد روش‌های متعددی برای انجام این کار فراهم می‌کند، در حالی که همچنان "
+"ایمنی را تضمین می‌کند، معمولاً با انجام یک بررسی در زمان اجرا."
 
 #: src/borrowing/interior-mutability.md:11
 msgid "`RefCell`"
-msgstr ""
+msgstr "`RefCell`"
 
 #: src/borrowing/interior-mutability.md:17
 #: src/borrowing/interior-mutability.md:43
@@ -9217,7 +9270,7 @@ msgstr ""
 
 #: src/borrowing/interior-mutability.md:33
 msgid "`Cell`"
-msgstr ""
+msgstr "`Cell`"
 
 #: src/borrowing/interior-mutability.md:35
 msgid ""
@@ -9225,6 +9278,10 @@ msgid ""
 "shared reference to the `Cell`. However, it does not allow any references to "
 "the value. Since there are no references, borrowing rules cannot be broken."
 msgstr ""
+"`Cell` یک مقدار را در بر می‌گیرد و امکان دریافت یا تنظیم مقدار را حتی با یک "
+"ارجاع اشتراکی به `Cell` فراهم می‌کند. با این حال، `Cell` اجازه نمی‌دهد که به "
+"مقدار ارجاع داده شود. از آنجا که هیچ ارجاعی وجود ندارد، قوانین ارجاع "
+"نمی‌توانند نقض شوند."
 
 #: src/borrowing/interior-mutability.md:54
 msgid ""
@@ -9232,6 +9289,9 @@ msgid ""
 "ways to modify data behind a shared reference. There are a variety of ways "
 "to ensure that safety, and `RefCell` and `Cell` are two of them."
 msgstr ""
+"مهم‌ترین نکته‌ای که باید از این اسلاید برداشت کرد این است که Rust روش‌های "
+"_ایمن_ برای تغییر داده‌های پشت یک ارجاع اشتراکی ارائه می‌دهد. راه‌های مختلفی "
+"برای تضمین این ایمنی وجود دارد، و `RefCell` و `Cell` دو مورد از آن‌ها هستند."
 
 #: src/borrowing/interior-mutability.md:58
 msgid ""
@@ -9240,6 +9300,10 @@ msgid ""
 "case, all borrows are very short and never overlap, so the checks always "
 "succeed."
 msgstr ""
+"`RefCell` قوانین معمول ارجاع Rust (یا چندین ارجاع اشتراکی یا یک ارجاع "
+"انحصاری) را با یک بررسی در زمان اجرا اعمال می‌کند. در این حالت، همه ارجاعات "
+"بسیار کوتاه هستند و هرگز هم‌پوشانی ندارند، بنابراین بررسی‌ها همیشه موفقیت‌آمیز "
+"هستند."
 
 #: src/borrowing/interior-mutability.md:63
 msgid ""
@@ -9247,6 +9311,10 @@ msgid ""
 "call to `borrow_mut` before we print the cell. Trying to print a borrowed "
 "`RefCell` just shows the message `\"{borrowed}\"`."
 msgstr ""
+"بلوک اضافی در مثال `RefCell` برای پایان دادن به ارجاعی که توسط فراخوانی "
+"`borrow_mut` ایجاد شده است، قبل از چاپ `cell` است. تلاش برای چاپ یک "
+"`RefCell` که در حال حاضر ارجاع داده شده است، فقط پیغام `\"{borrowed}\"` را "
+"نشان می‌دهد."
 
 #: src/borrowing/interior-mutability.md:67
 msgid ""
@@ -9254,6 +9322,9 @@ msgid ""
 "`&self`. This needs no runtime check, but requires moving values, which can "
 "have its own cost."
 msgstr ""
+"`Cell` یک روش ساده‌تر برای تضمین ایمنی است: این نوع دارای متدی به نام `set` "
+"است که `self&` را می‌پذیرد. این روش نیاز به بررسی در زمان اجرا ندارد، اما "
+"نیاز به انتقال مقادیر دارد که می‌تواند هزینه‌های خود را داشته باشد."
 
 #: src/borrowing/interior-mutability.md:71
 msgid ""
@@ -9261,12 +9332,17 @@ msgid ""
 "can't be passed between threads. This prevents two threads trying to access "
 "the cell at once."
 msgstr ""
+"هر دو `RefCell` و `Cell` دارای `!Sync` هستند، به این معنی که `RefCell&` و "
+"`&Cell` نمی‌توانند بین نخ‌ها منتقل شوند. این امر مانع از دسترسی همزمان دو نخ "
+"به سلول می‌شود."
 
 #: src/borrowing/exercise.md:3
 msgid ""
 "You're working on implementing a health-monitoring system. As part of that, "
 "you need to keep track of users' health statistics."
 msgstr ""
+"شما در حال پیاده‌سازی یک سیستم پایش سلامت هستید. به عنوان بخشی از این کار، "
+"نیاز دارید تا آمار سلامت کاربران را دنبال کنید."
 
 #: src/borrowing/exercise.md:6
 msgid ""
@@ -9274,15 +9350,17 @@ msgid ""
 "struct definition. Your goal is to implement the stubbed out method on the "
 "`User` `struct` defined in the `impl` block."
 msgstr ""
+"شما با یک تابع ابتدایی در بلوک `impl` و همچنین یک تعریف `struct` به نام "
+"`User` شروع خواهید کرد. هدف شما پیاده‌سازی متد ابتدایی در `struct` `User` است "
+"که در بلوک `impl` تعریف شده است."
 
 #: src/borrowing/exercise.md:10
-#, fuzzy
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and fill in the missing "
 "method:"
 msgstr ""
-"کد زیر را در <span dir=ltr><https://play.rust-lang.org/></span> کپی کرده و "
-"توابع را پیاده‌سازی کنید:"
+"کد زیر را به <https://play.rust-lang.org/> کپی کنید و متد‌های ناقص را تکمیل "
+"کنید:"
 
 #: src/borrowing/exercise.md:45
 msgid ""
@@ -9307,6 +9385,8 @@ msgid ""
 "A reference has a _lifetime_, which must not \"outlive\" the value it refers "
 "to. This is verified by the borrow checker."
 msgstr ""
+"یک مرجع دارای _طول عمر_ است که نباید از ارزش مورد اشاره بیشتر باشد. این "
+"موضوع توسط بررسی‌کننده قرض‌ها تایید می‌شود."
 
 #: src/lifetimes/lifetime-annotations.md:6
 msgid ""
@@ -9315,6 +9395,10 @@ msgid ""
 "`'` and `'a` is a typical default name. Read `&'a Point` as \"a borrowed "
 "`Point` which is valid for at least the lifetime `a`\"."
 msgstr ""
+"طول عمر می‌تواند ضمنی باشد - این همان چیزی است که تا کنون مشاهده کرده‌ایم. طول "
+"عمرها می‌توانند صریح نیز باشند: `&'a Point`، `&'document str`. طول عمرها با "
+"`'` شروع می‌شوند و `'a` نام پیش‌فرض معمولی است. `&'a Point` را به عنوان \"یک "
+"`Point` قرضی که برای حداقل طول عمر `a` معتبر است\" بخوانید."
 
 #: src/lifetimes/lifetime-annotations.md:11
 msgid ""
@@ -9322,12 +9406,17 @@ msgid ""
 "yourself. Explicit lifetime annotations create constraints where there is "
 "ambiguity; the compiler verifies that there is a valid solution."
 msgstr ""
+"طول عمرها همیشه توسط کامپایلر استنتاج می‌شوند: شما نمی‌توانید به طور دستی طول "
+"عمر را اختصاص دهید. انتساب‌های صریح طول عمر محدودیت‌هایی ایجاد می‌کنند که در "
+"صورت وجود ابهام است؛ کامپایلر تأیید می‌کند که یک راه‌حل معتبر وجود دارد."
 
 #: src/lifetimes/lifetime-annotations.md:15
 msgid ""
 "Lifetimes become more complicated when considering passing values to and "
 "returning values from functions."
 msgstr ""
+"طول عمرها وقتی که به عبور مقادیر به توابع و بازگشت مقادیر از توابع می‌پردازیم "
+"پیچیده‌تر می‌شوند."
 
 #: src/lifetimes/lifetime-annotations.md:36
 msgid "// What is the lifetime of p3?\n"
@@ -9345,21 +9434,29 @@ msgid ""
 "requires explicit annotations of lifetimes on function arguments and return "
 "values."
 msgstr ""
+"در این مثال، کامپایلر نمی‌داند که طول عمر `p3` را چگونه استنباط کند. نگاه "
+"کردن به بدنه تابع نشان می‌دهد که تنها به‌طور ایمن می‌تواند فرض کند که طول عمر "
+"`p3` کوتاه‌تر از `p1` و `p2` است. اما مانند تایپ‌ها، راست نیاز به توضیحات صریح "
+"طول عمرها در آرگومان‌های تابع و مقادیر بازگشتی دارد."
 
 #: src/lifetimes/lifetime-annotations.md:50
 msgid "Add `'a` appropriately to `left_most`:"
-msgstr ""
+msgstr "به تابع `left_most` به صورت مناسب `'a` را اضافه کنید:"
 
 #: src/lifetimes/lifetime-annotations.md:56
 msgid ""
 "This says, \"given p1 and p2 which both outlive `'a`, the return value lives "
 "for at least `'a`."
 msgstr ""
+"این به این معناست که \"با توجه به اینکه `p1` و `p2` هر دو از `'a` بیشتر عمر "
+"می‌کنند، مقدار بازگشتی برای مدت `'a` معتبر خواهد بود.\""
 
 #: src/lifetimes/lifetime-annotations.md:59
 msgid ""
 "In common cases, lifetimes can be elided, as described on the next slide."
 msgstr ""
+"در موارد معمول، عمر متغیرها می‌تواند نادیده گرفته شود، همانطور که در اسلاید "
+"بعدی توضیح داده شده است."
 
 #: src/lifetimes/lifetime-elision.md:1
 msgid "Lifetimes in Function Calls"
@@ -9372,36 +9469,49 @@ msgid ""
 "rules](https://doc.rust-lang.org/nomicon/lifetime-elision.html). This is not "
 "inference -- it is just a syntactic shorthand."
 msgstr ""
+"عمرهای مربوط به آرگومان‌های تابع و مقادیر بازگشتی باید به طور کامل مشخص شوند، "
+"اما Rust اجازه می‌دهد عمرها در بیشتر موارد با [چند قانون ساده](https://doc."
+"rust-lang.org/nomicon/lifetime-elision.html) نادیده گرفته شوند. این مسئله "
+"استنتاج نیست -- بلکه تنها یک اصطلاح نوشتاری کوتاه است."
 
 #: src/lifetimes/lifetime-elision.md:8
 msgid "Each argument which does not have a lifetime annotation is given one."
 msgstr ""
+"هر آرگومان که فاقد یک حاشیه‌نویسی عمر است، یک عمر به آن اختصاص داده می‌شود."
 
 #: src/lifetimes/lifetime-elision.md:9
 msgid ""
 "If there is only one argument lifetime, it is given to all un-annotated "
 "return values."
 msgstr ""
+"اگر تنها یک عمر برای آرگومان وجود داشته باشد، به تمام مقادیر بازگشتی که "
+"حاشیه‌نویسی نشده‌اند، اختصاص داده می‌شود."
 
 #: src/lifetimes/lifetime-elision.md:11
 msgid ""
 "If there are multiple argument lifetimes, but the first one is for `self`, "
 "that lifetime is given to all un-annotated return values."
 msgstr ""
+"اگر چندین عمر آرگومان وجود داشته باشد و اولین آن برای `self` باشد، آن عمر به "
+"تمام مقادیر بازگشتی که حاشیه‌نویسی نشده‌اند، اختصاص داده می‌شود."
 
 #: src/lifetimes/lifetime-elision.md:53
 msgid "In this example, `cab_distance` is trivially elided."
-msgstr ""
+msgstr "در این مثال، `cab_distance` به طور خودکار حذف می‌شود."
 
 #: src/lifetimes/lifetime-elision.md:55
 msgid ""
 "The `nearest` function provides another example of a function with multiple "
 "references in its arguments that requires explicit annotation."
 msgstr ""
+"تابع `nearest` مثال دیگری از تابعی است که با ارجاعات متعدد در آرگومان‌هایش "
+"نیاز به حاشیه‌نویسی صریح دارد."
 
 #: src/lifetimes/lifetime-elision.md:58
 msgid "Try adjusting the signature to \"lie\" about the lifetimes returned:"
 msgstr ""
+"امضا را طوری تنظیم کنید که \"دروغ\" بگوید درباره طول عمر مقادیری که برگشت "
+"داده می‌شوند:"
 
 #: src/lifetimes/lifetime-elision.md:64
 msgid ""
@@ -9409,6 +9519,10 @@ msgid ""
 "validity by the compiler. Note that this is not the case for raw pointers "
 "(unsafe), and this is a common source of errors with unsafe Rust."
 msgstr ""
+"این کد کامپایل نخواهد شد، که نشان‌دهنده این است که برچسب‌های طول عمر توسط "
+"کامپایلر برای اعتبارسنجی بررسی می‌شوند. توجه داشته باشید که این وضعیت برای "
+"اشاره‌گرهای خام (ناامن) صدق نمی‌کند و این یکی از منابع رایج خطاها در Rust "
+"ناامن است."
 
 #: src/lifetimes/lifetime-elision.md:68
 msgid ""
@@ -9418,6 +9532,12 @@ msgid ""
 "help resolve ambiguity. Often, especially when prototyping, it's easier to "
 "just work with owned data by cloning values where necessary."
 msgstr ""
+"دانش‌آموزان ممکن است بپرسند که چه زمانی باید از طول عمرها استفاده کرد. در "
+"Rust، _همیشه_ برای قرض‌ها طول عمر وجود دارد. بیشتر مواقع، حذف و استنباط تایپ "
+"به این معنی است که نیازی به نوشتن این طول عمرها نیست. در موارد پیچیده‌تر، "
+"برچسب‌های طول عمر می‌توانند به حل ابهام کمک کنند. اغلب، به‌ویژه در هنگام "
+"پروتوتایپ‌سازی، راحت‌تر است که با داده‌های مالکیت‌شده کار کنید و مقادیر را در "
+"صورت لزوم کلون کنید."
 
 #: src/lifetimes/struct-lifetimes.md:1
 msgid "Lifetimes in Data Structures"
@@ -9427,6 +9547,7 @@ msgstr "طول عمر در ساختمان داده"
 msgid ""
 "If a data type stores borrowed data, it must be annotated with a lifetime:"
 msgstr ""
+"اگر یک تایپ داده داده‌های قرضی را ذخیره کند، باید با یک طول عمر مشخص شود:"
 
 #: src/lifetimes/struct-lifetimes.md:10
 msgid "\"Bye {text}!\""
@@ -9454,12 +9575,17 @@ msgid ""
 "underlying the contained `&str` lives at least as long as any instance of "
 "`Highlight` that uses that data."
 msgstr ""
+"در مثال بالا، حاشیه‌نویسی بر روی `Highlight` تضمین می‌کند که داده‌های زیرین "
+"`str&` به مدت حداقل برابر با هر نمونه از `Highlight` که از آن داده استفاده "
+"می‌کند، زنده بماند."
 
 #: src/lifetimes/struct-lifetimes.md:29
 msgid ""
 "If `text` is consumed before the end of the lifetime of `fox` (or `dog`), "
 "the borrow checker throws an error."
 msgstr ""
+"اگر `text` قبل از پایان عمر `fox` (یا `dog`) مصرف شود، بررسی‌کننده‌ی قرض "
+"(borrow checker) خطا می‌دهد."
 
 #: src/lifetimes/struct-lifetimes.md:31
 msgid ""
@@ -9467,10 +9593,13 @@ msgid ""
 "can be useful for creating lightweight views, but it generally makes them "
 "somewhat harder to use."
 msgstr ""
+"تایپ‌های دارای داده‌های قرضی (borrowed data) کاربران را مجبور می‌کنند تا "
+"داده‌های اصلی را نگه دارند. این می‌تواند برای ایجاد نمایه‌های سبک مفید باشد، "
+"اما معمولاً استفاده از آنها را تا حدی دشوارتر می‌کند."
 
 #: src/lifetimes/struct-lifetimes.md:34
 msgid "When possible, make data structures own their data directly."
-msgstr ""
+msgstr "در صورت امکان، داده‌های ساختارها را به طور مستقیم مالکیت کنید."
 
 #: src/lifetimes/struct-lifetimes.md:35
 msgid ""
@@ -9479,6 +9608,10 @@ msgid ""
 "relationships between the references themselves, in addition to the lifetime "
 "of the struct itself. Those are very advanced use cases."
 msgstr ""
+"برخی از ساختارهای داده که شامل چندین ارجاع هستند، ممکن است نیاز به چندین "
+"نشانه‌گذاری عمر داشته باشند. این امر می‌تواند ضروری باشد اگر بخواهید روابط "
+"عمری بین ارجاعات مختلف را به علاوه عمر ساختار خود توصیف کنید. این موارد "
+"بسیار پیشرفته هستند."
 
 #: src/lifetimes/exercise.md:3
 msgid ""
@@ -9487,6 +9620,10 @@ msgid ""
 "simpler than it seems! This illustrates a common parsing pattern, passing "
 "slices of data. The underlying data itself is never copied."
 msgstr ""
+"در این تمرین، شما یک تجزیه‌کننده برای [رمزگذاری باینری پروتوباف](https://"
+"protobuf.dev/programming-guides/encoding/) خواهید ساخت. نگران نباشید، این "
+"کار ساده‌تر از آن است که به نظر می‌رسد! این الگو نشان‌دهنده یک الگوی رایج در "
+"تجزیه داده‌ها است که شامل عبور برش‌های داده است. داده‌های اصلی هرگز کپی نمی‌شوند."
 
 #: src/lifetimes/exercise.md:8
 msgid ""
@@ -9495,10 +9632,14 @@ msgid ""
 "file. In this exercise, we'll encode that information into `match` "
 "statements in functions that get called for each field."
 msgstr ""
+"تجزیه کامل یک پیام پروتوباف نیاز به دانستن تایپ‌های فیلدها دارد که بر اساس "
+"شماره‌های فیلد ایندکس شده‌اند. این اطلاعات معمولاً در یک فایل `proto` ارائه "
+"می‌شود. در این تمرین، ما این اطلاعات را به صورت عبارات `match` در توابعی که "
+"برای هر فیلد فراخوانی می‌شوند، کدگذاری خواهیم کرد."
 
 #: src/lifetimes/exercise.md:13
 msgid "We'll use the following proto:"
-msgstr ""
+msgstr "ما از پروتوباف زیر استفاده خواهیم کرد:"
 
 #: src/lifetimes/exercise.md:28
 msgid ""
@@ -9507,6 +9648,10 @@ msgid ""
 "number (e.g., `2` for the `id` field of a `Person` message) and a wire type "
 "defining how the payload should be determined from the byte stream."
 msgstr ""
+"یک پیام پروتوباف به عنوان مجموعه‌ای از فیلدها، یکی پس از دیگری، کدگذاری "
+"می‌شود. هر فیلد به صورت یک \"تگ\" به همراه مقدار آن پیاده‌سازی شده است. تگ "
+"شامل شماره فیلد (مانند `2` برای فیلد `id` در پیام `Person`) و تایپ وایر است "
+"که نحوه تعیین بار را از جریان بایت مشخص می‌کند."
 
 #: src/lifetimes/exercise.md:33
 msgid ""
@@ -9515,12 +9660,18 @@ msgid ""
 "code also defines callbacks to handle `Person` and `PhoneNumber` fields, and "
 "to parse a message into a series of calls to those callbacks."
 msgstr ""
+"اعداد، از جمله تگ، با استفاده از کدگذاری با طول متغیر به نام VARINT نمایندگی "
+"می‌شوند. خوشبختانه، تابع `parse_varint` برای شما تعریف شده است. کد داده شده "
+"همچنین بازخوانی‌هایی برای مدیریت فیلدهای `Person` و `PhoneNumber` و تجزیه یک "
+"پیام به مجموعه‌ای از فراخوانی‌ها به آن بازخوانی‌ها را تعریف می‌کند."
 
 #: src/lifetimes/exercise.md:38
 msgid ""
 "What remains for you is to implement the `parse_field` function and the "
 "`ProtoMessage` trait for `Person` and `PhoneNumber`."
 msgstr ""
+"برای شما باقی‌مانده است که تابع `parse_field` و ویژگی `ProtoMessage` را برای "
+"`Person` و `PhoneNumber` پیاده‌سازی کنید."
 
 #: src/lifetimes/exercise.md:44 src/lifetimes/solution.md:4
 msgid "/// A wire type as seen on the wire.\n"
@@ -9647,6 +9798,12 @@ msgid ""
 "enum, but for simplicity in this exercise we panic if any errors are "
 "encountered. On day 4 we'll cover error handling in Rust in more detail."
 msgstr ""
+"در این تمرین موارد مختلفی وجود دارد که ممکن است تجزیه protobuf با شکست مواجه "
+"شود، مثلاً اگر بخواهید یک `i32` را هنگامی که کمتر از 4 بایت در بافر داده "
+"باقی‌مانده است، تجزیه کنید. در کد Rust معمولاً این را با استفاده از `Result` "
+"مدیریت می‌کنیم، اما برای سادگی در این تمرین، اگر با هرگونه خطا مواجه شویم، به "
+"جای آن که با `Result` برخورد کنیم، برنامه را متوقف خواهیم کرد. در روز چهارم، "
+"به بررسی دقیق‌تر مدیریت خطا در Rust خواهیم پرداخت."
 
 #: src/lifetimes/solution.md:119
 msgid "\"len not a valid `usize`\""
