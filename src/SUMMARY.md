@@ -55,7 +55,7 @@
 - [References](references.md)
   - [Shared References](references/shared.md)
   - [Exclusive References](references/exclusive.md)
-  - [Slices: `&[T]`](references/slices.md)
+  - [Slices](references/slices.md)
   - [Strings](references/strings.md)
   - [Exercise: Geometry](references/exercise.md)
     - [Solution](references/solution.md)
