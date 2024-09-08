@@ -15627,6 +15627,7 @@ msgstr "تست‌های جدید را به `BUILD.gn` اضافه کنید."
 #: src/exercises/chromium/testing.md:12
 msgid "Build the tests, run them, and verify that the new test works."
 msgstr ""
+"تست‌ها را بسازید، اجرا کنید و بررسی کنید که آيا تست جدید به درستی کار می‌کند."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15634,6 +15635,9 @@ msgid ""
 "tools being developed all the time. At the moment, Chromium uses a tool "
 "called CXX."
 msgstr ""
+"جامعه Rust گزینه‌های متعددی را برای C++/Rust interop ارائه می‌دهد، با ابزارهای "
+"جدیدی که همیشه در حال توسعه هستند. در حال حاضر، Chromium از ابزاری به نام "
+"CXX استفاده می‌کند."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15641,12 +15645,17 @@ msgid ""
 "language (which looks a lot like Rust) and then CXX tools generate "
 "declarations for functions and types in both Rust and C++."
 msgstr ""
+"شما کل مرز زبان (language boundary) خود را در یک زبان تعریف interface (که "
+"بسیار شبیه Rust به نظر می رسد) توصیف می کنید و سپس ابزارهای CXX اعلان‌هایی را "
+"برای توابع و تایپ‌ها در Rust و ++C ایجاد می‌کنند."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
 "See the [CXX tutorial](https://cxx.rs/tutorial.html) for a full example of "
 "using this."
 msgstr ""
+"برای مثال کامل استفاده از این [آموزش CXX](https://cxx.rs/tutorial.html) را "
+"ببینید."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15654,6 +15663,9 @@ msgid ""
 "the same as you previously did. Point out that automating the process has "
 "the following benefits:"
 msgstr ""
+"از طریق دیاگرام صحبت کنید. توضیح دهید که در پشت صحنه، این دقیقاً همان کاری را "
+"انجام می‌دهد که قبلاً انجام می‌دادید. به این نکته اشاره کنید که خودکارسازی "
+"فرآیند دارای مزایای زیر است:"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15662,6 +15674,10 @@ msgid ""
 "definitions, but with out-of-sync manual bindings you'd get Undefined "
 "Behavior)"
 msgstr ""
+"این ابزار تضمین می‌کند که مجانب ++C و Rust مطابقت کامل دارند (مثلاً اگر "
+"`#[cxx::bridge]` با تعاریف واقعی ++C یا Rust مطابقت نداشته باشد، درنتیجه با "
+"خطاهای کامپایل مواجه می‌شوید اما با اتصال‌های دستی غیرهمگام‌شده (out-of-sync "
+"manual bindings) می‌توانید رفتار نامشخص دریافت کنید)"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15670,10 +15686,16 @@ msgid ""
 "methods; manual bindings would require authoring such top-level, free "
 "functions manually)"
 msgstr ""
+"این ابزار تولید Thunk‌های FFI (کارکردهای کوچک، سازگار با C-ABI، و رایگان) را "
+"برای ویژگی های غیر C (به عنوان مثال فعال کردن تماس‌های FFI به‌ متدهای Rust) به "
+"طور خودکار انجام می دهد؛ اتصال های دستی نیاز به نوشتن چنین عملکردهای سطح "
+"بالا و رایگان به صورت دستی دارد."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid "The tool and the library can handle a set of core types - for example:"
 msgstr ""
+"ابزارها و کتابخانه می‌توانند مجموعه‌ای از انواع هسته (core types) را مدیریت "
+"کنند - به عنوان مثال:"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15683,6 +15705,11 @@ msgid ""
 "pointer and length - this is error-prone given that each language represents "
 "empty slices slightly differently)"
 msgstr ""
+"‏ `&[T]` را می‌توان از مرز FFI عبور داد، حتی اگر هیچ‌گونه طرح‌بندی ABI یا حافظه "
+"خاصی را تضمین نکند. با اتصال‌های (bindings) دستی،`std::span<T>` / `&[T]` باید "
+"به‌صورت دستی تخریب شود و از یک pointer و length به صورت مجدد ساخته شود - با "
+"توجه به اینکه هر زبان sliceهای خالی را کمی متفاوت نشان می‌دهد، درنتیجه مستعد "
+"خطا است)"
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15691,6 +15718,10 @@ msgid ""
 "compatible raw pointers, which would increase lifetime and memory-safety "
 "risks."
 msgstr ""
+"اشاره گرهای هوشمند مانند `std::unique_ptr<T>`, `std::shared_ptr<T>` و/یا  "
+"`Box` به صورت native پشتیبانی می‌شوند. با کمک اتصال‌های دستی (manual "
+"bindings)، باید C-ABI-compatible raw pointers را پاس کنید که خطرات ایمنی و "
+"طول عمر را افزایش می‌دهد."
 
 #: src/chromium/interoperability-with-cpp.md
 msgid ""
@@ -15699,24 +15730,30 @@ msgid ""
 "build a Rust string from non-UTF8 input and `rust::String::c_str` can NUL-"
 "terminate a string)."
 msgstr ""
+"تایپ‌های `rust::String` و `CxxString` تفاوت‌ها را در نمایش stringها در بین "
+"زبان‌ها درک و حفظ می‌کنند (به عنوان مثال، `rust::String::lossy` می‌تواند یک "
+"Rust string  را از ورودی غیر UTF8 و `rust::String::c_str` بسازد و می‌تواند یک "
+"string را با NUL خاتمه دهد)."
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:3
 msgid ""
 "CXX requires that the whole C++/Rust boundary is declared in `cxx::bridge` "
 "modules inside `.rs` source code."
 msgstr ""
+"‏ CXX مستلزم آن است که کل مرز C++/Rust در ماژول‌های `cxx::bridge` در کد منبع `."
+"rs` اعلام شود."
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:16
 msgid "\"example/include/blobstore.h\""
-msgstr ""
+msgstr "\"example/include/blobstore.h\""
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:24
 msgid "// Definitions of Rust types and functions go here\n"
-msgstr ""
+msgstr "// Definitions of Rust types and functions go here\n"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:30
 msgid "Point out:"
-msgstr ""
+msgstr "اشاره کنید:"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:32
 msgid ""
@@ -15725,23 +15762,25 @@ msgid ""
 "bit more sophisticated - though this does still result in a `mod` called "
 "`ffi` in your code."
 msgstr ""
+"اگرچه این شبیه به یک `mod` معمولی Rust است، اما ماکرو رویه‌ای `#[cxx::"
+"bridge]` کارهای پیچیده‌ای برای آن انجام می‌دهد و کد تولید شده کمی پیچیده تر "
+"است - اگرچه این کار همچنان منجر به یک  `mod` به نام `ffi` در کد شما می شود."
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:36
 msgid "Native support for C++'s `std::unique_ptr` in Rust"
-msgstr ""
+msgstr "پشتیبانی Native در ++C برای`std::unique_ptr`در Rust"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:37
-#, fuzzy
 msgid "Native support for Rust slices in C++"
-msgstr "پشتیبانی درون-ساختی از تست نویسی"
+msgstr "پشتیبانی Native برای Rust Slices در ++C"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:38
 msgid "Calls from C++ to Rust, and Rust types (in the top part)"
-msgstr ""
+msgstr "فراخوانی از ++C به Rust و تایپ‌های Rust (در قسمت بالا)"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:39
 msgid "Calls from Rust to C++, and C++ types (in the bottom part)"
-msgstr ""
+msgstr "فراخوانی از Rust به ++C و تایپ‌های ++C (در قسمت پایین)"
 
 #: src/chromium/interoperability-with-cpp/example-bindings.md:41
 msgid ""
@@ -15750,34 +15789,45 @@ msgid ""
 "simply `#include`d in the generated C++ code for the benefit of C++ "
 "compilers."
 msgstr ""
+"تصور نادرست رایج**: به نظر می‌رسد هِدِر ++C توسط Rust تجزیه می‌شود، اما این "
+"گمراه کننده است. این هِدِر هرگز توسط Rust تفسیر نمی‌شود، بلکه به سادگی "
+"`#include` در کد ++C تولید‌شده برای کامپایلرهای ++C است."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:3
 msgid ""
 "By far the most useful page when using CXX is the [type reference](https://"
 "cxx.rs/bindings.html)."
 msgstr ""
+"تا حد زیادی مفیدترین صفحه هنگام استفاده از CXX برابر [type reference]"
+"(https://cxx.rs/bindings.html) است."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:5
 msgid "CXX fundamentally suits cases where:"
-msgstr ""
+msgstr "‏ CXX به‌طورکلی مناسب مواردی است که:"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:7
 msgid ""
 "Your Rust-C++ interface is sufficiently simple that you can declare all of "
 "it."
 msgstr ""
+"اینترفیس ++Rust-C شما به اندازه کافی ساده است که می‌توانید همه آن را اعلام یا "
+"declare کنید."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:8
 msgid ""
 "You're using only the types natively supported by CXX already, for example "
 "`std::unique_ptr`, `std::string`, `&[u8]` etc."
 msgstr ""
+"شما فقط از تایپ‌هایی استفاده می‌کنید که قبلاً توسط CXX ​​پشتیبانی می‌شوند، برای "
+"مثال`std::unique_ptr`, `std::string`, `&[u8]` و غیره."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:11
 msgid ""
 "It has many limitations --- for example lack of support for Rust's `Option` "
 "type."
 msgstr ""
+"این مورد محدودیت‌های زیادی دارد --- برای مثال عدم پشتیبانی از تایپ 'Option' "
+"Rust."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:14
 msgid ""
@@ -15787,47 +15837,62 @@ msgid ""
 "draft the CXX bindings for the language boundary to see if it appears simple "
 "enough."
 msgstr ""
+"این محدودیت‌ها ما را محدود می‌کنند تا از Rust در Chromium فقط برای \"گره‌های "
+"برگ\" به خوبی ایزوله شده استفاده کنیم نه برای تعامل دلخواه ++Rust-C. هنگام "
+"در نظر گرفتن یک مورد استفاده برای Rust در Chromium، یک نقطه شروع خوب این است "
+"که پیش نویس پیوندهای CXX برای مرز زبان (language boundary) را پیش‌نویس کنید "
+"تا ببینید آیا به اندازه کافی ساده به نظر می رسد یا خیر."
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:26
 msgid ""
 "You should also discuss some of the other sticky points with CXX, for "
 "example:"
-msgstr ""
+msgstr "همچنین باید برخی از نکات مهم دیگر را با CXX مطرح کنید، به عنوان مثال:"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:28
 msgid ""
 "Its error handling is based around C++ exceptions (given on the next slide)"
-msgstr ""
+msgstr "مدیریت خطای آن بر اساسC++ exception است (در اسلاید بعدی ارائه شده است)"
 
 #: src/chromium/interoperability-with-cpp/limitations-of-cxx.md:29
 msgid "Function pointers are awkward to use."
-msgstr ""
+msgstr "استفاده ازFunction pointerها دشوار است."
 
 #: src/chromium/interoperability-with-cpp/error-handling.md:3
 msgid ""
 "CXX's [support for `Result<T,E>`](https://cxx.rs/binding/result.html) relies "
 "on C++ exceptions, so we can't use that in Chromium. Alternatives:"
 msgstr ""
+"‏ CXX [پشتیبانی از  `Result<T,E>`](https://cxx.rs/binding/result.html)  به C+"
+"+ exception متکی است، بنابراین نمی‌توانیم از آن در Chromium استفاده کنیم. "
+"جایگزین‌های آن عبارتند از:"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md:6
 msgid "The `T` part of `Result<T, E>` can be:"
-msgstr ""
+msgstr "قسمت `T` از `نتیجه<T، E>` می تواند باشد:"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md:7
+#, fuzzy
 msgid ""
 "Returned via out parameters (e.g. via `&mut T`). This requires that `T` can "
 "be passed across the FFI boundary - for example `T` has to be:"
 msgstr ""
+"از طریق پارامترهای خارجی (به عنوان مثال از طریق `&mut T`) برگردانده شده است. "
+"این مستلزم آن است که `T` بتواند از مرز FFI عبور کند - برای مثال `T` باید "
+"باشد:"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md:9
 msgid "A primitive type (like `u32` or `usize`)"
-msgstr ""
+msgstr "یک type اولیه (مانند `u32` یا `usize`)"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md:10
 msgid ""
 "A type natively supported by `cxx` (like `UniquePtr<T>`) that has a suitable "
 "default value to use in a failure case (_unlike_ `Box<T>`)."
 msgstr ""
+"تایپی که به طور native توسط `cxx` پشتیبانی می‌شود (مانند  `UniquePtr<T>`) که "
+"دارای یک مقدار پیش‌فرض مناسب برای استفاده در موارد خرابی است (_unlike_ "
+"`Box<T>`)."
 
 #: src/chromium/interoperability-with-cpp/error-handling.md:12
 msgid ""
@@ -15835,22 +15900,29 @@ msgid ""
 "when `T` is a Rust type, which cannot be passed across the FFI boundary, and "
 "cannot be stored in `UniquePtr<T>`."
 msgstr ""
+"در سمت Rust حفظ شده و از طریق مرجع در معرض دید قرار گرفته است. این کار ممکن "
+"است زمانی مورد نیاز باشد که `T` یک تایپ Rust است که نمی‌تواند از مرز FFI عبور "
+"کند و نمی تواند در `UniquePtr<T>` ذخیره شود."
 
 #: src/chromium/interoperability-with-cpp/error-handling.md:16
 msgid "The `E` part of `Result<T, E>` can be:"
-msgstr ""
+msgstr "قسمت `E` از `Result<T, E>` می‌تواند باشد:"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md:17
 msgid ""
 "Returned as a boolean (e.g. `true` representing success, and `false` "
 "representing failure)"
 msgstr ""
+"به‌عنوان یک boolean برگردانده می‌شود (مثلاً `true` نشان‌دهنده موفقیت و `false` "
+"نشان‌دهنده یک شکست است)"
 
 #: src/chromium/interoperability-with-cpp/error-handling.md:19
 msgid ""
 "Preserving error details is in theory possible, but so far hasn't been "
 "needed in practice."
 msgstr ""
+"حفظ جزئیات خطا در تئوری امکان پذیر است، اما تاکنون در عمل مورد نیاز نبوده "
+"است."
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md:1
 msgid "CXX Error Handling: QR Example"
@@ -15864,10 +15936,14 @@ msgid ""
 "used to communicate success vs failure, and where the successful result can "
 "be passed across the FFI boundary:"
 msgstr ""
+"تولید کد QR [نمونه‌ای](https://source.chromium.org/chromium/chromium/src/+/"
+"main:components/qr_code_generator/qr_code_generator_ffi_glue.rs;l=13-18;"
+"drc=7bf1b75b9101ca2013) است که در آن بولی برای ارتباط موفقیت در مق‌بل شکست و "
+"جایی که نتیجه موفقیت آمیز را می‌توان از مرز FFI عبور داد استفاده می شود:"
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md:8
 msgid "\"qr_code_generator\""
-msgstr ""
+msgstr "\"qr_code_generator\""
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md:23
 msgid ""
@@ -15876,6 +15952,9 @@ msgid ""
 "admittedly it is a bit redundant - this is the square root of the size of "
 "the vector)."
 msgstr ""
+"دانش آموزان ممکن است در مورد معنایی خروجی `out_qr_size` کنجکاو باشند. این "
+"اندازه بردار نیست بلکه اندازه کد QR است (و مسلماً کمی اضافی است - درواقع این "
+"جذر اندازه بردار است)."
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md:27
 msgid ""
@@ -15884,6 +15963,10 @@ msgid ""
 "points to uninitialized memory results in Undefined Behavior (unlike in C++, "
 "when only the act of dereferencing such memory results in UB)."
 msgstr ""
+"شاید لازم باشد قبل از فراخوانی تابع Rust به اهمیت مقداردهی اولیه "
+"`out_qr_size` اشاره کنیم. ایجاد یک مرجع Rust که به حافظه اولیه اشاره می‌کند، "
+"منجر به رفتار نامشخص می‌شود (برخلاف ++C، زمانی که تنها عمل عدم ارجاع چنین "
+"حافظه‌ای منجر به UB می‌شود)."
 
 #: src/chromium/interoperability-with-cpp/error-handling-qr.md:32
 msgid ""
@@ -15891,6 +15974,10 @@ msgid ""
 "references to C++ data: the answer is that C++ data can’t be moved around "
 "like Rust data, because it may contain self-referential pointers."
 msgstr ""
+"اگر دانش‌آموزان درباره `Pin` سؤال می‌کنند، توضیح دهید که چرا CXX برای ارجاع‌های "
+"قابل تغییر به داده‌های ++C به آن نیاز دارد: پاسخ این است که داده‌های++C را "
+"نمی‌توان مانند داده‌های Rust جابه‌جا کرد، زیرا ممکن است حاوی نشانگرهای "
+"خودارجاعی (self-referential pointers) باشد."
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md:1
 msgid "CXX Error Handling: PNG Example"
@@ -15901,24 +15988,28 @@ msgid ""
 "A prototype of a PNG decoder illustrates what can be done when the "
 "successful result cannot be passed across the FFI boundary:"
 msgstr ""
+"نمونه اولیه PNG decoder نشان می‌دهد که وقتی نتیجه موفقیت آمیز نمی‌تواند از مرز "
+"FFI عبور کند و چه کاری می توان انجام داد:"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md:7
 msgid "\"gfx::rust_bindings\""
-msgstr ""
+msgstr "\"gfx::rust_bindings\""
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md:10
 msgid ""
 "/// This returns an FFI-friendly equivalent of `Result<PngReader<'a>,\n"
 "        /// ()>`.\n"
 msgstr ""
+"/// This returns an FFI-friendly equivalent of `Result<PngReader<'a>,\n"
+"        /// ()>`.\n"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md:14
 msgid "/// C++ bindings for the `crate::png::ResultOfPngReader` type.\n"
-msgstr ""
+msgstr "/// C++ bindings for the `crate::png::ResultOfPngReader` type.\n"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md:21
 msgid "/// C++ bindings for the `crate::png::PngReader` type.\n"
-msgstr ""
+msgstr "/// C++ bindings for the `crate::png::PngReader` type.\n"
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md:32
 msgid ""
@@ -15927,6 +16018,10 @@ msgid ""
 "can't have an `out_parameter: &mut PngReader`, because CXX doesn't allow C++ "
 "to store Rust objects by value."
 msgstr ""
+"‏ \"PngReader\" و \"ResultOfPngReader\" تایپ‌های Rust هستند --- objectهای از "
+"این نوع نمیتوانند بدون جهت‌گیری غیرمستقیم `Box<T>` از مرز FFI عبور کنند. ما "
+"نمی‌توانیم `out_parameter: &mut PngReader` داشته باشیم، زیرا CXX به ++C اجازه "
+"نمی‌دهد Rust object ها را براساس مقدار ذخیره کند."
 
 #: src/chromium/interoperability-with-cpp/error-handling-png.md:37
 msgid ""
@@ -15937,10 +16032,16 @@ msgid ""
 "appropriate methods of `Result<T, E>` (e.g. into `is_err`, `unwrap`, and/or "
 "`as_mut`)."
 msgstr ""
+"این مثال نشان می‌دهد که حتی اگر CXX از genericها و templateهای دلخواه "
+"پشتیبانی نمی‌کند، ما همچنان می‌توانیم آنها را از مرز FFI عبور دهیم و آنها را "
+"به‌صورت دستی تخصصی/تک‌شکلی ( specializing / monomorphizing) در یک نوع غیرعمومی "
+"تبدیل کنیم. در مثال `ResultOfPngReader` یک نوع non-generic است که به متدهای "
+"مناسب `Result<T, E>` (به عنوان مثال به «is_err»، «unwrap» و/یا «as_mut» "
+"ارسال می‌شود."
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:1
 msgid "Using cxx in Chromium"
-msgstr ""
+msgstr "استفاده از cxx در Chromium"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:3
 msgid ""
@@ -15948,6 +16049,9 @@ msgid ""
 "node where we want to use Rust. You'd typically have one for each "
 "`rust_static_library`. Just add"
 msgstr ""
+"در Chromium، یک `#[cxx::bridge] mod` مستقل برای هر برگ گره‌ای که می‌خواهیم از "
+"Rust استفاده کنیم را تعریف می‌کنیم. شما معمولاً برای هر `rust_static_library` "
+"یکی دارید. پس فقط اضافه کنید."
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:7
 msgid ""
@@ -15957,20 +16061,25 @@ msgid ""
 "allow_unsafe = true\n"
 "```"
 msgstr ""
+"```gn\n"
+"cxx_bindings = [ \"my_rust_file.rs\" ]\n"
+"   # list of files containing #[cxx::bridge], not all source files\n"
+"allow_unsafe = true\n"
+"```"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:13
 msgid ""
 "to your existing `rust_static_library` target alongside `crate_root` and "
 "`sources`."
-msgstr ""
+msgstr "به هدف `rust_static_library` موجود در کنار `crate_root` و `sources`."
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:16
 msgid "C++ headers will be generated at a sensible location, so you can just"
-msgstr ""
+msgstr "‏ headerهای ++C در یک مکان منطقی تولید می‌شوند، بنابراین شما می‌توانید."
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:19
 msgid "\"ui/base/my_rust_file.rs.h\""
-msgstr ""
+msgstr "\"ui/base/my_rust_file.rs.h\""
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:22
 msgid ""
@@ -15979,10 +16088,15 @@ msgid ""
 "source.chromium.org/chromium/chromium/src/+/main:base/containers/span_rust.h;"
 "l=21)."
 msgstr ""
+"برخی از توابع کاربردی را در `//base`  برای تبدیل به/از تایپ‌های ++Chromium C "
+"به انواع CXX Rust پیدا خواهید کرد --- برای مثال [`SpanToRustSlice`](https://"
+"source.chromium.org/chromium/chromium/src /+/main:base/containers/span_rust."
+"h;l=21)."
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:27
 msgid "Students may ask --- why do we still need `allow_unsafe = true`?"
 msgstr ""
+"دانش‌آموزان ممکن است بپرسند --- چرا هنوز به `allow_unsafe = true` نیاز داریم؟"
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:29
 msgid ""
@@ -15994,6 +16108,13 @@ msgid ""
 "writing/the-cxx-debate), but strictly, bringing any foreign code into a Rust "
 "binary can cause unexpected behavior from Rust's perspective."
 msgstr ""
+"پاسخ کلی این است که هیچ کد ++C/C با استانداردهای معمول Rust \"ایمن\" نیست. "
+"فراخوانی مجدد و برگشتی به ++C/C  از Rust ممکن است کارهای دلخواه را در حافظه "
+"انجام دهد و ایمنی طرح‌بندی داده‌های خود Rust را به خطر بیندازد. وجود کلمات "
+"کلیدی بسیار زیاد «ناامن» در تعامل ++C/C  می‌تواند به نسبت سیگنال به نویز چنین "
+"کلمه کلیدی آسیب برساند و این [جنجال‌برانگیز]‌(https://steveklabnik.com/writing/"
+"the-cxx-debate) است، اما به طور دقیق، آوردن هر کد خارجی به یک باینری Rust "
+"می‌تواند باعث رفتار غیرمنتظره از دیدگاه Rust شود."
 
 #: src/chromium/interoperability-with-cpp/using-cxx-in-chromium.md:36
 msgid ""
@@ -16002,15 +16123,17 @@ msgid ""
 "`unsafe` and `extern \"C\"` functions just like we did manually in the "
 "previous section."
 msgstr ""
+"پاسخ دقیقق دردیاگرام بالای [این صفحه](../interoperability-with-cpp.md) نهفته "
+"است  --- در پشت صحنه، CXX توابع Rust «ناامن» و `extern \"C\"` را درست مانند "
+"در بخش قبل به صورت دستی انجام دادیم."
 
 #: src/exercises/chromium/interoperability-with-cpp.md:1
-#, fuzzy
 msgid "Exercise: Interoperability with C++"
-msgstr "قابلیت همکاری"
+msgstr "تمرین: قابلیت همکاری با ++C"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:3
 msgid "Part one"
-msgstr ""
+msgstr "قسمت اول"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:5
 msgid ""
@@ -16018,51 +16141,61 @@ msgid ""
 "specifies a single function, to be called from C++, called "
 "`hello_from_rust`, taking no parameters and returning no value."
 msgstr ""
+"در فایل Rust که قبلاً ایجاد کرده‌اید، یک `#[cxx::bridge]` اضافه کنید که یک "
+"تابع را مشخص می‌کند که باید از++C فراخوانی شود که نام `hello_from_rust` دارد، "
+"بدون اینکه پارامتر و هیچ مقداری برگرداند."
 
 #: src/exercises/chromium/interoperability-with-cpp.md:8
 msgid ""
 "Modify your previous `hello_from_rust` function to remove `extern \"C\"` and "
 "`#[no_mangle]`. This is now just a standard Rust function."
 msgstr ""
+"تابع `hello_from_rust` قبلی خود را برای حذف  `extern \"C\"` و `#[no_mangle]` "
+"تغییر دهید. حالا این فقط یک تابع استاندارد Rust است."
 
 #: src/exercises/chromium/interoperability-with-cpp.md:10
 msgid "Modify your `gn` target to build these bindings."
-msgstr ""
+msgstr "هدف `gn` خود را برای ایجاد این پیوندها (bindings) تغییر دهید."
 
 #: src/exercises/chromium/interoperability-with-cpp.md:11
 msgid ""
 "In your C++ code, remove the forward-declaration of `hello_from_rust`. "
 "Instead, include the generated header file."
 msgstr ""
+"در کد ++C خود، forward-declaration برای `hello_from_rust` را حذف کنید. در "
+"عوض، فایل هِدِر تولید شده را اضافه کنید."
 
 #: src/exercises/chromium/interoperability-with-cpp.md:13
 msgid "Build and run!"
-msgstr ""
+msgstr "Build و run!"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:15
 msgid "Part two"
-msgstr ""
+msgstr "قسمت دوم"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:17
 msgid ""
 "It's a good idea to play with CXX a little. It helps you think about how "
 "flexible Rust in Chromium actually is."
 msgstr ""
+"ایده خوبی است که کمی با CXX بازی کنید. این به شما کمک می کند تا به این فکر "
+"کنید که Rust در Chromium واقعا چقدر انعطاف پذیر است."
 
 #: src/exercises/chromium/interoperability-with-cpp.md:20
-#, fuzzy
 msgid "Some things to try:"
-msgstr "نکته:"
+msgstr "برخی از چیزهایی که باید امتحان کنید:"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:22
 msgid "Call back into C++ from Rust. You will need:"
-msgstr ""
+msgstr "از Rust دوباره به  ++C فراخوانی کنید. درنهایت شما نیاز خواهید داشت:"
 
 #: src/exercises/chromium/interoperability-with-cpp.md:23
 msgid ""
 "An additional header file which you can `include!` from your `cxx::bridge`. "
 "You'll need to declare your C++ function in that new header file."
 msgstr ""
+"یک فایل هِدِر اضافی که می‌توانید از `cxx::bridge` خود `include!` را وارد کنید. "
+"شما باید تابع ++C خود را در آن فایل هِدِر جدید اعلام کنید."
 
 #: src/exercises/chromium/interoperability-with-cpp.md:25
 msgid ""
@@ -16070,12 +16203,17 @@ msgid ""
 "`unsafe` keyword in your `#[cxx::bridge]` [as described here](https://cxx.rs/"
 "extern-c++.html#functions-and-member-functions)."
 msgstr ""
+"یک بلوک `unsafe` برای فراخوانی چنین تابعی، یا به طور متناوب کلمه کلیدی "
+"`unsafe` را در `#[cxx::bridge]` خود [همانطور که در اینجا توضیح داده شده است]"
+"(https://cxx.rs/extern-c++.html#functions-and-member-functions)."
 
 #: src/exercises/chromium/interoperability-with-cpp.md:27
 msgid ""
 "You may also need to `#include \"third_party/rust/cxx/v1/crate/include/cxx."
 "h\"`"
 msgstr ""
+"همچنین ممکن است لازم باشد`#include \"third_party/rust/cxx/v1/crate/include/"
+"cxx.h\"` را وارد کنید."
 
 #: src/exercises/chromium/interoperability-with-cpp.md:29
 msgid "Pass a C++ string from C++ into Rust."
