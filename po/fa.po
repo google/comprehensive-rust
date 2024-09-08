@@ -14746,6 +14746,10 @@ msgid ""
 "the gn target. (Later in the course we'll see circumstances where this is "
 "necessary.)"
 msgstr ""
+"کد ناامن Rust به طور پیش‌فرض در  `rust_static_library` غیرمجاز است --- "
+"کامپایل نمی‌شود. اگر به کد unsafe Rust نیاز دارید، `allow_unsafe = true` را "
+"به هدف gn اضافه کنید. (بعداً در دوره ما شرایطی را خواهیم دید که در آن لازم "
+"است.)"
 
 #: src/chromium/build-rules/unsafe.md:7
 msgid ""
@@ -14762,10 +14766,22 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"import(\"//build/rust/rust_static_library.gni\")\n"
+"\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [\n"
+"    \"lib.rs\",\n"
+"    \"hippopotamus.rs\"\n"
+"  ]\n"
+"  allow_unsafe = true\n"
+"}\n"
+"```"
 
 #: src/chromium/build-rules/depending.md:3
 msgid "Simply add the above target to the `deps` of some Chromium C++ target."
-msgstr ""
+msgstr "به سادگی هدف بالا را به `deps` برخی از اهداف Chromium C++ اضافه کنید."
 
 #: src/chromium/build-rules/depending.md:5
 msgid ""
@@ -14783,62 +14799,95 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"import(\"//build/rust/rust_static_library.gni\")\n"
+"\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [ \"lib.rs\" ]\n"
+"}\n"
+"\n"
+"# or source_set, static_library etc.\n"
+"component(\"preexisting_cpp\") {\n"
+"  deps = [ \":my_rust_lib\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/build-rules/vscode.md:3
 msgid ""
 "Types are elided in Rust code, which makes a good IDE even more useful than "
 "for C++. Visual Studio code works well for Rust in Chromium. To use it,"
 msgstr ""
+"تایپ‌ها در کد Rust حذف شده اند که باعث می‌شود یک IDE خوب حتی مفیدتر از++C "
+"باشد. کد ویژوال استودیو برای Rust در Chromium به خوبی کار می کند و برای "
+"استفاده از آن،"
 
 #: src/chromium/build-rules/vscode.md:6
+#, fuzzy
 msgid ""
 "Ensure your VSCode has the `rust-analyzer` extension, not earlier forms of "
 "Rust support"
 msgstr ""
+"اطمینان حاصل کنید که VSCode شما دارای پسوند `rust-analyzer` است، نه فرم‌های "
+"قبلی پشتیبانی از Rust"
 
 #: src/chromium/build-rules/vscode.md:8
 msgid ""
 "`gn gen out/Debug --export-rust-project` (or equivalent for your output "
 "directory)"
 msgstr ""
+"‏ `gn gen out/Debug --export-rust-project` (یا معادل آن برای دایرکتوری خروجی "
+"شما)"
 
 #: src/chromium/build-rules/vscode.md:10
 msgid "`ln -s out/Debug/rust-project.json rust-project.json`"
-msgstr ""
+msgstr "`ln -s out/Debug/rust-project.json rust-project.json`"
 
 #: src/chromium/build-rules/vscode.md:16
 msgid ""
 "A demo of some of the code annotation and exploration features of rust-"
 "analyzer might be beneficial if the audience are naturally skeptical of IDEs."
 msgstr ""
+"اگر مخاطب به طور طبیعی نسبت به IDE‌ها علاقه نداشته باشد، نمایش برخی از "
+"ویژگی‌های code annotation و کاوش در rust-analyzer می‌تواند مفید باشد."
 
 #: src/chromium/build-rules/vscode.md:19
 msgid ""
 "The following steps may help with the demo (but feel free to instead use a "
 "piece of Chromium-related Rust that you are most familiar with):"
 msgstr ""
+"مراحل زیر ممکن است به نسخه نمایشی کمک کند (اما در عوض از یک قطعه Rust مربوط "
+"به Chromium که بیشتر با آن آشنا هستید استفاده کنید):"
 
 #: src/chromium/build-rules/vscode.md:22
 msgid "Open `components/qr_code_generator/qr_code_generator_ffi_glue.rs`"
 msgstr ""
+"‏ `components/qr_code_generator/qr_code_generator_ffi_glue.rs` را باز کنید"
 
 #: src/chromium/build-rules/vscode.md:23
 msgid ""
 "Place the cursor over the `QrCode::new` call (around line 26) in "
 "\\`qr_code_generator_ffi_glue.rs"
 msgstr ""
+"مکان نما را روی فراخوانی `QrCode::new` (حدود خط 26) در "
+"\\`qr_code_generator_ffi_glue.rs قرار دهید"
 
 #: src/chromium/build-rules/vscode.md:25
 msgid ""
 "Demo **show documentation** (typical bindings: vscode = ctrl k i; vim/CoC = "
 "K)."
 msgstr ""
+"نسخه‌ی نمایشی **نمایش مستندات ** (typical bindings: vscode = ctrl k i; vim/"
+"CoC = K)."
 
 #: src/chromium/build-rules/vscode.md:27
 msgid ""
 "Demo **go to definition** (typical bindings: vscode = F12; vim/CoC = g d). "
 "(This will take you to `//third_party/rust/.../qr_code-.../src/lib.rs`.)"
 msgstr ""
+"نسخه‌ی Demo یا نمایشی **go to definition** (typical bindings: vscode = F12; "
+"vim/CoC = g d). (این شما را به `//third_party/rust/.../qr_code-.../src/lib."
+"rs` می‌رساند.)"
 
 #: src/chromium/build-rules/vscode.md:29
 msgid ""
@@ -14846,12 +14895,17 @@ msgid ""
 "164; the outline is in the file explorer pane in vscode; typical vim/CoC "
 "bindings = space o)"
 msgstr ""
+"نسخه آزمایشی **outline** و در ادامه به متد `QrCode::with_bits` بروید (حدود "
+"خط 164؛ طرح کلی در پنجره file explorer در vscode است؛ typical vim/CoC "
+"bindings = space o)"
 
 #: src/chromium/build-rules/vscode.md:32
 msgid ""
 "Demo **type annotations** (there are quite a few nice examples in the "
 "`QrCode::with_bits` method)"
 msgstr ""
+"نسخه‌ی نمایشی **type annotations** (مثال های بسیار خوبی در متد  `QrCode::"
+"with_bits` وجود دارد)"
 
 #: src/chromium/build-rules/vscode.md:35
 msgid ""
@@ -14859,17 +14913,21 @@ msgid ""
 "need to be rerun after editing `BUILD.gn` files (which we will do a few "
 "times throughout the exercises in this session)."
 msgstr ""
+"ممکن است مهم باشد که `gn gen ... --export-rust-project` باید پس از ویرایش "
+"فایل‌های `BUILD.gn` (که در طول تمرین‌های این جلسه چند بار انجام می‌دهیم) دوباره "
+"اجرا شود."
 
 #: src/exercises/chromium/build-rules.md:1
-#, fuzzy
 msgid "Build rules exercise"
-msgstr "قوانین ساخت"
+msgstr "تمرین قواعد ساخت"
 
 #: src/exercises/chromium/build-rules.md:3
 msgid ""
 "In your Chromium build, add a new Rust target to `//ui/base/BUILD.gn` "
 "containing:"
 msgstr ""
+"در ساخت Chromium خود، یک Rust target جدید به `//ui/base/BUILD.gn` اضافه کنید "
+"که حاوی:"
 
 #: src/exercises/chromium/build-rules.md:13
 msgid ""
@@ -14877,6 +14935,9 @@ msgid ""
 "by the Rust compiler, so you'll need to allow unsafe code in your `gn` "
 "target."
 msgstr ""
+"**مهم**: توجه داشته باشید که `no_mangle` در اینجا توسط کامپایلر Rust نوعی "
+"ناامنی (type of unsafety) در نظر گرفته می‌شود، بنابراین باید کد unsafe را در "
+"`gn` target خود مجاز کنید."
 
 #: src/exercises/chromium/build-rules.md:16
 msgid ""
@@ -14884,6 +14945,9 @@ msgid ""
 "function at the top of `ui/base/resource/resource_bundle.cc` (later, we'll "
 "see how this can be automated by bindings generation tools):"
 msgstr ""
+"این هدف جدید Rust را به عنوان وابستگی به `//ui/base:base` اضافه کنید. این "
+"تابع را در بالای `ui/base/resource/resource_bundle.cc` اعلام کنید (بعداً "
+"خواهیم دید که چگونه می‌توان این کار را با ابزارهای تولید bindings خودکار کرد):"
 
 #: src/exercises/chromium/build-rules.md:24
 msgid ""
@@ -14892,6 +14956,10 @@ msgid ""
 "and run Chromium, and ensure that \"Hello from Rust!\" is printed lots of "
 "times."
 msgstr ""
+"این تابع را از جایی در `ui/base/resource/resource_bundle.cc` فراخوانی کنید - "
+"ما قسمت بالای `ResourceBundle::MaybeMangleLocalizedString` را پیشنهاد "
+"می‌کنیم. Chromium را Build و اجرا کنید و مطمئن شوید که \"Hello from Rust!\" "
+"بارها چاپ می‌شود."
 
 #: src/exercises/chromium/build-rules.md:28
 msgid ""
@@ -14899,11 +14967,14 @@ msgid ""
 "in subsequent exercises. If you've succeeded, you will be able to use right-"
 "click \"Go to definition\" on `println!`."
 msgstr ""
+"اگر از VSCode استفاده می‌کنید، اکنون Rust را تنظیم کنید تا در VSCode به خوبی "
+"کار کند. این کار در تمرین‌های بعدی مفید خواهد بود. اگر موفق شده‌اید، می‌توانید "
+"از کلیک راست روی\"Go to definition\" در`println!` استفاده کنید."
 
 #: src/exercises/chromium/build-rules.md:32
 #: src/exercises/chromium/interoperability-with-cpp.md:48
 msgid "Where to find help"
-msgstr ""
+msgstr "کجا می‌توان help پیدا کرد"
 
 #: src/exercises/chromium/build-rules.md:34
 msgid ""
@@ -14911,30 +14982,43 @@ msgid ""
 "source.chromium.org/chromium/chromium/src/+/main:build/rust/"
 "rust_static_library.gni;l=16)"
 msgstr ""
+"گزینه‌های موجود برای [`rust_static_library` gn template](https://source."
+"chromium.org/chromium/chromium/src/+/main:build/rust/rust_static_library.gni;"
+"l=16)"
 
 #: src/exercises/chromium/build-rules.md:35
 msgid ""
 "Information about [`#[no_mangle]`](https://doc.rust-lang.org/beta/reference/"
 "abi.html#the-no_mangle-attribute)"
 msgstr ""
+"اطلاعات درباره [`#[no_mangle]`](https://doc.rust-lang.org/beta/reference/abi."
+"html#the-no_mangle-attribute)"
 
 #: src/exercises/chromium/build-rules.md:36
 msgid ""
 "Information about [`extern \"C\"`](https://doc.rust-lang.org/std/keyword."
 "extern.html)"
 msgstr ""
+"اطلاعات درباره [`extern \"C\"`](https://doc.rust-lang.org/std/keyword.extern."
+"html)"
 
 #: src/exercises/chromium/build-rules.md:37
+#, fuzzy
 msgid ""
 "Information about gn's [`--export-rust-project`](https://gn.googlesource.com/"
 "gn/+/main/docs/reference.md#compilation-database) switch"
 msgstr ""
+"اطلاعاتی درباره gnهای [`--export-rust-project`](https://gn.googlesource.com/"
+"gn/+/main/docs/reference.md#compilation-database) سوییچ."
 
 #: src/exercises/chromium/build-rules.md:38
+#, fuzzy
 msgid ""
 "[How to install rust-analyzer in VSCode](https://code.visualstudio.com/docs/"
 "languages/rust)"
 msgstr ""
+"[How to install rust-analyzer in VSCode](https://code.visualstudio.com/docs/"
+"languages/rust)"
 
 #: src/exercises/chromium/build-rules.md:44
 msgid ""
@@ -14943,6 +15027,8 @@ msgid ""
 "call C ABI functions. Later in the course, we'll connect C++ directly to "
 "Rust."
 msgstr ""
+"این مثال غیرعادی است زیرا به زبان متقابل با کمترین مخرج مشترک، C خلاصه "
+"می‌شود. بعداً در دوره،  ++C  آن را مستقیماً به Rust وصل خواهیم کرد."
 
 #: src/exercises/chromium/build-rules.md:48
 msgid ""
@@ -14950,12 +15036,17 @@ msgid ""
 "Rust to generate two functions with the same name, and Rust can no longer "
 "guarantee that the right one is called."
 msgstr ""
+"‏ `allow_unsafe = true` در اینجا مورد نیاز است زیرا `#[no_mangle]` ممکن است "
+"به Rust اجازه دهد دو تابع با نام یکسان تولید کند و Rust دیگر نمی‌تواند تضمین "
+"کند که تابع مورد نظر فراخوانی شده است."
 
 #: src/exercises/chromium/build-rules.md:52
 msgid ""
 "If you need a pure Rust executable, you can also do that using the "
 "`rust_executable` gn template."
 msgstr ""
+"اگر به یک فایل اجرایی Rust خالص نیاز دارید، می‌توانید این کار را با استفاده "
+"از الگوی`rust_executable` gn  نیز انجام دهید."
 
 #: src/chromium/testing.md
 msgid ""
@@ -14963,6 +15054,9 @@ msgid ""
 "source file as the code being tested. This was covered [earlier](../testing."
 "md) in the course and looks like this:"
 msgstr ""
+"جامعه Rust معمولاً unit testهای را در یک ماژول قرار می‌دهد که در همان فایل "
+"منبع کد مورد آزمایش قرار می‌گیرد. این مورد [قبل‌تر](../testing.md) در دوره "
+"پوشش داده شده بود و به این صورت است:"
 
 #: src/chromium/testing.md
 msgid ""
@@ -14971,17 +15065,22 @@ msgid ""
 "and helps to avoid rebuilding `.rs` files a second time (in the `test` "
 "configuration)."
 msgstr ""
+"در Chromium باید unit testها را در یک فایل منبع جداگانه قرار دهیم و همچنان "
+"این روش را برای Rust دنبال می‌کنیم --- این باعث می‌شود تست‌ها به طور مداوم قابل "
+"کشف باشند و کمک می‌کند از بازسازی فایل‌های `.rs` برای بار دوم (در پیکربندی "
+"`test`) جلوگیری شود."
 
 #: src/chromium/testing.md
 msgid ""
 "This results in the following options for testing Rust code in Chromium:"
-msgstr ""
+msgstr "این منجر به گزینه‌های زیر برای تست کد Rust در Chromium می‌شود:"
 
 #: src/chromium/testing.md
 msgid ""
 "Native Rust tests (i.e. `#[test]`). Discouraged outside of `//third_party/"
 "rust`."
 msgstr ""
+"تست‌های Native Rust (یعنی `#[test]`). خارج از `//third_party/rust` مناسب نیست."
 
 #: src/chromium/testing.md
 msgid ""
@@ -14989,6 +15088,9 @@ msgid ""
 "when Rust code is just a thin FFI layer and the existing unit tests provide "
 "sufficient coverage for the feature."
 msgstr ""
+"تست‌های `gtest` که در C++ نوشته شده‌اند و Rust را از طریق تماس‌های FFI انجام "
+"می‌دهند. زمانی که کد Rust فقط یک لایه نازکی از FFI است و unit testها موجود، "
+"پوشش کافی برای ویژگی‌هایی که ارائه می‌کنند کافی است."
 
 #: src/chromium/testing.md
 msgid ""
@@ -14996,6 +15098,9 @@ msgid ""
 "public API (using `pub mod for_testing { ... }` if needed). This is the "
 "subject of the next few slides."
 msgstr ""
+"آزمایش‌های `gtest` که در Rust نوشته شده‌اند و از crate تحت آزمایش از طریق API "
+"عمومی آن استفاده می‌کنند (در صورت نیاز از `pub mod for_testing { ... }` » "
+"استفاده می‌کنند. این موضوع در چند اسلاید بعد معرفی شده است."
 
 #: src/chromium/testing.md
 msgid ""
@@ -15003,12 +15108,17 @@ msgid ""
 "exercised by Chromium bots. (Such testing is needed rarely --- only after "
 "adding or updating third-party crates.)"
 msgstr ""
+"ذکر کنید که تست‌هایnative Rust در مورد crateهای شخص ثالث باید در نهایت توسط "
+"روبات‌های Chromium انجام شود. (چنین آزمایشی به ندرت مورد نیاز است --- فقط پس "
+"از افزودن یا به‌روز‌رسانی crateهای شخص ثالث.)"
 
 #: src/chromium/testing.md
 msgid ""
 "Some examples may help illustrate when C++ `gtest` vs Rust `gtest` should be "
 "used:"
 msgstr ""
+"برخی از مثال‌ها ممکن است به توضیح اینکه چه زمانی باید از  C++ `gtest` در "
+"مقابل Rust `gtest` استفاده شود کمک کند:"
 
 #: src/chromium/testing.md
 msgid ""
@@ -15017,6 +15127,10 @@ msgid ""
 "both the C++ and the Rust implementation (parameterizing the tests so they "
 "enable or disable Rust using a `ScopedFeatureList`)."
 msgstr ""
+"‏ QR عملکرد بسیار کمی در لایه Rust شخص اول دارد (این فقط یک چسب FFI باریک "
+"است) و بنابراین از unit testهای++C موجود برای آزمایش ++C و اجرای Rust "
+"استفاده می‌کند (تست‌ها را پارامتر می‌کند تا Rust را با استفاده از یک "
+"`ScopedFeatureList` آن را فعال یا غیرفعال کند."
 
 #: src/chromium/testing.md
 msgid ""
@@ -15025,35 +15139,47 @@ msgid ""
 "missing in the `png` crate - e.g. RGBA => BGRA, or gamma correction. Such "
 "functionality may benefit from separate tests authored in Rust."
 msgstr ""
+"‏ Hypothetical/WIP PNG ممکن است نیاز به پیاده‌سازی ایمن از حافظه تبدیل‌های "
+"پیکسلی داشته باشد که توسط `libpng` ارائه شده‌اند اما در `png` crate وجود "
+"ندارند - به عنوان مثال. RGBA => BGRA یا تصحیح‌گر گاما (gamma correction). "
+"چنین عملکردی ممکن است از آزمایش های جداگانه‌ای که در Rust نوشته شده است "
+"بهره‌مند شود."
 
 #: src/chromium/testing/rust-gtest-interop.md:3
 msgid ""
 "The [`rust_gtest_interop`](https://chromium.googlesource.com/chromium/src/+/"
 "main/testing/rust_gtest_interop/README.md) library provides a way to:"
 msgstr ""
+"کتابخانه [`rust_gtest_interop`](https://chromium.googlesource.com/chromium/"
+"src/+/main/testing/rust_gtest_interop/README.md) راهی را ارائه می‌دهد:"
 
 #: src/chromium/testing/rust-gtest-interop.md:5
 msgid ""
 "Use a Rust function as a `gtest` testcase (using the `#[gtest(...)]` "
 "attribute)"
 msgstr ""
+"از یک تابع Rust به عنوان یک تست `gtest` استفاده کنید (با استفاده از "
+"`#[gtest(...)]` attribute)"
 
 #: src/chromium/testing/rust-gtest-interop.md:7
 msgid ""
 "Use `expect_eq!` and similar macros (similar to `assert_eq!` but not "
 "panicking and not terminating the test when the assertion fails)."
 msgstr ""
+"از `expect_eq!`  و ماکروهای مشابه (شبیه به `assert_eq!` استفاده کنید، اما "
+"وقتی assertion ناموفق بود، panic نکنید و تست را خاتمه ندهید)."
 
 #: src/chromium/testing/rust-gtest-interop.md:10
-#, fuzzy
 msgid "Example:"
-msgstr "مثال"
+msgstr "مثال:"
 
 #: src/chromium/testing/build-gn.md:3
 msgid ""
 "The simplest way to build Rust `gtest` tests is to add them to an existing "
 "test binary that already contains tests authored in C++. For example:"
 msgstr ""
+"ساده‌ترین راه برای build Rust `gtest` اضافه‌کردن آن‌ها به یک باینری تست موجود "
+"است که از قبل حاوی تست‌هایی است که در ++C نوشته شده‌اند. به عنوان مثال:"
 
 #: src/chromium/testing/build-gn.md:6
 msgid ""
@@ -15065,12 +15191,21 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"test(\"ui_base_unittests\") {\n"
+"  ...\n"
+"  sources += [ \"my_rust_lib_unittest.rs\" ]\n"
+"  deps += [ \":my_rust_lib\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/testing/build-gn.md:14
 msgid ""
 "Authoring Rust tests in a separate `static_library` also works, but requires "
 "manually declaring the dependency on the support libraries:"
 msgstr ""
+"نگارش تست‌های Rust در یک `static_library` جداگانه نیز کار می‌کند، اما نیاز به "
+"اعلام دستی وابستگی به کتابخانه‌های پشتیبانی دارد:"
 
 #: src/chromium/testing/build-gn.md:17
 msgid ""
@@ -15092,6 +15227,23 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"rust_static_library(\"my_rust_lib_unittests\") {\n"
+"  testonly = true\n"
+"  is_gtest_unittests = true\n"
+"  crate_root = \"my_rust_lib_unittest.rs\"\n"
+"  sources = [ \"my_rust_lib_unittest.rs\" ]\n"
+"  deps = [\n"
+"    \":my_rust_lib\",\n"
+"    \"//testing/rust_gtest_interop\",\n"
+"  ]\n"
+"}\n"
+"\n"
+"test(\"ui_base_unittests\") {\n"
+"  ...\n"
+"  deps += [ \":my_rust_lib_unittests\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/testing/chromium-import-macro.md:3
 msgid ""
@@ -15102,14 +15254,20 @@ msgid ""
 "working with such an unwieldy name by using the `chromium::import!` macro "
 "from the automatically-imported `chromium` crate:"
 msgstr ""
+"پس از افزودن `:my_rust_lib` به GN `deps`، همچنان باید نحوه وارد کردن و "
+"استفاده از `my_rust_lib` را از `my_rust_lib_unittest.rs` یاد بگیریم. ما یک "
+"`crate_name` صریح برای `my_rust_lib` ارائه نکرده‌ایم، بنابراین نام crate آن "
+"بر اساس مسیر و نام کامل هدف محاسبه می‌شود. خوشبختانه ما می‌توانیم با استفاده "
+"از ماکرو `chromium::import!` از `chromium` crate که به‌طور خودکار وارد می‌شود، "
+"درنتیجه از کار با چنین نامی پرهیز کنیم:"
 
 #: src/chromium/testing/chromium-import-macro.md:12
 msgid "\"//ui/base:my_rust_lib\""
-msgstr ""
+msgstr "\"//ui/base:my_rust_lib\""
 
 #: src/chromium/testing/chromium-import-macro.md:18
 msgid "Under the covers the macro expands to something similar to:"
-msgstr ""
+msgstr "در زیر جلدها، ماکرو به چیزی شبیه به زیر گسترش می یابد:"
 
 #: src/chromium/testing/chromium-import-macro.md:26
 msgid ""
@@ -15118,6 +15276,11 @@ msgid ""
 "chromium_prelude.rs?q=f:chromium_prelude.rs%20pub.use.*%5Cbimport%5Cb;%20-f:"
 "third_party&ss=chromium%2Fchromium%2Fsrc) of the `chromium::import` macro."
 msgstr ""
+"اطلاعات بیشتر را می‌توانید در [ doc comment](https://source.chromium.org/"
+"chromium/chromium/src/+/main:build/rust/chromium_prelude/chromium_prelude.rs?"
+"q=f:chromium_prelude.rs%20pub.use.*%5Cbimport%5Cb;%20-f:"
+"third_party&ss=chromium%2Fchromium%2Fsrc) پیدا کنید. ماکرو مربوطه `chromium::"
+"import`."
 
 #: src/chromium/testing/chromium-import-macro.md:31
 msgid ""
@@ -15127,19 +15290,23 @@ msgid ""
 "crate names so `cargo_crate` GN targets (generated by the `gnrt` tool "
 "covered in a later section) use short crate names."
 msgstr ""
+"‏`rust_static_library` از تعیین نام صریح از طریق ویژگی`crate_name` پشتیبانی "
+"می‌کند، اما انجام این کار ممنوع است و از آن جلوگیری می‌شود زیرا نام crate باید "
+"در سطح سراسری منحصر‌به‌فرد باشد. crates.io منحصر‌به‌فرد بودن نام crateهای خود را "
+"تضمین می‌کند، بنابراین اهداف`cargo_crate` GN (تولید شده توسط ابزار  `gnrt` که "
+"در بخش بعدی پوشش داده شده است) از نام‌های crate کوتاه استفاده می‌کنند."
 
 #: src/exercises/chromium/testing.md:1
-#, fuzzy
 msgid "Testing exercise"
-msgstr "تمرین‌ها"
+msgstr "تمرین تستی"
 
 #: src/exercises/chromium/testing.md:3
 msgid "Time for another exercise!"
-msgstr ""
+msgstr "وقت یک تمرین دیگر است!"
 
 #: src/exercises/chromium/testing.md:5
 msgid "In your Chromium build:"
-msgstr ""
+msgstr "درChromium build شما باید:"
 
 #: src/exercises/chromium/testing.md:7
 msgid ""
@@ -15147,14 +15314,17 @@ msgid ""
 "two integers received as arguments, computing the nth Fibonacci number, "
 "summing integers in a slice, etc."
 msgstr ""
+"یک تابع قابل آزمایش در کنار `hello_from_rust` اضافه کنید. چند پیشنهاد: اضافه "
+"کردن دو عدد صحیح دریافت شده به عنوان آرگومان، محاسبه عدد فیبوناچی nام، جمع "
+"اعداد صحیح در یک برش و غیره."
 
 #: src/exercises/chromium/testing.md:10
 msgid "Add a separate `..._unittest.rs` file with a test for the new function."
-msgstr ""
+msgstr "یک فایل`..._unittest.rs` جداگانه با یک تست برای تابع جدید اضافه کنید."
 
 #: src/exercises/chromium/testing.md:11
 msgid "Add the new tests to `BUILD.gn`."
-msgstr ""
+msgstr "تست‌های جدید را به `BUILD.gn` اضافه کنید."
 
 #: src/exercises/chromium/testing.md:12
 msgid "Build the tests, run them, and verify that the new test works."
