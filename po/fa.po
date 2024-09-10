@@ -16215,6 +16215,456 @@ msgstr ""
 "همچنین ممکن است لازم باشد`#include \"third_party/rust/cxx/v1/crate/include/"
 "cxx.h\"` را وارد کنید."
 
+msgid "Pass a C++ string from C++ into Rust."
+msgstr "یک رشته++C را از ++C به Rust منتقل کنید."
+
+#: src/exercises/chromium/interoperability-with-cpp.md:30
+msgid "Pass a reference to a C++ object into Rust."
+msgstr "ارسال یک reference از یک C++ object به Rust ."
+
+#: src/exercises/chromium/interoperability-with-cpp.md:31
+msgid ""
+"Intentionally get the Rust function signatures mismatched from the `#[cxx::"
+"bridge]`, and get used to the errors you see."
+msgstr ""
+"عمداً امضاهای تابع Rust را که از `#[cxx::bridge]` مطابقت ندارند، دریافت کنید "
+"و به خطاهایی که می بینید عادت کنید."
+
+#: src/exercises/chromium/interoperability-with-cpp.md:33
+msgid ""
+"Intentionally get the C++ function signatures mismatched from the `#[cxx::"
+"bridge]`, and get used to the errors you see."
+msgstr ""
+"عمداً امضاهای تابع ++C را که از `#[cxx::bridge]` مطابقت ندارند، دریافت کنید و "
+"به خطاهایی که می بینید عادت کنید."
+
+#: src/exercises/chromium/interoperability-with-cpp.md:35
+msgid ""
+"Pass a `std::unique_ptr` of some type from C++ into Rust, so that Rust can "
+"own some C++ object."
+msgstr ""
+"یک `std::unique_ptr` از نوعی از ++C را به Rust ارسال کنید، به طوری که Rust "
+"بتواند دارای یک C++ object باشد."
+
+#: src/exercises/chromium/interoperability-with-cpp.md:37
+msgid ""
+"Create a Rust object and pass it into C++, so that C++ owns it. (Hint: you "
+"need a `Box`)."
+msgstr ""
+"یک Rust object ایجاد کنید و آن را به ++C ارسال کنید تا ++C مالک آن باشد. "
+"(نکته: شما به یک `Box` نیاز دارید)."
+
+#: src/exercises/chromium/interoperability-with-cpp.md:39
+msgid "Declare some methods on a C++ type. Call them from Rust."
+msgstr "چند متد را در نوع ++C اعلام کنید. آنها را از Rust فراخوانی کنید."
+
+#: src/exercises/chromium/interoperability-with-cpp.md:40
+msgid "Declare some methods on a Rust type. Call them from C++."
+msgstr "چند متد را در Rust type اعلام کنید. از ++C آن‌ها را فراخوانی کنید."
+
+#: src/exercises/chromium/interoperability-with-cpp.md:42
+msgid "Part three"
+msgstr "قسمت سوم"
+
+#: src/exercises/chromium/interoperability-with-cpp.md:44
+msgid ""
+"Now you understand the strengths and limitations of CXX interop, think of a "
+"couple of use-cases for Rust in Chromium where the interface would be "
+"sufficiently simple. Sketch how you might define that interface."
+msgstr ""
+"اکنون نقاط قوت و محدودیت‌های CXX interop را درک کرده‌اید، به چند مورد استفاده "
+"برای Rust در Chromium فکر کنید که در آن رابط به اندازه کافی ساده باشد. نحوه "
+"تعریف این رابط را ترسیم کنید."
+
+#: src/exercises/chromium/interoperability-with-cpp.md:50
+msgid "The [`cxx` binding reference](https://cxx.rs/bindings.html)"
+msgstr "یک [`cxx` binding reference](https://cxx.rs/bindings.html)"
+
+#: src/exercises/chromium/interoperability-with-cpp.md:51
+msgid ""
+"The [`rust_static_library` gn template](https://source.chromium.org/chromium/"
+"chromium/src/+/main:build/rust/rust_static_library.gni;l=16)"
+msgstr ""
+"یک  [`rust_static_library` gn template](https://source.chromium.org/chromium/"
+"chromium/src/+/main:build/rust/rust_static_library.gni;l=16)"
+
+#: src/exercises/chromium/interoperability-with-cpp.md:57
+msgid "Some of the questions you may encounter:"
+msgstr "برخی از سؤالاتی که ممکن است با آن مواجه شوید:"
+
+#: src/exercises/chromium/interoperability-with-cpp.md:59
+msgid ""
+"I'm seeing a problem initializing a variable of type X with type Y, where X "
+"and Y are both function types. This is because your C++ function doesn't "
+"quite match the declaration in your `cxx::bridge`."
+msgstr ""
+"من مشکلی در مقداردهی اولیه یک متغیر از نوع X با نوع Y می‌بینم، که در آن X و Y "
+"هر دو نوع تابع هستند. بخاطر اینکه تابع ++ C شما کاملاً با اعلان موجود در "
+"`cxx::bridge` شما مطابقت ندارد."
+
+#: src/exercises/chromium/interoperability-with-cpp.md:62
+msgid ""
+"I seem to be able to freely convert C++ references into Rust references. "
+"Doesn't that risk UB? For CXX's _opaque_ types, no, because they are zero-"
+"sized. For CXX trivial types yes, it's _possible_ to cause UB, although "
+"CXX's design makes it quite difficult to craft such an example."
+msgstr ""
+"به نظر می‌رسد می‌توانم آزادانه مراجع ++C را به منابع Rust تبدیل کنم. آیا این "
+"خطر UB را ندارد؟ برای تایپ‌های _opaque_ CXX، خیر، زیرا اندازه آنها صفر است. "
+"برای انواع بی‌اهمیت CXX بله، ممکن است باعث UB شود، اگرچه طراحی CXX ساخت چنین "
+"نمونه‌ای را بسیار دشوار می‌کند."
+
+#: src/chromium/adding-third-party-crates.md
+msgid ""
+"Rust libraries are called \"crates\" and are found at [crates.io](https://"
+"crates.io). It's _very easy_ for Rust crates to depend upon one another. So "
+"they do!"
+msgstr ""
+"کتابخانه‌های Rust \"Crates\" نامیده می‌شوند و در [crates.io](https://crates."
+"io) یافت می‌شوند. وابستگی cratesهای Rust به یکدیگر بسیار آسان است. بنابراین "
+"آنها این کار را انجام می‌دهند!"
+
+#: src/chromium/adding-third-party-crates.md
+msgid "Property"
+msgstr "ویژگی"
+
+#: src/chromium/adding-third-party-crates.md
+msgid "C++ library"
+msgstr "C++ library"
+
+#: src/chromium/adding-third-party-crates.md
+msgid "Rust crate"
+msgstr "Rust crate"
+
+#: src/chromium/adding-third-party-crates.md
+msgid "Build system"
+msgstr "Build system"
+
+#: src/chromium/adding-third-party-crates.md
+msgid "Lots"
+msgstr "تعداد زیادی"
+
+#: src/chromium/adding-third-party-crates.md
+msgid "Consistent: `Cargo.toml`"
+msgstr "یکپارچگی: `Cargo.toml`."
+
+#: src/chromium/adding-third-party-crates.md
+msgid "Typical library size"
+msgstr "اندازه کتابخانه معمولی"
+
+#: src/chromium/adding-third-party-crates.md
+msgid "Large-ish"
+msgstr "Large-ish"
+
+#: src/chromium/adding-third-party-crates.md
+msgid "Small"
+msgstr "کوچک"
+
+#: src/chromium/adding-third-party-crates.md
+msgid "Transitive dependencies"
+msgstr "وابستگی‌های گذرا"
+
+#: src/chromium/adding-third-party-crates.md
+msgid "Few"
+msgstr "Few"
+
+#: src/chromium/adding-third-party-crates.md
+msgid "For a Chromium engineer, this has pros and cons:"
+msgstr "برای یک مهندس Chromium، این مزایا و معایب دارد:"
+
+#: src/chromium/adding-third-party-crates.md
+msgid ""
+"All crates use a common build system so we can automate their inclusion into "
+"Chromium..."
+msgstr ""
+"همه crateها از یک سیستم ساخت مشترک استفاده می‌کنند، بنابراین می‌توانیم گنجاندن "
+"آن‌ها در Chromium را خودکار کنیم..."
+
+#: src/chromium/adding-third-party-crates.md
+msgid ""
+"... but, crates typically have transitive dependencies, so you will likely "
+"have to bring in multiple libraries."
+msgstr ""
+"... اما، crateها معمولاً وابستگی‌های گذرا دارند، بنابراین احتمالاً مجبور خواهید "
+"بود چندین کتابخانه را بیاورید."
+
+#: src/chromium/adding-third-party-crates.md
+msgid "We'll discuss:"
+msgstr "بحث خواهیم کرد:"
+
+#: src/chromium/adding-third-party-crates.md
+msgid "How to put a crate in the Chromium source code tree"
+msgstr "نحوه قرار دادن یک crate در درخت کد منبع Chromium"
+
+#: src/chromium/adding-third-party-crates.md
+msgid "How to make `gn` build rules for it"
+msgstr "چگونه قوانین ساخت `gn` برای آن ایجاد کنیم"
+
+#: src/chromium/adding-third-party-crates.md
+msgid "How to audit its source code for sufficient safety."
+msgstr "نحوه بررسی کد منبع آن برای ایمنی کافی"
+
+#: src/chromium/adding-third-party-crates/configuring-cargo-toml.md:1
+msgid "Configuring the `Cargo.toml` file to add crates"
+msgstr "پیکربندی فایل `Cargo.toml` برای افزودن crateها"
+
+#: src/chromium/adding-third-party-crates/configuring-cargo-toml.md:3
+msgid ""
+"Chromium has a single set of centrally-managed direct crate dependencies. "
+"These are managed through a single [`Cargo.toml`](https://source.chromium."
+"org/chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/Cargo."
+"toml):"
+msgstr ""
+"‏ Chromium دارای یک مجموعه واحد از وابستگی‌های crate مستقیم با مدیریت مرکزی "
+"است. اینها از طریق یک [`Cargo.toml`](https://source.chromium.org/chromium/"
+"chromium/src/+/main:third_party/rust/chromium_crates_io/Cargo.toml) مدیریت "
+"می‌شوند :"
+
+#: src/chromium/adding-third-party-crates/configuring-cargo-toml.md:6
+msgid ""
+"```toml\n"
+"[dependencies]\n"
+"bitflags = \"1\"\n"
+"cfg-if = \"1\"\n"
+"cxx = \"1\"\n"
+"# lots more...\n"
+"```"
+msgstr ""
+"```toml\n"
+"[dependencies]\n"
+"bitflags = \"1\"\n"
+"cfg-if = \"1\"\n"
+"cxx = \"1\"\n"
+"# lots more...\n"
+"```"
+
+#: src/chromium/adding-third-party-crates/configuring-cargo-toml.md:14
+msgid ""
+"As with any other `Cargo.toml`, you can specify [more details about the "
+"dependencies](https://doc.rust-lang.org/cargo/reference/specifying-"
+"dependencies.html) --- most commonly, you'll want to specify the `features` "
+"that you wish to enable in the crate."
+msgstr ""
+"مانند هر `Cargo.toml` دیگری، می‌توانید [جزئیات بیشتر در مورد وابستگی‌ها]"
+"(https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html) را "
+"مشخص کنید --- معمولاً شما می‌خواهید «ویژگی‌هایی» را که می‌خواهید در crate فعال "
+"کنید را مشخص کنید."
+
+#: src/chromium/adding-third-party-crates/configuring-cargo-toml.md:18
+msgid ""
+"When adding a crate to Chromium, you'll often need to provide some extra "
+"information in an additional file, `gnrt_config.toml`, which we'll meet next."
+msgstr ""
+"هنگام افزودن crate به Chromium، اغلب باید اطلاعات اضافی را در یک فایل اضافی، "
+"`gnrt_config.toml` ارائه کنید، که در ادامه با آن آشنا خواهیم شد."
+
+#: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md:3
+msgid ""
+"Alongside `Cargo.toml` is [`gnrt_config.toml`](https://source.chromium.org/"
+"chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/gnrt_config."
+"toml). This contains Chromium-specific extensions to crate handling."
+msgstr ""
+"در کنار `Cargo.toml` یک  [`gnrt_config.toml`](https://source.chromium.org/"
+"chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/gnrt_config."
+"toml) قرار دارد. این شامل برنامه‌های  extension مخصوص Chromium برای مدیریت "
+"crate است."
+
+#: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md:6
+msgid ""
+"If you add a new crate, you should specify at least the `group`. This is one "
+"of:"
+msgstr ""
+"اگر crate جدیدی اضافه کنید، باید حداقل`group` را مشخص کنید. این یکی از:"
+
+#: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md:15
+#: src/chromium/adding-third-party-crates/depending-on-a-crate.md:15
+msgid "For instance,"
+msgstr "به عنوان مثال،"
+
+#: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md:22
+msgid ""
+"Depending on the crate source code layout, you may also need to use this "
+"file to specify where its `LICENSE` file(s) can be found."
+msgstr ""
+"بسته به طرح کد منبع crate، ممکن است لازم باشد از این فایل برای تعیین محل "
+"یافتن فایل (های) مجوز آن استفاده کنید."
+
+#: src/chromium/adding-third-party-crates/configuring-gnrt-config-toml.md:25
+msgid ""
+"Later, we'll see some other things you will need to configure in this file "
+"to resolve problems."
+msgstr ""
+"بعداً، موارد دیگری را که برای حل مشکلات باید پیکربندی کنید، در این فایل "
+"مشاهده خواهیم کرد."
+
+#: src/chromium/adding-third-party-crates/downloading-crates.md:3
+msgid ""
+"A tool called `gnrt` knows how to download crates and how to generate `BUILD."
+"gn` rules."
+msgstr ""
+"ابزاری به نام `gnrt` می‌داند که چگونه جعبه‌ها را بارگیری کند و چگونه قواعد "
+"`BUILD.gn` را ایجاد کند."
+
+#: src/chromium/adding-third-party-crates/downloading-crates.md:6
+msgid "To start, download the crate you want like this:"
+msgstr "برای شروع، crate مورد نظر خود را به صورت زیر دانلود کنید:"
+
+#: src/chromium/adding-third-party-crates/downloading-crates.md:13
+msgid ""
+"Although the `gnrt` tool is part of the Chromium source code, by running "
+"this command you will be downloading and running its dependencies from "
+"`crates.io`. See [the earlier section](../cargo.md) discussing this security "
+"decision."
+msgstr ""
+"اگرچه ابزار`gnrt` بخشی از کد منبع Chromium است، با اجرای این دستور، "
+"وابستگی‌های آن را از `crates.io` دانلود و اجرا می‌کنید. [بخش قبلی](../cargo."
+"md) را در مورد این تصمیم امنیتی ببینید."
+
+#: src/chromium/adding-third-party-crates/downloading-crates.md:17
+msgid "This `vendor` command may download:"
+msgstr "این `vendor` command ممکن است بارگیری کند:"
+
+#: src/chromium/adding-third-party-crates/downloading-crates.md:19
+msgid "Your crate"
+msgstr "جعبه‌های (crates) کاربردی شما"
+
+#: src/chromium/adding-third-party-crates/downloading-crates.md:20
+msgid "Direct and transitive dependencies"
+msgstr "وابستگی های مستقیم و گذرا"
+
+#: src/chromium/adding-third-party-crates/downloading-crates.md:21
+msgid ""
+"New versions of other crates, as required by `cargo` to resolve the complete "
+"set of crates required by Chromium."
+msgstr ""
+"نسخه‌های جدید crateهای دیگر، همانطور که `cargo` برای حل کردن مجموعه کامل "
+"جعبه‌های مورد نیاز Chromium لازم است."
+
+#: src/chromium/adding-third-party-crates/downloading-crates.md:24
+msgid ""
+"Chromium maintains patches for some crates, kept in `//third_party/rust/"
+"chromium_crates_io/patches`. These will be reapplied automatically, but if "
+"patching fails you may need to take manual action."
+msgstr ""
+"‏ Chromium وصله‌هایی را برای برخی crateها نگهداری می‌کند که در`//third_party/"
+"rust/chromium_crates_io/patches` نگهداری می‌شوند. این‌ها به‌طور خودکار دوباره "
+"اعمال می‌شوند، اما اگر وصله نشد، ممکن است نیاز به اقدام دستی داشته باشید."
+
+#: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:3
+msgid ""
+"Once you've downloaded the crate, generate the `BUILD.gn` files like this:"
+msgstr ""
+"هنگامی که crate را دانلود کردید، فایل‌های `BUILD.gn` را مانند این تولید کنید:"
+
+#: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:9
+msgid "Now run `git status`. You should find:"
+msgstr "اکنون `git status` را اجرا کنید. شما باید این موارد را پیدا کنید:"
+
+#: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:11
+msgid ""
+"At least one new crate source code in `third_party/rust/chromium_crates_io/"
+"vendor`"
+msgstr ""
+"حداقل یک کد منبع جعبه جدید در `third_party/rust/chromium_crates_io/vendor`"
+
+#: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:13
+msgid ""
+"At least one new `BUILD.gn` in `third_party/rust/<crate name>/v<major semver "
+"version>`"
+msgstr ""
+"حداقل یک `BUILD.gn` جدید در `third_party/rust/<crate name>/v<major semver "
+"version>`"
+
+#: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:15
+msgid "An appropriate `README.chromium`"
+msgstr "یک `README.chromium` مناسب"
+
+#: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:17
+msgid ""
+"The \"major semver version\" is a [Rust \"semver\" version number](https://"
+"doc.rust-lang.org/cargo/reference/semver.html)."
+msgstr ""
+"لطفا به [مرجع Rust ](https://doc.rust-lang.org/reference/type-layout.html) "
+"مراجعه کنید."
+
+#: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:19
+msgid ""
+"Take a close look, especially at the things generated in `third_party/rust`."
+msgstr ""
+"نگاهی دقیق بیندازید، به‌خصوص به چیزهایی که در `third_party/rust` ایجاد می‌شوند."
+
+#: src/chromium/adding-third-party-crates/generating-gn-build-rules.md:23
+msgid ""
+"Talk a little about semver --- and specifically the way that in Chromium "
+"it's to allow multiple incompatible versions of a crate, which is "
+"discouraged but sometimes necessary in the Cargo ecosystem."
+msgstr ""
+"کمی در مورد semver --- و به‌ویژه روشی که در Chromium اجازه می‌دهد چندین نسخه "
+"ناسازگار از crateها را مجاز کند، صحبت کنید. این مورد که در اکوسیستم Cargo "
+"منع می‌شود ولی گاهی اوقات ضروری است."
+
+#: src/chromium/adding-third-party-crates/resolving-problems.md:3
+msgid ""
+"If your build fails, it may be because of a `build.rs`: programs which do "
+"arbitrary things at build time. This is fundamentally at odds with the "
+"design of `gn` and `ninja` which aim for static, deterministic, build rules "
+"to maximize parallelism and repeatability of builds."
+msgstr ""
+"اگر build شما با شکست مواجه شد، ممکن است به دلیل `build.rs` باشد: برنامه‌هایی "
+"که کارهای دلخواه را در زمان build انجام می‌دهند. این مورد به‌طورکلی در تضاد با "
+"طراحی `gn` و `ninja` است که هدفشان قواعد build ایستا، قطعی برای به حداکثر "
+"رساندن موازی‌سازی و تکرارپذیری buildها است."
+
+#: src/chromium/adding-third-party-crates/resolving-problems.md:8
+msgid ""
+"Some `build.rs` actions are automatically supported; others require action:"
+msgstr ""
+"برخی از اقدامات `build.rs` به طور خودکار پشتیبانی می‌شوند. دیگران نیاز به "
+"اقدام دارند:"
+
+#: src/chromium/adding-third-party-crates/resolving-problems.md:10
+msgid "build script effect"
+msgstr "ساخت افکت اسکریپت"
+
+#: src/chromium/adding-third-party-crates/resolving-problems.md:10
+msgid "Supported by our gn templates"
+msgstr "توسط قالب‌های gn ما پشتیبانی می‌شود"
+
+#: src/chromium/adding-third-party-crates/resolving-problems.md:10
+msgid "Work required by you"
+msgstr "کار مورد نیاز شما"
+
+#: src/chromium/adding-third-party-crates/resolving-problems.md:12
+msgid "Checking rustc version to configure features on and off"
+msgstr "بررسی نسخه rustc برای پیکربندی ویژگی‌ها روشن و خاموش"
+
+#: src/chromium/adding-third-party-crates/resolving-problems.md:12
+#: src/chromium/adding-third-party-crates/resolving-problems.md:13
+#: src/chromium/adding-third-party-crates/resolving-problems.md:14
+msgid "Yes"
+msgstr "بلی"
+
+#: src/chromium/adding-third-party-crates/resolving-problems.md:12
+#: src/chromium/adding-third-party-crates/resolving-problems.md:13
+msgid "None"
+msgstr "None"
+
+#: src/chromium/adding-third-party-crates/resolving-problems.md:13
+msgid "Checking platform or CPU to configure features on and off"
+msgstr "بررسی پلتفرم یا CPU برای پیکربندی ویژگی‌های روشن و خاموش"
+
+#: src/chromium/adding-third-party-crates/resolving-problems.md:14
+msgid "Generating code"
+msgstr "تولید کردن کد"
+
+#: src/chromium/adding-third-party-crates/resolving-problems.md:14
+msgid "Yes - specify in `gnrt_config.toml`"
+msgstr "بله - در `gnrt_config.toml` مشخص کنید"
+
+#: src/chromium/adding-third-party-crates/resolving-problems.md:15
+msgid "Building C/C++"
+msgstr "Building C/C++"
+
 #: src/exercises/chromium/interoperability-with-cpp.md:29
 #: src/chromium/adding-third-party-crates/resolving-problems.md:15
 #: src/chromium/adding-third-party-crates/resolving-problems.md:16
@@ -16224,23 +16674,27 @@ msgstr "خیر"
 #: src/chromium/adding-third-party-crates/resolving-problems.md:15
 #: src/chromium/adding-third-party-crates/resolving-problems.md:16
 msgid "Patch around it"
-msgstr ""
+msgstr "اطراف آن را Patch کنید"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:16
 msgid "Arbitrary other actions"
-msgstr ""
+msgstr "سایر اقدامات دلخواه"
 
 #: src/chromium/adding-third-party-crates/resolving-problems.md:18
 msgid ""
 "Fortunately, most crates don't contain a build script, and fortunately, most "
 "build scripts only do the top two actions."
 msgstr ""
+"خوشبختانه، اکثر crateها حاوی build script نیستند و خوشبختانه، اکثر build "
+"scriptها تنها دو عمل اصلی را انجام می‌دهند."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md:3
 msgid ""
 "If `ninja` complains about missing files, check the `build.rs` to see if it "
 "writes source code files."
 msgstr ""
+"اگه `ninja` درباره نبودن فایل‌ها اعتراض کرد، `build.rs` را بررسی کنید و "
+"ببینید که آیا کدهای منبع را می‌نویسد."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md:6
 msgid ""
@@ -16250,6 +16704,11 @@ msgid ""
 "`allow-first-party-usage=false`. There are several examples already in that "
 "file:"
 msgstr ""
+"در این صورت، [`gnrt_config.toml`](../configuring-gnrt-config-toml.md) را "
+"تغییر دهید تا `build-script-outputs` به crate اضافه شود. اگر این یک وابستگی "
+"گذرا است، یعنی وابستگی که کد Chromium نباید مستقیماً به آن وابسته باشد، پس "
+"`allow-first-party-usage=false` را نیز اضافه کنید. چندین نمونه از قبل در آن "
+"فایل وجود دارد:"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md:11
 msgid ""
@@ -16259,6 +16718,11 @@ msgid ""
 "build-script-outputs = [\"tables.rs\"]\n"
 "```"
 msgstr ""
+"```toml\n"
+"[crate.unicode-linebreak]\n"
+"allow-first-party-usage = false\n"
+"build-script-outputs = [\"tables.rs\"]\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-generate-code.md:17
 msgid ""
@@ -16266,6 +16730,9 @@ msgid ""
 "`BUILD.gn` files to inform ninja that this particular output file is input "
 "to subsequent build steps."
 msgstr ""
+"اکنون [`gnrt.py -- gen`](../generating-gn-build-rules.md) را مجدداً اجرا کنید "
+"تا فایل‌های  `BUILD.gn` را دوباره تولید کنید تا به ninja اطلاع دهید که این "
+"فایل خروجی خاص ورودی مراحل build بعدی است."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md:3
 msgid ""
@@ -16275,20 +16742,27 @@ msgid ""
 "supported in a Chromium context --- our gn, ninja and LLVM build system is "
 "very specific in expressing relationships between build actions."
 msgstr ""
+"برخی از crateها از crate مربوط به [`cc`](https://crates.io/crates/cc) برای "
+"build و link کتابخانه‌های C/C++ استفاده می‌کنند. crateهای دیگر C/C++ را با "
+"استفاده از [`bindgen`](https://crates.io/crates/bindgen) در اسکریپت‌های build "
+"خود تجزیه می‌کنند. این فعالیت‌ها را نمی‌توان در زمینه Chromium پشتیبانی کرد --- "
+"سیستم ساخت gn، ninja و LLVM ما در بیان روابط بین build actionsها بسیار خاص "
+"است."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md:8
 msgid "So, your options are:"
-msgstr ""
+msgstr "بنابراین، گزینه‌های شما عبارتند از:"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md:10
 msgid "Avoid these crates"
-msgstr ""
+msgstr "از این crateها اجتناب کنید"
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md:11
 msgid "Apply a patch to the crate."
-msgstr ""
+msgstr "یک وصله (patch) روی crate بزنید."
 
 #: src/chromium/adding-third-party-crates/resolving-problems/build-scripts-which-take-arbitrary-actions.md:13
+#, fuzzy
 msgid ""
 "Patches should be kept in `third_party/rust/chromium_crates_io/patches/"
 "<crate>` - see for example the [patches against the `cxx` crate](https://"
@@ -16296,6 +16770,11 @@ msgid ""
 "chromium_crates_io/patches/cxx/) - and will be applied automatically by "
 "`gnrt` each time it upgrades the crate."
 msgstr ""
+"وصله‌ها (Patches) باید در`third_party/rust/chromium_crates_io/patches/"
+"<crate>` نگهداری شوند - برای مثال [Patchها در مقابل `cxx` crate](https://"
+"source.chromium.org/chromium/chromium/src/+/main:third_party/rust/"
+"chromium_crates_io/patches/cxx/)  - و هر بار که crate را upgrade می‌کند به‌طور "
+"خودکار توسط`gnrt` اعمال می‌شود."
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md:3
 msgid ""
@@ -16303,10 +16782,13 @@ msgid ""
 "on a crate is simple. Find your `rust_static_library` target, and add a "
 "`dep` on the `:lib` target within your crate."
 msgstr ""
+"هنگامی که یک crate شخص ثالث اضافه کردید و قواعد build را ایجاد کردید که با "
+"توجه به نوع crate می‌تواند ساده باشد. درنتیجه هدف `rust_static_library` خود "
+"را پیدا کنید و یک `dep` روی هدف `:lib` در crate خود اضافه کنید."
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md:7
 msgid "Specifically,"
-msgstr ""
+msgstr "به‌طور‌مشخص،"
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md:9
 msgid ""
@@ -16317,6 +16799,12 @@ msgid ""
 "                     +------------+      +----------------------+\n"
 "```"
 msgstr ""
+"```bob\n"
+"                     +------------+      +----------------------+\n"
+"\"//third_party/rust\" | crate name | \"/v\" | major semver version | \":"
+"lib\"\n"
+"                     +------------+      +----------------------+\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/depending-on-a-crate.md:17
 msgid ""
@@ -16328,10 +16816,17 @@ msgid ""
 "}\n"
 "```"
 msgstr ""
+"```gn\n"
+"rust_static_library(\"my_rust_lib\") {\n"
+"  crate_root = \"lib.rs\"\n"
+"  sources = [ \"lib.rs\" ]\n"
+"  deps = [ \"//third_party/rust/example_rust_crate/v1:lib\" ]\n"
+"}\n"
+"```"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:1
 msgid "Auditing Third Party Crates"
-msgstr ""
+msgstr "حسابرسی Crateهای شخص ثالث"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:3
 msgid ""
@@ -16342,17 +16837,25 @@ msgid ""
 "dependencies, there may be a lot of code to review. On the other hand, safe "
 "Rust code can have limited negative side effects. How should you review it?"
 msgstr ""
+"افزودن کتابخانه‌های جدید تابع [قواعد](https://chromium.googlesource.com/"
+"chromium/src/+/refs/heads/main/docs/rust.md#Third_party-review) مربوط به "
+"Chromium است، اما البته موضوع بررسی امنیتی نیز وجود دارد. از آنجایی که ممکن "
+"است نه تنها یک crate، بلکه وابستگی‌های گذرا را نیز وارد کنید، ممکن است کدهای "
+"زیادی برای بررسی وجود داشته باشد. از سوی دیگر، safe Rust code  می‌تواند عوارض "
+"جانبی محدودی داشته باشد. پس چگونه باید آن را بررسی کنید؟"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:9
 msgid ""
 "Over time Chromium aims to move to a process based around [cargo vet]"
 "(https://mozilla.github.io/cargo-vet/)."
 msgstr ""
+"با گذشت زمان، Chromium قصد دارد به فرآیندی بر اساس [cargo vet](https://"
+"mozilla.github.io/cargo-vet/) حرکت کند."
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:11
 msgid ""
 "Meanwhile, for each new crate addition, we are checking for the following:"
-msgstr ""
+msgstr "در همین حال، برای هر crate جدید اضافه شده، موارد زیر را بررسی می کنیم:"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:13
 msgid ""
@@ -16361,10 +16864,15 @@ msgid ""
 "macros, work out what they're for. Are they compatible with the way Chromium "
 "is normally built?"
 msgstr ""
+"بدانید که چرا هر crate استفاده می‌شود. رابطه بین crateها چیست؟ اگر سیستم ساخت "
+"هر جعبه حاوی `build.rs`  یا ماکروهای رویه‌ای (procedural macros) است، مشخص "
+"کنید که آن‌ها برای چه چیزی هستند. آیا آنها با روشی که Chromium به طور معمول "
+"ساخته و built می‌شود سازگار هستند؟"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:17
+#, fuzzy
 msgid "Check each crate seems to be reasonably well maintained"
-msgstr ""
+msgstr "بررسی کنید که هر crate به نظر برسد که به خوبی نگهداری شده باشد."
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:18
 msgid ""
@@ -16373,6 +16881,10 @@ msgid ""
 "ironically involves downloading lots of dependencies from the internet[2](../"
 "cargo.md))"
 msgstr ""
+"از `cd third-party/rust/chromium_crates_io; cargo audit` استفاده کنید. بررسی "
+"cargo برای بررسی آسیب‌پذیری‌های شناخته‌شده (ابتدا باید  `cargo install cargo-"
+"audit` که از قضا شامل دانلود وابستگی‌های زیادی از اینترنت می‌شود[2](../cargo."
+"md))"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:21
 msgid ""
@@ -16380,10 +16892,13 @@ msgid ""
 "chromium.googlesource.com/chromium/src/+/main/docs/security/rule-of-2."
 "md#unsafe-code-in-safe-languages)"
 msgstr ""
+"مطمئن شوید هر کد `unsafe` به اندازه کافی برای [قاعده دو](https://chromium."
+"googlesource.com/chromium/src/+/main/docs/security/rule-of-2.md#unsafe-code-"
+"in-safe-languages)  خوب است"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:22
 msgid "Check for any use of `fs` or `net` APIs"
-msgstr ""
+msgstr "هرگونه استفاده از APIهای `fs` یا `net` را بررسی کنید"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:23
 msgid ""
@@ -16391,54 +16906,70 @@ msgid ""
 "that might have been maliciously inserted. (You can't realistically aim for "
 "100% perfection here: there's often just too much code.)"
 msgstr ""
+"تمام کدها را در سطح کافی بخوانید تا به دنبال هر چیزی که ممکن است به طور مخرب "
+"وارد شده باشد را بگردید. (در اینجا نمی توانید به طور واقع بینانه به دنبال "
+"نتیجه ۱۰۰ درصدی باشید: اغلب کدهای زیادی وجود دارد.)"
 
 #: src/chromium/adding-third-party-crates/reviews-and-audits.md:27
 msgid ""
 "These are just guidelines --- work with reviewers from `security@chromium."
 "org` to work out the right way to become confident of the crate."
 msgstr ""
+"این‌ها فقط دستورالعمل‌هایی هستند --- با بازبین‌هایی از `security@chromium.org` "
+"کار کنید تا راه درستی برای اطمینان از crate پیدا کنید."
 
 #: src/chromium/adding-third-party-crates/checking-in.md:1
 msgid "Checking Crates into Chromium Source Code"
-msgstr ""
+msgstr "بررسی Crateها در کد منبع Chromium"
 
 #: src/chromium/adding-third-party-crates/checking-in.md:3
 msgid "`git status` should reveal:"
-msgstr ""
+msgstr "‏ `git status` باید نشان دهد:"
 
 #: src/chromium/adding-third-party-crates/checking-in.md:5
 msgid "Crate code in `//third_party/rust/chromium_crates_io`"
-msgstr ""
+msgstr "کد Crate را در `//third_party/rust/chromium_crates_io`."
 
 #: src/chromium/adding-third-party-crates/checking-in.md:6
 msgid ""
 "Metadata (`BUILD.gn` and `README.chromium`) in `//third_party/rust/<crate>/"
 "<version>`"
 msgstr ""
+"متادیتا (`BUILD.gn` و `README.chromium`) in `//third_party/rust/<crate>/"
+"<version>`"
 
 #: src/chromium/adding-third-party-crates/checking-in.md:9
 msgid "Please also add an `OWNERS` file in the latter location."
-msgstr ""
+msgstr "لطفاً یک فایل`OWNERS` در مکان دیگر نیز اضافه کنید."
 
 #: src/chromium/adding-third-party-crates/checking-in.md:11
 msgid ""
 "You should land all this, along with your `Cargo.toml` and `gnrt_config."
 "toml` changes, into the Chromium repo."
 msgstr ""
+"باید همه اینها را به همراه تغییرات `Cargo.toml` و `gnrt_config.toml`  خود در "
+"مخزن Chromium قرار دهید."
 
 #: src/chromium/adding-third-party-crates/checking-in.md:14
 msgid ""
 "**Important**: you need to use `git add -f` because otherwise `.gitignore` "
 "files may result in some files being skipped."
 msgstr ""
+"**مهم**: باید از `git add -f` استفاده کنید زیرا در غیر این صورت فایل‌های  `."
+"gitignore` ممکن است منجر به حذف برخی از فایل‌ها شود."
 
 #: src/chromium/adding-third-party-crates/checking-in.md:17
+#, fuzzy
 msgid ""
 "As you do so, you might find presubmit checks fail because of non-inclusive "
 "language. This is because Rust crate data tends to include names of git "
 "branches, and many projects still use non-inclusive terminology there. So "
 "you may need to run:"
 msgstr ""
+"در حین انجام این کار، ممکن است متوجه شوید که بررسی‌های پیش‌ارسال به دلیل زبان "
+"غیرمطرح با شکست مواجه می‌شوند. بخاطر این که داده‌های Rust crate معمولاً شامل "
+"نام شاخه‌های git می‌شوند و بسیاری از پروژه‌ها هنوز از اصطلاحات غیرمطرح در آنجا "
+"استفاده می‌کنند. بنابراین ممکن است لازم باشد این موارد را اجرا کنید:"
 
 #: src/chromium/adding-third-party-crates/keeping-up-to-date.md:3
 msgid ""
@@ -16448,14 +16979,25 @@ msgid ""
 "hoped that we will soon automate this for Rust crates, but for now, it's "
 "still your responsibility just as it is for any other third party dependency."
 msgstr ""
+"شما به‌عنوان مالک هر وابستگی شخص ثالث Chromium، [انتظار می‌رود آن را با هرگونه "
+"اصلاحات امنیتی به‌روز نگه دارید](https://chromium.googlesource.com/chromium/"
+"src/+/main/docs/adding_to_third_party.md#add-owners). امید است که ما به زودی "
+"این را برای crateهای Rust خودکار کنیم، اما در حال حاضر، همچنان مسئولیت "
+"شماست، همانطور که برای هر وابستگی به شخص ثالث دیگر این مسئولیت را دارید."
 
 #: src/exercises/chromium/third-party.md:3
+#, fuzzy
 msgid ""
 "Add [uwuify](https://crates.io/crates/uwuify) to Chromium, turning off the "
 "crate's [default features](https://doc.rust-lang.org/cargo/reference/"
 "features.html#the-default-feature). Assume that the crate will be used in "
 "shipping Chromium, but won't be used to handle untrustworthy input."
 msgstr ""
+"‏ [uwuify](https://crates.io/crates/uwuify) را به Chromium اضافه کنید و "
+"[ویژگی‌های پیش‌فرض](https://doc.rust-lang.org/cargo/reference/features."
+"html#the-default-feature). فرض کنید از crate در ارسال و دریافت بسته‌ها برای "
+"Chromium استفاده می‌شود، اما برای رسیدگی به ورودی‌های غیرقابل اعتماد استفاده "
+"نمی‌شود."
 
 #: src/exercises/chromium/third-party.md:7
 msgid ""
@@ -16464,71 +17006,81 @@ msgid ""
 "[`rust_executable` target](https://source.chromium.org/chromium/chromium/src/"
 "+/main:build/rust/rust_executable.gni) which uses `uwuify`)."
 msgstr ""
+"(در تمرین بعدی از uwuify برای Chromium استفاده خواهیم کرد، اما در صورت تمایل "
+"می‌توانید این کار را انجام دهید. همینطور می‌توانید یک هدف ['rust_executable']"
+"(https://source.chromium.org /chromium/chromium/src/+/main:build/rust/"
+"rust_executable.gni) جدید ایجاد کنید که از `uwuify` استفاده می‌کند)."
 
 #: src/exercises/chromium/third-party.md:13
 msgid "Students will need to download lots of transitive dependencies."
-msgstr ""
+msgstr "دانش‌آموزان باید تعداد زیادی وابستگی گذرا را دانلود کنند."
 
 #: src/exercises/chromium/third-party.md:15
 msgid "The total crates needed are:"
-msgstr ""
+msgstr "کل crateهای مورد نیاز عبارتند از:"
 
 #: src/exercises/chromium/third-party.md:17
 msgid "`instant`,"
-msgstr ""
+msgstr "`instant`,"
 
 #: src/exercises/chromium/third-party.md:18
 msgid "`lock_api`,"
-msgstr ""
+msgstr "`lock_api`,"
 
 #: src/exercises/chromium/third-party.md:19
 msgid "`parking_lot`,"
-msgstr ""
+msgstr "`parking_lot`,"
 
 #: src/exercises/chromium/third-party.md:20
 msgid "`parking_lot_core`,"
-msgstr ""
+msgstr "`parking_lot_core`,"
 
 #: src/exercises/chromium/third-party.md:21
 msgid "`redox_syscall`,"
-msgstr ""
+msgstr "`redox_syscall`,"
 
 #: src/exercises/chromium/third-party.md:22
 msgid "`scopeguard`,"
-msgstr ""
+msgstr "`scopeguard`,"
 
 #: src/exercises/chromium/third-party.md:23
 msgid "`smallvec`, and"
-msgstr ""
+msgstr "`smallvec`, و"
 
 #: src/exercises/chromium/third-party.md:24
 msgid "`uwuify`."
-msgstr ""
+msgstr "`uwuify`."
 
 #: src/exercises/chromium/third-party.md:26
 msgid ""
 "If students are downloading even more than that, they probably forgot to "
 "turn off the default features."
 msgstr ""
+"اگر دانش‌آموزان حتی بیشتر از آن دانلود می‌کنند، احتمالا فراموش کرده‌اند که "
+"ویژگی‌های پیش‌فرض را خاموش کنند."
 
 #: src/exercises/chromium/third-party.md:29
 msgid ""
 "Thanks to [Daniel Liu](https://github.com/Daniel-Liu-c0deb0t) for this crate!"
 msgstr ""
+"با تشکر از [Daniel Liu](https://github.com/Daniel-Liu-c0deb0t) برای این "
+"crate!"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid "Bringing It Together --- Exercise"
-msgstr ""
+msgstr " برای جمع‌آوری آن --- تمرین کنید"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "In this exercise, you're going to add a whole new Chromium feature, bringing "
 "together everything you already learned."
 msgstr ""
+"در این تمرین، می‌خواهید یک ویژگی کاملاً جدید Chromium را اضافه کنید و همه "
+"چیزهایی را که قبلاً یاد گرفته‌اید جمع آوری کنید."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid "The Brief from Product Management"
-msgstr ""
+msgstr "خلاصه‌ای از مدیریت محصول"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16536,12 +17088,16 @@ msgid ""
 "It's important that we get Chromium for Pixies delivered to them as soon as "
 "possible."
 msgstr ""
+"جامعه‌ای از pixyها کشف شده است که در یک جنگل بارانی دور افتاده زندگی می کنند. "
+"مهم است که Chromium برای pixyها را در اسرع وقت به آنها تحویل دهیم."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "The requirement is to translate all Chromium's UI strings into Pixie "
 "language."
 msgstr ""
+"لازمه کار این است که تمام stringهای رابط کاربری Chromium به زبان Pixie ترجمه "
+"شوند."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16549,22 +17105,29 @@ msgid ""
 "language is very close to English, and it turns out there's a Rust crate "
 "which does the translation."
 msgstr ""
+"زمانی برای منتظر ماندن برای ترجمه‌های مناسب وجود ندارد، اما خوشبختانه زبان "
+"pixie بسیار نزدیک به انگلیسی است و به نظر می‌رسد که Rust crate ای وجود دارد "
+"که ترجمه را انجام می‌دهد."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "In fact, you already [imported that crate in the previous exercise](https://"
 "crates.io/crates/uwuify)."
 msgstr ""
+"در واقع، شما قبلا [آن crate را در تمرین قبلی وارد کردید](https://crates.io/"
+"crates/uwuify)."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "(Obviously, real translations of Chrome require incredible care and "
 "diligence. Don't ship this!)"
 msgstr ""
+"(بدیهی است که ترجمه های واقعی Chrome نیاز به دقت و تلاش باورنکردنی دارند. "
+"این مورد را ارسال نکنید!)"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid "Steps"
-msgstr ""
+msgstr "گام‌ها"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16572,12 +17135,17 @@ msgid ""
 "strings before display. In this special build of Chromium, it should always "
 "do this irrespective of the setting of `mangle_localized_strings_`."
 msgstr ""
+"‏ `ResourceBundle::MaybeMangleLocalizedString` را تغییر دهید تا همه stringها "
+"را قبل از نمایش یکپارچه کند. در این build خاص Chromium، بدون در نظر گرفتن "
+"تنظیمات `mangle_localized_strings_` همیشه باید این کار را انجام دهد."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "If you've done everything right across all these exercises, congratulations, "
 "you should have created Chrome for pixies!"
 msgstr ""
+"اگر همه این تمرین‌ها را درست انجام داده‌اید، به شما تبریک می‌گوییم، باید Chrome "
+"را برای pixies ایجاد می‌کردید!"
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16585,6 +17153,9 @@ msgid ""
 "and will probably decide that it's better to do the conversion on the C++ "
 "side using `base::UTF16ToUTF8` and back again."
 msgstr ""
+"‏ UTF16 در مقابل UTF8. دانش‌آموزان باید بدانند که stringهای Rust همیشه UTF8 "
+"هستند و احتمالاً تصمیم خواهند گرفت که بهتر است تبدیل را در سمت C++ با استفاده "
+"از `base::UTF16ToUTF8`  انجام دهند و دوباره برگردند."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16605,6 +17176,14 @@ msgid ""
 "mutable references to C++ data: the answer is that C++ data can't be moved "
 "around like Rust data, because it may contain self-referential pointers."
 msgstr ""
+"دانش‌آموزها ممکن است مرز C++/Rust را به روش های مختلف طراحی کنند، به عنوان "
+"مثال. گرفتن و برگرداندن stringها بر اساس مقدار، یا گرفتن یک مرجع قابل تغییر "
+"به یک string. اگر از یک مرجع قابل تغییر استفاده شود، CXX احتمالاً به دانش‌آموز "
+"می‌گوید که باید از [`Pin`](https://doc.rust-lang.org/std/pin/) استفاده کند. "
+"ممکن است لازم باشد توضیح دهید `Pin` چه می‌کند و سپس توضیح دهید که چرا CXX به "
+"آن برای ارجاع‌های قابل تغییر به داده‌های  C++  نیاز دارد: پاسخ این است که "
+"داده‌های C++  را نمی‌توان مانند داده‌های Rust جابه‌جا کرد، زیرا ممکن است حاوی "
+"نشانگرهای خودارجاعی (self-referential pointers) باشد."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
@@ -16612,22 +17191,29 @@ msgid ""
 "need to depend on a `rust_static_library` target. The student probably "
 "already did this."
 msgstr ""
+"هدف C++ حاوی `ResourceBundle::MaybeMangleLocalizedString` باید به هدف "
+"`rust_static_library` وابسته باشد. دانش‌آموز احتمالاً از قبل این کار را انجام "
+"داده است."
 
 #: src/exercises/chromium/bringing-it-together.md
 msgid ""
 "The `rust_static_library` target will need to depend on `//third_party/rust/"
 "uwuify/v0_2:lib`."
 msgstr ""
+"هدف `rust_static_library` باید به `//third_party/rust/uwuify/v0_2:lib` "
+"وابسته باشد."
 
 #: src/exercises/chromium/solutions.md
 msgid ""
 "Solutions to the Chromium exercises can be found in [this series of CLs]"
 "(https://chromium-review.googlesource.com/c/chromium/src/+/5096560)."
 msgstr ""
+"راه‌حل‌های تمرینات Chromium را می‌توانید در [این سری از CLs](https://chromium-"
+"review.googlesource.com/c/chromium/src/+/5096560) پیدا کنید."
 
 #: src/bare-metal.md
 msgid "Welcome to Bare Metal Rust"
-msgstr ""
+msgstr "به Bare Metal Rust خوش آمدید"
 
 #: src/bare-metal.md
 msgid ""
