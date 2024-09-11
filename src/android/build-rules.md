@@ -25,16 +25,8 @@ Additional items speaker may mention:
 - For compliance and performance, Android must have crates in-tree. It must also
   interop with C/C++/Java code. Soong fills that gap.
 
-- Soong has many similarities to Bazel, which is the open-source variant of
-  Blaze (used in google3).
-
-- There is a plan to transition
-  [Android](https://source.android.com/docs/setup/build/bazel/introduction),
-  [ChromeOS](https://chromium.googlesource.com/chromiumos/bazel/), and
-  [Fuchsia](https://source.android.com/docs/setup/build/bazel/introduction) to
-  Bazel.
-
-- Learning Bazel-like build rules is useful for all Rust OS developers.
+- Soong has many similarities to [Bazel](https://bazel.build/), which is the
+  open-source variant of Blaze (used in google3).
 
 - Fun fact: Data from Star Trek is a Soong-type Android.
 
