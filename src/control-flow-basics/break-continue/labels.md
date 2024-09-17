@@ -19,3 +19,15 @@ fn main() {
     print!("elements searched: {elements_searched}");
 }
 ```
+
+<details>
+
+- Labeled break also works on arbitrary blocks, e.g.
+  ```rust
+  'label: {
+      break 'label;
+      println!("This line gets skipped");
+  }
+  ```
+
+</details>
