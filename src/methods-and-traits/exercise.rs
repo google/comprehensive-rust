@@ -14,24 +14,17 @@
 
 // ANCHOR: solution
 // ANCHOR: setup
-use std::fmt::Display;
-
 pub trait Logger {
     /// Log a message at the given verbosity level.
-    fn log(&self, verbosity: u8, message: impl Display);
+    fn log(&self, verbosity: u8, message: &str);
 }
 
 struct StderrLogger;
 
 impl Logger for StderrLogger {
-    fn log(&self, verbosity: u8, message: impl Display) {
+    fn log(&self, verbosity: u8, message: &str) {
         eprintln!("verbosity={verbosity}: {message}");
     }
-}
-
-fn do_things(logger: &impl Logger) {
-    logger.log(5, "FYI");
-    logger.log(2, "Uhoh");
 }
 // ANCHOR_END: setup
 
@@ -42,7 +35,7 @@ struct VerbosityFilter {
 }
 
 impl Logger for VerbosityFilter {
-    fn log(&self, verbosity: u8, message: impl Display) {
+    fn log(&self, verbosity: u8, message: &str) {
         if verbosity <= self.max_verbosity {
             self.inner.log(verbosity, message);
         }
@@ -51,7 +44,8 @@ impl Logger for VerbosityFilter {
 
 // ANCHOR: main
 fn main() {
-    let l = VerbosityFilter { max_verbosity: 3, inner: StderrLogger };
-    do_things(&l);
+    let logger = VerbosityFilter { max_verbosity: 3, inner: StderrLogger };
+    logger.log(5, "FYI");
+    logger.log(2, "Uhoh");
 }
 // ANCHOR_END: main
