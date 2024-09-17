@@ -25,6 +25,7 @@ fn main() {
     binder::ProcessState::start_thread_pool();
     let service = connect().expect("Failed to connect to BirthdayService");
 
-{{#include ../birthday_service/src/client.rs:wish_with_info}}
+    let info = BirthdayInfo { name: "Alice".into(), years: 123 };
+    service.wishWithInfo(&info)?;
 }
 ```

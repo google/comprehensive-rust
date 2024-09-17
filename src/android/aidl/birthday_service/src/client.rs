@@ -43,9 +43,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     println!("{msg}");
     // ANCHOR_END: main
 
-    // ANCHOR: wish_with_info
     service.wishWithInfo(&BirthdayInfo { name: name.clone(), years })?;
-    // ANCHOR_END: wish_with_info
 
     // ANCHOR: wish_with_provider
 
