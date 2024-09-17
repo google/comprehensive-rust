@@ -5,7 +5,7 @@ You declare the API of your service using an AIDL interface:
 _birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:
 
 ```java
-package com.example.birthdayservice;
+{{#include ../birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:package}}
 
 {{#include ../birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl:IBirthdayService}}
 }
