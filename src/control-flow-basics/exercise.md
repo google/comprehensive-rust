@@ -30,7 +30,7 @@ initial `n`.
   todo!("Implement this")
 }
 
+{{#include exercise.rs:tests}}
+
 {{#include exercise.rs:main}}
-  todo!("Implement this")
-}
 ```
