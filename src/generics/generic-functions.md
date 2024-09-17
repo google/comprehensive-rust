@@ -19,7 +19,7 @@ fn pick<T>(n: i32, even: T, odd: T) -> T {
 
 fn main() {
     println!("picked a number: {:?}", pick(97, 222, 333));
-    println!("picked a tuple: {:?}", pick(28, ("dog", 1), ("cat", 2)));
+    println!("picked a tuple: {:?}", pick(28, "dog", "cat"));
 }
 ```
 
