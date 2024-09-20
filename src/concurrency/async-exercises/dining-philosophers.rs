@@ -57,8 +57,7 @@ impl Philosopher {
     }
 }
 
-static PHILOSOPHERS: &[&str] =
-    &["Socrates", "Hypatia", "Plato", "Aristotle", "Pythagoras"];
+static PHILOSOPHERS: &[&str] = &["Socrates", "Hypatia", "Plato", "Aristotle", "Pythagoras"];
 
 #[tokio::main]
 async fn main() {
@@ -75,7 +74,7 @@ async fn main() {
             let mut left_fork = Arc::clone(&forks[i]);
             let mut right_fork = Arc::clone(&forks[(i + 1) % PHILOSOPHERS.len()]);
             if i == PHILOSOPHERS.len() - 1 {
-                std::mem::swap(&mut left_fork,&mut right_fork);
+                std::mem::swap(&mut left_fork, &mut right_fork);
             }
             philosophers.push(Philosopher {
                 name: name.to_string(),
