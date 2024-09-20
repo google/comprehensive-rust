@@ -57,7 +57,8 @@ impl Philosopher {
     }
 }
 
-static PHILOSOPHERS: &[&str] = &["Socrates", "Hypatia", "Plato", "Aristotle", "Pythagoras"];
+static PHILOSOPHERS: &[&str] =
+    &["Socrates", "Hypatia", "Plato", "Aristotle", "Pythagoras"];
 
 #[tokio::main]
 async fn main() {
