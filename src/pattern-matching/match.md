@@ -56,4 +56,24 @@ Key Points:
 - The condition defined in the guard applies to every expression in a pattern
   with an `|`.
 
+# More To Explore
+
+- Another piece of pattern syntax you can show students is the `@` syntax which
+  binds a part of a pattern to a variable. For example:
+
+  ```rust
+  let opt = Some(123);
+  match opt {
+      outer @ Some(inner) => {
+          println!("outer: {outer:?}, inner: {inner}");
+      }
+      None => {}
+  }
+  ```
+
+  In this example `inner` has the value 123 which it pulled from the `Option`
+  via destructuring, `outer` captures the entire `Some(inner)` expression, so it
+  contains the full `Option::Some(123)`. This is rarely used but can be useful
+  in more complex patterns.
+
 </details>
