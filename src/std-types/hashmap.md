@@ -67,11 +67,6 @@ fn main() {
 
 - Alternatively HashMap can be built from any `Iterator` which yields key-value
   tuples.
-- We are showing `HashMap<String, i32>`, and avoid using `&str` as key to make
-  examples easier. Using references in collections can, of course, be done, but
-  it can lead into complications with the borrow checker.
-  - Try removing `to_string()` from the example above and see if it still
-    compiles. Where do you think we might run into issues?
 
 - This type has several "method-specific" return types, such as
   `std::collections::hash_map::Keys`. These types often appear in searches of
