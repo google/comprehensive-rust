@@ -43,7 +43,7 @@ impl Error for ReadUsernameError {}
 impl Display for ReadUsernameError {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         match self {
-            Self::IoError(e) => write!(f, "IO error: {e}"),
+            Self::IoError(e) => write!(f, "I/O error: {e}"),
             Self::EmptyUsername(path) => write!(f, "Found no username in {path}"),
         }
     }
