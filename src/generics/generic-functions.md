@@ -30,7 +30,7 @@ fn main() {
 - In this example we only use the primitive types `i32` and `&str` for `T`, but
   we can use any type here, including user-defined types:
 
-  ```rust
+  ```rust,ignore
   struct Foo {
       val: u8,
   }
