@@ -34,6 +34,6 @@ fn test_collatz_length() {
 
 // ANCHOR: main
 fn main() {
-    // ANCHOR_END: main
     println!("Length: {}", collatz_length(11));
 }
+// ANCHOR_END: main
