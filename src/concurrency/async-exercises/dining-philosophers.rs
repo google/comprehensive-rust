@@ -43,26 +43,9 @@ impl Philosopher {
     async fn eat(&self) {
         // Keep trying until we have both forks
         // ANCHOR_END: Philosopher-eat
-        let (_left_fork, _right_fork) = loop {
-            // Pick up forks...
-            let left_fork = self.left_fork.try_lock();
-            let right_fork = self.right_fork.try_lock();
-            let Ok(left_fork) = left_fork else {
-                // If we didn't get the left fork, drop the right fork if we
-                // have it and let other tasks make progress.
-                drop(right_fork);
-                time::sleep(time::Duration::from_millis(1)).await;
-                continue;
-            };
-            let Ok(right_fork) = right_fork else {
-                // If we didn't get the right fork, drop the left fork and let
-                // other tasks make progress.
-                drop(left_fork);
-                time::sleep(time::Duration::from_millis(1)).await;
-                continue;
-            };
-            break (left_fork, right_fork);
-        };
+        // Pick up forks...
+        let _left_fork = self.left_fork.lock().await;
+        let _right_fork = self.right_fork.lock().await;
 
         // ANCHOR: Philosopher-eat-body
         println!("{} is eating...", &self.name);
@@ -89,8 +72,11 @@ async fn main() {
         let mut philosophers = vec![];
         let (tx, rx) = mpsc::channel(10);
         for (i, name) in PHILOSOPHERS.iter().enumerate() {
-            let left_fork = Arc::clone(&forks[i]);
-            let right_fork = Arc::clone(&forks[(i + 1) % PHILOSOPHERS.len()]);
+            let mut left_fork = Arc::clone(&forks[i]);
+            let mut right_fork = Arc::clone(&forks[(i + 1) % PHILOSOPHERS.len()]);
+            if i == PHILOSOPHERS.len() - 1 {
+                std::mem::swap(&mut left_fork, &mut right_fork);
+            }
             philosophers.push(Philosopher {
                 name: name.to_string(),
                 left_fork,

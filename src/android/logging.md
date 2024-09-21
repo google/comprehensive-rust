@@ -32,3 +32,10 @@ adb logcat -s rust
 09-08 08:38:32.454  2420  2420 I rust: hello_rust_logs: Things are going fine.
 09-08 08:38:32.454  2420  2420 E rust: hello_rust_logs: Something went wrong!
 ```
+
+<details>
+
+- The logger implementation in `liblogger` is only needed in the final binary,
+  if you're logging from a library you only need the `log` facade crate.
+
+</details>

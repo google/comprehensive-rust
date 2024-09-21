@@ -20,7 +20,6 @@ fn main() {
 ```
 
 - Slices borrow data from the sliced type.
-- Question: What happens if you modify `a[3]` right before printing `s`?
 
 <details>
 
@@ -42,11 +41,5 @@ fn main() {
 
 - Slices always borrow from another object. In this example, `a` has to remain
   'alive' (in scope) for at least as long as our slice.
-
-- The question about modifying `a[3]` can spark an interesting discussion, but
-  the answer is that for memory safety reasons you cannot do it through `a` at
-  this point in the execution, but you can read the data from both `a` and `s`
-  safely. It works before you created the slice, and again after the `println`,
-  when the slice is no longer used.
 
 </details>

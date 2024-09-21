@@ -2,16 +2,14 @@
 minutes: 5
 ---
 
-# `thiserror` and `anyhow`
+# `anyhow`
 
-The [`thiserror`](https://docs.rs/thiserror/) and
-[`anyhow`](https://docs.rs/anyhow/) crates are widely used to simplify error
-handling.
+The [`anyhow`](https://docs.rs/anyhow/) crate provides a rich error type with
+support for carrying additional contextual information, which can be used to
+provide a semantic trace of what the program was doing leading up to the error.
 
-- `thiserror` is often used in libraries to create custom error types that
-  implement `From<T>`.
-- `anyhow` is often used by applications to help with error handling in
-  functions, including adding contextual information to your errors.
+This can be combined with the convenience macros from `thiserror` to avoid
+writing out trait impls explicitly for custom error types.
 
 ```rust,editable,compile_fail
 use anyhow::{bail, Context, Result};
@@ -46,25 +44,23 @@ fn main() {
 
 <details>
 
-## `thiserror`
-
-- The `Error` derive macro is provided by `thiserror`, and has lots of useful
-  attributes to help define error types in a compact way.
-- The `std::error::Error` trait is derived automatically.
-- The message from `#[error]` is used to derive the `Display` trait.
-
-## `anyhow`
-
 - `anyhow::Error` is essentially a wrapper around `Box<dyn Error>`. As such it's
   again generally not a good choice for the public API of a library, but is
   widely used in applications.
 - `anyhow::Result<V>` is a type alias for `Result<V, anyhow::Error>`.
-- Actual error type inside of it can be extracted for examination if necessary.
-- Functionality provided by `anyhow::Result<T>` may be familiar to Go
-  developers, as it provides similar usage patterns and ergonomics to
-  `(T, error)` from Go.
+- Functionality provided by `anyhow::Error` may be familiar to Go developers, as
+  it provides similar behavior to the Go `error` type and
+  `Result<T, anyhow::Error>` is much like a Go `(T, error)` (with the convention
+  that only one element of the pair is meaningful).
 - `anyhow::Context` is a trait implemented for the standard `Result` and
   `Option` types. `use anyhow::Context` is necessary to enable `.context()` and
   `.with_context()` on those types.
+
+# More to Explore
+
+- `anyhow::Error` has support for downcasting, much like `std::any::Any`; the
+  specific error type stored inside can be extracted for examination if desired
+  with
+  [`Error::downcast`](https://docs.rs/anyhow/latest/anyhow/struct.Error.html#method.downcast).
 
 </details>

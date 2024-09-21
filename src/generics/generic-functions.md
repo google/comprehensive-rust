@@ -19,13 +19,24 @@ fn pick<T>(n: i32, even: T, odd: T) -> T {
 
 fn main() {
     println!("picked a number: {:?}", pick(97, 222, 333));
-    println!("picked a tuple: {:?}", pick(28, ("dog", 1), ("cat", 2)));
+    println!("picked a string: {:?}", pick(28, "dog", "cat"));
 }
 ```
 
 <details>
 
 - Rust infers a type for T based on the types of the arguments and return value.
+
+- In this example we only use the primitive types `i32` and `&str` for `T`, but
+  we can use any type here, including user-defined types:
+
+  ```rust,ignore
+  struct Foo {
+      val: u8,
+  }
+
+  pick(123, Foo { val: 7 }, Foo { val: 456 });
+  ```
 
 - This is similar to C++ templates, but Rust partially compiles the generic
   function immediately, so that function must be valid for all types matching

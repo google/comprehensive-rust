@@ -41,9 +41,6 @@ a good option in a program where you just want to display the error message
 somewhere.
 
 Make sure to implement the `std::error::Error` trait when defining a custom
-error type so it can be boxed. But if you need to support the `no_std`
-attribute, keep in mind that the `std::error::Error` trait is currently
-compatible with `no_std` in
-[nightly](https://github.com/rust-lang/rust/issues/103765) only.
+error type so it can be boxed.
 
 </details>
