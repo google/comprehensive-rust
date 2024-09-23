@@ -12,14 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-UNAME := $(shell uname -s)
-ifeq ($(UNAME),Linux)
-	TARGET = aarch64-linux-gnu
-else
-	TARGET = aarch64-none-elf
-endif
-OBJCOPY = $(TARGET)-objcopy
-
 .PHONY: build qemu qemu_logger qemu_minimal qemu_psci
 
 all: minimal.bin improved.bin logger.bin
@@ -28,13 +20,13 @@ build:
 	cargo build
 
 improved.bin: build
-	$(OBJCOPY) -O binary target/aarch64-unknown-none/debug/improved $@
+	cargo objcopy --bin improved -- -O binary $@
 logger.bin: build
-	$(OBJCOPY) -O binary target/aarch64-unknown-none/debug/logger $@
+	cargo objcopy --bin logger -- -O binary $@
 minimal.bin: build
-	$(OBJCOPY) -O binary target/aarch64-unknown-none/debug/minimal $@
+	cargo objcopy --bin minimal -- -O binary $@
 psci.bin: build
-	$(OBJCOPY) -O binary target/aarch64-unknown-none/debug/psci $@
+	cargo objcopy --bin psci -- -O binary $@
 
 qemu: improved.bin
 	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel $< -s
