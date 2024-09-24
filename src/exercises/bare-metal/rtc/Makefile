@@ -12,14 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-UNAME := $(shell uname -s)
-ifeq ($(UNAME),Linux)
-	TARGET = aarch64-linux-gnu
-else
-	TARGET = aarch64-none-elf
-endif
-OBJCOPY = $(TARGET)-objcopy
-
 .PHONY: build qemu_minimal qemu qemu_logger
 
 all: rtc.bin
@@ -28,7 +20,7 @@ build:
 	cargo build
 
 rtc.bin: build
-	$(OBJCOPY) -O binary target/aarch64-unknown-none/debug/rtc $@
+	cargo objcopy -- -O binary $@
 
 qemu: rtc.bin
 	qemu-system-aarch64 -machine virt,gic-version=3 -cpu max -serial mon:stdio -display none -kernel $< -s
