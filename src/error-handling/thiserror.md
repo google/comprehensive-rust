@@ -10,10 +10,10 @@ assist in implementing `From<T>`, `Display`, and the `Error` trait.
 
 ```rust,editable,compile_fail
 use std::fs;
-use std::io::Read;
+use std::io::{self, Read};
 use thiserror::Error;
 
-#[derive(Error)]
+#[derive(Debug, Error)]
 enum ReadUsernameError {
     #[error("I/O error: {0}")]
     IoError(#[from] io::Error),
@@ -23,7 +23,7 @@ enum ReadUsernameError {
 
 fn read_username(path: &str) -> Result<String, ReadUsernameError> {
     let mut username = String::with_capacity(100);
-    File::open(path)?.read_to_string(&mut username)?;
+    fs::File::open(path)?.read_to_string(&mut username)?;
     if username.is_empty() {
         return Err(ReadUsernameError::EmptyUsername(String::from(path)));
     }
