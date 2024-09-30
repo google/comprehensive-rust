@@ -19,11 +19,11 @@ pub trait Logger {
     fn log(&self, verbosity: u8, message: &str);
 }
 
-struct StderrLogger;
+struct StdoutLogger;
 
-impl Logger for StderrLogger {
+impl Logger for StdoutLogger {
     fn log(&self, verbosity: u8, message: &str) {
-        eprintln!("verbosity={verbosity}: {message}");
+        println!("verbosity={verbosity}: {message}");
     }
 }
 // ANCHOR_END: setup
@@ -31,7 +31,7 @@ impl Logger for StderrLogger {
 /// Only log messages up to the given verbosity level.
 struct VerbosityFilter {
     max_verbosity: u8,
-    inner: StderrLogger,
+    inner: StdoutLogger,
 }
 
 impl Logger for VerbosityFilter {
@@ -44,7 +44,7 @@ impl Logger for VerbosityFilter {
 
 // ANCHOR: main
 fn main() {
-    let logger = VerbosityFilter { max_verbosity: 3, inner: StderrLogger };
+    let logger = VerbosityFilter { max_verbosity: 3, inner: StdoutLogger };
     logger.log(5, "FYI");
     logger.log(2, "Uhoh");
 }
