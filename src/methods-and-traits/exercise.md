@@ -9,7 +9,7 @@ method. Code which might log its progress can then take an `&impl Logger`. In
 testing, this might put messages in the test logfile, while in a production
 build it would send messages to a log server.
 
-However, the `StderrLogger` given below logs all messages, regardless of
+However, the `StdoutLogger` given below logs all messages, regardless of
 verbosity. Your task is to write a `VerbosityFilter` type that will ignore
 messages above a maximum verbosity.
 
