@@ -27,9 +27,6 @@ get the tests to pass one-by-one. You can also skip a test temporarily with
 fn test_value() { .. }
 ```
 
-If you finish early, try writing a test that results in division by zero or
-integer overflow. How could you handle this with `Result` instead of a panic?
-
 ```rust
 {{#include exercise.rs:Operation}}
 
