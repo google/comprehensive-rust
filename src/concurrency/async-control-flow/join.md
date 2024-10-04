@@ -31,7 +31,7 @@ async fn main() {
     let results = future::join_all(futures_iter).await;
     let page_sizes_dict: HashMap<&str, Result<usize>> =
         urls.into_iter().zip(results.into_iter()).collect();
-    println!("{:?}", page_sizes_dict);
+    println!("{page_sizes_dict:?}");
 }
 ```
 

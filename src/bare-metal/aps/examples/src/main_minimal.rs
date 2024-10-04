@@ -35,7 +35,7 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     // nothing else accesses that address range.
     let mut uart = unsafe { Uart::new(PL011_BASE_ADDRESS) };
 
-    writeln!(uart, "main({:#x}, {:#x}, {:#x}, {:#x})", x0, x1, x2, x3).unwrap();
+    writeln!(uart, "main({x0:#x}, {x1:#x}, {x2:#x}, {x3:#x})").unwrap();
 
     system_off::<Hvc>().unwrap();
 }
