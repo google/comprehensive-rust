@@ -29,7 +29,7 @@ To get started, install some tools we'll need later. On gLinux or Debian:
 <!-- mdbook-xgettext: skip -->
 
 ```bash
-sudo apt install gcc-aarch64-linux-gnu gdb-multiarch libudev-dev picocom pkg-config qemu-system-arm
+sudo apt install gdb-multiarch libudev-dev picocom pkg-config qemu-system-arm
 rustup update
 rustup target add aarch64-unknown-none thumbv7em-none-eabihf
 rustup component add llvm-tools-preview
@@ -54,7 +54,6 @@ On MacOS:
 ```bash
 xcode-select --install
 brew install gdb picocom qemu
-brew install --cask gcc-aarch64-embedded
 rustup update
 rustup target add aarch64-unknown-none thumbv7em-none-eabihf
 rustup component add llvm-tools-preview
