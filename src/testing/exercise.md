@@ -4,8 +4,6 @@ minutes: 30
 
 # Exercise: Luhn Algorithm
 
-# Luhn Algorithm
-
 The [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) is used to
 validate credit card numbers. The algorithm takes a string as input and does the
 following to validate the credit card number:
