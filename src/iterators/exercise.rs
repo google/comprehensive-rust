@@ -20,10 +20,7 @@
 /// wrapping around from the end of `values` to the beginning.
 ///
 /// Element `n` of the result is `values[(n+offset)%len] - values[n]`.
-fn offset_differences<N>(offset: usize, values: Vec<N>) -> Vec<N>
-where
-    N: Copy + std::ops::Sub<Output = N>,
-{
+fn offset_differences(offset: usize, values: Vec<i32>) -> Vec<i32> {
     // ANCHOR_END: offset_differences
     let a = (&values).into_iter();
     let b = (&values).into_iter().cycle().skip(offset);
@@ -44,14 +41,6 @@ fn test_larger_offsets() {
     assert_eq!(offset_differences(3, vec![1, 3, 5, 7]), vec![6, -2, -2, -2]);
     assert_eq!(offset_differences(4, vec![1, 3, 5, 7]), vec![0, 0, 0, 0]);
     assert_eq!(offset_differences(5, vec![1, 3, 5, 7]), vec![2, 2, 2, -6]);
-}
-
-#[test]
-fn test_custom_type() {
-    assert_eq!(
-        offset_differences(1, vec![1.0, 11.0, 5.0, 0.0]),
-        vec![10.0, -6.0, -5.0, 1.0]
-    );
 }
 
 #[test]
