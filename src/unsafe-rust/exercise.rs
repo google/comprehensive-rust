@@ -123,11 +123,9 @@ impl Drop for DirectoryIterator {
     fn drop(&mut self) {
         // Call closedir as needed.
         // ANCHOR_END: Drop
-        if !self.dir.is_null() {
-            // SAFETY: self.dir is not NULL.
-            if unsafe { ffi::closedir(self.dir) } != 0 {
-                panic!("Could not close {:?}", self.path);
-            }
+        // SAFETY: self.dir is never NULL.
+        if unsafe { ffi::closedir(self.dir) } != 0 {
+            panic!("Could not close {:?}", self.path);
         }
     }
 }
