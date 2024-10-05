@@ -43,8 +43,7 @@ Articles and blog posts from around the web which cover Comprehensive Rust:
   _[In Search of Rust Developers, Companies Turn to In-House Training](https://www.darkreading.com/application-security/google-microsoft-take-refuge-in-rust-languages-better-security)_.
   About how Microsoft, Google, and others are training people in Rust.
 
-Building
---------
+## Building
 
 The course is built using a few tools:
 
