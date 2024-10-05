@@ -29,12 +29,13 @@ jobs:
           rustup default nightly
           rustup component add rustfmt
 
-      - name: Reformat
+      - name: Format the project
         run: dprint fmt
 
-      - uses: parkerbxyz/suggest-changes@v1
+      - name: Add PR suggestions for formatting changes
+        uses: parkerbxyz/suggest-changes@v1
 
-      - name: Check if there were any changes
+      - name: Check for changes
         run: git diff --exit-code
 
   typos:

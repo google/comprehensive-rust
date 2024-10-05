@@ -47,15 +47,15 @@ Articles and blog posts from around the web which cover Comprehensive Rust:
 
 The course is built using a few tools:
 
-* [mdbook](https://github.com/rust-lang/mdBook)
-* [mdbook-svgbob](https://github.com/boozook/mdbook-svgbob)
+- [mdbook](https://github.com/rust-lang/mdBook)
+- [mdbook-svgbob](https://github.com/boozook/mdbook-svgbob)
 - [mdbook-i18n-helpers and i18n-report](https://github.com/google/mdbook-i18n-helpers)
 - [mdbook-exerciser](mdbook-exerciser/)
 - [mdbook-course](mdbook-course/)
 
 In addition,
 [mdbook-linkcheck](https://github.com/Michael-F-Bryan/mdbook-linkcheck) checks
-the   internal   links.
+the internal links.
 
 First install Rust by following the instructions on https://rustup.rs/. Then
 clone this repository:
