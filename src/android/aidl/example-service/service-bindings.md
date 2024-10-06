@@ -1,7 +1,6 @@
 # Generated Service API
 
-Binder generates a trait corresponding to the interface definition. trait to
-talk to the service.
+Binder generates a trait for each interface definition.
 
 _birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:
 
@@ -10,21 +9,25 @@ _birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:
 }
 ```
 
-_Generated trait_:
+_out/soong/.intermediates/.../birthdayservice/IBirthdayService.rs_:
+
+<!-- dprint-ignore-start -->
 
 ```rust,ignore
-trait IBirthdayService {
-    fn wishHappyBirthday(&self, name: &str, years: i32) -> binder::Result<String>;
+pub trait IBirthdayService: binder::Interface + Send {
+  fn get_descriptor() -> &'static str where Self: Sized { "com.example.birthdayservice.IBirthdayService" }
+  fn r#wishHappyBirthday(&self, _arg_name: &str, _arg_years: i32) -> binder::Result<String>;
+  // ... more methods ...
 }
 ```
+
+<!-- dprint-ignore-end -->
 
 Your service will need to implement this trait, and your client will use this
 trait to talk to the service.
 
 <details>
 
-- The generated bindings can be found at
-  `out/soong/.intermediates/<path to module>/`.
 - Point out how the generated function signature, specifically the argument and
   return types, correspond the interface definition.
   - `String` for an argument results in a different Rust type than `String` as a
