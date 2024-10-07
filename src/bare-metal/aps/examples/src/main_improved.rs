@@ -45,7 +45,7 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
                     uart.write_byte(b'\n');
                 }
                 b'q' => break,
-                _ => {}
+                _ => continue,
             }
         }
     }
