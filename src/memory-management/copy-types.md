@@ -60,7 +60,7 @@ In the above example, try the following:
 # More to Explore
 
 - Shared references are `Copy`/`Clone`, mutable references are not. This is
-  because rust requires that mutable references be exclusive, so while it's
+  because Rust requires that mutable references be exclusive, so while it's
   valid to make a copy of a shared reference, creating a copy of a mutable
   reference would violate Rust's borrowing rules.
 
