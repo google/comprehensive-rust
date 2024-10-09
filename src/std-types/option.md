@@ -30,7 +30,11 @@ fn main() {
     None.
   - It's common to `unwrap`/`expect` all over the place when hacking something
     together, but production code typically handles `None` in a nicer fashion.
-- The niche optimization means that `Option<T>` often has the same size in
-  memory as `T`.
+
+- The "niche optimization" means that `Option<T>` often has the same size in
+  memory as `T`, if there is some representation that is not a valid value of T.
+  For example, a reference cannot be NULL, so `Option<&T>` automatically uses
+  NULL to represent the `None` variant, and thus can be stored in the same
+  memory as `&T`.
 
 </details>
