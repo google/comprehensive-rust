@@ -46,9 +46,9 @@ Key Points:
 - Rust uses minimal space to store the discriminant.
   - If necessary, it stores an integer of the smallest required size
   - If the allowed variant values do not cover all bit patterns, it will use
-    invalid bit patterns to encode the discriminant (the "niche optimization").
-    For example, `Option<&u8>` stores either a pointer to an integer or `NULL`
-    for the `None` variant.
+    invalid bit patterns to encode the discriminant (the
+    "[niche optimization](../implementation-details/niche-optimization.md)",
+    discussed on day 3).
   - You can control the discriminant if needed (e.g., for compatibility with C):
 
     <!-- mdbook-xgettext: skip -->
@@ -69,51 +69,5 @@ Key Points:
 
     Without `repr`, the discriminant type takes 2 bytes, because 10001 fits 2
     bytes.
-
-## More to Explore
-
-Rust has several optimizations it can employ to make enums take up less space.
-
-- Null pointer optimization: For
-  [some types](https://doc.rust-lang.org/std/option/#representation), Rust
-  guarantees that `size_of::<T>()` equals `size_of::<Option<T>>()`.
-
-  Example code if you want to show how the bitwise representation _may_ look
-  like in practice. It's important to note that the compiler provides no
-  guarantees regarding this representation, therefore this is totally unsafe.
-
-  <!-- mdbook-xgettext: skip -->
-  ```rust,editable
-  use std::mem::transmute;
-
-  macro_rules! dbg_bits {
-      ($e:expr, $bit_type:ty) => {
-          println!("- {}: {:#x}", stringify!($e), transmute::<_, $bit_type>($e));
-      };
-  }
-
-  fn main() {
-      unsafe {
-          println!("bool:");
-          dbg_bits!(false, u8);
-          dbg_bits!(true, u8);
-
-          println!("Option<bool>:");
-          dbg_bits!(None::<bool>, u8);
-          dbg_bits!(Some(false), u8);
-          dbg_bits!(Some(true), u8);
-
-          println!("Option<Option<bool>>:");
-          dbg_bits!(Some(Some(false)), u8);
-          dbg_bits!(Some(Some(true)), u8);
-          dbg_bits!(Some(None::<bool>), u8);
-          dbg_bits!(None::<Option<bool>>, u8);
-
-          println!("Option<&i32>:");
-          dbg_bits!(None::<&i32>, usize);
-          dbg_bits!(Some(&0i32), usize);
-      }
-  }
-  ```
 
 </details>

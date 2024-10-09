@@ -162,6 +162,11 @@
   - [Struct Lifetimes](lifetimes/struct-lifetimes.md)
   - [Exercise: Protobuf Parsing](lifetimes/exercise.md)
     - [Solution](lifetimes/solution.md)
+- [Implementation Details](implementation-details.md)
+  - [Niche Optimization](implementation-details/niche-optimization.md)
+  - [Empty Containers](implementation-details/empty-containers.md)
+  - [Exercise: TBD](implementation-details/exercise.md)
+    - [Solution](implementation-details/solution.md)
 
 ---
 
