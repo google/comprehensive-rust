@@ -7,9 +7,9 @@ minutes: 8
 Several crates have support for asynchronous channels. For instance `tokio`:
 
 ```rust,editable,compile_fail
-use tokio::sync::mpsc::{self, Receiver};
+use tokio::sync::mpsc;
 
-async fn ping_handler(mut input: Receiver<()>) {
+async fn ping_handler(mut input: mpsc::Receiver<()>) {
     let mut count: usize = 0;
 
     while let Some(_) = input.recv().await {
