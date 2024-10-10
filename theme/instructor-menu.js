@@ -13,12 +13,12 @@
     instructorMenuList.insertBefore(redBoxItem, instructorMenuList.lastChild);
     instructorMenuList.insertBefore(
       playgroundStateItem,
-      instructorMenuList.lastChild
+      instructorMenuList.lastChild,
     );
     redBoxItem.insertBefore(redBoxButton, redBoxItem.lastChild);
     playgroundStateItem.insertBefore(
       playgroundStateButton,
-      playgroundStateItem.lastChild
+      playgroundStateItem.lastChild,
     );
 
     instructorMenu.title = "Utilities for course instructors";
@@ -66,6 +66,6 @@
   var playgroundStateButton = document.getElementById("playground-state");
   redBoxButton.addEventListener("click", () => window.redboxButtonClicked());
   playgroundStateButton.addEventListener("click", () =>
-    window.resetPlaygroundsClicked()
+    window.resetPlaygroundsClicked(),
   );
 })();

@@ -124,7 +124,7 @@
         };
       } else {
         window.alert(
-          "Could not open popup, please check your popup blocker settings."
+          "Could not open popup, please check your popup blocker settings.",
         );
       }
     });

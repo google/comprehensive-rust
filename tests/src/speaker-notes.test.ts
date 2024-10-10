@@ -25,7 +25,7 @@ describe("speaker-notes", () => {
     const handles = await browser.getWindowHandles();
     await browser.switchToWindow(handles[1]);
     await expect(browser).toHaveUrl(
-      expect.stringContaining("#speaker-notes-open")
+      expect.stringContaining("#speaker-notes-open"),
     );
   });
 });

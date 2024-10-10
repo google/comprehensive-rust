@@ -42,7 +42,7 @@ describe("Playground", () => {
     await expect(playground.stderr).toBeDisplayed();
     // check for error message in stderr
     await expect(playground.stderr).toHaveText(
-      expect.stringContaining("error: could not compile")
+      expect.stringContaining("error: could not compile"),
     );
     await expect(playground.stdout).toHaveText("No output");
   });
