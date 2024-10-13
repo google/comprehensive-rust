@@ -14,7 +14,8 @@ volunteers:
 - [Korean][ko] by [@keispace], [@jiyongp], [@jooyunghan], and [@namhyung].
 - [Spanish][es] by [@deavid].
 - [Ukrainian][uk] by [@git-user-cpp], [@yaremam] and [@reta].
-
+- [Farsi][fa] by [@DannyRavi], [@javad-jafari], [@Alix1383], [@moaminsharifi] , [@hamidrezakp] and [@mehrad77].
+  .
 Use the language picker in the top-right corner to switch between languages.
 
 ## Incomplete Translations
@@ -24,8 +25,6 @@ recently updated translations:
 
 - [Arabic][ar] by [@younies]
 - [Bengali][bn] by [@raselmandol].
-- [Farsi][fa] by [@Alix1383], [@DannyRavi], [@hamidrezakp], [@javad-jafari] and
-  [@moaminsharifi].
 - [French][fr] by [@KookaS], [@vcaen] and [@AdrienBaudemont].
 - [German][de] by [@Throvn] and [@ronaldfw].
 - [Italian][it] by [@henrythebuilder] and [@detro].
