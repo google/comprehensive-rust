@@ -1,9 +1,13 @@
 # Volatile memory access for MMIO
 
-- Use `pointer::read_volatile` and `pointer::write_volatile`.
+- Use [`pointer::read_volatile`] and [`pointer::write_volatile`].
 - Never hold a reference.
-- `addr_of!` lets you get fields of structs without creating an intermediate
+- Use [`addr_of!`] to get fields of structs without creating an intermediate
   reference.
+
+[`pointer::read_volatile`]: https://doc.rust-lang.org/stable/core/primitive.pointer.html#method.read_volatile
+[`pointer::write_volatile`]: https://doc.rust-lang.org/stable/core/primitive.pointer.html#method.write_volatile
+[`addr_of!`]: https://doc.rust-lang.org/stable/core/ptr/macro.addr_of.html
 
 <details>
 
