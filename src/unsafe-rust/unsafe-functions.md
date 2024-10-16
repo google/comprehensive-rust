@@ -79,8 +79,8 @@ fn main() {
 ## Calling Unsafe Functions
 
 `get_unchecked`, like most `_unchecked` functions, is unsafe, because it can
-create UB if the range is incorrect. `abs` is incorrect for a different reason:
-it is an external function (FFI). Calling external functions is usually only a
+create UB if the range is incorrect. `abs` is unsafe for a different reason: it
+is an external function (FFI). Calling external functions is usually only a
 problem when those functions do things with pointers which might violate Rust's
 memory model, but in general any C function might have undefined behaviour under
 any arbitrary circumstances.
