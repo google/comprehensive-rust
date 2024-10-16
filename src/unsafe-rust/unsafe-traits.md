@@ -11,8 +11,7 @@ For example, the `zerocopy` crate has an unsafe trait that looks
 [something like this](https://docs.rs/zerocopy/latest/zerocopy/trait.IntoBytes.html):
 
 ```rust,editable
-use std::mem;
-use std::slice;
+use std::{mem, slice};
 
 /// ...
 /// # Safety
