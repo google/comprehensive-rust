@@ -29,5 +29,5 @@ fn main() {
     );
     binder::add_service(SERVICE_IDENTIFIER, birthday_service_binder.as_binder())
         .expect("Failed to register service");
-    binder::ProcessState::join_thread_pool()
+    binder::ProcessState::join_thread_pool();
 }
