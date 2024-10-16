@@ -9,6 +9,8 @@ volunteers:
   [@noahdragon], [@superwhd], @SketchK, and [@nodmp].
 - [Chinese (Traditional)][zh-TW] by [@hueich], [@victorhsieh], [@mingyc],
   [@kuanhungchen], and [@johnathan79717].
+- [Farsi][fa] by [@DannyRavi], [@javad-jafari], [@Alix1383], [@moaminsharifi] ,
+  [@hamidrezakp] and [@mehrad77].
 - [Japanese][ja] by [@CoinEZ-JPN], [@momotaro1105], [@HidenoriKobayashi] and
   [@kantasv].
 - [Korean][ko] by [@keispace], [@jiyongp], [@jooyunghan], and [@namhyung].
@@ -73,6 +75,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@kongy]: https://github.com/kongy
 [@KookaS]: https://github.com/KookaS
 [@kuanhungchen]: https://github.com/kuanhungchen
+[@mehrad77]: https://github.com/mehrad77
 [@mingyc]: https://github.com/mingyc
 [@moaminsharifi]: https://github.com/moaminsharifi
 [@momotaro1105]: https://github.com/momotaro1105
