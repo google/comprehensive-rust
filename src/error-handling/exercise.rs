@@ -194,7 +194,7 @@ fn parse(input: &str) -> Expression {
         };
         let expr = match tok {
             Token::Number(num) => {
-                let v = num.parse().expect("Invalid 32-bit integer'");
+                let v = num.parse().expect("Invalid 32-bit integer");
                 Expression::Number(v)
             }
             Token::Identifier(ident) => Expression::Var(ident),
