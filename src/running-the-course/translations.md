@@ -74,6 +74,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@kongy]: https://github.com/kongy
 [@KookaS]: https://github.com/KookaS
 [@kuanhungchen]: https://github.com/kuanhungchen
+[@mehrad77]: https://github.com/mehrad77
 [@mingyc]: https://github.com/mingyc
 [@moaminsharifi]: https://github.com/moaminsharifi
 [@momotaro1105]: https://github.com/momotaro1105
