@@ -9,14 +9,15 @@ volunteers:
   [@noahdragon], [@superwhd], @SketchK, and [@nodmp].
 - [Chinese (Traditional)][zh-TW] by [@hueich], [@victorhsieh], [@mingyc],
   [@kuanhungchen], and [@johnathan79717].
+- [Farsi][fa] by [@DannyRavi], [@javad-jafari], [@Alix1383], [@moaminsharifi] ,
+  [@hamidrezakp] and [@mehrad77].
 - [Japanese][ja] by [@CoinEZ-JPN], [@momotaro1105], [@HidenoriKobayashi] and
   [@kantasv].
 - [Korean][ko] by [@keispace], [@jiyongp], [@jooyunghan], and [@namhyung].
 - [Spanish][es] by [@deavid].
 - [Ukrainian][uk] by [@git-user-cpp], [@yaremam] and [@reta].
-- [Farsi][fa] by [@DannyRavi], [@javad-jafari], [@Alix1383], [@moaminsharifi] ,
-  [@hamidrezakp] and [@mehrad77]. . Use the language picker in the top-right
-  corner to switch between languages.
+
+Use the language picker in the top-right corner to switch between languages.
 
 ## Incomplete Translations
 
