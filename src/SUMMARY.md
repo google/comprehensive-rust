@@ -347,7 +347,7 @@
   - [`buddy_system_allocator`](bare-metal/useful-crates/buddy_system_allocator.md)
   - [`tinyvec`](bare-metal/useful-crates/tinyvec.md)
   - [`spin`](bare-metal/useful-crates/spin.md)
-- [Android](bare-metal/android.md)
+- [Bare-Metal Android](bare-metal/android.md)
   - [`vmbase`](bare-metal/android/vmbase.md)
 - [Exercises](exercises/bare-metal/afternoon.md)
   - [RTC Driver](exercises/bare-metal/rtc.md)
