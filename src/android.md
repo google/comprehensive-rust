@@ -20,15 +20,15 @@ The speaker may mention any of the following given the increased use of Rust in
 Android:
 
 - Service example:
-  [DNS over HTTP](https://security.googleblog.com/2022/07/dns-over-http3-in-android.html)
+  [DNS over HTTP](https://security.googleblog.com/2022/07/dns-over-http3-in-android.html).
 
 - Libraries:
-  [Rutabaga Virtual Graphics Interface](https://crosvm.dev/book/appendix/rutabaga_gfx.html)
+  [Rutabaga Virtual Graphics Interface](https://crosvm.dev/book/appendix/rutabaga_gfx.html).
 
 - Kernel Drivers:
-  [Binder](https://lore.kernel.org/rust-for-linux/20231101-rust-binder-v1-0-08ba9197f637@google.com/)
+  [Binder](https://lore.kernel.org/rust-for-linux/20231101-rust-binder-v1-0-08ba9197f637@google.com/).
 
 - Firmware:
-  [pKVM firmware](https://security.googleblog.com/2023/10/bare-metal-rust-in-android.html)
+  [pKVM firmware](https://security.googleblog.com/2023/10/bare-metal-rust-in-android.html).
 
 </details>
