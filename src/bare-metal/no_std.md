@@ -26,6 +26,7 @@
 - `Option`, `Result`
 - `Display`, `Debug`, `write!`...
 - `Iterator`
+- `Error`
 - `panic!`, `assert_eq!`...
 - `NonNull` and all the usual pointer-related functions
 - `Future` and `async`/`await`
@@ -42,7 +43,6 @@
 </td>
 <td>
 
-- `Error`
 - `HashMap`
 - `Mutex`, `Condvar`, `Barrier`, `Once`, `RwLock`, `mpsc`
 - `File` and the rest of `fs`
