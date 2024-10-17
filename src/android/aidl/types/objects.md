@@ -3,13 +3,13 @@
 AIDL objects can be sent either as a concrete AIDL type or as the type-erased
 `IBinder` interface:
 
-**birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider.aidl**:
+_birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider.aidl_:
 
 ```java
 {{#include ../birthday_service/aidl/com/example/birthdayservice/IBirthdayInfoProvider.aidl:IBirthdayInfoProvider}}
 ```
 
-**birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl**:
+_birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:
 
 ```java
 import com.example.birthdayservice.IBirthdayInfoProvider;
@@ -19,7 +19,7 @@ interface IBirthdayService {
 }
 ```
 
-**birthday_service/src/client.rs**:
+_birthday_service/src/client.rs_:
 
 ```rust,ignore
 {{#include ../birthday_service/src/client.rs:InfoProvider}}

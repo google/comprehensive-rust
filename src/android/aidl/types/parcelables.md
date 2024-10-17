@@ -2,13 +2,13 @@
 
 Binder for Rust supports sending parcelables directly:
 
-**birthday_service/aidl/com/example/birthdayservice/BirthdayInfo.aidl**:
+_birthday_service/aidl/com/example/birthdayservice/BirthdayInfo.aidl_:
 
 ```java
 {{#include ../birthday_service/aidl/com/example/birthdayservice/BirthdayInfo.aidl}}
 ```
 
-**birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl**:
+_birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:
 
 ```java
 import com.example.birthdayservice.BirthdayInfo;
@@ -18,7 +18,7 @@ interface IBirthdayService {
 }
 ```
 
-**birthday_service/src/client.rs**:
+_birthday_service/src/client.rs_:
 
 ```rust,ignore
 fn main() {

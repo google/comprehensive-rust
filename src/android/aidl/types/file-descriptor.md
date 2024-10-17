@@ -3,7 +3,7 @@
 Files can be sent between Binder clients/servers using the
 `ParcelFileDescriptor` type:
 
-**birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl**:
+_birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:
 
 ```java
 interface IBirthdayService {
@@ -11,7 +11,7 @@ interface IBirthdayService {
 }
 ```
 
-**birthday_service/src/client.rs**:
+_birthday_service/src/client.rs_:
 
 ```rust,ignore
 fn main() {
@@ -21,7 +21,7 @@ fn main() {
 }
 ```
 
-**birthday_service/src/lib.rs**:
+_birthday_service/src/lib.rs_:
 
 ```rust,ignore
 impl IBirthdayService for BirthdayService {
