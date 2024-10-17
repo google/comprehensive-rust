@@ -9,8 +9,8 @@ avoid boilerplate when defining error types. It provides derive macros that
 assist in implementing `From<T>`, `Display`, and the `Error` trait.
 
 ```rust,editable,compile_fail
-use std::fs;
-use std::io::{self, Read};
+use std::io::Read;
+use std::{fs, io};
 use thiserror::Error;
 
 #[derive(Debug, Error)]
