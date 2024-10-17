@@ -91,7 +91,7 @@ impl DirectoryIterator {
         // SAFETY: path.as_ptr() cannot be NULL.
         let dir = unsafe { ffi::opendir(path.as_ptr()) };
         if dir.is_null() {
-            Err(format!("Could not open {:?}", path))
+            Err(format!("Could not open {path:?}"))
         } else {
             Ok(DirectoryIterator { path, dir })
         }

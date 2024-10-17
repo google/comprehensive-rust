@@ -24,7 +24,7 @@ impl std::ops::Add for Point {
 fn main() {
     let p1 = Point { x: 10, y: 20 };
     let p2 = Point { x: 100, y: 200 };
-    println!("{:?} + {:?} = {:?}", p1, p2, p1 + p2);
+    println!("{p1:?} + {p2:?} = {:?}", p1 + p2);
 }
 ```
 

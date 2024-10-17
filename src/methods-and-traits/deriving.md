@@ -20,7 +20,7 @@ fn main() {
     let mut p2 = p1.clone(); // Clone trait adds `clone` method.
     p2.name = String::from("EldurScrollz");
     // Debug trait adds support for printing with `{:?}`.
-    println!("{:?} vs. {:?}", p1, p2);
+    println!("{p1:?} vs. {p2:?}");
 }
 ```
 
