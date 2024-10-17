@@ -39,8 +39,8 @@ implementation.
     protected data.
 - You can get an `&mut T` from an `&Mutex<T>` by taking the lock. The
   `MutexGuard` ensures that the `&mut T` doesn't outlive the lock being held.
-- `Mutex<T>` implements both `Send` and `Sync` iff (if and only if) `T`
-  implements `Send`.
+- `Mutex<T>` implements both `Send` and `Sync` if and only if `T` implements
+  `Send`.
 - A read-write lock counterpart: `RwLock`.
 - Why does `lock()` return a `Result`?
   - If the thread that held the `Mutex` panicked, the `Mutex` becomes "poisoned"
