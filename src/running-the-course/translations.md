@@ -16,9 +16,10 @@ volunteers:
 - [Korean][ko] by [@keispace], [@jiyongp], [@jooyunghan], and [@namhyung].
 - [Spanish][es] by [@deavid].
 - [Ukrainian][uk] by [@git-user-cpp], [@yaremam] and [@reta].
-- [Farsi][fa] by [@DannyRavi], [@javad-jafari], [@Alix1383], [@moaminsharifi] ,
-  [@hamidrezakp] and [@mehrad77]. . Use the language picker in the top-right
-  corner to switch between languages.
+- [Farsi][fa] by [@DannyRavi], [@javad-jafari], [@Alix1383], [@moaminsharifi],
+  [@hamidrezakp] and [@mehrad77].
+
+Use the language picker in the top-right corner to switch between languages.
 
 ## Incomplete Translations
 
