@@ -26,6 +26,9 @@ pub unsafe trait IntoBytes {
         unsafe { slice::from_raw_parts(slf.cast::<u8>(), len) }
     }
 }
+
+/// Types which are free from interior mutability.
+pub unsafe trait Immutable {}
 ```
 
 <details>
