@@ -9,11 +9,6 @@ Rust is supported for system software on Android. This means that you can write
 new services, libraries, drivers or even firmware in Rust (or improve existing
 code as needed).
 
-> We will attempt to call Rust from one of your own projects today. So try to
-> find a little corner of your code base where we can move some lines of code to
-> Rust. The fewer dependencies and "exotic" types the better. Something that
-> parses some raw bytes would be ideal.
-
 <details>
 
 The speaker may mention any of the following given the increased use of Rust in

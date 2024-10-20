@@ -258,7 +258,6 @@
     - [Building for Android: Genrules](android/interoperability/cpp/android-cpp-genrules.md)
     - [Building for Android: Rust](android/interoperability/cpp/android-build-rust.md)
   - [With Java](android/interoperability/java.md)
-- [Exercises](exercises/android/morning.md)
 
 # Chromium
 
