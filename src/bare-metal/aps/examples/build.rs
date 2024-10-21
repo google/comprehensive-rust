@@ -23,5 +23,5 @@ fn main() {
         .file("entry.S")
         .file("exceptions.S")
         .file("idmap.S")
-        .compile("empty")
+        .compile("empty");
 }
