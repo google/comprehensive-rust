@@ -130,6 +130,6 @@ fn main() {
         left: Box::new(Expression::Value(20)),
         right: Box::new(Expression::Value(10)),
     };
-    println!("expr: {:?}", expr);
+    println!("expr: {expr:?}");
     println!("result: {:?}", eval(expr));
 }

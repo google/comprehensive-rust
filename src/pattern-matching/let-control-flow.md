@@ -21,9 +21,9 @@ lets you execute different code depending on whether a value matches a pattern:
 use std::time::Duration;
 
 fn sleep_for(secs: f32) {
-    if let Ok(dur) = Duration::try_from_secs_f32(secs) {
-        std::thread::sleep(dur);
-        println!("slept for {:?}", dur);
+    if let Ok(duration) = Duration::try_from_secs_f32(secs) {
+        std::thread::sleep(duration);
+        println!("slept for {duration:?}");
     }
 }
 
