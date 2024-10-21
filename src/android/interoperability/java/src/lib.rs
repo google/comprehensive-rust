@@ -22,12 +22,12 @@ use jni::JNIEnv;
 /// HelloWorld::hello method implementation.
 #[no_mangle]
 pub extern "system" fn Java_HelloWorld_hello(
-    env: JNIEnv,
+    mut env: JNIEnv,
     _class: JClass,
     name: JString,
 ) -> jstring {
-    let input: String = env.get_string(name).unwrap().into();
+    let input: String = env.get_string(&name).unwrap().into();
     let greeting = format!("Hello, {input}!");
     let output = env.new_string(greeting).unwrap();
-    output.into_inner()
+    output.into_raw()
 }

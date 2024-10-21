@@ -22,7 +22,7 @@ fn main() {
     logger::init(
         logger::Config::default()
             .with_tag_on_device("rust")
-            .with_min_level(log::Level::Trace),
+            .with_max_level(log::LevelFilter::Trace),
     );
     debug!("Starting program.");
     info!("Things are going fine.");
