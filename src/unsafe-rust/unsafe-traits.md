@@ -17,18 +17,15 @@ use std::{mem, slice};
 /// # Safety
 /// The type must have a defined representation and no padding.
 pub unsafe trait IntoBytes {
-    fn as_bytes(&self) -> &[u8]
-    where
-        Self: Immutable,
-    {
+    fn as_bytes(&self) -> &[u8] {
         let len = mem::size_of_val(self);
         let slf: *const Self = self;
         unsafe { slice::from_raw_parts(slf.cast::<u8>(), len) }
     }
 }
 
-/// Types which are free from interior mutability.
-pub unsafe trait Immutable {}
+/// SAFETY: `u32` has no padding bytes.
+unsafe impl IntoBytes for u32 {}
 ```
 
 <details>
