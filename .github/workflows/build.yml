@@ -55,6 +55,9 @@ jobs:
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
 
+      - name: Update Rust
+        run: rustup update
+
       - name: Build Rust code
         run: cargo build
 
@@ -89,7 +92,9 @@ jobs:
           sudo apt install gcc-aarch64-linux-gnu
 
       - name: Install toolchain
-        run: rustup target add ${{ matrix.target }}
+        run: |
+          rustup update
+          rustup target add ${{ matrix.target }}
 
       - name: Build Rust code
         working-directory: ${{ matrix.directory }}
@@ -139,6 +144,9 @@ jobs:
         run: |
           sudo apt update
           sudo apt install gettext
+
+      - name: Update Rust
+        run: rustup update
 
       - name: Install mdbook
         uses: ./.github/workflows/install-mdbook
