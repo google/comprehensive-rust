@@ -10,7 +10,7 @@ Creating pointers is safe, but dereferencing them requires `unsafe`:
 fn main() {
     let mut s = String::from("careful!");
 
-    let r1 = &mut s as *mut String;
+    let r1 = &raw mut s;
     let r2 = r1 as *const String;
 
     // SAFETY: r1 and r2 were obtained from references and so are guaranteed to
