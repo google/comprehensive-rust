@@ -50,7 +50,8 @@ const PL031_BASE_ADDRESS: *mut u32 = 0x901_0000 as _;
 const PL031_IRQ: IntId = IntId::spi(2);
 
 // ANCHOR: main
-#[no_mangle]
+// SAFETY: There is no other global function of this name.
+#[unsafe(no_mangle)]
 extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     // SAFETY: `PL011_BASE_ADDRESS` is the base address of a PL011 device, and
     // nothing else accesses that address range.

@@ -20,8 +20,8 @@ for all these functions.)
   inline assembly code, and ignore its contents afterwards. We need to use
   `inout` rather than `in` because the call could potentially clobber the
   contents of the registers.
-- This `main` function needs to be `#[no_mangle]` and `extern "C"` because it is
-  called from our entry point in `entry.S`.
+- This `main` function needs to be `#[unsafe(no_mangle)]` and `extern "C"`
+  because it is called from our entry point in `entry.S`.
 - `_x0`–`_x3` are the values of registers `x0`–`x3`, which are conventionally
   used by the bootloader to pass things like a pointer to the device tree.
   According to the standard aarch64 calling convention (which is what

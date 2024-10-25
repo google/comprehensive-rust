@@ -4,7 +4,8 @@ In your Chromium build, add a new Rust target to `//ui/base/BUILD.gn`
 containing:
 
 ```rust
-#[no_mangle]
+// SAFETY: There is no other global function of this name.
+#[unsafe(no_mangle)]
 pub extern "C" fn hello_from_rust() {
     println!("Hello from Rust!")
 }
@@ -32,7 +33,7 @@ subsequent exercises. If you've succeeded, you will be able to use right-click
 ## Where to find help
 
 - The options available to the [`rust_static_library` gn template][0]
-- Information about [`#[no_mangle]`][1]
+- Information about [`#[unsafe(no_mangle)]`][1]
 - Information about [`extern "C"`][2]
 - Information about gn's [`--export-rust-project`][3] switch
 - [How to install rust-analyzer in VSCode][4]
@@ -45,9 +46,9 @@ This example is unusual because it boils down to the lowest-common-denominator
 interop language, C. Both C++ and Rust can natively declare and call C ABI
 functions. Later in the course, we'll connect C++ directly to Rust.
 
-`allow_unsafe = true` is required here because `#[no_mangle]` might allow Rust
-to generate two functions with the same name, and Rust can no longer guarantee
-that the right one is called.
+`allow_unsafe = true` is required here because `#[unsafe(no_mangle)]` might
+allow Rust to generate two functions with the same name, and Rust can no longer
+guarantee that the right one is called.
 
 If you need a pure Rust executable, you can also do that using the
 `rust_executable` gn template.

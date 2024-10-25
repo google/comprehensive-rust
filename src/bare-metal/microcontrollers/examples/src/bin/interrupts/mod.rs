@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#[link_section = ".vector_table.interrupts"]
-#[no_mangle]
+#[unsafe(link_section = ".vector_table.interrupts")]
+// SAFETY: There is no other global variable of this name.
+#[unsafe(no_mangle)]
 pub static __INTERRUPTS: [usize; 1] = [0];
