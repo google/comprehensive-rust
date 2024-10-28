@@ -19,12 +19,11 @@ use std::{mem, slice};
 pub unsafe trait IntoBytes {
     fn as_bytes(&self) -> &[u8] {
         let len = mem::size_of_val(self);
-        let slf: *const Self = self;
-        unsafe { slice::from_raw_parts(slf.cast::<u8>(), len) }
+        unsafe { slice::from_raw_parts((&raw const self).cast::<u8>(), len) }
     }
 }
 
-/// SAFETY: `u32` has no padding bytes.
+// SAFETY: `u32` has a defined representation and no padding.
 unsafe impl IntoBytes for u32 {}
 ```
 
