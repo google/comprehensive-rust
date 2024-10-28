@@ -1,4 +1,4 @@
-# Bare-Metal Android
+# Bare-Metal on Android
 
 To build a bare-metal Rust binary in AOSP, you need to use a `rust_ffi_static`
 Soong rule to build your Rust code, then a `cc_binary` with a linker script to
