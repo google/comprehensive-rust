@@ -38,7 +38,7 @@ Key points:
   not bytes! This example demonstrate undefined behavior by reading past the end
   of one array and into another.
 
-- The standard library contain many low-level unsafe functions. Prefer the safe
+- The standard library contains many low-level unsafe functions. Prefer the safe
   alternatives when possible!
 
 - If you use an unsafe function as an optimization, make sure to add a benchmark
