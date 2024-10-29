@@ -43,10 +43,7 @@ impl Uart {
 
         // SAFETY: We know that the base address points to the control
         // registers of a PL011 device which is appropriately mapped.
-        unsafe {
-            // Write to the TX buffer.
-            self.base_address.write_volatile(byte);
-        }
+        unsafe { self.base_address.write_volatile(byte) };
 
         // Wait until the UART is no longer busy.
         while self.read_flag_register() & FR_BUSY != 0 {}
