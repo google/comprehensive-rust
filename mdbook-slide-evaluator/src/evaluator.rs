@@ -232,6 +232,36 @@ impl<'a> Evaluator<'_> {
         Ok(violations)
     }
 
+    /// Determines if the current page has a code example (using ACE) that has
+    /// a scrollbar by evaluating if the ace_scrollbar-[hv] element is displayed
+    async fn eval_code_example_scrollbar(
+        &self,
+    ) -> anyhow::Result<Vec<PolicyViolation>> {
+        let v_scrollbar_elements_path = fantoccini::Locator::XPath(
+            r#"//*[@id="content"]//div[contains(@class, "ace_scrollbar-v")]"#,
+        );
+        let h_scrollbar_elements_path = fantoccini::Locator::XPath(
+            r#"//*[@id="content"]//div[contains(@class, "ace_scrollbar-h")]"#,
+        );
+        let v_scrollbar_elements =
+            self.webclient.find_all(v_scrollbar_elements_path).await?;
+        let h_scrollbar_elements =
+            self.webclient.find_all(h_scrollbar_elements_path).await?;
+
+        let mut violations = vec![];
+        for element in v_scrollbar_elements {
+            if element.is_displayed().await? {
+                violations.push(PolicyViolation::CodeExampleVScrollbar);
+            }
+        }
+        for element in h_scrollbar_elements {
+            if element.is_displayed().await? {
+                violations.push(PolicyViolation::CodeExampleHScrollbar);
+            }
+        }
+        Ok(violations)
+    }
+
     /// evaluate a single slide
     pub async fn eval_slide(
         &self,
@@ -245,6 +275,8 @@ impl<'a> Evaluator<'_> {
         let mut policy_violations = vec![];
         // evaluate main content element size
         policy_violations.append(&mut self.eval_main_element(slide).await?);
+        // evaluate code examples size
+        policy_violations.append(&mut self.eval_code_example_scrollbar().await?);
 
         let result = EvaluationResult { slide: slide.clone(), policy_violations };
         debug!("information about element: {:?}", result);
@@ -277,6 +309,10 @@ enum PolicyViolation {
     MaxWidth,
     /// violation of the maximum width
     MaxHeight,
+    /// code examples should not contain a vertical scrollbar
+    CodeExampleVScrollbar,
+    /// code examples should not contain a horizontal scrollbar
+    CodeExampleHScrollbar,
 }
 
 /// the SlidePolicy struct contains all parameters for evaluating a slide
