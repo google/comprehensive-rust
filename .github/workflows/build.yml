@@ -52,11 +52,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Rust cache
-        uses: ./.github/workflows/setup-rust-cache
-
       - name: Update Rust
         run: rustup update
+
+      - name: Setup Rust cache
+        uses: ./.github/workflows/setup-rust-cache
 
       - name: Build Rust code
         run: cargo build
@@ -83,6 +83,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install toolchain
+        run: |
+          rustup update
+          rustup target add ${{ matrix.target }}
+
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
 
@@ -90,11 +95,6 @@ jobs:
         run: |
           sudo apt update
           sudo apt install gcc-aarch64-linux-gnu
-
-      - name: Install toolchain
-        run: |
-          rustup update
-          rustup target add ${{ matrix.target }}
 
       - name: Build Rust code
         working-directory: ${{ matrix.directory }}
@@ -135,6 +135,9 @@ jobs:
         with:
           fetch-depth: 0 # We need the full history for build.sh below.
 
+      - name: Update Rust
+        run: rustup update
+
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
         with:
@@ -144,9 +147,6 @@ jobs:
         run: |
           sudo apt update
           sudo apt install gettext
-
-      - name: Update Rust
-        run: rustup update
 
       - name: Install mdbook
         uses: ./.github/workflows/install-mdbook
