@@ -6,7 +6,7 @@
   specifies a single function, to be called from C++, called `hello_from_rust`,
   taking no parameters and returning no value.
 - Modify your previous `hello_from_rust` function to remove `extern "C"` and
-  `#[no_mangle]`. This is now just a standard Rust function.
+  `#[unsafe(no_mangle)]`. This is now just a standard Rust function.
 - Modify your `gn` target to build these bindings.
 - In your C++ code, remove the forward-declaration of `hello_from_rust`.
   Instead, include the generated header file.

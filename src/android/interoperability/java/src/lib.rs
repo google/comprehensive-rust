@@ -20,7 +20,8 @@ use jni::sys::jstring;
 use jni::JNIEnv;
 
 /// HelloWorld::hello method implementation.
-#[no_mangle]
+// SAFETY: There is no other global function of this name.
+#[unsafe(no_mangle)]
 pub extern "system" fn Java_HelloWorld_hello(
     mut env: JNIEnv,
     _class: JClass,
