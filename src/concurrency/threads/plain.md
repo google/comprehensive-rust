@@ -28,19 +28,18 @@ fn main() {
 - Spawning new threads does not automatically delay program termination at the
   end of `main`.
 - Thread panics are independent of each other.
-  - Panics can carry a payload, which can be unpacked with `downcast_ref`.
+  - Panics can carry a payload, which can be unpacked with
+    [`Any::downcast_ref`].
 
 <details>
-
-- Rust thread APIs look not too different from e.g. C++ ones.
 
 - Run the example.
   - 5ms timing is loose enough that main and spawned threads stay mostly in
     lockstep.
   - Notice that the program ends before the spawned thread reaches 10!
-  - This is because main ends the program and spawned threads do not make it
+  - This is because `main` ends the program and spawned threads do not make it
     persist.
-    - Compare to pthreads/C++ std::thread/boost::thread if desired.
+    - Compare to `pthreads`/C++ `std::thread`/`boost::thread` if desired.
 
 - How do we wait around for the spawned thread to complete?
 - [`thread::spawn`] returns a `JoinHandle`. Look at the docs.
@@ -70,9 +69,10 @@ fn main() {
   - Main kills child threads when it returns, but another function would just
     return and leave them running.
   - That would be stack use-after-return, which violates memory safety!
-  - How do we avoid this? see next slide.
+  - How do we avoid this? See next slide.
 
 [`Any`]: https://doc.rust-lang.org/std/any/index.html
+[`Any::downcast_ref`]: https://doc.rust-lang.org/std/any/trait.Any.html#method.downcast_ref
 [`thread::spawn`]: https://doc.rust-lang.org/std/thread/fn.spawn.html
 [`.join()`]: https://doc.rust-lang.org/std/thread/struct.JoinHandle.html#method.join
 

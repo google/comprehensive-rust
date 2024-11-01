@@ -2,7 +2,7 @@
 
 - Use [`pointer::read_volatile`] and [`pointer::write_volatile`].
 - Never hold a reference.
-- Use [`addr_of!`] to get fields of structs without creating an intermediate
+- Use `&raw` to get fields of structs without creating an intermediate
   reference.
 
 [`pointer::read_volatile`]: https://doc.rust-lang.org/stable/core/primitive.pointer.html#method.read_volatile
@@ -19,7 +19,8 @@
 - Some existing crates for volatile access to hardware do hold references, but
   this is unsound. Whenever a reference exist, the compiler may choose to
   dereference it.
-- Use the `addr_of!` macro to get struct field pointers from a pointer to the
-  struct.
+- Use `&raw` to get struct field pointers from a pointer to the struct.
+- For compatibility with old versions of Rust you can use the [`addr_of!`] macro
+  instead.
 
 </details>

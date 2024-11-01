@@ -92,7 +92,7 @@ impl<const N: usize> fmt::Display for Table<N> {
         self.write_row(f, self.header.iter().map(|s| s.as_str()))?;
         self.write_row(f, self.header.iter().map(|_| "-"))?;
         for row in &self.rows {
-            self.write_row(f, row.iter().map(|s| s.as_str()))?
+            self.write_row(f, row.iter().map(|s| s.as_str()))?;
         }
         Ok(())
     }
@@ -156,42 +156,42 @@ mod test {
 
     #[test]
     fn duration_no_time() {
-        assert_eq!(duration(0), "0 minutes")
+        assert_eq!(duration(0), "0 minutes");
     }
 
     #[test]
     fn duration_single_minute() {
-        assert_eq!(duration(1), "1 minute")
+        assert_eq!(duration(1), "1 minute");
     }
 
     #[test]
     fn duration_two_minutes() {
-        assert_eq!(duration(2), "2 minutes")
+        assert_eq!(duration(2), "2 minutes");
     }
 
     #[test]
     fn duration_seven_minutes() {
-        assert_eq!(duration(7), "10 minutes")
+        assert_eq!(duration(7), "10 minutes");
     }
 
     #[test]
     fn duration_hour() {
-        assert_eq!(duration(60), "1 hour")
+        assert_eq!(duration(60), "1 hour");
     }
 
     #[test]
     fn duration_hour_mins() {
-        assert_eq!(duration(61), "1 hour and 5 minutes")
+        assert_eq!(duration(61), "1 hour and 5 minutes");
     }
 
     #[test]
     fn duration_hours() {
-        assert_eq!(duration(120), "2 hours")
+        assert_eq!(duration(120), "2 hours");
     }
 
     #[test]
     fn duration_hours_mins() {
-        assert_eq!(duration(130), "2 hours and 10 minutes")
+        assert_eq!(duration(130), "2 hours and 10 minutes");
     }
 
     #[test]

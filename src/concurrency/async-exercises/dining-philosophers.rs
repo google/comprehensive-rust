@@ -15,8 +15,7 @@
 // ANCHOR: solution
 // ANCHOR: Philosopher
 use std::sync::Arc;
-use tokio::sync::mpsc::{self, Sender};
-use tokio::sync::Mutex;
+use tokio::sync::{mpsc, Mutex};
 use tokio::time;
 
 struct Fork;
@@ -26,7 +25,7 @@ struct Philosopher {
     // ANCHOR_END: Philosopher
     left_fork: Arc<Mutex<Fork>>,
     right_fork: Arc<Mutex<Fork>>,
-    thoughts: Sender<String>,
+    thoughts: mpsc::Sender<String>,
 }
 
 // ANCHOR: Philosopher-think

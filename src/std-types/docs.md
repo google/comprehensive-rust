@@ -14,6 +14,8 @@ Rust comes with extensive documentation. For example:
   [`Option`](https://doc.rust-lang.org/stable/std/option/enum.Option.html) or
   [`BinaryHeap`](https://doc.rust-lang.org/stable/std/collections/struct.BinaryHeap.html).
 
+Use `rustup doc --std` or <https://std.rs> to view the documentation.
+
 In fact, you can document your own code:
 
 ```rust,editable
