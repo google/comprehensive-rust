@@ -15,10 +15,10 @@
 #![allow(dead_code)]
 
 // ANCHOR: main
-use zerocopy::AsBytes;
+use zerocopy::{Immutable, IntoBytes};
 
 #[repr(u32)]
-#[derive(AsBytes, Debug, Default)]
+#[derive(Debug, Default, Immutable, IntoBytes)]
 enum RequestType {
     #[default]
     In = 0,
@@ -27,7 +27,7 @@ enum RequestType {
 }
 
 #[repr(C)]
-#[derive(AsBytes, Debug, Default)]
+#[derive(Debug, Default, Immutable, IntoBytes)]
 struct VirtioBlockRequest {
     request_type: RequestType,
     reserved: u32,
