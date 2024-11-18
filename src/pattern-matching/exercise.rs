@@ -97,7 +97,7 @@ fn test_recursion() {
         left: Box::new(Expression::Op {
             op: Operation::Sub,
             left: Box::new(Expression::Value(3)),
-            right: Box::new(Expression::Value(4)),
+            right: Box::new(Expression::Value(0)),
         }),
         right: Box::new(Expression::Value(5)),
     };
@@ -107,7 +107,7 @@ fn test_recursion() {
             left: Box::new(term1),
             right: Box::new(term2),
         }),
-        Ok(85)
+        Ok(105)
     );
 }
 
