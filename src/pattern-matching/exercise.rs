@@ -112,6 +112,34 @@ fn test_recursion() {
 }
 
 #[test]
+fn test_zeros() {
+    assert_eq!(
+        eval(Expression::Op {
+            op: Operation::Add,
+            left: Box::new(Expression::Value(0)),
+            right: Box::new(Expression::Value(0))
+        }),
+        Ok(0)
+    );
+    assert_eq!(
+        eval(Expression::Op {
+            op: Operation::Mul,
+            left: Box::new(Expression::Value(0)),
+            right: Box::new(Expression::Value(0))
+        }),
+        Ok(0)
+    );
+    assert_eq!(
+        eval(Expression::Op {
+            op: Operation::Sub,
+            left: Box::new(Expression::Value(0)),
+            right: Box::new(Expression::Value(0))
+        }),
+        Ok(0)
+    );
+}
+
+#[test]
 fn test_error() {
     assert_eq!(
         eval(Expression::Op {
