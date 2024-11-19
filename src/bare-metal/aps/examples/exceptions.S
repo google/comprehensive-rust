@@ -66,8 +66,8 @@
 	ldp x29, x30, [sp, #8 * 20]
 
 	/*
-     * Restore registers elr_el1 & spsr_el1, using x0 & x1 as scratch.
-     */
+	 * Restore registers elr_el1 & spsr_el1, using x0 & x1 as scratch.
+	 */
 	ldp x0, x1, [sp, #8 * 22]
 	msr elr_el1, x0
 	msr spsr_el1, x1

@@ -68,9 +68,9 @@ SECTIONS
 	} >image
 
 	/*
-     * Everything beyond this point will not be included in the
-     * binary.
-     */
+	 * Everything beyond this point will not be included in the
+	 * binary.
+	 */
 	bin_end = .;
 
 	/* The entry point code assumes that .bss is 16-byte aligned. */
