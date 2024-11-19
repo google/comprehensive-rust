@@ -13,7 +13,8 @@ Please see the
 [Android Developer Codelab](https://source.android.com/docs/setup/start) for
 details.
 
-The code on the following pages can be found in the [`src/android/` directory](https://github.com/google/comprehensive-rust/tree/main/src/android)
+The code on the following pages can be found in the
+[`src/android/` directory](https://github.com/google/comprehensive-rust/tree/main/src/android)
 of the course material. Please `git clone` the repository to follow along.
 
 <details>
