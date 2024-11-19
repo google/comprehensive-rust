@@ -11,17 +11,13 @@ _birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:
 
 _out/soong/.intermediates/.../birthdayservice/IBirthdayService.rs_:
 
-<!-- dprint-ignore-start -->
+<!-- The example below is a cleaned up and simplified version of the real code. -->
 
 ```rust,ignore
-pub trait IBirthdayService: binder::Interface + Send {
-  fn get_descriptor() -> &'static str where Self: Sized { "com.example.birthdayservice.IBirthdayService" }
-  fn r#wishHappyBirthday(&self, _arg_name: &str, _arg_years: i32) -> binder::Result<String>;
-  // ... more methods ...
+trait IBirthdayService {
+    fn wishHappyBirthday(&self, name: &str, years: i32) -> binder::Result<String>;
 }
 ```
-
-<!-- dprint-ignore-end -->
 
 Your service will need to implement this trait, and your client will use this
 trait to talk to the service.
