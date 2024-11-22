@@ -34,18 +34,22 @@
 .set .L_TCR_TG0_4KB, 0x0 << 14
 /* 4 KiB granule size for TTBR1_EL1. */
 .set .L_TCR_TG1_4KB, 0x2 << 30
-/* Disable translation table walk for TTBR1_EL1, generating a translation fault instead. */
+
+/*
+ * Disable translation table walk for TTBR1_EL1, generating a
+ * translation fault instead.
+ */
 .set .L_TCR_EPD1, 0x1 << 23
 /* Translation table walks for TTBR0_EL1 are inner sharable. */
 .set .L_TCR_SH_INNER, 0x3 << 12
 /*
- * Translation table walks for TTBR0_EL1 are outer write-back read-allocate write-allocate
- * cacheable.
+ * Translation table walks for TTBR0_EL1 are outer write-back
+ * read-allocate write-allocate cacheable.
  */
 .set .L_TCR_RGN_OWB, 0x1 << 10
 /*
- * Translation table walks for TTBR0_EL1 are inner write-back read-allocate write-allocate
- * cacheable.
+ * Translation table walks for TTBR0_EL1 are inner write-back
+ * read-allocate write-allocate cacheable.
  */
 .set .L_TCR_RGN_IWB, 0x1 << 8
 /* Size offset for TTBR0_EL1 is 2**39 bytes (512 GiB). */
@@ -61,7 +65,9 @@
 .set .L_SCTLR_ELx_C, 0x1 << 2
 /* EL0 and EL1 stage 1 MMU enabled. */
 .set .L_SCTLR_ELx_M, 0x1 << 0
-/* Privileged Access Never is unchanged on taking an exception to EL1. */
+/*
+ * Privileged Access Never is unchanged on taking an exception to EL1.
+ */
 .set .L_SCTLR_EL1_SPAN, 0x1 << 23
 /* SETEND instruction disabled at EL0 in aarch32 mode. */
 .set .L_SCTLR_EL1_SED, 0x1 << 8
@@ -72,18 +78,20 @@
 .set .Lsctlrval, .Lsctlrval | .L_SCTLR_ELx_I | .L_SCTLR_EL1_SPAN | .L_SCTLR_EL1_RES1
 
 /**
- * This is a generic entry point for an image. It carries out the operations required to prepare the
- * loaded image to be run. Specifically, it zeroes the bss section using registers x25 and above,
- * prepares the stack, enables floating point, and sets up the exception vector. It preserves x0-x3
- * for the Rust entry point, as these may contain boot parameters.
+ * This is a generic entry point for an image. It carries out the
+ * operations required to prepare the loaded image to be run.
+ * Specifically, it zeroes the bss section using registers x25 and
+ * above, prepares the stack, enables floating point, and sets up the
+ * exception vector. It preserves x0-x3 for the Rust entry point, as
+ * these may contain boot parameters.
  */
 // ANCHOR: entry
 .section .init.entry, "ax"
 .global entry
 entry:
     /*
-     * Load and apply the memory management configuration, ready to enable MMU and
-     * caches.
+     * Load and apply the memory management configuration, ready to
+     * enable MMU and caches.
      */
     adrp x30, idmap
     msr ttbr0_el1, x30
@@ -101,8 +109,9 @@ entry:
     mov_i x30, .Lsctlrval
 
     /*
-     * Ensure everything before this point has completed, then invalidate any
-     * potentially stale local TLB entries before they start being used.
+     * Ensure everything before this point has completed, then
+     * invalidate any potentially stale local TLB entries before they
+     * start being used.
      */
     isb
     tlbi vmalle1
@@ -111,8 +120,8 @@ entry:
     isb
 
     /*
-     * Configure sctlr_el1 to enable MMU and cache and don't proceed until this
-     * has completed.
+     * Configure sctlr_el1 to enable MMU and cache and don't proceed
+     * until this has completed.
      */
     msr sctlr_el1, x30
     isb

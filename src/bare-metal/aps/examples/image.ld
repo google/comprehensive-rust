@@ -15,8 +15,8 @@
  */
 
 /*
- * Code will start running at this symbol which is placed at the start of the
- * image.
+ * Code will start running at this symbol which is placed at the start
+ * of the image.
  */
 ENTRY(entry)
 
@@ -53,8 +53,8 @@ SECTIONS
 	rodata_end = .;
 
 	/*
-	 * Collect together the read-write data including .bss at the end which
-	 * will be zero'd by the entry code.
+	 * Collect together the read-write data including .bss at the end
+	 * which will be zero'd by the entry code.
 	 */
 	.data : ALIGN(4096) {
 		data_begin = .;
@@ -67,7 +67,10 @@ SECTIONS
 		data_end = .;
 	} >image
 
-	/* Everything beyond this point will not be included in the binary. */
+	/*
+	 * Everything beyond this point will not be included in the
+	 * binary.
+	 */
 	bin_end = .;
 
 	/* The entry point code assumes that .bss is 16-byte aligned. */
