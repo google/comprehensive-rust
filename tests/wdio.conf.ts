@@ -52,7 +52,11 @@ export const config: WebdriverIO.Config = {
   capabilities: [
     {
       // capabilities for local browser web tests
-      browserName: "chrome", // or "firefox", "microsoftedge", "safari"
+      browserName: "chrome",
+      "goog:chromeOptions": {
+        // comment this to see the evaluation
+        args: ["headless", "disable-gpu"],
+      },
     },
   ],
 

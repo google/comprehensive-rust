@@ -181,6 +181,17 @@ jobs:
           MDBOOK_BOOK__LANGUAGE: ${{ matrix.language }}
         run: mdbook test
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install test framework
+        run: npm install
+        working-directory: ./tests
+      - name: Test Javascript
+        run: npm run wdio
+        working-directory: ./tests
+
   po-diff:
     name: Translation diff
     runs-on: ubuntu-latest
