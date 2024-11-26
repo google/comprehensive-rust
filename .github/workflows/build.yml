@@ -190,6 +190,8 @@ jobs:
         working-directory: ./tests
       - name: Test Javascript
         run: npm run wdio
+        env:
+          TEST_BOOK_DIR: ../book/comprehensive-rust-${{ matrix.language }}/html
         working-directory: ./tests
 
   po-diff:

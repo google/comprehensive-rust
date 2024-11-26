@@ -1,3 +1,4 @@
+import { env } from "node:process";
 export const config: WebdriverIO.Config = {
   //
   // ====================
@@ -112,7 +113,8 @@ export const config: WebdriverIO.Config = {
       "static-server",
       {
         port: 8080,
-        folders: [{ mount: "/", path: "../book/html" }],
+        // use the environment variable "TEST_BOOK_DIR" if available or default to ""../book/html"
+        folders: [{ mount: "/", path: env.TEST_BOOK_DIR || "../book/html" }],
       },
     ],
   ],
