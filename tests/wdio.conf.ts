@@ -87,7 +87,7 @@ export const config: WebdriverIO.Config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  // baseUrl: 'http://localhost:8080',
+  baseUrl: "http://localhost:8080",
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -103,7 +103,15 @@ export const config: WebdriverIO.Config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  // services: [],
+  services: [
+    [
+      "static-server",
+      {
+        port: 8080,
+        folders: [{ mount: "/", path: "../book/html" }],
+      },
+    ],
+  ],
   //
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber

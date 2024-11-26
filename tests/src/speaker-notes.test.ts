@@ -3,7 +3,7 @@ import { $, expect, browser } from "@wdio/globals";
 
 describe("speaker-notes", () => {
   beforeEach(async () => {
-    await browser.url("https://google.github.io/comprehensive-rust/");
+    await browser.url("/");
   });
 
   it("contains summary with heading and button", async () => {
