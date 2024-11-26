@@ -29,15 +29,36 @@ message Person {
 }
 ```
 
+## Messages
+
 A proto message is encoded as a series of fields, one after the next. Each is
 implemented as a "tag" followed by the value. The tag contains a field number
 (e.g., `2` for the `id` field of a `Person` message) and a wire type defining
-how the payload should be determined from the byte stream.
+how the payload should be determined from the byte stream. These are combined
+into a single integer, as decoded in `unpack_tag` below.
+
+## Varint
 
 Integers, including the tag, are represented with a variable-length encoding
-called VARINT. Luckily, `parse_varint` is defined for you below. The given code
-also defines callbacks to handle `Person` and `PhoneNumber` fields, and to parse
-a message into a series of calls to those callbacks.
+called VARINT. Luckily, `parse_varint` is defined for you below.
+
+## Wire Types
+
+Proto defines several wire types, only two of which are used in this exercise.
+
+The `Varint` wire type contains a single varint, and is used to encode proto
+values of type `int32` such as `Person.id`.
+
+The `Len` wire type contains a length expressed as a varint, followed by a
+payload of that number of bytes. This is used to encode proto values of type
+`string` such as `Person.name`. It is also used to encode proto values
+containing sub-messages such as `Person.phones`, where the payload contains an
+encoding of the sub-message.
+
+## Exercise
+
+The given code also defines callbacks to handle `Person` and `PhoneNumber`
+fields, and to parse a message into a series of calls to those callbacks.
 
 What remains for you is to implement the `parse_field` function and the
 `ProtoMessage` trait for `Person` and `PhoneNumber`.
