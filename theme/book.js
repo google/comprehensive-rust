@@ -110,17 +110,10 @@ function playground_text(playground, hidden = true) {
     }
 
     function run_rust_code(code_block) {
-        var result_stderr_block = code_block.querySelector(".result.stderr");
-        if (!result_stderr_block) {
-            result_stderr_block = document.createElement('code');
-            result_stderr_block.className = 'result stderr hljs nohighlight hidden';
-
-            code_block.append(result_stderr_block);
-        }
-        var result_block = code_block.querySelector(".result.stdout");
+        var result_block = code_block.querySelector(".result");
         if (!result_block) {
             result_block = document.createElement('code');
-            result_block.className = 'result stdout hljs nohighlight';
+            result_block.className = 'result hljs language-bash';
 
             code_block.append(result_block);
         }
@@ -134,13 +127,10 @@ function playground_text(playground, hidden = true) {
             edition = "2021";
         }
         var params = {
-            backtrace: true,
-            channel: "stable",
+            version: "stable",
+            optimize: "0",
             code: text,
-            edition: edition,
-            mode: "debug",
-            tests: false,
-            crateType: "bin",
+            edition: edition
         };
 
         if (text.indexOf("#![feature") !== -1) {
@@ -148,13 +138,10 @@ function playground_text(playground, hidden = true) {
         }
 
         result_block.innerText = "Running...";
-        // hide stderr block while running
-        result_stderr_block.innerText = "";
-        result_stderr_block.classList.add("hidden");
 
         const playgroundModified = isPlaygroundModified(code_block);
         const startTime = window.performance.now();
-        fetch_with_timeout("https://play.rust-lang.org/execute", {
+        fetch_with_timeout("https://play.rust-lang.org/evaluate.json", {
             headers: {
                 'Content-Type': "application/json",
             },
@@ -171,25 +158,12 @@ function playground_text(playground, hidden = true) {
                 "latency": (endTime - startTime) / 1000,
             });
 
-            if (response.stdout.trim() === '') {
+            if (response.result.trim() === '') {
                 result_block.innerText = "No output";
                 result_block.classList.add("result-no-output");
             } else {
-                result_block.innerText = response.stdout;
+                result_block.innerText = response.result;
                 result_block.classList.remove("result-no-output");
-            }
-
-            // trim compile message
-            // ====================
-            // Compiling playground v0.0.1 (/playground)
-            // Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.60s
-            // Running `target/debug/playground`
-            // ====================
-            const compileMsgRegex = /^\s+Compiling(.+)\s+Finished(.+)\s+Running(.+)\n/;
-            response.stderr = response.stderr.replace(compileMsgRegex, "");
-            if (response.stderr.trim() !== '') {
-                result_stderr_block.classList.remove("hidden");
-                result_stderr_block.innerText = response.stderr;
             }
         })
         .catch(error => {
