@@ -23,8 +23,8 @@ type PlayerInventory = RwLock<Vec<Arc<RefCell<Item>>>>;
 
 <details>
 
-- A [newtype](tuple-structs.html) is often a better alternative since
-  it creates a distinct type. Prefer `struct InventoryCount(usize)` to
+- A [newtype](tuple-structs.html) is often a better alternative since it creates
+  a distinct type. Prefer `struct InventoryCount(usize)` to
   `type InventoryCount = usize`.
 
 - C programmers will recognize this as similar to a `typedef`.
