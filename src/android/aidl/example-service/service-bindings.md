@@ -1,7 +1,6 @@
 # Generated Service API
 
-Binder generates a trait corresponding to the interface definition. trait to
-talk to the service.
+Binder generates a trait for each interface definition.
 
 _birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:
 
@@ -10,7 +9,9 @@ _birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:
 }
 ```
 
-_Generated trait_:
+_out/soong/.intermediates/.../birthdayservice/IBirthdayService.rs_:
+
+<!-- The example below is a cleaned up and simplified version of the real code. -->
 
 ```rust,ignore
 trait IBirthdayService {
@@ -23,8 +24,6 @@ trait to talk to the service.
 
 <details>
 
-- The generated bindings can be found at
-  `out/soong/.intermediates/<path to module>/`.
 - Point out how the generated function signature, specifically the argument and
   return types, correspond the interface definition.
   - `String` for an argument results in a different Rust type than `String` as a
