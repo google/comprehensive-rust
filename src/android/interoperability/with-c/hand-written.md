@@ -19,3 +19,10 @@ We already saw this in the
 
 > This assumes full knowledge of the target platform. Not recommended for
 > production.
+
+<details>
+
+- This is just a motivating example. For a real library, you want to use
+  `bindgen` as shown on the next slide.
+
+</details>
