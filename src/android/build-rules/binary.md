@@ -24,3 +24,16 @@ You can now build, push, and run the binary:
 ```text
 Hello from Rust!
 ```
+
+<details>
+
+- Go through the build steps and demonstrate them running in your emulator.
+
+- Notice the extensive documentation comments? The Android build rules enforce
+  that all modules have documentation. Try removing it and see what error you
+  get.
+
+- Stress that the Rust build rules look like the other Soong rules. This is on
+  purpose to make it as easy to use Rust as C++ or Java.
+
+</details>
