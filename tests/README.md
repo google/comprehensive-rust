@@ -1,4 +1,4 @@
-# Testing the comprehensive rust course book
+# Testing Comprehensive Rust
 
 The course material contains JS code that can break and needs to be checked for
 functionality. Examples are `theme/speaker-notes.js` or `theme/book.js`.
@@ -11,7 +11,7 @@ so behavior can be asserted.
 
 The [Static Server Service](https://webdriver.io/docs/static-server-service/) is
 used mainly in the [CI](../github/workflows/build.yml) to serve the book on port
-localhost:8080 such that the test runner can access it. This mode is used when
+`localhost:8080` such that the test runner can access it. This mode is used when
 `npm start` or `npm test` is executed.
 
 For local testing and quick iterations it is possible to use `mdbook serve`
