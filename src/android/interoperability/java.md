@@ -38,3 +38,14 @@ Finally, you can build, sync, and run the binary:
 ```shell
 {{#include ../build_all.sh:helloworld_jni}}
 ```
+
+<details>
+
+- The `unsafe(no_mangle)` attribute instructs Rust to emit the
+  `Java_HelloWorld_hello` symbol exactly as written. This is important so that
+  Java can recognize the symbol as a `hello` method on the `HelloWorld` class.
+
+  - By default, Rust will mangle (rename) symbols so that a binary can link in
+    two versions of the same Rust crate.
+
+</details>
