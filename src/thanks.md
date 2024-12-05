@@ -12,7 +12,6 @@ so if you spotted any mistakes or have ideas for improvements, please get in
 [contact with us on GitHub](https://github.com/google/comprehensive-rust/discussions).
 We would love to hear from you.
 
-
 <details>
 
 - Thank you for reading the speaker notes! We hope they have been useful. If you
