@@ -100,6 +100,11 @@ where `xx` is the ISO 639 language code (e.g. `da` for the Danish translation).
 > **Note** On Windows, you need to enable symlinks
 > (`git config --global core.symlinks true`) and Developer Mode.
 
+## Contributing
+
+We would like to receive your contributions. Please see
+[CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
 ## Contact
 
 For questions or comments, please contact

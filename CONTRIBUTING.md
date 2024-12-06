@@ -8,6 +8,18 @@ the [instructions in the README].
 
 [instructions in the README]: README.md#building
 
+## Testing
+
+We test the course material in several ways:
+
+- `mdbook test`: This will test the code samples. Some code sampes are marked
+  with `ignore` in the Markdown file because the Playground is missing some of
+  the crates we use. For this we have
+- `cargo test`: This will build and test the Rust code found in our tooling, as
+  well as the code samples which cannot be tested using the Playground.
+- `npm test`: This will test the functionality of the rendered web pages. See
+  the [testing README](tests/README.md) for details.
+
 ## Formatting
 
 Please ensure that your files are formatted consistently. We use a few tools for
