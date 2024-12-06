@@ -80,6 +80,15 @@ cargo run
   `www.google.org` domain. Put an upper limit of 100 pages or so so that you
   don't end up being blocked by the site.
 
+<details>
+
+- This is a complex exercise and intended to give students an opportunity to
+  work on a larger project than others. A success condition for this exercise is
+  to get stuck on some "real" issue and work through it with the support of
+  other students or the instructor.
+
+</details>
+
 [1]: https://docs.rs/reqwest/
 [2]: https://docs.rs/scraper/
 [3]: https://docs.rs/thiserror/
