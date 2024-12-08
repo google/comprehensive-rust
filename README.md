@@ -68,25 +68,19 @@ cd comprehensive-rust
 Then install these tools with:
 
 ```shell
-cargo install mdbook
-cargo install --locked mdbook-svgbob
-cargo install --locked mdbook-i18n-helpers
-cargo install --locked i18n-report
-cargo install --locked mdbook-linkcheck
-cargo install --locked --path mdbook-exerciser
-cargo install --locked --path mdbook-course
+make install
 ```
 
 Run
 
 ```shell
-mdbook test
+make test
 ```
 
 to test all included Rust snippets. Run
 
 ```shell
-mdbook serve
+make serve
 ```
 
 to start a web server with the course. You'll find the content on
