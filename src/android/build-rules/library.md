@@ -38,3 +38,15 @@ You build, push, and run the binary like before:
 Hello Bob, it is very
 nice to meet you!
 ```
+
+<details>
+
+- Go through the build steps and demonstrate them running in your emulator.
+
+- A Rust crate named `greetings` must be built by a rule called `libgreetings`.
+  Note how the Rust code uses the crate name, as is normal in Rust.
+
+- Again, the build rules enforce that we add documentation comments to all
+  public items.
+
+</details>
