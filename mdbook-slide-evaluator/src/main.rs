@@ -61,6 +61,9 @@ struct Args {
     violations_only: bool,
     /// directory of the book that is evaluated
     source_dir: PathBuf,
+    /// ignore HTML pages that redirect to canonical pages
+    #[arg(long, default_value_t = false)]
+    ignore_redirects: bool,
 }
 
 #[tokio::main]
@@ -71,7 +74,8 @@ async fn main() -> anyhow::Result<()> {
     let args = Args::parse();
 
     // gather information about the book from the filesystem
-    let book = Book::from_html_slides(args.source_dir.clone())?;
+    let book =
+        Book::from_html_slides(args.source_dir.clone(), args.ignore_redirects)?;
 
     // create a new webclient that is used by the evaluator
     let webclient: fantoccini::Client =
