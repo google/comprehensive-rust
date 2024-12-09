@@ -73,3 +73,14 @@ _interoperability/bindgen/Android.bp_:
 ```shell
 {{#include ../../build_all.sh:libbirthday_bindgen_test}}
 ```
+
+<details>
+
+- The Android build rules will automatically call `bindgen` for you behind the
+  scenes.
+
+- Notice that the Rust code in `main` is still hard to write. It is good
+  practice to encapsulate the output of `bindgen` in a Rust library which
+  exposes a safe interface to caller.
+
+</details>
