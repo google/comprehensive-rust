@@ -29,7 +29,7 @@ To get started, install some tools we'll need later. On gLinux or Debian:
 <!-- mdbook-xgettext: skip -->
 
 ```bash
-sudo apt install gdb-multiarch libudev-dev picocom pkg-config qemu-system-arm
+sudo apt install gdb-multiarch libudev-dev picocom pkg-config qemu-system-arm build-essentials
 rustup update
 rustup target add aarch64-unknown-none thumbv7em-none-eabihf
 rustup component add llvm-tools-preview
@@ -46,6 +46,11 @@ echo 'SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0d28", MODE="0660", GROUP="logindev
   sudo tee /etc/udev/rules.d/50-microbit.rules
 sudo udevadm control --reload-rules
 ```
+
+You should see "NXP ARM mbed" in the output of `lsusb` if the device is
+available. If you are using a Linux environment on a Chromebook, you will need
+to share the USB device with linux, via
+`chrome://os-settings/crostini/sharedUsbDevices`.
 
 On MacOS:
 
