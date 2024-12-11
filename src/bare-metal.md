@@ -49,7 +49,7 @@ sudo udevadm control --reload-rules
 
 You should see "NXP ARM mbed" in the output of `lsusb` if the device is
 available. If you are using a Linux environment on a Chromebook, you will need
-to share the USB device with linux, via
+to share the USB device with Linux, via
 `chrome://os-settings/crostini/sharedUsbDevices`.
 
 On MacOS:
