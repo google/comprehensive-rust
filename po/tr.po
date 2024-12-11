@@ -3959,17 +3959,15 @@ msgid "Welcome Back"
 msgstr "Tekrar Hoş Geldiniz"
 
 #: src/welcome-day-1-afternoon.md
-#, fuzzy
 msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 35 "
 "minutes. It contains:"
 msgstr ""
-"Bu oturum 10 dakikalık aralar dahil yaklaşık 2 saat 35 dakika sürecektir"
+"10 dakikalık aralar, bu oturum yaklaşık 2 saat 35 dakika sürmelidir. İçeriği:"
 
 #: src/tuples-and-arrays.md
-#, fuzzy
 msgid "This segment should take about 35 minutes. It contains:"
-msgstr "Bu bölüm yaklaşık 35 dakika sürmelidir"
+msgstr "Bu bölüm yaklaşık 35 dakika sürmelidir. İçeriği:"
 
 #: src/tuples-and-arrays.md
 msgid ""
@@ -3985,6 +3983,11 @@ msgid ""
 "different types. Slices, which have a size determined at runtime, are "
 "covered later."
 msgstr ""
+"Bir `[T; N]` dizi türünün değeri , aynı `T` türdeki `N` (derleme zamanı "
+"sabiti) öğelerini/elemanlarını tutar. Dizinin uzunluğunun _türünün parçası_ "
+"olduğuna dikkat edin, bu da `[u8; 3]' ve '[u8; 4]` dizilerinin iki farklı "
+"tür olarak kabul edildiği anlamına gelir. Dilimler (slices), ki çalışma "
+"zamanında belirlenen bir boyuta sahiptir, daha sonra ele alınacaktır."
 
 #: src/tuples-and-arrays/arrays.md
 msgid ""
@@ -3992,10 +3995,14 @@ msgid ""
 "runtime. Rust can usually optimize these checks away, and they can be "
 "avoided using unsafe Rust."
 msgstr ""
+"Sınırların dışında bir dizi öğesine erişmeyi deneyin. Dizi erişimleri "
+"çalışma zamanında (runtime) kontrol edilir. Rust genellikle bu kontrolleri "
+"optimize edebilir ve emniyetsiz Rust (unsafe Rust) kullanılarak bu "
+"kontrollerden kaçınılabilir."
 
 #: src/tuples-and-arrays/arrays.md
 msgid "We can use literals to assign values to arrays."
-msgstr ""
+msgstr "Dizilere değer atamak için değişmezleri (literals) kullanabiliriz."
 
 #: src/tuples-and-arrays/arrays.md
 msgid ""
@@ -4005,50 +4012,73 @@ msgid ""
 "only implement the debug output. This means that we must use debug output "
 "here."
 msgstr ""
+"`println!` makrosu `?` biçim (format) parametresiyle hata ayıklama "
+"gerçekleştirimini/uyarlamasını (implementation) ister: `{}` varsayılan "
+"çıktıyı verir, `{:?}` hata ayıklama çıktısını verir. Tamsayılar (integer) ve "
+"dizeler (string) gibi türler varsayılan çıktıyı uygular (default output), "
+"ancak diziler (arrays) yalnızca hata ayıklama çıktısını (debug output) "
+"uygular. Bu, bahsi geçen kodda hata ayıklama çıktısını kullanmamız gerektiği "
+"anlamına gelir."
 
 #: src/tuples-and-arrays/arrays.md
 msgid ""
 "Adding `#`, eg `{a:#?}`, invokes a \"pretty printing\" format, which can be "
 "easier to read."
 msgstr ""
+"`#` eklemek, örneğin `{a:#?}`, okunması daha kolay olabilecek \"güzel "
+"yazdırma (pretty printing)\" biçimini (format) çağırır."
 
 #: src/tuples-and-arrays/tuples.md
 msgid "Like arrays, tuples have a fixed length."
-msgstr ""
+msgstr "Diziler gibi, demetlerin (tuple) de sabit bir uzunluğu vardır."
 
 #: src/tuples-and-arrays/tuples.md
 msgid "Tuples group together values of different types into a compound type."
 msgstr ""
+"Demetler farklı türdeki değerleri bir bileşik tür (compound type) halinde "
+"gruplandırır."
 
 #: src/tuples-and-arrays/tuples.md
 msgid ""
 "Fields of a tuple can be accessed by the period and the index of the value, "
 "e.g. `t.0`, `t.1`."
 msgstr ""
+"Bir demetin alanlarına (fields) nokta ve değerin indeksi ile erişilebilir, "
+"örneğin `t.0`, `t.1`."
 
 #: src/tuples-and-arrays/tuples.md
 msgid ""
 "The empty tuple `()` is referred to as the \"unit type\" and signifies "
 "absence of a return value, akin to `void` in other languages."
 msgstr ""
+"Boş demet `()`, \"birim türü (unit type)\" olarak anılır ve, diğer "
+"dillerdeki `void`'e benzer şekilde, bir geri dönüş değerinin (return value) "
+"bulunmadığını belirtir."
 
 #: src/tuples-and-arrays/iteration.md
 msgid "The `for` statement supports iterating over arrays (but not tuples)."
 msgstr ""
+"'for' deyimi diziler üzerinde adımlamayı/dolaşmayı destekler (ancak demetler "
+"(tuples) üzerinde desteklemez)."
 
 #: src/tuples-and-arrays/iteration.md
 msgid ""
 "This functionality uses the `IntoIterator` trait, but we haven't covered "
 "that yet."
 msgstr ""
+"Bu fonksiyonellik `IntoIterator` özelliğini (trait) kullanıyor, ancak bunu "
+"henüz ele almadık."
 
 #: src/tuples-and-arrays/iteration.md
-#, fuzzy
 msgid ""
 "The `assert_ne!` macro is new here. There are also `assert_eq!` and `assert!"
 "` macros. These are always checked, while debug-only variants like "
 "`debug_assert!` compile to nothing in release builds."
 msgstr ""
+"`assert_ne!` makrosu burada yenidir. Ayrıca `assert_eq!` ve `assert!` "
+"makroları da vardır. Bunlar her zaman kontrol edilirken, `debug_assert!` "
+"gibi yalnızca hata ayıklama varyantları sürüm inşasında (release build) "
+"hiçbir şeye derlenmez."
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
@@ -4056,16 +4086,22 @@ msgid ""
 "extract the inner values into local variables. This can be done manually by "
 "directly accessing the inner values:"
 msgstr ""
+"Demetler (tuples) ve diğer yapılandırılmış değerlerle (structured values) "
+"çalışırken, içteki değerleri yerel (local) değişkenlere çıkarmayı istemek "
+"yaygındır. Bu, doğrudan iç değerlere erişilerek elle yapılabilir:"
 
 #: src/tuples-and-arrays/destructuring.md
 msgid "\"left: {left}, right: {right}\""
-msgstr ""
+msgstr "\"sol: {left}, sağ: {right}\""
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
 "However, Rust also supports using pattern matching to destructure a larger "
 "value into its constituent parts:"
 msgstr ""
+"Ancak, Rust daha büyük bir değeri kendisini oluşturan parçalara çözümlemek "
+"(destructure) için desen eşleştirmeyi (pattern matching) kullanmayı da "
+"destekliyor:"
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
@@ -4073,12 +4109,18 @@ msgid ""
 "statically verify that the value on the right of `=` has the same structure "
 "as the pattern."
 msgstr ""
+"Burada kullanılan desenler \"reddedilemez (irrefutable)\"dir, yani derleyici "
+"`=` sağındaki değerin desenle aynı yapıya sahip olduğunu statik olarak "
+"doğrulayabilir."
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
 "A variable name is an irrefutable pattern that always matches any value, "
 "hence why we can also use `let` to declare a single variable."
 msgstr ""
+"Bir değişken adı, her zaman herhangi bir değerle eşleşen reddedilemez "
+"(irrefutable) bir desendir, bu nedenle tek bir değişkeni bildirmek için "
+"`let`'i kullanabiliriz."
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
@@ -4086,49 +4128,61 @@ msgid ""
 "comparison and destructuring to happen at the same time. This form of "
 "pattern matching will be discussed in more detail later."
 msgstr ""
+"Rust ayrıca koşullu ifadelerde desenlerin (patterns) kullanılmasını "
+"destekleyerek eşitlik karşılaştırmasının (comparison) ve çözümlenmenin "
+"(destructuring) aynı anda gerçekleşmesine olanak tanır. Bu desen eşleştirme "
+"stili daha sonra daha ayrıntılı olarak tartışılacaktır."
 
 #: src/tuples-and-arrays/destructuring.md
 msgid ""
 "Edit the examples above to show the compiler error when the pattern doesn't "
 "match the value being matched on."
 msgstr ""
+"Desenin (pattern) eşleştirilen değerle eşleşmediğinde oluşacak derleyici "
+"hatasını göstermek için yukarıdaki örnekleri düzenleyin."
 
 #: src/tuples-and-arrays/exercise.md
 msgid "Arrays can contain other arrays:"
-msgstr ""
+msgstr "Diziler başka diziler de içerebilir:"
 
 #: src/tuples-and-arrays/exercise.md
 msgid "What is the type of this variable?"
-msgstr ""
+msgstr "Bu değişkenin türü nedir?"
 
 #: src/tuples-and-arrays/exercise.md
 msgid ""
 "Use an array such as the above to write a function `transpose` which will "
 "transpose a matrix (turn rows into columns):"
 msgstr ""
+"Bir matrisin devrini yapacak (satırları sütunlara çevirecek) `transpose` "
+"fonksiyonu yazmak için yukarıdaki gibi bir dizi kullanın:"
 
 #: src/tuples-and-arrays/exercise.md
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and implement the "
 "function. This function only operates on 3x3 matrices."
 msgstr ""
+"Aşağıdaki kodu <https://play.rust-lang.org/> adresine kopyalayın ve "
+"fonksiyonu uygulayın (implement). Bu fonksiyon yalnızca 3x3'lük matrislerde "
+"çalışır."
 
 #: src/tuples-and-arrays/exercise.md src/borrowing/exercise.md
 #: src/unsafe-rust/exercise.md
 msgid "// TODO: remove this when you're done with your implementation.\n"
 msgstr ""
+"// TODO: uyarlamanız (implementation) bittiğinde bu yorum satırını silin.\n"
 
 #: src/tuples-and-arrays/exercise.md src/tuples-and-arrays/solution.md
 msgid "//\n"
-msgstr ""
+msgstr "//\n"
 
 #: src/tuples-and-arrays/exercise.md src/tuples-and-arrays/solution.md
 msgid "// <-- the comment makes rustfmt add a newline\n"
-msgstr ""
+msgstr "// <-- bu yorum, rustfmt'nin yeni satır eklemesini sağlar\n"
 
 #: src/tuples-and-arrays/exercise.md src/tuples-and-arrays/solution.md
 msgid "\"matrix: {:#?}\""
-msgstr ""
+msgstr "\"matrix: {:#?}\""
 
 #: src/tuples-and-arrays/exercise.md src/tuples-and-arrays/solution.md
 msgid "\"transposed: {:#?}\""
@@ -4136,16 +4190,19 @@ msgstr "\"transposed: {:#?}\""
 
 #: src/references.md src/smart-pointers.md src/borrowing.md
 #: src/concurrency/async-pitfalls.md
-#, fuzzy
 msgid "This segment should take about 55 minutes. It contains:"
+msgstr "Bu bölüm yaklaşık 55 dakika sürmelidir. İçerir:"
 
 #: src/references/shared.md
-#, fuzzy
 msgid ""
 "A reference provides a way to access another value without taking ownership "
 "of the value, and is also called \"borrowing\". Shared references are read-"
 "only, and the referenced data cannot change."
 msgstr ""
+"Bir referans, değerin sahipliğini almadan başka bir değere erişmenin bir "
+"yolunu sağlar ve \"ödünç alma (borrowing)\" olarak da adlandırılır. "
+"Paylaşılan referanslar (shared reference) salt okunurdur (read-only) ve "
+"referans edilen veriler değiştirilemez."
 
 #: src/references/shared.md
 msgid ""
@@ -4153,10 +4210,22 @@ msgid ""
 "with the `&` operator. The `*` operator \"dereferences\" a reference, "
 "yielding its value."
 msgstr ""
+"`T` türüne yönelik paylaşılan referansın türü `&T`'dir. `&` operatörüyle bir "
+"referans değeri (reference value) oluşturulur. `*` operatörü bir referansın "
+"içeriğine eriştirir (dereference) ve onun değerini verir."
 
 #: src/references/shared.md
 msgid "Rust will statically forbid dangling references:"
 msgstr ""
+"Rust, boşa düşen referansları (dangling references) statik olarak "
+"yasaklayacaktır:"
+
+#: src/references/shared.md
+msgid ""
+"References can never be null in Rust, so null checking is not necessary."
+msgstr ""
+"Rust'ta referanslar hiçbir zaman null olamaz, bu yüzden null kontrolü (null "
+"checking) gerekli değildir."
 
 #: src/references/shared.md
 msgid ""
@@ -4165,6 +4234,11 @@ msgid ""
 "access the value, but is still \"owned\" by the original variable. The "
 "course will get into more detail on ownership in day 3."
 msgstr ""
+"Bir referansın, atıfta bulunduğu (refer) değeri \"ödünç aldığı (barrow)\" "
+"söylenir ve bu, göstericilere aşina olmayan öğrenciler için iyi bir "
+"modeldir: kod, değere erişmek için referansı kullanabilir, ancak değer yine "
+"de orijinal değişken tarafından \"sahiplidir (owned)\". Kurs, 3. günde "
+"sahiplik (ownership) konusunda daha ayrıntılı bilgi verecektir."
 
 #: src/references/shared.md
 msgid ""
@@ -4174,12 +4248,20 @@ msgid ""
 "cover how Rust prevents the memory-safety bugs that come from using raw "
 "pointers."
 msgstr ""
+"Referanslar göstericiler (pointers) olarak uyarlanır/uygulanır (implement) "
+"ve önemli bir avantaj şudur ki, gösterdikleri şeyin boyutundan çok daha "
+"küçük olabilmeleridir. C veya C++'a aşina olan öğrenciler referansları "
+"göstericiler olarak tanıyacaklardır. Kursun ilerleyen bölümlerinde Rust'ın, "
+"ham göstericilerin (raw pointers) kullanılmasından kaynaklanan bellek "
+"emniyeti hatalarını (memory-safety bugs) nasıl önlediği ele alınacaktır."
 
 #: src/references/shared.md
 msgid ""
 "Rust does not automatically create references for you - the `&` is always "
 "required."
 msgstr ""
+"Rust sizin için otomatik olarak referans oluşturmaz. `&` her zaman "
+"gereklidir."
 
 #: src/references/shared.md
 msgid ""
@@ -4187,6 +4269,9 @@ msgid ""
 "methods (try `r.is_ascii()`). There is no need for an `->` operator like in "
 "C++."
 msgstr ""
+"Rust bazı durumlarda, özellikle de metotları çağırırken (`r.is_ascii()`'i "
+"deneyin) otomatik olarak referansın içeriğine erişecektir (auto-"
+"dereference). C++'daki gibi `->` operatörüne gerek yoktur."
 
 #: src/references/shared.md
 msgid ""
@@ -4195,12 +4280,20 @@ msgid ""
 "different from C++, where assignment to a reference changes the referenced "
 "value."
 msgstr ""
+"Bu örnekte, `r` değiştirilebilir (mutable) olduğundan ona tekrar atama "
+"yapılabilir (reassigned) (`r = &b`). Bunun `r`'yi yeniden bağladığını (re-"
+"bind) ve böylece başka bir şeye atıfta bulunduğunu (refer) unutmayın. Bu C++ "
+"dilinden, bir referansa atamanın (assignment) referans verilenin değerini "
+"değiştirmesinden, farklıdır."
 
 #: src/references/shared.md
 msgid ""
 "A shared reference does not allow modifying the value it refers to, even if "
 "that value was mutable. Try `*r = 'X'`."
 msgstr ""
+"Paylaşılan bir referans (shared reference), atıfta bulunduğu (refer) değerin "
+"değiştirilmesine (modify), bu değer değiştirilebilir (mutable) olsa bile, "
+"izin vermez. `*r = 'X'`'i deneyin."
 
 #: src/references/shared.md
 msgid ""
@@ -4209,16 +4302,26 @@ msgid ""
 "a reference to `point`, but `point` will be deallocated when the function "
 "returns, so this will not compile."
 msgstr ""
+"Rust, yeterince uzun süre hayatta olmalarını sağlamak için tüm referansların "
+"ömrülerini (lifetime) takip eder. Emniyetli Rust'ta boşa çıkan referanslar "
+"(dangling reference) oluşamaz. `x_axis` fonksiyonu, `point`'e bir referans "
+"geri döndürecekti, ancak fonksiyon geri döndüğünde `point` için tahsis "
+"edilen alan geri verileceğinden (deallocation) bu kod derlenmeyecektir."
 
 #: src/references/shared.md
 msgid "We will talk more about borrowing when we get to ownership."
 msgstr ""
+"Sahipliğe (ownership) geçince ödünç alma (borrowing) konusunu daha detaylı "
+"konuşacağız."
 
 #: src/references/exclusive.md
 msgid ""
 "Exclusive references, also known as mutable references, allow changing the "
 "value they refer to. They have type `&mut T`."
 msgstr ""
+"Değiştirilebilir referanslar (mutable reference) olarak da bilinen özel "
+"(exclusive) referanslar, atıfta bulundukları (refer) değerin "
+"değiştirilmesine olanak tanır. `&mut T` türüne sahiplerdir."
 
 #: src/references/exclusive.md
 msgid ""
@@ -4228,6 +4331,11 @@ msgid ""
 "exists. Try making an `&point.0` or changing `point.0` while `x_coord` is "
 "alive."
 msgstr ""
+"\"Özel (exclusive)\", değere erişmek için yalnızca bu referansın "
+"kullanılabileceği anlamına gelir. Aynı anda başka hiçbir referans "
+"(paylaşılan veya özel olsun farketmez) mevcut olamaz ve özel referans "
+"(exclusive) varken atıfta bulunan değere erişilemez. `x_coord` hayattayken "
+"bir `&point.0` oluşturmayı veya `point.0`'ı değiştirmeyi deneyin."
 
 #: src/references/exclusive.md
 msgid ""
@@ -4236,20 +4344,28 @@ msgid ""
 "bound to different values, while the second represents an exclusive "
 "reference to a mutable value."
 msgstr ""
+"`let mut x_coord: &i32` ve `let x_coord: &mut i32` arasındaki farka dikkat "
+"ettiğinizden emin olun. Birincisi, farklı değerlere bağlanabilen (bind) "
+"paylaşılan bir referansı (shared reference) temsil ederken, ikincisi, "
+"değiştirilebilir bir değere (mutable value) özel bir referansı (exclusive "
+"reference) temsil eder (represent)."
 
 #: src/references/slices.md
 msgid "A slice gives you a view into a larger collection:"
 msgstr ""
+"Bir dilim (slice) size daha büyük bir koleksiyonun içinden bir görüntü verir:"
 
 #: src/references/slices.md
 msgid "Slices borrow data from the sliced type."
-msgstr ""
+msgstr "Dilimler (slice), dilimlenmiş türden verileri ödünç alır (borrowing)."
 
 #: src/references/slices.md
 msgid ""
 "We create a slice by borrowing `a` and specifying the starting and ending "
 "indexes in brackets."
 msgstr ""
+"`a`'yı ödünç alıp (borrowing) başlangıç ​​ve bitiş indekslerini köşeli "
+"parantez içinde belirterek bir dilim (slice) oluşturuyoruz."
 
 #: src/references/slices.md
 msgid ""
@@ -4257,17 +4373,24 @@ msgid ""
 "starting index, meaning that `&a[0..a.len()]` and `&a[..a.len()]` are "
 "identical."
 msgstr ""
+"Dilim (slice) indeks 0'da başlıyorsa, Rust'ın aralık sözdizimi (range "
+"syntax) başlangıç indeksini kullanmamaya izin verir; bu, `&a[0..a.len()]` ve "
+"`&a[..a.len()]`dilimlerinin aynı olduğu anlamına gelir."
 
 #: src/references/slices.md
 msgid ""
 "The same is true for the last index, so `&a[2..a.len()]` and `&a[2..]` are "
 "identical."
 msgstr ""
+"Aynı şey bitiş indeksi için de geçerlidir, dolayısıyla `&a[2..a.len()]` ve "
+"`&a[2..]` aynıdır."
 
 #: src/references/slices.md
 msgid ""
 "To easily create a slice of the full array, we can therefore use `&a[..]`."
 msgstr ""
+"Tüm bir dizinin dilimini (slice) kolayca oluşturmak için `&a[..]`'ı "
+"kullanabiliriz."
 
 #: src/references/slices.md
 msgid ""
@@ -4275,26 +4398,35 @@ msgid ""
 "(`&[i32]`) no longer mentions the array length. This allows us to perform "
 "computation on slices of different sizes."
 msgstr ""
+"`s`,`i32`'lerin bir dilimine (slice) referanstır. `s` (`&[i32]`) türünün "
+"artık dizi uzunluğundan bahsetmediğine dikkat edin. Bu bize farklı "
+"boyutlardaki dilimler üzerinde hesaplama yapmamızı sağlar."
 
 #: src/references/slices.md
 msgid ""
 "Slices always borrow from another object. In this example, `a` has to remain "
 "'alive' (in scope) for at least as long as our slice."
 msgstr ""
+"Dilimler (slice) her zaman başka bir nesneden ödünç alır (borrow). Bu "
+"örnekte `a`'nın en azından dilimimiz (slice) kadar 'canlı "
+"(alive)' (kapsamında) kalması gerekiyor."
 
 #: src/references/strings.md
 msgid "We can now understand the two string types in Rust:"
-msgstr ""
+msgstr "Artık Rust'taki iki dize (string) türünü anlayabiliyoruz:"
 
 #: src/references/strings.md
 msgid "`&str` is a slice of UTF-8 encoded bytes, similar to `&[u8]`."
 msgstr ""
+"`&str`, `&[u8]`e benzer şekilde, UTF-8 olarak kodlanmış baytların bir "
+"dilimidir (slice)."
 
 #: src/references/strings.md
-#, fuzzy
 msgid ""
 "`String` is an owned buffer of UTF-8 encoded bytes, similar to `Vec<T>`."
 msgstr ""
+"`String`, `Vec<T>`ye benzer şekildedir, UTF-8 olarak kodlanmış baytlardan "
+"oluşan sahipli bir arabellektir."
 
 #: src/references/strings.md src/std-traits/read-and-write.md
 msgid "\"World\""
@@ -4302,7 +4434,7 @@ msgstr "\"Dünya\""
 
 #: src/references/strings.md
 msgid "\"s1: {s1}\""
-msgstr ""
+msgstr "\"s1: {s1}\""
 
 #: src/references/strings.md
 msgid "\"Hello \""
@@ -4310,11 +4442,11 @@ msgstr "\"Merhaba \""
 
 #: src/references/strings.md src/memory-management/move.md
 msgid "\"s2: {s2}\""
-msgstr ""
+msgstr "\"s2: {s2}\""
 
 #: src/references/strings.md
 msgid "\"s3: {s3}\""
-msgstr ""
+msgstr "\"s3: {s3}\""
 
 #: src/references/strings.md
 msgid ""
@@ -4322,12 +4454,19 @@ msgid ""
 "encoded string data stored in a block of memory. String literals "
 "(`\"Hello\"`), are stored in the program’s binary."
 msgstr ""
+"`&str`, bir bellek bloğunda saklanan UTF-8 olarak kodlanmış dize (string) "
+"verilerine değiştirilemez (immutable) referans olan bir dize dilimi (string "
+"slice) sunar. Dize değişmezleri (string literals) (`\"Hello\"`), programın "
+"ikili (binary) dosyasında saklanır."
 
 #: src/references/strings.md
 msgid ""
 "Rust's `String` type is a wrapper around a vector of bytes. As with a "
 "`Vec<T>`, it is owned."
 msgstr ""
+"Rust'ın `String` türü, baytlardan oluşan bir vektörün bir sarmalayıcı "
+"türüdür. Bir `Vec<T>` gibi, bu türden veri `String` türü tarafından "
+"sahiplidir (owned)."
 
 #: src/references/strings.md
 msgid ""
@@ -4335,12 +4474,19 @@ msgid ""
 "literal; `String::new()` creates a new empty string, to which string data "
 "can be added using the `push()` and `push_str()` methods."
 msgstr ""
+"Diğer birçok türde olduğu gibi, `String::from()` bir dize değişmezinden "
+"(string literal) bir string oluşturur; `String::new()` yeni bir boş dize "
+"oluşturur ve dizeye veriler `push()` ve `push_str()` metotları kullanılarak "
+"eklenebilir."
 
 #: src/references/strings.md
 msgid ""
 "The `format!()` macro is a convenient way to generate an owned string from "
 "dynamic values. It accepts the same format specification as `println!()`."
 msgstr ""
+"`format!()` makrosu, dinamik değerlerden sahipli bir dize oluşturmak için "
+"uygun bir yoldur. Aynı biçimin `println!()` makrosundaki gibi aynı biçim "
+"tanımlamasını kabul eder."
 
 #: src/references/strings.md
 msgid ""
@@ -4349,6 +4495,12 @@ msgid ""
 "boundaries, the expression will panic. The `chars` iterator iterates over "
 "characters and is preferred over trying to get character boundaries right."
 msgstr ""
+"`String`'den `&str` dilimlerini (slices) `&` ve isteğe bağlı olarak aralık "
+"seçimi (range selection) ile ödünç alabilirsiniz (barrow). Karakter "
+"sınırlarının dışını da kapsayacak bir bayt aralığı seçerseniz, ifade "
+"(expression) paniğe neden olacaktır. `chars` adımlayıcısı, karakterler "
+"üzerinde adımlama yapar ve karakter sınırlarını doğru bulmaya çalışmak "
+"yerine tercih edilir."
 
 #: src/references/strings.md
 msgid ""
@@ -4357,10 +4509,17 @@ msgid ""
 "equivalent of `std::string` from C++ (main difference: it can only contain "
 "UTF-8 encoded bytes and will never use a small-string optimization)."
 msgstr ""
+"C++ programcıları için: `&str`'yi C++'daki `std::string_view` olarak "
+"düşünün, ancak her zaman bellekteki geçerli bir dizeye işaret eder. Rust "
+"dilindeki `String`, C++'daki `std::string`'in kabaca eşdeğeridir (ana fark: "
+"yalnızca UTF-8 olarak kodlanmış baytlar içerebilir ve asla küçük dize "
+"optimizasyonu / small-string optimization kullanmaz)."
 
 #: src/references/strings.md
 msgid "Byte strings literals allow you to create a `&[u8]` value directly:"
 msgstr ""
+"Bayt dizelerinden değişmezler (Byte strings literals), doğrudan bir `&[u8]` "
+"değeri oluşturmanıza olanak tanır:"
 
 #: src/references/strings.md
 msgid ""
@@ -4368,6 +4527,10 @@ msgid ""
 "`r\"\\n\" == \"\\\\n\"`. You can embed double-quotes by using an equal "
 "amount of `#` on either side of the quotes:"
 msgstr ""
+"Ham (raw) dizeler, kaçış karakterlerininin devre dışı bırakıldığı bir `&str` "
+"değeri oluşturmanıza olanak tanır: `r\"\\n\" == \"\\\\n\"`. Dizenin içindeki "
+"çift tırnakları, dizeyi oluşturan tırnakların her iki tarafınaa eşit sayıda "
+"`#` karakteri koyarak görebilirsiniz:"
 
 #: src/references/exercise.md
 msgid ""
@@ -4375,6 +4538,9 @@ msgid ""
 "representing a point as `[f64;3]`. It is up to you to determine the function "
 "signatures."
 msgstr ""
+"3 boyutlu geometri için, bir noktayı `[f64;3]` olarak temsil eden birkaç "
+"yardımcı fonksiyon oluşturacağız. Fonksiyon imzalarını belirlemek size "
+"kalmış."
 
 #: src/references/exercise.md
 msgid ""
@@ -4384,87 +4550,100 @@ msgid ""
 "square\n"
 "// root, like `v.sqrt()`.\n"
 msgstr ""
+"// Bir vektörün büyüklüğünü, koordinatlarının karelerini toplayarak "
+"hesaplayın\n"
+"// ve karekökünü alın. Karekökü hesaplamak için `sqrt()` metodunu kullanın,\n"
+"// örneğin `v.sqrt()` gibi.\n"
 
 #: src/references/exercise.md
 msgid ""
 "// Normalize a vector by calculating its magnitude and dividing all of its\n"
 "// coordinates by that magnitude.\n"
 msgstr ""
+"// Bir vektörü, büyüklüğünü hesaplayarak ve tüm koordinatlarını bu "
+"büyüklüğe\n"
+"// bölererek normalize edin.\n"
 
 #: src/references/exercise.md
 msgid "// Use the following `main` to test your work.\n"
 msgstr ""
+"// Çalışmanızı test etmek için aşağıdaki `main` fonksiyonunu kullanın.\n"
 
 #: src/references/exercise.md src/references/solution.md
 msgid "\"Magnitude of a unit vector: {}\""
-msgstr ""
+msgstr "\"Birim vektörünün büyüklüğü: {}\""
 
 #: src/references/exercise.md src/references/solution.md
 msgid "\"Magnitude of {v:?}: {}\""
-msgstr ""
+msgstr "\"{v:?} vektörünün büyüklüğü: {}\""
 
 #: src/references/exercise.md src/references/solution.md
 msgid "\"Magnitude of {v:?} after normalization: {}\""
-msgstr ""
+msgstr "\"Normalize edildikten sonra {v:?} vektörünün büyüklüğü: {}\""
 
 #: src/references/solution.md
 msgid "/// Calculate the magnitude of the given vector.\n"
-msgstr ""
+msgstr "/// Verilen vektörün büyüklüğünü hesaplayın.\n"
 
 #: src/references/solution.md
 msgid ""
 "/// Change the magnitude of the vector to 1.0 without changing its "
 "direction.\n"
-msgstr ""
+msgstr "/// Vektörün büyüklüğünü, yönünü değiştirmeden 1.0'a değiştirin.\n"
 
 #: src/user-defined-types.md src/methods-and-traits.md src/lifetimes.md
-#, fuzzy
 msgid "This segment should take about 50 minutes. It contains:"
-msgstr ""
+msgstr "Bu bölüm yaklaşık 50 dakika sürmelidir. İçeriği:"
 
 #: src/user-defined-types/named-structs.md
 msgid "Like C and C++, Rust has support for custom structs:"
 msgstr ""
+"C ve C++ dillerindeki gibi Rust'ın da özel (kullanıcı tanımlı) yapılara "
+"desteği vardır:"
 
 #: src/user-defined-types/named-structs.md
 msgid "\"{} is {} years old\""
-msgstr ""
+msgstr "\"{} {} yaşında\""
 
 #: src/user-defined-types/named-structs.md
 #: src/android/interoperability/with-c/bindgen.md
 msgid "\"Peter\""
-msgstr ""
+msgstr "\"Peter\""
 
 #: src/user-defined-types/named-structs.md
 msgid "\"Avery\""
-msgstr ""
+msgstr "\"Avery\""
 
 #: src/user-defined-types/named-structs.md
 msgid "\"Jackie\""
-msgstr ""
+msgstr "\"Jackie\""
 
 #: src/user-defined-types/named-structs.md src/user-defined-types/enums.md
 #: src/pattern-matching/match.md src/methods-and-traits/methods.md
 msgid "Key Points:"
-msgstr ""
+msgstr "Önemli Noktalar:"
 
 #: src/user-defined-types/named-structs.md
 msgid "Structs work like in C or C++."
-msgstr ""
+msgstr "Yapılar C veya C++'daki gibi çalışır."
 
 #: src/user-defined-types/named-structs.md
 msgid "Like in C++, and unlike in C, no typedef is needed to define a type."
 msgstr ""
+"C++'daki gibi ve C'den farklı olarak, bir türü tanımlamak için typedef'e "
+"gerek yoktur."
 
 #: src/user-defined-types/named-structs.md
 msgid "Unlike in C++, there is no inheritance between structs."
-msgstr ""
+msgstr "C++'dan farklı olarak yapılar arasında kalıtım (inheritance) yoktur."
 
 #: src/user-defined-types/named-structs.md
 msgid ""
 "This may be a good time to let people know there are different types of "
 "structs."
 msgstr ""
+"Bu, insanlara farklı yapı türleri olduğunu duyurmak için iyi bir zaman "
+"olabilir."
 
 #: src/user-defined-types/named-structs.md
 msgid ""
@@ -4472,18 +4651,25 @@ msgid ""
 "trait on some type but don’t have any data that you want to store in the "
 "value itself."
 msgstr ""
+"Sıfır boyutlu (zero-sized) yapılar (örn. `struct Foo;'), bir özelliği "
+"(trait) bazı türlere uygularken kullanılabilir, ancak değerin kendisinde "
+"saklamak istediğiniz herhangi bir veri yoktur."
 
 #: src/user-defined-types/named-structs.md
 msgid ""
 "The next slide will introduce Tuple structs, used when the field names are "
 "not important."
 msgstr ""
+"Sonraki slaytta alan adları (field names) önemli olmadığında kullanılan "
+"Demet (Tupe) yapıları tanıtılacaktır."
 
 #: src/user-defined-types/named-structs.md
 msgid ""
 "If you already have variables with the right names, then you can create the "
 "struct using a shorthand."
 msgstr ""
+"Eğer zaten doğru adlara sahip değişkenleriniz varsa, o zaman yapıyı bir "
+"kısaltma kullanarak oluşturabilirsiniz."
 
 #: src/user-defined-types/named-structs.md
 msgid ""
@@ -4491,99 +4677,123 @@ msgid ""
 "old struct without having to explicitly type it all out. It must always be "
 "the last element."
 msgstr ""
+"`..avery` sözdizimi, eski yapıdaki alanların çoğunu, hepsini açıkça "
+"yazmamıza gerek kalmadan kopyalamamıza olanak tanır. Bu her zaman son öğe "
+"olmalıdır."
 
 #: src/user-defined-types/tuple-structs.md
 msgid "If the field names are unimportant, you can use a tuple struct:"
 msgstr ""
+"Alan adları (field names) önemsizse demet (tuple) yapısını kullanabilirsiniz:"
 
 #: src/user-defined-types/tuple-structs.md
 msgid "\"({}, {})\""
-msgstr ""
+msgstr "\"({}, {})\""
 
 #: src/user-defined-types/tuple-structs.md
 msgid "This is often used for single-field wrappers (called newtypes):"
 msgstr ""
+"Bu genellikle tek alanlı sarmalayıcılar (single-field wrappers - newtype "
+"deseni olarak adlandırılır) için kullanılır:"
 
 #: src/user-defined-types/tuple-structs.md
 msgid "\"Ask a rocket scientist at NASA\""
-msgstr ""
+msgstr "\"NASA'daki bir roket bilim adamına sorun\""
 
 #: src/user-defined-types/tuple-structs.md
 #: src/android/interoperability/cpp/cpp-bridge.md
 #: src/bare-metal/microcontrollers/type-state.md
 #: src/concurrency/async-pitfalls/cancellation.md
 msgid "// ...\n"
-msgstr ""
+msgstr "// ...\n"
 
 #: src/user-defined-types/tuple-structs.md
 msgid ""
 "Newtypes are a great way to encode additional information about the value in "
 "a primitive type, for example:"
 msgstr ""
+"Yeni tür (newtype) deseni, ilkel (primitive) bir türdeki değer hakkındaki ek "
+"bilgileri kodlamanın harika bir yoludur, örneğin:"
 
 #: src/user-defined-types/tuple-structs.md
 msgid "The number is measured in some units: `Newtons` in the example above."
-msgstr ""
+msgstr "Sayı bazı birimlerde ölçülür: Yukarıdaki örnekte `Newtons`."
 
 #: src/user-defined-types/tuple-structs.md
 msgid ""
 "The value passed some validation when it was created, so you no longer have "
 "to validate it again at every use: `PhoneNumber(String)` or `OddNumber(u32)`."
 msgstr ""
+"Değer, oluşturulduğunda bir miktar doğrulamadan geçti, bu nedenle artık onu "
+"her kullanımda yeniden doğrulamanız gerekmiyor: `PhoneNumber(String)` veya "
+"`OddNumber(u32)`."
 
 #: src/user-defined-types/tuple-structs.md
 msgid ""
 "Demonstrate how to add a `f64` value to a `Newtons` type by accessing the "
 "single field in the newtype."
 msgstr ""
+"Yeni türde desenindeki tek alana erişerek bir `Newtons` türüne `f64` "
+"değerinin nasıl ekleneceğini gösterin."
 
 #: src/user-defined-types/tuple-structs.md
 msgid ""
 "Rust generally doesn’t like inexplicit things, like automatic unwrapping or "
 "for instance using booleans as integers."
 msgstr ""
+"Rust genellikle bir nesnenin değerinin otomatik çözülmesini (automatic "
+"unwrapping) veya boole değerlerini tamsayı olarak kullanmak gibi açık "
+"olmayan şeylerden hoşlanmaz."
 
 #: src/user-defined-types/tuple-structs.md
 msgid "Operator overloading is discussed on Day 3 (generics)."
-msgstr ""
+msgstr "Operatör yüklemesi 3. günde (jenerikler) tartışıldı."
 
 #: src/user-defined-types/tuple-structs.md
 msgid ""
 "The example is a subtle reference to the [Mars Climate Orbiter](https://en."
 "wikipedia.org/wiki/Mars_Climate_Orbiter) failure."
 msgstr ""
+"Örnek, [Mars İklim Yörünge Aracı](https://en.wikipedia.org/wiki/"
+"Mars_Climate_Orbiter) hatasına incelikli bir göndermedir."
 
 #: src/user-defined-types/enums.md
 msgid ""
 "The `enum` keyword allows the creation of a type which has a few different "
 "variants:"
 msgstr ""
+"'enum' anahtar sözcüğü birkaç farklı varyanta sahip bir türün yaratılmasına "
+"olanak sağlar:"
 
 #: src/user-defined-types/enums.md
 msgid "// Simple variant\n"
-msgstr ""
+msgstr "// Basit (simple) varyant\n"
 
 #: src/user-defined-types/enums.md
 msgid "// Tuple variant\n"
-msgstr ""
+msgstr "// Demet (Tuple) varyantı\n"
 
 #: src/user-defined-types/enums.md
 msgid "// Struct variant\n"
-msgstr ""
+msgstr "// Yapı (Struct) varyantı\n"
 
 #: src/user-defined-types/enums.md
-#, fuzzy
 msgid "\"On this turn: {player_move:?}\""
+msgstr "\"Sıradaki hamle: {player_move:?}\""
 
 #: src/user-defined-types/enums.md
 msgid "Enumerations allow you to collect a set of values under one type."
 msgstr ""
+"Numaralandırmalar, bir dizi değeri tek bir tür altında toplamanıza olanak "
+"tanır."
 
 #: src/user-defined-types/enums.md
 msgid ""
 "`Direction` is a type with variants. There are two values of `Direction`: "
 "`Direction::Left` and `Direction::Right`."
 msgstr ""
+"`Direction`, varyantları olan bir türdür. `Direction`'ın iki değeri vardır: "
+"`Direction::Left` ve `Direction::Right`."
 
 #: src/user-defined-types/enums.md
 msgid ""
@@ -4591,16 +4801,24 @@ msgid ""
 "Rust will store a discriminant so that it knows at runtime which variant is "
 "in a `PlayerMove` value."
 msgstr ""
+"`PlayerMove` üç varyantı olan bir türdür. Rust, varyant değerlerine (variant "
+"payloads) ek olarak, çalışma zamanında hangi varyantın `PlayerMove` "
+"değerinde olduğunu bilmesi için bir ayırıcı (discriminant) da depolayacaktır."
 
 #: src/user-defined-types/enums.md
 msgid "This might be a good time to compare structs and enums:"
 msgstr ""
+"Bu, yapıları ve numaralandırmaları karşılaştırmak için iyi bir zaman "
+"olabilir:"
 
 #: src/user-defined-types/enums.md
 msgid ""
 "In both, you can have a simple version without fields (unit struct) or one "
 "with different types of fields (variant payloads)."
 msgstr ""
+"Her ikisinde de, alanları olmayan basit bir versiyona (birim yapı) veya "
+"farklı alan türlerine sahip bir versiyona (varyant yükleri) sahip "
+"olabilirsiniz."
 
 #: src/user-defined-types/enums.md
 msgid ""
@@ -4608,14 +4826,17 @@ msgid ""
 "structs but then they wouldn’t be the same type as they would if they were "
 "all defined in an enum."
 msgstr ""
+"Bir enum'ın farklı varyantlarını ayrı yapılarla bile uygulayabilirsiniz "
+"ancak o zaman da hepsi bir enum'da tanımlanmış olduğunda olacağı gibi aynı "
+"türde olmazlardı."
 
 #: src/user-defined-types/enums.md
 msgid "Rust uses minimal space to store the discriminant."
-msgstr ""
+msgstr "Rust, ayırıcıyı (discriminant) depolamak için minimum alan kullanır."
 
 #: src/user-defined-types/enums.md
 msgid "If necessary, it stores an integer of the smallest required size"
-msgstr ""
+msgstr "Gerekirse, gereken en küçük boyuttaki bir tam sayıyı depolar"
 
 #: src/user-defined-types/enums.md
 msgid ""
@@ -4624,30 +4845,37 @@ msgid ""
 "optimization\"). For example, `Option<&u8>` stores either a pointer to an "
 "integer or `NULL` for the `None` variant."
 msgstr ""
+"İzin verilen varyant değerleri tüm bit desenlerini kapsamıyorsa, ayırıcıyı "
+"kodlamak için geçersiz bit desenleri kullanır (\"niş/oyuk/niche "
+"optimizasyonu\"). Örneğin, `Option<&u8>`, `None` varyantı için bir tamsayıya "
+"gösterici veya `NULL` depolar."
 
 #: src/user-defined-types/enums.md
 msgid ""
 "You can control the discriminant if needed (e.g., for compatibility with C):"
 msgstr ""
+"Gerekirse ayırıcıyı kontrol edebilirsiniz (örneğin, C ile uyumluluk için):"
 
 #: src/user-defined-types/enums.md
 msgid ""
 "Without `repr`, the discriminant type takes 2 bytes, because 10001 fits 2 "
 "bytes."
-msgstr ""
+msgstr "`repr` olmadan, ayırıcı tür 2 baytlık olur, çünkü 10001 2 bayta sığar."
 
 #: src/user-defined-types/enums.md src/user-defined-types/static.md
 #: src/memory-management/review.md src/memory-management/move.md
 #: src/memory-management/copy-types.md src/borrowing/shared.md
 #: src/error-handling/result.md src/error-handling/anyhow.md
 msgid "More to Explore"
-msgstr ""
+msgstr "Daha Fazlasını Keşfedin"
 
 #: src/user-defined-types/enums.md
 msgid ""
 "Rust has several optimizations it can employ to make enums take up less "
 "space."
 msgstr ""
+"Rust, enum'ların daha az yer kaplamasını sağlamak için kullanabileceği "
+"çeşitli optimizasyonlara sahiptir."
 
 #: src/user-defined-types/enums.md
 msgid ""
@@ -4655,6 +4883,9 @@ msgid ""
 "option/#representation), Rust guarantees that `size_of::<T>()` equals "
 "`size_of::<Option<T>>()`."
 msgstr ""
+"Null gösterici optimizasyonu: [Bazı türler](https://doc.rust-lang.org/std/"
+"option/#representation) için, Rust `size_of::<T>()`'nin `size_of::"
+"<Option<T>>()`'ye eşit olduğunu garanti eder."
 
 #: src/user-defined-types/enums.md
 msgid ""
@@ -4662,6 +4893,10 @@ msgid ""
 "like in practice. It's important to note that the compiler provides no "
 "guarantees regarding this representation, therefore this is totally unsafe."
 msgstr ""
+"Bitsel gösterimin pratikte nasıl _görünebileceğini_ göstermek istiyorsanız "
+"örnek kod aşağıdadır. Derleyicinin bu gösterimle (representation) ilgili "
+"hiçbir garanti sağlamadığını, dolayısıyla bunun tamamen emniyetsiz olduğunu "
+"belirtmek önemlidir."
 
 #: src/user-defined-types/const.md
 msgid "`const`"
@@ -4672,34 +4907,52 @@ msgid ""
 "Constants are evaluated at compile time and their values are inlined "
 "wherever they are used:"
 msgstr ""
+"Sabitler (constants) derleme zamanında (compile-time) değerlendirilir ve "
+"değerleri kullanıldıkları her yerde satır içi (inline) olarak belirtilir:"
+
 #: src/user-defined-types/const.md
 msgid ""
 "According to the [Rust RFC Book](https://rust-lang.github.io/rfcs/0246-const-"
 "vs-static.html) these are inlined upon use."
 msgstr ""
+"[Rust RFC Book'a](https://rust-lang.github.io/rfcs/0246-const-vs-static."
+"html) göre bunlar kullanım sırasında satır içidir (inline)."
+
 #: src/user-defined-types/const.md
 msgid ""
 "Only functions marked `const` can be called at compile time to generate "
 "`const` values. `const` functions can however be called at runtime."
 msgstr ""
+"Sadece `const` olarak işaretlenen fonksiyonlar derleme zamanında çağrılarak "
+"`const` değerler üretilebilir. Ancak `const` fonksiyonlar çalışma zamanında "
+"da çağrılabilir."
+
 #: src/user-defined-types/const.md
 msgid "Mention that `const` behaves semantically similar to C++'s `constexpr`"
 msgstr ""
+"`const`'un C++'ın `constexpr`'ına anlamsal olarak benzer davrandığını "
+"belirtin"
+
 #: src/user-defined-types/const.md
 msgid ""
 "It isn't super common that one would need a runtime evaluated constant, but "
 "it is helpful and safer than using a static."
 msgstr ""
+"Çalışma zamanında değerlendirilen (evaluate) bir sabite (constant) ihtiyaç "
+"duyulması çok yaygın bir durum değildir, ancak statik kullanmaktan daha "
+"yararlı ve daha emniyetlidir."
 
 #: src/user-defined-types/static.md
 msgid "`static`"
-msgstr ""
+msgstr "`static`"
 
 #: src/user-defined-types/static.md
 msgid ""
 "Static variables will live during the whole execution of the program, and "
 "therefore will not move:"
 msgstr ""
+"Statik değişkenler programın tüm yürütmesi (execution) boyunca yaşayacak ve "
+"bu nedenle taşınmayacaklar:"
 
 #: src/user-defined-types/static.md
 msgid "\"Welcome to RustOS 3.14\""
@@ -4707,7 +4960,7 @@ msgstr "\"RustOS 3.14'e Hoş Geldiniz\""
 
 #: src/user-defined-types/static.md
 msgid "\"{BANNER}\""
-msgstr ""
+msgstr "\"{BANNER}\""
 
 #: src/user-defined-types/static.md
 msgid ""
@@ -4718,16 +4971,24 @@ msgid ""
 "globally-scoped value does not have a reason to need object identity, "
 "`const` is generally preferred."
 msgstr ""
+"[Rust RFC Kitabında](https://rust-lang.github.io/rfcs/0246-const-vs-static."
+"html) belirtildiği gibi, statik kullanımı satır içi (inline) özelliği vermez "
+"ve gerçek bir ilişkili bellek konumuna sahiptir. Bu, emniyetsiz ve gömülü "
+"kod için yararlıdır ve değişken, program yürütmesinin tamamı boyunca yaşar. "
+"Global kapsamlı (globally-scoped) bir değerin nesne kimliğine ihtiyaç "
+"duyması için bir nedeni olmadığında, genellikle `const` tercih edilir."
 
 #: src/user-defined-types/static.md
 msgid "`static` is similar to mutable global variables in C++."
-msgstr ""
+msgstr "`statik`, C++'daki değişebilir olan global değişkenlere benzer."
 
 #: src/user-defined-types/static.md
 msgid ""
 "`static` provides object identity: an address in memory and state as "
 "required by types with interior mutability such as `Mutex<T>`."
 msgstr ""
+"`static`, `Mutex<T>` gibi iç değişebilirliğe sahip türlerin gerektirdiği "
+"şekilde bellekteki bir adres ve durumu nesneye kimlik olarak sağlar."
 
 #: src/user-defined-types/static.md
 msgid ""
@@ -4735,20 +4996,29 @@ msgid ""
 "`Sync`. Interior mutability is possible through a [`Mutex`](https://doc.rust-"
 "lang.org/std/sync/struct.Mutex.html), atomic or similar."
 msgstr ""
+"Çünkü `static` değişkenlere herhangi bir iş parçacığından "
+"erişilebildiğinden, bunların `Sync` olması gerekir. İç değişebilirlik "
+"[`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html), atomik veya "
+"benzer yöntemlerle mümkündür."
 
 #: src/user-defined-types/static.md
 msgid "Thread-local data can be created with the macro `std::thread_local`."
 msgstr ""
+"İş parçacığı için yerel (thread-local) veriler `std::thread_local` makrosu "
+"ile oluşturulabilir."
 
 #: src/user-defined-types/aliases.md
 msgid ""
 "A type alias creates a name for another type. The two types can be used "
 "interchangeably."
 msgstr ""
+"Bir tür eş ismi, başka bir tür için bir isim oluşturur. Her iki tür de "
+"birbirinin yerine kullanılabilir."
 
 #: src/user-defined-types/aliases.md
 msgid "// Aliases are more useful with long, complex types:\n"
 msgstr ""
+"// Eş isimler (aliases) uzun ve karmaşık türlerde daha kullanışlıdır:\n"
 
 #: src/user-defined-types/aliases.md
 msgid ""
@@ -4756,6 +5026,9 @@ msgid ""
 "creates a distinct type. Prefer `struct InventoryCount(usize)` to `type "
 "InventoryCount = usize`."
 msgstr ""
+"[Bir yeni tür deseni (newtype)](tuple-structs.html) genellikle farklı bir "
+"tür oluşturduğu için daha iyi bir seçenektir. `type InventoryCount = usize` "
+"yerine `struct InventoryCount(usize)`'ı tercih edin."
 
 #: src/user-defined-types/aliases.md
 msgid "C programmers will recognize this as similar to a `typedef`."
@@ -4768,6 +5041,10 @@ msgid ""
 "various events. Use `#[derive(Debug)]` to allow the types to be formatted "
 "with `{:?}`."
 msgstr ""
+"Bir asansör kontrol sistemindeki bir olayı temsil etmek için bir veri yapısı "
+"oluşturacağız. Çeşitli olayları yapılandırmak için türleri ve fonksiyonları "
+"tanımlamak size kalmış. Türlerin `{:?}` ile biçimlendirilmesine izin vermek "
+"için `#[derive(Debug)]` kullanın."
 
 #: src/user-defined-types/exercise.md
 msgid ""
@@ -4775,97 +5052,102 @@ msgid ""
 "`main` runs without errors. The next part of the course will cover getting "
 "data out of these structures."
 msgstr ""
+"Bu alıştırma yalnızca, `main`'in hatasız çalışması için veri yapıları "
+"oluşturmayı ve doldurmayı gerektirir. Kursun bir sonraki kısmı bu yapılardan "
+"veri almayı kapsayacaktır."
 
 #: src/user-defined-types/exercise.md src/user-defined-types/solution.md
 msgid ""
 "/// An event in the elevator system that the controller must react to.\n"
-msgstr ""
+msgstr "/// Asansör sisteminde kontrolörün tepki vermesi gereken bir olay.\n"
 
 #: src/user-defined-types/exercise.md
 msgid "// TODO: add required variants\n"
-msgstr ""
+msgstr "// TODO: gerekli değişkeleri (variant) ekle\n"
 
 #: src/user-defined-types/exercise.md src/user-defined-types/solution.md
 msgid "/// A direction of travel.\n"
 msgstr ""
+"/// Bir seyahat yönü.\n"
+"\n"
 
 #: src/user-defined-types/exercise.md src/user-defined-types/solution.md
 msgid "/// The car has arrived on the given floor.\n"
-msgstr ""
+msgstr "/// Araba verilen kata ulaşmış durumda.\n"
 
 #: src/user-defined-types/exercise.md src/user-defined-types/solution.md
 msgid "/// The car doors have opened.\n"
-msgstr ""
+msgstr "/// Araba kapıları açılmış durumda.\n"
 
 #: src/user-defined-types/exercise.md src/user-defined-types/solution.md
 msgid "/// The car doors have closed.\n"
-msgstr ""
+msgstr "/// Araba kapıları kapanmış durumda.\n"
 
 #: src/user-defined-types/exercise.md src/user-defined-types/solution.md
 msgid ""
 "/// A directional button was pressed in an elevator lobby on the given "
 "floor.\n"
-msgstr ""
+msgstr "/// Verilen kattaki asansör lobisinde yön düğmesine basıldı.\n"
 
 #: src/user-defined-types/exercise.md src/user-defined-types/solution.md
 msgid "/// A floor button was pressed in the elevator car.\n"
-msgstr ""
+msgstr "/// Asansör kabininde bir kat düğmesine basıldı.\n"
 
 #: src/user-defined-types/exercise.md src/user-defined-types/solution.md
 msgid "\"A ground floor passenger has pressed the up button: {:?}\""
-msgstr ""
+msgstr "\"Zemin kattaki bir yolcu yukarı düğmesine basmış durumda: {:?}\""
 
 #: src/user-defined-types/exercise.md src/user-defined-types/solution.md
 msgid "\"The car has arrived on the ground floor: {:?}\""
-msgstr ""
+msgstr "\"Araba zemin kata ulaşmış durumda: {:?}\""
 
 #: src/user-defined-types/exercise.md src/user-defined-types/solution.md
 msgid "\"The car door opened: {:?}\""
-msgstr ""
+msgstr "\"Araba kapısı açıldı: {:?}\""
 
 #: src/user-defined-types/exercise.md src/user-defined-types/solution.md
 msgid "\"A passenger has pressed the 3rd floor button: {:?}\""
-msgstr ""
+msgstr "\"Bir yolcu 3. katın düğmesine basmış durumda: {:?}\""
 
 #: src/user-defined-types/exercise.md src/user-defined-types/solution.md
 msgid "\"The car door closed: {:?}\""
-msgstr ""
+msgstr "\"Araba kapısı kapandı: {:?}\""
 
 #: src/user-defined-types/exercise.md src/user-defined-types/solution.md
 msgid "\"The car has arrived on the 3rd floor: {:?}\""
-msgstr ""
+msgstr "\"Araba 3. kata ulaşmış durumda: {:?}\""
 
 #: src/user-defined-types/solution.md
 msgid "/// A button was pressed.\n"
-msgstr ""
+msgstr "/// Bir düğmeye basıldı.\n"
 
 #: src/user-defined-types/solution.md
 msgid "/// The car has arrived at the given floor.\n"
-msgstr ""
+msgstr "/// Araba verilen kata ulaşmış durumda.\n"
 
 #: src/user-defined-types/solution.md
 msgid "/// The car's doors have opened.\n"
-msgstr ""
+msgstr "/// Arabanın kapıları açık durumda.\n"
 
 #: src/user-defined-types/solution.md
 msgid "/// The car's doors have closed.\n"
-msgstr ""
+msgstr "/// Arabanın kapıları kapalı durumda.\n"
 
 #: src/user-defined-types/solution.md
 msgid "/// A floor is represented as an integer.\n"
-msgstr ""
+msgstr "/// Bir kat tamsayı olarak temsil edilir.\n"
 
 #: src/user-defined-types/solution.md
 msgid "/// A user-accessible button.\n"
-msgstr ""
+msgstr "/// Kullanıcının erişebileceği bir düğme.\n"
 
 #: src/user-defined-types/solution.md
 msgid "/// A button in the elevator lobby on the given floor.\n"
-msgstr ""
+msgstr "/// Verilem katta asansör lobisinde bulunan bir düğme.\n"
 
 #: src/user-defined-types/solution.md
 msgid "/// A floor button within the car.\n"
-msgstr ""
+msgstr "/// Arabanın içindeki bir kat düğmesi.\n"
 
 #: src/welcome-day-2.md
 msgid "Welcome to Day 2"
