@@ -1,7 +1,7 @@
 # `buddy_system_allocator`
 
-[`buddy_system_allocator`][1] is a third-party crate implementing a basic buddy
-system allocator. It can be used both for [`LockedHeap`][2] implementing
+[`buddy_system_allocator`][1] is a crate implementing a basic buddy system
+allocator. It can be used both for [`LockedHeap`][2] implementing
 [`GlobalAlloc`][3] so you can use the standard `alloc` crate (as we saw
 [before][4]), or for allocating other address space. For example, we might want
 to allocate MMIO space for PCI BARs:
