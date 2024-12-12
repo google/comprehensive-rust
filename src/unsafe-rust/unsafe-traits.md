@@ -19,7 +19,8 @@ use std::{mem, slice};
 pub unsafe trait IntoBytes {
     fn as_bytes(&self) -> &[u8] {
         let len = mem::size_of_val(self);
-        unsafe { slice::from_raw_parts((&raw const self).cast::<u8>(), len) }
+        let slf: *const Self = self;
+        unsafe { slice::from_raw_parts(slf.cast::<u8>(), len) }
     }
 }
 
