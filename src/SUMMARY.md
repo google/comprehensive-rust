@@ -55,6 +55,7 @@
 - [References](references.md)
   - [Shared References](references/shared.md)
   - [Exclusive References](references/exclusive.md)
+  - [Dangling References](references/dangling.md)
   - [Slices](references/slices.md)
   - [Strings](references/strings.md)
   - [Exercise: Geometry](references/exercise.md)
