@@ -171,7 +171,7 @@
 - [Iterators](iterators.md)
   - [`Iterator`](iterators/iterator.md)
   - [`IntoIterator`](iterators/intoiterator.md)
-  - [`FromIterator`](iterators/fromiterator.md)
+  - [`collect`](iterators/collect.md)
   - [Exercise: Iterator Method Chaining](iterators/exercise.md)
     - [Solution](iterators/solution.md)
 - [Modules](modules.md)
