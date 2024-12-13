@@ -38,39 +38,27 @@ enum Expression {
 // ANCHOR_END: Expression
 
 // ANCHOR: eval
-fn eval(e: Expression) -> Result<i64, String> {
+fn eval(e: Expression) -> i64 {
     // ANCHOR_END: eval
     match e {
         Expression::Op { op, left, right } => {
-            let left = match eval(*left) {
-                Ok(v) => v,
-                Err(e) => return Err(e),
-            };
-            let right = match eval(*right) {
-                Ok(v) => v,
-                Err(e) => return Err(e),
-            };
-            Ok(match op {
+            let left = eval(*left);
+            let right = eval(*right);
+            match op {
                 Operation::Add => left + right,
                 Operation::Sub => left - right,
                 Operation::Mul => left * right,
-                Operation::Div => {
-                    if right == 0 {
-                        return Err(String::from("division by zero"));
-                    } else {
-                        left / right
-                    }
-                }
-            })
+                Operation::Div => left / right,
+            }
         }
-        Expression::Value(v) => Ok(v),
+        Expression::Value(v) => v,
     }
 }
 
 // ANCHOR: tests
 #[test]
 fn test_value() {
-    assert_eq!(eval(Expression::Value(19)), Ok(19));
+    assert_eq!(eval(Expression::Value(19)), 19);
 }
 
 #[test]
@@ -81,7 +69,7 @@ fn test_sum() {
             left: Box::new(Expression::Value(10)),
             right: Box::new(Expression::Value(20)),
         }),
-        Ok(30)
+        30
     );
 }
 
@@ -107,7 +95,7 @@ fn test_recursion() {
             left: Box::new(term1),
             right: Box::new(term2),
         }),
-        Ok(85)
+        85
     );
 }
 
@@ -119,7 +107,7 @@ fn test_zeros() {
             left: Box::new(Expression::Value(0)),
             right: Box::new(Expression::Value(0))
         }),
-        Ok(0)
+        0
     );
     assert_eq!(
         eval(Expression::Op {
@@ -127,7 +115,7 @@ fn test_zeros() {
             left: Box::new(Expression::Value(0)),
             right: Box::new(Expression::Value(0))
         }),
-        Ok(0)
+        0
     );
     assert_eq!(
         eval(Expression::Op {
@@ -135,19 +123,7 @@ fn test_zeros() {
             left: Box::new(Expression::Value(0)),
             right: Box::new(Expression::Value(0))
         }),
-        Ok(0)
-    );
-}
-
-#[test]
-fn test_error() {
-    assert_eq!(
-        eval(Expression::Op {
-            op: Operation::Div,
-            left: Box::new(Expression::Value(99)),
-            right: Box::new(Expression::Value(0)),
-        }),
-        Err(String::from("division by zero"))
+        0
     );
 }
 // ANCHOR_END: tests
