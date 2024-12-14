@@ -70,4 +70,9 @@ fn main() {
   you can bring up `#[doc_hidden]` and `#[non_exhaustive]` and show how they're
   used to limit what can be done with an enum.
 
+- Module privacy still applies when there are `impl` blocks in other modules
+  [(example in the playground)][1].
+
 </details>
+
+[1]: https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=3e61f43c88de12bcdf69c1d6df9ab3da
