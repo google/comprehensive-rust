@@ -4,20 +4,17 @@ minutes: 30
 
 # Exercise: Rewriting with Result
 
-The following implements a very simple parser for an expression language.
-However, it handles errors by panicking. Rewrite it to instead use idiomatic
-error handling and propagate errors to a return from `main`. Feel free to use
-[`thiserror`] and [`anyhow`].
+In this exercise we're revisiting the expression evaluator exercise that we did
+in day 2. Our initial solution ignores a possible error case: Dividing by zero!
+Rewrite `eval` to instead use idiomatic error handling to handle this error case
+and return an error when it occurs. We provide a simple `DivideByZeroError` type
+to use as the error type for `eval`.
 
-[`thiserror`]: https://docs.rs/thiserror
-[`anyhow`]: https://docs.rs/anyhow
-
-> **Hint:** start by fixing error handling in the `parse` function. Once that is
-> working correctly, update `Tokenizer` to implement
-> `Iterator<Item=Result<Token, TokenizerError>>` and handle that in the parser.
 
 ```rust,editable
 {{#include exercise.rs:types}}
 
-{{#include exercise.rs:panics}}
+{{#include exercise.rs:eval}}
+
+{{#include exercise.rs:tests}}
 ```
