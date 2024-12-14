@@ -47,7 +47,7 @@ fn main() {
 
 - `match` expressions need to be exhaustive, meaning they either need to cover
   all possible values or they need to have a default case such as `_`.
-  Exhaustiveness is easiest to demonstate with enums, but enums haven't been
+  Exhaustiveness is easiest to demonstrate with enums, but enums haven't been
   introduced yet. Instead we demonstrate matching on a `bool`, which is the
   simplest primitive type.
 
