@@ -169,9 +169,11 @@
 
 - [Welcome](welcome-day-4.md)
 - [Iterators](iterators.md)
-  - [`Iterator`](iterators/iterator.md)
-  - [`IntoIterator`](iterators/intoiterator.md)
+  - [Motivation](iterators/motivation.md)
+  - [`Iterator` Trait](iterators/iterator.md)
+  - [`Iterator` Helper Methods](iterators/helpers.md)
   - [`collect`](iterators/collect.md)
+  - [`IntoIterator`](iterators/intoiterator.md)
   - [Exercise: Iterator Method Chaining](iterators/exercise.md)
     - [Solution](iterators/solution.md)
 - [Modules](modules.md)
