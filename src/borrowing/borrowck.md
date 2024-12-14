@@ -4,9 +4,8 @@ minutes: 10
 
 # Borrow Checking
 
-Rust's _borrow checker_ puts constraints on the ways you can borrow values. The
-simplest rule that it enforces is that a reference cannot _outlive_ the value it
-borrows:
+Rust's _borrow checker_ puts constraints on the ways you can borrow values.
+We've already seen that a reference cannot _outlive_ the value it borrows:
 
 <!-- mdbook-xgettext: skip -->
 
