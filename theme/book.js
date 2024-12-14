@@ -171,6 +171,13 @@ function playground_text(playground, hidden = true) {
                 "latency": (endTime - startTime) / 1000,
             });
 
+            if (response.error != null && response.error != '') {
+                // output the error if there's any. e.g. timeout
+                result_block.innerText = response.error;
+                result_block.classList.remove("result-no-output");
+                return;
+            }
+
             if (response.stdout.trim() === '') {
                 result_block.innerText = "No output";
                 result_block.classList.add("result-no-output");
