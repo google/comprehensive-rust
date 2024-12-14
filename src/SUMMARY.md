@@ -178,6 +178,7 @@
   - [Modules](modules/modules.md)
   - [Filesystem Hierarchy](modules/filesystem.md)
   - [Visibility](modules/visibility.md)
+  - [Encapsulation](modules/encapsulation.md)
   - [`use`, `super`, `self`](modules/paths.md)
   - [Exercise: Modules for a GUI Library](modules/exercise.md)
     - [Solution](modules/solution.md)
