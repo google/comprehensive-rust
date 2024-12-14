@@ -50,7 +50,11 @@ fn eval(e: Expression) -> i64 {
                 Operation::Add => left + right,
                 Operation::Sub => left - right,
                 Operation::Mul => left * right,
-                Operation::Div => left / right,
+                Operation::Div => if right != 0 {
+                    left / right
+                } else {
+                    panic!("Cannot divide by zero!");
+                },
             }
         }
         Expression::Value(v) => v,
@@ -60,7 +64,6 @@ fn eval(e: Expression) -> i64 {
 */
 
 // ANCHOR: solution
-
 fn eval(e: Expression) -> Result<i64, DivideByZeroError> {
     match e {
         Expression::Op { op, left, right } => {

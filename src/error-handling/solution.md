@@ -1,8 +1,6 @@
 # Solution
 
-<!-- compile_fail because `mdbook test` does not allow use of `thiserror` -->
-
-```rust,editable,compile_fail
+```rust,editable
 {{#include exercise.rs:types}}
 
 {{#include exercise.rs:solution}}
