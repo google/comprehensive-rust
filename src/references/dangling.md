@@ -2,7 +2,7 @@
 minutes: 3
 ---
 
-# Dangling References
+# Reference Validity
 
 Rust enforces a number of rules for references that make them always safe to
 use, the simplest of which is that a reference can't outlive the data it points
