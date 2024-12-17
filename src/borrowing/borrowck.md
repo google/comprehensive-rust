@@ -4,8 +4,23 @@ minutes: 10
 
 # Borrow Checking
 
-Rust's _borrow checker_ puts constraints on the ways you can borrow values. For
-a given value, at any time:
+Rust's _borrow checker_ puts constraints on the ways you can borrow values.
+We've already seen that a reference cannot _outlive_ the value it borrows:
+
+<!-- mdbook-xgettext: skip -->
+
+```rust,editable,compile_fail
+fn main() {
+    let x_ref = {
+        let x = 10;
+        &x
+    };
+    println!("x: {x_ref}");
+}
+```
+
+There's also a second main rule that the borrow checker enforces: The _aliasing_
+rule. For a given value, at any time:
 
 - You can have one or more shared references to the value, _or_
 - You can have exactly one exclusive reference to the value.
@@ -29,6 +44,9 @@ fn main() {
 
 <details>
 
+- The "outlives" rule was demonstrated previously when we first looked at
+  references. We review it here to show students that the borrow checking is
+  following a few different rules to validate borrowing.
 - Note that the requirement is that conflicting references not _exist_ at the
   same point. It does not matter where the reference is dereferenced.
 - The above code does not compile because `a` is borrowed as mutable (through

@@ -57,6 +57,7 @@
   - [Exclusive References](references/exclusive.md)
   - [Slices](references/slices.md)
   - [Strings](references/strings.md)
+  - [Reference Validity](references/dangling.md)
   - [Exercise: Geometry](references/exercise.md)
     - [Solution](references/solution.md)
 - [User-Defined Types](user-defined-types.md)
