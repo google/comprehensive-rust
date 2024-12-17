@@ -183,7 +183,7 @@
   - [Exercise: Modules for a GUI Library](modules/exercise.md)
     - [Solution](modules/solution.md)
 - [Testing](testing.md)
-  - [Test Modules](testing/unit-tests.md)
+  - [Unit Tests](testing/unit-tests.md)
   - [Other Types of Tests](testing/other.md)
   - [Compiler Lints and Clippy](testing/lints.md)
   - [Exercise: Luhn Algorithm](testing/exercise.md)

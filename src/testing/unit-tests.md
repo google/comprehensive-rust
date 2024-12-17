@@ -4,15 +4,9 @@ minutes: 5
 
 # Unit Tests
 
-Rust and Cargo come with a simple unit test framework:
-
-- Unit tests are supported throughout your code.
-
-- Integration tests are supported via the `tests/` directory.
-
-Tests are marked with `#[test]`. Unit tests are often put in a nested `tests`
-module, using `#[cfg(test)]` to conditionally compile them only when building
-tests.
+Rust and Cargo come with a simple unit test framework. Tests are marked with
+`#[test]`. Unit tests are often put in a nested `tests` module, using
+`#[cfg(test)]` to conditionally compile them only when building tests.
 
 ```rust,editable,ignore
 fn first_word(text: &str) -> &str {
