@@ -9,13 +9,13 @@ sequence of values. For example, if we wanted to create an iterator that can
 produce the elements of a slice it might look something like this:
 
 ```rust,editable
-struct SliceIter<'a> {
-    slice: &'a [i32],
+struct SliceIter<'s> {
+    slice: &'s [i32],
     i: usize,
 }
 
-impl<'a> Iterator for SliceIter<'a> {
-    type Item = &'a i32;
+impl<'s> Iterator for SliceIter<'s> {
+    type Item = &'s i32;
 
     fn next(&mut self) -> Option<Self::Item> {
         if self.i == self.slice.len() {
@@ -45,6 +45,10 @@ fn main() {
 - Point out to the students that iterators are lazy: Creating the iterator just
   initializes the struct but does not otherwise do any work. No work happens
   until the `next` method is called.
+
+- Iterators don't need to be finite! It's entirely valid to have an iterator
+  that will produce values forever. For example, a half open range like `0..`
+  will keep going until integer overflow occurs.
 
 ## More to Explore
 
