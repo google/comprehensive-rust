@@ -57,6 +57,11 @@ fn main() {
 
 <details>
 
+- `IntoIterator` is the trait that makes for loops work. It is implemented by
+  collection types such as `Vec<T>` and references to them such as `&Vec<T>` and
+  `&[T]`. Ranges also implement it. This is why you can iterate over a vector
+  with `for i in some_vec { .. }` but `some_vec.next()` doesn't exist.
+
 Click through to the docs for `IntoIterator`. Every implementation of
 `IntoIterator` must declare two types:
 
