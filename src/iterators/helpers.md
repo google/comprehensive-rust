@@ -14,7 +14,7 @@ let result: i32 = (1..=10) // Create a range from 1 to 10
     .map(|x| x * x) // Square each number
     .sum(); // Sum up all the squared numbers
 
-println!("The sum of squares of even numbers from 1 to 9 is: {}", result);
+println!("The sum of squares of even numbers from 1 to 10 is: {}", result);
 ```
 
 <details>
