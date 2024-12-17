@@ -23,7 +23,7 @@ println!("The sum of squares of even numbers from 1 to 9 is: {}", result);
   over collections (e.g. `map`, `filter`, `reduce`, etc). This is the trait
   where you can find all the documentation about them.
 
-- Many of these helper methods take the original iterator and produces a new
+- Many of these helper methods take the original iterator and produce a new
   iterator with different behavior. These are know as "iterator adapter
   methods".
 
