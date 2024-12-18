@@ -68,8 +68,6 @@ impl From<(f64, f64, f64, f64)> for ElementSize {
 pub struct EvaluationResult {
     /// metadata about the slide
     slide: Slide,
-    /// the size of the main content element
-    element_size: ElementSize,
     /// all policy violations
     policy_violations: Vec<PolicyViolation>,
 }
@@ -85,8 +83,6 @@ pub struct EvaluationResults {
 #[derive(Serialize)]
 struct ExportFormat {
     filename: PathBuf,
-    element_width: usize,
-    element_height: usize,
     policy_violations: String,
 }
 
@@ -113,8 +109,6 @@ impl EvaluationResults {
             }
             csv_writer.serialize(ExportFormat {
                 filename: (*result.slide.filename).to_path_buf(),
-                element_width: result.element_size.width.round() as usize,
-                element_height: result.element_size.height.round() as usize,
                 policy_violations: result
                     .policy_violations
                     .iter()
@@ -133,10 +127,8 @@ impl EvaluationResults {
                 continue;
             }
             println!(
-                "{}: {}x{} [{}]",
+                "{}: [{}]",
                 result.slide.filename.display(),
-                result.element_size.width,
-                result.element_size.height,
                 result
                     .policy_violations
                     .iter()
@@ -181,23 +173,6 @@ impl<'a> Evaluator<'_> {
         Ok(())
     }
 
-    /// evaluate the currently opened webpage return the selected content
-    /// element if available
-    async fn get_content_element_from_slide(
-        &self,
-    ) -> anyhow::Result<Option<Element>> {
-        match self.webclient.find(self.element_selector).await {
-            Result::Ok(result) => Ok(Some(result)),
-            Result::Err(fantoccini::error::CmdError::Standard(
-                fantoccini::error::WebDriver {
-                    error: fantoccini::error::ErrorStatus::NoSuchElement,
-                    ..
-                },
-            )) => anyhow::Ok(None),
-            Result::Err(error) => Err(anyhow!(error))?,
-        }
-    }
-
     /// extract the element coordinates from this element
     async fn get_element_coordinates(
         &self,
@@ -235,6 +210,58 @@ impl<'a> Evaluator<'_> {
         Ok(())
     }
 
+    /// evaluates the main element of the page if there is one and returns violations of the policy
+    async fn eval_main_element(
+        &self,
+        slide: &Slide,
+    ) -> anyhow::Result<Vec<PolicyViolation>> {
+        // get every main content element - should only be one but find_all makes
+        // the code easier as we just care about violations of any main element
+        let content_elements =
+            self.webclient.find_all(self.element_selector).await?;
+
+        let mut violations = vec![];
+        for element in content_elements {
+            let element_size = self.get_element_coordinates(&element).await?;
+            violations.append(&mut self.slide_policy.eval_size(&element_size));
+            if self.screenshot_dir.is_some() {
+                let screenshot = element.screenshot().await?;
+                self.store_screenshot(screenshot, &slide.filename)?;
+            }
+        }
+        Ok(violations)
+    }
+
+    /// Determines if the current page has a code example (using ACE) that has
+    /// a scrollbar by evaluating if the ace_scrollbar-[hv] element is displayed
+    async fn eval_code_example_scrollbar(
+        &self,
+    ) -> anyhow::Result<Vec<PolicyViolation>> {
+        let v_scrollbar_elements_path = fantoccini::Locator::XPath(
+            r#"//*[@id="content"]//div[contains(@class, "ace_scrollbar-v")]"#,
+        );
+        let h_scrollbar_elements_path = fantoccini::Locator::XPath(
+            r#"//*[@id="content"]//div[contains(@class, "ace_scrollbar-h")]"#,
+        );
+        let v_scrollbar_elements =
+            self.webclient.find_all(v_scrollbar_elements_path).await?;
+        let h_scrollbar_elements =
+            self.webclient.find_all(h_scrollbar_elements_path).await?;
+
+        let mut violations = vec![];
+        for element in v_scrollbar_elements {
+            if element.is_displayed().await? {
+                violations.push(PolicyViolation::CodeExampleVScrollbar);
+            }
+        }
+        for element in h_scrollbar_elements {
+            if element.is_displayed().await? {
+                violations.push(PolicyViolation::CodeExampleHScrollbar);
+            }
+        }
+        Ok(violations)
+    }
+
     /// evaluate a single slide
     pub async fn eval_slide(
         &self,
@@ -245,21 +272,13 @@ impl<'a> Evaluator<'_> {
         let url = self.html_base_url.join(&slide.filename.display().to_string())?;
         self.webdriver_open_url(&url).await?;
 
-        let Some(content_element) = self.get_content_element_from_slide().await?
-        else {
-            return Ok(None);
-        };
-        let element_size = self.get_element_coordinates(&content_element).await?;
-        if self.screenshot_dir.is_some() {
-            let screenshot = content_element.screenshot().await?;
-            self.store_screenshot(screenshot, &slide.filename)?;
-        }
-        let policy_violations = self.slide_policy.eval_size(&element_size);
-        let result = EvaluationResult {
-            slide: slide.clone(),
-            element_size,
-            policy_violations,
-        };
+        let mut policy_violations = vec![];
+        // evaluate main content element size
+        policy_violations.append(&mut self.eval_main_element(slide).await?);
+        // evaluate code examples size
+        policy_violations.append(&mut self.eval_code_example_scrollbar().await?);
+
+        let result = EvaluationResult { slide: slide.clone(), policy_violations };
         debug!("information about element: {:?}", result);
         Ok(Some(result))
     }
@@ -290,6 +309,10 @@ enum PolicyViolation {
     MaxWidth,
     /// violation of the maximum width
     MaxHeight,
+    /// code examples should not contain a vertical scrollbar
+    CodeExampleVScrollbar,
+    /// code examples should not contain a horizontal scrollbar
+    CodeExampleHScrollbar,
 }
 
 /// the SlidePolicy struct contains all parameters for evaluating a slide
