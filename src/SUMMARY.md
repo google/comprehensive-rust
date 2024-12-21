@@ -336,6 +336,7 @@
   - [MMIO](bare-metal/aps/mmio.md)
   - [Let's Write a UART Driver](bare-metal/aps/uart.md)
     - [More Traits](bare-metal/aps/uart/traits.md)
+    - [Using It](bare-metal/aps/uart/using.md)
   - [A Better UART Driver](bare-metal/aps/better-uart.md)
     - [Bitflags](bare-metal/aps/better-uart/bitflags.md)
     - [Multiple Registers](bare-metal/aps/better-uart/registers.md)

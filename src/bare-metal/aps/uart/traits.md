@@ -11,7 +11,8 @@ too.
 
 - Implementing `Write` lets us use the `write!` and `writeln!` macros with our
   `Uart` type.
-- Run the example in QEMU with `make qemu_minimal` under
-  `src/bare-metal/aps/examples`.
+
+- `Send` is an auto-trait, but not implemented automatically because it is not
+  implemented for pointers.
 
 </details>
