@@ -8,6 +8,10 @@ Before we can start running Rust code, we need to do some initialisation.
 
 <details>
 
+This code is in `src/bare-metal/aps/examples/entry.S`. It's not necessary to
+understand this in detail -- the takeaway is that typically some low-level setup
+is needed to meet Rust's expectations of the system.
+
 - This is the same as it would be for C: initialising the processor state,
   zeroing the BSS, and setting up the stack pointer.
   - The BSS (block starting symbol, for historical reasons) is the part of the
