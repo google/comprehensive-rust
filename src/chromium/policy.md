@@ -21,8 +21,9 @@ Using Rust for pure first-party code looks like this:
 `- - - - - - - - - -'           `- - - - - - - - - - -'
 ```
 
-The third-party case is also common. It's likely that you'll also need a small amount
-of first-party glue code, because very few Rust libraries directly expose a C/C++ API.
+The third-party case is also common. It's likely that you'll also need a small
+amount of first-party glue code, because very few Rust libraries directly expose
+a C/C++ API.
 
 ```bob
 "C++"                           Rust
@@ -43,5 +44,5 @@ The scenario of using a third-party crate is the more complex one, so today's
 course will focus on:
 
 - Bringing in third-party Rust libraries ("crates")
-- Writing glue code to be able to use those crates from Chromium C++.
-  (The same techniques are used when working with first-party Rust code).
+- Writing glue code to be able to use those crates from Chromium C++. (The same
+  techniques are used when working with first-party Rust code).
