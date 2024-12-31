@@ -54,6 +54,7 @@
   - [Exercise: Nested Arrays](tuples-and-arrays/exercise.md)
     - [Solution](tuples-and-arrays/solution.md)
 - [References](references.md)
+  - [Ownership](references/ownership.md)
   - [Shared References](references/shared.md)
   - [Exclusive References](references/exclusive.md)
   - [Slices](references/slices.md)
