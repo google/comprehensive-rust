@@ -29,7 +29,7 @@ To get started, install some tools we'll need later. On gLinux or Debian:
 <!-- mdbook-xgettext: skip -->
 
 ```bash
-sudo apt install gdb-multiarch libudev-dev picocom pkg-config qemu-system-arm build-essentials
+sudo apt install gdb-multiarch libudev-dev picocom pkg-config qemu-system-arm build-essential
 rustup update
 rustup target add aarch64-unknown-none thumbv7em-none-eabihf
 rustup component add llvm-tools-preview
