@@ -12,12 +12,12 @@ primitives.
 ```rust,editable,compile_fail
 use spin::mutex::SpinMutex;
 
-static counter: SpinMutex<u32> = SpinMutex::new(0);
+static COUNTER: SpinMutex<u32> = SpinMutex::new(0);
 
 fn main() {
-    println!("count: {}", counter.lock());
-    *counter.lock() += 2;
-    println!("count: {}", counter.lock());
+    println!("count: {}", COUNTER.lock());
+    *COUNTER.lock() += 2;
+    println!("count: {}", COUNTER.lock());
 }
 ```
 

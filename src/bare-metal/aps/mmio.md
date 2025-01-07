@@ -5,6 +5,16 @@
 - Use `&raw` to get fields of structs without creating an intermediate
   reference.
 
+```rust,editable,ignore
+const SOME_DEVICE_REGISTER: *mut u64 = 0x800_0000 as _;
+// SAFETY: Some device is mapped at this address.
+unsafe {
+    SOME_DEVICE_REGISTER.write_volatile(0xff);
+    SOME_DEVICE_REGISTER.write_volatile(0x80);
+    assert_eq!(SOME_DEVICE_REGISTER.read_volatile(), 0xaa);
+}
+```
+
 [`pointer::read_volatile`]: https://doc.rust-lang.org/stable/core/primitive.pointer.html#method.read_volatile
 [`pointer::write_volatile`]: https://doc.rust-lang.org/stable/core/primitive.pointer.html#method.write_volatile
 [`addr_of!`]: https://doc.rust-lang.org/stable/core/ptr/macro.addr_of.html
