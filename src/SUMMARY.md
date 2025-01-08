@@ -390,6 +390,8 @@
 - [Async Basics](concurrency/async.md)
   - [`async`/`await`](concurrency/async/async-await.md)
   - [Futures](concurrency/async/futures.md)
+  - [State Machine](concurrency/async/state-machine.md)
+    - [Recursion](concurrency/async/state-machine/recursion.md)
   - [Runtimes](concurrency/async/runtimes.md)
     - [Tokio](concurrency/async/runtimes/tokio.md)
   - [Tasks](concurrency/async/tasks.md)
