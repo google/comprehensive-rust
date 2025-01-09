@@ -417,6 +417,38 @@
   - [Broadcast Chat Application](concurrency/async-exercises/chat-app.md)
   - [Solutions](concurrency/async-exercises/solutions.md)
 
+# Rust for Linux
+
+---
+
+- [Welcome](rust-for-linux/welcome.md)
+- [Interoperation Requirements](rust-for-linux/basic-requirements.md)
+  - [Building Kernel Modules](rust-for-linux/modules.md)
+  - [Type Mapping](rust-for-linux/types.md)
+  - [Bindings and Safe Interfaces](rust-for-linux/bindings-interfaces.md)
+  - [Avoiding Bloat](rust-for-linux/bloat.md)
+- [Hands-on With Kernel Rust](rust-for-linux/hands-on.md)
+  - [Rust for Linux](rust-for-linux/rust-for-linux.md)
+  - [`rust-analyzer` Setup](rust-for-linux/rust-analyzer.md)
+  - [Macros](rust-for-linux/macros.md)
+  - [A Rust Kernel Module](rust-for-linux/kernel-module.md)
+    - [The `module!` Macro](rust-for-linux/modules/module-macro.md)
+    - [Module Setup and Teardown](rust-for-linux/modules/setup-and-teardown.md)
+    - [Module Parameters](rust-for-linux/modules/parameters.md)
+  - [Using Abstractions](rust-for-linux/using-abstractions.md)
+- [Complications and Conflicts](rust-for-linux/complications.md)
+  - [`Pin` and Self-Reference](rust-for-linux/complications/pin.md)
+  - [The Kernel Rust Safety Model](rust-for-linux/complications/safety.md)
+  - [Atomic/Task Contexts and Sleep](rust-for-linux/complications/sleeping.md)
+  - [Memory Models](rust-for-linux/complications/memory-models.md)
+  - [Separate Compilation and Linking](rust-for-linux/complications/separate-compilation.md)
+  - [Fallible Allocation](rust-for-linux/complications/fallible-allocation.md)
+  - [Code Size](rust-for-linux/complications/code-size.md)
+  - [Documentation](rust-for-linux/complications/kernel-doc.md)
+  - [Security Mitigations](rust-for-linux/complications/mitigations.md)
+  - [Async](rust-for-linux/complications/async.md)
+- [Next Steps](rust-for-linux/next-steps.md)
+
 # Final Words
 
 ---
