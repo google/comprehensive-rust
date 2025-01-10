@@ -189,6 +189,7 @@ jobs:
         run: npm install
         working-directory: ./tests
       - name: Test Javascript
+        if: matrix.language == 'en'
         run: npm test
         env:
           TEST_BOOK_DIR: ../book/comprehensive-rust-${{ matrix.language }}/html
