@@ -110,6 +110,8 @@
     popOutLocation.hash = "#speaker-notes-open";
     let popOut = document.createElement("button");
     popOut.classList.add("icon-button", "pop-out");
+    popOut.setAttribute("title", "Open speaker notes in a new window");
+    popOut.setAttribute("aria-label", "Open speaker notes in a new window");
     popOut.addEventListener("click", (event) => {
       let popup = window.open(popOutLocation.href, "speakerNotes", "popup");
       if (popup) {
