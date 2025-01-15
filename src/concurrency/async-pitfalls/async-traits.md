@@ -4,7 +4,7 @@ minutes: 5
 
 # Async Traits
 
-Async methods in traits are were stabilized in the 1.75 release. This required
+Async methods in traits were stabilized in the 1.75 release. This required
 support for using return-position `impl Trait` in traits, as the desugaring for
 `async fn` includes `-> impl Future<Output = ...>`.
 
