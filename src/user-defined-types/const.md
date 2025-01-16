@@ -43,8 +43,6 @@ values. `const` functions can however be called at runtime.
 <details>
 
 - Mention that `const` behaves semantically similar to C++'s `constexpr`
-- It isn't super common that one would need a runtime evaluated constant, but it
-  is helpful and safer than using a static.
 
 </details>
 
