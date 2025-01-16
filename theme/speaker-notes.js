@@ -95,21 +95,23 @@
     let summary = document.createElement("summary");
     notes.insertBefore(summary, notes.firstChild);
 
-    let h4 = document.createElement("h4");
-    h4.setAttribute("id", "speaker-notes");
-    h4.append("Speaker Notes");
-    h4.addEventListener("click", (event) => {
+    let h3 = document.createElement("h3");
+    h3.setAttribute("id", "speaker-notes");
+    h3.append("Speaker Notes");
+    h3.addEventListener("click", (event) => {
       // Update fragment as if we had clicked a link. A regular a element would
       // result in double-fire of the event.
       window.location.hash = "#speaker-notes";
     });
-    summary.append(h4);
+    summary.append(h3);
 
     // Create pop-out button.
     let popOutLocation = new URL(window.location.href);
     popOutLocation.hash = "#speaker-notes-open";
     let popOut = document.createElement("button");
     popOut.classList.add("icon-button", "pop-out");
+    popOut.setAttribute("title", "Open speaker notes in a new window");
+    popOut.setAttribute("aria-label", "Open speaker notes in a new window");
     popOut.addEventListener("click", (event) => {
       let popup = window.open(popOutLocation.href, "speakerNotes", "popup");
       if (popup) {
