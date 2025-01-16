@@ -1,3 +1,7 @@
+---
+minutes: 10
+---
+
 # `const`
 
 Constants are evaluated at compile time and their values are inlined wherever
