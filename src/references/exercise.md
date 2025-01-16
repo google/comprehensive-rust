@@ -1,5 +1,5 @@
 ---
-minutes: 15
+minutes: 20
 ---
 
 # Exercise: Geometry
