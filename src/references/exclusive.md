@@ -1,5 +1,5 @@
 ---
-minutes: 7
+minutes: 5
 ---
 
 # Exclusive References
