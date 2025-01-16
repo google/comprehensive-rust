@@ -65,9 +65,9 @@
   - [Named Structs](user-defined-types/named-structs.md)
   - [Tuple Structs](user-defined-types/tuple-structs.md)
   - [Enums](user-defined-types/enums.md)
+  - [Type Aliases](user-defined-types/aliases.md)
   - [Const](user-defined-types/const.md)
   - [Static](user-defined-types/static.md)
-  - [Type Aliases](user-defined-types/aliases.md)
   - [Exercise: Elevator Events](user-defined-types/exercise.md)
     - [Solution](user-defined-types/solution.md)
 
