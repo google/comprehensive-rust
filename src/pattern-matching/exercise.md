@@ -1,5 +1,5 @@
 ---
-minutes: 20
+minutes: 15
 ---
 
 # Exercise: Expression Evaluation
