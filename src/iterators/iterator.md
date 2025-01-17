@@ -29,7 +29,7 @@ impl<'s> Iterator for SliceIter<'s> {
 }
 
 fn main() {
-    let slice = [2, 4, 6, 8].as_slice();
+    let slice = &[2, 4, 6, 8];
     let iter = SliceIter { slice, i: 0 };
     for elem in iter {
         println!("elem: {elem}");
