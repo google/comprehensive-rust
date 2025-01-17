@@ -77,15 +77,23 @@
 .set .Lsctlrval, .L_SCTLR_ELx_M | .L_SCTLR_ELx_C | .L_SCTLR_ELx_SA | .L_SCTLR_EL1_ITD | .L_SCTLR_EL1_SED
 .set .Lsctlrval, .Lsctlrval | .L_SCTLR_ELx_I | .L_SCTLR_EL1_SPAN | .L_SCTLR_EL1_RES1
 
+// ANCHOR: entry
 /**
  * This is a generic entry point for an image. It carries out the
  * operations required to prepare the loaded image to be run.
- * Specifically, it zeroes the bss section using registers x25 and
- * above, prepares the stack, enables floating point, and sets up the
- * exception vector. It preserves x0-x3 for the Rust entry point, as
- * these may contain boot parameters.
+ * Specifically, it
+ *
+ * - sets up the MMU with an identity map of virtual to physical
+ *   addresses, and enables caching
+ * - enables floating point
+ * - zeroes the bss section using registers x25 and above
+ * - prepares the stack, pointing to a section within the image
+ * - sets up the exception vector
+ * - branches to the Rust `main` function
+ *
+ * It preserves x0-x3 for the Rust entry point, as these may contain
+ * boot parameters.
  */
-// ANCHOR: entry
 .section .init.entry, "ax"
 .global entry
 entry:

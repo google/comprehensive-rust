@@ -1,7 +1,8 @@
 # Volatile memory access for MMIO
 
 - Use [`pointer::read_volatile`] and [`pointer::write_volatile`].
-- Never hold a reference.
+- Never hold a reference to a location being accessed with these methods. Rust
+  may read from (or write to, for `&mut`) a reference at any time.
 - Use `&raw` to get fields of structs without creating an intermediate
   reference.
 
