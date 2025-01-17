@@ -6,7 +6,7 @@ pub struct User {
     name: String,
     age: u32,
     height: f32,
-    visit_count: usize,
+    visit_count: u32,
     last_blood_pressure: Option<(u32, u32)>,
 }
 
@@ -35,7 +35,7 @@ impl User {
         let bp = measurements.blood_pressure;
         let report = HealthReport {
             patient_name: &self.name,
-            visit_count: self.visit_count as u32,
+            visit_count: self.visit_count,
             height_change: measurements.height - self.height,
             blood_pressure_change: match self.last_blood_pressure {
                 Some(lbp) => {
