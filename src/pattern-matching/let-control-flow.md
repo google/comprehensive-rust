@@ -42,6 +42,7 @@ off the end of the block).
 
 ```rust,editable
 fn hex_or_die_trying(maybe_string: Option<String>) -> Result<u32, String> {
+    // TODO: The structure of this code is difficult to follow -- rewrite it with let-else!
     if let Some(s) = maybe_string {
         if let Some(first_byte_char) = s.chars().next() {
             if let Some(digit) = first_byte_char.to_digit(16) {
