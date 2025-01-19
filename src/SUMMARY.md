@@ -122,9 +122,14 @@
   - [Casting](std-traits/casting.md)
   - [`Read` and `Write`](std-traits/read-and-write.md)
   - [`Default`, struct update syntax](std-traits/default.md)
-  - [Closures](std-traits/closures.md)
   - [Exercise: ROT13](std-traits/exercise.md)
     - [Solution](std-traits/solution.md)
+- [Closures](closures.md)
+  - [Closure Syntax](closures/syntax.md)
+  - [Capturing](closures/capturing.md)
+  - [Closure Traits](closures/traits.md)
+  - [Exercise: Log Filter](closures/exercise.md)
+    - [Solution](closures/solution.md)
 
 ---
 

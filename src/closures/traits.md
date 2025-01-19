@@ -62,19 +62,4 @@ The compiler also infers `Copy` (e.g. for `add_3`) and `Clone` (e.g.
 `multiply_sum`), depending on what the closure captures. Function pointers
 (references to `fn` items) implement `Copy` and `Fn`.
 
-By default, closures will capture each variable from an outer scope by the least
-demanding form of access they can (by shared reference if possible, then
-exclusive reference, then by move). The `move` keyword forces capture by value.
-
-```rust,editable
-fn make_greeter(prefix: String) -> impl Fn(&str) {
-    return move |name| println!("{} {}", prefix, name);
-}
-
-fn main() {
-    let hi = make_greeter("Hi".to_string());
-    hi("Greg");
-}
-```
-
 </details>
