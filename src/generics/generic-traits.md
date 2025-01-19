@@ -11,6 +11,13 @@ get concrete types when it is used.
 #[derive(Debug)]
 struct Foo(String);
 
+/* https://doc.rust-lang.org/stable/std/convert/trait.From.html
+ *
+ * pub trait From<T>: Sized {
+ *   fn from(value: T) -> Self;
+ * }
+ */
+
 impl From<u32> for Foo {
     fn from(from: u32) -> Foo {
         Foo(format!("Converted from integer: {from}"))
@@ -34,7 +41,7 @@ fn main() {
 
 - The `From` trait will be covered later in the course, but its
   [definition in the `std` docs](https://doc.rust-lang.org/std/convert/trait.From.html)
-  is simple.
+  is simple, and copied here for reference.
 
 - Implementations of the trait do not need to cover all possible type
   parameters. Here, `Foo::from("hello")` would not compile because there is no
