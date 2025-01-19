@@ -127,6 +127,11 @@ function playground_text(playground, hidden = true) {
 
         let text = playground_text(code_block);
         let classes = code_block.querySelector('code').classList;
+        // Unless the code block has `warnunused`, allow all "unused" lints to avoid cluttering
+        // the output.
+        if(!classes.contains("warnunused")) {
+            text = '#![allow(unused)]\n' + text;
+        }
         let edition = "2015";
         if(classes.contains("edition2018")) {
             edition = "2018";
