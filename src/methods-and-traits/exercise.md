@@ -1,5 +1,5 @@
 ---
-minutes: 20
+minutes: 15
 ---
 
 # Exercise: Logger Trait
@@ -14,13 +14,14 @@ verbosity. Your task is to write a `VerbosityFilter` type that will ignore
 messages above a maximum verbosity.
 
 This is a common pattern: a struct wrapping a trait implementation and
-implementing that same trait, adding behavior in the process. What other kinds
-of wrappers might be useful in a logging utility?
+implementing that same trait, adding behavior in the process. In the "Generics"
+segment this afternoon, we will see how to make the wrapper generic over the
+wrapped type.
 
 ```rust,compile_fail
 {{#include exercise.rs:setup}}
 
-// TODO: Define and implement `VerbosityFilter`.
+// TODO: Implement the `Logger` trait for `VerbosityFilter`.
 
 {{#include exercise.rs:main}}
 ```
