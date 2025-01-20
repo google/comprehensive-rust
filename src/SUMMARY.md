@@ -156,6 +156,8 @@
   - [Borrow Checking](borrowing/borrowck.md)
   - [Borrow Errors](borrowing/examples.md)
   - [Interior Mutability](borrowing/interior-mutability.md)
+    - [`Cell`](borrowing/interior-mutability/cell.md)
+    - [`RefCell`](borrowing/interior-mutability/refcell.md)
   - [Exercise: Health Statistics](borrowing/exercise.md)
     - [Solution](borrowing/solution.md)
 - [Lifetimes](lifetimes.md)
