@@ -14,7 +14,7 @@ fn duplicate<T: Clone>(a: T) -> (T, T) {
     (a.clone(), a.clone())
 }
 
-// struct NotCloneable;
+struct NotCloneable;
 
 fn main() {
     let foo = String::from("foo");
