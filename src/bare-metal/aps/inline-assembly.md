@@ -25,7 +25,7 @@ for all these functions.)
   - Just `#[no_mangle]` would be sufficient but
     [RFC3325](https://rust-lang.github.io/rfcs/3325-unsafe-attributes.html) uses
     this notation to draw reviewer attention to attributes which might cause
-    undesired behavior if used incorrectly.
+    undefined behavior if used incorrectly.
 - `_x0`–`_x3` are the values of registers `x0`–`x3`, which are conventionally
   used by the bootloader to pass things like a pointer to the device tree.
   According to the standard aarch64 calling convention (which is what
