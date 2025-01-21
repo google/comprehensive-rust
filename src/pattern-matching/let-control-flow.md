@@ -63,6 +63,8 @@ fn main() {
 }
 ```
 
+# `while let` expressions
+
 Like with `if let`, there is a
 [`while let`](https://doc.rust-lang.org/reference/expressions/loop-expr.html#predicate-pattern-loops)
 variant which repeatedly tests a value against a pattern:
