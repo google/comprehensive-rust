@@ -1,7 +1,7 @@
 # Translations of Comprehensive Rust 🦀
 
 We would love to have your help with translating the course into other
-languages! Please see the [translations page] for the existing translations..
+languages! Please see the [translations page] for the existing translations.
 
 [translations page]: https://google.github.io/comprehensive-rust/running-the-course/translations.html
 
