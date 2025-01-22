@@ -2,10 +2,6 @@
 minutes: 10
 ---
 
-<!-- NOTES:
-Tuple structs, newtype wrappers, unit-like structs, including initialization syntax
--->
-
 # Tuple Structs
 
 If the field names are unimportant, you can use a tuple struct:
@@ -52,6 +48,12 @@ fn main() {
   - Rust generally doesn’t like inexplicit things, like automatic unwrapping or
     for instance using booleans as integers.
   - Operator overloading is discussed on Day 3 (generics).
+- When a tuple struct has zero fields, the `()` can be omitted. The result is a
+  zero-sized type (ZST), of which there is only one value (the name of the
+  type).
+  - This is common for types that implement some behavior but have no data
+    (imagine a `NullReader` that implements some reader behavior by always
+    returning EOF).
 - The example is a subtle reference to the
   [Mars Climate Orbiter](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter)
   failure.
