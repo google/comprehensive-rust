@@ -12,12 +12,9 @@ also be explicit: `&'a Point`, `&'document str`. Lifetimes start with `'` and
 `'a` is a typical default name. Read `&'a Point` as "a borrowed `Point` which is
 valid for at least the lifetime `a`".
 
-Lifetimes are always inferred by the compiler: you cannot assign a lifetime
-yourself. Explicit lifetime annotations create constraints where there is
-ambiguity; the compiler verifies that there is a valid solution.
-
-Lifetimes become more complicated when considering passing values to and
-returning values from functions.
+Explicit lifetime annotations, like types, are required on function signatures
+(but can be elided in common cases). These provide information for inference at
+callsites and within the function body.
 
 <!-- The multi-line formatting by rustfmt in left_most is apparently
      intentional: https://github.com/rust-lang/rustfmt/issues/1908 -->
@@ -56,9 +53,11 @@ Add `'a` appropriately to `left_most`:
 fn left_most<'a>(p1: &'a Point, p2: &'a Point) -> &'a Point {
 ```
 
-This says, "given p1 and p2 which both outlive `'a`, the return value lives for
-at least `'a`.
+This says there is some lifetime `'a` which both `p1` and `p2` outlive, and
+which outlives the return value. The borrow checker verifies this within the
+function body, and uses this information in `main` to determine a lifetime for
+`p3`.
 
-In common cases, lifetimes can be elided, as described on the next slide.
+Try dropping `p2` in `main` before printing `p3`.
 
 </details>

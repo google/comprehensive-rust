@@ -23,7 +23,7 @@ fn cab_distance(p1: &Point, p2: &Point) -> i32 {
     (p1.0 - p2.0).abs() + (p1.1 - p2.1).abs()
 }
 
-fn nearest<'a>(points: &'a [Point], query: &Point) -> Option<&'a Point> {
+fn find_nearest<'a>(points: &'a [Point], query: &Point) -> Option<&'a Point> {
     let mut nearest = None;
     for p in points {
         if let Some((_, nearest_dist)) = nearest {
@@ -40,7 +40,11 @@ fn nearest<'a>(points: &'a [Point], query: &Point) -> Option<&'a Point> {
 
 fn main() {
     let points = &[Point(1, 0), Point(1, 0), Point(-1, 0), Point(0, -1)];
-    println!("{:?}", nearest(points, &Point(0, 2)));
+    let nearest = {
+        let query = Point(0, 2);
+        find_nearest(points, &Point(0, 2))
+    };
+    println!("{:?}", nearest);
 }
 ```
 
@@ -49,12 +53,13 @@ fn main() {
 In this example, `cab_distance` is trivially elided.
 
 The `nearest` function provides another example of a function with multiple
-references in its arguments that requires explicit annotation.
+references in its arguments that requires explicit annotation. In `main`, the
+return value is allowed to outlive the query.
 
 Try adjusting the signature to "lie" about the lifetimes returned:
 
 ```rust,ignore
-fn nearest<'a, 'q>(points: &'a [Point], query: &'q Point) -> Option<&'q Point> {
+fn find_nearest<'a, 'q>(points: &'a [Point], query: &'q Point) -> Option<&'q Point> {
 ```
 
 This won't compile, demonstrating that the annotations are checked for validity
