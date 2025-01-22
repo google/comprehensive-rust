@@ -171,7 +171,7 @@
 - [Lifetimes](lifetimes.md)
   - [Lifetime Annotations](lifetimes/lifetime-annotations.md)
   - [Lifetime Elision](lifetimes/lifetime-elision.md)
-  - [Struct Lifetimes](lifetimes/struct-lifetimes.md)
+  - [Lifetimes in Data Structures](lifetimes/struct-lifetimes.md)
   - [Exercise: Protobuf Parsing](lifetimes/exercise.md)
     - [Solution](lifetimes/solution.md)
 
