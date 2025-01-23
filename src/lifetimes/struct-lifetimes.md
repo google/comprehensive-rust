@@ -8,19 +8,24 @@ If a data type stores borrowed data, it must be annotated with a lifetime:
 
 ```rust,editable
 #[derive(Debug)]
-struct Highlight<'doc>(&'doc str);
+enum HighlightColor {
+    Pink,
+    Yellow,
+}
 
-fn erase(text: String) {
-    println!("Bye {text}!");
+#[derive(Debug)]
+struct Highlight<'text> {
+    slice: &'text str,
+    color: HighlightColor,
 }
 
 fn main() {
     let text = String::from("The quick brown fox jumps over the lazy dog.");
-    let fox = Highlight(&text[4..19]);
-    let dog = Highlight(&text[35..43]);
-    // erase(text);
-    println!("{fox:?}");
-    println!("{dog:?}");
+    let noun = Highlight { slice: &text[16..19], color: HighlightColor::Yellow };
+    let verb = Highlight { slice: &text[20..25], color: HighlightColor::Pink };
+    // drop(text);
+    println!("{noun:?}");
+    println!("{verb:?}");
 }
 ```
 
@@ -28,8 +33,9 @@ fn main() {
 
 - In the above example, the annotation on `Highlight` enforces that the data
   underlying the contained `&str` lives at least as long as any instance of
-  `Highlight` that uses that data.
-- If `text` is consumed before the end of the lifetime of `fox` (or `dog`), the
+  `Highlight` that uses that data. A struct cannot live longer than the data it
+  references.
+- If `text` is dropped before the end of the lifetime of `noun` or `verb`, the
   borrow checker throws an error.
 - Types with borrowed data force users to hold on to the original data. This can
   be useful for creating lightweight views, but it generally makes them somewhat
