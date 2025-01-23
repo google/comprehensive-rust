@@ -95,10 +95,6 @@
   - [Deriving](methods-and-traits/deriving.md)
   - [Exercise: Generic Logger](methods-and-traits/exercise.md)
     - [Solution](methods-and-traits/solution.md)
-
-# Day 2: Afternoon
-
-- [Welcome](welcome-day-2-afternoon.md)
 - [Generics](generics.md)
   - [Generic Functions](generics/generic-functions.md)
   - [Generic Data Types](generics/generic-data.md)
@@ -108,6 +104,10 @@
   - [`dyn Trait`](generics/dyn-trait.md)
   - [Exercise: Generic `min`](generics/exercise.md)
     - [Solution](generics/solution.md)
+
+# Day 2: Afternoon
+
+- [Welcome](welcome-day-2-afternoon.md)
 - [Standard Library Types](std-types.md)
   - [Standard Library](std-types/std.md)
   - [Documentation](std-types/docs.md)
@@ -125,9 +125,14 @@
   - [Casting](std-traits/casting.md)
   - [`Read` and `Write`](std-traits/read-and-write.md)
   - [`Default`, struct update syntax](std-traits/default.md)
-  - [Closures](std-traits/closures.md)
   - [Exercise: ROT13](std-traits/exercise.md)
     - [Solution](std-traits/solution.md)
+- [Closures](closures.md)
+  - [Closure Syntax](closures/syntax.md)
+  - [Capturing](closures/capturing.md)
+  - [Closure Traits](closures/traits.md)
+  - [Exercise: Log Filter](closures/exercise.md)
+    - [Solution](closures/solution.md)
 
 ---
 
