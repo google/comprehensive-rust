@@ -12,9 +12,14 @@ also be explicit: `&'a Point`, `&'document str`. Lifetimes start with `'` and
 `'a` is a typical default name. Read `&'a Point` as "a borrowed `Point` which is
 valid for at least the lifetime `a`".
 
+Only ownership, not lifetime annotations, control when objects are destroyed and
+determine the concrete lifetime of a given value. The borrow checker just
+ensures this is done safely.
+
 Explicit lifetime annotations, like types, are required on function signatures
 (but can be elided in common cases). These provide information for inference at
-callsites and within the function body.
+callsites and within the function body, helping the borrow checker to do its
+job.
 
 <!-- The multi-line formatting by rustfmt in left_most is apparently
      intentional: https://github.com/rust-lang/rustfmt/issues/1908 -->
