@@ -14,16 +14,16 @@ enum HighlightColor {
 }
 
 #[derive(Debug)]
-struct Highlight<'text> {
-    slice: &'text str,
+struct Highlight<'document> {
+    slice: &'document str,
     color: HighlightColor,
 }
 
 fn main() {
-    let text = String::from("The quick brown fox jumps over the lazy dog.");
-    let noun = Highlight { slice: &text[16..19], color: HighlightColor::Yellow };
-    let verb = Highlight { slice: &text[20..25], color: HighlightColor::Pink };
-    // drop(text);
+    let doc = String::from("The quick brown fox jumps over the lazy dog.");
+    let noun = Highlight { slice: &doc[16..19], color: HighlightColor::Yellow };
+    let verb = Highlight { slice: &doc[20..25], color: HighlightColor::Pink };
+    // drop(doc);
     println!("{noun:?}");
     println!("{verb:?}");
 }
@@ -35,7 +35,7 @@ fn main() {
   underlying the contained `&str` lives at least as long as any instance of
   `Highlight` that uses that data. A struct cannot live longer than the data it
   references.
-- If `text` is dropped before the end of the lifetime of `noun` or `verb`, the
+- If `doc` is dropped before the end of the lifetime of `noun` or `verb`, the
   borrow checker throws an error.
 - Types with borrowed data force users to hold on to the original data. This can
   be useful for creating lightweight views, but it generally makes them somewhat
