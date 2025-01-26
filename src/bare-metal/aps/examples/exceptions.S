@@ -15,12 +15,13 @@
  */
 
 /**
- * Saves the volatile registers onto the stack. This currently takes 14
- * instructions, so it can be used in exception handlers with 18 instructions
- * left.
+ * Saves the volatile registers onto the stack. This currently takes
+ * 14 instructions, so it can be used in exception handlers with 18
+ * instructions left.
  *
- * On return, x0 and x1 are initialised to elr_el2 and spsr_el2 respectively,
- * which can be used as the first and second arguments of a subsequent call.
+ * On return, x0 and x1 are initialised to elr_el2 and spsr_el2
+ * respectively, which can be used as the first and second arguments
+ * of a subsequent call.
  */
 .macro save_volatile_to_stack
 	/* Reserve stack space and save registers x0-x18, x29 & x30. */
@@ -37,8 +38,8 @@
 	stp x29, x30, [sp, #8 * 20]
 
 	/*
-	 * Save elr_el1 & spsr_el1. This such that we can take nested exception
-	 * and still be able to unwind.
+	 * Save elr_el1 & spsr_el1. This such that we can take nested
+	 * exception and still be able to unwind.
 	 */
 	mrs x0, elr_el1
 	mrs x1, spsr_el1
@@ -46,10 +47,10 @@
 .endm
 
 /**
- * Restores the volatile registers from the stack. This currently takes 14
- * instructions, so it can be used in exception handlers while still leaving 18
- * instructions left; if paired with save_volatile_to_stack, there are 4
- * instructions to spare.
+ * Restores the volatile registers from the stack. This currently
+ * takes 14 instructions, so it can be used in exception handlers
+ * while still leaving 18 instructions left; if paired with
+ * save_volatile_to_stack, there are 4 instructions to spare.
  */
 .macro restore_volatile_from_stack
 	/* Restore registers x2-x18, x29 & x30. */
@@ -64,7 +65,9 @@
 	ldr x18, [sp, #8 * 18]
 	ldp x29, x30, [sp, #8 * 20]
 
-	/* Restore registers elr_el1 & spsr_el1, using x0 & x1 as scratch. */
+	/*
+	 * Restore registers elr_el1 & spsr_el1, using x0 & x1 as scratch.
+	 */
 	ldp x0, x1, [sp, #8 * 22]
 	msr elr_el1, x0
 	msr spsr_el1, x1
@@ -74,13 +77,16 @@
 .endm
 
 /**
- * This is a generic handler for exceptions taken at the current EL while using
- * SP0. It behaves similarly to the SPx case by first switching to SPx, doing
- * the work, then switching back to SP0 before returning.
+ * This is a generic handler for exceptions taken at the current EL
+ * while using SP0. It behaves similarly to the SPx case by first
+ * switching to SPx, doing the work, then switching back to SP0 before
+ * returning.
  *
- * Switching to SPx and calling the Rust handler takes 16 instructions. To
- * restore and return we need an additional 16 instructions, so we can implement
- * the whole handler within the allotted 32 instructions.
+ * Switching to SPx and calling the Rust handler takes 16
+ * instructions. To restore and return we need an additional 16
+ * instructions, so we can implement the whole handler within the
+ * allotted 32 instructions.
+ *
  */
 .macro current_exception_sp0 handler:req
 	msr spsel, #1
@@ -92,16 +98,16 @@
 .endm
 
 /**
- * This is a generic handler for exceptions taken at the current EL while using
- * SPx. It saves volatile registers, calls the Rust handler, restores volatile
- * registers, then returns.
+ * This is a generic handler for exceptions taken at the current EL
+ * while using SPx. It saves volatile registers, calls the Rust
+ * handler, restores volatile registers, then returns.
  *
- * This also works for exceptions taken from EL0, if we don't care about
- * non-volatile registers.
+ * This also works for exceptions taken from EL0, if we don't care
+ * about non-volatile registers.
  *
- * Saving state and jumping to the Rust handler takes 15 instructions, and
- * restoring and returning also takes 15 instructions, so we can fit the whole
- * handler in 30 instructions, under the limit of 32.
+ * Saving state and jumping to the Rust handler takes 15 instructions,
+ * and restoring and returning also takes 15 instructions, so we can
+ * fit the whole handler in 30 instructions, under the limit of 32.
  */
 .macro current_exception_spx handler:req
 	save_volatile_to_stack

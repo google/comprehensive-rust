@@ -1,7 +1,7 @@
 # Translations of Comprehensive Rust 🦀
 
 We would love to have your help with translating the course into other
-languages! Please see the [translations page] for the existing translations..
+languages! Please see the [translations page] for the existing translations.
 
 [translations page]: https://google.github.io/comprehensive-rust/running-the-course/translations.html
 
@@ -40,7 +40,7 @@ need the `msgmerge` and `msgcat` Gettext tool installed. Please see our
 First, you need to know how to update the `.pot` and `.po` files.
 
 You should never touch the auto-generated `book/xgettext/messages.pot` file. You
-should also not never the `msgid` entries in a `po/xx.po` file. If you find
+should also never edit the `msgid` entries in a `po/xx.po` file. If you find
 mistakes, you need to update the original English text instead. The fixes to the
 English text will flow into the `.po` files the next time the translators update
 them.

@@ -37,7 +37,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Check for typos
-        uses: crate-ci/typos@v1.24.6
+        uses: crate-ci/typos@v1.29.0
         with:
           config: ./.github/typos.toml
 
@@ -51,6 +51,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Update Rust
+        run: rustup update
 
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
@@ -80,6 +83,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install toolchain
+        run: |
+          rustup update
+          rustup target add ${{ matrix.target }}
+
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
 
@@ -87,9 +95,6 @@ jobs:
         run: |
           sudo apt update
           sudo apt install gcc-aarch64-linux-gnu
-
-      - name: Install toolchain
-        run: rustup target add ${{ matrix.target }}
 
       - name: Build Rust code
         working-directory: ${{ matrix.directory }}
@@ -129,6 +134,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # We need the full history for build.sh below.
+
+      - name: Update Rust
+        run: rustup update
 
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
@@ -172,6 +180,20 @@ jobs:
         env:
           MDBOOK_BOOK__LANGUAGE: ${{ matrix.language }}
         run: mdbook test
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install test framework
+        run: npm install
+        working-directory: ./tests
+      - name: Test Javascript
+        if: matrix.language == 'en'
+        run: npm test
+        env:
+          TEST_BOOK_DIR: ../book/comprehensive-rust-${{ matrix.language }}/html
+        working-directory: ./tests
 
   po-diff:
     name: Translation diff

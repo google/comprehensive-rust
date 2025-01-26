@@ -23,7 +23,7 @@ auto-completion and jump-to-definition functionality for [VS Code], [Emacs],
 <details>
 
 - On Debian/Ubuntu, you can also install Cargo, the Rust source and the
-  [Rust formatter] via `apt`. However, this gets you an outdated rust version
+  [Rust formatter] via `apt`. However, this gets you an outdated Rust version
   and may lead to unexpected behavior. The command would be:
 
   ```shell

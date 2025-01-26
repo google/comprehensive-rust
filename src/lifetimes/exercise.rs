@@ -18,8 +18,8 @@
 enum WireType {
     /// The Varint WireType indicates the value is a single VARINT.
     Varint,
-    /// The I64 WireType indicates that the value is precisely 8 bytes in
-    /// little-endian order containing a 64-bit signed integer or double type.
+    // The I64 WireType indicates that the value is precisely 8 bytes in
+    // little-endian order containing a 64-bit signed integer or double type.
     //I64,  -- not needed for this exercise
     /// The Len WireType indicates that the value is a length represented as a
     /// VARINT followed by exactly that number of bytes.
@@ -154,7 +154,7 @@ fn parse_message<'a, T: ProtoMessage<'a>>(mut data: &'a [u8]) -> T {
 // ANCHOR_END: parse_message
 
 #[derive(PartialEq)]
-// ANCHOR: message_message_phone_number_type
+// ANCHOR: message_phone_number_type
 #[derive(Debug, Default)]
 struct PhoneNumber<'a> {
     number: &'a str,
@@ -195,6 +195,34 @@ impl<'a> ProtoMessage<'a> for PhoneNumber<'a> {
 
 // ANCHOR: main
 fn main() {
+    let person_id: Person = parse_message(&[0x10, 0x2a]);
+    assert_eq!(person_id, Person { name: "", id: 42, phone: vec![] });
+
+    let person_name: Person = parse_message(&[
+        0x0a, 0x0e, 0x62, 0x65, 0x61, 0x75, 0x74, 0x69, 0x66, 0x75, 0x6c, 0x20,
+        0x6e, 0x61, 0x6d, 0x65,
+    ]);
+    assert_eq!(person_name, Person { name: "beautiful name", id: 0, phone: vec![] });
+
+    let person_name_id: Person =
+        parse_message(&[0x0a, 0x04, 0x45, 0x76, 0x61, 0x6e, 0x10, 0x16]);
+    assert_eq!(person_name_id, Person { name: "Evan", id: 22, phone: vec![] });
+
+    let phone: Person = parse_message(&[
+        0x0a, 0x00, 0x10, 0x00, 0x1a, 0x16, 0x0a, 0x0e, 0x2b, 0x31, 0x32, 0x33,
+        0x34, 0x2d, 0x37, 0x37, 0x37, 0x2d, 0x39, 0x30, 0x39, 0x30, 0x12, 0x04,
+        0x68, 0x6f, 0x6d, 0x65,
+    ]);
+    assert_eq!(
+        phone,
+        Person {
+            name: "",
+            id: 0,
+            phone: vec![PhoneNumber { number: "+1234-777-9090", type_: "home" },],
+        }
+    );
+
+    // Put that all together into a single parse.
     let person: Person = parse_message(&[
         0x0a, 0x07, 0x6d, 0x61, 0x78, 0x77, 0x65, 0x6c, 0x6c, 0x10, 0x2a, 0x1a,
         0x16, 0x0a, 0x0e, 0x2b, 0x31, 0x32, 0x30, 0x32, 0x2d, 0x35, 0x35, 0x35,
@@ -203,53 +231,16 @@ fn main() {
         0x2d, 0x35, 0x33, 0x30, 0x38, 0x12, 0x06, 0x6d, 0x6f, 0x62, 0x69, 0x6c,
         0x65,
     ]);
-    println!("{:#?}", person);
+    assert_eq!(
+        person,
+        Person {
+            name: "maxwell",
+            id: 42,
+            phone: vec![
+                PhoneNumber { number: "+1202-555-1212", type_: "home" },
+                PhoneNumber { number: "+1800-867-5308", type_: "mobile" },
+            ]
+        }
+    );
 }
 // ANCHOR_END: main
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_id() {
-        let person_id: Person = parse_message(&[0x10, 0x2a]);
-        assert_eq!(person_id, Person { name: "", id: 42, phone: vec![] });
-    }
-
-    #[test]
-    fn test_name() {
-        let person_name: Person = parse_message(&[
-            0x0a, 0x0e, 0x62, 0x65, 0x61, 0x75, 0x74, 0x69, 0x66, 0x75, 0x6c, 0x20,
-            0x6e, 0x61, 0x6d, 0x65,
-        ]);
-        assert_eq!(
-            person_name,
-            Person { name: "beautiful name", id: 0, phone: vec![] }
-        );
-    }
-
-    #[test]
-    fn test_just_person() {
-        let person_name_id: Person =
-            parse_message(&[0x0a, 0x04, 0x45, 0x76, 0x61, 0x6e, 0x10, 0x16]);
-        assert_eq!(person_name_id, Person { name: "Evan", id: 22, phone: vec![] });
-    }
-
-    #[test]
-    fn test_phone() {
-        let phone: Person = parse_message(&[
-            0x0a, 0x00, 0x10, 0x00, 0x1a, 0x16, 0x0a, 0x0e, 0x2b, 0x31, 0x32, 0x33,
-            0x34, 0x2d, 0x37, 0x37, 0x37, 0x2d, 0x39, 0x30, 0x39, 0x30, 0x12, 0x04,
-            0x68, 0x6f, 0x6d, 0x65,
-        ]);
-        assert_eq!(
-            phone,
-            Person {
-                name: "",
-                id: 0,
-                phone: vec![PhoneNumber { number: "+1234-777-9090", type_: "home" },],
-            }
-        );
-    }
-}

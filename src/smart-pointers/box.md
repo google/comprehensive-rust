@@ -32,7 +32,7 @@ fn main() {
 from `T` directly on a `Box<T>`](https://doc.rust-lang.org/std/ops/trait.Deref.html#more-on-deref-coercion).
 
 Recursive data types or data types with dynamic sizes cannot be stored inline
-without a pointer indirection, which can be worked around using `Box`:
+without a pointer indirection. `Box` accomplishes that indirection:
 
 ```rust,editable
 #[derive(Debug)]
@@ -86,36 +86,8 @@ fn main() {
   have to use indirection, a `Box` or reference of some kind, instead of storing
   the value directly.
 
-# More to Explore
-
-## Niche Optimization
-
-Though `Box` looks like `std::unique_ptr` in C++, it cannot be empty/null. This
-makes `Box` one of the types that allow the compiler to optimize storage of some
-enums.
-
-For example, `Option<Box<T>>` has the same size, as just `Box<T>`, because
-compiler uses NULL-value to discriminate variants instead of using explicit tag
-(["Null Pointer Optimization"](https://doc.rust-lang.org/std/option/#representation)):
-
-```rust,editable
-use std::mem::size_of_val;
-
-struct Item(String);
-
-fn main() {
-    let just_box: Box<Item> = Box::new(Item("Just box".into()));
-    let optional_box: Option<Box<Item>> =
-        Some(Box::new(Item("Optional box".into())));
-    let none: Option<Box<Item>> = None;
-
-    assert_eq!(size_of_val(&just_box), size_of_val(&optional_box));
-    assert_eq!(size_of_val(&just_box), size_of_val(&none));
-
-    println!("Size of just_box: {}", size_of_val(&just_box));
-    println!("Size of optional_box: {}", size_of_val(&optional_box));
-    println!("Size of none: {}", size_of_val(&none));
-}
-```
+- Though `Box` looks like `std::unique_ptr` in C++, it cannot be empty/null.
+  This makes `Box` one of the types that allow the compiler to optimize storage
+  of some enums (the "niche optimization").
 
 </details>

@@ -9,12 +9,12 @@ Rust allows you to associate functions with your new types. You do this with an
 
 ```rust,editable
 #[derive(Debug)]
-struct Race {
+struct CarRace {
     name: String,
     laps: Vec<i32>,
 }
 
-impl Race {
+impl CarRace {
     // No receiver, a static method
     fn new(name: &str) -> Self {
         Self { name: String::from(name), laps: Vec::new() }
@@ -33,7 +33,7 @@ impl Race {
         }
     }
 
-    // Exclusive ownership of self
+    // Exclusive ownership of self (covered later)
     fn finish(self) {
         let total: i32 = self.laps.iter().sum();
         println!("Race {} is finished, total lap time: {}", self.name, total);
@@ -41,7 +41,7 @@ impl Race {
 }
 
 fn main() {
-    let mut race = Race::new("Monaco Grand Prix");
+    let mut race = CarRace::new("Monaco Grand Prix");
     race.add_lap(70);
     race.add_lap(68);
     race.print_laps();

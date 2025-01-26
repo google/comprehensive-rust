@@ -57,12 +57,15 @@ pub fn luhn(cc_number: &str) -> bool {
             }
             double = !double;
         } else if c.is_whitespace() {
+            // New: accept whitespace.
             continue;
         } else {
+            // New: reject all other characters.
             return false;
         }
     }
 
+    // New: check that we have at least two digits
     digits >= 2 && sum % 10 == 0
 }
 

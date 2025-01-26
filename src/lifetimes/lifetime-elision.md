@@ -15,8 +15,6 @@ This is not inference -- it is just a syntactic shorthand.
 - If there are multiple argument lifetimes, but the first one is for `self`,
   that lifetime is given to all un-annotated return values.
 
-<!-- mdbook-xgettext: skip -->
-
 ```rust,editable
 #[derive(Debug)]
 struct Point(i32, i32);
@@ -41,13 +39,8 @@ fn nearest<'a>(points: &'a [Point], query: &Point) -> Option<&'a Point> {
 }
 
 fn main() {
-    println!(
-        "{:?}",
-        nearest(
-            &[Point(1, 0), Point(1, 0), Point(-1, 0), Point(0, -1),],
-            &Point(0, 2)
-        )
-    );
+    let points = &[Point(1, 0), Point(1, 0), Point(-1, 0), Point(0, -1)];
+    println!("{:?}", nearest(points, &Point(0, 2)));
 }
 ```
 

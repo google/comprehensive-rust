@@ -14,10 +14,10 @@ this function panic?
 {{#include exercise.rs:fib}}
     if n < 2 {
         // The base case.
-        todo!("Implement this")
+        return todo!("Implement this");
     } else {
         // The recursive case.
-        todo!("Implement this")
+        return todo!("Implement this");
     }
 }
 

@@ -1,5 +1,5 @@
 ---
-minutes: 10
+minutes: 7
 ---
 
 # Slices
@@ -10,7 +10,7 @@ A slice gives you a view into a larger collection:
 
 ```rust,editable
 fn main() {
-    let mut a: [i32; 6] = [10, 20, 30, 40, 50, 60];
+    let a: [i32; 6] = [10, 20, 30, 40, 50, 60];
     println!("a: {a:?}");
 
     let s: &[i32] = &a[2..4];

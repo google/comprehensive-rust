@@ -17,13 +17,15 @@ use log::{error, info, trace};
 use smccc::psci::system_off;
 use smccc::Hvc;
 
-#[no_mangle]
+// SAFETY: There is no other global function of this name.
+#[unsafe(no_mangle)]
 extern "C" fn sync_exception_current(_elr: u64, _spsr: u64) {
     error!("sync_exception_current");
     system_off::<Hvc>().unwrap();
 }
 
-#[no_mangle]
+// SAFETY: There is no other global function of this name.
+#[unsafe(no_mangle)]
 extern "C" fn irq_current(_elr: u64, _spsr: u64) {
     trace!("irq_current");
     let intid =
@@ -31,37 +33,43 @@ extern "C" fn irq_current(_elr: u64, _spsr: u64) {
     info!("IRQ {intid:?}");
 }
 
-#[no_mangle]
+// SAFETY: There is no other global function of this name.
+#[unsafe(no_mangle)]
 extern "C" fn fiq_current(_elr: u64, _spsr: u64) {
     error!("fiq_current");
     system_off::<Hvc>().unwrap();
 }
 
-#[no_mangle]
+// SAFETY: There is no other global function of this name.
+#[unsafe(no_mangle)]
 extern "C" fn serr_current(_elr: u64, _spsr: u64) {
     error!("serr_current");
     system_off::<Hvc>().unwrap();
 }
 
-#[no_mangle]
+// SAFETY: There is no other global function of this name.
+#[unsafe(no_mangle)]
 extern "C" fn sync_lower(_elr: u64, _spsr: u64) {
     error!("sync_lower");
     system_off::<Hvc>().unwrap();
 }
 
-#[no_mangle]
+// SAFETY: There is no other global function of this name.
+#[unsafe(no_mangle)]
 extern "C" fn irq_lower(_elr: u64, _spsr: u64) {
     error!("irq_lower");
     system_off::<Hvc>().unwrap();
 }
 
-#[no_mangle]
+// SAFETY: There is no other global function of this name.
+#[unsafe(no_mangle)]
 extern "C" fn fiq_lower(_elr: u64, _spsr: u64) {
     error!("fiq_lower");
     system_off::<Hvc>().unwrap();
 }
 
-#[no_mangle]
+// SAFETY: There is no other global function of this name.
+#[unsafe(no_mangle)]
 extern "C" fn serr_lower(_elr: u64, _spsr: u64) {
     error!("serr_lower");
     system_off::<Hvc>().unwrap();

@@ -51,11 +51,11 @@ mod ffi {
         pub d_name: [c_char; 1024],
     }
 
-    extern "C" {
-        pub fn opendir(s: *const c_char) -> *mut DIR;
+    unsafe extern "C" {
+        pub unsafe fn opendir(s: *const c_char) -> *mut DIR;
 
         #[cfg(not(all(target_os = "macos", target_arch = "x86_64")))]
-        pub fn readdir(s: *mut DIR) -> *const dirent;
+        pub unsafe fn readdir(s: *mut DIR) -> *const dirent;
 
         // See https://github.com/rust-lang/libc/issues/414 and the section on
         // _DARWIN_FEATURE_64_BIT_INODE in the macOS man page for stat(2).
@@ -64,9 +64,9 @@ mod ffi {
         // to macOS (as opposed to iOS / wearOS / etc.) on Intel and PowerPC.
         #[cfg(all(target_os = "macos", target_arch = "x86_64"))]
         #[link_name = "readdir$INODE64"]
-        pub fn readdir(s: *mut DIR) -> *const dirent;
+        pub unsafe fn readdir(s: *mut DIR) -> *const dirent;
 
-        pub fn closedir(s: *mut DIR) -> c_int;
+        pub unsafe fn closedir(s: *mut DIR) -> c_int;
     }
 }
 
@@ -91,7 +91,7 @@ impl DirectoryIterator {
         // SAFETY: path.as_ptr() cannot be NULL.
         let dir = unsafe { ffi::opendir(path.as_ptr()) };
         if dir.is_null() {
-            Err(format!("Could not open {:?}", path))
+            Err(format!("Could not open {path:?}"))
         } else {
             Ok(DirectoryIterator { path, dir })
         }
@@ -123,11 +123,9 @@ impl Drop for DirectoryIterator {
     fn drop(&mut self) {
         // Call closedir as needed.
         // ANCHOR_END: Drop
-        if !self.dir.is_null() {
-            // SAFETY: self.dir is not NULL.
-            if unsafe { ffi::closedir(self.dir) } != 0 {
-                panic!("Could not close {:?}", self.path);
-            }
+        // SAFETY: self.dir is never NULL.
+        if unsafe { ffi::closedir(self.dir) } != 0 {
+            panic!("Could not close {:?}", self.path);
         }
     }
 }

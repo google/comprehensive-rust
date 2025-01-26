@@ -5,9 +5,8 @@ minutes: 10
 # Matching Values
 
 The `match` keyword lets you match a value against one or more _patterns_. The
-comparisons are done from top to bottom and the first match wins.
-
-The patterns can be simple values, similarly to `switch` in C and C++:
+patterns can be simple values, similarly to `switch` in C and C++, but they can
+also be used to express more complex conditions:
 
 ```rust,editable
 #[rustfmt::skip]
@@ -23,18 +22,11 @@ fn main() {
 }
 ```
 
-The `_` pattern is a wildcard pattern which matches any value. The expressions
-_must_ be exhaustive, meaning that it covers every possibility, so `_` is often
-used as the final catch-all case.
-
-Match can be used as an expression. Just like `if`, each match arm must have the
-same type. The type is the last expression of the block, if any. In the example
-above, the type is `()`.
-
 A variable in the pattern (`key` in this example) will create a binding that can
-be used within the match arm.
+be used within the match arm. We will learn more about this on the next slide.
 
-A match guard causes the arm to match only if the condition is true.
+A match guard causes the arm to match only if the condition is true. If the
+condition is false the match will continue checking later cases.
 
 <details>
 

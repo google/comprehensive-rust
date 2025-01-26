@@ -9,6 +9,8 @@ volunteers:
   [@noahdragon], [@superwhd], @SketchK, and [@nodmp].
 - [Chinese (Traditional)][zh-TW] by [@hueich], [@victorhsieh], [@mingyc],
   [@kuanhungchen], and [@johnathan79717].
+- [Farsi][fa] by [@DannyRavi], [@javad-jafari], [@Alix1383], [@moaminsharifi] ,
+  [@hamidrezakp] and [@mehrad77].
 - [Japanese][ja] by [@CoinEZ-JPN], [@momotaro1105], [@HidenoriKobayashi] and
   [@kantasv].
 - [Korean][ko] by [@keispace], [@jiyongp], [@jooyunghan], and [@namhyung].
@@ -24,8 +26,6 @@ recently updated translations:
 
 - [Arabic][ar] by [@younies]
 - [Bengali][bn] by [@raselmandol].
-- [Farsi][fa] by [@Alix1383], [@DannyRavi], [@hamidrezakp], [@javad-jafari] and
-  [@moaminsharifi].
 - [French][fr] by [@KookaS], [@vcaen] and [@AdrienBaudemont].
 - [German][de] by [@Throvn] and [@ronaldfw].
 - [Italian][it] by [@henrythebuilder] and [@detro].
@@ -74,6 +74,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@kongy]: https://github.com/kongy
 [@KookaS]: https://github.com/KookaS
 [@kuanhungchen]: https://github.com/kuanhungchen
+[@mehrad77]: https://github.com/mehrad77
 [@mingyc]: https://github.com/mingyc
 [@moaminsharifi]: https://github.com/moaminsharifi
 [@momotaro1105]: https://github.com/momotaro1105

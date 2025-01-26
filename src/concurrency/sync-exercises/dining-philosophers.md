@@ -52,3 +52,12 @@ name = "dining-philosophers"
 version = "0.1.0"
 edition = "2021"
 ```
+
+<details>
+
+- Encourage students to focus first on implementing a solution that "mostly"
+  works.
+- The deadlock in the simplest solution is a general concurrency problem and
+  highlights that Rust does not automatically prevent this sort of bug.
+
+</details>

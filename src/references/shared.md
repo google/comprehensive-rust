@@ -1,5 +1,5 @@
 ---
-minutes: 10
+minutes: 7
 ---
 
 # Shared References
@@ -24,17 +24,6 @@ fn main() {
 A shared reference to a type `T` has type `&T`. A reference value is made with
 the `&` operator. The `*` operator "dereferences" a reference, yielding its
 value.
-
-Rust will statically forbid dangling references:
-
-<!-- mdbook-xgettext: skip -->
-
-```rust,editable,compile_fail
-fn x_axis(x: &i32) -> &(i32, i32) {
-    let point = (*x, 0);
-    return &point;
-}
-```
 
 <details>
 

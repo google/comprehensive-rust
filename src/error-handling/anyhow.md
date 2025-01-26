@@ -4,12 +4,15 @@ minutes: 5
 
 # `anyhow`
 
-The [`anyhow`](https://docs.rs/anyhow/) crate provides a rich error type with
-support for carrying additional contextual information, which can be used to
-provide a semantic trace of what the program was doing leading up to the error.
+The [`anyhow`] crate provides a rich error type with support for carrying
+additional contextual information, which can be used to provide a semantic trace
+of what the program was doing leading up to the error.
 
-This can be combined with the convenience macros from `thiserror` to avoid
+This can be combined with the convenience macros from [`thiserror`] to avoid
 writing out trait impls explicitly for custom error types.
+
+[`anyhow`]: https://docs.rs/anyhow/
+[`thiserror`]: https://docs.rs/thiserror/
 
 ```rust,editable,compile_fail
 use anyhow::{bail, Context, Result};

@@ -15,6 +15,7 @@ system:
 - Traits: behaviors shared by multiple types.
 - Generics: parameterizing types on other types.
 - Standard library types and traits: a tour of Rust's rich standard library.
+- Closures: function pointers with data.
 
 ## Schedule
 
