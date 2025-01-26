@@ -122,7 +122,10 @@ impl Uart {
 
         // SAFETY: We know that self.registers points to the control registers
         // of a PL011 device which is appropriately mapped.
-        unsafe { addr_of_mut!((*self.registers).dr).write_volatile(byte.into()) };
+        unsafe {
+            // Write to the TX buffer.
+            addr_of_mut!((*self.registers).dr).write_volatile(byte.into());
+        }
 
         // Wait until the UART is no longer busy.
         while self.read_flag_register().contains(Flags::BUSY) {}
