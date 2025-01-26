@@ -1,7 +1,3 @@
----
-minutes: 3
----
-
 # Unsafe External Functions
 
 All functions implemented in a foreign language are considered unsafe in Rust:
@@ -29,5 +25,8 @@ have undefined behaviour under any arbitrary circumstances.
 
 The `"C"` in this example is the ABI;
 [other ABIs are available too](https://doc.rust-lang.org/reference/items/external-blocks.html).
+
+Note that there is no verification that the Rust function signature matches
+that of the function definition -- that's up to you!
 
 </details>

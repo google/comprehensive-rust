@@ -1,7 +1,3 @@
----
-minutes: 5
----
-
 # Calling Unsafe Functions
 
 Failing to uphold the safety requirements breaks memory safety!

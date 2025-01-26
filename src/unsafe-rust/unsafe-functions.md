@@ -1,5 +1,5 @@
 ---
-minutes: 1
+minutes: 15
 ---
 
 # Unsafe Functions

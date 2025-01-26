@@ -1,7 +1,3 @@
----
-minutes: 3
----
-
 # Unsafe Rust Functions
 
 You can mark your own functions as `unsafe` if they require particular
@@ -39,6 +35,6 @@ safely with references.
 
 Note that unsafe code is allowed within an unsafe function without an `unsafe`
 block. We can prohibit this with `#[deny(unsafe_op_in_unsafe_fn)]`. Try adding
-it and see what happens. This will likely change in a future Rust edition.
+it and see what happens. This will [change in the 2024 Rust edition](https://github.com/rust-lang/rust/issues/120535).
 
 </details>
