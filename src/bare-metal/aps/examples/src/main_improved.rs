@@ -42,9 +42,7 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
         if let Some(byte) = uart.read_byte() {
             uart.write_byte(byte);
             match byte {
-                b'\r' => {
-                    uart.write_byte(b'\n');
-                }
+                b'\r' => uart.write_byte(b'\n'),
                 b'q' => break,
                 _ => continue,
             }
