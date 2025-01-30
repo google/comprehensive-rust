@@ -58,17 +58,17 @@ functions and methods:
 {{#include exercise.rs:ffi}}
 
 {{#include exercise.rs:DirectoryIterator}}
-        unimplemented!()
+        todo!()
     }
 }
 
 {{#include exercise.rs:Iterator}}
-        unimplemented!()
+        todo!()
     }
 }
 
 {{#include exercise.rs:Drop}}
-        unimplemented!()
+        todo!()
     }
 }
 
