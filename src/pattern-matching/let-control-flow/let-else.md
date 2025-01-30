@@ -7,19 +7,19 @@ off the end of the block).
 
 ```rust,editable
 fn hex_or_die_trying(maybe_string: Option<String>) -> Result<u32, String> {
-    // TODO: The structure of this code is difficult to follow -- rewrite it with let-else!
-    if let Some(s) = maybe_string {
-        if let Some(first_byte_char) = s.chars().next() {
-            if let Some(digit) = first_byte_char.to_digit(16) {
-                Ok(digit)
-            } else {
-                Err(String::from("not a hex digit"))
-            }
-        } else {
-            Err(String::from("got empty string"))
-        }
-    } else {
-        Err(String::from("got None"))
+    let s = match maybe_string {
+        Some(s) => s,
+        None => return Err(String::from("got None")),
+    };
+
+    let first_byte_char = match s.chars().next() {
+        Some(first) => first,
+        None => return Err(String::from("got empty string")),
+    };
+
+    match first_byte_char.to_digit(16) {
+        Some(digit) => Ok(digit),
+        None => Err(String::from("not a hex digit")),
     }
 }
 
@@ -29,11 +29,6 @@ fn main() {
 ```
 
 <details>
-
-`if-let`s can pile up, as shown. The `let-else` construct supports flattening
-this nested code. Rewrite the awkward version for students, so they can see the
-transformation.
-
 The rewritten version is:
 
 ```rust
