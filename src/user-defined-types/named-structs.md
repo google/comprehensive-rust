@@ -6,6 +6,8 @@ minutes: 10
 
 Like C and C++, Rust has support for custom structs:
 
+<!-- dprint-ignore-start -->
+
 ```rust,editable
 struct Person {
     name: String,
@@ -35,6 +37,8 @@ fn main() {
     describe(&jackie);
 }
 ```
+
+<!-- dprint-ignore-end -->
 
 <details>
 
