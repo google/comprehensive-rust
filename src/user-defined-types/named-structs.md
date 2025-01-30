@@ -17,7 +17,10 @@ fn describe(person: &Person) {
 }
 
 fn main() {
-    let mut peter = Person { name: String::from("Peter"), age: 27 };
+    let mut peter = Person {
+        name: String::from("Peter"),
+        age: 27,
+    };
     describe(&peter);
 
     peter.age = 28;
