@@ -49,4 +49,12 @@ fn hex_or_die_trying(maybe_string: Option<String>) -> Result<u32, String> {
 }
 ```
 
+## More to Explore
+
+- This early return-based control flow is common in Rust error handling code,
+  where you try to get a value out of a `Result`, returning an error if the
+  `Result` was `Err`.
+- If students ask, you can also demonstrate how real error handling code would
+  be written with `?`.
+
 </details>
