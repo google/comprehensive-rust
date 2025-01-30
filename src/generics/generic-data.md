@@ -22,7 +22,7 @@ impl Logger for StderrLogger {
 }
 
 /// Only log messages up to the given verbosity level.
-struct VerbosityFilter<L: Logger> {
+struct VerbosityFilter<L> {
     max_verbosity: u8,
     inner: L,
 }
