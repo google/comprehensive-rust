@@ -9,7 +9,7 @@ fn main() {
         println!("x: {x}");
     }
 
-    for elem in [1, 2, 3, 4, 5] {
+    for elem in [2, 4, 8, 16, 32] {
         println!("elem: {elem}");
     }
 }
