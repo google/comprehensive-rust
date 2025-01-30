@@ -30,7 +30,6 @@
     - [Solution](types-and-values/solution.md)
 - [Control Flow Basics](control-flow-basics.md)
   - [Blocks and Scopes](control-flow-basics/blocks-and-scopes.md)
-    - [Scopes and Shadowing](control-flow-basics/blocks-and-scopes/scopes.md)
   - [`if` Expressions](control-flow-basics/if.md)
   - [`match` Expressions](control-flow-basics/match.md)
   - [Loops](control-flow-basics/loops.md)
