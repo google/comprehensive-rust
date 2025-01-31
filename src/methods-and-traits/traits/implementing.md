@@ -39,4 +39,9 @@ fn main() {
   implementations can rely on all the methods of the trait. In this case,
   `greet` is provided, and relies on `talk`.
 
+- Multiple `impl` blocks are allowed for a given type. This includes both
+  inherent `impl` blocks and trait `impl` blocks. Likewise multiple traits can
+  be imlemented for a given type (and often types implement many traits!).
+  `impl` blocks can even be spread across multiple modules/files.
+
 </details>
