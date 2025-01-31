@@ -41,7 +41,7 @@ fn main() {
 
 - Multiple `impl` blocks are allowed for a given type. This includes both
   inherent `impl` blocks and trait `impl` blocks. Likewise multiple traits can
-  be imlemented for a given type (and often types implement many traits!).
+  be implemented for a given type (and often types implement many traits!).
   `impl` blocks can even be spread across multiple modules/files.
 
 </details>
