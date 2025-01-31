@@ -47,7 +47,7 @@ fn main() {
   ```
 
   Not all of the `.clone()`s in the above are necessary in this case, but this
-  demonstrates the generaly boilerplate-y pattern that manual impls would
+  demonstrates the generally boilerplate-y pattern that manual impls would
   follow, which should help make the use of `derive` clear to students.
 
 </details>
