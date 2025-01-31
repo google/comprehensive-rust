@@ -14,6 +14,9 @@ Like tuples, Struct can also be destructured by matching:
 
 - Change the literal values in `foo` to match with the other patterns.
 - Add a new field to `Foo` and make changes to the pattern as needed.
+
+## More to Explore
+
 - Try `match &foo` and check the type of captures. The pattern syntax remains
   the same, but the captures become shared references. This is
   [match ergonomics](https://rust-lang.github.io/rfcs/2005-match-ergonomics.html)
