@@ -77,6 +77,7 @@
 
 - [Welcome](welcome-day-2.md)
 - [Pattern Matching](pattern-matching.md)
+  - [Irrefutable Patterns](pattern-matching/infallible.md)
   - [Matching Values](pattern-matching/match.md)
   - [Destructuring Structs](pattern-matching/destructuring-structs.md)
   - [Destructuring Enums](pattern-matching/destructuring-enums.md)
