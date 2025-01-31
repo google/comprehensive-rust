@@ -39,7 +39,7 @@ fn main() {
 
 - `_` is a pattern that always matches any value, discarding the matched value.
 
-- `..` alows you to ignore multiple values at once.
+- `..` allows you to ignore multiple values at once.
 
 ## More to Explore
 
