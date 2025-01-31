@@ -34,7 +34,7 @@ fn main() {
   implementation that is correct for most cases. For example, demonstrate how a
   manual `Clone` impl can be repetitive compared to deriving the trait:
 
-  ```rust,skip
+  ```rust,ignore
   impl Clone for Player {
       fn clone(&self) -> Self {
           Player {
