@@ -101,7 +101,6 @@
   - [Generic Data Types](generics/generic-data.md)
   - [Generic Traits](generics/generic-traits.md)
   - [`impl Trait`](generics/impl-trait.md)
-  - [`dyn Trait`](generics/dyn-trait.md)
   - [Exercise: Generic `min`](generics/exercise.md)
     - [Solution](generics/solution.md)
 
@@ -152,7 +151,6 @@
 - [Smart Pointers](smart-pointers.md)
   - [`Box<T>`](smart-pointers/box.md)
   - [`Rc`](smart-pointers/rc.md)
-  - [Owned Trait Objects](smart-pointers/trait-objects.md)
   - [Exercise: Binary Tree](smart-pointers/exercise.md)
     - [Solution](smart-pointers/solution.md)
 
