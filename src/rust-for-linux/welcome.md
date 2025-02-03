@@ -13,8 +13,8 @@ This involves considerations on both sides of the equation - Linux and Rust.
 
 Rust must conform to the non-negotiable requirements Linux imposes on compile-
 and run-time behavior of its core and modules. Meanwhile, Linux must expose its
-existing functionality in ways that Rust can access as efficiently and safely
-as possible.
+existing functionality in ways that Rust can access as efficiently and safely as
+possible.
 
 We'll look at the general background, get our hands dirty with some existing
 Rust code in Linux, and then explore particular integration challenges, both

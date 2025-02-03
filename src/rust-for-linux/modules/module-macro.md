@@ -4,10 +4,12 @@ minutes: 2
 
 # The `module!` Macro
 
-A kernel module itself is declared with the [`module!`](https://rust.docs.kernel.org/macros/macro.module.html) macro.
+A kernel module itself is declared with the
+[`module!`](https://rust.docs.kernel.org/macros/macro.module.html) macro.
 
-Here we specify the type for the module, upon which we will implement the `kernel::Module` trait,
-as well as metadata like the module's name and description.
+Here we specify the type for the module, upon which we will implement the
+`kernel::Module` trait, as well as metadata like the module's name and
+description.
 
 ```rust
 module! {

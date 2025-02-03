@@ -1,7 +1,8 @@
 # A Rust Kernel Module
 
-A minimal Rust kernel module looks like the below
-(from [`samples/rust/rust_minimal.rs`](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/samples/rust/rust_minimal.rs) in the Rust for Linux tree):
+A minimal Rust kernel module looks like the below (from
+[`samples/rust/rust_minimal.rs`](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/samples/rust/rust_minimal.rs)
+in the Rust for Linux tree):
 
 ```rust
 use kernel::prelude::*;
@@ -44,6 +45,7 @@ We'll examine each part of the module definition in the following slides.
 
 <details>
 
-It is also possible to build Rust kernel modules [out-of-tree](https://github.com/Rust-for-Linux/rust-out-of-tree-module).
+It is also possible to build Rust kernel modules
+[out-of-tree](https://github.com/Rust-for-Linux/rust-out-of-tree-module).
 
 </details>

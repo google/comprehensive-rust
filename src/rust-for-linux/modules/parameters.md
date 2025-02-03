@@ -4,7 +4,8 @@ minutes: 2
 
 # Module Parameters
 
-Support for defining and accessing module parameters from Rust has not yet landed in mainline Linux.
+Support for defining and accessing module parameters from Rust has not yet
+landed in mainline Linux.
 
 However, there is outstanding work toward supporting module parameters[^1].
 

@@ -19,7 +19,7 @@ To use it with Rust for Linux, we need to generate a configuration file for
 $ make rust-analyzer
 ```
 
-Then, opening our editor in the directory where the `rust-project.json` file
-was created should run the language server with the appropriate settings.
+Then, opening our editor in the directory where the `rust-project.json` file was
+created should run the language server with the appropriate settings.
 
 [^1]: <https://github.com/Rust-for-Linux/linux/blob/rust/Documentation/rust/quick-start.rst#rust-analyzer>
