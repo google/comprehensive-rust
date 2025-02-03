@@ -22,7 +22,7 @@ impl Logger for StderrLogger {
 }
 
 /// Only log messages up to the given verbosity level.
-struct VerbosityFilter<L: Logger> {
+struct VerbosityFilter<L> {
     max_verbosity: u8,
     inner: L,
 }
@@ -53,5 +53,8 @@ fn main() {
     - `VerbosityFilter` is still generic and you can use `VerbosityFilter<f64>`,
       but methods in this block will only be available for
       `Point<StderrLogger>`.
+- Note that we don't put a trait bound on the `VerbosityFilter` type itself. You
+  can put bounds there as well, but generally in Rust we only put the trait
+  bounds on the impl blocks.
 
 </details>
