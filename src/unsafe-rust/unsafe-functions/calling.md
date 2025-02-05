@@ -24,19 +24,24 @@ fn main() {
 ```
 
 Always include a safety comment for each `unsafe` block. It must explain why the
-code is actually safe. This example is missing a safety comment and has UB.
+code is actually safe. This example is missing a safety comment and is unsound.
 
 <details>
 
 Key points:
 
 - The second argument to `slice::from_raw_parts` is the number of _elements_,
-  not bytes! This example demonstrate undefined behavior by reading past the end
-  of one array and into another.
-
+  not bytes! This example demonstrates unexpected behavior by reading past the
+  end of one array and into another.
+- This is not actually undefined behaviour, as `KeyPair` has a defined
+  representation (due to `repr(C)`) and no padding, so the contents of the
+  second array is also valid to read through the same pointer.
+- `log_public_key` should be unsafe, because `pk_ptr` must meet certain
+  prerequisites to avoid undefined behaviour. A safe function which can cause
+  undefined behaviour is said to be `unsound`. What should its safety
+  documentation say?
 - The standard library contains many low-level unsafe functions. Prefer the safe
   alternatives when possible!
-
 - If you use an unsafe function as an optimization, make sure to add a benchmark
   to demonstrate the gain.
 

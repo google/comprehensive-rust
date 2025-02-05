@@ -1,14 +1,15 @@
 # Unsafe Rust Functions
 
 You can mark your own functions as `unsafe` if they require particular
-conditions to avoid undefined behaviour.
+preconditions to avoid undefined behaviour.
 
 ```rust,editable
 /// Swaps the values pointed to by the given pointers.
 ///
 /// # Safety
 ///
-/// The pointers must be valid and properly aligned.
+/// The pointers must be valid, properly aligned, and not otherwise accessed for
+/// the duration of the function call.
 unsafe fn swap(a: *mut u8, b: *mut u8) {
     let temp = *a;
     *a = *b;
@@ -19,7 +20,8 @@ fn main() {
     let mut a = 42;
     let mut b = 66;
 
-    // SAFETY: ...
+    // SAFETY: The pointers must be valid, aligned and unique because they came
+    // from references.
     unsafe {
         swap(&mut a, &mut b);
     }
