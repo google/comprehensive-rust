@@ -9,8 +9,8 @@ must uphold to avoid undefined behaviour.
 
 There are two main categories:
 
-- Foreign functions in `extern "C"` blocks.
 - Rust functions declared unsafe with `unsafe fn`.
+- Foreign functions in `extern "C"` blocks.
 
 <details>
 
