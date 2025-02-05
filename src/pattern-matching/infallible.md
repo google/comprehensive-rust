@@ -34,6 +34,9 @@ fn main() {
 - All of the demonstrated patterns are _irrefutable_, meaning that they will
   always match the value on the right hand side.
 
+- Patterns are type-specific, including irrefutable patterns. Try adding or
+  removing an element to the tuple and look at the resulting compiler errors.
+
 - Variable names are patterns that always match and which bind the matched value
   into a new variable with that name.
 
