@@ -31,7 +31,7 @@ This function only operates on 3x3 matrices.
 #![allow(unused_variables, dead_code)]
 
 {{#include exercise.rs:transpose}}
-    unimplemented!()
+    todo!()
 }
 
 {{#include exercise.rs:tests}}

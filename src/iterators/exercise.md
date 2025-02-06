@@ -13,7 +13,7 @@ return value.
 
 ```rust
 {{#include exercise.rs:offset_differences}}
-    unimplemented!()
+    todo!()
 }
 
 {{#include exercise.rs:unit-tests}}
