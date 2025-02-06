@@ -58,10 +58,8 @@ Key Points:
 - It allows us to copy the majority of the fields from the old struct without
   having to explicitly type it all out. It must always be the last element.
 
-- It is mainly used in combination with the `Default` trait.
-
-- We will talk about struct update syntax in more detail on the slide on the
-  `Default` trait, so we don't need to talk about it here unless students ask
-  about it.
+- It is mainly used in combination with the `Default` trait. We will talk about
+  struct update syntax in more detail on the slide on the `Default` trait, so we
+  don't need to talk about it here unless students ask about it.
 
 </details>
