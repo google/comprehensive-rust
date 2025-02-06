@@ -130,9 +130,9 @@ fn test_zeros() {
 
 fn main() {
     let expr = Expression::Op {
-        op: Operation::Sub,
-        left: Box::new(Expression::Value(20)),
-        right: Box::new(Expression::Value(10)),
+        op: Operation::Div,
+        left: Box::new(Expression::Value(10)),
+        right: Box::new(Expression::Value(2)),
     };
     println!("expr: {expr:?}");
     println!("result: {:?}", eval(expr));
