@@ -76,8 +76,9 @@ The example iterates over all combinations of x and y coordinates.
 Try iterating over the grid twice in `main`. Why does this fail? Note that
 `IntoIterator::into_iter` takes ownership of `self`.
 
-Fix this issue by implementing `IntoIterator` for `&Grid` and storing a
-reference to the `Grid` in `GridIter`.
+Fix this issue by implementing `IntoIterator` for `&Grid` and creating a
+`GridRefIter` that iterates by reference. A version with both `GridIter` and
+`GridRefIter` is available [in this playground][1].
 
 The same problem can occur for standard library types: `for e in some_vector`
 will take ownership of `some_vector` and iterate over owned elements from that
@@ -85,3 +86,5 @@ vector. Use `for e in &some_vector` instead, to iterate over references to
 elements of `some_vector`.
 
 </details>
+
+[1]: https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=22c070ab8eaf6922fd6aa9c92740da83
