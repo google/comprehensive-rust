@@ -51,7 +51,7 @@ fn main() {
   `c`) and as immutable (through `b`) at the same time.
   - Note that the requirement is that conflicting references not _exist_ at the
     same point. It does not matter where the reference is dereferenced. Try
-    commenting out `*c = 20` and show that the comipler error still occurs even
+    commenting out `*c = 20` and show that the compiler error still occurs even
     if we never use `c`.
   - Note that the intermediate reference `c` isn't necessary to trigger a borrow
     conflict. Replace `c` with a direct mutation of `a` and demonstrate that
@@ -67,8 +67,8 @@ fn main() {
 
 - Technically multiple mutable references to a piece of data can exist at the
   same time via re-borrowing. This is what allows you to pass a mutable
-  reference into a function without invaliding the original reference. [This
-  playground example][1] demonstrates that behavior.
+  reference into a function without invaliding the original reference.
+  [This playground example][1] demonstrates that behavior.
 - Rust uses the exclusive reference constraint to ensure that data races do not
   occur in multi-threaded code, since only one thread can have mutable access to
   a piece of data at a time.
