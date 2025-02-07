@@ -189,7 +189,7 @@
 
     // Update prev/next buttons to keep speaker note state.
     document
-      .querySelectorAll('a[rel="prev"], a[rel="next"]')
+      .querySelectorAll('a[rel~="prev"], a[rel~="next"]')
       .forEach((elem) => {
         elem.href += "#speaker-notes-open";
       });
