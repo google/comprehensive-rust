@@ -51,6 +51,10 @@ fn main() {
   same point. It does not matter where the reference is dereferenced.
 - The above code does not compile because `a` is borrowed as mutable (through
   `c`) and as immutable (through `b`) at the same time.
+- Note that the intermediate reference `c` isn't necessary to trigger a borrow
+  conflict. Replace `c` with a direct mutation of `a` and demonstrate that this
+  produces a similar error. This is because direct mutation of a value
+  effectively creates a temporary mutable reference.
 - Move the `println!` statement for `b` before the scope that introduces `c` to
   make the code compile.
 - After that change, the compiler realizes that `b` is only ever used before the
