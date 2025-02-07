@@ -33,9 +33,8 @@ Key points:
 - The second argument to `slice::from_raw_parts` is the number of _elements_,
   not bytes! This example demonstrates unexpected behavior by reading past the
   end of one array and into another.
-- This is not actually undefined behaviour, as `KeyPair` has a defined
-  representation (due to `repr(C)`) and no padding, so the contents of the
-  second array is also valid to read through the same pointer.
+- This is undefined behavior because we're reading past the end of the array
+  that the pointer was derived from.
 - `log_public_key` should be unsafe, because `pk_ptr` must meet certain
   prerequisites to avoid undefined behaviour. A safe function which can cause
   undefined behaviour is said to be `unsound`. What should its safety
