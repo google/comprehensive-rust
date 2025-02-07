@@ -13,6 +13,13 @@
 // limitations under the License.
 
 (function () {
+  // Valid speaker notes states
+  const NotesState = {
+    Popup: "popup",
+    Inline: "inline-open",
+    Closed: "inline-closed",
+  };
+
   let notes = document.querySelector("details");
   // Create an unattached DOM node for the code below.
   if (!notes) {
@@ -34,23 +41,23 @@
   // speaker note pages.
   function applyState() {
     if (window.location.hash == "#speaker-notes-open") {
-      if (getState() != "popup") {
+      if (getState() != NotesState.Popup) {
         markDefunct();
       }
       return;
     }
 
     switch (getState()) {
-      case "popup":
+      case NotesState.Popup:
         popIn.classList.remove("hidden");
         notes.classList.add("hidden");
         break;
-      case "inline-open":
+      case NotesState.Inline:
         popIn.classList.add("hidden");
         notes.open = true;
         notes.classList.remove("hidden");
         break;
-      case "inline-closed":
+      case NotesState.Closed:
         popIn.classList.add("hidden");
         notes.open = false;
         notes.classList.remove("hidden");
@@ -58,10 +65,9 @@
     }
   }
 
-  // Get the state of the speaker note window: "inline-open", "inline-closed",
-  // or "popup".
+  // Get the state of the speaker note window.
   function getState() {
-    return window.localStorage["speakerNotes"] || "inline-closed";
+    return window.localStorage["speakerNotes"] || NotesState.Closed;
   }
 
   // Set the state of the speaker note window. Call applyState as needed
@@ -82,14 +88,14 @@
     popInIcon.classList.add("fa", "fa-window-close-o");
     popIn.append(popInIcon);
     popIn.addEventListener("click", (event) => {
-      setState("inline-open");
+      setState(NotesState.Inline);
       applyState();
     });
     document.querySelector(".left-buttons").append(popIn);
 
     // Create speaker notes.
     notes.addEventListener("toggle", (event) => {
-      setState(notes.open ? "inline-open" : "inline-closed");
+      setState(notes.open ? NotesState.Inline : NotesState.Closed);
     });
 
     let summary = document.createElement("summary");
@@ -111,14 +117,18 @@
     let popOut = document.createElement("button");
     popOut.classList.add("icon-button", "pop-out");
     popOut.addEventListener("click", (event) => {
-      let popup = window.open(popOutLocation.href, "speakerNotes", "popup");
+      let popup = window.open(
+        popOutLocation.href,
+        "speakerNotes",
+        NotesState.Popup,
+      );
       if (popup) {
-        setState("popup");
+        setState(NotesState.Popup);
         applyState();
         // bind the popup to reset the speaker note state on close of the popup
         popup.onload = () => {
           popup.onbeforeunload = () => {
-            setState("inline-open");
+            setState(NotesState.Inline);
             applyState();
           };
         };
@@ -200,7 +210,7 @@
   window.addEventListener("storage", (event) => {
     switch (event.key) {
       case "currentPage":
-        if (getState() == "popup") {
+        if (getState() == NotesState.Popup) {
           // We link all windows when we are showing speaker notes.
           window.location.pathname = event.newValue;
         }
@@ -246,10 +256,10 @@
         return;
       }
 
-      // We are on a regular page. We force the state to "inline-open" if this
+      // We are on a regular page. We force the state to Inline if this
       // looks like a direct link to the speaker notes.
       if (window.location.hash == "#speaker-notes") {
-        setState("inline-open");
+        setState(NotesState.Inline);
       }
       applyState();
       setupRegularPage();
