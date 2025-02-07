@@ -7,20 +7,25 @@ off the end of the block).
 
 ```rust,editable
 fn hex_or_die_trying(maybe_string: Option<String>) -> Result<u32, String> {
-    let s = match maybe_string {
-        Some(s) => s,
-        None => return Err(String::from("got None")),
+    let s = if let Some(s) = maybe_string {
+        s
+    } else {
+        return Err(String::from("got None"));
     };
 
-    let first_byte_char = match s.chars().next() {
-        Some(first) => first,
-        None => return Err(String::from("got empty string")),
+    let first_byte_char = if let Some(first) = s.chars().next() {
+        first
+    } else {
+        return Err(String::from("got empty string"));
     };
 
-    match first_byte_char.to_digit(16) {
-        Some(digit) => Ok(digit),
-        None => Err(String::from("not a hex digit")),
-    }
+    let digit = if let Some(digit) = first_byte_char.to_digit(16) {
+        digit
+    } else {
+        return Err(String::from("not a hex digit"));
+    };
+
+    Ok(digit)
 }
 
 fn main() {
