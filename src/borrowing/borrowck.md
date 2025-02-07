@@ -47,26 +47,40 @@ fn main() {
 - The "outlives" rule was demonstrated previously when we first looked at
   references. We review it here to show students that the borrow checking is
   following a few different rules to validate borrowing.
-- Note that the requirement is that conflicting references not _exist_ at the
-  same point. It does not matter where the reference is dereferenced.
 - The above code does not compile because `a` is borrowed as mutable (through
   `c`) and as immutable (through `b`) at the same time.
-- Note that the intermediate reference `c` isn't necessary to trigger a borrow
-  conflict. Replace `c` with a direct mutation of `a` and demonstrate that this
-  produces a similar error. This is because direct mutation of a value
-  effectively creates a temporary mutable reference.
+  - Note that the requirement is that conflicting references not _exist_ at the
+    same point. It does not matter where the reference is dereferenced. Try
+    commenting out `*c = 20` and show that the comipler error still occurs even
+    if we never use `c`.
+  - Note that the intermediate reference `c` isn't necessary to trigger a borrow
+    conflict. Replace `c` with a direct mutation of `a` and demonstrate that
+    this produces a similar error. This is because direct mutation of a value
+    effectively creates a temporary mutable reference.
 - Move the `println!` statement for `b` before the scope that introduces `c` to
   make the code compile.
-- After that change, the compiler realizes that `b` is only ever used before the
-  new mutable borrow of `a` through `c`. This is a feature of the borrow checker
-  called "non-lexical lifetimes".
-- The exclusive reference constraint is quite strong. Rust uses it to ensure
-  that data races do not occur. Rust also _relies_ on this constraint to
-  optimize code. For example, a value behind a shared reference can be safely
-  cached in a register for the lifetime of that reference.
-- The borrow checker is designed to accommodate many common patterns, such as
-  taking exclusive references to different fields in a struct at the same time.
-  But, there are some situations where it doesn't quite "get it" and this often
-  results in "fighting with the borrow checker."
+  - After that change, the compiler realizes that `b` is only ever used before
+    the new mutable borrow of `a` through `c`. This is a feature of the borrow
+    checker called "non-lexical lifetimes".
+
+## More to Explore
+
+- Technically multiple mutable references to a piece of data can exist at the
+  same time via re-borrowing. This is what allows you to pass a mutable
+  reference into a function without invaliding the original reference. [This
+  playground example][1] demonstrates that behavior.
+- Rust uses the exclusive reference constraint to ensure that data races do not
+  occur in multi-threaded code, since only one thread can have mutable access to
+  a piece of data at a time.
+- Rust also uses this constraint to optimize code. For example, a value behind a
+  shared reference can be safely cached in a register for the lifetime of that
+  reference.
+- Fields of a struct can be borrowed independently of each other, but calling a
+  method on a struct will borrow the whole struct, potentially invalidating
+  references to individual fields. See [this playground snippet][2] for an
+  example of this.
 
 </details>
+
+[1]: https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=8f5896878611566845fe3b0f4dc5af68
+[2]: https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=f293a31f2d4d0d31770486247c2e8437
