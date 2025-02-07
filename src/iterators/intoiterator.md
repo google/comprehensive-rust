@@ -87,4 +87,4 @@ elements of `some_vector`.
 
 </details>
 
-[1]: https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=22c070ab8eaf6922fd6aa9c92740da83
+[1]: https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=947e371c7295af758504f01f149023a1
