@@ -28,6 +28,10 @@ src
 
 ```rust,ignore
 // ---- src/widgets.rs ----
+pub use button::Button;
+pub use label::Label;
+pub use window::Window;
+
 mod button;
 mod label;
 mod window;
@@ -46,10 +50,6 @@ pub trait Widget {
         println!("{buffer}");
     }
 }
-
-pub use button::Button;
-pub use label::Label;
-pub use window::Window;
 ```
 
 ```rust,ignore
