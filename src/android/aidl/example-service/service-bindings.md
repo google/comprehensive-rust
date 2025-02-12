@@ -9,7 +9,7 @@ _birthday_service/aidl/com/example/birthdayservice/IBirthdayService.aidl_:
 }
 ```
 
-_out/soong/.intermediates/.../birthdayservice/IBirthdayService.rs_:
+_out/soong/.intermediates/comprehensive-rust/.../com_example_birthdayservice.rs_:
 
 <!-- The example below is a cleaned up and simplified version of the real code. -->
 
