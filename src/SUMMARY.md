@@ -272,8 +272,8 @@
     - [Rust Error Handling](android/interoperability/cpp/rust-result.md)
     - [C++ Error Handling](android/interoperability/cpp/cpp-exception.md)
     - [Additional Types](android/interoperability/cpp/type-mapping.md)
-    - [Building for Android: C++](android/interoperability/cpp/android-build-cpp.md)
     - [Building for Android: Genrules](android/interoperability/cpp/android-cpp-genrules.md)
+    - [Building for Android: C++](android/interoperability/cpp/android-build-cpp.md)
     - [Building for Android: Rust](android/interoperability/cpp/android-build-rust.md)
   - [With Java](android/interoperability/java.md)
 
