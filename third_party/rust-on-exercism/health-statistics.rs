@@ -50,13 +50,6 @@ impl User {
     }
 }
 
-// ANCHOR: main
-fn main() {
-    let bob = User::new(String::from("Bob"), 32, 155.2);
-    println!("I'm {} and my age is {}", bob.name, bob.age);
-}
-// ANCHOR_END: main
-
 // ANCHOR: tests
 #[test]
 fn test_visit() {

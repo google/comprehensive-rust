@@ -51,5 +51,3 @@ fn test_degenerate_cases() {
     assert_eq!(offset_differences(1, empty), vec![]);
 }
 // ANCHOR_END: unit-tests
-
-fn main() {}

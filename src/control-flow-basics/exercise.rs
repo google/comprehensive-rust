@@ -25,15 +25,14 @@ fn collatz_length(mut n: i32) -> u32 {
     len
 }
 
-// ANCHOR: tests
+// ANCHOR: main
+fn main() {
+    println!("Length: {}", collatz_length(11)); // should be 15
+}
+// ANCHOR_END: main
+// ANCHOR_END: solution
+
 #[test]
 fn test_collatz_length() {
     assert_eq!(collatz_length(11), 15);
 }
-// ANCHOR_END: tests
-
-// ANCHOR: main
-fn main() {
-    println!("Length: {}", collatz_length(11));
-}
-// ANCHOR_END: main

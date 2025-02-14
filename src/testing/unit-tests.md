@@ -8,7 +8,7 @@ Rust and Cargo come with a simple unit test framework. Tests are marked with
 `#[test]`. Unit tests are often put in a nested `tests` module, using
 `#[cfg(test)]` to conditionally compile them only when building tests.
 
-```rust,editable,ignore
+```rust,editable
 fn first_word(text: &str) -> &str {
     match text.find(' ') {
         Some(idx) => &text[..idx],
@@ -39,9 +39,3 @@ mod tests {
 
 - This lets you unit test private helpers.
 - The `#[cfg(test)]` attribute is only active when you run `cargo test`.
-
-<details>
-
-Run the tests in the playground in order to show their results.
-
-</details>

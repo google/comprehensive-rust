@@ -25,7 +25,21 @@ fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {
     result
 }
 
-// ANCHOR: tests
+// ANCHOR: main
+fn main() {
+    let matrix = [
+        [101, 102, 103], // <-- the comment makes rustfmt add a newline
+        [201, 202, 203],
+        [301, 302, 303],
+    ];
+
+    println!("matrix: {:#?}", matrix);
+    let transposed = transpose(matrix);
+    println!("transposed: {:#?}", transposed);
+}
+// ANCHOR_END: main
+// ANCHOR_END: solution
+
 #[test]
 fn test_transpose() {
     let matrix = [
@@ -43,18 +57,3 @@ fn test_transpose() {
         ]
     );
 }
-// ANCHOR_END: tests
-
-// ANCHOR: main
-fn main() {
-    let matrix = [
-        [101, 102, 103], // <-- the comment makes rustfmt add a newline
-        [201, 202, 203],
-        [301, 302, 303],
-    ];
-
-    println!("matrix: {:#?}", matrix);
-    let transposed = transpose(matrix);
-    println!("transposed: {:#?}", transposed);
-}
-// ANCHOR_END: main

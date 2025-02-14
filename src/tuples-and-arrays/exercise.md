@@ -27,14 +27,9 @@ Copy the code below to <https://play.rust-lang.org/> and implement the function.
 This function only operates on 3x3 matrices.
 
 ```rust,should_panic
-// TODO: remove this when you're done with your implementation.
-#![allow(unused_variables, dead_code)]
-
 {{#include exercise.rs:transpose}}
     todo!()
 }
-
-{{#include exercise.rs:tests}}
 
 {{#include exercise.rs:main}}
 ```
