@@ -36,15 +36,7 @@ impl<R: Read> Read for RotDecoder<R> {
     }
 }
 
-// ANCHOR: main
-fn main() {
-    let mut rot =
-        RotDecoder { input: "Gb trg gb gur bgure fvqr!".as_bytes(), rot: 13 };
-    let mut result = String::new();
-    rot.read_to_string(&mut result).unwrap();
-    println!("{}", result);
-}
-
+// ANCHOR: tests
 #[cfg(test)]
 mod test {
     use super::*;
@@ -72,4 +64,4 @@ mod test {
         }
     }
 }
-// ANCHOR_END: main
+// ANCHOR_END: tests

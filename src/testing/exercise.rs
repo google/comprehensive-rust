@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// ANCHOR: solution
 // This is the buggy version that appears in the problem.
 #[cfg(never)]
 // ANCHOR: luhn
@@ -40,6 +39,7 @@ pub fn luhn(cc_number: &str) -> bool {
 // ANCHOR_END: luhn
 
 // This is the solution and passes all of the tests below.
+// ANCHOR: solution
 pub fn luhn(cc_number: &str) -> bool {
     let mut sum = 0;
     let mut double = false;
@@ -67,14 +67,6 @@ pub fn luhn(cc_number: &str) -> bool {
 
     // New: check that we have at least two digits
     digits >= 2 && sum % 10 == 0
-}
-
-fn main() {
-    let cc_number = "1234 5678 1234 5670";
-    println!(
-        "Is {cc_number} a valid credit card number? {}",
-        if luhn(cc_number) { "yes" } else { "no" }
-    );
 }
 
 // ANCHOR: unit-tests

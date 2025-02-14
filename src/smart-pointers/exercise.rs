@@ -96,14 +96,6 @@ impl<T: Ord> Node<T> {
     }
 }
 
-fn main() {
-    let mut tree = BinaryTree::new();
-    tree.insert("foo");
-    assert_eq!(tree.len(), 1);
-    tree.insert("bar");
-    assert!(tree.has(&"foo"));
-}
-
 // ANCHOR: tests
 #[cfg(test)]
 mod tests {

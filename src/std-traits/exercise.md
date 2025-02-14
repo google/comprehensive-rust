@@ -14,7 +14,7 @@ characters, to ensure the result is still valid UTF-8.
 
 // Implement the `Read` trait for `RotDecoder`.
 
-{{#include exercise.rs:main }}
+{{#include exercise.rs:tests }}
 ```
 
 What happens if you chain two `RotDecoder` instances together, each rotating by
