@@ -17,8 +17,10 @@
 use birthdayservice::BirthdayService;
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::BnBirthdayService;
 use com_example_birthdayservice::binder;
+use rpcbinder::{FileDescriptorTransportMode, RpcServer};
+use std::os::unix::net::UnixStream;
 
-const SERVICE_IDENTIFIER: &str = "birthdayservice";
+const SERVICE_IDENTIFIER: &str = "/tmp/birthdayservice";
 
 /// Entry point for birthday service.
 fn main() {
@@ -27,7 +29,14 @@ fn main() {
         birthday_service,
         binder::BinderFeatures::default(),
     );
-    binder::add_service(SERVICE_IDENTIFIER, birthday_service_binder.as_binder())
-        .expect("Failed to register service");
-    binder::ProcessState::join_thread_pool();
+    // binder::add_service(SERVICE_IDENTIFIER, birthday_service_binder.as_binder())
+    //     .expect("Failed to register service");
+    // binder::ProcessState::join_thread_pool();
+
+    std::fs::write(SERVICE_IDENTIFIER, "").expect("Failed to create socket file");
+    let socket = UnixStream::connect(SERVICE_IDENTIFIER).expect("Failed to create socket");
+    // let socket = UnixListener::bind(SERVICE_IDENTIFIER).expect("Failed to create socket");
+    let server = RpcServer::new_bound_socket(birthday_service_binder.as_binder(), socket.into()).expect("Failed to create server");
+    server.set_supported_file_descriptor_transport_modes(&[FileDescriptorTransportMode::Unix]);
+    server.join();
 }

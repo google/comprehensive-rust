@@ -19,12 +19,15 @@ use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayI
 };
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
 use com_example_birthdayservice::binder::{self, BinderFeatures, ParcelFileDescriptor};
+use rpcbinder::{FileDescriptorTransportMode, RpcSession};
 use std::error::Error;
 use std::fs::File;
 use std::io::prelude::*;
+use std::os::unix::net::UnixStream;
+use std::os::fd::AsRawFd as _;
 
 // ANCHOR: main
-const SERVICE_IDENTIFIER: &str = "birthdayservice";
+const SERVICE_IDENTIFIER: &str = "/tmp/birthdayservice";
 
 /// Call the birthday service.
 fn main() -> Result<(), Box<dyn Error>> {
@@ -34,9 +37,19 @@ fn main() -> Result<(), Box<dyn Error>> {
         .and_then(|arg| arg.parse::<i32>().ok())
         .unwrap_or(42);
 
-    binder::ProcessState::start_thread_pool();
-    let service = binder::get_interface::<dyn IBirthdayService>(SERVICE_IDENTIFIER)
-        .map_err(|_| "Failed to connect to BirthdayService")?;
+    let stream = UnixStream::connect(SERVICE_IDENTIFIER).expect("Failed to connect UnixStream");
+    println!("UnixStream connected successfully");
+
+    // binder::ProcessState::start_thread_pool();
+    // let service = binder::get_interface::<dyn IBirthdayService>(SERVICE_IDENTIFIER)
+    //     .map_err(|_| "Failed to connect to BirthdayService")?;
+
+    let session = RpcSession::new();
+    session.set_file_descriptor_transport_mode(FileDescriptorTransportMode::Unix);
+    let service = session
+        // .setup_unix_domain_client::<dyn IBirthdayService>(SERVICE_IDENTIFIER)
+        .setup_preconnected_client::<dyn IBirthdayService>(|| Some(stream.as_raw_fd()))
+        .map_err(|e| format!("Failed to connect to BirthdayService: {e}"))?;
 
     // Call the service.
     let msg = service.wishHappyBirthday(&name, years)?;
