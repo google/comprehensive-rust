@@ -15,8 +15,8 @@
  */
 
 // ANCHOR: analyze_numbers
-#ifndef ANALYSE_H
-#define ANALYSE_H
+#ifndef ANALYZE_H
+#define ANALYZE_H
 
 void analyze_numbers(int x, int y);
 
