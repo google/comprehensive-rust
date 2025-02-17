@@ -21,12 +21,3 @@ _interoperability/bindgen/Android.bp_:
 ```javascript
 {{#include bindgen/Android.bp:libbirthday}}
 ```
-
-Create a wrapper header file for the library (not strictly needed in this
-example):
-
-_interoperability/bindgen/libbirthday_wrapper.h_:
-
-```c
-{{#include bindgen/libbirthday_wrapper.h:include}}
-```
