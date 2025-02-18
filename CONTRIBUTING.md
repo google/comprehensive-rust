@@ -8,6 +8,26 @@ the [instructions in the README].
 
 [instructions in the README]: README.md#building
 
+## Writing Exercises
+
+Each segment ends with an exercise. Exercises are typically structured as an
+`exercise.rs` containing the problem and solution. This is referenced from
+`exercise.md` and `solution.md`, using `{{#include exercise.rs:anchor_name}}` to
+match ANCHOR comments in the `exercise.rs` file. Each segment also has a
+`Cargo.toml` file containing a `[[bin]]` section referring to `exercise.rs`, and
+that Cargo package is referenced from the workspace the root `Cargo.toml`. The
+result is that `exercise.rs` is built and tested by `cargo test`.
+
+For segments on day 1, exercises should use `fn main() { .. }` and `println!`,
+with students visually verifying the correct output. On subsequent days, prefer
+tests and omit `fn main() { .. }`. However, where tests would be difficult and
+visual verification is more natural (such as in the Logger exercise), using
+`fn main { .. }` is OK.
+
+Especially for exercises without tests, consider including tests in
+`exercise.rs` that do not appear in either `exercise.md` or `solution.md`, as
+these can ensure the solution is correct.
+
 ## Testing
 
 We test the course material in several ways:

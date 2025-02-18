@@ -9,7 +9,7 @@ minutes: 20
 Copy the code below to <https://play.rust-lang.org/> and fill in the missing
 method:
 
-```rust
+```rust,editable
 {{#include ../../third_party/rust-on-exercism/health-statistics.rs:setup}}
 
 {{#include ../../third_party/rust-on-exercism/health-statistics.rs:User_visit_doctor}}

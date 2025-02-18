@@ -14,7 +14,7 @@ Implement the following types, so that the given tests pass.
 Extra Credit: implement an iterator over a binary tree that returns the values
 in order.
 
-```rust,compile_fail
+```rust,compile_fail,editable
 {{#include exercise.rs:types}}
 
 // Implement `new`, `insert`, `len`, and `has` for `Subtree`.

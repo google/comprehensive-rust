@@ -26,7 +26,7 @@ transpose a matrix (turn rows into columns):
 Copy the code below to <https://play.rust-lang.org/> and implement the function.
 This function only operates on 3x3 matrices.
 
-```rust,should_panic
+```rust,should_panic,editable
 {{#include exercise.rs:transpose}}
     todo!()
 }

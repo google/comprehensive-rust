@@ -83,7 +83,7 @@ What remains for you is to implement the `parse_field` function and the
 
 // TODO: Implement ProtoMessage for Person and PhoneNumber.
 
-{{#include exercise.rs:main }}
+{{#include exercise.rs:tests }}
 ```
 
 <details>
