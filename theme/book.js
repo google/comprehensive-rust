@@ -148,6 +148,11 @@ function playground_text(playground, hidden = true) {
             crateType: "bin",
         };
 
+        // If the code block has no `main` but does have tests, run those.
+        if (text.indexOf("fn main") === -1 && text.indexOf("#[test]") !== -1) {
+            params.tests = true;
+        }
+
         if (text.indexOf("#![feature") !== -1) {
             params.version = "nightly";
         }

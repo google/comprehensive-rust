@@ -9,18 +9,13 @@ minutes: 20
 Copy the code below to <https://play.rust-lang.org/> and fill in the missing
 method:
 
-```rust
-// TODO: remove this when you're done with your implementation.
-#![allow(unused_variables, dead_code)]
-
+```rust,editable
 {{#include ../../third_party/rust-on-exercism/health-statistics.rs:setup}}
 
 {{#include ../../third_party/rust-on-exercism/health-statistics.rs:User_visit_doctor}}
         todo!("Update a user's statistics based on measurements from a visit to the doctor")
     }
 }
-
-{{#include ../../third_party/rust-on-exercism/health-statistics.rs:main}}
 
 {{#include ../../third_party/rust-on-exercism/health-statistics.rs:tests}}
 ```

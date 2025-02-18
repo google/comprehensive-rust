@@ -18,7 +18,7 @@ implementing that same trait, adding behavior in the process. In the "Generics"
 segment this afternoon, we will see how to make the wrapper generic over the
 wrapped type.
 
-```rust,compile_fail
+```rust,compile_fail,editable
 {{#include exercise.rs:setup}}
 
 // TODO: Implement the `Logger` trait for `VerbosityFilter`.
