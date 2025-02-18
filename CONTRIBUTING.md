@@ -14,9 +14,10 @@ Each segment ends with an exercise. Exercises are typically structured as an
 `exercise.rs` containing the problem and solution. This is referenced from
 `exercise.md` and `solution.md`, using `{{#include exercise.rs:anchor_name}}` to
 match ANCHOR comments in the `exercise.rs` file. Each segment also has a
-`Cargo.toml` file containing a `[[bin]]` section referring to `exercise.rs`, and
-that Cargo package is referenced from the workspace the root `Cargo.toml`. The
-result is that `exercise.rs` is built and tested by `cargo test`.
+`Cargo.toml` file containing a `[[bin]]` or `[lib]` section referring to
+`exercise.rs`, and that Cargo package is referenced from the workspace the root
+`Cargo.toml`. The result is that `exercise.rs` is built and tested by
+`cargo test`.
 
 For segments on day 1, exercises should use `fn main() { .. }` and `println!`,
 with students visually verifying the correct output. On subsequent days, prefer
