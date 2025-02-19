@@ -29,11 +29,7 @@ impl Logger for StderrLogger {
 // ANCHOR_END: setup
 
 /// Only log messages matching a filtering predicate.
-struct Filter<L, P>
-where
-    L: Logger,
-    P: Fn(u8, &str) -> bool,
-{
+struct Filter<L, P> {
     inner: L,
     predicate: P,
 }
