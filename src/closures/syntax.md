@@ -8,13 +8,13 @@ Closures are created with vertical bars: `|..| ..`.
 
 ```rust,editable
 fn main() {
-    let value = Some(13);
-    dbg!(value.map(|num| format!("{num}")));
+    // Argument and return type can be inferred for lightweight syntax:
+    let double_it = |n| n * 2;
+    dbg!(double_it(50));
 
-    let mut nums = vec![1, 10, 99, 24];
-    // Sort even numbers first.
-    nums.sort_by_key(|v| if v % 2 == 0 { (0, *v) } else { (1, *v) });
-    dbg!(nums);
+    // Or we can specify types and bracket the body to be fully explicit:
+    let add_1f32 = |x: f32| -> f32 { x + 1.0 };
+    dbg!(add_1f32(50.));
 }
 ```
 
@@ -26,7 +26,8 @@ fn main() {
 - Argument types are optional, and are inferred if not given. The return type is
   also optional, but can only be written if using `{ .. }` around the body.
 
-- The examples are both lambdas -- they do not capture anything from their
-  environment. We will see captures next.
+- The examples can both be written as mere nested functions instead -- they do
+  not capture any variables from their lexical environment. We will see captures
+  next.
 
 </details>
