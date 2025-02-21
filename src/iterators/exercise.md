@@ -11,7 +11,7 @@ Copy the following code to <https://play.rust-lang.org/> and make the tests
 pass. Use an iterator expression and `collect` the result to construct the
 return value.
 
-```rust
+```rust,editable
 {{#include exercise.rs:offset_differences}}
     todo!()
 }

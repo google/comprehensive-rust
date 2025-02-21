@@ -51,7 +51,7 @@ The [Nomicon] also has a very useful chapter about FFI.
 Copy the code below to <https://play.rust-lang.org/> and fill in the missing
 functions and methods:
 
-```rust,should_panic
+```rust,should_panic,editable
 // TODO: remove this when you're done with your implementation.
 #![allow(unused_imports, unused_variables, dead_code)]
 

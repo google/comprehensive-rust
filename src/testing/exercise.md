@@ -27,7 +27,7 @@ correctly.
 Copy the code below to <https://play.rust-lang.org/> and write additional tests
 to uncover bugs in the provided implementation, fixing any bugs you find.
 
-```rust
+```rust,editable
 {{#include exercise.rs:luhn}}
 
 {{#include exercise.rs:unit-tests}}

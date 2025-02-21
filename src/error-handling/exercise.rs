@@ -88,25 +88,30 @@ fn eval(e: Expression) -> Result<i64, DivideByZeroError> {
 // ANCHOR_END: solution
 
 // ANCHOR: tests
-#[test]
-fn test_error() {
-    assert_eq!(
-        eval(Expression::Op {
-            op: Operation::Div,
-            left: Box::new(Expression::Value(99)),
-            right: Box::new(Expression::Value(0)),
-        }),
-        Err(DivideByZeroError)
-    );
-}
+#[cfg(test)]
+mod test {
+    use super::*;
 
-fn main() {
-    let expr = Expression::Op {
-        op: Operation::Sub,
-        left: Box::new(Expression::Value(20)),
-        right: Box::new(Expression::Value(10)),
-    };
-    println!("expr: {expr:?}");
-    println!("result: {:?}", eval(expr));
+    #[test]
+    fn test_error() {
+        assert_eq!(
+            eval(Expression::Op {
+                op: Operation::Div,
+                left: Box::new(Expression::Value(99)),
+                right: Box::new(Expression::Value(0)),
+            }),
+            Err(DivideByZeroError)
+        );
+    }
+
+    #[test]
+    fn test_ok() {
+        let expr = Expression::Op {
+            op: Operation::Sub,
+            left: Box::new(Expression::Value(20)),
+            right: Box::new(Expression::Value(10)),
+        };
+        assert_eq!(eval(expr), Ok(10));
+    }
 }
 // ANCHOR_END: tests
