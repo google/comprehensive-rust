@@ -16,7 +16,7 @@ fn gcd(a: u32, b: u32) -> u32 {
 }
 
 fn main() {
-    println!("gcd: {}", gcd(143, 52));
+    dbg!(gcd(143, 52));
 }
 ```
 

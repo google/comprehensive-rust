@@ -23,7 +23,7 @@ fn main() {
         if i % 2 == 0 {
             continue;
         }
-        println!("{}", i);
+        dbg!(i);
     }
 }
 ```

@@ -8,7 +8,7 @@ fn main() {
     let mut i = 0;
     loop {
         i += 1;
-        println!("{i}");
+        dbg!(i);
         if i > 100 {
             break;
         }
