@@ -11,3 +11,19 @@ rust_test {
     host_supported: true,
     test_suites: ["general-tests"],
 }
+
+rust_test {
+    name: "libgoogletest_example",
+    crate_name: "googletest_example",
+    srcs: ["googletest.rs"],
+    rustlibs: ["libgoogletest_rust"],
+    host_supported: true,
+}
+
+rust_test {
+    name: "libmockall_example",
+    crate_name: "mockall_example",
+    srcs: ["mockall.rs"],
+    rustlibs: ["libmockall"],
+    host_supported: true,
+}
