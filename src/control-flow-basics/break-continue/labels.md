@@ -16,7 +16,7 @@ fn main() {
             }
         }
     }
-    print!("elements searched: {elements_searched}");
+    dbg!(elements_searched);
 }
 ```
 
