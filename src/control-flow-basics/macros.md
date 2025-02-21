@@ -15,8 +15,6 @@ standard library includes an assortment of useful macros.
 - `dbg!(expression)` logs the value of the expression and returns it.
 - `todo!()` marks a bit of code as not-yet-implemented. If executed, it will
   panic.
-- `unreachable!()` marks a bit of code as unreachable. If executed, it will
-  panic.
 
 ```rust,editable
 fn factorial(n: u32) -> u32 {
