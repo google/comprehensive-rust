@@ -12,7 +12,6 @@ _interoperability/bindgen/libbirthday_wrapper.h_:
 {{#include bindgen/libbirthday_wrapper.h:include}}
 ```
 
-
 _interoperability/bindgen/Android.bp_:
 
 ```javascript

@@ -21,5 +21,3 @@ symbol will just be the name of the function. You can also use
 `#[unsafe(export_name = "some_name")]` to specify whatever name you want.
 
 </details>
-
-
