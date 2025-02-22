@@ -130,7 +130,7 @@ function playground_text(playground, hidden = true) {
         // Unless the code block has `warnunused`, allow all "unused" lints to avoid cluttering
         // the output.
         if(!classes.contains("warnunused")) {
-            text = '#![allow(unused)]\n' + text;
+            text = '#![allow(unused)] ' + text;
         }
         let edition = "2015";
         if(classes.contains("edition2018")) {
