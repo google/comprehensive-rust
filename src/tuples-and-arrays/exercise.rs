@@ -33,9 +33,9 @@ fn main() {
         [301, 302, 303],
     ];
 
-    println!("matrix: {:#?}", matrix);
+    dbg!(matrix);
     let transposed = transpose(matrix);
-    println!("transposed: {:#?}", transposed);
+    dbg!(transposed);
 }
 // ANCHOR_END: main
 // ANCHOR_END: solution

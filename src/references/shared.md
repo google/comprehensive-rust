@@ -8,18 +8,16 @@ A reference provides a way to access another value without taking ownership of
 the value, and is also called "borrowing". Shared references are read-only, and
 the referenced data cannot change.
 
-<!-- mdbook-xgettext: skip -->
-
 ```rust,editable
 fn main() {
     let a = 'A';
     let b = 'B';
 
     let mut r: &char = &a;
-    println!("r: {}", *r);
+    dbg!(*r);
 
     r = &b;
-    println!("r: {}", *r);
+    dbg!(*r);
 }
 ```
 
