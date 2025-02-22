@@ -27,7 +27,8 @@ A variable's scope is limited to the enclosing block.
 
 <details>
 
-- You can explain that dbg! is a Rust macro that prints and returns the value of a given expression for quick and dirty debugging.
+- You can explain that dbg! is a Rust macro that prints and returns the value of
+  a given expression for quick and dirty debugging.
 
 - You can show how the value of the block changes by changing the last line in
   the block. For instance, adding/removing a semicolon or using a `return`.
