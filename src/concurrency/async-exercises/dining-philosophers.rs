@@ -18,13 +18,13 @@ use std::sync::Arc;
 use tokio::sync::{mpsc, Mutex};
 use tokio::time;
 
-struct Fork;
+struct Chopstick;
 
 struct Philosopher {
     name: String,
     // ANCHOR_END: Philosopher
-    left_fork: Arc<Mutex<Fork>>,
-    right_fork: Arc<Mutex<Fork>>,
+    left_chopstick: Arc<Mutex<Chopstick>>,
+    right_chopstick: Arc<Mutex<Chopstick>>,
     thoughts: mpsc::Sender<String>,
 }
 
@@ -40,11 +40,11 @@ impl Philosopher {
 
     // ANCHOR: Philosopher-eat
     async fn eat(&self) {
-        // Keep trying until we have both forks
+        // Keep trying until we have both chopsticks
         // ANCHOR_END: Philosopher-eat
-        // Pick up forks...
-        let _left_fork = self.left_fork.lock().await;
-        let _right_fork = self.right_fork.lock().await;
+        // Pick up chopsticks...
+        let _left_chopstick = self.left_chopstick.lock().await;
+        let _right_chopstick = self.right_chopstick.lock().await;
 
         // ANCHOR: Philosopher-eat-body
         println!("{} is eating...", &self.name);
@@ -56,30 +56,32 @@ impl Philosopher {
     }
 }
 
-static PHILOSOPHERS: &[&str] =
-    &["Socrates", "Hypatia", "Plato", "Aristotle", "Pythagoras"];
+// tokio scheduler doesn't deadlock with 5 philosophers, so have 2.
+static PHILOSOPHERS: &[&str] = &["Socrates", "Hypatia"];
 
 #[tokio::main]
 async fn main() {
     // ANCHOR_END: Philosopher-eat-end
-    // Create forks
-    let mut forks = vec![];
-    (0..PHILOSOPHERS.len()).for_each(|_| forks.push(Arc::new(Mutex::new(Fork))));
+    // Create chopsticks
+    let mut chopsticks = vec![];
+    PHILOSOPHERS
+        .iter()
+        .for_each(|_| chopsticks.push(Arc::new(Mutex::new(Chopstick))));
 
     // Create philosophers
     let (philosophers, mut rx) = {
         let mut philosophers = vec![];
         let (tx, rx) = mpsc::channel(10);
         for (i, name) in PHILOSOPHERS.iter().enumerate() {
-            let mut left_fork = Arc::clone(&forks[i]);
-            let mut right_fork = Arc::clone(&forks[(i + 1) % PHILOSOPHERS.len()]);
+            let mut left_chopstick = Arc::clone(&chopsticks[i]);
+            let mut right_chopstick = Arc::clone(&chopsticks[(i + 1) % PHILOSOPHERS.len()]);
             if i == PHILOSOPHERS.len() - 1 {
-                std::mem::swap(&mut left_fork, &mut right_fork);
+                std::mem::swap(&mut left_chopstick, &mut right_chopstick);
             }
             philosophers.push(Philosopher {
                 name: name.to_string(),
-                left_fork,
-                right_fork,
+                left_chopstick,
+                right_chopstick,
                 thoughts: tx.clone(),
             });
         }
