@@ -6,11 +6,11 @@ ranges of values or the items in a collection:
 ```rust,editable
 fn main() {
     for x in 1..5 {
-        println!("x: {x}");
+        dbg!(x);
     }
 
     for elem in [2, 4, 8, 16, 32] {
-        println!("elem: {elem}");
+        dbg!(elem);
     }
 }
 ```
