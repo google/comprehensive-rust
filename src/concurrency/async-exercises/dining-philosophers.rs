@@ -74,7 +74,8 @@ async fn main() {
         let (tx, rx) = mpsc::channel(10);
         for (i, name) in PHILOSOPHERS.iter().enumerate() {
             let mut left_chopstick = Arc::clone(&chopsticks[i]);
-            let mut right_chopstick = Arc::clone(&chopsticks[(i + 1) % PHILOSOPHERS.len()]);
+            let mut right_chopstick =
+                Arc::clone(&chopsticks[(i + 1) % PHILOSOPHERS.len()]);
             if i == PHILOSOPHERS.len() - 1 {
                 std::mem::swap(&mut left_chopstick, &mut right_chopstick);
             }
