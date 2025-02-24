@@ -9,15 +9,13 @@ use. One rule is that references can never be `null`, making them safe to use
 without `null` checks. The other rule we'll look at for now is that references
 can't _outlive_ the data they point to.
 
-<!-- mdbook-xgettext: skip -->
-
 ```rust,editable,compile_fail
 fn main() {
     let x_ref = {
         let x = 10;
         &x
     };
-    println!("x: {x_ref}");
+    dbg!(x_ref);
 }
 ```
 

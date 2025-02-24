@@ -9,8 +9,8 @@ minutes: 5
 ```rust,editable
 fn main() {
     let t: (i8, bool) = (7, true);
-    println!("t.0: {}", t.0);
-    println!("t.1: {}", t.1);
+    dbg!(t.0);
+    dbg!(t.1);
 }
 ```
 
