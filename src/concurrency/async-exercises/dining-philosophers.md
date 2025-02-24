@@ -16,8 +16,8 @@ code below to a file called `src/main.rs`, fill out the blanks, and test that
 
 ```rust,compile_fail
 {{#include dining-philosophers.rs:Philosopher}}
-    // left_fork: ...
-    // right_fork: ...
+    // left_chopstick: ...
+    // right_chopstick: ...
     // thoughts: ...
 }
 
@@ -26,7 +26,7 @@ code below to a file called `src/main.rs`, fill out the blanks, and test that
 {{#include dining-philosophers.rs:Philosopher-eat}}
 {{#include dining-philosophers.rs:Philosopher-eat-body}}
 {{#include dining-philosophers.rs:Philosopher-eat-end}}
-    // Create forks
+    // Create chopsticks
 
     // Create philosophers
 
