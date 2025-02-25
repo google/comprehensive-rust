@@ -53,10 +53,9 @@ value.
   that value was mutable. Try `*r = 'X'`.
 
 - Rust is tracking the lifetimes of all references to ensure they live long
-  enough. Dangling references cannot occur in safe Rust. `x_axis` would return a
-  reference to `point`, but `point` will be deallocated when the function
-  returns, so this will not compile.
+  enough. Dangling references cannot occur in safe Rust.
 
-- We will talk more about borrowing when we get to ownership.
+- We will talk more about borrowing and preventing dangling references when we
+  get to ownership.
 
 </details>
