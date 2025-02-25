@@ -25,14 +25,14 @@ impl Default for Implemented {
 
 fn main() {
     let default_struct = Derived::default();
-    println!("{default_struct:#?}");
+    dbg!(default_struct);
 
     let almost_default_struct =
         Derived { y: "Y is set!".into(), ..Derived::default() };
-    println!("{almost_default_struct:#?}");
+    dbg!(almost_default_struct);
 
     let nothing: Option<Derived> = None;
-    println!("{:#?}", nothing.unwrap_or_default());
+    dbg!(nothing.unwrap_or_default());
 }
 ```
 
