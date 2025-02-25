@@ -4,13 +4,11 @@ Like with `if let`, there is a
 [`while let`](https://doc.rust-lang.org/reference/expressions/loop-expr.html#predicate-pattern-loops)
 variant which repeatedly tests a value against a pattern:
 
-<!-- mdbook-xgettext: skip -->
-
 ```rust,editable
 fn main() {
     let mut name = String::from("Comprehensive Rust 🦀");
     while let Some(c) = name.pop() {
-        println!("character: {c}");
+        dbg!(c);
     }
     // (There are more efficient ways to reverse a string!)
 }

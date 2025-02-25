@@ -20,11 +20,11 @@ fn pair_of(x: u32) -> impl std::fmt::Debug {
 
 fn main() {
     let many = add_42_millions(42_i8);
-    println!("{many}");
+    dbg!(many);
     let many_more = add_42_millions(10_000_000);
-    println!("{many_more}");
+    dbg!(many_more);
     let debuggable = pair_of(27);
-    println!("debuggable: {debuggable:?}");
+    dbg!(debuggable);
 }
 ```
 

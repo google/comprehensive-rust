@@ -33,7 +33,8 @@ impl From<bool> for Foo {
 fn main() {
     let from_int = Foo::from(123);
     let from_bool = Foo::from(true);
-    println!("{from_int:?}, {from_bool:?}");
+    dbg!(from_int);
+    dbg!(from_bool);
 }
 ```
 

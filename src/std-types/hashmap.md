@@ -35,7 +35,7 @@ fn main() {
         *page_count += 1;
     }
 
-    println!("{page_counts:#?}");
+    dbg!(page_counts);
 }
 ```
 
