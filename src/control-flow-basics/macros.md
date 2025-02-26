@@ -44,4 +44,19 @@ especially critical.
 The course does not cover defining macros, but a later section will describe use
 of derive macros.
 
+## More To Explore
+
+There are a number of other useful macros provided by the standard library. Some
+other examples you can share with students if they want to know more:
+
+- [`assert!`] and related macros can be used to add assertions to your code.
+  These are used heavily in writing tests.
+- [`unreachable!`] is used to mark a branch of control flow that should never be
+  hit.
+- [`eprintln!`] allows you to print to stderr.
+
 </details>
+
+[`assert!`]: https://doc.rust-lang.org/stable/std/macro.assert.html
+[`unreachable!`]: https://doc.rust-lang.org/stable/std/macro.unreachable.html
+[`eprintln!`]: https://doc.rust-lang.org/stable/std/macro.eprintln.html
