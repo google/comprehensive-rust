@@ -79,9 +79,9 @@ impl PartialOrd for Citation {
 
   ```rust,editable
   fn main() {
-    let a = "Hello";
-    let b = String::from("Hello");
-    assert_eq!(a, b);
+      let a = "Hello";
+      let b = String::from("Hello");
+      assert_eq!(a, b);
   }
   ```
 
