@@ -54,21 +54,35 @@ impl PartialOrd for Citation {
 
 <details>
 
-`PartialEq` can be implemented between different types, but `Eq` cannot, because
-it is reflexive:
+- `PartialEq` can be implemented between different types, but `Eq` cannot,
+  because it is reflexive:
 
-```rust,editable
-struct Key {
-    id: u32,
-    metadata: Option<String>,
-}
-impl PartialEq<u32> for Key {
-    fn eq(&self, other: &u32) -> bool {
-        self.id == *other
-    }
-}
-```
+  ```rust,editable
+  struct Key {
+      id: u32,
+      metadata: Option<String>,
+  }
+  impl PartialEq<u32> for Key {
+      fn eq(&self, other: &u32) -> bool {
+          self.id == *other
+      }
+  }
+  ```
 
-In practice, it's common to derive these traits, but uncommon to implement them.
+- In practice, it's common to derive these traits, but uncommon to implement
+  them.
+
+- When comparing references in Rust, it will will compare the value of the
+  things pointed to, it will NOT compare the references themselves. That means
+  that references to two different things can compare as equal if the values
+  pointed to are the same:
+
+  ```rust,editable
+  fn main() {
+    let a = "Hello";
+    let b = String::from("Hello");
+    assert_eq!(a, b);
+  }
+  ```
 
 </details>
