@@ -11,7 +11,7 @@ Rust will trigger a panic if a fatal error happens at runtime:
 ```rust,editable,should_panic
 fn main() {
     let v = vec![10, 20, 30];
-    println!("v[100]: {}", v[100]);
+    dbg!(v[100]);
 }
 ```
 
@@ -33,12 +33,12 @@ use std::panic;
 
 fn main() {
     let result = panic::catch_unwind(|| "No problem here!");
-    println!("{result:?}");
+    dbg!(result);
 
     let result = panic::catch_unwind(|| {
         panic!("oh no!");
     });
-    println!("{result:?}");
+    dbg!(result);
 }
 ```
 

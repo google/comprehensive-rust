@@ -12,7 +12,7 @@ fn main() {
     let cell = Cell::new(5);
 
     cell.set(123);
-    println!("{}", cell.get());
+    dbg!(cell.get());
 }
 ```
 

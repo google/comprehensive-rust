@@ -10,8 +10,8 @@ An assignment will transfer _ownership_ between variables:
 fn main() {
     let s1: String = String::from("Hello!");
     let s2: String = s1;
-    println!("s2: {s2}");
-    // println!("s1: {s1}");
+    dbg!(s2);
+    // dbg!(s1);
 }
 ```
 

@@ -12,8 +12,8 @@ While move semantics are the default, certain types are copied by default:
 fn main() {
     let x = 42;
     let y = x;
-    println!("x: {x}"); // would not be accessible if not Copy
-    println!("y: {y}");
+    dbg!(x); // would not be accessible if not Copy
+    dbg!(y);
 }
 ```
 
