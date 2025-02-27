@@ -42,4 +42,13 @@ fn main() {
 - Slices always borrow from another object. In this example, `a` has to remain
   'alive' (in scope) for at least as long as our slice.
 
+- You can't "grow" a slice once it's created:
+  - You can't append elements of the slice, since it doesn't own the backing
+    buffer.
+  - You can't grow a slice to point to a larger section of the backing buffer.
+    The slice loses information about the underlying buffer and so you can't
+    know how larger the slice can be grown.
+  - To get a larger slice you have to back to the original buffer and create a
+    larger slice from there.
+
 </details>
