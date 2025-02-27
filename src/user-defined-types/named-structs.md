@@ -53,6 +53,8 @@ Key Points:
     not important.
 - If you already have variables with the right names, then you can create the
   struct using a shorthand.
+- Struct fields do not support default values. Default values are specified by
+  implementing the `Default` trait which we will cover later.
 
 ## More to Explore
 
