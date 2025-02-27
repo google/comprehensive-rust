@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#![allow(dead_code)]
-
 // ANCHOR: solution
 // ANCHOR: event
+#![allow(dead_code)]
+
 #[derive(Debug)]
 /// An event in the elevator system that the controller must react to.
 enum Event {
