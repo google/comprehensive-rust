@@ -32,7 +32,7 @@ fn main() {
     let slice = &[2, 4, 6, 8];
     let iter = SliceIter { slice, i: 0 };
     for elem in iter {
-        println!("elem: {elem}");
+        dbg!(elem);
     }
 }
 ```

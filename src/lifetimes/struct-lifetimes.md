@@ -24,8 +24,8 @@ fn main() {
     let noun = Highlight { slice: &doc[16..19], color: HighlightColor::Yellow };
     let verb = Highlight { slice: &doc[20..25], color: HighlightColor::Pink };
     // drop(doc);
-    println!("{noun:?}");
-    println!("{verb:?}");
+    dbg!(noun);
+    dbg!(verb);
 }
 ```
 

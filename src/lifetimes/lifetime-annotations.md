@@ -40,7 +40,7 @@ fn main() {
     let p1: Point = Point(10, 10);
     let p2: Point = Point(20, 20);
     let p3 = left_most(&p1, &p2); // What is the lifetime of p3?
-    println!("p3: {p3:?}");
+    dbg!(p3);
 }
 ```
 
