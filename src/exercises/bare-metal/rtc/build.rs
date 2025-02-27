@@ -16,8 +16,11 @@ use cc::Build;
 use std::env;
 
 fn main() {
-    env::set_var("CROSS_COMPILE", "aarch64-none-elf");
-    env::set_var("CC", "clang");
+    // SAFETY: The build script is single-threaded.
+    unsafe {
+        env::set_var("CROSS_COMPILE", "aarch64-none-elf");
+        env::set_var("CC", "clang");
+    }
 
     Build::new()
         .file("entry.S")

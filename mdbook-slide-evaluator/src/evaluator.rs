@@ -17,8 +17,8 @@ use std::io::Write as _;
 use std::path::{Path, PathBuf};
 
 use anyhow::anyhow;
-use fantoccini::elements::Element;
 use fantoccini::Client;
+use fantoccini::elements::Element;
 use log::{debug, warn};
 use serde::Serialize;
 use strum::Display;

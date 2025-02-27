@@ -137,6 +137,8 @@ function playground_text(playground, hidden = true) {
             edition = "2018";
         } else if(classes.contains("edition2021")) {
             edition = "2021";
+        } else if(classes.contains("edition2024")) {
+            edition = "2024";
         }
         var params = {
             backtrace: true,
