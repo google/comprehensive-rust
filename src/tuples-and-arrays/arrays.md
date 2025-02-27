@@ -8,13 +8,17 @@ minutes: 5
 
 ```rust,editable
 fn main() {
-    let mut a: [i8; 10] = [42; 10];
-    a[5] = 0;
+    let mut a: [i8; 5] = [5, 4, 3, 2, 1];
+    a[2] = 0;
     println!("a: {a:?}");
 }
 ```
 
 <details>
+
+- Arrays can also be initialized using the shorthand syntax, e.g. `[0; 1024]`.
+  This can be useful when you want to initialize all elements to the same value,
+  or if you have a large array that would be hard to initialize manually.
 
 - A value of the array type `[T; N]` holds `N` (a compile-time constant)
   elements of the same type `T`. Note that the length of the array is _part of
