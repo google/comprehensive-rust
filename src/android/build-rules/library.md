@@ -6,9 +6,9 @@ Here we declare a dependency on two libraries:
 
 - `libgreeting`, which we define below,
 - `libtextwrap`, which is a crate already vendored in
-  [`external/rust/crates/`][crates].
+  [`external/rust/android-crates-io/crates/`][crates].
 
-[crates]: https://cs.android.com/android/platform/superproject/+/master:external/rust/crates/
+[crates]: https://cs.android.com/android/platform/superproject/main/+/main:external/rust/android-crates-io/crates/
 
 _hello_rust/Android.bp_:
 
