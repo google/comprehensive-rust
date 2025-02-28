@@ -20,6 +20,30 @@
     Closed: "inline-closed",
   };
 
+  // The mode/function of this window
+  const WindowMode = {
+    Regular: "regular",
+    RegularWithSpeakerNotes: "regular-speaker-notes",
+    SpeakerNotes: "speaker-notes",
+    SpeakerNotesDefunct: "speaker-notes-defunct",
+    PrintPage: "print-page",
+  };
+
+  // detect the current window mode based on window location properties
+  function detectWindowMode() {
+    if (window.location.hash == "#speaker-notes-open") {
+      return WindowMode.SpeakerNotes;
+    } else if (window.location.hash == "#speaker-notes") {
+      return WindowMode.RegularWithSpeakerNotes;
+    } else if (window.location.hash == "#speaker-notes-defunct") {
+      return WindowMode.SpeakerNotesDefunct;
+    } else if (window.location.pathname.endsWith("/print.html")) {
+      return WindowMode.PrintPage;
+    } else {
+      return WindowMode.Regular;
+    }
+  }
+
   let notes = document.querySelector("details");
   // Create an unattached DOM node for the code below.
   if (!notes) {
@@ -40,7 +64,7 @@
   // Update the window. This shows/hides controls as necessary for regular and
   // speaker note pages.
   function applyState() {
-    if (window.location.hash == "#speaker-notes-open") {
+    if (detectWindowMode() == WindowMode.SpeakerNotes) {
       if (getState() != NotesState.Popup) {
         markDefunct();
       }
@@ -238,30 +262,23 @@
   });
   window.localStorage["currentPage"] = window.location.pathname;
 
-  // We encode the kind of page in the location hash:
-  switch (window.location.hash) {
-    case "#speaker-notes-open":
-      // We are on a page in the speaker notes.
-      setupSpeakerNotes();
-      break;
-    case "#speaker-notes-defunct":
-      // We are on a page in a defunct speaker note window. We keep the state
-      // unchanged and mark the window defunct.
-      setupSpeakerNotes();
+  // apply the correct state for the window
+  switch (detectWindowMode()) {
+    case WindowMode.SpeakerNotesDefunct:
+      // mark the window defunct then fall-through into speaker notes
       markDefunct();
+    case WindowMode.SpeakerNotes:
+      setupSpeakerNotes();
       break;
-    default:
-      if (window.location.pathname.endsWith("/print.html")) {
-        setupPrintPage();
-        return;
-      }
-
-      // We are on a regular page. We force the state to Inline if this
-      // looks like a direct link to the speaker notes.
-      if (window.location.hash == "#speaker-notes") {
-        setState(NotesState.Inline);
-      }
+    case WindowMode.PrintPage:
+      setupPrintPage();
+      break;
+    case WindowMode.RegularWithSpeakerNotes:
+      // Regular page with inline speaker notes, set state then fall-through
+      setState(NotesState.Inline);
+    case WindowMode.Regular:
       applyState();
       setupRegularPage();
+      break;
   }
 })();
