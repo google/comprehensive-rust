@@ -14,7 +14,7 @@
 
 // ANCHOR: solution
 // ANCHOR: setup
-pub trait Logger {
+trait Logger {
     /// Log a message at the given verbosity level.
     fn log(&self, verbosity: u8, message: &str);
 }
