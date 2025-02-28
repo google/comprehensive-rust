@@ -10,5 +10,5 @@ export const config = deepmerge(
     // clean services
     services: [],
   },
-  { clone: false }
+  { clone: false },
 );

@@ -75,7 +75,7 @@ export default class Playground {
           "Access-Control-Allow-Origin": "*",
         },
         fetchResponse: false,
-      }
+      },
     );
   }
 
@@ -100,7 +100,7 @@ export default class Playground {
           "Access-Control-Allow-Origin": "*",
         },
         fetchResponse: false,
-      }
+      },
     );
   }
 }
