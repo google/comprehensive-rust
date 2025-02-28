@@ -64,17 +64,15 @@
     setTimeout(() => {
       // Check if a pong message was received after the timeout of 500ms
       if (!speakerNotesPongReceived) {
-        if (getState() == NotesState.Popup) {
+        if (getSpeakerNotesState() == NotesState.Popup) {
           // Reset to Inline if we have been in Popup mode
-          setState(NotesState.Inline);
-          applyInlinePopupStyle();
+          setSpeakerNotesState(NotesState.Inline);
         }
       } else {
         // Received a pong from a speaker notes window
-        if (getState() != NotesState.Popup) {
+        if (getSpeakerNotesState() != NotesState.Popup) {
           // but we are not in Popup mode, reset to Popup mode
-          setState(NotesState.Popup);
-          applyInlinePopupStyle();
+          setSpeakerNotesState(NotesState.Popup);
         }
       }
     }, 500);
@@ -110,7 +108,7 @@
   // Apply the correct style for the inline speaker notes in the
   // regular window - do not use on speaker notes page
   function applyInlinePopupStyle() {
-    switch (getState()) {
+    switch (getSpeakerNotesState()) {
       case NotesState.Popup:
         popIn.classList.remove("hidden");
         notes.classList.add("hidden");
@@ -129,14 +127,18 @@
   }
 
   // Get the state of the speaker note window.
-  function getState() {
+  function getSpeakerNotesState() {
     return window.localStorage["speakerNotes"] || NotesState.Closed;
   }
 
-  // Set the state of the speaker note window. Call applyInlinePopupStyle
-  // as needed afterwards.
-  function setState(state) {
+  // Set the state of the speaker note window.
+  function setSpeakerNotesState(state) {
+    if (window.localStorage["speakerNotes"] == state) {
+      // no change
+      return;
+    }
     window.localStorage["speakerNotes"] = state;
+    applyInlinePopupStyle();
   }
 
   // Create controls for a regular page.
@@ -158,14 +160,15 @@
       // Send a message to the speaker notes to close itself
       speakerNotesChannel.postMessage(BroadcastMessage.CloseNotes);
       // Switch to Inline popup mode
-      setState(NotesState.Inline);
-      applyInlinePopupStyle();
+      setSpeakerNotesState(NotesState.Inline);
     });
     document.querySelector(".left-buttons").append(popIn);
 
     // Create speaker notes.
     notes.addEventListener("toggle", (event) => {
-      setState(notes.open ? NotesState.Inline : NotesState.Closed);
+      // This always fires on first load on a regular page when applyInlinePopupStyle()
+      // is called notes are opened (if NotesState.Inline)
+      setSpeakerNotesState(notes.open ? NotesState.Inline : NotesState.Closed);
     });
 
     let summary = document.createElement("summary");
@@ -193,8 +196,7 @@
         NotesState.Popup,
       );
       if (popup) {
-        setState(NotesState.Popup);
-        applyInlinePopupStyle();
+        setSpeakerNotesState(NotesState.Popup);
       } else {
         window.alert(
           "Could not open popup, please check your popup blocker settings."
@@ -272,7 +274,7 @@
   window.addEventListener("storage", (event) => {
     switch (event.key) {
       case "currentPage":
-        if (getState() == NotesState.Popup) {
+        if (getSpeakerNotesState() == NotesState.Popup) {
           // We link all windows when we are showing speaker notes.
           window.location.pathname = event.newValue;
         }
@@ -291,8 +293,9 @@
       break;
     case WindowMode.RegularWithSpeakerNotes:
       // Regular page with inline speaker notes, set state then fall-through
-      setState(NotesState.Inline);
+      setSpeakerNotesState(NotesState.Inline);
     case WindowMode.Regular:
+      // Manually apply the style once
       applyInlinePopupStyle();
       setupRegularPage();
       break;
