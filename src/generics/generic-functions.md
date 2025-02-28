@@ -8,18 +8,34 @@ Rust supports generics, which lets you abstract algorithms or data structures
 (such as sorting or a binary tree) over the types used or stored.
 
 ```rust,editable
-/// Pick `even` or `odd` depending on the value of `n`.
-fn pick<T>(n: i32, even: T, odd: T) -> T {
-    if n % 2 == 0 {
-        even
+fn pick_i32(cond: bool, left: i32, right: i32) -> i32 {
+    if cond {
+        left
     } else {
-        odd
+        right
+    }
+}
+
+fn pick_char(cond: bool, left: char, right: char) -> char {
+    if cond {
+        left
+    } else {
+        right
+    }
+}
+
+/// Pick `left` or `right` depending on the value of `n`.
+fn pick<T>(cond: bool, left: T, right: T) -> T {
+    if cond {
+        left
+    } else {
+        right
     }
 }
 
 fn main() {
-    println!("picked a number: {:?}", pick(97, 222, 333));
-    println!("picked a string: {:?}", pick(28, "dog", "cat"));
+    println!("picked a number: {:?}", pick(true, 222, 333));
+    println!("picked a string: {:?}", pick(false, 'L', 'R'));
 }
 ```
 
