@@ -16,10 +16,12 @@ fn main() {
             v
         }
     };
-    println!(
-        "clamped values at {max_value}: {:?}",
-        (0..10).map(clamp).collect::<Vec<_>>()
-    );
+
+    dbg!(clamp(1));
+    dbg!(clamp(3));
+    dbg!(clamp(5));
+    dbg!(clamp(7));
+    dbg!(clamp(10));
 }
 ```
 
