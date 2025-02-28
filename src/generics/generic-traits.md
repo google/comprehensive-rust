@@ -40,8 +40,8 @@ fn main() {
 
 <details>
 
-- The `From` trait will be covered later in the course, but its [definition in
-  the `std` docs][from] is simple, and copied here for reference.
+- The `From` trait will be covered later in the course, but its
+  [definition in the `std` docs][from] is simple, and copied here for reference.
 
 - Implementations of the trait do not need to cover all possible type
   parameters. Here, `Foo::from("hello")` would not compile because there is no
