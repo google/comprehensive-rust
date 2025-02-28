@@ -126,4 +126,16 @@ fn test_zeros() {
         0
     );
 }
+
+#[test]
+fn test_div() {
+    assert_eq!(
+        eval(Expression::Op {
+            op: Operation::Div,
+            left: Box::new(Expression::Value(10)),
+            right: Box::new(Expression::Value(2)),
+        }),
+        5
+    )
+}
 // ANCHOR_END: tests
