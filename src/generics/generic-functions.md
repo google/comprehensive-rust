@@ -8,22 +8,6 @@ Rust supports generics, which lets you abstract algorithms or data structures
 (such as sorting or a binary tree) over the types used or stored.
 
 ```rust,editable
-fn pick_i32(cond: bool, left: i32, right: i32) -> i32 {
-    if cond {
-        left
-    } else {
-        right
-    }
-}
-
-fn pick_char(cond: bool, left: char, right: char) -> char {
-    if cond {
-        left
-    } else {
-        right
-    }
-}
-
 fn pick<T>(cond: bool, left: T, right: T) -> T {
     if cond {
         left
@@ -40,9 +24,32 @@ fn main() {
 
 <details>
 
+- It can be helpful to show the monomorphized versions of `pick`, either before
+  talking about the generic `pick` in order to show how generics can reduce code
+  duplication, or after talking about generics to show how monomorphization
+  works.
+
+  ```rust
+  fn pick_i32(cond: bool, left: i32, right: i32) -> i32 {
+      if cond {
+          left
+      } else {
+          right
+      }
+  }
+
+  fn pick_char(cond: bool, left: char, right: char) -> char {
+      if cond {
+          left
+      } else {
+          right
+      }
+  }
+  ```
+
 - Rust infers a type for T based on the types of the arguments and return value.
 
-- In this example we only use the primitive types `i32` and `&str` for `T`, but
+- In this example we only use the primitive types `i32` and `char` for `T`, but
   we can use any type here, including user-defined types:
 
   ```rust,ignore
