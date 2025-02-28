@@ -77,6 +77,8 @@ Key Points:
   - Developers may choose to use methods to take advantage of method receiver
     syntax and to help keep them more organized. By using methods we can keep
     all the implementation code in one predictable place.
+  - Note that methods can also be called like associated functions by explicitly
+    passing the receiver in, e.g. `CarRace::add_lap(&mut race, 20)`.
 - Point out the use of the keyword `self`, a method receiver.
   - Show that it is an abbreviated term for `self: Self` and perhaps show how
     the struct name could also be used.
