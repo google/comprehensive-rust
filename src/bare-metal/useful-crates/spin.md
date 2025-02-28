@@ -15,9 +15,9 @@ use spin::mutex::SpinMutex;
 static COUNTER: SpinMutex<u32> = SpinMutex::new(0);
 
 fn main() {
-    println!("count: {}", COUNTER.lock());
+    dbg!(COUNTER.lock());
     *COUNTER.lock() += 2;
-    println!("count: {}", COUNTER.lock());
+    dbg!(COUNTER.lock());
 }
 ```
 

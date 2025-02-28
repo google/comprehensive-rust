@@ -19,11 +19,11 @@ match ANCHOR comments in the `exercise.rs` file. Each segment also has a
 `Cargo.toml`. The result is that `exercise.rs` is built and tested by
 `cargo test`.
 
-For segments on day 1, exercises should use `fn main() { .. }` and `println!`,
-with students visually verifying the correct output. On subsequent days, prefer
-tests and omit `fn main() { .. }`. However, where tests would be difficult and
-visual verification is more natural (such as in the Logger exercise), using
-`fn main { .. }` is OK.
+For segments on day 1, exercises should use `fn main() { .. }` and `dbg!` or
+`println!`, with students visually verifying the correct output. On subsequent
+days, prefer tests and omit `fn main() { .. }`. However, where tests would be
+difficult and visual verification is more natural (such as in the Logger
+exercise), using `fn main { .. }` is OK.
 
 Especially for exercises without tests, consider including tests in
 `exercise.rs` that do not appear in either `exercise.md` or `solution.md`, as
