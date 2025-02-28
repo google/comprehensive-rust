@@ -24,7 +24,6 @@ fn pick_char(cond: bool, left: char, right: char) -> char {
     }
 }
 
-/// Pick `left` or `right` depending on the value of `n`.
 fn pick<T>(cond: bool, left: T, right: T) -> T {
     if cond {
         left
