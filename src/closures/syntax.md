@@ -30,4 +30,15 @@ fn main() {
   not capture any variables from their lexical environment. We will see captures
   next.
 
+## More to Explore
+
+- The ability to store functions in variables doesn't just apply to closures,
+  regular functions can be put in variables and then invoked the same way that
+  closures can: [Example in the playground][fn-ptr].
+
+  - The linked example also demonstrates that closures that don't capture
+    anything can also coerce to a regular function pointer.
+
 </details>
+
+[fn-ptr]: https://play.rust-lang.org/?version=stable&mode=debug&edition=2024&gist=817cbeeefc49f3d0d180a3d6d54c8bda
