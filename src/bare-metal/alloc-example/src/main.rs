@@ -26,13 +26,14 @@ use buddy_system_allocator::LockedHeap;
 #[global_allocator]
 static HEAP_ALLOCATOR: LockedHeap<32> = LockedHeap::<32>::new();
 
-static mut HEAP: [u8; 65536] = [0; 65536];
+const HEAP_SIZE: usize = 65536;
+static mut HEAP: [u8; HEAP_SIZE] = [0; HEAP_SIZE];
 
 pub fn entry() {
     // SAFETY: `HEAP` is only used here and `entry` is only called once.
     unsafe {
         // Give the allocator some memory to allocate.
-        HEAP_ALLOCATOR.lock().init(HEAP.as_mut_ptr() as usize, HEAP.len());
+        HEAP_ALLOCATOR.lock().init(&raw mut HEAP as usize, HEAP_SIZE);
     }
 
     // Now we can do things that require heap allocation.
