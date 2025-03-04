@@ -2,7 +2,7 @@
 minutes: 10
 ---
 
-# Closures
+# Closure traits
 
 Closures or lambda expressions have types which cannot be named. However, they
 implement special [`Fn`](https://doc.rust-lang.org/std/ops/trait.Fn.html),

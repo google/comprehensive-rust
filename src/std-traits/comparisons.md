@@ -72,10 +72,10 @@ impl PartialOrd for Citation {
 - In practice, it's common to derive these traits, but uncommon to implement
   them.
 
-- When comparing references in Rust, it will will compare the value of the
-  things pointed to, it will NOT compare the references themselves. That means
-  that references to two different things can compare as equal if the values
-  pointed to are the same:
+- When comparing references in Rust, it will compare the value of the things
+  pointed to, it will NOT compare the references themselves. That means that
+  references to two different things can compare as equal if the values pointed
+  to are the same:
 
   ```rust,editable
   fn main() {

@@ -52,7 +52,7 @@ fn main() {
   - It is possible to write `impl VerbosityFilter<StderrLogger> { .. }`.
     - `VerbosityFilter` is still generic and you can use `VerbosityFilter<f64>`,
       but methods in this block will only be available for
-      `Point<StderrLogger>`.
+      `VerbosityFilter<StderrLogger>`.
 - Note that we don't put a trait bound on the `VerbosityFilter` type itself. You
   can put bounds there as well, but generally in Rust we only put the trait
   bounds on the impl blocks.
