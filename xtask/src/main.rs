@@ -59,7 +59,7 @@ fn print_help(task: Option<&str>) {
         eprintln!(
             "Unrecognized task '{t}'. Available tasks:
 
-install-tools            Installs the tools the project dependends on.
+install-tools            Installs the tools the project depends on.
 
 Run with `cargo xtask [task]`.
 "
