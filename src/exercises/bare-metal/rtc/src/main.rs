@@ -24,8 +24,7 @@ mod pl011;
 mod pl031;
 
 use crate::pl031::Rtc;
-use arm_gic::gicv3::{IntId, Trigger};
-use arm_gic::{irq_enable, wfi};
+use arm_gic::{irq_enable, wfi, IntId, Trigger};
 use chrono::{TimeZone, Utc};
 use core::hint::spin_loop;
 // ANCHOR: imports
@@ -63,8 +62,9 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     // SAFETY: `GICD_BASE_ADDRESS` and `GICR_BASE_ADDRESS` are the base
     // addresses of a GICv3 distributor and redistributor respectively, and
     // nothing else accesses those address ranges.
-    let mut gic = unsafe { GicV3::new(GICD_BASE_ADDRESS, GICR_BASE_ADDRESS) };
-    gic.setup();
+    let mut gic =
+        unsafe { GicV3::new(GICD_BASE_ADDRESS, GICR_BASE_ADDRESS, 1, 0x20000) };
+    gic.setup(0);
     // ANCHOR_END: main
 
     // SAFETY: `PL031_BASE_ADDRESS` is the base address of a PL031 device, and
@@ -75,10 +75,10 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     info!("RTC: {time}");
 
     GicV3::set_priority_mask(0xff);
-    gic.set_interrupt_priority(PL031_IRQ, 0x80);
-    gic.set_trigger(PL031_IRQ, Trigger::Level);
+    gic.set_interrupt_priority(PL031_IRQ, None, 0x80);
+    gic.set_trigger(PL031_IRQ, None, Trigger::Level);
     irq_enable();
-    gic.enable_interrupt(PL031_IRQ, true);
+    gic.enable_interrupt(PL031_IRQ, None, true);
 
     // Wait for 3 seconds, without interrupts.
     let target = timestamp + 3;
