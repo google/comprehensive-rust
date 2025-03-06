@@ -45,9 +45,8 @@ fn install_tools() -> Result<(), DynError> {
 
         if !status.success() {
             let error_message = format!(
-                "cargo install {} {} exited with status code: {}",
-                args.get(0).unwrap(),
-                args.get(1).unwrap(),
+                "Command 'cargo install {}' exited with status code: {}",
+                args.join(" "),
                 status.code().unwrap()
             );
             return Err(Box::from(error_message));
@@ -62,8 +61,7 @@ fn get_help_string(task: Option<&str>) -> String {
         format!(
             "Unrecognized task '{t}'. Available tasks:
 
-install-tools            Installs the tools the project depends on.
-"
+install-tools            Installs the tools the project depends on."
         )
     } else {
         "Missing task. To execute a task run `cargo xtask [task]`.".to_string()
