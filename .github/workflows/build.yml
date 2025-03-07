@@ -190,7 +190,7 @@ jobs:
         working-directory: ./tests
       - name: Test Javascript
         if: matrix.language == 'en'
-        run: npm test
+        run: ./src/slides/create-slide.list.sh; npm test
         env:
           TEST_BOOK_DIR: ../book/comprehensive-rust-${{ matrix.language }}/html
         working-directory: ./tests
