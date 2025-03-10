@@ -71,7 +71,7 @@ cd comprehensive-rust
 Then install these tools with:
 
 ```shell
-bash install-mdbook.sh
+cargo xtask install-tools
 ```
 
 Run
