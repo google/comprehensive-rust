@@ -19,7 +19,7 @@ use futures_util::stream::StreamExt;
 use std::error::Error;
 use std::net::SocketAddr;
 use tokio::net::{TcpListener, TcpStream};
-use tokio::sync::broadcast::{channel, Sender};
+use tokio::sync::broadcast::{Sender, channel};
 use tokio_websockets::{Message, ServerBuilder, WebSocketStream};
 // ANCHOR_END: setup
 

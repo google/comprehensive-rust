@@ -35,8 +35,8 @@
 //! item becomes the first slide in that segment. Any other sub-items of the
 //! top-level item are treated as further slides in the same segment.
 
-use crate::frontmatter::{split_frontmatter, Frontmatter};
-use crate::markdown::{duration, Table};
+use crate::frontmatter::{Frontmatter, split_frontmatter};
+use crate::markdown::{Table, duration};
 use mdbook::book::{Book, BookItem, Chapter};
 use std::fmt::Write;
 use std::path::PathBuf;
@@ -318,7 +318,9 @@ impl Session {
         }
         format!(
             "Including {BREAK_DURATION} minute breaks, this session should take about {}. It contains:\n\n{}",
-            duration(self.minutes()), segments)
+            duration(self.minutes()),
+            segments
+        )
     }
 
     /// Return the total duration of this session.
@@ -337,11 +339,7 @@ impl Session {
     ///
     /// This includes breaks between segments.
     pub fn target_minutes(&self) -> u64 {
-        if self.target_minutes > 0 {
-            self.target_minutes
-        } else {
-            self.minutes()
-        }
+        if self.target_minutes > 0 { self.target_minutes } else { self.minutes() }
     }
 }
 
