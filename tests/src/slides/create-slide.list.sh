@@ -18,6 +18,12 @@ if [[ -z "${TEST_BOOK_DIR}" ]]; then
   exit 1
 fi
 
+# check if this is the correct root directory by checking if it contains the index.html
+if [[ ! -f "${TEST_BOOK_DIR}/index.html" ]]; then
+  echo "Could not find index.html in ${TEST_BOOK_DIR}. Please check if the correct directory is used (e.g. book/html). You might need to (re)create the directory with mdbook build."
+  exit 1
+fi
+
 pushd "${TEST_BOOK_DIR}"
 # exclude special pages that should never be tested
 SLIDES=$(grep -L "Redirecting to..."  -R --include "*.html" \
