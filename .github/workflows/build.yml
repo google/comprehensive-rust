@@ -21,14 +21,22 @@ jobs:
         run: |
           sudo apt update
           sudo apt install gettext yapf3
+          curl -fsSL https://dprint.dev/install.sh | sh
+          echo "/home/runner/.dprint/bin" >> $GITHUB_PATH
 
       - name: Install nightly rustfmt
         run: |
           rustup default nightly
           rustup component add rustfmt
 
-      - name: Check formatting
-        uses: dprint/check@v2.2
+      - name: Format the project
+        run: dprint fmt
+
+      - name: Add PR suggestions for formatting changes
+        uses: parkerbxyz/suggest-changes@v1
+
+      - name: Check for changes
+        run: git diff --exit-code
 
   typos:
     runs-on: ubuntu-latest
