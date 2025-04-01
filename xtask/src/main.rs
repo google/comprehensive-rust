@@ -1,3 +1,24 @@
+// Copyright 2023 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+//! This binary allows us to execute tasks within the project by running
+//! `cargo xtask <task>`. It can thus be used as a task automation tool.
+//! For example instead of repeatedly running `cargo install` from the CLI
+//! to install all the necessary tools for the project we can just run
+//! `cargo xtask install-tools` and the logic defined here will install
+//! the tools.
+
 use std::{env, process::Command};
 
 type DynError = Box<dyn std::error::Error>;
