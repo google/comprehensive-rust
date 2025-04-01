@@ -5,7 +5,7 @@ functionality. Examples are `theme/speaker-notes.js` or `theme/book.js`.
 
 Comprehensive Rust is using [webdriverIO](https://webdriver.io/) and the
 [webdriverIO Expect API](https://webdriver.io/docs/api/expect-webdriverio/) in
-combination with [Mocha] (https://mochajs.org/). WebdriverIO is taking care of
+combination with [Mocha](https://mochajs.org/). WebdriverIO is taking care of
 accessing the webpage with a real browser and can access the state of the page
 so behavior can be asserted.
 
