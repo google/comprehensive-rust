@@ -19,38 +19,39 @@
 //! `cargo xtask install-tools` and the logic defined here will install
 //! the tools.
 
-use std::{env, process::Command};
+use anyhow::{anyhow, Ok, Result};
 use clap::Parser;
+use std::{env, process::Command};
 
-type DynError = Box<dyn std::error::Error>;
-
-fn main() {
+fn main() -> Result<()> {
     if let Err(e) = execute_task() {
         eprintln!("{e}");
         std::process::exit(-1);
     }
+    Ok(())
 }
 
-/// Binary for executing tasks within the Comprehensive Rust project
 #[derive(Parser, Debug)]
-#[command(version, about, long_about = None)]
+#[command(
+    about = "Binary for executing tasks within the Comprehensive Rust project"
+)]
 struct Args {
     #[arg(required = true, help = "The task to execute")]
-    task: String
+    task: String,
 }
 
-fn execute_task() -> Result<(), DynError> {
+fn execute_task() -> Result<()> {
     let task = Args::parse().task;
     match task.as_str() {
         "install-tools" => install_tools()?,
         _ => {
-            return Err(Box::from(get_unrecognized_task_string(task.as_str())));
+            return Err(anyhow!(unrecognized_task_string(task.as_str())));
         }
     }
     Ok(())
 }
 
-fn install_tools() -> Result<(), DynError> {
+fn install_tools() -> Result<()> {
     println!("Installing project tools...");
 
     let install_args = vec![
@@ -79,17 +80,17 @@ fn install_tools() -> Result<(), DynError> {
                 args.join(" "),
                 status.code().unwrap()
             );
-            return Err(Box::from(error_message));
+            return Err(anyhow!(error_message));
         }
     }
 
     Ok(())
 }
 
-fn get_unrecognized_task_string(task: &str) -> String {
-        format!(
-            "Unrecognized task '{task}'. Available tasks:
+fn unrecognized_task_string(task: &str) -> String {
+    format!(
+        "Unrecognized task '{task}'. Available tasks:
 
 install-tools            Installs the tools the project depends on."
-        )
+    )
 }
