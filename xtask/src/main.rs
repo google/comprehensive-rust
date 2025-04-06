@@ -20,6 +20,7 @@
 //! the tools.
 
 use std::{env, process::Command};
+use clap::Parser;
 
 type DynError = Box<dyn std::error::Error>;
 
@@ -30,12 +31,20 @@ fn main() {
     }
 }
 
+/// Binary for executing tasks within the Comprehensive Rust project
+#[derive(Parser, Debug)]
+#[command(version, about, long_about = None)]
+struct Args {
+    #[arg(required = true, help = "The task to execute")]
+    task: String
+}
+
 fn execute_task() -> Result<(), DynError> {
-    let task = env::args().nth(1);
-    match task.as_deref() {
-        Some("install-tools") => install_tools()?,
+    let task = Args::parse().task;
+    match task.as_str() {
+        "install-tools" => install_tools()?,
         _ => {
-            return Err(Box::from(get_help_string(task.as_deref())));
+            return Err(Box::from(get_unrecognized_task_string(task.as_str())));
         }
     }
     Ok(())
@@ -44,7 +53,7 @@ fn execute_task() -> Result<(), DynError> {
 fn install_tools() -> Result<(), DynError> {
     println!("Installing project tools...");
 
-    let install_args: Vec<Vec<&str>> = vec![
+    let install_args = vec![
         // The --locked flag is important for reproducible builds. It also
         // avoids breakage due to skews between mdbook and mdbook-svgbob.
         vec!["mdbook", "--locked", "--version", "0.4.44"],
@@ -77,14 +86,10 @@ fn install_tools() -> Result<(), DynError> {
     Ok(())
 }
 
-fn get_help_string(task: Option<&str>) -> String {
-    if let Some(t) = task {
+fn get_unrecognized_task_string(task: &str) -> String {
         format!(
-            "Unrecognized task '{t}'. Available tasks:
+            "Unrecognized task '{task}'. Available tasks:
 
 install-tools            Installs the tools the project depends on."
         )
-    } else {
-        "Missing task. To execute a task run `cargo xtask [task]`.".to_string()
-    }
 }
