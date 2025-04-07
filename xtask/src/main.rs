@@ -1,29 +1,60 @@
+// Copyright 2023 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+//! This binary allows us to execute tasks within the project by running
+//! `cargo xtask <task>`. It can thus be used as a task automation tool.
+//! For example instead of repeatedly running `cargo install` from the CLI
+//! to install all the necessary tools for the project we can just run
+//! `cargo xtask install-tools` and the logic defined here will install
+//! the tools.
+
+use anyhow::{anyhow, Ok, Result};
+use clap::Parser;
 use std::{env, process::Command};
 
-type DynError = Box<dyn std::error::Error>;
-
-fn main() {
+fn main() -> Result<()> {
     if let Err(e) = execute_task() {
         eprintln!("{e}");
         std::process::exit(-1);
     }
+    Ok(())
 }
 
-fn execute_task() -> Result<(), DynError> {
-    let task = env::args().nth(1);
-    match task.as_deref() {
-        Some("install-tools") => install_tools()?,
+#[derive(Parser, Debug)]
+#[command(
+    about = "Binary for executing tasks within the Comprehensive Rust project"
+)]
+struct Args {
+    #[arg(required = true, help = "The task to execute")]
+    task: String,
+}
+
+fn execute_task() -> Result<()> {
+    let task = Args::parse().task;
+    match task.as_str() {
+        "install-tools" => install_tools()?,
         _ => {
-            return Err(Box::from(get_help_string(task.as_deref())));
+            return Err(anyhow!(unrecognized_task_string(task.as_str())));
         }
     }
     Ok(())
 }
 
-fn install_tools() -> Result<(), DynError> {
+fn install_tools() -> Result<()> {
     println!("Installing project tools...");
 
-    let install_args: Vec<Vec<&str>> = vec![
+    let install_args = vec![
         // The --locked flag is important for reproducible builds. It also
         // avoids breakage due to skews between mdbook and mdbook-svgbob.
         vec!["mdbook", "--locked", "--version", "0.4.44"],
@@ -49,21 +80,17 @@ fn install_tools() -> Result<(), DynError> {
                 args.join(" "),
                 status.code().unwrap()
             );
-            return Err(Box::from(error_message));
+            return Err(anyhow!(error_message));
         }
     }
 
     Ok(())
 }
 
-fn get_help_string(task: Option<&str>) -> String {
-    if let Some(t) = task {
-        format!(
-            "Unrecognized task '{t}'. Available tasks:
+fn unrecognized_task_string(task: &str) -> String {
+    format!(
+        "Unrecognized task '{task}'. Available tasks:
 
 install-tools            Installs the tools the project depends on."
-        )
-    } else {
-        "Missing task. To execute a task run `cargo xtask [task]`.".to_string()
-    }
+    )
 }
