@@ -17,7 +17,7 @@ the resulting variables. The `statement` result becomes the result of the
 
 ```rust,editable,compile_fail
 use tokio::sync::mpsc;
-use tokio::time::{sleep, Duration};
+use tokio::time::{Duration, sleep};
 
 #[tokio::main]
 async fn main() {

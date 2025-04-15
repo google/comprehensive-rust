@@ -15,7 +15,7 @@
 // ANCHOR: solution
 // ANCHOR: Philosopher
 use std::sync::Arc;
-use tokio::sync::{mpsc, Mutex};
+use tokio::sync::{Mutex, mpsc};
 use tokio::time;
 
 struct Chopstick;

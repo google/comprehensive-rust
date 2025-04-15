@@ -24,8 +24,8 @@ use crate::pl011_minimal::Uart;
 use core::fmt::Write;
 use core::panic::PanicInfo;
 use log::error;
-use smccc::psci::system_off;
 use smccc::Hvc;
+use smccc::psci::system_off;
 
 /// Base address of the primary PL011 UART.
 const PL011_BASE_ADDRESS: *mut u8 = 0x900_0000 as _;

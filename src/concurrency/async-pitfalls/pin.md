@@ -20,7 +20,7 @@ location.
 ```rust,editable,compile_fail
 use tokio::sync::{mpsc, oneshot};
 use tokio::task::spawn;
-use tokio::time::{sleep, Duration};
+use tokio::time::{Duration, sleep};
 
 // A work item. In this case, just sleep for the given time and respond
 // with a message on the `respond_on` channel.

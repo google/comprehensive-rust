@@ -14,8 +14,8 @@
 
 // ANCHOR: exceptions
 use log::error;
-use smccc::psci::system_off;
 use smccc::Hvc;
+use smccc::psci::system_off;
 
 // SAFETY: There is no other global function of this name.
 #[unsafe(no_mangle)]
