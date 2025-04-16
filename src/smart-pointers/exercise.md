@@ -11,9 +11,6 @@ nodes in N's right subtree will contain larger values.
 
 Implement the following types, so that the given tests pass.
 
-Extra Credit: implement an iterator over a binary tree that returns the values
-in order.
-
 ```rust,compile_fail,editable
 {{#include exercise.rs:types}}
 
