@@ -65,8 +65,8 @@ impl PackageBuilder {
         Self(Package {
             name: name.into(),
             version: "0.1".into(),
-            authors: vec![],
-            dependencies: vec![],
+            authors: Vec::new(),
+            dependencies: Vec::new(),
             language: None,
         })
     }
