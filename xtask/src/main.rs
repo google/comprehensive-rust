@@ -81,7 +81,7 @@ fn install_tools() -> Result<()> {
         // avoids breakage due to skews between mdbook and mdbook-svgbob.
         vec!["mdbook", "--locked", "--version", "0.4.48"],
         vec!["mdbook-svgbob", "--locked", "--version", "0.2.2"],
-        vec!["mdbook-pandoc", "--locked", "--version", "0.9.3"],
+        vec!["mdbook-pandoc", "--locked", "--version", "0.10.4"],
         vec!["mdbook-i18n-helpers", "--locked", "--version", "0.3.6"],
         vec!["i18n-report", "--locked", "--version", "0.2.0"],
         // Mdbook-exerciser and mdbook-course are located in this repository.
