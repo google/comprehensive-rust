@@ -24,16 +24,16 @@ mod pl011;
 mod pl031;
 
 use crate::pl031::Rtc;
-use arm_gic::{irq_enable, wfi, IntId, Trigger};
+use arm_gic::{IntId, Trigger, irq_enable, wfi};
 use chrono::{TimeZone, Utc};
 use core::hint::spin_loop;
 // ANCHOR: imports
 use crate::pl011::Uart;
 use arm_gic::gicv3::GicV3;
 use core::panic::PanicInfo;
-use log::{error, info, trace, LevelFilter};
-use smccc::psci::system_off;
+use log::{LevelFilter, error, info, trace};
 use smccc::Hvc;
+use smccc::psci::system_off;
 
 /// Base addresses of the GICv3.
 const GICD_BASE_ADDRESS: *mut u64 = 0x800_0000 as _;

@@ -8,7 +8,7 @@ many elements are used and panics if you try to use more than are allocated.
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
-use tinyvec::{array_vec, ArrayVec};
+use tinyvec::{ArrayVec, array_vec};
 
 fn main() {
     let mut numbers: ArrayVec<[u32; 5]> = array_vec!(42, 66);

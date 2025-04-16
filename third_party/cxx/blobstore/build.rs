@@ -1,6 +1,7 @@
 fn main() {
     // Find target directory, either from CARGO_TARGET_DIR or in-tree if unset.
-    let mut src_dir = std::env::var_os("CARGO_TARGET_DIR").unwrap_or("../../../target".into());
+    let mut src_dir =
+        std::env::var_os("CARGO_TARGET_DIR").unwrap_or("../../../target".into());
     src_dir.push("/cxxbridge/demo/src");
 
     cxx_build::bridge("src/main.rs")

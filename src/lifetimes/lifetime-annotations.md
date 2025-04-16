@@ -29,11 +29,7 @@ job.
 struct Point(i32, i32);
 
 fn left_most(p1: &Point, p2: &Point) -> &Point {
-    if p1.0 < p2.0 {
-        p1
-    } else {
-        p2
-    }
+    if p1.0 < p2.0 { p1 } else { p2 }
 }
 
 fn main() {

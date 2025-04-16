@@ -22,9 +22,9 @@ mod pl011;
 
 use crate::pl011::Uart;
 use core::panic::PanicInfo;
-use log::{error, info, LevelFilter};
-use smccc::psci::system_off;
+use log::{LevelFilter, error, info};
 use smccc::Hvc;
+use smccc::psci::system_off;
 
 /// Base address of the primary PL011 UART.
 const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
