@@ -33,9 +33,9 @@ fn main() {
 
 <details>
 
-- In the first case, modifying the collection by pushing new elements into
-  it can potentially invalidate existing references to the collection's elements
-  if the collection has to reallocate.
+- In the first case, modifying the collection by pushing new elements into it
+  can potentially invalidate existing references to the collection's elements if
+  the collection has to reallocate.
 
 - In the second case, the aliasing rule prevents mis-compilation: The output of
   `sum_and_zero` depends on the ordering of the two operations, which means if
