@@ -118,6 +118,8 @@
   - [`HashMap`](std-types/hashmap.md)
   - [Exercise: Counter](std-types/exercise.md)
     - [Solution](std-types/solution.md)
+  - [Exercise: Word Counter](std-types/word_counter.md)
+    - [Solution](std-types/word_counter_solution.md)
 - [Standard Library Traits](std-traits.md)
   - [Comparisons](std-traits/comparisons.md)
   - [Operators](std-traits/operators.md)
