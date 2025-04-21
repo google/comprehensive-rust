@@ -1,110 +1,60 @@
-use std::collections::HashMap;
-use std::error::Error;
+# Solution: Word Counter
 
-fn count_words(text: &str) -> Result<HashMap<String, u32>, Box<dyn Error>> {
-    if text.trim().is_empty() {
-        return Err("Empty input".into());
-    }
+Here's a solution for the Word Counter exercise using a `HashMap` to track word
+frequencies:
 
-    let mut word_counts = HashMap::new();
-    
-    for word in text.split_whitespace() {
-        *word_counts.entry(word.to_lowercase()).or_insert(0) += 1;
-    }
-    
-    Ok(word_counts)
-}
+```rust
+{{#include word_counter.rs:exercise}}
+```
 
-fn print_word_counts(counts: &HashMap<String, u32>) {
-    let mut words: Vec<_> = counts.keys().collect();
-    words.sort();
-    
-    for word in words {
-        println!("{}: {}", word, counts[word]);
-    }
-}
+This solution:
 
-fn main() -> Result<(), Box<dyn Error>> {
-    let text = "The quick brown fox jumps over the lazy dog";
-    let counts = count_words(text)?;
-    print_word_counts(&counts);
-    
-    // Test empty input
-    match count_words("") {
-        Ok(_) => println!("Unexpected success with empty input"),
-        Err(e) => println!("Expected error: {}", e),
-    }
-    
-    Ok(())
-}
+1. Implements `count_words` which:
+   - Creates an empty `HashMap` to store word counts
+   - Iterates through words in the input text (split by whitespace)
+   - Converts each word to lowercase for case-insensitive counting
+   - Uses the `entry` API to increment the count for each word
 
-struct WordCounter {
-    word_counts: HashMap<String, usize>,
-}
+2. Implements `print_word_counts` which:
+   - Collects and sorts the keys (words) alphabetically
+   - Prints each word with its count
 
-impl WordCounter {
-    fn new() -> Self {
-        WordCounter {
-            word_counts: HashMap::new(),
-        }
-    }
+## Advanced Implementation
 
-    fn count_words(&mut self, text: &str) {
-        // Convert to lowercase and split into words
-        for word in text.to_lowercase()
-            .split(|c: char| !c.is_alphabetic())
-            .filter(|s| !s.is_empty())
-        {
-            *self.word_counts.entry(word.to_string()).or_insert(0) += 1;
-        }
-    }
+For more advanced needs, a `WordCounter` struct provides additional
+functionality:
 
-    fn word_count(&self, word: &str) -> usize {
-        self.word_counts.get(&word.to_lowercase()).copied().unwrap_or(0)
-    }
+```rust
+{{#include word_counter.rs:word_counter}}
+```
 
-    fn most_frequent(&self) -> Vec<(&str, usize)> {
-        if self.word_counts.is_empty() {
-            return Vec::new();
-        }
+The struct-based approach offers more methods like `most_frequent()` which finds
+the most common word(s) in the text and `get_statistics()` which calculates
+various metrics about the words.
 
-        let max_count = self.word_counts.values().max().unwrap();
-        self.word_counts
-            .iter()
-            .filter(|(_, &count)| count == *max_count)
-            .map(|(word, &count)| (word.as_str(), count))
-            .collect()
-    }
-}
+## Statistics Example
 
-#[test]
-fn test_empty_counter() {
-    let counter = WordCounter::new();
-    assert_eq!(counter.word_count("any"), 0);
-    assert!(counter.most_frequent().is_empty());
-}
+The `WordStatistics` struct and the `get_statistics()` method show how to
+calculate:
 
-#[test]
-fn test_simple_text() {
-    let mut counter = WordCounter::new();
-    counter.count_words("Hello world, hello Rust!");
-    assert_eq!(counter.word_count("hello"), 2);
-    assert_eq!(counter.word_count("rust"), 1);
-    assert_eq!(counter.word_count("world"), 1);
-}
+- Total word count
+- Unique word count
+- Average word length
+- Most frequently used words
 
-#[test]
-fn test_case_insensitive() {
-    let mut counter = WordCounter::new();
-    counter.count_words("Hello HELLO hello");
-    assert_eq!(counter.word_count("hello"), 3);
-    assert_eq!(counter.word_count("HELLO"), 3);
-}
+## Key Learning Points
 
-#[test]
-fn test_most_frequent() {
-    let mut counter = WordCounter::new();
-    counter.count_words("hello world hello rust hello");
-    let most_frequent = counter.most_frequent();
-    assert_eq!(most_frequent, vec![("hello", 3)]);
-} 
+1. **Using HashMaps**: The solution demonstrates how to use a HashMap to
+   associate words with their counts.
+
+2. **Entry API**: The code uses `entry().or_insert(0)` to efficiently handle the
+   case where a word is seen for the first time.
+
+3. **String manipulation**: Words are converted to lowercase for
+   case-insensitive comparison and punctuation is filtered out.
+
+4. **Sorting and iteration**: The solution shows how to collect keys from a
+   HashMap, sort them, and iterate through them.
+
+5. **Testing**: The comprehensive tests verify word counting,
+   case-insensitivity, punctuation handling, and statistics calculations.
