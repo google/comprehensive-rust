@@ -49,7 +49,7 @@ Rust is a large language and we won't be able to cover all of it in a few days.
 Some non-goals of this course are:
 
 - Learning how to develop macros: please see
-  [Chapter 20.5 in the Rust Book](https://doc.rust-lang.org/book/ch20-05-macros.html)
+  [the Rust Book](https://doc.rust-lang.org/book/)
   and [Rust by Example](https://doc.rust-lang.org/rust-by-example/macros.html)
   instead.
 
