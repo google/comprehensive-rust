@@ -55,7 +55,7 @@ The course is built using a few tools:
 - [mdbook-i18n-helpers and i18n-report](https://github.com/google/mdbook-i18n-helpers)
 - [mdbook-exerciser](mdbook-exerciser/)
 - [mdbook-course](mdbook-course/)
-- [mdbook-linkcheck](https://github.com/Michael-F-Bryan/mdbook-linkcheck)
+- [mdbook-linkcheck2](https://github.com/marxin/mdbook-linkcheck2)
 
 First install Rust by following the instructions on https://rustup.rs/. Then
 clone this repository:
