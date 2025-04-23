@@ -215,6 +215,68 @@ the hard work, even if it is incomplete.
 
 [CODEOWNERS]: https://github.com/google/comprehensive-rust/blob/main/.github/CODEOWNERS
 
+## Publication Workflow
+
+> This section is for the developers of Comprehensive Rust, but it might give
+> you valuable background information on how the translations are published.
+
+When a change is made to the `main` branch, the [`publish.yml`] GitHub CI
+workflow starts.
+
+The `publish` job in this workflow will:
+
+- Install dependencies as described in [`CONTRIBUTING`](CONTRIBUTING.md).
+
+- Build every translation of the course, including the original English, using
+  [`build.sh`]. The English HTML ends up in `book/html/`, the HTML for the `xx`
+  language ends up in `book/xx/html/`.
+
+- Publish the entire `book/html/` directory to
+  https://google.github.io/comprehensive-rust/.
+
+[`build.sh`]: https://github.com/google/comprehensive-rust/blob/main/.github/workflows/build.sh
+
+### `build.sh`
+
+The `build.sh` script is used both when testing code from a PR (with
+[`build.yml`]) and when publishing the finished book (with [`publish.yml`]).
+
+[`build.yml`]: https://github.com/google/comprehensive-rust/blob/main/.github/workflows/build.yml
+[`publish.yml`]: https://github.com/google/comprehensive-rust/blob/main/.github/workflows/publish.yml
+
+The job of the script is to call `mdbook build`, but with a few extra steps:
+
+- It will enable the PDF output using `mdbook-pandoc`. This is disabled by
+  default to make it easier for people to run `mdbook build` without having to
+  configure LaTeX.
+
+#### Restoring Translations
+
+When building a translation (languages other than English), `build.sh` will
+restore all Markdown files to how they looked at the time recorded in the
+POT-Creation-Date header.
+
+This means that:
+
+- A translation does not degrade when the English text is changed.
+- A translation will not received the latest fixes to the English text.
+
+The script restores the Markdown with a simple
+
+```sh
+$ git restore --source $LAST_COMMIT src/ third_party/
+```
+
+command, where `$LAST_COMMIT` is the commit at the time of the POT-Creation-Date
+header.
+
+A consequence of this is that we use the latest theme, CSS, JavaScript, etc for
+each translation.
+
+After `build.sh` was run, the working copy is left in this dirty state. Beware
+of this if you want to build the English version next, as you will have to clean
+up manually.
+
 ## Status reports
 
 Two translation status reports are automatically generated:

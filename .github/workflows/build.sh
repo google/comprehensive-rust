@@ -9,6 +9,8 @@ set -Eeuo pipefail
 #
 # The src/ and third_party/ directories are left in a dirty state so
 # you can run `mdbook test` and other commands afterwards.
+#
+# See also TRANSLATIONS.md.
 
 book_lang=${1:?"Usage: $0 <book-lang> <dest-dir>"}
 dest_dir=${2:?"Usage: $0 <book-lang> <dest-dir>"}
