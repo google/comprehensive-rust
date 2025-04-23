@@ -1,0 +1,3 @@
+# Génériques
+
+{{%segment outline}}
