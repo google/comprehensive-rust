@@ -57,14 +57,14 @@ fn main() {
       val: u8,
   }
 
-  pick(123, Foo { val: 7 }, Foo { val: 456 });
+  pick(false, Foo { val: 7 }, Foo { val: 99 });
   ```
 
 - This is similar to C++ templates, but Rust partially compiles the generic
   function immediately, so that function must be valid for all types matching
-  the constraints. For example, try modifying `pick` to return `even + odd` if
-  `n == 0`. Even if only the `pick` instantiation with integers is used, Rust
-  still considers it invalid. C++ would let you do this.
+  the constraints. For example, try modifying `pick` to return `left + right` if
+  `cond` is false. Even if only the `pick` instantiation with integers is used,
+  Rust still considers it invalid. C++ would let you do this.
 
 - Generic code is turned into non-generic code based on the call sites. This is
   a zero-cost abstraction: you get exactly the same result as if you had
