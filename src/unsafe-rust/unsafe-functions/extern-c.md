@@ -33,9 +33,9 @@ fn main() {
   1.82 with `unsafe extern` blocks.
 - `abs` must be explicitly marked as `safe` because it is an external function
   (FFI). Calling external functions is usually only a problem when those
-  functions do things with pointers which which might violate Rust's memory
-  model, but in general any C function might have undefined behaviour under any
-  arbitrary circumstances.
+  functions do things with pointers which might violate Rust's memory model, but
+  in general any C function might have undefined behaviour under any arbitrary
+  circumstances.
 - The `"C"` in this example is the ABI;
   [other ABIs are available too](https://doc.rust-lang.org/reference/items/external-blocks.html).
 - Note that there is no verification that the Rust function signature matches
