@@ -182,12 +182,14 @@ jobs:
         run: mdbook test
 
       - name: Setup Node
+        if: matrix.language == 'en'
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: "npm"
           cache-dependency-path: "tests/package-lock.json"
       - name: Install test framework
+        if: matrix.language == 'en'
         run: npm install
         working-directory: ./tests
       - name: Test Javascript
