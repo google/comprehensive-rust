@@ -2,3 +2,8 @@
 # We use this alias for task automation in the project.
 # See README in xtask directory.
 xtask = "run --package xtask --"
+
+[env]
+# To provide an anchor to the root of the workspace when working with paths.
+# See https://github.com/rust-lang/cargo/issues/3946#issuecomment-973132993
+CARGO_WORKSPACE_DIR = { value = "", relative = true }
