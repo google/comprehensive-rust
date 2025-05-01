@@ -29,6 +29,7 @@ use chrono::{TimeZone, Utc};
 use core::hint::spin_loop;
 // ANCHOR: imports
 use crate::pl011::Uart;
+use arm_gic::gicv3::registers::{Gicd, GicrSgi};
 use arm_gic::gicv3::GicV3;
 use core::panic::PanicInfo;
 use log::{error, info, trace, LevelFilter};
@@ -36,8 +37,8 @@ use smccc::psci::system_off;
 use smccc::Hvc;
 
 /// Base addresses of the GICv3.
-const GICD_BASE_ADDRESS: *mut u64 = 0x800_0000 as _;
-const GICR_BASE_ADDRESS: *mut u64 = 0x80A_0000 as _;
+const GICD_BASE_ADDRESS: *mut Gicd = 0x800_0000 as _;
+const GICR_BASE_ADDRESS: *mut GicrSgi = 0x80A_0000 as _;
 
 /// Base address of the primary PL011 UART.
 const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
@@ -63,7 +64,7 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     // addresses of a GICv3 distributor and redistributor respectively, and
     // nothing else accesses those address ranges.
     let mut gic =
-        unsafe { GicV3::new(GICD_BASE_ADDRESS, GICR_BASE_ADDRESS, 1, 0x20000) };
+        unsafe { GicV3::new(GICD_BASE_ADDRESS, GICR_BASE_ADDRESS, 1, false) };
     gic.setup(0);
     // ANCHOR_END: main
 
