@@ -22,6 +22,7 @@
 use anyhow::{anyhow, Ok, Result};
 use clap::Parser;
 use std::{env, process::Command};
+use std::path::Path;
 
 fn main() -> Result<()> {
     if let Err(e) = execute_task() {
@@ -55,9 +56,9 @@ fn install_tools() -> Result<()> {
     println!("Installing project tools...");
 
     let path_to_mdbook_exerciser =
-        format!("{}mdbook-exerciser", env!("CARGO_WORKSPACE_DIR"));
+        Path::new(env!("CARGO_WORKSPACE_DIR")).join("mdbook-exerciser");
     let path_to_mdbook_course =
-        format!("{}mdbook-course", env!("CARGO_WORKSPACE_DIR"));
+        Path::new(env!("CARGO_WORKSPACE_DIR")).join("mdbook-course");
 
     let install_args = vec![
         // The --locked flag is important for reproducible builds. It also
@@ -70,8 +71,8 @@ fn install_tools() -> Result<()> {
         // Mdbook-exerciser and mdbook-course are located in this repository.
         // To make it possible to install them from any directory we need to
         // specify their path from the workspace root.
-        vec!["--path", &path_to_mdbook_exerciser, "--locked"],
-        vec!["--path", &path_to_mdbook_course, "--locked"],
+        vec!["--path", path_to_mdbook_exerciser.to_str().unwrap(), "--locked"],
+        vec!["--path", path_to_mdbook_course.to_str().unwrap(), "--locked"],
     ];
 
     for args in &install_args {
