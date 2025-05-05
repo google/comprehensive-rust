@@ -14,7 +14,6 @@ This is the first day of Rust Fundamentals. We will cover a lot of ground today:
 - Types and type inference.
 - Control flow constructs: loops, conditionals, and so on.
 - User-defined types: structs and enums.
-- Pattern matching: destructuring enums, structs, and arrays.
 
 ## Schedule
 
