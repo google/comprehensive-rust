@@ -9,8 +9,8 @@ implement special [`Fn`](https://doc.rust-lang.org/std/ops/trait.Fn.html),
 [`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), and
 [`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html) traits:
 
-The special type `fn` refers to function pointers - either the address of a
-function, or a closure that captures nothing.
+The special types `fn(..) -> T` refer to function pointers - either the address
+of a function, or a closure that captures nothing.
 
 ```rust,editable
 fn apply_and_log(func: impl FnOnce(String) -> String, func_name: &str, input: &str) {
