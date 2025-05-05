@@ -109,7 +109,7 @@ fn spawn_crawler_threads(
 
     for _ in 0..thread_count {
         let result_sender = result_sender.clone();
-        let command_receiver = command_receiver.clone();
+        let command_receiver = Arc::clone(&command_receiver);
         thread::spawn(move || {
             let client = Client::new();
             loop {
