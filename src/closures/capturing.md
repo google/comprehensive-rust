@@ -10,11 +10,7 @@ A closure can capture variables from the environment where it was defined.
 fn main() {
     let max_value = 5;
     let clamp = |v| {
-        if v > max_value {
-            max_value
-        } else {
-            v
-        }
+        if v > max_value { max_value } else { v }
     };
 
     dbg!(clamp(1));

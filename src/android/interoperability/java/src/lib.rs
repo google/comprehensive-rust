@@ -15,9 +15,9 @@
 // ANCHOR: hello
 //! Rust <-> Java FFI demo.
 
+use jni::JNIEnv;
 use jni::objects::{JClass, JString};
 use jni::sys::jstring;
-use jni::JNIEnv;
 
 /// HelloWorld::hello method implementation.
 // SAFETY: There is no other global function of this name.

@@ -40,8 +40,8 @@ fn main() {
 // ANCHOR_END: main
 // ANCHOR_END: solution
 
-// This test does not appear in the exercise, as this is very early in the course, but it verifies
-// that the solution is correct.
+// This test does not appear in the exercise, as this is very early in the
+// course, but it verifies that the solution is correct.
 #[test]
 fn test_transpose() {
     let matrix = [

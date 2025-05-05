@@ -51,7 +51,7 @@ You can use the following `Cargo.toml`:
 [package]
 name = "dining-philosophers"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 ```
 
 <details>

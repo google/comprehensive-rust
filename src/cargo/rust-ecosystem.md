@@ -32,8 +32,8 @@ Key points:
 - Dependencies can also be resolved from alternative [registries], git, folders,
   and more.
 
-- Rust also has [editions]: the current edition is Rust 2021. Previous editions
-  were Rust 2015 and Rust 2018.
+- Rust also has [editions]: the current edition is Rust 2024. Previous editions
+  were Rust 2015, Rust 2018 and Rust 2021.
 
   - The editions are allowed to make backwards incompatible changes to the
     language.

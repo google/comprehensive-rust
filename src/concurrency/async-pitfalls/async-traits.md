@@ -22,7 +22,7 @@ with some caveats:
 ```rust,editable,compile_fail
 use async_trait::async_trait;
 use std::time::Instant;
-use tokio::time::{sleep, Duration};
+use tokio::time::{Duration, sleep};
 
 #[async_trait]
 trait Sleeper {

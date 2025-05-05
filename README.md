@@ -57,7 +57,7 @@ The course is built using a few tools:
 - [mdbook-course](mdbook-course/)
 
 In addition,
-[mdbook-linkcheck](https://github.com/Michael-F-Bryan/mdbook-linkcheck) checks
+[mdbook-linkcheck2](https://github.com/marxin/mdbook-linkcheck2) checks
 the internal links.
 
 First install Rust by following the instructions on https://rustup.rs/. Then
