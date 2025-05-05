@@ -32,7 +32,7 @@ fn main() {
 
     // SAFETY: There are no other threads which could be accessing `COUNTER`.
     unsafe {
-        println!("COUNTER: {COUNTER}");
+        dbg!(COUNTER);
     }
 }
 ```
