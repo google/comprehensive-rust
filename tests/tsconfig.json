@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
-    "module": "ESNext",
-    "target": "es2022",
+    // This implicitly sets moduleResolution to "node16"
+    // https://www.typescriptlang.org/docs/handbook/modules/theory.html#module-resolution-is-host-defined
+    "module": "Node18",
+    "target": "ES2024",
     "lib": [
-      "es2022",
-      "dom"
+      // https://www.typescriptlang.org/tsconfig/#lib
+      // include APIs that are enabled by ES2024
+      "ES2024",
+      // DOM definitions, window, document, etc.
+      "DOM"
     ],
     "types": [
       "node",
@@ -24,7 +28,7 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "test",
+    "src/**/*.ts",
     "wdio.conf.ts"
   ]
 }
