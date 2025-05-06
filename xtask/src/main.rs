@@ -21,8 +21,8 @@
 
 use anyhow::{anyhow, Ok, Result};
 use clap::Parser;
-use std::{env, process::Command};
 use std::path::Path;
+use std::{env, process::Command};
 
 fn main() -> Result<()> {
     if let Err(e) = execute_task() {
