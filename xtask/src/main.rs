@@ -21,6 +21,7 @@
 
 use anyhow::{anyhow, Ok, Result};
 use clap::Parser;
+use std::path::Path;
 use std::{env, process::Command};
 
 fn main() -> Result<()> {
@@ -54,6 +55,11 @@ fn execute_task() -> Result<()> {
 fn install_tools() -> Result<()> {
     println!("Installing project tools...");
 
+    let path_to_mdbook_exerciser =
+        Path::new(env!("CARGO_WORKSPACE_DIR")).join("mdbook-exerciser");
+    let path_to_mdbook_course =
+        Path::new(env!("CARGO_WORKSPACE_DIR")).join("mdbook-course");
+
     let install_args = vec![
         // The --locked flag is important for reproducible builds. It also
         // avoids breakage due to skews between mdbook and mdbook-svgbob.
@@ -62,9 +68,11 @@ fn install_tools() -> Result<()> {
         vec!["mdbook-pandoc", "--locked", "--version", "0.9.3"],
         vec!["mdbook-i18n-helpers", "--locked", "--version", "0.3.5"],
         vec!["i18n-report", "--locked", "--version", "0.2.0"],
-        // These packages are located in this repository
-        vec!["--path", "mdbook-exerciser", "--locked"],
-        vec!["--path", "mdbook-course", "--locked"],
+        // Mdbook-exerciser and mdbook-course are located in this repository.
+        // To make it possible to install them from any directory we need to
+        // specify their path from the workspace root.
+        vec!["--path", path_to_mdbook_exerciser.to_str().unwrap(), "--locked"],
+        vec!["--path", path_to_mdbook_course.to_str().unwrap(), "--locked"],
     ];
 
     for args in &install_args {
