@@ -53,7 +53,7 @@ mod test {
     #[test]
     fn binary() {
         let input: Vec<u8> = (0..=255u8).collect();
-        let mut rot = RotDecoder::<&[u8]> { input: input.as_ref(), rot: 13 };
+        let mut rot = RotDecoder::<&[u8]> { input: input.as_slice(), rot: 13 };
         let mut buf = [0u8; 256];
         assert_eq!(rot.read(&mut buf).unwrap(), 256);
         for i in 0..=255 {
