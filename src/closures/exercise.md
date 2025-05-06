@@ -1,3 +1,7 @@
+---
+minutes: 10
+---
+
 # Exercise: Log Filter
 
 Building on the generic logger from this morning, implement a `Filter` which

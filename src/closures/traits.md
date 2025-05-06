@@ -9,12 +9,16 @@ implement special [`Fn`](https://doc.rust-lang.org/std/ops/trait.Fn.html),
 [`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), and
 [`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html) traits:
 
-The special type `fn` refers to function pointers - either the address of a
-function, or a closure that captures nothing.
+The special types `fn(..) -> T` refer to function pointers - either the address
+of a function, or a closure that captures nothing.
 
 ```rust,editable
-fn apply_and_log(func: impl FnOnce(String) -> String, func_name: &str, input: &str) {
-    println!("Calling {func_name}({input}): {}", func(input.to_string()))
+fn apply_and_log(
+    func: impl FnOnce(&'static str) -> String,
+    func_name: &'static str,
+    input: &'static str,
+) {
+    println!("Calling {func_name}({input}): {}", func(input))
 }
 
 fn main() {
@@ -32,9 +36,10 @@ fn main() {
     apply_and_log(&mut accumulate, "accumulate", "green");
     apply_and_log(&mut accumulate, "accumulate", "blue");
 
-    let take_and_reverse = |mut prefix: String| {
-        prefix.push_str(&v.into_iter().rev().collect::<Vec<_>>().join("/"));
-        prefix
+    let take_and_reverse = |prefix| {
+        let mut acc = String::from(prefix);
+        acc.push_str(&v.into_iter().rev().collect::<Vec<_>>().join("/"));
+        acc
     };
     apply_and_log(take_and_reverse, "take_and_reverse", "reversed: ");
 }
