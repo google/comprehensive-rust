@@ -45,6 +45,7 @@ fn execute_task() -> Result<()> {
     let task = Args::parse().task;
     match task.as_str() {
         "install-tools" => install_tools()?,
+        "web-tests" => run_web_tests()?,
         _ => {
             return Err(anyhow!(unrecognized_task_string(task.as_str())));
         }
@@ -95,10 +96,34 @@ fn install_tools() -> Result<()> {
     Ok(())
 }
 
+fn run_web_tests() -> Result<()> {
+    println!("Running web tests...");
+
+    let path_to_tests_dir = Path::new(env!("CARGO_WORKSPACE_DIR")).join("tests");
+
+    let status = Command::new("npm")
+        .current_dir(path_to_tests_dir.to_str().unwrap())
+        .arg("test")
+        .status()
+        .expect("Failed to execute npm test");
+
+    if !status.success() {
+        let error_message = format!(
+            "Command 'cargo web-tests' exited with status code: {}",
+            status.code().unwrap()
+        );
+        return Err(anyhow!(error_message));
+    }
+
+    Ok(())
+}
+
+// TODO - https://github.com/google/comprehensive-rust/issues/2741: Replace this with Clap
 fn unrecognized_task_string(task: &str) -> String {
     format!(
         "Unrecognized task '{task}'. Available tasks:
 
-install-tools            Installs the tools the project depends on."
+install-tools            Installs the tools the project depends on.
+web-tests                Runs the web driver tests in the tests directory."
     )
 }

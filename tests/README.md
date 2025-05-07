@@ -14,6 +14,9 @@ used mainly in the [CI](../github/workflows/build.yml) to serve the book on port
 `localhost:8080` such that the test runner can access it. This mode is used when
 `npm start` or `npm test` is executed.
 
+> **Tip:** Use `cargo xtask web-tests` to run the tests in this directory 
+from anywhere in the repository.
+
 For local testing and quick iterations it is possible to use `mdbook serve`
 which creates a small HTTP server on port 3000 by default. There is a special
 config that is invoked with `npm run test-mdbook` that uses
