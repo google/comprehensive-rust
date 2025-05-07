@@ -58,7 +58,7 @@ pub fn process(output_directory: &Path, input_contents: &str) -> anyhow::Result<
             Event::Text(text) => {
                 info!("Text: {:?}", text);
                 if let Some(output_file) = &mut current_file {
-                    output_file.write(text.as_bytes())?;
+                    output_file.write_all(text.as_bytes())?;
                 }
             }
             Event::End(TagEnd::CodeBlock) => {
