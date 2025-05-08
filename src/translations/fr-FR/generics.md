@@ -1,3 +1,0 @@
-# Génériques
-
-{{%segment outline}}

@@ -1,3 +1,0 @@
-# Emprunt
-
-{{%segment outline}}

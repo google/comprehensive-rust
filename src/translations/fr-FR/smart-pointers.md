@@ -1,3 +1,0 @@
-# Pointeurs intelligents
-
-{{%segment outline}}

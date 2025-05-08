@@ -1,3 +1,0 @@
-# Itérateurs
-
-{{%segment outline}}

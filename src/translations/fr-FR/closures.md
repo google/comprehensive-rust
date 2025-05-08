@@ -1,3 +1,0 @@
-# Fermetures
-
-{{%segment outline}}
