@@ -1,3 +1,12 @@
+/**
+ * This file contains tests that check the style of the slides.
+ * It checks that the slides are not too high or wide and that
+ * the code examples are not too wide or high based on the visibility of scrollbars.
+ *
+ * Slides that exist on the exemptions lists are tested for that violation
+ * and if they are not violating the style, this alerts and the author should remove
+ * the slide from the exemption list. This acts as a regression check.
+ */
 import { describe, it } from "mocha";
 import { expect } from "@wdio/globals";
 import { slides } from "./slides/slides.list.ts";
@@ -58,7 +67,7 @@ slides.forEach((slide_path) => {
         ]);
       });
     } else {
-      it("should not show a horizontal scrollbar", async () => {
+      it("should not show a scrollbar", async () => {
         if (await slide.has_code_example) {
           await Promise.all([
             expect(slide.scrollbar_h).not.toBeDisplayed(),
