@@ -1,7 +1,7 @@
 // These slides are known to violate the slide style guide.
 // They are checked if they still violate and if not fail the test.
 // Please remove slides that become good so they don't regress.
-export const exemptions = [
+export const size_exemptions = [
   "android/interoperability/java.html",
   "android/testing.html",
   "bare-metal/aps/entry-point.html",

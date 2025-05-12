@@ -1,53 +1,48 @@
 import { describe, it } from "mocha";
-import { $, expect, browser } from "@wdio/globals";
+import { expect } from "@wdio/globals";
 import { slides } from "./slides/slides.list.ts";
-import { exemptions } from "./slides/slide-exemptions.list.ts";
+import { size_exemptions } from "./slides/slide-exemptions.list.ts";
+import Slide from "./objects/slide.ts";
 
 // these are empirically determined values in 16:9 ratio
 const MAX_HEIGHT = 1333;
 const MAX_WIDTH = 750;
 
-async function main_too_big(
-  main_element: ChainablePromiseElement,
-): Promise<boolean> {
-  const main_element_size = await main_element.getSize();
-  return (
-    main_element_size.height >= MAX_HEIGHT ||
-    main_element_size.width > MAX_WIDTH
-  );
-}
-
 describe("Slide", () => {
-  for (const slide of slides) {
-    if (exemptions.includes(slide)) {
+  const slide = new Slide();
+  for (const slide_path of slides) {
+    if (size_exemptions.includes(slide_path)) {
       // This slide is exempted and violated rules before.
       // It is expected to still do this and if not it should be removed from exemptions.
       // This acts as a regression check
       it(
         " " +
-          slide +
+          slide_path +
           " is on the exemption list but should be removed from slide-exemptions.list.ts",
         async () => {
-          await browser.url("/" + slide);
-          const main_element = $("#content > main");
-          console.info("slide " + slide + " is on the exemption list");
-          // one of them (height, width) should fail
-          expect(await main_too_big(main_element)).toBe(true);
+          await slide.load(slide_path);
+          const main_element = slide.main_content;
+          console.info("slide " + slide_path + " is on the exemption list");
+          expect(
+            await slide.violates_max_size(main_element, MAX_HEIGHT, MAX_WIDTH),
+          ).toBe(true);
         },
       );
     } else {
       it(
         " " +
-          slide +
+          slide_path +
           " should not be higher than " +
           MAX_HEIGHT +
           " pixels or wider than " +
           MAX_WIDTH +
           " pixels",
         async () => {
-          await browser.url("/" + slide);
-          const main_element = $("#content > main");
-          expect(!(await main_too_big(main_element))).toBe(true);
+          await slide.load(slide_path);
+          const main_element = slide.main_content;
+          expect(
+            await slide.violates_max_size(main_element, MAX_HEIGHT, MAX_WIDTH),
+          ).toBe(false);
         },
       );
     }
