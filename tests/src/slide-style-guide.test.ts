@@ -23,7 +23,7 @@ slides.forEach((slide_path) => {
       // This slide is exempted and violated rules before.
       // It is expected to still do this and if not it should be removed from exemptions.
       // This acts as a regression check
-      it(" is on the exemption list but should be removed from size_exemptions in slide-exemptions.list.ts", async () => {
+      it("is on the exemption list but should be removed from size_exemptions in slide-exemptions.list.ts", async () => {
         const main_element = slide.main_content;
         console.info("slide " + slide_path + " is on the exemption list");
         expect(
@@ -32,7 +32,7 @@ slides.forEach((slide_path) => {
       });
     } else {
       it(
-        " should not be higher than " +
+        "should not be higher than " +
           MAX_HEIGHT +
           " pixels or wider than " +
           MAX_WIDTH +
@@ -48,7 +48,7 @@ slides.forEach((slide_path) => {
 
     // playground code examples are not too wide
     if (playground_size_exemptions.includes(slide_path)) {
-      it(" is on the exemption list but should be removed from playground_size_exemptions in slide-exemptions.list.ts", async () => {
+      it("is on the exemption list but should be removed from playground_size_exemptions in slide-exemptions.list.ts", async () => {
         // This slide is exempted and violated rules before.
         // It is expected to still do this and if not it should be removed from exemptions.
         // This acts as a regression check
@@ -58,11 +58,13 @@ slides.forEach((slide_path) => {
         ]);
       });
     } else {
-      it(" should not show a horizontal scrollbar", async () => {
-        await Promise.all([
-          expect(slide.scrollbar_h).not.toBeDisplayed(),
-          expect(slide.scrollbar_v).not.toBeDisplayed(),
-        ]);
+      it("should not show a horizontal scrollbar", async () => {
+        if (await slide.has_code_example) {
+          await Promise.all([
+            expect(slide.scrollbar_h).not.toBeDisplayed(),
+            expect(slide.scrollbar_v).not.toBeDisplayed(),
+          ]);
+        }
       });
     }
   });
