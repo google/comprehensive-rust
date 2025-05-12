@@ -16,3 +16,10 @@ export const size_exemptions = [
   "concurrency/sync-exercises/solutions.html",
   "concurrency/sync-exercises/link-checker.html",
 ];
+
+export const playground_size_exemptions = [
+  "bare-metal/aps/better-uart/driver.html",
+  "bare-metal/microcontrollers/type-state.html",
+  "concurrency/async-pitfalls/cancellation.html",
+  "iterators/intoiterator.html",
+];

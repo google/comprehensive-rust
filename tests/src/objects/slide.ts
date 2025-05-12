@@ -5,6 +5,21 @@ export default class Slide {
    * conviencene functions for interacting with a slide
    **/
 
+  /**
+   * @returns the scrollbar of the provided type if available
+   */
+  scrollbar_typed(scrollbar_type: string): ChainablePromiseElement {
+    return $("#content main div.ace_scrollbar-" + scrollbar_type);
+  }
+
+  get scrollbar_v() {
+    return this.scrollbar_typed("v");
+  }
+
+  get scrollbar_h() {
+    return this.scrollbar_typed("h");
+  }
+
   get main_content() {
     return $("#content > main");
   }
