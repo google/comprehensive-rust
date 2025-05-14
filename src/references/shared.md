@@ -14,10 +14,10 @@ fn main() {
     let b = 'B';
 
     let mut r: &char = &a;
-    dbg!(*r);
+    dbg!(r);
 
     r = &b;
-    dbg!(*r);
+    dbg!(r);
 }
 ```
 
