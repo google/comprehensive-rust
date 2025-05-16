@@ -72,7 +72,8 @@ initial_pagetable!({
 // ANCHOR_END: imports
 
 /// Base address of the PL031 RTC.
-const PL031_BASE_ADDRESS: *mut u32 = 0x901_0000 as _;
+const PL031_BASE_ADDRESS: NonNull<pl031::Registers> =
+    NonNull::new(0x901_0000 as _).unwrap();
 /// The IRQ used by the PL031 RTC.
 const PL031_IRQ: IntId = IntId::spi(2);
 
@@ -96,7 +97,7 @@ fn main(x0: u64, x1: u64, x2: u64, x3: u64) -> ! {
 
     // SAFETY: `PL031_BASE_ADDRESS` is the base address of a PL031 device, and
     // nothing else accesses that address range.
-    let mut rtc = unsafe { Rtc::new(PL031_BASE_ADDRESS) };
+    let mut rtc = unsafe { Rtc::new(UniqueMmioPointer::new(PL031_BASE_ADDRESS)) };
     let timestamp = rtc.read();
     let time = Utc.timestamp_opt(timestamp.into(), 0).unwrap();
     info!("RTC: {time}");

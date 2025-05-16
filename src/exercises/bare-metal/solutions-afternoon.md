@@ -12,6 +12,6 @@ _main.rs_:
 
 _pl031.rs_:
 
-```rust
+```rust,compile_fail
 {{#include rtc/src/pl031.rs:solution}}
 ```
