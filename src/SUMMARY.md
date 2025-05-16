@@ -361,6 +361,7 @@
   - [Logging](bare-metal/aps/logging.md)
     - [Using It](bare-metal/aps/logging/using.md)
   - [Exceptions](bare-metal/aps/exceptions.md)
+  - [aarch64-rt](bare-metal/aps/aarch64-rt.md)
   - [Other Projects](bare-metal/aps/other-projects.md)
 - [Useful Crates](bare-metal/useful-crates.md)
   - [`zerocopy`](bare-metal/useful-crates/zerocopy.md)

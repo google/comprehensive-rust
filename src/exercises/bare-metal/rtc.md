@@ -57,15 +57,6 @@ _src/logger.rs_ (you shouldn't need to change this):
 {{#include rtc/src/logger.rs}}
 ```
 
-_src/pl011.rs_ (you shouldn't need to change this):
-
-<!-- File src/pl011.rs -->
-<!-- mdbook-xgettext: skip -->
-
-```rust,compile_fail
-{{#include rtc/src/pl011.rs}}
-```
-
 _Cargo.toml_ (you shouldn't need to change this):
 
 <!-- File Cargo.toml -->
@@ -73,42 +64,6 @@ _Cargo.toml_ (you shouldn't need to change this):
 
 ```toml
 {{#include rtc/Cargo.toml}}
-```
-
-_build.rs_ (you shouldn't need to change this):
-
-<!-- File build.rs -->
-<!-- mdbook-xgettext: skip -->
-
-```rust,compile_fail
-{{#include rtc/build.rs}}
-```
-
-_entry.S_ (you shouldn't need to change this):
-
-<!-- File entry.S -->
-<!-- mdbook-xgettext: skip -->
-
-```armasm
-{{#include rtc/entry.S}}
-```
-
-_exceptions.S_ (you shouldn't need to change this):
-
-<!-- File exceptions.S -->
-<!-- mdbook-xgettext: skip -->
-
-```armasm
-{{#include rtc/exceptions.S}}
-```
-
-_idmap.S_ (you shouldn't need to change this):
-
-<!-- File idmap.S -->
-<!-- mdbook-xgettext: skip -->
-
-```armasm
-{{#include rtc/idmap.S}}
 ```
 
 _image.ld_ (you shouldn't need to change this):
