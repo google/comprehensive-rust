@@ -30,6 +30,7 @@ use chrono::{TimeZone, Utc};
 use core::hint::spin_loop;
 // ANCHOR: imports
 use crate::pl011::Uart;
+use aarch64_rt::entry;
 use arm_gic::gicv3::registers::{Gicd, GicrSgi};
 use arm_gic::gicv3::GicV3;
 use core::panic::PanicInfo;
@@ -51,9 +52,8 @@ const PL031_BASE_ADDRESS: *mut u32 = 0x901_0000 as _;
 const PL031_IRQ: IntId = IntId::spi(2);
 
 // ANCHOR: main
-// SAFETY: There is no other global function of this name.
-#[unsafe(no_mangle)]
-extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
+entry!(main);
+fn main(x0: u64, x1: u64, x2: u64, x3: u64) -> ! {
     // SAFETY: `PL011_BASE_ADDRESS` is the base address of a PL011 device, and
     // nothing else accesses that address range.
     let uart = unsafe { Uart::new(PL011_BASE_ADDRESS) };
@@ -124,6 +124,7 @@ extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
 
     // ANCHOR: main_end
     system_off::<Hvc>().unwrap();
+    panic!("system_off returned");
 }
 
 #[panic_handler]

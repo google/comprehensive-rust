@@ -14,6 +14,4 @@
 
 use core::arch::global_asm;
 
-global_asm!(include_str!("entry.S"));
-global_asm!(include_str!("exceptions.S"));
 global_asm!(include_str!("idmap.S"));

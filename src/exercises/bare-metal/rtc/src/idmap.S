@@ -30,10 +30,10 @@
 .set .L_BLOCK_DEV, .L_TT_TYPE_BLOCK | .L_TT_MT_DEV | .L_TT_AF | .L_TT_XN
 .set .L_BLOCK_MEM, .L_TT_TYPE_BLOCK | .L_TT_MT_MEM | .L_TT_AF | .L_TT_NG
 
-.section ".rodata.idmap", "a", %progbits
-.global idmap
+.section ".rodata.initial_pagetable", "a", %progbits
+.global initial_pagetable
 .align 12
-idmap:
+initial_pagetable:
 	/* level 1 */
 	.quad		.L_BLOCK_DEV | 0x0		    // 1 GiB of device mappings
 	.quad		.L_BLOCK_MEM | 0x40000000	// 1 GiB of DRAM

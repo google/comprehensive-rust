@@ -84,24 +84,6 @@ _Cargo.toml_ (you shouldn't need to change this):
 {{#include rtc/Cargo.toml}}
 ```
 
-_src/entry.S_ (you shouldn't need to change this):
-
-<!-- File src/entry.S -->
-<!-- mdbook-xgettext: skip -->
-
-```armasm
-{{#include rtc/src/entry.S}}
-```
-
-_src/exceptions.S_ (you shouldn't need to change this):
-
-<!-- File src/exceptions.S -->
-<!-- mdbook-xgettext: skip -->
-
-```armasm
-{{#include rtc/src/exceptions.S}}
-```
-
 _src/idmap.S_ (you shouldn't need to change this):
 
 <!-- File src/idmap.S -->
