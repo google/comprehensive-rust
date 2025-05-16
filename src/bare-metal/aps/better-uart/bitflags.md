@@ -11,5 +11,7 @@ with bitflags.
 
 - The `bitflags!` macro creates a newtype something like `Flags(u16)`, along
   with a bunch of method implementations to get and set flags.
+- We need to derive `FromBytes` and `IntoBytes` for use with `safe-mmio`, which
+  we'll see on the next page.
 
 </details>
