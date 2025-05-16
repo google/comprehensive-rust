@@ -22,19 +22,22 @@ mod pl011;
 use crate::pl011::Uart;
 use core::fmt::Write;
 use core::panic::PanicInfo;
+use core::ptr::NonNull;
 use log::error;
+use safe_mmio::UniqueMmioPointer;
 use smccc::Hvc;
 use smccc::psci::system_off;
 
 /// Base address of the primary PL011 UART.
-const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
+const PL011_BASE_ADDRESS: NonNull<pl011::Registers> =
+    NonNull::new(0x900_0000 as _).unwrap();
 
 // SAFETY: There is no other global function of this name.
 #[unsafe(no_mangle)]
 extern "C" fn main(x0: u64, x1: u64, x2: u64, x3: u64) {
     // SAFETY: `PL011_BASE_ADDRESS` is the base address of a PL011 device, and
     // nothing else accesses that address range.
-    let mut uart = unsafe { Uart::new(PL011_BASE_ADDRESS) };
+    let mut uart = unsafe { Uart::new(UniqueMmioPointer::new(PL011_BASE_ADDRESS)) };
 
     writeln!(uart, "main({x0:#x}, {x1:#x}, {x2:#x}, {x3:#x})").unwrap();
 
