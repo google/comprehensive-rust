@@ -17,19 +17,20 @@
 #![no_std]
 
 mod exceptions;
-mod pl011;
 
-use crate::pl011::Uart;
 use aarch64_paging::paging::Attributes;
 use aarch64_rt::{entry, initial_pagetable, InitialPagetable};
+use arm_pl011_uart::{PL011Registers, Uart, UniqueMmioPointer};
 use core::fmt::Write;
 use core::panic::PanicInfo;
+use core::ptr::NonNull;
 use log::error;
 use smccc::psci::system_off;
 use smccc::Hvc;
 
 /// Base address of the primary PL011 UART.
-const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
+const PL011_BASE_ADDRESS: NonNull<PL011Registers> =
+    NonNull::new(0x900_0000 as _).unwrap();
 
 /// Attributes to use for device memory in the initial identity map.
 const DEVICE_ATTRIBUTES: Attributes = Attributes::VALID
@@ -59,7 +60,7 @@ entry!(main);
 fn main(x0: u64, x1: u64, x2: u64, x3: u64) -> ! {
     // SAFETY: `PL011_BASE_ADDRESS` is the base address of a PL011 device, and
     // nothing else accesses that address range.
-    let mut uart = unsafe { Uart::new(PL011_BASE_ADDRESS) };
+    let mut uart = unsafe { Uart::new(UniqueMmioPointer::new(PL011_BASE_ADDRESS)) };
 
     writeln!(uart, "main({x0:#x}, {x1:#x}, {x2:#x}, {x3:#x})").unwrap();
 

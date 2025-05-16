@@ -57,15 +57,6 @@ _src/logger.rs_ (you shouldn't need to change this):
 {{#include rtc/src/logger.rs}}
 ```
 
-_src/pl011.rs_ (you shouldn't need to change this):
-
-<!-- File src/pl011.rs -->
-<!-- mdbook-xgettext: skip -->
-
-```rust,compile_fail
-{{#include rtc/src/pl011.rs}}
-```
-
 _Cargo.toml_ (you shouldn't need to change this):
 
 <!-- File Cargo.toml -->
