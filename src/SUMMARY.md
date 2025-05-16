@@ -229,9 +229,9 @@
   - [Exercise: FFI Wrapper](unsafe-rust/exercise.md)
     - [Solution](unsafe-rust/solution.md)
 
-# Android
-
 ---
+
+# Android
 
 - [Welcome](android.md)
 - [Setup](android/setup.md)
@@ -280,9 +280,9 @@
     - [Building for Android: Rust](android/interoperability/cpp/android-build-rust.md)
   - [With Java](android/interoperability/java.md)
 
-# Chromium
-
 ---
+
+# Chromium
 
 - [Welcome](chromium.md)
 - [Setup](chromium/setup.md)
@@ -322,9 +322,9 @@
 - [Bringing It Together - Exercise](exercises/chromium/bringing-it-together.md)
 - [Exercise Solutions](exercises/chromium/solutions.md)
 
-# Bare Metal: Morning
-
 ---
+
+# Bare Metal: Morning
 
 - [Welcome](bare-metal.md)
 - [`no_std`](bare-metal/no_std.md)
@@ -375,9 +375,9 @@
   - [RTC Driver](exercises/bare-metal/rtc.md)
   - [Solutions](exercises/bare-metal/solutions-afternoon.md)
 
-# Concurrency: Morning
-
 ---
+
+# Concurrency: Morning
 
 - [Welcome](concurrency/welcome.md)
 - [Threads](concurrency/threads.md)
@@ -424,9 +424,9 @@
   - [Broadcast Chat Application](concurrency/async-exercises/chat-app.md)
   - [Solutions](concurrency/async-exercises/solutions.md)
 
-# Final Words
-
 ---
+
+# Final Words
 
 - [Thanks!](thanks.md)
 - [Glossary](glossary.md)
