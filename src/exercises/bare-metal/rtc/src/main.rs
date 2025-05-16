@@ -17,7 +17,6 @@
 #![no_main]
 #![no_std]
 
-mod asm;
 mod exceptions;
 mod logger;
 mod pl011;
@@ -30,7 +29,8 @@ use chrono::{TimeZone, Utc};
 use core::hint::spin_loop;
 // ANCHOR: imports
 use crate::pl011::Uart;
-use aarch64_rt::entry;
+use aarch64_paging::paging::Attributes;
+use aarch64_rt::{entry, initial_pagetable, InitialPagetable};
 use arm_gic::gicv3::registers::{Gicd, GicrSgi};
 use arm_gic::gicv3::GicV3;
 use core::panic::PanicInfo;
@@ -44,6 +44,30 @@ const GICR_BASE_ADDRESS: *mut GicrSgi = 0x80A_0000 as _;
 
 /// Base address of the primary PL011 UART.
 const PL011_BASE_ADDRESS: *mut u32 = 0x900_0000 as _;
+
+/// Attributes to use for device memory in the initial identity map.
+const DEVICE_ATTRIBUTES: Attributes = Attributes::VALID
+    .union(Attributes::ATTRIBUTE_INDEX_0)
+    .union(Attributes::ACCESSED)
+    .union(Attributes::UXN);
+
+/// Attributes to use for normal memory in the initial identity map.
+const MEMORY_ATTRIBUTES: Attributes = Attributes::VALID
+    .union(Attributes::ATTRIBUTE_INDEX_1)
+    .union(Attributes::INNER_SHAREABLE)
+    .union(Attributes::ACCESSED)
+    .union(Attributes::NON_GLOBAL);
+
+initial_pagetable!({
+    let mut idmap = [0; 512];
+    // 1 GiB of device memory.
+    idmap[0] = DEVICE_ATTRIBUTES.bits();
+    // 1 GiB of normal memory.
+    idmap[1] = MEMORY_ATTRIBUTES.bits() | 0x40000000;
+    // Another 1 GiB of device memory starting at 256 GiB.
+    idmap[256] = DEVICE_ATTRIBUTES.bits() | 0x4000000000;
+    InitialPagetable(idmap)
+});
 // ANCHOR_END: imports
 
 /// Base address of the PL031 RTC.

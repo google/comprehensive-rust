@@ -48,15 +48,6 @@ exercise):
 {{#include rtc/src/exceptions.rs}}
 ```
 
-_src/asm.rs_ (you shouldn't need to change this):
-
-<!-- File src/asm.rs -->
-<!-- mdbook-xgettext: skip -->
-
-```rust,compile_fail
-{{#include rtc/src/asm.rs}}
-```
-
 _src/logger.rs_ (you shouldn't need to change this):
 
 <!-- File src/logger.rs -->
@@ -82,15 +73,6 @@ _Cargo.toml_ (you shouldn't need to change this):
 
 ```toml
 {{#include rtc/Cargo.toml}}
-```
-
-_src/idmap.S_ (you shouldn't need to change this):
-
-<!-- File src/idmap.S -->
-<!-- mdbook-xgettext: skip -->
-
-```armasm
-{{#include rtc/src/idmap.S}}
 ```
 
 _image.ld_ (you shouldn't need to change this):

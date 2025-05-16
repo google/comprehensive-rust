@@ -3,6 +3,16 @@
 version = 4
 
 [[package]]
+name = "aarch64-paging"
+version = "0.9.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a3b8f725e9256b2fac2d25e013e22a6a391b8c07e23c4c5eac6e037a78a28801"
+dependencies = [
+ "bitflags",
+ "thiserror",
+]
+
+[[package]]
 name = "aarch64-rt"
 version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -98,6 +108,7 @@ dependencies = [
 name = "rtc"
 version = "0.1.0"
 dependencies = [
+ "aarch64-paging",
  "aarch64-rt",
  "arm-gic",
  "bitflags",
