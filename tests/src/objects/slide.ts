@@ -2,7 +2,7 @@ import { $, browser } from "@wdio/globals";
 
 export default class Slide {
   /**
-   * conviencene functions for interacting with a slide
+   * convenience functions for interacting with a slide
    **/
 
   /**
