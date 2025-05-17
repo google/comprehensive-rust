@@ -20,7 +20,7 @@
 //! the tools.
 
 use anyhow::{anyhow, Ok, Result};
-use clap::Parser;
+use clap::{Parser, ValueEnum};
 use std::path::Path;
 use std::{env, process::Command};
 
@@ -32,23 +32,29 @@ fn main() -> Result<()> {
     Ok(())
 }
 
-#[derive(Parser, Debug)]
+#[derive(Parser)]
 #[command(
     about = "Binary for executing tasks within the Comprehensive Rust project"
 )]
-struct Args {
-    #[arg(required = true, help = "The task to execute")]
-    task: String,
+struct Cli {
+    /// The task to execute
+    #[arg(value_enum)]
+    task: Task,
+}
+
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
+enum Task {
+    /// Installs the tools the project depends on.
+    InstallTools,
+    /// Runs the web driver tests in the tests directory.
+    WebTests,
 }
 
 fn execute_task() -> Result<()> {
-    let task = Args::parse().task;
-    match task.as_str() {
-        "install-tools" => install_tools()?,
-        "web-tests" => run_web_tests()?,
-        _ => {
-            return Err(anyhow!(unrecognized_task_string(task.as_str())));
-        }
+    let cli = Cli::parse();
+    match cli.task {
+        Task::InstallTools => install_tools()?,
+        Task::WebTests => run_web_tests()?,
     }
     Ok(())
 }
@@ -116,14 +122,4 @@ fn run_web_tests() -> Result<()> {
     }
 
     Ok(())
-}
-
-// TODO - https://github.com/google/comprehensive-rust/issues/2741: Replace this with Clap
-fn unrecognized_task_string(task: &str) -> String {
-    format!(
-        "Unrecognized task '{task}'. Available tasks:
-
-install-tools            Installs the tools the project depends on.
-web-tests                Runs the web driver tests in the tests directory."
-    )
 }
