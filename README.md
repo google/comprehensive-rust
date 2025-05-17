@@ -46,7 +46,7 @@ Articles and blog posts from around the web which cover Comprehensive Rust:
   _[Rust Training at Scale | Rust Global @ RustConf 2024](https://youtu.be/7h5KyMqt2-Q?si=4M99HdWWxMaqN8Zr)_.
   What Google learnt from teaching Comprehensive Rust for more than two years.
 
-## Building
+## Setup
 
 The course is built using a few tools:
 
@@ -55,10 +55,7 @@ The course is built using a few tools:
 - [mdbook-i18n-helpers and i18n-report](https://github.com/google/mdbook-i18n-helpers)
 - [mdbook-exerciser](mdbook-exerciser/)
 - [mdbook-course](mdbook-course/)
-
-In addition,
-[mdbook-linkcheck](https://github.com/Michael-F-Bryan/mdbook-linkcheck) checks
-the internal links.
+- [mdbook-linkcheck](https://github.com/Michael-F-Bryan/mdbook-linkcheck)
 
 First install Rust by following the instructions on https://rustup.rs/. Then
 clone this repository:
@@ -74,25 +71,17 @@ Then install these tools with:
 cargo xtask install-tools
 ```
 
-Run
+## Commands
 
-```shell
-mdbook test
-```
+Here is a summary of the various commands you can run in the project.
 
-to test all included Rust snippets. Run
-
-```shell
-mdbook serve
-```
-
-to start a web server with the course. You'll find the content on
-<http://localhost:3000>. You can use `mdbook build` to create a static version
-of the course in the `book/` directory. Note that you have to separately build
-and zip exercises and add them to `book/html`. To build any of the translated
-versions of the course, run `MDBOOK_BOOK__LANGUAGE=xx mdbook build -d book/xx`
-where `xx` is the ISO 639 language code (e.g. `da` for the Danish translation).
-[TRANSLATIONS.md](TRANSLATIONS.md) contains further instructions.
+| Command | Description |
+|---------|-------------|
+|`cargo xtask install-tools` | Install all the tools the project depends on. |
+|`cargo xtask serve` | Start a web server with the course. You'll find the content on http://localhost:3000. |
+|`cargo xtask rust-tests` | Test the included Rust snippets. |
+|`cargo xtask web-tests` | Run the web driver tests in the tests directory. |
+|`cargo xtask build` | Create a static version of the course in the `book/` directory. Note that you have to separately build and zip exercises and add them to book/html. To build any of the translated versions of the course, run MDBOOK_BOOK__LANGUAGE=xx mdbook build -d book/xx where xx is the ISO 639 language code (e.g. da for the Danish translation). TRANSLATIONS.md contains further instructions.|
 
 > **Note** On Windows, you need to enable symlinks
 > (`git config --global core.symlinks true`) and Developer Mode.
