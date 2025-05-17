@@ -75,13 +75,13 @@ cargo xtask install-tools
 
 Here is a summary of the various commands you can run in the project.
 
-| Command | Description |
-|---------|-------------|
-|`cargo xtask install-tools` | Install all the tools the project depends on. |
-|`cargo xtask serve` | Start a web server with the course. You'll find the content on http://localhost:3000. |
-|`cargo xtask rust-tests` | Test the included Rust snippets. |
-|`cargo xtask web-tests` | Run the web driver tests in the tests directory. |
-|`cargo xtask build` | Create a static version of the course in the `book/` directory. Note that you have to separately build and zip exercises and add them to book/html. To build any of the translated versions of the course, run MDBOOK_BOOK__LANGUAGE=xx mdbook build -d book/xx where xx is the ISO 639 language code (e.g. da for the Danish translation). TRANSLATIONS.md contains further instructions.|
+| Command                     | Description                                                                                                                                                                                                                                                                                                                                                                                |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `cargo xtask install-tools` | Install all the tools the project depends on.                                                                                                                                                                                                                                                                                                                                              |
+| `cargo xtask serve`         | Start a web server with the course. You'll find the content on http://localhost:3000.                                                                                                                                                                                                                                                                                                      |
+| `cargo xtask rust-tests`    | Test the included Rust snippets.                                                                                                                                                                                                                                                                                                                                                           |
+| `cargo xtask web-tests`     | Run the web driver tests in the tests directory.                                                                                                                                                                                                                                                                                                                                           |
+| `cargo xtask build`         | Create a static version of the course in the `book/` directory. Note that you have to separately build and zip exercises and add them to book/html. To build any of the translated versions of the course, run MDBOOK_BOOK__LANGUAGE=xx mdbook build -d book/xx where xx is the ISO 639 language code (e.g. da for the Danish translation). TRANSLATIONS.md contains further instructions. |
 
 > **Note** On Windows, you need to enable symlinks
 > (`git config --global core.symlinks true`) and Developer Mode.
