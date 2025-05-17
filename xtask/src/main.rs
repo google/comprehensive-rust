@@ -84,6 +84,7 @@ fn install_tools() -> Result<()> {
         vec!["mdbook-pandoc", "--locked", "--version", "0.9.3"],
         vec!["mdbook-i18n-helpers", "--locked", "--version", "0.3.5"],
         vec!["i18n-report", "--locked", "--version", "0.2.0"],
+        vec!["mdbook-linkcheck", "--locked", "--version", "0.7.7"],
         // Mdbook-exerciser and mdbook-course are located in this repository.
         // To make it possible to install them from any directory we need to
         // specify their path from the workspace root.
