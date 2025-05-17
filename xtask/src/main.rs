@@ -20,7 +20,7 @@
 //! the tools.
 
 use anyhow::{anyhow, Ok, Result};
-use clap::Parser;
+use clap::{Parser, ValueEnum};
 use std::path::Path;
 use std::{env, process::Command};
 
@@ -32,23 +32,38 @@ fn main() -> Result<()> {
     Ok(())
 }
 
-#[derive(Parser, Debug)]
+#[derive(Parser)]
 #[command(
     about = "Binary for executing tasks within the Comprehensive Rust project"
 )]
-struct Args {
-    #[arg(required = true, help = "The task to execute")]
-    task: String,
+struct Cli {
+    /// The task to execute
+    #[arg(value_enum)]
+    task: Task,
+}
+
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
+enum Task {
+    /// Installs the tools the project depends on.
+    InstallTools,
+    /// Runs the web driver tests in the tests directory.
+    WebTests,
+    /// Tests all included Rust snippets.
+    RustTests,
+    /// Starts a web server with the course.
+    Serve,
+    /// Create a static version of the course in the `book/` directory.
+    Build,
 }
 
 fn execute_task() -> Result<()> {
-    let task = Args::parse().task;
-    match task.as_str() {
-        "install-tools" => install_tools()?,
-        "web-tests" => run_web_tests()?,
-        _ => {
-            return Err(anyhow!(unrecognized_task_string(task.as_str())));
-        }
+    let cli = Cli::parse();
+    match cli.task {
+        Task::InstallTools => install_tools()?,
+        Task::WebTests => run_web_tests()?,
+        Task::RustTests => run_rust_tests()?,
+        Task::Serve => start_web_server()?,
+        Task::Build => build()?,
     }
     Ok(())
 }
@@ -69,6 +84,7 @@ fn install_tools() -> Result<()> {
         vec!["mdbook-pandoc", "--locked", "--version", "0.9.3"],
         vec!["mdbook-i18n-helpers", "--locked", "--version", "0.3.5"],
         vec!["i18n-report", "--locked", "--version", "0.2.0"],
+        vec!["mdbook-linkcheck", "--locked", "--version", "0.7.7"],
         // Mdbook-exerciser and mdbook-course are located in this repository.
         // To make it possible to install them from any directory we need to
         // specify their path from the workspace root.
@@ -109,7 +125,7 @@ fn run_web_tests() -> Result<()> {
 
     if !status.success() {
         let error_message = format!(
-            "Command 'cargo web-tests' exited with status code: {}",
+            "Command 'cargo xtask web-tests' exited with status code: {}",
             status.code().unwrap()
         );
         return Err(anyhow!(error_message));
@@ -118,12 +134,64 @@ fn run_web_tests() -> Result<()> {
     Ok(())
 }
 
-// TODO - https://github.com/google/comprehensive-rust/issues/2741: Replace this with Clap
-fn unrecognized_task_string(task: &str) -> String {
-    format!(
-        "Unrecognized task '{task}'. Available tasks:
+fn run_rust_tests() -> Result<()> {
+    println!("Running rust tests...");
 
-install-tools            Installs the tools the project depends on.
-web-tests                Runs the web driver tests in the tests directory."
-    )
+    let path_to_workspace_root = Path::new(env!("CARGO_WORKSPACE_DIR"));
+
+    let status = Command::new("mdbook")
+        .current_dir(path_to_workspace_root.to_str().unwrap())
+        .arg("test")
+        .status()
+        .expect("Failed to execute mdbook test");
+
+    if !status.success() {
+        let error_message = format!(
+            "Command 'cargo xtask rust-tests' exited with status code: {}",
+            status.code().unwrap()
+        );
+        return Err(anyhow!(error_message));
+    }
+
+    Ok(())
+}
+
+fn start_web_server() -> Result<()> {
+    println!("Starting web server ...");
+    let path_to_workspace_root = Path::new(env!("CARGO_WORKSPACE_DIR"));
+
+    let status = Command::new("mdbook")
+        .current_dir(path_to_workspace_root.to_str().unwrap())
+        .arg("serve")
+        .status()
+        .expect("Failed to execute mdbook serve");
+
+    if !status.success() {
+        let error_message = format!(
+            "Command 'cargo xtask serve' exited with status code: {}",
+            status.code().unwrap()
+        );
+        return Err(anyhow!(error_message));
+    }
+    Ok(())
+}
+
+fn build() -> Result<()> {
+    println!("Building course...");
+    let path_to_workspace_root = Path::new(env!("CARGO_WORKSPACE_DIR"));
+
+    let status = Command::new("mdbook")
+        .current_dir(path_to_workspace_root.to_str().unwrap())
+        .arg("build")
+        .status()
+        .expect("Failed to execute mdbook build");
+
+    if !status.success() {
+        let error_message = format!(
+            "Command 'cargo xtask build' exited with status code: {}",
+            status.code().unwrap()
+        );
+        return Err(anyhow!(error_message));
+    }
+    Ok(())
 }
