@@ -75,4 +75,4 @@ fn main() {
 
 </details>
 
-[1]: https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=3e61f43c88de12bcdf69c1d6df9ab3da
+[1]: https://play.rust-lang.org/?version=stable&mode=debug&edition=2024&gist=3e61f43c88de12bcdf69c1d6df9ab3da

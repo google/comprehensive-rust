@@ -72,4 +72,4 @@ Notes on stack returns and inlining:
 
 </details>
 
-[Playground]: https://play.rust-lang.org/?version=stable&mode=release&edition=2021&gist=0cb13be1c05d7e3446686ad9947c4671
+[Playground]: https://play.rust-lang.org/?version=stable&mode=release&edition=2024&gist=0cb13be1c05d7e3446686ad9947c4671
