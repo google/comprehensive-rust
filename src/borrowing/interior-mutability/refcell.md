@@ -23,7 +23,7 @@ fn main() {
 
         // This triggers an error at runtime.
         // let other = cell.borrow();
-        // println!("{}", *other);
+        // println!("{}", other);
     }
 
     println!("{cell:?}");
