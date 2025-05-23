@@ -105,11 +105,12 @@ fn spawn_crawler_threads(
     result_sender: mpsc::Sender<CrawlResult>,
     thread_count: u32,
 ) {
+    // To multiplex the non-cloneable Receiver, wrap it in Arc<Mutex<_>>.
     let command_receiver = Arc::new(Mutex::new(command_receiver));
 
     for _ in 0..thread_count {
         let result_sender = result_sender.clone();
-        let command_receiver = command_receiver.clone();
+        let command_receiver = Arc::clone(&command_receiver);
         thread::spawn(move || {
             let client = Client::new();
             loop {
