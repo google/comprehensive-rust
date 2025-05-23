@@ -163,7 +163,9 @@ jobs:
 
       - name: Install mdbook-linkcheck2
         if: contains(fromJSON(env.LINK_CHECKED_LANGUAGES), matrix.language)
-        run: cargo install mdbook-linkcheck2 --locked --version 0.9.1
+        run: |
+          cargo uninstall mdbook-linkcheck || true
+          cargo install mdbook-linkcheck2 --locked --version 0.9.1
 
       - name: Build ${{ matrix.language }} translation
         run: |
