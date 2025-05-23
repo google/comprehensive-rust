@@ -59,10 +59,12 @@ Install `dprint` using their
 [installation instructions](https://dprint.dev/install/) and install `rustfmt`
 via `rustup`.
 
+Install [pandoc 3.7.0.1](https://github.com/jgm/pandoc/releases/tag/3.7.0.1).
+
 On Debian, you can install the other tools using:
 
 ```sh
-sudo apt install yapf3 gettext
+sudo apt install yapf3 gettext texlive texlive-luatex texlive-lang-cjk texlive-lang-arabic librsvg2-bin fonts-noto
 ```
 
 ### MacOS

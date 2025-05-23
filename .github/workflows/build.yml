@@ -161,12 +161,6 @@ jobs:
           MDBOOK_OUTPUT='{"xgettext": {"pot-file": "messages.pot"}}' mdbook build -d po
           msgfmt -o /dev/null --statistics po/messages.pot
 
-      - name: Install mdbook-linkcheck2
-        if: contains(fromJSON(env.LINK_CHECKED_LANGUAGES), matrix.language)
-        run: |
-          cargo uninstall mdbook-linkcheck || true
-          cargo install mdbook-linkcheck2 --locked --version 0.9.1
-
       - name: Build ${{ matrix.language }} translation
         run: |
           .github/workflows/build.sh ${{ matrix.language }} book/comprehensive-rust-${{ matrix.language }}
