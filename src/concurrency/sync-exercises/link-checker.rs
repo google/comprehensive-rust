@@ -13,12 +13,12 @@
 // limitations under the License.
 
 // ANCHOR: solution
-use std::sync::{mpsc, Arc, Mutex};
+use std::sync::{Arc, Mutex, mpsc};
 use std::thread;
 
 // ANCHOR: setup
-use reqwest::blocking::Client;
 use reqwest::Url;
+use reqwest::blocking::Client;
 use scraper::{Html, Selector};
 use thiserror::Error;
 

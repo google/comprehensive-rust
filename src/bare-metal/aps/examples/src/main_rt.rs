@@ -19,14 +19,14 @@
 mod exceptions;
 
 use aarch64_paging::paging::Attributes;
-use aarch64_rt::{entry, initial_pagetable, InitialPagetable};
+use aarch64_rt::{InitialPagetable, entry, initial_pagetable};
 use arm_pl011_uart::{PL011Registers, Uart, UniqueMmioPointer};
 use core::fmt::Write;
 use core::panic::PanicInfo;
 use core::ptr::NonNull;
 use log::error;
-use smccc::psci::system_off;
 use smccc::Hvc;
+use smccc::psci::system_off;
 
 /// Base address of the primary PL011 UART.
 const PL011_BASE_ADDRESS: NonNull<PL011Registers> =

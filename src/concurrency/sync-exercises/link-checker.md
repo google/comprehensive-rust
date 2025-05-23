@@ -34,7 +34,7 @@ The `cargo add` calls will update the `Cargo.toml` file to look like this:
 [package]
 name = "link-checker"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 publish = false
 
 [dependencies]

@@ -26,12 +26,12 @@ use embedded_hal::digital::InputPin;
 use lsm303agr::{
     AccelMode, AccelOutputDataRate, Lsm303agr, MagMode, MagOutputDataRate,
 };
+use microbit::Board;
 use microbit::display::blocking::Display;
 use microbit::hal::twim::Twim;
 use microbit::hal::uarte::{Baudrate, Parity, Uarte};
 use microbit::hal::{Delay, Timer};
 use microbit::pac::twim0::frequency::FREQUENCY_A;
-use microbit::Board;
 
 const COMPASS_SCALE: i32 = 30000;
 const ACCELEROMETER_SCALE: i32 = 700;

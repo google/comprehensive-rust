@@ -45,7 +45,7 @@ can use the following `Cargo.toml`:
 [package]
 name = "dining-philosophers-async-dine"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 [dependencies]
 tokio = { version = "1.26.0", features = ["sync", "time", "macros", "rt-multi-thread"] }

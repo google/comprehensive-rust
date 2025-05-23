@@ -22,6 +22,7 @@ static mut COUNTER: u32 = 0;
 
 fn add_to_counter(inc: u32) {
     // SAFETY: There are no other threads which could be accessing `COUNTER`.
+    #[allow(static_mut_refs)]
     unsafe {
         COUNTER += inc;
     }
@@ -31,6 +32,7 @@ fn main() {
     add_to_counter(42);
 
     // SAFETY: There are no other threads which could be accessing `COUNTER`.
+    #[allow(static_mut_refs)]
     unsafe {
         dbg!(COUNTER);
     }
@@ -40,12 +42,16 @@ fn main() {
 <details>
 
 - The program here is safe because it is single-threaded. However, the Rust
-  compiler is conservative and will assume the worst. Try removing the `unsafe`
-  and see how the compiler explains that it is undefined behavior to mutate a
-  static from multiple threads.
-
-- Using a mutable static is generally a bad idea, but there are some cases where
-  it might make sense in low-level `no_std` code, such as implementing a heap
-  allocator or working with some C APIs.
+  compiler reasons about functions individually so can't assume that. Try
+  removing the `unsafe` and see how the compiler explains that it is undefined
+  behavior to access a mutable static from multiple threads.
+- Rust 2024 edition goes further and makes accessing a mutable static by
+  reference an error by default. We work around this in the example with
+  `#[allow(static_mut_refs)]`. Don't do this.
+- Using a mutable static is almost always a bad idea, you should use interior
+  mutability instead.
+- There are some cases where it might be necessary in low-level `no_std` code,
+  such as implementing a heap allocator or working with some C APIs. In this
+  case you should use pointers rather than references.
 
 </details>

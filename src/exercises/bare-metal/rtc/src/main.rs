@@ -23,20 +23,20 @@ mod logger;
 mod pl031;
 
 use crate::pl031::Rtc;
-use arm_gic::{irq_enable, wfi, IntId, Trigger};
+use arm_gic::{IntId, Trigger, irq_enable, wfi};
 use chrono::{TimeZone, Utc};
 use core::hint::spin_loop;
 // ANCHOR: imports
 use aarch64_paging::paging::Attributes;
-use aarch64_rt::{entry, initial_pagetable, InitialPagetable};
-use arm_gic::gicv3::registers::{Gicd, GicrSgi};
+use aarch64_rt::{InitialPagetable, entry, initial_pagetable};
 use arm_gic::gicv3::GicV3;
+use arm_gic::gicv3::registers::{Gicd, GicrSgi};
 use arm_pl011_uart::{PL011Registers, Uart, UniqueMmioPointer};
 use core::panic::PanicInfo;
 use core::ptr::NonNull;
-use log::{error, info, trace, LevelFilter};
-use smccc::psci::system_off;
+use log::{LevelFilter, error, info, trace};
 use smccc::Hvc;
+use smccc::psci::system_off;
 
 /// Base addresses of the GICv3.
 const GICD_BASE_ADDRESS: *mut Gicd = 0x800_0000 as _;

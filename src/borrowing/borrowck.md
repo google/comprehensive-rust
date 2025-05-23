@@ -82,5 +82,5 @@ fn main() {
 
 </details>
 
-[1]: https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=8f5896878611566845fe3b0f4dc5af68
-[2]: https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=f293a31f2d4d0d31770486247c2e8437
+[1]: https://play.rust-lang.org/?version=stable&mode=debug&edition=2024&gist=8f5896878611566845fe3b0f4dc5af68
+[2]: https://play.rust-lang.org/?version=stable&mode=debug&edition=2024&gist=f293a31f2d4d0d31770486247c2e8437

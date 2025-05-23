@@ -15,7 +15,7 @@ writing out trait impls explicitly for custom error types.
 [`thiserror`]: https://docs.rs/thiserror/
 
 ```rust,editable,compile_fail
-use anyhow::{bail, Context, Result};
+use anyhow::{Context, Result, bail};
 use std::fs;
 use std::io::Read;
 use thiserror::Error;
