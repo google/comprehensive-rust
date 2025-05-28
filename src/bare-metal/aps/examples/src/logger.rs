@@ -21,7 +21,7 @@ use spin::mutex::SpinMutex;
 static LOGGER: Logger = Logger { uart: SpinMutex::new(None) };
 
 struct Logger {
-    uart: SpinMutex<Option<Uart>>,
+    uart: SpinMutex<Option<Uart<'static>>>,
 }
 
 impl Log for Logger {
@@ -43,7 +43,10 @@ impl Log for Logger {
 }
 
 /// Initialises UART logger.
-pub fn init(uart: Uart, max_level: LevelFilter) -> Result<(), SetLoggerError> {
+pub fn init(
+    uart: Uart<'static>,
+    max_level: LevelFilter,
+) -> Result<(), SetLoggerError> {
     LOGGER.uart.lock().replace(uart);
 
     log::set_logger(&LOGGER)?;
