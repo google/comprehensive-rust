@@ -12,6 +12,7 @@ Now let's use the new `Registers` struct in our driver.
   register. The caller of `UniqueMmioPointer::new` promises that it is valid and
   unique for the given lifetime, so it can provide safe methods to read and
   write fields.
+- Note that `Uart::new` is now safe; `UniqueMmioPointer::new` is unsafe instead.
 - These MMIO accesses are generally a wrapper around `read_volatile` and
   `write_volatile`, though on aarch64 they are instead implemented in assembly
   to work around a bug where the compiler can emit instructions that prevent
