@@ -38,8 +38,9 @@ jobs:
         uses: ./.github/workflows/install-mdbook
 
       - name: Build course in English
-        run: .github/workflows/build.sh en book
-
+        run: |
+          .github/workflows/build.sh en book
+          mv source/en/book book
       - name: Build all translations
         # note: build.sh here uses the given book path relative to source/{language}
         run: |
