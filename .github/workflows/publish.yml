@@ -3,20 +3,11 @@ name: Publish
 # See also TRANSLATIONS.md.
 
 on:
+  pull_request:
   push:
     branches:
       - main
   workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow one concurrent deployment
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 env:
   CARGO_TERM_COLOR: always
@@ -25,9 +16,6 @@ env:
 
 jobs:
   publish:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -67,14 +55,15 @@ jobs:
           for file in synced-po/*.po; do msgmerge --update $file synced-po/messages.pot ; done
           i18n-report report book/html/synced-translation-report.html synced-po/*.po
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      # TODO: uncomment the following lines before merging into main. This is removed for development purposes.
+      # - name: Setup Pages
+      #   uses: actions/configure-pages@v5
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: book/html
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v4
+      #   with:
+      #     path: book/html
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # - name: Deploy to GitHub Pages
+      #   id: deployment
+      #   uses: actions/deploy-pages@v4
