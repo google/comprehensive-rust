@@ -43,9 +43,8 @@ jobs:
       - name: Build all translations
         # note: build.sh here uses the given book path relative to source/{language}
         run: |
-          sudo apt install moreutils
-          parallel -i .github/workflows/build.sh {} book/{} -- ${{ env.LANGUAGES }}
-          parallel -i mv source/{}/book/{}/html book/html/{} -- ${{ env.LANGUAGES }}
+          parallel .github/workflows/build.sh {} book/{} ::: ${{ env.LANGUAGES }}
+          parallel mv source/{}/book/{}/html book/html/{} ::: ${{ env.LANGUAGES }}
       - name: Build translation report
         run: i18n-report report book/html/translation-report.html po/*.po
 
