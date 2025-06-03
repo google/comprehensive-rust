@@ -53,12 +53,10 @@ jobs:
         run: .github/workflows/build.sh en book
 
       - name: Build all translations
+        # note: build.sh here uses the given book path relative to source/{language}
         run: |
-          for po_lang in ${{ env.LANGUAGES }}; do
-              .github/workflows/build.sh $po_lang book/$po_lang
-              mv book/$po_lang/html book/html/$po_lang
-          done
-
+          parallel -i .github/workflows/build.sh {} book/{} -- ${{ env.LANGUAGES }}
+          parallel -i mv source/{}/book/{}/html book/html/{} -- ${{ env.LANGUAGES }}
       - name: Build translation report
         run: i18n-report report book/html/translation-report.html po/*.po
 
