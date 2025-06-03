@@ -9,7 +9,7 @@ Rust transforms an async function or block to a hidden type that implements
 this transform are complex, but it helps to have a schematic understanding of
 what is happening. The following function
 
-```rust
+```rust,compile_fail
 /// Sum two D10 rolls plus a modifier.
 async fn two_d10(modifier: u32) -> u32 {
     let first_roll = roll_d10().await;
@@ -20,7 +20,7 @@ async fn two_d10(modifier: u32) -> u32 {
 
 is transformed to something like
 
-```rust,editable
+```rust,editable,compile_fail
 use std::future::Future;
 use std::pin::Pin;
 use std::task::{Context, Poll};
