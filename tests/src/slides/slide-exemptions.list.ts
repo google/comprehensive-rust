@@ -13,7 +13,6 @@ export const size_exemptions = [
   "exercises/chromium/bringing-it-together.html",
   "concurrency/async-exercises/chat-app.html",
   "concurrency/async-exercises/solutions.html",
-  "concurrency/async/state-machine.html",
   "concurrency/sync-exercises/solutions.html",
   "concurrency/sync-exercises/link-checker.html",
 ];
