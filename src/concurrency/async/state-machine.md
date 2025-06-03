@@ -7,43 +7,23 @@ minutes: 10
 Rust transforms an async function or block to a hidden type that implements
 `Future`, using a state machine to track the function's progress. The details of
 this transform are complex, but it helps to have a schematic understanding of
-what is happening.
+what is happening. The following function
+
+```rust
+/// Sum two D10 rolls plus a modifier.
+async fn two_d10(modifier: u32) -> u32 {
+    let first_roll = roll_d10().await;
+    let second_roll = roll_d10().await;
+    first_roll + second_roll + modifier
+}
+```
+
+is transformed to something like
 
 ```rust,editable
-use std::task::Poll;
-
-/// A simplified version of `std::future::Future`.
-trait Future {
-    type Output;
-    fn poll(&mut self) -> Poll<Self::Output>;
-}
-
-/*
- * async fn roll_d10() -> u32 { 7 }
- */
-
-/// Return a random number from 1 to 10.
-fn roll_d10() -> RollD10 {
-    RollD10
-}
-
-struct RollD10;
-
-impl Future for RollD10 {
-    type Output = u32;
-
-    fn poll(&mut self) -> Poll<Self::Output> {
-        Poll::Ready(7)
-    }
-}
-
-/*
- * async fn two_d10(modifier: u32) -> u32 {
- *     let first_roll = roll_d10().await;
- *     let second_roll = roll_d10().await;
- *     first_roll + second_roll + modifier
- * }
- */
+use std::future::Future;
+use std::pin::Pin;
+use std::task::{Context, Poll};
 
 /// Sum two D10 rolls plus a modifier.
 fn two_d10(modifier: u32) -> TwoD10 {
@@ -54,35 +34,35 @@ enum TwoD10 {
     // Function has not begun yet.
     Init { modifier: u32 },
     // Waitig for first `.await` to complete.
-    FirstRoll { modifier: u32, fut: RollD10 },
+    FirstRoll { modifier: u32, fut: RollD10Future },
     // Waitig for second `.await` to complete.
-    SecondRoll { modifier: u32, first_roll: u32, fut: RollD10 },
+    SecondRoll { modifier: u32, first_roll: u32, fut: RollD10Future },
 }
 
 impl Future for TwoD10 {
     type Output = u32;
-    fn poll(&mut self) -> Poll<Self::Output> {
+    fn poll(mut self: Pin<&mut Self>, ctx: &mut Context) -> Poll<Self::Output> {
         loop {
-            match self {
+            match *self {
                 TwoD10::Init { modifier } => {
+                    // Create future for first dice roll.
                     let fut = roll_d10();
-                    *self = TwoD10::FirstRoll { modifier: *modifier, fut };
+                    *self = TwoD10::FirstRoll { modifier, fut };
                 }
-                TwoD10::FirstRoll { modifier, fut } => {
-                    if let Poll::Ready(first_roll) = fut.poll() {
+                TwoD10::FirstRoll { modifier, ref mut fut } => {
+                    // Poll sub-future for first dice roll.
+                    if let Poll::Ready(first_roll) = fut.poll(ctx) {
+                        // Create future for second roll.
                         let fut = roll_d10();
-                        *self = TwoD10::SecondRoll {
-                            modifier: *modifier,
-                            first_roll,
-                            fut,
-                        };
+                        *self = TwoD10::SecondRoll { modifier, first_roll, fut };
                     } else {
                         return Poll::Pending;
                     }
                 }
-                TwoD10::SecondRoll { modifier, first_roll, fut } => {
-                    if let Poll::Ready(second_roll) = fut.poll() {
-                        return Poll::Ready(*first_roll + second_roll + *modifier);
+                TwoD10::SecondRoll { modifier, first_roll, ref mut fut } => {
+                    // Poll sub-future for second dice roll.
+                    if let Poll::Ready(second_roll) = fut.poll(ctx) {
+                        return Poll::Ready(first_roll + second_roll + modifier);
                     } else {
                         return Poll::Pending;
                     }
@@ -91,25 +71,12 @@ impl Future for TwoD10 {
         }
     }
 }
-
-fn main() {
-    let mut fut = two_d10(13);
-    loop {
-        if let Poll::Ready(result) = fut.poll() {
-            println!("result: {result}");
-            break;
-        }
-    }
-}
 ```
 
 <details>
 
 This example is illustrative, and isn't an accurate representation of the Rust
-compiler's transformation. The `Future` type in this example omits `Pin` and
-`Context` for simplicity.
-
-The important things to notice here are:
+compiler's transformation. The important things to notice here are:
 
 - Calling an async function does nothing but construct and return a future.
 - All local variables are stored in the function's future, using an enum to
