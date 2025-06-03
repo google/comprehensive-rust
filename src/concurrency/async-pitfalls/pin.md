@@ -4,13 +4,10 @@ minutes: 20
 
 # `Pin`
 
-Async blocks and functions return types implementing the `Future` trait. The
-type returned is the result of a compiler transformation which turns local
-variables into data stored inside the future.
-
-Some of those variables can hold pointers to other local variables. Because of
-that, the future should never be moved to a different memory location, as it
-would invalidate those pointers.
+Recall an async function or block creates a type implementing `Future` and
+containing all of the local variables. Some of those variables can hold
+references (pointers) to other local variables. To ensure those remain valid,
+the future can never be moved to a different memory location.
 
 To prevent moving the future type in memory, it can only be polled through a
 pinned pointer. `Pin` is a wrapper around a reference that disallows all
