@@ -25,13 +25,11 @@ idmap.activate();
 
 <details>
 
-- For now it only supports EL1, but support for other exception levels should be
-  straightforward to add.
 - This is used in Android for the [Protected VM Firmware][2].
-- There's no easy way to run this example, as it needs to run on real hardware
-  or under QEMU.
+- There's no easy way to run this example by itself, as it needs to run on real
+  hardware or under QEMU.
 
 </details>
 
 [1]: https://crates.io/crates/aarch64-paging
-[2]: https://cs.android.com/android/platform/superproject/+/master:packages/modules/Virtualization/pvmfw/
+[2]: https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/Virtualization/guest/pvmfw/

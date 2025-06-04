@@ -12,72 +12,63 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+use safe_mmio::fields::{ReadPure, ReadPureWrite, WriteOnly};
+use safe_mmio::{UniqueMmioPointer, field, field_shared};
+
 // ANCHOR: solution
 #[repr(C, align(4))]
-struct Registers {
+pub struct Registers {
     /// Data register
-    dr: u32,
+    dr: ReadPure<u32>,
     /// Match register
-    mr: u32,
+    mr: ReadPureWrite<u32>,
     /// Load register
-    lr: u32,
+    lr: ReadPureWrite<u32>,
     /// Control register
-    cr: u8,
+    cr: ReadPureWrite<u8>,
     _reserved0: [u8; 3],
     /// Interrupt Mask Set or Clear register
-    imsc: u8,
+    imsc: ReadPureWrite<u8>,
     _reserved1: [u8; 3],
     /// Raw Interrupt Status
-    ris: u8,
+    ris: ReadPure<u8>,
     _reserved2: [u8; 3],
     /// Masked Interrupt Status
-    mis: u8,
+    mis: ReadPure<u8>,
     _reserved3: [u8; 3],
     /// Interrupt Clear Register
-    icr: u8,
+    icr: WriteOnly<u8>,
     _reserved4: [u8; 3],
 }
 
 /// Driver for a PL031 real-time clock.
 #[derive(Debug)]
-pub struct Rtc {
-    registers: *mut Registers,
+pub struct Rtc<'a> {
+    registers: UniqueMmioPointer<'a, Registers>,
 }
 
-impl Rtc {
-    /// Constructs a new instance of the RTC driver for a PL031 device at the
-    /// given base address.
-    ///
-    /// # Safety
-    ///
-    /// The given base address must point to the MMIO control registers of a
-    /// PL031 device, which must be mapped into the address space of the process
-    /// as device memory and not have any other aliases.
-    pub unsafe fn new(base_address: *mut u32) -> Self {
-        Self { registers: base_address as *mut Registers }
+impl<'a> Rtc<'a> {
+    /// Constructs a new instance of the RTC driver for a PL031 device with the
+    /// given set of registers.
+    pub fn new(registers: UniqueMmioPointer<'a, Registers>) -> Self {
+        Self { registers }
     }
 
     /// Reads the current RTC value.
     pub fn read(&self) -> u32 {
-        // SAFETY: We know that self.registers points to the control registers
-        // of a PL031 device which is appropriately mapped.
-        unsafe { (&raw const (*self.registers).dr).read_volatile() }
+        field_shared!(self.registers, dr).read()
     }
 
     /// Writes a match value. When the RTC value matches this then an interrupt
     /// will be generated (if it is enabled).
     pub fn set_match(&mut self, value: u32) {
-        // SAFETY: We know that self.registers points to the control registers
-        // of a PL031 device which is appropriately mapped.
-        unsafe { (&raw mut (*self.registers).mr).write_volatile(value) }
+        field!(self.registers, mr).write(value);
     }
 
     /// Returns whether the match register matches the RTC value, whether or not
     /// the interrupt is enabled.
     pub fn matched(&self) -> bool {
-        // SAFETY: We know that self.registers points to the control registers
-        // of a PL031 device which is appropriately mapped.
-        let ris = unsafe { (&raw const (*self.registers).ris).read_volatile() };
+        let ris = field_shared!(self.registers, ris).read();
         (ris & 0x01) != 0
     }
 
@@ -86,10 +77,8 @@ impl Rtc {
     /// This should be true if and only if `matched` returns true and the
     /// interrupt is masked.
     pub fn interrupt_pending(&self) -> bool {
-        // SAFETY: We know that self.registers points to the control registers
-        // of a PL031 device which is appropriately mapped.
-        let ris = unsafe { (&raw const (*self.registers).mis).read_volatile() };
-        (ris & 0x01) != 0
+        let mis = field_shared!(self.registers, mis).read();
+        (mis & 0x01) != 0
     }
 
     /// Sets or clears the interrupt mask.
@@ -98,19 +87,11 @@ impl Rtc {
     /// interrupt is disabled.
     pub fn enable_interrupt(&mut self, mask: bool) {
         let imsc = if mask { 0x01 } else { 0x00 };
-        // SAFETY: We know that self.registers points to the control registers
-        // of a PL031 device which is appropriately mapped.
-        unsafe { (&raw mut (*self.registers).imsc).write_volatile(imsc) }
+        field!(self.registers, imsc).write(imsc);
     }
 
     /// Clears a pending interrupt, if any.
     pub fn clear_interrupt(&mut self) {
-        // SAFETY: We know that self.registers points to the control registers
-        // of a PL031 device which is appropriately mapped.
-        unsafe { (&raw mut (*self.registers).icr).write_volatile(0x01) }
+        field!(self.registers, icr).write(0x01);
     }
 }
-
-// SAFETY: `Rtc` just contains a pointer to device memory, which can be
-// accessed from any context.
-unsafe impl Send for Rtc {}
