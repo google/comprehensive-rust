@@ -20,7 +20,7 @@
 //! the tools.
 
 use anyhow::{Ok, Result, anyhow};
-use clap::{Parser, ValueEnum};
+use clap::{Parser, Subcommand};
 use std::path::Path;
 use std::{env, process::Command};
 
@@ -38,11 +38,11 @@ fn main() -> Result<()> {
 )]
 struct Cli {
     /// The task to execute
-    #[arg(value_enum)]
+    #[command(subcommand)]
     task: Task,
 }
 
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
+#[derive(Subcommand)]
 enum Task {
     /// Installs the tools the project depends on.
     InstallTools,
@@ -51,9 +51,25 @@ enum Task {
     /// Tests all included Rust snippets.
     RustTests,
     /// Starts a web server with the course.
-    Serve,
-    /// Create a static version of the course in the `book/` directory.
-    Build,
+    Serve {
+        /// ISO 639 language code (e.g. da for the Danish translation).
+        #[arg(short, long)]
+        language: Option<String>,
+
+        /// Directory to place the build. If not provided, defaults to the book/ directory (or the book/xx directory if a language is provided).
+        #[arg(short, long)]
+        output: Option<String>,
+    },
+    /// Create a static version of the course.
+    Build {
+        /// ISO 639 language code (e.g. da for the Danish translation).
+        #[arg(short, long)]
+        language: Option<String>,
+
+        /// Directory to place the build. If not provided, defaults to the book/ directory (or the book/xx directory if a language is provided).
+        #[arg(short, long)]
+        output: Option<String>,
+    },
 }
 
 fn execute_task() -> Result<()> {
@@ -62,15 +78,14 @@ fn execute_task() -> Result<()> {
         Task::InstallTools => install_tools()?,
         Task::WebTests => run_web_tests()?,
         Task::RustTests => run_rust_tests()?,
-        Task::Serve => start_web_server()?,
-        Task::Build => build()?,
+        Task::Serve { language, output } => start_web_server(language, output)?,
+        Task::Build { language, output } => build(language, output)?,
     }
     Ok(())
 }
 
 fn install_tools() -> Result<()> {
     println!("Installing project tools...");
-
     let path_to_mdbook_exerciser =
         Path::new(env!("CARGO_WORKSPACE_DIR")).join("mdbook-exerciser");
     let path_to_mdbook_course =
@@ -136,7 +151,6 @@ fn run_web_tests() -> Result<()> {
 
 fn run_rust_tests() -> Result<()> {
     println!("Running rust tests...");
-
     let path_to_workspace_root = Path::new(env!("CARGO_WORKSPACE_DIR"));
 
     let status = Command::new("mdbook")
@@ -156,15 +170,29 @@ fn run_rust_tests() -> Result<()> {
     Ok(())
 }
 
-fn start_web_server() -> Result<()> {
+fn start_web_server(language: Option<String>, output: Option<String>) -> Result<()> {
     println!("Starting web server ...");
     let path_to_workspace_root = Path::new(env!("CARGO_WORKSPACE_DIR"));
 
-    let status = Command::new("mdbook")
-        .current_dir(path_to_workspace_root.to_str().unwrap())
-        .arg("serve")
-        .status()
-        .expect("Failed to execute mdbook serve");
+    let mut command = Command::new("mdbook");
+    command.current_dir(path_to_workspace_root.to_str().unwrap());
+    command.arg("serve");
+
+    if let Some(language) = &language {
+        println!("Language: {}", &language);
+        command.env("MDBOOK_BOOK__LANGUAGE", &language);
+    }
+
+    // If the 'output' arg is specified by the caller, use that, otherwise output to the 'book/' directory
+    // (or the 'book/xx' directory if a language was specified).
+    command.arg("-d");
+    if let Some(d) = output {
+        command.arg(d);
+    } else {
+        command.arg(format!("book/{}", language.unwrap_or("".to_string())));
+    }
+
+    let status = command.status().expect("Failed to execute mdbook serve");
 
     if !status.success() {
         let error_message = format!(
@@ -176,15 +204,29 @@ fn start_web_server() -> Result<()> {
     Ok(())
 }
 
-fn build() -> Result<()> {
+fn build(language: Option<String>, output: Option<String>) -> Result<()> {
     println!("Building course...");
     let path_to_workspace_root = Path::new(env!("CARGO_WORKSPACE_DIR"));
 
-    let status = Command::new("mdbook")
-        .current_dir(path_to_workspace_root.to_str().unwrap())
-        .arg("build")
-        .status()
-        .expect("Failed to execute mdbook build");
+    let mut command = Command::new("mdbook");
+    command.current_dir(path_to_workspace_root.to_str().unwrap());
+    command.arg("build");
+
+    if let Some(language) = &language {
+        println!("Language: {}", &language);
+        command.env("MDBOOK_BOOK__LANGUAGE", language);
+    }
+
+    // If the 'output' arg is specified by the caller, use that, otherwise output to the 'book/' directory
+    // (or the 'book/xx' directory if a language was specified).
+    command.arg("-d");
+    if let Some(d) = output {
+        command.arg(d);
+    } else {
+        command.arg(format!("book/{}", language.unwrap_or("".to_string())));
+    }
+
+    let status = command.status().expect("Failed to execute mdbook build");
 
     if !status.success() {
         let error_message = format!(
