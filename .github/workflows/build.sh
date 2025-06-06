@@ -15,19 +15,6 @@ set -Eeuo pipefail
 book_lang=${1:?"Usage: $0 <book-lang> <dest-dir>"}
 dest_dir=${2:?"Usage: $0 <book-lang> <dest-dir>"}
 
-# ensure source dir exists
-mkdir -p source
-# clean previous build artifacts
-SOURCE_DIR="source/${book_lang}"
-rm -rf "$SOURCE_DIR"
-mkdir "$SOURCE_DIR"
-
-# clone the current state into the source directory
-git clone . "$SOURCE_DIR"
-
-# now work from that new directory as the base directory
-cd "$SOURCE_DIR"
-
 if [ "$book_lang" = "en" ]; then
     echo "::group::Building English course"
 else
