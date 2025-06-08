@@ -45,18 +45,15 @@ struct Cli {
 #[derive(Subcommand)]
 enum Task {
     /// Installs the tools the project depends on.
-    InstallTools {},
+    InstallTools,
     /// Runs the web driver tests in the tests directory.
     WebTests {
-        /// (Re)generate the list of slides that are tested by the slide size test.
-        #[arg(short, long, group = "refresh")]
-        refresh_slide_list: bool,
-        /// Optional book html directory
-        #[arg(short, long, requires = "refresh")]
+        /// Optional 'book html' directory - if set, will also refresh the list of slides used by slide size test.
+        #[arg(short, long)]
         dir: Option<String>,
     },
     /// Tests all included Rust snippets.
-    RustTests {},
+    RustTests,
     /// Starts a web server with the course.
     Serve {},
     /// Create a static version of the course in the `book/` directory.
@@ -67,9 +64,7 @@ fn execute_task() -> Result<()> {
     let cli = Cli::parse();
     match cli.task {
         Task::InstallTools {} => install_tools()?,
-        Task::WebTests { refresh_slide_list, dir } => {
-            run_web_tests(refresh_slide_list, dir)?
-        }
+        Task::WebTests { dir } => run_web_tests(dir)?,
         Task::RustTests {} => run_rust_tests()?,
         Task::Serve {} => start_web_server()?,
         Task::Build {} => build()?,
@@ -121,23 +116,19 @@ fn install_tools() -> Result<()> {
     Ok(())
 }
 
-fn run_web_tests(refresh_slide_list: bool, dir: Option<String>) -> Result<()> {
+fn run_web_tests(dir: Option<String>) -> Result<()> {
     println!("Running web tests...");
 
     let path_to_tests_dir = Path::new(env!("CARGO_WORKSPACE_DIR")).join("tests");
     let refresh_slides_script = "./src/slides/create-slide.list.sh".to_string();
 
-    if refresh_slide_list {
+    if let Some(d) = &dir {
         println!("Refreshing slide lists...");
-        let mut command = Command::new(refresh_slides_script);
-        command.current_dir(path_to_tests_dir.to_str().unwrap());
-        // refresh_slide_list optionally takes a directory as a parameter
-        if let Some(d) = dir {
-            command.arg(d);
-        }
-
-        let status =
-            command.status().expect("Failed to execute create-slide.list.sh");
+        let status = Command::new(refresh_slides_script)
+            .current_dir(path_to_tests_dir.to_str().unwrap())
+            .arg(d)
+            .status()
+            .expect("Failed to execute create-slide.list.sh");
 
         if !status.success() {
             let error_message = format!(
@@ -148,11 +139,14 @@ fn run_web_tests(refresh_slide_list: bool, dir: Option<String>) -> Result<()> {
         }
     }
 
-    let status = Command::new("npm")
-        .current_dir(path_to_tests_dir.to_str().unwrap())
-        .arg("test")
-        .status()
-        .expect("Failed to execute npm test");
+    let mut command = Command::new("npm");
+    command.current_dir(path_to_tests_dir.to_str().unwrap());
+    command.arg("test");
+
+    if let Some(d) = dir {
+        command.env("TEST_BOOK_DIR", d);
+    }
+    let status = command.status().expect("Failed to execute npm test");
 
     if !status.success() {
         let error_message = format!(
