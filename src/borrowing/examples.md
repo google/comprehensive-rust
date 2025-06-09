@@ -44,7 +44,7 @@ fn main() {
 
 - In the second case, the aliasing rule prevents mis-compilation: In the C
   equivalent of this function, the program produces different results when
-  compiled with optimzations enabled.
+  compiled with optimizations enabled.
 
   - Show students [the C version of this on Godbolt][unoptimized]. By default,
     with no optimizations enabled it will print `x = 3`. But
