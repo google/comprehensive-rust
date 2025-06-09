@@ -20,14 +20,19 @@ fn main() {
 We can also look at a case where these rules prevent incorrect optimizations:
 
 ```rust,editable,compile_fail
-fn sum_and_zero(a: &mut i32, b: &mut i32) {
-    *a = *a + *b;
-    *b = 0;
+fn swap_and_increment(a: &mut i32, b: &mut i32) {
+    *a = *a + 1;
+
+    let tmp = *a;
+    *a = *b;
+    *b = tmp;
+
+    *b = *a + 1;
 }
 
 fn main() {
-    let mut x = 5;
-    sum_and_zero(&mut x, &mut x);
+    let mut x = 1;
+    swap_and_increment(&mut x, &mut x);
 }
 ```
 
@@ -37,16 +42,28 @@ fn main() {
   can potentially invalidate existing references to the collection's elements if
   the collection has to reallocate.
 
-- In the second case, the aliasing rule prevents mis-compilation: The output of
-  `sum_and_zero` depends on the ordering of the two operations, which means if
-  the compiler swaps the order of these operations (which it's allowed to do) it
-  changes the result.
+- In the second case, the aliasing rule prevents mis-compilation: In the C
+  equivalent of this function, the program produces different results when
+  compiled with optimzations enabled.
 
-  - The equivalent code in C exhibits undefined behavior, which may result in
-    mis-compilation and unexpected behavior, even if it doesn't cause a crash.
+  - Show students [the C version of this on Godbolt][unoptimized]. By default,
+    with no optimizations enabled it will print `x = 3`. But
+    [enabling optimizations][optimized] causes it to instead print `x = 2`.
+
+  - Note the use of the `restrict` keyword in the C example. This tells the
+    compiler that `a` and `b` cannot alias, but nothing prevents you from
+    violating that requirement. The compiler will silently produce the wrong
+    behavior.
+
+  - In the Rust version, using `&mut` automatically implies the same
+    restriction, and the compiler statically prevents violations of this
+    requirement.
 
   - Rust's aliasing rules provide strong guarantees about how references can
     alias, allowing the compiler to apply optimizations without breaking the
     semantics of your program.
 
 </details>
+
+[unoptimized]: https://godbolt.org/z/9EGh6eMxE
+[optimized]: https://godbolt.org/z/Kxsf8sahT
