@@ -60,6 +60,15 @@ jobs:
     runs-on: ubuntu-latest
     needs: create-translation
     steps:
+      - name: Update Rust
+        run: rustup update
+
+      - name: Setup Rust cache
+        uses: ./.github/workflows/setup-rust-cache
+
+      - name: Install mdbook
+        uses: ./.github/workflows/install-mdbook
+
       - name: Download all translations
         uses: actions/download-artifact@v4
         with:
