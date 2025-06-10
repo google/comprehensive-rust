@@ -84,6 +84,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: create-translation
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Update Rust
         run: rustup update
 
