@@ -24,7 +24,6 @@ use arm_pl011_uart::{PL011Registers, Uart, UniqueMmioPointer};
 use core::fmt::Write;
 use core::panic::PanicInfo;
 use core::ptr::NonNull;
-use log::error;
 use smccc::Hvc;
 use smccc::psci::system_off;
 
@@ -67,11 +66,9 @@ fn main(x0: u64, x1: u64, x2: u64, x3: u64) -> ! {
     system_off::<Hvc>().unwrap();
     panic!("system_off returned");
 }
-// ANCHOR_END: main
 
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
-    error!("{info}");
     system_off::<Hvc>().unwrap();
     loop {}
 }

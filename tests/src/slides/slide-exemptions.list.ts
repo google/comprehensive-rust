@@ -5,6 +5,7 @@ export const size_exemptions = [
   "android/interoperability/java.html",
   "android/testing.html",
   "bare-metal/aps/entry-point.html",
+  "bare-metal/aps/aarch64-rt.html",
   "exercises/bare-metal/compass.html",
   "exercises/bare-metal/solutions-afternoon.html",
   "exercises/bare-metal/rtc.html",
