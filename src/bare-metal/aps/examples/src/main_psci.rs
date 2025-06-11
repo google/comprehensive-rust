@@ -19,6 +19,7 @@
 use core::arch::asm;
 use core::panic::PanicInfo;
 
+mod asm;
 mod exceptions;
 
 const PSCI_SYSTEM_OFF: u32 = 0x84000008;
