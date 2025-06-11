@@ -13,3 +13,10 @@ writing our own.
 ```rust,editable,compile_fail
 {{#include examples/src/main_rt.rs:main}}
 ```
+
+<details>
+
+- Run the example in QEMU with `make qemu_rt` under
+  `src/bare-metal/aps/examples`.
+
+</details>
