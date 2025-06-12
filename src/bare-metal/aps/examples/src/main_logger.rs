@@ -16,6 +16,7 @@
 #![no_main]
 #![no_std]
 
+mod asm;
 mod exceptions;
 mod logger;
 mod pl011;

@@ -66,13 +66,22 @@ _Cargo.toml_ (you shouldn't need to change this):
 {{#include rtc/Cargo.toml}}
 ```
 
-_image.ld_ (you shouldn't need to change this):
+_build.rs_ (you shouldn't need to change this):
 
-<!-- File image.ld -->
+<!-- File build.rs -->
 <!-- mdbook-xgettext: skip -->
 
 ```ld
-{{#include rtc/image.ld}}
+{{#include rtc/build.rs}}
+```
+
+_memory.ld_ (you shouldn't need to change this):
+
+<!-- File memory.ld -->
+<!-- mdbook-xgettext: skip -->
+
+```ld
+{{#include rtc/memory.ld}}
 ```
 
 _Makefile_ (you shouldn't need to change this):

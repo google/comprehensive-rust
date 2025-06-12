@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// ANCHOR: main
 use arm_pl011_uart::Uart;
 use core::fmt::Write;
 use log::{LevelFilter, Log, Metadata, Record, SetLoggerError};
