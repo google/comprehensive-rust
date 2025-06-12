@@ -93,6 +93,11 @@ jobs:
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
 
+      - name: Install Gettext
+        run: |
+          sudo apt update
+          sudo apt install gettext
+
       - name: Install mdbook
         uses: ./.github/workflows/install-mdbook
 
