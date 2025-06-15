@@ -28,6 +28,118 @@ function playground_text(playground, hidden = true) {
 }
 
 (function codeSnippets() {
+
+    function styleStderrOutput(text) {
+        const ansiColorCodes = {
+            '0': null, // Reset
+            '1': 'font-weight:bold;', // Bold
+            '3': 'font-style:italic;', // Italic
+            '4': 'text-decoration:underline;', // Underline
+            '9': 'text-decoration:line-through;', // Strikethrough
+            '22': 'font-weight:normal;', // Normal weight (cancel bold)
+            '23': 'font-style:normal;', // Normal style (cancel italic)
+            '24': 'text-decoration:none;', // Cancel underline
+            '29': 'text-decoration:none;', // Cancel strikethrough
+            '30': 'color:black;',
+            '31': 'color:red;',
+            '32': 'color:green;',
+            '33': 'color:yellow;',
+            '34': 'color:blue;',
+            '35': 'color:magenta;',
+            '36': 'color:cyan;',
+            '37': 'color:white;',
+            '90': 'color:gray;',
+            '91': 'color:#ff6666;', // Light red (bright red)
+            '92': 'color:#90ee90;', // Light green (bright green)
+            '93': 'color:#f0e68c;', // Light yellow (bright yellow)
+            '94': 'color:#add8e6;', // Light blue (bright blue)
+            '95': 'color:#dda0dd;', // Light magenta (bright magenta)
+            '96': 'color:#00ffff;', // Light cyan (bright cyan)
+            '97': 'color:#ffffff;', // Bright white
+    
+            '40': 'background-color:black;',
+            '41': 'background-color:red;',
+            '42': 'background-color:green;',
+            '43': 'background-color:yellow;',
+            '44': 'background-color:blue;',
+            '45': 'background-color:magenta;',
+            '46': 'background-color:cyan;',
+            '47': 'background-color:white;',
+            '100': 'background-color:gray;', //Bright Black (Gray)
+            '101': 'background-color:#ff6666;', // Light red (bright red)
+            '102': 'background-color:#90ee90;', // Light green (bright green)
+            '103': 'background-color:#f0e68c;', // Light yellow (bright yellow)
+            '104': 'background-color:#add8e6;', // Light blue (bright blue)
+            '105': 'background-color:#dda0dd;', // Light magenta (bright magenta)
+            '106': 'background-color:#00ffff;', // Light cyan (bright cyan)
+            '107': 'background-color:#ffffff;', // Bright white
+        };
+    
+        let inSpan = false;
+        let currentStyle = "";
+    
+        const wrapped = text.split(/(\x1b\[[0-9;]*m)/g).map(part => {
+            if (part.startsWith('\x1b[')) {
+                const code = part.slice(2, -1); // Extract code without escape sequence
+    
+                if (code === '0') {
+                    // Reset all
+                    let result ="";
+                    if(inSpan){
+                      result += "</span>";
+                      inSpan = false;
+                      currentStyle = "";
+                    }
+                    return result;
+                }
+                const styles = code.split(';').map(c => ansiColorCodes[c]).filter(Boolean);
+    
+                if (styles.length > 0)
+                {
+                  let styleString = styles.join('');
+    
+                  if(inSpan){
+                    if (currentStyle != styleString){
+                      let result = "</span>";
+                      result += `<span style="${styleString}">`
+                      currentStyle = styleString;
+                      return result;
+                    }else{
+                      return ""; // styles haven't changed don't create new span
+                    }
+                  }else
+                  {
+                    inSpan = true;
+                    currentStyle = styleString;
+                    return `<span style="${styleString}">`;
+                  }
+                }
+                else{
+                  return ""; //return emtpy string if no valid styles.
+                }
+    
+            } else {
+                // HTML encode plain text to prevent XSS.
+                const escaped = part
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+    
+                return escaped;
+            }
+        });
+    
+        let joined = wrapped.join('');
+    
+        if(inSpan){
+            joined += "</span>"; // close any open spans
+        }
+    
+        return joined;
+    }
+
     function fetch_with_timeout(url, options, timeout = 15000) {
         return Promise.race([
             fetch(url, options),
@@ -208,7 +320,7 @@ function playground_text(playground, hidden = true) {
             response.stderr = response.stderr.replace(compileMsgRegex, "");
             if (response.stderr.trim() !== '') {
                 result_stderr_block.classList.remove("hidden");
-                result_stderr_block.innerText = response.stderr;
+                result_stderr_block.innerHTML = styleStderrOutput(response.stderr);
             }
         })
         .catch(error => {
