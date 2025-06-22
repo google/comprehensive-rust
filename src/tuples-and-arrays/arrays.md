@@ -27,7 +27,7 @@ fn main() {
   later.
 
 - Try accessing an out-of-bounds array element. Array accesses are checked at
-  runtime. Rust can usually optimize these checks away, and they can be avoided
+  compile time. Rust can usually optimize these checks away, and they can be avoided
   using unsafe Rust.
 
 - We can use literals to assign values to arrays.
