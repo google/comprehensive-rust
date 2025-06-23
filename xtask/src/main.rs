@@ -21,7 +21,7 @@
 
 use anyhow::{Ok, Result, anyhow};
 use clap::{Parser, Subcommand};
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::{env, process::Command};
 
 fn main() -> Result<()> {
@@ -50,24 +50,24 @@ enum Task {
     WebTests {
         /// Optional 'book html' directory - if set, will also refresh the list of slides used by slide size test.
         #[arg(short, long)]
-        dir: Option<String>,
+        dir: Option<PathBuf>,
     },
     /// Tests all included Rust snippets.
     RustTests,
     /// Starts a web server with the course.
-    Serve {},
+    Serve,
     /// Create a static version of the course in the `book/` directory.
-    Build {},
+    Build,
 }
 
 fn execute_task() -> Result<()> {
     let cli = Cli::parse();
     match cli.task {
-        Task::InstallTools {} => install_tools()?,
+        Task::InstallTools => install_tools()?,
         Task::WebTests { dir } => run_web_tests(dir)?,
-        Task::RustTests {} => run_rust_tests()?,
-        Task::Serve {} => start_web_server()?,
-        Task::Build {} => build()?,
+        Task::RustTests => run_rust_tests()?,
+        Task::Serve => start_web_server()?,
+        Task::Build => build()?,
     }
     Ok(())
 }
@@ -116,16 +116,17 @@ fn install_tools() -> Result<()> {
     Ok(())
 }
 
-fn run_web_tests(dir: Option<String>) -> Result<()> {
+fn run_web_tests(dir: Option<PathBuf>) -> Result<()> {
     println!("Running web tests...");
-
-    let path_to_tests_dir = Path::new(env!("CARGO_WORKSPACE_DIR")).join("tests");
-    let refresh_slides_script = "./src/slides/create-slide.list.sh".to_string();
 
     if let Some(d) = &dir {
         println!("Refreshing slide lists...");
-        let status = Command::new(refresh_slides_script)
-            .current_dir(path_to_tests_dir.to_str().unwrap())
+        let path_to_refresh_slides_script = Path::new("tests")
+            .join("src")
+            .join("slides")
+            .join("create-slide.list.sh");
+        let status = Command::new(path_to_refresh_slides_script)
+            .current_dir(Path::new(env!("CARGO_WORKSPACE_DIR")))
             .arg(d)
             .status()
             .expect("Failed to execute create-slide.list.sh");
@@ -139,6 +140,7 @@ fn run_web_tests(dir: Option<String>) -> Result<()> {
         }
     }
 
+    let path_to_tests_dir = Path::new(env!("CARGO_WORKSPACE_DIR")).join("tests");
     let mut command = Command::new("npm");
     command.current_dir(path_to_tests_dir.to_str().unwrap());
     command.arg("test");
