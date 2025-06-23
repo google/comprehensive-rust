@@ -21,7 +21,7 @@
 
 use anyhow::{Ok, Result, anyhow};
 use clap::{Parser, Subcommand};
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::{env, process::Command};
 
 fn main() -> Result<()> {
@@ -58,7 +58,7 @@ enum Task {
 
         /// Directory to place the build. If not provided, defaults to the book/ directory (or the book/xx directory if a language is provided).
         #[arg(short, long)]
-        output: Option<String>,
+        output: Option<PathBuf>,
     },
     /// Create a static version of the course.
     Build {
@@ -68,7 +68,7 @@ enum Task {
 
         /// Directory to place the build. If not provided, defaults to the book/ directory (or the book/xx directory if a language is provided).
         #[arg(short, long)]
-        output: Option<String>,
+        output: Option<PathBuf>,
     },
 }
 
@@ -170,7 +170,10 @@ fn run_rust_tests() -> Result<()> {
     Ok(())
 }
 
-fn start_web_server(language: Option<String>, output: Option<String>) -> Result<()> {
+fn start_web_server(
+    language: Option<String>,
+    output_arg: Option<PathBuf>,
+) -> Result<()> {
     println!("Starting web server ...");
     let path_to_workspace_root = Path::new(env!("CARGO_WORKSPACE_DIR"));
 
@@ -183,14 +186,8 @@ fn start_web_server(language: Option<String>, output: Option<String>) -> Result<
         command.env("MDBOOK_BOOK__LANGUAGE", &language);
     }
 
-    // If the 'output' arg is specified by the caller, use that, otherwise output to the 'book/' directory
-    // (or the 'book/xx' directory if a language was specified).
     command.arg("-d");
-    if let Some(d) = output {
-        command.arg(d);
-    } else {
-        command.arg(format!("book/{}", language.unwrap_or("".to_string())));
-    }
+    command.arg(get_output_dir(language, output_arg));
 
     let status = command.status().expect("Failed to execute mdbook serve");
 
@@ -204,7 +201,7 @@ fn start_web_server(language: Option<String>, output: Option<String>) -> Result<
     Ok(())
 }
 
-fn build(language: Option<String>, output: Option<String>) -> Result<()> {
+fn build(language: Option<String>, output_arg: Option<PathBuf>) -> Result<()> {
     println!("Building course...");
     let path_to_workspace_root = Path::new(env!("CARGO_WORKSPACE_DIR"));
 
@@ -217,14 +214,8 @@ fn build(language: Option<String>, output: Option<String>) -> Result<()> {
         command.env("MDBOOK_BOOK__LANGUAGE", language);
     }
 
-    // If the 'output' arg is specified by the caller, use that, otherwise output to the 'book/' directory
-    // (or the 'book/xx' directory if a language was specified).
     command.arg("-d");
-    if let Some(d) = output {
-        command.arg(d);
-    } else {
-        command.arg(format!("book/{}", language.unwrap_or("".to_string())));
-    }
+    command.arg(get_output_dir(language, output_arg));
 
     let status = command.status().expect("Failed to execute mdbook build");
 
@@ -236,4 +227,14 @@ fn build(language: Option<String>, output: Option<String>) -> Result<()> {
         return Err(anyhow!(error_message));
     }
     Ok(())
+}
+
+fn get_output_dir(language: Option<String>, output_arg: Option<PathBuf>) -> PathBuf {
+    // If the 'output' arg is specified by the caller, use that, otherwise output to the 'book/' directory
+    // (or the 'book/xx' directory if a language was specified).
+    if let Some(d) = output_arg {
+        d
+    } else {
+        Path::new("book").join(language.unwrap_or("".to_string()))
+    }
 }
