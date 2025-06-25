@@ -26,9 +26,34 @@ fn main() {
   different types. Slices, which have a size determined at runtime, are covered
   later.
 
-- Try accessing an out-of-bounds array element. Array accesses are checked at
-  runtime. Rust can usually optimize these checks away, and they can be avoided
-  using unsafe Rust.
+- Try accessing an out-of-bounds array element. The compiler is able to
+  determine that the index is unsafe, and will not compile the code:
+
+```rust,editable,compile_fail
+fn main() {
+    let mut a: [i8; 5] = [5, 4, 3, 2, 1];
+    a[6] = 0;
+    println!("a: {a:?}");
+}
+```
+
+- Array accesses are checked at runtime. Rust can usually optimize these checks
+  away; meaning if the compiler can prove the access is safe, it removes the
+  runtime check for better performance. They can be avoided using unsafe Rust.
+  The optimization is so good that it's hard to give an example of runtime
+  checks failing. The following code will compile but panic at runtime:
+
+```rust,editable,should_panic
+fn get_index() -> usize {
+    6
+}
+
+fn main() {
+    let mut a: [i8; 5] = [5, 4, 3, 2, 1];
+    a[get_index()] = 0;
+    println!("a: {a:?}");
+}
+```
 
 - We can use literals to assign values to arrays.
 
