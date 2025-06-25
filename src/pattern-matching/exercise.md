@@ -46,7 +46,7 @@ evaluate to `85`. We represent this as a much bigger tree:
 
 In code, we will represent the tree with two types:
 
-```rust
+```rust,editable
 {{#include exercise.rs:Operation}}
 
 {{#include exercise.rs:Expression}}
