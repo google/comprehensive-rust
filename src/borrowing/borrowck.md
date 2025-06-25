@@ -29,11 +29,11 @@ rule. For a given value, at any time:
 
 ```rust,editable,compile_fail
 fn main() {
-    let mut a: i32 = 10;
-    let b: &i32 = &a;
+    let mut a = 10;
+    let b = &a;
 
     {
-        let c: &mut i32 = &mut a;
+        let c = &mut a;
         *c = 20;
     }
 
