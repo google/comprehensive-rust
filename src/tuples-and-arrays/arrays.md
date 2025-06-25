@@ -30,6 +30,19 @@ fn main() {
   compile time. Rust can usually optimize these checks away, and they can be
   avoided using unsafe Rust.
 
+```rust,editable
+fn get_index() -> usize {
+    10
+}
+
+fn main() {
+    let mut a: [i8; 5] = [5, 4, 3, 2, 1];
+    a[2] = 0;
+    a[get_index()];
+    println!("a: {a:?}");
+}
+```
+
 - We can use literals to assign values to arrays.
 
 - The `println!` macro asks for the debug implementation with the `?` format
