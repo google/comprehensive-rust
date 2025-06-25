@@ -26,7 +26,8 @@ fn main() {
   different types. Slices, which have a size determined at runtime, are covered
   later.
 
-- Try accessing an out-of-bounds array element. The compiler is able to determine that the index is unsafe, and will not compile the code:
+- Try accessing an out-of-bounds array element. The compiler is able to
+  determine that the index is unsafe, and will not compile the code:
 
 ```rust,editable,compile_fail
 fn main() {
@@ -35,7 +36,12 @@ fn main() {
     println!("a: {a:?}");
 }
 ```
-* Array accesses are checked at runtime. Rust can usually optimize these checks away; meaning if the compiler can prove the access is safe, it removes the runtime check for better performance. They can be avoided using unsafe Rust. The optimization is so good that it's hard to give an example of runtime checks failing. The following code will compile but panic at runtime:
+
+- Array accesses are checked at runtime. Rust can usually optimize these checks
+  away; meaning if the compiler can prove the access is safe, it removes the
+  runtime check for better performance. They can be avoided using unsafe Rust.
+  The optimization is so good that it's hard to give an example of runtime
+  checks failing. The following code will compile but panic at runtime:
 
 ```rust,editable,should_panic
 fn get_index() -> usize {
