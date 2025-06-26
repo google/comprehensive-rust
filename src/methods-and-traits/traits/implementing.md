@@ -22,6 +22,7 @@ impl Pet for Dog {
 
 fn main() {
     let fido = Dog { name: String::from("Fido"), age: 5 };
+    dbg!(fido.talk());
     fido.greet();
 }
 ```
