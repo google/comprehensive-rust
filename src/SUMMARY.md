@@ -118,6 +118,12 @@
   - [`HashMap`](std-types/hashmap.md)
   - [Exercise: Counter](std-types/exercise.md)
     - [Solution](std-types/solution.md)
+- [Closures](closures.md)
+  - [Closure Syntax](closures/syntax.md)
+  - [Capturing](closures/capturing.md)
+  - [Closure Traits](closures/traits.md)
+  - [Exercise: Log Filter](closures/exercise.md)
+    - [Solution](closures/solution.md)
 - [Standard Library Traits](std-traits.md)
   - [Comparisons](std-traits/comparisons.md)
   - [Operators](std-traits/operators.md)
@@ -127,12 +133,6 @@
   - [`Default`, struct update syntax](std-traits/default.md)
   - [Exercise: ROT13](std-traits/exercise.md)
     - [Solution](std-traits/solution.md)
-- [Closures](closures.md)
-  - [Closure Syntax](closures/syntax.md)
-  - [Capturing](closures/capturing.md)
-  - [Closure Traits](closures/traits.md)
-  - [Exercise: Log Filter](closures/exercise.md)
-    - [Solution](closures/solution.md)
 
 ---
 
