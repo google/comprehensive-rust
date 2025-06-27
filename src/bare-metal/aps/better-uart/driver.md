@@ -3,22 +3,15 @@
 Now let's use the new `Registers` struct in our driver.
 
 ```rust,editable,compile_fail
-{{#include ../examples/src/pl011.rs:Uart}}
+{{#include ../examples/src/pl011_struct.rs:Uart}}
 ```
 
 <details>
 
-- `UniqueMmioPointer` is a wrapper around a raw pointer to an MMIO device or
-  register. The caller of `UniqueMmioPointer::new` promises that it is valid and
-  unique for the given lifetime, so it can provide safe methods to read and
-  write fields.
-- Note that `Uart::new` is now safe; `UniqueMmioPointer::new` is unsafe instead.
-- These MMIO accesses are generally a wrapper around `read_volatile` and
-  `write_volatile`, though on aarch64 they are instead implemented in assembly
-  to work around a bug where the compiler can emit instructions that prevent
-  MMIO virtualisation.
-- The `field!` and `field_shared!` macros internally use `&raw mut` and
-  `&raw const` to get pointers to individual fields without creating an
-  intermediate reference, which would be unsound.
+- Note the use of `&raw const` / `&raw mut` to get pointers to individual fields
+  without creating an intermediate reference, which would be unsound.
+- The example isn't included in the slides because it is very similar to the
+  `safe-mmio` example which comes next. You can run it in QEMU with `make qemu`
+  under `src/bare-metal/aps/examples` if you need to.
 
 </details>
