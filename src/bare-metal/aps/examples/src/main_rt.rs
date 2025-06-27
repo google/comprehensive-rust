@@ -68,7 +68,7 @@ fn main(x0: u64, x1: u64, x2: u64, x3: u64) -> ! {
 }
 
 #[panic_handler]
-fn panic(info: &PanicInfo) -> ! {
+fn panic(_info: &PanicInfo) -> ! {
     system_off::<Hvc>().unwrap();
     loop {}
 }
