@@ -22,12 +22,10 @@ auto-completion and jump-to-definition functionality for [VS Code], [Emacs],
 
 <details>
 
-- On Debian/Ubuntu, you can also install Cargo, the Rust source and the
-  [Rust formatter] via `apt`. However, this gets you an outdated Rust version
-  and may lead to unexpected behavior. The command would be:
+- On Debian/Ubuntu, you can install `rustup` via `apt`:
 
   ```shell
-  sudo apt install cargo rust-src rustfmt
+  sudo apt install rustup
   ```
 
 - On macOS, you can use [Homebrew](https://brew.sh/) to install Rust, but this
