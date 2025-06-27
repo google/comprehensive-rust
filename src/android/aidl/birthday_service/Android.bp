@@ -1,11 +1,10 @@
 // ANCHOR: libbirthdayservice
 rust_library {
     name: "libbirthdayservice",
-    srcs: ["src/lib.rs"],
     crate_name: "birthdayservice",
+    srcs: ["src/lib.rs"],
     rustlibs: [
         "com.example.birthdayservice-rust",
-        "libbinder_rs",
     ],
 }
 // ANCHOR_END: libbirthdayservice
@@ -17,7 +16,6 @@ rust_binary {
     srcs: ["src/server.rs"],
     rustlibs: [
         "com.example.birthdayservice-rust",
-        "libbinder_rs",
         "libbirthdayservice",
     ],
     prefer_rlib: true, // To avoid dynamic link error.
@@ -31,7 +29,6 @@ rust_binary {
     srcs: ["src/client.rs"],
     rustlibs: [
         "com.example.birthdayservice-rust",
-        "libbinder_rs",
     ],
     prefer_rlib: true, // To avoid dynamic link error.
 }
