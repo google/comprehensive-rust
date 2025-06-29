@@ -25,6 +25,6 @@ fn main() {
     // remains valid. `print_card` doesn't store either pointer to use later
     // after it returns.
     unsafe {
-        print_card(&card as *const card);
+        print_card(&card);
     }
 }
