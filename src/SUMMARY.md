@@ -429,6 +429,14 @@
 
 ---
 
+# Idiomatic Rust
+
+- [Welcome](idiomatic/welcome.md)
+- [Leveraging the Type System](idiomatic/leveraging-the-type-system.md)
+  - [Newtype Pattern](idiomatic/leveraging-the-type-system/newtype-pattern.md)
+
+---
+
 # Final Words
 
 - [Thanks!](thanks.md)
