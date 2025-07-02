@@ -434,6 +434,7 @@
 - [Welcome](idiomatic/welcome.md)
 - [Leveraging the Type System](idiomatic/leveraging-the-type-system.md)
   - [Newtype Pattern](idiomatic/leveraging-the-type-system/newtype-pattern.md)
+    - [Semantic Confusion](idiomatic/leveraging-the-type-system/newtype-pattern/semantic-confusion.md)
 
 ---
 
