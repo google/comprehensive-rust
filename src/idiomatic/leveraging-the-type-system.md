@@ -4,15 +4,15 @@ minutes: 5
 
 # Leveraging the Type System
 
-Rust's type system is _expressive_.\
-We can use types and traits to build abstractions that make our code harder to
-misuse. In some cases, we can even go as far as enforcing correctness at
-_compile-time_. Quite often, these abstractions have no runtime
-overhead[^zero-cost].
+Rust's type system is _expressive_: you can use types and traits to build
+abstractions that make your code harder to misuse.
 
-The type system can also be used to model concepts and constraints from your
-business domain. By designing our types carefully, we can improve the clarity
-and maintainability of the entire codebase.
+In some cases, you can go as far as enforcing correctness at _compile-time_,
+with no runtime overhead.
+
+Types and traits can model concepts and constraints from your business domain.
+With careful design, you can improve the clarity and maintainability of the
+entire codebase.
 
 <details>
 
@@ -36,12 +36,12 @@ Additional items speaker may mention:
   doesn't support inheritance, and object boundaries must be mindful of the
   constraints introduced by the borrow-checker.
 
+- Mention that type-level abstractions are often referred to as "zero-cost
+  abstractions", although the label can be misleading: the impact on compile
+  times and code complexity may be significant.
+
 </details>
 
 {{%segment outline}}
 
 [1]: https://pragprog.com/titles/swdddf/domain-modeling-made-functional/
-
-[^zero-cost]: They often referred to as "zero-cost abstractions", although the
-    label can be misleading: the impact on compile times and code complexity may
-    be significant.
