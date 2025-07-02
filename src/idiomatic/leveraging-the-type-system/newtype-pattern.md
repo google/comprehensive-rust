@@ -34,6 +34,10 @@ assert_ne!(UserId(1), UserId(2));
 
 <details>
 
+- Students should have encountered the newtype pattern in the "Fundamentals"
+  course, when they learned about
+  [tuple structs](../../user-defined-types/tuple-structs.md).
+
 - Run the example to show students the error message from the compiler.
 
 - Modify the example to use a typealias instead of a newtype, such as
