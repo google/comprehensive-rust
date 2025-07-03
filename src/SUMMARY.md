@@ -427,6 +427,15 @@
   - [Broadcast Chat Application](concurrency/async-exercises/chat-app.md)
   - [Solutions](concurrency/async-exercises/solutions.md)
 
+# Writing Unsafe 
+
+- [Welcome](unsafe-deep-dive/welcome.md)
+- [Setup](unsafe-deep-dive/setup.md)
+- [Foundations](unsafe-deep-dive/foundations/welcome.md)
+  - [What is unsafe?](unsafe-deep-dive/foundations/what-is-unsafe.md)
+  - [When is unsafe used?](unsafe-deep-dive/foundations/when-is-unsafe-used.md)
+  - [Data structures are safe](unsafe-deep-dive/foundations/data-structures-are-safe.md)
+
 ---
 
 # Final Words
