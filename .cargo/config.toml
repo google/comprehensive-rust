@@ -1,7 +1,12 @@
 [alias]
-# We use this alias for task automation in the project.
-# See README in xtask directory.
+# WARNING: Using the `xtask` alias is deprecated and will be unsupported in a
+# future version of Cargo. See https://github.com/rust-lang/cargo/issues/10049.
 xtask = "run --package xtask --"
+install-tools = "run --package xtask -- install-tools"
+web-tests = "run --package xtask -- web-tests"
+rust-tests = "run --package xtask -- rust-tests"
+serve = "run --package xtask -- serve"
+build-book = "run --package xtask -- build"
 
 [env]
 # To provide an anchor to the root of the workspace when working with paths.
