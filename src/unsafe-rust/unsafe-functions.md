@@ -7,10 +7,10 @@ minutes: 15
 A function or method can be marked `unsafe` if it has extra preconditions you
 must uphold to avoid undefined behaviour.
 
-There are two main categories:
+Unsafe functions may come from two places:
 
-- Rust functions declared unsafe with `unsafe fn`.
-- Foreign functions in `extern "C"` blocks.
+- Rust functions declared unsafe.
+- Unsafe foreign functions in `extern "C"` blocks.
 
 <details>
 
