@@ -1,10 +1,27 @@
 # What is &ldquo;unsafety&rdquo;?
 
-The Rust reference is intentionally vague about what "unsafe" is.
+Rust is intentionally vague about what "unsafe" means.
 
 Let's create a working definition together.
 
 <details>
+
+## Clarifying "intentionally vague"
+
+It's likely that you'll have an audience member object to the phrase
+"intentionally vague". Perhaps refer to this statement from the standard library
+when discussing the [safety requirements of raw pointers].
+
+> Many functions in [this module] take raw pointers as arguments and read from
+> or write to them. For this to be safe, these pointers must be _valid_ for the
+> given access.
+>
+> ...
+>
+> The precise rules for validity are not determined yet.
+
+[this module]: https://doc.rust-lang.org/std/ptr/index.html
+[safety requirements of raw pointers]: https://doc.rust-lang.org/std/ptr/index.html#safety
 
 ## Definitions from authoritative docs:
 

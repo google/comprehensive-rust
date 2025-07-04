@@ -36,4 +36,4 @@ The `unsafe` keyword has treatment
   among other things.
 
 [interoperate with C++]: ../chromium/interoperability-with-cpp.md
-[Unsafe Rust]: /unsafe-rust.html
+[Unsafe Rust]: ../unsafe-rust.html

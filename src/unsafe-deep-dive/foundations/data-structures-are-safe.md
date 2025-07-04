@@ -1,4 +1,4 @@
-# Data structures are safe
+# Data structures are safe ...
 
 Data structures are inert. They cannot do any harm by themselves.
 
@@ -12,6 +12,10 @@ fn main() {
 }
 ```
 
-However, using them in an unsafe way.
+<details>
 
-Consider a raw pointer to an integer, i.e. `*const i64`.
+Consider a raw pointer to an integer, i.e. the value `safe` is the raw pointer
+type `*const i64`. Raw pointers can be out-of-bounds, misaligned, or refer to
+null. But the unsafe keyword is not required when creating them.
+
+</details>

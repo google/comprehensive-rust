@@ -427,14 +427,22 @@
   - [Broadcast Chat Application](concurrency/async-exercises/chat-app.md)
   - [Solutions](concurrency/async-exercises/solutions.md)
 
-# Writing Unsafe
+---
+
+# Unsafe
 
 - [Welcome](unsafe-deep-dive/welcome.md)
 - [Setup](unsafe-deep-dive/setup.md)
-- [Foundations](unsafe-deep-dive/foundations/welcome.md)
+- [Motivations](unsafe-deep-dive/motivations.md)
+  - [Interop](unsafe-deep-dive/motivations/interop.md)
+  - [Data Structures](unsafe-deep-dive/motivations/data-structures.md)
+  - [Performance](unsafe-deep-dive/motivations/perfomance.md)
+- [Foundations](unsafe-deep-dive/foundations.md)
   - [What is unsafe?](unsafe-deep-dive/foundations/what-is-unsafe.md)
   - [When is unsafe used?](unsafe-deep-dive/foundations/when-is-unsafe-used.md)
   - [Data structures are safe](unsafe-deep-dive/foundations/data-structures-are-safe.md)
+  - [Actions might not be](unsafe-deep-dive/foundations/actions-might-not-be.md)
+  - [Less powerful than it seems](unsafe-deep-dive/foundations/less-powerful.md)
 
 ---
 
