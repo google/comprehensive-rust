@@ -19,7 +19,7 @@ use futures_util::stream::StreamExt;
 use std::error::Error;
 use std::net::SocketAddr;
 use tokio::net::{TcpListener, TcpStream};
-use tokio::sync::broadcast::{channel, Sender};
+use tokio::sync::broadcast::{Sender, channel};
 use tokio_websockets::{Message, ServerBuilder, WebSocketStream};
 // ANCHOR_END: setup
 
@@ -74,7 +74,7 @@ async fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
         let bcast_tx = bcast_tx.clone();
         tokio::spawn(async move {
             // Wrap the raw TCP stream into a websocket.
-            let ws_stream = ServerBuilder::new().accept(socket).await?;
+            let (_req, ws_stream) = ServerBuilder::new().accept(socket).await?;
 
             handle_connection(addr, ws_stream, bcast_tx).await
         });

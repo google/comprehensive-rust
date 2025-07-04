@@ -1,12 +1,11 @@
 [book]
 authors = ["Martin Geisler"]
 language = "en"
-multilingual = false
 src = "src"
 title = "Comprehensive Rust 🦀"
 
 [rust]
-edition = "2021"
+edition = "2024"
 
 [build]
 extra-watch-dirs = ["po", "third_party"]
@@ -40,11 +39,18 @@ pdf-engine = "lualatex"
 mainfont = "Noto Serif"
 sansfont = "Noto Sans"
 monofont = "Noto Sans Mono"
-mainfontfallback = ["NotoColorEmoji:mode=harf"]
+mainfontfallback = [
+  "NotoColorEmoji:mode=harf",
+  "NotoNaskhArabic:",
+]
+sansfontfallback = [
+  "NotoSansArabic:",
+]
 monofontfallback = [
   "NotoColorEmoji:mode=harf",
   "NotoSansMath:",
   "NotoSansMonoCJKSC:",
+  "NotoSansArabic:",
 ]
 geometry = ["margin=1.25in"]
 linkcolor = "blue"
@@ -286,6 +292,15 @@ use-boolean-and = true
 output-directory = "comprehensive-rust-exercises"
 
 [output.linkcheck]
+optional = true
+follow-web-links = false # change to true to check web links
+exclude = [
+  "comprehensive-rust.pdf",
+  "comprehensive-rust-exercises.zip",
+  # "crates.io", # uncomment when follow-web-links is true
+]
+
+[output.linkcheck2]
 optional = true
 follow-web-links = false # change to true to check web links
 exclude = [

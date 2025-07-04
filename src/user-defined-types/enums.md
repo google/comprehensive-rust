@@ -22,7 +22,8 @@ enum PlayerMove {
 }
 
 fn main() {
-    let player_move: PlayerMove = PlayerMove::Run(Direction::Left);
+    let dir = Direction::Left;
+    let player_move: PlayerMove = PlayerMove::Run(dir);
     println!("On this turn: {player_move:?}");
 }
 ```

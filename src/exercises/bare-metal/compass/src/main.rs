@@ -22,17 +22,16 @@ extern crate panic_halt as _;
 use core::fmt::Write;
 use cortex_m_rt::entry;
 // ANCHOR_END: top
-use core::cmp::{max, min};
 use embedded_hal::digital::InputPin;
 use lsm303agr::{
     AccelMode, AccelOutputDataRate, Lsm303agr, MagMode, MagOutputDataRate,
 };
+use microbit::Board;
 use microbit::display::blocking::Display;
 use microbit::hal::twim::Twim;
 use microbit::hal::uarte::{Baudrate, Parity, Uarte};
 use microbit::hal::{Delay, Timer};
 use microbit::pac::twim0::frequency::FREQUENCY_A;
-use microbit::Board;
 
 const COMPASS_SCALE: i32 = 30000;
 const ACCELEROMETER_SCALE: i32 = 700;
@@ -163,9 +162,6 @@ impl Mode {
 fn scale(value: i32, min_in: i32, max_in: i32, min_out: i32, max_out: i32) -> i32 {
     let range_in = max_in - min_in;
     let range_out = max_out - min_out;
-    cap(min_out + range_out * (value - min_in) / range_in, min_out, max_out)
-}
-
-fn cap(value: i32, min_value: i32, max_value: i32) -> i32 {
-    max(min_value, min(value, max_value))
+    let scaled = min_out + range_out * (value - min_in) / range_in;
+    scaled.clamp(min_out, max_out)
 }

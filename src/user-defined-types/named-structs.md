@@ -6,6 +6,8 @@ minutes: 10
 
 Like C and C++, Rust has support for custom structs:
 
+<!-- dprint-ignore-start -->
+
 ```rust,editable
 struct Person {
     name: String,
@@ -17,7 +19,10 @@ fn describe(person: &Person) {
 }
 
 fn main() {
-    let mut peter = Person { name: String::from("Peter"), age: 27 };
+    let mut peter = Person {
+        name: String::from("Peter"),
+        age: 27,
+    };
     describe(&peter);
 
     peter.age = 28;
@@ -27,11 +32,10 @@ fn main() {
     let age = 39;
     let avery = Person { name, age };
     describe(&avery);
-
-    let jackie = Person { name: String::from("Jackie"), ..avery };
-    describe(&jackie);
 }
 ```
+
+<!-- dprint-ignore-end -->
 
 <details>
 
@@ -49,8 +53,22 @@ Key Points:
     not important.
 - If you already have variables with the right names, then you can create the
   struct using a shorthand.
-- The syntax `..avery` allows us to copy the majority of the fields from the old
-  struct without having to explicitly type it all out. It must always be the
-  last element.
+- Struct fields do not support default values. Default values are specified by
+  implementing the `Default` trait which we will cover later.
+
+## More to Explore
+
+- You can also demonstrate the struct update syntax here:
+
+  ```rust,ignore
+  let jackie = Person { name: String::from("Jackie"), ..avery };
+  ```
+
+- It allows us to copy the majority of the fields from the old struct without
+  having to explicitly type it all out. It must always be the last element.
+
+- It is mainly used in combination with the `Default` trait. We will talk about
+  struct update syntax in more detail on the slide on the `Default` trait, so we
+  don't need to talk about it here unless students ask about it.
 
 </details>

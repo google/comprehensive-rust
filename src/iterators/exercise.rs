@@ -22,8 +22,8 @@
 /// Element `n` of the result is `values[(n+offset)%len] - values[n]`.
 fn offset_differences(offset: usize, values: Vec<i32>) -> Vec<i32> {
     // ANCHOR_END: offset_differences
-    let a = (&values).into_iter();
-    let b = (&values).into_iter().cycle().skip(offset);
+    let a = values.iter();
+    let b = values.iter().cycle().skip(offset);
     a.zip(b).map(|(a, b)| *b - *a).collect()
 }
 
@@ -51,5 +51,3 @@ fn test_degenerate_cases() {
     assert_eq!(offset_differences(1, empty), vec![]);
 }
 // ANCHOR_END: unit-tests
-
-fn main() {}

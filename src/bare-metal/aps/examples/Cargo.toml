@@ -3,17 +3,19 @@
 [package]
 name = "ap-examples"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 publish = false
 
 [dependencies]
-bitflags = "2.6.0"
-log = "0.4.22"
-smccc = "0.1.1"
-spin = "0.9.8"
-
-[build-dependencies]
-cc = "1.2.2"
+aarch64-paging = { version = "0.9.1", default-features = false }
+aarch64-rt = "0.2.2"
+arm-pl011-uart = "0.3.1"
+bitflags = "2.9.1"
+log = "0.4.27"
+safe-mmio = "0.2.5"
+smccc = "0.2.0"
+spin = "0.10.0"
+zerocopy = "0.8.26"
 
 [[bin]]
 name = "improved"
@@ -30,3 +32,11 @@ path = "src/main_minimal.rs"
 [[bin]]
 name = "psci"
 path = "src/main_psci.rs"
+
+[[bin]]
+name = "rt"
+path = "src/main_rt.rs"
+
+[[bin]]
+name = "safemmio"
+path = "src/main_safemmio.rs"

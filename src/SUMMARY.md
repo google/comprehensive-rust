@@ -29,14 +29,14 @@
   - [Exercise: Fibonacci](types-and-values/exercise.md)
     - [Solution](types-and-values/solution.md)
 - [Control Flow Basics](control-flow-basics.md)
+  - [Blocks and Scopes](control-flow-basics/blocks-and-scopes.md)
   - [`if` Expressions](control-flow-basics/if.md)
+  - [`match` Expressions](control-flow-basics/match.md)
   - [Loops](control-flow-basics/loops.md)
     - [`for`](control-flow-basics/loops/for.md)
     - [`loop`](control-flow-basics/loops/loop.md)
   - [`break` and `continue`](control-flow-basics/break-continue.md)
     - [Labels](control-flow-basics/break-continue/labels.md)
-  - [Blocks and Scopes](control-flow-basics/blocks-and-scopes.md)
-    - [Scopes and Shadowing](control-flow-basics/blocks-and-scopes/scopes.md)
   - [Functions](control-flow-basics/functions.md)
   - [Macros](control-flow-basics/macros.md)
   - [Exercise: Collatz Sequence](control-flow-basics/exercise.md)
@@ -57,15 +57,16 @@
   - [Exclusive References](references/exclusive.md)
   - [Slices](references/slices.md)
   - [Strings](references/strings.md)
+  - [Reference Validity](references/dangling.md)
   - [Exercise: Geometry](references/exercise.md)
     - [Solution](references/solution.md)
 - [User-Defined Types](user-defined-types.md)
   - [Named Structs](user-defined-types/named-structs.md)
   - [Tuple Structs](user-defined-types/tuple-structs.md)
   - [Enums](user-defined-types/enums.md)
+  - [Type Aliases](user-defined-types/aliases.md)
   - [Const](user-defined-types/const.md)
   - [Static](user-defined-types/static.md)
-  - [Type Aliases](user-defined-types/aliases.md)
   - [Exercise: Elevator Events](user-defined-types/exercise.md)
     - [Solution](user-defined-types/solution.md)
 
@@ -75,10 +76,14 @@
 
 - [Welcome](welcome-day-2.md)
 - [Pattern Matching](pattern-matching.md)
+  - [Irrefutable Patterns](pattern-matching/infallible.md)
   - [Matching Values](pattern-matching/match.md)
   - [Destructuring Structs](pattern-matching/destructuring-structs.md)
   - [Destructuring Enums](pattern-matching/destructuring-enums.md)
   - [Let Control Flow](pattern-matching/let-control-flow.md)
+    - [`if let` Expressions](pattern-matching/let-control-flow/if-let.md)
+    - [`while let` Statements](pattern-matching/let-control-flow/while-let.md)
+    - [`let else`](pattern-matching/let-control-flow/let-else.md)
   - [Exercise: Expression Evaluation](pattern-matching/exercise.md)
     - [Solution](pattern-matching/solution.md)
 - [Methods and Traits](methods-and-traits.md)
@@ -90,19 +95,19 @@
   - [Deriving](methods-and-traits/deriving.md)
   - [Exercise: Generic Logger](methods-and-traits/exercise.md)
     - [Solution](methods-and-traits/solution.md)
-
-# Day 2: Afternoon
-
-- [Welcome](welcome-day-2-afternoon.md)
 - [Generics](generics.md)
   - [Generic Functions](generics/generic-functions.md)
+  - [Trait Bounds](generics/trait-bounds.md)
   - [Generic Data Types](generics/generic-data.md)
   - [Generic Traits](generics/generic-traits.md)
-  - [Trait Bounds](generics/trait-bounds.md)
   - [`impl Trait`](generics/impl-trait.md)
   - [`dyn Trait`](generics/dyn-trait.md)
   - [Exercise: Generic `min`](generics/exercise.md)
     - [Solution](generics/solution.md)
+
+# Day 2: Afternoon
+
+- [Welcome](welcome-day-2-afternoon.md)
 - [Standard Library Types](std-types.md)
   - [Standard Library](std-types/std.md)
   - [Documentation](std-types/docs.md)
@@ -113,6 +118,12 @@
   - [`HashMap`](std-types/hashmap.md)
   - [Exercise: Counter](std-types/exercise.md)
     - [Solution](std-types/solution.md)
+- [Closures](closures.md)
+  - [Closure Syntax](closures/syntax.md)
+  - [Capturing](closures/capturing.md)
+  - [Closure Traits](closures/traits.md)
+  - [Exercise: Log Filter](closures/exercise.md)
+    - [Solution](closures/solution.md)
 - [Standard Library Traits](std-traits.md)
   - [Comparisons](std-traits/comparisons.md)
   - [Operators](std-traits/operators.md)
@@ -120,7 +131,6 @@
   - [Casting](std-traits/casting.md)
   - [`Read` and `Write`](std-traits/read-and-write.md)
   - [`Default`, struct update syntax](std-traits/default.md)
-  - [Closures](std-traits/closures.md)
   - [Exercise: ROT13](std-traits/exercise.md)
     - [Solution](std-traits/solution.md)
 
@@ -154,12 +164,14 @@
   - [Borrow Checking](borrowing/borrowck.md)
   - [Borrow Errors](borrowing/examples.md)
   - [Interior Mutability](borrowing/interior-mutability.md)
+    - [`Cell`](borrowing/interior-mutability/cell.md)
+    - [`RefCell`](borrowing/interior-mutability/refcell.md)
   - [Exercise: Health Statistics](borrowing/exercise.md)
     - [Solution](borrowing/solution.md)
 - [Lifetimes](lifetimes.md)
   - [Lifetime Annotations](lifetimes/lifetime-annotations.md)
   - [Lifetime Elision](lifetimes/lifetime-elision.md)
-  - [Struct Lifetimes](lifetimes/struct-lifetimes.md)
+  - [Lifetimes in Data Structures](lifetimes/struct-lifetimes.md)
   - [Exercise: Protobuf Parsing](lifetimes/exercise.md)
     - [Solution](lifetimes/solution.md)
 
@@ -169,20 +181,23 @@
 
 - [Welcome](welcome-day-4.md)
 - [Iterators](iterators.md)
-  - [`Iterator`](iterators/iterator.md)
+  - [Motivation](iterators/motivation.md)
+  - [`Iterator` Trait](iterators/iterator.md)
+  - [`Iterator` Helper Methods](iterators/helpers.md)
+  - [`collect`](iterators/collect.md)
   - [`IntoIterator`](iterators/intoiterator.md)
-  - [`FromIterator`](iterators/fromiterator.md)
   - [Exercise: Iterator Method Chaining](iterators/exercise.md)
     - [Solution](iterators/solution.md)
 - [Modules](modules.md)
   - [Modules](modules/modules.md)
   - [Filesystem Hierarchy](modules/filesystem.md)
   - [Visibility](modules/visibility.md)
+  - [Encapsulation](modules/encapsulation.md)
   - [`use`, `super`, `self`](modules/paths.md)
   - [Exercise: Modules for a GUI Library](modules/exercise.md)
     - [Solution](modules/solution.md)
 - [Testing](testing.md)
-  - [Test Modules](testing/unit-tests.md)
+  - [Unit Tests](testing/unit-tests.md)
   - [Other Types of Tests](testing/other.md)
   - [Compiler Lints and Clippy](testing/lints.md)
   - [Exercise: Luhn Algorithm](testing/exercise.md)
@@ -207,13 +222,16 @@
   - [Mutable Static Variables](unsafe-rust/mutable-static.md)
   - [Unions](unsafe-rust/unions.md)
   - [Unsafe Functions](unsafe-rust/unsafe-functions.md)
+    - [Unsafe Rust Functions](unsafe-rust/unsafe-functions/rust.md)
+    - [Unsafe External Functions](unsafe-rust/unsafe-functions/extern-c.md)
+    - [Calling Unsafe Functions](unsafe-rust/unsafe-functions/calling.md)
   - [Unsafe Traits](unsafe-rust/unsafe-traits.md)
   - [Exercise: FFI Wrapper](unsafe-rust/exercise.md)
     - [Solution](unsafe-rust/solution.md)
 
-# Android
-
 ---
+
+# Android
 
 - [Welcome](android.md)
 - [Setup](android/setup.md)
@@ -242,7 +260,10 @@
 - [Logging](android/logging.md)
 - [Interoperability](android/interoperability.md)
   - [With C](android/interoperability/with-c.md)
-    - [Calling C with Bindgen](android/interoperability/with-c/bindgen.md)
+    - [A Simple C Library](android/interoperability/with-c/c-library.md)
+    - [Bindgen](android/interoperability/with-c/bindgen.md)
+    - [Running Our Binary](android/interoperability/with-c/run-our-binary.md)
+    - [A Simple Rust Library](android/interoperability/with-c/rust-library.md)
     - [Calling Rust from C](android/interoperability/with-c/rust.md)
   - [With C++](android/interoperability/cpp.md)
     - [The Bridge Module](android/interoperability/cpp/bridge.md)
@@ -254,14 +275,14 @@
     - [Rust Error Handling](android/interoperability/cpp/rust-result.md)
     - [C++ Error Handling](android/interoperability/cpp/cpp-exception.md)
     - [Additional Types](android/interoperability/cpp/type-mapping.md)
-    - [Building for Android: C++](android/interoperability/cpp/android-build-cpp.md)
     - [Building for Android: Genrules](android/interoperability/cpp/android-cpp-genrules.md)
+    - [Building for Android: C++](android/interoperability/cpp/android-build-cpp.md)
     - [Building for Android: Rust](android/interoperability/cpp/android-build-rust.md)
   - [With Java](android/interoperability/java.md)
 
-# Chromium
-
 ---
+
+# Chromium
 
 - [Welcome](chromium.md)
 - [Setup](chromium/setup.md)
@@ -301,9 +322,9 @@
 - [Bringing It Together - Exercise](exercises/chromium/bringing-it-together.md)
 - [Exercise Solutions](exercises/chromium/solutions.md)
 
-# Bare Metal: Morning
-
 ---
+
+# Bare Metal: Morning
 
 - [Welcome](bare-metal.md)
 - [`no_std`](bare-metal/no_std.md)
@@ -331,14 +352,18 @@
   - [MMIO](bare-metal/aps/mmio.md)
   - [Let's Write a UART Driver](bare-metal/aps/uart.md)
     - [More Traits](bare-metal/aps/uart/traits.md)
+    - [Using It](bare-metal/aps/uart/using.md)
   - [A Better UART Driver](bare-metal/aps/better-uart.md)
     - [Bitflags](bare-metal/aps/better-uart/bitflags.md)
     - [Multiple Registers](bare-metal/aps/better-uart/registers.md)
     - [Driver](bare-metal/aps/better-uart/driver.md)
-    - [Using It](bare-metal/aps/better-uart/using.md)
+  - [safe-mmio](bare-metal/aps/safemmio/registers.md)
+    - [Driver](bare-metal/aps/safemmio/driver.md)
+    - [Using It](bare-metal/aps/safemmio/using.md)
   - [Logging](bare-metal/aps/logging.md)
     - [Using It](bare-metal/aps/logging/using.md)
   - [Exceptions](bare-metal/aps/exceptions.md)
+  - [aarch64-rt](bare-metal/aps/aarch64-rt.md)
   - [Other Projects](bare-metal/aps/other-projects.md)
 - [Useful Crates](bare-metal/useful-crates.md)
   - [`zerocopy`](bare-metal/useful-crates/zerocopy.md)
@@ -352,9 +377,9 @@
   - [RTC Driver](exercises/bare-metal/rtc.md)
   - [Solutions](exercises/bare-metal/solutions-afternoon.md)
 
-# Concurrency: Morning
-
 ---
+
+# Concurrency: Morning
 
 - [Welcome](concurrency/welcome.md)
 - [Threads](concurrency/threads.md)
@@ -384,6 +409,7 @@
 - [Async Basics](concurrency/async.md)
   - [`async`/`await`](concurrency/async/async-await.md)
   - [Futures](concurrency/async/futures.md)
+  - [State Machine](concurrency/async/state-machine.md)
   - [Runtimes](concurrency/async/runtimes.md)
     - [Tokio](concurrency/async/runtimes/tokio.md)
   - [Tasks](concurrency/async/tasks.md)
@@ -401,9 +427,9 @@
   - [Broadcast Chat Application](concurrency/async-exercises/chat-app.md)
   - [Solutions](concurrency/async-exercises/solutions.md)
 
-# Final Words
-
 ---
+
+# Final Words
 
 - [Thanks!](thanks.md)
 - [Glossary](glossary.md)

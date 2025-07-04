@@ -47,5 +47,8 @@ arm, `half` is bound to the value inside the `Ok` variant. In the second arm,
   matched.
 - Demonstrate what happens when the search is inexhaustive. Note the advantage
   the Rust compiler provides by confirming when all cases are handled.
+- Demonstrate the syntax for a struct-style variant by adding one to the enum
+  definition and the `match`. Point out how this is syntactically similar to
+  matching on a struct.
 
 </details>

@@ -12,8 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// ANCHOR: main
-use crate::pl011::Uart;
+use arm_pl011_uart::Uart;
 use core::fmt::Write;
 use log::{LevelFilter, Log, Metadata, Record, SetLoggerError};
 use spin::mutex::SpinMutex;
@@ -21,7 +20,7 @@ use spin::mutex::SpinMutex;
 static LOGGER: Logger = Logger { uart: SpinMutex::new(None) };
 
 struct Logger {
-    uart: SpinMutex<Option<Uart>>,
+    uart: SpinMutex<Option<Uart<'static>>>,
 }
 
 impl Log for Logger {
@@ -43,7 +42,10 @@ impl Log for Logger {
 }
 
 /// Initialises UART logger.
-pub fn init(uart: Uart, max_level: LevelFilter) -> Result<(), SetLoggerError> {
+pub fn init(
+    uart: Uart<'static>,
+    max_level: LevelFilter,
+) -> Result<(), SetLoggerError> {
     LOGGER.uart.lock().replace(uart);
 
     log::set_logger(&LOGGER)?;

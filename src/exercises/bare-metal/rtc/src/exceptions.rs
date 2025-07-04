@@ -14,8 +14,8 @@
 
 use arm_gic::gicv3::GicV3;
 use log::{error, info, trace};
-use smccc::psci::system_off;
 use smccc::Hvc;
+use smccc::psci::system_off;
 
 // SAFETY: There is no other global function of this name.
 #[unsafe(no_mangle)]

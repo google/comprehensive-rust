@@ -7,12 +7,12 @@ minutes: 10
 In this short exercise, you will implement a generic `min` function that
 determines the minimum of two values, using the [`Ord`] trait.
 
-```rust,compile_fail
+```rust,editable
 use std::cmp::Ordering;
 
-// TODO: implement the `min` function used in `main`.
+// TODO: implement the `min` function used in the tests.
 
-{{#include exercise.rs:main}}
+{{#include exercise.rs:tests}}
 ```
 
 <details>

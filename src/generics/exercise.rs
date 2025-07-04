@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+#![allow(dead_code)]
 
 // ANCHOR: solution
 use std::cmp::Ordering;
@@ -22,15 +23,22 @@ fn min<T: Ord>(l: T, r: T) -> T {
     }
 }
 
-// ANCHOR: main
-fn main() {
+// ANCHOR: tests
+#[test]
+fn integers() {
     assert_eq!(min(0, 10), 0);
     assert_eq!(min(500, 123), 123);
+}
 
+#[test]
+fn chars() {
     assert_eq!(min('a', 'z'), 'a');
     assert_eq!(min('7', '1'), '1');
+}
 
+#[test]
+fn strings() {
     assert_eq!(min("hello", "goodbye"), "goodbye");
     assert_eq!(min("bat", "armadillo"), "armadillo");
 }
-// ANCHOR_END: main
+// ANCHOR_END: tests

@@ -34,6 +34,9 @@ Interior mutability is possible through a
 [`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html), atomic or
 similar.
 
+It is common to use `OnceLock` in a static as a way to support initialization on
+first use. `OnceCell` is not `Sync` and thus cannot be used in this context.
+
 Thread-local data can be created with the macro `std::thread_local`.
 
 </details>

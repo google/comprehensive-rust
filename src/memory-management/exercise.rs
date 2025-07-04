@@ -65,8 +65,8 @@ impl PackageBuilder {
         Self(Package {
             name: name.into(),
             version: "0.1".into(),
-            authors: vec![],
-            dependencies: vec![],
+            authors: Vec::new(),
+            dependencies: Vec::new(),
             language: None,
         })
     }
@@ -113,16 +113,16 @@ impl PackageBuilder {
 // ANCHOR: main
 fn main() {
     let base64 = PackageBuilder::new("base64").version("0.13").build();
-    println!("base64: {base64:?}");
+    dbg!(&base64);
     let log =
         PackageBuilder::new("log").version("0.4").language(Language::Rust).build();
-    println!("log: {log:?}");
+    dbg!(&log);
     let serde = PackageBuilder::new("serde")
         .authors(vec!["djmitche".into()])
         .version(String::from("4.0"))
         .dependency(base64.as_dependency())
         .dependency(log.as_dependency())
         .build();
-    println!("serde: {serde:?}");
+    dbg!(serde);
 }
 // ANCHOR_END: main

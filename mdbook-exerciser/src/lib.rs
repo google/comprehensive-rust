@@ -14,7 +14,7 @@
 
 use log::{info, trace};
 use pulldown_cmark::{Event, Parser, Tag, TagEnd};
-use std::fs::{create_dir_all, File};
+use std::fs::{File, create_dir_all};
 use std::io::Write;
 use std::path::Path;
 
@@ -58,7 +58,7 @@ pub fn process(output_directory: &Path, input_contents: &str) -> anyhow::Result<
             Event::Text(text) => {
                 info!("Text: {:?}", text);
                 if let Some(output_file) = &mut current_file {
-                    output_file.write(text.as_bytes())?;
+                    output_file.write_all(text.as_bytes())?;
                 }
             }
             Event::End(TagEnd::CodeBlock) => {

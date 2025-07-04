@@ -22,6 +22,7 @@ impl Pet for Dog {
 
 fn main() {
     let fido = Dog { name: String::from("Fido"), age: 5 };
+    dbg!(fido.talk());
     fido.greet();
 }
 ```
@@ -38,5 +39,10 @@ fn main() {
 - Traits may provide default implementations of some methods. Default
   implementations can rely on all the methods of the trait. In this case,
   `greet` is provided, and relies on `talk`.
+
+- Multiple `impl` blocks are allowed for a given type. This includes both
+  inherent `impl` blocks and trait `impl` blocks. Likewise multiple traits can
+  be implemented for a given type (and often types implement many traits!).
+  `impl` blocks can even be spread across multiple modules/files.
 
 </details>

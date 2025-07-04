@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+#![allow(dead_code)]
 
 // ANCHOR: solution
 use std::cmp::Ordering;
@@ -96,14 +97,6 @@ impl<T: Ord> Node<T> {
     }
 }
 
-fn main() {
-    let mut tree = BinaryTree::new();
-    tree.insert("foo");
-    assert_eq!(tree.len(), 1);
-    tree.insert("bar");
-    assert!(tree.has(&"foo"));
-}
-
 // ANCHOR: tests
 #[cfg(test)]
 mod tests {
@@ -119,6 +112,8 @@ mod tests {
         assert_eq!(tree.len(), 2);
         tree.insert(2); // not a unique item
         assert_eq!(tree.len(), 2);
+        tree.insert(3);
+        assert_eq!(tree.len(), 3);
     }
 
     #[test]

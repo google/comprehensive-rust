@@ -14,7 +14,7 @@ fn duplicate<T: Clone>(a: T) -> (T, T) {
     (a.clone(), a.clone())
 }
 
-// struct NotCloneable;
+struct NotCloneable;
 
 fn main() {
     let foo = String::from("foo");
@@ -25,7 +25,7 @@ fn main() {
 
 <details>
 
-- Try making a `NonCloneable` and passing it to `duplicate`.
+- Try making a `NotCloneable` and passing it to `duplicate`.
 
 - When multiple traits are necessary, use `+` to join them.
 

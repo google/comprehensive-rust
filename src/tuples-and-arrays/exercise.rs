@@ -25,7 +25,23 @@ fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {
     result
 }
 
-// ANCHOR: tests
+// ANCHOR: main
+fn main() {
+    let matrix = [
+        [101, 102, 103], // <-- the comment makes rustfmt add a newline
+        [201, 202, 203],
+        [301, 302, 303],
+    ];
+
+    dbg!(matrix);
+    let transposed = transpose(matrix);
+    dbg!(transposed);
+}
+// ANCHOR_END: main
+// ANCHOR_END: solution
+
+// This test does not appear in the exercise, as this is very early in the
+// course, but it verifies that the solution is correct.
 #[test]
 fn test_transpose() {
     let matrix = [
@@ -43,18 +59,3 @@ fn test_transpose() {
         ]
     );
 }
-// ANCHOR_END: tests
-
-// ANCHOR: main
-fn main() {
-    let matrix = [
-        [101, 102, 103], // <-- the comment makes rustfmt add a newline
-        [201, 202, 203],
-        [301, 302, 303],
-    ];
-
-    println!("matrix: {:#?}", matrix);
-    let transposed = transpose(matrix);
-    println!("transposed: {:#?}", transposed);
-}
-// ANCHOR_END: main

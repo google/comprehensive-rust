@@ -1,5 +1,7 @@
 name: Publish
 
+# See also TRANSLATIONS.md.
+
 on:
   push:
     branches:
@@ -32,6 +34,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # We need the full history for build.sh below.
+
+      - name: Update Rust
+        run: rustup update
 
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache

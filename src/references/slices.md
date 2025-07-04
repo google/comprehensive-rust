@@ -1,5 +1,5 @@
 ---
-minutes: 10
+minutes: 7
 ---
 
 # Slices
@@ -10,7 +10,7 @@ A slice gives you a view into a larger collection:
 
 ```rust,editable
 fn main() {
-    let mut a: [i32; 6] = [10, 20, 30, 40, 50, 60];
+    let a: [i32; 6] = [10, 20, 30, 40, 50, 60];
     println!("a: {a:?}");
 
     let s: &[i32] = &a[2..4];
@@ -41,5 +41,14 @@ fn main() {
 
 - Slices always borrow from another object. In this example, `a` has to remain
   'alive' (in scope) for at least as long as our slice.
+
+- You can't "grow" a slice once it's created:
+  - You can't append elements of the slice, since it doesn't own the backing
+    buffer.
+  - You can't grow a slice to point to a larger section of the backing buffer.
+    The slice loses information about the underlying buffer and so you can't
+    know how larger the slice can be grown.
+  - To get a larger slice you have to back to the original buffer and create a
+    larger slice from there.
 
 </details>

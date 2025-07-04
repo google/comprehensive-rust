@@ -6,9 +6,9 @@ Here we declare a dependency on two libraries:
 
 - `libgreeting`, which we define below,
 - `libtextwrap`, which is a crate already vendored in
-  [`external/rust/crates/`][crates].
+  [`external/rust/android-crates-io/crates/`][crates].
 
-[crates]: https://cs.android.com/android/platform/superproject/+/master:external/rust/crates/
+[crates]: https://cs.android.com/android/platform/superproject/main/+/main:external/rust/android-crates-io/crates/
 
 _hello_rust/Android.bp_:
 
@@ -38,3 +38,15 @@ You build, push, and run the binary like before:
 Hello Bob, it is very
 nice to meet you!
 ```
+
+<details>
+
+- Go through the build steps and demonstrate them running in your emulator.
+
+- A Rust crate named `greetings` must be built by a rule called `libgreetings`.
+  Note how the Rust code uses the crate name, as is normal in Rust.
+
+- Again, the build rules enforce that we add documentation comments to all
+  public items.
+
+</details>

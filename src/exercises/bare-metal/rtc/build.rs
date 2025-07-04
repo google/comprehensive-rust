@@ -1,4 +1,4 @@
-// Copyright 2023 Google LLC
+// Copyright 2025 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,16 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use cc::Build;
-use std::env;
-
 fn main() {
-    env::set_var("CROSS_COMPILE", "aarch64-none-elf");
-    env::set_var("CC", "clang");
-
-    Build::new()
-        .file("entry.S")
-        .file("exceptions.S")
-        .file("idmap.S")
-        .compile("empty")
+    println!("cargo:rustc-link-arg=-Timage.ld");
+    println!("cargo:rustc-link-arg=-Tmemory.ld");
+    println!("cargo:rerun-if-changed=memory.ld");
 }

@@ -5,37 +5,14 @@ description: Install mdbook with the dependencies we need.
 runs:
   using: composite
   steps:
-    # The --locked flag is important for reproducible builds. It also
-    # avoids breakage due to skews between mdbook and mdbook-svgbob.
     - name: Install mdbook
-      run: cargo install mdbook --locked --version 0.4.37
+      run: cargo xtask install-tools
       shell: bash
 
-    - name: Install mdbook-svgbob
-      run: cargo install mdbook-svgbob --locked --version 0.2.1
-      shell: bash
-
-    - name: Install mdbook-pandoc and related dependencies
+    - name: Install dependencies for mdbook-pandoc
       run: |
-        cargo install mdbook-pandoc --locked --version 0.7.0
         sudo apt-get update
-        sudo apt-get install -y texlive texlive-luatex texlive-lang-cjk librsvg2-bin fonts-noto
-        curl -LsSf https://github.com/jgm/pandoc/releases/download/3.2.1/pandoc-3.2.1-linux-amd64.tar.gz | tar zxf -
-        echo "$PWD/pandoc-3.2.1/bin" >> $GITHUB_PATH
-      shell: bash
-
-    - name: Install mdbook-i18n-helpers
-      run: cargo install mdbook-i18n-helpers --locked --version 0.3.3
-      shell: bash
-
-    - name: Install i18n-report
-      run: cargo install i18n-report --locked --version 0.2.0
-      shell: bash
-
-    - name: Install mdbook-exerciser
-      run: cargo install --path mdbook-exerciser --locked
-      shell: bash
-
-    - name: Install mdbook-course
-      run: cargo install --path mdbook-course --locked
+        sudo apt-get install -y texlive texlive-luatex texlive-lang-cjk texlive-lang-arabic librsvg2-bin fonts-noto
+        curl -LsSf https://github.com/jgm/pandoc/releases/download/3.7.0.1/pandoc-3.7.0.1-linux-amd64.tar.gz | tar zxf -
+        echo "$PWD/pandoc-3.7.0.1/bin" >> $GITHUB_PATH
       shell: bash

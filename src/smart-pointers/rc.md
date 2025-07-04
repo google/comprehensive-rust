@@ -14,9 +14,25 @@ fn main() {
     let a = Rc::new(10);
     let b = Rc::clone(&a);
 
-    println!("a: {a}");
-    println!("b: {b}");
+    dbg!(a);
+    dbg!(b);
 }
+```
+
+Each `Rc` points to the same shared data structure, containing strong and weak
+pointers and the value:
+
+```bob
+ Stack                     Heap
+.- - - - - - - -.     .- - - - - - - - - - - - - - - - -.
+:               :     :                                 :
+:     +-----+   :     :   +-----------+-------------+   :
+:  a: | o---|---:--+--:-->|  count: 2 |  value: 10  |   :
+:     +-----+   :  |  :   +-----------+-------------+   :
+:  b: | o---|---:--+  :                                 :
+:     +-----+   :     `- - - - - - - - - - - - - - - - -'
+:               :     
+`- - - - - - - -'
 ```
 
 - See [`Arc`][2] and [`Mutex`][3] if you are in a multi-threaded context.

@@ -19,6 +19,6 @@ fn main() {
     while x >= 10 {
         x = x / 2;
     }
-    println!("Final x: {x}");
+    dbg!(x);
 }
 ```

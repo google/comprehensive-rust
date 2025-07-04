@@ -36,15 +36,7 @@ impl<R: Read> Read for RotDecoder<R> {
     }
 }
 
-// ANCHOR: main
-fn main() {
-    let mut rot =
-        RotDecoder { input: "Gb trg gb gur bgure fvqr!".as_bytes(), rot: 13 };
-    let mut result = String::new();
-    rot.read_to_string(&mut result).unwrap();
-    println!("{}", result);
-}
-
+// ANCHOR: tests
 #[cfg(test)]
 mod test {
     use super::*;
@@ -61,7 +53,7 @@ mod test {
     #[test]
     fn binary() {
         let input: Vec<u8> = (0..=255u8).collect();
-        let mut rot = RotDecoder::<&[u8]> { input: input.as_ref(), rot: 13 };
+        let mut rot = RotDecoder::<&[u8]> { input: input.as_slice(), rot: 13 };
         let mut buf = [0u8; 256];
         assert_eq!(rot.read(&mut buf).unwrap(), 256);
         for i in 0..=255 {
@@ -72,4 +64,4 @@ mod test {
         }
     }
 }
-// ANCHOR_END: main
+// ANCHOR_END: tests

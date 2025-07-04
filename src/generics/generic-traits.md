@@ -5,7 +5,14 @@ Minutes: 5
 # Generic Traits
 
 Traits can also be generic, just like types and functions. A trait's parameters
-get concrete types when it is used.
+get concrete types when it is used. For example the [`From<T>`][from] trait is
+used to define type conversions:
+
+```rust
+pub trait From<T>: Sized {
+    fn from(value: T) -> Self;
+}
+```
 
 ```rust,editable
 #[derive(Debug)]
@@ -26,15 +33,15 @@ impl From<bool> for Foo {
 fn main() {
     let from_int = Foo::from(123);
     let from_bool = Foo::from(true);
-    println!("{from_int:?}, {from_bool:?}");
+    dbg!(from_int);
+    dbg!(from_bool);
 }
 ```
 
 <details>
 
 - The `From` trait will be covered later in the course, but its
-  [definition in the `std` docs](https://doc.rust-lang.org/std/convert/trait.From.html)
-  is simple.
+  [definition in the `std` docs][from] is simple, and copied here for reference.
 
 - Implementations of the trait do not need to cover all possible type
   parameters. Here, `Foo::from("hello")` would not compile because there is no
@@ -50,3 +57,5 @@ fn main() {
   [specialization](https://rust-lang.github.io/rfcs/1210-impl-specialization.html).
 
 </details>
+
+[from]: https://doc.rust-lang.org/std/convert/trait.From.html

@@ -29,7 +29,7 @@ files in the `src` directory.
 
 Here's the single-module implementation of the GUI library:
 
-```rust
+```rust,editable
 {{#include exercise.rs:single-module}}
 ```
 

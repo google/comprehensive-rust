@@ -27,7 +27,7 @@ On gLinux or Debian:
 <!-- mdbook-xgettext: skip -->
 
 ```sh
-gdb-multiarch target/thumbv7em-none-eabihf/debug/board_support --eval-command="target remote :1337"
+gdb-multiarch target/thumbv7em-none-eabihf/debug/board_support --eval-command="target remote :1338"
 ```
 
 On MacOS:
@@ -35,7 +35,7 @@ On MacOS:
 <!-- mdbook-xgettext: skip -->
 
 ```sh
-arm-none-eabi-gdb target/thumbv7em-none-eabihf/debug/board_support --eval-command="target remote :1337"
+arm-none-eabi-gdb target/thumbv7em-none-eabihf/debug/board_support --eval-command="target remote :1338"
 ```
 
 <details>

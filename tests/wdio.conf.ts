@@ -83,7 +83,10 @@ export const config: WebdriverIO.Config = {
   //     webdriver: 'info',
   //     '@wdio/appium-service': 'info'
   // },
-  //
+  logLevels: {
+    // Webdriverio outputs several lines per test, in the success case.
+    webdriverio: "error",
+  },
   // If you only want to run your tests until a specific amount of tests have failed use
   // bail (default is 0 - don't bail, run all tests).
   bail: 0,
@@ -201,8 +204,9 @@ export const config: WebdriverIO.Config = {
    * @param {Array.<String>} specs        List of spec file paths that are to be run
    * @param {object}         browser      instance of created browser/device session
    */
-  // before: function (capabilities, specs) {
-  // },
+  before: function (capabilities, specs) {
+    browser.setWindowSize(2560, 1440);
+  },
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {string} commandName hook command name

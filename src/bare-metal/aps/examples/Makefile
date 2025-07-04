@@ -27,6 +27,10 @@ minimal.bin: build
 	cargo objcopy --bin minimal -- -O binary $@
 psci.bin: build
 	cargo objcopy --bin psci -- -O binary $@
+rt.bin: build
+	cargo objcopy --bin rt -- -O binary $@
+safemmio.bin: build
+	cargo objcopy --bin safemmio -- -O binary $@
 
 qemu: improved.bin
 	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel $< -s
@@ -35,6 +39,10 @@ qemu_logger: logger.bin
 qemu_minimal: minimal.bin
 	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel $< -s
 qemu_psci: psci.bin
+	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel $< -s
+qemu_rt: rt.bin
+	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel $< -s
+qemu_safemmio: safemmio.bin
 	qemu-system-aarch64 -machine virt -cpu max -serial mon:stdio -display none -kernel $< -s
 
 clean:

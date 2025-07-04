@@ -4,25 +4,21 @@ minutes: 5
 
 # Patterns and Destructuring
 
-When working with tuples and other structured values it's common to want to
-extract the inner values into local variables. This can be done manually by
-directly accessing the inner values:
-
-```rust,editable
-fn print_tuple(tuple: (i32, i32)) {
-    let left = tuple.0;
-    let right = tuple.1;
-    println!("left: {left}, right: {right}");
-}
-```
-
-However, Rust also supports using pattern matching to destructure a larger value
+Rust supports using pattern matching to destructure a larger value like a tuple
 into its constituent parts:
 
 ```rust,editable
-fn print_tuple(tuple: (i32, i32)) {
-    let (left, right) = tuple;
-    println!("left: {left}, right: {right}");
+fn check_order(tuple: (i32, i32, i32)) -> bool {
+    let (left, middle, right) = tuple;
+    left < middle && middle < right
+}
+
+fn main() {
+    let tuple = (1, 5, 3);
+    println!(
+        "{tuple:?}: {}",
+        if check_order(tuple) { "ordered" } else { "unordered" }
+    );
 }
 ```
 

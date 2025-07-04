@@ -5,7 +5,7 @@ We can use a struct to represent the memory layout of the UART's registers.
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
-{{#include ../examples/src/pl011.rs:Registers}}
+{{#include ../examples/src/pl011_struct.rs:Registers}}
 ```
 
 <details>
