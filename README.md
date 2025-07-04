@@ -86,19 +86,19 @@ Here is a summary of the various commands you can run in the project.
 > **Note** On Windows, you need to enable symlinks
 > (`git config --global core.symlinks true`) and Developer Mode.
 
-> **Note** Previous versions this README recommended that you use 
-> `cargo xpath <tool>`, i.e. `cargo xpath install-tools`. This causes issues 
-> with pre-existing installations of `cargo-xpath` and is now deprecated.
+> **Note** Previous versions this README recommended that you use
+> `cargo xtool <tool>`, i.e. `cargo xtool install-tools`. This causes issues
+> with pre-existing installations of `cargo-xtool` and is now deprecated.
 >
-> The new syntax is almost a 1:1 mapping, although `cargo xpath build` has 
-> become `cargo build-book` to avoid conflicting with the built-in Cargo 
+> The new syntax is almost a 1:1 mapping, although `cargo xtool build` has
+> become `cargo build-book` to avoid conflicting with the built-in Cargo
 > subcommand.
 >
-> - `cargo xpath build` -> `cargo build-book`
-> - `cargo xpath install-tools` -> `cargo install-tools`
-> - `cargo xpath serve` -> `cargo serve`
-> - `cargo xpath run-tests` -> `cargo run-tests`
-> - `cargo xpath web-tests` -> `cargo web-tests`
+> - `cargo xtool build` -> `cargo build-book`
+> - `cargo xtool install-tools` -> `cargo install-tools`
+> - `cargo xtool serve` -> `cargo serve`
+> - `cargo xtool run-tests` -> `cargo run-tests`
+> - `cargo xtool web-tests` -> `cargo web-tests`
 
 
 ## Contributing
