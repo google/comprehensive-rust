@@ -427,7 +427,9 @@
   - [Broadcast Chat Application](concurrency/async-exercises/chat-app.md)
   - [Solutions](concurrency/async-exercises/solutions.md)
 
-# Writing Unsafe 
+---
+
+# Unsafe
 
 - [Welcome](unsafe-deep-dive/welcome.md)
 - [Setup](unsafe-deep-dive/setup.md)
