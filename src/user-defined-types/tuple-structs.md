@@ -43,6 +43,8 @@ fn main() {
   - The value passed some validation when it was created, so you no longer have
     to validate it again at every use: `PhoneNumber(String)` or
     `OddNumber(u32)`.
+- The newtype pattern is covered extensively in the
+  ["Idiomatic Rust" module](../idiomatic/leveraging-the-type-system/newtype-pattern.md).
 - Demonstrate how to add a `f64` value to a `Newtons` type by accessing the
   single field in the newtype.
   - Rust generally doesn’t like inexplicit things, like automatic unwrapping or

@@ -72,6 +72,16 @@ cargo run
 
 {{%course outline Concurrency}}
 
+### Idiomatic Rust
+
+The [Idiomatic Rust](../idiomatic/welcome.md) deep dive is a 2-day class on Rust
+idioms and patterns.
+
+You should be familiar with the material in
+[Rust Fundamentals](../welcome-day-1.md) before starting this course.
+
+{{%course outline Idiomatic Rust}}
+
 ## Format
 
 The course is meant to be very interactive and we recommend letting the

@@ -48,7 +48,8 @@ pub fn replace(
                 ["course", "outline"] if course.is_some() => {
                     course.unwrap().schedule()
                 }
-                ["course", "outline", course_name] => {
+                ["course", "outline", course_name @ ..] => {
+                    let course_name = course_name.join(" ");
                     let Some(course) = courses.find_course(course_name) else {
                         return format!("not found - {}", captures[0].to_string());
                     };
