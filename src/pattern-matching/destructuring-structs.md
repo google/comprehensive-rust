@@ -24,7 +24,7 @@ Like tuples, Struct can also be destructured by matching:
   - The same effect occurs with `match &mut foo`: the captures become exclusive
     references.
 - The distinction between a capture and a constant expression can be hard to
-  spot. Try changing the `2` in the second arm to a variable, and see that it
+  spot. Try changing the `2` in the first arm to a variable, and see that it
   subtly doesn't work. Change it to a `const` and see it working again.
 
 </details>
