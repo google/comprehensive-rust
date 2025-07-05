@@ -8,27 +8,32 @@ Creating pointers is safe, but dereferencing them requires `unsafe`:
 
 ```rust,editable
 fn main() {
-    let mut s = String::from("careful!");
+    let mut x = 10;
 
-    let r1 = &raw mut s;
-    let r2 = r1 as *const String;
+    let p1: *mut i32 = &raw mut x;
+    let p2 = p1 as *const i32;
 
-    // SAFETY: r1 and r2 were obtained from references and so are guaranteed to
-    // be non-null and properly aligned, the objects underlying the references
-    // from which they were obtained are live throughout the whole unsafe
-    // block, and they are not accessed either through the references or
-    // concurrently through any other pointers.
+    // SAFETY: p1 and p2 were created by taking raw pointers to a local, so they
+    // are guaranteed to be non-null, aligned, and point into a single (stack-)
+    // allocated object.
+    //
+    // The object underlying the raw pointers lives for the entire function, so
+    // it is not deallocated while the raw pointers still exist. It is not
+    // accessed through references while the raw pointers exist, nor is it
+    // accessed from other threads concurrently.
     unsafe {
-        println!("r1 is: {}", *r1);
-        *r1 = String::from("uhoh");
-        println!("r2 is: {}", *r2);
+        dbg!(*p1);
+        *p1 = 6;
+        // Mutation may soundly be observed through a raw pointer, like in C.
+        dbg!(*p2);
     }
 
-    // NOT SAFE. DO NOT DO THIS.
+    // UNSOUND. DO NOT DO THIS.
     /*
-    let r3: &String = unsafe { &*r1 };
-    drop(s);
-    println!("r3 is: {}", *r3);
+    let r: &i32 = unsafe { &*p1 };
+    dbg!(r);
+    x = 50;
+    dbg!(r); // Object underlying the reference has been mutated. This is UB.
     */
 }
 ```
@@ -52,8 +57,11 @@ In the case of pointer dereferences, this means that the pointers must be
 
 In most cases the pointer must also be properly aligned.
 
-The "NOT SAFE" section gives an example of a common kind of UB bug: `*r1` has
-the `'static` lifetime, so `r3` has type `&'static String`, and thus outlives
-`s`. Creating a reference from a pointer requires _great care_.
+The "UNSOUND" section gives an example of a common kind of UB bug: naïvely
+taking a reference to the dereference of a raw pointer sidesteps the compiler's
+knowledge of what object the reference is actually pointing to. As such, the
+borrow checker does not freeze `x` and so we are able to modify it despite the
+existence of a reference to it. Creating a reference from a pointer requires
+_great care_.
 
 </details>
