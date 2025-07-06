@@ -14,15 +14,18 @@ fn main() {
 }
 ```
 
-However, since data races can occur, it is unsafe to read and write mutable
-static variables:
+However, mutable static variables are unsafe to read and write because multiple
+threads could do so concurrently without synchronization, constituting a data
+race.
+
+Using mutable statics soundly requires reasoning about concurrency without the
+compiler's help:
 
 ```rust,editable
 static mut COUNTER: u32 = 0;
 
 fn add_to_counter(inc: u32) {
     // SAFETY: There are no other threads which could be accessing `COUNTER`.
-    #[allow(static_mut_refs)]
     unsafe {
         COUNTER += inc;
     }
@@ -32,7 +35,6 @@ fn main() {
     add_to_counter(42);
 
     // SAFETY: There are no other threads which could be accessing `COUNTER`.
-    #[allow(static_mut_refs)]
     unsafe {
         dbg!(COUNTER);
     }
@@ -41,13 +43,12 @@ fn main() {
 
 <details>
 
-- The program here is safe because it is single-threaded. However, the Rust
+- The program here is sound because it is single-threaded. However, the Rust
   compiler reasons about functions individually so can't assume that. Try
   removing the `unsafe` and see how the compiler explains that it is undefined
   behavior to access a mutable static from multiple threads.
-- Rust 2024 edition goes further and makes accessing a mutable static by
-  reference an error by default. We work around this in the example with
-  `#[allow(static_mut_refs)]`. Don't do this.
+- The 2024 Rust edition goes further and makes accessing a mutable static by
+  reference an error by default.
 - Using a mutable static is almost always a bad idea, you should use interior
   mutability instead.
 - There are some cases where it might be necessary in low-level `no_std` code,
