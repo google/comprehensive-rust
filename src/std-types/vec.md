@@ -49,7 +49,5 @@ methods on a `Vec`.
 - To index the vector you use `[` `]`, but they will panic if out of bounds.
   Alternatively, using `get` will return an `Option`. The `pop` function will
   remove the last element.
-- Slices are covered on day 3. For now, students only need to know that a value
-  of type `Vec` gives access to all of the documented slice methods, too.
 
 </details>
