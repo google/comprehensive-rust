@@ -7559,7 +7559,6 @@ msgid "\"yikes, something went wrong\""
 msgstr ""
 
 #: src/closures/exercise.md src/closures/solution.md
-#: src/unsafe-rust/dereferencing.md
 msgid "\"uhoh\""
 msgstr ""
 
@@ -11272,34 +11271,33 @@ msgid "Creating pointers is safe, but dereferencing them requires `unsafe`:"
 msgstr ""
 
 #: src/unsafe-rust/dereferencing.md
-msgid "\"careful!\""
+msgid ""
+"// SAFETY: p1 and p2 were created by taking raw pointers to a local, so "
+"they\n"
+"    // are guaranteed to be non-null, aligned, and point into a single "
+"(stack-)\n"
+"    // allocated object.\n"
+"    //\n"
+"    // The object underlying the raw pointers lives for the entire function, "
+"so\n"
+"    // it is not deallocated while the raw pointers still exist. It is not\n"
+"    // accessed through references while the raw pointers exist, nor is it\n"
+"    // accessed from other threads concurrently.\n"
+msgstr ""
+
+#: src/unsafe-rust/dereferencing.md
+msgid "// Mutation may soundly be observed through a raw pointer, like in C.\n"
 msgstr ""
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
-"// SAFETY: r1 and r2 were obtained from references and so are guaranteed to\n"
-"    // be non-null and properly aligned, the objects underlying the "
-"references\n"
-"    // from which they were obtained are live throughout the whole unsafe\n"
-"    // block, and they are not accessed either through the references or\n"
-"    // concurrently through any other pointers.\n"
-msgstr ""
-
-#: src/unsafe-rust/dereferencing.md
-msgid "\"r1 is: {}\""
-msgstr ""
-
-#: src/unsafe-rust/dereferencing.md
-msgid "\"r2 is: {}\""
-msgstr ""
-
-#: src/unsafe-rust/dereferencing.md
-msgid ""
-"// NOT SAFE. DO NOT DO THIS.\n"
+"// UNSOUND. DO NOT DO THIS.\n"
 "    /*\n"
-"    let r3: &String = unsafe { &*r1 };\n"
-"    drop(s);\n"
-"    println!(\"r3 is: {}\", *r3);\n"
+"    let r: &i32 = unsafe { &*p1 };\n"
+"    dbg!(r);\n"
+"    x = 50;\n"
+"    dbg!(r); // Object underlying the reference has been mutated. This is "
+"UB.\n"
 "    */"
 msgstr ""
 
@@ -11346,9 +11344,12 @@ msgstr ""
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
-"The \"NOT SAFE\" section gives an example of a common kind of UB bug: `*r1` "
-"has the `'static` lifetime, so `r3` has type `&'static String`, and thus "
-"outlives `s`. Creating a reference from a pointer requires _great care_."
+"The \"UNSOUND\" section gives an example of a common kind of UB bug: naïvely "
+"taking a reference to the dereference of a raw pointer sidesteps the "
+"compiler's knowledge of what object the reference is actually pointing to. "
+"As such, the borrow checker does not freeze `x` and so we are able to modify "
+"it despite the existence of a reference to it. Creating a reference from a "
+"pointer requires _great care_."
 msgstr ""
 
 #: src/unsafe-rust/mutable-static.md
@@ -11365,8 +11366,15 @@ msgstr ""
 
 #: src/unsafe-rust/mutable-static.md
 msgid ""
-"However, since data races can occur, it is unsafe to read and write mutable "
-"static variables:"
+"However, mutable static variables are unsafe to read and write because "
+"multiple threads could do so concurrently without synchronization, "
+"constituting a data race."
+msgstr ""
+
+#: src/unsafe-rust/mutable-static.md
+msgid ""
+"Using mutable statics soundly requires reasoning about concurrency without "
+"the compiler's help:"
 msgstr ""
 
 #: src/unsafe-rust/mutable-static.md
@@ -11376,7 +11384,7 @@ msgstr ""
 
 #: src/unsafe-rust/mutable-static.md
 msgid ""
-"The program here is safe because it is single-threaded. However, the Rust "
+"The program here is sound because it is single-threaded. However, the Rust "
 "compiler reasons about functions individually so can't assume that. Try "
 "removing the `unsafe` and see how the compiler explains that it is undefined "
 "behavior to access a mutable static from multiple threads."
@@ -11384,9 +11392,8 @@ msgstr ""
 
 #: src/unsafe-rust/mutable-static.md
 msgid ""
-"Rust 2024 edition goes further and makes accessing a mutable static by "
-"reference an error by default. We work around this in the example with "
-"`#[allow(static_mut_refs)]`. Don't do this."
+"The 2024 Rust edition goes further and makes accessing a mutable static by "
+"reference an error by default."
 msgstr ""
 
 #: src/unsafe-rust/mutable-static.md
@@ -11439,15 +11446,16 @@ msgid ""
 msgstr ""
 
 #: src/unsafe-rust/unsafe-functions.md
-msgid "There are two main categories:"
+msgid "Unsafe functions may come from two places:"
 msgstr ""
 
 #: src/unsafe-rust/unsafe-functions.md
-msgid "Rust functions declared unsafe with `unsafe fn`."
+#, fuzzy
+msgid "Rust functions declared unsafe."
 msgstr "Rust fonksiyonları `unsafe fn` ile emniyetli olmadığı bildirildi."
 
 #: src/unsafe-rust/unsafe-functions.md
-msgid "Foreign functions in `extern \"C\"` blocks."
+msgid "Unsafe foreign functions in `extern \"C\"` blocks."
 msgstr ""
 
 #: src/unsafe-rust/unsafe-functions.md
@@ -11503,7 +11511,11 @@ msgid ""
 msgstr ""
 
 #: src/unsafe-rust/unsafe-functions/extern-c.md
-msgid "Functions in a foreign language may also be unsafe:"
+msgid ""
+"You can declare foreign functions for access from Rust with `unsafe extern`. "
+"This is unsafe because the compiler has to way to reason about their "
+"behavior. Functions declared in an `extern` block must be marked as `safe` "
+"or `unsafe`, depending on whether they have preconditions for safe use:"
 msgstr ""
 
 #: src/unsafe-rust/unsafe-functions/extern-c.md src/unsafe-rust/exercise.md
