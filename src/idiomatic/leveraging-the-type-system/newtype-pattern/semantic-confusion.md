@@ -68,5 +68,6 @@ login(password, username); // 🛠️❌
   ```
   Users are forced, at the callsite, to assign values to each field, thus
   increasing the likelihood of spotting bugs.
+  <!-- TODO: Link to the relevant section in "Foundations of API design" when that chapter is written -->
 
 </details>
