@@ -26,7 +26,7 @@ Additional items speaker may mention:
   types. ["Domain Modeling Made Functional"][1] is a great resource on the
   topic, with examples written in F#.
 
-- Despite its functional roots, functional design patterns don't translate as-is
+- Despite Rust's functional roots, functional design patterns don't translate as-is
   to Rust. For instance, extensive use of higher-kinded functions and types can
   result in code that is harder to read and maintain. Design patterns in Rust
   must take into account (and leverage!) the granular control over mutability
