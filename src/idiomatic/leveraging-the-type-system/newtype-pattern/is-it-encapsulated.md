@@ -36,7 +36,7 @@ impl DerefMut for Username {
 
 <details>
 
-- `DerefMut` allows users to get a mutable reference to the wrapped type.
+- `DerefMut` allows users to get a mutable reference to the wrapped value.
 
   The mutable reference can be used to modify the underlying data in ways that
   may violate the invariants enforced by `Username::new`!
