@@ -30,7 +30,7 @@ Additional items speaker may mention:
   to Rust. For instance, extensive use of higher-order functions and higher-kinded types can
   result in code that is harder to read and maintain. Design patterns in Rust
   must take into account (and leverage!) the granular control over mutability
-  that comes with its borrow-checker.
+  that comes with its borrow checker.
 
 - The same caution should be applied to object-oriented design patterns. Rust
   doesn't support inheritance, and object boundaries must be mindful of the
