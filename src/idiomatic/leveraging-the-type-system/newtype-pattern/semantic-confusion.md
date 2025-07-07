@@ -35,8 +35,7 @@ pub fn login(username: &Username, password: &Password) -> Result<(), LoginError>
 
 # let password = Password("password".into());
 # let username = Username("username".into());
-// Compiler error 🎉
-login(password, username);
+login(password, username); // 🛠️❌
 ```
 
 <details>

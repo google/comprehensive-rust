@@ -19,8 +19,7 @@ fn double(n: u64) -> u64 {
     n * 2
 }
 
-// This doesn't compile ❌
-double(UserId(1));
+double(UserId(1)); // 🛠️❌
 ```
 
 The Rust compiler won't implicitly convert to (or from) the underlying type.\
@@ -28,8 +27,7 @@ It won't let you use methods or operators defined on the underlying type either:
 
 ```rust,compile_fail
 # pub struct UserId(u64);
-// This doesn't compile ❌
-assert_ne!(UserId(1), UserId(2));
+assert_ne!(UserId(1), UserId(2)); // 🛠️❌
 ```
 
 <details>
