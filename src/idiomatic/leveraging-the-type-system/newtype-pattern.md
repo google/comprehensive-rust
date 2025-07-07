@@ -22,8 +22,8 @@ fn double(n: u64) -> u64 {
 double(UserId(1)); // 🛠️❌
 ```
 
-The Rust compiler won't implicitly convert to (or from) the underlying type.\
-It won't let you use methods or operators defined on the underlying type either:
+The Rust compiler won't let you use methods or operators defined on the
+underlying type either:
 
 ```rust,compile_fail
 # pub struct UserId(u64);
