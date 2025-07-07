@@ -27,11 +27,16 @@ Additional items speaker may mention:
   types. ["Domain Modeling Made Functional"][1] is a great resource on the
   topic, with examples written in F#.
 
-- Despite Rust's functional roots, functional design patterns don't translate
-  as-is to Rust. For instance, extensive use of higher-order functions and
-  higher-kinded types can result in code that is harder to read and maintain.
-  Design patterns in Rust must take into account (and leverage!) the granular
-  control over mutability that comes with its borrow checker.
+- Despite Rust's functional roots, not all functional design patterns can be
+  easily translated to Rust.
+
+  For example, you must have a solid grasp on a broad selection of advanced
+  topics to design APIs that leverage higher-order functions and higher-kinded
+  types in Rust.
+
+  Evaluate, on a case-by-case basis, whether a more imperative approach may be
+  easier to implement, relying on Rust's borrow-checker and type system to
+  control what can be mutated, and where.
 
 - The same caution should be applied to object-oriented design patterns. Rust
   doesn't support inheritance, and object decomposition should take into account
