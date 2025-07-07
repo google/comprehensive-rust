@@ -19,7 +19,8 @@ entire codebase.
 Additional items speaker may mention:
 
 - Rust's type system borrows a lot of ideas from functional programming
-  languages.\
+  languages.
+
   For example, Rust's enums are known as "algebraic data types" in languages
   like Haskell and OCaml. You can take inspiration from learning material geared
   towards functional languages when looking for guidance on how to design with
