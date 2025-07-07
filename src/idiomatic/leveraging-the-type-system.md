@@ -33,7 +33,7 @@ Additional items speaker may mention:
   that comes with its borrow checker.
 
 - The same caution should be applied to object-oriented design patterns. Rust
-  doesn't support inheritance, and object boundaries must be mindful of the
+  doesn't support inheritance, and object decomposition should take into account the
   constraints introduced by the borrow-checker.
 
 - Mention that type-level abstractions are often referred to as "zero-cost
