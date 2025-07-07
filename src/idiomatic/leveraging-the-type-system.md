@@ -27,7 +27,7 @@ Additional items speaker may mention:
   topic, with examples written in F#.
 
 - Despite Rust's functional roots, functional design patterns don't translate as-is
-  to Rust. For instance, extensive use of higher-kinded functions and types can
+  to Rust. For instance, extensive use of higher-order functions and higher-kinded types can
   result in code that is harder to read and maintain. Design patterns in Rust
   must take into account (and leverage!) the granular control over mutability
   that comes with its borrow-checker.
