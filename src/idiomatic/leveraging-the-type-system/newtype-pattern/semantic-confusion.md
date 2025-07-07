@@ -4,7 +4,8 @@ minutes: 5
 
 # Semantic Confusion
 
-When a function takes multiple arguments of the same type, call sites are unclear:
+When a function takes multiple arguments of the same type, call sites are
+unclear:
 
 ```rust
 # struct LoginError;
@@ -49,7 +50,8 @@ login(password, username);
 
 - Nonetheless, note that there are legitimate scenarios where a function may
   take multiple arguments of the same type. In those scenarios, if correctness
-  is of paramount importance, consider using a struct with named fields as input:
+  is of paramount importance, consider using a struct with named fields as
+  input:
   ```rust
   pub struct LoginArguments {
       pub username: &str,
