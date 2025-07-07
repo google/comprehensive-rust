@@ -48,13 +48,15 @@ impl Username {
   can't modify it.
 
 - Stress the importance of evaluating _the entire API surface_ exposed by a
-  newtype to determine if invariants are indeed bullet-proof.\
+  newtype to determine if invariants are indeed bullet-proof.
+
   It is crucial to consider all possible interactions, including trait
   implementations, that may allow users to bypass the invariants. For example,
   if the `Username` type implements the `DerefMut` trait, users can modify the
   underlying string directly, bypassing the validation checks in `new`.
 
-- Type-level invariants have second-order benefits.\
+- Type-level invariants have second-order benefits.
+
   The input is validated once, at the boundary, and the rest of the program can
   rely on the invariants being upheld. We can avoid redundant validation and
   "defensive programming" checks throughout the program, reducing noise and
