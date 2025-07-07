@@ -19,12 +19,12 @@ impl Username {
     }
 }
 
-impl DerefMut for Username {
+impl std::ops::DerefMut for Username { // ‼️
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.0
     }
 }
-# impl Deref for Username {
+# impl std::ops::Deref for Username {
 #     type Target = str;
 #
 #     fn deref(&self) -> &Self::Target {
