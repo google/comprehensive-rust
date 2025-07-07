@@ -34,7 +34,7 @@ Additional items speaker may mention:
 
 - The same caution should be applied to object-oriented design patterns. Rust
   doesn't support inheritance, and object decomposition should take into account the
-  constraints introduced by the borrow-checker.
+  constraints introduced by the borrow checker.
 
 - Mention that type-level abstractions are often referred to as "zero-cost
   abstractions", although the label can be misleading: the impact on compile
