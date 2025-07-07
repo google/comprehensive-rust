@@ -36,7 +36,7 @@ Additional items speaker may mention:
   doesn't support inheritance, and object decomposition should take into account the
   constraints introduced by the borrow checker.
 
-- Mention that type-level abstractions are often referred to as "zero-cost
+- Mention that type-level programming can be often used to create "zero-cost
   abstractions", although the label can be misleading: the impact on compile
   times and code complexity may be significant.
 
