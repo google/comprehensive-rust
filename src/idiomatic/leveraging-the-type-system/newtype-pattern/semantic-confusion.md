@@ -4,8 +4,7 @@ minutes: 5
 
 # Semantic Confusion
 
-There is room for confusion whenever a function takes multiple arguments of the
-same type:
+When a function takes multiple arguments of the same type, call sites are unclear:
 
 ```rust
 # struct LoginError;
@@ -21,7 +20,7 @@ pub fn login(username: &str, password: &str) -> Result<(), LoginError> {
 login(password, username);
 ```
 
-The newtype pattern can be used to prevent this class of errors at compile time:
+The newtype pattern can prevent this class of errors at compile time:
 
 ```rust
 pub struct Username(String);
@@ -50,7 +49,7 @@ login(password, username);
 
 - Nonetheless, note that there are legitimate scenarios where a function may
   take multiple arguments of the same type. In those scenarios, if correctness
-  is of paramount important, consider using a struct with named fields as input:
+  is of paramount importance, consider using a struct with named fields as input:
   ```rust
   pub struct LoginArguments {
       pub username: &str,

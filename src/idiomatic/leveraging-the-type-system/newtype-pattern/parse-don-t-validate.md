@@ -35,7 +35,8 @@ impl Username {
 
 - The newtype pattern, combined with Rust's module and visibility system, can be
   used to _guarantee_ that instances of a given type satisfy a set of
-  invariants.\
+  invariants.
+
   In the example above, the raw `String` stored inside the `Username` struct
   can't be accessed directly from other modules or crates, since it's not marked
   as `pub` or `pub(in ...)`. Consumers of the `Username` type are forced to use
@@ -43,7 +44,7 @@ impl Username {
   ensuring that all instances of `Username` satisfy those checks.
 
 - The `as_str` method allows consumers to access the raw string representation
-  (e.g. to store it in a database) but, thanks to Rust's borrow checker, they
+  (e.g., to store it in a database) but, thanks to Rust's borrow checker, they
   can't modify it.
 
 - Stress the importance of evaluating _the entire API surface_ exposed by a
