@@ -44,8 +44,9 @@ impl Username {
   ensuring that all instances of `Username` satisfy those checks.
 
 - The `as_str` method allows consumers to access the raw string representation
-  (e.g., to store it in a database) but, thanks to Rust's borrow checker, they
-  can't modify it.
+  (e.g., to store it in a database). However, consumers can't modify the
+  underlying value since `&str`, the returned type, restricts them to read-only
+  access.
 
 - Stress the importance of evaluating _the entire API surface_ exposed by a
   newtype to determine if invariants are indeed bullet-proof.
