@@ -15,8 +15,7 @@ messages above a maximum verbosity.
 
 This is a common pattern: a struct wrapping a trait implementation and
 implementing that same trait, adding behavior in the process. In the "Generics"
-segment this afternoon, we will see how to make the wrapper generic over the
-wrapped type.
+segment, we will see how to make the wrapper generic over the wrapped type.
 
 ```rust,compile_fail,editable
 {{#include exercise.rs:setup}}
