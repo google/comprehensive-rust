@@ -35,8 +35,8 @@ Additional items speaker may mention:
   types in Rust.
 
   Evaluate, on a case-by-case basis, whether a more imperative approach may be
-  easier to implement. Consider using in-place mutation, relying on Rust's borrow-checker and type system to
-  control what can be mutated, and where.
+  easier to implement. Consider using in-place mutation, relying on Rust's
+  borrow-checker and type system to control what can be mutated, and where.
 
 - The same caution should be applied to object-oriented design patterns. Rust
   doesn't support inheritance, and object decomposition should take into account
