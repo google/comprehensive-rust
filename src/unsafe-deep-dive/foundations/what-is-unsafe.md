@@ -59,11 +59,11 @@ From the [reference](https://doc.rust-lang.org/reference/unsafety.html)
 
 > You may have a group of learners who are not familiar with each other yet.
 > This is a way for you to gather some data about their confidence levels and
-> the phsychological safety that they're feeling.
+> the psychological safety that they're feeling.
 
 ### Part 1: Informal definition
 
-> Use this to guage the confidence level of the group. If they are uncertain,
+> Use this to gauge the confidence level of the group. If they are uncertain,
 > then tailor the next section to be more directed.
 
 Ask the class: **By raising your hand, indicate if you would feel comfortable
