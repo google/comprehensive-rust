@@ -23,7 +23,7 @@ login(password, username);
 
 The newtype pattern can prevent this class of errors at compile time:
 
-```rust
+```rust,compile_fail
 pub struct Username(String);
 pub struct Password(String);
 # struct LoginError;
@@ -52,9 +52,9 @@ login(password, username); // 🛠️❌
   is of paramount importance, consider using a struct with named fields as
   input:
   ```rust
-  pub struct LoginArguments {
-      pub username: &str,
-      pub password: &str,
+  pub struct LoginArguments<'a> {
+      pub username: &'a str,
+      pub password: &'a str,
   }
   # fn login(i: LoginArguments) {}
   # let password = "password";
