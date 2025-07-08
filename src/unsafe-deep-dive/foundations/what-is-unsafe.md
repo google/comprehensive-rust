@@ -1,31 +1,14 @@
 # What is &ldquo;unsafety&rdquo;?
 
-Rust is intentionally vague about what "unsafe" means.
+Unsafe Rust is a superset of Safe Rust.
 
-Let's create a working definition together.
+Let's create a list of things that are enabled by the `unsafe` keyword.
 
 <details>
 
-## Clarifying "intentionally vague"
-
-It's likely that you'll have an audience member object to the phrase
-"intentionally vague". Perhaps refer to this statement from the standard library
-when discussing the [safety requirements of raw pointers].
-
-> Many functions in [this module] take raw pointers as arguments and read from
-> or write to them. For this to be safe, these pointers must be _valid_ for the
-> given access.
->
-> ...
->
-> The precise rules for validity are not determined yet.
-
-[this module]: https://doc.rust-lang.org/std/ptr/index.html
-[safety requirements of raw pointers]: https://doc.rust-lang.org/std/ptr/index.html#safety
-
 ## Definitions from authoritative docs:
 
-stdlib's keyword:
+From the [unsafe keyword's documentation]():
 
 > Code or interfaces whose memory safety cannot be verified by the type system.
 >
@@ -85,5 +68,27 @@ Ask the class to spend 3-5 minutes.
 ### Part 4: Remarks
 
 Mention that we'll be reviewing our definition at the end of the day.
+
+## Note: Avoid detailed discussion about precise semantics of memory safety
+
+It's possible that the group will slide into a discussion about the precise
+semantics of what memory safety actually is and how define pointer validity.
+This isn't a productive line of discussion. It can undermine confidence in less
+experienced learners.
+
+Perhaps refer people who wish to discuss this to the discussion within the
+official [documentation for pointer types] (excerpt below) as a place for
+further research.
+
+> Many functions in [this module] take raw pointers as arguments and read from
+> or write to them. For this to be safe, these pointers must be _valid_ for the
+> given access.
+>
+> ...
+>
+> The precise rules for validity are not determined yet.
+
+[this module]: https://doc.rust-lang.org/std/ptr/index.html
+[documentation for pointer types]: https://doc.rust-lang.org/std/ptr/index.html#safety
 
 </details>
