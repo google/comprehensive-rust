@@ -1,6 +1,6 @@
 # Data Structures
 
-Some families of data structures, are impossible to create in safe Rust.
+Some families of data structures are impossible to create in safe Rust.
 
 - graphs
 - bit twiddling
