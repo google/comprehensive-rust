@@ -2,7 +2,7 @@
 
 Data structures are inert. They cannot do any harm by themselves.
 
-It's possible to create a valid program with raw pointer entirely in safe code:
+Safe Rust code can create raw pointers:
 
 ```rust
 fn main() {
