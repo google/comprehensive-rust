@@ -75,8 +75,8 @@ If anyone's feeling confident, allow them to try to explain.
 
 Ask the class to spend 3-5 minutes.
 
-- Find a a use of the unsafe keyword. What contract/invariant/pre-condition is
-  being established or satisfied.
+- Find a use of the unsafe keyword. What contract/invariant/pre-condition is
+  being established or satisfied?
 - Write down terms that need to be defined (unsafe, memory safety, soundness,
   undefined behavior)
 
