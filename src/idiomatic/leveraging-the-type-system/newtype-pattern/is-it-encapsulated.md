@@ -4,7 +4,7 @@ minutes: 5
 
 # Is It Truly Encapsulated?
 
-You must evaluate the entire API surface exposed by a newtype to determine if
+You must evaluate _the entire API surface_ exposed by a newtype to determine if
 invariants are indeed bullet-proof. It is crucial to consider all possible
 interactions, including trait implementations, that may allow users to bypass
 validation checks.

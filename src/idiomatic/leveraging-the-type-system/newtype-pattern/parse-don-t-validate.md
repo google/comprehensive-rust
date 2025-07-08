@@ -48,14 +48,6 @@ impl Username {
   underlying value since `&str`, the returned type, restricts them to read-only
   access.
 
-- Stress the importance of evaluating _the entire API surface_ exposed by a
-  newtype to determine if invariants are indeed bullet-proof.
-
-  It is crucial to consider all possible interactions, including trait
-  implementations, that may allow users to bypass the invariants. For example,
-  if the `Username` type implements the `DerefMut` trait, users can modify the
-  underlying string directly, bypassing the validation checks in `new`.
-
 - Type-level invariants have second-order benefits.
 
   The input is validated once, at the boundary, and the rest of the program can
