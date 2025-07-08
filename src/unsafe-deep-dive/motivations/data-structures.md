@@ -5,6 +5,7 @@ Some families of data structures, are impossible to create in safe Rust.
 - graphs
 - bit stuffing
 - self-referential types
+- intrusive data structures
 
 <details>
 
