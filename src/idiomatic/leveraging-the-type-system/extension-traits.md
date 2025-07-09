@@ -19,10 +19,10 @@ You can use the **extension trait pattern** to work around this limitation.
 
 <details>
 
-- Try to compile the example to show the compiler error that's emitted.
+- Compile the example to show the compiler error that's emitted.
 
-  Point out, in particular, how the compiler error message nudges you towards
-  the extension trait pattern.
+  Highlight how the compiler error message nudges you towards the extension
+  trait pattern.
 
 - Explain how many type-system restrictions in Rust aim to prevent _ambiguity_.
 
