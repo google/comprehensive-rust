@@ -11,8 +11,9 @@
 
 [GitHub issue tracker]: https://github.com/google/comprehensive-rust/issues
 
-The `unsafe` keyword is a misunderstood, but at times essential, part of the
-Rust programming language.
+The `unsafe` keyword is easy to type, but difficult to master. When used
+appropriately, it forms a useful and indeed essential part of the Rust
+programming language.
 
 By the end of this deep dive, you'll know how to work with `unsafe` code, review
 others' changes that include the `unsafe` keyword, and produce your own.
