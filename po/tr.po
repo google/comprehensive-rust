@@ -7208,6 +7208,9 @@ msgid ""
 "For each of the slides in this section, spend some time reviewing the "
 "documentation pages, highlighting some of the more common methods."
 msgstr ""
+"Bu bölümdeki slaytların her biri için, dokümantasyon sayfalarını gözden "
+"geçirerek biraz zaman ayırın ve daha yaygın metotlardan bazılarını öne "
+"çıkarın."
 
 #: src/std-types/std.md
 msgid ""
@@ -7215,45 +7218,61 @@ msgid ""
 "types used by Rust libraries and programs. This way, two libraries can work "
 "together smoothly because they both use the same `String` type."
 msgstr ""
+"Rust, Rust kütüphaneleri ve programları tarafından kullanılan bir dizi ortak "
+"türün oluşturulmasına yardımcı olan bir standart kütüphane ile birlikte "
+"gelir. Bu şekilde, her hangi iki kütüphane aynı `String` türünü kullandığı "
+"için sorunsuzca birlikte çalışabilir."
 
 #: src/std-types/std.md
 msgid ""
 "In fact, Rust contains several layers of the Standard Library: `core`, "
 "`alloc` and `std`."
 msgstr ""
+"Aslında Rust, Standart Kütüphanenin birkaç katmanını içerir: `core`, `alloc` "
+"ve `std`."
 
 #: src/std-types/std.md
 msgid ""
 "`core` includes the most basic types and functions that don't depend on "
 "`libc`, allocator or even the presence of an operating system."
 msgstr ""
+"`core`, `libc`'ye, tahsis ediciye (allocator) ve hatta bir işletim "
+"sisteminin varlığına bağlı olmayan en temel türleri ve fonksiyonları içerir."
 
 #: src/std-types/std.md
 msgid ""
 "`alloc` includes types which require a global heap allocator, such as `Vec`, "
 "`Box` and `Arc`."
 msgstr ""
+"`alloc`, `Vec`, `Box` ve `Arc` gibi global bir dinamik bellek tahsis "
+"edicisini (heap allocator) gerektiren türleri içerir."
 
 #: src/std-types/std.md
 msgid ""
 "Embedded Rust applications often only use `core`, and sometimes `alloc`."
 msgstr ""
+"Gömülü Rust uygulamaları genellikle sadece `core` ve bazen de `alloc` "
+"kullanır."
 
 #: src/std-types/docs.md
 msgid "Rust comes with extensive documentation. For example:"
-msgstr ""
+msgstr "Rust, kapsamlı bir dokümantasyonla birlikte gelir. Örneğin:"
 
 #: src/std-types/docs.md
 msgid ""
 "All of the details about [loops](https://doc.rust-lang.org/stable/reference/"
 "expressions/loop-expr.html)."
 msgstr ""
+"[Döngüler](https://doc.rust-lang.org/stable/reference/expressions/loop-expr."
+"html) hakkındaki tüm ayrıntılar."
 
 #: src/std-types/docs.md
 msgid ""
 "Primitive types like [`u8`](https://doc.rust-lang.org/stable/std/primitive."
 "u8.html)."
 msgstr ""
+"[`u8`](https://doc.rust-lang.org/stable/std/primitive.u8.html) gibi ilkel "
+"türler (primitive types)."
 
 #: src/std-types/docs.md
 msgid ""
@@ -7261,14 +7280,19 @@ msgid ""
 "option/enum.Option.html) or [`BinaryHeap`](https://doc.rust-lang.org/stable/"
 "std/collections/struct.BinaryHeap.html)."
 msgstr ""
+"[`Option`](https://doc.rust-lang.org/stable/std/option/enum.Option.html) "
+"veya [`BinaryHeap`](https://doc.rust-lang.org/stable/std/collections/struct."
+"BinaryHeap.html) gibi standart kütüphane türleri."
 
 #: src/std-types/docs.md
 msgid "Use `rustup doc --std` or <https://std.rs> to view the documentation."
 msgstr ""
+"Dokümantasyonu görüntülemek için `rustup doc --std` veya <https://std.rs> "
+"kullanın."
 
 #: src/std-types/docs.md
 msgid "In fact, you can document your own code:"
-msgstr ""
+msgstr "Aslında, kendi kodunuzu belgeleyebilirsiniz:"
 
 #: src/std-types/docs.md
 msgid ""
@@ -7277,6 +7301,9 @@ msgid ""
 "///\n"
 "/// If the second argument is zero, the result is false.\n"
 msgstr ""
+"/// İlk argümanın ikinci argümana bölünüp bölünemeyeceğini belirle.\n"
+"///\n"
+"/// İkinci argüman sıfır ise, sonuç yanlıştır.\n"
 
 #: src/std-types/docs.md
 msgid ""
@@ -7285,24 +7312,36 @@ msgid ""
 "(https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html) tool. It is "
 "idiomatic to document all public items in an API using this pattern."
 msgstr ""
+"İçerikler Markdown olarak işlenir. Yayınlanan tüm Rust kütüphane kasaları "
+"(crates), [rustdoc](https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html) "
+"aracı kullanılarak [`docs.rs`](https://docs.rs) adresinde otomatik olarak "
+"belgelenir. Bir API'deki tüm genel (public) öğeleri bu deseni kullanarak "
+"belgelemek, tercih edilen yaklaşımdır (idiomatic)."
 
 #: src/std-types/docs.md
 msgid ""
 "To document an item from inside the item (such as inside a module), use `//!"
 "` or `/*! .. */`, called \"inner doc comments\":"
 msgstr ""
+"Bir öğeyi, öğenin içinden (bir modülün içi gibi) belgelemek için \"iç "
+"doküman yorumları (inner doc comments)\" olarak adlandırılan `//!` veya `/"
+"*! .. */` kullanın:"
 
 #: src/std-types/docs.md
 msgid ""
 "//! This module contains functionality relating to divisibility of "
 "integers.\n"
 msgstr ""
+"//! Bu modül, tamsayıların bölünebilirliği ile ilgili fonksiyonellik "
+"içerir.\n"
 
 #: src/std-types/docs.md
 msgid ""
 "Show students the generated docs for the `rand` crate at <https://docs.rs/"
 "rand>."
 msgstr ""
+"Öğrencilere <https://docs.rs/rand> adresindeki `rand` kasası (crate) için "
+"oluşturulmuş belgeleri gösterin."
 
 #: src/std-types/option.md
 msgid ""
@@ -7310,44 +7349,57 @@ msgid ""
 "type `T` or nothing. For example, [`String::find`](https://doc.rust-lang.org/"
 "stable/std/string/struct.String.html#method.find) returns an `Option<usize>`."
 msgstr ""
+"Daha önce `Option<T>`'nin bazı kullanımlarını görmüştük. Ya `T` türünde bir "
+"değer saklar ya da hiçbir şey saklamaz. Örneğin, [`String::find`](https://"
+"doc.rust-lang.org/stable/std/string/struct.String.html#method.find) bir "
+"`Option<usize>` döndürür."
 
 #: src/std-types/option.md
 msgid "\"Löwe 老虎 Léopard Gepardi\""
-msgstr ""
+msgstr "\"Löwe 老虎 Léopard Gepardi\""
 
 #: src/std-types/option.md
 msgid "'é'"
-msgstr ""
+msgstr "'é'"
 
 #: src/std-types/option.md
 msgid "'Z'"
-msgstr ""
+msgstr "'Z'"
 
 #: src/std-types/option.md
 msgid "\"Character not found\""
-msgstr ""
+msgstr "\"Karakter bulunamadı\""
 
 #: src/std-types/option.md
 msgid "`Option` is widely used, not just in the standard library."
 msgstr ""
+"`Option` sadece standart kütüphanede kullanılır gibi bir şey yoktur, yaygın "
+"olarak kullanılır."
 
 #: src/std-types/option.md
 msgid ""
 "`unwrap` will return the value in an `Option`, or panic. `expect` is similar "
 "but takes an error message."
 msgstr ""
+"`unwrap`, bir `Option` içindeki değeri döndürür veya paniğe (panic) neden "
+"olur. `expect` benzerdir ancak bir hata mesajı (error message) alır."
 
 #: src/std-types/option.md
 msgid ""
 "You can panic on None, but you can't \"accidentally\" forget to check for "
 "None."
 msgstr ""
+"None durumunda panik alabilirsiniz, ancak None'ı kontrol etmeyi "
+"\"yanlışlıkla\" unutamazsınız."
 
 #: src/std-types/option.md
 msgid ""
 "It's common to `unwrap`/`expect` all over the place when hacking something "
 "together, but production code typically handles `None` in a nicer fashion."
 msgstr ""
+"Bir şeyler üzerinde çalışırken her yerde `unwrap`/`expect` kullanmak "
+"yaygındır, ancak üretim (production) kodu genellikle `None`'ı daha şık bir "
+"şekilde ele alır."
 
 #: src/std-types/option.md
 msgid ""
@@ -7357,6 +7409,12 @@ msgid ""
 "uses NULL to represent the `None` variant, and thus can be stored in the "
 "same memory as `&T`."
 msgstr ""
+"\"Niş/oyuk optimizasyonu (niche optimization)\", T'nin geçerli bir değeri "
+"olmayan bir gösterimi (representation) varsa, `Option<T>`'nin genellikle "
+"bellekte `T` ile aynı boyuta sahip olduğu anlamına gelir. Örneğin, bir "
+"referans NULL olamaz, bu nedenle `Option<&T>` `None` varyantını temsil etmek "
+"için otomatik olarak NULL kullanır ve bu sayede `&T` ile aynı bellekte "
+"saklanabilir."
 
 #: src/std-types/result.md
 msgid ""
@@ -7364,22 +7422,26 @@ msgid ""
 "operation, each with a different enum variant. It is generic: `Result<T, E>` "
 "where `T` is used in the `Ok` variant and `E` appears in the `Err` variant."
 msgstr ""
+"`Result`, `Option`'a benzer, ancak her biri farklı bir enum varyantına sahip "
+"bir işlemin başarısını veya başarısızlığını belirtir. Jeneriktir: `Result<T, "
+"E>`; burada `T`, `Ok` varyantında kullanılır ve `E`, `Err` varyantında "
+"görünür."
 
 #: src/std-types/result.md src/error-handling/result.md
 msgid "\"diary.txt\""
-msgstr ""
+msgstr "\"günlük.txt\""
 
 #: src/std-types/result.md src/error-handling/result.md
 msgid "\"Dear diary: {contents} ({bytes} bytes)\""
-msgstr ""
+msgstr "\"Sevgili günlük: {contents} ({bytes} bayt)\""
 
 #: src/std-types/result.md src/error-handling/result.md
 msgid "\"Could not read file content\""
-msgstr ""
+msgstr "\"Dosya içeriği okunamadı\""
 
 #: src/std-types/result.md src/error-handling/result.md
 msgid "\"The diary could not be opened: {err}\""
-msgstr ""
+msgstr "\"Günlük açılamadı: {err}\""
 
 #: src/std-types/result.md
 msgid ""
@@ -7388,6 +7450,11 @@ msgid ""
 "case where an error should never happen, `unwrap()` or `expect()` can be "
 "called, and this is a signal of the developer intent too."
 msgstr ""
+"`Option`'da olduğu gibi, başarılı değer `Result`'ın içinde yer alır ve "
+"geliştiriciyi onu açıkça (explicitly) çıkarmaya zorlar. Bu, hata kontrolünü "
+"teşvik eder. Bir hatanın asla olmaması gereken durumlarda, `unwrap()` veya "
+"`expect()` çağrılabilir ve bu aynı zamanda geliştiricinin niyetinin de bir "
+"işaretidir."
 
 #: src/std-types/result.md
 msgid ""
@@ -7395,18 +7462,25 @@ msgid ""
 "is worth mentioning. It contains a lot of convenience methods and functions "
 "that help functional-style programming."
 msgstr ""
+"`Result` dokümantasyonunu okumanız tavsiye edilir. Kurs sırasında değil, ama "
+"bahsetmeye değer. Fonksiyonel tarzda programlamaya yardımcı olan birçok "
+"kullanışlı metot ve fonksiyon içerir."
 
 #: src/std-types/result.md
 msgid ""
 "`Result` is the standard type to implement error handling as we will see on "
 "Day 4."
 msgstr ""
+"`Result`, 4. Günde göreceğimiz gibi hata işlemeyi (error handling) "
+"gerçekleştirmek (implement) için standart türdür."
 
 #: src/std-types/string.md
 msgid ""
 "[`String`](https://doc.rust-lang.org/std/string/struct.String.html) is a "
 "growable UTF-8 encoded string:"
 msgstr ""
+"[`String`](https://doc.rust-lang.org/std/string/struct.String.html) türü, "
+"büyüyebilir, UTF-8 olarak kodlanmış bir dizedir (string):"
 
 #: src/std-types/string.md src/std-traits/comparisons.md
 #: src/std-traits/read-and-write.md src/memory-management/review.md
@@ -7416,23 +7490,23 @@ msgstr "\"Merhaba\""
 
 #: src/std-types/string.md
 msgid "\"s1: len = {}, capacity = {}\""
-msgstr ""
+msgstr "\"s1: uzunluk = {}, kapasite = {}\""
 
 #: src/std-types/string.md
 msgid "'!'"
-msgstr ""
+msgstr "'!'"
 
 #: src/std-types/string.md
 msgid "\"s2: len = {}, capacity = {}\""
-msgstr ""
+msgstr "\"s2: uzunluk = {}, kapasite = {}\""
 
 #: src/std-types/string.md
 msgid "\"🇨🇭\""
-msgstr ""
+msgstr "\"🇹🇷\""
 
 #: src/std-types/string.md
 msgid "\"s3: len = {}, number of chars = {}\""
-msgstr ""
+msgstr "\"s3: uzunluk = {}, karakter sayısı = {}\""
 
 #: src/std-types/string.md
 msgid ""
@@ -7440,18 +7514,26 @@ msgid ""
 "string/struct.String.html#deref-methods-str), which means that you can call "
 "all `str` methods on a `String`."
 msgstr ""
+"`String`, [`Deref<Target = str>`](https://doc.rust-lang.org/std/string/"
+"struct.String.html#deref-methods-str) özelliğini gerçekleştirir (implement), "
+"bu da bir `String` üzerinde tüm `str` metotlarını çağırabileceğiniz anlamına "
+"gelir."
 
 #: src/std-types/string.md
 msgid ""
 "`String::new` returns a new empty string, use `String::with_capacity` when "
 "you know how much data you want to push to the string."
 msgstr ""
+"`String::new` yeni bir boş dize döndürür, dizeye ne kadar veri eklemek "
+"istediğinizi bildiğinizde `String::with_capacity` kullanın."
 
 #: src/std-types/string.md
 msgid ""
 "`String::len` returns the size of the `String` in bytes (which can be "
 "different from its length in characters)."
 msgstr ""
+"`String::len`, `String`'in bayt cinsinden boyutunu döndürür (bu, karakter "
+"cinsinden uzunluğundan farklı olabilir)."
 
 #: src/std-types/string.md
 msgid ""
@@ -7460,34 +7542,48 @@ msgid ""
 "to [grapheme clusters](https://docs.rs/unicode-segmentation/latest/"
 "unicode_segmentation/struct.Graphemes.html)."
 msgstr ""
+"`String::chars`, gerçek karakterler üzerinde bir adımlayıcı (iterator) "
+"döndürür. [yazıbirim (grapheme) kümeleri](https://docs.rs/unicode-"
+"segmentation/latest/unicode_segmentation/struct.Graphemes.html) nedeniyle "
+"bir `char`'ın bir insanın \"karakter\" olarak kabul edeceği şeyden farklı "
+"olabileceğini unutmayın."
 
 #: src/std-types/string.md
 msgid ""
 "When people refer to strings they could either be talking about `&str` or "
 "`String`."
 msgstr ""
+"İnsanlar dizelerden (strings) bahsettiğinde, ya `&str` ya da `String`'den "
+"bahsediyor olabilirler."
 
 #: src/std-types/string.md
 msgid ""
 "When a type implements `Deref<Target = T>`, the compiler will let you "
 "transparently call methods from `T`."
 msgstr ""
+"Bir tür `Deref<Target = T>`'yi gerçekleştirdiğinde (implement), derleyici "
+"`T`'den metotları şeffaf bir şekilde çağırmanıza izin verir."
 
 #: src/std-types/string.md
 msgid ""
 "We haven't discussed the `Deref` trait yet, so at this point this mostly "
 "explains the structure of the sidebar in the documentation."
 msgstr ""
+"`Deref` özelliğini (trait) henüz tartışmadık, bu yüzden bu noktada bu "
+"çoğunlukla dokümantasyondaki kenar çubuğunun yapısını (neden String türünün "
+"altında str metodlarının da görüldüğünü) açıklar."
 
 #: src/std-types/string.md
 msgid ""
 "`String` implements `Deref<Target = str>` which transparently gives it "
 "access to `str`'s methods."
 msgstr ""
+"`String`, `Deref<Target = str>` özelliğini gerçekleştirir (implement) ve bu "
+"ona şeffaf bir şekilde `str`'nin metotlarına erişim sağlar."
 
 #: src/std-types/string.md
 msgid "Write and compare `let s3 = s1.deref();` and `let s3 = &*s1;`."
-msgstr ""
+msgstr "`let s3 = s1.deref();` ve `let s3 = &*s1;` yazıp karşılaştırın."
 
 #: src/std-types/string.md
 msgid ""
@@ -7495,22 +7591,29 @@ msgid ""
 "operations you see supported on vectors are also supported on `String`, but "
 "with some extra guarantees."
 msgstr ""
+"`String`, bir bayt vektörü etrafında bir sarmalayıcı (wrapper) olarak "
+"gerçekleştirilmiştir (implement), vektörlerde desteklenen birçok işlem "
+"`String`'de de desteklenir, ancak bazı ek garantilerle."
 
 #: src/std-types/string.md
 msgid "Compare the different ways to index a `String`:"
-msgstr ""
+msgstr "Bir `String`'e erimenin farklı yollarını karşılaştırın:"
 
 #: src/std-types/string.md
 msgid ""
 "To a character by using `s3.chars().nth(i).unwrap()` where `i` is in-bound, "
 "out-of-bounds."
 msgstr ""
+"`i`'nin sınırlar içinde veya dışında olduğu `s3.chars().nth(i).unwrap()` "
+"kullanarak bir karaktere erişmek."
 
 #: src/std-types/string.md
 msgid ""
 "To a substring by using `s3[0..4]`, where that slice is on character "
 "boundaries or not."
 msgstr ""
+"Bu dilimin (slice) karakter sınırlarına denk gelip gelmediği durumlarda "
+"`s3[0..4]` kullanarak bir alt dizeye erişmek."
 
 #: src/std-types/string.md
 msgid ""
@@ -7520,36 +7623,45 @@ msgid ""
 "`Display`, so anything that can be formatted can also be converted to a "
 "string."
 msgstr ""
+"Birçok tür, [`to_string`](https://doc.rust-lang.org/std/string/trait."
+"ToString.html#tymethod.to_string) metodu ile bir dizeye dönüştürülebilir. Bu "
+"özellik (trait), `Display`'i gerçekleştiren (implement) tüm türler için "
+"otomatik olarak gerçekleştirilir, bu nedenle biçimlendirilebilen (format) "
+"her şey bir dizeye de dönüştürülebilir."
 
 #: src/std-types/vec.md
 msgid ""
 "[`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html) is the standard "
 "resizable heap-allocated buffer:"
 msgstr ""
+"[`Vec`](https://doc.rust-lang.org/std/vec/struct.Vec.html), standart yeniden "
+"boyutlandırılabilir dinamik bellekten tahsis edilen arabellektir (heap-"
+"allocated buffer):"
 
 #: src/std-types/vec.md
 msgid "\"v1: len = {}, capacity = {}\""
-msgstr ""
+msgstr "\"v1: uzunluk = {}, kapasite = {}\""
 
 #: src/std-types/vec.md
 msgid "\"v2: len = {}, capacity = {}\""
-msgstr ""
+msgstr "\"v2: uzunluk = {}, kapasite = {}\""
 
 #: src/std-types/vec.md
 msgid "// Canonical macro to initialize a vector with elements.\n"
 msgstr ""
+"// Bir vektörü elemanlarla ilklendirmek (initialize) için standart makro.\n"
 
 #: src/std-types/vec.md
 msgid "// Retain only the even elements.\n"
-msgstr ""
+msgstr "// Sadece çift elemanları tut.\n"
 
 #: src/std-types/vec.md
 msgid "\"{v3:?}\""
-msgstr ""
+msgstr "\"{v3:?}\""
 
 #: src/std-types/vec.md
 msgid "// Remove consecutive duplicates.\n"
-msgstr ""
+msgstr "// Ardışık kopyaları sil.\n"
 
 #: src/std-types/vec.md
 msgid ""
@@ -7557,6 +7669,9 @@ msgid ""
 "struct.Vec.html#deref-methods-%5BT%5D), which means that you can call slice "
 "methods on a `Vec`."
 msgstr ""
+"`Vec`, [`Deref<Target = [T]>`](https://doc.rust-lang.org/std/vec/struct.Vec."
+"html#deref-methods-%5BT%5D) özelliğini gerçekleştirir (implement), bu da bir "
+"`Vec` üzerinde dilim (slice) metotlarını çağırabileceğiniz anlamına gelir."
 
 #: src/std-types/vec.md
 msgid ""
@@ -7564,6 +7679,10 @@ msgid ""
 "it contains is stored on the heap. This means the amount of data doesn't "
 "need to be known at compile time. It can grow or shrink at runtime."
 msgstr ""
+"`Vec`, `String` ve `HashMap` ile birlikte bir koleksiyon türüdür. İçerdiği "
+"veriler dinamik bellekte (heap) saklanır. Bu, veri miktarının derleme "
+"zamanında bilinmesi gerekmediği anlamına gelir. Çalışma zamanında "
+"büyüyebilir veya küçülebilir."
 
 #: src/std-types/vec.md
 msgid ""
@@ -7571,12 +7690,18 @@ msgid ""
 "explicitly. As always with Rust type inference, the `T` was established "
 "during the first `push` call."
 msgstr ""
+"`Vec<T>`'nin de jenerik (generic) bir tür olduğuna, ancak `T`'yi açıkça "
+"belirtmek zorunda olmadığınıza dikkat edin. Rust tür çıkarımında (type "
+"inference) her zaman olduğu gibi, `T` ilk `push` çağrısı sırasında "
+"belirlenmiştir."
 
 #: src/std-types/vec.md
 msgid ""
 "`vec![...]` is a canonical macro to use instead of `Vec::new()` and it "
 "supports adding initial elements to the vector."
 msgstr ""
+"`vec![...]`, `Vec::new()` yerine kullanılacak standart bir makrodur ve "
+"vektöre başlangıç elemanları eklemeyi destekler."
 
 #: src/std-types/vec.md
 msgid ""
@@ -7584,57 +7709,68 @@ msgid ""
 "Alternatively, using `get` will return an `Option`. The `pop` function will "
 "remove the last element."
 msgstr ""
+"Vektörün elemanlarına erişmek için `[` `]` kullanırsınız, ancak sınırlar "
+"dışındaysa paniğe (panic) neden olurlar. Alternatif olarak, `get` kullanmak "
+"bir `Option` döndürür. `pop` fonksiyonu son elemanı kaldırır."
 
 #: src/std-types/vec.md
 msgid ""
 "Slices are covered on day 3. For now, students only need to know that a "
 "value of type `Vec` gives access to all of the documented slice methods, too."
 msgstr ""
+"Dilimler (slices) 3. günde ele alınacak. Şimdilik, öğrencilerin sadece `Vec` "
+"türündeki bir değerin, belgelenmiş tüm dilim (slice) metotlarına da erişim "
+"sağladığını bilmeleri yeterlidir."
 
 #: src/std-types/hashmap.md
 msgid "Standard hash map with protection against HashDoS attacks:"
 msgstr ""
+"HashDoS saldırılarına karşı korumalı standart özet haritası (hash map):"
 
 #: src/std-types/hashmap.md
 msgid "\"Adventures of Huckleberry Finn\""
-msgstr ""
+msgstr "\"Fadiş\""
 
 #: src/std-types/hashmap.md
 msgid "\"Grimms' Fairy Tales\""
-msgstr ""
+msgstr "\"Dede Korkut Hikayeleri\""
 
 #: src/std-types/hashmap.md
 msgid "\"Pride and Prejudice\""
-msgstr ""
+msgstr "\"Aşk-ı Memnu\""
 
 #: src/std-types/hashmap.md
 msgid "\"Les Misérables\""
-msgstr ""
+msgstr "\"İnce Mehmed\""
 
 #: src/std-types/hashmap.md
 msgid "\"We know about {} books, but not Les Misérables.\""
-msgstr ""
+msgstr "\"{} kitap hakkında bilgimiz var, ama İnce Mehmed hakkında yok.\""
 
 #: src/std-types/hashmap.md
 msgid "\"Alice's Adventure in Wonderland\""
-msgstr ""
+msgstr "\"Keloğlan Masalları \""
 
 #: src/std-types/hashmap.md
 msgid "\"{book}: {count} pages\""
-msgstr ""
+msgstr "\"{book}: {count} sayfa\""
 
 #: src/std-types/hashmap.md
 msgid "\"{book} is unknown.\""
-msgstr ""
+msgstr "\"{book} bilinmiyor.\""
 
 #: src/std-types/hashmap.md
 msgid "// Use the .entry() method to insert a value if nothing is found.\n"
 msgstr ""
+"// Eğer bir şey bulunmazsa bir değer eklemek için .entry() metodunu "
+"kullanın.\n"
 
 #: src/std-types/hashmap.md
 msgid ""
 "`HashMap` is not defined in the prelude and needs to be brought into scope."
 msgstr ""
+"`HashMap`, başlangıç (prelude) kısmında tanımlı değildir ve kapsama (scope) "
+"alınması gerekir."
 
 #: src/std-types/hashmap.md
 msgid ""
@@ -7642,18 +7778,21 @@ msgid ""
 "hashmap and if not return an alternative value. The second line will insert "
 "the alternative value in the hashmap if the book is not found."
 msgstr ""
+"Aşağıdaki kod satırlarını deneyin. İlk satır bir kitabın hash haritasında "
+"olup olmadığına bakar ve yoksa alternatif bir değer döndürür. İkinci satır, "
+"kitap bulunmazsa alternatif değeri hash haritasına ekler."
 
 #: src/std-types/hashmap.md
 msgid "\"Harry Potter and the Sorcerer's Stone\""
-msgstr ""
+msgstr "\"Osmanlı Cadısı\""
 
 #: src/std-types/hashmap.md
 msgid "\"The Hunger Games\""
-msgstr ""
+msgstr "\"Gri Gökyüzü \""
 
 #: src/std-types/hashmap.md
 msgid "Unlike `vec!`, there is unfortunately no standard `hashmap!` macro."
-msgstr ""
+msgstr "`vec!`'in aksine, maalesef standart bir `hashmap!` makrosu yoktur."
 
 #: src/std-types/hashmap.md
 msgid ""
@@ -7662,12 +7801,19 @@ msgid ""
 "From%3C%5B(K,+V);+N%5D%3E-for-HashMap%3CK,+V,+RandomState%3E), which allows "
 "us to easily initialize a hash map from a literal array:"
 msgstr ""
+"Ancak, Rust 1.56'dan beri, HashMap [`From<[(K, V); N]>`](https://doc.rust-"
+"lang.org/std/collections/hash_map/struct.HashMap.html#impl-From%3C%5B(K,+V);"
+"+N%5D%3E-for-HashMap%3CK,+V,+RandomState%3E) özelliğini (trait) "
+"gerçekleştirir (implement), bu da bir özet haritasını (hash map) bir "
+"değişmez (literal) diziden kolayca ilklendirmemize (initialize)olanak tanır:"
 
 #: src/std-types/hashmap.md
 msgid ""
 "Alternatively HashMap can be built from any `Iterator` which yields key-"
 "value tuples."
 msgstr ""
+"Alternatif olarak HashMap, anahtar-değer (key-value) demetleri (tuple) "
+"üreten herhangi bir `Iterator`'dan oluşturulabilir."
 
 #: src/std-types/hashmap.md
 msgid ""
@@ -7676,6 +7822,10 @@ msgid ""
 "Rust docs. Show students the docs for this type, and the helpful link back "
 "to the `keys` method."
 msgstr ""
+"Bu tür, `std::collections::hash_map::Keys` gibi birkaç \"metoda özgü\" dönüş "
+"türüne sahiptir. Bu türler genellikle Rust belgelerindeki aramalarda "
+"görünür. Öğrencilere bu türün belgelerini ve `keys` metoduna geri dönen "
+"yardımcı bağlantıyı gösterin."
 
 #: src/std-types/exercise.md
 msgid ""
@@ -7684,6 +7834,10 @@ msgid ""
 "stable/std/collections/struct.HashMap.html) to keep track of which values "
 "have been seen and how many times each one has appeared."
 msgstr ""
+"Bu alıştırmada çok basit bir veri yapısı alıp onu jenerik (generic) hale "
+"getireceksiniz. Hangi değerlerin görüldüğünü ve her birinin kaç kez "
+"göründüğünü takip etmek için bir [`std::collections::HashMap`](https://doc."
+"rust-lang.org/stable/std/collections/struct.HashMap.html) kullanır."
 
 #: src/std-types/exercise.md
 msgid ""
@@ -7691,6 +7845,9 @@ msgid ""
 "values. Make the struct and its methods generic over the type of value being "
 "tracked, that way `Counter` can track any type of value."
 msgstr ""
+"`Counter`'ın ilk sürümü sadece `u32` değerleri için çalışacak şekilde sabit "
+"kodlanmıştır. Yapıyı ve metotlarını, izlenen değerin türü üzerinde jenerik "
+"(generic) yapın, bu şekilde `Counter` her tür değeri izleyebilir."
 
 #: src/std-types/exercise.md
 msgid ""
@@ -7698,39 +7855,43 @@ msgid ""
 "stable/std/collections/struct.HashMap.html#method.entry) method to halve the "
 "number of hash lookups required to implement the `count` method."
 msgstr ""
+"Eğer erken bitirirseniz, `count` metodunu gerçekleştirmek (implement) için "
+"gereken özet (hash) arama sayısını yarıya indirmek için [`entry`](https://"
+"doc.rust-lang.org/stable/std/collections/struct.HashMap.html#method.entry) "
+"metodunu kullanmayı deneyin."
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid ""
 "/// Counter counts the number of times each value of type T has been seen.\n"
-msgstr ""
+msgstr "/// Counter, T türündeki her bir değerin kaç kez görüldüğünü sayar.\n"
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "/// Create a new Counter.\n"
-msgstr ""
+msgstr "/// Yeni bir Counter oluştur.\n"
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "/// Count an occurrence of the given value.\n"
-msgstr ""
+msgstr "/// Verilen değerin bir tekrarını say.\n"
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "/// Return the number of times the given value has been seen.\n"
-msgstr ""
+msgstr "/// Verilen değerin kaç kez görüldüğünü döndür.\n"
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "\"saw {} values equal to {}\""
-msgstr ""
+msgstr "\"{} değer {}`e eşit görüldü\""
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "\"apple\""
-msgstr ""
+msgstr "\"elma\""
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "\"orange\""
-msgstr ""
+msgstr "\"portakal\""
 
 #: src/std-types/exercise.md src/std-types/solution.md
 msgid "\"got {} apples\""
-msgstr ""
+msgstr "\"{} elma alındı\""
 
 #: src/closures.md src/concurrency/threads.md src/concurrency/shared-state.md
 msgid "This segment should take about 30 minutes. It contains:"
@@ -7738,27 +7899,36 @@ msgstr "Bu bölüm yaklaşık 30 dakika sürmelidir. İçeriği:"
 
 #: src/closures/syntax.md
 msgid "Closures are created with vertical bars: `|..| ..`."
-msgstr ""
+msgstr "Çevreleyiciler (closures) dikey çubuklarla oluşturulur: `|..| ..`."
 
 #: src/closures/syntax.md
 msgid "// Argument and return type can be inferred for lightweight syntax:\n"
 msgstr ""
+"// Hafif sözdizimi (lightweight syntax) için, argüman ve geri dönüş türü "
+"çıkarımı yapılabilir:\n"
 
 #: src/closures/syntax.md
 msgid "// Or we can specify types and bracket the body to be fully explicit:\n"
 msgstr ""
+"// Veya türleri belirtebilir ve tamamen açık (fully explicit) olmak için "
+"gövdeyi parantez içine alabiliriz:\n"
 
 #: src/closures/syntax.md
 msgid ""
 "The arguments go between the `|..|`. The body can be surrounded by `{ .. }`, "
 "but if it is a single expression these can be omitted."
 msgstr ""
+"Argümanlar `|..|` arasına girer. Gövde `{ .. }` içine alınır., ancak tek bir "
+"ifade (expression) ise bunlar atlanabilir."
 
 #: src/closures/syntax.md
 msgid ""
 "Argument types are optional, and are inferred if not given. The return type "
 "is also optional, but can only be written if using `{ .. }` around the body."
 msgstr ""
+"Argüman türleri isteğe bağlıdır ve eğer verilmezse türler çıkarım "
+"(inference) yapılır. Geri dönüş türü (return type) de isteğe bağlıdır, ancak "
+"yalnızca gövdenin etrafında `{ .. }` varsa yazılabilir."
 
 #: src/closures/syntax.md
 msgid ""
@@ -7766,6 +7936,10 @@ msgid ""
 "not capture any variables from their lexical environment. We will see "
 "captures next."
 msgstr ""
+"Örneklerin her ikisi de bunun yerine sadece iç içe fonksiyonlar olarak "
+"yazılabilir -- çünkü bulundukları sözcüksel ortamdan (lexical environment) "
+"herhangi bir değişkeni yakalamazlar. Yakalamayı (capturing) bir sonraki "
+"adımda göreceğiz."
 
 #: src/closures/syntax.md
 msgid ""
@@ -7774,17 +7948,27 @@ msgid ""
 "closures can: [Example in the playground](https://play.rust-lang.org/?"
 "version=stable&mode=debug&edition=2024&gist=817cbeeefc49f3d0d180a3d6d54c8bda)."
 msgstr ""
+"Fonksiyonları değişkenlerde saklama yeteneği sadece çevreleyicilere "
+"(closures) özgü değildir, düzenli (regular) fonksiyonlar da değişkenlere "
+"konulabilir ve ardından çevreleyicilerle aynı şekilde çağrılabilir: [Deneme "
+"alanında (playground) örnek](https://play.rust-lang.org/?"
+"version=stable&mode=debug&edition=2024&gist=817cbeeefc49f3d0d180a3d6d54c8bda)."
 
 #: src/closures/syntax.md
 msgid ""
 "The linked example also demonstrates that closures that don't capture "
 "anything can also coerce to a regular function pointer."
 msgstr ""
+"Bağlantısı verilen örnek ayrıca hiçbir şey yakalamayan (capture) "
+"çevreleyicilerin (closures) de düzenli bir fonksiyon göstericisine (regular "
+"function pointer) dönüştürülebileceğini (coerce) göstermektedir."
 
 #: src/closures/capturing.md
 msgid ""
 "A closure can capture variables from the environment where it was defined."
 msgstr ""
+"Bir çevreleyici (closure), tanımlandığı ortamdan değişkenleri yakalayabilir "
+"(capture)."
 
 #: src/closures/capturing.md
 msgid ""
@@ -7793,12 +7977,20 @@ msgid ""
 "`max_value` mutable, changing it, and printing the clamped values again. Why "
 "doesn't this work?"
 msgstr ""
+"Varsayılan olarak, bir çevreleyici (closure) değerleri referans yoluyla "
+"yakalar. Burada `max_value`, `clamp` tarafından yakalanır, ancak yazdırma "
+"için `main`'de hala kullanılabilir. `max_value` değişkenini değiştirilebilir "
+"(mutable) yapmayı, değiştirmeyi ve değerleri tekrar yazdırmayı deneyin. Bu "
+"neden işe yaramıyor?"
 
 #: src/closures/capturing.md
 msgid ""
 "If a closure mutates values, it will capture them by mutable reference. Try "
 "adding `max_value += 1` to `clamp`."
 msgstr ""
+"Bir çevreleyici (closure) değerleri değiştirirse, onları değiştirilebilir "
+"(mutable) referans yoluyla yakalar. `clamp`'e `max_value += 1` eklemeyi "
+"deneyin."
 
 #: src/closures/capturing.md
 msgid ""
@@ -7806,12 +7998,19 @@ msgid ""
 "`move` keyword. This can help with lifetimes, for example if the closure "
 "must outlive the captured values (more on lifetimes later)."
 msgstr ""
+"Bir çevreleyiciyi (closure), `move` anahtar kelimesiyle değerleri referans "
+"almak yerine taşımaya (move) zorlayabilirsiniz. Bu, ömürlerle (lifetimes) "
+"ilgili yardımcı olabilir, örneğin çevreleyici yakalanan değerlerden daha "
+"uzun yaşamalıysa (ömürler hakkında daha sonra daha fazla bilgi)."
 
 #: src/closures/capturing.md
 msgid ""
 "This looks like `move |v| ..`. Try adding this keyword and see if `main` can "
 "still access `max_value` after defining `clamp`."
 msgstr ""
+"Bu, `move |v| ..` gibi görünüyor. Bu anahtar kelimeyi eklemeyi deneyin ve "
+"`clamp`'i tanımladıktan sonra `main`'in hala `max_value`'e erişip "
+"erişemediğini görün."
 
 #: src/closures/capturing.md
 msgid ""
@@ -7820,10 +8019,15 @@ msgid ""
 "then exclusive reference, then by move). The `move` keyword forces capture "
 "by value."
 msgstr ""
+"Varsayılan olarak, çevreleyiciler (closures) dış kapsamdan (outer scope) her "
+"değişkeni, yapabildikleri en az talepkar erişim biçimiyle yakalarlar "
+"(mümkünse paylaşılan (shared) referansla, sonra özel (exclusive) referansla, "
+"sonra taşıma (move) ile). `move` anahtar kelimesi, değerle yakalamayı "
+"(move)zorlar."
 
 #: src/closures/traits.md
 msgid "Closure traits"
-msgstr "Çevreleyici özellikler (Closures traits)"
+msgstr "Çevreleyici özellikleri (Closure traits)"
 
 #: src/closures/traits.md
 msgid ""
@@ -7832,64 +8036,72 @@ msgid ""
 "html), [`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), and "
 "[`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html) traits:"
 msgstr ""
+"Çevreleyicilerin (closures) veya lambda ifadelerinin isimlendirilemeyen "
+"türleri vardır. Ancak, özel [`Fn`](https://doc.rust-lang.org/std/ops/trait."
+"Fn.html), [`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html) ve "
+"[`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html) "
+"özelliklerini (traits) gerçekleştirirler (implement):"
 
 #: src/closures/traits.md
 msgid ""
 "The special types `fn(..) -> T` refer to function pointers - either the "
 "address of a function, or a closure that captures nothing."
 msgstr ""
+"Özel `fn(..) -> T` türleri, fonksiyon göstericilerine (function pointers) "
+"referans verir - ya bir fonksiyonun adresi ya da hiçbir şey yakalamayan "
+"(capture) bir çevreleyici (closure)."
 
 #: src/closures/traits.md
 msgid "\"Calling {func_name}({input}): {}\""
-msgstr ""
+msgstr "\"Çağrılıyor {func_name}({input}): {}\""
 
 #: src/closures/traits.md
 msgid "\"-itis\""
-msgstr ""
+msgstr "\"sendromu\""
 
 #: src/closures/traits.md
 msgid "\"{x}{suffix}\""
-msgstr ""
+msgstr "\"{x} {suffix}\""
 
 #: src/closures/traits.md
 msgid "\"add_suffix\""
-msgstr ""
+msgstr "\"add_suffix\""
 
 #: src/closures/traits.md
 msgid "\"senior\""
-msgstr ""
+msgstr "\"son sınıf\""
 
 #: src/closures/traits.md
 msgid "\"appenix\""
-msgstr ""
+msgstr "\"apandis\""
 
 #: src/closures/traits.md
 msgid "\"/\""
-msgstr ""
+msgstr "\"/\""
 
 #: src/closures/traits.md
 msgid "\"accumulate\""
-msgstr ""
+msgstr "\"accumulate\""
 
 #: src/closures/traits.md
 msgid "\"red\""
-msgstr ""
+msgstr "\"kırmızı\""
 
 #: src/closures/traits.md
 msgid "\"green\""
-msgstr ""
+msgstr "\"yeşil\""
 
 #: src/closures/traits.md
 msgid "\"blue\""
-msgstr ""
+msgstr "\"mavi\""
 
 #: src/closures/traits.md
 msgid "\"take_and_reverse\""
-msgstr ""
+msgstr "\"take_and_reverse\""
 
 #: src/closures/traits.md
 msgid "\"reversed: \""
-msgstr ""
+msgstr "\"ters çevrilmiş: \""
 
 #: src/closures/traits.md
 msgid ""
@@ -7897,6 +8109,11 @@ msgid ""
 "can be called needing only a shared reference to the closure, which means "
 "the closure can be executed repeatedly and even concurrently."
 msgstr ""
+"Bir `Fn` (ör. `add_suffix`) yakalanan değerleri (captured values) ne tüketir "
+"ne de değiştirir. Sadece çevreleyiciye (closure) paylaşılan bir referans "
+"(shared reference) gerektirerek çağrılabilir, bu da çevreleyicinin tekrar "
+"tekrar ve hatta eş zamanlı olarak (concurrently) yürütülebileceği anlamına "
+"gelir."
 
 #: src/closures/traits.md
 msgid ""
@@ -7904,12 +8121,19 @@ msgid ""
 "object is accessed via exclusive reference, so it can be called repeatedly "
 "but not concurrently."
 msgstr ""
+"Bir `FnMut` (ör. `accumulate`) yakalanan değerleri (captured values) "
+"değiştirebilir. Çevreleyici (closure) nesnesine özel (exclusive) referans "
+"yoluyla erişilir, bu nedenle tekrar tekrar çağrılabilir ancak eş zamanlı "
+"olarak (concurrently) çağrılamaz."
 
 #: src/closures/traits.md
 msgid ""
 "If you have an `FnOnce` (e.g. `take_and_reverse`), you may only call it "
 "once. Doing so consumes the closure and any values captured by move."
 msgstr ""
+"Eğer bir `FnOnce`'ınız varsa (ör. `take_and_reverse`), onu yalnızca bir kez "
+"çağırabilirsiniz. Bunu yapmak, çevreleyiciyi (closure) ve taşıma (move) ile "
+"yakalanan tüm değerleri tüketir."
 
 #: src/closures/traits.md
 msgid ""
@@ -7917,6 +8141,9 @@ msgid ""
 "I.e. you can use an `FnMut` wherever an `FnOnce` is called for, and you can "
 "use an `Fn` wherever an `FnMut` or `FnOnce` is called for."
 msgstr ""
+"`FnMut`, `FnOnce`'ın bir alt türüdür. `Fn`, `FnMut` ve `FnOnce`'ın bir alt "
+"türüdür. Yani, `FnOnce`'ın istendiği her yerde bir `FnMut` kullanabilirsiniz "
+"ve `FnMut` veya `FnOnce`'ın istendiği her yerde bir `Fn` kullanabilirsiniz."
 
 #: src/closures/traits.md
 msgid ""
@@ -7924,6 +8151,10 @@ msgid ""
 "you can (i.e. you call it once), or `FnMut` else, and last `Fn`. This allows "
 "the most flexibility for the caller."
 msgstr ""
+"Bir çevreleyici (closure) alan bir fonksiyon tanımladığınızda, "
+"yapabiliyorsanız `FnOnce` (yani onu bir kez çağırırsınız), değilse `FnMut` "
+"ve son olarak `Fn` almalısınız. Bu, çağırana (caller) en fazla esnekliği "
+"sağlar."
 
 #: src/closures/traits.md
 msgid ""
@@ -7931,6 +8162,9 @@ msgid ""
 "(which can be passed to a consumer of any of the 3 closure traits), then "
 "`FnMut`, and lastly `FnOnce`."
 msgstr ""
+"Buna karşılık, bir çevreleyiciniz (closure) olduğunda, sahip olabileceğiniz "
+"en esnek olan `Fn`'dir (3 çevreleyici özelliğinin (trait) herhangi birinin "
+"tüketicisine geçirilebilir), sonra `FnMut` ve son olarak `FnOnce`."
 
 #: src/closures/traits.md
 msgid ""
@@ -7938,6 +8172,10 @@ msgid ""
 "`take_and_reverse`), depending on what the closure captures. Function "
 "pointers (references to `fn` items) implement `Copy` and `Fn`."
 msgstr ""
+"Derleyici ayrıca, çevreleyicinin (closure) ne yakaladığına bağlı olarak "
+"`Copy` (ör. `add_suffix` için) ve `Clone` (ör. `take_and_reverse`) çıkarımı "
+"yapar (infers). Fonksiyon göstericileri (`fn` öğelerine referanslar) "
+"`Copy`'yi ve `Fn`'yi gerçekleştirir (implement)."
 
 #: src/closures/exercise.md
 msgid ""
@@ -7945,26 +8183,31 @@ msgid ""
 "uses a closure to filter log messages, sending those which pass the "
 "filtering predicate to an inner logger."
 msgstr ""
+"Bu sabahki jenerik (generic) kaydediciden (logger) yola çıkarak, kayıt "
+"mesajlarını filtrelemek için bir çevreleyici (closure) kullanan bir `Filter` "
+"gerçekleştirin (implement), filtreleme koşulunu geçenleri bir iç kaydediciye "
+"(logger) gönderin."
 
 #: src/closures/exercise.md
 msgid "// TODO: Define and implement `Filter`.\n"
-msgstr ""
+msgstr "// TODO: `Filter`'ı tanımlayın ve gerçekleştirin (implement).\n"
 
 #: src/closures/exercise.md src/closures/solution.md
 msgid "\"yikes\""
-msgstr ""
+msgstr "\"berbat\""
 
 #: src/closures/exercise.md src/closures/solution.md
 msgid "\"yikes, something went wrong\""
-msgstr ""
+msgstr "\"berbat, bir şeyler ters gitti\""
 
 #: src/closures/exercise.md src/closures/solution.md
 msgid "\"uhoh\""
-msgstr ""
+msgstr "\"eyvah\""
 
 #: src/closures/solution.md
 msgid "/// Only log messages matching a filtering predicate.\n"
 msgstr ""
+"/// Yalnızca bir filtreleme koşuluyla eşleşen günlük mesajlarını kaydet.\n"
 
 #: src/closures/solution.md
 msgid ""
@@ -7973,6 +8216,11 @@ msgid ""
 "calling `new`. Demonstrate removing it and showing how the compiler now "
 "needs type annotations for the closure passed to `new`."
 msgstr ""
+"İlk `Filter` impl bloğundaki `P: Fn(u8, &str) -> bool` sınırının kesinlikle "
+"gerekli olmadığını, ancak `new` çağrılırken tür çıkarımına (type inference) "
+"yardımcı olduğunu unutmayın. Onu kaldırmayı gösterin ve derleyicinin şimdi "
+"`new`'e geçirilen çevreleyici (closure) için tür ek açıklamalarına (type "
+"annotations) nasıl ihtiyaç duyduğunu gösterin."
 
 #: src/std-traits.md
 msgid "From and Into"
@@ -7984,33 +8232,40 @@ msgstr "Read ve Write"
 
 #: src/std-traits.md
 msgid "Default, struct update syntax"
-msgstr "Varsayılan, yapı (struct) güncelleme sözdizimi"
+msgstr "Default, yapı güncelleme sözdizimi (struct update syntax)"
 
 #: src/std-traits.md
 msgid ""
 "As with the standard-library types, spend time reviewing the documentation "
 "for each trait."
 msgstr ""
+"Standart kütüphane türlerinde olduğu gibi, her bir özellik (trait) için de "
+"dokümantasyonu gözden geçirmeye zaman ayırın."
 
 #: src/std-traits.md
 msgid "This section is long. Take a break midway through."
-msgstr ""
+msgstr "Bu bölüm uzun. Ortasında bir mola verin."
 
 #: src/std-traits/comparisons.md
 msgid ""
 "These traits support comparisons between values. All traits can be derived "
 "for types containing fields that implement these traits."
 msgstr ""
+"Bu özellikler (traits), değerler arasında karşılaştırmaları destekler. Tüm "
+"özellikler, bu özellikleri gerçekleştiren (implement) alanlar içeren türler "
+"için türetilebilir."
 
 #: src/std-traits/comparisons.md
 msgid "`PartialEq` and `Eq`"
-msgstr ""
+msgstr "`PartialEq` ve `Eq`"
 
 #: src/std-traits/comparisons.md
 msgid ""
 "`PartialEq` is a partial equivalence relation, with required method `eq` and "
 "provided method `ne`. The `==` and `!=` operators will call these methods."
 msgstr ""
+"`PartialEq`, gerekli metot `eq` ve sağlanan metot `ne` ile kısmi bir denklik "
+"ilişkisidir. `==` ve `!=` operatörleri bu metotları çağırır."
 
 #: src/std-traits/comparisons.md
 msgid ""
@@ -8018,32 +8273,42 @@ msgid ""
 "and implies `PartialEq`. Functions that require full equivalence will use "
 "`Eq` as a trait bound."
 msgstr ""
+"`Eq` tam bir denklik ilişkisidir (yansımalı, simetrik ve geçişme) "
+"(reflexive, symmetric, and transitive) ve `PartialEq` özelliğini kapsar "
+"(imply). Tam denklik gerektiren fonksiyonlar, bir özellik sınırı (trait "
+"bound) olarak `Eq` kullanır."
 
 #: src/std-traits/comparisons.md
 msgid "`PartialOrd` and `Ord`"
-msgstr ""
+msgstr "`PartialOrd` ve `Ord`"
 
 #: src/std-traits/comparisons.md
 msgid ""
 "`PartialOrd` defines a partial ordering, with a `partial_cmp` method. It is "
 "used to implement the `<`, `<=`, `>=`, and `>` operators."
 msgstr ""
+"`PartialOrd`, `partial_cmp` metoduyla kısmi bir sıralama tanımlar. `<`, "
+"`<=`, `>=` ve `>` operatörlerini gerçekleştirmek (implement) için kullanılır."
 
 #: src/std-traits/comparisons.md
 msgid "`Ord` is a total ordering, with `cmp` returning `Ordering`."
-msgstr ""
+msgstr "`Ord`, `cmp`'nin `Ordering` geri döndürdüğü tam bir sıralamadır."
 
 #: src/std-traits/comparisons.md
 msgid ""
 "`PartialEq` can be implemented between different types, but `Eq` cannot, "
 "because it is reflexive:"
 msgstr ""
+"`PartialEq` farklı türler arasında gerçekleştirilebilir (implement), ancak "
+"`Eq` yansımalı (reflexive) olduğu için gerçekleştirilemez:"
 
 #: src/std-traits/comparisons.md
 msgid ""
 "In practice, it's common to derive these traits, but uncommon to implement "
 "them."
 msgstr ""
+"Pratikte bu özellikleri (traits) türetmek (derive) yaygındır, ancak onları "
+"gerçekleştirmek (implement) yaygın değildir."
 
 #: src/std-traits/comparisons.md
 msgid ""
@@ -8052,25 +8317,34 @@ msgid ""
 "references to two different things can compare as equal if the values "
 "pointed to are the same:"
 msgstr ""
+"Rust'ta referansları karşılaştırırken, gösterdikleri şeylerin değerini "
+"karşılaştırır, referansların kendilerini DEĞİL. Bu, gösterilen değerler "
+"aynıysa, iki farklı şeye yapılan referansların eşit olarak "
+"karşılaştırılabileceği anlamına gelir:"
 
 #: src/std-traits/operators.md
 msgid ""
 "Operator overloading is implemented via traits in [`std::ops`](https://doc."
 "rust-lang.org/std/ops/index.html):"
 msgstr ""
+"Operatör yüklemesi (overloading), [`std::ops`](https://doc.rust-lang.org/std/"
+"ops/index.html)'deki özellikler (traits) aracılığıyla gerçekleştirilir "
+"(implement):"
 
 #: src/std-traits/operators.md
 msgid "\"{p1:?} + {p2:?} = {:?}\""
-msgstr ""
+msgstr "\"{p1:?} + {p2:?} = {:?}\""
 
 #: src/std-traits/operators.md src/memory-management/drop.md
 msgid "Discussion points:"
-msgstr ""
+msgstr "Tartışma noktaları:"
 
 #: src/std-traits/operators.md
 msgid ""
 "You could implement `Add` for `&Point`. In which situations is that useful?"
 msgstr ""
+"`&Point` için `Add`'i gerçekleştirebilirsiniz (implement). Bu hangi "
+"durumlarda kullanışlıdır?"
 
 #: src/std-traits/operators.md
 msgid ""
@@ -8078,12 +8352,17 @@ msgid ""
 "the operator is not `Copy`, you should consider overloading the operator for "
 "`&T` as well. This avoids unnecessary cloning on the call site."
 msgstr ""
+"Cevap: `Add:add`, `self`'i tüketir. Operatörü yüklediğiniz `T` türü `Copy` "
+"değilse, operatörü `&T` için de yüklemey yapmayı (overloading) "
+"düşünmelisiniz. Bu, çağrı yerleride (call site) gereksiz klonlamayı önler."
 
 #: src/std-traits/operators.md
 msgid ""
 "Why is `Output` an associated type? Could it be made a type parameter of the "
 "method?"
 msgstr ""
+"`Output` neden bir ilişkili türdür (associated type)? Metodun bir tür "
+"parametresi yapılabilir miydi?"
 
 #: src/std-traits/operators.md
 msgid ""
@@ -8091,12 +8370,17 @@ msgid ""
 "associated types (like `Output`) are controlled by the implementer of a "
 "trait."
 msgstr ""
+"Kısa cevap: Fonksiyon tür parametreleri çağıran (caller) tarafından kontrol "
+"edilir, ancak ilişkili türler (`Output` gibi) bir özelliğin (trait) "
+"gerçekleştiricisi (implementer) tarafından kontrol edilir."
 
 #: src/std-traits/operators.md
 msgid ""
 "You could implement `Add` for two different types, e.g. `impl Add<(i32, "
 "i32)> for Point` would add a tuple to a `Point`."
 msgstr ""
+"İki farklı tür için `Add` gerçekleştirebilirsiniz (implement), örn. `impl "
+"Add<(i32, i32)> for Point`, bu bir `Point`'e bir demet (tuple) eklerdi."
 
 #: src/std-traits/operators.md
 msgid ""
@@ -8105,6 +8389,10 @@ msgid ""
 "negates each bit of the number, which arithmetically is equivalent to "
 "subtracting it from -1: `!5 == -6`."
 msgstr ""
+"`Not` özelliği (`!` operatörü), C ailesi dillerindeki aynı operatör gibi "
+"\"boole'laştırmadığı\" için dikkat çekicidir; bunun yerine, tamsayı türleri "
+"için sayının her bitini olumsuzlar, bu da aritmetik olarak onu -1'den "
+"çıkarmaya eşdeğerdir: `!5 == -6`."
 
 #: src/std-traits/from-and-into.md
 msgid ""
@@ -8113,10 +8401,14 @@ msgid ""
 "facilitate type conversions. Unlike `as`, these traits correspond to "
 "lossless, infallible conversions."
 msgstr ""
+"Türler, tür dönüşümlerini kolaylaştırmak için [`From`](https://doc.rust-lang."
+"org/std/convert/trait.From.html) ve [`Into`](https://doc.rust-lang.org/std/"
+"convert/trait.Into.html) özelliklerini gerçekleştirir (implement). `as`'in "
+"aksine, bu özellikler (traits) kayıpsız, hatasız dönüşümlere karşılık gelir."
 
 #: src/std-traits/from-and-into.md
 msgid "\"{s}, {addr}, {one}, {bigger}\""
-msgstr ""
+msgstr "\"{s}, {addr}, {one}, {bigger}\""
 
 #: src/std-traits/from-and-into.md
 msgid ""
@@ -8124,12 +8416,17 @@ msgid ""
 "automatically implemented when [`From`](https://doc.rust-lang.org/std/"
 "convert/trait.From.html) is implemented:"
 msgstr ""
+"[`From`](https://doc.rust-lang.org/std/convert/trait.From.html) "
+"gerçekleştirildiğinde (implement) [`Into`](https://doc.rust-lang.org/std/"
+"convert/trait.Into.html) otomatik olarak gerçekleştirilir:"
 
 #: src/std-traits/from-and-into.md
 msgid ""
 "That's why it is common to only implement `From`, as your type will get "
 "`Into` implementation too."
 msgstr ""
+"Bu yüzden sadece `From`'u gerçekleştirmek (implement) yaygındır, çünkü "
+"türünüz `Into` gerçekleştirmesini de alacaktır."
 
 #: src/std-traits/from-and-into.md
 msgid ""
@@ -8138,24 +8435,31 @@ msgid ""
 "Your function will accept types that implement `From` and those that _only_ "
 "implement `Into`."
 msgstr ""
+"\"Bir `String`'e dönüştürülebilen herhangi bir şey\" gibi bir fonksiyon "
+"argümanı girdi türü bildirirken, kural tam tersidir, `Into` kullanmalısınız. "
+"Fonksiyonunuz `From`'u gerçekleştiren (implement) türleri ve _sadece_ "
+"`Into`'yu gerçekleştirenleri kabul edecektir."
 
 #: src/std-traits/casting.md
 msgid ""
 "Rust has no _implicit_ type conversions, but does support explicit casts "
 "with `as`. These generally follow C semantics where those are defined."
 msgstr ""
+"Rust'ta _örtük (implicit)_ tür dönüşümleri yoktur, ancak `as` ile açık "
+"(explicit) tür dönüştürmelerini (casts) destekler. Bunlar genellikle "
+"tanımlandıkları yerlerde C semantiğini takip eder."
 
 #: src/std-traits/casting.md
 msgid "\"as u16: {}\""
-msgstr ""
+msgstr "\"u16 olarak: {}\""
 
 #: src/std-traits/casting.md
 msgid "\"as i16: {}\""
-msgstr ""
+msgstr "\"i16 olarak: {}\""
 
 #: src/std-traits/casting.md
 msgid "\"as u8: {}\""
-msgstr ""
+msgstr "\"u8 olarak: {}\""
 
 #: src/std-traits/casting.md
 msgid ""
@@ -8163,6 +8467,10 @@ msgid ""
 "platforms. This might not match your intuition for changing sign or casting "
 "to a smaller type -- check the docs, and comment for clarity."
 msgstr ""
+"`as`'in sonuçları Rust'ta _her zaman_ tanımlıdır ve platformlar arasında "
+"tutarlıdır. Bu, işaret (sign) değiştirme veya daha küçük bir türe dönüştürme "
+"(cast) konusundaki sezginizle uyuşmayabilir -- belgeleri kontrol edin ve "
+"açıklık için yorum yapın."
 
 #: src/std-traits/casting.md
 msgid ""
@@ -8173,6 +8481,12 @@ msgid ""
 "selecting the bottom 32 bits of a `u64` with `as u32`, regardless of what "
 "was in the high bits)."
 msgstr ""
+"`as` ile dönüştürme (cast), yanlış kullanılması kolay olan nispeten keskin "
+"bir araçtır ve gelecekteki bakım çalışmaları (maintenance work) kullanılan "
+"türleri veya türlerdeki değer aralıklarını değiştirdikçe ince hataların "
+"kaynağı olabilir. Tür dnüştürmesi en iyi, niyetin koşulsuz olarak kesmeyi "
+"belirtmek olduğu durumlarda kullanılır (örneğin, yüksek bitlerde ne olursa "
+"olsun bir `u64`'ün alt 32 bitini `as u32` ile seçmek)."
 
 #: src/std-traits/casting.md
 msgid ""
@@ -8181,10 +8495,15 @@ msgid ""
 "casts, `TryFrom` and `TryInto` are available when you want to handle casts "
 "that fit differently from those that don't."
 msgstr ""
+"Hatasız tür dönüştürmeleri (cast) için (örneğin `u32`'den `u64`'e), "
+"dönüşümün gerçekten hatasız olduğunu doğrulamak için `as` yerine `From` veya "
+"`Into` kullanmayı tercih edin. Hatalı olabilecek dönüştürmeler (cast) için, "
+"uyan ve uymayan dnüştürmeleri (cast) ele almak istediğinizde `TryFrom` ve "
+"`TryInto` mevcuttur."
 
 #: src/std-traits/casting.md
 msgid "Consider taking a break after this slide."
-msgstr ""
+msgstr "Bu slayttan sonra bir mola vermeyi düşünün."
 
 #: src/std-traits/casting.md
 msgid ""
@@ -8192,10 +8511,15 @@ msgid ""
 "be lost is generally discouraged, or at least deserves an explanatory "
 "comment."
 msgstr ""
+"`as`, C++'daki bir statik dönüştürmeye (static cast) benzer. Veri kaybı "
+"olabilecek durumlarda `as` kullanımı genellikle önerilmez veya en azından "
+"açıklayıcı bir yorumu hak eder."
 
 #: src/std-traits/casting.md
 msgid "This is common in casting integers to `usize` for use as an index."
 msgstr ""
+"Bu, tamsayıları bir indeks olarak kullanmak üzere `usize`'a dönüştürürken "
+"yaygındır."
 
 #: src/std-traits/read-and-write.md
 msgid ""
@@ -8203,36 +8527,41 @@ msgid ""
 "[`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html), you can "
 "abstract over `u8` sources:"
 msgstr ""
+"[`Read`](https://doc.rust-lang.org/std/io/trait.Read.html) ve [`BufRead`]"
+"(https://doc.rust-lang.org/std/io/trait.BufRead.html) kullanarak, `u8` "
+"kaynakları üzerinde soyutlama yapabilirsiniz:"
 
 #: src/std-traits/read-and-write.md
 msgid "b\"foo\\nbar\\nbaz\\n\""
-msgstr ""
+msgstr "b\"foo\\nbar\\nbaz\\n\""
 
 #: src/std-traits/read-and-write.md
 msgid "\"lines in slice: {}\""
-msgstr ""
+msgstr "\"dilimdeki (slice) satırlar: {}\""
 
 #: src/std-traits/read-and-write.md
 msgid "\"lines in file: {}\""
-msgstr ""
+msgstr "\"dosyadaki satırlar: {}\""
 
 #: src/std-traits/read-and-write.md
 msgid ""
 "Similarly, [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) lets "
 "you abstract over `u8` sinks:"
 msgstr ""
+"Benzer şekilde, [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) "
+"`u8` alıcıları (sinks) üzerinde soyutlama yapmanızı sağlar:"
 
 #: src/std-traits/read-and-write.md
 msgid "\"\\n\""
-msgstr ""
+msgstr "\"\\n\""
 
 #: src/std-traits/read-and-write.md
 msgid "\"Logged: {buffer:?}\""
-msgstr ""
+msgstr "\"Kaydedildi: {buffer:?}\""
 
 #: src/std-traits/default.md
 msgid "The `Default` Trait"
-msgstr ""
+msgstr "`Default` Özelliği (Trait)"
 
 #: src/std-traits/default.md
 msgid ""
@@ -8240,46 +8569,58 @@ msgid ""
 "trait produces a default value for a type."
 msgstr ""
 "[`Default`](https://doc.rust-lang.org/std/default/trait.Default.html) "
-"özelliği (trait) bir tür için varsayılan bir değer üretir."
+"özelliği (trait), bir tür için varsayılan bir değer üretir."
 
 #: src/std-traits/default.md
 msgid "\"John Smith\""
-msgstr ""
+msgstr "\"Evliya Çelebi\""
 
 #: src/std-traits/default.md
 msgid "\"Y is set!\""
-msgstr ""
+msgstr "\"Y ayarlandı!\""
 
 #: src/std-traits/default.md
 msgid ""
 "It can be implemented directly or it can be derived via `#[derive(Default)]`."
 msgstr ""
+"Doğrudan gerçekleştirilebilir (implement) veya `#[derive(Default)]` "
+"aracılığıyla türetilebilir."
 
 #: src/std-traits/default.md
 msgid ""
 "A derived implementation will produce a value where all fields are set to "
 "their default values."
 msgstr ""
+"Türetilmiş bir gerçekleştirme (implementation), tüm alanların varsayılan "
+"değerlerine ayarlandığı bir değer üretecektir."
 
 #: src/std-traits/default.md
 msgid "This means all types in the struct must implement `Default` too."
 msgstr ""
+"Bu, yapıdaki (struct) tüm türlerin de `Default`'u gerçekleştirmesi "
+"(implement) gerektiği anlamına gelir."
 
 #: src/std-traits/default.md
 msgid ""
 "Standard Rust types often implement `Default` with reasonable values (e.g. "
 "`0`, `\"\"`, etc)."
 msgstr ""
+"Standart Rust türleri genellikle `Default`'u makul değerlerle (ör. `0`, "
+"`\"\"`, vb.) gerçekleştirir (implement)."
 
 #: src/std-traits/default.md
 msgid "The partial struct initialization works nicely with default."
 msgstr ""
+"Kısmi yapı ilklendirmesi (partial struct initialization), default ile güzel "
+"çalışır."
 
 #: src/std-traits/default.md
 msgid ""
 "The Rust standard library is aware that types can implement `Default` and "
 "provides convenience methods that use it."
 msgstr ""
+"Rust standart kütüphanesi, türlerin `Default`'u gerçekleştirebileceğinin "
+"(implement) farkındadır ve onu kullanan kullanışlı metotlar sağlar."
 
 #: src/std-traits/default.md
 msgid ""
@@ -8287,6 +8628,9 @@ msgid ""
 "book/ch05-01-defining-structs.html#creating-instances-from-other-instances-"
 "with-struct-update-syntax)."
 msgstr ""
+"`..` sözdizimine [yapı güncelleme sözdizimi (struct update syntax)](https://"
+"doc.rust-lang.org/book/ch05-01-defining-structs.html#creating-instances-from-"
+"other-instances-with-struct-update-syntax) denir."
 
 #: src/std-traits/exercise.md
 msgid ""
@@ -8295,24 +8639,31 @@ msgid ""
 "implement the missing bits. Only rotate ASCII alphabetic characters, to "
 "ensure the result is still valid UTF-8."
 msgstr ""
+"Bu örnekte, klasik [\"ROT13\" şifresini](https://en.wikipedia.org/wiki/"
+"ROT13) gerçekleştireceksiniz (implement). Bu kodu deneme alanına "
+"(playground) kopyalayın ve eksik kısımları gerçekleştirin. Sonucun hala "
+"geçerli UTF-8 olduğundan emin olmak için yalnızca ASCII alfabetik "
+"karakterleri döndürün."
 
 #: src/std-traits/exercise.md
 msgid "// Implement the `Read` trait for `RotDecoder`.\n"
-msgstr ""
+msgstr "// `RotDecoder` için `Read` özelliğini (trait) gerçekleştirin.\n"
 
 #: src/std-traits/exercise.md src/std-traits/solution.md
 msgid "\"Gb trg gb gur bgure fvqr!\""
-msgstr ""
+msgstr "\"B gnensn ineznx tnlrfvlyr!\""
 
 #: src/std-traits/exercise.md src/std-traits/solution.md
 msgid "\"To get to the other side!\""
-msgstr ""
+msgstr "\"O tarafa varmak gayesiyle!\""
 
 #: src/std-traits/exercise.md
 msgid ""
 "What happens if you chain two `RotDecoder` instances together, each rotating "
 "by 13 characters?"
 msgstr ""
+"Her biri 13 karakter kaydırma (ROT13) yapan iki adet RotDecoder örneğini "
+"ardı ardına (biri diğerinin çıktısını okuyarak) çalıştırırsan ne olur?"
 
 #: src/welcome-day-3.md
 msgid "Welcome to Day 3"
