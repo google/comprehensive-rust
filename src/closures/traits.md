@@ -25,7 +25,7 @@ fn main() {
     let suffix = "-itis";
     let add_suffix = |x| format!("{x}{suffix}");
     apply_and_log(&add_suffix, "add_suffix", "senior");
-    apply_and_log(&add_suffix, "add_suffix", "appenix");
+    apply_and_log(&add_suffix, "add_suffix", "appendix");
 
     let mut v = Vec::new();
     let mut accumulate = |x| {
