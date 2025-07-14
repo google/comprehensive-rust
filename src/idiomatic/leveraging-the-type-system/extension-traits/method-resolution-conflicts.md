@@ -51,8 +51,8 @@ assert_eq!(" dad ".trim_ascii(), "dad");
   ```
 
   Now `StrExt::trim_ascii` is invoked, rather than the inherent method, since
-  `&mut self` is a more specific receiver than `&self`, the one used by the
-  inherent method.
+  `&mut self` has a higher priority than `&self`, the one used by the inherent
+  method.
 
   Point the students to the Rust reference for more information on
   [method resolution][2]. An explanation with more extensive examples can be
