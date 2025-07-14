@@ -1,3 +1,7 @@
+---
+minutes: 2
+---
+
 # Data structures are safe ...
 
 Data structures are inert. They cannot do any harm by themselves.

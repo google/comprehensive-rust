@@ -1,3 +1,7 @@
+---
+minutes: 5
+---
+
 # Performance
 
 > TODO: Stub for now
