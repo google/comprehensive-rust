@@ -1,5 +1,5 @@
 ---
-minutes: 10
+minutes: 15
 ---
 
 # Extending Other Traits
@@ -76,10 +76,6 @@ assert_eq!(true.quoted(), "'true'");
   as those on the extension trait that don't require `Self: Sized`.
 
 </details>
-
-- TODO: Show disambiguation syntax for naming conflicts between trait methods
-  and extension trait methods.
-- https://github.com/rust-lang/rfcs/blob/master/text/0132-ufcs.md
 
 [1]: https://doc.rust-lang.org/stable/reference/glossary.html#blanket-implementation
 [`itertools`]: https://docs.rs/itertools/latest/itertools/

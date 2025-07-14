@@ -441,6 +441,7 @@
     - [Extending Foreign Types](idiomatic/leveraging-the-type-system/extension-traits/extending-foreign-types.md)
     - [Method Resolution Conflicts](idiomatic/leveraging-the-type-system/extension-traits/method-resolution-conflicts.md)
     - [Extending Other Traits](idiomatic/leveraging-the-type-system/extension-traits/extending-other-traits.md)
+    - [Trait Method Resolution Conflicts](idiomatic/leveraging-the-type-system/extension-traits/trait-method-resolution-conflicts.md)
 
 ---
 
