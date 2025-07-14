@@ -7,7 +7,7 @@ minutes: 5
 What happens when you have a name conflict between two different trait methods
 implemented for the same type?
 
-```rust
+```rust,compile_fail
 mod ext {
     pub trait Ext1 {
         fn is_palindrome(&self) -> bool;
