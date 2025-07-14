@@ -1,3 +1,7 @@
+---
+minutes: 2
+---
+
 # When is unsafe used?
 
 The unsafe keyword indicates that the programmer is responsible for upholding
@@ -5,8 +9,8 @@ Rust's safety guarantees.
 
 The keyword has two roles:
 
-- define pre-conditions must be satisfied
-- verify that those defined pre-conditions are satisfied
+- define pre-conditions that must be satisfied
+- assert to the compiler (= promise) that those defined pre-conditions are satisfied
 
 ## Further references
 
@@ -16,7 +20,7 @@ The keyword has two roles:
 
 Places where pre-conditions can be defined (Role 1)
 
-- [unsafe functions] (`unsafe fn { ... }`). Example: `get_unchecked` method on
+- [unsafe functions] (`unsafe fn foo() { ... }`). Example: `get_unchecked` method on
   slices, which requires callers to verify that the index is in-bounds.
 - unsafe traits (`unsafe trait`). Examples: [`Send`] and [`Sync`] marker traits
   in the standard library.

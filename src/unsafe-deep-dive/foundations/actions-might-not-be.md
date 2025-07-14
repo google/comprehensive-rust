@@ -1,3 +1,7 @@
+---
+minutes: 2
+---
+
 # ... but actions on them might not be
 
 ```rust

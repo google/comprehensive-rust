@@ -1,3 +1,7 @@
+---
+minutes: 10
+---
+
 # Less powerful than it seems
 
 The `unsafe` keyword does not allow you to break Rust.

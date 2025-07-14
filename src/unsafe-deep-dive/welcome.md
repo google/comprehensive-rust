@@ -1,3 +1,9 @@
+---
+course: Unsafe
+session: Day 1 Morning
+target_minutes: 300
+---
+
 # Welcome to Unsafe Rust
 
 > IMPORTANT: THIS MODULE IS IN AN EARLY STAGE OF DEVELOPMENT
