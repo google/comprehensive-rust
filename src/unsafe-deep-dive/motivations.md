@@ -14,7 +14,7 @@ We know that writing code without the guarantees that Rust provides ...
 
 ... so why is `unsafe` part of the language?
 
-{{%session outline}}
+{{%segment outline}}
 
 <details>
 
