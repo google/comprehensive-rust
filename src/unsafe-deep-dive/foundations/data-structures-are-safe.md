@@ -11,7 +11,7 @@ Safe Rust code can create raw pointers:
 ```rust
 fn main() {
     let n: i64 = 12345;
-    let safe = &n as *const _;
+    let safe = &raw const n;
     println!("{safe:p}");
 }
 ```
