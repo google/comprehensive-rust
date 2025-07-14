@@ -21,7 +21,10 @@ the NaN bits in `f64` for some other purpose or the higher-order bits of
 pointers on `x86_64` platforms. This is somewhat common when writing language
 interpreters to keep representations within the word size the target platform.
 
-Self-referential types are too hard for the borrow checker to verify. (note to
-self: citation needed)
+Self-referential types are too hard for the borrow checker to verify.
+
+Intrusive data structures: store structural metadata (like pointers to other
+elements) inside the elements themselves, which requires careful handling of
+aliasing.
 
 </details>
