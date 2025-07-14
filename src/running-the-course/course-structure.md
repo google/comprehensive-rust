@@ -74,10 +74,10 @@ cargo run
 
 ### Unsafe (Work in Progress)
 
-The [Unsafe](../unsafe-deep-dive/welcome.md) deep dive is a two day class on
-using the `unsafe` keyword correctly. It covers the fundamentals of what Rust's
+The [Unsafe](../unsafe-deep-dive/welcome.md) deep dive is a two-day class on
+the *unsafe* Rust language. It covers the fundamentals of what Rust's
 safety guarantees are and why `unsafe` is needed, reviewing `unsafe` code, using
-FFI and building data structures.
+FFI, and building data structures that the borrow checker would normally reject.
 
 ## Format
 
