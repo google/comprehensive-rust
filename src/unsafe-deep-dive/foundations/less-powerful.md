@@ -21,7 +21,7 @@ println!("{n}")
 
 - Request that someone explains what `std::mem::transmute` does
 - Discuss why it doesn't compile
-- Make
+- Fix the code
 
 ## Expected compiler output
 
