@@ -1,6 +1,9 @@
 # Unsafe External Functions
 
-Functions in a foreign language may also be unsafe:
+You can declare foreign functions for access from Rust with `unsafe extern`.
+This is unsafe because the compiler has to way to reason about their behavior.
+Functions declared in an `extern` block must be marked as `safe` or `unsafe`,
+depending on whether they have preconditions for safe use:
 
 ```rust,editable
 use std::ffi::c_char;

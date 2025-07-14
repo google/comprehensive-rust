@@ -72,6 +72,16 @@ cargo run
 
 {{%course outline Concurrency}}
 
+### Idiomatic Rust
+
+The [Idiomatic Rust](../idiomatic/welcome.md) deep dive is a 2-day class on Rust
+idioms and patterns.
+
+You should be familiar with the material in
+[Rust Fundamentals](../welcome-day-1.md) before starting this course.
+
+{{%course outline Idiomatic Rust}}
+
 ### Unsafe (Work in Progress)
 
 The [Unsafe](../unsafe-deep-dive/welcome.md) deep dive is a two-day class on
@@ -80,6 +90,7 @@ safety guarantees are and why `unsafe` is needed, reviewing `unsafe` code, using
 FFI, and building data structures that the borrow checker would normally reject.
 
 {{%course outline Unsafe}}
+
 
 ## Format
 
