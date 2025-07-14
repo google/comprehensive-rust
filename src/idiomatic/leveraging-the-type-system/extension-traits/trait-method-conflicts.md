@@ -2,7 +2,7 @@
 minutes: 5
 ---
 
-# Trait Method Resolution Conflicts
+# Trait Method Conflicts
 
 What happens when you have a name conflict between two different trait methods
 implemented for the same type?
