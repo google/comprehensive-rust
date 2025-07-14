@@ -17,7 +17,7 @@ target_minutes: 300
 
 [GitHub issue tracker]: https://github.com/google/comprehensive-rust/issues
 
-The `unsafe` keyword is easy to type, but difficult to master. When used
+The `unsafe` keyword is easy to type, but hard to master. When used
 appropriately, it forms a useful and indeed essential part of the Rust
 programming language.
 
