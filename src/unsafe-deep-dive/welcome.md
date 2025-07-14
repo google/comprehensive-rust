@@ -33,7 +33,7 @@ What you'll learn:
 
 ## Links to other sections of the course
 
-The `unsafe` keyword has treatment
+The `unsafe` keyword has treatment in:
 
 - _Rust Fundamentals_, the main module of Comprehensive Rust, includes a session
   on [Unsafe Rust] in its last day.
