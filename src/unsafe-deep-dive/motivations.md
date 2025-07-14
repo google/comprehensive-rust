@@ -1,3 +1,7 @@
+---
+minutes: 1
+---
+
 # Motivations
 
 We know that writing code without the guarantees that Rust provides ...
@@ -9,6 +13,8 @@ We know that writing code without the guarantees that Rust provides ...
 > "[Queue the Hardening Enhancements](https://security.googleblog.com/2019/05/queue-hardening-enhancements.html)"
 
 ... so why is `unsafe` part of the language?
+
+{{%session outline}}
 
 <details>
 

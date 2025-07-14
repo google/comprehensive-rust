@@ -79,6 +79,8 @@ the *unsafe* Rust language. It covers the fundamentals of what Rust's
 safety guarantees are and why `unsafe` is needed, reviewing `unsafe` code, using
 FFI, and building data structures that the borrow checker would normally reject.
 
+{{%course outline Unsafe}}
+
 ## Format
 
 The course is meant to be very interactive and we recommend letting the

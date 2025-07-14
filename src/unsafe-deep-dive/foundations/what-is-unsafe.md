@@ -1,3 +1,7 @@
+---
+minutes: 6
+---
+
 # What is &ldquo;unsafety&rdquo;?
 
 Unsafe Rust is a superset of Safe Rust.

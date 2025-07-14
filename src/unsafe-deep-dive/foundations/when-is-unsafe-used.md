@@ -1,3 +1,7 @@
+---
+minutes: 2
+---
+
 # When is unsafe used?
 
 The unsafe keyword indicates that the programmer is responsible for upholding

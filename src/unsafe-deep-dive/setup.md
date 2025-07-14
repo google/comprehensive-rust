@@ -1,3 +1,7 @@
+---
+minutes: 2
+---
+
 # Setting Up
 
 You should have a Rust compiler installed that supports the 2024 edition of the

@@ -1,3 +1,7 @@
+---
+minutes: 10
+---
+
 # Data Structures
 
 Some families of data structures are impossible to create in safe Rust.
