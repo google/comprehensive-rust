@@ -39,7 +39,7 @@ assert_eq!(" dad ".trim_ascii(), "dad");
   clarify which method is being invoked.
 
 - [Inherent methods have higher priority than trait methods][1], _if_ they have
-  the same name and the **same receiver**, e.g. they both expect `&self` as
+  the same name and the **same receiver**, e.g., they both expect `&self` as
   input. The situation becomes more nuanced if the use a **different receiver**,
   e.g., `&mut self` vs `&self`.
 
