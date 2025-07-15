@@ -26,9 +26,6 @@ This will allow you to easily compile project that combine multiple languages.
 
 ## (Optional) Create a local instance of the course
 
-Having a local version of the course material is useful in case of any
-interruptions with the network and makes it easy to access it later.
-
 ```console
 $ git clone --depth=1 https://github.com/google/comprehensive-rust.git
 Cloning into 'comprehensive-rust'...
