@@ -76,5 +76,5 @@ assert!(!"grandma".is_palindrome());
 
 </details>
 
-[1]: https://rust-lang.github.io/rfcs/0445-extension-trait-rfc.html
+[1]: https://rust-lang.github.io/rfcs/0445-extension-trait-conventions.html
 [2]: https://github.com/rust-lang/rfcs/blob/master/text/2451-re-rebalancing-coherence.md#what-is-coherence-and-why-do-we-care
