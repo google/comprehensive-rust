@@ -437,7 +437,10 @@
     - [Semantic Confusion](idiomatic/leveraging-the-type-system/newtype-pattern/semantic-confusion.md)
     - [Parse, Don't Validate](idiomatic/leveraging-the-type-system/newtype-pattern/parse-don-t-validate.md)
     - [Is It Encapsulated?](idiomatic/leveraging-the-type-system/newtype-pattern/is-it-encapsulated.md)
-
+  - [RAII](idiomatic/leveraging-the-type-system/raii.md)
+    - [Drop Limitations](idiomatic/leveraging-the-type-system/raii/drop_limitations.md)
+    - [Drop Bomb](idiomatic/leveraging-the-type-system/raii/drop_bomb.md)
+    - [Scope Guards](idiomatic/leveraging-the-type-system/raii/scope_guards.md)
 ---
 
 # Final Words
