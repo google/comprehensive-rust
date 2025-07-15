@@ -3,7 +3,7 @@
 A scope guard makes use of the `Drop` trait to run a given closure when it goes
 out of scope.
 
-```rust
+```rust,editable,compile_fail
 use scopeguard::{ScopeGuard, guard};
 use std::{
     fs::{self, File},
@@ -48,7 +48,7 @@ fn main() {
     be simplified using
     [scopeguard's `defer!` macro](https://docs.rs/scopeguard/latest/scopeguard/#defer):
 
-    ```rust
+    ```rust,editable,compile_fail
     let path = "temp.txt";
 
     scopeguard::defer! {
