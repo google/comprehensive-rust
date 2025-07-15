@@ -74,3 +74,12 @@ functions and methods:
 
 {{#include exercise.rs:main}}
 ```
+
+<details>
+
+The `ffi` module here is for demonstration purposes. Normally, you should be
+using crates such as [rust-bindgen] to generate the binding code.
+
+</details>
+
+[rust-bindgen]: https://github.com/rust-lang/rust-bindgen
