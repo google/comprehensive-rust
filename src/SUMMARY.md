@@ -441,6 +441,7 @@
     - [Drop Limitations](idiomatic/leveraging-the-type-system/raii/drop_limitations.md)
     - [Drop Bomb](idiomatic/leveraging-the-type-system/raii/drop_bomb.md)
     - [Scope Guards](idiomatic/leveraging-the-type-system/raii/scope_guards.md)
+
 ---
 
 # Final Words

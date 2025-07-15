@@ -1,13 +1,18 @@
 # Scope Guards
 
-A scope guard makes use of the `Drop` trait
-to run a given closure when it goes out of scope.
+A scope guard makes use of the `Drop` trait to run a given closure when it goes
+out of scope.
 
 ```rust
-use std::{io::Write, fs::{self, File}};
-use scopeguard::{guard, ScopeGuard};
+use scopeguard::{ScopeGuard, guard};
+use std::{
+    fs::{self, File},
+    io::Write,
+};
 
-fn conditional_success() -> bool { true }
+fn conditional_success() -> bool {
+    true
+}
 
 fn main() {
     let path = "temp.txt";
@@ -35,12 +40,12 @@ fn main() {
 <details>
 
 - This example demonstrates the use of
-  [the `scopeguard` crate](https://docs.rs/scopeguard/latest/scopeguard/),
-  which is commonly used in internal APIs to ensure that a closure runs
-  when a scope exits.
+  [the `scopeguard` crate](https://docs.rs/scopeguard/latest/scopeguard/), which
+  is commonly used in internal APIs to ensure that a closure runs when a scope
+  exits.
 
-  - If the cleanup logic in the example above were unconditional,
-    the code could be simplified using
+  - If the cleanup logic in the example above were unconditional, the code could
+    be simplified using
     [scopeguard's `defer!` macro](https://docs.rs/scopeguard/latest/scopeguard/#defer):
 
     ```rust
@@ -51,8 +56,8 @@ fn main() {
     }
     ```
 
-- If desired, the "scope guard" pattern can be implemented manually,
-  starting as follows:
+- If desired, the "scope guard" pattern can be implemented manually, starting as
+  follows:
 
   ```rust
   struct ScopeGuard<T, F: FnOnce()> {
@@ -98,33 +103,32 @@ fn main() {
   }
   ```
 
-  - The `ScopeGuard` type in the `scopeguard` crate also includes
-    a `Debug` implementation and a third parameter:
-    a [`Strategy`](https://docs.rs/scopeguard/latest/scopeguard/trait.Strategy.html)
+  - The `ScopeGuard` type in the `scopeguard` crate also includes a `Debug`
+    implementation and a third parameter: a
+    [`Strategy`](https://docs.rs/scopeguard/latest/scopeguard/trait.Strategy.html)
     that determines when the `drop_fn` should run.
 
-    - By default, the strategy runs the drop function unconditionally.
-      However, the crate also provides built-in strategies to run the drop function
-      only during unwinding (due to a panic), or only on successful scope exit.
+    - By default, the strategy runs the drop function unconditionally. However,
+      the crate also provides built-in strategies to run the drop function only
+      during unwinding (due to a panic), or only on successful scope exit.
 
-      You can also implement your own `Strategy` trait
-      to define custom conditions for when the cleanup should occur.
+      You can also implement your own `Strategy` trait to define custom
+      conditions for when the cleanup should occur.
 
     - Remark also that the crates' `ScopeGuard` makes use of
       [`ManuallyDrop`](https://doc.rust-lang.org/std/mem/struct.ManuallyDrop.html)
-      instead of `Option` to avoid automatic or premature dropping
-      of values, giving precise manual control and preventing
-      double-drops. This avoids the runtime overhead and semantic ambiguity that comes with using Option.
+      instead of `Option` to avoid automatic or premature dropping of values,
+      giving precise manual control and preventing double-drops. This avoids the
+      runtime overhead and semantic ambiguity that comes with using Option.
 
 - Recalling the transaction example from
-  [the drop bombs chapter](./drop_bomb.md),
-  we can now combine both concepts:
-  define a fallback that runs unless we explicitly abort early.
-  In the success path, we call `ScopeGuard::into_inner`
-  to prevent the rollback, as the transaction has already been committed.
+  [the drop bombs chapter](./drop_bomb.md), we can now combine both concepts:
+  define a fallback that runs unless we explicitly abort early. In the success
+  path, we call `ScopeGuard::into_inner` to prevent the rollback, as the
+  transaction has already been committed.
 
-  While we still cannot propagate errors from fallible operations inside the drop logic,
-  this pattern at least allows us to orchestrate fallbacks explicitly
-  and with whatever guarantees or limits we require.
+  While we still cannot propagate errors from fallible operations inside the
+  drop logic, this pattern at least allows us to orchestrate fallbacks
+  explicitly and with whatever guarantees or limits we require.
 
 </details>
