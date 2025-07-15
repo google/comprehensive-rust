@@ -41,7 +41,7 @@ assert_eq!(" dad ".trim_ascii(), "dad");
 - [Inherent methods have higher priority than trait methods][1], _if_ they have
   the same name and the **same receiver**, e.g. they both expect `&self` as
   input. The situation becomes more nuanced if the use a **different receiver**,
-  e.g. `&mut self` vs `&self`.
+  e.g., `&mut self` vs `&self`.
 
   Change the signature of `StrExt::trim_ascii` to
   `fn trim_ascii(&mut self) -> &str` and modify the invocation accordingly:
