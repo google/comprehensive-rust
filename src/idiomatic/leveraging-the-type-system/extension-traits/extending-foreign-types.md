@@ -20,9 +20,9 @@ mod ext {
     }
 }
 
-// Bring the extension trait into scope..
+// Bring the extension trait into scope...
 pub use ext::StrExt as _;
-// ..then invoke its methods as if they were inherent methods
+// ...then invoke its methods as if they were inherent methods
 assert!("dad".is_palindrome());
 assert!(!"grandma".is_palindrome());
 ```
