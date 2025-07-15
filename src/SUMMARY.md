@@ -454,6 +454,9 @@
   - [Data structures are safe](unsafe-deep-dive/foundations/data-structures-are-safe.md)
   - [Actions might not be](unsafe-deep-dive/foundations/actions-might-not-be.md)
   - [Less powerful than it seems](unsafe-deep-dive/foundations/less-powerful.md)
+- [Mechanics](unsafe-deep-dive/mechanics.md)
+  - [Keep unsafe narrow](unsafe-deep-dive/mechanics/narrow.md)
+  - [Safety comments](unsafe-deep-dive/mechanics/safety-comments.md)
 
 ---
 
