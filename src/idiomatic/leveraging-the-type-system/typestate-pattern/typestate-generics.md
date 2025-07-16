@@ -5,7 +5,6 @@ shared logic across state variants, while still encoding state transitions in
 the type system.
 
 ```rust
-# fn main() -> std::io::Result<()> {
 #[non_exhaustive]
 struct Insecure;
 struct Secure {
@@ -85,13 +84,14 @@ impl<T: Transport> ConnectionBuilder<Ready<T>> {
     }
 }
 
-let _conn = Connection::new("db.local")
-    .secure()
-    .client_certificate(vec![1, 2, 3])
-    .timeout(10)
-    .connect()?;
-Ok(())
-# }
+fn main() -> std::io::Result<()> {
+    let _conn = Connection::new("db.local")
+        .secure()
+        .client_certificate(vec![1, 2, 3])
+        .timeout(10)
+        .connect()?;
+    Ok(())
+}
 ```
 
 <details>

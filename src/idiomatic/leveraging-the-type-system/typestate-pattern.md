@@ -32,12 +32,14 @@ impl SerializeStruct {
     }
 }
 
-let ser = Serializer::default()
-    .serialize_struct("User")
-    .serialize_field("id", "42")
-    .serialize_field("name", "Alice")
-    .finish_struct();
-println!("{}", ser.output);
+fn main() {
+    let ser = Serializer::default()
+        .serialize_struct("User")
+        .serialize_field("id", "42")
+        .serialize_field("name", "Alice")
+        .finish_struct();
+    println!("{}", ser.output);
+}
 ```
 
 <details>
