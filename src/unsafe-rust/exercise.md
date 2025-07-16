@@ -77,9 +77,9 @@ functions and methods:
 
 <details>
 
-The `ffi` module here is for demonstration purposes. Normally, you should be
-using crates such as [rust-bindgen] to generate the binding code.
+The `ffi` module here is for learning purposes. Normally, you should be using
+tools such as [bindgen] to generate the binding code.
 
 </details>
 
-[rust-bindgen]: https://github.com/rust-lang/rust-bindgen
+[bindgen]: https://github.com/rust-lang/rust-bindgen
