@@ -447,7 +447,7 @@
 - [Motivations](unsafe-deep-dive/motivations.md)
   - [Interop](unsafe-deep-dive/motivations/interop.md)
   - [Data Structures](unsafe-deep-dive/motivations/data-structures.md)
-  - [Performance](unsafe-deep-dive/motivations/perfomance.md)
+  - [Performance](unsafe-deep-dive/motivations/performance.md)
 - [Foundations](unsafe-deep-dive/foundations.md)
   - [What is unsafe?](unsafe-deep-dive/foundations/what-is-unsafe.md)
   - [When is unsafe used?](unsafe-deep-dive/foundations/when-is-unsafe-used.md)
