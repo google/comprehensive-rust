@@ -11,34 +11,34 @@ unrepresentable**.
 # use std::fmt::Write;
 #[derive(Default)]
 struct Serializer { output: String }
-struct SerializeStruct { ser: Serializer }
+struct SerializeStruct { serializer: Serializer }
 
 impl Serializer {
     fn serialize_struct(mut self, name: &str) -> SerializeStruct {
         let _ = writeln!(&mut self.output, "{name} {{");
-        SerializeStruct { ser: self }
+        SerializeStruct { serializer: self }
     }
 }
 
 impl SerializeStruct {
     fn serialize_field(mut self, key: &str, value: &str) -> Self {
-        let _ = writeln!(&mut self.ser.output, "  {key}={value};");
+        let _ = writeln!(&mut self.serializer.output, "  {key}={value};");
         self
     }
 
     fn finish_struct(mut self) -> Serializer {
-        self.ser.output.push_str("}\n");
-        self.ser
+        self.serializer.output.push_str("}\n");
+        self.serializer
     }
 }
 
 fn main() {
-    let ser = Serializer::default()
+    let serializer = Serializer::default()
         .serialize_struct("User")
         .serialize_field("id", "42")
         .serialize_field("name", "Alice")
         .finish_struct();
-    println!("{}", ser.output);
+    println!("{}", serializer.output);
 }
 ```
 
