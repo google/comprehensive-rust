@@ -92,12 +92,19 @@ fn main() {
 > }
 > ```
 
-It's also possible to completely erase the type. Stress that the Rust compiler
-will trust that the wrapper is telling the truth.
+It's also possible to completely ignore the intended type and create undefined
+behavior in multiple ways. The code below produces output most of the time, but
+generally results in a stack overflow. It may also produce illegal `char`
+values. Although `char` is represented in 4 bytes (32 bits),
+[not all bit patterns are permitted as a `char`][char].
+
+Stress that the Rust compiler will trust that the wrapper is telling the truth.
+
+[char]: https://doc.rust-lang.org/std/primitive.char.html#validity-and-layout
 
 ```rust
 unsafe extern "C" {
-    safe fn random() -> [u8; 64];
+    safe fn random() -> [char; 2];
 }
 
 fn main() {
@@ -122,15 +129,14 @@ fn main() {
 > }
 > ```
 
-Mention that type safety is generally not a large concern in practice.
-Auto-generated wrappers, i.e. those produced by bindgen and related tools, are
-excellent at reading header files and producing values of the correct type.
+Mention that type safety is generally not a large concern in practice. Tools
+that produce wrappers automatically, i.e. bindgen, are excellent at reading
+header files and producing values of the correct type.
 
 ## Consideration: Ownership and lifetime management
 
-While libc's `random` function doesn't use pointers, may do. This creates the
-possibility that interacting with another programming language introduce
-unsoundness.
+While libc's `random` function doesn't use pointers, many do. This creates many
+more possibilities for unsoundness.
 
 - both sides might attempt to free the memory (double free)
 - both sides can attempt to write to the data
@@ -138,12 +144,21 @@ unsoundness.
 For example, some C libraries expose functions that write to static buffers that
 are re-used between calls.
 
+<!--
+
+TODO(timclicks): consider adding a safety comment in the docstring that discusses thread safety and the ownership of the returned pointer.
+
+See <https://github.com/google/comprehensive-rust/pull/2806#discussion_r2207171041>.
+
+-->
+
 ```rust
 use std::ffi::{CStr, c_char};
 use std::time::{SystemTime, UNIX_EPOCH};
 
 unsafe extern "C" {
     /// Create a formatted time based on time `t`, including trailing newline.
+    /// Read `man 3 ctime` details.
     fn ctime(t: *const libc::time_t) -> *const c_char;
 }
 
@@ -171,13 +186,19 @@ fn main() {
 }
 ```
 
+> Aside: Lifetimes in the `format_timestamp()` function
+>
+> Neither `'a`, nor `'static` correctly describe the lifetime of the string
+> that's returned. Rust treats it as an immutable reference, but subsequent
+> calls to `ctime` will overwrite the static buffer that the string occupies.
+
 Bonus points: can anyone spot the lifetime bug? `format_timestamp()` should
 return a `&'static str`.
 
 ## Consideration: Representation mismatch
 
-Different programming languages have made design decisions and this can create
-impedance mismatches between different domains.
+Different programming languages have made different design decisions and this
+can create impedance mismatches between different domains.
 
 Consider string handling. C++ defines `std::string`, which has an incompatible
 memory layout with Rust's `String` type. `String` also requires text to be
