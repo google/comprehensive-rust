@@ -445,7 +445,7 @@
 - [Welcome](unsafe-deep-dive/welcome.md)
 - [Setup](unsafe-deep-dive/setup.md)
 - [Motivations](unsafe-deep-dive/motivations.md)
-  - [Interop](unsafe-deep-dive/motivations/interop.md)
+  - [Interoperability](unsafe-deep-dive/motivations/interop.md)
   - [Data Structures](unsafe-deep-dive/motivations/data-structures.md)
   - [Performance](unsafe-deep-dive/motivations/performance.md)
 - [Foundations](unsafe-deep-dive/foundations.md)

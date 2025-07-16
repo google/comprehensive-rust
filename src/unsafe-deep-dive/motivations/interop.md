@@ -6,7 +6,7 @@ minutes: 5
 > an introduction to the motivations only, rather than to be an elaborate
 > discussion of the whole problem.
 
-# Interop
+# Interoperability
 
 Language interoperability allows you to:
 
