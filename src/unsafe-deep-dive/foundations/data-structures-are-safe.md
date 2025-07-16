@@ -19,7 +19,7 @@ fn main() {
 <details>
 
 Consider a raw pointer to an integer, i.e., the value `safe` is the raw pointer
-type `*const i64`. Raw pointers can be out-of-bounds, misaligned, or be
-null. But the unsafe keyword is not required when creating them.
+type `*const i64`. Raw pointers can be out-of-bounds, misaligned, or be null.
+But the unsafe keyword is not required when creating them.
 
 </details>
