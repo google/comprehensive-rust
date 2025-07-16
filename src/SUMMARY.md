@@ -437,6 +437,8 @@
     - [Semantic Confusion](idiomatic/leveraging-the-type-system/newtype-pattern/semantic-confusion.md)
     - [Parse, Don't Validate](idiomatic/leveraging-the-type-system/newtype-pattern/parse-don-t-validate.md)
     - [Is It Encapsulated?](idiomatic/leveraging-the-type-system/newtype-pattern/is-it-encapsulated.md)
+  - [Typestate Pattern](idiomatic/leveraging-the-type-system/typestate-pattern.md)
+    - [Typestate Pattern with Generics](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics.md)
 
 ---
 
