@@ -15,7 +15,7 @@ Language interoperability allows you to:
 
 However, this requires unsafe.
 
-```rust,editable
+```rust,editable,ignore
 unsafe extern "C" {
     safe fn random() -> libc::c_long;
 }
@@ -33,7 +33,7 @@ hasn't compiled, so it delegates that responsibility to you through the unsafe
 keyword.
 
 The code example we're seeing shows how to call the random function provided by
-libc within Rust.
+libc within Rust. libc is available to scripts in the Rust Playground.
 
 This uses Rust's _foreign function interface_.
 
@@ -102,7 +102,9 @@ Stress that the Rust compiler will trust that the wrapper is telling the truth.
 
 [char]: https://doc.rust-lang.org/std/primitive.char.html#validity-and-layout
 
-```rust
+<!-- TODO(timclicks): add libc to the mdbook build system so that the example can be tested -->
+
+```rust,ignore
 unsafe extern "C" {
     safe fn random() -> [char; 2];
 }
@@ -118,7 +120,7 @@ fn main() {
 > ```diff
 > unsafe extern "C" {
 > -    safe fn random() -> libc::c_long;
-> +    safe fn random() -> [u8; 64];
+> +    safe fn random() -> [char; 2];
 > }
 >
 > fn main() {
@@ -127,6 +129,19 @@ fn main() {
 > +    let a = random();
 > +    println!("{a:?}");
 > }
+> ```
+
+> Attempting to print a `[char; 2]` from randomly generated input will often
+> produce strange output, including:
+>
+> ```ignore
+> thread 'main' panicked at library/std/src/io/stdio.rs:1165:9:
+> failed printing to stdout: Bad address (os error 14)
+> ```
+>
+> ```ignore
+> thread 'main' has overflowed its stack
+> fatal runtime error: stack overflow, aborting
 > ```
 
 Mention that type safety is generally not a large concern in practice. Tools
@@ -152,7 +167,9 @@ See <https://github.com/google/comprehensive-rust/pull/2806#discussion_r22071710
 
 -->
 
-```rust
+<!-- TODO(timclicks): add libc to the mdbook build system so that the example can be tested -->
+
+```rust,ignore
 use std::ffi::{CStr, c_char};
 use std::time::{SystemTime, UNIX_EPOCH};
 
