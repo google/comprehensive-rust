@@ -204,14 +204,11 @@ fn main() {
 }
 ```
 
-> Aside: Lifetimes in the `format_timestamp()` function
+> _Aside:_ Lifetimes in the `format_timestamp()` function
 >
-> Neither `'a`, nor `'static` correctly describe the lifetime of the string
+> Neither `'a`, nor `'static`, correctly describe the lifetime of the string
 > that's returned. Rust treats it as an immutable reference, but subsequent
 > calls to `ctime` will overwrite the static buffer that the string occupies.
-
-Bonus points: can anyone spot the lifetime bug? `format_timestamp()` should
-return a `&'static str`.
 
 ## Consideration: Representation mismatch
 
