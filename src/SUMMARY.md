@@ -437,6 +437,11 @@
     - [Semantic Confusion](idiomatic/leveraging-the-type-system/newtype-pattern/semantic-confusion.md)
     - [Parse, Don't Validate](idiomatic/leveraging-the-type-system/newtype-pattern/parse-don-t-validate.md)
     - [Is It Encapsulated?](idiomatic/leveraging-the-type-system/newtype-pattern/is-it-encapsulated.md)
+  - [Extension Traits](idiomatic/leveraging-the-type-system/extension-traits.md)
+    - [Extending Foreign Types](idiomatic/leveraging-the-type-system/extension-traits/extending-foreign-types.md)
+    - [Method Resolution Conflicts](idiomatic/leveraging-the-type-system/extension-traits/method-resolution-conflicts.md)
+    - [Extending Other Traits](idiomatic/leveraging-the-type-system/extension-traits/extending-other-traits.md)
+    - [Trait Method Conflicts](idiomatic/leveraging-the-type-system/extension-traits/trait-method-conflicts.md)
 
 ---
 
