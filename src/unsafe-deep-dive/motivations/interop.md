@@ -51,15 +51,16 @@ parsing all take energy and time.
   rely on its symbols, including `random`, being available to our program.
 - _What is the "safe" keyword?_\
   It allows callers to call the function without needing to wrap that call in
-  `unsafe`. The [`safe` function qualifier] was introduced in the 2024 edition
-  of Rust and can only be used within `extern` blocks. It was introduced because
-  `unsafe` became a mandatory qualifier for `extern` blocks in that edition.
+  `unsafe`. The [`safe` function qualifier][safe] was introduced in the 2024
+  edition of Rust and can only be used within `extern` blocks. It was introduced
+  because `unsafe` became a mandatory qualifier for `extern` blocks in that
+  edition.
 - _What is the [`std::ffi::c_long`] type?_\
   According to the C standard, an integer that's at least 32 bits wide. On
   today's systems, It's an `i32` on Windows and an `i64` on Linux.
 
-[`safe` keyword]: https://doc.rust-lang.org/reference/safe-keyword.html
 [`std::ffi::c_long`]: https://doc.rust-lang.org/std/ffi/type.c_long.html
+[safe]: https://doc.rust-lang.org/stable/edition-guide/rust-2024/unsafe-extern.html
 
 ## Consideration: type safety
 
@@ -203,14 +204,11 @@ fn main() {
 }
 ```
 
-> Aside: Lifetimes in the `format_timestamp()` function
+> _Aside:_ Lifetimes in the `format_timestamp()` function
 >
-> Neither `'a`, nor `'static` correctly describe the lifetime of the string
+> Neither `'a`, nor `'static`, correctly describe the lifetime of the string
 > that's returned. Rust treats it as an immutable reference, but subsequent
 > calls to `ctime` will overwrite the static buffer that the string occupies.
-
-Bonus points: can anyone spot the lifetime bug? `format_timestamp()` should
-return a `&'static str`.
 
 ## Consideration: Representation mismatch
 
