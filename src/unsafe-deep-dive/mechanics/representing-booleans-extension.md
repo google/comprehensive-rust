@@ -40,7 +40,7 @@ fn conversion() {
 
 <details>
 
-Representation:
+## Representation
 
 From Rust's documentation:
 

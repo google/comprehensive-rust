@@ -455,10 +455,14 @@
   - [Actions might not be](unsafe-deep-dive/foundations/actions-might-not-be.md)
   - [Less powerful than it seems](unsafe-deep-dive/foundations/less-powerful.md)
 - [Mechanics](unsafe-deep-dive/mechanics.md)
-  - [Narrow scope](unsafe-deep-dive/mechanics/narrow-scope.md)
-  - [Safety comments](unsafe-deep-dive/mechanics/safety-comments.md)
   - [Example: Representing Booleans](unsafe-deep-dive/mechanics/representing-booleans.md)
-    - [Extension](unsafe-deep-dive/mechanics/representing-booleans-extension.md)
+    - [Extension:](unsafe-deep-dive/mechanics/representing-booleans-extension.md)
+  - [Extension: Representing "Only Even Numbers"](unsafe-deep-dive/mechanics/representing-only-even-numbers.md)
+  - [Case Study](unsafe-deep-dive/mechanics/case-study.md)
+  - [Guidelines](unsafe-deep-dive/mechanics/guidelines.md)
+    - [Narrow scope](unsafe-deep-dive/mechanics/narrow-scope.md)
+    - [Safety comments](unsafe-deep-dive/mechanics/safety-comments.md)
+    - [Safety checklist](unsafe-deep-dive/mechanics/guideline-safety-checklist.md)
 
 ---
 
