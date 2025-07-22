@@ -8,7 +8,7 @@ microcontroller peripherals:
 - Delay timers
 - I2C and SPI buses and devices
 
-Similar traits for byte streams (e.g. UARTs), CAN buses and RNGs and broken out
+Similar traits for byte streams (e.g. UARTs), CAN buses and RNGs are broken out
 into [`embedded-io`], [`embedded-can`] and [`rand_core`] respectively.
 
 Other crates then implement [drivers] in terms of these traits, e.g. an
