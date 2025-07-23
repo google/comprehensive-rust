@@ -6,7 +6,7 @@ minutes: 10
 
 The `unsafe` keyword does not allow you to break Rust.
 
-```rust
+```rust,ignore
 use std::mem::transmute;
 
 let orig = b"RUST";
@@ -25,7 +25,7 @@ println!("{n}")
 
 ## Expected compiler output
 
-```
+```ignore
    Compiling playground v0.0.1 (/playground)
 error[E0512]: cannot transmute between types of different sizes, or dependently-sized types
  --> src/main.rs:5:27

@@ -445,9 +445,9 @@
 - [Welcome](unsafe-deep-dive/welcome.md)
 - [Setup](unsafe-deep-dive/setup.md)
 - [Motivations](unsafe-deep-dive/motivations.md)
-  - [Interop](unsafe-deep-dive/motivations/interop.md)
+  - [Interoperability](unsafe-deep-dive/motivations/interop.md)
   - [Data Structures](unsafe-deep-dive/motivations/data-structures.md)
-  - [Performance](unsafe-deep-dive/motivations/perfomance.md)
+  - [Performance](unsafe-deep-dive/motivations/performance.md)
 - [Foundations](unsafe-deep-dive/foundations.md)
   - [What is unsafe?](unsafe-deep-dive/foundations/what-is-unsafe.md)
   - [When is unsafe used?](unsafe-deep-dive/foundations/when-is-unsafe-used.md)
@@ -455,8 +455,14 @@
   - [Actions might not be](unsafe-deep-dive/foundations/actions-might-not-be.md)
   - [Less powerful than it seems](unsafe-deep-dive/foundations/less-powerful.md)
 - [Mechanics](unsafe-deep-dive/mechanics.md)
-  - [Keep unsafe narrow](unsafe-deep-dive/mechanics/narrow.md)
-  - [Safety comments](unsafe-deep-dive/mechanics/safety-comments.md)
+  - [Example: Representing Booleans](unsafe-deep-dive/mechanics/representing-booleans.md)
+    - [Extension:](unsafe-deep-dive/mechanics/representing-booleans-extension.md)
+  - [Extension: Representing "Only Even Numbers"](unsafe-deep-dive/mechanics/representing-only-even-numbers.md)
+  - [Case Study](unsafe-deep-dive/mechanics/case-study.md)
+  - [Guidelines](unsafe-deep-dive/mechanics/guidelines.md)
+    - [Narrow scope](unsafe-deep-dive/mechanics/narrow-scope.md)
+    - [Safety comments](unsafe-deep-dive/mechanics/safety-comments.md)
+    - [Safety checklist](unsafe-deep-dive/mechanics/guideline-safety-checklist.md)
 
 ---
 
