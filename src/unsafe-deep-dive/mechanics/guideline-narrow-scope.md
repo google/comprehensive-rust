@@ -1,3 +1,7 @@
+---
+minutes: 3
+---
+
 # Keep unsafe narrow
 
 Compare these two code examples:

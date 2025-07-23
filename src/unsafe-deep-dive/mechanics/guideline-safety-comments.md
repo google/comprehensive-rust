@@ -1,3 +1,7 @@
+---
+minutes: 2
+---
+
 # Safety comments
 
 When defining unsafe functions, provide a `Safety` section in the docstring:
