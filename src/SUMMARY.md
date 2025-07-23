@@ -460,9 +460,9 @@
   - [Extension: Representing "Only Even Numbers"](unsafe-deep-dive/mechanics/representing-only-even-numbers.md)
   - [Case Study](unsafe-deep-dive/mechanics/case-study.md)
   - [Guidelines](unsafe-deep-dive/mechanics/guidelines.md)
-    - [Narrow scope](unsafe-deep-dive/mechanics/narrow-scope.md)
-    - [Safety comments](unsafe-deep-dive/mechanics/safety-comments.md)
-    - [Safety checklist](unsafe-deep-dive/mechanics/guideline-safety-checklist.md)
+    - [Narrow scope](unsafe-deep-dive/mechanics/guideline-narrow-scope.md)
+    - [Safety comments](unsafe-deep-dive/mechanics/guideline-safety-comments.md)
+    - [Invariant checklist](unsafe-deep-dive/mechanics/guideline-invariant-checklist.md)
 
 ---
 
