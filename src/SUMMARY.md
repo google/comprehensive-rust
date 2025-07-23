@@ -457,7 +457,6 @@
 - [Mechanics](unsafe-deep-dive/mechanics.md)
   - [Example: Representing Booleans](unsafe-deep-dive/mechanics/representing-booleans.md)
     - [Extension: Representing Char](unsafe-deep-dive/mechanics/representing-char.md)
-    - [Extension: Representing "Only Even Numbers"](unsafe-deep-dive/mechanics/representing-only-even-numbers.md)
   - [Case Study](unsafe-deep-dive/mechanics/case-study.md)
   - [Guidelines](unsafe-deep-dive/mechanics/guidelines.md)
     - [Narrow scope](unsafe-deep-dive/mechanics/guideline-narrow-scope.md)
