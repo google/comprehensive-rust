@@ -6,11 +6,7 @@ minutes: 5
 > an introduction to the motivations only, rather than to be an elaborate
 > discussion of the whole problem.
 
-<<<<<<< HEAD
-# Interop
-=======
 # Interoperability
->>>>>>> ebcff61ee0e91066888289fb2c51beb0e36d4a62
 
 Language interoperability allows you to:
 
@@ -19,11 +15,7 @@ Language interoperability allows you to:
 
 However, this requires unsafe.
 
-<<<<<<< HEAD
-```rust,editable
-=======
 ```rust,editable,ignore
->>>>>>> ebcff61ee0e91066888289fb2c51beb0e36d4a62
 unsafe extern "C" {
     safe fn random() -> libc::c_long;
 }
@@ -41,11 +33,7 @@ hasn't compiled, so it delegates that responsibility to you through the unsafe
 keyword.
 
 The code example we're seeing shows how to call the random function provided by
-<<<<<<< HEAD
-libc within Rust.
-=======
 libc within Rust. libc is available to scripts in the Rust Playground.
->>>>>>> ebcff61ee0e91066888289fb2c51beb0e36d4a62
 
 This uses Rust's _foreign function interface_.
 
@@ -63,27 +51,16 @@ parsing all take energy and time.
   rely on its symbols, including `random`, being available to our program.
 - _What is the "safe" keyword?_\
   It allows callers to call the function without needing to wrap that call in
-<<<<<<< HEAD
-  `unsafe`. The [`safe` function qualifier] was introduced in the 2024 edition
-  of Rust and can only be used within `extern` blocks. It was introduced because
-  `unsafe` became a mandatory qualifier for `extern` blocks in that edition.
-=======
   `unsafe`. The [`safe` function qualifier][safe] was introduced in the 2024
   edition of Rust and can only be used within `extern` blocks. It was introduced
   because `unsafe` became a mandatory qualifier for `extern` blocks in that
   edition.
->>>>>>> ebcff61ee0e91066888289fb2c51beb0e36d4a62
 - _What is the [`std::ffi::c_long`] type?_\
   According to the C standard, an integer that's at least 32 bits wide. On
   today's systems, It's an `i32` on Windows and an `i64` on Linux.
 
-<<<<<<< HEAD
-[`safe` keyword]: https://doc.rust-lang.org/reference/safe-keyword.html
-[`std::ffi::c_long`]: https://doc.rust-lang.org/std/ffi/type.c_long.html
-=======
-[`std::ffi::c_long`]: https://doc.rust-lang.org/std/ffi/type.c_long.html
 [safe]: https://doc.rust-lang.org/stable/edition-guide/rust-2024/unsafe-extern.html
->>>>>>> ebcff61ee0e91066888289fb2c51beb0e36d4a62
+[`std::ffi::c_long`]: https://doc.rust-lang.org/std/ffi/type.c_long.html
 
 ## Consideration: type safety
 
@@ -116,14 +93,6 @@ fn main() {
 > }
 > ```
 
-<<<<<<< HEAD
-It's also possible to completely erase the type. Stress that the Rust compiler
-will trust that the wrapper is telling the truth.
-
-```rust
-unsafe extern "C" {
-    safe fn random() -> [u8; 64];
-=======
 It's also possible to completely ignore the intended type and create undefined
 behavior in multiple ways. The code below produces output most of the time, but
 generally results in a stack overflow. It may also produce illegal `char`
@@ -139,7 +108,6 @@ Stress that the Rust compiler will trust that the wrapper is telling the truth.
 ```rust,ignore
 unsafe extern "C" {
     safe fn random() -> [char; 2];
->>>>>>> ebcff61ee0e91066888289fb2c51beb0e36d4a62
 }
 
 fn main() {
@@ -153,11 +121,7 @@ fn main() {
 > ```diff
 > unsafe extern "C" {
 > -    safe fn random() -> libc::c_long;
-<<<<<<< HEAD
-> +    safe fn random() -> [u8; 64];
-=======
 > +    safe fn random() -> [char; 2];
->>>>>>> ebcff61ee0e91066888289fb2c51beb0e36d4a62
 > }
 >
 > fn main() {
@@ -168,17 +132,6 @@ fn main() {
 > }
 > ```
 
-<<<<<<< HEAD
-Mention that type safety is generally not a large concern in practice.
-Auto-generated wrappers, i.e. those produced by bindgen and related tools, are
-excellent at reading header files and producing values of the correct type.
-
-## Consideration: Ownership and lifetime management
-
-While libc's `random` function doesn't use pointers, may do. This creates the
-possibility that interacting with another programming language introduce
-unsoundness.
-=======
 > Attempting to print a `[char; 2]` from randomly generated input will often
 > produce strange output, including:
 >
@@ -200,7 +153,6 @@ header files and producing values of the correct type.
 
 While libc's `random` function doesn't use pointers, many do. This creates many
 more possibilities for unsoundness.
->>>>>>> ebcff61ee0e91066888289fb2c51beb0e36d4a62
 
 - both sides might attempt to free the memory (double free)
 - both sides can attempt to write to the data
@@ -208,9 +160,6 @@ more possibilities for unsoundness.
 For example, some C libraries expose functions that write to static buffers that
 are re-used between calls.
 
-<<<<<<< HEAD
-```rust
-=======
 <!--
 
 TODO(timclicks): consider adding a safety comment in the docstring that discusses thread safety and the ownership of the returned pointer.
@@ -222,16 +171,12 @@ See <https://github.com/google/comprehensive-rust/pull/2806#discussion_r22071710
 <!-- TODO(timclicks): add libc to the mdbook build system so that the example can be tested -->
 
 ```rust,ignore
->>>>>>> ebcff61ee0e91066888289fb2c51beb0e36d4a62
 use std::ffi::{CStr, c_char};
 use std::time::{SystemTime, UNIX_EPOCH};
 
 unsafe extern "C" {
     /// Create a formatted time based on time `t`, including trailing newline.
-<<<<<<< HEAD
-=======
     /// Read `man 3 ctime` details.
->>>>>>> ebcff61ee0e91066888289fb2c51beb0e36d4a62
     fn ctime(t: *const libc::time_t) -> *const c_char;
 }
 
@@ -259,15 +204,6 @@ fn main() {
 }
 ```
 
-<<<<<<< HEAD
-Bonus points: can anyone spot the lifetime bug? `format_timestamp()` should
-return a `&'static str`.
-
-## Consideration: Representation mismatch
-
-Different programming languages have made design decisions and this can create
-impedance mismatches between different domains.
-=======
 > _Aside:_ Lifetimes in the `format_timestamp()` function
 >
 > Neither `'a`, nor `'static`, correctly describe the lifetime of the string
@@ -278,7 +214,6 @@ impedance mismatches between different domains.
 
 Different programming languages have made different design decisions and this
 can create impedance mismatches between different domains.
->>>>>>> ebcff61ee0e91066888289fb2c51beb0e36d4a62
 
 Consider string handling. C++ defines `std::string`, which has an incompatible
 memory layout with Rust's `String` type. `String` also requires text to be
