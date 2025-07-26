@@ -21,12 +21,35 @@ fn main() {
     // Write something to the file
     writeln!(file, "temporary data").unwrap();
 
+    /*
+     * TODO: Apply Feedbak:
+     *
+     * Consider making the example a bit more realistic: set it up
+     * as if we are downloading a file through HTTP, and
+     * if the connection gets interrupted, we don't want to
+     * leave behind an incomplete file. I'm not asking to
+     * add/change code, only to update comments,
+     * and names of functions and variables.
+     */
+
     // Create a scope guard to clean up the file unless we defuse it
     let cleanup = guard(path, |path| {
+        println!("Operation failed, deleting file: {:?}", path);
         // Errors must be handled inside the guard,
         // but cannot be propagated.
         let _ = fs::remove_file(path);
     });
+    /*
+     * TODO: apply feedback
+     *
+     * I think this should be put right after let mut file, in order to:
+     *
+     * + emphasize that file and cleanup go together,
+     *
+     * + to ensure that file gets deleted even if we
+     *   have a problem in writeln!().unwrap().
+     *
+     */
 
     if conditional_success() {
         // Success path: we want to keep the file
@@ -103,6 +126,27 @@ fn main() {
   }
   ```
 
+  TODO apply feedback:
+
+  ```
+  For large chunks of code in the speaker notes like this, it'd be nicer
+  to put this in the playground and include the playground link in the
+  speaker notes instead. That makes it easier to pull up the example on
+  screen, instead of having to copy-paste it into a playground window
+  manually.
+
+  That said, I'm not sure this is the example we want to use. This
+  re-implements the scopeguard crate's functionality, i.e. it's a general
+  purpose scope guard that calls a closure. If you're implementing a scope
+  guard manually, you're more likely to be implementing a guard that does
+  something specific since scopeguard already exists for doing general
+  purpose scope guards.
+
+  Maybe rework this example to use the "delete a file on failure" example
+  that's in the slide? I can slap together a sketch in the playground if
+  it's not clear what I'm suggesting.
+  ```
+
   - The `ScopeGuard` type in the `scopeguard` crate also includes a `Debug`
     implementation and a third parameter: a
     [`Strategy`](https://docs.rs/scopeguard/latest/scopeguard/trait.Strategy.html)
@@ -115,11 +159,15 @@ fn main() {
       You can also implement your own `Strategy` trait to define custom
       conditions for when the cleanup should occur.
 
-    - Remark also that the crates' `ScopeGuard` makes use of
-      [`ManuallyDrop`](https://doc.rust-lang.org/std/mem/struct.ManuallyDrop.html)
-      instead of `Option` to avoid automatic or premature dropping of values,
-      giving precise manual control and preventing double-drops. This avoids the
-      runtime overhead and semantic ambiguity that comes with using Option.
+  TODO: again... more concise, e.g. reduce the above to:
+
+  ```
+  - `scopeguard` also supports selecting a
+    [`Strategy`](https://docs.rs/scopeguard/latest/scopeguard/trait.Strategy.html)
+    to determine when the cleanup logic should run, i.e. always,
+    only on successful exit, or only on unwind. The crate
+    also supports defining custom strategies.
+  ```
 
 - Recalling the transaction example from
   [the drop bombs chapter](./drop_bomb.md), we can now combine both concepts:
@@ -130,5 +178,13 @@ fn main() {
   While we still cannot propagate errors from fallible operations inside the
   drop logic, this pattern at least allows us to orchestrate fallbacks
   explicitly and with whatever guarantees or limits we require.
+
+  TODO: apply feedback for the above paragraph:
+
+  ```
+  Maybe move this point to the top, since it most directly explains what
+  this example is doing and why. You may want to reword/reorganize this to
+  merge it with the current first bullet point.
+  ```
 
 </details>
