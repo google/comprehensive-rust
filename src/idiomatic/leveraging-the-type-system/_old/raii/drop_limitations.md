@@ -19,7 +19,8 @@ fn write_log() -> io::Result<()> {
 <details>
 
 - In the earlier example, our `File` resource owns a file handle provided by the
-  operating system. (TODO: be careful in wording: earlier is ambiguous here. Better use "above".)
+  operating system. (TODO: be careful in wording: earlier is ambiguous here.
+  Better use "above".)
 
   [As stated in the documentation](https://doc.rust-lang.org/std/fs/struct.File.html):
 
@@ -61,8 +62,8 @@ fn write_log() -> io::Result<()> {
 
 - One workaround is to panic inside `drop` when a failure occurs. However, this
   is risky—if a panic happens while the stack is already unwinding, the program
-  will abort immediately, and remaining resources will not be cleaned up.
-  (TODO: be careful in wording and context. E.g. here it is about external resources)
+  will abort immediately, and remaining resources will not be cleaned up. (TODO:
+  be careful in wording and context. E.g. here it is about external resources)
 
   While panicking in `drop` can serve certain purposes (see
   [the next chapter on "drop bombs"](./drop_bomb.md)), it should be used
@@ -75,7 +76,8 @@ fn write_log() -> io::Result<()> {
 
   (TODO: non-deterministic is incorrect here, fix wording and description)
 
-  (TODO: be careful with wording 'you cannot control'. As you can control, by impl drop)
+  (TODO: be careful with wording 'you cannot control'. As you can control, by
+  impl drop)
 
   This matters particularly for I/O: normally you might set a timeout on
   blocking operations, but when I/O occurs in a `drop` implementation, you have
@@ -108,9 +110,8 @@ fn write_log() -> io::Result<()> {
   cause undefined behavior. The poisoned state disappears along with the
   termination of the program.
 
-  (TODO: apply feedback:
-    Note that the chapter does not discuss poisoned mutexes
-    at the moment (I'm requesting that to be added in my comments above)
+  (TODO: apply feedback: Note that the chapter does not discuss poisoned mutexes
+  at the moment (I'm requesting that to be added in my comments above)
 
 - For use cases such as I/O or FFI, it may be preferable to let the user clean
   up resources explicitly using a close function.

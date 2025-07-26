@@ -34,11 +34,10 @@ or more slides, depending on its complexity and relevance.
 
 ## Target Audience
 
-Engineers with at least 2-3 years of coding experience in C, C++11 or
-newer, Java 7 or newer, Python 2 or 3, Go or any other similar
-imperative programming language. We have no expectation of experience
-with more modern or feature-rich languages like Swift, Kotlin, C#, or
-TypeScript.
+Engineers with at least 2-3 years of coding experience in C, C++11 or newer,
+Java 7 or newer, Python 2 or 3, Go or any other similar imperative programming
+language. We have no expectation of experience with more modern or feature-rich
+languages like Swift, Kotlin, C#, or TypeScript.
 
 ### Foundations of API design
 

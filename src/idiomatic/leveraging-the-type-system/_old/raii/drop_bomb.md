@@ -13,7 +13,6 @@ handled normally in Drop (realistically, commit and rollback would want to
 return Results to indicate if they succeeded or not). This is one of the
 limitations of Drop mentioned on the previous slide, so it'd be worth
 noting that this pattern is a common way to work around that limitation.
-
 ---
 
 ```rust
@@ -92,17 +91,14 @@ impl Drop for Transaction {
   it's typically not possible to just rollback a transaction in drop().
   ```
 
-- APIs that are expected to panic like this should document
-  the cases when a panic will occur under a `Panics` section.
+- APIs that are expected to panic like this should document the cases when a
+  panic will occur under a `Panics` section.
 
-  (^ TODO: this was reworded to be more minimal. Shorter the speaker
-    notes the better, to make it easier to skim through as instructor)
-    Original:
-    > Similar to unsafe code, it is recommended that APIs with
-    > expectations like
-    > these are clearly documented under a Panic section.
-    > This helps ensure that
-    > users of the API are aware of the consequences of misuse.
+  (^ TODO: this was reworded to be more minimal. Shorter the speaker notes the
+  better, to make it easier to skim through as instructor) Original:
+  > Similar to unsafe code, it is recommended that APIs with expectations like
+  > these are clearly documented under a Panic section. This helps ensure that
+  > users of the API are aware of the consequences of misuse.
 
   TODO: apply feedback:
 
@@ -141,9 +137,8 @@ impl Drop for Transaction {
 
   - [`ManuallyDrop`](https://doc.rust-lang.org/std/mem/struct.ManuallyDrop.html):
     A zero-cost wrapper that disables the automatic drop behavior of a value,
-    making manual cleanup required and explicit.
-    This requires unsafe code to use,
-    though, so it's recommended to only use this if strictly necessary.
+    making manual cleanup required and explicit. This requires unsafe code to
+    use, though, so it's recommended to only use this if strictly necessary.
 
 - The [`drop_bomb` crate](https://docs.rs/drop_bomb/latest/drop_bomb/) provides
   a way to enforce that certain values are not dropped unless explicitly
