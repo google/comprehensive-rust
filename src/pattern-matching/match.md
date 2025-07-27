@@ -43,7 +43,7 @@ Key Points:
   wish to concisely express more complex ideas than patterns alone would allow.
 - They are not the same as separate `if` expression inside of the match arm. An
   `if` expression inside of the branch block (after `=>`) happens after the
-  match arm is selected. Failing the `if` condition inside of that block won't
+  match arm is selected. Failing the `if` condition inside of that block will
   result in other arms of the original `match` expression being considered.
 - The condition defined in the guard applies to every expression in a pattern
   with an `|`.
