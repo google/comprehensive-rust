@@ -13,24 +13,24 @@ descriptors or locks.
 
 ```rust,editable
 struct FileLock;
-struct File {
+pub struct File {
     stub: Option<u8>,
     lock: FileLock,
 }
 #[derive(Debug)]
-struct Error;
+pub struct Error;
 
 impl File {
-    fn open(path: &str) -> Result<Self, Error> {
+    pub fn open(path: &str) -> Result<Self, Error> {
         println!("acquire file descriptor: {path}");
         Ok(Self { stub: Some(1), lock: FileLock })
     }
 
-    fn read(&mut self) -> Result<u8, Error> {
+    pub fn read(&mut self) -> Result<u8, Error> {
         self.stub.take().ok_or(Error)
     }
 
-    fn close(self) -> Result<(), Error> {
+    pub fn close(self) -> Result<(), Error> {
         self.lock.release()
     }
 }
@@ -56,20 +56,18 @@ fn main() {
 
 <details>
 
-- The example shows how easy it is to forget releasing a file descriptor when
+- This example shows how easy it is to forget releasing a file descriptor when
   managing it manually. In fact, the current code does not release it at all.
   Did anyone notice that `file.close()` is missing?
 
 - Try inserting `file.close().unwrap();` at the end of `main`. Then try moving
-  it before the loop — Rust will prevent that. Once `file` is moved, it can no
-  longer be used. The borrow checker ensures we cannot access a `File` after it
-  has been closed.
+  it before the loop. Rust will reject this: once `file` is moved, it can no
+  longer be accessed. The borrow checker enforces this statically.
 
-- Instead of relying on the programmer to remember to call `close()`, we can
-  implement the `Drop` trait to handle cleanup automatically. This ties the
-  resource to the lifetime of the `File` value. But note: `Drop` cannot return
-  errors. Anything fallible must be handled inside the `drop()` method or
-  avoided altogether.
+- Instead of relying on the user to remember to call `close()`, we can implement
+  the `Drop` trait to release the resource automatically. This ties cleanup to
+  the lifetime of the `File` value. Note that `Drop` cannot return errors, so
+  any fallible logic must be handled internally or avoided.
 
   ```rust,compile_fail
   impl Drop for FileLock {
@@ -79,30 +77,43 @@ fn main() {
   }
   ```
 
-- If we keep both `drop()` and `close()`, the file descriptor is released twice.
-  To avoid this, remove `close()` and rely on `Drop` alone.
+- If both `drop()` and `close()` are present, the file descriptor is released
+  twice. To avoid this, remove `close()` and rely solely on `Drop`.
 
-- Demonstrate ownership transfer by moving the file into a separate `read_all()`
-  function. The file is dropped when that local variable goes out of scope — not
-  in `main`. This contrasts with C++, where the original scope always runs the
-  destructor, even after moves.
+  This also illustrates that when a parent type is dropped, the `drop()` method
+  of its fields (such as `FileLock`) is automatically called — no extra code is
+  needed.
 
-- Add `panic!("oops")` at the start of `read_all()` to illustrate that `drop()`
-  still runs during unwinding. Rust guarantees that destructors run during a
-  panic unless the panic strategy is set to abort.
+- Demonstrate ownership transfer by moving the file into a `read_all()`
+  function. The file is dropped when the local variable inside that function
+  goes out of scope, not in `main`.
+
+  This differs from C++, where destructors are tied to the original scope, even
+  for moved-from values.
+
+  The same mechanism underlies `std::mem::drop`, which lets you drop a value
+  early:
+
+  ```rust
+  pub fn drop<T>(_x: T) {}
+  ```
+
+- Insert `panic!("oops")` at the start of `read_all()` to show that `drop()` is
+  still called during unwinding. Rust ensures this unless the panic strategy is
+  set to `abort`.
 
 - There are exceptions where destructors will not run:
   - If a destructor panics during unwinding, the program aborts immediately.
-  - The program also aborts immediately when using `std::process::exit()` or
-    when the panic strategy is set to `abort`.
+  - The program also aborts when using `std::process::exit()` or when compiled
+    with the `abort` panic strategy.
 
 ### More to Explore
 
 The `Drop` trait has another important limitation: it is not `async`.
 
-This means you cannot `await` inside a destructor, which is often needed when
-cleaning up asynchronous resources like sockets, database connections, or tasks
-that must notify another system before shutdown.
+You cannot `await` inside a destructor, which is often needed when cleaning up
+asynchronous resources like sockets, database connections, or tasks that must
+signal completion to another system.
 
 - Learn more:
   <https://rust-lang.github.io/async-fundamentals-initiative/roadmap/async_drop.html>
