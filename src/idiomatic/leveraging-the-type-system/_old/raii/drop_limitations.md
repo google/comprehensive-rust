@@ -49,7 +49,7 @@ fn write_log() -> io::Result<()> {
 
   ```
   This last sentence suggests that there was no other design choice because of unwinding.
-  That's not true: in C++, for example, one can throw an exception from a destructor while uwinding
+  That's not true: in C++, for example, one can throw an exception from a destructor while unwinding
   because of another exception. Throwing from a destructor is messy and error-prone
   (and pretty much every style guide tells you not to do it),
   however that is an existence proof that Rust's design choice here was not entirely forced.
