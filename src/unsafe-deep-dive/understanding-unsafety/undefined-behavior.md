@@ -10,258 +10,41 @@ One of the terms that we introduced earlier was _undefined behavior_. This
 exercise aims to discuss what undefined behavior actually is and how it can
 arise.
 
-High performance code is particularly prone to accidentally introducing
-undefined behavior into a program, because its authors are typically very
-interested in finding ways to cut corners.
-
----
-
-## What's wrong with undefined behavior?
-
-C++ compilers will typically (*) compile this code without warnings, and will
-run without error signaling an error:
-
-```cpp
-#include <cassert>
-
-int axiom_increment_is_greater(int x) {
-    return x + 1 > x;
-}
-
-int main() {
-    int a = 2147483647;
-    assert(axiom_increment_is_greater(a));
-}
-```
-
-Equivalent Rust programs produce different output:
-
-```rust,editable
-fn axiom_increment_is_greater(x: i32) -> bool {
-    x + 1 > x
-}
-
-fn main() {
-    let a = 2147483647;
-    assert!(axiom_increment_is_greater(a));
-}
-```
-
-(*) We can't be certain. That's one of the problems.
-
-<details>
+High performance code is particularly prone to introducing undefined behavior
+into a program, because it will typically find every corner that's possible to
+cut.
 
 We don't want to have undefined behavior in our code, because it makes the code
-_unsound_.
+_unsound_. Unsound code can crash abruptly or produce unexpected results,
+because compilers are written with the assumption that undefined behavior does
+not exist.
 
-Unsound code can crash abruptly or produce unexpected results, because compilers
-are written with the assumption that undefined behavior does not exist. They
-will create optimizations that could be completely contrary to your
-expectations.
+Safe Rust does not permit undefined behavior.
 
-In this example, assume that we're creating some sort of proof assistant that
-makes deductions based on mathematical axioms. One of the axioms that we want to
-encode is that an integer's increment is always greater than the integer itself:
+It becomes impossible to reason about, .
 
-gcc v13.2, clang v16.0.0 and msvc v19.0 [all compile the C++ code to][asm] the
-following assembly when optimizations are enabled ( `-O2`):
-
-```asm
-axiom_increment_is_greater(int):
-        mov     eax, 1
-        ret
-```
-
-[asm]: https://godbolt.org/z/q4MMY8vxs
-
-That is, while it looks like they'll always return `true`, the code also
-produces undefined behavior. When `x` is 2^32-1 and is incremented, it enters an
-undefined state. The operation produces a number that is outside of the range of
-a 32-bit signed integer.
-
-Integer overflow for signed integers is _undefined_. In the conventional twos
-complement representation, increment often wraps to -(2^31)-1 `i32::MIN`.
-
-Rust takes a stricter approach. When integer oveflow is signaled by the CPU, a
-panic is induced. This allows Safe Rust to be free of undefined behaviour.
-
-</details>
-
----
-
-## Rust keeps undefined behavior out...
-
-...but, unsafe provides a way for it to get back in.
-
-<details>
+In fact, compilers are engineered to assume that undefined behavior never
+exists.
 
 We are going to work through an example of how undefined behavior can be
 introduced in an attempt to improve performance.
 
-</details>
-
 ---
 
-## Booleans
-
-A typical representation:
-
-- 1 => truth/positivity
-- 0 => falsehood/negativity
-
-<details>
-
-Just as integers can have their quirks, so do Boolean data types.
+## Part 1
 
 How are the Boolean values `true` and `false` represented by programming
 languages?
 
-Many languages, including Rust and C++, encode Boolean values as an integer,
+Many languages, including Rust and C, encode Boolean values as an integer,
 where:
 
 - 1 represents truth or positivity
 - 0 represents falsehood or negativity
 
-However, there is an impedance mismatch because even the smallest integer (a
-single byte) can represent many more numbers than the two that are required.
+### Exercise:
 
-> Aside: Not a universal definition
->
-> Programming language designers are free to have their own representations, or
-> not include a Boolean type in their language at all.
->
-> CPUs do not have a Boolean datatype, rather they have Boolean operations that
-> are performed against operands that are typically integers.
-
-</details>
-
----
-
-## Exercise
-
-Define a type that represents a `bool` and conversion two conversion functions
-to convert between a `u8` and your new type and back again.
-
-<details>
-
-</details>
-
----
-
-## Code review 1
-
-Critique this code and suggest improvements, if any:
-
-```rust,editable
-struct Boolean(u8);
-
-fn byte_to_boolean(b: u8) -> Boolean {
-    Boolean(b)
-}
-
-fn boolean_to_byte(boolean: Boolean) -> u8 {
-    boolean.0
-}
-
-fn boolean_to_bool(boolean: Boolean) -> bool {
-    match b.0 {
-        0 => false,
-        _ => true,
-    }
-}
-```
-
-<details>
-
-Which function should be `unsafe`? It could either be at the "constructor"
-(`byte_to_boolean`) or when the Boolean is converted to a Rust-native `bool`
-(`boolean_to_bool`).
-
-</details>
-
----
-
-## Code review 2
-
-```rust,editable
-struct Boolean(bool);
-
-fn byte_to_boolean(b: u8) -> Boolean {
-    match b.0 {
-        0 => Boolean(false),
-        _ => Boolean(true),
-    }
-}
-
-fn boolean_to_byte(boolean: Boolean) -> u8 {
-    boolean.0 as u8
-}
-
-fn boolean_to_bool(boolean: Boolean) -> bool {
-    boolean.0
-}
-```
-
-<details>
-
-In this version, we mask the error. All non-zero inputs are coerced to `true`.
-We store the internal field of the `Boolean` struct as a `bool` to make as much
-use of Rust's type system as possible.
-
-However, this `byte_to_boolean` is not zero-cost. There is still a `match`
-operation that's required.
-
-</details>
-
----
-
-## Code review 3
-
-```rust,editable
-#[repr(C)]
-union Boolean {
-    raw: u8,
-    rust: bool,
-}
-
-fn byte_to_boolean(b: u8) -> Boolean {
-    Boolean { raw: b }
-}
-
-fn boolean_to_byte(boolean: Boolean) -> u8 {
-    unsafe { boolean.rust }
-}
-
-fn boolean_to_bool(boolean: Boolean) -> bool {
-    unsafe { boolean.raw }
-}
-```
-
----
-
-## Code review 4
-
-```rust,editable
-struct Boolean(bool);
-
-fn byte_to_boolean(b: u8) -> Boolean {
-    let b: bool = unsafe { sys::mem::transmute(b) };
-
-    Boolean(b)
-}
-
-fn boolean_to_byte(boolean: Boolean) -> u8 {
-    boolean.0 as u8
-}
-
-fn boolean_to_bool(boolean: Boolean) -> bool {
-    boolean.0
-}
-```
-
----
-
-## 
+Define a type that represents a bool
 
 ---
 
@@ -290,6 +73,10 @@ possible input values. They can't all fit. In the case of casting from `u8` to
 `bool`, the number of bits isn't the issue. It's the standard that imposes the
 additional restrictions.
 
+is a mismatch when casting between a `u8` and a `bool`.
+
+That means, to covert from an integer to bool.
+
 Depending on one's perspective, this either presents an opportunity or a
 challenge.
 
@@ -301,8 +88,6 @@ its `bool` type:
 > to have any other bit pattern. [emphasis added]
 
 Many CPUs, don't strictly have a "Boolean type". They have Boolean operations.
-
-- For true, CPUs ask. Does this value match
 
 [ref-bool]: https://doc.rust-lang.org/reference/types/boolean.html
 
@@ -337,13 +122,7 @@ fn byte_to_boolean(b: u8) -> Boolean {
 }
 ```
 
----
-
-> Note: Content following this comment is from a previous revisions and is being
-> retained temporarily.
-
-> TODO(timclicks): Review the following content for anything useful that should
-> be retained.
+## 
 
 This example demonstrates how the search for high performance can . Software
 engineers can find themselves wanting to exploit characteristics of the
@@ -357,6 +136,8 @@ CPUs
 > Boolean operations.
 
 In Rust, the conventional way to think of them is something like this:
+
+They're encoded as
 
 Boolean values must match a precise representation to avoid undefined behavior:
 
@@ -384,7 +165,13 @@ You have two tasks in this exercise.
     ensuring that undefined behavior is impossible.
 - Secondly, review someone else's implementation.
 
+Starter code:
+
+Part 1 involves a `Boolean`, which is a type that can be
+
 <details>
+
+Admittedly, there isn't much starter code.
 
 ## Discussion
 
