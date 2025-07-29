@@ -43,8 +43,27 @@ Key Points:
   wish to concisely express more complex ideas than patterns alone would allow.
 - They are not the same as separate `if` expression inside of the match arm. An
   `if` expression inside of the branch block (after `=>`) happens after the
-  match arm is selected. Failing the `if` condition inside of that block will
-  result in other arms of the original `match` expression being considered.
+  match arm is selected. Failing the `if` condition inside of that block won't
+  result in other arms of the original `match` expression being considered. In
+  the following example, the wild card pattern is not matched after the `if`
+  condition for `input == 'y'` fails.
+```rust,editable
+#[rustfmt::skip]
+fn main() {
+    let input = 'x';
+    match input {
+        'q'                       => println!("Quitting"),
+        'a' | 's' | 'w' | 'd'     => println!("Moving around"),
+        '0'..='9'                 => println!("Number input"),
+        key if key.is_lowercase() => {
+            if input == 'y' {
+                println!("Lowercase: {key}")
+            }
+        },
+        _                         => println!("Something else"),
+    }
+}
+```
 - The condition defined in the guard applies to every expression in a pattern
   with an `|`.
 - Note that you can't use an existing variable as the condition in a match arm,
