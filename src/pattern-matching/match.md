@@ -47,6 +47,7 @@ Key Points:
   result in other arms of the original `match` expression being considered. In
   the following example, the wild card pattern is not matched after the `if`
   condition for `input == 'y'` fails.
+
 ```rust,editable
 #[rustfmt::skip]
 fn main() {
@@ -64,6 +65,7 @@ fn main() {
     }
 }
 ```
+
 - The condition defined in the guard applies to every expression in a pattern
   with an `|`.
 - Note that you can't use an existing variable as the condition in a match arm,
