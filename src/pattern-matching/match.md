@@ -45,8 +45,7 @@ Key Points:
   `if` expression is evaluated after the
   match arm is selected. Failing the `if` condition inside of that block won't
   result in other arms of the original `match` expression being considered. In
-  the following example, the wild card pattern is not matched after the `if`
-  condition for `input == 'y'` fails.
+  the following example, the wildcard pattern `_ =>` is never even attempted.
 
 ```rust,editable
 #[rustfmt::skip]
