@@ -41,8 +41,8 @@ Key Points:
 
 - Match guards as a separate syntax feature are important and necessary when we
   wish to concisely express more complex ideas than patterns alone would allow.
-- They are not the same as separate `if` expression inside of the match arm. An
-  `if` expression inside of the branch block (after `=>`) happens after the
+- Match guards are different from `if` expressions after the `=>`. An
+  `if` expression is evaluated after the
   match arm is selected. Failing the `if` condition inside of that block won't
   result in other arms of the original `match` expression being considered. In
   the following example, the wild card pattern is not matched after the `if`
