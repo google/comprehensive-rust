@@ -51,17 +51,11 @@ Key Points:
 ```rust,editable
 #[rustfmt::skip]
 fn main() {
-    let input = 'x';
+    let input = 'a';
     match input {
-        'q'                       => println!("Quitting"),
-        'a' | 's' | 'w' | 'd'     => println!("Moving around"),
-        '0'..='9'                 => println!("Number input"),
-        key if key.is_lowercase() => {
-            if input == 'y' {
-                println!("Lowercase: {key}")
-            }
-        },
-        _                         => println!("Something else"),
+        key if key.is_uppercase() => println!("Uppercase"),
+        key => if input == 'q' { println!("Quitting") },
+        _   => println!("Bug: this is never printed"),
     }
 }
 ```
