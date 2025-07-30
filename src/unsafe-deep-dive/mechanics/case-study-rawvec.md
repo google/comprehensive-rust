@@ -29,6 +29,17 @@ pub(crate) struct RawVec<T, A: Allocator = Global> {
     inner: RawVecInner<A>,
     _marker: PhantomData<T>,
 }
+
+struct RawVecInner<A: Allocator = Global> {
+    ptr: Unique<u8>,
+    /// Never used for ZSTs; it's `capacity()`'s responsibility to return usize::MAX in that case.
+    ///
+    /// # Safety
+    ///s
+    /// `cap` must be in the `0..=isize::MAX` range.
+    cap: Cap,
+    alloc: A,
+}
 ```
 
 The [implementation of `RawVec` is described in the Rustonomicon][rv].
@@ -39,9 +50,13 @@ The [implementation of `RawVec` is described in the Rustonomicon][rv].
 
 `Vec<T>` is normally described as being a struct with three fields: length,
 capacity, and pointer to an underlying buffer. Once you dig into the
-implementation details, you'll notice that
+implementation details, you'll notice that things are much more complicated.
 
-Because Rust won't allow self-referential types, RawVec in the type system is
-used to contain the capacity and pointer.
+`RawVec<T>` provides a barrier between Safe and Unsafe.
+
+`RawVec<T>`
+
+`RawVecInner<A>` contains the actual pointer and capacity of the underlying
+buffer.
 
 </details>
