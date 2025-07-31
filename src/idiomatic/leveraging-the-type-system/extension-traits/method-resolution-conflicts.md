@@ -65,10 +65,9 @@ assert_eq!(" dad ".trim_ascii(), "dad");
 ## More to explore
 
 - The interaction between the priority search used by Rust's method resolution
-  algorithm and automatic `Deref`ing can be used to emulate
-  [specialization][4] on the stable toolchain, primarily in the context of
-  macro-generated code. Check out ["Autoref Specialization"][5] for the specific
-  details.
+  algorithm and automatic `Deref`ing can be used to emulate [specialization][4]
+  on the stable toolchain, primarily in the context of macro-generated code.
+  Check out ["Autoref Specialization"][5] for the specific details.
 
 </details>
 

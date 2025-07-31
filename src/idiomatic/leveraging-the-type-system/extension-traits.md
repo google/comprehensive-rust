@@ -47,7 +47,7 @@ pattern** to work around this limitation.
   different methods on the same foreign type with the same name.
 
   As soon as there is room for ambiguity, there must be a way to disambiguate.
-  If disambiguation happens implicitly, it can lead to suprising or otherwise
+  If disambiguation happens implicitly, it can lead to surprising or otherwise
   unexpected behavior. If disambiguation happens explicitly, it can increase the
   cognitive load on developers who are reading your code.
 
