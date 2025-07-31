@@ -119,7 +119,9 @@ fn install_tools() -> Result<()> {
 fn run_web_tests(dir: Option<PathBuf>) -> Result<()> {
     println!("Running web tests...");
 
-    if let Some(d) = &dir {
+    let absolute_dir = dir.map(|d| d.canonicalize()).transpose()?;
+
+    if let Some(d) = &absolute_dir {
         println!("Refreshing slide lists...");
         let path_to_refresh_slides_script = Path::new("tests")
             .join("src")
@@ -145,7 +147,7 @@ fn run_web_tests(dir: Option<PathBuf>) -> Result<()> {
     command.current_dir(path_to_tests_dir.to_str().unwrap());
     command.arg("test");
 
-    if let Some(d) = dir {
+    if let Some(d) = absolute_dir {
         command.env("TEST_BOOK_DIR", d);
     }
     let status = command.status().expect("Failed to execute npm test");
