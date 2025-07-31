@@ -48,9 +48,16 @@ assert!(!"grandma".is_palindrome());
   that's emitted if you try to invoke an extension method without having the
   corresponding extension trait in scope.
 
-- The `as _` syntax reduces the likelihood of naming conflicts when multiple
-  traits are imported. It is conventionally used when importing extension
-  traits.
+- The example above uses an [_underscore import_][3] (`use ext::StrExt as _`) to
+  minimize the likelihood of a naming conflict with other imported traits.
+
+  With an underscore import, the trait is considered to be in scope and you're
+  allowed to invoke its methods on types that implement the trait. Its _symbol_,
+  instead, is not directly accessible. This prevents you, for example, from
+  using that trait in a `where` clause.
+
+  Since extension traits aren't meant to be used in `where` clauses, they are
+  conventionally imported via an underscore import.
 
 - Some students may be wondering: does the extension trait pattern provide
   enough value to justify the additional boilerplate? Wouldn't a free function
@@ -78,3 +85,4 @@ assert!(!"grandma".is_palindrome());
 
 [1]: https://rust-lang.github.io/rfcs/0445-extension-trait-conventions.html
 [2]: https://github.com/rust-lang/rfcs/blob/master/text/2451-re-rebalancing-coherence.md#what-is-coherence-and-why-do-we-care
+[3]: https://doc.rust-lang.org/stable/reference/items/use-declarations.html#r-items.use.as-underscore

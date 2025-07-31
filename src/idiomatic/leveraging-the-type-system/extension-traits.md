@@ -1,10 +1,14 @@
 ---
-minutes: 5
+minutes: 15
 ---
 
 # Extension Traits
 
-In Rust, you can't define new inherent methods for foreign types.
+It may desirable to **extend** foreign types with new inherent methods. For
+example, allow your code to check if a string is a palindrome using
+method-calling syntax: `s.is_palindrome()`.
+
+It might feel natural to reach out for an `impl` block:
 
 ```rust,compile_fail
 // 🛠️❌
@@ -15,9 +19,21 @@ impl &'_ str {
 }
 ```
 
-You can use the **extension trait pattern** to work around this limitation.
+The Rust compiler won't allow it, though. But you can use the **extension trait
+pattern** to work around this limitation.
 
 <details>
+
+- Start by explaining the terminology.
+
+  A Rust item (be it a trait or a type) is referred to as:
+
+  - **foreign**, if it isn't defined in the current crate
+  - **local**, if it is defined in the current crate
+
+  The distinction has significant implications for
+  [coherence and orphan rules][1], as we'll get a chance to explore in this
+  section of the course.
 
 - Compile the example to show the compiler error that's emitted.
 
@@ -26,12 +42,22 @@ You can use the **extension trait pattern** to work around this limitation.
 
 - Explain how many type-system restrictions in Rust aim to prevent _ambiguity_.
 
-  If you were allowed to define new inherent methods on foreign types, there
-  would need to be a mechanism to disambiguate between distinct inherent methods
-  with the same name.
+  What would happen if you were allowed to define new inherent methods on
+  foreign types? Different crates in your dependency tree might end up defining
+  different methods on the same foreign type with the same name.
 
-  In particular, adding a new inherent method to a library type could cause
-  errors in downstream code if the name of the new method conflicts with an
-  inherent method that's been defined in the consuming crate.
+  As soon as there is room for ambiguity, there must be a way to disambiguate.
+  If disambiguation happens implicitly, it can lead to suprising or otherwise
+  unexpected behavior. If disambiguation happens explicitly, it can increase the
+  cognitive load on developers who are reading your code.
+
+  Furthermore, every time a crate defines a new inherent method on a foreign
+  type, it may cause compilation errors in _your_ code, as you may be forced to
+  introduce explicit disambiguation.
+
+  Rust has decided to avoid the issue altogether by forbidding the definition of
+  new inherent methods on foreign types.
 
 </details>
+
+[1]: https://doc.rust-lang.org/stable/reference/items/implementations.html#r-items.impl.trait.orphan-rule

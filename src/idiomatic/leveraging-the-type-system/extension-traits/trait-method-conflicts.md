@@ -40,8 +40,10 @@ assert!("dad".is_palindrome());
 
 <details>
 
-- The extended trait may, in a newer version, add a new trait method with the
-  same name of our extension method.
+- The trait you are extending may, in a newer version, add a new trait method
+  with the same name of your extension method. Or another extension trait for
+  the same type may define a method with a name that conflicts with your own
+  extension method.
 
   Survey the class: what do the students think will happen in the example above?
   Will there be a compiler error? Will one of the two methods be given higher
