@@ -4,7 +4,8 @@ minutes: 15
 
 # Extending Other Traits
 
-Extension traits can attach new methods to _all_ implementors of a given trait:
+As with types, it may be desirable to **extend foreign traits**. In particular,
+to attach new methods to _all_ implementors of a given trait.
 
 ```rust
 mod ext {
@@ -40,6 +41,14 @@ assert_eq!(true.quoted(), "'true'");
   Blanket implementations allow us to implement a trait for a generic type `T`,
   as long as it satisfies the trait bounds specified in the `impl` block. In
   this case, the only requirement is that `T` implements the `Display` trait.
+
+- Draw the students attention to the implementation of `DisplayExt::quoted`: we
+  can't make any assumptions about the type of `T` other than that it implements
+  `Display`. All our logic must either use methods from `Display` or
+  functions/macros that doesn't require `T` to implement any other trait.
+
+  We could introduce additional trait bounds on `T`, but it would restrict the
+  set of types that can leverage the extension trait.
 
 - Conventionally, the extension trait is named after the trait it extends,
   following by the `Ext` suffix. In the example above, `DisplayExt`.
