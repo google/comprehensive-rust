@@ -1,5 +1,5 @@
 ---
-minutes: 15
+minutes: 10
 ---
 
 # Extending Foreign Types
@@ -58,28 +58,6 @@ assert!(!"grandma".is_palindrome());
 
   Since extension traits aren't meant to be used in `where` clauses, they are
   conventionally imported via an underscore import.
-
-- Some students may be wondering: does the extension trait pattern provide
-  enough value to justify the additional boilerplate? Wouldn't a free function
-  be enough?
-
-  Show how the same example could be implemented using an `is_palindrome` free
-  function, with a single `&str` input parameter:
-
-  ```rust
-  fn is_palindrome(s: &str) -> bool {
-      s.chars().eq(s.chars().rev())
-  }
-  ```
-
-  A bespoke extension trait might be an overkill if you want to add a single
-  method to a foreign type. Both a free function and an extension trait will
-  require an additional import, and the familiarity of the method calling syntax
-  may not be enough to justify the boilerplate of a trait definition.
-
-  Nonetheless, extension methods can be **easier to discover** than free
-  functions. In particular, language servers (e.g. `rust-analyzer`) will suggest
-  extension methods if you type `.` after an instance of the foreign type.
 
 </details>
 

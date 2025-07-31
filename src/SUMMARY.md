@@ -440,6 +440,7 @@
   - [Extension Traits](idiomatic/leveraging-the-type-system/extension-traits.md)
     - [Extending Foreign Types](idiomatic/leveraging-the-type-system/extension-traits/extending-foreign-types.md)
     - [Method Resolution Conflicts](idiomatic/leveraging-the-type-system/extension-traits/method-resolution-conflicts.md)
+    - [Should I Define An Extension Trait?](idiomatic/leveraging-the-type-system/extension-traits/should-i-define-an-extension-trait.md)
     - [Extending Other Traits](idiomatic/leveraging-the-type-system/extension-traits/extending-other-traits.md)
     - [Trait Method Conflicts](idiomatic/leveraging-the-type-system/extension-traits/trait-method-conflicts.md)
 
