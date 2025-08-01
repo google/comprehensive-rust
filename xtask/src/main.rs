@@ -47,7 +47,11 @@ enum Task {
     /// Installs the tools the project depends on.
     InstallTools,
     /// Runs the web driver tests in the tests directory.
-    WebTests,
+    WebTests {
+        /// Optional 'book html' directory - if set, will also refresh the list of slides used by slide size test.
+        #[arg(short, long)]
+        dir: Option<PathBuf>,
+    },
     /// Tests all included Rust snippets.
     RustTests,
     /// Starts a web server with the course.
@@ -76,7 +80,7 @@ fn execute_task() -> Result<()> {
     let cli = Cli::parse();
     match cli.task {
         Task::InstallTools => install_tools()?,
-        Task::WebTests => run_web_tests()?,
+        Task::WebTests { dir } => run_web_tests(dir)?,
         Task::RustTests => run_rust_tests()?,
         Task::Serve { language, output } => start_web_server(language, output)?,
         Task::Build { language, output } => build(language, output)?,
@@ -94,7 +98,7 @@ fn install_tools() -> Result<()> {
     let install_args = vec![
         // The --locked flag is important for reproducible builds. It also
         // avoids breakage due to skews between mdbook and mdbook-svgbob.
-        vec!["mdbook", "--locked", "--version", "0.4.48"],
+        vec!["mdbook", "--locked", "--version", "0.4.51"],
         vec!["mdbook-svgbob", "--locked", "--version", "0.2.2"],
         vec!["mdbook-pandoc", "--locked", "--version", "0.10.4"],
         vec!["mdbook-i18n-helpers", "--locked", "--version", "0.3.6"],
@@ -127,16 +131,41 @@ fn install_tools() -> Result<()> {
     Ok(())
 }
 
-fn run_web_tests() -> Result<()> {
+fn run_web_tests(dir: Option<PathBuf>) -> Result<()> {
     println!("Running web tests...");
 
-    let path_to_tests_dir = Path::new(env!("CARGO_WORKSPACE_DIR")).join("tests");
+    let absolute_dir = dir.map(|d| d.canonicalize()).transpose()?;
 
-    let status = Command::new("npm")
-        .current_dir(path_to_tests_dir.to_str().unwrap())
-        .arg("test")
-        .status()
-        .expect("Failed to execute npm test");
+    if let Some(d) = &absolute_dir {
+        println!("Refreshing slide lists...");
+        let path_to_refresh_slides_script = Path::new("tests")
+            .join("src")
+            .join("slides")
+            .join("create-slide.list.sh");
+        let status = Command::new(path_to_refresh_slides_script)
+            .current_dir(Path::new(env!("CARGO_WORKSPACE_DIR")))
+            .arg(d)
+            .status()
+            .expect("Failed to execute create-slide.list.sh");
+
+        if !status.success() {
+            let error_message = format!(
+                "Command 'cargo xtask web-tests' exited with status code: {}",
+                status.code().unwrap()
+            );
+            return Err(anyhow!(error_message));
+        }
+    }
+
+    let path_to_tests_dir = Path::new(env!("CARGO_WORKSPACE_DIR")).join("tests");
+    let mut command = Command::new("npm");
+    command.current_dir(path_to_tests_dir.to_str().unwrap());
+    command.arg("test");
+
+    if let Some(d) = absolute_dir {
+        command.env("TEST_BOOK_DIR", d);
+    }
+    let status = command.status().expect("Failed to execute npm test");
 
     if !status.success() {
         let error_message = format!(
