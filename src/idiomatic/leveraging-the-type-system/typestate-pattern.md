@@ -4,8 +4,7 @@ minutes: 15
 
 ## Typestate Pattern
 
-The typestate pattern uses Rust’s type system to make **invalid states
-unrepresentable**.
+Typestate is the practice of encoding a part of the state of the value in its type, preventing incorrect or inapplicable operations from being called on the value.
 
 ```rust
 # use std::fmt::Write;
@@ -52,9 +51,18 @@ fn main() {
 - The typestate pattern allows us to model state machines using Rust’s type
   system. In this case, the state machine is a simple serializer.
 
-- The key idea is that each state in the process, starting a struct, writing
-  fields, and finishing, is represented by a different type. Transitions between
+- The key idea is that at each state in the process, we can only
+  do the actions which are valid for that state. Transitions between
   states happen by consuming one value and producing another.
+
+```bob
++------------+  serialize struct   +-----------------+
+| Serializer +-------------------->| SerializeStruct |<-------+
++------------+                     +-+-----+---------+        |
+       ^                             |     |                  |
+       |     finish struct           |     | serialize field  |
+       +-----------------------------+     +------------------+
+```
 
 - In the example above:
 
