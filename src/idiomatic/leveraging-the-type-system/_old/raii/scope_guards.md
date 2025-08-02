@@ -146,21 +146,11 @@ fn main() {
   that's in the slide? I can slap together a sketch in the playground if
   it's not clear what I'm suggesting.
   ```
-
-  - The `ScopeGuard` type in the `scopeguard` crate also includes a `Debug`
-    implementation and a third parameter: a
+  - `scopeguard` also supports selecting a
     [`Strategy`](https://docs.rs/scopeguard/latest/scopeguard/trait.Strategy.html)
-    that determines when the `drop_fn` should run.
-
-    - By default, the strategy runs the drop function unconditionally. However,
-      the crate also provides built-in strategies to run the drop function only
-      during unwinding (due to a panic), or only on successful scope exit.
-
-      You can also implement your own `Strategy` trait to define custom
-      conditions for when the cleanup should occur.
-
-  TODO: again... more concise, e.g. reduce the above to:
-
+    to determine when the cleanup logic should run, i.e. always, only on
+    successful exit, or only on unwind. The crate also supports defining custom
+    strategies.
   ```
   - `scopeguard` also supports selecting a
     [`Strategy`](https://docs.rs/scopeguard/latest/scopeguard/trait.Strategy.html)
