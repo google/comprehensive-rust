@@ -22,14 +22,16 @@ impl Transaction {
         Self { active: true }
     }
 
-    fn commit(mut self) {
+    fn commit(mut self) -> io::Result<()> {
+        writeln!(io::stdout(), "COMMIT")?;
         self.active = false;
-        // Dropped after this point — no panic
+        Ok(())
     }
 
-    fn rollback(mut self) {
+    fn rollback(mut self) -> io::Result<()> {
+        writeln!(io::stdout(), "ROLLBACK")?;
         self.active = false;
-        // Dropped after this point — no panic
+        Ok(())
     }
 }
 
@@ -41,14 +43,23 @@ impl Drop for Transaction {
     }
 }
 
-fn main() {
-    // OK: commit defuses the bomb
-    let tx1 = Transaction::start();
-    tx1.commit();
+fn main() -> io::Result<()> {
+    let tx = Transaction::start();
+
+    if some_condition() {
+        tx.commit()?;
+    } else {
+        tx.rollback()?;
+    }
 
     // Uncomment to see the panic:
     // let tx2 = Transaction::start();
-    // dropped without commit or rollback → panic
+
+    Ok(())
+}
+
+fn some_condition() -> bool {
+    true // change to false to test rollback
 }
 ```
 
