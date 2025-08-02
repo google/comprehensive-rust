@@ -33,9 +33,9 @@ fn two_d10(modifier: u32) -> TwoD10 {
 enum TwoD10 {
     // Function has not begun yet.
     Init { modifier: u32 },
-    // Waitig for first `.await` to complete.
+    // Waiting for first `.await` to complete.
     FirstRoll { modifier: u32, fut: RollD10Future },
-    // Waitig for second `.await` to complete.
+    // Waiting for second `.await` to complete.
     SecondRoll { modifier: u32, first_roll: u32, fut: RollD10Future },
 }
 
