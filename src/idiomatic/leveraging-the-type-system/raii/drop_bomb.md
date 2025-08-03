@@ -7,6 +7,8 @@ This pattern is often used when the finalizing operation (like `commit()` or
 `rollback()`) needs to return a `Result`, which cannot be done from `Drop`.
 
 ```rust,editable
+use std::io::{self, Write};
+
 struct Transaction {
     active: bool,
 }
