@@ -59,7 +59,8 @@ fn main() -> io::Result<()> {
 }
 
 fn some_condition() -> bool {
-    true // change to false to test rollback
+    // [...]
+    true
 }
 ```
 
@@ -70,8 +71,7 @@ fn some_condition() -> bool {
   nor `rollback()` has been called.
 
 - A common reason to use this pattern is when cleanup cannot be done in `Drop`,
-  either because it is fallible or asynchronous. For example, most databases do
-  not allow rollback to be safely handled inside `drop()` alone.
+  either because it is fallible or asynchronous.
 
 - This pattern is appropriate even in public APIs. It can help users catch bugs
   early when they forget to explicitly finalize a transactional object.
@@ -115,7 +115,7 @@ fn some_condition() -> bool {
   programming mistakes during development and enforces correct teardown at
   runtime.
 
-  See a working example in the Rust playground:
-  <https://play.rust-lang.org/?version=stable&mode=debug&edition=2024&gist=3223f5fa5e821cd32461c3af7162cd55>
+  See a working example in
+  [the Rust playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2024&gist=3223f5fa5e821cd32461c3af7162cd55).
 
 </details>

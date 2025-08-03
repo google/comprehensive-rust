@@ -11,7 +11,8 @@ use std::{
 };
 
 fn download_successful() -> bool {
-    true // change to false to simulate failure
+    // [...]
+    true
 }
 
 fn main() {
@@ -56,22 +57,5 @@ fn main() {
   [`Strategy`](https://docs.rs/scopeguard/latest/scopeguard/trait.Strategy.html)
   trait. You can choose to run the guard on unwind only, or on success only, not
   just always.
-
-## Manual Implementation Example
-
-If you need a custom scope guard for a very specific task, you can implement one
-manually. Here's a standalone example that mirrors the file deletion scenario
-shown above: <TODO>
-
-## Related Patterns
-
-- Recall from the [Drop Bombs](./drop_bomb.md) chapter: drop bombs enforce that
-  a resource is finalized. Scope guards take that further — they let you define
-  automatic fallback behavior for cleanup when a resource is _not_ explicitly
-  finalized.
-
-- This pattern works well in combination with `Drop`, especially in fallible or
-  multi-step operations where cleanup needs to be predictable, regardless of
-  which step failed.
 
 </details>
