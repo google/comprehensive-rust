@@ -76,10 +76,11 @@ impl SerializeList {
                 +                                |
 serializer --> structure --> property --> list +-+
 
-    |             ^           |
-    V             |           |
-                  +-----------+
-  String
+    |           |   ^           |          ^
+    V           |   |           |          |
+                |   +-----------+          |
+  String        |                          |
+                +--------------------------+
 ```
 
 - From this diagram, we can observe:
