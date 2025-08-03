@@ -176,7 +176,7 @@ fn main() {
 <details>
 
 - The full code for this example is available
-  [in the playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=48b106089ca600453f3ed00a0a31af26)
+  [in the playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=48b106089ca600453f3ed00a0a31af26).
 
 - By using generics to track the parent context, we can construct arbitrarily
   nested serializers that enforce valid transitions between struct, list, and
@@ -234,7 +234,7 @@ finish   |                       |    +-------------------------------+  struct 
 - Of course, this pattern isn't a silver bullet. It still allows issues like:
   - Empty or invalid property names (which can be fixed using
     [the newtype pattern](../newtype-pattern.md))
-  - Duplicate property names (which could be tracked in `Struct<S>` or handled
+  - Duplicate property names (which could be tracked in `Struct<S>` and handled
     via `Result`)
 
 - If validation failures occur, we can also change method signatures to return a

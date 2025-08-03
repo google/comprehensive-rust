@@ -60,9 +60,6 @@ impl SerializeList {
 
 - However, this introduces both **duplication** and **structural complexity**.
 
-  `SerializeStructProperty` and `SerializeList` now share similar logic (e.g.
-  adding strings, nested structs, or nested lists).
-
 - Even more critically, we now hit a **type system limitation**: we cannot
   cleanly express what `finish()` should return without duplicating variants for
   every nesting context (e.g. root, struct, list).

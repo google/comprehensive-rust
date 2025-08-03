@@ -83,6 +83,7 @@ serialize struct start
   system.
 
   In the next slide, we will apply the **typestate pattern** to enforce correct
-  usage at compile time and make invalid states unrepresentable.
+  usage at compile time and make it impossible to call incompatible methods or
+  forget to do a required action.
 
 </details>

@@ -17,7 +17,7 @@ struct SerializeStruct {
 
 impl Serializer {
     fn serialize_struct(mut self, name: &str) -> SerializeStruct {
-        let _ = writeln!(&mut self.output, "{name} {{");
+        writeln!(&mut self.output, "{name} {{").unwrap();
         SerializeStruct { serializer: self }
     }
 
@@ -28,7 +28,7 @@ impl Serializer {
 
 impl SerializeStruct {
     fn serialize_field(mut self, key: &str, value: &str) -> Self {
-        let _ = writeln!(&mut self.serializer.output, "  {key}={value};");
+        writeln!(&mut self.serializer.output, "  {key}={value};").unwrap();
         self
     }
 
@@ -62,8 +62,9 @@ fn main() {
 
 ```bob
 +------------+  serialize struct   +-----------------+
-| Serializer +-------------------->| SerializeStruct |<-------+
-+--+---------+                     +-+-----+---------+        |
+| Serializer | ------------------> | SerializeStruct | <------+
++------------+                     +-----------------+        |
+                                                              |
    |   ^                             |     |                  |
    |   |     finish struct           |     | serialize field  |
    |   +-----------------------------+     +------------------+
@@ -81,7 +82,7 @@ fn main() {
     related to serializing struct fields.
 
   - The original `Serializer` is no longer accessible — preventing us from
-    mixing modes (like writing a tuple or primitive mid-struct) or calling
+    mixing modes (such as starting another _struct_ mid-struct) or calling
     `finish()` too early.
 
   - Only after calling `.finish_struct()` do we receive the `Serializer` back.
