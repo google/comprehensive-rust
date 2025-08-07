@@ -457,6 +457,7 @@
 - [Understanding Unsafety](unsafe-deep-dive/understanding-unsafety.md)
   - [Undefined behavior](unsafe-deep-dive/understanding-unsafety/undefined-behavior.md)
   - [Out of bounds](unsafe-deep-dive/understanding-unsafety/out-of-bounds.md)
+  - [Initialization](unsafe-deep-dive/understanding-unsafety/initialization.md)
 - [Mechanics](unsafe-deep-dive/mechanics.md)
   - [Example: Representing Booleans](unsafe-deep-dive/mechanics/representing-booleans.md)
     - [Extension: Representing Char](unsafe-deep-dive/mechanics/representing-char.md)
