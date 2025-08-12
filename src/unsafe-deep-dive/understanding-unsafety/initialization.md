@@ -4,6 +4,131 @@
 
 ---
 
+## Addressing data
+
+```rust
+static s: &str = "_";
+
+fn main() {
+    let l = 123;
+    let h = Box::new(123);
+
+    println!("{:p}", &l);
+    println!("{:p}", s);
+    println!("{:p}", &*h);
+}
+```
+
+<details>
+
+All data stored in a program lives at an _address_, a number which the operating
+system can use to retrieve or store data at that address.
+
+Local variables, such as `l`, are stored on the "stack". Memory addresses on the
+stack are quite high. (When executed, the program probably prints out a value
+near `0x7fffffffffff`)
+
+Static variables are lower
+
+Functions also stored in memory. In Rust, the keyword `fn` signifies a function
+pointer. Its address can also be printed.
+
+### Questions
+
+- Q: Why does addresses printed a not start at 1?\
+  A: The kernel reserves half of a process's address space for itself in the
+  lower half.
+
+### Variable mapping
+
+- `l` - L for _local_ - stored on the "stack"
+- `h` - H for _heap_
+- `f` - F for _function_
+- `s` - S for _static_
+
+</details>
+
+---
+
+## Memory lifecycle
+
+Unpaged
+
+Mapped but unallocated
+
+Allocated
+
+Allocated and "available" (uninitialized)
+
+Allocated and "active" (ininitialized)
+
+Call to free
+
+Deallocated but mapped
+
+Unpaged
+
+<details>
+
+Variables, the data that is used to represent them, have a surprisingly complex
+lifecycle.
+
+Operating systems, programming languages and hardware cooperate to programs with
+convenient access to data stored on physical devices, such as RAM chips.
+Programs are provided with a façade, an imaginary array of bytes addressed from
+1 to _n_, that allows them to store and retrieve data.
+
+This imaginary array of bytes is called the _virtual address space_ and this
+setup is called _virtual memory_.
+
+Each operating system process has its own virtual address space, meaning that
+the same address means different things in different processes. Another way of
+thinking about this is that process believes that it has exclusive access to the
+data available to the machine.
+
+The operating system kernel is responsible for mapping between these virtual
+memory addresses that your program understands to something that the hardware
+understands.
+
+To do this bookkeeping, the kernel stores information in its own data structures
+and relies on concept of a _memory page_. Pages are typically 4 KB in size
+(although this can be tuned).
+
+Virtual memory is complex and has many stages.
+
+The kernel understands physical memory addresses. User-space programs only have
+access to virtual memory.
+
+The details are complex and we don't want to turn this class into a
+graduate-&spy;level computer architecture course. However, understanding this
+system is useful, because it explains why programmers use uninitialized memory
+for performance-critical code.
+
+The mapping between memory addresses and the pages themselves is also stored
+within memory, in a data structure that is called TLB. TLB expands to
+"thread-local buffer", which is a name that has persisted for historical
+reasons.
+
+The CPU provides the operating system with privileged instructions for
+interacting with hardware, including main memory.
+
+Rust's ownership model adds its own characteristics to this overall model. The
+data is likely to still be present in the original location, after variables are
+moved, however this is inaccessible to the program.
+
+## References
+
+An extensive introduction background
+
+Drepper, Ulrich (2007) "What every programmer should know about memory"
+
+The Linux kernel provides extensive documentation about how virtual memory works
+on each platform https://www.kernel.org/doc/html/v5.8/x86/x86_64/mm.html
+
+</details>
+
+---
+
 > All runtime-allocated memory in a Rust program begins its life as
 > uninitialized.
 >
@@ -280,7 +405,7 @@ satisfy? If we don't know the expectations, where would we find them?
 
 ## Layout guarantees
 
-The following program runs sucessfully for `u64` values. Is that the case for
+The following program runs successfully for `u64` values. Is that the case for
 all possible types `T`?
 
 ```rust,editable
@@ -468,31 +593,3 @@ fn without_zeroing() -> Vec<u8> {
 <details>
 
 </details>
-
----
-
-## SCRATCH SPACE
-
-Key APIs:
-
-- `MaybeUninit::uninit()`: create an uninitialized value
-- `MaybeUninit::zeroed()`: create a zeroed, but possibly invalid, value
-- `MaybeUninit::write(val: T)`: write a new value in-place
-
-- `unsafe fn assume_init(self) -> T` — extract the initialized value
-- `as_ptr(self) -> &T` / `as_mut_ptr()`: raw pointers to the underlyin storage
-
-Safety contract: Calling assume_init on uninitialized data is UB.
-
-- `MaybeUninit<T>` is Rust's way to describe memory that is of a potentially
-  invalid state. You are expected to bring the contents of the memory to a valid
-  state, then call `assume_init()
-
-  `. that will eventually
-  hold a`T`, but isn't ready yet.
-- It acts as a **contract** with the compiler: "This space is for a `T`, but
-  it's empty/uninitialized for now."
-- The actual initialization (writing a `T` into that memory) and the final
-  declaration that it's ready (`assume_init()`) are usually `unsafe` operations.
-  This puts the burden of correctness on the programmer, ensuring that the
-  memory truly holds a valid `T` before Rust starts trusting it.
