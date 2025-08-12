@@ -141,7 +141,7 @@ fn uninstall_mdbook_linkcheck() {
         .arg("uninstall")
         .arg("mdbook-linkcheck")
         .output()
-        .expect("Failed to execute cargo uninstall mdbook-exerciser");
+        .expect("Failed to execute cargo uninstall mdbook-linkcheck");
 
     if !output.status.success() {
         if String::from_utf8_lossy(&output.stderr)
