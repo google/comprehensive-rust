@@ -22,6 +22,7 @@
 use anyhow::{Ok, Result, anyhow};
 use clap::{Parser, Subcommand};
 use std::path::{Path, PathBuf};
+use std::process::Stdio;
 use std::{env, process::Command};
 
 fn main() -> Result<()> {
@@ -128,7 +129,33 @@ fn install_tools() -> Result<()> {
         }
     }
 
+    // Uninstall original linkcheck if currently installed (see issue no 2773)
+    uninstall_mdbook_linkcheck();
+
     Ok(())
+}
+
+fn uninstall_mdbook_linkcheck() {
+    println!("Uninstalling old mdbook-linkcheck if installed...");
+    let output = Command::new(env!("CARGO"))
+        .arg("uninstall")
+        .arg("mdbook-linkcheck")
+        .output()
+        .expect("Failed to execute cargo uninstall mdbook-exerciser");
+
+    if !output.status.success() {
+        if String::from_utf8_lossy(&output.stderr)
+            .into_owned()
+            .contains("did not match any packages")
+        {
+            println!("mdbook-linkcheck not installed. Continuing...");
+        } else {
+            eprintln!(
+                "An error occurred during uninstallation of mdbook-linkcheck:\n{:#?}",
+                String::from_utf8_lossy(&output.stderr)
+            );
+        }
+    }
 }
 
 fn run_web_tests(dir: Option<PathBuf>) -> Result<()> {
