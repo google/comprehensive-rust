@@ -59,8 +59,8 @@ parsing all take energy and time.
   According to the C standard, an integer that's at least 32 bits wide. On
   today's systems, It's an `i32` on Windows and an `i64` on Linux.
 
-[`std::ffi::c_long`]: https://doc.rust-lang.org/std/ffi/type.c_long.html
 [safe]: https://doc.rust-lang.org/stable/edition-guide/rust-2024/unsafe-extern.html
+[`std::ffi::c_long`]: https://doc.rust-lang.org/std/ffi/type.c_long.html
 
 ## Consideration: type safety
 
