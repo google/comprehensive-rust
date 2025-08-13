@@ -4,6 +4,122 @@
 
 ---
 
+## Memory lifecycle
+
+- Unpaged
+- Mapped but unallocated
+- Allocated
+- Allocated and "available" (uninitialized)
+- Allocated and "active" (initialized)
+- Deallocated but mapped
+- Unpaged
+
+<details>
+
+Variables, the data that is used to represent them, have a surprisingly complex
+lifecycle.
+
+The details are complex and we don't want to turn this class into a
+graduate-&spy;level computer architecture course. However, understanding this
+system is useful, because it explains why programmers use uninitialized memory
+for performance-critical code.
+
+Operating systems, programming languages and hardware cooperate to programs with
+convenient access to data stored on physical devices, such as RAM chips.
+Programs are provided with a façade, an imaginary array of bytes addressed from
+1 to _n_, that allows them to store and retrieve data.
+
+This imaginary array of bytes is called the _virtual address space_ and this
+setup is called _virtual memory_.
+
+Each operating system process has its own virtual address space, meaning that
+the same address means different things in different processes. Another way of
+thinking about this is that process believes that it has exclusive access to the
+data available to the machine.
+
+The operating system kernel is responsible for mapping between these virtual
+memory addresses that your program understands to something that the hardware
+understands.
+
+To do this bookkeeping, the kernel stores information in its own data structures
+and relies on concept of a _memory page_. Pages allow components within the
+computer to work together, including the OS kernel, the OS process, the
+program's threads, the CPU, and storage hardware. Pages allow sections of the
+phyiscal memory to be reserved for specific purposes and for security
+restrictions to be enforced. also allow groups of memory addresses to be given
+attributes, such as write or execution.
+
+to improve their coordination, by referring to reduce the number of lookups when
+memory addresses are nearby.
+
+You may be familiar with the term _segmentation fault_, often shortened to _seg
+fault_. This term arises because each page is a _segment_ of the very large
+virtual address space. Only a small fraction of the address space is given a
+page.
+
+Virtual memory is complex and has many stages. We'll skip over most of them to
+allow us to build a general mental model of what's happening at runtime during a
+variable's lifecycle:
+
+- Memory starts as _unmapped_ and available to OS processes that require it. The
+  operating system knows that there is available space on the hardware, but the
+  process's virtual address space does not yet include a mapping to it.
+
+As space to store data is needed, memory transitions from the unmapped state:
+
+- Memory is then _mapped_ by the OS. The operation system maps a portion of the
+  available space on the hardware to the process's virtual address space.
+- The program's allocator then _allocates_ memory.
+- This allocated memory then becomes available to the program, but is in an
+  _uninitialized_ state.
+- When the variables are created within that memory and are guaranteed to be
+  _valid_, the memory is said to be _initialized_.
+
+As space for data decreases, memory reverts to the unmapped state:
+
+- After some time, the variable's lifetime ends. It has been moved or dropped.
+  The memory for the variable in the original position may not have been
+  modified though, however it is now invalid to access. Accessing those bytes at
+  this point is _undefined behavior_ .
+- At some point, the unused memory is _deallocated_. This memory addresses
+  remain mapped.
+- Later on, when the memory page is no longer being used, the operating system
+  may remove the page from the mapping table, allowing other processes to make
+  use of the hardware.
+
+Accessing uninitialized data is undefined behavior and a very serious safety
+hazard.
+
+### Other notes
+
+When virtual machines and hypervisors are involved, additional layers of mapping
+are involved.
+
+Unless your operating system or allocator provides specific guarantees, memory
+provided to a program is not necessarily in a clean state.
+
+Allocators: The allocator is part of the program itself. The operating system is
+agnostic to how
+
+The kernel understands physical memory addresses. User-space programs only have
+access to virtual memory.
+
+The mapping between memory addresses and the pages themselves is also stored
+within memory, in a data structure that is called TLB. TLB expands to
+"thread-local buffer", which is a name that has persisted for historical
+reasons.
+
+The CPU provides the operating system with privileged instructions for
+interacting with hardware, including main memory.
+
+Rust's ownership model adds its own characteristics to this overall model. The
+data is likely to still be present in the original location, after variables are
+moved, however this is inaccessible to the program.
+
+</details>
+
+---
+
 ## Addressing data
 
 ```rust
@@ -50,89 +166,9 @@ pointer. Its address can also be printed.
 
 ---
 
-## Memory lifecycle
+## Memory lifecycle - stack
 
-Unpaged
-
-Mapped but unallocated
-
-Allocated
-
-Allocated and "available" (uninitialized)
-
-Allocated and "active" (ininitialized)
-
-Call to free
-
-Deallocated but mapped
-
-Unpaged
-
-<details>
-
-Variables, the data that is used to represent them, have a surprisingly complex
-lifecycle.
-
-Operating systems, programming languages and hardware cooperate to programs with
-convenient access to data stored on physical devices, such as RAM chips.
-Programs are provided with a façade, an imaginary array of bytes addressed from
-1 to _n_, that allows them to store and retrieve data.
-
-This imaginary array of bytes is called the _virtual address space_ and this
-setup is called _virtual memory_.
-
-Each operating system process has its own virtual address space, meaning that
-the same address means different things in different processes. Another way of
-thinking about this is that process believes that it has exclusive access to the
-data available to the machine.
-
-The operating system kernel is responsible for mapping between these virtual
-memory addresses that your program understands to something that the hardware
-understands.
-
-To do this bookkeeping, the kernel stores information in its own data structures
-and relies on concept of a _memory page_. Pages allow the CPU, kernel and
-storage hardware to improve their coordination, by referring to reduce the
-number of lookups when memory addresses are nearby. Pages also allow groups of
-memory addresses to be given attributes, such as write or execution.
-
-You may be familiar with the term _segmentation fault_, often shortened to _seg
-fault_. This term arises because each page is a _segment_ of the very large
-virtual address space. Only a small fraction of the address space is given a
-page.
-
-Virtual memory is complex and has many stages.
-
-The kernel understands physical memory addresses. User-space programs only have
-access to virtual memory.
-
-The details are complex and we don't want to turn this class into a
-graduate-&spy;level computer architecture course. However, understanding this
-system is useful, because it explains why programmers use uninitialized memory
-for performance-critical code.
-
-The mapping between memory addresses and the pages themselves is also stored
-within memory, in a data structure that is called TLB. TLB expands to
-"thread-local buffer", which is a name that has persisted for historical
-reasons.
-
-The CPU provides the operating system with privileged instructions for
-interacting with hardware, including main memory.
-
-Rust's ownership model adds its own characteristics to this overall model. The
-data is likely to still be present in the original location, after variables are
-moved, however this is inaccessible to the program.
-
-## References
-
-An extensive introduction background
-
-Drepper, Ulrich (2007) "What every programmer should know about memory"
-
-The Linux kernel provides extensive documentation about how virtual memory works
-on each platform https://www.kernel.org/doc/html/v5.8/x86/x86_64/mm.html
-
-</details>
+- Allocation:
 
 ---
 
