@@ -91,8 +91,15 @@ memory addresses that your program understands to something that the hardware
 understands.
 
 To do this bookkeeping, the kernel stores information in its own data structures
-and relies on concept of a _memory page_. Pages are typically 4 KB in size
-(although this can be tuned).
+and relies on concept of a _memory page_. Pages allow the CPU, kernel and
+storage hardware to improve their coordination, by referring to reduce the
+number of lookups when memory addresses are nearby. Pages also allow groups of
+memory addresses to be given attributes, such as write or execution.
+
+You may be familiar with the term _segmentation fault_, often shortened to _seg
+fault_. This term arises because each page is a _segment_ of the very large
+virtual address space. Only a small fraction of the address space is given a
+page.
 
 Virtual memory is complex and has many stages.
 
