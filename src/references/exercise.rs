@@ -14,7 +14,7 @@
 
 // ANCHOR: solution
 /// Calculate the magnitude of the given vector.
-fn magnitude(vector: &[f64; 3]) -> f64 {
+fn magnitude(vector: &[f64]) -> f64 {
     let mut mag_squared = 0.0;
     for coord in vector {
         mag_squared += coord * coord;
@@ -23,7 +23,7 @@ fn magnitude(vector: &[f64; 3]) -> f64 {
 }
 
 /// Change the magnitude of the vector to 1.0 without changing its direction.
-fn normalize(vector: &mut [f64; 3]) {
+fn normalize(vector: &mut [f64]) {
     let mag = magnitude(vector);
     for item in vector {
         *item /= mag;
@@ -38,5 +38,11 @@ fn main() {
     println!("Magnitude of {v:?}: {}", magnitude(&v));
     normalize(&mut v);
     println!("Magnitude of {v:?} after normalization: {}", magnitude(&v));
+
+    // Normalize a 4d-vector
+    let mut v4 = [1.0, 2.0, 3.0, 4.0];
+    println!("4d-vector: {v4:?}");
+    normalize(&mut v4);
+    println!("Normalized 4d-vector: {v4:?}");
 }
 // ANCHOR_END: main
