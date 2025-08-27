@@ -437,6 +437,11 @@
     - [Semantic Confusion](idiomatic/leveraging-the-type-system/newtype-pattern/semantic-confusion.md)
     - [Parse, Don't Validate](idiomatic/leveraging-the-type-system/newtype-pattern/parse-don-t-validate.md)
     - [Is It Encapsulated?](idiomatic/leveraging-the-type-system/newtype-pattern/is-it-encapsulated.md)
+  - [Borrow checking invariants](idiomatic/leveraging-the-type-system/borrow-checker-invariants.md)
+    - [Generalising "Ownership"](idiomatic/leveraging-the-type-system/borrow-checker-invariants/generalizing-ownership.md)
+    - [Single-use values](idiomatic/leveraging-the-type-system/borrow-checker-invariants/single-use-values.md)
+    - [Aliasing XOR Mutability](idiomatic/leveraging-the-type-system/borrow-checker-invariants/aliasing-xor-mutability.md)
+    - [External Resources](idiomatic/leveraging-the-type-system/borrow-checker-invariants/external-resources.md)
 
 ---
 
