@@ -40,7 +40,7 @@ Articles and blog posts from around the web which cover Comprehensive Rust:
   _[Scaling Rust Adoption Through Training](https://security.googleblog.com/2023/09/scaling-rust-adoption-through-training.html)_.
   We published a blog post with details on the development of the course.
 - 2023-10-02:
-  _[In Search of Rust Developers, Companies Turn to In-House Training](https://www.darkreading.com/application-security/google-microsoft-take-refuge-in-rust-languages-better-security)_.
+  _[In Search of Rust Developers, Companies Turn to In-House Training](https://www.darkreading.com/application-security/seeking-rust-developers-in-house-training)_.
   About how Microsoft, Google, and others are training people in Rust.
 - 2024-10-18:
   _[Rust Training at Scale | Rust Global @ RustConf 2024](https://youtu.be/7h5KyMqt2-Q?si=4M99HdWWxMaqN8Zr)_.
