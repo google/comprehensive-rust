@@ -35,19 +35,6 @@ impl<T> Mutex<T> {
     }
 }
 
-impl<'a, T> std::ops::Deref for MutexGuard<'a, T> {
-    type Target = T;
-    fn deref(&self) -> &T {
-        self.value
-    }
-}
-
-impl<'a, T> std::ops::DerefMut for MutexGuard<'a, T> {
-    fn deref_mut(&mut self) -> &mut T {
-        self.value
-    }
-}
-
 impl<'a, T> Drop for MutexGuard<'a, T> {
     fn drop(&mut self) {
         // [...]
@@ -59,8 +46,8 @@ fn main() {
     let m = Mutex::new(vec![1, 2, 3]);
 
     let mut guard = m.lock();
-    guard.push(4);
-    guard.push(5);
+    guard.value.push(4);
+    guard.value.push(5);
     println!("{guard:?}");
 }
 ```
@@ -95,37 +82,5 @@ fn main() {
 
 - On the next `lock()`, this shows up as an error. The caller must decide
   whether to proceed or handle the error differently.
-
-- See this example showing the standard library API with poisoning:
-  <https://play.rust-lang.org/?version=stable&mode=debug&edition=2024&gist=6fb0c2e9e5cbcbbae1c664f4650b8c92>
-
-### Mutex Lock Lifecycle
-
-```bob
-+---------------+         +----------------------+
-|  Mutex<T>     |  lock   |   MutexGuard<T>      |
-|  Unlocked     | ------> |   Exclusive Access   |
-+---------------+         +----------------------+
-
-            ^                     | drop
-            |       no            |
-            +---------------+     |
-                            |     |
-                            |     V
-
-+---------------+  yes  +-------------------+
-|  Mutex<T>     | <---- | Thread panicking? |
-|  Poisoned     |       +-------------------+
-+---------------+
-
-      |
-      | lock
-      |
-      v
-
-+------------------+
-| Err ( Poisoned ) |
-+------------------+
-```
 
 </details>

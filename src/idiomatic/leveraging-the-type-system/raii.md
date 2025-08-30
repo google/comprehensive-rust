@@ -88,8 +88,7 @@ fn main() -> Result<(), std::io::Error> {
   scope.
 
 - Insert `panic!("oops")` at the start of `read_to_end()` to show that `drop()`
-  still runs during unwinding. Rust guarantees this unless the panic strategy is
-  set to `abort`.
+  still runs during unwinding.
 
 - There are cases where destructors will not run:
   - If a destructor itself panics during unwinding, the program aborts
