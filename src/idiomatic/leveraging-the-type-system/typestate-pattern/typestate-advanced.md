@@ -53,18 +53,7 @@ impl SerializeList {
 }
 ```
 
-<details>
-
-- Building on our previous serializer, we now want to support **nested
-  structures** and **lists**.
-
-- However, this introduces both **duplication** and **structural complexity**.
-
-- Even more critically, we now hit a **type system limitation**: we cannot
-  cleanly express what `finish()` should return without duplicating variants for
-  every nesting context (e.g. root, struct, list).
-
-- To better understand this limitation, let’s map the valid transitions:
+Diagram of valid transitions:
 
 ```bob
     +-----------+   +---------+------------+-----+
@@ -80,7 +69,18 @@ serializer --> structure --> property --> list +-+
                 +--------------------------+
 ```
 
-- From this diagram, we can observe:
+<details>
+
+- Building on our previous serializer, we now want to support **nested
+  structures** and **lists**.
+
+- However, this introduces both **duplication** and **structural complexity**.
+
+- Even more critically, we now hit a **type system limitation**: we cannot
+  cleanly express what `finish()` should return without duplicating variants for
+  every nesting context (e.g. root, struct, list).
+
+- From the diagram of valid transitions, we can observe:
   - The transitions are recursive
   - The return types depend on _where_ a substructure or list appears
   - Each context requires a return path to its parent
