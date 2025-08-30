@@ -49,16 +49,7 @@ fn main() {
 }
 ```
 
-<details>
-
-- This example is inspired by Serde’s
-  [`Serializer` trait](https://docs.rs/serde/latest/serde/ser/trait.Serializer.html).
-  Serde uses typestates internally to ensure serialization follows a valid
-  structure. For more, see: <https://serde.rs/impl-serializer.html>
-
-- The key idea behind typestate is that state transitions happen by consuming a
-  value and producing a new one. At each step, only operations valid for that
-  state are available.
+`Serializer` usage flowchart:
 
 ```bob
 +------------+  serialize struct   +-----------------+
@@ -71,6 +62,17 @@ fn main() {
    |
    +---> finish
 ```
+
+<details>
+
+- This example is inspired by Serde’s
+  [`Serializer` trait](https://docs.rs/serde/latest/serde/ser/trait.Serializer.html).
+  Serde uses typestates internally to ensure serialization follows a valid
+  structure. For more, see: <https://serde.rs/impl-serializer.html>
+
+- The key idea behind typestate is that state transitions happen by consuming a
+  value and producing a new one. At each step, only operations valid for that
+  state are available.
 
 - In this example:
 

@@ -46,13 +46,6 @@ impl Serializer<Root> {
     }
 }
 
-impl<S> Serializer<S> {
-    fn buffer_size(&self) -> usize {
-        // [...]
-        # self.buffer.len()
-    }
-}
-
 impl<S> Serializer<Struct<S>> {
     fn serialize_property(mut self, name: &str) -> Serializer<Property<Struct<S>>> {
         // [...]
@@ -157,10 +150,8 @@ fn main() {
             .finish_struct()
         .finish_struct();
 
-    # let buffer_size = serializer.buffer_size();
     let output = serializer.finish();
 
-    # println!("buffer size = {buffer_size}\n---");
     println!("{output}");
 
     // These will all fail at compile time:
@@ -184,6 +175,13 @@ fn main() {
 
 - This lets us build a recursive structure while preserving control over what
   methods are accessible in each state.
+
+- Methods common to all states can be implemented for any `S` in
+  `Serializer<S>`.
+
+- These marker types (e.g., `List<S>`) incur no memory or runtime overhead, as
+  they hold no data other than a possible Zero-Sized Type. Their sole purpose is
+  to enforce correct API usage by leveraging the type system.
 
 - Here's how the flow maps to a state machine:
 

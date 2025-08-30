@@ -47,21 +47,7 @@ fn main() {
 
 <details>
 
-- This `Serializer` is meant to write a structured value. The expected usage
-  follows this sequence:
-
-```bob
-serialize struct start
--+---------------------
- |
- +--> serialize struct field
-      -+---------------------
-       |
-       +--> serialize struct field
-            -+---------------------
-             |
-             +--> serialize struct end
-```
+- This `Serializer` is meant to write a structured value.
 
 - However, in this example we forgot to call `serialize_struct_end()` before
   `finish()`. As a result, the serialized output is incomplete or syntactically
