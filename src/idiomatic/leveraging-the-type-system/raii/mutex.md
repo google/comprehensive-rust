@@ -1,4 +1,4 @@
-# Mutex
+# Mutex and MutexGuard
 
 In earlier examples, RAII was used to manage concrete resources like file
 descriptors. With a `Mutex`, the resource is more abstract: exclusive access to
@@ -8,46 +8,14 @@ Rust models this using a `MutexGuard`, which ties access to a critical section
 to the lifetime of a value on the stack.
 
 ```rust
-#[derive(Debug)]
-struct Mutex<T> {
-    value: std::cell::UnsafeCell<T>,
-    // [...]
-}
-
-#[derive(Debug)]
-struct MutexGuard<'a, T> {
-    value: &'a mut T,
-    // [...]
-}
-
-impl<T> Mutex<T> {
-    fn new(value: T) -> Self {
-        Self {
-            value: std::cell::UnsafeCell::new(value),
-            // [...]
-        }
-    }
-
-    fn lock(&self) -> MutexGuard<T> {
-        // [...]
-        let value = unsafe { &mut *self.value.get() };
-        MutexGuard { value }
-    }
-}
-
-impl<'a, T> Drop for MutexGuard<'a, T> {
-    fn drop(&mut self) {
-        // [...]
-        println!("drop MutexGuard");
-    }
-}
+use std::sync::Mutex;
 
 fn main() {
     let m = Mutex::new(vec![1, 2, 3]);
 
-    let mut guard = m.lock();
-    guard.value.push(4);
-    guard.value.push(5);
+    let mut guard = m.lock().unwrap();
+    guard.push(4);
+    guard.push(5);
     println!("{guard:?}");
 }
 ```

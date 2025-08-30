@@ -439,6 +439,7 @@
     - [Is It Encapsulated?](idiomatic/leveraging-the-type-system/newtype-pattern/is-it-encapsulated.md)
   - [RAII](idiomatic/leveraging-the-type-system/raii.md)
     - [Mutex](idiomatic/leveraging-the-type-system/raii/mutex.md)
+    - [Drop Guards](idiomatic/leveraging-the-type-system/raii/drop_guards.md)
     - [Drop Bomb](idiomatic/leveraging-the-type-system/raii/drop_bomb.md)
     - [Scope Guard](idiomatic/leveraging-the-type-system/raii/scope_guard.md)
 
