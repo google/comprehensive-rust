@@ -32,9 +32,13 @@ do_something_with_transaction(transaction); // 🛠️❌
 
 <details>
 
+- This slide loosely models a database connection, though the database tools you use may not look exactly like this.
+
 - Aliasing XOR Mutability is a constraint that lets us model a bunch of non-cpu-bound-race-condition related circumstances.
 
 - This is an instance of the "Aliasing XOR Mutability" being used to articulate "You can do X or you can do Y, but not both" in the API.
+
+- Not every mode of "mutual exclusion" can be modelled this way.
 
 - TODO: Namedropping other things to work with this.
 

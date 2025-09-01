@@ -44,6 +44,6 @@ encrypt(nonce, &key, &data_2); // 🛠️❌
 
 - By tying nonce creation and consumption up in rust's ownership model, and by not implementing clone/copy on sensitive single-use data, we can prevent this kind of dangerous misuse.
 
-- TODO: put a reference to how this is used in the Real World in rust cryptography. Find sources on nonce misuse.
+- Cryptography Nuance: There is still the case where a nonce may be used twice if it's created through purely a pseudo-random process with no additional metadata, and that circumstance can't be avoided through this particular method. This kind of API prevents one kind of misuse, but not all kinds.
 
 </details>
