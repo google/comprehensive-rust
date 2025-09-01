@@ -1,5 +1,5 @@
 ---
-minutes: 0
+minutes: 10
 ---
 
 # Aliasing XOR Mutability
@@ -15,7 +15,7 @@ pub struct DatabaseConnection {
 }
 
 impl DatabaseConnection {
-    pub fn new() -> Self { Self { transaction: TransactionInterface() } }
+    pub fn new() -> Self { Self { transaction: TransactionInterface(/* again, pretend there's some interior state */) } }
     pub fn get_transaction(&self) -> &TransactionInterface { &self.transaction }
     pub fn commit(&mut self) {}
 }
@@ -32,14 +32,17 @@ do_something_with_transaction(transaction); // 🛠️❌
 
 <details>
 
-- This slide loosely models a database connection, though the database tools you use may not look exactly like this.
+- This example shows how we can use the "Aliasing XOR Mutability" rule when it comes to shared and mutable references to model safe access to transactions for a database. This is a loose sketch of such a model, and rust database frameworks you use may not look anything like this in practice.
 
-- Aliasing XOR Mutability is a constraint that lets us model a bunch of non-cpu-bound-race-condition related circumstances.
+- As laid out in [generalizing ownership]("./generalizing-ownership.md") we can look at the ways Mutable References and Shareable References interact to see if they fit with the invariants we want to uphold for an API.
 
-- This is an instance of the "Aliasing XOR Mutability" being used to articulate "You can do X or you can do Y, but not both" in the API.
+- Here we want to be able to write to a transaction, which has some internal breaking of rust rules we don't concern ourselves with, before then committing that transaction.
 
-- Not every mode of "mutual exclusion" can be modelled this way.
+- By having the "commit transaction" method take a mutable reference, regardless of if mutation is happening, the borrow checker prevents references to the internal transaction surface persisting between calls to that method.
 
-- TODO: Namedropping other things to work with this.
+- The transaction itself can be modelled with a shareable reference, not necessarily because the interior state stays the same while we use it but because this prevents using the "commit transaction" functionality until the transaction is "over."
+
+<!-- Entirely reasonable to reframe the example off this contradiction, but I think it has pedagogical value regardless. -->
+- Tangential: We could instead have the `get_transaction` method return a mutable reference off a mutable reference to self (`fn get_transaction(&mut self) -> &mut TransactionInterface`) but we're trying to show off the ways shareable and mutable references exclude each other here.
 
 </details>

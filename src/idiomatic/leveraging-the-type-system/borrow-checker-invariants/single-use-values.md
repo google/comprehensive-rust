@@ -1,5 +1,5 @@
 ---
-minutes: 0
+minutes: 10
 ---
 
 # Single-use values
@@ -36,7 +36,7 @@ encrypt(nonce, &key, &data_2); // 🛠️❌
 
 - Owned "consumption" lets us model single-once values.
 
-- Not implementing clone/copy here & making the interior type opaque (as per the newtype pattern) is _intentional_, as it prevents multiple uses of the same, API-controlled value.
+- Not implementing clone/copy here and making the interior type opaque (as per the newtype pattern) is _intentional_, as it prevents multiple uses of the same, API-controlled value.
 
 - I.e. A Nonce is a additional piece of random, unique data during an encryption process that helps prevent "replay attacks".
 
