@@ -1,5 +1,5 @@
 ---
-minutes: 20
+minutes: 0
 ---
 
 # Lifetime "Connections" & External Resources

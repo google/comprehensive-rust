@@ -1,5 +1,5 @@
 ---
-minutes: 5
+minutes: 0
 ---
 
 The logic of the borrow checker, while modelled off "memory ownership", can be abstracted away from that use case to model other problems where we want to prevent API misuse.

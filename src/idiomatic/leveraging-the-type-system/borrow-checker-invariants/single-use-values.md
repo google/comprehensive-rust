@@ -1,5 +1,5 @@
 ---
-minutes: 10
+minutes: 0
 ---
 
 # Single-use values
