@@ -18,6 +18,8 @@ The Rust project hosts many resources. These cover Rust in general:
   the standard library for Rust.
 - [The Rust Reference](https://doc.rust-lang.org/reference/): an incomplete book
   which describes the Rust grammar and memory model.
+- [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/):
+  recommendations on how to design APIs.
 
 More specialized guides hosted on the official Rust site:
 

@@ -40,7 +40,7 @@ Articles and blog posts from around the web which cover Comprehensive Rust:
   _[Scaling Rust Adoption Through Training](https://security.googleblog.com/2023/09/scaling-rust-adoption-through-training.html)_.
   We published a blog post with details on the development of the course.
 - 2023-10-02:
-  _[In Search of Rust Developers, Companies Turn to In-House Training](https://www.darkreading.com/application-security/google-microsoft-take-refuge-in-rust-languages-better-security)_.
+  _[In Search of Rust Developers, Companies Turn to In-House Training](https://www.darkreading.com/application-security/seeking-rust-developers-in-house-training)_.
   About how Microsoft, Google, and others are training people in Rust.
 - 2024-10-18:
   _[Rust Training at Scale | Rust Global @ RustConf 2024](https://youtu.be/7h5KyMqt2-Q?si=4M99HdWWxMaqN8Zr)_.
@@ -71,34 +71,25 @@ Then install these tools with:
 cargo xtask install-tools
 ```
 
+> **Note** We use `xtask` for task automation within the project (e.g.
+> installing required tools). Xtask is not a package that you should install.
+> Visit https://github.com/matklad/cargo-xtask for more information.
+
 ## Commands
 
-Here is a summary of the various commands you can run in the project.
+Here are some of the commonly used commands you can run in the project. Run
+`cargo xtask` to view all available commands.
 
-| Command               | Description                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `cargo install-tools` | Install all the tools the project depends on.                                                                                                                                                                                                                                                                                                                                                                 |
-| `cargo serve`         | Start a web server with the course. You'll find the content on http://localhost:3000.                                                                                                                                                                                                                                                                                                                         |
-| `cargo rust-tests`    | Test the included Rust snippets.                                                                                                                                                                                                                                                                                                                                                                              |
-| `cargo web-tests`     | Run the web driver tests in the tests directory.                                                                                                                                                                                                                                                                                                                                                              |
-| `cargo build-book`    | Create a static version of the course in the `book/` directory. Note that you have to separately build and zip exercises and add them to book/html. To build any of the translated versions of the course, run MDBOOK_BOOK__LANGUAGE=xx mdbook build -d book/xx where xx is the ISO 639 language code (e.g. da for the Danish translation). [TRANSLATIONS.md](TRANSLATIONS.md) contains further instructions. |
+| Command                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cargo xtask install-tools` | Install all the tools the project depends on.                                                                                                                                                                                                                                                                                                                                                                                          |
+| `cargo xtask serve`         | Start a web server with the course. You'll find the content on http://localhost:3000. To serve any of the translated versions of the course, add the language flag (--language or -l) followed by xx, where xx is the ISO 639 language code (e.g. cargo xtask serve -l da for the Danish translation).                                                                                                                                 |
+| `cargo xtask rust-tests`    | Test the included Rust snippets.                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `cargo xtask web-tests`     | Run the web driver tests in the tests directory.                                                                                                                                                                                                                                                                                                                                                                                       |
+| `cargo xtask build`         | Create a static version of the course in the `book/` directory. Note that you have to separately build and zip exercises and add them to book/html. To build any of the translated versions of the course, add the language flag (--language or -l) followed by xx, where xx is the ISO 639 language code (e.g. cargo xtask build -l da for the Danish translation). [TRANSLATIONS.md](TRANSLATIONS.md) contains further instructions. |
 
 > **Note** On Windows, you need to enable symlinks
 > (`git config --global core.symlinks true`) and Developer Mode.
-
-> **Note** Previous versions this README recommended that you use
-> `cargo xtool <tool>`, i.e. `cargo xtool install-tools`. This causes issues
-> with pre-existing installations of `cargo-xtool` and is now deprecated.
->
-> The new syntax is almost a 1:1 mapping, although `cargo xtool build` has
-> become `cargo build-book` to avoid conflicting with the built-in Cargo
-> subcommand.
->
-> - `cargo xtool build` -> `cargo build-book`
-> - `cargo xtool install-tools` -> `cargo install-tools`
-> - `cargo xtool serve` -> `cargo serve`
-> - `cargo xtool run-tests` -> `cargo run-tests`
-> - `cargo xtool web-tests` -> `cargo web-tests`
 
 ## Contributing
 

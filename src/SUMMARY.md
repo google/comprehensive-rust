@@ -108,6 +108,12 @@
 # Day 2: Afternoon
 
 - [Welcome](welcome-day-2-afternoon.md)
+- [Closures](closures.md)
+  - [Closure Syntax](closures/syntax.md)
+  - [Capturing](closures/capturing.md)
+  - [Closure Traits](closures/traits.md)
+  - [Exercise: Log Filter](closures/exercise.md)
+    - [Solution](closures/solution.md)
 - [Standard Library Types](std-types.md)
   - [Standard Library](std-types/std.md)
   - [Documentation](std-types/docs.md)
@@ -118,12 +124,6 @@
   - [`HashMap`](std-types/hashmap.md)
   - [Exercise: Counter](std-types/exercise.md)
     - [Solution](std-types/solution.md)
-- [Closures](closures.md)
-  - [Closure Syntax](closures/syntax.md)
-  - [Capturing](closures/capturing.md)
-  - [Closure Traits](closures/traits.md)
-  - [Exercise: Log Filter](closures/exercise.md)
-    - [Solution](closures/solution.md)
 - [Standard Library Traits](std-traits.md)
   - [Comparisons](std-traits/comparisons.md)
   - [Operators](std-traits/operators.md)
@@ -426,6 +426,34 @@
   - [Dining Philosophers](concurrency/async-exercises/dining-philosophers.md)
   - [Broadcast Chat Application](concurrency/async-exercises/chat-app.md)
   - [Solutions](concurrency/async-exercises/solutions.md)
+
+---
+
+# Idiomatic Rust
+
+- [Welcome](idiomatic/welcome.md)
+- [Leveraging the Type System](idiomatic/leveraging-the-type-system.md)
+  - [Newtype Pattern](idiomatic/leveraging-the-type-system/newtype-pattern.md)
+    - [Semantic Confusion](idiomatic/leveraging-the-type-system/newtype-pattern/semantic-confusion.md)
+    - [Parse, Don't Validate](idiomatic/leveraging-the-type-system/newtype-pattern/parse-don-t-validate.md)
+    - [Is It Encapsulated?](idiomatic/leveraging-the-type-system/newtype-pattern/is-it-encapsulated.md)
+
+---
+
+# Unsafe
+
+- [Welcome](unsafe-deep-dive/welcome.md)
+- [Setup](unsafe-deep-dive/setup.md)
+- [Motivations](unsafe-deep-dive/motivations.md)
+  - [Interoperability](unsafe-deep-dive/motivations/interop.md)
+  - [Data Structures](unsafe-deep-dive/motivations/data-structures.md)
+  - [Performance](unsafe-deep-dive/motivations/performance.md)
+- [Foundations](unsafe-deep-dive/foundations.md)
+  - [What is unsafe?](unsafe-deep-dive/foundations/what-is-unsafe.md)
+  - [When is unsafe used?](unsafe-deep-dive/foundations/when-is-unsafe-used.md)
+  - [Data structures are safe](unsafe-deep-dive/foundations/data-structures-are-safe.md)
+  - [Actions might not be](unsafe-deep-dive/foundations/actions-might-not-be.md)
+  - [Less powerful than it seems](unsafe-deep-dive/foundations/less-powerful.md)
 
 ---
 
