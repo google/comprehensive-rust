@@ -91,6 +91,9 @@ jobs:
           name: pre-built-tools
           path: /home/runner/.cargo/bin/
 
+      - name: Make all downloaded tools executable
+        run: chmod +x /home/runner/.cargo/bin/*
+
       - name: Build course in English
         if: matrix.language == 'en'
         run: .github/workflows/build.sh en book
@@ -123,6 +126,9 @@ jobs:
         with:
           path: /home/runner/.cargo/bin/
           name: pre-built-tools
+      
+      - name: Make all downloaded tools executable
+        run: chmod +x /home/runner/.cargo/bin/*
 
       - name: Download all translations
         uses: actions/download-artifact@v4
