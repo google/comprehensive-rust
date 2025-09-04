@@ -32,7 +32,7 @@ jobs:
           sudo apt install gettext
 
       - name: Install mdbook
-        uses: ./.github/workflows/install-mdbook
+        run: cargo xtask install-tools
 
       - name: Upload pre-built-tools for the next tasks
         uses: actions/upload-artifact@v4
@@ -93,6 +93,14 @@ jobs:
 
       - name: Make all downloaded tools executable
         run: chmod +x /home/runner/.cargo/bin/*
+
+      - name: Install dependencies for mdbook-pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive texlive-luatex texlive-lang-cjk texlive-lang-arabic librsvg2-bin fonts-noto
+          curl -LsSf https://github.com/jgm/pandoc/releases/download/3.7.0.1/pandoc-3.7.0.1-linux-amd64.tar.gz | tar zxf -
+          echo "$PWD/pandoc-3.7.0.1/bin" >> $GITHUB_PATH
+        shell: bash
 
       - name: Build course in English
         if: matrix.language == 'en'
