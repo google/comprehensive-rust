@@ -61,6 +61,12 @@ jobs:
       - name: Install mdbook
         uses: ./.github/workflows/install-mdbook
 
+      - name: Upload i18n-report for the publish step
+        uses: actions/upload-artifact@v4
+        with:
+          name: tool-i18n-report
+          path: .cargo/bin/i18n-report
+
       - name: Build course in English
         if: matrix.language == 'en'
         run: .github/workflows/build.sh en book
@@ -88,16 +94,11 @@ jobs:
       - name: Update Rust
         run: rustup update
 
-      - name: Setup Rust cache
-        uses: ./.github/workflows/setup-rust-cache
-
-      - name: Install Gettext
-        run: |
-          sudo apt update
-          sudo apt install gettext
-
-      - name: Install mdbook
-        uses: ./.github/workflows/install-mdbook
+      - name: Download i18n-report
+        uses: actions/download-artifact@v4
+        with:
+          path: .cargo/bin
+          name: tool-i18n-report
 
       - name: Download all translations
         uses: actions/download-artifact@v4
