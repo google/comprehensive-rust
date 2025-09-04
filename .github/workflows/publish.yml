@@ -14,6 +14,32 @@ env:
   # Update the language picker in index.hbs to link new languages.
 
 jobs:
+  compile-build-tools:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update Rust
+        run: rustup update
+
+      - name: Setup Rust cache
+        uses: ./.github/workflows/setup-rust-cache
+
+      - name: Install Gettext
+        run: |
+          sudo apt update
+          sudo apt install gettext
+
+      - name: Install mdbook
+        uses: ./.github/workflows/install-mdbook
+
+      - name: Upload pre-built-tools for the publish step
+        uses: actions/upload-artifact@v4
+        with:
+          name: pre-built-tools
+          path: $HOME/.cargo/bin/
+  
   create-translation:
     strategy:
       matrix:
@@ -41,6 +67,7 @@ jobs:
           - "zh-CN"
           - "zh-TW"
     runs-on: ubuntu-latest
+    needs: compile-build-tools
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -58,14 +85,11 @@ jobs:
         with:
           packages: gettext
 
-      - name: Install mdbook
-        uses: ./.github/workflows/install-mdbook
-
-      - name: Upload i18n-report for the publish step
-        uses: actions/upload-artifact@v4
+      - name: Download pre-built tools
+        uses: actions/download-artifact@v4
         with:
-          name: tool-i18n-report
-          path: .cargo/bin/i18n-report
+          name: pre-built-tools
+          path: $HOME/.cargo/bin/
 
       - name: Build course in English
         if: matrix.language == 'en'
@@ -94,11 +118,11 @@ jobs:
       - name: Update Rust
         run: rustup update
 
-      - name: Download i18n-report
+      - name: Download pre-built tools
         uses: actions/download-artifact@v4
         with:
-          path: .cargo/bin
-          name: tool-i18n-report
+          path: $HOME/.cargo/bin/
+          name: pre-built-tools
 
       - name: Download all translations
         uses: actions/download-artifact@v4
