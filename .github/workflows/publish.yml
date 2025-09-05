@@ -26,10 +26,17 @@ jobs:
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
 
-      - name: Install Gettext
-        run: |
-          sudo apt update
-          sudo apt install gettext
+      - name: Install build tools
+        uses: taiki-e/install-action@v2
+        with:
+          # testing without version first but should be
+          # mdbook@0.4.48
+          # mdbook-svgbob@0.2.2
+          # mdbook-pandoc@0.10.4
+          # mdbook-i18n-helpers@0.3.6
+          # i18n-report@0.2.0
+          # mdbook-linkcheck2@0.9.1
+          tool: mdbook,mdbook-svgbob,mdbook-pandoc,mdbook-i18n-helpers,i18n-report,mdbook-linkcheck2
 
       - name: Install mdbook
         run: cargo xtask install-tools
@@ -137,6 +144,11 @@ jobs:
       
       - name: Make all downloaded tools executable
         run: chmod +x /home/runner/.cargo/bin/*
+
+      - name: Install Gettext
+        run: |
+          sudo apt update
+          sudo apt install gettext
 
       - name: Download all translations
         uses: actions/download-artifact@v4
