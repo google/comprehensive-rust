@@ -99,7 +99,7 @@ fn install_tools() -> Result<()> {
     let install_args = vec![
         // The --locked flag is important for reproducible builds. It also
         // avoids breakage due to skews between mdbook and mdbook-svgbob.
-        vec!["mdbook", "--locked", "--version", "0.4.51"],
+        vec!["mdbook", "--locked", "--version", "0.4.52"],
         vec!["mdbook-svgbob", "--locked", "--version", "0.2.2"],
         vec!["mdbook-pandoc", "--locked", "--version", "0.10.4"],
         vec!["mdbook-i18n-helpers", "--locked", "--version", "0.3.6"],
