@@ -56,6 +56,7 @@ The course is built using a few tools:
 - [mdbook-exerciser](mdbook-exerciser/)
 - [mdbook-course](mdbook-course/)
 - [mdbook-linkcheck2](https://github.com/marxin/mdbook-linkcheck2)
+- [dprint](https://dprint.dev/)
 
 First install Rust by following the instructions on https://rustup.rs/. Then
 clone this repository:
