@@ -25,7 +25,7 @@ trait to talk to the service.
 <details>
 
 - Point out how the generated function signature, specifically the argument and
-  return types, correspond the interface definition.
+  return types, correspond to the interface definition.
   - `String` for an argument results in a different Rust type than `String` as a
     return type.
 
