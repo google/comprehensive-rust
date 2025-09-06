@@ -67,7 +67,8 @@ fn main() {
 
 - Arrays are not heap-allocated. They are regular values with a fixed size known
   at compile time, meaning they go on the stack. This can be different from what
-  students expect if they come from a garbage collected language, where arrays
+  students expect if they come from a garbage-collected language, where arrays
   may be heap allocated by default.
 
 </details>
+s>
