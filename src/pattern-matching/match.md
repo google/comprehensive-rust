@@ -35,7 +35,7 @@ Key Points:
 - You might point out how some specific characters are being used when in a
   pattern
   - `|` as an `or`
-  - `..` can expand as much as it needs to be
+  - `..` matches any number of items
   - `1..=5` represents an inclusive range
   - `_` is a wild card
 

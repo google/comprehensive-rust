@@ -22,7 +22,7 @@ to `30`. We can represent the expression as a tree:
 ```
 
 A bigger and more complex expression would be `(10 * 9) + ((3 - 4) * 5)`, which
-evaluate to `85`. We represent this as a much bigger tree:
+evaluates to `85`. We represent this as a much bigger tree:
 
 <!-- mdbook-xgettext: skip -->
 
