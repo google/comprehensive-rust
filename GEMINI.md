@@ -1,10 +1,10 @@
 # Project Overview
 
 This repository contains the source code for Comprehensive Rust, a family of
-courses on Rust developed by Google, starting with Rust foundations, and including
-deep dives into specialized topics like Android, Chromium, bare-metal
-development, and concurrency. The project is a Rust workspace that
-leverages `mdbook` to generate a course website.
+courses on Rust developed by Google, starting with Rust foundations, and
+including deep dives into specialized topics like Android, Chromium, bare-metal
+development, and concurrency. The project is a Rust workspace that leverages
+`mdbook` to generate a course website.
 
 ## Key Technologies
 
@@ -20,7 +20,8 @@ leverages `mdbook` to generate a course website.
 
 # Building and Running
 
-The project uses `cargo xtask` for project-specific automation, like builds, tests, and managing translations.
+The project uses `cargo xtask` for project-specific automation, like builds,
+tests, and managing translations.
 
 ## Setup
 
