@@ -18,14 +18,14 @@ Read the course at **https://google.github.io/comprehensive-rust/**.
 
 ## Course Format and Target Audience
 
-The course is used internally at Google when teaching Rust to experienced
-software engineers. They typically have a background in C++ or Java.
+The course is used internally at Google to teach Rust to experienced software
+engineers, typically with a background in C++ or Java.
 
-The course is taught in a classroom setting and we hope it will be useful for
-others who want to teach Rust to their team. The course will be less useful for
-self-study since you miss out on the discussions happening in the classroom. You
-don't see the questions and answers and you don't see the compiler errors we
-trigger when going through the code samples. We hope to improve on this via
+The course is taught in a classroom setting, and we hope it will be useful for
+others who want to teach Rust to their team. The course is less ideal for
+self-study, since you would miss out on classroom discussions. You would not see
+the questions and answers, nor the compiler errors we trigger when going through
+the code samples. We hope to improve the self-study experience via
 [speaker notes](https://github.com/google/comprehensive-rust/issues/53) and by
 [publishing videos](https://github.com/google/comprehensive-rust/issues/52).
 
@@ -44,7 +44,7 @@ Articles and blog posts from around the web which cover Comprehensive Rust:
   About how Microsoft, Google, and others are training people in Rust.
 - 2024-10-18:
   _[Rust Training at Scale | Rust Global @ RustConf 2024](https://youtu.be/7h5KyMqt2-Q?si=4M99HdWWxMaqN8Zr)_.
-  What Google learnt from teaching Comprehensive Rust for more than two years.
+  What Google learned from teaching Comprehensive Rust for more than two years.
 
 ## Setup
 
@@ -57,7 +57,7 @@ The course is built using a few tools:
 - [mdbook-course](mdbook-course/)
 - [mdbook-linkcheck2](https://github.com/marxin/mdbook-linkcheck2)
 
-First install Rust by following the instructions on https://rustup.rs/. Then
+First, install Rust by following the instructions on https://rustup.rs/. Then
 clone this repository:
 
 ```shell
@@ -93,8 +93,8 @@ Here are some of the commonly used commands you can run in the project. Run
 
 ## Contributing
 
-We would like to receive your contributions. Please see
-[CONTRIBUTING.md](CONTRIBUTING.md) for details.
+We welcome contributions. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for
+details.
 
 ## Contact
 
