@@ -65,7 +65,7 @@ fn main() {
     ]);
     ```
 
-- Alternatively HashMap can be built from any `Iterator` which yields key-value
+- Alternatively HashMap can be built from any `Iterator` that yields key-value
   tuples.
 
 - This type has several "method-specific" return types, such as
