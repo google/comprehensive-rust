@@ -32,7 +32,7 @@ Building on this, you're invited to dive into one or more specialized topics:
 
 - [Android](android.md): a half-day course on using Rust for Android platform
   development (AOSP). This includes interoperability with C, C++, and Java.
-- [Chromium](chromium.md): a half-day course on using Rust within Chromium based
+- [Chromium](chromium.md): a half-day course on using Rust in Chromium-based
   browsers. This includes interoperability with C++ and how to include
   third-party crates in Chromium.
 - [Bare-metal](bare-metal.md): a whole-day class on using Rust for bare-metal
