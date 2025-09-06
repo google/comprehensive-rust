@@ -4,7 +4,7 @@ minutes: 15
 
 # Exercise: Fibonacci
 
-The Fibonacci sequence begins with `[0,1]`. For `n > 1`, the next number is the
+The Fibonacci sequence begins with `[0, 1]`. For `n > 1`, the next number is the
 sum of the previous two.
 
 Write a function `fib(n)` that calculates the nth Fibonacci number. When will
