@@ -30,7 +30,7 @@ notes (see below).
 
 When showing Rust code inline, please use the same spacing as `rustfmt`: `3 * x`
 instead of `3*x`. However, feel free to remove newlines when it can make the
-code more compact and easier to understand, e.g., you can use
+code more compact and easier to understand, e.g., you can define a struct on one line if it is not the focus of your example:
 
 <!-- dprint-ignore-start -->
 
@@ -40,9 +40,9 @@ struct Person { name: String }
 
 <!-- dprint-ignore-end -->
 
-Please use this sparingly: enclose the code block in
+Enclose the code block in
 `<!-- dprint-ignore-start -->` and `<!-- dprint-ignore-end -->` to suppress the
-automatic formatting.
+automatic formatting. Please use this sparingly.
 
 ### Language and Tone
 
@@ -50,8 +50,8 @@ The courses are written in American English, so write "initialize", not
 "initialise".
 
 Use an informal, friendly, and concise tone. Remember that the courses are meant
-to be taught by experienced programmer to other experienced programmers. We
-expect familiarity with programming, typically in a statically compiled language
+to be taught by an experienced programmer to other experienced programmers. We
+expect familiarity with programming, typically in a statically typed language
 like Java or C++. We don't explain common concepts known from that family of
 languages, but we cannot assume familiarity with things like functional
 programming.
@@ -71,8 +71,8 @@ collapsed or removed entirely from the slide.
   will read the course by themselves, so make the notes complete and useful even
   when there is no Rust expert around.
 
-- Avoid using speaker notes as a script for the instructor. When teaching the
-  course, instructors will only have a short time to glance at the notes.
+- Speaker notes are not a script for the instructor. When teaching the
+  course, instructors only have a short time to glance at the notes. Don't include full paragraphs for the instructor to read out loud.
 
 ### More to Explore
 
