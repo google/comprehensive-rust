@@ -4,7 +4,7 @@ minutes: 3
 
 # Panics
 
-Rust handles fatal errors with a "panic", which happens at runtime:
+In case of a fatal runtime error, Rust triggers a "panic":
 
 ```rust,editable,should_panic
 fn main() {
