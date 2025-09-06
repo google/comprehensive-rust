@@ -28,7 +28,7 @@ notes (see below).
 
 ### Rust Code
 
-When showing Rust code, please use the same spacing as `rustfmt`: `3 * x`
+When showing Rust code inline, please use the same spacing as `rustfmt`: `3 * x`
 instead of `3*x`. However, feel free to remove newlines when it can make the
 code more compact and easier to understand, e.g., you can use
 
@@ -40,15 +40,30 @@ struct Person { name: String }
 
 <!-- dprint-ignore-end -->
 
-if the `Person` struct is not important for your example. Please use this
-sparingly: enclose the code block in `<!-- dprint-ignore-start -->` and
-`<!-- dprint-ignore-end -->` to suppress warnings about the formatting.
+Please use this sparingly: enclose the code block in
+`<!-- dprint-ignore-start -->` and `<!-- dprint-ignore-end -->` to suppress the
+automatic formatting.
+
+### Language and Tone
+
+The courses are written in American English, so write "initialize", not
+"initialise".
+
+Use an informal, friendly, and concise tone. Remember that the courses are meant
+to be taught by experienced programmer to other experienced programmers. We
+expect familiarity with programming, typically in a statically compiled language
+like Java or C++. We don't explain common concepts known from that family of
+languages, but we cannot assume familiarity with things like functional
+programming.
 
 ## Speaker Notes
 
 We have extended `mdbook` with support for speaker notes: content added between
 `<details> ... </details>` tags is rendered in a special box that can be
 collapsed or removed entirely from the slide.
+
+- Unlike the main content, the speaker notes don't have to fit on a single
+  slide.
 
 - The speaker notes should expand on the topic of the slide. Use them to provide
   interesting background information for both the instructor and for students
@@ -57,8 +72,7 @@ collapsed or removed entirely from the slide.
   when there is no Rust expert around.
 
 - Avoid using speaker notes as a script for the instructor. When teaching the
-  course, instructors will only have time to glance at the notes so it is not
-  useful to include full paragraphs which the instructor should read out loud.
+  course, instructors will only have a short time to glance at the notes.
 
 ### More to Explore
 
@@ -100,6 +114,6 @@ When translating the course, please take the following into account:
   and `**strong emphasis**` like in the original.
 
 - If you find mistakes or things that sound awkward in the original English
-  text, please submit PRs to fix them! Fixing typos in the translation is great,
-  but we want everybody to benefit from the fixes and that is why we need the
-  fix to be made in the English text too.
+  text, please submit PRs to fix them in the English text! Fixing typos in the
+  translation is great, but we want everybody to benefit from the fixes and that
+  is why we need the fix to be made in the English text too.
