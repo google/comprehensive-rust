@@ -47,7 +47,6 @@ out of these structures.
 - If students ask about `#![allow(dead_code)]` at the top of the exercise, it's
   necessary because the only thing we do with the `Event` type is print it out.
   Due to a nuance of how the compiler checks for dead code this causes it to
-  think that the code is unused. They can ignore it for the purpose of this
-  exercise.
+  think the code is unused. They can ignore it for the purpose of this exercise.
 
 </details>
