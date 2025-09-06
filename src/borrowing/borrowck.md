@@ -65,9 +65,9 @@ fn main() {
 
 ## More to Explore
 
-- Technically multiple mutable references to a piece of data can exist at the
+- Technically, multiple mutable references to a piece of data can exist at the
   same time via re-borrowing. This is what allows you to pass a mutable
-  reference into a function without invaliding the original reference.
+  reference into a function without invalidating the original reference.
   [This playground example][1] demonstrates that behavior.
 - Rust uses the exclusive reference constraint to ensure that data races do not
   occur in multi-threaded code, since only one thread can have mutable access to
