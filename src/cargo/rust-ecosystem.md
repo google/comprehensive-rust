@@ -2,7 +2,7 @@
 
 The Rust ecosystem consists of a number of tools, of which the main ones are:
 
-- `rustc`: the Rust compiler which turns `.rs` files into binaries and other
+- `rustc`: the Rust compiler that turns `.rs` files into binaries and other
   intermediate formats.
 
 - `cargo`: the Rust dependency manager and build tool. Cargo knows how to
