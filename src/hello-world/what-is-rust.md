@@ -4,7 +4,7 @@ minutes: 10
 
 # What is Rust?
 
-Rust is a new programming language which had its [1.0 release in 2015][1]:
+Rust is a new programming language that had its [1.0 release in 2015][1]:
 
 - Rust is a statically compiled language in a similar role as C++
   - `rustc` uses LLVM as its backend.
