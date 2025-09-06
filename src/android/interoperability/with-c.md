@@ -31,8 +31,8 @@ We will look at better options next.
   be called using the C [ABI] (application binary interface).
 
 - The `safe fn abs` part tells Rust that `abs` is a safe function. By default,
-  extern functions are unsafe, but since `abs(x)` can't trigger undefined behavior with any
-  `x`, we can declare it safe.
+  extern functions are unsafe, but since `abs(x)` can't trigger undefined
+  behavior with any `x`, we can declare it safe.
 
 </details>
 
