@@ -10,7 +10,7 @@
   exist. Once a pin is moved out of the port struct, nobody else can take it.
 - Changing the configuration of a pin consumes the old pin instance, so you
   can't use the old instance afterwards.
-- The type of a value indicates the state it is in: e.g. in this case, the
+- The type of a value indicates the state it is in: e.g., in this case, the
   configuration state of a GPIO pin. This encodes the state machine into the
   type system and ensures that you don't try to use a pin in a certain way
   without properly configuring it first. Illegal state transitions are caught at

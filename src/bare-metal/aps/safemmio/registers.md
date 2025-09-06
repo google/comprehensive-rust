@@ -23,7 +23,7 @@ written safely.
   operations; we recommend the `safe-mmio` crate.
 - The difference between `ReadPure` or `ReadOnly` (and likewise between
   `ReadPureWrite` and `ReadWrite`) is whether reading a register can have
-  side-effects that change the state of the device. E.g. reading the data
+  side-effects that change the state of the device, e.g., reading the data
   register pops a byte from the receive FIFO. `ReadPure` means that reads have
   no side-effects, they are purely reading data.
 
