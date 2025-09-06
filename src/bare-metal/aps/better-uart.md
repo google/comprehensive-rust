@@ -1,8 +1,8 @@
 # A better UART driver
 
-The PL011 actually has [a bunch more registers][1], and adding offsets to
-construct pointers to access them is error-prone and hard to read. Plus, some of
-them are bit fields which would be nice to access in a structured way.
+The PL011 actually has [more registers][1], and adding offsets to construct
+pointers to access them is error-prone and hard to read. Additionally, some of
+them are bit fields, which would be nice to access in a structured way.
 
 | Offset | Register name | Width |
 | ------ | ------------- | ----- |
@@ -23,7 +23,7 @@ them are bit fields which would be nice to access in a structured way.
 
 <details>
 
-- There are also some ID registers which have been omitted for brevity.
+- There are also some ID registers that have been omitted for brevity.
 
 </details>
 

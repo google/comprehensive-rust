@@ -17,14 +17,14 @@ Now let's use the new `Registers` struct in our driver.
 - These MMIO accesses are generally a wrapper around `read_volatile` and
   `write_volatile`, though on aarch64 they are instead implemented in assembly
   to work around a bug where the compiler can emit instructions that prevent
-  MMIO virtualisation.
+  MMIO virtualization.
 - The `field!` and `field_shared!` macros internally use `&raw mut` and
   `&raw const` to get pointers to individual fields without creating an
   intermediate reference, which would be unsound.
 - `field!` needs a mutable reference to a `UniqueMmioPointer`, and returns a
-  `UniqueMmioPointer` which allows reads with side effects and writes.
+  `UniqueMmioPointer` that allows reads with side effects and writes.
 - `field_shared!` works with a shared reference to either a `UniqueMmioPointer`
-  or a `SharedMmioPointer`. It returns a `SharedMmioPointer` which only allows
+  or a `SharedMmioPointer`. It returns a `SharedMmioPointer` that only allows
   pure reads.
 
 </details>

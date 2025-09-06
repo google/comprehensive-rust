@@ -1,6 +1,6 @@
 # `buddy_system_allocator`
 
-[`buddy_system_allocator`][1] is a crate implementing a basic buddy system
+[`buddy_system_allocator`][1] is a crate that implements a basic buddy system
 allocator. It can be used both to implement [`GlobalAlloc`][3] (using
 [`LockedHeap`][2]) so you can use the standard `alloc` crate (as we saw
 [before][4]), or for allocating other address space (using

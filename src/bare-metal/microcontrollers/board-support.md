@@ -12,7 +12,7 @@ for convenience.
 <details>
 
 - In this case the board support crate is just providing more useful names, and
-  a bit of initialisation.
+  a bit of initialization.
 - The crate may also include drivers for some on-board devices outside of the
   microcontroller itself.
   - `microbit-v2` includes a simple driver for the LED matrix.

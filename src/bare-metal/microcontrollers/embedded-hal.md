@@ -16,8 +16,8 @@ accelerometer driver might need an I2C or SPI device instance.
 
 <details>
 
-- The traits cover using the peripherals but not initialising or configuring
-  them, as initialisation and configuration is usually highly platform-specific.
+- The traits cover using the peripherals but not initializing or configuring
+  them, as initialization and configuration is usually highly platform-specific.
 - There are implementations for many microcontrollers, as well as other
   platforms such as Linux on Raspberry Pi.
 - [`embedded-hal-async`] provides async versions of the traits.

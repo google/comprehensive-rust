@@ -5,9 +5,9 @@
   - Supports x86, aarch64 and RISC-V.
   - Relies on LinuxBoot rather than having many drivers itself.
 - [Rust RaspberryPi OS tutorial](https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials)
-  - Initialisation, UART driver, simple bootloader, JTAG, exception levels,
+  - Initialization, UART driver, simple bootloader, JTAG, exception levels,
     exception handling, page tables.
-  - Some dodginess around cache maintenance and initialisation in Rust, not
+  - Some caveats around cache maintenance and initialization in Rust, not
     necessarily a good example to copy for production code.
 - [`cargo-call-stack`](https://crates.io/crates/cargo-call-stack)
   - Static analysis to determine maximum stack usage.

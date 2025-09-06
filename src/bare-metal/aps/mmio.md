@@ -28,7 +28,7 @@ unsafe {
     compiler may assume that the value read is the same as the value just
     written, and not bother actually reading memory.
 - Some existing crates for volatile access to hardware do hold references, but
-  this is unsound. Whenever a reference exist, the compiler may choose to
+  this is unsound. Whenever a reference exists, the compiler may choose to
   dereference it.
 - Use `&raw` to get struct field pointers from a pointer to the struct.
 - For compatibility with old versions of Rust you can use the [`addr_of!`] macro

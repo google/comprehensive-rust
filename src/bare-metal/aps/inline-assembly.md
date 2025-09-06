@@ -16,7 +16,7 @@ for all these functions.)
 - PSCI is the Arm Power State Coordination Interface, a standard set of
   functions to manage system and CPU power states, among other things. It is
   implemented by EL3 firmware and hypervisors on many systems.
-- The `0 => _` syntax means initialise the register to 0 before running the
+- The `0 => _` syntax means initialize the register to 0 before running the
   inline assembly code, and ignore its contents afterwards. We need to use
   `inout` rather than `in` because the call could potentially clobber the
   contents of the registers.
@@ -24,7 +24,7 @@ for all these functions.)
   because it is called from our entry point in `entry.S`.
   - Just `#[no_mangle]` would be sufficient but
     [RFC3325](https://rust-lang.github.io/rfcs/3325-unsafe-attributes.html) uses
-    this notation to draw reviewer attention to attributes which might cause
+    this notation to draw reviewer attention to attributes that might cause
     undefined behavior if used incorrectly.
 - `_x0`–`_x3` are the values of registers `x0`–`x3`, which are conventionally
   used by the bootloader to pass things like a pointer to the device tree.
