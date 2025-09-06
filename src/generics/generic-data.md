@@ -44,7 +44,7 @@ fn main() {
 
 <details>
 
-- _Q:_ Why `L` is specified twice in `impl<L: Logger> .. VerbosityFilter<L>`?
+- _Q:_ Why is `L` specified twice in `impl<L: Logger> .. VerbosityFilter<L>`?
   Isn't that redundant?
   - This is because it is a generic implementation section for generic type.
     They are independently generic.
