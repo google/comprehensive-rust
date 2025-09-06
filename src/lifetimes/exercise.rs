@@ -127,7 +127,7 @@ fn parse_field(data: &[u8]) -> (Field, &[u8]) {
         }
         WireType::Len => {
             let (len, remainder) = parse_varint(remainder);
-            let len = len as usize;
+            let len = len as usize; // cast for simplicity
             let (value, remainder) = remainder.split_at(len);
             (FieldValue::Len(value), remainder)
         }
