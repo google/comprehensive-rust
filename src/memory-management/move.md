@@ -164,7 +164,7 @@ Key points:
   would take place. After the move, `s1` would be in a valid but unspecified
   state. Unlike Rust, the programmer is allowed to keep using `s1`.
 
-- Unlike Rust, `=` in C++ can run arbitrary code as determined by the type which
+- Unlike Rust, `=` in C++ can run arbitrary code as determined by the type that
   is being copied or moved.
 
 [`std::move`]: https://en.cppreference.com/w/cpp/utility/move

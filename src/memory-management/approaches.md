@@ -34,7 +34,7 @@ in context.
 
 - C++ has tools like smart pointers (`unique_ptr`, `shared_ptr`) that take
   advantage of language guarantees about calling destructors to ensure memory is
-  freed when a function returns. It is still quite easy to mis-use these tools
+  freed when a function returns. It is still quite easy to misuse these tools
   and create similar bugs to C.
 
 - Java, Go, and Python rely on the garbage collector to identify memory that is
@@ -43,10 +43,10 @@ in context.
   has a runtime cost and is difficult to tune properly.
 
 Rust's ownership and borrowing model can, in many cases, get the performance of
-C, with alloc and free operations precisely where they are required -- zero
-cost. It also provides tools similar to C++'s smart pointers. When required,
-other options such as reference counting are available, and there are even
-crates available to support runtime garbage collection (not covered in this
+C, with alloc and free operations precisely where they are required --
+zero-cost. It also provides tools similar to C++'s smart pointers. When
+required, other options such as reference counting are available, and there are
+even crates available to support runtime garbage collection (not covered in this
 class).
 
 </details>
