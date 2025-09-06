@@ -28,9 +28,10 @@ notes (see below).
 
 ### Rust Code
 
-When showing Rust code, please use the same spacing as `rustfmt`: `3 * x`
+When showing Rust code inline, please use the same spacing as `rustfmt`: `3 * x`
 instead of `3*x`. However, feel free to remove newlines when it can make the
-code more compact and easier to understand, e.g., you can use
+code more compact and easier to understand, e.g., you can define a struct on one
+line if it is not the focus of your example:
 
 <!-- dprint-ignore-start -->
 
@@ -40,9 +41,21 @@ struct Person { name: String }
 
 <!-- dprint-ignore-end -->
 
-if the `Person` struct is not important for your example. Please use this
-sparingly: enclose the code block in `<!-- dprint-ignore-start -->` and
-`<!-- dprint-ignore-end -->` to suppress warnings about the formatting.
+Enclose the code block in `<!-- dprint-ignore-start -->` and
+`<!-- dprint-ignore-end -->` to suppress the automatic formatting. Please use
+this sparingly.
+
+### Language and Tone
+
+The courses are written in American English, so write "initialize", not
+"initialise".
+
+Use an informal, friendly, and concise tone. Remember that the courses are meant
+to be taught by an experienced programmer to other experienced programmers. We
+expect familiarity with programming, typically in a statically typed language
+like Java or C++. We don't explain common concepts known from that family of
+languages, but we cannot assume familiarity with things like functional
+programming.
 
 ## Speaker Notes
 
@@ -50,15 +63,18 @@ We have extended `mdbook` with support for speaker notes: content added between
 `<details> ... </details>` tags is rendered in a special box that can be
 collapsed or removed entirely from the slide.
 
+- Unlike the main content, the speaker notes don't have to fit on a single
+  slide.
+
 - The speaker notes should expand on the topic of the slide. Use them to provide
   interesting background information for both the instructor and for students
   who look at the material outside of a class. Remember that many more people
   will read the course by themselves, so make the notes complete and useful even
   when there is no Rust expert around.
 
-- Avoid using speaker notes as a script for the instructor. When teaching the
-  course, instructors will only have time to glance at the notes so it is not
-  useful to include full paragraphs which the instructor should read out loud.
+- Speaker notes are not a script for the instructor. When teaching the course,
+  instructors only have a short time to glance at the notes. Don't include full
+  paragraphs for the instructor to read out loud.
 
 ### More to Explore
 
@@ -100,6 +116,6 @@ When translating the course, please take the following into account:
   and `**strong emphasis**` like in the original.
 
 - If you find mistakes or things that sound awkward in the original English
-  text, please submit PRs to fix them! Fixing typos in the translation is great,
-  but we want everybody to benefit from the fixes and that is why we need the
-  fix to be made in the English text too.
+  text, please submit PRs to fix them in the English text! Fixing typos in the
+  translation is great, but we want everybody to benefit from the fixes and that
+  is why we need the fix to be made in the English text too.
