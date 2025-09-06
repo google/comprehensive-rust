@@ -47,9 +47,10 @@ fn main() {
   ["Idiomatic Rust" module](../idiomatic/leveraging-the-type-system/newtype-pattern.md).
 - Demonstrate how to add a `f64` value to a `Newtons` type by accessing the
   single field in the newtype.
-  - Rust generally doesn’t like inexplicit things, like automatic unwrapping or
-    for instance using booleans as integers.
-  - Operator overloading is discussed on Day 3 (generics).
+  - Rust generally avoids implicit conversions, like automatic unwrapping or
+    using booleans as integers.
+    - Operator overloading is discussed on Day 2
+      ([Standard Library Traits](../std-traits.md)).
 - When a tuple struct has zero fields, the `()` can be omitted. The result is a
   zero-sized type (ZST), of which there is only one value (the name of the
   type).
