@@ -12,7 +12,7 @@ let array = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
 
 What is the type of this variable?
 
-Use an array such as the above to write a function `transpose` which will
+Use an array such as the above to write a function `transpose` that will
 transpose a matrix (turn rows into columns):
 
 <!-- mdbook-xgettext: skip -->
