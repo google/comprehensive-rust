@@ -22,7 +22,7 @@ For example, beginning with _n<sub>1</sub>_ = 3:
 - 2 is even, so _n<sub>8</sub>_ = 1; and
 - the sequence terminates.
 
-Write a function to calculate the length of the collatz sequence for a given
+Write a function to calculate the length of the Collatz sequence for a given
 initial `n`.
 
 ```rust,editable,should_panic
