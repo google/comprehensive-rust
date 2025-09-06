@@ -37,8 +37,8 @@ fn main() {
 - Patterns are type-specific, including irrefutable patterns. Try adding or
   removing an element to the tuple and look at the resulting compiler errors.
 
-- Variable names are patterns that always match and bind the matched
-  value into a new variable with that name.
+- Variable names are patterns that always match and bind the matched value into
+  a new variable with that name.
 
 - `_` is a pattern that always matches any value, discarding the matched value.
 
