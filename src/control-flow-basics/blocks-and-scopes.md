@@ -4,9 +4,8 @@ minutes: 5
 
 # Blocks and Scopes
 
-A block in Rust contains a sequence of expressions, enclosed by braces `{}`.
-Each block has a value and a type, which are those of the last expression of the
-block:
+A block in Rust contains a sequence of expressions, enclosed by braces {}. The
+final expression of a block determines its value and type:
 
 ```rust,editable
 fn main() {
