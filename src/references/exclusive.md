@@ -28,8 +28,8 @@ Key points:
   making an `&point.0` or changing `point.0` while `x_coord` is alive.
 
 - Be sure to note the difference between `let mut x_coord: &i32` and
-  `let x_coord: &mut i32`. The first one is a shared reference that can
-  be bound to different values, while the second is an exclusive
-  reference to a mutable value.
+  `let x_coord: &mut i32`. The first one is a shared reference that can be bound
+  to different values, while the second is an exclusive reference to a mutable
+  value.
 
 </details>
