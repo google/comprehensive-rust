@@ -47,7 +47,7 @@ fn main() {
     buffer.
   - You can't grow a slice to point to a larger section of the backing buffer.
     The slice loses information about the underlying buffer and so you can't
-    know how larger the slice can be grown.
+    know how large the slice can be grown.
   - To get a larger slice you have to back to the original buffer and create a
     larger slice from there.
 
