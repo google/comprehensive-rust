@@ -61,7 +61,7 @@ may offer an advantage"):
   - Perhaps surprisingly, Rust is becoming increasingly popular in the industry
     for writing command line tools. The breadth and ergonomics of libraries is
     comparable to Python, while being more robust (thanks to the rich
-    typesystem) and running faster (as a compiled, rather than interpreted
+    type system) and running faster (as a compiled, rather than interpreted
     language).
   - Participating in the Rust ecosystem requires using standard Rust tools like
     Cargo. Libraries that want to get external contributions, and want to be
