@@ -2,7 +2,7 @@
 
 Like with `if let`, there is a
 [`while let`](https://doc.rust-lang.org/reference/expressions/loop-expr.html#predicate-pattern-loops)
-variant, which repeatedly tests a value against a pattern:
+variant that repeatedly tests a value against a pattern:
 
 ```rust,editable
 fn main() {
