@@ -38,7 +38,7 @@ examples in this training:
    Hello, world!
    ```
 
-4. Replace the boiler-plate code in `src/main.rs` with your own code. For
+4. Replace the boilerplate code in `src/main.rs` with your own code. For
    example, using the example on the previous page, make `src/main.rs` look like
 
    ```rust
