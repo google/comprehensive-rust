@@ -4,9 +4,7 @@ minutes: 3
 
 # Panics
 
-Rust handles fatal errors with a "panic".
-
-Rust will trigger a panic if a fatal error happens at runtime:
+Rust handles fatal errors with a "panic", which happens at runtime:
 
 ```rust,editable,should_panic
 fn main() {
@@ -17,8 +15,8 @@ fn main() {
 
 - Panics are for unrecoverable and unexpected errors.
   - Panics are symptoms of bugs in the program.
-  - Runtime failures like failed bounds checks can panic
-  - Assertions (such as `assert!`) panic on failure
+  - Runtime failures like failed bounds checks can panic.
+  - Assertions (such as `assert!`) panic on failure.
   - Purpose-specific panics can use the `panic!` macro.
 - A panic will "unwind" the stack, dropping values just as if the functions had
   returned.
