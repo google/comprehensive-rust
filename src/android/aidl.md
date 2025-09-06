@@ -11,6 +11,6 @@ Rust supports the
 - AIDL enables Android apps to interact with each other.
 
 - Since Rust is a first-class citizen in this ecosystem, other processes on the
-  phone can call Rust services.
+  device can call Rust services.
 
 </details>
