@@ -44,7 +44,7 @@ Discussion points:
 - You could implement `Add` for two different types, e.g.
   `impl Add<(i32, i32)> for Point` would add a tuple to a `Point`.
 
-The `Not` trait (`!` operator) is notable because it does not convert the argument to bool like the
+The `Not` trait (`!` operator) is notable because it does not convert the argument to `bool` like the
 same operator in C-family languages; instead, for integer types it flips each
 bit of the number, which, arithmetically, is equivalent to subtracting the argument from
 `-1`: `!5 == -6`.
