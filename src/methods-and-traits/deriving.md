@@ -30,7 +30,7 @@ fn main() {
   macros to add useful functionality. For example, `serde` can derive
   serialization support for a struct using `#[derive(Serialize)]`.
 
-  Derivation is usually provided for traits that have a common boilerplate
+- Derivation is usually provided for traits that have a common boilerplate
   implementation that is correct for most cases. For example, demonstrate how a
   manual `Clone` impl can be repetitive compared to deriving the trait:
 
