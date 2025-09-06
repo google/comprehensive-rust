@@ -65,7 +65,7 @@ fn main() {
 
 ## More to Explore
 
-- Technically multiple mutable references to a piece of data can exist at the
+- Technically, multiple mutable references to a piece of data can exist at the
   same time via re-borrowing. This is what allows you to pass a mutable
   reference into a function without invalidating the original reference.
   [This playground example][1] demonstrates that behavior.
