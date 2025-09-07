@@ -71,4 +71,3 @@ fn main() {
   may be heap allocated by default.
 
 </details>
-s>
