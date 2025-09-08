@@ -10,13 +10,13 @@ Using `PhantomData` in conjunction with lifetimes lets us say "this value may ow
 fn main() {
 use std::marker::PhantomData;
 pub struct Tag;
-pub struct ErasedData<'a>{data: String, _phantom: PhantomData<&'a ()>};
+pub struct ErasedData<'a>{data: String, _phantom: PhantomData<&'a ()>}
 impl <'a> ErasedData<'a>  {
     pub fn get(&self) -> &str {
         &self.data
     }
 }
-pub struct TaggedData<T>{data: String, _phantom: PhantomData<T>};
+pub struct TaggedData<T>{data: String, _phantom: PhantomData<T>}
 impl <T> TaggedData<T> {
     pub fn new(data: String) -> Self {Self {data, _phantom: PhantomData} }
     pub fn consume(self) {}

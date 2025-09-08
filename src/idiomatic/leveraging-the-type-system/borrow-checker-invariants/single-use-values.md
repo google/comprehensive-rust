@@ -13,14 +13,7 @@ pub struct Key;
 // Pretend this is a cryptographically unique, use-once number.
 pub struct Nonce(u32);
 
-// It's unsafe to declare a nonce directly! In practice,
-// this would be done with an RNG source, and potentially
-// a timestamp.
-unsafe fn new_nonce_from_raw(nonce: u32) -> Nonce {
-    Nonce(nonce)
-}
-
-let nonce = unsafe { new_nonce_from_raw(1337) };
+let nonce = Nonce(1337);
 let data_1: [u8; 4] = [1, 2, 3, 4];
 let data_2: [u8; 4] = [4, 3, 2, 1];
 let key = Key;
@@ -34,7 +27,7 @@ encrypt(nonce, &key, &data_2); // 🛠️❌
 ```
 <details>
 
-- Owned "consumption" lets us model single-once values.
+- Owned "consumption" lets us model single-use values.
 
 - Not implementing clone/copy here and making the interior type opaque (as per the newtype pattern) is _intentional_, as it prevents multiple uses of the same, API-controlled value.
 

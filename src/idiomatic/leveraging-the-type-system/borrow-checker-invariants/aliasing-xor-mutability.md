@@ -2,47 +2,48 @@
 minutes: 0
 ---
 
-# Aliasing XOR Mutability
+# Mutually Exclusive References, or "Aliasing XOR Mutability"
 
 We can use the mutual exclusion of `&T` and `&mut T` references for a single value to model some constraints.
 
 ```rust,editable
-fn main() {
-pub struct TransactionInterface(/* some kind of interior state */);
+pub struct Transaction(/* some kind of interior state */);
+pub struct QueryResult(String);
 
 pub struct DatabaseConnection {
-    transaction: TransactionInterface,
+    transaction: Transaction,
+    query_results: Vec<QueryResult>,
 }
 
 impl DatabaseConnection {
-    pub fn new() -> Self { Self { transaction: TransactionInterface(/* again, pretend there's some interior state */) } }
-    pub fn get_transaction(&self) -> &TransactionInterface { &self.transaction }
-    pub fn commit(&mut self) {}
+    pub fn new() -> Self { Self { transaction: Transaction(/* again, pretend there's some interior state */), query_results: vec![] } }
+    pub fn get_transaction(&mut self) -> &mut Transaction { &mut self.transaction }
+    pub fn results(&self) -> &[QueryResult] { &self.query_results }
+    pub fn commit(&mut self) { println!("Transaction committed!") }
 }
 
-pub fn do_something_with_transaction(transaction: &TransactionInterface) {}
+pub fn do_something_with_transaction(transaction: &mut Transaction) {}
 
-let mut db = DatabaseConnection::new();
-let transaction = db.get_transaction();
-do_something_with_transaction(transaction);
-db.commit();
-do_something_with_transaction(transaction); // 🛠️❌
+fn main() {
+    let mut db = DatabaseConnection::new();
+    let mut transaction = db.get_transaction();
+    do_something_with_transaction(transaction);
+    let assumed_the_transactions_happened_immediately = db.results(); // ❌🔨
+    do_something_with_transaction(transaction);
+    // Works, as the lifetime of "transaction" as a reference ended above.
+    let assumed_the_transactions_happened_immediately_again = db.results();
+    db.commit();
 }
 ```
 
 <details>
 
-- This example shows how we can use the "Aliasing XOR Mutability" rule when it comes to shared and mutable references to model safe access to transactions for a database. This is a loose sketch of such a model, and rust database frameworks you use may not look anything like this in practice.
+- Aliasing XOR Mutability is a shorthand for "we can have multiple immutable references, a single mutable reference, but not both."
 
-- As laid out in [generalizing ownership]("./generalizing-ownership.md") we can look at the ways Mutable References and Shareable References interact to see if they fit with the invariants we want to uphold for an API.
+- This example shows how we can use the mutual exclusion of these kinds of references when it comes to prevent a user from reading query results while using the transaction API, something that might happen if the user is working under the false assumption that the queries being written to the transaction happen "immediately" rather than being queued up and performed together.
 
-- Here we want to be able to write to a transaction, which has some internal breaking of rust rules we don't concern ourselves with, before then committing that transaction.
+- As laid out in [generalizing ownership](generalizing-ownership.md) we can look at the ways Mutable References and Shareable References interact to see if they fit with the invariants we want to uphold for an API.
 
-- By having the "commit transaction" method take a mutable reference, regardless of if mutation is happening, the borrow checker prevents references to the internal transaction surface persisting between calls to that method.
-
-- The transaction itself can be modelled with a shareable reference, not necessarily because the interior state stays the same while we use it but because this prevents using the "commit transaction" functionality until the transaction is "over."
-
-<!-- Entirely reasonable to reframe the example off this contradiction, but I think it has pedagogical value regardless. -->
-- Tangential: We could instead have the `get_transaction` method return a mutable reference off a mutable reference to self (`fn get_transaction(&mut self) -> &mut TransactionInterface`) but we're trying to show off the ways shareable and mutable references exclude each other here.
+- By having the query results not public and placed behind a getter function, we can enforce the invariant "users of this API are not looking at the query results at the same time as they are writing to a transaction."
 
 </details>
