@@ -94,6 +94,30 @@ fn execute_task() -> Result<()> {
 
 fn install_tools() -> Result<()> {
     println!("Installing project tools...");
+
+    const PINNED_NIGHTLY: &str = "nightly-2025-09-01";
+
+    let rustup_steps = [
+        // Installe la toolchain sans les composants inutiles
+        ["toolchain", "install", "--profile", "minimal", PINNED_NIGHTLY],
+        // Ajoute rustfmt pour cette toolchain
+        ["component", "add", "rustfmt", "--toolchain", PINNED_NIGHTLY],
+    ];
+
+    for args in rustup_steps {
+        let status = std::process::Command::new("rustup")
+            .args(args)
+            .status()
+            .expect("Failed to execute rustup");
+        if !status.success() {
+            return Err(anyhow!(
+                "Command 'rustup {}' failed with status {:?}",
+                args.join(" "),
+                status.code()
+            ));
+        }
+    }
+
     let path_to_mdbook_exerciser =
         Path::new(env!("CARGO_WORKSPACE_DIR")).join("mdbook-exerciser");
     let path_to_mdbook_course =
