@@ -13,6 +13,8 @@ env:
 jobs:
   format:
     runs-on: ubuntu-latest
+    env:
+      NIGHTLY_VERSION: nightly-2025-09-01
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -24,9 +26,9 @@ jobs:
 
       - name: Install pinned nightly for rustfmt
         run: |
-          rustup toolchain install --profile minimal nightly-2025-09-01
-          rustup component add rustfmt --toolchain nightly-2025-09-01
-
+          rustup toolchain install --profile minimal "$NIGHTLY_VERSION"
+          rustup component add rustfmt --toolchain "$NIGHTLY_VERSION"
+        
       - name: Check formatting
         uses: dprint/check@v2.3
 

@@ -60,7 +60,7 @@ please run:
 cargo xtask install-tools
 ```
 
-This will install the pinned nightly toolchain (`nightly-2025-09-01`) and add
+This will install the pinned nightly toolchain and add
 the `rustfmt` component, so your local formatting will match the CI.
 
 ### Linux

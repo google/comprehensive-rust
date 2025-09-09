@@ -98,17 +98,14 @@ fn install_tools() -> Result<()> {
     const PINNED_NIGHTLY: &str = "nightly-2025-09-01";
 
     let rustup_steps = [
-        // Installe la toolchain sans les composants inutiles
         ["toolchain", "install", "--profile", "minimal", PINNED_NIGHTLY],
-        // Ajoute rustfmt pour cette toolchain
         ["component", "add", "rustfmt", "--toolchain", PINNED_NIGHTLY],
     ];
 
     for args in rustup_steps {
         let status = std::process::Command::new("rustup")
             .args(args)
-            .status()
-            .expect("Failed to execute rustup");
+            .status()?;
         if !status.success() {
             return Err(anyhow!(
                 "Command 'rustup {}' failed with status {:?}",
