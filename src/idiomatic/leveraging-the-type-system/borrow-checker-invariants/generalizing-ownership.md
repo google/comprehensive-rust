@@ -32,7 +32,7 @@ let even_more_mut_denial = shared_use(&value); // ❌🔨
 
 <details> 
 
-- This example re-frames the borrow checker rules away from references and towards semantic meaning in non-memory-safety settings. Nothing is being mutated, nothing is being sent across threads.
+- This example re-frames the borrow checker rules away from references and towards semantic meaning in non-memory-safety settings. Nothing is being mutated, nothing is being sent across threads. 
 
 - To use the borrow checker as a problem solving tool, we will need to "forget" that the original purpose of it is to prevent mutable aliasing in the context of concurrency & dangling pointers, instead imagining and working within situations where the rules are the same but the meaning is slightly different.
 
@@ -45,7 +45,7 @@ let even_more_mut_denial = shared_use(&value); // ❌🔨
 
 - Shared Reference. Allows aliasing but prevents mutable access while any of these exist. We can't "dispatch" to methods and functions that take mutable reference when all we have is a shared reference.
 
-- Important to remember that every `&T` and `&mut T` has an _implicit lifetime._ We get to avoid annotating a lot of lifetimes because the rust compiler can infer the majority of them. See: [Lifetime Elision](../../../lifetimes/lifetime-elision.md)
+- Important to remember that every `&T` and `&mut T` has an _implicit lifetime._ We get to avoid annotating a lot of lifetimes because the rust compiler can infer the majority of them. See: [Lifetime Elision](../../../lifetimes/lifetime-elision.md).
 
 - Potentially relevant: show how we can replace a lot of the `&` and `&mut` here with `&'a` and `&'a mut`.
 

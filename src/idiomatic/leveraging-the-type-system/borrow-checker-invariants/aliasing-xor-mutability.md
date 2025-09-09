@@ -46,4 +46,10 @@ fn main() {
 
 - By having the query results not public and placed behind a getter function, we can enforce the invariant "users of this API are not looking at the query results at the same time as they are writing to a transaction."
 
+- The example API can still be circumvented, how so?
+<details>
+    - The user could access the transaction solely through `db.get_transaction()`, leaving the lifetime too temporary to prevent access to `db.results()`.
+    - How could we avoid this by working in other concepts from "Leveraging the Type System"?
+</details>
+
 </details>

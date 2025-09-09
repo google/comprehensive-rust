@@ -43,9 +43,10 @@ if let Ok(opened_door) = opened_door {
 
 <details>
 
-- The borrow checker has been used to prevent use-after-free and multiple mutable references up until this point.
+<!-- TODO: link to typestate when that gets merged. -->
+- The borrow checker has been used to prevent use-after-free and multiple mutable references up until this point, and we've used types to shape and restrict use of APIs already using the "typestate" pattern.
 
-- This example uses the ownership & borrowing rules to model the opening and closing of a door. We can try to open a door with a key, but if it's the wrong key the door is still closed (here represented as an error) and the key persists regardless.
+- This example uses the ownership & borrowing rules to model the locking and unlocking of a door. We can try to open a door with a key, but if it's the wrong key the door is still closed (here represented as an error) and the key persists regardless.
 
 - The rules of the borrow checker exist to prevent developers from accessing, changing, and holding onto data in memory in unpredictable ways without being so restrictive to the point where it prevents _writing software_. The underlying logical system does not "know" what memory is. All it does is enforce a specific set of rules of how different operations affect what possible later operations are.
 
