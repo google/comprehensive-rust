@@ -32,7 +32,7 @@ Key points:
 - Rust is very much like other languages in the C/C++/Java tradition. It is
   imperative and it doesn't try to reinvent things unless absolutely necessary.
 
-- Rust is modern with full support for things like Unicode.
+- Rust is modern with full support for Unicode.
 
 - Rust uses macros for situations where you want to have a variable number of
   arguments (no function [overloading](../control-flow-basics/functions.md)).

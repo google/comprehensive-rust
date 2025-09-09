@@ -1,6 +1,6 @@
 # Array Types
 
-The array types (`T[]`, `byte[]`, and `List<T>`) get translated to the
+The array types (`T[]`, `byte[]`, and `List<T>`) are translated to the
 appropriate Rust array type depending on how they are used in the function
 signature:
 

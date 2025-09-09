@@ -59,7 +59,7 @@ fn main() {
 ## More to Explore
 
 - To further motivate the usage of `match`, you can compare the examples to
-  their equivalents written with `if`. In the second case matching on a `bool`
+  their equivalents written with `if`. In the second case, matching on a `bool`,
   an `if {} else {}` block is pretty similar. But in the first example that
   checks multiple cases, a `match` expression can be more concise than
   `if {} else if {} else if {} else`.

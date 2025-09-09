@@ -1,7 +1,7 @@
 # Labels
 
-Both `continue` and `break` can optionally take a label argument which is used
-to break out of nested loops:
+Both `continue` and `break` can optionally take a label argument that is used to
+break out of nested loops:
 
 ```rust,editable
 fn main() {

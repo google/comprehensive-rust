@@ -14,7 +14,7 @@ Programs allocate memory in two ways:
 
 - Heap: Storage of values outside of function calls.
   - Values have dynamic sizes determined at runtime.
-  - Slightly slower than the stack: some book-keeping needed.
+  - Slightly slower than the stack: some bookkeeping needed.
   - No guarantee of memory locality.
 
 ## Example
