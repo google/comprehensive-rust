@@ -54,14 +54,14 @@ this:
 Run `dprint fmt` to automatically format all files.
 
 **Note:** To make sure you have the correct version of `rustfmt` installed,
- please run:
+please run:
 
- ```bash
- cargo xtask install-tools
- ```
+```bash
+cargo xtask install-tools
+```
 
- This will install the pinned nightly toolchain (`nightly-2025-09-01`) and add
- the `rustfmt` component, so your local formatting will match the CI.
+This will install the pinned nightly toolchain (`nightly-2025-09-01`) and add
+the `rustfmt` component, so your local formatting will match the CI.
 
 ### Linux
 
