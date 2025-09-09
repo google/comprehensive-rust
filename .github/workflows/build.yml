@@ -22,10 +22,10 @@ jobs:
           sudo apt update
           sudo apt install gettext yapf3
 
-      - name: Install nightly rustfmt
+      - name: Install pinned nightly for rustfmt
         run: |
-          rustup default nightly
-          rustup component add rustfmt
+          rustup toolchain install --profile minimal nightly-2025-09-01
+          rustup component add rustfmt --toolchain nightly-2025-09-01
 
       - name: Check formatting
         uses: dprint/check@v2.3
