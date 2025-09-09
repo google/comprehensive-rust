@@ -103,9 +103,7 @@ fn install_tools() -> Result<()> {
     ];
 
     for args in rustup_steps {
-        let status = std::process::Command::new("rustup")
-            .args(args)
-            .status()?;
+        let status = std::process::Command::new("rustup").args(args).status()?;
         if !status.success() {
             return Err(anyhow!(
                 "Command 'rustup {}' failed with status {:?}",
