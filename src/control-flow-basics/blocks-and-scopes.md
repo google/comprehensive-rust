@@ -6,7 +6,7 @@ minutes: 5
 
 - A block in Rust contains a sequence of expressions, enclosed by braces `{}`.
 - The final expression of a block determines the value and type of the whole
-  block:
+  block.
 
 ```rust,editable
 fn main() {
