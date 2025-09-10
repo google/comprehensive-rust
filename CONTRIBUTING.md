@@ -53,6 +53,16 @@ this:
 
 Run `dprint fmt` to automatically format all files.
 
+**Note:** To make sure you have the correct version of `rustfmt` installed,
+please run:
+
+```bash
+cargo xtask install-tools
+```
+
+This will install the pinned nightly toolchain and add the `rustfmt` component,
+so your local formatting will match the CI.
+
 ### Linux
 
 Install `dprint` using their

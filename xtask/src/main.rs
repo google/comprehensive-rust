@@ -21,9 +21,9 @@
 
 use anyhow::{Ok, Result, anyhow};
 use clap::{Parser, Subcommand};
+use std::env;
 use std::path::{Path, PathBuf};
-use std::process::Stdio;
-use std::{env, process::Command};
+use std::process::{Command, Stdio};
 
 fn main() -> Result<()> {
     if let Err(e) = execute_task() {
@@ -49,7 +49,8 @@ enum Task {
     InstallTools,
     /// Runs the web driver tests in the tests directory.
     WebTests {
-        /// Optional 'book html' directory - if set, will also refresh the list of slides used by slide size test.
+        /// Optional 'book html' directory - if set, will also refresh the list
+        /// of slides used by slide size test.
         #[arg(short, long)]
         dir: Option<PathBuf>,
     },
@@ -61,7 +62,8 @@ enum Task {
         #[arg(short, long)]
         language: Option<String>,
 
-        /// Directory to place the build. If not provided, defaults to the book/ directory (or the book/xx directory if a language is provided).
+        /// Directory to place the build. If not provided, defaults to the book/
+        /// directory (or the book/xx directory if a language is provided).
         #[arg(short, long)]
         output: Option<PathBuf>,
     },
@@ -71,7 +73,8 @@ enum Task {
         #[arg(short, long)]
         language: Option<String>,
 
-        /// Directory to place the build. If not provided, defaults to the book/ directory (or the book/xx directory if a language is provided).
+        /// Directory to place the build. If not provided, defaults to the book/
+        /// directory (or the book/xx directory if a language is provided).
         #[arg(short, long)]
         output: Option<PathBuf>,
     },
@@ -91,6 +94,25 @@ fn execute_task() -> Result<()> {
 
 fn install_tools() -> Result<()> {
     println!("Installing project tools...");
+
+    const PINNED_NIGHTLY: &str = "nightly-2025-09-01";
+
+    let rustup_steps = [
+        ["toolchain", "install", "--profile", "minimal", PINNED_NIGHTLY],
+        ["component", "add", "rustfmt", "--toolchain", PINNED_NIGHTLY],
+    ];
+
+    for args in rustup_steps {
+        let status = std::process::Command::new("rustup").args(args).status()?;
+        if !status.success() {
+            return Err(anyhow!(
+                "Command 'rustup {}' failed with status {:?}",
+                args.join(" "),
+                status.code()
+            ));
+        }
+    }
+
     let path_to_mdbook_exerciser =
         Path::new(env!("CARGO_WORKSPACE_DIR")).join("mdbook-exerciser");
     let path_to_mdbook_course =
@@ -286,8 +308,9 @@ fn build(language: Option<String>, output_arg: Option<PathBuf>) -> Result<()> {
 }
 
 fn get_output_dir(language: Option<String>, output_arg: Option<PathBuf>) -> PathBuf {
-    // If the 'output' arg is specified by the caller, use that, otherwise output to the 'book/' directory
-    // (or the 'book/xx' directory if a language was specified).
+    // If the 'output' arg is specified by the caller, use that, otherwise output to
+    // the 'book/' directory (or the 'book/xx' directory if a language was
+    // specified).
     if let Some(d) = output_arg {
         d
     } else {

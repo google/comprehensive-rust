@@ -13,6 +13,8 @@ env:
 jobs:
   format:
     runs-on: ubuntu-latest
+    env:
+      NIGHTLY_VERSION: nightly-2025-09-01
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -22,10 +24,10 @@ jobs:
           sudo apt update
           sudo apt install gettext yapf3
 
-      - name: Install nightly rustfmt
+      - name: Install pinned nightly for rustfmt
         run: |
-          rustup default nightly
-          rustup component add rustfmt
+          rustup toolchain install --profile minimal "$NIGHTLY_VERSION"
+          rustup component add rustfmt --toolchain "$NIGHTLY_VERSION"
 
       - name: Check formatting
         uses: dprint/check@v2.3
