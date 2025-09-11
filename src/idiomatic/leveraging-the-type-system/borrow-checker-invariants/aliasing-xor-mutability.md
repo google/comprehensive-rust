@@ -38,18 +38,29 @@ fn main() {
 
 <details>
 
-- Aliasing XOR Mutability is a shorthand for "we can have multiple immutable references, a single mutable reference, but not both."
+- Aliasing XOR Mutability means "we can have multiple immutable references, a single mutable reference, but not both."
 
-- This example shows how we can use the mutual exclusion of these kinds of references when it comes to prevent a user from reading query results while using the transaction API, something that might happen if the user is working under the false assumption that the queries being written to the transaction happen "immediately" rather than being queued up and performed together.
+- This example shows how we can use the mutual exclusion of these kinds of references when it comes to dissuade a user from reading query results while using the transaction API, something that might happen if the user is working under the false assumption that the queries being written to the transaction happen "immediately" rather than being queued up and performed together.
+
+- By borrowing one field of a struct under a mutable / exclusive reference we prevent access to the other fields of that struct under a shared / non-exclusive reference until the lifetime of that borrow ends.
 
 - As laid out in [generalizing ownership](generalizing-ownership.md) we can look at the ways Mutable References and Shareable References interact to see if they fit with the invariants we want to uphold for an API.
 
-- By having the query results not public and placed behind a getter function, we can enforce the invariant "users of this API are not looking at the query results at the same time as they are writing to a transaction."
+- In this case, having the query results not public and placed behind a getter function, we can enforce the invariant "users of this API are not looking at the query results at the same time as they are writing to a transaction."
 
-- The example API can still be circumvented, how so?
+<!-- Setup for Exercises -->
 <details>
-    - The user could access the transaction solely through `db.get_transaction()`, leaving the lifetime too temporary to prevent access to `db.results()`.
-    - How could we avoid this by working in other concepts from "Leveraging the Type System"?
+<summary>
+The "don't look at query results while building a " API can still be circumvented, how so?
+</summary>
+    <ul>
+    <li>
+    The user could access the transaction solely through `db.get_transaction()`, leaving the lifetime too temporary to prevent access to `db.results()`.
+    </li>
+    <li>
+    How could we avoid this by working in other concepts from "Leveraging the Type System"?
+    </li>
+    </ul>
 </details>
 
 </details>

@@ -38,9 +38,9 @@ println!("{}", erased_owned_and_linked.get()); // ❌🔨
 
 <details>
 
-- PhantomData lets developers "tag" types with type and lifetime parameters that are not "really" present in the struct or enum.
+- `PhantomData` lets developers "tag" types with type and lifetime parameters that are not "really" present in the struct or enum.
 
-- PhantomData can be used with the Typestate pattern to have data with the same structure i.e. `TaggedData<Start>` can have methods or trait implementations that `TaggedData<End>` doesn't.
+- `PhantomData` can be used with the Typestate pattern to have data with the same structure i.e. `TaggedData<Start>` can have methods or trait implementations that `TaggedData<End>` doesn't.
 
 - But it can also be used to encode a connection between the lifetime of one value and another, while both values still maintain separate owned data within them.
 
