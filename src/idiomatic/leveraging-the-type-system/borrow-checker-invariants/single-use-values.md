@@ -35,7 +35,7 @@ encrypt(nonce, &key, &data_2); // 🛠️❌
 
 - Owned "consumption" of values lets us model things that need to be single-use.
 
-- By keeping constructors private and not implementing clone/copy for a type and making the interior type opaque (as per the newtype pattern) is _intentional_, as it prevents multiple uses of the same, API-controlled value.
+- By keeping constructors private and not implementing clone/copy for a type, making the interior type opaque (as per the newtype pattern), we can prevent multiple uses of the same, API-controlled value.
 
 - In the above example, a Nonce is a additional piece of random, unique data during an encryption process that helps prevent "replay attacks".
   
