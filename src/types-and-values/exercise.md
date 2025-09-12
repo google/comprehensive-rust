@@ -23,3 +23,15 @@ this function panic?
 
 {{#include exercise.rs:main}}
 ```
+
+<details>
+
+- This exercise is a classic introduction to recursion.
+- Encourage students to think about the base cases and the recursive step.
+- The question "When will this function panic?" is a hint to think about integer
+  overflow. The Fibonacci sequence grows quickly!
+- Students might come up with an iterative solution as well, which is a great
+  opportunity to discuss the trade-offs between recursion and iteration (e.g.,
+  performance, stack overflow for deep recursion).
+
+</details>
