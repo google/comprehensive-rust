@@ -97,3 +97,15 @@ get going. Translations are coordinated on the [issue tracker].
 [synced-translation-report]: https://google.github.io/comprehensive-rust/synced-translation-report.html
 [our instructions]: https://github.com/google/comprehensive-rust/blob/main/TRANSLATIONS.md
 [issue tracker]: https://github.com/google/comprehensive-rust/issues/282
+
+<details>
+
+- This is a good opportunity to thank the volunteers who have contributed to the
+  translations.
+- If there are students in the class who speak any of the listed languages, you
+  can encourage them to check out the translated versions and even contribute if
+  they find any issues.
+- Highlight that the project is open source and contributions are welcome, not
+  just for translations but for the course content itself.
+
+</details>

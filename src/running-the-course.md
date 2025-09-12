@@ -55,3 +55,29 @@ better. Your students are also very welcome to [send us feedback][2]!
 [1]: https://github.com/google/comprehensive-rust/discussions/86
 [2]: https://github.com/google/comprehensive-rust/discussions/100
 [3]: https://github.com/google/comprehensive-rust#building
+
+<details>
+
+### Instructor Preparation
+
+- **Go through all the material:** Before teaching the course, make sure you
+  have gone through all the slides and exercises yourself. This will help you
+  anticipate questions and potential difficulties.
+- **Prepare for live coding:** The course involves a lot of live coding.
+  Practice the examples and exercises beforehand to ensure you can type them out
+  smoothly during the class. Have the solutions ready in case you get stuck.
+- **Familiarize yourself with `mdbook`:** The course is presented using
+  `mdbook`. Knowing how to navigate, search, and use its features will make the
+  presentation smoother.
+
+### Creating a Good Learning Environment
+
+- **Encourage questions:** Reiterate that there are no "stupid" questions. A
+  welcoming atmosphere for questions is crucial for learning.
+- **Manage time effectively:** Keep an eye on the schedule, but be flexible.
+  It's more important that students understand the concepts than sticking
+  rigidly to the timeline.
+- **Facilitate group work:** During exercises, encourage students to work
+  together. This can help them learn from each other and feel less stuck.
+
+</details>
