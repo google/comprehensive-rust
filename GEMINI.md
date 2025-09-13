@@ -36,6 +36,8 @@ tests, and managing translations.
    ```bash
    cargo xtask install-tools
    ```
+   This is a necessary first step for working with this repository. It will
+   install the correct versions of all tools used by the project.
 
 ## Commands
 
@@ -72,6 +74,9 @@ list of options.
   development tasks.
 - **Course Content:** Markdown files in the `src/` directory, structured
   according to `src/SUMMARY.md`.
+- **Code Formatting:** `dprint fmt` is used to format all source files according
+  to `rustfmt.toml` and `dprint.json`. Note that you must first install the
+  project tools with `cargo xtask install-tools`.
 - **Contributions:** Refer to `CONTRIBUTING.md` for guidelines on contributing
   to the project.
 - **Style:** Refer to `STYLE.md` for style guidelines.

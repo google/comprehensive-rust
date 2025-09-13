@@ -65,15 +65,15 @@ git clone https://github.com/google/comprehensive-rust/
 cd comprehensive-rust
 ```
 
-Then install these tools with:
+Then run the following command to install the correct versions of all tools
+mentioned above:
 
 ```shell
 cargo xtask install-tools
 ```
 
-> **Note** We use `xtask` for task automation within the project (e.g.
-> installing required tools). Xtask is not a package that you should install.
-> Visit https://github.com/matklad/cargo-xtask for more information.
+This uses `cargo install` to install the tools, so you will find them in your
+`~/.cargo/bin/` directory afterwards.
 
 ## Commands
 
