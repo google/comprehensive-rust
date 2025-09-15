@@ -39,14 +39,12 @@ let even_more_mut_denial = shared_use(&value); // ❌🔨
 - In rust's borrow checker we have access to three different ways of "taking" a value:
 
   <!-- TODO: actually link to the RAII section when it has been merged. -->
-  - Owned value `T`. Very permissive case of what you can do with it, but demands that nothing else is using it in any context and drops the value when scope ends (unless that scope returns this value) (see: RAII.)
+  - Owned value `T`. Very permissive case, to the point where mutability can be re-set, but demands that nothing else is using it in any context and drops the value when scope ends (unless that scope returns this value) (see: RAII.)
 
   - Mutable Reference `&mut T`. While holding onto a mutable reference we can still "dispatch" to methods and functions that take an immutable, shared reference of the value but only as long as we're not aliasing immutable, shared references to related data "after" that dispatch.
 
   - Shared Reference `&T`. Allows aliasing but prevents mutable access while any of these exist. We can't "dispatch" to methods and functions that take mutable references when all we have is a shared reference.
 
 - Remember that every `&T` and `&mut T` has an _implicit lifetime._ We get to avoid annotating a lot of lifetimes because the rust compiler can infer the majority of them. See: [Lifetime Elision](../../../lifetimes/lifetime-elision.md).
-
-- Potentially relevant: show how we can replace a lot of the `&` and `&mut` here with `&'a` and `&'a mut`.
 
 </details>

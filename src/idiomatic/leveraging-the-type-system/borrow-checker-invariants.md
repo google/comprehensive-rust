@@ -48,12 +48,8 @@ if let Ok(opened_door) = opened_door {
 
 - This example uses the ownership & borrowing rules to model the locking and unlocking of a door. We can try to open a door with a key, but if it's the wrong key the door is still closed (here represented as an error) and the key persists regardless.
 
-- The rules of the borrow checker exist to prevent developers from accessing, changing, and holding onto data in memory in unpredictable ways without being so restrictive to the point where it prevents _writing software_. The underlying logical system does not "know" what memory is. All it does is enforce a specific set of rules of how different operations affect what possible later operations are.
+- The rules of the borrow checker exist to prevent developers from accessing, changing, and holding onto data in memory in unpredictable ways without being so restrictive that it would prevent _writing software_. The underlying logical system does not "know" what memory is. All it does is enforce a specific set of rules of how different operations affect what later operations are possible.
 
-- Those rules can apply to many other cases, so we can piggy-back onto the rules of the borrow checker to design APIs to be harder or impossible to misuse. Even when there's little or no actual "memory safety" concerns in the problem domain.
-
-- This section will walk through some of those different domains.
-
-- Interior, private mutability or reference counting in data types may let an API designer shift the meaning of ownership to a different (but analogous) set of semantics as they need to, even to the point where some API designers have managed to model self-referential types this way.
+- Those rules can apply to many other cases: We can piggy-back onto the rules of the borrow checker to design APIs to be harder or impossible to misuse, even when there's little or no "memory safety" concerns in the problem domain. This section will walk through some of those different domains.
 
 </details>

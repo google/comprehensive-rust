@@ -8,14 +8,17 @@ In some circumstances we want values that can be used _exactly once_. One critic
 
 ```rust,editable
 fn main() {
-    
+
 mod cryptography {
     pub struct Key;
-    // Pretend this is a cryptographically unique, use-once number.
+    // Pretend this is a cryptographically sound, single-use number.
     pub struct Nonce(u32);
-    // And pretend this is using cryptographically secure 
-    pub fn new_nonce() -> Nonce { Nonce(std::time::UNIX_EPOCH.elapsed().unwrap_or_default().subsec_nanos()) }
+    // And pretend this is cryptographically sound random generator function.
+    pub fn new_nonce() -> Nonce {
+        Nonce(std::time::UNIX_EPOCH.elapsed().unwrap_or_default().subsec_nanos()) 
+    }
     
+    // We consume a nonce, but not the key or the data.
     pub fn encrypt(nonce: Nonce, key: &Key, data: &[u8]) {}
 }
 
