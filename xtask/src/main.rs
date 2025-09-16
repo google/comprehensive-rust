@@ -42,7 +42,11 @@ struct Cli {
 #[derive(Subcommand)]
 enum Task {
     /// Installs the tools the project depends on.
-    InstallTools,
+    InstallTools {
+        /// Use cargo-binstall for faster installation.
+        #[arg(long)]
+        binstall: bool,
+    },
     /// Runs the web driver tests in the tests directory.
     WebTests {
         /// Optional 'book html' directory - if set, will also refresh the list
@@ -79,7 +83,7 @@ enum Task {
 fn execute_task() -> Result<()> {
     let cli = Cli::parse();
     match cli.task {
-        Task::InstallTools => install_tools(),
+        Task::InstallTools { binstall } => install_tools(binstall),
         Task::WebTests { dir } => run_web_tests(dir),
         Task::RustTests => run_rust_tests(),
         Task::Serve { language, output } => start_web_server(language, output),
@@ -105,8 +109,12 @@ fn run_command(cmd: &mut Command) -> Result<()> {
     Ok(())
 }
 
-fn install_tools() -> Result<()> {
+fn install_tools(binstall: bool) -> Result<()> {
     println!("Installing project tools...");
+
+    let cargo = env!("CARGO");
+
+    let install_command = if binstall { "binstall" } else { "install" };
 
     const PINNED_NIGHTLY: &str = "nightly-2025-09-01";
 
@@ -121,7 +129,6 @@ fn install_tools() -> Result<()> {
         run_command(&mut cmd)?;
     }
 
-    let cargo = env!("CARGO");
     // The --locked flag is important for reproducible builds.
     let tools = [
         ("mdbook", "0.4.52"),
@@ -134,12 +141,13 @@ fn install_tools() -> Result<()> {
 
     for (tool, version) in tools {
         let mut cmd = Command::new(cargo);
-        cmd.args(["install", tool, "--version", version, "--locked"]);
+        cmd.args([install_command, tool, "--version", version, "--locked"]);
         run_command(&mut cmd)?;
     }
 
     // Install local tools from the workspace.
     let workspace_dir = Path::new(env!("CARGO_WORKSPACE_DIR"));
+    // cargo-binstall does not support --path, so we always use cargo install here.
     let local_tools = ["mdbook-exerciser", "mdbook-course"];
     for tool in local_tools {
         let mut cmd = Command::new(cargo);
