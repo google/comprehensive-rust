@@ -5,8 +5,11 @@ description: Install mdbook with the dependencies we need.
 runs:
   using: composite
   steps:
+    - name: Ensure cargo-binstall is installed
+      uses: cargo-bins/cargo-binstall@main
+
     - name: Install mdbook
-      run: cargo xtask install-tools
+      run: cargo xtask install-tools --binstall
       shell: bash
 
     - name: Install dependencies for mdbook-pandoc
