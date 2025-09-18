@@ -19,7 +19,7 @@ What you see:
 - The `main` function is the entry point of the program.
 - Blocks are delimited by curly braces like in C and C++.
 - Statements end with `;`.
-- Rust has hygienic macros, `println!` is an example of this.
+- `println` is a macro, indicated by the `!` in the invocation.
 - Rust strings are UTF-8 encoded and can contain any Unicode character.
 
 <details>
@@ -37,9 +37,9 @@ Key points:
 - Rust uses macros for situations where you want to have a variable number of
   arguments (no function [overloading](../control-flow-basics/functions.md)).
 
-- Macros being 'hygienic' means they don't accidentally capture identifiers from
-  the scope they are used in. Rust macros are actually only
-  [partially hygienic](https://veykril.github.io/tlborm/decl-macros/minutiae/hygiene.html).
+- `println!` is a macro because it needs to handle an arbitrary number of
+  arguments based on the format string, which can't be done with a regular
+  function. Otherwise it can be treated like a regular function.
 
 - Rust is multi-paradigm. For example, it has powerful
   [object-oriented programming features](https://doc.rust-lang.org/book/ch17-00-oop.html),
