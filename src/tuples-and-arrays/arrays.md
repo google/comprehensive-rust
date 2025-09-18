@@ -66,6 +66,8 @@ fn main() {
   array. The length of an array is fixed at compile-time, and so its length
   cannot change at runtime.
 
+## Debug Printing
+
 - The `println!` macro asks for the debug implementation with the `?` format
   parameter: `{}` gives the default output, `{:?}` gives the debug output. Types
   such as integers and strings implement the default output, but arrays only
