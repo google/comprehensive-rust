@@ -4,8 +4,8 @@ minutes: 10
 
 # `const`
 
-Constants are evaluated at compile time and their values are inlined wherever
-they are used:
+Constants are evaluated at compile time and their values are [inlined][1]
+wherever they are used:
 
 <!-- mdbook-xgettext: skip -->
 
@@ -30,8 +30,6 @@ fn main() {
     println!("digest: {digest:?}");
 }
 ```
-
-According to the [Rust RFC Book][1] these are inlined upon use.
 
 Only functions marked `const` can be called at compile time to generate `const`
 values. `const` functions can however be called at runtime.
