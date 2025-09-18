@@ -72,8 +72,70 @@ list of options.
   development tasks.
 - **Course Content:** Markdown files in the `src/` directory, structured
   according to `src/SUMMARY.md`.
-- **Code Formatting:** `dprint fmt` is used to format all source files according
-  to `rustfmt.toml` and `dprint.json`.
 - **Contributions:** Refer to `CONTRIBUTING.md` for guidelines on contributing
   to the project.
 - **Style:** Refer to `STYLE.md` for style guidelines.
+
+## Markdown Conventions
+
+- **Headings:**
+  - **H1 (`#`):** Used for the main title of each page. Each slide has exactly
+    one title.
+  - **H2 (`##`):** Used for major sections. Slides do not use H2 headings to
+    save vertical space; more slides are created instead.
+  - **H3 (`###`):** Used for sub-sections, but not on slides.
+
+- **Emphasis:**
+  - **Bold (`**...**`):** Used to highlight key terms, commands, and for notes
+    (e.g., `**Note:**`). The colon (`:`) is included inside the bold text for
+    notes.
+  - **Italic (`_..._`):** Used for general emphasis, titles of external
+    articles, and for terms being defined.
+
+- **Code:**
+  - **Inline Code (`` `...` ``):** Used for code snippets, file names, commands,
+    type names, and language keywords. Rust fragments are formatted as `rustfmt`
+    would.
+  - **Code Blocks (`` ```...``` ``):** Fenced code blocks are used for
+    multi-line code examples, annotated with a language identifier (e.g.,
+    `rust`, `c`, `ignore`).
+  - **Interactive Code Blocks:** Rust examples are made interactive with
+    `editable`. Examples that fail to compile are marked with `compile_fail` or
+    `should_panic`.
+  - **Diagrams:** The `bob` language identifier is used in code blocks to
+    generate ASCII art diagrams.
+  - **Formatting Control:** The `#[rustfmt::skip]` attribute is used to prevent
+    `rustfmt` from formatting specific code blocks, though it is used rarely.
+
+- **Lists:**
+  - **Bulleted Lists:** Unordered lists are the primary way to lay out key
+    points on slides.
+  - **Glossary Format:** The glossary uses a specific format with a colon and
+    backslash (`:\`) after each term to create a hard line break for visual
+    formatting.
+
+- **Other Markdown Elements:**
+  - **Block Quotes (`> ...`):** Used sparingly for important notes, warnings, or
+    supplementary information to draw attention.
+  - **Links:** Both standard (`[text](url)`) and reference-style
+    (`[text][label]`) links are used.
+  - **Tables:** Markdown tables are used to present structured data.
+  - **Horizontal Rules (`---`):** Not used on slides.
+
+- **HTML Tags:**
+  - **`<details>`:** Used for collapsible "speaker notes".
+  - **`<kbd>`:** Used to denote keyboard keys.
+  - **`<style>`:** Used rarely for targeted custom CSS.
+  - **`<img>`:** Used to embed images.
+
+- **Project-Specific Conventions:**
+  - **mdbook Includes:** The `{{#include ...}}` helper is used to include
+    snippets from other files.
+  - **mdbook Segments:** The `{{%segment ...%}}` and `{{%session ...%}}` helpers
+    are used for course structuring.
+  - **Frontmatter:** Files start with YAML frontmatter (enclosed in `---`) to
+    provide metadata.
+  - **Doc Comments:** Standard Rust doc comments (`///`, `//!`) are used.
+    `/// # Safety` is used to document safety preconditions for `unsafe` code.
+  - **Comments:** HTML comments (`<!-- ... -->`) are used for editor/translator
+    instructions and content control (e.g., `mdbook-xgettext: skip`).
