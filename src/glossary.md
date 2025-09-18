@@ -225,8 +225,8 @@ h1#glossary ~ ul > li:first-line {
   Rust comes with built-in support for running small unit tests and larger
   integration tests. See [Unit Tests](testing/unit-tests.md).
 - unit type:\
-  Type that holds no data, written as a tuple with no members. See
-  speaker notes on [Functions](control-flow-basics/functions.html).
+  Type that holds no data, written as a tuple with no members. See speaker notes
+  on [Functions](control-flow-basics/functions.html).
 - unsafe:\
   The subset of Rust which allows you to trigger _undefined behavior_. See
   [Unsafe Rust](unsafe-rust/unsafe.md).
