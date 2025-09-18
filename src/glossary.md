@@ -226,7 +226,7 @@ h1#glossary ~ ul > li:first-line {
   integration tests. See [Unit Tests](testing/unit-tests.md).
 - unit type:\
   Type that holds no data, written as a tuple with no members. See
-  [Values](types-and-values/values.md).
+  speaker notes on [Functions](control-flow-basics/functions.html).
 - unsafe:\
   The subset of Rust which allows you to trigger _undefined behavior_. See
   [Unsafe Rust](unsafe-rust/unsafe.md).
