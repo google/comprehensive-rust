@@ -1,5 +1,5 @@
 ---
-Minutes: 5
+minutes: 5
 ---
 
 # Generic Traits
