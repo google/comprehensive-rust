@@ -14,39 +14,6 @@ env:
   # Update the language picker in index.hbs to link new languages.
 
 jobs:
-  compile-build-tools:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Update Rust
-        run: rustup update
-
-      - name: Setup Rust cache
-        uses: ./.github/workflows/setup-rust-cache
-
-      - name: Install build tools
-        uses: taiki-e/install-action@v2
-        with:
-          # testing without version first but should be
-          # mdbook@0.4.48
-          # mdbook-svgbob@0.2.2
-          # mdbook-pandoc@0.10.4
-          # mdbook-i18n-helpers@0.3.6
-          # i18n-report@0.2.0
-          # mdbook-linkcheck2@0.9.1
-          tool: mdbook,mdbook-svgbob,mdbook-pandoc,mdbook-i18n-helpers,i18n-report,mdbook-linkcheck2
-
-      - name: Install mdbook
-        run: cargo xtask install-tools
-
-      - name: Upload pre-built-tools for the next tasks
-        uses: actions/upload-artifact@v4
-        with:
-          name: pre-built-tools
-          path: /home/runner/.cargo/bin/
-  
   create-translation:
     strategy:
       matrix:
@@ -74,7 +41,6 @@ jobs:
           - "zh-CN"
           - "zh-TW"
     runs-on: ubuntu-latest
-    needs: compile-build-tools
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -92,22 +58,8 @@ jobs:
         with:
           packages: gettext
 
-      - name: Download pre-built tools
-        uses: actions/download-artifact@v4
-        with:
-          name: pre-built-tools
-          path: /home/runner/.cargo/bin/
-
-      - name: Make all downloaded tools executable
-        run: chmod +x /home/runner/.cargo/bin/*
-
-      - name: Install dependencies for mdbook-pandoc
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive texlive-luatex texlive-lang-cjk texlive-lang-arabic librsvg2-bin fonts-noto
-          curl -LsSf https://github.com/jgm/pandoc/releases/download/3.7.0.1/pandoc-3.7.0.1-linux-amd64.tar.gz | tar zxf -
-          echo "$PWD/pandoc-3.7.0.1/bin" >> $GITHUB_PATH
-        shell: bash
+      - name: Install mdbook
+        uses: ./.github/workflows/install-mdbook
 
       - name: Build course in English
         if: matrix.language == 'en'
@@ -136,19 +88,13 @@ jobs:
       - name: Update Rust
         run: rustup update
 
-      - name: Download pre-built tools
-        uses: actions/download-artifact@v4
-        with:
-          path: /home/runner/.cargo/bin/
-          name: pre-built-tools
-      
-      - name: Make all downloaded tools executable
-        run: chmod +x /home/runner/.cargo/bin/*
-
       - name: Install Gettext
         run: |
           sudo apt update
           sudo apt install gettext
+
+      - name: Install mdbook
+        uses: ./.github/workflows/install-mdbook
 
       - name: Download all translations
         uses: actions/download-artifact@v4
