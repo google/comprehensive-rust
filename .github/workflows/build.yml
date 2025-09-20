@@ -62,9 +62,9 @@ jobs:
         uses: ./.github/workflows/setup-rust-cache
 
       - name: Install dependencies
-        run: |
-          sudo apt update
-          sudo apt install gcc-aarch64-linux-gnu
+        uses: ./.github/workflows/apt-get-install
+        with:
+          packages: gcc-aarch64-linux-gnu
 
       - name: Build Rust code
         working-directory: ${{ matrix.directory }}
@@ -113,10 +113,10 @@ jobs:
         with:
           key: ${{ contains(fromJSON(env.LINK_CHECKED_LANGUAGES), matrix.language) }}
 
-      - name: Install Gettext
-        run: |
-          sudo apt update
-          sudo apt install gettext
+      - name: Install dependencies
+        uses: ./.github/workflows/apt-get-install
+        with:
+          packages: gettext
 
       - name: Install mdbook
         uses: ./.github/workflows/install-mdbook

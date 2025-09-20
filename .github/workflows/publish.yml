@@ -42,9 +42,9 @@ jobs:
         uses: ./.github/workflows/setup-rust-cache
 
       - name: Install Gettext
-        run: |
-          sudo apt update
-          sudo apt install gettext
+        uses: ./.github/workflows/apt-get-install
+        with:
+          packages: gettext
 
       - name: Install mdbook
         uses: ./.github/workflows/install-mdbook
