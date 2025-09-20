@@ -3,8 +3,10 @@
 We'd love to accept your patches and contributions to this project. There are
 just a few small guidelines you need to follow.
 
-Make sure you can build the book, and that `mdbook serve` works. Please follow
-the [instructions in the README].
+Make sure you can build the book with `mdbook build`, that `mdbook serve` works,
+and that `dprint fmt` formats the code. Please use `cargo xtask install-tools`
+to install the necessary dependencies, following the
+[instructions in the README].
 
 [instructions in the README]: README.md#building
 
