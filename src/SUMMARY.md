@@ -437,6 +437,10 @@
     - [Semantic Confusion](idiomatic/leveraging-the-type-system/newtype-pattern/semantic-confusion.md)
     - [Parse, Don't Validate](idiomatic/leveraging-the-type-system/newtype-pattern/parse-don-t-validate.md)
     - [Is It Encapsulated?](idiomatic/leveraging-the-type-system/newtype-pattern/is-it-encapsulated.md)
+  - [Token Types](idiomatic/leveraging-the-type-system/token-types.md)
+    - [Permission Tokens](idiomatic/leveraging-the-type-system/token-types/permission-tokens.md)
+    - [Mutex Guards](idiomatic/leveraging-the-type-system/token-types/mutex-guard.md)
+    - [Branded Tokens](idiomatic/leveraging-the-type-system/token-types/branded-tokens.md)
 
 ---
 
