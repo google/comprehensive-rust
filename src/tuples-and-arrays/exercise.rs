@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Iterators are covered later.
+#[allow(clippy::needless_range_loop)]
 // ANCHOR: solution
 // ANCHOR: transpose
 fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {

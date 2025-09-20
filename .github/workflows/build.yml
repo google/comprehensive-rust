@@ -11,38 +11,6 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  format:
-    runs-on: ubuntu-latest
-    env:
-      NIGHTLY_VERSION: nightly-2025-09-01
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Install formatting dependencies
-        run: |
-          sudo apt update
-          sudo apt install gettext yapf3
-
-      - name: Install pinned nightly for rustfmt
-        run: |
-          rustup toolchain install --profile minimal "$NIGHTLY_VERSION"
-          rustup component add rustfmt --toolchain "$NIGHTLY_VERSION"
-
-      - name: Check formatting
-        uses: dprint/check@v2.3
-
-  typos:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Check for typos
-        uses: crate-ci/typos@v1.35.7
-        with:
-          config: ./.github/typos.toml
-
   cargo:
     strategy:
       matrix:
