@@ -1,0 +1,44 @@
+name: Setup Apt and Install Packages
+description: Configures apt, runs update once per job, and installs packages.
+
+inputs:
+  packages:
+    description: A space-separated list of packages to install.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Configure dpkg and apt for CI
+      shell: bash
+      run: |
+        # Avoid time-consuming man-db updates.
+        sudo tee /etc/dpkg/dpkg.cfg.d/99-no-doc > /dev/null <<EOF
+        path-exclude /usr/share/doc/*
+        path-exclude /usr/share/man/*
+        path-exclude /usr/share/info/*
+        EOF
+
+        # Exclude translations.
+        sudo tee /etc/apt/apt.conf.d/99-no-translations > /dev/null <<EOF
+        Acquire::Languages "none";
+        EOF
+
+        # Exclude command-not-found utility.
+        sudo rm -f /etc/apt/apt.conf.d/50command-not-found
+
+        # Remove unnecessary repository lists (we don't install Azure
+        # utilities)
+        sudo rm -f /etc/apt/sources.list.d/microsoft-prod.* /etc/apt/sources.list.d/azure-cli.*
+
+    - name: Run apt-get update
+      if: env.APT_UPDATED != 'true'
+      shell: bash
+      run: |
+        sudo apt-get update
+        echo "APT_UPDATED=true" >> $GITHUB_ENV
+
+    - name: Installing ${{ inputs.packages }}
+      shell: bash
+      run: |
+        sudo apt-get install --quiet --yes ${{ inputs.packages }}
