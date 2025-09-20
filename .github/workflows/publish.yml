@@ -3,31 +3,43 @@ name: Publish
 # See also TRANSLATIONS.md.
 
 on:
+  pull_request:
   push:
     branches:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow one concurrent deployment
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
 env:
   CARGO_TERM_COLOR: always
   # Update the language picker in index.hbs to link new languages.
-  LANGUAGES: ar bn da de el es fa fr id it ja ko pl pt-BR ro ru tr uk vi zh-CN zh-TW
 
 jobs:
-  publish:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  create-translation:
+    strategy:
+      matrix:
+        language:
+          - "en"
+          - "ar"
+          - "bn"
+          - "da"
+          - "de"
+          - "el"
+          - "es"
+          - "fa"
+          - "fr"
+          - "id"
+          - "it"
+          - "ja"
+          - "ko"
+          - "pl"
+          - "pt-BR"
+          - "ro"
+          - "ru"
+          - "tr"
+          - "uk"
+          - "vi"
+          - "zh-CN"
+          - "zh-TW"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -50,14 +62,46 @@ jobs:
         uses: ./.github/workflows/install-mdbook
 
       - name: Build course in English
+        if: matrix.language == 'en'
         run: .github/workflows/build.sh en book
 
-      - name: Build all translations
+      - name: Build ${{ matrix.language }} translation
+        if: matrix.language != 'en'
         run: |
-          for po_lang in ${{ env.LANGUAGES }}; do
-              .github/workflows/build.sh $po_lang book/$po_lang
-              mv book/$po_lang/html book/html/$po_lang
-          done
+          .github/workflows/build.sh ${{ matrix.language }} book/${{ matrix.language }}
+          mkdir book/html
+          mv book/${{ matrix.language }}/html book/html/${{ matrix.language }}
+
+      - name: Upload translation
+        uses: actions/upload-artifact@v4
+        with:
+          name: comprehensive-rust-${{ matrix.language }}
+          path: book/
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: create-translation
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update Rust
+        run: rustup update
+
+      - name: Install Gettext
+        run: |
+          sudo apt update
+          sudo apt install gettext
+
+      - name: Install mdbook
+        uses: ./.github/workflows/install-mdbook
+
+      - name: Download all translations
+        uses: actions/download-artifact@v4
+        with:
+          path: book/
+          pattern: comprehensive-rust-*
+          merge-multiple: true
 
       - name: Build translation report
         run: i18n-report report book/html/translation-report.html po/*.po
@@ -69,14 +113,21 @@ jobs:
           for file in synced-po/*.po; do msgmerge --update $file synced-po/messages.pot ; done
           i18n-report report book/html/synced-translation-report.html synced-po/*.po
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+      # TODO: remove this before merging into main. This is just for verification of the build result while developing this workflow.
+      - name: Upload all translations (for verification)
+        uses: actions/upload-artifact@v4
         with:
-          path: book/html
+          name: comprehensive-rust-all
+          path: book/
+      # TODO: uncomment the following lines before merging into main. This is removed for development purposes.
+      # - name: Setup Pages
+      #   uses: actions/configure-pages@v5
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v4
+      #   with:
+      #     path: book/html
+
+      # - name: Deploy to GitHub Pages
+      #   id: deployment
+      #   uses: actions/deploy-pages@v4
