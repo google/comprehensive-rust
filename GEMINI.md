@@ -144,3 +144,21 @@ list of options.
     `/// # Safety` is used to document safety preconditions for `unsafe` code.
   - **Comments:** HTML comments (`<!-- ... -->`) are used for editor/translator
     instructions and content control (e.g., `mdbook-xgettext: skip`).
+
+# Project-Specific Technical Context
+
+This section contains critical, non-obvious technical details about this
+project's tooling and environment that an AI assistant needs to know to perform
+its tasks correctly.
+
+## `mdbook` Behavior
+
+- **Isolated Code Snippets:** `mdbook` treats each fenced Rust code block (e.g.,
+  `` ```rust ... ``` ``) as a separate compilation unit. When analyzing a code
+  snippet, treat it as a self-contained program. Do not assume it shares a scope
+  or context with other snippets in the same file unless the surrounding text
+  explicitly states otherwise.
+- **Interpreting Annotations:** Annotations like `compile_fail`, `should_panic`,
+  and `editable` describe how a snippet is tested. For example, `compile_fail`
+  means the snippet is expected to fail compilation, which is useful for
+  demonstrating common errors.
