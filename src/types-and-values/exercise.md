@@ -4,10 +4,10 @@ minutes: 15
 
 # Exercise: Fibonacci
 
-The Fibonacci sequence begins with `[0,1]`. For n>1, the n'th Fibonacci number
-is calculated recursively as the sum of the n-1'th and n-2'th Fibonacci numbers.
+The Fibonacci sequence begins with `[0, 1]`. For `n > 1`, the next number is the
+sum of the previous two.
 
-Write a function `fib(n)` that calculates the n'th Fibonacci number. When will
+Write a function `fib(n)` that calculates the nth Fibonacci number. When will
 this function panic?
 
 ```rust,editable,should_panic
@@ -23,3 +23,15 @@ this function panic?
 
 {{#include exercise.rs:main}}
 ```
+
+<details>
+
+- This exercise is a classic introduction to recursion.
+- Encourage students to think about the base cases and the recursive step.
+- The question "When will this function panic?" is a hint to think about integer
+  overflow. The Fibonacci sequence grows quickly!
+- Students might come up with an iterative solution as well, which is a great
+  opportunity to discuss the trade-offs between recursion and iteration (e.g.,
+  performance, stack overflow for deep recursion).
+
+</details>

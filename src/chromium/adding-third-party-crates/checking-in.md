@@ -11,7 +11,7 @@ Please also add an `OWNERS` file in the latter location.
 You should land all this, along with your `Cargo.toml` and `gnrt_config.toml`
 changes, into the Chromium repo.
 
-**Important**: you need to use `git add -f` because otherwise `.gitignore` files
+**Important:** you need to use `git add -f` because otherwise `.gitignore` files
 may result in some files being skipped.
 
 As you do so, you might find presubmit checks fail because of non-inclusive

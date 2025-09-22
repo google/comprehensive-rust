@@ -25,7 +25,7 @@ _birthday_service/Android.bp_:
   each of the segments is necessary.
 - Note that `wishHappyBirthday` and other AIDL IPC methods take `&self` (instead
   of `&mut self`).
-  - This is necessary because binder responds to incoming requests on a thread
+  - This is necessary because Binder responds to incoming requests on a thread
     pool, allowing for multiple requests to be processed in parallel. This
     requires that the service methods only get a shared reference to `self`.
   - Any state that needs to be modified by the service will have to be put in
@@ -33,6 +33,6 @@ _birthday_service/Android.bp_:
   - The correct approach for managing service state depends heavily on the
     details of your service.
 - TODO: What does the `binder::Interface` trait do? Are there methods to
-  override? Where source?
+  override? Where is the source?
 
 </details>

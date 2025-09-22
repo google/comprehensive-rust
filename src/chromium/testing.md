@@ -44,9 +44,9 @@ used:
   the C++ and the Rust implementation (parameterizing the tests so they enable
   or disable Rust using a `ScopedFeatureList`).
 
-- Hypothetical/WIP PNG integration may need to implement memory-safe
-  implementation of pixel transformations that are provided by `libpng` but
-  missing in the `png` crate - e.g. RGBA => BGRA, or gamma correction. Such
-  functionality may benefit from separate tests authored in Rust.
+- Hypothetical/WIP PNG integration may need memory-safe implementations of pixel
+  transformations that are provided by `libpng` but missing in the `png` crate -
+  e.g. RGBA => BGRA, or gamma correction. Such functionality may benefit from
+  separate tests authored in Rust.
 
 </details>

@@ -4,7 +4,7 @@ minutes: 4
 
 # Structs
 
-Like tuples, Struct can also be destructured by matching:
+Like tuples, structs can also be destructured by matching:
 
 ```rust,editable
 {{#include ../../third_party/rust-by-example/destructuring-structs.rs}}

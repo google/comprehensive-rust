@@ -19,18 +19,14 @@
 //! `cargo xtask install-tools` and the logic defined here will install
 //! the tools.
 
-use anyhow::{Ok, Result, anyhow};
+use anyhow::{Context, Result, anyhow};
 use clap::{Parser, Subcommand};
+use std::env;
 use std::path::{Path, PathBuf};
-use std::process::Stdio;
-use std::{env, process::Command};
+use std::process::Command;
 
 fn main() -> Result<()> {
-    if let Err(e) = execute_task() {
-        eprintln!("{e}");
-        std::process::exit(-1);
-    }
-    Ok(())
+    execute_task()
 }
 
 #[derive(Parser)]
@@ -46,10 +42,15 @@ struct Cli {
 #[derive(Subcommand)]
 enum Task {
     /// Installs the tools the project depends on.
-    InstallTools,
+    InstallTools {
+        /// Use cargo-binstall for faster installation.
+        #[arg(long)]
+        binstall: bool,
+    },
     /// Runs the web driver tests in the tests directory.
     WebTests {
-        /// Optional 'book html' directory - if set, will also refresh the list of slides used by slide size test.
+        /// Optional 'book html' directory - if set, will also refresh the list
+        /// of slides used by slide size test.
         #[arg(short, long)]
         dir: Option<PathBuf>,
     },
@@ -61,7 +62,8 @@ enum Task {
         #[arg(short, long)]
         language: Option<String>,
 
-        /// Directory to place the build. If not provided, defaults to the book/ directory (or the book/xx directory if a language is provided).
+        /// Directory to place the build. If not provided, defaults to the book/
+        /// directory (or the book/xx directory if a language is provided).
         #[arg(short, long)]
         output: Option<PathBuf>,
     },
@@ -71,7 +73,8 @@ enum Task {
         #[arg(short, long)]
         language: Option<String>,
 
-        /// Directory to place the build. If not provided, defaults to the book/ directory (or the book/xx directory if a language is provided).
+        /// Directory to place the build. If not provided, defaults to the book/
+        /// directory (or the book/xx directory if a language is provided).
         #[arg(short, long)]
         output: Option<PathBuf>,
     },
@@ -80,150 +83,161 @@ enum Task {
 fn execute_task() -> Result<()> {
     let cli = Cli::parse();
     match cli.task {
-        Task::InstallTools => install_tools()?,
-        Task::WebTests { dir } => run_web_tests(dir)?,
-        Task::RustTests => run_rust_tests()?,
-        Task::Serve { language, output } => start_web_server(language, output)?,
-        Task::Build { language, output } => build(language, output)?,
+        Task::InstallTools { binstall } => install_tools(binstall),
+        Task::WebTests { dir } => run_web_tests(dir),
+        Task::RustTests => run_rust_tests(),
+        Task::Serve { language, output } => start_web_server(language, output),
+        Task::Build { language, output } => build(language, output),
+    }
+}
+
+/// Executes a command and returns an error if it fails.
+fn run_command(cmd: &mut Command) -> Result<()> {
+    let command_display = format!("{cmd:?}");
+    println!("> {command_display}");
+    let status = cmd
+        .status()
+        .with_context(|| format!("Failed to execute command: {command_display}"))?;
+    if !status.success() {
+        let exit_description = if let Some(code) = status.code() {
+            format!("exited with status code: {}", code)
+        } else {
+            "was terminated by a signal".to_string()
+        };
+        return Err(anyhow!("Command `{command_display}` {exit_description}"));
     }
     Ok(())
 }
 
-fn install_tools() -> Result<()> {
+fn install_tools(binstall: bool) -> Result<()> {
     println!("Installing project tools...");
-    let path_to_mdbook_exerciser =
-        Path::new(env!("CARGO_WORKSPACE_DIR")).join("mdbook-exerciser");
-    let path_to_mdbook_course =
-        Path::new(env!("CARGO_WORKSPACE_DIR")).join("mdbook-course");
 
-    let install_args = vec![
-        // The --locked flag is important for reproducible builds. It also
-        // avoids breakage due to skews between mdbook and mdbook-svgbob.
-        vec!["mdbook", "--locked", "--version", "0.4.51"],
-        vec!["mdbook-svgbob", "--locked", "--version", "0.2.2"],
-        vec!["mdbook-pandoc", "--locked", "--version", "0.10.4"],
-        vec!["mdbook-i18n-helpers", "--locked", "--version", "0.3.6"],
-        vec!["i18n-report", "--locked", "--version", "0.2.0"],
-        vec!["mdbook-linkcheck2", "--locked", "--version", "0.9.1"],
-        // Mdbook-exerciser and mdbook-course are located in this repository.
-        // To make it possible to install them from any directory we need to
-        // specify their path from the workspace root.
-        vec!["--path", path_to_mdbook_exerciser.to_str().unwrap(), "--locked"],
-        vec!["--path", path_to_mdbook_course.to_str().unwrap(), "--locked"],
+    let cargo = env!("CARGO");
+
+    let install_command = if binstall { "binstall" } else { "install" };
+
+    const PINNED_NIGHTLY: &str = "nightly-2025-09-01";
+
+    // Install rustup components
+    let rustup_steps = [
+        ["toolchain", "install", "--profile", "minimal", PINNED_NIGHTLY],
+        ["component", "add", "rustfmt", "--toolchain", PINNED_NIGHTLY],
+    ];
+    for args in rustup_steps {
+        let mut cmd = Command::new("rustup");
+        cmd.args(args);
+        run_command(&mut cmd)?;
+    }
+
+    // The --locked flag is important for reproducible builds.
+    let tools = [
+        ("mdbook", "0.4.52"),
+        ("mdbook-svgbob", "0.2.2"),
+        ("mdbook-pandoc", "0.10.4"),
+        ("mdbook-i18n-helpers", "0.3.6"),
+        ("i18n-report", "0.2.0"),
+        ("mdbook-linkcheck2", "0.9.1"),
     ];
 
-    for args in &install_args {
-        let status = Command::new(env!("CARGO"))
-            .arg("install")
-            .args(args)
-            .status()
-            .expect("Failed to execute cargo install");
+    for (tool, version) in tools {
+        let mut cmd = Command::new(cargo);
+        cmd.args([install_command, tool, "--version", version, "--locked"]);
+        run_command(&mut cmd)?;
+    }
 
-        if !status.success() {
-            let error_message = format!(
-                "Command 'cargo install {}' exited with status code: {}",
-                args.join(" "),
-                status.code().unwrap()
-            );
-            return Err(anyhow!(error_message));
-        }
+    // Install local tools from the workspace.
+    let workspace_dir = Path::new(env!("CARGO_WORKSPACE_DIR"));
+    // cargo-binstall does not support --path, so we always use cargo install here.
+    let local_tools = ["mdbook-exerciser", "mdbook-course"];
+    for tool in local_tools {
+        let mut cmd = Command::new(cargo);
+        cmd.args(["install", "--path"])
+            .arg(workspace_dir.join(tool))
+            .arg("--locked");
+        run_command(&mut cmd)?;
     }
 
     // Uninstall original linkcheck if currently installed (see issue no 2773)
-    uninstall_mdbook_linkcheck();
+    uninstall_mdbook_linkcheck()?;
 
     Ok(())
 }
 
-fn uninstall_mdbook_linkcheck() {
+fn uninstall_mdbook_linkcheck() -> Result<()> {
     println!("Uninstalling old mdbook-linkcheck if installed...");
     let output = Command::new(env!("CARGO"))
-        .arg("uninstall")
-        .arg("mdbook-linkcheck")
+        .args(["uninstall", "mdbook-linkcheck"])
         .output()
-        .expect("Failed to execute cargo uninstall mdbook-linkcheck");
+        .context("Failed to execute `cargo uninstall mdbook-linkcheck`")?;
 
     if !output.status.success() {
-        if String::from_utf8_lossy(&output.stderr)
-            .into_owned()
-            .contains("did not match any packages")
-        {
-            println!("mdbook-linkcheck not installed. Continuing...");
-        } else {
-            eprintln!(
-                "An error occurred during uninstallation of mdbook-linkcheck:\n{:#?}",
-                String::from_utf8_lossy(&output.stderr)
-            );
+        let stderr = String::from_utf8_lossy(&output.stderr);
+        // This specific error is OK, it just means the package wasn't installed.
+        if !stderr.contains("did not match any packages") {
+            return Err(anyhow!(
+                "Failed to uninstall `mdbook-linkcheck`.\n--- stderr:\n{stderr}"
+            ));
         }
+        println!("mdbook-linkcheck not installed. Continuing...");
     }
+    Ok(())
 }
 
 fn run_web_tests(dir: Option<PathBuf>) -> Result<()> {
     println!("Running web tests...");
+    let workspace_dir = Path::new(env!("CARGO_WORKSPACE_DIR"));
 
     let absolute_dir = dir.map(|d| d.canonicalize()).transpose()?;
 
     if let Some(d) = &absolute_dir {
         println!("Refreshing slide lists...");
-        let path_to_refresh_slides_script = Path::new("tests")
+        let refresh_slides_script = Path::new("tests")
             .join("src")
             .join("slides")
             .join("create-slide.list.sh");
-        let status = Command::new(path_to_refresh_slides_script)
-            .current_dir(Path::new(env!("CARGO_WORKSPACE_DIR")))
-            .arg(d)
-            .status()
-            .expect("Failed to execute create-slide.list.sh");
-
-        if !status.success() {
-            let error_message = format!(
-                "Command 'cargo xtask web-tests' exited with status code: {}",
-                status.code().unwrap()
-            );
-            return Err(anyhow!(error_message));
-        }
+        let mut cmd = Command::new(&refresh_slides_script);
+        cmd.current_dir(workspace_dir).arg(d);
+        run_command(&mut cmd)?;
     }
 
-    let path_to_tests_dir = Path::new(env!("CARGO_WORKSPACE_DIR")).join("tests");
-    let mut command = Command::new("npm");
-    command.current_dir(path_to_tests_dir.to_str().unwrap());
-    command.arg("test");
+    let tests_dir = workspace_dir.join("tests");
+    let mut cmd = Command::new("npm");
+    cmd.current_dir(tests_dir).arg("test");
 
     if let Some(d) = absolute_dir {
-        command.env("TEST_BOOK_DIR", d);
+        cmd.env("TEST_BOOK_DIR", d);
     }
-    let status = command.status().expect("Failed to execute npm test");
-
-    if !status.success() {
-        let error_message = format!(
-            "Command 'cargo xtask web-tests' exited with status code: {}",
-            status.code().unwrap()
-        );
-        return Err(anyhow!(error_message));
-    }
-
-    Ok(())
+    run_command(&mut cmd)
 }
 
 fn run_rust_tests() -> Result<()> {
     println!("Running rust tests...");
-    let path_to_workspace_root = Path::new(env!("CARGO_WORKSPACE_DIR"));
+    let workspace_root = Path::new(env!("CARGO_WORKSPACE_DIR"));
 
-    let status = Command::new("mdbook")
-        .current_dir(path_to_workspace_root.to_str().unwrap())
-        .arg("test")
-        .status()
-        .expect("Failed to execute mdbook test");
+    let mut cmd = Command::new("mdbook");
+    cmd.current_dir(workspace_root).arg("test");
+    run_command(&mut cmd)
+}
 
-    if !status.success() {
-        let error_message = format!(
-            "Command 'cargo xtask rust-tests' exited with status code: {}",
-            status.code().unwrap()
-        );
-        return Err(anyhow!(error_message));
+fn run_mdbook_command(
+    subcommand: &str,
+    language: Option<String>,
+    output_arg: Option<PathBuf>,
+) -> Result<()> {
+    let workspace_root = Path::new(env!("CARGO_WORKSPACE_DIR"));
+
+    let mut cmd = Command::new("mdbook");
+    cmd.current_dir(workspace_root).arg(subcommand);
+
+    if let Some(language) = &language {
+        println!("Language: {language}");
+        cmd.env("MDBOOK_BOOK__LANGUAGE", language);
     }
 
-    Ok(())
+    cmd.arg("-d");
+    cmd.arg(get_output_dir(language, output_arg));
+
+    run_command(&mut cmd)
 }
 
 fn start_web_server(
@@ -231,63 +245,18 @@ fn start_web_server(
     output_arg: Option<PathBuf>,
 ) -> Result<()> {
     println!("Starting web server ...");
-    let path_to_workspace_root = Path::new(env!("CARGO_WORKSPACE_DIR"));
-
-    let mut command = Command::new("mdbook");
-    command.current_dir(path_to_workspace_root.to_str().unwrap());
-    command.arg("serve");
-
-    if let Some(language) = &language {
-        println!("Language: {}", &language);
-        command.env("MDBOOK_BOOK__LANGUAGE", &language);
-    }
-
-    command.arg("-d");
-    command.arg(get_output_dir(language, output_arg));
-
-    let status = command.status().expect("Failed to execute mdbook serve");
-
-    if !status.success() {
-        let error_message = format!(
-            "Command 'cargo xtask serve' exited with status code: {}",
-            status.code().unwrap()
-        );
-        return Err(anyhow!(error_message));
-    }
-    Ok(())
+    run_mdbook_command("serve", language, output_arg)
 }
 
 fn build(language: Option<String>, output_arg: Option<PathBuf>) -> Result<()> {
     println!("Building course...");
-    let path_to_workspace_root = Path::new(env!("CARGO_WORKSPACE_DIR"));
-
-    let mut command = Command::new("mdbook");
-    command.current_dir(path_to_workspace_root.to_str().unwrap());
-    command.arg("build");
-
-    if let Some(language) = &language {
-        println!("Language: {}", &language);
-        command.env("MDBOOK_BOOK__LANGUAGE", language);
-    }
-
-    command.arg("-d");
-    command.arg(get_output_dir(language, output_arg));
-
-    let status = command.status().expect("Failed to execute mdbook build");
-
-    if !status.success() {
-        let error_message = format!(
-            "Command 'cargo xtask build' exited with status code: {}",
-            status.code().unwrap()
-        );
-        return Err(anyhow!(error_message));
-    }
-    Ok(())
+    run_mdbook_command("build", language, output_arg)
 }
 
 fn get_output_dir(language: Option<String>, output_arg: Option<PathBuf>) -> PathBuf {
-    // If the 'output' arg is specified by the caller, use that, otherwise output to the 'book/' directory
-    // (or the 'book/xx' directory if a language was specified).
+    // If the 'output' arg is specified by the caller, use that, otherwise output to
+    // the 'book/' directory (or the 'book/xx' directory if a language was
+    // specified).
     if let Some(d) = output_arg {
         d
     } else {

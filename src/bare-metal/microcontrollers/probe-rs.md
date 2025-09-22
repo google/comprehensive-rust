@@ -21,7 +21,7 @@ in your project directory.
   a range from SEGGER.
 - The Debug Access Port is usually either a 5-pin JTAG interface or 2-pin Serial
   Wire Debug.
-- probe-rs is a library which you can integrate into your own tools if you want
+- probe-rs is a library that you can integrate into your own tools if you want
   to.
 - The
   [Microsoft Debug Adapter Protocol](https://microsoft.github.io/debug-adapter-protocol/)
@@ -29,6 +29,6 @@ in your project directory.
   microcontroller.
 - cargo-embed is a binary built using the probe-rs library.
 - RTT (Real Time Transfers) is a mechanism to transfer data between the debug
-  host and the target through a number of ringbuffers.
+  host and the target through a number of ring buffers.
 
 </details>

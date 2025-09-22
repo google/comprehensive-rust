@@ -57,6 +57,17 @@ fn main() {
 
 - We can use literals to assign values to arrays.
 
+- Arrays are not heap-allocated. They are regular values with a fixed size known
+  at compile time, meaning they go on the stack. This can be different from what
+  students expect if they come from a garbage-collected language, where arrays
+  may be heap allocated by default.
+
+- There is no way to remove elements from an array, nor add elements to an
+  array. The length of an array is fixed at compile-time, and so its length
+  cannot change at runtime.
+
+## Debug Printing
+
 - The `println!` macro asks for the debug implementation with the `?` format
   parameter: `{}` gives the default output, `{:?}` gives the debug output. Types
   such as integers and strings implement the default output, but arrays only
@@ -64,10 +75,5 @@ fn main() {
 
 - Adding `#`, eg `{a:#?}`, invokes a "pretty printing" format, which can be
   easier to read.
-
-- Arrays are not heap-allocated. They are regular values with a fixed size known
-  at compile time, meaning they go on the stack. This can be different from what
-  students expect if they come from a garbage collected language, where arrays
-  may be heap allocated by default.
 
 </details>

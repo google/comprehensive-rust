@@ -29,7 +29,7 @@ impl User {
     // ANCHOR_END: setup
 
     // ANCHOR: User_visit_doctor
-    pub fn visit_doctor(&mut self, measurements: Measurements) -> HealthReport {
+    pub fn visit_doctor(&mut self, measurements: Measurements) -> HealthReport<'_> {
         // ANCHOR_END: User_visit_doctor
         self.visit_count += 1;
         let bp = measurements.blood_pressure;
@@ -37,12 +37,9 @@ impl User {
             patient_name: &self.name,
             visit_count: self.visit_count,
             height_change: measurements.height - self.height,
-            blood_pressure_change: match self.last_blood_pressure {
-                Some(lbp) => {
-                    Some((bp.0 as i32 - lbp.0 as i32, bp.1 as i32 - lbp.1 as i32))
-                }
-                None => None,
-            },
+            blood_pressure_change: self
+                .last_blood_pressure
+                .map(|lbp| (bp.0 as i32 - lbp.0 as i32, bp.1 as i32 - lbp.1 as i32)),
         };
         self.height = measurements.height;
         self.last_blood_pressure = Some(bp);

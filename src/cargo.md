@@ -12,7 +12,7 @@ fits into this training.
 
 This will give you the Cargo build tool (`cargo`) and the Rust compiler
 (`rustc`). You will also get `rustup`, a command line utility that you can use
-to install to different compiler versions.
+to install different compiler versions.
 
 After installing Rust, you should configure your editor or IDE to work with
 Rust. Most editors do this by talking to [rust-analyzer], which provides

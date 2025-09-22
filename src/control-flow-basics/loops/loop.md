@@ -19,6 +19,6 @@ fn main() {
 <details>
 
 - The `loop` statement works like a `while true` loop. Use it for things like
-  servers which will serve connections forever.
+  servers that will serve connections forever.
 
 </details>
