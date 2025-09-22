@@ -449,10 +449,6 @@
     - [Permission Tokens](idiomatic/leveraging-the-type-system/token-types/permission-tokens.md)
     - [Mutex Guards](idiomatic/leveraging-the-type-system/token-types/mutex-guard.md)
     - [Branded Tokens](idiomatic/leveraging-the-type-system/token-types/branded-tokens.md)
-  - [Token Types](idiomatic/leveraging-the-type-system/token-types.md)
-    - [Permission Tokens](idiomatic/leveraging-the-type-system/token-types/permission-tokens.md)
-    - [Mutex Guards](idiomatic/leveraging-the-type-system/token-types/mutex-guard.md)
-    - [Branded Tokens](idiomatic/leveraging-the-type-system/token-types/branded-tokens.md)
 
 ---
 
