@@ -31,9 +31,9 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Install formatting dependencies
-        run: |
-          sudo apt update
-          sudo apt install gettext yapf3
+        uses: ./.github/workflows/apt-get-install
+        with:
+          packages: gettext yapf3
 
       - name: Install pinned nightly for rustfmt
         run: |
