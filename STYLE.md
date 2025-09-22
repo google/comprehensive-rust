@@ -161,6 +161,12 @@ Contributors should design their slides with this interactivity in mind. The
 initial state of the code should be a good starting point for a live
 demonstration.
 
+#### Code Annotations
+
+Use the `ignore` annotation for code snippets that are not meant to be complete,
+self-contained programs. Use `compile_fail` only when the goal is to demonstrate
+a specific compiler error that is itself the lesson.
+
 ### Language and Tone
 
 The courses are written in American English, so write "initialize", not
