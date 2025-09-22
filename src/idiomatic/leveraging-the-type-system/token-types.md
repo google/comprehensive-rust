@@ -40,6 +40,6 @@ fn main() {
 
 - There's some overlap between this and general API design, because in rust you cannot pass "null" values for any type. If a function asks for a value, you have to construct that value! If you can't construct that value yourself, you need to call functions that can!
 
-- By an API user showing they have access to a value of a certain type, we can assume that whatever invariants we put around the construction of that type likely apply as long as those invariants lie within what we can control in the rust program. 
+- By an API user showing they have access to a value of a certain type, we can assume that whatever invariants we put around the construction of that type likely apply. 
 
 </details>
