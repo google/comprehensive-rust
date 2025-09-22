@@ -127,10 +127,7 @@ fn parse_field(data: &[u8]) -> (Field<'_>, &[u8]) {
         }
         WireType::Len => {
             let (len, remainder) = parse_varint(remainder);
-            let len: usize = len.try_into().expect("len not a valid `usize`");
-            if remainder.len() < len {
-                panic!("Unexpected EOF");
-            }
+            let len = len as usize; // cast for simplicity
             let (value, remainder) = remainder.split_at(len);
             (FieldValue::Len(value), remainder)
         }
