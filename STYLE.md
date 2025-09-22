@@ -226,9 +226,23 @@ collapsed or removed entirely from the slide.
 
   - Where to pause and engage the class with questions.
 
-- Speaker notes are not a script for the instructor. When teaching the course,
-  instructors only have a short time to glance at the notes. Don't include full
-  paragraphs for the instructor to read out loud.
+- Speaker notes should serve as a quick reference for instructors, not a
+  verbatim script. Because instructors have limited time to glance at notes, the
+  content should be concise and easy to scan.
+
+  **Avoid** long, narrative paragraphs meant to be read aloud:
+  > **Bad:** _"In this example, we define a trait named `StrExt`. This trait has
+  > a single method, `is_palindrome`, which takes a `&self` receiver and returns
+  > a boolean value indicating if the string is the same forwards and
+  > backwards..."_
+
+  **Instead, prefer** bullet points with background information or actionable
+  **teaching prompts**:
+  > **Good:**
+  >
+  > - Note: The `Ext` suffix is a common convention.
+  > - Ask: What happens if the `use` statement is removed?
+  > - Demo: Comment out the `use` statement to show the compiler error.
 
 - Nevertheless, include all of the necessary teaching prompts for the instructor
   in the speaker notes. Unlike the main content, the speaker notes don't have to
