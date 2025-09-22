@@ -4,48 +4,59 @@ minutes: 0
 
 # Single-use values
 
-In some circumstances we want values that can be used _exactly once_. One critical example of this is in cryptography: "Nonces."
+In some circumstances we want values that can be used _exactly once_. One
+critical example of this is in cryptography: "Nonces."
 
 ```rust,editable
 fn main() {
+    mod cryptography {
+        pub struct Key;
+        // Pretend this is a cryptographically sound, single-use number.
+        pub struct Nonce(u32);
+        // And pretend this is cryptographically sound random generator function.
+        pub fn new_nonce() -> Nonce {
+            Nonce(std::time::UNIX_EPOCH.elapsed().unwrap_or_default().subsec_nanos())
+        }
 
-mod cryptography {
-    pub struct Key;
-    // Pretend this is a cryptographically sound, single-use number.
-    pub struct Nonce(u32);
-    // And pretend this is cryptographically sound random generator function.
-    pub fn new_nonce() -> Nonce {
-        Nonce(std::time::UNIX_EPOCH.elapsed().unwrap_or_default().subsec_nanos()) 
+        // We consume a nonce, but not the key or the data.
+        pub fn encrypt(nonce: Nonce, key: &Key, data: &[u8]) {}
     }
-    
-    // We consume a nonce, but not the key or the data.
-    pub fn encrypt(nonce: Nonce, key: &Key, data: &[u8]) {}
-}
 
-use cryptography::*;
+    use cryptography::*;
 
-let nonce = new_nonce();
-let data_1: [u8; 4] = [1, 2, 3, 4];
-let data_2: [u8; 4] = [4, 3, 2, 1];
-let key = Key;
+    let nonce = new_nonce();
+    let data_1: [u8; 4] = [1, 2, 3, 4];
+    let data_2: [u8; 4] = [4, 3, 2, 1];
+    let key = Key;
 
-// The key and data can be re-used, copied, etc. but the nonce cannot.
-encrypt(nonce, &key, &data_1);
-encrypt(nonce, &key, &data_2); // 🛠️❌
+    // The key and data can be re-used, copied, etc. but the nonce cannot.
+    encrypt(nonce, &key, &data_1);
+    encrypt(nonce, &key, &data_2); // 🛠️❌
 }
 ```
+
 <details>
 
 - Owned "consumption" of values lets us model things that need to be single-use.
 
-- By keeping constructors private and not implementing clone/copy for a type, making the interior type opaque (as per the newtype pattern), we can prevent multiple uses of the same, API-controlled value.
+- By keeping constructors private and not implementing clone/copy for a type,
+  making the interior type opaque (as per the newtype pattern), we can prevent
+  multiple uses of the same, API-controlled value.
 
-- In the above example, a Nonce is a additional piece of random, unique data during an encryption process that helps prevent "replay attacks".
-  
-  - In practice people have ended up re-using nonces in circumstances where security is important, making it possible for private key information to be derived by attackers.
-  
-  - By tying nonce creation and consumption up in rust's ownership model, and by not implementing clone/copy on sensitive single-use data, we can prevent this kind of dangerous misuse.
-  
-  - Cryptography Nuance: There is still the case where a nonce may be used twice if it's created through purely a pseudo-random process with no additional metadata, and that circumstance can't be avoided through this particular method. This kind of API prevents one kind of misuse, but not all kinds.
+- In the above example, a Nonce is a additional piece of random, unique data
+  during an encryption process that helps prevent "replay attacks".
+
+  - In practice people have ended up re-using nonces in circumstances where
+    security is important, making it possible for private key information to be
+    derived by attackers.
+
+  - By tying nonce creation and consumption up in rust's ownership model, and by
+    not implementing clone/copy on sensitive single-use data, we can prevent
+    this kind of dangerous misuse.
+
+  - Cryptography Nuance: There is still the case where a nonce may be used twice
+    if it's created through purely a pseudo-random process with no additional
+    metadata, and that circumstance can't be avoided through this particular
+    method. This kind of API prevents one kind of misuse, but not all kinds.
 
 </details>
