@@ -46,7 +46,7 @@ fn main() {
 
 <details>
 
-- This example shows modelling gaining root privileges with a password and installing packages to the system once those privileges are gained. 
+- This example shows modelling gaining root privileges with a password and installing packages to the system once those privileges are gained. The `SuToken` type acts as "proof of super user privileges."
   
   Here, we're asked for a password in-code and if we get the password correct, we get a `SuToken` to perform "super user" actions within a specific environment.
 
