@@ -79,7 +79,9 @@ list of options.
   project tools with `cargo xtask install-tools`.
 - **Contributions:** Refer to `CONTRIBUTING.md` for guidelines on contributing
   to the project.
-- **Style:** Refer to `STYLE.md` for style guidelines.
+- **Style:** Refer to `STYLE.md` for style guidelines. When making changes to
+  Markdown files in `src/`, always first read `STYLE.md` and follow its
+  conventions.
 - **GitHub Actions:** The project uses composite GitHub Actions to simplify CI
   workflows. These actions should be preferred over hand-written commands.
   - **`apt-get-install`:** This action efficiently installs Debian packages. It
@@ -168,7 +170,3 @@ its tasks correctly.
   snippet, treat it as a self-contained program. Do not assume it shares a scope
   or context with other snippets in the same file unless the surrounding text
   explicitly states otherwise.
-- **Interpreting Annotations:** Annotations like `compile_fail`, `should_panic`,
-  and `editable` describe how a snippet is tested. For example, `compile_fail`
-  means the snippet is expected to fail compilation, which is useful for
-  demonstrating common errors.
