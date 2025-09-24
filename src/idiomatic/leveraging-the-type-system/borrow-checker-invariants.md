@@ -10,8 +10,8 @@ API misuse.
 
 ```rust,editable
 fn main() {
-    // Doors can be open or closed, and you need the right key to lock or unlock one.
-    // Modelled with Shared Key and Owned Door. Nothing to do with "memory safety"!
+    // Doors can be open or closed, and you need the right key to lock or unlock 
+    // one. Modelled with a Shared key and Owned door.
     pub struct DoorKey {
         pub key_shape: u32,
     }

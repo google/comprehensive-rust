@@ -31,8 +31,8 @@ fn main() {
         }
         pub fn consume(self) {}
         pub fn get_erased(&self) -> ErasedData<'_> {
-            // has an owned String, but _phantom holds onto the lifetime of the TaggedData
-            // that created it.
+            // has an owned String, but _phantom holds onto the lifetime of the
+            // TaggedData that created it.
             ErasedData { data: self.data.clone(), _phantom: PhantomData }
         }
     }
@@ -41,7 +41,7 @@ fn main() {
     // Get the erased-but-still-linked data.
     let erased_owned_and_linked = tagged_data.get_erased();
     tagged_data.consume();
-    // The data is owned by `erased_owned_and_linked` but still connected to `tagged_data`.
+    // Owned by `erased_owned_and_linked` but still connected to `tagged_data`.
     println!("{}", erased_owned_and_linked.get()); // ❌🔨
 }
 ```

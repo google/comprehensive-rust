@@ -24,7 +24,7 @@ fn deny_future_use(value: Data) {}
 
 fn main() {
     let mut value = Data(Internal);
-    let deny_mut = shared_use(&value); 
+    let deny_mut = shared_use(&value);
     let try_to_deny_immutable = exclusive_use(&mut value); // ❌🔨
     let more_mut_denial = &deny_mut;
     deny_future_use(value);
