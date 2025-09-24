@@ -192,6 +192,22 @@ displayed:
   avoid distracting warnings. Use this annotation only when a warning is part of
   the lesson.
 
+### `mdbook` and `mdbook-course` Conventions
+
+The project uses `mdbook` features in specific ways, as well as a custom
+preprocessor, `mdbook-course`. The following conventions are mandatory:
+
+- **YAML Frontmatter:** Every slide file **must** include YAML frontmatter at
+  the top. At a minimum, this must include the `minutes` field to specify the
+  estimated teaching time.
+- **Outline Helpers:** Pages that serve as an index for a session or segment
+  **must** use the `{{%session outline%}}` or `{{%segment outline%}}` helpers.
+- **File Includes:** Code for exercises and their solutions **must** be included
+  from external files using the standard `mdbook` `{{#include ...}}` helper.
+
+For a complete explanation of the custom helpers and all available frontmatter
+fields, please refer to the [`mdbook-course` README](mdbook-course/README.md).
+
 ### Language and Tone
 
 The courses are written in American English, so write "initialize", not
