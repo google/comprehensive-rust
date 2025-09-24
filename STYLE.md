@@ -46,6 +46,11 @@ We follow a few key principles to make the material effective for learning:
   usage syntax is a bit unusual, but we don't go into details of format strings
   or macros. We explain details of format strings later, once we have covered
   traits and can mention the `Debug` and `Display` traits.
+- **Live, Interactive Instruction:** The instructor is expected to run and
+  modify the code on the slides, and use compiler errors as a teaching tool. The
+  audience is expected to frequently interrupt with questions, and the
+  instructor would often experiment with the code on the slide to illustrate the
+  answer.
 
 ### Pacing and Structure
 
