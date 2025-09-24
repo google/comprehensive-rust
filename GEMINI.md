@@ -141,9 +141,8 @@ list of options.
 
 - **HTML Tags:**
   - **`<details>`:** Used for collapsible "speaker notes".
-  - **`<kbd>`:** Used to denote keyboard keys. Key combinations must be
-    formatted as `<kbd>Ctrl + S</kbd>`, wrapping the entire combination in one
-    tag.
+  - **`<kbd>`:** Used to denote keyboard keys. Each key in a combination must be
+    wrapped in its own tag, e.g., `<kbd>Ctrl</kbd> + <kbd>S</kbd>`.
   - **`<style>`:** Used rarely for targeted custom CSS.
   - **`<img>`:** Used to embed images.
 
