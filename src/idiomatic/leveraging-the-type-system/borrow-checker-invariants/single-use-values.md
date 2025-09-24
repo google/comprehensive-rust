@@ -7,7 +7,7 @@ minutes: 0
 In some circumstances we want values that can be used _exactly once_. One
 critical example of this is in cryptography: "Nonces."
 
-```rust,editable
+```rust,editable,compile_fail
 fn main() {
     mod cryptography {
         pub struct Key;

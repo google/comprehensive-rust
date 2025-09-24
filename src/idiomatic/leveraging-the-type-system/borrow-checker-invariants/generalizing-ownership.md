@@ -8,7 +8,7 @@ The logic of the borrow checker, while modelled off "memory ownership", can be
 abstracted away from that use case to model other problems where we want to
 prevent API misuse.
 
-```rust,editable
+```rust,editable,compile_fail
 // An internal data type to have something to hold onto.
 pub struct Internal;
 // The "outer" data.
@@ -17,19 +17,19 @@ pub struct Data(Internal);
 fn shared_use(value: &Data) -> &Internal {
     &value.0
 }
-
 fn exclusive_use(value: &mut Data) -> &mut Internal {
     &mut value.0
 }
-
 fn deny_future_use(value: Data) {}
 
-let mut value = Data(Internal);
-let deny_mut = shared_use(&value); 
-let try_to_deny_immutable = exclusive_use(&mut value); // ❌🔨
-let more_mut_denial = &deny_mut;
-deny_future_use(value);
-let even_more_mut_denial = shared_use(&value); // ❌🔨
+fn main() {
+    let mut value = Data(Internal);
+    let deny_mut = shared_use(&value); 
+    let try_to_deny_immutable = exclusive_use(&mut value); // ❌🔨
+    let more_mut_denial = &deny_mut;
+    deny_future_use(value);
+    let even_more_mut_denial = shared_use(&value); // ❌🔨
+}
 ```
 
 <details>

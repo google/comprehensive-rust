@@ -7,7 +7,7 @@ minutes: 0
 We can use the mutual exclusion of `&T` and `&mut T` references for a single
 value to model some constraints.
 
-```rust,editable
+```rust,editable,compile_fail
 pub struct Transaction(/* some kind of interior state */);
 pub struct QueryResult(String);
 

@@ -8,7 +8,7 @@ Using `PhantomData` in conjunction with lifetimes lets us say "this value may
 own its data, but it can only live as long as the value that generated it" in
 rust's type system.
 
-```rust,editable
+```rust,editable,compile_fail
 fn main() {
     use std::marker::PhantomData;
     pub struct Tag;
