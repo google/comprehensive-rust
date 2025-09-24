@@ -8,7 +8,7 @@ minutes: 0
 mod sudo {
     // A public type with private fields kept behind a module
     // to enforce privacy boundaries.
-    pub struct SuToken(())
+    pub struct SuToken(());
 
     pub fn get_sudo(password: &str) -> Option<SuToken> {
         if password == "Password123" {
@@ -21,7 +21,7 @@ mod sudo {
 
 // We don't have to check that we have permissions, because
 // the SuToken argument is equivalent to such a check.
-pub fn install_packages(_: &SuToken, packages: &[&str]) {
+pub fn install_packages(_: &sudo::SuToken, packages: &[&str]) {
     for package in packages {
         // Not doing any real package work here.
         println!("Retrieving package {package}...");
@@ -32,7 +32,7 @@ pub fn install_packages(_: &SuToken, packages: &[&str]) {
 }
 
 fn main() {
-    if let Some(token) = get_sudo("Password123") {
+    if let Some(token) = sudo::get_sudo("Password123") {
         install_packages(&token, &[
             "golang",
             "google-chrome-stable",

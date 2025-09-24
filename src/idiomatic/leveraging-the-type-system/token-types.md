@@ -15,7 +15,7 @@ pub mod token {
     }
 }
 
-pub fn work_that_requires_a_token(token: Token) {
+pub fn work_that_requires_a_token(token: token::Token) {
     // Do important work that has prerequisites
     println!(
         "Function was given a token! We can make assumptions here while we work."

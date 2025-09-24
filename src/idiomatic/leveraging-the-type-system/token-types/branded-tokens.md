@@ -6,28 +6,23 @@ minutes: 0
 
 We can tie a token to a specific value by using lifetimes.
 
-```rust,editable
+```rust,editable,compile_fail
 use std::marker::PhantomData;
 
 #[derive(Default)]
-pub struct InvariantLifetime<'id>(PhantomData<*mut &'id ()>);
+struct InvariantLifetime<'id>(PhantomData<*mut &'id ()>);
 
-pub struct BrandedToken<'id>(InvariantLifetime<'id>);
-pub struct MyStructure<'id>(Vec<u8>, InvariantLifetime<'id>);
+struct BrandedToken<'id>(InvariantLifetime<'id>);
+struct MyStructure<'id>(Vec<u8>, InvariantLifetime<'id>);
 
 impl<'id> MyStructure<'id> {
-    pub fn new<T>(
+    fn new<T>(
         data: Vec<u8>,
         f: impl for<'a> FnOnce(MyStructure<'a>, BrandedToken<'a>) -> T,
     ) -> T {
-        f(
-            MyStructure(data, InvariantLifetime::default()),
-            BrandedToken(InvariantLifetime::default()),
-        )
+        f(MyStructure(data, InvariantLifetime::default()), BrandedToken(InvariantLifetime::default()))
     }
-    pub fn use_token(&mut self, token: &BrandedToken<'id>) {
-        println!("This computation needs a token.");
-    }
+    fn use_token(&mut self, token: &BrandedToken<'id>) {}
 }
 
 fn main() {
