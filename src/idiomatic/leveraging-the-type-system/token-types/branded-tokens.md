@@ -20,7 +20,10 @@ impl<'id> MyStructure<'id> {
         data: Vec<u8>,
         f: impl for<'a> FnOnce(MyStructure<'a>, BrandedToken<'a>) -> T,
     ) -> T {
-        f(MyStructure(data, InvariantLifetime::default()), BrandedToken(InvariantLifetime::default()))
+        f(
+            MyStructure(data, InvariantLifetime::default()),
+            BrandedToken(InvariantLifetime::default()),
+        )
     }
     fn use_token(&mut self, token: &BrandedToken<'id>) {}
 }

@@ -11,11 +11,7 @@ mod sudo {
     pub struct SuToken(());
 
     pub fn get_sudo(password: &str) -> Option<SuToken> {
-        if password == "Password123" {
-            Some(SuToken(()))
-        } else {
-            None
-        }
+        if password == "Password123" { Some(SuToken(())) } else { None }
     }
 }
 
@@ -33,11 +29,10 @@ pub fn install_packages(_: &sudo::SuToken, packages: &[&str]) {
 
 fn main() {
     if let Some(token) = sudo::get_sudo("Password123") {
-        install_packages(&token, &[
-            "golang",
-            "google-chrome-stable",
-            "texlive-full",
-        ]);
+        install_packages(
+            &token,
+            &["golang", "google-chrome-stable", "texlive-full"],
+        );
     } else {
         eprintln!("Incorrect password! Could not prove privileges.")
     }
