@@ -3,7 +3,17 @@ import { $, expect, browser } from "@wdio/globals";
 
 describe("speaker-notes", () => {
   beforeEach(async () => {
-    await browser.url("/");
+    await browser.url("/welcome-day-1.html");
+    await browser.refresh();
+  });
+
+  afterEach(async () => {
+    const handles = await browser.getWindowHandles();
+    if (handles.length > 1) {
+      await browser.switchToWindow(handles[1]);
+      await browser.closeWindow();
+      await browser.switchToWindow(handles[0]);
+    }
   });
 
   it("contains summary with heading and button", async () => {
@@ -17,7 +27,7 @@ describe("speaker-notes", () => {
     const details$ = await $("details");
     const button$ = await $("details summary .pop-out");
     await expect(details$).toBeDisplayed();
-    button$.scrollIntoView();
+    await button$.scrollIntoView();
     await button$.click();
     await expect(details$).not.toBeDisplayed();
 
@@ -27,5 +37,17 @@ describe("speaker-notes", () => {
     await expect(browser).toHaveUrl(
       expect.stringContaining("#speaker-notes-open"),
     );
+  });
+
+  it("should not show the red box in the speaker notes window", async () => {
+    const button$ = await $("details summary .pop-out");
+    await button$.scrollIntoView();
+    await button$.click();
+
+    const handles = await browser.getWindowHandles();
+    await browser.switchToWindow(handles[1]);
+
+    const redBox = await $("#aspect-ratio-helper");
+    await expect(redBox).not.toExist();
   });
 });
