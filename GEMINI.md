@@ -172,3 +172,17 @@ its tasks correctly.
   and `editable` describe how a snippet is tested. For example, `compile_fail`
   means the snippet is expected to fail compilation, which is useful for
   demonstrating common errors.
+
+## Interacting with the `mdbook` Theme
+
+The `mdbook` theme has several interactive elements. Here's how to interact with
+them:
+
+- **Sidebar Toggle:** The sidebar can be opened and closed by clicking the
+  "hamburger" button in the top-left of the body text. This button has the ID
+  `sidebar-toggle`. You can use the following JavaScript to toggle the sidebar:
+
+  ```javascript
+  const button = document.getElementById("sidebar-toggle");
+  button.click();
+  ```
