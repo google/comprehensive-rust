@@ -445,6 +445,10 @@
       - [Serializer: implement Struct](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics/struct.md)
       - [Serializer: implement Property](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics/property.md)
       - [Serializer: Complete implementation](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics/complete.md)
+  - [Token Types](idiomatic/leveraging-the-type-system/token-types.md)
+    - [Permission Tokens](idiomatic/leveraging-the-type-system/token-types/permission-tokens.md)
+    - [Mutex Guards](idiomatic/leveraging-the-type-system/token-types/mutex-guard.md)
+    - [Branded Tokens](idiomatic/leveraging-the-type-system/token-types/branded-tokens.md)
 
 ---
 
