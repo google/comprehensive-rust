@@ -159,6 +159,10 @@ preprocessor, `mdbook-course`. The following conventions are mandatory:
   **must** use the `{{%session outline%}}` or `{{%segment outline%}}` helpers.
 - **File Includes:** Code for exercises and their solutions **must** be included
   from external files using the standard `mdbook` `{{#include ...}}` helper.
+- **Translation Directives:** To prevent an element (such as a paragraph, code
+  block, or list item) from being translated, place a
+  `<!-- mdbook-xgettext: skip -->` comment on a line by itself, followed by a
+  blank line, immediately before the element.
 
 For a complete explanation of the custom helpers and all available frontmatter
 fields, please refer to the [`mdbook-course` README](mdbook-course/README.md).
