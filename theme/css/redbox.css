@@ -8,7 +8,8 @@ div#aspect-ratio-helper {
 }
 
 div#aspect-ratio-helper div {
-  outline: 3px dashed red;
+  position: relative;
+  outline: 2em solid rgba(255, 0, 0, 0.2);
   margin: 0 auto;
   /* At this width, the theme fonts are readable in a 16
        person conference room. If the browser is wider, the
@@ -19,6 +20,16 @@ div#aspect-ratio-helper div {
   aspect-ratio: 16/8.5;
 }
 
-#instructor-menu-list {
-  margin-left: 55px;
+#turn-off-red-box {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10000;
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  pointer-events: auto;
 }

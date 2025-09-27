@@ -1,29 +1,61 @@
-(function redBoxButton() {
-  // Create a new div element
-  var newDiv = document.createElement("div");
-  // Set the id attribute of the new div
-  newDiv.id = "aspect-ratio-helper";
-  // Create a nested div inside the new div
-  var nestedDiv = document.createElement("div");
-  // Append the nested div to the new div
-  newDiv.appendChild(nestedDiv, newDiv.firstChild);
-  // Get the parent element where you want to append the new div
-  var parentElement = document.body; // Change this to your desired parent element
-  // Append the new div to the parent element
-  parentElement.insertBefore(newDiv, parentElement.firstChild);
-  //Default hiding the redbox
-  document.getElementById("aspect-ratio-helper").style.display = "none";
-})();
-
-//Create a function to button to perform on click action.
-function redboxButtonClicked() {
-  var hideShowButton = document.getElementById("redbox");
-  if (document.getElementById("aspect-ratio-helper").style.display === "none") {
-    document.getElementById("aspect-ratio-helper").style.display = "block";
-    hideShowButton.innerHTML = "aspect-ratio box";
-  } else {
-    document.getElementById("aspect-ratio-helper").style.display = "none";
-    hideShowButton.innerHTML = "aspect-ratio box";
+(function () {
+  if (window.location.hash === "#speaker-notes-open") {
+    return;
   }
-}
-window.redboxButtonClicked = redboxButtonClicked;
+
+  const redBox = document.createElement("div");
+  redBox.id = "aspect-ratio-helper";
+  redBox.style.display = "none"; // Initially hidden
+
+  const nestedDiv = document.createElement("div");
+  redBox.appendChild(nestedDiv);
+
+  const turnOffButton = document.createElement("button");
+  turnOffButton.id = "turn-off-red-box";
+  turnOffButton.textContent = "Hide Red Box";
+  nestedDiv.appendChild(turnOffButton);
+
+  document.body.prepend(redBox);
+
+  const storageKey = "showRedBox";
+
+  const turnOff = () => {
+    redBox.style.display = "none";
+    sessionStorage.removeItem(storageKey);
+  };
+
+  const turnOn = () => {
+    sessionStorage.setItem(storageKey, "true");
+    redBox.style.display = "block";
+  };
+
+  const toggleRedBox = () => {
+    if (redBox.style.display === "none") {
+      turnOn();
+    } else {
+      turnOff();
+    }
+  };
+
+  document.addEventListener("keydown", (event) => {
+    // Toggle the red box with Ctrl+Alt+B
+    if (event.ctrlKey && event.altKey && event.key === "b") {
+      event.preventDefault();
+      toggleRedBox();
+    }
+  });
+
+  turnOffButton.addEventListener("click", turnOff);
+
+  // Check initial state from URL parameter or session storage
+  const searchParams = new URLSearchParams(window.location.search);
+  const showRedBoxParam = searchParams.get("show-red-box");
+
+  if (showRedBoxParam === "true") {
+    turnOn();
+  } else if (showRedBoxParam === "false") {
+    turnOff();
+  } else if (sessionStorage.getItem(storageKey) === "true") {
+    turnOn();
+  }
+})();
