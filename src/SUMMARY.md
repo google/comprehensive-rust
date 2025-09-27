@@ -445,6 +445,11 @@
       - [Serializer: implement Struct](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics/struct.md)
       - [Serializer: implement Property](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics/property.md)
       - [Serializer: Complete implementation](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics/complete.md)
+  - [Borrow checking invariants](idiomatic/leveraging-the-type-system/borrow-checker-invariants.md)
+    - [Generalizing "Ownership"](idiomatic/leveraging-the-type-system/borrow-checker-invariants/generalizing-ownership.md)
+    - [Single-use values](idiomatic/leveraging-the-type-system/borrow-checker-invariants/single-use-values.md)
+    - [Aliasing XOR Mutability](idiomatic/leveraging-the-type-system/borrow-checker-invariants/aliasing-xor-mutability.md)
+    - [Lifetime Relationships & External Resources](idiomatic/leveraging-the-type-system/borrow-checker-invariants/lifetime-connections.md)
 
 ---
 
