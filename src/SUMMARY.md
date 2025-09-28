@@ -432,6 +432,10 @@
 # Idiomatic Rust
 
 - [Welcome](idiomatic/welcome.md)
+- [Foundations of API Design](idiomatic/foundations-of-api-design.md)
+  - [Golden Rule: Clarity & Readability](idiomatic/foundations-of-api-design/golden-rule.md)
+    - [Clarity: Do Provide Context](idiomatic/foundations-of-api-design/golden-rule/clarity-do-provide-context.md)
+    - [Readability: Consistency and Shorthand](idiomatic/foundations-of-api-design/golden-rule/readability-consistency-and-shorthands.md)
 - [Leveraging the Type System](idiomatic/leveraging-the-type-system.md)
   - [Newtype Pattern](idiomatic/leveraging-the-type-system/newtype-pattern.md)
     - [Semantic Confusion](idiomatic/leveraging-the-type-system/newtype-pattern/semantic-confusion.md)
