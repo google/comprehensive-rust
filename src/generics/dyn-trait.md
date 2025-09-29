@@ -60,7 +60,7 @@ fn main() {
   instance of the function for each different type that the generic is
   instantiated with. This means that calling a trait method from within a
   generic function still uses static dispatch, as the compiler has full type
-  information and can resolve which type's trait implementation to use.
+  information and can resolve that type's trait implementation to use.
 
 - When using `dyn Trait`, it instead uses dynamic dispatch through a
   [virtual method table][vtable] (vtable). This means that there's a single

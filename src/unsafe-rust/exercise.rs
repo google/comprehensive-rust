@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// `DIR` matches name of C struct.
+#[allow(clippy::upper_case_acronyms)]
 // ANCHOR: solution
 // ANCHOR: ffi
 mod ffi {
@@ -40,7 +42,7 @@ mod ffi {
     }
 
     // Layout according to the macOS man page for dir(5).
-    #[cfg(all(target_os = "macos"))]
+    #[cfg(target_os = "macos")]
     #[repr(C)]
     pub struct dirent {
         pub d_fileno: u64,

@@ -108,6 +108,12 @@
 # Day 2: Afternoon
 
 - [Welcome](welcome-day-2-afternoon.md)
+- [Closures](closures.md)
+  - [Closure Syntax](closures/syntax.md)
+  - [Capturing](closures/capturing.md)
+  - [Closure Traits](closures/traits.md)
+  - [Exercise: Log Filter](closures/exercise.md)
+    - [Solution](closures/solution.md)
 - [Standard Library Types](std-types.md)
   - [Standard Library](std-types/std.md)
   - [Documentation](std-types/docs.md)
@@ -118,12 +124,6 @@
   - [`HashMap`](std-types/hashmap.md)
   - [Exercise: Counter](std-types/exercise.md)
     - [Solution](std-types/solution.md)
-- [Closures](closures.md)
-  - [Closure Syntax](closures/syntax.md)
-  - [Capturing](closures/capturing.md)
-  - [Closure Traits](closures/traits.md)
-  - [Exercise: Log Filter](closures/exercise.md)
-    - [Solution](closures/solution.md)
 - [Standard Library Traits](std-traits.md)
   - [Comparisons](std-traits/comparisons.md)
   - [Operators](std-traits/operators.md)
@@ -442,6 +442,31 @@
     - [Drop Guards](idiomatic/leveraging-the-type-system/raii/drop_guards.md)
     - [Drop Bomb](idiomatic/leveraging-the-type-system/raii/drop_bomb.md)
     - [Scope Guard](idiomatic/leveraging-the-type-system/raii/scope_guard.md)
+  - [Typestate Pattern](idiomatic/leveraging-the-type-system/typestate-pattern.md)
+    - [Typestate Pattern Example](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-example.md)
+    - [Beyond Simple Typestate](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-advanced.md)
+    - [Typestate Pattern with Generics](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics.md)
+      - [Serializer: implement Root](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics/root.md)
+      - [Serializer: implement Struct](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics/struct.md)
+      - [Serializer: implement Property](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics/property.md)
+      - [Serializer: Complete implementation](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics/complete.md)
+
+---
+
+# Unsafe
+
+- [Welcome](unsafe-deep-dive/welcome.md)
+- [Setup](unsafe-deep-dive/setup.md)
+- [Motivations](unsafe-deep-dive/motivations.md)
+  - [Interoperability](unsafe-deep-dive/motivations/interop.md)
+  - [Data Structures](unsafe-deep-dive/motivations/data-structures.md)
+  - [Performance](unsafe-deep-dive/motivations/performance.md)
+- [Foundations](unsafe-deep-dive/foundations.md)
+  - [What is unsafe?](unsafe-deep-dive/foundations/what-is-unsafe.md)
+  - [When is unsafe used?](unsafe-deep-dive/foundations/when-is-unsafe-used.md)
+  - [Data structures are safe](unsafe-deep-dive/foundations/data-structures-are-safe.md)
+  - [Actions might not be](unsafe-deep-dive/foundations/actions-might-not-be.md)
+  - [Less powerful than it seems](unsafe-deep-dive/foundations/less-powerful.md)
 
 ---
 

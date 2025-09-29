@@ -11,12 +11,11 @@ wrappers for memory-mapped peripherals from
 <details>
 
 - SVD (System View Description) files are XML files typically provided by
-  silicon vendors which describe the memory map of the device.
-  - They are organised by peripheral, register, field and value, with names,
+  silicon vendors that describe the memory map of the device.
+  - They are organized by peripheral, register, field and value, with names,
     descriptions, addresses and so on.
-  - SVD files are often buggy and incomplete, so there are various projects
-    which patch the mistakes, add missing details, and publish the generated
-    crates.
+  - SVD files are often buggy and incomplete, so there are various projects that
+    patch the mistakes, add missing details, and publish the generated crates.
 - `cortex-m-rt` provides the vector table, among other things.
 - If you `cargo install cargo-binutils` then you can run
   `cargo objdump --bin pac -- -d --no-show-raw-insn` to see the resulting

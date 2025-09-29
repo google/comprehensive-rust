@@ -1,6 +1,6 @@
 # Rust Binaries
 
-Let us start with a simple application. At the root of an AOSP checkout, create
+Let's start with a simple application. At the root of an AOSP checkout, create
 the following files:
 
 _hello_rust/Android.bp_:
@@ -33,7 +33,7 @@ Hello from Rust!
   that all modules have documentation. Try removing it and see what error you
   get.
 
-- Stress that the Rust build rules look like the other Soong rules. This is on
-  purpose to make it as easy to use Rust as C++ or Java.
+- Stress that the Rust build rules look like the other Soong rules. This is by
+  design, to make using Rust as easy as C++ or Java.
 
 </details>

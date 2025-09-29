@@ -35,16 +35,30 @@ Key Points:
 - You might point out how some specific characters are being used when in a
   pattern
   - `|` as an `or`
-  - `..` can expand as much as it needs to be
+  - `..` matches any number of items
   - `1..=5` represents an inclusive range
   - `_` is a wild card
 
 - Match guards as a separate syntax feature are important and necessary when we
   wish to concisely express more complex ideas than patterns alone would allow.
-- They are not the same as separate `if` expression inside of the match arm. An
-  `if` expression inside of the branch block (after `=>`) happens after the
-  match arm is selected. Failing the `if` condition inside of that block won't
-  result in other arms of the original `match` expression being considered.
+- Match guards are different from `if` expressions after the `=>`. An `if`
+  expression is evaluated after the match arm is selected. Failing the `if`
+  condition inside of that block won't result in other arms of the original
+  `match` expression being considered. In the following example, the wildcard
+  pattern `_ =>` is never even attempted.
+
+```rust,editable
+#[rustfmt::skip]
+fn main() {
+    let input = 'a';
+    match input {
+        key if key.is_uppercase() => println!("Uppercase"),
+        key => if input == 'q' { println!("Quitting") },
+        _   => println!("Bug: this is never printed"),
+    }
+}
+```
+
 - The condition defined in the guard applies to every expression in a pattern
   with an `|`.
 - Note that you can't use an existing variable as the condition in a match arm,

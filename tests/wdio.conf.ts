@@ -55,8 +55,17 @@ export const config: WebdriverIO.Config = {
       // capabilities for local browser web tests
       browserName: "chrome",
       "goog:chromeOptions": {
-        // comment this to see the evaluation
-        args: ["headless", "disable-gpu"],
+        // In Github CI this variable is set to true
+        args: env.CI
+          ? // In CI, we use additional flags for stability.
+            [
+              "--headless",
+              "--disable-gpu",
+              "--no-sandbox",
+              "--disable-dev-shm-usage",
+            ]
+          : // For local runs, you can comment out the line below to see the browser
+            ["--headless"],
       },
     },
   ],
