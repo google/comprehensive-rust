@@ -35,7 +35,7 @@ these can ensure the solution is correct.
 
 We test the course material in several ways:
 
-- `mdbook test`: This will test the code samples. Some code sampes are marked
+- `mdbook test`: This will test the code samples. Some code samples are marked
   with `ignore` in the Markdown file because the Playground is missing some of
   the crates we use. For this we have
 - `cargo test`: This will build and test the Rust code found in our tooling, as
