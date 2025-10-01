@@ -4,7 +4,7 @@ minutes: 0
 
 # Lifetime-branded tokens
 
-We can tie a token to a specific value by using lifetimes.
+Branded types are token types tied to a specific value through Rust's lifetimes.
 
 ```rust,editable,compile_fail
 use std::marker::PhantomData;

@@ -14,7 +14,7 @@ fn main() {
     let mutex = Arc::new(Mutex::new(42));
     let try_mutex_guard: Result<MutexGuard<'_, _>, _> = mutex.lock();
     if let Ok(mut guarded) = try_mutex_guard {
-        // We've proven we have safe access to the data through the successful
+        // We've proven we have exclusive access to the data through the successful
         // construction of
         *guarded = 451;
     }
@@ -23,7 +23,9 @@ fn main() {
 
 <details>
 
-<!-- TODO: Reference the Mutex section of the RAII chapter once that is merged. -->
+<!-- TODO: Reference the Mutex section of the RAII chapter once that is merged.
+Remind the students that the RAII section specifically covered automatic mutex unlocking and did not talk about access to the data.
+-->
 
 - Mutexes need to enforce mutual exclusion of read/write access to a value.
   We've covered Mutexes earlier in this course already (See: RAII/Mutex), but
