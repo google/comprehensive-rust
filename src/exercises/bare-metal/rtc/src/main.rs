@@ -29,8 +29,8 @@ use core::hint::spin_loop;
 // ANCHOR: imports
 use aarch64_paging::paging::Attributes;
 use aarch64_rt::{InitialPagetable, entry, initial_pagetable};
-use arm_gic::gicv3::GicV3;
 use arm_gic::gicv3::registers::{Gicd, GicrSgi};
+use arm_gic::gicv3::{GicCpuInterface, GicV3};
 use arm_pl011_uart::{PL011Registers, Uart, UniqueMmioPointer};
 use core::panic::PanicInfo;
 use core::ptr::NonNull;
@@ -39,8 +39,8 @@ use smccc::Hvc;
 use smccc::psci::system_off;
 
 /// Base addresses of the GICv3.
-const GICD_BASE_ADDRESS: *mut Gicd = 0x800_0000 as _;
-const GICR_BASE_ADDRESS: *mut GicrSgi = 0x80A_0000 as _;
+const GICD_BASE_ADDRESS: NonNull<Gicd> = NonNull::new(0x800_0000 as _).unwrap();
+const GICR_BASE_ADDRESS: NonNull<GicrSgi> = NonNull::new(0x80A_0000 as _).unwrap();
 
 /// Base address of the primary PL011 UART.
 const PL011_BASE_ADDRESS: NonNull<PL011Registers> =
@@ -90,8 +90,14 @@ fn main(x0: u64, x1: u64, x2: u64, x3: u64) -> ! {
     // SAFETY: `GICD_BASE_ADDRESS` and `GICR_BASE_ADDRESS` are the base
     // addresses of a GICv3 distributor and redistributor respectively, and
     // nothing else accesses those address ranges.
-    let mut gic =
-        unsafe { GicV3::new(GICD_BASE_ADDRESS, GICR_BASE_ADDRESS, 1, false) };
+    let mut gic = unsafe {
+        GicV3::new(
+            UniqueMmioPointer::new(GICD_BASE_ADDRESS),
+            GICR_BASE_ADDRESS,
+            1,
+            false,
+        )
+    };
     gic.setup(0);
     // ANCHOR_END: main
 
@@ -102,11 +108,11 @@ fn main(x0: u64, x1: u64, x2: u64, x3: u64) -> ! {
     let time = Utc.timestamp_opt(timestamp.into(), 0).unwrap();
     info!("RTC: {time}");
 
-    GicV3::set_priority_mask(0xff);
-    gic.set_interrupt_priority(PL031_IRQ, None, 0x80);
-    gic.set_trigger(PL031_IRQ, None, Trigger::Level);
+    GicCpuInterface::set_priority_mask(0xff);
+    gic.set_interrupt_priority(PL031_IRQ, None, 0x80).unwrap();
+    gic.set_trigger(PL031_IRQ, None, Trigger::Level).unwrap();
     irq_enable();
-    gic.enable_interrupt(PL031_IRQ, None, true);
+    gic.enable_interrupt(PL031_IRQ, None, true).unwrap();
 
     // Wait for 3 seconds, without interrupts.
     let target = timestamp + 3;
