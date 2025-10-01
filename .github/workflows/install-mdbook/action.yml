@@ -15,7 +15,19 @@ runs:
     - name: Install mdbook-pandoc dependencies
       uses: ./.github/workflows/apt-get-install
       with:
-        packages: texlive texlive-luatex texlive-lang-cjk texlive-lang-japanese texlive-lang-arabic librsvg2-bin fonts-noto fonts-noto-cjk texlive-fonts-recommended fonts-noto-extra fonts-noto-color-emoji fonts-symbola
+        packages: >
+          fonts-noto
+          fonts-noto-cjk
+          fonts-noto-color-emoji
+          fonts-noto-extra
+          fonts-symbola
+          librsvg2-bin
+          texlive
+          texlive-fonts-recommended
+          texlive-lang-arabic
+          texlive-lang-cjk
+          texlive-lang-japanese
+          texlive-luatex
 
     - name: Install mdbook-pandoc
       run: |
