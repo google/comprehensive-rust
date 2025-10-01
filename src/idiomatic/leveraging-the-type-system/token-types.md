@@ -27,8 +27,7 @@ fn main() {
         // We have a token, so we can do this work.
         work_that_requires_a_token(token);
     } else {
-        // We could not get a token, so we couldn't call the function that
-        // needs a value of this type.
+        // We could not get a token, so we can't call `protected_work`.
         println!("Could not get token.");
     }
 }
