@@ -34,9 +34,10 @@ Remind the students that the RAII section specifically covered automatic mutex u
   access at that point in time.
 
   `MutexGuard` also holds onto a reference to the `Mutex` that generated it,
-  using `unsafe` methods to read and modify the data of the mutex.
+  with `Deref` and `DerefMut` implementations that give access to the data of
+  `Mutex` while the underlying `Mutex` keeps that data private from the user.
 
-  If `mutex.lock()` does not return a `MutexGuard`, you don't have permission to
+- If `mutex.lock()` does not return a `MutexGuard`, you don't have permission to
   change the value within the mutex.
 
 </details>

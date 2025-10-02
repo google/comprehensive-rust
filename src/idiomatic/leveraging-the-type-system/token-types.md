@@ -1,56 +1,63 @@
 ---
-minutes: 0
+minutes: 10
 ---
 
 # Token Types
 
+Types with private constructors can be used to act as proof of invariants.
+
+<!-- dprint-ignore-start -->
 ```rust,editable
 pub mod token {
-    pub struct Token {
-        proof: (),
-    }
+    pub struct Token { proof: () }
 
     pub fn get_token() -> Option<Token> {
         Some(Token { proof: () })
     }
 }
 
-pub fn work_that_requires_a_token(token: token::Token) {
-    // Do important work that has prerequisites
-    println!(
-        "Function was given a token! We can make assumptions here while we work."
-    )
+pub fn protected_work(token: token::Token) {
+    println!("We have a token, so we can make assumptions.")
 }
 
 fn main() {
     if let Some(token) = token::get_token() {
         // We have a token, so we can do this work.
-        work_that_requires_a_token(token);
+        protected_work(token);
     } else {
         // We could not get a token, so we can't call `protected_work`.
-        println!("Could not get token.");
     }
 }
 ```
+<!-- dprint-ignore-end -->
 
 <details>
 
-- Token types let us use the privacy tools of types and modules to control when
-  an API consumer has access to a value of a certain type, and have it be a
-  requirement that a consumer has a value of that type in order to perform
-  certain actions.
+- Motivation: We want to be able to restrict user's access to functionality
+  until they've performed a specific task.
 
-  A user of the API cannot construct a value of a certain type on their own, so
-  they need to go through "proper" channels to do so. The designer of the API
-  gets to choose those proper channels and how they behave.
+  We can do this by defining a type the API consumer cannot construct on their
+  own, through privacy tools of structs and modules.
 
-- There's some overlap between this and general API design, because in rust you
-  cannot pass "null" values for any type. If a function asks for a value, you
-  have to construct that value! If you can't construct that value yourself, you
-  need to call functions that can!
+- Ask: What is the purpose of the `proof: ()` field here?
 
-- By an API user showing they have access to a value of a certain type, we can
-  assume that whatever invariants we put around the construction of that type
-  likely apply.
+  Without `proof: ()`, `Token` would have no private fields and users would be
+  able to construct values of `Token` arbitrarily.
+
+- By putting the `Token` type behind the module `token`, users outside that
+  module can't construct the value on their own as they don't have permission to
+  access the `proof` field.
+
+  The API developer gets to define methods and functions that produce these
+  tokens. The user does not.
+
+  The token becomes a proof that one has met the API developer's conditions of
+  access for those tokens.
+
+- Ask: How might an API developer accidentally introduce ways to circumvent
+  this?
+
+  Expect answers like "serialization implementations" or other parser
+  implementations. Or an implementation of `Default`.
 
 </details>
