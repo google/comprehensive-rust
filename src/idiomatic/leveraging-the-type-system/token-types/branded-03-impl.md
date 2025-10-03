@@ -4,12 +4,15 @@ minutes: 10
 
 # Implementing Branded Types (Branding 3/4)
 
+Can't use a type if we can't construct it.
+
 ```rust
 # use std::marker::PhantomData;
 # 
 # #[derive(Default)]
 # struct InvariantLifetime<'id>(PhantomData<*mut &'id ()>);
 struct BrandedToken<'id>(InvariantLifetime<'id>);
+
 struct MyStructure<'id>(Vec<u8>, InvariantLifetime<'id>);
 
 impl<'id> MyStructure<'id> {
@@ -33,7 +36,11 @@ impl<'id> MyStructure<'id> {
 
 <details>
 
-- To implement this, we'll need to use "higher-ranked trait bounds."
+- The underlying Branded Data Structure we're going to use here is just a
+  `Vec<u8>` (the data) and an `InvariantLifetime`.
+
+- The constructor for this type will take **data for the `Vec<u8`** plus a
+  function to manipulate the data constructed by `MyStructure::new`.
 
 - Ask: Does anyone know what the `for <'a>` is for?
 
@@ -47,5 +54,11 @@ impl<'id> MyStructure<'id> {
 
   This limit in the borrow checker's ability to sub-type lifetimes is what lets
   us force a token to only apply to a specific variable-bound value.
+
+  The keyword for those interested is "higher-ranked trait bounds."
+
+- Ask: But how can we then use "new" to return a `MyStructure`?
+
+  Follow this up with the next slide.
 
 </details>

@@ -11,10 +11,11 @@ struct Data {}
 struct ValueSpecificToken {}
 
 impl Data {
-    fn get_token(&self) -> ValueSpecificToken { ValueSpecificToken{} }
+    fn get_token(&self) -> ValueSpecificToken {
+        ValueSpecificToken {}
+    }
     fn use_token(&self, token: &ValueSpecificToken) {}
 }
-
 
 fn main() {
     let branded_1 = Data {};
@@ -49,6 +50,6 @@ fn main() {
   the "proof of work from elsewhere" to more general aspects of rust.
 
 - [`GhostCell`](https://plv.mpi-sws.org/rustbelt/ghostcell/paper.pdf) is a
-  prominent user of this method.
+  prominent user of this, later slides will touch on it.
 
 </details>

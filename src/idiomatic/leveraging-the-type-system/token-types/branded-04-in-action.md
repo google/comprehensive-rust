@@ -42,14 +42,14 @@ fn main() {
 
 <details>
 
-- To use these branded types, we will need to use closures instead of usual
-  `let` declarations of variables.
+- To use values of these branded types, we will need to use closures instead of
+  usual `let` declarations of variables.
 
-  This is clunky, and does lead to rightward drift of indentation, but this
-  tradeoff means we now have tokens branded to specific values.
+  This is clunky, and does lead to indentation drift if you need to use many
+  different branded types. But this case is not common.
 
-  The data structures we end up passing to the closures cannot be returned on
-  their own.
+- Note: The data structures we end up passing to the closures cannot be returned
+  on their own.
 
   The intent being you do the computation you need to do within these closures
   then return a result.
@@ -69,8 +69,7 @@ fn main() {
   operations are safe.
 
   The token acts like a "proof of arena allocation and destruction" in this
-  case. The data structure cannot live past the closure in any way, bringing
-  RAII invariants to cyclic data structures without GC checks.
+  case. The data structure cannot live past the closure in any way.
 
   GhostCell uses formal checks outside of Rust's type system to prove that the
   things it allows within this kind of context (cyclic references) are safe.

@@ -17,12 +17,12 @@ struct InvariantLifetime<'id>(PhantomData<*mut &'id ()>);
 - We saw `PhantomData` back in the Borrow Checker Invariants chapter.
 -->
 
-- Note: There are two parts to this, the first part is `PhantomData` and
-  `for<'a>` quantification of lifetimes.
+- Note: There are two parts to this, the first part is `PhantomData`, and how
+  we're binding a lifetime in a newtype'd wrap of `PhantomData`.
 
   How type parameter of `InvariantLifetime`'s internal `PhantomData` relates to
-  [Subtyping](https://doc.rust-lang.org/stable/reference/subtyping.html) is what
-  forces this "branding" between lifetimes to apply.
+  [Subtyping of lifetimes](https://doc.rust-lang.org/stable/reference/subtyping.html)
+  is what forces this "branding" between lifetimes to apply.
 
   Without it, the compiler would see the lifetimes on the types we're handling
   as "similar enough" (able to be subtyped) and users would be able to use the

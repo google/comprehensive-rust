@@ -4,7 +4,7 @@ minutes: 5
 
 # Permission Tokens
 
-Trivial token types work well as "proof of checked permission."
+Token types work well as a trivial "proof of checked permission."
 
 ```rust,editable
 mod admin {
