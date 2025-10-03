@@ -1,5 +1,5 @@
 ---
-minutes: 10
+minutes: 15
 ---
 
 # Token Types
@@ -9,6 +9,7 @@ Types with private constructors can be used to act as proof of invariants.
 <!-- dprint-ignore-start -->
 ```rust,editable
 pub mod token {
+    // A public type with private fields behind a module boundary.
     pub struct Token { proof: () }
 
     pub fn get_token() -> Option<Token> {

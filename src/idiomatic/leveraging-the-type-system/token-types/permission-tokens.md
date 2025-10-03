@@ -1,38 +1,27 @@
 ---
-minutes: 0
+minutes: 5
 ---
 
 # Permission Tokens
 
-```rust,editable
-mod sudo {
-    // A public type with private fields kept behind a module
-    // to enforce privacy boundaries.
-    pub struct SuToken(());
+Trivial token types work well as "proof of checked permission."
 
-    pub fn get_sudo(password: &str) -> Option<SuToken> {
-        if password == "Password123" { Some(SuToken(())) } else { None }
+```rust,editable
+mod admin {
+    pub struct AdminToken(());
+
+    pub fn get_admin(password: &str) -> Option<AdminToken> {
+        if password == "Password123" { Some(AdminToken(())) } else { None }
     }
 }
 
 // We don't have to check that we have permissions, because
-// the SuToken argument is equivalent to such a check.
-pub fn install_packages(_: &sudo::SuToken, packages: &[&str]) {
-    for package in packages {
-        // Not doing any real package work here.
-        println!("Retrieving package {package}...");
-    }
-    for package in packages {
-        println!("Installed package {package}!");
-    }
-}
+// the AdminToken argument is equivalent to such a check.
+pub fn add_moderator(_: &admin::AdminToken, user: &str) {}
 
 fn main() {
-    if let Some(token) = sudo::get_sudo("Password123") {
-        install_packages(
-            &token,
-            &["golang", "google-chrome-stable", "texlive-full"],
-        );
+    if let Some(token) = admin::get_admin("Password123") {
+        add_moderator(&token, "CoolUser");
     } else {
         eprintln!("Incorrect password! Could not prove privileges.")
     }
@@ -41,16 +30,18 @@ fn main() {
 
 <details>
 
-- This example shows modelling gaining root privileges with a password and
-  installing packages to the system once those privileges are gained. The
-  `SuToken` type acts as "proof of super user privileges."
+- This example shows modelling gaining administrator privileges for a chat
+  client with a password and giving a user a moderator rank once those
+  privileges are gained. The `AdminToken` type acts as "proof of correct user
+  privileges."
 
-  Here, we're asked for a password in-code and if we get the password correct,
-  we get a `SuToken` to perform "super user" actions within a specific
-  environment.
+  The user asked for a password in-code and if we get the password correct, we
+  get a `AdminToken` to perform administrator actions within a specific
+  environment (here, a chat client).
 
-  Once the permissions are gained, we can call an "package install" function. We
-  can't call that function without the token type, so by being able to call it
-  at all all we can assume we have permissions.
+  Once the permissions are gained, we can call a `add_moderator` function.
+
+  We can't call that function without the token type, so by being able to call
+  it at all all we can assume we have permissions.
 
 </details>
