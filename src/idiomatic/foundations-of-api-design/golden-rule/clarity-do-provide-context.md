@@ -8,18 +8,26 @@ Codebases are full of relationships between types, functions, inputs. Represent
 them well!
 
 ```rust
-pub struct MyType { pub my_number: u32 }
+pub struct MyType {
+    pub my_number: u32,
+}
 
 impl MyType {
-    fn add_one(&mut self) { self.my_number += 1; }
+    fn add_one(&mut self) {
+        self.my_number += 1;
+    }
     fn business_logic() {}
 }
 
 mod another_package {
-    pub fn add_one(my_type: &mut super::MyType) { my_type.my_number += 1; }
+    pub fn add_one(my_type: &mut super::MyType) {
+        my_type.my_number += 1;
+    }
 }
 
-fn add_one(my_type: &mut MyType) { my_type.my_number += 1; }
+fn add_one(my_type: &mut MyType) {
+    my_type.my_number += 1;
+}
 
 fn main() {
     let mut value = MyType { my_number: 39 };

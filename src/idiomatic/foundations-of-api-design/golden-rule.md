@@ -45,8 +45,10 @@ fn main() {
 
 - Ask before running: which function is more readable here, and why?
 
-- Ask: What if we remove the "good documentation" from `taxes_and_infrastructure`?
+- Ask: What if we remove the "good documentation" from
+  `taxes_and_infrastructure`?
 
-  Without this documentation, we're only left with what's visible at the callsite.
+  Without this documentation, we're only left with what's visible at the
+  callsite.
 
 </details>
