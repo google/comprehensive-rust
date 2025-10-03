@@ -8,7 +8,7 @@ Codebases are full of relationships between types, functions, inputs. Represent
 them well!
 
 ```rust
-pub struct MyType { pub my_number: u32 };
+pub struct MyType { pub my_number: u32 }
 
 impl MyType {
     fn add_one(&mut self) { self.my_number += 1; }
@@ -51,7 +51,7 @@ fn main() {
 
   While it makes sense to keep functions as methods a lot of the time, as
   there's usually an "authoritative" type, there's still plenty of reasons a
-  function might not be a method.
+  function might not be a method or static method.
 
   Note: Remember that a method is a relationship between a function and a type.
 

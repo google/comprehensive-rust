@@ -8,7 +8,8 @@ Be consistent in function & variable names, and use shorthands with care.
 
 ```rust,editable
 // Step 1
-fn do_thing() { /* Imagine something! */}
+fn do_thing() { /* Imagine something! */
+}
 // Step 2
 fn execute_the_other_thing() {}
 // Step 3
@@ -33,6 +34,11 @@ fn main() {
 
 - Ask: Imagine what the domain should be for these three functions.
 
+  Expect a broad array of subjects, potential fallbacks:
+
 - Ask: How should they be renamed?
+
+  Assume "do_thing" is the convention, so all other functions should start with
+  `do_<functionality>`
 
 </details>
