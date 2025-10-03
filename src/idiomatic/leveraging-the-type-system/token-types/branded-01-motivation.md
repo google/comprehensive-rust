@@ -8,19 +8,19 @@ What if we want there to be a token tied to a specific value?
 
 ```rust,editable
 struct Data {}
+struct ValueSpecificToken {}
 
 impl Data {
-    fn get_token(&self) -> ValueSpecificToken {}
+    fn get_token(&self) -> ValueSpecificToken { ValueSpecificToken{} }
     fn use_token(&self, token: &ValueSpecificToken) {}
 }
 
-struct ValueSpecificToken {}
 
 fn main() {
-    let branded_1 = Data {...};
+    let branded_1 = Data {};
     let token_1 = branded_1.get_token();
     branded_1.use_token(&token_1); // Works fine!
-    let branded_2 = Data {...};
+    let branded_2 = Data {};
     let token_2 = branded_2.get_token();
 
     // But how do we prevent this?
