@@ -19,8 +19,8 @@ impl<'id> MyStructure<'id> {
     fn new<T>(
         // The data we want to modify in this context.
         data: Vec<u8>,
-        // We want a function whose lifetime is specific to each time
-        // `new` is called, not tied to any one data structure other than
+        // We want a function whose lifetime is specific to each call to
+        // `new`, not tied to any one data structure other than
         // the function. This hides enough information from the borrow
         // checker that it can no longer "subtype"
         f: impl for<'a> FnOnce(MyStructure<'a>, BrandedToken<'a>) -> T,
@@ -39,7 +39,7 @@ impl<'id> MyStructure<'id> {
 - The underlying Branded Data Structure we're going to use here is just a
   `Vec<u8>` (the data) and an `InvariantLifetime`.
 
-- The constructor for this type will take **data for the `Vec<u8`** plus a
+- The constructor for this type will take **data for the `Vec<u8>`** plus a
   function to manipulate the data constructed by `MyStructure::new`.
 
 - Ask: Does anyone know what the `for <'a>` is for?

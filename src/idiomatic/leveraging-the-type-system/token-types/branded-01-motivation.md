@@ -2,9 +2,9 @@
 minutes: 10
 ---
 
-# Value Specific Tokens (Branding 1/4)
+# Value-Specific Tokens (Branding 1/4)
 
-What if we want there to be a token tied to a specific value?
+What if we want to tie a token to a specific value?
 
 ```rust,editable
 struct Data {}
@@ -21,11 +21,9 @@ fn main() {
     let branded_1 = Data {};
     let token_1 = branded_1.get_token();
     branded_1.use_token(&token_1); // Works fine!
-    let branded_2 = Data {};
-    let token_2 = branded_2.get_token();
 
     // But how do we prevent this?
-    branded_1.use_token(&token_2);
+    let branded_2 = Data {};
     branded_2.use_token(&token_1);
 }
 ```

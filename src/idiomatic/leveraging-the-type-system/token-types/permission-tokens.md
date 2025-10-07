@@ -4,7 +4,7 @@ minutes: 5
 
 # Permission Tokens
 
-Token types work well as a trivial "proof of checked permission."
+Token types work well as a proof of checked permission.
 
 ```rust,editable
 mod admin {
@@ -39,7 +39,7 @@ fn main() {
   get a `AdminToken` to perform administrator actions within a specific
   environment (here, a chat client).
 
-  Once the permissions are gained, we can call a `add_moderator` function.
+  Once the permissions are gained, we can call the `add_moderator` function.
 
   We can't call that function without the token type, so by being able to call
   it at all all we can assume we have permissions.
