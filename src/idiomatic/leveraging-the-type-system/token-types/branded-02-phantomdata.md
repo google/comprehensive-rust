@@ -1,20 +1,37 @@
 ---
-minutes: 5
+minutes: 20
 ---
 
 # `PhantomData` and Lifetime Subtyping (Branding 2/4)
 
+We need a mechanism to make lifetimes distinct enough from each other to not
+compile when we try to compare them.
+
+<!-- dprint-ignore-start -->
 ```rust,editable
 use std::marker::PhantomData;
 
-// Why `*mut &'id ()` specifically?
 #[derive(Default)]
-struct InvariantLifetime<'id>(PhantomData<*mut &'id ()>);
+struct InvariantLifetime<'id>(PhantomData<&'id ()>); // The main focus
 
-struct InvariantLifetime2<'a>(PhantomData<&'id ()>);
+struct Wrapper<'a> { value: u8, invariant: InvariantLifetime<'a> }
 
-struct InvariantLifetime3<'a>(PhantomData<&mut 'id ()>);
+fn lifetime_separator<T>(value: u8, f: impl for<'a> FnOnce(Wrapper<'a>) -> T) -> T {
+    f(Wrapper { value, invariant: InvariantLifetime::default() })
+}
+
+fn compare_lifetimes<'a>(left: Wrapper<'a>, right: Wrapper<'a>) {}
+
+fn main() {
+    lifetime_separator(1, |wrapped_1| {
+        lifetime_separator(2, |wrapped_2| {
+            // We want this to NOT compile
+            compare_lifetimes(wrapped_1, wrapped_2);
+        });
+    });
+}
 ```
+<!-- dprint-ignore-end -->
 
 <details>
 
@@ -22,19 +39,71 @@ struct InvariantLifetime3<'a>(PhantomData<&mut 'id ()>);
 - We saw `PhantomData` back in the Borrow Checker Invariants chapter.
 -->
 
-- Note: There are two parts to this, the first part is `PhantomData`, and how
-  we're binding a lifetime in a newtype'd wrap of `PhantomData`.
+- Goal: We want two lifetimes that the rust compiler cannot determine if one
+  outlives the other.
 
-  How type parameter of `InvariantLifetime`'s internal `PhantomData` relates to
-  [Subtyping of lifetimes](https://doc.rust-lang.org/stable/reference/subtyping.html)
-  is what forces this "branding" between lifetimes to apply.
+  We are using `compare_lifetimes` as a compile-time check to see if the
+  lifetimes are being subtyped.
 
-  Without it, the compiler would see the lifetimes on the types we're handling
-  as "similar enough" (able to be subtyped) and users would be able to use the
-  token for one value with a different value.
+- Note: This slide compiles, by the end of this slide it should only compile
+  when `subtyped_lifetimes` is commented out.
 
-</details>
+- There are two important parts of this code, `PhantomData` and the
+  `impl for<'a>` bound on the closure passed to `lifetime_separator`.
 
-<details>
+- We already know `PhantomData`, which we can use to capture unused type or
+  lifetime parameters to make them "used."
+
+- Ask: What can we do with `PhantomData`?
+
+  Expect mentions of the Typestate pattern, tying together the lifetimes of
+  owned values.
+
+- Ask: In other languages, what is subtyping?
+
+  Expect mentions of Inheritance, being able to use a value of type `B` when a
+  asked for a value of type `A` because `B` is a "subtype" of `A`.
+
+- Rust does have Subtyping! But only for lifetimes.
+
+  Ask: If one lifetime is a subtype of another lifetime, what might that mean?
+
+  A lifetime is a "subtype" of another lifetime when it _outlives_ that other
+  lifetime.
+
+- `for<'a> [trait bound]` is a way of 1. introducing a new lifetime variable to
+  a trait bound 2. asking that the trait bound be true for all instances of that
+  new lifetime variable.
+
+- The way that lifetimes captured by `PhantomData` behave depends not only on
+  where the lifetime "comes from" but on how the reference is defined too.
+
+  The reason this compiles is that the
+  [**Variance**](https://doc.rust-lang.org/stable/reference/subtyping.html#r-subtyping.variance)
+  of the lifetime captured by `InvariantLifetime` is too lenient.
+
+  <!-- Note: We've been using "invariants" in this module in a specific way, but subtyping introduces _invariant_, _covariant_, and _contravariant_ as specific terms. -->
+
+- Ask: How can we make it more restrictive?
+
+  Expect or demonstrate: Making it `&'id mut ()` instead. This will not be
+  enough!
+
+  We need to use a
+  [**Variance**](https://doc.rust-lang.org/stable/reference/subtyping.html#r-subtyping.variance)
+  on lifetimes where _subtyping cannot be inferred_.
+
+  Demonstrate: Move from `&'id ()` (covariant in lifetime and type),
+  `&'id mut ()` (covariant in lifetime, invariant in type), `*mut &'id mut ()`
+  (invariant in lifetime and type), and finally `*mut &'id ()` (invariant in
+  lifetime but not type).
+
+  Those last two should not compile, which means we've finally found candidates
+  for how to bind lifetimes to `PhantomData` so they can't be compared to one
+  another in this context.
+
+- Wrap up: We've introduced ways to stop the compiler from deciding that
+  lifetimes are "similar enough" by making a reference in a `PhantomData`
+  parameter _very restrictive_ using variance, and we've captured
 
 </details>
