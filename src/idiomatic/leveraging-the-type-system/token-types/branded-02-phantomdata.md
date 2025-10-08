@@ -2,13 +2,18 @@
 minutes: 5
 ---
 
-# `PhantomData` and Lifetimes (Branding 2/4)
+# `PhantomData` and Lifetime Subtyping (Branding 2/4)
 
 ```rust,editable
 use std::marker::PhantomData;
 
+// Why `*mut &'id ()` specifically?
 #[derive(Default)]
 struct InvariantLifetime<'id>(PhantomData<*mut &'id ()>);
+
+struct InvariantLifetime2<'a>(PhantomData<&'id ()>);
+
+struct InvariantLifetime3<'a>(PhantomData<&mut 'id ()>);
 ```
 
 <details>
@@ -27,5 +32,9 @@ struct InvariantLifetime<'id>(PhantomData<*mut &'id ()>);
   Without it, the compiler would see the lifetimes on the types we're handling
   as "similar enough" (able to be subtyped) and users would be able to use the
   token for one value with a different value.
+
+</details>
+
+<details>
 
 </details>

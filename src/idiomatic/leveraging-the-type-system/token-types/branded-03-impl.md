@@ -11,7 +11,7 @@ Can't use a type if we can't construct it.
 # 
 # #[derive(Default)]
 # struct InvariantLifetime<'id>(PhantomData<*mut &'id ()>);
-struct BrandedToken<'id>(InvariantLifetime<'id>);
+struct BrandedToken<'id>(usize, InvariantLifetime<'id>);
 
 struct MyStructure<'id>(Vec<u8>, InvariantLifetime<'id>);
 

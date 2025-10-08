@@ -38,16 +38,24 @@ fn main() {
   until they've performed a specific task.
 
   We can do this by defining a type the API consumer cannot construct on their
-  own, through privacy tools of structs and modules.
+  own, through the privacy rules of structs and modules.
+
+  [Newtypes](./newtype-pattern.md) use the privacy rules in a similar way, to
+  restrict construction unless a value is guaranteed to hold up an invariant at
+  runtime.
 
 - Ask: What is the purpose of the `proof: ()` field here?
 
   Without `proof: ()`, `Token` would have no private fields and users would be
   able to construct values of `Token` arbitrarily.
 
-- By putting the `Token` type behind the module `token`, users outside that
-  module can't construct the value on their own as they don't have permission to
-  access the `proof` field.
+  Demonstrate: Try to construct the token manually in `main`, then remove the
+  `proof` field from `Token` to show how users would be able to construct
+  `Token` without restriction if it had no private fields.
+
+- By putting the `Token` type behind a module boundary (`token`), users outside
+  that module can't construct the value on their own as they don't have
+  permission to access the `proof` field.
 
   The API developer gets to define methods and functions that produce these
   tokens. The user does not.
@@ -58,7 +66,7 @@ fn main() {
 - Ask: How might an API developer accidentally introduce ways to circumvent
   this?
 
-  Expect answers like "serialization implementations" or other parser
-  implementations. Or an implementation of `Default`.
+  Expect answers like "serialization implementations", other parser/"from
+  string" implementations, or an implementation of `Default`.
 
 </details>

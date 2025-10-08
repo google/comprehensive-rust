@@ -448,8 +448,8 @@
   - [Token Types](idiomatic/leveraging-the-type-system/token-types.md)
     - [Permission Tokens](idiomatic/leveraging-the-type-system/token-types/permission-tokens.md)
     - [Token Types with Data: Mutex Guards](idiomatic/leveraging-the-type-system/token-types/mutex-guard.md)
-    - [Branded pt 1: Value-specific tokens](idiomatic/leveraging-the-type-system/token-types/branded-01-motivation.md)
-    - [Branded pt 2: `PhantomData`](idiomatic/leveraging-the-type-system/token-types/branded-02-phantomdata.md)
+    - [Branded pt 1: Variable-specific tokens](idiomatic/leveraging-the-type-system/token-types/branded-01-motivation.md)
+    - [Branded pt 2: `PhantomData` and Lifetime Subtyping](idiomatic/leveraging-the-type-system/token-types/branded-02-phantomdata.md)
     - [Branded pt 3: Implementation](idiomatic/leveraging-the-type-system/token-types/branded-03-impl.md)
     - [Branded pt 4: Branded types in action.](idiomatic/leveraging-the-type-system/token-types/branded-04-in-action.md)
 
