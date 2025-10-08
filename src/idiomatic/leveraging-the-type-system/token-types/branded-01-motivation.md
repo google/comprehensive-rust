@@ -26,7 +26,7 @@ fn main() {
     if let Some(token_1) = data_1.get_index(2) {
         data_1.get_proven(&token_1); // Works fine!
         let data_2 = Bytes { bytes: vec![0, 1] };
-        data_2.get_proven(&token_1); // Panics! How do we prevent this at compile time?
+        // data_2.get_proven(&token_1); // Panics! How do we prevent this at compile time?
     }
 }
 ```
@@ -41,6 +41,8 @@ fn main() {
 
   In this example there's nothing stopping the proven index of one array being
   used on a different array.
+
+- Demonstrate: Uncomment the `data_2.get_proven(&token_1);` line.
 
   The code here panics! We want to prevent this "crossover" of token types for
   indexes at compile time.
