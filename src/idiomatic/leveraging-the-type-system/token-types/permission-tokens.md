@@ -44,4 +44,7 @@ fn main() {
   We can't call that function without the token type, so by being able to call
   it at all all we can assume we have permissions.
 
+- Demonstrate: Try to construct the `AdminToken` in `main` again to reiterate
+  that the foundation of useful tokens is preventing their arbitrary construction.
+
 </details>

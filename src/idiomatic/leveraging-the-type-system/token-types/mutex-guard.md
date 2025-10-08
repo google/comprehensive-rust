@@ -47,4 +47,8 @@ Remind the students that the RAII section specifically covered automatic mutex u
   to the data itself, acting only as a flag that a user must remember to check
   every time they read or manipulate data.
 
+- Demonstrate: make the `mutex` variable mutable then try to dereference it to
+  change its value. Show how there's no deref implementation for it, and no
+  other way to get to the data held by it other than getting a mutex guard.
+
 </details>

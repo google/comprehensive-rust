@@ -4,35 +4,46 @@ minutes: 15
 
 # Branded Types in Action (Branding 4/4)
 
-```rust,editable,compile_fail
+```rust,editable
 use std::marker::PhantomData;
 
 #[derive(Default)]
 struct InvariantLifetime<'id>(PhantomData<*mut &'id ()>);
+struct ProvenIndex<'id>(usize, InvariantLifetime<'id>);
 
-struct BrandedToken<'id>(InvariantLifetime<'id>);
-struct MyStructure<'id>(Vec<u8>, InvariantLifetime<'id>);
+struct Bytes<'id>(Vec<u8>, InvariantLifetime<'id>);
 
-impl<'id> MyStructure<'id> {
+impl<'id> Bytes<'id> {
     fn new<T>(
-        data: Vec<u8>,
-        f: impl for<'a> FnOnce(MyStructure<'a>, BrandedToken<'a>) -> T,
+        // The data we want to modify in this context.
+        bytes: Vec<u8>,
+        // The function that uniquely brands the lifetime of a `Bytes`
+        f: impl for<'a> FnOnce(Bytes<'a>) -> T,
     ) -> T {
-        f(
-            MyStructure(data, InvariantLifetime::default()),
-            BrandedToken(InvariantLifetime::default()),
-        )
+        f(Bytes(bytes, InvariantLifetime::default()))
     }
-    fn use_token(&mut self, token: &BrandedToken<'id>) {}
+
+    fn get_index(&self, ix: usize) -> Option<ProvenIndex<'id>> {
+        if ix < self.0.len() {
+            Some(ProvenIndex(ix, InvariantLifetime::default()))
+        } else {
+            None
+        }
+    }
+
+    fn get_proven(&self, ix: &ProvenIndex<'id>) -> u8 {
+        self.0[ix.0]
+    }
 }
 
 fn main() {
-    // Work has to happen in the closures! not outside them.
-    let result = MyStructure::new(vec![4, 5, 1], move |mut data_1, token_1| {
-        MyStructure::new(vec![4, 2], move |mut data_2, token_2| {
-            data_1.use_token(&token_1);
-            data_2.use_token(&token_2);
-            // data_2.use_token(&token_1); // ❌🔨
+    let result = Bytes::new(vec![4, 5, 1], move |mut bytes_1| {
+        Bytes::new(vec![4, 2], move |mut bytes_2| {
+            let index_1 = bytes_1.get_index(2).unwrap();
+            let index_2 = bytes_2.get_index(1).unwrap();
+            bytes_1.get_proven(&index_1);
+            bytes_2.get_proven(&index_2);
+            // bytes_2.get_proven(&index_1); // ❌🔨
             "Computations done!"
         })
     });
@@ -42,36 +53,50 @@ fn main() {
 
 <details>
 
-- To use values of these branded types, we will need to use closures instead of
-  usual `let` declarations of variables.
+- We now have the implementation ready, we can now write a program where token
+  types that are proofs of existing indexes cannot be shared between variables.
 
-  This is clunky, and does lead to indentation drift if you need to use many
-  different branded types. But this case is not common.
+- Demonstration: Uncomment the `bytes_2.get_proven(&index_1);` line and show
+  that it does not compile when we use indexes from different variables.
 
-- Note: The data structures we end up passing to the closures cannot be returned
-  on their own.
+- Ask: What operations can we perform that we can guarantee would produce a
+  proven index?
 
-  The intent being you do the computation you need to do within these closures
-  then return a result.
+  Expect a "push" implementation, suggested demo:
 
-- Note: Show how uncommenting `data_2.use_token(&token_1)` makes this not
-  compile.
+  ```rust
+  fn push(&mut self, value: u8) -> ProvenIndex<'id> {
+      self.0.push(value);
+      ProvenIndex(self.0.len() - 1, InvariantLifetime::default())
+  }
+  ```
 
-  Talk about how this is because the lifetimes cannot be subtyped on one
-  another, because of how we used `for<'a>`.
+- Ask: Can we make this not just about a byte array, but as a general wrapper on
+  `Vec<T>`?
+
+  Trivial: Yes!
+
+  Maybe demonstrate: Generalising `Bytes<'id>` into `BrandedVec<'id, T>`
+
+- Ask: What other areas could we use something like this?
 
 - The resulting token API is **highly restrictive**, but the things that it
-  makes possible to prove as safe within the rust type system are meaningful.
+  makes possible to prove as safe within the Rust type system are meaningful.
 
-  [GhostCell](https://plv.mpi-sws.org/rustbelt/ghostcell/paper.pdf), a structure
-  that allows for safe cyclic data structures in rust, uses this kind of token
-  type to make sure cells can't "escape" a context where we know where cyclic
-  operations are safe.
+## More to Explore
 
-  The token acts like a "proof of arena allocation and destruction" in this
-  case. The data structure cannot live past the closure in any way.
+- [GhostCell](https://plv.mpi-sws.org/rustbelt/ghostcell/paper.pdf), a structure
+  that allows for safe cyclic data structures in Rust (among other previously
+  difficult to represent data structures), uses this kind of token type to make
+  sure cells can't "escape" a context where we know where operations similar to
+  those shown in these examples are safe.
 
-  GhostCell uses formal checks outside of Rust's type system to prove that the
-  things it allows within this kind of context (cyclic references) are safe.
+  This "Branded Types" sequence of slides is based off their `BrandedVec`
+  implementation in the paper, which covers many of the implementation details
+  of this use case in more depth as a gentle introduction to how `GhostCell`
+  itself is implemented and used in practice.
+
+  GhostCell also uses formal checks outside of Rust's type system to prove that
+  the things it allows within this kind of context (cyclic references) are safe.
 
 </details>

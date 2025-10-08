@@ -4,61 +4,67 @@ minutes: 10
 
 # Implementing Branded Types (Branding 3/4)
 
-Can't use a type if we can't construct it.
+Constructing branded types is different to how we construct non-branded types.
 
 ```rust
 # use std::marker::PhantomData;
 # 
 # #[derive(Default)]
 # struct InvariantLifetime<'id>(PhantomData<*mut &'id ()>);
-struct BrandedToken<'id>(usize, InvariantLifetime<'id>);
+struct ProvenIndex<'id>(usize, InvariantLifetime<'id>);
 
-struct MyStructure<'id>(Vec<u8>, InvariantLifetime<'id>);
+struct Bytes<'id>(Vec<u8>, InvariantLifetime<'id>);
 
-impl<'id> MyStructure<'id> {
+impl<'id> Bytes<'id> {
     fn new<T>(
         // The data we want to modify in this context.
-        data: Vec<u8>,
-        // We want a function whose lifetime is specific to each call to
-        // `new`, not tied to any one data structure other than
-        // the function. This hides enough information from the borrow
-        // checker that it can no longer "subtype"
-        f: impl for<'a> FnOnce(MyStructure<'a>, BrandedToken<'a>) -> T,
+        bytes: Vec<u8>,
+        // The function that uniquely brands the lifetime of a `Bytes`
+        f: impl for<'a> FnOnce(Bytes<'a>) -> T,
     ) -> T {
-        f(
-            MyStructure(data, InvariantLifetime::default()),
-            BrandedToken(InvariantLifetime::default()),
-        )
+        f(Bytes(bytes, InvariantLifetime::default()),)
     }
-    fn use_token(&mut self, token: &BrandedToken<'id>) {}
+
+    fn get_index(&self, ix: usize) -> Option<ProvenIndex<'id>> {
+        if ix < self.0.len() { Some(ProvenIndex(ix, InvariantLifetime::default())) }
+        else { None }
+    }
+    
+    fn get_proven(&self, ix: &ProvenIndex<'id>) -> u8 { self.0[ix.0] }
 }
 ```
 
 <details>
 
-- The underlying Branded Data Structure we're going to use here is just a
-  `Vec<u8>` (the data) and an `InvariantLifetime`.
+- Motivation: We want to have "proven indexes" for a type, and we don't want
+  those indexes to be usable by different variables of the same type. We also
+  don't want those indexes to escape a scope.
 
-- The constructor for this type will take **data for the `Vec<u8>`** plus a
-  function to manipulate the data constructed by `MyStructure::new`.
+  Our Branded Type will be `Bytes`: a byte array.
 
-- Ask: Does anyone know what the `for <'a>` is for?
+  Our Branded Token will be `ProvenIndex`: an index known to be occupied.
 
-  Expect not much, it's "for" in the sense of "forall" from mathematics.
+- There are several notable parts to this implementation:
+  - `new` does not return a `Bytes`, instead asking for "starting data" and a
+    use-once Closure that is passed a `Bytes` when it is called.
+  - That `new` function has a `for<'a>` on its trait bound.
+  - We have both a getter for an index and a getter for a values with a proven
+    index.
 
-- The `for<'a> [trait bound that uses 'a]` binding of `'a` means the lifetime is
-  "self contained."
+- Ask: Why does `new` not return a `Bytes`?
 
-  That is, the borrow checker's view of the function passed to
-  `MyStructure::new` is limited in the sub-typing it can do.
+  Answer: At least partially because we need to introduce a lifetime to `Bytes`.
 
-  This limit in the borrow checker's ability to sub-type lifetimes is what lets
-  us force a token to only apply to a specific variable-bound value.
+- Ask: Why do we need both a `get_index` and a `get_proven`?
 
-  The keyword for those interested is "higher-ranked trait bounds."
+  Expect "Because we can't know if an index is occupied at compile time"
 
-- Ask: But how can we then use "new" to return a `MyStructure`?
+  Ask: Then what's the point of the proven indexes?
 
-  Follow this up with the next slide.
+  Answer: The throughline of preventing proven indexes "crossing over" to arrays
+  of the same type, causing panics.
+
+  Note: The focus is not on avoiding overuse of bounds checks, but instead on
+  preventing that "cross over" of indexes.
 
 </details>
