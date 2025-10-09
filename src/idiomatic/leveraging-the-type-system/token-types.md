@@ -49,9 +49,10 @@ fn main() {
   Without `proof: ()`, `Token` would have no private fields and users would be
   able to construct values of `Token` arbitrarily.
 
-  Demonstrate: Try to construct the token manually in `main`, then remove the
+  Demonstrate: Try to construct the token manually in `main` and show the compilation error.
+  Demonstrate: Remove the
   `proof` field from `Token` to show how users would be able to construct
-  `Token` without restriction if it had no private fields.
+  `Token` if it had no private fields.
 
 - By putting the `Token` type behind a module boundary (`token`), users outside
   that module can't construct the value on their own as they don't have

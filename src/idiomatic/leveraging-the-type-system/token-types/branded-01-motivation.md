@@ -25,7 +25,8 @@ fn main() {
     let data_1 = Bytes { bytes: vec![0, 1, 2] };
     if let Some(token_1) = data_1.get_index(2) {
         data_1.get_proven(&token_1); // Works fine!
-        let data_2 = Bytes { bytes: vec![0, 1] };
+
+        // let data_2 = Bytes { bytes: vec![0, 1] };
         // data_2.get_proven(&token_1); // Panics! How do we prevent this at compile time?
     }
 }
@@ -37,7 +38,7 @@ fn main() {
   this in Rust's type system?
 
 - Motivation: We want to have a Token Type that represents a known, valid index
-  for a a byte array that we know exists.
+  into a byte array.
 
   In this example there's nothing stopping the proven index of one array being
   used on a different array.
@@ -57,12 +58,11 @@ fn main() {
   Expect runtime checking of index bounds, especially as `get_index` already
   uses runtime checking.
 
-  Runtime checking of bounds does not prevent the erroneous crossover in the
-  first place, only the `panic` result. That erroneous checking
+  Runtime bounds checking does not prevent the erroneous crossover in the
+  first place, it only guarantees a panic. That erroneous checking
 
-- The kind of token-association we will be doing here is called Branding. Doing
-  this lets us expand the "proof of work from elsewhere" to more general aspects
-  of rust.
+- The kind of token-association we will be doing here is called Branding.
+  This is an advanced technique that expands applicability of token types to more API designs.
 
 - [`GhostCell`](https://plv.mpi-sws.org/rustbelt/ghostcell/paper.pdf) is a
   prominent user of this, later slides will touch on it.

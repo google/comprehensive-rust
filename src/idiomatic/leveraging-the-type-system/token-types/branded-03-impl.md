@@ -42,7 +42,7 @@ impl<'id> Bytes<'id> {
 
   Our Branded Type will be `Bytes`: a byte array.
 
-  Our Branded Token will be `ProvenIndex`: an index known to be occupied.
+  Our Branded Token will be `ProvenIndex`: an index known to be in range.
 
 - There are several notable parts to this implementation:
   - `new` does not return a `Bytes`, instead asking for "starting data" and a
@@ -53,7 +53,7 @@ impl<'id> Bytes<'id> {
 
 - Ask: Why does `new` not return a `Bytes`?
 
-  Answer: At least partially because we need to introduce a lifetime to `Bytes`.
+  Answer: Because we need `Bytes` to have a unique lifetime.
 
 - Ask: Why do we need both a `get_index` and a `get_proven`?
 

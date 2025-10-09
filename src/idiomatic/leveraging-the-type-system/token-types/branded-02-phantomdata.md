@@ -4,8 +4,9 @@ minutes: 20
 
 # `PhantomData` and Lifetime Subtyping (Branding 2/4)
 
-We need a mechanism to make lifetimes distinct enough from each other to not
-compile when we try to compare them.
+Idea:
+- Use a lifetime as a unique brand for each token.
+- Make lifetimes sufficiently distinct so that they don't implicitly convert into each other.
 
 <!-- dprint-ignore-start -->
 ```rust,editable
@@ -77,7 +78,7 @@ fn main() {
 
 - Ask: In other languages, what is subtyping?
 
-  Expect mentions of Inheritance, being able to use a value of type `B` when a
+  Expect mentions of inheritance, being able to use a value of type `B` when a
   asked for a value of type `A` because `B` is a "subtype" of `A`.
 
 - Rust does have Subtyping! But only for lifetimes.
