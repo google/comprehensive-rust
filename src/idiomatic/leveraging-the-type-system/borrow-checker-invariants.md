@@ -1,5 +1,5 @@
 ---
-minutes: 0
+minutes: 10
 ---
 
 # Using the Borrow checker to enforce Invariants
@@ -9,35 +9,35 @@ abstracted away from this central use case to model other problems and prevent
 API misuse.
 
 ```rust,editable
+// Doors can be open or closed, and you need the right key to lock or unlock
+// one. Modelled with a Shared key and Owned door.
+pub struct DoorKey {
+    pub key_shape: u32,
+}
+pub struct LockedDoor {
+    lock_shape: u32,
+}
+pub struct OpenDoor {
+    lock_shape: u32,
+}
+
+fn open_door(key: &DoorKey, door: LockedDoor) -> Result<OpenDoor, LockedDoor> {
+    if door.lock_shape == key.key_shape {
+        Ok(OpenDoor { lock_shape: door.lock_shape })
+    } else {
+        Err(door)
+    }
+}
+
+fn close_door(key: &DoorKey, door: OpenDoor) -> Result<LockedDoor, OpenDoor> {
+    if door.lock_shape == key.key_shape {
+        Ok(LockedDoor { lock_shape: door.lock_shape })
+    } else {
+        Err(door)
+    }
+}
+
 fn main() {
-    // Doors can be open or closed, and you need the right key to lock or unlock
-    // one. Modelled with a Shared key and Owned door.
-    pub struct DoorKey {
-        pub key_shape: u32,
-    }
-    pub struct LockedDoor {
-        lock_shape: u32,
-    }
-    pub struct OpenDoor {
-        lock_shape: u32,
-    }
-
-    fn open_door(key: &DoorKey, door: LockedDoor) -> Result<OpenDoor, LockedDoor> {
-        if door.lock_shape == key.key_shape {
-            Ok(OpenDoor { lock_shape: door.lock_shape })
-        } else {
-            Err(door)
-        }
-    }
-
-    fn close_door(key: &DoorKey, door: OpenDoor) -> Result<LockedDoor, OpenDoor> {
-        if door.lock_shape == key.key_shape {
-            Ok(LockedDoor { lock_shape: door.lock_shape })
-        } else {
-            Err(door)
-        }
-    }
-
     let key = DoorKey { key_shape: 7 };
     let closed_door = LockedDoor { lock_shape: 7 };
     let opened_door = open_door(&key, closed_door);

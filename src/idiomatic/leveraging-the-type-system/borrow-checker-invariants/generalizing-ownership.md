@@ -1,5 +1,5 @@
 ---
-minutes: 0
+minutes: 15
 ---
 
 # Generalizing Ownership
@@ -38,10 +38,28 @@ fn main() {
   towards semantic meaning in non-memory-safety settings. Nothing is being
   mutated, nothing is being sent across threads.
 
+- When a new feature is introduced to users, it is often done so with a specific
+  idea of what it will be used for.
+
+  Over time, users may develop ways of using that feature in ways that may have
+  not been foreseen.
+
+  In 2004, Java 5 introduced Generics with the
+  [main stated purpose of enabling type safe collections](https://jcp.org/en/jsr/detail?id=14).
+
+  Since then, users and developers of the language expanded the use of generics
+  to other areas of type safe API design.
+
+  What we aim to do here is similar: The borrow checker, after being introduced
+  to people with the purpose of avoiding use-after-free and data races, is being
+  used to model things that have nothing to do with preventing those classes of
+  misuse.
+
 - To use the borrow checker as a problem solving tool, we will need to "forget"
   that the original purpose of it is to prevent mutable aliasing in the context
-  of preventing use-after-frees and data races, instead imagining and working within
-  situations where the rules are the same but the meaning is slightly different.
+  of preventing use-after-frees and data races, instead imagining and working
+  within situations where the rules are the same but the meaning is slightly
+  different.
 
 - In rust's borrow checker we have access to three different ways of "taking" a
   value:
@@ -61,9 +79,9 @@ fn main() {
     of these exist. We can't "dispatch" to methods and functions that take
     mutable references when all we have is a shared reference.
 
-- Remember that every `&T` and `&mut T` has an _implicit lifetime._ We get to
-  avoid annotating a lot of lifetimes because the rust compiler can infer the
-  majority of them. See:
-  [Lifetime Elision](../../../lifetimes/lifetime-elision.md).
+- Remember that every `&T` and `&mut T` has a lifetime, just one the user
+  doesn't have to annotate or think about most of the time. We get to avoid
+  annotating a lot of lifetimes because the rust compiler can elide the majority
+  of them. See: [Lifetime Elision](../../../lifetimes/lifetime-elision.md).
 
 </details>
