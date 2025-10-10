@@ -78,7 +78,7 @@ impl<'id> Bytes<'id> {
 
   Answer: Avoiding bounds checking while keeping knowledge of what indexes are
   occupied specific to individual variables, unable to erroneously be used on
-  the wrong one. 
+  the wrong one.
 
   Note: The focus is not on only on avoiding overuse of bounds checks, but also
   on preventing that "cross over" of indexes.

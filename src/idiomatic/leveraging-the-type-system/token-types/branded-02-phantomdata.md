@@ -72,30 +72,31 @@ fn main() {
 
 ## `for<'a>` bound on a Closure
 
-- We are using `for<'a>` as a way of introducing a lifetime generic parameter to a
-  function type and asking that the body of the function to work for all
+- We are using `for<'a>` as a way of introducing a lifetime generic parameter to
+  a function type and asking that the body of the function to work for all
   possible lifetimes.
 
   What this also does is remove some ability of the compiler to make assumptions
   about that specific lifetime for the function argument, as it must meet rust's
-  borrow checking rules regardless of the "real" lifetime its arguments are going to have.
-  The caller is substituting in actual lifetime, the function
+  borrow checking rules regardless of the "real" lifetime its arguments are
+  going to have. The caller is substituting in actual lifetime, the function
   itself cannot.
 
   This is analogous to a forall (Ɐ) quantifier in mathematics, or the way we
   introduce `<T>` as type variables, but only for lifetimes in trait bounds.
 
   When we write a function generic over a type `T`, we can't determine that type
-  from within the function itself. Even if we call a function `fn foo<T, U>(first: T, second: U)`
-  with two arguments of the same type, the body of this function cannot
-  determine if `T` and `U` are the same type.
+  from within the function itself. Even if we call a function
+  `fn foo<T, U>(first: T, second: U)` with two arguments of the same type, the
+  body of this function cannot determine if `T` and `U` are the same type.
 
   This also prevents _the API consumer_ from defining a lifetime themselves,
   which would allow them to circumvent the restrictions we want to impose.
 
 ## PhantomData and Lifetime Variance
 
-- We already know `PhantomData`, which can introduce a formal no-op usage of an otherwise unused type or a lifetime parameter.
+- We already know `PhantomData`, which can introduce a formal no-op usage of an
+  otherwise unused type or a lifetime parameter.
 
 - Ask: What can we do with `PhantomData`?
 
@@ -114,8 +115,8 @@ fn main() {
   A lifetime is a "subtype" of another lifetime when it _outlives_ that other
   lifetime.
 
-- The way that lifetimes used by `PhantomData` behave depends not only on
-  where the lifetime "comes from" but on how the reference is defined too.
+- The way that lifetimes used by `PhantomData` behave depends not only on where
+  the lifetime "comes from" but on how the reference is defined too.
 
   The reason this compiles is that the
   [**Variance**](https://doc.rust-lang.org/stable/reference/subtyping.html#r-subtyping.variance)
@@ -159,9 +160,8 @@ fn main() {
   mutable raw pointers within the borrow checker.
 
 - Wrap up: We've introduced ways to stop the compiler from deciding that
-  lifetimes are "similar enough" by choosing a Variance for a lifetime
-  in `PhantomData` that is restrictive enough to prevent this slide from
-  compiling.
+  lifetimes are "similar enough" by choosing a Variance for a lifetime in
+  `PhantomData` that is restrictive enough to prevent this slide from compiling.
 
   That is, we can now create variables that can exist in the same scope as each
   other, but whose types are automatically made different from one another

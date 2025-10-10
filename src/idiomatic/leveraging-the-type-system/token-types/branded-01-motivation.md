@@ -42,8 +42,9 @@ fn main() {
 
   Once we have these proven indexes we would be able to avoid bounds checks
   entirely, as the tokens would act as the _proof of an existing index_.
-  
-  Since the index is known to be valid, `get_proven()` can skip the bounds check.
+
+  Since the index is known to be valid, `get_proven()` can skip the bounds
+  check.
 
   In this example there's nothing stopping the proven index of one array being
   used on a different array. If an index is out of bounds in this case, it is
