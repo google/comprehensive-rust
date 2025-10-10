@@ -45,6 +45,7 @@ fn main() {
   it at all all we can assume we have permissions.
 
 - Demonstrate: Try to construct the `AdminToken` in `main` again to reiterate
-  that the foundation of useful tokens is preventing their arbitrary construction.
+  that the foundation of useful tokens is preventing their arbitrary
+  construction.
 
 </details>

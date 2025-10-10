@@ -30,7 +30,10 @@ impl<'id> Bytes<'id> {
         else { None }
     }
     
-    fn get_proven(&self, ix: &ProvenIndex<'id>) -> u8 { self.0[ix.0] }
+    fn get_proven(&self, ix: &ProvenIndex<'id>) -> u8 {
+        debug_assert!(ix.0 < self.0.len());
+        unsafe { *self.0.get_unchecked(ix.0) } 
+    }
 }
 ```
 
@@ -61,10 +64,9 @@ impl<'id> Bytes<'id> {
 
   Ask: Then what's the point of the proven indexes?
 
-  Answer: The throughline of preventing proven indexes "crossing over" to arrays
-  of the same type, causing panics.
+  Answer: Avoiding bounds checking and maintaining
 
-  Note: The focus is not on avoiding overuse of bounds checks, but instead on
-  preventing that "cross over" of indexes.
+  Note: The focus is not on only on avoiding overuse of bounds checks, but also
+  on preventing that "cross over" of indexes.
 
 </details>

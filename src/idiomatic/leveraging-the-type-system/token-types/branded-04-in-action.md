@@ -64,7 +64,7 @@ fn main() {
 
   Expect a "push" implementation, suggested demo:
 
-  ```rust
+  ```rust,compile_fail
   fn push(&mut self, value: u8) -> ProvenIndex<'id> {
       self.0.push(value);
       ProvenIndex(self.0.len() - 1, InvariantLifetime::default())
@@ -97,6 +97,6 @@ fn main() {
   itself is implemented and used in practice.
 
   GhostCell also uses formal checks outside of Rust's type system to prove that
-  the things it allows within this kind of context (cyclic references) are safe.
+  the things it allows within this kind of context (lifetime branding) are safe.
 
 </details>
