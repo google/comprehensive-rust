@@ -90,6 +90,9 @@ fn main() {
   with two arguments of the same type, the body of this function cannot
   determine if `A` and `B` are the same type until it's called.
 
+  This also prevents _the API consumer_ from defining a lifetime themselves,
+  which would allow them to circumvent the restrictions we want to impose.
+
 ## PhantomData and Lifetime Variance
 
 - We already know `PhantomData`, which we can use to capture unused type or

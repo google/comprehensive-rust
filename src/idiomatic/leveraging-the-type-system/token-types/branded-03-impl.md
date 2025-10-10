@@ -56,7 +56,19 @@ impl<'id> Bytes<'id> {
 
 - Ask: Why does `new` not return a `Bytes`?
 
-  Answer: Because we need `Bytes` to have a unique lifetime.
+  Answer: Because we need `Bytes` to have a unique lifetime controlled by the
+  API.
+
+- Ask: So what if `new()` returned `Bytes`, what is the specific harm that it
+  would cause?
+
+  Answer: Think about the signature of that hypothetical `new()` method:
+
+  `fn new<'a>() -> Bytes<'a> { ... }`
+
+  This would allow the API user to choose what the lifetime `'a` is, removing
+  our ability to guarantee that the lifetimes between different instances of
+  `Bytes` are unique and unable to be subtyped to one another.
 
 - Ask: Why do we need both a `get_index` and a `get_proven`?
 
