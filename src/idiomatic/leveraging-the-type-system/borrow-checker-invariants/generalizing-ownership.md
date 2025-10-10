@@ -48,7 +48,8 @@ fn main() {
   [main stated purpose of enabling type safe collections](https://jcp.org/en/jsr/detail?id=14).
 
   Since then, users and developers of the language expanded the use of generics
-  to other areas of type safe API design. <!-- TODO: Reference how this was adopted -->
+  to other areas of type safe API design.
+  <!-- TODO: Reference how this was adopted -->
 
   What we aim to do here is similar: The borrow checker, after being introduced
   to people with the purpose of avoiding use-after-free and data races, is being
