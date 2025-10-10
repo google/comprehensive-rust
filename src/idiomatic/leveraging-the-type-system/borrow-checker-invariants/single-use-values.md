@@ -43,12 +43,10 @@ fn main() {
   making the interior type opaque (as per the newtype pattern), we can prevent
   multiple uses of the same, API-controlled value.
 
-- In the above example, a Nonce is a additional piece of random, unique data
-  during an encryption process that helps prevent "replay attacks".
+- A nonce is a piece of random, unique data
+  used in cryptographic protocols to prevent replay attacks.
 
-  - In practice people have ended up re-using nonces in circumstances where
-    security is important, making it possible for private key information to be
-    derived by attackers.
+  - In practice people have ended up accidentally re-using nonces. Most commonly, this causes the cryptographic protocol to completely break down and stop fulfilling its function. Depending on the specifics of nonce reuse and cryptography at hand, private keys can also become computable by attackers.
 
   - By tying nonce creation and consumption up in rust's ownership model, and by
     not implementing clone/copy on sensitive single-use data, we can prevent

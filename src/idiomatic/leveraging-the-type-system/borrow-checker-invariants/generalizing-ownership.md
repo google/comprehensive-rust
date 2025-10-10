@@ -40,7 +40,7 @@ fn main() {
 
 - To use the borrow checker as a problem solving tool, we will need to "forget"
   that the original purpose of it is to prevent mutable aliasing in the context
-  of concurrency & dangling pointers, instead imagining and working within
+  of preventing use-after-frees and data races, instead imagining and working within
   situations where the rules are the same but the meaning is slightly different.
 
 - In rust's borrow checker we have access to three different ways of "taking" a
