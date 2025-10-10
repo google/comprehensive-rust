@@ -55,6 +55,7 @@ better. Your students are also very welcome to [send us feedback][2]!
 [1]: https://github.com/google/comprehensive-rust/discussions/86
 [2]: https://github.com/google/comprehensive-rust/discussions/100
 [3]: https://github.com/google/comprehensive-rust#building
+[red-box]: ?show-red-box=true
 
 <details>
 
@@ -69,6 +70,11 @@ better. Your students are also very welcome to [send us feedback][2]!
 - **Familiarize yourself with `mdbook`:** The course is presented using
   `mdbook`. Knowing how to navigate, search, and use its features will make the
   presentation smoother.
+- **Slice size helper:** Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>B</kbd>
+  to toggle a visual guide showing the amount of space available when
+  presenting. Expect any content outside of the red box to be hidden initially.
+  Use this as a guide when editing slides. You can also
+  [enable it via this link][red-box].
 
 ### Creating a Good Learning Environment
 

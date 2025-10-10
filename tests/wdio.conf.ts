@@ -213,8 +213,37 @@ export const config: WebdriverIO.Config = {
    * @param {Array.<String>} specs        List of spec file paths that are to be run
    * @param {object}         browser      instance of created browser/device session
    */
-  before: function (capabilities, specs) {
-    browser.setWindowSize(2560, 1440);
+  before: async function (capabilities, specs) {
+    await browser.setWindowSize(2560, 1440);
+
+    /**
+     * Adds a custom `browser.toggleRedBox()` command.
+     *
+     * This command is necessary to reliably test the red box toggle
+     * functionality. A direct `browser.keys()` call proved to be
+     * flaky, causing intermittent test failures. This custom command
+     * will wait for the UI to reflect the state change, thus
+     * eliminating race conditions.
+     */
+    browser.addCommand("toggleRedBox", async function () {
+      const redBox = await $("#aspect-ratio-helper");
+      const initialVisibility = await redBox.isDisplayed();
+
+      // Perform the toggle action.
+      await browser.keys(["Control", "Alt", "b"]);
+
+      // Wait until the visibility state has changed.
+      await browser.waitUntil(
+        async function () {
+          const currentVisibility = await redBox.isDisplayed();
+          return currentVisibility !== initialVisibility;
+        },
+        {
+          timeout: 5000,
+          timeoutMsg: `Red box display state did not toggle after 5s. Initial state: ${initialVisibility}`,
+        },
+      );
+    });
   },
   /**
    * Runs before a WebdriverIO command gets executed.
