@@ -8,20 +8,16 @@ In some circumstances we want values that can be used _exactly once_. One
 critical example of this is in cryptography: "Nonces."
 
 ```rust,editable
-mod cryptography {
     pub struct Key(/* specifics omitted */);
-    // Pretend this is a cryptographically sound, single-use number.
+    // A single-use number suitable for cryptographic purposes.
     pub struct Nonce(u32);
-    // And pretend this is cryptographically sound random generator function.
+    // A cryptographically sound random generator function.
     pub fn new_nonce() -> Nonce {
-        Nonce(std::time::UNIX_EPOCH.elapsed().unwrap_or_default().subsec_nanos())
+        Nonce(4) // chosen by a fair dice roll, https://xkcd.com/221/
     }
 
-    // We consume a nonce, but not the key or the data.
+    // Consume a nonce, but not the key or the data.
     pub fn encrypt(nonce: Nonce, key: &Key, data: &[u8]) {}
-}
-
-use cryptography::*;
 fn main() {
     let nonce = new_nonce();
     let data_1: [u8; 4] = [1, 2, 3, 4];

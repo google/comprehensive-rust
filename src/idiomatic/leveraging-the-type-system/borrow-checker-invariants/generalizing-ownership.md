@@ -38,23 +38,21 @@ fn main() {
   towards semantic meaning in non-memory-safety settings. Nothing is being
   mutated, nothing is being sent across threads.
 
-- When a new feature is introduced to users, it is often done so with a specific
-  idea of what it will be used for.
+- Language features are often introduced for a specific purpose.
 
   Over time, users may develop ways of using that feature in ways that may have
   not been foreseen.
 
   In 2004, Java 5 introduced Generics with the
-  [main stated purpose of enabling type safe collections](https://jcp.org/en/jsr/detail?id=14).
+  [main stated purpose of enabling type-safe collections](https://jcp.org/en/jsr/detail?id=14).
 
   Since then, users and developers of the language expanded the use of generics
-  to other areas of type safe API design.
+  to other areas of type-safe API design.
   <!-- TODO: Reference how this was adopted -->
 
-  What we aim to do here is similar: The borrow checker, after being introduced
-  to people with the purpose of avoiding use-after-free and data races, is being
-  used to model things that have nothing to do with preventing those classes of
-  misuse.
+  What we aim to do here is similar: Even though the borrow checker was introduced
+  to prevent use-after-free and data races, it is just another API design tool. It can be
+  used to model program properties that have nothing to do with preventing memory safety bugs.
 
 - To use the borrow checker as a problem solving tool, we will need to "forget"
   that the original purpose of it is to prevent mutable aliasing in the context
