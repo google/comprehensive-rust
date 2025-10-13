@@ -50,9 +50,10 @@ fn main() {
   to other areas of type-safe API design.
   <!-- TODO: Reference how this was adopted -->
 
-  What we aim to do here is similar: Even though the borrow checker was introduced
-  to prevent use-after-free and data races, it is just another API design tool. It can be
-  used to model program properties that have nothing to do with preventing memory safety bugs.
+  What we aim to do here is similar: Even though the borrow checker was
+  introduced to prevent use-after-free and data races, it is just another API
+  design tool. It can be used to model program properties that have nothing to
+  do with preventing memory safety bugs.
 
 - To use the borrow checker as a problem solving tool, we will need to "forget"
   that the original purpose of it is to prevent mutable aliasing in the context
@@ -80,7 +81,8 @@ fn main() {
 
 - Remember that every `&T` and `&mut T` has a lifetime, just one the user
   doesn't have to annotate or think about most of the time. We get to avoid
-  annotating a lot of lifetimes because the rust compiler can elide the majority
-  of them. See: [Lifetime Elision](../../../lifetimes/lifetime-elision.md).
+  annotating a lot of lifetimes because the rust compiler allows a user to elide
+  the majority of them. See:
+  [Lifetime Elision](../../../lifetimes/lifetime-elision.md).
 
 </details>

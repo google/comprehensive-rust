@@ -58,7 +58,8 @@ fn main() {
 
 - The borrow checker has been used to prevent use-after-free and multiple
   mutable references up until this point, and we've used types to shape and
-  restrict use of APIs already using the "typestate" pattern.
+  restrict use of APIs already using
+  [the Typestate pattern](../leveraging-the-type-system/typestate-pattern.md).
 
 - This example uses the ownership & borrowing rules to model the locking and
   unlocking of a door. We can try to open a door with a key, but if it's the

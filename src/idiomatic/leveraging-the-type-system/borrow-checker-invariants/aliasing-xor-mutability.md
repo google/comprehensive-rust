@@ -66,9 +66,9 @@ fn main() {
   exclusive reference we prevent access to the other fields of that struct under
   a shared / non-exclusive reference until the lifetime of that borrow ends.
 
-- The `transaction` field must be borrowed via a method, as the compiler can reason about borrowing
-  different fields in mutable/shared ways simultaneously if that borrowing is
-  done manually.
+- The `transaction` field must be borrowed via a method, as the compiler can
+  reason about borrowing different fields in mutable/shared ways simultaneously
+  if that borrowing is done manually.
 
   Demonstrate:
 

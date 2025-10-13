@@ -10,34 +10,33 @@ rust's type system.
 
 ```rust,editable,compile_fail
 use std::marker::PhantomData;
-pub struct Tag;
-pub struct ErasedData<'a> {
+
+pub struct BorrowedButOwned<'a> {
     data: String,
     _phantom: PhantomData<&'a ()>,
 }
-impl<'a> ErasedData<'a> {
+impl<'a> BorrowedButOwned<'a> {
     pub fn get(&self) -> &str {
         &self.data
     }
 }
-pub struct TaggedData<T> {
+pub struct StringOrigin {
     data: String,
-    _phantom: PhantomData<T>,
 }
-impl<T> TaggedData<T> {
+impl StringOrigin {
     pub fn new(data: String) -> Self {
         Self { data, _phantom: PhantomData }
     }
     pub fn consume(self) {}
-    pub fn get_erased(&self) -> ErasedData<'_> {
+    pub fn get_erased(&self) -> BorrowedButOwned<'_> {
         // has an owned String, but _phantom holds onto the lifetime of the
-        // TaggedData that created it.
-        ErasedData { data: self.data.clone(), _phantom: PhantomData }
+        // StringOrigin that created it.
+        BorrowedButOwned { data: self.data.clone(), _phantom: PhantomData }
     }
 }
 
 fn main() {
-    let tagged_data: TaggedData<Tag> = TaggedData::new("Real Data".to_owned());
+    let tagged_data: StringOrigin = StringOrigin::new("Real Data".to_owned());
     // Get the erased-but-still-linked data.
     let erased_owned_and_linked = tagged_data.get_erased();
     tagged_data.consume();
@@ -48,12 +47,8 @@ fn main() {
 
 <details>
 
-- `PhantomData` lets developers "tag" types with type and lifetime parameters
-  that are not "really" present in the struct or enum.
-
-  `PhantomData` can be used with the Typestate pattern to have data with the
-  same structure i.e. `TaggedData<Start>` can have methods or trait
-  implementations that `TaggedData<End>` doesn't.
+- `PhantomData` lets developers tag data structures with type and lifetime
+  parameters that are not present in the body of the struct or enum.
 
   It can also be used to encode a connection between the lifetime of one value
   and another, while both values still maintain separate owned data within them.
