@@ -41,7 +41,7 @@ assert!("dad".is_palindrome());
 <details>
 
 - The trait you are extending may, in a newer version, add a new trait method
-  with the same name of your extension method. Or another extension trait for
+  with the same name as your extension method. Or another extension trait for
   the same type may define a method with a name that conflicts with your own
   extension method.
 
@@ -54,7 +54,7 @@ assert!("dad".is_palindrome());
 
   To resolve this conflict, you must specify which trait you want to use. For
   example, you can call `Ext1::is_palindrome("dad")` or
-  `Ext2::is_palindrome("dad")`.
+  `Ext2::is_palindrome("dad")`. Demonstrate this syntax and that the updated code compiles.
 
   For methods with more complex signatures, you may need to use a more explicit
   [fully-qualified syntax][1].

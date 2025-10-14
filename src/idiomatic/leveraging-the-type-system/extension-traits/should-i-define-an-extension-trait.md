@@ -28,13 +28,8 @@ The main advantage of extension traits is **ease of discovery**.
 
 <details>
 
-- A bespoke extension trait might be an overkill if you want to add a single
-  method to a foreign type. Both a free function and an extension trait will
-  require an additional import, and the familiarity of the method calling syntax
-  may not be enough to justify the boilerplate of a trait definition.
+- Extension methods can be easier to discover than free functions. Language servers (e.g., `rust-analyzer`) will suggest them if you type `.` after an instance of the foreign type.
 
-  Nonetheless, extension methods can be **easier to discover** than free
-  functions. In particular, language servers (e.g. `rust-analyzer`) will suggest
-  extension methods if you type `.` after an instance of the foreign type.
+- However, a bespoke extension trait might be overkill for a single method. Both approaches require an additional import, and the familiar method syntax may not justify the boilerplate of a full trait definition.
 
 </details>

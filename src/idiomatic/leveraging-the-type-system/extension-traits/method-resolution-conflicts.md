@@ -29,7 +29,7 @@ assert_eq!(" dad ".trim_ascii(), "dad");
 <details>
 
 - The foreign type may, in a newer version, add a new inherent method with the
-  same name of our extension method.
+  same name as our extension method.
 
   Survey the class: what do the students think will happen in the example above?
   Will there be a compiler error? Will one of the two methods be given higher
@@ -40,7 +40,7 @@ assert_eq!(" dad ".trim_ascii(), "dad");
 
 - [Inherent methods have higher priority than trait methods][1], _if_ they have
   the same name and the **same receiver**, e.g., they both expect `&self` as
-  input. The situation becomes more nuanced if the use a **different receiver**,
+  input. The situation becomes more nuanced if they use a **different receiver**,
   e.g., `&mut self` vs `&self`.
 
   Change the signature of `StrExt::trim_ascii` to
@@ -55,8 +55,7 @@ assert_eq!(" dad ".trim_ascii(), "dad");
   method.
 
   Point the students to the Rust reference for more information on
-  [method resolution][2]. An explanation with more extensive examples can be
-  found in [an open PR to the Rust reference][3].
+  [method resolution][2].
 
 - Avoid naming conflicts between extension trait methods and inherent methods.
   Rust's method resolution algorithm is complex and may surprise users of your

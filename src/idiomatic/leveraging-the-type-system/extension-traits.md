@@ -24,9 +24,7 @@ pattern** to work around this limitation.
 
 <details>
 
-- Start by explaining the terminology.
-
-  A Rust item (be it a trait or a type) is referred to as:
+- A Rust item (be it a trait or a type) is referred to as:
 
   - **foreign**, if it isn't defined in the current crate
   - **local**, if it is defined in the current crate
@@ -57,6 +55,8 @@ pattern** to work around this limitation.
 
   Rust has decided to avoid the issue altogether by forbidding the definition of
   new inherent methods on foreign types.
+  
+- Other languages (e.g, Kotlin, C#, Swift) allow adding methods to existing types, often called "extension methods." This leads to different trade-offs in terms of potential ambiguities and the need for global reasoning.
 
 </details>
 

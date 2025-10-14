@@ -38,8 +38,7 @@ assert!(!"grandma".is_palindrome());
   Refer to the ["Extension Trait" RFC][1] as the authoritative source for naming
   conventions.
 
-- The trait implementation for the chosen foreign type must belong to the same
-  crate where the trait is defined, otherwise you'll be blocked by Rust's
+- The extension trait implementation for a foreign type must be in the same crate as the trait itself, otherwise you'll be blocked by Rust's
   [_orphan rule_][2].
 
 - The extension trait must be in scope when its methods are invoked.
