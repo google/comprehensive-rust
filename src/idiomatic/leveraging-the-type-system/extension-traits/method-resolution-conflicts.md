@@ -7,52 +7,71 @@ minutes: 15
 What happens when you have a name conflict between an inherent method and an
 extension method?
 
-```rust
+```rust,editable
 mod ext {
-    pub trait StrExt {
-        fn trim_ascii(&self) -> &str;
+    pub trait CountOnesExt {
+        fn count_ones(&self) -> u32;
     }
 
-    impl StrExt for &str {
-        fn trim_ascii(&self) -> &str {
-            self.trim_start_matches(|c: char| c.is_ascii_whitespace())
+    impl CountOnesExt for i32 {
+        fn count_ones(&self) -> u32 {
+            let value = *self;
+            (0..32).filter(|i| ((value >> i) & 1i32) == 1).count() as u32
         }
     }
 }
-
-pub use ext::StrExt;
-// Which `trim_ascii` method is invoked?
-// The one from `StrExt`? Or the inherent one from `str`?
-assert_eq!(" dad ".trim_ascii(), "dad");
+fn main() {
+    pub use ext::CountOnesExt;
+    // Which `count_ones` method is invoked?
+    // The one from `CountOnesExt`? Or the inherent one from `i32`?
+    assert_eq!((-1i32).count_ones(), 32);
+}
 ```
 
 <details>
 
-- The foreign type may, in a newer version, add a new inherent method with the
+- A foreign type may, in a newer version, add a new inherent method with the
   same name as our extension method.
 
-  Survey the class: what do the students think will happen in the example above?
-  Will there be a compiler error? Will one of the two methods be given higher
-  priority? Which one?
+  Ask: What will happen in the example above? Will there be a compiler error?
+  Will one of the two methods be given higher priority? Which one?
 
-  Add a `panic!("Extension trait")` in the body of `StrExt::trim_ascii` to
-  clarify which method is being invoked.
+  Add a `panic!("Extension trait");` in the body of `CountOnesExt::count_ones`
+  to clarify which method is being invoked.
 
-- [Inherent methods have higher priority than trait methods][1], _if_ they have
-  the same name and the **same receiver**, e.g., they both expect `&self` as
-  input. The situation becomes more nuanced if they use a **different receiver**,
-  e.g., `&mut self` vs `&self`.
+- To prevent users of the Rust language from having to manually specify which
+  method to use in all cases, there is a priority ordering system for how
+  methods get "picked" first:
+  - Immutable (`&self`) first
+    - Inherent (method defined in the type's `impl` block) before Trait (method
+      added by a trait impl).
+  - Mutable (`&mut self`) Second
+    - Inherent before Trait.
 
-  Change the signature of `StrExt::trim_ascii` to
-  `fn trim_ascii(&mut self) -> &str` and modify the invocation accordingly:
+  If every method with the same name has different mutability and was either
+  defined in as an inherent method or trait method, with no overlap, this makes
+  the job easy for the compiler.
+
+  This does introduce some ambiguity for the user, who may be confused as to why
+  a method they're relying on is not producing expected behavior. Avoid name
+  conflicts instead of relying on this mechanism if you can.
+
+  Demonstrate: Change the signature and implementation of
+  `CountOnesExt::count_ones` to `fn count_ones(&mut self) -> u32` and modify the
+  invocation accordingly:
 
   ```rust
-  assert_eq!((&mut " dad ").trim_ascii(), "dad");
+  assert_eq!((&mut -1i32).count_ones(), 32);
   ```
 
-  Now `StrExt::trim_ascii` is invoked, rather than the inherent method, since
+  `CountOnesExt::count_ones` is invoked, rather than the inherent method, since
   `&mut self` has a higher priority than `&self`, the one used by the inherent
   method.
+
+  If an immutable inherent method and a mutable trait method exist for the same
+  type, we can specify which one to use at the call site by using
+  `(&<value>).count_ones()` to get the immutable (higher priority) method or
+  `(&mut <value>).count_ones()`
 
   Point the students to the Rust reference for more information on
   [method resolution][2].

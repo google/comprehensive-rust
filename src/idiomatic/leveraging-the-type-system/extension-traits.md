@@ -55,8 +55,10 @@ pattern** to work around this limitation.
 
   Rust has decided to avoid the issue altogether by forbidding the definition of
   new inherent methods on foreign types.
-  
-- Other languages (e.g, Kotlin, C#, Swift) allow adding methods to existing types, often called "extension methods." This leads to different trade-offs in terms of potential ambiguities and the need for global reasoning.
+
+- Other languages (e.g, Kotlin, C#, Swift) allow adding methods to existing
+  types, often called "extension methods." This leads to different trade-offs in
+  terms of potential ambiguities and the need for global reasoning.
 
 </details>
 

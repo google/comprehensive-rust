@@ -38,7 +38,8 @@ assert!(!"grandma".is_palindrome());
   Refer to the ["Extension Trait" RFC][1] as the authoritative source for naming
   conventions.
 
-- The extension trait implementation for a foreign type must be in the same crate as the trait itself, otherwise you'll be blocked by Rust's
+- The extension trait implementation for a foreign type must be in the same
+  crate as the trait itself, otherwise you'll be blocked by Rust's
   [_orphan rule_][2].
 
 - The extension trait must be in scope when its methods are invoked.
@@ -47,8 +48,8 @@ assert!(!"grandma".is_palindrome());
   that's emitted if you try to invoke an extension method without having the
   corresponding extension trait in scope.
 
-- The example above uses an [_underscore import_][3] (`use ext::StrExt as _`) to
-  minimize the likelihood of a naming conflict with other imported traits.
+- The example above uses an [_underscore import_][3] (`use ext::StringExt as _`)
+  to minimize the likelihood of a naming conflict with other imported traits.
 
   With an underscore import, the trait is considered to be in scope and you're
   allowed to invoke its methods on types that implement the trait. Its _symbol_,

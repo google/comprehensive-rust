@@ -31,35 +31,41 @@ assert_eq!(true.quoted(), "'true'");
 
 <details>
 
-- Highlight how we added new behavior to _multiple_ types at once.
-  `.quoted()` can be called on string slices, numbers and booleans since they
-  all implement the `Display` trait.
+- Highlight how we added new behavior to _multiple_ types at once. `.quoted()`
+  can be called on string slices, numbers, and booleans since they all implement
+  the `Display` trait.
 
-  This flavour of the extension trait pattern uses
+  This flavor of the extension trait pattern uses
   [_blanket implementations_][1].
 
-  A blanket implementation implements a trait for all types `T`
-  that satisfy the trait bounds specified in the `impl` block. In
-  this case, the only requirement is that `T` implements the `Display` trait.
+  A blanket implementation implements a trait for all types `T` that satisfy the
+  trait bounds specified in the `impl` block. In this case, the only requirement
+  is that `T` implements the `Display` trait.
 
 - Draw the students' attention to the implementation of `DisplayExt::quoted`: we
-  can't make any assumptions about `T` other than that it implements
-  `Display`. All our logic must either use methods from `Display` or
-  functions/macros that don't require other traits..
+  can't make any assumptions about `T` other than that it implements `Display`.
+  All our logic must either use methods from `Display` or functions/macros that
+  don't require other traits.
 
-  For example, we can call `format!` with `T`, but can't call `.to_uppercase()` because it is not necessarily a `String`.
-  
+  For example, we can call `format!` with `T`, but can't call `.to_uppercase()`
+  because it is not necessarily a `String`.
+
   We could introduce additional trait bounds on `T`, but it would restrict the
   set of types that can leverage the extension trait.
 
 - Conventionally, the extension trait is named after the trait it extends,
   followed by the `Ext` suffix. In the example above, `DisplayExt`.
 
-- There are entire crates that extend standard library traits with new functionality.
+- There are entire crates that extend standard library traits with new
+  functionality.
 
-  - `itertools` crate provides the `Itertools` trait that extends `Iterator`. It adds many iterator adapters, such as `interleave` and `unique`. It provides new algorithmic building blocks for iterator pipelines built with method chaining.
-  
-  - `futures` crate provides the `FutureExt` trait, which extends the `Future` trait with new combinators and helper methods.
+  - `itertools` crate provides the `Itertools` trait that extends `Iterator`. It
+    adds many iterator adapters, such as `interleave` and `unique`. It provides
+    new algorithmic building blocks for iterator pipelines built with method
+    chaining.
+
+  - `futures` crate provides the `FutureExt` trait, which extends the `Future`
+    trait with new combinators and helper methods.
 
 ## More To Explore
 

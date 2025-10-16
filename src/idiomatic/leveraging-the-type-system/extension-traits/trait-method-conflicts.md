@@ -45,16 +45,16 @@ assert!("dad".is_palindrome());
   the same type may define a method with a name that conflicts with your own
   extension method.
 
-  Survey the class: what do the students think will happen in the example above?
-  Will there be a compiler error? Will one of the two methods be given higher
-  priority? Which one?
+  Ask: what will happen in the example above? Will there be a compiler error?
+  Will one of the two methods be given higher priority? Which one?
 
 - The compiler rejects the code because it cannot determine which method to
   invoke. Neither `Ext1` nor `Ext2` has a higher priority than the other.
 
   To resolve this conflict, you must specify which trait you want to use. For
   example, you can call `Ext1::is_palindrome("dad")` or
-  `Ext2::is_palindrome("dad")`. Demonstrate this syntax and that the updated code compiles.
+  `Ext2::is_palindrome("dad")`. Demonstrate this syntax and that the updated
+  code compiles.
 
   For methods with more complex signatures, you may need to use a more explicit
   [fully-qualified syntax][1].
