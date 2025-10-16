@@ -11,36 +11,6 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  format:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install formatting dependencies
-        run: |
-          sudo apt update
-          sudo apt install gettext yapf3
-
-      - name: Install nightly rustfmt
-        run: |
-          rustup default nightly
-          rustup component add rustfmt
-
-      - name: Check formatting
-        uses: dprint/check@v2.3
-
-  typos:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Check for typos
-        uses: crate-ci/typos@v1.34.0
-        with:
-          config: ./.github/typos.toml
-
   cargo:
     strategy:
       matrix:
@@ -50,7 +20,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Update Rust
         run: rustup update
@@ -81,7 +51,7 @@ jobs:
             target: aarch64-unknown-none
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install toolchain
         run: |
@@ -92,9 +62,9 @@ jobs:
         uses: ./.github/workflows/setup-rust-cache
 
       - name: Install dependencies
-        run: |
-          sudo apt update
-          sudo apt install gcc-aarch64-linux-gnu
+        uses: ./.github/workflows/apt-get-install
+        with:
+          packages: gcc-aarch64-linux-gnu
 
       - name: Build Rust code
         working-directory: ${{ matrix.directory }}
@@ -106,7 +76,7 @@ jobs:
       languages: ${{ steps.find-languages.outputs.languages }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Find languages
         id: find-languages
@@ -131,7 +101,7 @@ jobs:
       LINK_CHECKED_LANGUAGES: '["en", "fa"]'
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0 # We need the full history for build.sh below.
 
@@ -143,10 +113,10 @@ jobs:
         with:
           key: ${{ contains(fromJSON(env.LINK_CHECKED_LANGUAGES), matrix.language) }}
 
-      - name: Install Gettext
-        run: |
-          sudo apt update
-          sudo apt install gettext
+      - name: Install dependencies
+        uses: ./.github/workflows/apt-get-install
+        with:
+          packages: gettext
 
       - name: Install mdbook
         uses: ./.github/workflows/install-mdbook
@@ -179,7 +149,7 @@ jobs:
 
       - name: Setup Node
         if: matrix.language == 'en'
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: "npm"
@@ -202,7 +172,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 

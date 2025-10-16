@@ -4,7 +4,7 @@ minutes: 10
 
 # Closure traits
 
-Closures or lambda expressions have types which cannot be named. However, they
+Closures or lambda expressions have types that cannot be named. However, they
 implement special [`Fn`](https://doc.rust-lang.org/std/ops/trait.Fn.html),
 [`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), and
 [`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html) traits:
@@ -25,7 +25,7 @@ fn main() {
     let suffix = "-itis";
     let add_suffix = |x| format!("{x}{suffix}");
     apply_and_log(&add_suffix, "add_suffix", "senior");
-    apply_and_log(&add_suffix, "add_suffix", "appenix");
+    apply_and_log(&add_suffix, "add_suffix", "appendix");
 
     let mut v = Vec::new();
     let mut accumulate = |x| {
@@ -67,7 +67,7 @@ can (i.e. you call it once), or `FnMut` else, and last `Fn`. This allows the
 most flexibility for the caller.
 
 In contrast, when you have a closure, the most flexible you can have is `Fn`
-(which can be passed to a consumer of any of the 3 closure traits), then
+(which can be passed to a consumer of any of the three closure traits), then
 `FnMut`, and lastly `FnOnce`.
 
 The compiler also infers `Copy` (e.g. for `add_suffix`) and `Clone` (e.g.

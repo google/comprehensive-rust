@@ -30,9 +30,9 @@ We will look at better options next.
 - The [`"C"` part][extern-abi] of the `extern` block tells Rust that `abs` can
   be called using the C [ABI] (application binary interface).
 
-- The `safe fn abs` part tells that Rust that `abs` is a safe function. By
-  default, extern functions are considered unsafe, but since `abs(x)` is valid
-  for any `x`, we can declare it safe.
+- The `safe fn abs` part tells Rust that `abs` is a safe function. By default,
+  extern functions are unsafe, but since `abs(x)` can't trigger undefined
+  behavior with any `x`, we can declare it safe.
 
 </details>
 

@@ -33,8 +33,8 @@ should have created Chrome for pixies!
 <details>
 Students will likely need some hints here. Hints include:
 
-- UTF16 vs UTF8. Students should be aware that Rust strings are always UTF8, and
-  will probably decide that it's better to do the conversion on the C++ side
+- UTF-16 vs UTF-8. Students should be aware that Rust strings are always UTF-8,
+  and will probably decide that it's better to do the conversion on the C++ side
   using `base::UTF16ToUTF8` and back again.
 - If students decide to do the conversion on the Rust side, they'll need to
   consider [`String::from_utf16`][1], consider error handling, and consider

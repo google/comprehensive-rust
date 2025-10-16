@@ -9,7 +9,7 @@ We can do this by implementing the `Log` trait.
 
 <details>
 
-- The first unwrap in `log` will succeed because we initialise `LOGGER` before
+- The first unwrap in `log` will succeed because we initialize `LOGGER` before
   calling `set_logger`. The second will succeed because `Uart::write_str` always
   returns `Ok`.
 

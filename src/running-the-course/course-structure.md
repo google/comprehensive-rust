@@ -5,7 +5,7 @@
 ## Rust Fundamentals
 
 The first four days make up [Rust Fundamentals](../welcome-day-1.md). The days
-are fast paced and we cover a lot of ground!
+are fast-paced and we cover a lot of ground!
 
 {{%course outline Fundamentals}}
 
@@ -81,6 +81,15 @@ You should be familiar with the material in
 [Rust Fundamentals](../welcome-day-1.md) before starting this course.
 
 {{%course outline Idiomatic Rust}}
+
+### Unsafe (Work in Progress)
+
+The [Unsafe](../unsafe-deep-dive/welcome.md) deep dive is a two-day class on the
+_unsafe_ Rust language. It covers the fundamentals of Rust's safety guarantees,
+the motivation for `unsafe`, review process for `unsafe` code, FFI basics, and
+building data structures that the borrow checker would normally reject.
+
+{{%course outline Unsafe}}
 
 ## Format
 

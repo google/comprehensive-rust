@@ -1,7 +1,7 @@
 # Changing API
 
-Let us extend the API with more functionality: we want to let clients specify a
-list of lines for the birthday card:
+Let's extend the API: we'll let clients specify a list of lines for the birthday
+card:
 
 ```java
 package com.example.birthdayservice;

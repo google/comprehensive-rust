@@ -116,7 +116,7 @@ fn unpack_tag(tag: u64) -> (u64, WireType) {
 
 // ANCHOR: parse_field
 /// Parse a field, returning the remaining bytes
-fn parse_field(data: &[u8]) -> (Field, &[u8]) {
+fn parse_field(data: &[u8]) -> (Field<'_>, &[u8]) {
     let (tag, remainder) = parse_varint(data);
     let (field_num, wire_type) = unpack_tag(tag);
     let (fieldvalue, remainder) = match wire_type {
@@ -127,10 +127,7 @@ fn parse_field(data: &[u8]) -> (Field, &[u8]) {
         }
         WireType::Len => {
             let (len, remainder) = parse_varint(remainder);
-            let len: usize = len.try_into().expect("len not a valid `usize`");
-            if remainder.len() < len {
-                panic!("Unexpected EOF");
-            }
+            let len = len as usize; // cast for simplicity
             let (value, remainder) = remainder.split_at(len);
             (FieldValue::Len(value), remainder)
         }

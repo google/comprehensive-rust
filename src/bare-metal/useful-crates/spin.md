@@ -25,8 +25,8 @@ fn main() {
 
 - Be careful to avoid deadlock if you take locks in interrupt handlers.
 - `spin` also has a ticket lock mutex implementation; equivalents of `RwLock`,
-  `Barrier` and `Once` from `std::sync`; and `Lazy` for lazy initialisation.
-- The [`once_cell`][2] crate also has some useful types for late initialisation
+  `Barrier` and `Once` from `std::sync`; and `Lazy` for lazy initialization.
+- The [`once_cell`][2] crate also has some useful types for late initialization
   with a slightly different approach to `spin::once::Once`.
 - The Rust Playground includes `spin`, so this example will run fine inline.
 

@@ -1,7 +1,6 @@
 # With C++
 
-The [CXX crate][1] makes it possible to do safe interoperability between Rust
-and C++.
+The [CXX crate][1] enables safe interoperability between Rust and C++.
 
 The overall approach looks like this:
 

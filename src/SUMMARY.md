@@ -108,6 +108,12 @@
 # Day 2: Afternoon
 
 - [Welcome](welcome-day-2-afternoon.md)
+- [Closures](closures.md)
+  - [Closure Syntax](closures/syntax.md)
+  - [Capturing](closures/capturing.md)
+  - [Closure Traits](closures/traits.md)
+  - [Exercise: Log Filter](closures/exercise.md)
+    - [Solution](closures/solution.md)
 - [Standard Library Types](std-types.md)
   - [Standard Library](std-types/std.md)
   - [Documentation](std-types/docs.md)
@@ -118,12 +124,6 @@
   - [`HashMap`](std-types/hashmap.md)
   - [Exercise: Counter](std-types/exercise.md)
     - [Solution](std-types/solution.md)
-- [Closures](closures.md)
-  - [Closure Syntax](closures/syntax.md)
-  - [Capturing](closures/capturing.md)
-  - [Closure Traits](closures/traits.md)
-  - [Exercise: Log Filter](closures/exercise.md)
-    - [Solution](closures/solution.md)
 - [Standard Library Traits](std-traits.md)
   - [Comparisons](std-traits/comparisons.md)
   - [Operators](std-traits/operators.md)
@@ -443,6 +443,38 @@
     - [Trait Method Conflicts](idiomatic/leveraging-the-type-system/extension-traits/trait-method-conflicts.md)
     - [Extending Other Traits](idiomatic/leveraging-the-type-system/extension-traits/extending-other-traits.md)
     - [Should I Define An Extension Trait?](idiomatic/leveraging-the-type-system/extension-traits/should-i-define-an-extension-trait.md)
+  - [Typestate Pattern](idiomatic/leveraging-the-type-system/typestate-pattern.md)
+    - [Typestate Pattern Example](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-example.md)
+    - [Beyond Simple Typestate](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-advanced.md)
+    - [Typestate Pattern with Generics](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics.md)
+      - [Serializer: implement Root](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics/root.md)
+      - [Serializer: implement Struct](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics/struct.md)
+      - [Serializer: implement Property](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics/property.md)
+      - [Serializer: Complete implementation](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics/complete.md)
+  - [Token Types](idiomatic/leveraging-the-type-system/token-types.md)
+    - [Permission Tokens](idiomatic/leveraging-the-type-system/token-types/permission-tokens.md)
+    - [Token Types with Data: Mutex Guards](idiomatic/leveraging-the-type-system/token-types/mutex-guard.md)
+    - [Branded pt 1: Variable-specific tokens](idiomatic/leveraging-the-type-system/token-types/branded-01-motivation.md)
+    - [Branded pt 2: `PhantomData` and Lifetime Subtyping](idiomatic/leveraging-the-type-system/token-types/branded-02-phantomdata.md)
+    - [Branded pt 3: Implementation](idiomatic/leveraging-the-type-system/token-types/branded-03-impl.md)
+    - [Branded pt 4: Branded types in action.](idiomatic/leveraging-the-type-system/token-types/branded-04-in-action.md)
+
+---
+
+# Unsafe
+
+- [Welcome](unsafe-deep-dive/welcome.md)
+- [Setup](unsafe-deep-dive/setup.md)
+- [Motivations](unsafe-deep-dive/motivations.md)
+  - [Interoperability](unsafe-deep-dive/motivations/interop.md)
+  - [Data Structures](unsafe-deep-dive/motivations/data-structures.md)
+  - [Performance](unsafe-deep-dive/motivations/performance.md)
+- [Foundations](unsafe-deep-dive/foundations.md)
+  - [What is unsafe?](unsafe-deep-dive/foundations/what-is-unsafe.md)
+  - [When is unsafe used?](unsafe-deep-dive/foundations/when-is-unsafe-used.md)
+  - [Data structures are safe](unsafe-deep-dive/foundations/data-structures-are-safe.md)
+  - [Actions might not be](unsafe-deep-dive/foundations/actions-might-not-be.md)
+  - [Less powerful than it seems](unsafe-deep-dive/foundations/less-powerful.md)
 
 ---
 

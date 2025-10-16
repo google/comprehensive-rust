@@ -30,7 +30,7 @@ fn main() {
 
 <details>
 
-`impl Trait` allows you to work with types which you cannot name. The meaning of
+`impl Trait` allows you to work with types that you cannot name. The meaning of
 `impl Trait` is a bit different in the different positions.
 
 - For a parameter, `impl Trait` is like an anonymous generic parameter with a

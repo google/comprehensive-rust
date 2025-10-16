@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use arm_gic::gicv3::GicV3;
+use arm_gic::gicv3::{GicCpuInterface, InterruptGroup};
 use log::{error, info, trace};
 use smccc::Hvc;
 use smccc::psci::system_off;
@@ -29,7 +29,8 @@ extern "C" fn sync_exception_current(_elr: u64, _spsr: u64) {
 extern "C" fn irq_current(_elr: u64, _spsr: u64) {
     trace!("irq_current");
     let intid =
-        GicV3::get_and_acknowledge_interrupt().expect("No pending interrupt");
+        GicCpuInterface::get_and_acknowledge_interrupt(InterruptGroup::Group1)
+            .expect("No pending interrupt");
     info!("IRQ {intid:?}");
 }
 

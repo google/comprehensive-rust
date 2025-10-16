@@ -18,6 +18,8 @@ The Rust project hosts many resources. These cover Rust in general:
   the standard library for Rust.
 - [The Rust Reference](https://doc.rust-lang.org/reference/): an incomplete book
   which describes the Rust grammar and memory model.
+- [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/):
+  recommendations on how to design APIs.
 
 More specialized guides hosted on the official Rust site:
 
@@ -61,6 +63,8 @@ A small selection of other guides and tutorial for Rust:
   Lists](https://rust-unofficial.github.io/too-many-lists/): in-depth
   exploration of Rust's memory management rules, through implementing a few
   different types of list structures.
+- [The Little Book of Rust Macros](https://danielkeep.github.io/tlborm/): covers
+  many details on Rust macros with practical examples.
 
 Please see the [Little Book of Rust Books](https://lborb.github.io/book/) for
 even more Rust books.

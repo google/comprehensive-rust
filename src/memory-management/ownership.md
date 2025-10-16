@@ -29,7 +29,7 @@ destructor can run here to free up resources.
 
 <details>
 
-Students familiar with garbage-collection implementations will know that a
+Students familiar with garbage collection implementations will know that a
 garbage collector starts with a set of "roots" to find all reachable memory.
 Rust's "single owner" principle is a similar idea.
 

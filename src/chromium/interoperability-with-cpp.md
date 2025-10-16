@@ -40,7 +40,7 @@ following benefits:
     memory-safety risks.
   - `rust::String` and `CxxString` types understand and maintain differences in
     string representation across the languages (e.g. `rust::String::lossy` can
-    build a Rust string from non-UTF8 input and `rust::String::c_str` can
+    build a Rust string from non-UTF-8 input and `rust::String::c_str` can
     NUL-terminate a string).
 
 </details>
