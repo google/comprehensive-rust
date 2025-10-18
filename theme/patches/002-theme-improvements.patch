@@ -1,0 +1,18 @@
+--- a/theme/book.js
++++ b/theme/book.js
+@@ -323,8 +323,12 @@
+     function get_theme() {
+         var theme;
+         try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+-        if (theme === null || theme === undefined) {
++        if (theme === null || theme === undefined || !themeIds.includes(theme)) {
+             return default_theme;
+         } else {
+             return theme;
+         }
+     }
++    
++    var themeIds = [];
++    themePopup.querySelectorAll('button.theme').forEach(function (el) {
++        themeIds.push(el.id);
++    });
