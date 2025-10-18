@@ -1,0 +1,90 @@
+name: Verify Book.js Patches
+
+on:
+  push:
+    paths:
+      - 'theme/**'
+      - '.github/workflows/verify-book-js-patches.yml'
+  pull_request:
+    paths:
+      - 'theme/**'
+      - '.github/workflows/verify-book-js-patches.yml'
+
+jobs:
+  verify-patches:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Make scripts executable
+        run: |
+          chmod +x theme/scripts/*.sh
+          
+      - name: Install patch utility
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y patch
+          
+      - name: Verify patches apply cleanly
+        run: |
+          cd theme
+          ./scripts/verify-patches.sh
+          
+      - name: Check for modular enhancements
+        run: |
+          if [ ! -f "theme/comprehensive-rust-enhancements.js" ]; then
+            echo "Error: comprehensive-rust-enhancements.js is missing"
+            exit 1
+          fi
+          echo "✅ Modular enhancements file exists"
+          
+      - name: Verify patch files exist
+        run: |
+          if [ ! -d "theme/patches" ]; then
+            echo "Error: patches directory is missing"
+            exit 1
+          fi
+          
+          if [ ! -f "theme/patches/original/book.js" ]; then
+            echo "Error: original book.js is missing"
+            exit 1
+          fi
+          
+          patch_count=$(find theme/patches -name '*.patch' | wc -l)
+          if [ "$patch_count" -eq 0 ]; then
+            echo "Error: No patch files found"
+            exit 1
+          fi
+          
+          echo "✅ Found $patch_count patch files"
+          
+      - name: Test patch application from scratch
+        run: |
+          cd theme
+          # Backup current book.js
+          mv book.js book.js.original
+          
+          # Apply patches from scratch
+          ./scripts/apply-patches.sh
+          
+          # Verify result matches original
+          if ! diff -u book.js.original book.js; then
+            echo "Error: Generated book.js differs from original"
+            exit 1
+          fi
+          
+          echo "✅ Patches apply correctly and produce expected result"
+          
+      - name: Validate JavaScript syntax
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Check JS syntax
+        run: |
+          # Basic syntax check using Node.js
+          node -c theme/book.js
+          node -c theme/comprehensive-rust-enhancements.js
+          echo "✅ JavaScript files have valid syntax"
