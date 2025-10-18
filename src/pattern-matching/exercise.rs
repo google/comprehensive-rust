@@ -17,6 +17,7 @@
 // ANCHOR: Operation
 /// An operation to perform on two subexpressions.
 #[derive(Debug)]
+#[derive(PartialEq)]
 enum Operation {
     Add,
     Sub,
