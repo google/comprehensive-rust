@@ -1,0 +1,170 @@
+--- a/theme/book.js
++++ b/theme/book.js
+@@ -2,6 +2,15 @@
+ 
+ // Fix back button cache problem
+ window.onunload = function () { };
++
++function isPlaygroundModified(playground) {
++    let code_block = playground.querySelector("code");
++    if (window.ace && code_block.classList.contains("editable")) {
++      let editor = window.ace.edit(code_block);
++      return editor.getValue() != editor.originalCode;
++    } else {
++      return false;
++    }
++}
+ 
+ // Global variable, shared between modules
+ function playground_text(playground, hidden = true) {
+@@ -18,7 +27,7 @@
+ }
+ 
+ (function codeSnippets() {
+-    function fetch_with_timeout(url, options, timeout = 6000) {
++    function fetch_with_timeout(url, options, timeout = 15000) {
+         return Promise.race([
+             fetch(url, options),
+             new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), timeout))
+@@ -89,52 +98,89 @@
+     }
+ 
+     function run_rust_code(code_block) {
+-        var result_block = code_block.querySelector(".result");
++        var result_stderr_block = code_block.querySelector(".result.stderr");
++        if (!result_stderr_block) {
++            result_stderr_block = document.createElement('code');
++            result_stderr_block.className = 'result stderr hljs nohighlight hidden';
++
++            code_block.append(result_stderr_block);
++        }
++        var result_block = code_block.querySelector(".result.stdout");
+         if (!result_block) {
+             result_block = document.createElement('code');
+-            result_block.className = 'result hljs language-bash';
++            result_block.className = 'result stdout hljs nohighlight';
+ 
+             code_block.append(result_block);
+         }
+ 
+         let text = playground_text(code_block);
+         let classes = code_block.querySelector('code').classList;
+-        let edition = "2015";
+-        if(classes.contains("edition2018")) {
+-            edition = "2018";
+-        } else if(classes.contains("edition2021")) {
+-            edition = "2021";
++        
++        // Use comprehensive rust enhancements for unused lint suppression
++        if (window.comprehensiveRustEnhancements) {
++            text = window.comprehensiveRustEnhancements.addUnusedLintSuppression(text, classes);
++        } else {
++            // Fallback: Unless the code block has `warnunused`, allow all "unused" lints
++            if(!classes.contains("warnunused")) {
++                text = '#![allow(unused)] ' + text;
++            }
+         }
+-        var params = {
+-            version: "stable",
+-            optimize: "0",
+-            code: text,
+-            edition: edition
+-        };
+-
+-        if (text.indexOf("#![feature") !== -1) {
+-            params.version = "nightly";
++        
++        let params;
++        if (window.comprehensiveRustEnhancements) {
++            params = window.comprehensiveRustEnhancements.getPlaygroundParams(text, classes);
++        } else {
++            // Fallback parameters
++            let edition = "2015";
++            if(classes.contains("edition2018")) {
++                edition = "2018";
++            } else if(classes.contains("edition2021")) {
++                edition = "2021";
++            } else if(classes.contains("edition2024")) {
++                edition = "2024";
++            }
++            params = {
++                backtrace: true,
++                channel: "stable",
++                code: text,
++                edition: edition,
++                mode: "debug",
++                tests: false,
++                crateType: "bin",
++            };
++            
++            if (text.indexOf("fn main") === -1 && text.indexOf("#[test]") !== -1) {
++                params.tests = true;
++            }
++            
++            if (text.indexOf("#![feature") !== -1) {
++                params.version = "nightly";
++            }
+         }
+ 
+         result_block.innerText = "Running...";
++        // hide stderr block while running
++        result_stderr_block.innerText = "";
++        result_stderr_block.classList.add("hidden");
+ 
+-        fetch_with_timeout("https://play.rust-lang.org/evaluate.json", {
++        const playgroundModified = window.comprehensiveRustEnhancements ? 
++            window.comprehensiveRustEnhancements.isPlaygroundModified(code_block) : isPlaygroundModified(code_block);
++        const startTime = window.performance.now();
++        
++        const fetchFunc = window.comprehensiveRustEnhancements?.fetch_with_timeout || fetch_with_timeout;
++        fetchFunc("https://play.rust-lang.org/execute", {
+             headers: {
+                 'Content-Type': "application/json",
+             },
+             method: 'POST',
+             mode: 'cors',
+             body: JSON.stringify(params)
+         })
+         .then(response => response.json())
+         .then(response => {
+-            if (response.result.trim() === '') {
+-                result_block.innerText = "No output";
+-                result_block.classList.add("result-no-output");
++            const endTime = window.performance.now();
++            
++            // Track usage with analytics
++            if (window.comprehensiveRustEnhancements) {
++                window.comprehensiveRustEnhancements.trackPlaygroundUsage(
++                    playgroundModified,
++                    response.error,
++                    (endTime - startTime) / 1000
++                );
++                window.comprehensiveRustEnhancements.handlePlaygroundResponse(
++                    response, result_block, result_stderr_block
++                );
+             } else {
+-                result_block.innerText = response.result;
+-                result_block.classList.remove("result-no-output");
++                // Fallback handling
++                if (response.stdout && response.stdout.trim() === '') {
++                    result_block.innerText = "No output";
++                    result_block.classList.add("result-no-output");
++                } else {
++                    result_block.innerText = response.stdout || response.result || "";
++                    result_block.classList.remove("result-no-output");
++                }
+             }
+         })
+-        .catch(error => result_block.innerText = "Playground Communication: " + error.message);
++        .catch(error => {
++            const endTime = window.performance.now();
++            if (window.comprehensiveRustEnhancements) {
++                window.comprehensiveRustEnhancements.trackPlaygroundUsage(
++                    playgroundModified,
++                    error.message,
++                    (endTime - startTime) / 1000
++                );
++            }
++            result_block.innerText = "Playground Communication: " + error.message;
++        });
+     }
