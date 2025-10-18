@@ -127,36 +127,47 @@ function playground_text(playground, hidden = true) {
 
         let text = playground_text(code_block);
         let classes = code_block.querySelector('code').classList;
-        // Unless the code block has `warnunused`, allow all "unused" lints to avoid cluttering
-        // the output.
-        if(!classes.contains("warnunused")) {
-            text = '#![allow(unused)] ' + text;
+        
+        // Use comprehensive rust enhancements for unused lint suppression
+        if (window.comprehensiveRustEnhancements) {
+            text = window.comprehensiveRustEnhancements.addUnusedLintSuppression(text, classes);
+        } else {
+            // Fallback: Unless the code block has `warnunused`, allow all "unused" lints
+            if(!classes.contains("warnunused")) {
+                text = '#![allow(unused)] ' + text;
+            }
         }
-        let edition = "2015";
-        if(classes.contains("edition2018")) {
-            edition = "2018";
-        } else if(classes.contains("edition2021")) {
-            edition = "2021";
-        } else if(classes.contains("edition2024")) {
-            edition = "2024";
-        }
-        var params = {
-            backtrace: true,
-            channel: "stable",
-            code: text,
-            edition: edition,
-            mode: "debug",
-            tests: false,
-            crateType: "bin",
-        };
-
-        // If the code block has no `main` but does have tests, run those.
-        if (text.indexOf("fn main") === -1 && text.indexOf("#[test]") !== -1) {
-            params.tests = true;
-        }
-
-        if (text.indexOf("#![feature") !== -1) {
-            params.version = "nightly";
+        
+        let params;
+        if (window.comprehensiveRustEnhancements) {
+            params = window.comprehensiveRustEnhancements.getPlaygroundParams(text, classes);
+        } else {
+            // Fallback parameters
+            let edition = "2015";
+            if(classes.contains("edition2018")) {
+                edition = "2018";
+            } else if(classes.contains("edition2021")) {
+                edition = "2021";
+            } else if(classes.contains("edition2024")) {
+                edition = "2024";
+            }
+            params = {
+                backtrace: true,
+                channel: "stable",
+                code: text,
+                edition: edition,
+                mode: "debug",
+                tests: false,
+                crateType: "bin",
+            };
+            
+            if (text.indexOf("fn main") === -1 && text.indexOf("#[test]") !== -1) {
+                params.tests = true;
+            }
+            
+            if (text.indexOf("#![feature") !== -1) {
+                params.version = "nightly";
+            }
         }
 
         result_block.innerText = "Running...";
@@ -164,9 +175,12 @@ function playground_text(playground, hidden = true) {
         result_stderr_block.innerText = "";
         result_stderr_block.classList.add("hidden");
 
-        const playgroundModified = isPlaygroundModified(code_block);
+        const playgroundModified = window.comprehensiveRustEnhancements ? 
+            window.comprehensiveRustEnhancements.isPlaygroundModified(code_block) : isPlaygroundModified(code_block);
         const startTime = window.performance.now();
-        fetch_with_timeout("https://play.rust-lang.org/execute", {
+        
+        const fetchFunc = window.comprehensiveRustEnhancements?.fetch_with_timeout || fetch_with_timeout;
+        fetchFunc("https://play.rust-lang.org/execute", {
             headers: {
                 'Content-Type': "application/json",
             },
@@ -177,48 +191,44 @@ function playground_text(playground, hidden = true) {
         .then(response => response.json())
         .then(response => {
             const endTime = window.performance.now();
-            gtag("event", "playground", {
-                "modified": playgroundModified,
-                "error": (response.error == null) ? null : 'compilation_error',
-                "latency": (endTime - startTime) / 1000,
-            });
-
-            if (response.error != null && response.error != '') {
-                // output the error if there's any. e.g. timeout
-                result_block.innerText = response.error;
-                result_block.classList.remove("result-no-output");
-                return;
-            }
-
-            if (response.stdout.trim() === '') {
-                result_block.innerText = "No output";
-                result_block.classList.add("result-no-output");
+            
+            // Track usage with analytics
+            if (window.comprehensiveRustEnhancements) {
+                window.comprehensiveRustEnhancements.trackPlaygroundUsage(
+                    playgroundModified,
+                    response.error,
+                    (endTime - startTime) / 1000
+                );
+                window.comprehensiveRustEnhancements.handlePlaygroundResponse(
+                    response, result_block, result_stderr_block
+                );
             } else {
-                result_block.innerText = response.stdout;
-                result_block.classList.remove("result-no-output");
-            }
+                // Fallback handling
+                if (response.error != null && response.error != '') {
+                    result_block.innerText = response.error;
+                    result_block.classList.remove("result-no-output");
+                    return;
+                }
 
-            // trim compile message
-            // ====================
-            // Compiling playground v0.0.1 (/playground)
-            // Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.60s
-            // Running `target/debug/playground`
-            // ====================
-            const compileMsgRegex = /^\s+Compiling(.+)\s+Finished(.+)\s+Running(.+)\n/;
-            response.stderr = response.stderr.replace(compileMsgRegex, "");
-            if (response.stderr.trim() !== '') {
-                result_stderr_block.classList.remove("hidden");
-                result_stderr_block.innerText = response.stderr;
+                if (response.stdout && response.stdout.trim() === '') {
+                    result_block.innerText = "No output";
+                    result_block.classList.add("result-no-output");
+                } else {
+                    result_block.innerText = response.stdout || response.result || "";
+                    result_block.classList.remove("result-no-output");
+                }
             }
         })
         .catch(error => {
             const endTime = window.performance.now();
-            gtag("event", "playground", {
-                "modified": playgroundModified,
-                "error": error.message,
-                "latency": (endTime - startTime) / 1000,
-            });
-            result_block.innerText = "Playground Communication: " + error.message
+            if (window.comprehensiveRustEnhancements) {
+                window.comprehensiveRustEnhancements.trackPlaygroundUsage(
+                    playgroundModified,
+                    error.message,
+                    (endTime - startTime) / 1000
+                );
+            }
+            result_block.innerText = "Playground Communication: " + error.message;
         });
     }
 
