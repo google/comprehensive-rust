@@ -1,31 +1,13 @@
-// Copyright 2023 Google LLC
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
-#![allow(dead_code)]
-// ANCHOR: solution
-// ANCHOR: Operation
 /// An operation to perform on two subexpressions.
 #[derive(Debug)]
+#[derive(PartialEq)]
 enum Operation {
     Add,
     Sub,
     Mul,
     Div,
 }
-// ANCHOR_END: Operation
 
-// ANCHOR: Expression
 /// An expression, in tree form.
 #[derive(Debug)]
 enum Expression {
@@ -35,27 +17,18 @@ enum Expression {
     /// A literal value
     Value(i64),
 }
-// ANCHOR_END: Expression
 
-// ANCHOR: eval
 fn eval(e: Expression) -> i64 {
-    // ANCHOR_END: eval
-    match e {
-        Expression::Op { op, left, right } => {
-            let left = eval(*left);
-            let right = eval(*right);
-            match op {
-                Operation::Add => left + right,
-                Operation::Sub => left - right,
-                Operation::Mul => left * right,
-                Operation::Div => left / right,
-            }
-        }
-        Expression::Value(v) => v,
+    match e{
+        Expression::Op{op: a, left: b, right: c} if a == Operation::Add => return eval(*b) + eval(*c),
+        Expression::Op{op: a, left: b, right: c} if a == Operation::Sub => return eval(*b) - eval(*c),
+        Expression::Op{op: a, left: b, right: c} if a == Operation::Mul => return eval(*b) * eval(*c),
+        Expression::Op{op: a, left: b, right: c} if a == Operation::Div => return eval(*b) / eval(*c),
+        Expression::Value(a) => return a,
+        _ => return 0,
     }
 }
 
-// ANCHOR: tests
 #[test]
 fn test_value() {
     assert_eq!(eval(Expression::Value(19)), 19);
@@ -138,4 +111,3 @@ fn test_div() {
         5
     )
 }
-// ANCHOR_END: tests
