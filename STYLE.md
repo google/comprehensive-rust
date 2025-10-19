@@ -89,6 +89,12 @@ plan to shorten or remove existing content. Refinements to existing topics are
 always welcome. Topics that are not essential for all new Rust programmers
 should be proposed as new deep dives.
 
+#### Deep Dives
+
+Specialized material can be added to _deep dives_. These cover things like Rust
+in Android, Bare-Metal Rust, etc., which are not necessarily something every
+Rust developer should know. More deep dives can be added in the future.
+
 ## Course Slides
 
 Please take the following into account when updating the course material.
