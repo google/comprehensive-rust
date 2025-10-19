@@ -25,11 +25,11 @@ fi
 if [ -f "$BACKUP_FILE" ]; then
     echo "Comparing generated file with original..."
     if diff -u "$BACKUP_FILE" "$CURRENT_FILE" > /dev/null; then
-        echo "✅ Generated book.js matches the original - patches are correct"
+        echo "Generated book.js matches the original - patches are correct"
         rm -f "$BACKUP_FILE"
         exit 0
     else
-        echo "❌ Generated book.js differs from original"
+        echo "Generated book.js differs from original"
         echo "Differences:"
         diff -u "$BACKUP_FILE" "$CURRENT_FILE" || true
         
@@ -39,6 +39,6 @@ if [ -f "$BACKUP_FILE" ]; then
         exit 1
     fi
 else
-    echo "✅ Patches applied successfully (no original file to compare)"
+    echo "Patches applied successfully (no original file to compare)"
     exit 0
 fi
