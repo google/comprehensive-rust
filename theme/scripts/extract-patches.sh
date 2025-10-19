@@ -36,12 +36,6 @@ else
     echo "Differences found:"
     echo "  Lines added: $(grep '^+' "$TEMP_PATCH" | wc -l)"
     echo "  Lines removed: $(grep '^-' "$TEMP_PATCH" | wc -l)"
-    echo ""
-    echo "To split this into logical patches:"
-    echo "1. Edit the patch file to separate different features"
-    echo "2. Save each feature as a separate .patch file in $PATCHES_DIR"
-    echo "3. Test with ./scripts/apply-patches.sh"
-    echo "4. Verify with ./scripts/verify-patches.sh"
 fi
 
 echo "Patch extraction completed"
