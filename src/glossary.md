@@ -48,13 +48,9 @@ h1#glossary ~ ul > li:first-line {
   [_blocks_](control-flow-basics/blocks-and-scopes.md).
 - channel:\
   Used to safely pass messages [between threads](concurrency/channels.md).
-- Comprehensive Rust 🦀:\
-  The courses here are jointly called Comprehensive Rust 🦀.
 - concurrency:\
   The execution of multiple tasks or processes at the same time. See
   [Welcome to Concurrency in Rust](concurrency/welcome.md).
-- Concurrency in Rust:\
-  See [Concurrency in Rust](concurrency/welcome.md).
 - constant:\
   A value that does not change during the execution of a program. See
   [const](user-defined-types/const.md).
@@ -141,12 +137,6 @@ h1#glossary ~ ul > li:first-line {
 - Rust:\
   A systems programming language that focuses on safety, performance, and
   concurrency. See [What is Rust?](hello-world/what-is-rust.md).
-- Rust Fundamentals:\
-  Days 1 to 4 of this course. See [Welcome to Day 1](welcome-day-1.md).
-- Rust in Android:\
-  See [Rust in Android](android.md).
-- Rust in Chromium:\
-  See [Rust in Chromium](chromium.md).
 - safe:\
   Refers to code that adheres to Rust's ownership and borrowing rules,
   preventing memory-related errors. See [Unsafe Rust](unsafe-rust.md).
