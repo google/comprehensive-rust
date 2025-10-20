@@ -184,6 +184,13 @@ possible, prefer terminology used in
 [the official Rust Book](https://doc.rust-lang.org/book/). If a less common but
 necessary term is used, provide a brief definition.
 
+#### Glossary
+
+The `src/glossary.md` file contains definitions for key Rust terms used
+throughout the course. When editing course content, use the glossary to anchor
+concepts and ensure consistency in terminology. Terms should be defined and used
+consistently with their glossary entries.
+
 ## Exercises
 
 At the end of some sections, learners will actively engage with the material by
