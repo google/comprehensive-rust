@@ -7,7 +7,9 @@ minutes: 5
 What happens when you have a name conflict between two different trait methods
 implemented for the same type?
 
-```rust,compile_fail
+<!-- dprint -->
+
+```rust,editable,compile_fail
 mod ext {
     pub trait Ext1 {
         fn is_palindrome(&self) -> bool;
@@ -30,12 +32,13 @@ mod ext {
     }
 }
 
-pub use ext::Ext1;
-pub use ext::Ext2;
+pub use ext::{Ext1, Ext2};
 
 // Which method is invoked?
 // The one from `Ext1`? Or the one from `Ext2`?
-assert!("dad".is_palindrome());
+fn main() {
+    assert!("dad".is_palindrome());
+}
 ```
 
 <details>
@@ -51,13 +54,17 @@ assert!("dad".is_palindrome());
 - The compiler rejects the code because it cannot determine which method to
   invoke. Neither `Ext1` nor `Ext2` has a higher priority than the other.
 
-  To resolve this conflict, you must specify which trait you want to use. For
-  example, you can call `Ext1::is_palindrome("dad")` or
-  `Ext2::is_palindrome("dad")`. Demonstrate this syntax and that the updated
-  code compiles.
+  To resolve this conflict, you must specify which trait you want to use.
+
+  Demonstrate: call `Ext1::is_palindrome(&"dad")` or
+  `Ext2::is_palindrome(&"dad")` instead of `"dad".is_palindrome()`.
 
   For methods with more complex signatures, you may need to use a more explicit
   [fully-qualified syntax][1].
+
+- Demonstrate: replace `"dad".is_palindrome()` with
+  `<&str as Ext1>::is_palindrome(&"dad")` or<&str as
+  Ext2>::is_palindrome(&"dad")`.
 
 </details>
 
