@@ -32,7 +32,7 @@ fn main() {
 
 <details>
 
-- What if we want to be able to guarantee that a value can only be used once?
+- Problem: How can we guarantee a value is used only once?
 
 - Motivation: A nonce is a piece of random, unique data used in cryptographic
   protocols to prevent replay attacks.
@@ -46,8 +46,7 @@ fn main() {
 - Rust has an obvious tool for "Once you use this, you can't use it anymore":
   Using a value as an _owned argument_.
 
-- Highlight: the `encrypt` function takes references for `key` and `data` but
-  not `nonce`
+- Highlight: the `encrypt` function takes `nonce` by value (an owned argument), but `key` and `data` by reference.
 
 - By keeping constructors private and not implementing clone/copy for a type,
   making the interior type opaque (as per the newtype pattern), we can prevent

@@ -4,9 +4,8 @@ minutes: 10
 
 # Using the Borrow checker to enforce Invariants
 
-The logic of the borrow checker, while tied to "memory ownership", can be
-abstracted away from this central use case to model other problems and prevent
-API misuse.
+The borrow checker, while added to enforce memory ownership, can be
+leveraged model other problems and prevent API misuse.
 
 ```rust,editable
 // Doors can be open or closed, and you need the right key to lock or unlock
@@ -66,9 +65,7 @@ fn main() {
   wrong key the door is still closed (here represented as an error) and the key
   persists regardless.
 
-- The rules of the borrow checker exist to prevent developers from accessing,
-  changing, and holding onto data in memory in unpredictable ways without being
-  so restrictive that it would prevent _writing software_. The underlying
+- The rules of the borrow checker exist to prevent memory safety bugs. However, the underlying
   logical system does not "know" what memory is. All it does is enforce a
   specific set of rules of how different operations affect what later operations
   are possible.
