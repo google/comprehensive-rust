@@ -17,6 +17,7 @@
 // ANCHOR: Operation
 /// An operation to perform on two subexpressions.
 #[derive(Debug)]
+#[derive(PartialEq)]
 enum Operation {
     Add,
     Sub,
@@ -40,18 +41,13 @@ enum Expression {
 // ANCHOR: eval
 fn eval(e: Expression) -> i64 {
     // ANCHOR_END: eval
-    match e {
-        Expression::Op { op, left, right } => {
-            let left = eval(*left);
-            let right = eval(*right);
-            match op {
-                Operation::Add => left + right,
-                Operation::Sub => left - right,
-                Operation::Mul => left * right,
-                Operation::Div => left / right,
-            }
-        }
-        Expression::Value(v) => v,
+    match e{
+        Expression::Op{op: a, left: b, right: c} if a == Operation::Add => return eval(*b) + eval(*c),
+        Expression::Op{op: a, left: b, right: c} if a == Operation::Sub => return eval(*b) - eval(*c),
+        Expression::Op{op: a, left: b, right: c} if a == Operation::Mul => return eval(*b) * eval(*c),
+        Expression::Op{op: a, left: b, right: c} if a == Operation::Div => return eval(*b) / eval(*c),
+        Expression::Value(a) => return a,
+        _ => return 0,
     }
 }
 
