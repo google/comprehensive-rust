@@ -8,8 +8,8 @@ The borrow checker, while added to enforce memory ownership, can be
 leveraged model other problems and prevent API misuse.
 
 ```rust,editable
-// Doors can be open or closed, and you need the right key to lock or unlock
-// one. Modelled with a Shared key and Owned door.
+/// Doors can be open or closed, and you need the right key to lock or unlock
+/// one. Modelled with a Shared key and Owned door.
 pub struct DoorKey {
     pub key_shape: u32,
 }
