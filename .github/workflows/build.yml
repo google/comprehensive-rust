@@ -160,12 +160,7 @@ jobs:
         working-directory: ./tests
       - name: Test Javascript
         if: matrix.language == 'en'
-        run: |
-          ./src/slides/create-slide.list.sh
-          npm test
-        env:
-          TEST_BOOK_DIR: ../book/comprehensive-rust-${{ matrix.language }}/html
-        working-directory: ./tests
+        run: cargo xtask web-tests --dir book/comprehensive-rust-${{ matrix.language }}/html
 
   po-diff:
     name: Translation diff

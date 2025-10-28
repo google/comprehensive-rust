@@ -21,9 +21,10 @@
 
 use anyhow::{Context, Result, anyhow};
 use clap::{Parser, Subcommand};
-use std::env;
 use std::path::{Path, PathBuf};
 use std::process::Command;
+use std::{env, fs};
+use walkdir::WalkDir;
 
 fn main() -> Result<()> {
     execute_task()
@@ -53,6 +54,13 @@ enum Task {
         /// of slides used by slide size test.
         #[arg(short, long)]
         dir: Option<PathBuf>,
+    },
+    /// (Re)creates the slides.list.ts file based on the given book html
+    /// directory.
+    CreateSlideList {
+        /// The book html directory
+        #[arg(short, long)]
+        dir: PathBuf,
     },
     /// Tests all included Rust snippets.
     RustTests,
@@ -85,6 +93,7 @@ fn execute_task() -> Result<()> {
     match cli.task {
         Task::InstallTools { binstall } => install_tools(binstall),
         Task::WebTests { dir } => run_web_tests(dir),
+        Task::CreateSlideList { dir } => create_slide_list(dir),
         Task::RustTests => run_rust_tests(),
         Task::Serve { language, output } => start_web_server(language, output),
         Task::Build { language, output } => build(language, output),
@@ -191,13 +200,7 @@ fn run_web_tests(dir: Option<PathBuf>) -> Result<()> {
 
     if let Some(d) = &absolute_dir {
         println!("Refreshing slide lists...");
-        let refresh_slides_script = Path::new("tests")
-            .join("src")
-            .join("slides")
-            .join("create-slide.list.sh");
-        let mut cmd = Command::new(&refresh_slides_script);
-        cmd.current_dir(workspace_dir).arg(d);
-        run_command(&mut cmd)?;
+        create_slide_list(d.clone())?;
     }
 
     let tests_dir = workspace_dir.join("tests");
@@ -208,6 +211,124 @@ fn run_web_tests(dir: Option<PathBuf>) -> Result<()> {
         cmd.env("TEST_BOOK_DIR", d);
     }
     run_command(&mut cmd)
+}
+
+// Creates a list of .html slides from the html directory containing the
+// index.html to check the slides.
+// - CI environment: Only modified files are listed
+// - Otherwise: All existing html files
+fn create_slide_list(html_directory: PathBuf) -> Result<()> {
+    let workspace_dir = Path::new(env!("CARGO_WORKSPACE_DIR"));
+    let tests_dir = workspace_dir.join("tests");
+
+    // Check if the provided directory is correct
+    if !html_directory.join("index.html").exists() {
+        return Err(anyhow!(
+            "Could not find index.html in {}. Please check if the correct directory is used (e.g. book/html).",
+            html_directory.display()
+        ));
+    }
+
+    // These special slides are not checked against the style guide
+    let exclude_paths = [
+        "exercise.html",
+        "solution.html",
+        "toc.html",
+        "print.html",
+        "404.html",
+        "glossary.html",
+        "index.html",
+        "course-structure.html",
+    ]
+    .map(PathBuf::from);
+
+    // Collect the files relevant for evaluation.
+    // - CI environment variable is set: all modified markdown files in the src/
+    //   directory
+    // - all html files in the provided directory otherwise
+    let candidate_slides: Vec<PathBuf> = if env::var("CI").is_ok() {
+        println!("CI environment detected, checking only modified slides.");
+        // GITHUB_BASE_REF is available in PRs. Default to 'main' for other CI
+        // contexts.
+        let base_ref = env::var("GITHUB_BASE_REF").unwrap_or("main".to_string());
+        let mut cmd = Command::new("git");
+        cmd.arg("diff")
+            .arg("--name-only")
+            .arg(format!("{}...", base_ref))
+            .arg("--")
+            // Retrieve all modified files in the src directory.
+            // Pathspec syntax: https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-pathspec
+            // * can match path separators, thus matches also files in subdirectories
+            .arg("src/*.md");
+        println!("> {cmd:?}");
+        let output = cmd.output().context("Failed to run git diff")?;
+        String::from_utf8(output.stdout)?
+            .lines()
+            .map(|line| {
+                let path = Path::new(line);
+                // We know the path starts with "src/" because of the pathspec in the
+                // git diff command. and we need it relative to the html base
+                // directory
+                let stripped_path = path.strip_prefix("src").unwrap();
+                let mut html_path = stripped_path.to_path_buf();
+                // replace the .md extension with .html
+                html_path.set_extension("html");
+                html_path
+            })
+            .collect()
+    } else {
+        println!("Local environment, checking all slides.");
+        WalkDir::new(&html_directory)
+            .into_iter()
+            .filter_map(|e| e.ok())
+            // only files with .html extension
+            .filter(|e| e.path().extension().is_some_and(|ext| ext == "html"))
+            // relative path inside the html directory
+            .map(|e| e.path().strip_prefix(&html_directory).unwrap().to_path_buf())
+            .collect()
+    };
+    // Filter the candidate slides
+    let mut slides = Vec::new();
+    for slide in candidate_slides {
+        // Skip excluded files
+        if exclude_paths.iter().any(|exclude_path| slide.ends_with(exclude_path)) {
+            continue;
+        }
+
+        // Test if the html files actually exist
+        let full_path = html_directory.join(&slide);
+        if !full_path.exists() {
+            continue;
+        }
+
+        // Optimization: check if these are redirection html files and skip these
+        let content = fs::read_to_string(&full_path)
+            .with_context(|| format!("Failed to read slide: {}", slide.display()))?;
+        if content.contains("Redirecting to...") {
+            continue;
+        }
+        slides.push(slide);
+    }
+
+    if env::var("CI").is_ok() {
+        println!("The following slides have been modified and will be checked:");
+        for slide in &slides {
+            println!("{}", slide.display());
+        }
+    }
+
+    // Write the file list into a .ts file that can be read by the JS based webtest
+    let output_path = tests_dir.join("src").join("slides").join("slides.list.ts");
+    let mut output_content = "export const slides = [\n".to_string();
+    for slide in slides {
+        output_content.push_str(&format!("  \"{}\",\n", slide.display()));
+    }
+    output_content.push_str("];\n");
+
+    fs::write(&output_path, output_content)
+        .with_context(|| format!("Failed to write to {}", output_path.display()))?;
+
+    Ok(())
 }
 
 fn run_rust_tests() -> Result<()> {
