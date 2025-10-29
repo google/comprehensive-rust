@@ -149,20 +149,28 @@ jobs:
           MDBOOK_BOOK__LANGUAGE: ${{ matrix.language }}
         run: mdbook test
 
+  web-tests:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
       - name: Setup Node
-        if: matrix.language == 'en'
         uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: "npm"
           cache-dependency-path: "tests/package-lock.json"
       - name: Install test framework
-        if: matrix.language == 'en'
         run: npm install
         working-directory: ./tests
+      - name: Download english book
+        uses: actions/download-artifact@v6
+        with:
+          name: comprehensive-rust-en
+          path: book/
       - name: Test Javascript
-        if: matrix.language == 'en'
-        run: cargo xtask web-tests --dir book/comprehensive-rust-${{ matrix.language }}/html
+        run: cargo xtask web-tests --dir book/comprehensive-rust-en/html
 
   po-diff:
     name: Translation diff
