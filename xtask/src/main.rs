@@ -258,7 +258,8 @@ fn create_slide_list(html_directory: PathBuf) -> Result<()> {
             .arg("--")
             // Retrieve all modified files in the src directory.
             // Pathspec syntax: https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-pathspec
-            // * can match path separators, thus matches also files in subdirectories
+            // `*` can match path separators, thus matches also files in
+            // subdirectories
             .arg("src/*.md");
         println!("> {cmd:?}");
         let output = cmd.output().context("Failed to run git diff")?;
@@ -267,7 +268,7 @@ fn create_slide_list(html_directory: PathBuf) -> Result<()> {
             .map(|line| {
                 let path = Path::new(line);
                 // We know the path starts with "src/" because of the pathspec in the
-                // git diff command. and we need it relative to the html base
+                // `git diff` command, and we need it relative to the html base
                 // directory
                 let stripped_path = path.strip_prefix("src").unwrap();
                 let mut html_path = stripped_path.to_path_buf();
