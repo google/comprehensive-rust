@@ -449,8 +449,8 @@
     - [Generalizing "Ownership"](idiomatic/leveraging-the-type-system/borrow-checker-invariants/generalizing-ownership.md)
     - [Single-use values](idiomatic/leveraging-the-type-system/borrow-checker-invariants/single-use-values.md)
     - [Aliasing XOR Mutability](idiomatic/leveraging-the-type-system/borrow-checker-invariants/aliasing-xor-mutability.md)
-    - [Lifetime Relationships primer: PhantomData](idiomatic/leveraging-the-type-system/borrow-checker-invariants/phantomdata.md)
-    - [Lifetime Relationships & External Resources](idiomatic/leveraging-the-type-system/borrow-checker-invariants/lifetime-connections.md)
+    - [PhantomData and Types](idiomatic/leveraging-the-type-system/borrow-checker-invariants/phantomdata-01-types.md)
+    - [PhantomData and Lifetimes](idiomatic/leveraging-the-type-system/borrow-checker-invariants/phantomdata-02-lifetimes.md)
 
 ---
 

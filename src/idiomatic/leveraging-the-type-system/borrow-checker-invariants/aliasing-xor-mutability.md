@@ -2,98 +2,112 @@
 minutes: 15
 ---
 
-# Mutually Exclusive References, or "Aliasing XOR Mutability"
+# Mutually Exclusive References / "Aliasing XOR Mutability"
 
 We can use the mutual exclusion of `&T` and `&mut T` references for a single
 value to model some constraints.
 
-```rust,editable,compile_fail
-pub struct Transaction(/* specifics omitted */);
-pub struct QueryResult(String);
-
-pub struct DatabaseConnection {
-    transaction: Transaction,
-    query_results: Vec<QueryResult>,
-}
+```rust,editable
+pub struct QueryResult;
+pub struct DatabaseConnection {/* fields omitted */}
 
 impl DatabaseConnection {
     pub fn new() -> Self {
-        Self {
-            transaction: Transaction(/* again, specifics omitted */),
-            query_results: vec![],
-        }
-    }
-    pub fn get_transaction(&mut self) -> &mut Transaction {
-        &mut self.transaction
+        Self {}
     }
     pub fn results(&self) -> &[QueryResult] {
-        &self.query_results
-    }
-    pub fn commit(&mut self) {
-        // Work omitted, including sending/clearing the transaction
-        println!("Transaction committed!")
+        &[] // fake results
     }
 }
 
-pub fn do_something_with_transaction(transaction: &mut Transaction) {}
+pub struct Transaction<'a> {
+    connection: &'a mut DatabaseConnection,
+}
+
+impl<'a> Transaction<'a> {
+    pub fn new(connection: &'a mut DatabaseConnection) -> Self {
+        Self { connection }
+    }
+    pub fn query(&mut self, _query: &str) {
+        // Send the query over, but don't wait for results.
+    }
+    pub fn commit(self) {
+        // Finish executing the transaction and retrieve the results.
+    }
+}
 
 fn main() {
     let mut db = DatabaseConnection::new();
-    let mut transaction = db.get_transaction();
-    do_something_with_transaction(transaction);
-    let assumed_the_transactions_happened_immediately = db.results(); // ❌🔨
-    do_something_with_transaction(transaction);
-    // Works, as the lifetime of "transaction" as a reference ended above.
-    let assumed_the_transactions_happened_immediately_again = db.results();
-    db.commit();
+
+    // The transaction `tx` mutably borrows `db`.
+    let mut tx = Transaction::new(&mut db);
+    tx.query("SELECT * FROM users");
+
+    // This won't compile because `db` is already mutably borrowed.
+    // let results = db.results(); // ❌🔨
+
+    // The borrow of `db` ends when `tx` is consumed by `commit`.
+    tx.commit();
+
+    // Now it is possible to borrow `db` again.
+    let results = db.results();
 }
 ```
 
 <details>
 
-- Aliasing XOR Mutability means "we can have multiple immutable references, a
-  single mutable reference, but not both."
+- Motivation: When working with a database API, a user might imagine that
+  transactions are being committed "as they go" and try to read results in
+  between queries being added to the transaction. This fundamental misuse of the
+  API could lead to confusion as to why nothing is happening.
 
-- This example shows how we can use the mutual exclusion of these kinds of
-  references to dissuade a user from reading query results while using a
-  transaction API.
+  While an obvious misunderstanding, situations such as this can happen in
+  practice.
+
+  Ask: Has anyone misunderstood an API by not reading the docs for proper use?
+
+  Expect: Examples of early-career or in-university mistakes and
+  misunderstandings.
+
+  As an API grows in size and user base, a smaller percentage may have "total"
+  knowledge of the system the API represents.
+
+- This example shows how we can use Aliasing XOR Mutability prevent this kind of
+  misuse
 
   This might happen if the user is working under the false assumption that the
   queries being written to the transaction happen "immediately" rather than
   being queued up and performed together.
 
-- By borrowing one field of a struct via a method that returns a mutable /
-  exclusive reference we prevent access to the other fields of that struct under
-  a shared / non-exclusive reference until the lifetime of that borrow ends.
+- The constructor for the Transaction type takes a mutable reference to the
+  database connection, which it holds onto that reference.
 
-- The `transaction` field must be borrowed via a method, as the compiler can
-  reason about borrowing different fields in mutable/shared ways simultaneously
-  if that borrowing is done manually.
+  The explicit lifetime here doesn't have to be intimidating, it just means
+  "`Transaction` is outlived by the `DatabaseConnection` that was passed to it"
+  in this case.
 
-  Demonstrate:
+  The `mut` keyword in the type lets us determine that there is just one of
+  these references present per variable of type `DatabaseConnection`.
 
-  - Change the instances of `db.get_transaction()` and `db.results()` to manual
-    borrows (`&mut db.transaction` and `&db.query_results` respectively) to show
-    the difference in what the borrow checker allows.
+- While a `Transaction` exists, we can't touch the `DatabaseConnection` variable
+  that was created from it.
 
-  - Put the non-`main` part of this example in a module to reiterate that this
-    manual access is not possible across module boundaries.
+  Demonstrate: uncomment the `db.results()` line.
 
-- As laid out in [generalizing ownership](generalizing-ownership.md) we can look
-  at the ways Mutable References and Shareable References interact to see if
-  they fit with the invariants we want to uphold for an API.
+- This lifetime parameter for `Transaction` needs to come from somewhere, in
+  this case it is derived from the lifetime of the owned `DatabaseConnection`
+  from which an exclusive reference is being passed.
 
-- In this case, having the query results not public and placed behind a getter
-  function, we can enforce the invariant "users of this API are not looking at
-  the query results at the same time as they are writing to a transaction."
+- As laid out in [generalizing ownership](generalizing-ownership.md) and
+  [the opening slide for this section](../borrow-checker-invariants.md) we can
+  look at the ways Mutable References and Shareable References interact to see
+  if they fit with the invariants we want to uphold for an API.
 
-- The "don't look at query results while building a transaction" invariant can
-  still be circumvented, how so?
+- Note: The query results not being public and placed behind a getter function
+  lets us enforce the invariant "users can only look at query results if they
+  are not also writing to a transaction."
 
-  - The user could access the transaction solely through `db.get_transaction()`,
-    leaving the lifetime too temporary to prevent access to `db.results()`.
-
-  - How could we avoid this by working in other concepts from "Leveraging the
-    Type System"?
+  If they're publicly available to the user outside of the definition module
+  then this invariant can be invalidated.
 
 </details>

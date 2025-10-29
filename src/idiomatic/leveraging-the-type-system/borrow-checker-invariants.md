@@ -1,11 +1,11 @@
 ---
-minutes: 10
+minutes: 15
 ---
 
 # Using the Borrow checker to enforce Invariants
 
-The borrow checker, while added to enforce memory ownership, can be
-leveraged model other problems and prevent API misuse.
+The borrow checker, while added to enforce memory ownership, can be leveraged
+model other problems and prevent API misuse.
 
 ```rust,editable
 /// Doors can be open or closed, and you need the right key to lock or unlock
@@ -53,26 +53,56 @@ fn main() {
 
 <details>
 
-<!-- TODO: link to typestate when that gets merged. -->
-
 - The borrow checker has been used to prevent use-after-free and multiple
   mutable references up until this point, and we've used types to shape and
   restrict use of APIs already using
   [the Typestate pattern](../leveraging-the-type-system/typestate-pattern.md).
 
-- This example uses the ownership & borrowing rules to model the locking and
-  unlocking of a door. We can try to open a door with a key, but if it's the
-  wrong key the door is still closed (here represented as an error) and the key
-  persists regardless.
+- Language features are often introduced for a specific purpose.
 
-- The rules of the borrow checker exist to prevent memory safety bugs. However, the underlying
-  logical system does not "know" what memory is. All it does is enforce a
-  specific set of rules of how different operations affect what later operations
-  are possible.
+  Over time, users may develop ways of using a feature in ways that were not
+  predicted when they were introduced.
 
-- Those rules can apply to many other cases: We can piggy-back onto the rules of
-  the borrow checker to design APIs to be harder or impossible to misuse, even
-  when there's little or no "memory safety" concerns in the problem domain. This
-  section will walk through some of those different domains.
+  In 2004, Java 5 introduced Generics with the
+  [main stated purpose of enabling type-safe collections](https://jcp.org/en/jsr/detail?id=14).
+
+  Since then, users and developers of the language expanded the use of generics
+  to other areas of type-safe API design.
+  <!-- TODO: Reference how this was adopted -->
+
+  What we aim to do here is similar: Even though the borrow checker was
+  introduced to prevent use-after-free and data races, it is just another API
+  design tool. It can be used to model program properties that have nothing to
+  do with preventing memory safety bugs.
+
+- To use the borrow checker as a problem solving tool, we will need to "forget"
+  that the original purpose of it is to prevent mutable aliasing in the context
+  of preventing use-after-frees and data races.
+
+  We should imagine working within situations where the rules are the same but
+  the meaning is slightly different.
+
+- This example uses ownership and borrowing are used to model the state of a
+  physical door.
+
+  `open_door` **consumes** a `LockedDoor` and returns a new `OpenDoor`. The old
+  `LockedDoor` value is no longer available.
+
+  If the wrong key is used, the door is left locked. It is returned as an `Err`
+  case of the `Result`.
+
+  It is a compile-time error to try and use a door that has already been opened.
+
+- Similarly, `lock_door` consumes an `OpenDoor`, preventing closing the door
+  twice at compile time.
+
+- The rules of the borrow checker exist to prevent memory safety bugs, but the
+  underlying logical system does not "know" what memory is.
+
+  All the borrow checker does is enforce a specific set of rules of how users
+  can order operations.
+
+  This is just one case of piggy-backing onto the rules of the borrow checker to
+  design APIs to be harder or impossible to misuse.
 
 </details>

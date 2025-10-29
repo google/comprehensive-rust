@@ -5,7 +5,7 @@ minutes: 10
 # Single-use values
 
 In some circumstances we want values that _can only be used once_. One critical
-example of this is in cryptography: "Nonces."
+example of this is in cryptography: A "Nonce."
 
 ```rust,editable
 pub struct Key(/* specifics omitted */);
@@ -39,18 +39,27 @@ fn main() {
 
   Background: In practice people have ended up accidentally re-using nonces.
   Most commonly, this causes the cryptographic protocol to completely break down
-  and stop fulfilling its function. Depending on the specifics of nonce reuse
-  and cryptography at hand, private keys can also become computable by
-  attackers.
+  and stop fulfilling its function.
 
-- Rust has an obvious tool for "Once you use this, you can't use it anymore":
-  Using a value as an _owned argument_.
+  Depending on the specifics of nonce reuse and cryptography at hand, private
+  keys can also become computable by attackers.
 
-- Highlight: the `encrypt` function takes `nonce` by value (an owned argument), but `key` and `data` by reference.
+- Rust has an obvious tool for achieving the invariant "Once you use this, you
+  can't use it again": Using a value as an _owned argument_.
 
-- By keeping constructors private and not implementing clone/copy for a type,
-  making the interior type opaque (as per the newtype pattern), we can prevent
-  multiple uses of the same value.
+- Highlight: the `encrypt` function takes `nonce` by value (an owned argument),
+  but `key` and `data` by reference.
+
+- The technique for single-use values is as follows:
+
+  - Keep constructors private, so a user can't construct values with the same
+    inner value twice.
+
+  - Don't implement `Clone`/`Copy` traits or equivalent methods, so a user can't
+    duplicate data we want to keep unique.
+
+  - Make the interior type opaque (like with the newtype pattern), so the user
+    cannot modify an existing value on their own.
 
 - Ask: What are we missing from the newtype pattern in the slide's code?
 
@@ -61,7 +70,9 @@ fn main() {
 
   Fix: Put `Key`, `Nonce`, and `new_nonce` behind a module.
 
-- Cryptography Nuance: There is still the case where a nonce may be used twice
+## More to Explore
+
+- Cryptography Nuance: There is still the case where a nonce might be used twice
   if it's created through purely a pseudo-random process with no additional
   metadata, and that circumstance can't be avoided through this particular
   method. This API design prevents one kind of misuse, but not all kinds.
