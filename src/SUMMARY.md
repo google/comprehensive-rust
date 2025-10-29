@@ -437,6 +437,12 @@
     - [Semantic Confusion](idiomatic/leveraging-the-type-system/newtype-pattern/semantic-confusion.md)
     - [Parse, Don't Validate](idiomatic/leveraging-the-type-system/newtype-pattern/parse-don-t-validate.md)
     - [Is It Encapsulated?](idiomatic/leveraging-the-type-system/newtype-pattern/is-it-encapsulated.md)
+  - [Extension Traits](idiomatic/leveraging-the-type-system/extension-traits.md)
+    - [Extending Foreign Types](idiomatic/leveraging-the-type-system/extension-traits/extending-foreign-types.md)
+    - [Method Resolution Conflicts](idiomatic/leveraging-the-type-system/extension-traits/method-resolution-conflicts.md)
+    - [Trait Method Conflicts](idiomatic/leveraging-the-type-system/extension-traits/trait-method-conflicts.md)
+    - [Extending Other Traits](idiomatic/leveraging-the-type-system/extension-traits/extending-other-traits.md)
+    - [Should I Define An Extension Trait?](idiomatic/leveraging-the-type-system/extension-traits/should-i-define-an-extension-trait.md)
   - [Typestate Pattern](idiomatic/leveraging-the-type-system/typestate-pattern.md)
     - [Typestate Pattern Example](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-example.md)
     - [Beyond Simple Typestate](idiomatic/leveraging-the-type-system/typestate-pattern/typestate-advanced.md)
@@ -451,6 +457,13 @@
     - [Aliasing XOR Mutability](idiomatic/leveraging-the-type-system/borrow-checker-invariants/aliasing-xor-mutability.md)
     - [PhantomData and Types](idiomatic/leveraging-the-type-system/borrow-checker-invariants/phantomdata-01-types.md)
     - [PhantomData and Lifetimes](idiomatic/leveraging-the-type-system/borrow-checker-invariants/phantomdata-02-lifetimes.md)
+  - [Token Types](idiomatic/leveraging-the-type-system/token-types.md)
+    - [Permission Tokens](idiomatic/leveraging-the-type-system/token-types/permission-tokens.md)
+    - [Token Types with Data: Mutex Guards](idiomatic/leveraging-the-type-system/token-types/mutex-guard.md)
+    - [Branded pt 1: Variable-specific tokens](idiomatic/leveraging-the-type-system/token-types/branded-01-motivation.md)
+    - [Branded pt 2: `PhantomData` and Lifetime Subtyping](idiomatic/leveraging-the-type-system/token-types/branded-02-phantomdata.md)
+    - [Branded pt 3: Implementation](idiomatic/leveraging-the-type-system/token-types/branded-03-impl.md)
+    - [Branded pt 4: Branded types in action.](idiomatic/leveraging-the-type-system/token-types/branded-04-in-action.md)
 
 ---
 

@@ -46,6 +46,11 @@ We follow a few key principles to make the material effective for learning:
   usage syntax is a bit unusual, but we don't go into details of format strings
   or macros. We explain details of format strings later, once we have covered
   traits and can mention the `Debug` and `Display` traits.
+- **Live, Interactive Instruction:** The instructor is expected to run and
+  modify the code on the slides, and use compiler errors as a teaching tool. The
+  audience is expected to frequently interrupt with questions, and the
+  instructor would often experiment with the code on the slide to illustrate the
+  answer.
 
 ### Pacing and Structure
 
@@ -83,6 +88,12 @@ Proposals to add material to the Rust Fundamentals course must also include a
 plan to shorten or remove existing content. Refinements to existing topics are
 always welcome. Topics that are not essential for all new Rust programmers
 should be proposed as new deep dives.
+
+#### Deep Dives
+
+Specialized material can be added to _deep dives_. These cover things like Rust
+in Android, Bare-Metal Rust, etc., which are not necessarily something every
+Rust developer should know. More deep dives can be added in the future.
 
 ## Course Slides
 
@@ -124,33 +135,14 @@ When introducing a new concept, start with a simple, relatable, and concrete
 example. A good opening example grounds the concept for the learner and provides
 motivation for the more detailed explanation that will follow.
 
-### Rust Code
-
-When showing Rust code inline, please use the same spacing as `rustfmt`: `3 * x`
-instead of `3*x`. However, feel free to remove newlines when it can make the
-code more compact and easier to understand, e.g., you can define a struct on one
-line if it is not the focus of your example:
-
-<!-- dprint-ignore-start -->
-
-```rust
-struct Person { name: String }
-```
-
-<!-- dprint-ignore-end -->
-
-Enclose the code block in `<!-- dprint-ignore-start -->` and
-`<!-- dprint-ignore-end -->` to suppress the automatic formatting. Please use
-this sparingly.
-
-#### Use Meaningful Examples
+### Use Meaningful Examples
 
 Code samples on the slides should be short and do something meaningful. Avoid
 using generic placeholders like `Foo`, `Bar`, and `Baz`. Using descriptive names
 from a real-world, even if simplified, domain makes the code easier to
 understand and relate to.
 
-#### Interactive Code Snippets
+### Plan Interactive Code Snippets
 
 All Rust code blocks in the course are not static text but are live, editable
 playgrounds. An important teaching method is for the instructor to edit these
@@ -161,11 +153,25 @@ Contributors should design their slides with this interactivity in mind. The
 initial state of the code should be a good starting point for a live
 demonstration.
 
-#### Code Annotations
+### `mdbook` and `mdbook-course` Conventions
 
-Use the `ignore` annotation for code snippets that are not meant to be complete,
-self-contained programs. Use `compile_fail` only when the goal is to demonstrate
-a specific compiler error that is itself the lesson.
+The project uses `mdbook` features in specific ways, as well as a custom
+preprocessor, `mdbook-course`. The following conventions are mandatory:
+
+- **YAML Frontmatter:** Every slide file **must** include YAML frontmatter at
+  the top. At a minimum, this must include the `minutes` field to specify the
+  estimated teaching time.
+- **Outline Helpers:** Pages that serve as an index for a session or segment
+  **must** use the `{{%session outline%}}` or `{{%segment outline%}}` helpers.
+- **File Includes:** Code for exercises and their solutions **must** be included
+  from external files using the standard `mdbook` `{{#include ...}}` helper.
+- **Translation Directives:** To prevent an element (such as a paragraph, code
+  block, or list item) from being translated, place a
+  `<!-- mdbook-xgettext: skip -->` comment on a line by itself, followed by a
+  blank line, immediately before the element.
+
+For a complete explanation of the custom helpers and all available frontmatter
+fields, please refer to the [`mdbook-course` README](mdbook-course/README.md).
 
 ### Language and Tone
 
@@ -177,6 +183,13 @@ to be taught by an experienced programmer to other experienced programmers. When
 possible, prefer terminology used in
 [the official Rust Book](https://doc.rust-lang.org/book/). If a less common but
 necessary term is used, provide a brief definition.
+
+#### Glossary
+
+The `src/glossary.md` file contains definitions for key Rust terms used
+throughout the course. When editing course content, use the glossary to anchor
+concepts and ensure consistency in terminology. Terms should be defined and used
+consistently with their glossary entries.
 
 ## Exercises
 
@@ -271,6 +284,56 @@ pointers to external resources. A link should be accompanied by a brief
 explanation of what the resource contains and why it is relevant. A vague
 reference is not helpful, but a specific one can be a great tool for
 self-learners.
+
+## Code Blocks Mechanics
+
+Code blocks are a critical part of the course. To ensure they are consistent and
+behave as expected, please follow these conventions.
+
+### Language Identifiers
+
+Use the following language identifiers for fenced code blocks:
+
+- **`rust`**: For Rust code examples.
+- **`shell`**: For shell commands. Use a `$` prompt for consistency. Omit the
+  prompt for multi-line commands or when the output is shown.
+- **`bob`**: For ASCII art diagrams generated by `mdbook-bob`.
+- **`ignore`**: For code snippets that are not complete, self-contained programs
+  or are for illustrative purposes only and should not be compiled.
+
+### mdbook Annotations
+
+You can add annotations to Rust code blocks to control how they are tested and
+displayed:
+
+- **`editable`**: Makes the code block an interactive playground where users can
+  edit and run the code. This should be used for most Rust examples.
+- **`compile_fail`**: Indicates that the code is expected to fail compilation.
+  This is used to demonstrate specific compiler errors.
+- **`should_panic`**: Indicates that the code is expected to panic when run.
+- **`warnunused`**: Re-enables `unused` lints for a code block. By default, the
+  course's test runner disables lints for unused variables, imports, etc., to
+  avoid distracting warnings. Use this annotation only when a warning is part of
+  the lesson.
+
+### Rust Code Formatting
+
+When showing Rust code inline, please use the same spacing as `rustfmt`: `3 * x`
+instead of `3*x`. However, feel free to remove newlines when it can make the
+code more compact and easier to understand, e.g., you can define a struct on one
+line if it is not the focus of your example:
+
+<!-- dprint-ignore-start -->
+
+```rust
+struct Person { name: String }
+```
+
+<!-- dprint-ignore-end -->
+
+Enclose the code block in `<!-- dprint-ignore-start -->` and
+`<!-- dprint-ignore-end -->` to suppress the automatic formatting. Please use
+this sparingly.
 
 ## Translations
 
