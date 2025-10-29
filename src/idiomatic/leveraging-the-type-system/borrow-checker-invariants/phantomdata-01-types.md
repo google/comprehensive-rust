@@ -5,7 +5,7 @@ minutes: 15
 # PhantomData 1/2: Type-level tagging
 
 <!-- dprint-ignore-start -->
-```rust,editable,compile_fail
+```rust,editable
 // use std::marker::PhantomData;
 
 pub trait ChatUser {}
