@@ -8,7 +8,9 @@ But we can also have our function return a reference! This means that a borrow
 flows back out of a function:
 
 ```rust,editable
-fn identity(x: &i32) -> &i32 { x }
+fn identity(x: &i32) -> &i32 {
+    x
+}
 
 fn main() {
     let mut x = 123;

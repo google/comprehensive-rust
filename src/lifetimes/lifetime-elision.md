@@ -16,9 +16,13 @@ This is not inference -- it is just a syntactic shorthand.
   that lifetime is given to all un-annotated return values.
 
 ```rust,editable
-fn only_args(a: &i32, b: &i32) { todo!(); }
+fn only_args(a: &i32, b: &i32) {
+    todo!();
+}
 
-fn identity(a: &i32) -> &i32 { a }
+fn identity(a: &i32) -> &i32 {
+    a
+}
 
 struct Foo(i32);
 impl Foo {

@@ -7,7 +7,7 @@ minutes: 5
 But what about when there are multiple borrows passed into a function and one
 being returned?
 
-```rust,editable
+```rust,editable,ignore
 fn multiple(a: &i32, b: &i32) -> &i32 {
     todo!("Return either `a` or `b`")
 }
