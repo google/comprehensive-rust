@@ -30,6 +30,9 @@ h1#glossary ~ ul > li:first-line {
 
 - allocate:\
   Dynamic memory allocation on [the heap](memory-management/review.md).
+- array:\
+  A fixed-size collection of elements of the same type, stored contiguously in
+  memory. See [Arrays](tuples-and-arrays/arrays.md).
 - associated type:\
   A type associated with a specific trait. Useful for defining the relationship
   between types.
@@ -130,6 +133,10 @@ h1#glossary ~ ul > li:first-line {
 - receiver:\
   The first parameter in a Rust [method](methods-and-traits/methods.md) that
   represents the instance on which the method is called.
+- reference:\
+  A non-owning pointer to a value that borrows it without transferring
+  ownership. References can be [shared (immutable)](references/shared.md) or
+  [exclusive (mutable)](references/exclusive.md).
 - reference counting:\
   A memory management technique in which the number of references to an object
   is tracked, and the object is deallocated when the count reaches zero. See
@@ -140,6 +147,10 @@ h1#glossary ~ ul > li:first-line {
 - safe:\
   Refers to code that adheres to Rust's ownership and borrowing rules,
   preventing memory-related errors. See [Unsafe Rust](unsafe-rust.md).
+- slice:\
+  A dynamically-sized view into a contiguous sequence, such as an array or
+  vector. Unlike arrays, slices have a size determined at runtime. See
+  [Slices](references/slices.md).
 - scope:\
   The region of a program where a variable is valid and can be used. See
   [Blocks and Scopes](control-flow-basics/blocks-and-scopes.md).
