@@ -4,7 +4,7 @@ minutes: 15
 
 # Using the Borrow checker to enforce Invariants
 
-The borrow checker, while added to enforce memory ownership, can be leveraged
+The borrow checker, while added to enforce memory ownership, can
 model other problems and prevent API misuse.
 
 ```rust,editable

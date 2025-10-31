@@ -36,8 +36,7 @@ fn main() {}
   [Aliasing XOR Mutability](./aliasing-xor-mutability.md) example.
 
   We held onto a mutable reference to the database connection within the
-  transaction type, this asserts that while we have a transaction nothing else
-  can use the database handle.
+  transaction type to lock out the database while a transaction is active.
 
   But this isn't the way database connections tend to work in practice. We can
   have multiple connections.

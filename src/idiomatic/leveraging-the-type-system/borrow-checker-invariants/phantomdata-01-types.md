@@ -37,15 +37,13 @@ fn main() {}
 - Problem: We want to use the newtype pattern to differentiate permissions, but
   we're duplicating identical implementations for identical data.
 
-- Motivation: We want to be able to "tag" structures with different type
-  parameters as a way to tell them apart or pass on lifetime information to
-  them.
+- Motivation: We want to implement the newtype pattern once as a generic type. To differentiate permission levels, we want to tag the generic type with different type
+  parameters.
 
   See: [Typestate Generics](../typestate-pattern/typestate-generics.md) for
-  instances of telling apart different data relevant to stages of an algorithm
-  with type parameter differences.
+  more examples where we use type parameters to mark data and operations relevant to specific stages of an algorithm.
 
-  In practice, these "tags" tend to be zero-sized types. What they mean will
+  In practice, these tag types tend to be zero-sized types. What they mean will
   depend on the shape and context of the API they're a part of.
 
 - Demonstrate: Change the implementation to the following:
