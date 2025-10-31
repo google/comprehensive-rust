@@ -4,8 +4,8 @@ minutes: 5
 
 # Borrow One
 
-In this example `find_nearest` takes in multiple borrows but will only return
-one of them. The lifetime annotations explicitly tie the returned borrow to the
+In this example `find_nearest` takes in multiple borrows but returns only one of
+them. The lifetime annotations explicitly tie the returned borrow to the
 corresponding argument borrow.
 
 ```rust,editable

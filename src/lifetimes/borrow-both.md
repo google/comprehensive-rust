@@ -19,8 +19,8 @@ fn main() {
 
     let r = pick(true, &a, &b);
 
-    // Which one is borrowed? Should either of these
-    // be allowed?
+    // Which one is still borrowed?
+    // Should either mutation be allowed?
     // a += 7;
     // b += 7;
 
@@ -40,7 +40,7 @@ fn main() {
 - Uncomment both of the commented lines and show that `r` is borrowing both `a`
   and `b`, even though at runtime it will only point to one of them.
 
-- Change the first argument to `pick` to show that the value you pass in doesn't
-  affect borrow checking.
+- Change the first argument to `pick` to show that the result is the same
+  regardless of if `a` or `b` is returned.
 
 </details>

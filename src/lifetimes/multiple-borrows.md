@@ -18,8 +18,8 @@ fn main() {
 
     let r = multiple(&a, &b);
 
-    // Which one is borrowed? Should either of these
-    // be allowed?
+    // Which one is still borrowed?
+    // Should either mutation be allowed?
     a += 7;
     b += 7;
 
@@ -45,6 +45,10 @@ fn main() {
 
 - In this case there is not enough information to determine if `a` or `b` will
   be borrowed by the returned reference. Show students the compiler errors and
-  introduce the lifetime syntax.
+  introduce the lifetime syntax:
+
+  ```rust,ignore
+  fn multiple<'a>(a: &'a i32, b: &'a i32) -> &'a i32 { ... }
+  ```
 
 </details>

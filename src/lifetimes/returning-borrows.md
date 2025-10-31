@@ -17,7 +17,7 @@ fn main() {
 
     let out = identity(&x);
 
-    // x = 5; // `x` is still borrowed!
+    // x = 5; // 🛠️❌ `x` is still borrowed!
 
     dbg!(out);
 }
