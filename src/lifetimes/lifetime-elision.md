@@ -2,7 +2,7 @@
 minutes: 5
 ---
 
-# Lifetimes in Function Calls
+# Lifetimes Elision
 
 Lifetimes for function arguments and return values must be fully specified, but
 Rust allows lifetimes to be elided in most cases with
