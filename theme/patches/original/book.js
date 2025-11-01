@@ -3,16 +3,6 @@
 // Fix back button cache problem
 window.onunload = function () { };
 
-function isPlaygroundModified(playground) {
-    let code_block = playground.querySelector("code");
-    if (window.ace && code_block.classList.contains("editable")) {
-      let editor = window.ace.edit(code_block);
-      return editor.getValue() != editor.originalCode;
-    } else {
-      return false;
-    }
-}
-
 // Global variable, shared between modules
 function playground_text(playground, hidden = true) {
     let code_block = playground.querySelector("code");
@@ -28,7 +18,7 @@ function playground_text(playground, hidden = true) {
 }
 
 (function codeSnippets() {
-    function fetch_with_timeout(url, options, timeout = 15000) {
+    function fetch_with_timeout(url, options, timeout = 6000) {
         return Promise.race([
             fetch(url, options),
             new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), timeout))
@@ -110,77 +100,36 @@ function playground_text(playground, hidden = true) {
     }
 
     function run_rust_code(code_block) {
-        var result_stderr_block = code_block.querySelector(".result.stderr");
-        if (!result_stderr_block) {
-            result_stderr_block = document.createElement('code');
-            result_stderr_block.className = 'result stderr hljs nohighlight hidden';
-
-            code_block.append(result_stderr_block);
-        }
-        var result_block = code_block.querySelector(".result.stdout");
+        var result_block = code_block.querySelector(".result");
         if (!result_block) {
             result_block = document.createElement('code');
-            result_block.className = 'result stdout hljs nohighlight';
+            result_block.className = 'result hljs language-bash';
 
             code_block.append(result_block);
         }
 
         let text = playground_text(code_block);
         let classes = code_block.querySelector('code').classList;
-        
-        // Use comprehensive rust enhancements for unused lint suppression
-        if (window.comprehensiveRustEnhancements) {
-            text = window.comprehensiveRustEnhancements.addUnusedLintSuppression(text, classes);
-        } else {
-            // Fallback: Unless the code block has `warnunused`, allow all "unused" lints
-            if(!classes.contains("warnunused")) {
-                text = '#![allow(unused)] ' + text;
-            }
+        let edition = "2015";
+        if(classes.contains("edition2018")) {
+            edition = "2018";
+        } else if(classes.contains("edition2021")) {
+            edition = "2021";
         }
-        
-        let params;
-        if (window.comprehensiveRustEnhancements) {
-            params = window.comprehensiveRustEnhancements.getPlaygroundParams(text, classes);
-        } else {
-            // Fallback parameters
-            let edition = "2015";
-            if(classes.contains("edition2018")) {
-                edition = "2018";
-            } else if(classes.contains("edition2021")) {
-                edition = "2021";
-            } else if(classes.contains("edition2024")) {
-                edition = "2024";
-            }
-            params = {
-                backtrace: true,
-                channel: "stable",
-                code: text,
-                edition: edition,
-                mode: "debug",
-                tests: false,
-                crateType: "bin",
-            };
-            
-            if (text.indexOf("fn main") === -1 && text.indexOf("#[test]") !== -1) {
-                params.tests = true;
-            }
-            
-            if (text.indexOf("#![feature") !== -1) {
-                params.version = "nightly";
-            }
+        var params = {
+            version: "stable",
+            optimize: "0",
+            code: text,
+            edition: edition
+        };
+
+        if (text.indexOf("#![feature") !== -1) {
+            params.version = "nightly";
         }
 
         result_block.innerText = "Running...";
-        // hide stderr block while running
-        result_stderr_block.innerText = "";
-        result_stderr_block.classList.add("hidden");
 
-        const playgroundModified = window.comprehensiveRustEnhancements ? 
-            window.comprehensiveRustEnhancements.isPlaygroundModified(code_block) : isPlaygroundModified(code_block);
-        const startTime = window.performance.now();
-        
-        const fetchFunc = window.comprehensiveRustEnhancements?.fetch_with_timeout || fetch_with_timeout;
-        fetchFunc("https://play.rust-lang.org/execute", {
+        fetch_with_timeout("https://play.rust-lang.org/evaluate.json", {
             headers: {
                 'Content-Type': "application/json",
             },
@@ -190,46 +139,15 @@ function playground_text(playground, hidden = true) {
         })
         .then(response => response.json())
         .then(response => {
-            const endTime = window.performance.now();
-            
-            // Track usage with analytics
-            if (window.comprehensiveRustEnhancements) {
-                window.comprehensiveRustEnhancements.trackPlaygroundUsage(
-                    playgroundModified,
-                    response.error,
-                    (endTime - startTime) / 1000
-                );
-                window.comprehensiveRustEnhancements.handlePlaygroundResponse(
-                    response, result_block, result_stderr_block
-                );
+            if (response.result.trim() === '') {
+                result_block.innerText = "No output";
+                result_block.classList.add("result-no-output");
             } else {
-                // Fallback handling
-                if (response.error != null && response.error != '') {
-                    result_block.innerText = response.error;
-                    result_block.classList.remove("result-no-output");
-                    return;
-                }
-
-                if (response.stdout && response.stdout.trim() === '') {
-                    result_block.innerText = "No output";
-                    result_block.classList.add("result-no-output");
-                } else {
-                    result_block.innerText = response.stdout || response.result || "";
-                    result_block.classList.remove("result-no-output");
-                }
+                result_block.innerText = response.result;
+                result_block.classList.remove("result-no-output");
             }
         })
-        .catch(error => {
-            const endTime = window.performance.now();
-            if (window.comprehensiveRustEnhancements) {
-                window.comprehensiveRustEnhancements.trackPlaygroundUsage(
-                    playgroundModified,
-                    error.message,
-                    (endTime - startTime) / 1000
-                );
-            }
-            result_block.innerText = "Playground Communication: " + error.message;
-        });
+        .catch(error => result_block.innerText = "Playground Communication: " + error.message);
     }
 
     // Syntax highlighting Configuration
@@ -307,7 +225,7 @@ function playground_text(playground, hidden = true) {
                 }
 
                 var clipButton = document.createElement('button');
-                clipButton.className = 'clip-button';
+                clipButton.className = 'fa fa-copy clip-button';
                 clipButton.title = 'Copy to clipboard';
                 clipButton.setAttribute('aria-label', clipButton.title);
                 clipButton.innerHTML = '<i class=\"tooltiptext\"></i>';
@@ -340,7 +258,7 @@ function playground_text(playground, hidden = true) {
 
         if (window.playground_copyable) {
             var copyCodeClipboardButton = document.createElement('button');
-            copyCodeClipboardButton.className = 'clip-button';
+            copyCodeClipboardButton.className = 'fa fa-copy clip-button';
             copyCodeClipboardButton.innerHTML = '<i class="tooltiptext"></i>';
             copyCodeClipboardButton.title = 'Copy to clipboard';
             copyCodeClipboardButton.setAttribute('aria-label', copyCodeClipboardButton.title);
@@ -371,10 +289,6 @@ function playground_text(playground, hidden = true) {
     var themeToggleButton = document.getElementById('theme-toggle');
     var themePopup = document.getElementById('theme-list');
     var themeColorMetaTag = document.querySelector('meta[name="theme-color"]');
-    var themeIds = [];
-    themePopup.querySelectorAll('button.theme').forEach(function (el) {
-        themeIds.push(el.id);
-    });
     var stylesheets = {
         ayuHighlight: document.querySelector("[href$='ayu-highlight.css']"),
         tomorrowNight: document.querySelector("[href$='tomorrow-night.css']"),
@@ -403,7 +317,7 @@ function playground_text(playground, hidden = true) {
     function get_theme() {
         var theme;
         try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
-        if (theme === null || theme === undefined || !themeIds.includes(theme)) {
+        if (theme === null || theme === undefined) {
             return default_theme;
         } else {
             return theme;
@@ -531,7 +445,6 @@ function playground_text(playground, hidden = true) {
     var sidebar = document.getElementById("sidebar");
     var sidebarLinks = document.querySelectorAll('#sidebar a');
     var sidebarToggleButton = document.getElementById("sidebar-toggle");
-    var sidebarToggleAnchor = document.getElementById("sidebar-toggle-anchor");
     var sidebarResizeHandle = document.getElementById("sidebar-resize-handle");
     var firstContact = null;
 
@@ -546,6 +459,17 @@ function playground_text(playground, hidden = true) {
         try { localStorage.setItem('mdbook-sidebar', 'visible'); } catch (e) { }
     }
 
+
+    var sidebarAnchorToggles = document.querySelectorAll('#sidebar a.toggle');
+
+    function toggleSection(ev) {
+        ev.currentTarget.parentElement.classList.toggle('expanded');
+    }
+
+    Array.from(sidebarAnchorToggles).forEach(function (el) {
+        el.addEventListener('click', toggleSection);
+    });
+
     function hideSidebar() {
         body.classList.remove('sidebar-visible')
         body.classList.add('sidebar-hidden');
@@ -558,16 +482,22 @@ function playground_text(playground, hidden = true) {
     }
 
     // Toggle sidebar
-    sidebarToggleAnchor.addEventListener('change', function sidebarToggle() {
-        if (sidebarToggleAnchor.checked) {
+    sidebarToggleButton.addEventListener('click', function sidebarToggle() {
+        if (body.classList.contains("sidebar-hidden")) {
             var current_width = parseInt(
                 document.documentElement.style.getPropertyValue('--sidebar-width'), 10);
             if (current_width < 150) {
                 document.documentElement.style.setProperty('--sidebar-width', '150px');
             }
             showSidebar();
-        } else {
+        } else if (body.classList.contains("sidebar-visible")) {
             hideSidebar();
+        } else {
+            if (getComputedStyle(sidebar)['transform'] === 'none') {
+                hideSidebar();
+            } else {
+                showSidebar();
+            }
         }
     });
 
@@ -667,12 +597,12 @@ function playground_text(playground, hidden = true) {
 
     function hideTooltip(elem) {
         elem.firstChild.innerText = "";
-        elem.className = 'clip-button';
+        elem.className = 'fa fa-copy clip-button';
     }
 
     function showTooltip(elem, msg) {
         elem.firstChild.innerText = msg;
-        elem.className = 'clip-button tooltipped';
+        elem.className = 'fa fa-copy tooltipped';
     }
 
     var clipboardSnippets = new ClipboardJS('.clip-button', {
