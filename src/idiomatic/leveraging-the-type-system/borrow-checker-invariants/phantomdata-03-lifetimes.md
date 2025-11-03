@@ -38,33 +38,14 @@ fn main() {}
   We held onto a mutable reference to the database connection within the
   transaction type to lock out the database while a transaction is active.
 
-  But this isn't the way database connections tend to work in practice. We can
-  have multiple connections.
+  But here we need to account for the lifetime behavior of external APIs in this
+  case.
 
-  But we could theoretically be connected to multiple distinct databases.
+- We can also save 7 bytes in the size of `Transaction` by having it be owned vs
+  being a reference on a 64bit platform.
 
-  Ask: how could we associate multiple connections to the same database in the
-  type system?
-
-  Expect: Just have multiple connections without annotating where they're from
-  in the type system. Or, create a new tag type for each database.
-
-  What's wrong with type tagging? It doesn't encode a relationship between
-  specific variables the way that lifetime annotations do.
-
-- But what we want to do is use the type system as much as possible to express
-  what is possible.
-
-  What is possible is to have multiple connections to the same database,
-  especially in the context of transactions being committed on the same machine,
-  so we want to encode that while maintaining a _relationship_ between databases
-  and transactions.
-
-- Additionally: We can save 7 bytes in the size of `Transaction` by having it be
-  owned vs being a reference on a 64bit platform.
-
-- We can use `PhantomData` to use Lifetime parameters that don't have "real"
-  values borrowed by making the type parameter of `PhantomData` use that
+- We can use `PhantomData` to capture lifetime parameters that don't have "real"
+  borrowed values present by making the type parameter of `PhantomData` use that
   lifetime.
 
 - Demonstrate: change `Transaction` to the following
@@ -86,29 +67,11 @@ fn main() {}
   ```
 
   This gives an owned database connection to a specific database as per the FFI,
-  but creates a relationship between that connection and the "source"
-  `DatabaseConnection` that created it.
+  and creates a compile-time only relationship between that connection and the
+  "source" `DatabaseConnection` that created it.
 
 - Demonstrate: We can give each `Transaction` an owned `DatabaseConnection`, but
-  change the constructor to instead be a method of `DatabaseConnection` itself.
-
-- [`BorrowedFd`](https://rust-lang.github.io/rfcs/3128-io-safety.html#ownedfd-and-borrowedfdfd)
-  uses these captured lifetimes to enforce the invariant that "if this file
-  descriptor exists, the OS file descriptor is still open."
-
-  `BorrowedFd`'s lifetime parameter demands that there exists another value (in
-  this case a file, in the Unix sense) in your program that lasts as long as the
-  `BorrowedFd` or outlives it.
-
-  This has been encoded by the API designer to mean _that other value is what
-  keeps the access to the file open_.
-
-  Because `BorrowedFd` has a lifetime parameter from that other value, users of
-  the API can assume "this file descriptor existing means the file is open, and
-  we don't need to manage or check that external state itself."
-
-  Its counterpart `OwnedFd` is instead a file descriptor that closes that file
-  on drop.
+  change the constructor to be a method of `DatabaseConnection` itself.
 
 ## More to Explore
 

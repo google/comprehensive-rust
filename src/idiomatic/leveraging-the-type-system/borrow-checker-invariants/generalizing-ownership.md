@@ -1,10 +1,10 @@
 ---
-minutes: 5
+minutes: 10
 ---
 
 # Lifetimes and Borrows: the abstract rules
 
-The logic of the borrow checker, while modeled off "memory ownership", can be
+The logic of the borrow checker, while modeled off **memory ownership**, can be
 abstracted away from that use case to model other problems where we want to
 prevent API misuse.
 
@@ -22,14 +22,20 @@ fn exclusive_use(value: &mut Data) -> &mut Internal {
 }
 fn deny_future_use(value: Data) {}
 
-fn main() {
+fn demo_exclusive() {
     let mut value = Data(Internal);
     let shared = shared_use(&value);
     // let exclusive = exclusive_use(&mut value); // ❌🔨
     let shared_again = &shared;
-    deny_future_use(value);
-    // let shared_again_again = shared_use(&value); // ❌🔨
 }
+
+fn demo_denied() {
+    let value = Data(Internal);
+    deny_future_use(value);
+    // let shared = shared_use(&value); // ❌🔨
+}
+
+# fn main() {}
 ```
 
 <details>
@@ -50,13 +56,13 @@ fn main() {
   - Mutable Reference `&mut T`. Only one of these is allowed to exist for a
     value at any one point, but can be used to create shared references.
 
-- Ask: The two commented-out lines in `main` would cause compilation errors,
-  Why?
+- Ask: The two commented-out lines in the `demo` functions would cause
+  compilation errors, Why?
 
-  1: Because the `shared` value is still aliased after the `exclusive` reference
-  is taken.
+  `demo_exclusive`: Because the `shared` value is still aliased after the
+  `exclusive` reference is taken.
 
-  2: Because `value` is consumed (AKA dropped) the line before the
+  `demo_denied`: Because `value` is consumed (AKA dropped) the line before the
   `shared_again_again` reference is taken from `&value`.
 
 - Remember that every `&T` and `&mut T` has a lifetime, just one the user

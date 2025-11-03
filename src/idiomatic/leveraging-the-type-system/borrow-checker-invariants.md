@@ -4,8 +4,8 @@ minutes: 15
 
 # Using the Borrow checker to enforce Invariants
 
-The borrow checker, while added to enforce memory ownership, can
-model other problems and prevent API misuse.
+The borrow checker, while added to enforce memory ownership, can model other
+problems and prevent API misuse.
 
 ```rust,editable
 /// Doors can be open or closed, and you need the right key to lock or unlock
@@ -53,9 +53,10 @@ fn main() {
 
 <details>
 
-- The borrow checker has been used to prevent use-after-free and multiple
-  mutable references up until this point, and we've used types to shape and
-  restrict use of APIs already using
+- We've seen the borrow checker prevent memory safety bugs (use-after-free, data
+  races).
+
+- We've also used types to shape and restrict APIs already using
   [the Typestate pattern](../leveraging-the-type-system/typestate-pattern.md).
 
 - Language features are often introduced for a specific purpose.

@@ -4,8 +4,8 @@ minutes: 10
 
 # Single-use values
 
-Sometimes we want values that _can only be used once_. One critical
-example of this is in cryptography: A "Nonce."
+Sometimes we want values that _can only be used once_. One critical example of
+this is in cryptography: A "Nonce."
 
 ```rust,editable
 pub struct Key(/* specifics omitted */);
@@ -72,8 +72,9 @@ fn main() {
 
 ## More to Explore
 
-- Cryptography Nuance: A nonce might still be used twice
-  if it was created through pseudo-random process with no actual randomness. That can't be prevented through this
-  method. This API design prevents one nonce duplication, but not all logic bugs.
+- Cryptography Nuance: A nonce might still be used twice if it was created
+  through pseudo-random process with no actual randomness. That can't be
+  prevented through this method. This API design prevents one nonce duplication,
+  but not all logic bugs.
 
 </details>

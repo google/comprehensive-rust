@@ -4,7 +4,8 @@ minutes: 15
 
 # Mutually Exclusive References / "Aliasing XOR Mutability"
 
-We can use the mutual exclusion of `&T` and `&mut T` references to prevent data from being used before it is ready.
+We can use the mutual exclusion of `&T` and `&mut T` references to prevent data
+from being used before it is ready.
 
 ```rust,editable
 pub struct QueryResult;
@@ -55,9 +56,11 @@ fn main() {
 
 <details>
 
-- Motivation: In this database API queries are kicked off for asynchronous execution and the results are only available once the whole transaction is finished. A user might think that
-  queries are executed immediately, and try to read results before they are made available. This
-  API misuse could make the app read incomplete or incorrect data.
+- Motivation: In this database API queries are kicked off for asynchronous
+  execution and the results are only available once the whole transaction is
+  finished. A user might think that queries are executed immediately, and try to
+  read results before they are made available. This API misuse could make the
+  app read incomplete or incorrect data.
 
   While an obvious misunderstanding, situations such as this can happen in
   practice.
@@ -70,12 +73,12 @@ fn main() {
   As an API grows in size and user base, a smaller percentage of users has deep
   knowledge of the system the API represents.
 
-- This example shows how we can use Aliasing XOR Mutability to prevent this kind of
-  misuse.
+- This example shows how we can use Aliasing XOR Mutability to prevent this kind
+  of misuse.
 
-- The code might read results before they are ready if the programmer assumes that the
-  queries execute immediately rather than
-  kicked off for asynchronous execution.
+- The code might read results before they are ready if the programmer assumes
+  that the queries execute immediately rather than kicked off for asynchronous
+  execution.
 
 - The constructor for the `Transaction` type takes a mutable reference to the
   database connection, and stores it in the returned `Transaction` value.
@@ -84,13 +87,13 @@ fn main() {
   "`Transaction` is outlived by the `DatabaseConnection` that was passed to it"
   in this case.
 
-  The reference is mutable to completely lock out the `DatabaseConnection` from other usage, such as starting further transactions or reading the results.
+  The reference is mutable to completely lock out the `DatabaseConnection` from
+  other usage, such as starting further transactions or reading the results.
 
 - While a `Transaction` exists, we can't touch the `DatabaseConnection` variable
   that was created from it.
 
   Demonstrate: uncomment the `db.results()` line.
-
 
 - As laid out in [generalizing ownership](generalizing-ownership.md) and
   [the opening slide for this section](../borrow-checker-invariants.md) we can
@@ -101,7 +104,7 @@ fn main() {
   lets us enforce the invariant "users can only look at query results if there
   is no active transactions."
 
-  If the query results were placed in a public struct field,
-  this invariant could be violated.
+  If the query results were placed in a public struct field, this invariant
+  could be violated.
 
 </details>

@@ -1,0 +1,76 @@
+---
+minutes: 10
+---
+
+# PhantomData 2/4: Type-level tagging implementation
+
+<!-- dprint-ignore-start -->
+```rust,editable,compile_fail
+// use std::marker::PhantomData;
+
+pub struct ChatId<T> { id: u64, tag: T }
+
+pub struct UserTag;
+pub struct AdminTag;
+
+pub trait ChatUser {/* ... */}
+pub trait ChatAdmin {/* ... */}
+
+impl ChatUser for UserTag {/* ... */}
+impl ChatUser for AdminTag {/* ... */} // Admins are users
+impl ChatAdmin for AdminTag {/* ... */}
+
+impl <T> Debug for UserTag<T> {/* ... */}
+impl <T> PartialEq for UserTag<T> {/* ... */}
+impl <T> Eq for UserTag<T> {/* ... */}
+// And so on ...
+
+impl <T: ChatUser> ChatID<T> {/* All functionality for users and above */}
+impl <T: ChatAdmin> ChatID<T> {/* All functionality for only admins */}
+
+fn main() {}
+```
+<!-- dprint-ignore-end -->
+
+<details>
+
+- Motivation: We want to implement the newtype pattern once as a generic type.
+  To differentiate permission levels, we want to tag the generic type with
+  different type parameters.
+
+  See: [Typestate Generics](../typestate-pattern/typestate-generics.md) for more
+  examples where we use type parameters to mark data and operations relevant to
+  specific stages of an algorithm.
+
+- Ask: What issues does having it be an actual instance of that type pose?
+
+  Answer: If it's not a zero-sized type (like `()` or `struct MyTag;`), then
+  we're allocating more memory than we need to when all we care for is type
+  information that is only relevant at compile-time.
+
+- Demonstrate: remove the `tag` value entirely, then compile!
+
+  This won't compile, as there's an unused (phantom) type parameter.
+
+  This is where `PhantomData` comes in!
+
+- Demonstrate: Uncomment the `PhantomData` import, and make `ChatId<T>` the
+  following:
+
+  ```rust,compile_fail
+  pub struct ChatId<T> {
+      id: u64,
+      tag: PhantomData<T>,
+  }
+  ```
+
+- `PhantomData<T>` is a zero-sized type with a type parameter. We can construct
+  values of it like other ZSTs with
+  `let phantom: PhantomData<UserTag> = PhantomData;` or with the
+  `PhantomData::default()` implementation.
+
+- `PhantomData` can be used as part of the Typestate pattern to have data with
+  the same structure i.e. `TaggedData<Start>` have methods or trait
+  implementations that `TaggedData<End>` doesn't.
+
+</details>
