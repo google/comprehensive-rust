@@ -2,7 +2,10 @@
 minutes: 15
 ---
 
-# PhantomData 2/2: Tagging with Lifetimes
+# PhantomData 3/4: Lifetimes for External Resources
+
+The invariants of external resources often match what we can do with lifetime
+rules.
 
 ```rust,editable
 // use std::marker::PhantomData;
@@ -38,26 +41,43 @@ fn main() {}
   We held onto a mutable reference to the database connection within the
   transaction type to lock out the database while a transaction is active.
 
-  But here we need to account for the lifetime behavior of external APIs in this
-  case.
+  In this example, we want to model a `Transaction` API on what we're given by
+  an external, non-rust API.
 
-- We can also save 7 bytes in the size of `Transaction` by having it be owned vs
-  being a reference on a 64bit platform.
+  We start this by defining a `Transaction` type that holds onto
+  `&mut DatabaseConnection`.
 
-- We can use `PhantomData` to capture lifetime parameters that don't have "real"
-  borrowed values present by making the type parameter of `PhantomData` use that
-  lifetime.
+- Ask: What are the limits of this implementation? Assume the `u8` is accurate
+  implementation wise and enough information for us to use the external API.
 
-- Demonstrate: change `Transaction` to the following
+  Expect:
+  - Indirection takes up 7 bytes more than we need to on a 64bit platform, as
+    well as involving a pointer dereference.
+
+- Problem: We want to have a transaction have this "connection" to the database
+  connection that created it, but we don't want to hand over a "real" reference.
+
+- Ask: What happens when we remove the mutable reference in `Transaction` while
+  keeping the lifetime parameter?
+
+  Expect: Unused lifetime parameter!
+
+- Like with the type tagging from the previous slides, we can bring in
+  `PhantomData` to capture this unused lifetime parameter for us.
+
+  The difference is that we will need to use the lifetime alongside another
+  type, but that other type does not matter too much.
+
+- Demonstrate: change `Transaction` to the following:
 
   ```rust,compile_fail
   pub struct Transaction<'a> {
       connection: DatabaseConnection,
-      _phantom: PhantomData<&'a ()>,
+      _phantom: PhantomData<&mut 'a ()>,
   }
   ```
 
-  Change the `new_transaction` function for `DatabaseConnection` to the
+  And change the `new_transaction` function for `DatabaseConnection` to the
   following:
 
   ```rust,compile_fail
@@ -66,21 +86,23 @@ fn main() {}
   }
   ```
 
-  This gives an owned database connection to a specific database as per the FFI,
-  and creates a compile-time only relationship between that connection and the
-  "source" `DatabaseConnection` that created it.
+  This gives an owned database connection that is tied to the
+  `DatabaseConnection` that created it, but without any runtime memory footprint
+  as the pass-a-reference version did.
 
-- Demonstrate: We can give each `Transaction` an owned `DatabaseConnection`, but
-  change the constructor to be a method of `DatabaseConnection` itself.
+  Because `PhantomData` is a zero-sized type (like `()` or
+  `struct MyZeroSizedType;`), the size of `Transaction` is now the same as `u8`.
+
+  The implementation that held onto a reference instead had the size `usize`.
 
 ## More to Explore
 
-- This way of encoding information in types is very powerful when combined with
-  unsafe, as the ways one can manipulate lifetimes becomes almost arbitrary.
-  This is also dangerous, but when combined with tools like external,
-  mechanically-verified proofs we can safely encode cyclic/self-referential
-  types while encoding lifetime & safety expectations in the relevant data
-  types.
+- This way of encoding relationships between types and values is very powerful
+  when combined with unsafe, as the ways one can manipulate lifetimes becomes
+  almost arbitrary. This is also dangerous, but when combined with tools like
+  external, mechanically-verified proofs we can safely encode
+  cyclic/self-referential types while encoding lifetime & safety expectations in
+  the relevant data types.
 
 - The [GhostCell (2021)](https://plv.mpi-sws.org/rustbelt/ghostcell/) paper and
   its [relevant implementation](https://gitlab.mpi-sws.org/FP/ghostcell) show

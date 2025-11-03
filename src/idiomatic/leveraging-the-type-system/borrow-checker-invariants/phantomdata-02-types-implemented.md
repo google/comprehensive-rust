@@ -4,8 +4,10 @@ minutes: 10
 
 # PhantomData 2/4: Type-level tagging implementation
 
+Let's solve the problem from the previous slide by adding a type parameter.
+
 <!-- dprint-ignore-start -->
-```rust,editable,compile_fail
+```rust,editable
 // use std::marker::PhantomData;
 
 pub struct ChatId<T> { id: u64, tag: T }
@@ -20,13 +22,13 @@ impl ChatUser for UserTag {/* ... */}
 impl ChatUser for AdminTag {/* ... */} // Admins are users
 impl ChatAdmin for AdminTag {/* ... */}
 
-impl <T> Debug for UserTag<T> {/* ... */}
-impl <T> PartialEq for UserTag<T> {/* ... */}
-impl <T> Eq for UserTag<T> {/* ... */}
+// impl <T> Debug for UserTag<T> {/* ... */}
+// impl <T> PartialEq for UserTag<T> {/* ... */}
+// impl <T> Eq for UserTag<T> {/* ... */}
 // And so on ...
 
-impl <T: ChatUser> ChatID<T> {/* All functionality for users and above */}
-impl <T: ChatAdmin> ChatID<T> {/* All functionality for only admins */}
+impl <T: ChatUser> ChatId<T> {/* All functionality for users and above */}
+impl <T: ChatAdmin> ChatId<T> {/* All functionality for only admins */}
 
 fn main() {}
 ```
@@ -34,13 +36,11 @@ fn main() {}
 
 <details>
 
-- Motivation: We want to implement the newtype pattern once as a generic type.
-  To differentiate permission levels, we want to tag the generic type with
-  different type parameters.
+- Here we're using a type parameter and gating permissions behind "tag" types
+  that implement different permission traits.
 
-  See: [Typestate Generics](../typestate-pattern/typestate-generics.md) for more
-  examples where we use type parameters to mark data and operations relevant to
-  specific stages of an algorithm.
+  Tag types, or marker types, are zero-sized types that have some semantic
+  meaning to users and API designers.
 
 - Ask: What issues does having it be an actual instance of that type pose?
 

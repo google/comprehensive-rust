@@ -64,17 +64,24 @@ fn main() {
   Over time, users may develop ways of using a feature in ways that were not
   predicted when they were introduced.
 
-  In 2004, Java 5 introduced Generics with the
+  Java 5 introduced Generics in 2004 with the
   [main stated purpose of enabling type-safe collections](https://jcp.org/en/jsr/detail?id=14).
 
-  Since then, users and developers of the language expanded the use of generics
-  to other areas of type-safe API design.
-  <!-- TODO: Reference how this was adopted -->
+  Adoption was slow at first, but some new projects began designing their APIs
+  around generics from the beginning.
 
-  What we aim to do here is similar: Even though the borrow checker was
-  introduced to prevent use-after-free and data races, it is just another API
-  design tool. It can be used to model program properties that have nothing to
-  do with preventing memory safety bugs.
+  Since then, users and developers of the language expanded the use of generics
+  to other areas of type-safe API design:
+  - Class information can be held onto via java's `Class<T>` or guava's
+    `TypeToken<T>`.
+  - The Builder pattern can be implemented using Recursive Generics.
+
+  We aim to do something similar here: Even though the borrow checker was
+  introduced to prevent use-after-free and data races, we treat it as just
+  another API design tool.
+
+  It can be used to model program properties that have nothing to do with
+  preventing memory safety bugs.
 
 - To use the borrow checker as a problem solving tool, we will need to "forget"
   that the original purpose of it is to prevent mutable aliasing in the context

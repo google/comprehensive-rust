@@ -4,9 +4,7 @@ minutes: 10
 
 # Lifetimes and Borrows: the abstract rules
 
-The logic of the borrow checker, while modeled off **memory ownership**, can be
-abstracted away from that use case to model other problems where we want to
-prevent API misuse.
+Refresher on borrow checker basics.
 
 ```rust,editable
 // An internal data type to have something to hold onto.

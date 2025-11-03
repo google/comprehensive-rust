@@ -58,9 +58,11 @@ fn main() {
 
 - Motivation: In this database API queries are kicked off for asynchronous
   execution and the results are only available once the whole transaction is
-  finished. A user might think that queries are executed immediately, and try to
-  read results before they are made available. This API misuse could make the
-  app read incomplete or incorrect data.
+  finished.
+
+  A user might think that queries are executed immediately, and try to read
+  results before they are made available. This API misuse could make the app
+  read incomplete or incorrect data.
 
   While an obvious misunderstanding, situations such as this can happen in
   practice.
@@ -93,12 +95,8 @@ fn main() {
 - While a `Transaction` exists, we can't touch the `DatabaseConnection` variable
   that was created from it.
 
-  Demonstrate: uncomment the `db.results()` line.
-
-- As laid out in [generalizing ownership](generalizing-ownership.md) and
-  [the opening slide for this section](../borrow-checker-invariants.md) we can
-  look at the ways Mutable References and Shareable References interact to see
-  if they fit with the invariants we want to uphold for an API.
+  Demonstrate: uncomment the `db.results()` line. Doing so will result in a
+  compile error, as `db` is already mutably borrowed.
 
 - Note: The query results not being public and placed behind a getter function
   lets us enforce the invariant "users can only look at query results if there
