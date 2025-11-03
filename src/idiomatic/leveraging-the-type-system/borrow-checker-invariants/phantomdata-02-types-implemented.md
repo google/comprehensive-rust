@@ -2,7 +2,7 @@
 minutes: 10
 ---
 
-# PhantomData 2/4: Type-level tagging implementation
+# PhantomData 2/4: Type-level tagging
 
 Let's solve the problem from the previous slide by adding a type parameter.
 

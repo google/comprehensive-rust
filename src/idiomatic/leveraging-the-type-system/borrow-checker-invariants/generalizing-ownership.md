@@ -2,7 +2,7 @@
 minutes: 10
 ---
 
-# Lifetimes and Borrows: the abstract rules
+# Lifetimes and Borrows: the Abstract Rules
 
 Refresher on borrow checker basics.
 
@@ -39,8 +39,9 @@ fn demo_denied() {
 <details>
 
 - This example re-frames the borrow checker rules away from references and
-  towards semantic meaning in non-memory-safety settings. Nothing is being
-  mutated, nothing is being sent across threads.
+  towards semantic meaning in non-memory-safety settings.
+
+  Nothing is being mutated, nothing is being sent across threads.
 
 - In rust's borrow checker we have access to three different ways of "taking" a
   value:
@@ -64,9 +65,10 @@ fn demo_denied() {
   `shared_again_again` reference is taken from `&value`.
 
 - Remember that every `&T` and `&mut T` has a lifetime, just one the user
-  doesn't have to annotate or think about most of the time. We get to avoid
-  annotating a lot of lifetimes because the rust compiler allows a user to elide
-  the majority of them. See:
+  doesn't have to annotate or think about most of the time.
+
+  We get to avoid annotating a lot of lifetimes because the rust compiler allows
+  a user to elide the majority of them. See:
   [Lifetime Elision](../../../lifetimes/lifetime-elision.md)
 
 </details>

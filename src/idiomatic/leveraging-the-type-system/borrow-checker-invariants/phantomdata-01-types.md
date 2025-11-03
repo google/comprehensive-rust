@@ -2,7 +2,7 @@
 minutes: 5
 ---
 
-# PhantomData 1/2: Same Data & Semantics, Multiple Implementations
+# PhantomData 1/2: De-duplicating Same Data & Semantics
 
 The newtype pattern can sometimes come up against the DRY principle, how do we
 solve this?

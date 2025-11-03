@@ -2,7 +2,7 @@
 minutes: 10
 ---
 
-# PhantomData 4/4: BorrowedFd
+# PhantomData 4/4: OwnedFd & BorrowedFd
 
 `BorrowedFd` is a prime example of `PhantomData` in action.
 
