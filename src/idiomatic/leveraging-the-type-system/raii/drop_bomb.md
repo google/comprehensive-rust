@@ -29,12 +29,6 @@ impl Transaction {
         self.active = false;
         Ok(())
     }
-
-    fn rollback(mut self) -> io::Result<()> {
-        writeln!(io::stdout(), "ROLLBACK")?;
-        self.active = false;
-        Ok(())
-    }
 }
 
 impl Drop for Transaction {
@@ -47,30 +41,20 @@ impl Drop for Transaction {
 
 fn main() -> io::Result<()> {
     let tx = Transaction::start();
-
-    if some_condition() {
-        tx.commit()?;
-    } else {
-        tx.rollback()?;
-    }
-
-    // Uncomment to see the panic:
-    // let tx2 = Transaction::start();
-
-    Ok(())
-}
-
-fn some_condition() -> bool {
-    // [...]
-    true
+    // Use `tx` to build the transaction, then commit it.
+    // Comment out the call to `commit` to see the panic.
+    tx.commit()?;
 }
 ```
 
 <details>
 
-- This pattern ensures that a value like `Transaction` cannot be silently
+- A drop bomb ensures that a value like `Transaction` cannot be silently
   dropped in an unfinished state. The destructor panics if neither `commit()`
   nor `rollback()` has been called.
+
+- The finalizing operation (like `commit()` or `rollback()`) often
+  consumes the object and thus prevents the user from handling a finalized object.
 
 - A common reason to use this pattern is when cleanup cannot be done in `Drop`,
   either because it is fallible or asynchronous.
@@ -116,8 +100,5 @@ fn some_condition() -> bool {
   `SshServer` before being dropped, or the program panics. This helps catch
   programming mistakes during development and enforces correct teardown at
   runtime.
-
-  See a working example in
-  [the Rust playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2024&gist=3223f5fa5e821cd32461c3af7162cd55).
 
 </details>

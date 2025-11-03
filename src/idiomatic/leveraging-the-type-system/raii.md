@@ -93,6 +93,7 @@ fn main() -> Result<(), std::io::Error> {
 - There are cases where destructors will not run:
   - If a destructor itself panics during unwinding, the program aborts
     immediately.
+  - If the object that implements `Drop` is leaked, for example, through `std::mem::forget()`. Leaking is safe in Rust.
   - If the program exits with `std::process::exit()` or is compiled with the
     `abort` panic strategy, destructors are skipped.
 

@@ -1,13 +1,9 @@
 # Drop Guards
 
-A **drop guard** in Rust is a temporary _RAII_ guard that executes a specific
-action when it goes out of scope.
-
-It acts as a wrapper around a value, ensuring that some cleanup or secondary
-behavior happens automatically when the guard is dropped.
-
-One of the most common examples is `MutexGuard`, which represents temporary
-exclusive access to a shared resource.
+A **drop guard** in Rust is a temporary object that performs
+some kind of cleanup when it goes out of scope. In the case
+of `Mutex`, the `lock` method returns a `MutexGuard` that
+automatically unlocks the mutex on drop:
 
 ```rust
 #[derive(Debug)]
