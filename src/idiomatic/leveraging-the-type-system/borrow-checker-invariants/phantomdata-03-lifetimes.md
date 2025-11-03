@@ -81,7 +81,7 @@ fn main() {}
   following:
 
   ```rust,compile_fail
-  fn new_transaction(&'a self) -> Transaction<'a> {
+  fn new_transaction<'a>(&'a mut self) -> Transaction<'a> {
       Transaction { connection: DatabaseConnection(self.0), _phantom: PhantomData }
   }
   ```
