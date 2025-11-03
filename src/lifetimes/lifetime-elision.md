@@ -16,60 +16,29 @@ This is not inference -- it is just a syntactic shorthand.
   that lifetime is given to all un-annotated return values.
 
 ```rust,editable
-#[derive(Debug)]
-struct Point(i32, i32);
-
-fn cab_distance(p1: &Point, p2: &Point) -> i32 {
-    (p1.0 - p2.0).abs() + (p1.1 - p2.1).abs()
+fn only_args(a: &i32, b: &i32) {
+    todo!();
 }
 
-fn find_nearest<'a>(points: &'a [Point], query: &Point) -> Option<&'a Point> {
-    let mut nearest = None;
-    for p in points {
-        if let Some((_, nearest_dist)) = nearest {
-            let dist = cab_distance(p, query);
-            if dist < nearest_dist {
-                nearest = Some((p, dist));
-            }
-        } else {
-            nearest = Some((p, cab_distance(p, query)));
-        };
+fn identity(a: &i32) -> &i32 {
+    a
+}
+
+struct Foo(i32);
+impl Foo {
+    fn get(&self, other: &i32) -> &i32 {
+        &self.0
     }
-    nearest.map(|(p, _)| p)
-}
-
-fn main() {
-    let points = &[Point(1, 0), Point(1, 0), Point(-1, 0), Point(0, -1)];
-    let nearest = {
-        let query = Point(0, 2);
-        find_nearest(points, &query)
-    };
-    println!("{:?}", nearest);
 }
 ```
 
 <details>
 
-In this example, `cab_distance` is trivially elided.
+- Walk through applying the lifetime elision rules to each of the example
+  functions. `only_args` is completed by the first rule, `identity` is completed
+  by the second, and `Foo::get` is completed by the third.
 
-The `nearest` function provides another example of a function with multiple
-references in its arguments that requires explicit annotation. In `main`, the
-return value is allowed to outlive the query.
-
-Try adjusting the signature to "lie" about the lifetimes returned:
-
-```rust,ignore
-fn find_nearest<'a, 'q>(points: &'a [Point], query: &'q Point) -> Option<&'q Point> {
-```
-
-This won't compile, demonstrating that the annotations are checked for validity
-by the compiler. Note that this is not the case for raw pointers (unsafe), and
-this is a common source of errors with unsafe Rust.
-
-Students may ask when to use lifetimes. Rust borrows _always_ have lifetimes.
-Most of the time, elision and type inference mean these don't need to be written
-out. In more complicated cases, lifetime annotations can help resolve ambiguity.
-Often, especially when prototyping, it's easier to just work with owned data by
-cloning values where necessary.
+- If all lifetimes have not been filled in by applying the three elision rules
+  then you will get a compiler error telling you to add annotations manually.
 
 </details>

@@ -171,3 +171,86 @@ its tasks correctly.
   snippet, treat it as a self-contained program. Do not assume it shares a scope
   or context with other snippets in the same file unless the surrounding text
   explicitly states otherwise.
+
+## Interacting with the `mdbook` Theme
+
+The `mdbook` theme has several interactive elements. Here's how to interact with
+them:
+
+- **Sidebar Toggle:** The sidebar can be opened and closed by clicking the
+  "hamburger" button in the top-left of the body text. This button has the ID
+  `sidebar-toggle`. You can use the following JavaScript to toggle the sidebar:
+
+  ```javascript
+  const button = document.getElementById("sidebar-toggle");
+  button.click();
+  ```
+
+## WebdriverIO Testing
+
+This project uses WebdriverIO for browser-based integration tests. Here are some
+key findings about the test environment:
+
+### Test Environments
+
+The `tests/` directory contains two primary configurations:
+
+- `npm test` (runs `wdio.conf.ts`): This is the standard for self-contained
+  integration tests. It uses `@wdio/static-server-service` to create a temporary
+  web server on port 8080.
+- `npm run test-mdbook` (runs `wdio.conf-mdbook.ts`): This is for testing
+  against a live `mdbook serve` instance, which typically runs on port 3000.
+
+It is important to use the standard `npm test` command for most test development
+to ensure the tests are self-contained.
+
+### Writing Stable Tests
+
+Tests can be flaky if they don't correctly handle the asynchronous nature of the
+web browser and the test environment's state management.
+
+- **State Leakage Between Tests:** Despite what the WebdriverIO documentation
+  might suggest, `browser.url()` is not always sufficient to guarantee a clean
+  slate between tests. Lingering state, such as inline CSS styles applied by
+  JavaScript, can leak from one test into the next, causing unexpected failures.
+  The most effective solution found for this project is to add
+  `await browser.refresh();` to the `beforeEach` hook. This forces a full page
+  reload that properly clears the old state.
+
+- **Race Conditions with Dynamic Elements:** Many elements in this project are
+  created dynamically by JavaScript after the initial page load. If a test tries
+  to access an element immediately after navigation, it may fail because the
+  script hasn't finished running and the element doesn't exist in the DOM yet.
+  This creates a race condition. To prevent this, always use
+  `await element.waitForExist()` to ensure the element is present before trying
+  to interact with it or assert its state (e.g., `toBeDisplayed()`).
+
+### Handling Redirects
+
+`mdbook` uses a redirect map defined in `book.toml` under the
+`[output.html.redirect]` section. When writing tests, it is crucial to use the
+final, non-redirecting URL for navigation. Navigating to a URL that is a
+redirect will cause the browser to follow it, but this process can strip URL
+query parameters, leading to test failures for features that depend on them.
+
+### Running and Debugging Tests
+
+To run a single test file, use the `--spec` flag with the a string matching the
+file name:
+
+```bash
+npm test -- --spec redbox
+```
+
+To check for flakiness, you can repeat a test multiple times using the
+`--repeat` flag:
+
+```bash
+npm test -- --spec redbox --repeat 100
+```
+
+Use `--mochaOpts.grep` to run a single test within a file:
+
+```bash
+npm test -- --spec redbox --mochaOpts.grep "should be hidden by default"
+```

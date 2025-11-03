@@ -14,7 +14,6 @@ fn main() {
     println!("a: {a:?}");
 
     let s: &[i32] = &a[2..4];
-
     println!("s: {s:?}");
 }
 ```

@@ -30,9 +30,9 @@ h1#glossary ~ ul > li:first-line {
 
 - allocate:\
   Dynamic memory allocation on [the heap](memory-management/review.md).
-- argument:\
-  Information that is passed into a [function](control-flow-basics/functions.md)
-  or method.
+- array:\
+  A fixed-size collection of elements of the same type, stored contiguously in
+  memory. See [Arrays](tuples-and-arrays/arrays.md).
 - associated type:\
   A type associated with a specific trait. Useful for defining the relationship
   between types.
@@ -49,20 +49,11 @@ h1#glossary ~ ul > li:first-line {
 - brace:\
   `{` and `}`. Also called _curly brace_, they delimit
   [_blocks_](control-flow-basics/blocks-and-scopes.md).
-- build:\
-  The process of converting source code into executable code or a usable
-  program. See [Running Code Locally with Cargo](cargo/running-locally.md).
-- call:\
-  To invoke or execute a [function or method](control-flow-basics/functions.md).
 - channel:\
   Used to safely pass messages [between threads](concurrency/channels.md).
-- Comprehensive Rust 🦀:\
-  The courses here are jointly called Comprehensive Rust 🦀.
 - concurrency:\
   The execution of multiple tasks or processes at the same time. See
   [Welcome to Concurrency in Rust](concurrency/welcome.md).
-- Concurrency in Rust:\
-  See [Concurrency in Rust](concurrency/welcome.md).
 - constant:\
   A value that does not change during the execution of a program. See
   [const](user-defined-types/const.md).
@@ -81,8 +72,6 @@ h1#glossary ~ ul > li:first-line {
 - error handling:\
   The process of managing and responding to [errors](error-handling.md) that
   occur during program execution.
-- exercise:\
-  A task or problem designed to practice and test programming skills.
 - function:\
   A reusable block of code that performs a specific task. See
   [Functions](control-flow-basics/functions.md).
@@ -99,9 +88,6 @@ h1#glossary ~ ul > li:first-line {
 - integration test:\
   A type of test that verifies the interactions between different parts or
   components of a system. See [Other Types of Tests](testing/other.md).
-- keyword:\
-  A reserved word in a programming language that has a specific meaning and
-  cannot be used as an identifier.
 - library:\
   A collection of precompiled routines or code that can be used by programs. See
   [Modules](modules.md).
@@ -139,43 +125,32 @@ h1#glossary ~ ul > li:first-line {
 - panic:\
   An unrecoverable error condition in Rust that results in the termination of
   the program. See [Panics](error-handling/panics.md).
-- parameter:\
-  A value that is passed into a
-  [function or method](control-flow-basics/functions.md) when it is called.
 - pattern:\
   A combination of values, literals, or structures that can be matched against
   an expression in Rust. See [Pattern Matching](pattern-matching.md).
 - payload:\
   The data or information carried by a message, event, or data structure.
-- program:\
-  A set of instructions that a computer can execute to perform a specific task
-  or solve a particular problem. See
-  [Hello, World](types-and-values/hello-world.md).
-- programming language:\
-  A formal system used to communicate instructions to a computer, such as
-  [Rust](hello-world/what-is-rust.md).
 - receiver:\
   The first parameter in a Rust [method](methods-and-traits/methods.md) that
   represents the instance on which the method is called.
+- reference:\
+  A non-owning pointer to a value that borrows it without transferring
+  ownership. References can be [shared (immutable)](references/shared.md) or
+  [exclusive (mutable)](references/exclusive.md).
 - reference counting:\
   A memory management technique in which the number of references to an object
   is tracked, and the object is deallocated when the count reaches zero. See
   [Rc](smart-pointers/rc.md).
-- return:\
-  A keyword in Rust used to indicate the value to be returned from a
-  [function](control-flow-basics/functions.md).
 - Rust:\
   A systems programming language that focuses on safety, performance, and
   concurrency. See [What is Rust?](hello-world/what-is-rust.md).
-- Rust Fundamentals:\
-  Days 1 to 4 of this course. See [Welcome to Day 1](welcome-day-1.md).
-- Rust in Android:\
-  See [Rust in Android](android.md).
-- Rust in Chromium:\
-  See [Rust in Chromium](chromium.md).
 - safe:\
   Refers to code that adheres to Rust's ownership and borrowing rules,
   preventing memory-related errors. See [Unsafe Rust](unsafe-rust.md).
+- slice:\
+  A dynamically-sized view into a contiguous sequence, such as an array or
+  vector. Unlike arrays, slices have a size determined at runtime. See
+  [Slices](references/slices.md).
 - scope:\
   The region of a program where a variable is valid and can be used. See
   [Blocks and Scopes](control-flow-basics/blocks-and-scopes.md).
