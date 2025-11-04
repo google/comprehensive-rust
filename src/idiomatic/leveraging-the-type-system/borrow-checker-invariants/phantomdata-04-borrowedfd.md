@@ -40,13 +40,13 @@ fn main() {
   `BorrowedFd` is its borrowed counterpart, it does not need to close the file
   when it is dropped.
 
-- `BorrowedFd` uses lifetimes captured with a `PhantomData` to enforce the
+- `BorrowedFd` uses a lifetime captured with a `PhantomData` to enforce the
   invariant "if this file descriptor exists, the OS file descriptor is still
   open even though it is not responsible for closing that file descriptor."
 
-  `BorrowedFd`'s lifetime parameter demands that there exists another value in
-  your program that lasts as long as that specific `BorrowedFd` or outlives it
-  (in this case an `OwnedFd`).
+  The lifetime parameter of `BorrowedFd` demands that there exists another value
+  in your program that lasts as long as that specific `BorrowedFd` or outlives
+  it (in this case an `OwnedFd`).
 
   This has been encoded by the API designers to mean _that other value is what
   keeps the access to the file open_.
