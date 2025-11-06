@@ -45,7 +45,7 @@ fn main() {
   keys can also become computable by attackers.
 
 - Rust has an obvious tool for achieving the invariant "Once you use this, you
-  can't use it again": Using a value as an _owned argument_.
+  can't use it again": passing a value as an _owned argument_.
 
 - Highlight: the `encrypt` function takes `nonce` by value (an owned argument),
   but `key` and `data` by reference.

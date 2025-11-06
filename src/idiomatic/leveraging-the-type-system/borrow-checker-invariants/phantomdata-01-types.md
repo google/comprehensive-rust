@@ -2,7 +2,7 @@
 minutes: 5
 ---
 
-# PhantomData 1/2: De-duplicating Same Data & Semantics
+# PhantomData 1/4: De-duplicating Same Data & Semantics
 
 The newtype pattern can sometimes come up against the DRY principle, how do we
 solve this?
@@ -40,9 +40,9 @@ fn main() {}
 
   Expect:
   - Make this an enum, not distinct data types.
-  - Composing different types together i.e.
-    `Admin(u64, UserPermission, ModeratorPermission, AdminPermission)`
-  - Adding a type parameter which we'll use to encode permissions.
+  - Bundle the user ID with permission tokens like
+    `struct Admin(u64, UserPermission, ModeratorPermission, AdminPermission);`
+  - Adding a type parameter which encodes permissions.
   - Mentioning `PhantomData` ahead of schedule (it's in the title).
 
 </details>

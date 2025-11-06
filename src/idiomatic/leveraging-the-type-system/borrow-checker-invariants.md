@@ -72,7 +72,7 @@ fn main() {
 
   Since then, users and developers of the language expanded the use of generics
   to other areas of type-safe API design:
-  - Class information can be held onto via java's `Class<T>` or guava's
+  - Class information can be held onto via Java's `Class<T>` or Guava's
     `TypeToken<T>`.
   - The Builder pattern can be implemented using Recursive Generics.
 

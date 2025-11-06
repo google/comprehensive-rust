@@ -43,10 +43,10 @@ fn main() {
     let mut tx = Transaction::new(&mut db);
     tx.query("SELECT * FROM users");
 
-    // This won't compile because `db` is already mutably borrowed.
+    // This won't compile because `db` is already mutably borrowed by `tx`.
     // let results = db.results(); // ❌🔨
 
-    // The borrow of `db` ends when `tx` is consumed by `commit`.
+    // The borrow of `db` ends when `tx` is consumed by `commit()`.
     tx.commit();
 
     // Now it is possible to borrow `db` again.

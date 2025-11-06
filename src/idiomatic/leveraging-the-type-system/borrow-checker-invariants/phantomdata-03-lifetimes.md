@@ -41,21 +41,21 @@ fn main() {}
   We held onto a mutable reference to the database connection within the
   transaction type to lock out the database while a transaction is active.
 
-  In this example, we want to model a `Transaction` API on what we're given by
-  an external, non-rust API.
+  In this example, we want to implement a `Transaction` API on top of
+  an external, non-Rust API.
 
-  We start this by defining a `Transaction` type that holds onto
+  We start by defining a `Transaction` type that holds onto
   `&mut DatabaseConnection`.
 
 - Ask: What are the limits of this implementation? Assume the `u8` is accurate
-  implementation wise and enough information for us to use the external API.
+  implementation-wise and enough information for us to use the external API.
 
   Expect:
-  - Indirection takes up 7 bytes more than we need to on a 64bit platform, as
-    well as involving a pointer dereference.
+  - Indirection takes up 7 bytes more than we need to on a 64-bit platform, as
+    well as costing a pointer dereference at runtime.
 
-- Problem: We want to have a transaction have this "connection" to the database
-  connection that created it, but we don't want to hand over a "real" reference.
+- Problem: We want the transaction to borrow the database
+  connection that created it, but we don't want the `Transaction` object to store a real reference.
 
 - Ask: What happens when we remove the mutable reference in `Transaction` while
   keeping the lifetime parameter?
@@ -77,8 +77,7 @@ fn main() {}
   }
   ```
 
-  And change the `new_transaction` function for `DatabaseConnection` to the
-  following:
+  Update the `DatabaseConnection::new_transaction()` method:
 
   ```rust,compile_fail
   fn new_transaction<'a>(&'a mut self) -> Transaction<'a> {
@@ -87,13 +86,13 @@ fn main() {}
   ```
 
   This gives an owned database connection that is tied to the
-  `DatabaseConnection` that created it, but without any runtime memory footprint
-  as the pass-a-reference version did.
+  `DatabaseConnection` that created it, but with less runtime memory footprint
+  that the store-a-reference version did.
 
   Because `PhantomData` is a zero-sized type (like `()` or
   `struct MyZeroSizedType;`), the size of `Transaction` is now the same as `u8`.
 
-  The implementation that held onto a reference instead had the size `usize`.
+  The implementation that held onto a reference instead was as large as a `usize`.
 
 ## More to Explore
 

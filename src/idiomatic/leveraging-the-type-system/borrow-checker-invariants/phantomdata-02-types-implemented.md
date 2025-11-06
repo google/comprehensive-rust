@@ -70,7 +70,7 @@ fn main() {}
   `PhantomData::default()` implementation.
 
 - `PhantomData` can be used as part of the Typestate pattern to have data with
-  the same structure i.e. `TaggedData<Start>` have methods or trait
+  the same structure but different methods, e.g., have `TaggedData<Start>` implement methods or trait
   implementations that `TaggedData<End>` doesn't.
 
 </details>

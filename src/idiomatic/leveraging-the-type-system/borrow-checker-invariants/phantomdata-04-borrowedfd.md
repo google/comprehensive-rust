@@ -34,7 +34,7 @@ fn main() {
   unix-style systems.
 
 - [`OwnedFd`](https://rust-lang.github.io/rfcs/3128-io-safety.html#ownedfd-and-borrowedfdfd)
-  is a file descriptor representation that automatically closes the file when
+  is an owned wrapper type for a file descriptor: it closes the file when
   dropped.
 
   `BorrowedFd` is its borrowed counterpart, it does not need to close the file
@@ -51,7 +51,7 @@ fn main() {
   This has been encoded by the API designers to mean _that other value is what
   keeps the access to the file open_.
 
-  Because rust's borrow checker enforces this relationship where one value must
+  Because Rust's borrow checker enforces this relationship where one value must
   last at least as long as another, users of this API do not need to worry about
   handling this correct file descriptor aliasing and closing logic themselves.
 
