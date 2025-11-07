@@ -40,18 +40,17 @@ struct BorrowedFd<'a> {
 }
 
 fn main() {
-    // A file we're creating with a raw syscall. Imagine this comes from an FFI.
+    // Create a file with a raw syscall.
     let fd = unsafe { open(c"c_str.txt".as_ptr(), O_WRONLY | O_CREAT) };
-    // Creating an ownedfd from a file, when this drops the file descriptor
-    // will be closed.
+    // Pass the ownership of an integer file descriptor to an `OwnedFd`.
+    // `OwnedFd::drop()` closes the file descriptor.
     let owned_fd =
         OwnedFd::try_from_fd(fd).expect("Could not open file with syscall!");
 
-    // Creating a borrowedfd from an owned fd, when this drops the file
-    // descriptor will still be open because it doesn't own it!
+    // Create a `BorrowedFd` from an `OwnedFd`.
+    // `BorrowedFd::drop()` does not close the file because it doesn't own it!
     let borrowed_fd: BorrowedFd<'_> = owned_fd.as_fd();
     std::mem::drop(borrowed_fd);
-    // borrowed_fd is now dropped.
     let second_borrowed = owned_fd.as_fd();
     // owned_fd will be dropped here, and the file will be closed.
 }
