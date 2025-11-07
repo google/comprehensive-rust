@@ -6,10 +6,25 @@ minutes: 10
 
 `BorrowedFd` is a prime example of `PhantomData` in action.
 
+<!--
+  This code has to define a fake libc module even though libc works fine on
+  rust playground because the CI does not currently support dependencies.
+
+  TODO: Once we can use libc as a dependency in rust tests, replace the
+  faux libc code with appropriate imports & `O_WRONLY | O_CREAT` permissions.
+-->
+
 ```rust,editable
-use libc::{O_CREAT, O_WRONLY, close, open};
 use std::marker::PhantomData;
 use std::os::raw::c_int;
+
+mod libc_ffi {
+    use std::os::raw::{c_char, c_int};
+    pub unsafe fn open(path: *const c_char, oflag: c_int) -> c_int {
+        3
+    }
+    pub unsafe fn close(fd: c_int) {}
+}
 
 struct OwnedFd {
     fd: c_int,
@@ -30,7 +45,7 @@ impl OwnedFd {
 
 impl Drop for OwnedFd {
     fn drop(&mut self) {
-        unsafe { close(self.fd) };
+        unsafe { libc_ffi::close(self.fd) };
     }
 }
 
@@ -40,8 +55,8 @@ struct BorrowedFd<'a> {
 }
 
 fn main() {
-    // Create a file with a raw syscall.
-    let fd = unsafe { open(c"c_str.txt".as_ptr(), O_WRONLY | O_CREAT) };
+    // Create a file with a raw syscall with write-only and create permissions.
+    let fd = unsafe { libc_ffi::open(c"c_str.txt".as_ptr(), 065) };
     // Pass the ownership of an integer file descriptor to an `OwnedFd`.
     // `OwnedFd::drop()` closes the file descriptor.
     let owned_fd =
