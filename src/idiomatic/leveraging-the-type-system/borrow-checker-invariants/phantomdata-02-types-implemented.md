@@ -69,8 +69,23 @@ fn main() {}
   `let phantom: PhantomData<UserTag> = PhantomData;` or with the
   `PhantomData::default()` implementation.
 
+  Demonstrate: implement `From<u64>` for `ChatId<T>`, emphasizing the
+  construction of `PhantomData`
+
+  ```rust,compile_fail
+  impl<T> From<u64> for ChatId<T> {
+      fn from(value: u64) -> Self {
+          ChatId {
+              id: value,
+              // Or `PhantomData::default()`
+              tag: PhantomData,
+          }
+      }
+  }
+  ```
+
 - `PhantomData` can be used as part of the Typestate pattern to have data with
-  the same structure but different methods, e.g., have `TaggedData<Start>` implement methods or trait
-  implementations that `TaggedData<End>` doesn't.
+  the same structure but different methods, e.g., have `TaggedData<Start>`
+  implement methods or trait implementations that `TaggedData<End>` doesn't.
 
 </details>

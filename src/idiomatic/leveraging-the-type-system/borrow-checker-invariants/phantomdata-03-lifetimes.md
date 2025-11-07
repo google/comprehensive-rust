@@ -41,8 +41,8 @@ fn main() {}
   We held onto a mutable reference to the database connection within the
   transaction type to lock out the database while a transaction is active.
 
-  In this example, we want to implement a `Transaction` API on top of
-  an external, non-Rust API.
+  In this example, we want to implement a `Transaction` API on top of an
+  external, non-Rust API.
 
   We start by defining a `Transaction` type that holds onto
   `&mut DatabaseConnection`.
@@ -54,8 +54,9 @@ fn main() {}
   - Indirection takes up 7 bytes more than we need to on a 64-bit platform, as
     well as costing a pointer dereference at runtime.
 
-- Problem: We want the transaction to borrow the database
-  connection that created it, but we don't want the `Transaction` object to store a real reference.
+- Problem: We want the transaction to borrow the database connection that
+  created it, but we don't want the `Transaction` object to store a real
+  reference.
 
 - Ask: What happens when we remove the mutable reference in `Transaction` while
   keeping the lifetime parameter?
@@ -92,7 +93,8 @@ fn main() {}
   Because `PhantomData` is a zero-sized type (like `()` or
   `struct MyZeroSizedType;`), the size of `Transaction` is now the same as `u8`.
 
-  The implementation that held onto a reference instead was as large as a `usize`.
+  The implementation that held onto a reference instead was as large as a
+  `usize`.
 
 ## More to Explore
 
