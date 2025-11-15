@@ -68,10 +68,16 @@ fn main() {
   enforcing that the function adheres to the contract set by the function's
   signature.
 
-- The "help" note in the error notes that we can add a lifetime bound `'b: 'a`
-  to say that `'b` will live at least as long as `'a`, which would then allow us
-  to return `query`. On the next slide we'll talk about lifetime variance, which
-  is the rule that allows us to return a longer lifetime when a shorter one is
-  expected.
+# More to Explore
+
+- The "help" message in the error notes that we can add a lifetime bound
+  `'b: 'a` to say that `'b` will live at least as long as `'a`, which would then
+  allow us to return `query`. This is an example of lifetime subtyping, which
+  allows us to return a longer lifetime where a shorter one is expected.
+
+- We can do something similar by returning a `'static` lifetime, e.g., a
+  reference to a `static` variable. The `'static` lifetime is guaranteed to be
+  longer than any other lifetime, so it's always safe to return in place of a
+  shorter lifetime.
 
 </details>
