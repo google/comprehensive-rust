@@ -207,7 +207,7 @@ msgstr "Paylaşılan (Shared) Referanslar"
 
 #: src/SUMMARY.md src/references.md src/references/exclusive.md
 msgid "Exclusive References"
-msgstr "Özel (Exclusive) Referanslar"
+msgstr "Dışlayan (Exclusive) Referanslar"
 
 #: src/SUMMARY.md src/references.md src/references/slices.md
 msgid "Slices"
@@ -5102,7 +5102,7 @@ msgid ""
 "Exclusive references, also known as mutable references, allow changing the "
 "value they refer to. They have type `&mut T`."
 msgstr ""
-"Değiştirilebilir referanslar (mutable reference) olarak da bilinen özel "
+"Değiştirilebilir referanslar (mutable reference) olarak da bilinen dışlayan "
 "(exclusive) referanslar, atıfta bulundukları (refer) değerin "
 "değiştirilmesine olanak tanır. Aynı zamanda, `&mut T` türüne sahiplerdir."
 
@@ -5114,11 +5114,12 @@ msgid ""
 "exists. Try making an `&point.0` or changing `point.0` while `x_coord` is "
 "alive."
 msgstr ""
-"\"Özel (exclusive)\", değere erişmek için yalnızca bu referansın "
-"kullanılabileceği anlamına gelir. Aynı anda başka hiçbir referans "
-"(paylaşılan veya özel olsun farketmez) mevcut olamaz ve özel referans "
-"(exclusive) varken atıfta bulunan değere erişilemez. `x_coord` hayattayken "
-"bir `&point.0` oluşturmayı veya `point.0`'ı değiştirmeyi deneyin."
+"\"Dışlayan (exclusive)\" kelimesinden kasıt, değere erişmek için yalnızca bu "
+"referansın kullanılabileceği, diğerlerinin dışlanacağıdır. Aynı anda başka "
+"hiçbir referans (paylaşılan veya dışlayan olsun farketmez) mevcut olamaz ve "
+"dışlayan referans (exclusive reference) varken atıfta bulunan değere "
+"erişilemez. `x_coord` hayattayken bir `&point.0` oluşturmayı veya "
+"`point.0`'ı değiştirmeyi deneyin."
 
 #: src/references/exclusive.md
 msgid ""
@@ -5130,7 +5131,7 @@ msgstr ""
 "`let mut x_coord: &i32` ve `let x_coord: &mut i32` arasındaki farka dikkat "
 "ettiğinizden emin olun. Birincisi, farklı değerlere bağlanabilen (bind) "
 "paylaşımlı bir referanstır (shared reference), ikincisi, değiştirilebilir "
-"bir değere (mutable value) özel bir referanstır (exclusive reference)."
+"bir değere (mutable value) dışlayan bir referanstır (exclusive reference)."
 
 #: src/references/slices.md
 msgid "A slice gives you a view into a larger collection:"
@@ -6470,7 +6471,7 @@ msgid ""
 "references."
 msgstr ""
 "Aynı etki `match &mut foo` ile de meydana gelir: yakalanan (captures) "
-"değerler özel (exclusive) referanslar haline gelir."
+"değerler dışlayan (exclusive) referanslar haline gelir."
 
 #: src/pattern-matching/destructuring-structs.md
 msgid ""
@@ -6829,7 +6830,8 @@ msgstr "// Alıcı (receiver) yok, statik bir metot\n"
 #: src/methods-and-traits/methods.md
 msgid "// Exclusive borrowed read-write access to self\n"
 msgstr ""
-"// self'e özel (exclusive) ödünç alınmış (borrowed) okuma-yazma erişimi\n"
+"// self'e dışlayacak olan (exclusive) ödünç alınmış (borrowed) okuma-yazma "
+"erişimi\n"
 
 #: src/methods-and-traits/methods.md
 msgid "// Shared and read-only borrowed access to self\n"
@@ -6847,7 +6849,7 @@ msgstr "\"Tur {idx}: {lap} sn\""
 
 #: src/methods-and-traits/methods.md
 msgid "// Exclusive ownership of self (covered later)\n"
-msgstr "// self'in özel (exclusive) sahipliği (daha sonra ele alınacak)\n"
+msgstr "// self'in dışlayan (exclusive) sahipliği (daha sonra ele alınacak)\n"
 
 #: src/methods-and-traits/methods.md
 msgid "\"Race {} is finished, total lap time: {}\""
@@ -7894,9 +7896,9 @@ msgid ""
 msgstr ""
 "Varsayılan olarak, çevreleyiciler (closures) dış kapsamdan (outer scope) her "
 "değişkeni, yapabildikleri en az talepkar erişim biçimiyle yakalarlar "
-"(mümkünse paylaşılan (shared) referansla, sonra özel (exclusive) referansla, "
-"sonra taşıma (move) ile). `move` anahtar kelimesi, değerle yakalamayı "
-"(move)zorlar."
+"(mümkünse paylaşılan (shared) referansla, sonra dışlayan (exclusive) "
+"referansla, sonra taşıma (move) ile). `move` anahtar kelimesi, değerle "
+"yakalamayı (move)zorlar."
 
 #: src/closures/traits.md
 msgid "Closure traits"
@@ -7995,9 +7997,9 @@ msgid ""
 "but not concurrently."
 msgstr ""
 "Bir `FnMut` (ör. `accumulate`) yakalanan değerleri (captured values) "
-"değiştirebilir. Çevreleyici (closure) nesnesine özel (exclusive) referans "
-"yoluyla erişilir, bu nedenle tekrar tekrar çağrılabilir ancak eş zamanlı "
-"olarak (concurrently) çağrılamaz."
+"değiştirebilir. Çevreleyici (closure) nesnesine dışlayan (exclusive) "
+"referans yoluyla erişilir, bu nedenle tekrar tekrar çağrılabilir ancak eş "
+"zamanlı olarak (concurrently) çağrılamaz."
 
 #: src/closures/traits.md
 msgid ""
@@ -9944,7 +9946,7 @@ msgid ""
 msgstr ""
 "Paylaşılan (shared) referanslar `Copy`/`Clone`'dur, değiştirilebilir "
 "(mutable) referanslar değildir. Bunun nedeni, Rust'ın değiştirilebilir "
-"referansların özel (exclusive) olmasını gerektirmesidir, bu nedenle "
+"referansların dışlayan (exclusive) olmasını gerektirmesidir, bu nedenle "
 "paylaşılan bir referansın kopyasını oluşturmak geçerli olsa da, "
 "değiştirilebilir bir referansın kopyasını oluşturmak Rust'ın ödünç alma "
 "(borrowing) kurallarını ihlal eder."
@@ -27816,7 +27818,8 @@ msgstr ""
 #~ msgstr "[Paylaşılan Referanslar](./references/shared.md) (10 dakika)"
 
 #~ msgid "[Exclusive References](./references/exclusive.md) (10 minutes)"
-#~ msgstr "[Özel Referanslar](./references/exclusive.md) (10 dakika)"
+#~ msgstr ""
+#~ "[Dışlayan (Exclusive) Referanslar](./references/exclusive.md) (10 dakika)"
 
 #~ msgid "[Slices: &\\[T\\]](./references/slices.md) (10 minutes)"
 #~ msgstr "[Dilimler: &\\[T\\]](../references/slices.md) (10 dakika)"
