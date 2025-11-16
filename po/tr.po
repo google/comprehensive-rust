@@ -9242,21 +9242,24 @@ msgstr ""
 
 #: src/welcome-day-3.md
 msgid "Welcome to Day 3"
-msgstr ""
+msgstr "3. Gün'e Hoş Geldiniz"
 
 #: src/welcome-day-3.md
 msgid "Today, we will cover:"
-msgstr ""
+msgstr "Bugün, şunları ele alacağız:"
 
 #: src/welcome-day-3.md
 msgid ""
 "Memory management, lifetimes, and the borrow checker: how Rust ensures "
 "memory safety."
 msgstr ""
+"Bellek yönetimi, ömürler (lifetimes) ve ödünç alma denetleyicisi (borrow "
+"checker): Rust'ın bellek emniyetini (memory safety) nasıl sağladığı."
 
 #: src/welcome-day-3.md
 msgid "Smart pointers: standard library pointer types."
 msgstr ""
+"Akıllı göstericiler (Smart pointers): standart kütüphane gösterici türleri."
 
 #: src/welcome-day-3.md src/welcome-day-4-afternoon.md
 msgid ""
@@ -9268,7 +9271,7 @@ msgstr ""
 
 #: src/memory-management.md src/memory-management/clone.md
 msgid "Clone"
-msgstr ""
+msgstr "Clone"
 
 #: src/memory-management.md
 msgid "Drop"
@@ -9276,55 +9279,71 @@ msgstr "Drop"
 
 #: src/memory-management/review.md
 msgid "Programs allocate memory in two ways:"
-msgstr ""
+msgstr "Programlar iki şekilde bellek tahsis eder (allocate):"
 
 #: src/memory-management/review.md
 msgid "Stack: Continuous area of memory for local variables."
-msgstr ""
+msgstr "Yığın (Stack): Yerel değişkenler için sürekli olan bir bellek alanı."
 
 #: src/memory-management/review.md
 msgid "Values have fixed sizes known at compile time."
 msgstr ""
+"Değerlerin derleme zamanında (compile time) bilinen sabit boyutları (fixed "
+"size) vardır."
 
 #: src/memory-management/review.md
 msgid "Extremely fast: just move a stack pointer."
 msgstr ""
+"Son derece hızlı: sadece bir yığın göstericisi (stack pointer) yeni bir "
+"değer alır."
 
 #: src/memory-management/review.md
 msgid "Easy to manage: follows function calls."
 msgstr ""
+"Yönetimi kolay: fonksiyon çağrılarını izler (fonksiyon nereden çağrıldı "
+"bilgisinin kaydı)."
 
 #: src/memory-management/review.md
 msgid "Great memory locality."
 msgstr ""
+"Mükemmel bellek yerelliği (memory locality) sağlar (önbellek durumları için)."
 
 #: src/memory-management/review.md
 msgid "Heap: Storage of values outside of function calls."
 msgstr ""
+"Dinamik Bellek (Heap): Fonksiyon çağrıları dışındaki değerlerin depolanması."
 
 #: src/memory-management/review.md
 msgid "Values have dynamic sizes determined at runtime."
-msgstr ""
+msgstr "Bazı değerlerin çalışma zamanında belirlenen dinamik boyutları vardır."
 
 #: src/memory-management/review.md
 msgid "Slightly slower than the stack: some bookkeeping needed."
 msgstr ""
+"Yığından (stack) biraz daha yavaş: bazı yönetim işlemleri (bookkeeping) "
+"gerekir."
 
 #: src/memory-management/review.md
 msgid "No guarantee of memory locality."
-msgstr ""
+msgstr "Bellek yerelliği garantisi yoktur."
 
 #: src/memory-management/review.md
 msgid ""
 "Creating a `String` puts fixed-sized metadata on the stack and dynamically "
 "sized data, the actual string, on the heap:"
 msgstr ""
+"Bir `String` oluşturmak, yığına (stack) sabit boyutlu üst veri (metadata) ve "
+"dinamik belleğe (heap) ise gerçek dizeyi (string) tutan dinamik boyutlu "
+"verileri koyar:"
 
 #: src/memory-management/review.md
 msgid ""
 "Mention that a `String` is backed by a `Vec`, so it has a capacity and "
 "length and can grow if mutable via reallocation on the heap."
 msgstr ""
+"Bir `String`'in aslında bir `Vec` kullandığını, bu nedenle bir kapasitesi ve "
+"uzunluğu olduğunu ve değiştirilebilir (mutable) ise dinamik bellekte (heap) "
+"yeniden tahsis (reallocation) yoluyla büyüyebileceğini belirtin."
 
 #: src/memory-management/review.md
 msgid ""
@@ -9333,16 +9352,24 @@ msgid ""
 "struct.System.html) and custom allocators can be implemented using the "
 "[Allocator API](https://doc.rust-lang.org/std/alloc/index.html)"
 msgstr ""
+"Öğrenciler sorarsa, temel belleğin (underlying memory) [Sistem Tahsis "
+"Edicisi (System Allocator)](https://doc.rust-lang.org/std/alloc/struct."
+"System.html) kullanılarak dinamik bellekten (heap) tahsis edildiğini ve özel "
+"bellek tahsis edicilerin (custom allocators) [Tahsis Edici API'si (Allocator "
+"API)](https://doc.rust-lang.org/std/alloc/index.html) kullanılarak "
+"gerçekleştirilebileceğini belirtebilirsiniz."
 
 #: src/memory-management/review.md
 msgid ""
 "We can inspect the memory layout with `unsafe` Rust. However, you should "
 "point out that this is rightfully unsafe!"
 msgstr ""
+"Bellek düzenini (memory layout) `unsafe` Rust ile inceleyebiliriz. Ancak, "
+"bunun haklı olarak emniyetsiz (unsafe) olduğuna dikkat etmelisiniz!"
 
 #: src/memory-management/review.md src/testing/unit-tests.md
 msgid "' '"
-msgstr ""
+msgstr "' '"
 
 #: src/memory-management/review.md
 msgid "\"world\""
@@ -9355,67 +9382,84 @@ msgid ""
 "to\n"
 "    // undefined behavior.\n"
 msgstr ""
+"// BUNU EVDE DENEMEYİN! Sadece eğitim amaçlıdır.\n"
+"    // String, düzeni hakkında hiçbir garanti vermez, bu nedenle bu\n"
+"    // tanımsız davranışa (undefined behavior) yol açabilir.\n"
 
 #: src/memory-management/review.md
 msgid "\"capacity = {capacity}, ptr = {ptr:#x}, len = {len}\""
-msgstr ""
+msgstr "\"kapasite = {capacity}, ptr = {ptr:#x}, uzunluk = {len}\""
 
 #: src/memory-management/approaches.md
 msgid "Traditionally, languages have fallen into two broad categories:"
-msgstr ""
+msgstr "Geleneksel olarak, diller iki geniş kategoriye ayrılmıştır:"
 
 #: src/memory-management/approaches.md
 msgid "Full control via manual memory management: C, C++, Pascal, ..."
-msgstr ""
+msgstr "Manuel bellek yönetimi ile tam kontrol: C, C++, Pascal, ..."
 
 #: src/memory-management/approaches.md
 msgid "Programmer decides when to allocate or free heap memory."
 msgstr ""
+"Programcı, dinamik bellek (heap) tahsis etme (allocate) veya serbest bırakma "
+"(free) zamanına karar verir."
 
 #: src/memory-management/approaches.md
 msgid ""
 "Programmer must determine whether a pointer still points to valid memory."
 msgstr ""
+"Programcı, bir göstericinin (pointer) hala geçerli belleği gösterip "
+"göstermediğini belirlemelidir."
 
 #: src/memory-management/approaches.md
 msgid "Studies show, programmers make mistakes."
-msgstr ""
+msgstr "Araştırmalar, programcıların hata yaptığını gösteriyor."
 
 #: src/memory-management/approaches.md
 msgid ""
 "Full safety via automatic memory management at runtime: Java, Python, Go, "
 "Haskell, ..."
 msgstr ""
+"Çalışma zamanında (runtime) otomatik bellek yönetimi ile tam emniyet "
+"(safety): Java, Python, Go, Haskell, ..."
 
 #: src/memory-management/approaches.md
 msgid ""
 "A runtime system ensures that memory is not freed until it can no longer be "
 "referenced."
 msgstr ""
+"Bir çalışma zamanı sistemi (runtime system), belleğin artık referans "
+"alınamayana kadar serbest bırakılmamasını sağlar."
 
 #: src/memory-management/approaches.md
 msgid "Typically implemented with reference counting or garbage collection."
-msgstr "Genellikle referans sayımı veya çöp toplama ile uygulanır."
+msgstr ""
+"Genellikle referans sayımı (reference counting) veya çöp toplama (garbage "
+"collection) ile gerçekleştirilir."
 
 #: src/memory-management/approaches.md
 msgid "Rust offers a new mix:"
-msgstr ""
+msgstr "Rust yeni bir karışım sunar:"
 
 #: src/memory-management/approaches.md
 msgid ""
 "Full control _and_ safety via compile time enforcement of correct memory "
 "management."
 msgstr ""
+"Derleme zamanında (compile time) doğru bellek yönetiminin zorunlu kılınması "
+"yoluyla tam kontrol _ve_ emniyet (safety)."
 
 #: src/memory-management/approaches.md
 msgid "It does this with an explicit ownership concept."
-msgstr ""
+msgstr "Bunu, açık sahiplik (explicit ownership) kavramıyla yapar."
 
 #: src/memory-management/approaches.md
 msgid ""
 "This slide is intended to help students coming from other languages to put "
 "Rust in context."
 msgstr ""
+"Bu slaytın amacı, farklı programlama dillerinden gelen öğrencilerin Rust’ın "
+"nerede durduğunu kavramalarına yardımcı olmaktır."
 
 #: src/memory-management/approaches.md
 msgid ""
@@ -9423,6 +9467,11 @@ msgid ""
 "forgetting to call `free`, calling it multiple times for the same pointer, "
 "or dereferencing a pointer after the memory it points to has been freed."
 msgstr ""
+"C, dinamik belleği (heap) manuel olarak `malloc` ve `free` ile yönetir. "
+"Yaygın hatalar arasında `free` çağırmayı unutmak, aynı gösterici için birden "
+"çok kez `free` fonksiyonunu çağırmak veya gösterdiği bellek serbest "
+"bırakıldıktan (free) sonra bir göstericinin içeriğine erişmek "
+"(dereferencing) yer alır."
 
 #: src/memory-management/approaches.md
 msgid ""
@@ -9431,6 +9480,11 @@ msgid ""
 "is freed when a function returns. It is still quite easy to misuse these "
 "tools and create similar bugs to C."
 msgstr ""
+"C++, bir fonksiyon geri döndüğünde tahsis edilen belleğin serbest "
+"bırakılmasını sağlamak için yıkıcı özel üye fonksiyonlarını (destructors) "
+"çağırma konusundaki dil garantilerinden yararlanan akıllı göstericiler "
+"(`unique_ptr`, `shared_ptr`) gibi araçlara sahiptir. Bu araçları yanlış "
+"kullanmak ve C'ye benzer hatalar oluşturmak hala oldukça kolaydır."
 
 #: src/memory-management/approaches.md
 msgid ""
@@ -9439,6 +9493,12 @@ msgid ""
 "be dereferenced, eliminating use-after-free and other classes of bugs. But, "
 "GC has a runtime cost and is difficult to tune properly."
 msgstr ""
+"Java, Go ve Python, artık erişilemeyen belleği belirlemek ve atmak için çöp "
+"toplayıcıya (garbage collector) güvenir. Bu, herhangi bir göstericinin "
+"içeriğine erişilebileceğini (dereferenced) garanti eder, serbest bırakma "
+"sonrası kullanım (use-after-free) ve diğer hata sınıflarını ortadan "
+"kaldırır. Ancak, ÇT'nin (GC) bir çalışma zamanı (runtime cost) maliyeti "
+"vardır ve doğru bir şekilde ayarlamak zordur."
 
 #: src/memory-management/approaches.md
 msgid ""
@@ -9449,24 +9509,40 @@ msgid ""
 "are even crates available to support runtime garbage collection (not covered "
 "in this class)."
 msgstr ""
+"Rust'ın sahiplik (ownership) ve ödünç alma (borrowing) modeli, birçok "
+"durumda, C'nin performansını, tam olarak gerekli oldukları yerde -sıfır "
+"maliyetle (zero cost)- tahsis (alloc) ve serbest bırakma (free) işlemleriyle "
+"elde edebilir. Ayrıca C++'nın akıllı göstericilerine (smart pointers) benzer "
+"araçlar da sağlar. Gerektiğinde, referans sayımı (reference counting) gibi "
+"diğer seçenekler de mevcuttur ve hatta çalışma zamanı çöp toplamayı (runtime "
+"garbage collection) desteklemek için mevcut olan kasalar (crates) bile "
+"vardır (bu derste ele alınmamaktadır)."
 
 #: src/memory-management/ownership.md
 msgid ""
 "All variable bindings have a _scope_ where they are valid and it is an error "
 "to use a variable outside its scope:"
 msgstr ""
+"Tüm değişken bağlamalarının (variable bindings) geçerli oldukları bir "
+"_kapsamı (scope)_ vardır ve bir değişkeni kapsamı dışında kullanmak bir "
+"hatadır:"
 
 #: src/memory-management/ownership.md
 msgid ""
 "We say that the variable _owns_ the value. Every Rust value has precisely "
 "one owner at all times."
 msgstr ""
+"Değişkenin değeri _sahiplendiğini_ söyleriz. Her Rust değerinin her zaman "
+"tam olarak \"bir\" sahibi vardır."
 
 #: src/memory-management/ownership.md
 msgid ""
 "At the end of the scope, the variable is _dropped_ and the data is freed. A "
 "destructor can run here to free up resources."
 msgstr ""
+"Kapsamın (scope) sonunda, değişken _düşürülür (dropped)_ ve veriler serbest "
+"bırakılır (free). Kaynakları serbest bırakmak için burada bir yıkıcı  "
+"(destructor) çalışabilir."
 
 #: src/memory-management/ownership.md
 msgid ""
@@ -9474,10 +9550,15 @@ msgid ""
 "garbage collector starts with a set of \"roots\" to find all reachable "
 "memory. Rust's \"single owner\" principle is a similar idea."
 msgstr ""
+"Çöp toplama (garbage collection) gerçekleştirmelerine (implementations) "
+"aşina olan öğrenciler, bir çöp toplayıcının tüm erişilebilir belleği "
+"(reachable memory) bulmak için bir dizi \"kök (roots)\" ile başladığını "
+"bilirler. Rust'ın \"tek sahip (single owner)\" ilkesi benzer bir fikirdir."
 
 #: src/memory-management/move.md
 msgid "An assignment will transfer _ownership_ between variables:"
 msgstr ""
+"Bir atama (assignment), değişkenler arasında _sahipliği (ownership)_ aktarır:"
 
 #: src/memory-management/move.md src/concurrency/async-control-flow/select.md
 msgid "\"Hello!\""
@@ -9485,27 +9566,31 @@ msgstr "\"Merhaba!\""
 
 #: src/memory-management/move.md
 msgid "// dbg!(s1);\n"
-msgstr ""
+msgstr "// dbg!(s1);\n"
 
 #: src/memory-management/move.md
 msgid "The assignment of `s1` to `s2` transfers ownership."
-msgstr ""
+msgstr "`s1`'in `s2`'ye atanması sahipliği (ownership) aktarır."
 
 #: src/memory-management/move.md
 msgid "When `s1` goes out of scope, nothing happens: it does not own anything."
 msgstr ""
+"`s1` kapsam (scope) dışına çıktığında hiçbir şey olmaz: hiçbir şeye sahip "
+"değildir."
 
 #: src/memory-management/move.md
 msgid "When `s2` goes out of scope, the string data is freed."
 msgstr ""
+"`s2` kapsam (scope) dışına çıktığında, dize (string) verisi serbest "
+"bırakılır."
 
 #: src/memory-management/move.md
 msgid "Before move to `s2`:"
-msgstr ""
+msgstr "`s2`'ye taşımadan (move) önce:"
 
 #: src/memory-management/move.md
 msgid "After move to `s2`:"
-msgstr ""
+msgstr "`s2`'ye taşıdıktan (move) sonra:"
 
 #: src/memory-management/move.md
 msgid ""
@@ -9530,12 +9615,42 @@ msgid ""
 "`- - - - - - - - - - - - - -'\n"
 "```"
 msgstr ""
+"```bob\n"
+" Yığın (Stack)                     Dinamik Bellek (Heap)\n"
+".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - "
+"- - -.\n"
+":                           :     :                                               :\n"
+":    s1 "
+"\"(erişilemez)\"      :     :                                               :\n"
+":   +-----------+-------+   :     :   +----+----+----+----+----+----+----"
+"+----+   :\n"
+":   | ptr       |   o---+---+--+--+-->| M  | e  | r  | h  | a  | b  | a  "
+"| !  |   :\n"
+":   | len       |     8 |   :  |  :   +----+----+----+----+----+----+----"
+"+----+   :\n"
+":   | capacity  |     8 |   :  "
+"|  :                                               :\n"
+":   +-----------+-------+   :  "
+"|  :                                               :\n"
+":                           :  |  `- - - - - - - - - - - - - - - - - - - - - "
+"- - -'\n"
+":    s2                     :  |\n"
+":   +-----------+-------+   :  |\n"
+":   | ptr       |   o---+---+--'\n"
+":   | len       |     8 |   :\n"
+":   | capacity  |     8 |   :\n"
+":   +-----------+-------+   :\n"
+":                           :\n"
+"`- - - - - - - - - - - - - -'\n"
+"```"
 
 #: src/memory-management/move.md
 msgid ""
 "When you pass a value to a function, the value is assigned to the function "
 "parameter. This transfers ownership:"
 msgstr ""
+"Bir değeri bir fonksiyona geçirdiğinizde, değer fonksiyon parametresine "
+"atanır. Bu, sahipliği (ownership) aktarır:"
 
 #: src/memory-management/move.md src/memory-management/clone.md
 msgid "\"Hello {name}\""
@@ -9546,17 +9661,20 @@ msgstr "\"Merhaba {name}\""
 #: src/idiomatic/leveraging-the-type-system/typestate-pattern.md
 #: src/idiomatic/leveraging-the-type-system/typestate-pattern/typestate-example.md
 msgid "\"Alice\""
-msgstr "\"Alice\""
+msgstr "\"Ayşe\""
 
 #: src/memory-management/move.md
 msgid "// say_hello(name);\n"
-msgstr ""
+msgstr "// say_hello(name);\n"
 
 #: src/memory-management/move.md
 msgid ""
 "Mention that this is the opposite of the defaults in C++, which copies by "
 "value unless you use `std::move` (and the move constructor is defined!)."
 msgstr ""
+"Bunun C++'daki varsayılanların tersi olduğunu belirtin; C++ `std::move` "
+"kullanmadığınız sürece (ve taşıyan yapıcı özel üye fonksiyonu (move "
+"constructor) tanımlanmışsa!) değere göre kopyalama yapar."
 
 #: src/memory-management/move.md
 msgid ""
@@ -9564,82 +9682,102 @@ msgid ""
 "to manipulate the data itself is a matter of optimization, and such copies "
 "are aggressively optimized away."
 msgstr ""
+"Sadece sahiplik (ownership) taşınır. Verinin kendisini işlemek için herhangi "
+"bir makine kodunun üretilip üretilmediği bir optimizasyon meselesidir ve bu "
+"tür kopyalamalar agresif bir şekilde optimize edilerek kaldırılır."
 
 #: src/memory-management/move.md
 msgid ""
 "Simple values (such as integers) can be marked `Copy` (see later slides)."
 msgstr ""
+"Basit değerler (tamsayılar gibi) `Copy` olarak işaretlenebilir (sonraki "
+"slaytları inceleyin)."
 
 #: src/memory-management/move.md
 msgid "In Rust, clones are explicit (by using `clone`)."
-msgstr ""
+msgstr "Rust'ta, klonlamalar (clones) açıktır (`clone` kullanarak)."
 
 #: src/memory-management/move.md
 msgid "In the `say_hello` example:"
-msgstr ""
+msgstr "`say_hello` örneğinde:"
 
 #: src/memory-management/move.md
 msgid ""
 "With the first call to `say_hello`, `main` gives up ownership of `name`. "
 "Afterwards, `name` cannot be used anymore within `main`."
 msgstr ""
+"`say_hello`'ya yapılan ilk çağrıyla, `main` `name`'in sahipliğinden "
+"(ownership) vazgeçer. Daha sonra, `name` artık `main` içinde kullanılamaz."
 
 #: src/memory-management/move.md
 msgid ""
 "The heap memory allocated for `name` will be freed at the end of the "
 "`say_hello` function."
 msgstr ""
+"`name` için tahsis edilen dinamik bellek (heap), `say_hello` fonksiyonunun "
+"sonunda serbest bırakılacaktır."
 
 #: src/memory-management/move.md
 msgid ""
 "`main` can retain ownership if it passes `name` as a reference (`&name`) and "
 "if `say_hello` accepts a reference as a parameter."
 msgstr ""
+"`main`, `name`'i referans olarak (`&name`) geçirirse ve `say_hello` "
+"parametresinde bir referans kabul ederse sahipliği elinde tutabilir."
 
 #: src/memory-management/move.md
 msgid ""
 "Alternatively, `main` can pass a clone of `name` in the first call (`name."
 "clone()`)."
 msgstr ""
+"Alternatif olarak, `main` ilk çağrıda `name`'in bir klonunu (`name."
+"clone()`)geçirebilir."
 
 #: src/memory-management/move.md
 msgid ""
 "Rust makes it harder than C++ to inadvertently create copies by making move "
 "semantics the default, and by forcing programmers to make clones explicit."
 msgstr ""
+"Rust, taşıma (move) semantiğini varsayılan yaparak ve programcıları "
+"klonlamaları açık hale getirmeye zorlayarak, C++'a göre istemeden kopya "
+"oluşturmayı daha zor hale getirir."
 
 #: src/memory-management/move.md
 msgid "Defensive Copies in Modern C++"
-msgstr ""
+msgstr "Modern C++'da Savunmacı Kopyalar"
 
 #: src/memory-management/move.md
 msgid "Modern C++ solves this differently:"
-msgstr ""
+msgstr "Modern C++ bunu farklı şekilde çözer:"
 
 #: src/memory-management/move.md
 msgid "\"Cpp\""
-msgstr ""
+msgstr "\"Cpp\""
 
 #: src/memory-management/move.md
 msgid "// Duplicate the data in s1.\n"
-msgstr ""
+msgstr "// s1'deki veriyi çoğalt.\n"
 
 #: src/memory-management/move.md
 msgid ""
 "The heap data from `s1` is duplicated and `s2` gets its own independent copy."
 msgstr ""
+"`s1`'den gelen dinamik bellek (heap) verisi kopyalanır ve `s2` kendi "
+"bağımsız kopyasını alır."
 
 #: src/memory-management/move.md
 msgid "When `s1` and `s2` go out of scope, they each free their own memory."
 msgstr ""
+"`s1` ve `s2` kapsam (scope) dışına çıktığında, her biri kendi belleğini "
+"serbest bırakır."
 
 #: src/memory-management/move.md
 msgid "Before copy-assignment:"
-msgstr ""
+msgstr "Kopyalayan atama'dan (copy-assignment) önce:"
 
 #: src/memory-management/move.md
 msgid "After copy-assignment:"
-msgstr ""
+msgstr "Kopyalayan atamadan (copy-assignment) sonra:"
 
 #: src/memory-management/move.md
 msgid ""
@@ -9647,6 +9785,10 @@ msgid ""
 "the string data has to be cloned. Otherwise we would get a double-free when "
 "either string goes out of scope."
 msgstr ""
+"C++, Rust'tan biraz farklı bir seçim yapmıştır. `=` veriyi kopyaladığı için, "
+"dize (string) verisinin klonlanması gerekir. Aksi takdirde, herhangi bir "
+"dize kapsam dışına çıktığında çifte serbest bırakma (double-free) hatası "
+"alırdık."
 
 #: src/memory-management/move.md
 msgid ""
@@ -9656,108 +9798,142 @@ msgid ""
 "move, `s1` would be in a valid but unspecified state. Unlike Rust, the "
 "programmer is allowed to keep using `s1`."
 msgstr ""
+"C++ ayrıca bir değerin ne zaman taşınabileceğini belirtmek için kullanılan "
+"[`std::move`](https://en.cppreference.com/w/cpp/utility/move)'a sahiptir. "
+"Eğer örnek `s2 = std::move(s1)` olsaydı, hiçbir dinamik bellek (heap) "
+"tahsisi gerçekleşmezdi. Taşıma işleminden sonra, `s1` geçerli ancak belirsiz "
+"bir durumda olurdu. Rust'tan farklı olarak, programcının `s1`'i kullanmaya "
+"devam etmesine izin verilir."
 
 #: src/memory-management/move.md
 msgid ""
 "Unlike Rust, `=` in C++ can run arbitrary code as determined by the type "
-"which is being copied or moved."
+"that is being copied or moved."
 msgstr ""
+"Rust'tan farklı olarak, C++'daki `=` kopyalanan veya taşınan türe göre "
+"belirlenen keyfi kodları çalıştırabilir."
 
 #: src/memory-management/clone.md
 msgid ""
 "Sometimes you _want_ to make a copy of a value. The `Clone` trait "
 "accomplishes this."
 msgstr ""
+"Bazen bir değerin bir kopyasını oluşturmak _istersiniz_. `Clone` özelliği "
+"(trait) bunu gerçekleştirir."
 
 #: src/memory-management/clone.md
 msgid ""
 "The idea of `Clone` is to make it easy to spot where heap allocations are "
 "occurring. Look for `.clone()` and a few others like `vec!` or `Box::new`."
 msgstr ""
+"`Clone` fikri, dinamik bellek (heap) tahsislerinin nerede meydana geldiğini "
+"kolayca tespit etmektir. `.clone()` ve `vec!` veya `Box::new` gibi birkaç "
+"diğerine bakın."
 
 #: src/memory-management/clone.md
 msgid ""
 "It's common to \"clone your way out\" of problems with the borrow checker, "
 "and return later to try to optimize those clones away."
 msgstr ""
+"Ödünç alma denetleyicisi (borrow checker) ile ilgili sorunlardan "
+"\"klonlayarak kurtulmak\" ve daha sonra bu klonları optimize etmeye çalışmak "
+"için geri dönmek yaygındır."
 
 #: src/memory-management/clone.md
 msgid ""
 "`clone` generally performs a deep copy of the value, meaning that if you e."
 "g. clone an array, all of the elements of the array are cloned as well."
 msgstr ""
+"`clone` genellikle değerin derin bir kopyasını (deep copy) gerçekleştirir, "
+"yani örneğin bir diziyi klonlarsanız, dizinin tüm elemanları da klonlanır."
 
 #: src/memory-management/clone.md
 msgid ""
 "The behavior for `clone` is user-defined, so it can perform custom cloning "
 "logic if needed."
 msgstr ""
+"`clone`'un davranışı kullanıcı tanımlıdır, bu nedenle gerekirse özel "
+"klonlama mantığı gerçekleştirebilir."
 
 #: src/memory-management/copy-types.md
 msgid ""
 "While move semantics are the default, certain types are copied by default:"
 msgstr ""
+"Taşıma (move) semantiği varsayılan olsa da, belirli türler varsayılan olarak "
+"kopyalanır:"
 
 #: src/memory-management/copy-types.md
 msgid "These types implement the `Copy` trait."
-msgstr ""
+msgstr "Bu türler `Copy` özelliğini (trait) gerçekleştirir."
 
 #: src/memory-management/copy-types.md
 msgid "You can opt-in your own types to use copy semantics:"
 msgstr ""
+"Kendi türlerinizi kopya semantiğini (copy semantics) kullanacak şekilde "
+"seçebilirsiniz:"
 
 #: src/memory-management/copy-types.md
 msgid "After the assignment, both `p1` and `p2` own their own data."
-msgstr ""
+msgstr "Atamadan sonra hem `p1` hem de `p2` kendi verilerine sahiptir."
 
 #: src/memory-management/copy-types.md
 msgid "We can also use `p1.clone()` to explicitly copy the data."
-msgstr ""
+msgstr "Veriyi açıkça kopyalamak için `p1.clone()` da kullanabiliriz."
 
 #: src/memory-management/copy-types.md
 msgid "Copying and cloning are not the same thing:"
-msgstr ""
+msgstr "Kopyalama (copying) ve klonlama (cloning) aynı şey değildir:"
 
 #: src/memory-management/copy-types.md
 msgid ""
 "Copying refers to bitwise copies of memory regions and does not work on "
 "arbitrary objects."
 msgstr ""
+"Kopyalama, bellek bölgelerinin bitsel kopyalarına atıfta bulunur ve keyfi "
+"nesneler üzerinde çalışmaz."
 
 #: src/memory-management/copy-types.md
 msgid ""
 "Copying does not allow for custom logic (unlike copy constructors in C++)."
 msgstr ""
+"Kopyalama, özel mantığa izin vermez (C++'daki kopyalayan yapıcı özel üye "
+"fonksiyonlarının -copy constructors- aksine)."
 
 #: src/memory-management/copy-types.md
 msgid ""
 "Cloning is a more general operation and also allows for custom behavior by "
 "implementing the `Clone` trait."
 msgstr ""
+"Klonlama daha genel bir işlemdir ve ayrıca `Clone` özelliğini (trait) "
+"gerçekleştirerek özel davranışlara da olanak tanır."
 
 #: src/memory-management/copy-types.md
 msgid "Copying does not work on types that implement the `Drop` trait."
-msgstr ""
+msgstr "`Drop` özelliğini (trait) gerçekleştiren türlerde kopyalama çalışmaz."
 
 #: src/memory-management/copy-types.md
 msgid "In the above example, try the following:"
-msgstr ""
+msgstr "Yukarıdaki örnekte, aşağıdakileri deneyin:"
 
 #: src/memory-management/copy-types.md
 msgid ""
 "Add a `String` field to `struct Point`. It will not compile because `String` "
 "is not a `Copy` type."
 msgstr ""
+"`struct Point`'e bir `String` alanı ekleyin. `String` bir `Copy` türü "
+"olmadığı için derlenmeyecektir."
 
 #: src/memory-management/copy-types.md
 msgid ""
 "Remove `Copy` from the `derive` attribute. The compiler error is now in the "
 "`println!` for `p1`."
 msgstr ""
+"`derive` özniteliğinden `Copy`'yi kaldırın. Derleyici hatası şimdi `p1` için "
+"`println!`'dedir."
 
 #: src/memory-management/copy-types.md
 msgid "Show that it works if you clone `p1` instead."
-msgstr ""
+msgstr "Bunun yerine `p1`'i klonlarsanız çalıştığını gösterin."
 
 #: src/memory-management/copy-types.md
 msgid ""
@@ -9766,68 +9942,82 @@ msgid ""
 "valid to make a copy of a shared reference, creating a copy of a mutable "
 "reference would violate Rust's borrowing rules."
 msgstr ""
+"Paylaşılan (shared) referanslar `Copy`/`Clone`'dur, değiştirilebilir "
+"(mutable) referanslar değildir. Bunun nedeni, Rust'ın değiştirilebilir "
+"referansların özel (exclusive) olmasını gerektirmesidir, bu nedenle "
+"paylaşılan bir referansın kopyasını oluşturmak geçerli olsa da, "
+"değiştirilebilir bir referansın kopyasını oluşturmak Rust'ın ödünç alma "
+"(borrowing) kurallarını ihlal eder."
 
 #: src/memory-management/drop.md
 msgid "The `Drop` Trait"
-msgstr ""
+msgstr "`Drop` Özelliği"
 
 #: src/memory-management/drop.md
 msgid ""
 "Values which implement [`Drop`](https://doc.rust-lang.org/std/ops/trait.Drop."
 "html) can specify code to run when they go out of scope:"
 msgstr ""
+"[`Drop`](https://doc.rust-lang.org/std/ops/trait.Drop.html) özelliğini "
+"gerçekleştiren (implement) değerler, kapsam (scope) dışına çıktıklarında "
+"çalışacak kodu belirtebilirler:"
 
 #: src/memory-management/drop.md
 msgid "\"Dropping {}\""
-msgstr ""
+msgstr "\"{} düşürülüyor\""
 
 #: src/memory-management/drop.md src/concurrency/sync-exercises/link-checker.md
 #: src/concurrency/sync-exercises/solutions.md
 msgid "\"a\""
-msgstr ""
+msgstr "\"a\""
 
 #: src/memory-management/drop.md src/android/testing/googletest.md
 msgid "\"b\""
-msgstr ""
+msgstr "\"b\""
 
 #: src/memory-management/drop.md
 msgid "\"c\""
-msgstr ""
+msgstr "\"c\""
 
 #: src/memory-management/drop.md
 msgid "\"d\""
-msgstr ""
+msgstr "\"d\""
 
 #: src/memory-management/drop.md
 msgid "\"Exiting innermost block\""
-msgstr ""
+msgstr "\"En içteki bloktan çıkılıyor\""
 
 #: src/memory-management/drop.md
 msgid "\"Exiting next block\""
-msgstr ""
+msgstr "\"Sonraki bloktan çıkılıyor\""
 
 #: src/memory-management/drop.md
 msgid "\"Exiting main\""
-msgstr ""
+msgstr "\"main'den çıkılıyor\""
 
 #: src/memory-management/drop.md
 msgid "Note that `std::mem::drop` is not the same as `std::ops::Drop::drop`."
 msgstr ""
+"`std::mem::drop`'un `std::ops::Drop::drop` ile aynı olmadığını unutmayın."
 
 #: src/memory-management/drop.md
 msgid "Values are automatically dropped when they go out of scope."
-msgstr ""
+msgstr "Değerler kapsam dışına çıktıklarında otomatik olarak düşürülür (drop)."
 
 #: src/memory-management/drop.md
 msgid ""
 "When a value is dropped, if it implements `std::ops::Drop` then its `Drop::"
 "drop` implementation will be called."
 msgstr ""
+"Bir değer düşürüldüğünde, `std::ops::Drop`'u gerçekleştiriyorsa, `Drop::"
+"drop` gerçekleştirmesi çağrılır."
 
 #: src/memory-management/drop.md
 msgid ""
 "All its fields will then be dropped too, whether or not it implements `Drop`."
 msgstr ""
+"`Drop`'u gerçekleştirip gerçekleştirmediğine bakılmaksızın tüm alanları da "
+"düşürülür."
 
 #: src/memory-management/drop.md
 msgid ""
@@ -9836,26 +10026,35 @@ msgid ""
 "scope it gets dropped. This makes it a convenient way to explicitly drop "
 "values earlier than they would otherwise go out of scope."
 msgstr ""
+"`std::mem::drop` sadece herhangi bir değeri alan boş bir fonksiyondur. "
+"Önemi, değerin sahipliğini (ownership) almasıdır, bu yüzden kapsamının "
+"(scope) sonunda düşürülür (drop). Bu, değerleri normalde kapsam dışına "
+"çıkacaklarından daha erken bir zamanda açıkça düşürmenin uygun bir yoludur."
 
 #: src/memory-management/drop.md
 msgid ""
 "This can be useful for objects that do some work on `drop`: releasing locks, "
 "closing files, etc."
 msgstr ""
+"Bu, `drop` üzerinde bir miktar iş yapan nesneler için yararlı olabilir: "
+"kilitleri bırakma, dosyaları kapatma vb."
 
 #: src/memory-management/drop.md
 msgid "Why doesn't `Drop::drop` take `self`?"
-msgstr ""
+msgstr "`Drop::drop` neden `self` almaz?"
 
 #: src/memory-management/drop.md
 msgid ""
 "Short-answer: If it did, `std::mem::drop` would be called at the end of the "
 "block, resulting in another call to `Drop::drop`, and a stack overflow!"
 msgstr ""
+"Kısa cevap: Eğer alsaydı, bloğun sonunda `std::mem::drop` çağrılır, bu da "
+"`Drop::drop`'a başka bir çağrıya ve bir yığın taşmasına (stack overflow) "
+"neden olurdu!"
 
 #: src/memory-management/drop.md
 msgid "Try replacing `drop(a)` with `a.drop()`."
-msgstr ""
+msgstr "`drop(a)`'yı `a.drop()` ile değiştirmeyi deneyin."
 
 #: src/memory-management/exercise.md
 msgid ""
@@ -9863,93 +10062,101 @@ msgid ""
 "data. We will use the \"builder pattern\" to support building a new value "
 "piece-by-piece, using convenience functions."
 msgstr ""
+"Bu örnekte, tüm verilerine sahip olan karmaşık bir veri türü "
+"gerçekleştireceğiz (implement). Yeni bir değeri parça parça, kolaylık "
+"sağlayan fonksiyonlar kullanarak oluşturmayı desteklemek için \"inşa edici "
+"desenini (builder pattern)\" kullanacağız."
 
 #: src/memory-management/exercise.md
 msgid "Fill in the missing pieces."
-msgstr ""
+msgstr "Eksik parçaları doldurun."
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "/// A representation of a software package.\n"
-msgstr ""
+msgstr "/// Bir yazılım paketinin bir temsili.\n"
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid ""
 "/// Return a representation of this package as a dependency, for use in\n"
 "    /// building other packages.\n"
 msgstr ""
+"/// Bu paketin bir bağımlılık olarak bir temsilini, diğer paketleri\n"
+"    /// inşa etmek (build) için döndürün.\n"
 
 #: src/memory-management/exercise.md
 msgid "\"1\""
-msgstr ""
+msgstr "\"1\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid ""
 "/// A builder for a Package. Use `build()` to create the `Package` itself.\n"
 msgstr ""
+"/// Bir Paket için bir inşa edici (builder). `Package`'ın kendisini "
+"oluşturmak için `build()` kullanın.\n"
 
 #: src/memory-management/exercise.md
 msgid "\"2\""
-msgstr ""
+msgstr "\"2\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "/// Set the package version.\n"
-msgstr ""
+msgstr "/// Paket sürümünü ayarlayın.\n"
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "/// Set the package authors.\n"
-msgstr ""
+msgstr "/// Paket yazarlarını ayarlayın.\n"
 
 #: src/memory-management/exercise.md
 msgid "\"3\""
-msgstr ""
+msgstr "\"3\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "/// Add an additional dependency.\n"
-msgstr ""
+msgstr "/// Ek bir bağımlılık ekleyin.\n"
 
 #: src/memory-management/exercise.md
 msgid "\"4\""
-msgstr ""
+msgstr "\"4\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "/// Set the language. If not set, language defaults to None.\n"
-msgstr ""
+msgstr "/// Dili ayarlayın. Ayarlanmazsa, dil varsayılan olarak None olur.\n"
 
 #: src/memory-management/exercise.md
 msgid "\"5\""
-msgstr ""
+msgstr "\"5\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"base64\""
-msgstr ""
+msgstr "\"base64\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"0.13\""
-msgstr ""
+msgstr "\"0.13\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"log\""
-msgstr ""
+msgstr "\"log\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"0.4\""
-msgstr ""
+msgstr "\"0.4\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"serde\""
-msgstr ""
+msgstr "\"serde\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"djmitche\""
-msgstr ""
+msgstr "\"djmitche\""
 
 #: src/memory-management/exercise.md src/memory-management/solution.md
 msgid "\"4.0\""
-msgstr ""
+msgstr "\"4.0\""
 
 #: src/memory-management/solution.md
 msgid "\"0.1\""
-msgstr ""
+msgstr "\"0.1\""
 
 #: src/smart-pointers.md
 msgid "Box<T>"
@@ -9964,10 +10171,12 @@ msgid ""
 "[`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) is an owned "
 "pointer to data on the heap:"
 msgstr ""
+"[`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html), dinamik bellek "
+"(heap) üzerindeki verilere sahip olunan (owned) bir göstericidir:"
 
 #: src/smart-pointers/box.md
 msgid "\"five: {}\""
-msgstr ""
+msgstr "\"beş: {}\""
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -9975,24 +10184,31 @@ msgid ""
 "methods from `T` directly on a `Box<T>`](https://doc.rust-lang.org/std/ops/"
 "trait.Deref.html#more-on-deref-coercion)."
 msgstr ""
+"`Box<T>`, `Deref<Target = T>` özelliğini (trait) gerçekleştirir (implement), "
+"bu da [`T`'den metotları doğrudan bir `Box<T>` üzerinde çağırabileceğiniz]"
+"(https://doc.rust-lang.org/std/ops/trait.Deref.html#more-on-deref-coercion) "
+"anlamına gelir."
 
 #: src/smart-pointers/box.md
 msgid ""
 "Recursive data types or data types with dynamic sizes cannot be stored "
 "inline without a pointer indirection. `Box` accomplishes that indirection:"
 msgstr ""
+"Özyinelemeli (recursive) veri türleri veya dinamik boyutlara sahip veri "
+"türleri, bir gösterici dolaylılığı (pointer indirection) olmadan satır içi "
+"(inline) olarak saklanamaz. `Box` bu dolaylılığı sağlar:"
 
 #: src/smart-pointers/box.md
 msgid "/// A non-empty list: first element and the rest of the list.\n"
-msgstr ""
+msgstr "/// Boş olmayan bir liste: ilk eleman ve listenin geri kalanı.\n"
 
 #: src/smart-pointers/box.md
 msgid "/// An empty list.\n"
-msgstr ""
+msgstr "/// Boş bir liste.\n"
 
 #: src/smart-pointers/box.md
 msgid "\"{list:?}\""
-msgstr ""
+msgstr "\"{list:?}\""
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -10015,22 +10231,44 @@ msgid ""
 "- - - - -'\n"
 "```"
 msgstr ""
+"```bob\n"
+" Yığın (Stack)                   Dinamik Bellek (Heap)\n"
+".- - - - - - - - - - - - - - .     .- - - - - - - - - - - - - - - - - - - - "
+"- - - - -.\n"
+":                            :     :                                                 :\n"
+":    "
+"liste                   :     :                                                 :\n"
+":   +---------+----+----+    :     :    +---------+----+----+    +------+----"
+"+----+  :\n"
+":   | Eleman  | 1  | o--+----+-----+--->| Eleman  | 2  | o--+--->| Yok  | // "
+"| // |  :\n"
+":   +---------+----+----+    :     :    +---------+----+----+    +------+----"
+"+----+  :\n"
+":                            :     :                                                 :\n"
+":                            :     :                                                 :\n"
+"'- - - - - - - - - - - - - - '     '- - - - - - - - - - - - - - - - - - - - "
+"- - - - -'\n"
+"```"
 
 #: src/smart-pointers/box.md
 msgid ""
 "`Box` is like `std::unique_ptr` in C++, except that it's guaranteed to be "
 "not null."
 msgstr ""
+"`Box`, C++'daki `std::unique_ptr`'e benzer, ancak null olmaması garanti "
+"edilir."
 
 #: src/smart-pointers/box.md
 msgid "A `Box` can be useful when you:"
-msgstr ""
+msgstr "Bir `Box` şu durumlarda yararlı olabilir:"
 
 #: src/smart-pointers/box.md
 msgid ""
 "have a type whose size can't be known at compile time, but the Rust compiler "
 "wants to know an exact size."
 msgstr ""
+"boyutu derleme zamanında bilinemeyen bir türünüz varsa, ancak Rust "
+"derleyicisi tam bir boyut bilmek istiyorsa."
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -10038,6 +10276,10 @@ msgid ""
 "amounts of data on the stack, instead store the data on the heap in a `Box` "
 "so only the pointer is moved."
 msgstr ""
+"büyük miktarda verinin sahipliğini (ownership) aktarmak istiyorsanız. Yığın "
+"(stack) üzerinde büyük miktarda veri kopyalamaktan kaçınmak için, bunun "
+"yerine veriyi dinamik bellekte (heap) bir `Box` içinde saklayın, böylece "
+"sadece gösterici taşınır."
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -10045,12 +10287,18 @@ msgid ""
 "`List`, the compiler would not be able to compute a fixed size for the "
 "struct in memory (the `List` would be of infinite size)."
 msgstr ""
+"`Box` kullanılmasaydı ve bir `List`'i doğrudan `List`'e gömmeye çalışsaydık, "
+"derleyici bellekteki yapı (struct) için sabit bir boyut hesaplayamazdı "
+"(`List` sonsuz boyutta olurdu)."
 
 #: src/smart-pointers/box.md
 msgid ""
 "`Box` solves this problem as it has the same size as a regular pointer and "
 "just points at the next element of the `List` in the heap."
 msgstr ""
+"`Box`, normal bir göstericiyle aynı boyuta sahip olduğu ve dinamik "
+"bellekteki (heap) `List`'in bir sonraki elemanına işaret ettiği için bu "
+"sorunu çözer."
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -10059,6 +10307,10 @@ msgid ""
 "we have to use indirection, a `Box` or reference of some kind, instead of "
 "storing the value directly."
 msgstr ""
+"Liste tanımındaki `Box`'ı kaldırın ve derleyici hatasını gösterin. "
+"\"dolaylılık olmadan özyinelemeli (recursive without indirection)\" mesajını "
+"alırız, çünkü veri özyinelemesi için değeri doğrudan saklamak yerine "
+"dolaylılık, yani bir `Box` veya bir tür referans kullanmalıyız."
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -10066,6 +10318,9 @@ msgid ""
 "This makes `Box` one of the types that allow the compiler to optimize "
 "storage of some enums (the \"niche optimization\")."
 msgstr ""
+"`Box` C++'daki `std::unique_ptr`'e benzese de, boş/null olamaz. Bu, `Box`'ı "
+"derleyicinin bazı enumların depolanmasını optimize etmesine olanak tanıyan "
+"türlerden biri yapar (\"niş optimizasyonu\")."
 
 #: src/smart-pointers/rc.md
 msgid ""
@@ -10073,12 +10328,17 @@ msgid ""
 "counted shared pointer. Use this when you need to refer to the same data "
 "from multiple places:"
 msgstr ""
+"[`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html) referans sayımlı "
+"(reference-counted) bir paylaşılan göstericidir. Aynı veriye birden çok "
+"yerden referans vermeniz gerektiğinde bunu kullanın:"
 
 #: src/smart-pointers/rc.md
 msgid ""
 "Each `Rc` points to the same shared data structure, containing strong and "
 "weak pointers and the value:"
 msgstr ""
+"Her `Rc`, güçlü (strong) ve zayıf (weak) göstericileri ve değeri içeren aynı "
+"paylaşılan veri yapısına işaret eder:"
 
 #: src/smart-pointers/rc.md
 msgid ""
@@ -10086,22 +10346,30 @@ msgid ""
 "rust-lang.org/std/sync/struct.Mutex.html) if you are in a multi-threaded "
 "context."
 msgstr ""
+"Çok iş parçacıklı (multi-threaded) bir bağlamdaysanız [`Arc`](../concurrency/"
+"shared-state/arc.md) ve [`Mutex`](https://doc.rust-lang.org/std/sync/struct."
+"Mutex.html)'e bakın."
 
 #: src/smart-pointers/rc.md
 msgid ""
 "You can _downgrade_ a shared pointer into a [`Weak`](https://doc.rust-lang."
 "org/std/rc/struct.Weak.html) pointer to create cycles that will get dropped."
 msgstr ""
+"Düşürülecek (drop) döngüler oluşturmak için paylaşılan bir göstericiyi bir "
+"[`Weak`](https://doc.rust-lang.org/std/rc/struct.Weak.html) göstericiye "
+"_düşürebilirsiniz (downgrade)_."
 
 #: src/smart-pointers/rc.md
 msgid ""
 "`Rc`'s count ensures that its contained value is valid for as long as there "
 "are references."
 msgstr ""
+"`Rc`'nin sayımı, içerdiği değerin referanslar olduğu sürece geçerli olmasını "
+"sağlar."
 
 #: src/smart-pointers/rc.md
 msgid "`Rc` in Rust is like `std::shared_ptr` in C++."
-msgstr ""
+msgstr "Rust'taki `Rc`, C++'daki `std::shared_ptr`'e benzer."
 
 #: src/smart-pointers/rc.md
 msgid ""
@@ -10109,22 +10377,30 @@ msgid ""
 "increases the reference count. Does not make a deep clone and can generally "
 "be ignored when looking for performance issues in code."
 msgstr ""
+"`Rc::clone` ucuzdur: aynı tahsise bir gösterici oluşturur ve referans "
+"sayısını artırır. Derin bir klon (deep clone) yapmaz ve genellikle koddaki "
+"performans sorunlarını ararken göz ardı edilebilir."
 
 #: src/smart-pointers/rc.md
 msgid ""
 "`make_mut` actually clones the inner value if necessary (\"clone-on-write\") "
 "and returns a mutable reference."
 msgstr ""
+"`make_mut` aslında gerekirse iç değeri klonlar (\"yazmada-klonla / clone-on-"
+"write\") ve değiştirilebilir (mutable) bir referans döndürür."
 
 #: src/smart-pointers/rc.md
 msgid "Use `Rc::strong_count` to check the reference count."
-msgstr ""
+msgstr "Referans sayısını kontrol etmek için `Rc::strong_count` kullanın."
 
 #: src/smart-pointers/rc.md
 msgid ""
 "`Rc::downgrade` gives you a _weakly reference-counted_ object to create "
 "cycles that will be dropped properly (likely in combination with `RefCell`)."
 msgstr ""
+"`Rc::downgrade` size düzgün bir şekilde düşürülecek (drop) döngüler "
+"oluşturmak için _zayıf referans sayımlı (weakly reference-counted)_ bir "
+"nesne verir (muhtemelen `RefCell` ile kombinasyon halinde)."
 
 #: src/smart-pointers/trait-objects.md
 msgid ""
@@ -10132,10 +10408,14 @@ msgid ""
 "Pet`. However, we can also use trait objects with smart pointers like `Box` "
 "to create an owned trait object: `Box<dyn Pet>`."
 msgstr ""
+"Daha önce özellik nesnelerinin (trait objects) referanslarla nasıl "
+"kullanılabileceğini görmüştük, örn. `&dyn Pet`. Ancak, sahip olunan (owned) "
+"bir özellik nesnesi oluşturmak için `Box` gibi akıllı göstericilerle de "
+"özellik nesnelerini kullanabiliriz: `Box<dyn Pet>`."
 
 #: src/smart-pointers/trait-objects.md
 msgid "Memory layout after allocating `pets`:"
-msgstr ""
+msgstr "`pets` tahsis edildikten sonraki bellek düzeni:"
 
 #: src/smart-pointers/trait-objects.md
 msgid ""
@@ -10196,24 +10476,88 @@ msgid ""
 "- - - -'\n"
 "```"
 msgstr ""
+"```bob\n"
+" Stack                             Heap\n"
+".- - - - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - "
+"- - - -.\n"
+":                               :     :                                             :\n"
+":    \"pets: Vec<Box<dyn Pet>>\"  :     :   \"data: Cat\"         +----+----"
+"+----+----+ :\n"
+":   +-----------+-------+       :     :  +-------+-------+    | F  | i  | d  "
+"| o  | :\n"
+":   | ptr       |   o---+-------+--.  :  | lives |     9 |    +----+----+----"
+"+----+ :\n"
+":   | len       |     2 |       :  |  :  +-------+-------+      "
+"^                   :\n"
+":   | capacity  |     2 |       :  |  :       ^                 "
+"|                   :\n"
+":   +-----------+-------+       :  |  :       |                 "
+"'-------.           :\n"
+":                               :  |  :       |               data:"
+"\"Dog\"|           :\n"
+":                               :  |  :       |              +-------"
+"+--|-------+   :\n"
+"`- - - - - - - - - - - - - - - -'  |  :   +---|-+-----+      | name  |  o, "
+"4, 4 |   :\n"
+"                                   `--+-->| o o | o o-|----->| age   "
+"|        5 |   :\n"
+"                                      :   +-|---+-|---+      +-------"
+"+----------+   :\n"
+"                                      :     |     "
+"|                                 :\n"
+"                                      `- - -| - - |- - - - - - - - - - - - - "
+"- - - -'\n"
+"                                            |     |\n"
+"                                            |     |                      "
+"\"Program text\"\n"
+"                                      .- - -| - - |- - - - - - - - - - - - - "
+"- - - -.\n"
+"                                      :     |     |       "
+"vtable                    :\n"
+"                                      :     |     |      "
+"+----------------------+   :\n"
+"                                      :     |     `----->| \"<Dog as Pet>::"
+"talk\" |   :\n"
+"                                      :     |            "
+"+----------------------+   :\n"
+"                                      :     |             "
+"vtable                    :\n"
+"                                      :     |            "
+"+----------------------+   :\n"
+"                                      :     '----------->| \"<Cat as Pet>::"
+"talk\" |   :\n"
+"                                      :                  "
+"+----------------------+   :\n"
+"                                      :                                             :\n"
+"                                      '- - - - - - - - - - - - - - - - - - - "
+"- - - -'\n"
+"```"
 
 #: src/smart-pointers/trait-objects.md
 msgid ""
 "Types that implement a given trait may be of different sizes. This makes it "
 "impossible to have things like `Vec<dyn Pet>` in the example above."
 msgstr ""
+"Belirli bir özelliği (trait) gerçekleştiren türler farklı boyutlarda "
+"olabilir. Bu, yukarıdaki örnekte `Vec<dyn Pet>` gibi şeylere sahip olmayı "
+"imkansız kılar."
 
 #: src/smart-pointers/trait-objects.md
 msgid ""
 "`dyn Pet` is a way to tell the compiler about a dynamically sized type that "
 "implements `Pet`."
 msgstr ""
+"`dyn Pet`, derleyiciye `Pet`'i gerçekleştiren dinamik boyutlu bir tür "
+"hakkında bilgi vermenin bir yoludur."
 
 #: src/smart-pointers/trait-objects.md
 msgid ""
 "In the example, `pets` is allocated on the stack and the vector data is on "
 "the heap. The two vector elements are _fat pointers_:"
 msgstr ""
+"Örnekte, `pets` yığın (stack) üzerinde tahsis edilir ve vektör verisi "
+"dinamik bellektedir (heap). İki vektör elemanı _genişletilmiş "
+"göstericilerdir (fat pointers)_:"
 
 #: src/smart-pointers/trait-objects.md
 msgid ""
@@ -10222,25 +10566,33 @@ msgid ""
 "wikipedia.org/wiki/Virtual_method_table) (vtable) for the `Pet` "
 "implementation of that particular object."
 msgstr ""
+"Genişletilmiş bir gösterici (fat pointer), çift genişlikli bir göstericidir. "
+"İki bileşeni vardır: gerçek nesneye bir gösterici ve o belirli nesnenin "
+"`Pet` gerçekleştirmesi için [sanal metot tablosuna (virtual method table)]"
+"(https://en.wikipedia.org/wiki/Virtual_method_table) (vtable) bir gösterici."
 
 #: src/smart-pointers/trait-objects.md
 msgid ""
 "The data for the `Dog` named Fido is the `name` and `age` fields. The `Cat` "
 "has a `lives` field."
 msgstr ""
+"Fido adındaki `Dog` için veri, `name` ve `age` alanlarıdır. `Cat`'in bir "
+"`lives` alanı vardır."
 
 #: src/smart-pointers/trait-objects.md
 msgid "Compare these outputs in the above example:"
-msgstr ""
+msgstr "Yukarıdaki örnekte bu çıktıları karşılaştırın:"
 
 #: src/smart-pointers/trait-objects.md
 msgid "\"{} {}\""
-msgstr ""
+msgstr "\"{} {}\""
 
 #: src/smart-pointers/trait-objects.md src/modules/exercise.md
 #: src/modules/solution.md src/android/build-rules/library.md
 #: src/android/interoperability/cpp/rust-bridge.md
 #: src/concurrency/async-pitfalls/cancellation.md
+#: src/idiomatic/leveraging-the-type-system/typestate-pattern.md
+#: src/idiomatic/leveraging-the-type-system/typestate-pattern/typestate-example.md
 msgid "\"{}\""
 msgstr "\"{}\""
 
@@ -10252,18 +10604,25 @@ msgid ""
 "values, and all nodes in N's right subtree will contain larger values. A "
 "given value should only be stored in the tree once, i.e. no duplicate nodes."
 msgstr ""
+"Bir ikili ağaç (binary tree), her düğümün (node) iki çocuğa (sol ve sağ) "
+"sahip olduğu bir ağaç türü veri yapısıdır. Her düğümün bir değer sakladığı "
+"bir ağaç oluşturacağız. Belirli bir N düğümü için, N'nin sol alt ağacındaki "
+"tüm düğümler daha küçük değerler içerir ve N'nin sağ alt ağacındaki tüm "
+"düğümler daha büyük değerler içerir. Belirli bir değer ağaçta yalnızca bir "
+"kez saklanmalıdır, yani aynı değere sahip düğümler olmamalıdır."
 
 #: src/smart-pointers/exercise.md
 msgid "Implement the following types, so that the given tests pass."
 msgstr ""
+"Aşağıdaki türleri gerçekleştirin (implement), böylece verilen testler geçer."
 
 #: src/smart-pointers/exercise.md src/smart-pointers/solution.md
 msgid "/// A node in the binary tree.\n"
-msgstr ""
+msgstr "/// İkili ağaçtaki (binary tree) bir düğüm.\n"
 
 #: src/smart-pointers/exercise.md src/smart-pointers/solution.md
 msgid "/// A possibly-empty subtree.\n"
-msgstr ""
+msgstr "/// Muhtemelen boş bir alt ağaç.\n"
 
 #: src/smart-pointers/exercise.md src/smart-pointers/solution.md
 msgid ""
@@ -10271,22 +10630,18 @@ msgid ""
 "///\n"
 "/// If the same value is added multiple times, it is only stored once.\n"
 msgstr ""
+"/// İkili ağaç (binary tree) kullanarak bir değerler kümesini saklayan bir "
+"kap.\n"
+"///\n"
+"/// Aynı değer birden çok kez eklenirse, yalnızca bir kez saklanır.\n"
 
 #: src/smart-pointers/exercise.md
 msgid "// Implement `new`, `insert`, `len`, and `has` for `Subtree`.\n"
-msgstr ""
+msgstr "// `Subtree` için `new`, `insert`, `len` ve `has`'ı gerçekleştirin.\n"
 
 #: src/smart-pointers/exercise.md src/smart-pointers/solution.md
 msgid "// not a unique item\n"
-msgstr ""
-
-#: src/welcome-day-3-afternoon.md
-msgid ""
-"Including 10 minute breaks, this session should take about 1 hour and 55 "
-"minutes. It contains:"
-msgstr ""
-"Bu oturum 10 dakikalık aralar dahil yaklaşık 1 saat 55 dakika sürmelidir. "
-"İçeriği:"
+msgstr "// benzersiz bir öğe değil\n"
 
 #: src/borrowing/shared.md
 msgid ""
