@@ -3,7 +3,7 @@
 A scope guard uses the `Drop` trait to ensure cleanup code runs automatically
 when a scope exits — even if due to an error.
 
-```rust,editable,compile_fail
+```rust,editable
 use scopeguard::{ScopeGuard, guard};
 use std::fs::{self, File};
 use std::io::Write;
@@ -27,8 +27,8 @@ fn main() {
 
     if download_successful() {
         // Download succeeded, keep the file
-        let _path = ScopeGuard::into_inner(cleanup);
-        println!("Download complete!");
+        let path = ScopeGuard::into_inner(cleanup);
+        println!("Download '{path}' complete!");
     }
     // Otherwise, the guard runs and deletes the file
 }

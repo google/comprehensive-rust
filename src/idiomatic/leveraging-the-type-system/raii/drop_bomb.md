@@ -14,12 +14,6 @@ struct Transaction {
 }
 
 impl Transaction {
-    /// Begin a [`Transaction`].
-    ///
-    /// ## Panics
-    ///
-    /// Panics if the transaction is dropped without
-    /// calling [`Self::commit`] or [`Self::rollback`].
     fn start() -> Self {
         Self { active: true }
     }
@@ -34,7 +28,7 @@ impl Transaction {
 impl Drop for Transaction {
     fn drop(&mut self) {
         if self.active {
-            panic!("Transaction dropped without commit or rollback!");
+            panic!("Transaction dropped without commit!");
         }
     }
 }
@@ -44,6 +38,7 @@ fn main() -> io::Result<()> {
     // Use `tx` to build the transaction, then commit it.
     // Comment out the call to `commit` to see the panic.
     tx.commit()?;
+    Ok(())
 }
 ```
 

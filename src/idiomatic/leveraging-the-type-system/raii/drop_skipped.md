@@ -69,6 +69,4 @@ fn main() {
 - Finally, consider what happens when you also uncomment the `panic!` inside
   `Foo::drop`.
 
-  TODO...
-
 </details>
