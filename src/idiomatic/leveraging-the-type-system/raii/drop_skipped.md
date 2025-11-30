@@ -45,28 +45,25 @@ fn main() {
   [`std::mem::forget`](https://doc.rust-lang.org/std/mem/fn.forget.html) call.
   What do you think will happen?
 
-  Forgetting a value intentionally _leaks_ it. Leaking is still memory safe, but
-  it prevents the destructor from ever running, so `drop()` will _not_ be
-  called.
+  Forgetting a value intentionally _leaks_ it — the memory is never reclaimed,
+  but this is still memory-safe in Rust. Since the value is never dropped, its
+  destructor does not run.
 
   [`Box::leak`](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.leak)
   is another example of intentional leaking, often used to create data that
   lives for the remainder of the process.
 
-- Undo the leak and uncomment the `panic!` just below it. What do you expect
-  now?
+- Remove the `mem::forget` call, then uncomment the `panic!` below it. What do
+  you expect now?
 
-  The stack will still unwind and the destructors will still run, even when the
-  panic originates in `main`.
+  With the default `panic=unwind` setting, the stack still unwinds and
+  destructors run, even when the panic starts in `main`.
 
-  - This is only true when compiling with the default `panic=unwind` config
-    profile.
-
-    With
+  - With
     [`panic=abort`](https://doc.rust-lang.org/cargo/reference/profiles.html#panic),
     no unwinding takes place.
 
-- Finally, consider what happens when you also uncomment the `panic!` inside
-  `Foo::drop`.
+- Finally, uncomment the `panic!` inside `Foo::drop` and run it. Ask the class:
+  which destructors run before the abort?
 
 </details>

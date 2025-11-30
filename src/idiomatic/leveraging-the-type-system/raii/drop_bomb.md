@@ -45,11 +45,12 @@ fn main() -> io::Result<()> {
 <details>
 
 - A drop bomb ensures that a value like `Transaction` cannot be silently dropped
-  in an unfinished state. The destructor panics if neither `commit()` nor
-  `rollback()` has been called.
+  in an unfinished state. The destructor panics if the transaction has not been
+  explicitly finalized (for example, with `commit()`).
 
-- The finalizing operation (like `commit()` or `rollback()`) often consumes the
-  object and thus prevents the user from handling a finalized object.
+- The finalizing operation (such as `commit()`) usually take `self` by value.
+  This ensures that once the transaction is finalized, the original object can
+  no longer be used.
 
 - A common reason to use this pattern is when cleanup cannot be done in `Drop`,
   either because it is fallible or asynchronous.
@@ -57,16 +58,17 @@ fn main() -> io::Result<()> {
 - This pattern is appropriate even in public APIs. It can help users catch bugs
   early when they forget to explicitly finalize a transactional object.
 
-- If a value can be safely cleaned up in `Drop`, consider falling back to that
-  behavior in Release mode and panicking only in Debug. This decision should be
-  made based on the guarantees your API provides.
+- If cleanup can safely happen in `Drop`, some APIs choose to panic only in
+  debug builds. Whether this is appropriate depends on the guarantees your API
+  must enforce.
 
-- Panicking in Release builds is a valid choice if silent misuse could lead to
-  serious correctness issues or security concerns.
+- Panicking in Release builds is reasonable when silent misuse would cause major
+  correctness or security problems.
 
 ## More to explore
 
-There are additional patterns related to this slide that could be explored.
+Several related patterns help enforce correct teardown or prevent accidental
+drops.
 
 - The [`drop_bomb` crate](https://docs.rs/drop_bomb/latest/drop_bomb/): A small
   utility that panics if dropped unless explicitly defused with `.defuse()`.

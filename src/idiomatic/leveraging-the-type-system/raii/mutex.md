@@ -21,21 +21,20 @@ fn main() {
 <details>
 
 - A `Mutex` controls exclusive access to a value. Unlike earlier RAII examples,
-  the resource here is not external but logical: the right to mutate shared
-  data.
+  the resource here is logical: temporary exclusive access to the data inside.
 
-- This right is represented by a `MutexGuard`. Only one can exist at a time.
-  While it lives, it provides `&mut T` access.
+- This right is represented by a `MutexGuard`. Only one guard for this mutex can
+  exist at a time. While it lives, it provides `&mut T` access.
 
 - Although `lock()` takes `&self`, it returns a `MutexGuard` with mutable
-  access. This is possible through interior mutability: a common pattern for
-  safe shared-state mutation.
+  access. This works through _interior mutability_, where a type manages its own
+  borrowing rules internally to allow mutation through `&self`.
 
 - `MutexGuard` implements `Deref` and `DerefMut`, making access ergonomic. You
   lock the mutex, use the guard like a `&mut T`, and the lock is released
   automatically when the guard goes out of scope.
 
-- The release is handled by `Drop`. There is no need to call a separate unlock
-  function — this is RAII in action.
+- The release is handled by `Drop`. You never call an explicit unlock function.
+  The guard’s `Drop` implementation releases the lock automatically.
 
 </details>

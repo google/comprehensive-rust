@@ -40,9 +40,7 @@ fn main() -> Result<(), std::io::Error> {
 
 <details>
 
-- This example shows how easy it is to forget releasing a file descriptor when
-  managing it manually. The code as written does not call `file.close()`. Did
-  anyone in the class notice?
+- Easy to miss: `file.close()` is never called. Ask the class if they noticed.
 
 - To release the file descriptor correctly, `file.close()` must be called after
   the last use — and also in early-return paths in case of errors.
@@ -60,8 +58,8 @@ fn main() -> Result<(), std::io::Error> {
   ```
 
 - Note that `Drop::drop` cannot return errors. Any fallible logic must be
-  handled internally or ignored. In the standard library, errors returned while
-  closing an owned file descriptor during `Drop` are silently discarded:
+  handled internally or ignored. In the standard library, errors during FD
+  closure inside `Drop` are silently discarded. See the implementation:
   <https://doc.rust-lang.org/src/std/os/fd/owned.rs.html#169-196>
 
 - When is `Drop::drop` called?
@@ -75,8 +73,8 @@ fn main() -> Result<(), std::io::Error> {
   In contrast, C++ runs destructors in the original scope even for moved-from
   values.
 
-- Insert `panic!("oops")` at the start of `read_to_end()` to show that `drop()`
-  still runs during unwinding.
+- Demo: insert `panic!("oops")` at the start of `read_to_end()` and run it.
+  `drop()` still runs during unwinding.
 
 ### More to Explore
 
