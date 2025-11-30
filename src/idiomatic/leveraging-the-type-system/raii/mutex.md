@@ -1,9 +1,9 @@
 # Mutex and MutexGuard
 
 In earlier examples, RAII was used to manage concrete resources like file
-descriptors. With a `Mutex`, the "resource" is mutable access to a value.
-You access the value by calling `lock`, which then returns a `MutexGuard`
-which will unlock the `Mutex` automatically when dropped.
+descriptors. With a `Mutex`, the "resource" is mutable access to a value. You
+access the value by calling `lock`, which then returns a `MutexGuard` which will
+unlock the `Mutex` automatically when dropped.
 
 ```rust
 use std::sync::Mutex;

@@ -1,9 +1,8 @@
 # Drop Guards
 
-A **drop guard** in Rust is a temporary object that performs
-some kind of cleanup when it goes out of scope. In the case
-of `Mutex`, the `lock` method returns a `MutexGuard` that
-automatically unlocks the mutex on drop:
+A **drop guard** in Rust is a temporary object that performs some kind of
+cleanup when it goes out of scope. In the case of `Mutex`, the `lock` method
+returns a `MutexGuard` that automatically unlocks the mutex on drop:
 
 ```rust
 #[derive(Debug)]

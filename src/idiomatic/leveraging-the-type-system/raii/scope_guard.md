@@ -5,10 +5,8 @@ when a scope exits — even if due to an error.
 
 ```rust,editable,compile_fail
 use scopeguard::{ScopeGuard, guard};
-use std::{
-    fs::{self, File},
-    io::Write,
-};
+use std::fs::{self, File};
+use std::io::Write;
 
 fn download_successful() -> bool {
     // [...]
