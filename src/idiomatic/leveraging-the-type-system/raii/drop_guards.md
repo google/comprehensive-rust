@@ -73,9 +73,4 @@ fn main() {
   practice, one can use `std::thread::panicking()` to check if the guard was
   dropped during a panic.
 
-  - The standard library’s `std::sync::Mutex` uses this to implement
-    **poisoning**, where a mutex is marked as poisoned if a panic occurs while
-    holding the lock, since the protected value may now be in an inconsistent
-    state.
-
 </details>

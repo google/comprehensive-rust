@@ -25,7 +25,7 @@ fn main() {
   data.
 
 - This right is represented by a `MutexGuard`. Only one can exist at a time.
-  While it lives, it provides `&mut T` access — enforced using `UnsafeCell`.
+  While it lives, it provides `&mut T` access.
 
 - Although `lock()` takes `&self`, it returns a `MutexGuard` with mutable
   access. This is possible through interior mutability: a common pattern for
