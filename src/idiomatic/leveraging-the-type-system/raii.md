@@ -64,9 +64,6 @@ fn main() -> Result<(), std::io::Error> {
   closing an owned file descriptor during `Drop` are silently discarded:
   <https://doc.rust-lang.org/src/std/os/fd/owned.rs.html#169-196>
 
-- If both `drop()` and `close()` exist, the file descriptor may be released
-  twice. To avoid this, remove `close()` and rely solely on `Drop`.
-
 - When is `Drop::drop` called?
 
   Normally, when the `file` variable in `main` goes out of scope (either on
@@ -78,25 +75,8 @@ fn main() -> Result<(), std::io::Error> {
   In contrast, C++ runs destructors in the original scope even for moved-from
   values.
 
-- The same mechanism powers `std::mem::drop`:
-
-  ```rust
-  pub fn drop<T>(_x: T) {}
-  ```
-
-  You can use it to force early destruction of a value before its natural end of
-  scope.
-
 - Insert `panic!("oops")` at the start of `read_to_end()` to show that `drop()`
   still runs during unwinding.
-
-- There are cases where destructors will not run:
-  - If a destructor itself panics during unwinding, the program aborts
-    immediately.
-  - If the object that implements `Drop` is leaked, for example, through
-    `std::mem::forget()`. Leaking is safe in Rust.
-  - If the program exits with `std::process::exit()` or is compiled with the
-    `abort` panic strategy, destructors are skipped.
 
 ### More to Explore
 

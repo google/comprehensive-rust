@@ -445,6 +445,7 @@
     - [Mutex](idiomatic/leveraging-the-type-system/raii/mutex.md)
     - [Drop Guards](idiomatic/leveraging-the-type-system/raii/drop_guards.md)
     - [Drop Bomb](idiomatic/leveraging-the-type-system/raii/drop_bomb.md)
+    - [Drop Skipped](idiomatic/leveraging-the-type-system/raii/drop_skipped.md)
     - [Scope Guard](idiomatic/leveraging-the-type-system/raii/scope_guard.md)
   - [Extension Traits](idiomatic/leveraging-the-type-system/extension-traits.md)
     - [Extending Foreign Types](idiomatic/leveraging-the-type-system/extension-traits/extending-foreign-types.md)

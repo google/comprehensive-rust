@@ -2,52 +2,32 @@
 
 A **drop guard** in Rust is a temporary object that performs some kind of
 cleanup when it goes out of scope. In the case of `Mutex`, the `lock` method
-returns a `MutexGuard` that automatically unlocks the mutex on drop:
+returns a `MutexGuard` that automatically unlocks the mutex on `drop`:
 
 ```rust
-#[derive(Debug)]
-struct Mutex<T> {
-    value: std::cell::UnsafeCell<T>,
-    is_locked: std::sync::atomic::AtomicBool,
+struct Mutex {
+    is_locked: bool,
 }
 
-#[derive(Debug)]
-struct MutexGuard<'a, T> {
-    value: &'a mut T,
-    mutex: &'a Mutex<T>,
+struct MutexGuard<'a> {
+    mutex: &'a mut Mutex,
 }
 
-impl<T> Mutex<T> {
-    fn new(value: T) -> Self {
-        Self {
-            value: std::cell::UnsafeCell::new(value),
-            is_locked: std::sync::atomic::AtomicBool::new(false),
-        }
+impl Mutex {
+    fn new() -> Self {
+        Self { is_locked: false }
     }
 
-    fn lock(&self) -> MutexGuard<'_, T> {
-        // Acquire the lock and create the guard object.
-        if self.is_locked.swap(true, std::sync::atomic::Ordering::AcqRel) {
-            todo!("Block until the lock is released");
-        }
-        let value = unsafe { &mut *self.value.get() };
-        MutexGuard { value, mutex: self }
+    fn lock(&mut self) -> MutexGuard<'_> {
+        self.is_locked = true;
+        MutexGuard { mutex: self }
     }
 }
 
-impl<'a, T> Drop for MutexGuard<'a, T> {
+impl Drop for MutexGuard<'_> {
     fn drop(&mut self) {
-        self.mutex.is_locked.store(false, std::sync::atomic::Ordering::Release);
+        self.mutex.is_locked = false;
     }
-}
-
-fn main() {
-    let m = Mutex::new(vec![1, 2, 3]);
-
-    let mut guard = m.lock();
-    guard.value.push(4);
-    guard.value.push(5);
-    println!("{guard:?}");
 }
 ```
 
@@ -55,21 +35,27 @@ fn main() {
 
 - The example above shows a simplified `Mutex` and its associated guard. Even
   though it is not a production-ready implementation, it illustrates the core
-  idea: the guard enforces exclusive access, and its `Drop` implementation
-  guarantees that the lock is released when the guard goes out of scope.
+  idea: the guard enforces exclusive access, and its `Drop` implementation is
+  used to unlock it again when the guard goes out of scope or is manually
+  dropped.
 
-- A few things are left out for brevity:
+## More to Explore
 
-  - `Deref` and `DerefMut` implementations for `MutexGuard`, which would allow
-    you to use the guard as if it were a direct reference to the inner value.
-  - Making `.lock()` truly blocking, so that it waits until the mutex is free
-    before returning.
-    - In addition, a `.try_lock()` method could be added to provide a
-      non-blocking alternative, returning `Option::None` or `Result::Err(...)`
-      if the mutex is still locked.
+This example shows a C++ style mutex that does not contain the data it protects.
+While this is non idiomatic in Rust, the goal here is only to illustrate the
+core idea of a drop guard, not to demonstrate a proper Rust mutex design.
 
-- Panics are not explicitly handled in the `Drop` implementation here. In
-  practice, one can use `std::thread::panicking()` to check if the guard was
-  dropped during a panic.
+For brevity, several features are omitted:
+
+- Unlike the std `Mutex`, which owns its value, this version keeps the value
+  next to the `Mutex` rather than inside it.
+- Ergonomic access via `Deref` and `DerefMut` on `MutexGuard`.
+- A fully blocking `.lock()` method and a non blocking `try_lock` variant.
+
+You can explore the
+[`Mutex` implementation in Rust’s std library](https://doc.rust-lang.org/std/sync/struct.Mutex.html)
+as an example of a production ready mutex. The
+[`Mutex` from the `parking_lot` crate](https://docs.rs/parking_lot/latest/parking_lot/type.Mutex.html)
+is another worthwhile reference.
 
 </details>

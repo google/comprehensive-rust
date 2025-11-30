@@ -69,27 +69,11 @@ fn main() -> io::Result<()> {
 - Panicking in Release builds is a valid choice if silent misuse could lead to
   serious correctness issues or security concerns.
 
-## Additional Patterns
+## More to explore
 
-- [`Option<T>` with `.take()`](https://doc.rust-lang.org/std/option/enum.Option.html#method.take):
-  A common pattern inside `Drop` to move out internal values and prevent double
-  drops.
+There are additional patterns related to this slide that could be explored.
 
-  ```rust,compile_fail
-  impl Drop for MyResource {
-      fn drop(&mut self) {
-          if let Some(handle) = self.handle.take() {
-              // do cleanup with handle
-          }
-      }
-  }
-  ```
-
-- [`ManuallyDrop`](https://doc.rust-lang.org/std/mem/struct.ManuallyDrop.html):
-  Prevents automatic destruction and gives full manual control. Requires
-  `unsafe`, so only use when strictly necessary.
-
-- [`drop_bomb` crate](https://docs.rs/drop_bomb/latest/drop_bomb/): A small
+- The [`drop_bomb` crate](https://docs.rs/drop_bomb/latest/drop_bomb/): A small
   utility that panics if dropped unless explicitly defused with `.defuse()`.
   Comes with a `DebugDropBomb` variant that only activates in debug builds.
 
