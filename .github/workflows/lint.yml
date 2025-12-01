@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
@@ -30,7 +30,7 @@ jobs:
       NIGHTLY_VERSION: nightly-2025-09-01
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Install formatting dependencies
         uses: ./.github/workflows/apt-get-install
@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Check for typos
         uses: crate-ci/typos@v1.40.0
