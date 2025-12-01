@@ -48,7 +48,7 @@ fn main() -> io::Result<()> {
   in an unfinished state. The destructor panics if the transaction has not been
   explicitly finalized (for example, with `commit()`).
 
-- The finalizing operation (such as `commit()`) usually take `self` by value.
+- The finalizing operation (such as `commit()`) usually takes `self` by value.
   This ensures that once the transaction is finalized, the original object can
   no longer be used.
 
@@ -62,7 +62,7 @@ fn main() -> io::Result<()> {
   debug builds. Whether this is appropriate depends on the guarantees your API
   must enforce.
 
-- Panicking in Release builds is reasonable when silent misuse would cause major
+- Panicking in release builds is reasonable when silent misuse would cause major
   correctness or security problems.
 
 ## More to explore

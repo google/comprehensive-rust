@@ -56,11 +56,11 @@ fn main() {
 - Remove the `mem::forget` call, then uncomment the `panic!` below it. What do
   you expect now?
 
-  With the default `panic=unwind` setting, the stack still unwinds and
+  With the default `panic = "unwind"` setting, the stack still unwinds and
   destructors run, even when the panic starts in `main`.
 
   - With
-    [`panic=abort`](https://doc.rust-lang.org/cargo/reference/profiles.html#panic),
+    [`panic = "abort"`](https://doc.rust-lang.org/cargo/reference/profiles.html#panic),
     no unwinding takes place.
 
 - Finally, uncomment the `panic!` inside `Foo::drop` and run it. Ask the class:

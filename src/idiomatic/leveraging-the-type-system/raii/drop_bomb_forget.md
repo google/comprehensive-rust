@@ -42,8 +42,8 @@ In the previous slide we saw that calling
 [`std::mem::forget`](https://doc.rust-lang.org/std/mem/fn.forget.html) prevents
 `Drop::drop` from ever running.
 
-Remember that `mem::forget` leaks the value. This is safe in Rust, but the
-memory will not be reclaimed.
+Remember that `mem::forget` intentionally leaks the value. This is memory-safe
+in Rust, but the memory will not be reclaimed.
 
 However, this avoids needing a runtime flag: when the transaction is
 successfully committed, we can _defuse_ the drop bomb — meaning we prevent

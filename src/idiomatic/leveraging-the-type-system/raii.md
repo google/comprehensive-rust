@@ -1,5 +1,5 @@
 ---
-minutes: 30
+minutes: 60
 ---
 
 # RAII: `Drop` trait
@@ -57,7 +57,7 @@ fn main() -> Result<(), std::io::Error> {
   }
   ```
 
-- Note that `Drop::drop` cannot return errors. Any fallible logic must be
+- Note that `Drop::drop` cannot return a Result. Any fallible logic must be
   handled internally or ignored. In the standard library, errors during FD
   closure inside `Drop` are silently discarded. See the implementation:
   <https://doc.rust-lang.org/src/std/os/fd/owned.rs.html#169-196>

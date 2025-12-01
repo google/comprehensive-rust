@@ -1,7 +1,7 @@
 # Scope Guards
 
 A scope guard uses the `Drop` trait to run cleanup code automatically when a
-scope exits — even during unwinding.
+scope exits, even during unwinding.
 
 ```rust,editable,compile_fail
 use scopeguard::{ScopeGuard, guard};

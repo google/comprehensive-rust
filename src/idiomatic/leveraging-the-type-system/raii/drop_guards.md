@@ -44,7 +44,7 @@ impl Drop for MutexGuard<'_> {
 ## More to Explore
 
 This example shows a C++ style mutex that does not contain the data it protects.
-While this is non idiomatic in Rust, the goal here is only to illustrate the
+While this is non-idiomatic in Rust, the goal here is only to illustrate the
 core idea of a drop guard, not to demonstrate a proper Rust mutex design.
 
 For brevity, several features are omitted:
@@ -54,7 +54,7 @@ For brevity, several features are omitted:
   mechanism.
 - Ergonomic access via `Deref` and `DerefMut` on `MutexGuard` (letting the guard
   behave like a `&T` or `&mut T`).
-- A fully blocking `.lock()` method and a non blocking `try_lock` variant.
+- A fully blocking `.lock()` method and a non-blocking `try_lock` variant.
 
 You can explore the
 [`Mutex` implementation in Rust’s std library](https://doc.rust-lang.org/std/sync/struct.Mutex.html)
