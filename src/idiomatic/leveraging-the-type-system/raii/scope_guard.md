@@ -58,8 +58,8 @@ fn main() {
 
 - A scope guard is similar to the `defer` feature in Go.
 
-- This pattern is useful when you want fallbacks or cleanup code to run
-  automatically but only if success is not explicitly signaled.
+- This pattern is ideal for "cleanup on failure" scenarios, where a cleanup
+  should run by default unless a success path is explicitly taken.
 
 - This pattern is also useful when you don't control the cleanup strategy of the
   resource object. In this example, `File::drop()` closes the file but does not

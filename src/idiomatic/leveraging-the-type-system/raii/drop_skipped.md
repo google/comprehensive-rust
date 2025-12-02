@@ -4,26 +4,43 @@ There are cases where destructors will not run.
 
 ```rust,editable
 #[derive(Debug)]
-struct Foo<T: std::fmt::Debug>(T);
+struct OwnedFd(i32);
 
-impl<T: std::fmt::Debug> Drop for Foo<T> {
+impl Drop for OwnedFd {
     fn drop(&mut self) {
-        println!("{self:?}::drop() called");
+        println!("OwnedFd::drop() called");
 
-        // panic!("{self:?}::drop() panics");
+        println!("OwnedFd::drop() finished, with raw fd: {:?}", self.0);
+    }
+}
 
-        println!("{self:?}::drop() finished, with inner: {:?}", self.0);
+impl Drop for TmpFile {
+    fn drop(&mut self) {
+        println!("File::drop() called with owned fd: {:?}", self.0);
+
+        // libc::unlink("/tmp/file")
+
+        // panic!("File::drop() panics");
+    }
+}
+
+#[derive(Debug)]
+struct TmpFile(OwnedFd);
+
+impl TmpFile {
+    fn open() -> Self {
+        Self(OwnedFd(3))
     }
 }
 
 fn main() {
-    let value = Foo(Foo(Foo(())));
+    let file = TmpFile::open();
 
     std::process::exit(0);
 
-    // std::mem::forget(value);
+    // std::mem::forget(file);
 
-    // panic!("main() panics with value: {value:?}");
+    // panic!("main() panics with file: {file:?}");
 }
 ```
 
@@ -45,15 +62,10 @@ fn main() {
   [`std::mem::forget`](https://doc.rust-lang.org/std/mem/fn.forget.html) call.
   What do you think will happen?
 
-  Forgetting a value intentionally _leaks_ it — the memory is never reclaimed,
-  but this is still memory-safe in Rust. Since the value is never dropped, its
-  destructor does not run.
+  `mem::forget()` takes ownership and "forgets" about the value without running
+  its **destructor** `Drop::drop()`.
 
-  [`Box::leak`](https://doc.rust-lang.org/std/boxed/struct.Box.html#method.leak)
-  is another example of intentional leaking, often used to create data that
-  lives for the remainder of the process.
-
-- Remove the `mem::forget` call, then uncomment the `panic!` below it. What do
+- Remove the `mem::forget()` call, then uncomment the `panic!` below it. What do
   you expect now?
 
   With the default `panic = "unwind"` setting, the stack still unwinds and
@@ -63,7 +75,17 @@ fn main() {
     [`panic = "abort"`](https://doc.rust-lang.org/cargo/reference/profiles.html#panic),
     no unwinding takes place.
 
-- Finally, uncomment the `panic!` inside `Foo::drop` and run it. Ask the class:
-  which destructors run before the abort?
+- Note that it is a bad idea to rely exclusively on drop to clean up temporary
+  files.
+
+  If the program terminates in a way that skips running drop, temporary files
+  will persist, and eventually the computer will run out of space. This can
+  happen if the program crashes or leaks the value whose drop is responsible for
+  deleting the file. In addition to a drop implementation within the program,
+  one also needs a classic unix-style temp file reaper that runs as a separate
+  process.
+
+- Finally, uncomment the `panic!` inside `File::drop()` and run it. Ask the
+  class: which destructors run before the abort?
 
 </details>

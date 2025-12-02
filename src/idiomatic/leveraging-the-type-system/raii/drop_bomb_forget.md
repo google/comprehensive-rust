@@ -42,8 +42,11 @@ In the previous slide we saw that calling
 [`std::mem::forget`](https://doc.rust-lang.org/std/mem/fn.forget.html) prevents
 `Drop::drop` from ever running.
 
-Remember that `mem::forget` intentionally leaks the value. This is memory-safe
-in Rust, but the memory will not be reclaimed.
+Remember that `mem::forget()` takes ownership of a value and prevents its
+**destructor** (`Drop::drop()`) from running. If the forgotten value owned heap
+allocated memory that would normally be freed in its `drop()` implementation,
+this will result in a memory leak. That is not the case for the `Transaction` in
+the example above, since it does not own any heap memory.
 
 However, this avoids needing a runtime flag: when the transaction is
 successfully committed, we can _defuse_ the drop bomb — meaning we prevent
