@@ -38,8 +38,8 @@ fn main() {
     [`clippy::exit`](https://rust-lang.github.io/rust-clippy/stable/index.html#exit)
     lint.
 
-- If you remove the `std::process::exit(0)` line, the stack will unwind normally
-  and each `drop()` method will run in turn.
+- If you remove the `std::process::exit(0)` line, each `drop()` method will run
+  in turn.
 
 - Try uncommenting the
   [`std::mem::forget`](https://doc.rust-lang.org/std/mem/fn.forget.html) call.

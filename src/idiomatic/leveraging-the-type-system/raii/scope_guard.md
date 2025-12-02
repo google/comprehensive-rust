@@ -40,17 +40,31 @@ fn main() {
   then use a scope guard to ensure that the file is deleted if the download
   fails.
 
-- The guard is placed directly after creating the file, so even if `writeln!()`
+- The `scopeguard` crate allows you to conveniently define a single-use
+  `Drop`-based cleanup without defining a custom type with a custom `Drop`
+  implementation.
+
+- The guard is created directly after creating the file, so even if `writeln!()`
   fails, the file will still be cleaned up. This ordering is essential for
   correctness.
+
+- The `guard()` creates a `ScopeGuard` instance. It a user-defined value (in
+  this case, `path`) and the cleanup closure that later receives this value.
 
 - The guard's closure runs on scope exit unless it is _defused_ with
   `ScopeGuard::into_inner` (removing the value so the guard does nothing on
   drop). In the success path, we call `into_inner` so the guard will not delete
   the file.
 
+- A scope guard is similar to the `defer` feature in Go.
+
 - This pattern is useful when you want fallbacks or cleanup code to run
   automatically but only if success is not explicitly signaled.
+
+- This pattern is also useful when you don't control the cleanup strategy of the
+  resource object. In this example, `File::drop()` closes the file but does not
+  delete it, and we can't change the standard library to delete the file instead
+  (nor should we, it is not a good idea anyway).
 
 - The `scopeguard` crate also supports cleanup strategies via the
   [`Strategy`](https://docs.rs/scopeguard/latest/scopeguard/trait.Strategy.html)

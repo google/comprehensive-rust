@@ -31,10 +31,9 @@ fn main() {
   borrowing rules internally to allow mutation through `&self`.
 
 - `MutexGuard` implements `Deref` and `DerefMut`, making access ergonomic. You
-  lock the mutex, use the guard like a `&mut T`, and the lock is released
-  automatically when the guard goes out of scope.
+  lock the mutex and use the guard like a `&mut T`.
 
-- The release is handled by `Drop`. You never call an explicit unlock function.
-  The guard’s `Drop` implementation releases the lock automatically.
+- The mutex is released by `MutexGuard::drop()`. You never call an explicit
+  unlock function.
 
 </details>

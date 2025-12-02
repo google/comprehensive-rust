@@ -52,19 +52,20 @@ fn main() -> Result<(), std::io::Error> {
   ```rust,compile_fail
   impl Drop for File {
       fn drop(&mut self) {
-          println!("release file descriptor automatically");
+          // libc::close(...);
+          println!("file descriptor was closed");
       }
   }
   ```
 
-- Note that `Drop::drop` cannot return a Result. Any fallible logic must be
+- Note that `Drop::drop()` cannot return a `Result`. Any failures must be
   handled internally or ignored. In the standard library, errors during FD
   closure inside `Drop` are silently discarded. See the implementation:
   <https://doc.rust-lang.org/src/std/os/fd/owned.rs.html#169-196>
 
 - When is `Drop::drop` called?
 
-  Normally, when the `file` variable in `main` goes out of scope (either on
+  Normally, when the `file` variable in `main()` goes out of scope (either on
   return or due to a panic), `drop()` is called automatically.
 
   If the file is moved into another function, the value is dropped when that

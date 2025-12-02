@@ -1,5 +1,5 @@
 ---
-minutes: 65
+minutes: 30
 ---
 
 ## Typestate Pattern: Problem

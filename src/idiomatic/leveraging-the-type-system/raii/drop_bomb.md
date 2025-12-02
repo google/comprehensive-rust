@@ -44,6 +44,11 @@ fn main() -> io::Result<()> {
 
 <details>
 
+- In some systems, a value must be finalized by a specific API before it is
+  dropped.
+
+  For example, a `Transaction` might need to be committed or rolled back.
+
 - A drop bomb ensures that a value like `Transaction` cannot be silently dropped
   in an unfinished state. The destructor panics if the transaction has not been
   explicitly finalized (for example, with `commit()`).
@@ -65,6 +70,12 @@ fn main() -> io::Result<()> {
 - Panicking in release builds is reasonable when silent misuse would cause major
   correctness or security problems.
 
+- Question: Why do we need an `active` flag inside `Transaction`? Why can't
+  `drop()` panic unconditionally?
+
+  Expected answer: `commit()` takes `self` by value and runs `drop()`, which
+  would panic.
+
 ## More to explore
 
 Several related patterns help enforce correct teardown or prevent accidental
@@ -73,13 +84,5 @@ drops.
 - The [`drop_bomb` crate](https://docs.rs/drop_bomb/latest/drop_bomb/): A small
   utility that panics if dropped unless explicitly defused with `.defuse()`.
   Comes with a `DebugDropBomb` variant that only activates in debug builds.
-
-- In some systems, a value must be finalized by a specific API before it is
-  dropped.
-
-  For example, an `SshConnection` might need to be deregistered from an
-  `SshServer` before being dropped, or the program panics. This helps catch
-  programming mistakes during development and enforces correct teardown at
-  runtime.
 
 </details>

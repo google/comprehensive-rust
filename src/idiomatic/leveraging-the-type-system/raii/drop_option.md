@@ -24,7 +24,7 @@ impl File {
 impl Drop for File {
     fn drop(&mut self) {
         if let Some(handle) = self.0.take() {
-            println!("automatically close handle for file: {}", handle.path);
+            println!("automatically closing handle for file: {}", handle.path);
         }
     }
 }
@@ -34,7 +34,7 @@ struct Handle {
 }
 impl Drop for Handle {
     fn drop(&mut self) {
-        println!("close handle for file: {}", self.path)
+        println!("closed handle for file: {}", self.path)
     }
 }
 
