@@ -1,5 +1,5 @@
 ---
-minutes: 60
+minutes: 15
 ---
 
 # RAII: `Drop` trait

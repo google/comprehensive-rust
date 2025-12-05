@@ -1,3 +1,7 @@
+---
+minutes: 15
+---
+
 # Drop can be skipped
 
 There are cases where destructors will not run.

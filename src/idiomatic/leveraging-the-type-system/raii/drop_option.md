@@ -1,3 +1,7 @@
+---
+minutes: 10
+---
+
 # Drop: Option
 
 ```rust,editable

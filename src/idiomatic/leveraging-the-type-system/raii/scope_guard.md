@@ -1,3 +1,7 @@
+---
+minutes: 15
+---
+
 # Scope Guards
 
 A scope guard uses the `Drop` trait to run cleanup code automatically when a

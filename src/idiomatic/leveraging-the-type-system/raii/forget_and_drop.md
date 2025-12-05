@@ -1,3 +1,7 @@
+---
+minutes: 10
+---
+
 # forget and drop functions
 
 Below are the signatures for the

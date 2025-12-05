@@ -1,3 +1,7 @@
+---
+minutes: 10
+---
+
 # Mutex and MutexGuard
 
 In earlier examples, RAII was used to manage concrete resources like file

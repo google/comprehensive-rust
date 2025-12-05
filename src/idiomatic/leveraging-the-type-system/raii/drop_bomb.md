@@ -1,3 +1,7 @@
+---
+minutes: 15
+---
+
 # Drop Bombs: Enforcing API Correctness
 
 Use `Drop` to enforce invariants and detect incorrect API usage. A "drop bomb"

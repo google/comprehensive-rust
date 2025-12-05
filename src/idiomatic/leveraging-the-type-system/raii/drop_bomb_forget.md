@@ -1,3 +1,7 @@
+---
+minutes: 10
+---
+
 # Drop Bombs: using `std::mem::forget`
 
 ```rust,editable

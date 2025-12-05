@@ -1,3 +1,7 @@
+---
+minutes: 10
+---
+
 # Drop Guards
 
 A **drop guard** in Rust is a temporary object that performs some kind of
