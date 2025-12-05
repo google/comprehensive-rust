@@ -1,3 +1,7 @@
+---
+minutes: 10
+---
+
 ## Typestate Pattern with Generics
 
 By combining typestate modeling with generics, we can express a wider range of

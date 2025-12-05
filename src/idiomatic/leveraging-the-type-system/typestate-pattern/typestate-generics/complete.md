@@ -1,3 +1,7 @@
+---
+minutes: 15
+---
+
 ## Serializer: complete implementation
 
 Looking back at our original desired flow:
