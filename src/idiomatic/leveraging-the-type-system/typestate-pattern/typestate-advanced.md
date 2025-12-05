@@ -1,3 +1,7 @@
+---
+minutes: 10
+---
+
 ## Beyond Simple Typestate
 
 How do we manage increasingly complex configuration flows with many possible

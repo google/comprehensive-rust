@@ -1,3 +1,7 @@
+---
+minutes: 5
+---
+
 ## Serializer: implement Struct
 
 ```rust

@@ -1,3 +1,7 @@
+---
+minutes: 10
+---
+
 ## Typestate Pattern: Example
 
 The typestate pattern encodes part of a value’s runtime state into its type.
