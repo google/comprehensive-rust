@@ -42,19 +42,20 @@ fn main() -> io::Result<()> {
 
 <details>
 
-In the previous slide we saw that calling
-[`std::mem::forget`](https://doc.rust-lang.org/std/mem/fn.forget.html) prevents
-`Drop::drop` from ever running.
+This example removes the flag from the previous slide and makes the drop method
+panic unconditionally. To avoid that panic on a successful commit, the commit
+method now takes ownership of the transaction and calls
+[`std::mem::forget`](https://doc.rust-lang.org/std/mem/fn.forget.html), which
+prevents the `Drop::drop()` method from running.
 
-Remember that `mem::forget()` takes ownership of a value and prevents its
-**destructor** (`Drop::drop()`) from running. If the forgotten value owned heap
-allocated memory that would normally be freed in its `drop()` implementation,
-this will result in a memory leak. That is not the case for the `Transaction` in
-the example above, since it does not own any heap memory.
+If the forgotten value owned heap allocated memory that would normally be freed
+in its `drop()` implementation, one consequence is a memory leak. That is not
+the case for the `Transaction` in the example above, since it does not own any
+heap memory.
 
-However, this avoids needing a runtime flag: when the transaction is
-successfully committed, we can _defuse_ the drop bomb — meaning we prevent
-`Drop` from running — by calling `std::mem::forget` on the value instead of
-letting its destructor run.
+We can avoid needing a runtime flag by using `mem::forget()` in a tactical way.
+When the transaction commits successfully, we can defuse the drop bomb by
+calling `std::mem::forget` on the value, which prevents its `Drop`
+implementation from running.
 
 </details>

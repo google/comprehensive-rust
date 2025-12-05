@@ -12,7 +12,7 @@ struct OwnedFd(i32);
 
 impl Drop for OwnedFd {
     fn drop(&mut self) {
-        println!("OwnedFd::drop() called, with raw fd: {:?}", self.0);
+        println!("OwnedFd::drop() called with raw fd: {:?}", self.0);
     }
 }
 
@@ -53,6 +53,10 @@ fn main() {
 ```
 
 <details>
+
+- Drop is not guaranteed to always run. There is a number of cases when drop is
+  skipped: the program can crash or exit, the value with the drop implementation
+  can be leaked etc.
 
 - In the version that calls
   [`std::process::exit`](https://doc.rust-lang.org/std/process/fn.exit.html),
@@ -102,13 +106,17 @@ fn main() {
   disrupt unwinding and lead to unpredictable cleanup. It is best avoided unless
   there is a very specific need, such as in the case of a **drop bomb**.
 
-- A final piece of advice for this slide: do not rely **solely** on `drop()` for
-  cleaning up resources that must be released even if the program crashes or a
-  value is leaked. For example, deleting a temporary file in `drop()` is fine in
-  a toy example, but in a real `TmpFile` implementation you would still need an
-  external cleanup mechanism such as a temp file reaper.
+- Drop is suitable for cleaning up resources within the scope of a process, but
+  it is not the right tool for providing hard guarantees that something happens
+  outside of the process (e.g., on local disk, or in another service in a
+  distributed system).
 
-  By contrast, some actions like unlocking a mutex are safe to rely on `drop()`
-  for, since they have no lasting effects outside the process.
+- For example, deleting a temporary file in `drop()` is fine in a toy example,
+  but in a real program you would still need an external cleanup mechanism such
+  as a temp file reaper.
+
+- In contrast, we can rely on `drop()` to unlock a mutex, since it is a
+  process-local resource. If `drop()` is skipped and the mutex is left locked,
+  it has no lasting effects outside the process.
 
 </details>

@@ -68,8 +68,9 @@ fn main() -> Result<(), std::io::Error> {
   Normally, when the `file` variable in `main()` goes out of scope (either on
   return or due to a panic), `drop()` is called automatically.
 
-  If the file is moved into another function, the value is dropped when that
-  function returns — not in `main`.
+  If the file is moved into another function (as is this case with
+  `File::close()`), the value is dropped when that function returns — not in
+  `main`.
 
   In contrast, C++ runs destructors in the original scope even for moved-from
   values.
