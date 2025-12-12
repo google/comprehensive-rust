@@ -2,18 +2,24 @@
 minutes: 5
 ---
 
-# With
+# `with`
 
-Prefix for builder-style configuration.
+Prefix for various setter and constructor style functions.
 
 ```rust
-{Vec, BTreeSet}::with_capacity
-PathBuf::with_extension
-PathBuf::with_file_name
+impl<T> Vec<T> {
+    // Constructor style.
+    fn with_capacity(capacity: usize) -> Vec<T>;
+}
+
+impl Path {
+    // Simplified. Clone-And-Set style.
+    fn with_extension(&self, ext: &OsStr) -> Path;
+}
 ```
 
 <details>
-- Prefix for methods that set something internally.
+- Prefix for methods that create a new copy of a data structure.
 
 Can be constructors, builders, or setters.
 

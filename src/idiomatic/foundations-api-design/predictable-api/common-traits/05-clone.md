@@ -40,7 +40,9 @@ let reference_copied = reference_counted.clone();
 ```
 
 <details>
-- Deep clones a value, or in the case of smart pointers like `Rc`/`Arc` create a new instance of that pointer.
+
+- "Deep copy" a value, or in the case of reference counting pointers like
+  `Rc`/`Arc` create a new instance of that pointer.
 
 - When to not implement/derive: For types that, to maintain an invariant, the
   value should not be duplicated. We'll touch on this later in Idiomatic Rust.

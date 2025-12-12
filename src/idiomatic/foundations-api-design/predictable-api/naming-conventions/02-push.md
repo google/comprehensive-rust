@@ -2,28 +2,22 @@
 minutes: 2
 ---
 
-# Push
+# `push`
 
 Common on array-like structures.
 
 ```rust
-use std::collections::VecDeque;
+impl<T> Vec<T> {
+  fn push(&mut self, value: T)
+}
 
-let mut items: Vec<u8> = Vec::new();
-items.push(42);
-let mut items_queue: VecDeque<u8> = VecDeque::new();
-items_queue.push_front(233);
-// [233]
-items_queue.push_back(42);
-// [233, 42]
-items_queue.push_front(128);
-// [128, 233, 42]
-dbg!(items_queue);
+impl<T> VecDeque<T> {
+  fn push_back(&mut self, value: T)
+  fn push_front(&mut self, value: T)
+}
 ```
 
 <details>
-- Modifies an array-like structure by adding an element.
+- Modifies a sequential collection by adding an element.
 
-Needs mutable access!
-
-</details>
+- Takes `self` by mutable reference.

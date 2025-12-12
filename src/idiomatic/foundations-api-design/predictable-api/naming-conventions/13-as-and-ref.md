@@ -2,37 +2,77 @@
 minutes: 5
 ---
 
-# As and Ref
+# `as_` and `_ref`: reference conversions
 
-As is a prefix for getting a reference to something internal. Ref is a suffix.
+`as` is a prefix for methods that convert references. `ref` is a suffix (but
+prefer `as`.)
+
+`as` methods borrow out the primary piece of data contained in `&self`.
+
+Most commonly return references, but can also return a custom borrowing type or
+an unsafe pointer.
 
 ```rust,no_compile
-Option::as_ref // &Option<T> -> Option<&T>
-Option::as_slice // &Option<T> -> &[T] (0 or 1 elements)
-OwnedFd::as_fd // &'a OwnedFd -> BorrowedFd<'a> (we'll see this later!)
-Rc::as_ptr // &Rc<T> -> *const T
-Vec::as_ptr // &Vec<T> -> *const T
+impl<T> Rc<T> {
+    fn as_ptr(&self) -> *const T;
+
+    // Very common on container types, see how it's also on Option.
+    fn as_ref(&self) -> &T;
+}
+
+impl<T> Option<T> {
+    fn as_ref(&self) -> Option<&T>;
+    // Slices can be empty! So this is 0 or 1 elements.
+    fn as_slice(&self) -> &[T];
+}
+
+impl OwnedFd {
+    // Covered later.
+    fn as_fd(&'a self) -> BorrowedFd<'a>;
+}
 ```
 
 <details>
-- Method for getting a reference-style value from an owned or borrowed value.
 
-- Often used for getting something internal to a type.
+- Method that returns a borrow of the primary piece of contained data.
 
-  Collection and smart pointer types often have an `as_ptr` method, giving
-  access to the pointer of the value they contain.
+- The borrowing relationship is most often straightforward: the return value is
+  a reference that borrows `self`.
 
-- Does not consume the value! Main difference between this and `to` or `into`
-  functions.
+- Borrowing can also be subtle, and merely implied.
 
-- Highlight: OwnedFd::as_fd duplicates a file descriptor while tying ownership
-  of that descriptor to the original OwnedFd.
+  - The returned value could be a custom borrowing type, fore example,
+    `BorrowedFd` borrows `OwnedFd` through an explicit lifetime.
 
-  This gets covered later! Don't worry about this for now.
+  - We cover custom borrowing types later in this deep dive,
+    [PhantomData: OwnedFd & BorrowedFd](../../../leveraging-the-type-system/borrow-checker-invariants/phantomdata-04-borrowedfd.md).
 
-- Ref is a common suffix with `as`-named functions.
+  - The returned value could borrow `self` only logically, for example,
+    `as_ptr()` methods return an unsafe pointer. The borrow checker does not
+    track borrowing for pointers.
 
-  `as_ref` is often a transformation of a reference to a container type (such as
-  option) to an owned container of reference types.
+- The type implementing an "as" method should contain one primary piece of data
+  that is being borrowed out.
+
+  - The "as" naming convention does not work if the data type is an aggregate of
+    many fields without an obvious primary one. Think about the call site:
+
+  ```rust,compile_fail
+  my_vec.as_ptr() // OK
+  my_person.as_first_name() // does not read right, don't use "as_"
+  my_person.first_name() // OK
+  ```
+
+  - If you want to have two getters that you need to distinguish, one that
+    returns first name by value, and another one that returns it by reference,
+    use `_ref` suffix:
+
+  ```rust,compile_fail
+  impl Person {
+    fn first_name(&self) -> String
+    fn first_name_ref() -> &str
+    fn first_name_mut() -> &mut String
+  }
+  ```
 
 </details>

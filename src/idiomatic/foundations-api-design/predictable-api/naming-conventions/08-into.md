@@ -1,15 +1,21 @@
 ---
-Minutes: 2
+minutes: 2
 ---
 
-# Into
+# `into`
 
-Prefix for a type transformation style method.
+- Prefix for methods that convert `self` into another type.
+
+Consumes `self`, returns an owned value.
 
 ```rust
-Vec::into_parts
-Cell::into_inner
-IntoIter::into_iter
+impl <T> Vec<T> {
+    fn into_parts(self) -> (NonNull<T>, usize, usize);
+}
+
+impl <T> Cell<T> {
+    fn into_inner(self) -> T
+}
 ```
 
 <details>
@@ -24,6 +30,6 @@ way, including losing information.
   and produces an iterator over owned values, unlike `iter` and `iter_mut` which
   produce iterators over reference values.
 
-- Ask the class: what will `Vec::into_parts` do?
+- Ask the class: what will `Vec::into_raw_parts` do?
 
 </details>

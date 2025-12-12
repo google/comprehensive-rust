@@ -36,7 +36,9 @@ fn sync_to_server(...)
 ```
 
 <details>
-- Motivation: Documentation that merely repeats name/signature information provides nothing new to the API user.
+
+- Motivation: Documentation that merely repeats name/signature information
+  provides nothing new to the API user.
 
 Additionally, signature information may change over time without the
 documentation being updated accordingly!
@@ -46,8 +48,16 @@ documentation being updated accordingly!
   Naive approach to "always document your code," follows this advice literally
   but does not follow the intent.
 
-  Tests might enforce documentation coverage, this kind of documentation is an
-  easy fix.
+  Some tools might enforce documentation coverage, this kind of documentation is
+  an easy fix.
+
+- Be aware of the purpose of different modes of documentation:
+
+  - Library code will need to be documented in ways that understand the scope of
+    what it is used for and the breadth of people who are trying to use it.
+
+  - Application code has a more narrow purpose, it can afford to be more simple
+    and direct.
 
 - The name of an item is part of the documentation of that item.
 
@@ -57,8 +67,7 @@ documentation being updated accordingly!
   Therefore: Some aspects of the item are already covered when you start writing
   doc comments!
 
-  Do not feel you need to repeat information for the sake of a bullet point
-  list.
+  Do not repeat information for the sake of an itemized list.
 
 - Many areas of the standard library have minimal documentation because the name
   and types do give enough information.

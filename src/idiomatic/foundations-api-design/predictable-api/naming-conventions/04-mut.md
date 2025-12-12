@@ -2,16 +2,24 @@
 minutes: 2
 ---
 
-# Mut
+# `[method]_mut`: Mutable reference access
 
 Suffix for access-style methods.
 
 ```rust
-Vec::get_mut
-// Iterate over a slice by mutable reference, being able to mutate
-// items in the iterator as you iterate over them.
-slice::iter_mut
-RefCell::get_mut
+impl <T> Vec<T> {
+    // Simplified
+    fn get_mut(&mut self, usize) -> Option<&T>
+}
+
+impl <T> [T] {
+    // Simplified
+    fn iter_mut(&mut self) -> impl Iterator<Item=&mut T>
+}
+
+impl str {
+    fn from_utf8_mut(v: &mut [u8]) -> Result<&mut str, Utf8Error>
+}
 ```
 
 <details>
