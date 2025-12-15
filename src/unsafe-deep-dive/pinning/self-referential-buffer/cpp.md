@@ -31,7 +31,7 @@ This type can't be expressed easily in Rust.
 > simplicity.
 >
 > If your class includes experienced C++ developers, consider replacing `char*`
-> with `std::byte*`.
+> with `std::byte*`:
 >
 > ```cpp
 > #include <cstddef>
