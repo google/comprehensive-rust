@@ -496,6 +496,21 @@
   - [Data structures are safe](unsafe-deep-dive/foundations/data-structures-are-safe.md)
   - [Actions might not be](unsafe-deep-dive/foundations/actions-might-not-be.md)
   - [Less powerful than it seems](unsafe-deep-dive/foundations/less-powerful.md)
+- [Pinning](unsafe-deep-dive/pinning.md)
+  - [What a move is](unsafe-deep-dive/pinning/what-a-move-is.md)
+  - [What pinning is](unsafe-deep-dive/pinning/what-pinning-is.md)
+  - [Why it's difficult](unsafe-deep-dive/pinning/why-difficult.md)
+  - [`Unpin` trait](unsafe-deep-dive/pinning/unpin-trait.md)
+  - [`PhantomPinned`](unsafe-deep-dive/pinning/phantompinned.md)
+  - [Self-Referential Buffer Example](unsafe-deep-dive/pinning/self-referential-buffer.md)
+    - [C++ implementation](unsafe-deep-dive/pinning/self-referential-buffer/cpp.md)
+    - [Modeled in Rust](unsafe-deep-dive/pinning/self-referential-buffer/rust.md)
+      - [With a raw pointer](unsafe-deep-dive/pinning/self-referential-buffer/rust-raw-pointers.md)
+      - [With an integer offset](unsafe-deep-dive/pinning/self-referential-buffer/rust-offset.md)
+      - [With `Pin<Ptr>`](unsafe-deep-dive/pinning/self-referential-buffer/rust-pin.md)
+  - [`Pin<Ptr>` and `Drop`](unsafe-deep-dive/pinning/pin-and-drop.md)
+  - [Case Studies](unsafe-deep-dive/case-studies.md)
+    - [Tokio's Intrusive Linked List](unsafe-deep-dive/case-studies/intrusive-linked-list.md)
 
 ---
 
