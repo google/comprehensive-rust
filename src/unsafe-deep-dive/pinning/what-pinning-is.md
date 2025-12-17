@@ -1,5 +1,13 @@
 # What pinning is
 
+- `Pin<Ptr>` wraps a _pointer type_
+- Pointer types own their referent, i.e. `Box<T>`,
+- Prevents obtaining `&mut T` for `!Unpin` types because it owns a unique
+  reference
+- The pointed-to value cannot be moved by safe code
+
+## Definition
+
 Abridged `Pin` from the Rust standard library:
 
 ```rust,ignore
@@ -16,6 +24,11 @@ impl<Ptr: Deref<Target: Unpin>> Pin<Ptr> {
     pub unsafe fn new_unchecked(pointer: P) -> Pin<Ptr> { ... }
 }
 ```
+
+`Pin<Ptr>` makes use of the ownership system to control how the pinned value is
+accessed.
+
+This is explained in
 
 <details>
 

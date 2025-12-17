@@ -3,8 +3,6 @@
 - `Unpin` allows types within a `Pin` to move freely
 - `!Unpin` types must never move
 
--
-
 ## PhantomPinned
 
 ```rust,ignore

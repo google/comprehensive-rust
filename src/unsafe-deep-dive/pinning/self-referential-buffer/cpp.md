@@ -1,15 +1,20 @@
-# Motivating Example: C++
+---
+minutes: 15
+---
+
+# Modelled in C++
 
 ```cpp,editable,ignore
+#include <cstddef>
+#include <cstring>
+
 class SelfReferentialBuffer {
-    char data[1024];
-    char* cursor;
+    std::byte data[1024];
+    std::byte* cursor = data;
     
 public:
-    SelfReferentialBuffer() = default;
-    
     SelfReferentialBuffer(SelfReferentialBuffer&& other) 
-        : cursor(data + (other.cursor - other.data))
+        : cursor{data + (other.cursor - other.data)}
     {
         std::memcpy(data, other.data, 1024);
     }

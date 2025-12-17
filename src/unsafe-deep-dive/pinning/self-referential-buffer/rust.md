@@ -1,37 +1,48 @@
-# Rust
+---
+minutes: 10
+---
 
-```rust,editable
-// class SelfReferentialBuffer {
-//     char data[1024];
-//     char* cursor;
-//  
-//     ...
-//
-// };
+# Modeled in Rust
 
-// Close to the original, but requires unsafe
-struct SelfReferentialBuffer {
+```rust,ignore
+/// Raw pointers
+pub struct SelfReferentialBuffer {
     data: [u8; 1024],
-    cursor: *const u8,
+    cursor: *mut u8,
 }
 
+/// Integer offsets
+pub struct SelfReferentialBuffer {
+    data: [u8; 1024],
+    cursor: usize,
+}
 
-// More idiomatic, with different semantics
-struct SelfReferentialBufferSafe {
-    data: [i8; 1024],
-    position: usize,
+/// Pinning
+pub struct SelfReferentialBuffer {
+    data: [u8; 1024],
+    cursor: *mut u8,
+    _pin: std::marker::PhantomPinned,
+}
+```
+
+## Original C++ class definition for reference
+
+```cpp,ignore
+class SelfReferentialBuffer {
+    char data[1024];
+    char* cursor;
 }
 ```
 
 <details>
 
-While Rust would allow us to create a similar struct to the C++ class, it has a
-significant cost.
+The next few slides show three approaches to creating a Rust type with the same
+semantics as the original C++.
 
-We would give up references, falling back to raw pointers. This imposes unsafe
-code later on.
-
-A more idiomatic version would be to maintain an offset using a `usize`, then
-creating a reference to `self` on demand.
+- Using raw pointers: matches C++ very closely, but using the resulting type is
+  extremely hazardous
+- Storing integer offsets: more natural in Rust, but references need to be
+  created manually
+- Pinning: allows raw pointers with fewer `unsafe` blocks
 
 </details>
