@@ -500,16 +500,6 @@
     - [Dangerous](unsafe-deep-dive/introduction/characteristics-of-unsafe-rust/dangerous.md)
     - [Sometimes necessary](unsafe-deep-dive/introduction/characteristics-of-unsafe-rust/sometimes-necessary.md)
     - [Sometimes useful](unsafe-deep-dive/introduction/characteristics-of-unsafe-rust/sometimes-useful.md)
-- [Motivations](unsafe-deep-dive/motivations.md)
-  - [Interoperability](unsafe-deep-dive/motivations/interop.md)
-  - [Data Structures](unsafe-deep-dive/motivations/data-structures.md)
-  - [Performance](unsafe-deep-dive/motivations/performance.md)
-- [Foundations](unsafe-deep-dive/foundations.md)
-  - [What is unsafe?](unsafe-deep-dive/foundations/what-is-unsafe.md)
-  - [When is unsafe used?](unsafe-deep-dive/foundations/when-is-unsafe-used.md)
-  - [Data structures are safe](unsafe-deep-dive/foundations/data-structures-are-safe.md)
-  - [Actions might not be](unsafe-deep-dive/foundations/actions-might-not-be.md)
-  - [Less powerful than it seems](unsafe-deep-dive/foundations/less-powerful.md)
 - [Pinning](unsafe-deep-dive/pinning.md)
   - [What pinning is](unsafe-deep-dive/pinning/what-pinning-is.md)
   - [What a move is](unsafe-deep-dive/pinning/what-a-move-is.md)
@@ -525,8 +515,6 @@
       - [With `Pin<Ptr>`](unsafe-deep-dive/pinning/self-referential-buffer/rust-pin.md)
   - [`Pin<Ptr>` and `Drop`](unsafe-deep-dive/pinning/pin-and-drop.md)
     - [Worked Example](unsafe-deep-dive/pinning/drop-and-not-unpin-worked-example.md)
-- [Case Studies](unsafe-deep-dive/case-studies.md)
-  - [Tokio's Intrusive Linked List](unsafe-deep-dive/case-studies/intrusive-linked-list.md)
 
 ---
 
