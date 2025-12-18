@@ -7,7 +7,7 @@ minutes: 10
 Pinning allows Rust programmers to create a type which is much more similar to
 the C++ class.
 
-```rust,editible
+```rust,editable
 use std::marker::PhantomPinned;
 use std::pin::Pin;
 
@@ -72,13 +72,14 @@ impl SelfReferentialBuffer {
 <details>
 
 Note that the function signatures have now changed. For example, `::new()`
-returns `Pin<Box<Self>>` rather than `Self`. This incurs a memory allocation
-because `Pin<Ptr>` must work with a pointer type.
+returns `Pin<Box<Self>>` rather than `Self`. This incurs a heap allocation
+because `Pin<Ptr>` must work with a pointer type like `Box`.
 
-Indirection between `get_mut()` and `get_unchecked_mut()` is necessary because
-`self.get_unchecked_mut()` receives `self` by value and the `pinned` variable is
-a `Box`. The `Box` does not provide its inner value via its `Deref`
-implementation, which provides the normal auto-deref behavior. `get_mut()`
-returns `Pin<&mut SelfReferentialBuffer>`, which resolves the issue.
+In `::new()`, we use `Pin::get_unchecked_mut()` to get a mutable reference to the
+buffer *after* it has been pinned. This is `unsafe` because we are breaking the
+pinning guarantee for a moment to initialize the `cursor`. We must make sure
+not to move the `SelfReferentialBuffer` after this point. The safety contract of
+`Pin` is that once a value is pinned, its memory location is fixed until it is
+dropped.
 
 </details>

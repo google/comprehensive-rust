@@ -32,27 +32,5 @@ Its move constructor ensures that cursor is updated to the new memory address.
 
 This type can't be expressed easily in Rust.
 
-> Note: `char*` is dated, but exists in legacy codebases and is used here for
-> simplicity.
->
-> If your class includes experienced C++ developers, consider replacing `char*`
-> with `std::byte*`:
->
-> ```cpp
-> #include <cstddef>
-> #include <cstring>
->
-> class SelfReferentialBuffer {
->     std::byte data[1024];
->     std::byte* cursor = data;
->     
-> public:
->     SelfReferentialBuffer(SelfReferentialBuffer&& other) 
->         : cursor{data + (other.cursor - other.data)}
->     {
->         std::memcpy(data, other.data, 1024);
->     }
-> };
-> ```
 
 </details>

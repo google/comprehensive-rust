@@ -1,32 +1,16 @@
+---
+minutes: 5
+---
+
 # What pinning is
 
-- `Pin<Ptr>` wraps a _pointer type_
-- Pointer types own their referent, i.e. `Box<T>`,
-- Prevents obtaining `&mut T` for `!Unpin` types because it owns a unique
-  reference
+- A pinned type cannot change its memory address (move)
 - The pointed-to value cannot be moved by safe code
 
-## Definition
-
-Abridged `Pin` from the Rust standard library:
-
-```rust,ignore
-#[repr(transparent)]
-pub struct Pin<Ptr> {
-    pointer: Ptr,
-}
-
-impl<Ptr: Deref<Target: Unpin>> Pin<Ptr> {
-    pub fn new(pointer: Ptr) -> Pin<Ptr> { ... }
-
-    pub fn into_inner(pin: Pin<Ptr>) -> Ptr { ... }
-
-    pub unsafe fn new_unchecked(pointer: P) -> Pin<Ptr> { ... }
-}
-```
-
 `Pin<Ptr>` makes use of the ownership system to control how the pinned value is
-accessed.
+accessed. Rather than changing the language, Rust's ownership system is used to
+enforce pinning. `Pin` owns its contents and nothing in its safe API triggers a
+move.
 
 This is explained in
 
