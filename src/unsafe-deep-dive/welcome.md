@@ -25,20 +25,6 @@ We’ll work on three areas:
 - practicing reading & writing Unsafe Rust
 - practicing code review for Unsafe Rust
 
-## Links to other sections of the course
-
-The `unsafe` keyword has treatment in:
-
-- _Rust Fundamentals_, the main module of Comprehensive Rust, includes a session
-  on [Unsafe Rust] in its last day.
-- _Rust in Chromium_ discusses how to [interoperate with C++]. Consult that
-  material if you are looking into FFI.
-- _Bare Metal Rust_ uses unsafe heavily to interact with the underlying host,
-  among other things.
-
-[interoperate with C++]: ../chromium/interoperability-with-cpp.md
-[Unsafe Rust]: ../unsafe-rust.html
-
 <details>
 
 The goal of this class is to teach you enough Unsafe Rust for you to be able to
@@ -63,5 +49,13 @@ reviewed my more experienced Unsafe Rust engineers.
 
 “We'll be using a spiral model of teaching. This means that we revisit the same
 topic multiple times with increasing depth.”
+
+A round of introductions is useful, particularly if the class participants don't
+know each other well. Ask everyone to introduce themselves, noting down any
+particular goals for the class.
+
+- Who are you?
+- What are you working on?
+- What are your goals for this class?
 
 </details>
