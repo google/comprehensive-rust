@@ -500,6 +500,8 @@
     - [Dangerous](unsafe-deep-dive/introduction/characteristics-of-unsafe-rust/dangerous.md)
     - [Sometimes necessary](unsafe-deep-dive/introduction/characteristics-of-unsafe-rust/sometimes-necessary.md)
     - [Sometimes useful](unsafe-deep-dive/introduction/characteristics-of-unsafe-rust/sometimes-useful.md)
+  - [Responsibility shift](unsafe-deep-dive/introduction/responsibility-shift.md)
+  - [Stronger development workflow required](unsafe-deep-dive/introduction/impact-on-workflow.md)
 - [Pinning](unsafe-deep-dive/pinning.md)
   - [What pinning is](unsafe-deep-dive/pinning/what-pinning-is.md)
   - [What a move is](unsafe-deep-dive/pinning/what-a-move-is.md)
