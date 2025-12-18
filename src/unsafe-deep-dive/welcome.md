@@ -1,10 +1,8 @@
 ---
-course: Unsafe
-session: Day 1 Morning
-target_minutes: 300
+course: Unsafe Deep Dive
+session: Unsafe Deep Dive
+target_minutes: 600
 ---
-
-# Welcome to Unsafe Rust
 
 > IMPORTANT: THIS MODULE IS IN AN EARLY STAGE OF DEVELOPMENT
 >
@@ -17,19 +15,15 @@ target_minutes: 300
 
 [GitHub issue tracker]: https://github.com/google/comprehensive-rust/issues
 
-The `unsafe` keyword is easy to type, but hard to master. When used
-appropriately, it forms a useful and indeed essential part of the Rust
-programming language.
+# Welcome to the Unsafe Rust Deep Dive
 
-By the end of this deep dive, you'll know how to work with `unsafe` code, review
-others' changes that include the `unsafe` keyword, and produce your own.
+This deep dive aims to enable you to work productively with Unsafe Rust.
 
-What you'll learn:
+We’ll work on three areas:
 
-- What the terms undefined behavior, soundness, and safety mean
-- Why the `unsafe` keyword exists in the Rust language
-- How to write your own code using `unsafe` safely
-- How to review `unsafe` code
+- establishing a mental model of Unsafe Rust
+- practicing reading & writing Unsafe Rust
+- practicing code review for Unsafe Rust
 
 ## Links to other sections of the course
 
@@ -44,3 +38,30 @@ The `unsafe` keyword has treatment in:
 
 [interoperate with C++]: ../chromium/interoperability-with-cpp.md
 [Unsafe Rust]: ../unsafe-rust.html
+
+<details>
+
+The goal of this class is to teach you enough Unsafe Rust for you to be able to
+review easy cases yourself, and distinguish difficult cases that need to be
+reviewed my more experienced Unsafe Rust engineers.
+
+- Establishing a mental model of Unsafe Rust
+  - what the `unsafe` keyword means
+  - a shared vocabulary for talking about safety
+  - a mental model of how memory works
+  - common patterns
+  - expectations for code that uses `unsafe`
+
+- Practice working with unsafe
+  - reading and writing both code and documentation
+  - use unsafe APIs
+  - design and implement them
+
+- Review code
+  - the confidence to self-review easy cases
+  - the knowledge to detect difficult cases
+
+“We'll be using a spiral model of teaching. This means that we revisit the same
+topic multiple times with increasing depth.”
+
+</details>
