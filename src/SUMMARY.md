@@ -509,8 +509,8 @@
       - [With an integer offset](unsafe-deep-dive/pinning/self-referential-buffer/rust-offset.md)
       - [With `Pin<Ptr>`](unsafe-deep-dive/pinning/self-referential-buffer/rust-pin.md)
   - [`Pin<Ptr>` and `Drop`](unsafe-deep-dive/pinning/pin-and-drop.md)
-  - [Case Studies](unsafe-deep-dive/case-studies.md)
-    - [Tokio's Intrusive Linked List](unsafe-deep-dive/case-studies/intrusive-linked-list.md)
+- [Case Studies](unsafe-deep-dive/case-studies.md)
+  - [Tokio's Intrusive Linked List](unsafe-deep-dive/case-studies/intrusive-linked-list.md)
 
 ---
 
