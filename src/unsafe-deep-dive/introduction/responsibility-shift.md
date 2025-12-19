@@ -4,6 +4,11 @@ minutes: 3
 
 # Unsafe keyword shifts responsibility
 
+|             | Is Memory Safe? | Responsibility for Memory Safety |
+| :---------- | :-------------: | :------------------------------- |
+| Safe Rust   |       Yes       | Compiler                         |
+| Unsafe Rust |       Yes       | Programmer                       |
+
 Who has responsibility for memory safety?
 
 - Safe Rust → compiler

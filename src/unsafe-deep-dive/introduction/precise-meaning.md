@@ -2,7 +2,7 @@
 minutes: 10
 ---
 
-# Unsafe keyword has a precise meaning
+# Example: may_overflow function
 
 ```rust,editable
 /// Adds 2^31 - 1 to negative numbers.
@@ -38,7 +38,7 @@ deleted, producing erratic runtime behavior while also introducing security
 vulnerabilities.
 
 Compile and run the code, producing a panic. Then run the example in the
-playground to run under --release model to trigger UB.
+playground to run under `--release` mode to trigger UB.
 
 “This code can be used correctly, however, improper usage is highly dangerous.”
 

@@ -9,7 +9,21 @@ minutes: 5
 - The unsafe keyword allows programmers to assume responsibility for Rust’s
   rules
 
-<details>
+```
+┌───────────────┐   safe Rust    ┌──────────────┐
+│  Programmer   │───────────────▶│   Compiler   │
+└───────────────┘  (checks rules)└─────┬────────┘
+                                      │ enforces safety
+                                      ▼
+                             Memory safety guaranteed
+
+┌───────────────┐      unsafe     ┌──────────────┐
+│  Programmer   │◀───────────────┤   Compiler   │
+└──────┬────────┘  keyword shifts └──────────────┘
+       │ responsibility
+       ▼
+Assume and uphold Rust's rules yourself
+```
 
 <details>
 

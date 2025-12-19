@@ -4,63 +4,45 @@ minutes: 5
 
 # Unsafe is sometimes necessary
 
-The Rust compiler cannot control its external environment.
+The Rust compiler can only enforce its rules for code that it has compiled.
 
-<!-- mdbook-xgettext: skip -->
-
-```bob
-   specifications
-
-      ╭──────────╮    other
-      │   Rust   │    programs
-      ╰──────────╯ 
-                    OS
-  CPU
-          hardware
+```rust,editable
+fn main() {
+    let pid = unsafe { libc::getpid() };
+    println!("{pid}");
+}
 ```
-
-_Environment of a Rust program_
 
 <details>
 
-“There are some activities that _require_ unsafe.”
+“There are some activities that _require_ unsafe.
 
-“A few slides ago, we saw that the Send and Sync traits require that types
-comply with very strict rules. Those rules cannot be encoded into software, and
-making a mistake can cause serious problems. Yet, Rust verifies that types
-preserve its safety guarantees. The unsafe keyword shifts this verification
-burden to the trait implementor.”
+“The Rust compiler cannot verify that external functions comply with Rust's
+memory guarantees. Therefore, invoking external functions requires an unsafe
+block.”
 
-“Can anyone think of any other rules?”
+Optional:
 
-- `bool` is defined as using a whole byte, but may only use a single bit
-- References may not be null, i.e. may not use the all zero bit pattern
+“Working with the external environment often involves sharing memory. The
+interface that computers provide is a memory address (a pointer).”
 
-“What is meant by other programs in the diagram?”
+“Here's an example that asks the Linux kernel to write to memory that we
+control:
 
-- “Other programs’ memory. If we’re provided access to memory that’s managed by
-  a program outside of Rust’s control, then Rust has no ability to confirm that
-  its rules are being complied with.”
+```rust
+fn main() {
+    let mut buf = [0u8; 8];
+    let ptr = buf.as_mut_ptr() as *mut libc::c_void;
 
-“Why is the operating system in the diagram?”
+    let status = unsafe { libc::getrandom(ptr, buf.len(), 0) };
+    if status > 0 {
+        println!("{buf:?}");
+    }
+}
+```
 
-- “The operating system is another source of memory that’s external to the
-  program. Until you've explicitly confirmed that the memory is correctly
-  initialized, Rust will require you to use the unsafe to read from it. Memory
-  that’s potentially uninitialized is very hazardous and requires special
-  treatment.” “The operating system also provides many other services, such as
-  facilitating access to hardware devices.
-
-“Accessing specific CPU instructions and writing custom assembly language also
-require unsafe. This would enable us to use vector instructions for processing
-multiple values at the same time.”
-
-“There are also lots of interesting things that you might want to build that
-require unsafe blocks. Do you have any ideas?”
-
-- advanced data structures such as concurrency primitives and cyclic data
-  structures
-- memory allocators
-- programming languages! (Safe Rust is written with Unsafe Rust)
+“This FFI call reaches into the operating system to fill our buffer (`buf`). As
+well as calling an external function, we must mark the boundary as `unsafe`
+because the compiler cannot verify how the OS touches that memory.”
 
 </details>

@@ -40,4 +40,21 @@ would be impossible to implement `Vec` or `Box`.”
 and type safety still apply. Unsafe operations have their own rules, which we’ll
 learn about in this class.”
 
+The unsafe operations from the [Rust Reference] (Avoid spending too much time):
+
+> The following language level features cannot be used in the safe subset of
+> Rust:
+>
+> - Dereferencing a raw pointer.
+> - Reading or writing a mutable or unsafe external static variable.
+> - Accessing a field of a union, other than to assign to it.
+> - Calling an `unsafe` function.
+> - Calling a safe function marked with a `<target_feature>` from a function
+>   that does not have a `<target_feature>` attribute enabling the same features
+> - Implementing an unsafe trait.
+> - Declaring an extern block.
+> - Applying an unsafe attribute to an item.
+
+[Rust Reference]: https://doc.rust-lang.org/reference/unsafety.html
+
 </details>
