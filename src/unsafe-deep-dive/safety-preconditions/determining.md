@@ -11,7 +11,7 @@ fn main() {
 
 <details>
 
-Attempt to compile the program to trigger the compiler error ("error[E0133]:
+Attempt to compile the program to trigger the compiler error ("error\[E0133\]:
 call to unsafe function ...").
 
 Ask: “Where would you look if you wanted to know the preconditions for a

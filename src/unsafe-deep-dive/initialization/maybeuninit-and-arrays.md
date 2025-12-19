@@ -10,7 +10,7 @@ fn main() {
 
 <details>
 
-Uninitialized memory often arrives.
+Uninitialized memory often arrives as a pointer that we.
 
 Use `ptr::write` to initialize.
 

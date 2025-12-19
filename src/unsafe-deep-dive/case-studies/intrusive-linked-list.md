@@ -1,5 +1,7 @@
 # Tokio's Intrusive Linked List
 
+> Current as of tokio v1.48.0
+
 The Tokio project maintains an [intrusive linked list implementation][ill] that
 demonstrates many use cases of `unsafe` and a number of types and traits from
 Rust's unsafe ecosystem, including `cell::UnsafeCell`, `mem::ManuallyDrop`,
@@ -11,8 +13,6 @@ that happens naturally, as Rust types change their memory address every time
 they move.
 
 ## Introductory Walkthrough
-
-> Code snippets are taken from tokio v1.48.0
 
 The public API is provided by the `LinkedList<L, T>` type, which contains fields
 for the start and the end of the list. `Option<NonNull<T>>` could be read as a
