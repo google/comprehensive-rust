@@ -547,6 +547,20 @@
       - [With `Pin<Ptr>`](unsafe-deep-dive/pinning/self-referential-buffer/rust-pin.md)
   - [`Pin<Ptr>` and `Drop`](unsafe-deep-dive/pinning/pin-and-drop.md)
     - [Worked Example](unsafe-deep-dive/pinning/drop-and-not-unpin-worked-example.md)
+- [FFI](unsafe-deep-dive/ffi.md)
+  - [Language Interop](unsafe-deep-dive/ffi/language-interop.md)
+  - [Strategies](unsafe-deep-dive/ffi/strategies.md)
+  - [Consideration: Type Safety](unsafe-deep-dive/ffi/type-safety.md)
+  - [Language differences](unsafe-deep-dive/ffi/language-differences.md)
+    - [Different representations](unsafe-deep-dive/ffi/language-differences/representations.md)
+    - [Different semantics](unsafe-deep-dive/ffi/language-differences/semantics.md)
+    - [Rust ↔ C](unsafe-deep-dive/ffi/language-differences/rust-and-c.md)
+    - [C++ ↔ C](unsafe-deep-dive/ffi/language-differences/cpp-and-c.md)
+    - [Rust ↔ C++](unsafe-deep-dive/ffi/language-differences/rust-and-cpp.md)
+  - [`abs(3)`](unsafe-deep-dive/ffi/abs.md)
+  - [`rand(3)`](unsafe-deep-dive/ffi/rand.md)
+  - [Exercise:C library](unsafe-deep-dive/ffi/c-library-example.md)
+  - [Exercise: C++ library](unsafe-deep-dive/ffi/cpp-library-example.md)
 
 ---
 
