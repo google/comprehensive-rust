@@ -9,12 +9,12 @@ minutes: 3
 | Safe Rust   |       Yes       | Compiler                         |
 | Unsafe Rust |       Yes       | Programmer                       |
 
+<details>
+
 Who has responsibility for memory safety?
 
 - Safe Rust → compiler
 - Unsafe Rust → programmer
-
-<details>
 
 “While writing safe Rust, you cannot create memory safety problems. The compiler
 will ensure that a program with mistakes will not build.”
