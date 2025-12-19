@@ -25,7 +25,7 @@ Locations to look:
 - Module documentation
 - Rust Reference
 
-Consult [the documentation][ptr-as_mut]
+Consult [the documentation] for the `as_mut` method.
 
 Highlight Safety section.
 
@@ -44,3 +44,5 @@ Consider the implications of this excerpt (Rust 1.90.0) "You must enforce Rustâ€
 aliasing rules. The exact aliasing rules are not decided yet, ..."
 
 </details>
+
+[the documentation]: https://doc.rust-lang.org/std/primitive.pointer.html#method.as_mut
