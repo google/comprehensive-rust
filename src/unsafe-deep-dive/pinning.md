@@ -1,4 +1,4 @@
-# Welcome
+# Pinning
 
 This segment of the course covers:
 
@@ -7,15 +7,19 @@ This segment of the course covers:
 - How Rust implements it
 - How it interacts with unsafe and FFI
 
+## Outline
+
+{{%segment outline}}
+
 <details>
 
 "Pinning, or holding a value's memory address in a fixed location,is one of the
 more challenging concepts in Rust."
 
-"Normally only seen within async code, i.e. [`poll(self: Pin<&mut Self>)`],
-pinning has wider applicability."
+"Normally only seen within async code, i.e.
+[`poll(self: Pin<&mut Self>)`][poll], pinning has wider applicability."
 
-Some some data structures that are difficult or impossible to write without the
+Some data structures that are difficult or impossible to write without the
 unsafe keyword, including self-referential structs and intrusive data
 structures.
 
