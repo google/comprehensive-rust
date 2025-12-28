@@ -17,6 +17,6 @@ pub trait TraitBounds: Clone {...}
 <details>
 
 - In this section we'll be going through the core concepts of Rust's approach to
-  polymorphism, the things you'll run into the most.
+  polymorphism, the things you'll run into the most in day-to-day usage.
 
 </details>
