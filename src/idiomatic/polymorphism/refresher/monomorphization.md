@@ -31,8 +31,8 @@ fn main() {
 - This comes with a strong baseline performance and capacity for optimization,
   but at a cost of binary size and compile time.
 
-- There are plenty of ways to trim binary size and compilation times[, but we're
-  not covering them here?]
+- There are plenty of ways to trim binary size and compilation times, but we're
+  not covering them here.
 
 - Pay for what you use: Binary size increase of monomorphization is only
   incurred for instances of a type or functions on a type used in the final
