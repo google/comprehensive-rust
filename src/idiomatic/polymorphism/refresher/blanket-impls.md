@@ -2,7 +2,7 @@
 minutes: 10
 ---
 
-# Blanket trait implementations
+# Blanket Trait Implementations
 
 When a trait is local, we can implement it for as many types as we like. How far
 can we take this?

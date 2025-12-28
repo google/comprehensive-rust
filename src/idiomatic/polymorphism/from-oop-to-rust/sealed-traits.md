@@ -1,3 +1,7 @@
+---
+minutes: 5
+---
+
 # Sealed traits for Polymorphism users cannot extend
 
 ```rust

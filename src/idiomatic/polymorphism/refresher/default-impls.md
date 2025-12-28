@@ -2,7 +2,7 @@
 minutes: 5
 ---
 
-# Default method implementations
+# Default Method Implementations
 
 ```rust
 pub trait CollectLeaves {
