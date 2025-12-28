@@ -2,7 +2,7 @@
 
 Traits can be extended by new traits.
 
-```rust,compile_fail
+```rust
 pub trait DeviceId {
     /* trait for device ID types */
 }

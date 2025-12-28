@@ -14,7 +14,7 @@ pub struct Data {
 // Concrete behavior
 impl Data {
     fn new(id: usize, name: impl Into<String>) -> Self {
-        self { id, name: name.into() }
+        Self { id, name: name.into() }
     }
 }
 

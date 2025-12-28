@@ -5,6 +5,7 @@ minutes: 5
 # Sealing with Enums
 
 ```rust
+use std::collections::BTreeMap;
 pub enum GetSource {
     WebUrl(String),
     BytesMap(BTreeMap<String, Vec<u8>>),
@@ -13,8 +14,8 @@ pub enum GetSource {
 impl GetSource {
     fn get(&self, url: &str) -> Option<&Vec<u8>> {
         match self {
-            WebUrl(source) => unimplemented!(),
-            BytesMap(map) => map.get(url),
+            Self::WebUrl(source) => unimplemented!(),
+            Self::BytesMap(map) => map.get(url),
         }
     }
 }

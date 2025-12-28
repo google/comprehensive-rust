@@ -25,7 +25,7 @@ struct ChatId {
 
 impl Reciever for ChatId {
     fn send(&self, message: &str) {
-        println!("Chat message sent to {}: {}", self.uuid, message);
+        println!("Chat message sent to {:?}: {}", self.uuid, message);
     }
 }
 ```

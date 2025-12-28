@@ -19,12 +19,14 @@ impl DrawApi for TextDraw {
     fn arc(&self, center: [f32; 2], radius: f32, start_angle: f32, end_angle: f32) {
         println!("arc of radius ")
     }
+
+    fn line(&self, start: [f32; 2], end: [f32; 2]) {/* ... */}
 }
 
 // Question: What's a good API for users?
 
 pub trait Draw {
-    pub fn draw<T: DrawApi>(&self, surface: &mut T);
+    fn draw<T: DrawApi>(&self, surface: &mut T);
 }
 
 pub struct Rect {
@@ -33,12 +35,13 @@ pub struct Rect {
 }
 
 impl Draw for Rect {
-    pub fn draw<T: DrawApi>(&self, surface: &mut T) {
+    fn draw<T: DrawApi>(&self, surface: &mut T) {
         surface.line([self.start[0], self.start[1]], [self.end[0], self.start[1]]);
         surface.line([self.end[0], self.start[1]], [self.end[0], self.end[1]]);
         surface.line([self.end[0], self.end[1]], [self.start[0], self.end[1]]);
         surface.line([self.start[0], self.end[1]], [self.start[0], self.start[1]]);
     }
+
 }
 ```
 

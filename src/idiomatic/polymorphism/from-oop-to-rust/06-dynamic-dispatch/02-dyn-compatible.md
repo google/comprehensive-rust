@@ -17,7 +17,7 @@ pub trait Trait {
     const ASSOC_CONST: i32;
 
     // no longer dyn compatible
-    fn clone(&self) -> Self 
+    fn clone(&self) -> Self;
 }
 ```
 

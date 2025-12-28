@@ -5,6 +5,8 @@ minutes: 2
 # Statically Sized and Dynamically Sized Types
 
 ```rust
+use std::fmt::Debug;
+
 pub struct AlwaysSized<T /* : Sized */>(T);
 
 pub struct OptionallySized<T: ?Sized>(T);
