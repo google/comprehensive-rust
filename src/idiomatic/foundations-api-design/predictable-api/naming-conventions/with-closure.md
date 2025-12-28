@@ -24,6 +24,6 @@ mod iter {
 - `with` can appear as a suffix to communicate there is a specific function or
   closure that can be used instead of a "sensible default" for a computation.
 
-  Similar to [`by`](./10-by.md).
+  Similar to [`by`](./by.md).
 
 </details>
