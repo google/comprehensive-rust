@@ -42,6 +42,6 @@ cryptography).
     changes users need to update their code to match those changes.
 
   - Enums require branching on variants, whereas sealed traits lets the compile
-    specify monomophized functions for each type.
+    specify monomorphized functions for each type.
 
 </details>

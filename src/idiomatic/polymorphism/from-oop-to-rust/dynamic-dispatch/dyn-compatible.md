@@ -6,7 +6,6 @@ minutes: 10
 
 ```rust
 pub trait Trait {
-
     // dyn compatible
     fn takes_self(&self);
 

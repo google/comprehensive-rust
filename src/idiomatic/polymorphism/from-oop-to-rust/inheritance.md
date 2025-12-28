@@ -11,7 +11,7 @@ using namespace std;
 // Base class
 class Vehicle {
 public:
-    void accellerate() { }
+    void accelerate() { }
     void brake() { }
 };
 
@@ -23,7 +23,7 @@ public:
 
 int main() {
     Car myCar;                  // Create a Car object
-    myCar.accellerate();        // Inherited method
+    myCar.accelerate();        // Inherited method
     myCar.honk();               // Car's own method
     myCar.brake();              // Inherited method
     return 0;

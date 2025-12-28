@@ -481,7 +481,7 @@
     - [Conditional Methods](idiomatic/polymorphism/refresher/conditional-methods.md)
     - [Orphan Rule](idiomatic/polymorphism/refresher/orphan-rule.md)
     - [Statically Sized and Dynamically Sized types](idiomatic/polymorphism/refresher/sized.md)
-    - [Monomophization and Binary Size](idiomatic/polymorphism/refresher/monomorphization.md)
+    - [Monomorphization and Binary Size](idiomatic/polymorphism/refresher/monomorphization.md)
   - [From OOP to Rust](idiomatic/polymorphism/from-oop-to-rust.md)
     - [Inheritance](idiomatic/polymorphism/from-oop-to-rust/inheritance.md)
     - [Why no Inheritance in Rust?](idiomatic/polymorphism/from-oop-to-rust/why-no-inheritance.md)

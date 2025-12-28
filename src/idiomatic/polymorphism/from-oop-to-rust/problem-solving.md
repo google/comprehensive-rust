@@ -20,7 +20,8 @@ impl DrawApi for TextDraw {
         println!("arc of radius ")
     }
 
-    fn line(&self, start: [f32; 2], end: [f32; 2]) {/* ... */}
+    fn line(&self, start: [f32; 2], end: [f32; 2]) { /* ... */
+    }
 }
 
 // Question: What's a good API for users?
@@ -41,7 +42,6 @@ impl Draw for Rect {
         surface.line([self.end[0], self.end[1]], [self.start[0], self.end[1]]);
         surface.line([self.start[0], self.end[1]], [self.start[0], self.start[1]]);
     }
-
 }
 ```
 

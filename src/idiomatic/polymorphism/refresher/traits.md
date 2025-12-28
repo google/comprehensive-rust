@@ -5,7 +5,7 @@ minutes: 10
 # Traits, Protocols, Interfaces
 
 ```rust
-trait Reciever {
+trait Receiver {
     fn send(&self, message: &str);
 }
 
@@ -13,7 +13,7 @@ struct Email {
     email: String,
 }
 
-impl Reciever for Email {
+impl Receiver for Email {
     fn send(&self, message: &str) {
         println!("Email to {}: {}", self.email, message);
     }
@@ -23,7 +23,7 @@ struct ChatId {
     uuid: [u8; 16],
 }
 
-impl Reciever for ChatId {
+impl Receiver for ChatId {
     fn send(&self, message: &str) {
         println!("Chat message sent to {:?}: {}", self.uuid, message);
     }
