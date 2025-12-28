@@ -28,7 +28,7 @@ impl <T> [T] {
   case.
 
   This is a good name for understanding what is going on at the callsite. We end
-  up writing `<varible>.starts_with(<sequence>)` which scans well for authors
+  up writing `<variable>.starts_with(<sequence>)` which scans well for authors
   and readers of code.
 
 - Remember: the point of naming conventions is predictability, and how

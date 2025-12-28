@@ -32,7 +32,7 @@ let lots_of_data = LotsOfData {
     set: BTreeSet::from_iter([1, 2, 3, 4, 5, 6, 7, 8]),
 };
 
-let lod_cloned = lots_of_data.clone();
+let lots_of_data_cloned = lots_of_data.clone();
 
 let reference_counted = Rc::new(lots_of_data);
 // Copies the reference-counted pointer, not the value.

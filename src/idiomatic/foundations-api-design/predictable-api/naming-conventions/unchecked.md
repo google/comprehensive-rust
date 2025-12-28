@@ -13,7 +13,7 @@ impl <T> NonNull<T> {
     // A checked version of the constructor, `None` on null.
     fn new(ptr: *mut T) -> Option<NonNull<T>>
 
-    // Unchecked cosntructor, you can violate the non-null invariant!
+    // Unchecked constructor, you can violate the non-null invariant!
     unsafe fn new_unchecked(ptr: *mut T) -> NonNull<T>
 }
 
