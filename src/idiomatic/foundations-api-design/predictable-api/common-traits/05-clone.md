@@ -16,7 +16,7 @@ Derivable: ✅ When to implement: If duplicating doesn't break invariants.
 //     // Provided methods omitted
 // }
 
-use std::collections::BTreeMap;
+use std::collections::BTreeSet;
 use std::rc::Rc;
 
 #[derive(Clone)]
@@ -29,8 +29,8 @@ pub struct LotsOfData {
 let lots_of_data = LotsOfData {
     string: "String".to_string(),
     vec: vec![1; 255],
-    set: [1, 2, 3, 4, 5, 6, 7, 8].iter().collect(),
-}
+    set: BTreeSet::from_iter([1, 2, 3, 4, 5, 6, 7, 8]),
+};
 
 let lod_cloned = lots_of_data.clone();
 

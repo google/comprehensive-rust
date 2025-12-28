@@ -7,7 +7,7 @@ minutes: 1
 Rust does not have a `new` keyword, instead `new` is a common prefix or whole
 method name.
 
-```rust
+```rust,compile_fail
 impl <T> Vec<T> {
     // Creates an empty vec.
     fn new() -> Vec<T>;

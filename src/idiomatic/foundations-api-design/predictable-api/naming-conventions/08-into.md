@@ -8,13 +8,13 @@ minutes: 2
 
 Consumes `self`, returns an owned value.
 
-```rust
-impl <T> Vec<T> {
+```rust,compile_fail
+impl<T> Vec<T> {
     fn into_parts(self) -> (NonNull<T>, usize, usize);
 }
 
-impl <T> Cell<T> {
-    fn into_inner(self) -> T
+impl<T> Cell<T> {
+    fn into_inner(self) -> T;
 }
 ```
 

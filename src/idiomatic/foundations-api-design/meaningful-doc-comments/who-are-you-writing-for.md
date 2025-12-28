@@ -6,7 +6,7 @@ minutes: 10
 
 Colleagues, collaborators, largely-silent API users, or just yourself?
 
-```rust
+```rust,compile_fail
 // expert writes for experts
 /// Canonicalizes the MIR for the borrow checker.  
 ///  

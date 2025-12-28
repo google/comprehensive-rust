@@ -9,7 +9,7 @@ for the rest.
 
 `with` as in "`<Type>` with specific setting."
 
-```rust
+```rust,compile_fail
 impl<T> Vec<T> {
     // Initializes memory for at least N elements, len is still 0.
     fn with_capacity(capacity: usize) -> Vec<T>;

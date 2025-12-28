@@ -7,10 +7,9 @@ minutes: 10
 Unnecessary details can sometimes be indicative of something that does need
 documentation.
 
-```rust
+```rust,compile_fail
 /// Sorts a slice. Implemented using recursive quicksort.
-fn sort_quickly<T: Ord>(to_sort: &mut [T]) { /* ... */
-}
+fn sort_quickly<T: Ord>(to_sort: &mut [T]) { ... }
 ```
 
 <details>

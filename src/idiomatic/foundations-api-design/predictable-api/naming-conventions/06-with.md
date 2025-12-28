@@ -6,7 +6,7 @@ minutes: 5
 
 Prefix for various setter and constructor style functions.
 
-```rust
+```rust,compile_fail
 impl<T> Vec<T> {
     // Constructor style.
     fn with_capacity(capacity: usize) -> Vec<T>;

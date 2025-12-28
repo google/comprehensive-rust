@@ -8,7 +8,7 @@ Sometimes a `with` is just a `with`.
 
 `with` when used in common English contexts.
 
-```rust
+```rust,compile_fail
 // impl block for slices
 impl <T> [T] {
     // A condition, but doesn't start with `is`, and uses `with` as a normal word.

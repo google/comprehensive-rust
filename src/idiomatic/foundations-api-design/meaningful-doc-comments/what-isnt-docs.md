@@ -4,23 +4,23 @@ minutes: 5
 
 Names and Signatures are not full documentation
 
-```rust
-// bad  
+```rust,compile_fail
+// bad
 /// Returns a future that resolves when operation completes.  
-fn syncToServer() -> Future<Bool>  
+fn syncToServer() -> Future<Bool>;
 
-// good  
+// good
 /// Sends local edits to the server, overwriting concurrent edits  
 /// if any happened.  
-fn syncToServer() -> Future<Bool>  
-// bad  
+fn syncToServer() -> Future<Bool>;
+// bad
 /// Returns an error if sending the email fails.  
-fn send(&self, email: Email) -> Result<(), Error>  
+fn send(&self, email: Email) -> Result<(), Error>;
 
-// good  
+// good
 /// Queues the email for background delivery and returns immediately.  
 /// Returns an error immediately if the email is malformed.  
-fn send(&self, email: Email) -> Result<(), Error>
+fn send(&self, email: Email) -> Result<(), Error>;
 ```
 
 <details>

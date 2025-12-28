@@ -6,7 +6,7 @@ minutes: 2
 
 Peeling back safe abstractions on heap data.
 
-```rust
+```rust,compile_fail
 impl<T> Vec<T> {
     // Note how this is an unsafe function
     unsafe fn from_raw_parts(ptr: *mut T, length: usize, capacity: usize) -> Vec<T>;

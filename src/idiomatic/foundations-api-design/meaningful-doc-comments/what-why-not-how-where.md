@@ -6,7 +6,7 @@ minutes: 10
 
 Avoid documenting irrelevant details that may frequently change.
 
-```rust,no_compile
+```rust,compile_fail
 /// Sorts a slice. Implemented using recursive quicksort.
 
 fn sort_quickly<T: Ord>(to_sort: &mut [T]) { /* ... */

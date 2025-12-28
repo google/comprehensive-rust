@@ -6,14 +6,14 @@ minutes: 2
 
 Prefix for fallible methods that return a `Result`.
 
-```rust,no_compile
+```rust,compile_fail
 impl TryFrom<i32> for u32 {
     type Error = TryFromIntError;
-    fn try_from(value: i32) -> Result<i64, TryFromIntError>
+    fn try_from(value: i32) -> Result<i64, TryFromIntError>;
 }
 
 impl<T> Receiver<T> {
-    try_recv(&self) -> Result<T, TryRecvError>
+    try_recv(&self) -> Result<T, TryRecvError>;
 }
 ```
 

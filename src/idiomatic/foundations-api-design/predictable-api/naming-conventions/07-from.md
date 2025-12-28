@@ -6,7 +6,7 @@ minutes: 2
 
 A constructor function, strongly implying "type conversion".
 
-```rust
+```rust,compile_fail
 impl CStr {
     unsafe fn from_ptr<'a>(ptr: *const i8) -> &'a CStr;
 }

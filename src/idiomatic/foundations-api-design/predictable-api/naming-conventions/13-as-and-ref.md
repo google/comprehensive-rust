@@ -12,7 +12,7 @@ prefer `as`.)
 Most commonly return references, but can also return a custom borrowing type or
 an unsafe pointer.
 
-```rust,no_compile
+```rust,compile_fail
 impl<T> Rc<T> {
     fn as_ptr(&self) -> *const T;
 

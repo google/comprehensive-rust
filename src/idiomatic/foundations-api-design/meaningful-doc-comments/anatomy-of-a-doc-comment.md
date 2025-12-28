@@ -8,7 +8,7 @@ minutes: 5
 2. A more detailed explanation.
 3. Special sections: code examples, panics, errors, safety preconditions.
 
-````rust,no_compile
+````rust,compile_fail
 /// Parses a key-value pair from a string.
 ///
 /// The input string must be in the format `key=value`. Everything before the

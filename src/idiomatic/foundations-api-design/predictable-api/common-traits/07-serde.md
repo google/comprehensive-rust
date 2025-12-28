@@ -8,7 +8,7 @@ Crates like `serde` can implement serialization automatically.
 
 Derivable: ✅ When to implement: Almost always.
 
-```rust,no_compile
+```rust,compile_fail
 #[derive(Serialize, Deserialize)]
 struct ExtraData {
     fav_color: String,

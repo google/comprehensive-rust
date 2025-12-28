@@ -6,14 +6,14 @@ minutes: 2
 
 Common on array-like structures.
 
-```rust
+```rust,compile_fail
 impl<T> Vec<T> {
-  fn push(&mut self, value: T)
+    fn push(&mut self, value: T);
 }
 
 impl<T> VecDeque<T> {
-  fn push_back(&mut self, value: T)
-  fn push_front(&mut self, value: T)
+    fn push_back(&mut self, value: T);
+    fn push_front(&mut self, value: T);
 }
 ```
 

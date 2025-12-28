@@ -6,7 +6,7 @@ minutes: 2
 
 `with` as in "do X, but with this specific way of computing things."
 
-```rust
+```rust,compile_fail
 impl<T> Vec<T> {
     // Simplified. If the resize is larger than the current vec size, use the
     // closure to populate elements.

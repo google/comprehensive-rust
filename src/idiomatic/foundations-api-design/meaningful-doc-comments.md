@@ -11,7 +11,7 @@ pub mod client {}
 /// Function from A to B // ❌ Redundant
 fn a_to_b(a: A) -> B {...}
  
-/// Connects to the database. // ❌ Lacks detail                                                                                                                   │
+/// Connects to the database. // ❌ Lacks detail
 fn connect() -> Result<(), Error> {...}
 ```
 

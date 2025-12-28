@@ -8,7 +8,7 @@ minutes: 2
 
 `with` as in "like `<value>`, but with something different."
 
-```rust
+```rust,compile_fail
 impl Path {
     // Simplified. "/home/me/mortgage.pdf".with_extension("mov") =>
     // "/home/me/mortgage.mov"

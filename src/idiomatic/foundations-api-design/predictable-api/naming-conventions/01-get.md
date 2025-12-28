@@ -6,7 +6,7 @@ minutes: 2
 
 Getting an element from a collection or container.
 
-```rust,no_compile
+```rust,compile_fail
 impl <T> Vec<T> {
     fn get(&self, index: usize) -> Option<&T> {...}
 }

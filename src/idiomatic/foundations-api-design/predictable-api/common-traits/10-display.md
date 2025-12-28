@@ -10,6 +10,7 @@ Derivable: ❌, without crates like `derive_more`. When to implement: As-needed,
 for errors and other types that an end-user will see.
 
 ```rust
+#[derive(Debug)]
 pub enum NetworkError {
     HttpCode(u16),
     WhaleBitTheUnderseaCable,
@@ -18,8 +19,8 @@ pub enum NetworkError {
 impl std::fmt::Display for NetworkError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            HttpCode(code) => write!(f, "HTTP Error code {code}"),
-            WhaleBitTheUnderseaCable => {
+            NetworkError::HttpCode(code) => write!(f, "HTTP Error code {code}"),
+            NetworkError::WhaleBitTheUnderseaCable => {
                 write!(f, "Whale attack detected – call Ishmael")
             }
         }
