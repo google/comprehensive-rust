@@ -31,6 +31,8 @@ impl Named for Data {
 }
 ```
 
+<details>
+
 - From Rust's perspective, one where Inheritance was never there, introducing
   inheritance would look like muddying the water between types and traits.
 
@@ -51,3 +53,5 @@ impl Named for Data {
 - The convenience of flat field access and DRY in type definitions is not worth
   the loss in specificity between writing code that delineates between behavior
   and data.
+
+</details>

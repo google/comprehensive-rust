@@ -28,7 +28,10 @@ impl<T> Value<T> {
 ```
 
 <details>
-- When authoring a type with generic parameters, we can write implementations for that type that depend on what the parameters are or what traits they implement.
+
+- When authoring a type with generic parameters, we can write implementations
+  for that type that depend on what the parameters are or what traits they
+  implement.
 
 - These methods are only available when the type meets those conditions.
 

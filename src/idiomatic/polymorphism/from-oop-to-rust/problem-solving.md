@@ -46,7 +46,9 @@ impl Draw for Rect {
 ```
 
 <details>
-- You're already adept at breaking down problems, but you're likely used to reaching for OOP-style methods.
+
+- You're already adept at breaking down problems, but you're likely used to
+  reaching for OOP-style methods.
 
 This isn't a drastic change, it just requires re-ordering the way you approach
 things.

@@ -24,6 +24,8 @@ fn main() {
 }
 ```
 
+<details>
+
 - We can write polymorphic functions over generics or over trait objects.
 
 - When writing functions with generic parameters, for each unique type that
@@ -37,3 +39,5 @@ fn main() {
 
 - Generic parameters are zero-cost other than binary size. Types must be
   homogenous (all instances of T can only be the same type).
+
+</details>

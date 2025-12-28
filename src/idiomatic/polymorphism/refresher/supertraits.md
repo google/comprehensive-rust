@@ -1,3 +1,7 @@
+---
+minutes: 5
+---
+
 # Supertraits / Trait Dependencies
 
 Traits can be extended by new traits.
@@ -19,10 +23,12 @@ pub trait Ord: PartialOrd {
 ```
 
 <details>
-- When authoring a trait, you can specify traits that a type must also. These are called _Supertraits_.
 
-For the example above, any type that implements `GraphicsDevice` must also
-implement `DeviceId`.
+- When authoring a trait, you can specify traits that a type must also. These
+  are called _Supertraits_.
+
+  For the example above, any type that implements `GraphicsDevice` must also
+  implement `DeviceId`.
 
 - These hierarchies of traits let us design systems around the behavior of
   complex real-world taxonomies (like machine hardware, operating system

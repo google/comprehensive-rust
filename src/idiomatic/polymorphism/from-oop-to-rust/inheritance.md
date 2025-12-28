@@ -30,7 +30,10 @@ int main() {
 }
 ```
 
-- Here to remind students what inheritance is.
+<details>
+
+- This should be a short reminder for students about what inheritance is in
+  other languages.
 
 - Inheritance is a mechanism where a "child" type gains the fields and methods
   of the "parent" types it is inheriting from.
@@ -38,3 +41,5 @@ int main() {
 - Methods are able to be overridden as-needed by the inheriting type.
 
 - Can call methods of inherited-from classes with `super`.
+
+</details>

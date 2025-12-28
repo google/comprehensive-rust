@@ -21,10 +21,13 @@ pub trait CollectLeaves {
 ```
 
 <details>
-- Traits often have methods that are implemented for you already, once you implement the required methods.
+
+- Traits often have methods that are implemented for you already, once you
+  implement the required methods.
 
 - A trait method has a default implementation if the function body is present.
-  This implementation can be written
+  This implementation can be written in terms of other methods available, such
+  as other methods in the trait or methods of a supertrait.
 
 - Often you'll see methods that provide the broad functionality that is
   necessary to implement (like `Ord`'s `compare`) with default implementations

@@ -30,6 +30,8 @@ fn main() {
 }
 ```
 
+<details>
+
 - Coming from an OOP background, it's understandable to reach for this dynamic
   dispatch tool as early as possible.
 
@@ -62,3 +64,5 @@ fn main() {
   the inputs implement `Display`, the return type does not.
 
 - This leads to less performant code which is harder to understand
+
+</details>

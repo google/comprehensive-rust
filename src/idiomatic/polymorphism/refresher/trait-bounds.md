@@ -21,6 +21,8 @@ fn main() {
 }
 ```
 
+<details>
+
 - Traits are most commonly used as bounds on generic type parameters for a
   function or method.
 
@@ -33,3 +35,5 @@ fn main() {
 ref:
 
 - https://doc.rust-lang.org/reference/trait-bounds.html
+
+</details>

@@ -18,7 +18,9 @@ impl APITrait for Vec<u8> {}
 ```
 
 <details>
-- Motivation: We want trait-driven code in a crate, but we don't want projects that depend on this crate to be able to implement a trait.
+
+- Motivation: We want trait-driven code in a crate, but we don't want projects
+  that depend on this crate to be able to implement a trait.
 
 Why?
 

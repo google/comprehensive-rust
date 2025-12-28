@@ -17,12 +17,15 @@ fn main() {
 ```
 
 <details>
-- Dynamic Dispatch is a tool in Object Oriented Programming that is often used in places where one needs to care more about the behavior of a type than what the type is.
 
-In OOP languages, dynamic dispatch is often an _implicit_ process and not
-something you can opt out of.
+- Dynamic Dispatch is a tool in Object Oriented Programming that is often used
+  in places where one needs to care more about the behavior of a type than what
+  the type is.
 
-In rust, we use `dyn Trait`: An opt-in form of dynamic dispatch.
+  In OOP languages, dynamic dispatch is often an _implicit_ process and not
+  something you can opt out of.
+
+  In rust, we use `dyn Trait`: an opt-in form of dynamic dispatch.
 
 - For any trait that is _dyn compatible_ we can coerce a reference to a value of
   that trait into a `dyn Trait` value.

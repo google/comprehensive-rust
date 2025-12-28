@@ -24,7 +24,10 @@ fn main() {
 ```
 
 <details>
-- We've already covered normal traits at length, but compared to enums and sealed traits they allow users to extend an API by implementing the behavior that API asks of them.
+
+- We've already covered normal traits at length, but compared to enums and
+  sealed traits they allow users to extend an API by implementing the behavior
+  that API asks of them.
 
 This ability for users to extend is powerful for a number of domains, from
 serialization to abstract representations of hardware and type safe linear

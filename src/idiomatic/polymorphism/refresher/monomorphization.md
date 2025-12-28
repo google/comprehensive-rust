@@ -23,7 +23,10 @@ fn main() {
 ```
 
 <details>
-- Each instance of a function or type with generics gets transformed into a unique, concrete version of that function at compile time. Generics do not exist at runtime, only specific types.
+
+- Each instance of a function or type with generics gets transformed into a
+  unique, concrete version of that function at compile time. Generics do not
+  exist at runtime, only specific types.
 
 - This comes with a strong baseline performance and capacity for optimization,
   but at a cost of binary size and compile time.

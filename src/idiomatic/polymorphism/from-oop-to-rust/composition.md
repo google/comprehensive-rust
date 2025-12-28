@@ -21,10 +21,13 @@ pub struct User {
 ```
 
 <details>
-- Rather than mixins or inheritance, we compose types by creating fields of different types.
 
-This has downsides, largely in ergonomics of field access, but gives developers
-a lot of control and clarity over what a type does and it has access to.
+- Rather than mixins or inheritance, we compose types by creating fields of
+  different types.
+
+  This has downsides, largely in ergonomics of field access, but gives
+  developers a lot of control and clarity over what a type does and it has
+  access to.
 
 - When deriving traits, make sure all the field types of a struct or variant
   types of an enum implement that trait. Derive macros often assume all types

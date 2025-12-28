@@ -31,6 +31,7 @@ impl Receiver for ChatId {
 ```
 
 <details>
+
 - Rust's concept of polymorphism and generics is heavily built around traits.
 
 - Traits are requirements on a type in a generic context.

@@ -2,7 +2,7 @@
 minutes: 10
 ---
 
-# Why no inheritance in Rust?
+# Why no Inheritance in Rust?
 
 ```rust,compile_fail
 pub struct Id {
@@ -40,7 +40,8 @@ impl SomeTrait for Data {
 ```
 
 <details>
-- Inheritance comes with a number of downsides:
+
+- Inheritance comes with a number of downsides.
 
 - Heterogeneous by default:
 

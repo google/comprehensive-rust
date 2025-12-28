@@ -19,6 +19,7 @@ fn main() {
 ```
 
 <details>
+
 - Trait objects are a limited way of solving problems.
 
 - If you want to downcast to a concrete type from a trait object, you will need

@@ -22,7 +22,9 @@ impl GetSource {
 ```
 
 <details>
-- Motivation: API is designed around a specific list of types that are valid for it, users of the API are not expected to extend it.
+
+- Motivation: API is designed around a specific list of types that are valid for
+  it, users of the API are not expected to extend it.
 
 - Enums in Rust are _algebraic data types_, we can define different structures
   for each variant.

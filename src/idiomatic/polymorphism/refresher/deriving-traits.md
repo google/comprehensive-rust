@@ -16,7 +16,9 @@ struct DrawingBuffer {
 ```
 
 <details>
-- Many traits, protocols, interfaces, have trivial implementations that would be easy to mechanically write.
+
+- Many traits, protocols, interfaces, have trivial implementations that would be
+  easy to mechanically write.
 
 - Definitions of types (their syntax trees) can be fed to procedural macros
   (compiler plugins) to automatically generate implementations of traits.

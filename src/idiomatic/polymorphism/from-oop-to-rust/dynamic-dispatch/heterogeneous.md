@@ -33,7 +33,9 @@ fn main() {
 ```
 
 <details>
-- `dyn Trait`, being a dynamic dispatch tool, lets us store heterogeneous data users can extend in collections.
+
+- `dyn Trait`, being a dynamic dispatch tool, lets us store heterogeneous data
+  in collections.
 
 - In this example, we're storing types that all implement `std::fmt::Display`
   and printing all items in that collection to screen.

@@ -25,13 +25,15 @@ fn main() {
 ```
 
 <details>
-- The `Any` trait allows us to downcast values back from dyn values into concrete values.
 
-This is an auto trait: like Send/Sync/Sized, it is automatically implemented for
-any type that meets specific criteria.
+- The `Any` trait allows us to downcast values back from dyn values into
+  concrete values.
 
-The criteria for Any is that a type is `'static`. That is, the type does not
-contain any non-`'static` lifetimes within it.
+- This is an auto trait: like Send/Sync/Sized, it is automatically implemented
+  for any type that meets specific criteria.
+
+- The criteria for Any is that a type is `'static`. That is, the type does not
+  contain any non-`'static` lifetimes within it.
 
 - Any offers two related behaviors: downcasting, and runtime checking of types
   being the same.

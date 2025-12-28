@@ -14,8 +14,10 @@ pub struct OptionallySized<T: ?Sized>(T);
 type Dyn1 = OptionallySized<dyn Debug>;
 ```
 
-Motivation: Being able to specify between types whose size are known and compile
-time and types whose size are known at runtime is useful for
+<details>
+
+- Motivation: Being able to specify between types whose size are known and
+  compile time and types whose size are known at runtime is useful for
 
 - The Sized trait is automatically implemented by types with a known size at
   compile-time.
@@ -33,3 +35,5 @@ time and types whose size are known at runtime is useful for
 ref:
 
 - https://doc.rust-lang.org/stable/reference/dynamically-sized-types.html#r-dynamic-sized
+
+</details>

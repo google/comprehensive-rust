@@ -20,6 +20,8 @@ pub trait Trait {
 }
 ```
 
+<details>
+
 - Not all traits are able to be invoked as trait objects. A trait that can be
   invoked is referred to as a _dyn compatible_ trait.
 
@@ -48,3 +50,5 @@ pub trait Trait {
 ref:
 
 - https://doc.rust-lang.org/1.91.1/reference/items/traits.html#r-items.traits.dyn-compatible
+
+</details>

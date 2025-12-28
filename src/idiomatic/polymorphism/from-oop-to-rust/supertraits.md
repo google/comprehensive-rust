@@ -11,7 +11,9 @@ pub trait Trait: SuperTrait {}
 ```
 
 <details>
-- In Rust, traits can depend on other traits. We're already familiar with Traits being able to have Supertraits.
+
+- In Rust, traits can depend on other traits. We're already familiar with Traits
+  being able to have Supertraits.
 
 - This looks superficially similar to inheritance.
 

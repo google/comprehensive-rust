@@ -2,7 +2,7 @@
 minutes: 2
 ---
 
-# From OOP to Rust: Composition, not Inheritance
+# From OOP to Rust: Composition, Not Inheritance
 
 - Inheritance is key to OOP's success as a paradigm. Decades of successful
   software engineering has been done with Inheritance as a core part of business

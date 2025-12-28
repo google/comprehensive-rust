@@ -25,10 +25,12 @@ where
 ```
 
 <details>
-- The subject of a trait implementation at the definition site of a trait can be anything, including `T` with no bounds.
 
-We can't do anything with a `T` we don't know nothing about, so this is
-uncommon.
+- The subject of a trait implementation at the definition site of a trait can be
+  anything, including `T` with no bounds.
+
+  We can't do anything with a `T` we don't know nothing about, so this is
+  uncommon.
 
 - Conditional blanket implementations are much more useful and you are more
   likely to see and author them.

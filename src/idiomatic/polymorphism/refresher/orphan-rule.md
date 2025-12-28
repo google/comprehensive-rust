@@ -31,11 +31,14 @@ impl DbConnection for PostgresqlConn {} // ❌🔨
 ```
 
 <details>
-- Rust traits should never be able to be implemented twice in its ecosystem. Two implementations of the same trait for the same type is a conflict with no solution.
 
-We can prevent this within a crate by detecting if there are multiple
-definitions and disallowing it, but what about between crates in the entire rust
-ecosystem?
+- Rust traits should never be able to be implemented twice in its ecosystem. Two
+  implementations of the same trait for the same type is a conflict with no
+  solution.
+
+- We can prevent this within a crate by detecting if there are multiple
+  definitions and disallowing it, but what about between crates in the entire
+  rust ecosystem?
 
 - Types are either _local_ to a crate, they are defined there, or they're not.
 
