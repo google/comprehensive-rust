@@ -6,7 +6,9 @@ minutes: 5
 
 "Write to string" trait, for debug purposes.
 
-Derivable: ✅ When to implement: Almost always
+Derivable: ✅
+
+When to implement: Almost always
 
 ```rust
 // pub trait Debug {

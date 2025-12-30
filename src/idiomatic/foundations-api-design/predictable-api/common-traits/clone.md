@@ -6,7 +6,9 @@ minutes: 5
 
 Deep-copy a type or duplicate a smart, shareable pointer.
 
-Derivable: ✅ When to implement: If duplicating doesn't break invariants.
+Derivable: ✅
+
+When to implement: If duplicating doesn't break invariants.
 
 ```rust
 // pub trait Clone: Sized {

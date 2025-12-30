@@ -6,7 +6,9 @@ minutes: 10
 
 Partial ordering & Total ordering.
 
-Derivable: ✅ When to implement: Almost always.
+Derivable: ✅
+
+When to implement: Almost always.
 
 ```rust
 // pub trait PartialOrd<Rhs = Self>: PartialEq<Rhs>

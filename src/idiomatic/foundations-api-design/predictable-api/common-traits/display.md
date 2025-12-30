@@ -6,8 +6,10 @@ minutes: 5
 
 "Write to string" trait, prioritizing readability for an end user.
 
-Derivable: ❌, without crates like `derive_more`. When to implement: As-needed,
-for errors and other types that an end-user will see.
+Derivable: ❌, without crates like `derive_more`.
+
+When to implement: As-needed, for errors and other types that an end-user will
+see.
 
 ```rust
 #[derive(Debug)]

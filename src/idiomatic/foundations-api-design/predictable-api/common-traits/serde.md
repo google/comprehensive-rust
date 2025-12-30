@@ -6,7 +6,9 @@ Serialize/Deserialize style traits
 
 Crates like `serde` can implement serialization automatically.
 
-Derivable: ✅ When to implement: Almost always.
+Derivable: ✅
+
+When to implement: Almost always.
 
 ```rust,compile_fail
 #[derive(Serialize, Deserialize)]

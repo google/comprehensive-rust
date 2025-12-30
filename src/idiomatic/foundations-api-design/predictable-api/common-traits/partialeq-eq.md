@@ -6,7 +6,9 @@ PartialEq and Eq
 
 Partial equality & Total equality.
 
-Derivable: ✅ When to implement: Almost always.
+Derivable: ✅
+
+When to implement: Almost always.
 
 ```rust
 // pub trait PartialEq<Rhs = Self>

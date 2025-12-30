@@ -6,7 +6,9 @@ minutes: 10
 
 Like `Clone`, but indicates the type is can be bitwise copied.
 
-Derivable: ✅ When to implement: Sometimes.
+Derivable: ✅
+
+When to implement: If possible, but with caveats.
 
 ```rust
 // Copy is just a marker trait with Clone as a supertrait.

@@ -6,7 +6,9 @@ minutes: 5
 
 Fallible conversion from one type to another.
 
-Derivable: ❌ When to implement: As-needed.
+Derivable: ❌
+
+When to implement: As-needed.
 
 ```rust
 #[derive(Debug)]

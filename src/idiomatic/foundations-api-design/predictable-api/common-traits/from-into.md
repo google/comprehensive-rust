@@ -6,8 +6,9 @@ minutes: 5
 
 Conversion from one type to another.
 
-Derivable: ❌, without crates like `derive_more`. When to implement: As-needed
-and convenient.
+Derivable: ❌, without crates like `derive_more`.
+
+When to implement: As-needed and convenient.
 
 ```rust
 pub struct ObviousImplementation(String);

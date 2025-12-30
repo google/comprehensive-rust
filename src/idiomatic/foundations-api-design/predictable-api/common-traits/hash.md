@@ -6,7 +6,9 @@ minutes: 2
 
 Performing a hash on a type.
 
-Derivable: ✅ When to implement: Almost always.
+Derivable: ✅
+
+When to implement: Almost always.
 
 ```rust
 // pub trait Hash {
