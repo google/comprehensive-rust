@@ -15,7 +15,6 @@ fn a_to_b(a: A) -> B {...}
 fn connect() -> Result<(), Error> {...}
 ```
 
-
 <details>
 
 - Doc comments are the most common form of documentation developers engage with.
