@@ -2,17 +2,17 @@
 minutes: 5
 ---
 
-Names and Signatures are not full documentation
+# Names and Signatures are not full documentation
 
 ```rust,compile_fail
 // bad
 /// Returns a future that resolves when operation completes.  
-fn syncToServer() -> Future<Bool>;
+fn sync_to_server() -> Future<Bool>;
 
 // good
 /// Sends local edits to the server, overwriting concurrent edits  
 /// if any happened.  
-fn syncToServer() -> Future<Bool>;
+fn sync_to_server() -> Future<Bool>;
 // bad
 /// Returns an error if sending the email fails.  
 fn send(&self, email: Email) -> Result<(), Error>;
@@ -36,7 +36,7 @@ It's better than nothing, but it's worse than good documentation.
 - Consider the behavior of functions that are not covered by the name, parameter
   names, or signature of that function.
 
-  In the example on the slide it is not obvious that `syncToServer()` could
+  In the example on the slide it is not obvious that `sync_to_server()` could
   overwrite something (leading to a data loss), so document that.
 
   In the email example, it is not obvious that the function can return success

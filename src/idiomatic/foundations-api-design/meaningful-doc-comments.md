@@ -15,7 +15,12 @@ fn a_to_b(a: A) -> B {...}
 fn connect() -> Result<(), Error> {...}
 ```
 
-Doc comments are the most common form of documentation developers engage with.
 
-Good doc comments provide information that the code, names, and types cannot,
-without restating the obvious information.
+<details>
+
+- Doc comments are the most common form of documentation developers engage with.
+
+- Good doc comments provide information that the code, names, and types cannot,
+  without restating the obvious information.
+
+</details>
