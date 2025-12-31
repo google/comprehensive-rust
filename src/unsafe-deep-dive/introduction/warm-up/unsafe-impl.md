@@ -40,7 +40,6 @@ what a trait is. Is anyone able to explain traits for the rest of the class?
     “whole” from Ancient Greek, rather than the contemporary English sense of
     “tiny particle”.
 
-“Now let’s define our own unsafe trait.”
 
 Transition to next slide.
 
