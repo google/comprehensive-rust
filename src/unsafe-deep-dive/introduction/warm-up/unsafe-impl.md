@@ -41,6 +41,5 @@ what a trait is. Is anyone able to explain traits for the rest of the class?
     “tiny particle”.
 
 
-Transition to next slide.
 
 </details>
