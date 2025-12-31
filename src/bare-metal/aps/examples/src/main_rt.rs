@@ -18,7 +18,7 @@
 
 mod exceptions;
 
-use aarch64_paging::paging::Attributes;
+use aarch64_paging::descriptor::Attributes;
 use aarch64_rt::{InitialPagetable, entry, initial_pagetable};
 use arm_pl011_uart::{PL011Registers, Uart, UniqueMmioPointer};
 use core::fmt::Write;
