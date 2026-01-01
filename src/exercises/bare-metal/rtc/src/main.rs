@@ -27,7 +27,7 @@ use arm_gic::{IntId, Trigger, irq_enable, wfi};
 use chrono::{TimeZone, Utc};
 use core::hint::spin_loop;
 // ANCHOR: imports
-use aarch64_paging::paging::Attributes;
+use aarch64_paging::descriptor::Attributes;
 use aarch64_rt::{InitialPagetable, entry, initial_pagetable};
 use arm_gic::gicv3::registers::{Gicd, GicrSgi};
 use arm_gic::gicv3::{GicCpuInterface, GicV3};
