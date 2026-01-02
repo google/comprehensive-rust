@@ -78,39 +78,18 @@
 .endm
 
 /**
- * This is a generic handler for exceptions taken at the current EL
- * while using SP0. It behaves similarly to the SPx case by first
- * switching to SPx, doing the work, then switching back to SP0 before
- * returning.
+ * This is a generic handler for exceptions taken at the current EL. It saves
+ * volatile registers to the stack, calls the Rust handler, restores volatile
+ * registers, then returns.
  *
- * Switching to SPx and calling the Rust handler takes 16
- * instructions. To restore and return we need an additional 16
- * instructions, so we can implement the whole handler within the
- * allotted 32 instructions.
+ * This also works for exceptions taken from lower ELs, if we don't care about
+ * non-volatile registers.
  *
+ * Saving state and jumping to the Rust handler takes 15 instructions, and
+ * restoring and returning also takes 15 instructions, so we can fit the whole
+ * handler in 30 instructions, under the limit of 32.
  */
-.macro current_exception_sp0 handler:req
-	msr spsel, #1
-	save_volatile_to_stack
-	bl \handler
-	restore_volatile_from_stack
-	msr spsel, #0
-	eret
-.endm
-
-/**
- * This is a generic handler for exceptions taken at the current EL
- * while using SPx. It saves volatile registers, calls the Rust
- * handler, restores volatile registers, then returns.
- *
- * This also works for exceptions taken from EL0, if we don't care
- * about non-volatile registers.
- *
- * Saving state and jumping to the Rust handler takes 15 instructions,
- * and restoring and returning also takes 15 instructions, so we can
- * fit the whole handler in 30 instructions, under the limit of 32.
- */
-.macro current_exception_spx handler:req
+.macro current_exception handler:req
 	save_volatile_to_stack
 	bl \handler
 	restore_volatile_from_stack
@@ -122,64 +101,64 @@
 .balign 0x800
 vector_table_el1:
 sync_cur_sp0:
-	current_exception_sp0 sync_exception_current
+	current_exception sync_current
 
 .balign 0x80
 irq_cur_sp0:
-	current_exception_sp0 irq_current
+	current_exception irq_current
 
 .balign 0x80
 fiq_cur_sp0:
-	current_exception_sp0 fiq_current
+	current_exception fiq_current
 
 .balign 0x80
 serr_cur_sp0:
-	current_exception_sp0 serr_current
+	current_exception serror_current
 
 .balign 0x80
 sync_cur_spx:
-	current_exception_spx sync_exception_current
+	current_exception sync_current
 
 .balign 0x80
 irq_cur_spx:
-	current_exception_spx irq_current
+	current_exception irq_current
 
 .balign 0x80
 fiq_cur_spx:
-	current_exception_spx fiq_current
+	current_exception fiq_current
 
 .balign 0x80
 serr_cur_spx:
-	current_exception_spx serr_current
+	current_exception serror_current
 
 .balign 0x80
 sync_lower_64:
-	current_exception_spx sync_lower
+	current_exception sync_lower
 
 .balign 0x80
 irq_lower_64:
-	current_exception_spx irq_lower
+	current_exception irq_lower
 
 .balign 0x80
 fiq_lower_64:
-	current_exception_spx fiq_lower
+	current_exception fiq_lower
 
 .balign 0x80
 serr_lower_64:
-	current_exception_spx serr_lower
+	current_exception serror_lower
 
 .balign 0x80
 sync_lower_32:
-	current_exception_spx sync_lower
+	current_exception sync_lower
 
 .balign 0x80
 irq_lower_32:
-	current_exception_spx irq_lower
+	current_exception irq_lower
 
 .balign 0x80
 fiq_lower_32:
-	current_exception_spx fiq_lower
+	current_exception fiq_lower
 
 .balign 0x80
 serr_lower_32:
-	current_exception_spx serr_lower
+	current_exception serror_lower
