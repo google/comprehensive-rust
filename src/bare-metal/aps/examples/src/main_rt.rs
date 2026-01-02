@@ -16,7 +16,7 @@
 #![no_main]
 #![no_std]
 
-mod exceptions;
+mod exceptions_rt;
 
 use aarch64_paging::descriptor::Attributes;
 use aarch64_rt::{InitialPagetable, entry, initial_pagetable};
