@@ -12,66 +12,57 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+use aarch64_rt::{ExceptionHandlers, RegisterStateRef, exception_handlers};
 use arm_gic::gicv3::{GicCpuInterface, InterruptGroup};
 use log::{error, info, trace};
 use smccc::Hvc;
 use smccc::psci::system_off;
 
-// SAFETY: There is no other global function of this name.
-#[unsafe(no_mangle)]
-extern "C" fn sync_exception_current(_elr: u64, _spsr: u64) {
-    error!("sync_exception_current");
-    system_off::<Hvc>().unwrap();
+struct Handlers;
+
+impl ExceptionHandlers for Handlers {
+    extern "C" fn sync_current(_state: RegisterStateRef) {
+        error!("sync_exception_current");
+        system_off::<Hvc>().unwrap();
+    }
+
+    extern "C" fn irq_current(_state: RegisterStateRef) {
+        trace!("irq_current");
+        let intid =
+            GicCpuInterface::get_and_acknowledge_interrupt(InterruptGroup::Group1)
+                .expect("No pending interrupt");
+        info!("IRQ {intid:?}");
+    }
+
+    extern "C" fn fiq_current(_state: RegisterStateRef) {
+        error!("fiq_current");
+        system_off::<Hvc>().unwrap();
+    }
+
+    extern "C" fn serror_current(_state: RegisterStateRef) {
+        error!("serr_current");
+        system_off::<Hvc>().unwrap();
+    }
+
+    extern "C" fn sync_lower(_state: RegisterStateRef) {
+        error!("sync_lower");
+        system_off::<Hvc>().unwrap();
+    }
+
+    extern "C" fn irq_lower(_state: RegisterStateRef) {
+        error!("irq_lower");
+        system_off::<Hvc>().unwrap();
+    }
+
+    extern "C" fn fiq_lower(_state: RegisterStateRef) {
+        error!("fiq_lower");
+        system_off::<Hvc>().unwrap();
+    }
+
+    extern "C" fn serror_lower(_state: RegisterStateRef) {
+        error!("serr_lower");
+        system_off::<Hvc>().unwrap();
+    }
 }
 
-// SAFETY: There is no other global function of this name.
-#[unsafe(no_mangle)]
-extern "C" fn irq_current(_elr: u64, _spsr: u64) {
-    trace!("irq_current");
-    let intid =
-        GicCpuInterface::get_and_acknowledge_interrupt(InterruptGroup::Group1)
-            .expect("No pending interrupt");
-    info!("IRQ {intid:?}");
-}
-
-// SAFETY: There is no other global function of this name.
-#[unsafe(no_mangle)]
-extern "C" fn fiq_current(_elr: u64, _spsr: u64) {
-    error!("fiq_current");
-    system_off::<Hvc>().unwrap();
-}
-
-// SAFETY: There is no other global function of this name.
-#[unsafe(no_mangle)]
-extern "C" fn serr_current(_elr: u64, _spsr: u64) {
-    error!("serr_current");
-    system_off::<Hvc>().unwrap();
-}
-
-// SAFETY: There is no other global function of this name.
-#[unsafe(no_mangle)]
-extern "C" fn sync_lower(_elr: u64, _spsr: u64) {
-    error!("sync_lower");
-    system_off::<Hvc>().unwrap();
-}
-
-// SAFETY: There is no other global function of this name.
-#[unsafe(no_mangle)]
-extern "C" fn irq_lower(_elr: u64, _spsr: u64) {
-    error!("irq_lower");
-    system_off::<Hvc>().unwrap();
-}
-
-// SAFETY: There is no other global function of this name.
-#[unsafe(no_mangle)]
-extern "C" fn fiq_lower(_elr: u64, _spsr: u64) {
-    error!("fiq_lower");
-    system_off::<Hvc>().unwrap();
-}
-
-// SAFETY: There is no other global function of this name.
-#[unsafe(no_mangle)]
-extern "C" fn serr_lower(_elr: u64, _spsr: u64) {
-    error!("serr_lower");
-    system_off::<Hvc>().unwrap();
-}
+exception_handlers!(Handlers);
