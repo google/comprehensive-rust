@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// ANCHOR: exceptions
 /**
  * Saves the volatile registers onto the stack. This currently takes
  * 14 instructions, so it can be used in exception handlers with 18
