@@ -19,8 +19,8 @@ use smccc::psci::system_off;
 
 // SAFETY: There is no other global function of this name.
 #[unsafe(no_mangle)]
-extern "C" fn sync_exception_current(_elr: u64, _spsr: u64) {
-    error!("sync_exception_current");
+extern "C" fn sync_current(_elr: u64, _spsr: u64) {
+    error!("sync_current");
     system_off::<Hvc>().unwrap();
 }
 
@@ -40,8 +40,8 @@ extern "C" fn fiq_current(_elr: u64, _spsr: u64) {
 
 // SAFETY: There is no other global function of this name.
 #[unsafe(no_mangle)]
-extern "C" fn serr_current(_elr: u64, _spsr: u64) {
-    error!("serr_current");
+extern "C" fn serror_current(_elr: u64, _spsr: u64) {
+    error!("serror_current");
     system_off::<Hvc>().unwrap();
 }
 
@@ -68,7 +68,7 @@ extern "C" fn fiq_lower(_elr: u64, _spsr: u64) {
 
 // SAFETY: There is no other global function of this name.
 #[unsafe(no_mangle)]
-extern "C" fn serr_lower(_elr: u64, _spsr: u64) {
-    error!("serr_lower");
+extern "C" fn serror_lower(_elr: u64, _spsr: u64) {
+    error!("serror_lower");
     system_off::<Hvc>().unwrap();
 }

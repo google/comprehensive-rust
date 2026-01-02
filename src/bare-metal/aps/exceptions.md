@@ -26,6 +26,14 @@ calling into Rust code:
   but not `Sync`, then we'll need to wrap it in something like a `Mutex` and put
   it in a static.
 
+The assembly code for the exception vector:
+
+<!-- mdbook-xgettext: skip -->
+
+```armasm
+{{#include examples/src/exceptions.S:exceptions}}
+```
+
 </details>
 
 [1]: ../../concurrency/send-sync.md

@@ -12,9 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-.PHONY: build qemu qemu_logger qemu_minimal qemu_psci
+.PHONY: build qemu qemu_logger qemu_minimal qemu_psci qemu_rt qemu_safemmio
 
-all: minimal.bin improved.bin logger.bin
+all: improved.bin logger.bin minimal.bin psci.bin rt.bin safemmio.bin
 
 build:
 	cargo build
