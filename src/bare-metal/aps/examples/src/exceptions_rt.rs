@@ -1,4 +1,4 @@
-// Copyright 2023 Google LLC
+// Copyright 2026 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ANCHOR: exceptions
 use aarch64_rt::{ExceptionHandlers, RegisterStateRef, exception_handlers};
-use arm_gic::gicv3::{GicCpuInterface, InterruptGroup};
-use log::{error, info, trace};
+use log::error;
 use smccc::Hvc;
 use smccc::psci::system_off;
 
@@ -27,11 +27,8 @@ impl ExceptionHandlers for Handlers {
     }
 
     extern "C" fn irq_current(_state: RegisterStateRef) {
-        trace!("irq_current");
-        let intid =
-            GicCpuInterface::get_and_acknowledge_interrupt(InterruptGroup::Group1)
-                .expect("No pending interrupt");
-        info!("IRQ {intid:?}");
+        error!("irq_current");
+        system_off::<Hvc>().unwrap();
     }
 
     extern "C" fn fiq_current(_state: RegisterStateRef) {
@@ -41,26 +38,6 @@ impl ExceptionHandlers for Handlers {
 
     extern "C" fn serror_current(_state: RegisterStateRef) {
         error!("serror_current");
-        system_off::<Hvc>().unwrap();
-    }
-
-    extern "C" fn sync_lower(_state: RegisterStateRef) {
-        error!("sync_lower");
-        system_off::<Hvc>().unwrap();
-    }
-
-    extern "C" fn irq_lower(_state: RegisterStateRef) {
-        error!("irq_lower");
-        system_off::<Hvc>().unwrap();
-    }
-
-    extern "C" fn fiq_lower(_state: RegisterStateRef) {
-        error!("fiq_lower");
-        system_off::<Hvc>().unwrap();
-    }
-
-    extern "C" fn serror_lower(_state: RegisterStateRef) {
-        error!("serror_lower");
         system_off::<Hvc>().unwrap();
     }
 }
