@@ -21,12 +21,12 @@ fn main() {
 
 <details>
 
-“When writing data with `MaybeUninit.write()`, the old value is not dropped.
+“When writing data with `MaybeUninit.write()`, the old value is not dropped.”
 
 “`MaybeUninit` does not call the destructor on its value, because the compiler
-cannot guarantee that the value has been properly initialized.
+cannot guarantee that the value has been properly initialized.”
 
-“This is different than what occurs on assignment. Assignment triggers a move,
-which results in a bitwise copy. This can trigger memory leaks.
+“This is different from what occurs on assignment. Assignment triggers a move,
+which results in a bitwise copy. This can trigger memory leaks.”
 
 </details>

@@ -39,17 +39,16 @@ _High-fidelity interop_
 
 The ideal scenario is currently experimental.
 
-Two projects exploring this areaare [crubit](https://github.com/google/crubit)
-and [Zngur](https://hkalbasi.github.io/zngur/). The first provides glue code on
-each side for enabling compatible types to work seamlessly across domains. The
-second relies on dynamic dispatch and imports C++ objects into Rust as trait
-objects.
+Two projects exploring this are [crubit](https://github.com/google/crubit) and
+[Zngur](https://hkalbasi.github.io/zngur/). The first provides glue code on each
+side for enabling compatible types to work seamlessly across domains. The second
+relies on dynamic dispatch and imports C++ objects into Rust as trait objects.
 
 _Low-fidelity interop_ work through a C API
 
 The typical strategy for interop is to use the C language as the interface. C is
-a lossy codec and this strategy typically results in unergonomic code on both
-side.
+a lossy codec. This strategy typically results in complicated code on both
+sides.
 
 _Other strategies_ are less viable in a zero cost environment.
 

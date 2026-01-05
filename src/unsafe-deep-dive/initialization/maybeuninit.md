@@ -24,9 +24,10 @@ fn main() {
 “Therefore, we need some bridge in the type system to allow memory to
 transition. `MaybeUninit<T>` is that type.”
 
-It is very similar to the `Option<T>` type, although its semantics are very
-different. Its equivalent of None,uninitialized.
+“`MaybeUninit<T>` is very similar to the `Option<T>` type, although its
+semantics are very different. The equivalent of `Option::None` for
+`MaybeUninit<T>` is uninitialized memory, which is only safe to write to.”
 
-Reading from memory that may be uninitialized is extremely dangerous.
+“Reading from memory that may be uninitialized is extremely dangerous.”
 
 </details>

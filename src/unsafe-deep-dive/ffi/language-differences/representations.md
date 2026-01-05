@@ -40,7 +40,7 @@ unsafe {
 };
 ```
 
-Aside: Rust has also has a c-prefixed string literal, i.e. `c"..."`. It appends
-a null byte at the end. `c"Rust" == b"Rust\0".`
+Aside: Rust has a c-prefixed string literal. It appends a null byte at the end,
+e.g. `c"Rust" == b"Rust\0"`.
 
 </details>

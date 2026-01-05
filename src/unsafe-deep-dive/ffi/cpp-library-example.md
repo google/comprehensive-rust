@@ -86,8 +86,8 @@ size_t interner_count(const StringInterner* interner) {
 <details>
 
 This is a larger example. Write a wrapper for the string interner. You will need
-to guide learners on creating an opaque pointer, either directly by explaining
-the code below or asking learners to do further research.
+to guide learners on how to create an opaque pointer, either directly by
+explaining the code below or asking learners to do further research.
 
 _Suggested Solution_
 

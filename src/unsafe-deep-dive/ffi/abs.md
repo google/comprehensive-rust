@@ -75,7 +75,7 @@ unsafe extern "C" {
 Check that learners understand the significance of this change. We are required
 to uphold type safety and other safety preconditions.
 
-Re-compile
+Recompile.
 
 Add safe keyword to the abs function:
 

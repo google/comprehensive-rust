@@ -15,8 +15,8 @@ minutes: 5
 
 <details>
 
-Using C as a lowest common denominator means that lots of the richness available
-to Rust and C++ is lost.
+Using C as the lowest common denominator means that lots of the richness
+available to Rust and C++ is lost.
 
 Each translation has the potential for semantic loss, runtime overhead, and
 subtle bugs.

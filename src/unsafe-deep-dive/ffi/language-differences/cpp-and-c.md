@@ -14,8 +14,7 @@ minutes: 3
 
 <details>
 
-C++ includes a number of features that don’t exist in C and they have an FFI
-impact:
+C++ includes a number of features that don’t exist in C with an FFI impact:
 
 Overloading: overloads become impossible to express because of name mangling
 
@@ -29,6 +28,6 @@ Non-POD types: Must use opaque pointers across the FFI boundary as pass by value
 does not make sense
 
 Templates: Cannot expose directly; must instantiate explicitly and wrap each
-specialisation
+specialization
 
 </details>

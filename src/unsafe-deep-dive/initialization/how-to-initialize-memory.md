@@ -30,14 +30,15 @@ fn main() {
 <details>
 
 “To work with uninitialized memory, follow this general workflow: create, write,
-confirm.
+confirm.”
 
-“1. Create MaybeUninit<T>. The `::uninit()` constructor is the most general
+“1. Create `MaybeUninit<T>`. The `::uninit()` constructor is the most general
 purpose one, but there are others which perform a write as well.”
 
 “2. Write a value of T. Notice that this is available from safe Rust. Staying in
-safe Rust is useful because you must ensure that the value you write is valid.
+safe Rust is useful because you must ensure that the value you write is valid.”
 
-“3. Confirm init with the `.assume_init()` method.”
+“3. Confirm to the type system that the memory is now initialized with the
+`.assume_init()` method.”
 
 </details>
