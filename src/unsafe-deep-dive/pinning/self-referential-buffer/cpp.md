@@ -32,5 +32,4 @@ Its move constructor ensures that cursor is updated to the new memory address.
 
 This type can't be expressed easily in Rust.
 
-
 </details>

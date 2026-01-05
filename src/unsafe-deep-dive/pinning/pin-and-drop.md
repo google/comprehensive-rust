@@ -10,8 +10,9 @@ pinned values must not be moved.
 
 ## An Incorrect `Drop` Implementation
 
-It's easy to accidentally move a value inside `drop`. Operations like assignment,
-`ptr::read`, and `mem::replace` can silently break the pinning guarantee.
+It's easy to accidentally move a value inside `drop`. Operations like
+assignment, `ptr::read`, and `mem::replace` can silently break the pinning
+guarantee.
 
 ```rust,editable
 struct SelfRef {
@@ -39,16 +40,18 @@ data, invalidating internal pointers without the type system's knowledge.
 In this `drop()` method, `_dupe` is a bitwise copy of `self.data`. At the end of
 the method, it will be dropped along with `self`. This double drop is undefined
 behavior.
+
 </details>
 
 ## A Correct `Drop` Implementation
 
 To implement `Drop` correctly for a `!Unpin` type, you must ensure that the
-value is not moved. A common pattern is to create a helper function that operates
-on `Pin<&mut T>`.
+value is not moved. A common pattern is to create a helper function that
+operates on `Pin<&mut T>`.
 
 ```rust,editable
-use std::{marker::PhantomPinned, pin::Pin};
+use std::marker::PhantomPinned;
+use std::pin::Pin;
 
 struct SelfRef {
     data: String,

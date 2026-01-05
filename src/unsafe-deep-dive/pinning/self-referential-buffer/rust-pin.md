@@ -75,9 +75,9 @@ Note that the function signatures have now changed. For example, `::new()`
 returns `Pin<Box<Self>>` rather than `Self`. This incurs a heap allocation
 because `Pin<Ptr>` must work with a pointer type like `Box`.
 
-In `::new()`, we use `Pin::get_unchecked_mut()` to get a mutable reference to the
-buffer *after* it has been pinned. This is `unsafe` because we are breaking the
-pinning guarantee for a moment to initialize the `cursor`. We must make sure
+In `::new()`, we use `Pin::get_unchecked_mut()` to get a mutable reference to
+the buffer _after_ it has been pinned. This is `unsafe` because we are breaking
+the pinning guarantee for a moment to initialize the `cursor`. We must make sure
 not to move the `SelfReferentialBuffer` after this point. The safety contract of
 `Pin` is that once a value is pinned, its memory location is fixed until it is
 dropped.

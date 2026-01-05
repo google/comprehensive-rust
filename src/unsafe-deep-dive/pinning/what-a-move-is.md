@@ -38,8 +38,9 @@ Note that `DynamicBuffer` does not implement `Copy`.
 
 Implication: a value's memory address is not stable.
 
-To show movement as a bitwise copy, either [open the code in the playground][LLVM IR]
-and look at the or [the Compiler Explorer].
+To show movement as a bitwise copy, either
+[open the code in the playground][LLVM IR] and look at the or
+[the Compiler Explorer].
 
 Optional for those who prefer assembly output:
 
