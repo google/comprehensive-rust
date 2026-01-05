@@ -25,14 +25,14 @@ fn main() {
 <details>
 
 This slide attempts to demonstrate that it is very easy for wrappers to trigger
-undefined behavior if they are written incorrectly. We’ll see how easy it is too
+undefined behavior if they are written incorrectly. We’ll see how easy it is to
 trigger type safety problems.
 
 Explain that `rand` and `srand` functions are provided by the C standard library
 (libc).
 
 Explain that the functions are exported by the libc crate, but we can also write
-a FFI wrapper for them manually.
+an FFI wrapper for them manually.
 
 Show calling the functions from the exported.
 
