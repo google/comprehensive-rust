@@ -26,20 +26,18 @@ what a trait is. Is anyone able to explain traits for the rest of the class?
 - “There’s also a deeper way to think of traits: as sets of requirements. This
   emphasizes the shared semantics of the implementing types.
 
-“Can anyone explain what the `Send` and `Sync` traits are? They have
+“Can anyone explain what the `Send` and `Sync` traits are?
 
 - If no
   - “Send and Sync relate to concurrency. There are many details, but broadly
-    speaking. Send types are able to be shared between threads by value. Sync
-    traits are able to be shared by reference.
+    speaking, Send types can be shared between threads by value. Sync types must
+    be shared by reference.
   - There are many rules to follow to ensure that it’s safe to share data across
     thread boundaries. Those rules cannot be checked by the compiler, and
-    therefore .
+    therefore the code author must take responsibility for upholding them.
   - Arc implements Send and Sync, therefore it’s safe for our clock to as well.
-  - It may be useful to point out that the word atomic has “indivisible” or
-    “whole” from Ancient Greek, rather than the contemporary English sense of
-    “tiny particle”.
-
-
+  - It may be useful to point out that the word _atomic_ has the meaning of
+    “indivisible” or “whole” from Ancient Greek, rather than the contemporary
+    English sense of “tiny particle”.
 
 </details>
