@@ -6,8 +6,8 @@ minutes: 5
 
 1. _Creating_ APIs with safety considerations
 
-unsafe functions: `unsafe fn get_unchecked(&self) { ... }` unsafe traits:
-`unsafe trait Send {}`
+   - unsafe functions: `unsafe fn get_unchecked(&self) { ... }`
+   - unsafe traits: `unsafe trait Send {}`
 
 2. _Using_ APIs with safety considerations
 
