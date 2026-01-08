@@ -15,6 +15,7 @@ Implement the following types, so that the given tests pass.
 ```rust,compile_fail,editable
 {{#include exercise.rs:types}}
 
+// Implement `new` for `Node`.
 // Implement `new`, `insert`, `len`, and `has` for `Subtree`.
 
 {{#include exercise.rs:tests}}
