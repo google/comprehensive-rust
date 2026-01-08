@@ -4,7 +4,7 @@ minutes: 10
 
 # Example: references
 
-```rust,editable
+```rust,editable,ignore
 fn main() {
     let mut boxed = Box::new(123);
     let a: *mut i32 = &mut *boxed as *mut i32;
@@ -17,23 +17,22 @@ fn main() {
 
 Confirm understanding of the syntax
 
-`Box<i32>` type is a reference to an integer on the heap that is owned by the
-box.
-
-`*mut i32` type is a so-called raw pointer to an integer that the compiler does
-not know the ownership of. Programmers need to ensure the rules are enforced
-without assistance from the compiler.
-
-a reference, i.e. `&mut i32`, means borrowed/
-
-    - a raw pointer does not provide ownership info to Rust:
-      - a pointer can be semantically owning the data, or semantically borrowing, 
-        but that information only exists in the programmer's mind
+- `Box<i32>` type is a reference to an integer on the heap that is owned by the
+  box.
+- `*mut i32` type is a so-called raw pointer to an integer that the compiler
+  does not know the ownership of. Programmers need to ensure the rules are
+  enforced without assistance from the compiler.
+  - Note: raw pointers do not provide ownership info to Rust. A pointer can be
+    semantically owning the data, or semantically borrowing, but that
+    information only exists in the programmer's mind
 
 - `&mut *boxed as *mut _` expression:
   - `*boxed` is ...
   - `&mut *boxed` is ...
   - finally, `as *mut i32` casts the reference to a pointer.
+
+- References, such as `&mut i32`, "borrow" their referent. This is Rust's
+  ownership system.
 
 Confirm understanding of ownership
 

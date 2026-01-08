@@ -102,7 +102,7 @@ pub struct StringInternerRaw {
     _pin: PhantomData<(*mut u8, std::marker::PhantomPinned)>,
 }
 
-extern "C" {
+unsafe extern "C" {
     fn interner_new() -> *mut StringInternerRaw;
 
     fn interner_free(interner: *mut StringInternerRaw);

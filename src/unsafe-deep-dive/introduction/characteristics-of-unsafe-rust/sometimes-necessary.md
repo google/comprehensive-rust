@@ -6,7 +6,7 @@ minutes: 5
 
 The Rust compiler can only enforce its rules for code that it has compiled.
 
-```rust,editable
+```rust,editable,ignore
 fn main() {
     let pid = unsafe { libc::getpid() };
     println!("{pid}");
@@ -29,7 +29,7 @@ interface that computers provide is a memory address (a pointer).”
 “Here's an example that asks the Linux kernel to write to memory that we
 control:
 
-```rust
+```rust,ignore
 fn main() {
     let mut buf = [0u8; 8];
     let ptr = buf.as_mut_ptr() as *mut libc::c_void;

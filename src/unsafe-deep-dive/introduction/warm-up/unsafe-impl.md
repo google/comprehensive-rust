@@ -4,7 +4,7 @@ minutes: 4
 
 # Implementing an unsafe trait
 
-```rust,editable
+```rust,editable,ignore
 pub struct LogicalClock {
     inner: std::sync::Arc<std::sync::atomic::AtomicUsize>,
 }

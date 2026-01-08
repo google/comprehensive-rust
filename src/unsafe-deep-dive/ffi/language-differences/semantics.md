@@ -4,7 +4,9 @@ minutes: 15
 
 # Different semantics
 
-```rust,editable
+<!-- mdbook tests skipped because its builds do not link libc -->
+
+```rust,editable,ignore
 use std::ffi::{CStr, c_char};
 use std::time::{SystemTime, SystemTimeError, UNIX_EPOCH};
 

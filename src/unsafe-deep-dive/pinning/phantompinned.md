@@ -17,7 +17,7 @@ impl !Unpin for PhantomPinned {}
 ```rust,editable
 pub struct DynamicBuffer {
     data: Vec<u8>,
-    cursor: NonNull<u8>,
+    cursor: std::ptr::NonNull<u8>,
     _pin: std::marker::PhantomPinned,
 }
 ```

@@ -15,7 +15,7 @@ to confusion and bugs. Consider three ways to represent text.
 
 Show how to convert the raw representations to a Rust string slice:
 
-```rust
+```rust,ignore
 // C representation to Rust
 unsafe {
     let ptr = c_repr.as_ptr() as *const i8;

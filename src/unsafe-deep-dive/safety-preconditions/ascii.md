@@ -8,9 +8,9 @@ minutes: 5
 /// Text that is guaranteed to be encoded within 7-bit ASCII.
 pub struct Ascii<'a>(&'a mut [u8]);
 
-impl Ascii<'_> {
-    fn new(bytes: &'a mut [u8]) -> Option<Self> {
-        bytes.iter().all(|&b| b.is_ascii()).then(Ascii(bytes))
+impl<'a> Ascii<'a> {
+    pub fn new(bytes: &'a mut [u8]) -> Option<Self> {
+        bytes.iter().all(|&b| b.is_ascii()).then(|| Ascii(bytes))
     }
 
     /// Creates a new `Ascii` from a byte slice without checking for ASCII
@@ -19,7 +19,7 @@ impl Ascii<'_> {
     /// # Safety
     ///
     /// Providing non-ASCII bytes results in undefined behavior.
-    unsafe fn new_unchecked(bytes: &mut [u8]) -> Self {
+    pub unsafe fn new_unchecked(bytes: &'a mut [u8]) -> Self {
         Ascii(bytes)
     }
 }

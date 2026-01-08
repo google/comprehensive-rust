@@ -4,7 +4,9 @@ minutes: 15
 
 # Wrapping `srand(3)` and `rand(3)`
 
-```rust,editable
+<!-- Tests skipped because the mdbook test runner does not include libc  -->
+
+```rust,editable,ignore
 use libc::{rand, srand};
 
 // unsafe extern "C" {

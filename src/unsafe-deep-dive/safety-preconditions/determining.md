@@ -2,7 +2,7 @@
 
 Where do you find the safety preconditions?
 
-```rust,editable
+```rust,editable,ignore
 fn main() {
     let b: *mut i32 = std::ptr::null_mut();
     println!("{:?}", b.as_mut());

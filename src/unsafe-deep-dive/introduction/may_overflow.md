@@ -4,7 +4,7 @@ minutes: 10
 
 # Example: may_overflow function
 
-```rust,editable
+```rust,should_panic,editable
 /// Adds 2^31 - 1 to negative numbers.
 unsafe fn may_overflow(a: i32) -> i32 {
     a + i32::MAX

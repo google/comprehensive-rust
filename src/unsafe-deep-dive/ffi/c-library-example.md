@@ -110,7 +110,7 @@ pub type TokenCallback = Option<
     ) -> bool,
 >;
 
-extern "C" {
+unsafe extern "C" {
     pub fn ta_new() -> *mut TextAnalyst;
 
     pub fn ta_free(ta: *mut TextAnalyst);

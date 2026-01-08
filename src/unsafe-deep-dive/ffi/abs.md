@@ -4,7 +4,7 @@ minutes: 15
 
 # Wrapping `abs(3)`
 
-```rust,editable
+```rust,editable,ignore
 fn abs(x: i32) -> i32;
 
 fn main() {
@@ -27,8 +27,8 @@ Note that this doesn’t work _yet_.
 Add the extern block:
 
 ```rust
-extern "C" {
-    abs(x: i32) -> i32;
+unsafe extern "C" {
+    fn abs(x: i32) -> i32;
 }
 ```
 
@@ -46,8 +46,8 @@ Update the code block to use the C types.
 ```rust
 use std::ffi::c_int;
 
-extern "C" {
-    abs(x: c_int) -> c_int;
+unsafe extern "C" {
+    fn abs(x: c_int) -> c_int;
 }
 ```
 

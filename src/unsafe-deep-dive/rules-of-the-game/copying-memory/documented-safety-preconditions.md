@@ -8,17 +8,17 @@ minutes: 5
 /// ...
 ///
 /// # Safety
-/// 
+///
 /// This function can easily trigger undefined behavior. Ensure that:
-/// 
+///
 ///  - `source` pointer is non-null and non-dangling
 ///  - `source` data ends with a null byte within its memory allocation
 ///  - `source` data is not freed (its lifetime invariants are preserved)
 ///  - `source` data contains fewer than `isize::MAX` bytes
-pub fn unsafe copy(dest: &mut [u8], source: *const u8) {
+pub unsafe fn copy(dest: &mut [u8], source: *const u8) {
     let source = {
         let mut len = 0;
-     
+
         let mut end = source;
         // SAFETY: Caller has provided a non-null pointer
         while unsafe { *end != 0 } {
@@ -39,9 +39,11 @@ pub fn unsafe copy(dest: &mut [u8], source: *const u8) {
 fn main() {
     let a = [114, 117, 115, 116].as_ptr();
     let b = &mut [82, 85, 83, 84, 0];
-    
+
     println!("{}", String::from_utf8_lossy(b));
-    copy(b, a);
+    unsafe {
+        copy(b, a);
+    }
     println!("{}", String::from_utf8_lossy(b));
 }
 ```
@@ -56,5 +58,11 @@ Changes to previous iterations:
 
 An unsafe function is sound when both its safety preconditions and its internal
 unsafe blocks are documented.
+
+Fixes needed in `main`.
+
+- `a` does not satisfy one of the preconditions of `copy` (source` data ends
+  with a null byte within its memory allocation)
+- SAFETY comment needed
 
 </details>
