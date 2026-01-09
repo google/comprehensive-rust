@@ -35,7 +35,7 @@ fn main() {
 
 <details>
 
-onality of copying bytes from one place to the next remains the same.
+The functionality of copying bytes from one place to the next remains the same.
 
 “However, we need to manually create a slice. To do that, we first need to find
 the end of the data.
