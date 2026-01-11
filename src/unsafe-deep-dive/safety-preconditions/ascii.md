@@ -29,7 +29,7 @@ impl<'a> Ascii<'a> {
 
 "The `Ascii` type is a minimal wrapper around a byte slice. Internally, they
 share the same representation. However, `Ascii` requires that the high bit must
-is not be used."
+not be used."
 
 Optional: Extend the example to mention that it's possible to use
 `debug_assert!` to test the preconditions during tests without impacting release

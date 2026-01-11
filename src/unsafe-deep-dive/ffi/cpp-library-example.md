@@ -17,7 +17,7 @@ class StringInterner {
     std::unordered_set<std::string> strings;
 
 public:
-    // Returns pointer to interned string (valid for lifetime of interner)
+    // Returns a pointer to the interned string (valid for lifetime of interner)
     const char* intern(const char* s) {
         auto [it, _] = strings.emplace(s);
         return it->c_str();

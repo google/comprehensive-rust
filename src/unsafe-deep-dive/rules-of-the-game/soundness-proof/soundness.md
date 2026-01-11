@@ -12,7 +12,8 @@ satisfied.
 - Read the definition of sound functions.
 
 - Remind the students that the programmer who implements the caller is
-  responsible to satisfy the safety precondition, the compiler is not helping.
+  responsible for satisfying the safety precondition; the compiler is not
+  helping.
 
 - Translate into informal terms. Soundness means that the function is nice and
   plays by the rules. It documents its safety preconditions, and when the caller

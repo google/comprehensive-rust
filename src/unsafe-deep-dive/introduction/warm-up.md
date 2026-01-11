@@ -1,4 +1,4 @@
-# Warm up examples
+# Warm-up examples
 
 Examples to demonstrate:
 

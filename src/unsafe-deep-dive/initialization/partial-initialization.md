@@ -34,8 +34,8 @@ know how many bytes you'll receive. Using `MaybeUninit<T>` lets you allocate the
 buffer once without paying for a redundant initialization pass.
 
 If we were to create the array with the standard syntax (`buf = [0u8; 2048]`),
-the whole buffer will be flushed with zeroes. `MaybeUninit<T>` tells the
-compiler to reserve space, but don't touch the memory yet.
+the whole buffer would be flushed with zeroes. `MaybeUninit<T>` tells the
+compiler to reserve space, but not to touch the memory yet.
 
 Q: Which part of the code snippet is performing a similar role to
 `.assume_init()`? A: The pointer cast and the implicit read.

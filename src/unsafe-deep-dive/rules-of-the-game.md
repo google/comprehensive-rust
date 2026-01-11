@@ -3,7 +3,7 @@
 <details>
 
 “We've seen many examples of code that has problems in the class, but we lack
-consistent terminology
+consistent terminology.
 
 “The goal of the next section is to introduce some terms that describe many of
 the concepts that we have been thinking about.

@@ -31,7 +31,7 @@ pub struct SelfReferentialBuffer {
 class SelfReferentialBuffer {
     char data[1024];
     char* cursor;
-}
+};
 ```
 
 <details>

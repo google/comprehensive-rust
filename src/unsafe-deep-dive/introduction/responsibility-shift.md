@@ -24,7 +24,7 @@ the compiler to programmers. It signals that there are preconditions that must
 be satisfied.
 
 “To uphold that responsibility, programmers must ensure that they've understood
-what the preconditions are and that they code will always satisfy them.
+what the preconditions are and that their code will always satisfy them.
 
 “Throughout this course, we'll use the term _safety preconditions_ to describe
 this situation.”

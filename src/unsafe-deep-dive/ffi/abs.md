@@ -32,9 +32,9 @@ unsafe extern "C" {
 }
 ```
 
-Explain that many POSIX functions are available Rust because cargo links against
-the C standard library (libc) by default, which makes its symbols into the
-program’s scope.
+Explain that many POSIX functions are available in Rust because cargo links
+against the C standard library (libc) by default, which brings its symbols into
+the program’s scope.
 
 Show `man 3 abs` in the terminal or [a webpage][abs].
 
@@ -53,7 +53,7 @@ unsafe extern "C" {
 
 Discuss rationale: using `ffi::c_int` increases the portability of our code.
 When the standard library is compiled for the target platform, the platform can
-determine the widths. According to the C standard, an `c_int` may be defined as
+determine the widths. According to the C standard, a `c_int` may be defined as
 an `i16` rather than the much more common `i32`.
 
 (Optional) Show the [documentation for c_int][c_int] to reveal that it is a type
@@ -87,7 +87,8 @@ unsafe extern "C" {
 }
 ```
 
-Explain the `safe fn` marks `abs` as safe to call without an `unsafe` block.
+Explain that the `safe fn` marks `abs` as safe to call without an `unsafe`
+block.
 
 Completed program for reference:
 

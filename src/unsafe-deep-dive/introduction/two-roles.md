@@ -34,7 +34,7 @@ defining unsafe functions and unsafe traits.
 careful.”
 
 “The creator of the API should communicate what care needs to be taken. Unsafe
-APIs are not complete without documentation about safety requirements.. Callers
+APIs are not complete without documentation about safety requirements. Callers
 need to know that they have satisfied any requirements, and that’s impossible if
 they’re not written down.”
 

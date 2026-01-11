@@ -18,7 +18,7 @@ the languages that impact FFI:
 
 _Trivial relocatability_
 
-Cannot safely move C++ objects on Rust side; must pin or keep in C++ heap.
+Cannot safely move C++ objects on the Rust side; must pin or keep in C++ heap.
 
 In Rust, object movement, which occurs during assignment or by being passed by
 value, always copies values bit by bit.
@@ -35,10 +35,10 @@ Objects with the same semantics are impossible to define in Rust.
 _Destruction safety_
 
 Moved-from C++ object semantics don't map; must prevent Rust from "moving" C++
-types
+types.
 
 _Exception safety_
 
-Neither can cross into the other safely; both must catch at boundary
+Neither can cross into the other safely; both must catch at the boundary.
 
 </details>

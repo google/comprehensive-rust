@@ -19,17 +19,17 @@ Errors: Must convert `Result` to abide by C conventions; easy to forget to check
 errors on C side.
 
 Strings: Conversion cost; null bytes in Rust strings cause truncation; UTF-8
-validation on ingress
+validation on ingress.
 
 Nullability: Every pointer from C must be checked to create an
-`Option<NonNull<T>>`, implying unsafe blocks or runtime cost
+`Option<NonNull<T>>`, implying unsafe blocks or runtime cost.
 
-Ownership: Must document and enforce object lifetimes manually
+Ownership: Must document and enforce object lifetimes manually.
 
 Callbacks: Must decompose closures into fn pointer + context; lifetime of
-context is manual
+context is manual.
 
 Panics: Panic across FFI boundary is undefined behavior; must catch at boundary
-with `catch_unwind`
+with `catch_unwind`.
 
 </details>

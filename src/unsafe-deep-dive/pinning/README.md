@@ -1,8 +1,8 @@
-# pinning
+# Pinning
 
 > **Important Note**
 >
-> To not add this section to the project's SUMMARY.md yet. Once CLs/PRs to
+> Do not add this section to the project's SUMMARY.md yet. Once CLs/PRs to
 > accept all the new segments for the Unsafe Deep Dive have been included in the
 > repository, an update to SUMMARY.md will be made.
 

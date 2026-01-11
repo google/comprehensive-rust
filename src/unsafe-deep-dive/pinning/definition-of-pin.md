@@ -26,9 +26,9 @@ that implements `Deref`.
 
 However, `Pin::new()` only accepts types that dereference into a target that
 implements `Unpin` (`Deref<Target: Unpin>`). This allows `Pin` to rely on the
-the type system to enforce its guarantees.
+type system to enforce its guarantees.
 
-Types that do not implement `Unpin`, i.e. types that require pinning, must
+Types that do not implement `Unpin`, i.e., types that require pinning, must
 create a `Pin` via the unsafe `Pin::new_unchecked()`.
 
 Aside: Unlike other `new()`/`new_unchecked()` method pairs, `new` does not do
