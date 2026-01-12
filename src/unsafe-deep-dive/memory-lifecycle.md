@@ -1,7 +1,7 @@
 # Memory Lifecycle
 
 Memory moves through different phases as objects (values) are created and
-destroyed
+destroyed.
 
 | Memory State | Readable from Safe Rust? |
 | ------------ | ------------------------ |
@@ -11,8 +11,8 @@ destroyed
 
 <details>
 
-“This section discusses what it happens as memory from the operating system
-becomes a valid variable in the program.
+This section discusses what happens as memory from the operating system becomes
+a valid variable in the program.
 
 When memory is available, the operating system has provided our program with it.
 

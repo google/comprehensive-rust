@@ -50,7 +50,8 @@ The unsafe operations from the [Rust Reference] (Avoid spending too much time):
 > - Accessing a field of a union, other than to assign to it.
 > - Calling an `unsafe` function.
 > - Calling a safe function marked with a `<target_feature>` from a function
->   that does not have a `<target_feature>` attribute enabling the same features
+>   that does not have a `<target_feature>` attribute enabling the same
+>   features.
 > - Implementing an unsafe trait.
 > - Declaring an extern block.
 > - Applying an unsafe attribute to an item.

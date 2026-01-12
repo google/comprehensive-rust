@@ -2,7 +2,7 @@
 minutes: 5
 ---
 
-# 3 shapes of sound Rust
+# 3 Shapes of Sound Rust
 
 - Functions written only in Safe Rust
 - Functions that contain `unsafe` blocks which are impossible to misuse

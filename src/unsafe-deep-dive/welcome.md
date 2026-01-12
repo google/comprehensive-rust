@@ -29,7 +29,7 @@ We’ll work on three areas:
 
 The goal of this class is to teach you enough Unsafe Rust for you to be able to
 review easy cases yourself, and distinguish difficult cases that need to be
-reviewed my more experienced Unsafe Rust engineers.
+reviewed by more experienced Unsafe Rust engineers.
 
 - Establishing a mental model of Unsafe Rust
   - what the `unsafe` keyword means
@@ -38,12 +38,12 @@ reviewed my more experienced Unsafe Rust engineers.
   - common patterns
   - expectations for code that uses `unsafe`
 
-- Practice working with unsafe
+- Practicing working with unsafe
   - reading and writing both code and documentation
-  - use unsafe APIs
-  - design and implement them
+  - using unsafe APIs
+  - designing and implementing them
 
-- Review code
+- Reviewing code
   - the confidence to self-review easy cases
   - the knowledge to detect difficult cases
 

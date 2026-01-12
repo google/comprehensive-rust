@@ -37,9 +37,9 @@ fn main() {
 
 Code using `unsafe` _might_ be faster.
 
-`fast_sum()` skips skips bounds checks. However, benchmarking is necessary to
-validate performance claims. For cases like this, Rust's iterators can usually
-elide bounds checks anyway.
+`fast_sum()` skips bounds checks. However, benchmarking is necessary to validate
+performance claims. For cases like this, Rust's iterators can usually elide
+bounds checks anyway.
 
 Optional: [show identical generated assembly][godbolt] for the two functions.
 

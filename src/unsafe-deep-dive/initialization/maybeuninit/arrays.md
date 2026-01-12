@@ -53,9 +53,9 @@ When creating a sub-slice of a partially-initialized array, be careful with
 ownership and correctly implementing drop. Reminder: `MaybeUninit<T>` will not
 call drop on its `T`.
 
-`MaybeUninit<[u8;2048]>` is distinct from `[MaybeUninit::<u8>; 2048]` the
-difference between an array of uninitialized memory and an array that contains
-uninitialized elements.
+`MaybeUninit<[u8;2048]>` is distinct from `[MaybeUninit::<u8>; 2048]`. This is
+the difference between an array of uninitialized memory and an array that
+contains uninitialized elements.
 
 - `MaybeUninit<[u8;2048]>` is "all or nothing". You either fully initialize the
   whole array and then call `assume_init`, or you must keep it as

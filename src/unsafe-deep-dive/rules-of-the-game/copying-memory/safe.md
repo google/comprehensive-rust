@@ -23,7 +23,7 @@ fn main() {
 
 <details>
 
-“The implementation only uses safe Rust
+“The implementation only uses safe Rust.
 
 What can we learn from this?
 

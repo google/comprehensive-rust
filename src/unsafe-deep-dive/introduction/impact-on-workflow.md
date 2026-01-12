@@ -17,7 +17,7 @@ Enhanced code review
 
 <details>
 
-“The unsafe keyword places more responsibility on the programmer, therefore it
+“The unsafe keyword places more responsibility on the programmer; therefore it
 requires a stronger development workflow.
 
 “This class assumes a specific software development workflow where code review

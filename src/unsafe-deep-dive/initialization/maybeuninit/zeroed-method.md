@@ -24,7 +24,7 @@ Q: “Although the memory has been written to, the type remains `MaybeUninit<T>`
 Can anyone think of why?”
 
 A: Some types require their values to be non-zero or non-null. The classic case
-is references, but this applies to many other types as well. Consider
+is references, but this applies to many other types as well. Consider the
 `NonZeroUsize` integer type and others in its family.
 
 </details>

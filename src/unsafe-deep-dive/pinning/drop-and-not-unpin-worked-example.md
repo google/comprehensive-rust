@@ -2,7 +2,7 @@
 minutes: 5
 ---
 
-# Worked example Implementing `Drop` for `!Unpin` types
+# Worked Example: Implementing `Drop` for `!Unpin` types
 
 ```rust,editable,ignore
 use std::cell::RefCell;
@@ -67,7 +67,7 @@ telemetry or logging.
 `self.data` in an invalid state. `self.data` will be dropped again at the end of
 the method, which is a double free.
 
-Ask the class for fix the code.
+Ask the class to fix the code.
 
 **Suggestion 0: Redesign**
 

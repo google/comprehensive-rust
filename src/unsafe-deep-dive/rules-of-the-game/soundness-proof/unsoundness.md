@@ -16,12 +16,12 @@ Unsound code is _bad_.
 
 - Read the definition of unsound functions.
 
-- Translate into infomal terms: unsound code is not nice. No, that's an
+- Translate into informal terms: unsound code is not nice. No, that's an
   understatement. Unsound code is BAD. Even if you play by the documented rules,
   unsound code can still trigger UB!
 
 - We don't want any unsound code in our repositories.
 
-- Finding unsound code is the **primary** goal of the code review
+- Finding unsound code is the **primary** goal of the code review.
 
 </details>

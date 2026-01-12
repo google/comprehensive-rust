@@ -18,7 +18,7 @@ problems.
 
 “Sound code is made up of _sound functions_ and _sound operations_.
 
-“A sound function as a function where none of its possible inputs could provoke
+“A sound function is a function where none of its possible inputs could provoke
 soundness problems.
 
 Sound functions have common shapes.

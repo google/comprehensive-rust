@@ -63,7 +63,7 @@ Talking points:
 
 - Emphasize that `unsafe` appears frequently. This is a hint that another design
   may be more appropriate.
-- `unsafe` blocks lack of safety comments. Therefore, this code is unsound.
+- `unsafe` blocks lack safety comments. Therefore, this code is unsound.
 - `unsafe` blocks are too broad. Good practice uses smaller `unsafe` blocks with
   specific behavior, specific preconditions and specific safety comments.
 

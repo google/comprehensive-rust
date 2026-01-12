@@ -38,7 +38,7 @@ Some conditions are even more subtle than they first seem.
 
 Consider "in-bounds array access". Reading from the memory location, i.e.
 dereferencing, is not required to break the program. Creating an out-of-bounds
-reference already break's the compiler's assumptions, leading to erratic
+reference already breaks the compiler's assumptions, leading to erratic
 behavior.
 
 Rust tells LLVM to use its `getelementptr inbounds` assumption. That assumption

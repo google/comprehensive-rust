@@ -2,7 +2,7 @@
 minutes: 10
 ---
 
-# Example: references
+# Example: References
 
 ```rust,editable,ignore
 fn main() {
@@ -24,7 +24,7 @@ Confirm understanding of the syntax
   enforced without assistance from the compiler.
   - Note: raw pointers do not provide ownership info to Rust. A pointer can be
     semantically owning the data, or semantically borrowing, but that
-    information only exists in the programmer's mind
+    information only exists in the programmer's mind.
 
 - `&mut *boxed as *mut _` expression:
   - `*boxed` is ...
@@ -36,30 +36,30 @@ Confirm understanding of the syntax
 
 Confirm understanding of ownership
 
-- Step through code
-  - (Line 3) Creates raw pointer to the `123` by de-referencing the box,
-    creating a new reference and casting the new reference as a pointer
+- Step through code:
+  - (Line 3) Creates raw pointer to the `123` by dereferencing the box, creating
+    a new reference and casting the new reference as a pointer.
   - (Line 4) Creates raw pointer with a NULL value
   - (Line 7) Converts the raw pointer to an Option with `.as_mut()`
 
 - Highlight that pointers are nullable in Rust (unlike references).
 
-- Compile to reveal the error messages
+- Compile to reveal the error messages.
 
 - Discuss
   - (Line 6) `println!("{:?}", *a);`
-    - Prefix star dereferences a raw pointer
+    - Prefix star dereferences a raw pointer.
     - It is an explicit operation. Whereas regular references have implicit
       dereferencing most of the time thanks to the Deref trait. This is referred
       to as "auto-deref".
-    - Dereferencing a raw pointer is an unsafe operation
-    - Requires an unsafe block
+    - Dereferencing a raw pointer is an unsafe operation.
+    - Requires an unsafe block.
   - (Line 7) `println!("{:?}", b.as_mut());`
     - `as_mut()` is an unsafe function.
-    - Calling unsafe function requires an unsafe block
+    - Calling an unsafe function requires an unsafe block.
 
 - Demonstrate: Fix the code (add unsafe blocks) and compile again to show the
-  working program
+  working program.
 
 - Demonstrate: Replace `as *mut i32` with `as *mut _`, show that it compiles.
 
@@ -67,7 +67,7 @@ Confirm understanding of ownership
     that the source of the cast is a `&mut i32`. This reference type can only be
     converted to one pointer type, `*mut i32`.
 
-- Add safety comments
+- Add safety comments:
   - We said that the unsafe code marks the responsibility shift from the
     compiler to the programmer.
   - How do we convey that we thought about our unusual responsibilities while
@@ -75,9 +75,9 @@ Confirm understanding of ownership
   - Safety comments explain why unsafe code is correct.
   - Without a safety comment, unsafe code is not safe.
 
-- Discuss: Whether to use one large unsafe block or two smaller ones
-  - Possibility of using a single unsafe block rather than multiple
-  - Using more allows safety comments as specific as possible
+- Discuss: Whether to use one large unsafe block or two smaller ones:
+  - Possibility of using a single unsafe block rather than multiple.
+  - Using more allows safety comments as specific as possible.
 
 [ptr-as_mut]: https://doc.rust-lang.org/stable/std/primitive.pointer.html#method.as_mut
 

@@ -20,7 +20,7 @@ rustc 1.87
   TODO (tim): We should be able to avoid this by just relying on the `cc` crate
 
 We recommend that you install the [Bazel build system](https://bazel.build/install).
-This will allow you to easily compile project that combine multiple languages.
+This will allow you to easily compile projects that combine multiple languages.
 
 -->
 
@@ -39,7 +39,7 @@ $ cargo serve # then open http://127.0.0.1:3000/ in a browser
 <details>
 
 Ask everyone to confirm that everyone is able to execute `rustc` with a version
-older that 1.87.
+newer than 1.87.
 
 For those people who do not, tell them that we'll resolve that in the break.
 

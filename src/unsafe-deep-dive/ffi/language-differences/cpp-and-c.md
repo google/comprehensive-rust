@@ -14,12 +14,13 @@ minutes: 3
 
 <details>
 
-C++ includes a number of features that don’t exist in C with an FFI impact:
+C++ includes a number of features that don't exist in C with an FFI impact:
 
-Overloading: overloads become impossible to express because of name mangling
+Overloading: Overloads become impossible to express because of name mangling
 
-Exceptions: must catch exceptions at the FFI boundary and convert as escaping
-exceptions in `extern "C"` functions is undefined behavior
+Exceptions: Must catch exceptions at the FFI boundary and convert them to error
+codes, as escaping exceptions in `extern "C"` functions constitute undefined
+behavior
 
 Destructors: C callers won't run destructors; must expose explicit `*_destroy()`
 functions
