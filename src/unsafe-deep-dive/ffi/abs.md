@@ -32,7 +32,7 @@ unsafe extern "C" {
 }
 ```
 
-Explain that many POSIX functions are available in Rust because cargo links
+Explain that many POSIX functions are available in Rust because Cargo links
 against the C standard library (libc) by default, which brings its symbols into
 the program’s scope.
 

@@ -39,7 +39,7 @@ $ cargo serve # then open http://127.0.0.1:3000/ in a browser
 <details>
 
 Ask everyone to confirm that everyone is able to execute `rustc` with a version
-older than 1.87.
+newer than 1.87.
 
 For those people who do not, tell them that we'll resolve that in the break.
 

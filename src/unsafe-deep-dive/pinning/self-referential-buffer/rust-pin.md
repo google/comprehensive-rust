@@ -2,7 +2,7 @@
 minutes: 10
 ---
 
-# With Pin&lt;Ptr&gt;
+# With `Pin<Ptr>`
 
 Pinning allows Rust programmers to create a type which is much more similar to
 C++ classes.

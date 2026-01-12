@@ -38,7 +38,7 @@ Click the "convertible to a reference" hyperlink to the "Pointer to reference
 conversion"
 
 Track down the rules for converting a pointer to a reference, i.e., whether it
-is "_dereferenceable_".
+is "dereferenceable".
 
 Consider the implications of this excerpt (Rust 1.90.0) "You must enforce Rust’s
 aliasing rules. The exact aliasing rules are not decided yet, ..."
