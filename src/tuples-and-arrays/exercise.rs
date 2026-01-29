@@ -36,15 +36,15 @@ fn main() {
     ];
 
     println!("Original:");
-    for row in &matrix {
-        println!("{:?}", row);
+    for row in matrix {
+        println!("{row:?}");
     }
 
     let transposed = transpose(matrix);
 
     println!("\nTransposed:");
-    for row in &transposed {
-        println!("{:?}", row);
+    for row in transposed {
+        println!("{row:?}");
     }
 }
 // ANCHOR_END: main
