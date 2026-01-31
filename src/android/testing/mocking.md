@@ -39,7 +39,7 @@ to use traits, which you can then quickly mock:
   a local environment. Use `cargo add mockall` to quickly add Mockall to an
   existing Cargo project.
 
-- Mockall has a lot more functionality. In particular, you can set up
+- Mockall has extensive functionality. In particular, you can set up
   expectations which depend on the arguments passed. Here we use this to mock a
   cat which becomes hungry 3 hours after the last time it was fed:
 
