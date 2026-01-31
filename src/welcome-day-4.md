@@ -7,13 +7,15 @@ target_minutes: 180
 
 # Welcome to Day 4
 
-Today we will cover topics relating to building large-scale software in Rust:
+We have mastered the core language and its unique safety model:
 
-- Iterators: a deep dive on the `Iterator` trait.
-- Modules and visibility.
-- Testing.
-- Error handling: panics, `Result`, and the try operator `?`.
-- Unsafe Rust: the escape hatch when you can't express yourself in safe Rust.
+- **Foundations & Abstraction:** Traits, generics, and the standard library.
+- **Ownership:** Move semantics and the `Drop` trait.
+- **Memory Management:** Borrowing rules (`&` vs `&mut`) and lifetimes.
+- **Smart Pointers:** `Box`, `Rc`, and `RefCell` for complex data structures.
+
+You now understand how Rust guarantees memory safety at compile time! Today we
+focus on applying this knowledge to build robust, large-scale applications.
 
 ## Schedule
 
