@@ -15,4 +15,4 @@ and `std`.
   `libc`, allocator or even the presence of an operating system.
 - `alloc` includes types that require a global heap allocator, such as `Vec`,
   `Box` and `Arc`.
-- Embedded Rust applications often only use `core`, and sometimes `alloc`.
+- Embedded Rust applications typically only use `core`, and sometimes `alloc`.

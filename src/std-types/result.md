@@ -37,8 +37,8 @@ fn main() {
   case where an error should never happen, `unwrap()` or `expect()` can be
   called, and this is a signal of the developer intent too.
 - `Result` documentation is a recommended read. Not during the course, but it is
-  worth mentioning. It contains a lot of convenience methods and functions that
-  help functional-style programming.
+  worth mentioning. It contains many convenience methods and functions that help
+  functional-style programming.
 - `Result` is the standard type to implement error handling as we will see on
   Day 4.
 
