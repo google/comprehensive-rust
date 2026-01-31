@@ -7,8 +7,8 @@ minutes: 5
 Rust's type system is _expressive_: you can use types and traits to build
 abstractions that make your code harder to misuse.
 
-In some cases, you can go as far as enforcing correctness at _compile-time_,
-with no runtime overhead.
+It is possible to enforce correctness at _compile-time_, with no runtime
+overhead.
 
 Types and traits can model concepts and constraints from your business domain.
 With careful design, you can improve the clarity and maintainability of the
@@ -18,8 +18,7 @@ entire codebase.
 
 Additional items speaker may mention:
 
-- Rust's type system borrows a lot of ideas from functional programming
-  languages.
+- Rust's type system borrows ideas from functional programming languages.
 
   For example, Rust's enums are known as "algebraic data types" in languages
   like Haskell and OCaml. You can take inspiration from learning material geared
@@ -42,9 +41,9 @@ Additional items speaker may mention:
   doesn't support inheritance, and object decomposition should take into account
   the constraints introduced by the borrow checker.
 
-- Mention that type-level programming can be often used to create "zero-cost
-  abstractions", although the label can be misleading: the impact on compile
-  times and code complexity may be significant.
+- Mention that type-level programming creates "zero-cost abstractions", although
+  the label can be misleading: the impact on compile times and code complexity
+  may be significant.
 
 </details>
 

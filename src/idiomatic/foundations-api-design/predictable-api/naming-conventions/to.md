@@ -30,9 +30,9 @@ impl u32 {
   non-trivial type conversion, or even a data transformation. For example,
   `str::to_uppercase`.
 
-- "to" methods most commonly take `&self`. However they can take `self` by value
-  if the type implements `Copy`: this also ensures that the conversion method
-  call does not consume `self`.
+- "to" methods take `&self`. However they can take `self` by value if the type
+  implements `Copy`: this also ensures that the conversion method call does not
+  consume `self`.
 
 - If you simply want to define a method that takes `&self` and returns an owned
   value of the same type, implement the `Clone` trait.

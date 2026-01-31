@@ -4,7 +4,7 @@ minutes: 5
 
 # Newtype Pattern
 
-A _newtype_ is a wrapper around an existing type, often a primitive:
+A _newtype_ is a wrapper around an existing type, typically a primitive:
 
 ```rust
 /// A unique user identifier, implemented as a newtype around `u64`.

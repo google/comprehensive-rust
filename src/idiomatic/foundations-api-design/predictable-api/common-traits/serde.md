@@ -32,7 +32,7 @@ struct Data {
   erroneously saved to disk or sent over a network, consider not implementing
   Serialize/Deserialize for that type.
 
-  Shares security concerns with `Debug`, but given serialization is often used
-  in networking there can be higher stakes.
+  Shares security concerns with `Debug`, but given serialization is frequently
+  used in networking there can be higher stakes.
 
 </details>

@@ -23,8 +23,8 @@ fn main() {
 
 <details>
 
-- Traits are most commonly used as bounds on generic type parameters for a
-  function or method.
+- Traits are typically used as bounds on generic type parameters for a function
+  or method.
 
   Without a trait bound on a generic type parameter, we don't have access to any
   behavior to write functions and methods with.

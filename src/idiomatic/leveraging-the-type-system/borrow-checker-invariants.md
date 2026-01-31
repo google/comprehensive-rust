@@ -59,7 +59,7 @@ fn main() {
 - We've also used types to shape and restrict APIs already using
   [the Typestate pattern](../leveraging-the-type-system/typestate-pattern.md).
 
-- Language features are often introduced for a specific purpose.
+- Language features are frequently introduced for a specific purpose.
 
   Over time, users may develop ways of using a feature in ways that were not
   predicted when they were introduced.
@@ -67,8 +67,8 @@ fn main() {
   Java 5 introduced Generics in 2004 with the
   [main stated purpose of enabling type-safe collections](https://jcp.org/en/jsr/detail?id=14).
 
-  Adoption was slow at first, but some new projects began designing their APIs
-  around generics from the beginning.
+  Adoption was slow at first, but several new projects began designing their
+  APIs around generics from the beginning.
 
   Since then, users and developers of the language expanded the use of generics
   to other areas of type-safe API design:

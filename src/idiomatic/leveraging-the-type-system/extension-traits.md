@@ -38,7 +38,8 @@ pattern** to work around this limitation.
   Highlight how the compiler error message nudges you towards the extension
   trait pattern.
 
-- Explain how many type-system restrictions in Rust aim to prevent _ambiguity_.
+- Explain how the numerous type-system restrictions in Rust aim to prevent
+  _ambiguity_.
 
   What would happen if you were allowed to define new inherent methods on
   foreign types? Different crates in your dependency tree might end up defining
@@ -57,7 +58,7 @@ pattern** to work around this limitation.
   new inherent methods on foreign types.
 
 - Other languages (e.g, Kotlin, C#, Swift) allow adding methods to existing
-  types, often called "extension methods." This leads to different trade-offs in
+  types, known as "extension methods." This leads to different trade-offs in
   terms of potential ambiguities and the need for global reasoning.
 
 </details>
