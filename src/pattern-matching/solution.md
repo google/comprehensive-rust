@@ -6,8 +6,8 @@
 
 - **Pattern Matching:** We use `match` to handle the different variants of the
   `Expression` enum. This ensures we cover all possible cases.
-- **Destructuring:** The pattern `Expression::Op { op, left, right }` destructures
-  the `Op` variant, giving us access to its inner fields.
+- **Destructuring:** The pattern `Expression::Op { op, left, right }`
+  destructures the `Op` variant, giving us access to its inner fields.
 - **Recursion:** Since `Expression` is a recursive data structure, `eval` is a
   recursive function. We call `eval(*left)` and `eval(*right)` to compute the
   values of the sub-expressions.
@@ -18,10 +18,10 @@
 
 <details>
 
-- Mention that `Box` is necessary because `Expression` has infinite size otherwise
-  (it contains itself). `Box` provides a fixed size (pointer size) for the recursive
-  fields.
-- Discuss integer division behavior (truncation) for `Operation::Div` since we are
-  using integers.
+- Mention that `Box` is necessary because `Expression` has infinite size
+  otherwise (it contains itself). `Box` provides a fixed size (pointer size) for
+  the recursive fields.
+- Discuss integer division behavior (truncation) for `Operation::Div` since we
+  are using integers.
 
 </details>
