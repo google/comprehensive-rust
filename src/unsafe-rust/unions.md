@@ -22,8 +22,8 @@ fn main() {
 
 <details>
 
-Unions are very rarely needed in Rust as you can usually use an enum. They are
-occasionally needed for interacting with C library APIs.
+Unions are rarely needed in Rust as enums provide a superior alternative. They
+are occasionally needed for interacting with C library APIs.
 
 If you just want to reinterpret bytes as a different type, you probably want
 [`std::mem::transmute`](https://doc.rust-lang.org/stable/std/mem/fn.transmute.html)

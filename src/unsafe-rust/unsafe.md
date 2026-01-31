@@ -12,8 +12,8 @@ The Rust language has two parts:
 We saw mostly safe Rust in this course, but it's important to know what Unsafe
 Rust is.
 
-Unsafe code is usually small and isolated, and its correctness should be
-carefully documented. It is usually wrapped in a safe abstraction layer.
+Unsafe code should be small and isolated, and its correctness should be
+carefully documented. It should be wrapped in a safe abstraction layer.
 
 Unsafe Rust gives you access to five new capabilities:
 
