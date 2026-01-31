@@ -191,6 +191,16 @@ throughout the course. When editing course content, use the glossary to anchor
 concepts and ensure consistency in terminology. Terms should be defined and used
 consistently with their glossary entries.
 
+### Precision
+
+Avoid ["weasel words"](https://en.wikipedia.org/wiki/Weasel_word) (e.g.,
+"likely", "probably", "maybe", "usually") when a definite statement can be made.
+The course material should be clear, concise, and authoritative. If a behavior
+is conditional, explain the condition precisely rather than hedging.
+
+When describing conventions or standard behavior, prefer "typically" (implies a
+norm or design characteristic) over "usually" (implies statistical frequency).
+
 ## Exercises
 
 At the end of some sections, learners will actively engage with the material by
