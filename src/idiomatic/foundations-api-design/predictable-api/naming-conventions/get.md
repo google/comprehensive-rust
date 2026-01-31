@@ -19,7 +19,7 @@ impl <T> OnceCell {
 <details>
 - Gets are trivial, they get a value!
 
-Immutable by default, for the most part.
+Immutable by default.
 
 Should not panic. May return an option or result, depending on the framework.
 

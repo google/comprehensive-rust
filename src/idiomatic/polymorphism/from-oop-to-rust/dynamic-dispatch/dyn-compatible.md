@@ -27,8 +27,8 @@ pub trait Trait {
 
 - This was previously called _object safe traits_ or _object safety_.
 
-- Dynamic dispatch offloads a lot of compile-time type information into runtime
-  vtable information.
+- Dynamic dispatch offloads significant compile-time type information into
+  runtime vtable information.
 
   If a concept is incompatible with what we can meaningfully store in a vtable,
   either the trait stops being dyn compatible or those methods are excluded from
