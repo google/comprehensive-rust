@@ -21,9 +21,9 @@ Using Rust for pure first-party code looks like this:
 `- - - - - - - - - -'           `- - - - - - - - - - -'
 ```
 
-The third-party case is also common. It's likely that you'll also need a small
-amount of first-party glue code, because very few Rust libraries directly expose
-a C/C++ API.
+The third-party case is also common. You will typically also need a small amount
+of first-party glue code, because very few Rust libraries directly expose a
+C/C++ API.
 
 ```bob
 "C++"                           Rust

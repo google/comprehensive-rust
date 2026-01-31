@@ -4,7 +4,7 @@ The Rust community offers multiple options for C++/Rust interop, with new tools
 being developed all the time. At the moment, Chromium uses a tool called CXX.
 
 You describe your whole language boundary in an interface definition language
-(which looks a lot like Rust) and then CXX tools generate declarations for
+(which closely resembles Rust) and then CXX tools generate declarations for
 functions and types in both Rust and C++.
 
 <img src="../android/interoperability/cpp/overview.svg" alt="Overview diagram of cxx, showing that the same interface definition is used to create both C++ and Rust side code which then communicate via a lowest common denominator C API">

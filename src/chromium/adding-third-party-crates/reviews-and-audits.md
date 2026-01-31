@@ -2,9 +2,9 @@
 
 Adding new libraries is subject to Chromium's standard [policies][0], but of
 course also subject to security review. As you may be bringing in not just a
-single crate but also transitive dependencies, there may be a lot of code to
-review. On the other hand, safe Rust code can have limited negative side
-effects. How should you review it?
+single crate but also transitive dependencies, there may be a substantial amount
+of code to review. On the other hand, safe Rust code can have limited negative
+side effects. How should you review it?
 
 Over time Chromium aims to move to a process based around [cargo vet][1].
 
@@ -22,7 +22,7 @@ Meanwhile, for each new crate addition, we are checking for the following:
 - Check for any use of `fs` or `net` APIs
 - Read all the code at a sufficient level to look for anything out of place that
   might have been maliciously inserted. (You can't realistically aim for 100%
-  perfection here: there's often just too much code.)
+  perfection here: there is often too much code.)
 
 These are just guidelines --- work with reviewers from `security@chromium.org`
 to work out the right way to become confident of the crate.
