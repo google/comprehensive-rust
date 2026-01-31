@@ -49,7 +49,7 @@ fn main() {
   behavior to access a mutable static from multiple threads.
 - The 2024 Rust edition goes further and makes accessing a mutable static by
   reference an error by default.
-- Using a mutable static is almost always a bad idea, you should use interior
+- Using a mutable static is rarely a good idea, you should use interior
   mutability instead.
 - There are some cases where it might be necessary in low-level `no_std` code,
   such as implementing a heap allocator or working with some C APIs. In this

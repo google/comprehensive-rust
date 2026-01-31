@@ -39,8 +39,8 @@ Key points:
   prerequisites to avoid undefined behaviour. A safe function which can cause
   undefined behaviour is said to be `unsound`. What should its safety
   documentation say?
-- The standard library contains many low-level unsafe functions. Prefer the safe
-  alternatives when possible!
+- The standard library contains a number of low-level unsafe functions. Prefer
+  the safe alternatives when possible!
 - If you use an unsafe function as an optimization, make sure to add a benchmark
   to demonstrate the gain.
 
