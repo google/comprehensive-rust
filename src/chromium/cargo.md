@@ -37,7 +37,7 @@ may offer an advantage"):
 
 - It's fantastic that when writing a tool, or prototyping a part of Chromium,
   one has access to the rich ecosystem of crates.io libraries. There is a crate
-  for almost anything and they are usually quite pleasant to use. (`clap` for
+  for almost anything and they are typically quite pleasant to use. (`clap` for
   command-line parsing, `serde` for serializing/deserializing to/from various
   formats, `itertools` for working with iterators, etc.).
 
@@ -66,7 +66,7 @@ may offer an advantage"):
   - Participating in the Rust ecosystem requires using standard Rust tools like
     Cargo. Libraries that want to get external contributions, and want to be
     used outside of Chromium (e.g. in Bazel or Android/Soong build environments)
-    should probably use Cargo.
+    should use Cargo.
 
 - Examples of Chromium-related projects that are `cargo`-based:
   - `serde_json_lenient` (experimented with in other parts of Google which

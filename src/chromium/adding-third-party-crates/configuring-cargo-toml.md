@@ -12,10 +12,10 @@ cxx = "1"
 ```
 
 As with any other `Cargo.toml`, you can specify
-[more details about the dependencies][1] --- most commonly, you'll want to
-specify the `features` that you wish to enable in the crate.
+[more details about the dependencies][1] --- typically, you'll want to specify
+the `features` that you wish to enable in the crate.
 
-When adding a crate to Chromium, you'll often need to provide some extra
+When adding a crate to Chromium, you'll frequently need to provide additional
 information in an additional file, `gnrt_config.toml`, which we'll meet next.
 
 [0]: https://source.chromium.org/chromium/chromium/src/+/main:third_party/rust/chromium_crates_io/Cargo.toml

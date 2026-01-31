@@ -1,8 +1,8 @@
 # Build rules
 
-Rust code is usually built using `cargo`. Chromium builds with `gn` and `ninja`
-for efficiency --- its static rules allow maximum parallelism. Rust is no
-exception.
+Rust code is typically built using `cargo`. Chromium builds with `gn` and
+`ninja` for efficiency --- its static rules allow maximum parallelism. Rust is
+no exception.
 
 ## Adding Rust code to Chromium
 
