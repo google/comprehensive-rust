@@ -40,14 +40,14 @@ responsibility for guarding against invalid inputs, or we can shift that
 responsibility to the caller with the unsafe keyword.”
 
 “The first path is a difficult one. We’re accepting a generic type T, which is
-all possible types that implement Sized. That’s a lot of types!
+all possible types that implement Sized. That is a vast number of types!
 
 “Therefore, the second path makes more sense.
 
 _Extra content (time permitting)_
 
 “By the way, if you’re interested in the details of pointers and what the rules
-of converting them to references are, the standard library has a lot of useful
+of converting them to references are, the standard library has many useful
 documentation. You should also look into the source code of many of the methods
 on std::pointer.
 
