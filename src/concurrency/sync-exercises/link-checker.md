@@ -18,7 +18,7 @@ Create a new Cargo project and `reqwest` it as a dependency with:
 ```shell
 cargo new link-checker
 cd link-checker
-cargo add --features blocking,rustls-tls reqwest
+cargo add --features blocking reqwest
 cargo add scraper
 cargo add thiserror
 ```
