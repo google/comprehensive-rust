@@ -42,7 +42,7 @@ fn main() {
 - A derived implementation will produce a value where all fields are set to
   their default values.
   - This means all types in the struct must implement `Default` too.
-- Standard Rust types often implement `Default` with reasonable values (e.g.
+- Standard Rust types commonly implement `Default` with reasonable values (e.g.
   `0`, `""`, etc).
 - The partial struct initialization works nicely with default.
 - The Rust standard library is aware that types can implement `Default` and
