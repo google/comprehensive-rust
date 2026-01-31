@@ -39,7 +39,7 @@ There are two ways to specify the generic type `B` for this method:
   `Result<Vec<V>, E>`.
 - The reason type annotations are often needed with `collect` is because it's
   generic over its return type. This makes it harder for the compiler to infer
-  the correct type in a lot of cases.
+  the correct type in many cases.
 
 </details>
 
