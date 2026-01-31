@@ -50,7 +50,7 @@ fn visit_page(client: &Client, command: &CrawlCommand) -> Result<Vec<Url>, Error
         return Ok(link_urls);
     }
 
-    let base_url = response.url().to_owned();
+    let base_url = response.url().clone();
     let body_text = response.text()?;
     let document = Html::parse_document(&body_text);
 
@@ -86,10 +86,7 @@ impl CrawlState {
 
     /// Determine whether links within the given page should be extracted.
     fn should_extract_links(&self, url: &Url) -> bool {
-        let Some(url_domain) = url.domain() else {
-            return false;
-        };
-        url_domain == self.domain
+        url.domain().map_or(false, |d| d == self.domain)
     }
 
     /// Mark the given page as visited, returning false if it had already
@@ -100,6 +97,7 @@ impl CrawlState {
 }
 
 type CrawlResult = Result<Vec<Url>, (Url, Error)>;
+
 fn spawn_crawler_threads(
     command_receiver: mpsc::Receiver<CrawlCommand>,
     result_sender: mpsc::Sender<CrawlResult>,
@@ -161,7 +159,6 @@ fn control_crawl(
             Err((url, error)) => {
                 bad_urls.push(url);
                 println!("Got crawling error: {:#}", error);
-                continue;
             }
         }
     }

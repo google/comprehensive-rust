@@ -38,9 +38,9 @@ edition = "2024"
 publish = false
 
 [dependencies]
-reqwest = { version = "0.11.12", features = ["blocking", "rustls-tls"] }
-scraper = "0.13.0"
-thiserror = "1.0.37"
+reqwest = { version = "0.13.1", features = ["blocking"] }
+scraper = "0.25.0"
+thiserror = "2.0.18"
 ```
 
 You can now download the start page. Try with a small site such as
