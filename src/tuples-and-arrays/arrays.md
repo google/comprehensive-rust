@@ -37,8 +37,8 @@ fn main() {
 }
 ```
 
-- Array accesses are checked at runtime. Rust can usually optimize these checks
-  away; meaning if the compiler can prove the access is safe, it removes the
+- Array accesses are checked at runtime. Rust optimizes these checks away when
+  possible; meaning if the compiler can prove the access is safe, it removes the
   runtime check for better performance. They can be avoided using unsafe Rust.
   The optimization is so good that it's hard to give an example of runtime
   checks failing. The following code will compile but panic at runtime:
