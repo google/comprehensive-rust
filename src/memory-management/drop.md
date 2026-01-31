@@ -45,7 +45,7 @@ fn main() {
   significance is that it takes ownership of the value, so at the end of its
   scope it gets dropped. This makes it a convenient way to explicitly drop
   values earlier than they would otherwise go out of scope.
-  - This can be useful for objects that do some work on `drop`: releasing locks,
+  - This is useful for objects that do some work on `drop`: releasing locks,
     closing files, etc.
 
 Discussion points:
