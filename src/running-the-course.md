@@ -28,7 +28,7 @@ Before you run the course, you will want to:
    asking questions --- it's also small enough that one instructor will have
    time to answer the questions. Make sure the room has _desks_ for yourself and
    for the students: you will all need to be able to sit and work with your
-   laptops. In particular, you will be doing a lot of live-coding as an
+   laptops. In particular, you will be doing significant live-coding as an
    instructor, so a lectern won't be very helpful for you.
 
 1. On the day of your course, show up to the room a little early to set things
@@ -64,7 +64,7 @@ better. Your students are also very welcome to [send us feedback][2]!
 - **Go through all the material:** Before teaching the course, make sure you
   have gone through all the slides and exercises yourself. This will help you
   anticipate questions and potential difficulties.
-- **Prepare for live coding:** The course involves a lot of live coding.
+- **Prepare for live coding:** The course involves significant live coding.
   Practice the examples and exercises beforehand to ensure you can type them out
   smoothly during the class. Have the solutions ready in case you get stuck.
 - **Familiarize yourself with `mdbook`:** The course is presented using
