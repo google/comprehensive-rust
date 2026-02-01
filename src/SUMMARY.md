@@ -166,7 +166,7 @@
   - [Interior Mutability](borrowing/interior-mutability.md)
     - [`Cell`](borrowing/interior-mutability/cell.md)
     - [`RefCell`](borrowing/interior-mutability/refcell.md)
-  - [Exercise: Health Statistics](borrowing/exercise.md)
+  - [Exercise: Wizard's Inventory](borrowing/exercise.md)
     - [Solution](borrowing/solution.md)
 - [Lifetimes](lifetimes.md)
   - [Borrowing and Functions](lifetimes/simple-borrows.md)
