@@ -86,7 +86,7 @@ impl CrawlState {
 
     /// Determine whether links within the given page should be extracted.
     fn should_extract_links(&self, url: &Url) -> bool {
-        url.domain().map_or(false, |d| d == self.domain)
+        url.domain().is_some_and(|d| d == self.domain)
     }
 
     /// Mark the given page as visited, returning false if it had already
