@@ -33,9 +33,10 @@ Typically because of interior mutability:
 These types are safe to access (via shared references) from multiple threads,
 but they cannot be moved to another thread:
 
-- `MutexGuard<T>`: Uses OS level primitives which must be deallocated on
-the thread which created them. However, an already-locked mutex can have its
-guarded variable read by any thread with which the guard is shared (unless `T` itself is `!Sync`).
+- `MutexGuard<T>`: Uses OS level primitives which must be deallocated on the
+  thread which created them. However, an already-locked mutex can have its
+  guarded variable read by any thread with which the guard is shared (unless `T`
+  itself is `!Sync`).
 
 ## `!Send + !Sync`
 
