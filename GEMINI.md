@@ -93,6 +93,34 @@ list of options.
   - **`setup-rust-cache`:** A composite action that configures the
     `Swatinem/rust-cache` action.
 
+## Developing Exercises
+
+Exercises allow students to practice what they have learned. When adding or
+updating exercises, follow these structural conventions:
+
+- **File Structure:**
+  - `exercise.md`: Contains the problem description and a code block with
+    placeholders.
+  - `exercise.rs`: Contains the full solution code, including a license header
+    and `ANCHOR` tags to delimit sections.
+  - `solution.md`: Includes the full solution code from `exercise.rs`.
+  - `Cargo.toml`: Must define a `[[bin]]` target pointing to `exercise.rs` so
+    that the solution code is compiled and tested.
+
+- **Content Inclusion:**
+  - Use `{{#include exercise.rs:anchor_name}}` in `exercise.md` to show specific
+    parts of the code (e.g., setup, main).
+  - Use `{{#include exercise.rs:solution}}` in `solution.md` to show the
+    solution code _without_ the license header. Ensure `exercise.rs` has a
+    `// ANCHOR: solution` line before the first line of the solution. It is
+    unnecessary to add a `// ANCHOR_END: solution` line at the bottom of the
+    file.
+
+- **Testing:**
+  - Run `cargo xtask rust-tests` to ensure the solution code compiles and runs
+    correctly.
+  - Run `cargo check -p <crate_name>` to verify the specific exercise crate.
+
 ## Markdown Conventions
 
 - **Headings:**

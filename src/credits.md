@@ -9,13 +9,6 @@ license, please see
 [`LICENSE`](https://github.com/google/comprehensive-rust/blob/main/LICENSE) for
 details.
 
-## Rust on Exercism
-
-Some exercises have been copied and adapted from
-[Rust on Exercism](https://exercism.org/tracks/rust). Please see the
-`third_party/rust-on-exercism/` directory for details, including the license
-terms.
-
 ## CXX
 
 The [Interoperability with C++](android/interoperability/cpp.md) section uses an

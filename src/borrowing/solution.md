@@ -1,5 +1,9 @@
-# Solution
+---
+minutes: 20
+---
+
+# Solution: Wizard's Inventory
 
 ```rust,editable
-{{#include ../../third_party/rust-on-exercism/health-statistics.rs:solution}}
+{{#include exercise.rs:solution}}
 ```
