@@ -140,7 +140,7 @@ fn install_tools(binstall: bool) -> Result<()> {
 
     // The --locked flag is important for reproducible builds.
     let tools = [
-        ("mdbook", "0.4.52"),
+        ("mdbook", "0.5.2"),
         ("mdbook-svgbob", "0.2.2"),
         ("mdbook-pandoc", "0.10.4"),
         ("mdbook-i18n-helpers", "0.3.6"),
