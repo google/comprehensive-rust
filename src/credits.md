@@ -9,13 +9,6 @@ license, please see
 [`LICENSE`](https://github.com/google/comprehensive-rust/blob/main/LICENSE) for
 details.
 
-## Rust by Example
-
-Some examples and exercises have been copied and adapted from
-[Rust by Example](https://doc.rust-lang.org/rust-by-example/). Please see the
-`third_party/rust-by-example/` directory for details, including the license
-terms.
-
 ## Rust on Exercism
 
 Some exercises have been copied and adapted from
