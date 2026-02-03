@@ -7,11 +7,17 @@ target_minutes: 180
 
 # Welcome to Day 3
 
-Today, we will cover:
+We have now seen all the core language features:
 
-- Memory management, lifetimes, and the borrow checker: how Rust ensures memory
-  safety.
-- Smart pointers: standard library pointer types.
+- **Foundations:** Basic types, control flow, functions, and data structures.
+- **Pattern Matching:** Destructuring data effectively.
+- **Polymorphism:** Methods, Traits, and Generics.
+- **Standard Library:** Using essential types like `Option`, `Result`, `Vec`,
+  and `String`.
+- **Closures:** Anonymous functions that can capture their environment.
+
+You can write any type and associate behavior with it. We are now shifting gears
+to apply these concepts to memory management and system design.
 
 ## Schedule
 

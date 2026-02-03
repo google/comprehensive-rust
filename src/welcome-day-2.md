@@ -7,15 +7,15 @@ target_minutes: 180
 
 # Welcome to Day 2
 
-Now that we have seen a fair amount of Rust, today will focus on Rust's type
-system:
+We have covered the foundations of Rust:
 
-- Pattern matching: extracting data from structures.
-- Methods: associating functions with types.
-- Traits: behaviors shared by multiple types.
-- Generics: parameterizing types on other types.
-- Standard library types and traits: a tour of Rust's rich standard library.
-- Closures: function pointers with data.
+- **Basic Types:** Integers, booleans, characters, tuples, and arrays.
+- **Control Flow:** `if` expressions, loops, and `match` expressions.
+- **Functions:** How to define and call functions.
+- **User-Defined Types:** Model data with `struct` and `enum`.
+- **References:** Basic borrowing with `&` and `&mut`.
+
+You can now construct any type in Rust and implement basic logic!
 
 ## Schedule
 
