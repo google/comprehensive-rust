@@ -37,7 +37,7 @@
 
 use crate::frontmatter::{Frontmatter, split_frontmatter};
 use crate::markdown::{Table, duration};
-use mdbook::book::{Book, BookItem, Chapter};
+use mdbook_preprocessor::book::{Book, BookItem, Chapter};
 use std::fmt::Write;
 use std::path::PathBuf;
 
@@ -105,7 +105,7 @@ impl Courses {
         let mut current_course_name = None;
         let mut current_session_name = None;
 
-        for item in &mut book.sections {
+        for item in &mut book.items {
             // We only want to process chapters, omitting part titles and separators.
             let BookItem::Chapter(chapter) = item else {
                 continue;

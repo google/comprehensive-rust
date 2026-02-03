@@ -14,7 +14,7 @@
 
 use anyhow::Context;
 use matter::matter;
-use mdbook::book::Chapter;
+use mdbook_preprocessor::book::Chapter;
 use serde::Deserialize;
 
 #[derive(Deserialize, Debug, Default)]
