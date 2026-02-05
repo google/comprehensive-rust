@@ -1,0 +1,338 @@
+--- theme/upstream_book.js	2025-12-25 17:01:51
++++ theme/book.js	2025-12-25 16:02:41
+@@ -3,6 +3,16 @@
+ // Fix back button cache problem
+ window.onunload = function () { };
+ 
++function isPlaygroundModified(playground) {
++    let code_block = playground.querySelector("code");
++    if (window.ace && code_block.classList.contains("editable")) {
++      let editor = window.ace.edit(code_block);
++      return editor.getValue() != editor.originalCode;
++    } else {
++      return false;
++    }
++}
++
+ // Global variable, shared between modules
+ function playground_text(playground, hidden = true) {
+     let code_block = playground.querySelector("code");
+@@ -18,7 +28,7 @@
+ }
+ 
+ (function codeSnippets() {
+-    function fetch_with_timeout(url, options, timeout = 6000) {
++    function fetch_with_timeout(url, options, timeout = 15000) {
+         return Promise.race([
+             fetch(url, options),
+             new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), timeout))
+@@ -34,12 +44,12 @@
+             method: 'POST',
+             mode: 'cors',
+         })
+-            .then(response => response.json())
+-            .then(response => {
+-                // get list of crates available in the rust playground
+-                let playground_crates = response.crates.map(item => item["id"]);
+-                playgrounds.forEach(block => handle_crate_list_update(block, playground_crates));
+-            });
++        .then(response => response.json())
++        .then(response => {
++            // get list of crates available in the rust playground
++            let playground_crates = response.crates.map(item => item["id"]);
++            playgrounds.forEach(block => handle_crate_list_update(block, playground_crates));
++        });
+     }
+ 
+     function handle_crate_list_update(playground_block, playground_crates) {
+@@ -100,36 +110,63 @@
+     }
+ 
+     function run_rust_code(code_block) {
+-        var result_block = code_block.querySelector(".result");
++        var result_stderr_block = code_block.querySelector(".result.stderr");
++        if (!result_stderr_block) {
++            result_stderr_block = document.createElement('code');
++            result_stderr_block.className = 'result stderr hljs nohighlight hidden';
++
++            code_block.append(result_stderr_block);
++        }
++        var result_block = code_block.querySelector(".result.stdout");
+         if (!result_block) {
+             result_block = document.createElement('code');
+-            result_block.className = 'result hljs language-bash';
++            result_block.className = 'result stdout hljs nohighlight';
+ 
+             code_block.append(result_block);
+         }
+ 
+         let text = playground_text(code_block);
+         let classes = code_block.querySelector('code').classList;
++        // Unless the code block has `warnunused`, allow all "unused" lints to avoid cluttering
++        // the output.
++        if(!classes.contains("warnunused")) {
++            text = '#![allow(unused)] ' + text;
++        }
+         let edition = "2015";
+-        if (classes.contains("edition2018")) {
++        if(classes.contains("edition2018")) {
+             edition = "2018";
+-        } else if (classes.contains("edition2021")) {
++        } else if(classes.contains("edition2021")) {
+             edition = "2021";
++        } else if(classes.contains("edition2024")) {
++            edition = "2024";
+         }
+         var params = {
+-            version: "stable",
+-            optimize: "0",
++            backtrace: true,
++            channel: "stable",
+             code: text,
+-            edition: edition
++            edition: edition,
++            mode: "debug",
++            tests: false,
++            crateType: "bin",
+         };
+ 
++        // If the code block has no `main` but does have tests, run those.
++        if (text.indexOf("fn main") === -1 && text.indexOf("#[test]") !== -1) {
++            params.tests = true;
++        }
++
+         if (text.indexOf("#![feature") !== -1) {
+             params.version = "nightly";
+         }
+ 
+         result_block.innerText = "Running...";
++        // hide stderr block while running
++        result_stderr_block.innerText = "";
++        result_stderr_block.classList.add("hidden");
+ 
+-        fetch_with_timeout("https://play.rust-lang.org/evaluate.json", {
++        const playgroundModified = isPlaygroundModified(code_block);
++        const startTime = window.performance.now();
++        fetch_with_timeout("https://play.rust-lang.org/execute", {
+             headers: {
+                 'Content-Type': "application/json",
+             },
+@@ -137,17 +174,52 @@
+             mode: 'cors',
+             body: JSON.stringify(params)
+         })
+-            .then(response => response.json())
+-            .then(response => {
+-                if (response.result.trim() === '') {
+-                    result_block.innerText = "No output";
+-                    result_block.classList.add("result-no-output");
+-                } else {
+-                    result_block.innerText = response.result;
+-                    result_block.classList.remove("result-no-output");
+-                }
+-            })
+-            .catch(error => result_block.innerText = "Playground Communication: " + error.message);
++        .then(response => response.json())
++        .then(response => {
++            const endTime = window.performance.now();
++            gtag("event", "playground", {
++                "modified": playgroundModified,
++                "error": (response.error == null) ? null : 'compilation_error',
++                "latency": (endTime - startTime) / 1000,
++            });
++
++            if (response.error != null && response.error != '') {
++                // output the error if there's any. e.g. timeout
++                result_block.innerText = response.error;
++                result_block.classList.remove("result-no-output");
++                return;
++            }
++
++            if (response.stdout.trim() === '') {
++                result_block.innerText = "No output";
++                result_block.classList.add("result-no-output");
++            } else {
++                result_block.innerText = response.stdout;
++                result_block.classList.remove("result-no-output");
++            }
++
++            // trim compile message
++            // ====================
++            // Compiling playground v0.0.1 (/playground)
++            // Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.60s
++            // Running `target/debug/playground`
++            // ====================
++            const compileMsgRegex = /^\s+Compiling(.+)\s+Finished(.+)\s+Running(.+)\n/;
++            response.stderr = response.stderr.replace(compileMsgRegex, "");
++            if (response.stderr.trim() !== '') {
++                result_stderr_block.classList.remove("hidden");
++                result_stderr_block.innerText = response.stderr;
++            }
++        })
++        .catch(error => {
++            const endTime = window.performance.now();
++            gtag("event", "playground", {
++                "modified": playgroundModified,
++                "error": error.message,
++                "latency": (endTime - startTime) / 1000,
++            });
++            result_block.innerText = "Playground Communication: " + error.message
++        });
+     }
+ 
+     // Syntax highlighting Configuration
+@@ -159,17 +231,17 @@
+     let code_nodes = Array
+         .from(document.querySelectorAll('code'))
+         // Don't highlight `inline code` blocks in headers.
+-        .filter(function (node) { return !node.parentElement.classList.contains("header"); });
++        .filter(function (node) {return !node.parentElement.classList.contains("header"); });
+ 
+     if (window.ace) {
+         // language-rust class needs to be removed for editable
+         // blocks or highlightjs will capture events
+         code_nodes
+-            .filter(function (node) { return node.classList.contains("editable"); })
++            .filter(function (node) {return node.classList.contains("editable"); })
+             .forEach(function (block) { block.classList.remove('language-rust'); });
+ 
+         code_nodes
+-            .filter(function (node) { return !node.classList.contains("editable"); })
++            .filter(function (node) {return !node.classList.contains("editable"); })
+             .forEach(function (block) { hljs.highlightBlock(block); });
+     } else {
+         code_nodes.forEach(function (block) { hljs.highlightBlock(block); });
+@@ -225,7 +297,7 @@
+                 }
+ 
+                 var clipButton = document.createElement('button');
+-                clipButton.className = 'fa fa-copy clip-button';
++                clipButton.className = 'clip-button';
+                 clipButton.title = 'Copy to clipboard';
+                 clipButton.setAttribute('aria-label', clipButton.title);
+                 clipButton.innerHTML = '<i class=\"tooltiptext\"></i>';
+@@ -258,8 +330,8 @@
+ 
+         if (window.playground_copyable) {
+             var copyCodeClipboardButton = document.createElement('button');
+-            copyCodeClipboardButton.className = 'fa fa-copy clip-button';
+-            copyCodeClipboardButton.innerHTML = '<i class=\"tooltiptext\"></i>';
++            copyCodeClipboardButton.className = 'clip-button';
++            copyCodeClipboardButton.innerHTML = '<i class="tooltiptext"></i>';
+             copyCodeClipboardButton.title = 'Copy to clipboard';
+             copyCodeClipboardButton.setAttribute('aria-label', copyCodeClipboardButton.title);
+ 
+@@ -289,6 +361,10 @@
+     var themeToggleButton = document.getElementById('theme-toggle');
+     var themePopup = document.getElementById('theme-list');
+     var themeColorMetaTag = document.querySelector('meta[name="theme-color"]');
++    var themeIds = [];
++    themePopup.querySelectorAll('button.theme').forEach(function (el) {
++        themeIds.push(el.id);
++    });
+     var stylesheets = {
+         ayuHighlight: document.querySelector("[href$='ayu-highlight.css']"),
+         tomorrowNight: document.querySelector("[href$='tomorrow-night.css']"),
+@@ -317,7 +393,7 @@
+     function get_theme() {
+         var theme;
+         try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+-        if (theme === null || theme === undefined) {
++        if (theme === null || theme === undefined || !themeIds.includes(theme)) {
+             return default_theme;
+         } else {
+             return theme;
+@@ -391,7 +467,7 @@
+         set_theme(theme);
+     });
+ 
+-    themePopup.addEventListener('focusout', function (e) {
++    themePopup.addEventListener('focusout', function(e) {
+         // e.relatedTarget is null in Safari and Firefox on macOS (see workaround below)
+         if (!!e.relatedTarget && !themeToggleButton.contains(e.relatedTarget) && !themePopup.contains(e.relatedTarget)) {
+             hideThemes();
+@@ -399,7 +475,7 @@
+     });
+ 
+     // Should not be needed, but it works around an issue on macOS & iOS: https://github.com/rust-lang/mdBook/issues/628
+-    document.addEventListener('click', function (e) {
++    document.addEventListener('click', function(e) {
+         if (themePopup.style.display === 'block' && !themeToggleButton.contains(e.target) && !themePopup.contains(e.target)) {
+             hideThemes();
+         }
+@@ -445,6 +521,7 @@
+     var sidebar = document.getElementById("sidebar");
+     var sidebarLinks = document.querySelectorAll('#sidebar a');
+     var sidebarToggleButton = document.getElementById("sidebar-toggle");
++    var sidebarToggleAnchor = document.getElementById("sidebar-toggle-anchor");
+     var sidebarResizeHandle = document.getElementById("sidebar-resize-handle");
+     var firstContact = null;
+ 
+@@ -459,17 +536,6 @@
+         try { localStorage.setItem('mdbook-sidebar', 'visible'); } catch (e) { }
+     }
+ 
+-
+-    var sidebarAnchorToggles = document.querySelectorAll('#sidebar a.toggle');
+-
+-    function toggleSection(ev) {
+-        ev.currentTarget.parentElement.classList.toggle('expanded');
+-    }
+-
+-    Array.from(sidebarAnchorToggles).forEach(function (el) {
+-        el.addEventListener('click', toggleSection);
+-    });
+-
+     function hideSidebar() {
+         body.classList.remove('sidebar-visible')
+         body.classList.add('sidebar-hidden');
+@@ -482,22 +548,16 @@
+     }
+ 
+     // Toggle sidebar
+-    sidebarToggleButton.addEventListener('click', function sidebarToggle() {
+-        if (body.classList.contains("sidebar-hidden")) {
++    sidebarToggleAnchor.addEventListener('change', function sidebarToggle() {
++        if (sidebarToggleAnchor.checked) {
+             var current_width = parseInt(
+                 document.documentElement.style.getPropertyValue('--sidebar-width'), 10);
+             if (current_width < 150) {
+                 document.documentElement.style.setProperty('--sidebar-width', '150px');
+             }
+             showSidebar();
+-        } else if (body.classList.contains("sidebar-visible")) {
+-            hideSidebar();
+         } else {
+-            if (getComputedStyle(sidebar)['transform'] === 'none') {
+-                hideSidebar();
+-            } else {
+-                showSidebar();
+-            }
++            hideSidebar();
+         }
+     });
+ 
+@@ -597,12 +657,12 @@
+ 
+     function hideTooltip(elem) {
+         elem.firstChild.innerText = "";
+-        elem.className = 'fa fa-copy clip-button';
++        elem.className = 'clip-button';
+     }
+ 
+     function showTooltip(elem, msg) {
+         elem.firstChild.innerText = msg;
+-        elem.className = 'fa fa-copy tooltipped';
++        elem.className = 'clip-button tooltipped';
+     }
+ 
+     var clipboardSnippets = new ClipboardJS('.clip-button', {
+@@ -629,7 +689,7 @@
+     });
+ })();
+ 
+-(function scrollToTop() {
++(function scrollToTop () {
+     var menuTitle = document.querySelector('.menu-title');
+ 
+     menuTitle.addEventListener('click', function () {
