@@ -7,24 +7,26 @@ minutes: 10
 An **extension trait** is a local trait definition whose primary purpose is to
 attach new methods to foreign types.
 
-```rust
+```rust,editable
 mod ext {
     pub trait StrExt {
         fn is_palindrome(&self) -> bool;
     }
 
-    impl StrExt for &str {
+    impl StrExt for str {
         fn is_palindrome(&self) -> bool {
             self.chars().eq(self.chars().rev())
         }
     }
 }
 
-// Bring the extension trait into scope...
-pub use ext::StrExt as _;
-// ...then invoke its methods as if they were inherent methods
-assert!("dad".is_palindrome());
-assert!(!"grandma".is_palindrome());
+fn main() {
+  // Bring the extension trait into scope...
+  pub use ext::StrExt as _;
+  // ...then invoke its methods as if they were inherent methods
+  assert!("dad".is_palindrome());
+  assert!(!"grandma".is_palindrome());
+}
 ```
 
 <details>

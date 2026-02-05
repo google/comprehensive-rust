@@ -6,7 +6,7 @@ minutes: 5
 
 In what scenarios should you prefer an extension trait over a free function?
 
-```rust
+```rust,editable
 pub trait StrExt {
     fn is_palindrome(&self) -> bool;
 }
