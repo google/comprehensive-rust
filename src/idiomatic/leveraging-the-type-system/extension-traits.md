@@ -10,9 +10,9 @@ method-calling syntax: `s.is_palindrome()`.
 
 It might feel natural to reach out for an `impl` block:
 
-```rust,compile_fail
+```rust,editable,compile_fail
 // 🛠️❌
-impl &'_ str {
+impl str {
     pub fn is_palindrome(&self) -> bool {
         self.chars().eq(self.chars().rev())
     }

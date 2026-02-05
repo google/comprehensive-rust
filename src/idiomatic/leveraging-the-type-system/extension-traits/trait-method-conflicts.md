@@ -19,13 +19,13 @@ mod ext {
         fn is_palindrome(&self) -> bool;
     }
 
-    impl Ext1 for &str {
+    impl Ext1 for str {
         fn is_palindrome(&self) -> bool {
             self.chars().eq(self.chars().rev())
         }
     }
 
-    impl Ext2 for &str {
+    impl Ext2 for str {
         fn is_palindrome(&self) -> bool {
             self.chars().eq(self.chars().rev())
         }
@@ -56,16 +56,16 @@ fn main() {
 
   To resolve this conflict, you must specify which trait you want to use.
 
-  Demonstrate: call `Ext1::is_palindrome(&"dad")` or
-  `Ext2::is_palindrome(&"dad")` instead of `"dad".is_palindrome()`.
+  Demonstrate: call `Ext1::is_palindrome("dad")` or `Ext2::is_palindrome("dad")`
+  instead of `"dad".is_palindrome()`.
 
   For methods with more complex signatures, you may need to use a more explicit
   [fully-qualified syntax][1].
 
 - Demonstrate: replace `"dad".is_palindrome()` with
-  `<&str as Ext1>::is_palindrome(&"dad")` or
+  `<&str as Ext1>::is_palindrome("dad")` or
   `<&str as
-  Ext2>::is_palindrome(&"dad")`.
+  Ext2>::is_palindrome("dad")`.
 
 </details>
 
