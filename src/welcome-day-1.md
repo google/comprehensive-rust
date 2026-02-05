@@ -7,7 +7,8 @@ target_minutes: 180
 
 # Welcome to Day 1
 
-This is the first day of Rust Fundamentals. We will cover a lot of ground today:
+This is the first day of Rust Fundamentals. We will cover a broad range of
+topics today:
 
 - Basic Rust syntax: variables, scalar and compound types, enums, structs,
   references, functions, and methods.
