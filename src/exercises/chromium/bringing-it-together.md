@@ -34,11 +34,11 @@ should have created Chrome for pixies!
 Students will likely need some hints here. Hints include:
 
 - UTF-16 vs UTF-8. Students should be aware that Rust strings are always UTF-8,
-  and will probably decide that it's better to do the conversion on the C++ side
-  using `base::UTF16ToUTF8` and back again.
+  and will typically decide that it's better to do the conversion on the C++
+  side using `base::UTF16ToUTF8` and back again.
 - If students decide to do the conversion on the Rust side, they'll need to
   consider [`String::from_utf16`][1], consider error handling, and consider
-  which [CXX supported types can transfer a lot of u16s][2].
+  which [CXX supported types can transfer many u16s][2].
 - Students may design the C++/Rust boundary in several different ways, e.g.
   taking and returning strings by value, or taking a mutable reference to a
   string. If a mutable reference is used, CXX will likely tell the student that
@@ -47,7 +47,7 @@ Students will likely need some hints here. Hints include:
   that C++ data can't be moved around like Rust data, because it may contain
   self-referential pointers.
 - The C++ target containing `ResourceBundle::MaybeMangleLocalizedString` will
-  need to depend on a `rust_static_library` target. The student probably already
+  need to depend on a `rust_static_library` target. The student likely already
   did this.
 - The `rust_static_library` target will need to depend on
   `//third_party/rust/uwuify/v0_2:lib`.
