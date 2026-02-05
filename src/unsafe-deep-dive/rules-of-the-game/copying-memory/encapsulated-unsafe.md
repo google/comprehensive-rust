@@ -18,10 +18,6 @@ pub fn copy(dest: &mut [u8], source: &[u8]) {
         *old = *new;
         i += 1;
     }
-
-    for (dest, src) in dest.iter_mut().zip(source) {
-        *dest = *src;
-    }
 }
 
 fn main() {
