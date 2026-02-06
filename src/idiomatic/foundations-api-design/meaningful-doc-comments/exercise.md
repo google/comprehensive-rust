@@ -39,9 +39,9 @@ fn sort_quickly<T: Ord>(to_sort: &mut [T]) { ... }
 
 - Ask the class: Now we have more detail, how should we comment this function?
 
-  The point being implementation detail vs not depends a lot on what the public
-  contract is (e.g., can you supply untrusted data or not), and this requires
-  careful judgement.
+  The point being implementation detail vs not depends significantly on what the
+  public contract is (e.g., can you supply untrusted data or not), and this
+  requires careful judgement.
 
   Consider if a comment is explaining that a for-loop is used (unnecessary
   detail) or if it is explaining that the algorithms used internally have known

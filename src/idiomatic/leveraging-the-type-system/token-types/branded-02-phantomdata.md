@@ -53,7 +53,7 @@ fn main() {
   This is useful in many cases, as it means two different lifetimes can be
   treated as if they were the same in the regions they do overlap.
 
-  This is usually what we want. But here we want to use lifetimes as a way to
+  This is typically what we want. But here we want to use lifetimes as a way to
   distinguish values so we say that a token only applies to a single variable
   without having to create a newtype for every single variable we declare.
 

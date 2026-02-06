@@ -49,8 +49,8 @@ languages like Swift, Kotlin, C#, or TypeScript.
     in the standard library - e.g., methods should be called "push" not
     "push_back", "is_empty" not "empty" etc.)
   - Know the vocabulary types and traits in the standard library, and use them
-    in your APIs. If something feels like a basic type/algorithm, check in the
-    standard library first.
+    in your APIs. If something appears to be a basic type/algorithm, check in
+    the standard library first!
   - Use well-established API design patterns that we will discuss later in this
     class (e.g., newtype, owned/view type pairs, error handling)
 - Write meaningful and effective doc comments (e.g., don't merely repeat the

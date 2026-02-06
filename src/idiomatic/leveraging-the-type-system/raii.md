@@ -82,9 +82,9 @@ fn main() -> Result<(), std::io::Error> {
 
 The `Drop` trait has another important limitation: it is not `async`.
 
-This means you cannot `await` inside a destructor, which is often needed when
-cleaning up asynchronous resources like sockets, database connections, or tasks
-that must signal completion to another system.
+This means you cannot `await` inside a destructor, which is frequently needed
+when cleaning up asynchronous resources like sockets, database connections, or
+tasks that must signal completion to another system.
 
 - Learn more:
   <https://rust-lang.github.io/async-fundamentals-initiative/roadmap/async_drop.html>
