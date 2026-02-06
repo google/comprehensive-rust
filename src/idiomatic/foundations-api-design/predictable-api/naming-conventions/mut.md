@@ -7,14 +7,14 @@ minutes: 2
 Suffix for access-style methods.
 
 ```rust,compile_fail
-impl <T> Vec<T> {
+impl<T> Vec<T> {
     // Simplified
-    fn get_mut(&mut self, usize) -> Option<&T>;
+    fn get_mut(&mut self, usize) -> Option<&mut T>;
 }
 
-impl <T> [T] {
+impl<T> [T] {
     // Simplified
-    fn iter_mut(&mut self) -> impl Iterator<Item=&mut T>;
+    fn iter_mut(&mut self) -> impl Iterator<Item = &mut T>;
 }
 
 impl str {
