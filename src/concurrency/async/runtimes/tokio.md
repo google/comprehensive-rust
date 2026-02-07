@@ -37,9 +37,9 @@ async fn main() {
 
 **Further exploration:**
 
-- Why does `count_to` not (usually) get to 10? This is an example of async
-  cancellation. `tokio::spawn` returns a handle which can be awaited to wait
-  until it finishes.
+- Why does `count_to` not get to 10? This is an example of async cancellation.
+  `tokio::spawn` returns a handle which can be awaited to wait until it
+  finishes.
 
 - Try `count_to(10).await` instead of spawning.
 

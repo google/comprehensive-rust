@@ -26,8 +26,7 @@ _Cargo.toml_:
 ## The required APIs
 
 You are going to need the following functions from `tokio` and
-[`tokio_websockets`][2]. Spend a few minutes to familiarize yourself with the
-API.
+[`tokio_websockets`][2]. Take time to familiarize yourself with the API.
 
 - [StreamExt::next()][3] implemented by `WebSocketStream`: for asynchronously
   reading messages from a Websocket Stream.
