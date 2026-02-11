@@ -37,8 +37,8 @@ impl<'id> Bytes<'id> {
 }
 
 fn main() {
-    let result = Bytes::new(vec![4, 5, 1], move |mut bytes_1| {
-        Bytes::new(vec![4, 2], move |mut bytes_2| {
+    let result = Bytes::new(vec![4, 5, 1], |mut bytes_1| {
+        Bytes::new(vec![4, 2], |mut bytes_2| {
             let index_1 = bytes_1.get_index(2).unwrap();
             let index_2 = bytes_2.get_index(1).unwrap();
             bytes_1.get_proven(&index_1);
