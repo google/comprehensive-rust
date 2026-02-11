@@ -26,7 +26,7 @@ available.
   similar to a runtime in Rust.
 
 - JavaScript's `Promise` is similar, but again callback-based. The language
-  runtime implements the event loop, so many of the details of Promise
+  runtime implements the event loop, so the majority of the details of Promise
   resolution are hidden.
 
 ## Schedule

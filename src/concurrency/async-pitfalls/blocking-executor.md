@@ -42,8 +42,8 @@ async fn main() {
 - Another fix would be to `tokio::task::spawn_blocking` which spawns an actual
   thread and transforms its handle into a future without blocking the executor.
 
-- You should not think of tasks as OS threads. They do not map 1 to 1 and most
-  executors will allow many tasks to run on a single OS thread. This is
+- You should not think of tasks as OS threads. They do not map 1 to 1 and
+  executors will allow multiple tasks to run on a single OS thread. This is
   particularly problematic when interacting with other libraries via FFI, where
   that library might depend on thread-local storage or map to specific OS
   threads (e.g., CUDA). Prefer `tokio::task::spawn_blocking` in such situations.

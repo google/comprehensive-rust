@@ -8,16 +8,16 @@ Async methods in traits were stabilized in the 1.75 release. This required
 support for using return-position `impl Trait` in traits, as the desugaring for
 `async fn` includes `-> impl Future<Output = ...>`.
 
-However, even with the native support, there are some pitfalls around
+However, even with the native support, there are specific pitfalls around
 `async fn`:
 
-- Return-position `impl Trait` captures all in-scope lifetimes (so some patterns
-  of borrowing cannot be expressed).
+- Return-position `impl Trait` captures all in-scope lifetimes (so certain
+  patterns of borrowing cannot be expressed).
 
 - Async traits cannot be used with [trait objects] (`dyn Trait` support).
 
 The [async_trait] crate provides a workaround for `dyn` support through a macro,
-with some caveats:
+with specific caveats:
 
 ```rust,editable,compile_fail
 use async_trait::async_trait;

@@ -6,8 +6,8 @@ minutes: 10
 
 Rust transforms an async function or block to a hidden type that implements
 `Future`, using a state machine to track the function's progress. The details of
-this transform are complex, but it helps to have a schematic understanding of
-what is happening. The following function
+this transform are complex, but it is beneficial to have a schematic
+understanding of what is happening. The following function
 
 ```rust,compile_fail
 /// Sum two D10 rolls plus a modifier.
