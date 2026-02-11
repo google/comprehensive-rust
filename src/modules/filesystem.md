@@ -59,7 +59,7 @@ pub fn harvest(garden: &mut Garden) {
       └── sub_module.rs
   ```
 
-- The place rust will look for modules can be changed with a compiler directive:
+- The place Rust will look for modules can be changed with a compiler directive:
 
   ```rust,ignore
   #[path = "some/path.rs"]

@@ -42,7 +42,7 @@ impl Named for Data {
 
   A class is a combination of data, behavior, and overrides to that behavior.
 
-- Coming from rust, an inheritable class looks like a type that is also a trait.
+- Coming from Rust, an inheritable class looks like a type that is also a trait.
 
 - This is not an upside, as we can no longer reason about concrete types.
 

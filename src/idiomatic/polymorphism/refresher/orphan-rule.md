@@ -38,7 +38,7 @@ impl DbConnection for PostgresqlConn {} // ❌🔨
 
 - We can prevent this within a crate by detecting if there are multiple
   definitions and disallowing it, but what about between crates in the entire
-  rust ecosystem?
+  Rust ecosystem?
 
 - Types are either _local_ to a crate, they are defined there, or they're not.
 

@@ -57,7 +57,7 @@ fn main() {
   distinguish values so we say that a token only applies to a single variable
   without having to create a newtype for every single variable we declare.
 
-- **Goal**: We want two lifetimes that the rust compiler cannot determine if one
+- **Goal**: We want two lifetimes that the Rust compiler cannot determine if one
   outlives the other.
 
   We are using `try_coerce_lifetimes` as a compile-time check to see if the
@@ -77,7 +77,7 @@ fn main() {
   possible lifetimes.
 
   What this also does is remove some ability of the compiler to make assumptions
-  about that specific lifetime for the function argument, as it must meet rust's
+  about that specific lifetime for the function argument, as it must meet Rust's
   borrow checking rules regardless of the "real" lifetime its arguments are
   going to have. The caller is substituting in actual lifetime, the function
   itself cannot.
@@ -129,7 +129,7 @@ fn main() {
   <!-- Note: We've been using "invariants" in this module in a specific way, but subtyping introduces _invariant_, _covariant_, and _contravariant_ as specific terms. -->
 
 - Ask: How can we make it more restrictive? How do we make a reference type more
-  restrictive in rust?
+  restrictive in Rust?
 
   Expect or demonstrate: Making it `&'id mut ()` instead. This will not be
   enough!
@@ -154,7 +154,7 @@ fn main() {
 
   Reason: `*mut` means
   [mutable raw pointer](https://doc.rust-lang.org/reference/types/pointer.html#r-type.pointer.raw).
-  Rust has mutable pointers! But you cannot reason about them in safe rust.
+  Rust has mutable pointers! But you cannot reason about them in safe Rust.
   Making this a mutable raw pointer to a reference that has a lifetime
   complicates the compiler's ability subtype because it cannot reason about
   mutable raw pointers within the borrow checker.

@@ -20,7 +20,7 @@ impl <T> Box<T> {
 
 <details>
 
-- There's no `new` keyword for rust to initialize a new value, only functions
+- There's no `new` keyword for Rust to initialize a new value, only functions
   you call or values you directly populate.
 
   `new` is conventional for the "default" constructor function for a type. It

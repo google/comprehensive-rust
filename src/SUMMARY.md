@@ -538,7 +538,7 @@
     - [Inheritance](idiomatic/polymorphism/from-oop-to-rust/inheritance.md)
     - [Why no Inheritance in Rust?](idiomatic/polymorphism/from-oop-to-rust/why-no-inheritance.md)
     - [Inheritance from Rust's Perspective](idiomatic/polymorphism/from-oop-to-rust/switch-perspective.md)
-    - ["Inheritance" in rust and Supertraits](idiomatic/polymorphism/from-oop-to-rust/supertraits.md)
+    - ["Inheritance" in Rust and Supertraits](idiomatic/polymorphism/from-oop-to-rust/supertraits.md)
     - [Composition over Inheritance](idiomatic/polymorphism/from-oop-to-rust/composition.md)
     - [Trait Objects and Dynamic Dispatch](idiomatic/polymorphism/from-oop-to-rust/dynamic-dispatch/dyn-trait.md)
     - [Dyn Compatibility](idiomatic/polymorphism/from-oop-to-rust/dynamic-dispatch/dyn-compatible.md)
