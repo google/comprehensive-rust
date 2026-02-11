@@ -22,6 +22,7 @@ mod ffi {
 }
 
 struct DatabaseConnection(ffi::DatabaseHandle);
+
 struct Transaction<'a>(&'a mut DatabaseConnection);
 
 impl DatabaseConnection {
@@ -72,18 +73,18 @@ fn main() {}
 - Demonstrate: change `Transaction` to the following:
 
   ```rust,compile_fail
-  pub struct Transaction<'a> {
+  struct Transaction<'a> {
       connection: DatabaseConnection,
-      _phantom: PhantomData<&mut 'a ()>,
+      _phantom: PhantomData<&'a mut DatabaseConnection>,
   }
   ```
 
   Update the `DatabaseConnection::new_transaction()` method:
 
   ```rust,compile_fail
-  fn new_transaction<'a>(&'a mut self) -> Transaction<'a> {
-      Transaction { connection: DatabaseConnection(self.0), _phantom: PhantomData }
-  }
+      fn new_transaction<'a>(&'a mut self) -> Transaction<'a> {
+          Transaction { connection: DatabaseConnection(self.0), _phantom: PhantomData }
+      }
   ```
 
   This gives an owned database connection that is tied to the
