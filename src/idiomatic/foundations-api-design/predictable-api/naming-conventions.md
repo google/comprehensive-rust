@@ -14,7 +14,7 @@ cases of a method.
 Rust's community developed naming conventions early, making them mostly
 consistent in places like the standard library.
 
-- Here we'll learn common components of rust method names, giving examples from
+- Here we'll learn common components of Rust method names, giving examples from
   the standard library and some context to go with them.
 
 </details>

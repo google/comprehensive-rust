@@ -66,7 +66,7 @@ things.
 
   Does a trait already exist for this use case? If so, use it!
 
-- If you really do need heterogeneous collections, use them! They exist in rust
+- If you really do need heterogeneous collections, use them! They exist in Rust
   as a tool for a reason.
 
   Be aware of the XY problem: a problem may seem most easily addressable by one

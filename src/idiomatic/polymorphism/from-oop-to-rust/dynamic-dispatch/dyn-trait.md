@@ -25,7 +25,7 @@ fn main() {
   In OOP languages, dynamic dispatch is often an _implicit_ process and not
   something you can opt out of.
 
-  In rust, we use `dyn Trait`: an opt-in form of dynamic dispatch.
+  In Rust, we use `dyn Trait`: an opt-in form of dynamic dispatch.
 
 - For any trait that is _dyn compatible_ we can coerce a reference to a value of
   that trait into a `dyn Trait` value.

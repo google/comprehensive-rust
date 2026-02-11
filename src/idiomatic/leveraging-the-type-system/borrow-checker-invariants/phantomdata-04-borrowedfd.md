@@ -10,7 +10,7 @@ minutes: 10
   This code has to define a fake libc module even though libc works fine on
   rust playground because the CI does not currently support dependencies.
 
-  TODO: Once we can use libc as a dependency in rust tests, replace the
+  TODO: Once we can use libc as a dependency in Rust tests, replace the
   faux libc code with appropriate imports & `O_WRONLY | O_CREAT` permissions.
 -->
 

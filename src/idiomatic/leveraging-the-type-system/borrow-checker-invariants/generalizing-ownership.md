@@ -41,7 +41,7 @@ fn demo_denied() {
 
   Nothing is being mutated, nothing is being sent across threads.
 
-- In rust's borrow checker we have access to three different ways of "taking" a
+- In Rust's borrow checker we have access to three different ways of "taking" a
   value:
 
   - Owned value `T`. Value is dropped when the scope ends, unless it is not

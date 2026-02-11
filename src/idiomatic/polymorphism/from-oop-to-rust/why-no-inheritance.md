@@ -13,14 +13,14 @@ impl Id {
     // methods
 }
 
-// 🔨❌, rust does not have inheritance!
+// 🔨❌, Rust does not have inheritance!
 pub struct Data: Id {
     // Inherited "id" field
     pub name: String,
 }
 
 impl Data {
-    // methods, but also includes Id's methods, or maybe overrides to 
+    // methods, but also includes Id's methods, or maybe overrides to
     // those methods.
 }
 
