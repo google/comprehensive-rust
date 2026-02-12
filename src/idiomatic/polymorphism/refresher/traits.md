@@ -9,13 +9,11 @@ trait Receiver {
     fn send(&self, message: &str);
 }
 
-struct Email {
-    email: String,
-}
+struct EmailAddress(String);
 
-impl Receiver for Email {
+impl Receiver for EmailAddress {
     fn send(&self, message: &str) {
-        println!("Email to {}: {}", self.email, message);
+        println!("Email to {}: {}", self.0, message);
     }
 }
 
