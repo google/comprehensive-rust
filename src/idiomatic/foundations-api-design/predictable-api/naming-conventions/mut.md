@@ -9,7 +9,7 @@ Suffix for access-style methods.
 ```rust,compile_fail
 impl<T> Vec<T> {
     // Simplified
-    fn get_mut(&mut self, usize) -> Option<&mut T>;
+    fn get_mut(&mut self, index: usize) -> Option<&mut T>;
 }
 
 impl<T> [T] {
