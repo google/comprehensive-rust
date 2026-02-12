@@ -13,7 +13,7 @@
 // limitations under the License.
 
 use crate::course::{Course, Courses, Segment, Session};
-use mdbook::book::Chapter;
+use mdbook_preprocessor::book::Chapter;
 use regex::Regex;
 
 lazy_static::lazy_static! {

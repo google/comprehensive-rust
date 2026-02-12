@@ -13,7 +13,7 @@
 // limitations under the License.
 
 use crate::course::Slide;
-use mdbook::book::Chapter;
+use mdbook_preprocessor::book::Chapter;
 
 /// Insert timing information for this slide into the speaker notes.
 pub fn insert_timing_info(slide: &Slide, chapter: &mut Chapter) {
