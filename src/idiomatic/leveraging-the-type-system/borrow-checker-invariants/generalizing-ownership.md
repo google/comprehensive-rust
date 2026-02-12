@@ -22,7 +22,7 @@ fn demo_exclusive() {
     let mut value = Data(Internal);
     let shared = shared_use(&value);
     // let exclusive = exclusive_use(&mut value); // ❌🔨
-    let shared_again = &shared;
+    let shared_again = shared;
 }
 
 fn demo_denied() {
