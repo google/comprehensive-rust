@@ -13,10 +13,8 @@ impl File {
     }
 
     fn write(&mut self, data: &str) -> std::io::Result<()> {
-        match &mut self.0 {
-            Some(handle) => println!("write '{data}' to file '{}'", handle.path),
-            None => unreachable!(),
-        }
+        let handle = self.0.as_ref().unwrap();
+        println!("write '{data}' to file '{}'", handle.path);
         Ok(())
     }
 
