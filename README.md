@@ -96,6 +96,18 @@ Here are some of the commonly used commands you can run in the project. Run
 We welcome contributions. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for
 details.
 
+## License
+
+This project is licensed under a mix of the Apache License 2.0 and the Creative
+Commons Attribution 4.0 International License.
+
+- **Source Code:** All source code files are licensed under the
+  [Apache License, Version 2.0](LICENSE).
+
+- **Documentation & Content:** All non-source code assets—specifically Markdown
+  (`.md`) files and documentation—are licensed under the
+  [Creative Commons Attribution 4.0 International License](LICENSE-CC-BY).
+
 ## Contact
 
 For questions or comments, please contact
