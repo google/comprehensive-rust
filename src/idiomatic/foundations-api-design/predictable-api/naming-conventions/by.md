@@ -43,7 +43,7 @@ data.
 
 `sort_by` takes a comparator function directly.
 
-- Commonly seen in methods that sort or otherwise manipulate a slice with a
+- Most often seen in methods that sort or otherwise manipulate a slice with a
   custom sort or comparison function rather than by the `Ord` implementation of
   the type itself.
 

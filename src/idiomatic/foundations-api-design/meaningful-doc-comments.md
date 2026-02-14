@@ -17,7 +17,7 @@ fn connect() -> Result<(), Error> {...}
 
 <details>
 
-- Doc comments are the primary form of documentation developers engage with.
+- Doc comments are the most common form of documentation developers engage with.
 
 - Good doc comments provide information that the code, names, and types cannot,
   without restating the obvious information.

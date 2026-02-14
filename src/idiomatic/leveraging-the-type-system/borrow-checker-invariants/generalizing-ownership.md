@@ -63,10 +63,10 @@ fn demo_denied() {
   `shared_again_again` reference is taken from `&value`.
 
 - Remember that every `&T` and `&mut T` has a lifetime, just one the user
-  doesn't have to annotate or think about typically.
+  doesn't have to annotate or think about most of the time.
 
   We rarely specify lifetimes because the Rust compiler allows us to _elide_
-  them in the majority of cases. See:
+  them in most cases. See:
   [Lifetime Elision](../../../lifetimes/lifetime-elision.md)
 
 </details>

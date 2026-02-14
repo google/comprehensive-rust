@@ -4,8 +4,8 @@ minutes: 15
 
 # PhantomData 3/4: Lifetimes for External Resources
 
-The invariants of external resources typically match what we can do with
-lifetime rules.
+The invariants of external resources often match what we can do with lifetime
+rules.
 
 ```rust,editable
 // use std::marker::PhantomData;

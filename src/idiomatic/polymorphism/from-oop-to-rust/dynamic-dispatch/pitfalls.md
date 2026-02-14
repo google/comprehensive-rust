@@ -42,8 +42,8 @@ fn main() {
 - The above example takes things to the absurd: If adding numbers were tied up
   in the dynamic dispatch process, it would be difficult to do anything at all.
 
-  But dynamic dispatch is often hidden in many programming languages: here's it
-  is more explicit.
+  But dynamic dispatch is often hidden in a lot of programming languages: here's
+  it is more explicit.
 
   In the `i32` implementation of `AddDyn`, first we need to attempt to downcast
   the `rhs` argument to the same type as `i32`, silently failing if this isn't

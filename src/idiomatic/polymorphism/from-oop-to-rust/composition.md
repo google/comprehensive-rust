@@ -26,7 +26,7 @@ pub struct User {
   different types.
 
   This has downsides, largely in ergonomics of field access, but gives
-  developers significant control and clarity over what a type does and it has
+  developers a lot of control and clarity over what a type does and it has
   access to.
 
 - When deriving traits, make sure all the field types of a struct or variant

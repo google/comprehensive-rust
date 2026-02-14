@@ -36,8 +36,8 @@ impl OwnedFd {
 
 - Method that returns a borrow of the primary piece of contained data.
 
-- The borrowing relationship is typically straightforward: the return value is a
-  reference that borrows `self`.
+- The borrowing relationship is most often straightforward: the return value is
+  a reference that borrows `self`.
 
 - Borrowing can also be subtle, and merely implied.
 

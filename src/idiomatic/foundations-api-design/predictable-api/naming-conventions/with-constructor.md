@@ -18,8 +18,8 @@ impl<T> Vec<T> {
 
 <details>
 
-- `with` can appear as a constructor prefix, typically when initializing heap
-  memory for container types.
+- `with` can appear as a constructor prefix, most commonly when initializing
+  heap memory for container types.
 
   In this case, it's distinct from `new` constructors because it specifies the
   value for something that is not usually cared about by API users.

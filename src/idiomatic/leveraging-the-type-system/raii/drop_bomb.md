@@ -7,7 +7,7 @@ minutes: 15
 Use `Drop` to enforce invariants and detect incorrect API usage. A "drop bomb"
 panics if a value is dropped without being explicitly finalized.
 
-This pattern is commonly used when the finalizing operation (like `commit()` or
+This pattern is often used when the finalizing operation (like `commit()` or
 `rollback()`) needs to return a `Result`, which cannot be done from `Drop`.
 
 ```rust,editable
@@ -57,7 +57,7 @@ fn main() -> io::Result<()> {
   in an unfinished state. The destructor panics if the transaction has not been
   explicitly finalized (for example, with `commit()`).
 
-- The finalizing operation (such as `commit()`) typically takes `self` by value.
+- The finalizing operation (such as `commit()`) usually takes `self` by value.
   This ensures that once the transaction is finalized, the original object can
   no longer be used.
 

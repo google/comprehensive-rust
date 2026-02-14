@@ -4,8 +4,8 @@ minutes: 15
 
 # Avoiding Redundancy
 
-Names and type signatures communicate significant information, don't repeat it
-in comments!
+Names and type signatures communicate a lot of information, don't repeat it in
+comments!
 
 ```rust,compile_fail
 // Repeats name/type information. Can omit!
