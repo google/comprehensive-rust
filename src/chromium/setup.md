@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Setup
 
 Make sure you can build and run Chromium. Any platform and set of build flags is

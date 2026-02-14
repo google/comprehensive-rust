@@ -2,12 +2,20 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Variables
 
 Rust provides type safety via static typing. Variable bindings are made with
 `let`:
 
 ```rust,editable,warnunused
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let x: i32 = 10;
     println!("x: {x}");

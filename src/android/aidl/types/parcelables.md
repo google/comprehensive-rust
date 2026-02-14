@@ -1,3 +1,8 @@
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Parcelables
 
 Binder for Rust supports sending parcelables directly:
@@ -21,6 +26,9 @@ interface IBirthdayService {
 _birthday_service/src/client.rs_:
 
 ```rust,ignore
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     binder::ProcessState::start_thread_pool();
     let service = connect().expect("Failed to connect to BirthdayService");

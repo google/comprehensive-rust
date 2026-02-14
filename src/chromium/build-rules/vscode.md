@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Visual Studio Code
 
 Types are elided in Rust code, which makes a good IDE even more useful than for

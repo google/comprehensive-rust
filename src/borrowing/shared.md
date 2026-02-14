@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Borrowing a Value
 
 As we saw before, instead of transferring ownership when calling a function, you
@@ -10,6 +15,9 @@ can let a function _borrow_ the value:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[derive(Debug)]
 struct Point(i32, i32);
 
@@ -46,6 +54,9 @@ Notes on stack returns and inlining:
 
   <!-- mdbook-xgettext: skip -->
   ```rust,editable
+  # // Copyright 2023 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   #[derive(Debug)]
   struct Point(i32, i32);
 

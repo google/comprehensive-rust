@@ -1,3 +1,8 @@
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # C Library Example
 
 ```c
@@ -61,6 +66,9 @@ the `TextAnalyst` and `Analysis` types.
 This can be emulated in Rust with a type similar to this:
 
 ```rust
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[repr(C)]
 pub struct TextAnalyst {
     _private: [u8; 0],
@@ -72,6 +80,9 @@ Exercise: Ask learners to wrap this library.
 _Suggested Solution_
 
 ```rust
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // ffi.rs
 use std::ffi::c_char;
 use std::os::raw::c_void;

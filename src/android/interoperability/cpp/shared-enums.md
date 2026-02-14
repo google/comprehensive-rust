@@ -1,12 +1,23 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Shared Enums
 
 ```rust,ignore
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include ../../../../third_party/cxx/book/snippets.rs:shared_enums_bridge}}
 ```
 
 Generated Rust:
 
 ```rust
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include ../../../../third_party/cxx/book/snippets.rs:shared_enums_rust}}
 ```
 

@@ -1,3 +1,8 @@
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Sending Files
 
 Files can be sent between Binder clients/servers using the
@@ -14,6 +19,9 @@ interface IBirthdayService {
 _birthday_service/src/client.rs_:
 
 ```rust,ignore
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     binder::ProcessState::start_thread_pool();
     let service = connect().expect("Failed to connect to BirthdayService");
@@ -24,6 +32,9 @@ fn main() {
 _birthday_service/src/lib.rs_:
 
 ```rust,ignore
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 impl IBirthdayService for BirthdayService {
 {{#include ../birthday_service/src/lib.rs:wishFromFile}}
 }

@@ -2,6 +2,11 @@
 minutes: 30
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Exercise: Binary Tree
 
 A binary tree is a tree-type data structure where every node has two children
@@ -13,6 +18,9 @@ be stored in the tree once, i.e. no duplicate nodes.
 Implement the following types, so that the given tests pass.
 
 ```rust,compile_fail,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include exercise.rs:types}}
 
 // Implement `new` for `Node`.

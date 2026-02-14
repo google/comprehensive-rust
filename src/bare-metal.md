@@ -3,6 +3,11 @@ course: Bare Metal
 session: Morning
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Welcome to Bare Metal Rust
 
 This is a standalone one-day course about bare-metal Rust, aimed at people who

@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 ## Using cxx in Chromium
 
 In Chromium, we define an independent `#[cxx::bridge] mod` for each leaf-node

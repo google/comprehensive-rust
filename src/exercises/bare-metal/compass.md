@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Compass
 
 We will read the direction from an I2C compass, and log the readings to a serial
@@ -32,6 +37,9 @@ _src/main.rs_:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,compile_fail
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include compass/src/main.rs:top}}
 use microbit::{hal::{Delay, uarte::{Baudrate, Parity, Uarte}}, Board};
 

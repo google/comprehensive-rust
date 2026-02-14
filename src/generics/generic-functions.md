@@ -2,12 +2,20 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Generic Functions
 
 Rust supports generics, which lets you abstract algorithms or data structures
 (such as sorting or a binary tree) over the types used or stored.
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn pick<T>(cond: bool, left: T, right: T) -> T {
     if cond { left } else { right }
 }
@@ -26,6 +34,9 @@ fn main() {
   works.
 
   ```rust
+  # // Copyright 2023 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   fn pick_i32(cond: bool, left: i32, right: i32) -> i32 {
       if cond { left } else { right }
   }
@@ -41,6 +52,9 @@ fn main() {
   we can use any type here, including user-defined types:
 
   ```rust,ignore
+  # // Copyright 2023 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   struct Foo {
       val: u8,
   }

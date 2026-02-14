@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # <code>Pin&lt;Ptr&gt;</code> and <code>Drop</code>
 
 A key challenge with pinned, `!Unpin` types is implementing the `Drop` trait.
@@ -15,6 +20,9 @@ assignment, `ptr::read`, and `mem::replace` can silently break the pinning
 guarantee.
 
 ```rust,editable
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 struct SelfRef {
     data: String,
     ptr: *const String,
@@ -50,6 +58,9 @@ value is not moved. A common pattern is to create a helper function that
 operates on `Pin<&mut T>`.
 
 ```rust,editable
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::marker::PhantomPinned;
 use std::pin::Pin;
 

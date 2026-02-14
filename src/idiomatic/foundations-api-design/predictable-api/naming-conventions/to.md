@@ -2,11 +2,19 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `to`: Non-consuming Conversion
 
 Prefix to a function that takes a borrowed value and creates an owned value
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 impl str {
     // &str is not consumed.
     fn to_owned(&str) -> String;

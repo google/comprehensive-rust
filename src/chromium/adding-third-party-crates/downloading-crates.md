@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Downloading Crates
 
 A tool called `gnrt` knows how to download crates and how to generate `BUILD.gn`

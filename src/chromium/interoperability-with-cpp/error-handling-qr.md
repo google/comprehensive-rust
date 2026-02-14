@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # CXX Error Handling: QR Example
 
 The QR code generator is [an example][0] where a boolean is used to communicate
@@ -5,6 +10,9 @@ success vs failure, and where the successful result can be passed across the FFI
 boundary:
 
 ```rust,ignore
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[cxx::bridge(namespace = "qr_code_generator")]
 mod ffi {
     extern "Rust" {

@@ -2,9 +2,17 @@
 minutes: 15
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Name-dropping keywords and signposting topics
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 /// A parsed representation of a MARC 21 record
 /// [leader](//www.loc.gov/marc/bibliographic/bdleader.html).  
 /// A MARC leader contains metadata that dictates how to interpret the rest  

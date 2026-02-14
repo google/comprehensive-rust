@@ -2,12 +2,20 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Semantic Confusion
 
 When a function takes multiple arguments of the same type, call sites are
 unclear:
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 # struct LoginError;
 pub fn login(username: &str, password: &str) -> Result<(), LoginError> {
     // [...]
@@ -24,6 +32,9 @@ login(password, username);
 The newtype pattern can prevent this class of errors at compile time:
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 pub struct Username(String);
 pub struct Password(String);
 # struct LoginError;
@@ -52,6 +63,9 @@ login(password, username); // 🛠️❌
   is of paramount importance, consider using a struct with named fields as
   input:
   ```rust
+  # // Copyright 2025 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   pub struct LoginArguments<'a> {
       pub username: &'a str,
       pub password: &'a str,

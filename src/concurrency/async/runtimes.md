@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Runtimes
 
 A _runtime_ provides support for performing operations asynchronously (a

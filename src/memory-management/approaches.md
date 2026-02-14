@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Approaches to Memory Management
 
 Traditionally, languages have fallen into two broad categories:

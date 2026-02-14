@@ -1,3 +1,8 @@
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Running Code Locally with Cargo
 
 If you want to experiment with the code on your own system, then you will need
@@ -42,6 +47,9 @@ examples in this training:
    example, using the example on the previous page, make `src/main.rs` look like
 
    ```rust
+   # // Copyright 2022 Google LLC
+   # // SPDX-License-Identifier: Apache-2.0
+   #
    fn main() {
        println!("Edit me!");
    }

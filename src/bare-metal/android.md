@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Bare-Metal on Android
 
 To build a bare-metal Rust binary in AOSP, you need to use a `rust_ffi_static`

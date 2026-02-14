@@ -2,11 +2,19 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `raw_parts`
 
 Peeling back safe abstractions on heap data.
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 impl<T> Vec<T> {
     // Note how this is an unsafe function
     unsafe fn from_raw_parts(ptr: *mut T, length: usize, capacity: usize) -> Vec<T>;

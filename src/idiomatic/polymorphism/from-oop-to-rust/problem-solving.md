@@ -2,9 +2,17 @@
 minutes: 15
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Problem solving: Break Down the Problem
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // Problem: implementing a GUI API
 
 // Question: What's the minimum useful behavior for a drawing API?

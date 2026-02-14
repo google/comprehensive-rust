@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Leveraging the Type System
 
 Rust's type system is _expressive_: you can use types and traits to build

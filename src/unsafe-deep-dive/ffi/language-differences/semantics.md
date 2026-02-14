@@ -2,11 +2,19 @@
 minutes: 15
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Different semantics
 
 <!-- mdbook tests skipped because its builds do not link libc -->
 
 ```rust,editable,ignore
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::ffi::{CStr, c_char};
 use std::time::{SystemTime, SystemTimeError, UNIX_EPOCH};
 

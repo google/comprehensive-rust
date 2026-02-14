@@ -2,12 +2,20 @@
 minutes: 8
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # The `Drop` Trait
 
 Values which implement [`Drop`][1] can specify code to run when they go out of
 scope:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 struct Droppable {
     name: &'static str,
 }

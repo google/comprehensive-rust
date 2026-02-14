@@ -2,11 +2,19 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Parse, Don't Validate
 
 The newtype pattern can be leveraged to enforce _invariants_.
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 pub struct Username(String);
 
 impl Username {

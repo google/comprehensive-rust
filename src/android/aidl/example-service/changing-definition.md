@@ -1,3 +1,8 @@
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Changing API
 
 Let's extend the API: we'll let clients specify a list of lines for the birthday
@@ -16,6 +21,9 @@ interface IBirthdayService {
 This results in an updated trait definition for `IBirthdayService`:
 
 ```rust,ignore
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 trait IBirthdayService {
     fn wishHappyBirthday(
         &self,

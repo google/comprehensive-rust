@@ -2,9 +2,17 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Example: ASCII Type
 
 ```rust,editable
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 /// Text that is guaranteed to be encoded within 7-bit ASCII.
 pub struct Ascii<'a>(&'a mut [u8]);
 
@@ -36,6 +44,9 @@ Optional: Extend the example to mention that it's possible to use
 builds.
 
 ```rust,ignore
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 unsafe fn new_unchecked(bytes: &mut [u8]) -> Self {
     debug_assert!(bytes.iter().all(|&b| b.is_ascii()))
     Ascii(bytes)

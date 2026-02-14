@@ -2,12 +2,20 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 ## Beyond Simple Typestate
 
 How do we manage increasingly complex configuration flows with many possible
 states and transitions, while still preventing incompatible operations?
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 struct Serializer {/* [...] */}
 struct SerializeStruct {/* [...] */}
 struct SerializeStructProperty {/* [...] */}

@@ -1,3 +1,8 @@
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Rust Libraries
 
 You use `rust_library` to create a new Rust library for Android.
@@ -19,12 +24,18 @@ _hello_rust/Android.bp_:
 _hello_rust/src/main.rs_:
 
 ```rust,ignore
+# // Copyright 2022 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include library/src/main.rs:main}}
 ```
 
 _hello_rust/src/lib.rs_:
 
 ```rust,ignore
+# // Copyright 2022 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include library/src/lib.rs:greeting}}
 ```
 

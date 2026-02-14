@@ -2,6 +2,11 @@
 minutes: 30
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Exercise: Protobuf Parsing
 
 In this exercise, you will build a parser for the
@@ -66,6 +71,9 @@ What remains for you is to implement the `parse_field` function and the
 <!-- compile_fail because the stubbed out code has type inference errors. -->
 
 ```rust,editable,compile_fail
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include exercise.rs:preliminaries }}
 
 

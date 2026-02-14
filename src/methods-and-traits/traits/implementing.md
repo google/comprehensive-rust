@@ -1,6 +1,14 @@
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Implementing Traits
 
 ```rust,editable
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 trait Pet {
     fn talk(&self) -> String;
 

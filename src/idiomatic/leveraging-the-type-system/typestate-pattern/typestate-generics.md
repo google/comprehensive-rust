@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 ## Typestate Pattern with Generics
 
 By combining typestate modeling with generics, we can express a wider range of
@@ -10,6 +15,9 @@ especially useful when the number of states grows or when multiple states share
 behavior but differ in structure.
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include typestate-generics.rs:Serializer-def}}
 
 {{#include typestate-generics.rs:Root-def}}

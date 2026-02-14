@@ -2,6 +2,11 @@
 minutes: 20
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Dining Philosophers
 
 The dining philosophers problem is a classic problem in concurrency:
@@ -22,6 +27,9 @@ blanks, and test that `cargo run` does not deadlock:
 <!-- File src/main.rs -->
 
 ```rust,compile_fail
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include dining-philosophers.rs:Philosopher}}
     // left_chopstick: ...
     // right_chopstick: ...

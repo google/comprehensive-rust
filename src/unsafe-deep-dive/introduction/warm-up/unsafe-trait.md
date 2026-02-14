@@ -2,9 +2,17 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Defining an unsafe trait
 
 ```rust,editable
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 /// Indicates that the type uses 32 bits of memory.
 pub trait Size32 {}
 ```

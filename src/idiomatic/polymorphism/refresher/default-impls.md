@@ -2,9 +2,17 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Default Method Implementations
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 pub trait CollectLeaves {
     type Leaf;
 

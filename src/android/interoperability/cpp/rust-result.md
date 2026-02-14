@@ -1,6 +1,14 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Rust Error Handling
 
 ```rust,ignore
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include ../../../../third_party/cxx/book/snippets.rs:rust_result}}
 ```
 

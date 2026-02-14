@@ -2,12 +2,20 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `impl Trait`
 
 Similar to trait bounds, an `impl Trait` syntax can be used in function
 arguments and return values:
 
 ```rust,editable
+# // Copyright 2022 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // Syntactic sugar for:
 //   fn add_42_millions<T: Into<i32>>(x: T) -> i32 {
 fn add_42_millions(x: impl Into<i32>) -> i32 {

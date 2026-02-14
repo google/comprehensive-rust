@@ -1,3 +1,8 @@
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Other Rust Resources
 
 The Rust community has created a wealth of high-quality and free resources

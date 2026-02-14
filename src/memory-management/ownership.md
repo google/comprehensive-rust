@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Ownership
 
 All variable bindings have a _scope_ where they are valid and it is an error to
@@ -10,6 +15,9 @@ use a variable outside its scope:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 struct Point(i32, i32);
 
 fn main() {

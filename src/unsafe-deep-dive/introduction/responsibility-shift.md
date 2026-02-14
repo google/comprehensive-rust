@@ -2,6 +2,11 @@
 minutes: 3
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Unsafe keyword shifts responsibility
 
 |             | Is Memory Safe? | Responsibility for Memory Safety |

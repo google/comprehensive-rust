@@ -3,6 +3,11 @@ course: Chromium
 session: Chromium
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Welcome to Rust in Chromium
 
 Rust is supported for third-party libraries in Chromium, with first-party glue

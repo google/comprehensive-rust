@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Configuring the `Cargo.toml` file to add crates
 
 Chromium has a single set of centrally-managed direct crate dependencies. These

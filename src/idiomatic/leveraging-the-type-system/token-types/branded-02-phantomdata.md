@@ -2,6 +2,11 @@
 minutes: 30
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `PhantomData` and Lifetime Subtyping (Branding 2/4)
 
 Idea:
@@ -12,6 +17,9 @@ Idea:
 
 <!-- dprint-ignore-start -->
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::marker::PhantomData;
 
 #[derive(Default)]

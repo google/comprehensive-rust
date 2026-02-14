@@ -2,6 +2,11 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `Sync`
 
 > A type `T` is [`Sync`][1] if it is safe to access a `T` value from multiple

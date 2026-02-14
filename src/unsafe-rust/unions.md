@@ -2,11 +2,19 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Unions
 
 Unions are like enums, but you need to track the active field yourself:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[repr(C)]
 union MyUnion {
     i: u8,

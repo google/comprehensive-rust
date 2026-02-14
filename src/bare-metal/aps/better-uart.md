@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # A better UART driver
 
 The PL011 actually has [more registers][1], and adding offsets to construct

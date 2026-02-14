@@ -2,6 +2,11 @@
 minutes: 20
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Exercise: Counter
 
 In this exercise you will take a very simple data structure and make it generic.
@@ -20,6 +25,9 @@ method to halve the number of hash lookups required to implement the `count`
 method.
 
 ```rust,compile_fail,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::collections::HashMap;
 
 /// Counter counts the number of times each value of type T has been seen.

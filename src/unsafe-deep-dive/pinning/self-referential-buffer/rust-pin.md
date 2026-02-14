@@ -2,12 +2,20 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # With `Pin<Ptr>`
 
 Pinning allows Rust programmers to create a type which is much more similar to
 C++ classes.
 
 ```rust,editable
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::marker::PhantomPinned;
 use std::pin::Pin;
 

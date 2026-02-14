@@ -1,6 +1,14 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # C++ Bridge Declarations
 
 ```rust,ignore
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[cxx::bridge]
 mod ffi {
 {{#include ../../../../third_party/cxx/blobstore/src/main.rs:cpp_bridge}}
@@ -10,6 +18,9 @@ mod ffi {
 Results in (roughly) the following Rust:
 
 ```rust,ignore
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[repr(C)]
 pub struct BlobstoreClient {
     _private: ::cxx::private::Opaque,

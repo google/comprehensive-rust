@@ -2,11 +2,19 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Dereferencing Raw Pointers
 
 Creating pointers is safe, but dereferencing them requires `unsafe`:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let mut x = 10;
 

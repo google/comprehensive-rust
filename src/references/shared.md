@@ -2,6 +2,11 @@
 minutes: 7
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Shared References
 
 A reference provides a way to access another value without taking ownership of
@@ -9,6 +14,9 @@ the value, and is also called "borrowing". Shared references are read-only, and
 the referenced data cannot change.
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let a = 'A';
     let b = 'B';

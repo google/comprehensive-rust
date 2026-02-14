@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Keeping Crates Up to Date
 
 As the OWNER of any third party Chromium dependency, you are

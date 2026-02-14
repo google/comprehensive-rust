@@ -2,9 +2,17 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 ## Serializer: implement Root
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 # use std::fmt::Write as _;
 {{#include ../typestate-generics.rs:Serializer-def}}
 

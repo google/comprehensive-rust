@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Closure traits
 
 Closures or lambda expressions have types that cannot be named. However, they
@@ -13,6 +18,9 @@ The special types `fn(..) -> T` refer to function pointers - either the address
 of a function, or a closure that captures nothing.
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn apply_and_log(
     func: impl FnOnce(&'static str) -> String,
     func_name: &'static str,

@@ -2,6 +2,11 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Hash
 
 Performing a hash on a type.
@@ -11,6 +16,9 @@ Derivable: ✅
 When to implement: Almost always.
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // pub trait Hash {
 //     // Required method
 //     fn hash<H>(&self, state: &mut H)

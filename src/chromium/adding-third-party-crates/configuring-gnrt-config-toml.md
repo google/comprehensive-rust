@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Configuring `gnrt_config.toml`
 
 Alongside `Cargo.toml` is [`gnrt_config.toml`][0]. This contains

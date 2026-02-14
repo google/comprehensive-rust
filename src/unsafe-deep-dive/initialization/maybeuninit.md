@@ -2,11 +2,19 @@
 minutes: 8
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # MaybeUninit<T>
 
 `MaybeUninit<T>` allows Rust to refer to uninitialized memory.
 
 ```rust,editable
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::mem::MaybeUninit;
 
 fn main() {

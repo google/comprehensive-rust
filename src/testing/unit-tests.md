@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Unit Tests
 
 Rust and Cargo come with a simple unit test framework. Tests are marked with
@@ -9,6 +14,9 @@ Rust and Cargo come with a simple unit test framework. Tests are marked with
 `#[cfg(test)]` to conditionally compile them only when building tests.
 
 ```rust,editable
+# // Copyright 2022 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn first_word(text: &str) -> &str {
     match text.find(' ') {
         Some(idx) => &text[..idx],

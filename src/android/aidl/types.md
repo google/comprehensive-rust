@@ -1,3 +1,8 @@
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Working With AIDL Types
 
 AIDL types translate into the appropriate idiomatic Rust type:

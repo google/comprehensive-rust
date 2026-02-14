@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Including `unsafe` Rust Code
 
 Unsafe Rust code is forbidden in `rust_static_library` by default --- it won't

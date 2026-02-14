@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Clone
 
 Deep-copy a type or duplicate a smart, shareable pointer.
@@ -11,6 +16,9 @@ Derivable: ✅
 When to implement: If duplicating doesn't break invariants.
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // pub trait Clone: Sized {
 //     // Required method
 //     fn clone(&self) -> Self;

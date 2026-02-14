@@ -2,11 +2,19 @@
 minutes: 15
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Wrapping `srand(3)` and `rand(3)`
 
 <!-- Tests skipped because the mdbook test runner does not include libc  -->
 
 ```rust,editable,ignore
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use libc::{rand, srand};
 
 // unsafe extern "C" {

@@ -2,9 +2,17 @@
 minutes: 4
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Implementing an unsafe trait
 
 ```rust,editable,ignore
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 pub struct LogicalClock {
     inner: std::sync::Arc<std::sync::atomic::AtomicUsize>,
 }

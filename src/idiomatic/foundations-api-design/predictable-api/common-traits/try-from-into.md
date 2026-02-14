@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # TryFrom/TryInto
 
 Fallible conversion from one type to another.
@@ -11,6 +16,9 @@ Derivable: ❌
 When to implement: As-needed.
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[derive(Debug)]
 pub struct InvalidNumber;
 

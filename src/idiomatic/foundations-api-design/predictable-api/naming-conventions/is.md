@@ -2,11 +2,19 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `is_[condition]`: Boolean Check
 
 Check a condition about a datatype.
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 impl <T> Vec<T> {
     is_empty(&self) -> bool;
 }

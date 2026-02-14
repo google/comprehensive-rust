@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 Serialize/Deserialize style traits
 
 Crates like `serde` can implement serialization automatically.
@@ -11,6 +16,9 @@ Derivable: ✅
 When to implement: Almost always.
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[derive(Serialize, Deserialize)]
 struct ExtraData {
     fav_color: String,

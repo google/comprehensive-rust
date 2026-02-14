@@ -2,12 +2,20 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Predictable API
 
 Keep your APIs predictable through naming conventions and implementing common
 traits.
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 /* What traits should this implement? */
 pub struct ApiToken(String);
 

@@ -1,9 +1,17 @@
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Labels
 
 Both `continue` and `break` can optionally take a label argument that is used to
 break out of nested loops:
 
 ```rust,editable
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let s = [[5, 6, 7], [8, 9, 10], [21, 15, 32]];
     let mut elements_searched = 0;
@@ -24,6 +32,9 @@ fn main() {
 
 - Labeled break also works on arbitrary blocks, e.g.
   ```rust
+  # // Copyright 2024 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   'label: {
       break 'label;
       println!("This line gets skipped");

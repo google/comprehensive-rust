@@ -2,12 +2,20 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Patterns and Destructuring
 
 Rust supports using pattern matching to destructure a larger value like a tuple
 into its constituent parts:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn check_order(tuple: (i32, i32, i32)) -> bool {
     let (left, middle, right) = tuple;
     left < middle && middle < right

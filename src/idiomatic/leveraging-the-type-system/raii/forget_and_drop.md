@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # forget and drop functions
 
 Below are the signatures for the
@@ -9,6 +14,9 @@ Below are the signatures for the
 [`forget()`](https://doc.rust-lang.org/std/mem/fn.forget.html) functions:
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // std::mem::forget
 fn forget<T>(t: T) {
     let _ = std::mem::ManuallyDrop::new(t);

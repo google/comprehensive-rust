@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # PhantomData 4/4: OwnedFd & BorrowedFd
 
 `BorrowedFd` is a prime example of `PhantomData` in action.
@@ -15,6 +20,9 @@ minutes: 10
 -->
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::marker::PhantomData;
 use std::os::raw::c_int;
 

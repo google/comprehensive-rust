@@ -2,6 +2,11 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `Send`
 
 > A type `T` is [`Send`][1] if it is safe to move a `T` value to another thread.

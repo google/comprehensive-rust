@@ -2,6 +2,11 @@
 minutes: 6
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Common safety preconditions
 
 - Aliasing and Mutability
@@ -51,6 +56,9 @@ array. Generate the LLVM IR with the **Show LLVM IR** button. Highlight
 `getelementptr inbounds i32, ptr %array, i64 %offset`.
 
 ```rust,ignore
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[unsafe(no_mangle)]
 pub unsafe fn get(array: *const i32, offset: isize) -> i32 {
     unsafe { *array.offset(offset) }

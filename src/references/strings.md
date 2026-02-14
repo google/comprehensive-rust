@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 <!-- NOTES:
 Including `&str` as a way of representing a slice of valid utf-8
 -->
@@ -17,6 +22,9 @@ We can now understand the two string types in Rust:
 translations. Using the length of s1 and s2 is safe. -->
 
 ```rust,editable
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let s1: &str = "World";
     println!("s1: {s1}");
@@ -62,6 +70,9 @@ fn main() {
 
   <!-- mdbook-xgettext: skip -->
   ```rust,editable
+  # // Copyright 2024 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   fn main() {
       println!("{:?}", b"abc");
       println!("{:?}", &[97, 98, 99]);
@@ -74,6 +85,9 @@ fn main() {
 
   <!-- mdbook-xgettext: skip -->
   ```rust,editable
+  # // Copyright 2024 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   fn main() {
       println!(r#"<a href="link.html">link</a>"#);
       println!("<a href=\"link.html\">link</a>");

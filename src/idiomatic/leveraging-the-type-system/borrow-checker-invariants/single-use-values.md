@@ -2,12 +2,20 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Single-use values
 
 Sometimes we want values that _can only be used once_. One critical example of
 this is in cryptography: A "Nonce."
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 pub struct Key(/* specifics omitted */);
 /// A single-use number suitable for cryptographic purposes.
 pub struct Nonce(u32);

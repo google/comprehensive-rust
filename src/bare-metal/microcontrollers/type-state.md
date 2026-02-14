@@ -1,6 +1,14 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # The type state pattern
 
 ```rust,editable,compile_fail
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include examples/src/bin/typestate.rs:Example}}
 ```
 

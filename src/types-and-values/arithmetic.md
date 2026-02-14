@@ -2,9 +2,17 @@
 minutes: 3
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Arithmetic
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn interproduct(a: i32, b: i32, c: i32) -> i32 {
     return a * b + b * c + c * a;
 }

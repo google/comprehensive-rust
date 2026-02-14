@@ -2,11 +2,19 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Move Semantics
 
 An assignment will transfer _ownership_ between variables:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let s1 = String::from("Hello!");
     let s2 = s1;
@@ -63,6 +71,9 @@ When you pass a value to a function, the value is assigned to the function
 parameter. This transfers ownership:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn say_hello(name: String) {
     println!("Hello {name}")
 }

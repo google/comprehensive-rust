@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Review of Program Memory
 
 Programs allocate memory in two ways:
@@ -23,6 +28,9 @@ Creating a `String` puts fixed-sized metadata on the stack and dynamically sized
 data, the actual string, on the heap:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let s1 = String::from("Hello");
 }
@@ -57,6 +65,9 @@ We can inspect the memory layout with `unsafe` Rust. However, you should point
 out that this is rightfully unsafe!
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let mut s1 = String::from("Hello");
     s1.push(' ');

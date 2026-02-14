@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Library vs application docs
 
 You might see elaborate documentation for fundamental APIs that repeats the

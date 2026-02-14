@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Owned Trait Objects
 
 We previously saw how trait objects can be used with references, e.g `&dyn Pet`.
@@ -9,6 +14,9 @@ However, we can also use trait objects with smart pointers like `Box` to create
 an owned trait object: `Box<dyn Pet>`.
 
 ```rust,editable
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 struct Dog {
     name: String,
     age: i8,
@@ -93,6 +101,9 @@ Memory layout after allocating `pets`:
     has a `lives` field.
 - Compare these outputs in the above example:
   ```rust,ignore
+  # // Copyright 2024 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   println!("{} {}", std::mem::size_of::<Dog>(), std::mem::size_of::<Cat>());
   println!("{} {}", std::mem::size_of::<&Dog>(), std::mem::size_of::<&Cat>());
   println!("{}", std::mem::size_of::<&dyn Pet>());

@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Copy
 
 Like `Clone`, but indicates the type is can be bitwise copied.
@@ -11,6 +16,9 @@ Derivable: ✅
 When to implement: If possible, but with caveats.
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // Copy is just a marker trait with Clone as a supertrait.
 // pub trait Copy: Clone { }
 

@@ -1,3 +1,8 @@
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # A Simple Rust Library
 
 Exporting Rust functions and types to C is easy. Here's a simple Rust library:
@@ -5,6 +10,9 @@ Exporting Rust functions and types to C is easy. Here's a simple Rust library:
 _interoperability/rust/libanalyze/analyze.rs_
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include rust/libanalyze/analyze.rs:analyze_numbers}}
 ```
 

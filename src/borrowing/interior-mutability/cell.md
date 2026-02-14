@@ -1,3 +1,8 @@
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `Cell`
 
 `Cell` wraps a value and allows getting or setting the value using only a shared
@@ -5,6 +10,9 @@ reference to the `Cell`. However, it does not allow any references to the inner
 value. Since there are no references, borrowing rules cannot be broken.
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::cell::Cell;
 
 fn main() {

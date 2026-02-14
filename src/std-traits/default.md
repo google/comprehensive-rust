@@ -2,11 +2,19 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # The `Default` Trait
 
 The [`Default`][1] trait produces a default value for a type.
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[derive(Debug, Default)]
 struct Derived {
     x: u32,

@@ -1,3 +1,8 @@
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Using Bindgen
 
 The [bindgen](https://rust-lang.github.io/rust-bindgen/introduction.html) tool
@@ -29,6 +34,9 @@ _interoperability/bindgen/Android.bp_:
 _interoperability/bindgen/main.rs_:
 
 ```rust,compile_fail
+# // Copyright 2022 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include bindgen/main.rs:main}}
 ```
 

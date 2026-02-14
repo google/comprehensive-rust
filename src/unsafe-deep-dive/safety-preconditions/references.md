@@ -2,9 +2,17 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Example: References
 
 ```rust,editable,ignore
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let mut boxed = Box::new(123);
     let a: *mut i32 = &mut *boxed as *mut i32;
@@ -84,6 +92,9 @@ Confirm understanding of ownership
 _Suggested Solution_
 
 ```rust
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let mut boxed = Box::new(123);
     let a: *mut i32 = &mut *boxed as *mut i32;

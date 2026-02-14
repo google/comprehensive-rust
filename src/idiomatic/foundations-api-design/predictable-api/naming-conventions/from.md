@@ -2,11 +2,19 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `from`
 
 A constructor function, strongly implying "type conversion".
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 impl CStr {
     unsafe fn from_ptr<'a>(ptr: *const i8) -> &'a CStr;
 }

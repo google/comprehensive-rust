@@ -2,6 +2,11 @@
 minutes: 20
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Exercise: Wizard's Inventory
 
 In this exercise, you will manage a wizard's inventory using what you have
@@ -14,6 +19,9 @@ learned about borrowing and ownership.
   be removed from the wizard's inventory.
 
 ```rust,editable,compile_fail
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include exercise.rs:setup}}
 
     // TODO: Implement `add_spell` to take ownership of a spell and add it to

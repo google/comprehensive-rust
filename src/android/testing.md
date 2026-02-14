@@ -1,3 +1,8 @@
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Testing in Android
 
 Building on [Testing](../testing.md), we will now look at how unit tests work in
@@ -12,6 +17,9 @@ _testing/Android.bp_:
 _testing/src/lib.rs_:
 
 ```rust
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include testing/src/lib.rs:leftpad}}
 ```
 

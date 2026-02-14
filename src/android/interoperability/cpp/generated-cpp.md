@@ -1,6 +1,14 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Generated C++
 
 ```rust,ignore
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[cxx::bridge]
 mod ffi {
 {{#include ../../../../third_party/cxx/blobstore/src/main.rs:rust_bridge}}

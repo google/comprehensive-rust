@@ -2,12 +2,20 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Aside: `into_inner`
 
 Special case of `into`: for exclusive pointer types or newtypes, extract the
 internal value.
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 pub struct Wrapper<T>(T);
 
 impl<T> Wrapper<T> {

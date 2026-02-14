@@ -4,6 +4,11 @@ session: Unsafe Deep Dive
 target_minutes: 600
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 > IMPORTANT: THIS MODULE IS IN AN EARLY STAGE OF DEVELOPMENT
 >
 > Please do not consider this module of Comprehensive Rust to be complete. With

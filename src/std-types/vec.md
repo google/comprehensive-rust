@@ -2,11 +2,19 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `Vec`
 
 [`Vec`][1] is the standard resizable heap-allocated buffer:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let mut v1 = Vec::new();
     v1.push(42);

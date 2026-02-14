@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Getting Ready to Rust
 
 Before we can start running Rust code, we need to do some initialization.

@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Borrow Both
 
 In this case, we have a function where either `a` or `b` may be returned. In
@@ -9,6 +14,9 @@ this case we use the lifetime annotations to tell the compiler that both borrows
 may flow into the return value.
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn pick<'a>(c: bool, a: &'a i32, b: &'a i32) -> &'a i32 {
     if c { a } else { b }
 }

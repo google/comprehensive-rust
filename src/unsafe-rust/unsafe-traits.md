@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Implementing Unsafe Traits
 
 Like with functions, you can mark a trait as `unsafe` if the implementation must
@@ -11,6 +16,9 @@ For example, the `zerocopy` crate has an unsafe trait that looks
 [something like this](https://docs.rs/zerocopy/latest/zerocopy/trait.IntoBytes.html):
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::{mem, slice};
 
 /// ...

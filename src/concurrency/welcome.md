@@ -4,6 +4,11 @@ session: Morning
 target_minutes: 180
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Welcome to Concurrency in Rust
 
 Rust has full support for concurrency using OS threads with mutexes and

@@ -2,12 +2,20 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `Result`
 
 Our primary mechanism for error handling in Rust is the [`Result`] enum, which
 we briefly saw when discussing standard library types.
 
 ```rust,editable
+# // Copyright 2022 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::fs::File;
 use std::io::Read;
 

@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Build Scripts Which Build C++ or Take Arbitrary Actions
 
 Some crates use the [`cc`][1] crate to build and link C/C++ libraries. Other

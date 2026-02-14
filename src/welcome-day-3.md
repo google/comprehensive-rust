@@ -5,6 +5,11 @@ session: Day 3 Morning
 target_minutes: 180
 ---
 
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Welcome to Day 3
 
 We have now seen all the core language features:

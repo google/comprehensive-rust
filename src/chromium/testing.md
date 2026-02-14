@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Testing
 
 Rust community typically authors unit tests in a module placed in the same
@@ -5,6 +10,9 @@ source file as the code being tested. This was covered [earlier](../testing.md)
 in the course and looks like this:
 
 ```rust
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[cfg(test)]
 mod tests {
     #[test]

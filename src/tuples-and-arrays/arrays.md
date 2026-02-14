@@ -2,11 +2,19 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Arrays
 
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let mut a: [i8; 5] = [5, 4, 3, 2, 1];
     a[2] = 0;
@@ -30,6 +38,9 @@ fn main() {
   determine that the index is unsafe, and will not compile the code:
 
 ```rust,editable,compile_fail
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let mut a: [i8; 5] = [5, 4, 3, 2, 1];
     a[6] = 0;
@@ -44,6 +55,9 @@ fn main() {
   checks failing. The following code will compile but panic at runtime:
 
 ```rust,editable,should_panic
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn get_index() -> usize {
     6
 }

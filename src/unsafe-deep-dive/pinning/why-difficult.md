@@ -1,3 +1,8 @@
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Why Pin is difficult to use
 
 - `Pin<Ptr>` is "just" a type defined in the standard library

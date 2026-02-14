@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `anyhow`
 
 The [`anyhow`] crate provides a rich error type with support for carrying
@@ -15,6 +20,9 @@ writing out trait impls explicitly for custom error types.
 [`thiserror`]: https://docs.rs/thiserror/
 
 ```rust,editable,compile_fail
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use anyhow::{Context, Result, bail};
 use std::fs;
 use std::io::Read;

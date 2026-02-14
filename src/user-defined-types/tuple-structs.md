@@ -2,11 +2,19 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Tuple Structs
 
 If the field names are unimportant, you can use a tuple struct:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 struct Point(i32, i32);
 
 fn main() {
@@ -18,6 +26,9 @@ fn main() {
 This is often used for single-field wrappers (called newtypes):
 
 ```rust,editable,compile_fail
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 struct PoundsOfForce(f64);
 struct Newtons(f64);
 

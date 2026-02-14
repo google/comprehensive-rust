@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Exercises
 
 We will read the direction from an I2C compass, and log the readings to a serial

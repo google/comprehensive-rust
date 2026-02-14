@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Values
 
 Here are some basic built-in types, and the syntax for literal values of each

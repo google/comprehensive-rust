@@ -2,6 +2,11 @@
 minutes: 20
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Dining Philosophers --- Async
 
 See [dining philosophers](../sync-exercises/dining-philosophers.md) for a
@@ -15,6 +20,9 @@ code below to a file called `src/main.rs`, fill out the blanks, and test that
 <!-- File src/main.rs -->
 
 ```rust,compile_fail
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include dining-philosophers.rs:Philosopher}}
     // left_chopstick: ...
     // right_chopstick: ...

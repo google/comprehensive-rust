@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Drop Guards
 
 A **drop guard** in Rust is a temporary object that performs some kind of
@@ -9,6 +14,9 @@ cleanup when it goes out of scope. In the case of `Mutex`, the `lock` method
 returns a `MutexGuard` that automatically unlocks the mutex on `drop`:
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 struct Mutex {
     is_locked: bool,
 }

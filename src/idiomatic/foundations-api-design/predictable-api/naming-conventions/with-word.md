@@ -2,6 +2,11 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `with` in normal use
 
 Sometimes a `with` is just a `with`.
@@ -9,6 +14,9 @@ Sometimes a `with` is just a `with`.
 `with` when used in common English contexts.
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // impl block for slices
 impl <T> [T] {
     // A condition, but doesn't start with `is`, and uses `with` as a normal word.

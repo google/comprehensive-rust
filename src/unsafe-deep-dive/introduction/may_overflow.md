@@ -2,9 +2,17 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Example: may_overflow function
 
 ```rust,should_panic,editable
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 /// Adds 2^31 - 1 to negative numbers.
 unsafe fn may_overflow(a: i32) -> i32 {
     a + i32::MAX

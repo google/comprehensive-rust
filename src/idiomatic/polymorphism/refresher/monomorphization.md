@@ -2,9 +2,17 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Monomorphization and Binary Size
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn print_vec<T: std::fmt::Debug>(debug_vec: &Vec<T>) {
     for item in debug_vec {
         println!("{:?}", item);

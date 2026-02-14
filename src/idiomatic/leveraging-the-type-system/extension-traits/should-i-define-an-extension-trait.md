@@ -2,11 +2,19 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Should I Define An Extension Trait?
 
 In what scenarios should you prefer an extension trait over a free function?
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 pub trait StrExt {
     fn is_palindrome(&self) -> bool;
 }

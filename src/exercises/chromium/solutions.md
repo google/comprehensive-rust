@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Exercise Solutions
 
 Solutions to the Chromium exercises can be found in [this series of CLs][0].

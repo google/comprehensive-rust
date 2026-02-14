@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `buddy_system_allocator`
 
 [`buddy_system_allocator`][1] is a crate that implements a basic buddy system
@@ -10,6 +15,9 @@ PCI BARs:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include allocator-example/src/main.rs:main}}
 ```
 

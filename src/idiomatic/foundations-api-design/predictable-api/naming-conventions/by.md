@@ -2,11 +2,19 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `by`: custom comparator or projection
 
 Component for methods that take a custom projection or comparison function.
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 impl<T> [T] {
     // Simplified
     fn sort_by(&mut self, compare: impl FnMut(&T, &T) -> Ordering);

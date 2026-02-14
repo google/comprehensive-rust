@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Strategies of interop
 
 <!-- Note: Retain the quotation marks around C++ in the svgbob diagrams to preserve formatting in the output -->

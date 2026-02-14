@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 PartialEq and Eq
 
 Partial equality & Total equality.
@@ -11,6 +16,9 @@ Derivable: ✅
 When to implement: Almost always.
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // pub trait PartialEq<Rhs = Self>
 //{
 //    // Required method

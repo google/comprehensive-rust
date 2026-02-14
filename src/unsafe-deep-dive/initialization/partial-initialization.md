@@ -1,6 +1,14 @@
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Partial Initialization
 
 ```rust
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::mem::MaybeUninit;
 
 fn main() {

@@ -2,12 +2,20 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `static`
 
 Static variables will live during the whole execution of the program, and
 therefore will not move:
 
 ```rust,editable
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 static BANNER: &str = "Welcome to RustOS 3.14";
 
 fn main() {

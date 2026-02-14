@@ -2,11 +2,19 @@
 minutes: 8
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Example
 
 Let us see `Arc` and `Mutex` in action:
 
 ```rust,editable,compile_fail
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::thread;
 // use std::sync::{Arc, Mutex};
 
@@ -29,6 +37,9 @@ fn main() {
 Possible solution:
 
 ```rust,editable
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::sync::{Arc, Mutex};
 use std::thread;
 

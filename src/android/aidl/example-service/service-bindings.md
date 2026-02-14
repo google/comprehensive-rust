@@ -1,3 +1,8 @@
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Generated Service API
 
 Binder generates a trait for each interface definition.
@@ -14,6 +19,9 @@ _out/soong/.intermediates/.../com_example_birthdayservice.rs_:
 <!-- The example below is a cleaned up and simplified version of the real code. -->
 
 ```rust,ignore
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 trait IBirthdayService {
     fn wishHappyBirthday(&self, name: &str, years: i32) -> binder::Result<String>;
 }

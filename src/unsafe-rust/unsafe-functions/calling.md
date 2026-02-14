@@ -1,8 +1,16 @@
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Calling Unsafe Functions
 
 Failing to uphold the safety requirements breaks memory safety!
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[derive(Debug)]
 #[repr(C)]
 struct KeyPair {
