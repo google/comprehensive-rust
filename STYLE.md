@@ -370,3 +370,62 @@ When translating the course, please take the following into account:
   text, please submit PRs to fix them in the English text! Fixing typos in the
   translation is great, but we want everybody to benefit from the fixes and that
   is why we need the fix to be made in the English text too.
+
+## Licensing and Copyright
+
+To comply with our licensing requirements, all content must include appropriate
+copyright and license headers.
+
+### Markdown Files
+
+All Markdown files (`src/**/*.md`) must start with a copyright notice and an
+SPDX identifier for the Creative Commons Attribution 4.0 International License
+(CC-BY-4.0).
+
+This block should be placed after the YAML frontmatter (if present), separated
+by a blank line, or at the very top of the file. It must be enclosed in an HTML
+comment block to hide it from the rendered output.
+
+Example:
+
+```markdown
+---
+minutes: 10
+---
+
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
+# [ ...Slide title... ]
+
+[ ...The rest of slide content... ]
+```
+
+The year should be the year the file was created.
+
+### Embedded Rust Code
+
+All Rust code blocks in Markdown files must include a copyright notice and an
+SPDX identifier for the Apache License, Version 2.0.
+
+These lines must be prefixed with `#` so they are hidden in the rendered slides
+to save vertical space but remain inside the fenced code block to make the
+association clear.
+
+Use a `#` on the blank line following the header to ensure the vertical spacing
+is also hidden in the rendered output.
+
+Example:
+
+````markdown
+```rust
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
+fn main() {
+    println!("Hello, world!");
+}
+```
+````
