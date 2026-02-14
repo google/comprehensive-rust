@@ -2,11 +2,19 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Generic Function Parameters vs dyn Trait
 
 We have two means of writing polymorphic functions, how do they compare?
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn print_display<T: std::fmt::Display>(t: &T) {
     println!("{}", t);
 }

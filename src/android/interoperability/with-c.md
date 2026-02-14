@@ -1,3 +1,8 @@
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Interoperability with C
 
 Rust has full support for linking object files with a C calling convention.
@@ -6,6 +11,9 @@ Similarly, you can export Rust functions and call them from C.
 You can do it by hand if you want:
 
 ```rust
+# // Copyright 2022 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 unsafe extern "C" {
     safe fn abs(x: i32) -> i32;
 }

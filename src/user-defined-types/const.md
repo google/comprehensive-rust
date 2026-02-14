@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `const`
 
 Constants are evaluated at compile time and their values are [inlined][1]
@@ -10,6 +15,9 @@ wherever they are used:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 const DIGEST_SIZE: usize = 3;
 const FILL_VALUE: u8 = calculate_fill_value();
 

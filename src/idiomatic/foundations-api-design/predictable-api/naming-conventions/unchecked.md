@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `unchecked`: Unsafe
 
 `unchecked` distinguishes the unsafe function in a safe/unsafe pair.
@@ -9,6 +14,9 @@ minutes: 5
 Don't add "unchecked" to the name of every unsafe function.
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 impl <T> NonNull<T> {
     // A checked version of the constructor, `None` on null.
     fn new(ptr: *mut T) -> Option<NonNull<T>>

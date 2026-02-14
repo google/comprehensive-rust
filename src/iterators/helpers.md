@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `Iterator` Helper Methods
 
 In addition to the `next` method that defines how an iterator behaves, the
@@ -9,6 +14,9 @@ In addition to the `next` method that defines how an iterator behaves, the
 customized iterators.
 
 ```rust,editable
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let result: i32 = (1..=10) // Create a range from 1 to 10
         .filter(|x| x % 2 == 0) // Keep only even numbers

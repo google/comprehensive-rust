@@ -2,12 +2,20 @@
 minutes: 15
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Extending Other Traits
 
 As with types, it may be desirable to **extend foreign traits**. In particular,
 to attach new methods to _all_ implementors of a given trait.
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 mod ext {
     use std::fmt::Display;
 

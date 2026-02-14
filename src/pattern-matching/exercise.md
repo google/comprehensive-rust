@@ -2,6 +2,11 @@
 minutes: 15
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Exercise: Expression Evaluation
 
 Let's write a simple recursive evaluator for arithmetic expressions.
@@ -47,6 +52,9 @@ evaluates to `85`. We represent this as a much bigger tree:
 In code, we will represent the tree with two types:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include exercise.rs:Operation}}
 
 {{#include exercise.rs:Expression}}
@@ -69,6 +77,9 @@ fn test_value() { .. }
 ```
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include exercise.rs:Operation}}
 
 {{#include exercise.rs:Expression}}

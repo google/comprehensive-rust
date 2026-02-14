@@ -2,12 +2,20 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Token Types with Data: Mutex Guards
 
 Sometimes, a token type needs additional data. A mutex guard is an example of a
 token that represents permission + data.
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::sync::{Arc, Mutex, MutexGuard};
 
 fn main() {

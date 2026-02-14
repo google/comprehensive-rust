@@ -2,6 +2,11 @@
 minutes: 6
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Tasks
 
 Rust has a task system, which is a form of lightweight threading.
@@ -12,6 +17,9 @@ corresponding loosely to a call stack. Concurrency within a task is possible by
 polling multiple child futures, such as racing a timer and an I/O operation.
 
 ```rust,compile_fail
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use tokio::io::{self, AsyncReadExt, AsyncWriteExt};
 use tokio::net::TcpListener;
 

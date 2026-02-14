@@ -1,9 +1,17 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Bitflags
 
 The [`bitflags`](https://crates.io/crates/bitflags) crate is useful for working
 with bitflags.
 
 ```rust,editable,compile_fail
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include ../examples/src/pl011_struct.rs:Flags}}
 ```
 

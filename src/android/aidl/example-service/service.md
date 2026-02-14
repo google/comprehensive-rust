@@ -1,3 +1,8 @@
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Service Implementation
 
 We can now implement the AIDL service:
@@ -5,6 +10,9 @@ We can now implement the AIDL service:
 _birthday_service/src/lib.rs_:
 
 ```rust,ignore
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 //! Implementation of the `IBirthdayService` AIDL interface.
 use com_example_birthdayservice::aidl::com::example::birthdayservice::IBirthdayService::IBirthdayService;
 use com_example_birthdayservice::binder;

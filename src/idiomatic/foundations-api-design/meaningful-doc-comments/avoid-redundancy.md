@@ -2,12 +2,20 @@
 minutes: 15
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Avoiding Redundancy
 
 Names and type signatures communicate a lot of information, don't repeat it in
 comments!
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // Repeats name/type information. Can omit!
 /// Parses an ipv4 from a str. Returns an option for failure modes.
 fn parse_ip_addr_v4(input: &str) -> Option<IpAddrV4> { ... }

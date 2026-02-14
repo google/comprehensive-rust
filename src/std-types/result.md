@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Result
 
 `Result` is similar to `Option`, but indicates the success or failure of an
@@ -9,6 +14,9 @@ operation, each with a different enum variant. It is generic: `Result<T, E>`
 where `T` is used in the `Ok` variant and `E` appears in the `Err` variant.
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::fs::File;
 use std::io::Read;
 

@@ -2,12 +2,20 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Clone
 
 Sometimes you _want_ to make a copy of a value. The `Clone` trait accomplishes
 this.
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn say_hello(name: String) {
     println!("Hello {name}")
 }

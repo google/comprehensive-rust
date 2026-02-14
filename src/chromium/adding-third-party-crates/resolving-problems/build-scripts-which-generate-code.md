@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Build Scripts Which Generate Code
 
 If `ninja` complains about missing files, check the `build.rs` to see if it

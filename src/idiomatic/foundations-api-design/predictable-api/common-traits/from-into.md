@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # From & Into
 
 Conversion from one type to another.
@@ -11,6 +16,9 @@ Derivable: ❌, without crates like `derive_more`.
 When to implement: As-needed and convenient.
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 pub struct ObviousImplementation(String);
 
 impl From<String> for ObviousImplementation {

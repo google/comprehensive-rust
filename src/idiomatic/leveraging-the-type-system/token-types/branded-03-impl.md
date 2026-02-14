@@ -2,13 +2,21 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Implementing Branded Types (Branding 3/4)
 
 Constructing branded types is different to how we construct non-branded types.
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 # use std::marker::PhantomData;
-# 
+#
 # #[derive(Default)]
 # struct InvariantLifetime<'id>(PhantomData<*mut &'id ()>);
 struct ProvenIndex<'id>(usize, InvariantLifetime<'id>);

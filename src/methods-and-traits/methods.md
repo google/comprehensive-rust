@@ -2,12 +2,20 @@
 minutes: 8
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Methods
 
 Rust allows you to associate functions with your new types. You do this with an
 `impl` block:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[derive(Debug)]
 struct CarRace {
     name: String,

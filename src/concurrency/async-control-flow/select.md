@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Select
 
 A select operation waits until any of a set of futures is ready, and responds to
@@ -16,6 +21,9 @@ the resulting variables. The `statement` result becomes the result of the
 `select!` macro.
 
 ```rust,editable,compile_fail
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use tokio::sync::mpsc;
 use tokio::time::{Duration, sleep};
 

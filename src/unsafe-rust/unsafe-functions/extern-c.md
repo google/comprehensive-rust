@@ -1,3 +1,8 @@
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Unsafe External Functions
 
 You can declare foreign functions for access from Rust with `unsafe extern`.
@@ -6,6 +11,9 @@ Functions declared in an `extern` block must be marked as `safe` or `unsafe`,
 depending on whether they have preconditions for safe use:
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::ffi::c_char;
 
 unsafe extern "C" {

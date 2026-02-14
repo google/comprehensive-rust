@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Volatile memory access for MMIO
 
 - Use [`pointer::read_volatile`] and [`pointer::write_volatile`].
@@ -7,6 +12,9 @@
   reference.
 
 ```rust,editable,ignore
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 const SOME_DEVICE_REGISTER: *mut u64 = 0x800_0000 as _;
 // SAFETY: Some device is mapped at this address.
 unsafe {

@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Bringing It Together --- Exercise
 
 In this exercise, you're going to add a whole new Chromium feature, bringing

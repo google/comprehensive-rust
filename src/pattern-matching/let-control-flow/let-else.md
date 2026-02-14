@@ -1,3 +1,8 @@
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `let else` Statements
 
 For the common case of matching a pattern and returning from the function, use
@@ -6,6 +11,9 @@ The "else" case must diverge (`return`, `break`, or panic - anything but falling
 off the end of the block).
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn hex_or_die_trying(maybe_string: Option<String>) -> Result<u32, String> {
     let s = if let Some(s) = maybe_string {
         s
@@ -37,6 +45,9 @@ fn main() {
 The rewritten version is:
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn hex_or_die_trying(maybe_string: Option<String>) -> Result<u32, String> {
     let Some(s) = maybe_string else {
         return Err(String::from("got None"));

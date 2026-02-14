@@ -1,8 +1,16 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # A minimal `no_std` program
 
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #![no_main]
 #![no_std]
 

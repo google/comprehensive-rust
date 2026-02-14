@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # The Bridge Module
 
 CXX relies on a description of the function signatures that will be exposed from
@@ -5,6 +10,9 @@ each language to the other. You provide this description using extern blocks in
 a Rust module annotated with the `#[cxx::bridge]` attribute macro.
 
 ```rust,ignore
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include ../../../../third_party/cxx/blobstore/src/main.rs:bridge}}
 ```
 

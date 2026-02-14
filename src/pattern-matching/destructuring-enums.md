@@ -2,6 +2,11 @@
 minutes: 4
 ---
 
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Enums
 
 Like tuples, enums can also be destructured by matching:
@@ -10,6 +15,9 @@ Patterns can also be used to bind variables to parts of your values. This is how
 you inspect the structure of your types. Let us start with a simple `enum` type:
 
 ```rust,editable
+# // Copyright 2022 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 enum Result {
     Ok(i32),
     Err(String),

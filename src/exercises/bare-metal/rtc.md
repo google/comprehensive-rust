@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # RTC driver
 
 The QEMU aarch64 virt machine has a [PL031][1] real-time clock at 0x9010000. For
@@ -25,6 +30,9 @@ _src/main.rs_:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,compile_fail
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include rtc/src/main.rs:top}}
 
 {{#include rtc/src/main.rs:imports}}
@@ -45,6 +53,9 @@ exercise):
 <!-- mdbook-xgettext: skip -->
 
 ```rust,compile_fail
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include rtc/src/exceptions.rs}}
 ```
 
@@ -54,6 +65,9 @@ _src/logger.rs_ (you shouldn't need to change this):
 <!-- mdbook-xgettext: skip -->
 
 ```rust,compile_fail
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include rtc/src/logger.rs}}
 ```
 

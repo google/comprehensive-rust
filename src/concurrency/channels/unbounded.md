@@ -2,11 +2,19 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Unbounded Channels
 
 You get an unbounded and asynchronous channel with [`mpsc::channel()`]:
 
 ```rust,editable
+# // Copyright 2022 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::sync::mpsc;
 use std::thread;
 use std::time::Duration;

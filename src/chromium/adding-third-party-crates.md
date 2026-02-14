@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Adding Third Party Crates
 
 Rust libraries are called "crates" and are found at [crates.io][0]. It's _very

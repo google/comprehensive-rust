@@ -2,6 +2,11 @@
 minutes: 8
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # How to Initialize Memory
 
 Steps:
@@ -11,6 +16,9 @@ Steps:
 3. Notify Rust that the memory is initialized
 
 ```rust,editable
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::mem::MaybeUninit;
 
 fn main() {

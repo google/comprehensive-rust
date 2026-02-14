@@ -5,6 +5,11 @@ session: Day 4 Morning
 target_minutes: 180
 ---
 
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Welcome to Day 4
 
 We have mastered the core language and its unique safety model:

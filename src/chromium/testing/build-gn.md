@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # GN Rules for Rust Tests
 
 The simplest way to build Rust `gtest` tests is to add them to an existing test

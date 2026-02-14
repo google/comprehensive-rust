@@ -1,3 +1,8 @@
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `RefCell`
 
 `RefCell` allows accessing and mutating a wrapped value by providing alternative
@@ -11,6 +16,9 @@ By implementing `Deref` (and `DerefMut` for `RefMut`), these types allow calling
 methods on the inner value without allowing references to escape.
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::cell::RefCell;
 
 fn main() {

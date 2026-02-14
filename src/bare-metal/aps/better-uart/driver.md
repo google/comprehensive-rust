@@ -1,8 +1,16 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Driver
 
 Now let's use the new `Registers` struct in our driver.
 
 ```rust,editable,compile_fail
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include ../examples/src/pl011_struct.rs:Uart}}
 ```
 

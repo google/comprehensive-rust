@@ -2,12 +2,20 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Extending Foreign Types
 
 An **extension trait** is a local trait definition whose primary purpose is to
 attach new methods to foreign types.
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 mod ext {
     pub trait StrExt {
         fn is_palindrome(&self) -> bool;

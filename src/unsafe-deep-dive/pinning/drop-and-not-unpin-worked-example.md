@@ -2,9 +2,17 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Worked Example: Implementing `Drop` for `!Unpin` types
 
 ```rust,editable,ignore
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::cell::RefCell;
 use std::marker::PhantomPinned;
 use std::mem;
@@ -78,6 +86,9 @@ Redesign the post-processing system to work without `Drop`.
 Using `.clone()` is an obvious first choice, but it allocates memory.
 
 ```rust,ignore
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 impl Drop for SelfRef {
     fn drop(&mut self) {
         let payload = self.data.0.clone();
@@ -92,6 +103,9 @@ Wrapping `CustomString` in `ManuallyDrop` prevents the (second) automatic drop
 at the end of the `Drop` impl.
 
 ```rust,ignore
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 struct SelfRef {
     data: ManuallyDrop<CustomString>,
     ptr: *const CustomString,

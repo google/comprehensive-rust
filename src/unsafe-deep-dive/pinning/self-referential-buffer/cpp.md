@@ -2,6 +2,11 @@
 minutes: 15
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Modelled in C++
 
 ```cpp,editable,ignore

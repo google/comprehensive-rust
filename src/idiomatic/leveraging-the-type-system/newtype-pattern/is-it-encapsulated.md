@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Is It Truly Encapsulated?
 
 You must evaluate _the entire API surface_ exposed by a newtype to determine if
@@ -10,6 +15,9 @@ interactions, including trait implementations, that may allow users to bypass
 validation checks.
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 pub struct Username(String);
 
 impl Username {

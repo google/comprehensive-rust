@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `thiserror`
 
 The [`thiserror`](https://docs.rs/thiserror/) crate provides macros to help
@@ -9,6 +14,9 @@ avoid boilerplate when defining error types. It provides derive macros that
 assist in implementing `From<T>`, `Display`, and the `Error` trait.
 
 ```rust,editable,compile_fail
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::io::Read;
 use std::{fs, io};
 use thiserror::Error;

@@ -2,6 +2,11 @@
 minutes: 30
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Exercise: Luhn Algorithm
 
 The [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) is used to
@@ -29,6 +34,9 @@ Copy the code below to <https://play.rust-lang.org/> and write additional tests
 to uncover bugs in the provided implementation, fixing any bugs you find.
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include exercise.rs:luhn}}
 
 {{#include exercise.rs:unit-tests}}

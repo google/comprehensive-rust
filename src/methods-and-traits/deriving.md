@@ -2,12 +2,20 @@
 minutes: 3
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Deriving
 
 Supported traits can be automatically implemented for your custom types, as
 follows:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[derive(Debug, Clone, Default)]
 struct Player {
     name: String,
@@ -35,6 +43,9 @@ fn main() {
   manual `Clone` impl can be repetitive compared to deriving the trait:
 
   ```rust,ignore
+  # // Copyright 2023 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   impl Clone for Player {
       fn clone(&self) -> Self {
           Player {

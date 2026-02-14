@@ -1,6 +1,14 @@
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Getter example
 
 ```rust,editable
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 /// Return the element at `index` from `arr`
 unsafe fn get(arr: *const i32, index: usize) -> i32 {
     unsafe { *arr.add(index) }
@@ -23,6 +31,9 @@ Ask: “What are the safety preconditions of `get`?”
 Add safety comments:
 
 ```rust,ignore
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 /// Return the element at `index` from `arr`
 ///
 /// # Safety
@@ -39,6 +50,9 @@ Optional: Add runtime checks can be added in debug builds to provide some extra
 robustness.
 
 ```rust,ignore
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 debug_assert!(!arr.is_null());
 debug_assert_eq!(arr as usize % std::mem::align_of::<i32>(), 0);
 ```

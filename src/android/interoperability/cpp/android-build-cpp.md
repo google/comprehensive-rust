@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Building in Android
 
 Create a `cc_library_static` to build the C++ library, including the CXX

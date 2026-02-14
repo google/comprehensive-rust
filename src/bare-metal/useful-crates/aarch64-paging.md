@@ -1,9 +1,17 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `aarch64-paging`
 
 The [`aarch64-paging`][1] crate lets you create page tables according to the
 AArch64 Virtual Memory System Architecture.
 
 ```rust,editable,compile_fail
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use aarch64_paging::{
     idmap::IdMap,
     paging::{Attributes, MemoryRegion},

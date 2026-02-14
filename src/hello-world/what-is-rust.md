@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # What is Rust?
 
 Rust is a new programming language that had its [1.0 release in 2015][1]:

@@ -3,6 +3,11 @@ session: Afternoon
 target_minutes: 180
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Welcome
 
 "Async" is a concurrency model where multiple tasks are executed concurrently by

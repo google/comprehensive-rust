@@ -1,3 +1,8 @@
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Logging
 
 You should use the `log` crate to automatically log to `logcat` (on-device) or
@@ -12,6 +17,9 @@ _hello_rust_logs/Android.bp_:
 _hello_rust_logs/src/main.rs_:
 
 ```rust,ignore
+# // Copyright 2022 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include logging/src/main.rs:main}}
 ```
 

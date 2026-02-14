@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # The Anatomy of a Doc Comment
 
 1. A brief, one-sentence summary.
@@ -9,6 +14,9 @@ minutes: 5
 3. Special sections: code examples, panics, errors, safety preconditions.
 
 ````rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 /// Parses a key-value pair from a string.
 ///
 /// The input string must be in the format `key=value`. Everything before the

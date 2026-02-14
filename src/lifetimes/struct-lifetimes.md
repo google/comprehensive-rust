@@ -2,11 +2,19 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Lifetimes in Data Structures
 
 If a data type stores borrowed data, it must be annotated with a lifetime:
 
 ```rust,editable
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[derive(Debug)]
 enum HighlightColor {
     Pink,

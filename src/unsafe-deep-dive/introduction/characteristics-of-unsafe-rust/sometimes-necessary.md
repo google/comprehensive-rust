@@ -2,11 +2,19 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Unsafe is sometimes necessary
 
 The Rust compiler can only enforce its rules for code that it has compiled.
 
 ```rust,editable,ignore
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let pid = unsafe { libc::getpid() };
     println!("{pid}");
@@ -30,6 +38,9 @@ interface that computers provide is a memory address (a pointer).”
 control:
 
 ```rust,ignore
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let mut buf = [0u8; 8];
     let ptr = buf.as_mut_ptr() as *mut libc::c_void;

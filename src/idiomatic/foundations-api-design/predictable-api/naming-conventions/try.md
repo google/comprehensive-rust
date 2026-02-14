@@ -2,11 +2,19 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `try_[method]`: Fallible methods with Specific Errors
 
 Prefix for fallible methods that return a `Result`.
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 impl TryFrom<i32> for u32 {
     type Error = TryFromIntError;
     fn try_from(value: i32) -> Result<i64, TryFromIntError>;

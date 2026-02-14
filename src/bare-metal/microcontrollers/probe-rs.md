@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `probe-rs` and `cargo-embed`
 
 [probe-rs](https://probe.rs/) is a handy toolset for embedded debugging, like

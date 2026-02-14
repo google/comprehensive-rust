@@ -2,11 +2,19 @@
 minutes: 15
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Plain Threads
 
 Rust threads work similarly to threads in other languages:
 
 ```rust,editable
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::thread;
 use std::time::Duration;
 

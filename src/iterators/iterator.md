@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `Iterator` Trait
 
 The [`Iterator`][1] trait defines how an object can be used to produce a
@@ -9,6 +14,9 @@ sequence of values. For example, if we wanted to create an iterator that can
 produce the elements of a slice it might look something like this:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 struct SliceIter<'s> {
     slice: &'s [i32],
     i: usize,

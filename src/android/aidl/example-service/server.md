@@ -1,3 +1,8 @@
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # AIDL Server
 
 Finally, we can create a server which exposes the service:
@@ -5,6 +10,9 @@ Finally, we can create a server which exposes the service:
 _birthday_service/src/server.rs_:
 
 ```rust,ignore
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include ../birthday_service/src/server.rs:main}}
 ```
 

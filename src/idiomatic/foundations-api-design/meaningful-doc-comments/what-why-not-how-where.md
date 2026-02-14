@@ -2,11 +2,19 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Why and What, not How and Where
 
 Avoid documenting irrelevant details that may frequently change.
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 /// Sorts a slice. Implemented using recursive quicksort.
 
 fn sort_quickly<T: Ord>(to_sort: &mut [T]) { /* ... */

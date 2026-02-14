@@ -2,12 +2,20 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # GoogleTest
 
 The [GoogleTest](https://docs.rs/googletest/) crate allows for flexible test
 assertions using _matchers_:
 
 ```rust,ignore
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include googletest.rs:test_elements_are}}
 ```
 
@@ -49,6 +57,9 @@ Error: See failure output above
   as a diff:
 
 ```rust,ignore
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include googletest.rs:test_multiline_string_diff}}
 ```
 
