@@ -187,26 +187,25 @@ fn main() {
 }
 ```
 
-- **File Structure:** We use a directory `src/widgets/` for sub-modules and a
-  file `src/widgets.rs` to define the module itself. This is the standard way to
-  structure modules in modern Rust (the 2018 edition and later).
-- **Visibility:** We use `pub` to make `Button`, `Label`, `Window`, and `Widget`
-  accessible from outside the `widgets` module. Fields of structs (like
-  `Label.label`) remain private by default, preserving encapsulation.
-- **Re-exports:** In `src/widgets.rs`, we use `pub use button::Button;`. This
-  re-exports `Button` from the `widgets` module, so users can import it as
-  `widgets::Button` rather than `widgets::button::Button`. This creates a
-  cleaner public API.
-- **Relative Imports:** The sub-modules (like `label.rs`) use
-  `use super::Widget;` to access the `Widget` trait defined in the parent
-  module.
+The solution demonstrates the standard Rust module hierarchy and visibility
+rules:
+
+- **Module Hierarchy:** Sub-modules are placed in a directory (`src/widgets/`)
+  and declared in a corresponding file (`src/widgets.rs`).
+- **Encapsulation:** Visibility is controlled with `pub`. Fields remain private
+  by default, while types and the `Widget` trait are exposed for external use.
+- **Re-exports:** Using `pub use` in `src/widgets.rs` provides a flat public
+  API, allowing users to import `widgets::Button` instead of the internal
+  `widgets::button::Button`.
+- **Path Resolution:** Sub-modules use `super::Widget` to refer to items in the
+  parent module.
 
 <details>
 
-- Note that we could have also put `mod` declarations in `src/main.rs` directly
-  referencing the files, but grouping them under a `widgets` module is cleaner
-  for a library.
-- Discuss how `mod.rs` (the older style) is also supported but less common in
-  new code. `src/widgets/mod.rs` would be equivalent to `src/widgets.rs`.
+- **Module Styles:** This structure uses the modern (Rust 2018+) module style.
+  Previously, `src/widgets/mod.rs` was required instead of `src/widgets.rs`.
+- **API Design:** Re-exporting is a powerful tool for decoupling your internal
+  code organization from your library's public interface, allowing for
+  refactoring without breaking changes.
 
 </details>
