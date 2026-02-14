@@ -31,8 +31,8 @@ impl u32 {
 <details>
 - Prefix for constructor-style, `From`-trait-style functions.
 
-- These functions can take multiple arguments, but usually imply the user is
-  doing more of the work than a usual constructor would.
+- These functions can take multiple arguments, but imply the user is expected to
+  provide the data that the type is composed of.
 
   `new` is still preferred for most constructor-style functions, the implication
   for `from` is transformation of one data type to another.
