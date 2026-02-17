@@ -101,11 +101,11 @@ details.
 This project is licensed under a mix of the Apache License 2.0 and the Creative
 Commons Attribution 4.0 International License.
 
-- **Source Code:** All source code files are licensed under the
-  [Apache License, Version 2.0](LICENSE).
+- **Source Code:** All source code files and code examples embedded in the
+  documentation are licensed under the [Apache License, Version 2.0](LICENSE).
 
 - **Documentation & Content:** All non-source code assets—specifically Markdown
-  (`.md`) files and documentation—are licensed under the
+  (`.md`) files, documentation, and images—are licensed under the
   [Creative Commons Attribution 4.0 International License](LICENSE-CC-BY).
 
 ## Contact
