@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Build rules
 
 Rust code is typically built using `cargo`. Chromium builds with `gn` and

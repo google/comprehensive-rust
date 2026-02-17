@@ -1,8 +1,16 @@
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Handwritten FFI
 
 We can declare external functions by hand:
 
 ```rust
+# // Copyright 2022 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 unsafe extern "C" {
     safe fn abs(x: i32) -> i32;
 }

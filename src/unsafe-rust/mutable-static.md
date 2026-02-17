@@ -2,11 +2,19 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Mutable Static Variables
 
 It is safe to read an immutable static variable:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 static HELLO_WORLD: &str = "Hello, world!";
 
 fn main() {
@@ -22,6 +30,9 @@ Using mutable statics soundly requires reasoning about concurrency without the
 compiler's help:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 static mut COUNTER: u32 = 0;
 
 fn add_to_counter(inc: u32) {

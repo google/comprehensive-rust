@@ -2,6 +2,11 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Macros
 
 Macros are expanded into Rust code during compilation, and can take a variable
@@ -17,6 +22,9 @@ standard library includes an assortment of useful macros.
   panic.
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn factorial(n: u32) -> u32 {
     let mut product = 1;
     for i in 1..=n {

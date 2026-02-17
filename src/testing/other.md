@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Other Types of Tests
 
 ## Integration Tests
@@ -11,6 +16,9 @@ If you want to test your library as a client, use an integration test.
 Create a `.rs` file under `tests/`:
 
 ```rust,ignore
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // tests/my_library.rs
 use my_library::init;
 
@@ -27,6 +35,9 @@ These tests only have access to the public API of your crate.
 Rust has built-in support for documentation tests:
 
 ````rust
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 /// Shortens a string to the given length.
 ///
 /// ```

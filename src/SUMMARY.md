@@ -1,3 +1,8 @@
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 <!-- Keep first page as index.md to avoid giving it two names. -->
 
 [Welcome to Comprehensive Rust 🦀](index.md)

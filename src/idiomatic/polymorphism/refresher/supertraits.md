@@ -2,11 +2,19 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Supertraits / Trait Dependencies
 
 Traits can be extended by new traits.
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 pub trait DeviceId {
     /* trait for device ID types */
 }

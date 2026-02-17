@@ -1,3 +1,8 @@
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Sending Objects
 
 AIDL objects can be sent either as a concrete AIDL type or as the type-erased
@@ -22,6 +27,9 @@ interface IBirthdayService {
 _birthday_service/src/client.rs_:
 
 ```rust,ignore
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include ../birthday_service/src/client.rs:InfoProvider}}
 
 fn main() {

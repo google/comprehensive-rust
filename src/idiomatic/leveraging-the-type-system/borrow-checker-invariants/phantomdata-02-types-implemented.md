@@ -2,12 +2,20 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # PhantomData 2/4: Type-level tagging
 
 Let's solve the problem from the previous slide by adding a type parameter.
 
 <!-- dprint-ignore-start -->
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // use std::marker::PhantomData;
 
 pub struct ChatId<T> { id: u64, tag: T }
@@ -58,6 +66,9 @@ fn main() {}
   following:
 
   ```rust,compile_fail
+  # // Copyright 2025 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   pub struct ChatId<T> {
       id: u64,
       tag: PhantomData<T>,
@@ -73,6 +84,9 @@ fn main() {}
   construction of `PhantomData`
 
   ```rust,compile_fail
+  # // Copyright 2025 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   impl<T> From<u64> for ChatId<T> {
       fn from(value: u64) -> Self {
           ChatId {

@@ -2,12 +2,20 @@
 minutes: 15
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # PhantomData 3/4: Lifetimes for External Resources
 
 The invariants of external resources often match what we can do with lifetime
 rules.
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // use std::marker::PhantomData;
 
 /// Direct FFI to a database library in C.
@@ -73,6 +81,9 @@ fn main() {}
 - Demonstrate: change `Transaction` to the following:
 
   ```rust,compile_fail
+  # // Copyright 2025 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   struct Transaction<'a> {
       connection: DatabaseConnection,
       _phantom: PhantomData<&'a mut DatabaseConnection>,
@@ -82,6 +93,9 @@ fn main() {}
   Update the `DatabaseConnection::new_transaction()` method:
 
   ```rust,compile_fail
+  # // Copyright 2025 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   impl DatabaseConnection {
       fn new_transaction<'a>(&'a mut self) -> Transaction<'a> {
           Transaction { connection: DatabaseConnection(self.0), _phantom: PhantomData }

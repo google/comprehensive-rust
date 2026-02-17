@@ -1,3 +1,8 @@
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Setup
 
 We will be using a Cuttlefish Android Virtual Device to test our code. Make sure

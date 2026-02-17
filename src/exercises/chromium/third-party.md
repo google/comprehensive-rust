@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Exercise
 
 Add [uwuify][0] to Chromium, turning off the crate's [default features][1].

@@ -2,6 +2,11 @@
 minutes: 30
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Exercise: Iterator Method Chaining
 
 In this exercise, you will need to find and use some of the provided methods in
@@ -12,6 +17,9 @@ pass. Use an iterator expression and `collect` the result to construct the
 return value.
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include exercise.rs:offset_differences}}
     todo!()
 }

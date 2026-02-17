@@ -2,9 +2,17 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Encapsulated Unsafe Rust
 
 ```rust,editable
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 pub fn copy(dest: &mut [u8], source: &[u8]) {
     let len = dest.len().min(source.len());
     let mut i = 0;

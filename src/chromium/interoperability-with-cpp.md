@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Interoperability with C++
 
 The Rust community offers multiple options for C++/Rust interop, with new tools

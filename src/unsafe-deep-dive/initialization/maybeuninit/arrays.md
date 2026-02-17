@@ -2,9 +2,17 @@
 minutes: 8
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # MaybeUninit and arrays
 
 ```rust
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::mem::MaybeUninit;
 use std::ptr;
 

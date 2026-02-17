@@ -1,9 +1,17 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Example Bindings
 
 CXX requires that the whole C++/Rust boundary is declared in `cxx::bridge`
 modules inside `.rs` source code.
 
 ```rust,ignore
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include ../../../third_party/cxx/book/snippets.rs:cxx_overview}}
 ```
 

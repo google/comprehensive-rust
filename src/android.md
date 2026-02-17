@@ -3,6 +3,11 @@ course: Android
 session: Android
 ---
 
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Welcome to Rust in Android
 
 Rust is supported for system software on Android. This means that you can write

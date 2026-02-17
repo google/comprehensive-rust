@@ -2,11 +2,19 @@
 minutes: 6
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `async`/`await`
 
 At a high level, async Rust code looks very much like "normal" sequential code:
 
 ```rust,editable,compile_fail
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use futures::executor::block_on;
 
 async fn count_to(count: i32) {

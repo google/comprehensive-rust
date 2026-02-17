@@ -1,6 +1,14 @@
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Different representations
 
 ```rust,editable
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let c_repr = b"Hello, C\0";
     let cc_repr = (b"Hello, C++\0", 10u32);
@@ -16,6 +24,9 @@ to confusion and bugs. Consider three ways to represent text.
 Show how to convert the raw representations to a Rust string slice:
 
 ```rust,ignore
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // C representation to Rust
 unsafe {
     let ptr = c_repr.as_ptr() as *const i8;

@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Blocks and Scopes
 
 - A block in Rust contains a sequence of expressions, enclosed by braces `{}`.
@@ -9,6 +14,9 @@ minutes: 5
   block.
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let z = 13;
     let x = {

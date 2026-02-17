@@ -2,11 +2,19 @@
 minutes: 3
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Closure Syntax
 
 Closures are created with vertical bars: `|..| ..`.
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     // Argument and return type can be inferred for lightweight syntax:
     let double_it = |n| n * 2;

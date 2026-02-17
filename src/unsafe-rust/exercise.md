@@ -2,6 +2,11 @@
 minutes: 30
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Safe FFI Wrapper
 
 Rust has great support for calling functions through a _foreign function
@@ -52,6 +57,9 @@ Copy the code below to <https://play.rust-lang.org/> and fill in the missing
 functions and methods:
 
 ```rust,should_panic,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // TODO: remove this when you're done with your implementation.
 #![allow(unused_imports, unused_variables, dead_code)]
 

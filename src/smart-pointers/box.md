@@ -2,12 +2,20 @@
 minutes: 8
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `Box<T>`
 
 [`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html) is an owned pointer
 to data on the heap:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let five = Box::new(5);
     println!("five: {}", *five);
@@ -35,6 +43,9 @@ Recursive data types or data types with dynamic sizes cannot be stored inline
 without a pointer indirection. `Box` accomplishes that indirection:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[derive(Debug)]
 enum List<T> {
     /// A non-empty list: first element and the rest of the list.

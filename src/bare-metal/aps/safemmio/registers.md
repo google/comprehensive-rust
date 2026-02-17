@@ -1,3 +1,8 @@
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # safe-mmio
 
 The [`safe-mmio`] crate provides types to wrap registers that can be read or
@@ -11,6 +16,9 @@ written safely.
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include ../examples/src/pl011.rs:Registers}}
 ```
 

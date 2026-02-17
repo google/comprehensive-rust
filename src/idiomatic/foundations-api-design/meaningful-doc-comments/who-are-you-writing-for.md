@@ -2,11 +2,19 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Who are you writing for?
 
 Colleagues, collaborators, largely-silent API users, or just yourself?
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // expert writes for experts
 /// Canonicalizes the MIR for the borrow checker.  
 ///  

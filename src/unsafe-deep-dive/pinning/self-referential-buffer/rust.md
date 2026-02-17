@@ -2,9 +2,17 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Modeled in Rust
 
 ```rust,ignore
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 /// Raw pointers
 pub struct SelfReferentialBuffer {
     data: [u8; 1024],

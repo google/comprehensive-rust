@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Matching Values
 
 The `match` keyword lets you match a value against one or more _patterns_. The
@@ -9,6 +14,9 @@ patterns can be simple values, similarly to `switch` in C and C++, but they can
 also be used to express more complex conditions:
 
 ```rust,editable
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[rustfmt::skip]
 fn main() {
     let input = 'x';
@@ -48,6 +56,9 @@ Key Points:
   pattern `_ =>` is never even attempted.
 
 ```rust,editable
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[rustfmt::skip]
 fn main() {
     let input = 'a';
@@ -65,6 +76,9 @@ fn main() {
   as it will instead be interpreted as a variable name pattern, which creates a
   new variable that will shadow the existing one. For example:
   ```rust
+  # // Copyright 2024 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   let expected = 5;
   match 123 {
       expected => println!("Expected value is 5, actual is {expected}"),
@@ -83,6 +97,9 @@ fn main() {
   binds a part of a pattern to a variable. For example:
 
   ```rust
+  # // Copyright 2024 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   let opt = Some(123);
   match opt {
       outer @ Some(inner) => {

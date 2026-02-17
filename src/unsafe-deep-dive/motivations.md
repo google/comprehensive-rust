@@ -2,6 +2,11 @@
 minutes: 1
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Why learn unsafe Rust?
 
 We know that writing code without the guarantees that Rust provides ...

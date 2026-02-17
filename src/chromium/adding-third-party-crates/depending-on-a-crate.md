@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Depending on a Crate
 
 Once you've added a third-party crate and generated build rules, depending on a

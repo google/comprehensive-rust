@@ -1,3 +1,8 @@
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Interoperability with Java
 
 Java can load shared objects via
@@ -10,6 +15,9 @@ First, we create a Rust function to export to Java:
 _interoperability/java/src/lib.rs_:
 
 ```rust,compile_fail
+# // Copyright 2022 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include java/src/lib.rs:hello}}
 ```
 

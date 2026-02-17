@@ -1,3 +1,8 @@
+<!--
+Copyright 2022 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # The Rust Ecosystem
 
 The Rust ecosystem consists of a number of tools, of which the main ones are:

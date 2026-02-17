@@ -1,3 +1,8 @@
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # AIDL Interfaces
 
 You declare the API of your service using an AIDL interface:

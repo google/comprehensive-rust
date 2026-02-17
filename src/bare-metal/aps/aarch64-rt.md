@@ -1,3 +1,8 @@
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # aarch64-rt
 
 The `aarch64-rt` crate provides the assembly entry point and exception vector
@@ -11,6 +16,9 @@ We can also use the UART driver from the `arm-pl011-uart` crate rather than
 writing our own.
 
 ```rust,editable,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include examples/src/main_rt.rs:main}}
 ```
 

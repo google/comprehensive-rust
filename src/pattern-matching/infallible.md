@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Irrefutable Patterns
 
 In day 1 we briefly saw how patterns can be used to _destructure_ compound
@@ -9,6 +14,9 @@ values. Let's review that and talk about a few other things patterns can
 express:
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn takes_tuple(tuple: (char, i32, bool)) {
     let a = tuple.0;
     let b = tuple.1;
@@ -50,6 +58,9 @@ fn main() {
   middle elements of a tuple.
 
   ```rust
+  # // Copyright 2025 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   fn takes_tuple(tuple: (char, i32, bool, u8)) {
       let (first, .., last) = tuple;
   }
@@ -58,6 +69,9 @@ fn main() {
 - All of these patterns work with arrays as well:
 
   ```rust
+  # // Copyright 2025 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   fn takes_array(array: [u8; 5]) {
       let [first, .., last] = array;
   }

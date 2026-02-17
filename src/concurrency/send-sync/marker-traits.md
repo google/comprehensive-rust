@@ -2,6 +2,11 @@
 minutes: 2
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Marker Traits
 
 How does Rust know to forbid shared access across threads? The answer is in two

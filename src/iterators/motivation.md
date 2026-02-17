@@ -2,6 +2,11 @@
 minutes: 3
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Motivating Iterators
 
 If you want to iterate over the contents of an array, you'll need to define:
@@ -33,6 +38,9 @@ In Rust we bundle this state and logic together into an object known as an
 - Rust doesn't have a C-style `for` loop, but we can express the same thing with
   `while`:
   ```rust,editable
+  # // Copyright 2024 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   let array = [2, 4, 6, 8];
   let mut i = 0;
   while i < array.len() {

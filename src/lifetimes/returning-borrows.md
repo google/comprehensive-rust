@@ -2,12 +2,20 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Returning Borrows
 
 But we can also have our function return a reference! This means that a borrow
 flows back out of a function:
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn identity(x: &i32) -> &i32 {
     x
 }

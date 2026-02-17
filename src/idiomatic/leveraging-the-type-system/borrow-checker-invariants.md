@@ -2,12 +2,20 @@
 minutes: 15
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Using the Borrow checker to enforce Invariants
 
 The borrow checker, while added to enforce memory ownership, can model other
 problems and prevent API misuse.
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 /// Doors can be open or closed, and you need the right key to lock or unlock
 /// one. Modelled with a Shared key and Owned door.
 pub struct DoorKey {

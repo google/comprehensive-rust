@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Depending on Rust Code from Chromium C++
 
 Simply add the above target to the `deps` of some Chromium C++ target.

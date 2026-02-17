@@ -2,6 +2,11 @@
 minutes: 20
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Exercise: Rewriting with Result
 
 In this exercise we're revisiting the expression evaluator exercise that we did
@@ -11,6 +16,9 @@ and return an error when it occurs. We provide a simple `DivideByZeroError` type
 to use as the error type for `eval`.
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include exercise.rs:types}}
 
 {{#include exercise.rs:eval}}

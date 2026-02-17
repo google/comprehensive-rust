@@ -2,11 +2,19 @@
 minutes: 8
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Async Channels
 
 Several crates have support for asynchronous channels. For instance `tokio`:
 
 ```rust,editable,compile_fail
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use tokio::sync::mpsc;
 
 async fn ping_handler(mut input: mpsc::Receiver<()>) {

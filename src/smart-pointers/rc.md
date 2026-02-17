@@ -2,12 +2,20 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `Rc`
 
 [`Rc`][1] is a reference-counted shared pointer. Use this when you need to refer
 to the same data from multiple places:
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::rc::Rc;
 
 fn main() {

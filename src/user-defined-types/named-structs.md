@@ -2,6 +2,11 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Named Structs
 
 Like C and C++, Rust has support for custom structs:
@@ -9,6 +14,9 @@ Like C and C++, Rust has support for custom structs:
 <!-- dprint-ignore-start -->
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 struct Person {
     name: String,
     age: u8,
@@ -61,6 +69,9 @@ Key Points:
 - You can also demonstrate the struct update syntax here:
 
   ```rust,ignore
+  # // Copyright 2023 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   let jackie = Person { name: String::from("Jackie"), ..avery };
   ```
 

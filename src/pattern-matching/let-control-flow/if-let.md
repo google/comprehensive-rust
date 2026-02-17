@@ -1,3 +1,8 @@
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `if let` Expressions
 
 The
@@ -5,6 +10,9 @@ The
 lets you execute different code depending on whether a value matches a pattern:
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::time::Duration;
 
 fn sleep_for(secs: f32) {

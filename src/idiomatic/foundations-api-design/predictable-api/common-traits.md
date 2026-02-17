@@ -2,9 +2,17 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Common Traits to Implement
 
 ```rust
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Clone /* ... */)]
 pub struct MyData {
     pub name: String,

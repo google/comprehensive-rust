@@ -2,6 +2,11 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Dynamic Error Types
 
 Sometimes we want to allow any type of error to be returned without writing our
@@ -9,6 +14,9 @@ own enum covering all the different possibilities. The `std::error::Error` trait
 makes it easy to create a trait object that can contain any error.
 
 ```rust,editable
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::error::Error;
 use std::fs;
 use std::io::Read;

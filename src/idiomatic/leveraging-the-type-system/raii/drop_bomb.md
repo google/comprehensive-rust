@@ -2,6 +2,11 @@
 minutes: 15
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Drop Bombs: Enforcing API Correctness
 
 Use `Drop` to enforce invariants and detect incorrect API usage. A "drop bomb"
@@ -11,6 +16,9 @@ This pattern is often used when the finalizing operation (like `commit()` or
 `rollback()`) needs to return a `Result`, which cannot be done from `Drop`.
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::io::{self, Write};
 
 struct Transaction {

@@ -2,9 +2,17 @@
 minutes: 15
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Branded Types in Action (Branding 4/4)
 
 ```rust,editable
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use std::marker::PhantomData;
 
 #[derive(Default)]
@@ -65,6 +73,9 @@ fn main() {
   Expect a "push" implementation, suggested demo:
 
   ```rust,compile_fail
+  # // Copyright 2025 Google LLC
+  # // SPDX-License-Identifier: Apache-2.0
+  #
   fn push(&mut self, value: u8) -> ProvenIndex<'id> {
       self.0.push(value);
       ProvenIndex(self.0.len() - 1, InvariantLifetime::default())

@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # CXX Error Handling
 
 CXX's [support for `Result<T,E>`][0] relies on C++ exceptions, so we can't use

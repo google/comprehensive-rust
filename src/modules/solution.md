@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Solution
 
 <!--
@@ -28,6 +33,9 @@ src
 ```
 
 ```rust,ignore
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // ---- src/widgets.rs ----
 pub use button::Button;
 pub use label::Label;
@@ -54,6 +62,9 @@ pub trait Widget {
 ```
 
 ```rust,ignore
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // ---- src/widgets/label.rs ----
 use super::Widget;
 
@@ -82,6 +93,9 @@ impl Widget for Label {
 ```
 
 ```rust,ignore
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // ---- src/widgets/button.rs ----
 use super::{Label, Widget};
 
@@ -118,6 +132,9 @@ impl Widget for Button {
 ```
 
 ```rust,ignore
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // ---- src/widgets/window.rs ----
 use super::Widget;
 
@@ -175,6 +192,9 @@ impl Widget for Window {
 ```
 
 ```rust,ignore
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // ---- src/main.rs ----
 mod widgets;
 

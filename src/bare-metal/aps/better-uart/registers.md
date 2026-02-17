@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Multiple registers
 
 We can use a struct to represent the memory layout of the UART's registers.
@@ -5,6 +10,9 @@ We can use a struct to represent the memory layout of the UART's registers.
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
+# // Copyright 2023 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 {{#include ../examples/src/pl011_struct.rs:Registers}}
 ```
 

@@ -2,11 +2,19 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2026 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Unsafe is sometimes useful
 
 Your code can go faster!
 
 ```rust,editable
+# // Copyright 2026 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn iter_sum(xs: &[u64]) -> u64 {
     xs.iter().sum()
 }

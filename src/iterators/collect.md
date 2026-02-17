@@ -2,11 +2,19 @@
 minutes: 5
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # `collect`
 
 The [`collect`][3] method lets you build a collection from an [`Iterator`][2].
 
 ```rust,editable
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 fn main() {
     let primes = vec![2, 3, 5, 7];
     let prime_squares = primes.into_iter().map(|p| p * p).collect::<Vec<_>>();

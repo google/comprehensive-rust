@@ -2,6 +2,11 @@
 minutes: 4
 ---
 
+<!--
+Copyright 2024 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Join
 
 A join operation waits until all of a set of futures are ready, and returns a
@@ -9,6 +14,9 @@ collection of their results. This is similar to `Promise.all` in JavaScript or
 `asyncio.gather` in Python.
 
 ```rust,editable,compile_fail
+# // Copyright 2024 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 use anyhow::Result;
 use futures::future;
 use reqwest;

@@ -1,3 +1,8 @@
+<!--
+Copyright 2023 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Generating `gn` Build Rules
 
 Once you've downloaded the crate, generate the `BUILD.gn` files like this:

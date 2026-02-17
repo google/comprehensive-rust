@@ -2,11 +2,19 @@
 minutes: 10
 ---
 
+<!--
+Copyright 2025 Google LLC
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Orphan Rule
 
 What prevents users from writing arbitrary trait implementations for any type?
 
 ```rust,compile_fail
+# // Copyright 2025 Google LLC
+# // SPDX-License-Identifier: Apache-2.0
+#
 // Crate `postgresql-bindings`
 
 pub struct PostgresqlConn(/* details */);
