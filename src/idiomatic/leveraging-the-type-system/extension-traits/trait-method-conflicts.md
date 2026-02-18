@@ -71,9 +71,8 @@ fn main() {
   [fully-qualified syntax][1].
 
 - Demonstrate: replace `"dad".is_palindrome()` with
-  `<&str as Ext1>::is_palindrome("dad")` or
-  `<&str as
-  Ext2>::is_palindrome("dad")`.
+  `<str as Ext1>::is_palindrome("dad")` or
+  `<str as Ext2>::is_palindrome("dad")`.
 
 </details>
 
