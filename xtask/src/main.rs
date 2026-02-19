@@ -87,6 +87,8 @@ enum Task {
         #[arg(short, long)]
         output: Option<PathBuf>,
     },
+    /// Patches the assets (e.g. book.js) with local changes.
+    PatchAssets,
 }
 
 fn execute_task() -> Result<()> {
@@ -98,6 +100,7 @@ fn execute_task() -> Result<()> {
         Task::RustTests => run_rust_tests(),
         Task::Serve { language, output } => start_web_server(language, output),
         Task::Build { language, output } => build(language, output),
+        Task::PatchAssets => patch_assets(),
     }
 }
 
@@ -169,6 +172,8 @@ fn install_tools(binstall: bool) -> Result<()> {
 
     // Uninstall original linkcheck if currently installed (see issue no 2773)
     uninstall_mdbook_linkcheck()?;
+
+    patch_assets()?;
 
     Ok(())
 }
@@ -385,4 +390,22 @@ fn get_output_dir(language: Option<String>, output_arg: Option<PathBuf>) -> Path
     } else {
         Path::new("book").join(language.unwrap_or("".to_string()))
     }
+}
+
+fn patch_assets() -> Result<()> {
+    let workspace_dir = Path::new(env!("CARGO_WORKSPACE_DIR"));
+    let patch = workspace_dir.join("patches/book.js.patch");
+    let original = workspace_dir.join("third_party/mdbook/book.js");
+    let target = workspace_dir.join("theme/book.js");
+
+    println!("Patching {} with {}...", target.display(), patch.display());
+
+    fs::copy(&original, &target).with_context(|| {
+        format!("Failed to copy {} to {}", original.display(), target.display())
+    })?;
+
+    // Apply the patch to `theme/book.js`
+    let mut cmd = Command::new("patch");
+    cmd.arg(&target).arg(&patch);
+    run_command(&mut cmd)
 }
