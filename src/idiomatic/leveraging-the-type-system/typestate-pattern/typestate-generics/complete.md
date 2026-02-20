@@ -28,31 +28,31 @@ serializer --> structure --> property --> list +-+
 We can now see this reflected directly in the types of our serializer:
 
 ```bob
-                                                         +------+
-                                                 finish  |      |
-                           serialize             struct  V      |
-                           struct
-+---------------------+ --------------> +-----------------------------+ <---------------+
-| Serializer [ Root ] |                 | Serializer [ Struct [ S ] ] |                 |
-+---------------------+ <-------------- +-----------------------------+ <-----------+   |
-                          finish struct                                             |   |
-         |                                  |     serialize   |                     |   |
-         |                       +----------+     property    V          serialize  |   |
-         |                       |                                       string or  |   |
-finish   |                       |    +-------------------------------+  struct     |   |
-         V                       |    | Serializer [ Property [ S ] ] | ------------+   |
-                         finish  |    +-------------------------------+                 |
-     +--------+          struct  |                                                      |
-     | String |                  |                serialize   |                         |
-     +--------+                  |                list        V                         |
-                                 |                                         finish       |
-                                 |        +---------------------------+    list         |
-                                 +------> | Serializer [ List [ S ] ] | ----------------+
-                                          +---------------------------+
-                                                  serialize
-                                                  list or string  ^
-                                              |   or finish list  |
-                                              +-------------------+
+                                                     +------+
+                                             finish  |      |
+                          serialize          struct  V      |
+                          struct
++--------------------+ --------------> +-------------------------+ <---------------+
+| "Serializer<Root>" |                 | "Serializer<Struct<S>>" |                 |
++--------------------+ <-------------- +-------------------------+ <-----------+   |
+                         finish struct                                         |   |
+         |                                  |  serialize   |                   |   |
+         |                       +----------+  property    V        serialize  |   |
+         |                       |                                  string or  |   |
+finish   |                       |   +---------------------------+  struct     |   |
+         V                       |   | "Serializer<Property<S>>" | ------------+   |
+                         finish  |   +---------------------------+                 |
+     +--------+          struct  |                                                 |
+     | String |                  |             serialize   |                       |
+     +--------+                  |             list        V                       |
+                                 |                                    finish       |
+                                 |       +-----------------------+    list         |
+                                 +-----> | "Serializer<List<S>>" | ----------------+
+                                         +-----------------------+
+                                              serialize
+                                            | list or string  ^
+                                            | or finish list  |
+                                            +-----------------+
 ```
 
 The code for the full implementation of the `Serializer` and all its states can
