@@ -26,12 +26,12 @@ Referring back to our original diagram of valid transitions, we can visualize
 the beginning of our implementation as follows:
 
 ```bob
-                           serialize
-                           struct
-+---------------------+ --------------> +--------------------------------+
-| Serializer [ Root ] |                 | Serializer [ Struct [ Root ] ] |
-+---------------------+ <-------------- +--------------------------------+
-                          finish struct
+                          serialize
+                          struct
++--------------------+ --------------> +----------------------------+
+| "Serializer<Root>" |                 | "Serializer<Struct<Root>>" |
++--------------------+ <-------------- +----------------------------+
+                         finish struct
          |
          |
          |

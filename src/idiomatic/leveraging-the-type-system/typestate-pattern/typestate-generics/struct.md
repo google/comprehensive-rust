@@ -25,20 +25,20 @@ SPDX-License-Identifier: CC-BY-4.0
 The diagram can now be expanded as follows:
 
 ```bob
-                                                         +------+
-                                                 finish  |      |
-                           serialize             struct  V      |
-                           struct
-+---------------------+ --------------> +-----------------------------+
-| Serializer [ Root ] |                 | Serializer [ Struct [ S ] ] |
-+---------------------+ <-------------- +-----------------------------+
-                          finish struct
-         |                                        serialize   |
-         |                                        property    V
+                                                     +------+
+                                             finish  |      |
+                          serialize          struct  V      |
+                          struct
++--------------------+ --------------> +-------------------------+
+| "Serializer<Root>" |                 | "Serializer<Struct<S>>" |
++--------------------+ <-------------- +-------------------------+
+                         finish struct
+         |                                     serialize   |
+         |                                     property    V
          |
-finish   |                            +------------------------------------------+
-         V                            | Serializer [ Property [ Struct [ S ] ] ] |
-                                      +------------------------------------------+
+finish   |                           +-----------------------------------+
+         V                           | "Serializer<Property<Struct<S>>>" |
+                                     +-----------------------------------+
      +--------+
      | String |
      +--------+

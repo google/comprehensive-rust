@@ -27,27 +27,27 @@ With the addition of the Property state methods, our diagram is now nearly
 complete:
 
 ```bob
-                                                         +------+
-                                                 finish  |      |
-                           serialize             struct  V      |
-                           struct
-+---------------------+ --------------> +-----------------------------+
-| Serializer [ Root ] |                 | Serializer [ Struct [ S ] ] |
-+---------------------+ <-------------- +-----------------------------+ <-----------+
-                          finish struct                                             |
-         |                                        serialize   |                     |
-         |                                        property    V          serialize  |
-         |                                                               string or  |
-finish   |                            +-------------------------------+  struct     |
-         V                            | Serializer [ Property [ S ] ] | ------------+
-                                      +-------------------------------+
+                                                     +------+
+                                             finish  |      |
+                          serialize          struct  V      |
+                          struct
++--------------------+ --------------> +-------------------------+
+| "Serializer<Root>" |                 | "Serializer<Struct<S>>" |
++--------------------+ <-------------- +-------------------------+ <-----------+
+                         finish struct                                         |
+         |                                     serialize   |                   |
+         |                                     property    V        serialize  |
+         |                                                          string or  |
+finish   |                           +---------------------------+  struct     |
+         V                           | "Serializer<Property<S>>" | ------------+
+                                     +---------------------------+
      +--------+
-     | String |                                   serialize   |
-     +--------+                                   list        V
+     | String |                                serialize   |
+     +--------+                                list        V
 
-                                          +---------------------------+
-                                          | Serializer [ List [ S ] ] |
-                                          +---------------------------+
+                                         +-----------------------+
+                                         | "Serializer<List<S>>" |
+                                         +-----------------------+
 ```
 
 <details>
