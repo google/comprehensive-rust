@@ -27,9 +27,9 @@ impl<T> Cell<T> {
 
 <details>
 
-- `into_inner` is a method found on newtypes: types whose main purpose is to
-  wrap around an existing type and be semantically distinct from other uses of
-  that inner type.
+- `into_inner` is a method usually found on newtypes: types whose main purpose
+  is to wrap around an existing type and be semantically distinct from other
+  uses of that inner type.
 
 This kind of method is also found on types like `Cell`, which exclusively own
 the internal data.
