@@ -26,11 +26,11 @@ Unlike type aliases, newtypes aren't interchangeable with the wrapped type:
 # // SPDX-License-Identifier: Apache-2.0
 #
 # pub struct UserId(u64);
-fn double(n: u64) -> u64 {
-    n * 2
+fn triple(n: u64) -> u64 {
+    n * 3
 }
 
-double(UserId(1)); // 🛠️❌
+triple(UserId(1)); // 🛠️❌
 ```
 
 The Rust compiler won't let you use methods or operators defined on the
