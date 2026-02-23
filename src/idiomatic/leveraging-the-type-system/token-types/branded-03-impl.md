@@ -11,7 +11,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 Constructing branded types is different to how we construct non-branded types.
 
-```rust
+```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
@@ -37,10 +37,10 @@ impl<'id> Bytes<'id> {
         if ix < self.0.len() { Some(ProvenIndex(ix, InvariantLifetime::default())) }
         else { None }
     }
-    
+
     fn get_proven(&self, ix: &ProvenIndex<'id>) -> u8 {
         debug_assert!(ix.0 < self.0.len());
-        unsafe { *self.0.get_unchecked(ix.0) } 
+        unsafe { *self.0.get_unchecked(ix.0) }
     }
 }
 ```

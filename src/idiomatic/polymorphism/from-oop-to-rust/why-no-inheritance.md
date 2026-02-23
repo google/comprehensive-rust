@@ -9,7 +9,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Why no Inheritance in Rust?
 
-```rust,compile_fail
+```rust,editable,compile_fail
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

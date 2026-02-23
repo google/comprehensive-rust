@@ -11,7 +11,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 Traits can be extended by new traits.
 
-```rust
+```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

@@ -12,7 +12,7 @@ SPDX-License-Identifier: CC-BY-4.0
 When a function takes multiple arguments of the same type, call sites are
 unclear:
 
-```rust
+```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
@@ -31,7 +31,7 @@ login(password, username);
 
 The newtype pattern can prevent this class of errors at compile time:
 
-```rust,compile_fail
+```rust,editable,compile_fail
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

@@ -14,7 +14,7 @@ descriptors. With a `Mutex`, the "resource" is mutable access to a value. You
 access the value by calling `lock`, which then returns a `MutexGuard` which will
 unlock the `Mutex` automatically when dropped.
 
-```rust
+```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

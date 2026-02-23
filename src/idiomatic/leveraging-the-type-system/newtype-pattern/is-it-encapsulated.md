@@ -14,7 +14,7 @@ invariants are indeed bullet-proof. It is crucial to consider all possible
 interactions, including trait implementations, that may allow users to bypass
 validation checks.
 
-```rust
+```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
