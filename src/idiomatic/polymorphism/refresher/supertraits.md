@@ -25,7 +25,7 @@ pub trait GraphicsDevice: DeviceId {
 
 // From stdlib
 
-pub trait Ord: PartialOrd {
+pub trait Ord: Eq + PartialOrd {
     /* methods for Ord */
 }
 ```
