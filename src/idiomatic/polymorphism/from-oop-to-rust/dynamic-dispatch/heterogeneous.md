@@ -13,27 +13,23 @@ SPDX-License-Identifier: CC-BY-4.0
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
+use std::fmt::Display;
+
 pub struct Lambda;
 
-impl std::fmt::Display for Lambda {
+impl Display for Lambda {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "λ")
     }
 }
 
-pub struct Heterogeneous {
-    pub collection: Vec<Box<dyn std::fmt::Display>>,
-}
-
 fn main() {
-    let heterogeneous = Heterogeneous {
-        collection: vec![
-            Box::new(42u32),
-            Box::new("Woah".to_string()),
-            Box::new(Lambda),
-        ],
-    };
-    for item in heterogeneous.collection {
+    let heterogeneous: Vec<Box<dyn Display>> = vec![
+        Box::new(42u32),
+        Box::new(String::from("Woah")),
+        Box::new(Lambda),
+    ];
+    for item in heterogeneous {
         // We know "item" implements Display, but we know nothing else!
         println!("Display output: {}", item);
     }
