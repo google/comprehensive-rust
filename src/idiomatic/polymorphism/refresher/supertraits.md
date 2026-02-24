@@ -15,12 +15,12 @@ Traits can be extended by new traits.
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-pub trait DeviceId {
-    /* trait for device ID types */
+pub trait Animal {
+    /* methods common to all animals */
 }
 
-pub trait GraphicsDevice: DeviceId {
-    /* Graphics device specifics */
+pub trait Mammal: Animal {
+    /* methods only for mammals */
 }
 
 // From stdlib
@@ -33,14 +33,14 @@ pub trait Ord: Eq + PartialOrd {
 <details>
 
 - When authoring a trait, you can specify traits that a type must also. These
-  are called _Supertraits_.
+  are called _supertraits_.
 
-  For the example above, any type that implements `GraphicsDevice` must also
-  implement `DeviceId`.
+  For the example above, any type that implements `Mammal` must also implement
+  `Animal`.
 
 - These hierarchies of traits let us design systems around the behavior of
-  complex real-world taxonomies (like machine hardware, operating system
-  specifics).
+  complex real-world taxonomies (like fauna, machine hardware, operating system
+  specifics, etc).
 
 - This is distinct from object inheritance! But it looks similar.
 
