@@ -20,7 +20,7 @@ impl Trait for String {}
 
 fn main() {
     let int: &dyn Trait = &42i32;
-    let string: &dyn Trait = &("Hello dyn!".to_owned());
+    let string: &dyn Trait = &String::from("Hello dyn!");;
 }
 ```
 
