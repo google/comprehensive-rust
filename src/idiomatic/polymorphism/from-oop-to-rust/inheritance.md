@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # Inheritance in OOP languages
 
 ```cpp
-#include <iostream>
-using namespace std;
-
 // Base class
 class Vehicle {
 public:
@@ -28,7 +25,7 @@ public:
 
 int main() {
     Car myCar;                  // Create a Car object
-    myCar.accelerate();        // Inherited method
+    myCar.accelerate();         // Inherited method
     myCar.honk();               // Car's own method
     myCar.brake();              // Inherited method
     return 0;
