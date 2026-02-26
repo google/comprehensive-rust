@@ -65,10 +65,17 @@ the course. An expression can be "boxed" with `Box::new` as seen in the tests.
 To evaluate a boxed expression, use the deref operator (`*`) to "unbox" it:
 `eval(*boxed_expr)`.
 
-Copy and paste the code into the Rust playground, and begin implementing `eval`.
-The final product should pass the tests. It may be helpful to use `todo!()` and
-get the tests to pass one-by-one. You can also skip a test temporarily with
-`#[ignore]`:
+Create a new Cargo library project with
+
+```sh
+cargo new --lib evaluator
+```
+
+Copy and paste the code below into a the `src/lib.rs` file.
+
+Then begin implementing `eval`. Use `cargo test` to ensure that the final library
+passes the tests. It may be helpful to use `todo!()` and get the tests to pass
+one-by-one. You can also skip a test temporarily with `#[ignore]`:
 
 ```none
 #[test]
