@@ -13,8 +13,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use mdbook::MDBook;
 use mdbook_course::course::Courses;
+use mdbook_driver::MDBook;
 use std::fs;
 use std::path::Path;
 

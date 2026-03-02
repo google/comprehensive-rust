@@ -39,13 +39,8 @@ pdf-engine = "lualatex"
 mainfont = "Noto Serif"
 sansfont = "Noto Sans"
 monofont = "Noto Sans Mono"
-mainfontfallback = [
-  "NotoColorEmoji:mode=harf",
-  "NotoNaskhArabic:",
-]
-sansfontfallback = [
-  "NotoSansArabic:",
-]
+mainfontfallback = ["NotoColorEmoji:mode=harf", "NotoNaskhArabic:"]
+sansfontfallback = ["NotoSansArabic:"]
 monofontfallback = [
   "NotoColorEmoji:mode=harf",
   "NotoSansMath:",
@@ -58,10 +53,7 @@ urlcolor = "red"
 
 [output.html]
 smart-punctuation = true
-additional-js = [
-  "theme/speaker-notes.js",
-  "theme/redbox.js",
-]
+additional-js = ["theme/speaker-notes.js", "theme/redbox.js"]
 additional-css = [
   "theme/css/svgbob.css",
   "theme/css/redbox.css",
@@ -292,15 +284,6 @@ use-boolean-and = true
 
 [output.exerciser]
 output-directory = "comprehensive-rust-exercises"
-
-[output.linkcheck]
-optional = true
-follow-web-links = false # change to true to check web links
-exclude = [
-  "comprehensive-rust.pdf",
-  "comprehensive-rust-exercises.zip",
-  # "crates.io", # uncomment when follow-web-links is true
-]
 
 [output.linkcheck2]
 optional = true
