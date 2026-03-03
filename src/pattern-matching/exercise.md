@@ -73,9 +73,9 @@ cargo new --lib evaluator
 
 Copy and paste the code below into a the `src/lib.rs` file.
 
-Then begin implementing `eval`. Use `cargo test` to ensure that the final library
-passes the tests. It may be helpful to use `todo!()` and get the tests to pass
-one-by-one. You can also skip a test temporarily with `#[ignore]`:
+Then begin implementing `eval`. Use `cargo test` to ensure that the final
+library passes the tests. It may be helpful to use `todo!()` and get the tests
+to pass one-by-one. You can also skip a test temporarily with `#[ignore]`:
 
 ```none
 #[test]
