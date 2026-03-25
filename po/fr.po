@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Comprehensive Rust 🦀\n"
 "POT-Creation-Date: 2026-02-16T20:31:28+01:00\n"
-"PO-Revision-Date: 2026-03-25 16:34+0100\n"
+"PO-Revision-Date: 2026-03-25 17:41+0100\n"
 "Last-Translator: Olivier Charrez <olivier.charrez@hotmail.com>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -12591,54 +12591,51 @@ msgid ""
 "This is useful, for example, if you would like to place tests for a module in a file "
 "named `some_module_test.rs`, similar to the convention in Go."
 msgstr ""
+"Ceci est utile, par exemple, si vous souhaitez placer les tests d'un module dans un "
+"fichier nommé `some_module_test.rs`, comme le veut la convention en Go."
 
 #: src/modules/visibility.md
-#, fuzzy
 msgid "Modules are a privacy boundary:"
-msgstr "Les modules sont une limite de confidentialité :"
+msgstr "Les modules constituent une frontière de confidentialité :"
 
 #: src/modules/visibility.md
-#, fuzzy
 msgid "Module items are private by default (hides implementation details)."
-msgstr "Les éléments du module sont privés par défaut (cache les détails d'implémentation)."
+msgstr ""
+"Les éléments du module sont privés par défaut (masquent les détails d'implémentation)."
 
 #: src/modules/visibility.md
-#, fuzzy
 msgid "Parent and sibling items are always visible."
-msgstr "Les éléments parents et frères sont toujours visibles."
+msgstr "Les objets parents et frères et sœurs sont toujours visibles."
 
 #: src/modules/visibility.md
-#, fuzzy
 msgid ""
 "In other words, if an item is visible in module `foo`, it's visible in all the "
 "descendants of `foo`."
 msgstr ""
-"En d'autres termes, si un élément est visible dans le module `foo`, il est visible dans "
-"tous les descendants de `foo`."
+"Autrement dit, si un élément est visible dans le module `foo`, il est visible dans tous "
+"les descendants de `foo`."
 
 #: src/modules/visibility.md
 msgid "\"outer::private\""
-msgstr ""
+msgstr "\"outer::private\""
 
 #: src/modules/visibility.md
 msgid "\"outer::public\""
-msgstr ""
+msgstr "\"outer::public\""
 
 #: src/modules/visibility.md
 msgid "\"outer::inner::private\""
-msgstr ""
+msgstr "\"outer::inner::private\""
 
 #: src/modules/visibility.md
 msgid "\"outer::inner::public\""
-msgstr ""
+msgstr "\"outer::inner::public\""
 
 #: src/modules/visibility.md
-#, fuzzy
 msgid "Use the `pub` keyword to make modules public."
 msgstr "Utilisez le mot-clé `pub` pour rendre les modules publics."
 
 #: src/modules/visibility.md
-#, fuzzy
 msgid ""
 "Additionally, there are advanced `pub(...)` specifiers to restrict the scope of public "
 "visibility."
@@ -12647,26 +12644,22 @@ msgstr ""
 "visibilité publique."
 
 #: src/modules/visibility.md
-#, fuzzy
 msgid ""
 "See the [Rust Reference](https://doc.rust-lang.org/reference/visibility-and-privacy."
 "html#pubin-path-pubcrate-pubsuper-and-pubself)."
 msgstr ""
-"Voir la [Rust Reference](https://doc.rust-lang.org/reference/visibility-and-privacy."
+"Voir la [Référence Rust](https://doc.rust-lang.org/reference/visibility-and-privacy."
 "html#pubin-path-pubcrate-pubsuper-and-pubself)."
 
 #: src/modules/visibility.md
-#, fuzzy
 msgid "Configuring `pub(crate)` visibility is a common pattern."
-msgstr "La configuration de la visibilité de `pub(crate)` est un modèle courant."
+msgstr "Configurer la visibilité de `pub(crate)` est un modèle courant."
 
 #: src/modules/visibility.md
-#, fuzzy
 msgid "Less commonly, you can give visibility to a specific path."
-msgstr "Plus rarement, vous pouvez donner de la visibilité à un chemin spécifique."
+msgstr "Plus rarement, vous pouvez rendre visible un chemin spécifique."
 
 #: src/modules/visibility.md
-#, fuzzy
 msgid ""
 "In any case, visibility must be granted to an ancestor module (and all of its "
 "descendants)."
@@ -12676,7 +12669,7 @@ msgstr ""
 
 #: src/modules/encapsulation.md
 msgid "Visibility and Encapsulation"
-msgstr ""
+msgstr "Visibilité et encapsulation"
 
 #: src/modules/encapsulation.md
 msgid ""
@@ -12685,22 +12678,26 @@ msgid ""
 "us to encapsulate implementation details of struct, controlling what data and "
 "functionality is visible externally."
 msgstr ""
+"Comme les éléments d'un module, les champs d'une structure sont privés par défaut. Ces "
+"champs privés restent visibles dans le reste du module (y compris les modules enfants). "
+"Cela permet d'encapsuler les détails d'implémentation de la structure et de contrôler les "
+"données et fonctionnalités accessibles de l'extérieur."
 
 #: src/modules/encapsulation.md
 msgid "\"Is {} big? {}\""
-msgstr ""
+msgstr "\"Is {} big? {}\""
 
 #: src/modules/encapsulation.md
 msgid "\"foo.val = {}\""
-msgstr ""
+msgstr "\"foo.val = {}\""
 
 #: src/modules/encapsulation.md
 msgid "// let foo = Foo { val: 42, is_big: true };\n"
-msgstr ""
+msgstr "// let foo = Foo { val: 42, is_big: true };\n"
 
 #: src/modules/encapsulation.md
 msgid "// println!(\"Is {} big? {}\", foo.val, foo.is_big);\n"
-msgstr ""
+msgstr "// println!(\"Is {} big? {}\", foo.val, foo.is_big);\n"
 
 #: src/modules/encapsulation.md
 msgid ""
@@ -12709,6 +12706,10 @@ msgid ""
 "demonstrates how Rust behaves differently while showing how we can still achieve "
 "encapsulation."
 msgstr ""
+"Cette diapositive montre comment la confidentialité dans les structures est basée sur les "
+"modules. Les étudiants habitués aux langages orientés objet considèrent souvent les types "
+"comme la limite d'encapsulation ; cette diapositive explique donc en quoi Rust fonctionne "
+"différemment, tout en démontrant comment l'encapsulation reste possible."
 
 #: src/modules/encapsulation.md
 msgid ""
@@ -12716,12 +12717,17 @@ msgid ""
 "it's initialized and enforce any invariants it needs to (e.g. that `is_big` is only "
 "`true` if `val > 100`)."
 msgstr ""
+"Notez comment le champ `is_big` est entièrement contrôlé par `Foo`, permettant à `Foo` de "
+"contrôler comment il est initialisé et d'appliquer tous les invariants dont il a besoin "
+"(par exemple, que `is_big` n'est `true` que si `val > 100`)."
 
 #: src/modules/encapsulation.md
 msgid ""
 "Point out how helper functions can be defined in the same module (including child "
 "modules) in order to get access to the type's private fields/methods."
 msgstr ""
+"Indiquez comment des fonctions d'assistance peuvent être définies dans le même module (y "
+"compris les modules enfants) afin d'accéder aux champs/méthodes privés du type."
 
 #: src/modules/encapsulation.md
 msgid ""
@@ -12729,11 +12735,16 @@ msgid ""
 "private fields. The second one demonstrates that you also can't directly access private "
 "fields."
 msgstr ""
+"La première ligne commentée montre qu'il est impossible d'initialiser une structure avec "
+"des champs privés. La seconde montre qu'il est également impossible d'accéder directement "
+"aux champs privés."
 
 #: src/modules/encapsulation.md
 msgid ""
 "Enums do not support privacy: Variants and data within those variants is always public."
 msgstr ""
+"Les énumérations ne prennent pas en charge la confidentialité : les variantes et les "
+"données qu’elles contiennent sont toujours publiques."
 
 #: src/modules/encapsulation.md
 msgid ""
@@ -12741,59 +12752,57 @@ msgid ""
 "up `#[doc_hidden]` and `#[non_exhaustive]` and show how they're used to limit what can be "
 "done with an enum."
 msgstr ""
+"Si les étudiants veulent plus d'informations sur la confidentialité (ou son absence) dans "
+"les énumérations, vous pouvez évoquer `#[doc_hidden]` et `#[non_exhaustive]` et montrer "
+"comment ils sont utilisés pour limiter ce qui peut être fait avec une énumération."
 
 #: src/modules/encapsulation.md
-#, fuzzy
 msgid ""
 "Module privacy still applies when there are `impl` blocks in other modules [(example in "
 "the playground)](https://play.rust-lang.org/?"
 "version=stable&mode=debug&edition=2024&gist=3e61f43c88de12bcdf69c1d6df9ab3da)."
 msgstr ""
-"Testez le code ci-dessus sur [Rust Playground](https://play.rust-lang.org/?"
-"version=stable&mode=debug&edition=2021&gist=3ce2ad13ea1302f6572cb15cd96becf0)."
+"La confidentialité des modules s'applique toujours lorsqu'il y a des blocs `impl` dans "
+"d'autres modules [(exemple dans le playground)](https://play.rust-lang.org/?"
+"version=stable&mode=debug&edition=2024&gist=3e61f43c88de12bcdf69c1d6df9ab3da)."
 
 #: src/modules/paths.md
 msgid ""
 "A module can bring symbols from another module into scope with `use`. You will typically "
 "see something like this at the top of each module:"
 msgstr ""
+"Un module peut importer des symboles d'un autre module grâce à `use`. Vous verrez "
+"généralement quelque chose comme ceci en haut de chaque module :"
 
 #: src/modules/paths.md
 msgid "Paths"
 msgstr "Chemins"
 
 #: src/modules/paths.md
-#, fuzzy
 msgid "Paths are resolved as follows:"
 msgstr "Les chemins sont résolus comme suit :"
 
 #: src/modules/paths.md
-#, fuzzy
 msgid "As a relative path:"
 msgstr "En tant que chemin relatif :"
 
 #: src/modules/paths.md
-#, fuzzy
 msgid "`foo` or `self::foo` refers to `foo` in the current module,"
 msgstr "`foo` ou `self::foo` fait référence à `foo` dans le module actuel,"
 
 #: src/modules/paths.md
-#, fuzzy
 msgid "`super::foo` refers to `foo` in the parent module."
 msgstr "`super::foo` fait référence à `foo` dans le module parent."
 
 #: src/modules/paths.md
-#, fuzzy
 msgid "As an absolute path:"
 msgstr "En tant que chemin absolu :"
 
 #: src/modules/paths.md
-#, fuzzy
 msgid "`crate::foo` refers to `foo` in the root of the current crate,"
 msgstr "`crate::foo` fait référence à `foo` à la racine du crate actuel,"
 
 #: src/modules/paths.md
-#, fuzzy
 msgid "`bar::foo` refers to `foo` in the `bar` crate."
 msgstr "`bar::foo` fait référence à `foo` dans le crate `bar`."
 
@@ -12802,12 +12811,16 @@ msgid ""
 "It is common to \"re-export\" symbols at a shorter path. For example, the top-level `lib."
 "rs` in a crate might have"
 msgstr ""
+"Il est courant de « réexporter » les symboles à un chemin plus court. Par exemple, le "
+"fichier `lib.rs` de niveau supérieur dans une crate peut contenir"
 
 #: src/modules/paths.md
 msgid ""
 "making `DiskStorage` and `NetworkStorage` available to other crates with a convenient, "
 "short path."
 msgstr ""
+"rendre `DiskStorage` et `NetworkStorage` disponibles pour d'autres crates avec un chemin "
+"court et pratique."
 
 #: src/modules/paths.md
 msgid ""
@@ -12816,12 +12829,20 @@ msgid ""
 "that trait is already in scope. For example, to use the `read_to_string` method on a type "
 "implementing the `Read` trait, you need to `use std::io::Read`."
 msgstr ""
+"En règle générale, seuls les éléments présents dans un module doivent être utilisés avec "
+"`use`. Cependant, un trait doit être accessible pour pouvoir appeler ses méthodes, même "
+"si un type implémentant ce trait est déjà accessible. Par exemple, pour utiliser la "
+"méthode `read_to_string` sur un type implémentant le trait `Read`, il faut utiliser `use "
+"std::io::Read`."
 
 #: src/modules/paths.md
 msgid ""
 "The `use` statement can have a wildcard: `use std::io::*`. This is discouraged because it "
 "is not clear which items are imported, and those might change over time."
 msgstr ""
+"L'instruction `use` peut contenir un caractère générique : `use std::io::*`. Cette "
+"pratique est déconseillée car les éléments importés ne sont pas clairement définis et "
+"peuvent évoluer."
 
 #: src/modules/exercise.md
 msgid ""
@@ -12829,103 +12850,113 @@ msgid ""
 "defines a `Widget` trait and a few implementations of that trait, as well as a `main` "
 "function."
 msgstr ""
+"Dans cet exercice, vous allez réorganiser une petite implémentation de bibliothèque "
+"d'interface graphique. Cette bibliothèque définit un trait `Widget` et quelques "
+"implémentations de ce trait, ainsi qu'une fonction `main`."
 
 #: src/modules/exercise.md
 msgid ""
 "It is typical to put each type or set of closely-related types into its own module, so "
 "each widget type should get its own module."
 msgstr ""
+"Il est courant de placer chaque type ou ensemble de types étroitement liés dans son "
+"propre module ; chaque type de widget devrait donc avoir son propre module."
 
 #: src/modules/exercise.md
-#, fuzzy
 msgid "Cargo Setup"
-msgstr "Installation"
+msgstr "Cargo Setup"
 
 #: src/modules/exercise.md
 msgid ""
 "The Rust playground only supports one file, so you will need to make a Cargo project on "
 "your local filesystem:"
 msgstr ""
+"L'environnement de test Rust ne prend en charge qu'un seul fichier ; vous devrez donc "
+"créer un projet Cargo sur votre système de fichiers local :"
 
 #: src/modules/exercise.md
 msgid ""
 "Edit the resulting `src/main.rs` to add `mod` statements, and add additional files in the "
 "`src` directory."
 msgstr ""
+"Modifiez le fichier `src/main.rs` résultant pour ajouter des instructions `mod` et "
+"ajoutez des fichiers supplémentaires dans le répertoire `src`."
 
 #: src/modules/exercise.md
 msgid "Source"
-msgstr ""
+msgstr "Source"
 
 #: src/modules/exercise.md
 msgid "Here's the single-module implementation of the GUI library:"
-msgstr ""
+msgstr "Voici l'implémentation à module unique de la bibliothèque d'interface graphique :"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "/// Natural width of `self`.\n"
-msgstr ""
+msgstr "/// Natural width of `self`.\n"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "/// Draw the widget into a buffer.\n"
-msgstr ""
+msgstr "/// Draw the widget into a buffer.\n"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "/// Draw the widget on standard output.\n"
-msgstr ""
+msgstr "/// Draw the widget on standard output.\n"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"{buffer}\""
-msgstr ""
+msgstr "\"{buffer}\""
 
 #: src/modules/exercise.md
 msgid "// Add 4 paddings for borders\n"
-msgstr ""
+msgstr "// Add 4 paddings for borders\n"
 
 #: src/modules/exercise.md
 msgid ""
 "// TODO: Change draw_into to return Result<(), std::fmt::Error>. Then use the\n"
 "        // ?-operator here instead of .unwrap().\n"
 msgstr ""
+"// TODO: Change draw_into to return Result<(), std::fmt::Error>. Then use the\n"
+"        // ?-operator here instead of .unwrap().\n"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"+-{:-<inner_width$}-+\""
-msgstr ""
+msgstr "\"+-{:-<inner_width$}-+\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"| {:^inner_width$} |\""
-msgstr ""
+msgstr "\"| {:^inner_width$} |\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"+={:=<inner_width$}=+\""
-msgstr ""
+msgstr "\"+={:=<inner_width$}=+\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"| {:inner_width$} |\""
-msgstr ""
+msgstr "\"| {:inner_width$} |\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "// add a bit of padding\n"
-msgstr ""
+msgstr "// add a bit of padding\n"
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"+{:-<width$}+\""
-msgstr ""
+msgstr "\"+{:-<width$}+\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"|{:^width$}|\""
-msgstr ""
+msgstr "\"|{:^width$}|\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"Rust GUI Demo 1.23\""
-msgstr ""
+msgstr "\"Rust GUI Demo 1.23\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"This is a small text GUI demo.\""
-msgstr ""
+msgstr "\"This is a small text GUI demo.\""
 
 #: src/modules/exercise.md src/modules/solution.md
 msgid "\"Click me!\""
-msgstr ""
+msgstr "\"Click me!\""
 
 #: src/modules/exercise.md
 msgid ""
@@ -12933,60 +12964,65 @@ msgid ""
 "accustomed to the required `mod`, `use`, and `pub` declarations. Afterward, discuss what "
 "organizations are most idiomatic."
 msgstr ""
+"Encouragez les étudiants à structurer le code de manière intuitive et à se familiariser "
+"avec les déclarations `mod`, `use` et `pub` obligatoires. Discutez ensuite des structures "
+"les plus idiomatiques."
 
 #: src/modules/solution.md
 msgid "// ---- src/widgets.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets.rs ----\n"
 
 #: src/modules/solution.md
 msgid "// ---- src/widgets/label.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets/label.rs ----\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR_END: Label-width\n"
-msgstr ""
+msgstr "// ANCHOR_END: Label-width\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR: Label-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR: Label-draw_into\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR_END: Label-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR_END: Label-draw_into\n"
 
 #: src/modules/solution.md
 msgid "// ---- src/widgets/button.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets/button.rs ----\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR_END: Button-width\n"
-msgstr ""
+msgstr "// ANCHOR_END: Button-width\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR: Button-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR: Button-draw_into\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR_END: Button-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR_END: Button-draw_into\n"
 
 #: src/modules/solution.md
 msgid "// ---- src/widgets/window.rs ----\n"
-msgstr ""
+msgstr "// ---- src/widgets/window.rs ----\n"
 
 #: src/modules/solution.md
 msgid ""
 "// ANCHOR_END: Window-width\n"
 "        // Add 4 paddings for borders\n"
 msgstr ""
+"// ANCHOR_END: Window-width\n"
+"        // Add 4 paddings for borders\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR: Window-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR: Window-draw_into\n"
 
 #: src/modules/solution.md
 msgid "// ANCHOR_END: Window-draw_into\n"
-msgstr ""
+msgstr "// ANCHOR_END: Window-draw_into\n"
 
 #: src/modules/solution.md
 msgid ""
@@ -12994,10 +13030,13 @@ msgid ""
 "        // draw_into to return Result<(), std::fmt::Error>. Then use\n"
 "        // the ?-operator here instead of .unwrap().\n"
 msgstr ""
+"// TODO: after learning about error handling, you can change\n"
+"        // draw_into to return Result<(), std::fmt::Error>. Then use\n"
+"        // the ?-operator here instead of .unwrap().\n"
 
 #: src/modules/solution.md
 msgid "// ---- src/main.rs ----\n"
-msgstr ""
+msgstr "// ---- src/main.rs ----\n"
 
 #: src/testing/unit-tests.md
 msgid ""
@@ -13005,55 +13044,51 @@ msgid ""
 "Unit tests are often put in a nested `tests` module, using `#[cfg(test)]` to "
 "conditionally compile them only when building tests."
 msgstr ""
+"Rust et Cargo intègrent un framework de tests unitaires simple. Les tests sont marqués "
+"avec `#[test]`. Ils sont souvent placés dans un module `tests` imbriqué, et compilés "
+"conditionnellement uniquement lors de la compilation des tests grâce à `#[cfg(test)]`."
 
 #: src/testing/unit-tests.md
-#, fuzzy
 msgid "\"Hello World\""
-msgstr "Bonjour le monde!"
+msgstr "\"Hello World\""
 
 #: src/testing/unit-tests.md
-#, fuzzy
 msgid "This lets you unit test private helpers."
-msgstr "Cela vous permet de tester unitairement les helpers privés."
+msgstr "Cela vous permet de tester unitairement les fonctions d'assistance privées."
 
 #: src/testing/unit-tests.md
-#, fuzzy
 msgid "The `#[cfg(test)]` attribute is only active when you run `cargo test`."
-msgstr "L'attribut `#[cfg(test)]` n'est actif que lorsque vous lancez `cargo test`."
+msgstr "L'attribut `#[cfg(test)]` n'est actif que lorsque vous exécutez `cargo test`."
 
 #: src/testing/other.md
 msgid "Integration Tests"
 msgstr "Tests d'intégration"
 
 #: src/testing/other.md
-#, fuzzy
 msgid "If you want to test your library as a client, use an integration test."
 msgstr ""
 "Si vous souhaitez tester votre bibliothèque en tant que client, utilisez un test "
 "d'intégration."
 
 #: src/testing/other.md
-#, fuzzy
 msgid "Create a `.rs` file under `tests/`:"
 msgstr "Créez un fichier `.rs` sous `tests/` :"
 
 #: src/testing/other.md
 msgid "// tests/my_library.rs\n"
-msgstr ""
+msgstr "// tests/my_library.rs\n"
 
 #: src/testing/other.md
-#, fuzzy
 msgid "These tests only have access to the public API of your crate."
-msgstr "Ces tests n'ont accès qu'à l'API publique de votre crate."
+msgstr "Ces tests ont uniquement accès à l'API publique de votre crate."
 
 #: src/testing/other.md
 msgid "Documentation Tests"
 msgstr "Tests de documentation"
 
 #: src/testing/other.md
-#, fuzzy
 msgid "Rust has built-in support for documentation tests:"
-msgstr "Rust a un support intégré pour les tests de documentation :"
+msgstr "Rust intègre une prise en charge des tests de documentation :"
 
 #: src/testing/other.md
 msgid ""
@@ -13065,31 +13100,37 @@ msgid ""
 "/// assert_eq!(shorten_string(\"Hello World\", 20), \"Hello World\");\n"
 "/// ```\n"
 msgstr ""
+"/// Shortens a string to the given length.\n"
+"///\n"
+"/// ```\n"
+"/// # use playground::shorten_string;\n"
+"/// assert_eq!(shorten_string(\"Hello World\", 5), \"Hello\");\n"
+"/// assert_eq!(shorten_string(\"Hello World\", 20), \"Hello World\");\n"
+"/// ```\n"
 
 #: src/testing/other.md
-#, fuzzy
 msgid "Code blocks in `///` comments are automatically seen as Rust code."
 msgstr ""
 "Les blocs de code dans les commentaires `///` sont automatiquement considérés comme du "
 "code Rust."
 
 #: src/testing/other.md
-#, fuzzy
 msgid "The code will be compiled and executed as part of `cargo test`."
-msgstr "Le code sera compilé et exécuté dans le cadre du `cargo test`."
+msgstr "Le code sera compilé et exécuté dans le cadre du test `cargo`."
 
 #: src/testing/other.md
 msgid "Adding `#` in the code will hide it from the docs, but will still compile/run it."
 msgstr ""
+"L'ajout de `#` dans le code le masquera dans la documentation, mais il sera tout de même "
+"compilé et exécuté."
 
 #: src/testing/other.md
-#, fuzzy
 msgid ""
 "Test the above code on the [Rust Playground](https://play.rust-lang.org/?"
 "version=stable&mode=debug&edition=2024&gist=3ce2ad13ea1302f6572cb15cd96becf0)."
 msgstr ""
-"Testez le code ci-dessus sur [Rust Playground](https://play.rust-lang.org/?"
-"version=stable&mode=debug&edition=2021&gist=3ce2ad13ea1302f6572cb15cd96becf0)."
+"Testez le code ci-dessus sur le [Rust Playground](https://play.rust-lang.org/?"
+"version=stable&mode=debug&edition=2024&gist=3ce2ad13ea1302f6572cb15cd96becf0)."
 
 #: src/testing/lints.md
 msgid ""
@@ -13097,10 +13138,13 @@ msgid ""
 "[Clippy](https://doc.rust-lang.org/clippy/) provides even more lints, organized into "
 "groups that can be enabled per-project."
 msgstr ""
+"Le compilateur Rust génère des messages d'erreur très clairs, ainsi que des outils "
+"d'analyse statique de code intégrés très utiles. Clippy offre encore plus d'outils "
+"d'analyse statique, organisés en groupes activables par projet."
 
 #: src/testing/lints.md
 msgid "\"X probably fits in a u16, right? {}\""
-msgstr ""
+msgstr "\"X probably fits in a u16, right? {}\""
 
 #: src/testing/lints.md
 msgid ""
@@ -13108,56 +13152,58 @@ msgid ""
 "playground site to show clippy warnings. Clippy has extensive documentation of its lints, "
 "and adds new lints (including default-deny lints) all the time."
 msgstr ""
+"Des alertes du compilateur sont visibles ici, mais pas celles de Clippy. Exécutez "
+"`clippy` sur le site de test pour afficher les avertissements de Clippy. Clippy possède "
+"une documentation complète de ses alertes et en ajoute régulièrement de nouvelles (y "
+"compris des alertes de refus par défaut)."
 
 #: src/testing/lints.md
 msgid ""
 "Note that errors or warnings with `help: ...` can be fixed with `cargo fix` or via your "
 "editor."
 msgstr ""
+"Notez que les erreurs ou les avertissements avec `help: ...` peuvent être corrigés avec "
+"`cargo fix` ou via votre éditeur."
 
 #: src/testing/exercise.md
-#, fuzzy
 msgid ""
 "The [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) is used to validate "
 "credit card numbers. The algorithm takes a string as input and does the following to "
 "validate the credit card number:"
 msgstr ""
-"L'[algorithme de Luhn](https://en.wikipedia.org/wiki/Luhn_algorithm) est utilisé pour "
-"valider les numéros de carte de crédit. L'algorithme prend une chaîne en entrée et fait "
-"le suivant pour valider le numéro de carte bancaire :"
+"L'algorithme de Luhn est utilisé pour valider les numéros de carte bancaire. Il prend une "
+"chaîne de caractères en entrée et effectue les opérations suivantes pour valider le "
+"numéro de carte :"
 
 #: src/testing/exercise.md
-#, fuzzy
 msgid ""
 "Ignore all spaces. Reject numbers with fewer than two digits. Reject letters and other "
 "non-digit characters."
-msgstr "Ignorer tous les espaces. Numéro de rejet comportant moins de deux chiffres."
+msgstr ""
+"Ignorer les espaces. Rejeter les nombres de moins de deux chiffres. Rejeter les lettres "
+"et autres caractères non numériques."
 
 #: src/testing/exercise.md
-#, fuzzy
 msgid ""
 "Moving from **right to left**, double every second digit: for the number `1234`, we "
 "double `3` and `1`. For the number `98765`, we double `6` and `8`."
 msgstr ""
-"En se déplaçant de droite à gauche, doubler tous les deux chiffres : pour le nombre "
-"`1234`, on double '3' et '1'."
+"En partant de la **droite vers la gauche**, doublez un chiffre sur deux : pour le nombre "
+"`1234`, on double `3` et `1`. Pour le nombre `98765`, on double `6` et `8`."
 
 #: src/testing/exercise.md
-#, fuzzy
 msgid ""
 "After doubling a digit, sum the digits if the result is greater than 9. So doubling `7` "
 "becomes `14` which becomes `1 + 4 = 5`."
 msgstr ""
-"Après avoir doublé un chiffre, additionnez les chiffres. Donc doubler '7' devient '14' ce "
-"qui devient '5'."
+"Après avoir doublé un chiffre, additionnez les chiffres si le résultat est supérieur à 9. "
+"Ainsi, doubler `7` devient `14` qui devient `1 + 4 = 5`."
 
 #: src/testing/exercise.md
-#, fuzzy
 msgid "Sum all the undoubled and doubled digits."
 msgstr "Additionnez tous les chiffres non doublés et doublés."
 
 #: src/testing/exercise.md
-#, fuzzy
 msgid "The credit card number is valid if the sum ends with `0`."
 msgstr "Le numéro de carte de crédit est valide si la somme se termine par '0'."
 
@@ -13166,162 +13212,163 @@ msgid ""
 "The provided code provides a buggy implementation of the Luhn algorithm, along with two "
 "basic unit tests that confirm that most of the algorithm is implemented correctly."
 msgstr ""
+"Le code fourni propose une implémentation boguée de l'algorithme de Luhn, ainsi que deux "
+"tests unitaires de base qui confirment que la majeure partie de l'algorithme est "
+"correctement implémentée."
 
 #: src/testing/exercise.md
-#, fuzzy
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and write additional tests to "
 "uncover bugs in the provided implementation, fixing any bugs you find."
 msgstr ""
-"Copiez le code ci-dessous sur <https://play.rust-lang.org/> et remplissez les champs "
-"manquants fonctions et méthodes :"
+"Copiez le code ci-dessous sur <https://play.rust-lang.org/> et écrivez des tests "
+"supplémentaires pour déceler les bogues dans l'implémentation fournie, en corrigeant ceux "
+"que vous trouvez."
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"4263 9826 4026 9299\""
-msgstr ""
+msgstr "\"4263 9826 4026 9299\""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"4539 3195 0343 6467\""
-msgstr ""
+msgstr "\"4539 3195 0343 6467\""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"7992 7398 713\""
-msgstr ""
+msgstr "\"7992 7398 713\""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"4223 9826 4026 9299\""
-msgstr ""
+msgstr "\"4223 9826 4026 9299\""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"4539 3195 0343 6476\""
-msgstr ""
+msgstr "\"4539 3195 0343 6476\""
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"8273 1232 7352 0569\""
-msgstr ""
+msgstr "\"8273 1232 7352 0569\""
 
 #: src/testing/solution.md
 msgid "// New: accept whitespace.\n"
-msgstr ""
+msgstr "// New: accept whitespace.\n"
 
 #: src/testing/solution.md
 msgid "// New: reject all other characters.\n"
-msgstr ""
+msgstr "// New: reject all other characters.\n"
 
 #: src/testing/solution.md
 msgid "// New: check that we have at least two digits\n"
-msgstr ""
+msgstr "// New: check that we have at least two digits\n"
 
 #: src/testing/solution.md
 msgid "\"foo 0 0\""
-msgstr ""
+msgstr "\"foo 0 0\""
 
 #: src/testing/solution.md
 #: src/idiomatic/leveraging-the-type-system/typestate-pattern/typestate-generics/struct.md
 msgid "\" \""
-msgstr ""
+msgstr "\" \""
 
 #: src/testing/solution.md
 msgid "\"  \""
-msgstr ""
+msgstr "\"  \""
 
 #: src/testing/solution.md
 msgid "\"    \""
-msgstr ""
+msgstr "\"    \""
 
 #: src/testing/solution.md
 msgid "\"0\""
-msgstr ""
+msgstr "\"0\""
 
 #: src/testing/solution.md
 msgid "\" 0 0 \""
-msgstr ""
+msgstr "\" 0 0 \""
 
 #: src/error-handling.md
-#, fuzzy
 msgid "Error Trait"
-msgstr "\"Erreur\""
+msgstr "Error Trait"
 
 #: src/error-handling.md
-#, fuzzy
 msgid "thiserror"
-msgstr "\"Erreur\""
+msgstr "thiserror"
 
 #: src/error-handling.md
 msgid "anyhow"
-msgstr ""
+msgstr "anyhow"
 
 #: src/error-handling.md src/error-handling/exercise.md
 msgid "Exercise: Rewriting with Result"
-msgstr ""
+msgstr "Exercice : Réécriture avec Result"
 
 #: src/error-handling/panics.md
 msgid "In case of a fatal runtime error, Rust triggers a \"panic\":"
-msgstr ""
+msgstr "En cas d'erreur d'exécution fatale, Rust déclenche une \"panique\" :"
 
 #: src/error-handling/panics.md
-#, fuzzy
 msgid "Panics are for unrecoverable and unexpected errors."
-msgstr "Les paniques concernent les erreurs irrécupérables et inattendues."
+msgstr "Les alertes paniques sont réservées aux erreurs irrécupérables et inattendues."
 
 #: src/error-handling/panics.md
-#, fuzzy
 msgid "Panics are symptoms of bugs in the program."
-msgstr "Les paniques sont des symptômes de bogues dans le programme."
+msgstr "Les plantages sont des symptômes de bogues dans le programme."
 
 #: src/error-handling/panics.md
 msgid "Runtime failures like failed bounds checks can panic."
 msgstr ""
+"Les erreurs d'exécution, comme les échecs de vérification des limites, peuvent provoquer "
+"une panique."
 
 #: src/error-handling/panics.md
 msgid "Assertions (such as `assert!`) panic on failure."
-msgstr ""
+msgstr "Les assertions (telles que `assert!`) provoquent une panique en cas d'échec."
 
 #: src/error-handling/panics.md
 msgid "Purpose-specific panics can use the `panic!` macro."
-msgstr ""
+msgstr "Les paniques spécifiques à un objectif peuvent utiliser la macro `panic!`."
 
 #: src/error-handling/panics.md
 msgid ""
 "A panic will \"unwind\" the stack, dropping values just as if the functions had returned."
 msgstr ""
+"Une panique va « dérouler » la pile, en supprimant les valeurs comme si les fonctions "
+"avaient renvoyé une valeur."
 
 #: src/error-handling/panics.md
-#, fuzzy
 msgid "Use non-panicking APIs (such as `Vec::get`) if crashing is not acceptable."
 msgstr ""
-"Utilisez des API qui ne paniquent pas (telles que `Vec::get`) si le plantage n'est pas "
-"acceptable."
+"Utilisez des API qui ne provoquent pas de plantage (telles que `Vec::get`) si un plantage "
+"n'est pas acceptable."
 
 #: src/error-handling/panics.md
-#, fuzzy
 msgid "By default, a panic will cause the stack to unwind. The unwinding can be caught:"
 msgstr ""
-"Par défaut, une panique entraînera le déroulement de la pile. Le déroulement peut être "
-"rattrapé :"
+"Par défaut, une panique entraîne le déroulement de la pile. Ce déroulement peut être "
+"intercepté :"
 
 #: src/error-handling/panics.md
 msgid "\"No problem here!\""
-msgstr ""
+msgstr "\"No problem here!\""
 
 #: src/error-handling/panics.md
 msgid "\"oh no!\""
-msgstr ""
+msgstr "\"oh no!\""
 
 #: src/error-handling/panics.md
 msgid "Catching is unusual; do not attempt to implement exceptions with `catch_unwind`!"
 msgstr ""
+"La capture est inhabituelle ; n'essayez pas d'implémenter des exceptions avec "
+"`catch_unwind` !"
 
 #: src/error-handling/panics.md
-#, fuzzy
 msgid ""
 "This can be useful in servers which should keep running even if a single request crashes."
 msgstr ""
-"Cela peut être utile dans les serveurs qui doivent continuer à fonctionner même si un "
-"seul la demande se bloque."
+"Cela peut s'avérer utile pour les serveurs qui doivent continuer à fonctionner même en "
+"cas de plantage d'une seule requête."
 
 #: src/error-handling/panics.md
-#, fuzzy
 msgid "This does not work if `panic = 'abort'` is set in your `Cargo.toml`."
 msgstr "Cela ne fonctionne pas si `panic = 'abort'` est défini dans votre `Cargo.toml`."
 
@@ -13331,18 +13378,25 @@ msgid ""
 "org/stable/std/result/enum.Result.html) enum, which we briefly saw when discussing "
 "standard library types."
 msgstr ""
+"Notre principal mécanisme de gestion des erreurs en Rust est l'énumération [`Result`]"
+"(https://doc.rust-lang.org/stable/std/result/enum.Result.html), que nous avons brièvement "
+"vue lors de la discussion sur les types de la bibliothèque standard."
 
 #: src/error-handling/result.md
 msgid ""
 "`Result` has two variants: `Ok` which contains the success value, and `Err` which "
 "contains an error value of some kind."
 msgstr ""
+"`Result` a deux variantes : `Ok` qui contient la valeur de succès et `Err` qui contient "
+"une valeur d’erreur quelconque."
 
 #: src/error-handling/result.md
 msgid ""
 "Whether or not a function can produce an error is encoded in the function's type "
 "signature by having the function return a `Result` value."
 msgstr ""
+"Le fait qu'une fonction puisse ou non produire une erreur est codé dans sa signature de "
+"type en faisant en sorte que la fonction renvoie une valeur `Result`."
 
 #: src/error-handling/result.md
 msgid ""
@@ -13352,16 +13406,25 @@ msgid ""
 "quick-and-dirty code that doesn't do robust error handling, but means that you can always "
 "see in your source code where proper error handling is being skipped."
 msgstr ""
+"Comme pour `Option`, il est impossible d'oublier de gérer une erreur : vous ne pouvez "
+"accéder ni à la valeur de succès ni à celle d'erreur sans avoir préalablement effectué "
+"une correspondance de motifs sur `Result` afin de déterminer la variante rencontrée. Des "
+"méthodes comme `unwrap` facilitent l'écriture de code rapide et imparfait qui ne gère pas "
+"les erreurs de manière robuste, mais permettent de toujours repérer dans votre code "
+"source les cas où une gestion d'erreurs appropriée est omise."
 
 #: src/error-handling/result.md
 msgid ""
 "It may be helpful to compare error handling in Rust to error handling conventions that "
 "students may be familiar with from other programming languages."
 msgstr ""
+"Il peut être utile de comparer la gestion des erreurs en Rust aux conventions de gestion "
+"des erreurs que les étudiants connaissent peut-être grâce à d'autres langages de "
+"programmation."
 
 #: src/error-handling/result.md
 msgid "Many languages use exceptions, e.g. C++, Java, Python."
-msgstr ""
+msgstr "De nombreux langages utilisent des exceptions, par exemple C++, Java, Python."
 
 #: src/error-handling/result.md
 msgid ""
@@ -13369,6 +13432,10 @@ msgid ""
 "not visible as part of its type signature. This generally means that you can't tell when "
 "calling a function if it may throw an exception or not."
 msgstr ""
+"Dans la plupart des langages gérant les exceptions, la capacité d'une fonction à lever "
+"une exception n'est pas indiquée dans sa signature de type. Cela signifie généralement "
+"qu'il est impossible de savoir, lors de l'appel d'une fonction, si elle est susceptible "
+"de lever une exception."
 
 #: src/error-handling/result.md
 msgid ""
@@ -13376,22 +13443,30 @@ msgid ""
 "reached. An error originating deep in the call stack may impact an unrelated function "
 "further up."
 msgstr ""
+"Les exceptions déroulent généralement la pile d'appels, se propageant vers le haut "
+"jusqu'à atteindre un bloc `try`. Une erreur survenant profondément dans la pile d'appels "
+"peut affecter une fonction sans lien avec la précédente, située plus haut dans la pile."
 
 #: src/error-handling/result.md
 msgid "Error Numbers"
-msgstr ""
+msgstr "Numéros d'erreur"
 
 #: src/error-handling/result.md
 msgid ""
 "Some languages have functions return an error number (or some other error value) "
 "separately from the successful return value of the function. Examples include C and Go."
 msgstr ""
+"Certains langages font en sorte que les fonctions renvoient un numéro d'erreur (ou une "
+"autre valeur d'erreur) séparément de la valeur de retour en cas de succès. C et Go en "
+"sont des exemples."
 
 #: src/error-handling/result.md
 msgid ""
 "Depending on the language it may be possible to forget to check the error value, in which "
 "case you may be accessing an uninitialized or otherwise invalid success value."
 msgstr ""
+"Selon la langue, il est possible d'oublier de vérifier la valeur d'erreur, auquel cas "
+"vous risquez d'accéder à une valeur de succès non initialisée ou invalide."
 
 #: src/error-handling/try.md
 msgid ""
@@ -13399,46 +13474,46 @@ msgid ""
 "type, but matching this type on every call can be cumbersome. The try-operator `?` is "
 "used to return errors to the caller. It lets you turn the common"
 msgstr ""
+"Les erreurs d'exécution telles que « connexion refusée » ou « fichier introuvable » sont "
+"gérées avec le type `Result`, mais vérifier ce type à chaque appel peut s'avérer "
+"fastidieux. L'opérateur try `?` permet de renvoyer les erreurs à l'appelant. Il permet de "
+"transformer le comportement courant"
 
 #: src/error-handling/try.md
-#, fuzzy
 msgid "into the much simpler"
-msgstr "dans le plus simple"
+msgstr "plus simplement"
 
 #: src/error-handling/try.md
-#, fuzzy
 msgid "We can use this to simplify our error handling code:"
-msgstr "Nous pouvons l'utiliser pour simplifier notre code de gestion des erreurs :"
+msgstr "Nous pouvons utiliser cela pour simplifier notre code de gestion des erreurs :"
 
 #: src/error-handling/try.md
 msgid "//fs::write(\"config.dat\", \"alice\").unwrap();\n"
-msgstr ""
+msgstr "//fs::write(\"config.dat\", \"alice\").unwrap();\n"
 
 #: src/error-handling/try.md src/error-handling/try-conversions.md
 #: src/error-handling/thiserror.md src/error-handling/anyhow.md
 msgid "\"config.dat\""
-msgstr ""
+msgstr "\"config.dat\""
 
 #: src/error-handling/try.md src/error-handling/try-conversions.md
 msgid "\"username or error: {username:?}\""
-msgstr ""
+msgstr "\"username or error: {username:?}\""
 
 #: src/error-handling/try.md
 msgid "Simplify the `read_username` function to use `?`."
-msgstr ""
+msgstr "Simplifiez la fonction `read_username` pour utiliser `?`."
 
 #: src/error-handling/try.md
-#, fuzzy
 msgid "The `username` variable can be either `Ok(string)` or `Err(error)`."
 msgstr "La variable `username` peut être soit `Ok(string)` soit `Err(error)`."
 
 #: src/error-handling/try.md
-#, fuzzy
 msgid ""
 "Use the `fs::write` call to test out the different scenarios: no file, empty file, file "
 "with username."
 msgstr ""
-"Utilisez l'appel `fs::write` pour tester les différents scénarios : pas de fichier, "
+"Utilisez l'appel `fs::write` pour tester les différents scénarios : aucun fichier, "
 "fichier vide, fichier avec nom d'utilisateur."
 
 #: src/error-handling/try.md
@@ -13447,39 +13522,43 @@ msgid ""
 "Termination`. In practice, this means that `E` implements `Debug`. The executable will "
 "print the `Err` variant and return a nonzero exit status on error."
 msgstr ""
+"Notez que `main` peut retourner un `Result<(), E>` à condition qu'il implémente `std::"
+"process::Termination`. En pratique, cela signifie que `E` implémente `Debug`. "
+"L'exécutable affichera la variante `Err` et retournera un code de sortie différent de "
+"zéro en cas d'erreur."
 
 #: src/error-handling/try-conversions.md
-#, fuzzy
 msgid ""
 "The effective expansion of `?` is a little more complicated than previously indicated:"
-msgstr "L'expansion effective de `?` est un peu plus compliquée qu'indiqué précédemment :"
+msgstr ""
+"Le développement effectif de `?` est un peu plus compliqué que ce qui a été indiqué "
+"précédemment :"
 
 #: src/error-handling/try-conversions.md
-#, fuzzy
 msgid "works the same as"
 msgstr "fonctionne de la même manière que"
 
 #: src/error-handling/try-conversions.md
-#, fuzzy
 msgid ""
 "The `From::from` call here means we attempt to convert the error type to the type "
 "returned by the function. This makes it easy to encapsulate errors into higher-level "
 "errors."
 msgstr ""
-"L'appel `From::from` ici signifie que nous essayons de convertir le type d'erreur en type "
-"renvoyé par la fonction :"
+"L'appel `From::from` ici signifie que nous tentons de convertir le type d'erreur vers le "
+"type renvoyé par la fonction. Cela facilite l'encapsulation des erreurs dans des erreurs "
+"de plus haut niveau."
 
 #: src/error-handling/try-conversions.md
 msgid "\"I/O error: {e}\""
-msgstr ""
+msgstr "\"I/O error: {e}\""
 
 #: src/error-handling/try-conversions.md
 msgid "\"Found no username in {path}\""
-msgstr ""
+msgstr "\"Found no username in {path}\""
 
 #: src/error-handling/try-conversions.md
 msgid "//std::fs::write(\"config.dat\", \"\").unwrap();\n"
-msgstr ""
+msgstr "//std::fs::write(\"config.dat\", \"\").unwrap();\n"
 
 #: src/error-handling/try-conversions.md
 msgid ""
@@ -13489,18 +13568,28 @@ msgid ""
 "`ErrorOuter` and `ErrorInner` are the same type or if `ErrorOuter` implements "
 "`From<ErrorInner>`."
 msgstr ""
+"L'opérateur `?` doit renvoyer une valeur compatible avec le type de retour de la "
+"fonction. Pour `Result`, cela signifie que les types d'erreur doivent être compatibles. "
+"Une fonction qui renvoie `Result<T, ErrorOuter>` ne peut utiliser `?` sur une valeur de "
+"type `Result<U, ErrorInner>` que si `ErrorOuter` et `ErrorInner` sont du même type ou si "
+"`ErrorOuter` implémente `From<ErrorInner>`."
 
 #: src/error-handling/try-conversions.md
 msgid ""
 "A common alternative to a `From` implementation is `Result::map_err`, especially when the "
 "conversion only happens in one place."
 msgstr ""
+"Une alternative courante à une implémentation `From` est `Result::map_err`, en "
+"particulier lorsque la conversion n'a lieu qu'à un seul endroit."
 
 #: src/error-handling/try-conversions.md
 msgid ""
 "There is no compatibility requirement for `Option`. A function returning `Option<T>` can "
 "use the `?` operator on `Option<U>` for arbitrary `T` and `U` types."
 msgstr ""
+"Il n'existe aucune exigence de compatibilité pour `Option`. Une fonction renvoyant "
+"`Option<T>` peut utiliser l'opérateur `?` sur `Option<U>` pour des types `T` et `U` "
+"arbitraires."
 
 #: src/error-handling/try-conversions.md
 msgid ""
@@ -13508,63 +13597,68 @@ msgid ""
 "`Option::ok_or` converts `Option` to `Result` whereas `Result::ok` turns `Result` into "
 "`Option`."
 msgstr ""
+"Une fonction qui renvoie `Result` ne peut pas utiliser `?` sur `Option` et inversement. "
+"Cependant, `Option::ok_or` convertit `Option` en `Result` tandis que `Result::ok` "
+"transforme `Result` en `Option`."
 
 #: src/error-handling/error.md
 msgid "Dynamic Error Types"
 msgstr "Types d'erreurs dynamiques"
 
 #: src/error-handling/error.md
-#, fuzzy
 msgid ""
 "Sometimes we want to allow any type of error to be returned without writing our own enum "
 "covering all the different possibilities. The `std::error::Error` trait makes it easy to "
 "create a trait object that can contain any error."
 msgstr ""
-"Parfois, nous voulons permettre à tout type d'erreur d'être renvoyé sans écrire notre "
-"propre énumération couvrant toutes les différentes possibilités. `std::error::Error` rend "
-"cela facile."
+"Parfois, nous souhaitons autoriser le retour de tout type d'erreur sans avoir à créer "
+"notre propre énumération couvrant toutes les possibilités. Le trait `std::error::Error` "
+"simplifie la création d'un objet trait pouvant contenir n'importe quelle erreur."
 
 #: src/error-handling/error.md
 msgid "\"count.dat\""
-msgstr ""
+msgstr "\"count.dat\""
 
 #: src/error-handling/error.md
 msgid "\"1i3\""
-msgstr ""
+msgstr "\"1i3\""
 
 #: src/error-handling/error.md
 msgid "\"Count: {count}\""
-msgstr ""
+msgstr "\"Count: {count}\""
 
 #: src/error-handling/error.md
 msgid "\"Error: {err}\""
-msgstr ""
+msgstr "\"Error: {err}\""
 
 #: src/error-handling/error.md
 msgid ""
 "The `read_count` function can return `std::io::Error` (from file operations) or `std::"
 "num::ParseIntError` (from `String::parse`)."
 msgstr ""
+"La fonction `read_count` peut renvoyer `std::io::Error` (à partir d'opérations sur les "
+"fichiers) ou `std::num::ParseIntError` (à partir de `String::parse`)."
 
 #: src/error-handling/error.md
-#, fuzzy
 msgid ""
 "Boxing errors saves on code, but gives up the ability to cleanly handle different error "
 "cases differently in the program. As such it's generally not a good idea to use `Box<dyn "
 "Error>` in the public API of a library, but it can be a good option in a program where "
 "you just want to display the error message somewhere."
 msgstr ""
-"Cela permet d'économiser du code, mais abandonne la possibilité de gérer proprement "
-"différents cas d'erreur différemment dans le programme. En tant que tel, ce n'est "
-"généralement pas une bonne idée d'utiliser `Box<dyn Error>` dans l'API publique d'un "
-"bibliothèque, mais cela peut être une bonne option dans un programme où vous voulez juste "
-"afficher le message d'erreur quelque part."
+"L'encapsulation des erreurs permet de gagner du code, mais empêche de gérer proprement "
+"différents cas d'erreur dans le programme. Par conséquent, il est généralement "
+"déconseillé d'utiliser `Box<dyn Error>` dans l'API publique d'une bibliothèque, mais cela "
+"peut s'avérer utile dans un programme où l'on souhaite simplement afficher le message "
+"d'erreur."
 
 #: src/error-handling/error.md
 msgid ""
 "Make sure to implement the `std::error::Error` trait when defining a custom error type so "
 "it can be boxed."
 msgstr ""
+"Veillez à implémenter le trait `std::error::Error` lors de la définition d'un type "
+"d'erreur personnalisé afin qu'il puisse être encapsulé."
 
 #: src/error-handling/thiserror.md
 msgid ""
@@ -13572,36 +13666,42 @@ msgid ""
 "boilerplate when defining error types. It provides derive macros that assist in "
 "implementing `From<T>`, `Display`, and the `Error` trait."
 msgstr ""
+"La bibliothèque [`thiserror`](https://docs.rs/thiserror/) fournit des macros pour éviter "
+"le code répétitif lors de la définition des types d'erreurs. Elle propose des macros "
+"dérivées facilitant l'implémentation des propriétés `From<T>`, `Display` et du trait "
+"`Error`."
 
 #: src/error-handling/thiserror.md
 msgid "\"I/O error: {0}\""
-msgstr ""
+msgstr "\"I/O error: {0}\""
 
 #: src/error-handling/thiserror.md src/error-handling/anyhow.md
 msgid "\"Found no username in {0}\""
-msgstr ""
+msgstr "\"Found no username in {0}\""
 
 #: src/error-handling/thiserror.md src/error-handling/anyhow.md
 msgid "//fs::write(\"config.dat\", \"\").unwrap();\n"
-msgstr ""
+msgstr "//fs::write(\"config.dat\", \"\").unwrap();\n"
 
 #: src/error-handling/thiserror.md src/error-handling/anyhow.md
 msgid "\"Username: {username}\""
-msgstr ""
+msgstr "\"Username: {username}\""
 
 #: src/error-handling/thiserror.md src/error-handling/anyhow.md
 msgid "\"Error: {err:?}\""
-msgstr ""
+msgstr "\"Error: {err:?}\""
 
 #: src/error-handling/thiserror.md
 msgid ""
 "The `Error` derive macro is provided by `thiserror`, and has lots of useful attributes to "
 "help define error types in a compact way."
 msgstr ""
+"La macro dérivée `Error` est fournie par `thiserror` et possède de nombreux attributs "
+"utiles pour aider à définir les types d'erreurs de manière compacte."
 
 #: src/error-handling/thiserror.md
 msgid "The message from `#[error]` is used to derive the `Display` trait."
-msgstr ""
+msgstr "Le message de `#[error]` est utilisé pour dériver le trait `Display`."
 
 #: src/error-handling/thiserror.md
 msgid ""
@@ -13609,6 +13709,9 @@ msgid ""
 "implementing the (`std::error::`)`Error` trait, is not the same this; traits and macros "
 "do not share a namespace."
 msgstr ""
+"Notez que la macro dérivée (`thiserror::`)`Error`, bien qu'elle ait pour effet "
+"d'implémenter le trait (`std::error::`)`Error`, n'est pas la même chose que ceci ; les "
+"traits et les macros ne partagent pas un espace de noms."
 
 #: src/error-handling/anyhow.md
 msgid ""
@@ -13616,47 +13719,53 @@ msgid ""
 "carrying additional contextual information, which can be used to provide a semantic trace "
 "of what the program was doing leading up to the error."
 msgstr ""
+"La bibliothèque [`anyhow`](https://docs.rs/anyhow/) fournit un type d'erreur riche avec "
+"prise en charge du transport d'informations contextuelles supplémentaires, qui peuvent "
+"être utilisées pour fournir une trace sémantique de ce que le programme faisait avant "
+"l'erreur."
 
 #: src/error-handling/anyhow.md
 msgid ""
 "This can be combined with the convenience macros from [`thiserror`](https://docs.rs/"
 "thiserror/) to avoid writing out trait impls explicitly for custom error types."
 msgstr ""
+"Cela peut être combiné avec les macros pratiques de [`thiserror`](https://docs.rs/"
+"thiserror/) pour éviter d'écrire explicitement des implémentations de traits pour les "
+"types d'erreurs personnalisés."
 
 #: src/error-handling/anyhow.md
 msgid "\"Failed to open {path}\""
-msgstr ""
+msgstr "\"Failed to open {path}\""
 
 #: src/error-handling/anyhow.md
 msgid "\"Failed to read\""
-msgstr ""
+msgstr "\"Failed to read\""
 
 #: src/error-handling/anyhow.md
-#, fuzzy
 msgid ""
 "`anyhow::Error` is essentially a wrapper around `Box<dyn Error>`. As such it's again "
 "generally not a good choice for the public API of a library, but is widely used in "
 "applications."
 msgstr ""
-"`anyhow::Error` est essentiellement un wrapper autour de `Box<dyn Error>`. En tant que "
-"tel, ce n'est généralement pas un bon choix pour l'API publique d'une bibliothèque, mais "
-"il est largement utilisé dans les applications."
+"`anyhow::Error` est essentiellement un wrapper autour de `Box<dyn Error>`. De ce fait, il "
+"n'est généralement pas recommandé pour l'API publique d'une bibliothèque, mais il est "
+"largement utilisé dans les applications."
 
 #: src/error-handling/anyhow.md
-#, fuzzy
 msgid "`anyhow::Result<V>` is a type alias for `Result<V, anyhow::Error>`."
 msgstr "`anyhow::Result<V>` est un alias de type pour `Result<V, anyhow::Error>`."
 
 #: src/error-handling/anyhow.md
-#, fuzzy
 msgid ""
 "Functionality provided by `anyhow::Error` may be familiar to Go developers, as it "
 "provides similar behavior to the Go `error` type and `Result<T, anyhow::Error>` is much "
 "like a Go `(T, error)` (with the convention that only one element of the pair is "
 "meaningful)."
 msgstr ""
-"La fonctionnalité fournie par `anyhow::Result<T>` peut être familière aux développeurs "
-"Go, car elle fournit modèles d'utilisation et ergonomie similaires à `(T, erreur)` de Go."
+"Les fonctionnalités fournies par `anyhow::Error` peuvent être familières aux développeurs "
+"Go, car elles offrent un comportement similaire au type `error` de Go et `Result<T, "
+"anyhow::Error>` ressemble beaucoup à un `(T, error)` de Go (avec la convention selon "
+"laquelle seul un élément de la paire est significatif)."
 
 #: src/error-handling/anyhow.md
 msgid ""
@@ -13664,6 +13773,9 @@ msgid ""
 "`use anyhow::Context` is necessary to enable `.context()` and `.with_context()` on those "
 "types."
 msgstr ""
+"`anyhow::Context` is a trait implemented for the standard `Result` and `Option` types. "
+"`use anyhow::Context` is necessary to enable `.context()` and `.with_context()` on those "
+"types."
 
 #: src/error-handling/anyhow.md
 msgid ""
@@ -13671,6 +13783,9 @@ msgid ""
 "error type stored inside can be extracted for examination if desired with [`Error::"
 "downcast`](https://docs.rs/anyhow/latest/anyhow/struct.Error.html#method.downcast)."
 msgstr ""
+"`anyhow::Error` has support for downcasting, much like `std::any::Any`; the specific "
+"error type stored inside can be extracted for examination if desired with [`Error::"
+"downcast`](https://docs.rs/anyhow/latest/anyhow/struct.Error.html#method.downcast)."
 
 #: src/error-handling/exercise.md
 msgid ""
@@ -13680,16 +13795,23 @@ msgid ""
 "it occurs. We provide a simple `DivideByZeroError` type to use as the error type for "
 "`eval`."
 msgstr ""
+"Dans cet exercice, nous reprenons l'exercice sur l'évaluateur d'expressions que nous "
+"avons réalisé le deuxième jour. Notre solution initiale ignore un cas d'erreur possible : "
+"la division par zéro ! Réécrivez `eval` afin d'utiliser une gestion d'erreurs idiomatique "
+"pour traiter ce cas et renvoyer une erreur lorsqu'il se produit. Nous fournissons un type "
+"simple `DivideByZeroError` à utiliser comme type d'erreur pour `eval`."
 
 #: src/error-handling/exercise.md
 msgid ""
 "// The original implementation of the expression evaluator. Update this to\n"
 "// return a `Result` and produce an error when dividing by 0.\n"
 msgstr ""
+"// The original implementation of the expression evaluator. Update this to\n"
+"// return a `Result` and produce an error when dividing by 0.\n"
 
 #: src/error-handling/exercise.md
 msgid "\"Cannot divide by zero!\""
-msgstr ""
+msgstr "\"Cannot divide by zero!\""
 
 #: src/error-handling/exercise.md
 msgid ""
@@ -13697,6 +13819,9 @@ msgid ""
 "added in an explicit panic to show students where the error case is. Point this out if "
 "students get confused."
 msgstr ""
+"Le code de départ n'est pas exactement le même que celui de l'exercice précédent : nous "
+"avons ajouté une instruction `panic` explicite pour indiquer aux étudiants où se situe "
+"l'erreur. Signalez-le si les étudiants sont confus."
 
 #: src/error-handling/solution.md
 msgid ""
@@ -13704,6 +13829,9 @@ msgid ""
 "DivideByZeroError>`. This explicit type signature forces the caller to handle the "
 "possibility of failure."
 msgstr ""
+"**Type de retour `Result` :** La signature de la fonction est modifiée pour retourner "
+"`Result<i64, DivideByZeroError>`. Cette signature de type explicite oblige l’appelant à "
+"gérer l’éventualité d’un échec."
 
 #: src/error-handling/solution.md
 msgid ""
@@ -13711,121 +13839,120 @@ msgid ""
 "propagates errors. If `eval` returns `Err`, the function immediately returns that `Err`. "
 "If it returns `Ok(v)`, `v` is assigned to `left` (or `right`)."
 msgstr ""
+"**L'opérateur `?` :** Nous utilisons `?` dans les appels récursifs : `eval(*left)?`. Cela "
+"permet de propager les erreurs proprement. Si `eval` renvoie `Err`, la fonction renvoie "
+"immédiatement cette erreur. Si elle renvoie `Ok(v)`, `v` est affecté à `left` (ou "
+"`right`)."
 
 #: src/error-handling/solution.md
 msgid "**`Ok` Wrapping:** Successful results must be wrapped in `Ok(...)`."
 msgstr ""
+"**Encapsulation `Ok` :** Les résultats positifs doivent être enveloppés dans `Ok(...)`."
 
 #: src/error-handling/solution.md
 msgid ""
 "**Handling Division by Zero:** We explicitly check for `right == 0` and return "
 "`Err(DivideByZeroError)`. This replaces the panic in the original code."
 msgstr ""
+"**Gestion des divisions par zéro :** Nous vérifions explicitement si `right == 0` et "
+"retournons `Err(DivideByZeroError)`. Ceci remplace l’erreur panique du code d’origine."
 
 #: src/error-handling/solution.md
 msgid ""
 "Mention that `DivideByZeroError` is a unit struct (no fields), which is sufficient here "
 "since there's no extra context to provide about the error."
 msgstr ""
+"Mentionnez que `DivideByZeroError` est une structure unitaire (sans champs), ce qui est "
+"suffisant ici puisqu'il n'y a pas de contexte supplémentaire à fournir concernant "
+"l'erreur."
 
 #: src/error-handling/solution.md
 msgid ""
 "Discuss how `?` makes error handling almost as concise as exceptions, but with explicit "
 "control flow."
 msgstr ""
+"Expliquez comment `?` rend la gestion des erreurs presque aussi concise que les "
+"exceptions, mais avec un flux de contrôle explicite."
 
 #: src/unsafe-rust/unsafe.md
-#, fuzzy
 msgid "The Rust language has two parts:"
 msgstr "Le langage Rust comporte deux parties :"
 
 #: src/unsafe-rust/unsafe.md
-#, fuzzy
 msgid "**Safe Rust:** memory safe, no undefined behavior possible."
-msgstr "**Safe Rust :** mémoire sécurisée, aucun comportement indéfini possible."
+msgstr "**Safe Rust :** mémoire sécurisée, aucun comportement indéfini possible."
 
 #: src/unsafe-rust/unsafe.md
-#, fuzzy
 msgid "**Unsafe Rust:** can trigger undefined behavior if preconditions are violated."
 msgstr ""
-"**Unsafe Rust :** peut déclencher un comportement indéfini si les conditions préalables "
-"ne sont pas respectées."
+"**Rust non sécurisé :** peut déclencher un comportement indéfini si les préconditions ne "
+"sont pas respectées."
 
 #: src/unsafe-rust/unsafe.md
-#, fuzzy
 msgid ""
 "We saw mostly safe Rust in this course, but it's important to know what Unsafe Rust is."
 msgstr ""
-"Nous verrons principalement Rust sûr dans ce cours, mais il est important de savoir ce "
-"qu'est Rust non securisé (_unsafe_)."
+"Nous avons surtout vu du Rust sûr dans ce cours, mais il est important de savoir ce "
+"qu'est le Rust non sûr."
 
 #: src/unsafe-rust/unsafe.md
-#, fuzzy
 msgid ""
 "Unsafe code should be small and isolated, and its correctness should be carefully "
 "documented. It should be wrapped in a safe abstraction layer."
 msgstr ""
-"Le code dangereux est généralement petit et isolé, et son exactitude doit être "
-"soigneusement documenté. Il est généralement enveloppé dans une couche d'abstraction sûre."
+"Le code non sécurisé doit être concis et isolé, et sa validité doit être soigneusement "
+"documentée. Il doit être encapsulé dans une couche d'abstraction sécurisée."
 
 #: src/unsafe-rust/unsafe.md
-#, fuzzy
 msgid "Unsafe Rust gives you access to five new capabilities:"
-msgstr "Unsafe Rust vous donne accès à cinq nouvelles fonctionnalités :"
+msgstr "Unsafe Rust vous donne accès à cinq nouvelles fonctionnalités :"
 
 #: src/unsafe-rust/unsafe.md
-#, fuzzy
 msgid "Dereference raw pointers."
 msgstr "Déréférencer les pointeurs bruts."
 
 #: src/unsafe-rust/unsafe.md
-#, fuzzy
 msgid "Access or modify mutable static variables."
-msgstr "Accéder ou modifier des variables statiques mutables."
+msgstr "Accéder aux variables statiques modifiables ou les modifier."
 
 #: src/unsafe-rust/unsafe.md
-#, fuzzy
 msgid "Access `union` fields."
 msgstr "Accéder aux champs \"union\"."
 
 #: src/unsafe-rust/unsafe.md
-#, fuzzy
 msgid "Call `unsafe` functions, including `extern` functions."
-msgstr ""
-"Appelez les fonctions `unsafe`, y compris les fonctions `extern`. \\* Mettre en œuvre les "
-"traits \" non sécurisés \"."
+msgstr "Appelez des fonctions `unsafe`, y compris des fonctions `extern`."
 
 #: src/unsafe-rust/unsafe.md
 msgid "Implement `unsafe` traits."
-msgstr ""
+msgstr "Implémenter les traits `unsafe`."
 
 #: src/unsafe-rust/unsafe.md
-#, fuzzy
 msgid ""
 "We will briefly cover unsafe capabilities next. For full details, please see [Chapter "
 "19.1 in the Rust Book](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html) and the "
 "[Rustonomicon](https://doc.rust-lang.org/nomicon/)."
 msgstr ""
-"Nous aborderons ensuite brièvement les capacités dangereuses. Pour plus de détails, "
-"veuillez consulter [Chapitre 19.1 du Rust Book](https://doc.rust-lang.org/book/ch19-01-"
-"unsafe-rust.html) et le [Rustonomicon](https://doc.rust-lang.org/nomicon/)."
+"Nous aborderons brièvement les fonctionnalités non sécurisées. Pour plus de détails, "
+"veuillez consulter le [chapitre 19.1 du livre Rust](https://doc.rust-lang.org/book/"
+"ch19-01-unsafe-rust.html) et le [Rustonomicon](https://doc.rust-lang.org/nomicon/)."
 
 #: src/unsafe-rust/unsafe.md
-#, fuzzy
 msgid ""
 "Unsafe Rust does not mean the code is incorrect. It means that developers have turned off "
 "some compiler safety features and have to write correct code by themselves. It means the "
 "compiler no longer enforces Rust's memory-safety rules."
 msgstr ""
-"Unsafe Rust ne signifie pas que le code est incorrect. Cela signifie que les développeurs "
-"ont désactivé les fonctionnalités de sécurité du compilateur et doit écrire le code "
-"correct en eux-mêmes. Cela signifie que le compilateur n'applique plus les règles de "
-"sécurité de la mémoire de Rust."
+"« Rust non sécurisé » ne signifie pas que le code est incorrect. Cela signifie que les "
+"développeurs ont désactivé certaines fonctions de sécurité du compilateur et doivent donc "
+"écrire eux-mêmes le code correct. Autrement dit, le compilateur n'applique plus les "
+"règles de sécurité mémoire de Rust."
 
 #: src/unsafe-rust/dereferencing.md
-#, fuzzy
 msgid "Creating pointers is safe, but dereferencing them requires `unsafe`:"
-msgstr "La création de pointeurs est sûre, mais leur déréférencement nécessite `unsafe` :"
+msgstr ""
+"La création de pointeurs est sûre, mais leur déréférencement nécessite l'utilisation de "
+"l'option `unsafe` :"
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
@@ -13838,10 +13965,18 @@ msgid ""
 "    // accessed through references while the raw pointers exist, nor is it\n"
 "    // accessed from other threads concurrently.\n"
 msgstr ""
+"// SAFETY: p1 and p2 were created by taking raw pointers to a local, so they\n"
+"    // are guaranteed to be non-null, aligned, and point into a single (stack-)\n"
+"    // allocated object.\n"
+"    //\n"
+"    // The object underlying the raw pointers lives for the entire function, so\n"
+"    // it is not deallocated while the raw pointers still exist. It is not\n"
+"    // accessed through references while the raw pointers exist, nor is it\n"
+"    // accessed from other threads concurrently.\n"
 
 #: src/unsafe-rust/dereferencing.md
 msgid "// Mutation may soundly be observed through a raw pointer, like in C.\n"
-msgstr ""
+msgstr "// Mutation may soundly be observed through a raw pointer, like in C.\n"
 
 #: src/unsafe-rust/dereferencing.md
 msgid ""
@@ -13853,59 +13988,58 @@ msgid ""
 "    dbg!(r); // Object underlying the reference has been mutated. This is UB.\n"
 "    */"
 msgstr ""
+"// UNSOUND. DO NOT DO THIS.\n"
+"    /*\n"
+"    let r: &i32 = unsafe { &*p1 };\n"
+"    dbg!(r);\n"
+"    x = 50;\n"
+"    dbg!(r); // Object underlying the reference has been mutated. This is UB.\n"
+"    */"
 
 #: src/unsafe-rust/dereferencing.md
-#, fuzzy
 msgid ""
 "It is good practice (and required by the Android Rust style guide) to write a comment for "
 "each `unsafe` block explaining how the code inside it satisfies the safety requirements "
 "of the unsafe operations it is doing."
 msgstr ""
-"Il est recommandé (et requis par le guide de style Android Rust) d'écrire un commentaire "
-"pour chaque Bloc `unsafe` expliquant comment le code à l'intérieur satisfait aux "
-"exigences de sécurité de l'unsafe opérations qu'il effectue."
+"Il est recommandé (et exigé par le guide de style Android Rust) d'écrire un commentaire "
+"pour chaque bloc `unsafe` expliquant comment le code à l'intérieur satisfait aux "
+"exigences de sécurité des opérations non sécurisées qu'il effectue."
 
 #: src/unsafe-rust/dereferencing.md
-#, fuzzy
 msgid ""
 "In the case of pointer dereferences, this means that the pointers must be [_valid_]"
 "(https://doc.rust-lang.org/std/ptr/index.html#safety), i.e.:"
 msgstr ""
 "Dans le cas des déréférencements de pointeurs, cela signifie que les pointeurs doivent "
-"être [_valid_](https://doc.rust-lang.org/std/ptr/index.html#safety), c'est-à-dire :"
+"être [_valides_](https://doc.rust-lang.org/std/ptr/index.html#safety), c'est-à-dire :"
 
 #: src/unsafe-rust/dereferencing.md
-#, fuzzy
 msgid "The pointer must be non-null."
 msgstr "Le pointeur doit être non nul."
 
 #: src/unsafe-rust/dereferencing.md
-#, fuzzy
 msgid ""
 "The pointer must be _dereferenceable_ (within the bounds of a single allocated object)."
-msgstr "Le pointeur doit être _dereferenceable_ (dans les limites d'un seul objet alloué)."
+msgstr "Le pointeur doit être _déréférençable_ (dans les limites d'un seul objet alloué)."
 
 #: src/unsafe-rust/dereferencing.md
-#, fuzzy
 msgid "The object must not have been deallocated."
 msgstr "L'objet ne doit pas avoir été désalloué."
 
 #: src/unsafe-rust/dereferencing.md
-#, fuzzy
 msgid "There must not be concurrent accesses to the same location."
-msgstr "Il ne doit pas y avoir d'accès simultanés au même endroit."
+msgstr "Les accès simultanés au même emplacement ne doivent pas être autorisés."
 
 #: src/unsafe-rust/dereferencing.md
-#, fuzzy
 msgid ""
 "If the pointer was obtained by casting a reference, the underlying object must be live "
 "and no reference may be used to access the memory."
 msgstr ""
-"Si le pointeur a été obtenu en transtypant une référence, l'objet sous-jacent doit être "
-"actif et non référence peut être utilisée pour accéder à la mémoire."
+"Si le pointeur a été obtenu par conversion de référence, l'objet sous-jacent doit être "
+"actif et aucune référence ne peut être utilisée pour accéder à la mémoire."
 
 #: src/unsafe-rust/dereferencing.md
-#, fuzzy
 msgid "In most cases the pointer must also be properly aligned."
 msgstr "Dans la plupart des cas, le pointeur doit également être correctement aligné."
 
@@ -13917,36 +14051,44 @@ msgid ""
 "`x` and so we are able to modify it despite the existence of a reference to it. Creating "
 "a reference from a pointer requires _great care_."
 msgstr ""
+"La section « UNSOUND » donne un exemple de comportement indéfini courant : accéder "
+"naïvement à la référence d'un pointeur brut contourne la connaissance, par le "
+"compilateur, de l'objet réellement référencé. De ce fait, le vérificateur d'emprunts ne "
+"bloque pas `x`, et nous pouvons donc le modifier malgré l'existence d'une référence. "
+"Créer une référence à partir d'un pointeur exige une extrême prudence."
 
 #: src/unsafe-rust/mutable-static.md
-#, fuzzy
 msgid "It is safe to read an immutable static variable:"
-msgstr "Il est sûr de lire une variable statique immuable :"
+msgstr "Il est possible de lire sans risque une variable statique immuable :"
 
 #: src/unsafe-rust/mutable-static.md
-#, fuzzy
 msgid "\"Hello, world!\""
-msgstr "Bonjour le monde!"
+msgstr "\"Hello, world!\""
 
 #: src/unsafe-rust/mutable-static.md
 msgid "\"HELLO_WORLD: {HELLO_WORLD}\""
-msgstr ""
+msgstr "\"HELLO_WORLD: {HELLO_WORLD}\""
 
 #: src/unsafe-rust/mutable-static.md
 msgid ""
 "However, mutable static variables are unsafe to read and write because multiple threads "
 "could do so concurrently without synchronization, constituting a data race."
 msgstr ""
+"Cependant, les variables statiques mutables ne sont pas sûres en lecture et en écriture "
+"car plusieurs threads pourraient le faire simultanément sans synchronisation, ce qui "
+"constitue une situation de concurrence pour les données."
 
 #: src/unsafe-rust/mutable-static.md
 msgid ""
 "Using mutable statics soundly requires reasoning about concurrency without the compiler's "
 "help:"
 msgstr ""
+"L'utilisation judicieuse des variables statiques mutables exige de raisonner sur la "
+"concurrence sans l'aide du compilateur :"
 
 #: src/unsafe-rust/mutable-static.md
 msgid "// SAFETY: There are no other threads which could be accessing `COUNTER`.\n"
-msgstr ""
+msgstr "// SAFETY: There are no other threads which could be accessing `COUNTER`.\n"
 
 #: src/unsafe-rust/mutable-static.md
 msgid ""
@@ -13955,108 +14097,107 @@ msgid ""
 "see how the compiler explains that it is undefined behavior to access a mutable static "
 "from multiple threads."
 msgstr ""
+"Ce programme est correct car il est monothread. Cependant, le compilateur Rust analyse "
+"les fonctions individuellement et ne peut donc pas le supposer. Essayez de supprimer le "
+"mot-clé `unsafe` et observez comment le compilateur explique qu'accéder à une variable "
+"statique mutable depuis plusieurs threads constitue un comportement indéfini."
 
 #: src/unsafe-rust/mutable-static.md
 msgid ""
 "The 2024 Rust edition goes further and makes accessing a mutable static by reference an "
 "error by default."
 msgstr ""
+"L'édition 2024 de Rust va plus loin et fait de l'accès à une variable statique mutable "
+"par référence une erreur par défaut."
 
 #: src/unsafe-rust/mutable-static.md
 msgid ""
 "Using a mutable static is rarely a good idea, you should use interior mutability instead."
 msgstr ""
+"L'utilisation d'une variable statique mutable est rarement une bonne idée ; il est "
+"préférable d'utiliser la mutabilité interne."
 
 #: src/unsafe-rust/mutable-static.md
-#, fuzzy
 msgid ""
 "There are some cases where it might be necessary in low-level `no_std` code, such as "
 "implementing a heap allocator or working with some C APIs. In this case you should use "
 "pointers rather than references."
 msgstr ""
-"L'utilisation d'une statique mutable est généralement une mauvaise idée, mais il y a des "
-"cas où cela peut avoir du sens dans le code `no_std` de bas niveau, comme "
-"l'implémentation d'un allocation de tas ou l'utilisation de certaines API C."
+"Dans certains cas, notamment pour du code de bas niveau ne nécessitant pas de "
+"bibliothèque standard (`no_std`), comme l'implémentation d'un allocateur de mémoire ou "
+"l'utilisation de certaines API C, il est préférable d'utiliser des pointeurs plutôt que "
+"des références."
 
 #: src/unsafe-rust/unions.md
-#, fuzzy
 msgid "Unions are like enums, but you need to track the active field yourself:"
 msgstr ""
-"Les unions sont comme des énumérations, mais vous devez suivre vous-même le champ actif :"
+"Les unions sont semblables aux énumérations, mais vous devez suivre vous-même le champ "
+"actif :"
 
 #: src/unsafe-rust/unions.md
 msgid "\"int: {}\""
-msgstr ""
+msgstr "\"int: {}\""
 
 #: src/unsafe-rust/unions.md
 msgid "\"bool: {}\""
-msgstr ""
+msgstr "\"bool: {}\""
 
 #: src/unsafe-rust/unions.md
-#, fuzzy
 msgid "// Undefined behavior!\n"
-msgstr "Aucun comportement indéfini à l'exécution :"
+msgstr "// Undefined behavior!\n"
 
 #: src/unsafe-rust/unions.md
-#, fuzzy
 msgid ""
 "Unions are rarely needed in Rust as enums provide a superior alternative. They are "
 "occasionally needed for interacting with C library APIs."
 msgstr ""
-"Les unions sont très rarement nécessaires dans Rust car vous pouvez généralement utiliser "
-"une énumération. Ils sont parfois nécessaires pour interagir avec les API de la "
-"bibliothèque C."
+"Les unions sont rarement nécessaires en Rust, car les énumérations offrent une "
+"alternative bien plus performante. Elles sont toutefois parfois requises pour interagir "
+"avec les API des bibliothèques C."
 
 #: src/unsafe-rust/unions.md
-#, fuzzy
 msgid ""
 "If you just want to reinterpret bytes as a different type, you probably want [`std::mem::"
 "transmute`](https://doc.rust-lang.org/stable/std/mem/fn.transmute.html) or a safe wrapper "
 "such as the [`zerocopy`](https://crates.io/crates/zerocopy) crate."
 msgstr ""
-"Si vous voulez simplement réinterpréter les octets comme un type différent, vous voudrez "
-"probablement [`std::mem::transmute`](https://doc.rust-lang.org/stable/std/mem/fn."
-"transmute.html) ou un coffre-fort wrapper tel que la caisse [`zerocopy`](https://crates."
-"io/crates/zerocopy)."
+"Si vous souhaitez simplement réinterpréter les octets comme un type différent, vous "
+"voudrez probablement [`std::mem::transmute`](https://doc.rust-lang.org/stable/std/mem/fn."
+"transmute.html) ou un wrapper sûr tel que la crate [`zerocopy`](https://crates.io/crates/"
+"zerocopy)."
 
 #: src/unsafe-rust/unsafe-functions.md
-#, fuzzy
 msgid ""
 "A function or method can be marked `unsafe` if it has extra preconditions you must uphold "
 "to avoid undefined behaviour."
 msgstr ""
-"Une fonction ou une méthode peut être marquée \"unsafe\" si elle a des conditions "
-"préalables supplémentaires que vous doit respecter pour éviter un comportement indéfini :"
+"Une fonction ou une méthode peut être qualifiée d'« insécurisée » si elle comporte des "
+"préconditions supplémentaires que vous devez respecter pour éviter un comportement "
+"indéfini."
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid "Unsafe functions may come from two places:"
-msgstr ""
+msgstr "Les dysfonctionnements peuvent provenir de deux sources :"
 
 #: src/unsafe-rust/unsafe-functions.md
-#, fuzzy
 msgid "Rust functions declared unsafe."
-msgstr "Appelez les fonctions Rust à partir d'autres langues."
+msgstr "Fonctions Rust déclarées non sécurisées."
 
 #: src/unsafe-rust/unsafe-functions.md
-#, fuzzy
 msgid "Unsafe foreign functions in `extern \"C\"` blocks."
-msgstr ""
-"Appelez les fonctions `unsafe`, y compris les fonctions `extern`. \\* Mettre en œuvre les "
-"traits \" non sécurisés \"."
+msgstr "Fonctions étrangères non sécurisées dans les blocs `extern \"C\"`."
 
 #: src/unsafe-rust/unsafe-functions.md
-#, fuzzy
 msgid "We will look at the two kinds of unsafe functions next."
-msgstr "Nous examinerons ensuite de meilleures options."
+msgstr "Nous allons maintenant examiner les deux types de fonctions non sécurisées."
 
 #: src/unsafe-rust/unsafe-functions/rust.md
-#, fuzzy
 msgid ""
 "You can mark your own functions as `unsafe` if they require particular preconditions to "
 "avoid undefined behaviour."
 msgstr ""
-"Vous pouvez marquer vos propres fonctions comme \"non sécurisées\" si elles nécessitent "
-"des conditions particulières pour éviter undefined comportement."
+"Vous pouvez marquer vos propres fonctions comme « non sécurisées » si elles nécessitent "
+"des préconditions particulières pour éviter un comportement indéfini."
 
 #: src/unsafe-rust/unsafe-functions/rust.md
 msgid ""
@@ -14067,42 +14208,52 @@ msgid ""
 "/// The pointers must be valid, properly aligned, and not otherwise accessed for\n"
 "/// the duration of the function call.\n"
 msgstr ""
+"/// Swaps the values pointed to by the given pointers.\n"
+"///\n"
+"/// # Safety\n"
+"///\n"
+"/// The pointers must be valid, properly aligned, and not otherwise accessed for\n"
+"/// the duration of the function call.\n"
 
 #: src/unsafe-rust/unsafe-functions/rust.md
 msgid ""
 "// SAFETY: Our caller promised that the pointers are valid, properly aligned\n"
 "    // and have no other access.\n"
 msgstr ""
+"// SAFETY: Our caller promised that the pointers are valid, properly aligned\n"
+"    // and have no other access.\n"
 
 #: src/unsafe-rust/unsafe-functions/rust.md
 msgid ""
 "// SAFETY: The pointers must be valid, aligned and unique because they came\n"
 "    // from references.\n"
 msgstr ""
+"// SAFETY: The pointers must be valid, aligned and unique because they came\n"
+"    // from references.\n"
 
 #: src/unsafe-rust/unsafe-functions/rust.md
 msgid "\"a = {}, b = {}\""
-msgstr ""
+msgstr "\"a = {}, b = {}\""
 
 #: src/unsafe-rust/unsafe-functions/rust.md
-#, fuzzy
 msgid ""
 "We wouldn't actually use pointers for a `swap` function --- it can be done safely with "
 "references."
 msgstr ""
-"Nous n'utiliserions pas de pointeurs pour cela car cela peut être fait en toute sécurité "
-"avec des références."
+"Nous n'utiliserions pas de pointeurs pour une fonction `swap` --- cela peut être fait en "
+"toute sécurité avec des références."
 
 #: src/unsafe-rust/unsafe-functions/rust.md
-#, fuzzy
 msgid ""
 "Note that Rust 2021 and earlier allow unsafe code within an unsafe function without an "
 "`unsafe` block. This changed in the 2024 edition. We can prohibit it in older editions "
 "with `#[deny(unsafe_op_in_unsafe_fn)]`. Try adding it and see what happens."
 msgstr ""
-"Notez que le code non sécurisé est autorisé dans une fonction non sécurisée sans bloc « "
-"non sécurisé ». Nous pouvons interdisez cela avec `#[deny(unsafe_op_in_unsafe_fn)]`. "
-"Essayez de l'ajouter et voyez ce qui se passe."
+"Notez que Rust 2021 et les versions antérieures autorisent le code non sécurisé à "
+"l'intérieur d'une fonction non sécurisée sans bloc `unsafe`. Ce comportement a été "
+"modifié dans l'édition 2024. Il est possible de l'interdire dans les éditions plus "
+"anciennes avec `#[deny(unsafe_op_in_unsafe_fn)]`. Essayez de l'ajouter et observez le "
+"résultat."
 
 #: src/unsafe-rust/unsafe-functions/extern-c.md
 msgid ""
@@ -14111,6 +14262,11 @@ msgid ""
 "in an `extern` block must be marked as `safe` or `unsafe`, depending on whether they have "
 "preconditions for safe use:"
 msgstr ""
+"Vous pouvez déclarer des fonctions externes accessibles depuis Rust avec `unsafe extern`. "
+"Cette pratique est considérée comme dangereuse car le compilateur ne peut pas prévoir "
+"leur comportement. Les fonctions déclarées dans un bloc `extern` doivent être marquées "
+"comme `safe` ou `unsafe`, selon qu'elles nécessitent ou non des prérequis pour une "
+"utilisation sûre."
 
 #: src/unsafe-rust/unsafe-functions/extern-c.md src/unsafe-rust/exercise.md
 #: src/unsafe-rust/solution.md src/android/interoperability/with-c.md
@@ -14122,11 +14278,11 @@ msgstr ""
 #: src/unsafe-deep-dive/ffi/abs.md src/unsafe-deep-dive/ffi/c-library-example.md
 #: src/unsafe-deep-dive/ffi/cpp-library-example.md
 msgid "\"C\""
-msgstr ""
+msgstr "\"C\""
 
 #: src/unsafe-rust/unsafe-functions/extern-c.md
 msgid "// `abs` doesn't deal with pointers and doesn't have any safety requirements.\n"
-msgstr ""
+msgstr "// `abs` doesn't deal with pointers and doesn't have any safety requirements.\n"
 
 #: src/unsafe-rust/unsafe-functions/extern-c.md
 msgid ""
@@ -14135,44 +14291,51 @@ msgid ""
 "    /// `s` must be a pointer to a NUL-terminated C string which is valid and\n"
 "    /// not modified for the duration of this function call.\n"
 msgstr ""
+"/// # Safety\n"
+"    ///\n"
+"    /// `s` must be a pointer to a NUL-terminated C string which is valid and\n"
+"    /// not modified for the duration of this function call.\n"
 
 #: src/unsafe-rust/unsafe-functions/extern-c.md
 msgid "\"Absolute value of -3 according to C: {}\""
-msgstr ""
+msgstr "\"Absolute value of -3 according to C: {}\""
 
 #: src/unsafe-rust/unsafe-functions/extern-c.md
 msgid ""
 "// SAFETY: We pass a pointer to a C string literal which is valid for\n"
 "        // the duration of the program.\n"
 msgstr ""
+"// SAFETY: We pass a pointer to a C string literal which is valid for\n"
+"        // the duration of the program.\n"
 
 #: src/unsafe-rust/unsafe-functions/extern-c.md
 msgid "\"String length: {}\""
-msgstr ""
+msgstr "\"String length: {}\""
 
 #: src/unsafe-rust/unsafe-functions/extern-c.md
 #: src/idiomatic/foundations-api-design/predictable-api/common-traits/clone.md
-#, fuzzy
 msgid "\"String\""
-msgstr "String"
+msgstr "\"String\""
 
 #: src/unsafe-rust/unsafe-functions/extern-c.md
 msgid ""
 "Rust used to consider all extern functions unsafe, but this changed in Rust 1.82 with "
 "`unsafe extern` blocks."
 msgstr ""
+"Auparavant, Rust considérait toutes les fonctions externes comme non sécurisées, mais "
+"cela a changé dans Rust 1.82 avec les blocs `unsafe extern`."
 
 #: src/unsafe-rust/unsafe-functions/extern-c.md
-#, fuzzy
 msgid ""
 "`abs` must be explicitly marked as `safe` because it is an external function (FFI). "
 "Calling external functions is only a problem when those functions do things with pointers "
 "which might violate Rust's memory model, but in general any C function might have "
 "undefined behaviour under any arbitrary circumstances."
 msgstr ""
-"Ce n'est généralement un problème que pour les fonctions externes qui font des choses "
-"avec des pointeurs qui pourraient violer le modèle de mémoire de Rust, mais en général, "
-"toute fonction C peut avoir un comportement indéfini sous n'importe quel circonstances "
+"La fonction `abs` doit être explicitement déclarée comme `safe` car il s'agit d'une "
+"fonction externe (FFI). L'appel de fonctions externes ne pose problème que lorsque ces "
+"fonctions manipulent des pointeurs, ce qui pourrait enfreindre le modèle mémoire de Rust. "
+"En général, toute fonction C peut avoir un comportement indéfini dans des circonstances "
 "arbitraires."
 
 #: src/unsafe-rust/unsafe-functions/extern-c.md
@@ -14180,30 +14343,37 @@ msgid ""
 "The `\"C\"` in this example is the ABI; [other ABIs are available too](https://doc.rust-"
 "lang.org/reference/items/external-blocks.html)."
 msgstr ""
+"Le « C » dans cet exemple est l’ABI ; [d’autres ABI sont également disponibles](https://"
+"doc.rust-lang.org/reference/items/external-blocks.html)."
 
 #: src/unsafe-rust/unsafe-functions/extern-c.md
 msgid ""
 "Note that there is no verification that the Rust function signature matches that of the "
 "function definition -- that's up to you!"
 msgstr ""
+"Notez qu'il n'y a aucune vérification que la signature de la fonction Rust corresponde à "
+"celle de la définition de la fonction -- c'est à vous de le faire !"
 
 #: src/unsafe-rust/unsafe-functions/calling.md
 msgid "Failing to uphold the safety requirements breaks memory safety!"
-msgstr ""
+msgstr "Le non-respect des exigences de sécurité compromet la sécurité de la mémoire !"
 
 #: src/unsafe-rust/unsafe-functions/calling.md
 msgid "// 8 bytes\n"
-msgstr ""
+msgstr "// 8 bytes\n"
 
 #: src/unsafe-rust/unsafe-functions/calling.md
 msgid "\"{pk:?}\""
-msgstr ""
+msgstr "\"{pk:?}\""
 
 #: src/unsafe-rust/unsafe-functions/calling.md
 msgid ""
 "Always include a safety comment for each `unsafe` block. It must explain why the code is "
 "actually safe. This example is missing a safety comment and is unsound."
 msgstr ""
+"Incluez toujours un commentaire de sécurité pour chaque bloc `unsafe`. Ce commentaire "
+"doit expliquer pourquoi le code est en réalité sûr. Cet exemple ne comporte pas de "
+"commentaire de sécurité et est donc incorrect."
 
 #: src/unsafe-rust/unsafe-functions/calling.md
 msgid ""
@@ -14211,12 +14381,17 @@ msgid ""
 "This example demonstrates unexpected behavior by reading past the end of one array and "
 "into another."
 msgstr ""
+"Le deuxième argument de `slice::from_raw_parts` est le nombre d'éléments, et non "
+"d'octets ! Cet exemple illustre un comportement inattendu en lisant au-delà de la fin "
+"d'un tableau et en poursuivant la lecture dans un autre."
 
 #: src/unsafe-rust/unsafe-functions/calling.md
 msgid ""
 "This is undefined behavior because we're reading past the end of the array that the "
 "pointer was derived from."
 msgstr ""
+"Il s'agit d'un comportement indéfini car nous lisons au-delà de la fin du tableau à "
+"partir duquel le pointeur a été dérivé."
 
 #: src/unsafe-rust/unsafe-functions/calling.md
 msgid ""
@@ -14224,41 +14399,47 @@ msgid ""
 "avoid undefined behaviour. A safe function which can cause undefined behaviour is said to "
 "be `unsound`. What should its safety documentation say?"
 msgstr ""
+"La fonction `log_public_key` devrait être considérée comme non sécurisée, car `pk_ptr` "
+"doit satisfaire certaines conditions préalables pour éviter un comportement indéfini. Une "
+"fonction sûre susceptible d'entraîner un comportement indéfini est dite « non fiable ». "
+"Que devrait indiquer sa documentation de sécurité ?"
 
 #: src/unsafe-rust/unsafe-functions/calling.md
 msgid ""
 "The standard library contains a number of low-level unsafe functions. Prefer the safe "
 "alternatives when possible!"
 msgstr ""
+"La bibliothèque standard contient plusieurs fonctions de bas niveau non sécurisées. "
+"Privilégiez les alternatives sécurisées lorsque c'est possible !"
 
 #: src/unsafe-rust/unsafe-functions/calling.md
 msgid ""
 "If you use an unsafe function as an optimization, make sure to add a benchmark to "
 "demonstrate the gain."
 msgstr ""
+"Si vous utilisez une fonction non sécurisée comme optimisation, veillez à ajouter un "
+"point de référence pour démontrer le gain."
 
 #: src/unsafe-rust/unsafe-traits.md
 msgid "Implementing Unsafe Traits"
 msgstr "Implémentation de traits non sécurisés"
 
 #: src/unsafe-rust/unsafe-traits.md
-#, fuzzy
 msgid ""
 "Like with functions, you can mark a trait as `unsafe` if the implementation must "
 "guarantee particular conditions to avoid undefined behaviour."
 msgstr ""
-"Comme avec les fonctions, vous pouvez marquer un trait comme \"non sécurisé\" si "
-"l'implémentation doit garantir conditions particulières pour éviter un comportement "
-"indéfini."
+"Comme pour les fonctions, vous pouvez marquer un trait comme `unsafe` si l'implémentation "
+"doit garantir des conditions particulières pour éviter un comportement indéfini."
 
 #: src/unsafe-rust/unsafe-traits.md
-#, fuzzy
 msgid ""
 "For example, the `zerocopy` crate has an unsafe trait that looks [something like this]"
 "(https://docs.rs/zerocopy/latest/zerocopy/trait.IntoBytes.html):"
 msgstr ""
-"Par exemple, la caisse \"zérocopie\" a un trait dangereux qui semble [quelque chose comme "
-"ça](https://docs.rs/zerocopy/latest/zerocopy/trait.AsBytes.html):"
+"Par exemple, la bibliothèque `zerocopy` possède un trait non sécurisé qui ressemble à "
+"ceci : [https://docs.rs/zerocopy/latest/zerocopy/trait.IntoBytes.html](https://docs.rs/"
+"zerocopy/latest/zerocopy/trait.IntoBytes.html) :"
 
 #: src/unsafe-rust/unsafe-traits.md
 msgid ""
@@ -14266,64 +14447,60 @@ msgid ""
 "/// # Safety\n"
 "/// The type must have a defined representation and no padding.\n"
 msgstr ""
+"/// ...\n"
+"/// # Safety\n"
+"/// The type must have a defined representation and no padding.\n"
 
 #: src/unsafe-rust/unsafe-traits.md
 msgid "// SAFETY: `u32` has a defined representation and no padding.\n"
-msgstr ""
+msgstr "// SAFETY: `u32` has a defined representation and no padding.\n"
 
 #: src/unsafe-rust/unsafe-traits.md
-#, fuzzy
 msgid ""
 "There should be a `# Safety` section on the Rustdoc for the trait explaining the "
 "requirements for the trait to be safely implemented."
 msgstr ""
-"Il devrait y avoir une section `# Sécurité` sur le Rustdoc pour le trait expliquant les "
-"exigences pour le trait à mettre en œuvre en toute sécurité."
+"Il devrait y avoir une section `# sAFETY` dans la documentation Rustdoc du trait "
+"expliquant les exigences pour que celui-ci puisse être implémenté en toute sécurité."
 
 #: src/unsafe-rust/unsafe-traits.md
-#, fuzzy
 msgid "The actual safety section for `IntoBytes` is rather longer and more complicated."
 msgstr ""
-"La section de sécurité actuelle pour `AsBytes` est plutôt plus longue et plus compliquée."
+"La section relative à la sécurité pour `IntoBytes` est en réalité beaucoup plus longue et "
+"complexe."
 
 #: src/unsafe-rust/unsafe-traits.md
-#, fuzzy
 msgid "The built-in `Send` and `Sync` traits are unsafe."
-msgstr "Les traits intégrés \"Envoyer\" et \"Synchroniser\" ne sont pas sûrs."
+msgstr "Les fonctionnalités intégrées `Send` et `Sync` ne sont pas sûres."
 
 #: src/unsafe-rust/exercise.md
 msgid "Safe FFI Wrapper"
-msgstr "Enveloppe FFI sécurisée"
+msgstr "FFI sûr"
 
 #: src/unsafe-rust/exercise.md
-#, fuzzy
 msgid ""
 "Rust has great support for calling functions through a _foreign function interface_ "
 "(FFI). We will use this to build a safe wrapper for the `libc` functions you would use "
 "from C to read the names of files in a directory."
 msgstr ""
-"Rust a un excellent support pour appeler des fonctions via une fonction _foreign "
-"interface_ (FFI). Nous allons l'utiliser pour construire un wrapper sûr pour la `libc` "
-"fonctions que vous utiliseriez à partir de C pour lire les noms de fichiers d'un "
+"Rust offre une excellente prise en charge des appels de fonctions via une interface de "
+"fonction étrangère (FFI). Nous l'utiliserons pour créer une interface sécurisée pour les "
+"fonctions de la `libc` que vous utiliseriez en C pour lire les noms de fichiers dans un "
 "répertoire."
 
 #: src/unsafe-rust/exercise.md
-#, fuzzy
 msgid "You will want to consult the manual pages:"
-msgstr "Vous voudrez consulter les pages de manuel :"
+msgstr "Vous voudrez consulter les pages du manuel :"
 
 #: src/unsafe-rust/exercise.md
-#, fuzzy
 msgid "[`opendir(3)`](https://man7.org/linux/man-pages/man3/opendir.3.html)"
 msgstr "[`opendir(3)`](https://man7.org/linux/man-pages/man3/opendir.3.html)"
 
 #: src/unsafe-rust/exercise.md
-#, fuzzy
 msgid "[`readdir(3)`](https://man7.org/linux/man-pages/man3/readdir.3.html)"
 msgstr "[`readdir(3)`](https://man7.org/linux/man-pages/man3/readdir.3.html)"
 
 #: src/unsafe-rust/exercise.md
-#, fuzzy
 msgid "[`closedir(3)`](https://man7.org/linux/man-pages/man3/closedir.3.html)"
 msgstr "[`closedir(3)`](https://man7.org/linux/man-pages/man3/closedir.3.html)"
 
@@ -14332,118 +14509,139 @@ msgid ""
 "You will also want to browse the [`std::ffi`](https://doc.rust-lang.org/std/ffi/) module. "
 "There you find a number of string types which you need for the exercise:"
 msgstr ""
+"Vous voudrez également consulter le module [`std::ffi`](https://doc.rust-lang.org/std/"
+"ffi/). Vous y trouverez plusieurs types de chaînes de caractères dont vous aurez besoin "
+"pour cet exercice :"
 
 #: src/unsafe-rust/exercise.md
 msgid "Encoding"
-msgstr ""
+msgstr "Encodage"
 
 #: src/unsafe-rust/exercise.md
 msgid "Use"
-msgstr ""
+msgstr "Use"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "[`str`](https://doc.rust-lang.org/std/primitive.str.html) and [`String`](https://doc.rust-"
 "lang.org/std/string/struct.String.html)"
 msgstr ""
+"[`str`](https://doc.rust-lang.org/std/primitive.str.html) et [`String`](https://doc.rust-"
+"lang.org/std/string/struct.String.html)"
 
 #: src/unsafe-rust/exercise.md
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: src/unsafe-rust/exercise.md
 msgid "Text processing in Rust"
-msgstr ""
+msgstr "Traitement de texte en Rust"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "[`CStr`](https://doc.rust-lang.org/std/ffi/struct.CStr.html) and [`CString`](https://doc."
 "rust-lang.org/std/ffi/struct.CString.html)"
 msgstr ""
+"[`CStr`](https://doc.rust-lang.org/std/ffi/struct.CStr.html) et [`CString`](https://doc."
+"rust-lang.org/std/ffi/struct.CString.html)"
 
 #: src/unsafe-rust/exercise.md
 msgid "NUL-terminated"
-msgstr ""
+msgstr "terminé par NUL"
 
 #: src/unsafe-rust/exercise.md
 msgid "Communicating with C functions"
-msgstr ""
+msgstr "Communication avec les fonctions C"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "[`OsStr`](https://doc.rust-lang.org/std/ffi/struct.OsStr.html) and [`OsString`](https://"
 "doc.rust-lang.org/std/ffi/struct.OsString.html)"
 msgstr ""
+"[`OsStr`](https://doc.rust-lang.org/std/ffi/struct.OsString.html) et [`OsString`](https://"
+"doc.rust-lang.org/std/ffi/struct.OsString.html)"
 
 #: src/unsafe-rust/exercise.md
 msgid "OS-specific"
-msgstr ""
+msgstr "spécifique au système d'exploitation"
 
 #: src/unsafe-rust/exercise.md
 msgid "Communicating with the OS"
-msgstr ""
+msgstr "Communication avec le système d'exploitation"
 
 #: src/unsafe-rust/exercise.md
 msgid "You will convert between all these types:"
-msgstr ""
+msgstr "Vous effectuerez des conversions entre tous ces types :"
 
 #: src/unsafe-rust/exercise.md
 msgid "`&str` to `CString`: you need to allocate space for a trailing `\\0` character,"
 msgstr ""
+"`&str` vers `CString` : vous devez allouer de l’espace pour un caractère `\\0` final,"
 
 #: src/unsafe-rust/exercise.md
 msgid "`CString` to `*const c_char`: you need a pointer to call C functions,"
 msgstr ""
+"Conversion de `CString` en `*const c_char` : vous avez besoin d’un pointeur pour appeler "
+"des fonctions C."
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "`*const c_char` to `&CStr`: you need something which can find the trailing `\\0` "
 "character,"
 msgstr ""
+"`*const c_char` vers `&CStr` : vous avez besoin de quelque chose qui puisse trouver le "
+"caractère `\\0` final,"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "`&CStr` to `&[u8]`: a slice of bytes is the universal interface for \"some unknown data\","
 msgstr ""
+"`&CStr` à `&[u8]` : une tranche d'octets est l'interface universelle pour « des données "
+"inconnues »,"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "`&[u8]` to `&OsStr`: `&OsStr` is a step towards `OsString`, use [`OsStrExt`](https://doc."
 "rust-lang.org/std/os/unix/ffi/trait.OsStrExt.html) to create it,"
 msgstr ""
+"`&[u8]` vers `&OsStr` : `&OsStr` est une étape vers `OsString`, utilisez [`OsStrExt`]"
+"(https://doc.rust-lang.org/std/os/unix/ffi/trait.OsStrExt.html) pour le créer,"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "`&OsStr` to `OsString`: you need to clone the data in `&OsStr` to be able to return it "
 "and call `readdir` again."
 msgstr ""
+"`&OsStr` vers `OsString` : vous devez cloner les données dans `&OsStr` pour pouvoir les "
+"renvoyer et appeler à nouveau `readdir`."
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "The [Nomicon](https://doc.rust-lang.org/nomicon/ffi.html) also has a very useful chapter "
 "about FFI."
 msgstr ""
+"Le [Nomicon](https://doc.rust-lang.org/nomicon/ffi.html) contient également un chapitre "
+"très utile sur FFI."
 
 #: src/unsafe-rust/exercise.md
-#, fuzzy
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and fill in the missing functions "
 "and methods:"
 msgstr ""
-"Copiez le code ci-dessous sur <https://play.rust-lang.org/> et remplissez les champs "
-"manquants fonctions et méthodes :"
+"Copiez le code ci-dessous dans <https://play.rust-lang.org/> et complétez les fonctions "
+"et méthodes manquantes :"
 
 #: src/unsafe-rust/exercise.md
 msgid "// TODO: remove this when you're done with your implementation.\n"
-msgstr ""
+msgstr "// TODO: remove this when you're done with your implementation.\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "\"macos\""
-msgstr ""
+msgstr "\"macos\""
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "// Opaque type. See https://doc.rust-lang.org/nomicon/ffi.html.\n"
-msgstr ""
+msgstr "// Opaque type. See https://doc.rust-lang.org/nomicon/ffi.html.\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid ""
@@ -14451,14 +14649,17 @@ msgid ""
 "    // off_t are resolved according to the definitions in\n"
 "    // /usr/include/x86_64-linux-gnu/{sys/types.h, bits/typesizes.h}.\n"
 msgstr ""
+"// Layout according to the Linux man page for readdir(3), where ino_t and\n"
+"    // off_t are resolved according to the definitions in\n"
+"    // /usr/include/x86_64-linux-gnu/{sys/types.h, bits/typesizes.h}.\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "// Layout according to the macOS man page for dir(5).\n"
-msgstr ""
+msgstr "// Layout according to the macOS man page for dir(5).\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "\"x86_64\""
-msgstr ""
+msgstr "\"x86_64\""
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid ""
@@ -14468,33 +14669,40 @@ msgid ""
 "        // \"Platforms that existed before these updates were available\" refers\n"
 "        // to macOS (as opposed to iOS / wearOS / etc.) on Intel and PowerPC.\n"
 msgstr ""
+"// See https://github.com/rust-lang/libc/issues/414 and the section on\n"
+"        // _DARWIN_FEATURE_64_BIT_INODE in the macOS man page for stat(2).\n"
+"        //\n"
+"        // \"Platforms that existed before these updates were available\" refers\n"
+"        // to macOS (as opposed to iOS / wearOS / etc.) on Intel and PowerPC.\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "\"readdir$INODE64\""
-msgstr ""
+msgstr "\"readdir$INODE64\""
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid ""
 "// Call opendir and return a Ok value if that worked,\n"
 "        // otherwise return Err with a message.\n"
 msgstr ""
+"// Call opendir and return a Ok value if that worked,\n"
+"        // otherwise return Err with a message.\n"
 
 #: src/unsafe-rust/exercise.md
 msgid "// Keep calling readdir until we get a NULL pointer back.\n"
-msgstr ""
+msgstr "// Keep calling readdir until we get a NULL pointer back.\n"
 
 #: src/unsafe-rust/exercise.md
 msgid "// Call closedir as needed.\n"
-msgstr ""
+msgstr "// Call closedir as needed.\n"
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 #: src/android/interoperability/with-c/rust-library.md
 msgid "\".\""
-msgstr ""
+msgstr "\".\""
 
 #: src/unsafe-rust/exercise.md src/unsafe-rust/solution.md
 msgid "\"files: {:#?}\""
-msgstr ""
+msgstr "\"files: {:#?}\""
 
 #: src/unsafe-rust/exercise.md
 msgid ""
@@ -14502,114 +14710,134 @@ msgid ""
 "lang/rust-bindgen), rather than being written manually as we are doing here. However, "
 "bindgen can't run in an online playground."
 msgstr ""
+"Le code de liaison FFI est généralement généré par des outils comme [bindgen](https://"
+"github.com/rust-lang/rust-bindgen), plutôt que d'être écrit manuellement comme nous le "
+"faisons ici. Cependant, bindgen ne peut pas être exécuté dans un environnement de test en "
+"ligne."
 
 #: src/unsafe-rust/solution.md
 msgid "\"Invalid path: {err}\""
-msgstr ""
+msgstr "\"Invalid path: {err}\""
 
 #: src/unsafe-rust/solution.md
 msgid "// SAFETY: path.as_ptr() cannot be NULL.\n"
-msgstr ""
+msgstr "// SAFETY: path.as_ptr() cannot be NULL.\n"
 
 #: src/unsafe-rust/solution.md
 msgid "\"Could not open {path:?}\""
-msgstr ""
+msgstr "\"Could not open {path:?}\""
 
 #: src/unsafe-rust/solution.md
 msgid ""
 "// Keep calling readdir until we get a NULL pointer back.\n"
 "        // SAFETY: self.dir is never NULL.\n"
 msgstr ""
+"// Keep calling readdir until we get a NULL pointer back.\n"
+"        // SAFETY: self.dir is never NULL.\n"
 
 #: src/unsafe-rust/solution.md
 msgid "// We have reached the end of the directory.\n"
-msgstr ""
+msgstr "// We have reached the end of the directory.\n"
 
 #: src/unsafe-rust/solution.md
 msgid ""
 "// SAFETY: dirent is not NULL and dirent.d_name is NUL\n"
 "        // terminated.\n"
 msgstr ""
+"// SAFETY: dirent is not NULL and dirent.d_name is NUL\n"
+"        // terminated.\n"
 
 #: src/unsafe-rust/solution.md
 msgid ""
 "// Call closedir as needed.\n"
 "        // SAFETY: self.dir is never NULL.\n"
 msgstr ""
+"// Call closedir as needed.\n"
+"        // SAFETY: self.dir is never NULL.\n"
 
 #: src/unsafe-rust/solution.md
 msgid "\"Could not close {:?}\""
-msgstr ""
+msgstr "\"Could not close {:?}\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"no-such-directory\""
-msgstr ""
+msgstr "\"no-such-directory\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"Non UTF-8 character in path\""
-msgstr ""
+msgstr "\"Non UTF-8 character in path\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"..\""
-msgstr ""
+msgstr "\"..\""
 
 #: src/unsafe-rust/solution.md src/idiomatic/leveraging-the-type-system/raii/drop_option.md
 msgid "\"foo.txt\""
-msgstr ""
+msgstr "\"foo.txt\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"The Foo Diaries\\n\""
-msgstr ""
+msgstr "\"The Foo Diaries\\n\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"bar.png\""
-msgstr ""
+msgstr "\"bar.png\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"<PNG>\\n\""
-msgstr ""
+msgstr "\"<PNG>\\n\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"crab.rs\""
-msgstr ""
+msgstr "\"crab.rs\""
 
 #: src/unsafe-rust/solution.md
 msgid "\"//! Crab\\n\""
-msgstr ""
+msgstr "\"//! Crab\\n\""
 
 #: src/unsafe-rust/solution.md
 msgid ""
 "**Safety Comments:** Each `unsafe` block is preceded by a `// SAFETY:` comment explaining "
 "why the operation is safe. This is standard practice in Rust to aid auditing."
 msgstr ""
+"**Commentaires de sécurité :** Chaque bloc `unsafe` est précédé d'un commentaire `// "
+"SAFETY:` expliquant pourquoi l'opération est sûre. Il s'agit d'une pratique courante en "
+"Rust pour faciliter les audits."
 
 #: src/unsafe-rust/solution.md
 msgid "**String conversions:** The code demonstrates the conversions required for FFI:"
-msgstr ""
+msgstr "**String conversions:** The code demonstrates the conversions required for FFI:"
 
 #: src/unsafe-rust/solution.md
 msgid "`&str` -> `CString`: To create a null-terminated string for C."
 msgstr ""
+"`&str` -> `CString` : Pour créer une chaîne de caractères terminée par un caractère nul "
+"pour C."
 
 #: src/unsafe-rust/solution.md
 msgid "`CString` -> `*const c_char`: To pass the pointer to C."
-msgstr ""
+msgstr "`CString` -> `*const c_char`: Pour passer le pointeur à C."
 
 #: src/unsafe-rust/solution.md
 msgid "`*const c_char` -> `&CStr`: To wrap the returned C string."
-msgstr ""
+msgstr "`*const c_char` -> `&CStr`: Pour encapsuler la chaîne C renvoyée."
 
 #: src/unsafe-rust/solution.md
 msgid ""
 "`&CStr` -> `&[u8]` -> `&OsStr` -> `OsString`: To convert the bytes back to a Rust OS "
 "string."
 msgstr ""
+"`&CStr` -> `&[u8]` -> `&OsStr` -> `OsString`: Pour reconvertir les octets en une chaîne "
+"de caractères du système d'exploitation Rust."
 
 #: src/unsafe-rust/solution.md
 msgid ""
 "**RAII (`Drop`):** We implement `Drop` to call `closedir` automatically when the iterator "
 "goes out of scope. This ensures we don't leak file descriptors."
 msgstr ""
+"**RAII (`Drop`) :** Nous implémentons `Drop` pour appeler automatiquement `closedir` "
+"lorsque l'itérateur sort de sa portée. Cela nous permet d'éviter les fuites de "
+"descripteurs de fichiers."
 
 #: src/unsafe-rust/solution.md
 msgid ""
@@ -14617,16 +14845,23 @@ msgid ""
 "idiomatic interface (`next` returns `Option<OsString>`) to the underlying unsafe C "
 "functions."
 msgstr ""
+"**Interface d'itérateur :** Nous encapsulons l'API C dans un `Itérateur` Rust, "
+"fournissant une interface sûre et idiomatique (`next` renvoie `Option<OsString>`) aux "
+"fonctions C sous-jacentes non sécurisées."
 
 #: src/unsafe-rust/solution.md
 msgid ""
 "Explain that `CString` owns the data (like `String`), while `CStr` is a borrowed "
 "reference (like `&str`)."
 msgstr ""
+"Expliquez que `CString` possède les données (comme `String`), tandis que `CStr` est une "
+"référence empruntée (comme `&str`)."
 
 #: src/unsafe-rust/solution.md
 msgid "The `OsStrExt` trait is needed on Unix systems to convert bytes directly to `OsStr`."
 msgstr ""
+"Le trait `OsStrExt` est nécessaire sur les systèmes Unix pour convertir directement les "
+"octets en `OsStr`."
 
 #: src/android.md
 #, fuzzy
