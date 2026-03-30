@@ -15,7 +15,7 @@ Derivable: ✅
 
 When to implement: If possible, but with caveats.
 
-```rust
+```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

@@ -13,7 +13,7 @@ Below are the signatures for the
 [`drop()`](https://doc.rust-lang.org/std/mem/fn.drop.html) and
 [`forget()`](https://doc.rust-lang.org/std/mem/fn.forget.html) functions:
 
-```rust
+```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

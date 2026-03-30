@@ -11,7 +11,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 Peeling back safe abstractions on heap data.
 
-```rust,compile_fail
+```rust,compile_fail,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

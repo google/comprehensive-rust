@@ -12,7 +12,7 @@ SPDX-License-Identifier: CC-BY-4.0
 Special case of `into`: for exclusive pointer types or newtypes, extract the
 internal value.
 
-```rust,compile_fail
+```rust,compile_fail,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

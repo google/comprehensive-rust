@@ -12,7 +12,7 @@ SPDX-License-Identifier: CC-BY-4.0
 1. What do these names imply they do?
 2. What should we name these signatures?
 
-```rust,compile_fail
+```rust,compile_fail,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
