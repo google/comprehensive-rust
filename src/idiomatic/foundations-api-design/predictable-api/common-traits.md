@@ -9,7 +9,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Common Traits to Implement
 
-```rust
+```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

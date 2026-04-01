@@ -16,7 +16,7 @@ Derivable: ❌, without crates like `derive_more`.
 When to implement: As-needed, for errors and other types that an end-user will
 see.
 
-```rust
+```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

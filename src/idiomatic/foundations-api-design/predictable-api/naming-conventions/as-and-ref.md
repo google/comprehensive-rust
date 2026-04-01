@@ -17,7 +17,7 @@ prefer `as`.)
 Most commonly return references, but can also return a custom borrowing type or
 an unsafe pointer.
 
-```rust,compile_fail
+```rust,compile_fail,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

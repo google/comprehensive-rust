@@ -14,7 +14,7 @@ valid states and transitions without duplicating logic. This approach is
 especially useful when the number of states grows or when multiple states share
 behavior but differ in structure.
 
-```rust
+```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

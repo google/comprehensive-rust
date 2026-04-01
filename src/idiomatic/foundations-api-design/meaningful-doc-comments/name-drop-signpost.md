@@ -9,7 +9,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Name-dropping keywords and signposting topics
 
-```rust
+```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

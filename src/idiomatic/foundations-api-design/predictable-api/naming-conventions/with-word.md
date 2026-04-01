@@ -13,7 +13,7 @@ Sometimes a `with` is just a `with`.
 
 `with` when used in common English contexts.
 
-```rust,compile_fail
+```rust,compile_fail,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

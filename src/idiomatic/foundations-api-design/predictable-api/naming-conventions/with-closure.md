@@ -11,7 +11,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 `with` as in "do X, but with this specific way of computing things."
 
-```rust,compile_fail
+```rust,compile_fail,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

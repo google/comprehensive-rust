@@ -15,7 +15,7 @@ Derivable: ✅
 
 When to implement: If duplicating doesn't break invariants.
 
-```rust
+```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

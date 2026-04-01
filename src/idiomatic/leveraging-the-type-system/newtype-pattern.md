@@ -11,7 +11,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 A _newtype_ is a wrapper around an existing type, often a primitive:
 
-```rust
+```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
@@ -21,7 +21,7 @@ pub struct UserId(u64);
 
 Unlike type aliases, newtypes aren't interchangeable with the wrapped type:
 
-```rust,compile_fail
+```rust,compile_fail,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
@@ -36,7 +36,7 @@ triple(UserId(1)); // 🛠️❌
 The Rust compiler won't let you use methods or operators defined on the
 underlying type either:
 
-```rust,compile_fail
+```rust,compile_fail,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
