@@ -14,7 +14,8 @@
 // limitations under the License.
 
 use aarch64_rt::{ExceptionHandlers, RegisterStateRef, exception_handlers};
-use arm_gic::gicv3::{GicCpuInterface, InterruptGroup};
+use arm_gic::InterruptGroup;
+use arm_gic::gicv3::GicCpuInterface;
 use log::{error, info, trace};
 use smccc::Hvc;
 use smccc::psci::system_off;

@@ -32,10 +32,11 @@ use aarch64_paging::descriptor::El1Attributes;
 use aarch64_rt::{InitialPagetable, entry, initial_pagetable};
 use arm_gic::gicv3::registers::{Gicd, GicrSgi};
 use arm_gic::gicv3::{GicCpuInterface, GicV3};
-use arm_pl011_uart::{PL011Registers, Uart, UniqueMmioPointer};
+use arm_pl011_uart::{PL011Registers, Uart};
 use core::panic::PanicInfo;
 use core::ptr::NonNull;
 use log::{LevelFilter, error, info, trace};
+use safe_mmio::UniqueMmioPointer;
 use smccc::Hvc;
 use smccc::psci::system_off;
 
