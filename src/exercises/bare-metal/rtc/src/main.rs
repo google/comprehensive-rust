@@ -28,7 +28,7 @@ use arm_gic::{IntId, Trigger, irq_enable, wfi};
 use chrono::{TimeZone, Utc};
 use core::hint::spin_loop;
 // ANCHOR: imports
-use aarch64_paging::descriptor::Attributes;
+use aarch64_paging::descriptor::El1Attributes;
 use aarch64_rt::{InitialPagetable, entry, initial_pagetable};
 use arm_gic::gicv3::registers::{Gicd, GicrSgi};
 use arm_gic::gicv3::{GicCpuInterface, GicV3};
@@ -48,17 +48,17 @@ const PL011_BASE_ADDRESS: NonNull<PL011Registers> =
     NonNull::new(0x900_0000 as _).unwrap();
 
 /// Attributes to use for device memory in the initial identity map.
-const DEVICE_ATTRIBUTES: Attributes = Attributes::VALID
-    .union(Attributes::ATTRIBUTE_INDEX_0)
-    .union(Attributes::ACCESSED)
-    .union(Attributes::UXN);
+const DEVICE_ATTRIBUTES: El1Attributes = El1Attributes::VALID
+    .union(El1Attributes::ATTRIBUTE_INDEX_0)
+    .union(El1Attributes::ACCESSED)
+    .union(El1Attributes::UXN);
 
 /// Attributes to use for normal memory in the initial identity map.
-const MEMORY_ATTRIBUTES: Attributes = Attributes::VALID
-    .union(Attributes::ATTRIBUTE_INDEX_1)
-    .union(Attributes::INNER_SHAREABLE)
-    .union(Attributes::ACCESSED)
-    .union(Attributes::NON_GLOBAL);
+const MEMORY_ATTRIBUTES: El1Attributes = El1Attributes::VALID
+    .union(El1Attributes::ATTRIBUTE_INDEX_1)
+    .union(El1Attributes::INNER_SHAREABLE)
+    .union(El1Attributes::ACCESSED)
+    .union(El1Attributes::NON_GLOBAL);
 
 initial_pagetable!({
     let mut idmap = [0; 512];
