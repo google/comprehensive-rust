@@ -15,16 +15,16 @@ Check a condition about a datatype.
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-impl <T> Vec<T> {
-    is_empty(&self) -> bool;
+impl<T> Vec<T> {
+    fn is_empty(&self) -> bool;
 }
 
 impl f32 {
-    is_nan(self) -> bool;
+    fn is_nan(self) -> bool;
 }
 
 impl u32 {
-    is_power_of_two(self) -> bool;
+    fn is_power_of_two(self) -> bool;
 }
 ```
 

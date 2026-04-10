@@ -16,12 +16,11 @@ method name.
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-impl <T> Vec<T> {
-    // Creates an empty vec.
+impl<T> Vec<T> {
     fn new() -> Vec<T>;
 }
 
-impl <T> Box<T> {
+impl<T> Box<T> {
     fn new(T) -> Box<T>;
 }
 ```

@@ -33,11 +33,13 @@ When to implement: Almost always.
 #[derive(PartialEq, Eq)]
 pub struct User { name: String, favorite_number: i32 }
 
-let alice = User { name: "alice".to_string(), favorite_number: 1_000_042 };
-let bob = User { name: "bob".to_string(), favorite_number: 42 };
+fn main() {
+    let alice = User { name: "alice".to_string(), favorite_number: 1_000_042 };
+    let bob = User { name: "bob".to_string(), favorite_number: 42 };
 
-dbg!(alice == alice);
-dbg!(alice == bob);
+    dbg!(alice == alice);
+    dbg!(alice == bob);
+}
 ```
 
 <details>

@@ -22,8 +22,15 @@ When to implement: If possible, but with caveats.
 // Copy is just a marker trait with Clone as a supertrait.
 // pub trait Copy: Clone { }
 
-#[derive(Clone, Copy)]
+#[derive(Debug, Clone, Copy)]
 pub struct Copyable(u8, u16, u32, u64);
+
+fn main() {
+    let copyable = Copyable(1, 2, 3, 4);
+    let copy = copyable; // Implicit copy operation
+    dbg!(copyable);
+    dbg!(copy);
+}
 ```
 
 <details>

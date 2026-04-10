@@ -29,12 +29,18 @@ When to implement: Almost always.
 //        where H: Hasher,
 //              Self: Sized { ... }
 // }
+use std::collections::HashMap;
 
-#[derive(Hash)]
+#[derive(PartialEq, Eq, Hash)]
 pub struct User {
     id: u32,
     name: String,
-    friends: Vec<u32>,
+}
+
+fn main() {
+    let user = User { id: 1, name: "Alice".into() };
+    let mut map = HashMap::new();
+    map.insert(user, "value");
 }
 ```
 

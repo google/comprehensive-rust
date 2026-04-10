@@ -17,12 +17,15 @@ this is in cryptography: A "Nonce."
 # // SPDX-License-Identifier: Apache-2.0
 #
 pub struct Key(/* specifics omitted */);
+
 /// A single-use number suitable for cryptographic purposes.
 pub struct Nonce(u32);
+
 /// A cryptographically sound random generator function.
 pub fn new_nonce() -> Nonce {
     Nonce(4) // chosen by a fair dice roll, https://xkcd.com/221/
 }
+
 /// Consume a nonce, but not the key or the data.
 pub fn encrypt(nonce: Nonce, key: &Key, data: &[u8]) {}
 

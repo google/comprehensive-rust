@@ -22,8 +22,8 @@ fn parse_ip_addr_v4(input: &str) -> Option<IpAddrV4> { ... }
 
 // Repeats information obvious from the field name. Can omit!
 struct BusinessAsset {
-  /// The customer id.
-  let customer_id: u64,
+    /// The customer id.
+    customer_id: u64,
 }
 
 // Mentions the type name first thing, don't do this!
