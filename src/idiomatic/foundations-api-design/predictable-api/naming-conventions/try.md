@@ -17,11 +17,12 @@ Prefix for fallible methods that return a `Result`.
 #
 impl TryFrom<i32> for u32 {
     type Error = TryFromIntError;
+
     fn try_from(value: i32) -> Result<i64, TryFromIntError>;
 }
 
 impl<T> Receiver<T> {
-    try_recv(&self) -> Result<T, TryRecvError>;
+    fn try_recv(&self) -> Result<T, TryRecvError>;
 }
 ```
 

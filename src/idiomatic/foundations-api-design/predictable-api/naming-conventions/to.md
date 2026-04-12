@@ -16,15 +16,14 @@ Prefix to a function that takes a borrowed value and creates an owned value
 # // SPDX-License-Identifier: Apache-2.0
 #
 impl str {
-    // &str is not consumed.
-    fn to_owned(&str) -> String;
+    fn to_owned(&self) -> String;
 
     fn to_uppercase(&self) -> String;
 }
 
 impl u32 {
-    // take an owned self because `u32` implements `Copy`
-    to_be(self) -> u32;
+    // Take an owned self because `u32` implements `Copy`
+    fn to_be(self) -> u32;
 }
 ```
 

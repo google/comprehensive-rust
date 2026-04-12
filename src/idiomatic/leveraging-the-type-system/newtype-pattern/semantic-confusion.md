@@ -17,16 +17,19 @@ unclear:
 # // SPDX-License-Identifier: Apache-2.0
 #
 # struct LoginError;
-pub fn login(username: &str, password: &str) -> Result<(), LoginError> {
+fn login(username: &str, password: &str) -> Result<(), LoginError> {
     // [...]
     # Ok(())
 }
 
-# let password = "password";
-# let username = "username";
-// In another part of the codebase, we swap arguments by mistake.
-// Bug (best case), security vulnerability (worst case)
-login(password, username);
+fn main() {
+    let password = "password";
+    let username = "username";
+
+    // In another part of the codebase, we swap arguments by mistake.
+    // Bug (best case), security vulnerability (worst case)
+    login(password, username);
+}
 ```
 
 The newtype pattern can prevent this class of errors at compile time:
@@ -35,18 +38,20 @@ The newtype pattern can prevent this class of errors at compile time:
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-pub struct Username(String);
-pub struct Password(String);
-# struct LoginError;
+struct Username(String);
+struct Password(String);
+struct LoginError;
 
-pub fn login(username: &Username, password: &Password) -> Result<(), LoginError> {
+fn login(username: &Username, password: &Password) -> Result<(), LoginError> {
     // [...]
     # Ok(())
 }
 
-# let password = Password("password".into());
-# let username = Username("username".into());
-login(password, username); // 🛠️❌
+fn main() {
+    let password = Password("password".into());
+    let username = Username("username".into());
+    login(password, username); // 🛠️❌
+}
 ```
 
 <details>

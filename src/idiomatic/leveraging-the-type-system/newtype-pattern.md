@@ -25,12 +25,15 @@ Unlike type aliases, newtypes aren't interchangeable with the wrapped type:
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-# pub struct UserId(u64);
-fn triple(n: u64) -> u64 {
-    n * 3
+pub struct UserId(u64);
+
+fn needs_user(user: UserId) {
+    // ...
 }
 
-triple(UserId(1)); // 🛠️❌
+fn main() {
+    needs_user(1); // 🛠️❌
+}
 ```
 
 The Rust compiler won't let you use methods or operators defined on the
@@ -40,8 +43,11 @@ underlying type either:
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-# pub struct UserId(u64);
-assert_ne!(UserId(1), UserId(2)); // 🛠️❌
+pub struct UserId(u64);
+
+fn main() {
+    assert_ne!(UserId(1), UserId(2)); // 🛠️❌
+}
 ```
 
 <details>

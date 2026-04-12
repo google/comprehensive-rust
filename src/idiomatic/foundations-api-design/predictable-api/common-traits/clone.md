@@ -36,17 +36,21 @@ pub struct LotsOfData {
     set: BTreeSet<u8>,
 }
 
-let lots_of_data = LotsOfData {
-    string: "String".to_string(),
-    vec: vec![1; 255],
-    set: BTreeSet::from_iter([1, 2, 3, 4, 5, 6, 7, 8]),
-};
+fn main() {
+    let lots_of_data = LotsOfData {
+        string: "String".to_string(),
+        vec: vec![1; 255],
+        set: BTreeSet::from_iter([1, 2, 3, 4, 5, 6, 7, 8]),
+    };
 
-let lots_of_data_cloned = lots_of_data.clone();
+    // Deep copy of all of the data in `lots_of_data`.
+    let lots_of_data_cloned = lots_of_data.clone();
 
-let reference_counted = Rc::new(lots_of_data);
-// Copies the reference-counted pointer, not the value.
-let reference_copied = reference_counted.clone();
+    let reference_counted = Rc::new(lots_of_data);
+
+    // Copies the reference-counted pointer, not the value.
+    let reference_copied = reference_counted.clone();
+}
 ```
 
 <details>
