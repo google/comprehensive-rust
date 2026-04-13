@@ -72,7 +72,7 @@ fn main() {
   lifetimes have a common shorter lifetime (AKA being subtyped).
 
 - Note: This slide compiles, by the end of this slide it should only compile
-  when `subtyped_lifetimes` is commented out.
+  when `try_coerce_lifetimes` is commented out.
 
 - There are two important parts of this code:
   - The `impl for<'a>` bound on the closure passed to `lifetime_separator`.

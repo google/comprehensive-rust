@@ -60,8 +60,8 @@ fn main() {
   fails, the file will still be cleaned up. This ordering is essential for
   correctness.
 
-- The `guard()` creates a `ScopeGuard` instance. It a user-defined value (in
-  this case, `path`) and the cleanup closure that later receives this value.
+- The `guard()` creates a `ScopeGuard` instance. It takes a user-defined value
+  (in this case, `path`) and the cleanup closure that later receives this value.
 
 - The guard's closure runs on scope exit unless it is _defused_ with
   `ScopeGuard::into_inner` (removing the value so the guard does nothing on
@@ -75,8 +75,7 @@ fn main() {
 
 - This pattern is also useful when you don't control the cleanup strategy of the
   resource object. In this example, `File::drop()` closes the file but does not
-  delete it, and we can't change the standard library to delete the file instead
-  (nor should we, it is not a good idea anyway).
+  delete it.
 
 - The `scopeguard` crate also supports cleanup strategies via the
   [`Strategy`](https://docs.rs/scopeguard/latest/scopeguard/trait.Strategy.html)
