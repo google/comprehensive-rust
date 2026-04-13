@@ -58,4 +58,8 @@ fn main() {
 - Types that implement `Display` automatically have `ToString` implemented for
   them.
 
+- Compare the behavior of `Debug` and `Display` for our example error type. Show
+  that the `Debug` impl more directly represents the data as it appears in code,
+  whereas `Display` provides a more friendly message to non-programmers.
+
 </details>
