@@ -27,6 +27,7 @@ impl<T> Receiver<T> {
 ```
 
 <details>
+
 - Prefix for methods that can fail, returning a `Result`.
 
 - `TryFrom` is a `From`-like trait for types whose single-value constructors

@@ -29,11 +29,11 @@ impl u32 {
 ```
 
 <details>
+
 - A boolean condition on a value.
 
-- `is` prefix is preferred over methods with `not` in the name.
-
-  There are no instances of `is_not_` in standard library methods, just use
+- `is` prefix is preferred over methods with `not` in the name. There are no
+  instances of `is_not_` in standard library methods, just use
   `!value.is_[condition]`.
 
 </details>

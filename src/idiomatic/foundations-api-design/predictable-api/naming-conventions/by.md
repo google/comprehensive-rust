@@ -16,50 +16,27 @@ Component for methods that take a custom projection or comparison function.
 # // SPDX-License-Identifier: Apache-2.0
 #
 impl<T> [T] {
-    // Simplified
+    fn sort(&mut self) where T: Ord;
+
     fn sort_by(&mut self, compare: impl FnMut(&T, &T) -> Ordering);
 
-    // Uses a predicate to determine what items end up in non-overlapping chunks.
-    fn chunk_by_mut<F: FnMut(&T, &T) -> bool>(
-        &mut self,
-        pred: F,
-    ) -> ChunkByMut<'_, T, F>;
-}
-
-trait Iterator {
-    // Provided method of Iterator. Simplified.
-    fn min_by<F>(
-        self,
-        compare: impl FnMut(&Self::Item, &Self::Item) -> Ordering,
-    ) -> Option<Self::Item>;
+    fn sort_by_key<K, F>(&mut self, f: F)
+    where
+        F: FnMut(&T) -> K,
+        K: Ord;
 }
 ```
 
 <details>
-- Method will take a comparison or projection function.
 
-A projection function here being a function that, given a reference to a value
-that exists in the data structure, will compute a value to perform the principle
-computation with.
+- `sort_by` takes a custom comparator function that replaces the normal `Ord`
+  comparison logic.
 
-Methods like `sort_by_key` allow us to sort by _the hash function I've passed to
-the method_ or sort by _this specific field of the data in the slice_.
+- `sort_by_key` takes a projection function that takes the original element and
+  returns an alternate value to use for sorting. This allow us to do things like
+  sort by a particular field of a struct.
 
-For example, if you have a slice of values of some data structure you might want
-to sort them by a field of that data structure, or even a hash value of that
-data.
-
-`sort_by` takes a comparator function directly.
-
-- Most often seen in methods that sort or otherwise manipulate a slice with a
-  custom sort or comparison function rather than by the `Ord` implementation of
-  the type itself.
-
-- Sometimes the "by" preposition is simply a preposition.
-
-  "by", like some other name components, may end up in a method name for normal
-  linguistic reasons rather than holding specific naming convention semantic
-  weight.
+- Sometimes the "by" preposition is simply a preposition:
 
   - [`Read::by_ref()`](https://doc.rust-lang.org/std/io/trait.Read.html#method.by_ref)
 
