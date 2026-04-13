@@ -48,12 +48,12 @@ pub enum MarcError {}
 - Motivation: Readers of documentation will not be closely reading most of your
   doc comments like they would dialogue in a novel they love.
 
-Users will most likely be skimming and scan-reading to find the part of the
-documentation that is relevant to whatever problem they're trying to solve in
-the moment.
+  Users will most likely be skimming and scan-reading to find the part of the
+  documentation that is relevant to whatever problem they're trying to solve in
+  the moment.
 
-Once a user has found a keyword or potential signpost that's relevant to them
-they will begin to search for context surrounding what is being documented.
+  Once a user has found a keyword or potential signpost that's relevant to them
+  they will begin to search for context surrounding what is being documented.
 
 - Ask the class: What do you look for in documentation? Focus on the
   moment-to-moment searching for information here, not general values in
