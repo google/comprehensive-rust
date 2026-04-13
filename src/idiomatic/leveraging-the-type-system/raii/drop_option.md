@@ -21,55 +21,47 @@ impl File {
     }
 
     fn write(&mut self, data: &str) -> std::io::Result<()> {
+        // We have to go through the `Option` to get the `Handle`
+        // before we can use it.
         let handle = self.0.as_ref().unwrap();
         println!("write '{data}' to file '{}'", handle.path);
         Ok(())
-    }
-
-    fn close(mut self) -> std::io::Result<&'static str> {
-        Ok(self.0.take().unwrap().path)
     }
 }
 
 impl Drop for File {
     fn drop(&mut self) {
-        if let Some(handle) = self.0.take() {
-            println!("automatically closing handle for file: {}", handle.path);
-        }
+        let handle = self.0.take().unwrap();
+        handle.close();
     }
 }
 
 struct Handle {
     path: &'static str,
 }
-impl Drop for Handle {
-    fn drop(&mut self) {
-        println!("closed handle for file: {}", self.path)
+
+impl Handle {
+    fn close(self) {
+        println!("Closing {}", self.path);
     }
 }
 
 fn main() -> std::io::Result<()> {
     let mut file = File::open("foo.txt")?;
     file.write("hello")?;
-    println!("manually closed file: {}", file.close()?);
     Ok(())
 }
 ```
 
 <details>
 
-- In this example we want to let the user call `close()` manually so that errors
-  from closing the file can be reported explicitly.
+- In this example we want to call `close` on the inner `Handle` in our `Drop`
+  impl, but `close` requires ownership of the `Handle`. We can't do this
+  normally, because we don't get ownership of the `File` object in `drop`, and
+  therefore can't move out of the field.
 
-- At the same time we still want RAII semantics: if the user forgets to call
-  `close()`, the handle must be cleaned up automatically in `Drop`.
-
-- Wrapping the handle in an `Option` gives us both behaviors. `close()` extracts
-  the handle with `take()`, and `Drop` only runs cleanup if a handle is still
-  present.
-
-  Demo: remove the `.close()` call and run the code — `Drop` now prints the
-  automatic cleanup.
+- Wrapping the handle in an `Option` gives us a way to move out of the field
+  through a mutable reference.
 
 - The main downside is ergonomics. `Option` forces us to handle both the `Some`
   and `None` case even in places where, logically, `None` cannot occur. Rust’s
