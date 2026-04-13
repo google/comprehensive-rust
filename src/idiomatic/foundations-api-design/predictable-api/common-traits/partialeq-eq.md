@@ -7,29 +7,16 @@ Copyright 2025 Google LLC
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-PartialEq and Eq
+# PartialEq and Eq
 
 Partial equality & Total equality.
 
 Derivable: ✅
 
-When to implement: Almost always.
-
 ```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-// pub trait PartialEq<Rhs = Self>
-//{
-//    // Required method
-//     fn eq(&self, other: &Rhs) -> bool;
-// 
-//     // Provided method
-//     fn ne(&self, other: &Rhs) -> bool { ... }
-// }
-//
-// pub trait Eq: PartialEq { }
-
 #[derive(PartialEq, Eq)]
 pub struct User { name: String, favorite_number: i32 }
 
@@ -43,7 +30,9 @@ fn main() {
 ```
 
 <details>
-- Equality-related methods. If a type implements `PartialEq`/`Eq` then you can use the `==` operator with that type.
+
+- Equality-related methods. If a type implements `PartialEq` then you can use
+  the `==`/`!=` operator with that type.
 
 - A type can't implement `Eq` without implementing `PartialEq`.
 
@@ -56,7 +45,7 @@ fn main() {
   For example, with floating point values `NaN` is an outlier: `NaN == NaN` is
   false, despite bitwise equality.
 
-  `PartialEq` exists to separate types like f32/f64 from types with Total
+  `PartialEq` exists to separate types like `f32`/`f64` from types with Total
   Equality.
 
 - You can implement `PartialEq` between different types, but this is mostly

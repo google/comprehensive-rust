@@ -13,9 +13,6 @@ SPDX-License-Identifier: CC-BY-4.0
 
 Derivable: ❌, without crates like `derive_more`.
 
-When to implement: As-needed, for errors and other types that an end-user will
-see.
-
 ```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
@@ -37,16 +34,23 @@ impl std::fmt::Display for NetworkError {
     }
 }
 
-impl std::error::Error for NetworkError {}
+fn main() {
+    let http = NetworkError::HttpCode(404);
+    let whale = NetworkError::WhaleBitTheUnderseaCable;
+
+    println!("http debug: {:?}", http);
+    println!("http display: {}", http);
+    println!("whale debug: {:?}", whale);
+    println!("whale display: {}", whale);
+}
 ```
 
 <details>
+
 - A trait similar to `Debug`, but with a focus on end-user readability.
 
-- Prerequisite for the `Error` trait.
-
-  If implementing for an error type, focus on providing a descriptive error for
-  users and programmers other than you.
+- Prerequisite for the `Error` trait. If implementing for an error type, focus
+  on providing a descriptive error for users and programmers other than you.
 
 - Same security considerations as Debug, consider the ways that sensitive data
   could be exposed in UI or logs.

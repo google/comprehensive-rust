@@ -13,22 +13,10 @@ Performing a hash on a type.
 
 Derivable: ✅
 
-When to implement: Almost always.
-
 ```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-// pub trait Hash {
-//     // Required method
-//     fn hash<H>(&self, state: &mut H)
-//        where H: Hasher;
-//
-//     // Provided method
-//     fn hash_slice<H>(data: &[Self], state: &mut H)
-//        where H: Hasher,
-//              Self: Sized { ... }
-// }
 use std::collections::HashMap;
 
 #[derive(PartialEq, Eq, Hash)]
@@ -45,8 +33,14 @@ fn main() {
 ```
 
 <details>
-- Allows a type to be used in hash algorithms.
 
-- Most commonly used with data structures like `HashMap`.
+- Allows a type to be used in hash algorithms, most commonly used with data
+  structures like `HashMap`.
+
+- Makes it very easy for us to use custom types as the keys in a `HashMap`!
+
+- `Hash` doesn't define any of the hashing logic itself, instead it just feeds
+  the type's data into a `Hasher`. This allows us to use different hash
+  algorithms without changing a type's `Hash` impl.
 
 </details>
