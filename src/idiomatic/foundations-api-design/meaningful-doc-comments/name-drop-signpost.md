@@ -13,10 +13,12 @@ SPDX-License-Identifier: CC-BY-4.0
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-/// A parsed representation of a MARC 21 record
-/// [leader](//www.loc.gov/marc/bibliographic/bdleader.html).  
+/// A parsed representation of a [MARC 21 record leader][leader].
+///
 /// A MARC leader contains metadata that dictates how to interpret the rest  
 /// of the record.
+///
+/// [leader]: https://www.loc.gov/marc/bibliographic/bdleader.html
 pub struct Leader {
     /// Determines the schema and the set of valid subsequent data fields.  
     ///
@@ -31,10 +33,12 @@ pub struct Leader {
     // ... other fields
 }
 
-/// Parses the [leader of a MARC 21 record](https://www.loc.gov/marc/bibliographic/bdleader.html).  
+/// Parses the [leader of a MARC 21 record][leader].
 ///  
 /// The leader is encoded as a fixed-length 24-byte field, containing metadata  
 /// that determines the semantic interpretation of the rest of the record.  
+/// 
+/// [leader]: https://www.loc.gov/marc/bibliographic/bdleader.html
 pub fn parse_leader(leader_bytes: &[u8; 24]) -> Result<Leader, MarcError> {
     todo!()
 }
