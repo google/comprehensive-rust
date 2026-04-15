@@ -13,44 +13,43 @@ Conversion from one type to another.
 
 Derivable: ❌, without crates like `derive_more`.
 
-When to implement: As-needed and convenient.
-
 ```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-pub struct ObviousImplementation(String);
+pub struct Wrapper(String);
 
-impl From<String> for ObviousImplementation {
-    fn from(value: String) -> Self {
-        ObviousImplementation(value)
-    }
-}
-
-impl From<&str> for ObviousImplementation {
+impl From<&str> for Wrapper {
     fn from(value: &str) -> Self {
-        ObviousImplementation(value.to_owned())
+        Wrapper(value.to_owned())
     }
 }
+
+impl From<i32> for Wrapper {
+    fn from(value: i32) -> Self {
+        Wrapper(value.to_string())
+    }
+}
+
+// `Into` is more natural to use as a trait bound.
+fn into_string<S: Into<String>>(s: S) {}
+fn string_from<T>(t: T) where String: From<T> {}
 
 fn main() {
-    // From String
-    let obvious1 = ObviousImplementation::from("Hello, obvious!".to_string());
-    // From &str
-    let obvious2 = ObviousImplementation::from("Hello, obvious!");
-    // A From implementation implies an Into implementation, &str.into() ->
-    // ObviousImplementation
-    let obvious3: ObviousImplementation = "Hello, implementation!".into();
+    // `Wrapper` can be construct from `&str` and `i32`.
+    let a = Wrapper::from("Hello, obvious!");
+    let b = Wrapper::from(-123);
+
+    // A From implementation implies an Into implementation.
+    let c: Wrapper = "Hello, implementation!".into();
 }
 ```
 
 <details>
+
 - Provides conversion functionality to types.
 
-- The two traits exist to express different areas you'll find conversion in
-  codebases.
-
-- `From` provides a constructor-style function, whereas into provides a method
+- `From` provides a constructor-style function, whereas `Into` provides a method
   on an existing value.
 
 - Prefer writing `From<T>` implementations for a type you're authoring instead
@@ -59,9 +58,8 @@ fn main() {
   The `Into` trait is implemented for any type that implements `From`
   automatically.
 
-  `Into` is preferred as a trait bound for arguments to functions for clarity of
-  intent for what the function can take.
-
-  `T: Into<String>` has clearer intent than `String: From<T>`.
+- `Into` is preferred as a trait bound for arguments to functions for clarity of
+  intent for what the function can take: `T: Into<String>` has clearer intent
+  than `String: From<T>`.
 
 </details>

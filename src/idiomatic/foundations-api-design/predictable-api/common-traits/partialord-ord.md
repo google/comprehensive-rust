@@ -13,26 +13,10 @@ Partial ordering & Total ordering.
 
 Derivable: ✅
 
-When to implement: Almost always.
-
 ```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-// pub trait PartialOrd<Rhs = Self>: PartialEq<Rhs>
-// {
-//     // Required method
-//     fn partial_cmp(&self, other: &Rhs) -> Option<Ordering>;
-//
-//     /* Provided methods omitted */
-// }
-// pub trait Ord: Eq + PartialOrd {
-//     // Required method
-//     fn cmp(&self, other: &Self) -> Ordering;
-//
-//     /* Provided methods omitted */
-// }
-
 #[derive(PartialEq, PartialOrd)]
 pub struct Partially(f32);
 
@@ -41,12 +25,23 @@ pub struct Totally {
     id: u32,
     name: String,
 }
+
+fn main() {
+    let a = Totally { id: 0, name: "alice".into() };
+    let b = Totally { id: 1, name: "alice".into() };
+    let c = Totally { id: 0, name: "charlie".into() };
+
+    dbg!(a.cmp(&b));
+    dbg!(a.cmp(&c));
+}
 ```
 
 <details>
-- Comparison-related methods. If a type implements `PartialOrd`/`Ord` then you can use comparison operators (`<`, `<=`, `>`, `>=`) with that type.
 
-`Ord` gives access to `min`, `max`, and `clamp` methods.
+- Comparison-related methods. If a type implements `PartialOrd`/`Ord` then you
+  can use comparison operators (`<`, `<=`, `>`, `>=`) with that type.
+
+- `Ord` gives access to `min`, `max`, and `clamp` methods.
 
 - When derived, compares things in the order they are defined.
 
