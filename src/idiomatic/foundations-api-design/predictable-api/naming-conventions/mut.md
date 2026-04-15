@@ -16,25 +16,25 @@ Suffix for access-style methods.
 # // SPDX-License-Identifier: Apache-2.0
 #
 impl<T> Vec<T> {
-    // Simplified
+    fn get(&self, index: usize) -> Option<&T>;
     fn get_mut(&mut self, index: usize) -> Option<&mut T>;
 }
 
 impl<T> [T] {
-    // Simplified
+    fn iter(&self) -> impl Iterator<Item = &T>;
     fn iter_mut(&mut self) -> impl Iterator<Item = &mut T>;
-}
-
-impl str {
-    fn from_utf8_mut(v: &mut [u8]) -> Result<&mut str, Utf8Error>;
 }
 ```
 
 <details>
-- Mut for Mutability
 
 - Suffix that signifies the method gives access to a mutable reference.
 
-  Requires mutable access to the value you're calling this method on.
+- Requires mutable access to the value you're calling this method on.
+
+- Rust can't abstract over mutability, so there's no way to write a method that
+  can be used both mutably and immutably. Instead, we write pairs of functions,
+  where the immutable version gets the shorter name and the mutable version gets
+  the `_mut` suffix.
 
 </details>
