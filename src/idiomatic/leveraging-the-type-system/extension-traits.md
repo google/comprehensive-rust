@@ -9,7 +9,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Extension Traits
 
-It may desirable to **extend** foreign types with new inherent methods. For
+It may desirable to **extend** foreign types with new methods. For
 example, allow your code to check if a string is a palindrome using
 method-calling syntax: `s.is_palindrome()`.
 

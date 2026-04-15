@@ -487,7 +487,7 @@ SPDX-License-Identifier: CC-BY-4.0
 - [Leveraging the Type System](idiomatic/leveraging-the-type-system.md)
   - [Newtype Pattern](idiomatic/leveraging-the-type-system/newtype-pattern.md)
     - [Semantic Confusion](idiomatic/leveraging-the-type-system/newtype-pattern/semantic-confusion.md)
-    - [Parse, Don't Validate](idiomatic/leveraging-the-type-system/newtype-pattern/parse-don-t-validate.md)
+    - [Enforce Invariants](idiomatic/leveraging-the-type-system/newtype-pattern/parse-don-t-validate.md)
     - [Is It Encapsulated?](idiomatic/leveraging-the-type-system/newtype-pattern/is-it-encapsulated.md)
   - [RAII](idiomatic/leveraging-the-type-system/raii.md)
     - [Drop Skipped](idiomatic/leveraging-the-type-system/raii/drop_skipped.md)
