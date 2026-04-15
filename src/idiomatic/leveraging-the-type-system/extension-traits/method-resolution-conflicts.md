@@ -64,20 +64,8 @@ fn main() {
   a method they're relying on is not producing expected behavior. Avoid name
   conflicts instead of relying on this mechanism if you can.
 
-  Demonstrate: Change the signature and implementation of
-  `CountOnesExt::count_ones` to `fn count_ones(&mut self) -> u32` and modify the
-  invocation accordingly:
-
-  ```rust
-  # // Copyright 2025 Google LLC
-  # // SPDX-License-Identifier: Apache-2.0
-  #
-  assert_eq!((&mut -1i32).count_ones(), 32);
-  ```
-
-  `CountOnesExt::count_ones` is invoked, rather than the inherent method, since
-  `&mut self` has a higher priority than `&self`, the one used by the inherent
-  method.
+  Demonstrate: Change the call to `(&-1i32).count_ones()` and demonstrate that
+  the trait method is now called instead.
 
   If an immutable inherent method and a mutable trait method exist for the same
   type, we can specify which one to use at the call site by using
