@@ -30,22 +30,6 @@ We now have all the tools needed to implement the methods for the `Serializer`
 and its state type definitions. This ensures that our API only permits valid
 transitions, as illustrated in the following diagram:
 
-Diagram of valid transitions:
-
-```bob
-    +-----------+   +---------+------------+-----+
-    |           |   |         |            |     |
-    V           |   V         |            V     |
-                +                                |
-serializer --> structure --> property --> list +-+
-
-    |           |   ^           |          ^
-    V           |   |           |          |
-                |   +-----------+          |
-  String        |                          |
-                +--------------------------+
-```
-
 <details>
 
 - By leveraging generics to track the parent context, we can construct
