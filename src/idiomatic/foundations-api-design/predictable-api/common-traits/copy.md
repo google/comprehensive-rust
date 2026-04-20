@@ -40,7 +40,7 @@ fn main() {
 - Has the same caveat as `Clone`: If duplicating the values would break an
   invariant, the type shouldn't implement `Copy`.
 
-- Always derive `Clone` and `Copy` together! Do NOT manually implement `Clone`
+- Always derive `Clone` and `Copy` together! Do _not_ manually implement `Clone`
   when implementing `Copy`.
 
   - Copy operations do not invoke the `clone` method, so a custom `Clone` impl
