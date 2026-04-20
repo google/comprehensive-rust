@@ -31,7 +31,7 @@ a positive RoI.
   did they have.
 
 - Fundamental library code often has elaborate documentation, for example, the
-  standard library, highly reusable frameworks like serde and tokio. Teams
+  standard library, highly reusable frameworks like Serde and Tokio. Teams
   responsible for this code often have appropriate resources to write and
   maintain elaborate documentation.
 
