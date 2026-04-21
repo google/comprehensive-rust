@@ -29,7 +29,8 @@ impl u32 {
 
 <details>
 
-- Methods that create a new owned value without consuming `self`, and imply a type conversion, are named starting with `to`.
+- Methods that create a new owned value without consuming `self`, and imply a
+  type conversion, are named starting with `to`.
 
 - Methods that start with "to" return a different type, and strongly imply a
   non-trivial type conversion, or even a data transformation. For example,

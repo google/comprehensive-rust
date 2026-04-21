@@ -34,9 +34,9 @@ impl<T> Option<T> {
 - The borrowing relationship is most often straightforward: the return value is
   a reference that borrows `self`.
 
-- The returned value could borrow `self` only logically, for example,
-  `as_ptr()` methods return an unsafe pointer. The borrow checker does not
-  track borrowing for pointers.
+- The returned value could borrow `self` only logically, for example, `as_ptr()`
+  methods return an unsafe pointer. The borrow checker does not track borrowing
+  for pointers.
 
 - The type implementing an "as" method should contain one primary piece of data
   that is being borrowed out.
