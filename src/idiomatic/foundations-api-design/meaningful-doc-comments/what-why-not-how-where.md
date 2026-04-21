@@ -57,8 +57,8 @@ pub fn save_user(user: &User) -> Result<(), db::Error> {
   likely due to whatever effects or invariants the user of that API needs to be
   aware of instead.
 
-  Focus on those effects and invariants instead of the implementation
-  details themselves.
+  Focus on those effects and invariants instead of the implementation details
+  themselves.
 
   Reiterate: Implementation details can and will change, so do not explain these
   details.

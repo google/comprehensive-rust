@@ -90,7 +90,6 @@ fn sync_to_server(...)
   For example, if your function returns `Result`, you don't need to explain how
   `Result` or the question mark operators work.
 
-
 ## More to Explore
 
 - The `#![warn(missing_docs)]` lint can be helpful for enforcing the existence
