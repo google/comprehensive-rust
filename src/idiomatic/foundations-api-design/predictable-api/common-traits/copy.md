@@ -50,21 +50,21 @@ fn main() {
 
 - Cannot be implemented on types with `Drop` or non-`Copy` fields.
 
-  - Ask the class: Why can't a type with heap data (`Vec`, `BTreeMap`, `Rc`, etc.) be
-    `Copy`?
+  - Ask the class: Why can't a type with heap data (`Vec`, `BTreeMap`, `Rc`,
+    etc.) be `Copy`?
 
-    Bitwise copying on these types would mean types with heap data would no longer
-    have exclusive ownership of a pointer, breaking the invariants usually upheld
-    by Rust and its ecosystem.
+    Bitwise copying on these types would mean types with heap data would no
+    longer have exclusive ownership of a pointer, breaking the invariants
+    usually upheld by Rust and its ecosystem.
 
     Multiple `Vec`s would point to the same data in memory. Adding and removing
-    data would only update individual `Vec`s length and capacity values. The same
-    for `BTreeMap`.
+    data would only update individual `Vec`s length and capacity values. The
+    same for `BTreeMap`.
 
-    Bitwise copying of `Rc`s would not update the reference counting value within
-    the pointers, meaning there could be two instances of a `Rc` value that
-    believe themselves to be the only `Rc` for that pointer. Once one of them is
-    destroyed, the reference count will become 0 on one of them and the inner
-    value dropped despite there being another `Rc` still alive.
+    Bitwise copying of `Rc`s would not update the reference counting value
+    within the pointers, meaning there could be two instances of a `Rc` value
+    that believe themselves to be the only `Rc` for that pointer. Once one of
+    them is destroyed, the reference count will become 0 on one of them and the
+    inner value dropped despite there being another `Rc` still alive.
 
 </details>
