@@ -20,7 +20,7 @@ Fill in the missing pieces.
 # // SPDX-License-Identifier: Apache-2.0
 #
 {{#include exercise.rs:Package}}
-{{#include exercise.rs:as_dependency}}
+{{#include exercise.rs:to_dependency}}
         todo!("1")
     }
 }
