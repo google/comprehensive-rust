@@ -34,6 +34,19 @@ import subprocess
 import sys
 
 
+def md_to_html_redirect_source(md_file):
+    return md_file.replace("src/", "", 1).replace(".md", ".html")
+
+
+def html_redirect_target_to_md(redirect_source, redirect_target):
+    redirect_source_directory = os.path.join("src",
+                                             os.path.dirname(redirect_source))
+    redirect_target_md_file = redirect_target.replace(".html", ".md")
+    return os.path.normpath(
+        os.path.join(redirect_source_directory, redirect_target_md_file))
+
+
+
 def main():
     if len(sys.argv) != 3:
         print(
@@ -65,9 +78,6 @@ def main():
         if f.startswith("src/") and f.endswith(".md")
     ]
 
-    if not deleted_files:
-        sys.exit(0)
-
     # Read book.toml and extract redirects
     book_toml_path = "book.toml"
     if not os.path.exists(book_toml_path):
@@ -77,7 +87,7 @@ def main():
     with open(book_toml_path, "r") as f:
         lines = f.readlines()
 
-    redirects = set()
+    redirects = {}
     in_redirect_section = False
     for line in lines:
         line = line.strip()
@@ -93,9 +103,21 @@ def main():
 
         if in_redirect_section:
             # Entry looks like "old.html" = "new.html" or "old.html" = "/new"
-            if "=" in line:
-                key = line.split("=")[0].strip().strip("\"'")
-                redirects.add(key)
+            parts = line.split("=")
+            if len(parts) != 2:
+                print("Invalid redirect: {line}")
+
+            key = parts[0].strip().strip("\"'")
+            value = parts[1].strip().strip("\"'")
+            redirects[key] = value
+
+    invalid_redirect_entries = []
+    for redirect_source, redirect_target in redirects.items():
+        redirect_target_md = html_redirect_target_to_md(
+            redirect_source, redirect_target)
+        if not os.path.exists(redirect_target_md):
+            invalid_redirect_entries.append(
+                (redirect_source, redirect_target, redirect_target_md))
 
     missing_redirects = []
     for md_file in deleted_files:
@@ -106,15 +128,26 @@ def main():
         if html_file not in redirects:
             missing_redirects.append(md_file)
 
+    if invalid_redirect_entries:
+        print(
+            "The following redirect entries in book.toml have invalid target paths:"
+        )
+        for redirect_source, redirect_target, redirect_target_md in invalid_redirect_entries:
+            print(
+                f"{redirect_source} -> {redirect_target}: could not find {redirect_target_md}"
+            )
+
+        print()
+
     if missing_redirects:
         print(
             "The following deleted files are missing a redirect entry in book.toml:"
         )
         for f in missing_redirects:
             print(f)
-        sys.exit(1)
 
-    sys.exit(0)
+    ret = 1 if invalid_redirect_entries or missing_redirects else 0
+    sys.exit(ret)
 
 
 if __name__ == "__main__":
