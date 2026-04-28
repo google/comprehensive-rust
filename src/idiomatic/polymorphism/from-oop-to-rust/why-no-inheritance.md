@@ -57,8 +57,8 @@ impl SomeTrait for Data {
   interchangeably, without being able to specify a concrete type or if a type is
   identical to another.
 
-  For operations like equality, comparison this allows for comparison and
-  equality that throws and error or otherwise panics.
+  For operations like equality or comparison this allows for comparison and
+  equality that throws an error or otherwise panics.
 
 - Multiple sources of truth for what makes up a data structure and how it
   behaves:
