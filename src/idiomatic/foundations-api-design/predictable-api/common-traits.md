@@ -22,7 +22,10 @@ pub struct MyData {
 ```
 
 <details>
-- Traits are one of the most potent tools in the Rust language. The language and ecosystem expects you to use them, and so a big part of _predictability_ is what traits are implemented for a type!
+
+- Traits are one of the most potent tools in the Rust language. The language and
+  ecosystem expects you to use them, and so a big part of _predictability_ is
+  what traits are implemented for a type!
 
 - Traits should be liberally implemented on types you author, but there are
   caveats!
