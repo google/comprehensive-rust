@@ -30,8 +30,8 @@ a positive RoI.
   who wrote it, for whom, and what material it is covering, and what resources
   did they have.
 
-- Fundamental library code often has Elaborate documentation, for example, the
-  standard library, highly reusable frameworks like serde and tokio. Teams
+- Fundamental library code often has elaborate documentation, for example, the
+  standard library, highly reusable frameworks like Serde and Tokio. Teams
   responsible for this code often have appropriate resources to write and
   maintain elaborate documentation.
 

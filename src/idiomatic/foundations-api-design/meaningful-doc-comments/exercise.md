@@ -22,12 +22,6 @@ fn sort_quickly<T: Ord>(to_sort: &mut [T]) { ... }
 
 <details>
 
-- Consider the example here, we discussed in
-  [what and why, not how and where](what-why-not-how-where.md) that internal
-  details are unlikely relevant to someone reading documentation.
-
-  Here we're discussing a counterexample.
-
 - Ask the class: Is this comment necessary for this function?
 
 - Narrative: Playing the part of an intermediary between the class and the

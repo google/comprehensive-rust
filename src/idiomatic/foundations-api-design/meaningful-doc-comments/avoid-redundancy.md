@@ -48,8 +48,8 @@ fn sync_to_server(...)
 - Motivation: Documentation that merely repeats name/signature information
   provides nothing new to the API user.
 
-Additionally, signature information may change over time without the
-documentation being updated accordingly!
+  Additionally, signature information may change over time without the
+  documentation being updated accordingly!
 
 - This is an understandable pattern to fall into!
 
@@ -83,19 +83,12 @@ documentation being updated accordingly!
   Rule of Thumb: What information is missing from a user's perspective? Other
   than name, signature, and irrelevant details of the implementation.
 
-- Don't explain the basics of Rust or the standard library. Assume the reader of
-  doc comments has an intermediate understanding of the language itself. Focus
-  on documenting your API.
+- Don't explain the basics of Rust or the standard library. Assume the reader
+  has an intermediate understanding of the language itself. Focus on documenting
+  your API.
 
   For example, if your function returns `Result`, you don't need to explain how
   `Result` or the question mark operators work.
-
-- If there is a complex topic involved with the functions and types you're
-  documenting, signpost to a "source of truth" if one exists such as an internal
-  document, a paper, a blog post etc.
-
-- Collaborate with Students: Go through the methods in the slide and discuss
-  what might be relevant to an API user.
 
 ## More to Explore
 
