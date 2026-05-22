@@ -46,7 +46,6 @@ def html_redirect_target_to_md(redirect_source, redirect_target):
         os.path.join(redirect_source_directory, redirect_target_md_file))
 
 
-
 def main():
     if len(sys.argv) != 3:
         print(
