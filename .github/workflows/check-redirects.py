@@ -33,6 +33,20 @@ import os
 import subprocess
 import sys
 
+# NOTE: Update INVALID_FILE_EXTENSION_ERROR if ALLOWED_REDIRECT_EXTENSIONS is modified
+ALLOWED_REDIRECT_EXTENSIONS = [".html", ""]
+INVALID_FILE_EXTENSION_ERROR = f'Invalid file extension. Path must be a directory or a file ending in ".html".'
+
+
+class InvalidRedirectEntry:
+
+    def __init__(self, line, error):
+        self.line = line
+        self.error = error
+
+    def __str__(self):
+        return f"{self.line} ({self.error})"
+
 
 def md_to_html_redirect_source(md_file):
     return md_file.replace("src/", "", 1).replace(".md", ".html")
@@ -86,6 +100,7 @@ def main():
     with open(book_toml_path, "r") as f:
         lines = f.readlines()
 
+    invalid_redirect_entries = []
     redirects = {}
     in_redirect_section = False
     for line in lines:
@@ -104,19 +119,37 @@ def main():
             # Entry looks like "old.html" = "new.html" or "old.html" = "/new"
             parts = line.split("=")
             if len(parts) != 2:
-                print("Invalid redirect: {line}")
+                invalid_redirect_entries.append(
+                    InvalidRedirectEntry(line, 'Only one "=" expected'))
+                continue
 
-            key = parts[0].strip().strip("\"'")
-            value = parts[1].strip().strip("\"'")
-            redirects[key] = value
+            redirect_source = parts[0].strip().strip("\"'")
+            redirect_target = parts[1].strip().strip("\"'")
 
-    invalid_redirect_entries = []
-    for redirect_source, redirect_target in redirects.items():
-        redirect_target_md = html_redirect_target_to_md(
-            redirect_source, redirect_target)
-        if not os.path.exists(redirect_target_md):
-            invalid_redirect_entries.append(
-                (redirect_source, redirect_target, redirect_target_md))
+            _, redirect_source_extension = os.path.splitext(redirect_source)
+            _, redirect_target_extension = os.path.splitext(redirect_target)
+
+            if (redirect_source_extension not in ALLOWED_REDIRECT_EXTENSIONS
+                    or redirect_target_extension
+                    not in ALLOWED_REDIRECT_EXTENSIONS):
+                invalid_redirect_entries.append(
+                    InvalidRedirectEntry(
+                        line,
+                        INVALID_FILE_EXTENSION_ERROR,
+                    ))
+                continue
+
+            redirect_target_md = html_redirect_target_to_md(
+                redirect_source, redirect_target)
+            if not os.path.exists(redirect_target_md):
+                invalid_redirect_entries.append(
+                    InvalidRedirectEntry(
+                        line,
+                        f"{redirect_source} -> {redirect_target}: could not find {redirect_target_md}"
+                    ))
+                continue
+
+            redirects[redirect_source] = redirect_target
 
     missing_redirects = []
     for md_file in deleted_files:
@@ -128,13 +161,10 @@ def main():
             missing_redirects.append(md_file)
 
     if invalid_redirect_entries:
-        print(
-            "The following redirect entries in book.toml have invalid target paths:"
-        )
-        for redirect_source, redirect_target, redirect_target_md in invalid_redirect_entries:
-            print(
-                f"{redirect_source} -> {redirect_target}: could not find {redirect_target_md}"
-            )
+        print("The following redirect entries in book.toml are invalid:")
+
+        for invalid_redirect_entry in invalid_redirect_entries:
+            print(invalid_redirect_entry)
 
         print()
 
