@@ -71,6 +71,9 @@ Install `dprint` using their
 [installation instructions](https://dprint.dev/install/) and install `rustfmt`
 via `rustup`.
 
+Install Bazel via the
+[Bazelisk version manager](https://github.com/bazelbuild/bazelisk).
+
 Install [pandoc 3.7.0.1](https://github.com/jgm/pandoc/releases/tag/3.7.0.1).
 
 On Debian, you can install the other tools using:
@@ -84,7 +87,7 @@ sudo apt install yapf3 gettext texlive texlive-luatex texlive-lang-cjk texlive-l
 On MacOS with [Homebrew], you can install the necessary tools with:
 
 ```shell
-brew install dprint yapf gettext
+brew install dprint yapf gettext bazelisk
 ```
 
 ### Windows
@@ -94,6 +97,9 @@ On Windows, you can should install [Gettext tools for Windows].
 Install `dprint` using their
 [installation instructions](https://dprint.dev/install/) and install `rustfmt`
 via `rustup`.
+
+Install Bazel via the
+[Bazelisk version manager](https://github.com/bazelbuild/bazelisk).
 
 > _TODO: fill in how to install `yapf` on Windows._
 

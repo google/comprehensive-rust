@@ -1,0 +1,18 @@
+load("@crates//:defs.bzl", "all_crate_deps")
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_library")
+
+rust_library(
+    name = "mdbook-exerciser-lib",
+    srcs = ["src/lib.rs"],
+    crate_name = "mdbook_exerciser",
+    deps = all_crate_deps(normal = True),
+)
+
+rust_binary(
+    name = "mdbook-exerciser",
+    srcs = ["src/main.rs"],
+    visibility = ["//visibility:public"],
+    deps = all_crate_deps(normal = True) + [
+        ":mdbook-exerciser-lib",
+    ],
+)
