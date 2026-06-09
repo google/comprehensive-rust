@@ -23,6 +23,20 @@ use_repo(llvm, "llvm_toolchain")
 
 register_toolchains("@llvm_toolchain//:all")
 
+rust_host_tools = use_extension("@rules_rust//rust:extensions.bzl", "rust_host_tools")
+rust_host_tools.host_tools(
+    name = "rust_host_tools_nightly",
+    sha256s = {
+        "2025-09-01/cargo-nightly-x86_64-unknown-linux-gnu.tar.xz": "9a701f2eb103703c018518066fa7deb476f7ebab548b1c4e2ea0df81ee42a20f",
+        "2025-09-01/clippy-nightly-x86_64-unknown-linux-gnu.tar.xz": "a55b532605896ed0a22f44d68c4eba8ba0ad66ea0f62f3c62469b0a3d01ab19c",
+        "2025-09-01/llvm-tools-nightly-x86_64-unknown-linux-gnu.tar.xz": "a0da791e41770b888c60ef74a0c63c5f6fe11bddb2a8fa88075341a9acb442a6",
+        "2025-09-01/rust-std-nightly-x86_64-unknown-linux-gnu.tar.xz": "b3c2d890d9405285e015ab4ceb78087e3ec55c64b0b3030d79102dfe5e622e09",
+        "2025-09-01/rustc-nightly-x86_64-unknown-linux-gnu.tar.xz": "7f5486ae6ece8a734149e5fce6dc8f1bcdcb36b5c5cb53a819569109b445c700",
+    },
+    version = "nightly/2025-09-01",
+)
+use_repo(rust_host_tools, "rust_host_tools_nightly")
+
 crate = use_extension("@rules_rust//crate_universe:extensions.bzl", "crate")
 crate.from_cargo(
     name = "crates",
@@ -30,3 +44,46 @@ crate.from_cargo(
     manifests = ["//:Cargo.toml"],
 )
 use_repo(crate, "crates")
+
+# Repositories for mdbook plugins. Add new plugins to the
+# `mdbook_plugins` repository. If this fails due to conflicts in their
+# dependencies, isolate it below with additional repositories.
+crate.spec(
+    artifact = "bin",
+    package = "mdbook-i18n-helpers",
+    repositories = ["mdbook_plugins"],
+    version = "0.4.0",
+)
+crate.spec(
+    artifact = "bin",
+    package = "mdbook-linkcheck2",
+    repositories = ["mdbook_plugins"],
+    version = "0.12.0",
+)
+crate.spec(
+    artifact = "bin",
+    package = "mdbook-pandoc",
+    repositories = ["mdbook_plugins"],
+    version = "0.11.0",
+)
+crate.from_specs(
+    name = "mdbook_plugins",
+    generate_binaries = True,
+    host_tools = "@rust_host_tools_nightly",
+)
+use_repo(crate, "mdbook_plugins")
+
+# mdbook-svgbob depends transitively on sauron-core, which has a
+# "=0.3.30" dependency on futures. This conflicts with other plugins.
+crate.spec(
+    artifact = "bin",
+    package = "mdbook-svgbob",
+    repositories = ["svgbob_plugin"],
+    version = "0.3.0",
+)
+crate.from_specs(
+    name = "svgbob_plugin",
+    generate_binaries = True,
+    host_tools = "@rust_host_tools_nightly",
+)
+use_repo(crate, "svgbob_plugin")

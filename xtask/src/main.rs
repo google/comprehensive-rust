@@ -155,33 +155,46 @@ fn install_tools(binstall: bool) -> Result<()> {
         run_command(&mut cmd)?;
     }
 
-    // The --locked flag is important for reproducible builds.
-    let tools = [
-        ("mdbook", "0.5.3"),
-        ("mdbook-svgbob", "0.3.0"),
-        ("mdbook-pandoc", "0.11.0"),
-        ("mdbook-i18n-helpers", "0.4.0"),
-        ("i18n-report", "0.2.0"),
-        ("mdbook-linkcheck2", "0.12.0"),
-    ];
+    // Tools not yet migrated to be installed with Bazel.
+    let tools = [("mdbook", "0.5.3"), ("i18n-report", "0.2.0")];
 
+    // The --locked flag is important for reproducible builds.
     for (tool, version) in tools {
         let mut cmd = Command::new(cargo);
         cmd.args([install_command, tool, "--version", version, "--locked"]);
         run_command(&mut cmd)?;
     }
 
-    // Install local tools from the workspace by building them with
-    // Bazel.
+    // Install local and external tools from the workspace by building
+    // them with Bazel.
     let workspace_dir = Path::new(env!("CARGO_WORKSPACE_DIR"));
+
+    let bazel_tools = [
+        ("//mdbook-course", "mdbook-course"),
+        ("//mdbook-exerciser", "mdbook-exerciser"),
+        ("@mdbook_plugins//:mdbook-i18n-helpers__mdbook-gettext", "mdbook-gettext"),
+        (
+            "@mdbook_plugins//:mdbook-i18n-helpers__mdbook-xgettext",
+            "mdbook-xgettext",
+        ),
+        ("@mdbook_plugins//:mdbook-pandoc__mdbook-pandoc", "mdbook-pandoc"),
+        ("@svgbob_plugin//:mdbook-svgbob__mdbook-svgbob", "mdbook-svgbob"),
+        (
+            "@mdbook_plugins//:mdbook-linkcheck2__mdbook-linkcheck2",
+            "mdbook-linkcheck2",
+        ),
+    ];
+
     let mut cmd = Command::new("bazel");
-    cmd.current_dir(workspace_dir).args([
-        "build",
-        "//mdbook-course",
-        "//mdbook-exerciser",
-    ]);
+    cmd.arg("build");
+    for (target, _) in &bazel_tools {
+        cmd.arg(target);
+    }
+    cmd.current_dir(workspace_dir);
     run_command(&mut cmd)?;
 
+    // Copy compiled tools to ~/.cargo/bin, the same way `cargo
+    // install` would.
     let cargo_home = match env::var("CARGO_HOME") {
         Ok(cargo_home) => PathBuf::from(cargo_home),
         Err(_) => {
@@ -190,14 +203,11 @@ fn install_tools(binstall: bool) -> Result<()> {
     };
     let bin_dir = cargo_home.join("bin");
 
-    copy(
-        &workspace_dir.join("bazel-bin/mdbook-course/mdbook-course"),
-        &bin_dir.join("mdbook-course"),
-    )?;
-    copy(
-        &workspace_dir.join("bazel-bin/mdbook-exerciser/mdbook-exerciser"),
-        &bin_dir.join("mdbook-exerciser"),
-    )?;
+    for (target, name) in bazel_tools {
+        let src = get_bazel_output_path(target)?;
+        let dest = bin_dir.join(name);
+        copy(&src, &dest)?;
+    }
 
     // Uninstall original linkcheck if currently installed (see issue no 2773)
     uninstall_mdbook_linkcheck()?;
@@ -417,4 +427,22 @@ fn get_output_dir(language: Option<String>, output_arg: Option<PathBuf>) -> Path
     } else {
         Path::new("book").join(language.unwrap_or("".to_string()))
     }
+}
+
+/// Queries Bazel to find the output file path for a given target.
+fn get_bazel_output_path(target: &str) -> Result<PathBuf> {
+    let output = Command::new("bazel")
+        .args(["cquery", "--output=files", target])
+        .output()
+        .with_context(|| format!("Failed to run bazel cquery for {target}"))?;
+    if !output.status.success() {
+        return Err(anyhow!(
+            "bazel cquery failed: {}",
+            String::from_utf8_lossy(&output.stderr)
+        ));
+    }
+    let stdout = String::from_utf8(output.stdout)?;
+    let relative_path = stdout.trim();
+    let workspace_dir = Path::new(env!("CARGO_WORKSPACE_DIR"));
+    Ok(workspace_dir.join(relative_path))
 }
