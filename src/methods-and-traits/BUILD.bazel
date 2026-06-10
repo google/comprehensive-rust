@@ -1,0 +1,12 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+
+rust_binary(
+    name = "methods-and-traits",
+    srcs = ["exercise.rs"],
+)
+
+rust_test(
+    name = "methods-and-traits_test",
+    size = "small",
+    crate = ":methods-and-traits",
+)

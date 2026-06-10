@@ -1,0 +1,14 @@
+load("@crates//:defs.bzl", "all_crate_deps")
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+
+rust_binary(
+    name = "allocator-example",
+    srcs = ["src/main.rs"],
+    deps = all_crate_deps(normal = True),
+)
+
+rust_test(
+    name = "allocator-example_test",
+    size = "small",
+    crate = ":allocator-example",
+)

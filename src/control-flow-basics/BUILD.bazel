@@ -1,0 +1,12 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+
+rust_binary(
+    name = "collatz",
+    srcs = ["exercise.rs"],
+)
+
+rust_test(
+    name = "collatz_test",
+    size = "small",
+    crate = ":collatz",
+)

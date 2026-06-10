@@ -1,0 +1,12 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+
+rust_binary(
+    name = "package-builder",
+    srcs = ["exercise.rs"],
+)
+
+rust_test(
+    name = "package-builder_test",
+    size = "small",
+    crate = ":package-builder",
+)

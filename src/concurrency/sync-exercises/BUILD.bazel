@@ -1,0 +1,26 @@
+load("@crates//:defs.bzl", "all_crate_deps")
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+
+rust_binary(
+    name = "dining-philosophers",
+    srcs = ["dining-philosophers.rs"],
+    deps = all_crate_deps(normal = True),
+)
+
+rust_test(
+    name = "dining-philosophers_test",
+    size = "small",
+    crate = ":dining-philosophers",
+)
+
+rust_binary(
+    name = "link-checker",
+    srcs = ["link-checker.rs"],
+    deps = all_crate_deps(normal = True),
+)
+
+rust_test(
+    name = "link-checker_test",
+    size = "small",
+    crate = ":link-checker",
+)

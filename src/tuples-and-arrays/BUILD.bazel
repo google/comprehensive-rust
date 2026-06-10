@@ -1,0 +1,12 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+
+rust_binary(
+    name = "transpose",
+    srcs = ["exercise.rs"],
+)
+
+rust_test(
+    name = "transpose_test",
+    size = "small",
+    crate = ":transpose",
+)
