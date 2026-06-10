@@ -111,9 +111,7 @@ jobs:
         run: rustup update
 
       - name: Setup Bazel cache
-        uses: bazel-contrib/setup-bazel@0.19.0
-        with:
-          disk-cache: true
+        uses: ./.github/workflows/setup-bazel-cache
 
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
