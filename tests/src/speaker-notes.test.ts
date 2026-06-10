@@ -20,7 +20,7 @@ describe("speaker-notes", () => {
     const summary$ = await $("details summary");
     await expect(summary$).toExist();
     await expect(summary$.$("#speaker-notes")).toHaveText("Speaker Notes");
-    await expect(summary$.$(".pop-out")).toExist();
+    await expect(summary$.$(".pop-out")).toBeDisplayed();
   });
 
   it("opens a new window on button click and hide details on main page", async () => {

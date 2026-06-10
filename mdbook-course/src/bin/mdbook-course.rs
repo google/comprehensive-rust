@@ -14,10 +14,9 @@
 // limitations under the License.
 
 use clap::{Arg, Command};
-use mdbook::book::BookItem;
-use mdbook::preprocess::CmdPreprocessor;
 use mdbook_course::course::Courses;
 use mdbook_course::{replacements, timing_info};
+use mdbook_preprocessor::book::BookItem;
 use std::io::{stdin, stdout};
 use std::process;
 
@@ -42,7 +41,7 @@ fn main() {
 }
 
 fn preprocess() -> anyhow::Result<()> {
-    let (_, book) = CmdPreprocessor::parse_input(stdin())?;
+    let (_, book) = mdbook_preprocessor::parse_input(stdin())?;
     let (courses, mut book) = Courses::extract_structure(book)?;
 
     book.for_each_mut(|chapter| {

@@ -15,33 +15,32 @@
 
 use anyhow::Context;
 use log::trace;
-use mdbook::BookItem;
-use mdbook::book::Book;
-use mdbook::renderer::RenderContext;
 use mdbook_exerciser::process;
+use mdbook_renderer::RenderContext;
+use mdbook_renderer::book::{Book, BookItem};
+use serde::{Deserialize, Serialize};
 use std::fs::{create_dir, remove_dir_all};
 use std::io::stdin;
 use std::path::Path;
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(rename_all = "kebab-case")]
+struct Config {
+    output_directory: String,
+}
 
 fn main() -> anyhow::Result<()> {
     pretty_env_logger::init();
 
     let context = RenderContext::from_json(&mut stdin()).context("Parsing stdin")?;
 
-    let config = context
+    let config: Config = context
         .config
-        .get_renderer("exerciser")
+        .get("output.exerciser")
+        .context("Parsing configuration")?
         .context("Missing output.exerciser configuration")?;
 
-    let output_directory = Path::new(
-        config
-            .get("output-directory")
-            .context(
-                "Missing output.exerciser.output-directory configuration value",
-            )?
-            .as_str()
-            .context("Expected a string for output.exerciser.output-directory")?,
-    );
+    let output_directory = Path::new(&config.output_directory);
 
     let _ = remove_dir_all(output_directory);
     create_dir(output_directory).with_context(|| {
