@@ -1,0 +1,16 @@
+name: Setup Bazel cache
+
+description: Configure the Bazel caching.
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Rust cache
+      uses: bazel-contrib/setup-bazel@0.19.0
+      with:
+        bazelisk-cache: true
+        disk-cache: true
+        repository-cache: true
+        # Only save the cache on the main branch to avoid PRs filling
+        # up the cache.
+        cache-save: ${{ github.ref == 'refs/heads/main' }}
