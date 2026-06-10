@@ -5,6 +5,13 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Solution
 
+The unit tests use the [`tempfile`](https://docs.rs/tempfile/) crate. Add it as
+a dev-dependency with:
+
+```shell
+cargo add --dev tempfile
+```
+
 ```rust,editable
 # // Copyright 2023 Google LLC
 # // SPDX-License-Identifier: Apache-2.0

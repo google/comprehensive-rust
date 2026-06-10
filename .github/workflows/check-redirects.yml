@@ -1,0 +1,18 @@
+name: Check that redirects are valid
+permissions:
+  contents: read
+
+on:
+  pull_request:
+
+jobs:
+  check-redirects:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Check redirects
+        run: python3 .github/workflows/check-redirects.py . origin/main

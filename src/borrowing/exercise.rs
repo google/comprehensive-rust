@@ -69,7 +69,7 @@ impl Wizard {
 
 // ANCHOR: main
 fn main() {
-    let mut merlin = Wizard::new(20);
+    let mut merlin = Wizard::new(100);
     let fireball = Spell { name: String::from("Fireball"), cost: 10, uses: 2 };
     let ice_blast = Spell { name: String::from("Ice Blast"), cost: 15, uses: 1 };
 

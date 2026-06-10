@@ -11,28 +11,26 @@ SPDX-License-Identifier: CC-BY-4.0
 
 Prefix to a function that takes a borrowed value and creates an owned value
 
-```rust,compile_fail
+```rust,compile_fail,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
 impl str {
-    // &str is not consumed.
-    fn to_owned(&str) -> String;
+    fn to_owned(&self) -> String;
 
     fn to_uppercase(&self) -> String;
 }
 
 impl u32 {
-    // take an owned self because `u32` implements `Copy`
-    to_be(self) -> u32;
+    // Take an owned self because `u32` implements `Copy`
+    fn to_be(self) -> u32;
 }
 ```
 
 <details>
-- Methods that create a new owned value without consuming `self`, and imply a type conversion, are named starting with `to`.
 
-- This is not a borrow checker escape hatch, or an instance of unsafe code. A
-  new value is created, the original data is left alone.
+- Methods that create a new owned value without consuming `self`, and imply a
+  type conversion, are named starting with `to`.
 
 - Methods that start with "to" return a different type, and strongly imply a
   non-trivial type conversion, or even a data transformation. For example,
@@ -43,15 +41,16 @@ impl u32 {
   call does not consume `self`.
 
 - If you simply want to define a method that takes `&self` and returns an owned
-  value of the same type, implement the `Clone` trait.
-
-Example: to_uppercase creates a version of a string with all uppercase letters.
+  value of the same type, implement [`Clone`] or [`ToOwned`].
 
 - If you want to define a method that consumes the source value, use the "into"
   naming pattern.
 
 - Also seen in functions that convert the endianness of primitives, or copy and
   expose the value of a newtype.
+
+[`Clone`]: https://doc.rust-lang.org/stable/std/clone/trait.Clone.html
+[`ToOwned`]: https://doc.rust-lang.org/stable/std/borrow/trait.ToOwned.html
 
 ## More to Explore
 

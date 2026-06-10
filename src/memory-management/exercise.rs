@@ -42,11 +42,11 @@ struct Package {
 
 impl Package {
     // ANCHOR_END: Package
-    // ANCHOR: as_dependency
+    // ANCHOR: to_dependency
     /// Return a representation of this package as a dependency, for use in
     /// building other packages.
-    fn as_dependency(&self) -> Dependency {
-        // ANCHOR_END: as_dependency
+    fn to_dependency(&self) -> Dependency {
+        // ANCHOR_END: to_dependency
         Dependency {
             name: self.name.clone(),
             version_expression: self.version.clone(),
@@ -121,8 +121,8 @@ fn main() {
     let serde = PackageBuilder::new("serde")
         .authors(vec!["djmitche".into()])
         .version(String::from("4.0"))
-        .dependency(base64.as_dependency())
-        .dependency(log.as_dependency())
+        .dependency(base64.to_dependency())
+        .dependency(log.to_dependency())
         .build();
     dbg!(serde);
 }

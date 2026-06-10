@@ -9,7 +9,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Inheritance in OOP languages
 
-```cpp
+```cpp,editable
 // Base class
 class Vehicle {
 public:

@@ -11,21 +11,23 @@ SPDX-License-Identifier: CC-BY-4.0
 
 Prefix for fallible methods that return a `Result`.
 
-```rust,compile_fail
+```rust,compile_fail,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
 impl TryFrom<i32> for u32 {
     type Error = TryFromIntError;
+
     fn try_from(value: i32) -> Result<i64, TryFromIntError>;
 }
 
 impl<T> Receiver<T> {
-    try_recv(&self) -> Result<T, TryRecvError>;
+    fn try_recv(&self) -> Result<T, TryRecvError>;
 }
 ```
 
 <details>
+
 - Prefix for methods that can fail, returning a `Result`.
 
 - `TryFrom` is a `From`-like trait for types whose single-value constructors

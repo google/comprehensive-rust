@@ -12,7 +12,7 @@ SPDX-License-Identifier: CC-BY-4.0
 Keep your APIs predictable through naming conventions and implementing common
 traits.
 
-```rust,compile_fail
+```rust,compile_fail,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

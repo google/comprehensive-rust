@@ -155,17 +155,33 @@ fn install_tools(binstall: bool) -> Result<()> {
         run_command(&mut cmd)?;
     }
 
-    // Install local tools from the workspace.
+    // Install local tools from the workspace by building them with
+    // Bazel.
     let workspace_dir = Path::new(env!("CARGO_WORKSPACE_DIR"));
-    // cargo-binstall does not support --path, so we always use cargo install here.
-    let local_tools = ["mdbook-exerciser", "mdbook-course"];
-    for tool in local_tools {
-        let mut cmd = Command::new(cargo);
-        cmd.args(["install", "--path"])
-            .arg(workspace_dir.join(tool))
-            .arg("--locked");
-        run_command(&mut cmd)?;
-    }
+    let mut cmd = Command::new("bazel");
+    cmd.current_dir(workspace_dir).args([
+        "build",
+        "//mdbook-course",
+        "//mdbook-exerciser",
+    ]);
+    run_command(&mut cmd)?;
+
+    let cargo_home = match env::var("CARGO_HOME") {
+        Ok(cargo_home) => PathBuf::from(cargo_home),
+        Err(_) => {
+            std::env::home_dir().ok_or(anyhow!("No home directory"))?.join(".cargo")
+        }
+    };
+    let bin_dir = cargo_home.join("bin");
+
+    fs::copy(
+        workspace_dir.join("bazel-bin/mdbook-course/mdbook-course"),
+        bin_dir.join("mdbook-course"),
+    )?;
+    fs::copy(
+        workspace_dir.join("bazel-bin/mdbook-exerciser/mdbook-exerciser"),
+        bin_dir.join("mdbook-exerciser"),
+    )?;
 
     // Uninstall original linkcheck if currently installed (see issue no 2773)
     uninstall_mdbook_linkcheck()?;

@@ -9,14 +9,16 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Name-dropping keywords and signposting topics
 
-```rust
+```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-/// A parsed representation of a MARC 21 record
-/// [leader](//www.loc.gov/marc/bibliographic/bdleader.html).  
+/// A parsed representation of a [MARC 21 record leader][leader].
+///
 /// A MARC leader contains metadata that dictates how to interpret the rest  
 /// of the record.
+///
+/// [leader]: https://www.loc.gov/marc/bibliographic/bdleader.html
 pub struct Leader {
     /// Determines the schema and the set of valid subsequent data fields.  
     ///
@@ -31,10 +33,12 @@ pub struct Leader {
     // ... other fields
 }
 
-/// Parses the [leader of a MARC 21 record](https://www.loc.gov/marc/bibliographic/bdleader.html).  
+/// Parses the [leader of a MARC 21 record][leader].
 ///  
 /// The leader is encoded as a fixed-length 24-byte field, containing metadata  
 /// that determines the semantic interpretation of the rest of the record.  
+/// 
+/// [leader]: https://www.loc.gov/marc/bibliographic/bdleader.html
 pub fn parse_leader(leader_bytes: &[u8; 24]) -> Result<Leader, MarcError> {
     todo!()
 }
@@ -48,12 +52,12 @@ pub enum MarcError {}
 - Motivation: Readers of documentation will not be closely reading most of your
   doc comments like they would dialogue in a novel they love.
 
-Users will most likely be skimming and scan-reading to find the part of the
-documentation that is relevant to whatever problem they're trying to solve in
-the moment.
+  Users will most likely be skimming and scan-reading to find the part of the
+  documentation that is relevant to whatever problem they're trying to solve in
+  the moment.
 
-Once a user has found a keyword or potential signpost that's relevant to them
-they will begin to search for context surrounding what is being documented.
+  Once a user has found a keyword or potential signpost that's relevant to them
+  they will begin to search for context surrounding what is being documented.
 
 - Ask the class: What do you look for in documentation? Focus on the
   moment-to-moment searching for information here, not general values in

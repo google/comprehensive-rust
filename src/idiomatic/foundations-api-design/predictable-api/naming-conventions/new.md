@@ -12,16 +12,15 @@ SPDX-License-Identifier: CC-BY-4.0
 Rust does not have a `new` keyword, instead `new` is a common prefix or whole
 method name.
 
-```rust,compile_fail
+```rust,compile_fail,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-impl <T> Vec<T> {
-    // Creates an empty vec.
+impl<T> Vec<T> {
     fn new() -> Vec<T>;
 }
 
-impl <T> Box<T> {
+impl<T> Box<T> {
     fn new(T) -> Box<T>;
 }
 ```

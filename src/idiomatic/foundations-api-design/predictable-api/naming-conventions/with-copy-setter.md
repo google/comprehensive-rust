@@ -13,7 +13,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 `with` as in "like `<value>`, but with something different."
 
-```rust,compile_fail
+```rust,compile_fail,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #

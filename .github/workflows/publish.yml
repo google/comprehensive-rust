@@ -38,6 +38,11 @@ jobs:
       - name: Update Rust
         run: rustup update
 
+      - name: Setup Bazel cache
+        uses: bazel-contrib/setup-bazel@0.19.0
+        with:
+          disk-cache: true
+
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
 
@@ -70,13 +75,13 @@ jobs:
           i18n-report report book/html/synced-translation-report.html synced-po/*.po
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: book/html
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

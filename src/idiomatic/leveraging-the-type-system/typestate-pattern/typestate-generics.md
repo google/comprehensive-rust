@@ -14,7 +14,7 @@ valid states and transitions without duplicating logic. This approach is
 especially useful when the number of states grows or when multiple states share
 behavior but differ in structure.
 
-```rust
+```rust,editable
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
@@ -29,22 +29,6 @@ behavior but differ in structure.
 We now have all the tools needed to implement the methods for the `Serializer`
 and its state type definitions. This ensures that our API only permits valid
 transitions, as illustrated in the following diagram:
-
-Diagram of valid transitions:
-
-```bob
-    +-----------+   +---------+------------+-----+
-    |           |   |         |            |     |
-    V           |   V         |            V     |
-                +                                |
-serializer --> structure --> property --> list +-+
-
-    |           |   ^           |          ^
-    V           |   |           |          |
-                |   +-----------+          |
-  String        |                          |
-                +--------------------------+
-```
 
 <details>
 

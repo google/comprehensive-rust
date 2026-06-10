@@ -42,7 +42,7 @@ fn main() {
     //fs::write("config.dat", "").unwrap();
     match read_username("config.dat") {
         Ok(username) => println!("Username: {username}"),
-        Err(err) => println!("Error: {err:?}"),
+        Err(err) => println!("Error: {err}"),
     }
 }
 ```

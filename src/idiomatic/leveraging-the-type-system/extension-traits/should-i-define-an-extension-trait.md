@@ -36,14 +36,6 @@ The main advantage of extension traits is **ease of discovery**.
 
 <details>
 
-- Extension methods can be easier to discover than free functions. Language
-  servers (e.g., `rust-analyzer`) will suggest them if you type `.` after an
-  instance of the foreign type.
-
-- However, a bespoke extension trait might be overkill for a single method. Both
-  approaches require an additional import, and the familiar method syntax may
-  not justify the boilerplate of a full trait definition.
-
 - **Discoverability:** Extension methods are easier to discover than free
   functions. Language servers (e.g., `rust-analyzer`) will suggest them if you
   type `.` after an instance of the foreign type.
@@ -52,6 +44,10 @@ The main advantage of extension traits is **ease of discovery**.
   chaining. This is the foundation of the `Iterator` trait, allowing for fluent
   calls like `data.iter().filter(...).map(...)`. Achieving this with free
   functions would be far more cumbersome (`map(filter(iter(data), ...), ...)`).
+
+- **Generics and `dyn`:** A trait can be used as a trait bound in a generic or
+  part of a `dyn Trait`, whereas a free function can't necessarily be used in a
+  generic context.
 
 - **API Cohesion:** Extension traits help create a cohesive API. If you have
   several related functions for a foreign type (e.g., `is_palindrome`,
