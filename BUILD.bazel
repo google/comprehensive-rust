@@ -1,4 +1,11 @@
 load("@rules_rust_mdbook//:defs.bzl", "mdbook_toolchain")
+load("//:comprehensive_rust.bzl", "comprehensive_rust_book", "comprehensive_rust_translations")
+load("//:tool_hub.bzl", "tool_hub")
+
+exports_files(
+    ["book.toml"],
+    visibility = ["//visibility:public"],
+)
 
 mdbook_toolchain(
     name = "mdbook_toolchain_impl",
@@ -12,3 +19,58 @@ toolchain(
     toolchain_type = "@rules_rust_mdbook//:toolchain_type",
     visibility = ["//visibility:public"],
 )
+
+tool_hub(
+    name = "mdbook-plugins",
+    tools = {
+        "//host_tools:pandoc": "pandoc",
+        "//mdbook-course": "mdbook-course",
+        "//mdbook-exerciser": "mdbook-exerciser",
+        "@binaries//:mdbook-i18n-helpers__mdbook-gettext": "mdbook-gettext",
+        "@binaries//:mdbook-i18n-helpers__mdbook-xgettext": "mdbook-xgettext",
+        "@binaries//:mdbook-linkcheck2__mdbook-linkcheck2": "mdbook-linkcheck2",
+        "@binaries//:mdbook-pandoc__mdbook-pandoc": "mdbook-pandoc",
+        "@svgbob//:mdbook-svgbob__mdbook-svgbob": "mdbook-svgbob",
+    },
+)
+
+filegroup(
+    name = "content",
+    srcs = glob([
+        "src/**/*.md",
+        "src/**/*.rs",
+    ]),
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "theme",
+    srcs = glob(["theme/**"]),
+    visibility = ["//visibility:public"],
+)
+
+comprehensive_rust_book(name = "en")
+
+comprehensive_rust_translations(languages = [
+    "ar",
+    "bn",
+    "da",
+    "de",
+    "el",
+    "es",
+    "fa",
+    "fr",
+    "id",
+    "it",
+    "ja",
+    "ko",
+    "pl",
+    "pt-BR",
+    "ro",
+    "ru",
+    "tr",
+    "uk",
+    "vi",
+    "zh-CN",
+    "zh-TW",
+])

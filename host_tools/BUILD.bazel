@@ -1,0 +1,9 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+# Hermetic-breaking wrapper script for pandoc.
+# Sets PATH and HOME before invoking pandoc so it can find system tools.
+sh_binary(
+    name = "pandoc",
+    srcs = ["pandoc.sh"],
+    visibility = ["//visibility:public"],
+)
