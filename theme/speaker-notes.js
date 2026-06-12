@@ -154,9 +154,7 @@
     popIn.setAttribute("title", "Close speaker notes");
     popIn.setAttribute("aria-label", "Close speaker notes");
     popIn.classList.add("icon-button");
-    let popInIcon = document.createElement("i");
-    popInIcon.classList.add("fa", "fa-window-close-o");
-    popIn.append(popInIcon);
+    popIn.innerHTML = document.getElementById("fa-xmark").innerHTML;
     popIn.addEventListener("click", (event) => {
       // Send a message to the speaker notes to close itself
       speakerNotesChannel.postMessage(BroadcastMessage.CloseNotes);
@@ -204,9 +202,9 @@
         );
       }
     });
-    let popOutIcon = document.createElement("i");
-    popOutIcon.classList.add("fa", "fa-external-link");
-    popOut.append(popOutIcon);
+    popOut.innerHTML = document.getElementById(
+      "fa-arrow-up-right-from-square",
+    ).innerHTML;
     summary.append(popOut);
   }
 

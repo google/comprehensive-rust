@@ -14,9 +14,9 @@
 // limitations under the License.
 
 use clap::Command;
-use mdbook::MDBook;
 use mdbook_course::course::Courses;
 use mdbook_course::markdown::duration;
+use mdbook_driver::MDBook;
 
 fn main() {
     pretty_env_logger::init();

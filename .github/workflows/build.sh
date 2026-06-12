@@ -25,9 +25,15 @@ else
     # Back-date the sources to POT-Creation-Date. The content lives in two
     # directories:
     rm -r src/ third_party/
+    # Restore src/, third_party/ and book.toml from the past commit
     git restore --source "$(git rev-list -n 1 --before "$pot_creation_date" @)" src/ third_party/ book.toml
-    # Set language and adjust site URL. Clear the redirects since they are
-    # in sync with the source files, not the translation.
+
+    # Sanitize book.toml for mdbook 0.5 compatibility
+    sed -i '/multilingual/d' book.toml
+    sed -i '/curly-quotes/d' book.toml
+
+    # Set language and adjust site URL.
+    # TODO: Clearing the redirects is no longer necessary since we restore book.toml.
     export MDBOOK_BOOK__LANGUAGE=$book_lang
     export MDBOOK_OUTPUT__HTML__SITE_URL=/comprehensive-rust/$book_lang/
     export MDBOOK_OUTPUT__HTML__REDIRECT='{}'
