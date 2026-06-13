@@ -1,0 +1,26 @@
+load("@crates//:defs.bzl", "all_crate_deps")
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+
+rust_binary(
+    name = "client",
+    srcs = ["src/bin/client.rs"],
+    deps = all_crate_deps(normal = True),
+)
+
+rust_test(
+    name = "client_test",
+    size = "small",
+    crate = ":client",
+)
+
+rust_binary(
+    name = "server",
+    srcs = ["src/bin/server.rs"],
+    deps = all_crate_deps(normal = True),
+)
+
+rust_test(
+    name = "server_test",
+    size = "small",
+    crate = ":server",
+)

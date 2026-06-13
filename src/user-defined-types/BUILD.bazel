@@ -1,0 +1,12 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+
+rust_binary(
+    name = "elevator",
+    srcs = ["exercise.rs"],
+)
+
+rust_test(
+    name = "elevator_test",
+    size = "small",
+    crate = ":elevator",
+)

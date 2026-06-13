@@ -1,0 +1,12 @@
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+
+rust_library(
+    name = "eval",
+    srcs = ["exercise.rs"],
+)
+
+rust_test(
+    name = "eval_test",
+    size = "small",
+    crate = ":eval",
+)

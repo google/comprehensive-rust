@@ -1,0 +1,14 @@
+load("@crates//:defs.bzl", "all_crate_deps")
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+
+rust_library(
+    name = "protobuf",
+    srcs = ["exercise.rs"],
+    deps = all_crate_deps(normal = True),
+)
+
+rust_test(
+    name = "protobuf_test",
+    size = "small",
+    crate = ":protobuf",
+)

@@ -1,0 +1,14 @@
+load("@crates//:defs.bzl", "all_crate_deps")
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+
+rust_binary(
+    name = "listdir",
+    srcs = ["exercise.rs"],
+)
+
+rust_test(
+    name = "listdir_test",
+    size = "small",
+    crate = ":listdir",
+    deps = all_crate_deps(normal_dev = True),
+)

@@ -1,0 +1,12 @@
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+
+rust_library(
+    name = "generics",
+    srcs = ["exercise.rs"],
+)
+
+rust_test(
+    name = "generics_test",
+    size = "small",
+    crate = ":generics",
+)

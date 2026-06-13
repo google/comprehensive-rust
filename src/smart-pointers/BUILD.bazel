@@ -1,0 +1,12 @@
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+
+rust_library(
+    name = "binary_tree",
+    srcs = ["exercise.rs"],
+)
+
+rust_test(
+    name = "binary_tree_test",
+    size = "small",
+    crate = ":binary_tree",
+)
