@@ -119,6 +119,22 @@ fn run_command(cmd: &mut Command) -> Result<()> {
     Ok(())
 }
 
+/// Copy `src` to `dest`, deleting `dest` first, if present.
+///
+/// This is unlike [`fs::copy`] which fails if `dest` exists and is a
+/// read-only file. Bazel creates read-only files in `bazel-bin/`.
+fn copy(src: &Path, dest: &Path) -> Result<u64> {
+    if let Err(e) = fs::remove_file(dest)
+        && e.kind() != std::io::ErrorKind::NotFound
+    {
+        return Err(anyhow!("Failed to remove {}: {}", dest.display(), e));
+    }
+    let len = fs::copy(src, dest).with_context(|| {
+        format!("Failed to copy {} to {}", src.display(), dest.display())
+    })?;
+    Ok(len)
+}
+
 fn install_tools(binstall: bool) -> Result<()> {
     println!("Installing project tools...");
 
@@ -174,13 +190,13 @@ fn install_tools(binstall: bool) -> Result<()> {
     };
     let bin_dir = cargo_home.join("bin");
 
-    fs::copy(
-        workspace_dir.join("bazel-bin/mdbook-course/mdbook-course"),
-        bin_dir.join("mdbook-course"),
+    copy(
+        &workspace_dir.join("bazel-bin/mdbook-course/mdbook-course"),
+        &bin_dir.join("mdbook-course"),
     )?;
-    fs::copy(
-        workspace_dir.join("bazel-bin/mdbook-exerciser/mdbook-exerciser"),
-        bin_dir.join("mdbook-exerciser"),
+    copy(
+        &workspace_dir.join("bazel-bin/mdbook-exerciser/mdbook-exerciser"),
+        &bin_dir.join("mdbook-exerciser"),
     )?;
 
     // Uninstall original linkcheck if currently installed (see issue no 2773)
