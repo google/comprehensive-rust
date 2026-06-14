@@ -55,3 +55,21 @@ jobs:
         uses: crate-ci/typos@v1.47.0
         with:
           config: ./.github/typos.toml
+
+  lockfiles:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Bazel cache
+        uses: ./.github/workflows/setup-bazel-cache
+
+      - name: Setup Rust cache
+        uses: ./.github/workflows/setup-rust-cache
+
+      - name: Check Cargo lockfile
+        run: cargo update --workspace --locked
+
+      - name: Check Bazel lockfile
+        run: bazel mod deps --lockfile_mode=error
