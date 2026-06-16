@@ -44,6 +44,30 @@ crate.spec(
     repositories = ["binaries"],
     version = "0.2.0",
 )
+crate.spec(
+    artifact = "bin",
+    package = "mdbook",
+    repositories = ["binaries"],
+    version = "0.5.3",
+)
+crate.spec(
+    artifact = "bin",
+    package = "mdbook-i18n-helpers",
+    repositories = ["binaries"],
+    version = "0.4.0",
+)
+crate.spec(
+    artifact = "bin",
+    package = "mdbook-linkcheck2",
+    repositories = ["binaries"],
+    version = "0.12.0",
+)
+crate.spec(
+    artifact = "bin",
+    package = "mdbook-pandoc",
+    repositories = ["binaries"],
+    version = "0.11.0",
+)
 crate.from_specs(
     name = "binaries",
     generate_binaries = True,
@@ -51,42 +75,17 @@ crate.from_specs(
 )
 use_repo(crate, "binaries")
 
-crate.spec(
-    artifact = "bin",
-    package = "mdbook-i18n-helpers",
-    repositories = ["mdbook_plugins"],
-    version = "0.4.0",
-)
-crate.spec(
-    artifact = "bin",
-    package = "mdbook-linkcheck2",
-    repositories = ["mdbook_plugins"],
-    version = "0.12.0",
-)
-crate.spec(
-    artifact = "bin",
-    package = "mdbook-pandoc",
-    repositories = ["mdbook_plugins"],
-    version = "0.11.0",
-)
-crate.from_specs(
-    name = "mdbook_plugins",
-    generate_binaries = True,
-    host_tools = "@rust_host_tools_nightly",
-)
-use_repo(crate, "mdbook_plugins")
-
 # mdbook-svgbob depends transitively on sauron-core, which has a
 # "=0.3.30" dependency on futures. This conflicts with other plugins.
 crate.spec(
     artifact = "bin",
     package = "mdbook-svgbob",
-    repositories = ["svgbob_plugin"],
+    repositories = ["svgbob"],
     version = "0.3.1",
 )
 crate.from_specs(
-    name = "svgbob_plugin",
+    name = "svgbob",
     generate_binaries = True,
     host_tools = "@rust_host_tools_nightly",
 )
-use_repo(crate, "svgbob_plugin")
+use_repo(crate, "svgbob")

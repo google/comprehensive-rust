@@ -44,11 +44,7 @@ struct Cli {
 #[derive(Subcommand)]
 enum Task {
     /// Installs the tools the project depends on.
-    InstallTools {
-        /// Use cargo-binstall for faster installation.
-        #[arg(long)]
-        binstall: bool,
-    },
+    InstallTools,
     /// Runs the web driver tests in the tests directory.
     WebTests {
         /// Optional 'book html' directory - if set, will also refresh the list
@@ -92,7 +88,7 @@ enum Task {
 fn execute_task() -> Result<()> {
     let cli = Cli::parse();
     match cli.task {
-        Task::InstallTools { binstall } => install_tools(binstall),
+        Task::InstallTools => install_tools(),
         Task::WebTests { dir } => run_web_tests(dir),
         Task::CreateSlideList { dir } => create_slide_list(dir),
         Task::RustTests => run_rust_tests(),
@@ -135,35 +131,8 @@ fn copy(src: &Path, dest: &Path) -> Result<u64> {
     Ok(len)
 }
 
-fn install_tools(binstall: bool) -> Result<()> {
+fn install_tools() -> Result<()> {
     println!("Installing project tools...");
-
-    let cargo = env!("CARGO");
-
-    let install_command = if binstall { "binstall" } else { "install" };
-
-    const PINNED_NIGHTLY: &str = "nightly-2025-09-01";
-
-    // Install rustup components
-    let rustup_steps = [
-        ["toolchain", "install", "--profile", "minimal", PINNED_NIGHTLY],
-        ["component", "add", "rustfmt", "--toolchain", PINNED_NIGHTLY],
-    ];
-    for args in rustup_steps {
-        let mut cmd = Command::new("rustup");
-        cmd.args(args);
-        run_command(&mut cmd)?;
-    }
-
-    // Tools not yet migrated to be installed with Bazel.
-    let tools = [("mdbook", "0.5.3"), ("i18n-report", "0.2.0")];
-
-    // The --locked flag is important for reproducible builds.
-    for (tool, version) in tools {
-        let mut cmd = Command::new(cargo);
-        cmd.args([install_command, tool, "--version", version, "--locked"]);
-        run_command(&mut cmd)?;
-    }
 
     // Install local and external tools from the workspace by building
     // them with Bazel.
@@ -172,17 +141,13 @@ fn install_tools(binstall: bool) -> Result<()> {
     let bazel_tools = [
         ("//mdbook-course", "mdbook-course"),
         ("//mdbook-exerciser", "mdbook-exerciser"),
-        ("@mdbook_plugins//:mdbook-i18n-helpers__mdbook-gettext", "mdbook-gettext"),
-        (
-            "@mdbook_plugins//:mdbook-i18n-helpers__mdbook-xgettext",
-            "mdbook-xgettext",
-        ),
-        ("@mdbook_plugins//:mdbook-pandoc__mdbook-pandoc", "mdbook-pandoc"),
-        ("@svgbob_plugin//:mdbook-svgbob__mdbook-svgbob", "mdbook-svgbob"),
-        (
-            "@mdbook_plugins//:mdbook-linkcheck2__mdbook-linkcheck2",
-            "mdbook-linkcheck2",
-        ),
+        ("@binaries//:i18n-report__i18n-report", "i18n-report"),
+        ("@binaries//:mdbook-i18n-helpers__mdbook-gettext", "mdbook-gettext"),
+        ("@binaries//:mdbook-i18n-helpers__mdbook-xgettext", "mdbook-xgettext"),
+        ("@binaries//:mdbook-linkcheck2__mdbook-linkcheck2", "mdbook-linkcheck2"),
+        ("@binaries//:mdbook-pandoc__mdbook-pandoc", "mdbook-pandoc"),
+        ("@binaries//:mdbook__mdbook", "mdbook"),
+        ("@svgbob//:mdbook-svgbob__mdbook-svgbob", "mdbook-svgbob"),
     ];
 
     let mut cmd = Command::new("bazel");
