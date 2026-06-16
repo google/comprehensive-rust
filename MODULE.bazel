@@ -4,7 +4,7 @@ module(
 )
 
 bazel_dep(name = "rules_rust", version = "0.70.0")
-bazel_dep(name = "toolchains_llvm", version = "1.7.0")
+bazel_dep(name = "hermetic_cc_toolchain", version = "4.1.0")
 
 rust = use_extension("@rules_rust//rust:extensions.bzl", "rust")
 rust.toolchain(
@@ -14,14 +14,13 @@ use_repo(rust, "rust_toolchains")
 
 register_toolchains("@rust_toolchains//:all")
 
-llvm = use_extension("@toolchains_llvm//toolchain/extensions:llvm.bzl", "llvm")
-llvm.toolchain(
-    name = "llvm_toolchain",
-    llvm_version = "21.1.8",
-)
-use_repo(llvm, "llvm_toolchain")
+zig_toolchains = use_extension("@hermetic_cc_toolchain//toolchain:ext.bzl", "toolchains")
+use_repo(zig_toolchains, "zig_sdk")
 
-register_toolchains("@llvm_toolchain//:all")
+register_toolchains(
+    "@zig_sdk//toolchain/...",
+    "@zig_sdk//libc_aware/toolchain/...",
+)
 
 rust_host_tools = use_extension("@rules_rust//rust:extensions.bzl", "rust_host_tools")
 rust_host_tools.host_tools(
