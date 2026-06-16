@@ -1,0 +1,14 @@
+load("@rules_rust_mdbook//:defs.bzl", "mdbook_toolchain")
+
+mdbook_toolchain(
+    name = "mdbook_toolchain_impl",
+    mdbook = "@binaries//:mdbook__mdbook",
+    visibility = ["//visibility:public"],
+)
+
+toolchain(
+    name = "mdbook_toolchain",
+    toolchain = ":mdbook_toolchain_impl",
+    toolchain_type = "@rules_rust_mdbook//:toolchain_type",
+    visibility = ["//visibility:public"],
+)
