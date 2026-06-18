@@ -10,10 +10,7 @@ runs:
       with:
         bazelisk-cache: true
         disk-cache: true
-        # The LLVM toolchain weighs in at around 5 GB, which means we
-        # quickly fill up the GitHub Actions cache. Downloading it
-        # again is roughly equally fast.
-        repository-cache: false
+        repository-cache: true
         # Only save the cache on the main branch to avoid PRs filling
         # up the cache.
         cache-save: ${{ github.ref == 'refs/heads/main' }}

@@ -1,1 +1,7 @@
 test --test_output=errors
+
+# Setup for hermetic_cc_toolchain (Zig SDK)
+common --enable_platform_specific_config
+build:linux --sandbox_add_mount_pair=/tmp
+build:macos --sandbox_add_mount_pair=/var/tmp
+build:windows --sandbox_add_mount_pair=C:\Temp
