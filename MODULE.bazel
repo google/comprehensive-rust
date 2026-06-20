@@ -3,11 +3,25 @@ module(
     version = "0.1.0",
 )
 
+bazel_dep(name = "platforms", version = "1.1.0")
 bazel_dep(name = "rules_rust", version = "0.70.0")
+bazel_dep(name = "rules_shell", version = "0.8.0")
+
+# Remove when https://github.com/bazelbuild/rules_rust/pull/4019 is
+# released and we update past version 0.70.0.
+git_override(
+    module_name = "rules_rust",
+    commit = "d2d856d13f89f234298db1606ece7afd1c3eee1f",
+    remote = "https://github.com/bazelbuild/rules_rust.git",
+)
 
 rust = use_extension("@rules_rust//rust:extensions.bzl", "rust")
 rust.toolchain(
     edition = "2024",
+    extra_target_triples = [
+        "aarch64-unknown-none",
+        "thumbv7em-none-eabihf",
+    ],
 )
 use_repo(rust, "rust_toolchains")
 
@@ -77,3 +91,62 @@ crate.from_specs(
     host_tools = "@rust_host_tools_nightly",
 )
 use_repo(crate, "svgbob_plugin")
+
+# Bare-Metal and Microcontroller Examples
+#
+# Note: Host triple is required in supported_platform_triples below so
+# cargo-bazel can invoke cargo tree on the host during splicing.
+crate.from_cargo(
+    name = "bare_metal_alloc_example",
+    cargo_lockfile = "//src/bare-metal/alloc-example:Cargo.lock",
+    manifests = ["//src/bare-metal/alloc-example:Cargo.toml"],
+    supported_platform_triples = [
+        "x86_64-unknown-linux-gnu",
+        "aarch64-unknown-none",
+    ],
+)
+use_repo(crate, "bare_metal_alloc_example")
+
+crate.from_cargo(
+    name = "bare_metal_aps",
+    cargo_lockfile = "//src/bare-metal/aps/examples:Cargo.lock",
+    manifests = ["//src/bare-metal/aps/examples:Cargo.toml"],
+    supported_platform_triples = [
+        "x86_64-unknown-linux-gnu",
+        "aarch64-unknown-none",
+    ],
+)
+use_repo(crate, "bare_metal_aps")
+
+crate.from_cargo(
+    name = "bare_metal_microcontrollers",
+    cargo_lockfile = "//src/bare-metal/microcontrollers/examples:Cargo.lock",
+    manifests = ["//src/bare-metal/microcontrollers/examples:Cargo.toml"],
+    supported_platform_triples = [
+        "x86_64-unknown-linux-gnu",
+        "thumbv7em-none-eabihf",
+    ],
+)
+use_repo(crate, "bare_metal_microcontrollers")
+
+crate.from_cargo(
+    name = "bare_metal_compass",
+    cargo_lockfile = "//src/exercises/bare-metal/compass:Cargo.lock",
+    manifests = ["//src/exercises/bare-metal/compass:Cargo.toml"],
+    supported_platform_triples = [
+        "x86_64-unknown-linux-gnu",
+        "thumbv7em-none-eabihf",
+    ],
+)
+use_repo(crate, "bare_metal_compass")
+
+crate.from_cargo(
+    name = "bare_metal_rtc",
+    cargo_lockfile = "//src/exercises/bare-metal/rtc:Cargo.lock",
+    manifests = ["//src/exercises/bare-metal/rtc:Cargo.toml"],
+    supported_platform_triples = [
+        "x86_64-unknown-linux-gnu",
+        "aarch64-unknown-none",
+    ],
+)
+use_repo(crate, "bare_metal_rtc")
