@@ -12,3 +12,17 @@ toolchain(
     toolchain_type = "@rules_rust_mdbook//:toolchain_type",
     visibility = ["//visibility:public"],
 )
+
+test_suite(
+    name = "bare_metal_tests",
+    tags = ["manual"],
+    tests = [
+        "//src/bare-metal/aps/examples:improved_test",
+        "//src/bare-metal/aps/examples:logger_test",
+        "//src/bare-metal/aps/examples:minimal_test",
+        "//src/bare-metal/aps/examples:psci_test",
+        "//src/bare-metal/aps/examples:rt_test",
+        "//src/bare-metal/aps/examples:safemmio_test",
+        "//src/exercises/bare-metal/rtc:rtc_test",
+    ],
+)
