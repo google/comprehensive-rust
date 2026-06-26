@@ -1,0 +1,28 @@
+"""Bazel BUILD file for AArch64 Bare-Metal Allocator Example.
+
+This package defines the allocator example target. Because this code
+targets AArch64 bare-metal platforms and not the host OS:
+
+1. The raw `rust_binary` is constrained using `target_compatible_with`
+   to run only on `os:none` to prevent compilation errors during
+   wildcard host builds.
+"""
+
+load("@rules_rust//rust:defs.bzl", "rust_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+rust_binary(
+    name = "alloc-example",
+    srcs = ["src/main.rs"],
+    edition = "2024",
+    rustc_flags = [
+        "-C",
+        "linker=rust-lld",
+    ],
+    target_compatible_with = ["@platforms//os:none"],
+    deps = [
+        "@bare_metal_alloc_example//:buddy_system_allocator",
+        "@bare_metal_alloc_example//:panic-halt",
+    ],
+)

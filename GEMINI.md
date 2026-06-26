@@ -282,3 +282,115 @@ Use `--mochaOpts.grep` to run a single test within a file:
 ```bash
 npm test -- --spec redbox --mochaOpts.grep "should be hidden by default"
 ```
+
+## Bazel Bare-Metal and Microcontroller Integration
+
+This project integrates Bazel rules for bare-metal AArch64 and microcontroller
+target platforms. Key findings and conventions include:
+
+### Checking Bazel Version
+
+Always check the `.bazelversion` file at the workspace root (e.g., `9.1.1`)
+before inspecting the host Bazel version.
+
+### Target Platforms & Constraints
+
+Bare-metal and microcontroller examples specify target CPU/OS constraint
+configurations (e.g., `os:none`):
+
+- `aarch64-unknown-none`: Mapped in `platforms/BUILD.bazel` to
+  `@platforms//os:none` and `@platforms//cpu:aarch64`.
+- `thumbv7em-none-eabihf`: Mapped to `@platforms//os:none` and
+  `@platforms//cpu:armv7e-mf` (matching rules_rust's internal CPU naming
+  convention).
+
+### Wildcard Host Builds & Compatibility
+
+To prevent raw target compilation failures during wildcard host commands (like
+`bazel build //...` or `bazel test //...`), all target-specific `rust_binary`
+targets declare compatibility constraints:
+
+```bazel
+rust_binary(
+    name = "my_target",
+    ...
+    target_compatible_with = ["@platforms//os:none"],
+)
+```
+
+This causes Bazel to automatically skip building these targets on host
+configurations (where OS is Linux/macOS) instead of failing.
+
+### Cargo Universe Imports & Host Splicing
+
+When importing external crates via `rules_rust`'s Cargo Universe
+(`crate.from_cargo`), the host platform triple (e.g.,
+`x86_64-unknown-linux-gnu`) must be included in `supported_platform_triples`:
+
+```bazel
+crate.from_cargo(
+    ...
+    supported_platform_triples = [
+        "x86_64-unknown-linux-gnu",
+        "aarch64-unknown-none",
+    ],
+)
+```
+
+Even if the imported dependencies are purely for bare-metal targets,
+`cargo-bazel` runs on the host during the splicing phase and invokes
+`cargo tree` to perform feature and dependency resolution. Excluding the host
+execution platform triple prevents Bazel from resolving a host cargo toolchain,
+resulting in feature generation failures during the analysis phase.
+
+### Hermetic Binary Extraction (Objcopy)
+
+Since host systems may lack target-specific `rust-objcopy` executables, the
+extraction of `.bin` flat images is managed hermetically inside the Bazel
+sandbox using a `genrule` target pointing to the nightly compiler's bundled
+`rust-objcopy` tool:
+
+```bazel
+genrule(
+    name = "my_target_bin",
+    srcs = [":my_target"],
+    outs = ["my_target.bin"],
+    cmd = "$(execpath @rust_host_tools_nightly//:rust-objcopy) -O binary $(location :my_target) $@",
+    tools = ["@rust_host_tools_nightly//:rust-objcopy"],
+)
+```
+
+### Host-Executed QEMU Tests, Runners & Platform Transitions
+
+By default, Bazel test and binary runner targets run on the host system. Since
+the target binaries require cross-compiling, we use Starlark configuration
+transitions in `platforms/transition.bzl` (via rules like `aarch64_binary` or
+`thumbv7em_binary`) to transition the target binary's compilation mode to the
+target platform while letting the wrapper `sh_test` or `sh_binary` execute on
+the host:
+
+```bazel
+# In platforms/transition.bzl:
+def _aarch64_transition_impl(settings, attr):
+    return {"//command_line_option:platforms": ["//platforms:aarch64-unknown-none"]}
+
+# In target BUILD.bazel:
+aarch64_binary(
+    name = "my_target_bin_aarch64",
+    dep = ":my_target_bin",
+)
+
+# Automated host test (non-interactive, pipes 'q'):
+sh_test(
+    name = "my_target_test",
+    srcs = ["run_test.sh"],
+    data = [":my_target_bin_aarch64"],
+)
+
+# Interactive host runner (run via `bazel run`):
+sh_binary(
+    name = "my_target_run",
+    srcs = ["run_test.sh"],
+    data = [":my_target_bin_aarch64"],
+)
+```

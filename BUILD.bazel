@@ -1,0 +1,20 @@
+"""Root BUILD file for Comprehensive Rust workspace.
+
+This file defines a central test_suite for running manual QEMU tests.
+"""
+
+package(default_visibility = ["//visibility:public"])
+
+test_suite(
+    name = "bare_metal_tests",
+    tags = ["manual"],
+    tests = [
+        "//src/bare-metal/aps/examples:improved_test",
+        "//src/bare-metal/aps/examples:logger_test",
+        "//src/bare-metal/aps/examples:minimal_test",
+        "//src/bare-metal/aps/examples:psci_test",
+        "//src/bare-metal/aps/examples:rt_test",
+        "//src/bare-metal/aps/examples:safemmio_test",
+        "//src/exercises/bare-metal/rtc:rtc_test",
+    ],
+)
