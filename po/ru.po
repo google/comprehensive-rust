@@ -2925,7 +2925,7 @@ msgstr ""
 
 #: src/types-and-values/hello-world.md
 msgid "\"Hello 🌍!\""
-msgstr ""
+msgstr "\"Привет, 🌍!\""
 
 #: src/types-and-values/hello-world.md
 msgid "What you see:"
@@ -3005,29 +3005,40 @@ msgid ""
 "while it is not a functional language, it includes a range of [functional "
 "concepts](https://doc.rust-lang.org/book/ch13-00-functional-features.html)."
 msgstr ""
+"Rust — мультипарадигменный язык. Например, в нём есть мощные [возможности "
+"объектно-ориентированного программирования](https://doc.rust-"
+"lang.org/book/ch17-00-oop.html), и, хотя он не функциональный, он включает "
+"ряд [концепций из функционального программирования](https://doc.rust-"
+"lang.org/book/ch13-00-functional-features.html)."
 
 #: src/types-and-values/variables.md
 msgid ""
 "Rust provides type safety via static typing. Variable bindings are made with "
 "`let`:"
 msgstr ""
+"Rust обеспечивает типобезопасность за счёт статической типизации. Привязки "
+"переменных создаются с помощью `let`:"
 
 #: src/types-and-values/variables.md src/control-flow-basics/loops/for.md
 #: src/control-flow-basics/blocks-and-scopes.md
 msgid "\"x: {x}\""
-msgstr ""
+msgstr "\"x: {x}\""
 
 #: src/types-and-values/variables.md
 msgid ""
 "// x = 20;\n"
 "    // println!(\"x: {x}\");\n"
 msgstr ""
+"// x = 20;\n"
+"    // println!(\"x: {x}\");\n"
 
 #: src/types-and-values/variables.md
 msgid ""
 "Uncomment the `x = 20` to demonstrate that variables are immutable by "
 "default. Add the `mut` keyword to allow changes."
 msgstr ""
+"Раскомментируйте `x = 20`, чтобы показать, что по умолчанию переменные "
+"неизменяемы. Добавьте ключевое слово `mut`, чтобы разрешить изменения."
 
 #: src/types-and-values/variables.md
 msgid ""
@@ -3035,12 +3046,17 @@ msgid ""
 "time, but type inference (covered later) allows the programmer to omit it in "
 "many cases."
 msgstr ""
+"`i32` здесь — это тип переменной. Он должен быть известен на этапе "
+"компиляции, но выведение типов (рассмотрим позже) позволяет программисту во "
+"многих случаях его опускать."
 
 #: src/types-and-values/values.md
 msgid ""
 "Here are some basic built-in types, and the syntax for literal values of "
 "each type."
 msgstr ""
+"Вот несколько основных встроенных типов и синтаксис литералов для каждого из"
+" них."
 
 #: src/types-and-values/values.md src/unsafe-rust/exercise.md
 msgid "Types"
@@ -3140,6 +3156,9 @@ msgid ""
 "`1_000` can be written as `1000` (or `10_00`), and `123_i64` can be written "
 "as `123i64`."
 msgstr ""
+"Все подчёркивания в числах можно опускать — они нужны только для "
+"удобочитаемости. Так `1_000` можно записать как `1000` (или `10_00`), а "
+"`123_i64` — как `123i64`."
 
 #: src/types-and-values/arithmetic.md
 msgid "\"result: {}\""
@@ -3151,10 +3170,13 @@ msgid ""
 "meaning should be clear: it takes three integers, and returns an integer. "
 "Functions will be covered in more detail later."
 msgstr ""
+"Это первая функция, отличная от `main`, которую мы видим, но смысл должен "
+"быть понятен: она принимает три целых числа и возвращает целое число. "
+"Функции будут рассмотрены подробнее позже."
 
 #: src/types-and-values/arithmetic.md
 msgid "Arithmetic is very similar to other languages, with similar precedence."
-msgstr ""
+msgstr "Арифметика очень похожа на другие языки, с похожим приоритетом операций."
 
 #: src/types-and-values/arithmetic.md
 msgid ""
@@ -3162,6 +3184,9 @@ msgid ""
 "actually undefined, and might do different things on different platforms or "
 "compilers. In Rust, it's defined."
 msgstr ""
+"А что насчёт целочисленного переполнения? В C и C++ переполнение _знаковых_ "
+"целых на самом деле не определено и может вести себя по-разному на разных "
+"платформах или в разных компиляторах. В Rust оно определено."
 
 #: src/types-and-values/arithmetic.md
 msgid ""
@@ -3171,12 +3196,19 @@ msgid ""
 "with method syntax, e.g., `(a * b).saturating_add(b * c).saturating_add(c * "
 "a)`."
 msgstr ""
+"Замените `i32` на `i16`, чтобы увидеть целочисленное переполнение: в "
+"отладочной сборке оно вызывает панику (`checked`), а в релизной — выполняет "
+"обёртывание (`wrapping`). Есть и другие варианты: `overflowing`, "
+"`saturating`, `carrying`. Они доступны через синтаксис методов, например `(a"
+" * b).saturating_add(b * c).saturating_add(c * a)`."
 
 #: src/types-and-values/arithmetic.md
 msgid ""
 "In fact, the compiler will detect overflow of constant expressions, which is "
 "why the example requires a separate function."
 msgstr ""
+"На самом деле компилятор обнаруживает переполнение константных выражений, "
+"поэтому в примере используется отдельная функция."
 
 #: src/types-and-values/inference.md
 msgid "Rust will look at how the variable is _used_ to determine the type:"
@@ -3244,24 +3276,29 @@ msgid ""
 "number is calculated recursively as the sum of the n-1'th and n-2'th "
 "Fibonacci numbers."
 msgstr ""
+"Последовательность Фибоначчи начинается с `[0,1]`. Для n>1 n-е число "
+"Фибоначчи вычисляется рекурсивно как сумма (n-1)-го и (n-2)-го чисел "
+"Фибоначчи."
 
 #: src/types-and-values/exercise.md
 msgid ""
 "Write a function `fib(n)` that calculates the n'th Fibonacci number. When "
 "will this function panic?"
 msgstr ""
+"Напишите функцию `fib(n)`, которая вычисляет n-е число Фибоначчи. При каких "
+"условиях эта функция вызовет панику?"
 
 #: src/types-and-values/exercise.md
 msgid "// The base case.\n"
-msgstr ""
+msgstr "// Базовый случай.\n"
 
 #: src/types-and-values/exercise.md src/control-flow-basics/exercise.md
 msgid "\"Implement this\""
-msgstr ""
+msgstr "\"Реализуйте это\""
 
 #: src/types-and-values/exercise.md
 msgid "// The recursive case.\n"
-msgstr ""
+msgstr "// Рекурсивный случай.\n"
 
 #: src/types-and-values/exercise.md src/types-and-values/solution.md
 msgid "\"fib({n}) = {}\""
