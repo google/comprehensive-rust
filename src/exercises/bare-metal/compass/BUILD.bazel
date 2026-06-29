@@ -1,0 +1,33 @@
+"""Bazel BUILD file for Microcontroller Compass Exercise.
+
+This package defines the compass exercise target. Because this code
+targets ARM Cortex-M microcontrollers and not the host OS:
+
+1. The raw `rust_binary` target is constrained using
+   `target_compatible_with` to run only on `os:none` to prevent
+   compilation errors during wildcard host builds.
+"""
+
+load("@rules_rust//rust:defs.bzl", "rust_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+rust_binary(
+    name = "compass",
+    srcs = ["src/main.rs"],
+    edition = "2024",
+    rustc_flags = [
+        "-C",
+        "linker=rust-lld",
+        "-C",
+        "link-arg=-Tlink.x",
+    ],
+    target_compatible_with = ["@platforms//os:none"],
+    deps = [
+        "@bare_metal_compass//:cortex-m-rt",
+        "@bare_metal_compass//:embedded-hal",
+        "@bare_metal_compass//:lsm303agr",
+        "@bare_metal_compass//:microbit-v2",
+        "@bare_metal_compass//:panic-halt",
+    ],
+)

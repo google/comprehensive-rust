@@ -1,0 +1,373 @@
+"""Bazel BUILD file for AArch64 Bare-Metal APS Examples.
+
+This package defines six distinct bare-metal demonstration binaries
+along with their binary extraction genrules and host-executed QEMU
+testing scripts. Because this code targets AArch64 bare-metal
+platforms and not the host OS:
+
+1. The raw `rust_binary` targets are constrained using
+   `target_compatible_with` to run only on `os:none` to prevent
+   compilation errors during wildcard host builds.
+
+2. We extract flat binary images via `genrule` targets using the
+   hermetic host toolchain's `rust-objcopy`.
+
+3. We wrap each binary target in a platform transition
+   (`aarch64_binary`) so they are built for the AArch64 bare-metal
+   target platform during host-executed tests.
+"""
+
+load("@rules_rust//rust:defs.bzl", "rust_binary")
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
+load("//platforms:transition.bzl", "aarch64_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+rust_binary(
+    name = "improved",
+    srcs = glob(["src/**/*.rs"]),
+    compile_data = glob(["src/**/*.S"]),
+    crate_root = "src/main_improved.rs",
+    edition = "2024",
+    linker_script = ":image.ld",
+    rustc_flags = [
+        "-C",
+        "linker=rust-lld",
+    ],
+    target_compatible_with = ["@platforms//os:none"],
+    deps = [
+        "@bare_metal_aps//:aarch64-paging",
+        "@bare_metal_aps//:aarch64-rt",
+        "@bare_metal_aps//:arm-pl011-uart",
+        "@bare_metal_aps//:bitflags",
+        "@bare_metal_aps//:log",
+        "@bare_metal_aps//:safe-mmio",
+        "@bare_metal_aps//:smccc",
+        "@bare_metal_aps//:spin",
+        "@bare_metal_aps//:zerocopy",
+    ],
+)
+
+rust_binary(
+    name = "logger",
+    srcs = glob(["src/**/*.rs"]),
+    compile_data = glob(["src/**/*.S"]),
+    crate_root = "src/main_logger.rs",
+    edition = "2024",
+    linker_script = ":image.ld",
+    rustc_flags = [
+        "-C",
+        "linker=rust-lld",
+    ],
+    target_compatible_with = ["@platforms//os:none"],
+    deps = [
+        "@bare_metal_aps//:aarch64-paging",
+        "@bare_metal_aps//:aarch64-rt",
+        "@bare_metal_aps//:arm-pl011-uart",
+        "@bare_metal_aps//:bitflags",
+        "@bare_metal_aps//:log",
+        "@bare_metal_aps//:safe-mmio",
+        "@bare_metal_aps//:smccc",
+        "@bare_metal_aps//:spin",
+        "@bare_metal_aps//:zerocopy",
+    ],
+)
+
+rust_binary(
+    name = "minimal",
+    srcs = glob(["src/**/*.rs"]),
+    compile_data = glob(["src/**/*.S"]),
+    crate_root = "src/main_minimal.rs",
+    edition = "2024",
+    linker_script = ":image.ld",
+    rustc_flags = [
+        "-C",
+        "linker=rust-lld",
+    ],
+    target_compatible_with = ["@platforms//os:none"],
+    deps = [
+        "@bare_metal_aps//:aarch64-paging",
+        "@bare_metal_aps//:aarch64-rt",
+        "@bare_metal_aps//:arm-pl011-uart",
+        "@bare_metal_aps//:bitflags",
+        "@bare_metal_aps//:log",
+        "@bare_metal_aps//:safe-mmio",
+        "@bare_metal_aps//:smccc",
+        "@bare_metal_aps//:spin",
+        "@bare_metal_aps//:zerocopy",
+    ],
+)
+
+rust_binary(
+    name = "psci",
+    srcs = glob(["src/**/*.rs"]),
+    compile_data = glob(["src/**/*.S"]),
+    crate_root = "src/main_psci.rs",
+    edition = "2024",
+    linker_script = ":image.ld",
+    rustc_flags = [
+        "-C",
+        "linker=rust-lld",
+    ],
+    target_compatible_with = ["@platforms//os:none"],
+    deps = [
+        "@bare_metal_aps//:aarch64-paging",
+        "@bare_metal_aps//:aarch64-rt",
+        "@bare_metal_aps//:arm-pl011-uart",
+        "@bare_metal_aps//:bitflags",
+        "@bare_metal_aps//:log",
+        "@bare_metal_aps//:safe-mmio",
+        "@bare_metal_aps//:smccc",
+        "@bare_metal_aps//:spin",
+        "@bare_metal_aps//:zerocopy",
+    ],
+)
+
+rust_binary(
+    name = "rt",
+    srcs = glob(["src/**/*.rs"]),
+    compile_data = glob(["src/**/*.S"]),
+    crate_root = "src/main_rt.rs",
+    edition = "2024",
+    linker_script = ":image.ld",
+    rustc_flags = [
+        "-C",
+        "linker=rust-lld",
+    ],
+    target_compatible_with = ["@platforms//os:none"],
+    deps = [
+        "@bare_metal_aps//:aarch64-paging",
+        "@bare_metal_aps//:aarch64-rt",
+        "@bare_metal_aps//:arm-pl011-uart",
+        "@bare_metal_aps//:bitflags",
+        "@bare_metal_aps//:log",
+        "@bare_metal_aps//:safe-mmio",
+        "@bare_metal_aps//:smccc",
+        "@bare_metal_aps//:spin",
+        "@bare_metal_aps//:zerocopy",
+    ],
+)
+
+rust_binary(
+    name = "safemmio",
+    srcs = glob(["src/**/*.rs"]),
+    compile_data = glob(["src/**/*.S"]),
+    crate_root = "src/main_safemmio.rs",
+    edition = "2024",
+    linker_script = ":image.ld",
+    rustc_flags = [
+        "-C",
+        "linker=rust-lld",
+    ],
+    target_compatible_with = ["@platforms//os:none"],
+    deps = [
+        "@bare_metal_aps//:aarch64-paging",
+        "@bare_metal_aps//:aarch64-rt",
+        "@bare_metal_aps//:arm-pl011-uart",
+        "@bare_metal_aps//:bitflags",
+        "@bare_metal_aps//:log",
+        "@bare_metal_aps//:safe-mmio",
+        "@bare_metal_aps//:smccc",
+        "@bare_metal_aps//:spin",
+        "@bare_metal_aps//:zerocopy",
+    ],
+)
+
+genrule(
+    name = "improved_bin",
+    srcs = [":improved"],
+    outs = ["improved.bin"],
+    cmd = "$(execpath @rust_host_tools_nightly//:rust-objcopy) -O binary $(location :improved) $@",
+    tools = ["@rust_host_tools_nightly//:rust-objcopy"],
+)
+
+genrule(
+    name = "logger_bin",
+    srcs = [":logger"],
+    outs = ["logger.bin"],
+    cmd = "$(execpath @rust_host_tools_nightly//:rust-objcopy) -O binary $(location :logger) $@",
+    tools = ["@rust_host_tools_nightly//:rust-objcopy"],
+)
+
+genrule(
+    name = "minimal_bin",
+    srcs = [":minimal"],
+    outs = ["minimal.bin"],
+    cmd = "$(execpath @rust_host_tools_nightly//:rust-objcopy) -O binary $(location :minimal) $@",
+    tools = ["@rust_host_tools_nightly//:rust-objcopy"],
+)
+
+genrule(
+    name = "psci_bin",
+    srcs = [":psci"],
+    outs = ["psci.bin"],
+    cmd = "$(execpath @rust_host_tools_nightly//:rust-objcopy) -O binary $(location :psci) $@",
+    tools = ["@rust_host_tools_nightly//:rust-objcopy"],
+)
+
+genrule(
+    name = "rt_bin",
+    srcs = [":rt"],
+    outs = ["rt.bin"],
+    cmd = "$(execpath @rust_host_tools_nightly//:rust-objcopy) -O binary $(location :rt) $@",
+    tools = ["@rust_host_tools_nightly//:rust-objcopy"],
+)
+
+genrule(
+    name = "safemmio_bin",
+    srcs = [":safemmio"],
+    outs = ["safemmio.bin"],
+    cmd = "$(execpath @rust_host_tools_nightly//:rust-objcopy) -O binary $(location :safemmio) $@",
+    tools = ["@rust_host_tools_nightly//:rust-objcopy"],
+)
+
+aarch64_binary(
+    name = "improved_bin_aarch64",
+    dep = ":improved_bin",
+)
+
+aarch64_binary(
+    name = "logger_bin_aarch64",
+    dep = ":logger_bin",
+)
+
+aarch64_binary(
+    name = "minimal_bin_aarch64",
+    dep = ":minimal_bin",
+)
+
+aarch64_binary(
+    name = "psci_bin_aarch64",
+    dep = ":psci_bin",
+)
+
+aarch64_binary(
+    name = "rt_bin_aarch64",
+    dep = ":rt_bin",
+)
+
+aarch64_binary(
+    name = "safemmio_bin_aarch64",
+    dep = ":safemmio_bin",
+)
+
+sh_test(
+    name = "improved_test",
+    srcs = ["run_test.sh"],
+    args = ["improved"],
+    tags = [
+        "manual",
+        "qemu",
+    ],
+    data = [":improved_bin_aarch64"],
+)
+
+sh_test(
+    name = "logger_test",
+    srcs = ["run_test.sh"],
+    args = ["logger"],
+    tags = [
+        "manual",
+        "qemu",
+    ],
+    data = [":logger_bin_aarch64"],
+)
+
+sh_test(
+    name = "minimal_test",
+    srcs = ["run_test.sh"],
+    args = ["minimal"],
+    tags = [
+        "manual",
+        "qemu",
+    ],
+    data = [":minimal_bin_aarch64"],
+)
+
+sh_test(
+    name = "psci_test",
+    srcs = ["run_test.sh"],
+    args = ["psci"],
+    tags = [
+        "manual",
+        "qemu",
+    ],
+    data = [":psci_bin_aarch64"],
+)
+
+sh_test(
+    name = "rt_test",
+    srcs = ["run_test.sh"],
+    args = ["rt"],
+    tags = [
+        "manual",
+        "qemu",
+    ],
+    data = [":rt_bin_aarch64"],
+)
+
+sh_test(
+    name = "safemmio_test",
+    srcs = ["run_test.sh"],
+    args = ["safemmio"],
+    tags = [
+        "manual",
+        "qemu",
+    ],
+    data = [":safemmio_bin_aarch64"],
+)
+
+filegroup(
+    name = "bins",
+    srcs = [
+        ":improved_bin",
+        ":logger_bin",
+        ":minimal_bin",
+        ":psci_bin",
+        ":rt_bin",
+        ":safemmio_bin",
+    ],
+)
+
+sh_binary(
+    name = "improved_run",
+    srcs = ["run_test.sh"],
+    args = ["improved"],
+    data = [":improved_bin_aarch64"],
+)
+
+sh_binary(
+    name = "logger_run",
+    srcs = ["run_test.sh"],
+    args = ["logger"],
+    data = [":logger_bin_aarch64"],
+)
+
+sh_binary(
+    name = "minimal_run",
+    srcs = ["run_test.sh"],
+    args = ["minimal"],
+    data = [":minimal_bin_aarch64"],
+)
+
+sh_binary(
+    name = "psci_run",
+    srcs = ["run_test.sh"],
+    args = ["psci"],
+    data = [":psci_bin_aarch64"],
+)
+
+sh_binary(
+    name = "rt_run",
+    srcs = ["run_test.sh"],
+    args = ["rt"],
+    data = [":rt_bin_aarch64"],
+)
+
+sh_binary(
+    name = "safemmio_run",
+    srcs = ["run_test.sh"],
+    args = ["safemmio"],
+    data = [":safemmio_bin_aarch64"],
+)

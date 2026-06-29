@@ -68,6 +68,29 @@ jobs:
         working-directory: ${{ matrix.directory }}
         run: cargo build
 
+  bare-metal-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Bazel cache
+        uses: ./.github/workflows/setup-bazel-cache
+
+      - name: Install QEMU
+        uses: ./.github/workflows/apt-get-install
+        with:
+          packages: >
+            build-essential
+            gdb-multiarch
+            libudev-dev
+            picocom
+            pkg-config
+            qemu-system-arm
+
+      - name: Run QEMU tests
+        run: bazel test //:bare_metal_tests
+
   find-languages:
     runs-on: ubuntu-latest
     outputs:

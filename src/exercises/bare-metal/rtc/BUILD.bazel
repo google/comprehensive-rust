@@ -1,0 +1,85 @@
+"""Bazel BUILD file for PL031 RTC Bare-Metal Exercise.
+
+This package defines the bare-metal binary and its binary
+extraction/testing targets. Because this code runs directly on AArch64
+hardware (under QEMU) and not the host OS:
+
+1. The raw `rust_binary` is constrained using `target_compatible_with`
+   to run only on `os:none` to prevent compilation errors during
+   wildcard host builds.
+
+2. We extract the binary flat image via a `genrule` using the hermetic
+   host toolchain's `rust-objcopy`.
+
+3. We declare a custom platform transition target (`rtc_bin_aarch64`)
+   to build the binary for the AArch64 bare-metal target platform,
+   allowing host-executed tests to depend on it.
+"""
+
+load("@rules_rust//rust:defs.bzl", "rust_binary")
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
+load("//platforms:transition.bzl", "aarch64_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+rust_binary(
+    name = "rtc",
+    srcs = [
+        "src/exceptions.rs",
+        "src/logger.rs",
+        "src/main.rs",
+        "src/pl031.rs",
+    ],
+    edition = "2024",
+    linker_script = ":memory.ld",
+    rustc_flags = [
+        "-C",
+        "linker=rust-lld",
+        "-C",
+        "link-arg=-Timage.ld",
+    ],
+    target_compatible_with = ["@platforms//os:none"],
+    deps = [
+        "@bare_metal_rtc//:aarch64-paging",
+        "@bare_metal_rtc//:aarch64-rt",
+        "@bare_metal_rtc//:arm-gic",
+        "@bare_metal_rtc//:arm-pl011-uart",
+        "@bare_metal_rtc//:bitflags",
+        "@bare_metal_rtc//:chrono",
+        "@bare_metal_rtc//:log",
+        "@bare_metal_rtc//:safe-mmio",
+        "@bare_metal_rtc//:smccc",
+        "@bare_metal_rtc//:spin",
+        "@bare_metal_rtc//:zerocopy",
+    ],
+)
+
+genrule(
+    name = "rtc_bin",
+    srcs = [":rtc"],
+    outs = ["rtc.bin"],
+    cmd = "$(execpath @rust_host_tools_nightly//:rust-objcopy) -O binary $(location :rtc) $@",
+    tools = ["@rust_host_tools_nightly//:rust-objcopy"],
+)
+
+aarch64_binary(
+    name = "rtc_bin_aarch64",
+    dep = ":rtc_bin",
+)
+
+sh_test(
+    name = "rtc_test",
+    srcs = ["rtc_test.sh"],
+    tags = [
+        "manual",
+        "qemu",
+    ],
+    data = [":rtc_bin_aarch64"],
+)
+
+sh_binary(
+    name = "rtc_run",
+    srcs = ["rtc_test.sh"],
+    data = [":rtc_bin_aarch64"],
+)
