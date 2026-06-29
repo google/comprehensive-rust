@@ -4,6 +4,25 @@ module(
 )
 
 bazel_dep(name = "rules_rust", version = "0.70.0")
+bazel_dep(name = "rules_rust_mdbook", version = "0.70.0")
+bazel_dep(name = "rules_shell", version = "0.8.0")
+bazel_dep(name = "toml.bzl", version = "0.4.1")
+bazel_dep(name = "yaml.bzl", version = "0.1.2")
+
+# TODO: remove when https://github.com/bazelbuild/rules_rust/pull/4027
+# is released, likely in version 0.71.0.
+git_override(
+    module_name = "rules_rust",
+    commit = "2fd73117cd996410be45259cd95b12c7688226fb",
+    remote = "https://github.com/bazelbuild/rules_rust.git",
+)
+
+git_override(
+    module_name = "rules_rust_mdbook",
+    commit = "2fd73117cd996410be45259cd95b12c7688226fb",
+    remote = "https://github.com/bazelbuild/rules_rust.git",
+    strip_prefix = "extensions/mdbook",
+)
 
 rust = use_extension("@rules_rust//rust:extensions.bzl", "rust")
 rust.toolchain(
@@ -12,6 +31,8 @@ rust.toolchain(
 use_repo(rust, "rust_toolchains")
 
 register_toolchains("@rust_toolchains//:all")
+
+register_toolchains("//:mdbook_toolchain")
 
 rust_host_tools = use_extension("@rules_rust//rust:extensions.bzl", "rust_host_tools")
 rust_host_tools.host_tools(
@@ -35,45 +56,84 @@ crate.from_cargo(
 )
 use_repo(crate, "crates")
 
-# Repositories for mdbook plugins. Add new plugins to the
-# `mdbook_plugins` repository. If this fails due to conflicts in their
+# Repositories for binary artifacts. Add new `mdbook` plugins to the
+# `binaries` repository, and if this fails due to conflicts in their
 # dependencies, isolate it below with additional repositories.
 crate.spec(
     artifact = "bin",
+    package = "i18n-report",
+    repositories = ["binaries"],
+    version = "0.2.0",
+)
+crate.spec(
+    artifact = "bin",
+    package = "mdbook",
+    repositories = ["binaries"],
+    version = "0.5.3",
+)
+crate.spec(
+    artifact = "bin",
     package = "mdbook-i18n-helpers",
-    repositories = ["mdbook_plugins"],
+    repositories = ["binaries"],
     version = "0.4.0",
 )
 crate.spec(
     artifact = "bin",
     package = "mdbook-linkcheck2",
-    repositories = ["mdbook_plugins"],
+    repositories = ["binaries"],
     version = "0.12.0",
 )
 crate.spec(
     artifact = "bin",
     package = "mdbook-pandoc",
-    repositories = ["mdbook_plugins"],
+    repositories = ["binaries"],
     version = "0.11.0",
 )
 crate.from_specs(
-    name = "mdbook_plugins",
+    name = "binaries",
     generate_binaries = True,
     host_tools = "@rust_host_tools_nightly",
 )
-use_repo(crate, "mdbook_plugins")
+use_repo(crate, "binaries")
 
 # mdbook-svgbob depends transitively on sauron-core, which has a
 # "=0.3.30" dependency on futures. This conflicts with other plugins.
 crate.spec(
     artifact = "bin",
     package = "mdbook-svgbob",
-    repositories = ["svgbob_plugin"],
+    repositories = ["svgbob"],
     version = "0.3.0",
 )
 crate.from_specs(
-    name = "svgbob_plugin",
+    name = "svgbob",
     generate_binaries = True,
     host_tools = "@rust_host_tools_nightly",
 )
-use_repo(crate, "svgbob_plugin")
+use_repo(crate, "svgbob")
+
+# The backdated_sources extension manages the retrieval of historical
+# repository states. It ensures that each language's source files
+# match its .po file timestamp.
+backdated_sources = use_extension("//:backdated_sources.bzl", "backdated_sources")
+backdated_sources.language(po = "//po:ar.po")
+backdated_sources.language(po = "//po:bn.po")
+backdated_sources.language(po = "//po:da.po")
+backdated_sources.language(po = "//po:de.po")
+backdated_sources.language(po = "//po:el.po")
+backdated_sources.language(po = "//po:es.po")
+backdated_sources.language(po = "//po:fa.po")
+backdated_sources.language(po = "//po:fr.po")
+backdated_sources.language(po = "//po:id.po")
+backdated_sources.language(po = "//po:it.po")
+backdated_sources.language(po = "//po:ja.po")
+backdated_sources.language(po = "//po:ko.po")
+backdated_sources.language(po = "//po:pl.po")
+backdated_sources.language(po = "//po:pt-BR.po")
+backdated_sources.language(po = "//po:ro.po")
+backdated_sources.language(po = "//po:ru.po")
+backdated_sources.language(po = "//po:tr.po")
+backdated_sources.language(po = "//po:uk.po")
+backdated_sources.language(po = "//po:vi.po")
+backdated_sources.language(po = "//po:zh-CN.po")
+backdated_sources.language(po = "//po:zh-TW.po")
+use_repo(backdated_sources, "backdated_sources")
