@@ -98,7 +98,7 @@ SPDX-License-Identifier: CC-BY-4.0
     - [Supertraits](methods-and-traits/traits/supertraits.md)
     - [Associated Types](methods-and-traits/traits/associated-types.md)
   - [Deriving](methods-and-traits/deriving.md)
-  - [Exercise: Generic Logger](methods-and-traits/exercise.md)
+  - [Exercise: Logger Trait](methods-and-traits/exercise.md)
     - [Solution](methods-and-traits/solution.md)
 - [Generics](generics.md)
   - [Generic Functions](generics/generic-functions.md)
