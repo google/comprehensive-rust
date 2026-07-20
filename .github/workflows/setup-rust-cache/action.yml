@@ -14,8 +14,5 @@ runs:
     - name: Setup Rust cache
       uses: Swatinem/rust-cache@v2
       with:
-        # Only save the cache on the main branch to avoid PRs filling
-        # up the cache.
-        save-if: ${{ github.ref == 'refs/heads/main' }}
         # Further, save the cache per key - e.g. language grouping.
         key: ${{ inputs.key }}
