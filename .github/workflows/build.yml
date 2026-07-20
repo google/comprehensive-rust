@@ -178,14 +178,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Update Rust
-        run: rustup update
-
-      - name: Setup Rust cache
-        uses: ./.github/workflows/setup-rust-cache
-
-      - name: Install mdbook
-        uses: ./.github/workflows/install-mdbook
+      - name: Setup Bazel cache
+        uses: ./.github/workflows/setup-bazel-cache
 
       - name: Copy latest version of translations
         run: cp -r po new-po
@@ -194,4 +188,4 @@ jobs:
         run: git checkout ${{ github.event.pull_request.base.sha }}
 
       - name: Translation diff
-        run: i18n-report diff po/ new-po/ > $GITHUB_STEP_SUMMARY
+        run: bazel run @binaries//:i18n-report__i18n-report -- diff $PWD/po/ $PWD/new-po/ > $GITHUB_STEP_SUMMARY

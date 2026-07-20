@@ -35,9 +35,22 @@ crate.from_cargo(
 )
 use_repo(crate, "crates")
 
-# Repositories for mdbook plugins. Add new plugins to the
-# `mdbook_plugins` repository. If this fails due to conflicts in their
-# dependencies, isolate it below with additional repositories.
+# Repositories for binary Rust artifacts. Add new `mdbook` plugins to
+# the `binaries` repository, and if this fails due to conflicts in
+# their dependencies, isolate it below with additional repositories.
+crate.spec(
+    artifact = "bin",
+    package = "i18n-report",
+    repositories = ["binaries"],
+    version = "0.2.0",
+)
+crate.from_specs(
+    name = "binaries",
+    generate_binaries = True,
+    host_tools = "@rust_host_tools_nightly",
+)
+use_repo(crate, "binaries")
+
 crate.spec(
     artifact = "bin",
     package = "mdbook-i18n-helpers",
