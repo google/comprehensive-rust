@@ -8,7 +8,7 @@ SPDX-License-Identifier: CC-BY-4.0
 > Current as of tokio v1.48.0
 
 The Tokio project maintains an [intrusive linked list implementation][ill] that
-demonstrates many use cases of `unsafe` and a number of types and traits from
+demonstrates several use cases of `unsafe` and a number of types and traits from
 Rust's unsafe ecosystem, including `cell::UnsafeCell`, `mem::ManuallyDrop`,
 [pinning](../pinning/what-pinning-is.md), and unsafe traits.
 
@@ -116,7 +116,7 @@ struct PointersInner<T> {
 ## Remarks
 
 Understanding the whole implementation will take some time, but it's a rewarding
-experience. The code demonstrates composing many parts of unsafe Rust's
+experience. The code demonstrates composing multiple parts of unsafe Rust's
 ecosystem into a workable, high performance data structure. Enjoy exploring!
 
 [ill]: https://docs.rs/tokio/1.48.0/src/tokio/util/linked_list.rs.html
