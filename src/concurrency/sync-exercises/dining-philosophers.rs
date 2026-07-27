@@ -33,7 +33,7 @@ struct Philosopher {
 impl Philosopher {
     fn think(&self) {
         self.thoughts
-            .send(format!("Eureka! {} has a new idea!", &self.name))
+            .send(format!("Eureka! {} has a new idea!", self.name))
             .unwrap();
     }
     // ANCHOR_END: Philosopher-think
@@ -41,12 +41,12 @@ impl Philosopher {
     // ANCHOR: Philosopher-eat
     fn eat(&self) {
         // ANCHOR_END: Philosopher-eat
-        println!("{} is trying to eat", &self.name);
+        println!("{} is trying to eat", self.name);
         let _left = self.left_chopstick.lock().unwrap();
         let _right = self.right_chopstick.lock().unwrap();
 
         // ANCHOR: Philosopher-eat-end
-        println!("{} is eating...", &self.name);
+        println!("{} is eating...", self.name);
         thread::sleep(Duration::from_millis(10));
     }
 }
