@@ -572,7 +572,7 @@ SPDX-License-Identifier: CC-BY-4.0
     - [Sometimes useful](unsafe-deep-dive/introduction/characteristics-of-unsafe-rust/sometimes-useful.md)
   - [Responsibility shift](unsafe-deep-dive/introduction/responsibility-shift.md)
   - [Stronger development workflow required](unsafe-deep-dive/introduction/impact-on-workflow.md)
-  - [Example: may_overflow](unsafe-deep-dive/introduction/may_overflow.md)
+  - [Example: a safety precondition](unsafe-deep-dive/introduction/may_overflow.md)
 - [Safety Preconditions](unsafe-deep-dive/safety-preconditions.md)
   - [Common Preconditions](unsafe-deep-dive/safety-preconditions/common-preconditions.md)
     - [Getter example](unsafe-deep-dive/safety-preconditions/getter.md)
