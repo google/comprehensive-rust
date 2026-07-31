@@ -47,33 +47,15 @@ fn main() {
   Add a `panic!("Extension trait");` in the body of `CountOnesExt::count_ones`
   to clarify which method is being invoked.
 
-- To prevent users of the Rust language from having to manually specify which
-  method to use in all cases, there is a priority ordering system for how
-  methods get "picked" first:
-  - Immutable (`&self`) first
-    - Inherent (method defined in the type's `impl` block) before Trait (method
-      added by a trait impl).
-  - Mutable (`&mut self`) Second
-    - Inherent before Trait.
-
-  If every method with the same name has different mutability and was either
-  defined in as an inherent method or trait method, with no overlap, this makes
-  the job easy for the compiler.
-
-  This does introduce some ambiguity for the user, who may be confused as to why
-  a method they're relying on is not producing expected behavior. Avoid name
-  conflicts instead of relying on this mechanism if you can.
+- When an inherent method and a trait method have the same name and receiver
+  type, Rust's [method resolution][2] rules will choose one automatically.
+  Generally it will prioritize the inherent method over the trait method, but
+  the method resolution rules can be subtle and surprising.
 
   Demonstrate: Change the call to `(&-1i32).count_ones()` and demonstrate that
-  the trait method is now called instead.
-
-  If an immutable inherent method and a mutable trait method exist for the same
-  type, we can specify which one to use at the call site by using
-  `(&<value>).count_ones()` to get the immutable (higher priority) method or
-  `(&mut <value>).count_ones()`
-
-  Point the students to the Rust reference for more information on
-  [method resolution][2].
+  the trait method is now called instead. Then change the trait method to take
+  `self` (instead of `&self`) and show that the inherent method is once again
+  called.
 
 - Avoid naming conflicts between extension trait methods and inherent methods.
   Rust's method resolution algorithm is complex and may surprise users of your
