@@ -7625,7 +7625,6 @@ msgid "No guarantee of memory locality."
 msgstr "不保证内存局部性。"
 
 #: src/memory-management/review.md
-#, fuzzy
 msgid ""
 "Creating a `String` puts fixed-sized metadata on the stack and dynamically "
 "sized data, the actual string, on the heap:"
@@ -7652,7 +7651,6 @@ msgstr ""
 "html) 实现自定义分配器"
 
 #: src/memory-management/review.md
-#, fuzzy
 msgid ""
 "We can inspect the memory layout with `unsafe` Rust. However, you should "
 "point out that this is rightfully unsafe!"
@@ -7800,18 +7798,17 @@ msgid ""
 msgstr "所有变量绑定都有一个有效的“作用域”，使用 超出其作用域的变量是错误的："
 
 #: src/memory-management/ownership.md
-#, fuzzy
 msgid ""
 "We say that the variable _owns_ the value. Every Rust value has precisely "
 "one owner at all times."
-msgstr "指出变量“拥有”值。"
+msgstr "我们称变量“拥有”值。任何时候，每个 Rust 值都恰好有一个所有者。"
 
 #: src/memory-management/ownership.md
-#, fuzzy
 msgid ""
 "At the end of the scope, the variable is _dropped_ and the data is freed. A "
 "destructor can run here to free up resources."
-msgstr "作用域结束时，变量会“被丢弃”，数据会被释放。"
+msgstr ""
+"作用域结束时，变量会“被丢弃”，数据会被释放。此时可以运行析构函数来释放资源。"
 
 #: src/memory-management/ownership.md
 msgid ""
@@ -7823,7 +7820,6 @@ msgstr ""
 "Rust 的 “单一所有者”原则与此类似。"
 
 #: src/memory-management/move.md
-#, fuzzy
 msgid "An assignment will transfer _ownership_ between variables:"
 msgstr "赋值操作将在变量之间转移所有权："
 
@@ -7841,7 +7837,6 @@ msgid "The assignment of `s1` to `s2` transfers ownership."
 msgstr "将 `s1` 赋值给 `s2`，即转移了所有权。"
 
 #: src/memory-management/move.md
-#, fuzzy
 msgid "When `s1` goes out of scope, nothing happens: it does not own anything."
 msgstr "当 `s1` 离开作用域时，什么都不会发生：它没有所有权。"
 
@@ -7858,7 +7853,6 @@ msgid "After move to `s2`:"
 msgstr "移动到 `s2` 中之后："
 
 #: src/memory-management/move.md
-#, fuzzy
 msgid ""
 "```bob\n"
 " Stack                             Heap\n"
@@ -7882,22 +7876,24 @@ msgid ""
 "```"
 msgstr ""
 "```bob\n"
-" 栈                           堆\n"
-".- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - "
-"-.\n"
-":                         :     :                                             :\n"
-":    "
-"list                 :     :                                             :\n"
-":   +----+----+           :     :    +----+----+    +----+------"
-"+             :\n"
-":   | 1  | o--+-----------+-----+--->| 2  | o--+--->| // | null "
-"|             :\n"
-":   +----+----+           :     :    +----+----+    +----+------"
-"+             :\n"
-":                         :     :                                             :\n"
-":                         :     :                                             :\n"
-"`- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - "
-"-'\n"
+" 栈                             堆\n"
+".- - - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - -.\n"
+":                           :     :                                     :\n"
+":    s1 \"（无法访问）\"    :     :                                     :\n"
+":   +-----------+-------+   :     :   +----+----+----+----+----+----+   :\n"
+":   | ptr       |   o---+---+--+--+-->| H  | e  | l  | l  | o  | !  |   :\n"
+":   | len       |     6 |   :  |  :   +----+----+----+----+----+----+   :\n"
+":   | capacity  |     6 |   :  |  :                                     :\n"
+":   +-----------+-------+   :  |  :                                     :\n"
+":                           :  |  `- - - - - - - - - - - - - - - - - - -'\n"
+":    s2                     :  |\n"
+":   +-----------+-------+   :  |\n"
+":   | ptr       |   o---+---+--'\n"
+":   | len       |     6 |   :\n"
+":   | capacity  |     6 |   :\n"
+":   +-----------+-------+   :\n"
+":                           :\n"
+"`- - - - - - - - - - - - - -'\n"
 "```"
 
 #: src/memory-management/move.md
@@ -7986,9 +7982,8 @@ msgstr ""
 "意中创建副本。"
 
 #: src/memory-management/move.md
-#, fuzzy
 msgid "Defensive Copies in Modern C++"
-msgstr "现代 C++ 中的双重释放"
+msgstr "现代 C++ 中的防御性复制"
 
 #: src/memory-management/move.md
 msgid "Modern C++ solves this differently:"
@@ -8135,12 +8130,11 @@ msgstr ""
 "此无法编译。"
 
 #: src/memory-management/copy-types.md
-#, fuzzy
 msgid ""
 "Remove `Copy` from the `derive` attribute. The compiler error is now in the "
 "`println!` for `p1`."
 msgstr ""
-"从 `derive` 属性中移除 `Copy`。现在，编译器错误位于 `p1`的 `println!` 中。"
+"从 `derive` 属性中移除 `Copy`。现在，编译器错误位于 `p1` 的 `println!` 中。"
 
 #: src/memory-management/copy-types.md
 msgid "Show that it works if you clone `p1` instead."
@@ -8413,7 +8407,6 @@ msgid "\"{list:?}\""
 msgstr "\"{list:?}\""
 
 #: src/smart-pointers/box.md
-#, fuzzy
 msgid ""
 "```bob\n"
 " Stack                           Heap\n"
@@ -8436,25 +8429,24 @@ msgid ""
 msgstr ""
 "```bob\n"
 " 栈                           堆\n"
-".- - - - - - - - - - - - -.     .- - - - - - - - - - - - - - - - - - - - - - "
-"- -.\n"
-":                         :     :                                               :\n"
+".- - - - - - - - - - - - - - .     .- - - - - - - - - - - - - - - - - - - - "
+"- - - - -.\n"
+":                            :     :                                                 :\n"
 ":    "
-"list                 :     :                                               :\n"
-":   +------+----+----+    :     :    +------+----+----+    +------+----+----"
-"+   :\n"
-":   | Cons | 1  | o--+----+-----+--->| Cons | 2  | o--+--->| Nil  | // | // "
-"|   :\n"
-":   +------+----+----+    :     :    +------+----+----+    +------+----+----"
-"+   :\n"
-":                         :     :                                               :\n"
-":                         :     :                                               :\n"
-"'- - - - - - - - - - - - -'     '- - - - - - - - - - - - - - - - - - - - - - "
-"- -'\n"
+"list                    :     :                                                 :\n"
+":   +---------+----+----+    :     :    +---------+----+----+    +------+----"
+"+----+  :\n"
+":   | Element | 1  | o--+----+-----+--->| Element | 2  | o--+--->| Nil  | // "
+"| // |  :\n"
+":   +---------+----+----+    :     :    +---------+----+----+    +------+----"
+"+----+  :\n"
+":                            :     :                                                 :\n"
+":                            :     :                                                 :\n"
+"'- - - - - - - - - - - - - - '     '- - - - - - - - - - - - - - - - - - - - "
+"- - - - -'\n"
 "```"
 
 #: src/smart-pointers/box.md
-#, fuzzy
 msgid ""
 "`Box` is like `std::unique_ptr` in C++, except that it's guaranteed to be "
 "not null."
@@ -8481,14 +8473,13 @@ msgstr ""
 "`Box` 中的堆上，以便仅移动指针。"
 
 #: src/smart-pointers/box.md
-#, fuzzy
 msgid ""
 "If `Box` was not used and we attempted to embed a `List` directly into the "
 "`List`, the compiler would not be able to compute a fixed size for the "
 "struct in memory (the `List` would be of infinite size)."
 msgstr ""
-"如果这里未使用 `Box`，且我们曾尝试将一个 `List` 直接嵌入 `List`， 编译器就不"
-"会计算内存中结构体的固定大小，结构体看起来会像是无限大。"
+"如果不使用 `Box`，而是尝试将一个 `List` 直接嵌入 `List` 本身，编译器将无法计"
+"算该结构体在内存中的固定大小（`List` 的大小将是无限的）。"
 
 #: src/smart-pointers/box.md
 msgid ""
@@ -8499,16 +8490,15 @@ msgstr ""
 "这个问题。"
 
 #: src/smart-pointers/box.md
-#, fuzzy
 msgid ""
 "Remove the `Box` in the List definition and show the compiler error. We get "
 "the message \"recursive without indirection\", because for data recursion, "
 "we have to use indirection, a `Box` or reference of some kind, instead of "
 "storing the value directly."
 msgstr ""
-"将 `Box` 从 List 定义中移除后，画面上会显示编译器错误。如果您看到“Recursive "
-"with indirection”错误消息，这是在提示您使用 Box 或其他类型的引用，而不是直接"
-"储存值。"
+"从 List 定义中移除 `Box`，并展示编译器错误。你会看到“recursive without "
+"indirection”消息，这是因为数据递归必须使用某种间接方式（`Box` 或引用），而不"
+"能直接存储值。"
 
 #: src/smart-pointers/box.md
 msgid "Niche Optimization"
@@ -8569,14 +8559,13 @@ msgid "\"b: {b}\""
 msgstr "\"b: {b}\""
 
 #: src/smart-pointers/rc.md
-#, fuzzy
 msgid ""
 "See [`Arc`](../concurrency/shared_state/arc.md) and [`Mutex`](https://doc."
 "rust-lang.org/std/sync/struct.Mutex.html) if you are in a multi-threaded "
 "context."
 msgstr ""
-"如果您在多线程情境中，请参阅 [`Arc`](https://doc.rust-lang.org/std/sync/"
-"struct.Mutex.html)。"
+"如果您在多线程情境中，请参阅 [`Arc`](../concurrency/shared_state/arc.md) 和 "
+"[`Mutex`](https://doc.rust-lang.org/std/sync/struct.Mutex.html)。"
 
 #: src/smart-pointers/rc.md
 msgid ""
@@ -8617,13 +8606,12 @@ msgid "Use `Rc::strong_count` to check the reference count."
 msgstr "使用 `Rc::strong_count` 可查看引用计数。"
 
 #: src/smart-pointers/rc.md
-#, fuzzy
 msgid ""
 "`Rc::downgrade` gives you a _weakly reference-counted_ object to create "
 "cycles that will be dropped properly (likely in combination with `RefCell`)."
 msgstr ""
-"`Rc::downgrade` 会向您提供 _弱引用计数_ 对象， 以便创建之后会被适当舍弃的周期"
-"（可能会与 `RefCell` 组合）。"
+"`Rc::downgrade` 会向您提供 _弱引用计数_ 对象，以便创建之后会被正确舍弃的循环"
+"引用（可能会与 `RefCell` 结合使用）。"
 
 #: src/smart-pointers/trait-objects.md
 msgid ""
@@ -8895,11 +8883,10 @@ msgid "[Exercise: Health Statistics](./borrowing/exercise.md) (20 minutes)"
 msgstr "练习：迭代器方法链接"
 
 #: src/borrowing/shared.md
-#, fuzzy
 msgid ""
 "As we saw before, instead of transferring ownership when calling a function, "
 "you can let a function _borrow_ the value:"
-msgstr "调用函数时，你可以让 函数“借用”值，而不是转移所有权："
+msgstr "正如我们之前所见，调用函数时，你可以让函数“借用”值，而不是转移所有权："
 
 #: src/borrowing/shared.md
 msgid "The `add` function _borrows_ two points and returns a new point."
@@ -8921,7 +8908,6 @@ msgid "Notes on stack returns:"
 msgstr "关于栈返回的说明："
 
 #: src/borrowing/shared.md
-#, fuzzy
 msgid ""
 "Demonstrate that the return from `add` is cheap because the compiler can "
 "eliminate the copy operation. Change the above code to print stack addresses "
@@ -8932,15 +8918,16 @@ msgid ""
 "the same when changing to the \"RELEASE\" setting:"
 msgstr ""
 "证明从 `add` 返回的开销很低，因为编译器可以消除复制操作。更改上述代码以输出栈"
-"地址，并在 [Playground](https://play.rust-lang.org/) 上运行它。在“调试”优化级"
-"别中，地址应发生变化，而在改成“发布”设置时保持不变："
+"地址，并在 [Playground](https://play.rust-lang.org/?version=stable&mode="
+"release&edition=2021&gist=0cb13be1c05d7e3446686ad9947c4671) 上运行，或在 "
+"[Godbolt](https://rust.godbolt.org/) 中查看汇编代码。在“DEBUG”优化级别下，地址"
+"应发生变化，而改为“RELEASE”设置时则保持不变："
 
 #: src/borrowing/shared.md
 msgid "The Rust compiler can do return value optimization (RVO)."
 msgstr "Rust 编译器能够执行返回值优化 (RVO)。"
 
 #: src/borrowing/shared.md
-#, fuzzy
 msgid ""
 "In C++, copy elision has to be defined in the language specification because "
 "constructors can have side effects. In Rust, this is not an issue at all. If "
@@ -8952,21 +8939,18 @@ msgstr ""
 "`memcpy` 复制。"
 
 #: src/borrowing/borrowck.md
-#, fuzzy
 msgid ""
 "Rust's _borrow checker_ puts constraints on the ways you can borrow values. "
 "For a given value, at any time:"
-msgstr "Rust 限制了借用值的方式："
+msgstr "Rust 的_借用检查器_对借用值的方式加以限制。对于给定的值，在任意时刻："
 
 #: src/borrowing/borrowck.md
-#, fuzzy
 msgid "You can have one or more shared references to the value, _or_"
-msgstr "在任何给定时间，你都可以有一个或多个 `&T` 值，或者"
+msgstr "你可以有一个或多个共享引用，_或者_"
 
 #: src/borrowing/borrowck.md
-#, fuzzy
 msgid "You can have exactly one exclusive reference to the value."
-msgstr "你可以有且只有一个 `&mut T` 值。"
+msgstr "你可以有且只有一个独占引用。"
 
 #: src/borrowing/borrowck.md
 msgid ""
@@ -9000,7 +8984,6 @@ msgstr ""
 "是借用检查器的一个功能，名为“非词法作用域生命周期”。"
 
 #: src/borrowing/borrowck.md
-#, fuzzy
 msgid ""
 "The exclusive reference constraint is quite strong. Rust uses it to ensure "
 "that data races do not occur. Rust also _relies_ on this constraint to "
@@ -9089,13 +9072,10 @@ msgid ""
 msgstr ""
 
 #: src/borrowing/interior-mutability.md
-#, fuzzy
 msgid ""
 "Demonstrate that reference loops can be created by adding `root` to `subtree."
 "children`."
-msgstr ""
-"演示可以通过向“subtree.children”添加“root”来创建引用循环（不要尝试输出"
-"它！）。"
+msgstr "演示可以通过将 `root` 添加到 `subtree.children` 来创建引用循环。"
 
 #: src/borrowing/interior-mutability.md
 msgid ""
@@ -9117,7 +9097,6 @@ msgstr ""
 "追踪。"
 
 #: src/borrowing/exercise.md
-#, fuzzy
 msgid ""
 "You'll start with a stubbed function in an `impl` block as well as a `User` "
 "struct definition. Your goal is to implement the stubbed out method on the "
@@ -9127,7 +9106,6 @@ msgstr ""
 "`impl` 块中定义的 `User` `struct` 的方法。"
 
 #: src/borrowing/exercise.md
-#, fuzzy
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and fill in the missing "
 "method:"
@@ -9173,7 +9151,6 @@ msgid "[Exercise: Protobuf Parsing](./lifetimes/exercise.md) (30 minutes)"
 msgstr "练习：迭代器方法链接"
 
 #: src/lifetimes/lifetime-annotations.md
-#, fuzzy
 msgid ""
 "A reference has a _lifetime_, which must not \"outlive\" the value it refers "
 "to. This is verified by the borrow checker."
@@ -9182,7 +9159,6 @@ msgstr ""
 "器进行验证。"
 
 #: src/lifetimes/lifetime-annotations.md
-#, fuzzy
 msgid ""
 "The lifetime can be implicit - this is what we have seen so far. Lifetimes "
 "can also be explicit: `&'a Point`, `&'document str`. Lifetimes start with "
@@ -9194,12 +9170,13 @@ msgstr ""
 "`&'a Point` 读取为 “一个借用的 `Point`，至少在生命周期 `a` 内有效”。"
 
 #: src/lifetimes/lifetime-annotations.md
-#, fuzzy
 msgid ""
 "Lifetimes are always inferred by the compiler: you cannot assign a lifetime "
 "yourself. Explicit lifetime annotations create constraints where there is "
 "ambiguity; the compiler verifies that there is a valid solution."
-msgstr "生命周期注释会创建约束条件；编译器会验证 是否存在有效的解决方案。"
+msgstr ""
+"生命周期始终由编译器推断：你不能自行指定生命周期。显式生命周期注解会在存在歧"
+"义的地方创建约束；编译器会验证是否存在有效的解决方案。"
 
 #: src/lifetimes/lifetime-annotations.md
 msgid ""
@@ -9217,7 +9194,6 @@ msgid "\"p3: {p3:?}\""
 msgstr "\"p3: {p3:?}\""
 
 #: src/lifetimes/lifetime-annotations.md
-#, fuzzy
 msgid ""
 "In this example, the compiler does not know what lifetime to infer for `p3`. "
 "Looking inside the function body shows that it can only safely assume that "
@@ -9251,16 +9227,15 @@ msgid "Lifetimes in Function Calls"
 msgstr "函数调用中的生命周期"
 
 #: src/lifetimes/lifetime-elision.md
-#, fuzzy
 msgid ""
 "Lifetimes for function arguments and return values must be fully specified, "
 "but Rust allows lifetimes to be elided in most cases with [a few simple "
 "rules](https://doc.rust-lang.org/nomicon/lifetime-elision.html). This is not "
 "inference -- it is just a syntactic shorthand."
 msgstr ""
-"必须完全指定函数参数和返回值的生命周期， 但 Rust 允许在大多数情况下通过\\[一"
-"些简单的 规则\\](https://doc.rust-lang.org/nomicon/lifetime-elision.html）来"
-"省略此操作。"
+"函数参数和返回值的生命周期必须完全指定，但 Rust 允许在大多数情况下依据[一些简"
+"单的规则](https://doc.rust-lang.org/nomicon/lifetime-elision.html)省略生命周"
+"期。这并不是推断——只是一种语法简写。"
 
 #: src/lifetimes/lifetime-elision.md
 msgid "Each argument which does not have a lifetime annotation is given one."
@@ -9297,13 +9272,12 @@ msgid "Try adjusting the signature to \"lie\" about the lifetimes returned:"
 msgstr "请尝试将签名调整为 “谎报”了返回的生命周期："
 
 #: src/lifetimes/lifetime-elision.md
-#, fuzzy
 msgid ""
 "This won't compile, demonstrating that the annotations are checked for "
 "validity by the compiler. Note that this is not the case for raw pointers "
 "(unsafe), and this is a common source of errors with unsafe Rust."
 msgstr ""
-"这将无法编译，表面编译器会检查注解是否有效。请注意，原始指针并非如此（不安"
+"这将无法编译，表明编译器会检查注解是否有效。请注意，原始指针并非如此（不安"
 "全），这是不安全 Rust 中导致错误的常见原因。"
 
 #: src/lifetimes/lifetime-elision.md
@@ -9434,13 +9408,12 @@ msgstr ""
 "`PhoneNumber` 字段，并将消息解析为对这些回调的一系列调用。"
 
 #: src/lifetimes/exercise.md
-#, fuzzy
 msgid ""
 "What remains for you is to implement the `parse_field` function and the "
 "`ProtoMessage` trait for `Person` and `PhoneNumber`."
 msgstr ""
-"您要做的是实现 `parse_field` 函数，以及`Person` 和 `PhoneNumber`的特征"
-"`ProtoMessage`。"
+"您要做的是实现 `parse_field` 函数，以及 `Person` 和 `PhoneNumber` 的 "
+"`ProtoMessage` 特征。"
 
 #: src/lifetimes/exercise.md src/lifetimes/solution.md
 msgid "\"Invalid varint\""
