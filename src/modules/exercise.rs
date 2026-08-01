@@ -88,7 +88,7 @@ impl Widget for Window {
         // TODO: Change draw_into to return Result<(), std::fmt::Error>. Then use the
         // ?-operator here instead of .unwrap().
         writeln!(buffer, "+-{:-<inner_width$}-+", "").unwrap();
-        writeln!(buffer, "| {:^inner_width$} |", &self.title).unwrap();
+        writeln!(buffer, "| {:^inner_width$} |", self.title).unwrap();
         writeln!(buffer, "+={:=<inner_width$}=+", "").unwrap();
         for line in inner.lines() {
             writeln!(buffer, "| {:inner_width$} |", line).unwrap();
@@ -109,7 +109,7 @@ impl Widget for Button {
 
         writeln!(buffer, "+{:-<width$}+", "").unwrap();
         for line in label.lines() {
-            writeln!(buffer, "|{:^width$}|", &line).unwrap();
+            writeln!(buffer, "|{:^width$}|", line).unwrap();
         }
         writeln!(buffer, "+{:-<width$}+", "").unwrap();
     }
@@ -121,7 +121,7 @@ impl Widget for Label {
     }
 
     fn draw_into(&self, buffer: &mut dyn std::fmt::Write) {
-        writeln!(buffer, "{}", &self.label).unwrap();
+        writeln!(buffer, "{}", self.label).unwrap();
     }
 }
 
