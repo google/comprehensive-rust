@@ -9471,15 +9471,13 @@ msgid "b\"hello\""
 msgstr "b\"hello\""
 
 #: src/welcome-day-4.md
-#, fuzzy
 msgid "Welcome to Day 4"
-msgstr "欢迎来到第一天"
+msgstr "欢迎来到第四天"
 
 #: src/welcome-day-4.md
-#, fuzzy
 msgid ""
 "Today we will cover topics relating to building large-scale software in Rust:"
-msgstr "今天，我们将介绍一些更高级的 Rust 主题："
+msgstr "今天我们将介绍与使用 Rust 构建大规模软件相关的主题："
 
 #: src/welcome-day-4.md
 msgid "Iterators: a deep dive on the `Iterator` trait."
@@ -9522,7 +9520,7 @@ msgstr "[测试](./testing.md)（45 分钟）"
 msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 40 "
 "minutes"
-msgstr ""
+msgstr "算上 10 分钟的休息时间，本节大约需要 2 小时 40 分钟"
 
 #: src/iterators.md
 msgid "[Iterator](./iterators/iterator.md) (5 minutes)"
@@ -9543,7 +9541,7 @@ msgstr "[练习：迭代器方法链](./iterators/exercise.md)（30 分钟）"
 
 #: src/iterators.md src/testing.md
 msgid "This segment should take about 45 minutes"
-msgstr ""
+msgstr "本节大约需要 45 分钟"
 
 #: src/iterators/iterator.md
 msgid ""
@@ -9561,7 +9559,6 @@ msgid "\"fib({i}): {n}\""
 msgstr "\"fib({i}): {n}\""
 
 #: src/iterators/iterator.md
-#, fuzzy
 msgid ""
 "The `Iterator` trait implements many common functional programming "
 "operations over collections (e.g. `map`, `filter`, `reduce`, etc). This is "
@@ -9569,9 +9566,9 @@ msgid ""
 "functions should produce the code as efficient as equivalent imperative "
 "implementations."
 msgstr ""
-"`Iterator` 特征会对集合实现许多常见的函数程序操作， 例如 ` map`filter \\``和"
-"`reduce\\` 等。您可以通过此特征找到有关它们的所有 文档。在 Rust 中，这些函数"
-"应生成代码，且生成的代码应与等效命令式实现一样 高效。"
+"`Iterator` 特征为集合实现了许多常见的函数式编程操作（例如 `map`、`filter`、"
+"`reduce` 等）。你可以在这个特征里找到关于它们的全部文档。在 Rust 中，这些函"
+"数生成的代码应当与等效的命令式实现一样高效。"
 
 #: src/iterators/iterator.md
 msgid ""
@@ -9586,46 +9583,43 @@ msgstr ""
 "next()` 不存在。"
 
 #: src/iterators/intoiterator.md
-#, fuzzy
 msgid ""
 "The `Iterator` trait tells you how to _iterate_ once you have created an "
 "iterator. The related trait [`IntoIterator`](https://doc.rust-lang.org/std/"
 "iter/trait.IntoIterator.html) defines how to create an iterator for a type. "
 "It is used automatically by the `for` loop."
 msgstr ""
-"“Iterator”trait会告知您在创建迭代器后如何进行迭代。相关 trait“IntoIterator”会"
-"告知您如何创建迭代器："
+"`Iterator` 特征告诉你在创建迭代器之后如何 _迭代_。相关的 "
+"[`IntoIterator`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) "
+"特征则定义了如何为某个类型创建迭代器，`for` 循环会自动使用它。"
 
 #: src/iterators/intoiterator.md
 msgid "\"point = {x}, {y}\""
 msgstr "\"point = {x}, {y}\""
 
 #: src/iterators/intoiterator.md
-#, fuzzy
 msgid ""
 "Click through to the docs for `IntoIterator`. Every implementation of "
 "`IntoIterator` must declare two types:"
-msgstr "这里的语法表示，“IntoIterator”的每个实现都必须声明两种类型："
+msgstr ""
+"点进 `IntoIterator` 的文档看看。`IntoIterator` 的每个实现都必须声明两种类型"
+"："
 
 #: src/iterators/intoiterator.md
-#, fuzzy
 msgid "`Item`: the type to iterate over, such as `i8`,"
-msgstr "`Item`：我们迭代的类型，例如 `i8`，"
+msgstr "`Item`：要迭代的类型，例如 `i8`，"
 
 #: src/iterators/intoiterator.md
 msgid "`IntoIter`: the `Iterator` type returned by the `into_iter` method."
 msgstr "“IntoIter”：“into_iter”方法返回的“Iterator”类型。"
 
 #: src/iterators/intoiterator.md
-#, fuzzy
 msgid ""
 "Note that `IntoIter` and `Item` are linked: the iterator must have the same "
 "`Item` type, which means that it returns `Option<Item>`"
 msgstr ""
-"请注意，“IntoIter”和“Item”已关联：迭代器必须具有相同的“Item”类型，这意味着它"
-"会返回“Option\n"
-"\n"
-"”"
+"请注意，`IntoIter` 和 `Item` 是关联的：迭代器必须具有相同的 `Item` 类型，也"
+"就是说它返回 `Option<Item>`"
 
 #: src/iterators/intoiterator.md
 msgid "The example iterates over all combinations of x and y coordinates."
@@ -9685,14 +9679,13 @@ msgid "There are two ways to specify `B` for this method:"
 msgstr "可以通过两种方式为此方法指定 `B`："
 
 #: src/iterators/fromiterator.md
-#, fuzzy
 msgid ""
 "With the \"turbofish\": `some_iterator.collect::<COLLECTION_TYPE>()`, as "
 "shown. The `_` shorthand used here lets Rust infer the type of the `Vec` "
 "elements."
 msgstr ""
-"使用 `turbofish` 时：`some_iterator.collect::<COLLECTION_TYPE>()`，如下所示。"
-"通过此处所用的 `_` 简写形式，Rust 能够推理 `Vec` 元素的类型。"
+"使用“turbofish”：`some_iterator.collect::<COLLECTION_TYPE>()`，如上所示。这"
+"里用到的 `_` 简写让 Rust 推导 `Vec` 元素的类型。"
 
 #: src/iterators/fromiterator.md
 msgid ""
@@ -9703,34 +9696,33 @@ msgstr ""
 "示例重写成使用这种形式。"
 
 #: src/iterators/fromiterator.md
-#, fuzzy
 msgid ""
 "There are basic implementations of `FromIterator` for `Vec`, `HashMap`, etc. "
 "There are also more specialized implementations which let you do cool things "
 "like convert an `Iterator<Item = Result<V, E>>` into a `Result<Vec<V>, E>`."
 msgstr ""
-"还有一些实现，让您可执行一些很酷的操作，比如 将 `Iterator<Item = Result<V, "
-"E>>` 转换成 `Result<Vec<V>, E>`。"
+"`Vec`、`HashMap` 等类型都有 `FromIterator` 的基本实现。此外还有一些更专门的"
+"实现，让你可以做一些很酷的事情，比如把 `Iterator<Item = Result<V, E>>` 转换"
+"成 `Result<Vec<V>, E>`。"
 
 #: src/iterators/exercise.md
-#, fuzzy
 msgid ""
 "In this exercise, you will need to find and use some of the provided methods "
 "in the [`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) "
 "trait to implement a complex calculation."
 msgstr ""
-"您可以自行实现 [`Iterator`](https://doc.rust-lang.org/std/iter/trait."
-"Iterator.html) 特征："
+"在本练习中，你需要在 "
+"[`Iterator`](https://doc.rust-lang.org/std/iter/trait.Iterator.html) 特征提"
+"供的方法中找到并使用其中一些，来实现一个较复杂的计算。"
 
 #: src/iterators/exercise.md
-#, fuzzy
 msgid ""
 "Copy the following code to <https://play.rust-lang.org/> and make the tests "
 "pass. Use an iterator expression and `collect` the result to construct the "
 "return value."
 msgstr ""
-"将以下代码复制到 <https://play.rust-lang.org/>，然后设法通过测试。请尽量避免"
-"为中间结果分配“Vec”："
+"将以下代码复制到 <https://play.rust-lang.org/> 并让测试通过。请使用迭代器表"
+"达式，并用 `collect` 收集结果来构造返回值。"
 
 #: src/iterators/exercise.md src/iterators/solution.md
 msgid ""
@@ -10054,21 +10046,20 @@ msgid ""
 "This library defines a `Widget` trait and a few implementations of that "
 "trait, as well as a `main` function."
 msgstr ""
+"在本练习中，你将重新组织一个小型 GUI 库的实现。这个库定义了一个 `Widget` 特"
+"征、该特征的几个实现，以及一个 `main` 函数。"
 
 #: src/modules/exercise.md
-#, fuzzy
 msgid ""
 "It is typical to put each type or set of closely-related types into its own "
 "module, so each widget type should get its own module."
 msgstr ""
-"在本练习中，您需要将课程 “方法和特征”部分的 GUI 库练习重新整理为一组模块。通"
-"常情况下，将每种类型或一组密切相关的类型放入各自的模块中，因此每种 widget 类"
-"型都应拥有自己的模块。"
+"通常的做法是把每个类型或一组密切相关的类型放进各自的模块，因此每种 widget 类"
+"型都应该有自己的模块。"
 
 #: src/modules/exercise.md
-#, fuzzy
 msgid "Cargo Setup"
-msgstr "设置"
+msgstr "Cargo 设置"
 
 #: src/modules/exercise.md
 msgid ""
@@ -10079,11 +10070,11 @@ msgstr ""
 "目："
 
 #: src/modules/exercise.md
-#, fuzzy
 msgid ""
 "Edit the resulting `src/main.rs` to add `mod` statements, and add additional "
 "files in the `src` directory."
-msgstr "修改 `src/main.rs` 以添加 `mod` 语句，并在 `src` 目录中添加其他文件。"
+msgstr ""
+"修改生成的 `src/main.rs`，添加 `mod` 语句，并在 `src` 目录中添加其他文件。"
 
 #: src/modules/exercise.md
 msgid "Source"
@@ -10091,7 +10082,7 @@ msgstr "源代码"
 
 #: src/modules/exercise.md
 msgid "Here's the single-module implementation of the GUI library:"
-msgstr ""
+msgstr "下面是该 GUI 库的单模块实现："
 
 #: src/modules/exercise.md
 msgid "/// Natural width of `self`.\n"
@@ -10298,14 +10289,13 @@ msgid "Integration tests are supported via the `tests/` directory."
 msgstr "您可以通过 `tests/` 目录来支持集成测试。"
 
 #: src/testing/unit-tests.md
-#, fuzzy
 msgid ""
 "Tests are marked with `#[test]`. Unit tests are often put in a nested "
 "`tests` module, using `#[cfg(test)]` to conditionally compile them only when "
 "building tests."
 msgstr ""
-"测试标有 `#[test]`。单元测试通常会放在嵌套的 `tests` 模块中，仅在构建测试时使"
-"用 `#[cfg(test)]` 对它们进行有条件地编译。"
+"测试用 `#[test]` 标记。单元测试通常放在嵌套的 `tests` 模块中，并用 "
+"`#[cfg(test)]` 让它们只在构建测试时才被编译。"
 
 #: src/testing/unit-tests.md
 msgid "\"Hello World\""
@@ -10380,7 +10370,6 @@ msgid "The code will be compiled and executed as part of `cargo test`."
 msgstr "代码会作为 `cargo test` 的一部分进行编译和执行。"
 
 #: src/testing/other.md
-#, fuzzy
 msgid ""
 "Adding `#` in the code will hide it from the docs, but will still compile/"
 "run it."
@@ -10448,7 +10437,6 @@ msgstr ""
 "字符串作为输入内容，并执行以下操作来验证信用卡号："
 
 #: src/testing/exercise.md
-#, fuzzy
 msgid "Ignore all spaces. Reject number with fewer than two digits."
 msgstr "忽略所有空格。拒绝少于两位的号码。"
 
@@ -10486,13 +10474,13 @@ msgstr ""
 "部分算法是否正确实现。"
 
 #: src/testing/exercise.md
-#, fuzzy
 msgid ""
 "Copy the code below to <https://play.rust-lang.org/> and write additional "
 "tests to uncover bugs in the provided implementation, fixing any bugs you "
 "find."
 msgstr ""
-"将以下代码复制到 <https://play.rust-lang.org/>，并填入缺少的函数和方法："
+"将以下代码复制到 <https://play.rust-lang.org/>，并编写更多测试来发现所给实现"
+"中的 bug，然后修复你找到的所有 bug。"
 
 #: src/testing/exercise.md src/testing/solution.md
 msgid "\"4263 9826 4026 9299\""
@@ -10578,7 +10566,7 @@ msgstr "[不安全 Rust](./unsafe-rust.md)（1 小时 5 分钟）"
 msgid ""
 "Including 10 minute breaks, this session should take about 2 hours and 10 "
 "minutes"
-msgstr ""
+msgstr "算上 10 分钟的休息时间，本节大约需要 2 小时 10 分钟"
 
 #: src/error-handling.md
 msgid "[Panics](./error-handling/panics.md) (3 minutes)"
@@ -10604,7 +10592,7 @@ msgstr "[thiserror 和 anyhow](./error-handling/thiserror-and-anyhow.md)（5 分
 #: src/error-handling.md
 msgid ""
 "[Exercise: Rewriting with Result](./error-handling/exercise.md) (30 minutes)"
-msgstr "[练习：用 Result 重写](./error-handling/exercise.md)（30 分钟）"
+msgstr "[练习：使用 Result 进行重写](./error-handling/exercise.md)（30 分钟）"
 
 #: src/error-handling/panics.md
 msgid "Rust handles fatal errors with a \"panic\"."
@@ -10685,7 +10673,6 @@ msgid "This does not work if `panic = 'abort'` is set in your `Cargo.toml`."
 msgstr "如果您在 `Cargo.toml` 中设置了 `panic = 'abort'`，此方法不会生效。"
 
 #: src/error-handling/try.md
-#, fuzzy
 msgid ""
 "Runtime errors like connection-refused or file-not-found are handled with "
 "the `Result` type, but matching this type on every call can be cumbersome. "
@@ -10700,7 +10687,6 @@ msgid "into the much simpler"
 msgstr "转换成更简单的命令"
 
 #: src/error-handling/try.md
-#, fuzzy
 msgid "We can use this to simplify our error handling code:"
 msgstr "我们可以用它来简化错误处理代码："
 
@@ -10734,16 +10720,15 @@ msgstr ""
 "件。"
 
 #: src/error-handling/try.md
-#, fuzzy
 msgid ""
 "Note that `main` can return a `Result<(), E>` as long as it implements `std::"
 "process::Termination`. In practice, this means that `E` implements `Debug`. "
 "The executable will print the `Err` variant and return a nonzero exit status "
 "on error."
 msgstr ""
-"请注意，`main` 函数只要实现 `std::process:Terality`，就可以返回 `Result<(), "
-"E>`。在实践中，这意味着 `E` 会实现 `Debug`。可执行文件将输出 `Err` 变体，并在"
-"出现错误时返回非零退出状态。"
+"请注意，只要实现了 `std::process::Termination`，`main` 就可以返回 "
+"`Result<(), E>`。实践中这意味着 `E` 实现了 `Debug`。可执行文件会输出 `Err` "
+"变体，并在出错时返回非零退出状态。"
 
 #: src/error-handling/try-conversions.md
 msgid ""
@@ -10756,13 +10741,13 @@ msgid "works the same as"
 msgstr "效果等同于"
 
 #: src/error-handling/try-conversions.md
-#, fuzzy
 msgid ""
 "The `From::from` call here means we attempt to convert the error type to the "
 "type returned by the function. This makes it easy to encapsulate errors into "
 "higher-level errors."
 msgstr ""
-"此处的 `From::from` 调用表示，我们尝试将错误类型转换为 函数返回的类型："
+"这里的 `From::from` 调用意味着我们尝试把错误类型转换为函数返回的类型。这让我"
+"们可以方便地将错误封装成更高层次的错误。"
 
 #: src/error-handling/try-conversions.md
 msgid "\"IO error: {e}\""
@@ -10785,6 +10770,10 @@ msgid ""
 "of type `Result<U, ErrorInner>` if `ErrorOuter` and `ErrorInner` are the "
 "same type or if `ErrorOuter` implements `From<ErrorInner>`."
 msgstr ""
+"`?` 运算符返回的值必须与函数的返回类型兼容。对 `Result` 而言，这意味着错误类"
+"型必须兼容。返回 `Result<T, ErrorOuter>` 的函数，只有在 `ErrorOuter` 与 "
+"`ErrorInner` 是同一类型、或者 `ErrorOuter` 实现了 `From<ErrorInner>` 时，才"
+"能对 `Result<U, ErrorInner>` 类型的值使用 `?`。"
 
 #: src/error-handling/try-conversions.md
 msgid ""
@@ -10799,6 +10788,8 @@ msgid ""
 "`Option<T>` can use the `?` operator on `Option<U>` for arbitrary `T` and "
 "`U` types."
 msgstr ""
+"`Option` 没有这种兼容性要求。返回 `Option<T>` 的函数可以对任意 `T` 和 `U` 类"
+"型的 `Option<U>` 使用 `?` 运算符。"
 
 #: src/error-handling/try-conversions.md
 msgid ""
@@ -10806,21 +10797,23 @@ msgid ""
 "However, `Option::ok_or` converts `Option` to `Result` whereas `Result::ok` "
 "turns `Result` into `Option`."
 msgstr ""
+"返回 `Result` 的函数不能对 `Option` 使用 `?`，反之亦然。不过 "
+"`Option::ok_or` 可以把 `Option` 转换成 `Result`，而 `Result::ok` 则把 "
+"`Result` 转换成 `Option`。"
 
 #: src/error-handling/error.md
 msgid "Dynamic Error Types"
 msgstr "动态错误类型"
 
 #: src/error-handling/error.md
-#, fuzzy
 msgid ""
 "Sometimes we want to allow any type of error to be returned without writing "
 "our own enum covering all the different possibilities. The `std::error::"
 "Error` trait makes it easy to create a trait object that can contain any "
 "error."
 msgstr ""
-"有时，我们需要允许返回任意类型的错误，但又不想自己手动编写枚举来涵盖所有不同"
-"的可能性。 `std::error::Error` 可以让我们轻松做到这一点。"
+"有时我们希望允许返回任意类型的错误，而不必自己编写涵盖所有可能情况的枚举。"
+"`std::error::Error` 特征让我们可以轻松创建一个能容纳任何错误的特征对象。"
 
 #: src/error-handling/error.md
 msgid "\"count.dat\""
@@ -10847,7 +10840,6 @@ msgstr ""
 "ParseIntError`（通过 `String::parse`）。"
 
 #: src/error-handling/error.md
-#, fuzzy
 msgid ""
 "Boxing errors saves on code, but gives up the ability to cleanly handle "
 "different error cases differently in the program. As such it's generally not "
@@ -10855,10 +10847,9 @@ msgid ""
 "can be a good option in a program where you just want to display the error "
 "message somewhere."
 msgstr ""
-"虽然这可以省却编写代码的麻烦，但也会导致我们无法在程序中以不同的方式正常处理"
-"不同的 错误情况。因此，在库的公共 API 中使用 `Box<dyn Error>` 通常不是一个好"
-"主意。 但是对于您只需要在某处显示错误消息的程序来说，这不失为一个 很好的选"
-"择。"
+"把错误装箱可以省去不少代码，但也放弃了在程序中区分处理不同错误情况的能力。因"
+"此，在库的公共 API 中使用 `Box<dyn Error>` 通常不是个好主意；但如果程序只需"
+"要把错误消息显示在某处，它就是个不错的选择。"
 
 #: src/error-handling/error.md
 msgid ""
@@ -10868,28 +10859,31 @@ msgid ""
 "compatible with `no_std` in [nightly](https://github.com/rust-lang/rust/"
 "issues/103765) only."
 msgstr ""
+"定义自定义错误类型时，记得实现 `std::error::Error` 特征，这样它才能被装箱。"
+"但如果你需要支持 `no_std` 属性，请注意 `std::error::Error` 特征目前仅在 "
+"[nightly](https://github.com/rust-lang/rust/issues/103765) 中与 `no_std` 兼"
+"容。"
 
 #: src/error-handling/thiserror-and-anyhow.md
-#, fuzzy
 msgid ""
 "The [`thiserror`](https://docs.rs/thiserror/) and [`anyhow`](https://docs.rs/"
 "anyhow/) crates are widely used to simplify error handling."
 msgstr ""
-"[`thiserror`](https://docs.rs/thiserror/) 和 [`anyhow`](https://docs.rs/"
-"anyhow/) crate 用于简化错误处理。`thiserror` 有助于创建实现 `From<T>` 的自定"
-"义错误类型。`anyhow` 有助于处理函数中的错误，包括为错误添加上下文信息。"
+"[`thiserror`](https://docs.rs/thiserror/) 和 "
+"[`anyhow`](https://docs.rs/anyhow/) 这两个 crate 被广泛用于简化错误处理。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid ""
 "`thiserror` is often used in libraries to create custom error types that "
 "implement `From<T>`."
-msgstr ""
+msgstr "`thiserror` 常用于库中，用来创建实现了 `From<T>` 的自定义错误类型。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid ""
 "`anyhow` is often used by applications to help with error handling in "
 "functions, including adding contextual information to your errors."
 msgstr ""
+"`anyhow` 常用于应用程序中，帮助处理函数中的错误，包括为错误添加上下文信息。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "\"Found no username in {0}\""
@@ -10916,59 +10910,51 @@ msgid "`thiserror`"
 msgstr "`thiserror`"
 
 #: src/error-handling/thiserror-and-anyhow.md
-#, fuzzy
 msgid ""
 "The `Error` derive macro is provided by `thiserror`, and has lots of useful "
 "attributes to help define error types in a compact way."
 msgstr ""
-"`Error` 派生宏由 `thiserror` 提供，并且具有许多有用的属性（例如 "
-"`#[error]`），有助于定义有用的错误类型。"
+"`Error` 派生宏由 `thiserror` 提供，它带有许多有用的属性，可以帮助你以紧凑的"
+"方式定义错误类型。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "The `std::error::Error` trait is derived automatically."
-msgstr ""
+msgstr "`std::error::Error` 特征会自动派生。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "The message from `#[error]` is used to derive the `Display` trait."
-msgstr ""
+msgstr "`#[error]` 中的消息用于派生 `Display` 特征。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid "`anyhow`"
 msgstr "`anyhow`"
 
 #: src/error-handling/thiserror-and-anyhow.md
-#, fuzzy
 msgid ""
 "`anyhow::Error` is essentially a wrapper around `Box<dyn Error>`. As such "
 "it's again generally not a good choice for the public API of a library, but "
 "is widely used in applications."
-msgstr "”是“Result\\<V, anyhow::Error>”的类型别名。"
+msgstr ""
+"`anyhow::Error` 本质上是 `Box<dyn Error>` 的封装。因此同样地，它通常不适合作"
+"为库的公共 API，但在应用程序中被广泛使用。"
 
 #: src/error-handling/thiserror-and-anyhow.md
-#, fuzzy
 msgid "`anyhow::Result<V>` is a type alias for `Result<V, anyhow::Error>`."
-msgstr "“anyhow::Result"
+msgstr "`anyhow::Result<V>` 是 `Result<V, anyhow::Error>` 的类型别名。"
 
 #: src/error-handling/thiserror-and-anyhow.md
-#, fuzzy
 msgid ""
 "Actual error type inside of it can be extracted for examination if necessary."
-msgstr "“anyhow::Error”本质上是“Box"
+msgstr "如有需要，可以提取其内部的实际错误类型进行检查。"
 
 #: src/error-handling/thiserror-and-anyhow.md
-#, fuzzy
 msgid ""
 "Functionality provided by `anyhow::Result<T>` may be familiar to Go "
 "developers, as it provides similar usage patterns and ergonomics to `(T, "
 "error)` from Go."
 msgstr ""
-"”的封装容器。因此，就像前面提到的那样，在库的公共 API 中 使用它通常不是一个好"
-"主意。但是它广泛用于应用中。\n"
-"\n"
-"如果需要，可以提取其内部的实际错误类型进行检查。\n"
-"\n"
-"Go 开发者可能会十分熟悉 `anyhow::Result<T>` 提供的功能， 因为它的使用模式和工"
-"效学设计与 Go 的 `(T, error)` 方法十分相似。"
+"Go 开发者可能会对 `anyhow::Result<T>` 提供的功能感到熟悉，因为它的使用模式和"
+"易用性与 Go 的 `(T, error)` 十分相似。"
 
 #: src/error-handling/thiserror-and-anyhow.md
 msgid ""
@@ -10976,9 +10962,10 @@ msgid ""
 "`Option` types. `use anyhow::Context` is necessary to enable `.context()` "
 "and `.with_context()` on those types."
 msgstr ""
+"`anyhow::Context` 是为标准的 `Result` 和 `Option` 类型实现的特征。需要 `use "
+"anyhow::Context` 才能在这些类型上使用 `.context()` 和 `.with_context()`。"
 
 #: src/error-handling/exercise.md
-#, fuzzy
 msgid "Exercise: Rewriting with Result"
 msgstr "练习：使用 Result 进行重写"
 
@@ -11114,7 +11101,7 @@ msgstr "[练习：FFI 封装容器](./unsafe-rust/exercise.md)（30 分钟）"
 
 #: src/unsafe-rust.md
 msgid "This segment should take about 1 hour and 5 minutes"
-msgstr ""
+msgstr "本节大约需要 1 小时 5 分钟"
 
 #: src/unsafe-rust/unsafe.md
 msgid "The Rust language has two parts:"
@@ -11131,12 +11118,10 @@ msgid ""
 msgstr "\\*\\*不安全 Rust：\\*\\*如果违反了前提条件，可能会触发未定义的行为。"
 
 #: src/unsafe-rust/unsafe.md
-#, fuzzy
 msgid ""
 "We saw mostly safe Rust in this course, but it's important to know what "
 "Unsafe Rust is."
-msgstr ""
-"本课程中出现的大多为“安全 Rust”，但是了解“不安全 Rust”的定义 非常重要。"
+msgstr "本课程中我们看到的大多是安全 Rust，但了解不安全 Rust 是什么同样重要。"
 
 #: src/unsafe-rust/unsafe.md
 msgid ""
@@ -11181,15 +11166,14 @@ msgstr ""
 "[Rustonomicon](https://doc.rust-lang.org/nomicon/)。"
 
 #: src/unsafe-rust/unsafe.md
-#, fuzzy
 msgid ""
 "Unsafe Rust does not mean the code is incorrect. It means that developers "
 "have turned off some compiler safety features and have to write correct code "
 "by themselves. It means the compiler no longer enforces Rust's memory-safety "
 "rules."
 msgstr ""
-"不安全 Rust 并不意味着代码不正确，而是这意味着开发者已停用 编译器的安全功能，"
-"必须自行编写正确的 代码。也就是说，编译器不再强制执行 Rust 的内存安全规则。"
+"不安全 Rust 并不意味着代码不正确，而是意味着开发者关闭了编译器的部分安全检查"
+"，必须自己保证代码正确。也就是说，编译器不再强制执行 Rust 的内存安全规则。"
 
 #: src/unsafe-rust/dereferencing.md
 msgid "Creating pointers is safe, but dereferencing them requires `unsafe`:"
@@ -11292,15 +11276,14 @@ msgid "In most cases the pointer must also be properly aligned."
 msgstr "在大多数情况下，指针还必须正确对齐。"
 
 #: src/unsafe-rust/dereferencing.md
-#, fuzzy
 msgid ""
 "The \"NOT SAFE\" section gives an example of a common kind of UB bug: `*r1` "
 "has the `'static` lifetime, so `r3` has type `&'static String`, and thus "
 "outlives `s`. Creating a reference from a pointer requires _great care_."
 msgstr ""
-"“不安全”部分给出了一个常见 UB bug 的示例：`*r1` 的生命周期为 `'static`，因此 "
-"`r3` 为 `&'static String` 类型，存在时间比 `s` 更长。从指针创建引用需要 _特别"
-"注意_。"
+"“NOT SAFE”那一段给出了一类常见 UB bug 的示例：`*r1` 具有 `'static` 生命周期"
+"，因此 `r3` 的类型是 `&'static String`，从而比 `s` 活得更久。从指针创建引用"
+"需要 _格外小心_。"
 
 #: src/unsafe-rust/mutable-static.md
 msgid "It is safe to read an immutable static variable:"
@@ -11491,7 +11474,6 @@ msgid "\"a = {}, b = {}\""
 msgstr "\"a = {}, b = {}\""
 
 #: src/unsafe-rust/unsafe-functions.md
-#, fuzzy
 msgid ""
 "`get_unchecked`, like most `_unchecked` functions, is unsafe, because it can "
 "create UB if the range is incorrect. `abs` is incorrect for a different "
@@ -11500,8 +11482,10 @@ msgid ""
 "might violate Rust's memory model, but in general any C function might have "
 "undefined behaviour under any arbitrary circumstances."
 msgstr ""
-"这个问题通常仅存在于使用指针执行违反 Rust 内存模型的操作的外部函数中。 但一般"
-"而言，任何 C 函数都有可能在任意情况下出现未定义行为。"
+"`get_unchecked` 和大多数 `_unchecked` 函数一样是不安全的，因为范围不正确时会"
+"产生 UB。`abs` 不正确的原因则不同：它是一个外部函数（FFI）。调用外部函数通常"
+"只有在这些函数对指针做了可能违反 Rust 内存模型的操作时才成问题，但一般而言，"
+"任何 C 函数都可能在任意情况下出现未定义行为。"
 
 #: src/unsafe-rust/unsafe-functions.md
 msgid ""
@@ -11512,23 +11496,21 @@ msgstr ""
 "items/external-blocks.html)。"
 
 #: src/unsafe-rust/unsafe-functions.md
-#, fuzzy
 msgid ""
 "We wouldn't actually use pointers for a `swap` function - it can be done "
 "safely with references."
-msgstr "实际上，我们不会这样使用指针，因为使用引用可以安全地达到相同的目的。"
+msgstr "实际上我们不会用指针来实现 `swap` 函数——用引用就可以安全地做到。"
 
 #: src/unsafe-rust/unsafe-functions.md
-#, fuzzy
 msgid ""
 "Note that unsafe code is allowed within an unsafe function without an "
 "`unsafe` block. We can prohibit this with `#[deny(unsafe_op_in_unsafe_fn)]`. "
 "Try adding it and see what happens. This will likely change in a future Rust "
 "edition."
 msgstr ""
-"请注意，在不安全函数中，可以在没有 `unsafe` 代码块的情况下使用不安全代码。我"
-"们可以 使用 `#[deny(unsafe_op_in_unsafe_fn)]` 来禁止此行为。请尝试添加该命"
-"令，看看会出现什么情况。"
+"请注意，在不安全函数内部，不需要 `unsafe` 代码块就可以写不安全代码。我们可以"
+"用 `#[deny(unsafe_op_in_unsafe_fn)]` 禁止这种写法。试着加上它，看看会发生什"
+"么。这一点在未来的 Rust 版次中很可能会改变。"
 
 #: src/unsafe-rust/unsafe-traits.md
 msgid "Implementing Unsafe Traits"
@@ -11686,39 +11668,37 @@ msgstr "将 `&str` 转换为 `CString`：您需要为尾随 `\\0` 字符分配�
 
 #: src/unsafe-rust/exercise.md
 msgid "`CString` to `*const i8`: you need a pointer to call C functions,"
-msgstr "将 `CString` 转换为 `\\*const i8` ：您需要一个指针来调用 C 函数，"
+msgstr "将 `CString` 转换为 `*const i8`：您需要一个指针来调用 C 函数，"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "`*const i8` to `&CStr`: you need something which can find the trailing `\\0` "
 "character,"
 msgstr ""
-"将 `\\*const i8` 转换为 `&CStr` ：您需要一些能够找到尾随 `\\0` 字符的内容，"
+"将 `*const i8` 转换为 `&CStr`：您需要一些能够找到尾随 `\\0` 字符的内容，"
 
 #: src/unsafe-rust/exercise.md
-#, fuzzy
 msgid ""
 "`&CStr` to `&[u8]`: a slice of bytes is the universal interface for \"some "
 "unknown data\","
-msgstr ""
-"将 `&CStr` 转换为 `&\\[u8\\]` ：一个字节 Slice 是“一些未知数据”的通用接口，"
+msgstr "将 `&CStr` 转换为 `&[u8]`：字节切片是“某些未知数据”的通用接口，"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "`&[u8]` to `&OsStr`: `&OsStr` is a step towards `OsString`, use [`OsStrExt`]"
 "(https://doc.rust-lang.org/std/os/unix/ffi/trait.OsStrExt.html) to create it,"
 msgstr ""
-"将 `&\\[u8\\]` 转换为 `&OsStr` ：`&OsStr` 是向 `OsString` 迈进的一步，请使用"
-"[`OsStrExt`](https://doc.rust-lang.org/std/os/unix/ffi/trait.OsStrExt.html)来"
-"创建它，"
+"将 `&[u8]` 转换为 `&OsStr`：`&OsStr` 是向 `OsString` 迈进的一步，请使用 "
+"[`OsStrExt`](https://doc.rust-lang.org/std/os/unix/ffi/trait.OsStrExt.html) "
+"来创建它，"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
 "`&OsStr` to `OsString`: you need to clone the data in `&OsStr` to be able to "
 "return it and call `readdir` again."
 msgstr ""
-"将“&OsStr”转换为“OsString”：您需要克隆“&OsStr”中的数据，以便能够返回它并再次"
-"调用“readdir”。"
+"将 `&OsStr` 转换为 `OsString`：您需要克隆 `&OsStr` 中的数据，以便能够返回它并"
+"再次调用 `readdir`。"
 
 #: src/unsafe-rust/exercise.md
 msgid ""
