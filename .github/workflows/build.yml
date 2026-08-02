@@ -22,7 +22,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Setup Bazel cache
         uses: ./.github/workflows/setup-bazel-cache
@@ -47,7 +47,7 @@ jobs:
             target: aarch64-unknown-none
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Install toolchain
         run: |
@@ -72,7 +72,7 @@ jobs:
       languages: ${{ steps.find-languages.outputs.languages }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Find languages
         id: find-languages
@@ -97,7 +97,7 @@ jobs:
       LINK_CHECKED_LANGUAGES: '["en", "fa"]'
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 0 # We need the full history for build.sh below.
 
@@ -122,7 +122,9 @@ jobs:
 
       - name: Test format of ${{ matrix.language }} translation
         if: matrix.language != 'en'
-        run: msgfmt --statistics -o /dev/null po/${{ matrix.language }}.po
+        env:
+          LANGUAGE: ${{ matrix.language }}
+        run: msgfmt --statistics -o /dev/null "po/${LANGUAGE}.po"
 
       - name: Test extracting English strings
         if: matrix.language == 'en'
@@ -131,12 +133,14 @@ jobs:
           msgfmt -o /dev/null --statistics po/messages.pot
 
       - name: Build ${{ matrix.language }} translation
+        env:
+          LANGUAGE: ${{ matrix.language }}
         run: |
-          .github/workflows/build.sh ${{ matrix.language }} book/comprehensive-rust-${{ matrix.language }}
+          .github/workflows/build.sh "$LANGUAGE" "book/comprehensive-rust-${LANGUAGE}"
 
       # Upload the book now to retain it in case mdbook test fails.
       - name: Upload book
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: comprehensive-rust-${{ matrix.language }}
           path: book/
@@ -151,9 +155,9 @@ jobs:
     needs: build
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: 22
           cache: "npm"
@@ -162,7 +166,7 @@ jobs:
         run: npm install
         working-directory: ./tests
       - name: Download english book
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
         with:
           name: comprehensive-rust-en
           path: book/
@@ -174,7 +178,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 0
 
