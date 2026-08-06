@@ -48,7 +48,7 @@ fn main() {
   - The same effect occurs with `match &mut m`: the captures become exclusive
     references.
 - The distinction between a capture and a constant expression can be hard to
-  spot. Try changing the `10` in the first arm to a variable, and see that it
+  spot. Try changing the `0` in the first arm to a variable, and see that it
   subtly doesn't work. Change it to a `const` and see it working again.
 
 </details>
