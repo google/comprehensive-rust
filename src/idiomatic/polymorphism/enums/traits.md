@@ -3,9 +3,17 @@
 Sometimes we use an enum to abstract over multiple types that implement the same
 trait, and want the enum to also re-expose the trait's interface.
 
-```rust,editable,compile_fail
+```rust,editable
 trait Pet {
     fn talk(&self);
+}
+
+struct Dog {
+    name: String,
+}
+
+struct Cat {
+    age: u8,
 }
 
 impl Pet for Dog {
@@ -18,6 +26,11 @@ impl Pet for Cat {
     fn talk(&self) {
         println!("Meow! I am {} years old", self.age);
     }
+}
+
+enum AnyPet {
+    Dog(Dog),
+    Cat(Cat),
 }
 
 impl Pet for AnyPet {
