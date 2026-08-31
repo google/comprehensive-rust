@@ -240,6 +240,72 @@ SPDX-License-Identifier: CC-BY-4.0
 
 ---
 
+# Macros: Morning
+
+- [Welcome](macros/welcome.md)
+- [What Is A Macro](macros/intro.md)
+  - [What Are Macros For](macros/intro/why.md)
+  - [How Do Macros Work](macros/intro/how.md)
+    - [C Preprocessor vs. Rust Macros](macros/intro/cpp-vs-rust-macros.md)
+    - [A C Preprocessor Macro Example](macros/intro/cpp-example.md)
+    - [A Rust Macro Example](macros/intro/rust-example.md)
+- [Macros In Rust](macros/design.md)
+  - [Ways To Define Macros](macros/defining.md)
+  - [Where Macros Can Apply](macros/kinds.md)
+    - [Function-Like Macros](macros/kinds/function-like.md)
+    - [Derive Macros](macros/kinds/derive.md)
+    - [Attribute Macros](macros/kinds/attr.md)
+- [Macros, Tokens, and Syntax](macros/tokens.md)
+  - [Brackets and Token Trees](macros/brackets.md)
+  - [Token Streams](macros/streams.md)
+- [Macros By Example](macros/macro_rules/welcome.md)
+  - [A Macros-By-Example Example](macros/macro_rules/example.md)
+  - [Defining Macros By Example](macros/macro_rules/defining.md)
+    - [Pattern Matching](macros/macro_rules/pattern-matching.md)
+      - [Exercise: Saving Some Typing](macros/macro_rules/pattern-matching/exercise.md)
+        - [Solution](macros/macro_rules/pattern-matching/solution.md)
+    - [Fragment Specifiers](macros/macro_rules/fragment-specifiers.md)
+      - [Exercise: Pair Macro](macros/macro_rules/fragment-specifiers/exercise.md)
+        - [Solution](macros/macro_rules/fragment-specifiers/solution.md)
+    - [Repetition](macros/macro_rules/repetition.md)
+      - [Exercise: Generalized Operations](macros/macro_rules/repetition/exercise.md)
+        - [Solution](macros/macro_rules/repetition/solution.md)
+
+# Macros: Afternoon
+
+- [Declarative Macro Techniques](macros/macro_rules/techniques.md)
+  - [Optional Parameters](macros/macro_rules/techniques/optional-params.md)
+  - [Named Positional Parameters](macros/macro_rules/techniques/named-params.md)
+  - [Internal Rules](macros/macro_rules/techniques/internal-rules.md)
+  - [Token Munchers](macros/macro_rules/techniques/token-munchers.md)
+    - [Exercise: Turtle Graphics](macros/macro_rules/techniques/token-munchers/exercise.md)
+      - [Solution](macros/macro_rules/techniques/token-munchers/solution.md)
+  - [Push-Down Accumulators](macros/macro_rules/techniques/accumulators.md)
+    - [Exercise: Turtle Graphics II](macros/macro_rules/techniques/accumulators/exercise.md)
+      - [Solution](macros/macro_rules/techniques/accumulators/solution.md)
+  - [TT Bundling](macros/macro_rules/techniques/tt-bundling.md)
+- [Hygiene](macros/hygiene.md)
+  - [What Is Macro Hygiene](macros/hygiene/what-is-hygiene.md)
+  - [Hygiene In Rust Macros](macros/hygiene/rust-macro-hygiene.md)
+- [Procedural Macros](macros/proc-macros/welcome.md)
+  - [Procedural Macro Basics](macros/proc-macros/basics.md)
+  - [Function-Like Procedural Macros](macros/proc-macros/function-like.md)
+  - [Derive Macros](macros/proc-macros/derive.md)
+  - [Attribute Macros](macros/proc-macros/attr.md)
+  - [Handling Errors](macros/proc-macros/errors.md)
+  - [Procedural Macros In The Wild](macros/proc-macros/in-the-wild.md)
+  - [Writing Procedural Macros](macros/proc-macros/writing.md)
+    - [Dependencies](macros/proc-macros/writing/deps.md)
+      - [The `proc_macro` Crate](macros/proc-macros/writing/deps/proc_macro.md)
+      - [The `proc_macro2` Crate](macros/proc-macros/writing/deps/proc_macro2.md)
+      - [The `syn` and `quote` Crates](macros/proc-macros/writing/deps/syn-quote.md)
+        - [The `syn` AST](macros/proc-macros/writing/deps/syn-ast.md)
+        - [The `quote!` macro](macros/proc-macros/writing/deps/quote-macro.md)
+    - [Exercise: `Display` Derive](macros/proc-macros/exercise.md)
+      - [Solution](macros/proc-macros/solution.md)
+
+---
+
 # Android
 
 - [Welcome](android.md)
