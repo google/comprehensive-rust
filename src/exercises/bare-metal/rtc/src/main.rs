@@ -93,13 +93,9 @@ fn main(x0: u64, x1: u64, x2: u64, x3: u64) -> ! {
     // addresses of a GICv3 distributor and redistributor respectively, and
     // nothing else accesses those address ranges.
     let mut gic = unsafe {
-        GicV3::new(
-            UniqueMmioPointer::new(GICD_BASE_ADDRESS),
-            GICR_BASE_ADDRESS,
-            1,
-            false,
-        )
-    };
+        GicV3::new(UniqueMmioPointer::new(GICD_BASE_ADDRESS), GICR_BASE_ADDRESS, 1)
+    }
+    .unwrap();
     gic.setup(0);
     // ANCHOR_END: main
 
