@@ -13,9 +13,14 @@ SPDX-License-Identifier: CC-BY-4.0
 # // Copyright 2026 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-/// Adds 2^31 - 1 to negative numbers.
+/// Adds 2^31 - 1 to negative numbers without checking for overflow.
+///
+/// # Safety
+///
+/// Calling this with `a >= 1` causes signed integer overflow, which is
+/// undefined behavior with `unchecked_add`.
 unsafe fn may_overflow(a: i32) -> i32 {
-    a + i32::MAX
+    unsafe { a.unchecked_add(i32::MAX) }
 }
 
 fn main() {
@@ -38,15 +43,18 @@ with negative numbers.
 Ask learners if they can explain why `may_overflow` requires the unsafe keyword.
 
 “In case you’re unsure what the problem is, let’s pause briefly to explain. An
-`i32` only has 31 bits available for positive numbers. When an operation
-produces a result that requires more than 31 bits, then the program is put into
-an invalid state. And it’s not just a numerical problem. Compilers optimize code
-on the basis that invalid states are impossible. This causes code paths to be
-deleted, producing erratic runtime behavior while also introducing security
-vulnerabilities.
+`i32` only has 31 bits available for positive numbers.
 
-Compile and run the code, producing a panic. Then run the example in the
-playground to run under `--release` mode to trigger UB.
+In standard safe Rust, integer overflow (`a + i32::MAX`) is not undefined behavior:
+it panics with overflow checks enabled (debug mode) and performs two's-complement
+wrapping in release mode. However, `unchecked_add` is an `unsafe` operation that
+omits overflow checks entirely and declares overflow to be undefined behavior (UB).
+Compilers optimize code on the assumption that undefined behavior is impossible,
+which can cause dead-code elimination and unexpected runtime behavior.
+
+Compile and run the code: in debug mode, the standard library catches the violated
+safety precondition and panics (`unsafe precondition(s) violated: i32::unchecked_add cannot overflow`).
+In release mode, `unchecked_add` produces actual UB.
 
 “This code can be used correctly, however, improper usage is highly dangerous.”
 
