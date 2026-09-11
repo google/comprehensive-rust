@@ -15,7 +15,7 @@ It uses a
 to keep track of what values have been seen and how many times each one has
 appeared.
 
-The initial version of `Counter` is hardcoded to only work for `u32` values.
+The initial version of `Counter` is hardcoded to only work for `char` values.
 Make the struct and its methods generic over the type of value being tracked,
 that way `Counter` can track any type of value.
 
@@ -32,29 +32,29 @@ use std::collections::HashMap;
 
 /// Counter counts the number of times each value of type T has been seen.
 struct Counter {
-    values: HashMap<u32, u64>,
+    counts: HashMap<char, u64>,
 }
 
 impl Counter {
     /// Create a new Counter.
     fn new() -> Self {
         Counter {
-            values: HashMap::new(),
+            counts: HashMap::new(),
         }
     }
 
     /// Count an occurrence of the given value.
-    fn count(&mut self, value: u32) {
-        if self.values.contains_key(&value) {
-            *self.values.get_mut(&value).unwrap() += 1;
+    fn count(&mut self, value: char) {
+        if self.counts.contains_key(&value) {
+            *self.counts.get_mut(&value).unwrap() += 1;
         } else {
-            self.values.insert(value, 1);
+            self.counts.insert(value, 1);
         }
     }
 
     /// Return the number of times the given value has been seen.
-    fn times_seen(&self, value: u32) -> u64 {
-        self.values.get(&value).copied().unwrap_or_default()
+    fn times_seen(&self, value: char) -> u64 {
+        self.counts.get(&value).copied().unwrap_or_default()
     }
 }
 
