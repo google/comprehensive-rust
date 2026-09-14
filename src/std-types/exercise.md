@@ -43,18 +43,18 @@ impl Counter {
         }
     }
 
-    /// Count an occurrence of the given value.
-    fn count(&mut self, value: u32) {
-        if self.values.contains_key(&value) {
-            *self.values.get_mut(&value).unwrap() += 1;
+    /// Count an occurrence of the given key.
+    fn count(&mut self, key: u32) {
+        if self.values.contains_key(&key) {
+            *self.values.get_mut(&key).unwrap() += 1;
         } else {
-            self.values.insert(value, 1);
+            self.values.insert(key, 1);
         }
     }
 
-    /// Return the number of times the given value has been seen.
-    fn times_seen(&self, value: u32) -> u64 {
-        self.values.get(&value).copied().unwrap_or_default()
+    /// Return the number of times the given key has been seen.
+    fn times_seen(&self, key: u32) -> u64 {
+        self.values.get(&key).copied().unwrap_or_default()
     }
 }
 
