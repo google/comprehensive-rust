@@ -31,7 +31,7 @@ block.”
 
 Optional:
 
-“Working with the external environment often involves sharing memory. The
+“Working with the external environment frequently involves sharing memory. The
 interface that computers provide is a memory address (a pointer).”
 
 “Here's an example that asks the Linux kernel to write to memory that we
