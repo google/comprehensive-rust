@@ -50,7 +50,7 @@ fn login(username: &Username, password: &Password) -> Result<(), LoginError> {
 fn main() {
     let password = Password("password".into());
     let username = Username("username".into());
-    login(password, username); // 🛠️❌
+    login(&password, &username); // 🛠️❌
 }
 ```
 
