@@ -25,7 +25,15 @@ struct StderrLogger;
 
 impl Logger for StderrLogger {
     fn log(&self, verbosity: u8, message: &str) {
-        eprintln!("verbosity={verbosity}: {message}");
+        eprintln!("[stderr] verbosity={verbosity}: {message}");
+    }
+}
+
+struct StdoutLogger;
+
+impl Logger for StdoutLogger {
+    fn log(&self, verbosity: u8, message: &str) {
+        println!("[stdout] verbosity={verbosity}: {message}");
     }
 }
 
@@ -44,9 +52,13 @@ impl<L: Logger> Logger for VerbosityFilter<L> {
 }
 
 fn main() {
-    let logger = VerbosityFilter { max_verbosity: 3, inner: StderrLogger };
-    logger.log(5, "FYI");
-    logger.log(2, "Uhoh");
+    let err = VerbosityFilter { max_verbosity: 3, inner: StderrLogger };
+    err.log(5, "FYI");
+    err.log(2, "Uhoh");
+
+    let out = VerbosityFilter { max_verbosity: 3, inner: StdoutLogger };
+    out.log(5, "FYI");
+    out.log(2, "Uhoh");
 }
 ```
 
