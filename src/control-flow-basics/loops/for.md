@@ -25,10 +25,16 @@ fn main() {
 
 <details>
 
+- `for` loops can be given any sequence of values and will iterate through that
+  sequence.
+
+- Note that the first `for` loop only iterates to `4`. Show the `1..=5` syntax
+  for an inclusive range.
+
+# More to Explore
+
 - Under the hood `for` loops use a concept called "iterators" to handle
   iterating over different kinds of ranges/collections. Iterators will be
   discussed in more detail later.
-- Note that the first `for` loop only iterates to `4`. Show the `1..=5` syntax
-  for an inclusive range.
 
 </details>

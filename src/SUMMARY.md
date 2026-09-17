@@ -190,6 +190,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 - [Welcome](welcome-day-4.md)
 - [Iterators](iterators.md)
+  - [`for` Review](iterators/for.md)
   - [Motivation](iterators/motivation.md)
   - [`Iterator` Trait](iterators/iterator.md)
   - [`Iterator` Helper Methods](iterators/helpers.md)
