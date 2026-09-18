@@ -196,6 +196,7 @@ SPDX-License-Identifier: CC-BY-4.0
   - [`Iterator` Helper Methods](iterators/helpers.md)
   - [`collect`](iterators/collect.md)
   - [`IntoIterator`](iterators/intoiterator.md)
+  - [`IntoIterator` On References](iterators/intoiterator-refs.md)
   - [Exercise: Iterator Method Chaining](iterators/exercise.md)
     - [Solution](iterators/solution.md)
 - [Modules](modules.md)

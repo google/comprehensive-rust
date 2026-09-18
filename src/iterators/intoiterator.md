@@ -57,9 +57,12 @@ impl Iterator for GridIter {
 
 fn main() {
     let grid = Grid { x_coords: vec![3, 5, 7, 9], y_coords: vec![10, 20, 30, 40] };
+
     for (x, y) in grid {
         println!("point = {x}, {y}");
     }
+
+    // dbg!(&grid.x_coords); // ❌ The grid was consumed by the loop.
 }
 ```
 
@@ -81,18 +84,8 @@ Note that `IntoIter` and `Item` are linked: the iterator must have the same
 
 The example iterates over all combinations of x and y coordinates.
 
-Try iterating over the grid twice in `main`. Why does this fail? Note that
-`IntoIterator::into_iter` takes ownership of `self`.
-
-Fix this issue by implementing `IntoIterator` for `&Grid` and creating a
-`GridRefIter` that iterates by reference. A version with both `GridIter` and
-`GridRefIter` is available [in this playground][1].
-
-The same problem can occur for standard library types: `for e in some_vector`
-will take ownership of `some_vector` and iterate over owned elements from that
-vector. Use `for e in &some_vector` instead, to iterate over references to
-elements of `some_vector`.
+Uncomment the commented line in `main` and show the compiler error. Note that
+`IntoIterator::into_iter` takes ownership of `self`. The next slide shows how we
+can fix this by implementing `IntoIterator` on `&Grid`.
 
 </details>
-
-[1]: https://play.rust-lang.org/?version=stable&mode=debug&edition=2024&gist=947e371c7295af758504f01f149023a1
