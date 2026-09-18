@@ -25,6 +25,7 @@ use thiserror::Error;
 enum ReadUsernameError {
     #[error("I/O error: {0}")]
     IoError(#[from] io::Error),
+
     #[error("Found no username in {0}")]
     EmptyUsername(String),
 }
@@ -55,5 +56,7 @@ fn main() {
 - Note that the (`thiserror::`)`Error` derive macro, while it has the effect of
   implementing the (`std::error::`)`Error` trait, is not the same this; traits
   and macros do not share a namespace.
+- `thiserror` also supports deriving `Error` on structs for error types that
+  only need to represent a single error case.
 
 </details>
