@@ -51,5 +51,9 @@ fn main() {
   that used on the right-hand side to join elements in the output stream. Here,
   the output separator is empty, resulting in sequential statements.
 - You can use any punctuation token (except delimiters) as a separator.
+- Most syntactic constructs in Rust itself accept separators as terminators as
+  well. To allow a trailing separator with repetition syntax, an optional
+  separator may be accepted explicitly after a `*` or `+` repetition operator:
+  `$($e:expr),+ $(,)?`
 
 </details>
