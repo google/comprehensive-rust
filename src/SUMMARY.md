@@ -302,8 +302,8 @@ SPDX-License-Identifier: CC-BY-4.0
       - [The `proc_macro` Crate](macros/proc-macros/writing/deps/proc_macro.md)
       - [The `proc_macro2` Crate](macros/proc-macros/writing/deps/proc_macro2.md)
       - [The `syn` and `quote` Crates](macros/proc-macros/writing/deps/syn-quote.md)
-        - [The `syn` AST](macros/proc-macros/writing/deps/syn-ast.md)
-        - [The `quote!` macro](macros/proc-macros/writing/deps/quote-macro.md)
+      - [The `syn` AST](macros/proc-macros/writing/deps/syn-ast.md)
+      - [The `quote!` macro](macros/proc-macros/writing/deps/quote-macro.md)
     - [Exercise: `Display` Derive](macros/proc-macros/exercise.md)
       - [Solution](macros/proc-macros/solution.md)
 
