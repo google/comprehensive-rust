@@ -54,5 +54,8 @@ bundled parameters may become.
 - In the code example, `(present: fail, absent: pass)` represents the bundle,
   which is matched recursively as a single `$bundle:tt` and passed downstream.
 - Macros with substantial state are most likely to benefit from this technique.
+- It might be helpful to debug print the `$_skip` variable in the recursive case
+  to better visualize the way that the recursive case pulls tokens off the front
+  until we hit either of the base cases.
 
 </details>
