@@ -9,8 +9,9 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Blanket Trait Implementations
 
-When a trait is local, we can implement it for as many types as we like. How far
-can we take this?
+We can use a generic `impl` block to implement a trait for multiple types at
+once, generally based on the behavior provided by another trait. These are
+referred to as **blanket implementations**.
 
 ```rust,editable
 # // Copyright 2025 Google LLC
@@ -34,31 +35,26 @@ where
 
 <details>
 
-- The subject of a trait implementation at the definition site of a trait can be
-  anything, including `T` with no bounds.
+- `impl` blocks can be generic, which allow us to apply an implementation to
+  multiple types at once. This is commonly used when applying an `impl` block to
+  a generic type, but can also be used to implement a trait for multiple types
+  at once.
 
-  We can't do anything with a `T` we don't know nothing about, so this is
-  uncommon.
+- When an `impl` block applies to multiple types, we refer this as a "blanket
+  impl".
 
-- Conditional blanket implementations are much more useful and you are more
-  likely to see and author them.
+- In the example above we have a blanket implementation for all types that
+  implement `Display`.
 
-  These implementations will have a bound on the trait, like
-  `impl <T: Display> ToString for T {...}`
+- Blanket impls can restrict how traits are implemented. Rust prevents a type
+  from implementing the same trait twice, so a blanket impl prevents the trait
+  from being implemented directly on a covered type.
 
-  In the example above we have a blanket implementation for all types that
-  implement Display, the implementation has one piece of information available
-  to it from the trait bounds: it implements `Display::fmt`.
+  - Demonstrate this by adding an implementation for `String` and show the
+    resulting error.
 
-  This is enough to write an implementation for pretty printing to console.
-
-- Do be careful with these kinds of implementations, as it may end up preventing
-  users downstream from implementing a more meaningful.
-
-  The above isn't written for `Debug` as that would mean almost all types end up
-  implementing `PrettyPrint`, and `Debug` is not semantically similar to
-  `Display`: It's meant for debug output instead of something more
-  human-readable.
+  - Avoid a blanket impl if users are likely to want to customize the behavior
+    of the implementation beyond what the blanket impl provides.
 
 ref:
 

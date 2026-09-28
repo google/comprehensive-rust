@@ -525,18 +525,22 @@ SPDX-License-Identifier: CC-BY-4.0
   - [What is Polymorphism?](idiomatic/polymorphism/python.md)
   - [Kinds of Polymorphism](idiomatic/polymorphism/polymorphism-kinds.md)
   - [Generics](idiomatic/polymorphism/generics.md)
-    - [Traits](idiomatic/polymorphism/refresher/traits.md)
+      <!-- - [Traits](idiomatic/polymorphism/refresher/traits.md)
+      Do we need a dedicated slide for reviewing traits? There's not much to discuss there -->
     - [Trait Bounds](idiomatic/polymorphism/refresher/trait-bounds.md)
     - [Deriving Traits](idiomatic/polymorphism/refresher/deriving-traits.md)
     - [Default Implementations](idiomatic/polymorphism/refresher/default-impls.md)
     - [Supertraits](idiomatic/polymorphism/refresher/supertraits.md)
     - [Blanket Implementations](idiomatic/polymorphism/refresher/blanket-impls.md)
     - [Conditional Methods](idiomatic/polymorphism/refresher/conditional-methods.md)
-    - [Orphan Rule](idiomatic/polymorphism/refresher/orphan-rule.md)
-    - [Statically Sized and Dynamically Sized types](idiomatic/polymorphism/refresher/sized.md)
+      <!-- - [Orphan Rule](idiomatic/polymorphism/refresher/orphan-rule.md)
+      The orphan rule doesn't really inform anything about generics, might be worth discussing elsewhere though -->
+      <!-- - [Statically Sized and Dynamically Sized types](idiomatic/polymorphism/refresher/sized.md)
+      Useful to discuss, but is a more advanced topic and might make more sense to cover when talking about dyn? -->
     - [Monomorphization and Binary Size](idiomatic/polymorphism/refresher/monomorphization.md)
     - [Sealed Traits](idiomatic/polymorphism/from-oop-to-rust/sealed-traits.md)
-    - [Traits for Polymorphism users can extend](idiomatic/polymorphism/from-oop-to-rust/sticking-with-traits.md)
+      <!-- - [Traits for Polymorphism users can extend](idiomatic/polymorphism/from-oop-to-rust/sticking-with-traits.md)
+      This is useful to discuss but is a bit backwards with the new layout, and makes more sense to cover in the dyn section since dyn acts like an enum that users can extend -->
   - [Enums](idiomatic/polymorphism/enums.md)
     - [Inspecting Enums](idiomatic/polymorphism/enums/inspecting.md)
     - [Heterogeneous Collections](idiomatic/polymorphism/enums/heterogeneous.md)

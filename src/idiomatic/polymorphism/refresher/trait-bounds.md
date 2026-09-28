@@ -21,24 +21,20 @@ fn print_with_length<T: Display>(item: T) {
 }
 
 fn main() {
-    let number = 42;
-    let text = "Hello, Rust!";
-
-    print_with_length(number); // Works with integers
-    print_with_length(text); // Works with strings
+    print_with_length(42); // Works with integers
+    print_with_length("Hello, Rust!"); // Works with strings
 }
 ```
 
 <details>
 
-- Traits are most commonly used as bounds on generic type parameters for a
-  function or method.
+- Generic functions rely on traits to determine what operations are valid for a
+  generic type.
 
-  Without a trait bound on a generic type parameter, we don't have access to any
-  behavior to write functions and methods with.
-
-  Trait bounds allow us to specify the minimum viable behavior of a type for it
-  to work in generic code.
+- Without a trait bound on a generic type parameter, we don't have access to any
+  behavior for that type. Remove the trait bound on `print_with_length` and
+  demonstrate that we're not allowed to make assumptions about what methods it
+  has.
 
 ref:
 
