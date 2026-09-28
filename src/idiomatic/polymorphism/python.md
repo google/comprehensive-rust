@@ -12,8 +12,8 @@ print_value("hello")
 print_value({})
 ```
 
-But Rust's static type system requires us to specify upfront the types of our
-functions' arguments:
+But Rust's static type system requires us to specify the types of our functions'
+arguments:
 
 ```rust,editable
 fn print_value(val: i32) {
