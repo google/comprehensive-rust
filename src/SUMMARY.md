@@ -194,6 +194,7 @@ SPDX-License-Identifier: CC-BY-4.0
   - [Motivation](iterators/motivation.md)
   - [`Iterator` Trait](iterators/iterator.md)
   - [`Iterator` Helper Methods](iterators/helpers.md)
+  - [`enumerate`](iterators/enumerate.md)
   - [`collect`](iterators/collect.md)
   - [`IntoIterator`](iterators/intoiterator.md)
   - [Exercise: Iterator Method Chaining](iterators/exercise.md)
