@@ -80,11 +80,17 @@ fn main() {
   situation like this, whereas `dyn` gives us this behavior purely from the
   `Pet` impls on `Cat` and `Dog`.
 
+  - To avoid writing this boilerplate ourselves, we can use a crate like
+    [enum_dispatch], which handles the work of generating the wrapper enum and
+    implementing the trait.
+
 - The advantage of this approach is that we retain the useful properties of an
   enum (e.g. the ability to pattern match on it) while also exposing a way to do
   dynamic dispatch through the trait's interface.
 
 - This also enables us to use `AnyPet` with generic functions like
   `do_pet_stuff`, which we can also do with `dyn`.
+
+[enum_dispatch]: https://crates.io/crates/enum_dispatch
 
 </details>

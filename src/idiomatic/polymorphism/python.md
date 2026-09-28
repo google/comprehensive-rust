@@ -12,8 +12,8 @@ print_value("hello")
 print_value({})
 ```
 
-But Rust's type system is extremely static, meaning that by default a function's
-arguments are limited to exactly the type declared in the function signature:
+But Rust's static type system requires us to specify upfront the types of our
+functions' arguments:
 
 ```rust,editable
 fn print_value(val: i32) {
@@ -22,7 +22,7 @@ fn print_value(val: i32) {
 
 fn main() {
     print_value(123);
-    // print_value("hello"); // 🛠️❌ Mismatched types!
+    // print_value("hello"); // ❌ Mismatched types!
 }
 ```
 
@@ -30,8 +30,8 @@ fn main() {
 
 - If you are coming from a dynamic language like Python, the concept of
   polymorphism may be new to you because in dynamic languages everything is
-  inherently polymorphic. But Rust is a very statically-typed language, meaning
-  the compiler heavily restricts what types can be used where.
+  inherently polymorphic. But Rust is a statically-typed language, meaning the
+  compiler heavily restricts what types can be used where.
 
 - Static typing is a powerful tool that allows the compiler to enforce correct
   usage of our APIs: If your function needs to be given an `i32` in order to

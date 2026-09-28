@@ -1,6 +1,6 @@
 # Kinds of Polymorphism
 
-In Rust we have 3 different mechanism for doing polymorphism:
+In Rust we have 3 different mechanisms for writing polymorphic code:
 
 - **Generics** - Static polymorphism where code abstracts over types but the
   types are fully known at compile time.
