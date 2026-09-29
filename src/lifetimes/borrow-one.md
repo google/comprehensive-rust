@@ -39,7 +39,7 @@ fn find_nearest<'a>(points: &'a [Point], query: &Point) -> &'a Point {
         };
     }
 
-    nearest.map(|(p, _)| p).unwrap()
+    nearest.expect("at least one point expected").0
     // query // What happens if we do this instead?
 }
 
