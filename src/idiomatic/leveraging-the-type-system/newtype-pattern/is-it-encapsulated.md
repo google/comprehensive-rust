@@ -15,9 +15,6 @@ interactions, including trait implementations, that may allow users to bypass
 validation checks.
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub struct Username(String);
 
 impl Username {

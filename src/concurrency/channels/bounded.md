@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 With bounded (synchronous) channels, [`send()`] can block the current thread:
 
 ```rust,editable
-# // Copyright 2022 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::sync::mpsc;
 use std::thread;
 use std::time::Duration;

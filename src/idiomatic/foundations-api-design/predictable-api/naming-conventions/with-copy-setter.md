@@ -14,9 +14,6 @@ SPDX-License-Identifier: CC-BY-4.0
 `with` as in "like `<value>`, but with something different."
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 impl Path {
     // Simplified. "/home/me/mortgage.pdf".with_extension("mov") =>
     // "/home/me/mortgage.mov"

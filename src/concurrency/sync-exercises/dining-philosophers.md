@@ -27,9 +27,6 @@ blanks, and test that `cargo run` does not deadlock:
 <!-- File src/main.rs -->
 
 ```rust,compile_fail
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include dining-philosophers.rs:Philosopher}}
     // left_chopstick: ...
     // right_chopstick: ...

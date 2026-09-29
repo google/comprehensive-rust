@@ -18,9 +18,6 @@ types containing fields that implement these traits.
 provided method `ne`. The `==` and `!=` operators will call these methods.
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 struct Key {
     id: u32,
     metadata: Option<String>,
@@ -42,9 +39,6 @@ trait bound.
 to implement the `<`, `<=`, `>=`, and `>` operators.
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::cmp::Ordering;
 #[derive(Eq, PartialEq)]
 struct Citation {
@@ -69,9 +63,6 @@ impl PartialOrd for Citation {
   because it is reflexive:
 
   ```rust,editable
-  # // Copyright 2023 Google LLC
-  # // SPDX-License-Identifier: Apache-2.0
-  #
   struct Key {
       id: u32,
       metadata: Option<String>,
@@ -92,9 +83,6 @@ impl PartialOrd for Citation {
   to are the same:
 
   ```rust,editable
-  # // Copyright 2023 Google LLC
-  # // SPDX-License-Identifier: Apache-2.0
-  #
   fn main() {
       let a = "Hello";
       let b = String::from("Hello");

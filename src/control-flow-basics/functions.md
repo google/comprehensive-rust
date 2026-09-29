@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn gcd(a: u32, b: u32) -> u32 {
     if b > 0 { gcd(b, a % b) } else { a }
 }

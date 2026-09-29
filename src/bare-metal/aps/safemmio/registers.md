@@ -16,9 +16,6 @@ written safely.
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include ../examples/src/pl011.rs:Registers}}
 ```
 

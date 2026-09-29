@@ -37,9 +37,6 @@ _src/main.rs_:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include compass/src/main.rs:top}}
 use microbit::{hal::{Delay, uarte::{Baudrate, Parity, Uarte}}, Board};
 

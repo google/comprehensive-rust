@@ -11,9 +11,6 @@ converting between byte sequences and other types.
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include zerocopy-example/src/main.rs:main}}
 ```
 

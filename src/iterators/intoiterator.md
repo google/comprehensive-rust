@@ -16,9 +16,6 @@ defines how to create an iterator for a type. It is used automatically by the
 `for` loop.
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 struct Grid {
     x_coords: Vec<u32>,
     y_coords: Vec<u32>,

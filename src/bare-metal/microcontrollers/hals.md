@@ -11,9 +11,6 @@ generally implement traits from
 [`embedded-hal`](https://crates.io/crates/embedded-hal).
 
 ```rust,editable,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include examples/src/bin/hal.rs:Example}}
 ```
 

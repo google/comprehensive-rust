@@ -15,9 +15,6 @@ implemented for the same type?
 <!-- dprint -->
 
 ```rust,editable,compile_fail
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 mod ext {
     pub trait Ext1 {
         fn is_palindrome(&self) -> bool;

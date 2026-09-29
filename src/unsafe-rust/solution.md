@@ -13,9 +13,6 @@ cargo add --dev tempfile
 ```
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include exercise.rs:solution}}
 ```
 

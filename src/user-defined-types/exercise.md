@@ -18,9 +18,6 @@ This exercise only requires creating and populating data structures so that
 out of these structures.
 
 ```rust,editable,should_panic
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include exercise.rs:event}}
     // TODO: add required variants
 }

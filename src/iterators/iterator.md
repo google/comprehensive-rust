@@ -14,9 +14,6 @@ sequence of values. For example, if we wanted to create an iterator that can
 produce the elements of a slice it might look something like this:
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 struct SliceIter<'s> {
     slice: &'s [i32],
     i: usize,

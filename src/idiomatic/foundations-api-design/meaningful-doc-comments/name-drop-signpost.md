@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # Name-dropping keywords and signposting topics
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 /// A parsed representation of a [MARC 21 record leader][leader].
 ///
 /// A MARC leader contains metadata that dictates how to interpret the rest  

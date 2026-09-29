@@ -30,9 +30,6 @@ _src/main.rs_:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include rtc/src/main.rs:top}}
 
 {{#include rtc/src/main.rs:imports}}
@@ -53,9 +50,6 @@ exercise):
 <!-- mdbook-xgettext: skip -->
 
 ```rust,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include rtc/src/exceptions.rs}}
 ```
 
@@ -65,9 +59,6 @@ _src/logger.rs_ (you shouldn't need to change this):
 <!-- mdbook-xgettext: skip -->
 
 ```rust,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include rtc/src/logger.rs}}
 ```
 

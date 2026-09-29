@@ -19,9 +19,6 @@ learned about borrowing and ownership.
   be removed from the wizard's inventory.
 
 ```rust,editable,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include exercise.rs:setup}}
 
     // TODO: Implement `add_spell` to take ownership of a spell and add it to

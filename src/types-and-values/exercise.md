@@ -16,9 +16,6 @@ Write a function `fib(n)` that calculates the nth Fibonacci number. When will
 this function panic?
 
 ```rust,editable,should_panic
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include exercise.rs:fib}}
     if n < 2 {
         // The base case.

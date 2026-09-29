@@ -13,9 +13,6 @@ Rust does not have a `new` keyword, instead `new` is a common prefix or whole
 method name.
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 impl<T> Vec<T> {
     fn new() -> Vec<T>;
 }

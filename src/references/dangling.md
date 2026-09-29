@@ -15,9 +15,6 @@ without `null` checks. The other rule we'll look at for now is that references
 can't _outlive_ the data they point to.
 
 ```rust,editable,compile_fail
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let x_ref = {
         let x = 10;

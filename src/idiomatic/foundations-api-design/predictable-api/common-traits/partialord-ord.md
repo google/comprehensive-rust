@@ -14,9 +14,6 @@ Partial ordering & Total ordering.
 Derivable: ✅
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(PartialEq, PartialOrd)]
 pub struct Partially(f32);
 

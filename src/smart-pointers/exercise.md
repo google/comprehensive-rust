@@ -18,9 +18,6 @@ be stored in the tree once, i.e. no duplicate nodes.
 Implement the following types, so that the given tests pass.
 
 ```rust,compile_fail,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include exercise.rs:types}}
 
 // Implement `new` for `Node`.

@@ -13,9 +13,6 @@ A type alias creates a name for another type. The two types can be used
 interchangeably.
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 enum CarryableConcreteItem {
     Left,
     Right,

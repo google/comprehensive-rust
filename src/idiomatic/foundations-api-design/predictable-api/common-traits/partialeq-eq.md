@@ -14,9 +14,6 @@ Partial equality & Total equality.
 Derivable: ✅
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(PartialEq, Eq)]
 pub struct User { name: String, favorite_number: i32 }
 

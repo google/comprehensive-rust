@@ -14,9 +14,6 @@ Conversion from one type to another.
 Derivable: ❌, without crates like `derive_more`.
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub struct Wrapper(String);
 
 impl From<&str> for Wrapper {

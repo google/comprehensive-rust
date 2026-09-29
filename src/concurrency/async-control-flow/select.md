@@ -21,9 +21,6 @@ the resulting variables. The `statement` result becomes the result of the
 `select!` macro.
 
 ```rust,editable,compile_fail
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use tokio::sync::mpsc;
 use tokio::time::{Duration, sleep};
 

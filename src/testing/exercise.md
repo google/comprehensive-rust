@@ -34,9 +34,6 @@ Copy the code below to <https://play.rust-lang.org/> and write additional tests
 to uncover bugs in the provided implementation, fixing any bugs you find.
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include exercise.rs:luhn}}
 
 {{#include exercise.rs:unit-tests}}

@@ -14,9 +14,6 @@ lints. [Clippy](https://doc.rust-lang.org/clippy/) provides even more lints,
 organized into groups that can be enabled per-project.
 
 ```rust,editable,should_panic,warnunused
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[deny(clippy::cast_possible_truncation)]
 fn main() {
     let mut x = 3;

@@ -13,9 +13,6 @@ Rust channels have two parts: a [`Sender<T>`] and a [`Receiver<T>`]. The two
 parts are connected via the channel, but you only see the end-points.
 
 ```rust,editable
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::sync::mpsc;
 
 fn main() {

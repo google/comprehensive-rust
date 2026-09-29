@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # Any Trait and Downcasting
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::any::Any;
 
 #[derive(Debug)]

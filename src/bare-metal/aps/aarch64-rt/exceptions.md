@@ -14,9 +14,6 @@ can omit methods for exceptions we don't expect to happen.
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include ../examples/src/exceptions_rt.rs:exceptions}}
 ```
 

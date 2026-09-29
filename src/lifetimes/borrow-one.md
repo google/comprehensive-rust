@@ -14,9 +14,6 @@ them. The lifetime annotations explicitly tie the returned borrow to the
 corresponding argument borrow.
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(Debug)]
 struct Point(i32, i32);
 

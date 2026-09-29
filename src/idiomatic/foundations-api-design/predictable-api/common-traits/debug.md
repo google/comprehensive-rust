@@ -14,9 +14,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Derivable: ✅
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(Debug)]
 pub struct Date {
     day: u8,

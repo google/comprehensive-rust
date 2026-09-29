@@ -14,9 +14,6 @@ Below are the signatures for the
 [`forget()`](https://doc.rust-lang.org/std/mem/fn.forget.html) functions:
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 // std::mem::forget
 fn forget<T>(t: T) {
     let _ = std::mem::ManuallyDrop::new(t);

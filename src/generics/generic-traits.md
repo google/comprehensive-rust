@@ -14,18 +14,12 @@ get concrete types when it is used. For example the [`From<T>`][from] trait is
 used to define type conversions:
 
 ```rust
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub trait From<T>: Sized {
     fn from(value: T) -> Self;
 }
 ```
 
 ```rust,editable
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(Debug)]
 struct Foo(String);
 

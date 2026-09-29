@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Check a condition about a datatype.
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 impl<T> Vec<T> {
     fn is_empty(&self) -> bool;
 }

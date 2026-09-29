@@ -13,9 +13,6 @@ Unnecessary details can sometimes be indicative of something that does need
 documentation.
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 /// Sorts a slice. Implemented using recursive quicksort.
 fn sort_quickly<T: Ord>(to_sort: &mut [T]) { ... }
 ```

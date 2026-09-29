@@ -14,9 +14,6 @@ behind a read-only interface (another form of
 [interior mutability](../../borrowing/interior-mutability.md)):
 
 ```rust,editable
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::sync::Mutex;
 
 fn main() {

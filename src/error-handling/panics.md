@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 In case of a fatal runtime error, Rust triggers a "panic":
 
 ```rust,editable,should_panic
-# // Copyright 2022 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let v = vec![10, 20, 30];
     dbg!(v[100]);
@@ -35,9 +32,6 @@ fn main() {
 By default, a panic will cause the stack to unwind. The unwinding can be caught:
 
 ```rust,editable
-# // Copyright 2022 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::panic;
 
 fn main() {

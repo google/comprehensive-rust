@@ -13,9 +13,6 @@ unwieldy name by using the `chromium::import!` macro from the
 automatically-imported `chromium` crate:
 
 ```rust,ignore
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 chromium::import! {
     "//ui/base:my_rust_lib";
 }
@@ -26,9 +23,6 @@ use my_rust_lib::my_function_under_test;
 Under the covers the macro expands to something similar to:
 
 ```rust,ignore
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 extern crate ui_sbase_cmy_urust_ulib as my_rust_lib;
 
 use my_rust_lib::my_function_under_test;

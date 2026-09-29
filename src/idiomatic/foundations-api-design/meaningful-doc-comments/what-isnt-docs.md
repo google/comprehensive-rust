@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # Names and Signatures are not full documentation
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 // bad
 /// Returns a future that resolves when operation completes.  
 fn sync_to_server() -> Future<Bool>;

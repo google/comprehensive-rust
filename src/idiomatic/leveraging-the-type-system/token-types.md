@@ -13,9 +13,6 @@ Types with private constructors can be used to act as proof of invariants.
 
 <!-- dprint-ignore-start -->
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub mod token {
     // A public type with private fields behind a module boundary.
     pub struct Token { proof: () }

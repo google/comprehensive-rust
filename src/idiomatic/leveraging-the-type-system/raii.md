@@ -17,9 +17,6 @@ and the `Drop` trait allows you to extend this to other resources, such as file
 descriptors or locks.
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub struct File(std::os::fd::RawFd);
 
 impl File {
@@ -58,9 +55,6 @@ fn main() -> Result<(), std::io::Error> {
   of the `File` value.
 
   ```rust,compile_fail
-  # // Copyright 2025 Google LLC
-  # // SPDX-License-Identifier: Apache-2.0
-  #
   impl Drop for File {
       fn drop(&mut self) {
           // libc::close(...);

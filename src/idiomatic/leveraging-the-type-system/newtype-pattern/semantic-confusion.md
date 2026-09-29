@@ -13,9 +13,6 @@ When a function takes multiple arguments of the same type, call sites are
 unclear:
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 # struct LoginError;
 fn login(username: &str, password: &str) -> Result<(), LoginError> {
     // [...]
@@ -35,9 +32,6 @@ fn main() {
 The newtype pattern can prevent this class of errors at compile time:
 
 ```rust,editable,compile_fail
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 struct Username(String);
 struct Password(String);
 struct LoginError;
@@ -68,9 +62,6 @@ fn main() {
   is of paramount importance, consider using a struct with named fields as
   input:
   ```rust
-  # // Copyright 2025 Google LLC
-  # // SPDX-License-Identifier: Apache-2.0
-  #
   pub struct LoginArguments<'a> {
       pub username: &'a str,
       pub password: &'a str,

@@ -13,9 +13,6 @@ When a trait is local, we can implement it for as many types as we like. How far
 can we take this?
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub trait PrettyPrint {
     fn pretty_print(&self);
 }

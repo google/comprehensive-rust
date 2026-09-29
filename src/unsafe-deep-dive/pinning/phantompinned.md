@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 ## Definition
 
 ```rust,ignore
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub struct PhantomPinned;
 
 impl !Unpin for PhantomPinned {}
@@ -23,9 +20,6 @@ impl !Unpin for PhantomPinned {}
 ## Usage
 
 ```rust,editable
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub struct DynamicBuffer {
     data: Vec<u8>,
     cursor: std::ptr::NonNull<u8>,

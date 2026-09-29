@@ -56,9 +56,6 @@ Your `src/main.rs` file should look something like this:
 <!-- File src/main.rs -->
 
 ```rust,compile_fail
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include link-checker.rs:setup}}
 
 {{#include link-checker.rs:visit_page}}

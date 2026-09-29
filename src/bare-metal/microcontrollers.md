@@ -11,9 +11,6 @@ M microcontrollers.
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include microcontrollers/examples/src/bin/minimal.rs:Example}}
 ```
 

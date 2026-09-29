@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Suffix for access-style methods.
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 impl<T> Vec<T> {
     fn get(&self, index: usize) -> Option<&T>;
     fn get_mut(&mut self, index: usize) -> Option<&mut T>;

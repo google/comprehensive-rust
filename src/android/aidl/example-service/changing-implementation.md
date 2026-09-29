@@ -10,9 +10,6 @@ Update the client and server code to account for the new API.
 _birthday_service/src/lib.rs_:
 
 ```rust,ignore
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 impl IBirthdayService for BirthdayService {
     fn wishHappyBirthday(
         &self,
@@ -37,9 +34,6 @@ impl IBirthdayService for BirthdayService {
 _birthday_service/src/client.rs_:
 
 ```rust,ignore
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 let msg = service.wishHappyBirthday(
     &name,
     years,

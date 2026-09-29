@@ -15,9 +15,6 @@ use a variable outside its scope:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 struct Point(i32, i32);
 
 fn main() {

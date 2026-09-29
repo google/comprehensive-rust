@@ -15,9 +15,6 @@ We've already seen that a reference cannot _outlive_ the value it borrows:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let x_ref = {
         let x = 10;
@@ -36,9 +33,6 @@ rule. For a given value, at any time:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let mut a = 10;
     let b = &a;

@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Creating pointers is safe, but dereferencing them requires `unsafe`:
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let mut x = 10;
 
