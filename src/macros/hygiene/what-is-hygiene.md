@@ -9,13 +9,26 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # What Is Macro Hygiene
 
-A macro system is **unhygienic** if a macro can:
+A macro systems is said to be **hygienic** if macros defined with it cannot
+accidentally capture or shadow identifiers from their expansion sites.
+
+This is desirable because it helps reason about macros separately from their
+uses, avoiding bugs when code invoking macros might unintentionally use the same
+identifier used internally by a macro.
+
+Macros in C and C++ using the C preprocessor are not hygienic, but Rust's macro
+system implements a limited form of hygiene.
+
+Macro hygiene imposes two restrictions, corresponding to the two directions of
+influence between the macro's and the calling code's lexical environment.
+
+A macro system is **unhygienic** if a macro can either:
 
 1. Implicitly access identifiers in the surrounding callsite scope.
 2. Define a new local identifier that bleeds out and is implicitly accessible by
-   the surrounding callsite.
+   the code surrounding its callsite.
 
-### Example 1: Implicitly Accessing Callsite State (Unhygienic)
+### Example 1: Implicitly Accessing Calling Environment (Unhygienic)
 
 ```rust,ignore
 macro_rules! use_local {
@@ -36,7 +49,7 @@ fn main() {
 ```rust,ignore
 macro_rules! make_local {
     () => {
-        // Unhygienic: attempts to leak `local` to callsite
+        // Unhygienic: intent is to leak `local` to callsite
         let local = "Hello, Macros!".to_string();
     };
 }
