@@ -1,0 +1,167 @@
+"""Bazel BUILD file for ARM Cortex-M Microcontroller Examples.
+
+This package defines example binaries demonstrating the use of
+peripheral access crate (PAC), hardware abstraction layer (HAL), and
+board support package (BSP) libraries on ARM Cortex-M
+microcontrollers. Because this code targets microcontrollers and not
+the host OS:
+
+- The raw `rust_binary` targets are constrained using
+  `target_compatible_with` to run only on `os:none` and
+  `cpu:armv7e-mf` to prevent compilation errors during wildcard host
+  builds.
+"""
+
+load("@rules_rust//rust:defs.bzl", "rust_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+rust_binary(
+    name = "board_support",
+    srcs = glob(["src/bin/**/*.rs"]),
+    crate_root = "src/bin/board_support.rs",
+    edition = "2024",
+    rustc_flags = [
+        "-C",
+        "linker=rust-lld",
+        "-C",
+        "link-arg=-Tlink.x",
+    ],
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    deps = [
+        "@bare_metal_microcontrollers//:cortex-m-rt",
+        "@bare_metal_microcontrollers//:embedded-hal",
+        "@bare_metal_microcontrollers//:microbit-v2",
+        "@bare_metal_microcontrollers//:nrf52833-hal",
+        "@bare_metal_microcontrollers//:nrf52833-pac",
+        "@bare_metal_microcontrollers//:panic-halt",
+    ],
+)
+
+rust_binary(
+    name = "hal",
+    srcs = glob(["src/bin/**/*.rs"]),
+    crate_root = "src/bin/hal.rs",
+    edition = "2024",
+    rustc_flags = [
+        "-C",
+        "linker=rust-lld",
+        "-C",
+        "link-arg=-Tlink.x",
+    ],
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    deps = [
+        "@bare_metal_microcontrollers//:cortex-m-rt",
+        "@bare_metal_microcontrollers//:embedded-hal",
+        "@bare_metal_microcontrollers//:microbit-v2",
+        "@bare_metal_microcontrollers//:nrf52833-hal",
+        "@bare_metal_microcontrollers//:nrf52833-pac",
+        "@bare_metal_microcontrollers//:panic-halt",
+    ],
+)
+
+rust_binary(
+    name = "minimal",
+    srcs = glob(["src/bin/**/*.rs"]),
+    crate_root = "src/bin/minimal.rs",
+    edition = "2024",
+    rustc_flags = [
+        "-C",
+        "linker=rust-lld",
+        "-C",
+        "link-arg=-Tlink.x",
+    ],
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    deps = [
+        "@bare_metal_microcontrollers//:cortex-m-rt",
+        "@bare_metal_microcontrollers//:embedded-hal",
+        "@bare_metal_microcontrollers//:microbit-v2",
+        "@bare_metal_microcontrollers//:nrf52833-hal",
+        "@bare_metal_microcontrollers//:nrf52833-pac",
+        "@bare_metal_microcontrollers//:panic-halt",
+    ],
+)
+
+rust_binary(
+    name = "mmio",
+    srcs = glob(["src/bin/**/*.rs"]),
+    crate_root = "src/bin/mmio.rs",
+    edition = "2024",
+    rustc_flags = [
+        "-C",
+        "linker=rust-lld",
+        "-C",
+        "link-arg=-Tlink.x",
+    ],
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    deps = [
+        "@bare_metal_microcontrollers//:cortex-m-rt",
+        "@bare_metal_microcontrollers//:embedded-hal",
+        "@bare_metal_microcontrollers//:microbit-v2",
+        "@bare_metal_microcontrollers//:nrf52833-hal",
+        "@bare_metal_microcontrollers//:nrf52833-pac",
+        "@bare_metal_microcontrollers//:panic-halt",
+    ],
+)
+
+rust_binary(
+    name = "pac",
+    srcs = glob(["src/bin/**/*.rs"]),
+    crate_root = "src/bin/pac.rs",
+    edition = "2024",
+    rustc_flags = [
+        "-C",
+        "linker=rust-lld",
+        "-C",
+        "link-arg=-Tlink.x",
+    ],
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    deps = [
+        "@bare_metal_microcontrollers//:cortex-m-rt",
+        "@bare_metal_microcontrollers//:embedded-hal",
+        "@bare_metal_microcontrollers//:microbit-v2",
+        "@bare_metal_microcontrollers//:nrf52833-hal",
+        "@bare_metal_microcontrollers//:nrf52833-pac",
+        "@bare_metal_microcontrollers//:panic-halt",
+    ],
+)
+
+rust_binary(
+    name = "typestate",
+    srcs = glob(["src/bin/**/*.rs"]),
+    crate_root = "src/bin/typestate.rs",
+    edition = "2024",
+    rustc_flags = [
+        "-C",
+        "linker=rust-lld",
+        "-C",
+        "link-arg=-Tlink.x",
+    ],
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    deps = [
+        "@bare_metal_microcontrollers//:cortex-m-rt",
+        "@bare_metal_microcontrollers//:embedded-hal",
+        "@bare_metal_microcontrollers//:microbit-v2",
+        "@bare_metal_microcontrollers//:nrf52833-hal",
+        "@bare_metal_microcontrollers//:nrf52833-pac",
+        "@bare_metal_microcontrollers//:panic-halt",
+    ],
+)

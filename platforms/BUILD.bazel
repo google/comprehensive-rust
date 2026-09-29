@@ -1,0 +1,33 @@
+# platforms/BUILD.bazel
+"""Target Platform Definitions for Embedded Cross-Compilation.
+
+In Bazel, platforms represent execution and target build environments.
+We define target platforms by declaring their constraint values (CPU
+architecture and Operating System). The registered Rust toolchain
+matches these constraint combinations to determine which
+compiler/linker options to use:
+
+- `aarch64-unknown-none` represents AArch64 bare-metal (no OS)
+  environments.
+
+- `thumbv7em-none-eabihf` represents ARM Cortex-M4F microcontroller
+  environments.
+"""
+
+package(default_visibility = ["//visibility:public"])
+
+platform(
+    name = "aarch64-unknown-none",
+    constraint_values = [
+        "@platforms//os:none",
+        "@platforms//cpu:aarch64",
+    ],
+)
+
+platform(
+    name = "thumbv7em-none-eabihf",
+    constraint_values = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+)

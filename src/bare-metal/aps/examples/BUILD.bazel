@@ -1,0 +1,68 @@
+"""Bazel BUILD file for AArch64 Bare-Metal APS Examples.
+
+This package defines six bare-metal demonstration binaries and their
+host-executed QEMU testing targets using the `aps_example` macro.
+"""
+
+load(":defs.bzl", "aps_example")
+
+package(default_visibility = ["//visibility:public"])
+
+aps_example(
+    name = "improved",
+    deps = [
+        "@bare_metal_aps//:bitflags",
+        "@bare_metal_aps//:log",
+        "@bare_metal_aps//:smccc",
+    ],
+)
+
+aps_example(
+    name = "logger",
+    deps = [
+        "@bare_metal_aps//:bitflags",
+        "@bare_metal_aps//:log",
+        "@bare_metal_aps//:safe-mmio",
+        "@bare_metal_aps//:smccc",
+        "@bare_metal_aps//:spin",
+        "@bare_metal_aps//:zerocopy",
+    ],
+)
+
+aps_example(
+    name = "minimal",
+    deps = [
+        "@bare_metal_aps//:log",
+        "@bare_metal_aps//:smccc",
+    ],
+)
+
+aps_example(
+    name = "psci",
+    deps = [
+        "@bare_metal_aps//:log",
+        "@bare_metal_aps//:smccc",
+    ],
+)
+
+aps_example(
+    name = "rt",
+    deps = [
+        "@bare_metal_aps//:aarch64-paging",
+        "@bare_metal_aps//:aarch64-rt",
+        "@bare_metal_aps//:arm-pl011-uart",
+        "@bare_metal_aps//:log",
+        "@bare_metal_aps//:smccc",
+    ],
+)
+
+aps_example(
+    name = "safemmio",
+    deps = [
+        "@bare_metal_aps//:bitflags",
+        "@bare_metal_aps//:log",
+        "@bare_metal_aps//:safe-mmio",
+        "@bare_metal_aps//:smccc",
+        "@bare_metal_aps//:zerocopy",
+    ],
+)
