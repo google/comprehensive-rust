@@ -41,9 +41,17 @@ These document the item that contains them -- in this case, a module.
 //! This module implements the garden, including a highly performant germination
 //! implementation.
 
+// Declare submodules.
+mod plant;
+mod seeds;
+
 // Re-export types from this module.
-pub use garden::Garden;
+pub use plant::Plant;
 pub use seeds::SeedPacket;
+
+pub struct Garden {
+    plants: Vec<Plant>,
+}
 
 /// Sow the given seed packets.
 pub fn sow(seeds: Vec<SeedPacket>) {
