@@ -9,16 +9,16 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Lifetime Elision
 
-Lifetimes for function arguments and return values must be fully specified, but
-Rust allows lifetimes to be elided in most cases with
+Lifetimes for function argument and return types must be fully specified, but
+Rust allows explicit lifetimes to be elided in most cases with
 [a few simple rules](https://doc.rust-lang.org/nomicon/lifetime-elision.html).
 This is not inference -- it is just a syntactic shorthand.
 
 - Each argument which does not have a lifetime annotation is given one.
-- If there is only one argument lifetime, it is given to all un-annotated return
-  values.
+- If there is only one argument lifetime, it is given to all un-annotated
+  borrows in the return type.
 - If there are multiple argument lifetimes, but the first one is for `self`,
-  that lifetime is given to all un-annotated return values.
+  that lifetime is given to all un-annotated borrows in the return type.
 
 ```rust,editable
 # // Copyright 2024 Google LLC
