@@ -20,6 +20,7 @@ impl Display for Lambda {
     }
 }
 
+#[rustfmt::skip]
 fn main() {
     let heterogeneous: Vec<Box<dyn Display>> = vec![
         Box::new(42u32),

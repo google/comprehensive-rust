@@ -30,6 +30,7 @@ impl From<i32> for Wrapper {
 
 // `Into` is more natural to use as a trait bound.
 fn into_string<S: Into<String>>(s: S) {}
+#[rustfmt::skip]
 fn string_from<T>(t: T) where String: From<T> {}
 
 fn main() {

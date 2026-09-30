@@ -13,7 +13,9 @@ Component for methods that take a custom projection or comparison function.
 
 ```rust,compile_fail,editable
 impl<T> [T] {
-    fn sort(&mut self) where T: Ord;
+    fn sort(&mut self)
+    where
+        T: Ord;
 
     fn sort_by(&mut self, compare: impl FnMut(&T, &T) -> Ordering);
 

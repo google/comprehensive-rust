@@ -15,7 +15,10 @@ Derivable: ✅
 
 ```rust,editable
 #[derive(PartialEq, Eq)]
-pub struct User { name: String, favorite_number: i32 }
+pub struct User {
+    name: String,
+    favorite_number: i32,
+}
 
 fn main() {
     let alice = User { name: "alice".to_string(), favorite_number: 1_000_042 };
