@@ -18,14 +18,18 @@ Omitting the module content will tell Rust to look for it in another file:
 mod garden;
 ```
 
-This tells Rust that the `garden` module content is found at `src/garden.rs`.
-Similarly, a `garden::vegetables` module can be found at
-`src/garden/vegetables.rs`.
+This tells Rust that the `garden` module content is found in a `garden.rs` file
+in the same directory as the file that declared the module. If the `garden`
+module similarly declares a `vegetables` submodule, then the content of
+`garden::vegetables` would be found at `garden/vegetables.rs`.
 
 The `crate` root is in:
 
 - `src/lib.rs` (for a library crate)
 - `src/main.rs` (for a binary crate)
+
+This is the starting point from which the compiler identifies additional
+modules.
 
 Modules defined in files can be documented, too, using "inner doc comments".
 These document the item that contains them -- in this case, a module.
@@ -37,9 +41,17 @@ These document the item that contains them -- in this case, a module.
 //! This module implements the garden, including a highly performant germination
 //! implementation.
 
+// Declare submodules.
+mod plant;
+mod seeds;
+
 // Re-export types from this module.
-pub use garden::Garden;
+pub use plant::Plant;
 pub use seeds::SeedPacket;
+
+pub struct Garden {
+    plants: Vec<Plant>,
+}
 
 /// Sow the given seed packets.
 pub fn sow(seeds: Vec<SeedPacket>) {
