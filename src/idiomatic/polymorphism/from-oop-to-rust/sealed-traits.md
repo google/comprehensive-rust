@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # Sealed traits for Polymorphism users cannot extend
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 // crate can access the "sealed" module and its trait, but projects that
 // depend on it cannot.
 mod sealed {

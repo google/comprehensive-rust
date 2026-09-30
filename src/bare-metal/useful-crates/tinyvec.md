@@ -13,9 +13,6 @@ many elements are used and panics if you try to use more than are allocated.
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use tinyvec::{ArrayVec, array_vec};
 
 fn main() {

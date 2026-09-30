@@ -9,9 +9,6 @@ A trait can require that types implementing it also implement other traits,
 called _supertraits_. Here, any type implementing `Pet` must implement `Animal`.
 
 ```rust,editable
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 trait Animal {
     fn leg_count(&self) -> u32;
 }

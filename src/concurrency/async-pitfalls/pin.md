@@ -20,9 +20,6 @@ operations that would move the instance it points to into a different memory
 location.
 
 ```rust,editable,compile_fail
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use tokio::sync::{mpsc, oneshot};
 use tokio::task::spawn;
 use tokio::time::{Duration, sleep};
@@ -87,9 +84,6 @@ async fn main() {
   - Instead, add a `timeout_fut` containing that future outside of the `loop`:
 
     ```rust,compile_fail
-    # // Copyright 2024 Google LLC
-    # // SPDX-License-Identifier: Apache-2.0
-    #
     let timeout_fut = sleep(Duration::from_millis(100));
     loop {
         select! {
@@ -103,9 +97,6 @@ async fn main() {
     `Box::pin`:
 
     ```rust,compile_fail
-    # // Copyright 2024 Google LLC
-    # // SPDX-License-Identifier: Apache-2.0
-    #
     let mut timeout_fut = Box::pin(sleep(Duration::from_millis(100)));
     loop {
         select! {
@@ -119,9 +110,6 @@ async fn main() {
     iteration (a fused future would help with this). Update to reset
     `timeout_fut` every time it expires:
     ```rust,compile_fail
-    # // Copyright 2024 Google LLC
-    # // SPDX-License-Identifier: Apache-2.0
-    #
     let mut timeout_fut = Box::pin(sleep(Duration::from_millis(100)));
     loop {
         select! {

@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # `dyn Trait` for Dynamic Dispatch in Rust
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub trait Trait {}
 
 impl Trait for i32 {}
@@ -20,7 +17,7 @@ impl Trait for String {}
 
 fn main() {
     let int: &dyn Trait = &42i32;
-    let string: &dyn Trait = &String::from("Hello dyn!");;
+    let string: &dyn Trait = &String::from("Hello dyn!");
 }
 ```
 

@@ -10,9 +10,6 @@ wrappers for memory-mapped peripherals from
 [CMSIS-SVD](https://www.keil.com/pack/doc/CMSIS/SVD/html/index.html) files.
 
 ```rust,editable,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include examples/src/bin/pac.rs:Example}}
 ```
 

@@ -13,9 +13,6 @@ You can use generics to abstract over the concrete field type. Returning to the
 exercise for the previous segment:
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub trait Logger {
     /// Log a message at the given verbosity level.
     fn log(&self, verbosity: u8, message: &str);

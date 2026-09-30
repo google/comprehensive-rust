@@ -15,9 +15,6 @@ access the value by calling `lock`, which then returns a `MutexGuard` which will
 unlock the `Mutex` automatically when dropped.
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::sync::Mutex;
 
 fn main() {

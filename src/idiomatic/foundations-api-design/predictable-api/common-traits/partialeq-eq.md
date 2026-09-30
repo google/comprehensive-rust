@@ -14,11 +14,11 @@ Partial equality & Total equality.
 Derivable: ✅
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(PartialEq, Eq)]
-pub struct User { name: String, favorite_number: i32 }
+pub struct User {
+    name: String,
+    favorite_number: i32,
+}
 
 fn main() {
     let alice = User { name: "alice".to_string(), favorite_number: 1_000_042 };

@@ -14,9 +14,6 @@ Like `Clone`, but indicates the type is can be bitwise copied.
 Derivable: ✅
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(Debug, Clone, Copy)]
 pub struct Copyable(u8, u16, u32, u64);
 

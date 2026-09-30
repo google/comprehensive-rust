@@ -15,9 +15,6 @@ playground, and implement the missing bits. Only rotate ASCII alphabetic
 characters, to ensure the result is still valid UTF-8.
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include exercise.rs:head }}
 
 // Implement the `Read` trait for `RotDecoder`.

@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 A constructor function, strongly implying "type conversion".
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 impl Duration {
     fn from_days(days: u64) -> Duration;
 }

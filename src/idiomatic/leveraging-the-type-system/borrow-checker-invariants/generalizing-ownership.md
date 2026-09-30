@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # Lifetimes and Borrows: the Abstract Rules
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 // An internal data type to have something to hold onto.
 pub struct Internal;
 // The "outer" data.

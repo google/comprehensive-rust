@@ -15,9 +15,6 @@ for the rest.
 `with` as in "`<Type>` with specific setting."
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 impl<T> Vec<T> {
     // Initializes memory for at least N elements, len is still 0.
     fn with_capacity(capacity: usize) -> Vec<T>;

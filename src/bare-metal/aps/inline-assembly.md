@@ -10,9 +10,6 @@ code. For example, to make an HVC (hypervisor call) to tell the firmware to
 power off the system:
 
 ```rust,editable,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include examples/src/main_psci.rs:main}}
 ```
 

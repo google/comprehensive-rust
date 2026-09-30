@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 A closure can capture variables from the environment where it was defined.
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let max_value = 5;
     let clamp = |v| {

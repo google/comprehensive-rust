@@ -13,9 +13,6 @@ Types implement [`From`][1] and [`Into`][2] to facilitate type conversions.
 Unlike `as`, these traits correspond to lossless, infallible conversions.
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let s = String::from("hello");
     let addr = std::net::Ipv4Addr::from([127, 0, 0, 1]);
@@ -28,9 +25,6 @@ fn main() {
 [`Into`][2] is automatically implemented when [`From`][1] is implemented:
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let s: String = "hello".into();
     let addr: std::net::Ipv4Addr = [127, 0, 0, 1].into();

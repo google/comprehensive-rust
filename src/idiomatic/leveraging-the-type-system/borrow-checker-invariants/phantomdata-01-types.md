@@ -14,9 +14,6 @@ solve this?
 
 <!-- dprint-ignore-start -->
 ```rust,editable,compile_fail
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub struct UserId(u64);
 impl ChatUser for UserId { /* ... */ }
 

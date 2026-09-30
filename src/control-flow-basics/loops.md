@@ -19,9 +19,6 @@ works much like in other languages, executing the loop body as long as the
 condition is true.
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let mut x = 200;
     while x >= 10 {

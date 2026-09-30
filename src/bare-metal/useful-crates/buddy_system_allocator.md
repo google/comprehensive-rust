@@ -15,9 +15,6 @@ PCI BARs:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include allocator-example/src/main.rs:main}}
 ```
 

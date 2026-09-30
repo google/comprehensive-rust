@@ -13,9 +13,6 @@ The typestate pattern encodes part of a value’s runtime state into its type.
 This allows us to prevent invalid or inapplicable operations at compile time.
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::fmt::Write as _;
 
 #[derive(Default)]

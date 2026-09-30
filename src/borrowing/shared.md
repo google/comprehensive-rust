@@ -15,9 +15,6 @@ can let a function _borrow_ the value:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(Debug)]
 struct Point(i32, i32);
 
@@ -54,9 +51,6 @@ Notes on stack returns and inlining:
 
   <!-- mdbook-xgettext: skip -->
   ```rust,editable
-  # // Copyright 2023 Google LLC
-  # // SPDX-License-Identifier: Apache-2.0
-  #
   #[derive(Debug)]
   struct Point(i32, i32);
 

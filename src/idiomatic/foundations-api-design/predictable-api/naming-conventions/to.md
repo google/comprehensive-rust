@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Prefix to a function that takes a borrowed value and creates an owned value
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 impl str {
     fn to_owned(&self) -> String;
 

@@ -14,9 +14,6 @@ into and out of functions. In the simplest case borrows last for the duration of
 the function call:
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn borrows(x: &i32) {
     dbg!(x);
 }

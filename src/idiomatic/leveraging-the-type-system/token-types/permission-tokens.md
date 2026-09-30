@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Token types work well as a proof of checked permission.
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 mod admin {
     pub struct AdminToken(());
 

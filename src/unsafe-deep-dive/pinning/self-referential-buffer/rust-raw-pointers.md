@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # With a raw pointer
 
 ```rust,editable
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(Debug)]
 pub struct SelfReferentialBuffer {
     data: [u8; 1024],

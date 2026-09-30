@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Like tuples, structs can also be destructured by matching:
 
 ```rust,editable
-# // Copyright 2022 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 struct Move {
     delta: (i32, i32),
     repeat: u32,

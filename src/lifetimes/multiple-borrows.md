@@ -13,9 +13,6 @@ But what about when there are multiple borrows passed into a function and one
 being returned?
 
 ```rust,editable,compile_fail
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn multiple(a: &i32, b: &i32) -> &i32 {
     todo!("Return either `a` or `b`")
 }
@@ -56,9 +53,6 @@ fn main() {
   introduce the lifetime syntax:
 
   ```rust,ignore
-  # // Copyright 2025 Google LLC
-  # // SPDX-License-Identifier: Apache-2.0
-  #
   fn multiple<'a>(a: &'a i32, b: &'a i32) -> &'a i32 { ... }
   ```
 

@@ -13,9 +13,6 @@ A module can bring symbols from another module into scope with `use`. You will
 typically see something like this at the top of each module:
 
 ```rust,editable
-# // Copyright 2022 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::collections::HashSet;
 use std::process::abort;
 ```
@@ -38,9 +35,6 @@ Paths are resolved as follows:
   top-level `lib.rs` in a crate might have
 
   ```rust,ignore
-  # // Copyright 2022 Google LLC
-  # // SPDX-License-Identifier: Apache-2.0
-  #
   mod storage;
 
   pub use storage::disk::DiskStorage;

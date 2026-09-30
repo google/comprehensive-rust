@@ -15,9 +15,6 @@ A future can be polled, and `poll` returns a
 [`Poll`](https://doc.rust-lang.org/std/task/enum.Poll.html).
 
 ```rust
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::pin::Pin;
 use std::task::Context;
 

@@ -8,9 +8,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Let's write a small program using our driver to write to the serial console.
 
 ```rust,editable,compile_fail
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include ../examples/src/main_minimal.rs:main}}
 ```
 

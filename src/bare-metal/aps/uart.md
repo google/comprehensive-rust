@@ -8,9 +8,6 @@ SPDX-License-Identifier: CC-BY-4.0
 The QEMU 'virt' machine has a [PL011][1] UART, so let's write a driver for that.
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include examples/src/pl011_minimal.rs:Example}}
 ```
 

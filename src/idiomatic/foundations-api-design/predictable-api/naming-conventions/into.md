@@ -13,9 +13,6 @@ Prefix for methods that convert `self` into another type. Consumes `self`,
 returns an owned value.
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub trait IntoIterator {
     fn into_iter(self) -> Self::IntoIter;
 }

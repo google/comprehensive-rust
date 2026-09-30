@@ -15,9 +15,6 @@ try-operator `?` is used to return errors to the caller. It lets you turn the
 common
 
 ```rust,ignore
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 match some_expression {
     Ok(value) => value,
     Err(err) => return Err(err),
@@ -27,18 +24,12 @@ match some_expression {
 into the much simpler
 
 ```rust,ignore
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 some_expression?
 ```
 
 We can use this to simplify our error handling code:
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::io::Read;
 use std::{fs, io};
 

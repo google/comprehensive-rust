@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Basic features of Rust's generics and polymorphism.
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub struct HasGenerics<T>(...);
 
 pub fn uses_traits<T: Debug>(input: T) {...}

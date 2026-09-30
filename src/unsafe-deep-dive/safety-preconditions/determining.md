@@ -8,9 +8,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Where do you find the safety preconditions?
 
 ```rust,editable,ignore
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let b: *mut i32 = std::ptr::null_mut();
     println!("{:?}", b.as_mut());

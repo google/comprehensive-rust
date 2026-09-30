@@ -12,11 +12,10 @@ SPDX-License-Identifier: CC-BY-4.0
 Component for methods that take a custom projection or comparison function.
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 impl<T> [T] {
-    fn sort(&mut self) where T: Ord;
+    fn sort(&mut self)
+    where
+        T: Ord;
 
     fn sort_by(&mut self, compare: impl FnMut(&T, &T) -> Ordering);
 

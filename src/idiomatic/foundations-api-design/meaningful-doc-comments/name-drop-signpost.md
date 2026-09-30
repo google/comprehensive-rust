@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # Name-dropping keywords and signposting topics
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 /// A parsed representation of a [MARC 21 record leader][leader].
 ///
 /// A MARC leader contains metadata that dictates how to interpret the rest  
@@ -37,7 +34,7 @@ pub struct Leader {
 ///  
 /// The leader is encoded as a fixed-length 24-byte field, containing metadata  
 /// that determines the semantic interpretation of the rest of the record.  
-/// 
+///
 /// [leader]: https://www.loc.gov/marc/bibliographic/bdleader.html
 pub fn parse_leader(leader_bytes: &[u8; 24]) -> Result<Leader, MarcError> {
     todo!()

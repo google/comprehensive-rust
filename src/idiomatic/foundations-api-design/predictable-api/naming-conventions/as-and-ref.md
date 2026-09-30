@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # `as_` and `_ref`: reference conversions
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 impl<T> Rc<T> {
     // Very common on container types, see how it's also on Option.
     fn as_ref(&self) -> &T;

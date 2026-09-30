@@ -9,9 +9,6 @@ You can mark your own functions as `unsafe` if they require particular
 preconditions to avoid undefined behaviour.
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 /// Swaps the values pointed to by the given pointers.
 ///
 /// # Safety

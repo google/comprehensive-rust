@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # Defining an unsafe function
 
 ```rust,editable
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 /// Convert a nullable pointer to a reference.
 ///
 /// Returns `None` when `p` is null, otherwise wraps `val` in `Some`.

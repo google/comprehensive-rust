@@ -15,9 +15,6 @@ the system works correctly even when futures are cancelled. For example, it
 shouldn't deadlock or lose data.
 
 ```rust,editable,compile_fail
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::io;
 use std::time::Duration;
 use tokio::io::{AsyncReadExt, AsyncWriteExt, DuplexStream};
@@ -95,9 +92,6 @@ async fn main() -> io::Result<()> {
   - `LinesReader` can be made cancellation-safe by making `buf` part of the
     struct:
     ```rust,compile_fail
-    # // Copyright 2024 Google LLC
-    # // SPDX-License-Identifier: Apache-2.0
-    #
     struct LinesReader {
         stream: DuplexStream,
         bytes: Vec<u8>,

@@ -13,9 +13,6 @@ Let us jump into the simplest possible Rust program, a classic Hello World
 program:
 
 ```rust,editable
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     println!("Hello 🌍!");
 }

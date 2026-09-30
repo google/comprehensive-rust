@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # Dyn-compatible traits
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub trait Trait {
     // dyn compatible
     fn takes_self(&self);

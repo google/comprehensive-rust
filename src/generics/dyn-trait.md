@@ -13,9 +13,6 @@ In addition to using traits for static dispatch via generics, Rust also supports
 using them for type-erased, dynamic dispatch via trait objects:
 
 ```rust,editable
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 struct Dog {
     name: String,
     age: i8,

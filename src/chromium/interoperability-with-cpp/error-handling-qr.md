@@ -10,9 +10,6 @@ success vs failure, and where the successful result can be passed across the FFI
 boundary:
 
 ```rust,ignore
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[cxx::bridge(namespace = "qr_code_generator")]
 mod ffi {
     extern "Rust" {

@@ -13,9 +13,6 @@ How do we manage increasingly complex configuration flows with many possible
 states and transitions, while still preventing incompatible operations?
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 struct Serializer {/* [...] */}
 struct SerializeStruct {/* [...] */}
 struct SerializeStructProperty {/* [...] */}
