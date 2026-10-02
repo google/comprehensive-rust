@@ -7,7 +7,7 @@ Copyright 2026 Google LLC
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-# MaybeUninit<T>
+# `MaybeUninit<T>`
 
 `MaybeUninit<T>` allows Rust to refer to uninitialized memory.
 
