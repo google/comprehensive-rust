@@ -12,15 +12,21 @@ struct Cat {
     age: u8,
 }
 
+struct Bird {
+    wingspan: f32,
+}
+
 enum AnyPet {
     Dog(Dog),
     Cat(Cat),
+    Bird(Bird),
 }
 
 fn main() {
     let pets = vec![
         AnyPet::Dog(Dog { name: "Fido".into() }),
         AnyPet::Cat(Cat { age: 19 }),
+        AnyPet::Bird(Bird { wingspan: 12.3 }),
     ];
 }
 ```

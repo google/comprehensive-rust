@@ -47,13 +47,9 @@ fn do_pet_stuff(pet: &impl Pet) {
 }
 
 fn main() {
-    let cat = Cat {
-        age: 19,
-    };
+    let cat = Cat { age: 19 };
 
-    let dog = Dog {
-        name: "Fido".into(),
-    };
+    let dog = Dog { name: "Fido".into() };
 
     do_pet_stuff(&cat);
     do_pet_stuff(&dog);
