@@ -29,9 +29,10 @@ fn main() {
 <details>
 
 - If you are coming from a dynamic language like Python, the concept of
-  polymorphism may be new to you because in dynamic languages everything is
-  inherently polymorphic. But Rust is a statically-typed language, meaning the
-  compiler heavily restricts what types can be used where.
+  polymorphism may be new to you because in dynamic languages all functions are
+  implicitly polymorphic. But in Rust, functions only accept arguments of the
+  exact types they expect, and we must use a mechanism like generics to support
+  polymorphism.
 
 - Static typing is a powerful tool that allows the compiler to enforce correct
   usage of our APIs: If your function needs to be given an `i32` in order to
