@@ -31,7 +31,7 @@ mod ext {
 }
 
 fn main() {
-    pub use ext::DisplayExt as _;
+    use ext::DisplayExt as _;
 
     assert_eq!("dad".quoted(), "'dad'");
     assert_eq!(4.quoted(), "'4'");
