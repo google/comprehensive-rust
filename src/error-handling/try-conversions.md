@@ -48,18 +48,7 @@ use std::{fmt, fs, io};
 #[derive(Debug)]
 enum ReadUsernameError {
     IoError(io::Error),
-    EmptyUsername(String),
-}
-
-impl Error for ReadUsernameError {}
-
-impl fmt::Display for ReadUsernameError {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        match self {
-            Self::IoError(e) => write!(f, "I/O error: {e}"),
-            Self::EmptyUsername(path) => write!(f, "Found no username in {path}"),
-        }
-    }
+    EmptyUsername,
 }
 
 impl From<io::Error> for ReadUsernameError {
@@ -72,7 +61,7 @@ fn read_username(path: &str) -> Result<String, ReadUsernameError> {
     let mut username = String::with_capacity(100);
     fs::File::open(path)?.read_to_string(&mut username)?;
     if username.is_empty() {
-        return Err(ReadUsernameError::EmptyUsername(String::from(path)));
+        return Err(ReadUsernameError::EmptyUsername);
     }
     Ok(username)
 }
