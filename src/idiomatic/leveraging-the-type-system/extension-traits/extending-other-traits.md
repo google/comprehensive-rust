@@ -30,11 +30,13 @@ mod ext {
     }
 }
 
-pub use ext::DisplayExt as _;
+fn main() {
+    use ext::DisplayExt as _;
 
-assert_eq!("dad".quoted(), "'dad'");
-assert_eq!(4.quoted(), "'4'");
-assert_eq!(true.quoted(), "'true'");
+    assert_eq!("dad".quoted(), "'dad'");
+    assert_eq!(4.quoted(), "'4'");
+    assert_eq!(true.quoted(), "'true'");
+}
 ```
 
 <details>
