@@ -3,18 +3,20 @@
 Generics are used when we want to abstract over types, but we expect the users
 of our code to know the concrete types.
 
-```rust
+```rust,compile_fail
 pub struct Vec<T> { ... }
 ```
 
 ```rust,editable
-let ints: Vec<i32> = Vec::new();
-vec.push(123);
-vec.push(456);
+fn main() {
+    let mut ints: Vec<i32> = Vec::new();
+    ints.push(123);
+    ints.push(456);
 
-let strings: Vec<&str> = Vec::new();
-vec.push("hello");
-vec.push("goodbye");
+    let mut strings: Vec<&str> = Vec::new();
+    strings.push("hello");
+    strings.push("goodbye");
+}
 ```
 
 <details>

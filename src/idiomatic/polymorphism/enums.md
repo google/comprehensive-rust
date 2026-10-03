@@ -4,7 +4,7 @@ Sometimes we need to handle multiple different types at runtime. Enums are a
 powerful tool that allows us to safely and robustly describe situations like
 this.
 
-```rust,editable
+```rust,no_run,editable
 use std::collections::HashMap;
 
 fn main() {
