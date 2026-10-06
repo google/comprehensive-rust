@@ -32,7 +32,7 @@ fn main() {
   e.g. `t.0`, `t.1`.
 
 - The empty tuple `()` is referred to as the "unit type" and signifies absence
-  of a return value, akin to `void` in other languages.
+  of a meaningful value, akin to `void` in other languages.
 
 - Unlike arrays, tuples cannot be used in a `for` loop. This is because a `for`
   loop requires all the elements to have the same type, which may not be the
