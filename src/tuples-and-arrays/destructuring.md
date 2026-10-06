@@ -16,16 +16,16 @@ into its constituent parts:
 # // Copyright 2023 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-fn check_order(tuple: (i32, i32, i32)) -> bool {
-    let (left, middle, right) = tuple;
+fn check_order(seq: (i32, i32, i32)) -> bool {
+    let (left, middle, right) = seq;
     left < middle && middle < right
 }
 
 fn main() {
-    let tuple = (1, 5, 3);
+    let seq = (1, 5, 3);
     println!(
-        "{tuple:?}: {}",
-        if check_order(tuple) { "ordered" } else { "unordered" }
+        "{seq:?}: {}",
+        if check_order(seq) { "ordered" } else { "unordered" }
     );
 }
 ```
