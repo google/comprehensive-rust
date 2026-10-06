@@ -5,7 +5,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # `loop`
 
-The [`loop` statement](https://doc.rust-lang.org/std/keyword.loop.html) just
+The [`loop` expression](https://doc.rust-lang.org/std/keyword.loop.html) just
 loops forever, until a `break`.
 
 ```rust,editable
@@ -26,7 +26,7 @@ fn main() {
 
 <details>
 
-- The `loop` statement works like a `while true` loop. Use it for things like
+- The `loop` expression works like a `while true` loop. Use it for things like
   servers that will serve connections forever.
 
 </details>
