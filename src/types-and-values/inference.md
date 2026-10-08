@@ -14,9 +14,6 @@ Rust will look at how the variable is _used_ to determine the type:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn takes_u32(x: u32) {
     println!("u32: {x}");
 }
@@ -50,9 +47,6 @@ This sometimes appears as `{integer}` in error messages. Similarly,
 floating-point literals default to `f64`.
 
 ```rust,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let x = 3.14;
     let y = 20;

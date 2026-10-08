@@ -59,9 +59,6 @@ _src/bin/server.rs_:
 <!-- File src/bin/server.rs -->
 
 ```rust,compile_fail
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include chat-async/src/bin/server.rs:setup}}
 
 {{#include chat-async/src/bin/server.rs:handle_connection}}
@@ -76,9 +73,6 @@ _src/bin/client.rs_:
 <!-- File src/bin/client.rs -->
 
 ```rust,compile_fail
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include chat-async/src/bin/client.rs:setup}}
 
     // TODO: For a hint, see the description of the task below.

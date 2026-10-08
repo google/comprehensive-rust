@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Rust lets you abstract over types with traits. They're similar to interfaces:
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 trait Pet {
     /// Return a sentence from this pet.
     fn talk(&self) -> String;

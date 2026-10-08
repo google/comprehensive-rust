@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 [`Arc<T>`][1] allows shared, read-only ownership via `Arc::clone`:
 
 ```rust,editable
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::sync::Arc;
 use std::thread;
 

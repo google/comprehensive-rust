@@ -9,9 +9,6 @@ Most microcontrollers access peripherals via memory-mapped IO. Let's try turning
 on an LED on our micro:bit:
 
 ```rust,editable,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include examples/src/bin/mmio.rs:Example}}
 ```
 

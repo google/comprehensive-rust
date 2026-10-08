@@ -16,9 +16,6 @@ We can also use the UART driver from the `arm-pl011-uart` crate rather than
 writing our own.
 
 ```rust,editable,compile_fail
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include examples/src/main_rt.rs:main}}
 ```
 

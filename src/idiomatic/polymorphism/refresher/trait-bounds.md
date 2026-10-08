@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # Trait Bounds on Generics
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::fmt::Display;
 
 fn print_with_length<T: Display>(item: T) {

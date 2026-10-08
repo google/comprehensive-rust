@@ -14,9 +14,6 @@ avoid boilerplate when defining error types. It provides derive macros that
 assist in implementing `From<T>`, `Display`, and the `Error` trait.
 
 ```rust,editable,compile_fail
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::io::Read;
 use std::{fs, io};
 use thiserror::Error;

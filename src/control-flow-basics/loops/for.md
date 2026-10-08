@@ -9,9 +9,6 @@ The [`for` loop](https://doc.rust-lang.org/std/keyword.for.html) iterates over
 ranges of values or the items in a collection:
 
 ```rust,editable
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     for x in 1..5 {
         dbg!(x);

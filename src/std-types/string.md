@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 [`String`][1] is a growable UTF-8 encoded string:
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let mut s1 = String::new();
     s1.push_str("Hello");

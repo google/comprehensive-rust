@@ -14,9 +14,6 @@ Deep-copy a type or duplicate a smart, shareable pointer.
 Derivable: ✅
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::collections::BTreeSet;
 use std::rc::Rc;
 

@@ -17,9 +17,6 @@ pass. Use an iterator expression and `collect` the result to construct the
 return value.
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include exercise.rs:offset_differences}}
     todo!()
 }

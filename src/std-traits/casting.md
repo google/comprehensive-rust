@@ -13,9 +13,6 @@ Rust has no _implicit_ type conversions, but does support explicit casts with
 `as`. These generally follow C semantics where those are defined.
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let value: i64 = 1000;
     println!("as u16: {}", value as u16);

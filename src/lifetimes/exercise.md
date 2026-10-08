@@ -71,9 +71,6 @@ What remains for you is to implement the `parse_field` function and the
 <!-- compile_fail because the stubbed out code has type inference errors. -->
 
 ```rust,editable,compile_fail
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include exercise.rs:preliminaries }}
 
 

@@ -21,9 +21,6 @@ interface IBirthdayService {
 This results in an updated trait definition for `IBirthdayService`:
 
 ```rust,ignore
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 trait IBirthdayService {
     fn wishHappyBirthday(
         &self,

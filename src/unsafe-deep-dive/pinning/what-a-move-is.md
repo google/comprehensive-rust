@@ -8,9 +8,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Always a bitwise copy, even for types that do not implement `Copy`:
 
 ```rust
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(Debug, Default)]
 pub struct DynamicBuffer {
     data: Vec<u8>,

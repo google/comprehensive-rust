@@ -18,9 +18,6 @@ With `loop`, this can take an optional expression that becomes the value of the
 `loop` expression.
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let mut i = 0;
     loop {

@@ -47,9 +47,6 @@ examples in this training:
    example, using the example on the previous page, make `src/main.rs` look like
 
    ```rust
-   # // Copyright 2022 Google LLC
-   # // SPDX-License-Identifier: Apache-2.0
-   #
    fn main() {
        println!("Edit me!");
    }

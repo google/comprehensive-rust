@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Prefix for fallible methods that return a `Result`.
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 impl TryFrom<i32> for u32 {
     type Error = TryFromIntError;
 

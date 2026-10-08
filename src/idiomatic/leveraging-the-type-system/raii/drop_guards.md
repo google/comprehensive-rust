@@ -14,9 +14,6 @@ cleanup when it goes out of scope. In the case of `Mutex`, the `lock` method
 returns a `MutexGuard` that automatically unlocks the mutex on `drop`:
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 struct Mutex {
     is_locked: bool,
 }

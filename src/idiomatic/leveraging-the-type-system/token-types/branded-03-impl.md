@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Constructing branded types is different to how we construct non-branded types.
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 # use std::marker::PhantomData;
 #
 # #[derive(Default)]

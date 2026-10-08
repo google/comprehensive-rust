@@ -27,9 +27,6 @@ for the start and the end of the list. `Option<NonNull<T>>` could be read as a
 the [variance] relationships from `T`.
 
 ```rust,ignore
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use core::marker::PhantomData;
 
 // ...
@@ -53,9 +50,6 @@ pub(crate) struct LinkedList<L, T> {
 `LinkedList` is neither `Send` nor `Sync`, unless its targets are.
 
 ```rust,ignore
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 unsafe impl<L: Link> Send for LinkedList<L, L::Target> where L::Target: Send {}
 unsafe impl<L: Link> Sync for LinkedList<L, L::Target> where L::Target: Sync {}
 ```
@@ -69,9 +63,6 @@ returns a `Pointers` struct. `Pointers` provides access to the two ends of the
 link by marking itself as `!Unpin`.
 
 ```rust,ignore
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub unsafe trait Link {
     type Handle;
 
@@ -96,9 +87,6 @@ pub unsafe trait Link {
 `Pointers` is where the magic happens:
 
 ```rust,ignore
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub(crate) struct Pointers<T> {
     inner: UnsafeCell<PointersInner<T>>,
 }

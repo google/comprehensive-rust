@@ -14,9 +14,6 @@ Conversion from one type to another.
 Derivable: ❌, without crates like `derive_more`.
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 pub struct Wrapper(String);
 
 impl From<&str> for Wrapper {
@@ -33,6 +30,7 @@ impl From<i32> for Wrapper {
 
 // `Into` is more natural to use as a trait bound.
 fn into_string<S: Into<String>>(s: S) {}
+#[rustfmt::skip]
 fn string_from<T>(t: T) where String: From<T> {}
 
 fn main() {

@@ -21,9 +21,6 @@ This is not inference -- it is just a syntactic shorthand.
   that lifetime is given to all un-annotated borrows in the return type.
 
 ```rust,editable
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn only_args(a: &i32, b: &i32) {
     todo!();
 }

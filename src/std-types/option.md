@@ -15,9 +15,6 @@ We have already seen some use of `Option<T>`. It stores either a value of type
 returns an `Option<usize>`.
 
 ```rust,editable,should_panic
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let name = "Löwe 老虎 Léopard Gepardi";
     let mut position: Option<usize> = name.find('é');

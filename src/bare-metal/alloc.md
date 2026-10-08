@@ -9,9 +9,6 @@ To use `alloc` you must implement a
 [global (heap) allocator](https://doc.rust-lang.org/stable/std/alloc/trait.GlobalAlloc.html).
 
 ```rust,editable,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include alloc-example/src/main.rs:Alloc}}
 ```
 

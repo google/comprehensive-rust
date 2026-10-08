@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Colleagues, collaborators, largely-silent API users, or just yourself?
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 // expert writes for experts
 /// Canonicalizes the MIR for the borrow checker.  
 ///  

@@ -5,9 +5,6 @@ that represents a sequence of values. Under the hood Rust uses a concept called
 **iterators** to provide a unified way to walk through a sequence like this.
 
 ```rust,editable
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     // Accepts a range.
     for x in 1..5 {

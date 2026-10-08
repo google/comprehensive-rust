@@ -10,9 +10,6 @@ each language to the other. You provide this description using extern blocks in
 a Rust module annotated with the `#[cxx::bridge]` attribute macro.
 
 ```rust,ignore
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include ../../../../third_party/cxx/blobstore/src/main.rs:bridge}}
 ```
 

@@ -14,9 +14,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Derivable: ❌, without crates like `derive_more`.
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(Debug)]
 pub enum NetworkError {
     HttpCode(u16),

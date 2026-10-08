@@ -13,9 +13,6 @@ SPDX-License-Identifier: CC-BY-4.0
 2. What should we name these signatures?
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 // What are the types of these methods?
 Option::is_some // ?
 slice::get // ?

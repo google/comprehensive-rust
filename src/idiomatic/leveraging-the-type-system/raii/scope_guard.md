@@ -13,9 +13,6 @@ A scope guard uses the `Drop` trait to run cleanup code automatically when a
 scope exits, even during unwinding.
 
 ```rust,editable,compile_fail
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use scopeguard::{ScopeGuard, guard};
 use std::fs::{self, File};
 use std::io::Write;

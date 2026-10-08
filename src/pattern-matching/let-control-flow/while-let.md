@@ -10,9 +10,6 @@ Like with `if let`, there is a
 variant that repeatedly tests a value against a pattern:
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let mut name = String::from("Comprehensive Rust 🦀");
     while let Some(c) = name.pop() {

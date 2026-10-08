@@ -35,9 +35,6 @@ files in the `src` directory.
 Here's the single-module implementation of the GUI library:
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include exercise.rs:single-module}}
 ```
 

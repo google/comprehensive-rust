@@ -14,9 +14,6 @@ While move semantics are the default, certain types are copied by default:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let x = 42;
     let y = x;
@@ -32,9 +29,6 @@ You can opt-in your own types to use copy semantics:
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(Copy, Clone, Debug)]
 struct Point(i32, i32);
 

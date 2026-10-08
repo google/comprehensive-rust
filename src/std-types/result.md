@@ -14,9 +14,6 @@ operation, each with a different enum variant. It is generic: `Result<T, E>`
 where `T` is used in the `Ok` variant and `E` appears in the `Err` variant.
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::fs::File;
 use std::io::Read;
 

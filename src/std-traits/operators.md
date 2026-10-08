@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Operator overloading is implemented via traits in [`std::ops`][1]:
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(Debug, Copy, Clone)]
 struct Point {
     x: i32,

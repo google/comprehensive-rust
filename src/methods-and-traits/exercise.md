@@ -23,9 +23,6 @@ implementing that same trait, adding behavior in the process. In the "Generics"
 segment, we will see how to make the wrapper generic over the wrapped type.
 
 ```rust,compile_fail,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include exercise.rs:setup}}
 
 // TODO: Implement the `Logger` trait for `VerbosityFilter`.

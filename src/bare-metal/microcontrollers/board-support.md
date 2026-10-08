@@ -11,9 +11,6 @@ for convenience.
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable,compile_fail
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include examples/src/bin/board_support.rs:Example}}
 ```
 

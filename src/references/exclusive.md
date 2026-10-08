@@ -15,9 +15,6 @@ they refer to. They have type `&mut T`.
 <!-- mdbook-xgettext: skip -->
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let mut point = (1, 2);
     let x_coord = &mut point.0;

@@ -16,9 +16,6 @@ piece-by-piece, using convenience functions.
 Fill in the missing pieces.
 
 ```rust,should_panic,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include exercise.rs:Package}}
 {{#include exercise.rs:to_dependency}}
         todo!("1")

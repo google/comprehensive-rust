@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Avoid documenting irrelevant details that may frequently change.
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 // bad
 /// Saves a `User` record to the Postgres database.  
 ///  

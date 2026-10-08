@@ -17,9 +17,6 @@ _testing/Android.bp_:
 _testing/src/lib.rs_:
 
 ```rust
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 {{#include testing/src/lib.rs:leftpad}}
 ```
 

@@ -15,9 +15,6 @@ this transform are complex, but it is beneficial to have a schematic
 understanding of what is happening. The following function
 
 ```rust,compile_fail
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 /// Sum two D10 rolls plus a modifier.
 async fn two_d10(modifier: u32) -> u32 {
     let first_roll = roll_d10().await;
@@ -29,9 +26,6 @@ async fn two_d10(modifier: u32) -> u32 {
 is transformed to something like
 
 ```rust,editable,compile_fail
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::future::Future;
 use std::pin::Pin;
 use std::task::{Context, Poll};
@@ -111,9 +105,6 @@ This also means that recursive async functions are challenging. Compare to the
 common error of building recursive type, such as
 
 ```rust,compile_fail
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 enum LinkedList<T> {
     Node { value: T, next: LinkedList<T> },
     Nil,
@@ -124,9 +115,6 @@ The fix for a recursive type is to add a layer of indrection, such as with
 `Box`. Similarly, a recursive async function must box the recursive future:
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 async fn count_to(n: u32) {
     if n > 0 {
         Box::pin(count_to(n - 1)).await;

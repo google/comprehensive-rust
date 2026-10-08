@@ -15,9 +15,6 @@ some trait, so that you can call this trait's methods.
 You can do this with `T: Trait`:
 
 ```rust,editable
-# // Copyright 2022 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn duplicate<T: Clone>(a: T) -> (T, T) {
     (a.clone(), a.clone())
 }
@@ -40,9 +37,6 @@ fn main() {
 - Show a `where` clause, students will encounter it when reading code.
 
   ```rust,ignore
-  # // Copyright 2022 Google LLC
-  # // SPDX-License-Identifier: Apache-2.0
-  #
   fn duplicate<T>(a: T) -> (T, T)
   where
       T: Clone,

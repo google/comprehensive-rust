@@ -13,9 +13,6 @@ What happens when you have a name conflict between an inherent method and an
 extension method?
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 mod ext {
     pub trait CountOnesExt {
         fn count_ones(&self) -> u32;

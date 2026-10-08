@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # Definition of Pin
 
 ```rust,ignore
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[repr(transparent)]
 pub struct Pin<Ptr> {
     pointer: Ptr,

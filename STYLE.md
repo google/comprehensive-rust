@@ -421,9 +421,6 @@ Example:
 
 ````markdown
 ```rust
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     println!("Hello, world!");
 }

@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # Conditional Method Implementations
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 // No trait bounds on the type definition.
 pub struct Value<T>(T);
 

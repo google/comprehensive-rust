@@ -9,9 +9,6 @@ Associated types are placeholder types that are supplied by the trait
 implementation.
 
 ```rust,editable
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(Debug)]
 struct Meters(i32);
 #[derive(Debug)]

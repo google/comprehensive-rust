@@ -4,9 +4,6 @@ The [`enumerate`] helper gives us a way to get the index of each element for any
 iterator.
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn main() {
     let array = ['a', 'b', 'c', 'd', 'e'];
 

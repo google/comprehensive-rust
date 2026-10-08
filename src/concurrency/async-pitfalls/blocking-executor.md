@@ -14,9 +14,6 @@ blocking tasks will block the executor and prevent other tasks from being
 executed. An easy workaround is to use async equivalent methods where possible.
 
 ```rust,editable,compile_fail
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use futures::future::join_all;
 use std::time::Instant;
 

@@ -16,9 +16,6 @@ For example, the `zerocopy` crate has an unsafe trait that looks
 [something like this](https://docs.rs/zerocopy/latest/zerocopy/trait.IntoBytes.html):
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::{mem, slice};
 
 /// ...

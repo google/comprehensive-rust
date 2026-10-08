@@ -13,18 +13,12 @@ The effective expansion of `?` is a little more complicated than previously
 indicated:
 
 ```rust,ignore
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 expression?
 ```
 
 works the same as
 
 ```rust,ignore
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 match expression {
     Ok(value) => value,
     Err(err)  => return Err(From::from(err)),
@@ -38,9 +32,6 @@ higher-level errors.
 ## Example
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::error::Error;
 use std::io::Read;
 use std::{fmt, fs, io};

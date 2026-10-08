@@ -25,9 +25,6 @@ The [async_trait] crate provides a workaround for `dyn` support through a macro,
 with specific caveats:
 
 ```rust,editable,compile_fail
-# // Copyright 2024 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use async_trait::async_trait;
 use std::time::Instant;
 use tokio::time::{Duration, sleep};

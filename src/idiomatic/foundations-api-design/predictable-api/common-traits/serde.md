@@ -14,9 +14,6 @@ Crates like `serde` can implement serialization automatically.
 Derivable: ✅
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(Serialize, Deserialize)]
 struct ExtraData {
     fav_color: String,

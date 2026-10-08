@@ -5,9 +5,6 @@ takes ownership of the object, so a common pattern is to implement it on a
 reference to allow for the creation of borrowing iterators.
 
 ```rust,editable
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 struct Grid {
     x_coords: Vec<u32>,
     y_coords: Vec<u32>,

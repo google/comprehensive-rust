@@ -13,9 +13,6 @@ How can we ensure that only valid operations are allowed on a value based on its
 current state?
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::fmt::Write as _;
 
 #[derive(Default)]

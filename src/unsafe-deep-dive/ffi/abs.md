@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # Wrapping `abs(3)`
 
 ```rust,editable,ignore
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 fn abs(x: i32) -> i32;
 
 fn main() {
@@ -35,9 +32,6 @@ Note that this doesn’t work _yet_.
 Add the extern block:
 
 ```rust
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 unsafe extern "C" {
     fn abs(x: i32) -> i32;
 }
@@ -55,9 +49,6 @@ Explain that our function signature must match its definition:
 Update the code block to use the C types.
 
 ```rust
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::ffi::c_int;
 
 unsafe extern "C" {
@@ -79,9 +70,6 @@ message.
 Add the unsafe keyword to the block:
 
 ```rust
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::ffi::c_int;
 
 unsafe extern "C" {
@@ -97,9 +85,6 @@ Recompile.
 Add safe keyword to the abs function:
 
 ```rust
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::ffi::c_int;
 
 unsafe extern "C" {
@@ -113,9 +98,6 @@ block.
 Completed program for reference:
 
 ```rust
-# // Copyright 2026 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::ffi::c_int;
 
 unsafe extern "C" {

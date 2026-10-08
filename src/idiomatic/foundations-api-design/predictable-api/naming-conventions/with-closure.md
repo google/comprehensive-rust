@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 `with` as in "do X, but with this specific way of computing things."
 
 ```rust,compile_fail,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 impl<T> Vec<T> {
     // Simplified. If the resize is larger than the current vec size, use the
     // closure to populate elements.

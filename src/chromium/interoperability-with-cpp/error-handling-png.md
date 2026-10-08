@@ -9,9 +9,6 @@ A prototype of a PNG decoder illustrates what can be done when the successful
 result cannot be passed across the FFI boundary:
 
 ```rust,ignore
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[cxx::bridge(namespace = "gfx::rust_bindings")]
 mod ffi {
     extern "Rust" {

@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # Deriving Traits
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
 struct BufferId([u8; 16]);
 

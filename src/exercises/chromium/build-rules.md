@@ -9,9 +9,6 @@ In your Chromium build, add a new Rust target to `//ui/base/BUILD.gn`
 containing:
 
 ```rust
-# // Copyright 2023 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 // SAFETY: There is no other global function of this name.
 #[unsafe(no_mangle)]
 pub extern "C" fn hello_from_rust() {

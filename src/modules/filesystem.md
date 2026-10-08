@@ -12,9 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Omitting the module content will tell Rust to look for it in another file:
 
 ```rust,editable,compile_fail
-# // Copyright 2022 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 mod garden;
 ```
 
@@ -35,9 +32,6 @@ Modules defined in files can be documented, too, using "inner doc comments".
 These document the item that contains them -- in this case, a module.
 
 ```rust,editable,compile_fail
-# // Copyright 2022 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 //! This module implements the garden, including a highly performant germination
 //! implementation.
 
@@ -85,9 +79,6 @@ pub fn harvest(garden: &mut Garden) {
 - The place Rust will look for modules can be changed with a compiler directive:
 
   ```rust,ignore
-  # // Copyright 2022 Google LLC
-  # // SPDX-License-Identifier: Apache-2.0
-  #
   #[path = "some/path.rs"]
   mod some_module;
   ```

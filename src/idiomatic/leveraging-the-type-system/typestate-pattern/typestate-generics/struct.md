@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 ## Serializer: implement Struct
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 # use std::fmt::Write as _;
 {{#include ../typestate-generics.rs:Serializer-def}}
 

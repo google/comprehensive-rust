@@ -10,9 +10,6 @@ SPDX-License-Identifier: CC-BY-4.0
 # Heterogeneous data with `dyn trait`
 
 ```rust,editable
-# // Copyright 2025 Google LLC
-# // SPDX-License-Identifier: Apache-2.0
-#
 use std::fmt::Display;
 
 pub struct Lambda;
@@ -23,6 +20,7 @@ impl Display for Lambda {
     }
 }
 
+#[rustfmt::skip]
 fn main() {
     let heterogeneous: Vec<Box<dyn Display>> = vec![
         Box::new(42u32),
