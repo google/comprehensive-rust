@@ -28,8 +28,8 @@ This solution demonstrates a few key Rust features:
 - Note that `n` must be strictly greater than 0 for the Collatz sequence to be
   valid. The function signature takes `i32`, but the problem description implies
   positive integers. A more robust implementation might use `u32` or return an
-  `Option` or `Result` to handle invalid inputs (0 or negative numbers), but
-  panic or infinite loops are potential outcomes here if `n <= 0`.
+  `Option` or `Result` to handle invalid inputs (0 or negative numbers). Here,
+  the loop never runs if `n <= 0`, so the function simply returns 1.
 - The overflow is a potential issue if `n` grows too large, similar to the
   Fibonacci exercise.
 
