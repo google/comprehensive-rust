@@ -47,7 +47,7 @@ fn main() {
 
 - The extra block in the example is to end the borrow created by the call to
   `borrow_mut` before we print the cell. Trying to print a borrowed `RefCell`
-  just shows the message `"{borrowed}"`.
+  just shows `RefCell { value: <borrowed> }`.
 
 ## More to Explore
 
