@@ -18,7 +18,7 @@
 use std::cmp::Ordering;
 
 // ANCHOR: types
-/// A node in the binary tree.
+/// A node in the binary search tree.
 #[derive(Debug)]
 struct Node<T: Ord> {
     value: T,
@@ -30,7 +30,7 @@ struct Node<T: Ord> {
 #[derive(Debug)]
 struct Subtree<T: Ord>(Option<Box<Node<T>>>);
 
-/// A container storing a set of values, using a binary tree.
+/// A container storing a set of values, using a binary search tree.
 ///
 /// If the same value is added multiple times, it is only stored once.
 #[derive(Debug)]
