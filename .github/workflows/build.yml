@@ -90,6 +90,51 @@ jobs:
           github_output.write("languages=")
           json.dump(sorted(languages), github_output)
 
+  check-labeler:
+    runs-on: ubuntu-latest
+    needs:
+      - find-languages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Check that labeler.yml has a label for every translation
+        shell: python
+        env:
+          LANGUAGES: ${{ needs.find-languages.outputs.languages }}
+        run: |
+          import os, json, sys
+          languages = set(json.loads(os.environ["LANGUAGES"])) - {"en"}
+
+          # Map each top-level label in labeler.yml to its globs.
+          globs = {}
+          label = None
+          for line in open(".github/labeler.yml"):
+              line = line.rstrip()
+              if line and not line[0].isspace() and line.endswith(":"):
+                  label = line[:-1].strip("\"'")
+                  globs[label] = []
+              elif "any-glob-to-any-file:" in line:
+                  globs[label].append(line.split(":", 1)[1].strip().strip("\"'"))
+
+          errors = []
+          for language in sorted(languages):
+              label = f"translation/{language}"
+              if globs.get(label) != [f"po/{language}.po"]:
+                  errors.append(f"Missing or wrong label {label} for po/{language}.po")
+          for label in sorted(globs):
+              language = label.removeprefix("translation/")
+              if language != label and language not in languages:
+                  errors.append(f"Stale label {label}: po/{language}.po does not exist")
+
+          for error in errors:
+              print(f"::error file=.github/labeler.yml::{error}")
+          if errors:
+              print("Please update .github/labeler.yml as described in TRANSLATIONS.md.")
+              sys.exit(1)
+
   build:
     runs-on: ubuntu-latest
     needs:
