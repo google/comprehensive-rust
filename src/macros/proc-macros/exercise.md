@@ -25,8 +25,11 @@ Implement the `derive_display_impl` function to:
 1. Parse the incoming token stream `input` into a `syn::DeriveInput` struct.
 2. Extract the name (identifier) of the struct.
 3. Generate and return a token stream implementing `std::fmt::Display` for that
-   struct name, which formats the struct using its name (e.g., printing
-   `"MyAwesomeType"`).
+   struct name, which formats the struct using its name, names of its fields,
+   and their values. (e.g., printing `MyAwesomeType { a: 50, }`).
+
+   The names of the struct's fields can be obtained with the provided
+   `struct_fields` function.
 
 This will rely on a `Cargo.toml` resembling:
 
