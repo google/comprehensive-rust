@@ -15,20 +15,24 @@ We have two means of writing polymorphic functions, how do they compare?
 # // Copyright 2025 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-fn print_display<T: std::fmt::Display>(t: &T) {
+use std::fmt::Display;
+
+fn print_display(t: &impl Display) {
     println!("{}", t);
 }
 
-fn print_display_dyn(t: &dyn std::fmt::Display) {
+fn print_display_dyn(t: &dyn Display) {
     println!("{}", t);
 }
 
 fn main() {
-    let int = 42i32;
-    // Monomorphized to a unique function for i32 inputs.
-    print_display(&int);
-    // One per
-    print_display_dyn(&int);
+    // Two functions are generated, each using static dispatch.
+    print_display(&123);
+    print_display(&"Hello");
+
+    // One function for both input types using dynamic dispatch.
+    print_display_dyn(&123);
+    print_display_dyn(&"Hello");
 }
 ```
 
