@@ -46,6 +46,14 @@ fn preprocess() -> anyhow::Result<()> {
 
     book.for_each_mut(|chapter| {
         if let BookItem::Chapter(chapter) = chapter {
+            chapter.content.push_str(
+                "\n\n<div id=\"speaker-notes-translations\" style=\"display: none;\">\n\
+                 \t<span class=\"str-close\">Close speaker notes</span>\n\
+                 \t<span class=\"str-speaker-notes\">Speaker Notes</span>\n\
+                 \t<span class=\"str-speaker-notes-for\">Speaker Notes for </span>\n\
+                 \t<span class=\"str-popup-error\">Could not open popup, please check your popup blocker settings.</span>\n\
+                 </div>\n",
+            );
             if let Some((course, session, segment, slide)) =
                 courses.find_slide(chapter)
             {
