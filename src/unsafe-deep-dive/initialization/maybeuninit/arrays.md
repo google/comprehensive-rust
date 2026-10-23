@@ -71,8 +71,8 @@ contains uninitialized elements.
 - `[MaybeUninit<u8>; 2048]` lets you initialize elements one at a time, then
   take a sub-slice of just the initialized prefix and treat it as `[u8]` via
   `std::slice::from_raw_parts`.
-- `slice_assume_init_ref` is safe only when every element in the slice is
-  initialized. For this example, we only pass `&buf[..input.len()]` after
+- `std::slice::from_raw_parts` is valid only when every element in the slice is
+  initialized. For this example, we only pass `input.len()` as the length after
   writing exactly those bytes.
 - When `T` needs drop, you must manually call `assume_init_drop()` for the
   initialized elements. Skipping this leaks memory. However, calling it on an
