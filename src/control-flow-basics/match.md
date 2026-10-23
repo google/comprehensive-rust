@@ -28,7 +28,7 @@ fn main() {
 }
 ```
 
-Like `if` expressions, `match` can also return a value;
+Like `if` expressions, `match` also takes on the value of the branch it chooses;
 
 ```rust,editable
 # // Copyright 2024 Google LLC
