@@ -24,6 +24,9 @@ abstraction.
 
 - The `cortex_m_rt::entry` macro requires that the function have type
   `fn() -> !`, because returning to the reset handler doesn't make sense.
-- Run the example with `cargo embed --bin minimal`
+- Run the example with `cargo embed --bin minimal` from
+  `src/bare-metal/microcontrollers/examples/` in a local checkout of the course
+  repository. The other examples in this section are run from the same
+  directory.
 
 </details>
