@@ -75,7 +75,7 @@ fn main() {
 ## More to Explore
 
 - If students want more information about privacy (or lack thereof) in enums,
-  you can bring up `#[doc_hidden]` and `#[non_exhaustive]` and show how they're
+  you can bring up `#[doc(hidden)]` and `#[non_exhaustive]` and show how they're
   used to limit what can be done with an enum.
 
 - Module privacy still applies when there are `impl` blocks in other modules

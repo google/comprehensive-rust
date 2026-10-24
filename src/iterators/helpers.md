@@ -34,7 +34,7 @@ fn main() {
   where you can find all the documentation about them.
 
 - Many of these helper methods take the original iterator and produce a new
-  iterator with different behavior. These are know as "iterator adapter
+  iterator with different behavior. These are known as "iterator adapter
   methods".
 
 - Some methods, like `sum` and `count`, consume the iterator and pull all of the
