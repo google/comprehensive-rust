@@ -275,6 +275,7 @@ SPDX-License-Identifier: CC-BY-4.0
   - [With C](android/interoperability/with-c.md)
     - [A Simple C Library](android/interoperability/with-c/c-library.md)
     - [Bindgen](android/interoperability/with-c/bindgen.md)
+    - [Using the Bindings](android/interoperability/with-c/using-bindings.md)
     - [Running Our Binary](android/interoperability/with-c/run-our-binary.md)
     - [A Simple Rust Library](android/interoperability/with-c/rust-library.md)
     - [Calling Rust from C](android/interoperability/with-c/rust.md)
