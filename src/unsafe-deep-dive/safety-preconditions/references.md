@@ -23,6 +23,8 @@ fn main() {
 }
 ```
 
+<details>
+
 Confirm understanding of the syntax
 
 - `Box<i32>` type is a reference to an integer on the heap that is owned by the
