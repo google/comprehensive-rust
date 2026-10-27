@@ -44,4 +44,6 @@ fn main() {
 - In this example, we're storing types that all implement `std::fmt::Display`
   and printing all items in that collection to screen.
 
+- Compare this to how we did heterogenous collections with enums.
+
 </details>

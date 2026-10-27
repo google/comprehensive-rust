@@ -51,9 +51,21 @@ pub trait Trait {
 
   This is because the associated data would have to be stored in vtables, taking
   up extra memory.
+  <!-- This isn't right, the issue isn't storing the info in the vtable takes memory,
+    it's that we fundamentally can't reason about an associated type through a
+    vtable. A vtable can hold function pointers, but there's no way to use a
+    pointer to point at a type.
+
+    Using an associated type as part of a method's signature means that the
+    method has a different signature depending on which type implements the
+    trait, and calling a function through a vtable requires that all pointed-to
+    functions have exactly the same signature. -->
 
   For methods like `clone`, this disqualifies dyn compatibility because the
   output type depends on the concrete type of `self`.
+  <!-- Likewise, the issue here is that we don't know the `Self` type when going
+    through dyn, so we can't call a function that returns Self because the
+    different implementations of that function return different types. -->
 
 ref:
 

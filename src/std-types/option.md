@@ -39,6 +39,10 @@ fn main() {
   - It's common to `unwrap`/`expect` all over the place when hacking something
     together, but production code typically handles `None` in a nicer fashion.
 
+- Many of methods on `Option` such as `insert` and `take` can be viewed as
+  treating it like a container with room for at most one element. Methods with
+  similar names and behaviors exist on other container types.
+
 - The "niche optimization" means that `Option<T>` typically has the same size in
   memory as `T`, if there is some representation that is not a valid value of T.
   For example, a reference cannot be NULL, so `Option<&T>` automatically uses

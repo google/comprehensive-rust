@@ -38,9 +38,9 @@ fn main() {
 
 <details>
 
-Note that `loop` is the only looping construct that can return a non-trivial
-value. This is because it's guaranteed to only return at a `break` statement
-(unlike `while` and `for` loops, which can also return when the condition
-fails).
+Note that `loop` is the only looping construct that may evaluate to a
+non-trivial value. This is because control flow of a `loop` only proceeds to its
+context via a `break` expression (unlike `while` and `for` loops, which can also
+exit when the condition fails).
 
 </details>

@@ -30,11 +30,13 @@ mod ext {
     }
 }
 
-pub use ext::DisplayExt as _;
+fn main() {
+    use ext::DisplayExt as _;
 
-assert_eq!("dad".quoted(), "'dad'");
-assert_eq!(4.quoted(), "'4'");
-assert_eq!(true.quoted(), "'true'");
+    assert_eq!("dad".quoted(), "'dad'");
+    assert_eq!(4.quoted(), "'4'");
+    assert_eq!(true.quoted(), "'true'");
+}
 ```
 
 <details>
@@ -63,6 +65,11 @@ assert_eq!(true.quoted(), "'true'");
 
 - Conventionally, the extension trait is named after the trait it extends,
   followed by the `Ext` suffix. In the example above, `DisplayExt`.
+
+- Note that it's still possible to manually implement `DisplayExt` on
+  non-`Display` types. If you want to prevent direct implementations of the
+  trait, you can make `Display` a supertrait of `DisplayExt`. This would lock
+  out non-`Display` types from implementing the trait.
 
 - There are entire crates that extend standard library traits with new
   functionality.

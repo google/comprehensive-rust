@@ -30,9 +30,9 @@ unsafe extern "C" {
 fn main() {
     println!("Absolute value of -3 according to C: {}", abs(-3));
 
+    // SAFETY: We pass a pointer to a C string literal which is valid for the
+    // duration of the program.
     unsafe {
-        // SAFETY: We pass a pointer to a C string literal which is valid for
-        // the duration of the program.
         println!("String length: {}", strlen(c"String".as_ptr()));
     }
 }

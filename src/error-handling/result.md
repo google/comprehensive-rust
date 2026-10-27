@@ -20,8 +20,8 @@ use std::fs::File;
 use std::io::Read;
 
 fn main() {
-    let file: Result<File, std::io::Error> = File::open("diary.txt");
-    match file {
+    let open_result: Result<File, std::io::Error> = File::open("diary.txt");
+    match open_result {
         Ok(mut file) => {
             let mut contents = String::new();
             if let Ok(bytes) = file.read_to_string(&mut contents) {

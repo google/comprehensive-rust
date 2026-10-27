@@ -32,8 +32,8 @@ pub trait Ord: Eq + PartialOrd {
 
 <details>
 
-- When authoring a trait, you can specify traits that a type must also. These
-  are called _supertraits_.
+- When authoring a trait, you can specify traits that a type must also
+  implement. These are called _supertraits_.
 
   For the example above, any type that implements `Mammal` must also implement
   `Animal`.

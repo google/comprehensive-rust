@@ -57,5 +57,10 @@ methods on a `Vec`.
 - To index the vector you use `[` `]`, but they will panic if out of bounds.
   Alternatively, using `get` will return an `Option`. The `pop` function will
   remove the last element.
+- Students may ask why `Vec` and slices have so many inherent methods rather
+  than the standard library exposing container traits. The primary reason for
+  this design is that Rust centralizes functionality on the `Iterator` trait
+  instead, which abstracts over both I/O streams and collections, while avoiding
+  materialization of intermediate collections.
 
 </details>
