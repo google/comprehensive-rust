@@ -41,4 +41,6 @@ runs:
     - name: Installing ${{ inputs.packages }}
       shell: bash
       run: |
-        sudo apt-get install --quiet --yes --no-install-recommends ${{ inputs.packages }}
+        sudo apt-get install --quiet --yes --no-install-recommends ${INPUTS_PACKAGES}
+      env:
+        INPUTS_PACKAGES: ${{ inputs.packages }}
