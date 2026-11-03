@@ -486,6 +486,10 @@ SPDX-License-Identifier: CC-BY-4.0
 # Concurrency: Afternoon
 
 - [Welcome](concurrency/welcome-async.md)
+- [Async Motivation](concurrency/motivation.md)
+  - [Example Task](concurrency/async/motivation/example.md)
+  - [Thread Overhead](concurrency/async/motivation/threads.md)
+  - [The Async Model](concurrency/async/motivation/async.md)
 - [Async Basics](concurrency/async.md)
   - [`async`/`await`](concurrency/async/async-await.md)
   - [Futures](concurrency/async/futures.md)
