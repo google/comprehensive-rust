@@ -14,10 +14,10 @@ that future's result. In JavaScript, this is similar to `Promise.race`. In
 Python, it compares to
 `asyncio.wait(task_set, return_when=asyncio.FIRST_COMPLETED)`.
 
-Similar to a match statement, the body of `select!` has a number of arms, each
-of the form `pattern = future => statement`. When a `future` is ready, its
-return value is destructured by the `pattern`. The `statement` is then run with
-the resulting variables. The `statement` result becomes the result of the
+Similar to a match expression, the body of `select!` has a number of arms, each
+of the form `pattern = future => expression`. When a `future` is ready, its
+return value is destructured by the `pattern`. The `expression` is then run with
+the resulting variables bound. The `expression` result becomes the result of the
 `select!` macro.
 
 ```rust,editable,compile_fail
