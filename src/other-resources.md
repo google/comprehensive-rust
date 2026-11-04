@@ -50,7 +50,7 @@ A small selection of other guides and tutorial for Rust:
   such as C, C++, Java, JavaScript, and Python.
 - [Rust on Exercism](https://exercism.org/tracks/rust): 100+ exercises to help
   you learn Rust.
-- [Ferrous Teaching Material](https://ferrous-systems.github.io/teaching-material/index.html):
+- [Ferrous Systems Rust Training](https://github.com/ferrous-systems/rust-training):
   a series of small presentations covering both basic and advanced part of the
   Rust language. Other topics such as WebAssembly, and async/await are also
   covered.
