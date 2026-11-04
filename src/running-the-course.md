@@ -59,7 +59,7 @@ better. Your students are also very welcome to [send us feedback][2]!
 
 [1]: https://github.com/google/comprehensive-rust/discussions/86
 [2]: https://github.com/google/comprehensive-rust/discussions/100
-[3]: https://github.com/google/comprehensive-rust#building
+[3]: https://github.com/google/comprehensive-rust#setup
 [red-box]: ?show-red-box=true
 
 <details>

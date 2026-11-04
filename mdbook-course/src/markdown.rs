@@ -59,6 +59,11 @@ pub fn duration(mut minutes: u64) -> String {
     }
 }
 
+/// Escape the characters that Markdown would otherwise treat as HTML.
+fn escape_html(text: &str) -> String {
+    text.replace('&', "&amp;").replace('<', "&lt;").replace('>', "&gt;")
+}
+
 /// Table implements Display to format a two-dimensional table as markdown,
 /// following https://github.github.com/gfm/#tables-extension-.
 pub struct Table<const N: usize> {
@@ -71,8 +76,11 @@ impl<const N: usize> Table<N> {
         Self { header, rows: Vec::new() }
     }
 
+    /// Add a row of plain-text cells. Characters that Markdown would
+    /// interpret as HTML are escaped, so a title like `Box<T>` is shown as
+    /// written.
     pub fn add_row(&mut self, row: [String; N]) {
-        self.rows.push(row);
+        self.rows.push(row.map(|cell| escape_html(&cell)));
     }
 
     fn write_row<'a, I: Iterator<Item = &'a str>>(
@@ -203,6 +211,16 @@ mod test {
         assert_eq!(
             format!("{}", table),
             "| a | b |\n| - | - |\n| a1 | b1 |\n| a2 | b2 |\n"
+        );
+    }
+
+    #[test]
+    fn table_escapes_html() {
+        let mut table = Table::new(["a".into()]);
+        table.add_row(["Box<T> & Rc<T>".into()]);
+        assert_eq!(
+            format!("{}", table),
+            "| a |\n| - |\n| Box&lt;T&gt; &amp; Rc&lt;T&gt; |\n"
         );
     }
 }

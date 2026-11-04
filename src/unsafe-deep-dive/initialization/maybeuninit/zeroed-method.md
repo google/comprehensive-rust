@@ -24,8 +24,8 @@ fn main() {
 
 <details>
 
-“MaybeUninit<T>::zeroed() is an alternative constructor to
-MaybeUninit<T>::uninit(). It instructs the compiler to fill the bits of T with
+“`MaybeUninit<T>::zeroed()` is an alternative constructor to
+`MaybeUninit<T>::uninit()`. It instructs the compiler to fill the bits of T with
 zeros.”
 
 Q: “Although the memory has been written to, the type remains `MaybeUninit<T>`.
