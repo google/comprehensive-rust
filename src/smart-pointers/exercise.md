@@ -7,13 +7,15 @@ Copyright 2023 Google LLC
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-# Exercise: Binary Tree
+# Exercise: Binary Search Tree
 
-A binary tree is a tree-type data structure where every node has two children
-(left and right). We will create a tree where each node stores a value. For a
-given node N, all nodes in a N's left subtree contain smaller values, and all
-nodes in N's right subtree will contain larger values. A given value should only
-be stored in the tree once, i.e. no duplicate nodes.
+A _binary tree_ is a tree-type data structure where each node has at most two
+children (left and right). In this exercise, we will implement a _binary search
+tree_, which maintains an ordering invariant: for every node, all values in its
+left subtree are smaller than its value, and all values in its right subtree are
+larger. The `insert` and `has` methods rely on this ordering to decide which
+subtree to visit. A given value should only be stored in the tree once, i.e. no
+duplicate nodes.
 
 Implement the following types, so that the given tests pass.
 
