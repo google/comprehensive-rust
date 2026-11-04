@@ -3,7 +3,7 @@ Copyright 2022 Google LLC
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-# Interoperability with Java
+# Creating a JNI Library
 
 Java can load shared objects via
 [Java Native Interface (JNI)](https://en.wikipedia.org/wiki/Java_Native_Interface).
@@ -25,26 +25,6 @@ _interoperability/java/Android.bp_:
 
 ```javascript
 {{#include java/Android.bp:libhello_jni}}
-```
-
-We then call this function from Java:
-
-_interoperability/java/HelloWorld.java_:
-
-```java
-{{#include java/HelloWorld.java:HelloWorld}}
-```
-
-_interoperability/java/Android.bp_:
-
-```javascript
-{{#include java/Android.bp:helloworld_jni}}
-```
-
-Finally, you can build, sync, and run the binary:
-
-```shell
-{{#include ../build_all.sh:helloworld_jni}}
 ```
 
 <details>

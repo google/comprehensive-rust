@@ -358,6 +358,7 @@ SPDX-License-Identifier: CC-BY-4.0
     - [Building for Android: C++](android/interoperability/cpp/android-build-cpp.md)
     - [Building for Android: Rust](android/interoperability/cpp/android-build-rust.md)
   - [With Java](android/interoperability/java.md)
+    - [Calling Rust from Java](android/interoperability/java/calling-rust.md)
 
 ---
 
