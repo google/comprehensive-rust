@@ -39,9 +39,9 @@ More specialized guides hosted on the official Rust site:
 
 ## Unofficial Learning Material
 
-A small selection of other guides and tutorial for Rust:
+A small selection of other guides and tutorials for Rust:
 
-- [Learn Rust the Dangerous Way](http://cliffle.com/p/dangerust/): covers Rust
+- [Learn Rust the Dangerous Way](https://cliffle.com/p/dangerust/): covers Rust
   from the perspective of low-level C programmers.
 - [Rust for Embedded C Programmers](https://opentitan.org/book/doc/rust_for_c_devs.html):
   covers Rust from the perspective of developers who write firmware in C.
@@ -51,7 +51,7 @@ A small selection of other guides and tutorial for Rust:
 - [Rust on Exercism](https://exercism.org/tracks/rust): 100+ exercises to help
   you learn Rust.
 - [Ferrous Teaching Material](https://ferrous-systems.github.io/teaching-material/index.html):
-  a series of small presentations covering both basic and advanced part of the
+  a series of small presentations covering both basic and advanced parts of the
   Rust language. Other topics such as WebAssembly, and async/await are also
   covered.
 - [Advanced testing for Rust applications](https://rust-exercises.com/advanced-testing/):
