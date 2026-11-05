@@ -34,6 +34,6 @@ that any C++ with a reference might be a self-referential data structure.
 "To understand this conflict in more detail, we'll first need to make sure that
 we have a strong understanding of Rust's move semantics."
 
-<details>
+</details>
 
 [poll]: https://doc.rust-lang.org/std/future/trait.Future.html#tymethod.poll
