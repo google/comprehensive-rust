@@ -119,5 +119,16 @@ Understanding the whole implementation will take some time, but it's a rewarding
 experience. The code demonstrates composing many parts of unsafe Rust's
 ecosystem into a workable, high performance data structure. Enjoy exploring!
 
+### Cyclic Data Structures in Safe Rust
+
+While intrusive data structures and pointer-based linked lists often rely on
+`unsafe` (or runtime borrow checking with `Rc`/`RefCell`), many cyclic data
+structures can be implemented soundly in 100% safe Rust. For example, graph
+libraries like [`petgraph`][petgraph] represent nodes and edges using integer
+indices into a `Vec` rather than raw pointers. Using index-based structures or
+arena allocators avoids `unsafe`, keeps ownership simple, and often improves
+CPU cache locality.
+
 [ill]: https://docs.rs/tokio/1.48.0/src/tokio/util/linked_list.rs.html
+[petgraph]: https://docs.rs/petgraph/
 [variance]: https://doc.rust-lang.org/reference/subtyping.html
