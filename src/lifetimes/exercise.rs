@@ -88,7 +88,7 @@ impl<'a> FieldValue<'a> {
 
 /// Parse a VARINT, returning the parsed value and the remaining bytes.
 fn parse_varint(data: &[u8]) -> (u64, &[u8]) {
-    for i in 0..7 {
+    for i in 0..10 {
         let Some(b) = data.get(i) else {
             panic!("Not enough bytes for varint");
         };
@@ -103,7 +103,7 @@ fn parse_varint(data: &[u8]) -> (u64, &[u8]) {
         }
     }
 
-    // More than 7 bytes is invalid.
+    // More than 10 bytes is invalid.
     panic!("Too many bytes for varint");
 }
 
