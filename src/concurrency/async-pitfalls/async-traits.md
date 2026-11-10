@@ -77,6 +77,10 @@ async fn main() {
 - `async_trait` is easy to use, but note that it's using heap allocations to
   achieve this. This heap allocation has performance overhead.
 
+- [Dynosaur] is an alternative that generates a wrapper for dynamic dispatch.
+  Calls through the wrapper box their futures, while static calls through the
+  original trait do not need that allocation.
+
 - The challenges in language support for `async trait` are too deep to describe
   in-depth in this class. See [this blog post] by Niko Matsakis if you are
   interested in digging deeper. See also these keywords:
@@ -91,6 +95,7 @@ async fn main() {
 </details>
 
 [async_trait]: https://docs.rs/async-trait/
+[Dynosaur]: https://docs.rs/dynosaur/
 [trait objects]: ../../smart-pointers/trait-objects.md
 [this blog post]: https://smallcultfollowing.com/babysteps/blog/2019/10/26/async-fn-in-traits-are-hard/
 [RPIT]: https://doc.rust-lang.org/reference/types/impl-trait.html#abstract-return-types
