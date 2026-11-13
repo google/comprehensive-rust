@@ -158,7 +158,9 @@ jobs:
         run: mdbook test
 
   web-tests:
-    runs-on: ubuntu-latest
+    # TODO: Remove pin once Ubuntu 26.04 ships a Chrome fix for the popup
+    # timeout in speaker-notes.test.ts (Chrome 156 hangs on window.open).
+    runs-on: ubuntu-24.04
     needs: build
     steps:
       - name: Checkout
