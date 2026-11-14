@@ -1,4 +1,18 @@
 import { env } from "node:process";
+const chromeOptions = {
+  // In Github CI this variable is set to true
+  args: env.CI
+    ? // In CI, we use additional flags for stability.
+      [
+        "--headless",
+        "--disable-gpu",
+        "--no-sandbox",
+        "--disable-dev-shm-usage",
+      ]
+    : // For local runs, you can comment out the line below to see the browser
+      ["--headless"],
+};
+
 export const config: WebdriverIO.Config = {
   //
   // ====================
@@ -54,19 +68,15 @@ export const config: WebdriverIO.Config = {
     {
       // capabilities for local browser web tests
       browserName: "chrome",
-      "goog:chromeOptions": {
-        // In Github CI this variable is set to true
-        args: env.CI
-          ? // In CI, we use additional flags for stability.
-            [
-              "--headless",
-              "--disable-gpu",
-              "--no-sandbox",
-              "--disable-dev-shm-usage",
-            ]
-          : // For local runs, you can comment out the line below to see the browser
-            ["--headless"],
-      },
+      "wdio:exclude": ["./src/speaker-notes.test.ts"],
+      "goog:chromeOptions": chromeOptions,
+    },
+    {
+      // Work around Chrome 156/157 WebDriver BiDi hanging on window.open() popups
+      browserName: "chrome",
+      "wdio:enforceWebDriverClassic": true,
+      "wdio:specs": ["./src/speaker-notes.test.ts"],
+      "goog:chromeOptions": chromeOptions,
     },
   ],
 
