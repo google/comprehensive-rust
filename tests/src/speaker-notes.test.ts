@@ -4,6 +4,7 @@ import { $, expect, browser } from "@wdio/globals";
 describe("speaker-notes", () => {
   beforeEach(async () => {
     await browser.url("/welcome-day-1.html");
+    await browser.execute(() => localStorage.clear());
     await browser.refresh();
   });
 
