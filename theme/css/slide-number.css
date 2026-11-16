@@ -1,0 +1,42 @@
+html.sidebar-visible #slide-number-pill {
+  display: none;
+}
+
+#slide-number-pill {
+  position: fixed;
+  bottom: 16px;
+  inset-inline-end: 115px;
+  z-index: 100;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-fg);
+  border: 1px solid var(--theme-popup-border);
+  font-family: var(--mono-font);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition:
+    color 0.15s,
+    border-color 0.15s;
+}
+
+#slide-number-pill:hover {
+  color: var(--sidebar-active);
+  border-color: var(--sidebar-active);
+}
+
+@media only screen and (max-width: 1080px) {
+  #slide-number-pill {
+    inset-inline-end: 16px;
+  }
+}
+
+@media print {
+  #slide-number-pill {
+    display: none;
+  }
+}
