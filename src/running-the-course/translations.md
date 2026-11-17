@@ -19,6 +19,7 @@ volunteers:
 - [Japanese][ja] by [@CoinEZ-JPN], [@momotaro1105], [@HidenoriKobayashi] and
   [@kantasv].
 - [Korean][ko] by [@keispace], [@jiyongp], [@jooyunghan], and [@namhyung].
+- [Russian][ru] by [@r007].
 - [Spanish][es] by [@deavid].
 - [Ukrainian][uk] by [@git-user-cpp], [@yaremam] and [@reta].
 
@@ -52,6 +53,7 @@ get going. Translations are coordinated on the [issue tracker].
 [ja]: https://google.github.io/comprehensive-rust/ja/
 [ko]: https://google.github.io/comprehensive-rust/ko/
 [pt-BR]: https://google.github.io/comprehensive-rust/pt-BR/
+[ru]: https://r007.github.io/EmbeddedRust-Rus/comprehensive-rust/
 [uk]: https://google.github.io/comprehensive-rust/uk/
 [zh-CN]: https://google.github.io/comprehensive-rust/zh-CN/
 [zh-TW]: https://google.github.io/comprehensive-rust/zh-TW/
@@ -88,6 +90,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@nodmp]: https://github.com/nodmp
 [@raselmandol]: https://github.com/raselmandol
 [@rastringer]: https://github.com/rastringer
+[@r007]: https://github.com/r007
 [@reta]: https://github.com/reta
 [@ronaldfw]: https://github.com/ronaldfw
 [@suetfei]: https://github.com/suetfei
