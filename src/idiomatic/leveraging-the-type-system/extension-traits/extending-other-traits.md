@@ -113,5 +113,5 @@ fn main() {
 [`Itertools`]: https://docs.rs/itertools/latest/itertools/trait.Itertools.html
 [`futures`]: https://docs.rs/futures/latest/futures/
 [`FutureExt`]: https://docs.rs/futures/latest/futures/future/trait.FutureExt.html
-[`Future`]: https://docs.rs/futures/latest/futures/future/trait.Future.html
+[`Future`]: https://doc.rust-lang.org/std/future/trait.Future.html
 [2]: https://doc.rust-lang.org/reference/items/traits.html#r-items.traits.dyn-compatible
