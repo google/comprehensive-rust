@@ -158,7 +158,7 @@ SPDX-License-Identifier: CC-BY-4.0
   - [`Box<T>`](smart-pointers/box.md)
   - [`Rc`](smart-pointers/rc.md)
   - [Owned Trait Objects](smart-pointers/trait-objects.md)
-  - [Exercise: Binary Tree](smart-pointers/exercise.md)
+  - [Exercise: Binary Search Tree](smart-pointers/exercise.md)
     - [Solution](smart-pointers/solution.md)
 
 # Day 3: Afternoon
