@@ -8,7 +8,7 @@ and that `dprint fmt` formats the code. Please use `cargo xtask install-tools`
 to install the necessary dependencies, following the
 [instructions in the README].
 
-[instructions in the README]: README.md#building
+[instructions in the README]: README.md#setup
 
 ## Writing Exercises
 

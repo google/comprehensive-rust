@@ -31,7 +31,7 @@ GNU Gettext utilities below.
 
 ## Preparation
 
-Please make sure you can [build the course](README.md#building). You will also
+Please make sure you can [build the course](README.md#setup). You will also
 need the `msgmerge` and `msgcat` Gettext tool installed. Please see our
 [contribution guide](CONTRIBUTING.md#formatting) for details.
 
@@ -154,7 +154,7 @@ output.
 
 ### Building a Translation
 
-Make sure you have gone through the [build setup](./README.md#building) at least
+Make sure you have gone through the [build setup](./README.md#setup) at least
 once.
 
 To use the `po/xx.po` file for your output, run the following command:
