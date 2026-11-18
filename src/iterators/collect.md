@@ -24,7 +24,7 @@ fn main() {
 
 <details>
 
-- Any iterator can be collected in to a `Vec`, `VecDeque`, or `HashSet`.
+- Any iterator can be collected into a `Vec`, `VecDeque`, or `HashSet`.
   Iterators that produce key-value pairs (i.e. a two-element tuple) can also be
   collected into `HashMap` and `BTreeMap`.
 

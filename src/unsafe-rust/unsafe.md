@@ -29,7 +29,7 @@ Unsafe Rust gives you access to five new capabilities:
 - Implement `unsafe` traits.
 
 We will briefly cover unsafe capabilities next. For full details, please see
-[Chapter 19.1 in the Rust Book](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html)
+[Chapter 20.1 in the Rust Book](https://doc.rust-lang.org/book/ch20-01-unsafe-rust.html)
 and the [Rustonomicon](https://doc.rust-lang.org/nomicon/).
 
 <details>

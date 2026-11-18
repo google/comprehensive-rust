@@ -36,7 +36,7 @@ fn main() {
 <details>
 
 - Change the literal values in `m` to match with the other patterns.
-- Add a new field to `Movement` and make changes to the pattern as needed.
+- Add a new field to `Move` and make changes to the pattern as needed.
 - Note how `delta: (x, 0)` is a nested pattern.
 
 ## More to Explore
