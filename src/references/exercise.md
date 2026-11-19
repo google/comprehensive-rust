@@ -20,7 +20,6 @@ a point as `[f64;3]`. It is up to you to determine the function signatures.
 // and taking the square root. Use the `sqrt()` method to calculate the square
 // root, like `v.sqrt()`.
 
-{{#include exercise.rs:magnitude}}
 fn magnitude(...) -> f64 {
     todo!()
 }
@@ -28,7 +27,6 @@ fn magnitude(...) -> f64 {
 // Normalize a vector by calculating its magnitude and dividing all of its
 // coordinates by that magnitude.
 
-{{#include exercise.rs:normalize}}
 fn normalize(...) {
     todo!()
 }
