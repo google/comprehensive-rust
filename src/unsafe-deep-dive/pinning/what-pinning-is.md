@@ -17,8 +17,6 @@ accessed. Rather than changing the language, Rust's ownership system is used to
 enforce pinning. `Pin` owns its contents and nothing in its safe API triggers a
 move.
 
-This is explained in
-
 <details>
 
 Conceptually, pinning prevents the default movement behavior.
