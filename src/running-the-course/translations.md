@@ -14,7 +14,7 @@ volunteers:
   [@noahdragon], [@superwhd], @SketchK, and [@nodmp].
 - [Chinese (Traditional)][zh-TW] by [@hueich], [@victorhsieh], [@mingyc],
   [@kuanhungchen], and [@johnathan79717].
-- [Farsi][fa] by [@DannyRavi], [@javad-jafari], [@Alix1383], [@moaminsharifi] ,
+- [Farsi][fa] by [@DannyRavi], [@javad-jafari], [@Alix1383], [@moaminsharifi],
   [@hamidrezakp] and [@mehrad77].
 - [Japanese][ja] by [@CoinEZ-JPN], [@momotaro1105], [@HidenoriKobayashi] and
   [@kantasv].
@@ -34,6 +34,7 @@ recently updated translations:
 - [French][fr] by [@KookaS], [@vcaen] and [@AdrienBaudemont].
 - [German][de] by [@Throvn] and [@ronaldfw].
 - [Italian][it] by [@henrythebuilder] and [@detro].
+- [Russian][ru] by [@r007].
 
 The full list of translations with their current status is also available either
 [as of their last update][translation-report] or
@@ -52,6 +53,7 @@ get going. Translations are coordinated on the [issue tracker].
 [ja]: https://google.github.io/comprehensive-rust/ja/
 [ko]: https://google.github.io/comprehensive-rust/ko/
 [pt-BR]: https://google.github.io/comprehensive-rust/pt-BR/
+[ru]: https://r007.github.io/EmbeddedRust-Rus/comprehensive-rust/
 [uk]: https://google.github.io/comprehensive-rust/uk/
 [zh-CN]: https://google.github.io/comprehensive-rust/zh-CN/
 [zh-TW]: https://google.github.io/comprehensive-rust/zh-TW/
@@ -89,6 +91,7 @@ get going. Translations are coordinated on the [issue tracker].
 [@raselmandol]: https://github.com/raselmandol
 [@rastringer]: https://github.com/rastringer
 [@reta]: https://github.com/reta
+[@r007]: https://github.com/r007
 [@ronaldfw]: https://github.com/ronaldfw
 [@suetfei]: https://github.com/suetfei
 [@superwhd]: https://github.com/superwhd
