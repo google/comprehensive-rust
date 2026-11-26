@@ -18,7 +18,7 @@
 // ANCHOR: head
 use std::io::Read;
 
-struct RotDecoder<R: Read> {
+pub struct RotDecoder<R: Read> {
     input: R,
     rot: u8,
 }
