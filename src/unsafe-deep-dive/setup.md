@@ -31,14 +31,17 @@ This will allow you to easily compile projects that combine multiple languages.
 
 ## (Optional) Create a local instance of the course
 
+`cargo xtask install-tools` needs the prerequisites listed in the repository's
+[README](https://github.com/google/comprehensive-rust#setup), including Bazel.
+
 ```console
 $ git clone --depth=1 https://github.com/google/comprehensive-rust.git
 Cloning into 'comprehensive-rust'...
 ...
 $ cd comprehensive-rust
-$ cargo install-tools
+$ cargo xtask install-tools
 ...
-$ cargo serve # then open http://127.0.0.1:3000/ in a browser
+$ cargo xtask serve # then open http://127.0.0.1:3000/ in a browser
 ```
 
 <details>
