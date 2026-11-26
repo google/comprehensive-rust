@@ -18,7 +18,7 @@
 // ANCHOR: head
 use std::io::Read;
 
-struct RotDecoder<R: Read> {
+pub struct RotDecoder<R: Read> {
     input: R,
     rot: u8,
 }
@@ -29,7 +29,7 @@ impl<R: Read> Read for RotDecoder<R> {
         let size = self.input.read(buf)?;
         for b in &mut buf[..size] {
             if b.is_ascii_alphabetic() {
-                let base = if b.is_ascii_uppercase() { 'A' } else { 'a' } as u8;
+                let base = if b.is_ascii_uppercase() { b'A' } else { b'a' };
                 *b = (*b - base + self.rot) % 26 + base;
             }
         }
