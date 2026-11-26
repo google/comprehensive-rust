@@ -50,6 +50,8 @@ A small selection of other guides and tutorial for Rust:
   such as C, C++, Java, JavaScript, and Python.
 - [Rust on Exercism](https://exercism.org/tracks/rust): 100+ exercises to help
   you learn Rust.
+- [Rust on Coddy](https://coddy.tech/landing/rust): interactive lessons where you
+  write and run Rust in the browser, free with a daily limit.
 - [Ferrous Teaching Material](https://ferrous-systems.github.io/teaching-material/index.html):
   a series of small presentations covering both basic and advanced part of the
   Rust language. Other topics such as WebAssembly, and async/await are also
