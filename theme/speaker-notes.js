@@ -14,6 +14,18 @@
 // limitations under the License.
 
 (function () {
+  // Helper to fetch translated strings injected by mdbook-course
+  function getTranslation(key, defaultText) {
+    let translations = document.getElementById("speaker-notes-translations");
+    if (translations) {
+      let el = translations.querySelector(".str-" + key);
+      if (el && el.textContent) {
+        return el.textContent;
+      }
+    }
+    return defaultText;
+  }
+
   // Valid speaker notes states
   const NotesState = {
     Popup: "popup",
@@ -151,8 +163,9 @@
     // Create pop-in button.
     popIn.setAttribute("id", "speaker-notes-toggle");
     popIn.setAttribute("type", "button");
-    popIn.setAttribute("title", "Close speaker notes");
-    popIn.setAttribute("aria-label", "Close speaker notes");
+    let closeTitle = getTranslation("close", "Close speaker notes");
+    popIn.setAttribute("title", closeTitle);
+    popIn.setAttribute("aria-label", closeTitle);
     popIn.classList.add("icon-button");
     popIn.innerHTML = document.getElementById("fa-xmark").innerHTML;
     popIn.addEventListener("click", (event) => {
@@ -175,7 +188,7 @@
 
     let h4 = document.createElement("h4");
     h4.setAttribute("id", "speaker-notes");
-    h4.append("Speaker Notes");
+    h4.append(getTranslation("speaker-notes", "Speaker Notes"));
     h4.addEventListener("click", (event) => {
       // Update fragment as if we had clicked a link. A regular a element would
       // result in double-fire of the event.
@@ -198,7 +211,7 @@
         setSpeakerNotesState(NotesState.Popup);
       } else {
         window.alert(
-          "Could not open popup, please check your popup blocker settings.",
+          getTranslation("popup-error", "Could not open popup, please check your popup blocker settings.")
         );
       }
     });
@@ -215,7 +228,7 @@
       let summary = document.createElement("summary");
       notes.insertBefore(summary, notes.firstChild);
       let h4 = document.createElement("h4");
-      h4.append("Speaker Notes");
+      h4.append(getTranslation("speaker-notes", "Speaker Notes"));
       summary.append(h4);
     }
   }
@@ -251,7 +264,7 @@
           let a = document.createElement("a");
           a.setAttribute("href", pageLocation.href);
           a.append(node.innerText);
-          h4.append("Speaker Notes for ", a);
+          h4.append(getTranslation("speaker-notes-for", "Speaker Notes for "), a);
           node.replaceWith(h4);
           i += 1;
           break;
