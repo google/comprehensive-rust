@@ -47,6 +47,20 @@ fi
 # Enable mdbook-pandoc to build PDF version of the course
 export MDBOOK_OUTPUT__PANDOC__DISABLED=false
 
+case "$book_lang" in
+    ar|bn|fa)
+        # Work around a TeX Live 2025 / LuaLaTeX crash in selnolig.lua when
+        # Babel HarfBuzz shaping is active for Arabic/Persian/Bengali scripts.
+        selnolig_stub_dir=$(mktemp -d)
+        trap 'rm -rf "$selnolig_stub_dir"' EXIT
+        cat << 'EOF' > "$selnolig_stub_dir/selnolig.sty"
+\ProvidesPackage{selnolig}
+\endinput
+EOF
+        export TEXINPUTS="$selnolig_stub_dir:${TEXINPUTS:-}"
+        ;;
+esac
+
 mdbook build -d "$dest_dir"
 
 mv "$dest_dir/pandoc/pdf/comprehensive-rust.pdf" "$dest_dir/html/"
