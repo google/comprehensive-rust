@@ -50,7 +50,7 @@ A small selection of other guides and tutorial for Rust:
   such as C, C++, Java, JavaScript, and Python.
 - [Rust on Exercism](https://exercism.org/tracks/rust): 100+ exercises to help
   you learn Rust.
-- [Ferrous Teaching Material](https://ferrous-systems.github.io/teaching-material/index.html):
+- [Ferrous Teaching Material](https://github.com/ferrous-systems/rust-training):
   a series of small presentations covering both basic and advanced part of the
   Rust language. Other topics such as WebAssembly, and async/await are also
   covered.
@@ -58,9 +58,9 @@ A small selection of other guides and tutorial for Rust:
   a self-paced workshop that goes beyond Rust's built-in testing framework. It
   covers `googletest`, snapshot testing, mocking as well as how to write your
   own custom test harness.
-- [Beginner's Series to Rust](https://docs.microsoft.com/en-us/shows/beginners-series-to-rust/)
+- [Beginner's Series to Rust](https://learn.microsoft.com/shows/beginners-series-to-rust/)
   and
-  [Take your first steps with Rust](https://docs.microsoft.com/en-us/learn/paths/rust-first-steps/):
+  [Take your first steps with Rust](https://learn.microsoft.com/training/paths/rust-first-steps/):
   two Rust guides aimed at new developers. The first is a set of 35 videos and
   the second is a set of 11 modules which covers Rust syntax and basic
   constructs.
