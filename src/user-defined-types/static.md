@@ -16,10 +16,10 @@ therefore will not move:
 # // Copyright 2024 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-static BANNER: &str = "Welcome to RustOS 3.14";
+static VERSION: u32 = 314;
 
 fn main() {
-    println!("{BANNER}");
+    println!("{VERSION}");
 }
 ```
 
@@ -34,6 +34,8 @@ generally preferred.
 - `static` is similar to mutable global variables in C++.
 - `static` provides object identity: an address in memory and state as required
   by types with interior mutability such as `Mutex<T>`.
+- `VERSION` stores the integer directly at its associated memory location. Demo:
+  Print `&VERSION` with `{:p}` to show this address.
 
 # More to Explore
 
