@@ -94,7 +94,7 @@ _unsafe_ Rust language. It covers the fundamentals of Rust's safety guarantees,
 the motivation for `unsafe`, review process for `unsafe` code, FFI basics, and
 building data structures that the borrow checker would normally reject.
 
-{{%course outline Unsafe}}
+{{%course outline Unsafe Deep Dive}}
 
 ## Format
 
